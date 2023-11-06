@@ -32,24 +32,24 @@ module Decidim
       def hash_for(answer)
         {
           answer_translated_attribute_name(:id) => answer&.session_token,
-          answer_translated_attribute_name(:created_at) => answer&.created_at&.to_s(:db),
+          answer_translated_attribute_name(:created_at) => answer&.created_at,
           answer_translated_attribute_name(:ip_hash) => answer&.ip_hash,
           answer_translated_attribute_name(:user_status) => answer_translated_attribute_name(answer&.decidim_user_id.present? ? "registered" : "unregistered")
         }
       end
 
       def questions_hash
-        return {} if questionnaire&.questions.blank?
+        questionnaire_id = @answers.first&.decidim_questionnaire_id
+        return {} unless questionnaire_id
 
-        questionnaire.questions.each.inject({}) do |serialized, question|
+        questions = Decidim::Forms::Question.where(decidim_questionnaire_id: questionnaire_id)
+        return {} if questions.none?
+
+        questions.each.inject({}) do |serialized, question|
           serialized.update(
             translated_question_key(question.position, question.body) => ""
           )
         end
-      end
-
-      def questionnaire
-        @answers.first&.questionnaire
       end
 
       def translated_question_key(idx, body)

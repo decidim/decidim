@@ -1,0 +1,23 @@
+<div id="<%= dom_id(document) %>">
+  <div class="card__list-content">
+    <%= link_to document.url, target: "_blank", rel: "noopener noreferrer", class: "card__list-title", title: t("decidim.application.document.download") do %>
+      <%= attachment_title(document) %>
+    <% end %>
+    <% if document.description.present? %>
+      <div class="card__list-text"><%= translated_attribute(document.description) %></div>
+    <% end %>
+    <div class="card__list-metadata">
+      <span><%= icon "file-text-line" %><%= document.file_type %></span>
+      <span><%= icon "scales-2-line" %><%= number_to_human_size(document.file_size) %></span>
+    </div>
+  </div>
+  <%= link_to document.url,
+              target: "_blank",
+              rel: "noopener noreferrer",
+              class: "button button__sm button__transparent-secondary flex-none",
+              title: t("decidim.application.document.download"),
+              data: { "external-link": false } do %>
+    <%= t("decidim.application.document.download") %>
+    <%= icon "download-line" %>
+  <% end %>
+</div>

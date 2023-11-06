@@ -6,9 +6,9 @@ module Decidim::ParticipatoryProcesses
   describe Admin::UpdateParticipatoryProcessGroup do
     subject { described_class.new(participatory_process_group, form) }
 
-    let(:organization) { create :organization }
-    let(:participatory_process_group) { create :participatory_process_group, organization: }
-    let(:current_user) { create :user, :admin, :confirmed, organization: }
+    let(:organization) { create(:organization) }
+    let(:participatory_process_group) { create(:participatory_process_group, organization:) }
+    let(:current_user) { create(:user, :admin, :confirmed, organization:) }
     let(:invalid) { false }
     let(:title_en) { "title es" }
     let(:developer_group) { participatory_process_group.developer_group }
@@ -56,7 +56,7 @@ module Decidim::ParticipatoryProcesses
         expect { subject.call }.to broadcast(:invalid)
       end
 
-      it "doesn't update the participatory group process" do
+      it "does not update the participatory group process" do
         subject.call
         participatory_process_group.reload
 

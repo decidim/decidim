@@ -1,5 +1,18 @@
-<%= render partial: "decidim/shared/component_announcement" %>
+<%= append_javascript_pack_tag "decidim_budgets" %>
+<%= append_stylesheet_pack_tag "decidim_budgets", media: "all" %>
 
-<%= cell("decidim/budgets/budgets_header", current_workflow) %>
+<% content_for :aside do %>
+  <h1 class="title-decorator"><%= component_name %></h1>
+<% end %>
 
-<%= cell("decidim/budgets/budgets_list", current_workflow) %>
+<%= render layout: "layouts/decidim/shared/layout_two_col" do %>
+  <%= render partial: "decidim/shared/component_announcement" %>
+
+  <section class="layout-main__section">
+    <%= cell("decidim/budgets/budgets_header", current_workflow) %>
+  </section>
+
+  <section class="layout-main__section layout-main__heading">
+    <%= cell("decidim/budgets/budgets_list", current_workflow) %>
+  </section>
+<% end %>

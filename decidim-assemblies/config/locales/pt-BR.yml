@@ -3,7 +3,10 @@ pt-BR:
     attributes:
       assemblies_setting:
         enable_organization_chart: Habilitar gráfico de organização
+      assemblies_type:
+        title: Título
       assembly:
+        announcement: Avisos
         area_id: Área
         assembly_type: Tipo de assembleia
         assembly_type_other: Tipo de montagem outro
@@ -22,12 +25,16 @@ pt-BR:
         decidim_scope_id: Âmbito
         description: Descrição
         developer_group: Grupo promotor
+        document: Documento
         domain: Domínio
         duration: Duração
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
         hero_image: Imagem inicial
+        import_attachments: Importar anexos
+        import_categories: Importar categorias
+        import_components: Importar componentes
         included_at: Incluído em
         instagram: Instagram
         internal_organisation: Organização interna
@@ -51,7 +58,6 @@ pt-BR:
         subtitle: Subtítulo
         target: Quem participa
         title: Título
-        twitter: Twitter
         weight: Posição do pedido
         youtube: YouTube
       assembly_member:
@@ -61,8 +67,10 @@ pt-BR:
         designation_date: Data de designação
         full_name: Nome completo
         gender: Gênero
+        non_user_avatar: Avatar
         position: Posição
         user_id: Usuário ou grupo
+        weight: Posição do pedido
       assembly_user_role:
         email: E-mail
         name: Nome
@@ -91,7 +99,6 @@ pt-BR:
         edit:
           update: Atualizar
         index:
-          not_published: Não publicado
           private: Privado
           public: Público
           published: Publicados
@@ -175,6 +182,9 @@ pt-BR:
         update:
           error: Ocorreu um erro ao atualizar um usuário para esta montagem.
           success: Usuário atualizado com sucesso para esta montagem.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Tipo de assembleia
       menu:
         assemblies: Assembleias
         assemblies_settings: Configurações
@@ -186,7 +196,7 @@ pt-BR:
           attachments: Anexos
           categories: Categorias
           components: Componentes
-          info: Informações
+          landing_page: Página principal
           moderations: Moderação
           private_users: Usuários particulares
         assemblies_types: Tipos de assembleia
@@ -266,7 +276,6 @@ pt-BR:
             select_an_area: Selecione uma área
             select_an_assembly_type: Selecione um tipo de assembleia
             select_parent_assembly: Selecione a montagem pai
-            slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembleia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
             social_handlers: Social
             title: Informação geral
             visbility: Visibilidade
@@ -278,13 +287,6 @@ pt-BR:
         assemblies_types:
           form:
             title: Título
-        assembly_copies:
-          form:
-            slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembleia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
-        assembly_imports:
-          form:
-            document_legend: Adicionar um documento
-            slug_help: 'Os slugs de URL são usados para gerar os URLs que apontam para este assembleia. Aceita apenas letras, números e traços, e deve começar com uma letra. Exemplo: %{url}'
         assembly_members:
           form:
             existing_user: Usuário existente
@@ -297,7 +299,6 @@ pt-BR:
               all: Todos
               ceased: Cessou
               not_ceased: Não cessou
-            filter_by: Filtrar por
             search: Procurar
         content_blocks:
           highlighted_assemblies:
@@ -305,6 +306,20 @@ pt-BR:
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        description:
+          local_area: Área de organização
+          meta_scope: Escopo
+          participatory_scope: O que é decidido
+          participatory_structure: Como é decidido
+          target: Quem participa
+          title: Sobre este assembly
+        filters:
+          names:
+            all: Todos
+          type: Tipo
+        show:
+          title: Sobre este assembly
       assembly_members:
         index:
           members: Membros
@@ -317,8 +332,16 @@ pt-BR:
         participatory: Participativo
         working_group: Grupo de trabalho
       content_blocks:
+        children_assemblies:
+          name: Assembleias
+        dates_metadata:
+          name: Metadados dos dados
+        extra_data:
+          name: Tipo e duração
         highlighted_assemblies:
           name: Assembleias em destaque
+        related_assemblies:
+          name: Assembleias Relacionadas
       created_by:
         city_council: Câmara Municipal
         others: Outras
@@ -336,43 +359,24 @@ pt-BR:
       index:
         title: Assembleias
       last_activity:
-        new_assembly: Nova assembleia
+        new_assembly: 'Nova assembleia:'
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Conjuntos ativos
-            assemblies_button_title: Link para a página de Assembleias exibindo todos as assembleias
-            see_all_assemblies: Veja todas as assembleias
+            active_spaces: Assembleias ativas
+            see_all_spaces: Ver todas as assembleias 
         user_profile:
           member_of:
             member_of: Membro de
       show:
-        area: Área
         assembly_type: Tipo de assembleia
-        children: Assembleias
-        closing_date: Data de encerramento
-        composition: Composição
-        created_by: Criado por
-        creation_date: Data Criada
-        developer_group: Grupo promotor
         duration: Duração
-        included_at: Incluído em
-        indefinite_duration: Indeterminado
-        internal_organisation: Organização interna
         is_transparent:
           'false': opaco
           'true': transparente
-        local_area: Área de organização
-        participatory_scope: O que é decidido
-        participatory_structure: Como é decidido
         private_space: Esta é uma assembleia privada
-        purpose_of_action: Objetivo da ação
-        read_less: Leia menos
-        read_more: Consulte Mais informação
         related_participatory_processes: Processos participativos relacionados
-        scope: Âmbito
-        social_networks: Redes sociais
-        target: Quem pode participar
+        social_networks_title: Visite assembleia em
     assembly_members:
       assembly_member:
         designated_on: Designado em
@@ -382,6 +386,7 @@ pt-BR:
       assemblies:
         create_assembly_member:
           email_intro: Um administrador da assembleia<a href="%{resource_url}">%{resource_name}</a> adicionou você como um de seus membros.
+          email_outro: Você recebeu esta notificação porque foi convidado para um assembleia. Verifique a <a href="%{resource_url}">página de assembleia</a> para contribuir!
           email_subject: Você foi convidado para ser um membro da assembleia %{resource_name}!
           notification_title: Você foi registrado como um membro da Assembleia <a href="%{resource_path}">%{resource_name}</a>. Verifique a <a href="%{resource_path}">página do assembleia</a> para contribuir!
       assembly:
@@ -414,9 +419,6 @@ pt-BR:
         related_assemblies: Assembleias Relacionadas
     statistics:
       assemblies_count: Assembleias
-  errors:
-    messages:
-      cannot_be_blank: nao pode estar em branco
   layouts:
     decidim:
       assemblies:
@@ -424,20 +426,14 @@ pt-BR:
           more_info: Mais informações
           take_part: Participar
         index:
-          children: 'Assembleias: '
-          organizational_chart: Organograma
           promoted_assemblies: Montagens destacadas
-          reset_chart: Restabelecer
+        metadata:
+          children_item:
+            one: "Assembleia %{count}"
+            other: "Assembleia %{count}"
         order_by_assemblies:
           assemblies:
             one: "Assembly %{count}"
             other: "Conjuntos %{count}"
-        promoted_assembly:
-          more_info: Mais informações
-          take_part: Participar
       assembly_navigation:
         assembly_member_menu_item: Membros
-        assembly_menu_item: A assembleia
-      assembly_widgets:
-        show:
-          take_part: Participar

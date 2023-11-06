@@ -2,12 +2,12 @@
 
 require "spec_helper"
 
-describe "Meeting", type: :system, download: true do
+describe "Meeting", download: true, type: :system do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 
-  let(:meeting) { create :meeting, :published, :with_services, component: }
-  let!(:user) { create :user, :confirmed, organization: }
+  let(:meeting) { create(:meeting, :published, :with_services, component:) }
+  let!(:user) { create(:user, :confirmed, organization:) }
 
   def visit_meeting
     visit resource_locator(meeting).path
@@ -15,7 +15,7 @@ describe "Meeting", type: :system, download: true do
 
   it "has a link to download the meeting in ICS format" do
     visit_meeting
-    click_button "Add to calendar"
+    click_link "Add to calendar"
 
     expect(page).to have_link("Add to Outlook calendar")
 
@@ -26,7 +26,7 @@ describe "Meeting", type: :system, download: true do
 
   it "has a link to add to google calendar" do
     visit_meeting
-    click_button "Add to calendar"
+    click_link "Add to calendar"
 
     expect(page).to have_link("Add to Google calendar", href: /calendar\.google\.com/)
   end
@@ -35,11 +35,11 @@ describe "Meeting", type: :system, download: true do
     it "they show it" do
       visit_meeting
 
-      within ".view-side .card--list" do
-        expect(page).to have_selector(".card--list__item", count: meeting.services.size)
+      within "[data-content]" do
+        expect(page).to have_selector(".meeting__aside-block", count: meeting.services.size)
 
         services_titles = meeting.services.map { |service| service.title["en"] }
-        services_present_in_pages = current_scope.all(".card--list__heading").map(&:text)
+        services_present_in_pages = current_scope.all(".meeting__aside-block__title").map(&:text)
         expect(services_titles).to include(*services_present_in_pages)
       end
     end
@@ -59,32 +59,32 @@ describe "Meeting", type: :system, download: true do
     end
 
     context "and meeting is online" do
-      let(:meeting) { create :meeting, :published, :with_services, :online, component: }
+      let(:meeting) { create(:meeting, :published, :with_services, :online, component:) }
 
       it "hides the map section" do
         visit_meeting
 
-        expect(page).to have_no_css("div.address__map")
+        expect(page).not_to have_css("div.meeting__calendar-container .static-map")
       end
     end
 
     context "and meeting is in_person" do
-      let(:meeting) { create :meeting, :published, :with_services, component: }
+      let(:meeting) { create(:meeting, :published, :with_services, component:) }
 
       it "shows the map section" do
         visit_meeting
 
-        expect(page).to have_css("div.address__map")
+        expect(page).to have_css("div.meeting__calendar-container .static-map")
       end
     end
 
     context "and meeting is hybrid" do
-      let(:meeting) { create :meeting, :published, :with_services, :hybrid, component: }
+      let(:meeting) { create(:meeting, :published, :with_services, :hybrid, component:) }
 
       it "shows the map section" do
         visit_meeting
 
-        expect(page).to have_css("div.address__map")
+        expect(page).to have_css("div.meeting__calendar-container .static-map")
       end
     end
   end
@@ -101,22 +101,22 @@ describe "Meeting", type: :system, download: true do
     end
 
     context "and meeting is in_person" do
-      let(:meeting) { create :meeting, :published, :with_services, component: }
+      let(:meeting) { create(:meeting, :published, :with_services, component:) }
 
       it "hides the map section" do
         visit_meeting
 
-        expect(page).to have_no_css("div.address__map")
+        expect(page).not_to have_css("div.meeting__calendar-container .static-map")
       end
     end
 
     context "and meeting is hybrid" do
-      let(:meeting) { create :meeting, :published, :with_services, :hybrid, component: }
+      let(:meeting) { create(:meeting, :published, :with_services, :hybrid, component:) }
 
       it "hides the map section" do
         visit_meeting
 
-        expect(page).to have_no_css("div.address__map")
+        expect(page).not_to have_css("div.meeting__calendar-container .static-map")
       end
     end
   end
@@ -124,23 +124,11 @@ describe "Meeting", type: :system, download: true do
   context "when the meeting is the same as the current year" do
     let(:meeting) { create(:meeting, :published, component:, start_time: Time.current) }
 
-    it "doesn't show the year" do
+    it "does not show the year" do
       visit_meeting
 
-      within ".extra__date-container" do
-        expect(page).to have_no_content(meeting.start_time.year)
-      end
-    end
-  end
-
-  context "when the meeting is different from the current year" do
-    let(:meeting) { create(:meeting, :published, component:, start_time: 1.year.ago, end_time: 1.year.ago + 7.days) }
-
-    it "shows the year" do
-      visit_meeting
-
-      within ".extra__date-container" do
-        expect(page).to have_content(meeting.start_time.year)
+      within ".meeting__calendar-container .meeting__calendar" do
+        expect(page).not_to have_content(meeting.start_time.year)
       end
     end
   end
@@ -179,7 +167,7 @@ describe "Meeting", type: :system, download: true do
           component.settings[:comments_enabled] = true
         end
 
-        it "fetching comments doesnt prevent timeout" do
+        it "fetching comments does not prevent timeout" do
           visit_meeting
           comment
           expect(page).to have_content(translated(comment.body), wait: 30)

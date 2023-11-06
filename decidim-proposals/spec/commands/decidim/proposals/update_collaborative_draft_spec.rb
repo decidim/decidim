@@ -19,7 +19,7 @@ module Decidim
         )
       end
 
-      let!(:collaborative_draft) { create :collaborative_draft, component:, users: [author] }
+      let!(:collaborative_draft) { create(:collaborative_draft, component:, users: [author]) }
       let(:author) { create(:user, organization:) }
 
       let(:user_group) do
@@ -57,7 +57,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't update the proposal" do
+          it "does not update the proposal" do
             expect do
               command.call
             end.not_to change(collaborative_draft, :title)
@@ -73,7 +73,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't update the collaborative draft" do
+          it "does not update the collaborative draft" do
             expect do
               command.call
             end.not_to change(collaborative_draft, :title)
@@ -84,6 +84,9 @@ module Decidim
           it "broadcasts ok" do
             expect { command.call }.to broadcast(:ok)
           end
+
+          it_behaves_like "fires an ActiveSupport::Notification event", "decidim.proposals.update_collaborative_draft:before"
+          it_behaves_like "fires an ActiveSupport::Notification event", "decidim.proposals.update_collaborative_draft:after"
 
           it "updates the collaborative draft" do
             expect do

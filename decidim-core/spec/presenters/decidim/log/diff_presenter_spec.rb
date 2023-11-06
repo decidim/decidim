@@ -3,10 +3,21 @@
 require "spec_helper"
 
 describe Decidim::Log::DiffPresenter, type: :helper do
-  subject { described_class.new(changeset, helper, options).present }
+  subject { described_class.new(changeset, helper, action_log, options).present }
 
-  let(:user) { create :user }
+  let(:user) { create(:user) }
   let(:type) { nil }
+  let(:action_log) do
+    create(
+      :action_log,
+      user:,
+      action:,
+      resource:,
+      created_at: Date.new(2018, 1, 2).at_midnight
+    )
+  end
+  let(:action) { :create }
+  let(:resource) { create(:dummy_resource) }
   let(:changeset) do
     [
       {
@@ -53,7 +64,7 @@ describe Decidim::Log::DiffPresenter, type: :helper do
     end
 
     describe "value types presenters" do
-      context "when it's a symbol" do
+      context "when it is a symbol" do
         let(:type) { :percentage }
 
         it "finds the class from the symbol name" do
@@ -77,7 +88,7 @@ describe Decidim::Log::DiffPresenter, type: :helper do
         end
       end
 
-      context "when it's a String" do
+      context "when it is a String" do
         let(:type) { "Decidim::Log::ValueTypes::DatePresenter" }
 
         it "finds the class" do
@@ -101,7 +112,7 @@ describe Decidim::Log::DiffPresenter, type: :helper do
         end
       end
 
-      context "when it's nil" do
+      context "when it is nil" do
         let(:type) { nil }
 
         it "uses the default one" do

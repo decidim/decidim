@@ -12,7 +12,7 @@ describe Decidim::Elections::Admin::QuestionForm do
       election:
     }
   end
-  let(:election) { create :election }
+  let(:election) { create(:election) }
   let(:component) { election.component }
   let(:title) { Decidim::Faker::Localized.sentence(word_count: 3) }
   let(:max_selections) { 3 }

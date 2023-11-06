@@ -5,24 +5,16 @@ $(() => {
   const $hashtagContainer = $(".js-hashtags");
   const nodatafound = $hashtagContainer.attr("data-noresults");
 
+  // The editor implements hashtags functionality by itself so it is not needed
+  // to attach tribute to the rich text editor.
+  if ($hashtagContainer.parent().hasClass("editor")) {
+    return;
+  }
+
   let noMatchTemplate = null
   if (nodatafound) {
     noMatchTemplate = () => `<li>${nodatafound}</li>`;
   }
-
-  // Listener for the event triggered by quilljs
-  let cursor = "";
-  $hashtagContainer.on("quill-position", function(event) {
-    if (event.detail !== null) {
-      // When replacing the text content after selecting a hashtag, we only need
-      // to know the hashtag's start position as that is the point which we want
-      // to replace.
-      let quill = event.target.__quill;
-      if (quill.getText(event.detail.index - 1, 1) === "#") {
-        cursor = event.detail.index;
-      }
-    }
-  });
 
   /* eslint no-use-before-define: ["error", { "variables": false }]*/
   let remoteSearch = function(text, cb) {
@@ -62,30 +54,6 @@ $(() => {
       if (typeof item === "undefined") {
         return null;
       }
-      if (this.range.isContentEditable(this.current.element)) {
-        // Check quill.js
-        if ($(this.current.element).hasClass("ql-editor")) {
-          let editorContainer = $(this.current.element).parent().get(0);
-          let quill = editorContainer.__quill;
-          quill.insertText(cursor - 1, `#${item.original.name} `, Quill.sources.API);
-          // cursor position + hashtag length + "#" sign + space
-          let position = cursor + item.original.name.length + 2;
-
-          let next = 0;
-          if (quill.getLength() > position) {
-            next = position
-          } else {
-            next = quill.getLength() - 1
-          }
-          // Workaround https://github.com/quilljs/quill/issues/731
-          setTimeout(function () {
-            quill.setSelection(next, 0);
-          }, 500);
-
-          return ""
-        }
-        return `<span contenteditable="false">#${item.original.name}</span>`;
-      }
       return `#${item.original.name}`;
     },
     menuItemTemplate: function(item) {
@@ -93,21 +61,6 @@ $(() => {
       return tpl;
     }
   });
-
-  // Tribute needs to be attached to the `.ql-editor` element as said at:
-  // https://github.com/quilljs/quill/issues/1816
-  //
-  // For this reason we need to wait a bit for quill to initialize itself.
-  setTimeout(function() {
-    $hashtagContainer.each((index, item) => {
-      let $qlEditor = $(".ql-editor", item);
-      if ($qlEditor.length > 0) {
-        tribute.attach($qlEditor);
-      } else {
-        tribute.attach(item);
-      }
-    });
-  }, 1000);
 
   // DOM manipulation
   $hashtagContainer.on("focusin", (event) => {

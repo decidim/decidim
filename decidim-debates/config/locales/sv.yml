@@ -10,6 +10,7 @@ sv:
         end_time: Slutar vid
         information_updates: Informationsuppdateringar
         instructions: Deltagaranvisningar
+        scope_id: Omfång
         start_time: Börjar vid
         title: Titel
         user_group_id: Skapa debatt som
@@ -48,7 +49,6 @@ sv:
         confirm_destroy: Är du säker?
         destroy: Radera
         edit: Redigera
-        new: Ny %{name}
         title: Åtgärder
       admin:
         debate_closes:
@@ -78,9 +78,6 @@ sv:
             success: Debatten uppdaterades.
         exports:
           comments: Kommentarer
-        models:
-          debate:
-            name: Debatt
       admin_log:
         debate:
           close: "%{user_name} stängde debatten %{resource_name} i utrymmet %{space_name}"
@@ -93,7 +90,7 @@ sv:
           invalid: Det gick inte att stänga debatten.
           success: Debatten har stängts.
         close_debate_modal:
-          close: Stäng
+          cancel: Avbryta
           description: Vad är sammanfattningen för denna debatt?
           send: Stäng debatt
         closed: Stängd
@@ -120,18 +117,12 @@ sv:
           official: Officiell
           origin: Ursprung
           participants: Deltagare
-          scope: Omfång
           search: Sök
           state: Status
           state_values:
             closed: Stängda
             open: Öppna
-          user_groups: Grupper
-        filters_small_view:
-          close_modal: Stäng fönstret
-          filter: Filtrera
-          filter_by: Filtrera efter
-          unfold: Veckla ut
+          user_group: Grupper
         form:
           select_a_category: Välj en kategori
         index:
@@ -147,7 +138,6 @@ sv:
           recent: Senaste
           updated: Senast uppdaterade
         show:
-          back: Tillbaka till listan
           close_debate: Stäng debatt
           date: Datum
           debate_closed: Stängd
@@ -155,28 +145,18 @@ sv:
           edit_conclusions: Redigera slutsatser
           edit_debate: Redigera debatt
           groups_count: Grupper
-          last_comment_by: Senaste kommentar av
-          no_comments_yet: Inga kommentarer ännu
           open: Öppna debatt
           participants_count: Deltagare
         update:
           invalid: Det gick inte att uppdatera debatten.
           success: Debatten har uppdaterats.
-        versions:
-          debates:
-            back_to_resource: Gå tillbaka till debatten
-          index:
-            title: Versioner
-        versions_list:
-          back_to_resource: Gå tillbaka till debatten
-      last_activity:
-        debate_updated_at_html: "<span>Debatt uppdaterades på %{link}</span>"
-        new_debate_at_html: "<span>Ny debatt i %{link}</span>"
       models:
         debate:
           fields:
+            end: Slut
             end_time: Slutdatum
             official_debate: Officiell debatt
+            start: Start
             start_time: Startdatum
             title: Titel
     events:
@@ -205,7 +185,6 @@ sv:
           email_intro: 'Nu kan du starta nya debatter i %{participatory_space_title}! Börja att delta på den här sidan:'
           email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
           email_subject: Debatter är nu tillgängliga i %{participatory_space_title}
-          notification_title: Nu kan du starta <a href="%{resource_path}">nya debatter</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         debate_closed:
           affected_user:
             email_intro: 'Debatten "%{resource_title}" stängdes. Du kan läsa slutsatserna från dess sida:'
@@ -228,7 +207,6 @@ sv:
           name: Debatter
           next_level_in: Delta i %{score} till debatter för att nå nästa nivå!
           unearned_another: Deltagaren har inte deltagit i någon debatt än.
-          unearned_own: Du har inte deltagit i några debatter än.
     metrics:
       debates:
         description: Antal skapade debatter

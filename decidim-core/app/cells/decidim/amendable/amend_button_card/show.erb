@@ -1,9 +1,4 @@
-<div class="card text-center card__amend-button">
-  <div class="card__content">
-    <%= action_authorized_link_to :amend, new_amend_path, resource: model, data: { "redirect_url" => new_amend_path }, class: button_classes do %>
-      <%= new_amend_button_label %>
-    <% end %>
-
-    <%= new_amend_help_text %>
-  </div>
-</div>
+<%= action_authorized_link_to :amend, new_amend_path, resource: model, data: { "redirect_url" => new_amend_path }, id: "amend-button", class: "button button__sm button__transparent-secondary w-full" do %>
+  <span><%= t("button", scope: "decidim.amendments.amendable", model_name: nil) %></span>
+  <%= icon "pencil-line" %>
+<% end %>

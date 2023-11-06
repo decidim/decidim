@@ -7,7 +7,7 @@ module Decidim::Admin
     let(:reportable) { create(:user, :confirmed) }
     let(:moderation) { create(:user_moderation, user: reportable, report_count: 1) }
     let!(:report) { create(:user_report, moderation:, user: current_user, reason: "spam") }
-    let(:current_user) { create :user, organization: reportable.organization }
+    let(:current_user) { create(:user, organization: reportable.organization) }
     let(:command) { described_class.new(reportable, current_user) }
 
     context "when everything is ok" do

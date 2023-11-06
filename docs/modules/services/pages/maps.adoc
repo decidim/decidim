@@ -1,6 +1,14 @@
 = Maps and geocoding
 
 Decidim has the ability to geocode proposals and meetings and display them on a map.
+
+[CAUTION]
+====
+It is important to notice that you cannot use the OpenStreetMap service from openstreetmap.org. As they mention in their https://operations.osmfoundation.org/policies/tiles/[tile usage policy]:
+
+> OpenStreetMap data is free for everyone to use. Our tile servers are not.
+====
+
 Decidim has built-in support for the following map service providers:
 
 * http://here.com[HERE Maps] (Recommended)
@@ -9,7 +17,7 @@ Decidim has built-in support for the following map service providers:
  ** <<configuring-here-maps,Configuring HERE Maps>>
 * https://wiki.openstreetmap.org/wiki/Commercial_OSM_Software_and_Services[Open Street Maps based services]
  ** Please pick a service provider that provides all needed services (map tiles, static map images, geocoding and geocoding autocompletion)
- ** We can't use the OSM's own services by their https://operations.osmfoundation.org/policies/tiles/[tile usage policy].
+ ** We cannot use the OSM's own services by their https://operations.osmfoundation.org/policies/tiles/[tile usage policy].
  ** In case your service provider does not offer static map images, Decidim will use the dynamic map tiles to generate a similar map element.
  ** As an alternative, you may also want to use your own self-hosted map servers (see <<hosting-your-own-map-services,Hosting your own map services>> for more information)
  ** <<configuring-open-street-maps-based-service-providers,Configuring Open Street Maps based service providers>>
@@ -18,7 +26,7 @@ If you want to integrate Decidim to some other map service provider, read how to
 
 == Configuring maps and geocoding
 
-After generating your app, you'll see that your `config/initializers/decidim.rb` file includes commented code about map services:
+After generating your app, you will see that your `config/initializers/decidim.rb` file includes commented code about map services:
 
 [source,ruby]
 ----
@@ -70,6 +78,7 @@ default: &default
 
 [source,bash]
 ----
+MAPS_PROVIDER=here
 MAPS_API_KEY=your_api_key_here
 ----
 
@@ -227,12 +236,12 @@ If you want to integrate the map functionality with a new service provider, take
 
 == Enabling maps and geocoding
 
-Once the maps functionality is configured, you'll need to activate it.
+Once the maps functionality is configured, you will need to activate it.
 As of April 2017, only proposals and meetings have maps and geocoding.
 
 === Proposals
 
-In order to enable geocoding for proposals you'll need to edit the component configuration and turn on "Geocoding enabled" configuration.
+In order to enable geocoding for proposals you will need to edit the component configuration and turn on "Geocoding enabled" configuration.
 This works for that specific component, so you can have geocoding enabled for proposals in a participatory process, and disabled for another proposals component in the same participatory process.
 
 === Meetings

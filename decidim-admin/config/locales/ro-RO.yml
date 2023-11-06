@@ -14,17 +14,24 @@ ro:
         description: Descriere
         file: Fişier
         title: Numele fișierului sau al imaginii atașate
+        weight: Poziție
       attachment_collection:
         description: Descriere
         name: Nume
+        weight: Poziție
       category:
         description: Descriere
         name: Nume
         parent_id: Categoria mamă
+        weight: Poziție
       component:
         name: Nume
         published_at: Publicat în
-        weight: Ordinea în poziționare
+        weight: Poziție
+      external_domain:
+        value: Valoare
+      help_section:
+        content: Conținut
       id: ID
       import:
         user_group_id: Creează importuri ca
@@ -32,12 +39,12 @@ ro:
         body: Conținut
         subject: Titlu
       organization:
-        admin_terms_of_use_body: Coținut pentru termenii de utilizare ai administratorului
+        admin_terms_of_service_body: Corp pentru condițiile de administrare a serviciului
         alert_color: Alertă
         available_authorizations: Autorizații disponibile
         badges_enabled: Activează insigne
         comments_max_length: Lungimea maximă a comentariilor (Lasă 0 pentru valoarea implicită)
-        cta_button_path: Calea butonului Apel la acţiune
+        cta_button_path: Calea butonului Apel la acțiune
         cta_button_text: Textul butonului Apel la acțiune
         customize_welcome_notification: Personalizați notificarea de bun venit
         default_locale: Localizare implicită
@@ -85,13 +92,15 @@ ro:
         success_color: Succes
         time_zone: Fus orar
         tos_version: Versiune a condițiilor de furnizare a serviciului
-        twitter_handler: Responsabil Twitter
         user_groups_enabled: Activează grupurile
         users_registration_mode: Mod înregistrare utilizatori
         warning_color: Avertizare
         welcome_notification_body: Conținutul notificării de bun venit
         welcome_notification_subject: Subiectul notificării de bun venit
         youtube_handler: Responsabil YouTube
+      participatory_space_private_user:
+        email: E-mail
+        name: Nume
       scope:
         code: Cod
         name: Nume
@@ -113,27 +122,40 @@ ro:
         show_in_footer: Afișează în subsol
         slug: URL slug
         title: Titlu
-        weight: Ordinea în poziționare
+        topic_id: Subiect
+        weight: Poziție
       static_page_topic:
         description: Descriere
         show_in_footer: Afișează în subsol
         title: Titlu
-        weight: Ordinea în poziționare
+        weight: Poziție
       user_group_csv_verification:
         file: Fişier
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Selectează cel puțin un spațiu participativ.
         organization:
           attributes:
             official_img_footer:
               allowed_file_content_types: Fișier invalid
             official_img_header:
               allowed_file_content_types: Fișier invalid
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: Fișier de import malformat, vă rugăm să citiți instrucțiunile cu atenție și asigurați-vă că fișierul este codificat UTF-8.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: Fişier de import malformat, vă rugăm să citiţi instrucţiunile cu atenţie şi asiguraţi-vă că fişierul este codificat UTF-8.
       new_import:
         attributes:
           file:
-            invalid_file: Fișierul furnizat nu este valid, te rugăm verifică dacă acesta este formatat corect
-            invalid_mime_type: Tip mime invalid
+            invalid_file: Fișierul furnizat nu este valid, te rugăm verifică dacă acesta este formatat corect.
+            invalid_mime_type: Tip MIME invalid.
   activerecord:
     attributes:
       decidim/static_page:
@@ -155,15 +177,13 @@ ro:
         attachment:
           new: Fișier nou
         attachment_collection:
-          new: Colecție nouă de fișiere atașate
+          new: Foldere pentru atașamente
         browse: Caută
         category:
           new: Categorie nouă
         export: Exportă tot
         export-selection: Exportă selecția
         import: Importă
-        manage: Gestionează
-        new: '%{name} nou'
         newsletter:
           new: Buletin informativ nou
         participatory_space_private_user:
@@ -172,27 +192,29 @@ ro:
         permissions: Drepturi
         reject: Respinge
         share: Distribuie
+        user:
+          new: Administrator nou
         verify: Verifică
-      admin_terms_of_use:
+      admin_terms_of_service:
         accept:
-          error: A apărut o eroare la acceptarea termenilor de utilizare ai administratorului.
-          success: Super! Ai acceptat termenii de utilizare ai administratorului.
+          error: A apărut o eroare la acceptarea termenilor de utilizare a serviciului.
+          success: Excelent! Ați acceptat termenii de utilizare a serviciului.
         actions:
-          accept: Sunt de acord cu următorii termeni
-          are_you_sure: Sigur dorești să refuzi termenii de utilizare ai adiminstratorului?
+          accept: Sunt de acord cu termenii
+          are_you_sure: Sigur doriți să refuzați termenii de utilizare a serviciului?
           refuse: Refuz termenii
-          title: Acceptă termenii și condițiile de utilizare
+          title: Ești de acord cu Termenii de Utilizare?
         required_review:
-          alert: 'Obligatoriu: Revizuiți termenii de utilizare ai administratorului'
-          callout: Te rugăm acordă un moment pentru a revizui Termenii de utilizare ai administratorului. În caz contrar, nu vei putea administra platforma.
-          cta: Revizuiește acum.
-        title: Termeni de Utilizare ai Administratorului
+          alert: 'Necesar: Revizuirea actualizărilor termenilor de utilizare a serviciului'
+          callout: Vă rugăm să dedicați un moment pentru a revizui Termenii de utilizare pentru admin. În caz contrar, nu veți putea administra platforma.
+          cta: Revizuiți-le acum.
+        title: Condiții de administrare a serviciului
       area_types:
         create:
           error: A apărut o problemă la crearea unui nou tip de zonă.
           success: Tipul de zonă a fost creat cu succes.
         destroy:
-          success: Tipul zonei a fost eliminat cu succes
+          success: Tipul zonei a fost șters cu succes.
         edit:
           title: Editează tipul de zonă
           update: Actualizează
@@ -201,14 +223,14 @@ ro:
           title: Tip nou de zonă
         update:
           error: A apărut o eroare la actualizarea acestui tip de zonă.
-          success: Tipul de zonă a fost actualizat cu succes
+          success: Tipul de zonă a fost actualizat cu succes.
       areas:
         create:
           error: A apărut o problemă la crearea unei zone noi.
           success: Zona a fost creată cu succes.
         destroy:
-          has_spaces: Această zonă are spații participative (procese, grupuri de lucru) dependente. Te rugăm să te asiguri că nu există referințe la spațiul participativ din această zonă înainte de a o șterge.
-          success: Zona a fost eliminată cu succes
+          has_spaces: Această zonă are spații participative dependente. Te rugăm să te asiguri că nu există referințe la spațiul participativ din această zonă înainte de a o șterge.
+          success: Zona a fost eliminată cu succes.
         edit:
           title: Editează zona
           update: Actualizează
@@ -218,7 +240,7 @@ ro:
         no_areas: Nu există nicio zonă creată
         update:
           error: A apărut o eroare la actualizarea acestei zone.
-          success: Zona a fost actualizată cu succes
+          success: Zona a fost actualizată cu succes.
       attachment_collections:
         create:
           error: A apărut o eroare la crearea unui nou dosar.
@@ -229,8 +251,7 @@ ro:
           title: Editează dosarul
           update: Actualizează
         index:
-          attachment_collection_used: Acest dosar nu poate fi eliminat deoarece este în uz.
-          attachment_collections_title: Dosare ataşate
+          attachment_collections_title: Dosare atașate
         new:
           create: Creează
           title: Dosar nou
@@ -258,10 +279,11 @@ ro:
         message: Fiți precaut atunci când lucrați cu atașamente într-un spațiu privat. Orice participant poate distribui acest document altora.
       autocomplete:
         no_results: Nu a fost găsit niciun rezultat
-        search_prompt: Tastați cel puțin trei caractere pentru a căuta
+        search_prompt: Tastați cel puțin trei caractere pentru a căuta.
       block_user:
         new:
           action: Blochează contul și trimite justificarea
+          already_reported_html: Continuând cu această acțiune vei ascunde și conținutul participanților. <a href="%{link}">Blochează contul</a>.
           description: Blocarea unui utilizator va face contul său inutilizabil. Poți să furnizezi în justificarea ta orice instrucțiuni cu privire la modul în care vei lua în considerare deblocarea utilizatorului.
           justification: Justificare
           title: Blochează utilizatorul %{name}
@@ -271,13 +293,12 @@ ro:
           success: Categoria a fost creată cu succes.
         destroy:
           error: A apărut o eroare la ștergerea acestei categorii. Vă rugăm să ștergeți mai întâi orice subcategorie, asigurați-vă că nicio altă entitate nu aparține acestei categorii și încercați din nou.
-          success: Categoria a fost stearsă cu succes.
+          success: Categoria a fost ștearsă cu succes.
         edit:
           title: Editează categoria
           update: Actualizează
         index:
           categories_title: Categorii
-          category_used: Această categorie nu poate fi ștearsă deoarece este în uz.
         new:
           create: Creează o categorie
           title: Categorie nouă
@@ -336,15 +357,21 @@ ro:
         'true': 'Da'
         user_name: Utilizator
       dashboard:
+        pending_moderations:
+          anouncement:
+            one: Există 1 moderare în așteptare
+            few: Există %{count} moderări în așteptare
+            other: Există %{count} moderări în așteptare
+          goto_moderation: Moderare globală
+          title: Moderări în așteptare
         show:
           view_more_logs: Afișează mai multe înregistrări
-          welcome: Bine ați venit în Panoul de administrare.
       domain_whitelist:
         form:
           domain_too_short: Domeniul e prea scurt
         update:
-          error: Actualizarea whitelist-ului domeniului a eșuat
-          success: Lista albă a domeniului a fost actualizată cu succes
+          error: Actualizarea domeniilor permise a eșuat.
+          success: Lista domeniilor permise actualizată cu succes.
       exports:
         export_as: "%{name} drept %{export_format}"
         formats:
@@ -352,13 +379,13 @@ ro:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
-        notice: Exportul dvs. este în curs de desfășurare. Veți primi un e-mail atunci când este complet.
+        notice: Exportul dvs. este în desfășurare. Veți primi un e-mail atunci când acesta este complet.
       filters:
         category_id_eq:
           label: Categorie
         filter_label: Filtru
         invitation_accepted_at_present:
-          label: Invitaţie acceptată
+          label: Invitația a fost acceptată
           values:
             'false': 'Nu'
             'true': 'Da'
@@ -427,17 +454,16 @@ ro:
             message_1: Fișierele CSV, JSON și Excel (.xlsx) sunt acceptate
             message_2: Pentru fişierele CSV, separatorul dintre coloane trebuie să fie punct şi virgulă (";")
       help_sections:
-        error: A apărut o eroare la actualizarea secțiunilor de ajutor
+        error: A apărut o eroare la actualizarea secțiunilor de ajutor.
         form:
           save: Salvează
-        success: Secțiunea Ajutor a fost actualizată cu succes
+        success: Secțiunile de ajutor au fost actualizate.
       impersonatable_users:
         index:
           filter:
             all: Toate
             managed: Gestionat
             not_managed: Negestionat
-          filter_by: Filtrare după
           impersonate: Impersonare
           impersonate_new_managed_user: Gestionează participantul nou
           managed: Gestionat
@@ -465,7 +491,7 @@ ro:
           impersonate_existing_user: Gestionează participantul "%{name}"
           impersonate_new_managed_user: Gestionează participantul nou
       imports:
-        and: şi
+        and: și
         data_errors:
           duplicate_headers:
             detail: Te rugăm verifică dacă fişierul conţine coloanele sau antetele obligatorii o singură dată.
@@ -475,13 +501,13 @@ ro:
               other: Duplică coloanele %{columns}.
           invalid_indexes:
             lines:
-              detail: Te rugăm verifică dacă aceste linii sunt formatate corect şi conţin înregistrări valide.
+              detail: Te rugăm verifică dacă aceste linii sunt formatate corect și conțin înregistrări valide.
               message:
                 one: Am găsit o eroare în fișierul importat la linia %{indexes}.
                 few: Am găsit erori în documentul importat la liniile %{indexes}.
                 other: Am găsit erori în documentul importat la liniile %{indexes}.
             records:
-              detail: Te rugăm verifică dacă aceste linii sunt formatate corect şi conţin înregistrări valide.
+              detail: Te rugăm verifică dacă aceste linii sunt formatate corect și conțin înregistrări valide.
               message:
                 one: Am găsit erori în fișierul importat pentru înregistrările cu numerele de ordine %{indexes}.
                 few: Am găsit erori în fișierul importat pentru înregistrările cu numerele de ordine %{indexes}.
@@ -492,8 +518,8 @@ ro:
               one: Coloană lipsă %{columns}.
               few: Coloane lipsă %{columns}.
               other: Coloane lipsă %{columns}.
-        error: A apărut o problemă în timpul importului
-        example_error: Nu am putut crea un exemplu pentru tipul dat
+        error: A apărut o problemă în timpul importului.
+        example_error: A apărut o problemă la crearea unui exemplu pentru tipul dat.
         new:
           accepted_mime_types:
             csv: CSV
@@ -505,10 +531,15 @@ ro:
           download_example_format: Exemplu ca %{name}
           file_legend: Adaugă un fișier de import care va fi analizat.
           import: Importă
-        notice: "%{number} %{resource_name} importate cu succes"
+        notice: "%{number} %{resource_name} importate cu succes."
       logs:
+        filters:
+          participatory_space: Găsește spațiul participativ
+          text: Caută după e-mail, nume sau pseudonim.
+          user: Utilizator
         logs_list:
-          no_logs_yet: Nu există încă înregistrări
+          no_logs_yet: Nu există încă înregistrări.
+          no_matching_logs: Nu există înregistrări pentru filtrele de căutare furnizate. Încercați să le schimbați și reîncercați.
       managed_users:
         promotion:
           error: A apărut o problemă la promovarea participantului gestionat.
@@ -525,7 +556,7 @@ ro:
         area_types: Tipuri de zone
         areas: Zone
         configuration: Configurare
-        dashboard: Panou de administrare
+        content: Conținut raportat
         external_domain_whitelist: Domenii externe permise
         help_sections: Secțiuni de ajutor
         homepage: Pagina principală
@@ -533,7 +564,7 @@ ro:
         moderation: Moderări globale
         newsletters: Buletine informative
         participants: Participanți
-        reported_users: Utilizatori raportați
+        reported_users: Participanți raportați
         scope_types: Tipuri de domenii
         scopes: Domenii de interes
         settings: Setări
@@ -605,7 +636,6 @@ ro:
           fields:
             created_at: Data creării
             email: E-mail
-            last_sign_in_at: Ultima dată de conectare
             name: Nume
             role: Rol
             roles:
@@ -618,6 +648,7 @@ ro:
             created_at: Creat la
             document_number: Număr document
             name: Nume
+            nickname: Pseudonim
             phone: Telefon
             state: Stadiu
             users_count: Numărul de participanți
@@ -632,7 +663,7 @@ ro:
           nickname: Pseudonim
           reason: Motiv
           reports: Număr de raportări
-          title: Listarea utilizatorilor raportați
+          title: Participanți raportați
         report:
           reasons:
             does_not_belong: Nu aparține
@@ -643,10 +674,11 @@ ro:
           unblocked: Nu este blocat
       moderations:
         index:
-          title: Moderări
+          title: Conținut raportat
         report:
           reasons:
             does_not_belong: Nu aparține
+            hidden_during_block: Ascuns în timpul blocării utilizatorului
             offensive: Ofensiv
             spam: Spam
         reports:
@@ -714,13 +746,10 @@ ro:
           select_scopes: Filtrați utilizatorii care au activat oricare dintre domeniile selectate în setările privind „Interesele mele” din contul lor.
           select_spaces: Selectează spațiile pentru segmentarea buletinului informativ
           select_users: Selectează utilizatorii cărora vrei să trimiți buletinul informativ
-          send_to_all_users: Trimite către toți utilizatorii
-          send_to_followers: Trimite către urmăritori
-          send_to_participants: Trimite către participanți
           title: Selectează destinatarii pentru trimitere
           warning: "<strong>Atenție:</strong> Acest buletin informativ va fi trimis doar utilizatorilor care au activat <em>Vreau să primesc știri</em> în setările lor."
         send:
-          no_recipients: Nu există destinatari pentru această selecție
+          no_recipients: Niciun destinatar pentru această selecție.
         show:
           preview: Previzualizează
           select_recipients_to_deliver: Selectează destinatarii pentru trimitere
@@ -730,12 +759,12 @@ ro:
           success: Buletinul informativ a fost actualizat cu succes. Te rugăm să îl revizuiești înainte de a-l trimite.
       officializations:
         block:
-          error: A apărut o eroare la blocarea participantului
-          success: Participantul a fost blocat cu succes
+          error: A apărut o eroare la blocarea participantului.
+          success: Participantul a fost blocat.
         create:
-          success: Participantul a fost verificat cu succes
+          success: Participantul a fost ales ca reprezentant oficial.
         destroy:
-          success: Validarea participantului a fost retrasă cu succes
+          success: Participantul a fost ales ca reprezentant oficial.
         index:
           actions: Acțiuni
           badge: Insignă
@@ -757,7 +786,6 @@ ro:
           officialize: Validează
           title: Validează participantul "%{name}"
         show_email_modal:
-          close_modal: Închide fereastra
           description: Dacă trebuie să contactezi direct un participant, poți apăsa pe butonul Arată pentru a vedea adresa lor de e-mail. Această acțiune va fi înregistrată.
           email_address: Adresa de e-mail
           full_name: Nume complet
@@ -765,8 +793,8 @@ ro:
           show: Afișează
           title: Afișează adresa de e-mail a participantului
         unblock:
-          error: A apărut o eroare la deblocarea participantului
-          success: Participantul a fost deblocat cu succes
+          error: A apărut o eroare la deblocarea participantului.
+          success: Participantul a fost deblocat.
       organization:
         edit:
           title: Editează organizația
@@ -777,7 +805,6 @@ ro:
           instagram: Instagram
           rich_text_editor_in_public_views_help: În unele zone de text, participanții vor putea introduce anumite tag-uri HTML utilizând editorul avansat de text.
           social_handlers: Rețele de socializare
-          twitter: Twitter
           url: URL
           youtube: YouTube
         update:
@@ -790,8 +817,6 @@ ro:
           colors:
             colors_title: Culorile organizației
             colors_warning_html: Atenție! Schimbarea acestor culori poate distruge contrastele de accesibilitate. Poți verifica contrastul alegerii tale cu <a href="%{link}">WebAIM Contrast Checker</a> sau alte unelte similare.
-            header_snippets_help: Utilizează acest câmp pentru a adăuga elemente în antetul HTML. Cea mai frecventă utilizare este integrarea de servicii terțe care necesită JavaScript sau CSS suplimentare. De asemenea, poți adăuga metataguri suplimentare la HTML. Reține că acest lucru va avea efect doar în paginile publice, nu și în secțiunea administrativă.
-          cta_button_path_help: 'Poți modifica adresa către care direcționează butonul Apel la acțiune de pe pagina principală. Aici poți utiliza doar căi parțiale, nu URL-uri complete. Se acceptă numai litere, numere, cratime și bare oblice și trebuie să înceapă cu o literă. Butonul „Apel la acțiune” este afișat pe prima pagină, între textul de întâmpinare și descriere. Exemplu: %{url}'
           cta_button_text_help: Poți înlocui textul butonului Apel la acțiune de pe pagina principală pentru fiecare limbă disponibilă în organizația ta. În cazul în care nu există alte limbi setate, se utilizează valoarea implicită. Butonul „Apel la acțiune” este afișat pe pagina principală, între textul de întâmpinare și descriere.
           homepage_appearance_title: Editează aspectul paginii principale
           homepage_highlighted_content_banner_title: Banner pentru conținut evidențiat
@@ -811,12 +836,21 @@ ro:
           add: Adaugă la lista albă
           title: Lista albă pentru domenii externe
       organization_homepage:
+        content_blocks:
+          create:
+            error: A apărut o problemă la crearea acestui bloc de conținut.
+            success: Blocul de conținut creat cu succes.
+          destroy:
+            error: A apărut o eroare la ștergerea acestui bloc de conținut.
+            success: Bloc de conținut șters cu succes.
+          edit:
+            update: Actualizare
         edit:
           active_content_blocks: Blocuri de conținut active
+          add: Adaugă bloc de conținut
+          destroy_confirmation: Sunteţi sigur că doriţi să ştergeţi acest bloc de conţinut?
           inactive_content_blocks: Blocuri de conținut inactive
-      organization_homepage_content_blocks:
-        edit:
-          update: Actualizează
+          title: Conţinutul paginii
       participatory_space_private_users:
         create:
           error: A apărut o problemă la adăugarea unui participant privat pentru acest spațiu participativ.
@@ -832,13 +866,29 @@ ro:
           title: Participant privat nou pentru spațiul participativ.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: A apărut o problemă la citirea fișierului CSV.
-          success: Fișier-ul CSV a fost încărcat cu succes, trimitem un e-mail de invitație participanților. Acest lucru ar putea dura puțin timp.
+          invalid: A apărut o eroare la citirea fișierului CSV. Vă rugăm să vă asigurați că ați urmat instrucțiunile.
+          success: Fișier-ul CSV a fost încărcat cu succes, trimitem câte un e-mail participanților cu invitația. Acest lucru ar putea dura puțin timp.
         new:
+          destroy:
+            button: Șterge toți participanții privați
+            confirm: Sunteți sigur că doriți să ștergeți toți participanții privați? Această acțiune nu poate fi anulată, și nu îi veți putea recupera.
+            empty: Nu aveți niciun participant privat.
+            explanation: Aveți %{count} participanți privați.
+            title: Ștergere participanți privați
+          example_file: 'Exemplu de fişier:'
           explanation: 'Încărcă fişierul tău CSV. Trebuie să aibă două coloane cu e-mail în prima coloană a fișierului și numele în ultima coloană (e-mail, numele) pentru utilizatorii pe care doriţi să îi adăugaţi în spaţiul participativ, fără antet. Evită folosirea caracterelor invalide, cum ar fi `<>?%&^*#@()[]=+:;"{}\<unk> ` în numele utilizatorului.'
+          explanation_example: |
+            ion.popescu@example.org%{csv_col_sep}Ion Popescu
+            maria.popescu@example.org%{csv_col_sep}Maria Popescu
           title: Încarcă fișierul tău CSV
           upload: Încarcă
       reminders:
+        create:
+          error: A apărut o eroare la crearea de memento-uri.
+          success:
+            one: "I se va reaminti utilizatorului."
+            few: "Se va reaminti celor %{count} utilizatori."
+            other: "Se va reaminti celor %{count} utilizatori."
         new:
           submit: Trimite
       resource_permissions:
@@ -871,7 +921,7 @@ ro:
           error: A apărut o problemă la crearea unui nou domeniu.
           success: Domeniul a fost creat cu succes.
         destroy:
-          success: Domeniul a fost eliminat cu succes
+          success: Domeniul a fost eliminat cu succes.
         edit:
           title: Editează domeniul
           update: Actualizează
@@ -891,20 +941,21 @@ ro:
           error: A apărut o problemă la distrugerea acestui token.
           success: Token-ul a fost distrus cu succes.
         share_tokens:
-          empty: Nu există token-uri active
+          empty: Nu există token-uri active.
           help: Aceste tipuri de token sunt utilizate pentru a distribui public această resursă nepublicată cu orice utilizator. Acestea vor fi ascunse la momentul publicării resursei. Faceți clic pe pictograma de distribuire aferentă acestui token pentru a vizita URL-ul distribuit.
           title: Distribuiți token
       shared:
         gallery:
           add_images: Adaugă imagini
           delete_image: Șterge imaginea
+          edit_images: Editare imagini
           gallery_legend: Adaugă o galerie de imagini (opțional)
       static_page_topics:
         create:
           error: A apărut o problemă la crearea unui subiect nou.
           success: Subiectul a fost creat cu succes.
         destroy:
-          success: Subiectul a fost eliminat cu succes
+          success: Subiectul a fost eliminat cu succes.
         edit:
           title: Editează subiectul
           update: Actualizează subiectul
@@ -917,31 +968,42 @@ ro:
       static_pages:
         actions:
           view: Vezi pagina publică
+        content_blocks:
+          active_content_blocks: Blocuri de conținut active
+          add: Adaugă conținut de bloc
+          create:
+            error: A apărut o problemă la crearea acestui bloc de conținut.
+            success: Blocul de conținut creat cu succes.
+          destroy:
+            error: A apărut o eroare la ștergerea acestui bloc de conținut.
+            success: Bloc de conținut șters cu succes.
+          destroy_confirmation: Sunteţi sigur că doriţi să ştergeţi acest bloc de conţinut?
+          edit:
+            update: Actualizare
+          inactive_content_blocks: Blocuri de conținut inactive
+          title: Conţinutul paginii
         create:
           error: A apărut o eroare la crearea unei pagini noi.
           success: Pagina a fost creată cu succes.
         destroy:
           success: Pagina a fost eliminată cu succes
         edit:
-          changed_notably_help: Dacă este bifat, participanții vor fi notificați să accepte termenii și condițiile noi.
+          changed_notably_help: Dacă este bifat, participanții vor fi notificați să accepte noile condiții ale serviciului.
           title: Editează pagina
           update: Actualizează
         form:
           none: Niciunul
-          slug_help: 'Utilizează căi parţiale, nu adrese URL complete aici. Acceptă litere, numere, liniuțe şi bare oblice și trebuie să înceapă cu o literă. Exemplu: %{url}'
-        index:
-          last_notable_change: Ultima modificare importantă
         new:
           create: Creează o pagină
           title: Pagină nouă
         topic:
           destroy: Elimină subiectul
           edit: Editează subiectul
-          empty: Nu există nicio pagină în cadrul acestui subiect
+          empty: Nu sunt pagini sub acest subiect.
           without_topic: Pagini fără subiect
         update:
           error: A apărut o eroare la actualizarea acestei pagini.
-          success: Pagina a fost actualizată cu succes
+          success: Pagina a fost actualizată cu succes.
       titles:
         admin_log: Jurnal de administrare
         area_types: Tipuri de zone
@@ -955,19 +1017,19 @@ ro:
         participants: Participanți
         scope_types: Tipuri de domeniu
         scopes: Domenii de interes
-        static_pages: Pagini
         statistics: Activitate
         user_groups: Grupuri
+        users: Administratori
       user_group:
         csv_verify:
           invalid: A apărut o problemă la citirea fișierului CSV.
-          success: Fișierul CSV a fost încărcat cu succes, verificăm grupurile care corespund criteriilor. Acest lucru ar putea dura un timp.
+          success: Fișierul CSV încărcat cu succes, verificăm grupurile care corespund criteriilor. Acest lucru ar putea dura un timp.
         reject:
           invalid: A apărut o eroare la respingerea acestui grup.
-          success: Grupul a fost respins cu succes
+          success: Grupul a fost respins cu succes.
         verify:
           invalid: A apărut o eroare la verificarea acestui grup.
-          success: Grupul a fost verificat cu succes
+          success: Grupul a fost verificat cu succes.
       user_groups:
         index:
           state:
@@ -977,7 +1039,11 @@ ro:
           verify_via_csv: Verifică prin CSV
       user_groups_csv_verifications:
         new:
+          example_file: 'Exemplu de fişier:'
           explanation: Încărcă fișierul tău CSV. Acesta trebuie să aibă e-mail-urile oficiale ale grupurilor din organizația ta în prima coloană a fișierului, fără antet. Doar grupurile care și-au confirmat adresa de e-mail și care au un e-mail care apare în fișierul CSV vor fi validate.
+          explanation_example: |
+            acme@exemplu.org
+            bubba.gump@example.org
           title: Încarcă fișierul tău CSV
           upload: Încarcă
       users:
@@ -993,19 +1059,19 @@ ro:
           role: Rol
         new:
           create: Invită
+          title: Invită un administrator nou
       users_statistics:
         users_count:
           admins: Administratori
           last_day: Ultima zi
           last_month: Ultima lună
           last_week: Ultima săptămână
-          no_users_count_statistics_yet: Încă nu există statistici privind numărul de utilizatori
+          no_users_count_statistics_yet: Încă nu există statistici privind numărul de utilizatori.
           participants: Participanți
-      view_public_page: Vezi pagina publică
     forms:
       errors:
         impersonate_user:
-          reason: Trebuie să furnizezi un motiv pentru gestionarea unui participant negestionat
+          reason: Trebuie să furnizați un motiv atunci când gestionați un participant negestionat.
     metrics:
       blocked_users:
         object: utilizatori blocați
@@ -1039,13 +1105,15 @@ ro:
       models:
         moderation:
           fields:
-            created_at: Data creării
+            created_at: Raportat la
+            deleted_resource: Resursă ștersă
             hidden_at: Ascuns la
             participatory_space: Spațiu participativ
-            report_count: Număr
+            report_count: Număr de raportări
+            reportable_id: ID
             reportable_type: Tip
             reported_content_url: URL-ul conținutului raportat
-            reports: Rapoarte
+            reports: Motiv
             visit_url: Vizitaţi URL-ul
         report:
           fields:
@@ -1060,9 +1128,3 @@ ro:
       admin:
         global_moderations:
           title: Moderare globală
-        newsletters:
-          title: Buletine informative
-        settings:
-          title: Setări
-        users:
-          title: Participanți

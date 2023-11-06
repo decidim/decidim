@@ -1,24 +1,34 @@
-var $orderTotalBudget = $('#order-total-budget');
-var $orderSelectedProjects = $('#order-selected-projects');
-var $orderProgress = $('#order-progress');
+var $orderSelectedProjectsCount = $('#order-selected-projects-count');
+var $orderProgress = document.querySelectorAll('[id^=order-progress] .budget-summary__content');
 var $projectItem = $('#project-<%= project.id %>-item');
 var $projectBudgetButton = $('#project-<%= project.id %>-budget-button');
 var $budgetConfirm = $('#budget-confirm');
 
-morphdom($orderTotalBudget[0], '<%= j(render partial: "decidim/budgets/projects/order_total_budget").strip.html_safe %>');
-morphdom($orderSelectedProjects[0], '<%= j(render partial: "decidim/budgets/projects/order_selected_projects").strip.html_safe %>');
-morphdom($orderProgress[0], '<%= j(render partial: "decidim/budgets/projects/order_progress").strip.html_safe %>');
-morphdom($budgetConfirm[0], '<%= j(render partial: "decidim/budgets/projects/budget_confirm").strip.html_safe %>')
+$orderProgress.forEach((orderProgress) => {
+  var $orderTotalBudget = $(orderProgress).find("[id^=order-total-budget]");
+  $orderTotalBudget.html('<%= j(render partial: "decidim/budgets/projects/order_total_budget").strip.html_safe %>');
 
-$("#order-progress").foundation();
-$(".budget-summary__selected").foundation();
+  if(orderProgress.dataset.orderProgressResponsive) {
+    morphdom(orderProgress, '<%= j(render partial: "decidim/budgets/projects/order_progress_summary_content", locals: { include_heading: true, responsive: true }).strip.html_safe %>');
+  } else {
+    morphdom(orderProgress, '<%= j(render partial: "decidim/budgets/projects/order_progress_summary_content", locals: { include_heading: true, responsive: false }).strip.html_safe %>');
+  }
+})
+morphdom($budgetConfirm[0], '<%= j(render partial: "decidim/budgets/projects/budget_confirm").strip.html_safe %>')
+if ($orderSelectedProjectsCount.length > 0) {
+  morphdom($orderSelectedProjectsCount[0], '<%= j(render partial: "decidim/budgets/projects/projects_count", locals: { count: current_order.projects.size }).strip.html_safe %>')
+}
 
 if ($projectItem.length > 0) {
-  morphdom($projectItem[0], '<%= j(render partial: "decidim/budgets/projects/project", locals: { project: project }).strip.html_safe %>');
+  <% if params[:action] == "destroy" && params[:show_only_added] == "true" %>
+    $projectItem[0].remove();
+  <% else %>
+    morphdom($projectItem[0], '<%= j(render partial: "decidim/budgets/projects/project", locals: { project: }).strip.html_safe %>');
+  <% end %>
 }
 
 if ($projectBudgetButton.length > 0) {
-  morphdom($projectBudgetButton[0], '<%= j(render partial: "decidim/budgets/projects/project_budget_button", locals: { project: project }).strip.html_safe %>');
+  morphdom($projectBudgetButton[0], '<%= j(render partial: "decidim/budgets/projects/project_budget_button", locals: { project: }).strip.html_safe %>');
 }
 
 window.DecidimBudgets.checkProgressPosition();

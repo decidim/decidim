@@ -23,7 +23,7 @@ cs:
               missing: nejsou úplné
               too_many: jsou příliš mnoho
         questionnaire:
-          request_invalid: Při zpracování požadavku došlo k chybě. Prosím zkuste to znovu
+          request_invalid: Při zpracování požadavku došlo k chybě. Zkuste to prosím znovu.
   decidim:
     forms:
       admin:
@@ -44,6 +44,8 @@ cs:
             actions:
               back: Zpět na odpovědi
               export: Export
+              next: Další &rsaquo;
+              previous: "&lsaquo; Předchozí"
               show: Zobrazit odpovědi
             empty: Zatím žádné odpovědi
             export:
@@ -126,9 +128,7 @@ cs:
           update: "%{user_name} aktualizoval dotazník %{resource_name}"
       errors:
         answer:
-          body: Tělo nemůže být prázdné
-      files:
-        extension_allowlist: 'Akceptované formáty:'
+          body: Tělo textu nemůže být prázdné
       images:
         dimensions: "%{width} x %{height} px"
         processors:
@@ -144,6 +144,8 @@ cs:
         single_option: Jedna možnost
         sorting: Třídění
         title_and_description: Název a popis
+      questionnaire_answer_presenter:
+        download_attachment: Stáhnout přílohu
       questionnaires:
         answer:
           invalid: Při odpovědi na dotazník došlo k chybám.
@@ -153,7 +155,10 @@ cs:
           max_choices: 'Max možnosti: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Přihlaste se svým účtem</a> nebo <a href="%{sign_up_link}">zaregistrujte</a> abyste odpověděli na dotazník.
+            already_have_an_account?: Již máte účet?
+            are_you_new?: Nový uživatel?
+            sign_in_description: Přihlaste se k provedení průzkumu
+            sign_up_description: Vytvořit uživatelský účet k provedení průzkumu
             title: Odpovězte na dotazník
           current_step: Krok %{step}
           of_total_steps: z %{total_steps}

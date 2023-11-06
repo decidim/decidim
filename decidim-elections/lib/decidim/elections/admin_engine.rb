@@ -50,7 +50,7 @@ module Decidim
         [:trustees]
       end
 
-      initializer "decidim_admin_elections.menu_entry" do
+      initializer "decidim_elections_admin.menu_entry" do
         Decidim.participatory_space_registry.manifests.each do |participatory_space|
           menu_id = :"admin_#{participatory_space.name.to_s.singularize}_menu"
           Decidim.menu menu_id do |menu|
@@ -65,6 +65,7 @@ module Decidim
                           I18n.t("trustees", scope: "decidim.elections.admin.menu"),
                           link,
                           if: has_election_components && (allowed_to?(:manage, :trustees) || current_user.admin?),
+                          icon_name: "safe-line",
                           position: 100,
                           active: is_active_link?(link)
           end

@@ -1,0 +1,58 @@
+.verification {
+  @apply flex items-center justify-between gap-4 border-[3px] border-background rounded px-4 py-2 cursor-pointer;
+
+  &__no_clickable {
+    @apply cursor-default;
+  }
+
+  &__container {
+    @apply space-y-8;
+
+    &-title {
+      @apply uppercase font-semibold text-gray-2 mb-8 mt-16 first:mt-0;
+    }
+  }
+
+  &__icon {
+    @apply flex-none w-8 h-8 text-gray fill-current;
+
+    &.is-granted {
+      @apply text-success;
+    }
+  }
+
+  &__text {
+    @apply grow space-y-2.5;
+
+    span {
+      @apply inline-block text-sm text-gray-2;
+    }
+  }
+
+  &__upload-button {
+    @apply w-full block mt-4;
+  }
+
+  &:not(.verification__no_clickable):hover {
+    @apply border-tertiary;
+  }
+
+  &:not(.verification__no_clickable):hover &__text > :first-child {
+    @apply underline;
+  }
+}
+
+.verification-modal {
+  &__text {
+    @apply text-lg text-gray-2 mt-8 mb-12 space-y-8;
+
+    ul,
+    ol {
+      @apply list-disc pl-4;
+    }
+  }
+
+  &__name {
+    @apply text-xl font-semibold block mb-2;
+  }
+}

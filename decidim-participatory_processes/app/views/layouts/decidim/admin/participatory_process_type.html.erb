@@ -1,15 +1,36 @@
-<% content_for :sidebar_menu_nav do %>
-  <%= sidebar_menu(:admin_participatory_processes_menu).render %>
+<% content_for :breadcrumb_context_menu do %>
+  <div class="process-title-content-breadcrumb-container-right">
+    <% if allowed_to? :create, :process %>
+      <%= link_to [:new, :participatory_process], class: "button button__sm button__transparent process-title-content-breadcrumb-container-right-link" do %>
+        <%= icon "add-line" %>
+        <span>
+          <%= t("actions.new_process", scope: "decidim.admin") %>
+        </span>
+      <% end %>
+    <% end %>
+    <div class="inline-block relative">
+      <%= button_tag id: "processes-menu-trigger", data: { component: "dropdown", target: "processes-dropdown-menu-settings" }, class: "dropdown__trigger button button__transparent" do %>
+        <span>
+          <%= t("menu.manage", scope: "decidim.admin") %>
+        </span>
+        <%= icon "arrow-down-s-line" %>
+      <% end %>
+      <div id="processes-dropdown-menu-settings">
+        <ul class="dropdown dropdown__bottom">
+          <li class="dropdown__item">
+            <% if allowed_to? :import, :process %>
+              <%= icon "upload-line", class: "fill-gray-2" %>
+              <%= link_to t("actions.import_process", scope: "decidim.admin"),
+                          new_import_path,
+                          class: "text-secondary" %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 <% end %>
 
 <%= render "layouts/decidim/admin/application" do %>
-  <div class="process-title">
-    <div class="process-title-content">
-      <%= link_to t("decidim.admin.titles.participatory_processes"), decidim_participatory_processes.participatory_processes_path, target: "_blank" %>
-    </div>
-  </div>
-
-  <div class="process-content">
-    <%= yield %>
-  </div>
+  <%= yield %>
 <% end %>

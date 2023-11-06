@@ -14,25 +14,35 @@ ca:
         description: Descripció
         file: Arxiu
         title: Nom de l'adjunt o imatge
+        weight: Ordre de posició
       attachment_collection:
         description: Descripció
         name: Nom
+        weight: Ordre de posició
       category:
         description: Descripció
         name: Nom
         parent_id: Pare
+        weight: Ordre de posició
       component:
         name: Nom
         published_at: Publicat el
         weight: Ordre de posició
+      external_domain:
+        value: Valor
+      help_section:
+        content: Contingut
       id: ID
       import:
         user_group_id: Importar com
       newsletter:
         body: Cos
+        send_to_all_users: Envia a totes les usuàries
+        send_to_followers: Envia a totes les seguidores
+        send_to_participants: Envia a les participants
         subject: Assumpte
       organization:
-        admin_terms_of_use_body: Cos del text de condicions d'ús per als administradors
+        admin_terms_of_service_body: Cos del text per les condicions del servei d'administració
         alert_color: Alerta
         available_authorizations: Autoritzacions disponibles
         badges_enabled: Habilitar les ensenyes
@@ -77,21 +87,25 @@ ca:
         organization_admin_name: Nom de l'administradora de l'organització
         organization_locales: Idiomes de l'organització
         primary_color: Primària
-        reference_prefix: prefix de referència
+        reference_prefix: Prefix de referència
         rich_text_editor_in_public_views: Habilitar l'editor de text enriquit
         secondary_color: Secundari
         secondary_hosts: Hosts secundaris
         send_welcome_notification: Envia la notificació de benvinguda
         success_color: Èxit
+        tertiary_color: Terciari
         time_zone: Zona horària
         tos_version: Versió dels Termes de Servei
-        twitter_handler: Nom d'usuària de Twitter
+        twitter_handler: Nom d'usuària a X
         user_groups_enabled: Habilitar grups
         users_registration_mode: Mode registre d'usuàries
         warning_color: Avís
         welcome_notification_body: Cos de la notificació de benvinguda
         welcome_notification_subject: Assumpte de la notificació de benvinguda
         youtube_handler: Nom d'usuària de YouTube
+      participatory_space_private_user:
+        email: Correu electrònic
+        name: Nom
       scope:
         code: Codi
         name: Nom
@@ -113,6 +127,7 @@ ca:
         show_in_footer: Mostra al peu de pàgina
         slug: Nom curt d'URL
         title: Títol
+        topic_id: Assumpte
         weight: Ordre de posició
       static_page_topic:
         description: Descripció
@@ -126,18 +141,26 @@ ca:
         newsletter:
           attributes:
             base:
-              at_least_one_space: Selecciona com a mínim un espai de participació
+              at_least_one_space: Selecciona com a mínim un espai de participació.
         organization:
           attributes:
             official_img_footer:
               allowed_file_content_types: Fitxer d'imatge no vàlid
             official_img_header:
               allowed_file_content_types: Fitxer d'imatge no vàlid
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: Arxiu d'importació mal formatat, si us plau, llegeix les instruccions curosament i assegura't que l'arxiu està codificat en UTF-8.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: Arxiu d'importació mal formatat, si us plau, llegeix les instruccions curosament i assegura't que l'arxiu està codificat en UTF-8.
       new_import:
         attributes:
           file:
-            invalid_file: L'arxiu proporcionat no és vàlid, si us plau comprova que l'arxiu està formatat correctament
-            invalid_mime_type: Tipus Mime invàlid
+            invalid_file: L'arxiu proporcionat no és vàlid, si us plau comprova que l'arxiu està formatat correctament.
+            invalid_mime_type: Tipus MINE invàlid.
   activerecord:
     attributes:
       decidim/static_page:
@@ -166,8 +189,6 @@ ca:
         export: Exportar tot
         export-selection: Exportar selecció
         import: Importar
-        manage: Gestionar
-        new: Nou %{name}
         newsletter:
           new: Nou butlletí
         participatory_space_private_user:
@@ -175,30 +196,31 @@ ca:
         per_page: Per pàgina
         permissions: Permisos
         reject: Rebutjar
+        send_me_a_test_email: Envia'm un correu electrònic de prova
         share: Compartir
         user:
           new: Nova administradora
         verify: Verificar
-      admin_terms_of_use:
+      admin_terms_of_service:
         accept:
-          error: S'ha produït un error en acceptar els Termes i Condicions dell panell d'administració.
-          success: Genial! Has acceptat els Termes i Condicions del panell d'administració.
+          error: S'ha produït un error en acceptar els Termes i Condicions d'administració.
+          success: Genial! Has acceptat les condicions del servei d'administració.
         actions:
-          accept: Estic d'acord amb els termes següents
-          are_you_sure: Segur que vols rebutjar els termes i condicions del panell d'administració?
-          refuse: Rebutjar els termes
-          title: Accepto els Termes i Condicions d'Administració
+          accept: Estic d'acord amb les condicions
+          are_you_sure: Segur que vols rebutjar les condicions del servei d'administració?
+          refuse: Rebutjar les condicions del servei d'administració
+          title: Acceptar les condicions del servei
         required_review:
-          alert: 'Requerit: Revisa els nostres Termes i Condicions del panell d''administració'
-          callout: Si us plau dedica un moment a revisar l'actualització dels nostres termes i condicions del panell d'administració. En cas contrari, no podràs utilitzar la plataforma.
-          cta: Revisa-les ara.
-        title: Termes i Condicions del panell d'administració
+          alert: 'Necessari: revisa les nostres condicions del servei d''administració'
+          callout: Si us plau, dedica un moment a revisar les condicions del servei d'administració. En cas contrari, no podràs administrar la plataforma.
+          cta: Revisar-les ara.
+        title: Termes i condicions del servei d'administració
       area_types:
         create:
           error: S'ha produït un error en crear un tipus d'àrea nova.
           success: El tipus d'àrea ha estat creat correctament.
         destroy:
-          success: El tipus d'àrea s'ha eliminat correctament
+          success: El tipus d'àrea s'ha eliminat correctament.
         edit:
           title: Editar el tipus d'àrea
           update: Actualitzar
@@ -207,14 +229,14 @@ ca:
           title: Nou tipus d'àrea
         update:
           error: S'ha produït un error en actualitzar aquest tipus d'àrea.
-          success: El tipus d'àrea s'ha actualitzat correctament
+          success: El tipus d'àrea s'ha actualitzat correctament.
       areas:
         create:
           error: S'ha produït un error en crear una nova àrea.
           success: Àrea creada correctament.
         destroy:
           has_spaces: Aquesta àrea té espais dependents. Assegura't que no fa referència a cap espai de participació abans d'eliminar-la.
-          success: Àrea eliminada correctament
+          success: Àrea eliminada correctament.
         edit:
           title: Editar àrea
           update: Actualitzar
@@ -224,7 +246,7 @@ ca:
         no_areas: Sense àrees
         update:
           error: S'ha produït un error en actualitzar aquesta àrea.
-          success: Àrea actualitzada correctament
+          success: Àrea actualitzada correctament.
       attachment_collections:
         create:
           error: S'ha produït un error en crear una nova carpeta.
@@ -235,7 +257,6 @@ ca:
           title: Edita la carpeta
           update: Actualitzar
         index:
-          attachment_collection_used: Aquesta carpeta no es pot eliminar perquè està en ús.
           attachment_collections_title: Carpetes de fitxers adjunts
         new:
           create: Crear
@@ -264,10 +285,11 @@ ca:
         message: Tingues cura quan treballis amb adjunts en un espai privat. Qualsevol participant pot compartir aquest document amb tercers.
       autocomplete:
         no_results: No s'han trobat resultats
-        search_prompt: Escriu com a mínim tres caràcters per cercar
+        search_prompt: Escriu com a mínim tres caràcters per cercar.
       block_user:
         new:
           action: Bloquejar compte i enviar justificació
+          already_reported_html: Si segueixes amb aquesta acció amagaràs tots els continguts de la participant. <a href="%{link}">Bloquejar el compte</a>.
           description: El bloqueig d'una usuària deixarà el seu compte inutilitzable. Pots proporcionar en la teva justificació els criteris sota els quals consideraries desbloquejar-la.
           justification: Justificació
           title: Bloquejar a la usuària %{name}
@@ -283,7 +305,6 @@ ca:
           update: Actualitzar
         index:
           categories_title: Categories
-          category_used: Aquesta categoria no es pot suprimir perquè està en ús.
         new:
           create: Crear categoria
           title: Nova categoria
@@ -298,6 +319,7 @@ ca:
         create:
           error: S'ha produït un error en crear aquest component.
           success: El component s'ha creat correctament.
+          success_landing_page: Component creat amb èxit. Pots afegir un bloc de contingut per aquest component a la pàgina d'inici de l'espai de participació. <a href="%{landing_page_path}">Vés a la pàgina d'inici</a> per a configurar-la.
         destroy:
           error: S'ha produït un error en eliminar aquest component.
           success: El component s'ha eliminat correctament.
@@ -342,15 +364,21 @@ ca:
         'true': 'Sí'
         user_name: Usuària
       dashboard:
+        pending_moderations:
+          anouncement:
+            one: Hi ha %{count} moderació pendent
+            other: Hi ha %{count} moderacions pendents
+          goto_moderation: Anar a moderacions globals
+          title: Moderacions pendents
         show:
+          dropdown: Desplegable
           view_more_logs: Veure més registres
-          welcome: Benvinguda al Tauler d'Aministració.
       domain_whitelist:
         form:
           domain_too_short: El domini és massa curt
         update:
-          error: Hi ha hagut un error en incloure el domini en la llista blanca
-          success: Llista blanca de dominis actualitzada correctament
+          error: Hi ha hagut un error en actualitzar el llistat de dominis autoritzats.
+          success: S'ha actualitzat correctament el llistat de dominis autoritzats.
       exports:
         export_as: "%{name} com a %{export_format}"
         formats:
@@ -433,17 +461,16 @@ ca:
             message_1: Estan suportats els arxius CSV, JSON i Excel (.xlsx)
             message_2: Pels arxius CSV, el separador entre columnes ha de ser un punt i coma (";")
       help_sections:
-        error: S'ha produït un error en actualitzar les seccions d'ajuda
+        error: Hi ha hagut un problema en actualitzar les seccions d'ajuda.
         form:
           save: Desa
-        success: Les seccions d'ajuda s'han actualitzat correctament
+        success: Les seccions d'ajuda s'han actualitzat correctament.
       impersonatable_users:
         index:
           filter:
             all: Totes
             managed: Gestionat
             not_managed: No gestionat
-          filter_by: Filtra per
           impersonate: Impersonar
           impersonate_new_managed_user: Gestiona una nova participant
           managed: Gestionat
@@ -494,8 +521,8 @@ ca:
             message:
               one: Falta la columna %{columns}.
               other: Falten les columnes %{columns}.
-        error: S'ha produït un error durant la importació
-        example_error: No s'ha pogut crear un exemple per al tipus facilitat
+        error: S'ha produït un error durant la importació.
+        example_error: S'ha produït un error en crear un exemple pel tipus seleccionat.
         new:
           accepted_mime_types:
             csv: CSV
@@ -507,10 +534,15 @@ ca:
           download_example_format: Exemple de %{name}
           file_legend: Afegir un arxiu d'importació que serà processat.
           import: Importar
-        notice: "%{count} %{resource_name} importat correctament"
+        notice: "%{count} %{resource_name} importat correctament."
       logs:
+        filters:
+          participatory_space: Trobar espai de participació
+          text: Cerca per correu electrònic, nom o àlies.
+          user: Usuària
         logs_list:
-          no_logs_yet: Encara no hi ha cap registre d'activitat
+          no_logs_yet: Encara no hi ha cap registre d'activitat.
+          no_matching_logs: No hi ha cap registre d'activitat amb els filtres de cerca seleccionats. Prova de canviar-los i intenta-ho de nou.
       managed_users:
         promotion:
           error: S'ha produït un error en promoure aquesta participant.
@@ -527,7 +559,7 @@ ca:
         area_types: Tipus d'àrees
         areas: Àrees
         configuration: Configuració
-        dashboard: Tauler de control
+        content: Contingut reportat
         external_domain_whitelist: Dominis externs permesos
         help_sections: Seccions d'ajuda
         homepage: Pàgina d'inici
@@ -535,9 +567,10 @@ ca:
         moderation: Moderacions globals
         newsletters: Butlletins
         participants: Participants
-        reported_users: Usuàries reportades
+        reported_users: Participants reportades
         scope_types: Tipus d'àmbit
         scopes: Àmbits
+        see_site: Veure el lloc web
         settings: Configuració
         static_pages: Pàgines
         user_groups: Grups
@@ -607,7 +640,7 @@ ca:
           fields:
             created_at: Data de creació
             email: Correu electrònic
-            last_sign_in_at: Darrera data d'identificació
+            last_sign_in_at: Darrera connexió
             name: Nom
             role: Rol
             roles:
@@ -620,6 +653,7 @@ ca:
             created_at: Data de creació
             document_number: Número de document
             name: Nom
+            nickname: Àlies
             phone: Telèfon
             state: Estat
             users_count: Nombre de participants
@@ -634,7 +668,7 @@ ca:
           nickname: Àlies
           reason: Raó
           reports: Número de denúncies
-          title: Llistant usuàries reportades
+          title: Participants reportades
         report:
           reasons:
             does_not_belong: No pertany
@@ -645,10 +679,11 @@ ca:
           unblocked: No bloquejat
       moderations:
         index:
-          title: Moderacions
+          title: Contingut reportat
         report:
           reasons:
             does_not_belong: No pertany
+            hidden_during_block: Ocult mentre es bloqueja a la participant
             offensive: Ofensiu
             spam: Contingut no desitjat
         reports:
@@ -706,7 +741,7 @@ ca:
         select_recipients_to_deliver:
           all_spaces: Totes
           all_users_help: Envia el butlletí a tots els usuaris confimats.
-          confirm_deliver: Estàs segura que vols enviar aquest butlletí? Aquesta acció no es pot desfer.
+          confirm_deliver: Segur que vols enviar aquest butlletí? Aquesta acció no es pot desfer.
           deliver: Enviar butlletí
           followers_help: Envia el butlletí a tots els usuaris confirmats que segueixin qualsevol dels espais participatius seleccionats a la llista.
           none: Cap
@@ -716,28 +751,28 @@ ca:
           select_scopes: Filtra per als usuaris que hagin activat qualsevol àmbit seleccionat a la configuració "Els meus interessos" del seu compte.
           select_spaces: Selecciona espais per segmentar el butlletí
           select_users: Selecciona a quines participants vols enviar el butlletí de notícies
-          send_to_all_users: Envia a totes les participants
-          send_to_followers: Envia a totes les seguidores
-          send_to_participants: Envia a totes les participants
           title: Selecciona les destinatàries a lliurar
           warning: "<strong>Atenció:</strong> Aquest butlletí només s'enviarà a les participants que hagin activat <em>Vull rebre butlletins</em> a la configuració de les notificacions."
         send:
-          no_recipients: No hi ha destinatàries per a aquesta selecció
+          no_recipients: No hi ha destinatàries per a aquesta selecció.
+        send_to_user:
+          sent_successfully: El butlletí s'ha enviat correctament a %{email}
         show:
           preview: Previsualitzar
           select_recipients_to_deliver: Selecciona les destinatàries a lliurar
+          send_me_a_test_email: Envia'm un correu electrònic de prova
           subject: Assumpte
         update:
           error: S'ha produït un error en actualitzar aquest butlletí.
           success: Butlletí actualitzat correctament. Si us plau, revisa'l abans d'enviar-lo.
       officializations:
         block:
-          error: S'ha produït un error en bloquejar a la participant
-          success: Participant bloqueada correctament
+          error: S'ha produït un error en bloquejar a la participant.
+          success: Participant bloquejada correctament.
         create:
-          success: La participant s'ha oficialitzat correctament
+          success: Participant oficialitzada correctament.
         destroy:
-          success: L'oficialització de la participant ha estat inhabilitada correctament
+          success: S'ha retirat correctament l'oficialització de la participant.
         index:
           actions: Accions
           badge: Insígnia
@@ -759,7 +794,6 @@ ca:
           officialize: Oficialitza
           title: Oficialitza la participant "%{name}"
         show_email_modal:
-          close_modal: Tanca el modal
           description: Si necessites contactar a una participant directament pots clicar al botó Mostra per veure la seva adreça de correu electrònic. Aquesta acció es registrarà.
           email_address: Adreça de correu electrònic
           full_name: Nom complet
@@ -767,8 +801,8 @@ ca:
           show: Mostra
           title: Mostra l'adreça de correu electrònic de la participant
         unblock:
-          error: S'ha produït un error al desbloquejar a la participant
-          success: Participant desbloquejada correctament
+          error: S'ha produït un error en desbloquejar a la participant.
+          success: Participant desbloquejada correctament.
       organization:
         edit:
           title: Edita organització
@@ -779,7 +813,7 @@ ca:
           instagram: Instagram
           rich_text_editor_in_public_views_help: En algunes àrees de text, les participants podran inserir algunes etiquetes HTML amb l'editor de text enriquit.
           social_handlers: Social
-          twitter: Twitter
+          twitter: X
           url: URL
           youtube: YouTube
         update:
@@ -790,10 +824,16 @@ ca:
           update: Actualitzar
         form:
           colors:
+            choose_color: Triar un color primari
             colors_title: Colors de l'organització
             colors_warning_html: Advertència! Canviant aquests colors pot trencar l'accessibilitat dels contrasts. Pots comprovar el contrast de la teva selecció a <a href="%{link}">WebAIM Contrast Checker</a> o amb altres eines similars.
-            header_snippets_help: Utilitza aquest camp per afegir coses al head d'HTML. L'ús més habitual és integrar serveis de tercers que requereixen codi JavaScript o CSS addicional. A més, pots utilitzar-lo per afegir etiquetes meta addicionals a l'HTML. Tingues en compte que això només es mostrarà a les pàgines públiques, no a la secció d'administració.
-          cta_button_path_help: 'Pots redirigir la direcció on enllaça el botó d''acció principal de la pàgina d''inici on desitgis. Utilitza rutes parcials, no URLs completes aquí. Accepta lletres, números, guions i barres, i ha de començar amb una lletra. El botó d''acció principal es mostra a la pàgina d''inici entre el text de benvinguda i la descripció. Exemple: %{url}'
+            explanation: Aquesta eina t'ajuda a triar un esquema de color, compost per diferents tonalitats seleccionades de forma harmoniosa per utilitzar-se al lloc web de l'organització.
+            header_snippets_help_html: Fes servir aquest camp per afegir coses a la capçalera HTML. Lús més comú és integrar serveis de tercers que requereixen JavaScript o CSS addicionals. També, pots fer-lo servir per afegir meta-etiquetes extra a l'HTML. Tingues en compte que això només serà renderitzat a pàgines públiques, no a la secció d'administració. Si el codi interactua amb API externes o no compleix les pautes de seguretat de l'aplicació, cal canviar la Política de Seguretat del Contingut. Llegiu més sobre <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">al lloc de documentació</a>.
+            legend_html: Colors principals de l'aplicació, basats en l'<a href="https://www.color-meanings.com/triadic-colors/">algoritme Triadic</a>. El color <i>secundari</i> es calcula automàticament a partir del color primari i de la saturació que has triat.
+            saturation: Saturació
+            title: Selector de color
+            update_suggested_colors: Actualitzar als colors recomenats
+          cta_button_path_help_html: 'Pots redirigir la direcció on enllaça el Botó d''Acció principal de la pàgina d''inici on desitgis. Utilitza rutes parcials, no URLs completes aquí. Accepta lletres, números, guions i barres, i ha de començar amb una lletra. El Botó d''Acció es mostra a la pàgina d''inici entre el text de benvinguda i la descripció. Exemple: %{url}'
           cta_button_text_help: Pots sobreescriure el text del botó d'acció principal a la pàgina d'inici per cada idioma disponible a la teva organització. Si no s'omple, s'utilitzarà el valor predeterminat. El botó d'acció principal es mostra a la pàgina d'inici entre el text de benvinguda i la descripció.
           homepage_appearance_title: Edita l'aparença de la pàgina d'inici
           homepage_highlighted_content_banner_title: Banner de contingut ressaltat
@@ -813,12 +853,21 @@ ca:
           add: Afegir a la llista blanca
           title: Llista blanca de dominis externs
       organization_homepage:
+        content_blocks:
+          create:
+            error: S'ha produït un error en intentar crear aquest bloc de contingut.
+            success: Bloc de contingut creat correctament.
+          destroy:
+            error: S'ha produït un error en intentar eliminar aquest bloc de contingut.
+            success: Bloc de contingut eliminat correctament.
+          edit:
+            update: Actualitzar
         edit:
           active_content_blocks: Blocs de contingut actiu
+          add: Afegir bloc de contingut
+          destroy_confirmation: Segur que vols esborrar aquest bloc de contingut?
           inactive_content_blocks: Blocs de contingut inactiu
-      organization_homepage_content_blocks:
-        edit:
-          update: Actualitza
+          title: Continguts de la pàgina
       participatory_space_private_users:
         create:
           error: S'ha produït un error en afegir una participant privada a aquest espai de participació.
@@ -831,19 +880,23 @@ ca:
           title: Participant de l'espai participatiu privat
         new:
           create: Crear
-          title: Nova participant de l'espai de participació privat.
+          title: Nova participant de l'espai privat.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: S'ha produït un error en llegir el fitxer CSV.
-          success: Arxiu CSV carregat correctament, s'està enviant un missatge de correu electrònic d'invitació als participants. Pot tardar una mica.
+          invalid: S'ha produït un error llegint el fitxer CSV. Si us plau, assegura't d'haver seguit les instruccions.
+          success: L'arxiu CSV s'ha carregat amb èxit, estem enviant un correu d'invitació a les participants. Això pot trigar una estona.
         new:
           destroy:
             button: Esborrar totes les participants privades
-            confirm: Estàs segura que vols esborrar totes les participants privades? Aquesta acció no es pot desfer, no podràs recuperar-les.
+            confirm: Segur que vols esborrar totes les participants privades? Aquesta acció no es pot desfer, no podràs recuperar-les.
             empty: No hi ha participants privades.
             explanation: Hi ha %{count} participant/s privada/ades.
             title: Esborrar les participants privades
-          explanation: 'Carrega el teu arxiu CSV. Ha de tenir dues columnes amb l''adreça de correu electrònic a la primera columna i el nom a la segona (adreça electrònica, nom) dels usuaris que vulguis afegir a l''espai de participació, sense capçaleres. Evita emprar caràcter invàlids com `<>?%&^*#@()[]=+:;"{}\|` al nom d''usuari.'
+          example_file: 'Fitxer d''exemple:'
+          explanation: 'Carrega el teu arxiu CSV. Ha de tenir dues columnes amb l''adreça de correu electrònic a la primera columna i el nom a la segona de les participants que vulguis afegir a l''espai de participació, sense capçaleres. Evita emprar caràcters invàlids com `<>?%&^*#@()[]=+:;"{}\|` al nom d''usuària.'
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
           title: Puja el fitxer CSV
           upload: Carrega
       reminders:
@@ -884,7 +937,7 @@ ca:
           error: S'ha produït un error en crear un nou àmbit.
           success: Àmbit creat correctament.
         destroy:
-          success: Àmbit eliminat correctament
+          success: Àmbit eliminat correctament.
         edit:
           title: Edita àmbit
           update: Actualitzar
@@ -904,7 +957,7 @@ ca:
           error: S'ha produït un error en eliminar aquest token.
           success: El token s'ha eliminat correctament.
         share_tokens:
-          empty: No hi ha tokens actius
+          empty: No hi ha tokens actius.
           help: Aquests tokens s'utilitzen per a compartir públicament aquest recurs no publicat a qualsevol usuari. S'ocultaran quan es publiqui el recurs. Fes clic en la icona de compartir el token per a visitar la URL compartible.
           title: Compartir tokens
       shared:
@@ -918,7 +971,7 @@ ca:
           error: S'ha produït un error en crear un tema nou.
           success: S'ha creat el tema correctament.
         destroy:
-          success: S'ha destruït el tema amb èxit
+          success: Tema eliminat correctament.
         edit:
           title: Edita el tema
           update: Actualitza el tema
@@ -931,27 +984,39 @@ ca:
       static_pages:
         actions:
           view: Visualitzar la pàgina pública
+        content_blocks:
+          active_content_blocks: Blocs de contingut actius
+          add: Afegir bloc de contingut
+          create:
+            error: S'ha produït un error en intentar crear aquest bloc de contingut.
+            success: El bloc de contingut s'ha creat correctament.
+          destroy:
+            error: S'ha produït un error en intentar eliminar aquest bloc de contingut.
+            success: Bloc de contingut eliminat correctament.
+          destroy_confirmation: Segur que vols esborrar aquest bloc de contingut?
+          edit:
+            update: Actualitzar
+          inactive_content_blocks: Blocs de contingut inactius
+          title: Contingut de la pàgina
         create:
           error: S'ha produït un error en crear una nova pàgina.
           success: La pàgina s'ha creat correctament.
         destroy:
           success: La pàgina s'ha eliminat correctament.
         edit:
-          changed_notably_help: Si està marcada, les participants seran notificades per a que acceptin els nous Termes i Condicions.
+          changed_notably_help: Si està marcada, les participants seran notificades perquè acceptin els nous termes i condicions d'ús.
           title: Editar pàgina
           update: Actualitzar
         form:
           none: Cap
-          slug_help: 'Utilitza rutes parcials, no URL complerts aquí. Accepta lletres, números, guions i barres, i ha de començar amb una lletra. Exemple: %{url}'
-        index:
-          last_notable_change: Últims canvis notables
+          slug_help_html: 'Utilitza rutes parcials, no URL completes aquí. Accepta lletres, números, guions i barres, i ha de començar amb una lletra. Exemple: %{url}'
         new:
           create: Crea una pàgina
           title: Nova pàgina
         topic:
           destroy: Elimina el tema
           edit: Edita el tema
-          empty: No hi ha cap pàgina sobre aquest tema
+          empty: No hi ha cap pàgina sobre aquest tema.
           without_topic: Pàgines sense tema
         update:
           error: S'ha produït un error en l'actualització d'aquesta pàgina.
@@ -962,27 +1027,30 @@ ca:
         areas: Àrees
         authorization_workflows: Mètodes de verificació
         dashboard: Tauler de control
+        edit_external_domains: Llistat de dominis externs permesos
+        edit_landing_page: Continguts de la pàgina
+        edit_organization_appearance: Edita l'aparença de la pàgina d'inici
         impersonatable_users: Participants que es poden gestionar
         impersonations: Gestió de participants
         metrics: Mètriques
+        pages: Pàgines
         panel: Administradora
         participants: Participants
         scope_types: Tipus d'àmbit
         scopes: Àmbits
-        static_pages: Pàgines
         statistics: Activitat
         user_groups: Grups
         users: Administradores
       user_group:
         csv_verify:
           invalid: S'ha produït un error en llegir el fitxer CSV.
-          success: El fitxer CSV s'ha pujat correctament, estem verificant que els grups coincideixin amb els criteris. Això pot trigar una estona.
+          success: L'arxiu CSV s'ha pujat correctament, estem verificant que els grups coincideixin amb els criteris. Això pot trigar una estona.
         reject:
           invalid: S'ha produït un error al rebutjar aquest grup.
-          success: El grup s'ha rebutjat correctament
+          success: El grup s'ha rebutjat correctament.
         verify:
           invalid: S'ha produït un error al verificar aquest grup.
-          success: Grup verificat correctament
+          success: Grup verificat correctament.
       user_groups:
         index:
           state:
@@ -992,7 +1060,11 @@ ca:
           verify_via_csv: Verifica mitjançant CSV
       user_groups_csv_verifications:
         new:
+          example_file: 'Fitxer d''exemple:'
           explanation: Puja el fitxer CSV. Ha de tenir els correus electrònics oficials dels grups de la vostra organització a la primera columna del fitxer, sense encapçalaments. Només es validaran els grups que hagin confirmat el seu correu electrònic i que tinguin un correu electrònic que aparegui al fitxer CSV.
+          explanation_example: |
+            acme@example.org
+            bubba.gump@example.org
           title: Puja el fitxer CSV
           upload: Pujar
       users:
@@ -1015,13 +1087,12 @@ ca:
           last_day: El darrer dia
           last_month: El darrer mes
           last_week: La darrera setmana
-          no_users_count_statistics_yet: Encara no hi ha estadístiques de recompte d’usuàries
+          no_users_count_statistics_yet: Encara no hi ha estadístiques de recompte d’usuàries.
           participants: Participants
-      view_public_page: Mostra la pàgina pública
     forms:
       errors:
         impersonate_user:
-          reason: Has d'indicar un motiu per a la gestió d'una participant no gestionada
+          reason: Has d'indicar un motiu per a la gestió d'una participant no gestionada.
     metrics:
       blocked_users:
         object: usuàries bloquejades
@@ -1055,14 +1126,15 @@ ca:
       models:
         moderation:
           fields:
-            created_at: Data de creació
+            created_at: Denunciat el
+            deleted_resource: Recurs eliminat
             hidden_at: Data d'ocultació
             participatory_space: Espai de participació
-            report_count: Recompte
+            report_count: Número de denúncies
             reportable_id: ID
             reportable_type: Tipus
             reported_content_url: URL contingut del contingut reportat
-            reports: Denúncies
+            reports: Motiu
             visit_url: Visiteu l'URL
         report:
           fields:
@@ -1077,9 +1149,3 @@ ca:
       admin:
         global_moderations:
           title: Moderacions globals
-        newsletters:
-          title: Butlletins
-        settings:
-          title: Configuració
-        users:
-          title: Participants

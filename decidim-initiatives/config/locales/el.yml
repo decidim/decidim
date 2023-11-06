@@ -48,12 +48,8 @@ el:
             attachment:
               file: Το αρχείο δεν είναι έγκυρο
               needs_to_be_reattached: Πρέπει να επισυναφθεί ξανά
-              title: Ο τίτλος δεν πρέπει να είναι κενός
   activerecord:
     models:
-      decidim/initiative:
-        one: Πρωτοβουλία
-        other: Πρωτοβουλίες
       decidim/initiative_comittee:
         one: Επιτροπή
         other: Επιτροπές
@@ -142,10 +138,8 @@ el:
             - Ακολουθήστε τα βήματα για να δημιουργήσετε μια νέα πρωτοβουλία
           description: Αυτό το έμβλημα χορηγείται όταν ξεκινάτε νέες πρωτοβουλίες, και συνεργάζεστε με άλλα άτομα για να τις πραγματοποιήσετε.
           description_another: Αυτός ο συμμετέχων έχει δημοσιεύσει %{score} πρωτοβουλίες.
-          description_own: Έχετε δημοσιεύσει %{score} πρωτοβουλίες.
           name: Δημοσιευμένες πρωτοβουλίες
           next_level_in: Δημοσιεύστε %{score} ακόμη πρωτοβουλίες για να φτάσετε στο επόμενο επίπεδο!
-          unearned_another: Αυτός ο συμμετέχων δεν έχει δημοσιεύσει ακόμη κάποια δραστηριότητα.
           unearned_own: Δεν έχετε δημοσιεύσει ακόμη πρωτοβουλίες.
     help:
       participatory_spaces:
@@ -171,8 +165,6 @@ el:
           index:
             approve: Έγκριση
             confirm_revoke: Είστε βέβαιοι;
-            invite_to_committee_help: Κοινοποιήστε αυτόν τον σύνδεσμο για να προσκαλέσετε άλλους συμμετέχοντες στην επιτροπή προώθησης
-            no_members_yet: Δεν υπάρχουν μέλη στην επιτροπή προώθησης
             revoke: Ανάκληση
             title: Μέλη επιτροπής
         content_blocks:
@@ -189,7 +181,6 @@ el:
             export_votes: Εξαγωγή υπογραφών
             reject: Απόρριψη πρωτοβουλίας
             send_to_technical_validation: Αποστολή στην τεχνική επικύρωση
-            success: Η πρωτοβουλία έχει σταλεί στην τεχνική επικύρωση
             update: Ενημέρωση
           form:
             title: Γενικές πληροφορίες
@@ -202,48 +193,21 @@ el:
             edit: Επεξεργασία
             new: Νέα
             photos: Φωτογραφίες
-          update:
-            error: Παρουσιάστηκε σφάλμα
-            success: Η πρωτοβουλία ενημερώθηκε με επιτυχία
         initiatives_type_scopes:
-          create:
-            error: Παρουσιάστηκε σφάλμα
-            success: Δημιουργήθηκε ένα νέο πεδίο εφαρμογής για τον συγκεκριμένο τύπο πρωτοβουλίας
-          destroy:
-            success: Το πεδίο εφαρμογής καταργήθηκε με επιτυχία
           edit:
-            back: Πίσω
-            confirm_destroy: Είστε βέβαιοι;
-            destroy: Διαγραφή
             title: Επεξεργασία πεδίου εφαρμογής τύπου πρωτοβουλίας
             update: Ενημέρωση
           new:
-            back: Πίσω
             create: Δημιουργία
             title: Δημιουργία πεδίου εφαρμογής τύπου πρωτοβουλίας
-          update:
-            error: Παρουσιάστηκε σφάλμα
-            success: Το πεδίο εφαρμογής ενημερώθηκε με επιτυχία
         initiatives_types:
-          create:
-            error: Παρουσιάστηκε σφάλμα
-            success: Ένας νέος τύπος πρωτοβουλίας δημιουργήθηκε με επιτυχία
-          destroy:
-            success: Ο τύπος πρωτοβουλίας καταργήθηκε με επιτυχία
           edit:
-            confirm_destroy: Είστε βέβαιοι;
-            destroy: Διαγραφή
             update: Ενημέρωση
-          form:
-            title: Γενικές πληροφορίες
           initiative_type_scopes:
             title: Πεδία εφαρμογής για τον τύπο πρωτοβουλίας
           new:
             create: Δημιουργία
             title: Νέος τύπος πρωτοβουλίας
-          update:
-            error: Παρουσιάστηκε σφάλμα
-            success: Ο τύπος πρωτοβουλίας ενημερώθηκε με επιτυχία
       admin_log:
         initiative:
           publish: "Ο χρήστης %{user_name} δημοσίευσε την πρωτοβουλία %{resource_name}"
@@ -258,10 +222,6 @@ el:
         rejected: Δεν υπάρχουν αρκετές υπογραφές
         validating: Τεχνική επικύρωση
       application_helper:
-        filter_area_values:
-          all: Όλα
-        filter_scope_values:
-          all: Όλα
         filter_state_values:
           accepted: Αρκετές υπογραφές
           all: Όλα
@@ -274,7 +234,6 @@ el:
       committee_requests:
         new:
           continue: Συνέχεια
-          help_text: Πρόκειται να ζητήσετε να γίνετε μέλος της επιτροπής προώθησης αυτής της πρωτοβουλίας
         spawn:
           success: Το αίτημά σας στάλθηκε στον συντάκτη πρωτοβουλίας.
       content_blocks:
@@ -284,7 +243,6 @@ el:
         fill_data:
           back: Πίσω
           continue: Συνέχεια
-          initiative_type: Τύπος πρωτοβουλίας
           more_information: "(Περισσότερες πληροφορίες)"
           select_area: Επιλέξτε τομέα
           select_scope: Επιλέξτε πεδίο εφαρμογής
@@ -296,24 +254,15 @@ el:
         previous_form:
           back: Πίσω
           continue: Συνέχεια
-          help: Από τι αποτελείται η πρωτοβουλία; Γράψτε τον τίτλο και την περιγραφή. Συνιστούμε έναν σύντομο και περιεκτικό τίτλο και μια περιγραφή επικεντρωμένη στην προτεινόμενη λύση.
-          more_information: "(Περισσότερες πληροφορίες)"
         promotal_committee:
-          back: Πίσω
           more_information: "(Περισσότερες πληροφορίες)"
         select_initiative_type:
           back: Πίσω
           choose_html: Θέλω να δημιουργήσω μια πρωτοβουλία <strong>%{title}</strong>
-          more_information: "(Περισσότερες πληροφορίες)"
+          more_information: (Περισσότερες πληροφορίες)
           select: Θέλω να προωθήσω αυτήν την πρωτοβουλία
         share_committee_link:
-          continue: Συνέχεια
           invite_to_committee_help: Σύνδεσμος για να προσκαλέσετε άτομα που θα είναι μέλη της επιτροπής προώθησης
-        show_similar_initiatives:
-          back: Πίσω
-          compare_help: Εάν κάποια από τις παρακάτω πρωτοβουλίες είναι παρόμοια με τη δική σας, σας συνιστούμε να την υπογράψετε. Η πρότασή σας θα έχει περισσότερες πιθανότητες να υλοποιηθεί.
-          continue: Η πρωτοβουλία μου είναι διαφορετική
-          more_information: "(Περισσότερες πληροφορίες)"
       events:
         create_initiative_event:
           email_intro: "Ο συντάκτης %{author_name} %{author_nickname}, τον οποίο ακολουθείτε, δημιούργησε μια νέα πρωτοβουλία. Δείτε την και συνεισφέρετε:"
@@ -325,16 +274,9 @@ el:
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον συντάκτη %{author_nickname}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
           email_subject: Η πρωτοβουλία επιδοκιμάστηκε από τον συντάκτη %{author_nickname}
           notification_title: Η <a href="%{resource_path}">%{resource_title}</a> πρωτοβουλία επιδοκιμάστηκε από τον συντάκτη <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-      index:
-        title: Πρωτοβουλίες
       initiative_signatures:
         fill_personal_data:
           continue: Συνέχεια
-          date_select:
-            day: Ημέρα
-            month: Μήνας
-            year: Έτος
-          help: Συμπληρώστε τα ακόλουθα πεδία με τα προσωπικά σας στοιχεία για να υπογράψετε την πρωτοβουλία
         finish:
           back_to_initiative: Επιστροφή στην πρωτοβουλία
         sms_code:
@@ -342,21 +284,14 @@ el:
           help: Ελέγξτε το SMS που λάβατε στο τηλέφωνό σας
         sms_phone_number:
           continue: Αποστολή SMS σε μένα
-          help: Συμπληρώστε τη φόρμα με τον επαληθευμένο αριθμό τηλεφώνου σας, για να ζητήσετε τον κωδικό επαλήθευσής σας
       initiative_votes:
         create:
           error: Υπήρξε ένα πρόβλημα κατά την υπογραφή της πρωτοβουλίας.
-          invalid: Τα δεδομένα που παρέχονται για την υπογραφή της πρωτοβουλίας δεν είναι έγκυρα
-          success_html: Συγχαρητήρια! Η πρωτοβουλία <strong> %{title}</strong> υπογράφτηκε με επιτυχία
         personal_data:
           invalid: Τα προσωπικά στοιχεία δεν συμφωνούν με τα στοιχεία που παρείχατε για εξουσιοδότηση.
-        sms_code:
-          invalid: Ο κωδικός επαλήθευσής σας δεν ταιριάζει με τον δικό μας. Ελέγξτε ξανά το SMS που σας στείλαμε.
         sms_phone:
           invalid: Ο αριθμός τηλεφώνου δεν είναι έγκυρος ή εκκρεμεί εξουσιοδότηση. Ελέγξτε τις εξουσιοδοτήσεις σας.
       initiatives:
-        author:
-          deleted: Διαγράφηκε
         author_list:
           hidden_authors_count:
             one: και 1 ακόμη άτομο
@@ -374,11 +309,6 @@ el:
           search: Αναζήτηση
           state: Κατάσταση
           type: Τύπος
-        filters_small_view:
-          close_modal: Κλείσιμο παραθύρου
-          filter: Φίλτρο
-          filter_by: Φιλτράρισμα κατά
-          unfold: Αποκάλυψη
         index_header:
           new_initiative: Νέα πρωτοβουλία
         interactions:
@@ -397,8 +327,6 @@ el:
           city: Πόλη
         result:
           initiative_rejected_reason: Αυτή η πρωτοβουλία απορρίφθηκε λόγω της έλλειψης υπογραφών.
-        show:
-          follow_description: Λήψη ειδοποίησης όταν υπάρχουν νέα σε αυτήν την πρωτοβουλία
         signatures_count:
           one: "υπογραφή"
           other: "υπογραφές"
@@ -412,8 +340,6 @@ el:
           count:
             one: Υπογραφή
             other: Υπογραφές
-          most_popular_initiative: Η πιο δημοφιλής πρωτοβουλία
-          need_more_votes: Απαιτούνται περισσότερες υπογραφές
       initiatives_mailer:
         creation_subject: Η πρωτοβουλία σας «%{title}» δημιουργήθηκε
         initiative_link:
@@ -425,13 +351,6 @@ el:
         promotal_committee_help: Να θυμάστε ότι πρέπει να προσκαλέσετε τουλάχιστον %{member_count} άτομα στην επιτροπή προώθησης. Προωθήστε τον παρακάτω σύνδεσμο για να προσκαλέσετε άτομα στην επιτροπή προώθησης
         status_change_body_for: 'Η κατάσταση της πρωτοβουλίας %{title} άλλαξε σε: %{state}'
         status_change_for: Η κατάσταση της πρωτοβουλίας %{title} άλλαξε
-      last_activity:
-        new_initiative: Νέα πρωτοβουλία
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Ενεργές πρωτοβουλίες
-            see_all_initiatives: Δείτε όλες τις πρωτοβουλίες
       show:
         badge_name:
           accepted: Αρκετές υπογραφές
@@ -444,9 +363,6 @@ el:
         accepted: Έγινε αποδοχή
         expired: Έληξε
       unavailable_scope: Μη διαθέσιμο πεδίο εφαρμογής
-      versions:
-        shared:
-          back_to_resource: Επιστροφή στην πρωτοβουλία
     menu:
       initiatives: Πρωτοβουλίες
     resources:
@@ -457,27 +373,15 @@ el:
   layouts:
     decidim:
       initiative_creation_header:
-        back: Πίσω
         fill_data: Δημιουργία
         finish: Τέλος
-        previous_form: Έναρξη
         promotal_committee: Επιτροπή προώθησης
         select_initiative_type: Επιλέξτε
-        show_similar_initiatives: Σύγκριση
-        step: Βήμα %{current} από %{total}
-        title: Δημιουργία νέας πρωτοβουλίας
-      initiative_header:
-        initiative_menu_item: Πρωτοβουλία
       initiative_signature_creation_header:
-        back: Πίσω
         fill_personal_data: Συμπληρώστε τα στοιχεία σας
         finish: Τέλος
-        finished: Δημιουργήθηκε υπογραφή πρωτοβουλίας
-        see_steps: δείτε τα βήματα
-        select_identity: Επιλέξτε ταυτότητα
         sms_code: Επαλήθευση κωδικού μέσω SMS
         sms_phone_number: Αριθμός κινητού τηλεφώνου
-        step: Βήμα %{current} από %{total}
         title: Υπογραφή πρωτοβουλίας %{initiative_title}
       initiatives:
         initiative:

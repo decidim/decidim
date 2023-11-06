@@ -1,1 +1,80 @@
 lt:
+  activemodel:
+    attributes:
+      questionnaire:
+        title: Pavadinimas
+      template:
+        description: Aprašymas
+        name: Pavadinimas
+  decidim:
+    admin:
+      menu:
+        templates: Šablonai
+      templates:
+        apply:
+          error: Pritaikant šį šabloną iškilo problema.
+          success: Šablonas sėkmingai pritaikytas.
+        copy:
+          error: Kopijuojant šį šabloną iškilo problema.
+          success: Šablonas sėkmingai nukopijuotas.
+        create:
+          error: Kuriant šį šabloną iškilo problema.
+          success: Šablonas sukurtas sėkmingai.
+        destroy:
+          success: Šablonas ištrintas sėkmingai.
+        empty: Dar nėra šablonų.
+        update:
+          error: Atnaujinant šį šabloną kilo problema.
+          success: Šablonas atnaujintas sėkmingai.
+      titles:
+        template_types:
+          questionnaires: Klausimyno šablonai
+        templates: Šablonai
+    models:
+      questionnaire_template:
+        fields:
+          questions: Klausimų skaičius
+          title: Klausimyno pavadinimas
+      template:
+        fields:
+          created_at: Sukurta
+        name: Šablonas
+    templates:
+      admin:
+        block_user_templates:
+          form:
+            save: Išsaugoti
+          index:
+            confirm_delete: Ar tikrai norite ištrinti šį šabloną?
+            title: Blokuoti naudotojų žinutes
+          template_chooser:
+            select_template: Pasirinkite šablono atsakymą
+        questionnaire_templates:
+          choose:
+            create_from_template: Kurti iš šablono
+            description: Tuojaus sukursite naują klausimyną. Galite jį kurti iš šablono ir jį pakeisti vėliau.
+            label: Pasirinkti šabloną
+            placeholder: Pasirinkti šabloną
+            skip_template: Praleisti
+          edit:
+            edit: Redaguoti
+            empty: Dar nėra klausimų.
+            questionnaire: Klausimynas
+          form:
+            title: Klausimyno šablonas %{questionnaire_for}
+          index:
+            confirm_delete: Ar tikrai norite ištrinti šį šabloną?
+            title: Klausimyno šablonai
+          preview:
+            current_step: Žingsnis %{step}
+            of_total_steps: iš%{total_steps}
+            tos_agreement: Dalyvaudami sutinkate su paslaugos teikimo sąlygomis
+      admin_log:
+        template:
+          create: "%{user_name} atnaujino %{resource_name} klausimyno šabloną"
+          delete: "%{user_name} ištrynė %{resource_name} klausimyno šabloną"
+          duplicate: "%{user_name} dublikavo %{resource_name} klausimyno šabloną"
+          update: "%{user_name} atnaujino %{resource_name} klausimyno šabloną"
+      template_types:
+        block_user: Blokuoti naudotojų žinutes
+        questionnaires: Klausimynai

@@ -5,8 +5,8 @@ require "spec_helper"
 describe "Admin edits proposals", type: :system do
   let(:manifest_name) { "proposals" }
   let(:organization) { participatory_process.organization }
-  let!(:user) { create :user, :admin, :confirmed, organization: }
-  let!(:proposal) { create :proposal, :official, component: }
+  let!(:user) { create(:user, :admin, :confirmed, organization:) }
+  let!(:proposal) { create(:proposal, :official, component:) }
   let(:creation_enabled?) { true }
 
   include_context "when managing a component as an admin"
@@ -45,21 +45,21 @@ describe "Admin edits proposals", type: :system do
 
     context "when the proposal has some votes" do
       before do
-        create :proposal_vote, proposal:
+        create(:proposal_vote, proposal:)
       end
 
-      it "doesn't let the user edit it" do
+      it "does not let the user edit it" do
         visit_component_admin
 
         expect(page).to have_content(translated(proposal.title))
-        expect(page).to have_no_css("a.action-icon--edit-proposal")
+        expect(page).not_to have_css("a.action-icon--edit-proposal")
         visit current_path + "proposals/#{proposal.id}/edit"
 
         expect(page).to have_content("not authorized")
       end
     end
 
-    context "when the proposal has attachement" do
+    context "when the proposal has attachment" do
       let!(:component) do
         create(:proposal_component,
                :with_creation_enabled,
@@ -82,25 +82,45 @@ describe "Admin edits proposals", type: :system do
         visit_component_admin
         find("a.action-icon--edit-proposal").click
         find("input#proposal_attachment_delete_file").set(true)
-        find(".form-general-submit .button").click
+        within ".item__edit-form" do
+          click_button "Update", type: "submit"
+        end
 
         expect(page).to have_content("Proposal successfully updated.")
 
         visit_component_admin
         find("a.action-icon--edit-proposal").click
-        expect(page).to have_no_content("Current file")
+        expect(page).not_to have_content("Current file")
+      end
+
+      it "can attach a file" do
+        visit_component_admin
+        find("a.action-icon--edit-proposal").click
+        fill_in :proposal_attachment_title, with: "FOO BAR"
+
+        find("input#proposal_attachment_delete_file").set(true)
+        click_button("Replace")
+        click_button("Remove")
+        click_button("Next")
+        dynamically_attach_file(:proposal_attachment_file, Decidim::Dev.asset("city.jpeg"))
+
+        click_button("Update")
+        find("a.action-icon--edit-proposal").click
+
+        expect(page).to have_content("city.jpeg")
+        expect(page).to have_content("FOO BAR")
       end
     end
   end
 
   describe "editing a non-official proposal" do
-    let!(:proposal) { create :proposal, users: [user], component: }
+    let!(:proposal) { create(:proposal, users: [user], component:) }
 
     it "renders an error" do
       visit_component_admin
 
       expect(page).to have_content(translated(proposal.title))
-      expect(page).to have_no_css("a.action-icon--edit-proposal")
+      expect(page).not_to have_css("a.action-icon--edit-proposal")
       visit current_path + "proposals/#{proposal.id}/edit"
 
       expect(page).to have_content("not authorized")

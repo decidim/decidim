@@ -34,7 +34,7 @@ const CLIPBOARD_COPY_TIMEOUT = 5000;
 
 $(() => {
   $(document).on("click", "[data-clipboard-copy]", (ev) => {
-    const $el = $(ev.target);
+    const $el = $(ev.currentTarget);
     if (!$el.data("clipboard-copy") || $el.data("clipboard-copy").length < 1) {
       return;
     }
@@ -106,7 +106,7 @@ $(() => {
           message += "&nbsp;";
         }
       } else {
-        $msg = $('<div aria-role="alert" aria-live="assertive" aria-atomic="true" class="clipboard-announcement show-for-sr"></div>');
+        $msg = $('<div aria-role="alert" aria-live="assertive" aria-atomic="true" class="sr-only"></div>');
         $el.after($msg);
         $el.data("clipboard-message-element", $msg);
       }

@@ -20,7 +20,7 @@ module Decidim
         load_asset_configurations
 
         # Read the original configuration and append the paths
-        config = YAML.load_file(original_configuration_file_path)
+        config = YAML.load_file(original_configuration_file_path, aliases: true)
         default = config["default"] || {}
         all_additional_paths = default["additional_paths"] || []
         all_additional_paths += additional_paths
@@ -32,7 +32,8 @@ module Decidim
           config[environment] = env_config.merge(
             "additional_paths" => all_additional_paths,
             "entrypoints" => all_entrypoints,
-            "stylesheet_imports" => all_stylesheet_imports
+            "stylesheet_imports" => all_stylesheet_imports,
+            "compile" => (ENV.fetch("SHAKAPACKER_RUNTIME_COMPILE", "false") == "true")
           )
         end
 
@@ -67,7 +68,7 @@ module Decidim
       end
 
       def original_configuration_file_path
-        @original_configuration_file_path = File.join(app_path, "config/webpacker.yml")
+        @original_configuration_file_path = File.join(app_path, "config/shakapacker.yml")
       end
 
       def load_asset_configurations

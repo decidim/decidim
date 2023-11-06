@@ -3,43 +3,42 @@
   <head>
     <title><%= decidim_page_title %></title>
     <%= render partial: "layouts/decidim/head" %>
+
+    <%= append_javascript_pack_tag "decidim_meetings" %>
+    <%= append_javascript_pack_tag "decidim_forms" %>
+    <%= stylesheet_pack_tag "decidim_meetings", media: "all" %>
+    <%= stylesheet_pack_tag "decidim_forms", media: "all" %>
   </head>
 
-  <body>
+  <body class="meeting-polls__body">
     <%= render partial: "layouts/decidim/timeout_modal" %>
-    <%= render partial: "layouts/decidim/cookie_warning" %>
-    <%= cell("decidim/data_consent", current_organization) %>
 
     <header class="meeting-polls__header">
       <% if current_user && poll %>
-        <div class="flex--cc">
-          <button class="meeting-polls__button meeting-polls__action-list">
-            <%= t(".questions") %> <span id="visible-questions-count">(<%= questionnaire.questions.visible.count %>)</span>
+        <div class="flex gap-2">
+          <button class="button button__sm button__secondary meeting-polls__action-list">
+            <%= t("questions", scope: "decidim.meetings.layouts.live_event") %> <span id="visible-questions-count">(<%= questionnaire.questions.visible.count %>)</span>
           </button>
 
           <% if admin_allowed_to?(:update, :poll, meeting: meeting, poll: poll) %>
-            <button class="meeting-polls__button meeting-polls__action-administrate"><%= t(".administrate") %></button>
+            <button class="button button__sm button__secondary meeting-polls__action-administrate"><%= t("administrate", scope: "decidim.meetings.layouts.live_event") %></button>
           <% end %>
         </div>
       <% end %>
 
       <div>
-        <strong class="text-secondary"><%= current_organization.name %></strong> / <strong><%= present(meeting).title(links: true) %></strong>
+        <strong class="text-secondary"><%= current_organization.name %></strong> / <strong><%= present(meeting).title(links: true, html_escape: true ) %></strong>
       </div>
 
-      <div class="flex--cc">
+      <div class="flex gap-10">
         <% if current_user %>
-          <span>
-            <%= link_to current_user.name, decidim.account_path, target: "_blank", "aria-label": t("layouts.decidim.user_menu.account", name: current_user.name) %>
-          </span>
+          <%= link_to current_user.name, decidim.account_path, target: "_blank", class: "button button__sm button__text-secondary", data: { "external-link": false }, "aria-label": t("layouts.decidim.user_menu.account", name: current_user.name) %>
         <% end %>
 
-        <span class="meeting-polls__close">
-          <%= link_to meeting_path(meeting), "aria-label": t(".close") do %>
-            <%= t(".close") %>
-            <%= icon "x", class: "text-small" %>
-          <% end %>
-        </span>
+        <%= link_to meeting_path(meeting), class: "button button__sm button__text-secondary", "aria-label": t("close", scope: "decidim.meetings.layouts.live_event") do %>
+          <span><%= t("close", scope: "decidim.meetings.layouts.live_event") %></span>
+          <%= icon "close-line" %>
+        <% end %>
       </div>
     </header>
 
@@ -49,7 +48,9 @@
       <%= yield %>
     </main>
 
+    <%= render partial: "layouts/decidim/data_consent_warning" %>
+    <%= cell("decidim/data_consent", current_organization) %>
     <%= render partial: "layouts/decidim/decidim_javascript" %>
-    <%= javascript_pack_tag "decidim_meetings" %>
+
   </body>
 </html>

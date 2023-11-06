@@ -1,0 +1,39 @@
+.conference__registration {
+  @apply flex flex-col md:flex-row items-start md:items-center justify-between gap-2.5 rounded-l px-4 border-l-4 border-background;
+
+  &-container {
+    @apply w-full lg:w-4/5 xl:w-3/5 space-y-10 mb-16 md:mb-36;
+
+    &-title {
+      @apply py-10 text-gray-2 uppercase font-semibold;
+    }
+  }
+
+  &-text {
+    @apply text-sm text-gray-2 space-y-2.5 md:space-y-4 w-full lg:w-1/5 xl:w-2/5;
+
+    & > *:last-child {
+      @apply inline-flex items-center gap-1.5 first:[&>*]:flex-none max-w-full;
+    }
+  }
+
+  &-button {
+    @apply truncate md:w-32;
+
+    &-container {
+      @apply w-full md:w-72 flex items-center justify-between md:justify-end gap-4 md:gap-8 px-3 md:px-6 py-3 bg-background rounded;
+
+      & > *:first-child {
+        @apply text-xl font-semibold whitespace-nowrap;
+      }
+    }
+  }
+
+  &:hover &-button:not([disabled]) {
+    @apply bg-secondary text-white border-transparent;
+  }
+
+  &-modal {
+    @apply p-6;
+  }
+}

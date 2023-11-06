@@ -110,6 +110,10 @@ describe "Admin manages moderated users", type: :system do
       visit decidim_admin.moderated_users_path(blocked: true)
     end
 
+    it "user cannot unreport them" do
+      expect(page).not_to have_css(".action-icon--unreport")
+    end
+
     context "when filtering by report reason" do
       it_behaves_like "a filtered collection", options: "Report reason", filter: "Spam" do
         let(:in_filter) { first_user.nickname }

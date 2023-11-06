@@ -27,7 +27,7 @@ module Decidim
         attr_reader :form, :question
 
         def invalid?
-          question.election.started? || form.invalid?
+          question.election.blocked? || form.invalid?
         end
 
         def update_question!

@@ -1,0 +1,28 @@
+<% if Decidim::Initiatives.creation_enabled %>
+  <% if current_user && available_initiative_types.size > 1 %>
+    <%= link_to create_initiative_path(:select_initiative_type), class: "!px-4 title-action__action button button__xl button__secondary w-full" do %>
+      <%= t("new_initiative", scope: "decidim.initiatives.initiatives.index_header") %>
+      <%= icon "add-fill" %>
+    <% end %>
+  <% elsif current_user %>
+    <% if allowed_to?(:create, :initiative, { initiative_type: available_initiative_types.first }) %>
+      <%= link_to create_initiative_path(:select_initiative_type), class: "!px-4 title-action__action button button__xl button__secondary w-full" do %>
+        <%= t("new_initiative", scope: "decidim.initiatives.initiatives.index_header") %>
+        <%= icon "add-fill" %>
+      <% end %>
+    <% else %>
+      <%= authorized_create_modal_button(available_initiative_types.first, remote: true, class: "!px-4 title-action__action button button__xl button__secondary w-full") do %>
+        <%= t("new_initiative", scope: "decidim.initiatives.initiatives.index_header") %>
+        <%= icon "add-fill" %>
+      <% end %>
+    <% end %>
+  <% else %>
+    <% content_for(:redirect_after_login) { create_initiative_url(:select_initiative_type) } %>
+    <button type="button" class="title-action__action button button__xl button__secondary w-full" data-dialog-open="loginModal" aria-controls="loginModal" aria-haspopup="dialog" tabindex="0">
+      <%= t("new_initiative", scope: "decidim.initiatives.initiatives.index_header") %>
+      <%= icon "add-fill" %>
+    </button>
+  <% end %>
+<% end %>
+
+<%= render partial: "decidim/initiatives/modal" %>

@@ -9,23 +9,26 @@ ca:
   decidim:
     admin:
       menu:
+        manage: Gestionar
         templates: Plantilles
       templates:
+        actions:
+          new_template: Afegir plantilla
         apply:
           error: S'ha produït un error en actualitzar aquesta plantilla.
-          success: La plantilla s'ha aplicat correctament
+          success: La plantilla s'ha aplicat correctament.
         copy:
           error: S'ha produït un error en copiar aquesta plantilla.
-          success: La plantilla s'ha copiat correctament
+          success: La plantilla s'ha copiat correctament.
         create:
           error: S'ha produït un error en crear aquesta plantilla.
-          success: La plantilla s'ha creat correctament
+          success: La plantilla s'ha creat correctament.
         destroy:
-          success: La plantilla s'ha eliminat correctament
+          success: La plantilla s'ha eliminat correctament.
         empty: Encara no hi ha plantilles.
         update:
           error: S'ha produït un error en actualitzar aquesta plantilla.
-          success: La plantilla s'ha actualitzat correctament
+          success: La plantilla s'ha actualitzat correctament.
       titles:
         template_types:
           questionnaires: Plantilles de qüestionari
@@ -41,6 +44,18 @@ ca:
         name: Plantilla
     templates:
       admin:
+        block_user_templates:
+          edit:
+            title: Editar la plantilla del missatge de bloqueig del compte d'usuària
+          form:
+            save: Desar
+          index:
+            confirm_delete: Segur que vols eliminar aquesta plantilla?
+            title: Bloquejar els missatges de la usuària
+          new:
+            title: Nova plantilla del missatge de bloqueig del compte d'usuària
+          template_chooser:
+            select_template: Selecciona una plantilla de resposta
         questionnaire_templates:
           choose:
             create_from_template: Crear des d'una plantilla
@@ -50,15 +65,16 @@ ca:
             skip_template: Ometre
           edit:
             edit: Editar
-            empty: Encara no hi ha preguntes
+            empty: Encara no hi ha preguntes.
             questionnaire: Qüestionari
+            title: Editar la plantilla del qüestionari
           form:
-            save: Desar
-            template_title: Informació de la plantilla
             title: Plantilla del qüestionari %{questionnaire_for}
           index:
             confirm_delete: Segur que vols eliminar aquesta plantilla?
             title: Plantilles de qüestionari
+          new:
+            title: Nova plantilla de qüestioniari
           preview:
             current_step: Pas %{step}
             of_total_steps: de %{total_steps}
@@ -70,4 +86,5 @@ ca:
           duplicate: "%{user_name} ha duplicat la plantilla del qüestionari %{resource_name}"
           update: "%{user_name} ha actualitzat la plantilla del qüestionari %{resource_name}"
       template_types:
+        block_user: Bloquejar els missatges de la usuària
         questionnaires: Qüestionari

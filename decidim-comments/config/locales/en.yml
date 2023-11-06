@@ -28,26 +28,25 @@ en:
         create:
           error: There was a problem creating the comment.
         delete:
-          error: The comment couldn't be deleted.
+          error: The comment could not be deleted.
         update:
           error: There was a problem updating the comment.
-      comments_count: Comments count
-      comments_title: Comments
+      comments_title: Comment
       last_activity:
-        new_comment_at_html: "<span>New comment at %{link}</span>"
-      view: View
+        new_comment: 'New comment:'
       votes:
         create:
           error: There was a problem voting the comment.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Sign in with your account</a> or <a href="%{sign_up_url}">sign up</a> to add your comment.
+        account_message: <a href="%{sign_in_url}">Log in with your account</a> or <a href="%{sign_up_url}">sign up</a> to add your comment.
         form:
           body:
             label: Comment
             placeholder: What do you think about this?
-          form_error: The text is required and it can't be longer than %{length} characters.
-          submit: Send
+          form_error: The text is required and it cannot be longer than %{length} characters.
+          submit_reply: Publish reply
+          submit_root_comment: Publish comment
           user_group_id:
             label: Comment as
         opinion:
@@ -65,6 +64,7 @@ en:
         alignment:
           against: Against
           in_favor: In favor
+        cancel_reply: Cancel reply
         confirm_destroy: Are you sure you want to delete this comment?
         delete: Delete
         deleted_at: Comment deleted on %{date}
@@ -81,11 +81,13 @@ en:
           description: Is this content inappropriate?
           details: Additional comments
           reasons:
-            does_not_belong: Contains illegal activity, suicide threats, personal information, or something else you think doesn't belong on %{organization_name}.
+            does_not_belong: Contains illegal activity, suicide threats, personal information, or something else you think does not belong on %{organization_name}.
             offensive: Contains racism, sexism, slurs, personal attacks, death threats, suicide requests or any form of hate speech.
             spam: Contains clickbait, advertising, scams or script bots.
           title: Report inappropriate content
-        show_replies: Show %{replies_count} replies
+        show_replies:
+          one: Show reply
+          other: Show %{count} replies
         single_comment_link_title: Get link
       comment_order_selector:
         order:
@@ -94,8 +96,6 @@ en:
           older: Older
           recent: Recent
         title: 'Order by:'
-      comment_thread:
-        title: Conversation with %{authorName}
       comments:
         blocked_comments_for_unauthorized_user_warning: You need to be verified to comment at this moment, but you can read the previous ones.
         blocked_comments_for_user_warning: You are not able to comment at this moment, but you can read the previous ones.
@@ -168,4 +168,4 @@ en:
         title: Comments
   errors:
     messages:
-      cannot_have_comments: can't have comments
+      cannot_have_comments: cannot have comments

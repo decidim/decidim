@@ -31,7 +31,6 @@ pt-BR:
         cost_report: Relatório de custos
         execution_period: Período de execução
       proposals_copy:
-        copy_proposals: Eu entendo que isso irá importar todas as propostas do componente selecionado para o atual e que esta ação não pode ser revertida.
         origin_component_id: Componente para copiar as propostas de
       proposals_import:
         import_proposals: Importar propostas
@@ -100,10 +99,6 @@ pt-BR:
               rejected: Rejeitado
               validating: Validação técnica
               withdrawn: Retirado
-          state_null:
-            label: Estado
-            values:
-              'true': Não respondido
           valuator_role_ids_has:
             label: Atribuído ao avaliador
         search_placeholder:
@@ -183,10 +178,8 @@ pt-BR:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: Alguém deixou uma nota na proposta "%{resource_title}". Confira no <a href="%{admin_proposal_info_url}">painel de administração</a>
             email_outro: Você recebeu esta notificação porque pode avaliar a proposta.
             email_subject: Alguém deixou uma nota na proposta %{resource_title}.
-            notification_title: Alguém deixou uma nota na proposta <a href="%{resource_path}">%{resource_title}</a>. Confira no <a href="%{admin_proposal_info_path}">painel de administração</a>
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} foi aceito para acessar como contribuidor %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> foi aceito <strong>para acessar como colaborador</strong> do projeto colaborativo <a href="%{resource_path}">%{resource_title}</a>.
@@ -209,12 +202,10 @@ pt-BR:
           email_intro: 'Agora você pode criar novas propostas em %{participatory_space_title}! Comece a participar nesta página:'
           email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
           email_subject: Propostas agora disponíveis em %{participatory_space_title}
-          notification_title: Agora você pode apresentar <a href="%{resource_path}">novas propostas</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Você pode endossar propostas em %{participatory_space_title}! Comece a participar nesta página:'
           email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
           email_subject: As propostas de endosso começaram para %{participatory_space_title}
-          notification_title: Agora você pode iniciar <a href="%{resource_path}">endossando propostas</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           affected_user:
             email_intro: 'Sua proposta "%{resource_title}" foi aceita. Você pode ler a resposta nesta página:'
@@ -224,7 +215,6 @@ pt-BR:
           follower:
             email_intro: 'A proposta "%{resource_title}" foi aceita. Você pode ler a resposta nesta página:'
             email_outro: Você recebeu esta notificação porque está seguindo "%{resource_title}". Você pode ignorá-lo do link anterior.
-            email_subject: Uma proposta que você está seguindo foi aceita
             notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi aceita.
         proposal_evaluating:
           affected_user:
@@ -235,7 +225,6 @@ pt-BR:
           follower:
             email_intro: 'A proposta "%{resource_title}" está sendo avaliada atualmente. Você pode verificar uma resposta nesta página:'
             email_outro: Você recebeu esta notificação porque está seguindo "%{resource_title}". Você pode ignorá-lo do link anterior.
-            email_subject: Uma proposta que você está seguindo está sendo avaliada
             notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> está sendo avaliada.
         proposal_mentioned:
           email_intro: Sua proposta "%{mentioned_proposal_title}" foi mencionada <a href="%{resource_url}">neste espaço</a> nos comentários.
@@ -255,12 +244,10 @@ pt-BR:
           affected_user:
             email_intro: 'Sua proposta "%{resource_title}" foi rejeitada. Você pode ler a resposta nesta página:'
             email_outro: Você recebeu esta notificação porque é um autor de "%{resource_title}".
-            email_subject: Sua proposta foi rejeitada
             notification_title: Sua proposta <a href="%{resource_path}">%{resource_title}</a> foi rejeitada.
           follower:
             email_intro: 'A proposta "%{resource_title}" foi rejeitada. Você pode ler a resposta nesta página:'
             email_outro: Você recebeu esta notificação porque está seguindo "%{resource_title}". Você pode ignorá-lo do link anterior.
-            email_subject: Uma proposta que você está seguindo foi rejeitada
             notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi rejeitada.
         proposal_update_category:
           email_intro: 'Um administrador atualizou a categoria de sua proposta "%{resource_title}", confira:'
@@ -299,7 +286,6 @@ pt-BR:
           description_own: Você deu suporte a %{score} propostas.
           name: Apoios proposta
           next_level_in: Dê suporte a mais %{score} propostas para alcançar o próximo nível!
-          unearned_another: Este usuário ainda não deu suporte a nenhuma proposta.
           unearned_own: Você deu suporte a nenhuma proposta ainda.
         proposals:
           conditions:
@@ -310,7 +296,6 @@ pt-BR:
           description_own: Você criou %{score} propostas.
           name: Propostas
           next_level_in: Crie mais %{score} propostas para alcançar o próximo nível!
-          unearned_another: Este usuário ainda não criou nenhuma proposta.
           unearned_own: Você não criou nenhuma proposta ainda.
     metrics:
       accepted_proposals:
@@ -371,12 +356,8 @@ pt-BR:
               md: Markdown
               odt: ODT
             bottom_hint: "(Você será capaz de visualizar e classificar as seções do documento)"
-            document_legend: 'Adicione um documento menor que 2MB, cada seção até que 3 níveis de profundidade sejam analisados em propostas. Formatos suportados são: %{valid_mime_types}'
             title: ADICIONAR DOCUMENTO
             upload_document: Carregar documento
-          publish:
-            invalid: Não foi possível publicar propostas
-            success: Todas as propostas foram publicadas
           sections:
             article: "<em>Artigo</em>"
             section: "<em>Seção:</em> <strong>%{title}</strong>"
@@ -391,21 +372,12 @@ pt-BR:
             rejected: Rejeitado
             title: Resposta para a proposta %{title}
         proposal_notes:
-          create:
-            error: Tem havido um problema ao criar esta nota de proposta
-            success: Nota de proposta criada com sucesso
           form:
             note: Nota
             submit: Enviar
           leave_your_note: Deixe sua nota
           title: Notas privadas
         proposals:
-          answer:
-            invalid: Tem havido um problema na resposta a esta proposta
-            success: Proposta respondida com sucesso
-          create:
-            invalid: Tem havido um problema ao criar esta proposta
-            success: Proposta criada com sucesso
           edit:
             title: Atualizar proposta
             update: Atualizar
@@ -440,48 +412,32 @@ pt-BR:
             title: Criar proposta
           publish_answers:
             number_of_proposals: Respostas para propostas de %{number} serão publicadas.
-            select_a_proposal: Selecione uma proposta
           show:
             amendments_count: As alterações contam
             assigned_valuators: Avaliadores atribuídos
-            authors: Autores
             body: Corpo
             comments_count: Contagem de Comentários
-            comments_negative_count: Contra
-            comments_neutral_count: Neutro
-            comments_positive_count: Favor
-            created_at: Data de criação
             documents: Documentos
             endorsements_count: Contagem de endossos
-            endorsements_ranking: Classificação por endossos
             endorsers: Endossar
             link: Link
             n_more_endorsers:
               one: e mais 1
               other: e mais %{count}
             photos: Fotos
-            proposals: Propostas
             ranking: "%{ranking} de %{total}"
             related_meetings: Reuniões relacionadas
             remove_assignment: Remover Atribuição
             remove_assignment_confirmation: Tem certeza que deseja remover o avaliador desta proposta?
             valuators: Avaliadores
             votes_count: Contagem de votos
-            votes_ranking: Classificação por votos
           update_category:
             invalid: 'Estas propostas já tinham a categoria %{subject_name}: %{proposals}.'
-            select_a_category: Selecione uma categoria
-            select_a_proposal: Selecione uma proposta
             success: 'Propostas atualizadas com sucesso para a categoria %{subject_name}: %{proposals}.'
           update_scope:
             invalid: 'Estas propostas já tinham o escopo %{subject_name}: %{proposals}.'
-            select_a_proposal: Selecione uma proposta
-            select_a_scope: Por favor, selecione um escopo
             success: 'Propostas atualizadas com sucesso para o escopo %{subject_name}: %{proposals}.'
         proposals_imports:
-          create:
-            invalid: Tem havido um problema ao importar as propostas
-            success: "%{number} propostas importadas com sucesso"
           new:
             create: Propostas de importação
             no_components: Não há outros componentes da proposta neste espaço participativo para importar as propostas.
@@ -494,13 +450,6 @@ pt-BR:
         proposals_splits:
           create:
             success: Dividiu com sucesso as propostas em novas.
-        valuation_assignments:
-          create:
-            invalid: Ocorreu um erro ao atribuir propostas a um avaliador
-            success: Propostas atribuídas a um avaliador com sucesso
-          delete:
-            invalid: Houve um erro ao desatribuir propostas de um avaliador
-            success: Avaliador desatribuído de propostas com sucesso
       admin_log:
         proposal:
           answer: "%{user_name} respondeu a proposta %{resource_name} no espaço %{space_name}"
@@ -519,15 +468,11 @@ pt-BR:
         rejected: Rejeitado
         withdrawn: Retirado
       application_helper:
-        filter_category_values:
-          all: Todos
         filter_origin_values:
           all: Todos
           meetings: Reuniões
           official: Oficial
           user_groups: Grupos de usuários
-        filter_scope_values:
-          all: Todos
         filter_state_values:
           accepted: Aceitaram
           all: Todos
@@ -543,26 +488,18 @@ pt-BR:
           publish:
             error: Houve erros ao publicar o rascunho colaborativo.
             irreversible_action_modal:
-              body: Depois de publicar o rascunho como uma proposta, o rascunho não será mais editável. A proposta não aceita novos autores ou contribuições.
               cancel: Cancelar
               ok: Publicar como uma proposta
               title: A ação a seguir é irreversível
             success: Esboço colaborativo publicado com sucesso como uma proposta.
-          view_collaborative_draft: Ver rascunho colaborativo
           withdraw:
             error: Houve erros ao fechar o rascunho colaborativo.
             irreversible_action_modal:
-              body: Depois de fechar o rascunho, o rascunho não será mais editável. O rascunho não aceita novos autores ou contribuições.
               cancel: Cancelar
               ok: Retirar o rascunho colaborativo
               title: A ação a seguir é irreversível
             success: Esboço colaborativo retirado com sucesso.
-        count:
-          drafts_count:
-            one: "%{count} rascunho colaborativo"
-            other: "%{count} rascunho colaborativo"
         create:
-          error: Houve um problema ao criar esses rascunhos colaborativos
           success: Rascunho colaborativo criado com sucesso.
         edit:
           attachment_legend: "(Opcional) Adicione um anexo"
@@ -586,6 +523,10 @@ pt-BR:
           filter: Filtro
           filter_by: Filtrar por
           unfold: Desdobrar
+        index:
+          count:
+            one: "%{count} rascunho colaborativo"
+            other: "%{count} rascunho colaborativo"
         new:
           send: Continuar
         new_collaborative_draft_button:
@@ -598,32 +539,26 @@ pt-BR:
         requests:
           accepted_request:
             error: Não foi possível aceitar como colaborador. Tente novamente mais tarde.
-            success: "@%{user} foi aceito como colaborador com sucesso"
           access_requested:
             error: Sua solicitação não pôde ser concluída. Tente novamente mais tarde.
-            success: Sua solicitação para colaborar foi enviada com sucesso
           collaboration_requests:
             accept_request: Aceitar
             reject_request: Rejeitar
             title: Pedidos de colaboração
           rejected_request:
             error: Não foi possível rejeitá-lo como colaborador. Tente novamente mais tarde.
-            success: "@%{user} foi rejeitado como colaborador com sucesso"
         show:
-          back: Costas
           edit: Editar rascunho colaborativo
           final_proposal: proposta final
           final_proposal_help_text: Este rascunho está terminado. Você pode ver a proposta final concluída
           hidden_authors_count:
             one: e mais %{count} pessoa
             other: e mais %{count} pessoas
-          info-message: Este é um <strong>projecto colaborativo</strong> para uma proposta. Isso significa que você pode ajudar seus autores a moldar a proposta usando a seção de comentários abaixo ou melhorá-la diretamente solicitando acesso para editá-la. Depois que os autores lhe concederem acesso, você poderá fazer alterações neste rascunho.
           publish: Publicar
           publish_info: Publicar esta versão do rascunho ou
           published_proposal: proposta publicada
           request_access: Solicitar acesso
           requested_access: Acesso solicitado
-          version_history: ver o histórico de versões desta proposta
           withdraw: retirar o rascunho
         states:
           open: Aberto
@@ -634,27 +569,18 @@ pt-BR:
           success: Rascunho colaborativo atualizado com sucesso.
         wizard_aside:
           back_from_collaborative_draft: Voltar para rascunhos colaborativos
-          info: Você está criando um <strong>projecto de colaboração</strong>.
         wizard_header:
           title: Crie seu rascunho colaborativo
       content_blocks:
         highlighted_proposals:
-          proposals: Propostas
+          name: Propostas
       create:
         error: Ocorreu erros ao salvar a proposta.
         success: Proposta criada com sucesso. Salvo como um rascunho.
       destroy_draft:
         error: Houve erros ao excluir o rascunho da proposta.
         success: O rascunho da proposta foi excluído com sucesso.
-      last_activity:
-        new_proposal_at_html: "<span>Nova proposta em %{link}</span>"
-        proposal_updated_at_html: "<span>Proposta atualizada no %{link}</span>"
       models:
-        collaborative_draft:
-          fields:
-            authors: Autores
-            comments: Comentários
-            contributions: Contribuições
         proposal:
           fields:
             category: Categoria
@@ -670,14 +596,11 @@ pt-BR:
             valuator: Avaliador
             valuators: Avaliadores
             votes: Votos
-      new:
-        limit_reached: Você não pode criar novas propostas desde que você excedeu o limite.
       participatory_text_proposal:
         alternative_title: Não há textos participativos no momento
         buttons:
           amend: Alterar
           comment: Comente
-          comments: Comentários
       proposal_votes:
         create:
           error: Houve erros ao votar a proposta.
@@ -689,17 +612,12 @@ pt-BR:
         complete:
           send: Enviar
           title: Complete sua proposta
-        count:
-          proposals_count:
-            one: "%{count} proposta"
-            other: "%{count} propostas"
         dynamic_map_instructions:
           description: As coordenadas serão atualizadas quando clicar no botão 'visualizar'. No entanto, o endereço não muda.
           instructions: Você pode mover o ponto no mapa.
         edit:
           attachment_legend: "(Opcional) Adicione um anexo"
           back: Voltar
-          gallery_legend: "(Opcional) Adicione uma imagem à carta da proposta"
           select_a_category: Selecione uma categoria
           send: Enviar
           title: Editar proposta
@@ -721,20 +639,13 @@ pt-BR:
           state: Estado
           type: Tipo
           voted: Votado
-        filters_small_view:
-          close_modal: Fechar modal
-          filter: Filtro
-          filter_by: Filtrar por
-          unfold: Desdobrar
         index:
           collaborative_drafts_list: Acesse rascunhos colaborativos
+          count:
+            one: "%{count} proposta"
+            other: "%{count} propostas"
           new_proposal: Nova proposta
           see_all_withdrawn: Veja todas as propostas retiradas
-          view_proposal: Ver proposta
-        linked_proposals:
-          proposal_votes:
-            one: voto
-            other: votos
         new:
           send: Continuar
         orders:
@@ -747,10 +658,8 @@ pt-BR:
           recent: Recente
           with_more_authors: Com mais autores
         participatory_texts:
-          index:
-            document_index: Índice de documentos
           view_index:
-            see_index: Veja o índice
+            document_index: Índice de Documentos
         placeholder:
           address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
@@ -762,20 +671,10 @@ pt-BR:
             other: Você poderá editar esta proposta durante o primeiro %{count} minutos após a publicação da proposta. Uma vez que esta janela de tempo passa, você não poderá editar a proposta.
           publish: Publicar
           title: Publique sua proposta
-        proposal:
-          creation_date: 'Criação: %{date}'
-          view_proposal: Ver proposta
-        proposals:
-          empty: Ainda não há nenhuma proposta
-          empty_filters: Não há nenhuma proposta com este critério
         show:
           answer: Responda
-          back_to: De volta a
-          back_to_list: Voltar para a lista
           changes_at_title: Alteração para "%{title}"
-          comments: Comentários
           edit_proposal: Editar proposta
-          endorsements_list: Lista de avais
           estimated_cost: Custo estimado
           hidden_endorsers_count:
             one: e mais %{count} pessoa
@@ -789,14 +688,9 @@ pt-BR:
           proposal_accepted_reason: 'Esta proposta foi aceita porque:'
           proposal_in_evaluation_reason: Esta proposta está sendo avaliada
           proposal_rejected_reason: 'Esta proposta foi rejeitada porque:'
-          read_less: Leia menos
-          read_more: Ler Mais
-          report: Relatório
           withdraw_btn_hint: Você pode retirar sua proposta se mudar de idéia, desde que não tenha recebido nenhum suporte. A proposta não é excluída, ela aparecerá na lista de propostas retiradas.
           withdraw_confirmation_html: Tem certeza que deseja retirar esta proposta?<br><br><strong>Esta ação não pode ser cancelada!</strong>
           withdraw_proposal: Retirar proposta
-        tags:
-          changed_from: "(alterado de <u>%{previous_name}</u> por um administrador)"
         update:
           title: Atualizar proposta
         vote_button:
@@ -810,23 +704,17 @@ pt-BR:
           count:
             one: VOTO
             other: VOTOS
-          most_popular_proposal: Proposta mais popular
-          need_more_votes: Precisa de mais votos
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Cada proposta pode acumular mais de %{limit} suporta
           minimum_votes_per_user:
             description: Você deve distribuir um mínimo de %{votes} votos entre diferentes propostas.
-            given_enough_votes: Você deu suporte suficiente.
             supports_remaining: Você tem que votar %{remaining_votes} mais propostas para seus votos a serem levados em conta.
           proposal_limit:
             description: Você pode criar até %{limit} propostas.
-          threshold_per_proposal:
-            description: Para serem aceitos, as propostas precisam chegar aos apoios %{limit}
           title: 'A votação está sujeita às seguintes regras:'
           vote_limit:
             description: Você pode votar até %{limit} propostas.
-            left: Remanescente
             votes: Votos
         wizard_aside:
           back: Costas
@@ -834,21 +722,15 @@ pt-BR:
           back_from_step_2: Voltar às propostas
           back_from_step_3: Voltar para a proposta de comparação
           back_from_step_4: Voltar à edição de rascunho
-          info: Você está criando uma <strong>proposta</strong>.
         wizard_steps:
           current_step: Etapa atual
-          see_steps: ver etapas
           step_1: Crie sua proposta
           step_2: Comparar
           step_3: Completo
           step_4: Publique sua proposta
-          step_of: Etapa %{current_step_num} de %{total_steps}
           title: Etapas de criação proposta
       proposals_picker:
         choose_proposals: Escolher propostas
-        close: Fechar
-        more_proposals: Existem mais %{number} propostas. Refine sua pesquisa para localizá-los.
-        no_proposals: Nenhuma proposta corresponde aos seus critérios de pesquisa ou não há propostas.
       publish:
         error: Houve erros ao publicar a proposta.
         success: Proposta publicada com sucesso.
@@ -861,15 +743,8 @@ pt-BR:
         error: Houve erros ao salvar o rascunho da proposta.
         success: Rascunho da proposta atualizado com sucesso.
       versions:
-        collaborative_drafts:
-          back_to_resource: Volte para o rascunho colaborativo
         index:
           title: Versões
-        proposals:
-          back_to_resource: Volte para a proposta
-      withdraw:
-        errors:
-          has_supports: Esta proposta não pode ser retirada porque já tem suporte.
     resource_links:
       copied_from_component:
         proposal_proposal: Propostas relacionadas

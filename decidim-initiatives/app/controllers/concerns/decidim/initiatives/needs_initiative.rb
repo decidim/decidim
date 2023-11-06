@@ -4,7 +4,7 @@ require "active_support/concern"
 
 module Decidim
   module Initiatives
-    # This module, when injected into a controller, ensures there's an
+    # This module, when injected into a controller, ensures there is an
     # initiative available and deducts it from the context.
     module NeedsInitiative
       extend ActiveSupport::Concern

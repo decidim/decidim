@@ -1,0 +1,27 @@
+<% subtitle = content_for(:subtitle) %>
+
+<%= render layout: "layouts/decidim/shared/layout_center", locals: { columns: 10 } do %>
+  <header class="text-center py-10">
+    <h1 class="title-decorator inline-block text-left md:mb-12">
+      <%= t("title", scope: "layouts.decidim.user_profile") %>
+      <%= " - #{subtitle}" if subtitle.present? %>
+    </h1>
+  </header>
+
+  <div class="vertical-tabs">
+    <nav aria-label="menu-vertical">
+      <button id="dropdown-trigger-profile" data-component="dropdown" data-target="dropdown-menu-profile" data-disabled-md="true">
+        <span><%= user_menu.active_item&.label || t("decidim.searches.filters.jump_to") %></span>
+        <%= icon "arrow-down-s-line" %>
+        <%= icon "arrow-up-s-line" %>
+      </button>
+      <ul id="dropdown-menu-profile" class="vertical-tabs__list">
+        <%= user_menu.render %>
+      </ul>
+    </nav>
+
+    <section>
+      <%= yield %>
+    </section>
+  </div>
+<% end %>

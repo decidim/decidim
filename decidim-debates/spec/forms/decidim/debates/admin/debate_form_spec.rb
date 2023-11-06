@@ -13,8 +13,8 @@ describe Decidim::Debates::Admin::DebateForm do
       current_participatory_space: participatory_process
     }
   end
-  let(:participatory_process) { create :participatory_process, organization: }
-  let(:current_component) { create :component, participatory_space: participatory_process }
+  let(:participatory_process) { create(:participatory_process, organization:) }
+  let(:current_component) { create(:component, participatory_space: participatory_process) }
   let(:title) do
     Decidim::Faker::Localized.sentence(word_count: 3)
   end
@@ -26,7 +26,7 @@ describe Decidim::Debates::Admin::DebateForm do
   end
   let(:start_time) { 2.days.from_now }
   let(:end_time) { 2.days.from_now + 4.hours }
-  let(:category) { create :category, participatory_space: participatory_process }
+  let(:category) { create(:category, participatory_space: participatory_process) }
   let(:category_id) { category.id }
   let(:parent_scope) { create(:scope, organization:) }
   let(:scope) { create(:subscope, parent: parent_scope) }
@@ -111,12 +111,24 @@ describe Decidim::Debates::Admin::DebateForm do
   describe "from model" do
     subject { described_class.from_model(debate).with_context(context) }
 
-    let(:component) { create :debates_component }
-    let(:category) { create :category, participatory_space: component.participatory_space }
-    let(:debate) { create :debate, category:, component: }
+    let(:component) { create(:debates_component) }
+    let(:category) { create(:category, participatory_space: component.participatory_space) }
+    let(:debate) { create(:debate, category:, component:) }
 
     it "sets the form category id correctly" do
       expect(subject.decidim_category_id).to eq category.id
+    end
+
+    it "sets the finite value correctly" do
+      expect(subject.finite).to be(false)
+    end
+
+    context "when the debate has start and end dates" do
+      let(:debate) { create(:debate, :open_ama) }
+
+      it "sets the finite value correctly" do
+        expect(subject.finite).to be(true)
+      end
     end
   end
 end

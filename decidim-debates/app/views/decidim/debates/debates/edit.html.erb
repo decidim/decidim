@@ -1,24 +1,20 @@
-<div class="row columns">
-  <div class="m-bottom">
-    <%= link_to :back, class: "muted-link" do %>
-      <%= icon "chevron-left", class: "icon--small", role: "img" %>
-      <%= t(".back") %>
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
+  <div class="text-center py-10">
+    <h1 class="title-decorator inline-block text-left">
+      <%= t("title", scope: "decidim.debates.debates.edit") %>
+    </h1>
+  </div>
+  <div class="mb-24">
+    <%= decidim_form_for(@form) do |form| %>
+      <%= render partial: "form", locals: { form: } %>
+      <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+        <%= link_to :back, class: "button button__sm md:button__lg button__text-secondary" do %>
+          <%= icon "arrow-left-line", class: "fill-current" %>
+          <%= t("back", scope: "decidim.debates.debates.edit") %>
+        <% end %>
+        <%= form.submit t("save", scope: "decidim.debates.debates.edit"), class: "button button__sm md:button__lg button__secondary", data: { disable: true } %>
+        </div>
+      </div>
     <% end %>
   </div>
-  <h2 class="section-heading"><%= t(".title") %></h2>
-</div>
-
-<div class="row">
-  <div class="columns large-6 medium-centered">
-    <div class="card">
-      <div class="card__content">
-        <%= decidim_form_for(@form) do |form| %>
-          <%= render partial: "form", locals: { form: form } %>
-          <div class="actions">
-            <%= form.submit t(".save"), class: "button expanded", data: { disable: true } %>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
+<% end %>

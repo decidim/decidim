@@ -46,7 +46,6 @@ zh-CN:
         confirm_destroy: 您确定吗？
         destroy: 删除
         edit: 编辑
-        new: 新建 %{name}
         title: 行动
       admin:
         debate_closes:
@@ -70,9 +69,6 @@ zh-CN:
           update:
             invalid: 在更新这次辩论时遇到了问题。
             success: 辩论已成功更新。
-        models:
-          debate:
-            name: B. 辩论
       admin_log:
         debate:
           close: "%{user_name} 关闭了 %{resource_name} 场内的 %{space_name} 个辩论"
@@ -85,7 +81,6 @@ zh-CN:
           invalid: 辩论结束时遇到问题。
           success: 辩论已成功结束。
         close_debate_modal:
-          close: 关闭
           description: 这次辩论的总结或结束是什么？
           send: 结束辩论
         closed: 已关闭
@@ -110,18 +105,11 @@ zh-CN:
           my_debates: 我的辩论
           official: 官方的
           origin: 始发地
-          scope: 范围
           search: 搜索
           state: 状态
           state_values:
             closed: 已关闭
             open: 打开
-          user_groups: 群組
-        filters_small_view:
-          close_modal: 关闭模式
-          filter: 筛选器
-          filter_by: 筛选方式
-          unfold: 展开...
         index:
           new_debate: 新的辩论
         new:
@@ -135,7 +123,6 @@ zh-CN:
           recent: 最新的
           updated: 最近更新
         show:
-          back: 返回列表
           close_debate: 结束辩论
           date: 日期
           debate_closed: 已关闭
@@ -143,21 +130,10 @@ zh-CN:
           edit_conclusions: 编辑结论
           edit_debate: 编辑辩论
           groups_count: 群組
-          last_comment_by: 最后评论者
-          no_comments_yet: 尚无评论
           participants_count: 参加者
         update:
           invalid: 有人在更新辩论时遇到问题。
           success: 辩论已成功更新。
-        versions:
-          debates:
-            back_to_resource: 回到辩论
-          index:
-            title: 版本
-        versions_list:
-          back_to_resource: 回到辩论
-      last_activity:
-        new_debate_at_html: "<span>在 %{link}进行新的辩论</span>"
       models:
         debate:
           fields:
@@ -213,7 +189,6 @@ zh-CN:
           name: 辩论
           next_level_in: 参加更多的 %{score} 次辩论，以达到下一级！
           unearned_another: 这位与会者尚未参加任何辩论。
-          unearned_own: 你还没有参与任何辩论。
     metrics:
       debates:
         description: 创建的辩论数

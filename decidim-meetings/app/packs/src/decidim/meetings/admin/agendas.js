@@ -2,7 +2,6 @@ import AutoButtonsByPositionComponent from "src/decidim/admin/auto_buttons_by_po
 import AutoLabelByPositionComponent from "src/decidim/admin/auto_label_by_position.component"
 import createSortList from "src/decidim/admin/sort_list.component"
 import createDynamicFields from "src/decidim/admin/dynamic_fields.component"
-import createQuillEditor from "src/decidim/editor"
 
 const wrapperSelector = ".meeting-agenda-items";
 const fieldSelector = ".meeting-agenda-item";
@@ -69,8 +68,8 @@ const createDynamicFieldsForAgendaItemChilds = (fieldId) => {
     onAddField: ($field) => {
       createSortableListChild();
 
-      $field.find(".editor-container").each((idx, el) => {
-        createQuillEditor(el);
+      $field[0].querySelectorAll(".editor-container").forEach((el) => {
+        window.createEditor(el);
       });
 
       autoLabelByPositionChild.run();
@@ -124,7 +123,7 @@ createDynamicFields({
     createSortableList();
 
     $field.find(".editor-container").each((idx, el) => {
-      createQuillEditor(el);
+      window.createEditor(el);
     });
 
     autoLabelByPosition.run();

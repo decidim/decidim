@@ -1,156 +1,47 @@
 <% add_decidim_meta_tags({
-  title: translated_attribute(questionnaire.title),
-  description: translated_attribute(questionnaire.description),
-}) %>
+                           title: translated_attribute(questionnaire.title),
+                           description: translated_attribute(questionnaire.description)
+                         }) %>
 
-<% columns = allow_answers? && visitor_can_answer? && @form.responses.map(&:question).any?(&:matrix?) ? 9 : 6 %>
+<%= append_stylesheet_pack_tag "decidim_forms" %>
+<%= append_javascript_pack_tag "decidim_forms" %>
 
-<%= render partial: "decidim/shared/component_announcement" if current_component.manifest_name == "surveys" %>
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
 
-<div class="row columns">
-  <h2 class="section-heading"><%= translated_attribute questionnaire.title %></h2>
-  <div class="row">
-    <div class="columns large-<%= columns %> medium-centered lead">
-      <%= decidim_sanitize_editor translated_attribute questionnaire.description %>
-    </div>
-  </div>
-</div>
+  <div class="text-center py-10">
+    <% if questionnaire.title.present? %>
+      <h1 class="title-decorator inline-block text-left mb-12">
+        <%= translated_attribute questionnaire.title %>
+      </h1>
+    <% end %>
 
-<div class="row">
-  <div class="columns large-<%= columns %> medium-centered">
-    <div class="card">
-      <div class="card__content">
-        <% unless questionnaire_for.try(:component)&.try(:published?) %>
-          <div class="section">
-            <div class="callout warning">
-              <p><%= t(".questionnaire_not_published.body") %></p>
-            </div>
-          </div>
-        <% end %>
-
-        <% if allow_answers? %>
-          <% if visitor_can_answer? %>
-            <% if visitor_already_answered? %>
-              <div class="section">
-                <div class="callout success">
-                  <h3 class="heading5"><%= t(".questionnaire_answered.title") %></h3>
-                  <p><%= t(".questionnaire_answered.body") %></p>
-                </div>
-              </div>
-            <% else %>
-              <div class="answer-questionnaire">
-                <noscript>
-                  <div class="section">
-                    <div class="callout warning">
-                      <h3 class="heading5"><%= t(".questionnaire_js_disabled.title") %></h3>
-                      <p><%= t(".questionnaire_js_disabled.body") %></p>
-                    </div>
-                  </div>
-                </noscript>
-                <% unless current_participatory_space.can_participate?(current_user) %>
-                  <div class="section">
-                    <div class="callout alert">
-                      <h3 class="heading5"><%= t(".questionnaire_for_private_users.title") %></h3>
-                      <p><%= t(".questionnaire_for_private_users.body") %></p>
-                    </div>
-                  </div>
-                <% end %>
-
-                <%= decidim_form_for(@form, url: update_url, method: :post, html: { multipart: true, class: "form answer-questionnaire" }, data: { "safe-path" => form_path }) do |form| %>
-                  <%= form_required_explanation %>
-                  <%= invisible_captcha %>
-                  <% answer_idx = 0 %>
-                  <% cleaned_answer_idx = 0 %>
-                  <% @form.responses_by_step.each_with_index do |step_answers, step_index| %>
-                    <div id="step-<%= step_index %>" class="<%= step_index.zero? ? "questionnaire-step" : "questionnaire-step hide" %>" data-toggler=".hide">
-                      <% if @form.total_steps > 1 %>
-                        <h3 class="section-heading">
-                          <%= t(".current_step", step: step_index + 1) %>
-                          <span class="answer-questionnaire__steps"><%= t(".of_total_steps", total_steps: @form.total_steps) %></span>
-                        </h3>
-                      <% end %>
-
-                      <% step_answers.each do |answer| %>
-                        <div class="row column answer question" data-max-choices="<%= answer.question.max_choices %>" data-conditioned="<%= answer.question.display_conditions.any? %>" data-question-id="<%= answer.question.id %>">
-                          <% answer.question.display_conditions.each do |display_condition| %>
-                            <%= content_tag :div, nil, class: "display-condition", data: display_condition.to_html_data %>
-                          <% end %>
-
-                          <%= fields_for "questionnaire[responses][#{answer_idx}]", answer do |answer_form| %>
-                            <%= render(
-                              "decidim/forms/questionnaires/answer",
-                              answer_form: answer_form,
-                              answer: answer,
-                              answer_idx: answer_idx,
-                              cleaned_answer_idx: cleaned_answer_idx,
-                              disabled: !current_participatory_space.can_participate?(current_user)
-                            ) %>
-                          <% end %>
-                        </div>
-                        <% if !(answer.question.separator? || answer.question.title_and_description?) %>
-                          <% cleaned_answer_idx += 1 %>
-                        <% end %>
-                        <% answer_idx += 1 %>
-                      <% end %>
-
-                      <% if step_index + 1 == @form.total_steps %>
-                        <% if show_represent_user_group? %>
-                          <div class="row column represent-user-group">
-                            <%= cell("decidim/represent_user_group", form) %>
-                          </div>
-                        <% end %>
-
-                        <% if show_public_participation? %>
-                          <div class="row column public-participation">
-                            <%= cell("decidim/public_participation", form) %>
-                          </div>
-                        <% end %>
-
-                        <div class="row column tos-agreement">
-                          <%= form.check_box :tos_agreement, label: t(".tos_agreement"), id: "questionnaire_tos_agreement", disabled: !current_participatory_space.can_participate?(current_user) %>
-                          <div class="help-text">
-                            <%= decidim_sanitize_editor translated_attribute questionnaire.tos %>
-                          </div>
-                        </div>
-                      <% end %>
-
-                      <%= cell(
-                        "decidim/forms/step_navigation",
-                        step_index,
-                        total_steps: @form.total_steps,
-                        button_disabled: !current_participatory_space.can_participate?(current_user),
-                        form: form
-                      ) %>
-                    </div>
-                  <% end %>
-                <% end %>
-              </div>
-            <% end %>
-          <% else %>
-            <div class="answer-questionnaire">
-              <h3 class="section-heading"><%= t(".answer_questionnaire.title") %></h3>
-              <p>
-                <%= t(".answer_questionnaire.anonymous_user_message", sign_in_link: decidim.new_user_session_path, sign_up_link: decidim.new_user_registration_path).html_safe %>
-              </p>
-
-              <ol>
-                <%= cell("decidim/forms/question_readonly", collection: @questionnaire.questions.not_conditioned) %>
-              </ol>
-            </div>
-          <% end %>
-        <% else %>
-          <div class="section">
-            <div class="callout warning">
-              <h3 class="heading4"><%= t(".questionnaire_closed.title") %></h3>
-              <p><%= t(".questionnaire_closed.body") %></p>
-            </div>
-          </div>
-        <% end %>
+    <% if questionnaire.description.present? %>
+      <div class="text-left editor-content">
+        <%= decidim_sanitize_editor_admin translated_attribute questionnaire.description %>
       </div>
-    </div>
+    <% end %>
   </div>
-</div>
 
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_forms" %>
+  <%= render partial: "decidim/shared/component_announcement" if current_component.manifest_name == "surveys" %>
+
+  <% unless questionnaire_for.try(:component)&.try(:published?) %>
+    <%= cell("decidim/announcement", t("decidim.forms.questionnaires.show.questionnaire_not_published.body"), callout_class: "warning") %>
+  <% end %>
+
+  <section>
+    <% if allow_answers? %>
+      <% if visitor_can_answer? %>
+        <% if visitor_already_answered? %>
+          <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_answered.title"), body: t("decidim.forms.questionnaires.show.questionnaire_answered.body") }) %>
+        <% else %>
+          <%= render partial: "decidim/forms/questionnaires/questionnaire" %>
+        <% end %>
+      <% else %>
+        <%= render partial: "decidim/forms/questionnaires/questionnaire_readonly" %>
+      <% end %>
+    <% else %>
+      <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_closed.title"), body: t("decidim.forms.questionnaires.show.questionnaire_closed.body") }, callout_class: "warning") %>
+    <% end %>
+  </section>
+
 <% end %>

@@ -1,0 +1,14 @@
+kaa:
+  decidim:
+    forms:
+      upload:
+        labels:
+          save: Saqlaw
+  devise:
+    invitations:
+      edit:
+        submit_button: Saqlaw
+  editor:
+    inputDialog:
+      buttons:
+        save: Saqlaw

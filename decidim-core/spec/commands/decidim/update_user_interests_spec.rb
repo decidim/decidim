@@ -6,9 +6,9 @@ module Decidim
   describe UpdateUserInterests do
     let(:command) { described_class.new(user, form) }
     let(:user) { create(:user) }
-    let(:interested_scope) { create :scope, organization: user.organization }
-    let(:ignored_scope) { create :scope, organization: user.organization }
-    let(:ignored_area) { create :area, organization: user.organization }
+    let(:interested_scope) { create(:scope, organization: user.organization) }
+    let(:ignored_scope) { create(:scope, organization: user.organization) }
+    let(:ignored_area) { create(:area, organization: user.organization) }
     let(:data) do
       {
         scopes: {

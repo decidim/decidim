@@ -1,1 +1,85 @@
 zh-TW:
+  activemodel:
+    attributes:
+      post:
+        body: 正文
+        decidim_author_id: 作者
+        published_at: 發布時間
+        title: 標題
+    models:
+      decidim/blogs/create_post_event: 新增部落格文章
+  activerecord:
+    models:
+      decidim/blogs/post:
+        other: 文章
+  decidim:
+    blogs:
+      actions:
+        author_id: 發佈文章
+        confirm_destroy: 您確定要刪除此文章嗎？
+        destroy: 刪除
+        edit: 編輯
+        new: 新貼文
+        title: 操作
+      admin:
+        posts:
+          create:
+            invalid: 建立此文章時出現問題
+            success: 文章已成功建立
+          destroy:
+            success: 文章已成功刪除
+          edit:
+            save: 更新
+            title: 编辑文章
+          index:
+            not_published_yet: 尚未發布
+            title: 貼文
+          new:
+            create: 建立
+            title: 建立文章
+          update:
+            invalid: 儲存文章時發生問題
+            success: 文章已成功儲存
+      admin_log:
+        post:
+          create: "%{user_name} 在 %{space_name} 創建了 %{resource_name} 部落格文章。"
+          delete: "%{user_name} 從 %{space_name} 刪除了 %{resource_name} 部落格文章。"
+          update: "%{user_name} 在 %{space_name} 更新了 %{resource_name} 部落格文章"
+      last_activity:
+        new_post: '新貼文:'
+      models:
+        post:
+          fields:
+            author: 作者
+            body: 正文
+            official_blog_post: 官方文章
+            published_at: 發布時間
+            title: 標題
+    components:
+      blogs:
+        actions:
+          comment: 評論
+          create: 建立
+          destroy: 刪除
+          endorse: 支持
+          update: 更新
+        name: 部落格
+        settings:
+          global:
+            announcement: 公告
+            comments_enabled: 啟用評論功能
+            comments_max_length: 評論字數最大長度(若要使用預設值請輸入0)
+          step:
+            announcement: 公告
+            comments_blocked: 留言已封鎖
+            endorsements_blocked: 背書已封鎖
+            endorsements_enabled: 背書已啟用
+    events:
+      blogs:
+        post_created:
+          email_intro: 您追蹤的參與空間 "%{participatory_space_title}" 中有新文章發佈了，標題為 "%{resource_title}"。
+          email_outro: 您收到了此通知，是因為您正在關注 "%{participatory_space_title}"。您可以通過前面的鏈接取消關注它。
+          email_subject: 在 %{participatory_space_title} 中發布了新的文章
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 的帖子已經在 %{participatory_space_title} 發布。
+    statistics:
+      posts_count: 文章

@@ -23,7 +23,7 @@ fr-CA:
               missing: ne sont pas complets
               too_many: sont trop nombreux
         questionnaire:
-          request_invalid: Il y a eu une erreur lors du traitement de la demande. Veuillez réessayer
+          request_invalid: Une erreur s'est produite. Veuillez réessayer.
   decidim:
     forms:
       admin:
@@ -44,6 +44,8 @@ fr-CA:
             actions:
               back: Retour aux réponses
               export: Exporter
+              next: Suivant &rsaquo;
+              previous: "&lsaquo; Précédent"
               show: Afficher les réponses
             empty: Pas encore de réponses
             export:
@@ -121,11 +123,12 @@ fr-CA:
           update:
             invalid: Il y a eu des erreurs lors de la sauvegarde du questionnaire.
             success: Le formulaire a bien été sauvegardé.
+      admin_log:
+        questionnaire:
+          update: "%{user_name} a modifié le questionnaire %{resource_name}"
       errors:
         answer:
-          body: Le corps ne peut pas être vide
-      files:
-        extension_allowlist: 'Formats acceptés :'
+          body: ne peut être vide
       images:
         dimensions: "%{width} x %{height} px"
         processors:
@@ -141,6 +144,8 @@ fr-CA:
         single_option: Option unique
         sorting: Tri
         title_and_description: Titre et description
+      questionnaire_answer_presenter:
+        download_attachment: Télécharger la pièce jointe
       questionnaires:
         answer:
           invalid: Il y a eu des erreurs en répondant au questionnaire.
@@ -150,7 +155,10 @@ fr-CA:
           max_choices: 'Choix maximum: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Connectez-vous avec votre compte</a> ou <a href="%{sign_up_link}">inscrivez-vous</a> pour répondre au questionnaire.
+            already_have_an_account?: Vous avez déjà un compte ?
+            are_you_new?: Nouvel utilisateur ?
+            sign_in_description: Connectez-vous pour répondre à l'enquête
+            sign_up_description: Créez votre compte utilisateur pour répondre à l'enquête
             title: Répondez au questionnaire
           current_step: Étape %{step}
           of_total_steps: de %{total_steps}

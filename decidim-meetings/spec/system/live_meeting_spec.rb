@@ -6,8 +6,8 @@ describe "Meeting live event", type: :system do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 
-  let!(:user) { create :user, :confirmed, organization: }
-  let(:meeting) { create :meeting, :published, :online, :live, component: }
+  let!(:user) { create(:user, :confirmed, organization:) }
+  let(:meeting) { create(:meeting, :published, :online, :live, component:) }
   let(:meeting_path) do
     decidim_participatory_process_meetings.meeting_path(
       participatory_process_slug: participatory_process.slug,
@@ -41,7 +41,7 @@ describe "Meeting live event", type: :system do
   context "with essential cookies only" do
     before do
       visit decidim.root_path
-      select_cookies("essential")
+      data_consent("essential")
     end
 
     it "tells that you need to enable cookies" do

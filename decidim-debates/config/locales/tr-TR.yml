@@ -47,7 +47,7 @@ tr:
         confirm_destroy: Emin misiniz?
         destroy: Sil
         edit: Düzenle
-        new: Yeni %{name}
+        new: Yeni Tartışma
         title: Eylemler
       admin:
         debate_closes:
@@ -77,9 +77,6 @@ tr:
             success: Tartışma başarıyla güncellendi.
         exports:
           comments: Yorumlar
-        models:
-          debate:
-            name: Tartışma
       admin_log:
         debate:
           close: "%{user_name}, %{space_name} alanındaki %{resource_name} tartışmasını kapattı"
@@ -92,7 +89,6 @@ tr:
           invalid: Tartışmayı kapatırken bir sorun oluştu.
           success: Tartışma başarıyla sonuçlandı.
         close_debate_modal:
-          close: Kapat
           description: Bu tartışmanın özeti veya sonucu nedir?
           send: Tartışmayı kapat
         closed: Kapat
@@ -118,18 +114,11 @@ tr:
           my_debates: Tartışmalarım
           official: Resmi
           origin: Orijin
-          scope: Kapsam
           search: Arama
           state: Statü
           state_values:
             closed: Kapalı
             open: Açık
-          user_groups: Gruplar
-        filters_small_view:
-          close_modal: Pencereyi kapat
-          filter: Filtrele
-          filter_by: Şuna göre filtrele
-          unfold: Aç
         form:
           select_a_category: Lütfen bir kategori seçin
         index:
@@ -145,7 +134,6 @@ tr:
           recent: En yeni
           updated: Yeni güncellenmiş
         show:
-          back: Listeye geri dön
           close_debate: Tartışmayı kapat
           date: Tarih
           debate_closed: Kapalı
@@ -153,22 +141,11 @@ tr:
           edit_conclusions: Sonuçları düzenleyin
           edit_debate: Tartışmayı düzenle
           groups_count: Gruplar
-          last_comment_by: Son yorum
-          no_comments_yet: Henüz yorum yok
           open: Açık tartışma
           participants_count: Katılımcılar
         update:
           invalid: Bu tartışmayı güncellerken bir sorun oluştu.
           success: Tartışma başarıyla güncellendi.
-        versions:
-          debates:
-            back_to_resource: Tartışmaya geri dön
-          index:
-            title: Sürümler
-        versions_list:
-          back_to_resource: Tartışmaya geri dön
-      last_activity:
-        new_debate_at_html: "<span> %{link}</span> linkinde yeni tartışma"
       models:
         debate:
           fields:
@@ -202,7 +179,6 @@ tr:
           email_intro: 'Artık %{participatory_space_title} içinde yeni tartışmalar başlatabilirsiniz! Bu sayfaya katılmaya başlayın:'
           email_outro: Bu bildirimi, %{participatory_space_title} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
           email_subject: Tartışmalar artık %{participatory_space_title} içinde mevcut
-          notification_title: Artık <a href="%{participatory_space_url}">%{participatory_space_title} </a> ’de <a href="%{resource_path}"> yeni tartışmalar </a> başlatabilirsiniz
         debate_closed:
           affected_user:
             email_intro: '"%{resource_title}" tartışması kapatıldı. Sonuçları sayfasından okuyabilirsiniz:'
@@ -225,7 +201,6 @@ tr:
           name: Tartışmalar
           next_level_in: Bir sonraki seviyeye ulaşmak için %{score} tartışmaya katılın!
           unearned_another: Bu katılımcı henüz bir tartışmada yer almadı.
-          unearned_own: Henüz herhangi bir tartışmaya katılamadınız.
     metrics:
       debates:
         description: Oluşturulan tartışmaların sayısı

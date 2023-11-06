@@ -1,10 +1,19 @@
-<div class="row">
+<% content_for :aside do %>
+  <%= cell(
+    "decidim/versions_list",
+    versioned_resource,
+    version_path: proc { |version_index| url_for(action: :show, id: version_index) },
+    i18n_scope: "decidim.initiatives.versions.shared"
+  ) %>
+<% end %>
+
+<%= render layout: "layouts/decidim/shared/layout_item" do %>
   <%= cell(
     "decidim/version",
     current_version,
     index: params[:id],
-    versioned_resource: versioned_resource,
-    versions_path: proc { url_for(action: :index) },
-    i18n_scope: "decidim.initiatives.versions.shared"
+    versioned_resource:,
+    path: proc { |extra_params| url_for(action: :show, id: params[:id], **extra_params) },
+    versions_path: proc { url_for(action: :index) }
   ) %>
-</div>
+<% end %>

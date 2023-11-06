@@ -14,6 +14,12 @@ ro:
       dummy:
         settings:
           global:
+            guided: Introducere ghidată
+            guided_help: Text de ajutor
+            guided_readonly: Intrare dezactivată
+            guided_rich: Introducere ghidată a conținutului bogat
+            guided_rich_help_html: <strong>Ajutor</strong> text pentru HTML
+            guided_rich_readonly_html: <strong>Ajutor</strong> HTML text pentru intrare dezactivată
             readonly_attribute: Atribut Readonly
             test: Un test
             test_choices:

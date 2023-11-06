@@ -101,7 +101,7 @@ module Decidim
         end
 
         def suggested_hashtags
-          downcased_suggested_hashtags = super.map(&:downcase).to_set
+          downcased_suggested_hashtags = super.to_set(&:downcase)
           component_suggested_hashtags.select { |hashtag| downcased_suggested_hashtags.member?(hashtag.downcase) }
         end
 
@@ -119,7 +119,7 @@ module Decidim
 
         private
 
-        # This method will add an error to the `attachment` field only if there's
+        # This method will add an error to the `attachment` field only if there is
         # any error in any other field. This is needed because when the form has
         # an error, the attachment is lost, so we need a way to inform the user of
         # this problem.

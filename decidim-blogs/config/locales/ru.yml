@@ -1,5 +1,11 @@
 ru:
   activemodel:
+    attributes:
+      post:
+        body: Основной текст
+        decidim_author_id: Автор
+        published_at: Время публикации
+        title: Заголовок
     models:
       decidim/blogs/create_post_event: Создать пост в блоге
   activerecord:
@@ -12,59 +18,69 @@ ru:
   decidim:
     blogs:
       actions:
+        author_id: Создать пост как
         confirm_destroy: Вы действительно хотите удалить этот пост?
         destroy: Удалить
         edit: Редактировать
         new: Создать новый пост
         title: Действия
       admin:
-        models:
-          components:
-            body: Основной текст
-          post:
-            name: Пост
         posts:
           create:
-            invalid: При попытке добавить этот пост произошла ошибка
-            success: Пост успешно создан
+            invalid: При попытке добавить этот пост произошла ошибка.
+            success: Пост успешно создан.
           destroy:
-            success: Пост успешно удален
+            success: Пост успешно удален.
           edit:
             save: Обновить
+            title: Изменить пост
           index:
+            not_published_yet: Пока не опубликовано.
             title: Посты
           new:
             create: Создать
             title: Создать пост
           update:
             invalid: При попытке сохранить пост произошли ошибки.
-            success: Пост успешно сохранен
+            success: Пост успешно сохранен.
+      admin_log:
+        post:
+          create: "%{user_name} создал пост %{resource_name} в %{space_name}"
+          delete: "%{user_name} удалил пост %{resource_name} в %{space_name}"
+          update: "%{user_name} обновил пост %{resource_name} в %{space_name}"
+      content_blocks:
+        highlighted_posts:
+          last_published: Последние опубликованные
+          name: Посты
+          see_all: Посмотреть все посты
       last_activity:
-        new_post_at_html: "<span>Новый пост по ссылке %{link}</span>"
+        new_post: 'Новый пост:'
       models:
         post:
           fields:
             author: Автор
             body: Основной текст
-            created_at: 'Создано:'
-            title: заголовок
-      posts:
-        show:
-          view: Посмотреть
-        sidebar_blog:
-          comments: комментарии
-          most_commented_posts: Наиболее комментируемые посты
-      read_more: Читать подробнее
+            published_at: Время публикации
+            title: Название
     components:
       blogs:
+        actions:
+          comment: Комментарий
+          create: Создать
+          destroy: Удалить
+          endorse: Поддержать
+          update: Обновить
         name: Блог
         settings:
           global:
             announcement: Объявление
             comments_enabled: Комментарии включены
+            comments_max_length: Максимальная длина комментариев (оставьте 0 для значения по умолчанию)
           step:
             announcement: Объявление
             comments_blocked: Комментарии отключены
+            endorsements_blocked: Возможность выразить поддержку отключена
+            endorsements_enabled: Возможность выразить поддержку включена
     events:
       blogs:
         post_created:
@@ -72,3 +88,5 @@ ru:
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
           email_subject: В %{participatory_space_title} обнародован новый пост
           notification_title: В %{participatory_space_title} был обнародован пост <a href="%{resource_path}">%{resource_title}</a>
+    statistics:
+      posts_count: Посты

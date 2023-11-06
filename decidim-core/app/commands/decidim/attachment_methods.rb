@@ -12,13 +12,9 @@ module Decidim
       @attachment = Attachment.new(
         title: { I18n.locale => @form.attachment.title },
         attached_to:,
-        file: @form.attachment.file, # Define attached_to before this
-        content_type: @form.attachment.file.content_type
+        file: signed_id_for(@form.attachment.file),
+        content_type: content_type_for(@form.attachment.file)
       )
-    end
-
-    def delete_attachment(attachment)
-      Attachment.find(attachment.id).delete if attachment.id.to_i == proposal.documents.first.id
     end
 
     def attachment_invalid?
@@ -52,6 +48,24 @@ module Decidim
 
     def delete_attachment?
       @form.attachment&.delete_file.present?
+    end
+
+    protected
+
+    def signed_id_for(attachment)
+      return attachment[:file] if attachment.is_a?(Hash)
+
+      attachment
+    end
+
+    def content_type_for(attachment)
+      return attachment.content_type if attachment.instance_of?(ActionDispatch::Http::UploadedFile)
+
+      blob(signed_id_for(attachment)).content_type
+    end
+
+    def blob(signed_id)
+      ActiveStorage::Blob.find_signed(signed_id)
     end
   end
 end

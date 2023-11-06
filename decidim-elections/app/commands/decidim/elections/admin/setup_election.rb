@@ -3,7 +3,7 @@
 module Decidim
   module Elections
     module Admin
-      # This command gets called when a election is setup from the admin panel.
+      # This command gets called when an election is setup from the admin panel.
       class SetupElection < Decidim::Command
         # Public: Initializes the command.
         #
@@ -95,7 +95,7 @@ module Decidim
               max_selections: question.max_selections,
               title: flatten_translations(question.title),
               # the bulletin_board gem (ruby client) expects a description for the question
-              # as development is in a separate repository, let's send an empty content for the moment
+              # as development is in a separate repository, we send an empty content for the moment
               description: {},
               answers: question_answers_data(question)
             }

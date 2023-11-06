@@ -23,7 +23,7 @@ ca:
               missing: no estan complets
               too_many: en són masses
         questionnaire:
-          request_invalid: Hi ha hagut un problema gestionant la petició. Si us plau torna-ho a provar
+          request_invalid: Hi ha hagut un problema gestionant la petició. Si us plau, torna-ho a provar.
   decidim:
     forms:
       admin:
@@ -44,6 +44,8 @@ ca:
             actions:
               back: Tornar a les respostes
               export: Exportar
+              next: Següent &rsaquo;
+              previous: "&lsaquo; Anterior"
               show: Mostrar les respostes
             empty: Encara no hi ha respostes
             export:
@@ -127,8 +129,6 @@ ca:
       errors:
         answer:
           body: El camp no pot estar en blanc
-      files:
-        extension_allowlist: 'Formats d''arxiu acceptats:'
       images:
         dimensions: "%{width} x %{height} px"
         processors:
@@ -144,6 +144,8 @@ ca:
         single_option: Opció única
         sorting: Ordenació
         title_and_description: Títol i descripció
+      questionnaire_answer_presenter:
+        download_attachment: Descarregar l'arxiu adjunt
       questionnaires:
         answer:
           invalid: S'han produït un error en respondre el formulari.
@@ -153,7 +155,10 @@ ca:
           max_choices: 'Opcions màximes: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Inicia sessió amb el teu compte</a> o <a href="%{sign_up_link}">registra't</a> per respondre el formulari.
+            already_have_an_account?: Ja tens un compte?
+            are_you_new?: Ets una nova usuària?
+            sign_in_description: Inicia la teva sessió per respondre l'enquesta
+            sign_up_description: Crea un compte de participant per a respondre l'enquesta
             title: Respon el formulari
           current_step: Pas %{step}
           of_total_steps: de %{total_steps}
@@ -174,7 +179,7 @@ ca:
           tos_agreement: En participar acceptes els Termes i condicions d'ús
       step_navigation:
         show:
-          are_you_sure: Aquesta acció no es pot desfer i no podràs editar les teves respostes. Estàs segura?
+          are_you_sure: Aquesta acció no es pot desfer i no podràs editar les teves respostes. Segur?
           back: Enrere
           continue: Continuar
           submit: Enviar respostes

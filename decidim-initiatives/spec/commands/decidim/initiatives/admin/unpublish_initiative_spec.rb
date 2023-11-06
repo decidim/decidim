@@ -8,11 +8,11 @@ module Decidim
       describe UnpublishInitiative do
         subject { described_class.new(initiative, user) }
 
-        let(:initiative) { create :initiative }
-        let(:user) { create :user, :admin, :confirmed, organization: initiative.organization }
+        let(:initiative) { create(:initiative) }
+        let(:user) { create(:user, :admin, :confirmed, organization: initiative.organization) }
 
         context "when the initiative is already unpublished" do
-          let(:initiative) { create :initiative, :created }
+          let(:initiative) { create(:initiative, :created) }
 
           it "broadcasts :invalid" do
             expect { subject.call }.to broadcast(:invalid)

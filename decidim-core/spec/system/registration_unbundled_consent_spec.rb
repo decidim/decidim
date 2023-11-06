@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "TOS", type: :system do
   let(:organization) { create(:organization) }
-  let!(:terms_and_conditions_page) { Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization:) }
+  let!(:terms_of_service_page) { Decidim::StaticPage.find_by(slug: "terms-of-service", organization:) }
 
   before do
     switch_to_host(organization.host)
@@ -16,7 +16,7 @@ describe "TOS", type: :system do
       within("div#card__tos") do
         expect(page).to have_content("Terms of Service")
         expect(page).to have_css("label[for=\"registration_user_tos_agreement\"]")
-        expect(page).to have_css("input#registration_user_tos_agreement")
+        expect(page).to have_field(id: "registration_user_tos_agreement")
       end
     end
 

@@ -2,27 +2,46 @@ ar:
   activemodel:
     attributes:
       oauth_application:
+        name: اسم تطبيق OAuth
+        organization_logo: شعار المنظمة (مربع)
         organization_name: المنظمة
+        organization_url: العنوان الشبكي للمنظمة
+        redirect_uri: إعادة توجيه URI
       organization:
+        address: خادم SMTP
         from_email: عنوان البريد الإلكتروني
+        from_label: تسمية
         password: الكلمة السرية
         port: المنفذ
         user_name: اسم المستخدم
+      organization_file_uploads:
+        allowed_content_types:
+          admin: أنواع MIME المدير
+          default: أنواع MIME الافتراضية
+        allowed_file_extensions:
+          admin: ملحقات ملف المدير
+          default: ملحقات الملف الافتراضية
+          image: ملحقات ملف الصورة
+        maximum_file_size:
+          avatar: حجم ملف الافاتار
+          default: حجم الملف الافتراضي
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: إعادة توجيه URI يجب أن يكون SSL URI
   decidim:
     system:
       actions:
         confirm_destroy: هل أنت متأكد أنك تريد حذف هذا؟
         destroy: حذف
         edit: تعديل
-        new: الجديد
         save: حفظ
         title: أفعال
       admins:
         create:
           error: كانت هناك مشكلة في إنشاء مسؤول جديد.
-          success: تم إنشاء المشرف بنجاح
-        destroy:
-          success: تم حذف المشرف بنجاح
         edit:
           title: تحرير المشرف
           update: تحديث
@@ -33,7 +52,9 @@ ar:
           title: المشرف الجديد
         update:
           error: حدثت مشكلة أثناء تحديث هذا المشرف.
-          success: تم تحديث المشرف بنجاح
+      dashboard:
+        show:
+          current_organizations: المنظمات الحالية
       default_pages:
         placeholders:
           content: يرجى إضافة محتوى ذي معنى إلى الصفحة الثابتة %{page} في لوحة تحكم المشرف.
@@ -41,40 +62,90 @@ ar:
       menu:
         admins: مدراء
         dashboard: لوحة القيادة
+        oauth_applications: تطبيقات OAuth
         organizations: المنظمات
       models:
         admin:
           fields:
             created_at: أنشئت في
             email: البريد الإلكتروني
-          name: مشرف
           validations:
             email_uniqueness: يوجد مشرف آخر بنفس البريد الإلكتروني بالفعل
         oauth_application:
           fields:
+            created_at: أنشئ في
+            name: اسم تطبيق OAuth
             organization_name: المنظمة
         organization:
           actions:
             save_and_invite: إنشاء منظمة ودعوة المشرف
           fields:
             created_at: أنشئت في
+            file_upload_settings: إعدادات تحميل الملف
             name: اسم
+            omniauth_settings: إعدادات Omniauth
             smtp_settings: إعدادات الـ SMTP
-          name: منظمة
+      oauth_applications:
+        create:
+          error: كانت هناك مشكلة في إنشاء هذا التطبيق.
+          success: تم إنشاء التطبيق بنجاح.
+        destroy:
+          error: كانت هناك مشكلة في تدمير هذا التطبيق.
+          success: تم تدمير التطبيق بنجاح.
+        edit:
+          save: حفظ
+          title: تعديل التطبيق
+        form:
+          select_organization: اختيار منظمة
+        index:
+          confirm_delete: هل أنت متأكد من أنك تريد حذف هذا التطبيق؟
+          title: تطبيقات OAuth
+        new:
+          save: حفظ
+          title: تطبيق جديد
+        update:
+          error: كانت هناك مشكلة خلال تحديث هذا التطبيق.
+          success: تم تحديث هذا التطبيق بنجاح.
       organizations:
+        advanced_settings:
+          hide: إخفاء الإعدادات المتقدمة
+          show: إظهار الإعدادات المتقدمة
         create:
           error: كانت هناك مشكلة في إنشاء منظمة جديدة.
           success: تم إنشاء المنظمة بنجاح.
         edit:
           secondary_hosts_hint: أدخل كل واحد منهم في سطر جديد
+        file_upload_settings:
+          content_types:
+            admin_hint: يسمح اختيار أنواع MIME هذه لتحميلات قسم المدير. يجب أن يكون مستخدمو المدير على دراية مخاطر تحميل بعض صيغ الوثائق، ولذلك يتوقع منهم ويتوجب عليهم أن يكونوا أكثر حذرا في تحميل الملفات.
+            default_hint: أنواع MIME هذه مسموح بها لجميع المستخدمين بشكل افتراضي.
+            intro_html: يمكن إضافة أحرف البدل wildcards باستخدام رمز النجمة لأنواع MIME ، على سبيل المثال <code>صورة/*</code>.
+            title: أنواع MIME المسموح بها
+          file_extensions:
+            admin_hint: يسمح اختيار ملحقات الملفات هذه لتحميلات قسم المدير. يجب أن يكون مستخدمو المدير على دراية بمخاطر تحميل بعض صيغ الوثائق، ولذلك يتوقع منهم ويتوجب عليهم أن يكونوا أكثر حذرا في تحميل الملفات.
+            default_hint: ملحقات الملفات هذه مسموح بها لجميع المستخدمين بشكل افتراضي.
+            image_hint: ملحقات الملفات هذه مسموح بها لأي نوع من تحميل الصورة.
+            title: ملحقات الملفات المسموح بها
+          file_sizes:
+            avatar_hint: ميغابايت (MB). يتم استخدام حجم الملف المحدد هذا لتحميلات صورة الافاتار.
+            default_hint: ميغابايت (MB). هذا الحد لحجم الملف هو الافتراضي المستخدم لجميع تحميل الملفات ما لم يتم تحديد خلاف ذلك.
+            title: حجم الملف الأقصى
+          intro: |
+            يرجى توخي المزيد من الحذر عند التفكير في تغيير هذه الإعدادات. كلما قللت من المسموح به، كلما كان ذلك أفضل.
+            السماح بتمديد ملف معين أو أنواع MIME يمكن أن يعرض مستخدمي النظام لمخاطر أمنية ويمكن أن يؤثر أيضا على إمكانية الوصول إلى الموقع.
         index:
           title: المنظمات
         new:
-          reference_prefix_hint: يتم استخدام بادئة المرجع لتعريف الموارد بشكل فريد في كل المؤسسة
-          secondary_hosts_hint: أدخل كل واحد منهم في سطر جديد
           title: منظمة جديدة
         omniauth_settings:
+          decidim:
+            client_id: معرف العميل ID
+            client_secret: الرمز السري للعميل
+            site_url: Url الخاص بالموقع
+          enabled: تم التمكين
+          enabled_by_default: هذا المزود ممكن بشكل افتراضي. يمكن تعديله ولكن لا يمكن تعطيله.
           facebook:
+            app_id: معرّف التطبيق
             app_secret: سر التطبيق
           google_oauth2:
             client_id: معرف العميل ID
@@ -87,13 +158,15 @@ ar:
         smtp_settings:
           fieldsets:
             sender: المُرسِل
+          placeholder:
+            from_email: your-organization@example.org
+            from_label: اسم منظمتك
         update:
           error: حدثت مشكلة أثناء تحديث هذه المؤسسة.
           success: تم تحديث المنظمة بنجاح.
         users_registration_mode:
           disabled: يمكن فقط الوصول باستخدام الحسابات الخارجية
           enabled: السماح للمشاركين بالتسجيل والدخول
-          existing: لا تسمح للمشاركين بالتسجيل ، لكن اسمح للمشاركين الحاليين بتسجيل الدخول
       shared:
         notices:
           no_organization_warning_html: يجب عليك إنشاء منظمة للبدء. تأكد من قراءة %{guide} قبل المتابعة.

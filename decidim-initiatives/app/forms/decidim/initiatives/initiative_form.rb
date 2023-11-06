@@ -3,16 +3,12 @@
 module Decidim
   module Initiatives
     # A form object used to collect the data for a new initiative.
-    class InitiativeForm < Form
+    class InitiativeForm < PreviousForm
       include TranslatableAttributes
       include AttachmentAttributes
 
       mimic :initiative
 
-      attribute :title, String
-      attribute :description, String
-      attribute :type_id, Integer
-      attribute :scope_id, Integer
       attribute :area_id, Integer
       attribute :decidim_user_group_id, Integer
       attribute :signature_type, String
@@ -20,18 +16,16 @@ module Decidim
       attribute :state, String
       attribute :attachment, AttachmentForm
       attribute :hashtag, String
+      attribute :scope_id, Integer
 
       attachments_attribute :photos
       attachments_attribute :documents
 
-      validates :title, :description, presence: true
-      validates :title, length: { maximum: 150 }
       validates :signature_type, presence: true
-      validates :type_id, presence: true
       validates :area, presence: true, if: ->(form) { form.area_id.present? }
-      validate :scope_exists
       validate :notify_missing_attachment_if_errored
       validate :trigger_attachment_errors
+      validate :scope_exists
       validates :signature_end_date, date: { after: Date.current }, if: lambda { |form|
         form.context.initiative_type.custom_signature_end_date_enabled? && form.signature_end_date.present?
       }
@@ -39,6 +33,10 @@ module Decidim
       def map_model(model)
         self.type_id = model.type.id
         self.scope_id = model.scope&.id
+        self.decidim_user_group_id = model.decidim_user_group_id
+        self.signature_type = model.signature_type || initiative_type.signature_type
+        self.title = translated_attribute(model.title)
+        self.description = translated_attribute(model.description)
       end
 
       def signature_type_updatable?
@@ -53,12 +51,6 @@ module Decidim
         @area_updatable ||= current_user.admin? || context.initiative.created?
       end
 
-      def scope_id
-        return nil if initiative_type.only_global_scope_enabled?
-
-        super.presence
-      end
-
       def area
         @area ||= current_organization.areas.find_by(id: area_id)
       end
@@ -67,37 +59,39 @@ module Decidim
         @initiative_type ||= type_id ? InitiativesType.find(type_id) : context.initiative.type
       end
 
-      def available_scopes
-        @available_scopes ||= if initiative_type.only_global_scope_enabled?
-                                initiative_type.scopes.where(scope: nil)
-                              else
-                                initiative_type.scopes
-                              end
-      end
-
-      def scope
-        @scope ||= Scope.find(scope_id) if scope_id.present?
-      end
-
       def scoped_type_id
         return unless type && scope_id
 
         type.scopes.find_by(decidim_scopes_id: scope_id.presence).id
       end
 
-      private
-
-      def type
-        @type ||= type_id ? Decidim::InitiativesType.find(type_id) : context.initiative.type
+      def scope
+        @scope ||= Scope.find(scope_id) if scope_id.present?
       end
+
+      def scope_id
+        return nil if type.only_global_scope_enabled?
+
+        super.presence
+      end
+
+      def available_scopes
+        @available_scopes ||= if type.only_global_scope_enabled?
+                                type.scopes.where(scope: nil)
+                              else
+                                type.scopes
+                              end
+      end
+
+      private
 
       def scope_exists
         return if scope_id.blank?
 
-        errors.add(:scope_id, :invalid) unless InitiativesTypeScope.exists?(type: initiative_type, scope:)
+        errors.add(:scope_id, :invalid) unless InitiativesTypeScope.exists?(type:, scope:)
       end
 
-      # This method will add an error to the `attachment` field only if there's
+      # This method will add an error to the `attachment` field only if there is
       # any error in any other field. This is needed because when the form has
       # an error, the attachment is lost, so we need a way to inform the user of
       # this problem.

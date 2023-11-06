@@ -31,12 +31,12 @@ module Decidim
         end
 
         def edit
-          enforce_permission_to :update, :budget, budget: budget
+          enforce_permission_to(:update, :budget, budget:)
           @form = form(BudgetForm).from_model(budget)
         end
 
         def update
-          enforce_permission_to :update, :budget, budget: budget
+          enforce_permission_to(:update, :budget, budget:)
           @form = form(BudgetForm).from_params(params, current_component:)
 
           UpdateBudget.call(@form, budget) do
@@ -53,7 +53,7 @@ module Decidim
         end
 
         def destroy
-          enforce_permission_to :delete, :budget, budget: budget
+          enforce_permission_to(:delete, :budget, budget:)
 
           DestroyBudget.call(budget, current_user) do
             on(:ok) do
@@ -79,7 +79,7 @@ module Decidim
         end
 
         def orders
-          @orders ||= Order.where(decidim_budgets_budget_id: budgets)
+          @orders ||= Order.where(budget: budgets)
         end
 
         def pending_orders

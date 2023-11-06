@@ -1,81 +1,54 @@
-<div class="wrapper">
-<div class="row collapse">
-  <div class="row collapse">
-    <div class="columns large-8 large-centered text-center page-title">
-      <h1><%= t "devise.invitations.edit.header" %></h1>
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
 
-      <p><%= t("devise.invitations.edit.subtitle").html_safe %></p>
-    </div>
+  <div class="text-center py-12">
+    <h1 class="title-decorator inline-block text-left mb-12"><%= t "devise.invitations.edit.header" %></h1>
+
+    <p class="text-lg text-gray-2">
+      <%= t("devise.invitations.edit.subtitle").html_safe %>
+    </p>
   </div>
 
-  <div class="row">
-    <div class="columns large-6 medium-10 medium-centered">
-      <%= decidim_form_for resource, namespace: "invitation", as: resource_name, url: invitation_path(resource_name, invite_redirect: params[:invite_redirect]), html: { method: :put, class: "register-form new_user" } do |f| %>
-        <div class="card">
-          <div class="card__content">
-            <legend><%= t("sign_up_as.legend", scope: "decidim.devise.registrations.new") %></legend>
+  <%= decidim_form_for resource, namespace: "invitation", as: resource_name, url: invitation_path(resource_name, invite_redirect: params[:invite_redirect]), html: { method: :put, class: "register-form new_user" } do |f| %>
+    <%= form_required_explanation %>
 
-            <%= form_required_explanation %>
+    <div class="form__wrapper">
+      <%= f.hidden_field :invitation_token %>
 
-            <%= f.hidden_field :invitation_token %>
+      <%= f.text_field :nickname, help_text: t("devise.invitations.edit.nickname_help", organization: current_organization.name), required: "required", autocomplete: "nickname" %>
 
-            <div class="user-nickname">
-              <div class="field">
-                <%= f.text_field :nickname, help_text: t("devise.invitations.edit.nickname_help", organization: current_organization.name), required: "required", prefix: { value: "@", small: 1, large: 1 }, autocomplete: "nickname" %>
-              </div>
-            </div>
-
-            <% if f.object.class.require_password_on_accepting %>
-              <div class="field">
-                <p><%= f.password_field :password, password_field_options_for(:user).except(:help_text) %></p>
-              </div>
-              <div class="field">
-                <p><%= f.password_field :password_confirmation, password_field_options_for(:user).except(:help_text) %></p>
-              </div>
-            <% end %>
-          </div>
-        </div>
-
-        <div class="card" id="card__tos">
-          <div class="card__content">
-            <fieldset>
-              <legend><%= t("tos_title", scope: "decidim.devise.registrations.new") %></legend>
-              <p class="tos-text"><%= strip_tags(translated_attribute(terms_and_conditions_page.content)) %></p>
-            </fieldset>
-
-            <div class="field">
-              <% link = link_to t("terms", scope: "decidim.devise.registrations.new"), page_path("terms-and-conditions"), target: "_blank" %>
-              <% label = t("tos_agreement", scope: "decidim.devise.registrations.new", link: link) %>
-              <%= f.check_box :tos_agreement, label: label, required: "required" %>
-            </div>
-          </div>
-        </div>
-
-        <div class="card" id="card__newsletter">
-          <div class="card__content">
-
-            <fieldset>
-              <legend><%= t("newsletter_title", scope: "decidim.devise.registrations.new") %></legend>
-              <div class="field">
-                <%= label_tag :"#{resource_name}[newsletter_notifications]" do %>
-                  <%= check_box_tag :"#{resource_name}[newsletter_notifications]" %>
-                  <%= t("newsletter", scope: "decidim.devise.registrations.new") %>
-                <% end %>
-              </div>
-            </fieldset>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card__content">
-            <div class="actions">
-              <%= f.submit t("devise.invitations.edit.submit_button"), class: "button expanded" %>
-            </div>
-          </div>
-        </div>
-
+      <% if f.object.class.require_password_on_accepting %>
+        <%= render partial: "decidim/account/password_fields", locals: { form: f, user: :user } %>
       <% end %>
     </div>
-  </div>
-</div>
-</div>
+
+    <div class="form__wrapper-block">
+      <h4 class="h4"><%= t("tos_title", scope: "decidim.devise.registrations.new") %></h4>
+
+      <div class="tos-text">
+        <% terms_of_service_summary_content_blocks.each do |content_block| %>
+          <%= cell content_block.manifest.cell, content_block %>
+        <% end %>
+      </div>
+
+      <% link = link_to t("terms", scope: "decidim.devise.registrations.new"), page_path("terms-and-conditions"), target: "_blank" %>
+      <% label = t("tos_agreement", scope: "decidim.devise.registrations.new", link:) %>
+      <%= f.check_box :tos_agreement, label:, required: "required", label_options: { class: "form__wrapper-checkbox-label" } %>
+    </div>
+
+    <div class="form__wrapper-block">
+      <h4 class="h4"><%= t("newsletter_title", scope: "decidim.devise.registrations.new") %></h4>
+      <%= label_tag :"#{resource_name}[newsletter_notifications]", class: "form__wrapper-checkbox-label" do %>
+        <%= check_box_tag :"#{resource_name}[newsletter_notifications]" %>
+        <%= t("newsletter", scope: "decidim.devise.registrations.new") %>
+      <% end %>
+    </div>
+
+    <div class="form__wrapper-block">
+      <button type="submit" class="button button__lg button__secondary">
+        <%= t("devise.invitations.edit.submit_button") %>
+        <%= icon "arrow-right-line", class: "fill-current" %>
+      </button>
+    </div>
+
+  <% end %>
+<% end %>

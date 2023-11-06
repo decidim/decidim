@@ -8,9 +8,11 @@ module Decidim
       path = Rails.root.join("tmp/#{organization.open_data_file_path}")
 
       exporter = OpenDataExporter.new(organization, path)
-      raise "Couldn't generate Open Data export" unless exporter.export.positive?
+      raise "Could not generate Open Data export" unless exporter.export.positive?
 
       organization.open_data_file.attach(io: File.open(path, "rb"), filename: organization.open_data_file_path)
+      # Deletes the temporary file file
+      File.delete(path)
     end
   end
 end

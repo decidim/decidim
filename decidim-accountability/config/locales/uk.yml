@@ -36,7 +36,6 @@ uk:
         confirm_destroy: Ви впевнені, що хочете видалити %{name}?
         destroy: Видалити
         edit: Редагувати
-        new: Додати %{name}
         preview: Попередній перегляд
         timeline_entries: Розвиток проекту
         title: Дії
@@ -48,14 +47,7 @@ uk:
             name: Підсумки
           status:
             name: Стан
-          timeline_entry:
-            name: Запис на лінії часу
         results:
-          create:
-            invalid: При спробі створити ці підсумки сталася помилка
-            success: Підсумки успішно створено
-          destroy:
-            success: Підсумки успішно видалено
           edit:
             title: Редагувати підсумки
             update: Оновити підсумки
@@ -64,18 +56,10 @@ uk:
           new:
             create: Створити підсумки
             title: Додати підсумки
-          update:
-            invalid: При спробі оновити ці підсумки сталася помилка
-            success: Підсумки успішно оновлено
         shared:
           subnav:
             statuses: Стани
         statuses:
-          create:
-            invalid: При спробі створити цей стан сталася помилка
-            success: Стан успішно створено
-          destroy:
-            success: Стан успішно видалено
           edit:
             title: Редагувати стан
             update: Оновити стан
@@ -84,15 +68,7 @@ uk:
           new:
             create: Створити стан
             title: Додати стан
-          update:
-            invalid: При спробі оновити цей стан сталася помилка
-            success: Стан успішно оновлено
         timeline_entries:
-          create:
-            invalid: При спробі створити цей запис сталася помилка
-            success: Запис успішно створено
-          destroy:
-            success: Запис успішно видалено
           edit:
             title: Редагувати запис
             update: Оновити запис
@@ -101,9 +77,6 @@ uk:
           new:
             create: Створити запис
             title: Додати запис
-          update:
-            invalid: Під час оновлення цього запису сталася помилка
-            success: Запис успішно оновлено
       admin_log:
         result:
           create: "%{user_name} створив підсумок %{resource_name} у %{space_name}"
@@ -138,7 +111,6 @@ uk:
             other: "%{count} підсумків"
         filters:
           all: Усі
-          scopes: Обсяги
         home:
           categories_label: Категорії
           subcategories_label: Підкатегорії

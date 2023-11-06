@@ -15,6 +15,14 @@ module Decidim
       initializer "decidim_forms.webpacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
+
+      initializer "decidim_forms.authorization_transfer" do
+        config.to_prepare do
+          Decidim::AuthorizationTransfer.register(:forms) do |transfer|
+            transfer.move_records(Decidim::Forms::Answer, :decidim_user_id)
+          end
+        end
+      end
     end
   end
 end

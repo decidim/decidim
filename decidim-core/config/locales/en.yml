@@ -26,16 +26,18 @@ en:
         locale: Locale
         name: Your name
         nickname: Nickname
+        old_password: Current password
         password: Password
         password_confirmation: Confirm your password
         personal_url: Personal URL
         remove_avatar: Remove avatar
+        tos_agreement: Terms of service agreement
     models:
       decidim/attachment_created_event: Attachment
       decidim/component_published_event: Active component
       decidim/demoted_membership: No longer a group admin
       decidim/gamification/badge_earned_event: Badge earned
-      decidim/gamification/level_up_event: You've leveled up
+      decidim/gamification/level_up_event: You have leveled up
       decidim/invited_to_group_event: Invited to group
       decidim/join_request_accepted_event: Join request accepted
       decidim/join_request_rejected_event: Join request rejected
@@ -77,12 +79,14 @@ en:
     'true': 'Yes'
   carrierwave:
     errors:
+      file_cannot_be_processed: File cannot be processed
       file_resolution_too_large: File resolution is too large
       file_size_too_large: File size is too large
       not_inside_organization: The file is not attached to any organization
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_short_dashed: "%d-%m-%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
@@ -97,24 +101,43 @@ en:
         other: about %{count} months
       half_a_minute: half a minute
       less_than_x_minutes:
-        one: less than a min.
-        other: less than %{count} min.
+        one: less than a minute
+        other: less than %{count} minutes
       less_than_x_seconds:
-        one: right now
-        other: less than %{count} sec.
+        one: less than 1 second
+        other: less than %{count} seconds
+      short:
+        about_x_days: "%{count}d"
+        about_x_hours: "%{count}h"
+        about_x_minutes: "%{count}m"
+        about_x_months: "%{count} mo."
+        about_x_years: "%{count}y"
+        almost_x_years: "%{count}y"
+        half_a_minute: 1m
+        less_than_x_minutes: "%{count}m"
+        less_than_x_seconds: "%{count}s"
+        over_x_years: "%{count}y"
+        x_days: "%{count}d"
+        x_hours: "%{count}h"
+        x_minutes: "%{count}m"
+        x_months: "%{count} mo."
+        x_seconds: "%{count}s"
+        x_years: "%{count}y"
       x_days:
-        one: 1 day ago
-        other: "%{count} days ago"
+        one: 1 day
+        other: "%{count} days"
       x_hours:
-        one: 1 hour ago
-        other: "%{count} hours ago"
+        one: 1 hour
+        other: "%{count} hours"
       x_minutes:
-        one: 1 min. ago
-        other: "%{count} min. ago"
+        one: 1 minute
+        other: "%{count} minutes"
+      x_months:
+        one: 1 month
+        other: "%{count} months"
       x_seconds:
-        one: 1 sec. ago
-        other: "%{count} sec. ago"
-        zero: right now
+        one: 1 second
+        other: "%{count} seconds"
   decidim:
     accessibility:
       external_link: External link
@@ -122,44 +145,47 @@ en:
       logo: "%{organization}'s official logo"
       skip_button: Skip to main content
     account:
-      blocked: This account has been blocked due to Terms and Conditions violation
+      blocked: This account has been blocked due to terms of service violation
       delete:
-        alert: This action cannot be undone. If you delete your account you won't be able to log in with your credentials. The deletion of your account will result in the anonymization of your contributions. You will still be able to create a new account, but these contributions will not be associated with it.
+        alert: This action cannot be undone. If you delete your account you will not be able to log in with your credentials. The deletion of your account will result in the anonymization of your contributions. You will still be able to create a new account, but these contributions will not be associated with it.
         confirm:
           close: Close window
           ok: Yes, I want to delete my account
           question: Are you sure you want to delete your account?
           title: Delete my account
         explanation: Please, fill in the reason you want to delete your account (optional).
+        leaving_authorizations_behind: Some data bound to your authorization will be saved for security. If you create another account and authorize again, this data will be recovered to your new account.
       destroy:
         error: There was a problem deleting your account.
         success: Your account was successfully deleted.
       download_your_data_export:
         file_no_exists: File does not exist
-        notice: The download of your data is currently in progress. You'll receive an email when it's complete.
+        notice: The download of your data is currently in progress. You will receive an email when it is complete.
       email_change:
-        body1: We've sent an email to %{unconfirmed_email} to verify your new email address.
+        body1: We have sent an email to %{unconfirmed_email} to verify your new email address.
         body2: Need us to send the verification email again? %{resend_link} or %{cancel_link}.
         cancel: cancel
         cancel_error: Could not cancel the email change.
         cancel_successfully: Email change cancelled successfully.
         resend_error: Could not resend confirmation email.
-        resend_successfully: Confirmation email resent successfully to %{unconfirmed_email}
+        resend_successfully: Confirmation email resent successfully to %{unconfirmed_email}.
         send_again: Send again
         title: Email change verification
       show:
-        available_locales_helper: Choose the language you want to use to browse and receive notifications on the platform
+        available_locales_helper: Choose the language you want to use to browse and receive notifications on the platform.
         change_password: Change password
         update_account: Update account
       update:
         error: There was a problem updating your account.
         success: Your account was successfully updated.
-        success_with_email_confirmation: Your account was successfully updated. You'll receive an email to confirm your new email address.
+        success_with_email_confirmation: Your account was successfully updated. You will receive an email to confirm your new email address.
+    activity:
+      time_ago: "%{time} ago"
     admin:
       actions:
         cancel: Cancel
       password_change:
-        alert: You need to change your password in order to proceed further
+        alert: You need to change your password in order to proceed further.
         notification: Admin users need to change their password every %{days} days.
     admin_log:
       area:
@@ -243,13 +269,15 @@ en:
         unblock: "%{user_name} unblocked user %{resource_name}"
         unofficialize: "%{user_name} unofficialized the participant %{resource_name}"
       user_group:
+        block: "%{user_name} blocked user group %{resource_name}"
         reject: "%{user_name} rejected the %{resource_name} group verification"
+        unblock: "%{user_name} unblocked user group %{resource_name}"
         verify: "%{user_name} verified the group %{resource_name}"
         verify_via_csv: "%{user_name} verified the group %{resource_name} via a CSV file"
       user_moderation:
         unreport: "%{user_name} unreported an %{resource_type} - %{unreported_user_name}"
-    admin_terms_of_use:
-      default_body: "<h2>ADMIN TERMS OF USE</h2><p>We trust you have received the usual lecture from the local System Administrator. It usually boils down to these three things:</p><ol><li>Respect the privacy of others.</li><li>Think before you click.</li><li>With great power comes great responsibility.</li></ol>"
+    admin_terms_of_service:
+      default_body: "<h2>ADMIN TERMS OF SERVICE</h2><p>We trust you have received the usual lecture from the local System Administrator. It usually boils down to these three things:</p><ol><li>Respect the privacy of others.</li><li>Think before you click.</li><li>With great power comes great responsibility.</li></ol>"
     alert:
       dismiss: Dismiss notification
     amendments:
@@ -257,14 +285,15 @@ en:
         error: An error ocurred while accepting the amendment.
         success: The amendment has been accepted successfully.
       amendable:
-        amended_by: Amended by
         button: Amend %{model_name}
         error: There has been an error amending this resource.
-        help_text: Improve this %{model_name} by modifying its %{amendable_fields}
         promote_button: Promote to %{model_name}
         promote_confirm_text: Are you sure you want to promote this emendation?
-        promote_help_text: You can promote this emendation and publish it as an independent %{model_name}
-        section_heading: Amendments (%{count})
+        promote_help_text: You can promote this emendation and publish it as an independent %{model_name}.
+      amendments:
+        title:
+          one: "%{count} amendment"
+          other: "%{count} amendments"
       compare_draft:
         continue: Continue
         no_similars_found: No similar emendations found.
@@ -277,7 +306,6 @@ en:
         success: Amendment draft was successfully deleted.
       edit_draft:
         discard: Discard this draft
-        discard_confirmation: Are you sure you want to discard this amendment draft?
         send: Preview
         title: Edit Amendment Draft
       emendation:
@@ -297,6 +325,7 @@ en:
           withdrawn: |-
             This amendment for the %{amendable_type} %{proposal_link}
             has been withdrawn by the author.
+      name: Amendment
       new:
         amendment_author: Amendment author
         send: Create
@@ -306,25 +335,24 @@ en:
         publish: Publish
         title: Publish Amendment Draft
       promoted:
-        error: There was a problem publishing the amendment as a new proposal
-        success: The amendment has been successfully published as a new proposal
+        error: There was a problem publishing the amendment as a new proposal.
+        success: The amendment has been successfully published as a new proposal.
       publish_draft:
         error: There was a problem publishing the amendment.
         success: Amendment successfully published.
       rejected:
-        error: There was a problem rejecting this amendment, please try again later
-        success: The amendment has been successfully rejected
+        error: There was a problem rejecting this amendment, please try again later.
+        success: The amendment has been successfully rejected.
       review:
         back: Back
         heading: Review the amendment
-        help_text: You are reviewing an amendment to the %{model_name}
         send: Accept amendment
       update_draft:
         error: There was a problem updating the amendment draft.
         success: Amendment draft successfully updated.
       withdraw:
-        error: An error ocurred while withdrawing the amendment
-        success: The amendment has been withdrawn successfully
+        error: An error ocurred while withdrawing the amendment.
+        success: The amendment has been withdrawn successfully.
       wizard_step_form:
         steps:
           '1': Create your amendment
@@ -333,21 +361,19 @@ en:
           '4': Publish your amendment
     anonymous_user: Anonymous
     application:
-      collection:
-        documents:
-          one: Document
-          other: Documents
       document:
         download: Download file
       documents:
+        documents: Documents
         related_documents: Related documents
-      geocoding:
-        geocoded_address: Address
+      photo:
+        alt: Media picture
+        title: Image
       photos:
+        photos: Images
         related_photos: Related images
     author:
       avatar: 'Avatar: %{name}'
-      avatar_multiuser: Avatar for multiple users
       comments:
         one: comment
         other: comments
@@ -357,13 +383,13 @@ en:
       official_author: Official
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Get verified by introducing a passport number starting with "A"
+        explanation: Get verified by introducing a passport number starting with "A".
         fields:
           passport_number: Passport number
           postal_code: Postal code
         name: Another example authorization
       dummy_authorization_handler:
-        explanation: Get verified by introducing a document number ending with "X"
+        explanation: Get verified by introducing a document number ending with "X".
         fields:
           allowed_postal_codes: Allowed postal codes (separated by commas)
           allowed_scope_id: Allowed scope
@@ -383,7 +409,6 @@ en:
           foo: Foo
         name: Foo authorization
       granted_at: Granted at %{timestamp}
-      renew: Renew verification
       sms:
         explanation: Submit your mobile phone number so we can check your identity.
         name: Code by SMS
@@ -396,7 +421,7 @@ en:
           title: Authorization has expired
         incomplete:
           cancel: Cancel
-          explanation: 'Even though you''re currently authorized with "%{authorization}", we need you to reauthorize because we lack the following data:'
+          explanation: 'Even though you are currently authorized with "%{authorization}", we need you to reauthorize because we lack the following data:'
           invalid_field: "%{field}"
           reauthorize: Reauthorize
           title: Please reauthorize
@@ -405,23 +430,21 @@ en:
           explanation: In order to perform this action, you need to be authorized with "%{authorization}".
           title: Authorization required
         ok:
-          title: You've been authorized while in this page. Please, reload the page to perform your action
+          title: You have been authorized while in this page. Please, reload the page to perform your action.
         pending:
-          explanation: In order to perform this action, you need to be authorized with "%{authorization}", but your authorization is still in progress
-          resume: Check your "%{authorization}" authorization progress
+          explanation: In order to perform this action, you need to be authorized with "%{authorization}", but your authorization is still in progress.
+          resume: Check your "%{authorization}" authorization progress.
           title: Authorization is still in progress
         unauthorized:
-          explanation: Sorry, you can't perform this action as some of your authorization data doesn't match.
-          invalid_field: "%{field} value %{value} isn't valid."
+          explanation: Sorry, you cannot perform this action as some of your authorization data does not match.
+          invalid_field: "%{field} value %{value} is not valid."
           ok: Ok
           title: Not authorized
         unconfirmed:
-          confirmation_instructions: 'If you haven''t received the confirmation instructions you can request them again:'
+          confirmation_instructions: 'If you have not received the confirmation instructions you can request them again:'
           explanation_html: In order to perform this action you need to be authorized, before doing that you need to confirm your email <strong>%{email}</strong>.
           request_confirmation_instructions: Request confirmation instructions
           title: Confirm your email
-      show:
-        close_modal: Close modal
     block_user_mailer:
       notify:
         body_1: Your account was blocked.
@@ -434,10 +457,9 @@ en:
         one: and %{count} more
         other: and %{count} more
       see_less: "(see less)"
-      see_more: "(see more)"
     components:
       component_order_selector:
-        no_content: We couldn\'t find any content with this criteria
+        no_content: We could not find any content with this criteria.
         order:
           all_types: All types
           collaborative_draft: Collaborative Draft
@@ -478,6 +500,8 @@ en:
             dummy_step_translatable_text: Dummy Step Translatable Text
     contact: Contact
     content_blocks:
+      announcement:
+        name: Announcement
       cta:
         name: Image, text and Call To Action button
       cta_settings_form:
@@ -487,6 +511,8 @@ en:
         description: Description
       footer_sub_hero:
         name: Footer sub hero banner
+      global_menu:
+        name: Global menu
       hero:
         name: Hero image
       hero_settings_form:
@@ -495,6 +521,9 @@ en:
       highlighted_content_banner:
         name: Highlighted content banner
       highlighted_elements_settings_form:
+        components:
+          all: All
+          label: 'Select component:'
         orders:
           label: 'Sort elements by:'
           random: Random
@@ -508,22 +537,50 @@ en:
         name: Last activity
         title: Last activity
         view_all: View all
+      last_activity_settings_form:
+        max_last_activity_users: Maximum number of user avatars with recent activity to show
+      main_data:
+        name: Main data
+      metadata:
+        name: Metadata
       metrics:
         name: Organization metrics
+      participatory_space_metrics:
+        name: Metrics
+      participatory_space_stats:
+        name: Statistics
+      social_networks_metadata:
+        name: Social networks
+      static_page:
+        section:
+          name: Section
+          section_content: Content
+        summary:
+          name: Summary
+          summary_content: Content
+        two_pane_section:
+          left_column: Left column
+          name: Two-column section
+          right_column: Right column
       stats:
         name: Organization statistics
       sub_hero:
         name: Sub hero banner
     core:
       actions:
-        login_before_access: Please, login with your account before access
-        unauthorized: You are not authorized to perform this action
-    datepicker:
-      help_text: 'Expected format: %{datepicker_format}'
+        login_before_access: Please, login with your account before access.
+        unauthorized: You are not authorized to perform this action.
+      application_helper:
+        filter_area_values:
+          all: All
+        filter_category_values:
+          all: All
+        filter_scope_values:
+          all: All
     devise:
       omniauth_registrations:
         create:
-          email_already_exists: Another account is using the same email address
+          email_already_exists: Another account is using the same email address.
         new:
           complete_profile: Complete profile
           nickname_help: Your alias in %{organization}. Can only contain letters, numbers, '-' and '_'.
@@ -533,15 +590,12 @@ en:
       registrations:
         new:
           already_have_an_account?: Already have an account?
+          log_in: Log in
           newsletter: Receive an occasional newsletter with relevant information
           newsletter_title: Contact permission
-          nickname_help: Your alias in %{organization}. Can only contain letters, numbers, '-' and '_'.
-          sign_in: Log in
           sign_up: Sign up
-          sign_up_as:
-            legend: Sign up as
           subtitle: Sign up to participate in discussions and support proposals.
-          terms: the terms and conditions of use
+          terms: the terms of service
           tos_agreement: By signing up you agree to %{link}.
           tos_title: Terms of Service
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
@@ -549,23 +603,22 @@ en:
         new:
           are_you_new?: New to the platform?
           register: Create an account
-          sign_in_disabled: You can access with an external account
-          sign_up_disabled: Sign up is disabled, you can use an existing account to access
+          sign_in_disabled: You can access with an external account.
+          sign_up_disabled: Sign up is disabled, you can use an existing account to access.
         user:
-          timed_out: You were inactive for too long and you have been automatically signed out from the service. If you would like to continue using the service, please sign in again.
+          timed_out: You were inactive for too long and you have been automatically logged out from the service. If you would like to continue using the service, please log in again.
       shared:
         newsletter_modal:
           buttons:
             check: Check and continue
-            close_modal: Close modal
             uncheck: Keep unchecked
           notice: |-
-            <p>Hey, are you sure you don't want to receive a newsletter?<br>
-            Please consider again ticking the newsletter checkbox below.<br>
+            <p>Hey, are you sure you do not want to receive a newsletter?
+            Please consider again ticking the newsletter checkbox below.
             It is very important for us that you can receive occasional emails
             to make important announcements, you can always change this on your
             notifications settings page.</p>
-            <p>If you don't tick the box you might be missing relevant information
+            <p>If you do not tick the box you might be missing relevant information
             about new participatory opportunities within the platform.<br>
             If you still want to avoid receiving newsletters, we perfectly
             understand your decision.</p>
@@ -573,13 +626,19 @@ en:
           title: Newsletter notifications
         omniauth_buttons:
           or: Or
+        password_fields:
+          hidden_password: Your password is hidden
+          hide_password: Hide password
+          show_password: Show password
+          shown_password: Your password is shown
+        placeholder_email: hi@example.org
     doorkeeper:
       authorizations:
         new:
           authorize: Authorize application
-          by_organization_link_html: <small class="heading-small">by %{link}</small>
+          by_organization_link_html: by %{link}
           cancel: Cancel
-          connect_your_account_html: Connect your account by signing in to <strong>%{organization}</strong>
+          connect_your_account_html: Connect your account by logging in to %{organization}.
           publish_content: Publish content for you
           see_email: See your email
           see_name: See your name
@@ -587,37 +646,48 @@ en:
           this_application_will_be_able_to: 'This application will be able to:'
           this_application_will_not_be_able_to: 'This application will not be able to:'
           update_profile: Update your profile
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> wants to use your account"
+          wants_to_use_your_account_html: "%{application_name} wants to use your account"
     download_your_data:
       export:
         ready: Ready
       show:
         download_data: Download the data
-        download_data_description: A file containing all the information associated with your account will be sent to <strong>%{user_email}</strong>. This email will contain a .zip file and a password to open it.<br/><br/>To unzip the file, you will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows) or <a href="https://www.keka.io/">Keka</a> (for MacOS). If you use Linux, most of the time you will have it installed by default. If not, you can use <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> or <a href="https://peazip.github.io">PeaZip</a>).
+        download_data_description_html: |-
+          A file containing all the information associated with your account will be sent to <strong>%{user_email}</strong>.
+          This email will contain a .zip file and a password to open it.<br/><br/>To unzip the file, you will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows) or <a href="https://www.keka.io/">Keka</a> (for MacOS).
+          If you use Linux, most of the time you will have it installed by default. If not, you can use <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> or <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Request data
     editor_images:
       create:
-        error: Error uploading image
-        success: Image uploaded successfully
+        error: Error uploading image.
+        success: Image uploaded successfully.
       drag_and_drop_help: Add images by dragging & dropping or pasting them.
-    endorsable:
-      endorsements: Endorsements
-      endorsements_count: Endorsements count
     endorsement_buttons_cell:
-      already_endorsed: Endorsed
-      endorse: Endorse
+      already_endorsed: Dislike
+      endorse: Like
     endorsements:
       identities:
         done: Done
         select_identity: Select identity
+    endorsers_list:
+      endorsed_by: Liked by…
     errors:
       internal_server_error:
+        copied: Text copied!
+        copy_error_message_clarification: Copy error message to clipboard
+        copy_to_clipboard: Copy to clipboard
+        date_and_time: Date and time
+        reference: Reference
+        request_method: Request method
         title: There was a problem with our server
-        try_later: Please try again later.
+        try_later: Please try again later. If the error persists, please copy the following info and send it to platform maintainers with any other information you may want to share.
+        unknown: Unknown
+        url: URL
+        user: User ID
       not_found:
         back_home: Back home
         content_doesnt_exist: This address is incorrect or has been removed.
-        title: The page you're looking for can't be found
+        title: The page you are looking for cannot be found
     events:
       amendments:
         amendment_accepted:
@@ -683,15 +753,15 @@ en:
         email_subject: An update to %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Congratulations! You've earned the <a href="%{resource_url}">%{badge_name} badge</a> (level %{current_level}).
+          email_intro: Congratulations! You have earned the <a href="%{resource_url}">%{badge_name} badge</a> (level %{current_level}).
           email_outro: You have received this notification because you made activity on our website.
-          email_subject: 'You''ve earned a new badge: %{badge_name}!'
-          notification_title: Congratulations! You've earned the <a href="%{resource_path}">%{badge_name} badge</a> (level %{current_level}).
+          email_subject: 'You have earned a new badge: %{badge_name}!'
+          notification_title: Congratulations! You have earned the <a href="%{resource_path}">%{badge_name} badge</a> (level %{current_level}).
         level_up:
-          email_intro: Congratulations! You've reached level %{current_level} on the <a href="%{resource_url}">%{badge_name} badge</a>!
+          email_intro: Congratulations! You have reached level %{current_level} on the <a href="%{resource_url}">%{badge_name} badge</a>!
           email_outro: You have received this notification because you made activity on our website.
-          email_subject: You've reached level %{current_level} on the %{badge_name} badge!
-          notification_title: Congratulations! You've reached level %{current_level} on the <a href="%{resource_path}">%{badge_name} badge</a>!
+          email_subject: You have reached level %{current_level} on the %{badge_name} badge!
+          notification_title: Congratulations! You have reached level %{current_level} on the <a href="%{resource_path}">%{badge_name} badge</a>!
       groups:
         demoted_membership:
           email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> group has removed your admin rights to that group.
@@ -739,7 +809,7 @@ en:
           email_subject: A user group has updated its profile
           notification_title: The %{user_group_name} user group has updated its profile, leaving it unverified. You can now verify it in the <a href="%{groups_admin_path}">admin panel</a>.
       nickname_event:
-        notification_body: We have corrected the way nicknames are used so that there are no duplicates, and that's why we have removed the case sensitive rule. <br/> Your nickname was created after another one with the same name, so we have automatically renamed it. You can change it from <a href="%{link_to_account_settings}">your account settings</a>.
+        notification_body: We have corrected the way nicknames are used so that there are no duplicates, and that is why we have removed the case sensitive rule. <br/> Your nickname was created after another one with the same name, so we have automatically renamed it. You can change it from <a href="%{link_to_account_settings}">your account settings</a>.
       notification_event:
         notification_title: An event occured to <a href="%{resource_path}">%{resource_title}</a>.
       reports:
@@ -776,6 +846,7 @@ en:
     filters:
       linked_classes:
         all: All
+        answer: Answer
         collaborative_draft: Collaborative draft
         dummy_resource: Dummy resources
         meeting: Meetings
@@ -784,7 +855,7 @@ en:
         result: Results
     fingerprint:
       check: Check fingerprint
-      explanation: The piece of text below is a shortened, hashed representation of this content. It's useful to ensure the content hasn't been tampered with, as a single modification would result in a totally different value.
+      explanation: The piece of text below is a shortened, hashed representation of this content. It is useful to ensure the content has not been tampered with, as a single modification would result in a totally different value.
       online_calculator_name: MD5 calculator online
       replicate_help: This fingerprint is calculated using a SHA256 hashing algorithm. In order to replicate it yourself, you can use an %{online_calculator_link} and copy-paste the source data.
       source: Source
@@ -796,7 +867,10 @@ en:
         other: "%{count} followers"
       no_followers: No followers yet.
     following:
-      no_followings: Doesn't follow anyone or anything yet.
+      following_count:
+        one: "%{count} follow"
+        other: "%{count} follows"
+      no_followings: Does not follow anyone or anything yet.
       non_public_followings: Some of the resources followed are not public.
     follows:
       create:
@@ -807,13 +881,11 @@ en:
         button: Stop following
         error: There was a problem unfollowing this resource.
     forms:
-      current_image: Current image
-      default_image: Default image
       errors:
         decidim/user:
           password: The password is too short.
           password_confirmation: Password confirmation must match the password.
-        error: There's an error in this field.
+        error: There is an error in this field.
       file_help:
         file:
           explanation: 'Guidance for file:'
@@ -831,25 +903,27 @@ en:
         allowed_file_extensions: 'Allowed file extensions: %{extensions}'
         max_file_dimension: 'Maximum file dimensions: %{resolution} pixels'
         max_file_size: 'Maximum file size: %{megabytes}MB'
+      files:
+        extension_allowlist: 'Accepted formats: %{extensions}'
       upload:
         labels:
           add_attachment: Add attachment
           add_file: Add file
           add_image: Add image
-          cancel: Cancel
           edit_image: Edit image
           error: Error!
           file_size_too_large: 'File size is too large! Maximun file size: %{megabytes}MB'
+          filename: Filename
           remove: Remove
           replace: Replace
-          save: Save
           title: Title
           title_required: Title is required!
           uploaded: Uploaded
           validating: Validating...
           validation_error: Validation error!
+        select_file: Select file
       upload_help:
-        dropzone: Drop files here or click to upload
+        dropzone: Drop files here or click the button to upload
         explanation: Guidance for %{attribute}
     gamification:
       all_badges_link: See all available badges.
@@ -862,58 +936,48 @@ en:
           description_own: "%{score} people are following you."
           name: Followers
           next_level_in: Get %{score} more people to follow you to reach the next level!
-          unearned_another: This participant doesn't have any followers yet.
-          unearned_own: You've got no followers yet.
+          unearned_another: This participant does not have any followers yet.
+          unearned_own: You have got no followers yet.
         index:
           badge_title: "%{name} badge"
           how: How can you earn it
           page_description: Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges. Here is the list of badges and some ways you can earn them.
           title: Badges
-        invitations:
-          conditions:
-          - Use the “invite friends” link on your user page to invite your friends
-          - Customize, if you want, the message you are sending
-          - You’ll level up by sending invitations and getting them registered.
-          description: This badge is granted when you’ve invited some people and they have spend a little time to register in %{organization_name} and become participants. Thank you for making %{organization_name} known to others and helping to expand the community!
-          description_another: This participant has invited %{score} people.
-          description_own: You have invited %{score} people.
-          name: Invitations
-          next_level_in: Invite %{score} more people to reach the next level!
-          unearned_another: This participant has not yet invited anyone.
-          unearned_own: You haven't invited anyone yet.
       description: Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges.
       level: Level %{level}
-      reached_top: You've reached the top level for this badge.
+      reached_top: You have reached the top level for this badge.
+      title: What are the badges?
     group_admins:
       actions:
-        are_you_sure: Are you sure? This won't remove the participant from the group.
+        are_you_sure: Are you sure? This will not remove the participant from the group.
         demote_admin: Remove admin
       demote:
-        error: There was a problem removing this participant from the admins list
-        success: Participant successfully removed from admin
+        error: There was a problem removing this participant from the admins list.
+        success: Participant successfully removed from admin.
       index:
         current_admins: 'Current admins:'
         manage_admins: Manage admins
     group_invites:
       accept:
-        error: There was a problem accepting this invitation
-        success: Invitation successfully accepted
+        error: There was a problem accepting this invitation.
+        success: Invitation successfully accepted.
       accept_invitation: Accept
       accept_or_reject_group_invitations: 'The following groups have invited you to join them. Accept or reject their requests:'
       index:
         invite: Invite
         invite_user: Invite a participant
       invite:
-        error: There was a problem inviting this participant
-        success: Participant successfully invited
+        error: There was a problem inviting this participant.
+        success: Participant successfully invited.
+      pending_invitations: Pending requests
       reject:
-        error: There was a problem rejecting this invitation
-        success: Invitation successfully rejected
+        error: There was a problem rejecting this invitation.
+        success: Invitation successfully rejected.
       reject_invitation: Reject
     group_members:
       accept:
-        error: There was a problem accepting this join request
-        success: Join request successfully accepted
+        error: There was a problem accepting this join request.
+        success: Join request successfully accepted.
       actions:
         are_you_sure: Are you sure?
         promote_to_admin: Make admin
@@ -922,36 +986,36 @@ en:
         current_members_without_admins: 'Current members (without admins):'
         manage_members: Manage members
       promote:
-        error: There was a problem promoting this participant
-        success: Participant promoted successfully
+        error: There was a problem promoting this participant.
+        success: Participant promoted successfully.
       reject:
-        error: There was a problem rejecting this join request
-        success: Join request successfully rejected
+        error: There was a problem rejecting this join request.
+        success: Join request successfully rejected.
       remove:
-        error: There was a problem removing this participant from the group
-        success: Participant successfully removed from the group
+        error: There was a problem removing this participant from the group.
+        success: Participant successfully removed from the group.
     groups:
       actions:
         are_you_sure: Are you sure?
       create:
-        error: There was a problem creating the group
-        success: Group successfully created
+        error: There was a problem creating the group.
+        success: Group successfully created.
       edit:
         edit_user_group: Edit group
         update_user_group: Update group
       form:
-        document_number_help: Do not use dashes nor spaces
+        document_number_help: Do not use dashes nor spaces.
         email_help: Email of your organization, association, collective, group, etc.
         fill_in_for_verification: 'Fill in these fields if you want your group to be verified:'
         name_help: Name of your organization, association, collective, group, etc.
         nickname_help: Nickname of your organization, association, collective, group, etc. Do not use spaces nor accents.
-        phone_help: Do not use dashes nor spaces
+        phone_help: Do not use dashes nor spaces.
       join:
-        error: There was a problem joining the group
+        error: There was a problem joining the group.
         success: Join request successfully created. An admin will review your request before accepting you to the group.
       leave:
-        error: There was a problem leaving the group
-        last_admin: You can't remove yourself from this group as you're the last administrator. Make another member an administrator in order to leave the group.
+        error: There was a problem leaving the group.
+        last_admin: You cannot remove yourself from this group as you are the last administrator. Make another member an administrator in order to leave the group.
         success: Group successfully abandoned.
       members:
         accept_or_reject_join_requests: 'The following users have applied to join this group. Accept or reject their requests:'
@@ -961,35 +1025,35 @@ en:
         create_user_group: Create group
         new_user_group: New group
         subtitle: Create a group and invite other users to join to participate in a collective level.
-      no_user_groups: Doesn't belong to any group yet.
+      no_user_groups: Does not belong to any group yet.
       roles:
         admin: Administrator
         creator: Administrator
         member: Member
       update:
-        error: There was a problem updating the group
-        success: Group successfully updated
+        error: There was a problem updating the group.
+        success: Group successfully updated.
     help:
       main_topic:
         default_page:
           content: "<p>In %{organization} you can participate and decide on different topics, through the spaces you see in the top menu: Processes, Assemblies, Initiatives, Consultations.</p> <p>Within each one you will find different options to participate: make proposals - individually or with other people-, take part in debates, prioritize projects to implement, attend face-to-face meetings and other actions.</p>\n"
           title: What can I do in %{organization}?
-        description: Read more about %{organization}
+        description: Read more about %{organization}.
         title: General Help
     last_activities:
-      activities:
-        no_activities_warning: No activity
       all: All activity types
       index:
         last_activity: Last activity
-        resource_type: Type
+      name: Last activities
+      no_activities_warning: There are no entries to show for this activity type.
+    linked_resource_from:
+      included_in: Included in
     links:
       invalid_url: Invalid URL
       warning:
         body_1: You are about to visit an external link and we would like you to be cautious regarding the content on the external site.
         body_2: Please check the link you are about to visit and make sure you recognize it as a safe site before proceeding.
         cancel: Cancel
-        close_modal: Close modal
         proceed: Proceed
         title: Open external link
     log:
@@ -998,8 +1062,10 @@ en:
         create_with_space: "%{user_name} created %{resource_name} in %{space_name}"
         delete: "%{user_name} deleted %{resource_name}"
         delete_with_space: "%{user_name} deleted %{resource_name} in %{space_name}"
+        publish_with_space: "%{user_name} published %{resource_name} in %{space_name}"
         unknown_action: "%{user_name} performed some action on %{resource_name}"
         unknown_action_with_space: "%{user_name} performed some action on %{resource_name} in %{space_name}"
+        unpublish_with_space: "%{user_name} unpublished %{resource_name} from %{space_name}"
         update: "%{user_name} updated %{resource_name}"
         update_permissions_with_space: "%{user_name} updated the permissions of %{resource_name} in %{space_name}"
         update_with_space: "%{user_name} updated %{resource_name} in %{space_name}"
@@ -1022,7 +1088,7 @@ en:
         latlng_text: 'latitude: %{latitude}, longitude: %{longitude}'
         map_service_brand: OpenStreetMap
     members:
-      no_members: This group doesn't have any members yet.
+      no_members: This group does not have any members yet.
     menu:
       help: Help
       home: Home
@@ -1032,35 +1098,35 @@ en:
           admin_in_group: You are receiving this because you are an admin in %{group}.
           greeting: Hi, %{recipient}!
           intro: "%{manager} has started a new conversation in the name of %{group}. Click here to see it:"
-          outro: Enjoy decidim!
+          outro: Enjoy the platform!
           subject: "%{manager} has started a new conversation as a %{group}"
         comanagers_new_message:
           admin_in_group: You are receiving this because you are an admin in %{group}.
           greeting: Hi, %{recipient}!
           intro: "%{manager} has posted new messages in a conversation in the name of %{group}. Click here to see them:"
-          outro: Enjoy decidim!
+          outro: Enjoy the platform!
           subject: "%{manager} has send new messages as a %{group}"
         new_conversation:
           greeting: Hi, %{recipient}!
           intro: "%{sender} has started a new conversation with you. Click here to see it:"
-          outro: Enjoy decidim!
+          outro: Enjoy the platform!
           subject: "%{sender} has started a conversation with you"
         new_group_conversation:
           admin_in_group: You are receiving this because you are an admin in %{group}.
           greeting: Hi, %{recipient}!
           intro: "%{sender} has started a new conversation with the group %{group}. Click here to see it:"
-          outro: Enjoy decidim!
+          outro: Enjoy the platform!
           subject: "%{sender} has started a conversation with %{group}"
         new_group_message:
           admin_in_group: You are receiving this because you are an admin in %{group}.
           greeting: Hi, %{recipient}!
           intro: "%{sender} has posted new messages in a conversation with the group %{group}. Click here to see it:"
-          outro: Enjoy decidim!
+          outro: Enjoy the platform!
           subject: "%{group} have new messages from %{sender}"
         new_message:
           greeting: Hi, %{recipient}!
           intro: "%{sender} has posted new messages in your conversation. Click here to see them:"
-          outro: Enjoy decidim!
+          outro: Enjoy the platform!
           subject: You have new messages from %{sender}
       conversations:
         add_conversation_users:
@@ -1068,42 +1134,39 @@ en:
           add_users_placeholder: Search...
           modal_title: New conversation
           no_results: No results
-          participant_with_disabled_message_reception: This participant has disabled message reception
-        conversation:
-          show: Show conversation with %{sender}
+          participant_with_disabled_message_reception: This participant does not want to receive private messages.
         create:
-          error: Conversation not started. Try again later
+          error: Conversation not started. Try again later.
         error_modal:
           close: Close modal
           correct_errors: Please correct the errors and try again.
           intro: 'There were the following errors with your message:'
           ok: OK
         index:
-          ago: ago
-          close: Close modal
-          from: From
-          groups: My groups
-          last_message: Last message
           new_conversation: New conversation
           next: Next
-          no_conversations: You have no conversations yet
+          no_conversations: You have no conversations yet.
           title: Conversations
-          to: To
-        reply:
+        reply_form:
           placeholder: Your reply...
           send: Send
-          title: Reply
         show:
           back: Back to all conversations
           chat_with: Conversation with
-          deleted_accounts: You can't have a conversation with deleted accounts.
+          deleted_accounts: You cannot have a conversation with deleted accounts.
           not_allowed: This participant does not accept direct messages.
           title: Conversation with %{usernames}
         start:
+          placeholder: Your message...
           send: Send
-          title: Start a conversation
         update:
-          error: Message was not sent due to an error
+          error: Message was not sent due to an error.
+    metadata:
+      progress:
+        active: Active
+        finished: 'Finished: %{end_date}'
+        not_started: Not started yet
+        remaining: "%{time_distance} remaining"
     metrics:
       download:
         csv: Download data (CSV)
@@ -1121,8 +1184,9 @@ en:
         title: Participants
     newsletter_mailer:
       newsletter:
-        note: You received this email because you're subscribed to newsletters on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.
-        see_on_website: Can’t see this email correctly? View it on the <a href="%{link}" target="_blank">website</a>.
+        no_reply_notice: This email was sent from a notification email address that cannot accept incoming email. Please do not reply to this message.
+        note: You received this email because you are subscribed to newsletters on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.
+        see_on_website: Cannot see this email correctly? View it on the <a href="%{link}" target="_blank" class="see-on-website">website</a>.
         unsubscribe: To opt out of receiving this type of email, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
     newsletter_templates:
       basic_only_text:
@@ -1145,16 +1209,16 @@ en:
         main_image: Main image
     newsletters:
       unsubscribe:
-        check_subscription: If you want to change your preferences, you can do so in the <a href="%{link}" target="_blank">configuration page</a>
-        error: There was a problem unsubscribing
+        check_subscription: If you want to change your preferences, you can do so in the <a href="%{link}" target="_blank">configuration page</a>.
+        error: There was a problem unsubscribing.
         success: You are unsubscribed successfully.
         token_error: The link has expired.
         unsubscribe: Unsubscribe
     newsletters_opt_in:
-      unathorized: Sorry, this link is no longer available
+      unathorized: Sorry, this link is no longer available.
       update:
-        error: Something wrong happened
-        success: Newsletter settings successfully updated
+        error: There was a problem saving the newsletter settings.
+        success: Newsletter settings successfully updated.
     newsletters_opt_in_mailer:
       notify:
         body_1: The processing of personal data and its protection is becoming increasingly important for all of us. With the new General Data Protection Regulation (GDPR) of May 25, 2018, individuals have better control over their personal data. For this reason we need your "OK" to continue sending relevant information about the activities of the %{organization_name}.
@@ -1188,8 +1252,8 @@ en:
     notifications_settings:
       show:
         administrators: Administrators
-        allow_public_contact: Allow anyone to send me a direct message, even if I don't follow them.
-        allow_push_notifications: Get push notifications to find out what's going on when you're not on the platform. You can turn them off anytime.
+        allow_public_contact: Allow anyone to send me a direct message, even if I do not follow them.
+        allow_push_notifications: Get push notifications to find out what is going on when you are not on the platform. You can turn them off anytime.
         direct_messages: Receive direct messages from anyone
         email_on_moderations: I want to receive an email every time something or someone is reported for moderation.
         everything_followed: Everything I follow
@@ -1205,26 +1269,22 @@ en:
         notifications_sending_frequency: How often do you want to receive the notifications email?
         own_activity: My own activity, like when someone comments in my proposal or mentions me
         push_notifications: Push notifications
-        push_notifications_reminder: To get notifications from the platform, you'll need to allow them in your browser settings first.
+        push_notifications_reminder: To get notifications from the platform, you will need to allow them in your browser settings first.
         receive_notifications_about: I want to get notifications about
         update_notifications_settings: Save changes
       update:
         error: There was a problem updating your notifications settings.
         success: Your notifications settings were successfully updated.
     offline:
+      name: Offline
       show:
-        message: It looks like you're currently offline. Please, try again later.
+        message: It looks like you are currently offline. Please, try again later.
         retry: Retry
     open_data:
       not_available_yet: The Open Data files are not yet available, please try again in a few minutes.
-    own_user_groups:
-      index:
-        pending: Pending
-        rejected: Rejected
-        verified: Verified
     pad_iframe:
       disclaimer: The contents of this pad are written by registered users and express their opinions. %{organization} cannot be held responsible for its contents.
-      explanation: Use this pad to collaboratively take notes during the meeting so it's easier to write down the minute afterwards.
+      explanation: Use this pad to collaboratively take notes during the meeting so it is easier to write down the minute afterwards.
       pad: Pad
     pages:
       home:
@@ -1243,15 +1303,14 @@ en:
           register: Register
         hero:
           participate: Participate
+          participate_title: Participate in the platform's processes
           welcome: Welcome to %{organization}!
-        metrics:
-          headline: Metrics
         statistics:
           headline: Current state of %{organization}
         sub_hero:
           register: Register
+          register_title: Sign up to create an account
       index:
-        read_more: Read more
         standalone_pages: Pages
         subheading: Navigate through the help pages of %{name}
         title: Help
@@ -1259,60 +1318,71 @@ en:
       participatory_space:
         metrics:
           headline: Metrics
-          link: Show all metrics
-      terms_and_conditions:
+          link: Show all
+      terms_of_service:
         accept:
-          error: There was a problem accepting the terms and conditions.
-          success: Great! You have accepted the terms and conditions.
+          error: There was a problem accepting the terms of service.
+          success: Great! You have accepted the terms of service.
         form:
           agreement: I agree with these terms
-          legend: Agree to the terms and conditions of use
+          legend: Agree to the terms of service
         refuse:
-          modal_body: If you refuse, you won't be able to use the platform, you can <a href="%{download_your_data_path}">download your data</a> and/or <a href="%{delete_path}">delete your account</a>.
+          modal_body: If you refuse, you will not be able to use the platform, you can <a href="%{download_your_data_path}">download your data</a> and/or <a href="%{delete_path}">delete your account</a>.
           modal_btn_continue: Accept terms and continue
-          modal_btn_exit: I'll review it later
+          modal_btn_exit: I will review it later
           modal_button: Refuse the terms
-          modal_close: Close modal
-          modal_title: Do you really refuse the updated Terms and Conditions?
+          modal_title: Do you really refuse the updated terms of service?
         required_review:
-          alert: We've updated our Terms of Service, please review them.
-          body: Please take a moment to review updates to our Terms of Services. Otherwise you won't be able to use the platform.
+          alert: We have updated our Terms of Service, please review them.
+          body: Please take a moment to review updates to our Terms of Services. Otherwise you will not be able to use the platform.
           title: 'Required: Review updates to our terms of service'
     participatory_space_private_users:
       not_allowed: You are not allowed to view this content
     passwords:
       update:
-        error: There was a problem updating the password
-        success: Password successfully updated
+        error: There was a problem updating the password.
+        success: Password successfully updated.
     profile:
-      deleted: Participant deleted
-      inaccessible_message: This profile is inaccessible due to Terms and Conditions violation!
-      view: View
+      deleted: Deleted participant
+      inaccessible_message: This profile is inaccessible due to terms of service violation!
     profiles:
-      default_officialization_text_for_user_groups: This group is publicly verified, its name has been verified to correspond with its real name
-      default_officialization_text_for_users: This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role
+      default_officialization_text_for_user_groups: This group is publicly verified, its name has been verified to correspond with its real name.
+      default_officialization_text_for_users: This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role.
       show:
         activity: Activity
         badges: Badges
         conversations: Conversations
         followers: Followers
         following: Follows
+        group_admins: Manage admins
+        group_members: Manage members
         groups: Groups
         members: Members
         officialized: Official participant
         send_private_message: Send private message
-        timeline: Timeline
-        view_full_profile: View full profile
       sidebar:
         badges:
           info: Badges are earned by performing specific activity in the platform.
           title: Badges
       user:
-        confirmation_instructions_sent: Email confirmation instructions sent
+        actions:
+          create_user_group: Create group
+          disabled_message: Message
+          edit_profile: Edit profile
+          edit_user_group: Edit group profile
+          invite_user: Invite participant
+          join_user_group: Request to join group
+          leave_user_group: Leave group
+          manage_user_group: Manage group
+          manage_user_group_admins: Manage admins
+          manage_user_group_users: Manage members
+          message: Message
+          resend_email_confirmation_instructions: Resend email confirmation instructions
+        confirmation_instructions_sent: Email confirmation instructions sent.
         create_user_group: Create group
         edit_profile: Edit profile
         edit_user_group: Edit group profile
-        fill_in_email_to_confirm_it: Please, fill in your group's email to confirm it
+        fill_in_email_to_confirm_it: Please, fill in your group's email to confirm it.
         invite_user: Invite participant
         join_user_group: Request to join group
         leave_user_group: Leave group
@@ -1358,27 +1428,24 @@ en:
       scopes_picker_input:
         select_scope: 'Select a scope (currently: %{current})'
     search:
+      name: Search
       results: Search results
       results_found_for_term: '%{count} Results for the search: "%{term}"'
       term_input_placeholder: Search
     searches:
       filters:
-        back: Back to results
         jump_to: 'Jump to:'
+        search: Search
         state:
           active: Active
           all: All
           future: Future
           past: Past
       filters_small_view:
-        close_modal: Close modal
         filter: Filter
+        filter_and_search: Filter and Search
         filter_by: Filter by
-        unfold: Unfold
       results:
-        results:
-          one: "%{count} result"
-          other: "%{count} results"
         view_all: View all (%{count})
     security:
       selfxss_warning:
@@ -1390,10 +1457,6 @@ en:
         close_modal: Close modal
         ok: OK
         title: Confirm
-      embed_modal:
-        close_window: Close window
-        embed: Please paste this code in your page
-        embed_link: Embed
       extended_navigation_bar:
         more: More
         unfold: Unfold
@@ -1404,7 +1467,9 @@ en:
         already_reported: This content is already reported and it will be reviewed by an admin.
         close: Close
         description: Is this content inappropriate?
-        does_not_belong: Contains illegal activity, suicide threats, personal information, or something else you think doesn't belong on %{organization_name}.
+        does_not_belong: Contains illegal activity, suicide threats, personal information, or something else you think does not belong on %{organization_name}.
+        hide: Hide
+        hide_content: Hide this content
         offensive: Contains racism, sexism, slurs, personal attacks, death threats, suicide requests or any form of hate speech.
         reason: Reason
         report: Report
@@ -1412,28 +1477,31 @@ en:
         title: Report inappropriate content
       flag_user_modal:
         already_reported: This content is already reported and it will be reviewed by an admin.
+        block: Block this participant
         close: Close
         description: What is inappropriate about the user?
-        does_not_belong: Contains illegal activity, suicide threats, personal information, or something else you think doesn't belong on %{organization_name}.
+        does_not_belong: Contains illegal activity, suicide threats, personal information, or something else you think does not belong on %{organization_name}.
+        hide: Hide all their contents
         offensive: Contains racism, sexism, slurs, personal attacks, death threats, suicide requests or any form of hate speech.
         report: Report
         spam: Contains clickbait, advertising, scams or script bots.
         title: Report inappropriate User
       floating_help:
-        close: Close help
         help: Help
       follow_button:
-        sign_in_before_follow: Please sign in before performing this action
+        log_in_before_follow: Please log in before performing this action
       login_modal:
-        close_modal: Close modal
-        please_sign_in: Please sign in
+        please_log_in: Please log in
         sign_up: Sign up
       mentions_modal:
         remove_recipient: Remove recipient %{name}
       participatory_space_filters:
         filters:
+          area: Area
           areas: Areas
+          scope: Scope
           select_an_area: Select an area
+      progress: Progress
       public_participation:
         public_participation: Show my attendance publicly
       reference:
@@ -1445,13 +1513,13 @@ en:
         label: 'Results per page:'
         title: Select number of results per page
       share_modal:
-        close_window: Close window
         copy_share_link: Copy
         copy_share_link_clarification: Copy share link to clipboard
         copy_share_link_copied: Copied!
         copy_share_link_message: The link was successfully copied to clipboard.
         share: Share
         share_link: Share link
+        share_to: Share to %{service}
     statistics:
       comments_count: Comments
       endorsements_count: Endorsements
@@ -1470,45 +1538,27 @@ en:
       show_translated: Show automatically-translated text
     user_activity:
       index:
-        no_activities_warning: This participant hasn't had any activity yet.
+        no_activities_warning: This participant does not have any activity yet.
     user_contact_disabled: This participant does not accept direct messages.
     user_conversations:
       create:
-        error: The message could not be created. Try again later
+        error: The message could not be created. Try again later.
         existing_error: The message could not be created. The conversation already exists, please try again now.
         success: Conversation started successfully!
       index:
-        add_max_users: 'Add users to conversation: 9 users max'
-        add_users_placeholder: Search...
-        close: Close
         conversations_info: Conversations are private. no one else can see them. A conversation can be started with any participant or group registered on the platform.
-        from: From
-        last_message: Last message
-        modal_title: New conversation
-        new_conversation: New conversation
-        next: Next
         no_conversations_warning: There are no conversations yet.
-        no_results: No results
-        participant_with_disabled_message_reception: This participant has disabled message reception
         time_ago: "%{time} ago"
-      new:
-        title: Start a conversation
       reply:
         placeholder: Your reply...
         send: Send
-        title_reply: Reply
-      show:
-        back: Show all conversations
-        deleted_accounts: You can't have a conversation with deleted accounts.
-        not_allowed: This user does not accept any more direct messages.
-        title: Conversation with %{usernames}
       update:
         error: Message not sent. Try again later
     user_interests:
       show:
         my_interests: My interests
-        no_scopes: This organization doesn't have any scope yet!
-        select_your_interests: Select the topics you're interested in to receive events related to them in your profile Timeline tab.
+        no_scopes: This organization does not have any scope yet!
+        select_your_interests: Select the topics you are interested in to receive events related to them in your profile Timeline tab.
         update_my_interests: Update my interests
       update:
         error: There was a problem updating your interests.
@@ -1526,31 +1576,17 @@ en:
         back_to_resource: Go back
         changes_at_title: Changes at "%{title}"
         number_of_versions: Versions
-        show_all_versions: Show all versions
-        version_author: Version author
         version_created_at: Version created at
-        version_number: Version number
-        version_number_out_of_total: "%{current_version} out of %{total_count}"
-    version_author:
-      show:
-        deleted: Deleted participant
     versions:
       resource_version:
         of_versions: "(of %{number})"
         see_other_versions: see other versions
         version: Version number %{number}
-    versions_list:
-      show:
-        back_to_resource: Go back
-        changes_at_title: Changes at "%{title}"
-        number_of_versions: Versions
-        title: Versions
     versions_list_item:
-      back: Show all versions
       show:
-        version_index: Version %{index}
+        version_index: Version %{index} of %{total}
     welcome_notification:
-      default_body: <p>Hi {{name}}, thanks for joining {{organization}} and welcome!</p><ul><li>If you want to get a quick idea of what you can do here, have a look at the <a href="{{help_url}}">Help</a> section.</li><li>Once you have read it you will get your first badge. Here's a <a href="{{badges_url}}">list of all the badges</a> you can get as you participate in {{organization}}</li><li>Last but not least, join other people, share with them the experience of being engaged and participating in {{organization}}. Make proposals, comments, debate, think about how to contribute to the common good, provide arguments to convince, listen and read to be convinced, express your ideas in a concrete and direct way, respond with patience and decision, defend your ideas and keep an open mind to collaborate and join other people's ideas.</li></ul>
+      default_body: <p>Hi {{name}}, thanks for joining {{organization}} and welcome!</p><ul><li>If you want to get a quick idea of what you can do here, have a look at the <a href="{{help_url}}">Help</a> section.</li><li>Once you have read it you will get your first badge. Here is a <a href="{{badges_url}}">list of all the badges</a> you can get as you participate in {{organization}}</li><li>Last but not least, join other people, share with them the experience of being engaged and participating in {{organization}}. Make proposals, comments, debate, think about how to contribute to the common good, provide arguments to convince, listen and read to be convinced, express your ideas in a concrete and direct way, respond with patience and decision, defend your ideas and keep an open mind to collaborate and join other people's ideas.</li></ul>
       default_subject: Thanks for joining {{organization}}!
     wizard_step_form:
       wizard_aside:
@@ -1573,8 +1609,8 @@ en:
       last_attempt: You have one more attempt before your account is locked.
       locked: Your account is locked.
       not_found_in_database: Invalid %{authentication_keys} or password.
-      timeout: Your session expired. Please sign in again to continue.
-      unauthenticated: You need to sign in or sign up before continuing.
+      timeout: Your session expired. Please log in again to continue.
+      unauthenticated: You need to log in or sign up before continuing.
     invitations:
       edit:
         header: Finish creating your account
@@ -1598,7 +1634,7 @@ en:
         subject: Confirmation instructions
       email_changed:
         greeting: Hello %{recipient}!
-        message: We're contacting you to notify you that your email is being changed to %{email}.
+        message: We are contacting you to notify you that your email is being changed to %{email}.
         subject: Email Changed
       invitation_instructions:
         accept: Accept invitation
@@ -1606,8 +1642,8 @@ en:
         decline: Decline invitation
         hello: Hello %{email},
         ignore: |-
-          If you don't want to accept the invitation, please ignore this email.<br />
-          Your account won't be created until you access the link above and set your nickname and password.
+          If you do not want to accept the invitation, please ignore this email.<br />
+          Your account will not be created until you access the link above and set your nickname and password.
         invited_you_as_admin: "%{invited_by} has invited you as an admin of %{application}. You can accept it through the link below."
         invited_you_as_private_user: "%{invited_by} has invited you as a private participant of %{application}. You can accept it through the link below."
         someone_invited_you: Someone has invited you to %{application}. You can accept it through the link below.
@@ -1615,29 +1651,29 @@ en:
         someone_invited_you_as_private_user: Someone has invited you as private participant of %{application}, you can accept it through the link below.
         subject: Invitation instructions
       invite_admin:
-        subject: You've been invited to manage %{organization}
+        subject: You have been invited to manage %{organization}
       invite_collaborator:
-        subject: You've been invited to collaborate on %{organization}
+        subject: You have been invited to collaborate on %{organization}
       invite_private_user:
-        subject: You've been invited to a private participatory process on %{organization}
+        subject: You have been invited to a private participatory process on %{organization}
       organization_admin_invitation_instructions:
-        subject: You've been invited to manage %{organization}
+        subject: You have been invited to manage %{organization}
       password_change:
         greeting: Hello %{recipient}!
-        message: We're contacting you to notify you that your password has been changed.
+        message: We are contacting you to notify you that your password has been changed.
         subject: Password changed
       reset_password_instructions:
         action: Change my password
         greeting: Hello %{recipient}!
         instruction: Someone has requested a link to change your password, and you can do this through the link below.
-        instruction_2: If you didn't request this, please ignore this email.
-        instruction_3: Your password won't change until you access the link above and create a new one.
+        instruction_2: If you did not request this, please ignore this email.
+        instruction_3: Your password will not change until you access the link above and create a new one.
         subject: Reset password instructions
       unlock_instructions:
         action: Unlock my account
         greeting: Hello %{recipient}!
         instruction: 'Click the link below to unlock your account:'
-        message: Your account has been locked due to an excessive amount of unsuccessful sign in attempts.
+        message: Your account has been locked due to an excessive amount of unsuccessful log in attempts.
         subject: Unlock instructions
     omniauth_callbacks:
       failure: Could not authenticate you from %{kind} because "%{reason}".
@@ -1647,28 +1683,20 @@ en:
         change_my_password: Change my password
         confirm_new_password: Confirm new password
         new_password: New password
-        password_help: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email."
-        password_help_admin: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456), must be different from your nickname and your email and must be different from your old passwords."
+        old_password_help: In order to confirm the changes to your account, please provide your current password.
+        password_help: "%{minimum_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email."
+        password_help_admin: "%{minimum_characters} characters minimum, must not be too common (e.g. 123456), must be different from your nickname and your email and must be different from your old passwords."
         title: Password change
       new:
         forgot_your_password: Forgot your password?
         send_me_reset_password_instructions: Send me reset password instructions
-      no_token: You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided.
+      no_token: You cannot access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided.
       send_instructions: You will receive an email with instructions on how to reset your password in a few minutes.
       send_paranoid_instructions: If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes.
       updated: Your password has been successfully changed. You are now signed in.
       updated_not_active: Your password has been successfully changed.
     registrations:
       destroyed: Your account has been successfully cancelled. We hope to see you again soon.
-      edit:
-        are_you_sure: Are you sure?
-        cancel_my_account: Cancel my account
-        currently_waiting_confirmation_for_email: 'Currently waiting confirmation for: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: leave blank if you don't want to change it
-        title: Edit %{resource}
-        unhappy: Unhappy?
-        update: Update
-        we_need_your_current_password_to_confirm_your_changes: we need your current password to confirm your changes
       new:
         sign_up: Sign up
       signed_up: Welcome! You have signed up successfully.
@@ -1678,19 +1706,19 @@ en:
       update_needs_confirmation: You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirm link to confirm your new email address.
       updated: Your account has been successfully updated.
     sessions:
-      already_signed_out: Signed out successfully.
+      already_signed_out: Logged out successfully.
       new:
-        sign_in: Log in
-      signed_in: Signed in successfully.
-      signed_out: Signed out successfully.
+        log_in: Log in
+      signed_in: Logged in successfully.
+      signed_out: Logged out successfully.
     shared:
       links:
         back: Back
-        didn_t_receive_confirmation_instructions: Didn't receive confirmation instructions?
-        didn_t_receive_unlock_instructions: Didn't receive unlock instructions?
+        didn_t_receive_confirmation_instructions: Did not receive confirmation instructions?
+        didn_t_receive_unlock_instructions: Did not receive unlock instructions?
         forgot_your_password: Forgot your password?
-        sign_in: Log in
-        sign_in_with_provider: Sign in with %{provider}
+        log_in: Log in
+        log_in_with_provider: Log in with %{provider}
         sign_up: Sign up
       minimum_password_length:
         one: "(%{count} character minimum)"
@@ -1700,22 +1728,109 @@ en:
         resend_unlock_instructions: Resend unlock instructions
       send_instructions: You will receive an email with instructions for how to unlock your account in a few minutes.
       send_paranoid_instructions: If your account exists, you will receive an email with instructions for how to unlock it in a few minutes.
-      unlocked: Your account has been successfully unlocked. Please sign in to continue.
+      unlocked: Your account has been successfully unlocked. Please log in to continue.
   doorkeeper:
     scopes:
       public: Your public information.
+  editor:
+    extensions:
+      image:
+        altLabel: Alternative text for the image
+        nodeView:
+          resizer:
+            control:
+              resize: Resize image (%position%)
+            position:
+              bottomLeft: bottom left corner
+              bottomRight: bottom right corner
+              topLeft: top left corner
+              topRight: top right corner
+        uploadError: Uploading the file failed.
+      link:
+        bubbleMenu:
+          edit: Edit
+          remove: Remove
+          url: URL
+        hrefLabel: Link URL
+        targetLabel: Target
+        targets:
+          blank: New tab
+          default: Default (same tab)
+      videoEmbed:
+        titleLabel: Title
+        urlLabel: Video URL
+    inputDialog:
+      buttons:
+        cancel: Cancel
+        remove: Remove
+        save: Save
+      close: Close modal
+    toolbar:
+      control:
+        blockquote: Blockquote
+        bold: Bold
+        bulletList: Unordered list
+        codeBlock: Code block
+        common:
+          eraseStyles: Erase styles
+        hardBreak: Line break
+        heading: Text style
+        image: Image
+        indent:
+          indent: Indent
+          outdent: Outdent
+        italic: Italic
+        link: Link
+        orderedList: Ordered list
+        underline: Underline
+        videoEmbed: Video embed
+      textStyle:
+        heading: Heading %level%
+        normal: Normal
+    upload:
+      uploadedFile: Uploaded file
+  emojis:
+    button: Add emoji
+    categories:
+      activities: Activities
+      animals-nature: Animals & Nature
+      custom: Custom
+      flags: Flags
+      food-drink: Food & Drink
+      objects: Objects
+      people-body: People & Body
+      recents: Recently Used
+      smileys-emotion: Smileys & Emotion
+      symbols: Symbols
+      travel-places: Travel & Places
+    error:
+      load: Failed to load emojis
+    recents:
+      clear: Clear recent emojis
+      none: You have not selected any emojis yet.
+    retry: Try again
+    search:
+      _: Search emojis...
+      clear: Clear search
+      error: Failed to search emojis
+      not_found: No results found
   errors:
     messages:
-      already_confirmed: was already confirmed, please try signing in
+      allowed_file_content_types: 'only files with the following extensions are allowed: %{types}'
+      already_confirmed: was already confirmed, please try logging in
+      blank: cannot be blank
+      cannot_be_blank: cannot be blank
+      confirmation: does not match %{attribute}
       confirmation_period_expired: needs to be confirmed within %{period}, please request a new one
       content_type_allowlist_error: the file type is not valid
-      cycle_detected: a scope's parent can't be one of its descendants
+      cycle_detected: a scope's parent cannot be one of its descendants
+      empty: cannot be empty
       expired: has expired, please request a new one
       file_size_is_less_than_or_equal_to: file size must be less than or equal to %{count}
       invalid_time_zone: is not a valid time zone
       long_words: contains words that are too long (over 35 characters)
       must_start_with_caps: must start with a capital letter
-      nesting_too_deep: can't be inside of a subcategory
+      nesting_too_deep: cannot be inside of a subcategory
       not_found: could not be found. Did you sign up previously?
       not_locked: was not locked
       not_saved:
@@ -1723,7 +1838,8 @@ en:
         other: 'There were multiple errors when processing your request:'
       too_many_marks: is using too many consecutive punctuation marks (e.g. ! and ?)
       too_much_caps: is using too many capital letters (over 25% of the text)
-      too_short: is too short (under 15 characters)
+      too_short: is too short (under %{count} characters)
+      url_format: This URL is in the incorrect format
   forms:
     correct_errors: There are errors on the form, please correct them to continue.
     length_validator:
@@ -1737,65 +1853,74 @@ en:
     timestamp_error_message: Sorry, that was too quick! Please resubmit.
   layouts:
     decidim:
-      cookie_consent:
-        cookie_details:
+      announcements:
+        view_less: Show less
+        view_more: More information
+      data_consent:
+        details:
           columns:
             description: Description
             name: Name
             service: Service
             type: Type
-          cookies:
+          items:
             _session_id:
               description: Allows websites to remember user within a website when they move between web pages.
               service: This website
             decidim-consent:
               description: Stores information about the cookies allowed by the user on this website.
               service: This website
+            pwaInstallPromptSeen:
+              description: Stores status if the progressive web application (PWA) install notification has been already seen by the user.
+              service: This website
           types:
             cookie: Cookie
+            local_storage: Local storage
         dialog:
           accept_all: Accept all
           accept_only_essential: Accept only essential
-          cookie_settings: Settings
           description: We use cookies on our website to improve the performance and content of the site. The cookies enable us to provide a more individual user experience and social media channels.
+          settings: Settings
           title: Information about the cookies used on the website
         modal:
           accept_all: Accept all
           accept_only_essential: Accept only essential
           analytics:
-            description: Analytics cookies are cookies that track how users navigate and interact with a website. The information collected is used to help the website owner improve the website.
+            description: These cookies are used to measure and analyse the website audience to help improve the website.
             title: Analytics and statistics
-          description: We use cookies to ensure the basic functionalities of the website and to enhance your online experience. You can choose for each category to opt-in/out whenever you want.
+          description: We use cookies to ensure the basic functionalities of the website and to enhance your online experience. You can configure and accept the use of the cookies, and modify your consent options, at any time.
           essential:
-            description: These cookies are essential for the proper functioning of my website. Without these cookies, the website would not work properly.
+            description: These cookies enable key functionality of the website and help to keep its users secured. They are automatically saved in the browser and cannot be disabled.
             title: Essential
           marketing:
-            description: These cookies collect information about how you use the website, which pages you visited and which links you clicked on.
+            description: These cookies collect information about how you use the website and they can be utilized to provide you more personalized marketing across the different websites you use.
             title: Marketing
           preferences:
-            description: These cookies allow the website to remember the choices you have made in the past
+            description: These cookies allow the website to remember the choices you have made in the past on this website to provide a more personalized experience for the website users.
             title: Preferences
           save_settings: Save settings
           title: Cookie settings
           toggle: Toggle %{consent_category}
         warning:
-          all_cookies: all cookies
-          change_cookie_settings: Change cookie settings
-          need_cookies: You need to enable %{cookies} in order to see this content.
+          all_categories: all cookies
+          change_settings: Change cookie settings
+          consent_required: You need to enable %{categories} in order to see this content.
       edit_link:
         edit: Edit
       footer:
         cc_by_license: Creative Commons License
-        cookie_settings: Cookie settings
+        data_consent_settings: Cookie settings
         decidim_logo: Decidim Logo
+        decidim_title: Decidim
         download_open_data: Download Open Data files
+        log_in: Log in
         made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
-      header:
-        close_menu: Close menu
-        main_menu: Main menu
-        navigation: Navigation
-        sign_in: Sign In
+        resources: Resources
         sign_up: Sign Up
+        terms_and_conditions: Terms and Conditions
+      header:
+        log_in: Log in
+        main_menu: Main menu
         user_menu: User menu
       impersonation_warning:
         close_session: Close session
@@ -1807,28 +1932,31 @@ en:
         mark_all_as_read: Mark all as read
         mark_as_read: Mark as read
       offline_banner:
-        cache_version_page: Oooops! Your network is offline. This is a previously cached version of the page you're visiting, perhaps the content is not up to date.
+        cache_version_page: Oooops! Your network is offline. This is a previously cached version of the page you are visiting, perhaps the content is not up to date.
+      shared:
+        layout_item:
+          next: Next item
+          prev: Previous item
       social_media_links:
         facebook: "%{organization} at Facebook"
         github: "%{organization} at GitHub"
         instagram: "%{organization} at Instagram"
-        twitter: "%{organization} at Twitter"
+        x: "%{organization} at X"
         youtube: "%{organization} at YouTube"
       timeout_modal:
         body: You have been inactive for %{minutes} minutes. If you continue being inactive, you will be automatically signed out for your own security.
         continue_session: Continue session
-        sign_out: Sign out
+        log_out: Log out
         title: Would you like to continue your session?
-      upload_modal:
-        close_modal: Close modal
       user_menu:
         account: 'User account: %{name}'
         admin_dashboard: Admin dashboard
+        configuration: Configuration
         conversations: Conversations
+        log_out: Log out
         notifications: Notifications
         profile: My account
         public_profile: My public profile
-        sign_out: Sign out
         title: Profile links
       user_profile:
         account: Account
@@ -1837,15 +1965,14 @@ en:
         my_data: My data
         my_interests: My interests
         notifications_settings: Notifications settings
+        profile: Profile
         title: Participant settings
         user_groups: Groups
-      widget:
-        see_more: See more
   locale:
     name: English
     name_with_error: English (error!)
   password_validator:
-    blacklisted: is blacklisted
+    denied: is denied
     domain_included_in_password: is too similar to this domain name
     email_included_in_password: is too similar to your email
     fallback: is not valid
@@ -1885,6 +2012,7 @@ en:
     weibo: Sina Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
+    x: X
     xing: Xing
   time:
     formats:
@@ -1903,6 +2031,7 @@ en:
             accept_until_format: "%B %d, %Y %I:%M %p"
       long: "%B %d, %Y %H:%M"
       long_dashed: "%Y-%m-%d %H:%M:%S"
+      long_with_particles: "%B %d, %Y at %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
@@ -1912,11 +2041,11 @@ en:
     dropdown:
       choose_diff_view_html: 'HTML view mode:'
       choose_diff_view_mode: 'Compare view mode:'
-      choose_diff_view_mode_menu: Choose compare mode
       option_escaped: Escaped
       option_split: Side-by-side
       option_unescaped: Unescaped
       option_unified: Unified
+      toggle: Toggle view
   views:
     pagination:
       next: Next

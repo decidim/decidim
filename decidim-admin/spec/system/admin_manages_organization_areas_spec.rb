@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Organization Areas", type: :system do
   include Decidim::SanitizeHelper
 
-  let(:admin) { create :user, :admin, :confirmed }
+  let(:admin) { create(:user, :admin, :confirmed) }
   let(:organization) { admin.organization }
 
   before do
@@ -25,7 +25,7 @@ describe "Organization Areas", type: :system do
     it "can create new areas" do
       click_link "Add"
 
-      within ".new_area" do
+      within ".item__edit-form" do
         fill_in_i18n :area_name, "#area-name-tabs", en: "My area",
                                                     es: "Mi area",
                                                     ca: "La meva area"
@@ -60,7 +60,7 @@ describe "Organization Areas", type: :system do
           click_link "Edit"
         end
 
-        within ".edit_area" do
+        within ".item__edit-form" do
           fill_in_i18n :area_name, "#area-name-tabs", en: "Another area",
                                                       es: "Otra area",
                                                       ca: "Una altra area"
@@ -79,15 +79,15 @@ describe "Organization Areas", type: :system do
 
         expect(page).to have_admin_callout("successfully")
 
-        within ".card-section" do
-          expect(page).to have_no_content(translated(area.name))
+        within "#areas" do
+          expect(page).not_to have_content(translated(area.name))
         end
       end
 
       context "when a participatory space associated to a given area exist" do
         let!(:process) { create(:participatory_process, organization: area.organization, area:) }
 
-        it "can not be deleted" do
+        it "cannot be deleted" do
           click_delete_area
           expect(area.reload.destroyed?).to be false
           expect(page).to have_admin_callout("This area has dependent spaces")

@@ -27,8 +27,8 @@ shared_examples "manage registrations" do
   end
 
   context "when registrations are enabled" do
-    let!(:meeting) { create :meeting, :published, scope:, component: current_component, registrations_enabled: true }
-    let!(:registrations) { create_list :registration, 10, meeting: }
+    let!(:meeting) { create(:meeting, :published, scope:, component: current_component, registrations_enabled: true) }
+    let!(:registrations) { create_list(:registration, 10, meeting:) }
 
     context "and a few registrations have been created" do
       it "can verify the number of registrations" do
@@ -39,12 +39,12 @@ shared_examples "manage registrations" do
   end
 
   context "when exporting registrations", driver: :rack_test do
-    let!(:registrations) { create_list :registration, 10, meeting: }
+    let!(:registrations) { create_list(:registration, 10, meeting:) }
 
     it "exports a CSV" do
       visit_edit_registrations_page
 
-      find(".exports.dropdown").click
+      find(".exports").click
 
       click_link "Registrations as CSV"
 
@@ -55,7 +55,7 @@ shared_examples "manage registrations" do
     it "exports a JSON" do
       visit_edit_registrations_page
 
-      find(".exports.dropdown").click
+      find(".exports").click
 
       click_link "Registrations as JSON"
 
@@ -69,7 +69,7 @@ shared_examples "manage registrations" do
       meeting.component.update!(settings: { registration_code_enabled: true })
     end
 
-    let!(:registration) { create :registration, meeting:, code: "QW12ER34" }
+    let!(:registration) { create(:registration, meeting:, code: "QW12ER34") }
 
     it "can validate a valid registration code" do
       visit_edit_registrations_page
@@ -82,7 +82,7 @@ shared_examples "manage registrations" do
       expect(page).to have_admin_callout("Registration code successfully validated")
     end
 
-    it "can't validate an invalid registration code" do
+    it "cannot validate an invalid registration code" do
       visit_edit_registrations_page
 
       within ".validate_meeting_registration_code" do

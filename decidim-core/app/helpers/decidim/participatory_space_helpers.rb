@@ -30,11 +30,10 @@ module Decidim
     def participatory_space_floating_help
       return if help_section.blank?
 
-      content_tag "div", class: "row collapse" do
-        floating_help(help_id) { translated_attribute(help_section).html_safe }
-      end
+      floating_help(help_id) { translated_attribute(help_section).html_safe }
     end
 
+    # deprecated
     def participatory_space_wrapper(&)
       content_tag :div, class: "wrapper" do
         concat(participatory_space_floating_help)

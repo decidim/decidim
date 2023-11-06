@@ -14,6 +14,7 @@ module Decidim
       include Decidim::Searchable
       include Decidim::Endorsable
       include Decidim::Followable
+      include Decidim::Reportable
       include Decidim::TranslatableResource
       include Traceable
       include Loggable
@@ -25,6 +26,7 @@ module Decidim
       validates :title, presence: true
 
       scope :created_at_desc, -> { order(arel_table[:created_at].desc) }
+      scope :published, -> { where("published_at <= ?", Time.current) }
 
       searchable_fields({
                           participatory_space: { component: :participatory_space },
@@ -35,12 +37,22 @@ module Decidim
                         index_on_create: true,
                         index_on_update: ->(post) { post.visible? })
 
-      def visible?
-        participatory_space.try(:visible?) && component.try(:published?)
+      class << self
+        def all_timestamp_attributes_in_model
+          super + ["published_at"]
+        end
+
+        def log_presenter_class_for(_log)
+          Decidim::Blogs::AdminLog::PostPresenter
+        end
       end
 
-      def self.log_presenter_class_for(_log)
-        Decidim::Blogs::AdminLog::PostPresenter
+      def visible?
+        participatory_space.try(:visible?) && component.try(:published?) && published?
+      end
+
+      def published?
+        published_at <= Time.current
       end
 
       # Public: Overrides the `comments_have_alignment?` Commentable concern method.
@@ -72,6 +84,21 @@ module Decidim
 
       def attachment_context
         :admin
+      end
+
+      # Public: Overrides the `reported_content_url` Reportable concern method.
+      def reported_content_url
+        ResourceLocatorPresenter.new(self).url
+      end
+
+      # Public: Overrides the `reported_attributes` Reportable concern method.
+      def reported_attributes
+        [:title, :body]
+      end
+
+      # Public: Overrides the `reported_searchable_content_extras` Reportable concern method.
+      def reported_searchable_content_extras
+        [normalized_author.name]
       end
     end
   end

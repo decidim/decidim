@@ -12,7 +12,7 @@ module Decidim
             let(:html_head) do
               <<~HEAD
                 <script type="text/javascript">
-                  window.$(function() {
+                  document.addEventListener("DOMContentLoaded", function() {
                     window.$("body").append('<div id="ajax_request"></div>');
                     window.$("body").append('<div id="geocoder_suggested"></div>');
                     window.$("body").append('<div id="geocoder_coordinates"></div>');
@@ -35,7 +35,7 @@ module Decidim
                               country: "Country1"
                             },
                             geometry: {
-                              coordinates: [1.123, 2.234]
+                              coordinates: [2.234, 1.123]
                             }
                           },
                           {
@@ -46,7 +46,7 @@ module Decidim
                               country: "Country2"
                             },
                             geometry: {
-                              coordinates: [3.345, 4.456]
+                              coordinates: [4.456, 3.345]
                             }
                           },
                           {
@@ -58,7 +58,7 @@ module Decidim
                               country: "Country3"
                             },
                             geometry: {
-                              coordinates: [5.567, 6.678]
+                              coordinates: [6.678, 5.567]
                             }
                           }
                         ]

@@ -1,20 +1,22 @@
 # frozen_string_literal: true
 
 shared_examples "manage process admins examples" do
-  let(:other_user) { create :user, organization:, email: "my_email@example.org" }
+  let(:other_user) { create(:user, organization:, email: "my_email@example.org") }
 
   let!(:process_admin) do
-    create :process_admin,
+    create(:process_admin,
            :confirmed,
            organization:,
-           participatory_process:
+           participatory_process:)
   end
 
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
-    click_link "Process admins"
+    within_admin_sidebar_menu do
+      click_link "Process admins"
+    end
   end
 
   it "shows process admin list" do
@@ -24,7 +26,7 @@ shared_examples "manage process admins examples" do
   end
 
   it "creates a new process admin" do
-    find(".card-title a.new").click
+    click_link "New process admin"
 
     within ".new_participatory_process_user_role" do
       fill_in :participatory_process_user_role_email, with: other_user.email
@@ -76,7 +78,7 @@ shared_examples "manage process admins examples" do
       expect(page).to have_admin_callout("successfully")
 
       within "#process_admins table" do
-        expect(page).to have_no_content(other_user.email)
+        expect(page).not_to have_content(other_user.email)
       end
     end
 
@@ -86,12 +88,14 @@ shared_examples "manage process admins examples" do
           name: "test",
           email: "test@example.org",
           role: "admin"
-        )
+        ).with_context(current_user: user)
 
-        Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcessAdmin.call(
+        Decidim::Admin::ParticipatorySpace::CreateAdmin.call(
           form,
-          user,
-          participatory_process
+          participatory_process,
+          role_class: Decidim::ParticipatoryProcessUserRole,
+          event: "decidim.events.participatory_process.role_assigned",
+          event_class: Decidim::ParticipatoryProcessRoleAssignedEvent
         )
 
         visit current_path

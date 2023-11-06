@@ -5,7 +5,6 @@ module Decidim
   # Decorator for users
   #
   class UserPresenter < SimpleDelegator
-    include Rails.application.routes.mounted_helpers
     include ActionView::Helpers::UrlHelper
     include Decidim::TranslatableAttributes
 
@@ -13,6 +12,8 @@ module Decidim
     # nickname presented in a twitter-like style
     #
     def nickname
+      return "" if __getobj__.blocked?
+
       "@#{__getobj__.nickname}"
     end
 
@@ -25,7 +26,7 @@ module Decidim
     def profile_url
       return "" if respond_to?(:deleted?) && deleted?
 
-      decidim.profile_url(__getobj__.nickname, host: __getobj__.organization.host)
+      decidim.profile_url(__getobj__.nickname)
     end
 
     def avatar
@@ -33,13 +34,14 @@ module Decidim
     end
 
     def avatar_url(variant = nil)
-      return avatar.default_url unless avatar.attached?
+      return default_avatar_url if __getobj__.blocked?
+      return default_avatar_url unless avatar.attached?
 
       avatar.path(variant:)
     end
 
     def default_avatar_url
-      attached_uploader.default_url
+      avatar.default_url
     end
 
     def profile_path
@@ -55,11 +57,11 @@ module Decidim
     end
 
     def display_mention
-      link_to nickname, profile_url, class: "user-mention"
+      link_to nickname, profile_url, data: { "external-link": false }
     end
 
     def can_be_contacted?
-      true
+      true unless blocked?
     end
 
     def officialization_text
@@ -72,7 +74,15 @@ module Decidim
     end
 
     def has_tooltip?
+      return if respond_to?(:deleted?) && deleted?
+
       true
+    end
+
+    private
+
+    def decidim
+      @decidim ||= Decidim::EngineRouter.new("decidim", { host: __getobj__.organization.host })
     end
   end
 end

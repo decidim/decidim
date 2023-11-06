@@ -1,8 +1,12 @@
-<div class="grow grid grid-cols-12">
-  <aside class="col-span-3 bg-background p-12">
+<% reverse ||= false %>
+<% main_enabled = true unless local_assigns.has_key?(:main_enabled) %>
+<div class="layout-2col<%= " layout-2col__reverse" if reverse %>">
+  <aside class="layout-2col__aside">
     <%= yield :aside %>
   </aside>
-  <main class="col-span-9">
+  <% main_tag = main_enabled ? :main : :div %>
+  <%= content_tag main_tag, class: "layout-2col__main" do %>
+    <%= content_for :flash_messages %>
     <%= yield %>
-  </main>
+  <% end %>
 </div>

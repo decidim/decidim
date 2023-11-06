@@ -2,7 +2,7 @@
 
 <pre class="code-block"><%= "Document ID;Document Type;Date of Birth;Full name;Full address;Postal Code;Mobile phone number;Email address;#{ballot_style_code_header}" %></pre>
 
-<%= content_tag :p, t("upload_info.csv_header_after", scope: "decidim.votings.census.admin.census", ballot_style_code_header: ballot_style_code_header) %>
+<%= content_tag :p, t("upload_info.csv_header_after", scope: "decidim.votings.census.admin.census", ballot_style_code_header:) %>
 
 <%= content_tag :p, sanitize(t("upload_info.csv_example_with_ballot_style", scope: "decidim.votings.census.admin.census")) %>
   <pre class="code-block"><%= "Document ID;Document Type;Date of Birth;Full name;Full address;Postal Code;Mobile phone number;Email address;#{ballot_style_code_header}

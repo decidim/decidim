@@ -36,7 +36,7 @@ module Decidim
     # Returns whether the component can be managed or not by checking if it has
     # an admin engine.
     #
-    # component - the Component we want to find if it's manageable or not.
+    # component - the Component we want to find if it is manageable or not.
     #
     # Returns a boolean matching the question.
     def can_be_managed?(component)

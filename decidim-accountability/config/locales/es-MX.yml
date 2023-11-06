@@ -7,6 +7,7 @@ es-MX:
         decidim_scope_id: Ámbito
         description: Descripción
         end_date: Fin
+        meetings_ids: Encuentros relacionados
         progress: Progreso
         project_ids: Proyectos incluidos
         proposals: Propuestas incluidas
@@ -38,8 +39,11 @@ es-MX:
         confirm_destroy: '¿Está seguro de que quiere eliminar este %{name}?'
         destroy: Borrar
         edit: Editar
+        import: Importar proyectos a resultados
         import_csv: Importar CSV
-        new: Nuevo/a %{name}
+        new_result: Añadir resultado
+        new_status: Añadir estado
+        new_timeline_entry: Añadir entrada de la cronología
         preview: Previsualizar
         timeline_entries: Evolución del proyecto
         title: Acciones
@@ -49,26 +53,61 @@ es-MX:
           results: Resultados
         import_results:
           new:
+            download_export: Descargar la exportación en formato CSV
             import: Importar
-            info: "<p>Te recomendamos que sigas los siguientes pasos:</p><ol><li> Crea los estados para los resultados que quieras agregar (<a href='%{link_new_status}' target='_blank'> link </a>)</li><li> Crea por lo menos un resultado manualmente a través del panel de administración (<a href='%{link_new_result}' target='_blank'>link</a>) antes de importar, para entender mejor el formato y cómo rellenarlo.</li><li>Descarga el archivo en formato CSV (%{link_export_csv})</li><li>Haz los cambios en local. Sólo puedes modificar las siguientes columnas del CSV:</li></ol><ul><li><b> id category /id:</b> ID para la categoría</li><li><b>scope /id:</b> ID para el ámbito</li><li><b>parent /id:</b> ID para el padre (para resultados relacionados). Opcional</li> <li><b>title /I18N:</b> título en la lengua X</li> <li><b>description /I18N:</b> descripción en la lleguna X</li><li><b>start_date:</b> date en la que se inicia la ejecución del resultado (formato AAAA-MM-DD)</li><li><b>end_date:</b> fecha en la que finaliza la ejecución del resultado (formato AAAA-MM-DD) </li><li><b> status /id:</b> ID del estado para este resultado</li><li><b>progress:</b> Tanto por ciento (de 0 a 100) de ejecución</li><li><b>proposals_ids:</b> ID interno de las propuestas relacionadas (separadas por comas). Se convertirá automáticamente en <span class = 'attribute-name'>proposal_url</span></li></ul>"
-            link: enlace
+            info: |
+              <p>Te recomendamos que sigas los siguientes pasos:</p>
+              <ol>
+              <li> <a href='%{link_new_status}' target='_blank'>Crea los estados para los resultados</a> que quieras agregar</li>
+              <li><a href='%{link_new_result}' target='_blank'> Crea por lo menos un resultado manualmente</a> a través del panel de administración antes de importar, para entender mejor el formato y cómo rellenarlo.</li>
+              <li>%{link_export_csv}</li>
+              <li>Haz los cambios en local. Sólo puedes modificar las siguientes columnas del CSV:
+                <ul>
+                <li><b> id category/id:</b> ID para la categoría</li>
+                <li><b>scope/id:</b> ID para el ámbito</li>
+                <li><b>parent/id:</b> ID para el padre (para resultados relacionados). Opcional</li>
+                <li><b>title/I18N:</b> título en el idioma X</li>
+                <li><b>description/I18N:</b> descripción en el idioma X</li>
+                <li><b>start_date:</b> fecha en la que se inicia la ejecución del resultado (formato AAAA-MM-DD)</li>
+                <li><b>end_date:</b> fecha en la que finaliza la ejecución del resultado (formato AAAA-MM-DD) </li>
+                <li><b> status/id:</b> ID del estado para este resultado</li>
+                <li><b>progress:</b> Tanto por ciento (de 0 a 100) de ejecución</li>
+                <li><b>proposals_ids:</b> ID interno de las propuestas relacionadas (separadas por comas). Se convertirá automáticamente en <span class = 'attribute-name'>proposal_url</span></li>
+                </ul>
+              </li>
+              </ol>
             title: Importa resultados vía CSV
         imports:
           create:
-            success: Se está importando el fichero. Recibirás un mail en los próximos minutos con el resultado de la imporación
+            invalid: Ha habido un problema importando los resultados.
+            success: Se está importando el fichero. Recibirás un correo electrónico en los próximos minutos con el resultado de la importación.
         models:
           result:
             name: Resultado
           status:
             name: Estado
-          timeline_entry:
-            name: Evolución del proyecto
+        projects_import:
+          create:
+            invalid: Hubo un problema al importar los proyectos como resultados, por favor, sigue las instrucciones cuidadosamente y asegúrate que has marcado los proyectos seleccionados para su implementación.
+          new:
+            create: Importar
+            import_all_selected_projects: Importar todos los proyectos seleccionados para ser implementados
+            new_items:
+              one: Se importará 1 proyecto seleccionado
+              other: "Se importarán %{count} proyectos seleccionados"
+            no_components: No hay ningún componente de presupuestos en este espacio de participación para importar los proyectos como resultados.
+            origin_component_id: Componente de origen
+            select_component: Selecciona un componente
+            success:
+              one: Hay un proyecto para ser importado. Se notificará por correo electrónico, cuando se complete la importación.
+              other: "Hay %{count} proyectos para ser importados. Se notificará por correo electrónico, cuando se complete la importación."
+            title: Importar Proyectos a Seguimiento
         results:
           create:
-            invalid: Ha habido un problema al crear este resultado
-            success: El resultado ha sido creado correctamente
+            invalid: Se ha producido un error al crear este resultado.
+            success: Resultado creado correctamente.
           destroy:
-            success: El resultado se ha eliminado correctamente
+            success: Resultado eliminado correctamente.
           edit:
             title: Editar resultado
             update: Actualizar resultado
@@ -78,17 +117,17 @@ es-MX:
             create: Crear resultado
             title: Nuevo resultado
           update:
-            invalid: Ha habido un problema al actualizar este resultado
-            success: El resultado ha actualizado correctamente
+            invalid: Se ha producido un error al actualizar este resultado.
+            success: Resultado actualizado correctamente.
         shared:
           subnav:
             statuses: Estados
         statuses:
           create:
-            invalid: Ha habido un problema al crear este estado
-            success: El estado ha sido creado correctamente
+            invalid: Se ha producido un error al crear este estado.
+            success: Estado creado correctamente.
           destroy:
-            success: El estado se ha eliminado correctamente
+            success: Estado eliminado correctamente.
           edit:
             title: Editar estado
             update: Actualizar estado
@@ -98,14 +137,14 @@ es-MX:
             create: Crear estado
             title: Nuevo estado
           update:
-            invalid: Ha habido un problema al actualizar este estado
-            success: El estado ha actualizado correctamente
+            invalid: Se ha producido un error al actualizar este estado.
+            success: Estado actualizado correctamente.
         timeline_entries:
           create:
-            invalid: Ha habido un problema al crear este elemento
-            success: El elemento ha sido creado correctamente
+            invalid: Se ha producido un error al crear esta entrada.
+            success: Entrada creada correctamente.
           destroy:
-            success: El elemento se ha eliminado correctamente
+            success: Entrada eliminada correctamente.
           edit:
             title: Editar elemento
             update: Actualizar elemento
@@ -115,8 +154,8 @@ es-MX:
             create: Crear elemento
             title: Nuevo elemento
           update:
-            invalid: Ha habido un problema al actualizar este elemento
-            success: El elemento ha actualizado correctamente
+            invalid: Se ha producido un error al actualizar esta entrada.
+            success: Entrada actualixadada correctamente.
       admin_log:
         result:
           create: "%{user_name} creó el resultado %{resource_name} en %{space_name}"
@@ -141,12 +180,19 @@ es-MX:
       import_mailer:
         import:
           errors: Errores
-          errors_present: Ha habido un problema importando los resultados
+          errors_present: Ha habido un problema importando los resultados.
           row_number: Fila
           subject: Los resultados se han importado correctamente
           success: Los resultados se han importante correctamente. Puedes revisar los resultados a través del panel de administración.
+      import_projects_mailer:
+        import:
+          added_projects:
+            one: Se ha importado un resultado desde proyectos.
+            other: "Se han importado %{count} resultados desde proyectos."
+          subject: Los proyectos se han importado correctamente
+          success: Los proyectos importados como resultados con éxito al componente %{component_name}. Puedes revisar los resultados en el tablero de administración.
       last_activity:
-        new_result_at_html: "<span>Nuevo resultado en %{link}</span>"
+        new_result: 'Nuevo resultado:'
       models:
         result:
           fields:
@@ -179,7 +225,6 @@ es-MX:
             other: "%{count} resultados"
         filters:
           all: Todos
-          scopes: Ámbitos
         home:
           categories_label: Categorías
           subcategories_label: Subcategorías
@@ -187,6 +232,7 @@ es-MX:
           global_status: Estado de ejecución global
         nav_breadcrumb:
           global: Ejecución global
+        no_results: No hay proyectos
         search:
           search: Buscar actuaciones
         show:

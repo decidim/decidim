@@ -38,7 +38,7 @@ module Decidim
 
     describe "instance" do
       it "returns an instance of the form" do
-        expect(subject.instance).to be_kind_of(form_klass)
+        expect(subject.instance).to be_a(form_klass)
       end
     end
 

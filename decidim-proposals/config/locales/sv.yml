@@ -31,7 +31,6 @@ sv:
         cost_report: Kostnadsrapport
         execution_period: Genomförandesperiod
       proposals_copy:
-        copy_proposals: Jag förstår att detta kommer att importera alla förslag från den valda komponenten till den nuvarande och att den här åtgärden inte kan ångras.
         origin_component_id: Komponent att kopiera förslagen från
       proposals_import:
         import_proposals: Importera förslag
@@ -106,16 +105,18 @@ sv:
             values:
               accepted: Accepterat
               evaluating: Utvärderas
+              not_answered: Ej besvarade
               published: Publicerad
               rejected: Avvisad
               validating: Teknisk validering
               withdrawn: Tillbakadragen
-          state_null:
-            label: Status
-            values:
-              'true': Ej besvarad
           valuator_role_ids_has:
             label: Tilldelad till värderare
+          with_any_state:
+            label: Besvarade
+            values:
+              state_not_published: Ej besvarade
+              state_published: Besvarade
         search_placeholder:
           id_string_or_title_cont: Sök %{collection} efter ID eller titel.
     components:
@@ -216,10 +217,8 @@ sv:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: Någon har lämnat en anteckning på förslaget "%{resource_title}". Kolla in det på <a href="%{admin_proposal_info_url}">adminpanelen</a>
             email_outro: Du har fått detta meddelande eftersom du kan värdera förslaget.
             email_subject: Någon lämnade en anteckning på förslag %{resource_title}.
-            notification_title: Någon har lämnat en anteckning om förslaget <a href="%{resource_path}">%{resource_title}</a>. Kolla in det på <a href="%{admin_proposal_info_path}">adminpanelen</a>
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} har fått tillgång till och är accepterad som bidragsgivare till %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> har <strong>fått tillgång till och accepterats som bidragsgivare till</strong> det gemensamma utkastet <a href="%{resource_path}">%{resource_title}</a>.
@@ -242,12 +241,10 @@ sv:
           email_intro: 'Nu kan du skapa nya förslag på %{participatory_space_title}! Börja delta på den här sidan:'
           email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddlanden via föregående länk.
           email_subject: Det är nu möjligt att skapa förslag i %{participatory_space_title}
-          notification_title: Nu kan du lägga fram <a href="%{resource_path}">nya förslag</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Du kan instämma med förslag på %{participatory_space_title}! Börja att delta på den här sidan:'
           email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
           email_subject: Instämmande i förslag har startat för %{participatory_space_title}
-          notification_title: Du kan nu börja att <a href="%{resource_path}">instämma i förslag</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           affected_user:
             email_intro: 'Ditt förslag "%{resource_title}" har accepterats. Du kan läsa svaret på den här sidan:'
@@ -257,7 +254,6 @@ sv:
           follower:
             email_intro: 'Förslaget "%{resource_title}" har accepterats. Läs svaret på den här sidan:'
             email_outro: Du har fått det här meddelandet eftersom du följer "%{resource_title}". Du kan sluta att följa det via föregående länk.
-            email_subject: Ett förslag som du följer har accepterats
             notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> har accepterats.
         proposal_evaluating:
           affected_user:
@@ -268,7 +264,6 @@ sv:
           follower:
             email_intro: 'Förslaget "%{resource_title}" utvärderas för närvarande. Du kan söka efter ett svar på den här sidan:'
             email_outro: Du har fått det här meddelandet eftersom du följer "%{resource_title}". Du kan sluta att följa det via föregående länk.
-            email_subject: Ett förslag som du följer utvärderas
             notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> utvärderas.
         proposal_mentioned:
           email_intro: Ditt förslag "%{mentioned_proposal_title}" har nämnts i kommentarerna i <a href="%{resource_url}">det här utrymmet</a>.
@@ -284,17 +279,14 @@ sv:
           email_intro: Förslaget "%{resource_title}" har lagts till i "%{participatory_space_title}" som du följer.
           email_outro: Du har fått det här meddelandet eftersom du följer "%{participatory_space_title}". Du kan sluta att ta emot meddelanden genom att följa föregående länk.
           email_subject: Nytt förslag "%{resource_title}" lades till %{participatory_space_title}
-          notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> har lagts till %{participatory_space_title} av %{author}
         proposal_rejected:
           affected_user:
             email_intro: 'Ditt förslag "%{resource_title}" har avslagits. Du kan läsa svaret på den här sidan:'
             email_outro: Du har fått det här meddelandet eftersom du är en författare av %{resource_title}".
-            email_subject: Ditt förslag har avslagits
             notification_title: Ditt förslag <a href="%{resource_path}">%{resource_title}</a> har avslagits.
           follower:
             email_intro: 'Förslaget "%{resource_title}" har avslagits. Du kan läsa svaret på den här sidan:'
             email_outro: Du har fått det här meddelandet eftersom du följer "%{resource_title}". Du kan sluta att följa det via föregående länk.
-            email_subject: Ett förslag som du följer har avslagits
             notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> har avslagits.
         proposal_update_category:
           email_intro: 'En administratör har uppdaterat kategorin för ditt förslag "%{resource_title}", ta en titt på följande sida:'
@@ -333,7 +325,6 @@ sv:
           description_own: Du har gett stöd till %{score} förslag.
           name: Stött förslag
           next_level_in: Ge stöd till %{score} fler förslag för att nå nästa nivå!
-          unearned_another: Den här användaren har inte stött några förslag än.
           unearned_own: Du har inte gett stöd till några förslag än.
         proposals:
           conditions:
@@ -344,7 +335,6 @@ sv:
           description_own: Du har skapat %{score} förslag.
           name: Förslag
           next_level_in: Nå nästa nivå genom att skapa %{score} till förslag!
-          unearned_another: Den här användaren har inte skapat några förslag ännu.
           unearned_own: Du har inte skapat några förslag än.
     metrics:
       accepted_proposals:
@@ -365,6 +355,7 @@ sv:
         title: Stöd
     participatory_spaces:
       highlighted_proposals:
+        last: Senaste förslag
         see_all: Visa alla (%{count})
     proposals:
       actions:
@@ -382,9 +373,6 @@ sv:
           proposal_comments: Kommentarer
           proposals: Förslag
         imports:
-          help:
-            answers: 'Importdokumentet ska innehålla följande kolumner: id, state (accepterat, utvärderat, avvisat), answer/sv, answer/en (och andra språk aktiverade för organisationen).'
-            proposals: Filen måste ha kolumnnamn title/sv och body/sv (eller ett annat språk som du föredrar t. ex.. title/en och body/en). Även scope/id och category/id kolumner stöds.
           label:
             answers: Importera svar från en fil
             proposals: Importerar förslag från en fil
@@ -422,12 +410,8 @@ sv:
               md: Markdown
               odt: ODT
             bottom_hint: "(Du kommer att kunna förhandsvisa och sortera dokumentavsnitt)"
-            document_legend: 'Lägg till ett dokument som är mindre än 2MB, varje avsnitt upp till 3 nivåers djup kommer läsas in till förslagen. Möjliga format är: %{valid_mime_types}'
             title: LÄGG TILL DOKUMENT
             upload_document: Skicka in dokument
-          publish:
-            invalid: Kunde inte publicera förslag
-            success: Alla förslag har publicerats
           sections:
             article: "<em>Artikel</em>"
             section: "<em>Avsnitt:</em> <strong>%{title}</strong>"
@@ -439,24 +423,16 @@ sv:
             accepted: Accepterat
             answer_proposal: Svara
             evaluating: Utvärderas
+            not_answered: Ej besvarade
             rejected: Avvisat
             title: Svar på förslaget %{title}
         proposal_notes:
-          create:
-            error: Det gick inte att skapa anteckningen till förslaget
-            success: Förslagsanteckning skapades
           form:
             note: Annteckning
             submit: Skicka in
           leave_your_note: Lämna anteckningen
           title: Privata anteckningar
         proposals:
-          answer:
-            invalid: Det gick inte att svara på förslaget
-            success: Förslaget har besvarats
-          create:
-            invalid: Det gick inte att skapa förslaget
-            success: Förslaget har skapats
           edit:
             title: Uppdatera förslag
             update: Uppdatera
@@ -491,48 +467,32 @@ sv:
             title: Skapa förslag
           publish_answers:
             number_of_proposals: Svar på %{number} förslag kommer att publiceras.
-            select_a_proposal: Välj ett förslag
           show:
             amendments_count: Antal ändringsförslag
             assigned_valuators: Tilldelade värderare
-            authors: Författare
             body: Innehåll
             comments_count: Antal kommentarer
-            comments_negative_count: Mot
-            comments_neutral_count: Neutral
-            comments_positive_count: För
-            created_at: Skapelsedatum
             documents: Dokument
             endorsements_count: Antal instämmanden
-            endorsements_ranking: Sortera efter instämmanden
             endorsers: Instämmer
             link: Länk
             n_more_endorsers:
               one: och 1 till
               other: och %{count} till
             photos: Bilder
-            proposals: Förslag
             ranking: "%{ranking} av %{total}"
             related_meetings: Relaterade möten
             remove_assignment: Ta bort tilldelning
             remove_assignment_confirmation: Vill du ta bort värderaren från förslaget?
             valuators: Värderare
             votes_count: Antal stöd
-            votes_ranking: Sortera efter stöd
           update_category:
             invalid: 'Dessa förslag var redan i kategorin %{subject_name}: %{proposals}.'
-            select_a_category: Välj en kategori
-            select_a_proposal: Välj ett förslag
             success: 'Förslag som har uppdaterats till kategorin %{subject_name}: %{proposals}.'
           update_scope:
             invalid: 'Dessa förslag hade redan omfånget %{subject_name}: %{proposals}.'
-            select_a_proposal: Välj ett förslag
-            select_a_scope: Välj ett omfång
             success: 'Förslag som har uppdaterats till omfånget %{subject_name}: %{proposals}.'
         proposals_imports:
-          create:
-            invalid: Det gick inte att importera förslagen
-            success: "%{number} förslag har importerats"
           new:
             create: Importera förslag
             no_components: Det finns inga andra förslagskomponenter i detta deltagarutrymme att importera förslagen från.
@@ -547,13 +507,6 @@ sv:
           create:
             invalid: 'Det gick inte att dela upp de valda förslagen på grund av vissa av dem:'
             success: Förslagen har delats upp till nya förslag.
-        valuation_assignments:
-          create:
-            invalid: Det gick inte att tilldela förslag till en värderare
-            success: Förslag tilldelades till en värderare
-          delete:
-            invalid: Det gick inte att ta bort tilldelningen av förslag från en värderare
-            success: Värderaren är inte längre tilldelad till förslagen
       admin_log:
         proposal:
           answer: "%{user_name} svarade på förslaget %{resource_name} på utrymmet %{space_name}"
@@ -572,16 +525,12 @@ sv:
         rejected: Avvisat
         withdrawn: Tillbakadraget
       application_helper:
-        filter_category_values:
-          all: Alla
         filter_origin_values:
           all: Alla
           meetings: Möten
           official: Officiella
           participants: Deltagare
           user_groups: Grupper
-        filter_scope_values:
-          all: Alla
         filter_state_values:
           accepted: Accepterade
           all: Alla
@@ -597,26 +546,18 @@ sv:
           publish:
             error: Det gick inte att publicera det gemensamma utkastet.
             irreversible_action_modal:
-              body: Efter att utkastet har publicerats som ett förslag går det inte längre att redigera utkastet. Förslaget kommer inte acceptera nya författare eller bidrag.
               cancel: Dra tillbaka
               ok: Publicera som ett förslag
               title: Följande åtgärd kan inte ångras
             success: Det gemensamma utkastet har publicerats som ett förslag.
-          view_collaborative_draft: Visa gemensamt utkast
           withdraw:
             error: Det gick inte att stänga det gemensamma utkastet.
             irreversible_action_modal:
-              body: Efter att utkastet stängs går det inte längre att redigera. Utkastet accepterar inte nya författare eller bidrag.
               cancel: Dra tillbaka
               ok: Dra tillbaka det gemensamma utkastet
               title: Det går inte att ångra denna åtgärd
             success: Det gemensamma utkastet har dragits tillbaka.
-        count:
-          drafts_count:
-            one: "%{count} gemensamt utkast"
-            other: "%{count} gemensamma utkast"
         create:
-          error: Det gick inte att skapa det gemensamma utkastet
           success: Det gemensamma utkastet har skapats.
         edit:
           attachment_legend: "(Frivilligt) Lägg till en bilaga"
@@ -640,8 +581,13 @@ sv:
           filter: Filtrera
           filter_by: Filtrera efter
           unfold: Veckla ut
+        index:
+          count:
+            one: "%{count} gemensamt utkast"
+            other: "%{count} gemensamma utkast"
         new:
           add_file: Lägg till fil
+          edit_file: Redigera fil
           send: Fortsätt
         new_collaborative_draft_button:
           new_collaborative_draft: Nytt gemensamt utkast
@@ -653,32 +599,26 @@ sv:
         requests:
           accepted_request:
             error: Kunde inte godkännas som samarbetspartner, försök igen senare.
-            success: "@%{user} har godkänts som bidragsgivare"
           access_requested:
             error: Din begäran kunde inte behandlas, försök igen senare.
-            success: Din begäran om samarbete har skickats
           collaboration_requests:
             accept_request: Godkänn
             reject_request: Avvisa
             title: Förfrågningar om samarbete
           rejected_request:
             error: Kunde inte avvisas som samarbetspartner, försök igen senare.
-            success: "@%{user} har avvisats som samarbetspartner"
         show:
-          back: Tillbaka
           edit: Redigera gemensamt utkast
           final_proposal: sista förslaget
           final_proposal_help_text: Detta utkast är klart. Du kan se det slutliga förslaget
           hidden_authors_count:
             one: och %{count} mer person
             other: och %{count} fler personer
-          info-message: Detta är ett <strong>gemensamt utkast</strong> till ett förslag. Det innebär att du kan hjälpa deras författare att forma förslaget med hjälp av kommentarsektionen nedan eller själv förbättra det genom att be om att få redigera det. När författarna ger dig tillgång, kan du göra ändringar i detta utkast.
           publish: Publicera
           publish_info: Publicera den här versionen av utkastet eller
           published_proposal: publicerat förslag
           request_access: Begär tillgång
           requested_access: Tillgång har begärts
-          version_history: visa versionshistoriken för förslaget
           withdraw: dra tillbaka utkastet
         states:
           open: Öppet
@@ -689,12 +629,11 @@ sv:
           success: Det gemensamma utkastet har uppdaterats.
         wizard_aside:
           back_from_collaborative_draft: Tillbaka till gemensamma utkast
-          info: Du skapar ett <strong>gemensamt utkast</strong>.
         wizard_header:
           title: Skapa ditt gemensamma utkast
       content_blocks:
         highlighted_proposals:
-          proposals: Förslag
+          name: Förslag
       create:
         error: Det gick inte att spara förslaget.
         success: Förslaget har skapats. Det är sparat som ett utkast.
@@ -702,14 +641,9 @@ sv:
         error: Det gick inte att radera det gemensamma utkastet.
         success: Utkastet till förslag har tagits bort.
       last_activity:
-        new_proposal_at_html: "<span>Nytt förslag vid %{link}</span>"
-        proposal_updated_at_html: "<span>Förslag uppdaterades på %{link}</span>"
+        new_proposal: 'Nytt förslag:'
+        proposal_updated: 'Förslag uppdaterades:'
       models:
-        collaborative_draft:
-          fields:
-            authors: Författare
-            comments: Kommentarer
-            contributions: Bidrag
         proposal:
           fields:
             category: Kategori
@@ -725,14 +659,11 @@ sv:
             valuator: Värderare
             valuators: Värderare
             votes: Stöd
-      new:
-        limit_reached: Du kan inte skapa nya förslag eftersom du har överskridit gränsen.
       participatory_text_proposal:
         alternative_title: Det finns inga deltagartexter just nu
         buttons:
           amend: Ändra
           comment: Kommentar
-          comments: Kommentarer
       proposal_votes:
         create:
           error: Det gick inte att stödja förslaget.
@@ -744,10 +675,6 @@ sv:
         complete:
           send: Skicka
           title: Färdigställ ditt förslag
-        count:
-          proposals_count:
-            one: "%{count} förslag"
-            other: "%{count} förslag"
         dynamic_map_instructions:
           description: Koordinaterna uppdateras när du klickar på knappen 'Förhandsgranska'. Adressen ändras dock inte.
           instructions: Nu kan du flytta markören på kartan.
@@ -756,7 +683,6 @@ sv:
           attachment_legend: "(Frivilligt) Lägg till en bilaga"
           back: Tillbaka
           edit_documents: Ändra dokument
-          gallery_legend: "(Frivilligt) Lägg till en bild"
           select_a_category: Välj en kategori
           send: Skicka
           title: Redigera förslag
@@ -778,23 +704,16 @@ sv:
           state: Status
           type: Typ
           voted: Stöder
-        filters_small_view:
-          close_modal: Stäng fönster
-          filter: Filtrera
-          filter_by: Filtrera efter
-          unfold: Veckla ut
         index:
           click_here: Se alla förslag
           collaborative_drafts_list: Visa gemensamma utkast
+          count:
+            one: "%{count} förslag"
+            other: "%{count} förslag"
           new_proposal: Nytt förslag
           see_all: Se alla förslag
           see_all_withdrawn: Se alla tillbakadragna förslag
           text_banner: Du tittar på listan över förslag som dragits tillbaka av deras författare. %{go_back_link}.
-          view_proposal: Visa förslag
-        linked_proposals:
-          proposal_votes:
-            one: stöd
-            other: stöd
         new:
           send: Fortsätt
         orders:
@@ -807,10 +726,8 @@ sv:
           recent: Senaste
           with_more_authors: Med fler författare
         participatory_texts:
-          index:
-            document_index: Dokumentindex
           view_index:
-            see_index: Visa index
+            document_index: Dokumentindex
         placeholder:
           address: Drottninggatan 23, 123 45 Stockholm
         preview:
@@ -822,20 +739,10 @@ sv:
             other: Du kommer att kunna redigera förslaget upp till %{count} minuter efter att förslaget har publicerats. När det tidsfönstret passerat kommer du inte att kunna redigera förslaget.
           publish: Publicera
           title: Publicera ditt förslag
-        proposal:
-          creation_date: 'Skapat: %{date}'
-          view_proposal: Visa förslag
-        proposals:
-          empty: Det finns ännu inget förslag
-          empty_filters: Det finns inget förslag med dessa kriterier
         show:
           answer: Svara
-          back_to: Tillbaka till
-          back_to_list: Tillbaka till listan
           changes_at_title: Ändring till %{title}
-          comments: Kommentarer
           edit_proposal: Redigera förslag
-          endorsements_list: Lista över instämmanden
           estimated_cost: Beräknad kostnad
           hidden_endorsers_count:
             one: och %{count} till person
@@ -849,14 +756,9 @@ sv:
           proposal_accepted_reason: 'Detta förslag har accepterats eftersom:'
           proposal_in_evaluation_reason: Detta förslag utvärderas
           proposal_rejected_reason: 'Detta förslag har avslagits på grund av att:'
-          read_less: Läs mindre
-          read_more: Läs mer
-          report: Rapport
           withdraw_btn_hint: Du kan dra tillbaka ett förslag om du ändrar dig, så länge som det inte har fått något stöd. Förslaget raderas inte utan kommer att visas i listan över förslag som dragits tillbaka.
           withdraw_confirmation_html: Är du säker på att du vill dra tillbaka förslaget?<br><br><strong>Denna åtgärd kan inte ångras!</strong>
           withdraw_proposal: Dra tillbaka förslaget
-        tags:
-          changed_from: "(ändrad från <u>%{previous_name}</u> av en administratör)"
         update:
           title: Uppdatera förslag
         vote_button:
@@ -870,23 +772,17 @@ sv:
           count:
             one: STÖDER
             other: STÖDER
-          most_popular_proposal: Mest populära förslaget
-          need_more_votes: Behöver mer stöd
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Varje förslag kan samla mer än %{limit} stöd
           minimum_votes_per_user:
             description: Du måste fördela minst %{votes} stöd mellan olika förslag.
-            given_enough_votes: Du har gett tillräckligt med stöd.
             supports_remaining: Du måste stödja ytterligare %{remaining_votes} förslag för att dina stöd ska beaktas.
           proposal_limit:
             description: Du kan skapa upp till %{limit} förslag.
-          threshold_per_proposal:
-            description: För att valideras måste förslag nå stöd från %{limit}
           title: 'Stöd är föremål för följande regler:'
           vote_limit:
             description: Du kan stödja upp till %{limit} förslag.
-            left: Kvar
             votes: Stöder
         wizard_aside:
           back: Tillbaka
@@ -894,21 +790,15 @@ sv:
           back_from_step_2: Tillbaka till förslag
           back_from_step_3: Tillbaka för att jämföra förslag
           back_from_step_4: Tillbaka för att redigera utkast
-          info: Du skapar ett <strong>förslag</strong>.
         wizard_steps:
           current_step: Nuvarande steg
-          see_steps: visa steg
           step_1: Skapa ditt förslag
           step_2: Jämför
           step_3: Komplettera
           step_4: Publicera ditt förslag
-          step_of: Steg %{current_step_num} av %{total_steps}
           title: Steg för att skapa förslag
       proposals_picker:
         choose_proposals: Välj förslag
-        close: Stäng
-        more_proposals: Det finns ytterligare %{number} förslag. Förfina dina sökkriterier för att hitta dem.
-        no_proposals: Inga förslag matchar dina sökkriterier eller det finns inget förslag.
       publish:
         error: Det gick inte att publicera förslaget.
         success: Förslag har publicerats.
@@ -921,15 +811,8 @@ sv:
         error: Det gick inte att spara det gemensamma utkastet.
         success: Utkastet till förslag har uppdaterats.
       versions:
-        collaborative_drafts:
-          back_to_resource: Gå tillbaka till gemensamt utkast
         index:
           title: Versioner
-        proposals:
-          back_to_resource: Gå tillbaka till förslaget
-      withdraw:
-        errors:
-          has_supports: Detta förslag kan inte dras tillbaka eftersom det redan har stöd.
     resource_links:
       copied_from_component:
         proposal_proposal: Relaterade förslag

@@ -7,7 +7,7 @@ RSpec.describe "Project search", type: :request do
 
   subject { response.body }
 
-  let(:component) { create :budgets_component }
+  let(:component) { create(:budgets_component) }
   let(:participatory_space) { component.participatory_space }
   let(:organization) { participatory_space.organization }
   let(:filter_params) { {} }
@@ -98,5 +98,26 @@ RSpec.describe "Project search", type: :request do
         expect(subject).to include(translated(project3.title))
       end
     end
+  end
+
+  describe "#index" do
+    let(:url) { "http://#{component.organization.host + request_path}" }
+
+    it "redirects to the index page" do
+      get(
+        url_to_root(request_path),
+        params: {},
+        headers: { "HOST" => component.organization.host }
+      )
+      expect(response["Location"]).to eq(url)
+      expect(response).to have_http_status(:found)
+    end
+  end
+
+  private
+
+  def url_to_root(url)
+    parts = url.split("/")
+    parts[0..-2].join("/")
   end
 end

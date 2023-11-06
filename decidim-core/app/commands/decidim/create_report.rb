@@ -12,19 +12,20 @@ module Decidim
       @form = form
       @reportable = reportable
       @current_user = current_user
+      @tool = Decidim::ModerationTools.new(reportable, current_user)
     end
 
+    delegate :moderation, :participatory_space, :update_reported_content!, :update_report_count!, to: :tool
     # Executes the command. Broadcasts these events:
     #
     # - :ok when everything is valid, together with the report.
-    # - :invalid if the form wasn't valid and we couldn't proceed.
+    # - :invalid if the form was not valid and we could not proceed.
     #
     # Returns nothing.
     def call
       return broadcast(:invalid) if form.invalid?
 
       transaction do
-        find_or_create_moderation!
         update_reported_content!
         create_report!
         update_report_count!
@@ -42,28 +43,13 @@ module Decidim
 
     private
 
-    attr_reader :form, :report
-
-    def find_or_create_moderation!
-      @moderation = Moderation.find_or_create_by!(reportable: @reportable, participatory_space:)
-    end
-
-    def update_reported_content!
-      @moderation.update!(reported_content: @reportable.reported_searchable_content_text)
-    end
+    attr_reader :form, :report, :tool
 
     def create_report!
-      @report = Report.create!(
-        moderation: @moderation,
-        user: @current_user,
-        reason: form.reason,
-        details: form.details,
-        locale: I18n.locale
-      )
-    end
-
-    def update_report_count!
-      @moderation.update!(report_count: @moderation.report_count + 1)
+      @report = @tool.create_report!({
+                                       reason: form.reason,
+                                       details: form.details
+                                     })
     end
 
     def participatory_space_moderators
@@ -78,12 +64,17 @@ module Decidim
       end
     end
 
+    def hidden_by_admin?
+      form.hide == true && form.context[:can_hide] == true
+    end
+
     def hideable?
-      !@reportable.hidden? && @moderation.report_count >= Decidim.max_reports_before_hiding
+      hidden_by_admin? || (!@reportable.hidden? && moderation.report_count >= Decidim.max_reports_before_hiding)
     end
 
     def hide!
-      Decidim::Admin::HideResource.new(@reportable, @current_user).call
+      @tool.hide!
+      @tool.send_notification_to_author
     end
 
     def send_hide_notification_to_moderators

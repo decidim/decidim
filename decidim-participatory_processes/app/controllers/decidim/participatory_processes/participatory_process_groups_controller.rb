@@ -4,7 +4,7 @@ module Decidim
   module ParticipatoryProcesses
     class ParticipatoryProcessGroupsController < Decidim::ParticipatoryProcesses::ApplicationController
       helper Decidim::SanitizeHelper
-      helper_method :participatory_processes, :group
+      helper_method :participatory_processes, :group, :active_content_blocks
 
       before_action :set_group
 
@@ -30,6 +30,19 @@ module Decidim
 
       def set_group
         @group = Decidim::ParticipatoryProcessGroup.where(organization: current_organization).find(params[:id])
+      end
+
+      def active_content_blocks
+        @active_content_blocks ||= if group.present?
+                                     Decidim::ContentBlock.published.for_scope(
+                                       :participatory_process_group_homepage,
+                                       organization: current_organization
+                                     ).where(
+                                       scoped_resource_id: group.id
+                                     )
+                                   else
+                                     Decidim::ContentBlock.none
+                                   end
       end
 
       attr_reader :group

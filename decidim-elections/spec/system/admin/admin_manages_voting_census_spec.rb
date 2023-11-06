@@ -11,7 +11,9 @@ describe "Admin manages polling officers", type: :system do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_votings.edit_voting_path(voting)
-    click_link "Census"
+    within_admin_sidebar_menu do
+      click_link "Census"
+    end
   end
 
   context "when init_data" do
@@ -32,7 +34,7 @@ describe "Admin manages polling officers", type: :system do
 
   context "when data is invalid" do
     before do
-      create :dataset, :data_created, voting: voting
+      create(:dataset, :data_created, voting:)
       visit decidim_admin_votings.voting_census_path(voting)
     end
 
@@ -60,7 +62,7 @@ describe "Admin manages polling officers", type: :system do
 
   context "when data exists" do
     before do
-      create :dataset, :data_created, :with_data, voting: voting
+      create(:dataset, :data_created, :with_data, voting:)
       visit decidim_admin_votings.voting_census_path(voting)
     end
 
@@ -101,7 +103,7 @@ describe "Admin manages polling officers", type: :system do
 
   context "when access codes have been generated" do
     before do
-      create :dataset, :codes_generated, voting: voting
+      create(:dataset, :codes_generated, voting:)
       visit decidim_admin_votings.voting_census_path(voting)
     end
 
@@ -117,7 +119,7 @@ describe "Admin manages polling officers", type: :system do
 
   context "when census is frozen" do
     before do
-      create :dataset, :frozen, voting: voting
+      create(:dataset, :frozen, voting:)
       visit decidim_admin_votings.voting_census_path(voting)
     end
 

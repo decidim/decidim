@@ -8,8 +8,8 @@ describe Decidim::Elections::Admin::CreateQuestion do
   let(:organization) { current_component.organization }
   let(:participatory_process) { current_component.participatory_space }
   let(:current_component) { election.component }
-  let(:election) { create :election }
-  let(:user) { create :user, :admin, :confirmed, organization: }
+  let(:election) { create(:election) }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:form) do
     double(
       invalid?: invalid,
@@ -65,8 +65,8 @@ describe Decidim::Elections::Admin::CreateQuestion do
     end
   end
 
-  context "when the election has started" do
-    let(:election) { create :election, :started }
+  context "when the election has been created in the bulletin board" do
+    let(:election) { create(:election, :ongoing) }
 
     it "is not valid" do
       expect { subject.call }.to broadcast(:election_started)

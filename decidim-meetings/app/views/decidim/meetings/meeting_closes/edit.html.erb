@@ -1,25 +1,21 @@
-<div class="row">
-  <div class="columns large-3">
-    <%= link_to :back do %>
-      <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
-      <%= t(".back") %>
-    <% end %>
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
+  <div class="text-center py-10">
+    <h1 class="title-decorator inline-block text-left">
+      <%= t("title", scope: "decidim.meetings.meeting_closes.edit") %>
+    </h1>
   </div>
 
-  <div class="columns large-6">
-    <h2 class="section-heading"><%= t(".title") %></h2>
-    <div class="card">
-      <div class="card__content">
-        <%= decidim_form_for(@form, url: meeting_meeting_close_path(meeting, @form), html: { class: "form edit_close_meeting" }) do |f| %>
-          <%= render partial: "form", object: f, locals: { title: t(".title") } %>
-
-          <div class="button--double form-general-submit">
-            <%= f.submit t(".close") %>
-          </div>
-        <% end %>
-      </div>
+  <%= decidim_form_for(@form, url: meeting_meeting_close_path(meeting, @form), html: { class: "form edit_close_meeting" }) do |f| %>
+    <div class="form__wrapper">
+      <%= render partial: "form", object: f %>
     </div>
-  </div>
 
-  <div class="columns large-3"></div>
-</div>
+    <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+      <%= link_to :back, class: "button button__sm md:button__lg button__text-secondary" do %>
+        <%= icon "arrow-left-line" %>
+        <%= t("back", scope: "decidim.meetings.meeting_closes.edit") %>
+      <% end %>
+      <%= f.submit t("close", scope: "decidim.meetings.meeting_closes.edit"), class: "button button__sm md:button__lg button__secondary" %>
+    </div>
+  <% end %>
+<% end %>

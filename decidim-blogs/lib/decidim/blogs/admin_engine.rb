@@ -12,8 +12,8 @@ module Decidim
 
       routes do
         resources :posts do
-          resources :attachment_collections
-          resources :attachments
+          resources :attachment_collections, except: [:show]
+          resources :attachments, except: [:show]
         end
         root to: "posts#index"
       end

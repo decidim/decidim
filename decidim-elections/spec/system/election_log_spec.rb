@@ -150,13 +150,13 @@ describe "Election log", :slow, type: :system do
   describe "verify election" do
     include_context "with test bulletin board"
 
-    context "when election doesn't have correct bb_status" do
+    context "when election does not have correct bb_status" do
       let(:election) { create(:election, :bb_test, :tally_ended, component:) }
 
       it "does not show instructions to verify election" do
         expect(page).to have_content("Verify Election results")
-        expect(page).to have_content("The verifiable election file and SHA256 checksum aren't available yet")
-        expect(page).to have_content("NOT READY")
+        expect(page).to have_content("The verifiable election file and SHA256 checksum are not available yet")
+        expect(page).to have_content("Not ready")
       end
     end
 
@@ -164,14 +164,13 @@ describe "Election log", :slow, type: :system do
       let(:election) { create(:election, :bb_test, :results_published, component:, verifiable_results_file_hash: nil, verifiable_results_file_url: nil) }
 
       it "shows instructions to verify election" do
-        expect(page).to have_content("VERIFY")
+        expect(page).to have_content("Verify Election")
         expect(page).to have_content("Here, you have the option to verify the election.")
       end
 
       it "shows that file and checksum are not available" do
-        expect(page).to have_content("Not yet available")
-
-        within ".card__support" do
+        within "#verifiable-results-step" do
+          expect(page).to have_content("Not yet available")
           expect(page).not_to have_content("Download")
         end
       end
@@ -181,16 +180,13 @@ describe "Election log", :slow, type: :system do
       let(:election) { create(:election, :bb_test, :results_published, component:) }
 
       it "shows instructions to verify election" do
-        expect(page).to have_content("VERIFY")
+        expect(page).to have_content("Verify Election")
         expect(page).to have_content("Here, you have the option to verify the election.")
       end
 
       it "shows that file and checksum are not available" do
         expect(page).not_to have_content("Not yet available")
-
-        within ".card__support" do
-          expect(page).to have_content("Download")
-        end
+        expect(page).to have_content("Download")
       end
     end
   end

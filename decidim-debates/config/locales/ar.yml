@@ -42,7 +42,6 @@ ar:
         confirm_destroy: هل أنت واثق؟
         destroy: حذف
         edit: تعديل
-        new: جديد %{name}
         title: أفعال
       admin:
         debates:
@@ -62,9 +61,6 @@ ar:
           update:
             invalid: كانت هناك مشكلة في تحديث هذا النقاش.
             success: تم تحديث المناقشة بنجاح.
-        models:
-          debate:
-            name: النقاش
       admin_log:
         debate:
           create: "%{user_name} خلق النقاش %{resource_name} على الفضاء %{space_name}"
@@ -92,12 +88,6 @@ ar:
           origin: الأصل
           participants: المشاركون
           search: بحث
-          user_groups: الفِرَق
-        filters_small_view:
-          close_modal: إغلاق مشروط
-          filter: منقي
-          filter_by: مصنف بواسطة
-          unfold: كشف
         form:
           select_a_category: الرجاء تحديد الفئة
         index:
@@ -110,8 +100,6 @@ ar:
           date: التاريخ
           groups_count: الفِرَق
           participants_count: المشاركون
-      last_activity:
-        new_debate_at_html: "<span>مناقشة جديدة في %{link}</span>"
       models:
         debate:
           fields:
@@ -145,7 +133,6 @@ ar:
           email_intro: 'يمكنك الآن بدء مناقشات جديدة في %{participatory_space_title}! ابدأ المشاركة في هذه الصفحة:'
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{participatory_space_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
           email_subject: المناقشات المتاحة الآن في %{participatory_space_title}
-          notification_title: يمكنك الآن بدء <a href="%{resource_path}">مناقشات جديدة</a> في <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         commented_debates:
@@ -157,7 +144,6 @@ ar:
           name: المناقشات
           next_level_in: شارك في %{score} مناقشات أخرى للوصول إلى المستوى التالي!
           unearned_another: هذا المشارك لم يشارك بعد في أي نقاش.
-          unearned_own: لم تشارك في أي مناقشات حتى الآن.
     metrics:
       debates:
         description: عدد المناقشات التي تم إنشاؤها

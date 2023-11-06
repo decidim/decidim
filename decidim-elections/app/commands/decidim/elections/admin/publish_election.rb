@@ -3,7 +3,7 @@
 module Decidim
   module Elections
     module Admin
-      # This command gets called when a election is published from the admin panel.
+      # This command gets called when an election is published from the admin panel.
       class PublishElection < Decidim::Command
         # Public: Initializes the command.
         #
@@ -19,7 +19,7 @@ module Decidim
         # Broadcasts :ok if published, :invalid otherwise.
         def call
           publish_election
-          publish_event
+          publish_event unless election.previously_published?
 
           broadcast(:ok, election)
         end

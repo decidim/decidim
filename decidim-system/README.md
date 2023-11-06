@@ -27,9 +27,9 @@ When using Decidim as multi-tenant, you should keep these in mind:
 
 * All organizations share the same database.
 * Each organization must have a different hostname.
-* Users aren't shared between each organization (the same email can be registered in different organizations and it will be considered as different users).
+* Users are not shared between each organization (the same email can be registered in different organizations and it will be considered as different users).
 * All configuration related to Decidim (`Decidim.config`) is shared between the organizations.
-* Stylesheets aren't customizable per-tenant so UI styles (colors and other variables) are shared.
+* Stylesheets are not customizable per-tenant so UI styles (colors and other variables) are shared.
 
 ## Glossary
 
@@ -40,26 +40,29 @@ When using Decidim as multi-tenant, you should keep these in mind:
 
 ## Managing System admins
 
-For logging in to this dashboard, you'll need to create a system admin account from your terminal:
+For logging in to this dashboard, you will need to create a system admin account from your terminal:
 
 ```bash
 bin/rails decidim_system:create_admin
 ```
 
-You'll be asked for an email and a password. For security, the password will not get displayed back at you and you'll need to confirm it.
+You will be asked for an email and a password. For security, the password will not get displayed back at you and you will need to confirm it.
 
 Once you have created your first admin you can access the system dashboard at `/system`. For instance, if you have Decidim running at `https://example.org`, this URL would be `https://example.org/system`.
-You'll be able to login with your newly created user.
+You will be able to login with your newly created user.
 
 From the system dashboard you can add new admins.
 
-⚠️ If you need to reset your administrator password you'll need to do it by entering the Rails console and changing it manually. ⚠️
+⚠️ If you need to reset your administrator password you will need to do it by entering the Rails console and changing it manually. ⚠️
 
 . Open the rails console:
+
 ```bash
 bin/rails console
 ```
+
 . Run the following instructions, changing them accordingly:
+
 ```ruby
 system_admin = Decidim::System::Admin.order(:id).first                        # for the first system admin
 system_admin = Decidim::System::Admin.find_by_email "system@example.org"      # if you already know the email
@@ -73,7 +76,7 @@ system_admin.save
 Once you have your system admin setup you can also start managing the organizations in your deploy. To do it, login at the system dashboard and create a new organization
 following the form instructions. After creating it, a new admin user will be created and invited to start managing it.
 
-Remember that System admins and regular Admins are completely different users (they don't even share the same database table), so you can't use your
+Remember that System admins and regular Admins are completely different users (they do not even share the same database table), so you cannot use your
 system user to login in as an organization admin.
 
 ## Contributing

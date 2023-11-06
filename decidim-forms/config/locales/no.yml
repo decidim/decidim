@@ -22,8 +22,6 @@
             choices:
               missing: er ikke fullstendig
               too_many: er for mange
-        questionnaire:
-          request_invalid: Det har oppstod en feil med håndtering av forespørselen. Prøv på nytt
   decidim:
     forms:
       admin:
@@ -121,11 +119,6 @@
           update:
             invalid: Det oppstod et problem med å lagre dette skjema.
             success: Skjemaet ble lagret.
-      errors:
-        answer:
-          body: Teksten kan ikke være blank
-      files:
-        extension_allowlist: 'Aksepterte formater:'
       images:
         dimensions: "%{width} x %{height} px"
       question_types:
@@ -147,7 +140,6 @@
           max_choices: 'Maksimum valg: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Logg på med kontoen din</a> eller <a href="%{sign_up_link}">opprett en</a> for å svare på skjemaet.
             title: Svar på skjemaet
           current_step: Trinn %{step}
           of_total_steps: av %{total_steps}

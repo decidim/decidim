@@ -37,15 +37,11 @@ it:
         confirm_destroy: Sei sicuro di voler cancellare?
         destroy: Elimina
         edit: Modifica
-        new: Nuovo
         save: Salva
         title: Azioni
       admins:
         create:
           error: C'è stato un errore durante la creazione del nuovo utente con profilo Admin.
-          success: L'utente Admin è stato creato.
-        destroy:
-          success: Amministratore eliminato con successo
         edit:
           title: Modifica Admin
           update: Aggiorna
@@ -56,7 +52,6 @@ it:
           title: Nuovo Amministratore
         update:
           error: E' successo un errore durante la modifica di questo utente Admin.
-          success: Admin modificato con successo
       dashboard:
         show:
           current_organizations: Organizzazioni attuali
@@ -74,7 +69,6 @@ it:
           fields:
             created_at: Data/ora di creazione
             email: E-mail
-          name: Amministratore
           validations:
             email_uniqueness: Esiste già un utente Admin con l'email che hai indicato.
         oauth_application:
@@ -82,7 +76,6 @@ it:
             created_at: Data/ora di creazione
             name: Nome dell'applicazione OAuth
             organization_name: Organizzazione
-          name: Applicazione OAuth
         organization:
           actions:
             save_and_invite: Crea una nuova organizzazione e invita un utente Admin
@@ -92,7 +85,6 @@ it:
             name: Nome
             omniauth_settings: Impostazioni Omniauth
             smtp_settings: Impostazioni SMTP
-          name: Organizzazione
       oauth_applications:
         create:
           error: Si è verificato un errore durante la creazione di questa applicazione.
@@ -144,8 +136,6 @@ it:
         index:
           title: Organizzazioni
         new:
-          reference_prefix_hint: Il prefisso di riferimento è utilizzato solamente per identificare le risorse in tutte le organizzazioni
-          secondary_hosts_hint: Inserisci ciascun elemento in una nuova linea
           title: Nuova Organizzazione
         omniauth_settings:
           decidim:
@@ -168,8 +158,6 @@ it:
         smtp_settings:
           fieldsets:
             sender: Mittente
-          instructions:
-            from_label: 'Il mittente email sarà: "nome-della-tua-organizzazione <your-organization@example.org>". Lascia vuoto per usare ''Indirizzo email'' come etichetta'
           placeholder:
             from_email: your-organization@example.org
             from_label: nome-della-tua-organizzazione
@@ -179,7 +167,6 @@ it:
         users_registration_mode:
           disabled: L'accesso può essere fatto solo con account esterni
           enabled: Permetti agli utenti di registrarsi e accedere
-          existing: Non consentire agli utenti di registrarsi, ma consentire agli utenti esistenti di accedere
       shared:
         notices:
           no_organization_warning_html: È necessario creare un'organizzazione per iniziare. Assicurati di leggere %{guide} prima di procedere.

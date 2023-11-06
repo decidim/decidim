@@ -6,7 +6,7 @@ describe Decidim::ProfileUpdatedEvent do
   include_context "when a simple event"
 
   let(:event_name) { "decidim.events.users.profile_updated" }
-  let(:resource) { create :user }
+  let(:resource) { create(:user) }
   let(:author) { resource }
 
   it_behaves_like "a simple event", true

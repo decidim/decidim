@@ -14,6 +14,12 @@ fi:
       dummy:
         settings:
           global:
+            guided: Ohjeistettu syöte
+            guided_help: Ohjeteksti
+            guided_readonly: Käytöstä poistettu syöte
+            guided_rich: Ohjeistettu rikas tekstisyöte
+            guided_rich_help_html: HTML <strong>ohjeteksti</strong>
+            guided_rich_readonly_html: Käytöstä poistettu HTML <strong>ohjeteksti</strong>
             readonly_attribute: Vain luku -attribuutti
             test: Testi
             test_choices:

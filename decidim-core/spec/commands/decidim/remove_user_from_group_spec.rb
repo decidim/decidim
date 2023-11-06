@@ -7,13 +7,13 @@ module Decidim
     describe RemoveUserFromGroup do
       describe "call" do
         let(:role) { "member" }
-        let(:membership) { create :user_group_membership, role: }
+        let(:membership) { create(:user_group_membership, role:) }
         let(:user_group) { membership.user_group }
 
         let(:command) { described_class.new(membership, user_group) }
 
         context "when the membership does not match the user group" do
-          let(:user_group) { create :user_group }
+          let(:user_group) { create(:user_group) }
 
           it "broadcasts invalid" do
             expect { command.call }.to broadcast(:invalid)
@@ -22,7 +22,7 @@ module Decidim
 
         context "when the membership is not present" do
           let(:membership) { nil }
-          let(:user_group) { create :user_group }
+          let(:user_group) { create(:user_group) }
 
           it "broadcasts invalid" do
             expect { command.call }.to broadcast(:invalid)

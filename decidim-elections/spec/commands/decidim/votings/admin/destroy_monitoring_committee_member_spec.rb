@@ -8,10 +8,10 @@ module Decidim
       describe DestroyMonitoringCommitteeMember do
         subject { described_class.new(monitoring_committee_member, current_user) }
 
-        let(:voting) { create :voting }
-        let!(:user) { create :user, :confirmed, organization: voting.organization }
-        let(:monitoring_committee_member) { create :monitoring_committee_member, user:, voting: }
-        let!(:current_user) { create :user, email: "some_email@example.org", organization: voting.organization }
+        let(:voting) { create(:voting) }
+        let!(:user) { create(:user, :confirmed, organization: voting.organization) }
+        let(:monitoring_committee_member) { create(:monitoring_committee_member, user:, voting:) }
+        let!(:current_user) { create(:user, email: "some_email@example.org", organization: voting.organization) }
 
         context "when everything is ok" do
           let(:log_info) do

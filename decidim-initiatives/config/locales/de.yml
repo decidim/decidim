@@ -2,8 +2,13 @@ de:
   activemodel:
     attributes:
       initiative:
+        answer: Antwort
+        answer_url: Antwort-URL
+        area_id: Gebiet
+        decidim_scope_id: Thema
         decidim_user_group_id: Autor
         description: Beschreibung
+        hashtag: Hashtag
         offline_votes: Face-to-Face-Unterstützung
         offline_votes_for_scope: Persönliche Unterschriften für %{scope_name}
         scope_id: Umfang
@@ -16,14 +21,18 @@ de:
           online: Online
         state: Zustand
         title: Titel
+        type_id: Typ
       initiatives_committee_member:
         user: Ausschussmitglied
+      initiatives_settings:
+        initiatives_order: Reihenfolge
       initiatives_type:
         area_enabled: Die Auswahl des Bereichs von Initiativen für Autoren freigeben
         attachments_enabled: Anhänge freigeben
         banner_image: Banner-Bild
         child_scope_threshold_enabled: Unterschriften von Unterbereichen aktivieren
         collect_user_extra_fields: Sammeln Sie persönliche Daten des Benutzers bei der Unterschrift
+        comments_enabled: Kommentare aktivieren
         custom_signature_end_date_enabled: Die Auswahl des Enddatums der Unterschriftensammlung für Autoren freigeben
         description: Beschreibung
         document_number_authorization_handler: Berechtigung zur Überprüfung der Belegnummer bei Abstimmungen
@@ -32,9 +41,13 @@ de:
         online_signature_enabled: Online-Signatur aktiviert
         only_global_scope_enabled: Nur die Erstellung globaler Initiativen zulassen
         promoting_committee_enabled: Förderkomitee freigeben
+        signature_type: Unterschrifttyp
         title: Titel
         undo_online_signatures_enabled: Ermöglichen Sie Benutzern, ihre Online-Signaturen rückgängig zu machen
         validate_sms_code_on_votes: Fügen Sie dem Signaturprozess einen SMS-Validierungsschritt hinzu
+      initiatives_type_scope:
+        decidim_scopes_id: Themen
+        supports_required: Erforderliche Unterstützungen
       initiatives_vote:
         date_of_birth: Geburtsdatum
         document_number: Dokumentnummer
@@ -55,7 +68,7 @@ de:
   activerecord:
     models:
       decidim/initiative:
-        one: Initativ
+        one: Initiative
         other: Initiativen
       decidim/initiative_comittee:
         one: Komitee
@@ -84,19 +97,24 @@ de:
             label: Typ
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Suche in %{collection} nach Titel, Beschreibung, ID oder Autoren.
+      initiatives_settings:
+        update:
+          error: Ein Fehler ist aufgetreten.
+          success: Die Einstellungen für Initiativen wurden erfolgreich aktualisiert.
       menu:
         attachments: Anhänge
         committee_members: Ausschussmitglieder
         components: Komponenten
         information: Information
         initiatives: Initiativen
+        initiatives_settings: Einstellungen
         initiatives_types: Arten von Initiativen
         moderations: Moderationen
       models:
         initiatives:
           fields:
             created_at: Hergestellt in
-            id: ICH WÜRDE
+            id: ID
             published_at: Veröffentlicht am
             state: Zustand
             supports_count: Unterschriften
@@ -171,10 +189,10 @@ de:
             - Befolgen Sie die Schritte, um eine neue Initiative zu erstellen
           description: Dieses Abzeichen wird gewährt, wenn Sie neue Initiativen starten und mit anderen zusammenarbeiten, um sie durchzuführen.
           description_another: Dieser Benutzer hat %{score} Initiativen veröffentlicht.
-          description_own: Du hast %{score} Initiativen veröffentlicht.
+          description_own: Du hast %{score} veröffentlichte Initiativen.
           name: Veröffentlichte Initiativen
           next_level_in: Holen Sie sich %{score} weitere Initiativen veröffentlicht, um das nächste Level zu erreichen!
-          unearned_another: Dieser Benutzer hat noch keine Initiativen veröffentlicht.
+          unearned_another: Dieser Teilnehmer hat noch keine Initiativen veröffentlicht.
           unearned_own: Sie haben noch keine Initiativen veröffentlicht.
     help:
       participatory_spaces:
@@ -200,8 +218,8 @@ de:
           index:
             approve: Genehmigen
             confirm_revoke: Bist du sicher?
-            invite_to_committee_help: Teilen Sie diesen Link, um andere Benutzer zum Promotionskomitee einzuladen
-            no_members_yet: Es gibt keine Mitglieder im Promoter-Ausschuss
+            invite_to_committee_help: Teilen Sie diesen Link, um andere Teilnehmer zum Unterstützungskomitee einzuladen.
+            no_members_yet: Es gibt keine Mitglieder im Unterstützungskomitee.
             revoke: Widerrufen
             title: Ausschussmitglieder
         content_blocks:
@@ -223,10 +241,9 @@ de:
             export_votes: Export unterstützt
             reject: Initiative ablehnen
             send_to_technical_validation: An technische Validierung senden
-            success: Die Initiative wurde an die technische Validierung gesendet
+            success: Die Initiative wurde an die technische Validierung gesendet.
             update: Aktualisieren
           form:
-            attachments: Beilagen
             settings: Einstellungen
             title: Allgemeine Information
           index:
@@ -239,55 +256,66 @@ de:
             new: Neu
             photos: Fotos
           update:
-            error: Ein Fehler ist aufgetreten
-            success: Die Bürgerinitiative wurde erfolgreich aktualisiert
+            error: Ein Fehler ist aufgetreten.
+            success: Die Initiative wurde erfolgreich aktualisiert.
+        initiatives_settings:
+          edit:
+            update: Aktualisieren
+          form:
+            comments: Am meisten kommentiert
+            date: Neuste
+            publication_date: Zuletzt veröffentlicht
+            random: Zufällig
+            signatures: Am häufigsten unterzeichnet
+            title: Einstellungen für Initiativen
         initiatives_type_scopes:
           create:
-            error: Ein Fehler ist aufgetreten
-            success: Ein neuer Bereich für den angegebenen Initiativentyp wurde erstellt
+            error: Ein Fehler ist aufgetreten.
+            success: Ein neues Thema wurde für den angegebenen Initiativentyp erstellt.
           destroy:
-            success: Der Bereich wurde erfolgreich entfernt
+            success: Das Thema wurde erfolgreich entfernt.
           edit:
-            back: Zurück
-            confirm_destroy: Bist du sicher?
-            destroy: Löschen
             title: Initiativentyp bearbeiten
             update: Aktualisieren
           new:
-            back: Zurück
             create: Erstellen
             title: Initiativentypbereich erstellen
           update:
-            error: Ein Fehler ist aufgetreten
-            success: Der Bereich wurde erfolgreich aktualisiert
+            error: Ein Fehler ist aufgetreten.
+            success: Das Thema wurde erfolgreich aktualisiert.
         initiatives_types:
           create:
-            error: Ein Fehler ist aufgetreten
-            success: Ein neuer Initiativentyp wurde erfolgreich erstellt
+            error: Ein Fehler ist aufgetreten.
+            success: Ein neuer Initiativentyp wurde erfolgreich erstellt.
           destroy:
-            success: Der Initiativentyp wurde erfolgreich entfernt
+            success: Der Initiativentyp wurde erfolgreich entfernt.
           edit:
-            confirm_destroy: Bist du sicher?
-            destroy: Löschen
             update: Aktualisieren
           form:
             authorizations: Autorisierungseinstellungen
+            child_scope_threshold_enabled_help: 'Diese Einstellung unterstützt keine Offline-Abstimmungen. Es aktiviert Unter-Themenbereiche und arbeitet mit einem Autorisierungs-Handler zusammen, der dem Teilnehmenden einen Themenbereich zuordnet. Stellen Sie sicher, dass Sie diese Autorisierung unten in den Autorisierungseinstellungen auswählen. Hierfür müssen die Themenbereiche auf hierarchische Weise konfiguriert werden: 1 Überthema - N Unterthemen. Weitere Informationen wie diese Konfiguration funktioniert, finden Sie unter diesem <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">Link</a>.'
+            only_global_scope_enabled_help: Aktivieren Sie diese Einstellung, wenn Sie "Unterthemen-Signaturen" aktiviert haben und den globalen Themenbereich als Ihren Elternbereich konfiguriert haben. Dadurch wird die Auswahl des Initialtyps im Assistenten zur Erstellung der Initiative übersprungen. Weitere Informationen darüber, wie diese Konfiguration funktioniert, finden Sie <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">hier</a>.
             options: Optionen
-            title: Allgemeine Information
           initiative_type_scopes:
             title: Bereiche für den Typ der Initiative
           new:
             create: Erstellen
             title: Neuer Initiativentyp
           update:
-            error: Ein Fehler ist aufgetreten
-            success: Der Initiativentyp wurde erfolgreich aktualisiert
+            error: Ein Fehler ist aufgetreten.
+            success: Der Initiativentyp wurde erfolgreich aktualisiert.
       admin_log:
         initiative:
           publish: "%{user_name} hat die Initiative %{resource_name} veröffentlicht"
           send_to_technical_validation: "%{user_name} hat die Initiative %{resource_name} zur technischen Validierung gesendet"
           unpublish: "%{user_name} hat die Initiative %{resource_name} verworfen"
           update: "%{user_name} hat die Initiative %{resource_name} aktualisiert"
+        initiatives_settings:
+          update: "%{user_name} hat die Einstellungen für Initiativen aktualisiert"
+        initiatives_type:
+          create: "%{user_name} hat den Initiativentyp %{resource_name} erstellt"
+          delete: "%{user_name} hat den Initiativentyp %{resource_name} gelöscht"
+          update: "%{user_name} hat den Initiativentyp %{resource_name} aktualisiert"
       admin_states:
         accepted: Ausreichend Unterschriften
         created: Erstellt
@@ -296,10 +324,6 @@ de:
         rejected: Ungenügend Unterschriften
         validating: Technische Validierung
       application_helper:
-        filter_area_values:
-          all: Alle
-        filter_scope_values:
-          all: Alle
         filter_state_values:
           accepted: Ausreichend Unterschriften
           all: Alle
@@ -314,7 +338,7 @@ de:
           success: Anfrage wurde bestätigt.
         new:
           continue: Fortsetzen
-          help_text: Sie sind dabei, ein Mitglied des Promoter-Komitees dieser Initiative zu werden
+          help_text: Sie sind dabei, eine Mitgliedschaft des Unterstützungskomitees dieser Initiative zu beantragen.
         revoke:
           success: Anfrage wurde zurückgezogen.
         spawn:
@@ -327,7 +351,7 @@ de:
           back: Zurück
           continue: Fortsetzen
           fill_data_help: "<ul> <li>Inhalt Ihrer Initiative überprüfen. Ist Ihr Titel leicht verständlich? Ist das Ziel Ihrer Initiative klar?</li> <li>Sie müssen die Art der Unterschrift wählen. Persönlich, online oder eine Kombination aus beidem</li> <li>Was ist die geografische Reichweite der Initiative? Stadt, Bezirk?</li> </ul>"
-          initiative_type: Art der Initiative
+          initiative_type: Initiativentyp
           more_information: "(Weitere Informationen)"
           select_area: Wählen Sie einen Bereich aus
           select_scope: Wählen Sie einen Bereich aus
@@ -341,31 +365,23 @@ de:
           more_information: "(Weitere Informationen)"
           send_my_initiative: Meine Initiative zur technischen Validierung senden
         finish_help:
-          access_reminder: Sie können auf Ihre Initiativen über den Filter %{link} auf der Seite Initiativen zugreifen.
           publish_helper_text: Denken Sie daran, dass Sie für die Veröffentlichung Ihrer Initiative die erforderlichen Informationen ausfüllen müssen und <strong>diese an die technische Validierung</strong> senden müssen, damit ein Administrator sie prüfen kann.
         previous_form:
           back: Zurück
           continue: Fortsetzen
-          help: Woraus besteht die Initiative? Schreiben Sie den Titel und die Beschreibung auf. Wir empfehlen einen kurzen und prägnanten Titel und eine Beschreibung der vorgeschlagenen Lösung.
-          more_information: "(Weitere Informationen)"
         promotal_committee:
-          back: Zurück
           individual_help_text: Diese Art der Bürgerinitiative erfordert einen Ausschuss der Initiatoren, der aus mindestens %{committee_size} Personen (Zeugen) besteht. Sie müssen den folgenden Link mit den anderen Personen teilen, die an dieser Initiative beteiligt sind. Wenn Ihre Kontakte diesen Link erhalten, müssen sie die angegebenen Schritte befolgen.
           more_information: "(Weitere Informationen)"
         select_initiative_type:
           back: Zurück
           choose_html: Ich möchte eine <strong>%{title}</strong> erstellen
-          more_information: "(Weitere Informationen)"
+          more_information: (Weitere Informationen)
+          new: Neue Initiative erstellen
           select: Ich möchte diese Initiative fördern
           select_initiative_type_help: Bürgerinitiativen sind ein Mittel, mit dem die Bürger eingreifen können, damit die Organisation Maßnahmen zur Verteidigung des Allgemeininteresses ergreifen kann, die in den Zuständigkeitsbereich der Stadtverwaltung fallen. Welche Initiative möchten Sie starten?
+          verification_required: Bestätigen Sie Ihr Konto, um die Initiative zu unterstützen
         share_committee_link:
-          continue: Fortsetzen
           invite_to_committee_help: Link, um Leute einzuladen, die Teil des Promoter-Komitees sein werden
-        show_similar_initiatives:
-          back: Zurück
-          compare_help: Wenn eine der folgenden Initiativen Ihrer ähnelt, empfehlen wir Ihnen, sie zu unterstützen. Ihr Vorschlag wird mehr Möglichkeiten haben, erledigt zu werden.
-          continue: Meine Initiative ist anders
-          more_information: "(Weitere Informationen)"
       edit:
         accept: Initiative akzeptieren
         back: Zurück
@@ -403,18 +419,18 @@ de:
           email_subject: "%{applicant_nickname} möchte Ihrer Initiative beitreten"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> hat sich für das Promoter-Komittee Ihrer Initiative <a href="%{resource_url}">%{resource_title}</a> beworben. Um anzunehmen oder abzulehnen, klicken Sie <a href="%{resource_url}/edit">hier</a>.
       form:
-        add_attachments: Dokumente
-        delete_attachment: Löschen
+        add_documents: Dokumente hinzufügen
+        add_image: Bild hinzufügen
+        attachment_legend: "(Optional) Anhang hinzufügen"
+        edit_documents: Dokumente bearbeiten
+        edit_image: Bild bearbeiten
+        image_legend: "(Optional) Bild hinzufügen"
       index:
-        title: Initiativen
+        uninitialized: Initiativen wurden noch nicht von einem Admin konfiguriert.
       initiative_signatures:
         fill_personal_data:
           continue: Fortsetzen
-          date_select:
-            day: Tag
-            month: Monat
-            year: Jahr
-          help: Bitte füllen Sie die folgenden Felder mit Ihren persönlichen Daten aus, um die Initiative zu unterzeichnen
+          help: Bitte füllen Sie die folgenden Felder mit Ihren persönlichen Daten aus, um die Initiative zu unterzeichnen.
         finish:
           back_to_initiative: Zurück zur Initiative
         sms_code:
@@ -422,21 +438,19 @@ de:
           help: Überprüfen Sie die an Ihrem Telefon empfangene SMS
         sms_phone_number:
           continue: Senden Sie mir eine SMS
-          help: Füllen Sie das Formular mit Ihrer bestätigten Telefonnummer aus, um Ihren Bestätigungscode anzufordern
+          help: Füllen Sie das Formular mit Ihrer bestätigten Telefonnummer aus, um Ihren Bestätigungscode anzufordern.
       initiative_votes:
         create:
           error: Beim Signieren der Initiative sind Fehler aufgetreten.
-          invalid: Die zur Unterzeichnung der Initiative bereitgestellten Daten sind nicht gültig
-          success_html: Herzliche Glückwünsche! Die <strong> %{title}</strong> -Initiative wurde korrekt unterzeichnet
+          invalid: Ihre zur Unterzeichnung der Initiative bereitgestellten Daten sind nicht gültig.
+          success_html: Herzliche Glückwünsche! Die Initiative <strong> %{title}</strong> wurde erfolgreich unterzeichnet.
         personal_data:
           invalid: Persönliche Daten stimmen nicht mit den zur Autorisierung angegebenen Daten überein.
         sms_code:
-          invalid: Ihr Bestätigungscode stimmt nicht mit unserem überein. Bitte überprüfen Sie noch einmal die SMS, die wir Ihnen gesendet haben.
+          invalid: Ihr Bestätigungscode stimmt nicht mit unserem überein. Bitte überprüfen Sie die SMS, die wir Ihnen gesendet haben.
         sms_phone:
           invalid: Die Telefonnummer ist ungültig oder muss noch autorisiert werden. Bitte überprüfen Sie Ihre Berechtigungen.
       initiatives:
-        author:
-          deleted: Gelöscht
         author_list:
           hidden_authors_count:
             one: und 1 weitere Person
@@ -444,9 +458,9 @@ de:
         committee_members:
           approve: Genehmigen
           confirm_revoke: Bist du dir sicher?
-          invite_to_committee_help: Teilen Sie diesen Link, um andere Benutzer zum Promotionskomitee einzuladen
-          no_members_yet: Es gibt keine Mitglieder im Promoter-Ausschuss
-          revoke: Widerrufen
+          invite_to_committee_help: Teilen Sie diesen Link, um andere Teilnehmer zum Unterstützungskomitee einzuladen.
+          link: Link
+          no_members_yet: Es gibt keine Mitglieder im Unterstützungskomitee.
           title: Ausschussmitglieder
         count:
           title:
@@ -461,18 +475,8 @@ de:
           search: Suche
           state: Zustand
           type: Art
-        filters_small_view:
-          close_modal: Fenster schließen
-          filter: Filter
-          filter_by: Filtern nach
-          unfold: Entfalten
         index_header:
           new_initiative: Neue Initiative
-          not_authorized:
-            authorizations_page: Autorisierungen anzeigen
-            close: Schließen
-            explanation: Sie müssen überprüft werden, um eine neue Initiative zu schaffen.
-            title: Autorisierung erforderlich
         initiatives:
           closed_initiatives_warning: Derzeit gibt es keine offenen Initiativen, aber hier finden Sie alle abgeschlossenen Initiativen aufgelistet.
           no_initiatives_warning: Keine Initiativen entsprechen Ihren Suchkriterien.
@@ -502,6 +506,7 @@ de:
             title: 'Titel:'
             type: Art der Initiative
           legal_text: Die erhobenen personenbezogenen Daten werden von der Organisation entsprechend der geltenden Gesetzgebung vertraulich behandelt und aufgenommen.
+          members_header: Mitglieder des Unterstützungskomitees der Initiative
           phone_number: Telefonnummer
           place_date: Ort, Datum
           postal_code: Postleitzahl
@@ -510,16 +515,20 @@ de:
           section: 'Falls von der Organisation angefragt, drucken Sie bitte dieses Formular aus und füllen Sie es aus, um dort einzureichen, wo angegeben wurde:'
           signature: Unterschrift
         result:
-          answer_title: Diese Initiative wurde beantwortet
+          answer_title: Diese Initiative wurde beantwortet.
           initiative_rejected_reason: Diese Initiative wurde wegen fehlender Unterstützung abgelehnt.
         show:
-          any_vote_method: Diese Bürgerinitiative sammelt sowohl online als auch persönlich Unterschriften.
+          area: Gebiet
+          before_send_to_technical_validation_announcement: 'Bevor Sie Ihre Initiative zur technischen Validierung senden, müssen Sie %{count} weitere Mitglieder dem Unterstützungskomittee hinzufügen.<br/><br/>Teilen Sie diesen Link mit den Personen, die Sie in Ihrem Ausschuss sein möchten: %{href}'
           confirm: Sie werden die Initiative an einen Administrator senden, welcher sie zu überprüft und veröffentlicht. Sobald die Initiative veröffentlicht ist, können Sie sie nicht bearbeiten. Sind Sie sicher?
           edit: Bearbeiten
-          follow_description: Erhalten Sie eine Benachrichtigung, wenn es Neuigkeiten bei dieser Initiative gibt
-          offline_method: Diese Bürgerinitiative sammelt nur persönliche Unterschriften.
-          print: Initiative ausdrucken
+          initiative_data: Initiativdaten
+          scope: Bereich
           send_to_technical_validation: Zur technischen Validierung senden
+          send_to_technical_validation_announcement: Wenn alles in Ordnung ist, klicken Sie auf "Zur technischen Validierung senden" um Ihre Initiative zu überprüfen und zu veröffentlichen
+          signature_collection: Unterschriftssammlung
+          state: Status
+          type: Typ
         signatures_count:
           one: " Unterschrift"
           other: " Signaturen"
@@ -533,8 +542,6 @@ de:
           count:
             one: UNTERSCHRIFT
             other: Unterschriften
-          most_popular_initiative: Populärste Initiative
-          need_more_votes: Benötigen Sie mehr Unterschriften
       initiatives_mailer:
         creation_subject: Ihre Bürgerinitiative '%{title}' wurde erstellt
         initiative_link:
@@ -547,12 +554,17 @@ de:
         status_change_body_for: 'Die Initiative %{title} hat ihren Status geändert in: %{state}'
         status_change_for: Die Initiative %{title} hat ihren Status geändert
       last_activity:
-        new_initiative: Neue Initiative
+        new_initiative: 'Neue Initiative:'
+      modal:
+        not_authorized:
+          authorizations_page: Autorisierungen anzeigen
+          explanation: Sie müssen überprüft werden, um eine neue Initiative zu schaffen.
+          title: Autorisierung erforderlich
       pages:
         home:
           highlighted_initiatives:
-            active_initiatives: Aktive Initiativen
-            see_all_initiatives: Sehen Sie alle Initiativen
+            active_spaces: Aktive Initiativen
+            see_all_spaces: Alle Initiativen anzeigen
       show:
         badge_name:
           accepted: Ausreichend Unterschriften
@@ -566,46 +578,35 @@ de:
         expired: Abgelaufen
       unavailable_scope: Nicht verfügbarer Umfang
       update:
-        error: Ein Fehler ist aufgetreten
-        success: Die Initiative wurde erfolgreich aktualisiert
-      versions:
-        shared:
-          back_to_resource: Zurück zur Initiative
+        error: Es ist ein Fehler aufgetreten.
+        success: Die Initiative wurde erfolgreich aktualisiert.
     menu:
       initiatives: Initiativen
     resources:
+      initiative:
+        actions:
+          comment: Kommentar
       initiatives_type:
         actions:
+          create: Erstellen
           title: Aktionen
           vote: Abstimmung
   layouts:
     decidim:
       initiative_creation_header:
-        back: Zurück
         fill_data: Erstellen
         finish: Fertig
-        previous_form: Anfang
         promotal_committee: Promoter-Komitee
         select_initiative_type: Wählen
-        show_similar_initiatives: Vergleichen
-        step: Schritt %{current} von %{total}
-        title: Neue Initiative schaffen
-      initiative_header:
-        initiative_menu_item: Initiative
       initiative_signature_creation_header:
-        back: Zurück
         fill_personal_data: Ergänzen Sie Ihre Daten
         finish: Fertig
-        finished: Initiativsignatur erstellt
-        see_steps: siehe Schritte
-        select_identity: Identität auswählen
         sms_code: SMS-Code-Bestätigung
         sms_phone_number: Handynummer
-        step: Schritt %{current} von %{total}
         title: Zeichen %{initiative_title}
       initiatives:
         initiative:
-          check: Hör zu
+          check: Mehr erfahren
           check_and_support: Überprüfe es und unterschreibe es
         no_initiatives_yet:
           no_initiatives_yet: Keine Initiativen bisher!

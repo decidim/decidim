@@ -7,8 +7,8 @@ module Decidim::Conferences
     subject { described_class.new(form, media_link) }
 
     let!(:conference) { create(:conference) }
-    let(:media_link) { create :media_link, conference: }
-    let!(:current_user) { create :user, :confirmed, organization: conference.organization }
+    let(:media_link) { create(:media_link, conference:) }
+    let!(:current_user) { create(:user, :confirmed, organization: conference.organization) }
 
     let(:form) do
       double(

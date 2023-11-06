@@ -18,7 +18,7 @@ module Decidim
         # Executes the command. Broadcasts these events:
         #
         # - :ok when everything is valid.
-        # - :invalid if the form or initiatives_settings isn't valid and we couldn't proceed.
+        # - :invalid if the form or initiatives_settings is not valid and we could not proceed.
         #
         # Returns nothing.
         def call

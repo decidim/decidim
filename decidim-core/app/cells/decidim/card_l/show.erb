@@ -1,0 +1,13 @@
+<% if has_link_to_resource? && link_whole_card? %>
+  <%= link_to resource_path, class: item_list_class, id: resource_id, **html_options do %>
+    <%= render :content %>
+    <%= render :extra_data if render_extra_data? %>
+  <% end %>
+<% else %>
+  <%= content_tag :div, class: wrapper_class, id: resource_id do %>
+    <%= content_tag :div, class: item_list_class do %>
+      <%= render :content %>
+    <% end %>
+    <%= render :extra_data if render_extra_data? %>
+  <% end %>
+<% end %>

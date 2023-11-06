@@ -1,1 +1,583 @@
 zh-TW:
+  activemodel:
+    attributes:
+      initiative:
+        answer: 回答
+        answer_url: 回答 URL
+        area_id: 區域
+        decidim_scope_id: 範圍
+        decidim_user_group_id: 作者
+        description: 說明
+        hashtag: 主題標籤
+        offline_votes: 親筆簽名
+        offline_votes_for_scope: '%{scope_name} 的親筆簽名'
+        scope_id: 範圍
+        signature_end_date: 簽名收集期限結束
+        signature_start_date: 簽名收集期限開始
+        signature_type: 簽名收集類型
+        signature_type_values:
+          any: 混合
+          offline: 親自
+          online: 線上
+        state: 狀態
+        title: 標題
+        type_id: 類別
+      initiatives_committee_member:
+        user: 委員會成員
+      initiatives_settings:
+        initiatives_order: 順序
+      initiatives_type:
+        area_enabled: 允許作者選擇其倡議所屬的範圍
+        attachments_enabled: 啟用附件
+        banner_image: 橫幅圖片
+        child_scope_threshold_enabled: 啟用子範圍簽名
+        collect_user_extra_fields: 在簽名時收集參與者的個人資料
+        comments_enabled: 啟用評論
+        custom_signature_end_date_enabled: 允許作者選擇結束簽名收集期限
+        description: 說明
+        document_number_authorization_handler: 授權核准文件編號以驗證簽名
+        extra_fields_legal_information: 關於個人資料蒐集的法律資訊
+        minimum_committee_members: 委員會成員最少人數
+        online_signature_enabled: 啟用線上簽名
+        only_global_scope_enabled: 只允許創建全球範圍的倡議
+        promoting_committee_enabled: 啟用推廣委員會
+        signature_type: 簽名類型
+        title: 標題
+        undo_online_signatures_enabled: 允許參與者撤銷他們的在線簽名
+        validate_sms_code_on_votes: 在簽名過程中添加SMS 短信代碼驗證步驟
+      initiatives_type_scope:
+        decidim_scopes_id: 範圍
+        supports_required: 需要支持
+      initiatives_vote:
+        date_of_birth: 出生日期
+        document_number: 文件編號
+        name_and_surname: 名字與姓氏
+        postal_code: 郵政編碼
+      organization_data:
+        address: 地址
+        id_document: ID 文件
+        name: 完整名稱
+    errors:
+      models:
+        initiative:
+          attributes:
+            attachment:
+              file: 這份檔案無效
+              needs_to_be_reattached: 需要重新附加
+              title: 標題不能為空白
+  activerecord:
+    models:
+      decidim/initiative:
+        other: 倡議
+      decidim/initiative_comittee:
+        other: 委員會
+      decidim/initiative_vote:
+        other: 簽名
+  decidim:
+    admin:
+      actions:
+        new_initiative_type: 新的倡議類型
+      filters:
+        initiatives:
+          decidim_area_id_eq:
+            label: 區域
+          state_eq:
+            label: 狀態
+            values:
+              accepted: 足夠的簽署數
+              created: 已建立
+              discarded: 已捨棄
+              published: 已發佈
+              rejected: 不足夠的簽署數
+              validating: 技術驗證
+          type_id_eq:
+            label: 類別
+        search_placeholder:
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: 透過標題、描述、ID 或作者姓名搜尋 %{collection}
+      initiatives_settings:
+        update:
+          error: 發生一個錯誤.
+          success: 倡議設定已成功更新.
+      menu:
+        attachments: 附件
+        committee_members: 委員會成員
+        components: 组件
+        information: 資訊
+        initiatives: 倡議
+        initiatives_settings: 設定
+        initiatives_types: 倡議種類
+        moderations: 版主
+      models:
+        initiatives:
+          fields:
+            created_at: 建立於
+            id: ID
+            published_at: 發佈於
+            state: 狀態
+            supports_count: 簽名
+            title: 倡議
+        initiatives_type_scope:
+          fields:
+            scope: 範圍
+            supports_required: 所需簽名數量
+          name: 倡議類型範圍
+        initiatives_types:
+          fields:
+            created_at: 建立於
+            title: 倡議類型
+          name: 倡議類型
+        initiatives_votes:
+          fields:
+            date_of_birth: 出生日期
+            document_number: 文件編號
+            hash: 雜湊
+            initiative_end_date: 結束日期
+            initiative_id: 倡議ID
+            initiative_signatures_count: 簽名數量
+            initiative_start_date: 開始日期
+            initiative_title: 倡議標題
+            name_and_surname: 名字與姓氏
+            postal_code: 郵政編碼
+            scope: 範圍
+            time_and_date: 時間與日期
+            timestamp: 時間戳記
+      titles:
+        initiatives: 倡議
+        initiatives_types: 倡議類型
+    events:
+      initiatives:
+        admin:
+          initiative_sent_to_technical_validation:
+            email_intro: 倡議「%{resource_title}」已提交技術驗證。可在<a href="%{admin_initiative_url}">管理面板</a>中查看。
+            email_outro: 你收到了這個通知是因為你是該平台的管理員。
+            email_subject: 倡議「%{resource_title}」已提交技術審核。
+            notification_title: 倡議「%{resource_title}」已提交技術驗證。可在<a href="%{admin_initiative_path}">管理面板</a>中查看。
+        initiative_extended:
+          email_intro: 倡議「%{resource_title}」的簽名截止日期已延長！
+          email_outro: 您收到此通知，是因為您正在關注 %{resource_title}。您可以使用上面的連結停止接收通知。
+          email_subject: 倡議簽名結束日期延長！
+          notification_title: '"<a href="%{resource_path}">%{resource_title}</a> 倡議的簽名結束日期已經延長。'
+        initiative_sent_to_technical_validation:
+          email_intro: 倡議「%{resource_title}」已提交技術驗證。可在<a href="%{admin_initiative_url}">管理面板</a>中查看。
+          email_outro: 你收到了這個通知是因為你是該平台的管理員。
+          email_subject: 倡議「%{resource_title}」已提交技術審核。
+          notification_title: 倡議「%{resource_title}」已提交技術驗證。可在<a href="%{admin_initiative_path}">管理面板</a>中查看。
+        milestone_completed:
+          affected_user:
+            email_intro: 你的倡議 %{resource_title} 已經達到了 %{percentage}% 的簽名數！
+            email_outro: 你收到這個通知是因為你是倡議 %{resource_title} 的作者。
+            email_subject: 新的里程碑已完成！
+            notification_title: 您的<a href="%{resource_path}">%{resource_title}</a>倡議已達成%{percentage}%的簽名。
+          follower:
+            email_intro: 該倡議 %{resource_title} 已經達到了 %{percentage}% 的簽名數！
+            email_outro: 您收到此通知，是因為您正在關注 %{resource_title}。您可以使用上面的連結停止接收通知。
+            email_subject: 新的里程碑已完成！
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> 倡議已達成 %{percentage}% 的簽名。
+        support_threshold_reached:
+          email_intro: 倡議 %{resource_title} 已達到簽名門檻
+          email_outro: 你收到了這個通知是因為你是該平台的管理員。
+          email_subject: 已達成簽名門檻
+          notification_title: 倡議 <a href="%{resource_path}">%{resource_title}</a> 已達到簽名門檻
+    gamification:
+      badges:
+        initiatives:
+          conditions:
+            - 前往倡議參與空間
+            - '"按照以下步驟創建新的倡議'
+          description: 此徽章是當你發起新的倡議，與他人合作進行時所授予的。
+          description_another: 該參與者已成功發佈 %{score} 項倡議。
+          description_own: 你已經發佈了 %{score} 項倡議。
+          name: 已發布倡議
+          next_level_in: 發布更多的倡議以達到下一個等級，還需要 %{score} 個！
+          unearned_another: 這個參與者尚未有任何倡議被發佈。
+          unearned_own: 您尚未發佈任何倡議。
+    help:
+      participatory_spaces:
+        initiatives:
+          contextual: "<p> <strong>「倡議」 <strong>是一個提議，由任何人獨立提出（不受其他頻道或參與空間的限制），透過收集(數位) 簽名以便組織進行特定行動(修改法規、啟動項目、更改部門或街道的名稱等) 會議。</p> <p> 倡議的推動者可以定義其目標、集結支持、辯論、傳播並定義會議地點，以在出席者處收集簽名或開放給其他參與者進行辯論。</p> <p>例如，倡議可以收集簽名以便在組織中召開所有人的諮詢，或創建或召開一個集會，或啟動一個增加領土或組織區域預算的程序。在收集簽名的過程中，更多人可以加入這個需求，並在組織中推動它。\n"
+          page: "<p> <strong>「倡議」 <strong>是一個提議，由任何人獨立提出（不受其他頻道或參與空間的限制），透過收集(數位) 簽名以便組織進行特定行動(修改法規、啟動項目、更改部門或街道的名稱等) 會議。</p> <p> 倡議的推動者可以定義其目標、集結支持、辯論、傳播並定義會議地點，以在出席者處收集簽名或開放給其他參與者進行辯論。</p> <p>例如，倡議可以收集簽名以便在組織中召開所有人的諮詢，或創建或召開一個集會，或啟動一個增加領土或組織區域預算的程序。在收集簽名的過程中，更多人可以加入這個需求，並在組織中推動它。\n"
+          title: 什麼是倡議？
+    initiatives:
+      actions:
+        answer: 回答
+      admin:
+        answers:
+          edit:
+            answer: 回答
+            title: 回答 %{title}
+          info_initiative:
+            created_at: 建立於
+            description: 說明
+            initiative_votes_count: 投票數
+            initiatives: 倡議
+            state: 狀態
+        committee_requests:
+          index:
+            approve: 核准
+            confirm_revoke: 您確定嗎？
+            invite_to_committee_help: 透過分享此連結，邀請其他參與者加入推廣委員會。
+            no_members_yet: 推廣委員會中沒有成員.
+            revoke: 撤銷
+            title: 委員會成員
+        content_blocks:
+          highlighted_initiatives:
+            max_results: 顯示的最大元素數量
+            order:
+              default: 預設（最舊）
+              label: '按照順序排列元素：'
+              most_recent: 最近
+        exports:
+          initiatives: 倡議
+        initiatives:
+          edit:
+            accept: 接受倡議
+            confirm: 您確定嗎？
+            confirm_send_to_technical_validation: 您確定嗎？
+            discard: 放棄倡議
+            export_pdf_signatures: 匯出簽名的PDF
+            export_votes: 匯出簽名
+            reject: 拒絕倡議
+            send_to_technical_validation: 送交技術審核
+            success: 這個倡議已經送至技術驗證。
+            update: 更新
+          form:
+            settings: 設定
+            title: 一般資訊
+          index:
+            actions_title: 操作
+            preview: 預覽
+            print: 列印
+          initiative_attachments:
+            documents: 文件
+            edit: 編輯
+            new: 新的
+            photos: 圖片
+          update:
+            error: 出現了一個錯誤.
+            success: 倡議已成功更新.
+        initiatives_settings:
+          edit:
+            update: 更新
+          form:
+            comments: 最多評論
+            date: 最近
+            publication_date: 最近發布的
+            random: 隨機
+            signatures: 最多簽署的
+            title: 倡議設定
+        initiatives_type_scopes:
+          create:
+            error: 出現了一個錯誤.
+            success: 已為給定的倡議類型建立新範圍.
+          destroy:
+            success: 範圍已成功刪除.
+          edit:
+            title: 編輯倡議類型範圍
+            update: 更新
+          new:
+            create: 建立
+            title: 建立倡議類型範圍
+          update:
+            error: 出現了一個錯誤.
+            success: 範圍已成功更新.
+        initiatives_types:
+          create:
+            error: 出現了一個錯誤.
+            success: 一個新的倡議類型已成功更新.
+          destroy:
+            success: 該倡議類型已成功刪除.
+          edit:
+            update: 更新
+          form:
+            authorizations: 權限設置
+            child_scope_threshold_enabled_help: '此配置標誌不支援離線投票。它啟用子範圍並並且需要一個授權處理程序配合使用，將範圍與使用者相關聯起來。請確認您在授權設置下方選擇了該授權。為使其正常運作，必須以階層方式配置範圍：1 父級 - N 子級。如需有關此配置的更多信息，請參閱<a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">倡議的管理員文件頁面</a>。'
+            only_global_scope_enabled_help: 若您已啟用「子範圍籤章」並將全域範圍配置為父範圍，請勾選此標誌。啟用後，建立倡議的精靈中將跳過倡議類型選擇。如需有關此配置如何運作的詳細信息，請參閱此<a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">鏈接</a>。
+            options: 選項
+          initiative_type_scopes:
+            title: 倡議類型範圍
+          new:
+            create: 建立
+            title: 新的倡議類型
+          update:
+            error: 出現了一個錯誤.
+            success: 該倡議類型已成功更新.
+      admin_log:
+        initiative:
+          publish: "%{user_name} 發佈了 %{resource_name} 倡議"
+          send_to_technical_validation: "%{user_name} 將 %{resource_name} 倡議送到技術審核"
+          unpublish: "%{user_name} 捨棄了 %{resource_name} 倡議"
+          update: "%{user_name} 更新了 %{resource_name} 倡議"
+        initiatives_settings:
+          update: "%{user_name} 更新了倡議的設定"
+        initiatives_type:
+          create: "%{user_name} 建立了 %{resource_name} 倡議類型"
+          delete: "%{user_name} 刪除了 %{resource_name} 倡議類型"
+          update: "%{user_name} 更新了 %{resource_name} 倡議類型"
+      admin_states:
+        accepted: 足夠的簽署數
+        created: 已建立
+        discarded: 已捨棄
+        published: 已發佈
+        rejected: 不足夠的簽署數
+        validating: 技術驗證
+      application_helper:
+        filter_state_values:
+          accepted: 足夠的簽署數
+          all: 全部
+          answered: 已回答
+          closed: 關閉
+          open: 開啟
+          rejected: 不足的簽署數
+        filter_type_values:
+          all: 全部
+      committee_requests:
+        approve:
+          success: 請求已被批准。
+        new:
+          continue: 繼續
+          help_text: 你即將要求成為此倡議的推動委員會成員。
+        revoke:
+          success: 申請已被撤銷。
+        spawn:
+          success: 您的請求已發送給倡議的作者。
+      content_blocks:
+        highlighted_initiatives:
+          name: 重點倡議
+      create_initiative:
+        fill_data:
+          back: 返回
+          continue: 繼續
+          fill_data_help: "<ul> <li>檢閱您倡議的內容。標題是否易於理解？倡議的目標是否清晰明確？</li> <li>您需要選擇簽名的類型。是現場簽名、線上簽名還是兩者的組合？</li> <li>倡議的地理範圍是什麼？</li> </ul>"
+          more_information: "(更多資訊)"
+          select_area: 選擇一個地區
+          select_scope: 選擇一個類型
+        finish:
+          back: 返回
+          back_to_initiatives: 回到倡議
+          callout_text: 恭喜您！您的倡議已成功建立。
+          confirm: 您即將發送倡議給管理員進行審核和發佈。一旦發佈，您將無法編輯它。您確定要繼續嗎？"
+          edit_my_initiative: 編輯我的倡議
+          go_to_my_initiatives: 前往我的倡議
+          more_information: "(更多資訊)"
+          send_my_initiative: 將我的倡議送交技術審核
+        finish_help:
+          publish_helper_text: 請記住，要使您的倡議能夠被發佈，您必須填寫必要的資訊並將其<strong>送交技術審核</strong>以供管理員審查。
+        previous_form:
+          back: 返回
+          continue: 繼續
+        promotal_committee:
+          individual_help_text: 這種倡議需要至少 %{committee_size} 人（證明者）組成推廣委員會。您必須與參與該倡議的其他人分享以下鏈接。當您的聯繫人收到此鏈接後，他們將需要按照指示進行相應步驟。
+          more_information: "(更多資訊)"
+        select_initiative_type:
+          back: 返回
+          choose_html: 我想要創建一個<strong>%{title}</strong>
+          more_information: (更多資訊)
+          select: 我想推動這個倡議
+          select_initiative_type_help: 倡議是參與者可以通過其來干預，以便組織可以為捍衛公共利益而采取行動的手段。您希望發起哪個倡議？
+          verification_required: 驗證您的帳戶以推動這個倡議
+        share_committee_link:
+          invite_to_committee_help: 邀請成為推動委員會成員的人的連結
+      edit:
+        accept: 接受倡議
+        back: 返回
+        confirm: 您確定嗎？
+        discard: 放棄倡議
+        export_pdf_signatures: 匯出簽名的PDF
+        export_votes: 匯出簽名
+        reject: 拒絕倡議
+        title: 編輯倡議
+        update: 更新
+      events:
+        approve_membership_request:
+          email_intro: "%{author_nickname} 同意您加入 %{resource_title} 倡議的推動委員會。"
+          email_outro: '這是您收到的通知，因為您申請參與這個倡議：%{resource_title}。'
+          email_subject: "%{author_nickname} 同意您加入推動委員會。"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> 同意您加入以下倡議的推動委員會：<a href="%{resource_url}">%{resource_title}</a>。
+        create_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}，您正在追蹤的用戶，創建了一個新的倡議，請查看並做出貢獻："
+          email_outro: 您收到此通知，是因為您正在關注 %{author_nickname}。您可以使用上面的連結停止接收通知。
+          email_subject: 由 %{author_nickname} 提出的新倡議
+          notification_title: 倡議 <a href="%{resource_path}">%{resource_title}</a> 由 <a href="%{author_path}">%{author_name} %{author_nickname}</a> 提出。
+        endorse_initiative_event:
+          email_intro: "\"%{author_name} %{author_nickname} 正在追蹤，並已連署以下倡議，或許你想參與對話："
+          email_outro: 您收到此通知，是因為您正在關注 %{author_nickname}。您可以使用上面的連結停止接收通知。
+          email_subject: 倡議得到 %{author_nickname} 的連署
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 倡議已獲 %{author_name} %{author_nickname} 連署。
+        revoke_membership_request:
+          email_intro: "%{author_nickname} 拒絕了您加入 %{resource_title} 倡議發起委員會的申請。"
+          email_outro: '這是您收到的通知，因為您申請參與這個倡議：%{resource_title}。'
+          email_subject: "%{author_nickname} 拒絕了你加入推廣委員會的申請"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> 拒絕了您加入 %{resource_title} 倡議的推廣委員會成員的申請。
+        spawn_committee_request_event:
+          email_intro: "%{applicant_nickname} 申請加入您的倡議 %{resource_title} 推廣委員會。要接受或拒絕申請，請前往您的倡議編輯表單。"
+          email_outro: '你收到這個通知是因為你是該倡議 %{resource_title} 的作者。'
+          email_subject: "%{applicant_nickname} 想加入你的倡議"
+          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> 申請加入你的倡議 <a href="%{resource_url}">%{resource_title}</a> 的推動委員會。點擊<a href="%{resource_url}/edit">這裡</a>接受或拒絕申請。
+      form:
+        attachment_legend: "(可選) 新增附件"
+      index:
+        uninitialized: 尚未由管理員設置倡議。
+      initiative_signatures:
+        fill_personal_data:
+          continue: 繼續
+          help: 以下請填寫您的個人資料以簽署此倡議。
+        finish:
+          back_to_initiative: 回到倡議
+        sms_code:
+          continue: 檢查代碼並繼續
+          help: 請檢查您手機收到的SMS簡訊
+        sms_phone_number:
+          continue: 發送簡訊給我
+          help: 請填寫您驗證過的手機號碼以申請驗證碼.
+      initiative_votes:
+        create:
+          error: 發起倡議的簽署遇到問題。
+          invalid: 提供的資料以簽署此倡議為無效.
+          success_html: 恭喜！<strong> %{title} </strong> 倡議已成功簽署。
+        personal_data:
+          invalid: 個人資料與授權提供的資料不一致。
+        sms_code:
+          invalid: 您的驗證碼與我們的不符。請仔細檢查我們發送給您的SMS簡訊。
+        sms_phone:
+          invalid: 電話號碼無效或正在等待授權。請檢查您的授權。
+      initiatives:
+        author_list:
+          hidden_authors_count:
+            other: "one\n以及其他 %{count} 個人\n\nOther\n以及其他 %{count} 個人"
+        committee_members:
+          approve: 核准
+          confirm_revoke: 您確定嗎？
+          invite_to_committee_help: 透過分享此連結，邀請其他參與者加入推廣委員會。
+          no_members_yet: 推廣委員會中沒有成員.
+          title: 委員會成員
+        count:
+          title:
+            other: "One\n %{count} 倡議\n\nOther\n %{count} 倡議"
+        filters:
+          any: 任何
+          area: 區域
+          author: 作者
+          myself: 我的倡議
+          scope: 範圍
+          search: 搜尋
+          state: 狀態
+          type: 類別
+        index_header:
+          new_initiative: 新的倡議
+        initiatives:
+          closed_initiatives_warning: 目前沒有開放中的倡議，但您可以在這裡找到所有已結束的倡議清單。
+          no_initiatives_warning: 沒有符合您的搜尋條件的倡議。
+        interactions:
+          comments_count:
+            count:
+              other: 評論
+        orders:
+          label: '按照以下方式對倡議進行排序：'
+          most_commented: 最多評論
+          most_voted: 最多簽署的
+          random: 隨機
+          recent: 最近
+          recently_published: 最新發佈的倡議
+        print:
+          address: 地址
+          author_title: 倡議的作者
+          city: 城市
+          email: 電子郵件
+          full_name: 全名
+          general_title: 倡議申請應用例
+          id_number: ID 编号
+          initiative:
+            attachments: 附上文件（請在下方寫出每個文件的名稱）
+            description: '說明:'
+            title: '標題:'
+            type: 倡議類型
+          legal_text: 收集的個人資料將根據現行法律由組織機構進行保密處理。
+          members_header: 倡議的推動委員會成員
+          phone_number: 電話號碼
+          place_date: 地點、日期
+          postal_code: 郵遞區號/郵政編碼
+          print: 列印
+          province: 省份/州
+          section: '如果組織要求，請打印並填寫此表格，並按指示提交：'
+          signature: 簽名
+        result:
+          answer_title: 這個倡議已經有回應了。
+          initiative_rejected_reason: 此倡議因缺乏簽名而被拒絕。
+        show:
+          confirm: 您即將發送倡議給管理員進行審核和發佈。一旦發佈，您將無法編輯它。您確定要繼續嗎？"
+          edit: 編輯
+          send_to_technical_validation: 送交技術審核
+        signatures_count:
+          other: " 簽名"
+        vote_cabin:
+          already_voted: 已簽署
+          supports_required: "需要 %{total_supports} 個簽署支持"
+          verification_required: 驗證您的帳戶以簽署該倡議
+          vote: 簽署
+          votes_blocked: 簽署已禁用
+        votes_count:
+          count:
+            other: 簽名
+      initiatives_mailer:
+        creation_subject: 您的倡議「%{title}」已被創建
+        initiative_link:
+          check_initiative_details: 您可以查看倡議的詳細資訊。
+          here: 此處
+        more_information: 這裡有更多關於倡議創建過程的資訊。
+        progress_report_body_for: 倡議「%{title}」已達到所需簽署的 %{percentage}%。
+        progress_report_for: '倡議摘要：%{title}'
+        promotal_committee_help: 請記住，您必須邀請至少 %{member_count} 人加入倡議的推廣委員會。請轉發以下連結以邀請人們加入推廣委員會。
+        status_change_body_for: '倡議「%{title}」的狀態已更改為：%{state}'
+        status_change_for: 倡議「%{title}」的狀態已更改。
+      last_activity:
+        new_initiative: '新的倡議:'
+      modal:
+        not_authorized:
+          authorizations_page: 查看授權
+          explanation: 你需要先通過驗證才能創建新的倡議。
+          title: 需要授權
+      show:
+        badge_name:
+          accepted: 足夠的簽署數
+          created: 已建立
+          discarded: 已捨棄
+          published: 已發佈
+          rejected: 簽署數不足
+          validating: 技術驗證
+      states:
+        accepted: 已接受
+        expired: 已過期
+      unavailable_scope: 不可用的範圍
+      update:
+        error: 出現了一個錯誤.
+        success: 倡議已成功更新.
+    menu:
+      initiatives: 倡議
+    resources:
+      initiative:
+        actions:
+          comment: 評論
+      initiatives_type:
+        actions:
+          create: 建立
+          title: 操作
+          vote: 簽署
+  layouts:
+    decidim:
+      initiative_creation_header:
+        fill_data: 建立
+        finish: 完成
+        promotal_committee: 推動委員會
+        select_initiative_type: 選擇
+      initiative_signature_creation_header:
+        fill_personal_data: 填寫您的資料
+        finish: 完成
+        sms_code: SMS短訊代碼驗證碼
+        sms_phone_number: 行動電話號碼
+        title: 簽名 %{initiative_title}
+      initiatives:
+        initiative:
+          check: 查看
+          check_and_support: 查看並簽署
+        no_initiatives_yet:
+          no_initiatives_yet: 尚無倡議！

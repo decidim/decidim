@@ -1,32 +1,31 @@
-<div class="wrapper">
-  <div class="row">
-    <%= cell("decidim/amendable/wizard_step_form", amendable, view: :wizard_aside) %>
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
 
-    <div class="columns large-6">
-      <%= cell("decidim/amendable/wizard_step_form", amendable, view: :wizard_header) %>
+  <%= render partial: "wizard_header" %>
 
-      <div class="card">
-        <div class="p-l">
-          <div class="row column view-header">
-            <h2 class="heading2"><%= present(emendation).title(links: true, html_escape: true) %></h2>
-            <%= cell("decidim/coauthorships", emendation) %>
-          </div>
+  <div class="space-y-8 my-10">
+    <h2 class="h3 text-secondary"><%= present(emendation).title(links: true, html_escape: true) %></h2>
 
-          <div class="row column">
-            <%= render_emendation_body(emendation) %>
-          </div>
+    <%= cell "decidim/coauthorships", emendation %>
 
-          <br><%= render partial: "attachments", locals: { attached_to: emendation } %>
-
-          <div class="row column flex-center">
-            <%= link_to t(".modify"), edit_draft_amend_path(amendment) %>
-
-            <%= button_to t(".publish"), publish_draft_amend_path(amendment), method: :post, class: "button button--nomargin small" %>
-          </div>
-        </div>
-      </div>
+    <div class="editor-content">
+      <%= render_emendation_body(emendation) %>
     </div>
 
-    <div class="columns large-3"></div>
+    <%= cell "decidim/tags", emendation %>
   </div>
-</div>
+
+  <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+    <%= link_to wizard_aside_back_url(amendable), class: "button button__sm md:button__lg button__text-secondary" do %>
+      <%= icon "arrow-left-line" %>
+      <%= t("back", scope: "decidim.wizard_step_form.wizard_aside") %>
+    <% end %>
+    <%= link_to edit_draft_amend_path(amendment), class: "button button__sm md:button__lg button__transparent-secondary" do %>
+      <span><%= t("modify", scope: "decidim.amendments.preview_draft") %></span>
+    <% end %>
+    <%= button_to publish_draft_amend_path(amendment), method: :post, class: "button button__sm md:button__lg button__secondary" do %>
+      <span><%= t("publish", scope: "decidim.amendments.preview_draft") %></span>
+      <%= icon "arrow-right-line" %>
+    <% end %>
+  </div>
+
+<% end %>

@@ -8,9 +8,9 @@ module Decidim
       describe UpdateInitiativesSettings do
         subject { described_class.new(initiatives_settings, form) }
 
-        let(:organization) { create :organization }
-        let(:user) { create :user, :admin, :confirmed, organization: }
-        let(:initiatives_settings) { create :initiatives_settings, organization: }
+        let(:organization) { create(:organization) }
+        let(:user) { create(:user, :admin, :confirmed, organization:) }
+        let(:initiatives_settings) { create(:initiatives_settings, organization:) }
         let(:initiatives_order) { "date" }
         let(:form) do
           double(

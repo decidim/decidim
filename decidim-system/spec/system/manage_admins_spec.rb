@@ -14,7 +14,7 @@ describe "Manage admins", type: :system do
   describe "when creating a new admin" do
     context "with a valid password" do
       it "is created" do
-        find(".actions .new").click
+        click_link "New"
 
         within ".new_admin" do
           fill_in :admin_email, with: "admin@foo.bar"
@@ -36,7 +36,7 @@ describe "Manage admins", type: :system do
 
     context "with an invalid password" do
       it "gives an error" do
-        find(".actions .new").click
+        click_link "New"
 
         within ".new_admin" do
           fill_in :admin_email, with: "admin@foo.bar"
@@ -102,7 +102,13 @@ describe "Manage admins", type: :system do
     end
 
     within "table" do
-      expect(page).to have_no_content(admin2.email)
+      expect(page).not_to have_content(admin2.email)
+    end
+  end
+
+  it "cannot delete admin rights from self" do
+    within find("tr", text: admin.email) do
+      expect(page).not_to have_link("Delete", visible: :hidden)
     end
   end
 end

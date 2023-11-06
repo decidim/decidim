@@ -1,10 +1,6 @@
 sv:
   activemodel:
     attributes:
-      agenda:
-        description: Beskrivning
-        duration: Varaktighet
-        title: Titel
       close_meeting:
         attendees_count: Antal deltagare
         attending_organizations: Lista över organisationer som deltog
@@ -35,26 +31,21 @@ sv:
         registration_terms: Registreringsvillkor
         registration_url: URL för anmälan
         registrations_enabled: Registreringar aktiverade
-        show_embedded_iframe: Visa integrerad iframe för denna URL
         start_time: Starttid
         title: Titel
         transparent: Transparent
         type_of_meeting: Typ
-    errors:
-      models:
-        meeting:
-          attributes:
-            iframe_embed_type:
-              not_embeddable: Denna URL kan inte bäddas in på ett mötes- eller liveevenemangssida
-        meeting_agenda:
-          attributes:
-            base:
-              too_many_minutes: Varaktigheten av objekten överstiger mötestiden med %{count} minuter
-              too_many_minutes_child: Varaktigheten för artikelbarnen överstiger agendan för agendaobjektet "%{parent_title}" med %{count} minuter
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: E-postkontot har redan bjudits in
+      meeting_agenda:
+        title: Titel
+        visible: Synlig
+      meeting_agenda_items:
+        duration: Varaktighet
+        title: Titel
+      meeting_registration_invite:
+        email: E-post
+        name: Namn
+      validate_registration_code:
+        code: Kod
     models:
       decidim/meetings/close_meeting_event: Möte avslutat
       decidim/meetings/create_meeting_event: Möte
@@ -109,7 +100,6 @@ sv:
           success: Mötet har duplicerats.
         new:
           copy: Kopiera
-          select: Välj vilken data du vill duplicera
           title: Duplicera möte
     components:
       meetings:
@@ -192,8 +182,6 @@ sv:
           description_own: Du har deltagit i %{score} möten.
           name: Deltog i möten
           next_level_in: Delta i %{score} fler möten för att nå nästa nivå!
-          unearned_another: Deltagaren har inte deltagit i något möte än.
-          unearned_own: Du har inte deltagit i något möte än.
     meetings:
       actions:
         agenda: Dagordning
@@ -208,7 +196,6 @@ sv:
             one: 'Mötet kan inte raderas eftersom det finns %{count} relaterat förslag:'
             other: 'Mötet kan inte raderas eftersom det finns %{count} relaterade förslag:'
         manage_poll: Hantera enkäter
-        new: Nytt möte
         preview: Förhandsvisa
         registrations: Registreringar
         title: Handlingar
@@ -226,9 +213,6 @@ sv:
             down: Ned
             remove: Ta bort
             up: Upp
-          create:
-            invalid: Det gick inte att skapa dagordningen
-            success: Dagordning skapades
           edit:
             title: Redigera dagordning
             update: Uppdatering
@@ -240,9 +224,6 @@ sv:
           new:
             create: Skapa
             title: Ny dagordning
-          update:
-            invalid: Det gick inte att uppdatera dagordningen
-            success: Dagordning uppdaterad
         exports:
           answers: Svar
           meeting_comments: Kommentarer
@@ -270,37 +251,23 @@ sv:
               all: Allt
               rejected: Avvisad
               sent: Skickat
-            filter_by: Filtrera efter
             invite_attendee: Bjud in deltagare
             invites: Inbjudningar
-            registrations_disabled: Du kan inte bjuda in en deltagare eftersom registreringarna är inaktiverade.
             search: Sök
         meeting_closes:
           edit:
             close: Stäng
             title: Stäng mötet
-        meeting_copies:
-          form:
-            select_a_meeting_type: Välj mötestyp
         meetings:
-          close:
-            invalid: Det gick inte att stänga mötet
-            success: Mötet avslutades
           create:
-            invalid: Det gick inte att skapa mötet
             success: Mötet har skapats men är ännu inte publicerat, du måste publicera det manuellt.
           destroy:
-            invalid:
-              proposals_count:
-                one: Mötet kan inte raderas eftersom det finns %{count} relaterat förslag
-                other: Mötet kan inte raderas eftersom det finns %{count} relaterade förslag
             success: Mötet har tagits bort
           edit:
             title: Redigera möte
             update: Uppdatera
           form:
             address_help: 'Adress: anger en plats för Geocoder'
-            disclaimer: 'Disclaimer: När du använder ett externt anmälningssystem är du medveten om att administratörerna för %{organization} inte är ansvariga för de data som tillhandahålls av användarna till den externa tjänsten.'
             location_help: 'Plats: meddelande till användarna som anger mötesplats'
             location_hints_help: 'Tips för att hitta platsen: ytterligare information. Exempel: våningen om det är ett fysiskt möte eller möteslösenordet om det är ett online möte.'
             online_meeting_url_help: 'Länk: tillåt deltagare att koppla sig direct till ditt möte'
@@ -313,9 +280,6 @@ sv:
           new:
             create: Skapa
             title: Skapa möte
-          publish:
-            invalid: Det gick inte att publicera det här mötet
-            success: Mötet har publicerats
           service:
             description: Beskrivning
             down: Ned
@@ -326,21 +290,9 @@ sv:
           services:
             add_service: Lägg till service
             services: Tjänster
-          unpublish:
-            invalid: Det gick inte att avpublicera det här mötet
-            success: Mötet har avpublicerats
-          update:
-            invalid: Det gick inte att uppdatera mötet
-            success: Mötet har uppdaterats
         meetings_poll:
           form:
             title: Redigera undersökningen för %{questionnaire_for}
-          update:
-            invalid: Det gick inte att uppdatera mötesundersökningen
-            success: Mötesundersökning har uppdaterats
-        models:
-          meeting:
-            name: Möte
         registrations:
           edit:
             save: Spara
@@ -355,7 +307,6 @@ sv:
             registrations_count:
               one: Det har gjorts %{count} anmälan.
               other: Det har gjorts %{count} anmälningar.
-            reserved_slots_help: Lämna det till 0 om du inte har reserverade platser
             reserved_slots_less_than: Måste vara mindre än eller lika med %{count}
             title: Anmälningar
           update:
@@ -383,11 +334,8 @@ sv:
           all: Alla
         filter_meeting_space_values:
           all: Alla
-        filter_scope_values:
-          all: Alla
       calendar_modal:
         calendar_url: Kalender-URL
-        close_window: Stäng fönster
         copy_calendar_url: Kopiera
         copy_calendar_url_copied: Kopierad!
         export_calendar: Exportera kalender
@@ -395,8 +343,6 @@ sv:
       content_blocks:
         upcoming_meetings:
           name: Kommande möten
-          upcoming_meetings: Kommande möten
-          view_all_meetings: Visa alla
       directory:
         meetings:
           index:
@@ -412,8 +358,7 @@ sv:
         open_in_live_event_page: Öppna i live event sida (med valfria omröstningar)
         open_in_new_tab: Öppna länk i ny flik
       last_activity:
-        meeting_updated_at_html: "<span>Mötet uppdaterades på %{link}</span>"
-        new_meeting_at_html: "<span>Nytt möte på %{link}</span>"
+        new_meeting: 'Nytt möte:'
       layouts:
         live_event:
           administrate: Administrera
@@ -426,8 +371,6 @@ sv:
         registration_mailer:
           confirmation:
             subject: Din mötesregistrering har bekräftats
-      meeting:
-        not_allowed: Du får inte se det här mötet
       meeting_closes:
         edit:
           back: Tillbaka
@@ -437,7 +380,6 @@ sv:
         calendar_modal:
           add_to_calendar: Lägg till i kalender
           apple: Lägg till i Apple kalender
-          close_window: Stäng fönster
           full_details_html: För mer detalj gå till %{link}
           google: Lägg till i Google kalender
           outlook: Lägg till i Outlook kalender
@@ -467,8 +409,7 @@ sv:
             all: Alla
             official: Officiell
             participants: Deltagare
-            user_groups: Grupper
-          scope: Omfattning
+            user_group: Grupper
           search: Sök
           type: Typ
           type_values:
@@ -476,16 +417,10 @@ sv:
             hybrid: Hybrid
             in_person: Fysiska
             online: Online
-        filters_small_view:
-          close_modal: Stäng fönstret
-          filter: Filtrera
-          filter_by: Filtrera efter
-          unfold: Veckla ut
         form:
           address_help: 'Adress: som används av Geocoder för att hitta platsen'
           available_slots_help: Lämna det till 0 om du har obegränsade platser
           create_as: Skapa möte som
-          disclaimer: 'Disclaimer: När du använder ett externt anmälningssystem är du medveten om att administratörerna för %{organization} inte är ansvariga för de data som tillhandahålls av användarna till den externa tjänsten.'
           location_help: 'Plats: meddelande riktat till de användare som antyder platsen att träffas på'
           location_hints_help: 'Tips för att hitta platsen: ytterligare information. Exempel: våningen om det är ett fysiskt möte eller möteslösenordet om det är ett online möte.'
           online_meeting_url_help: 'Länk: tillåt deltagare att koppla sig direct till ditt möte'
@@ -500,10 +435,9 @@ sv:
           see_all: Se alla möten
           see_all_withdrawn: Se alla tillbakadragna möten
           text_banner: Du tittar på listan över möten som dragits tillbaka av sina författare. %{go_back_link}.
-        meeting_minutes:
-          related_information: Relaterad information
+        meeting:
+          close_meeting: Avsluta möte
         meetings:
-          no_meetings_warning: Inga möten matchar dina sökkriterier eller det finns inget möte planerat.
           upcoming_meetings_warning: För närvarande finns det inga planerade möten, men här hittar du alla tidigare möten listade.
         new:
           back: Tillbaka
@@ -514,13 +448,8 @@ sv:
           confirm: Bekräfta
         show:
           attendees: Antal deltagare
-          back: Tillbaka till listan
-          close_meeting: Avsluta möte
           contributions: Antal bidrag
           date: Datum
-          edit_close_meeting: Redigera mötesrapport
-          edit_meeting: Redigera möte
-          going: Du har anmält dig för detta möte
           join: Gå med i mötet
           leave: Avbryt din registrering
           leave_confirmation: Är du säker på att du vill avboka från detta möte?
@@ -546,8 +475,6 @@ sv:
         update:
           invalid: Det gick inte att uppdatera mötet.
           success: Du har uppdaterat mötet.
-      meetings_map:
-        view_meeting: Visa möte
       models:
         invite:
           fields:
@@ -588,6 +515,7 @@ sv:
             question_replied: Besvarad fråga
             reply_question: Svara på fråga
       public_participants_list:
+        attending_organizations: Organisationer
         attending_participants: Deltagare
         hidden_participants_count:
           one: och %{count} person till
@@ -605,7 +533,6 @@ sv:
       registrations:
         create:
           invalid: Det gick inte att ansluta till mötet.
-          success: Du har gått med i mötet. Eftersom du har registrerat dig kommer du att få aviseringar om uppdateringar av mötet.
         decline_invitation:
           invalid: Det gick inte att avböja inbjudan.
           success: Du har avböjt inbjudan.
@@ -620,11 +547,6 @@ sv:
         private_meeting: Privat möte
         transparent: Transparent
         withdraw: Tillbakadragna
-      versions:
-        back_to_resource: Gå tillbaka till mötet
-      withdraw:
-        error: Det gick inte att dra tillbaka mötet
-        success: Mötet har dragits tillbaka
     metrics:
       meetings:
         description: Antal skapade möten
@@ -635,8 +557,6 @@ sv:
         past_meetings: Tidigare möten
         see_all: Visa alla (%{count})
         upcoming_meetings: Kommande möten
-      upcoming_meeting_for_card:
-        upcoming_meeting: Kommande möte
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Relaterade resultat:'

@@ -14,8 +14,8 @@ module Decidim::Meetings
         current_participatory_space: participatory_process
       }
     end
-    let(:participatory_process) { create :participatory_process, organization: }
-    let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "meetings" }
+    let(:participatory_process) { create(:participatory_process, organization:) }
+    let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "meetings") }
     let(:title) do
       Decidim::Faker::Localized.sentence(word_count: 3)
     end
@@ -45,7 +45,7 @@ module Decidim::Meetings
     let(:parent_scope) { create(:scope, organization:) }
     let(:scope) { create(:subscope, parent: parent_scope) }
     let(:scope_id) { scope.id }
-    let(:category) { create :category, participatory_space: participatory_process }
+    let(:category) { create(:category, participatory_space: participatory_process) }
     let(:category_id) { category.id }
     let(:private_meeting) { false }
     let(:transparent) { true }
@@ -53,6 +53,7 @@ module Decidim::Meetings
     let(:online_meeting_url) { "http://decidim.org" }
     let(:registration_url) { "http://decidim.org" }
     let(:registration_type) { "on_this_platform" }
+    let(:registrations_enabled) { true }
     let(:available_slots) { 0 }
     let(:iframe_embed_type) { "none" }
     let(:attributes) do
@@ -73,6 +74,7 @@ module Decidim::Meetings
         registration_type:,
         available_slots:,
         registration_url:,
+        registrations_enabled:,
         type_of_meeting:,
         online_meeting_url:,
         iframe_embed_type:
@@ -224,7 +226,7 @@ module Decidim::Meetings
       it { is_expected.not_to be_valid }
     end
 
-    describe "when online meeting url is present and the meeting is embedded and the url can't be embedded" do
+    describe "when online meeting url is present and the meeting is embedded and the url cannot be embedded" do
       let(:online_meeting_url) { "https://meet.jit.si/decidim" }
       let(:iframe_embed_type) { "embed_in_meeting_page" }
 

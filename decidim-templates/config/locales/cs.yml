@@ -9,23 +9,26 @@ cs:
   decidim:
     admin:
       menu:
+        manage: Spravovat
         templates: Šablony
       templates:
+        actions:
+          new_template: Nová šablona
         apply:
           error: Při použití této šablony došlo k chybě.
-          success: Šablona byla úspěšně použita
+          success: Šablona byla úspěšně použita.
         copy:
           error: Při kopírování této šablony došlo k chybě.
-          success: Šablona byla úspěšně zkopírována
+          success: Šablona byla úspěšně zkopírována.
         create:
           error: Při vytváření této šablony došlo k chybě.
-          success: Šablona byla úspěšně vytvořena
+          success: Šablona byla úspěšně vytvořena.
         destroy:
-          success: Šablona byla úspěšně odstraněna
+          success: Šablona byla úspěšně odstraněna.
         empty: Zatím nejsou žádné šablony.
         update:
           error: Při aktualizaci této šablony došlo k chybě.
-          success: Šablona byla úspěšně aktualizována
+          success: Šablona byla úspěšně aktualizována.
       titles:
         template_types:
           questionnaires: Šablony dotazníků
@@ -41,6 +44,18 @@ cs:
         name: Šablona
     templates:
       admin:
+        block_user_templates:
+          edit:
+            title: Upravit šablonu zprávy uživatele
+          form:
+            save: Uložit
+          index:
+            confirm_delete: Opravdu chcete tuto šablonu odstranit?
+            title: Blokovat zprávy uživatele
+          new:
+            title: Nová šablona zprávy uživatele
+          template_chooser:
+            select_template: Vyberte šablonu odpovědi
         questionnaire_templates:
           choose:
             create_from_template: Vytvořit ze šablony
@@ -50,15 +65,16 @@ cs:
             skip_template: Přeskočit
           edit:
             edit: Upravit
-            empty: Zatím nejsou žádné otázky
+            empty: Zatím nejsou žádné otázky.
             questionnaire: Dotazník
+            title: Upravit šablonu dotazníku
           form:
-            save: Uložit
-            template_title: Informace o šabloně
             title: Šablona dotazníku %{questionnaire_for}
           index:
             confirm_delete: Jste si jisti, že chcete odstranit tuto šablonu?
             title: Šablony dotazníků
+          new:
+            title: Nová šablona dotazníku
           preview:
             current_step: Krok %{step}
             of_total_steps: z %{total_steps}
@@ -70,4 +86,5 @@ cs:
           duplicate: "%{user_name} zkopíroval šablonu dotazníku %{resource_name}"
           update: "%{user_name} aktualizoval šablonu dotazníku %{resource_name}"
       template_types:
+        block_user: Blokovat zprávy uživatele
         questionnaires: Dotazníky

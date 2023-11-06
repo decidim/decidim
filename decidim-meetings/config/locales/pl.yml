@@ -1,10 +1,6 @@
 pl:
   activemodel:
     attributes:
-      agenda:
-        description: Opis
-        duration: Czas trwania
-        title: Tytuł
       close_meeting:
         attendees_count: Liczba osób biorących udział
         attending_organizations: Lista organizacji biorących udział
@@ -21,7 +17,6 @@ pl:
         decidim_scope_id: Zakres
         decidim_user_group_id: Grupa użytkowników
         description: Opis
-        end_time: Czas zakończenia
         id: Numer ID
         location: Miejsce
         location_hints: Wskazówki co do miejsca
@@ -33,21 +28,11 @@ pl:
         registration_terms: Warunki rejestracji
         registration_url: Adres URL rejestracji
         registrations_enabled: Rejestracje włączone
-        start_time: Czas rozpoczęcia
         title: Tytuł
         transparent: Transparentny
         type_of_meeting: Typ
-    errors:
-      models:
-        meeting_agenda:
-          attributes:
-            base:
-              too_many_minutes: Czas trwania elementów przekracza czas trwania spotkania o %{count} minut
-              too_many_minutes_child: Czas trwania elementów podrzędnych przekracza czas trwania elementu nadrzędnego "%{parent_title}" w porządku obrad o %{count} minut
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Ten e-mail został już zaproszony
+      meeting_agenda_items:
+        duration: Czas trwania
     models:
       decidim/meetings/close_meeting_event: Spotkanie zakończone
       decidim/meetings/create_meeting_event: Spotkanie
@@ -84,13 +69,19 @@ pl:
               'true': Zamknięte
           is_upcoming_true:
             label: Data
+          with_any_origin:
+            values:
+              user_group: Grupy użytkowników
+          with_any_type:
+            label: Rodzaj spotkania
+            values:
+              in_person: Osobiste
       meeting_copies:
         create:
           error: Wystąpił błąd podczas duplikowania tego spotkania.
           success: Zduplikowano spotkanie.
         new:
           copy: Kopiuj
-          select: Wybierz dane, które chcesz zduplikować
           title: Duplikat spotkania
     components:
       meetings:
@@ -172,8 +163,6 @@ pl:
           description_own: Uczestniczyłeś w %{score} spotkaniach.
           name: Spotkania w których uczestniczyłeś/-łaś
           next_level_in: Weź udział jeszcze w %{score} spotkaniach, aby awansować na kolejny poziom!
-          unearned_another: Ten użytkownik nie uczestniczył jeszcze w żadnym spotkaniu.
-          unearned_own: Nie uczestniczyłeś jeszcze w żadnym spotkaniu.
     meetings:
       actions:
         agenda: Program
@@ -190,7 +179,6 @@ pl:
             many: 'Nie można usunąć spotkania ponieważ ma ono %{count} powiązanych propozycji:'
             other: 'Nie można usunąć spotkania ponieważ ma ono %{count} powiązanych propozycji:'
         manage_poll: Zarządzaj głosowaniem
-        new: Nowe spotkanie
         preview: Podgląd
         registrations: Rejestracje
         title: Działania
@@ -208,9 +196,6 @@ pl:
             down: Na dół
             remove: Usuń
             up: W górę
-          create:
-            invalid: Podczas tworzenia tego programu wystąpił błąd
-            success: Program został utworzony
           edit:
             title: Edytuj program
             update: Aktualizuj
@@ -222,9 +207,6 @@ pl:
           new:
             create: Utwórz
             title: Nowy program
-          update:
-            invalid: Wystąpił błąd podczas aktualizowania tego programu
-            success: Program został zaktualizowany
         exports:
           meeting_comments: Komentarze
           meetings: Spotkania
@@ -251,36 +233,23 @@ pl:
               all: Wszystko
               rejected: Odrzucono
               sent: Wysłane
-            filter_by: Filtruj według
             invite_attendee: Zaproś uczestnika
             invites: Zaproszeni
-            registrations_disabled: Nie możesz zaprosić uczestnika, ponieważ rejestracje są wyłączone.
             search: Szukaj
         meeting_closes:
           edit:
             close: Zamknij
             title: Zamknij spotkanie
         meetings:
-          close:
-            invalid: Wystąpił błąd podczas zamykania tego spotkania
-            success: Spotkanie zostało zakończone
           create:
-            invalid: Podczas tworzenia tego spotkania wystąpił błąd
             success: Spotkanie zostało utworzone. Zauważ, że jest ono nieopublikowane, musisz je opublikować ręcznie.
           destroy:
-            invalid:
-              proposals_count:
-                one: Nie można usunąć spotkania ponieważ ma ono %{count} powiązaną propozycję
-                few: Nie można usunąć spotkania ponieważ ma ono %{count} powiązane propozycje
-                many: Nie można usunąć spotkania ponieważ ma ono %{count} powiązanych propozycji
-                other: Nie można usunąć spotkania ponieważ ma ono %{count} powiązanych propozycji
             success: Spotkanie zostało pomyślnie usunięte
           edit:
             title: Edytuj spotkanie
             update: Aktualizuj
           form:
             address_help: 'Adres: używany przez Geocoder do znalezienia lokalizacji'
-            disclaimer: 'Uwaga: Korzystając z zewnętrznego systemu uwierzytelniania, jesteś świadomy, że organizatorzy %{organization} nie są odpowiedzialni za dane dostarczone przez użytkowników usługi zewnętrznej.'
             location_help: 'Lokalizacja: informacja dla użytkowników dotycząca miejsca spotkania'
             location_hints_help: 'Wskazówki dotyczące lokalizacji: dodatkowe informacje. Przykład: piętro budynku, jeśli jest to spotkanie fizyczne, lub hasło do spotkania, jeśli odbywa się ono online i ma ograniczony dostęp.'
             online_meeting_url_help: 'Link: zezwól uczestnikom na bezpośredni dostęp do Twojego spotkania'
@@ -292,9 +261,6 @@ pl:
           new:
             create: Utwórz
             title: Utwórz spotkanie
-          publish:
-            invalid: Wystąpił błąd podczas publikowania tego spotkania
-            success: Spotkanie zostało opublikowane
           service:
             description: Opis
             down: Na dół
@@ -305,18 +271,9 @@ pl:
           services:
             add_service: Dodaj usługę
             services: Usługi
-          unpublish:
-            invalid: Wystąpił błąd podczas ukrywania tego spotkania
-            success: Spotkanie zostało ukryte
-          update:
-            invalid: Podczas aktualizowania tego spotkania wystąpił błąd
-            success: Spotkanie zostało zaktualizowane
         meetings_poll:
           form:
             title: Edytuj kartę do głosowania dla %{questionnaire_for}
-        models:
-          meeting:
-            name: Spotkanie
         registrations:
           edit:
             save: Zapisz
@@ -333,7 +290,6 @@ pl:
               few: Było %{count} rejestracji.
               many: Było %{count} rejestracji.
               other: Było %{count} rejestracji.
-            reserved_slots_help: Pozostaw 0, jeśli nie rezerwujesz miejsc
             reserved_slots_less_than: Musi być mniejszy lub równy %{count}
             title: Rejestracje
           update:
@@ -358,20 +314,17 @@ pl:
               not_found: 'Nie znaleziono organizatora w bazie danych (ID: %{id})'
       calendar_modal:
         calendar_url: Adres URL kalendarza
-        close_window: Zamknij okno
+        copy_calendar_url_description: Możesz zobaczyć wszystkie opublikowane spotkania w swojej aplikacji kalendarza. Skopiuj i wklej ten adres URL w swoim kalendarzu, używając opcji "Dodaj nowy kalendarz z URL".
         export_calendar: Eksportuj kalendarz
+      close_meeting_reminder_mailer:
+        close_meeting_reminder:
+          subject: Teraz możesz zamknąć spotkanie z opublikowaniem raportu na platformie %{organization_name}
       conference_venues: Sale konferencyjne
-      content_blocks:
-        upcoming_meetings:
-          view_all_meetings: Pokaż wszystkie
       directory:
         meetings:
           index:
             meetings: Spotkania
             space_type: Przestrzeń partycypacyjna
-      last_activity:
-        meeting_updated_at_html: "<span>Spotkanie zaktualizowane o %{link}</span>"
-        new_meeting_at_html: "<span>Nowe spotkanie %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -379,8 +332,6 @@ pl:
         registration_mailer:
           confirmation:
             subject: Twoja rejestracja na spotkanie została potwierdzona
-      meeting:
-        not_allowed: Nie możesz zobaczyć tego spotkania
       meeting_closes:
         edit:
           back: Wróć
@@ -390,13 +341,12 @@ pl:
         calendar_modal:
           add_to_calendar: Dodaj do kalendarza
           apple: Dodaj do kalendarza Apple
-          close_window: Zamknij okno
           google: Dodaj do kalendarza Google
           outlook: Dodaj do kalendarza Outlook
         count:
           meetings_count:
             one: "%{count} spotkanie"
-            few: "%{count} spotkań"
+            few: "%{count} spotkania"
             many: "%{count} spotkań"
             other: "%{count} spotkań"
         create:
@@ -420,24 +370,16 @@ pl:
           origin_values:
             all: Wszystkie
             official: Oficjalny
-            user_groups: Grupy
-          scope: Zakres
           search: Szukaj
           type: Typ
           type_values:
             all: Wszystko
             in_person: Osobiście
             online: Online
-        filters_small_view:
-          close_modal: Zamknij okno
-          filter: Filtruj
-          filter_by: Filtruj według
-          unfold: Rozwiń
         form:
           address_help: 'Adres: używany przez Geocodera do znalezienia lokalizacji'
           available_slots_help: Zostaw 0 jeśli masz nieograniczoną liczbę dostępnych miejsc
           create_as: Utwórz spotkanie jako
-          disclaimer: 'Uwaga: Korzystając z zewnętrznego systemu uwierzytelniania, jesteś świadomy, że organizatorzy %{organization} nie są odpowiedzialni za dane dostarczone przez użytkowników usługi zewnętrznej.'
           location_help: 'Lokalizacja: informacja dla użytkowników dotycząca miejsca spotkania'
           location_hints_help: 'Wskazówki dotyczące lokalizacji: dodatkowe informacje. Przykład: piętro budynku, jeśli jest to spotkanie fizyczne, lub hasło do spotkania, jeśli odbywa się ono online i ma ograniczony dostęp.'
           online_meeting_url_help: 'Link: zezwól uczestnikom na bezpośredni dostęp do Twojego spotkania'
@@ -447,10 +389,7 @@ pl:
           select_a_registration_type: Wybierz typ rejestracji
         index:
           new_meeting: Nowe spotkanie
-        meeting_minutes:
-          related_information: Powiązana informacja
         meetings:
-          no_meetings_warning: Brak spotkań spełniających kryteria wyszukiwania lub nie ma żadnego zaplanowanego spotkania.
           upcoming_meetings_warning: Obecnie nie ma żadnych zaplanowanych spotkań, ale możesz zobaczyć wszystkie przeszłe.
         new:
           back: Wróć
@@ -461,11 +400,8 @@ pl:
           confirm: Potwierdź
         show:
           attendees: Liczba osób biorących udział
-          back: Powrót do listy
-          close_meeting: Zakończ spotkanie
           contributions: Liczba wsparć
           date: Data
-          edit_meeting: Edytuj spotkanie
           join: Dołącz do spotkania
           leave: Anuluj swoją rejestrację
           meeting_minutes: Protokół ze spotkania
@@ -484,8 +420,6 @@ pl:
         update:
           invalid: Wystąpił błąd podczas aktualizowania spotkania.
           success: Spotkanie zostało zaktualizowane.
-      meetings_map:
-        view_meeting: Zobacz spotkanie
       models:
         invite:
           fields:
@@ -527,7 +461,6 @@ pl:
       registrations:
         create:
           invalid: Wystąpił błąd podczas dołączania do spotkania.
-          success: Dołączyłeś do tego spotkanie. Ponieważ zarejestrowałeś się na to spotkanie, będziesz otrzymywał powiadomienia dotyczące aktualizacji tego spotkania.
         decline_invitation:
           invalid: Wystąpił błąd podczas próby odrzucenia zaproszenia.
           success: Zaproszenie zostało odrzucone.
@@ -535,13 +468,12 @@ pl:
           invalid: Wystąpił błąd podczas próby opuszczenia tego spotkania.
           success: Opuściłeś spotkanie.
       type_of_meeting:
+        hybrid: Hybrydowe
         in_person: Osobiście
         online: Online
       types:
         private_meeting: Prywatne spotkanie
         transparent: Transparentne
-      versions:
-        back_to_resource: Wróć do spotkania
     metrics:
       meetings:
         description: Liczba utworzonych spotkań
@@ -552,8 +484,6 @@ pl:
         past_meetings: Przeszłe spotkania
         see_all: Zobacz wszystkie spotkania (%{count})
         upcoming_meetings: Nadchodzące spotkania
-      upcoming_meeting_for_card:
-        upcoming_meeting: Nadchodzące spotkanie
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Powiązane wyniki:'

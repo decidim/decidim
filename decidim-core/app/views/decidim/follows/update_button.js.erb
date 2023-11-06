@@ -1,3 +1,10 @@
 var $followResource = $("#<%= dom_id(resource, :follow) %>");
+var $followResourceMobile = $("#<%= dom_id(resource, "follow-mobile") %>");
+var $followersCount = $("#<%= dom_id(resource, :followers_count) %>");
 
-morphdom($followResource[0], "<%= j((cell "decidim/follow_button", resource, inline: @inline).to_s.strip.html_safe) %>");
+morphdom($followResource[0], "<%= j(button_cell.to_s.strip.html_safe) %>");
+morphdom($followResourceMobile[0], "<%= j(button_cell_mobile.to_s.strip.html_safe) %>");
+
+if ($followersCount.length > 0) {
+  $followersCount[0].innerText = <%= button_cell.followers_count %>
+}

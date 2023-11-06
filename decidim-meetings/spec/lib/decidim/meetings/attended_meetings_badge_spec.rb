@@ -4,8 +4,8 @@ require "spec_helper"
 
 describe "Attended meetings badge" do
   let(:organization) { create(:organization) }
-  let(:meeting) { create :meeting, registrations_enabled: true, available_slots: 20 }
-  let(:user) { create :user, :confirmed, organization: meeting.organization }
+  let(:meeting) { create(:meeting, registrations_enabled: true, available_slots: 20) }
+  let(:user) { create(:user, :confirmed, organization: meeting.organization) }
 
   describe "reset" do
     it "resets the score to the amount of meetings the user has attended" do

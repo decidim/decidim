@@ -46,11 +46,11 @@ describe "Meetings component" do # rubocop:disable RSpec/DescribeClass
       raw_stats.select { |stat| stat[0] == :meetings }
     end
 
-    let!(:meeting) { create :meeting, :published }
+    let!(:meeting) { create(:meeting, :published) }
     let(:component) { meeting.component }
-    let!(:another_meeting) { create :meeting, :published, component: }
-    let!(:hidden_meeting) { create :meeting, :published, component: }
-    let!(:moderation) { create :moderation, reportable: hidden_meeting, hidden_at: 1.day.ago }
+    let!(:another_meeting) { create(:meeting, :published, component:) }
+    let!(:hidden_meeting) { create(:meeting, :published, component:) }
+    let!(:moderation) { create(:moderation, reportable: hidden_meeting, hidden_at: 1.day.ago) }
 
     let(:current_stat) { stats.find { |stat| stat[1] == stats_name } }
 
@@ -63,7 +63,7 @@ describe "Meetings component" do # rubocop:disable RSpec/DescribeClass
       end
 
       context "when having withdrawn meeting" do
-        let!(:withdrawn_meeting) { create :meeting, :withdrawn, component: }
+        let!(:withdrawn_meeting) { create(:meeting, :withdrawn, component:) }
 
         it "will exclude the withdrawn one" do
           expect(Decidim::Meetings::Meeting.where(component:).count).to eq 4
@@ -76,14 +76,12 @@ describe "Meetings component" do # rubocop:disable RSpec/DescribeClass
       let(:stats_name) { :followers_count }
 
       before do
-        # rubocop:disable RSpec/FactoryBot/CreateList
         2.times do
           create(:follow, followable: meeting, user: build(:user, organization:))
         end
         3.times do
           create(:follow, followable: hidden_meeting, user: build(:user, organization:))
         end
-        # rubocop:enable RSpec/FactoryBot/CreateList
       end
 
       it "counts the followers from visible meetings" do
@@ -96,8 +94,8 @@ describe "Meetings component" do # rubocop:disable RSpec/DescribeClass
       let(:stats_name) { :comments_count }
 
       before do
-        create_list :comment, 3, commentable: meeting
-        create_list :comment, 5, commentable: hidden_meeting
+        create_list(:comment, 3, commentable: meeting)
+        create_list(:comment, 5, commentable: hidden_meeting)
       end
 
       it "counts the comments from visible proposals" do
@@ -117,18 +115,18 @@ describe "Meetings component" do # rubocop:disable RSpec/DescribeClass
         .call(component, user)
     end
 
-    let!(:first_meeting) { create :meeting, :published }
+    let!(:first_meeting) { create(:meeting, :published) }
     let(:component) { first_meeting.component }
-    let!(:second_meeting) { create :meeting, :published, component: }
-    let!(:unpublished_meeting) { create :meeting, component: }
+    let!(:second_meeting) { create(:meeting, :published, component:) }
+    let!(:unpublished_meeting) { create(:meeting, component:) }
     let(:participatory_process) { component.participatory_space }
     let(:organization) { participatory_process.organization }
 
     context "when the user is an admin" do
-      let!(:user) { create :user, admin: true, organization: }
+      let!(:user) { create(:user, admin: true, organization:) }
 
       it "exports all meetings from the component" do
-        expect(subject).to match_array([first_meeting, second_meeting, unpublished_meeting])
+        expect(subject).to contain_exactly(first_meeting, second_meeting, unpublished_meeting)
       end
     end
   end

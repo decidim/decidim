@@ -9,23 +9,37 @@ edit_link(
 )
 %>
 
-<div class="row">
-  <div class="columns mediumlarge-12 conference-media">
-    <% if @media_links.any? %>
-      <section>
-        <h3 class="section-heading"><%= t("media.index.title", scope: "decidim") %></h3>
-        <p><%= t("media.index.description", scope: "decidim") %></p>
-      </section>
-      <hr class="reset mt-none mb-s">
-      <div class="media-links">
-        <ul class="list-reset">
-          <% @media_links.each do |media_link| %>
-            <%= cell "decidim/conferences/media_link", media_link %>
-          <% end %>
-        </ul>
+<%# NOTE: this page does not use a regular layout %>
+<main class="container">
+  <h1 class="title-decorator my-12">
+    <span class="not-sr-only"><%= t("media", scope: "layouts.decidim.conferences_nav") %></span>
+    <span class="sr-only"><%= t("media", scope: "layouts.decidim.conferences_nav") %> (<%= translated_attribute current_participatory_space.title %>)</span>
+  </h1>
+
+  <% if @media_links.any? %>
+    <section id="conference-media-links" class="conference__media-section">
+      <h2 class="h4 md:h3 decorator"><%= t("media.index.title", scope: "decidim") %></h2>
+      <p><%= t("media.index.description", scope: "decidim") %></p>
+
+      <div class="conference__media-links" data-conference-media-links>
+        <% @media_links.each do |media_link| %>
+          <%= cell "decidim/conferences/media_link", media_link %>
+        <% end %>
       </div>
-      <hr class="reset mt-none mb-s">
-    <% end %>
-    <%= attachments_for_conference current_participatory_space %>
-  </div>
-</div>
+    </section>
+  <% end %>
+
+  <% if current_participatory_space.attachments.any? %>
+    <section id="conference-media-photos" class="conference__media-section">
+      <h2 class="h4 md:h3 decorator"><%= t("decidim.application.photos.related_photos") %></h2>
+
+      <%= cell("decidim/photos_list", current_participatory_space.photos) %>
+    </section>
+
+    <section id="conference-media-documents" class="conference__media-section">
+      <h2 class="h4 md:h3 decorator"><%= t("decidim.application.documents.related_documents") %></h2>
+
+      <%= render partial: "decidim/application/documents", locals: { documents: current_participatory_space.documents } %>
+    </section>
+  <% end %>
+  </main>

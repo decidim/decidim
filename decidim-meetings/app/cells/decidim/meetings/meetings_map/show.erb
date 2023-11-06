@@ -1,31 +1,16 @@
 <%= dynamic_map_for meetings_data_for_map(geocoded_meetings) do %>
   <template id="marker-popup">
-    <div class="map-info__content">
-      <h3>${title}</h3>
-      <div id="bodyContent">
-        <p>{{html description}}</p>
-        <div class="map__date-address">
-          <div class="card__datetime">
-            <div class="card__datetime__date">
-              ${startTimeDay} <span class="card__datetime__month">${startTimeMonth} ${startTimeYear}</span>
-            </div>
-            <div class="card__datetime__time">${starTime}</div>
-          </div>
-          <div class="address card__extra">
-            <div class="address__icon">{{html icon}}</div>
-            <div class="address__details">
-              <strong>{{html location}}</strong><br>
-              <span>${address}</span><br>
-              <span>{{html locationHints}}</span>
-            </div>
+    <div class="space-y-6">
+      <a href="${link}" class="card__list">
+        <div class="card__list-content">
+          <h3 class="h4 card__list-title">${title}</h3>
+          <div class="card__list-metadata">
+            {{each JSON.parse(items)}}
+              <span>{{html icon}}${text}</span>
+            {{/each}}
           </div>
         </div>
-        <div class="map-info__button">
-          <a href="${link}" class="button button--sc">
-            <%= t("decidim.meetings.meetings_map.view_meeting") %>
-          </a>
-        </div>
-      </div>
+      </a>
     </div>
   </template>
 <% end.html_safe %>

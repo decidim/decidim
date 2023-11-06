@@ -19,7 +19,7 @@ module Decidim
       # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid.
-      # - :invalid if the vote wasn't create
+      # - :invalid if the vote was not create
       #
       # Returns nothing.
       def call

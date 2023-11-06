@@ -6,6 +6,8 @@ ja:
         offline: オフライン
         offline_explanation: オフライン確認の手順
         online: オンライン
+      confirmation:
+        verification_code: 確認コード
       id_document_information:
         document_number: ドキュメント番号（文字付き）
         document_type: ドキュメントの種類
@@ -14,6 +16,8 @@ ja:
         document_type: 書類の種類
         user: 参加者
         verification_attachment: スキャンされたドキュメントのコピー
+      mobile_phone:
+        mobile_phone_number: 携帯電話番号
       offline_confirmation:
         email: 参加者のメールアドレス
       postal_letter_address:
@@ -23,20 +27,26 @@ ja:
       postal_letter_postage:
         full_address: フルアドレス
         verification_code: 確認コード
+    errors:
+      models:
+        census_data:
+          attributes:
+            file:
+              malformed: インポートファイルの形式が正しくありません。手順を見直して、ファイルがUTF-8でエンコードされていることを確認してください。
   decidim:
     admin:
       menu:
         authorization_revocation:
-          before_date_info: 参加型プロセスがすでに開始されており、前のプロセスの権限を取り消したい場合に便利です。
+          before_date_info: 参加型プロセスがすでに開始されており、以前のプロセスでの許可を取り消したい場合に便利です。
           button: すべて取り消し
-          button_before: 日付の前に取り消し
+          button_before: 指定日以前の認証を失効させる
           destroy:
-            confirm: 前の日付の権限を取り消すことはできません。続行してもよろしいですか？
-            confirm_all: すべての権限を取り消すことはできません。続行してもよろしいですか？
-          destroy_nok: 許可の取り消し中に問題が発生しました。
+            confirm: 指定日以前の権限の取り消しはやり直すことができません。続行してもよろしいですか？
+            confirm_all: すべての権限を取り消すと、元に戻すことができません。本当に続行しますか？
+          destroy_nok: 権限の取り消し中に問題が発生しました。
           destroy_ok: すべての一致した認証が正常に取り消されました。
           info: '%{count} 人の確認済み参加者がいます。'
-          no_data: 確認済みの参加者はありません
+          no_data: 検証済みの参加者はいません。
           title: 認証の取り消し方法
         authorization_workflows: 認証
     admin_log:
@@ -48,14 +58,14 @@ ja:
       admin:
         csv_census:
           help:
-            - 管理者は受理済みの参加者のメールで CSV をアップロードします
-            - そのCSVファイルに電子メールが記載されている参加者のみが確認できます
+            - 管理者は、承認された参加者のメールアドレスを含むCSVをアップロードします。
+            - そのCSVファイルにメールアドレスが記載されている参加者のみが検証されます。
         id_documents:
           help:
             - ユーザーは自分の身元情報を入力し、自分の文書のコピーをアップロードします。
             - アップロードされた画像に含まれる情報を入力します。
             - 情報はユーザーが入力した情報と一致する必要があります。
-            - はっきりと情報を見ることができない、またはそれを検証することができない場合。 リクエストを拒否すると、ユーザーはそれを修正することができます。
+            - 情報が明確に確認できない場合や検証できない場合は、リクエストを拒否することができます。ユーザーは修正できるます。
         postal_letter:
           help:
             - 参加者は、確認コードを自分の住所に送信するように依頼します。
@@ -63,25 +73,25 @@ ja:
             - 郵便物を送信済みとしてマークします。
             - 郵便物を送信済みとしてマークすると、参加者はコードを入力して検証することができます。
       csv_census:
-        explanation: 組織センサスを使用して認証を取得する
-        name: 組織の国勢調査
+        explanation: 組織のセンサスを使用して検証します。
+        name: 組織のセンサス
       direct: ダイレクト
       help: ヘルプ
       id_documents:
-        explanation: 本人確認のため本人確認書類をアップロードしてください
+        explanation: あなたの身元を確認するために、本人確認書類をアップロードしてください。
         name: 本人確認書類
       multistep: 複数ステップ
       name: 名前
       postal_letter:
-        explanation: 住所を確認するために入力するコードを記載した郵便物をお送りします。
+        explanation: コードが記載された手紙を郵送します。そのコードを入力していただくことで、あなたの住所を確認します。
         name: 郵便物によるコード
     events:
       verifications:
         verify_with_managed_user:
-          email_intro: 参加者 <a href="%{resource_path}">%{resource_title}</a> が管理対象参加者 <a href="%{managed_user_path}">%{managed_user_name}</a>のデータで検証しようとしました。
-          email_outro: <a href="%{conflicts_path}">検証の競合リスト</a> を確認し、参加者に連絡して詳細を調査し、問題を解決します。
-          email_subject: 管理対象参加者に対する検証の試みに失敗しました
-          notification_title: 参加者 <a href="%{resource_path}">%{resource_title}</a> が管理参加者 <a href="%{managed_user_path}">%{managed_user_name}</a>のデータでそれらを確認しようとしました。
+          email_intro: 参加者 <a href="%{resource_url}">%{resource_title}</a> が別の参加者(<a href="%{managed_user_url}">%{managed_user_name}</a>) のデータで検証しようとしました.
+          email_outro: <a href="%{conflicts_url}">検証の競合リスト</a> を確認し、参加者に連絡して詳細の検証を行い、問題を解決します。
+          email_subject: 他の参加者に対する検証の試みに失敗しました
+          notification_title: 参加者 <a href="%{resource_path}">%{resource_title}</a> が別の参加者 (<a href="%{managed_user_path}">%{managed_user_name}</a>) のデータでそれらを確認しようとしました.
     verifications:
       authorizations:
         authorization_metadata:
@@ -90,14 +100,15 @@ ja:
         create:
           error: 認証の作成に問題がありました。
           success: 正常に承認されました。
+          transferred: '認証に基づき、以下の参加データを復元しました。'
           unconfirmed: 自分自身を承認するには、メールアドレスを確認する必要があります。
         destroy:
           error: 承認の削除中に問題が発生しました。
-          success: 承認の削除に成功しました。
+          success: 承認を削除しました。
         first_login:
           actions:
             another_dummy_authorization_handler: 認証ハンドラーの別の例に対して検証する
-            csv_census: 組織の国勢調査に照らして確認
+            csv_census: 組織のセンサスに照らして確認
             dummy_authorization_handler: 認証ハンドラーの例に対して確認する
             dummy_authorization_workflow: 認証ワークフローの例に対して確認する
             id_documents: 本人確認書類をアップロードして認証を取得する
@@ -107,17 +118,19 @@ ja:
           verify_with_these_options: '本人確認には以下のオプションがあります。'
         index:
           expired_verification: 認証の有効期限が切れました
+          granted_verification: 許可された検証
+          introduce_code: コードの紹介
           pending_verification: 保留中の検証
           show_renew_info: クリックして確認を更新します
-          unauthorized_verification: 新しい検証
+          subscribe: 購読
+          unauthorized_methods: 検証方法
         new:
           authorize: 送信
           authorize_with: '%{authorizer} で認証'
         renew_modal:
           cancel: キャンセル
-          close: 閉じる
           continue: 続ける
-          info_renew: データを更新したい場合は、更新を続けてください
+          info_renew: データを更新したい場合は、更新を続行します。
           title: 確認を更新
         skip_verification: しばらくの間はスキップできますし、 %{link}
         start_exploring: 探索を始めましょう
@@ -126,24 +139,27 @@ ja:
           census:
             create:
               error: センサスのインポート中にエラーが発生しました。
-              success: '%{count} 個のアイテムを正常にインポートしました (%{errors} 個のエラー)'
+              success: '%{count} 個のアイテム(%{errors} 個のエラー) を正常にインポートしました。'
             destroy_all:
-              success: すべての国勢調査データが削除されました
+              success: すべてのセンサスデータが削除されました。
           destroy:
-            confirm: 国勢調査をすべて削除することはできません。続行してもよろしいですか？
-            title: 国勢調査データをすべて削除する
+            confirm: すべてのセンサスを削除すると、元に戻すことができません。本当に続行しますか？
+            title: センサスデータをすべて削除する
           index:
-            data: 合計 %{count} 件のレコードが読み込まれています。最終アップロード日は %{due_date}です。
-            empty: 国勢調査データがありません。CSVファイルを使用してインポートするには、以下のフォームを使用してください。
-            title: 現在の国勢調査データ
+            data: 合計%{count} 件のレコードが読み込まれました。最後アップロード日は%{due_date} です。
+            empty: センサスデータがありません。CSVファイルを使用してインポートするには、以下のフォームを使用してください。
+            title: 現在のセンサスデータ
           instructions:
             body: これを行うには、システム管理を入力し、csv_census の認証を組織に追加する必要があります。
             title: この組織のCSVセンサス認証を有効にする必要があります
           new:
+            example: |
+              john.doe@example.org
+              jane.doe@example.org
             file: "電子メールデータを含む.csvファイル"
             info: 'メールアドレスの列が 1 つだけの CSV 形式のファイルである必要があります:'
             submit: ファイルをアップロード
-            title: 新しい国勢調査をアップロード
+            title: 新しいセンサスをアップロード
         authorizations:
           new:
             error: お客様のアカウントを確認できませんでした。また、組織のセンサスに入っていない場合もあります。
@@ -164,11 +180,11 @@ ja:
               update: 更新
             update:
               error: 設定の更新中に問題が発生しました。
-              success: 構成が正常に更新されました
+              success: 設定を更新しました。
           confirmations:
             create:
-              error: 検証が一致しません。再試行するか、参加者が修正できるように検証を拒否してください
-              success: 参加者を確認しました
+              error: 検証が一致しません。再度お試しいただくか、検証を拒否して参加者が修正できるようにしてください。
+              success: 参加者が正常に検証されました。
             new:
               introduce_user_data: 写真のデータを入力する
               reject: 拒否
@@ -176,7 +192,7 @@ ja:
           offline_confirmations:
             create:
               error: 検証が一致しません。もう一度試すか、参加者に修正するように伝えてください。
-              success: 参加者を確認しました
+              success: 参加者が正常に検証されました。
             new:
               cancel: キャンセル
               introduce_user_data: 参加者のメールアドレスと文書データを入力
@@ -189,7 +205,7 @@ ja:
               verification_number: '認証 #%{n}'
           rejections:
             create:
-              success: 本人確認が拒否されました。参加者は書類を修正するよう求められます。
+              success: 検証を拒否しました。参加者は書類の修正を求められます。
         authorizations:
           choose:
             choose_a_type: '確認方法を選択してください：'
@@ -197,22 +213,22 @@ ja:
             online: オンライン
             title: 身分証明書を使用して確認してください
           create:
-            error: ドキュメントのアップロード中に問題が発生しました
-            success: ドキュメントが正常にアップロードされました
+            error: ドキュメントのアップロード中に問題が発生しました。
+            success: ドキュメントが正常にアップロードされました。
           edit:
-            being_reviewed: 書類を確認中です。まもなく確認されます。
+            being_reviewed: ドキュメントを確認中です。まもなく本人確認が完了します。
             offline: オフライン認証を使用する
             online: オンライン認証を使用する
-            rejection_clarity: アップロードされた画像に明確に情報が表示されていることを確認してください
-            rejection_correctness: 入力された情報が正しいことを確認してください
-            rejection_notice: 認証に問題がありました。もう一度やり直してください。
+            rejection_clarity: アップロードされた画像に情報がはっきりと表示されていることを確認します。
+            rejection_correctness: 入力された情報が正しいことを確認してください。
+            rejection_notice: 検証に問題がありました。もう一度やり直してください。
             send: もう一度確認を要求する
           new:
             send: リクエスト確認
             title: 身分証明書をアップロード
           update:
-            error: ドキュメントの再アップロード中に問題が発生しました
-            success: ドキュメントを再アップロードしました
+            error: ドキュメントの再アップロード中に問題が発生しました。
+            success: ドキュメントを再アップロードしました。
         dni: 免許証
         nie: マイナンバーカード
         passport: パスポート
@@ -229,41 +245,41 @@ ja:
               verification_code: 確認コード
           postages:
             create:
-              error: 郵便物送信済みのマーキング時エラー
-              success: 郵便物の送信済みにマークされました
+              error: 送信済みとしてマークする際にエラーが発生しました。
+              success: 手紙を送信済みとして正常にマークしました。
         authorizations:
           create:
-            error: リクエストに問題がありました
-            success: ありがとうございます！あなたのアドレスに確認コードを送信します
+            error: リクエストに問題がありました。
+            success: ありがとうございます。検証コードをあなたの住所に送付いたします。
           edit:
             send: 確認する
-            title: 受信した確認コードを入力する
-            waiting_for_letter: 確認コードを記載した郵便物をお送りします。
+            title: 受け取った検証コードを入力してください。
+            waiting_for_letter: あなたの住所に検証コードを記載した手紙を送付します。
           new:
             send: 郵便物を送る
             title: 確認コードをリクエストする
           update:
-            error: 入力された確認コードが郵送したものと一致しません。お送りした郵送物を再確認してください。
-            success: おめでとうございます。正常に検証されました
+            error: あなたの認証コードが私たちのものと一致しません。私たちがあなたに送ったものを再確認してください。
+            success: おめでとうございます。検証が完了しました。
       sms:
         authorizations:
           create:
-            error: リクエストに問題がありました
-            success: ありがとうございます！あなたの携帯電話にSMSを送信しました。
+            error: リクエストに問題がありました。
+            success: ありがとうございます！お使いの携帯電話にSMSを送信しました。
           destroy:
             success: 確認コードが正常にリセットされました。電話番号を再入力してください。
           edit:
             confirm_destroy: 確認コードをリセットしてもよろしいですか？
             destroy: 確認コードをリセット
-            resend: 確認コードを受け取っていませんか？
+            resend: 検証コードを受信できませんでしたか？
             send: 確認する
             title: 受信した確認コードを入力する
           new:
             send: SMSを送信
             title: 確認コードをリクエストする
           update:
-            error: 確認コードが私たちのものと一致しません。SMSを送信したことを再確認してください。
-            success: おめでとうございます。認証に成功しました。
+            error: あなたの認証コードが私たちのものと一致しません。お送りしたSMSを再確認してください。
+            success: おめでとうございます。検証が完了しました。
   errors:
     messages:
       uppercase_only_letters_numbers: はすべて大文字と数字のみでなければなりません

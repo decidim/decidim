@@ -23,7 +23,9 @@ describe "Polling Officer zone", type: :system do
 
     expect(page).to have_content("Polling Officer zone")
 
-    click_link "Polling Officer zone"
+    within "#dropdown-menu-profile" do
+      click_link "Polling Officer zone"
+    end
 
     expect(page).to have_content("You are not assigned to any Polling Station yet.")
   end
@@ -31,7 +33,7 @@ describe "Polling Officer zone", type: :system do
   context "when the user is not a polling officer" do
     let(:polling_officers) { [create(:polling_officer)] }
 
-    it "can't access to the polling officer zone" do
+    it "cannot access to the polling officer zone" do
       visit decidim.account_path
 
       expect(page).not_to have_content("Polling Officer zone")
@@ -52,7 +54,7 @@ describe "Polling Officer zone", type: :system do
     it "can access the new results form for the polling station" do
       visit decidim.decidim_votings_polling_officer_zone_path
 
-      within ".card__polling_station" do
+      within "[data-polling-station]" do
         expect(page).to have_content(translated(election.title))
         expect(page).to have_content("Count votes")
       end
@@ -144,8 +146,11 @@ describe "Polling Officer zone", type: :system do
         expect(page).to have_content("Vote recount - Sign closure")
 
         within ".form.sign_closure" do
-          check "I've reviewed this and is the same as the physical electoral closure certificate"
+          check "I have reviewed this and is the same as the physical electoral closure certificate"
           click_button "Sign the closure", wait: 2
+        end
+
+        within "#modal-closure-sign-content" do
           click_button "Ok, continue"
         end
 

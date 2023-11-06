@@ -3,7 +3,10 @@ de:
     attributes:
       assemblies_setting:
         enable_organization_chart: Organisationsdiagramm aktivieren
+      assemblies_type:
+        title: Titel
       assembly:
+        announcement: Ankündigung
         area_id: Bereich
         assembly_type: Versammlungstyp
         assembly_type_other: Sonstiger Versammlungstyp
@@ -22,12 +25,16 @@ de:
         decidim_scope_id: Umfang
         description: Beschreibung
         developer_group: Promoter-Gruppe
+        document: Dokument
         domain: Domain
         duration: Dauer
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
         hero_image: Hauptbild
+        import_attachments: Anhänge importieren
+        import_categories: Kategorien importieren
+        import_components: Komponenten importieren
         included_at: Inbegriffen bei
         instagram: Instagram
         internal_organisation: Interne Organisation
@@ -51,8 +58,8 @@ de:
         subtitle: Untertitel
         target: Wer nimmt teil?
         title: Titel
-        twitter: Twitter
-        weight: Bestellposition
+        twitter: X
+        weight: Reihenfolge
         youtube: Youtube
       assembly_member:
         birthday: Geburtstag
@@ -64,6 +71,7 @@ de:
         non_user_avatar: Profilbild
         position: Position
         user_id: User
+        weight: Reihenfolge
       assembly_user_role:
         email: Email
         name: Name
@@ -73,7 +81,7 @@ de:
         assembly:
           attributes:
             document:
-              allowed_file_content_types: 'Ungültiger Dokumenttyp Zulässige Formate sind: %{types}'
+              allowed_file_content_types: 'Ungültiger Dokumententyp. Nur Dateien mit folgenden Erweiterungen sind erlaubt: %{types}.'
   activerecord:
     models:
       decidim/assembly:
@@ -98,7 +106,6 @@ de:
         edit:
           update: Aktualisieren
         index:
-          not_published: Nicht veröffentlicht
           private: Privat
           public: Öffentlich
           published: Veröffentlicht
@@ -196,7 +203,7 @@ de:
           attachments: Anhänge
           categories: Kategorien
           components: Komponenten
-          info: Info
+          landing_page: Startseite
           moderations: Moderationen
           private_users: Private Benutzer
         assemblies_types: Versammlungstypen
@@ -280,7 +287,7 @@ de:
             select_an_area: Wählen Sie einen Bereich
             select_an_assembly_type: Wählen Sie einen Gremiumstyp
             select_parent_assembly: Wählen Sie die übergeordnete Baugruppe aus
-            slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Assembly verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+            slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf dieses Gremium verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
             social_handlers: Sozial
             title: Allgemeine Information
             visbility: Sichtweite
@@ -294,11 +301,10 @@ de:
             title: Titel
         assembly_copies:
           form:
-            slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Assembly verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+            slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf dieses Gremium verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         assembly_imports:
           form:
-            document_legend: Dokument hinzufügen
-            slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Versammlung verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+            slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf dieses Gremium verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         assembly_members:
           form:
             existing_user: Existierender Benutzer
@@ -314,7 +320,6 @@ de:
               all: Alle
               ceased: Aufgegeben
               not_ceased: Nicht aufgehört
-            filter_by: Filtern nach
             search: Suche
         content_blocks:
           highlighted_assemblies:
@@ -323,6 +328,26 @@ de:
           accepted_types:
             json: JSON
       assemblies:
+        description:
+          area_name: Gebiet
+          closing_date: Abschlussdatum
+          created_by: Erstellt von
+          creation_date: Erstellungsdatum
+          data: Gremiendaten
+          developer_group: Gruppe der Unterstützenden
+          duration: Dauer
+          included_at: Inbegriffen in
+          indefinite_duration: Unbestimmt
+          local_area: Gebiet der Organisation
+          meta_scope: Bereich
+          participatory_scope: Was wird entschieden
+          participatory_structure: Wie wird es entschieden
+          target: Wer nimmt teil
+          title: Über dieses Gremium
+        filters:
+          names:
+            all: Alle
+          type: Typ
         show:
           title: Über dieses Gremium
       assembly_members:
@@ -337,8 +362,16 @@ de:
         participatory: Teilnehmend
         working_group: Arbeitsgruppe
       content_blocks:
+        children_assemblies:
+          name: Gremien
+        dates_metadata:
+          name: Metadaten der Daten
+        extra_data:
+          name: Typ & Dauer
         highlighted_assemblies:
           name: Hervorgehobene Gremien
+        related_assemblies:
+          name: Ähnliche Gremien
       created_by:
         city_council: Stadtrat
         others: Andere
@@ -356,44 +389,24 @@ de:
       index:
         title: Gremien
       last_activity:
-        new_assembly: Neues Gremium
+        new_assembly: 'Neues Gremium:'
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Aktive Gremien
-            assemblies_button_title: Verknüpfung zu der Versammlungsseite mit einem Überblick aller Versammlungen
-            see_all_assemblies: Alle Gremien anzeigen
+            active_spaces: Aktive Gremien
+            see_all_spaces: Alle Gremien anzeigen
         user_profile:
           member_of:
             member_of: Mitglied von
       show:
-        area: Bereich
         assembly_type: Montageart
-        children: Gremien
-        closing_date: Einsendeschluss
-        composition: Zusammensetzung
-        created_by: Erstellt von
-        creation_date: Datum erstellt
-        developer_group: Promoter-Gruppe
         duration: Dauer
-        included_at: Inbegriffen bei
-        indefinite_duration: Unbestimmt
-        internal_organisation: Interne Organisation
         is_transparent:
           'false': undurchsichtig
           'true': transparent
-        local_area: Organisationsbereich
-        participatory_scope: Was ist entschieden?
-        participatory_structure: Wie ist es entschieden?
         private_space: Dies ist eine private Versammlung
-        purpose_of_action: Zweck der Aktion
-        read_less: Lese weniger
-        read_more: Weiterlesen
         related_participatory_processes: Ähnliche Beteiligungsprozesse
-        scope: Umfang
-        social_networks: Soziale Netzwerke
         social_networks_title: Gremium besuchen unter
-        target: Wer nimmt teil?
     assembly_members:
       assembly_member:
         designated_on: Bezeichnet am
@@ -436,9 +449,6 @@ de:
         related_assemblies: Ähnliche Versammlungen
     statistics:
       assemblies_count: Gremien
-  errors:
-    messages:
-      cannot_be_blank: darf nicht leer sein
   layouts:
     decidim:
       assemblies:
@@ -446,20 +456,14 @@ de:
           more_info: Mehr Informationen
           take_part: Teilnehmen
         index:
-          children: 'Versammlungen:'
-          organizational_chart: Organigramm
           promoted_assemblies: Hervorgehobene Gremien
-          reset_chart: Zurücksetzen
+        metadata:
+          children_item:
+            one: "%{count} Gremium"
+            other: "%{count} Gremien"
         order_by_assemblies:
           assemblies:
             one: "%{count} Gremien"
             other: "%{count} Gremien"
-        promoted_assembly:
-          more_info: Mehr Informationen
-          take_part: Teilnehmen
       assembly_navigation:
         assembly_member_menu_item: Mitglieder
-        assembly_menu_item: Das Gremium
-      assembly_widgets:
-        show:
-          take_part: Teilnehmen

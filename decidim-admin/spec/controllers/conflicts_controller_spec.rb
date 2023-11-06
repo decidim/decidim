@@ -29,10 +29,10 @@ module Decidim
       end
 
       context "when updating a conflict" do
-        let(:organization) { create :organization }
-        let(:current_user) { create :user, :confirmed, :admin, organization: }
-        let(:new_user) { create :user, :admin, organization:, email: "user@test.com" }
-        let(:managed_user) { create :user, managed: true, organization: }
+        let(:organization) { create(:organization) }
+        let(:current_user) { create(:user, :confirmed, :admin, organization:) }
+        let(:new_user) { create(:user, :admin, organization:, email: "user@test.com") }
+        let(:managed_user) { create(:user, managed: true, organization:) }
         let(:conflict) do
           Decidim::Verifications::Conflict.create(current_user: new_user, managed_user:)
         end

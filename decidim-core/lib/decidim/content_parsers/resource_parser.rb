@@ -14,7 +14,7 @@ module Decidim
       ID_REGEX = /~(\d+)/
 
       # Replaces found mentions matching an existing
-      # Resource with a global id for that Resource. Other mentions found that doesn't
+      # Resource with a global id for that Resource. Other mentions found that does not
       # match an existing Resource are returned as they are.
       #
       # @return [String] the content with the valid mentions replaced by a global id.

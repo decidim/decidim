@@ -1,5 +1,3 @@
 <% if needs_to_show_remaining_time? %>
-  <div class="callout secondary">
-    <%= remaining_time %>
-  </div>
+  <%= cell("decidim/announcement", remaining_time) %>
 <% end %>

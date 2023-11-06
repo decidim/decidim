@@ -7,11 +7,11 @@ module Decidim::Admin
     subject { described_class.new(form, current_user, privatable_to, via_csv:) }
 
     let(:via_csv) { false }
-    let(:privatable_to) { create :participatory_process }
+    let(:privatable_to) { create(:participatory_process) }
     let!(:email) { "my_email@example.org" }
     let!(:name) { "Weird Guy" }
-    let!(:user) { create :user, email: "my_email@example.org", organization: privatable_to.organization }
-    let!(:current_user) { create :user, email: "some_email@example.org", organization: privatable_to.organization }
+    let!(:user) { create(:user, email: "my_email@example.org", organization: privatable_to.organization) }
+    let!(:current_user) { create(:user, email: "some_email@example.org", organization: privatable_to.organization) }
     let(:form) do
       double(
         invalid?: invalid,
@@ -78,7 +78,7 @@ module Decidim::Admin
         end
       end
 
-      it "don't invite the user again" do
+      it "do not invite the user again" do
         subject.call
         user.reload
 
@@ -104,7 +104,7 @@ module Decidim::Admin
           subject.call
         end
 
-        it "doesn't get created twice" do
+        it "does not get created twice" do
           expect { subject.call }.to broadcast(:ok)
 
           participatory_space_private_users = Decidim::ParticipatorySpacePrivateUser.where(user:)
@@ -113,7 +113,7 @@ module Decidim::Admin
         end
       end
 
-      context "when the user hasn't accepted the invitation" do
+      context "when the user has not accepted the invitation" do
         before do
           user.invite!
         end

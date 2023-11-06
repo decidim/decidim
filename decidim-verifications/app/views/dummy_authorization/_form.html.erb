@@ -7,21 +7,11 @@
   <p><%= t("extra_explanation.scope", scope: "decidim.verifications.dummy_authorization", scope_name: translated_attribute(scope.name), user_scope_name: request["user_scope_name"]) %></p>
 <% end %>
 
-<div class="partial-demo">
+<div class="form__wrapper" data-partial-demo>
   <%= form.hidden_field :handler_name %>
-  <div class="field">
-    <%= form.text_field :document_number %>
-  </div>
-  <div class="field">
-    <%= form.text_field :postal_code %>
-  </div>
-  <div class="field">
-    <%= form.date_field :birthday %>
-  </div>
-  <div class="field">
-    <%= form.scopes_picker :scope_id, {} do |scope|
-        { url: decidim.scopes_picker_path(root: nil, current: form.object.scope_id, field: form.label_for(:scope_id)),
-          text: scope_name_for_picker(form.object.scope, I18n.t("decidim.scopes.global")) }
-      end %>
-  </div>
+  <%= form.text_field :document_number %>
+  <%= form.text_field :postal_code %>
+  <%= form.date_field :birthday %>
+
+  <%= scopes_select_field(form, :scope_id) %>
 </div>

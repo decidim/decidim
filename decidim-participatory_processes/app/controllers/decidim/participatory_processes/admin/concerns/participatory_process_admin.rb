@@ -20,6 +20,8 @@ module Decidim
           included do
             include Decidim::Admin::ParticipatorySpaceAdminContext
             helper_method :current_participatory_process
+            add_breadcrumb_item_from_menu :admin_participatory_process_menu
+
             participatory_space_admin_layout
 
             def organization_processes

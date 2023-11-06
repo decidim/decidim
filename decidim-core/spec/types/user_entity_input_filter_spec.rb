@@ -26,7 +26,7 @@ module Decidim
         context "when user is blocked" do
           let(:user) { create(:user, :blocked, :confirmed, organization: current_organization) }
 
-          it "doesn't returns all the types" do
+          it "does not returns all the types" do
             users = response["users"]
             expect(users).to include("id" => user_group.id.to_s, "__typename" => "UserGroup")
           end
@@ -56,7 +56,7 @@ module Decidim
         context "when user is blocked" do
           let(:user) { create(:user, :blocked, :confirmed, organization: current_organization) }
 
-          it "doesn't returns all the types" do
+          it "does not returns all the types" do
             users = response["users"]
             expect(users).to eq([])
           end
@@ -94,7 +94,7 @@ module Decidim
         let(:model) { [user1, user2, user3, user4, user5, user6] }
 
         context "when search a user by nickname" do
-          let(:query) { %({ users(filter: { nickname: \"#{term}\" }) { name }}) }
+          let(:query) { %({ users(filter: { nickname: "#{term}" }) { name }}) }
 
           it "returns matching users" do
             expect(response["users"]).to include("name" => user1.name)
@@ -108,14 +108,14 @@ module Decidim
           context "when user is blocked" do
             let!(:user1) { create(:user, :blocked, :confirmed, nickname: "_foo_user_1", name: "FooBar User 1", organization: current_organization) }
 
-            it "doesn't returns matching users" do
+            it "does not returns matching users" do
               expect(response["users"]).not_to include("name" => user1.name)
             end
           end
         end
 
         context "when search a user by name" do
-          let(:query) { %({ users(filter: { name: \"#{term}\" }) { name }}) }
+          let(:query) { %({ users(filter: { name: "#{term}" }) { name }}) }
           let(:term) { "FooBar User" }
 
           it "returns matching users" do
@@ -130,14 +130,14 @@ module Decidim
           context "when user is blocked" do
             let!(:user1) { create(:user, :blocked, :confirmed, nickname: "_foo_user_1", name: "FooBar User 1", organization: current_organization) }
 
-            it "doesn't returns matching users" do
+            it "does not returns matching users" do
               expect(response["users"]).not_to include("name" => user1.name)
             end
           end
         end
 
         context "when search a user by wildcard" do
-          let(:query) { %({ users(filter: { wildcard: \"#{term}\" }) { name }}) }
+          let(:query) { %({ users(filter: { wildcard: "#{term}" }) { name }}) }
           let(:term) { "foo" }
 
           it "returns matching users" do
@@ -152,14 +152,14 @@ module Decidim
           context "when user is blocked" do
             let!(:user1) { create(:user, :blocked, :confirmed, nickname: "_foo_user_1", name: "FooBar User 1", organization: current_organization) }
 
-            it "doesn't returns matching users" do
+            it "does not returns matching users" do
               expect(response["users"]).not_to include("name" => user1.name)
             end
           end
         end
 
         context "when search a user by wildcard but with empty exclusion list" do
-          let(:query) { %({ users(filter: { wildcard: \"#{term}\", excludeIds: [#{exclusion_ids}] }) { name }}) }
+          let(:query) { %({ users(filter: { wildcard: "#{term}", excludeIds: [#{exclusion_ids}] }) { name }}) }
           let(:term) { "foo" }
           let!(:exclusion_ids) { "" }
 
@@ -175,14 +175,14 @@ module Decidim
           context "when user is blocked" do
             let!(:user1) { create(:user, :blocked, :confirmed, nickname: "_foo_user_1", name: "FooBar User 1", organization: current_organization) }
 
-            it "doesn't returns matching users" do
+            it "does not returns matching users" do
               expect(response["users"]).not_to include("name" => user1.name)
             end
           end
         end
 
         context "when search a user by wildcard but with exclusion list" do
-          let(:query) { %({ users(filter: { wildcard: \"#{term}\", excludeIds: [#{exclusion_ids}] }) { name }}) }
+          let(:query) { %({ users(filter: { wildcard: "#{term}", excludeIds: [#{exclusion_ids}] }) { name }}) }
           let(:term) { "foo" }
           let!(:exclusion_ids) { user5.id.to_s }
 
@@ -198,14 +198,14 @@ module Decidim
           context "when user is blocked" do
             let!(:user1) { create(:user, :blocked, :confirmed, nickname: "_foo_user_1", name: "FooBar User 1", organization: current_organization) }
 
-            it "doesn't returns matching users" do
+            it "does not returns matching users" do
               expect(response["users"]).not_to include("name" => user1.name)
             end
           end
         end
 
         context "when search a user by wildcard but with multiple exclusion list" do
-          let(:query) { %({ users(filter: { wildcard: \"#{term}\", excludeIds: [#{exclusion_ids}] }) { name }}) }
+          let(:query) { %({ users(filter: { wildcard: "#{term}", excludeIds: [#{exclusion_ids}] }) { name }}) }
           let(:term) { "foo" }
           let!(:exclusion_ids) { "#{user5.id},#{user6.id}" }
 
@@ -221,7 +221,7 @@ module Decidim
           context "when user is blocked" do
             let!(:user1) { create(:user, :blocked, :confirmed, nickname: "_foo_user_1", name: "FooBar User 1", organization: current_organization) }
 
-            it "doesn't returns matching users" do
+            it "does not returns matching users" do
               expect(response["users"]).not_to include("name" => user1.name)
             end
           end

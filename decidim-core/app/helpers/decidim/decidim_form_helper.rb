@@ -15,7 +15,7 @@ module Decidim
       options[:data].update(abide: true, "live-validate" => true, "validate-on-blur" => true)
 
       options[:html] ||= {}
-      options[:html].update(novalidate: true)
+      options[:html].update(novalidate: true) unless options[:html].has_key?(:novalidate)
 
       # Generally called by form_for but we need the :url option generated
       # already before that.
@@ -201,7 +201,7 @@ module Decidim
     #
     # Returns an HTML-safe String.
     def form_required_explanation
-      content_tag(:div, class: "help-text help-text-form-required-fields") do
+      content_tag(:div, class: "help-text") do
         I18n.t("forms.required_explanation")
       end
     end
@@ -219,6 +219,21 @@ module Decidim
       return organization.areas if organization.area_types.all? { |at| at.area_ids.empty? }
 
       organization.area_types
+    end
+
+    def ordered_scopes_descendants(root = nil)
+      root = try(:current_participatory_space)&.scope if root == false
+      if root.present?
+        root.descendants
+      else
+        current_organization.scopes
+      end.sort { |a, b| a.part_of.reverse <=> b.part_of.reverse }
+    end
+
+    def ordered_scopes_descendants_for_select(root = nil)
+      ordered_scopes_descendants(root).map do |scope|
+        [" #{"&nbsp;" * 4 * (scope.part_of.count - 1)} #{translated_attribute(scope.name)}".html_safe, scope&.id]
+      end
     end
   end
 end

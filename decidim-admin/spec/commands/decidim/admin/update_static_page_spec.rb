@@ -7,7 +7,7 @@ module Decidim::Admin
     describe "call" do
       let(:organization) { create(:organization) }
       let(:page) { create(:static_page, organization:) }
-      let(:user) { create :user, :admin, :confirmed, organization: }
+      let(:user) { create(:user, :admin, :confirmed, organization:) }
       let(:form) do
         StaticPageForm.from_params(
           static_page: page.attributes.merge(slug: "new-slug", allow_public_access: true)
@@ -27,7 +27,7 @@ module Decidim::Admin
           expect { command.call }.to broadcast(:invalid)
         end
 
-        it "doesn't update the page" do
+        it "does not update the page" do
           command.call
           page.reload
 

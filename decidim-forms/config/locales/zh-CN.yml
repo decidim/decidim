@@ -17,8 +17,6 @@ zh-CN:
             choices:
               missing: 不完成
               too_many: 太多了
-        questionnaire:
-          request_invalid: 处理请求时出错。请再试一次
   decidim:
     forms:
       admin:
@@ -105,11 +103,6 @@ zh-CN:
           update:
             invalid: 保存表单时出错。
             success: 表单保存成功。
-      errors:
-        answer:
-          body: 主体不能为空
-      files:
-        extension_allowlist: '接受的格式：'
       images:
         dimensions: "%{width} x %{height} px"
       question_types:
@@ -129,7 +122,6 @@ zh-CN:
           max_choices: '最大选择数: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">使用您的帐户</a> 或 <a href="%{sign_up_link}">注册</a> 以回答表单。
             title: 回答表单
           current_step: 步骤 %{step}
           of_total_steps: '%{total_steps}'

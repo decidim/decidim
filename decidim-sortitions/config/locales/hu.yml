@@ -35,7 +35,6 @@ hu:
         actions:
           destroy: Sorsolás törlése
           edit: Szerkesztés
-          new: Új sorsolás
           show: Sorsolás részletei
         models:
           sortition:
@@ -49,9 +48,6 @@ hu:
               seed: Kezdőérték
               target_items: Kijelölni kívánt elemek
               title: Cím
-            name:
-              one: Sorsolás
-              other: Sorsolások
         sortitions:
           confirm_destroy:
             confirm_destroy: Biztosan törölni szeretnéd ezt a sorsolást?
@@ -59,28 +55,21 @@ hu:
             title: Sorsolás törlése
           create:
             error: Hiba történt egy új sorsolás létrehozásakor.
-            success: Sorsolás létrehozása sikeres
-          destroy:
-            error: Nem lehet törölni a sorsolást.
-            success: Sorsolás törlése sikeres
           edit:
             title: Sorsolással kapcsolatos információk frissítése
             update: Frissítés
           form:
             all_categories: Összes kategória
             select_proposal_component: Válassz beállított javaslatokat
-            title: Új sorsolás javaslatokhoz
           index:
             title: Sorsolások
           new:
-            confirm: A következő gomb megnyomásával a platform rögzíti a dátumot és az időt (másodperces pontossággal), és a kockadobással együtt ezt az információt véletlenszerű kiválasztáshoz használja fel. Az akció visszafordíthatatlan, a gombra kattintva a sorsolás eredménye ezen űrlapon megadott adatokkal együtt kerül közzétételre és nem módosítható, kérjük figyelmesen ellenőrizze a tartalmat
             create: Létrehozás
             title: Új sorsolás
           show:
             selected_proposals: Sorsolásra kiválasztott javaslatok
           update:
             error: Hiba történt a sorsolás frissítése során.
-            success: Sorsolás frissítése sikeres
       admin_log:
         sortition:
           create: "%{user_name} létrehozta a(z) %{resource_name} sorsolást itt: %{space_name}"
@@ -96,14 +85,7 @@ hu:
           all: Összes
           cancelled: Törölve
           category: Kategória
-          category_prompt: Válassz kategóriát
-          search: Keresés
           state: Állapot
-        filters_small_view:
-          close_modal: Modal bezárása
-          filter: Szűrés
-          filter_by: 'Szűrés ez alapján:'
-          unfold: Kibont
         linked_sortitions:
           selected_proposals: Kiválasztott javaslatok
         orders:
@@ -117,24 +99,22 @@ hu:
         show:
           algorithm: Sorsolás algoritmus kódja
           any_category: minden kategóriából
-          back: Vissza a listához
           cancelled: Törölt sorsolás
           candidate_proposal_ids: Sorsolásos javaslatok sorrendje és azonosítói
           candidate_proposals_info: 'Sorsolásos módszer végrehajtva a következő javaslatokon: (%{category_label}), ilyen azonosítókkal (kiválasztott javaslatok vastagon kiemelve)  '
           category: a(z) %{category} kategóriából
-          dice_result: "(1) dobókocka eredmény"
+          dice_result: (1) dobókocka eredmény
           introduction: 'Ez az oldal a következő sorsolás eredményeit tartalmazza: %{reference}. A módszer segítségével %{target_items} véletlenszerű eredményt kaptunk az alábbi javaslatokhoz, az egyenlő valószínűségi eloszlás elvét követve. Az oldalon található adatok - az eredményekkel együtt - minden olyan információt tartalmaznak, amelyek garantálják az eljárás megbízhatóságát és reprodukálhatóságát. Ennek a sorsolásos módszernek az egyik erőssége a kétlépcsős véletlenszerűségben rejlik, amelyet egyfelől a dobókocka feldobása, másfelől a sorsolás pontos időpontjának rögzítése biztosít. Ez utóbbiak ráadásul olyannyira pontosak, hogy azt emberek nem tudják ellenőrizni. Ez a dupla véletlenszerűség garantálja tehát a megbízható eredményeket.  '
           mathematical_result: Eredmény (1) x (2)
           proposals_selected_by_sortition: Sorsolással kiválasztott javaslatok
           sortition_reproducibility_details: Sorsolás reprodukálhatósági részletek
-          time_seed: "(2) Időmag"
+          time_seed: (2) Időmag
           witnesses: Tanúk
         sortition:
           random_seed: Véletlen mag
           selected_proposals:
             one: kiválasztott javaslat
             other: kiválasztott javaslatok
-          view: Megtekintés
         sortition_author:
           deleted: Törölt felhasználó
         sortition_cancel_author:

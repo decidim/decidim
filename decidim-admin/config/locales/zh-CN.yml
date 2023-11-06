@@ -71,7 +71,6 @@ zh-CN:
         success_color: 成功
         time_zone: 时区
         tos_version: 服务条款版本
-        twitter_handler: Twitter handler
         user_groups_enabled: 启用组
         warning_color: 警告
         welcome_notification_body: 欢迎通知机构
@@ -128,30 +127,15 @@ zh-CN:
       actions:
         add: 添加
         browse: 浏览
-        manage: 管理
-        new: 新建 %{name}
         per_page: 每页
         permissions: 权限
         reject: 拒绝
         share: 分享
         verify: 验证
-      admin_terms_of_use:
-        accept:
-          error: 接受管理员使用条款时出错。
-          success: 太棒了！您已经接受了管理员使用条款。
-        actions:
-          refuse: 拒绝管理条款
-          title: 同意使用条款
-        required_review:
-          alert: '要求：审查我们的管理员使用条件'
-          cta: 现在审查它们。
-        title: 管理员使用条款
       area_types:
         create:
           error: 创建新区域类型时出现问题。
           success: 区域类型创建成功。
-        destroy:
-          success: 区域类型销毁成功
         edit:
           title: 编辑区域类型
           update: 更新
@@ -160,13 +144,10 @@ zh-CN:
           title: 新区域类型
         update:
           error: 更新区域类型时出现问题。
-          success: 区域类型更新成功
       areas:
         create:
           error: 创建一个新区域时出现问题。
           success: 区域创建成功。
-        destroy:
-          success: 已成功摧毁区域
         edit:
           title: 编辑区域
           update: 更新
@@ -176,7 +157,6 @@ zh-CN:
         no_areas: 无区域
         update:
           error: 更新这个区域时出现问题。
-          success: 区域更新成功
       attachment_collections:
         create:
           error: 创建一个新文件夹时出现问题。
@@ -187,7 +167,6 @@ zh-CN:
           title: 编辑文件夹
           update: 更新
         index:
-          attachment_collection_used: 无法删除此文件夹，因为它正在使用。
           attachment_collections_title: 附件文件夹
         new:
           create: 创建
@@ -214,7 +193,6 @@ zh-CN:
           success: 附件更新成功。
       autocomplete:
         no_results: 未找到结果
-        search_prompt: 输入至少三个字符进行搜索
       categories:
         create:
           error: 创建此类别时出现问题。
@@ -227,7 +205,6 @@ zh-CN:
           update: 更新
         index:
           categories_title: 类别管理
-          category_used: 无法删除此类别，因为它正在使用。
         new:
           create: 创建类别
           title: 新类别
@@ -280,7 +257,6 @@ zh-CN:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
-        notice: 您的导出正在进行。完成后您将收到一封电子邮件。
       filters:
         category_id_eq:
           label: 类别
@@ -309,17 +285,14 @@ zh-CN:
         state_eq:
           label: 状态
       help_sections:
-        error: 更新帮助部分时出错
         form:
           save: 保存
-        success: 帮助部分更新成功
       impersonatable_users:
         index:
           filter:
             all: 所有的
             managed: 已管理
             not_managed: 未管理
-          filter_by: 筛选方式
           impersonate: 仿冒的
           impersonate_new_managed_user: 管理新参与者
           managed: 已管理
@@ -346,9 +319,6 @@ zh-CN:
           impersonate_existing_managed_user: 管理参与者 "%{name}"
           impersonate_existing_user: 管理参与者 "%{name}"
           impersonate_new_managed_user: 管理新参与者
-      logs:
-        logs_list:
-          no_logs_yet: 还没有日志
       managed_users:
         promotion:
           error: 在促进管理下的参与者方面存在问题。
@@ -365,7 +335,6 @@ zh-CN:
         area_types: 区域类型
         areas: 地区
         configuration: 配置
-        dashboard: 仪表板
         help_sections: 帮助部分
         homepage: 主页
         impersonations: 影像
@@ -442,7 +411,6 @@ zh-CN:
           fields:
             created_at: 创建日期
             email: 电子邮件地址
-            last_sign_in_at: 最后登录日期
             name: 名称
             role: 作用
             roles:
@@ -459,8 +427,6 @@ zh-CN:
             state: 状态
             users_count: 参与者数量
       moderations:
-        index:
-          title: 版面
         report:
           reasons:
             does_not_belong: 不属于哪个国家
@@ -515,13 +481,8 @@ zh-CN:
           select_scopes: 筛选已激活其账户中任何选定范围的用户。
           select_spaces: 选择要断开通讯的空格
           select_users: 选择您想要发送消息的用户
-          send_to_all_users: 发送给所有用户
-          send_to_followers: 发送给关注者
-          send_to_participants: 发送给参与者
           title: 选择要交付的收件人
           warning: "<strong>注意:</strong> 这份通讯将只发送给已激活 <em>我想在其通知设置中接收新闻简讯</em>。"
-        send:
-          no_recipients: 此选择没有收件人
         show:
           preview: 预览
           select_recipients_to_deliver: 选择要交付的收件人
@@ -530,10 +491,6 @@ zh-CN:
           error: 更新这份通讯时出现问题。
           success: 通讯更新成功。请在发送前查看。
       officializations:
-        create:
-          success: 参与者已成功正式化
-        destroy:
-          success: 参与者已成功取消授权
         index:
           actions: 行动
           badge: 徽章
@@ -552,7 +509,6 @@ zh-CN:
           officialize: 正式化
           title: 认证参与者 "%{name}"
         show_email_modal:
-          close_modal: 关闭模式
           email_address: 电子邮件地址
           full_name: 全名
           hidden: hidden
@@ -567,7 +523,6 @@ zh-CN:
           instagram: Instagram
           rich_text_editor_in_public_views_help: 在某些文本领域，参与者将能够通过使用丰富的文本编辑器插入一些HTML标签。
           social_handlers: 社交活动
-          twitter: 推特
           youtube: YouTube
         update:
           error: 更新这个组织时出现问题。
@@ -578,8 +533,6 @@ zh-CN:
         form:
           colors:
             colors_title: 组织颜色
-            header_snippets_help: 使用此字段将物品添加到HTML头部。 最常见的用途是集成第三方服务，需要额外的 JavaScript 或 CSS 另外，您可以使用它添加额外的元标签到 HTML。 请注意，这只会在公开页面中提供，而不会在管理部分提供。
-          cta_button_path_help: '您可以覆盖主页链接中的通话动作按钮的位置。请使用部分路径，而不是这里的完整URL。 接受字母、 数字、 破折号和斜线，并且必须以字母开头。 “调用动作”按钮在主页的欢迎文本和描述之间显示。例如： %{url}'
           cta_button_text_help: 您可以在主页中为您的组织中的每种可用语言覆盖“通话动作”按钮文本。 如果未设置，将使用默认值。 “通话动作”按钮显示在欢迎文本和描述之间的主页。
           homepage_appearance_title: 编辑主页外观
           homepage_highlighted_content_banner_title: 高亮的内容素材
@@ -591,9 +544,6 @@ zh-CN:
         edit:
           active_content_blocks: 活动内容块
           inactive_content_blocks: 非活动内容块
-      organization_homepage_content_blocks:
-        edit:
-          update: 更新
       participatory_space_private_users:
         create:
           error: 在这种参与空间中添加私人参与者时出现了问题。
@@ -607,11 +557,7 @@ zh-CN:
           create: 创建
           title: 新的参与性空间活动私人参与者。
       participatory_space_private_users_csv_imports:
-        create:
-          invalid: 读取CSV文件时出现问题。
-          success: CSV 文件上传成功，我们正在向参与者发送邀请邮件。这可能需要一段时间。
         new:
-          explanation: '上传您的 CSV 文件。 它必须在文件的第一列中包含两列电子邮件，文件的最后一列中的名字(电子邮件)， 您想要添加到参与性空间的用户，没有标题。 避免在用户名中使用无效字符，例如`<>?%&^*#@()[]=+:;"{}\|`。'
           title: 上传您的 CSV 文件
           upload: 上传
       resource_permissions:
@@ -643,8 +589,6 @@ zh-CN:
         create:
           error: 创建新范围时出现问题。
           success: 范围创建成功。
-        destroy:
-          success: 已成功摧毁范围
         edit:
           title: 编辑范围
           update: 更新
@@ -664,7 +608,6 @@ zh-CN:
           error: 摧毁令牌时出现问题。
           success: 令牌已成功销毁。
         share_tokens:
-          empty: 没有活动令牌
           help: 这些代币用于公开分享此未发布的资源给任何用户。 当资源发布时，它们将被隐藏。点击令牌的共享图标访问可共享的 URL。
           title: 分享令牌
       shared:
@@ -676,8 +619,6 @@ zh-CN:
         create:
           error: 创建一个新主题时出现问题。
           success: 主题创建成功。
-        destroy:
-          success: 主题已成功删除
         edit:
           title: 编辑主题
           update: 更新主题
@@ -696,25 +637,19 @@ zh-CN:
         destroy:
           success: 页面已成功删除
         edit:
-          changed_notably_help: 如果选中，将通知参与者接受新的条款和条件。
           title: 编辑页面
           update: 更新
         form:
           none: 无
-          slug_help: '在这里使用部分路径，不是完整的 URL。接受字母、数字、破折号和斜线，并且必须以字母开头。例如: %{url}'
-        index:
-          last_notable_change: 上一次值得注意的变化
         new:
           create: 创建页面
           title: 新页面
         topic:
           destroy: 删除主题
           edit: 编辑主题
-          empty: 此主题下没有页面
           without_topic: 无主题页面
         update:
           error: 更新此页面时出现问题。
-          success: 页面更新成功
       titles:
         admin_log: 管理员日志
         area_types: 区域类型
@@ -727,19 +662,15 @@ zh-CN:
         participants: 参加者
         scope_types: 范围类型
         scopes: 范围
-        static_pages: 页 次
         statistics: 活动
         user_groups: 群組
       user_group:
         csv_verify:
           invalid: 读取CSV文件时出现问题。
-          success: CSV 文件上传成功，我们正在验证符合条件的组。这可能需要一段时间。
         reject:
           invalid: 拒绝这个组时出现问题。
-          success: 组成功拒绝
         verify:
           invalid: 验证此组时出现问题。
-          success: 组验证成功
       user_groups:
         index:
           state:
@@ -771,9 +702,7 @@ zh-CN:
           last_day: 最后一天
           last_month: 上月
           last_week: 上周
-          no_users_count_statistics_yet: 还没有用户统计信息
           participants: 参加者
-      view_public_page: 查看公共页面
     moderations:
       actions:
         hidden: Hidden
@@ -797,19 +726,8 @@ zh-CN:
         moderation:
           fields:
             hidden_at: 隐藏于
-            report_count: 计数
             reported_content_url: 报告的内容 URL
-            reports: 报告
             visit_url: 访问 URL
   errors:
     messages:
       invalid_json: 无效的 JSON
-  layouts:
-    decidim:
-      admin:
-        newsletters:
-          title: 新闻通讯
-        settings:
-          title: 设置
-        users:
-          title: 参加者

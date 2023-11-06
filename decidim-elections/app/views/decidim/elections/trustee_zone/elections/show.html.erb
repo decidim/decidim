@@ -1,7 +1,8 @@
-<%= stylesheet_pack_tag "decidim_elections_trustee_zone", media: "all" %>
+<%= append_javascript_pack_tag "decidim_elections" %>
+<%= append_stylesheet_pack_tag "decidim_elections" %>
 
 <% if current_step %>
-  <div class="trustee-step"
+  <div id="trustee-step"
     data-election-id="<%= election.id %>"
     data-trustee-public-key="<%= trustee.public_key %>"
     data-trustee-slug="<%= trustee.slug %>"
@@ -19,8 +20,4 @@
   </div>
 
   <%= render "decidim/elections/shared/broken_promises_modal" %>
-
-  <% content_for :js_content do %>
-    <%= javascript_pack_tag "decidim_elections_trustee_#{current_step}" %>
-  <% end %>
 <% end %>

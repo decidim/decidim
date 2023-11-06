@@ -3,7 +3,7 @@
 module Decidim
   module ActionAuthorizationHelper
     # Public: Emulates a `link_to` but conditionally renders a popup modal
-    # blocking the action in case the user isn't allowed to perform it.
+    # blocking the action in case the user is not allowed to perform it.
     #
     # action     - The name of the action to authorize against.
     # *arguments - A regular set of arguments that would be provided to
@@ -15,7 +15,7 @@ module Decidim
     end
 
     # Public: Emulates a `button_to` but conditionally renders a popup modal
-    # blocking the action in case the user isn't allowed to perform it.
+    # blocking the action in case the user is not allowed to perform it.
     #
     # action     - The name of the action to authorize against.
     # *arguments - A regular set of arguments that would be provided to
@@ -27,7 +27,7 @@ module Decidim
     end
 
     # Public: Emulates a `link_to` but conditionally renders a popup modal
-    # blocking the action in case the user isn't logged id.
+    # blocking the action in case the user is not logged id.
     #
     # *arguments - A regular set of arguments that would be provided to
     #              `link_to`.
@@ -38,7 +38,7 @@ module Decidim
     end
 
     # Public: Emulates a `button_to` but conditionally renders a popup modal
-    # blocking the action in case the user isn't logged id.
+    # blocking the action in case the user is not logged id.
     #
     # *arguments - A regular set of arguments that would be provided to
     #              `button_to`.
@@ -57,7 +57,7 @@ module Decidim
         url = arguments[0]
         html_options = arguments[1]
       else
-        body = arguments[0]
+        body = content_tag :span, arguments[0]
         url = arguments[1]
         html_options = arguments[2]
       end
@@ -69,13 +69,13 @@ module Decidim
       if !current_user
         html_options = clean_authorized_to_data_open(html_options)
 
-        html_options["data-open"] = "loginModal"
+        html_options["data-dialog-open"] = "loginModal"
         url = "#"
       elsif action && !action_authorized_to(action, resource:, permissions_holder:).ok?
         html_options = clean_authorized_to_data_open(html_options)
 
-        html_options["data-open"] = "authorizationModal"
-        html_options["data-open-url"] = modal_path(action, resource)
+        html_options["data-dialog-open"] = "authorizationModal"
+        html_options["data-dialog-remote-url"] = modal_path(action, resource)
         url = "#"
       end
 
@@ -103,8 +103,8 @@ module Decidim
     end
 
     def clean_authorized_to_data_open(html_options)
-      html_options.delete(:"data-open")
-      html_options.delete(:"data-open-url")
+      html_options.delete(:"data-dialog-open")
+      html_options.delete(:"data-dialog-remote-url")
 
       [:data, "data"].each do |key|
         next unless html_options[key].is_a?(Hash)

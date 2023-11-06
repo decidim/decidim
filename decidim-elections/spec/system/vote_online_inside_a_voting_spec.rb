@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Vote online in an election inside a Voting", type: :system do
   let(:manifest_name) { "elections" }
   let(:questionnaire) { create(:questionnaire, :with_questions) }
-  let!(:election) { create :election, :bb_test, :vote, component:, questionnaire: }
+  let!(:election) { create(:election, :bb_test, :vote, component:, questionnaire:) }
   let(:user) { create(:user, :confirmed, organization: component.organization) }
   let!(:datum) do
     create(:datum, :with_access_code, document_type: "DNI", document_number: "12345678X", birthdate: Date.civil(1980, 5, 11), postal_code: "04001", access_code: "1234", dataset:)
@@ -31,7 +31,8 @@ describe "Vote online in an election inside a Voting", type: :system do
     it "can vote and then change the vote", :slow do
       vote_with_census_data
 
-      page.find("a.focus__exit").click
+      click_link "Back to elections"
+      click_link(id: "elections__election_#{election.id}")
 
       expect(page).to have_current_path router.election_path(id: election.id)
       expect(page).not_to have_content("You have already voted in this election.")
@@ -78,7 +79,7 @@ describe "Vote online in an election inside a Voting", type: :system do
 
         click_link "Give us some feedback"
 
-        expect(page).to have_i18n_content(election.questionnaire.title, upcase: true)
+        expect(page).to have_i18n_content(election.questionnaire.title)
         expect(page).to have_i18n_content(election.questionnaire.description)
 
         fill_in election.questionnaire.questions.first.body["en"], with: "My first answer"
@@ -100,7 +101,7 @@ describe "Vote online in an election inside a Voting", type: :system do
     end
 
     context "when questionnaire has no questions" do
-      let!(:questionnaire) { create :questionnaire } # by default questionnaire doesn't have any questions
+      let!(:questionnaire) { create(:questionnaire) } # by default questionnaire does not have any questions
 
       it "can vote and sign up without feedback" do
         vote_with_census_data
@@ -123,19 +124,19 @@ describe "Vote online in an election inside a Voting", type: :system do
   end
 
   context "when the voting is not published" do
-    let(:election) { create :election, :upcoming, :complete, component: }
+    let(:election) { create(:election, :upcoming, :complete, component:) }
 
-    it_behaves_like "doesn't allow to vote"
+    it_behaves_like "does not allow to vote"
     it_behaves_like "allows admins to preview the voting booth"
   end
 
   context "when the census data is not right" do
-    it "can't vote", :slow do
+    it "cannot vote", :slow do
       visit_component
       click_link translated(election.title)
       click_link "Start voting"
 
-      within ".card__content" do
+      within "[data-content]" do
         select("DNI", from: "Document type")
         fill_in "Document number", with: "12345678X"
         fill_in "Postal code", with: "04001"
@@ -147,12 +148,12 @@ describe "Vote online in an election inside a Voting", type: :system do
       end
 
       expect(page).to have_content("Document number")
-      expect(page).to have_content("The given data doesn't match any voter.")
+      expect(page).to have_content("The given data does not match any voter.")
     end
   end
 
   context "when the voter already voted in person" do
-    let!(:in_person_vote) { create :in_person_vote, election:, polling_officer:, voter_id: }
+    let!(:in_person_vote) { create(:in_person_vote, election:, polling_officer:, voter_id:) }
     let(:polling_station) { create(:polling_station, voting:) }
     let(:polling_officer) { create(:polling_officer, voting:, user:, presided_polling_station: polling_station) }
     let(:voter_id) { vote_flow.voter_id }
@@ -162,12 +163,12 @@ describe "Vote online in an election inside a Voting", type: :system do
       ret
     end
 
-    it "doesn't allow to vote again" do
+    it "does not allow to vote again" do
       visit_component
       click_link translated(election.title)
       click_link "Start voting"
 
-      within ".card__content" do
+      within "[data-content]" do
         select("DNI", from: "Document type")
         fill_in "Document number", with: "12345678X"
         fill_in "Postal code", with: "04001"
@@ -204,7 +205,7 @@ describe "Vote online in an election inside a Voting", type: :system do
     click_link translated(election.title)
     click_link "Start voting"
 
-    within ".card__content" do
+    within "[data-content]" do
       select("DNI", from: "Document type")
       fill_in "Document number", with: "12345678X"
       fill_in "Postal code", with: "04001"

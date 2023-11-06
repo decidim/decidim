@@ -1,10 +1,16 @@
 # frozen_string_literal: true
 
 shared_examples "manage processes announcements" do
-  let!(:participatory_process) { create(:participatory_process, organization:) }
+  let!(:participatory_process) { create(:participatory_process, :with_content_blocks, organization:, blocks_manifests: [:announcement]) }
 
   it "can customize a general announcement for the process" do
-    click_link translated(participatory_process.title)
+    within find("tr", text: translated(participatory_process.title)) do
+      click_link translated(participatory_process.title)
+    end
+
+    within_admin_sidebar_menu do
+      click_link "About this process"
+    end
 
     fill_in_i18n_editor(
       :participatory_process_announcement,
@@ -22,10 +28,10 @@ shared_examples "manage processes announcements" do
 
     visit decidim_admin_participatory_processes.participatory_processes_path
 
-    within "tr", text: translated(participatory_process.title) do
-      click_link "Preview"
-    end
+    new_window = window_opened_by { page.find("tr", text: translated(participatory_process.title)).click_link("Preview") }
 
-    expect(page).to have_content("An important announcement")
+    page.within_window(new_window) do
+      expect(page).to have_content("An important announcement")
+    end
   end
 end

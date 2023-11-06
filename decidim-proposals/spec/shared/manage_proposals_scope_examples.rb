@@ -44,11 +44,11 @@ shared_examples "when managing proposals scope as an admin" do
         end
 
         it "shows the scope select" do
-          expect(page).to have_css("#scope_id.data-picker.picker-single", count: 1)
+          expect(page).to have_css("#scope_id", count: 1)
         end
 
         it "shows an update button" do
-          expect(page).to have_css("button#js-submit-scope-change-proposals", count: 1)
+          expect(page).to have_button(id: "js-submit-scope-change-proposals", count: 1)
         end
       end
     end

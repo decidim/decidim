@@ -1,10 +1,6 @@
 fi:
   activemodel:
     attributes:
-      agenda:
-        description: Kuvaus
-        duration: Kesto
-        title: Otsikko
       close_meeting:
         attendees_count: Osallistujien määrä
         attending_organizations: Osallistuvien organisaatioiden lista
@@ -22,8 +18,10 @@ fi:
         decidim_scope_id: Teema
         decidim_user_group_id: Käyttäjäryhmä
         description: Kuvaus
-        end_time: Lopetusaika
+        end_time: Päättymisaika
         id: ID
+        iframe_access_level: Iframe-käyttöoikeustaso
+        iframe_embed_type: Iframe-upotuksen tyyppi
         location: Paikka
         location_hints: Paikan tarkemmat tiedot
         online_meeting_url: Verkkotapaamisen osoite (URL)
@@ -33,28 +31,43 @@ fi:
         registration_email_custom_content: Ilmoittautumisten sähköpostivastauksen muokattu sisältö
         registration_form_enabled: Ilmoittautumislomake on käytössä
         registration_terms: Ilmoittautumisehdot
+        registration_type: Ilmoittautumistyyppi
         registration_url: Ilmoittautumisosoite (URL)
         registrations_enabled: Ilmoittautumiset ovat käytössä
-        show_embedded_iframe: Näytä upotettu iframe tälle osoitteelle
-        start_time: Aloitusaika
+        reserved_slots: Varatut paikat tälle tapaamiselle
+        start_time: Alkamisaika
         title: Otsikko
         transparent: Läpinäkyvä
         type_of_meeting: Tyyppi
+      meeting_agenda:
+        title: Otsikko
+        visible: Näkyvissä
+      meeting_agenda_items:
+        description: Kuvaus
+        duration: Kesto
+        title: Otsikko
+      meeting_registration_invite:
+        email: Sähköpostiosoite
+        name: Nimi
+      validate_registration_code:
+        code: Koodi
     errors:
       models:
         meeting:
           attributes:
             iframe_embed_type:
-              not_embeddable: Tätä URL-osoitetta ei voi upottaa tapaamisen sivulle tai reaaliaikaisen tapahtuman sivulle
+              not_embeddable: Tätä URL-osoitetta ei voi upottaa tapaamisen sivulle tai reaaliaikaisen tapahtuman sivulle.
+            online_meeting_url:
+              url_format: URL-osoitteen tulee olla oikean muotoinen
         meeting_agenda:
           attributes:
             base:
-              too_many_minutes: Kohteiden kesto ylittää tapaamisen keston %{count} minuutilla
-              too_many_minutes_child: Alakohdan kesto ylittää esityslistan kohdan "%{parent_title}" keston %{count} minuutilla
+              too_many_minutes: Aiheiden kesto ylittää kokouksen keston %{count} minuutilla.
+              too_many_minutes_child: Alakohdan kesto ylittää esityslistan kohdan "%{parent_title}" keston %{count} minuutilla.
         meeting_registration_invite:
           attributes:
             email:
-              already_invited: Tämä sähköposti on jo kutsuttu
+              already_invited: Tämä sähköpostiosoite on jo kutsuttu.
     models:
       decidim/meetings/close_meeting_event: Tapaaminen suljettu
       decidim/meetings/create_meeting_event: Tapaaminen
@@ -106,10 +119,9 @@ fi:
       meeting_copies:
         create:
           error: Tapaamisen kopioiminen epäonnistui.
-          success: Tapaamien kopioiminen onnistui.
+          success: Tapaamisen kopioiminen onnistui.
         new:
           copy: Kopioi
-          select: Valitse, mitkä tiedot haluat monistaa
           title: Kopioi tapaaminen
     components:
       meetings:
@@ -148,7 +160,7 @@ fi:
             email_intro: 'Tapaaminen "%{resource_title}" suljettiin. Voit lukea johtopäätökset sen sivulta:'
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat tapaamista "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
             email_subject: Tapaaminen "%{resource_title}" suljettiin
-            notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> suljettiin.
+            notification_title: Tapaaminen <a href="%{resource_path}">%{resource_title}</a> suljettiin.
         meeting_created:
           button_text: Ilmoittaudu tapaamiseen
           email_intro: Tapaaminen "%{resource_title}" on lisätty seuraamaasi kohteeseen "%{participatory_space_title}".
@@ -211,7 +223,6 @@ fi:
             one: 'Tapaamista ei voi poistaa, koska siihen on liitetty %{count} ehdotus:'
             other: 'Tapaamista ei voi poistaa, koska siihen on liitetty %{count} ehdotusta:'
         manage_poll: Hallitse mielipidetiedustelua
-        new: Uusi tapaaminen
         preview: Esikatsele
         registrations: Ilmoittautumiset
         title: Toiminnot
@@ -230,8 +241,8 @@ fi:
             remove: Poista
             up: Ylös
           create:
-            invalid: Esityslistan luonti epäonnistui
-            success: Esityslistan luonti onnistui
+            invalid: Esityslistan luominen epäonnistui.
+            success: Esityslistan luonti onnistui.
           edit:
             title: Muokkaa esityslistaa
             update: Päivitä
@@ -244,8 +255,8 @@ fi:
             create: Luo
             title: Uusi esityslista
           update:
-            invalid: Esityslistan päivitys epäonnistui
-            success: Esityslistan päivitys onnistui
+            invalid: Esityslistan päivittäminen epäonnistui.
+            success: Esityslistan päivitys onnistui.
         exports:
           answers: Vastaukset
           meeting_comments: Kommentit
@@ -273,7 +284,6 @@ fi:
               all: Kaikki
               rejected: Hylätyt
               sent: Lähetetyt
-            filter_by: Rajaa hakua
             invite_attendee: Kutsu osallistuja
             invites: Kutsut
             registrations_disabled: Et voi kutsua osallistujaa, koska ilmoittautumiset on poistettu käytöstä.
@@ -282,29 +292,26 @@ fi:
           edit:
             close: Sulje
             title: Sulje tapaaminen
-        meeting_copies:
-          form:
-            select_a_meeting_type: Valitse tapaamisen tyyppi
         meetings:
           close:
-            invalid: Tapaamisen sulkeminen epäonnistui
-            success: Tapaamisen sulkeminen onnistui
+            invalid: Tapaamisen sulkeminen epäonnistui.
+            success: Tapaamisen sulkeminen onnistui.
           create:
-            invalid: Tapaamisen luonti epäonnistui
+            invalid: Tapaamisen luonti epäonnistui.
             success: Tapaamisen luonti onnistui. Huomaa, että tapaamista ei ole vielä julkaistu, sinun pitää julkaista se manuaalisesti.
           destroy:
             invalid:
               proposals_count:
-                one: Tapaamista ei voi poistaa, koska siihen on liitetty %{count} ehdotus
-                other: Tapaamista ei voi poistaa, koska siihen on liitetty %{count} ehdotusta
+                one: Tapaamista ei voi poistaa, koska siihen on liitetty %{count} ehdotus.
+                other: Tapaamista ei voi poistaa, koska siihen on liitetty %{count} ehdotusta.
             success: Tapaamisen poisto onnistui
           edit:
             title: Muokkaa tapaamista
             update: Päivitä
           form:
             address_help: 'Osoite: käytetään karttapisteen etsimiseen geokoodauksen avulla'
-            disclaimer: 'Vastuuvapauslauseke: Käyttämällä ulkoista ilmoittautumisjärjestelmää olet tietoinen siitä, että organisaatio %{organization} ei ole vastuussa tiedoista, jotka käyttäjät ovat antaneet ulkoiselle palvelulle.'
-            location_help: 'Paikka: kuvaus tapahtumapaikan tarkemmasta sijainnista osallistujille'
+            disclaimer: 'Vastuuvapauslauseke: Käyttämällä ulkoista ilmoittautumisjärjestelmää olet tietoinen siitä, että palvelu %{organization} ei ole vastuussa tiedoista, jotka käyttäjät ovat antaneet ulkoiselle palvelulle.'
+            location_help: 'Paikka: kuvaus tapaamispaikan tarkemmasta sijainnista osallistujille'
             location_hints_help: 'Vihjeet sijainnille: sijainnin lisätieto. Esimerkiksi rakennuksen kerros fyysisissä tapaamisissa tai tapaamisen salasana rajatussa verkkotapaamisessa.'
             online_meeting_url_help: 'Linkki: salli osallistujien yhdistäminen tapaamiseen suoraan'
             registration_url_help: 'Linkki: salli käyttäjien siirtyminen käytettyyn ulkoiseen ilmoittautumispalveluun'
@@ -318,8 +325,8 @@ fi:
             create: Luo
             title: Luo tapaaminen
           publish:
-            invalid: Tapaamisen julkaiseminen epäonnistui
-            success: Tapaamisen julkaiseminen onnistui
+            invalid: Tapaamisen julkaiseminen epäonnistui.
+            success: Tapaamisen julkaiseminen onnistui.
           service:
             description: Kuvaus
             down: Alas
@@ -331,35 +338,32 @@ fi:
             add_service: Lisää palvelu
             services: Palvelut
           unpublish:
-            invalid: Tapaamisen julkaisemisen peruminen epäonnistui
-            success: Tapaamisen julkaisemisen peruminen onnistui
+            invalid: Tapaamisen julkaisun lopettaminen epäonnistui.
+            success: Tapaamisen julkaisun lopettaminen onnistui.
           update:
-            invalid: Tapaamisen päivitys epäonnistui
-            success: Tapaamisen päivitys onnistui
+            invalid: Tapaamisen päivitys epäonnistui.
+            success: Tapaamisen päivitys onnistui.
         meetings_poll:
           form:
             title: Muokkaa mielipidetiedustelun kyselylomaketta kohteelle %{questionnaire_for}
           update:
-            invalid: Tapaamisen mielipidetiedustelun päivittäminen epäonnistui
-            success: Tapaamisen mielipidetiedustelun päivittäminen onnistui
-        models:
-          meeting:
-            name: Tapaaminen
+            invalid: Tapaamisen mielipidetiedustelun päivittäminen epäonnistui.
+            success: Tapaamisen mielipidetiedustelun päivittäminen onnistui.
         registrations:
           edit:
             save: Tallenna
             validate: Vahvista
             validate_registration_code: Vahvista ilmoittautumiskoodi
           form:
-            available_slots_help: Jätä arvoksi 0, mikäli tapahtumaan on rajoittamaton määrä paikkoja.
+            available_slots_help: Jätä arvoksi 0, mikäli tapaamiseen on rajoittamaton määrä paikkoja.
             invites: Kutsut
             recommendation_message: Osallistujien yksityisyyden kannalta suosittelemme, että poistat tämän lomakkeen tiedot, kun et enää tarvitse niitä. Oletuksena se säilytetään 3 kuukautta tapaamisen päättymisen jälkeen.
-            registration_email_help: Tämä teksti näytetään tapahtumailmoittautumisten vahvistussähköpostin keskiosassa. Teksti näkyy heti ilmoittautumiskoodin jälkeen.
+            registration_email_help: Tämä teksti näytetään tapaamisilmoittautumisten vahvistussähköpostin keskiosassa. Teksti näkyy heti ilmoittautumiskoodin jälkeen.
             registration_form: Ilmoittautumislomake
             registrations_count:
-              one: Tapahtumaan on %{count} ilmoittautuminen.
-              other: Tapahtumaan on %{count} ilmoittautumista.
-            reserved_slots_help: Jätä arvoksi 0, jos sinulla ei ole varattuja paikkoja
+              one: Tapaamiseen on %{count} ilmoittautuminen.
+              other: Tapaamiseen on %{count} ilmoittautumista.
+            reserved_slots_help: Jätä arvoksi 0, jos sinulla ei ole varattuja paikkoja.
             reserved_slots_less_than: Täytyy olla vähemmän tai yhtä paljon kuin %{count}
             title: Ilmoittautumiset
           update:
@@ -389,11 +393,8 @@ fi:
           all: Kaikki
         filter_meeting_space_values:
           all: Kaikki
-        filter_scope_values:
-          all: Kaikki
       calendar_modal:
         calendar_url: Kalenterin URL
-        close_window: Sulje ikkuna
         copy_calendar_url: Kopio
         copy_calendar_url_clarification: Kopioi kalenterin URL-osoite leikepöydälle
         copy_calendar_url_copied: Kopioitu!
@@ -411,11 +412,10 @@ fi:
       content_blocks:
         upcoming_meetings:
           name: Tulevat tapaamiset
-          upcoming_meetings: Tulevat tapaamiset
-          view_all_meetings: Näytä kaikki
       directory:
         meetings:
           index:
+            go_to_list: Näytä tapaamisluettelo
             meetings: Tapaamiset
             space_type: Osallistumistila
       iframe_access_level:
@@ -428,8 +428,8 @@ fi:
         open_in_live_event_page: Avaa upotus tapahtuman sivulla reaaliajassa (liitä vapaaehtoisia mielipidekyselyjä)
         open_in_new_tab: Avaa uudessa välilehdessä
       last_activity:
-        meeting_updated_at_html: "<span>Tapaaminen päivitetty osoitteessa %{link}</span>"
-        new_meeting_at_html: "<span>Uusi tapaaminen osoitteessa %{link}</span>"
+        meeting_updated: 'Tapaamista on päivitetty:'
+        new_meeting: 'Uusi tapaaminen:'
       layouts:
         live_event:
           administrate: Hallinnoi
@@ -443,7 +443,7 @@ fi:
           confirmation:
             subject: Ilmoittautumisesi tapaamiseen on vahvistettu
       meeting:
-        not_allowed: Sinulla ei ole lupaa tarkastella tätä tapaamista
+        not_allowed: Sinulla ei ole lupaa tarkastella tätä tapaamista.
       meeting_closes:
         edit:
           back: Takaisin
@@ -453,8 +453,7 @@ fi:
         calendar_modal:
           add_to_calendar: Lisää kalenteriin
           apple: Lähetä Apple-kalenteriin
-          close_window: Sulje ikkuna
-          full_details_html: Tapahtuman kaikki tiedot löytyvät osoitteesta %{link}
+          full_details_html: Tapaamisen kaikki tiedot löytyvät osoitteesta %{link}
           google: Lisää Google-kalenteriin
           outlook: Lisää Outlook-kalenteriin
         count:
@@ -483,8 +482,7 @@ fi:
             all: Kaikki
             official: Viralliset
             participants: Osallistujat
-            user_groups: Ryhmät
-          scope: Teema
+            user_group: Ryhmät
           search: Hae
           type: Tyyppi
           type_values:
@@ -492,17 +490,12 @@ fi:
             hybrid: Hybridi
             in_person: Fyysinen
             online: Verkossa
-        filters_small_view:
-          close_modal: Sulje ikkuna
-          filter: Rajaa
-          filter_by: Rajaa hakua
-          unfold: Avaa
         form:
           address_help: 'Osoite: käytetään karttapisteen etsimiseen geokoodauksen avulla'
-          available_slots_help: Määritä tähän kenttään arvo 0, jos tapahtuman paikkamäärää ei ole rajoitettu
+          available_slots_help: Määritä tähän kenttään arvo 0, jos tapaamisen paikkamäärää ei ole rajoitettu
           create_as: Luo tapaaminen käyttäjänä
-          disclaimer: 'Vastuuvapauslauseke: Käyttämällä ulkoista ilmoittautumisjärjestelmää olet tietoinen siitä, että organisaatio %{organization} ei ole vastuussa tiedoista, jotka käyttäjät ovat antaneet ulkoiselle palvelulle.'
-          location_help: 'Paikka: kuvaus tapahtumapaikan tarkemmasta sijainnista osallistujille'
+          disclaimer: 'Vastuuvapauslauseke: Käyttämällä ulkoista ilmoittautumisjärjestelmää olet tietoinen siitä, että palvelu %{organization} ei ole vastuussa tiedoista, jotka käyttäjät ovat antaneet ulkoiselle palvelulle.'
+          location_help: 'Paikka: kuvaus tapaamispaikan tarkemmasta sijainnista osallistujille'
           location_hints_help: 'Vihjeet sijainnille: sijainnin lisätieto. Esimerkiksi rakennuksen kerros fyysisissä tapaamisissa tai tapaamisen salasana rajatussa verkkotapaamisessa.'
           online_meeting_url_help: 'Linkki: salli osallistujien yhdistäminen tapaamiseen suoraan'
           registration_url_help: 'Linkki: salli käyttäjien siirtyminen käytettyyn ulkoiseen ilmoittautumispalveluun'
@@ -510,15 +503,18 @@ fi:
           select_a_meeting_type: Valitse tapaamisen tyyppi
           select_a_registration_type: Valitse ilmoittautumisten tyyppi
           select_an_iframe_access_level: Valitse iframe-upotusten käyttöoikeustaso
-          show_embedded_iframe_help: 'Vain palvelut näistä osoitteista sallivat tapaamisen upottamisen reaaliaikaisesti tapahtumasivulle: %{domains}'
+          show_embedded_iframe_help: 'Vain palvelut näistä osoitteista sallivat tapaamisen upottamisen reaaliaikaisesti tapaamisen sivulle: %{domains}'
         index:
-          click_here: Näytä kaikki tapahtumat
+          click_here: Näytä kaikki tapaamiset
           new_meeting: Uusi tapaaminen
-          see_all: Näytä kaikki tapahtumat
-          see_all_withdrawn: Näytä kaikki peruutetut tapahtumat
-          text_banner: Katselet peruutettuja tapahtumia, jotka niiden tekijät ovat peruuttaneet. %{go_back_link}.
-        meeting_minutes:
-          related_information: Liittyviä tietoja
+          see_all: Näytä kaikki tapaamiset
+          see_all_withdrawn: Näytä kaikki peruutetut tapaamiset
+          text_banner: Katselet peruutettuja tapaamisia, jotka niiden tekijät ovat peruuttaneet. %{go_back_link}.
+        meeting:
+          close_meeting: Sulje tapaaminen
+          edit_close_meeting: Muokkaa tapaamisraporttia
+          edit_meeting: Muokkaa tapaamista
+          join_meeting: Ilmoittaudu tapaamiseen
         meetings:
           no_meetings_warning: Yksikään tapaaminen ei vastaa hakukriteerejäsi tai yhtään tapaamista ei ole suunniteltu.
           upcoming_meetings_warning: Tällä hetkellä ei ole suuniteltuja tapaamisia, mutta täältä löydät kaikki aikaisemmat tapaamiset.
@@ -531,13 +527,8 @@ fi:
           confirm: Vahvista
         show:
           attendees: Osallistujamäärä
-          back: Takaisin listaan
-          close_meeting: Sulje tapaaminen
           contributions: Kontribuutioiden määrä
           date: Päivämäärä
-          edit_close_meeting: Muokkaa tapahtumaraporttia
-          edit_meeting: Muokkaa tapaamista
-          going: Olet ilmoittautunut tähän tapaamiseen
           join: Ilmoittaudu tapaamiseen
           leave: Peruuta ilmoittautumisesi
           leave_confirmation: Haluatko varmasti peruuttaa ilmoittautumisesi tähän tapaamiseen?
@@ -557,14 +548,12 @@ fi:
             other: "%{count} paikkaa jäljellä"
           view: Näytä
           visit_finished: Näytä mennyt tapaaminen
-          withdraw_btn_hint: Voit peruuttaa tapahtumasi, jos muutat mieltäsi. Tapahtumaa ei poisteta kokonaan, eli se löytyy edelleen peruutettujen tapahtumien listasta.
-          withdraw_confirmation_html: Haluatko varmasti peruuttaa tämän tapahtuman?<br><br><strong>Tätä toimintoa ei voi peruuttaa!</strong>
-          withdraw_meeting: Peruuta tapahtuma
+          withdraw_btn_hint: Voit peruuttaa tapaamisen, jos muutat mieltäsi. Tapaamista ei poisteta kokonaan, eli se löytyy edelleen peruutettujen tapaamisten listasta.
+          withdraw_confirmation_html: Haluatko varmasti peruuttaa tämän tapaamisen?<br><br><strong>Tätä toimintoa ei voi peruuttaa!</strong>
+          withdraw_meeting: Peruuta tapaaminen
         update:
           invalid: Tapaamisen luonti epäonnistui.
           success: Tapaamisen luonti onnistui.
-      meetings_map:
-        view_meeting: Näytä tapaaminen
       models:
         invite:
           fields:
@@ -606,7 +595,8 @@ fi:
             question_replied: Kysymykseen on vastattu
             reply_question: Vastaa kysymykseen
       public_participants_list:
-        attending_participants: Mukana olevat osallistujat
+        attending_organizations: Organisaatiot
+        attending_participants: Osallistujat
         hidden_participants_count:
           one: ja %{count} muu henkilö
           other: ja %{count} muuta henkilöä
@@ -638,11 +628,9 @@ fi:
         private_meeting: Yksityinen tapaaminen
         transparent: Läpinäkyvä
         withdraw: Peruutettu
-      versions:
-        back_to_resource: Takaisin tapaamiseen
       withdraw:
-        error: Tapahtuman peruuttaminen epäonnistui
-        success: Tapahtuman peruuttaminen onnistui
+        error: Tapaamisen peruuttaminen epäonnistui.
+        success: Tapaaminen on peruttu.
     metrics:
       meetings:
         description: Tapaamisten määrä
@@ -651,10 +639,8 @@ fi:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Aikaisemmat tapaamiset
-        see_all: Näytä kaikki tapaamiset (%{count} kpl)
+        see_all: Näytä kaikki tapaamiset
         upcoming_meetings: Tulevat tapaamiset
-      upcoming_meeting_for_card:
-        upcoming_meeting: Tuleva tapaaminen
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Liittyvät tulokset:'

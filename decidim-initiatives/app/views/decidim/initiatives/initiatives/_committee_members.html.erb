@@ -1,73 +1,51 @@
-<fieldset>
-  <legend><%= t ".title" %></legend>
+<div class="block">
+  <span class="font-semibold text-xl"><%= t ".link" %></span>
+  <span class="help-text mb-2">
+    <%= t ".invite_to_committee_help" %>
+  </span>
 
-  <div class="card-section">
-    <div class="row column">
-      <%= t ".invite_to_committee_help" %>
+  <div class="initiative__form__committee">
+    <span>
+      <%= decidim_initiatives.new_initiative_committee_request_url(current_initiative) %>
+    </span>
+    <div class="ml-auto fill-secondary inline-block">
+      <button type="button" class="button button__sm button__text-secondary" data-clipboard-copy="#urlShareLink-committee">
+        <%= render_committee_tooltip %>
+        <span class="sr-only"><%= t("decidim.shared.share_modal.copy_share_link") %></span>
+      </button>
+      <input id="urlShareLink-committee" type="text" class="!hidden" value="<%= decidim_initiatives.new_initiative_committee_request_url(current_initiative) %>" readonly>
     </div>
-
-    <div class="row column">
-      <div class="card card--list">
-        <div class="card--list__item">
-          <div class="card--list__text">
-            <div>
-              <h6 class="card--list__heading heading6 lowercase" id="committee_link">
-                <%= decidim_initiatives.new_initiative_committee_request_url(current_initiative) %>
-              </h6>
-            </div>
-          </div>
-          <div class="card--list__data">
-            <%= icon_link_to "clipboard", "#", t(".invite_to_committee_help"), class: "card--list__data__icon invite-users-link" %>
-          </div>
-        </div>
+  </div>
+</div>
+<div class="block">
+  <span class="font-semibold text-xl mb-4 block"><%= t ".title" %></span>
+  <% if current_initiative.committee_members.empty? %>
+    <%= t ".no_members_yet" %>
+  <% end %>
+  <% current_initiative.committee_members.each do |request| %>
+    <div class="author mb-6" data-id="<%= request.id %>">
+      <div class="profile__group__list">
+        <%= card_for request.user %>
+        <% if allowed_to? :approve, :initiative_committee_member, initiative: current_initiative, request: request %>
+          <%= icon_link_to "forbid-line",
+                           approve_initiative_committee_request_path(current_initiative, request),
+                           t(".approve"),
+                           class: "action-icon--check" %>
+        <% end %>
+        <% if allowed_to? :revoke, :initiative_committee_member, initiative: current_initiative, request: request %>
+          <%= link_to(
+                  revoke_initiative_committee_request_path(current_initiative, request),
+                  method: :delete,
+                  data: { confirm: t(".confirm_revoke") },
+                  class: "button button__sm button__transparent-secondary"
+                ) do %>
+                  <span><%= t("decidim.group_admins.actions.demote_admin") %></span>
+                  <%= icon "forbid-line" %>
+                <% end %>
+        <% end %>
       </div>
     </div>
-  </div>
-  <div class="card-section">
-    <div class="table-scroll">
-      <table class="table-list">
-        <thead>
-        <tr>
-          <th><%= t ".title" %></th>
-          <th></th>
-        </tr>
-        </thead>
-        <tbody>
-          <% if current_initiative.committee_members.empty? %>
-          <tr>
-            <td><%= t ".no_members_yet" %></td>
-            <td></td>
-          </tr>
-          <% end %>
+  <% end %>
+</div>
 
-          <% current_initiative.committee_members.each do |request| %>
-            <tr data-id="<%= request.id %>">
-              <td>
-                <%= link_to request.user.name, "mailto:#{request.user.email}" %>
-              </td>
-              <td class="table-list__actions">
-                <% if allowed_to? :approve, :initiative_committee_member, initiative: current_initiative, request: request %>
-                  <%= icon_link_to "check",
-                                  approve_initiative_committee_request_path(current_initiative, request),
-                                  t(".approve"),
-                                  class: "action-icon--check" %>
-                <% end %>
-
-                <% if allowed_to? :revoke, :initiative_committee_member, initiative: current_initiative, request: request %>
-                  <%= icon_link_to "circle-x",
-                                  revoke_initiative_committee_request_path(current_initiative, request),
-                                  t(".revoke"),
-                                  class: "action-icon--remove",
-                                  method: :delete,
-                                  data: { confirm: t(".confirm_revoke") } %>
-                <% end %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</fieldset>
-
-<%= javascript_pack_tag "decidim_initiatives_admin" %>
+<%= append_javascript_pack_tag "decidim_initiatives_admin" %>

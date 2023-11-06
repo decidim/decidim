@@ -26,7 +26,7 @@ module Decidim
       end
 
       describe "participatoryProcess" do
-        let(:query) { %({ participatoryProcess(id: \"#{id}\") { id }}) }
+        let(:query) { %({ participatoryProcess(id: "#{id}") { id }}) }
 
         context "with a participatory process that belongs to the current organization" do
           let!(:process) { create(:participatory_process, organization: current_organization) }
@@ -62,7 +62,7 @@ module Decidim
       end
 
       describe "participatoryProcessGroup" do
-        let(:query) { %({ participatoryProcessGroup(id: \"#{id}\") { id }}) }
+        let(:query) { %({ participatoryProcessGroup(id: "#{id}") { id }}) }
 
         context "with a participatory process group that belongs to the current organization" do
           let!(:process) { create(:participatory_process_group, :with_participatory_processes, organization: current_organization) }
@@ -98,7 +98,7 @@ module Decidim
       end
 
       describe "participatoryProcessType" do
-        let(:query) { %({ participatoryProcessType(id: \"#{id}\") { id }}) }
+        let(:query) { %({ participatoryProcessType(id: "#{id}") { id }}) }
 
         context "with a participatory process type that belongs to the current organization" do
           let!(:type) { create(:participatory_process_type, :with_active_participatory_processes, organization: current_organization) }

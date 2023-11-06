@@ -10,34 +10,40 @@ ar:
         organization: المنظمة
         plural: صيغة الجمع
       attachment:
-        attachment_collection_id: المجلد
+        attachment_collection_id: الحافظة
         description: الوصف
         file: ملف
         title: المُرفق أو اسم الصورة
+        weight: موضع الطلب
       attachment_collection:
         description: الوصف
         name: اسم
+        weight: موضع الطلب
       category:
         description: الوصف
         name: اسم
-        parent_id: الأبوين
+        parent_id: الأصل
+        weight: موضع الطلب
       component:
         name: اسم
-        published_at: نشرت في
+        published_at: نشر في
         weight: موضع الطلب
-      id: هوية شخصية
+      external_domain:
+        value: القيمة
+      help_section:
+        content: المحتوى
+      id: المعرف ID
       import:
-        user_group_id: إنشاء واردات ك
+        user_group_id: إنشاء الاستيرادات ك
       newsletter:
-        body: المحتوى
+        body: النص
         subject: الموضوع
       organization:
-        admin_terms_of_use_body: نص شروط الاستخدام للمدير
         alert_color: تنبيه
         available_authorizations: التراخيص المتاحة
         badges_enabled: تمكين الشارات
-        comments_max_length: الحد الأقصى لطول التعليقات (اترك 0 لاستعمال للقيمة الافتراضية)
-        cta_button_path: دعوة إلى العمل مسار زر
+        comments_max_length: الحد الأقصى لطول التعليقات (اترك 0 لاستعمال القيمة الافتراضية)
+        cta_button_path: مسار زر دعوة إلى العمل call to action
         cta_button_text: نص زر Call To Action
         customize_welcome_notification: تخصيص إشعار الترحيب
         default_locale: اللغة الافتراضية
@@ -81,12 +87,14 @@ ar:
         success_color: نجاح
         time_zone: المنطقة الزمنية
         tos_version: شروط وأحكام الخدمة
-        twitter_handler: مُعرّف حساب تويتر
         user_groups_enabled: تمكين المجموعات
         warning_color: تحذير
         welcome_notification_body: محتوى إشعار الترحيب
         welcome_notification_subject: موضوع إشعار الترحيب
         youtube_handler: مُعرّف حساب يوتيوب
+      participatory_space_private_user:
+        email: البريد الإلكتروني
+        name: الإسم
       scope:
         code: الشفرة
         name: الاسم
@@ -144,8 +152,6 @@ ar:
           new: فئة جديدة
         export: تصدير الكل
         import: استيراد
-        manage: تدبير
-        new: جديد %{name}
         newsletter:
           new: رسالة إخبارية جديدة
         per_page: في كل صفحة
@@ -155,22 +161,13 @@ ar:
         user:
           new: مدير جديد
         verify: التحقق
-      admin_terms_of_use:
-        accept:
-          success: رائع! لقد قمت بالموافقة على شروط الإستخدام للمدير.
+      admin_terms_of_service:
         actions:
-          accept: أوافق على شروط الإستخدام التالية
-          refuse: ارفض شروط المدير
-          title: وافق على شروط وأحكام الإستخدام
-        required_review:
-          cta: راجِعها الآن.
-        title: شروط الاستخدام الخاصة بالمدير
+          accept: أوافق على هذه الشروط
       area_types:
         create:
           error: حدثت مشكلة أثناء إنشاء نوع منطقة جديد.
           success: تم إنشاء نوع المنطقة بنجاح.
-        destroy:
-          success: نوع المنطقة دمرت بنجاح
         edit:
           title: تحرير نوع المنطقة
           update: تحديث
@@ -179,13 +176,10 @@ ar:
           title: نوع منطقة جديدة
         update:
           error: حدثت مشكلة أثناء تحديث هذا النوع من المناطق.
-          success: تم تحديث نوع المنطقة بنجاح
       areas:
         create:
           error: كانت هناك مشكلة في إنشاء منطقة جديدة.
           success: تم إنشاء المنطقة بنجاح.
-        destroy:
-          success: تم تدمير المنطقة بنجاح
         edit:
           title: تحرير المنطقة
           update: تحديث
@@ -195,7 +189,6 @@ ar:
         no_areas: لا توجد مناطق
         update:
           error: حدثت مشكلة أثناء تحديث هذا المجال.
-          success: تم تحديث المنطقة بنجاح
       attachment_collections:
         create:
           error: حدثت مشكلة أثناء إنشاء مجلد جديد.
@@ -206,7 +199,6 @@ ar:
           title: تحرير المجلد
           update: تحديث
         index:
-          attachment_collection_used: لا يمكن إزالة هذا المجلد لأنه قيد الاستخدام.
           attachment_collections_title: مجلدات المرفقات
         new:
           create: إنشاء
@@ -233,7 +225,6 @@ ar:
           success: تم تحديث المرفق بنجاح.
       autocomplete:
         no_results: لا توجد نتائج
-        search_prompt: اكتب ثلاثة أحرف على الأقل للبحث
       block_user:
         new:
           justification: المبرر
@@ -250,7 +241,6 @@ ar:
           update: تحديث
         index:
           categories_title: الاقسام
-          category_used: لا يمكن إزالة هذه الفئة لأنها قيد الاستخدام.
         new:
           create: إنشاء فئة
           title: فئة جديدة
@@ -310,13 +300,9 @@ ar:
       dashboard:
         show:
           view_more_logs: عرض المزيد من السجلات
-          welcome: أهلا بك على اللوح الإداري.
       domain_whitelist:
         form:
           domain_too_short: نطاق الدومين قصير جداً
-        update:
-          error: فشل تحديث القائمة النطاقات المسموحة
-          success: تم تحديث النطاقات المسموحة بنجاح
       exports:
         export_as: "%{name} ك %{export_format}"
         formats:
@@ -324,7 +310,6 @@ ar:
           Excel: مِلَفّ إكسيل Excel
           FormPDF: ملف (PDF)
           JSON: ملفات بصيغة (JSON)
-        notice: التصدير الخاص بك قيد التقدم حاليًا. ستتلقى بريدًا إلكترونيًا عند اكتماله.
       filters:
         category_id_eq:
           label: الفئة
@@ -399,17 +384,14 @@ ar:
             message_1: ملفات CSV, JSON و Excel (.xlsx) مدعومة
             message_2: بالنسبة لملفات CSV ، يجب أن يكون هناك فاصل بين الأعمدة بفاصلة منقوطة (";")
       help_sections:
-        error: حدثت مشكلة أثناء تحديث أقسام المساعدة
         form:
           save: حفظ
-        success: تم تحديث أقسام المساعدة بنجاح
       impersonatable_users:
         index:
           filter:
             all: الكل
             managed: تمكن
             not_managed: غير مُدار
-          filter_by: مصنف بواسطة
           impersonate: انتحال
           impersonate_new_managed_user: إدارة مشارك جديد
           managed: تمكن
@@ -454,10 +436,6 @@ ar:
           download_example_format: مثال كـ %{name}
           file_legend: إضافة ملف استيراد سيتم تحليله.
           import: استيراد
-        notice: "تم استيراد %{count} %{resource_name} بنجاح"
-      logs:
-        logs_list:
-          no_logs_yet: لا توجد سجلات حتى الآن
       managed_users:
         promotion:
           error: كانت هناك مشكلة في تعزيز المشارك المُدار.
@@ -474,7 +452,6 @@ ar:
         area_types: أنواع المناطق
         areas: المناطق
         configuration: الإعدادات
-        dashboard: لوحة القيادة
         help_sections: أقسام المساعدة
         homepage: الصفحة الرئيسية
         impersonations: التقليد
@@ -545,7 +522,6 @@ ar:
           fields:
             created_at: تاريخ الإنشاء
             email: البريد الإلكتروني
-            last_sign_in_at: تسجيل الدخول الأخير في التاريخ
             name: اسم
             role: وظيفة
             roles:
@@ -558,6 +534,7 @@ ar:
             created_at: أنشئت في
             document_number: رقم المستند
             name: اسم
+            nickname: الاسم المستعار
             phone: هاتف
             state: حالة
             users_count: عدد المشاركين
@@ -579,8 +556,6 @@ ar:
         tabs:
           blocked: محظور
       moderations:
-        index:
-          title: الإشراف
         report:
           reasons:
             does_not_belong: لا ينتمي
@@ -596,6 +571,7 @@ ar:
       newsletter_templates:
         index:
           preview_template: معاينة
+          title: نماذج النشرة الإخبارية
       newsletters:
         create:
           error: كانت هناك مشكلة في إنشاء هذه الرسالة الإخبارية.
@@ -631,13 +607,8 @@ ar:
           none: لا شَيْء
           scopes_help: إرسال النشرة الإخبارية للمستخدمين الذين لديهم أي من المجالات المحددة تم تفعيله في إعدادات "اهتماماتي" لحسابهم.
           select_scopes: أختر للمستخدمين الذين فعلوا أي مجال محدد في إعدادات أهتماماتي لحساباتهم.
-          send_to_all_users: إرسال إلى كافة المستخدمين
-          send_to_followers: إرسال إلى المتابِعين
-          send_to_participants: إرسال إلى المشاركين
           title: حدد المستلمين للإرسال اليهم
           warning: "<strong>تنبيه:</strong> سيتم إرسال هذه النشرة الإخبارية فقط للمستخدمين الذين فعلوا <em>أريد تلقي النشرات الإخبارية</em> في إعدادات الإشعارات الخاصة بهم."
-        send:
-          no_recipients: لا يوجد مستلمين لهذا التحديد
         show:
           preview: معاينة
           select_recipients_to_deliver: حدد المستلمين للإرسال اليهم
@@ -646,13 +617,6 @@ ar:
           error: حدثت مشكلة أثناء تحديث هذه الرسالة الإخبارية.
           success: تم تحديث النشرة الإخبارية بنجاح. يرجى مراجعته قبل الإرسال.
       officializations:
-        block:
-          error: حدث خطأ خلال حظر المشارك
-          success: تم حظر المشارك بنجاح
-        create:
-          success: مشارك رسمي بنجاح
-        destroy:
-          success: مشارك غير رسمي بنجاح
         index:
           actions: أفعال
           badge: شارة
@@ -674,16 +638,12 @@ ar:
           officialize: الصفة الرسمية
           title: إضفاء الطابع الرسمي على المشارك "%{name}"
         show_email_modal:
-          close_modal: اغلاق النموذج
           description: إذا كنت بحاجة إلى الاتصال بأحد المشاركين مباشرة، يمكنك النقر على زر العرض لرؤية عنوان بريده الإلكتروني. سيتم تسجيل هذا الإجراء.
           email_address: عنوان البريد الإلكتروني
           full_name: الاسم الكامل
           hidden: مخفي
           show: إظهار
           title: إظهار عنوان البريد الإلكتروني للمشترك
-        unblock:
-          error: حدث خطأ خلال فك حجب المشارك
-          success: تم إلغاء حظر المشارك بنجاح
       organization:
         edit:
           title: تحرير المنظمة
@@ -693,7 +653,6 @@ ar:
           github: غِت‌ هَب
           instagram: إينستاجرام
           social_handlers: التواصل الاجتماعي
-          twitter: تويتر
           url: عنوان الرابط
           youtube: يوتيوب
         update:
@@ -705,8 +664,6 @@ ar:
         form:
           colors:
             colors_title: ألوان المنظمة
-            header_snippets_help: استخدم هذا الحقل لإضافة أشياء إلى رأس HTML. الاستخدام الأكثر شيوعًا هو دمج خدمات الجهات الخارجية التي تتطلب بعض JavaScript أو CSS إضافية. أيضًا ، يمكنك استخدامه لإضافة علامات وصفية إضافية إلى HTML. لاحظ أنه سيتم عرض هذا فقط في الصفحات العامة ، وليس في قسم المسؤول.
-          cta_button_path_help: 'يمكنك الكتابة فوق المكان الذي يرتبط به زر Call To Action في الصفحة الرئيسية. استخدم المسارات الجزئية ، وليس عناوين URL الكاملة هنا. يقبل الحروف والأرقام والشرطات والمائلة ، ويجب أن يبدأ بحرف. يظهر زر Call To Action في الصفحة الرئيسية بين نص الترحيب والوصف. مثال: %{url}'
           cta_button_text_help: يمكنك الكتابة فوق نص زر Call To Action في الصفحة الرئيسية لكل لغة متاحة في مؤسستك. إذا لم يتم تعيينها ، سيتم استخدام القيمة الافتراضية. يظهر زر Call To Action في الصفحة الرئيسية بين نص الترحيب والوصف.
           homepage_appearance_title: تحرير مظهر الصفحة الرئيسية
           homepage_highlighted_content_banner_title: لافتة المحتوى الراقي
@@ -725,9 +682,6 @@ ar:
         edit:
           active_content_blocks: كتل المحتوى النشط
           inactive_content_blocks: كتل المحتوى غير النشطة
-      organization_homepage_content_blocks:
-        edit:
-          update: تحديث
       participatory_space_private_users:
         create:
           error: حدثت مشكلة أثناء إضافة مشارك خاص لهذه المساحة التشاركية.
@@ -741,12 +695,9 @@ ar:
           create: إنشاء
           title: مشارك جديد الفضاء الخاص المشارك.
       participatory_space_private_users_csv_imports:
-        create:
-          invalid: حدثت مشكلة أثناء قراءة ملف CSV.
         new:
           destroy:
             button: حذف جميع المشاركين الخاصين
-            confirm: هل أنت متأكد من أنك تريد حذف جميع المشاركين الخاصين؟ لا يمكن التراجع عن هذا الإجراء، ولن تتمكن من استرجاعهم.
             empty: ليس لديك أي مشاركين خاصين.
             explanation: لديك %{count} مشاركين خاصين.
             title: حذف جميع المشاركين الخاصين
@@ -784,8 +735,6 @@ ar:
         create:
           error: كانت هناك مشكلة في إنشاء مجال جديد.
           success: تم إنشاء النطاق بنجاح.
-        destroy:
-          success: تم تدمير المجال بنجاح
         edit:
           title: تحرير المجال
           update: تحديث
@@ -796,16 +745,19 @@ ar:
         update:
           error: حدثت مشكلة أثناء تحديث هذا النطاق.
           success: تم تحديث المجال بنجاح
+      share_tokens:
+        actions:
+          destroy: حذف
+          share: مشاركة
       shared:
         gallery:
+          add_images: إضافة صور
           delete_image: احذف الصورة
           edit_images: تعديل الصورة
       static_page_topics:
         create:
           error: كانت هناك مشكلة في إنشاء موضوع جديد.
           success: تم إنشاء الموضوع بنجاح.
-        destroy:
-          success: الموضوع دمر بنجاح
         edit:
           title: تحرير الموضوع
           update: تحديث الموضوع
@@ -818,30 +770,27 @@ ar:
       static_pages:
         actions:
           view: عرض الصفحة العامة
+        content_blocks:
+          title: محتوى الصفحة
         create:
           error: كانت هناك مشكلة في إنشاء صفحة جديدة.
           success: تم إنشاء الصفحة بنجاح.
         destroy:
           success: تم تدمير الصفحة بنجاح
         edit:
-          changed_notably_help: في حالة تحديده ، سيتم إخطار المشاركين بقبول البنود والشروط الجديدة.
           title: تعديل الصفحة
           update: تحديث
         form:
           none: لا شيء
-        index:
-          last_notable_change: آخر تغيير ملحوظ
         new:
           create: إنشاء صفحة
           title: صفحة جديدة
         topic:
           destroy: إزالة الموضوع
           edit: تحرير الموضوع
-          empty: لا توجد صفحة تحت هذا الموضوع
           without_topic: صفحات بدون موضوع
         update:
           error: حدثت مشكلة أثناء تحديث هذه الصفحة.
-          success: تم تحديث الصفحة بنجاح
       titles:
         admin_log: سجل المسؤول
         area_types: أنواع المناطق
@@ -854,20 +803,16 @@ ar:
         participants: المشاركين
         scope_types: أنواع النطاق
         scopes: مجالات
-        static_pages: صفحات
         statistics: النشاط
         user_groups: المجموعات
         users: المدراء
       user_group:
         csv_verify:
           invalid: حدثت مشكلة في قراءة ملف CSV.
-          success: تم تحميل ملف CSV بنجاح ، نحن نتحقق من مطابقة المجموعات للمعايير. وهذا قد يستغرق بعض الوقت.
         reject:
           invalid: حدثت مشكلة في رفض هذه المجموعة.
-          success: تم رفض المجموعة بنجاح
         verify:
           invalid: حدثت مشكلة أثناء التحقق من هذه المجموعة.
-          success: تم التحقق من المجموعة بنجاح
       user_groups:
         index:
           state:
@@ -901,7 +846,6 @@ ar:
           last_month: الشهر الماضي
           last_week: الأسبوع الماضي
           participants: المشاركون
-      view_public_page: عرض الصفحة العامة
     metrics:
       blocked_users:
         title: المستخدمين المحظورين
@@ -933,13 +877,10 @@ ar:
       models:
         moderation:
           fields:
-            created_at: تاريخ الإنشاء
             hidden_at: مخبأة في
             participatory_space: الفضاء التشاركي
-            report_count: عد
             reportable_type: النوع
             reported_content_url: تم الإبلاغ عن عنوان URL للمحتوى
-            reports: تقارير
             visit_url: زيارة العنوان الشبكي
         report:
           fields:
@@ -949,14 +890,3 @@ ar:
   errors:
     messages:
       invalid_json: JSON غير صالح
-  layouts:
-    decidim:
-      admin:
-        global_moderations:
-          title: مُشرف عام
-        newsletters:
-          title: النشرات الإخبارية
-        settings:
-          title: الإعدادات
-        users:
-          title: المشاركين

@@ -88,7 +88,7 @@ module Decidim
         expect(subject.cell).to eq cell
         expect(subject.name).to eq name
         image_names = subject.images.pluck(:name)
-        expect(image_names).to match_array [:image1, :image2]
+        expect(image_names).to contain_exactly(:image1, :image2)
       end
     end
 

@@ -7,7 +7,9 @@ module Decidim
     include LayoutHelper
     include Decidim::SanitizeHelper
 
-    def details
+    def show
+      return render :online if options[:online]
+
       render
     end
 
@@ -29,12 +31,6 @@ module Decidim
 
     def address
       decidim_sanitize(translated_attribute(model.address))
-    end
-
-    private
-
-    def resource_icon
-      icon "meetings", class: "icon--big", role: "img", "aria-hidden": true
     end
   end
 end

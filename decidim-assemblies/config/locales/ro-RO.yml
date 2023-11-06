@@ -3,7 +3,10 @@ ro:
     attributes:
       assemblies_setting:
         enable_organization_chart: Activează graficul organizatiei
+      assemblies_type:
+        title: Titlu
       assembly:
+        announcement: Anunţ
         area_id: Zonă
         assembly_type: Tipul grupului de lucru
         assembly_type_other: Alt tip de grup de lucru
@@ -22,12 +25,16 @@ ro:
         decidim_scope_id: Domeniu
         description: Descriere
         developer_group: Grup promotor
+        document: Document
         domain: Domeniu
         duration: Durată
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
         hero_image: Imagine pentru pagina principală
+        import_attachments: Importă atașamente
+        import_categories: Importă categorii
+        import_components: Importă componente
         included_at: Inclus la
         instagram: Instagram
         internal_organisation: Organizare internă
@@ -51,8 +58,7 @@ ro:
         subtitle: Subtitlu
         target: Cine participă
         title: Titlu
-        twitter: Twitter
-        weight: Ordinea în poziționare
+        weight: Poziție
         youtube: YouTube
       assembly_member:
         birthday: Data nașterii
@@ -64,10 +70,17 @@ ro:
         non_user_avatar: Avatar
         position: Poziție
         user_id: Utilizator sau grup
+        weight: Poziție
       assembly_user_role:
         email: E-mail
         name: Nume
         role: Rol
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              allowed_file_content_types: 'Tip de document invalid. Sunt permise numai fișiere cu următoarele extensii: %{types}.'
   activerecord:
     models:
       decidim/assembly:
@@ -95,7 +108,6 @@ ro:
         edit:
           update: Actualizează
         index:
-          not_published: Nu este publicat
           private: Privat
           public: Public
           published: Publicat
@@ -193,7 +205,7 @@ ro:
           attachments: Atașamente
           categories: Categorii
           components: Componente
-          info: Informații
+          landing_page: Pagina principală
           moderations: Moderări
           private_users: Utilizatori privați
         assemblies_types: Tipuri de grupuri de lucru
@@ -239,6 +251,9 @@ ro:
     admin_log:
       assembly:
         create: "%{user_name} a creat grupul de lucru %{resource_name}"
+        duplicate: "%{user_name} a actualizat adunarea %{resource_name}"
+        export: "%{user_name} a actualizat adunarea %{resource_name}"
+        import: "%{user_name} a actualizat adunarea %{resource_name}"
         publish: "%{user_name} a publicat grupul de lucru %{resource_name}"
         unpublish: "%{user_name} a anulat publicarea grupului de lucru %{resource_name}"
         update: "%{user_name} a actualizat grupul de lucru %{resource_name}"
@@ -267,13 +282,13 @@ ro:
             duration_help: În cazul în care durata acestui grup de lucru este limitată, selectaţi data de încheiere. În caz contrar, va apărea ca nelimitată.
             filters: Filtre
             images: Imagini
+            included_at_help: Selectați data la care acest grup de lucru a fost adăugat în platformă. Nu trebuie să fie neapărat aceeași dată cu data creării.
             metadata: Metadate
             other: Altul
             select_a_created_by: Selectați după persoana care a creat
             select_an_area: Selectați o zonă
             select_an_assembly_type: Selectaţi un tip de grup de lucru
             select_parent_assembly: Selectați grupul de lucru părinte
-            slug_help: 'URL slugs sunt folosite pentru a genera URL-urile care indică acest grup de lucru. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
             social_handlers: Rețele de socializare
             title: Informaţii generale
             visbility: Vizibilitate
@@ -285,13 +300,6 @@ ro:
         assemblies_types:
           form:
             title: Titlu
-        assembly_copies:
-          form:
-            slug_help: 'URL slugs sunt folosite pentru a genera URL-urile care indică acest grup de lucru. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
-        assembly_imports:
-          form:
-            document_legend: Adaugă un document
-            slug_help: 'URL slugs sunt folosite pentru a genera URL-urile care indică acest grup de lucru. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
         assembly_members:
           form:
             existing_user: Participant existent
@@ -307,7 +315,6 @@ ro:
               all: Toți
               ceased: Sistat
               not_ceased: Nesistat
-            filter_by: Filtrează după
             search: Caută
         content_blocks:
           highlighted_assemblies:
@@ -315,6 +322,25 @@ ro:
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        description:
+          area_name: Zonă
+          closing_date: Data închiderii
+          created_by: Creat de
+          creation_date: Data creării
+          developer_group: Grup de promotori
+          duration: Durată
+          included_at: Inclus la
+          indefinite_duration: Nedeterminată
+          participatory_scope: Ce se decide
+          participatory_structure: Cum se decide
+          target: Cine participă
+          title: Despre această adunare
+        filters:
+          names:
+            all: Toate
+        show:
+          title: Despre această adunare
       assembly_members:
         index:
           members: Membri
@@ -346,43 +372,20 @@ ro:
       index:
         title: Grupuri de lucru
       last_activity:
-        new_assembly: Grup de lucru nou
+        new_assembly: 'Adunare nouă:'
       pages:
-        home:
-          highlighted_assemblies:
-            active_assemblies: Grupuri de lucru active
-            assemblies_button_title: Link către pagina Grupuri de lucru care afișează toate grupurile
-            see_all_assemblies: Vezi toate grupurile de lucru
         user_profile:
           member_of:
             member_of: Membru al
       show:
-        area: Zonă
         assembly_type: Tipul grupului de lucru
-        children: Grupuri de lucru
-        closing_date: Data închiderii
-        composition: Componență
-        created_by: Creat de
-        creation_date: Data creării
-        developer_group: Grup promotor
         duration: Durată
-        included_at: Inclus la
-        indefinite_duration: Nedeterminată
-        internal_organisation: Organizare internă
         is_transparent:
           'false': opac
           'true': transparent
-        local_area: Zona grupului de lucru
-        participatory_scope: Ce se decide
-        participatory_structure: Cum se decide
         private_space: Acesta este un grup de lucru privat
-        purpose_of_action: Scopul acțiunii
-        read_less: Citește mai puțin
-        read_more: Citește mai mult
         related_participatory_processes: Procese participative asociate
-        scope: Domeniu de interes
-        social_networks: Rețele sociale
-        target: Cine participă
+        social_networks_title: Vizitează adunarea pe
     assembly_members:
       assembly_member:
         designated_on: Desemnat la
@@ -392,6 +395,7 @@ ro:
       assemblies:
         create_assembly_member:
           email_intro: Un administrator al grupului de lucru <a href="%{resource_url}">%{resource_name}</a> te-a adăugat ca unul dintre membrii săi.
+          email_outro: Ai primit această notificare deoarece ai fost invitat la un grup de lucru. Verifică <a href="%{resource_url}">pagina grupului de lucru</a> pentru a colabora!
           email_subject: Ai primit invitație drept membru al grupului de lucru %{resource_name}!
           notification_title: Ai fost înregistrat ca membru al grupului de lucru <a href="%{resource_path}">%{resource_name}</a>. Verificați pagina <a href="%{resource_path}">grupului de lucru</a> pentru a accepta!
       assembly:
@@ -424,9 +428,6 @@ ro:
         related_assemblies: Grupuri de lucru asociate
     statistics:
       assemblies_count: Grupuri de lucru
-  errors:
-    messages:
-      cannot_be_blank: nu poate fi gol
   layouts:
     decidim:
       assemblies:
@@ -434,21 +435,11 @@ ro:
           more_info: Mai multe informații
           take_part: Participă
         index:
-          children: 'Grupuri de lucru: '
-          organizational_chart: Grafic organizațional
           promoted_assemblies: Grupuri de lucru evidențiate
-          reset_chart: Resetează
         order_by_assemblies:
           assemblies:
             one: "%{count} grup de lucru"
             few: "%{count} grupuri de lucru"
             other: "%{count} grupuri de lucru"
-        promoted_assembly:
-          more_info: Mai multe informații
-          take_part: Participă
       assembly_navigation:
         assembly_member_menu_item: Membri
-        assembly_menu_item: Organizația
-      assembly_widgets:
-        show:
-          take_part: Participă

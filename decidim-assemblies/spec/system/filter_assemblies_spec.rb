@@ -10,25 +10,46 @@ describe "Filter Assemblies", type: :system do
   end
 
   context "when filtering parent assemblies by assembly_type" do
-    # let!(:assembly_types) { create_list(:assemblies_type, 3, organization: organization) }
     let!(:assemblies) { create_list(:assembly, 3, :with_type, organization:) }
 
-    before do
-      visit decidim_assemblies.assemblies_path
-      click_button "All types"
-    end
-
     it "filters by All types" do
-      click_link "All types"
-      expect(page).to have_selector(".card.card--assembly", count: 3)
+      visit decidim_assemblies.assemblies_path
+
+      within "#dropdown-menu-filters div.filter-container", text: "Type" do
+        check "All"
+      end
+      within "#assemblies-grid" do
+        expect(page).to have_selector(".card__grid", count: 3)
+      end
     end
 
     3.times do |i|
       it "filters by Government type" do
+        visit decidim_assemblies.assemblies_path
+
         assembly = assemblies[i]
-        click_link assembly.assembly_type.title["en"]
-        expect(page).to have_selector(".card.card--assembly", count: 1)
-        expect(page).to have_selector("#button-text", text: assembly.assembly_type.title["en"])
+        within "#dropdown-menu-filters div.filter-container", text: "Type" do
+          check translated(assembly.assembly_type.title)
+        end
+        within "#assemblies-grid" do
+          expect(page).to have_selector(".card__grid", count: 1)
+          expect(page).to have_content(translated(assembly.title))
+        end
+      end
+    end
+
+    it "filters by multiple types" do
+      visit decidim_assemblies.assemblies_path
+
+      within "#dropdown-menu-filters div.filter-container", text: "Type" do
+        check translated(assemblies[0].assembly_type.title)
+        check translated(assemblies[1].assembly_type.title)
+      end
+      within "#assemblies-grid" do
+        expect(page).to have_selector(".card__grid", count: 2)
+        expect(page).to have_content(translated(assemblies[0].title))
+        expect(page).to have_content(translated(assemblies[1].title))
+        expect(page).not_to have_content(translated(assemblies[2].title))
       end
     end
   end
@@ -40,25 +61,25 @@ describe "Filter Assemblies", type: :system do
       visit decidim_assemblies.assemblies_path
     end
 
-    it "doesn't show the assemblies types filter" do
-      within("#assemblies-filter") do
-        expect(page).to have_no_content("All types")
+    it "does not show the assemblies types filter" do
+      within("#dropdown-menu-filters") do
+        expect(page).not_to have_css("#dropdown-menu-filters div.filter-container", text: "Type")
       end
     end
   end
 
   context "when filtering parent assemblies by scope" do
-    let!(:scope) { create :scope, organization: }
+    let!(:scope) { create(:scope, organization:) }
     let!(:assembly_with_scope) { create(:assembly, scope:, organization:) }
     let!(:assembly_without_scope) { create(:assembly, organization:) }
 
     context "and choosing a scope" do
       before do
-        visit decidim_assemblies.assemblies_path(filter: { with_scope: scope.id })
+        visit decidim_assemblies.assemblies_path(filter: { with_any_scope: [scope.id] })
       end
 
       it "lists all processes belonging to that scope" do
-        within "#parent-assemblies" do
+        within "#assemblies-grid" do
           expect(page).to have_content(translated(assembly_with_scope.title))
           expect(page).not_to have_content(translated(assembly_without_scope.title))
         end
@@ -67,23 +88,65 @@ describe "Filter Assemblies", type: :system do
   end
 
   context "when filtering parent assemblies by area" do
-    let!(:area) { create :area, organization: }
+    let!(:area) { create(:area, organization:) }
     let!(:assembly_with_area) { create(:assembly, area:, organization:) }
     let!(:assembly_without_area) { create(:assembly, organization:) }
 
-    before do
-      visit decidim_assemblies.assemblies_path
-    end
-
     context "and choosing an area" do
       before do
-        select translated(area.name), from: "filter[with_area]"
+        visit decidim_assemblies.assemblies_path
+
+        within "#dropdown-menu-filters div.filter-container", text: "Area" do
+          check translated(area.name)
+        end
       end
 
-      it "lists all processes belonging to that area" do
-        within "#parent-assemblies" do
+      it "enables the all option and lists all processes" do
+        within "#assemblies-grid" do
           expect(page).to have_content(translated(assembly_with_area.title))
-          expect(page).not_to have_content(translated(assembly_without_area.title))
+          expect(page).to have_content(translated(assembly_without_area.title))
+        end
+      end
+    end
+
+    context "when there are more than two areas" do
+      let!(:other_area) { create(:area, organization:) }
+      let!(:other_area_without_assemblies) { create(:area, organization:) }
+      let!(:assembly_with_other_area) { create(:assembly, area: other_area, organization:) }
+
+      context "and choosing an area" do
+        before do
+          visit decidim_assemblies.assemblies_path
+
+          within "#dropdown-menu-filters div.filter-container", text: "Area" do
+            check translated(area.name)
+          end
+        end
+
+        it "lists all processes belonging to that area" do
+          within "#assemblies-grid" do
+            expect(page).to have_content(translated(assembly_with_area.title))
+            expect(page).not_to have_content(translated(assembly_without_area.title))
+          end
+        end
+      end
+
+      context "and choosing two areas with assemblies" do
+        before do
+          visit decidim_assemblies.assemblies_path
+
+          within "#dropdown-menu-filters div.filter-container", text: "Area" do
+            check translated(area.name)
+            check translated(other_area.name)
+          end
+        end
+
+        it "lists all processes belonging to both areas" do
+          within "#assemblies-grid" do
+            expect(page).to have_content(translated(assembly_with_area.title))
+            expect(page).to have_content(translated(assembly_with_other_area.title))
+            expect(page).not_to have_content(translated(assembly_without_area.title))
+          end
         end
       end
     end

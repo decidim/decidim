@@ -122,7 +122,7 @@ module Decidim
 
           new_attachment.save!
         rescue Errno::ENOENT, OpenURI::HTTPError => e
-          Rails.logger.warn("[ERROR] Couldn't copy attachment from proposal #{original_proposal.id} when copying to component due to #{e.message}")
+          Rails.logger.warn("[ERROR] Could not copy attachment from proposal #{original_proposal.id} when copying to component due to #{e.message}")
         end
       end
 

@@ -1,7 +1,12 @@
 hu:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Szervezeti ábra engedélyezése
+      assemblies_type:
+        title: Cím
       assembly:
+        announcement: Közlemény
         area_id: Terület
         assembly_type: Gyűlés típusa
         assembly_type_other: Más típusú gyűlés
@@ -20,12 +25,16 @@ hu:
         decidim_scope_id: Hatáskör
         description: Leírás
         developer_group: Kezdeményező csoport
+        document: Dokumentum
         domain: Domain
         duration: Időtartam
         facebook: Facebook
         github: GitHub
         hashtag: Kettőskereszt
         hero_image: Kezdő kép
+        import_attachments: Mellékletek importálása
+        import_categories: Kategóriák importálása
+        import_components: Komponensek importálása
         included_at: 'Tartalmazza:'
         instagram: Instagram
         internal_organisation: Belső szervezet
@@ -49,7 +58,7 @@ hu:
         subtitle: Felirat
         target: Ki vesz részt
         title: Cím
-        twitter: Twitter
+        weight: Pozíció sorrend
         youtube: Youtube
       assembly_member:
         birthday: Születésnap
@@ -58,11 +67,20 @@ hu:
         designation_date: Kijelölés dátuma
         full_name: Teljes név
         gender: Neme
+        non_user_avatar: Profilkép
         position: Pozíció
+        user_id: Felhasználó vagy csoport
+        weight: Sorbarendezés
       assembly_user_role:
         email: Email
         name: Név
         role: Szerep
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              allowed_file_content_types: 'Érvénytelen dokumentumtípus. Csak a következő kiterjesztésű fájlok engedélyezettek: %{types}.'
   activerecord:
     models:
       decidim/assembly:
@@ -87,7 +105,6 @@ hu:
         edit:
           update: Frissítés
         index:
-          not_published: Nincs közzétéve
           private: Privát
           public: Nyilvános
           published: Közzétéve
@@ -171,6 +188,9 @@ hu:
         update:
           error: Hiba történt a gyűlés adminjának frissítése során.
           success: Gyűlés adminjának frissítése sikeres.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Gyűlés típusa
       menu:
         assemblies: Gyűlések
         assemblies_settings: Beállítások
@@ -182,7 +202,7 @@ hu:
           attachments: Mellékletek
           categories: Kategóriák
           components: Elemek
-          info: Info
+          landing_page: Landing oldal
           moderations: Moderálás
           private_users: Privát felhasználók
         assemblies_types: Gyűlés típusa
@@ -228,6 +248,9 @@ hu:
     admin_log:
       assembly:
         create: "%{user_name} létrehozta a(z) %{resource_name} gyűlést"
+        duplicate: "%{user_name} duplikálta a(z) %{resource_name} gyűlést"
+        export: "%{user_name} exportálta a(z) %{resource_name} gyűlést"
+        import: "%{user_name} importálta a(z) %{resource_name} gyűlést"
         publish: "%{user_name} közzétette a(z) %{resource_name} gyűlést"
         unpublish: "%{user_name} visszavonta a(z) %{resource_name} gyűlés közzétételét"
         update: "%{user_name} frissítette a(z) %{resource_name} gyűlést"
@@ -239,6 +262,7 @@ hu:
         update: "%{user_name} frissítette a gyűlések beállításait"
       assembly_type:
         create: "%{user_name} létrehozta a(z) %{resource_name} gyűlés típust"
+        delete: "%{user_name} áthelyezte a(z) %{resource_name} gyűlés típust"
         publish: "%{user_name} közzétette a(z) %{resource_name} gyűlés típust"
         unpublish: "%{user_name} visszavonta a(z) %{resource_name} gyűlés típus közzétételét"
         update: "%{user_name} frissítette a(z) %{resource_name} gyűlés típust"
@@ -250,6 +274,7 @@ hu:
       admin:
         assemblies:
           form:
+            announcement_help: Az itt megadott szöveg a gyűlés információs oldalán fog megjelenni a felhasználók számára. 
             duration: Időtartam
             duration_help: Ha a gyűlés időtartama korlátozott, válassz befejező dátumot. Ellenkező esetben határozatlan idejű lesz.
             filters: Szűrők
@@ -261,7 +286,6 @@ hu:
             select_an_area: Válassz területet
             select_an_assembly_type: Válassz gyűlés típust
             select_parent_assembly: Szülői összeállítás kiválasztása
-            slug_help: 'Az URL slugok a gyűlések linkjeinek generáláshoz szükségesek. Csak betűket, számokat és kötőjeleket használhatsz. Betűvel kell kezdened. Példa: %{url}'
             social_handlers: Social
             title: Általános információ
             visbility: Láthatóság
@@ -273,16 +297,13 @@ hu:
         assemblies_types:
           form:
             title: Cím
-        assembly_copies:
-          form:
-            slug_help: 'Az URL slugok a gyűlések linkjeinek generáláshoz szükségesek. Csak betűket, számokat és kötőjeleket használhatsz. Betűvel kell kezdened. Példa: %{url}'
-        assembly_imports:
-          form:
-            document_legend: Dokumentum hozzáadása
         assembly_members:
           form:
             existing_user: Meglévő résztvevő
+            explanation: 'Útmutató a képhez:'
+            image_guide: Olyan fekvő képek használata ajánlott, amelyek nem tartalmaznak szöveget.
             non_user: Nem résztvevő
+            non_user_avatar_help: A tagként való szerepléshez hozzájárulást kell szerezni a személyektől.
             select_a_position: Válassz pozíciót
             select_user: Válasszon ki egy résztvevőt
             user_type: Résztvevő típusa
@@ -291,11 +312,36 @@ hu:
               all: Összes
               ceased: Megszűnt
               not_ceased: Nem szűnt meg
-            filter_by: 'Szűrés ez alapján:'
             search: Keresés
         content_blocks:
           highlighted_assemblies:
             max_results: A megjelenítendő elemek maximális száma
+        new_import:
+          accepted_types:
+            json: JSON
+      assemblies:
+        description:
+          area_name: Terület
+          closing_date: Határidő
+          created_by: Létrehozta
+          creation_date: Létrehozás dátuma
+          data: Gyűlés adatai
+          developer_group: Előterjesztő csoport
+          duration: Időtartam
+          included_at: Beleértve
+          indefinite_duration: Határozatlan
+          local_area: Szervezeti terület
+          meta_scope: Hatáskör
+          participatory_scope: Miről születik döntés
+          participatory_structure: Hogyan születik döntés
+          target: Ki vesz részt
+          title: Erről a gyűlésről
+        filters:
+          names:
+            all: Összes
+          type: Típus
+        show:
+          title: Erről a gyűlésről
       assembly_members:
         index:
           members: Tagok
@@ -308,8 +354,16 @@ hu:
         participatory: Részvételi
         working_group: Munkacsoport
       content_blocks:
+        children_assemblies:
+          name: Gyűlések
+        dates_metadata:
+          name: Dátumok metaadatai
+        extra_data:
+          name: Típus és időtartam
         highlighted_assemblies:
           name: Kiemelt gyűlések
+        related_assemblies:
+          name: Kapcsolódó gyűlések
       created_by:
         city_council: Városi közgyűlés
         others: Egyéb
@@ -327,48 +381,42 @@ hu:
       index:
         title: Gyűlések
       last_activity:
-        new_assembly: Új összeszerelés
+        new_assembly: 'Új gyűlés:'
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Aktív gyűlések
-            assemblies_button_title: A Gyűlések oldalra mutató link, ahol az összes Gyűlés látható
-            see_all_assemblies: Összes gyűlés
+            active_spaces: Aktív gyűlések
+            see_all_spaces: Az összes közgyűlés megtekintése
         user_profile:
           member_of:
             member_of: 'Tagja következőnek:'
       show:
-        area: Terület
         assembly_type: Gyűlés típusa
-        children: Gyűlések
-        closing_date: Határidő
-        composition: Összetétel
-        created_by: Készítette
-        creation_date: Létrehozás dátuma
-        developer_group: Kezdeményező csoport
         duration: Időtartam
-        included_at: 'Tartalmazza:'
-        indefinite_duration: Határozatlan
-        internal_organisation: Belső szervezet
         is_transparent:
           'false': áttetsző
           'true': átlátszó
-        local_area: Szervezet területe
-        participatory_scope: Mi a döntés
-        participatory_structure: Hogyan döntenek
         private_space: Ez egy privát gyűlés
-        purpose_of_action: Fellépés célja
-        read_less: Kevesebb
-        read_more: Bővebben
         related_participatory_processes: Kapcsolódó részvételi folyamatok
-        scope: Hatáskör
-        social_networks: Közösségi háló
-        target: Ki vesz részt benne
+        social_networks_title: Látogasd meg a gyűlést itt
     assembly_members:
       assembly_member:
         designated_on: Kijelölt
       index:
         title: Tagok
+    events:
+      assemblies:
+        create_assembly_member:
+          email_intro: A(z) <a href="%{resource_url}">%{resource_name}</a> gyűlés adminisztrátora hozzáadta tagként.
+          email_outro: Ön azért kapta ezt az értesítést, mert meghívták egy gyűlésbe. Látogasson el a <a href="%{resource_url}">gyűlés oldalára</a> a részvételhez!
+          email_subject: Ön meghívást kapott, hogy a(z) %{resource_name} gyűlés tagja legyen!
+          notification_title: Ön regisztrált a(z) <a href="%{resource_path}">%{resource_name}</a> gyűlés tagjaként. Látogasson el a <a href="%{resource_path}">gyűlés oldalára</a> a részvételhez!
+      assembly:
+        role_assigned:
+          email_intro: 'Önt a(z) %{role} szerephez rendelték a következő gyűlésben: "%{resource_title}".'
+          email_outro: 'Ön azért kapta ezt az értesítést, mert a(z) "%{resource_title}" gyűlésben a következő szerepet kapta: %{role}.'
+          email_subject: 'Önt a(z) %{role} szerephez rendelték itt: "%{resource_title}".'
+          notification_title: 'A(z) %{role} szerephez rendelték a következő gyűlésben: <a href="%{resource_url}">%{resource_title}</a>.'
     help:
       participatory_spaces:
         assemblies:
@@ -391,9 +439,8 @@ hu:
     participatory_processes:
       show:
         related_assemblies: Kapcsolódó gyűlések
-  errors:
-    messages:
-      cannot_be_blank: nem lehet üres
+    statistics:
+      assemblies_count: Gyűlések
   layouts:
     decidim:
       assemblies:
@@ -401,20 +448,10 @@ hu:
           more_info: Több információ
           take_part: Vegyél részt
         index:
-          children: 'Gyűlések: '
-          organizational_chart: Szervezési táblázat
           promoted_assemblies: Kiemelt gyűlések
-          reset_chart: Visszaállítás
         order_by_assemblies:
           assemblies:
             one: "%{count} gyűlés"
             other: "%{count} gyűlés"
-        promoted_assembly:
-          more_info: További információ
-          take_part: Vegyél részt
       assembly_navigation:
         assembly_member_menu_item: Tagok
-        assembly_menu_item: A gyűlés
-      assembly_widgets:
-        show:
-          take_part: Vegyél részt

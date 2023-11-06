@@ -29,9 +29,19 @@ describe Decidim::UserInputScrubber do
     end
   end
 
-  it "allows iframes to embed videos" do
+  it "does not allow iframes" do
     html = "<iframe frameborder=\"0\" allowfullscreen=\"true\" src=\"url\"></iframe>"
-    expect(html).to be_scrubbed
+    expect(html).to be_scrubbed_as("")
+  end
+
+  it "does not allow comments" do
+    html = "<p>Hello, <!-- world! --></p>"
+    expect(html).to be_scrubbed_as("<p>Hello, </p>")
+  end
+
+  it "does not allow disabled iframes" do
+    html = %(<div class="disabled-iframe"><!-- <iframe src="url"></iframe> --></div>)
+    expect(html).to be_scrubbed_as(%(<div class="disabled-iframe"></div>))
   end
 
   it "allows most basic tags" do
@@ -46,6 +56,6 @@ describe Decidim::UserInputScrubber do
 
   it "does not allow onerror attributes" do
     html = "<img src=x onerror=alert(1)>"
-    expect(html).to be_scrubbed_as("<img src=\"x\">")
+    expect(html).to be_scrubbed_as("")
   end
 end

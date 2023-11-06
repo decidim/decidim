@@ -6,13 +6,13 @@ module Decidim::Conferences
   describe ConferenceCell, type: :cell do
     controller Decidim::Conferences::ConferencesController
 
-    subject { cell("decidim/conferences/conference_m", model).call }
+    subject { cell("decidim/conferences/conference", model).call }
 
     let(:model) { create(:conference) }
 
     context "when rendering" do
       it "renders the card" do
-        expect(subject).to have_css(".card--conference")
+        expect(subject).to have_css("[id^='conference']")
       end
     end
   end

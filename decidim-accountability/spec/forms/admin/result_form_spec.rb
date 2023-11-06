@@ -14,8 +14,8 @@ module Decidim::Accountability
         current_participatory_space: participatory_process
       }
     end
-    let(:participatory_process) { create :participatory_process, organization: }
-    let(:current_component) { create :accountability_component, participatory_space: participatory_process }
+    let(:participatory_process) { create(:participatory_process, organization:) }
+    let(:current_component) { create(:accountability_component, participatory_space: participatory_process) }
     let(:title) do
       Decidim::Faker::Localized.sentence(word_count: 3)
     end
@@ -25,13 +25,13 @@ module Decidim::Accountability
     let(:parent_scope) { create(:scope, organization:) }
     let(:scope) { create(:subscope, parent: parent_scope) }
     let(:scope_id) { scope.id }
-    let(:category) { create :category, participatory_space: participatory_process }
+    let(:category) { create(:category, participatory_space: participatory_process) }
     let(:category_id) { category.id }
-    let(:parent) { create :result, scope:, component: current_component }
+    let(:parent) { create(:result, scope:, component: current_component) }
     let(:parent_id) { parent.id }
     let(:start_date) { "12/3/2017" }
     let(:end_date) { "21/6/2017" }
-    let(:status) { create :status, component: current_component, key: "ongoing", name: { en: "Ongoing" } }
+    let(:status) { create(:status, component: current_component, key: "ongoing", name: { en: "Ongoing" }) }
     let(:status_id) { status.id }
     let(:progress) { 89 }
 
@@ -108,8 +108,8 @@ module Decidim::Accountability
     context "with proposals" do
       subject { described_class.from_model(result).with_context(context) }
 
-      let(:proposals_component) { create :component, manifest_name: :proposals, participatory_space: participatory_process }
-      let!(:proposal) { create :proposal, component: proposals_component }
+      let(:proposals_component) { create(:component, manifest_name: :proposals, participatory_space: participatory_process) }
+      let!(:proposal) { create(:proposal, component: proposals_component) }
 
       let(:result) do
         create(
@@ -141,8 +141,8 @@ module Decidim::Accountability
     end
 
     context "with projects" do
-      let(:projects_component) { create :component, manifest_name: :budgets, participatory_space: participatory_process }
-      let!(:project) { create :project, component: projects_component }
+      let(:projects_component) { create(:component, manifest_name: :budgets, participatory_space: participatory_process) }
+      let!(:project) { create(:project, component: projects_component) }
 
       describe "#projects" do
         it "returns the available projects in a way suitable for the form" do

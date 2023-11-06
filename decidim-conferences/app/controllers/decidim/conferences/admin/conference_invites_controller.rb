@@ -7,32 +7,35 @@ module Decidim
       #
       class ConferenceInvitesController < Decidim::Conferences::Admin::ApplicationController
         include Concerns::ConferenceAdmin
+        include Decidim::Paginable
 
         helper_method :conference
 
+        alias conference current_participatory_space
+
         def index
-          enforce_permission_to :read_invites, :conference, conference: conference
+          enforce_permission_to(:read_invites, :conference, conference: current_participatory_space)
 
           @query = params[:q]
           @status = params[:status]
-          @conference_invites = Decidim::Conferences::Admin::ConferenceInvites.for(conference.conference_invites, @query, @status).page(params[:page]).per(15)
+          @conference_invites = Decidim::Admin::Invites.for(current_participatory_space.conference_invites, @query, @status).page(params[:page]).per(15)
         end
 
         def new
-          enforce_permission_to :invite_attendee, :conference, conference: conference
+          enforce_permission_to(:invite_attendee, :conference, conference: current_participatory_space)
 
           @form = form(ConferenceRegistrationInviteForm).instance
         end
 
         def create
-          enforce_permission_to :invite_attendee, :conference, conference: conference
+          enforce_permission_to(:invite_attendee, :conference, conference: current_participatory_space)
 
           @form = form(ConferenceRegistrationInviteForm).from_params(params)
 
-          InviteUserToJoinConference.call(@form, conference, current_user) do
+          InviteUserToJoinConference.call(@form, current_participatory_space, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("conference_invites.create.success", scope: "decidim.conferences.admin")
-              redirect_to conference_conference_invites_path(conference)
+              redirect_to conference_conference_invites_path(current_participatory_space)
             end
 
             on(:invalid) do
@@ -40,12 +43,6 @@ module Decidim
               render :new
             end
           end
-        end
-
-        private
-
-        def conference
-          @conference ||= Decidim::Conference.find_by(slug: params[:conference_slug])
         end
       end
     end

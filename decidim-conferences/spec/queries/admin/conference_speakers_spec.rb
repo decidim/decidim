@@ -6,7 +6,7 @@ module Decidim::Conferences::Admin
   describe ConferenceSpeakers do
     subject { described_class.for(Decidim::ConferenceSpeaker.all, search) }
 
-    let(:organization) { create :organization }
+    let(:organization) { create(:organization) }
     let(:search) { nil }
 
     describe "when the list is not filtered" do
@@ -29,7 +29,7 @@ module Decidim::Conferences::Admin
           let(:search) { "Argo" }
 
           it "returns all matching conference speakers" do
-            expect(subject).to match_array([conference_speakers[1], conference_speakers[2]])
+            expect(subject).to contain_exactly(conference_speakers[1], conference_speakers[2])
           end
         end
 

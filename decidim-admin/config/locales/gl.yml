@@ -32,7 +32,6 @@ gl:
         body: Corpo
         subject: Asunto
       organization:
-        admin_terms_of_use_body: Corpo para o texto das condicións de uso do administrador/a
         alert_color: Alerta
         available_authorizations: Autorizacións dispoñíbeis
         badges_enabled: Activar emblemas
@@ -84,7 +83,6 @@ gl:
         success_color: Éxito
         time_zone: Fuso horario
         tos_version: Versión de condicións de servizo
-        twitter_handler: Xestor de Twitter
         user_groups_enabled: Activar grupos de usuarios
         users_registration_mode: Modo rexistro de usuarios/as
         warning_color: Aviso
@@ -128,11 +126,6 @@ gl:
               allowed_file_content_types: Ficheiro de imaxe non válido
             official_img_header:
               allowed_file_content_types: Ficheiro de imaxe non válido
-      new_import:
-        attributes:
-          file:
-            invalid_file: O ficheiro fornecido non é válido, por favor verifica que o ficheiro posúe o formato correcto
-            invalid_mime_type: Tipo Mime non válido
   activerecord:
     attributes:
       decidim/static_page:
@@ -153,16 +146,12 @@ gl:
         add: Engadir
         attachment:
           new: Novo anexo
-        attachment_collection:
-          new: Nova colección de anexos
         browse: Buscar
         category:
           new: Nova categoría
         export: Exportar todo
         export-selection: Exportar selección
         import: Importar
-        manage: Xestionar
-        new: Novo %{name}
         newsletter:
           new: Novo boletín
         participatory_space_private_user:
@@ -174,24 +163,10 @@ gl:
         user:
           new: Novo administrador
         verify: Verifique
-      admin_terms_of_use:
-        accept:
-          error: Produciuse un erro ao aceptar os termos de uso do panel de administración.
-          success: Xenial! Aceptaches os termos de uso do panel de administración.
-        actions:
-          accept: Concordo con seguintes termos
-          refuse: Rexeitar os termos de uso
-          title: Concordo cos termos e condicións de uso
-        required_review:
-          alert: 'Requirido: Revisa os nosos termos de uso do panel de administración'
-          cta: Revísaos agora.
-        title: Termos de uso do panel de administración
       area_types:
         create:
           error: Produciuse un erro ao crear un novo tipo de área.
           success: Tipo de área creada con éxito.
-        destroy:
-          success: Tipo de área destruído con éxito
         edit:
           title: Editar tipo de área
           update: Actualización
@@ -200,13 +175,10 @@ gl:
           title: Tipo de área nova
         update:
           error: Produciuse un erro ao actualizar este tipo de área.
-          success: Tipo de área actualizado con éxito
       areas:
         create:
           error: Produciuse un erro ao crear unha nova área.
           success: Area creada con éxito.
-        destroy:
-          success: Área destruída con éxito
         edit:
           title: Editar área
           update: Actualización
@@ -216,7 +188,6 @@ gl:
         no_areas: Sen Áreas
         update:
           error: Produciuse un erro ao actualizar esta área.
-          success: Área actualizada correctamente
       attachment_collections:
         create:
           error: Produciuse un erro ao crear un cartafol novo.
@@ -227,7 +198,6 @@ gl:
           title: Editar carpeta
           update: Actualización
         index:
-          attachment_collection_used: Non se pode eliminar este cartafol porque está en uso.
           attachment_collections_title: Cartafoles adxuntos
         new:
           create: Crear
@@ -256,7 +226,6 @@ gl:
         message: Ten coidado ao traballar con ficheiros anexos nun espazo privado. Calquera participante podería compartir este documento con outra xente.
       autocomplete:
         no_results: Non se atoparon resultados
-        search_prompt: Escriba polo menos tres caracteres para buscar
       block_user:
         new:
           action: Bloquear conta e enviar xustificante
@@ -274,7 +243,6 @@ gl:
           update: Actualización
         index:
           categories_title: Categorías
-          category_used: Esta categoría non se pode eliminar porque está en uso.
         new:
           create: Crear categoría
           title: Nova categoría
@@ -334,7 +302,6 @@ gl:
       dashboard:
         show:
           view_more_logs: Ver máis rexistros
-          welcome: Benvido/a ao panel de administración.
       domain_whitelist:
         form:
           domain_too_short: Dominio curto de máis
@@ -345,7 +312,6 @@ gl:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
-        notice: A súa exportación está en progreso. Recibirás un correo electrónico cando finalice.
       filters:
         category_id_eq:
           label: Categoría
@@ -420,17 +386,14 @@ gl:
             message_1: Están soportados os ficheiros CSV, JSON e Excel (.xlsx)
             message_2: Para os ficheiros CSV, o separador entre columnas ten de ser o punto e coa (";")
       help_sections:
-        error: Produciuse un erro ao actualizar as seccións de axuda
         form:
           save: Gardar
-        success: As seccións de axuda actualizáronse con éxito
       impersonatable_users:
         index:
           filter:
             all: Todo
             managed: Xestionado
             not_managed: Non se xestiona
-          filter_by: Filtrar por
           impersonate: Suplantar
           impersonate_new_managed_user: Substituír o novo usuario xestor
           managed: Xestionado
@@ -481,8 +444,6 @@ gl:
             message:
               one: Falta a columna %{columns}.
               other: Faltan as columnas %{columns}.
-        error: Produciuse un problema durante a importación
-        example_error: Non foi posíbel crear un exemplo para o tipo dado
         new:
           accepted_mime_types:
             csv: csv
@@ -494,10 +455,6 @@ gl:
           download_example_format: Exemplo com %{name}
           file_legend: Engadir un ficheiro de importación para o análise.
           import: Importar
-        notice: "%{number}%{resource_name} importados con éxito"
-      logs:
-        logs_list:
-          no_logs_yet: Aínda non hai rexistros
       managed_users:
         promotion:
           error: Produciuse un erro ao promover o usuario xestor.
@@ -514,14 +471,12 @@ gl:
         area_types: Tipos de área
         areas: Campos
         configuration: Configuración
-        dashboard: Taboleiro de instrumentos
         help_sections: Seccións de axuda
         homepage: Páxina de inicio
         impersonations: Impersonacións
         moderation: Moderacións globais
         newsletters: Boletíns informativos
         participants: Participantes
-        reported_users: Usuarios denunciados
         scope_types: Tipos de alcance
         scopes: Ámbitos
         settings: Configuración
@@ -593,7 +548,6 @@ gl:
           fields:
             created_at: Data de creación
             email: Correo electrónico
-            last_sign_in_at: Última data de inicio de sesión
             name: Nome
             role: Rol
             roles:
@@ -620,7 +574,6 @@ gl:
           nickname: Alcume
           reason: Motivo
           reports: Número de denuncias
-          title: Listando os usuarios reportados
         report:
           reasons:
             does_not_belong: Non pertence
@@ -630,8 +583,6 @@ gl:
           blocked: Bloqueados
           unblocked: Sen bloquear
       moderations:
-        index:
-          title: Moderacións
         report:
           reasons:
             does_not_belong: Non pertence
@@ -701,13 +652,8 @@ gl:
           select_scopes: Filtrar polos usuarios que teñan activado calquera ámbito seleccionado nos axustes "Os meus intereses" das súas contas.
           select_spaces: Seleccionar espazos para segmentar o boletín
           select_users: Selecciona a que usuarios queres enviar o boletín
-          send_to_all_users: Enviar a todos os usuarios
-          send_to_followers: Enviar aos seguidores
-          send_to_participants: Enviar aos participantes
           title: Seleccionar os destinatarios
           warning: "<strong>Atención:</strong> Este boletín enviarase só aos usuarios que teñen activado <em>Desexo recibir boletíns</em> nos seus axustes de notificacións."
-        send:
-          no_recipients: Sen destinatarios para esta selección
         show:
           preview: Vista previa
           select_recipients_to_deliver: Seleccionar os destinatarios
@@ -716,13 +662,6 @@ gl:
           error: Produciuse un erro ao actualizar este boletín informativo.
           success: Boletín informativo actualizado con éxito. Revisa isto antes de enviar.
       officializations:
-        block:
-          error: Produciuse un erro ao bloquear o participante
-          success: Participante bloqueado con éxito
-        create:
-          success: O usuario oficializouse con éxito
-        destroy:
-          success: O usuario non foi oficializado correctamente
         index:
           actions: Accións
           badge: Insignia
@@ -744,14 +683,10 @@ gl:
           officialize: Organizar
           title: Clasificar o usuario "%{name}"
         show_email_modal:
-          close_modal: Pechar modal
           email_address: Enderezo de correo electrónico
           full_name: Nome completo
           hidden: oculto
           show: Amosar
-        unblock:
-          error: Produciuse un erro ao desbloquear o participante
-          success: Participante desbloqueado con éxito
       organization:
         edit:
           title: Editar organización
@@ -762,7 +697,6 @@ gl:
           instagram: Instagram
           rich_text_editor_in_public_views_help: Nalgúns cadros de texto, os participantes poderán inserir algunhas etiquetas HTML empregando o editor de texto avanzado.
           social_handlers: Social
-          twitter: Twitter
           url: URL
           youtube: YouTube
         update:
@@ -775,8 +709,6 @@ gl:
           colors:
             colors_title: Cores da organización
             colors_warning_html: Atención! Mudar estas cores pode estragar ao contrastes de accesibilidade. Podes verificar o contraste da túa elección a través de <a href="%{link}">WebAIM Contrast Checker</a> ou outras ferramentas semellantes.
-            header_snippets_help: Use este campo para engadir cousas ao título HTML. O uso máis común é integrar servizos de terceiros que requiren algún JavaScript ou CSS adicional. Ademais, podes usalo para engadir etiquetas metais extra ao HTML. Ten en conta que isto só se renderá en páxinas públicas, non na sección de administración.
-          cta_button_path_help: 'Pode sobrescribir onde se enlaza o botón de chamada a acción na páxina de inicio. Use aquí rutas parciais, non URL completo. Acepta letras, números, guións e barras, e debe comezar cunha letra. O botón de chamada a acción amósase na páxina de inicio entre o texto de benvida ea descrición. Exemplo: %{url}'
           cta_button_text_help: Pode sobrescribir o texto do botón de chamada a acción na páxina de inicio para cada idioma dispoñible na súa organización. Se non se establece, empregarase o valor predeterminado. O botón de chamada a acción amósase na páxina de inicio entre o texto de benvida ea descrición.
           homepage_appearance_title: Editar o aspecto da páxina de inicio
           homepage_highlighted_content_banner_title: Banner de contido de alto nivel
@@ -794,9 +726,6 @@ gl:
         edit:
           active_content_blocks: Bloques de contido activo
           inactive_content_blocks: Bloques de contido inactivo
-      organization_homepage_content_blocks:
-        edit:
-          update: Actualización
       participatory_space_private_users:
         create:
           error: Produciuse un erro engadindo un usuario privado a este espazo participativo.
@@ -811,11 +740,7 @@ gl:
           create: Crear
           title: Novo usuario privado do espazo participativo.
       participatory_space_private_users_csv_imports:
-        create:
-          invalid: Produciuse un erro ao ler o ficheiro CSV.
-          success: Ficheiro CSV subido con éxito, estamos a enviar un correo de invitación aos participantes. Isto pode levar un pouco de tempo.
         new:
-          explanation: 'Sube o teu ficheiro CSV. Ten de ter dúas columnas co correo electrónico na primeira e o nome na última (correo, nome) dos usuarios que desexes engadir ao espazo de participación, sen cabeceiras. Evita empregar os seguintes caracteres `<>?%&^*#@()[]=+:;"{}\|` no nome de usuario.'
           title: Sube o teu ficheiro CSV
           upload: Subir
       reminders:
@@ -855,8 +780,6 @@ gl:
         create:
           error: Produciuse un erro ao crear un novo alcance.
           success: Alcance creado con éxito.
-        destroy:
-          success: Alcance destruído con éxito
         edit:
           title: Editar alcance
           update: Actualización
@@ -876,7 +799,6 @@ gl:
           error: Produciuse un problema ao destruír o token.
           success: Token eliminado con éxito.
         share_tokens:
-          empty: Non hai tokens activos
           help: Estes tokens empréganse para compartir publicamente con calquera usuario este recurso non publicado. Ocultaranse cando o recurso sexa publicado. Preme na icona de compartir token para visitar o URL compartíbel.
           title: Compartir tokens
       shared:
@@ -889,8 +811,6 @@ gl:
         create:
           error: Produciuse un erro ao crear un tema novo.
           success: O tema creouse con éxito.
-        destroy:
-          success: Tema destruído con éxito
         edit:
           title: Editar tema
           update: Actualizar tema
@@ -909,25 +829,19 @@ gl:
         destroy:
           success: Páxina destruída con éxito
         edit:
-          changed_notably_help: Se está marcado, os usuarios serán notificados para aceptar os novos termos e condicións.
           title: Editar páxina
           update: Actualización
         form:
           none: Nada
-          slug_help: 'Empregar aquí rutas parciais dos URLs. Acepta letras, números, guións, barras e ten de comezar cunha letra. Exemplo: %{url}'
-        index:
-          last_notable_change: Último cambio notable
         new:
           create: Crear páxina
           title: Nova páxina
         topic:
           destroy: Eliminar tema
           edit: Editar tema
-          empty: Non hai ningunha páxina neste tema
           without_topic: Páxinas sen tema
         update:
           error: Produciuse un erro ao actualizar esta páxina.
-          success: Páxina actualizada con éxito
       titles:
         admin_log: Rexistro de administrador
         area_types: Tipos de área
@@ -941,20 +855,16 @@ gl:
         participants: Usuarios
         scope_types: Tipos de alcance
         scopes: Ámbitos
-        static_pages: Páxinas
         statistics: Actividade
         user_groups: Grupos de usuarios
         users: Administradores
       user_group:
         csv_verify:
           invalid: Produciuse un erro ao ler o ficheiro CSV.
-          success: O ficheiro CSV cargouse con éxito, verificamos os grupos de usuarios que coinciden cos criterios. Isto pode levar un tempo.
         reject:
           invalid: Produciuse un erro ao rexeitar este grupo de usuarios.
-          success: Grupo de usuarios rexeitado con éxito
         verify:
           invalid: Produciuse un erro ao verificar este grupo de usuarios.
-          success: Grupo de usuarios verificado con éxito
       user_groups:
         index:
           state:
@@ -987,9 +897,7 @@ gl:
           last_day: Último día
           last_month: O mes pasado
           last_week: A semana pasada
-          no_users_count_statistics_yet: Aínda non hai estatísticas do reconto de usuario/as
           participants: Participantes
-      view_public_page: Ver páxina pública
     metrics:
       blocked_users:
         object: usuarias bloqueadas
@@ -1023,13 +931,10 @@ gl:
       models:
         moderation:
           fields:
-            created_at: Data de creación
             hidden_at: Oculto en
             participatory_space: Espazo participativo
-            report_count: Conde
             reportable_type: Tipo
             reported_content_url: URL de contido reportado
-            reports: Informes
             visit_url: Visita o URL
         report:
           fields:
@@ -1039,14 +944,3 @@ gl:
   errors:
     messages:
       invalid_json: JSON non válido
-  layouts:
-    decidim:
-      admin:
-        global_moderations:
-          title: Moderacións globais
-        newsletters:
-          title: Boletíns informativos
-        settings:
-          title: Configuración
-        users:
-          title: Usuarios

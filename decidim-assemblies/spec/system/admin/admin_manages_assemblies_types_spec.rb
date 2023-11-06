@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Admin manages assemblies", type: :system do
   include Decidim::SanitizeHelper
 
-  let(:admin) { create :user, :admin, :confirmed }
+  let(:admin) { create(:user, :admin, :confirmed) }
   let(:organization) { admin.organization }
 
   describe "Managing assemblies types" do
@@ -16,13 +16,19 @@ describe "Admin manages assemblies", type: :system do
     end
 
     it "can create new assemblies types" do
-      click_link "New assembly type"
+      within "[data-content]" do
+        click_link "New assembly type"
 
-      within ".new_assembly_type" do
-        fill_in_i18n :assemblies_type_title, "#assemblies_type-title-tabs", en: "My assembly type",
-                                                                            es: "Mi assembly type",
-                                                                            ca: "La meva assembly type"
-        find("*[type=submit]").click
+        within ".new_assembly_type" do
+          fill_in_i18n(
+            :assemblies_type_title,
+            "#assemblies_type-title-tabs",
+            en: "My assembly type",
+            es: "Mi assembly type",
+            ca: "La meva assembly type"
+          )
+          find("*[type=submit]").click
+        end
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -69,8 +75,8 @@ describe "Admin manages assemblies", type: :system do
 
         expect(page).to have_admin_callout("successfully")
 
-        within ".card-section" do
-          expect(page).to have_no_content(translated(assembly_type.title))
+        within "#assembly-types" do
+          expect(page).not_to have_content(translated(assembly_type.title))
         end
       end
     end

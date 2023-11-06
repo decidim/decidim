@@ -5,8 +5,8 @@ require "spec_helper"
 describe Decidim::Initiatives::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { create :user, organization: }
-  let(:organization) { create :organization }
+  let(:user) { create(:user, organization:) }
+  let(:organization) { create(:organization) }
   let(:initiative) { create(:initiative, organization:) }
   let(:context) { {} }
   let(:permission_action) { Decidim::PermissionAction.new(**action) }
@@ -31,7 +31,7 @@ describe Decidim::Initiatives::Permissions do
     end
 
     context "when user belongs to another organization" do
-      let(:user) { create :user }
+      let(:user) { create(:user) }
 
       it { is_expected.to be false }
     end
@@ -46,7 +46,7 @@ describe Decidim::Initiatives::Permissions do
 
     context "when user has verified user groups" do
       before do
-        create :user_group, :verified, users: [user], organization: user.organization
+        create(:user_group, :verified, users: [user], organization: user.organization)
       end
 
       it { is_expected.to be true }
@@ -125,7 +125,7 @@ describe Decidim::Initiatives::Permissions do
     end
 
     context "when user is admin" do
-      let(:user) { create :user, :admin, organization: }
+      let(:user) { create(:user, :admin, organization:) }
 
       it { is_expected.to be true }
     end
@@ -226,7 +226,7 @@ describe Decidim::Initiatives::Permissions do
 
       context "when user is authorized" do
         before do
-          create :authorization, :granted, user:
+          create(:authorization, :granted, user:)
         end
 
         it { is_expected.to be true }
@@ -234,7 +234,7 @@ describe Decidim::Initiatives::Permissions do
 
       context "when user belongs to a verified user group" do
         before do
-          create :user_group, :verified, users: [user], organization: user.organization
+          create(:user_group, :verified, users: [user], organization: user.organization)
         end
 
         it { is_expected.to be true }
@@ -315,7 +315,7 @@ describe Decidim::Initiatives::Permissions do
       end
 
       context "when user is admin" do
-        let(:user) { create :user, :admin, organization: }
+        let(:user) { create(:user, :admin, organization:) }
         let(:initiative) { create(:initiative, :created, author: user, organization:) }
 
         it { is_expected.to be true }
@@ -354,7 +354,7 @@ describe Decidim::Initiatives::Permissions do
       end
 
       context "when user is admin" do
-        let(:user) { create :user, :admin, organization: }
+        let(:user) { create(:user, :admin, organization:) }
         let(:initiative) { create(:initiative, :created, author: user, organization:) }
 
         it { is_expected.to be true }
@@ -401,7 +401,7 @@ describe Decidim::Initiatives::Permissions do
 
         context "when user is authorized" do
           before do
-            create :authorization, :granted, user:
+            create(:authorization, :granted, user:)
           end
 
           it { is_expected.to be true }
@@ -409,7 +409,7 @@ describe Decidim::Initiatives::Permissions do
 
         context "when user belongs to a verified user group" do
           before do
-            create :user_group, :verified, users: [user], organization: user.organization
+            create(:user_group, :verified, users: [user], organization: user.organization)
           end
 
           it { is_expected.to be true }
@@ -444,7 +444,7 @@ describe Decidim::Initiatives::Permissions do
       end
     end
 
-    context "when initiative signature doesn't have steps" do
+    context "when initiative signature does not have steps" do
       let(:organization) { create(:organization, available_authorizations: authorizations) }
       let(:authorizations) { %w(dummy_authorization_handler another_dummy_authorization_handler) }
       let(:initiative) { create(:initiative, organization:) }
@@ -462,7 +462,7 @@ describe Decidim::Initiatives::Permissions do
 
       context "when user has verified user groups" do
         before do
-          create :user_group, :verified, users: [user], organization: user.organization
+          create(:user_group, :verified, users: [user], organization: user.organization)
         end
 
         it { is_expected.to be false }
@@ -523,7 +523,7 @@ describe Decidim::Initiatives::Permissions do
     end
 
     context "when user belongs to another organization" do
-      let(:user) { create :user }
+      let(:user) { create(:user) }
 
       it { is_expected.to be false }
     end
@@ -534,7 +534,7 @@ describe Decidim::Initiatives::Permissions do
 
     context "when user has verified user groups" do
       before do
-        create :user_group, :verified, users: [user], organization: user.organization
+        create(:user_group, :verified, users: [user], organization: user.organization)
         create(:initiative_user_vote, initiative:, author: user)
       end
 

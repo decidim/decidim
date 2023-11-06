@@ -23,7 +23,7 @@ module Decidim
       # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid.
-      # - :invalid if the form wasn't valid and we couldn't proceed.
+      # - :invalid if the form was not valid and we could not proceed.
       #
       # Returns nothing.
       def call
@@ -32,6 +32,11 @@ module Decidim
         if process_attachments?
           build_attachments
           return broadcast(:invalid) if attachments_invalid?
+        end
+
+        if process_gallery?
+          build_gallery
+          return broadcast(:invalid) if gallery_invalid?
         end
 
         @initiative = Decidim.traceability.update!(
@@ -43,6 +48,7 @@ module Decidim
         photo_cleanup!
         document_cleanup!
         create_attachments if process_attachments?
+        create_gallery if process_gallery?
 
         broadcast(:ok, initiative)
       rescue ActiveRecord::RecordInvalid
@@ -57,7 +63,8 @@ module Decidim
         attrs = {
           title: { current_locale => form.title },
           description: { current_locale => form.description },
-          hashtag: form.hashtag
+          hashtag: form.hashtag,
+          decidim_user_group_id: form.decidim_user_group_id
         }
 
         if form.signature_type_updatable?

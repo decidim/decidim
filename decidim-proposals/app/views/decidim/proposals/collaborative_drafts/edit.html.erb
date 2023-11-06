@@ -1,33 +1,31 @@
 <% add_decidim_page_title(proposal_wizard_step_title(action_name)) %>
 
-<div class="row columns">
-  <div class="m-bottom">
-    <%= link_to :back, class: "muted-link" do %>
-      <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
-      <%= t(".back") %>
-    <% end %>
+<%= append_stylesheet_pack_tag "decidim_proposals", media: "all" %>
+<%= append_javascript_pack_tag "decidim_proposals" %>
+
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
+  <div class="flex justify-center">
+    <h1 class="title-decorator my-12">
+      <%= t("title", scope: "decidim.proposals.collaborative_drafts.edit") %>
+    </h1>
   </div>
-  <h2 class="section-heading"><%= t(".title") %></h2>
-</div>
 
-<div class="row">
-  <div class="columns large-6 medium-centered">
-    <div class="card">
-      <%= cell("decidim/announcement", component_settings.new_proposal_help_text) %>
+  <% if translated_attribute(component_settings.new_proposal_help_text).present? %>
+    <%= cell("decidim/announcement", component_settings.new_proposal_help_text) %>
+  <% end %>
 
-      <div class="card__content">
-        <%= decidim_form_for(@form) do |form| %>
-          <%= render partial: "edit_form_fields", locals: { form: form } %>
-
-          <div class="actions">
-            <%= form.submit t(".send"), class: "button expanded", data: { disable: true } %>
-          </div>
-        <% end %>
-      </div>
+  <%= decidim_form_for(@form) do |form| %>
+    <div class="form__wrapper">
+      <%= render partial: "edit_form_fields", locals: { form: } %>
     </div>
-  </div>
-</div>
 
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_proposals" %>
+    <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+      <%= link_to :back, class: "button button__sm md:button__lg button__text-secondary" do %>
+        <%= icon "arrow-left-line" %>
+        <span><%= t("back", scope: "decidim.proposals.collaborative_drafts.edit") %></span>
+      <% end %>
+
+      <%= form.submit t("send", scope: "decidim.proposals.collaborative_drafts.edit"), class: "button button__sm md:button__lg button__secondary", data: { disable: true } %>
+    </div>
+  <% end %>
 <% end %>

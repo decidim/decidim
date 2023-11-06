@@ -3,17 +3,22 @@ el:
     attributes:
       debate:
         category_id: Κατηγορία
+        closed_at: Έκλεισε στις
+        conclusions: Συμπεράσματα
         decidim_category_id: Κατηγορία
         description: Περιγραφή
         end_time: Λήγει στις
         information_updates: Ενημερώσεις πληροφοριών
         instructions: Οδηγίες συμμετοχής
+        scope_id: Πεδίο εφαρμογής
         start_time: Ξεκινά στις
         title: Τίτλος
         user_group_id: Δημιουργία συζήτησης ως
     models:
+      decidim/debates/close_debate_event: Η συζήτηση έκλεισε
       decidim/debates/create_debate_event: Συζήτηση
       decidim/debates/creation_disabled_event: Οι συζητήσεις απενεργοποιήθηκαν
+      decidim/debates/creation_enabled_event: Η δημιουργία συζήτησης ενεργοποιήθηκε
   activerecord:
     models:
       decidim/debates/debate:
@@ -23,23 +28,35 @@ el:
     components:
       debates:
         actions:
+          comment: Σχόλιο
           create: Δημιουργία
+          endorse: Επιδοκιμασία
         name: Συζητήσεις
         settings:
           global:
             announcement: Ανακοίνωση
             comments_enabled: Τα σχόλια ενεργοποιήθηκαν
+            comments_max_length: Μέγιστο μέγεθος σχολίων (Αφήστε το 0 για την προκαθορισμένη τιμή)
+            scope_id: Πεδίο εφαρμογής
+            scopes_enabled: Τα πεδία εφαρμογής ενεργοποιήθηκαν
           step:
             announcement: Ανακοίνωση
             comments_blocked: Τα σχόλια αποκλείστηκαν
+            creation_enabled: Οι συμμετέχοντες μπορούν να δημιουργήσουν συζητήσεις
+            endorsements_blocked: Επιδοκιμασίες αποκλεισμένες
+            endorsements_enabled: Επιδοκιμασίες ενεργοποιημένες
     debates:
       actions:
+        close: Κλείσιμο
         confirm_destroy: Είστε βέβαιοι;
         destroy: Διαγραφή
         edit: Επεξεργασία
-        new: Νέο όνομα %{name}
         title: Ενέργειες
       admin:
+        debate_closes:
+          edit:
+            close: Κλείσιμο
+            title: Κλείσιμο συζήτησης
         debates:
           create:
             invalid: Υπήρξε ένα πρόβλημα κατά τη δημιουργία της συζήτησης.
@@ -49,6 +66,10 @@ el:
           edit:
             title: Επεξεργασία συζήτησης
             update: Ενημέρωση συζήτησης
+          form:
+            debate_type: Τύπος συζήτησης
+            finite: Πεπερασμένο (Με ώρες έναρξης και λήξης)
+            open: Ανοιχτό (Χωρίς χρόνο έναρξης ή λήξης)
           index:
             title: Συζητήσεις
           new:
@@ -57,14 +78,23 @@ el:
           update:
             invalid: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτής της συζήτησης.
             success: Η συζήτηση ενημερώθηκε με επιτυχία.
-        models:
-          debate:
-            name: Συζήτηση
+        exports:
+          comments: Σχόλια
       admin_log:
         debate:
+          close: "Ο/Η %{user_name} έκλεισε τον διάλογο %{resource_name} στον χώρο %{space_name}"
           create: "Ο χρήστης %{user_name} δημιούργησε τη συζήτηση %{resource_name} στον χώρο %{space_name}"
           update: "Ο χρήστης %{user_name} ενημέρωσε τη συζήτηση %{resource_name} στον χώρο %{space_name}"
+      debate_m:
+        commented_time_ago: Σχολιάστηκε πριν από %{time}
       debates:
+        close:
+          invalid: Υπήρξε ένα πρόβλημα κατά το κλείσιμο της συζήτησης.
+          success: Η συζήτηση έκλεισε επιτυχώς.
+        close_debate_modal:
+          description: Ποια είναι η περίληψη ή το συμπέρασμα αυτής της συζήτησης;
+          send: Κλείσιμο συζήτησης
+        closed: Κλειστό
         count:
           debates_count:
             one: "%{count} συζήτηση"
@@ -74,18 +104,25 @@ el:
           success: Η συζήτηση δημιουργήθηκε με επιτυχία.
         debate:
           participate: Συμμετοχή
+        edit:
+          back: Πίσω
+          save: Αποθήκευση αλλαγών
+          title: Επεξεργασία συζήτησης
         filters:
+          activity: Η δραστηριότητά μου
           all: Όλα
           category: Κατηγορία
           category_prompt: Επιλέξτε μια κατηγορία
+          commented: Σχολιάστηκε
+          my_debates: Οι συζητήσεις μου
           official: Επίσημη
           origin: Προέλευση
+          participants: Συμμετέχοντες
           search: Αναζήτηση
-        filters_small_view:
-          close_modal: Κλείσιμο βοηθητικού στοιχείου
-          filter: Φίλτρο
-          filter_by: Φιλτράρισμα κατά
-          unfold: Αποκάλυψη
+          state: Κατάσταση
+          state_values:
+            closed: Κλειστό
+            open: Άνοιγμα
         form:
           select_a_category: Please select a category
         index:
@@ -94,11 +131,28 @@ el:
           back: Πίσω
           create: Δημιουργία
           title: Νέα συζήτηση
+        orders:
+          commented: Πιο σχολιασμένα
+          label: Ταξινόμηση συζητήσεων κατά
+          random: Τυχαία σειρά
+          recent: Πιο πρόσφατες
+          updated: Πρόσφατα ενημερωμένες
         show:
-          back: Επιστροφή στη λίστα
+          close_debate: Κλείσιμο συζήτησης
           date: Ημερομηνία
+          debate_closed: Κλειστό
+          debate_conclusions_are: 'Η συζήτηση έκλεισε στις %{date} με αυτά τα συμπεράσματα:'
+          edit_conclusions: Επεξεργασία συμπερασμάτων
+          edit_debate: Επεξεργασία συζήτησης
+          groups_count: Ομάδες
+          open: Άνοιγμα συζήτησης
+          participants_count: Συμμετέχοντες
+        update:
+          invalid: Υπήρξε ένα πρόβλημα κατά την ενημέρωση της συζήτησης.
+          success: Η συζήτηση ενημερώθηκε επιτυχώς.
       last_activity:
-        new_debate_at_html: "<span>Νέα συζήτηση στο %{link}</span>"
+        debate_updated: 'Ενημέρωση συζήτησης:'
+        new_debate: 'Νέα συζήτηση:'
       models:
         debate:
           fields:
@@ -132,7 +186,18 @@ el:
           email_intro: 'Τώρα μπορείτε να ξεκινήσετε νέες συζητήσεις στον χώρο συμμετοχής %{participatory_space_title}! Ξεκινήστε να συμμετέχετε σε αυτήν τη σελίδα:'
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής %{participatory_space_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
           email_subject: Οι συζητήσεις είναι πλέον διαθέσιμες στον χώρο συμμετοχής %{participatory_space_title}
-          notification_title: Μπορείτε τώρα να ξεκινήσετε <a href="%{resource_path}">νέες συζητήσεις</a> στον χώρο συμμετοχής <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Μπορείτε τώρα να ξεκινήσετε <a href="%{resource_path}">νέες συζητήσεις</a> στον χώρο συμμετοχής <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
+        debate_closed:
+          affected_user:
+            email_intro: 'Η συζήτηση "%{resource_title}" έκλεισε. Μπορείτε να διαβάσετε τα συμπεράσματα από την σελίδα:'
+            email_outro: Λάβατε αυτήν την ειδοποίηση, επειδή ακολουθείτε τη συζήτηση "%{resource_title}". Μπορείτε να σταματήσετε να την ακολουθείτε από τον προηγούμενο σύνδεσμο.
+            email_subject: Η συζήτηση "%{resource_title}" έκλεισε
+            notification_title: Η συζήτηση <a href="%{resource_path}">%{resource_title}</a> έκλεισε.
+          follower:
+            email_intro: 'Η συζήτηση "%{resource_title}" έκλεισε. Μπορείτε να διαβάσετε τα συμπεράσματα από την σελίδα:'
+            email_outro: Λάβατε αυτήν την ειδοποίηση, επειδή ακολουθείτε τη συζήτηση "%{resource_title}". Μπορείτε να σταματήσετε να την ακολουθείτε από τον προηγούμενο σύνδεσμο.
+            email_subject: Η συζήτηση "%{resource_title}" έκλεισε
+            notification_title: Η συζήτηση <a href="%{resource_path}">%{resource_title}</a> έκλεισε.
     gamification:
       badges:
         commented_debates:
@@ -150,3 +215,5 @@ el:
         description: Αριθμός συζητήσεων που δημιουργήθηκαν
         object: συζητήσεις
         title: Συζητήσεις
+    statistics:
+      debates_count: Συζητήσεις

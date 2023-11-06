@@ -5,7 +5,6 @@ ro:
         assemblies_ids: Grupuri de lucru asociate
         available_slots: Locuri disponibile
         banner_image: Imagine pentru banner
-        consultations_ids: Consultări asociate
         copy_categories: Copiază categoriile
         copy_components: Copiază componentele
         copy_features: Copiază funcționalitățile
@@ -28,22 +27,23 @@ ro:
         show_statistics: Arată statistici
         sign_date: Data semnării
         signature: Semnătură
-        signature_name: numele semnăturii
+        signature_name: Nume semnătură
         slogan: Slogan
         slug: URL slug
         start_date: Data de început
         title: Titlu
+        weight: Poziție
       conference_media_link:
         date: Dată
         link: Link
         title: Titlu
-        weight: Ordinea în poziționare
+        weight: Poziție
       conference_partner:
         link: Link
         logo: Logo
         name: Nume
         partner_type: Tipul partenerului
-        weight: Ordinea în poziționare
+        weight: Poziție
       conference_registration_invite:
         email: E-mail
         name: Nume
@@ -53,14 +53,15 @@ ro:
         description: Descriere
         price: Preț
         title: Titlu
-        weight: Ordinea în poziționare
+        weight: Poziție
       conference_speaker:
         affiliation: Afiliere
         avatar: Avatar
         conference_meeting_ids: Întâlniri asociate
         full_name: Numele complet
+        personal_url: URL personal
         position: Poziție
-        twitter_handle: Responsabil Twitter
+        short_bio: Biografie scurtă
         user_id: Utilizator
       conference_user_role:
         email: E-mail
@@ -71,7 +72,7 @@ ro:
         conference_registration_invite:
           attributes:
             email:
-              already_invited: Acest e-mail a fost deja invitat
+              already_invited: Această adresă a fost deja invitată.
   activerecord:
     models:
       decidim/conference:
@@ -90,7 +91,6 @@ ro:
     admin:
       actions:
         confirm: Confirmare
-        new_conference: Conferință nouă
         send_diplomas: Trimite certificate de prezență
       conference_copies:
         new:
@@ -135,7 +135,7 @@ ro:
           title: Actualizează administratorul conferinţei.
           update: Actualizare
         index:
-          conference_admins_title: administratori ai conferinței
+          conference_admins_title: Administratori ai conferinţei
         new:
           create: Creează
           title: Admin de conferință nouă.
@@ -153,7 +153,6 @@ ro:
         form:
           title: Informaţii generale
         index:
-          not_published: Nu este publicat
           published: Publicat
         new:
           create: Creează
@@ -194,7 +193,6 @@ ro:
           conference_invites: Invitații
           conference_speakers: Vorbitori
           diploma: Certificat de participare
-          info: Info
           media_links: Link-uri media
           moderations: Moderatii
           partners: Parteneri
@@ -205,7 +203,6 @@ ro:
         conference:
           fields:
             created_at: Creat la
-            promoted: Evident
             published: Publicat
             title: Titlu
         conference_speaker:
@@ -247,7 +244,7 @@ ro:
             price: Preț
             registrations_count: Numărul de înregistrări
             title: Titlu
-            weight: Ordinea în poziționare
+            weight: Poziție
           name: Tip de înregistrare
       partners:
         create:
@@ -313,6 +310,7 @@ ro:
           update: "%{user_name} a actualizat vorbitorul %{resource_name} în conferința %{space_name}"
         registration_type:
           create: "%{user_name} a creat tipul de înregistrare %{resource_name} în conferința %{space_name}"
+          delete: "%{user_name} a eliminat tipul de înregistrare %{resource_name} din conferința %{space_name}"
           publish: "%{user_name} a publicat tipul de înregistrare %{resource_name} în conferința %{space_name}"
           unpublish: "%{user_name} nu a publicat tipul de înregistrare %{resource_name} în conferința %{space_name}"
           update: "%{user_name} a actualizat tipul de înregistrare %{resource_name} în conferința %{space_name}"
@@ -328,9 +326,6 @@ ro:
         title: Vorbitori
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică această conferință. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
         conference_invites:
           create:
             error: A apărut o problemă la invitarea participantului să participe la conferinţă.
@@ -347,7 +342,6 @@ ro:
               all: Toate
               rejected: Respins
               sent: Trimis
-            filter_by: Filtrare după
             invite_attendee: Invite participant
             invites: Invitații
             search: Caută
@@ -373,7 +367,6 @@ ro:
               one: A existat o înregistrare.
               few: Au fost %{count} înregistrări.
               other: Au fost %{count} înregistrări.
-            slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică această conferință. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
         diplomas:
           edit:
             save: Salvează
@@ -381,7 +374,8 @@ ro:
         invite_join_conference_mailer:
           invite:
             decline: Refuzați invitația '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} te-a invitat să participi la o conferință la %{application}. Puteți să o refuzați sau să o acceptați prin intermediul linkurilor de mai jos."
+            invited_existing_user_to_join_a_conference: "%{invited_by} te-a invitat să participi la o conferință la %{application}. Puteți să o refuzați sau să o acceptați prin intermediul linkurilor de mai jos."
+            invited_user_to_join_a_conference: "%{invited_by} te-a invitat să te alături unei conferințe la %{application}. Poți să o accepți prin link-ul de mai jos."
             registration: Înregistrare pentru '%{conference_title}'
         partners:
           index:
@@ -406,18 +400,11 @@ ro:
           cancel: Anulează
           confirm: Confirmare
         show:
-          free: Gratuit
           going: Participare
           no_slots_available: Niciun slot disponibil
           registration: Înregistrare
       conference_program:
-        program_meeting:
-          content: Conținut
-          location: Locaţie
-          speakers: Vorbitori
-          streaming: Streaming
         show:
-          day: Zi
           program: Program
       conference_registration_mailer:
         confirmation:
@@ -439,7 +426,6 @@ ro:
           invalid: A apărut o problemă la ieşirea din această conferinţă.
           success: Aţi părăsit cu succes conferinţa.
       conference_speaker:
-        go_to_twitter: Mergi la Twitter
         more_info: mai multe informații
         personal_website: Website personal
         show:
@@ -448,18 +434,19 @@ ro:
       conference_speaker_cell:
         personal_url:
           personal_website: Website personal
-        twitter_handle:
-          go_to_twitter: Mergi la Twitter
       conference_speakers:
         index:
-          speakers: Vorbitori
+          speakers:
+            one: Vorbitor
+            few: Vorbitori
+            other: Vorbitori
       conferences:
         partners:
           collaborators: Parteneri
           main_promotors: Organizatori
         show:
           login_as: Ești contectat ca %{name} <%{email}>
-          make_conference_registration: 'Înregistrați-vă la conferință:'
+          make_conference_registration: Înregistrați-vă la conferință
           register: Inregistrare
       content_blocks:
         highlighted_conferences:
@@ -469,9 +456,9 @@ ro:
       mailer:
         conference_registration_mailer:
           confirmation:
-            subject: Înregistrarea conferinței dvs. a fost confirmată
+            subject: Înregistrarea la conferință a fost confirmată.
           pending_validation:
-            subject: Înregistrarea conferinței dvs. este în curs de confirmare
+            subject: Înregistrarea la conferință este în curs de confirmare.
         invite_join_conference_mailer:
           invite:
             subject: Invitație de a participa la o conferință
@@ -502,38 +489,18 @@ ro:
       pages:
         home:
           highlighted_conferences:
-            active_conferences: Conferințe active
-            conferences_button_title: Link către pagina de conferințe care afișează toate conferințele
-            see_all_conferences: Vezi toate conferințele
-      photo:
-        image:
-          attributes:
-            alt: Poză media
-        show:
-          close_modal: Închide fereastra
-          photo: Imagine
-      photos_list:
-        show:
-          related_photos: Imagini
+            active_spaces: Conferințe active
       registration_types:
         index:
           choose_an_option: 'Alegeți opțiunea de înregistrare:'
-          login_as: Ești contectat ca %{name} <%{email}>
           no_registrations: Fără înregistrări
           register: Inregistrare
           title: Tipuri de înregistrare
-      shared:
-        conference_user_login:
-          already_account: Ai deja un cont în decidim?
-          new_user: Utilizator nou?
-          sign_in: Conectează-te pentru a te înregistra la conferință
-          sign_up: Creează un cont în platforma Decidem pentru a vă înregistra la conferință
       show:
         details: Detalii
         introduction: Introducere
         objectives: Obiective
         related_assemblies: Grupuri de lucru asociate
-        related_consultations: Consultări asociate
         related_participatory_processes: Procese participative asociate
     events:
       conferences:
@@ -575,7 +542,7 @@ ro:
     log:
       value_types:
         conference_presenter:
-          not_found: 'Conferința nu a fost găsită în baza de date (ID: %{id})'
+          not_found: 'Conferința nu a fost găsită în baza de date (ID: %{id}).'
     media:
       index:
         description: Legături despre această conferință
@@ -592,9 +559,6 @@ ro:
     decidim:
       conference_hero:
         register: Inregistrare
-      conference_widgets:
-        show:
-          take_part: Participă
       conferences:
         conference:
           more_info: Mai multe informații
@@ -606,11 +570,7 @@ ro:
             one: "%{count} conferință"
             few: "%{count} conferințe"
             other: "%{count} conferințe"
-        promoted_conference:
-          more_info: Mai multe informații
-          take_part: Participă
       conferences_nav:
-        conference_menu_item: Informare
         conference_partners_menu_item: Parteneri
         conference_speaker_menu_item: Vorbitori
         media: Media

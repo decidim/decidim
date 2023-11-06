@@ -31,7 +31,6 @@ lv:
         confirm_destroy: Vai esat pārliecināts?
         destroy: Dzēst
         edit: Labot
-        new: Jauns %{name}
         title: Darbības
       admin:
         debates:
@@ -49,9 +48,6 @@ lv:
           update:
             invalid: Šo debašu atjaunināšanas laikā radās problēma.
             success: Debates ir veiksmīgi atjauninātas
-        models:
-          debate:
-            name: Debates
       admin_log:
         debate:
           create: "%{user_name} izveidoja %{resource_name} debates telpā %{space_name}"
@@ -69,21 +65,12 @@ lv:
           official: Oficiālā
           origin: Izcelsme
           search: Meklēt
-        filters_small_view:
-          close_modal: Aizvērt modal
-          filter: Filtrēt
-          filter_by: Filtrēt pēc
-          unfold: Atritināt
         index:
           new_debate: Jaunas debates
         new:
           back: Atpakaļ
           create: Izveidot
           title: Jaunas debates
-        show:
-          back: Atpakaļ uz sarakstu
-      last_activity:
-        new_debate_at_html: "<span>Jaunas debates %{link}</span>"
       models:
         debate:
           fields:
@@ -115,7 +102,6 @@ lv:
           email_intro: 'Tagad jūs varat sākt jaunas debates telpā %{participatory_space_title}! Sāciet piedalīties šajā lapā:'
           email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{participatory_space_title}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
           email_subject: Debates tagad ir pieejamas telpā %{participatory_space_title}
-          notification_title: Tagad jūs varat sākt <a href="%{resource_path}"> jaunas debates </a> sadaļā <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         commented_debates:
@@ -126,7 +112,6 @@ lv:
           description_own: Jūs esat piedalījies %{score} debatēs.
           next_level_in: Piedalieties %{score} debatēs vēlreiz, lai sasniegtu nākamo līmeni!
           unearned_another: Šis dalībnieks vēl nav piedalījies nevienās debatēs.
-          unearned_own: Jūs vēl neesat piedalījies nevienās debatēs.
     metrics:
       debates:
         description: Izveidoto debašu skaits

@@ -1,26 +1,30 @@
 <% add_decidim_page_title(t("decidim.proposals.collaborative_drafts.wizard_header.title")) %>
 
-<div class="row">
-  <%= render partial: "wizard_aside" %>
+<%= append_stylesheet_pack_tag "decidim_proposals", media: "all" %>
+<%= append_javascript_pack_tag "decidim_proposals" %>
 
-  <div class="columns large-6">
-    <%= render partial: "wizard_header" %>
-
-    <div class="card">
-      <div class="card__content">
-        <%= decidim_form_for(@form) do |form| %>
-          <%= render partial: "edit_form_fields", locals: { form: form } %>
-
-          <div class="actions">
-            <%= form.submit t(".send"), class: "button expanded mt-s mb-none", data: { disable: true } %>
-          </div>
-        <% end %>
-      </div>
-    </div>
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
+  <div class="flex justify-center">
+    <h1 class="title-decorator my-12">
+      <%= t("title", scope: "decidim.proposals.collaborative_drafts.wizard_header") %>
+    </h1>
   </div>
-  <div class="columns large-3"></div>
-</div>
 
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_proposals" %>
+  <% if translated_attribute(component_settings.new_proposal_help_text).present? %>
+    <%= cell("decidim/announcement", component_settings.new_proposal_help_text) %>
+  <% end %>
+
+  <%= decidim_form_for(@form) do |form| %>
+    <div class="form__wrapper">
+      <%= render partial: "edit_form_fields", locals: { form: } %>
+    </div>
+
+    <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+      <%= link_to collaborative_drafts_path, class: "button button__sm md:button__lg button__text-secondary" do %>
+        <%= icon "arrow-left-line" %>
+        <span><%= t("back_from_collaborative_draft", scope: "decidim.proposals.collaborative_drafts.wizard_aside").html_safe %></span>
+      <% end %>
+      <%= form.submit t("send", scope: "decidim.proposals.collaborative_drafts.new"), class: "button button__sm md:button__lg button__secondary", data: { disable: true } %>
+    </div>
+  <% end %>
 <% end %>

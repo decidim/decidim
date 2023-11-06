@@ -33,7 +33,7 @@ sk:
         name: Meno
         organization_logo: Logo organizácie (štvorec)
         organization_name: Názov organizácie
-        organization_url: Odkaz na stránku organizácie 
+        organization_url: Odkaz na stránku organizácie
         redirect_uri: Presmerovať URI
       organization:
         address: SMTP hostname
@@ -133,7 +133,7 @@ sk:
         client_id: ID klienta
         client_secret: Tajný kľúč klienta
         organization_name: Názov organizácie
-        organization_url: Odkaz na stránku organizácie 
+        organization_url: Odkaz na stránku organizácie
         redirect_uri: Presmerovanie URI
         site: Webstránka
   decidim:
@@ -609,15 +609,12 @@ sk:
           header_snippets_help: Použite pole pre pridanie vecí do HTML hlavičky. Najbežnejšie využitie je integrácia služieb tretích strán, JavaScriptu a CSS. Tiež môžete pridať ďalšie meta tagy. Tieto veci sa zobrazia iba na verejných stránkach, nie administrátorskej.
           homepage_appearance_title: Upraviť vzhľad úvodnej obrazovky
           homepage_highlighted_content_banner_title: Banner so zdôrazneným obsahom
-          layout_appearance_title: Upraviť vzhľad 
+          layout_appearance_title: Upraviť vzhľad
           omnipresent_banner_appearance_title: Upraviť všadeprítomný banner
       organization_homepage:
         edit:
           active_content_blocks: Bloky aktívneho obsahu
           inactive_content_blocks: Bloky neaktívneho obsahu
-      organization_homepage_content_blocks:
-        edit:
-          update: Aktualizovať
       participatory_space_private_users:
         create:
           error: Pri pridávaní súkromného používateľa pre tento participačný priestor došlo k chybe.

@@ -18,13 +18,15 @@ module Decidim
       # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid.
-      # - :invalid if the form wasn't valid and we couldn't proceed.
+      # - :invalid if the form was not valid and we could not proceed.
       #
       # Returns nothing.
       def call
         return broadcast(:invalid) if form.invalid? || !comment.authored_by?(current_user)
 
-        update_comment
+        with_events do
+          update_comment
+        end
 
         broadcast(:ok)
       end
@@ -32,6 +34,16 @@ module Decidim
       private
 
       attr_reader :form, :comment, :current_user
+
+      def event_arguments
+        {
+          resource: comment,
+          extra: {
+            event_author: form.current_user,
+            locale:
+          }
+        }
+      end
 
       def update_comment
         parsed = Decidim::ContentProcessor.parse(form.body, current_organization: form.current_organization)

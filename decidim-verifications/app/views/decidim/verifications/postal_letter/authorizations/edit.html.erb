@@ -1,39 +1,37 @@
-<div class="wrapper">
-  <div class="row collapse">
-    <% if authorization.letter_sent? %>
-      <div class="row collapse">
-        <div class="columns large-8 large-centered text-center page-title">
-          <h1><%= t(".title") %></h1>
-        </div>
-      </div>
+<div class="text-center py-10">
+  <h1 class="title-decorator inline-block text-left">
+    <%= t("decidim.verifications.postal_letter.authorizations.edit.title") %>
+  </h1>
+</div>
 
-      <div class="row">
-        <div class="columns large-6 medium-centered">
-          <div class="card">
-            <div class="card__content">
-              <%= decidim_form_for(@form, url: authorization_path, method: :put) do |form| %>
-                <%= form_required_explanation %>
+<% if authorization.letter_sent? %>
+  <%= decidim_form_for(@form, url: authorization_path, method: :put) do |form| %>
+    <%= form_required_explanation %>
 
-                <div class="field">
-                  <%= form.text_field :verification_code %>
-                </div>
+    <div class="form__wrapper">
+      <%= form.text_field :verification_code, placeholder: "XXXXXX" %>
+    </div>
 
-                <div class="actions">
-                  <%= form.submit t(".send"), class: "button expanded", "data-disable-with" => "#{t('.send')}..." %>
-                </div>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% else %>
-      <div class="row">
-        <div class="callout announcement secondary">
-          <div class="row column">
-            <h3><%= t(".waiting_for_letter") %></h3>
-          </div>
-        </div>
-      </div>
+    <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+      <%= link_to decidim_verifications.authorizations_path, class: "button button__sm md:button__lg button__text-secondary" do %>
+        <%= icon "arrow-left-line", class: "fill-current" %>
+        <span><%= t("decidim.wizard_step_form.wizard_aside.back") %></span>
+      <% end %>
+      <button type="submit" class="button button__sm md:button__lg button__secondary">
+        <span><%= t("decidim.verifications.postal_letter.authorizations.edit.send") %></span>
+        <%= icon "arrow-right-line", class: "fill-current" %>
+      </button>
+    </div>
+  <% end %>
+<% else %>
+  <div class="my-10">
+    <%= cell("decidim/announcement", t("decidim.verifications.postal_letter.authorizations.edit.waiting_for_letter")) %>
+  </div>
+
+  <div class="form__wrapper-block">
+    <%= link_to decidim_verifications.authorizations_path, class: "button button__sm md:button__lg button__text-secondary mr-auto" do %>
+      <%= icon "arrow-left-line", class: "fill-current" %>
+      <%= t("decidim.wizard_step_form.wizard_aside.back") %>
     <% end %>
   </div>
-</div>
+<% end %>

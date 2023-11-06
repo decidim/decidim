@@ -35,10 +35,9 @@ cs:
         update:
           error: Při aktualizaci komentáře došlo k chybě.
       comments_count: Počet komentářů
-      comments_title: Komentáře
+      comments_title: Komentář
       last_activity:
-        new_comment_at_html: "<span>Nový komentář v %{link}</span>"
-      view: Zobrazit
+        new_comment: 'Nový komentář:'
       votes:
         create:
           error: Při hlasování o komentáři došlo k chybě.
@@ -49,8 +48,9 @@ cs:
           body:
             label: Komentář
             placeholder: Co si o tom myslíš?
-          form_error: Text je povinný a nesmí být delší než %{length} znaků.
-          submit: Odeslat
+          form_error: Text je povinný a nemůže být delší než %{length} znaků.
+          submit_reply: Publikovat odpověď
+          submit_root_comment: Publikovat komentář
           user_group_id:
             label: Komentovat jako
         opinion:
@@ -68,6 +68,7 @@ cs:
         alignment:
           against: Proti
           in_favor: Ve prospěch
+        cancel_reply: Zrušit odpověď
         confirm_destroy: Opravdu chcete odstranit tento komentář?
         delete: Smazat
         deleted_at: Komentář byl smazán dne %{date}
@@ -84,11 +85,15 @@ cs:
           description: Je tento obsah nevhodný?
           details: Další komentáře
           reasons:
-            does_not_belong: Obsahuje nezákonnou činnost, sebevražedné hrozby, osobní informace nebo něco jiného, o kterém si myslíte, že nepatří na %{organization_name}.
+            does_not_belong: Obsahuje nezákonnou činnost, hrozby sebevraždou, osobní informaci nebo cokoliv jiného, o čem si myslíte, že nepatří do %{organization_name}.
             offensive: Obsahuje rasismus, sexismus, podvody, osobní útoky, hrozby smrti, žádosti o sebevraždu nebo jakoukoli formu projevy nenávisti.
             spam: Obsahuje clickbait, reklamu, podvody nebo škodlivé skripty.
           title: Nahlásit nevhodný obsah
-        show_replies: Zobrazit %{replies_count} odpovědí
+        show_replies:
+          one: Zobrazit odpověď
+          few: Zobrazit %{count} odpovědi
+          many: Zobrazit %{count} odpovědí
+          other: Zobrazit %{count} odpovědí
         single_comment_link_title: Získat odkaz
       comment_order_selector:
         order:
@@ -97,8 +102,6 @@ cs:
           older: Starší
           recent: Nedávné
         title: 'Seřadit podle:'
-      comment_thread:
-        title: Konverzace s číslem %{authorName}
       comments:
         blocked_comments_for_unauthorized_user_warning: Musíte být ověřen, abyste mohli komentovat tuto chvíli, ale můžete si přečíst ty předchozí.
         blocked_comments_for_user_warning: Momentálně nemůžete komentovat, ale můžete si přečíst ty předchozí.
@@ -173,4 +176,4 @@ cs:
         title: Komentáře
   errors:
     messages:
-      cannot_have_comments: nemohou mít připomínky
+      cannot_have_comments: nelze komentovat

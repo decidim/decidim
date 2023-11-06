@@ -1,0 +1,10 @@
+<div class="participatory-space__metadata-grid">
+  <% social_handler_items.each do |item| %>
+    <div class="participatory-space__metadata-item">
+      <span class="flex items-center gap-1">
+        <%= icon item[:icon], class: "text-gray fill-current flex-none" if item[:icon].present? %>
+        <%= item[:value] %>
+      </span>
+    </div>
+  <% end %>
+</div>

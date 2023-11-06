@@ -37,15 +37,11 @@ sv:
         confirm_destroy: Vill du radera detta?
         destroy: Radera
         edit: Redigera
-        new: Ny
         save: Spara
         title: Åtgärder
       admins:
         create:
           error: Det gick inte att skapa en ny administratör.
-          success: Administratören har skapats
-        destroy:
-          success: Administratören har raderats
         edit:
           title: Redigera administratören
           update: Uppdatera
@@ -56,7 +52,6 @@ sv:
           title: Ny administratör
         update:
           error: Det gick inte att uppdatera administratören.
-          success: Administratören har uppdaterats
       dashboard:
         show:
           current_organizations: Nuvarande organisationer
@@ -74,7 +69,6 @@ sv:
           fields:
             created_at: Skapad
             email: E-post
-          name: Administratör
           validations:
             email_uniqueness: det finns redan en administratör med samma e-postadress
         oauth_application:
@@ -82,7 +76,6 @@ sv:
             created_at: Skapad den
             name: OAuth app namn
             organization_name: Organisation
-          name: OAuth app
         organization:
           actions:
             save_and_invite: Skapa organisation och bjud in administratör
@@ -92,7 +85,6 @@ sv:
             name: Namn
             omniauth_settings: Omniauth-inställningar
             smtp_settings: SMTP-inställningar
-          name: Organisation
       oauth_applications:
         create:
           error: Det gick inte att skapa appen.
@@ -133,8 +125,6 @@ sv:
         index:
           title: Organisationer
         new:
-          reference_prefix_hint: Referensprefixet används för att unikt identifiera resurser i alla organisationer
-          secondary_hosts_hint: Ange var och en av dem på en ny rad
           title: Ny organisation
         omniauth_settings:
           decidim:
@@ -157,8 +147,6 @@ sv:
         smtp_settings:
           fieldsets:
             sender: Avsändare
-          instructions:
-            from_label: 'E-postavsändare är: "your-organization-name <your-organization@your-provider.org>". Om du lämnar tomt kommer e-postadressen användas'
           placeholder:
             from_email: your-organization@example.org
             from_label: din-organisation-namn
@@ -168,7 +156,6 @@ sv:
         users_registration_mode:
           disabled: Åtkomst kan endast göras med externa konton
           enabled: Tillåt deltagare att registrera och logga in
-          existing: Tillåt inte deltagare att registrera sig, men tillåt inloggning från befintliga användare
       shared:
         notices:
           no_organization_warning_html: Kom igång genom att skapa en organisation. Läs %{guide} innan du fortsätter.

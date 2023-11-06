@@ -1,22 +1,19 @@
-<div class="user-activity">
-  <div class="columns tabs-panel is-active" id="conversation" role="tabpanel" aria-labelledby="conversation-label">
-    <div class="conversation">
+<div class="conversation">
+  <%= render :conversation_header %>
 
-      <%= render :conversation_header %>
+  <div id="messages" class="space-y-6" data-scroll-last-child>
+    <% user_grouped_messages.each do |sender, messages| %>
+      <%= render view: "messages", locals: { sender:, messages: } %>
+    <% end %>
+  </div>
 
-      <div id="messages" class="scroll-to-last-message">
-        <% user_grouped_messages.each do |sender, messages| %>
-            <%= render view: :messages, locals: { sender: sender, messages: messages } %>
-        <% end %>
-      </div>
-
-      <% if conversation.with_deleted_users?(user) %>
-        <div class="callout warning margin-top-2"><%= t "decidim.user_conversations.show.deleted_accounts" %></div>
-      <% elsif conversation.accept_user?(user) %>
-        <%= render view: :reply, locals: { title: t("decidim.user_conversations.reply.title_reply") } %>
-      <% else %>
-        <div class="callout warning margin-top-2"><%= t "decidim.user_conversations.show.not_allowed" %></div>
-      <% end %>
-    </div>
+  <div class="conversation__reply-container">
+    <% if conversation.with_deleted_users?(user) %>
+      <%= cell("decidim/announcement", t("decidim.messaging.conversations.show.deleted_accounts"), callout_class: "warning") %>
+    <% elsif conversation.accept_user?(user) %>
+      <%= render :reply %>
+    <% else %>
+      <%= cell("decidim/announcement", t("decidim.messaging.conversations.show.not_allowed"), callout_class: "warning") %>
+    <% end %>
   </div>
 </div>

@@ -1,0 +1,35 @@
+<div id="main-bar" class="main-bar__container">
+  <div class="main-bar">
+    <div class="main-bar__logo">
+      <%= render partial: "layouts/decidim/logo", locals: { organization: current_organization } %>
+    </div>
+    <div class="main-bar__search">
+      <%= render partial: "layouts/decidim/header/main_search" %>
+    </div>
+    <div class="main-bar__links-desktop">
+      <%= render partial: "layouts/decidim/header/main_links_desktop" %>
+    </div>
+
+    <div class="lg:hidden">
+      <%# Main dropdown mobile %>
+      <button id="main-dropdown-summary-mobile" class="main-bar__links-mobile__trigger"
+        data-component="dropdown"
+        data-target="dropdown-menu-main-mobile">
+        <%= icon "menu-line" %><span class="sr-only"><%= t("main_menu", scope: "layouts.decidim.header") %></span>
+      </button>
+
+      <div id="dropdown-menu-main-mobile" class="main-bar__links-mobile__dropdown" aria-hidden="true">
+        <%= render partial: "layouts/decidim/header/menu_breadcrumb_main_dropdown", locals: { id: "breadcrumb-main-dropdown-mobile" } %>
+      </div>
+
+      <%# Sticky menu mobile %>
+      <div class="main-bar__links-mobile">
+        <%= render partial: "layouts/decidim/header/main_links_mobile" %>
+      </div>
+
+      <%# Overlay menus mobile %>
+      <%= render partial: "layouts/decidim/header/main_links_mobile_search" %>
+      <%= render partial: "layouts/decidim/header/main_links_mobile_account" if current_user %>
+    </div>
+  </div>
+</div>

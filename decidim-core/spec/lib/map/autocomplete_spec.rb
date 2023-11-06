@@ -2,6 +2,8 @@
 
 require "spec_helper"
 
+require "decidim/core/test/shared_examples/form_builder_examples"
+
 module Decidim
   module Map
     describe Autocomplete do
@@ -79,6 +81,19 @@ module Decidim
             data-coordinates=
           ).strip)
         end
+      end
+
+      context "when a help text is defined" do
+        let(:field) { "input" }
+        let(:help_text_text) { "This is the help text" }
+        let(:output) do
+          template.form_for :test, url: "/test" do |form|
+            form.geocoding_field(:address, help_text: help_text_text)
+          end
+        end
+        let(:parsed) { Nokogiri::HTML(output) }
+
+        it_behaves_like "having a help text"
       end
     end
   end

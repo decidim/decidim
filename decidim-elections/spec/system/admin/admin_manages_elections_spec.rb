@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Admin manages elections", type: :system do
-  let(:election) { create :election, :upcoming, :published, component: current_component }
+  let(:election) { create(:election, :upcoming, :published, component: current_component) }
   let(:questionnaire) { election.questionnaire }
   let(:manifest_name) { "elections" }
 
@@ -19,62 +19,67 @@ describe "Admin manages elections", type: :system do
   it_behaves_like "manage announcements"
 
   it_behaves_like "manage questionnaires" do
-    let(:election) { create :election, :ongoing, :published, component: current_component }
+    let(:election) { create(:election, :ongoing, :published, component: current_component) }
   end
 
   describe "admin form" do
-    before { click_on "New Election" }
+    before { click_on "New election" }
 
     it_behaves_like "having a rich text editor", "new_election", "full"
   end
 
-  it "creates a new election" do
-    within ".card-title" do
-      page.find(".button.button--title").click
+  describe "creating an election" do
+    it "creates a new election" do
+      click_link "New election"
+
+      within ".new_election" do
+        fill_in_i18n(
+          :election_title,
+          "#election-title-tabs",
+          en: "My election",
+          es: "Mi elección",
+          ca: "La meva elecció"
+        )
+        fill_in_i18n_editor(
+          :election_description,
+          "#election-description-tabs",
+          en: "Long description",
+          es: "Descripción más larga",
+          ca: "Descripció més llarga"
+        )
+      end
+
+      expect(page).to have_content("Check that the organization time zone is correct")
+      expect(page).to have_content("The current configuration is UTC")
+
+      fill_in :election_start_time, with: Time.current.change(day: 12, hour: 10, min: 50)
+      fill_in :election_end_time, with: Time.current.change(day: 12, hour: 12, min: 50)
+
+      within ".new_election" do
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_admin_callout("Election successfully created")
+
+      within "table" do
+        expect(page).to have_content("My election")
+      end
     end
 
-    within ".new_election" do
-      fill_in_i18n(
-        :election_title,
-        "#election-title-tabs",
-        en: "My election",
-        es: "Mi elección",
-        ca: "La meva elecció"
-      )
-      fill_in_i18n_editor(
-        :election_description,
-        "#election-description-tabs",
-        en: "Long description",
-        es: "Descripción más larga",
-        ca: "Descripció més llarga"
-      )
-    end
+    context "when the organization has a different time zone" do
+      let(:organization) { create(:organization, time_zone: "Madrid") }
 
-    page.execute_script("$('#election_start_time').focus()")
-    page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-    page.find(".datepicker-dropdown .hour", text: "10:00").click
-    page.find(".datepicker-dropdown .minute", text: "10:50").click
+      it "shows the correct time zone" do
+        click_link "New election"
 
-    page.execute_script("$('#election_end_time').focus()")
-    page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-    page.find(".datepicker-dropdown .hour", text: "12:00").click
-    page.find(".datepicker-dropdown .minute", text: "12:50").click
-
-    within ".new_election" do
-      find("*[type=submit]").click
-    end
-
-    within ".callout-wrapper" do
-      expect(page).to have_content("successfully")
-    end
-
-    within "table" do
-      expect(page).to have_content("My election")
+        expect(page).to have_content("Check that the organization time zone is correct")
+        expect(page).to have_content("The current configuration is Madrid")
+      end
     end
   end
 
   describe "updating an election" do
-    let(:election) { create :election, :published, component: current_component }
+    let(:election) { create(:election, :published, component: current_component) }
 
     it "updates an election" do
       within find("tr", text: translated(election.title)) do
@@ -90,15 +95,29 @@ describe "Admin manages elections", type: :system do
           ca: "El meu nou títol"
         )
 
+        expect(page).to have_content("Check that the organization time zone is correct")
+        expect(page).to have_content("The current configuration is UTC")
+
         find("*[type=submit]").click
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("Election successfully updated")
 
       within "table" do
         expect(page).to have_content("My new title")
+      end
+    end
+
+    context "when the organization has a different time zone" do
+      let(:organization) { create(:organization, time_zone: "Madrid") }
+
+      it "shows the correct time zone" do
+        within find("tr", text: translated(election.title)) do
+          page.find(".action-icon--edit").click
+        end
+
+        expect(page).to have_content("Check that the organization time zone is correct")
+        expect(page).to have_content("The current configuration is Madrid")
       end
     end
   end
@@ -119,31 +138,27 @@ describe "Admin manages elections", type: :system do
           page.find(".action-icon--publish").click
         end
 
-        within ".callout-wrapper" do
-          expect(page).to have_content("successfully")
-        end
+        expect(page).to have_admin_callout("The election has been successfully published")
 
         within find("tr", text: translated(election.title)) do
-          expect(page).to have_no_selector(".action-icon--publish")
+          expect(page).not_to have_selector(".action-icon--publish")
         end
       end
     end
   end
 
   describe "unpublishing an election" do
-    let!(:election) { create :election, :published, :ready_for_setup, component: current_component }
+    let!(:election) { create(:election, :published, :ready_for_setup, component: current_component) }
 
     it "unpublishes an election" do
       within find("tr", text: translated(election.title)) do
         page.find(".action-icon--unpublish").click
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("The election has been successfully unpublished")
 
       within find("tr", text: translated(election.title)) do
-        expect(page).to have_no_selector(".action-icon--unpublish")
+        expect(page).not_to have_selector(".action-icon--unpublish")
       end
     end
 
@@ -152,7 +167,7 @@ describe "Admin manages elections", type: :system do
 
       it "cannot unpublish the election" do
         within find("tr", text: translated(election.title)) do
-          expect(page).to have_no_selector(".action-icon--unpublish")
+          expect(page).not_to have_selector(".action-icon--unpublish")
         end
       end
     end
@@ -162,7 +177,7 @@ describe "Admin manages elections", type: :system do
 
       it "cannot unpublish the election" do
         within find("tr", text: translated(election.title)) do
-          expect(page).to have_no_selector(".action-icon--unpublish")
+          expect(page).not_to have_selector(".action-icon--unpublish")
         end
       end
     end
@@ -178,9 +193,7 @@ describe "Admin manages elections", type: :system do
         end
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("Election successfully deleted")
 
       within "table" do
         expect(page).not_to have_content(translated(election.title))
@@ -192,7 +205,7 @@ describe "Admin manages elections", type: :system do
 
       it "cannot delete the election" do
         within find("tr", text: translated(election.title)) do
-          expect(page).to have_no_selector(".action-icon--remove")
+          expect(page).not_to have_selector(".action-icon--remove")
         end
       end
     end

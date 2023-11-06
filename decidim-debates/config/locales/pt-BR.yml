@@ -47,7 +47,6 @@ pt-BR:
         confirm_destroy: Você tem certeza?
         destroy: Excluir
         edit: Editar
-        new: Novo %{name}
         title: Ações
       admin:
         debate_closes:
@@ -77,9 +76,6 @@ pt-BR:
             success: Debate atualizado com sucesso.
         exports:
           comments: Comentários
-        models:
-          debate:
-            name: Debate
       admin_log:
         debate:
           close: "%{user_name} fechou o debate %{resource_name} no espaço %{space_name}"
@@ -92,7 +88,6 @@ pt-BR:
           invalid: Houve um problema ao encerrar o debate.
           success: Debate encerrado com sucesso.
         close_debate_modal:
-          close: Fechar
           description: Qual é o resumo ou a conclusão deste debate?
           send: Fechar debate
         closed: Fechado
@@ -118,18 +113,11 @@ pt-BR:
           my_debates: Meus debates
           official: Oficial
           origin: Origem
-          scope: Escopo
           search: Procurar
           state: Status
           state_values:
             closed: Fechado
             open: Aberto
-          user_groups: Grupos
-        filters_small_view:
-          close_modal: Fechar modal
-          filter: Filtro
-          filter_by: Filtrar por
-          unfold: Desdobrar
         form:
           select_a_category: Selecione uma categoria
         index:
@@ -145,7 +133,6 @@ pt-BR:
           recent: Mais recente
           updated: Atualizado recentemente
         show:
-          back: Voltar para a lista
           close_debate: Fechar debate
           date: Data
           debate_closed: Fechado
@@ -153,23 +140,11 @@ pt-BR:
           edit_conclusions: Editar conclusões
           edit_debate: Editar debate
           groups_count: Grupos
-          last_comment_by: Últimos comentários
-          no_comments_yet: Nenhum comentário ainda
           open: Debate aberto
           participants_count: Participantes
         update:
           invalid: Ocorreu um problema ao atualizar esse debate.
           success: Debate atualizado com sucesso.
-        versions:
-          debates:
-            back_to_resource: Voltar ao debate
-          index:
-            title: Versões
-        versions_list:
-          back_to_resource: Voltar ao debate
-      last_activity:
-        debate_updated_at_html: "<span>Debate atualizado em %{link}</span>"
-        new_debate_at_html: "<span>Novo debate em %{link}</span>"
       models:
         debate:
           fields:
@@ -203,7 +178,6 @@ pt-BR:
           email_intro: 'Agora você pode iniciar novos debates em %{participatory_space_title}! Comece a participar nesta página:'
           email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
           email_subject: Debates agora disponíveis em %{participatory_space_title}
-          notification_title: Agora você pode começar <a href="%{resource_path}">novos debates</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         debate_closed:
           affected_user:
             email_intro: 'O debate "%{resource_title}" foi encerrado. Você pode ler as conclusões em sua página:'
@@ -226,7 +200,6 @@ pt-BR:
           name: Debates
           next_level_in: Participe em mais %{score} debates para alcançar o próximo nível!
           unearned_another: Este usuário ainda não participou de nenhum debate.
-          unearned_own: Você participou de algum debate ainda.
     metrics:
       debates:
         description: Número de debates criados

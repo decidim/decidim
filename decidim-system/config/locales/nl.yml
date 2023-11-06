@@ -14,15 +14,11 @@ nl:
         confirm_destroy: Weet u zeker dat u dit wilt verwijderen?
         destroy: Verwijder
         edit: Bewerk
-        new: nieuwe
         save: Opslaan
         title: Acties
       admins:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe admin.
-          success: Admin is succesvol aangemaakt
-        destroy:
-          success: Admin is succesvol verwijderd
         edit:
           title: Beheer admin
           update: Bijwerken
@@ -33,7 +29,6 @@ nl:
           title: Nieuwe admin
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze admin.
-          success: Admin succesvol bijgewerkt
       dashboard:
         show:
           current_organizations: Huidige organisaties
@@ -50,7 +45,6 @@ nl:
           fields:
             created_at: Gemaakt bij
             email: E-mail
-          name: Admin
           validations:
             email_uniqueness: Een andere admin met dezelfde e-mail bestaat al
         organization:
@@ -61,7 +55,6 @@ nl:
             name: Naam
             omniauth_settings: Omniauth instellingen
             smtp_settings: SMTP-instellingen
-          name: Organisatie
       organizations:
         advanced_settings:
           hide: Geavanceerde instellingen verbergen
@@ -74,8 +67,6 @@ nl:
         index:
           title: Organisaties
         new:
-          reference_prefix_hint: Het referentie-voorvoegsel wordt gebruikt ter identificatie van unieke middelen over alle organisaties
-          secondary_hosts_hint: Voer elk van hen op een nieuwe regel in
           title: Nieuwe organisatie
         omniauth_settings:
           decidim:
@@ -98,8 +89,6 @@ nl:
         smtp_settings:
           fieldsets:
             sender: Afzender
-          instructions:
-            from_label: 'E-mail afzender zal zijn: "jouw-organisatie naam <your-organization@example.org>". Laat leeg om ''E-mailadres'' te gebruiken als label'
           placeholder:
             from_label: jouw-organisatienaam
         update:
@@ -108,7 +97,6 @@ nl:
         users_registration_mode:
           disabled: Enkel externe accounts hebben toegang
           enabled: Sta gebruikers toe zich te registreren en in te loggen
-          existing: Niet toestaan dat deelnemers zich registreren, maar toestaan dat bestaande deelnemers inloggen
       shared:
         notices:
           no_organization_warning_html: U moet een organisatie aanmaken om te beginnen. Zorg ervoor dat u %{guide} leest voordat u verder gaat.

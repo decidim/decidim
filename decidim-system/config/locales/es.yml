@@ -37,15 +37,17 @@ es:
         confirm_destroy: '¿Seguro que lo quieres eliminar?'
         destroy: Borrar
         edit: Editar
-        new: Nuevo
+        new_admin: Añadir administradora
+        new_oauth_application: Añadir aplicación OAUTH
+        new_organization: Añadir organización
         save: Guardar
         title: Acciones
       admins:
         create:
           error: Se ha producido un error al crear una nueva administradora.
-          success: Administradora creada correctamente
+          success: Administradora creada correctamente.
         destroy:
-          success: Administradora eliminado correctamente
+          success: Administradora eliminada correctamente.
         edit:
           title: Editar administradora
           update: Actualizar
@@ -54,16 +56,36 @@ es:
         new:
           create: Crear
           title: Nueva administradora
+        show:
+          destroy: Destruir
+          edit: Editar
         update:
           error: Se ha producido un error al actualizar esta administradora.
-          success: Administradora actualizada correctamente
+          success: Administradora actualizada correctamente.
       dashboard:
         show:
           current_organizations: Organizaciones actuales
       default_pages:
         placeholders:
           content: Por favor, agrega contenido significativo a la página estática de %{page} en el panel de administración.
+          summary: Por favor, agrega un resumen significativo a la página estática %{page} en el panel de administración.
           title: Título predeterminado para %{page}
+        terms-of-service: Términos y condiciones de uso
+      devise:
+        passwords:
+          edit:
+            change_your_password: Cambia tu contraseña
+            minimum_characters: "(%{minimum} caracteres como mínimo)"
+          new:
+            forgot_your_password: '¿Has olvidado tu contraseña?'
+            send_me_reset_password_instructions: Envíame las instrucciones para restablecer la contraseña
+        shared:
+          links:
+            did_not_receive_confirmation_instructions?: '¿No has recibido las instrucciones de confirmación?'
+            did_not_receive_unlock_instructions?: '¿No has recibido las instrucciones de desbloqueo?'
+            forgot_your_password?: '¿Olvidaste tu contraseña?'
+            log_in: Iniciar sesión
+            sign_up: Regístrate
       menu:
         admins: Administradoras
         dashboard: Panel de administración
@@ -74,7 +96,6 @@ es:
           fields:
             created_at: Fecha de creación
             email: Correo electrónico
-          name: Administradora
           validations:
             email_uniqueness: ya existe otra administradora con este correo electrónico
         oauth_application:
@@ -82,17 +103,16 @@ es:
             created_at: Creado el
             name: Nombre de la aplicación OAuth
             organization_name: Organización
-          name: Aplicación OAuth
         organization:
           actions:
             save_and_invite: Crear organización e invitar a la administradora
           fields:
+            content_security_policy: Política de seguridad de los contenidos
             created_at: Fecha de creación
             file_upload_settings: Ajustes de subida de archivos
             name: Nombre
             omniauth_settings: Ajustes de Omniauth
             smtp_settings: Configuración de SMTP
-          name: Organización
       oauth_applications:
         create:
           error: Se ha producido un error al crear esta aplicación.
@@ -121,6 +141,39 @@ es:
         create:
           error: Se ha producido un error al crear una nueva organización.
           success: Organización creada correctamente.
+        csp_settings:
+          connect_src: Direcciones de conexión (connect-src)
+          connect_src_hint: |
+            Las direcciones de conexión (connect-src) delimitan las URL que se pueden cargar en los elementos <script>.
+            Decidim añade automáticamente el valor 'self', pero, si quieres, puedes añadir otros valores. Deja el valor en blanco si no sabes lo que significa.
+          default_src: SRC por defecto
+          default_src_hint: |
+            Default-src es la convención predeterminada para todo el contenido externo, como JavaScript, imágenes, CSS, fuentes, llamadas asincrónicas, marcos y archivos multimedia HTML5.
+            Decidim añade automáticamente el valor "'self' 'unsafe-inline'", pero, si quieres, puedes añadir otros valores. Deja el valor en blanco si no sabe lo que significa.
+          font_src: Direcciones de fuentes (font-src)
+          font_src_hint: |
+            La directiva font-src restringe las URL que se pueden cargar con @font-face.
+            Decidim añade automáticamente 'self', pero, si quieres, puedes añadir otros valores. Déjalo en blanco si no sabes lo que significa.
+          frame_src: Direcciones de marco (frame-src)
+          frame_src_hint: |
+            La directiva frame-src restringe las URL que se pueden cargar con elementos <frame>, <iframe> y <object>.
+            Decidim añade automáticamente 'self', pero, si quieres, puedes añadir otros valores. Déjalo en blanco si no sabes lo que significa.
+          img_src: Direcciones de imagen (img-src)
+          img_src_hint: |
+            Las URL de imagen (img-src) delimitan las URL que se pueden cargar usando los elementos <img>, <image>, <picture> y <svg>.
+            Decidim añade automáticamente 'self', pero, si quieres, puedes añadir otros valores. Déjalo en blanco si no sabes lo que significa.
+          media_src: Direcciones multimedia (media-src)
+          media_src_hint: |
+            Las direcciones multimedia (media-src) delimitan las URL que se pueden cargar en los elementos <video>, <audio> y <source>.
+            Decidim añade automáticamente el valor 'self', pero, si quieres, puedes añadir otros valores. Deja el valor en blanco si no sabes lo que significa.
+          script_src: Direcciones de script (script-src)
+          script_src_hint: |
+            Las direcciones de script (script-src) delimitan las URL que se pueden cargar en los elementos <script>.
+            Decidim añade automáticamente el valor '"self' 'unsafe-inline' 'unsafe-eval'", pero, si lo deseas, puedes añadir otros valores. Deja el valor en blanco si no sabes lo que significa.
+          style_src: Direcciones de estilo (style-src)
+          style_src_hint: |
+            Las direcciones de estilo (style-src) limitan las URL que se pueden cargar en los elementos <style>.
+            Decidim añade automáticamente el valor "'self' 'unsafe-inline'", pero, si quieres, puedes añadir otros valores. Deja el valor en blanco si no sabes lo que significa.
         edit:
           secondary_hosts_hint: Introduce cada uno de ellos en una nueva línea
         file_upload_settings:
@@ -144,8 +197,11 @@ es:
         index:
           title: Organizaciones
         new:
-          reference_prefix_hint: El prefijo de referencia se utiliza para identificar de forma única los recursos de toda la organización
-          secondary_hosts_hint: Introduce cada uno de ellos en una nueva línea
+          default: '¿Por defecto?'
+          enabled: Habilitado
+          locale: Configuración regional
+          reference_prefix_hint: El prefijo de referencia se utiliza para identificar de forma única los recursos del conjunto de la organización.
+          secondary_hosts_hint: Introduce cada uno de ellos en una nueva línea.
           title: Nueva organización
         omniauth_settings:
           decidim:
@@ -169,7 +225,7 @@ es:
           fieldsets:
             sender: Remitente
           instructions:
-            from_label: 'El remitente de correo electrónico será: "su-nombre de organización <your-organization@example.org>". Déjalo en blanco para usar el campo ''Dirección de correo electrónico'' como etiqueta'
+            from_label: 'El remitente de correo electrónico será: "nombre-de-tu-organizacion <your-organization@example.org>". Déjalo en blanco para usar la ''dirección de correo electrónico'' como etiqueta.'
           placeholder:
             from_email: tu-organizacion@example.org
             from_label: el-nombre-de-tu-organizacion
@@ -179,10 +235,11 @@ es:
         users_registration_mode:
           disabled: Solo se puede acceder desde cuentas externas
           enabled: Permitir a las participantes registrarse e iniciar sesión
-          existing: No permitir que nuevas participantes se registren, pero permitir que las participantes existentes inicien sesión
+          existing: No permitir que se regustren nuevas participantes, pero permitir a las participantes existentes iniciar sesión
       shared:
         notices:
           no_organization_warning_html: Debes crear una organización para comenzar. Asegúrate de leer %{guide} antes de continuar.
           our_getting_started_guide: nuestra guía de inicio
       titles:
         dashboard: Panel de administración
+        decidim: Decidim

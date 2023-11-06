@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 shared_context "when inviting process users" do
-  let(:participatory_process) { create :participatory_process }
+  let(:participatory_process) { create(:participatory_process) }
   let(:organization) { participatory_process.organization }
-  let(:user) { create :user, :admin, :confirmed, organization: participatory_process.organization }
+  let(:user) { create(:user, :admin, :confirmed, organization: participatory_process.organization) }
   let(:email) { "this_email_does_not_exist@example.org" }
   let(:role) { "Moderator" }
 
@@ -11,7 +11,7 @@ shared_context "when inviting process users" do
     login_as user, scope: :user
 
     visit decidim_admin_participatory_processes.participatory_process_user_roles_path(participatory_process)
-    within ".container" do
+    within "[data-content]" do
       click_link "New process admin"
     end
 

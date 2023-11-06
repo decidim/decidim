@@ -64,7 +64,7 @@ describe PassthruValidator do
       it "adds the passthrough record's validation errors on the field" do
         expect(subject).to be_invalid
         expect(subject.errors[:file]).to eq(
-          ["file should be one of image/jpeg, image/png"]
+          ["only files with the following extensions are allowed: jpeg, jpg, png"]
         )
       end
     end

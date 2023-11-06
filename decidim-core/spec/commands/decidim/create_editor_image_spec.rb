@@ -36,7 +36,7 @@ module Decidim
         expect { subject.call }.to broadcast(:invalid)
       end
 
-      it "doesn't create an editor image" do
+      it "does not create an editor image" do
         expect { subject.call }.not_to(change(Decidim::EditorImage, :count))
       end
     end

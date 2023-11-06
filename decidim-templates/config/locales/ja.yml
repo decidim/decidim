@@ -9,23 +9,24 @@ ja:
   decidim:
     admin:
       menu:
+        manage: 管理
         templates: テンプレート
       templates:
         apply:
           error: テンプレートの適用に失敗しました。
-          success: テンプレートが正常に適用されました
+          success: テンプレートが適用されました。
         copy:
           error: テンプレートコピー中に問題が発生しました。
-          success: テンプレートを正常にコピーしました
+          success: テンプレートは正常にコピーされました。
         create:
           error: テンプレート作成中に問題が発生しました。
-          success: テンプレートが正常に作成されました
+          success: テンプレートが作成されました。
         destroy:
-          success: テンプレートが正常に削除されました
+          success: テンプレートを削除しました。
         empty: テンプレートはまだありません。
         update:
-          error: テンプレートのアップデート中に問題が発生しました。
-          success: テンプレートが正常に更新されました
+          error: テンプレートの更新中に問題が発生しました。
+          success: テンプレートが更新されました。
       titles:
         template_types:
           questionnaires: アンケートテンプレート
@@ -41,6 +42,18 @@ ja:
         name: テンプレート
     templates:
       admin:
+        block_user_templates:
+          edit:
+            title: ブロックユーザーメッセージテンプレートの編集
+          form:
+            save: 保存
+          index:
+            confirm_delete: このテンプレートを削除してもよろしいですか？
+            title: ユーザーメッセージをブロック
+          new:
+            title: 新しいブロックユーザーメッセージテンプレート
+          template_chooser:
+            select_template: テンプレート回答を選択
         questionnaire_templates:
           choose:
             create_from_template: テンプレートから作る
@@ -50,15 +63,16 @@ ja:
             skip_template: スキップ
           edit:
             edit: 編集
-            empty: 質問はありません。
+            empty: 質問はまだありません。
             questionnaire: アンケート
+            title: アンケートテンプレートの編集
           form:
-            save: 保存
-            template_title: テンプレート情報
             title: アンケートテンプレート %{questionnaire_for}
           index:
             confirm_delete: このテンプレートを削除してもよろしいですか？
             title: アンケートテンプレート
+          new:
+            title: 新しいアンケートテンプレート
           preview:
             current_step: ステップ %{step}
             of_total_steps: / %{total_steps}
@@ -70,4 +84,5 @@ ja:
           duplicate: "%{user_name} が %{resource_name} アンケートテンプレートを複製しました"
           update: "%{user_name} が %{resource_name} アンケートテンプレートを更新しました"
       template_types:
+        block_user: ユーザーメッセージをブロック
         questionnaires: アンケート

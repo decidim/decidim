@@ -37,7 +37,7 @@ module Decidim
 
                 it { is_expected.to eq("/authorizations/first_login") }
 
-                context "when there's a pending redirection" do
+                context "when there is a pending redirection" do
                   before do
                     controller.store_location_for(user, account_path)
                   end
@@ -45,7 +45,7 @@ module Decidim
                   it { is_expected.to eq account_path }
                 end
 
-                context "when the user hasn't confirmed their email" do
+                context "when the user has not confirmed their email" do
                   before do
                     user.confirmed_at = nil
                   end
@@ -79,10 +79,62 @@ module Decidim
               end
             end
 
-            context "and it's not the first time to log in" do
+            context "and it is not the first time to log in" do
               let(:user) { build(:user, sign_in_count: 2) }
 
               it { is_expected.to eq("/") }
+            end
+          end
+        end
+      end
+
+      describe "POST create" do
+        let(:params) { { user: { email: user.email, password: } } }
+        let(:user) { create(:user, :confirmed, password:) }
+        let(:password) { "decidim123456789" }
+
+        before do
+          request.env["decidim.current_organization"] = user.organization
+          request.env["devise.mapping"] = ::Devise.mappings[:user]
+        end
+
+        context "when participant" do
+          context "with weak password" do
+            let(:password) { "decidim123" }
+
+            it "does not update password_updated_at" do
+              post(:create, params:)
+
+              expect(user.reload.password_updated_at).not_to be_nil
+            end
+          end
+        end
+
+        context "when admin" do
+          context "with strong password" do
+            let(:user) { create(:user, :confirmed, :admin) }
+
+            it "does not change password_updated_at" do
+              post(:create, params:)
+
+              expect(user.reload.password_updated_at).not_to be_nil
+            end
+          end
+
+          context "with weak password" do
+            let(:user) { create(:user, :confirmed, password:) }
+            let(:password) { "decidim123" }
+
+            # To avoid the password validation failing when creating the user
+            before do
+              user.password = nil
+              user.update!(admin: true)
+            end
+
+            it "sets password_updated_at to nil" do
+              post(:create, params:)
+
+              expect(user.reload.password_updated_at).to be_nil
             end
           end
         end

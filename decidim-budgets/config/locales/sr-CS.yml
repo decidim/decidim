@@ -16,10 +16,6 @@ sr:
       budgets:
         settings:
           global:
-            form:
-              errors:
-                budget_voting_rule_only_one: Samo jedno pravilo glasanja mora biti omogućeno
-                budget_voting_rule_required: Jedno pravilo glasanja je obavezno
             vote_minimum_budget_projects_number: Minimum projekata za glasanje
             vote_rule_minimum_budget_projects_enabled: 'Omogući pravilo: Minimalni broj projekata o kojima se glasa'
             vote_rule_threshold_percent_enabled: 'Omogući pravilo: Minimalni procenta budžeta'

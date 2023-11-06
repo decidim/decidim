@@ -14,7 +14,7 @@ module Decidim
     # Executes the command. Broadcasts these events:
     #
     # - :ok when everything is valid.
-    # - :invalid if the form wasn't valid and we couldn't proceed.
+    # - :invalid if the form was not valid and we could not proceed.
     #
     # Returns nothing.
     def call
@@ -46,8 +46,6 @@ module Decidim
     attr_reader :form, :verified_email
 
     def create_or_find_user
-      generated_password = SecureRandom.hex
-
       @user = User.find_or_initialize_by(
         email: verified_email,
         organization:
@@ -59,12 +57,13 @@ module Decidim
         # to be marked confirmed.
         @user.skip_confirmation! if !@user.confirmed? && @user.email == verified_email
       else
+        generated_password = SecureRandom.hex
+
         @user.email = (verified_email || form.email)
         @user.name = form.name
         @user.nickname = form.normalized_nickname
         @user.newsletter_notifications_at = nil
         @user.password = generated_password
-        @user.password_confirmation = generated_password
         if form.avatar_url.present?
           url = URI.parse(form.avatar_url)
           filename = File.basename(url.path)

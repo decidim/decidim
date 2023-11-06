@@ -22,8 +22,6 @@ it:
             choices:
               missing: non sono completi
               too_many: sono troppi
-        questionnaire:
-          request_invalid: C'è stato un errore di gestione della richiesta. Si prega di riprovare
   decidim:
     forms:
       admin:
@@ -111,11 +109,6 @@ it:
           update:
             invalid: Si sono verificati errori durante il salvataggio del questionario.
             success: Modulo salvato correttamente.
-      errors:
-        answer:
-          body: Il corpo non può essere vuoto
-      files:
-        extension_allowlist: 'Formati accettati:'
       images:
         dimensions: "%{width} x %{height} px"
       question_types:
@@ -136,7 +129,6 @@ it:
           max_choices: 'Scelte massime: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Accedi con il tuo account</a> o <a href="%{sign_up_link}">iscriviti</a> per rispondere al questionario.
             title: Rispondi al questionario
           current_step: Passo %{step}
           of_total_steps: di %{total_steps}

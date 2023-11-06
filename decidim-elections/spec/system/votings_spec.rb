@@ -11,7 +11,7 @@ describe "Votings", type: :system do
   end
 
   context "with only one voting in the votings space" do
-    let!(:single_voting) { create :voting, :published, organization: }
+    let!(:single_voting) { create(:voting, :published, :with_content_blocks, organization:, blocks_manifests: [:title]) }
 
     before do
       visit decidim_votings.votings_path
@@ -55,13 +55,13 @@ describe "Votings", type: :system do
 
         it "lists the votings ordered by created at" do
           within ".order-by" do
-            expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
+            expect(page).to have_selector("div.order-by a", text: "Random")
             page.find("a", text: "Random").click
             click_link "Most recent"
           end
 
-          expect(page).to have_selector("#votings .card-grid .column:first-child", text: recent_voting.title[:en])
-          expect(page).to have_selector("#votings .card-grid .column:last-child", text: older_voting.title[:en])
+          expect(page).to have_selector("[id='votings__voting_#{recent_voting.id}']:first-child", text: recent_voting.title[:en])
+          expect(page).to have_selector("[id='votings__voting_#{older_voting.id}']:last-child", text: older_voting.title[:en])
         end
       end
     end
@@ -76,10 +76,10 @@ describe "Votings", type: :system do
 
       it "shows all votings" do
         within ".order-by" do
-          expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
+          expect(page).to have_selector("div.order-by a", text: "Random")
         end
 
-        expect(page).to have_selector(".card--voting", count: 2)
+        expect(page).to have_selector("[id^='votings__voting']", count: 2)
         expect(page).to have_content(translated(votings.first.title))
         expect(page).to have_content(translated(votings.last.title))
       end
@@ -97,7 +97,7 @@ describe "Votings", type: :system do
       it "lists all the highlighted votings" do
         within "#highlighted-votings" do
           expect(page).to have_content(translated(highlighted_voting.title, locale: :en))
-          expect(page).to have_selector(".card--full", count: 1)
+          expect(page).to have_selector("[id^='votings__voting']", count: 1)
         end
       end
     end
@@ -107,17 +107,16 @@ describe "Votings", type: :system do
 
       it "allows searching by text" do
         visit decidim_votings.votings_path
-        within ".filters" do
+        within "[data-filters]" do
           fill_in "filter[search_text_cont]", with: translated(voting.title)
 
-          # The form should be auto-submitted when filter box is filled up, but
-          # somehow it's not happening. So we workaround that be explicitly
-          # clicking on "Search" until we find out why.
-          find(".icon--magnifying-glass").click
+          within "div.filter-search" do
+            click_button
+          end
         end
 
-        expect(page).to have_css("#votings-count", text: "1 VOTING")
-        expect(page).to have_css(".card--voting", count: 1)
+        expect(page).to have_content("1 voting")
+        expect(page).to have_css("[id^='votings__voting']", count: 1)
         expect(page).to have_content(translated(voting.title))
       end
 
@@ -131,40 +130,40 @@ describe "Votings", type: :system do
         end
 
         it "allows filtering by finished date" do
-          within ".with_any_date_check_boxes_tree_filter" do
+          within "#panel-dropdown-menu-date" do
             uncheck "All"
             check "Finished"
           end
 
-          expect(page).to have_css(".card--voting", count: 1)
+          expect(page).to have_css("[id^='votings__voting']", count: 1)
           expect(page).to have_content(translated(finished_voting.title))
         end
 
         it "allows filtering by active date" do
-          within ".with_any_date_check_boxes_tree_filter" do
+          within "#panel-dropdown-menu-date" do
             uncheck "All"
             check "Active"
           end
 
-          expect(page).to have_css(".card--voting", count: 1)
+          expect(page).to have_css("[id^='votings__voting']", count: 1)
         end
 
         it "allows filtering by upcoming date" do
-          within ".with_any_date_check_boxes_tree_filter" do
+          within "#panel-dropdown-menu-date" do
             uncheck "All"
             check "Upcoming"
           end
 
-          expect(page).to have_css(".card--voting", count: 4)
+          expect(page).to have_css("[id^='votings__voting']", count: 4)
           expect(page).to have_content(translated(upcoming_voting.title))
         end
 
         it "allows filtering by all date" do
-          within ".with_any_date_check_boxes_tree_filter" do
+          within "#panel-dropdown-menu-date" do
             uncheck "All"
           end
 
-          expect(page).to have_css(".card--voting", count: 6)
+          expect(page).to have_css("[id^='votings__voting']", count: 6)
         end
       end
     end
@@ -179,7 +178,7 @@ describe "Votings", type: :system do
 
       it "I see an alert" do
         expect(page).to have_content("Currently, there are no scheduled votings, but here you can find the finished votings listed.")
-        expect(page).to have_selector(".announcement", count: 1)
+        expect(page).to have_selector("[data-announcement]", count: 1)
       end
     end
   end

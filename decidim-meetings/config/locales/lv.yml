@@ -1,10 +1,6 @@
 lv:
   activemodel:
     attributes:
-      agenda:
-        description: Apraksts
-        duration: Ilgums
-        title: Nosaukums
       close_meeting:
         attendees_count: Apmeklētāju skaits
         attending_organizations: Organizāciju saraksts, kuras apmeklēja
@@ -18,7 +14,6 @@ lv:
         decidim_category_id: Kategorija
         decidim_scope_id: Darbības tvērums
         description: Apraksts
-        end_time: Beigu laiks
         location: Atrašanās vieta
         location_hints: Norādījumi par atrašanās vietu
         organizer_id: Organizators
@@ -26,20 +21,8 @@ lv:
         registration_form_enabled: Reģistrācijas veidlapa ir iespējota
         registration_terms: Reģistrācijas noteikumi
         registrations_enabled: Reģistrācijas ir iespējotas
-        start_time: Sākuma laiks
         title: Nosaukums
         transparent: Caurskatāms
-    errors:
-      models:
-        meeting_agenda:
-          attributes:
-            base:
-              too_many_minutes: Darba kārtības jautājumu ilgums pārsniedz sanāksmes ilgumu par %{count} minūtēm
-              too_many_minutes_child: No darba kārtības atvasinātie jautājumi pārsniedz sākotnējo jautājumu "%{parent_title}" ilgumu par %{count} minūtēm.
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Šis e-pasta konts jau ir uzaicināts
     models:
       decidim/meetings/close_meeting_event: Sanāksme slēgta
       decidim/meetings/create_meeting_event: Sanāksme
@@ -69,7 +52,6 @@ lv:
           success: Sanāksme veiksmīgi dublēta.
         new:
           copy: Kopēt
-          select: Atlasiet, kurus datus vēlaties dublēt
           title: Dublēt sanāksmi
     components:
       meetings:
@@ -141,8 +123,6 @@ lv:
           description_own: Jūs esat apmeklējis %{score} sanāksmes.
           name: Apmeklētas sanāksmes
           next_level_in: Apmeklējiet vēl %{score} sanāksmes, lai sasniegtu nākamo līmeni!
-          unearned_another: Šis dalībnieks vēl nav apmeklējis nevienu sanāksmi.
-          unearned_own: Jūs vēl neesat apmeklējis nevienu sanāksmi.
     meetings:
       actions:
         agenda: Darba kārtība
@@ -152,7 +132,6 @@ lv:
         confirm_destroy: Vai tiešām vēlaties dzēst šo sanāksmi?
         destroy: Dzēst
         edit: Labot
-        new: Jauna sanāksme
         preview: Priekšskatīt
         registrations: Reģistrācija
         title: Darbības
@@ -170,9 +149,6 @@ lv:
             down: Lejup
             remove: Noņemt
             up: Augšup
-          create:
-            invalid: Šīs darba kārtības izveides laikā radās problēma
-            success: Darba kārtība ir veiksmīgi izveidota
           edit:
             title: Rediģēt darba kārtību
             update: Atjaunināt
@@ -184,9 +160,6 @@ lv:
           new:
             create: Izveidot
             title: Jauna darba kārtība
-          update:
-            invalid: Šīs darba kārtības atjaunināšanas laikā radās problēma
-            success: Darba kārtība ir veiksmīgi atjaunināta
         exports:
           meetings: Sanāksmes
           registrations: Reģistrācija
@@ -212,21 +185,14 @@ lv:
               all: Visi
               rejected: Noraidīts
               sent: Nosūtīts
-            filter_by: Filtrēt pēc
             invite_attendee: Uzaicināt apmeklētāju
             invites: Ielūgumi
-            registrations_disabled: Jūs nevarat uzaicināt apmeklētāju, jo reģistrācija ir atspējota.
             search: Meklēt
         meeting_closes:
           edit:
             close: Aizvērt
             title: Slēgt sanāksmi
         meetings:
-          close:
-            invalid: Šīs sanāksmes slēgšanas laikā radās problēma
-            success: Sanāksme ir veiksmīgi slēgta
-          create:
-            invalid: Šīs sanāksmes izveides laikā radās problēma
           destroy:
             success: Sanāksme ir veiksmīgi izdzēsta
           edit:
@@ -249,12 +215,6 @@ lv:
           services:
             add_service: Pievienot pakalpojumu
             services: Pakalpojumi
-          update:
-            invalid: Šīs sanāksmes atjaunināšanas laikā radās problēma
-            success: Sanāksme ir veiksmīgi atjaunināta
-        models:
-          meeting:
-            name: Sanāksme
         registrations:
           edit:
             save: Saglabāt
@@ -269,7 +229,6 @@ lv:
               zero: Ir notikušas %{count} reģistrācijas.
               one: Ir notikusi %{count} reģistrācija.
               other: Ir notikušas %{count} reģistrācijas.
-            reserved_slots_help: Atstājiet 0, ja jums nav rezervēts laiks runāšanai.
             reserved_slots_less_than: Jābūt mazāk vai vienādam ar %{count}
             title: Reģistrācija
           update:
@@ -294,19 +253,13 @@ lv:
               not_found: 'Organizators netika atrasts datubāzē (ID: %{id})'
       calendar_modal:
         calendar_url: Kalendāra URL
-        close_window: Aizvērt logu
         export_calendar: Eksportēt kalendāru
       conference_venues: Konferenču norises vietas
-      content_blocks:
-        upcoming_meetings:
-          view_all_meetings: Skatīt visu
       directory:
         meetings:
           index:
             meetings: Sanāksmes
             space_type: Līdzdalības telpa
-      last_activity:
-        new_meeting_at_html: "<span>Jauna sanāksme plkst. %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -314,29 +267,18 @@ lv:
         registration_mailer:
           confirmation:
             subject: Jūsu sanāksmes reģistrācija ir apstiprināta
-      meeting:
-        not_allowed: Jums nav atļauts skatīt šo sanāksmi
       meetings:
         filters:
           category: Kategorija
           date: Datums
           search: Meklēt
-        filters_small_view:
-          close_modal: Aizvērt modal
-          filter: Filtrēt
-          filter_by: Filtrēt pēc
-          unfold: Atritināt
-        meeting_minutes:
-          related_information: Saistītā informācija
         meetings:
-          no_meetings_warning: Neviena sanāksme neatbilst jūsu meklēšanas kritērijiem, vai arī neviena sanāksme nav plānota.
           upcoming_meetings_warning: Pašlaik nav plānotas sanāksmes, taču šeit varat atrast visas iepriekšējās sanāksmes.
         registration_confirm:
           cancel: Atcelt
           confirm: Apstiprināt
         show:
           attendees: Dalībnieku skaits
-          back: Atpakaļ uz sarakstu
           contributions: Papildinājumu skaits
           join: Pievienoties sanāksmei
           meeting_minutes: Sanāksmes protokols
@@ -351,8 +293,6 @@ lv:
             one: "Atlicis %{count} laiks runāšanai"
             other: "Atlicis %{count} laiks runāšanai"
           view: Apskatīt
-      meetings_map:
-        view_meeting: Skatīt sanāksmi
       models:
         invite:
           fields:
@@ -380,7 +320,6 @@ lv:
       registrations:
         create:
           invalid: Pievienojoties šai sanāksmei, radās problēma
-          success: Jūs veiksmīgi pievienojāties sanāksmei. Tā kā esat reģistrējies šai sanāksmei, jūs tiksiet informēts par jaunumiem, kas ar to saistīti.
         decline_invitation:
           invalid: Noraidot ielūgumu, radās problēma.
           success: Jūs veiksmīgi noraidījāt ielūgumu.
@@ -399,8 +338,6 @@ lv:
       highlighted_meetings:
         past_meetings: Iepriekšējās sanāksmes
         upcoming_meetings: Gaidāmās sanāksmes
-      upcoming_meeting_for_card:
-        upcoming_meeting: Gaidāmā sanāksme
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Saistītie rezultāti:'

@@ -6,7 +6,7 @@
 <% if @initiative.promoting_committee_enabled? %>
     <p>
       <%= t "decidim.initiatives.initiatives_mailer.promotal_committee_help",
-           member_count: Decidim::Initiatives.minimum_committee_members %>
+            member_count: Decidim::Initiatives.minimum_committee_members %>
     </p>
     <p>
       <%= link_to decidim_initiatives.new_initiative_committee_request_url(@initiative, host: @organization.host),
@@ -17,6 +17,6 @@
 
 <p>
   <%= t("check_initiative_details", scope: "decidim.initiatives.initiatives_mailer.initiative_link") %>
-  <%= link_to t("here",  scope: "decidim.initiatives.initiatives_mailer.initiative_link"),
+  <%= link_to t("here", scope: "decidim.initiatives.initiatives_mailer.initiative_link"),
               decidim_initiatives.initiative_url(@initiative, host: @organization.host) %>
 </p>

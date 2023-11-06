@@ -37,15 +37,14 @@ tr:
         confirm_destroy: Bunu silmek istediğinizden emin misiniz?
         destroy: Sil
         edit: Düzenle
-        new: Yeni
+        new_admin: Yeni Yönetici
+        new_oauth_application: Yetkilendirilmiş Uygulama
+        new_organization: Yeni organizasyon
         save: Kaydet
         title: Eylemler
       admins:
         create:
           error: Yeni bir yönetici oluşturulurken bir sorun oluştu.
-          success: Yönetici başarıyla oluşturuldu
-        destroy:
-          success: Yönetici başarıyla silindi
         edit:
           title: Yönetici düzenle
           update: Güncelle
@@ -56,7 +55,6 @@ tr:
           title: Yeni yönetici
         update:
           error: Bu yönetici güncellenirken bir sorun oluştu.
-          success: Yönetici başarıyla güncellendi
       default_pages:
         placeholders:
           content: Lütfen yönetici panosundaki %{page} statik sayfasına anlamlı içerik ekleyin.
@@ -71,7 +69,6 @@ tr:
           fields:
             created_at: Adresinde düzenlendi
             email: E-posta
-          name: yönetim
           validations:
             email_uniqueness: aynı e-postaya sahip başka bir yönetici zaten var
         oauth_application:
@@ -79,7 +76,6 @@ tr:
             created_at: Oluşturuldu
             name: OAuth Uygulama Adı
             organization_name: Kuruluş
-          name: OAuth uygulaması
         organization:
           actions:
             save_and_invite: Kuruluş oluşturun ve yöneticiyi davet edin
@@ -89,7 +85,6 @@ tr:
             name: Adı
             omniauth_settings: Omniauth ayarları
             smtp_settings: SMTP ayarları
-          name: organizasyon
       oauth_applications:
         create:
           error: Bu uygulama oluşturulurken bir hata oluştu.
@@ -138,8 +133,6 @@ tr:
         index:
           title: Organizasyonlar
         new:
-          reference_prefix_hint: Başvuru öneki, tüm kuruluştaki kaynakları benzersiz şekilde tanımlamak için kullanılır
-          secondary_hosts_hint: Her birini yeni bir satıra girin
           title: Yeni organizasyon
         omniauth_settings:
           decidim:
@@ -162,8 +155,6 @@ tr:
         smtp_settings:
           fieldsets:
             sender: Gönderen
-          instructions:
-            from_label: 'E-posta göndereni: "your-organization-name <your-organization@example.org>" olacaktır. ''E-posta adresini'' etiket olarak kullanmak için boş bırakın'
           placeholder:
             from_email: your-organization@example.org
             from_label: your-organization-name
@@ -173,7 +164,6 @@ tr:
         users_registration_mode:
           disabled: Erişim yalnızca harici hesaplarla yapılabilir
           enabled: Katılımcıların kaydolmasına ve giriş yapmasına izin ver
-          existing: Katılımcıların kaydolmasına izin verme, ancak mevcut katılımcıların giriş yapmasına izin ver
       shared:
         notices:
           no_organization_warning_html: Başlamak için bir organizasyon oluşturmanız gerekir. Devam etmeden önce %{guide} okuduğunuzdan emin olun.

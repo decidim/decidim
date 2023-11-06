@@ -40,7 +40,7 @@ module Decidim::Meetings
     end
 
     describe "events" do
-      let(:user) { create :user, :confirmed, organization: meeting.organization }
+      let(:user) { create(:user, :confirmed, organization: meeting.organization) }
       let!(:registration) { create(:registration, meeting:, code:, validated_at: nil, user:) }
 
       context "when registrations are enabled and registration code is enabled" do

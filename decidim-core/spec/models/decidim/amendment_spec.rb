@@ -36,10 +36,8 @@ describe Decidim::Amendment do
   end
 
   describe "inclusion" do
-    context "with a state not included in STATES" do
-      let(:amendment) { build(:amendment, state: "just chilling") }
-
-      it { is_expected.not_to be_valid }
+    it "raises errors when provided state is invalid" do
+      expect { build(:amendment, state: "just chilling") }.to raise_error(ArgumentError)
     end
   end
 end

@@ -1,48 +1,44 @@
-<section id="how_to_participate" class="extended home-section">
-  <div class="wrapper-home">
-    <div class="row column text-center">
-      <h2 class="heading3"><%= t("decidim.pages.home.extended.how_to_participate") %></h2>
-    </div>
-    <div class="row small-up-1 medium-up-3 home-bullets">
-      <div class="column">
-        <div class="home-bullet">
-          <div class="home-bullet__icon">
-            <%= icon "meetings", role: "img", "aria-hidden": true %>
-          </div>
-          <div class="home-bullet__desc">
-            <h3 class="heading4"><%= t("decidim.pages.home.extended.meetings") %></h3>
-            <p><%= t("decidim.pages.home.extended.meetings_explanation") %></p>
-          </div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="home-bullet">
-          <div class="home-bullet__icon">
-            <%= icon "debates", role: "img", "aria-hidden": true %>
-          </div>
-          <div class="home-bullet__desc">
-            <h3 class="heading4"><%= t("decidim.pages.home.extended.debates") %></h3>
-            <p><%= t("decidim.pages.home.extended.debates_explanation") %></p>
-          </div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="home-bullet">
-          <div class="home-bullet__icon">
-            <%= icon "proposals", role: "img", "aria-hidden": true %>
-          </div>
-          <div class="home-bullet__desc">
-            <h3 class="heading4"><%= t("decidim.pages.home.extended.proposals") %></h3>
-            <p><%= t("decidim.pages.home.extended.proposals_explanation") %></p>
-          </div>
-        </div>
+<section id="how_to_participate" class="home__section">
+  <h2 class="home__section-title">
+    <%= t("decidim.pages.home.extended.how_to_participate") %>
+  </h2>
+  <div class="home__section-participate-grid">
+    <div class="home__section-participate-grid__block">
+      <%= icon "map-pin-line", class: "home__section-participate-grid__icon " %>
+      <div>
+        <h3 class="home__section-participate-grid__title">
+          <%= t("decidim.pages.home.extended.meetings") %>
+        </h3>
+        <p class="home__section-participate-grid__text">
+          <%= t("decidim.pages.home.extended.meetings_explanation") %>
+        </p>
       </div>
     </div>
-    <div class="row">
-      <div class="columns small-centered small-10
-                smallmedium-8 medium-6 large-4">
-        <%= link_to t("decidim.pages.home.extended.more_info", resource_name: translated_attribute(current_organization.name, current_organization)), decidim.pages_path, class: "button expanded hollow button--sc" %>
+    <div class="home__section-participate-grid__block">
+      <%= icon "chat-1-line", class: "home__section-participate-grid__icon " %>
+      <div>
+        <h3 class="home__section-participate-grid__title">
+          <%= t("decidim.pages.home.extended.debates") %>
+        </h3>
+        <p class="home__section-participate-grid__text">
+          <%= t("decidim.pages.home.extended.debates_explanation") %>
+        </p>
+      </div>
+    </div>
+    <div class="home__section-participate-grid__block">
+      <%= icon "file-3-line", class: "home__section-participate-grid__icon " %>
+      <div>
+        <h3 class="home__section-participate-grid__title">
+          <%= t("decidim.pages.home.extended.proposals") %>
+        </h3>
+        <p class="home__section-participate-grid__text">
+          <%= t("decidim.pages.home.extended.proposals_explanation") %>
+        </p>
       </div>
     </div>
   </div>
+  <%= link_to decidim.pages_path, class: "button button__sm md:button__lg button__secondary mt-6" do %>
+    <%= t("more_info", scope: "decidim.pages.home.extended", resource_name: translated_attribute(current_organization.name, current_organization)) %>
+    <%= icon "arrow-right-line", class: "fill-current" %>
+  <% end %>
 </section>

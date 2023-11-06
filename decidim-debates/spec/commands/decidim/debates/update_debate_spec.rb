@@ -5,14 +5,14 @@ require "spec_helper"
 describe Decidim::Debates::UpdateDebate do
   subject { described_class.new(form) }
 
-  let(:organization) { create :organization, available_locales: [:en, :ca, :es], default_locale: :en }
-  let(:participatory_process) { create :participatory_process, organization: }
-  let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "debates" }
-  let(:scope) { create :scope, organization: }
-  let(:category) { create :category, participatory_space: participatory_process }
-  let(:user) { create :user, organization: }
+  let(:organization) { create(:organization, available_locales: [:en, :ca, :es], default_locale: :en) }
+  let(:participatory_process) { create(:participatory_process, organization:) }
+  let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "debates") }
+  let(:scope) { create(:scope, organization:) }
+  let(:category) { create(:category, participatory_space: participatory_process) }
+  let(:user) { create(:user, organization:) }
   let(:author) { user }
-  let!(:debate) { create :debate, author:, component: current_component }
+  let!(:debate) { create(:debate, author:, component: current_component) }
   let(:form) do
     Decidim::Debates::DebateForm.from_params(
       title: "title",
@@ -37,7 +37,7 @@ describe Decidim::Debates::UpdateDebate do
       expect { subject.call }.to broadcast(:invalid)
     end
 
-    it "doesn't update the debate" do
+    it "does not update the debate" do
       expect do
         subject.call
         debate.reload
@@ -46,13 +46,13 @@ describe Decidim::Debates::UpdateDebate do
   end
 
   describe "when the debate is not editable by the user" do
-    let(:author) { create :user, organization: }
+    let(:author) { create(:user, organization:) }
 
     it "broadcasts invalid" do
       expect { subject.call }.to broadcast(:invalid)
     end
 
-    it "doesn't update the debate" do
+    it "does not update the debate" do
       expect do
         subject.call
         debate.reload
@@ -66,6 +66,13 @@ describe Decidim::Debates::UpdateDebate do
         subject.call
         debate.reload
       end.to change(debate, :title)
+    end
+
+    it_behaves_like "fires an ActiveSupport::Notification event", "decidim.debates.update_debate:before" do
+      let(:command) { subject }
+    end
+    it_behaves_like "fires an ActiveSupport::Notification event", "decidim.debates.update_debate:after" do
+      let(:command) { subject }
     end
 
     it "sets the scope" do

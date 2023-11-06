@@ -1,17 +1,14 @@
-<section id="last_activity" class="wrapper-home upcoming-events home-section">
-  <div class="row">
-    <h3 class="section-heading"><%= t("decidim.content_blocks.last_activity.title") %></h3>
-    <div class="row">
-      <% valid_activities.each_slice(4) do |column_activities| %>
-        <div class="columns medium-6">
-          <%= cell "decidim/activities", column_activities %>
-        </div>
+<section id="last_activity" class="home__section">
+  <div class="home__section-header">
+    <h2 class="home__section-title">
+      <%= t("decidim.content_blocks.last_activity.title") %>
+    </h2>
+    <%= link_to last_activities_path, class: "button button__sm button__text-secondary" do %>
+        <%= t("view_all", scope: "decidim.content_blocks.last_activity") %>
+        <%= icon "arrow-right-line", class: "fill-current" %>
       <% end %>
-    </div>
-    <div class="row">
-      <div class="column">
-        <%= link_to t("decidim.content_blocks.last_activity.view_all"), last_activities_path, class: "button hollow button--sc pull-right" %>
-      </div>
-    </div>
   </div>
+  <% valid_activities.each_slice(4) do |column_activities| %>
+    <%= cell "decidim/activities", column_activities %>
+  <% end %>
 </section>

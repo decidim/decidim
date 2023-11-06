@@ -5,7 +5,7 @@
     <h2 class="card-title">
     <span><%= t(".display_condition") %></span>
     <% if editable %>
-      <button class="button small alert hollow remove-display-condition button--title">
+      <button class="button button__sm button__secondary small alert hollow remove-display-condition button--title">
         <%= t(".remove") %>
       </button>
     <% end %>
@@ -36,7 +36,7 @@
           :condition_type,
           options_from_collection_for_select(display_condition_types, :first, :last, display_condition.condition_type),
           { prompt: t(".select_condition_type"), label: t(".condition_type") },
-          disabled: !editable,
+          disabled: !editable
         )
       %>
     </div>

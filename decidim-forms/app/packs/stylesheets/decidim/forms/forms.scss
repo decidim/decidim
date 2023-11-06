@@ -1,81 +1,111 @@
-.questionnaire-question_readonly{
-  font-weight: bold;
-  font-size: .875rem;
+.answer-questionnaire {
+  @apply border-t-2 border-background pt-8;
 
-  p{
-    margin-bottom: .5rem;
+  &__step {
+    @apply space-y-10;
   }
 
-  em{
-    font-weight: normal;
-    font-size: 90%;
+  &__step-counter {
+    @apply inline-block text-lg text-black font-semibold bg-tertiary;
   }
 
-  p + ul{
-    margin-top: -.5rem;
-  }
-}
+  &__step-heading {
+    @apply space-y-4;
 
-.questionnaire-question_readonly-answers{
-  margin-bottom: .5rem;
-
-  &.single_option{
-    list-style-type: disc;
-  }
-
-  &.multiple_option{
-    list-style-type: square;
-  }
-
-  &.sorting{
-    list-style-type: circle;
-  }
-}
-
-.questionnaire-question_readonly-answer{
-  font-weight: normal;
-}
-
-.questionnaire-question-matrix{
-  display: block;
-  overflow-x: auto;
-
-  .collection-input{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-grow: 1;
-    flex-basis: 0;
-
-    input[type="text"]{
-      margin-top: auto;
-      margin-bottom: auto;
-    }
-
-    input[type="checkbox"],
-    input[type="radio"]{
-      margin-bottom: 0;
-
-      & ~ input[type="text"]{
-        margin-left: .5rem;
-      }
+    div {
+      @apply text-gray-2 text-lg;
     }
   }
 
-  tr,
-  tr:nth-child(2n){
-    background: initial;
-    border-bottom: 1px solid #f0f0f0;
+  &__question {
+    @apply space-y-4;
   }
 
-  thead td{
-    text-align: center;
+  &__question-label {
+    @apply text-black text-xl font-semibold relative before:content-[attr(data-answer-idx)] before:w-6 before:h-6 md:before:absolute md:before:-left-4 md:before:-translate-x-full before:inline-flex before:justify-center before:rounded-full before:bg-background before:text-lg before:text-gray-2 before:font-semibold;
   }
 
-  td{
-    min-width: 100px;
-    border-right: 1px solid #f0f0f0;
+  &__question-description {
+    @apply text-gray-2;
+  }
+
+  &__multiple-option,
+  &__single-option {
+    @apply text-gray-2 space-y-4;
+
+    label {
+      @apply flex cursor-pointer;
+    }
+
+    label + * {
+      @apply mt-2 w-full;
+    }
+  }
+
+  &__multiple-matrix,
+  &__single-matrix {
+    @apply text-gray-2 text-sm rounded overflow-x-auto;
+
+    table {
+      @apply w-full;
+    }
+
+    th,
+    td {
+      @apply border border-background px-2 py-2.5;
+    }
+
+    thead td,
+    th {
+      @apply bg-background font-normal;
+    }
+
+    td:not(:first-child) {
+      @apply text-center [&>*]:flex [&>*]:items-center [&>*]:justify-center;
+    }
+
+    input[type="text"] {
+      @apply min-w-[120px] w-full;
+    }
+  }
+
+  &__sorting {
+    @apply flex items-center justify-between relative text-gray-2 pl-8 pr-2 py-2.5 border-2 border-background rounded cursor-pointer before:content-[counter(item)] before:absolute before:left-0 before:top-0 before:bg-background before:w-5 before:h-full before:grid before:place-items-center before:text-gray-2 before:font-bold;
+
+    counter-increment: item;
+
+    &-container {
+      @apply space-y-4;
+
+      counter-reset: item;
+    }
+
+    input {
+      @apply hidden;
+    }
+
+    svg {
+      @apply text-gray fill-current w-5 h-5;
+    }
+  }
+
+  &__footer {
+    @apply flex flex-col gap-10 pt-10 border-t-2 border-background text-gray-2 only:border-t-0;
+  }
+
+  &__tos {
+    @apply space-y-4 cursor-pointer;
+
+    div {
+      @apply text-sm;
+    }
+  }
+
+  &__submit {
+    @apply flex items-center justify-between;
+
+    > *:only-child {
+      @apply ml-auto;
+    }
   }
 }
-
-@import "stylesheets/decidim/forms/questionnaire-answers-pdf";

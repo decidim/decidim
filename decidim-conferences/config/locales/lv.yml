@@ -4,7 +4,6 @@ lv:
       conference:
         assemblies_ids: Saistītās asamblejas
         banner_image: Reklāmkaroga attēls
-        consultations_ids: Saistītās konsultācijas
         copy_categories: Kopēt kategorijas
         copy_components: Kopēt komponentus
         copy_features: Kopēt funkcijas
@@ -22,24 +21,12 @@ lv:
         slogan: Sauklis
         slug: URL sadaļas adrese (slug)
         title: Nosaukums
-      conference_media_link:
-        weight: Svarīgums
-      conference_partner:
-        weight: Svarīgums
-      conference_registration_type:
-        weight: Svarīgums
       conference_speaker:
         full_name: Vārds, uzvārds
       conference_user_role:
         email: E-pasts
         name: Nosaukums
         role: Loma
-    errors:
-      models:
-        conference_registration_invite:
-          attributes:
-            email:
-              already_invited: Šis e-pasts jau ir uzaicināts
   activerecord:
     models:
       decidim/conference:
@@ -58,7 +45,6 @@ lv:
     admin:
       actions:
         confirm: Apstiprināt
-        new_conference: Jauna konference
         send_diplomas: Nosūtīt apmeklējuma sertifikātus
       conference_copies:
         new:
@@ -102,8 +88,6 @@ lv:
         edit:
           title: Atjaunināt konferences administratoru.
           update: Atjaunināt
-        index:
-          conference_admins_title: konferences administratori
         new:
           create: Izveidot
           title: Jauns konferences administrators.
@@ -121,7 +105,6 @@ lv:
         form:
           title: Vispārēja informācija
         index:
-          not_published: Nav publicēts
           published: Publicēts
         new:
           create: Izveidot
@@ -162,7 +145,6 @@ lv:
           conference_invites: Ielūgumi
           conference_speakers: Runātāji
           diploma: Apmeklējuma sertifikāts
-          info: Informācija
           media_links: Mediju saites
           moderations: Moderācijas
           partners: Partneri
@@ -173,7 +155,6 @@ lv:
         conference:
           fields:
             created_at: Izveidots plkst.
-            promoted: Izcelts
             published: Publicēts
             title: Nosaukums
         conference_speaker:
@@ -291,9 +272,6 @@ lv:
         title: Runātāji
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'URL sadaļas adrese (slug) tiek izmantota, lai ģenerētu URL, kas ved uz šo konferenci. Tajā var būt tikai burti, cipari un defises, un tai jāsākas ar burtu. Piemērs: %{url}'
         conference_invites:
           create:
             error: Uzaicinot dalībnieku pievienoties konferencei, radās problēma.
@@ -310,12 +288,10 @@ lv:
               all: Visi
               rejected: Noraidīts
               sent: Nosūtīts
-            filter_by: Filtrēt pēc
             invite_attendee: Uzaicināt dalībnieku
             invites: Ielūgumi
             search: Meklēt
           new:
-            explanation: Dalībniece tiks uzaicināta pievienoties konferencei. Ja viņas e-pasts nav reģistrēts, viņa tiks uzaicināta pievienoties organizācijai.
             invite: Uzaicināt
             new_invite: Uzaicināt dalībnieku
         conference_registrations:
@@ -336,7 +312,6 @@ lv:
               zero: Ir notikušas %{count} reģistrācijas.
               one: Ir notikusi viena reģistrācija.
               other: Ir notikušas %{count} reģistrācijas.
-            slug_help: 'URL sadaļas adrese (slug) tiek izmantota, lai ģenerētu URL, kas ved uz šo konferenci. Tajā var būt tikai burti, cipari un defises, un tai jāsākas ar burtu. Piemērs: %{url}'
         diplomas:
           edit:
             save: Saglabāt
@@ -344,7 +319,7 @@ lv:
         invite_join_conference_mailer:
           invite:
             decline: Noraidīt ielūgumu '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} jūs aicina piedalīties konferencē %{application}. Jūs varat pieņemt vai noraidīt ielūgumu, izmantojot vienu no turpmāk esošajām saitēm."
+            invited_existing_user_to_join_a_conference: "%{invited_by} jūs aicina piedalīties konferencē %{application}. Jūs varat pieņemt vai noraidīt ielūgumu, izmantojot vienu no turpmāk esošajām saitēm."
             registration: Reģistrācija dalībai '%{conference_title}'
         partners:
           index:
@@ -369,18 +344,11 @@ lv:
           cancel: Atcelt
           confirm: Apstiprināt
         show:
-          free: Bez maksas
           going: Apmeklē
           no_slots_available: Nav pieejama laika runāšanai
           registration: Reģistrācija
       conference_program:
-        program_meeting:
-          content: Saturs
-          location: Atrašanās vieta
-          speakers: Runātāji
-          streaming: Straumēšana
         show:
-          day: Diena
           program: Programma
       conference_registration_mailer:
         confirmation:
@@ -402,7 +370,6 @@ lv:
           invalid: Pametot šo konferenci, radās problēma.
           success: Jūs esat veiksmīgi pametis konferenci.
       conference_speaker:
-        go_to_twitter: Dodieties uz Twitter
         more_info: sīkāka informācija
         personal_website: Personīgā tīmekļvietne
         show:
@@ -410,18 +377,12 @@ lv:
       conference_speaker_cell:
         personal_url:
           personal_website: Personīgā tīmekļvietne
-        twitter_handle:
-          go_to_twitter: Dodieties uz Twitter
-      conference_speakers:
-        index:
-          speakers: Runātāji
       conferences:
         partners:
           collaborators: Partneri
           main_promotors: Organizatori
         show:
           login_as: Jūs esat pierakstījies kā %{name} <%{email}>
-          make_conference_registration: 'Reģistrējieties konferencē:'
           register: Reģistrēties
       content_blocks:
         highlighted_conferences:
@@ -429,11 +390,6 @@ lv:
       index:
         title: Konferences
       mailer:
-        conference_registration_mailer:
-          confirmation:
-            subject: Jūsu konferences reģistrācija ir apstiprināta
-          pending_validation:
-            subject: Jūsu konferences reģistrācija gaida apstiprinājumu
         invite_join_conference_mailer:
           invite:
             subject: Ielūgums pievienoties konferencei
@@ -464,36 +420,17 @@ lv:
       pages:
         home:
           highlighted_conferences:
-            active_conferences: Aktīvās konferences
-            see_all_conferences: Skatīt visas konferences
-      photo:
-        image:
-          attributes:
-            alt: Mediju attēls
-        show:
-          close_modal: Aizvērt modal
-          photo: Attēls
-      photos_list:
-        show:
-          related_photos: Attēli
+            active_spaces: Aktīvās konferences
       registration_types:
         index:
           choose_an_option: 'Izvēlieties savu reģistrācijas iespēju:'
-          login_as: Jūs esat pierakstījies kā %{name} <%{email}>
           register: Reģistrēties
           title: Reģistrācijas veidi
-      shared:
-        conference_user_login:
-          already_account: Vai jums jau ir decidim konts?
-          new_user: Jauns lietotājs?
-          sign_in: Piesakieties, lai reģistrētos konferencei
-          sign_up: Izveidojiet decidim kontu, lai reģistrētos konferencei
       show:
         details: Sīkāka informācija
         introduction: Ievads
         objectives: Mērķi
         related_assemblies: Saistītās asamblejas
-        related_consultations: Saistītās konsultācijas
         related_participatory_processes: Saistītie līdzdalības procesi
     events:
       conferences:
@@ -526,10 +463,6 @@ lv:
           email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat konferencei "%{resource_title}". Jūs varat atsekot tai no iepriekšējās saites.
           email_subject: Konference "%{resource_title}" tuvojas!
           notification_title: Konference <a href="%{resource_path}">%{resource_title}</a> notiks pēc divām dienām.
-    log:
-      value_types:
-        conference_presenter:
-          not_found: 'Konference netika atrasta datubāzē (ID: %{id})'
     media:
       index:
         description: Saites par šo konferenci
@@ -544,9 +477,6 @@ lv:
     decidim:
       conference_hero:
         register: Reģistrēties
-      conference_widgets:
-        show:
-          take_part: Piedalīties
       conferences:
         conference:
           more_info: Sīkāka informācija
@@ -558,11 +488,7 @@ lv:
             zero: "%{count} konferences"
             one: "%{count} konference"
             other: "%{count} konferences"
-        promoted_conference:
-          more_info: Sīkāka informācija
-          take_part: Piedalīties
       conferences_nav:
-        conference_menu_item: Informācija
         conference_partners_menu_item: Partneri
         conference_speaker_menu_item: Runātāji
         media: Plašsaziņas līdzekļi

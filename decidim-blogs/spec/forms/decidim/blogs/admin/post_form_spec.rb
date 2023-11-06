@@ -14,12 +14,13 @@ module Decidim
         end
 
         let(:current_organization) { create(:organization) }
-        let(:current_user) { create :user, organization: current_organization }
+        let(:current_user) { create(:user, organization: current_organization) }
         let(:another_user) { create(:user, organization: current_organization) }
         let(:user_group) { create(:user_group, :verified, organization: current_organization) }
         let(:decidim_author_id) { "" }
         let(:component) { create(:post_component, organization: current_organization) }
-        let(:post) { create(:post, component:, author:) }
+        let(:post) { create(:post, component:, author:, published_at:) }
+        let(:published_at) { nil }
         let(:user_from_another_org) { create(:user) }
         let(:post_id) { nil }
 
@@ -45,7 +46,8 @@ module Decidim
               "title" => title,
               "body" => body,
               "decidim_author_id" => decidim_author_id,
-              "id" => post_id
+              "id" => post_id,
+              "published_at" => published_at
             }
           }
         end

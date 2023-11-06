@@ -1,29 +1,30 @@
-<div class="polling_officer_zone">
-  <div>
-    <%= link_to polling_officers_path do %>
-      <%= icon "caret-left", class: "icon--small", role: "img" %> <%= t(".back") %>
-    <% end %>
-  </div>
-  <h2><%= t(".title") %></h2>
+<%= append_javascript_pack_tag "decidim_votings" %>
+<%= append_stylesheet_pack_tag "decidim_votings" %>
 
-  <div class="in-person-vote-wrapper"
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
+  <div class="text-center py-10">
+    <h1 class="title-decorator inline-block text-left">
+      <%= t("title", scope: "decidim.votings.polling_officer_zone.in_person_votes.show") %>
+    </h1>
+  </div>
+
+  <div id="in-person-vote-wrapper"
     data-api-endpoint-url="<%= bulletin_board_server %>"
     data-message-id="<%= in_person_vote.message_id %>">
-      <div class="evote__confirming" aria-hidden="true">
-      <div class="evote__dot"></div>
-      <div class="evote__dot"></div>
-      <div class="evote__dot"></div>
-      <div class="evote__dot"></div>
-      <div class="evote__dot"></div>
-      <div class="evote__dot"></div>
-      <div class="evote__dot"></div>
-    </div>
   </div>
-  <%= form_tag polling_officer_election_in_person_vote_path(polling_officer, election, in_person_vote), method: :patch, class: "update_vote_status" %>
-</div>
+
+  <div class="flex flex-col items-center gap-14 py-14">
+    <%= icon "fingerprint-line", class: "w-40 h-40 text-tertiary animate-pulse fill-current" %>
+  </div>
+
+  <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+    <%= link_to polling_officers_path, class: "button button__sm md:button__lg button__text-secondary" do %>
+      <%= icon "arrow-left-line" %>
+      <span><%= t("back", scope: "decidim.votings.polling_officer_zone.in_person_votes.show") %></span>
+    <% end %>
+
+    <%= form_tag polling_officer_election_in_person_vote_path(polling_officer, election, in_person_vote), method: :patch, class: "update_vote_status" %>
+  </div>
+<% end %>
 
 <%= render "decidim/elections/shared/broken_promises_modal" %>
-
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_votings_in_person_vote" %>
-<% end %>

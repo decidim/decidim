@@ -16,7 +16,7 @@ describe "User group joining", type: :system do
     let!(:user_group) { create(:user_group, users: [user], organization: user.organization) }
 
     it "does not show the link to join" do
-      expect(page).to have_no_content("Request to join group")
+      expect(page).not_to have_content("Request to join group")
     end
   end
 
@@ -25,7 +25,7 @@ describe "User group joining", type: :system do
       click_link "Request to join group"
 
       expect(page).to have_content("Join request successfully created")
-      expect(page).to have_no_content("Request to join group")
+      expect(page).not_to have_content("Request to join group")
     end
   end
 end

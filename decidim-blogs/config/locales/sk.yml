@@ -18,17 +18,7 @@ sk:
         new: Nový príspevok
         title: Akcie
       admin:
-        models:
-          components:
-            body: Telo textu
-          post:
-            name: Príspevok
         posts:
-          create:
-            invalid: Vyskytol sa problém s vytváraním príspevku
-            success: Príspevok úspešne vytvorený
-          destroy:
-            success: Príspevok úspešne odstránený
           edit:
             save: Aktualizovať
           index:
@@ -38,25 +28,11 @@ sk:
             title: Vytvort príspevok
           update:
             invalid: Vyskytol sa problém s ukladaním príspevku.
-            success: Príspevok úspešne uložený
-      last_activity:
-        new_post_at_html: "<span>Nový príspevok na %{link}</span>"
       models:
         post:
           fields:
             author: Autor
             body: Telo textu
-            created_at: Vytvorené
-            title: názov
-      posts:
-        show:
-          back: Späť na zoznam
-          comments: Komentáre
-          view: Zobraziť
-        sidebar_blog:
-          comments: komentáre
-          most_commented_posts: Najviac komentované príspevky
-      read_more: Čítať ďalej
     components:
       blogs:
         name: Blog

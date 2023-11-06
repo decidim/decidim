@@ -28,7 +28,7 @@ module Decidim
 
     it_behaves_like "find and stores the hashtags references"
 
-    context "when content hashtag doesn't match existing case" do
+    context "when content hashtag does not match existing case" do
       let(:content) { "This text contains a hashtag present on DB: ##{hashtag.name.upcase}" }
       let(:parsed_content) { "This text contains a hashtag present on DB: #{hashtag.to_global_id}/#{hashtag.name.upcase}" }
 
@@ -75,8 +75,8 @@ module Decidim
     end
 
     context "when content contains non-hash characters next to the hashtag name" do
-      let(:content) { "You can't add some characters to hashtags: ##{hashtag.name}+extra" }
-      let(:parsed_content) { "You can't add some characters to hashtags: #{hashtag.to_global_id}/#{hashtag.name}+extra" }
+      let(:content) { "You cannot add some characters to hashtags: ##{hashtag.name}+extra" }
+      let(:parsed_content) { "You cannot add some characters to hashtags: #{hashtag.to_global_id}/#{hashtag.name}+extra" }
 
       it_behaves_like "find and stores the hashtags references"
     end
@@ -90,21 +90,44 @@ module Decidim
       it_behaves_like "find and stores the hashtags references"
     end
 
-    context "when content contains an URL with a fragment (aka anchor link)" do
-      let(:content) { "You can add an URL and this shouldn't be parsed http://www.example.org/path##{hashtag.name}" }
-      let(:parsed_content) { "You can add an URL and this shouldn't be parsed http://www.example.org/path#fragment" }
+    context "when the hashtag is at the beginning of the string" do
+      let(:content) { "##{hashtag.name} is at the beginning of the string" }
+      let(:parsed_content) { "#{hashtag.to_global_id}/#{hashtag.name} is at the beginning of the string" }
 
-      it "doesn't find the hashtag" do
+      it_behaves_like "find and stores the hashtags references"
+    end
+
+    context "when the hashtags are added through the WYSIWYG editor" do
+      let(:new_hashtag) { Decidim::Hashtag.find_by(organization:, name: "a_new_one") }
+      let(:hashtag2) { create(:hashtag, organization:) }
+      let(:content) do
+        %(<p>This text contains multiple hashtag presents: #{html_hashtag("a_new_one")}, #{html_hashtag(hashtag.name)} and #{html_hashtag(hashtag2.name)}</p>)
+      end
+      let(:parsed_content) { "<p>This text contains multiple hashtag presents: #{new_hashtag.to_global_id}/#{new_hashtag.name}, #{hashtag.to_global_id}/#{hashtag.name} and #{hashtag2.to_global_id}/#{hashtag2.name}</p>" }
+      let(:metadata_hashtags) { [new_hashtag, hashtag, hashtag2] }
+
+      it_behaves_like "find and stores the hashtags references"
+
+      def html_hashtag(hashtag)
+        %(<span data-type="hashtag" data-label="##{hashtag}">##{hashtag}</span>)
+      end
+    end
+
+    context "when content contains an URL with a fragment (aka anchor link)" do
+      let(:content) { "You can add an URL and this should not be parsed http://www.example.org/path##{hashtag.name}" }
+      let(:parsed_content) { "You can add an URL and this should not be parsed http://www.example.org/path#fragment" }
+
+      it "does not find the hashtag" do
         expect(parser.metadata).to be_a(Decidim::ContentParsers::HashtagParser::Metadata)
         expect(parser.metadata.hashtags).to eq([])
       end
     end
 
     context "when written with an slash before the fragment" do
-      let(:content) { "You can add an URL and this shouldn't be parsed http://www.example.org/path/#fragment" }
-      let(:parsed_content) { "You can add an URL and this shouldn't be parsed http://www.example.org/path/#fragment" }
+      let(:content) { "You can add an URL and this should not be parsed http://www.example.org/path/#fragment" }
+      let(:parsed_content) { "You can add an URL and this should not be parsed http://www.example.org/path/#fragment" }
 
-      it "doesn't find the hashtag" do
+      it "does not find the hashtag" do
         expect(parser.metadata).to be_a(Decidim::ContentParsers::HashtagParser::Metadata)
         expect(parser.metadata.hashtags).to eq([])
       end

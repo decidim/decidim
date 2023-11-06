@@ -11,12 +11,12 @@ module Decidim
     helper_method :user_group
 
     def index
-      enforce_permission_to :manage, :user_group, user_group: user_group
+      enforce_permission_to(:manage, :user_group, user_group:)
       @form = form(InviteUserToGroupForm).instance
     end
 
     def create
-      enforce_permission_to :manage, :user_group, user_group: user_group
+      enforce_permission_to(:manage, :user_group, user_group:)
       @form = form(InviteUserToGroupForm).from_params(params)
 
       InviteUserToGroup.call(@form, user_group) do

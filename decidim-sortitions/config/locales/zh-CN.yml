@@ -35,7 +35,6 @@ zh-CN:
         actions:
           destroy: 取消排序方式
           edit: 编辑
-          new: 新的排序方式
           show: 排序详情
         models:
           sortition:
@@ -49,8 +48,6 @@ zh-CN:
               seed: 种子
               target_items: 要选择的项目
               title: 标题
-            name:
-              other: 联谊会
         sortitions:
           confirm_destroy:
             confirm_destroy: 您确定要取消这个分类吗？
@@ -58,17 +55,12 @@ zh-CN:
             title: 取消吸附性
           create:
             error: 出现了一个问题，造成了新的怨恨。
-            success: 排序成功创建
-          destroy:
-            error: 不能取消排序。
-            success: 排序成功取消
           edit:
             title: 更新有关分类的信息
             update: 更新
           form:
             all_categories: 所有类别
             select_proposal_component: 选择提案集
-            title: 对建议书的新排序方式
           index:
             title: 联谊会
           new:
@@ -78,7 +70,6 @@ zh-CN:
             selected_proposals: 选择绘图提案
           update:
             error: 有一个问题是更新厌恶。
-            success: 排序成功更新
       admin_log:
         sortition:
           create: "%{user_name} 在 %{resource_name} 中创建了 %{space_name} 个排序。"
@@ -93,14 +84,7 @@ zh-CN:
           all: 所有的
           cancelled: 已取消
           category: 类别
-          category_prompt: 选择一个类别
-          search: 搜索
           state: 状态
-        filters_small_view:
-          close_modal: 关闭模式
-          filter: 筛选器
-          filter_by: 筛选方式
-          unfold: 展开...
         linked_sortitions:
           selected_proposals: 选定的建议
         orders:
@@ -113,23 +97,21 @@ zh-CN:
         show:
           algorithm: 排序算法
           any_category: 来自所有类别
-          back: 返回列表
           cancelled: 取消排序方式
           candidate_proposal_ids: 排序建议订单和 ID
           candidate_proposals_info: '排序是在下列建议中进行的 (%{category_label})，具有以下ID(以选定建议的黑体字)  '
           category: 来自 %{category} 类别
-          dice_result: "(1) 致残结果"
+          dice_result: (1) 致残结果
           introduction: '此页面包含排序 %{reference}的结果。 通过这种道歉， 已经随机选择了 %{target_items} 个结果，并且显示在下面的一组建议中同样的概率分布。 本页所显示的信息连同结果，提供了最大限度保证和复制结果所需的所有信息。 这种区分的质量的关键是由证人核实的法官滚动所提供的双倍随机性和为产生随机选择的算法提供输入的吸附确切时间。 难度的时间种子非常精确(秒)，人类无法控制，因此提供了双个“无法控制的”输入以保证结果的公允。  '
           mathematical_result: 结果(1) x (2)
           proposals_selected_by_sortition: 按排序选择的提议
           sortition_reproducibility_details: 排序详细信息
-          time_seed: "(2) 时间种子"
+          time_seed: (2) 时间种子
           witnesses: 证人
         sortition:
           random_seed: 随机种子
           selected_proposals:
             other: 建议已选择
-          view: 查看
         sortition_author:
           deleted: 删除参与者
         sortition_cancel_author:

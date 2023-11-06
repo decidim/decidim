@@ -51,7 +51,6 @@ nl:
         subtitle: Ondertiteling
         target: Wie neemt deel
         title: Titel
-        twitter: Twitter
         weight: Bestelpositie
         youtube: YouTube
       assembly_member:
@@ -92,7 +91,6 @@ nl:
         edit:
           update: Bijwerken
         index:
-          not_published: Niet gepubliceerd
           private: Privé
           public: Openbaar
           published: Gepubliceerd
@@ -112,16 +110,16 @@ nl:
           success: Instellingen succesvol bijgewerkt.
       assemblies_types:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuw assembly-type.
-          success: Assemblage type is succesvol gecreëerd.
+          error: Er is een fout opgetreden bij het maken van een nieuw groepstype.
+          success: Groepstype is succesvol gecreëerd.
         destroy:
           success: Groep succesvol verwijderd.
         new:
           create: creëren
           title: Nieuw groepstype
         update:
-          error: Er is een fout opgetreden bij het bijwerken van dit assembly-type.
-          success: Assemblage type is succesvol bijgewerkt.
+          error: Er is een fout opgetreden bij het bijwerken van dit groepstype.
+          success: Groepstype is succesvol bijgewerkt.
       assembly_copies:
         new:
           copy: Kopiëren
@@ -175,7 +173,7 @@ nl:
           title: Nieuwe groepsadmin.
         update:
           error: Er is een fout opgetreden bij het bijwerken van een admin voor deze groep.
-          success: Beheerder is succesvol bijgewerkt voor deze vergadering.
+          success: Admin is succesvol bijgewerkt voor deze groep.
       filters:
         decidim_assemblies_type_id_eq:
           label: Groepstype
@@ -190,7 +188,6 @@ nl:
           attachments: Bijlagen
           categories: Categorieën
           components: Onderdelen
-          info: Info
           moderations: Moderaties
           private_users: Particuliere gebruikers
         assemblies_types: Soorten groepen
@@ -236,6 +233,9 @@ nl:
     admin_log:
       assembly:
         create: "%{user_name} heeft de groep %{resource_name} gemaakt"
+        duplicate: "%{user_name} heeft de groep %{resource_name} gedupliceerd"
+        export: "%{user_name} heeft de groep %{resource_name} geëxporteerd"
+        import: "%{user_name} heeft de groep %{resource_name} geïmporteerd"
         publish: "%{user_name} heeft de %{resource_name} groep gepubliceerd"
         unpublish: "%{user_name} heeft de groep %{resource_name} gedepubliceerd"
         update: "%{user_name} heeft de groep %{resource_name} bijgewerkt"
@@ -244,7 +244,7 @@ nl:
         delete: "%{user_name} verwijderde het %{resource_name} lid uit de %{space_name} groep"
         update: "%{user_name} heeft het %{resource_name} lid in de %{space_name} groep bijgewerkt"
       assembly_setting:
-        update: "%{user_name} heeft de instellingen van de Buurderijen bijgewerkt"
+        update: "%{user_name} heeft de instellingen van de groepen bijgewerkt"
       assembly_type:
         create: "%{user_name} heeft de groep %{resource_name} bijgewerkt"
         delete: "%{user_name} heeft het groepstype %{resource_name} bijgewerkt"
@@ -264,31 +264,24 @@ nl:
             duration_help: Als de duur van deze groep beperkt is, selecteert u de einddatum. Anders zal dit verschijnen als onbepaald.
             filters: Filters
             images: Afbeeldingen
+            included_at_help: Selecteer de datum waarop deze groep aan Decidim is toegevoegd. Het hoeft niet noodzakelijk hetzelfde te zijn als de aanmaakdatum.
             metadata: Metadata
             other: Overige
             select_a_created_by: Selecteer op 'gemaakt door'
             select_an_area: Selecteer een onderwerp
             select_an_assembly_type: Selecteer een groepstype
             select_parent_assembly: Selecteer de hoofdgroep
-            slug_help: 'URL-paden worden gebruikt om de URL''s te genereren die naar deze bijeenkomst verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
             social_handlers: sociaal
             title: Algemene informatie
             visbility: Zichtbaarheid
         assemblies_settings:
           edit:
-            update: Vernieuwen
+            update: Bijwerken
           form:
-            title: Instellingen voor assemblies
+            title: Instellingen voor groepen
         assemblies_types:
           form:
             title: Titel
-        assembly_copies:
-          form:
-            slug_help: 'URL-paden worden gebruikt om de URL''s te genereren die naar deze bijeenkomst verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
-        assembly_imports:
-          form:
-            document_legend: Een document toevoegen
-            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze groep verwijzen. Accepteert alleen letters, cijfers en streepjes en moet beginnen met een letter. Voorbeeld: %{url}'
         assembly_members:
           form:
             existing_user: Bestaande deelnemer
@@ -304,7 +297,6 @@ nl:
               all: Alle
               ceased: Gestopt
               not_ceased: Niet gestopt
-            filter_by: Filteren op
             search: Zoeken
         content_blocks:
           highlighted_assemblies:
@@ -312,6 +304,9 @@ nl:
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        show:
+          title: Over deze groep
       assembly_members:
         index:
           members: Leden
@@ -342,44 +337,19 @@ nl:
         working_group: Werkgroep
       index:
         title: Groepen
-      last_activity:
-        new_assembly: Nieuwe groep
       pages:
-        home:
-          highlighted_assemblies:
-            active_assemblies: Huidige events
-            assemblies_button_title: Link naar de pagina van de Buurderijen die alle Buurderijen laat zien
-            see_all_assemblies: Bekijk alle events
         user_profile:
           member_of:
             member_of: Lid van
       show:
-        area: onderwerp
         assembly_type: Groepstype
-        children: Groepen
-        closing_date: Einddatum
-        composition: Samenstelling
-        created_by: Aangemaakt door
-        creation_date: Gemaakt op
-        developer_group: Organisator
         duration: Duur
-        included_at: Opgenomen op
-        indefinite_duration: onbepaald
-        internal_organisation: Interne organisatie
         is_transparent:
           'false': ondoorzichtig
           'true': Transparant
-        local_area: Organisatiegebied
-        participatory_scope: Wat is besloten
-        participatory_structure: Hoe wordt er besloten
         private_space: Dit is een privé event
-        purpose_of_action: Doelstelling
-        read_less: Minder lezen
-        read_more: Lees verder
         related_participatory_processes: Verwante inspraakprocessen
-        scope: Scope
-        social_networks: Sociale netwerken
-        target: Wie doet mee
+        social_networks_title: Bezoek groep op
     assembly_members:
       assembly_member:
         designated_on: Aangewezen op
@@ -389,19 +359,20 @@ nl:
       assemblies:
         create_assembly_member:
           email_intro: Een beheerder van de <a href="%{resource_url}">%{resource_name}</a> groep heeft je toegevoegd als een van haar leden.
-          email_subject: Je bent uitgenodigd om lid te worden van de %{resource_name} Buurderij!
-          notification_title: Je bent geregistreerd als lid van de Buurderij <a href="%{resource_path}">%{resource_name}</a>. Bekijk de <a href="%{resource_path}">pagina</a> om bij te dragen!
+          email_outro: Je hebt dit bericht ontvangen omdat je bent uitgenodigd voor een groep. Bekijk de pagina van de groep <a href="%{resource_path}"></a> om bij te dragen!
+          email_subject: Je bent uitgenodigd om lid te worden van de groep %{resource_name}
+          notification_title: Je bent geregistreerd als lid van de groep <a href="%{resource_path}">%{resource_name}</a>. Bekijk de <a href="%{resource_path}">pagina</a> om bij te dragen!
       assembly:
         role_assigned:
           email_intro: Je bent toegewezen als %{role} voor de groep "%{resource_title}".
-          email_outro: Je hebt deze melding ontvangen omdat je %{role} van de "%{resource_title}" bijeenkomst bent.
-          email_subject: U bent toegewezen als %{role} voor "%{resource_title}".
+          email_outro: Je hebt deze melding ontvangen omdat je %{role} van de groep "%{resource_title}" bent.
+          email_subject: Je bent toegewezen als %{role} voor "%{resource_title}".
           notification_title: Je bent toegewezen als %{role} voor de groep <a href="%{resource_url}">%{resource_title}</a>.
     help:
       participatory_spaces:
         assemblies:
           contextual: "<p>Een groep is een groep leden van een organisatie die periodiek bijeenkomen om beslissingen te nemen over een specifiek gebied of een bepaald bereik van de organisatie.</p> <p>Groepen houden vergaderingen, sommige zijn privé en sommige zijn open. Als ze open zijn, is het mogelijk om eraan deel te nemen (bijvoorbeeld: aanwezig zijn als de capaciteit het toelaat, punten toevoegen aan de agenda of commentaar geven op de voorstellen en beslissingen van dit orgel).</p> <p>Voorbeelden: een algemene groep (die eenmaal per jaar bijeenkomt om de hoofdlijnen van de organisatie te bepalen, evenals haar uitvoerende organen bij stemming), een gelijkheidsadviesraad (die om de twee maanden bijeenkomt om voorstellen te doen over het verbeteren van de genderrelaties in de organisatie) zijn een evaluatiecommissie (die elke maand bijeenkomt om een ​​proces te volgen) of een garantieorgaan (dat incidenten, misbruiken of voorstellen verzamelt om de besluitvormingsprocedures te verbeteren) allemaal voorbeelden van groepen.</p>\n"
-          page: "<p>Een assemblee is een groep leden van een organisatie die periodiek bijeenkomen om beslissingen te nemen over een specifiek gebied of een bepaald bereik van de organisatie.</p> <p>Assemblees houden vergaderingen, sommige zijn privé en sommige zijn open. Als ze open zijn, is het mogelijk om eraan deel te nemen (bijvoorbeeld: aanwezig zijn als de capaciteit het toelaat, punten toevoegen aan de agenda of commentaar geven op de voorstellen en beslissingen van dit orgel).</p> <p>Voorbeelden: een algemene assemblee (die eenmaal per jaar bijeenkomt om de hoofdlijnen van de organisatie te bepalen, evenals haar uitvoerende organen bij stemming), een gelijkheidsadviesraad (die om de twee maanden bijeenkomt om voorstellen te doen over het verbeteren van de genderrelaties in de organisatie), een evaluatiecommissie (die elke maand bijeenkomt om een ​​proces te volgen) of een garantieorgaan (dat incidenten, misbruiken of voorstellen verzamelt om de besluitvormingsprocedures te verbeteren) zijn allemaal voorbeelden van assemblees.</p>\n"
+          page: "<p>Een groep is samengesteld uit de leden van een organisatie die periodiek bijeenkomen om beslissingen te nemen over een specifiek domein of een bepaald thema.</p> <p>Groepen houden vergaderingen, sommige zijn privé en sommige zijn open. Als ze open zijn, is het mogelijk om eraan deel te nemen (bijvoorbeeld: aanwezig zijn als de capaciteit het toelaat, punten toevoegen aan de agenda of commentaar geven op de voorstellen en beslissingen van dit orgel).</p> <p>Voorbeelden: een algemene vergadering (die eenmaal per jaar bijeenkomt om de hoofdlijnen van de organisatie te bepalen, evenals haar uitvoerende organen bij stemming), een gelijkheidsadviesraad (die om de twee maanden bijeenkomt om voorstellen te doen over het verbeteren van de genderrelaties in de organisatie), een evaluatiecommissie (die elke maand bijeenkomt om een ​​proces te volgen) of een garantieorgaan (dat incidenten, misbruiken of voorstellen verzamelt om de besluitvormingsprocedures te verbeteren) zijn allemaal voorbeelden van groepen.</p>\n"
           title: Wat zijn groepen?
     log:
       value_types:
@@ -418,12 +389,9 @@ nl:
         title: Groepen
     participatory_processes:
       show:
-        related_assemblies: Verwante assemblies
+        related_assemblies: Verwante groepen
     statistics:
       assemblies_count: Groepen
-  errors:
-    messages:
-      cannot_be_blank: mag niet leeg zijn
   layouts:
     decidim:
       assemblies:
@@ -431,20 +399,10 @@ nl:
           more_info: Meer informatie
           take_part: Deelnemen
         index:
-          children: 'Groepen: '
-          organizational_chart: Organogram
           promoted_assemblies: Uitgelichte groepen
-          reset_chart: Reset
         order_by_assemblies:
           assemblies:
             one: "%{count} groep"
             other: "%{count} groepen"
-        promoted_assembly:
-          more_info: Meer informatie
-          take_part: Deelnemen
       assembly_navigation:
         assembly_member_menu_item: Leden
-        assembly_menu_item: De bijeenkomst
-      assembly_widgets:
-        show:
-          take_part: Deelnemen

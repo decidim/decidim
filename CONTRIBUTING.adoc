@@ -1,8 +1,8 @@
 = How to contribute to Decidim
 
-We're really glad you're reading this, because we need volunteer contributors to help this project come to fruition.
+We are really glad you are reading this, because we need volunteer contributors to help this project come to fruition.
 
-Please note that by making a Pull Request in this repository you're agreeing with https://decidim.org/contract[Decidim's Social Contract].
+Please note that by making a Pull Request in this repository you are agreeing with https://decidim.org/contract[Decidim's Social Contract].
 
 == Do you want to say hello to us?
 
@@ -11,9 +11,9 @@ Come find us at https://matrix.to/#/#decidim:matrix.org[our Matrix.org space]. W
 == Did you find a bug?
 
 * *Do not open up a GitHub issue if the bug is a security vulnerability in Decidim*, and instead send us an email to security [at] decidim.org.
-See https://github.com/decidim/decidim/blob/develop/SECURITY.adoc[full security policy].
+See https://github.com/decidim/decidim/blob/develop/SECURITY.md[full security policy].
 * *Ensure the bug was not already reported* by searching on GitHub under https://github.com/decidim/decidim/issues[Issues] and on https://meta.decidim.org/processes/bug-report/f/210/proposals[Metadecidim].
-* If you're unable to find an open issue addressing the problem, https://github.com/decidim/decidim/issues/new?template=Bug_report.md[open a new one on GitHub].
+* If you are unable to find an open issue addressing the problem, https://github.com/decidim/decidim/issues/new?template=Bug_report.md[open a new one on GitHub].
 Be sure to include a *title and clear description*, as much relevant information as possible, and a *code sample* or an *executable test case* demonstrating the expected behavior that is not occurring.
 
 == Did you write a patch that fixes a bug?
@@ -22,7 +22,7 @@ Be sure to include a *title and clear description*, as much relevant information
 * Ensure the PR description clearly describes the problem and solution.
 Include the relevant issue number if applicable.
 * Check our https://docs.decidim.org/en/develop/guide/[development_guide].
-* When the PR includes a breaking change or includes something that requires manual intervention when deploying, it's necessary to add it on the changelog upgrade notes.
+* When the PR includes a breaking change or includes something that requires manual intervention when deploying, it is necessary to add it on the changelog upgrade notes.
 See https://docs.decidim.org/en/develop/guide_conventions/#_changelog[rules for the changelog page in docs].
 
 == Do you intend to add a new feature or change an existing one?
@@ -33,7 +33,7 @@ Do not open an issue on GitHub until you have collected positive feedback about 
 GitHub issues are primarily intended for bug reports, fixes and already discussed features on https://meta.decidim.barcelona/processes/roadmap[Metadecidim Roadmap Process].
 . Make the Pull Request.
 
-If your change doesn't need to make a Pull Request in this repository because is a Module, then you don't need to ask permission for it :D
+If your change does not need to make a Pull Request in this repository because is a Module, then you do not need to ask permission for it :D
 
 You can read in detail about this process in https://docs.decidim.org/en/governance/[Governance].
 
@@ -44,10 +44,6 @@ You can read in detail about this process in https://docs.decidim.org/en/governa
 == Do you want to contribute to Decidim documentation?
 
 * Watch out the https://github.com/decidim/docs.decidim.org[Decidim Documentation repository] and the https://github.com/decidim/decidim.org[decidim.org] code website.
-
-== Do you want to contribute to Decidim design?
-
-* Go to the https://github.com/decidim/decidim/tree/develop/decidim_app-design[Decidim design folder] and propose the changes that you want.
 
 == Do you want to improve an existing language in Decidim?
 

@@ -7,8 +7,8 @@ module Decidim::Assemblies
     subject { described_class.new(form, assembly_member) }
 
     let!(:assembly) { create(:assembly) }
-    let(:assembly_member) { create :assembly_member, :with_user, assembly: }
-    let!(:current_user) { create :user, :confirmed, organization: assembly.organization }
+    let(:assembly_member) { create(:assembly_member, :with_user, assembly:) }
+    let!(:current_user) { create(:user, :confirmed, organization: assembly.organization) }
     let(:user) { nil }
     let(:existing_user) { false }
     let(:non_user_avatar) { upload_test_file(Decidim::Dev.test_file("avatar.jpg", "image/jpeg")) }
@@ -81,7 +81,7 @@ module Decidim::Assemblies
       end
 
       context "when is an existing user in the platform" do
-        let!(:user) { create :user, organization: assembly.organization }
+        let!(:user) { create(:user, organization: assembly.organization) }
         let(:existing_user) { true }
 
         it "sets the user" do

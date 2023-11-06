@@ -51,7 +51,6 @@ it:
         subtitle: Sottotitolo
         target: A chi è destinato il processo
         title: Titolo
-        twitter: Twitter
         weight: Ordine di posizionamento
         youtube: Youtube
       assembly_member:
@@ -92,10 +91,10 @@ it:
         edit:
           update: Aggiorna
         index:
-          not_published: Non pubblicato
           private: Privato
           public: Pubblico
           published: Pubblicato
+          unpublished: Non pubblicato
         new:
           create: Crea
           title: Nuova assemblea
@@ -190,7 +189,6 @@ it:
           attachments: Allegati
           categories: Categorie
           components: Componenti
-          info: Informazioni
           moderations: Moderazione
           private_users: Utenti privati
         assemblies_types: Tipi di assemblea
@@ -270,7 +268,6 @@ it:
             select_an_area: Seleziona un'Area
             select_an_assembly_type: Seleziona un tipo di assemblea
             select_parent_assembly: Seleziona l'assemblea madre
-            slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questa assemblea. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
             social_handlers: Social networks
             title: Informazioni generali
             visbility: Visibilità
@@ -282,13 +279,6 @@ it:
         assemblies_types:
           form:
             title: Titolo
-        assembly_copies:
-          form:
-            slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questa assemblea. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
-        assembly_imports:
-          form:
-            document_legend: Aggiungere un documento
-            slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questa assemblea. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
         assembly_members:
           form:
             existing_user: Utente esistente
@@ -304,7 +294,6 @@ it:
               all: Tutti
               ceased: Cessato
               not_ceased: Non è cessato
-            filter_by: Filtra per
             search: Ricerca
         content_blocks:
           highlighted_assemblies:
@@ -345,44 +334,18 @@ it:
         working_group: Gruppo di lavoro
       index:
         title: assemblee
-      last_activity:
-        new_assembly: Nuova assemblea
       pages:
-        home:
-          highlighted_assemblies:
-            active_assemblies: Assemblee attive
-            assemblies_button_title: Link alla pagina delle Assemblee che le elenca tutte
-            see_all_assemblies: Vedi tutte le assemblee
         user_profile:
           member_of:
             member_of: Membro di
       show:
-        area: Area
         assembly_type: Tipo di assemblea
-        children: Assemblee
-        closing_date: Data di chiusura
-        composition: Composizione
-        created_by: Creata da
-        creation_date: Data di creazione
-        developer_group: Promotore
         duration: Durata
-        included_at: Inclusa in
-        indefinite_duration: Indefinito
-        internal_organisation: Organizzazione interna
         is_transparent:
           'false': opaco
           'true': trasparente
-        local_area: Area organizzativa
-        participatory_scope: Che cosa si decide
-        participatory_structure: Come si decide
         private_space: Questa è un'assemblea privata
-        purpose_of_action: Scopo dell'azione
-        read_less: Leggi di meno
-        read_more: Leggi di più
         related_participatory_processes: Processi partecipativi correlati
-        scope: Ambito
-        social_networks: Social Networks
-        target: Chi partecipa
     assembly_members:
       assembly_member:
         designated_on: Designato su
@@ -424,9 +387,6 @@ it:
         related_assemblies: Assemblee collegate
     statistics:
       assemblies_count: Assemblee
-  errors:
-    messages:
-      cannot_be_blank: non può essere vuoto
   layouts:
     decidim:
       assemblies:
@@ -434,20 +394,10 @@ it:
           more_info: Ulteriori informazioni
           take_part: Partecipa
         index:
-          children: 'Assemblee: '
-          organizational_chart: Grafico organizzativo
           promoted_assemblies: Assemblee in evidenza
-          reset_chart: Reset
         order_by_assemblies:
           assemblies:
             one: "%{count} assemblee"
             other: "%{count} assemblee"
-        promoted_assembly:
-          more_info: Maggiori informazioni
-          take_part: Partecipa
       assembly_navigation:
         assembly_member_menu_item: Utenti
-        assembly_menu_item: L'assemblea
-      assembly_widgets:
-        show:
-          take_part: Partecipa

@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 shared_examples "import proposals" do
-  let!(:proposals) { create_list :proposal, 3, :accepted, component: origin_component }
-  let!(:rejected_proposals) { create_list :proposal, 3, :rejected, component: origin_component }
-  let!(:origin_component) { create :proposal_component, participatory_space: current_component.participatory_space }
+  let!(:proposals) { create_list(:proposal, 3, :accepted, component: origin_component) }
+  let!(:rejected_proposals) { create_list(:proposal, 3, :rejected, component: origin_component) }
+  let!(:origin_component) { create(:proposal_component, participatory_space: current_component.participatory_space) }
   include Decidim::ComponentPathHelper
 
   it "imports proposals from one component to another" do
@@ -32,7 +32,7 @@ shared_examples "import proposals" do
 
   describe "import proposals" do
     before do
-      find(".imports.dropdown").click
+      find(".imports").click
       click_link "Import proposals from a file"
     end
 
@@ -64,7 +64,7 @@ shared_examples "import proposals" do
   end
 
   def fill_form(keep_authors: false)
-    find(".imports.dropdown").click
+    find(".imports").click
     click_link "Import proposals from another component"
 
     within ".import_proposals" do

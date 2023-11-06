@@ -24,7 +24,7 @@ en:
               missing: are not complete
               too_many: are too many
         questionnaire:
-          request_invalid: There's been an error handling the request. Please try again
+          request_invalid: There was an error handling the request. Please try again.
   decidim:
     forms:
       admin:
@@ -129,9 +129,7 @@ en:
           update: "%{user_name} updated the %{resource_name} questionnaire"
       errors:
         answer:
-          body: Body can't be blank
-      files:
-        extension_allowlist: 'Accepted formats:'
+          body: Body cannot be blank
       images:
         dimensions: "%{width} x %{height} px"
         processors:
@@ -147,6 +145,8 @@ en:
         single_option: Single option
         sorting: Sorting
         title_and_description: Title and description
+      questionnaire_answer_presenter:
+        download_attachment: Download attachment
       questionnaires:
         answer:
           invalid: There was a problem answering the form.
@@ -156,7 +156,10 @@ en:
           max_choices: 'Max choices: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Sign in with your account</a> or <a href="%{sign_up_link}">sign up</a> to answer the form.
+            already_have_an_account?: Already have an account?
+            are_you_new?: New user?
+            sign_in_description: Login to take the survey
+            sign_up_description: Create a participant account to take the survey
             title: Answer the form
           current_step: Step %{step}
           of_total_steps: of %{total_steps}

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "shellwords"
 require "English"
 
 module Decidim
@@ -14,7 +15,7 @@ module Decidim
     def initialize(pull_request_id:, release_branch:, backport_branch:, working_dir: Dir.pwd, exit_with_unstaged_changes: false)
       @pull_request_id = pull_request_id
       @release_branch = release_branch
-      @backport_branch = backport_branch
+      @backport_branch = sanitize_branch(backport_branch)
       @working_dir = working_dir
       @exit_with_unstaged_changes = exit_with_unstaged_changes
     end
@@ -46,7 +47,7 @@ module Decidim
     end
 
     # Switch to the develop branch
-    # In case that it can't do that, exits
+    # In case that it cannot do that, exits
     #
     # @return [void]
     def self.checkout_develop
@@ -54,7 +55,7 @@ module Decidim
 
       error_message = <<-EOERROR
       Could not checkout the develop branch.
-      Please make sure you don't have any uncommitted changes in the current branch.
+      Please make sure you do not have any uncommitted changes in the current branch.
       EOERROR
       exit_with_errors(error_message) unless $CHILD_STATUS.exitstatus.zero?
     end
@@ -64,11 +65,14 @@ module Decidim
     attr_reader :pull_request_id, :release_branch, :backport_branch, :working_dir
 
     # Create the backport branch based on a release branch
-    # Checks that this branch doesn't exist already, if it does then exits
+    # Checks that this branch does not exist already, if it does then exits
     #
     # @return [void]
     def create_backport_branch!
       `git checkout #{release_branch}`
+
+      diff_count = `git rev-list HEAD..#{remote}/#{release_branch} --count`.strip.to_i
+      `git pull #{remote} #{release_branch}` if diff_count.positive?
       `git checkout -b #{backport_branch}`
 
       error_message = <<-EOERROR
@@ -109,7 +113,7 @@ module Decidim
     end
 
     # Push the branch to a git remote repository
-    # Checks that there's actually something to push first, if not then it exits.
+    # Checks that there is actually something to push first, if not then it exits.
     #
     # @return [void]
     def push_backport_branch!
@@ -141,6 +145,14 @@ module Decidim
     # @return [String] the SHA1 commit
     def sha_commit_to_backport
       `git log --format=oneline | grep "(##{pull_request_id})"`.split.first
+    end
+
+    # Replace all the characters from the user supplied input that are uncontrolled
+    # and could generate a command line injection
+    #
+    # @return [String] the sanitized branch name
+    def sanitize_branch(branch_name)
+      Shellwords.escape(branch_name.gsub("`", ""))
     end
 
     # Exit the script execution if there are any unstaged changes

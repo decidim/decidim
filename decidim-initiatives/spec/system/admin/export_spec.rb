@@ -25,10 +25,8 @@ describe "Admin exports initiatives", type: :system do
     it "shows the export dropdown" do
       visit decidim_admin_initiatives.initiatives_path
 
-      within ".card-title" do
-        expect(page).to have_content("Export all")
-        expect(page).not_to have_content("Export selection")
-      end
+      expect(page).to have_content("Export all")
+      expect(page).not_to have_content("Export selection")
     end
   end
 
@@ -54,7 +52,7 @@ describe "Admin exports initiatives", type: :system do
     it "displays success message" do
       click_link "Initiatives as JSON"
 
-      expect(page).to have_content("Your export is currently in progress. You'll receive an email when it's complete.")
+      expect(page).to have_content("Your export is currently in progress. You will receive an email when it is complete.")
     end
   end
 
@@ -64,10 +62,8 @@ describe "Admin exports initiatives", type: :system do
         visit decidim_admin_initiatives.initiatives_path
         apply_filter("State", "Created")
 
-        within ".card-title" do
-          expect(page).to have_content("Export all")
-          expect(page).to have_content("Export selection")
-        end
+        expect(page).to have_content("Export all")
+        expect(page).to have_content("Export selection")
       end
     end
 
@@ -95,7 +91,7 @@ describe "Admin exports initiatives", type: :system do
       it "displays success message" do
         click_link "Initiatives as JSON"
 
-        expect(page).to have_content("Your export is currently in progress. You'll receive an email when it's complete.")
+        expect(page).to have_content("Your export is currently in progress. You will receive an email when it is complete.")
       end
     end
   end

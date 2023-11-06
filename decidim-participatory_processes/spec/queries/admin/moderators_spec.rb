@@ -6,8 +6,8 @@ module Decidim::ParticipatoryProcesses
   describe Admin::Moderators do
     subject { described_class.new(participatory_process) }
 
-    let(:organization) { create :organization }
-    let(:participatory_process) { create :participatory_process, organization: }
+    let(:organization) { create(:organization) }
+    let(:participatory_process) { create(:participatory_process, organization:) }
     let!(:admin) { create(:user, :admin, :confirmed, organization:) }
     let!(:participatory_process_admin) do
       create(:process_admin, participatory_process:)
@@ -20,7 +20,7 @@ module Decidim::ParticipatoryProcesses
     end
 
     it "returns the organization admins and participatory process admins" do
-      expect(subject.query).to match_array([admin, participatory_process_admin, participatory_process_moderator])
+      expect(subject.query).to contain_exactly(admin, participatory_process_admin, participatory_process_moderator)
     end
   end
 end

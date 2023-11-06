@@ -1,0 +1,16 @@
+<%= filter_form_for filter, url_for, data: { filters: "", component: "accordion" } do |form| %>
+  <%= form.collection_radio_buttons(
+        :addition_type,
+        filter_addition_type_values(added_count: search.result.with_order(current_order).size),
+        :first,
+        :last
+      ) do |builder|
+      builder.label(class: "button button__xs button__pill #{filter.addition_type == builder.value ? 'button__pill--active' : ''}") do %>
+      <span>
+        <%= builder.text[:text] %>
+      </span>
+      <%= render partial: "projects_count", locals: { count: builder.text[:count] } %>
+      <%= builder.radio_button(class: "!hidden") %>
+    <% end %>
+  <% end %>
+<% end %>

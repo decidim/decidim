@@ -1,7 +1,14 @@
-<%= render :diff_mode_dropdown %>
-<%= render :diff_mode_html %>
+<% if path({}).present? %>
+  <%= form_tag(path({}), method: :get) do %>
+    <div class="version__selector-container">
+      <%= render :diff_mode_dropdown %>
+      <%= render :diff_mode_html %>
+      <%= submit_tag t("versions.dropdown.toggle"), class: "button button__sm md:button__lg button__secondary" %>
+    </div>
+  <% end %>
+<% end %>
 
-<div aria-live="polite">
+<div class="version__diff-container" aria-live="polite">
   <% diff_data.each do |data| %>
     <%= attribute(data) %>
   <% end %>

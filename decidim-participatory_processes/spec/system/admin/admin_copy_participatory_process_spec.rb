@@ -6,7 +6,7 @@ describe "Admin copies participatory process", type: :system do
   include_context "when admin administrating a participatory process"
 
   let!(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
-  let!(:component) { create :component, manifest_name: :dummy, participatory_space: participatory_process }
+  let!(:component) { create(:component, manifest_name: :dummy, participatory_space: participatory_process) }
   let!(:category) do
     create(
       :category,
@@ -38,7 +38,7 @@ describe "Admin copies participatory process", type: :system do
 
       expect(page).to have_content("successfully")
       expect(page).to have_content("Copy participatory process")
-      expect(page).to have_content("Not published")
+      expect(page).to have_content("Unpublished")
     end
   end
 
@@ -64,8 +64,13 @@ describe "Admin copies participatory process", type: :system do
 
       expect(page).to have_content("successfully")
 
-      click_link "Copy participatory process"
-      click_link "Phases"
+      within find("tr", text: "Copy participatory process") do
+        click_link "Copy participatory process"
+      end
+
+      within_admin_sidebar_menu do
+        click_link "Phases"
+      end
 
       within ".table-list" do
         participatory_process.steps.each do |step|
@@ -80,8 +85,13 @@ describe "Admin copies participatory process", type: :system do
 
       expect(page).to have_content("successfully")
 
-      click_link "Copy participatory process"
-      click_link "Categories"
+      within find("tr", text: "Copy participatory process") do
+        click_link "Copy participatory process"
+      end
+
+      within_admin_sidebar_menu do
+        click_link "Categories"
+      end
 
       within ".table-list" do
         participatory_process.categories.each do |category|
@@ -96,8 +106,13 @@ describe "Admin copies participatory process", type: :system do
 
       expect(page).to have_content("successfully")
 
-      click_link "Copy participatory process"
-      click_link "Components"
+      within find("tr", text: "Copy participatory process") do
+        click_link "Copy participatory process"
+      end
+
+      within_admin_sidebar_menu do
+        click_link "Components"
+      end
 
       within ".table-list" do
         participatory_process.components.each do |component|

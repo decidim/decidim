@@ -27,7 +27,6 @@ lv:
       decidim/component_published_event: Aktīvs komponents
       decidim/demoted_membership: Vairs nav grupas administratora
       decidim/gamification/badge_earned_event: Žetons nopelnīts
-      decidim/gamification/level_up_event: Jūs esat sasniedzis jaunu līmeni
       decidim/join_request_accepted_event: Pievienošanās pieprasījums ir pieņemts
       decidim/join_request_rejected_event: Pievienošanās pieprasījums ir noraidīts
       decidim/profile_updated_event: Profils ir atjaunināts
@@ -85,14 +84,12 @@ lv:
         success: Jūsu konts tika veiksmīgi dzēsts.
       download_your_data_export:
         file_no_exists: Fails neeksistē
-        notice: Pašlaik notiek jūsu datu lejupielāde. Kad tā būs pabeigta, jūs saņemsiet e-pastu.
       show:
         change_password: Mainīt paroli
         update_account: Atjaunināt kontu
       update:
         error: Jūsu konta atjaunināšanas laikā radās problēma.
         success: Jūsu konts tika veiksmīgi atjaunināts.
-        success_with_email_confirmation: Jūsu konts tika veiksmīgi atjaunināts. Jūs saņemsiet e-pasta vēstuli, lai apstiprinātu jauno e-pasta adresi.
     admin:
       actions:
         cancel: Atcelt
@@ -144,20 +141,15 @@ lv:
         reject: "%{user_name} noraidīja %{resource_name} grupas verifikāciju"
         verify: "%{user_name} verificēja grupu %{resource_name}"
         verify_via_csv: "%{user_name} verificēja grupu %{resource_name}, izmantojot CSV failu"
-    admin_terms_of_use:
-      default_body: "<h2> ADMINISTRATORU LIETOŠANAS NOTEIKUMI </h2> <p> Mēs ticam, ka esat saņēmis parasto lekciju no vietējā sistēmas administratora. Parasti svarīgākās ir trīs lietas </p> <ol> <li> Cieniet citu cilvēku privātumu! </li> <li> Padomājiet, pirms klikšķiniet! </li> <li> Liela vara nozīmē lielu atbildību.</li></ol>"
     amendments:
       accepted:
         error: Grozījumu apstiprināšanas laikā radās kļūda.
         success: Grozījumi ir veiksmīgi apstiprināti.
       amendable:
-        amended_by: Grozījumus veica
         button: Grozīt %{model_name}
         error: Vienuma grozījumu veikšanas laikā radusies kļūda.
-        help_text: Uzlabojiet šo %{model_name}, mainot tā %{amendable_fields}
         promote_button: Paaugstināt līdz %{model_name}
         promote_confirm_text: Vai tiešām vēlaties atbalstīt šo labojumu?
-        promote_help_text: Jūs varat atbalstīt šo labojumu un publicēt to kā neatkarīgu %{model_name}
         section_heading: Grozījumi (%{count})
       compare_draft:
         continue: Turpināt
@@ -171,7 +163,6 @@ lv:
         success: Grozījuma melnraksts tika veiksmīgi dzēsts.
       edit_draft:
         discard: Atmest šo melnrakstu
-        discard_confirmation: Vai tiešām vēlaties atmest šo grozījuma melnrakstu?
         send: Priekšskatīt
         title: Rediģēt grozījuma melnrakstu
       emendation:
@@ -196,26 +187,16 @@ lv:
         modify: Rediģēt
         publish: Publicēt
         title: Publicēt grozījuma melnrakstu
-      promoted:
-        error: Publicējot grozījumu kā jaunu priekšlikumu, radās problēma
-        success: Grozījums ir veiksmīgi publicēts kā jauns priekšlikums
       publish_draft:
         error: Grozījuma publicēšanas laikā radās problēma.
         success: Grozījums ir veiksmīgi publicēts.
-      rejected:
-        error: Noraidot šo grozījumu, radās problēma. Lūdzu, mēģiniet vēlreiz vēlāk
-        success: Grozījums ir veiksmīgi noraidīts
       review:
         back: Atpakaļ
         heading: Pārskatīt grozījumu
-        help_text: Jūs pārskatāt %{model_name} grozījumu
         send: Pieņemt grozījumu
       update_draft:
         error: Grozījuma melnraksta atjaunināšanas laikā radās kļūda.
         success: Grozījuma melnraksts ir veiksmīgi atjaunināts.
-      withdraw:
-        error: Grozījuma atsaukšanas laikā radās kļūda
-        success: Grozījums ir veiksmīgi atsaukts
       wizard_step_form:
         steps:
           '1': Izveidot savu grozījumu
@@ -224,11 +205,6 @@ lv:
           '4': Publicēt savu grozījumu
     anonymous_user: Anonīms
     application:
-      collection:
-        documents:
-          zero: Dokumenti
-          one: Dokuments
-          other: Dokumenti
       document:
         download: Lejupielādēt failu
       documents:
@@ -246,13 +222,11 @@ lv:
         other: atbalsti
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Verificējieties, ievadot pases numuru, sākot ar burtu „A”
         fields:
           passport_number: Pases numurs
           postal_code: Pasta indekss
         name: Vēl viens autorizācijas piemērs
       dummy_authorization_handler:
-        explanation: Verificējieties, ievadot dokumenta numuru, beidzot ar "X".
         fields:
           document_number: Dokumenta numurs
           postal_code: Pasta indekss
@@ -276,7 +250,6 @@ lv:
           title: Autorizācijas termiņš ir beidzies
         incomplete:
           cancel: Atcelt
-          explanation: 'Pat ja pašlaik esat autorizējies ar "%{authorization}", jums jāautorizējas no jauna, jo mums trūkst šādu datu:'
           reauthorize: Autorizēties vēlreiz
           title: Lūdzu, autorizējieties no jauna
         missing:
@@ -284,16 +257,11 @@ lv:
           explanation: Lai veiktu šo darbību, jums ir atkārtoti jāautorizējas ar "%{authorization}".
           title: Nepieciešama autorizācija
         pending:
-          explanation: Lai veiktu šo darbību, jums ir jābūt autorizētam ar "%{authorization}", taču jūsu autorizācija joprojām tiek apstrādāta
-          resume: Pārbaudiet savu "%{authorization}" autorizācijas apstrādes statusu.
           title: Autorizācija joprojām notiek
         unauthorized:
-          explanation: Diemžēl jūs šo darbību nevar veikt, jo daži jūsu autorizācijas dati nav atbilstīgi.
-          invalid_field: "%{field} vērtība %{value} nav derīga."
           ok: Labi
           title: Nav autorizācijas
         unconfirmed:
-          confirmation_instructions: 'Ja neesat saņēmis apstiprināšanas norādījumus, varat tos pieprasīt vēlreiz:'
           explanation_html: Lai veiktu šo darbību, jums jābūt autorizētam, bet pirms tam jāapstiprina savs e-pasts <strong>%{email}</strong>.
           request_confirmation_instructions: Pieprasīt apstiprināšanas norādījumus
           title: Apstiprināt e-pastu
@@ -306,7 +274,6 @@ lv:
       see_more: "(skatīt vairāk)"
     components:
       component_order_selector:
-        no_content: Mēs nevarējām atrast šiem kritērijiem atbilstīgu saturu
         order:
           all_types: Visi veidi
           collaborative_draft: Sadarbības projekts
@@ -364,16 +331,8 @@ lv:
         name: Organizācijas statistika
       sub_hero:
         name: Kājenes apakšējais galvenais reklāmkarogs
-    core:
-      actions:
-        login_before_access: Pirms piekļuves, lūdzu, piesakieties savā kontā
-        unauthorized: Jūs neesat autorizēts veikt šo darbību
-    datepicker:
-      help_text: 'Paredzētais formāts: %{datepicker_format}'
     devise:
       omniauth_registrations:
-        create:
-          email_already_exists: Citam kontam jau izmantota tā pati e-pasta adrese
         new:
           complete_profile: Pabeigt profila izveidi
           sign_up: Lūdzu, pabeidziet aizpildīt savu profilu
@@ -384,12 +343,8 @@ lv:
           already_have_an_account?: Jums jau ir konts?
           newsletter: Saņemiet neregulāru informatīvo biļetenu ar būtisko informāciju
           newsletter_title: Atļauja sazināties
-          sign_in: Pieteikties
           sign_up: Reģistrēties
-          sign_up_as:
-            legend: Reģistrēties kā
           subtitle: Reģistrēties, lai piedalītos diskusijās un atbalstītu priekšlikumus.
-          terms: lietošanas noteikumi
           tos_agreement: Reģistrējoties jūs piekrītat %{link}.
           tos_title: Pakalpojumu sniegšanas noteikumi
           username_help: Publiski redzamais vārds, kas parādās pie jūsu ierakstiem. Lai garantētu anonimitāti, tas var būt jebkurš vārds.
@@ -397,20 +352,10 @@ lv:
         new:
           are_you_new?: Vai esat jauns platformas lietotājs?
           register: Izveidot kontu
-          sign_in_disabled: Jūs varat piekļūt, izmantojot ārēju kontu
-          sign_up_disabled: Reģistrēšanās ir atspējota, lai piekļūtu, varat izmantot esošo kontu.
       shared:
         newsletter_modal:
           buttons:
             check: Pārbaudīt un turpināt
-            close_modal: Aizvērt modal
-          notice: |-
-            <p>Hei, vai tiešām nevēlaties saņemt informatīvo biļetenu?<br>
-            Lūdzu, vēlreiz apsveriet iespēju atzīmēt turpmāk esošo informatīvā biļetena saņemšanas izvēles rūtiņu<br>
-            Mums ir ļoti svarīgi, lai jūs varētu saņemt neregulārus e-pastus ar būtiskiem paziņojumiem, jūs vienmēr varat to mainīt paziņojumu iestatījumu lapā.</p>
-            <p>Ja jūs neatzīmējiet rūtiņu, jūs varat palaist garām būtisku informāciju par jaunām līdzdalības iespējām platformā.<br>
-            Ja jūs joprojām vēlaties izvairīties no informatīvo biļetenu saņemšanas, mēs lieliski saprotam jūsu lēmumu</p>
-            <p>Paldies, ka izlasījāt!</p>
           title: Paziņojumi par informatīvajiem biļeteniem
         omniauth_buttons:
           or: vai
@@ -420,7 +365,6 @@ lv:
           authorize: Autorizēt lietojumprogrammu
           by_organization_link_html: <small class="heading-small">pa %{link}</small>
           cancel: Atcelt
-          connect_your_account_html: Pievienojiet kontu, pierakstoties <strong>%{organization}</strong>
           publish_content: Publicēt saturu jūsu vietā
           see_email: Redzēt jūsu e-pastu
           see_name: Redzēt jūsu vārdu
@@ -435,11 +379,6 @@ lv:
       show:
         download_data: Lejupielādēt datus
         request_data: Pieprasīt datus
-    endorsable:
-      endorsements: Atbalsts
-    endorsement_buttons_cell:
-      already_endorsed: Atbalstīts
-      endorse: Atbalstīt
     endorsements:
       identities:
         done: Pabeigts
@@ -447,11 +386,9 @@ lv:
     errors:
       internal_server_error:
         title: Radās problēma ar mūsu serveri
-        try_later: Lūdzu, mēģiniet vēlreiz vēlāk.
       not_found:
         back_home: Atpakaļ uz sākumu
         content_doesnt_exist: Šī adrese nav pareiza vai ir noņemta.
-        title: Jūsu meklēto lapu nevar atrast
     events:
       amendments:
         amendment_accepted:
@@ -517,15 +454,9 @@ lv:
         email_subject: Atjaunināts %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Apsveicam! Jūs nopelnījāt <a href="%{resource_url}">%{badge_name} žetonu </a> (līmenis %{current_level}).
           email_outro: Jūs saņēmāt šo paziņojumu, jo veicāt darbību mūsu tīmekļvietnē.
-          email_subject: 'Jūs nopelnījāt jaunu žetonu:%{badge_name}!'
-          notification_title: Apsveicam! Jūs nopelnījāt <a href="%{resource_path}">%{badge_name} žetonu </a> (līmenis %{current_level}).
         level_up:
-          email_intro: Apsveicam! Jūs sasniedzāt līmeni %{current_level} <a href="%{resource_url}">%{badge_name} žetonam</a>!
           email_outro: Jūs saņēmāt šo paziņojumu, jo veicāt darbību mūsu tīmekļvietnē.
-          email_subject: Jūs sasniedzāt %{current_level} līmeni %{badge_name} žetonam!
-          notification_title: Apsveicam! Jūs sasniedzāt līmeni %{current_level} <a href="%{resource_path}">%{badge_name} žetonam</a>!
       groups:
         demoted_membership:
           email_intro: Grupas <a href="%{resource_url}">%{user_group_name}</a> administrators ir noņēmis jūsu administratora tiesības šai grupā.
@@ -601,7 +532,6 @@ lv:
         proposal: Priekšlikumi
         result: Rezultāti
     fingerprint:
-      explanation: Turpmāk redzamais teksta gabals ir saīsināts un sajaukts šī satura attēlojums. Tas ir lietderīgs, lai pārliecinātos, vai saturs nav ticis mainīts, jo viena izmaiņa radītu pavisam citu vērtību.
       online_calculator_name: Tiešsaistes MD5 kalkulators.
       replicate_help: Šis digitālais pirkstu nospiedums tiek aprēķināts, izmantojot SHA256 sajaukšanas algoritmu. Lai to atkārtotu, varat izmantot %{online_calculator_link} un kopēt – ielīmēt avota datus.
       source: Avots
@@ -609,8 +539,6 @@ lv:
       value: Vērtība
     followers:
       no_followers: Vēl nav sekotāju.
-    following:
-      no_followings: Pagaidām neseko nevienam vai nekam
     follows:
       create:
         button: Seko
@@ -619,13 +547,10 @@ lv:
         button: Pārtraukt sekot
         error: Neizdevās pārtraukt sekot šim vienumam.
     forms:
-      current_image: Pašreizējais attēls
-      default_image: Noklusējuma attēls
       errors:
         decidim/user:
           password: Parole ir pārāk īsa.
           password_confirmation: Apstiprinājuma parolei jāsakrīt ar paroli.
-        error: Šajā laukā ir kļūda.
     gamification:
       all_badges_link: Skatīt visus pieejamos žetonus.
       badges:
@@ -637,58 +562,27 @@ lv:
           description_own: "%{score} cilvēki seko jums."
           name: Sekotāji
           next_level_in: Piesaistiet vēl %{score} cilvēkus kā sekotājus, lai sasniegtu nākamo līmeni!
-          unearned_another: Šim dalībniekam vēl nav sekotāju.
-          unearned_own: Jums vēl nav sekotāju.
         index:
           badge_title: "%{name} žetons"
           how: Kā jūs to varat nopelnīt
           page_description: Žetoni ir atzinība par dalībnieku darbībām un progresu platformā. Sākot atklāt platformu, piedaloties un mijiedarbojoties ar to, jūs nopelnīsiet dažādus žetonus. Šeit ir žetonu saraksts un daži veidi, kā tos nopelnīt.
           title: Žetoni
-        invitations:
-          conditions:
-            - Lai uzaicinātu draugus, izmantojiet saiti Uzaicināt draugus savā lietotāja lapā
-            - Pielāgojiet sūtāmo ziņojumu, ja vēlaties
-            - Jūs sasniegsiet augstāku līmeni, sūtot ielūgumus un piesaistot jaunus reģistrētus lietotājus.
-          description: Šis žetons tiek piešķirts, kad esat uzaicinājis dažus cilvēkus un viņi ir veltījuši nedaudz laika, lai reģistrētos %{organization_name} un kļūtu par dalībniekiem. Paldies, ka darījāt %{organization_name} zināmu citiem un palīdzējāt paplašināt mūsu kopienu.
-          description_another: Šis dalībnieks ir uzaicinājis %{score} cilvēkus.
-          description_own: Jūs esat uzaicinājis %{score} cilvēkus.
-          name: Ielūgumi
-          next_level_in: Piesaistiet vēl %{score} cilvēkus, lai sasniegtu nākamo līmeni!
-          unearned_another: Šis dalībnieks vēl nav uzaicinājis nevienu.
-          unearned_own: Jūs vēl nevienu neesat uzaicinājis.
       description: Žetoni ir atzinība par dalībnieku darbībām un progresu platformā. Sākot atklāt platformu, piedaloties un mijiedarbojoties ar to, jūs nopelnīsiet dažādus žetonus.
       level: Līmenis %{level}
-      reached_top: Jūs esat sasniedzis šim žetona nepieciešamo augstāko līmeni.
     group_admins:
       actions:
-        are_you_sure: Vai esat pārliecināts? Šī darbība nenoņems dalībnieku no grupas.
         demote_admin: Noņemt administratoru
-      demote:
-        error: Noņemot šo dalībnieku no administratoru saraksta, radās problēma
-        success: Dalībnieks veiksmīgi noņemts no administratora posteņa
       index:
         current_admins: 'Pašreizējie administratori:'
         manage_admins: Pārvaldīt administratorus
     group_invites:
-      accept:
-        error: Apstiprinot šo ielūgumu, radās problēma
-        success: Ielūgums tika veiksmīgi apstiprināts
       accept_invitation: Pieņemt
       accept_or_reject_group_invitations: 'Šīs grupas ir uzaicinājušas jūs pievienoties. Pieņemiet vai noraidiet to pieprasījumus:'
       index:
         invite: Uzaicināt
         invite_user: Uzaicināt dalībnieku
-      invite:
-        error: Šī dalībnieka uzaicināšanas laikā radās problēma
-        success: Dalībnieks ir veiksmīgi uzaicināts
-      reject:
-        error: Šī ielūguma noraidīšanas laikā radās problēma
-        success: Ielūgums tika veiksmīgi noraidīts
       reject_invitation: Noraidīt
     group_members:
-      accept:
-        error: Apstiprinot šo pievienošanās pieprasījumu, radās problēma
-        success: Pievienošanās pieprasījums tika veiksmīgi apstiprināts
       actions:
         are_you_sure: Vai esat pārliecināts?
         promote_to_admin: Padarīt par administratoru
@@ -696,36 +590,20 @@ lv:
       index:
         current_members_without_admins: 'Pašreizējie dalībnieki (bez administratoriem):'
         manage_members: Pārvaldīt biedrus
-      promote:
-        error: Šī dalībnieka paaugstināšanas laikā radās problēma
-        success: Dalībnieks tika sekmīgi paaugstināts
-      reject:
-        error: Noraidot šo pievienošanās pieprasījumu, radās problēma
-        success: Pievienošanās pieprasījums tika veiksmīgi noraidīts
-      remove:
-        error: Noņemot šo dalībnieku no grupas, radās problēma
-        success: Dalībnieks ir veiksmīgi noņemts no grupas
     groups:
       actions:
         are_you_sure: Vai esat pārliecināts?
-      create:
-        error: Šīs grupas izveides laikā radās problēma
-        success: Grupa ir veiksmīgi izveidota
       edit:
         edit_user_group: Rediģēt grupu
         update_user_group: Atjaunināt grupu
       form:
-        document_number_help: Nelietojiet defises un atstarpes
         email_help: Jūsu organizācijas, asociācijas, kolektīva, grupas utt. e-pasta adrese.
         fill_in_for_verification: 'Aizpildiet šos laukus, ja vēlaties, lai jūsu grupa tiktu apstiprināta:'
         name_help: Jūsu organizācijas, asociācijas, kolektīva, grupas utt. nosaukums.
         nickname_help: Jūsu organizācijas, asociācijas, kolektīva, grupas utt. segvārds. Neizmantojiet atstarpes un uzsvarus.
-        phone_help: Nelietojiet defises un atstarpes
       join:
-        error: Pievienojoties šai grupai, radās problēma
         success: Pievienošanās pieprasījums ir veiksmīgi izveidots. Administrators pārskatīs jūsu pieprasījumu pirms jūsu pieņemšanas grupā.
       leave:
-        error: Pametot šo grupu, radās problēma
         success: Grupa ir veiksmīgi pamesta.
       members:
         accept_or_reject_join_requests: 'Šie lietotāji ir pieteikušies, lai pievienotos šai grupai. Pieņemt vai noraidīt viņu pieprasījumus:'
@@ -735,27 +613,19 @@ lv:
         create_user_group: Izveidot grupu
         new_user_group: Jauna grupa
         subtitle: Izveidojiet grupu un uzaiciniet citus lietotājus pievienoties kopējā līmenī.
-      no_user_groups: Pagaidām nepieder nevienai grupai.
       roles:
         admin: Administrators
         member: Dalībnieks
-      update:
-        error: Šīs grupas atjaunināšanas laikā radās problēma
-        success: Grupa ir veiksmīgi atjaunināta
     help:
       main_topic:
         default_page:
           content: "<p>%{organization} jūs varat piedalīties un lemt par dažādām tēmām, izmantojot augšējā izvēlnē redzamās vietas: procesi, asamblejas, iniciatīvas, konsultācijas. </p><p> Katrā no tām jūs atradīsiet dažādas iespējas piedalīties: izteikt priekšlikumus – individuāli vai kopā ar citiem, piedalīties debatēs, noteikt prioritātes projektiem, kas tiek īstenoti, apmeklēt klātienes sanāksmes un veikt citas darbības.</p>"
           title: Ko es varu darīt %{organization}?
-        description: Lasīt vairāk par %{organization}
         title: Vispārēja palīdzība
     last_activities:
-      activities:
-        no_activities_warning: Nav aktivitātes
       all: Visi aktivitātes veidi
       index:
         last_activity: Pēdējā aktivitāte
-        resource_type: Veids
     log:
       base_presenter:
         create: "%{user_name} izveidoja %{resource_name}"
@@ -777,8 +647,6 @@ lv:
           not_found: 'Tvēruma veids netika atrasts datubāzē (ID: %{id})'
     managed_users:
       expired_session: Pašreizējā dalībnieka administratora sesija ir beigusies.
-    members:
-      no_members: Šajā grupā vēl nav dalībnieku.
     menu:
       help: Palīdzība
       home: Sākums
@@ -788,35 +656,29 @@ lv:
           admin_in_group: Jūs to saņemat, jo administrējat %{group}.
           greeting: Sveiki, %{recipient}!
           intro: "%{manager} ir uzsācis jaunu sarunu %{group} vārdā. Noklikšķiniet šeit, lai to aplūkotu:"
-          outro: Baudiet decidim!
           subject: "%{manager} ir sācis jaunu sarunu kā %{group}"
         comanagers_new_message:
           admin_in_group: Jūs to saņemat, jo administrējat %{group}.
           greeting: Sveiki, %{recipient}!
           intro: "%{manager} sarunā ir nosūtījis jaunus ziņojumus %{group} vārdā. Noklikšķiniet šeit, lai tos aplūkotu:"
-          outro: Baudiet decidim!
           subject: "%{manager} ir nosūtījis jaunus ziņojumus kā %{group}"
         new_conversation:
           greeting: Sveiki, %{recipient}!
           intro: "%{sender} ir sācis jaunu sarunu ar jums. Noklikšķiniet šeit, lai to aplūkotu:"
-          outro: Baudiet decidim!
           subject: "%{sender} ir sācis sarunu ar jums"
         new_group_conversation:
           admin_in_group: Jūs to saņemat, jo administrējat %{group}.
           greeting: Sveiki, %{recipient}!
           intro: "%{sender} ir sācis jaunu sarunu ar grupu %{group}. Noklikšķiniet šeit, lai to aplūkotu:"
-          outro: Baudiet decidim!
           subject: "%{sender} ir sācis sarunu ar %{group}"
         new_group_message:
           admin_in_group: Jūs to saņemat, jo administrējat %{group}.
           greeting: Sveiki, %{recipient}!
           intro: "%{sender} ir nosūtījis jaunus ziņojumus sarunā ar grupu %{group}. Noklikšķiniet šeit, lai tos aplūkotu:"
-          outro: Baudiet decidim!
           subject: "%{group} ir jauni ziņojumi no %{sender}"
         new_message:
           greeting: Sveiki, %{recipient}!
           intro: "%{sender} ir nosūtījis jaunus ziņojumus jūsu sarunā. Lai apskatītu tos, noklikšķiniet šeit:"
-          outro: Baudiet decidim!
           subject: Jums ir jauni ziņojumi no %{sender}
       conversations:
         add_conversation_users:
@@ -824,29 +686,15 @@ lv:
           add_users_placeholder: Meklēt...
           modal_title: Jauna saruna
           no_results: Nav rezultātu
-          participant_with_disabled_message_reception: Šis dalībnieks ir atspējojis ziņojumu saņemšanu
-        create:
-          error: Saruna nav sākusies. Pamēģiniet vēlreiz vēlāk
         index:
-          ago: pirms
-          close: Aizvērt modal
-          from: "No"
-          groups: Manas grupas
-          last_message: Pēdējā ziņa
           new_conversation: Jauna saruna
           next: Nākamais
-          no_conversations: Jums vēl nav sarunu
           title: Sarunas
-        reply:
-          placeholder: Jūsu atbilde...
-          send: Sūtīt
-          title: Atbildēt
         show:
           chat_with: Saruna ar
           title: Saruna ar %{usernames}
         start:
           send: Sūtīt
-          title: Sākt sarunu
     metrics:
       followers:
         description: Dalībnieku skaits, kas seko šai līdzdalības telpai
@@ -862,8 +710,6 @@ lv:
         title: Dalībnieki
     newsletter_mailer:
       newsletter:
-        note: Jūs saņēmāt šo e-pasta ziņojumu, jo esat abonējis informatīvos biļetenus vietnē %{organization_name}. Iestatījumus var mainīt jūsu <a href="%{link}"> paziņojumu lapā </a>.
-        see_on_website: Vai nevarat pareizi redzēt šo e-pastu? Skatiet to <a href="%{link}" target="_blank"> tīmekļvietnē </a>.
         unsubscribe: Lai atteiktos no šāda veida e-pasta saņemšanas, <a href="%{link}" target="_blank" class="unsubscribe"> Anulēt abonementu</a>.
     newsletter_templates:
       basic_only_text:
@@ -886,16 +732,9 @@ lv:
         main_image: Galvenais attēls
     newsletters:
       unsubscribe:
-        check_subscription: Ja vēlaties mainīt iestatījumus, varat to izdarīt <a href="%{link}" target="_blank"> konfigurācijas lapā</a>.
-        error: Radās problēma ar abonementa anulēšanu.
         success: Jūsu abonements ir veiksmīgi anulēts.
         token_error: Saitei ir beidzies derīguma termiņš.
         unsubscribe: Anulēt abonementu
-    newsletters_opt_in:
-      unathorized: Piedodiet, šī saite vairs nav pieejama
-      update:
-        error: Kaut kas notika nepareizi
-        success: Informatīvo biļetenu iestatījumi ir veiksmīgi atjaunināti
     newsletters_opt_in_mailer:
       notify:
         body_1: Personas datu apstrāde un to aizsardzība kļūst arvien nozīmīgāka mums visiem. Ievērojot jauno Vispārīgo datu aizsardzības regulu (VDAR) (2018. gada 25. maijs), indivīdi var efektīvāk kontrolēt savu personas datu izmantošanu. Šī iemesla dēļ mums ir nepieciešams jūsu „OK”, lai turpinātu sūtīt būtisku informāciju par %{organisation_name} darbībām.
@@ -909,7 +748,6 @@ lv:
       no_notifications: Pagaidām nav paziņojumu.
     notifications_settings:
       show:
-        allow_public_contact: Ļauj ikvienam nosūtīt man tiešu ziņojumu, pat ja es viņam nesekoju.
         direct_messages: Saņemiet tiešus ziņojumus no jebkuras personas
         everything_followed: Viss, kam es sekoju
         newsletter_notifications: Es gribu saņemt informatīvos biļetenus
@@ -922,14 +760,8 @@ lv:
         success: Jūsu paziņojumu iestatījumi tika veiksmīgi atjaunināti.
     open_data:
       not_available_yet: Atvērto datu faili vēl nav pieejami. Lūdzu, mēģiniet vēlreiz pēc dažām minūtēm.
-    own_user_groups:
-      index:
-        pending: Nepabeigts
-        rejected: Noraidīts
-        verified: Pārbaudīts
     pad_iframe:
       disclaimer: Šī kopdokumenta saturu veidojuši reģistrēti lietotāji, un tas pauž viņu viedokli. %{organization} nevar būt atbildīga par tās saturu.
-      explanation: Izmantojiet šo kopdokumentu, lai sanāksmes laikā kopā veiktu piezīmes un būtu vieglāk pierakstīt detaļas.
       pad: Kopdokuments
     pages:
       home:
@@ -947,14 +779,11 @@ lv:
         hero:
           participate: Piedalīties
           welcome: Laipni lūdzam %{organization}!
-        metrics:
-          headline: Rādītāji
         statistics:
           headline: '%{organization} pašreizējais stāvoklis'
         sub_hero:
           register: Reģistrēties
       index:
-        read_more: Lasīt vairāk
         standalone_pages: Lapas
         subheading: Pārvietojieties %{name} palīdzības lapās
         title: Palīdzība
@@ -963,30 +792,11 @@ lv:
         metrics:
           headline: Rādītāji
           link: Rādīt visus rādītājus
-      terms_and_conditions:
-        accept:
-          error: Piekrītot lietošanas noteikumiem, radās problēma.
-          success: Lieliski! Jūs esat piekritis lietošanas noteikumiem.
-        form:
-          legend: Piekrist lietošanas noteikumiem
-        refuse:
-          modal_btn_continue: Pieņemt noteikumus un turpināt
-          modal_btn_exit: Es tos pārskatīšu vēlāk
-          modal_button: Atteikties no noteikumu pieņemšanas
-          modal_close: Aizvērt modal
-          modal_title: Vai jūs tiešām atsakāties no atjauninātajiem lietošanas noteikumiem?
-        required_review:
-          alert: Mēs esam atjauninājuši mūsu pakalpojumu sniegšanas noteikumus, lūdzu, pārskatiet tos.
-          body: Lūdzu, atvēliet laiku, lai pārskatītu atjauninātos pakalpojumu sniegšanas noteikumus administratoriem. Pretējā gadījumā jūs nevarēsiet izmantot platformu.
-          title: 'Obligāti: pārskatiet mūsu atjaunotos pakalpojumu sniegšanas noteikumus.'
     participatory_space_private_users:
       not_allowed: Jums nav atļauts skatīt šo saturu
     profile:
-      deleted: Dalībnieks dzēsts
-      view: Apskatīt
+      deleted: Dzēsts dalībnieks
     profiles:
-      default_officialization_text_for_user_groups: Šī grupa ir publiski apstiprināta, tās nosaukums ir verificēts, lai pārliecinātos, vai tas atbilst īstajam nosaukumam
-      default_officialization_text_for_users: Šis dalībnieks ir publiski apstiprināts, viņa vārds vai loma ir pārbaudīta, lai atbilstu īstajam vārdam un lomai
       show:
         activity: Aktivitāte
         badges: Žetoni
@@ -995,18 +805,14 @@ lv:
         following: Seko
         groups: Grupas
         members: Dalībnieki
-        timeline: Laika grafiks
-        view_full_profile: Skatīt pilnu profilu
       sidebar:
         badges:
           info: Žetoni tiek nopelnīti, veicot noteiktas darbības platformā.
           title: Žetoni
       user:
-        confirmation_instructions_sent: E-pastā nosūtīt apstiprināšanas norādījumus
         create_user_group: Izveidot grupu
         edit_profile: Rediģēt profilu
         edit_user_group: Rediģēt grupas profilu
-        fill_in_email_to_confirm_it: Lūdzu, ierakstiet savas grupas e-pasta adresi, lai to apstiprinātu
         invite_user: Uzaicināt dalībnieku
         join_user_group: Pieteikums pievienoties grupai
         leave_user_group: Pamest grupu
@@ -1043,7 +849,6 @@ lv:
       term_input_placeholder: Meklēt
     searches:
       filters:
-        back: Atpakaļ pie rezultātiem
         jump_to: 'Pārlēkt uz:'
         state:
           active: Aktīvas
@@ -1051,21 +856,11 @@ lv:
           future: Nākotnes
           past: Iepriekšējie
       filters_small_view:
-        close_modal: Aizvērt modal
         filter: Filtrēt
         filter_by: Filtrēt pēc
-        unfold: Atritināt
       results:
-        results:
-          zero: "%{count} rezultāti"
-          one: "%{count} rezultāts"
-          other: "%{count} rezultāti"
         view_all: Skatīt visus (%{count})
     shared:
-      embed_modal:
-        close_window: Aizvērt logu
-        embed: Lūdzu, ielīmējiet šo kodu savā lapā
-        embed_link: Iegult
       extended_navigation_bar:
         more: Vairāk
         unfold: Atritināt
@@ -1073,16 +868,12 @@ lv:
         already_reported: Par šo saturu jau ir ziņots, un administrators to pārskatīs.
         close: Aizvērt
         description: Vai šis saturs ir neatbilstīgs?
-        does_not_belong: Satur nelikumīgas darbības, pašnāvības draudus, personisku informāciju vai kaut ko citu, kam, jūsuprāt, nav vietas %{organization_name}.
         offensive: Satur rasismu, seksismu, lamuvārdus, personiskus uzbrukumus, nāves draudus, ierosinājumus veikt pašnāvību vai jebkāda veida naida runu.
         report: Ziņot
         spam: Satur klikšķu ēsmu (clickbait), reklāmu, krāpšanu vai skriptu robotprogrammatūru.
       floating_help:
         help: Palīdzība
-      follow_button:
-        sign_in_before_follow: Lūdzu, pierakstieties pirms šīs darbības veikšanas
       login_modal:
-        please_sign_in: Lūdzu, pierakstieties
         sign_up: Reģistrēties
       participatory_space_filters:
         filters:
@@ -1097,50 +888,27 @@ lv:
         label: 'Rezultāti vienā lapā'
         title: Izvēlieties rezultātu skaitu vienā lapā
       share_modal:
-        close_window: Aizvērt logu
         share: Kopīgot
         share_link: Kopīgot saiti
     statistics:
       comments_count: Komentāri
-    user_activity:
-      index:
-        no_activities_warning: Šis dalībnieks vēl nav veicis nekādas aktivitātes
     user_contact_disabled: Šis dalībnieks nepieņem tiešās ziņas.
     user_conversations:
       create:
-        error: Ziņojumu nevarēja izveidot. Pamēģiniet vēlreiz vēlāk
         existing_error: Ziņojumu nevarēja izveidot. Saruna jau eksistē, lūdzu, mēģiniet vēlreiz.
         success: Saruna sākās veiksmīgi!
       index:
-        add_max_users: 'Pievienojiet lietotājus sarunai: ne vairāk par deviņiem lietotājiem'
-        add_users_placeholder: Meklēt...
-        close: Aizvērt
         conversations_info: Sarunas ir privātas. Neviens cits tās nevar redzēt. Sarunu var sākt ar jebkuru dalībnieku vai grupu, kas reģistrēta platformā.
-        from: "No"
-        last_message: Pēdējā ziņa
-        modal_title: Jauna saruna
-        new_conversation: Jauna saruna
-        next: Nākamais
         no_conversations_warning: Šeit vēl nav sarunu.
-        no_results: Nav rezultātu
-        participant_with_disabled_message_reception: Šis dalībnieks ir atspējojis ziņojumu saņemšanu
         time_ago: "Pirms %{time}"
-      new:
-        title: Sākt sarunu
       reply:
         placeholder: Jūsu atbilde...
         send: Sūtīt
-        title_reply: Atbildēt
-      show:
-        not_allowed: Šis lietotājs vairs nepieņem tiešās ziņas.
-        title: Saruna ar %{usernames}
       update:
         error: Ziņojums nav nosūtīts. Pamēģini vēlreiz vēlāk
     user_interests:
       show:
         my_interests: Manas intereses
-        no_scopes: Šai organizācijai vēl nav nekāda darbības tvēruma!
-        select_your_interests: Atlasiet jūs interesējošās tēmas, lai profila cilnē Laika skala saņemtu informāciju par notikumiem, kas ar tām saistīti.
         update_my_interests: Atjaunināt manas intereses
       update:
         error: Jūsu interešu atjaunināšanas laikā radās problēma.
@@ -1150,28 +918,14 @@ lv:
         back_to_resource: Atgriezties
         changes_at_title: Izmaiņas "%{title}"
         number_of_versions: Versijas
-        show_all_versions: Rādīt visas versijas
-        version_author: Versijas autors
         version_created_at: Versija izveidota
-        version_number: Versijas numurs
-        version_number_out_of_total: "%{current_version} no %{total_count}"
-    version_author:
-      show:
-        deleted: Dzēsts dalībnieks
     versions:
       resource_version:
         of_versions: "(no %{number})"
-    versions_list:
-      show:
-        back_to_resource: Atgriezties
-        changes_at_title: Izmaiņas "%{title}"
-        number_of_versions: Versijas
-        title: Versijas
     versions_list_item:
       show:
         version_index: Versija %{index}
     welcome_notification:
-      default_body: <p> Sveiki, {{name}}, paldies par pievienošanos {{organization}} un laipni lūdzam! </p> <ul> <li>Ja vēlaties ātri iegūt priekšstatu par to, ko šeit varat paveikt, aplūkojiet sadaļu <a href="{{help_url}}"> Palīdzība </a>. </li> <li> Kad to izlasīsiet, jūs saņemsiet savu pirmo žetonu. Šeit ir <a href="{{badges_url}}"> saraksts ar visiem žetoniem </a>, kurus varat iegūt, piedaloties {{organization}}</li> <li> Ne mazāk svarīgi ir pievienoties citiem cilvēkiem, dalīties ar viņiem pieredzē par iesaistīšanos un līdzdalību {{organization}}. Iesniedziet priekšlikumus, komentārus, debatējiet, domājiet par to, kā dot savu ieguldījumu kopējā labuma sasniegšanai, sniedziet argumentus, lai pārliecinātu, uzklausiet un lasiet, lai tiktu pārliecināts, izsakiet savas idejas konkrētā un tiešā veidā, atbildiet ar pacietību un pārliecību, aizstāviet savas idejas un turiet atvērtu prātu sadarbībai, un pievienojieties citu cilvēku idejām.</li> </ul>
       default_subject: Paldies par pievienošanos {{organization}}!
     wizard_step_form:
       wizard_aside:
@@ -1194,8 +948,6 @@ lv:
       last_attempt: Jums ir vēl viens mēģinājums, pirms jūsu konts tiek bloķēts.
       locked: Jūsu konts ir bloķēts.
       not_found_in_database: Nederīga %{authentication_keys} vai parole.
-      timeout: Jūsu sesijas termiņš beidzās. Lūdzu, pierakstieties vēlreiz, lai turpinātu.
-      unauthenticated: Pirms turpināšanas jums jāpierakstās vai jāreģistrējas.
     invitations:
       edit:
         header: Pabeidziet sava konta izveidi
@@ -1218,45 +970,30 @@ lv:
         subject: Apstiprināšanas norādījumi
       email_changed:
         greeting: Sveiki, %{recipient}!
-        message: Mēs sazināmies ar jums, lai paziņotu, ka jūsu e-pasts tiek mainīts uz %{email}.
         subject: E-pasts nomainīts
       invitation_instructions:
         accept: Pieņemt ielūgumu
         accept_until: Šī ielūguma termiņš beigsies %{due_date}.
         decline: Noraidīt ielūgumu
         hello: Sveiki, %{email}!
-        ignore: |-
-          Ja nevēlaties pieņemt ielūgumu, lūdzu, ignorējiet šo e-pasta vēstuli. <br /> Jūsu konts netiks izveidots, kamēr nepiekļūsiet iepriekš norādītajai saitei un neiestatīsiet savu segvārdu un paroli.
         invited_you_as_admin: "%{invited_by} uzaicināja jūs kā %{application} administratoru. Jūs varat ielūgumu pieņemt, izmantojot turpmāk esošo saiti."
         invited_you_as_private_user: "%{invited_by} uzaicināja jūs kā %{application} privātu dalībnieku. Jūs varat ielūgumu pieņemt, izmantojot zemāk esošo saiti."
         someone_invited_you: Kāds jūs ir uzaicinājis uz %{application}. Jūs varat ielūgumu pieņemt, izmantojot turpmāk esošo saiti.
         someone_invited_you_as_admin: Kāds ir uzaicinājis jūs kā %{application} administratoru. Jūs varat ielūgumu pieņemt, izmantojot zemāk esošo saiti.
         someone_invited_you_as_private_user: Kāds ir uzaicinājis jūs kā %{application} privātu dalībnieku. Jūs varat ielūgumu pieņemt, izmantojot zemāk esošo saiti.
         subject: Ielūgumu norādījumi
-      invite_admin:
-        subject: Jums ir uzaicinājums pārvaldīt %{organization}
-      invite_collaborator:
-        subject: Jums ir uzaicinājums sadarboties ar %{organization}
-      invite_private_user:
-        subject: Jums ir uzaicinājums piedalīties privātas līdzdalības procesā %{organization}
-      organization_admin_invitation_instructions:
-        subject: Jums ir uzaicinājums pārvaldīt %{organization}
       password_change:
         greeting: Sveiki, %{recipient}!
-        message: Mēs sazināmies ar jums, lai paziņotu, ka jūsu parole ir nomainīta.
         subject: Parole ir mainīta
       reset_password_instructions:
         action: Nomainīt manu paroli
         greeting: Sveiki, %{recipient}!
         instruction: Kāds ir pieprasījis saiti, lai mainītu jūsu paroli, un jūs to varat izdarīt, izmantojot turpmāk esošo saiti.
-        instruction_2: Ja jūs to nepieprasījāt, lūdzu, ignorējiet šo e-pasta vēstuli.
-        instruction_3: Jūsu parole nemainīsies, kamēr neizmantosiet iepriekš norādīto saiti un neizveidosiet jaunu paroli.
         subject: Norādījumi paroles atiestatīšanai.
       unlock_instructions:
         action: Atbloķēt manu kontu
         greeting: Sveiki, %{recipient}!
         instruction: 'Lai atbloķētu kontu, noklikšķiniet uz turpmāk esošās saites:'
-        message: Jūsu konts ir bloķēts, jo ir bijuši pārāk daudzi neveiksmīgi pierakstīšanās mēģinājumi.
         subject: Atbloķēšanas norādījumi
     omniauth_callbacks:
       failure: Nevarēju jūs autentificēt no %{kind}, jo "%{reason}".
@@ -1270,22 +1007,12 @@ lv:
       new:
         forgot_your_password: Aizmirsāt paroli?
         send_me_reset_password_instructions: Nosūtīt man paroles atiestatīšanas norādījumus
-      no_token: Jūs nevarat piekļūt šai lapai, ja nav saņemts paroles atiestatīšanas e-pasts. Ja jūs nākat no paroles atiestatīšanas e-pasta, pārliecinieties, vai esat izmantojis pilnu norādīto URL.
       send_instructions: Jūs dažu minūšu laikā saņemsiet e-pastu ar norādījumiem, kā atiestatīt savu paroli.
       send_paranoid_instructions: Ja jūsu e-pasta adrese atrodas mūsu datubāzē, jūs dažu minūšu laikā saņemsiet e-pastu paroles atiestatīšanai.
       updated: Jūsu parole ir veiksmīgi nomainīta. Tagad esat pierakstīts.
       updated_not_active: Jūsu parole ir veiksmīgi nomainīta.
     registrations:
       destroyed: Jūsu konts ir veiksmīgi atcelts. Mēs ceram jūs drīz atkal redzēt.
-      edit:
-        are_you_sure: Vai esat pārliecināts?
-        cancel_my_account: Atcelt manu kontu
-        currently_waiting_confirmation_for_email: 'Pašlaik tiek gaidīts apstiprinājums e-pastam: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: atstājiet tukšu, ja nevēlaties to mainīt
-        title: Labot %{resource}
-        unhappy: Neesat apmierināts?
-        update: Atjaunināt
-        we_need_your_current_password_to_confirm_your_changes: mums ir nepieciešama jūsu pašreizējā parole, lai apstiprinātu izmaiņas
       new:
         sign_up: Reģistrēties
       signed_up: Laipni lūdzam! Jūsu reģistrācija bija veiksmīga.
@@ -1294,20 +1021,10 @@ lv:
       signed_up_but_unconfirmed: Uz jūsu e-pasta adresi ir nosūtīts ziņojums ar apstiprinājuma saiti. Lūdzu, izmantojiet saiti, lai aktivizētu savu kontu.
       update_needs_confirmation: Jūs veiksmīgi atjauninājāt kontu, taču mums ir jāpārbauda jūsu jaunā e-pasta adrese. Lūdzu, pārbaudiet savu e-pastu un izmantojiet apstiprināšanas saiti, lai apstiprinātu jauno e-pasta adresi.
       updated: Jūsu konts tika veiksmīgi atjaunināts.
-    sessions:
-      already_signed_out: Veiksmīgi izrakstījāties.
-      new:
-        sign_in: Pieteikties
-      signed_in: Veiksmīgi pierakstījāties.
-      signed_out: Veiksmīgi izrakstījāties.
     shared:
       links:
         back: Atpakaļ
-        didn_t_receive_confirmation_instructions: Nesaņēmāt apstiprināšanas norādījumus?
-        didn_t_receive_unlock_instructions: Nesaņēmāt atbloķēšanas norādījumus?
         forgot_your_password: Aizmirsāt paroli?
-        sign_in: Pieteikties
-        sign_in_with_provider: Pierakstīties, izmantojot %{provider}
         sign_up: Reģistrēties
       minimum_password_length:
         zero: "(vismaz %{count} rakstzīmes)"
@@ -1318,22 +1035,18 @@ lv:
         resend_unlock_instructions: Atkārtoti nosūtīt atbloķēšanas norādījumus
       send_instructions: Jūs dažu minūšu laikā saņemsiet e-pastu ar norādījumiem, kā atbloķēt savu kontu.
       send_paranoid_instructions: Ja jūsu konts eksistē, jūs dažu minūšu laikā saņemsiet e-pastu ar norādījumiem, kā to atbloķēt.
-      unlocked: Jūsu konts ir veiksmīgi atbloķēts. Lūdzu, pierakstieties, lai turpinātu.
   doorkeeper:
     scopes:
       public: Jūsu publiski pieejamā informācija.
   errors:
     messages:
-      already_confirmed: jau tika apstiprināts, lūdzu, mēģiniet pierakstīties
       confirmation_period_expired: jāapstiprina %{period} laikā, lūdzu, pieprasiet jaunu
       content_type_allowlist_error: faila tips nav derīgs
-      cycle_detected: tvēruma saistītais tvērums nevar būt viens no tā atvasinājumiem
       expired: ir beidzies derīguma termiņš, lūdzu, pieprasiet jaunu
       file_size_is_less_than_or_equal_to: Faila izmēram jābūt mazākam vai vienādam ar %{count}.
       invalid_time_zone: nav derīga laika josla
       long_words: satur vārdus, kas ir pārāk gari (vairāk nekā 35 rakstzīmes)
       must_start_with_caps: jāsākas ar lielo burtu
-      nesting_too_deep: nevar atrasties apakškategorijā
       not_found: netika atrasts. Vai jūs jau iepriekš reģistrējāties?
       not_locked: netika bloķēts
       not_saved:
@@ -1342,21 +1055,20 @@ lv:
         other: 'Apstrādājot jūsu pieprasījumu, radās vairākas kļūdas:'
       too_many_marks: izmanto pārāk daudz secīgu pieturzīmju (piemēram,! un ?)
       too_much_caps: izmanto pārāk daudz lielo burtu (vairāk nekā 25 % no teksta)
-      too_short: ir pārāk īsa (līdz 15 rakstzīmēm)
   invisible_captcha:
     sentence_for_humans: Ja esat cilvēks, ignorējiet šo lauku
     timestamp_error_message: Diemžēl tas bija par ātru! Lūdzu, iesniedziet atkārtoti.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: Veids
       edit_link:
         edit: Labot
       footer:
         download_open_data: Lejupielādējiet atvērto datu failus
         made_with_open_source: Vietne, kas izveidota ar <a target="_blank" href="https://github.com/decidim/decidim"> bezmaksas programmatūru </a>.
-      header:
-        close_menu: Aizvērt izvēlni
-        navigation: Navigācija
-        sign_in: Ieiet
         sign_up: Reģistrēties
       impersonation_warning:
         close_session: Aizvērt sesiju
@@ -1370,7 +1082,6 @@ lv:
         notifications: Paziņojumi
         profile: Mans konts
         public_profile: Mans publiskais profils
-        sign_out: Izrakstīties
       user_profile:
         account: Konts
         authorizations: Autorizācijas
@@ -1380,8 +1091,6 @@ lv:
         notifications_settings: Paziņojumu iestatījumi
         title: Dalībnieka iestatījumi
         user_groups: Grupas
-      widget:
-        see_more: Skatīt vairāk
   locale:
     name: Latviešu
     name_with_error: Latviešu (kļūda!)
@@ -1428,12 +1137,6 @@ lv:
       option_unified: Vienoti
   views:
     pagination:
-      first: "&laquo; Pirmais"
-      first_title: Saite uz pirmo lapu
-      last: Pēdējais &raquo;
-      last_title: Saite uz pēdējo lapu
-      next: Nākamais &rsaquo;
       next_title: Saite uz nākamo lapu
-      previous: "&lsaquo; Priekšskats"
       previous_title: Saite uz iepriekšējo lapu
       title: 'Lapas numurs:'

@@ -1,65 +1,48 @@
-<div class="row section">
-  <div class="columns">
-    <% if vote_check.allowed? %>
-      <div class="callout success mt-s">
-        <% if voted_online? %>
-          <h5><%= t(".census_verified_with_online_vote") %></h5>
-        <% else %>
-          <h5><%= t(".census_verified") %></h5>
-        <% end %>
-      </div>
-      <div class="row mt-sm">
-        <div class="columns large-7">
-          <% if voted_online? %>
-            <p><strong><%= t(".questions_title_voted") %></strong></p>
-          <% else %>
-            <p><strong><%= t(".questions_title") %></strong></p>
-          <% end %>
-          <ul class="accordion js-sortable evote__preview"
-            data-accordion
-            data-multi-expand="true"
-            data-allow-all-closed="true">
-            <% questions.each do |question| %>
-              <li class="accordion-item evote__preview-question" data-accordion-item>
-                <a href="#" class="accordion-title flex--sbc"><%= translated_attribute(question.title) %></a>
-                <div class="accordion-content" data-tab-content>
-                  <strong><%= t(".available_answers") %></strong>
-                  <ul>
-                    <% question.answers.each do |answer| %>
-                      <li><%= translated_attribute(answer.title) %></li>
-                    <% end %>
-                  </ul>
-                </div>
-              </li>
+<% if vote_check.allowed? %>
+  <%= cell("decidim/announcement", voted_online? ? t(".census_verified_with_online_vote") : t(".census_verified"), callout_class: "success") %>
+
+  <p class="text-gray-2 mb-4"><%= voted_online? ? t(".questions_title_voted") : t(".questions_title") %></p>
+
+  <div id="voting-accordion" data-component="accordion" data-multiselectable="false" data-collapsible="false">
+    <% questions.each_with_index do |question, ix| %>
+      <div class="voting__polling-station__accordion">
+        <button id="trigger-voting-<%= ix %>" class="voting__polling-station__accordion-trigger" data-controls="panel-voting-<%= ix %>">
+          <span><%= translated_attribute(question.title) %></span>
+          <%= icon "arrow-down-s-line", class: "voting__polling-station__accordion-arrow" %>
+          <%= icon "arrow-up-s-line", class: "voting__polling-station__accordion-arrow" %>
+        </button>
+
+        <div id="panel-voting-<%= ix %>" class="voting__polling-station__accordion-panel" aria-hidden="true">
+          <strong><%= t(".available_answers") %></strong>
+          <ul>
+            <% question.answers.each do |answer| %>
+              <li><%= translated_attribute(answer.title) %></li>
             <% end %>
           </ul>
-          <div class="card__content">
-            <%= decidim_form_for(in_person_vote_form, url: polling_officer_election_in_person_votes_path(polling_officer, election)) do |f| %>
-              <%= f.hidden_field :voter_token %>
-              <%= f.hidden_field :voter_id %>
-              <%= f.check_box :voted, label: t(".voted"), id: "person_voted_checkbox", label_options: { for: nil } %>
-              <%= f.submit t(".complete_voting"), class: "button button--sc expanded mt-sm mb-none disabled", id: "submit_complete_voting" %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    <% else %>
-      <div class="callout alert mt-s">
-        <h5><%= vote_check.error_message %></h5>
-      </div>
-      <div class="row mt-sm">
-        <div class="columns large-7">
-          <div class="card__content">
-            <a href="<%= exit_path %>" class="button button--sc expanded mt-sm mb-none">
-              <%= t(".identify_another") %>
-            </a>
-          </div>
         </div>
       </div>
     <% end %>
   </div>
-</div>
 
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_votings_voting_polling_officer_zone_in_person_vote" %>
+  <%= decidim_form_for(in_person_vote_form, url: polling_officer_election_in_person_votes_path(polling_officer, election)) do |f| %>
+    <%= f.hidden_field :voter_token %>
+    <%= f.hidden_field :voter_id %>
+
+    <div class="form__wrapper">
+      <%= f.check_box :voted, label: t(".voted"), id: "person_voted_checkbox", label_options: { for: "person_voted_checkbox", class: "form__wrapper-checkbox-label" } %>
+    </div>
+
+    <div class="form__wrapper-block">
+      <%= f.submit t(".complete_voting"), class: "button button__sm md:button__lg button__secondary", id: "submit_complete_voting" %>
+    </div>
+  <% end %>
+
+<% else %>
+  <%= cell("decidim/announcement", vote_check.error_message, callout_class: "alert") %>
+
+  <div class="form__wrapper-block">
+    <%= link_to exit_path, class: "button button__sm md:button__lg button__secondary" do %>
+      <span><%= t(".identify_another") %></span>
+    <% end %>
+  </div>
 <% end %>

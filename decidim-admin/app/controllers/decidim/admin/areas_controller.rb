@@ -6,6 +6,9 @@ module Decidim
     #
     class AreasController < Decidim::Admin::ApplicationController
       layout "decidim/admin/settings"
+
+      add_breadcrumb_item_from_menu :admin_settings_menu
+
       helper_method :area, :organization_areas
 
       def index
@@ -35,12 +38,12 @@ module Decidim
       end
 
       def edit
-        enforce_permission_to :update, :area, area: area
+        enforce_permission_to(:update, :area, area:)
         @form = form(AreaForm).from_model(area)
       end
 
       def update
-        enforce_permission_to :update, :area, area: area
+        enforce_permission_to(:update, :area, area:)
         @form = form(AreaForm).from_params(params)
 
         UpdateArea.call(area, @form) do
@@ -57,7 +60,7 @@ module Decidim
       end
 
       def destroy
-        enforce_permission_to :destroy, :area, area: area
+        enforce_permission_to(:destroy, :area, area:)
 
         DestroyArea.call(area, current_user) do
           on(:ok) do

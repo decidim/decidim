@@ -30,7 +30,7 @@ describe Decidim::Elections::Voter::CastVote do
   let(:election_id) { election.id }
   let(:voter_id) { "voter.1" }
   let(:organization) { create(:organization) }
-  let(:user) { create :user, :confirmed, organization: }
+  let(:user) { create(:user, :confirmed, organization:) }
   let(:email) { "an_email@example.org" }
   let(:cast_vote_method) { :cast_vote }
 

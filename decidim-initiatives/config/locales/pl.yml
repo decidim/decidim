@@ -51,7 +51,6 @@ pl:
             attachment:
               file: Nieprawidłowy plik
               needs_to_be_reattached: Załącz ponownie
-              title: Tytuł nie może być pusty
   activerecord:
     models:
       decidim/initiative:
@@ -177,10 +176,8 @@ pl:
             - Postępuj zgodnie z instrukcjami, aby utworzyć nową inicjatywę
           description: Ta odznaka jest przyznawana, gdy tworzysz nowe inicjatywy, współpracując z innymi, aby je zrealizować.
           description_another: Ten użytkownik posiada %{score} opublikowanych inicjatyw.
-          description_own: Masz opublikowanych %{score} inicjatyw.
           name: Opublikowane inicjatywy
           next_level_in: Uzyskaj %{score} kolejnych opublikowanych inicjatyw, aby awansować na następny poziom!
-          unearned_another: Ten użytkownik nie utworzył jeszcze żadnych inicjatyw, które zostały opublikowane.
           unearned_own: Nie ma jeszcze żadnych opublikowanych inicjatyw.
     help:
       participatory_spaces:
@@ -206,8 +203,6 @@ pl:
           index:
             approve: Zatwierdź
             confirm_revoke: Jesteś pewny?
-            invite_to_committee_help: Udostępnij ten link, aby zaprosić innych użytkowników do komitetu organizacyjnego
-            no_members_yet: W komitecie organizacyjnym nie ma członków
             revoke: Odwołaj
             title: Członkowie komitetu
         content_blocks:
@@ -229,10 +224,8 @@ pl:
             export_votes: Eksport podpisów
             reject: Odrzuć inicjatywę
             send_to_technical_validation: Wyślij do weryfikacji technicznej
-            success: Inicjatywa została wysłana do weryfikacji technicznej
             update: Aktualizuj
           form:
-            attachments: Załączniki
             settings: Ustawienia
             title: Informacje ogólne
           index:
@@ -244,50 +237,24 @@ pl:
             edit: Edytuj
             new: Nowy
             photos: Zdjęcia
-          update:
-            error: Wystąpił błąd
-            success: Inicjatywa została zaktualizowana
         initiatives_type_scopes:
-          create:
-            error: Wystąpił błąd
-            success: Utworzono nowy zakres dla danego typu inicjatywy
-          destroy:
-            success: Zakres został pomyślnie usunięty
           edit:
-            back: Wróć
-            confirm_destroy: Jesteś pewny?
-            destroy: Usuń
             title: Edytuj zakres typu inicjatywy
             update: Aktualizuj
           new:
-            back: Wróć
             create: Utwórz
             title: Utwórz zakres typu inicjatywy
-          update:
-            error: Wystąpił błąd
-            success: Zakres został zaktualizowany
         initiatives_types:
-          create:
-            error: Wystąpił błąd
-            success: Utworzono nowy typ inicjatywy
-          destroy:
-            success: Typ inicjatywy został usunięty
           edit:
-            confirm_destroy: Jesteś pewny?
-            destroy: Usuń
             update: Aktualizuj
           form:
             authorizations: Ustawienia autoryzacji
             options: Ustawienia
-            title: Informacje ogólne
           initiative_type_scopes:
             title: Zakresy dla rodzaju inicjatywy
           new:
             create: Utwórz
             title: Nowy typ inicjatywy
-          update:
-            error: Wystąpił błąd
-            success: Typ inicjatywy został zaktualizowany
       admin_log:
         initiative:
           publish: "%{user_name} opublikował(a) inicjatywę %{resource_name}"
@@ -302,10 +269,6 @@ pl:
         rejected: Niewystarczająca liczba podpisów
         validating: Weryfikacja techniczna
       application_helper:
-        filter_area_values:
-          all: Wszystkie
-        filter_scope_values:
-          all: Wszystkie
         filter_state_values:
           accepted: Wystarczająca liczba podpisów
           all: Wszystkie
@@ -320,7 +283,6 @@ pl:
           success: Żądanie zostało zaakceptowane.
         new:
           continue: Dalej
-          help_text: Zamierzasz poprosić o członkostwo w komitecie organizacyjnym tej inicjatywy
         revoke:
           success: Żądanie zostało cofniete.
         spawn:
@@ -333,7 +295,6 @@ pl:
           back: Wróć
           continue: Dalej
           fill_data_help: "<ul> <li>Sprawdź treść swojej inicjatywy. Czy tytuł jest łatwy do zrozumienia? Czy cel inicjatywy jest jasny?</li> <li>Musisz wybrać rodzaj podpisu. Na piśmie, online lub połączenie obu</li> <li>Jaki jest zasięg geograficzny inicjatywy?</li> </ul>"
-          initiative_type: Typ inicjatywy
           more_information: "(Więcej informacji)"
           select_area: Wybierz kategorię
           select_scope: Wybierz zakres
@@ -347,31 +308,21 @@ pl:
           more_information: "(Więcej informacji)"
           send_my_initiative: Wyślij moją inicjatywę do weryfikacji technicznej
         finish_help:
-          access_reminder: Możesz uzyskać dostęp do swoich inicjatyw poprzez filtr %{link} na stronie inicjatyw.
           publish_helper_text: Pamiętaj, że aby Twoja inicjatywa została opublikowana, musisz uzupełnić wymagane informacje i <strong>przesłać ją do weryfikacji technicznej</strong>, aby administrator mógł ją przejrzeć.
         previous_form:
           back: Wróć
           continue: Dalej
-          help: Z czego składa się inicjatywa? Zapisz tytuł i opis. Zalecamy krótki i zwięzły tytuł oraz opis koncentrujący się na proponowanym rozwiązaniu.
-          more_information: "(Więcej informacji)"
         promotal_committee:
-          back: Wróć
           individual_help_text: Tego rodzaju inicjatywa obywatelska wymaga Komisji Organizacyjnej, która składa się z co najmniej %{committee_size} osób. Udostępnij poniższy link innym osobom, które są częścią tej inicjatywy. Gdy Twoi znajomi otrzymają ten link, będą musieli wykonać wskazane kroki.
           more_information: "(Więcej informacji)"
         select_initiative_type:
           back: Wróć
           choose_html: Chcę utworzyć <strong>%{title}</strong>
-          more_information: "(Więcej informacji)"
+          more_information: (Więcej informacji)
           select: Chcę utworzyć inicjatywę tego typu
           select_initiative_type_help: Inicjatywy są środkiem, za pomocą którego uczestnicy mogą interweniować tak, aby organizacja mogła podejmować działania w obronie interesu ogólnego. Którą inicjatywę chcesz uruchomić?
         share_committee_link:
-          continue: Dalej
           invite_to_committee_help: Link do zaproszenia osób, które będą częścią komitetu organizacyjnego
-        show_similar_initiatives:
-          back: Wróć
-          compare_help: Jeśli którakolwiek z poniższych inicjatyw jest podobna do Twojej, zachęcamy do jej wspierania. Twoja propozycja będzie miała więcej możliwości do bycia przyjęta i procedowaną.
-          continue: Moja inicjatywa jest inna
-          more_information: "(Więcej informacji)"
       edit:
         accept: Akceptuj inicjatywę
         back: Wróć
@@ -408,19 +359,9 @@ pl:
           email_outro: 'Otrzymałeś to powiadomienie, ponieważ jesteś autorem inicjatywy %{resource_title}'
           email_subject: "%{applicant_nickname} chce dołączyć do Twojej inicjatywy"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> złożył wniosek na członka komitetu organizacyjnego Twojej inicjatywy <a href="%{resource_url}">%{resource_title}</a>. Aby zaakceptować lub odrzucić kliknij <a href="%{resource_url}/edit">tutaj</a>.
-      form:
-        add_attachments: Dokumenty
-        delete_attachment: Usuń
-      index:
-        title: Inicjatywy
       initiative_signatures:
         fill_personal_data:
           continue: Dalej
-          date_select:
-            day: Dzień
-            month: Miesiąc
-            year: Rok
-          help: Wypełnij następujące pola swoimi danymi osobowymi, aby poprzeć inicjatywę
         finish:
           back_to_initiative: Wróć do inicjatywy
         sms_code:
@@ -428,21 +369,14 @@ pl:
           help: Sprawdź SMS, który wysłaliśmy na Twój numer telefonu
         sms_phone_number:
           continue: Wyślij mi SMS-a
-          help: Wpisz w formularzu swój zweryfikowanym numerem telefonu, aby otrzymać kod weryfikacyjny
       initiative_votes:
         create:
           error: Podczas podpisywania inicjatywy wystąpiły błędy.
-          invalid: Dane dostarczone do poparcia inicjatywy nie są ważne
-          success_html: Gratulacje! Inicjatywa <strong> %{title}</strong> została poparta
         personal_data:
           invalid: Dane osobowe nie są zgodne z danymi przekazanymi do autoryzacji.
-        sms_code:
-          invalid: Twój kod weryfikacyjny nie pasuje do naszego. Sprawdź dokładnie SMS, który Ci wysłaliśmy.
         sms_phone:
           invalid: Numer telefonu jest nieprawidłowy lub oczekuje na autoryzację. Sprawdź swoje autoryzacje.
       initiatives:
-        author:
-          deleted: Usunięto
         author_list:
           hidden_authors_count:
             one: i jeszcze 1 osoba
@@ -452,9 +386,6 @@ pl:
         committee_members:
           approve: Zatwierdź
           confirm_revoke: Jesteś pewny?
-          invite_to_committee_help: Udostępnij ten link, aby zaprosić innych użytkowników do komitetu organizacyjnego
-          no_members_yet: W komitecie organizacyjnym nie ma członków
-          revoke: Odwołaj
           title: Członkowie komitetu
         count:
           title:
@@ -471,18 +402,8 @@ pl:
           search: Szukaj
           state: Stan
           type: Typ
-        filters_small_view:
-          close_modal: Zamknij okno
-          filter: Filtr
-          filter_by: Filtruj według
-          unfold: Rozwiń
         index_header:
           new_initiative: Nowa inicjatywa
-          not_authorized:
-            authorizations_page: Zobacz autoryzacje
-            close: Zamknij
-            explanation: Musisz zostać zweryfikowany/-a, aby stworzyć nową inicjatywę.
-            title: Wymagana autoryzacja
         initiatives:
           closed_initiatives_warning: Obecnie nie ma aktualnych inicjatyw, ale tutaj możesz zobaczyć wszystkie poprzednie inicjatywy.
           no_initiatives_warning: Brak inicjatyw spełniających kryteria wyszukiwania.
@@ -522,15 +443,10 @@ pl:
           section: 'Na wniosek organizacji proszę wydrukować i wypełnić niniejszy formularz w celu przesłania, jeśli jest to wskazane:'
           signature: Podpis
         result:
-          answer_title: Odpowiedziano na tę inicjatywę
           initiative_rejected_reason: Ta inicjatywa została odrzucona ze względu na brak podpisów.
         show:
-          any_vote_method: Ta inicjatywa zbiera podpisy online i na piśmie.
           confirm: Zamierzasz wysłać inicjatywę administratorowi, aby ją przejrzał i opublikował. Po opublikowaniu nie będziesz mógł jej edytować. Czy jesteś pewien?
           edit: Edytuj
-          follow_description: Otrzymuj powiadomienie, gdy pojawią się wiadomości dotyczące tej inicjatywy
-          offline_method: Ta inicjatywa zbiera jedynie podpisy na piśmie.
-          print: Drukuj inicjatywę
           send_to_technical_validation: Wyślij do weryfikacji technicznej
         signatures_count:
           one: " podpis"
@@ -549,8 +465,6 @@ pl:
             few: Podpisy
             many: Podpisy
             other: Podpisy
-          most_popular_initiative: Najbardziej popularna inicjatywa
-          need_more_votes: Potrzeba więcej podpisów
       initiatives_mailer:
         creation_subject: Twoja inicjatywa "%{title}" została utworzona
         initiative_link:
@@ -562,13 +476,11 @@ pl:
         promotal_committee_help: Pamiętaj, że musisz zaprosić co najmniej %{member_count} osób do komitetu organizacyjnego. Prześlij poniższy link, aby zaprosić ludzi do komitetu
         status_change_body_for: 'Inicjatywa %{title} zmieniła swój status na: %{state}'
         status_change_for: Inicjatywa %{title} zmieniła swój status
-      last_activity:
-        new_initiative: Nowa inicjatywa
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Aktualne inicjatywy
-            see_all_initiatives: Zobacz wszystkie inicjatywy
+      modal:
+        not_authorized:
+          authorizations_page: Zobacz autoryzacje
+          explanation: Musisz zostać zweryfikowany/-a, aby stworzyć nową inicjatywę.
+          title: Wymagana autoryzacja
       show:
         badge_name:
           accepted: Wystarczająca liczba podpisów
@@ -581,12 +493,6 @@ pl:
         accepted: Przyjęto
         expired: Przedawnione
       unavailable_scope: Niedostępny zakres
-      update:
-        error: Wystąpił błąd
-        success: Inicjatywa została zaktualizowana
-      versions:
-        shared:
-          back_to_resource: Wróć do inicjatywy
     menu:
       initiatives: Inicjatywy
     resources:
@@ -600,27 +506,15 @@ pl:
   layouts:
     decidim:
       initiative_creation_header:
-        back: Wróć
         fill_data: Utwórz
         finish: Koniec
-        previous_form: Początek
         promotal_committee: Komitet organizacyjny
         select_initiative_type: Wybierz
-        show_similar_initiatives: Porównaj
-        step: Krok %{current} z %{total}
-        title: Utwórz nową inicjatywę
-      initiative_header:
-        initiative_menu_item: Inicjatywa
       initiative_signature_creation_header:
-        back: Wróć
         fill_personal_data: Uzupełnij swoje dane
         finish: Koniec
-        finished: Utworzono podpis pod inicjatywą
-        see_steps: zobacz kroki
-        select_identity: Wybierz tożsamość
         sms_code: Weryfikacja kodem SMS
         sms_phone_number: Numer telefonu komórkowego
-        step: Krok %{current} z %{total}
         title: Podpisz %{initiative_title}
       initiatives:
         initiative:

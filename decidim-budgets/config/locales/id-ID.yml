@@ -27,11 +27,6 @@ id:
           project:
             name: Proyek
         projects:
-          create:
-            invalid: Terjadi masalah saat membuat proyek ini
-            success: Proyek berhasil dibuat
-          destroy:
-            success: Proyek berhasil dihapus
           edit:
             title: Edit proyek
             update: Memperbarui
@@ -42,13 +37,7 @@ id:
           new:
             create: Membuat
             title: Proyek baru
-          update:
-            invalid: Ada masalah saat memperbarui proyek ini
-            success: Proyek berhasil diperbarui
         proposals_imports:
-          create:
-            invalid: Ada masalah saat mengimpor proposal ke proyek
-            success: "%{number} proposal berhasil diimpor ke proyek"
           new:
             create: Impor proposal ke proyek
             no_components: Tidak ada komponen proposal lain dalam ruang partisipatif ini untuk mengimpor proposal ke proyek.
@@ -71,16 +60,12 @@ id:
         budget_excess:
           budget_excess:
             title: Anggaran maksimum terlampaui
-          close: Dekat
           ok: baik
         budget_summary:
           are_you_sure: Anda yakin ingin membatalkan suara?
-          assigned: 'Ditugaskan:'
           cancel_order: hapus suara Anda dan mulai lagi dari awal
           checked_out:
-            description: Anda telah memberikan suara untuk anggaran. Jika Anda berubah pikiran, Anda dapat %{cancel_link}.
             title: Suara anggaran selesai
-          title: Anda yang memutuskan anggaran
         count:
           projects_count:
             other: "%{count} proyek"
@@ -88,23 +73,10 @@ id:
           category: Kategori
           scope: Cakupan
           search: Pencarian
-        filters_small_view:
-          close_modal: Tutup modal
-          filter: Filter
-          filter_by: Saring menurut
-          unfold: Membuka
-        order_progress:
-          vote: Memilih
-        order_selected_projects:
-          remove: Menghapus
-          selected_projects:
-            other: proyek yang dipilih
-          view: Melihat
         project:
           view: Melihat
         show:
           budget: Anggaran
-          view_all_projects: Lihat semua proyek
     components:
       budgets:
         actions:
@@ -123,12 +95,5 @@ id:
             show_votes: Tampilkan suara
             votes_choices:
               enabled: Voting diaktifkan
-    orders:
-      checkout:
-        error: Terjadi masalah saat memproses suara Anda
-        success: Pilihan Anda telah berhasil diterima
-      destroy:
-        error: Terjadi masalah saat membatalkan pilihan Anda
-        success: Pilihan Anda telah berhasil dibatalkan
   index:
     confirmed_orders_count: Votes dihitung

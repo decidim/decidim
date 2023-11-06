@@ -1,0 +1,17 @@
+<%= decidim_modal id: "delete-account", class:"verification-modal" do %>
+  <%= decidim_form_for(@form, url: account_path, method: :delete, namespace: "delete_user_confirm", html: { class: "delete-account-modal" }) do |f| %>
+    <%= f.hidden_field :delete_reason %>
+    <div data-dialog-container>
+      <%= icon "close-circle-line" %>
+      <h3 class="h3" id="dialog-title-delete-account" data-dialog-title>
+        <%= t("question", scope:"decidim.account.delete.confirm") %>
+      </h3>
+    </div>
+    <div data-dialog-actions>
+      <button type="button" class="button button__sm md:button__lg button__transparent-secondary" data-dialog-close="delete-account">
+        <%= t("close", scope: "decidim.account.delete.confirm") %>
+      </button>
+      <input type="submit" class="button button__sm md:button__lg button__secondary" value="<%= t("ok", scope:"decidim.account.delete.confirm") %>">
+    </div>
+  <% end %>
+<% end %>

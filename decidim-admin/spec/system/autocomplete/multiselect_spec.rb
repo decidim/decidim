@@ -52,8 +52,8 @@ describe "Autocomplete multiselect", type: :system do
           <html lang="en">
           <head>
             <title>Autocomplete multiselect Test</title>
-            #{stylesheet_pack_tag "decidim_admin"}
-            #{javascript_pack_tag "decidim_admin"}
+            #{stylesheet_pack_tag "decidim_core"}
+            #{javascript_pack_tag "decidim_core", "decidim_admin", defer: false}
             #{head_extra}
           </head>
           <body>
@@ -83,7 +83,7 @@ describe "Autocomplete multiselect", type: :system do
     describe "render autocomplete wrapper with text input" do
       it "shows multiselect" do
         within ".autoComplete_wrapper" do
-          expect(page).to have_selector("input[type='text']", wait: 2)
+          expect(page).to have_field(wait: 2)
         end
       end
     end
@@ -102,6 +102,16 @@ describe "Autocomplete multiselect", type: :system do
           expect(hidden_input.value).to eq(participant.id.to_s)
           text_input = find("input[type='text']")
           expect(text_input.value).to eq("")
+        end
+
+        context "when the URL has extra parameters in it" do
+          let(:url) { "http://#{organization.host}:#{Capybara.current_session.server.port}#{path}?locale=ca" }
+
+          it "shows selected participant" do
+            find("input[type='text']").fill_in with: participant.name.slice(0..2)
+            find(".autoComplete_wrapper ul#autoComplete_list_1 li", match: :first, wait: 2).click
+            expect(page).to have_content(participant.name)
+          end
         end
       end
 

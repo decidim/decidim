@@ -19,7 +19,7 @@ describe Decidim::HtmlTruncation do
   let(:count_tags) { false }
   let(:count_tail) { false }
   let(:tail_before_final_tag) { false }
-  let(:text) { ::Faker::Lorem.paragraph(sentence_count: 25) }
+  let(:text) { Faker::Lorem.paragraph(sentence_count: 25) }
 
   describe "empty content" do
     let(:text) { "" }
@@ -135,7 +135,7 @@ describe Decidim::HtmlTruncation do
     end
   end
 
-  describe "dont change quotation marks inside the tags" do
+  describe "do not change quotation marks inside the tags" do
     let(:max_length) { 19 }
     let(:text) { %(<p>some <b>"content"</b> here, cut at comma") }
 

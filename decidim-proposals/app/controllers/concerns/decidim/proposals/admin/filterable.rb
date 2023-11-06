@@ -11,8 +11,6 @@ module Decidim
         included do
           include Decidim::Admin::Filterable
 
-          helper Decidim::Proposals::Admin::FilterableHelper
-
           private
 
           # Comment about participatory_texts_enabled.
@@ -35,8 +33,8 @@ module Decidim
           def filters
             [
               :is_emendation_true,
+              :with_any_state,
               :state_eq,
-              :state_null,
               :scope_id_eq,
               :category_id_eq,
               :valuator_role_ids_has
@@ -46,14 +44,15 @@ module Decidim
           def filters_with_values
             {
               is_emendation_true: %w(true false),
-              state_eq: proposal_states,
+              state_eq: Proposal::STATES,
+              with_any_state: %w(state_published state_not_published),
               scope_id_eq: scope_ids_hash(scopes.top_level),
               category_id_eq: category_ids_hash(categories.first_class),
               valuator_role_ids_has: valuator_role_ids
             }
           end
 
-          # Can't user `super` here, because it does not belong to a superclass
+          # Cannot user `super` here, because it does not belong to a superclass
           # but to a concern.
           def dynamically_translated_filters
             [:scope_id_eq, :category_id_eq, :valuator_role_ids_has]
@@ -66,14 +65,6 @@ module Decidim
           def translated_valuator_role_ids_has(valuator_role_id)
             user_role = current_participatory_space.user_roles(:valuator).find_by(id: valuator_role_id)
             user_role&.user&.name
-          end
-
-          # An Array<Symbol> of possible values for `state_eq` filter.
-          # Excludes the states that cannot be filtered with the ransack predicate.
-          # A link to filter by "Not answered" will be added in:
-          # Decidim::Proposals::Admin::FilterableHelper#extra_dropdown_submenu_options_items
-          def proposal_states
-            Proposal::POSSIBLE_STATES.without("not_answered")
           end
         end
       end

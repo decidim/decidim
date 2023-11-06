@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Votings::ClosureSignForm do
   subject { described_class.from_params(attributes) }
 
-  let(:closure) { create :ps_closure, :with_results }
+  let(:closure) { create(:ps_closure, :with_results) }
   let(:signed) { true }
 
   let(:attributes) do

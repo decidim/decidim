@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-shared_context "when it's a comment event" do
+shared_context "when it is a comment event" do
   include Decidim::ComponentPathHelper
   include Decidim::SanitizeHelper
 

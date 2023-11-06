@@ -14,6 +14,12 @@ de:
       dummy:
         settings:
           global:
+            guided: Geführte Eingabe
+            guided_help: Hilfetext
+            guided_readonly: Deaktivierte Eingabe
+            guided_rich: Geführte reiche Eingabe
+            guided_rich_help_html: HTML <strong>Hilfe</strong> Text
+            guided_rich_readonly_html: HTML <strong>Hilfe</strong> Text für deaktivierte Eingabe
             readonly_attribute: Attribut schreibgeschützt
             test: Test A
             test_choices:
@@ -22,6 +28,7 @@ de:
               c: Wahl C
             test_options:
               bar: Bar
+              baz: Baz
               foo: Foo
           step:
             endorsements_blocked: Befürwortungen blockiert
@@ -29,6 +36,7 @@ de:
             readonly_step_attribute: Schritt-Attribut schreibgeschützt
             test_options:
               bar: Bar
+              baz: Baz
               foo: Foo
     dummy:
       admin:
@@ -44,7 +52,7 @@ de:
           description_own: Sie haben %{score} Tests erstellt.
           name: Tests
           next_level_in: Erstellen Sie %{score} weitere Tests, um das nächste Level zu erreichen!
-          unearned_another: Dieser Benutzer hat noch keine Tests erstellt.
+          unearned_another: Dieser Teilnehmer hat noch keine Tests erstellt.
           unearned_own: Sie haben noch keine Tests erstellt.
     resource_links:
       test_link:

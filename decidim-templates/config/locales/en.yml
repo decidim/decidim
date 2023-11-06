@@ -10,23 +10,26 @@ en:
   decidim:
     admin:
       menu:
+        manage: Manage
         templates: Templates
       templates:
+        actions:
+          new_template: New template
         apply:
           error: There was a problem applying this template.
-          success: Template applied successfully
+          success: Template applied successfully.
         copy:
           error: There was a problem copying this template.
-          success: Template copied successfully
+          success: Template copied successfully.
         create:
           error: There was a problem creating this template.
-          success: Template created successfully
+          success: Template created successfully.
         destroy:
-          success: Template deleted successfully
+          success: Template deleted successfully.
         empty: There are no templates yet.
         update:
-          error: There was a problem upadting this template.
-          success: Template updated successfully
+          error: There was a problem updating this template.
+          success: Template updated successfully.
       titles:
         template_types:
           questionnaires: Questionnaire templates
@@ -42,6 +45,18 @@ en:
         name: Template
     templates:
       admin:
+        block_user_templates:
+          edit:
+            title: Edit block user message template
+          form:
+            save: Save
+          index:
+            confirm_delete: Are you sure you want to delete this template?
+            title: Block user messages
+          new:
+            title: New block user message template
+          template_chooser:
+            select_template: Select a template answer
         questionnaire_templates:
           choose:
             create_from_template: Create from template
@@ -51,15 +66,16 @@ en:
             skip_template: Skip
           edit:
             edit: Edit
-            empty: There are no questions yet
+            empty: There are no questions yet.
             questionnaire: Questionnaire
+            title: Edit questionnaire template
           form:
-            save: Save
-            template_title: Template information
             title: Questionnaire template %{questionnaire_for}
           index:
             confirm_delete: Are you sure you want to delete this template?
             title: Questionnaire templates
+          new:
+            title: New questionnaire template
           preview:
             current_step: Step %{step}
             of_total_steps: of %{total_steps}
@@ -71,4 +87,5 @@ en:
           duplicate: "%{user_name} duplicated the %{resource_name} questionnaire template"
           update: "%{user_name} updated the %{resource_name} questionnaire template"
       template_types:
+        block_user: Block user messages
         questionnaires: Questionnaires

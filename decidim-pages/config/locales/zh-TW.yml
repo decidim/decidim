@@ -1,1 +1,29 @@
 zh-TW:
+  activerecord:
+    models:
+      decidim/pages/page:
+        other: 頁面
+  decidim:
+    admin_log:
+      page:
+        update: "%{user_name} 在%{space_name} 中更新了%{resource_name} 頁面"
+    components:
+      pages:
+        name: 頁面
+        settings:
+          global:
+            announcement: 公告
+          step:
+            announcement: 公告
+    pages:
+      admin:
+        models:
+          components:
+            body: 內容
+        pages:
+          edit:
+            save: 更新
+            title: 編輯頁面
+          update:
+            invalid: 保存頁面時出現問題
+            success: 頁面保存成功

@@ -14,12 +14,18 @@ cs:
       dummy:
         settings:
           global:
+            guided: Řízené zadávání
+            guided_help: Text nápovědy
+            guided_readonly: Zakázaný zápis
+            guided_rich: Řízené plnohodnotné zadávání
+            guided_rich_help_html: HTML textová <strong>nápověda</strong>
+            guided_rich_readonly_html: HTML <strong>nápověda</strong> text pro zakázaný zápis
             readonly_attribute: Atribut pouze pro čtení
             test: Zkouška A
             test_choices:
-              a: Volba A
-              b: Volba B
-              c: Volba C
+              a: Možnost A
+              b: Možnost B
+              c: Možnost C
             test_options:
               bar: Bar
               baz: Baz
@@ -50,7 +56,7 @@ cs:
           unearned_own: Dosud jste nevytvořili žádné testy.
     resource_links:
       test_link:
-        dummy_resource_dummy: Související figurína
+        dummy_resource_dummy: Související testovací soubor
     statistics:
       bar: Bar
       dummies_count_high: Figuríny vysoké

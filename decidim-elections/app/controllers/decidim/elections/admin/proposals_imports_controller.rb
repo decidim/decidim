@@ -8,12 +8,12 @@ module Decidim
         helper_method :election, :question, :answers, :answers
 
         def new
-          enforce_permission_to :import_proposals, :answer, election: election, question: question
+          enforce_permission_to(:import_proposals, :answer, election:, question:)
           @form = form(Admin::AnswerImportProposalsForm).instance
         end
 
         def create
-          enforce_permission_to :import_proposals, :answer, election: election, question: question
+          enforce_permission_to(:import_proposals, :answer, election:, question:)
 
           @form = form(Admin::AnswerImportProposalsForm).from_params(params, election:, question:)
 

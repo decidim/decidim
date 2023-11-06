@@ -7,6 +7,10 @@ module Decidim
 
     def show; end
 
+    def authorize_action_path(handler_name)
+      authorizations.status_for(handler_name).current_path(redirect_url: URI(request.referer).path)
+    end
+
     private
 
     def resource
@@ -17,15 +21,11 @@ module Decidim
     end
 
     def current_component
-      @current_component ||= Decidim::Component.find(params[:component_id])
+      @current_component ||= Decidim::Component.where(participatory_space: current_organization.participatory_spaces).find(params[:component_id])
     end
 
     def authorization_action
       @authorization_action ||= params[:authorization_action]
-    end
-
-    def authorize_action_path(handler_name)
-      authorizations.status_for(handler_name).current_path(redirect_url: URI(request.referer).path)
     end
 
     def authorizations

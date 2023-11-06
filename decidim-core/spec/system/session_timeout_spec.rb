@@ -6,7 +6,7 @@ describe "Session timeout", type: :system do
   include ActiveSupport::Testing::TimeHelpers
 
   let(:organization) { create(:organization) }
-  let(:current_user) { create :user, :confirmed, organization: }
+  let(:current_user) { create(:user, :confirmed, organization:) }
 
   context "when session is about to timeout" do
     before do
@@ -22,7 +22,7 @@ describe "Session timeout", type: :system do
       expect(page).to have_content("You were inactive for too long", wait: 4)
     end
 
-    it "doesnt timeout when user is active in another window" do
+    it "does not timeout when user is active in another window" do
       win1 = current_window
       visit decidim.root_path
 
@@ -40,7 +40,7 @@ describe "Session timeout", type: :system do
       expect(page).not_to have_content("You were inactive for too long")
     end
 
-    it "doesnt timeout user who wants to be remembered" do
+    it "does not timeout user who wants to be remembered" do
       current_user.remember_created_at = Time.current
       current_user.save!
       visit decidim.root_path

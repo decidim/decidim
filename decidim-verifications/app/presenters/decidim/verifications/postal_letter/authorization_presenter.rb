@@ -19,7 +19,7 @@ module Decidim
         end
 
         #
-        # The verification code to be sent. It's kept in a different metadata
+        # The verification code to be sent. It is kept in a different metadata
         # key according to whether it has already been sent or not
         #
         def verification_code

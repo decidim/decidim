@@ -9,28 +9,8 @@ module Decidim
       @stats ||= model
     end
 
-    def stats_heading
-      t("decidim.statistics.headline")
-    end
-
     def no_stats
       t("decidim.statistics.no_stats")
-    end
-
-    def heading?
-      if options[:heading].nil?
-        true
-      else
-        options[:heading]
-      end
-    end
-
-    def design
-      options[:design].presence || "default"
-    end
-
-    def wrapper_class
-      "large-8" if design == "default"
     end
   end
 end

@@ -20,13 +20,13 @@ module Decidim
       end
 
       context "without a meeting" do
-        let(:invite) { build :invite, meeting: nil }
+        let(:invite) { build(:invite, meeting: nil) }
 
         it { is_expected.not_to be_valid }
       end
 
       context "without an user" do
-        let(:invite) { build :invite, user: nil }
+        let(:invite) { build(:invite, user: nil) }
 
         it { is_expected.not_to be_valid }
       end

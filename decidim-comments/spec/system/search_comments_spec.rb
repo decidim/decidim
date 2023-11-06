@@ -3,11 +3,13 @@
 require "spec_helper"
 
 describe "Search comments", type: :system do
+  include ActionView::Helpers::SanitizeHelper
+
   include_context "with a component"
   let(:manifest_name) { "dummy" }
   let!(:commentable) { create(:dummy_resource, component:) }
   let!(:searchables) { create_list(:comment, 3, commentable:) }
-  let!(:term) { translated(searchables.first.body).split.last }
+  let!(:term) { strip_tags(translated(searchables.first.body)).split.last }
   let(:hashtag) { "#decidim" }
 
   before do

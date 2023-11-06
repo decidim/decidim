@@ -4,7 +4,8 @@ require "spec_helper"
 
 module Decidim
   describe Authorization do
-    let(:authorization) { build(:authorization) }
+    let(:organization) { create(:organization) }
+    let(:authorization) { build(:authorization, organization:) }
 
     shared_examples_for "encrypted authorization metadata decryption" do
       it "encrypts the metadata to the database" do
@@ -97,7 +98,7 @@ module Decidim
       end
 
       it "has metadata_cell" do
-        expect(authorization.metadata_cell).to be_kind_of String
+        expect(authorization.metadata_cell).to be_a String
       end
     end
 
@@ -112,6 +113,33 @@ module Decidim
       include_context "with encrypted authorization metadata" do
         let(:authorization_metadata_key) { :verification_metadata }
         let(:authorization_status) { :pending }
+      end
+    end
+
+    describe ".create_or_update_from" do
+      subject { described_class.create_or_update_from(handler) }
+
+      let(:user) { create(:user) }
+      let(:handler_class) do
+        Class.new(Decidim::AuthorizationHandler) do
+          def authorization_attributes
+            super.merge(created_at: Time.zone.local(2022, 1, 31, 16, 21))
+          end
+
+          def handler_name
+            "foobar"
+          end
+        end
+      end
+      let(:handler) { handler_class.from_params(user:) }
+
+      let(:authorization) { Decidim::Authorization.last }
+
+      context "when the handler provides additional arguments for the authorization" do
+        it "adds the extra attributes for the created authorization" do
+          expect(subject).to be(true)
+          expect(authorization.created_at).to eq(Time.zone.local(2022, 1, 31, 16, 21))
+        end
       end
     end
   end

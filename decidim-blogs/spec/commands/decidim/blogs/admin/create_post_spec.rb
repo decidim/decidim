@@ -8,12 +8,13 @@ module Decidim
       describe CreatePost do
         subject { described_class.new(form, current_user) }
 
-        let(:organization) { create :organization }
-        let(:participatory_process) { create :participatory_process, organization: }
-        let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "blogs" }
-        let(:current_user) { create :user, organization: }
+        let(:organization) { create(:organization) }
+        let(:participatory_process) { create(:participatory_process, organization:) }
+        let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "blogs") }
+        let(:current_user) { create(:user, organization:) }
         let(:title) { "Post title" }
         let(:body) { "Lorem Ipsum dolor sit amet" }
+        let(:publish_time) { nil }
 
         let(:invalid) { false }
         let(:form) do
@@ -21,6 +22,7 @@ module Decidim
             invalid?: invalid,
             title: { en: title },
             body: { en: body },
+            published_at: publish_time,
             current_component:,
             author: current_user
           )
@@ -39,6 +41,7 @@ module Decidim
 
           it "creates the post" do
             expect { subject.call }.to change(Post, :count).by(1)
+            expect(post.published_at).to eq(post.created_at)
           end
 
           it "creates a searchable resource" do
@@ -67,6 +70,15 @@ module Decidim
 
           it "broadcasts ok" do
             expect { subject.call }.to broadcast(:ok)
+          end
+
+          context "when publish time is provided" do
+            let!(:publish_time) { Time.new(2022, 11, 12, 8, 37, 48, "-06:00") }
+
+            it "sets the publish time" do
+              subject.call
+              expect(post.published_at).to eq(publish_time)
+            end
           end
 
           it "sends a notification to the participatory space followers" do
@@ -104,6 +116,7 @@ module Decidim
               double(
                 invalid?: invalid,
                 title: { en: title },
+                published_at: publish_time,
                 body: { en: body },
                 current_component:,
                 author: group

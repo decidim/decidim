@@ -2,15 +2,15 @@
 
 module Decidim
   module Components
-    # Controller from which all component engines inherit from. It's in charge of
+    # Controller from which all component engines inherit from. It is in charge of
     # setting the appropiate layout, including necessary helpers, and overall
-    # fooling the engine into thinking it's isolated.
+    # fooling the engine into thinking it is isolated.
     class BaseController < Decidim::ApplicationController
       include Settings
       include Decidim::NeedsPermission
 
       include ParticipatorySpaceContext
-      participatory_space_layout
+      before_action :authorize_participatory_space
 
       helper Decidim::FiltersHelper
       helper Decidim::OrdersHelper
@@ -34,6 +34,8 @@ module Decidim
       end
 
       before_action :redirect_unless_feature_private
+
+      before_action :set_component_breadcrumb_item
 
       def current_participatory_space
         request.env["decidim.current_participatory_space"]
@@ -66,6 +68,15 @@ module Decidim
 
       def redirect_unless_feature_private
         raise ActionController::RoutingError, "Not Found" unless current_user_can_visit_space?
+      end
+
+      def set_component_breadcrumb_item
+        context_breadcrumb_items << {
+          label: current_component.name,
+          url: root_path,
+          active: false,
+          resource: current_component
+        }
       end
     end
   end

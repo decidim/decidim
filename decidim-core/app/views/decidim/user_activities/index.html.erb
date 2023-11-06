@@ -1,9 +1,17 @@
 <% add_decidim_page_title(t("activity", scope: "decidim.profiles.show")) %>
+<% add_decidim_page_title(user.name) %>
 
-<%= cell "decidim/profile", user, context: {
-  content_cell: "decidim/user_activity",
-  activities: activities,
-  filter: filter,
-  resource_types: resource_types,
-  user: user
-} %>
+<% content_for :header_snippets do %>
+  <meta name="robots" content="noindex">
+<% end %>
+
+<%# NOTE: this page does not use a regular layout %>
+<main>
+  <%= cell "decidim/profile", user, context: {
+        content_cell: "decidim/user_activity",
+        activities:,
+        filter:,
+        resource_types:,
+        user:
+      } %>
+</main>

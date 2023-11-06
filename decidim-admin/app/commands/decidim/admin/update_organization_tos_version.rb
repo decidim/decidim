@@ -8,7 +8,7 @@ module Decidim
       # Public: Initializes the command.
       #
       # organization - The Organization that will be updated.
-      # page - A static_page instance (slug = "terms-and-conditions").
+      # page - A static_page instance (slug = "terms-of-service").
       # form - A form object with the params.
       def initialize(organization, page, form)
         @organization = organization
@@ -19,13 +19,13 @@ module Decidim
       # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid.
-      # - :invalid if the form wasn't valid or not the TOS page.
+      # - :invalid if the form was not valid or not the TOS page.
       #
       # Returns nothing.
       def call
         return broadcast(:invalid) if @form.nil?
         return broadcast(:invalid) if @page.nil?
-        return broadcast(:invalid) unless @page.slug == "terms-and-conditions"
+        return broadcast(:invalid) unless @page.slug == "terms-of-service"
 
         update_organization_tos_version
         broadcast(:ok)

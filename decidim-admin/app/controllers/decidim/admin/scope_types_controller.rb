@@ -6,6 +6,9 @@ module Decidim
     #
     class ScopeTypesController < Decidim::Admin::ApplicationController
       layout "decidim/admin/settings"
+
+      add_breadcrumb_item_from_menu :admin_settings_menu
+
       helper_method :scope_types
 
       def index
@@ -35,12 +38,12 @@ module Decidim
       end
 
       def edit
-        enforce_permission_to :update, :scope_type, scope_type: scope_type
+        enforce_permission_to(:update, :scope_type, scope_type:)
         @form = form(ScopeTypeForm).from_model(scope_type)
       end
 
       def update
-        enforce_permission_to :update, :scope_type, scope_type: scope_type
+        enforce_permission_to(:update, :scope_type, scope_type:)
         @form = form(ScopeTypeForm).from_params(params)
 
         UpdateScopeType.call(scope_type, @form, current_user) do
@@ -57,7 +60,7 @@ module Decidim
       end
 
       def destroy
-        enforce_permission_to :destroy, :scope_type, scope_type: scope_type
+        enforce_permission_to(:destroy, :scope_type, scope_type:)
 
         Decidim.traceability.perform_action!("delete", scope_type, current_user) do
           scope_type.destroy!

@@ -5,10 +5,59 @@ module Decidim
     # Controller that allows managing all pages at the admin panel.
     #
     class StaticPagesController < Decidim::Admin::ApplicationController
+      include Decidim::Admin::ContentBlocks::LandingPage
+      include Concerns::HasContentBlocks
+
       layout "decidim/admin/pages"
       before_action :tos_version_formatted, only: [:index, :edit]
 
       helper_method :topics
+
+      alias update_content_blocks update
+
+      def content_block_scope
+        :static_page
+      end
+
+      def scoped_resource
+        @scoped_resource ||= collection.find_by(slug: params[:id])
+      end
+
+      def enforce_permission_to_update_resource
+        enforce_permission_to :update, :static_page, static_page: scoped_resource
+      end
+
+      def resource_sort_url
+        update_content_blocks_static_page_path(scoped_resource)
+      end
+
+      def resource_create_url(manifest_name)
+        static_page_content_blocks_path(scoped_resource, manifest_name:)
+      end
+
+      def content_blocks_title
+        t("static_pages.content_blocks.title", scope: "decidim.admin")
+      end
+
+      def add_content_block_text
+        t("static_pages.content_blocks.add", scope: "decidim.admin")
+      end
+
+      def content_block_destroy_confirmation_text
+        t("static_pages.content_blocks.destroy_confirmation", scope: "decidim.admin")
+      end
+
+      def active_content_blocks_title
+        t("static_pages.content_blocks.active_content_blocks", scope: "decidim.admin")
+      end
+
+      def inactive_content_blocks_title
+        t("static_pages.content_blocks.inactive_content_blocks", scope: "decidim.admin")
+      end
+
+      def resource_content_block_cell
+        "decidim/admin/static_page_content_block"
+      end
 
       def index
         enforce_permission_to :read, :static_page
@@ -61,10 +110,6 @@ module Decidim
         end
       end
 
-      def show
-        enforce_permission_to :read, :static_page
-      end
-
       def destroy
         enforce_permission_to :destroy, :static_page, static_page: page
 
@@ -91,7 +136,7 @@ module Decidim
       end
 
       def page
-        @page ||= collection.find_by(slug: params[:id])
+        @page ||= scoped_resource
       end
 
       def collection

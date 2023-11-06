@@ -17,19 +17,34 @@ module Decidim
       end
 
       def locales
-        object.keys
+        (defined_translations.keys + machine_translations.keys).uniq
       end
 
       def translation(locale: "")
-        translations = object.stringify_keys
-        translations[locale]
+        display_translations[locale]
       end
 
       def translations(locales: [])
-        translations = object.stringify_keys
+        translations = display_translations
         translations = translations.slice(*locales) unless locales.empty?
 
-        translations.map { |locale, text| OpenStruct.new(locale:, text:) }
+        translations.map { |locale, text| OpenStruct.new(locale:, text:, machine_translated: defined_translations[locale].blank?) }
+      end
+
+      private
+
+      def display_translations
+        @display_translations ||= locales.index_with do |locale|
+          defined_translations[locale].presence || machine_translations[locale]
+        end
+      end
+
+      def defined_translations
+        object.stringify_keys.except("machine_translations")
+      end
+
+      def machine_translations
+        object.stringify_keys["machine_translations"]&.stringify_keys || {}
       end
     end
   end

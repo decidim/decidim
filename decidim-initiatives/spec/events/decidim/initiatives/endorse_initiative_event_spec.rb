@@ -3,15 +3,18 @@
 require "spec_helper"
 
 describe Decidim::Initiatives::EndorseInitiativeEvent do
+  include Decidim::TranslationsHelper
+  include Decidim::SanitizeHelper
+
   subject do
     described_class.new(resource: initiative, event_name:, user:, extra: {})
   end
 
   let(:organization) { initiative.organization }
-  let(:initiative) { create :initiative }
+  let(:initiative) { create(:initiative) }
   let(:initiative_author) { initiative.author }
   let(:event_name) { "decidim.events.initiatives.initiative_endorsed" }
-  let(:user) { create :user, organization: }
+  let(:user) { create(:user, organization:) }
   let(:resource_path) { resource_locator(initiative).path }
 
   describe "types" do
@@ -46,9 +49,11 @@ describe Decidim::Initiatives::EndorseInitiativeEvent do
   end
 
   describe "notification_title" do
+    let(:intiative_title) { decidim_html_escape(translated(initiative.title)) }
+
     it "is generated correctly" do
       expect(subject.notification_title)
-        .to include("The <a href=\"#{resource_path}\">#{initiative.title["en"]}</a> initiative was endorsed by ")
+        .to include("The <a href=\"#{resource_path}\">#{intiative_title}</a> initiative was endorsed by ")
 
       expect(subject.notification_title)
         .to include("<a href=\"/profiles/#{initiative_author.nickname}\">#{initiative_author.name} @#{initiative_author.nickname}</a>.")

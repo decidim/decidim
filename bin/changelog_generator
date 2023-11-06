@@ -18,16 +18,16 @@ class EmptyTokenError < RuntimeError
       ## Params
 
       The <GITHUB PERSONAL ACCESS TOKEN> can be obtained from https://github.com/settings/tokens/new
-      You'll need to create one with `public_repo` access.
+      You will need to create one with `public_repo` access.
 
-      The <SHA> is the git commit SHA from which to consider the changes. It's
+      The <SHA> is the git commit SHA from which to consider the changes. It is
       usually the last commit that modified the `.decidim_version` file.
 
       ## Explanation
 
       This script will generate the sections needed for the changelog, using the
       labels of the merged PRs as a source of truth. It will add a section at the
-      end, "Unsorted", with the list of PRs that couldn't be classified.
+      end, "Unsorted", with the list of PRs that could not be classified.
 
       It ignores any Crowdin PR.
     HELP
@@ -171,7 +171,7 @@ class ChangeLogGenerator
     id = get_pr_id(commit)
     return nil unless id
 
-    Decidim::GithubManager::Querier.new(
+    Decidim::GithubManager::Querier::ByIssueId.new(
       token: github_token,
       issue_id: id
     ).call

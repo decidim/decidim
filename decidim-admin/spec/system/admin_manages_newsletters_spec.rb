@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-%w(conferences initiatives consultations).each do |space|
+%w(conferences initiatives).each do |space|
   require "decidim/#{space}/test/factories.rb"
 end
 
@@ -31,9 +31,7 @@ describe "Admin manages newsletters", type: :system do
     it "allows a newsletter to be created" do
       visit decidim_admin.newsletters_path
 
-      within ".secondary-nav" do
-        find(".button.new").click
-      end
+      find(".button.new").click
 
       within "#image_text_cta" do
         click_link "Use this template"
@@ -113,6 +111,28 @@ describe "Admin manages newsletters", type: :system do
       visit decidim_admin.preview_newsletter_path(newsletter)
       expect(page).to have_content("Hello Sarah Kerrigan! Relevant content.")
     end
+
+    context "when admin clicks on the 'send me a test email' button" do
+      it "sends a test email" do
+        visit decidim_admin.newsletter_path(newsletter)
+        perform_enqueued_jobs do
+          click_link "Send me a test email"
+        end
+        expect(page).to have_content("Newsletter has been sent")
+        expect(last_email.subject).to include("A fancy newsletter for")
+      end
+    end
+
+    context "when admin clicks on the 'send me a test email' button in the index page" do
+      it "sends a test email" do
+        visit decidim_admin.newsletters_path
+        perform_enqueued_jobs do
+          click_link "Send me a test email"
+        end
+        expect(page).to have_content("Newsletter has been sent")
+        expect(last_email.subject).to include("A fancy newsletter for")
+      end
+    end
   end
 
   describe "update newsletter" do
@@ -153,11 +173,9 @@ describe "Admin manages newsletters", type: :system do
     let!(:participatory_process) { create(:participatory_process, organization:) }
     let!(:assembly) { create(:assembly, organization:) }
     let!(:conference) { create(:conference, organization:) }
-    let!(:consultation) { create(:consultation, organization:) }
-    let(:question) { create(:question, :published, consultation:) }
     let!(:initiative) { create(:initiative, organization:) }
     let!(:newsletter) { create(:newsletter, organization:) }
-    let(:spaces) { [participatory_process, assembly, conference, consultation, initiative] }
+    let(:spaces) { [participatory_process, assembly, conference, initiative] }
     let!(:component) { create(:dummy_component, participatory_space: participatory_process) }
 
     def select_all
@@ -183,7 +201,7 @@ describe "Admin manages newsletters", type: :system do
             expect(page).to have_content(recipients_count)
           end
 
-          within ".button--double" do
+          within "form.newsletter_deliver .form__wrapper-block" do
             accept_confirm { find("*", text: "Deliver").click }
           end
 
@@ -220,7 +238,7 @@ describe "Admin manages newsletters", type: :system do
             expect(page).to have_content(recipients_count)
           end
 
-          within ".button--double" do
+          within "form.newsletter_deliver .form__wrapper-block" do
             accept_confirm { find("*", text: "Deliver").click }
           end
 
@@ -257,7 +275,7 @@ describe "Admin manages newsletters", type: :system do
             expect(page).to have_content(recipients_count)
           end
 
-          within ".button--double" do
+          within "form.newsletter_deliver .form__wrapper-block" do
             accept_confirm { find("*", text: "Deliver").click }
           end
 
@@ -301,7 +319,7 @@ describe "Admin manages newsletters", type: :system do
             expect(page).to have_content(recipients_count)
           end
 
-          within ".button--double" do
+          within "form.newsletter_deliver .form__wrapper-block" do
             accept_confirm { find("*", text: "Deliver").click }
           end
 
@@ -327,7 +345,7 @@ describe "Admin manages newsletters", type: :system do
       end
 
       expect(page).to have_content("successfully")
-      expect(page).to have_no_css("tr[data-newsletter-id=\"#{newsletter.id}\"]")
+      expect(page).not_to have_css("tr[data-newsletter-id=\"#{newsletter.id}\"]")
     end
   end
 end

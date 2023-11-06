@@ -8,9 +8,9 @@ describe Decidim::Elections::Admin::CreateAnswer do
   let(:organization) { component.organization }
   let(:participatory_process) { component.participatory_space }
   let(:component) { election.component }
-  let(:question) { create :question, election: }
-  let(:election) { create :election }
-  let(:user) { create :user, :admin, :confirmed, organization: }
+  let(:question) { create(:question, election:) }
+  let(:election) { create(:election) }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:form) do
     double(
       invalid?: invalid,
@@ -73,8 +73,8 @@ describe Decidim::Elections::Admin::CreateAnswer do
     end
   end
 
-  context "when the election has started" do
-    let(:election) { create :election, :started }
+  context "when the election has been created in the bulletin board" do
+    let(:election) { create(:election, :ongoing) }
 
     it "is not valid" do
       expect { subject.call }.to broadcast(:invalid)
@@ -82,8 +82,8 @@ describe Decidim::Elections::Admin::CreateAnswer do
   end
 
   context "with proposals" do
-    let(:proposals_component) { create :component, manifest_name: :proposals, participatory_space: component.participatory_space }
-    let(:proposals) { create_list :proposal, 2, component: proposals_component }
+    let(:proposals_component) { create(:component, manifest_name: :proposals, participatory_space: component.participatory_space) }
+    let(:proposals) { create_list(:proposal, 2, component: proposals_component) }
 
     it "creates the answer" do
       expect { subject.call }.to change(Decidim::Elections::Answer, :count).by(1)

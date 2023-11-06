@@ -1,0 +1,36 @@
+<%= link_to decidim.root_url, class: "main-bar__links-mobile__item" do %>
+  <%= icon "home-2-line" %><span><%= t("decidim.menu.home") %></span>
+<% end %>
+
+<button id="dropdown-trigger-links-mobile-search" class="main-bar__links-mobile__item" data-component="dropdown" data-target="dropdown-menu-search-mobile" data-autofocus="input-search-mobile">
+  <%= icon "search-line" %><span><%= t("decidim.search.term_input_placeholder") %></span>
+</button>
+
+<%= link_to decidim.last_activities_path, class: "main-bar__links-mobile__item" do %>
+  <%= icon "bubble-chart-line" %><span><%= t("decidim.profiles.show.activity") %></span>
+<% end %>
+
+<% if current_user %>
+  <button id="dropdown-trigger-links-mobile" class="main-bar__links-mobile__item" data-component="dropdown" data-target="dropdown-menu-account-mobile">
+    <% if current_user.notifications.any? %>
+      <span class="main-bar__notification"></span>
+    <% end %>
+
+    <% if current_user.avatar.attached? %>
+      <span class="main-bar__avatar">
+        <%= image_tag(
+                current_user.attached_uploader(:avatar).path(variant: :thumb),
+                alt: t("decidim.author.avatar", name: decidim_sanitize(current_user.avatar.name))
+              ) %>
+      </span>
+    <% else %>
+      <%= icon "user-smile-line" %>
+    <% end %>
+
+    <span><%= t("layouts.decidim.user_profile.account") %></span>
+  </button>
+<% else %>
+  <%= link_to decidim.new_user_session_path, class: "main-bar__links-mobile__item" do %>
+    <%= icon "login-box-line" %><span><%= t("layouts.decidim.header.log_in") %></span>
+  <% end %>
+<% end %>

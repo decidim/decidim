@@ -63,14 +63,14 @@ To create a new OAuth application in the OAuth provider Decidim installation you
 * Name: The name of the client application that will be shown to the user when authorizing it from your Decidim application.
 * Redirect URI: The URI where the Decidim application should redirect the user after authorizing it.
 It is usually where you handle the OAUth callback in your client application.
-If you're using `omniauth-decidim` the value should be `YOUR_APPLICATION_HOST/users/auth/decidim/callback`.
+If you are using `omniauth-decidim` the value should be `YOUR_APPLICATION_HOST/users/auth/decidim/callback`.
 * Organization name: The name of the organization that owns the client application.
 * Organization URL: The URL of the organization that owns the client application.
 * Organization logo: An image of the logo of the organization that owns the client application.
 
-All the organization data will be used during the authorization process so the users know to who they're giving their data.
+All the organization data will be used during the authorization process so the users know to who they are giving their data.
 
-Once you've created your application you'll get the settings to setup your clients.
+Once you have created your application you will get the settings to setup your clients.
 
 Instructions in how to configure the client applications can be found in the module's https://github.com/decidim/omniauth-decidim#usage[usage section].
 

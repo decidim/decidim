@@ -9,23 +9,24 @@ fi:
   decidim:
     admin:
       menu:
+        manage: Hallinnoi
         templates: Mallipohjat
       templates:
         apply:
           error: Mallipohjan käyttöönotto epäonnistui.
-          success: Mallipohjan käyttöönotto onnistui
+          success: Mallipohjan käyttöönotto onnistui.
         copy:
           error: Mallipohjan kopiointi epäonnistui.
-          success: Mallipohjan kopiointi onnistui
+          success: Mallipohjan kopiointi onnistui.
         create:
           error: Mallipohjan luonti epäonnistui.
-          success: Mallipohjan luonti onnistui
+          success: Mallipohjan luonti onnistui.
         destroy:
-          success: Mallipohjan poistaminen onnistui
+          success: Mallipohjan poisto onnistui.
         empty: Mallipohjia ei ole vielä lisätty.
         update:
           error: Mallipohjan päivitys epäonnistui.
-          success: Mallipohjan päivitys onnistui
+          success: Mallipohjan päivitys onnistui.
       titles:
         template_types:
           questionnaires: Kyselymallit
@@ -41,6 +42,18 @@ fi:
         name: Mallipohja
     templates:
       admin:
+        block_user_templates:
+          edit:
+            title: Muokkaa käyttäjän poistoviestin mallipohjaa
+          form:
+            save: Tallenna
+          index:
+            confirm_delete: Haluatko varmasti poistaa tämän mallipohjan?
+            title: Käyttäjien eston viestit
+          new:
+            title: Uusi käyttäjän poistoviestin mallipohja
+          template_chooser:
+            select_template: Valitse mallivastaus
         questionnaire_templates:
           choose:
             create_from_template: Luo mallipohjasta
@@ -50,15 +63,16 @@ fi:
             skip_template: Ohita
           edit:
             edit: Muokkaa
-            empty: Kysymyksiä ei ole vielä
+            empty: Kysymyksiä ei ole vielä.
             questionnaire: Kysely
+            title: Muokkaa kyselylomakkeen mallipohjaa
           form:
-            save: Tallenna
-            template_title: Mallipohjan tiedot
             title: Kyselylomakemalli %{questionnaire_for}
           index:
             confirm_delete: Haluatko varmasti poistaa tämän mallipohjan?
             title: Kyselymallit
+          new:
+            title: Uusi kyselylomakkeen mallipohja
           preview:
             current_step: Vaihe %{step}
             of_total_steps: / %{total_steps}
@@ -70,4 +84,5 @@ fi:
           duplicate: "%{user_name} kopioi kyselymallin %{resource_name}"
           update: "%{user_name} päivitti kyselymallia %{resource_name}"
       template_types:
+        block_user: Käyttäjien eston viestit
         questionnaires: Kyselyt

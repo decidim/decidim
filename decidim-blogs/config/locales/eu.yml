@@ -1,85 +1,96 @@
 eu:
   activemodel:
+    attributes:
+      post:
+        body: Testua
+        decidim_author_id: Egilea
+        published_at: Argitaratze data
+        title: Izena
     models:
       decidim/blogs/create_post_event: Blogeko post berria
   activerecord:
     models:
       decidim/blogs/post:
-        one: Post
-        other: Mezuak
+        one: Argitalpena
+        other: Argitalpenak
   decidim:
     blogs:
       actions:
         author_id: Sortu argitalpena hau bezala
-        confirm_destroy: Ziur mezua ezabatu nahi duzula?
+        confirm_destroy: Ziur zaude post hau argitalpen ezabatu nahi duzula?
         destroy: Ezabatu
         edit: Editatu
         new: Post berria
         title: Ekintzak
       admin:
-        models:
-          components:
-            body: Gorputzeko
-          post:
-            name: Post
         posts:
           create:
-            invalid: Arazo bat izan da post hau sortzeko
-            success: Mezua ondo sortu da
+            invalid: Arazo bat sortu da post hau sortzean.
+            success: Posta ondo sortu da.
           destroy:
-            success: Mezua ondo ezabatu da
+            success: Posta zuzen ezabatu da.
           edit:
-            save: eguneratzearen
+            save: Eguneratu
             title: Editatu argitalpena
           index:
-            title: Mezuak
+            not_published_yet: Oraindik argitaratu gabe.
+            title: Argitalpenak
           new:
             create: Sortu
-            title: Sortu mezua
+            title: Sortu argitalpena
           update:
-            invalid: Erroreak gertatu dira mezua gordetzean.
-            success: Mezua ondo gorde da
+            invalid: Akatsen bat gertatu da mezua gordetzean.
+            success: Posta zuzen gorde da.
+      admin_log:
+        post:
+          create: "%{user_name} k %{resource_name} blogeko argitalpena sortu du %{space_name} espazioan"
+          delete: "%{user_name} k %{resource_name} blogeko argitalpena ezabatu du %{space_name} espazioan"
+          update: "%{user_name} k %{resource_name} blogeko argitalpena eguneratu egin da %{space_name} espazioan"
+      content_blocks:
+        highlighted_posts:
+          last_published: Azken argitarapena
+          name: Argitalpenak
+          see_all: Ikusi edukin guztiak
       last_activity:
-        new_post_at_html: "<span>Post berria %{link}</span>"
+        new_post: 'Argitalpen berria blogean:'
       models:
         post:
           fields:
             author: Egilea
-            body: Gorputzeko
-            created_at: Sortutako at
+            body: Testua
+            official_blog_post: Blogeko argitalpen ofiziala
+            published_at: Argitaratze data
             title: Izenburua
       posts:
-        show:
-          back: Itzuli zerrendara
-          comments: Iruzkinak
-          view: ikusi
-        sidebar_blog:
-          comments: iruzkinak
-          most_commented_posts: Gehien iruzkinatutako mezu
-      read_more: Irakurri gehiago
+        index:
+          count:
+            one: "Edukin 1"
+            other: "%{count} edukin"
     components:
       blogs:
         actions:
+          comment: Iruzkindu
           create: Sortu
           destroy: Ezabatu
+          endorse: Atxiki
           update: Eguneratu
         name: Bloga
         settings:
           global:
-            announcement: Anuntzio
+            announcement: Iragarpena
             comments_enabled: Iruzkinak gaituta
-            comments_max_length: Iruzkinen gehieneko luzera (utzi 0 defektuz konfigurazioa mantendu nahi baduzu)
+            comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsitako konfigurazioari eutsi nahi badiozu)
           step:
-            announcement: Anuntzio
+            announcement: Iragarpena
             comments_blocked: Iruzkinak blokeatuta
             endorsements_blocked: Atxikimenduak blokeatuta
             endorsements_enabled: Atxikimenduak gaituta
     events:
       blogs:
         post_created:
-          email_intro: '"%{resource_title}" mezua "%{participatory_space_title}" argitaratzen ari zarela jarraitzen ari zara.'
+          email_intro: '"%{resource_title}" argitalpena jarraitzen ari zaren "%{participatory_space_title}" espazioan argitaratu da.'
           email_outro: Jakinarazpena jaso duzu "%{participatory_space_title}" jarraitzen ari zarelako. Aurreko estekan utzi ahal diozu jarraitzeari.
-          email_subject: '%{participatory_space_title} argitaratutako mezu berria'
+          email_subject: Argitalpen berria %{participatory_space_title} espazioan
           notification_title: <a href="%{resource_path}">%{resource_title}</a> posta %{participatory_space_title} argitaratu da
     statistics:
       posts_count: Argitalpenak

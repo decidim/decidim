@@ -60,7 +60,6 @@ id:
         secondary_color: Sekunder
         success_color: Keberhasilan
         tos_version: Versi persyaratan layanan
-        twitter_handler: Penangan Twitter
         user_groups_enabled: Aktifkan grup pengguna
         warning_color: Peringatan
         youtube_handler: Penangan YouTube
@@ -115,8 +114,6 @@ id:
       actions:
         add: Menambahkan
         browse: Jelajahi
-        manage: Mengelola
-        new: Baru %{name}
         permissions: Izin
         reject: Menolak
         verify: Memeriksa
@@ -124,8 +121,6 @@ id:
         create:
           error: Terjadi kesalahan saat membuat jenis area baru.
           success: Tipe area berhasil dibuat.
-        destroy:
-          success: Tipe area berhasil dihancurkan
         edit:
           title: Edit jenis area
           update: Memperbarui
@@ -134,13 +129,10 @@ id:
           title: Tipe area baru
         update:
           error: Terjadi kesalahan saat memperbarui jenis area ini.
-          success: Tipe area berhasil diperbarui
       areas:
         create:
           error: Terjadi kesalahan saat membuat area baru.
           success: Area berhasil dibuat.
-        destroy:
-          success: Area berhasil dihancurkan
         edit:
           title: Edit area
           update: Memperbarui
@@ -150,7 +142,6 @@ id:
         no_areas: Tanpa Area
         update:
           error: Ada kesalahan saat memperbarui area ini.
-          success: Area berhasil diperbarui
       attachment_collections:
         create:
           error: Ada kesalahan saat membuat folder baru.
@@ -161,7 +152,6 @@ id:
           title: Edit folder
           update: Memperbarui
         index:
-          attachment_collection_used: Folder ini tidak dapat dihapus karena sedang digunakan.
           attachment_collections_title: Folder lampiran
         new:
           create: Membuat
@@ -188,7 +178,6 @@ id:
           success: Lampiran berhasil diperbarui.
       autocomplete:
         no_results: Tidak ada hasil yang ditemukan
-        search_prompt: Ketik setidaknya tiga karakter untuk mencari
       categories:
         create:
           error: Terjadi kesalahan saat membuat kategori ini.
@@ -201,7 +190,6 @@ id:
           update: Memperbarui
         index:
           categories_title: Kategori
-          category_used: Kategori ini tidak dapat dihapus karena sedang digunakan.
         new:
           create: Buat kategori
           title: Kategori baru
@@ -247,7 +235,6 @@ id:
           view_more_logs: Lihat lebih banyak log
       exports:
         export_as: "%{name} sebagai %{export_format}"
-        notice: Ekspor Anda sedang dalam proses. Anda akan menerima email setelah selesai.
       filters:
         category_id_eq:
           label: Kategori
@@ -258,17 +245,14 @@ id:
             'true': Tidak resmi
         search_label: Pencarian
       help_sections:
-        error: Terjadi kesalahan saat memperbarui bagian bantuan
         form:
           save: Menyimpan
-        success: Bagian bantuan berhasil diperbarui
       impersonatable_users:
         index:
           filter:
             all: Semua
             managed: Dikelola
             not_managed: Tidak dikelola
-          filter_by: Filter berdasarkan
           impersonate: Menirukan
           impersonate_new_managed_user: Meniru pengguna yang dikelola baru
           managed: Dikelola
@@ -295,9 +279,6 @@ id:
           impersonate_existing_managed_user: Meniru pengguna terkelola "%{name}"
           impersonate_existing_user: Meniru pengguna "%{name}"
           impersonate_new_managed_user: Meniru pengguna yang dikelola baru
-      logs:
-        logs_list:
-          no_logs_yet: Belum ada catatan
       managed_users:
         promotion:
           error: Terjadi kesalahan saat mempromosikan pengguna yang dikelola.
@@ -314,7 +295,6 @@ id:
         area_types: Tipe area
         areas: Area
         configuration: Konfigurasi
-        dashboard: Dasbor
         help_sections: Bagian bantuan
         homepage: Homepage
         impersonations: Peniruan identitas
@@ -379,7 +359,6 @@ id:
           fields:
             created_at: Tanggal pembuatan
             email: E-mail
-            last_sign_in_at: Tanggal masuk terakhir
             name: Nama
             role: Peran
             roles:
@@ -396,8 +375,6 @@ id:
             state: Negara
             users_count: Jumlah pengguna
       moderations:
-        index:
-          title: Moderasi
         report:
           reasons:
             does_not_belong: Bukan milik
@@ -434,10 +411,6 @@ id:
           error: Terjadi kesalahan saat memperbarui buletin ini.
           success: Buletin berhasil diperbarui. Harap tinjau sebelum mengirim.
       officializations:
-        create:
-          success: Pengguna resmi berhasil
-        destroy:
-          success: Pengguna tidak resmi berhasil
         index:
           actions: Tindakan
           badge: Lencana
@@ -463,7 +436,6 @@ id:
           github: GitHub
           instagram: Instagram
           social_handlers: Sosial
-          twitter: Kericau
           youtube: Youtube
         update:
           error: Terjadi kesalahan saat memperbarui organisasi ini.
@@ -474,8 +446,6 @@ id:
         form:
           colors:
             colors_title: Warna organisasi
-            header_snippets_help: Gunakan bidang ini untuk menambahkan sesuatu ke kepala HTML. Penggunaan yang paling umum adalah mengintegrasikan layanan pihak ketiga yang memerlukan beberapa JavaScript atau CSS tambahan. Juga, Anda dapat menggunakannya untuk menambahkan meta tag ekstra ke HTML. Perhatikan bahwa ini hanya akan ditampilkan di halaman publik, bukan di bagian admin.
-          cta_button_path_help: 'Anda dapat menimpa tempat tombol Ajakan Bertindak di tautan beranda ke. Gunakan jalur parsial, bukan URL lengkap di sini. Menerima surat, angka, tanda pisah dan garis miring, dan harus dimulai dengan huruf. Tombol Ajakan Bertindak ditampilkan di homepage antara teks selamat datang dan deskripsi. Contoh: %{url}'
           cta_button_text_help: Anda dapat menimpa teks tombol Ajakan Bertindak di beranda untuk setiap bahasa yang tersedia di organisasi Anda. Jika tidak disetel, nilai default akan digunakan. Tombol Ajakan Bertindak ditampilkan di homepage antara teks selamat datang dan deskripsi.
           homepage_appearance_title: Edit tampilan homepage
           homepage_highlighted_content_banner_title: Spanduk konten berkecepatan tinggi
@@ -486,9 +456,6 @@ id:
         edit:
           active_content_blocks: Blok konten aktif
           inactive_content_blocks: Blok konten tidak aktif
-      organization_homepage_content_blocks:
-        edit:
-          update: Memperbarui
       participatory_space_private_users:
         create:
           error: Terjadi kesalahan saat menambahkan pengguna pribadi untuk ruang partisipatif ini.
@@ -526,8 +493,6 @@ id:
         create:
           error: Terjadi kesalahan saat membuat cakupan baru.
           success: Lingkup berhasil dibuat.
-        destroy:
-          success: Cakupan berhasil dihancurkan
         edit:
           title: Sunting cakupan
           update: Memperbarui
@@ -542,8 +507,6 @@ id:
         create:
           error: Ada kesalahan saat membuat topik baru.
           success: Topik berhasil dibuat.
-        destroy:
-          success: Topik berhasil dihancurkan
         edit:
           title: Edit topik
           update: Perbarui topik
@@ -562,24 +525,19 @@ id:
         destroy:
           success: Halaman berhasil dihancurkan
         edit:
-          changed_notably_help: Jika dicentang, pengguna akan diberi tahu untuk menerima persyaratan dan ketentuan baru.
           title: Edit halaman
           update: Memperbarui
         form:
           none: Tidak ada
-        index:
-          last_notable_change: Perubahan penting terakhir
         new:
           create: Membuat halaman
           title: Halaman baru
         topic:
           destroy: Hapus topik
           edit: Edit topik
-          empty: Tidak ada halaman di bawah topik ini
           without_topic: Halaman tanpa topik
         update:
           error: Terjadi kesalahan saat memperbarui halaman ini.
-          success: Halaman berhasil diperbarui
       titles:
         admin_log: Log admin
         area_types: Tipe area
@@ -591,18 +549,14 @@ id:
         participants: Pengguna
         scope_types: Tipe lingkup
         scopes: Scopes
-        static_pages: Halaman
         user_groups: Grup Pengguna
       user_group:
         csv_verify:
           invalid: Ada kesalahan saat membaca file CSV.
-          success: File CSV berhasil diunggah, kami memverifikasi grup pengguna yang cocok dengan kriteria. Ini mungkin membutuhkan waktu beberapa saat.
         reject:
           invalid: Ada kesalahan saat menolak grup pengguna ini.
-          success: Kelompok pengguna berhasil ditolak
         verify:
           invalid: Ada kesalahan saat memverifikasi grup pengguna ini.
-          success: Kelompok pengguna berhasil diverifikasi
       user_groups:
         index:
           state:
@@ -632,7 +586,6 @@ id:
         users_count:
           admins: Admin
           participants: Peserta
-      view_public_page: Lihat halaman publik
     moderations:
       actions:
         hidden: Tersembunyi
@@ -656,19 +609,8 @@ id:
         moderation:
           fields:
             hidden_at: Tersembunyi di
-            report_count: Menghitung
             reported_content_url: URL konten yang dilaporkan
-            reports: Laporan
             visit_url: Kunjungi URL
   errors:
     messages:
       invalid_json: JSON tidak valid
-  layouts:
-    decidim:
-      admin:
-        newsletters:
-          title: Nawala
-        settings:
-          title: Pengaturan
-        users:
-          title: Pengguna

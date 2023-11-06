@@ -5,7 +5,6 @@ ar:
         assemblies_ids: الجمعيات ذات الصلة
         available_slots: المواعيد المتاحة
         banner_image: صورة بانر
-        consultations_ids: المشاورات ذات الصلة
         copy_categories: نسخ الفئات
         copy_components: نسخ المكونات
         copy_features: نسخ الميزات
@@ -37,13 +36,11 @@ ar:
         date: التاريخ
         link: الرابط
         title: العنوان
-        weight: وزن
       conference_partner:
         link: الرابط
         logo: الشعار
         name: الإسم
         partner_type: نوع الشريك
-        weight: وزن
       conference_registration_invite:
         email: البريد الإلكتروني
         name: الإسم
@@ -53,25 +50,17 @@ ar:
         description: الوصف
         price: السعر
         title: العنوان
-        weight: وزن
       conference_speaker:
         affiliation: الانتساب
         avatar: الصورة الرمزية
         conference_meeting_ids: الاجتماعات ذات الصلة
         full_name: الاسم الكامل
         position: المنصب
-        twitter_handle: مُعرّف حساب تويتر
         user_id: المستخدم
       conference_user_role:
         email: البريد الإلكتروني
         name: اسم
         role: وظيفة
-    errors:
-      models:
-        conference_registration_invite:
-          attributes:
-            email:
-              already_invited: تمت دعوة هذا البريد الإلكتروني بالفعل
   activerecord:
     models:
       decidim/conference:
@@ -99,7 +88,6 @@ ar:
     admin:
       actions:
         confirm: تؤكد
-        new_conference: مؤتمر جديد
         send_diplomas: إرسال شهادات الحضور
       conference_copies:
         new:
@@ -143,8 +131,6 @@ ar:
         edit:
           title: تحديث مسؤول المؤتمر.
           update: تحديث
-        index:
-          conference_admins_title: مدراء المؤتمر
         new:
           create: إنشاء
           title: مشرف المؤتمر الجديد.
@@ -162,7 +148,6 @@ ar:
         form:
           title: معلومات عامة
         index:
-          not_published: غير منشور
           published: نشرت
         new:
           create: إنشاء
@@ -203,7 +188,6 @@ ar:
           conference_invites: تدعو
           conference_speakers: مكبرات الصوت
           diploma: شهادة حضور
-          info: معلومات
           media_links: روابط الوسائط
           moderations: الإعتدال
           partners: شركاء
@@ -214,7 +198,6 @@ ar:
         conference:
           fields:
             created_at: أنشئت في
-            promoted: سلط الضوء
             published: نشرت
             title: عنوان
         conference_speaker:
@@ -337,9 +320,6 @@ ar:
         title: مكبرات الصوت
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذا المؤتمر. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
         conference_invites:
           create:
             error: حدثت مشكلة أثناء دعوة المشارك للانضمام إلى المؤتمر.
@@ -356,12 +336,10 @@ ar:
               all: الكل
               rejected: مرفوض
               sent: أرسلت
-            filter_by: مصنف بواسطة
             invite_attendee: دعوة مشارك
             invites: تدعو
             search: بحث
           new:
-            explanation: سيدعى المشارك للانضمام إلى مؤتمر. إذا لم يتم تسجيل بريدها الإلكتروني ، فستتم دعوتها إلى المنظمة أيضًا.
             invite: دعا
             new_invite: دعوة مشارك
         conference_registrations:
@@ -385,7 +363,6 @@ ar:
               few: كان هناك %{count} التسجيلات.
               many: كان هناك %{count} التسجيلات.
               other: كان هناك %{count} التسجيلات.
-            slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذا المؤتمر. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
         diplomas:
           edit:
             save: حفظ
@@ -393,7 +370,7 @@ ar:
         invite_join_conference_mailer:
           invite:
             decline: رفض الدعوة "%{conference_title}"
-            invited_you_to_join_a_conference: "%{invited_by} للانضمام إلى مؤتمر في %{application}. يمكنك رفضه أو قبوله من خلال الروابط أدناه."
+            invited_existing_user_to_join_a_conference: "%{invited_by} للانضمام إلى مؤتمر في %{application}. يمكنك رفضه أو قبوله من خلال الروابط أدناه."
             registration: التسجيل لـ "%{conference_title}"
         partners:
           index:
@@ -418,18 +395,11 @@ ar:
           cancel: إلغاء
           confirm: تؤكد
         show:
-          free: حر
           going: حضور
           no_slots_available: لا فتحات المتاحة
           registration: التسجيل
       conference_program:
-        program_meeting:
-          content: المحتوى
-          location: موقعك
-          speakers: مكبرات الصوت
-          streaming: تدفق
         show:
-          day: يوم
           program: برنامج
       conference_registration_mailer:
         confirmation:
@@ -451,7 +421,6 @@ ar:
           invalid: حدثت مشكلة أثناء مغادرة هذا المؤتمر.
           success: لقد تركت المؤتمر بنجاح.
       conference_speaker:
-        go_to_twitter: انتقل إلى تويتر
         more_info: مزيد من المعلومات
         personal_website: موقع الويب الشخصي
         show:
@@ -460,18 +429,12 @@ ar:
       conference_speaker_cell:
         personal_url:
           personal_website: موقع الويب الشخصي
-        twitter_handle:
-          go_to_twitter: انتقل إلى تويتر
-      conference_speakers:
-        index:
-          speakers: مكبرات الصوت
       conferences:
         partners:
           collaborators: شركاء
           main_promotors: المنظمون
         show:
           login_as: تم تسجيل دخولك كـ %{name} <%{email}>
-          make_conference_registration: 'اجعل تسجيلك في المؤتمر:'
           register: تسجيل
       content_blocks:
         highlighted_conferences:
@@ -479,11 +442,6 @@ ar:
       index:
         title: المؤتمرات
       mailer:
-        conference_registration_mailer:
-          confirmation:
-            subject: تم تأكيد تسجيل مؤتمرك
-          pending_validation:
-            subject: تسجيل مؤتمرك في انتظار التأكيد
         invite_join_conference_mailer:
           invite:
             subject: دعوة للانضمام إلى مؤتمر
@@ -514,38 +472,18 @@ ar:
       pages:
         home:
           highlighted_conferences:
-            active_conferences: المؤتمرات النشطة
-            conferences_button_title: رابط إلى صفحة المؤتمرات لعرض جميع المؤتمرات
-            see_all_conferences: رؤية جميع المؤتمرات
-      photo:
-        image:
-          attributes:
-            alt: صورة الوسائط
-        show:
-          close_modal: إغلاق مشروط
-          photo: صورة
-      photos_list:
-        show:
-          related_photos: صور
+            active_spaces: المؤتمرات النشطة
       registration_types:
         index:
           choose_an_option: 'اختر خيار التسجيل الخاص بك:'
-          login_as: تم تسجيل دخولك كـ %{name} <%{email}>
           no_registrations: لا توجد تسجيلات
           register: تسجيل
           title: أنواع التسجيل
-      shared:
-        conference_user_login:
-          already_account: هل تمتلك حسابًا مِن قبلُ على ديسيديم؟
-          new_user: مستخدم جديد؟
-          sign_in: تسجيل الدخول للتسجيل في المؤتمر
-          sign_up: إنشاء حساب في decidim للتسجيل في المؤتمر
       show:
         details: تفاصيل
         introduction: المقدمة
         objectives: الأهداف
         related_assemblies: الجمعيات ذات الصلة
-        related_consultations: المشاورات ذات الصلة
         related_participatory_processes: العمليات التشاركية ذات الصلة
     events:
       conferences:
@@ -584,10 +522,6 @@ ar:
           contextual: "<p>ال<strong>مؤتمر</strong> هو مجموعة من الاجتماعات المرتبة في برنامج ما، مع عدد من الأشخاص المدعوين كمتحدثين، وحقول أدخال نموذجيه للمعلومات الأخرى للمؤتمرات الكبيرة أو المناسبات الاجتماعية (التسجيل، قائمة بالمنظمات التي تدعم الحدث أو ترعاه، إلخ)..</p> <p>أمثلة: يمكن أن يكون المؤتمر حدثا ذا صلة بالنسبة لمنظمة ما وأعضائها، أو يتم في إطار عملية تشاركية أو في أعقاب مشاورات.</p>\n"
           page: "<p>ال<strong>مؤتمر</strong> هو مجموعة من الاجتماعات المرتبة في برنامج ما، مع عدد من الأشخاص المدعوين كمتحدثين، وحقول أدخال نموذجيه للمعلومات الأخرى للمؤتمرات الكبيرة أو المناسبات الاجتماعية (التسجيل، قائمة بالمنظمات التي تدعم الحدث أو ترعاه، إلخ)..</p> <p>أمثلة: يمكن أن يكون المؤتمر حدثا ذا صلة بالنسبة لمنظمة ما وأعضائها، أو يتم في إطار عملية تشاركية أو في أعقاب مشاورات.</p>\n"
           title: ما هي المؤتمرات؟
-    log:
-      value_types:
-        conference_presenter:
-          not_found: 'لم يتم العثور على المؤتمر في قاعدة البيانات (المعرف: %{id})'
     media:
       index:
         description: روابط حول هذا المؤتمر
@@ -604,9 +538,6 @@ ar:
     decidim:
       conference_hero:
         register: تسجيل
-      conference_widgets:
-        show:
-          take_part: خذ جزء
       conferences:
         conference:
           more_info: مزيد من المعلومات
@@ -621,11 +552,7 @@ ar:
             few: "%{count} مؤتمرات"
             many: "%{count} مؤتمرات"
             other: "%{count} مؤتمرات"
-        promoted_conference:
-          more_info: مزيد من المعلومات
-          take_part: خذ جزء
       conferences_nav:
-        conference_menu_item: معلومات
         conference_partners_menu_item: شركاء
         conference_speaker_menu_item: مكبرات الصوت
         media: وسائل الإعلام

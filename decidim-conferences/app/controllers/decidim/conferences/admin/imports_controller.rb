@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This controller allows importing things.
       # It is targeted for customizations for importing things that lives under
-      # an conference.
+      # a conference.
       class ImportsController < Decidim::Admin::ImportsController
         include Concerns::ConferenceAdmin
       end

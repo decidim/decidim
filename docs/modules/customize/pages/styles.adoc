@@ -1,6 +1,6 @@
 = CSS Styles with SASS
 
-One of the first things you'll want to do after you install Decidim is applying your own corporative image. You can do it on multiple ways:
+One of the first things you will want to do after you install Decidim is applying your own corporative image. You can do it on multiple ways:
 
 == Organization colors
 
@@ -12,7 +12,7 @@ This works for any Organization inside of a Muiltitenant.
 
 == Head extra file
 
-There's an special partial file for adding inline content in every public page. You just need to create a file called `app/views/layouts/decidim/_head_extra.html.erb`:
+There is an special partial file for adding inline content in every public page. You just need to create a file called `app/views/layouts/decidim/_head_extra.html.erb`:
 
 [source,stylesheet]
 ----
@@ -44,7 +44,7 @@ in your `config/initializers/decidim.rb` file. Please do notice that this has se
   config.enable_html_header_snippets = true
 ----
 
-Then you'll have a new textarea field called "Header snippets" in Administration -> Configuration -> Appearance (URL `/admin/organization/appearance/edit`):
+Then you will have a new textarea field called "Header snippets" in Administration -> Configuration -> Appearance (URL `/admin/organization/appearance/edit`):
 
 image::header-snippet.png[Header snippet]
 
@@ -54,14 +54,22 @@ Notice that you can resize this textarea.
 
 Decidim uses Webpacker to compile assets. There are two ways to customize CSS:
 
-1. if you want to redefine just CSS vars or Foundation settings, use _decidim-settings.scss
-2. if you want to redefine a specific snippet of CSS (let's say a few classes but not a whole file) you can use decidim_application.scss
-3. and of course you can overwrite whole files by copying them into the application i.e: to replace `decidim-core/app/packs/stylesheets/decidim/modules/_cookie-consent.scss` you should create in your Rails app a file in
-  `app/packs/stylesheets/decidim/modules/_cookie-consent.scss` and it will have more priority over the Decidim file.
+1. if you want to redefine a specific snippet of CSS (say a few classes but not a whole file) you can use decidim_application.scss
+2. and of course you can overwrite whole files by copying them into the application i.e: to replace `decidim-core/app/packs/stylesheets/decidim/modules/_data-consent.scss` you should create in your Rails app a file in `app/packs/stylesheets/decidim/modules/_data-consent.scss` and it will have more priority over the Decidim file.
+3. if you want to customize the application colors yo can use the admin interface.
 
 We use http://sass-lang.com/guide[SASS, with SCSS syntax] as CSS preprocessor.
 
-== Accesibility
+== Tailwind CSS
+
+Decidim uses Taiwind CSS as a CSS framework, which has a default configuration that is being handled by `tailwind.config.js` in the root of your project.
+
+Since this file is being managed by Decidim, it will be impossible to customize it.
+
+You can override the default configuration by creating a file  `config/tailwind.config.js.erb` starting from the following https://github.com/decidim/decidim/blob/develop/decidim-core/lib/decidim/assets/tailwind/tailwind.config.js.erb[content]
+
+== Accessibility
 
 To maintain accesibility level, if you add new colors use a http://webaim.org/resources/contrastchecker/[Color contrast checker] (WCAG AA is mandatory, WCAG AAA is recommended)
 
+For more information about accessibility, see the xref:develop:guide_accessibility.adoc[accessibility guide].

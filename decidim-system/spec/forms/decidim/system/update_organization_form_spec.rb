@@ -16,14 +16,7 @@ module Decidim::System
         default_locale: "en",
         users_registration_mode: "enabled",
         force_users_to_authenticate_before_access_organization: "false",
-        smtp_settings: {
-          "address" => "mail.gotham.gov",
-          "port" => "25",
-          "user_name" => "f.laguardia",
-          "password" => Decidim::AttributeEncryptor.encrypt("password"),
-          "from_email" => "decide@gotham.gov",
-          "from_label" => from_label
-        },
+        **smtp_settings,
         omniauth_settings: {
           "omniauth_settings_facebook_enabled" => true,
           "omniauth_settings_facebook_app_id" => facebook_app_id,
@@ -32,6 +25,17 @@ module Decidim::System
       )
     end
 
+    let(:smtp_settings) do
+      {
+        "address" => "mail.gotham.gov",
+        "port" => 25,
+        "user_name" => "f.laguardia",
+        "password" => password,
+        "from_email" => "decide@gotham.gov",
+        "from_label" => from_label
+      }
+    end
+    let(:password) { "secret_password" }
     let(:from_label) { "Decide Gotham" }
     let(:facebook_app_id) { "plain-text-facebook-app-id" }
     let(:facebook_app_secret) { "plain-text-facebook-app-secret" }
@@ -76,6 +80,13 @@ module Decidim::System
 
             expect(from).to eq("decide@gotham.gov")
           end
+        end
+      end
+
+      describe "smtp_settings" do
+        it "handles SMTP password properly" do
+          expect(subject.smtp_settings).to eq(smtp_settings.except("password"))
+          expect(Decidim::AttributeEncryptor.decrypt(subject.encrypted_smtp_settings[:encrypted_password])).to eq(password)
         end
       end
     end

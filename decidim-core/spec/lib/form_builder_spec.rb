@@ -3,6 +3,8 @@
 require "spec_helper"
 require "nokogiri"
 
+require "decidim/core/test/shared_examples/form_builder_examples"
+
 module Decidim
   describe FormBuilder do
     let(:helper) { Class.new(ActionView::Base).new(ActionView::LookupContext.new(ActionController::Base.view_paths), {}, []) }
@@ -11,7 +13,7 @@ module Decidim
     let(:organization) { create(:organization) }
 
     let(:resource) do
-      klass = Class.new do
+      class DummyClass
         cattr_accessor :current_organization
 
         def self.model_name
@@ -67,8 +69,10 @@ module Decidim
           current_organization
         end
       end
+
+      klass = DummyClass.new
       klass.current_organization = organization
-      klass.new
+      klass
     end
 
     let(:builder) { FormBuilder.new(:resource, resource, helper, {}) }
@@ -103,6 +107,16 @@ module Decidim
           expect(parsed.css(".editor .editor-container[data-toolbar='full']")).not_to be_empty
         end
       end
+
+      context "when a help text is defined" do
+        let(:field) { "editor-input" }
+        let(:help_text_text) { "This is the help" }
+        let(:output) do
+          builder.editor :slug, help_text: help_text_text
+        end
+
+        it_behaves_like "having a help text"
+      end
     end
 
     describe "#translated" do
@@ -131,6 +145,16 @@ module Decidim
 
           it "does not render a dropdown" do
             expect(parsed.css("option")).to be_empty
+          end
+
+          context "when a help text is defined" do
+            let(:field) { "textarea" }
+            let(:help_text_text) { "This is the help" }
+            let(:output) do
+              builder.translated :text_area, :name, help_text: help_text_text
+            end
+
+            it_behaves_like "having a help text"
           end
         end
 
@@ -229,7 +253,53 @@ module Decidim
       end
     end
 
-    describe "categories_for_select" do
+    describe "#select" do
+      let(:options) { [%w(All all), %w(None none)] }
+      let(:output) do
+        builder.select :scopes, options
+      end
+
+      it "renders" do
+        expect(output).to match(
+          "<label for=\"resource_scopes\">Scopes" \
+          "<select name=\"resource[scopes]\" id=\"resource_scopes\">" \
+          "<option value=\"all\">All</option>\n" \
+          "<option value=\"none\">None</option></select></label>"
+        )
+      end
+
+      context "when a help text is defined" do
+        let(:field) { "select" }
+        let(:help_text_text) { "This is the help" }
+        let(:output) do
+          builder.select :scopes, options, help_text: help_text_text
+        end
+
+        it "renders" do
+          expect(output).to match(
+            "<label for=\"resource_scopes\">Scopes<span class=\"help-text\">This is the help</span>" \
+            "<select name=\"resource[scopes]\" id=\"resource_scopes\">" \
+            "<option value=\"all\">All</option>\n" \
+            "<option value=\"none\">None</option></select></label>"
+          )
+        end
+
+        it_behaves_like "having a help text"
+      end
+    end
+
+    describe "#hashtaggable_text_field" do
+      let(:output) do
+        builder.hashtaggable_text_field :text_field, :name, "en", { autofocus: true, class: "js-hashtags", label: false }
+      end
+
+      it "renders" do
+        expect(parsed.css(".hashtags__container")).not_to be_empty
+        expect(parsed.css("input#resource_name_en")).not_to be_empty
+      end
+    end
+
+    describe "#categories_for_select" do
       subject { Nokogiri::HTML(output) }
 
       let!(:component) { create(:component) }
@@ -304,7 +374,7 @@ module Decidim
         end
       end
 
-      context "when a category doesn't have the translation in the current locale" do
+      context "when a category does not have the translation in the current locale" do
         before do
           I18n.locale = "zh"
           create(:category, name: { "en" => "Subcategory 2", "zh" => "Something" }, parent: category, participatory_space: component.participatory_space)
@@ -330,7 +400,7 @@ module Decidim
       end
     end
 
-    describe "checkbox" do
+    describe "#check_box" do
       let(:output) do
         builder.check_box :name
       end
@@ -342,6 +412,38 @@ module Decidim
           "</label>"
         )
       end
+
+      context "when a help text is defined" do
+        let(:field) { "input" }
+        let(:help_text_text) { "This is the help" }
+        let(:output) do
+          builder.check_box :name, help_text: help_text_text
+        end
+
+        it "renders correctly" do
+          expect(output).to eq(
+            '<label for="resource_name"><input name="resource[name]" type="hidden" value="0" autocomplete="off" />' \
+            '<input type="checkbox" value="1" name="resource[name]" id="resource_name" />Name' \
+            "</label>" \
+            '<span class="help-text">This is the help</span>'
+          )
+        end
+
+        it "renders the help text" do
+          expect(parsed.css(".help-text")).not_to be_empty
+        end
+
+        # Mind that we are not using the "having a help text" shared example
+        # for #check_box, as in this case we actually want to show it after
+        # the input
+        it "renders the help text after the field" do
+          expect(parsed.to_s.index("help-text")).to be > parsed.to_s.index(field)
+        end
+
+        it "renders the help text text only once" do
+          expect(parsed.to_s.scan(/#{help_text_text}/).size).to eq 1
+        end
+      end
     end
 
     describe "#password_field" do
@@ -351,19 +453,29 @@ module Decidim
       let(:options) { {} }
 
       it "renders the input type password" do
-        expect(output).to eq('<label for="resource_password">Password<input autocomplete="off" type="password" name="resource[password]" id="resource_password" /></label>')
+        expect(output).to eq('<label for="resource_password">Password<input autocomplete="off" class="input-group-field" type="password" name="resource[password]" id="resource_password" /></label>')
       end
 
       context "when autocomplete attribute is defined" do
         let(:options) { { autocomplete: "new-password" } }
 
         it "renders the input type password with given autocomplete attribute" do
-          expect(output).to eq('<label for="resource_password">Password<input autocomplete="new-password" type="password" name="resource[password]" id="resource_password" /></label>')
+          expect(output).to eq('<label for="resource_password">Password<input autocomplete="new-password" class="input-group-field" type="password" name="resource[password]" id="resource_password" /></label>')
         end
+      end
+
+      context "when a help text is defined" do
+        let(:field) { "input" }
+        let(:help_text_text) { "This is the help" }
+        let(:output) do
+          builder.password_field :slug, help_text: help_text_text
+        end
+
+        it_behaves_like "having a help text"
       end
     end
 
-    describe "date_field" do
+    describe "#date_field" do
       context "when the resource has errors" do
         before do
           resource.valid?
@@ -376,21 +488,41 @@ module Decidim
         it "renders the input with the proper class" do
           expect(parsed.css("input.is-invalid-input")).not_to be_empty
         end
+
+        context "when a help text is defined" do
+          let(:field) { "input" }
+          let(:help_text_text) { "This is the help" }
+          let(:output) do
+            builder.date_field :born_at, help_text: help_text_text
+          end
+
+          it_behaves_like "having a help text"
+        end
       end
     end
 
-    describe "datetime_field" do
+    describe "#datetime_field" do
+      let(:output) do
+        builder.datetime_field :start_time
+      end
+
       context "when the resource has errors" do
         before do
           resource.valid?
         end
 
-        let(:output) do
-          builder.datetime_field :start_time
-        end
-
         it "renders the input with the proper class" do
           expect(parsed.css("input.is-invalid-input")).not_to be_empty
+        end
+
+        context "when a help text is defined" do
+          let(:field) { "input" }
+          let(:help_text_text) { "This is the help" }
+          let(:output) do
+            builder.datetime_field :born_at, help_text: help_text_text
+          end
+
+          it_behaves_like "having a help text"
         end
       end
     end
@@ -416,7 +548,7 @@ module Decidim
           subject { parsed.css("span.form-error").first.text }
 
           context "with no translations for the field" do
-            it { is_expected.to eq("There's an error in this field.") }
+            it { is_expected.to eq("There is an error in this field.") }
           end
 
           context "with custom I18n for the class and attribute" do
@@ -611,7 +743,7 @@ module Decidim
       end
     end
 
-    describe "upload" do
+    describe "#upload" do
       let(:present?) { false }
       let(:filename) { "my_image.jpg" }
       let(:image?) { false }
@@ -621,10 +753,12 @@ module Decidim
           filename:
         )
       end
+      let(:id) { 1 }
       let(:url) { Rails.application.routes.url_helpers.rails_blob_url(blob, only_path: true) }
       let(:file) do
         double(
           blob:,
+          id:,
           filename:,
           attached?: present?,
           attachment: double(
@@ -633,10 +767,10 @@ module Decidim
           )
         )
       end
-      let(:optional) { true }
+      let(:required) { false }
       let(:attributes) do
         {
-          optional:
+          required:
         }
       end
       let(:output) do
@@ -661,21 +795,8 @@ module Decidim
         let(:uploader) { Decidim::ImageUploader }
         let(:image?) { true }
 
-        context "and it is not present but uploader has default url" do
-          let(:file) { nil }
-          let(:uploader) { Decidim::AvatarUploader }
-
-          it "renders the 'Default image' label" do
-            expect(output).to include("Default image")
-          end
-        end
-
         context "and it is present" do
           let(:present?) { true }
-
-          it "renders the 'Current image' label" do
-            expect(output).to include("Current image")
-          end
 
           it "renders an image with the current file url" do
             expect(parsed.css("img[src=\"#{url}\"]")).not_to be_empty
@@ -699,7 +820,7 @@ module Decidim
             expect(output).to include(%(<a href="#{url}">#{filename}</a>))
           end
 
-          it "doesn't render an image tag" do
+          it "does not render an image tag" do
             expect(parsed.css("img[src=\"#{url}\"]")).to be_empty
           end
 
@@ -713,7 +834,7 @@ module Decidim
         let(:present?) { true }
 
         it "renders the add file button" do
-          expect(parsed.css("button.add-file")).not_to be_empty
+          expect(parsed.css("button[data-upload]")).not_to be_empty
         end
       end
 
@@ -725,6 +846,31 @@ module Decidim
           html = output
           expect(html).to include("<li>This image will be resized to fit 100 x 100 px.</li>")
         end
+
+        context "and it contains multiple values incorrectly ordered" do
+          let(:attributes) do
+            {
+              dimensions_info: {
+                medium: { processor: :resize_to_fit, dimensions: [100, 100] },
+                smaller: { processor: :resize_and_pad, dimensions: [99, 99] },
+                small: { processor: :resize_to_fit, dimensions: [32, 32] },
+                tiny: { processor: :resize_and_pad, dimensions: [33, 33] }
+              }
+            }
+          end
+
+          it "renders the correctly sorted values" do
+            html = output
+            [
+              "<li>This image will be resized and padded to 33 x 33 px.</li>",
+              "<li>This image will be resized and padded to 99 x 99 px.</li>",
+              "<li>This image will be resized to fit 32 x 32 px.</li>",
+              "<li>This image will be resized to fit 100 x 100 px.</li>"
+            ].each do |value|
+              expect(html).to include(value)
+            end
+          end
+        end
       end
 
       context "when :help_i18n_scope is passed as option" do
@@ -733,7 +879,8 @@ module Decidim
 
         it "renders calls I18n.t() with the correct scope" do
           # Upload help messages
-          expect(I18n).to receive(:t).with("explanation", scope: "custom.scope", attribute: :image)
+          allow(I18n).to receive(:t).with(:image, scope: "activemodel.attributes.dummy").and_return("Image")
+          expect(I18n).to receive(:t).with("explanation", scope: "custom.scope", attribute: "Image")
           expect(I18n).to receive(:t).with("decidim.forms.upload.labels.add_image")
           expect(I18n).to receive(:t).with("decidim.forms.upload.labels.replace")
           expect(I18n).to receive(:t).with("message_1", scope: "custom.scope")
@@ -750,7 +897,8 @@ module Decidim
           # Upload help messages
           expect(I18n).to receive(:t).with("decidim.forms.upload.labels.add_image")
           expect(I18n).to receive(:t).with("decidim.forms.upload.labels.replace")
-          expect(I18n).to receive(:t).with("explanation", scope: "decidim.forms.upload_help", attribute: :image)
+          allow(I18n).to receive(:t).with(:image, scope: "activemodel.attributes.dummy").and_return("Image")
+          expect(I18n).to receive(:t).with("explanation", scope: "decidim.forms.upload_help", attribute: "Image")
           expect(I18n).to receive(:t).with("message_1", scope: "decidim.forms.file_help.file")
           expect(I18n).to receive(:t).with("message_2", scope: "decidim.forms.file_help.file")
           expect(I18n).to receive(:t).with("message_3", scope: "decidim.forms.file_help.file")
@@ -764,7 +912,8 @@ module Decidim
           it "renders calls I18n.t() with the correct messages" do
             # Upload help messages
 
-            expect(I18n).to receive(:t).with("explanation", scope: "decidim.forms.upload_help", attribute: :image)
+            allow(I18n).to receive(:t).with(:image, scope: "activemodel.attributes.dummy").and_return("Image")
+            expect(I18n).to receive(:t).with("explanation", scope: "decidim.forms.upload_help", attribute: "Image")
             expect(I18n).to receive(:t).with("message_1", scope: "decidim.forms.file_help.file")
             expect(I18n).not_to receive(:t).with("message_2", scope: "decidim.forms.file_help.file")
             output
@@ -787,6 +936,16 @@ module Decidim
 
         it "renders a hidden field and a container for the editor" do
           expect(parsed.css("label[for='resource_scopes']").text).to eq("Scopes")
+        end
+
+        context "when a help text is defined" do
+          let(:field) { "rendering" }
+          let(:help_text_text) { "This is the help" }
+          let(:output) do
+            builder.data_picker(:scopes, { help_text: help_text_text }, prompt_params)
+          end
+
+          it_behaves_like "having a help text"
         end
       end
     end

@@ -13,19 +13,11 @@ gl:
       templates:
         apply:
           error: Produciuse un problema ao aplicar o padrón.
-          success: Padrón aplicado con éxito
         copy:
           error: Produciuse un problema ao copiar o padrón.
-          success: Padrón copiado con éxito
         create:
           error: Produciuse un problema ao crear o padrón.
-          success: Padrón creado con éxito
-        destroy:
-          success: Padrón eliminado con éxito
         empty: Aínda non hai padróns.
-        update:
-          error: Produciuse un problema ao actualizar o padrón.
-          success: Padrón actualizado con éxito
       titles:
         template_types:
           questionnaires: Padrón para cuestionarios
@@ -41,6 +33,9 @@ gl:
         name: Padrón
     templates:
       admin:
+        block_user_templates:
+          form:
+            save: Gardar
         questionnaire_templates:
           choose:
             create_from_template: Crear a partir dun padrón
@@ -50,11 +45,8 @@ gl:
             skip_template: Omitir
           edit:
             edit: Editar
-            empty: Aínda non hai preguntas
             questionnaire: Cuestionario
           form:
-            save: Gardar
-            template_title: Información do padrón
             title: Padrón de cuestionario %{questionnaire_for}
           index:
             confirm_delete: Tes a certeza de querer eliminar este padrón?

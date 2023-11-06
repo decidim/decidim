@@ -4,52 +4,54 @@ module Decidim
   module Admin
     # Controller that allows managing the organization homepage
     class OrganizationHomepageController < Decidim::Admin::ApplicationController
+      include Decidim::Admin::ContentBlocks::LandingPage
+
       layout "decidim/admin/settings"
 
-      helper_method :active_blocks, :inactive_blocks
+      add_breadcrumb_item_from_menu :admin_settings_menu
 
-      def edit
+      def content_block_scope
+        :homepage
+      end
+
+      def scoped_resource
+        nil
+      end
+
+      def enforce_permission_to_update_resource
         enforce_permission_to :update, :organization, organization: current_organization
       end
 
-      def update
-        enforce_permission_to :update, :organization, organization: current_organization
-        ReorderContentBlocks.call(current_organization, :homepage, params[:manifests]) do
-          on(:ok) do
-            head :ok
-          end
-          on(:invalid) do
-            head :bad_request
-          end
-        end
+      def resource_sort_url
+        organization_homepage_path
       end
 
-      private
-
-      def content_blocks
-        @content_blocks ||= Decidim::ContentBlock.for_scope(:homepage, organization: current_organization)
+      def resource_create_url(manifest_name)
+        organization_homepage_content_blocks_path(manifest_name:)
       end
 
-      def active_blocks
-        @active_blocks ||= content_blocks.published.where(manifest_name: Decidim.content_blocks.for(:homepage).map(&:name))
+      def content_blocks_title
+        t("organization_homepage.edit.title", scope: "decidim.admin")
       end
 
-      def unpublished_blocks
-        @unpublished_blocks ||= content_blocks.unpublished.where(manifest_name: Decidim.content_blocks.for(:homepage).map(&:name))
+      def add_content_block_text
+        t("organization_homepage.edit.add", scope: "decidim.admin")
       end
 
-      def inactive_blocks
-        @inactive_blocks ||= unpublished_blocks + unused_manifests
+      def content_block_destroy_confirmation_text
+        t("organization_homepage.edit.destroy_confirmation", scope: "decidim.admin")
       end
 
-      def used_manifests
-        @used_manifests ||= content_blocks.map(&:manifest_name)
+      def active_content_blocks_title
+        t("organization_homepage.edit.active_content_blocks", scope: "decidim.admin")
       end
 
-      def unused_manifests
-        @unused_manifests ||= Decidim.content_blocks.for(:homepage).reject do |manifest|
-          used_manifests.include?(manifest.name.to_s)
-        end
+      def inactive_content_blocks_title
+        t("organization_homepage.edit.inactive_content_blocks", scope: "decidim.admin")
+      end
+
+      def resource_content_block_cell
+        "decidim/admin/homepage_content_block"
       end
     end
   end

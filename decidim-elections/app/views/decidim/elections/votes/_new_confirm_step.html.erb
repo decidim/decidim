@@ -1,53 +1,65 @@
-<%= render("focus_header", header_title: t("decidim.elections.votes.header.confirm")) %>
+<div class="election-question__intro">
+  <h2 class="h3">
+    <%= t("decidim.elections.votes.confirm.header") %>
+  </h2>
 
-<div class="focus__content evote">
-  <div class="row">
-    <h1 class="heading2">
-      <%= t("decidim.elections.votes.confirm.header") %>
-    </h1>
-    <p>
-      <%= t("decidim.elections.votes.confirm.intro").html_safe %>
-    </p>
-
-    <dl class="evote__confirm">
-      <dt>
-        <% questions.each_with_index do |question, question_index| %>
-          <strong class="evote__confirm-label">
-            <%= t("decidim.elections.votes.confirm.question", count: question_index + 1) %>:
-           </strong>
-          <strong>
-            <%= translated_attribute(question.title) %>
-          </strong>
-          <dd id="edit-step-<%= question_index+1 %>">
-            <strong class="evote__confirm-label">
-              <%= t("decidim.elections.votes.confirm.answer") %>
-              (<%= link_to(
-                  "#{t("decidim.elections.votes.confirm.edit")}<span class='show-for-sr'>
-                    #{t("decidim.elections.votes.confirm.answer_number", number: question_index + 1)}</span>".html_safe,
-                  "#",
-                  class: "evote__edit-answer",
-                  data: {
-                    toggle: ["step-#{question_index}", "step-#{questions_count}"].join(" ")
-                  }
-                ) %>):
-            </strong>
-            <ul>
-              <% question.answers.each do |answer| %>
-                <li class="confirmed_answer hide" id="<%= answer.slug %>">
-                  <%= translated_attribute(answer.title) %>
-                </li>
-              <% end %>
-              <% if question.nota_option? %>
-                <li class="<%= "hide nota_input_question-#{question.id}" %>">
-                  <%= t("decidim.elections.votes.confirm.nota_option") %>
-                </li>
-              <% end %>
-            </ul>
-          </dd>
-        <% end %>
-      </dt>
-    </dl>
-  </div>
+  <p class="election-question__description">
+    <%= t("decidim.elections.votes.confirm.intro").html_safe %>
+  </p>
 </div>
 
-<%= render("new_confirm_step_footer") %>
+<% questions.each_with_index do |question, question_index| %>
+  <div class="election-question__answer">
+    <p class="election-question__counter">
+      <%= t("decidim.elections.votes.new.question_steps", current_step: question_index + 1, total_steps: questions_count) %>
+    </p>
+
+    <p class="h4">
+      <%= translated_attribute(question.title) %>
+    </p>
+
+    <div id="edit-step-<%= question_index + 1 %>" class="election-question__answer-option">
+      <span>
+        <% question.answers.each do |answer| %>
+          <span id="<%= answer.slug %>">
+            <%= translated_attribute(answer.title) %>
+          </span>
+        <% end %>
+        <% if question.nota_option? %>
+          <span id="<%= "nota_input_question-#{question.id}" %>">
+            <%= t("decidim.elections.votes.confirm.nota_option") %>
+          </span>
+        <% end %>
+      </span>
+
+      <button class="button button__lg button__text-secondary" data-toggle="<%= ["step-#{question_index}", "step-confirm"].join(" ") %>">
+        <span class="underline"><%= t("decidim.elections.votes.confirm.edit") %></span>
+        <span class="sr-only"><%= t("decidim.elections.votes.confirm.answer_number", number: question_index + 1) %></span>
+      </button>
+    </div>
+  </div>
+<% end %>
+
+<div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+  <%= button_tag(
+    t("decidim.elections.votes.voting_step.back"),
+    type: "button",
+    class: "button button__sm md:button__lg button__transparent-secondary",
+    id: "back-step-#{questions_count - 1}",
+    data: {
+      toggle: ["step-#{questions_count - 1}", "step-confirm"].join(" ")
+    }
+  ) %>
+
+  <%= button_tag(
+    class: "button button__sm md:button__lg button__secondary",
+    type: "button",
+    id: "next-encrypting",
+    data: {
+      toggle: ["step-encrypting", "step-confirm"].join(" ")
+    }
+  ) do %>
+    <span><%= t("decidim.elections.votes.confirm.confirm") %></span>
+    <%= icon "arrow-right-line" %>
+  <% end %>
+</div>

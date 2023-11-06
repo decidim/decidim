@@ -21,6 +21,10 @@ module Decidim
       ""
     end
 
+    def profile_url
+      ""
+    end
+
     def avatar_url(_variant = nil)
       ActionController::Base.helpers.asset_pack_path("media/images/default-avatar.svg")
     end

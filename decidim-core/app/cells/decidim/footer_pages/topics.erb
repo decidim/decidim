@@ -1,0 +1,12 @@
+<div class="lg:w-2/3 grid grid-cols-2 gap-x-4 gap-y-10 lg:grid-cols-4 text-md text-white">
+  <% pages.each do |topic| %>
+    <nav role="navigation" aria-label="<%= topic[:title] %>">
+      <h2 class="h5 mb-4"><%= topic[:title] %></h2>
+      <ul class="space-y-4 break-inside-avoid">
+        <% topic[:pages].each do |page| %>
+          <%= page_item(page, class: "font-semibold underline") %>
+        <% end %>
+      </ul>
+    </nav>
+  <% end %>
+</div>

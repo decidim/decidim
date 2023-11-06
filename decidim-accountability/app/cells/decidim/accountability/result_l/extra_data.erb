@@ -1,0 +1,3 @@
+<% if component_settings.try(:display_progress_enabled?) && result.progress.present? %>
+  <div class="accountability__progress"><%= display_percentage result.progress %></div>
+<% end %>

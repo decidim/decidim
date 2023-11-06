@@ -1,31 +1,33 @@
 <% add_decidim_meta_tags({
-                             image_url: current_initiative.type.attached_uploader(:banner_image).path,
-                             description: translated_attribute(current_initiative.description),
-                             title: translated_attribute(current_initiative.title),
-                             url: initiative_url(current_initiative.id),
-                             twitter_handler: current_organization.twitter_handler
+                           image_url: current_initiative.type.attached_uploader(:banner_image).path,
+                           description: translated_attribute(current_initiative.description),
+                           title: translated_attribute(current_initiative.title),
+                           url: initiative_url(current_initiative.id),
+                           twitter_handler: current_organization.twitter_handler
                          }) %>
 
 <% add_decidim_page_title(translated_attribute(current_initiative.title)) %>
 <% provide :meta_image_url, current_initiative.type.attached_uploader(:banner_image).path %>
 
-<br><br>
-<div class="row column">
-  <h2 class="heading2"><%= translated_attribute(current_initiative.title) %></h2>
-  <%= render partial: "decidim/initiatives/initiatives/author", locals: { initiative: current_initiative } %>
-</div>
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
+  <div class="text-center py-10">
+    <h2 class="title-decorator inline-block text-left"><%= translated_attribute(current_initiative.title) %></h2>
+  </div>
 
-<div class="row">
-  <div class="columns large-12">
-    <div class="section">
+  <%= cell "decidim/coauthorships", OpenStruct.new(identities: current_initiative.committee_members.excluding_author.approved.map(&:user).reject(&:deleted?).prepend(current_initiative.author) ) %>
+
+  <div class="form__wrapper">
+
+    <span class="text-gray-2"><%= l current_initiative.published_at || current_initiative.created_at, format: :decidim_short %></span>
+
+    <div class="editor-content">
       <%= decidim_sanitize_editor translated_attribute(current_initiative.description) %>
     </div>
 
-    <div class="section">
-      <p><%= t ".help_text" %></p>
-      <%= logged_link_to t(".continue"),
-                         spawn_initiative_committee_requests_path(current_initiative),
-                         class: "title-action__action button small hollow" %>
+    <%= cell("decidim/announcement", t("decidim.initiatives.committee_requests.new.help_text"), callout_class: "secondary") %>
+
+    <div class="form__wrapper-block">
+      <%= logged_link_to t("continue", scope: "decidim.initiatives.committee_requests.new"), spawn_initiative_committee_requests_path(current_initiative), class: "button button__sm md:button__lg button__secondary", data: current_user.blank? ? { dialog_open: "loginModal" } : {} %>
     </div>
   </div>
-</div>
+<% end %>

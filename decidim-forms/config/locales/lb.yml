@@ -22,8 +22,6 @@ lb:
             choices:
               missing: sind nicht vollständig
               too_many: sind zu viele
-        questionnaire:
-          request_invalid: Bei der Bearbeitung der Anfrage ist ein Fehler aufgetreten. Bitte versuchen Sie es nochmal
   decidim:
     forms:
       admin:
@@ -111,11 +109,6 @@ lb:
           update:
             invalid: Beim Speichern des Fragebogens sind Fehler aufgetreten.
             success: Formular erfolgreich gespeichert.
-      errors:
-        answer:
-          body: Körper kann nicht leer sein
-      files:
-        extension_allowlist: 'Gültige Formate:'
       images:
         dimensions: "%{width} x %{height} px"
       question_types:
@@ -136,7 +129,6 @@ lb:
           max_choices: 'Max Auswahlmöglichkeiten: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Melden Sie sich mit Ihrem Konto an</a> oder <a href="%{sign_up_link}">Melden Sie sich an</a> , um den Fragebogen zu beantworten.
             title: Beantworten Sie den Fragebogen
           current_step: Schritt %{step}
           of_total_steps: von %{total_steps}

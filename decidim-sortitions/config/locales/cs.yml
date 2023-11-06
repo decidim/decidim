@@ -14,9 +14,9 @@ cs:
   activerecord:
     models:
       decidim/sortitions/sortition:
-        one: Sortiment
-        few: Sortitions
-        many: Sortitions
+        one: Losování
+        few: Losování
+        many: Losování
         other: Losování
   decidim:
     components:
@@ -40,7 +40,7 @@ cs:
         actions:
           destroy: Zrušit losování
           edit: Upravit
-          new: Nové losování
+          new_sortition: Nové losování
           show: Detaily losování
         models:
           sortition:
@@ -54,11 +54,6 @@ cs:
               seed: Založení
               target_items: Položky k výběru
               title: Název
-            name:
-              one: Třídění
-              few: Třídění
-              many: Sortitions
-              other: Losování
         sortitions:
           confirm_destroy:
             confirm_destroy: Opravdu chcete zrušit toto losování?
@@ -66,31 +61,30 @@ cs:
             title: Zrušení losování
           create:
             error: Při vytváření nového losování došlo k chybě.
-            success: Losování bylo úspěšně vytvořeno
+            success: Losování bylo úspěšně vytvořeno.
           destroy:
             error: Nelze zrušit losování.
-            success: Losování bylo úspěšně zrušeno
+            success: Losování bylo úspěšně zrušeno.
           edit:
             title: Aktualizovat informace o volbě losem
             update: Aktualizace
           form:
             all_categories: Všechny kategorie
             select_proposal_component: Vyberte sadu návrhů
-            title: Nové losování pro návrhy
           index:
             title: Losování
           new:
-            confirm: Stisknutím dalšího tlačítka bude platforma zaznamenávat datum a čas (s přesností sekund) a společně s kostkou, tyto informace budou použity k vytvoření náhodného výběru. Akce bude nevratná, po kliknutí na tlačítko bude výsledek tohoto remízu publikován, spolu s údaji zadanými v tomto formuláři a nelze je změnit, pečlivě zkontrolujte obsah
+            confirm: Stisknutím tlačítka Další bude platforma zaznamenávat datum a čas (s přesností sekund) společně s hodem kostkou, tyto informace budou použity k vytvoření náhodného výběru. Akce bude nevratná, po kliknutí na tlačítko bude výsledek tohoto losu publikován, spolu s údaji zadanými v tomto formuláři a nelze je změnit, pečlivě zkontrolujte obsah.
             create: Vytvořit
             title: Nové losování
           show:
             selected_proposals: Návrhy vybrané pro losování
           update:
             error: Při aktualizaci losování došlo k chybě.
-            success: Losování úspěšně aktualizováno
+            success: Losování úspěšně aktualizováno.
       admin_log:
         sortition:
-          create: "%{user_name} vytvořil %{resource_name} sortit v %{space_name}"
+          create: "%{user_name} vytvořil %{resource_name} losování v %{space_name}"
           delete: "%{user_name} zrušil losování %{resource_name} v %{space_name}"
           update: "%{user_name} aktualizoval losování %{resource_name} v %{space_name}"
       sortitions:
@@ -105,14 +99,7 @@ cs:
           all: Vše
           cancelled: Zrušeno
           category: Kategorie
-          category_prompt: Vyberte kategorii
-          search: Vyhledávání
           state: Stav
-        filters_small_view:
-          close_modal: Zavřít okno
-          filter: Filtr
-          filter_by: Filtrovat podle
-          unfold: Rozbalit
         linked_sortitions:
           selected_proposals: Vybrané návrhy
         orders:
@@ -128,17 +115,16 @@ cs:
         show:
           algorithm: Kód algoritmu losování
           any_category: ze všech kategorií
-          back: Zpět na seznam
           cancelled: Zrušené losování
           candidate_proposal_ids: Pořadí a ID návrhů k losování
           candidate_proposals_info: 'Losování bylo provedeno mezi následujícími návrhy (%{category_label}), s následujícími ID (označené tučně vybrané návrhy)  '
           category: z kategorie %{category}
-          dice_result: "(1) Výsledek hodu kostkou"
-          introduction: 'Tato stránka obsahuje výsledky losování %{reference}. Prostřednictvím tohoto losování bylo vybráno %{target_items} počet výsledků náhodně a se stejným rozdělením pravděpodobnosti ze souboru návrhů zobrazených níže. Spolu s výsledky informace zobrazené na této stránce poskytují všechny informace potřebné pro maximalizaci záruk a reprodukci výsledků. Klíčem ke kvalitě tohoto losování je dvojitá náhodnost, kterou poskytuje hod kostkou (ověřený svědky) a přesný čas výběru, který poskytuje vstup pro algoritmus, který generuje náhodný výběr. Časový základ pro losování je tak přesný(sekundy), že není možné ovládat lidi, a tak lze poskytnout dvojitý "nekontrolovatelný" vstup, který zaručí spravedlivý výsledek.  '
+          dice_result: (1) Výsledek hodu kostkou
+          introduction: "Tato stránka obsahuje výsledky losování %{reference}. Prostřednictvím tohoto losování bylo vybráno %{target_items} výsledků náhodně a se stejným rozdělením pravděpodobnosti ze souboru návrhů zobrazených níže. \n\nSpolu s výsledky informace zobrazené na této stránce poskytují všechny informace potřebné pro maximalizaci záruk a reprodukci výsledků. Klíčem ke kvalitě tohoto losování je dvojitá náhodnost, kterou poskytuje hod kostkou (ověřený svědky) a přesný čas výběru, který poskytuje vstup pro algoritmus, který generuje náhodný výběr. \n\nČasový základ pro losování je tak přesný (na sekundy), že není možné ovládat lidi, a tak lze poskytnout dvojitý \"nekontrolovatelný\" vstup, který zaručí spravedlivý výsledek.  "
           mathematical_result: Výsledek (1) x (2)
           proposals_selected_by_sortition: Návrhy vybrané losováním
           sortition_reproducibility_details: Detaily reprodukovatelnosti losování
-          time_seed: "(2) Časový základ"
+          time_seed: (2) Časový základ
           witnesses: Svědci
         sortition:
           random_seed: Náhodný časový základ
@@ -147,16 +133,15 @@ cs:
             few: vybraných návrhů
             many: vybraných návrhů
             other: vybraných návrhů
-          view: Zobrazit
         sortition_author:
           deleted: Odstraněný uživatel
         sortition_cancel_author:
           deleted: Odstraněný uživatel
         sortitions_count:
           count:
-            one: 1 sortie
-            few: "%{count} sortitions"
-            many: "%{count} sortitions"
+            one: 1 losování
+            few: "%{count} losování"
+            many: "%{count} losování"
             other: "%{count} losování"
     statistics:
       sortitions_count: Losování

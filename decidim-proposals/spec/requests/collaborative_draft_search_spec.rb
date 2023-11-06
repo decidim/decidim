@@ -14,7 +14,7 @@ RSpec.describe "Collaborative draft search", type: :request do
       settings: { collaborative_drafts_enabled: true }
     )
   end
-  let(:user) { create :user, :confirmed, organization: }
+  let(:user) { create(:user, :confirmed, organization:) }
   let(:participatory_space) { component.participatory_space }
   let(:organization) { participatory_space.organization }
   let(:filter_params) { {} }
@@ -28,10 +28,10 @@ RSpec.describe "Collaborative draft search", type: :request do
   let!(:collaborative_draft7) { create(:collaborative_draft, component:) }
 
   let(:meetings_component) { create(:component, manifest_name: "meetings", participatory_space:) }
-  let(:meeting) { create :meeting, :published, component: meetings_component }
+  let(:meeting) { create(:meeting, :published, component: meetings_component) }
 
   let(:dummy_component) { create(:component, manifest_name: "dummy", participatory_space:) }
-  let(:dummy_resource) { create :dummy_resource, component: dummy_component }
+  let(:dummy_resource) { create(:dummy_resource, component: dummy_component) }
 
   let(:request_path) { Decidim::EngineRouter.main_proxy(component).collaborative_drafts_path }
 

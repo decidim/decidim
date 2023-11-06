@@ -1,75 +1,47 @@
 <%= form_required_explanation %>
 
-<div class="field hashtags__container">
-  <%= form.text_field :title, class: "js-hashtags", value: form_presenter.title %>
-</div>
-
-<div class="field hashtags__container">
-  <%= form.text_area :body, rows: 10, class: "js-hashtags", value: form_presenter.body(extras: false).strip %>
-</div>
+<%= form.text_field :title, class: "js-hashtags", value: form_presenter.title %>
+<%= text_editor_for_proposal_body(form) %>
 
 <% if @form.component_automatic_hashtags.any? %>
-  <div class="field">
-    <%= form.label :automatic_hashtags %>
-    <div class="checkboxes hashtags">
-      <% @form.component_automatic_hashtags.each do |hashtag| %>
-        <label>
-          <%= check_box_tag "", "", { checked: true }, { disabled: true } %>#<%= hashtag %>
-        </label>
-      <% end %>
-    </div>
-  </div>
+  <%= field_set_tag form.label(:automatic_hashtags, nil, for: nil) do %>
+    <% @form.component_automatic_hashtags.each do |hashtag| %>
+      <%= form.check_box "", checked: true, disabled: true, label: "##{hashtag}", label_options: { class: "form__wrapper-checkbox-label" } %>
+    <% end %>
+  <% end %>
 <% end %>
 
 <% if @form.component_suggested_hashtags.any? %>
-  <div class="field">
-    <%= form.label :suggested_hashtags, nil, for: nil %>
-    <div class="checkboxes hashtags">
-      <%= form.collection_check_boxes :suggested_hashtags, @form.component_suggested_hashtags.map {|hashtag| [hashtag.downcase, "##{hashtag}"]}, :first, :last do |option|
-        option.label { option.check_box(checked: @form.suggested_hashtag_checked?(option.value)) + option.text }
-      end %>
-    </div>
-  </div>
+  <%= field_set_tag form.label(:suggested_hashtags, nil, for: nil) do %>
+    <%= form.collection_check_boxes :suggested_hashtags, @form.component_suggested_hashtags.map { |hashtag| [hashtag.downcase, "##{hashtag}"] }, :first, :last do |option|
+          option.label(class: "form__wrapper-checkbox-label") { option.check_box(checked: @form.suggested_hashtag_checked?(option.value)) + option.text }
+        end %>
+  <% end %>
 <% end %>
 
 <% if @form.geocoding_enabled? %>
-  <div class="field">
-    <%= form.check_box :has_address, checked: form_has_address? %>
-  </div>
-
-  <div class="field" id="address_input">
-    <%= form.geocoding_field :address %>
-  </div>
+  <%= form.geocoding_field :address %>
 <% end %>
 
 <% if @form.categories&.any? %>
-  <div class="field">
-    <%= form.categories_select :category_id, @form.categories, include_blank: t("decidim.proposals.collaborative_drafts.edit.select_a_category") %>
-  </div>
+  <%= form.categories_select :category_id, @form.categories, include_blank: t("decidim.proposals.collaborative_drafts.edit.select_a_category") %>
 <% end %>
 
 <% if current_component.has_subscopes? %>
-  <div class="field">
-    <%= scopes_picker_field form, :scope_id, root: current_component.scope %>
-  </div>
-<% end %>
-
-<% if current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
-  <div class="field">
-    <%= user_group_select_field form, :user_group_id %>
-  </div>
+  <%= scopes_select_field form, :scope_id, root: current_component.scope %>
 <% end %>
 
 <% if component_settings.attachments_allowed? %>
-  <fieldset class="attachments_container">
-    <legend><%= t("attachment_legend", scope: "decidim.proposals.collaborative_drafts.edit") %></legend>
-    <div class="row column">
-      <%= form.attachment :documents,
-        multiple: false,
-        label: t("decidim.proposals.collaborative_drafts.new.add_file"),
-        button_label: t("decidim.proposals.collaborative_drafts.new.add_file"),
-        button_edit_label: t("decidim.proposals.collaborative_drafts.new.edit_file"),
-        help_i18n_scope: "decidim.forms.file_help.file" %>
-    </div>
-  </fieldset>
+  <%= form.attachment :documents,
+                      multiple: false,
+                      label: t("decidim.proposals.collaborative_drafts.new.add_file"),
+                      button_label: t("decidim.proposals.collaborative_drafts.new.add_file"),
+                      button_edit_label: t("decidim.proposals.collaborative_drafts.new.edit_file"),
+                      button_class: "button button__lg button__transparent-secondary w-full",
+                      help_text: t("attachment_legend", scope: "decidim.proposals.collaborative_drafts.edit"),
+                      help_i18n_scope: "decidim.forms.file_help.file" %>
+<% end %>
+
+<% if current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
+  <%= user_group_select_field form, :user_group_id %>
 <% end %>

@@ -3,6 +3,7 @@ ar:
     models:
       decidim/comments/comment_by_followed_user_event: تعليق
       decidim/comments/comment_created_event: تعليق
+      decidim/comments/comment_upvoted_event: تم التصويت للتعليق
       decidim/comments/reply_created_event: تعليق الرد
       decidim/comments/user_group_mentioned_event: أشير
       decidim/comments/user_mentioned_event: أشير
@@ -24,25 +25,37 @@ ar:
         other: الأصوات
   decidim:
     comments:
-      comments_title: التعليقات
-      last_activity:
-        new_comment_at_html: "<span>تعليق جديد على %{link}</span>"
+      admin:
+        shared:
+          availability_fields:
+            enabled: تم تمكين التعليقات
+            end_time: التعليقات ممكنة حتى
+            start_time: التعليقات ممكنة من
+      comments:
+        create:
+          error: طرأت مشكلة خلال إنشاء التعليق.
+        update:
+          error: طرأت مشكلة خلال تحديث التعليق.
+      comments_count: تعداد التعليقات
       votes:
         create:
           error: حدثت مشكلة في التصويت على التعليق.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">سجل الدخول بحسابك</a> أو <a href="%{sign_up_url}">اشترك</a> لإضافة تعليقك.
         form:
           body:
             label: تعليق
             placeholder: ما رأيك بهذا؟
-          form_error: النص مطلوب ولا يمكن أن يكون أطول من %{length} حرف.
-          submit: إرسال
           user_group_id:
             label: التعليق باسم
         opinion:
+          label: رأيك حول هذا الموضوع
+          negative: سلبي
+          negative_selected: رأيك في هذا الموضوع سلبي
           neutral: محايد
+          neutral_selected: رأيك في هذا الموضوع محايد
+          positive: إيجابي
+          positive_selected: رأيك في هذا الموضوع إيجابي
         remaining_characters: "%{count} الحروف المتبقية"
         remaining_characters_1: "%{count} حرف اليسار"
         title: أضف تعليقك
@@ -50,10 +63,14 @@ ar:
         alignment:
           against: ضد
           in_favor: لصالح
+        confirm_destroy: هل حقا تريد حذف هذا التعليق؟
         delete: حذف
+        deleted_at: تم حذف التعليق في %{date}
         deleted_user: مشارك محذوف
         edit: تعديل
+        edited: تم التعديل
         hide_replies: إخفاء الردود
+        moderated_at: تمت مراجعة التعليق على %{date}
         reply: الرد
         report:
           action: أبلغ عن
@@ -62,10 +79,10 @@ ar:
           description: هل هذا المحتوى غير مناسب؟
           details: تعليقات اضافية
           reasons:
-            does_not_belong: يحتوي على نشاط غير قانوني أو تهديدات انتحارية أو معلومات شخصية أو أي شيء آخر تعتقد أنه لا ينتمي إلى %{organization_name}.
             offensive: يحتوي على العنصرية والتمييز الجنسي والتشهير والهجمات الشخصية والتهديدات بالقتل أو طلبات الانتحار أو أي شكل من أشكال خطاب الكراهية.
             spam: يحتوي على clickbait أو الإعلان أو الخدع أو روبوت البرامج النصية.
-        show_replies: اظهر الردود الـ %{replies_count}
+          title: الإبلاغ عن محتوى غير لائق
+        single_comment_link_title: أحصل على الرابط
       comment_order_selector:
         order:
           best_rated: أفضل تصنيف
@@ -73,16 +90,33 @@ ar:
           older: اكبر سنا
           recent: الأخيرة
         title: 'ترتيب حسب:'
-      comment_thread:
-        title: المحادثة مع %{authorName}
       comments:
+        blocked_comments_for_unauthorized_user_warning: يجب أن تكون عضوا محققا من أجل التعليق حالياً، ولكن يمكنك قراءة ما سبق.
         blocked_comments_for_user_warning: لا يمكنك التعليق في هذه اللحظة ، ولكن يمكنك قراءة التعليقات السابقة.
         blocked_comments_warning: التعليقات معطلة في هذا الوقت ، لكن يمكنك قراءة التعليقات السابقة.
         comment_details_title: تفاصيل التعليق
         loading: جارٍ تحميل التعليقات ...
+        single_comment_warning: <a href="%{url}"> عرض جميع التعليقات</a>
         single_comment_warning_title: إنك ترى تعليقا واحدا
+        title:
+          zero: "%{count} تعليقات"
+          one: "%{count} تعليق"
+          two: "%{count} تعليقان"
+          few: "%{count} تعليقات"
+          many: "%{count} تعليقات"
+          other: "%{count} تعليقات"
+      down_vote_button:
+        text: أنا لا أوافق على هذا التعليق
       edit_comment_modal_form:
         close: أغلق
+        form:
+          body:
+            label: التعليق
+            placeholder: ما رأيك في هذا؟
+          submit: إرسال
+        title: تعديل تعليقك
+      up_vote_button:
+        text: أنا أوافق على هذا التعليق
     events:
       comments:
         comment_by_followed_user:
@@ -91,6 +125,8 @@ ar:
           email_subject: هناك تعليق جديد مِن %{author_name} على %{resource_title}
           notification_title: هناك تعليق جديد مِن <a href="%{author_path}">%{author_name} %{author_nickname}</a> على <a href="%{resource_path}">%{resource_title}</a>.
         comment_by_followed_user_group:
+          email_intro: 'المجموعة %{author_name} تركت تعليقا في %{resource_title}. يمكنك قراءته على هذه الصفحة:'
+          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{author_name}. يمكنك إلغاء متابعة هذه المجموعة من صفحتها الأساسية.
           email_subject: هناك تعليق جديد مِن %{author_name} على %{resource_title}
           notification_title: هناك تعليق جديد مِن <a href="%{author_path}">%{author_name} %{author_nickname}</a> على <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
@@ -98,11 +134,26 @@ ar:
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع "%{resource_title}" أو مؤلفه. يمكنك إلغاء تتبعه من الرابط السابق.
           email_subject: هناك تعليق جديد من %{author_name} في %{resource_title}
           notification_title: هناك تعليق جديد مِن <a href="%{author_path}">%{author_name} %{author_nickname}</a> على <a href="%{resource_path}">%{resource_title}</a>
+        comment_downvoted:
+          email_intro: تم خفض تعليقك في "%{resource_title}". الآن يحتوي على ما مجموعه %{upvotes} أصوات أعلى و %{downvotes} أصوات أدنى.
+          email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف هذا التعليق.
+          email_subject: تم خفض تعليقك في "%{resource_title}".
+          notification_title: تم خفض <a href="%{resource_path}">تعليقك </a> في "%{resource_title}". الآن يحتوي على ما مجموعه %{upvotes} أصوات أعلى و %{downvotes} أصوات أدنى.
+        comment_upvoted:
+          email_intro: تم التصويت على تعليقك في "%{resource_title}". الآن يحتوي على ما مجموعه %{upvotes} أصوات أعلى و %{downvotes} أصوات أدنى.
+          email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف هذا التعليق.
+          email_subject: تم التصويت للأعلى على تعليقك في "%{resource_title}".
+          notification_title: تم التصويت للأعلى على تعليقك <a href="%{resource_path}"></a> في "%{resource_title}". الآن لديه مجموع %{upvotes} أصوات أعلى و %{downvotes} أصوات أسفل.
         reply_created:
           email_intro: "%{author_name} رد على تعليقك في %{resource_title}. يمكنك قراءتها في هذه الصفحة:"
           email_outro: لقد تلقيت هذا الإشعار لأنه تم الرد على تعليقك.
           email_subject: "%{author_name} رد على تعليقك في %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> رد على تعليقك في <a href="%{resource_path}">%{resource_title}</a>
+        user_group_mentioned:
+          email_intro: تم ذكر مجموعة تنتمي إليها
+          email_outro: لقد تلقيت هذا الإشعار لأنك عضو في المجموعة %{group_name} التي ذكرت في %{resource_title}.
+          email_subject: تم ذكرك في %{resource_title} كعضو في %{group_name}
+          notification_title: لقد ذكرت في <a href="%{resource_path}">%{resource_title}</a> بواسطة <a href="%{author_path}">%{author_name} %{author_nickname}</a> كعضو في <a href="%{group_path}">%{group_name} %{group_nickname}</a>
         user_mentioned:
           email_intro: لقد ذكرت
           email_outro: لقد تلقيت هذا الإشعار لأنك ذكرت في %{resource_title}.
@@ -113,6 +164,3 @@ ar:
         description: عدد التعليقات الناتجة عن المشاركين
         object: تعليقات
         title: تعليقات
-  errors:
-    messages:
-      cannot_have_comments: لا يمكن أن يكون لديك تعليقات

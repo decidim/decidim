@@ -15,7 +15,10 @@ module Decidim
 
       routes do
         resources :posts, only: [:index, :show]
-        root to: "posts#index"
+        scope "/posts" do
+          root to: "posts#index"
+        end
+        get "/", to: redirect("posts", status: 301)
       end
 
       initializer "decidim_blogs.add_cells_view_paths" do
@@ -25,6 +28,14 @@ module Decidim
 
       initializer "decidim_blogs.webpacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
+      end
+
+      initializer "decidim_blogs.authorization_transfer" do
+        config.to_prepare do
+          Decidim::AuthorizationTransfer.register(:blogs) do |transfer|
+            transfer.move_records(Decidim::Blogs::Post, :decidim_author_id)
+          end
+        end
       end
     end
   end

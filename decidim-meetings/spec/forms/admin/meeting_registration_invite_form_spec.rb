@@ -6,7 +6,7 @@ module Decidim::Meetings
   describe Admin::MeetingRegistrationInviteForm do
     subject(:form) { described_class.from_params(attributes).with_context(context) }
 
-    let(:organization) { create :organization }
+    let(:organization) { create(:organization) }
     let(:context) do
       {
         current_organization: organization
@@ -67,7 +67,7 @@ module Decidim::Meetings
         context "when the user exists" do
           let(:user_id) { create(:user, organization:).id }
 
-          it { is_expected.to be_kind_of(Decidim::User) }
+          it { is_expected.to be_a(Decidim::User) }
         end
 
         context "when the user does not exist" do

@@ -1,20 +1,21 @@
 <% if meetings.any? %>
-<hr class="reset mt-none mb-m">
-<section class="section" id="venues">
-  <h3 class="section-heading"><%= t("conference_venues", scope: "decidim.meetings") %></h3>
-  <div class="row">
-    <div class="column medium-4">
-      <% meetings.each do |meeting_block| %>
-        <% meeting_block.last.each_with_index do |meeting, index| %>
-          <% next if index != 0 %>
-          <%== cell("decidim/conferences/conference_address", meeting) %>
-        <% end %>
-      <% end %>
+  <section id="venues" class="content-block">
+    <h2 class="h2 decorator"><%= t("conference_venues", scope: "decidim.meetings") %></h2>
+    <div class="conference__map">
+      <div>
+        <% meetings.each do |meeting_block| %>
+          <% next if meeting_block.first.empty? %>
 
+          <% meeting_block.last.each_with_index do |meeting, index| %>
+            <% next if index != 0 %>
+
+            <div class="conference__map-address">
+              <%== cell("decidim/address", meeting) %>
+            </div>
+          <% end %>
+        <% end %>
       </div>
-    <div class="column medium-8">
       <%= cell "decidim/meetings/meetings_map", meetings_geocoded %>
     </div>
-  </div>
-</section>
+  </section>
 <% end %>

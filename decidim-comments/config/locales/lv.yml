@@ -18,20 +18,15 @@ lv:
         other: Balsis
   decidim:
     comments:
-      last_activity:
-        new_comment_at_html: "<span>Jauns komentārs %{link}</span>"
       votes:
         create:
           error: Balsojot par komentāru, radās problēma.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Pierakstieties, izmantojot savu kontu</a> vai <a href="%{sign_up_url}"> reģistrējieties, </a>, lai pievienotu komentāru.
         form:
           body:
             label: Komentēt
             placeholder: Ko tu domā par šo?
-          form_error: Šis teksts ir nepieciešams, un tas nedrīkst būt garāks par %{length} rakstzīmēm.
-          submit: Sūtīt
           user_group_id:
             label: Komentēt kā
         opinion:
@@ -53,10 +48,8 @@ lv:
           description: Vai šis saturs ir neatbilstīgs?
           details: Papildu komentāri
           reasons:
-            does_not_belong: Satur nelikumīgas darbības, pašnāvības draudus, personisku informāciju vai kaut ko citu, kam, jūsuprāt, nav vietas %{organization_name}.
             offensive: Satur rasismu, seksismu, lamuvārdus, personiskus uzbrukumus, nāves draudus, ierosinājumus veikt pašnāvību vai jebkāda veida naida runu.
             spam: Satur klikšķu ēsmu (clickbait), reklāmu, krāpšanu vai skriptu robotprogrammatūru.
-        show_replies: Rādīt %{replies_count} atbildes
       comment_order_selector:
         order:
           best_rated: Vislabāk novērtētie
@@ -64,8 +57,6 @@ lv:
           older: Vecāki
           recent: Nesenie
         title: 'Sakārtot pēc:'
-      comment_thread:
-        title: Saruna ar %{authorName}
       comments:
         blocked_comments_for_user_warning: Pašlaik jūs nevarat komentēt, bet jūs varat izlasīt iepriekšējos komentārus.
         blocked_comments_warning: Komentāri šobrīd ir atspējoti, bet jūs varat lasīt iepriekšējos komentārus.
@@ -109,6 +100,3 @@ lv:
         description: Dalībnieku izveidoto komentāru skaits
         object: komentāri
         title: Komentāri
-  errors:
-    messages:
-      cannot_have_comments: nevar komentēt

@@ -17,17 +17,7 @@ lb:
         new: Neuer Beitrag
         title: Aktionen
       admin:
-        models:
-          components:
-            body: Haupttext
-          post:
-            name: Post
         posts:
-          create:
-            invalid: Beim Erstellen dieses Posts ist ein Problem aufgetreten
-            success: Post erfolgreich erstellt
-          destroy:
-            success: Beitrag wurde erfolgreich gelöscht
           edit:
             save: Aktualisieren
             title: Post bearbeiten
@@ -38,25 +28,11 @@ lb:
             title: Post erstellen
           update:
             invalid: Beim Speichern des Posts sind Fehler aufgetreten.
-            success: Beitrag wurde erfolgreich gespeichert
-      last_activity:
-        new_post_at_html: "<span>Neuer Beitrag bei %{link}</span>"
       models:
         post:
           fields:
             author: Autor
             body: Haupttext
-            created_at: Hergestellt in
-            title: Titel
-      posts:
-        show:
-          back: Zurück zur Liste
-          comments: Kommentare
-          view: Anzeigen
-        sidebar_blog:
-          comments: Bemerkungen
-          most_commented_posts: Meist kommentierte Posts
-      read_more: Weiterlesen
     components:
       blogs:
         name: Blog

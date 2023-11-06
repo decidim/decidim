@@ -5,10 +5,10 @@ require "spec_helper"
 describe "Homepage votings content blocks", type: :system do
   let(:organization) { create(:organization) }
   let(:show_statistics) { true }
-  let!(:promoted_voting) { create(:voting, :promoted, organization:) }
+  let!(:promoted_voting) { create(:voting, :promoted, :with_content_blocks, organization:, blocks_manifests: [:title]) }
 
   before do
-    create :content_block, organization: organization, scope_name: :homepage, manifest_name: :highlighted_votings
+    create(:content_block, organization:, scope_name: :homepage, manifest_name: :highlighted_votings)
     switch_to_host(organization.host)
   end
 
@@ -27,7 +27,7 @@ describe "Homepage votings content blocks", type: :system do
     end
   end
 
-  context "when there's only one voting" do
+  context "when there is only one voting" do
     it "redirects to the voting page" do
       visit decidim.root_path
       click_link "Votings"

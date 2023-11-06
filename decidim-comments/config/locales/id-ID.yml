@@ -14,20 +14,15 @@ id:
         other: Voting
   decidim:
     comments:
-      last_activity:
-        new_comment_at_html: "<span>Komentar baru di %{link}</span>"
       votes:
         create:
           error: Terjadi masalah saat memilih komentar.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Masuk dengan akun Anda</a> atau <a href="%{sign_up_url}">mendaftar</a> untuk menambahkan komentar Anda.
         form:
           body:
             label: Komentar
             placeholder: Apa yang Anda pikirkan tentang ini?
-          form_error: Teks diperlukan dan tidak boleh lebih dari %{length} karakter.
-          submit: Kirim
           user_group_id:
             label: Beri komentar sebagai
         opinion:
@@ -48,7 +43,6 @@ id:
           description: Apakah konten ini tidak pantas?
           details: Komentar tambahan
           reasons:
-            does_not_belong: Berisi aktivitas ilegal, ancaman bunuh diri, informasi pribadi, atau sesuatu yang menurut Anda bukan milik %{organization_name}
             offensive: Berisi rasisme, seksisme, penghinaan, serangan pribadi, ancaman kematian, permintaan bunuh diri atau segala bentuk pidato kebencian.
             spam: Berisi clickbait, iklan, penipuan atau bot skrip.
       comment_order_selector:
@@ -58,8 +52,6 @@ id:
           older: Lebih tua
           recent: Baru
         title: 'Dipesan oleh:'
-      comment_thread:
-        title: Percakapan dengan %{authorName}
       comments:
         blocked_comments_for_user_warning: Anda tidak dapat berkomentar saat ini, tetapi Anda dapat membaca yang sebelumnya.
         blocked_comments_warning: Komentar dinonaktifkan saat ini, tetapi Anda dapat membaca yang sebelumnya.
@@ -94,6 +86,3 @@ id:
         description: Jumlah komentar yang dihasilkan oleh peserta
         object: komentar
         title: Komentar
-  errors:
-    messages:
-      cannot_have_comments: tidak dapat memiliki komentar

@@ -8,8 +8,8 @@ module Decidim
       describe DestroyPollingStation do
         subject { described_class.new(polling_station, user) }
 
-        let(:polling_station) { create :polling_station }
-        let(:user) { create :user, :admin, organization: polling_station.voting.organization }
+        let(:polling_station) { create(:polling_station) }
+        let(:user) { create(:user, :admin, organization: polling_station.voting.organization) }
 
         context "when everything is ok" do
           it "destroys the polling station" do

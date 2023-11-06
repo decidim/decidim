@@ -36,39 +36,46 @@ describe Decidim::TagsCell, type: :cell do
   let(:meeting_scoped_categorized) { create(:meeting, component: component_meetings, scope:, category:) }
 
   context "when a resource has no tags" do
-    it "doesn't render the tags of a proposal" do
+    it "does not render the tags of a proposal" do
       html = cell("decidim/tags", proposal_no_tags, context: { extra_classes: ["tags--proposal"] }).call
-      expect(html).not_to have_css(".tags.tags--proposal")
+      expect(html).not_to have_css(".tag-container.tags--proposal")
     end
 
-    it "doesn't render the tags of a meeting" do
+    it "does not render the tags of a meeting" do
       html = cell("decidim/tags", meeting_no_tags, context: { extra_classes: ["tags--meeting"] }).call
-      expect(html).not_to have_css(".tags.tags--meeting")
+      expect(html).not_to have_css(".tag-container.tags--meeting")
     end
   end
 
   context "when a resource has scope or subscope" do
     it "renders the scope of a proposal" do
       html = cell("decidim/tags", proposal_scoped, context: { extra_classes: ["tags--proposal"] }).call
-      expect(html).to have_css(".tags.tags--proposal")
+      expect(html).to have_css(".tag-container.tags--proposal")
       expect(html).to have_content(translated(scope.name))
+    end
+
+    it "renders the correct filtering link" do
+      html = cell("decidim/tags", proposal_scoped, context: { extra_classes: ["tags--proposal"] }).call
+      path = Decidim::ResourceLocatorPresenter.new(proposal_scoped).index
+      query = { filter: { with_any_scope: [scope.id] } }.to_query
+      expect(html).to have_css(%(a[href="#{path}?#{query}"]))
     end
 
     it "renders the subscope of a proposal" do
       html = cell("decidim/tags", proposal_subscoped, context: { extra_classes: ["tags--proposal"] }).call
-      expect(html).to have_css(".tags.tags--proposal")
+      expect(html).to have_css(".tag-container.tags--proposal")
       expect(html).to have_content(translated(subscope.name))
     end
 
     it "renders the scope of a meeting" do
       html = cell("decidim/tags", meeting_scoped, context: { extra_classes: ["tags--meeting"] }).call
-      expect(html).to have_css(".tags.tags--meeting")
+      expect(html).to have_css(".tag-container.tags--meeting")
       expect(html).to have_content(translated(scope.name))
     end
 
     it "renders the subscope of a meeting" do
       html = cell("decidim/tags", meeting_subscoped, context: { extra_classes: ["tags--meeting"] }).call
-      expect(html).to have_css(".tags.tags--meeting")
+      expect(html).to have_css(".tag-container.tags--meeting")
       expect(html).to have_content(translated(subscope.name))
     end
   end
@@ -76,25 +83,32 @@ describe Decidim::TagsCell, type: :cell do
   context "when a resource has category or subcategory" do
     it "renders the category of a proposal" do
       html = cell("decidim/tags", proposal_categorized, context: { extra_classes: ["tags--proposal"] }).call
-      expect(html).to have_css(".tags.tags--proposal")
+      expect(html).to have_css(".tag-container.tags--proposal")
       expect(html).to have_content(translated(category.name))
+    end
+
+    it "renders the correct filtering link" do
+      html = cell("decidim/tags", proposal_categorized, context: { extra_classes: ["tags--proposal"] }).call
+      path = Decidim::ResourceLocatorPresenter.new(proposal_categorized).index
+      query = { filter: { with_any_category: [category.id] } }.to_query
+      expect(html).to have_css(%(a[href="#{path}?#{query}"]))
     end
 
     it "renders the subcategory of a proposal" do
       html = cell("decidim/tags", proposal_subcategorized, context: { extra_classes: ["tags--proposal"] }).call
-      expect(html).to have_css(".tags.tags--proposal")
+      expect(html).to have_css(".tag-container.tags--proposal")
       expect(html).to have_content(translated(subcategory.name))
     end
 
     it "renders the category of a meeting" do
       html = cell("decidim/tags", meeting_categorized, context: { extra_classes: ["tags--meeting"] }).call
-      expect(html).to have_css(".tags.tags--meeting")
+      expect(html).to have_css(".tag-container.tags--meeting")
       expect(html).to have_content(translated(category.name))
     end
 
     it "renders the subcategory of a meeting" do
       html = cell("decidim/tags", meeting_subcategorized, context: { extra_classes: ["tags--meeting"] }).call
-      expect(html).to have_css(".tags.tags--meeting")
+      expect(html).to have_css(".tag-container.tags--meeting")
       expect(html).to have_content(translated(subcategory.name))
     end
   end
@@ -102,14 +116,14 @@ describe Decidim::TagsCell, type: :cell do
   context "when a resource has scope and category" do
     it "renders the scope and category of a proposal" do
       html = cell("decidim/tags", proposal_scoped_categorized, context: { extra_classes: ["tags--proposal"] }).call
-      expect(html).to have_css(".tags.tags--proposal")
+      expect(html).to have_css(".tag-container.tags--proposal")
       expect(html).to have_content(translated(scope.name))
       expect(html).to have_content(translated(category.name))
     end
 
     it "renders the scope and category of a meeting" do
       html = cell("decidim/tags", meeting_scoped_categorized, context: { extra_classes: ["tags--meeting"] }).call
-      expect(html).to have_css(".tags.tags--meeting")
+      expect(html).to have_css(".tag-container.tags--meeting")
       expect(html).to have_content(translated(scope.name))
       expect(html).to have_content(translated(category.name))
     end

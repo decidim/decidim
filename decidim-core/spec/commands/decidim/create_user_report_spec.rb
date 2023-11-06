@@ -31,7 +31,7 @@ module Decidim
           expect { command.call }.to broadcast(:invalid)
         end
 
-        it "doesn't create the report" do
+        it "does not create the report" do
           expect { command.call }.not_to change(UserReport, :count)
         end
       end
@@ -82,7 +82,7 @@ module Decidim
           end
         end
 
-        it "doesnt send an email to the admin when he/she doesnt allow it" do
+        it "does not send an email to the admin when he/she does not allow it" do
           allow(UserReportJob).to receive(:perform_later).and_call_original
           command.call
           expect(UserReportJob).not_to have_received(:perform_later).with(admin_no_moderation_mail, a_kind_of(Decidim::UserReport))
@@ -96,7 +96,7 @@ module Decidim
             end
           end
 
-          it "doesn't create an additional moderation" do
+          it "does not create an additional moderation" do
             expect { command.call }.not_to change(UserModeration, :count)
 
             last_moderation = UserModeration.last

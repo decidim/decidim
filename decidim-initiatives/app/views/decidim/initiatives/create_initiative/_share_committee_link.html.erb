@@ -1,24 +1,19 @@
-<div class="card__content">
-  <%= t ".invite_to_committee_help" %>
-
-  <div class="card card--list">
-    <div class="card--list__item">
-      <div class="card--list__text">
-        <div>
-          <h6 class="card--list__heading heading6 lowercase" id="committee_link">
-            <%= decidim_initiatives.new_initiative_committee_request_url(current_initiative) %>
-          </h6>
-        </div>
-      </div>
-      <div class="card--list__data">
-        <%= icon_link_to "clipboard", "#", t(".invite_to_committee_help"), class: "card--list__data__icon invite-users-link" %>
-      </div>
+<div class="block">
+  <span class="help-text mb-2">
+    <%= t ".invite_to_committee_help" %>
+  </span>
+  <div class="initiative__form__committee">
+    <span>
+      <%= decidim_initiatives.new_initiative_committee_request_url(current_initiative) %>
+    </span>
+    <div class="ml-auto fill-secondary inline-block">
+      <button type="button" class="button button__sm button__text-secondary" data-clipboard-copy="#urlShareLink-committee">
+        <%= render_committee_tooltip %>
+        <span class="sr-only"><%= t("decidim.shared.share_modal.copy_share_link") %></span>
+      </button>
+      <input id="urlShareLink-committee" type="text" class="!hidden" value="<%= decidim_initiatives.new_initiative_committee_request_url(current_initiative) %>" readonly>
     </div>
   </div>
 </div>
 
-<div class="column actions">
-  <%= link_to t(".continue"), next_wizard_path, class: "button expanded" %>
-</div>
-
-<%= javascript_pack_tag "decidim_initiatives_admin" %>
+<%= append_javascript_pack_tag "decidim_initiatives_admin" %>

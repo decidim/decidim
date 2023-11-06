@@ -19,12 +19,11 @@ describe Decidim::Votings::VotingCell, type: :cell do
     let(:model) { voting }
 
     it "renders the card" do
-      expect(subject).to have_css(".card--voting")
+      expect(subject).to have_css("[id^=votings__voting]")
     end
 
     it "renders the title and text" do
-      expect(subject).to have_css(".card__title")
-      expect(subject).to have_css(".card__text")
+      expect(subject).to have_content(translated(model.title))
     end
   end
 end

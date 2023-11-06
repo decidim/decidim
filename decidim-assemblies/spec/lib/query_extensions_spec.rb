@@ -23,7 +23,7 @@ module Decidim
       end
 
       describe "assembliesType" do
-        let(:query) { %({ assembliesType(id: \"#{id}\") { id }}) }
+        let(:query) { %({ assembliesType(id: "#{id}") { id }}) }
 
         context "with a assemblies type that belongs to the current organization" do
           let!(:assemblies_type) { create(:assemblies_type, organization: current_organization) }
@@ -59,7 +59,7 @@ module Decidim
       end
 
       describe "assembly" do
-        let(:query) { %({ assembly(id: \"#{id}\") { id }}) }
+        let(:query) { %({ assembly(id: "#{id}") { id }}) }
 
         context "with a participatory assembly that belongs to the current organization" do
           let!(:assembly) { create(:assembly, organization: current_organization) }

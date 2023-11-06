@@ -58,10 +58,7 @@ pt-BR:
           update:
             invalid: Houve erros ao salvar a pesquisa.
             success: Pesquisa salva com sucesso.
-      last_activity:
-        new_survey_at_html: "<span>Nova pesquisa em %{link}</span>"
       surveys:
         answer:
           invalid: Houve erros ao responder a pesquisa.
-          spam_detected: Houve algum problema ao responder ao formulário. Talvez você tenha sido rápido demais, pode tentar novamente?
           success: Pesquisa respondida com sucesso.

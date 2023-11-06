@@ -43,7 +43,7 @@ class DummyAuthorizationHandler < Decidim::AuthorizationHandler
   # be created or not, you should return a Boolean value.
   #
   # Note that if you set some validations and overwrite this method, then the
-  # validations will not run, so it's easier to remove this method and rewrite
+  # validations will not run, so it is easier to remove this method and rewrite
   # your logic using ActiveModel validations.
   #
   # def valid?
@@ -66,7 +66,7 @@ class DummyAuthorizationHandler < Decidim::AuthorizationHandler
   # can do it here.
   #
   # You must return a Hash that will be serialized to the authorization when
-  # it's created, and available though authorization.metadata
+  # it is created, and available though authorization.metadata
   #
   def metadata
     super.merge(document_number:, postal_code:, scope_id:)

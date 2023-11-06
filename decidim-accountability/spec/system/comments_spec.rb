@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Accountability result comments", versioning: true, type: :system do
+describe "Accountability result comments", type: :system, versioning: true do
   let!(:component) { create(:component, manifest_name: :accountability, organization:) }
   let!(:commentable) { create(:result, component:) }
 

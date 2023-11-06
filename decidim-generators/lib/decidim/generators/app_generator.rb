@@ -55,11 +55,11 @@ module Decidim
 
       class_option :skip_bundle, type: :boolean,
                                  default: true, # this is to avoid installing gems in this step yet (done by InstallGenerator)
-                                 desc: "Don't run bundle install"
+                                 desc: "Do not run bundle install"
 
       class_option :skip_gemfile, type: :boolean,
                                   default: false,
-                                  desc: "Don't generate a Gemfile for the application"
+                                  desc: "Do not generate a Gemfile for the application"
 
       class_option :demo, type: :boolean,
                           default: false,
@@ -71,7 +71,7 @@ module Decidim
 
       class_option :force_ssl, type: :string,
                                default: "true",
-                               desc: "Doesn't force to use ssl"
+                               desc: "Does not force to use ssl"
 
       class_option :locales, type: :string,
                              default: "",
@@ -87,7 +87,16 @@ module Decidim
 
       class_option :skip_webpack_install, type: :boolean,
                                           default: true,
-                                          desc: "Don't run Webpack install"
+                                          desc: "Do not run Webpack install"
+
+      class_option :dev_ssl, type: :boolean,
+                             default: false,
+                             desc: "Do not add Puma development SSL configuration options"
+
+      # we disable the webpacker installation as we will use shakapacker
+      def webpacker_gemfile_entry
+        []
+      end
 
       def database_yml
         template "database.yml.erb", "config/database.yml", force: true
@@ -118,6 +127,18 @@ module Decidim
         template "LICENSE-AGPLv3.txt", "LICENSE-AGPLv3.txt"
       end
 
+      def rubocop
+        copy_file ".rubocop.yml", ".rubocop.yml"
+      end
+
+      def ruby_version
+        copy_file ".ruby-version", ".ruby-version", force: true
+      end
+
+      def node_version
+        copy_file ".node-version", ".node-version"
+      end
+
       def gemfile
         return if options[:skip_gemfile]
 
@@ -138,7 +159,7 @@ module Decidim
 
         gsub_file "Gemfile", /gem "decidim-dev".*/, "gem \"decidim-dev\", #{gem_modifier}"
 
-        %w(conferences consultations elections initiatives templates).each do |component|
+        %w(conferences elections initiatives templates).each do |component|
           if options[:demo]
             gsub_file "Gemfile", /gem "decidim-#{component}".*/, "gem \"decidim-#{component}\", #{gem_modifier}"
           else
@@ -202,26 +223,38 @@ module Decidim
         end
       end
 
-      def tweak_bootsnap
-        gsub_file "config/boot.rb", %r{require 'bootsnap/setup'.*$}, <<~RUBY.rstrip
-          require "bootsnap"
-
-          env = ENV["RAILS_ENV"] || "development"
-
-          Bootsnap.setup(
-            cache_dir: File.expand_path(File.join("..", "tmp", "cache"), __dir__),
-            development_mode: env == "development",
-            load_path_cache: true,
-            compile_cache_iseq: !ENV["SIMPLECOV"],
-            compile_cache_yaml: true
-          )
-        RUBY
-      end
-
       def tweak_spring
         return unless File.exist?("config/spring.rb")
 
         prepend_to_file "config/spring.rb", "require \"decidim/spring\"\n\n"
+      end
+
+      def tweak_csp_initializer
+        return unless File.exist?("config/initializers/content_security_policy.rb")
+
+        remove_file("config/initializers/content_security_policy.rb")
+        create_file "config/initializers/content_security_policy.rb" do
+          %(# For tuning the Content Security Policy, check the Decidim documentation site
+# https://docs.decidim.org/develop/en/customize/content_security_policy)
+        end
+      end
+
+      def puma_ssl_options
+        return unless options[:dev_ssl]
+
+        append_file "config/puma.rb", <<~CONFIG
+
+          # Development SSL
+          if ENV["DEV_SSL"] && defined?(Bundler) && (dev_gem = Bundler.load.specs.find { |spec| spec.name == "decidim-dev" })
+            cert_dir = ENV.fetch("DEV_SSL_DIR") { "\#{dev_gem.full_gem_path}/lib/decidim/dev/assets" }
+            ssl_bind(
+              "0.0.0.0",
+              ENV.fetch("DEV_SSL_PORT") { 3443 },
+              cert_pem: File.read("\#{cert_dir}/ssl-cert.pem"),
+              key_pem: File.read("\#{cert_dir}/ssl-key.pem")
+            )
+          end
+        CONFIG
       end
 
       def modify_gitignore
@@ -254,6 +287,10 @@ module Decidim
         remove_file "public/500.html"
       end
 
+      def remove_default_favicon
+        remove_file "public/favicon.ico"
+      end
+
       def decidim_initializer
         copy_file "initializer.rb", "config/initializers/decidim.rb"
 
@@ -278,6 +315,26 @@ module Decidim
         gsub_file "config/initializers/decidim.rb",
                   /#{Regexp.escape("config.available_locales = Rails.application.secrets.decidim[:available_locales].presence || [:en]")}/,
                   "# config.available_locales = Rails.application.secrets.decidim[:available_locales].presence || [:en]"
+      end
+
+      def dev_performance_config
+        gsub_file "config/environments/development.rb", /^end\n$/, <<~CONFIG
+
+            # Performance configs for local testing
+            if ENV.fetch("RAILS_BOOST_PERFORMANCE", false).to_s == "true"
+              # Indicate boost performance mode
+              config.boost_performance = true
+              # Enable caching and eager load
+              config.eager_load = true
+              config.cache_classes = true
+              # Logging
+              config.log_level = :info
+              config.action_view.logger = nil
+              # Compress the HTML responses with gzip
+              config.middleware.use Rack::Deflater
+            end
+          end
+        CONFIG
       end
 
       def authorization_handler

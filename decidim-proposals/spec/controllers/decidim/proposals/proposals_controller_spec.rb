@@ -44,8 +44,8 @@ module Decidim
           end
 
           it "sets two different collections" do
-            geocoded_proposals = create_list :proposal, 10, component: component, latitude: 1.1, longitude: 2.2
-            _non_geocoded_proposals = create_list :proposal, 2, component: component, latitude: nil, longitude: nil
+            geocoded_proposals = create_list(:proposal, 10, component:, latitude: 1.1, longitude: 2.2)
+            _non_geocoded_proposals = create_list(:proposal, 2, component:, latitude: nil, longitude: nil)
 
             get :index
             expect(response).to have_http_status(:ok)
@@ -88,7 +88,7 @@ module Decidim
 
         context "when NO draft proposals exist" do
           it "renders the empty form" do
-            get :new, params: params
+            get(:new, params:)
             expect(response).to have_http_status(:ok)
             expect(subject).to render_template(:new)
           end
@@ -98,7 +98,7 @@ module Decidim
           let!(:others_draft) { create(:proposal, :draft, component:) }
 
           it "renders the empty form" do
-            get :new, params: params
+            get(:new, params:)
             expect(response).to have_http_status(:ok)
             expect(subject).to render_template(:new)
           end
@@ -112,7 +112,7 @@ module Decidim
           let(:component) { create(:proposal_component) }
 
           it "raises an error" do
-            post :create, params: params
+            post(:create, params:)
 
             expect(flash[:alert]).not_to be_empty
           end
@@ -129,7 +129,7 @@ module Decidim
           end
 
           it "creates a proposal" do
-            post :create, params: params
+            post(:create, params:)
 
             expect(flash[:notice]).not_to be_empty
             expect(response).to have_http_status(:found)
@@ -156,7 +156,7 @@ module Decidim
         before { sign_in user }
 
         it "updates the proposal" do
-          patch :update, params: params
+          patch(:update, params:)
 
           expect(flash[:notice]).not_to be_empty
           expect(response).to have_http_status(:found)
@@ -176,7 +176,7 @@ module Decidim
             let(:proposal) { create(:proposal, :with_photo, :with_document, component:, users: [user]) }
 
             it "displays the editing form with errors" do
-              patch :update, params: params
+              patch(:update, params:)
 
               expect(flash[:alert]).not_to be_empty
               expect(response).to have_http_status(:ok)
@@ -202,28 +202,28 @@ module Decidim
 
         context "when you try to preview a proposal created by another user" do
           it "will not render the preview page" do
-            get :preview, params: params
+            get(:preview, params:)
             expect(subject).not_to render_template(:preview)
           end
         end
 
         context "when you try to complete a proposal created by another user" do
           it "will not render the complete page" do
-            get :complete, params: params
+            get(:complete, params:)
             expect(subject).not_to render_template(:complete)
           end
         end
 
         context "when you try to compare a proposal created by another user" do
           it "will not render the compare page" do
-            get :compare, params: params
+            get(:compare, params:)
             expect(subject).not_to render_template(:compare)
           end
         end
 
         context "when you try to publish a proposal created by another user" do
           it "will not render the publish page" do
-            post :publish, params: params
+            post(:publish, params:)
             expect(subject).not_to render_template(:publish)
           end
         end
@@ -252,7 +252,7 @@ module Decidim
             it "is not able to withdraw the proposal" do
               put :withdraw, params: params.merge(id: proposal.id)
 
-              expect(flash[:alert]).to eq("This proposal can not be withdrawn because it already has supports.")
+              expect(flash[:alert]).to eq("This proposal cannot be withdrawn because it already has supports.")
               expect(response).to have_http_status(:found)
               proposal.reload
               expect(proposal.withdrawn?).to be false
@@ -270,7 +270,7 @@ module Decidim
 
               put :withdraw, params: params.merge(id: proposal.id)
 
-              expect(flash[:alert]).to eq("You are not authorized to perform this action")
+              expect(flash[:alert]).to eq("You are not authorized to perform this action.")
               expect(response).to have_http_status(:found)
               proposal.reload
               expect(proposal.withdrawn?).to be false

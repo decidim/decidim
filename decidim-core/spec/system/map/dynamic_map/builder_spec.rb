@@ -11,23 +11,26 @@ module Decidim
           # the builder. This writes its results to the view for further
           # inspection in the rspec expectations.
           <<~HEAD
-            <script type="text/javascript">
-              window.mapIndex = 1;
-              L.tileLayer = function(url, config) {
-                var urlId = "tile_layer_url" + window.mapIndex;
-                var configId = "tile_layer_config" + window.mapIndex;
+                        <script type="text/javascript">
 
-                $("#content").append('<div id="' + urlId + '"></div>');
-                $("#content").append('<div id="' + configId + '"></div>');
-                $("#" + urlId).text(url);
-                $("#" + configId).text(JSON.stringify(config));
+                        document.addEventListener("DOMContentLoaded", function() {
+                          window.mapIndex = 1;
+                          L.tileLayer = function(url, config) {
+                            var urlId = "tile_layer_url" + window.mapIndex;
+                            var configId = "tile_layer_config" + window.mapIndex;
 
-                window.mapIndex++;
+                            $("#content").append('<div id="' + urlId + '"></div>');
+                            $("#content").append('<div id="' + configId + '"></div>');
+                            $("#" + urlId).text(url);
+                            $("#" + configId).text(JSON.stringify(config));
 
-                var mockLayer = { addTo: function(target) {} };
-                return mockLayer;
-              };
-            </script>
+                            window.mapIndex++;
+
+                            var mockLayer = { addTo: function(target) {} };
+                            return mockLayer;
+                          };
+            });
+                        </script>
           HEAD
         end
 

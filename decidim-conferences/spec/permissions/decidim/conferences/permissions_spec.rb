@@ -5,15 +5,15 @@ require "spec_helper"
 describe Decidim::Conferences::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { create :user, :admin, organization: }
-  let(:organization) { create :organization }
-  let(:conference) { create :conference, organization: }
+  let(:user) { create(:user, :admin, organization:) }
+  let(:organization) { create(:organization) }
+  let(:conference) { create(:conference, organization:) }
   let(:context) { {} }
   let(:permission_action) { Decidim::PermissionAction.new(**action) }
-  let(:conference_admin) { create :conference_admin, conference: }
-  let(:conference_collaborator) { create :conference_collaborator, conference: }
-  let(:conference_moderator) { create :conference_moderator, conference: }
-  let(:conference_valuator) { create :conference_valuator, conference: }
+  let(:conference_admin) { create(:conference_admin, conference:) }
+  let(:conference_collaborator) { create(:conference_collaborator, conference:) }
+  let(:conference_moderator) { create(:conference_moderator, conference:) }
+  let(:conference_valuator) { create(:conference_valuator, conference:) }
 
   shared_examples "access for role" do |access|
     case access
@@ -72,6 +72,23 @@ describe Decidim::Conferences::Permissions do
       )
     end
 
+    context "when accessing global moderation" do
+      subject { Decidim::Admin::Permissions.new(user, permission_action, context).permissions.allowed? }
+
+      let(:action) do
+        { scope: :admin, action: :read, subject: :global_moderation }
+      end
+
+      it_behaves_like(
+        "access for roles",
+        org_admin: true,
+        admin: true,
+        collaborator: false,
+        moderator: true,
+        valuator: false
+      )
+    end
+
     context "when reading a conference" do
       let(:action) do
         { scope: :public, action: :read, subject: :conference }
@@ -79,28 +96,28 @@ describe Decidim::Conferences::Permissions do
       let(:context) { { conference: } }
 
       context "when the user is an admin" do
-        let(:user) { create :user, :admin }
+        let(:user) { create(:user, :admin) }
 
         it { is_expected.to be true }
       end
 
       context "when the conference is published" do
-        let(:user) { create :user, organization: }
+        let(:user) { create(:user, organization:) }
 
         it { is_expected.to be true }
       end
 
       context "when the conference is not published" do
-        let(:user) { create :user, organization: }
-        let(:conference) { create :conference, :unpublished, organization: }
+        let(:user) { create(:user, organization:) }
+        let(:conference) { create(:conference, :unpublished, organization:) }
 
-        context "when the user doesn't have access to it" do
+        context "when the user does not have access to it" do
           it { is_expected.to be false }
         end
 
         context "when the user has access to it" do
           before do
-            create :conference_user_role, user:, conference:
+            create(:conference_user_role, user:, conference:)
           end
 
           it { is_expected.to be true }

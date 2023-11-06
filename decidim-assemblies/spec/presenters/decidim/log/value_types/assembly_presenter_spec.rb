@@ -6,7 +6,7 @@ describe Decidim::Log::ValueTypes::AssemblyPresenter, type: :helper do
   subject { described_class.new(value, helper) }
 
   let(:value) { assembly.id }
-  let!(:assembly) { create :assembly }
+  let!(:assembly) { create(:assembly) }
 
   before do
     helper.extend(Decidim::ApplicationHelper)

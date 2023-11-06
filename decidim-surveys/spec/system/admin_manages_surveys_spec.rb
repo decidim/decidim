@@ -11,7 +11,7 @@ describe "Admin manages surveys", type: :system do
            published_at: nil)
   end
   let!(:questionnaire) { create(:questionnaire) }
-  let!(:survey) { create :survey, component:, questionnaire: }
+  let!(:survey) { create(:survey, component:, questionnaire:) }
 
   include_context "when managing a component as an admin"
 
@@ -39,7 +39,7 @@ describe "Admin manages surveys", type: :system do
 
     it "allows to answer survey" do
       visit questionnaire_public_path
-      expect(page).to have_selector("input#questionnaire_responses_0")
+      expect(page).to have_field(id: "questionnaire_responses_0")
     end
 
     context "when the survey has answers" do
@@ -54,7 +54,7 @@ describe "Admin manages surveys", type: :system do
         visit questionnaire_edit_path
         click_button "Expand all"
         expect(page).to have_selector("#questionnaire_questions_#{question.id}_body_en")
-        expect(page).to have_no_selector("#questionnaire_questions_#{question.id}_body_en[disabled]")
+        expect(page).not_to have_selector("#questionnaire_questions_#{question.id}_body_en[disabled]")
       end
 
       it "deletes answers after editing" do
@@ -63,18 +63,25 @@ describe "Admin manages surveys", type: :system do
         click_button "Expand all"
 
         within "form.edit_questionnaire" do
-          within "#questionnaire_question_#{question.id}-field" do
+          within "#accordion-questionnaire_question_#{question.id}-field" do
             find_nested_form_field("body_en").fill_in with: "Have you been writing specs today?"
           end
           click_button "Save"
         end
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_admin_callout "Survey successfully saved"
         expect(questionnaire.answers).to be_empty
       end
 
       context "when publishing the survey" do
         let(:clean_after_publish) { true }
+        let!(:participatory_process) do
+          create(:participatory_process, organization:)
+        end
+        let(:participatory_space_path) do
+          decidim_admin_participatory_processes.components_path(participatory_process)
+        end
+        let(:components_path) { participatory_space_path }
 
         before do
           component.update!(
@@ -82,17 +89,26 @@ describe "Admin manages surveys", type: :system do
               clean_after_publish:
             }
           )
+
+          visit components_path
         end
 
         context "when clean_after_publish is set to true" do
-          it "deletes previous answers afer publishing" do
-            expect(survey.clean_after_publish?).to be true
-
-            perform_enqueued_jobs do
-              Decidim::Admin::PublishComponent.call(component, user)
+          context "when deletes previous answers afer publishing" do
+            it "show popup with an alert" do
+              find(:css, ".action-icon--publish").click
+              expect(page).to have_content("Confirm")
             end
 
-            expect(questionnaire.answers).to be_empty
+            it "deletes previous answers" do
+              expect(survey.clean_after_publish?).to be true
+
+              perform_enqueued_jobs do
+                Decidim::Admin::PublishComponent.call(component, user)
+              end
+
+              expect(questionnaire.answers).to be_empty
+            end
           end
         end
 

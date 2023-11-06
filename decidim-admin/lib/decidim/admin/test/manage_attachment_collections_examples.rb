@@ -15,7 +15,7 @@ shared_examples "manage attachment collections examples" do
 
   it "can view an attachment collection details" do
     within "#attachment_collections table" do
-      click_link translated(attachment_collection.name, locale: :en)
+      click_link "Edit"
     end
 
     expect(page).to have_selector("input#attachment_collection_name_en[value='#{translated(attachment_collection.name, locale: :en)}']")
@@ -24,7 +24,7 @@ shared_examples "manage attachment collections examples" do
   end
 
   it "can add attachment collections to a process" do
-    find(".card-title a.new").click
+    click_link "New attachment folder"
 
     within ".new_attachment_collection" do
       fill_in_i18n(
@@ -49,7 +49,7 @@ shared_examples "manage attachment collections examples" do
     expect(page).to have_admin_callout("successfully")
 
     within "#attachment_collections table" do
-      expect(page).to have_link("Application forms")
+      expect(page).to have_text("Application forms")
     end
   end
 
@@ -75,7 +75,7 @@ shared_examples "manage attachment collections examples" do
     expect(page).to have_admin_callout("successfully")
 
     within "#attachment_collections table" do
-      expect(page).to have_link("Latest application forms")
+      expect(page).to have_text("Latest application forms")
     end
   end
 
@@ -95,7 +95,7 @@ shared_examples "manage attachment collections examples" do
         expect(page).to have_admin_callout("successfully")
 
         within "#attachment_collections table" do
-          expect(page).to have_no_content(translated(attachment_collection2.name))
+          expect(page).not_to have_content(translated(attachment_collection2.name))
         end
       end
     end
@@ -109,7 +109,7 @@ shared_examples "manage attachment collections examples" do
 
       it "cannot delete it" do
         within find("tr", text: translated(attachment_collection.name)) do
-          expect(page).to have_no_selector("a.action-icon--remove")
+          expect(page).not_to have_selector("a.action-icon--remove")
         end
       end
     end

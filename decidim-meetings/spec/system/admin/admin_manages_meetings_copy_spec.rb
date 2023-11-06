@@ -8,7 +8,7 @@ describe "Admin copies meetings", type: :system do
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
   let(:service_titles) { ["This is the first service", "This is the second service"] }
-  let!(:meeting) { create :meeting, type_of_meeting, :published, scope:, services: [], component: current_component }
+  let!(:meeting) { create(:meeting, type_of_meeting, :published, scope:, services: [], component: current_component) }
 
   include Decidim::SanitizeHelper
   include_context "when managing a component as an admin"
@@ -49,15 +49,8 @@ describe "Admin copies meetings", type: :system do
 
       fill_in :meeting_online_meeting_url, with: "https://google.com"
 
-      page.execute_script("$('#meeting_start_time').focus()")
-      page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-      page.find(".datepicker-dropdown .hour", text: "10:00").click
-      page.find(".datepicker-dropdown .minute", text: "10:50").click
-
-      page.execute_script("$('#meeting_end_time').focus()")
-      page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-      page.find(".datepicker-dropdown .hour", text: "12:00").click
-      page.find(".datepicker-dropdown .minute", text: "12:50").click
+      fill_in :meeting_start_time, with: Time.current.change(day: 12, hour: 10, min: 50)
+      fill_in :meeting_end_time, with: Time.current.change(day: 12, hour: 12, min: 50)
 
       within ".copy_meetings" do
         find("*[type=submit]").click
@@ -71,14 +64,14 @@ describe "Admin copies meetings", type: :system do
     end
   end
 
-  context "when hybrid", serves_map: true, serves_geocoding_autocomplete: true do
+  context "when hybrid", serves_geocoding_autocomplete: true, serves_map: true do
     let(:type_of_meeting) { :hybrid }
 
     before do
       stub_geocoding(address, [latitude, longitude])
     end
 
-    it "creates a new hybrid meeting", :slow, :serves_geocoding_autocomplete do
+    it "creates a new hybrid meeting", :serves_geocoding_autocomplete, :slow do
       within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
         click_link "Duplicate"
       end
@@ -115,15 +108,8 @@ describe "Admin copies meetings", type: :system do
       fill_in_geocoding :meeting_address, with: address
       fill_in :meeting_online_meeting_url, with: "https://google.com"
 
-      page.execute_script("$('#meeting_start_time').focus()")
-      page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-      page.find(".datepicker-dropdown .hour", text: "10:00").click
-      page.find(".datepicker-dropdown .minute", text: "10:50").click
-
-      page.execute_script("$('#meeting_end_time').focus()")
-      page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-      page.find(".datepicker-dropdown .hour", text: "12:00").click
-      page.find(".datepicker-dropdown .minute", text: "12:50").click
+      fill_in :meeting_start_time, with: Time.current.change(day: 12, hour: 10, min: 50)
+      fill_in :meeting_end_time, with: Time.current.change(day: 12, hour: 12, min: 50)
 
       within ".copy_meetings" do
         find("*[type=submit]").click
@@ -137,14 +123,14 @@ describe "Admin copies meetings", type: :system do
     end
   end
 
-  context "when in person", serves_map: true, serves_geocoding_autocomplete: true do
+  context "when in person", serves_geocoding_autocomplete: true, serves_map: true do
     let(:type_of_meeting) { :in_person }
 
     before do
       stub_geocoding(address, [latitude, longitude])
     end
 
-    it "creates a new In person meeting", :slow, :serves_geocoding_autocomplete do
+    it "creates a new In person meeting", :serves_geocoding_autocomplete, :slow do
       within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
         click_link "Duplicate"
       end
@@ -180,15 +166,8 @@ describe "Admin copies meetings", type: :system do
 
       fill_in_geocoding :meeting_address, with: address
 
-      page.execute_script("$('#meeting_start_time').focus()")
-      page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-      page.find(".datepicker-dropdown .hour", text: "10:00").click
-      page.find(".datepicker-dropdown .minute", text: "10:50").click
-
-      page.execute_script("$('#meeting_end_time').focus()")
-      page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-      page.find(".datepicker-dropdown .hour", text: "12:00").click
-      page.find(".datepicker-dropdown .minute", text: "12:50").click
+      fill_in :meeting_start_time, with: Time.current.change(day: 12, hour: 10, min: 50)
+      fill_in :meeting_end_time, with: Time.current.change(day: 12, hour: 12, min: 50)
 
       within ".copy_meetings" do
         find("*[type=submit]").click

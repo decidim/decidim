@@ -12,11 +12,18 @@ describe "Monitoring committee member verifies elections", type: :system do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_votings.edit_voting_path(voting)
-    click_link "Verify Elections"
+  end
+
+  it_behaves_like "needs admin TOS accepted" do
+    let(:user) { create(:user, :confirmed, organization:) }
   end
 
   context "when listing the elections" do
     it "lists all the polling stations for the voting" do
+      within_admin_sidebar_menu do
+        click_link "Verify Elections"
+      end
+
       within "#monitoring_committee_verify_elections table" do
         expect(page).to have_content(translated(election.title))
         expect(page).to have_link("Download", href: election.verifiable_results_file_url)

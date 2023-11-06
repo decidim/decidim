@@ -18,7 +18,7 @@ module Decidim
         root to: "surveys#edit"
       end
 
-      initializer "decidim.notifications.components" do
+      initializer "decidim_surveys_admin.notifications.components" do
         config.to_prepare do
           Decidim::EventsManager.subscribe(/^decidim\.events\.components/) do |event_name, data|
             CleanSurveyAnswersJob.perform_later(event_name, data)

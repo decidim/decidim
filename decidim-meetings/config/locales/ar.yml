@@ -1,45 +1,55 @@
 ar:
   activemodel:
     attributes:
-      agenda:
-        description: وصف
-        duration: المدة الزمنية
-        title: عنوان
       close_meeting:
         attendees_count: عدد الحضور
         attending_organizations: قائمة المنظمات التي حضرت
+        audio_url: عنوان URL السمعي
         closing_report: الدقائق
         closing_visible: مرئي
         contributions_count: عدد المساهمات
         proposal_ids: المقترحات التي تم إنشاؤها في الاجتماع
+        video_url: عنوان URL الفيديو
       meeting:
         address: عنوان
         available_slots: فتحات المتاحة لهذا الاجتماع
+        customize_registration_email: تخصيص بريد التسجيل الإلكتروني
         decidim_category_id: الفئة
         decidim_scope_id: نطاق
+        decidim_user_group_id: مجموعة مستخدم
         description: وصف
-        end_time: وقت النهاية
+        end_time: وقت الانتهاء
+        id: المعرف ID
+        iframe_embed_type: نوع تضمين الاطار Iframe
         location: موقعك
         location_hints: تلميحات الموقع
+        online_meeting_url: رابط URL للاجتماع عبر الانترنت
+        organizer_gid: قم بالإنشاء كَ
         organizer_id: منظم
         private_meeting: اجتماع خاص
+        registration_email_custom_content: المحتوى المخصص لتسجيل البريد الإلكتروني
         registration_form_enabled: تم تمكين نموذج التسجيل
         registration_terms: شروط التسجيل
+        registration_type: نوع التسجيل
+        registration_url: رابط URL التسجيل
         registrations_enabled: تم تمكين التسجيلات
+        reserved_slots: خانات محجوزة لهذا الاجتماع
         start_time: وقت البدء
         title: عنوان
         transparent: شفاف
-    errors:
-      models:
-        meeting_agenda:
-          attributes:
-            base:
-              too_many_minutes: تتجاوز مدة العناصر مدة الاجتماع بـ %{count} دقيقة
-              too_many_minutes_child: تتجاوز مدة العنصر التابع للطفل مدة الأصل "%{parent_title}" لعنصر جدول الأعمال بمقدار دقيقة %{count}
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: تمت دعوة حساب البريد الإلكتروني هذا بالفعل
+        type_of_meeting: النوع
+      meeting_agenda:
+        title: عنوان
+        visible: مرئي
+      meeting_agenda_items:
+        description: الوصف
+        duration: المدة الزمنية
+        title: العنوان
+      meeting_registration_invite:
+        email: البريد الإلكتروني
+        name: الإسم
+      validate_registration_code:
+        code: الرمز
     models:
       decidim/meetings/close_meeting_event: تم إغلاق الاجتماع
       decidim/meetings/create_meeting_event: لقاء
@@ -76,36 +86,62 @@ ar:
         meetings:
           category_id_eq:
             label: الفئة
-          with_any_origin:
+          closed_at_present:
+            label: الحالة
             values:
+              'false': مفتوح
+              'true': مغلق
+          is_upcoming_true:
+            label: التاريخ
+            values:
+              'false': السابق
+              'true': القادم
+          scope_id_eq:
+            label: نطاق
+          with_any_origin:
+            label: الأصل
+            values:
+              official: الرسمي
+              participants: المشارك
               user_group: مجموعات المستخدمين
           with_any_type:
             label: نوع الاجتماع
             values:
+              hybrid: هجين
               in_person: وجهًا لوجه
+              online: على الإنترنت
       meeting_copies:
         create:
           error: كانت هناك مشكلة في تكرار هذا الاجتماع.
           success: تم تكرار الاجتماع بنجاح.
         new:
           copy: نسخ
-          select: حدد البيانات التي ترغب في تكرارها
           title: اجتماع مكرر
     components:
       meetings:
         actions:
+          comment: تعليق
           join: انضم
         name: اجتماعات
         settings:
           global:
             announcement: إعلان
             comments_enabled: تم تمكين التعليقات
+            comments_max_length: الحد الأقصى لطول التعليقات (اترك 0 لاستعمال القيمة الافتراضية)
+            creation_enabled_for_participants: يمكن للمشاركين إنشاء اجتماعات
             default_registration_terms: شروط التسجيل الافتراضية
             enable_pads_creation: تمكين إنشاء منصات
+            maps_enabled: تم تمكين الخرائط
+            registration_code_enabled: تم تمكين رمز التسجيل
             resources_permissions_enabled: يمكن تعيين أذونات الإجراءات لكل اجتماع
+            scope_id: نطاق
+            scopes_enabled: النطاقات مفعلة
+            terms_and_conditions_url_for_meeting_creators: أحكام وشروط عناوين URL لمنشئي الاجتماع
           step:
             announcement: إعلان
             comments_blocked: تم حظر التعليقات
+            creation_enabled_for_participants: تم تمكين إنشاء الاجتماع بواسطة المشاركين
+            creation_enabled_for_user_groups: تم تمكين إنشاء الاجتماع بواسطة مجموعات المستخدم
     events:
       meetings:
         meeting_closed:
@@ -115,10 +151,12 @@ ar:
             email_subject: لقد تم اغلاق الملتقى "%{resource_title}"
             notification_title: لقد تم إغلاق الملتقى <a href="%{resource_path}">%{resource_title}</a>.
           follower:
+            email_intro: 'تم إغلاق اجتماع %{resource_title}. يمكنك قراءة المستخلصات على الصفحة الخاصة به:'
             email_outro: لقد تلقيت هذا الإشعار لأنك تتابع اجتماع "%{resource_title}". يمكنك إلغاء تتبعه من الرابط السابق.
             email_subject: لقد تم اغلاق الملتقى "%{resource_title}"
             notification_title: لقد تم إغلاق الملتقى <a href="%{resource_path}">%{resource_title}</a>.
         meeting_created:
+          button_text: التسجيل في الاجتماع
           email_intro: تمت إضافة الاجتماع "%{resource_title}" إلى "%{participatory_space_title}" الذي تتابعه.
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع "%{participatory_space_title}". يمكنك إلغاء تتبعه من الرابط السابق.
           email_subject: تمت إضافة اجتماع جديد إلى %{participatory_space_title}
@@ -160,8 +198,6 @@ ar:
           description_own: لقد حضرت %{score} اجتماع.
           name: حضور الاجتماعات
           next_level_in: حضور %{score} اجتماعات أخرى للوصول إلى المستوى التالي!
-          unearned_another: هذا المشارك لم يحضر أي اجتماع حتى الآن.
-          unearned_own: لم تحضر أي اجتماع بعد.
     meetings:
       actions:
         agenda: جدول أعمال
@@ -171,7 +207,15 @@ ar:
         confirm_destroy: هل أنت متأكد أنك تريد حذف هذا الاجتماع؟
         destroy: حذف
         edit: تعديل
-        new: اجتماع جديد
+        invalid_destroy:
+          proposals_count:
+            zero: 'لا يمكن حذف هذا الاجتماع لأنه يحتوي على %{count} اقتراحات مرتبطة به:'
+            one: 'لا يمكن حذف هذا الاجتماع لأنه يحتوي على %{count} اقتراح مرتبط به:'
+            two: 'لا يمكن حذف هذا الاجتماع لأنه يحتوي على %{count} اقتراحين مرتبطين به:'
+            few: 'لا يمكن حذف هذا الاجتماع لأنه يحتوي على %{count} اقتراحات مرتبطة به:'
+            many: 'لا يمكن حذف هذا الاجتماع لأنه يحتوي على %{count} اقتراحات مرتبطة به:'
+            other: 'لا يمكن حذف هذا الاجتماع لأنه يحتوي على %{count} اقتراحات مرتبطة به:'
+        manage_poll: إدارة الاستطلاع
         preview: معاينة
         registrations: التسجيلات
         title: أفعال
@@ -189,9 +233,6 @@ ar:
             down: أسفل
             remove: إزالة
             up: فوق
-          create:
-            invalid: كانت هناك مشكلة في إنشاء جدول الأعمال هذا
-            success: تم إنشاء جدول الأعمال بنجاح
           edit:
             title: تحرير جدول الأعمال
             update: تحديث
@@ -203,10 +244,9 @@ ar:
           new:
             create: إنشاء
             title: جدول أعمال جديد
-          update:
-            invalid: حدثت مشكلة أثناء تحديث جدول الأعمال هذا
-            success: تم تحديث جدول الأعمال بنجاح
         exports:
+          answers: الأجوبة
+          meeting_comments: التعليقات
           meetings: اجتماعات
           registrations: التسجيلات
         invite_join_meeting_mailer:
@@ -231,25 +271,31 @@ ar:
               all: الكل
               rejected: مرفوض
               sent: أرسلت
-            filter_by: مصنف بواسطة
             invite_attendee: دعوة الحضور
             invites: تدعو
-            registrations_disabled: لا يمكنك دعوة أحد الحاضرين لأن التسجيلات معطلة.
             search: بحث
         meeting_closes:
           edit:
             close: قريب
             title: اجتماع قريب
         meetings:
-          close:
-            invalid: حدثت مشكلة أثناء اختتام هذا الاجتماع
-            success: تم إغلاق الاجتماع بنجاح
           create:
-            invalid: كانت هناك مشكلة في إنشاء هذا الاجتماع
+            success: تم إنشاء الاجتماع بنجاح. لاحظ أن هذا غير منشور حتى الآن، تحتاج إلى نشره بنفسك.
           destroy:
             success: تم حذف الاجتماع بنجاح
           edit:
+            title: تعديل الاجتماعات
             update: تحديث
+          form:
+            address_help: 'العنوان: مستخدم من قبل Geocoder للعثور على الموقع'
+            location_help: 'الموقع: رسالة موجهة إلى المستخدمين تعني المكان للالتقاء به في'
+            location_hints_help: 'توضيح حول الموقع: معلومات إضافية. على سبيل المثال: إدراج طابق المبنى في حال كان الاجتماع شخصيا، أو كلمة مرور الاجتماع إذا كان اجتماعا على الإنترنت يحتوي على تقييد الدخول.'
+            online_meeting_url_help: 'الرابط: السماح للمشاركين بالاتصال مباشرة باجتماعك'
+            registration_url_help: 'الرابط: يتيح للمشاركين استخدام الخدمة الخارجية التي تستخدمها للتسجيل'
+            select_a_meeting_type: الرجاء تحديد نوع الاجتماع
+            select_a_registration_type: الرجاء تحديد نوع التسجيل
+            select_an_iframe_access_level: الرجاء تحديد مستوى الوصول إلى iframe
+            show_embedded_iframe_help: 'يسمح عدد قليل فقط من الخدمات بتضمين الاجتماع أو الحدث المباشر من المجالات التالية: %{domains}'
           index:
             title: اجتماعات
           new:
@@ -265,12 +311,9 @@ ar:
           services:
             add_service: إضافة الخدمة
             services: خدمات
-          update:
-            invalid: حدثت مشكلة أثناء تحديث هذا الاجتماع
-            success: تم تحديث الاجتماع بنجاح
-        models:
-          meeting:
-            name: لقاء
+        meetings_poll:
+          form:
+            title: تعديل استبيان الاستطلاع لـ %{questionnaire_for}
         registrations:
           edit:
             save: حفظ
@@ -279,6 +322,7 @@ ar:
           form:
             available_slots_help: اتركه إلى 0 إذا كان لديك فتحات غير محدودة المتاحة.
             invites: دعوات
+            recommendation_message: لأسباب تتعلق بالخصوصية، نوصي بحذف نموذج التسجيل هذا حالما انتهيت منه. ويكون هذا تلقائياً بعد ثلاثة أشهر من انتهاء الاجتماع.
             registration_email_help: سيظهر هذا النص في منتصف البريد الإلكتروني الخاص بتأكيد التسجيل مباشرة بعد رمز التسجيل.
             registration_form: إستمارة تسجيل
             registrations_count:
@@ -288,7 +332,6 @@ ar:
               few: كان هناك %{count} التسجيلات.
               many: كان هناك %{count} التسجيلات.
               other: كان هناك %{count} التسجيلات.
-            reserved_slots_help: اتركه إلى 0 إذا لم يكن لديك فتحات محجوزة
             reserved_slots_less_than: يجب أن يكون أقل من أو يساوي %{count}
             title: التسجيلات
           update:
@@ -311,24 +354,53 @@ ar:
           value_types:
             organizer_presenter:
               not_found: 'لم يتم العثور على المنظم في قاعدة البيانات (المعرف: %{id})'
+        questionnaire:
+          update: "قام %{user_name} بتحديث الاستبيان للاجتماع %{meeting_name}"
       application_helper:
         filter_category_values:
           all: الكل
+        filter_meeting_space_values:
+          all: الكل
       calendar_modal:
         calendar_url: العنوان الشبكي للتقويم
-        close_window: أغلق النافذة
+        copy_calendar_url: نسخ
+        copy_calendar_url_clarification: نسخ رابط URL التقويم إلى الحافظة
+        copy_calendar_url_copied: تم النسخ!
+        copy_calendar_url_description: يمكنك مشاهدة جميع الاجتماعات المنشورة في تطبيق التقويم أو موفر الخدمة الخاص بك. كما يمكنك نسخ ولصق عنوان URL هذا في التقويم الخاص بك باستخدام خيار "إضافة تقويم جديد من عنوان URL".
+        copy_calendar_url_message: تم نسخ عنوان الرابط URL الى الحافظة بنجاح.
         export_calendar: تصدير التقويم
+      close_meeting_reminder_mailer:
+        close_meeting_reminder:
+          body: الاجتماع <a href="%{meeting_path}">"%{meeting_title}"</a> في انتظار إغلاقه. الرجاء إضافة تقرير عن الاجتماع باستخدام زر "إغلاق الاجتماع".
+          greetings: تحيات,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+          hello: مرحبا %{username}،
+          subject: يمكنك الآن إغلاق اجتماعك بتقديم تقرير على منصة %{organization_name}
       conference_venues: أماكن المؤتمر
       content_blocks:
         upcoming_meetings:
-          view_all_meetings: عرض الكل
+          name: الاجتماعات المقبلة
       directory:
         meetings:
           index:
             meetings: اجتماعات
             space_type: الفضاء التشاركي
+      iframe_access_level:
+        all: جميع الزوار
+        registered: المشاركون المسجلون في هذا الاجتماع
+        signed_in: للمشاركين المسجلين فقط
+      iframe_embed_type:
+        embed_in_meeting_page: تضمين في صفحة الاجتماع
+        none: بلا
+        open_in_live_event_page: فتح في صفحة الحدث المباشر (مع استطلاعات الرأي الاختيارية)
+        open_in_new_tab: فتح عنوان الرابط URL في تبويب جديد
       last_activity:
-        new_meeting_at_html: "<span>اجتماع جديد في %{link}</span>"
+        meeting_updated: 'تم تحديث الاجتماع:'
+        new_meeting: 'اجتماع جديد:'
+      layouts:
+        live_event:
+          administrate: إدارة
+          close: إغلاق
+          questions: الأسئلة
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -336,33 +408,95 @@ ar:
         registration_mailer:
           confirmation:
             subject: تم تأكيد تسجيل اجتماعك
-      meeting:
-        not_allowed: غير مسموح لك بمشاهدة هذا الاجتماع
+      meeting_closes:
+        edit:
+          back: العودة
+          close: إغلاق الاجتماع
+          title: إغلاق الاجتماع
       meetings:
+        calendar_modal:
+          add_to_calendar: إضافة إلى التقويم
+          apple: إضافة إلى تقويم أبل Apple
+          full_details_html: للحصول على التفاصيل الكاملة انتقل إلى %{link}
+          google: أضف إلى تقويم Google
+          outlook: إضافة إلى تقويم أبل Apple
+        count:
+          meetings_count:
+            zero: "%{count} اجتماعات"
+            one: "%{count} اجتماع"
+            two: "%{count} اجتماعين"
+            few: "%{count} اجتماعات"
+            many: "%{count} اجتماعات"
+            other: "%{count} اجتماعات"
+        create:
+          invalid: طرأت مشكلة خلال إنشاء هذا الاجتماع.
+          success: لقد قمت بإنشاء الاجتماع بنجاح.
+        edit:
+          back: العودة
+          title: تحرير الاجتماع
+          update: تحديث
         filters:
+          activity: نشاطي
+          all: الكل
           category: الفئة
           date: تاريخ
+          date_values:
+            all: الكل
+            past: السابق
+            upcoming: القادم
+          my_meetings: اجتماعاتي
+          origin: الأصل
+          origin_values:
+            all: الكل
+            official: رسمي
+            participants: المشاركون
           search: بحث
-        filters_small_view:
-          close_modal: إغلاق مشروط
-          filter: منقي
-          filter_by: مصنف بواسطة
-          unfold: كشف
+          type: النوع
+          type_values:
+            all: الكل
+            hybrid: هجين
+            in_person: وجهًا لوجه
+            online: على الإنترنت
         form:
+          address_help: 'العنوان: مستخدم من قبل Geocoder للعثور على الموقع'
+          available_slots_help: تركه على 0 إذا كان لديك أعدد غير محدود من الأماكن الشاغرة
+          create_as: إنشاء الاجتماع ك
+          location_help: 'الموقع: رسالة موجهة إلى المستخدمين تعني مكان للالتقاء به في'
+          location_hints_help: 'توضيح حول الموقع: معلومات إضافية. على سبيل المثال: إدراج طابق المبنى في حال كان الاجتماع شخصيا، أو كلمة مرور الاجتماع إذا كان اجتماعا على الإنترنت يحتوي على تقييد الدخول.'
+          online_meeting_url_help: 'الرابط: السماح للمشاركين بالاتصال مباشرة باجتماعك'
+          registration_url_help: 'الرابط: يتيح للمشاركين استخدام الخدمة الخارجية التي تستخدمها للتسجيل'
           select_a_category: يُرجى اختيار فئة
-        meeting_minutes:
-          related_information: معلومات ذات صله
+          select_a_meeting_type: الرجاء تحديد نوع الاجتماع
+          select_a_registration_type: الرجاء تحديد نوع التسجيل
+          select_an_iframe_access_level: الرجاء تحديد مستوى الوصول إلى iframe
+          show_embedded_iframe_help: 'يسمح عدد قليل فقط من الخدمات بتضمين الاجتماع أو الحدث المباشر من المجالات التالية: %{domains}'
+        index:
+          click_here: عرض كافة الاجتماعات
+          new_meeting: اجتماع جديد
+          see_all: عرض كافة الاجتماعات
+          see_all_withdrawn: عرض جميع الاجتماعات المسحوبة
+          text_banner: أنت تستعرض قائمة الاجتماعات التي تم سحبها من قبل مؤلفيها. %{go_back_link}.
         meetings:
-          no_meetings_warning: لا توجد اجتماعات تطابق معايير البحث الخاصة بك أو لا يوجد أي اجتماع مجدولة.
           upcoming_meetings_warning: حاليًا ، لا توجد اجتماعات مجدولة ، ولكن يمكنك هنا العثور على جميع الاجتماعات السابقة المدرجة.
+        new:
+          back: العودة
+          create: إنشاء
+          title: إنشاء اجتماعك
         registration_confirm:
           cancel: إلغاء
           confirm: تؤكد
         show:
           attendees: الحضور الحضور
           contributions: عدد المساهمات
+          date: تاريخ
           join: أنضم إلى الأجتماع
+          leave: إلغاء التسجيل الخاص بك
+          leave_confirmation: هل أنت متأكد من أنك تريد إلغاء تسجيلك لهذا الاجتماع؟
+          link_available_soon: سيكون الرابط متوفر قريباً
+          link_closed: وسيتاح الرابط للانضمام للاجتماع قبل بضع دقائق من بدئه
+          live_event: هذا الاجتماع منعقد الآن
           meeting_minutes: محضر الاجتماع
+          micro_camera_permissions_warning: عند النقر على الزر أدناه، سيتم طلب أذونات الميكروفون و/أو الكاميرا، وسوف تنضم إلى مؤتمر الفيديو
           no_slots_available: لا فتحات المتاحة
           organizations: حضور المنظمات
           registration_code_help_text: رمز التسجيل الخاص بك
@@ -377,8 +511,13 @@ ar:
             many: "%{count} فتحات المتبقية"
             other: "%{count} فتحات المتبقية"
           view: رأي
-      meetings_map:
-        view_meeting: عرض الاجتماع
+          visit_finished: عرض الاجتماع السابق
+          withdraw_btn_hint: يمكن أن تسحب اجتماعك اذا غيرت رأيك. لا يتم إلغاء الاجتماع بل سيظهر في قائمة الاجتماعات المسحوبة.
+          withdraw_confirmation_html: هل أنت متأكد من أنك تريد سحب هذا الاجتماع؟<br><br><strong>لا يمكن إلغاء هذا الإجراء!</strong>
+          withdraw_meeting: سحب الاجتماع
+        update:
+          invalid: طرأت مشكلة خلال تحديث الاجتماع.
+          success: لقد قمت بتحديث الاجتماع بنجاح.
       models:
         invite:
           fields:
@@ -394,32 +533,67 @@ ar:
           fields:
             closed: مغلق
             end_time: تاريخ الانتهاء
+            id: المعرف ID
             map: خريطة
+            official_meeting: الاجتماع الرسمي
             start_time: تاريخ البدء
             title: عنوان
       polls:
         questions:
+          closed_question:
+            question_results: نتائج السؤال
+          index:
+            empty_questions: خلال هذا الاجتماع، سيتم إرسال بعض الأسئلة وسوف تتمكن من الإجابة عليها. سيتم عرضها هنا.
           index_admin:
+            admin_dashboard: لوحة المدراء
+            edit: تحرير في لوحة المدراء
+            question: سؤال
+            received_answer: الإجابة المتلقاة
+            received_answers: الإجابات المتلقاة
             results: النتائج
+            send: إرسال
+            sent: تم الإرسال
+          published_question:
+            max_choices_alert: تم تحديد عدد خيارات اكثر من اللازم
+            question: سؤال
+            question_replied: تم الرد على السؤال
+            reply_question: الرد على السؤال
+      public_participants_list:
+        attending_participants: المشاركون الحاضرون
+        hidden_participants_count:
+          zero: و %{count} أشخاص آخرين
+          one: و %{count} شخص آخر
+          two: و %{count} شخصين آخرين
+          few: و %{count} أشخاص آخرين
+          many: و %{count} أشخاص آخرين
+          other: و %{count} أشخاص آخرين
       read_more: "(قراءة المزيد)"
       registration_mailer:
         confirmation:
           confirmed_html: تم تأكيد تسجيلك للاجتماع <a href="%{url}">%{title}</a>.
           details: ستجد تفاصيل الاجتماع في المرفق.
           registration_code: رمز التسجيل الخاص بك هو %{code}.
+      registration_type:
+        on_different_platform: على منصة مختلفة
+        on_this_platform: على هذه المنصة
+        registration_disabled: تعطيل التسجيل
       registrations:
         create:
           invalid: حدثت مشكلة أثناء الانضمام إلى هذا الاجتماع.
-          success: لقد انضممت إلى الاجتماع بنجاح.
         decline_invitation:
           invalid: حدثت مشكلة في رفض الدعوة.
           success: لقد رفضت الدعوة بنجاح.
         destroy:
           invalid: حدثت مشكلة أثناء مغادرة هذا الاجتماع.
           success: لقد تركت الاجتماع بنجاح.
+      type_of_meeting:
+        hybrid: هجين
+        in_person: وجهًا لوجه
+        online: على الإنترنت
       types:
         private_meeting: اجتماع خاص
         transparent: شفاف
+        withdraw: تم السحب
     metrics:
       meetings:
         description: عدد الاجتماعات التي تم إنشاؤها
@@ -430,8 +604,6 @@ ar:
         past_meetings: الاجتماعات السابقة
         see_all: شاهد الكل (%{count})
         upcoming_meetings: الاجتماعات القادمة
-      upcoming_meeting_for_card:
-        upcoming_meeting: الاجتماع القادم
     resource_links:
       meetings_through_proposals:
         meeting_result: 'النتائج ذات الصلة:'
@@ -439,6 +611,8 @@ ar:
       proposals_from_meeting:
         meeting_proposal: 'المقترحات ذات الصلة:'
         proposal_meeting: 'اجتماعات ذات صلة:'
+    statistics:
+      meetings_count: الاجتماعات
   devise:
     mailer:
       join_meeting:

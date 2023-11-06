@@ -1,5 +1,11 @@
 ro:
   activemodel:
+    attributes:
+      post:
+        body: Conținut
+        decidim_author_id: Autor
+        published_at: Publicat la
+        title: Titlu
     models:
       decidim/blogs/create_post_event: Postare nouă pe blog
   activerecord:
@@ -18,51 +24,46 @@ ro:
         new: Postare nouă
         title: Acțiuni
       admin:
-        models:
-          components:
-            body: Conținut
-          post:
-            name: Postează
         posts:
           create:
-            invalid: A apărut o eroare la crearea acestei postări
-            success: Postarea a fost creată cu succes
+            invalid: A apărut o eroare la crearea acestei postări.
+            success: Postarea a fost creată cu succes.
           destroy:
-            success: Postarea a fost ștearsă cu succes
+            success: Postarea a fost ștearsă cu succes.
           edit:
             save: Actualizează
             title: Editează postarea
           index:
+            not_published_yet: Nu a fost publicat încă.
             title: Postări
           new:
             create: Creează
             title: Creează postare
           update:
             invalid: A apărut o eroare la salvarea postării.
-            success: Postarea a fost salvată cu succes
+            success: Postarea a fost salvată cu succes.
+      admin_log:
+        post:
+          create: "%{user_name} a creat postarea de blog %{resource_name} în %{space_name}"
+          delete: "%{user_name} a șters postarea de blog %{resource_name} din %{space_name}"
+          update: "%{user_name} a actualizat postarea de blog %{resource_name} în %{space_name}"
       last_activity:
-        new_post_at_html: "<span>Postare nouă la %{link}</span>"
+        new_post: 'Postare nouă:'
       models:
         post:
           fields:
             author: Autor
             body: Conținut
-            created_at: Creat la
-            title: titlu
-      posts:
-        show:
-          back: Înapoi la listă
-          comments: Comentarii
-          view: Vizualizează
-        sidebar_blog:
-          comments: comentarii
-          most_commented_posts: Cele mai comentate postări
-      read_more: Citește mai mult
+            official_blog_post: Postare oficială
+            published_at: Publicat la
+            title: Titlu
     components:
       blogs:
         actions:
+          comment: Comentariu
           create: Creează
           destroy: Șterge
+          endorse: Susține
           update: Actualizează
         name: Blog
         settings:

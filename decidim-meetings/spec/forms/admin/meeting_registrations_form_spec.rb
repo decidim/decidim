@@ -85,7 +85,7 @@ module Decidim::Meetings
 
     context "when a few registrations have been created" do
       before do
-        create_list :registration, 10, meeting:
+        create_list(:registration, 10, meeting:)
       end
 
       context "and available slots is less than the number of registrations" do

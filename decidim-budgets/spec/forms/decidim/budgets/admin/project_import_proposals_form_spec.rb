@@ -38,7 +38,7 @@ module Decidim
           it { is_expected.to be_invalid }
         end
 
-        context "when there's no target component" do
+        context "when there is no target component" do
           let(:origin_component) { nil }
 
           it { is_expected.to be_invalid }

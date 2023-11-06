@@ -1,0 +1,69 @@
+= Social shares services
+
+Starting with the v0.27.0, you have the following social shares services that you can enable:
+
+* Douban
+* Email
+* Facebook
+* Google Bookmark
+* Hacker News
+* LinkedIn
+* Odnoklassniki
+* Pinterest
+* Reddit
+* Telegram
+* Vkontakte
+* WhatsApp
+* X (former Twitter)
+* Xing
+
+== Configuration
+
+You can enable the social shares services by using the `DECIDIM_SOCIAL_SHARE_SERVICES` environment variable.
+
+The format of this variable is as follows
+
+[source,console]
+----
+DECIDIM_SOCIAL_SHARE_SERVICES="Facebook, X"
+----
+
+NOTE: Services names are case sensitive.
+
+== Default services
+
+By default we enable the following services: X, Facebook, WhatsApp and Telegram.
+
+image::social-share-modal-default.png[Social share modal]
+
+== Custom services
+
+If you have the need, you can enable your own service. To do that, as an example for a ficticious social service called "Foo", you will need to follow these steps:
+
+. Add the logo of your service to the images' pack at `app/packs/images/`. Following the example, it'd be "foo.svg"
+
+. Alternatively, you can provide any https://remixicon.com/ logo also. Simply as adding the icon key for such social share, e.g. "reddit-line"
+
+. In addition to the remixicon, icon_color property can be added, using an Hex color, e.g. "#ff4500"
+
+. Add the social share service block configuration at the bottom of your Decidim initializer:
+
+[source,ruby]
+----
+Decidim.register_social_share_service("Foo") do |service|
+  service.icon = "foo.svg" # (or "reddit-line")
+  service.icon_color = "#ff4500"
+  service.share_uri = "https://foo.example.com/share?url=%{url}"
+end
+----
+
+[NOTE]
+----
+Depending on the service, you could use the following variables in the share URI:
+* url
+* title
+* desc
+* image
+----
+
+. Add the "Foo" service to `DECIDIM_SOCIAL_SHARE_SERVICES` environment variable.

@@ -135,7 +135,7 @@ module Decidim
           it { is_expected.not_to be_valid }
 
           context "and the organization already has an image set" do
-            let(:organization) { create :organization, highlighted_content_banner_image: upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) }
+            let(:organization) { create(:organization, highlighted_content_banner_image: upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg"))) }
             let(:highlighted_content_banner_image) { nil }
 
             it { is_expected.to be_valid }

@@ -51,7 +51,7 @@ module Decidim
           end
         end
 
-        context "when the meeting doesn't belong to the component" do
+        context "when the meeting does not belong to the component" do
           let!(:meeting) { create(:meeting, :published, component: create(:meeting_component)) }
 
           it "returns null" do

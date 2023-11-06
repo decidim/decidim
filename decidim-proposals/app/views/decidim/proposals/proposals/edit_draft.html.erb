@@ -1,28 +1,30 @@
 <% add_decidim_page_title(proposal_wizard_step_title(action_name)) %>
 
-<div class="row">
-  <%= render partial: "wizard_aside" %>
+<%= append_stylesheet_pack_tag "decidim_proposals", media: "all" %>
+<%= append_javascript_pack_tag "decidim_proposals" %>
 
-  <div class="columns large-6">
-    <%= render partial: "wizard_header" %>
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
 
-    <div class="card">
-      <div class="card__content">
-        <%= decidim_form_for(@form, url: update_draft_proposal_path(@proposal), method: :patch) do |form| %>
-          <%= render partial: "edit_form_fields", locals: { form: form } %>
+  <%= render partial: "wizard_header" %>
 
-          <div class="row column flex-center">
-            <%= link_to t(".discard"), destroy_draft_proposal_path(@proposal), method: :delete, data: { confirm: t(".discard_confirmation") } %>
+  <%= decidim_form_for(@form, url: update_draft_proposal_path(@proposal), method: :patch) do |form| %>
 
-            <%= form.submit t(".send"), class: "button  button--nomargin small", data: { disable: true } %>
-          </div>
-        <% end %>
-      </div>
+    <%= form_required_explanation %>
+
+    <div class="form__wrapper">
+      <%= render partial: "edit_form_fields", locals: { form: } %>
     </div>
-  </div>
-  <div class="columns large-3"></div>
-</div>
 
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_proposals" %>
+    <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+      <%= link_to destroy_draft_proposal_path(@proposal), method: :delete, class: "button button__sm md:button__lg button__text-secondary", data: { confirm: t("discard_confirmation", scope: "decidim.proposals.proposals.edit_draft") } do %>
+        <%= icon "arrow-left-line" %>
+        <span><%= t("discard", scope: "decidim.proposals.proposals.edit_draft") %></span>
+      <% end %>
+
+      <button type="submit" class="button button__sm md:button__lg button__secondary">
+        <span><%= t("send", scope: "decidim.proposals.proposals.edit_draft") %></span>
+        <%= icon "arrow-right-line" %>
+      </button>
+    </div>
+  <% end %>
 <% end %>

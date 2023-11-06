@@ -10,7 +10,7 @@ describe "Homepage assemblies content blocks", type: :system do
   let!(:promoted_external_assembly) { create(:assembly, :promoted) }
 
   before do
-    create :content_block, organization: organization, scope_name: :homepage, manifest_name: :highlighted_assemblies
+    create(:content_block, organization:, scope_name: :homepage, manifest_name: :highlighted_assemblies)
     switch_to_host(organization.host)
   end
 

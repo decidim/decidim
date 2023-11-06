@@ -6,6 +6,8 @@ de:
         offline: Offline
         offline_explanation: Anweisungen zur Offline-Verifizierung
         online: Online
+      confirmation:
+        verification_code: Bestätigungscode
       id_document_information:
         document_number: Dokumentennummer (mit Buchstaben)
         document_type: Art des Dokuments
@@ -14,6 +16,8 @@ de:
         document_type: Art Ihres Dokuments
         user: Benutzer
         verification_attachment: Gescannte Kopie Ihres Dokuments
+      mobile_phone:
+        mobile_phone_number: Mobiltelefonnummer
       offline_confirmation:
         email: Benutzer Email
       postal_letter_address:
@@ -23,6 +27,12 @@ de:
       postal_letter_postage:
         full_address: Vollständige Adresse
         verification_code: Bestätigungscode
+    errors:
+      models:
+        census_data:
+          attributes:
+            file:
+              malformed: Fehlerhafte Importdatei. Bitte lesen Sie die Anweisungen sorgfältig durch und stellen Sie sicher, dass die Datei UTF-8 kodiert ist.
   decidim:
     admin:
       menu:
@@ -33,10 +43,10 @@ de:
           destroy:
             confirm: Das Entziehen aller Berechtigungen vor einem Datum kann nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie fortfahren möchten?
             confirm_all: Das Entziehen aller Berechtigungen nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie fortfahren möchten?
-          destroy_nok: Beim Entziehen von Berechtigungen ist ein Fehler aufgetreten.
+          destroy_nok: Beim Entziehen der Berechtigungen ist ein Fehler aufgetreten.
           destroy_ok: Alle übereinstimmenden Berechtigungen wurden erfolgreich entzogen.
           info: Es gibt insgesamt %{count} verifizierte Teilnehmer.
-          no_data: Keine verifizierten Teilnehmer
+          no_data: Keine verifizierten Teilnehmer.
           title: Berechtigungen widerrufen
         authorization_workflows: Berechtigungen
     admin_log:
@@ -48,8 +58,8 @@ de:
       admin:
         csv_census:
           help:
-            - Admins laden ein CSV mit den E-Mails der akzeptierten Teilnehmer hoch
-            - Nur Teilnehmer mit einer E-Mail in dieser CSV-Datei können überprüft werden
+            - Admins laden ein CSV mit den E-Mails der akzeptierten Teilnehmer hoch.
+            - Nur Teilnehmer mit einer E-Mail in dieser CSV-Datei können überprüft werden.
         id_documents:
           help:
             - Benutzer geben ihre Identitätsinformationen ein und laden eine Kopie ihres Dokuments hoch.
@@ -63,18 +73,25 @@ de:
             - Sie markieren den Brief als gesendet.
             - Sobald Sie den Brief als gesendet markiert haben, kann der Benutzer den Code einführen und verifiziert werden.
       csv_census:
-        explanation: Lassen Sie sich anhand der Volkszählung der Organisation überprüfen
-        name: Zensus der Organisation
+        explanation: Lassen Sie sich anhand der Erhebung der Organisation überprüfen.
+        name: Zählung der Organisation
       direct: Direkte
       help: Hilfe
       id_documents:
-        explanation: Laden Sie Ihre Identitätsdokumente hoch, damit wir Ihre Identität überprüfen können
+        explanation: Laden Sie Ihre Identitätsdokumente hoch, damit wir Ihre Identität überprüfen können.
         name: Identitätsdokumente
       multistep: Mehrschritt
       name: Name
       postal_letter:
-        explanation: Wir senden Ihnen einen Brief mit einem Code, den Sie eingeben müssen, damit wir Ihre Adresse bestätigen können
+        explanation: Wir senden Ihnen einen Brief mit einem Code, den Sie eingeben müssen, damit wir Ihre Adresse bestätigen können.
         name: Code per Post
+    events:
+      verifications:
+        verify_with_managed_user:
+          email_intro: Der Teilnehmer <a href="%{resource_url}">%{resource_title}</a> hat versucht, sich mit den Daten eines anderen Teilnehmers (<a href="%{managed_user_url}">%{managed_user_name}</a>) zu verifizieren.
+          email_outro: Prüfen Sie die <a href="%{conflicts_url}">Konfliktliste der Verifizierungsmethode</a> und wenden Sie sich an den Teilnehmer, um dessen Details zu überprüfen und das Problem zu lösen.
+          email_subject: Verifizierungsversuch gegenüber eines anderen Teilnehmers fehlgeschlagen
+          notification_title: Der Teilnehmer <a href="%{resource_path}">%{resource_title}</a> hat versucht, sich mit den Daten eines anderen Teilnehmers (<a href="%{managed_user_path}">%{managed_user_name}</a>) zu verifizieren.
     verifications:
       authorizations:
         authorization_metadata:
@@ -83,6 +100,7 @@ de:
         create:
           error: Beim Erstellen der Autorisierung ist ein Fehler aufgetreten.
           success: Sie wurden erfolgreich autorisiert.
+          transferred: 'Wir haben die folgenden Mitwirkungsdaten basierend auf Ihrer Autorisierung wiederhergestellt:'
           unconfirmed: Sie müssen Ihre E-Mail bestätigen, um sich zu autorisieren.
         destroy:
           error: Beim Löschen der Berechtigung ist ein Fehler aufgetreten.
@@ -90,7 +108,7 @@ de:
         first_login:
           actions:
             another_dummy_authorization_handler: Überprüfen Sie anhand eines anderen Beispiels des Autorisierungshandlers
-            csv_census: Vergewissern Sie sich anhand der Volkszählung der Organisation
+            csv_census: Vergewissern Sie sich anhand der Erhebung der Organisation
             dummy_authorization_handler: Überprüfen Sie anhand des Beispielautorisierungshandlers
             dummy_authorization_workflow: Überprüfen Sie anhand des beispielhaften Autorisierungsworkflows
             id_documents: Bestätigen Sie, indem Sie Ihr Identitätsdokument hochladen
@@ -100,17 +118,19 @@ de:
           verify_with_these_options: 'Mit diesen Optionen können Sie Ihre Identität überprüfen:'
         index:
           expired_verification: Verifizierung abgelaufen
+          granted_verification: Verifizierung erfolgeich
+          introduce_code: Code einfügen
           pending_verification: Ausstehende Verifizierung
           show_renew_info: Klicken Sie, um die Verifizierung zu erneuern
-          unauthorized_verification: Neue Verifizierung
+          subscribe: Abonnieren
+          unauthorized_methods: Verifizierungsmethoden
         new:
           authorize: Senden
           authorize_with: Bestätigen Sie mit %{authorizer}
         renew_modal:
-          cancel: Stornieren
-          close: Schließen
+          cancel: Abbrechen
           continue: Weiter
-          info_renew: Fahren Sie mit der Erneuerung fort, wenn Sie die Daten aktualisieren möchten
+          info_renew: Wenn Sie die Daten aktualisieren möchten, fahren Sie mit der Erneuerung fort.
           title: Verifizierung erneuern
         skip_verification: Sie können dies für jetzt und %{link}überspringen
         start_exploring: Fang an zu erforschen
@@ -118,28 +138,31 @@ de:
         admin:
           census:
             create:
-              error: Beim Import der Volkszählung ist ein Fehler aufgetreten.
-              success: Erfolgreich importiert %{count} Artikel (%{errors} Fehler)
+              error: Beim Import der Erhebung ist ein Fehler aufgetreten.
+              success: '%{count} Elemente erfolgreich hinzugefügt (%{errors} Fehler).'
             destroy_all:
-              success: Alle Volkszählungsdaten wurden gelöscht
+              success: Alle Erhebungsdaten wurden gelöscht.
           destroy:
-            confirm: Alles löschen Die Zählung kann nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie fortfahren möchten?
-            title: Löschen Sie alle Volkszählungsdaten
+            confirm: Das Löschen der Erhebungsdaten kann nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie fortfahren möchten?
+            title: Löschen Sie alle Erhebungsdaten
           index:
-            data: Insgesamt wurden %{count} Datensätze geladen. Das letzte Upload-Datum war am %{due_date}
-            empty: Es gibt keine Zensusdaten. Verwenden Sie das folgende Formular, um es mit einer CSV-Datei zu importieren.
-            title: Aktuelle Volkszählungsdaten
+            data: Insgesamt wurden %{count} Datensätze geladen. Das letzte Upload-Datum war am %{due_date}.
+            empty: Es gibt keine Daten in dieser Erhebung. Verwenden Sie das folgende Formular, um es mit einer CSV-Datei zu importieren.
+            title: Aktuelle Erhebungsdaten
           instructions:
             body: Dazu müssen Sie die Systemverwaltung eingeben und der Organisation die csv_census-Berechtigungen hinzufügen
-            title: Sie müssen die CSV Zensus für diese Organisation aktivieren
+            title: Sie müssen die CSV Erhebung für diese Organisation aktivieren
           new:
+            example: |
+              john.doe@example.org
+              jane.doe@example.org
             file: "CSV-Datei mit E-Mail-Daten"
             info: 'Muss eine Datei im CSV-Format sein, mit nur einer Spalte der E-Mail-Adresse:'
             submit: Datei hochladen
-            title: Laden Sie eine neue Volkszählung hoch
+            title: Laden Sie eine neue Erhebung hoch
         authorizations:
           new:
-            error: Wir konnten Ihr Konto nicht bestätigen oder Sie befinden sich nicht in der Zählung der Organisation.
+            error: Wir konnten Ihr Konto nicht bestätigen oder Sie befinden sich nicht in der Erhebung der Organisation.
             success: Ihr Konto wurde erfolgreich verifiziert.
       dummy_authorization:
         extra_explanation:
@@ -159,21 +182,21 @@ de:
               update: Aktualisieren
             update:
               error: Beim Aktualisieren der Konfiguration ist ein Fehler aufgetreten.
-              success: Konfiguration erfolgreich aktualisiert
+              success: Konfiguration erfolgreich aktualisiert.
           confirmations:
             create:
-              error: Überprüfung stimmt nicht überein. Versuchen Sie es erneut oder lehnen Sie die Überprüfung ab, damit der Benutzer sie ändern kann
-              success: Benutzer erfolgreich verifiziert
+              error: Überprüfung stimmt nicht überein. Versuchen Sie es erneut oder lehnen Sie die Überprüfung ab, damit der Teilnehmer sie ändern kann.
+              success: Teilnehmer erfolgreich überprüft.
             new:
               introduce_user_data: Stellen Sie die Daten in das Bild ein
               reject: Ablehnen
               verify: Überprüfen
           offline_confirmations:
             create:
-              error: Die Überprüfung stimmt nicht überein. Versuchen Sie es erneut oder teilen Sie dem Benutzer mit, es zu ändern
-              success: Benutzer erfolgreich verifiziert
+              error: Überprüfung stimmt nicht überein. Versuchen Sie es erneut oder teilen Sie dem Teilnehmer mit, sie angepasst werden muss.
+              success: Benutzer erfolgreich überprüft.
             new:
-              cancel: Stornieren
+              cancel: Abbrechen
               introduce_user_data: Geben Sie die Benutzer-E-Mail und die Dokumentdaten ein
               verify: Überprüfen
           pending_authorizations:
@@ -184,7 +207,7 @@ de:
               verification_number: 'Überprüfung #%{n}'
           rejections:
             create:
-              success: Überprüfung abgelehnt Benutzer wird aufgefordert, ihre Dokumente zu ändern
+              success: Überprüfung abgelehnt. Teilnehmer wird aufgefordert, seine/ihre Dokumente zu ändern.
         authorizations:
           choose:
             choose_a_type: 'Bitte wählen Sie aus, wie Sie verifiziert werden möchten:'
@@ -192,22 +215,22 @@ de:
             online: Online
             title: Überprüfen Sie sich anhand Ihres Ausweisdokuments
           create:
-            error: Beim Hochladen Ihres Dokuments ist ein Problem aufgetreten
-            success: Dokument erfolgreich hochgeladen
+            error: Beim Hochladen Ihres Dokuments ist ein Problem aufgetreten.
+            success: Dokument erfolgreich hochgeladen.
           edit:
-            being_reviewed: Wir überprüfen Ihre Dokumente. Sie werden in Kürze bestätigt
+            being_reviewed: Wir überprüfen Ihre Dokumente. Sie werden in Kürze bestätigt.
             offline: Offline-Bestätigung verwenden
             online: Online-Bestätigung verwenden
-            rejection_clarity: Stellen Sie sicher, dass die Informationen im hochgeladenen Bild deutlich sichtbar sind
-            rejection_correctness: Stellen Sie sicher, dass die eingegebenen Informationen korrekt sind
-            rejection_notice: Bei der Überprüfung ist ein Problem aufgetreten. Bitte versuche es erneut
+            rejection_clarity: Stellen Sie sicher, dass die Informationen im hochgeladenen Bild deutlich sichtbar sind.
+            rejection_correctness: Stellen Sie sicher, dass die eingegebenen Informationen korrekt sind.
+            rejection_notice: Bei der Überprüfung ist ein Problem aufgetreten. Bitte versuchen Sie es erneut.
             send: Überprüfung erneut anfordern
           new:
             send: Überprüfung anfordern
             title: Laden Sie Ihr Identitätsdokument hoch
           update:
-            error: Beim erneuten Laden Ihres Dokuments ist ein Problem aufgetreten
-            success: Das Dokument wurde erfolgreich neu geladen
+            error: Beim erneuten Hochladen Ihres Dokuments ist ein Problem aufgetreten.
+            success: Das Dokument wurde erfolgreich erneut hochgeladen.
         dni: Personalausweis
         nie: NIE
         passport: Reisepass
@@ -224,26 +247,26 @@ de:
               verification_code: Bestätigungscode
           postages:
             create:
-              error: Fehler beim Markieren des Briefes als gesendet
-              success: Brief erfolgreich als gesendet markiert
+              error: Fehler beim Markieren des Briefes als gesendet.
+              success: Brief erfolgreich als gesendet markiert.
         authorizations:
           create:
-            error: Es gab ein Problem mit ihrer Anfrage
-            success: Vielen Dank! Wir senden einen Bestätigungscode an Ihre Adresse
+            error: Es gab ein Problem mit Ihrer Anfrage.
+            success: Vielen Dank! Wir senden einen Bestätigungscode an Ihre Adresse.
           edit:
             send: Bestätigen
-            title: Geben Sie den Bestätigungscode ein, den Sie erhalten haben
-            waiting_for_letter: Wir senden Ihnen bald einen Brief mit Ihrem Bestätigungscode an Ihre Adresse
+            title: Geben Sie den Bestätigungscode ein, den Sie erhalten haben.
+            waiting_for_letter: Wir senden Ihnen bald einen Brief mit Ihrem Bestätigungscode an Ihre Adresse.
           new:
             send: Schick mir einen Brief
             title: Fordern Sie Ihren Bestätigungscode an
           update:
-            error: Ihr Bestätigungscode stimmt nicht mit unserem überein. Bitte überprüfen Sie den Brief, den wir Ihnen geschickt haben
-            success: Herzliche Glückwünsche. Sie wurden erfolgreich verifiziert
+            error: Ihr Bestätigungscode stimmt nicht mit unserem überein. Bitte überprüfen Sie den Brief, den wir Ihnen geschickt haben.
+            success: Herzliche Glückwünsche! Sie wurden erfolgreich verifiziert.
       sms:
         authorizations:
           create:
-            error: Es gab ein Problem mit ihrer Anfrage
+            error: Es gab ein Problem mit Ihrer Anfrage.
             success: Vielen Dank! Wir haben eine SMS an Ihr Telefon gesendet.
           destroy:
             success: Der Bestätigungscode wurde erfolgreich zurückgesetzt. Bitte geben Sie Ihre Telefonnummer erneut ein.
@@ -258,7 +281,7 @@ de:
             title: Fordern Sie Ihren Bestätigungscode an
           update:
             error: Ihr Bestätigungscode stimmt nicht mit unserem überein. Bitte überprüfen Sie die SMS, die wir Ihnen gesendet haben.
-            success: Herzliche Glückwünsche. Sie wurden erfolgreich verifiziert.
+            success: Herzliche Glückwünsche! Sie wurden erfolgreich verifiziert.
   errors:
     messages:
       uppercase_only_letters_numbers: muss groß geschrieben sein und darf nur Buchstaben und / oder Zahlen enthalten

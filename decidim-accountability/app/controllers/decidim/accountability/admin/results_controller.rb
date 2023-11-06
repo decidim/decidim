@@ -7,7 +7,6 @@ module Decidim
       class ResultsController < Admin::ApplicationController
         include Decidim::ApplicationHelper
         include Decidim::SanitizeHelper
-        include Decidim::Proposals::Admin::Picker if Decidim::Accountability.enable_proposal_linking
         include Decidim::Accountability::Admin::Filterable
 
         helper_method :results, :parent_result, :parent_results, :statuses, :present
@@ -43,13 +42,13 @@ module Decidim
         end
 
         def edit
-          enforce_permission_to :update, :result, result: result
+          enforce_permission_to(:update, :result, result:)
 
           @form = form(ResultForm).from_model(result)
         end
 
         def update
-          enforce_permission_to :update, :result, result: result
+          enforce_permission_to(:update, :result, result:)
 
           @form = form(ResultForm).from_params(params)
 
@@ -67,7 +66,7 @@ module Decidim
         end
 
         def destroy
-          enforce_permission_to :destroy, :result, result: result
+          enforce_permission_to(:destroy, :result, result:)
 
           DestroyResult.call(result, current_user) do
             on(:ok) do

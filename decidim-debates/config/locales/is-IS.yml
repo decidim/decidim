@@ -29,7 +29,6 @@ is-IS:
         confirm_destroy: Ertu viss?
         destroy: Eyða
         edit: Breyta
-        new: Nýtt %{name}
         title: Aðgerðir
       admin:
         debates:
@@ -41,9 +40,6 @@ is-IS:
           new:
             create: Búðu til umræðu
             title: Ný umræða
-        models:
-          debate:
-            name: Umræða
       admin_log:
         debate:
           create: "%{user_name} búið til %{resource_name} umræðu á %{space_name} plássinu"
@@ -62,11 +58,6 @@ is-IS:
           official: Opinber
           origin: Uppruni
           search: Leita
-        filters_small_view:
-          close_modal: Loka mát
-          filter: Sía
-          filter_by: Sía eftir
-          unfold: Fella út
         form:
           select_a_category: Vinsamlegast veldu flokk
         index:
@@ -98,4 +89,3 @@ is-IS:
           email_intro: 'Þú getur nú byrjað á nýjum umræðum í %{participatory_space_title}! Byrja að taka þátt í þessari síðu:'
           email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{participatory_space_title}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
           email_subject: Umræður nú fáanlegir í %{participatory_space_title}
-          notification_title: Þú getur nú byrjað <a href="%{resource_path}">nýjar umræður</a> í <a href="%{participatory_space_url}">%{participatory_space_title}</a>

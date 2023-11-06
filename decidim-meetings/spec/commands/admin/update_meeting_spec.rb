@@ -8,8 +8,8 @@ module Decidim::Meetings
 
     let(:meeting) { create(:meeting, :published) }
     let(:organization) { meeting.component.organization }
-    let(:scope) { create :scope, organization: }
-    let(:category) { create :category, participatory_space: meeting.component.participatory_space }
+    let(:scope) { create(:scope, organization:) }
+    let(:category) { create(:category, participatory_space: meeting.component.participatory_space) }
     let(:address) { meeting.address }
     let(:invalid) { false }
     let(:latitude) { 40.1234 }
@@ -21,13 +21,14 @@ module Decidim::Meetings
     let(:services_to_persist) do
       services.map { |service| Admin::MeetingServiceForm.from_params(service) }
     end
-    let(:user) { create :user, :admin, organization: }
+    let(:user) { create(:user, :admin, organization:) }
     let(:private_meeting) { false }
     let(:transparent) { true }
     let(:type_of_meeting) { "online" }
     let(:online_meeting_url) { "http://decidim.org" }
     let(:registration_url) { "http://decidim.org" }
     let(:registration_type) { "on_this_platform" }
+    let(:registrations_enabled) { true }
     let(:iframe_embed_type) { "none" }
     let(:iframe_access_level) { nil }
 
@@ -52,6 +53,7 @@ module Decidim::Meetings
         current_organization: organization,
         registration_type:,
         registration_url:,
+        registrations_enabled:,
         clean_type_of_meeting: type_of_meeting,
         online_meeting_url:,
         iframe_embed_type:,
@@ -97,6 +99,11 @@ module Decidim::Meetings
         expect(meeting.author).to eq organization
       end
 
+      it "sets the registration enabled flag" do
+        subject.call
+        expect(meeting.registrations_enabled).to eq registrations_enabled
+      end
+
       it "sets the services" do
         subject.call
         meeting.services.each_with_index do |service, index|
@@ -123,7 +130,7 @@ module Decidim::Meetings
       end
 
       describe "events" do
-        let!(:follow) { create :follow, followable: meeting, user: }
+        let!(:follow) { create(:follow, followable: meeting, user:) }
         let(:title) { meeting.title }
         let(:start_time) { meeting.start_time }
         let(:end_time) { meeting.end_time }
@@ -149,6 +156,7 @@ module Decidim::Meetings
             current_organization: organization,
             registration_type:,
             registration_url:,
+            registrations_enabled:,
             clean_type_of_meeting: type_of_meeting,
             online_meeting_url:,
             iframe_embed_type:,
@@ -160,7 +168,7 @@ module Decidim::Meetings
         end
 
         context "when nothing changes" do
-          it "doesn't notify the change" do
+          it "does not notify the change" do
             expect(Decidim::EventsManager)
               .not_to receive(:publish)
 
@@ -175,14 +183,14 @@ module Decidim::Meetings
             }
           end
 
-          it "doesn't notify the change" do
+          it "does not notify the change" do
             expect(Decidim::EventsManager)
               .not_to receive(:publish)
 
             subject.call
           end
 
-          it "doesn't schedule the upcoming meeting notification job" do
+          it "does not schedule the upcoming meeting notification job" do
             expect(UpcomingMeetingNotificationJob)
               .not_to receive(:perform_later)
 
@@ -252,14 +260,14 @@ module Decidim::Meetings
           context "when the start time changes" do
             let(:start_time) { meeting.start_time - 1.day }
 
-            it "doesn't notify the change" do
+            it "does not notify the change" do
               expect(Decidim::EventsManager)
                 .not_to receive(:publish)
 
               subject.call
             end
 
-            it "doesn't schedule the upcoming meeting notification job" do
+            it "does not schedule the upcoming meeting notification job" do
               expect(UpcomingMeetingNotificationJob)
                 .not_to receive(:perform_later)
 

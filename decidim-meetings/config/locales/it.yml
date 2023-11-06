@@ -1,10 +1,6 @@
 it:
   activemodel:
     attributes:
-      agenda:
-        description: Descrizione
-        duration: Durata
-        title: Titolo
       close_meeting:
         attendees_count: Numero di partecipanti
         attending_organizations: Elenco delle organizzazioni partecipanti
@@ -22,7 +18,6 @@ it:
         decidim_scope_id: Visibilità
         decidim_user_group_id: Gruppo di utenti
         description: Descrizione
-        end_time: Orario fine
         id: ID
         location: Luogo
         location_hints: Informazione sul luogo
@@ -35,22 +30,9 @@ it:
         registration_terms: Termini di registrazione
         registration_url: URL di iscrizione
         registrations_enabled: Registrazioni abilitate
-        show_embedded_iframe: Mostra iframe incorporato per questo URL
-        start_time: Orario inizio
         title: Titolo
         transparent: Trasparente
         type_of_meeting: Tipo
-    errors:
-      models:
-        meeting_agenda:
-          attributes:
-            base:
-              too_many_minutes: La durata degli articoli supera la durata della riunione di %{count} minuti
-              too_many_minutes_child: La durata dell'elemento child supera la durata del genitore "%{parent_title}" dell'ordine del giorno di %{count} minuto
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Questa email è già stata invitata
     models:
       decidim/meetings/close_meeting_event: Riunione chiusa
       decidim/meetings/create_meeting_event: Evento
@@ -100,7 +82,6 @@ it:
           success: Riunione duplicata con successo.
         new:
           copy: copia
-          select: Seleziona i dati che desideri duplicare
           title: Riunione duplicata
     components:
       meetings:
@@ -183,8 +164,6 @@ it:
           description_own: Hai partecipato a %{score} riunioni.
           name: Riunioni frequentate
           next_level_in: Partecipa a %{score} altri incontri per raggiungere il livello successivo!
-          unearned_another: Questo utente non ha ancora partecipato a nessuna riunione.
-          unearned_own: Non hai ancora partecipato a nessuna riunione.
     meetings:
       actions:
         agenda: ordine del giorno
@@ -199,7 +178,6 @@ it:
             one: 'La riunione non può essere annullata perché ha %{count} proposta ad essa associata:'
             other: 'La riunione non può essere annullata perché ha %{count} proposte associate:'
         manage_poll: Gestisci sondaggio
-        new: Nuovo incontro
         preview: Anteprima
         registrations: Iscrizioni
         title: Azioni
@@ -217,9 +195,6 @@ it:
             down: Giù
             remove: Rimuovere
             up: Su
-          create:
-            invalid: C'è stato un problema nel creare questo programma
-            success: Agenda creata con successo
           edit:
             title: Modifica agenda
             update: Aggiornare
@@ -231,9 +206,6 @@ it:
           new:
             create: Creare
             title: Nuova agenda
-          update:
-            invalid: C'è stato un problema nell'aggiornare questo programma
-            success: Agenda aggiornata con successo
         exports:
           answers: Risposte
           meeting_comments: Commenti
@@ -261,34 +233,23 @@ it:
               all: Tutti
               rejected: Respinto
               sent: Inviato
-            filter_by: Filtra per
             invite_attendee: Invita il partecipante
             invites: Inviti
-            registrations_disabled: Non puoi invitare un partecipante perché le registrazioni sono disabilitate.
             search: Ricerca
         meeting_closes:
           edit:
             close: Chiudi
             title: Chiusura meeting
         meetings:
-          close:
-            invalid: C'è stato un problema durante la chiusura di questo meeting.
-            success: OK, il meeting è stato chiuso.
           create:
-            invalid: C'è stato un problema durante la creazione di questo meeting.
             success: Riunione creata con successo. Nota che non è ancora pubblicata, devi pubblicarla manualmente.
           destroy:
-            invalid:
-              proposals_count:
-                one: La riunione non può essere annullata perché ha %{count} proposta ad essa associata
-                other: La riunione non può essere annullata perché ha %{count} proposte associate
             success: OK, il meeting è stato cancellato.
           edit:
             title: Modifica la riunione
             update: Modifica
           form:
             address_help: 'Indirizzo: usato da Geocoder per trovare la posizione'
-            disclaimer: 'Disclaimer: Utilizzando un sistema di registrazione esterno, sei consapevole che gli organizzatori di %{organization} non sono responsabili per i dati forniti dagli utenti al servizio esterno.'
             location_help: 'Posizione: messaggio diretto agli utenti che riporta il luogo dell''incontro'
             location_hints_help: 'Suggerimenti: informazioni aggiuntive. Esempio: il pavimento dell''edificio se si tratta di una riunione di persona o la password di riunione se si tratta di una riunione online con accesso ristretto.'
             online_meeting_url_help: 'Link: permette ai partecipanti di connettersi direttamente alla tua riunione'
@@ -300,9 +261,6 @@ it:
           new:
             create: Crea
             title: Crea meeting
-          publish:
-            invalid: Si è verificato un errore durante la pubblicazione di questa riunione
-            success: Riunione pubblicata con successo
           service:
             description: Descrizione
             down: Giù
@@ -313,21 +271,9 @@ it:
           services:
             add_service: Aggiungi servizio
             services: Servizi
-          unpublish:
-            invalid: Si è verificato un problema durante l'annullamento della pubblicazione di questa assemblea
-            success: Pubblicazione dell'assemblea annullata correttamente
-          update:
-            invalid: C'è stato un problema durante l'aggiornamento di questo meeting.
-            success: OK, il meeting è stato aggiornato.
         meetings_poll:
           form:
             title: Modifica questionario per %{questionnaire_for}
-          update:
-            invalid: Si è verificato un errore durante l'aggiornamento di questo sondaggio della riunione
-            success: Riunione sondaggio aggiornata con successo
-        models:
-          meeting:
-            name: Reunione
         registrations:
           edit:
             save: Salva
@@ -342,7 +288,6 @@ it:
             registrations_count:
               one: C'è stata %{count} registrazione.
               other: Ci sono state %{count} registrazioni.
-            reserved_slots_help: Lasciare a 0 se non si dispone di slot riservati
             reserved_slots_less_than: Deve essere minore o uguale a %{count}
             title: Registrazioni
           update:
@@ -367,20 +312,13 @@ it:
               not_found: 'L''organizzatore non è stato trovato nel database (ID: %{id})'
       calendar_modal:
         calendar_url: URL del calendario
-        close_window: Chiudi la finestra
         export_calendar: Esporta il calendario
       conference_venues: Sale per conferenze
-      content_blocks:
-        upcoming_meetings:
-          view_all_meetings: Guarda tutto
       directory:
         meetings:
           index:
             meetings: Incontri
             space_type: Spazio partecipativo
-      last_activity:
-        meeting_updated_at_html: "<span>Dibattito aggiornato su %{link}</span>"
-        new_meeting_at_html: "<span>Nuovo incontro al %{link}</span>"
       layouts:
         live_event:
           administrate: Amministra
@@ -393,8 +331,6 @@ it:
         registration_mailer:
           confirmation:
             subject: La tua registrazione alla riunione è stata confermata
-      meeting:
-        not_allowed: Non sei autorizzato a visualizzare questo incontro
       meeting_closes:
         edit:
           back: Indietro
@@ -404,7 +340,6 @@ it:
         calendar_modal:
           add_to_calendar: Aggiungi al calendario
           apple: Aggiungi al calendario Apple
-          close_window: Chiudi finestra
           full_details_html: Per ulteriori dettagli vai a %{link}
           google: Aggiungi al calendario di Google
           outlook: Aggiungi al calendario di Outlook
@@ -434,24 +369,16 @@ it:
             all: Tutte
             official: Ufficiale
             participants: Utenti
-            user_groups: Gruppi
-          scope: Ambito
           search: Cerca
           type: Tipo
           type_values:
             all: Tutti
             in_person: Faccia a faccia
             online: Online
-        filters_small_view:
-          close_modal: Chiudi modalità
-          filter: Filtra
-          filter_by: Filtra per
-          unfold: Espandi
         form:
           address_help: 'Indirizzo: usato da Geocoder per trovare la posizione'
           available_slots_help: Lasciare a 0 se disponi di slot illimitati
           create_as: Crea riunione come
-          disclaimer: 'Disclaimer: Utilizzando un sistema di registrazione esterno, sei consapevole che gli organizzatori di %{organization} non sono responsabili per i dati forniti dagli utenti al servizio esterno.'
           location_help: 'Posizione: messaggio diretto agli utenti che riporta il luogo dell''incontro'
           location_hints_help: 'Suggerimenti: informazioni aggiuntive. Esempio: il pavimento dell''edificio se si tratta di una riunione di persona o la password di riunione se si tratta di una riunione online con accesso ristretto.'
           online_meeting_url_help: 'Link: permette ai partecipanti di connettersi direttamente alla tua riunione'
@@ -461,10 +388,7 @@ it:
           select_a_registration_type: Seleziona un tipo di registrazione
         index:
           new_meeting: Nuova riunione
-        meeting_minutes:
-          related_information: Informazioni correlate
         meetings:
-          no_meetings_warning: Nessun meeting corrisponde ai tuoi criteri di ricerca oppure non vi è nessun meeting in programma.
           upcoming_meetings_warning: Attualmente non vi sono meeting in programma, ma qui puoi trovare elencati tutti i meeting effettuati in passato.
         new:
           back: Indietro
@@ -475,13 +399,8 @@ it:
           confirm: Conferma
         show:
           attendees: Conteggio dei partecipanti
-          back: Torna alla lista
-          close_meeting: Chiusura meeting
           contributions: Conteggio dei contributi
           date: Data
-          edit_close_meeting: Modifica rapporto riunione
-          edit_meeting: Modifica la riunione
-          going: Ti sei iscritto a questa riunione
           join: Partecipa alla riunione
           leave: Annulla la tua registrazione
           leave_confirmation: Sei sicuro di voler annullare la tua registrazione per questa riunione?
@@ -504,8 +423,6 @@ it:
         update:
           invalid: Si è verificato un errore durante l'aggiornamento della riunione.
           success: Hai aggiornato la riunione con successo.
-      meetings_map:
-        view_meeting: Guarda la riunione
       models:
         invite:
           fields:
@@ -562,7 +479,6 @@ it:
       registrations:
         create:
           invalid: C'è stato un problema a partecipare a questa riunione.
-          success: L'iscrizione all'evento è stata registrata con successo.
         decline_invitation:
           invalid: C'è stato un problema a rifiutare l'invito.
           success: Hai rifiutato l'invito con successo.
@@ -575,8 +491,6 @@ it:
       types:
         private_meeting: Incontro privato
         transparent: Trasparente
-      versions:
-        back_to_resource: Torna alla riunione
     metrics:
       meetings:
         description: Numero di riunioni create
@@ -587,8 +501,6 @@ it:
         past_meetings: Incontri passati
         see_all: Vedi tutto (%{count})
         upcoming_meetings: Prossimi incontri
-      upcoming_meeting_for_card:
-        upcoming_meeting: Prossimo incontro
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Risultati correlati:'

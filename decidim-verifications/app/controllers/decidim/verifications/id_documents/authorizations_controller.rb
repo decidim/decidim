@@ -39,7 +39,7 @@ module Decidim
             end
 
             on(:invalid) do
-              flash[:alert] = t("authorizations.create.error", scope: "decidim.verifications.id_documents")
+              flash.now[:alert] = t("authorizations.create.error", scope: "decidim.verifications.id_documents")
               render action: :new
             end
           end
@@ -69,7 +69,7 @@ module Decidim
             end
 
             on(:invalid) do
-              flash[:alert] = t("authorizations.update.error", scope: "decidim.verifications.id_documents")
+              flash.now[:alert] = t("authorizations.update.error", scope: "decidim.verifications.id_documents")
               render action: :edit
             end
           end

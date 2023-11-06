@@ -1,0 +1,46 @@
+<div class="title-bar">
+  <div class="layout-content__container">
+    <a href="#menu" class="menu-trigger"><%= icon "menu-line", class: "fill-black" %></a>
+    <span class="font-semibold text-sm">
+      <%= current_organization.name %>
+    </span>
+    <div class="tool-bar">
+      <%= link_to decidim.root_path, class: "button__site", target: "_blank", data: { "external-link": false } do %>
+        <%= icon "eye-line" %>
+        <%= t("see_site", scope: "decidim.admin.menu") %>
+      <% end %>
+      <% if available_locales.length > 1 %>
+        <div class="topbar__dropmenu language-choose relative">
+          <%= button_tag id: "admin-menu-trigger-responsive", data: { component: "dropdown", target: "admin-dropdown-menu-language-responsive" }, class: "dropdown__trigger" do %>
+              <%= t("name", scope: "locale") %>
+              <%= icon "arrow-down-s-line" %>
+          <% end %>
+
+          <div id="admin-dropdown-menu-language-responsive" aria-hidden="true">
+            <ul class="dropdown dropdown__bottom">
+              <% (available_locales - [I18n.locale.to_s]).each do |locale| %>
+                <li class="dropdown__item">
+                  <%= link_to(locale_name(locale), decidim.locale_path(locale:), method: :post, tabindex: "-1") %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      <% end %>
+
+      <div class="user-login relative">
+        <%= button_tag current_user.email, id: "admin-dropdown-menu-login-trigger-responsive", data: { component: "dropdown", target: "admin-dropdown-menu-login-responsive" } , class: "dropdown__trigger" do %>
+          <%= current_user.email %>
+          <%= icon "arrow-down-s-line" %>
+        <% end %>
+        <div id="admin-dropdown-menu-login-responsive" aria-hidden="true">
+          <ul class="dropdown dropdown__bottom">
+            <li class="dropdown__item">
+              <%= link_to(t("layouts.decidim.user_menu.log_out"), decidim.destroy_user_session_path, method: :delete, tabindex: "-1") %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

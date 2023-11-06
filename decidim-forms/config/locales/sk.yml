@@ -15,8 +15,6 @@ sk:
             choices:
               missing: nie je kompletné
               too_many: je príliš veľa
-        questionnaire:
-          request_invalid: Počas požiadavku sa vyskytla chyba, skúste to znova.
   decidim:
     forms:
       admin:
@@ -49,9 +47,6 @@ sk:
             up: Hore
           update:
             invalid: Vyskytol sa problém s ukladaním formulára.
-      errors:
-        answer:
-          body: Telo nemôže byť prázdne
       question_types:
         long_answer: Dlhá odpoveď 
         multiple_option: Viacero možností
@@ -66,7 +61,6 @@ sk:
           max_choices: 'Maximum možností: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Prihláste sa so svojím účtom</a> alebo <a href="%{sign_up_link}"> sa zaregistrujte</a>, aby ste mohli odpovedať.
             title: Odpovedať na formulár
           questionnaire_answered:
             body: Na tento formulár už ste dopovedali.

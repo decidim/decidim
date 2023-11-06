@@ -28,23 +28,32 @@ module Decidim
               post :answer
             end
           end
-          resources :versions, only: [:show, :index]
-          resource :widget, only: :show, path: "embed"
+          resources :versions, only: [:show]
           resource :live_event, only: :show
           namespace :polls do
             resources :questions, only: [:index, :update]
             resources :answers, only: [:index, :create]
           end
         end
-        root to: "meetings#index"
+        scope "/meetings" do
+          root to: "meetings#index"
+        end
+        get "/", to: redirect("meetings", status: 301)
+
         resource :calendar, only: [:show], format: :text do
           resources :meetings, only: [:show], controller: :calendars, action: :meeting_calendar
         end
       end
 
-      initializer "decidim.content_processors" do |_app|
+      initializer "decidim_meetings.content_processors" do |_app|
         Decidim.configure do |config|
           config.content_processors += [:meeting]
+        end
+      end
+
+      initializer "decidim_meetings.content_security_handlers" do |_app|
+        Decidim.configure do |config|
+          config.content_security_policies_extra.deep_merge!({ "frame-src" => %w(player.twitch.tv meet.jit.si) })
         end
       end
 
@@ -53,26 +62,11 @@ module Decidim
           view_context.cell("decidim/meetings/highlighted_meetings", view_context.current_participatory_space)
         end
 
-        # This view hook is used in card cells. It renders the next upcoming
-        # meeting for the given participatory space.
-        Decidim.view_hooks.register(:upcoming_meeting_for_card, priority: Decidim::ViewHooks::LOW_PRIORITY) do |view_context|
-          published_components = Decidim::Component.where(participatory_space: view_context.current_participatory_space).published
-          upcoming_meeting = Decidim::Meetings::Meeting.where(component: published_components).upcoming.order(:start_time, :end_time).first
-
-          next unless upcoming_meeting
-
-          view_context.render(
-            partial: "decidim/participatory_spaces/upcoming_meeting_for_card.html",
-            locals: {
-              upcoming_meeting:
-            }
-          )
-        end
-
         Decidim.view_hooks.register(:conference_venues, priority: Decidim::ViewHooks::HIGH_PRIORITY) do |view_context|
           published_components = Decidim::Component.where(participatory_space: view_context.current_participatory_space).published
-          meetings = Decidim::Meetings::Meeting.where(component: published_components).group_by(&:address)
-          meetings_geocoded = Decidim::Meetings::Meeting.where(component: published_components).geocoded
+          meetings = Decidim::Meetings::Meeting.visible.not_hidden.published.where(component: published_components).group_by(&:address)
+          meetings_geocoded = Decidim::Meetings::Meeting.visible.not_hidden.published.where(component: published_components).geocoded
+
           next unless meetings.any?
 
           view_context.render(
@@ -125,11 +119,31 @@ module Decidim
       end
 
       initializer "decidim_meetings.register_reminders" do
-        Decidim.reminders_registry.register(:close_meeting) do |reminder_registry|
-          reminder_registry.generator_class_name = "Decidim::Meetings::CloseMeetingReminderGenerator"
+        config.after_initialize do
+          Decidim.reminders_registry.register(:close_meeting) do |reminder_registry|
+            reminder_registry.generator_class_name = "Decidim::Meetings::CloseMeetingReminderGenerator"
 
-          reminder_registry.settings do |settings|
-            settings.attribute :reminder_times, type: :array, default: [3.days, 7.days]
+            reminder_registry.settings do |settings|
+              settings.attribute :reminder_times, type: :array, default: [3.days, 7.days]
+            end
+          end
+        end
+      end
+
+      initializer "decidim_meetings.authorization_transfer" do
+        config.to_prepare do
+          Decidim::AuthorizationTransfer.register(:meetings) do |transfer|
+            transfer.move_records(Decidim::Meetings::Meeting, :decidim_author_id)
+            transfer.move_records(Decidim::Meetings::Registration, :decidim_user_id)
+            transfer.move_records(Decidim::Meetings::Answer, :decidim_user_id)
+          end
+        end
+      end
+
+      initializer "decidim_meetings.moderation_content" do
+        config.to_prepare do
+          ActiveSupport::Notifications.subscribe("decidim.admin.block_user:after") do |_event_name, data|
+            Decidim::Meetings::HideAllCreatedByAuthorJob.perform_later(**data)
           end
         end
       end

@@ -14,25 +14,35 @@ es-PY:
         description: Descripción
         file: Archivo
         title: Nombre del adjunto o imagen
+        weight: Orden de posición
       attachment_collection:
         description: Descripción
         name: Nombre
+        weight: Orden de posición
       category:
         description: Descripción
         name: Nombre
         parent_id: Superior
+        weight: Orden de posición
       component:
         name: Nombre
         published_at: Publicado en
         weight: Orden de posición
+      external_domain:
+        value: Valor
+      help_section:
+        content: Contenido
       id: ID
       import:
         user_group_id: Importar como
       newsletter:
         body: Cuerpo
+        send_to_all_users: Enviar a todas las usuarias
+        send_to_followers: Enviar a las seguidoras
+        send_to_participants: Enviar a las participantes
         subject: Asunto
       organization:
-        admin_terms_of_use_body: Cuerpo para los términos de uso del administrador
+        admin_terms_of_service_body: Cuerpo de texto para los términos de servicio de administración
         alert_color: Alerta
         available_authorizations: Autorizaciones disponibles
         badges_enabled: Habilitar insignias
@@ -83,15 +93,19 @@ es-PY:
         secondary_hosts: Hosts secundarios
         send_welcome_notification: Enviar notificación de bienvenida
         success_color: Éxito
+        tertiary_color: Terciario
         time_zone: Zona Horaria
         tos_version: Versión de los Términos de Servicio
-        twitter_handler: Nombre de Twitter
+        twitter_handler: Nombre de usuaria en X
         user_groups_enabled: Habilitar grupos de usuarios
         users_registration_mode: Modo de registro de usuarios
         warning_color: Advertencia
         welcome_notification_body: Cuerpo del mensaje de notificación de bienvenida
         welcome_notification_subject: Asunto del mensaje de notificación de bienvenida
         youtube_handler: Nombre de YouTube
+      participatory_space_private_user:
+        email: Correo electrónico
+        name: Nombre
       scope:
         code: Código
         name: Nombre
@@ -113,6 +127,7 @@ es-PY:
         show_in_footer: Mostrar en el pie de página
         slug: Texto corto de URL
         title: Título
+        topic_id: Asunto
         weight: Orden de posición
       static_page_topic:
         description: Descripción
@@ -126,18 +141,26 @@ es-PY:
         newsletter:
           attributes:
             base:
-              at_least_one_space: Seleccione al menos un espacio participativo
+              at_least_one_space: Selecciona al menos un espacio participativo.
         organization:
           attributes:
             official_img_footer:
               allowed_file_content_types: Archivo de imagen no válido
             official_img_header:
               allowed_file_content_types: Archivo de imagen no válido
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: Archivo de importación mal formateado, por favor lea las instrucciones cuidadosamente y asegúrese de que el archivo está codificado en UTF-8.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: Archivo de importación mal formateado, por favor lea las instrucciones cuidadosamente y asegúrese de que el archivo está codificado en UTF-8.
       new_import:
         attributes:
           file:
-            invalid_file: El archivo proporcionado no es válido, por favor comprueba que el archivo está correctamente formateado
-            invalid_mime_type: Tipo de mime inválido
+            invalid_file: El archivo proporcionado no es válido, por favor comprueba que el archivo está correctamente formateado.
+            invalid_mime_type: Tipo MIME inválido.
   activerecord:
     attributes:
       decidim/static_page:
@@ -166,8 +189,6 @@ es-PY:
         export: Exportar todo
         export-selection: Exportar selección
         import: Importar
-        manage: Gestionar
-        new: Nuevo %{name}
         newsletter:
           new: Nuevo boletín
         participatory_space_private_user:
@@ -175,30 +196,31 @@ es-PY:
         per_page: Por página
         permissions: Permisos
         reject: Rechazar
+        send_me_a_test_email: Enviarme un correo electrónico de prueba
         share: Compartir
         user:
           new: Nueva administradora
         verify: Verificar
-      admin_terms_of_use:
+      admin_terms_of_service:
         accept:
-          error: Ha habido un error al aceptar los Términos y Condiciones de Administración.
-          success: '¡Genial! Has aceptado los Términos y Condiciones de Administración.'
+          error: Ha habido un error al aceptar los Términos y Condiciones de administración.
+          success: '¡Genial! Has aceptado los términos del servicio de administración.'
         actions:
-          accept: Estoy de acuerdo con los siguientes términos
-          are_you_sure: '¿Seguro que deseas rechazar los términos de uso para administradoras?'
-          refuse: Rechazar los Términos y Condiciones de Administración
-          title: Acepto los Términos y Condiciones de Administración
+          accept: Estoy de acuerdo con los términos
+          are_you_sure: '¿Seguro que quieres rechazar los términos del servicio de administración?'
+          refuse: Rechazar los términos del servicio de administración
+          title: Aceptar los términos del servicio
         required_review:
-          alert: 'Requerido: revisa nuestros Términos y Condiciones de Administración'
-          callout: Por favor dedica un momento a familiarizarte con los términos de uso para administradoras. En caso contrario, no podrás administrar la plataforma.
-          cta: Revísalos ahora.
-        title: Términos y Condiciones de Administración
+          alert: 'Requerido: Revisa nuestros términos del servicio de administración'
+          callout: Por favor dedica un momento a revisar los términos del servicio de administración. En caso contrario, no podrás administrar la plataforma.
+          cta: Revisarlos ahora.
+        title: Términos y condiciones del servicio de administración
       area_types:
         create:
           error: Hubo un error al crear un nuevo tipo de área.
           success: Tipo de área creada con éxito.
         destroy:
-          success: Tipo de área destruido con éxito
+          success: El tipo de área se ha eliminado correctamente.
         edit:
           title: Editar tipo de área
           update: Actualizar
@@ -207,14 +229,14 @@ es-PY:
           title: Nuevo tipo de área
         update:
           error: Hubo un error al actualizar este tipo de área.
-          success: Tipo de área actualizado con éxito
+          success: El tipo de área se actualizó correctamente.
       areas:
         create:
           error: Hubo un error al crear una nueva área.
           success: Área creada correctamente.
         destroy:
           has_spaces: Esta área tiene espacios dependientes. Asegúrate de que no hace referencia a ningún espacio de participación antes de eliminarla.
-          success: Área destruida correctamente
+          success: Área eliminada correctamente.
         edit:
           title: Editar área
           update: Actualizar
@@ -224,7 +246,7 @@ es-PY:
         no_areas: Sin áreas
         update:
           error: Hubo un error al actualizar esta área.
-          success: Área actualizada correctamente
+          success: Área actualizada correctamente.
       attachment_collections:
         create:
           error: Se ha producido un error al crear una nueva carpeta.
@@ -235,7 +257,6 @@ es-PY:
           title: Editar carpeta
           update: Actualizar
         index:
-          attachment_collection_used: Esta carpeta no se puede eliminar porque está en uso.
           attachment_collections_title: Carpetas de archivos adjuntos
         new:
           create: Crear
@@ -264,10 +285,11 @@ es-PY:
         message: Por favor ten cuidado al trabajar con archivos adjuntos en un espacio privado. Cualquier participante puede compartir este documento con otras.
       autocomplete:
         no_results: No se han encontrado resultados
-        search_prompt: Escriba al menos tres caracteres para buscar
+        search_prompt: Escriba al menos tres caracteres para buscar.
       block_user:
         new:
           action: Bloquear cuenta y enviar justificación
+          already_reported_html: Continuando con esta acción también esconderás todos los contenidos de la participante. <a href="%{link}">Bloquea la cuenta</a>.
           description: El bloqueo de una usuaria dejará su cuenta inutilizable. Puedes proporcionar en tu justificación los criterios bajo los cuales considerarías desbloquearla.
           justification: Justificación
           title: Bloquear a la usuaria %{name}
@@ -283,7 +305,6 @@ es-PY:
           update: Actualizar
         index:
           categories_title: Categorías
-          category_used: Esta categoría no se puede eliminar porque está en uso.
         new:
           create: Crear categoría
           title: Nueva categoría
@@ -298,6 +319,7 @@ es-PY:
         create:
           error: Hubo un error al crear este componente.
           success: Componente creado con éxito.
+          success_landing_page: Componente creado con éxito. Puedes añadir un bloque de contenido para este componente en la ppágina de inicio del espacio de participación. <a href="%{landing_page_path}">Ve a la página de inicio</a> para configurarla.
         destroy:
           error: Ha habido un error al eliminar este componente.
           success: Componente borrado con éxito.
@@ -342,15 +364,21 @@ es-PY:
         'true': 'Sí'
         user_name: Usuaria
       dashboard:
+        pending_moderations:
+          anouncement:
+            one: Hay %{count} moderación pendiente
+            other: Hay %{count} moderaciones pendientes
+          goto_moderation: Ir a moderaciones globales
+          title: Moderaciones pendientes
         show:
+          dropdown: Desplegable
           view_more_logs: Ver más registros
-          welcome: Bienvenida al panel de administración.
       domain_whitelist:
         form:
           domain_too_short: Dominio demasiado corto
         update:
-          error: Error al actualizar la lista blanca del dominio
-          success: Lista blanca de dominio actualizada correctamente
+          error: Error al actualizar la lista de dominios autorizados.
+          success: Se ha actualizado correctamente el listado de dominios autorizados.
       exports:
         export_as: "%{name} como %{export_format}"
         formats:
@@ -358,7 +386,7 @@ es-PY:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
-        notice: Su exportación está actualmente en curso. Recibirá un correo electrónico cuando esté completo.
+        notice: Tu exportación está actualmente en curso. Recibirás un correo electrónico cuando haya finalizado.
       filters:
         category_id_eq:
           label: Categoría
@@ -433,17 +461,16 @@ es-PY:
             message_1: Los archivos CSV, JSON y Excel (.xlsx) están soportados
             message_2: Para archivos CSV, el separador entre columnas debe ser un punto y coma (";")
       help_sections:
-        error: Ha habido un error al actualizar las secciones de ayuda.
+        error: Hubo un problema al actualizar las secciones de ayuda.
         form:
           save: Salvar
-        success: Secciones de ayuda actualizadas exitosamente
+        success: Las secciones de ayuda se han actualizado correctamente.
       impersonatable_users:
         index:
           filter:
             all: Todas
             managed: Administrado
             not_managed: No gestionado
-          filter_by: Filtrado por
           impersonate: Suplantar
           impersonate_new_managed_user: Impersonar a un nuevo usuario administrado
           managed: Administrado
@@ -494,8 +521,8 @@ es-PY:
             message:
               one: Falta la columna %{columns}.
               other: Faltan las columnas %{columns}.
-        error: Se ha producido un error durante la importación
-        example_error: No se pudo crear un ejemplo para el tipo dado
+        error: Se ha producido un error durante la importación.
+        example_error: Hubo un problema al crear un ejemplo para el tipo seleccionado.
         new:
           accepted_mime_types:
             csv: csv
@@ -507,10 +534,15 @@ es-PY:
           download_example_format: Ejemplo como %{name}
           file_legend: Añadir un archivo de importación que será procesado.
           import: Importar
-        notice: "%{number} %{resource_name} importado correctamente"
+        notice: "%{count} %{resource_name} importado correctamente."
       logs:
+        filters:
+          participatory_space: Encontrar espacio de participación
+          text: Buscar por correo electrónico, nombre o alias.
+          user: Usuaria
         logs_list:
-          no_logs_yet: Aún no hay ningún registro de actividad
+          no_logs_yet: Aún no hay ningún registro de actividad.
+          no_matching_logs: No hay registros con los filtros de búsqueda seleccionados. Prueba con otros e inténtalo de nuevo.
       managed_users:
         promotion:
           error: Se ha producido un error al promocionar el usuario gestionado.
@@ -527,7 +559,7 @@ es-PY:
         area_types: Tipos de área
         areas: Áreas
         configuration: Configuración
-        dashboard: Panel de control
+        content: Contenido reportado
         external_domain_whitelist: Dominios externos permitidos
         help_sections: Secciones de ayuda
         homepage: Página principal
@@ -535,9 +567,10 @@ es-PY:
         moderation: Moderaciones globales
         newsletters: Boletines
         participants: Participantes
-        reported_users: Usuarias reportadas
+        reported_users: Participantes reportadas
         scope_types: Tipos de ámbito
         scopes: Ámbitos
+        see_site: Ver el sitio web
         settings: Configuración
         static_pages: Páginas
         user_groups: Grupos de usuarios
@@ -607,7 +640,7 @@ es-PY:
           fields:
             created_at: Fecha de creación
             email: Correo electrónico
-            last_sign_in_at: Última fecha de identificación
+            last_sign_in_at: Última conexión
             name: Nombre
             role: Rol
             roles:
@@ -620,6 +653,7 @@ es-PY:
             created_at: Fecha de creación
             document_number: Número del documento
             name: Nombre
+            nickname: Alias
             phone: Teléfono
             state: Estado
             users_count: Número de usuarios
@@ -634,7 +668,7 @@ es-PY:
           nickname: Alias
           reason: Motivo
           reports: Cantidad de veces reportado
-          title: Listando usuarios reportados
+          title: Participantes reportadas
         report:
           reasons:
             does_not_belong: No pertenece
@@ -645,10 +679,11 @@ es-PY:
           unblocked: No bloqueado
       moderations:
         index:
-          title: Moderaciones
+          title: Contenido reportado
         report:
           reasons:
             does_not_belong: No pertenece
+            hidden_during_block: Oculto mientras se bloquea a la participante
             offensive: Ofensiva
             spam: Contenido no deseado
         reports:
@@ -716,28 +751,28 @@ es-PY:
           select_scopes: Filtrar para las participantes que hayan activado cualquier ámbito en su configuración de "Mis intereses".
           select_spaces: Selecciona espacios para segmentar el boletín
           select_users: Selecciona a qué usuarios deseas enviar el boletín
-          send_to_all_users: Enviar a todos los usuarios
-          send_to_followers: Enviar a los seguidores
-          send_to_participants: Enviar a los participantes
           title: Selecciona los destinatarios
           warning: "<strong>Atención:</strong> Este boletín sólo será enviado a participantes que hayan activado <em>Quiero recibir boletines de noticias</em> en sus ajustes de notificaciones."
         send:
-          no_recipients: No hay destinatarios para esta selección
+          no_recipients: No hay destinatarias para esta selección.
+        send_to_user:
+          sent_successfully: El boletín ha sido enviado correctamente a %{email}
         show:
           preview: Previsualizar
           select_recipients_to_deliver: Selecciona los destinatarios
+          send_me_a_test_email: Enviarme un correo electrónico de prueba
           subject: Asunto
         update:
           error: Se ha producido un error al actualizar este boletín.
           success: Boletín actualizado correctamente. Por favor revísalo antes de enviarlo.
       officializations:
         block:
-          error: Se ha producido un error al bloquear a la participante
-          success: Participante bloqueada correctamente
+          error: Se ha producido un error al bloquear a la participante.
+          success: Participante bloqueada correctamente.
         create:
-          success: Usuario oficializado con éxito
+          success: Participante oficializada correctamente.
         destroy:
-          success: Usuario des-oficializado con éxito
+          success: Se ha retirado correctamente la oficialización de la participante.
         index:
           actions: Acciones
           badge: Distintivo
@@ -759,7 +794,6 @@ es-PY:
           officialize: Oficializar
           title: Oficializar el usuario "%{name}"
         show_email_modal:
-          close_modal: Cierra el modal
           description: Si necesitas contactar directamente con una participante, puedes hacer clic en el botón Mostrar para ver la dirección de correo electrónico. Esta acción se registrará.
           email_address: Dirección de correo electrónico
           full_name: Nombre completo
@@ -767,8 +801,8 @@ es-PY:
           show: Mostrar
           title: Mostrar dirección de correo de la participante
         unblock:
-          error: Se ha producido un error al desbloquear a la participante
-          success: Participante desbloqueada correctamente
+          error: Se ha producido un error al desbloquear a la participante.
+          success: Participante desbloqueada correctamente.
       organization:
         edit:
           title: Editar organización
@@ -779,7 +813,7 @@ es-PY:
           instagram: Instagram
           rich_text_editor_in_public_views_help: En algunas áreas de texto, los participantes podrán insertar algunas etiquetas HTML utilizando el editor de texto enriquecido.
           social_handlers: Social
-          twitter: Twitter
+          twitter: X
           url: URL
           youtube: YouTube
         update:
@@ -790,10 +824,16 @@ es-PY:
           update: Actualizar
         form:
           colors:
+            choose_color: Elegir un color primario
             colors_title: Colores de organizacion
             colors_warning_html: '¡Advertencia! Cambiar estos colores puede romper los contrastes de accesibilidad. Puedes comprobar el contraste de tu elección con <a href="%{link}">WebAIM Contrast Checker</a> u otras herramientas similares.'
-            header_snippets_help: Utiliza este campo para agregar cosas a la cabecera HTML. El uso más común es integrar servicios de terceros que requieran JavaScript o CSS adicionales. Además, puedes usarlo para agregar etiquetas HTML adicionales. Ten en cuenta que esto sólo se mostrará en las páginas públicas, no en la sección de administración.
-          cta_button_path_help: 'Puedes sobrescribir el enlace al botón de acción principal en la página principal. Usa rutas parciales, no URLs completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. El botón de acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción. Ejemplo: %{url}'
+            explanation: Esta herramienta te ayuda a elegir un esquema de color, compuesto por distintas tonalidades seleccionadas de forma armoniosa para usarse en el sitio web de la organización.
+            header_snippets_help_html: Utiliza este campo para añadir cosas a la cabecera HTML. El uso más común es integrar servicios de terceros que requieren JavaScript o CSS adicionales. También, puedes usarlo para añadir meta-etiquetas extra al HTML. Ten en cuenta que esto sólo será renderizado en páginas públicas, no en la sección de administración. Si el código interactúa con APIs externas o no cumple con las pautas de seguridad de la aplicación, será necesario cambiar la Política de Seguridad del Contenido. Lea más sobre <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">en el sitio de documentación</a>.
+            legend_html: Colores principales de la aplicación, basados en el <a href="https://www.color-meanings.com/triadic-colors/">algoritmo Triadic</a>. El color <i>secundario</i> es autocalculado a partir del color primario y la saturación que has elegido.
+            saturation: Saturación
+            title: Selector de color
+            update_suggested_colors: Actualizar a los colores sugeridos
+          cta_button_path_help_html: 'Puedes redirigir la dirección donde enlaza el Botón de Acción principal de la página de inicio donde desees. Usa rutas parciales, no URLs completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. El Botón de Acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción. Ejemplo: %{url}'
           cta_button_text_help: Puedes sobrescribir el texto del botón de acción principal en la página de inicio para cada idioma disponible en tu organización. Si no está configurado, se usará el valor predeterminado. El botón de acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción.
           homepage_appearance_title: Editar apariencia de página de inicio
           homepage_highlighted_content_banner_title: Banner de contenido resaltado
@@ -813,12 +853,21 @@ es-PY:
           add: Añadir a la lista blanca
           title: Lista blanca de dominios externos
       organization_homepage:
+        content_blocks:
+          create:
+            error: Se ha producido un error al intentar crear este bloque de contenido.
+            success: Bloque de contenido creado correctamente.
+          destroy:
+            error: Se ha producido un error al tratar de eliminar este bloque de contenido.
+            success: Bloque de contenido eliminado correctamente.
+          edit:
+            update: Actualizar
         edit:
           active_content_blocks: Bloques de contenido activos
+          add: Añadir bloque de contenido
+          destroy_confirmation: '¿Seguro que quieres borrar este bloque de contenido?'
           inactive_content_blocks: Bloques de contenido inactivos
-      organization_homepage_content_blocks:
-        edit:
-          update: Actualizar
+          title: Contenidos de la página
       participatory_space_private_users:
         create:
           error: Hubo un error al agregar un usuario privado para este espacio participativo.
@@ -834,16 +883,20 @@ es-PY:
           title: Nuevo usuario privado en el espacio participativo.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: Se ha producido un error al leer el archivo CSV.
-          success: Archivo CSV subido correctamente, estamos enviando un correo electrónico de invitación a las participantes. Esto puede tardar un tiempo.
+          invalid: Hubo un problema al leer el archivo CSV. Por favor, asegúrate de haber seguido las instrucciones.
+          success: El archivo CSV se ha cargado correctamente, estamos enviando un correo de invitación a las participantes. Este proceso puede tardar un poco.
         new:
           destroy:
             button: Borrar todas las participantes privadas
-            confirm: '¿Estás segura que quieres eliminar todas las participantes privadas? Esta acción no se puede deshacer, no podrás recupararlas.'
+            confirm: '¿Seguro que quieres eliminar todas las participantes privadas? Esta acción no se puede deshacer, no podrás recuperarlas.'
             empty: No hay participantes privadas.
             explanation: Hay %{count} participante/s privada/s.
             title: Borrar las participantes privadas
-          explanation: 'Sube tu archivo CSV. Debe tener dos columnas con correo electrónico en la primera columna del archivo y el nombre en la última columna del archivo (correo electrónico, nombre) de los usuarios que deseas añadir al espacio participativo, sin encabezados. Evitar usar caracteres no válidos como `<>?%&^*#@()[]=+:;"{}\|` en el nombre de usuario.'
+          example_file: 'Fichero de ejemplo:'
+          explanation: 'Sube tu archivo CSV. Debe tener dos columnas con correo electrónico en la primera columna del archivo y el nombre en la última columna del archivo de las participantes que deseas añadir al espacio participativo, sin encabezados. Evita usar caracteres no válidos como `<>?%&^*#@()[]=+:;"{}\|` en el nombre de usuaria.'
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
           title: Sube tu archivo CSV
           upload: Subir
       reminders:
@@ -884,7 +937,7 @@ es-PY:
           error: Se ha producido un error al crear un nuevo ámbito.
           success: Ámbito creado correctamente.
         destroy:
-          success: Ámbito eliminado con éxito
+          success: Ámbito eliminado correctamente.
         edit:
           title: Editar alcance
           update: Actualizar
@@ -904,7 +957,7 @@ es-PY:
           error: Se ha producido un error al eliminar este token.
           success: Token eliminado correctamente.
         share_tokens:
-          empty: No hay tokens activos
+          empty: No hay tokens activos.
           help: Estos tokens se utilizan para compartir públicamente este recurso no publicado a cualquier usuario. Se ocultarán cuando se publique el recurso. Haz clic en el icono de compartir el token para visitar la URL compartible.
           title: Compartir tokens
       shared:
@@ -918,7 +971,7 @@ es-PY:
           error: Se ha producido un error al crear un nuevo tema.
           success: Tema creado correctamente.
         destroy:
-          success: Tema eliminado correctamente
+          success: Tema eliminado correctamente.
         edit:
           title: Editar tema
           update: Actualizar tema
@@ -931,27 +984,39 @@ es-PY:
       static_pages:
         actions:
           view: Ver la página pública
+        content_blocks:
+          active_content_blocks: Bloques de contenido activos
+          add: Añadir bloque de contenido
+          create:
+            error: Se ha producido un error al intentar crear este bloque de contenido.
+            success: El bloque de contenido se ha creado correctamente.
+          destroy:
+            error: Se ha producido un error al intentar eliminar este bloque de contenido.
+            success: Bloque de contenido eliminado correctamente.
+          destroy_confirmation: '¿Seguro que quieres borrar este bloque de contenido?'
+          edit:
+            update: Actualizar
+          inactive_content_blocks: Bloques de contenido inactivos
+          title: Contenido de la página
         create:
           error: Se ha producido un error al crear una nueva página.
           success: La página se ha creado correctamente. Sigue ahora con la configuración de las fases.
         destroy:
           success: La página se ha eliminado correctamente.
         edit:
-          changed_notably_help: Si se marca, se notificará a los usuarios que acepten los nuevos Términos y Condiciones.
+          changed_notably_help: Si se marca, se notificará a las participantes para que acepten los nuevos términos y condiciones de uso.
           title: Editar página
           update: Actualizar
         form:
           none: Ninguna
-          slug_help: 'Usa rutas parciales, no direcciones URL completas aquí. Acepta letras, números, guiones y barras diagonales, y debe comenzar con una letra. Ejemplo: %{url}'
-        index:
-          last_notable_change: Último cambio notable
+          slug_help_html: 'Usa rutas parciales, no direcciones URL completas aquí. Acepta letras, números, guiones y barras diagonales, y debe comenzar con una letra. Ejemplo: %{url}'
         new:
           create: Crear página
           title: Nueva página
         topic:
           destroy: Eliminar tema
           edit: Editar tema
-          empty: No hay ninguna página para este tema
+          empty: No hay ninguna página sobre este tema.
           without_topic: Páginas sin tema
         update:
           error: Se ha producido un error en la actualización de ésta página.
@@ -962,27 +1027,30 @@ es-PY:
         areas: Áreas
         authorization_workflows: Métodos de verificación
         dashboard: Panel de control
+        edit_external_domains: Listado de dominios externos permitidos
+        edit_landing_page: Contenidos de la página
+        edit_organization_appearance: Editar apariencia de página de inicio
         impersonatable_users: Usuarios manejables
         impersonations: Gestion de usuarios
         metrics: Métricas
+        pages: Páginas
         panel: Administradora
         participants: Usuarios
         scope_types: Tipos de ámbito
         scopes: Ámbitos
-        static_pages: Páginas
         statistics: Actividad
         user_groups: Grupos de usuarios
         users: Administradoras
       user_group:
         csv_verify:
           invalid: Se produjo un error al leer el archivo CSV.
-          success: El archivo CSV se cargó correctamente, estamos verificando los grupos de usuarios que coinciden con los criterios. Esto podría tomar un tiempo.
+          success: El archivo CSV cargado correctamente, estamos verificando los grupos que coinciden con los criterios. Esto puede tardar un poco.
         reject:
           invalid: Se ha producido un error al rechazar este grupo de usuarios.
-          success: Grupo de usuarios rechazado correctamente
+          success: Grupo rechazado correctamente.
         verify:
           invalid: Se ha producido un error al verificar este grupo de usuarios.
-          success: Grupo de usuarios verificado correctamente
+          success: Grupo verificado correctamente.
       user_groups:
         index:
           state:
@@ -992,7 +1060,11 @@ es-PY:
           verify_via_csv: Verificar a través de CSV
       user_groups_csv_verifications:
         new:
+          example_file: 'Fichero de ejemplo:'
           explanation: Sube tu archivo CSV. Debe tener los correos electrónicos oficiales de los grupos de usuarios en su organización en la primera columna del archivo, sin encabezados. Solo se validarán los grupos de usuarios que hayan confirmado su correo electrónico y que tengan un correo electrónico que aparece en el archivo CSV.
+          explanation_example: |
+            acme@example.org
+            bubba.gump@example.org
           title: Sube tu archivo CSV
           upload: Subir
       users:
@@ -1015,13 +1087,12 @@ es-PY:
           last_day: Del último día
           last_month: El último mes
           last_week: La última semana
-          no_users_count_statistics_yet: Aún no hay estadísticas de recuenteo de usuarias
+          no_users_count_statistics_yet: Aún no hay estadísticas de recuento de usuarias.
           participants: Participantes
-      view_public_page: Ver página pública
     forms:
       errors:
         impersonate_user:
-          reason: Debes indicar un motivo para la gestión de una participante no gestionada
+          reason: Debes indicar un motivo para la gestión de una participante no gestionada.
     metrics:
       blocked_users:
         object: usuarias bloqueadas
@@ -1055,14 +1126,15 @@ es-PY:
       models:
         moderation:
           fields:
-            created_at: Fecha de creación
+            created_at: Denunciado el
+            deleted_resource: Recurso eliminado
             hidden_at: Fecha de ocultación
             participatory_space: Espacio participativo
-            report_count: Recuento
+            report_count: Número de denuncias
             reportable_id: ID
             reportable_type: Tipo
             reported_content_url: URL del contenido reportado
-            reports: Denuncias
+            reports: Motivo
             visit_url: Visita la URL
         report:
           fields:
@@ -1077,9 +1149,3 @@ es-PY:
       admin:
         global_moderations:
           title: Moderaciones globales
-        newsletters:
-          title: Boletines
-        settings:
-          title: Ajustes
-        users:
-          title: Usuarios

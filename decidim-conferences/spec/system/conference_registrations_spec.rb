@@ -3,13 +3,13 @@
 require "spec_helper"
 
 describe "Conference registrations", type: :system do
-  let(:organization) { create :organization }
+  let(:organization) { create(:organization) }
   let(:conferences_count) { 5 }
   let!(:conferences) do
     create_list(:conference, conferences_count, organization:)
   end
   let(:conference) { conferences.first }
-  let!(:user) { create :user, :confirmed, organization: }
+  let!(:user) { create(:user, :confirmed, organization:) }
 
   let(:registrations_enabled) { true }
   let(:available_slots) { 20 }
@@ -34,6 +34,10 @@ describe "Conference registrations", type: :system do
     visit decidim_conferences.conference_registration_types_path(conference)
   end
 
+  def visit_conference_registration_type
+    visit decidim_conferences.conference_registration_type_conference_registration_path(conference_slug: conference, registration_type_id: registration_type)
+  end
+
   before do
     switch_to_host(organization.host)
 
@@ -50,8 +54,8 @@ describe "Conference registrations", type: :system do
     it "the registration button is not visible" do
       visit_conference
 
-      within ".hero__container" do
-        expect(page).not_to have_button("REGISTER")
+      within "[data-conference-hero]", match: :first do
+        expect(page).not_to have_button("Register")
       end
     end
   end
@@ -67,11 +71,8 @@ describe "Conference registrations", type: :system do
       it "the registration button is disabled" do
         visit_conference_registration_types
 
-        expect(page).to have_css(".conference-registration", count: registration_types_count)
-
-        within ".wrapper" do
-          expect(page).to have_css("button[disabled]", text: "NO SLOTS AVAILABLE", count: 5)
-        end
+        expect(page).to have_css("[data-conference-registration]", count: registration_types_count)
+        expect(page).to have_css("button[disabled]", text: "No slots available", count: 5)
       end
     end
 
@@ -80,9 +81,7 @@ describe "Conference registrations", type: :system do
         it "they have the option to sign in" do
           visit_conference_registration_types
 
-          within ".wrapper" do
-            first(:button, "Registration").click
-          end
+          first(:button, "Registration").click
 
           expect(page).to have_css("#loginModal", visible: :visible)
         end
@@ -94,6 +93,22 @@ describe "Conference registrations", type: :system do
         login_as user, scope: :user
       end
 
+      it "shows register buttons" do
+        visit_conference
+
+        within ".conference__hero" do
+          expect(page).to have_content "Register"
+        end
+
+        within ".conference__content-block" do
+          expect(page).to have_content "Register"
+        end
+
+        within ".conference__box" do
+          expect(page).to have_content "Register"
+        end
+      end
+
       it "they can join the conference" do
         visit_conference_registration_types
 
@@ -103,15 +118,13 @@ describe "Conference registrations", type: :system do
 
         within "#conference-registration-confirm-#{registration_type.id}" do
           expect(page).to have_content "A legal text"
-          page.find(".button.expanded").click
+          click_button "Confirm"
         end
 
         expect(page).to have_content("successfully")
 
-        within ".wrapper" do
-          expect(page).to have_css(".button", text: "ATTENDING")
-          expect(page).to have_css("button[disabled]", text: "REGISTRATION", count: 4)
-        end
+        expect(page).to have_css(".button", text: "Attending")
+        expect(page).to have_css("button[disabled]", text: "Registration", count: 4)
       end
     end
   end
@@ -122,6 +135,22 @@ describe "Conference registrations", type: :system do
       login_as user, scope: :user
     end
 
+    it "shows manage registration buttons" do
+      visit_conference
+
+      within ".conference__hero" do
+        expect(page).to have_content "Manage registration"
+      end
+
+      within ".conference__content-block" do
+        expect(page).to have_content "Manage registration"
+      end
+
+      within ".conference__box" do
+        expect(page).to have_content "Manage registration"
+      end
+    end
+
     it "they can leave the conference" do
       visit_conference_registration_types
 
@@ -130,9 +159,24 @@ describe "Conference registrations", type: :system do
       end
 
       expect(page).to have_content("successfully")
+      expect(page).to have_css(".button", text: "Registration", count: registration_types_count)
+    end
+  end
 
-      within ".wrapper" do
-        expect(page).to have_css(".button", text: "REGISTRATION", count: registration_types_count)
+  context "and the user has been invited to the conference" do
+    let!(:invite) { create(:conference_invite, user:, registration_type:) }
+
+    it "requires the user to sign in" do
+      visit_conference_registration_type
+      expect(page).to have_current_path("/users/sign_in")
+    end
+
+    context "when the user is signed in" do
+      before { login_as user, scope: :user }
+
+      it "accepts the invitation successfully" do
+        visit_conference_registration_type
+        expect(page).to have_content("successfully")
       end
     end
   end

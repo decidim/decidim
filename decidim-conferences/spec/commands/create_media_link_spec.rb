@@ -7,7 +7,7 @@ module Decidim::Conferences
     subject { described_class.new(form, current_user, conference) }
 
     let(:conference) { create(:conference) }
-    let!(:current_user) { create :user, :confirmed, organization: conference.organization }
+    let!(:current_user) { create(:user, :confirmed, organization: conference.organization) }
     let(:form) do
       double(
         Admin::ConferenceSpeakerForm,

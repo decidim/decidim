@@ -25,27 +25,18 @@ gl:
       comments:
         create:
           error: Produciuse un problema ao crear o comentario.
-        delete:
-          error: Non foi posíbel eliminar o comentario.
         update:
           error: Produciuse un problema ao actualizar o comentario.
       comments_count: Número de comentarios
-      comments_title: Comentarios
-      last_activity:
-        new_comment_at_html: "<span>Novo comentario en %{link}</span>"
-      view: Ver
       votes:
         create:
           error: Houbo erros ao votar o comentario.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Inicia sesión coa túa conta</a> ou <a href="%{sign_up_url}">iniciar</a> para engadir o teu comentario.
         form:
           body:
             label: Comentario
             placeholder: Que vos parece?
-          form_error: Requírese o texto e non pode ter máis de %{length} caracteres.
-          submit: Enviar
           user_group_id:
             label: Comentar como
         opinion:
@@ -79,11 +70,9 @@ gl:
           description: Este contido é inapropiado?
           details: Comentarios adicionais
           reasons:
-            does_not_belong: Contén actividades ilegais, ameazas de suicidio, información persoal ou outra cousa que pensas que non pertence a %{organization_name}.
             offensive: Contén racismo, sexismo, abuso, ataques persoais, ameazas de morte, solicitudes de suicidio ou calquera tipo de discurso de odio.
             spam: Contén clic, publicidade, fraudes ou bots de script.
           title: Denunciar contido inapropiado
-        show_replies: Amosar %{replies_count} respostas
         single_comment_link_title: Obter ligazón
       comment_order_selector:
         order:
@@ -92,8 +81,6 @@ gl:
           older: Máis vello
           recent: Recentes
         title: 'Ordenar por:'
-      comment_thread:
-        title: Conversa con %{authorName}
       comments:
         blocked_comments_for_unauthorized_user_warning: Tes de estar verificado para poder comentar neste intre, porén podes ler os comentarios anteriores.
         blocked_comments_for_user_warning: Non podes comentar neste momento, pero podes ler os anteriores.
@@ -147,6 +134,3 @@ gl:
         description: Número de comentarios xerados polos usuarios
         object: comentarios
         title: Comentarios
-  errors:
-    messages:
-      cannot_have_comments: Non podo ter comentarios

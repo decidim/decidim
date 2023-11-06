@@ -1,1 +1,1841 @@
 zh-TW:
+  activemodel:
+    attributes:
+      account:
+        delete_reason: 刪除帳號的原因
+      common:
+        created_at: 建立於
+      conversation:
+        body: 正文
+      group:
+        about: 關於
+        avatar: 頭像
+        document_number: 文件編號
+        email: 電子郵件
+        name: 名稱
+        nickname: 暱稱
+        phone: 電話號碼
+      message:
+        body: 正文
+      report:
+        details: 附加評論
+      user:
+        about: 關於
+        email: 您的電子信箱
+        locale: 地域
+        name: 您的名字
+        nickname: 暱稱
+        password: 密碼
+        password_confirmation: 確認你的密碼
+        personal_url: 個人 URL
+        remove_avatar: 刪除頭像
+        tos_agreement: 同意服務條款
+    models:
+      decidim/attachment_created_event: 附件
+      decidim/component_published_event: 啟用組件
+      decidim/demoted_membership: 不再是群組管理員
+      decidim/gamification/badge_earned_event: 贏得的徽章
+      decidim/gamification/level_up_event: 你升級了
+      decidim/invited_to_group_event: 邀請至群組
+      decidim/join_request_accepted_event: 加入請求已被接受
+      decidim/join_request_rejected_event: 加入請求已被拒絕
+      decidim/profile_updated_event: 資料已更新。
+      decidim/promote_to_admin: 晉升為群組管理員
+      decidim/promoted_to_admin_event: 晉升為群組管理員
+      decidim/removed_from_group: 從群組中移除
+      decidim/resource_endorsed_event: 資源已獲得連署
+      decidim/resource_hidden_event: 資源已隱藏
+      decidim/user_group_created_event: 用戶群組已建立
+      decidim/welcome_notification_event: 歡迎訊息
+  activerecord:
+    attributes:
+      decidim/action_log:
+        created_at: 時間
+        with_participatory_space: 參與空間
+      decidim/user:
+        current_password: 目前密碼
+        email: 電子郵件
+        name: 暱稱
+        password: 密碼
+        password_confirmation: 確認密碼
+        remember_me: 記住密碼
+    models:
+      decidim/amendment:
+        other: 修正案
+      decidim/endorsement:
+        other: 連署
+      decidim/user:
+        other: 參與者
+      decidim/user_group:
+        other: 群組
+  booleans:
+    'false': '否'
+    'true': '是'
+  carrierwave:
+    errors:
+      file_cannot_be_processed: 無法處理檔案
+      file_resolution_too_large: 檔案解析度過大
+      file_size_too_large: 檔案太大。
+      not_inside_organization: 該文件未附加到任何組織
+  date:
+    formats:
+      decidim_short: "%d/%m/%Y"
+      decidim_short_with_month_name_short: "%d %b %Y"
+      decidim_with_day_and_month_name: "%A %d %b %Y"
+      decidim_with_month_name: "%d %B %Y"
+      decidim_with_month_name_short: "%d%b"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        other: "one\n大約 1 小時\n\nOther\n大約 %{count} 小時"
+      about_x_months:
+        other: "one\n大約 1 月\n\nOther\n大約 %{count} 月"
+      half_a_minute: 半分鐘
+      less_than_x_minutes:
+        other: 少於 %{count} 分鐘
+      less_than_x_seconds:
+        other: "< 1秒\n< %{count} 秒"
+      x_days:
+        other: "1天\n%{count} 天"
+      x_hours:
+        other: "{count} 小時"
+      x_minutes:
+        other: "%{count} 分鐘"
+      x_months:
+        other: "%{count} 個月"
+      x_seconds:
+        other: "%{count} 秒"
+  decidim:
+    accessibility:
+      external_link: 外部鏈接
+      front_page_link: 請前往主頁
+      logo: "%{organization} 的官方標誌"
+      skip_button: 跳到主內容
+    account:
+      blocked: 該帳戶因違反服務條款而被封鎖
+      delete:
+        alert: 此操作無法撤銷。如果您刪除帳戶，將無法使用您的憑證登錄。刪除帳戶將導致您的貢獻被匿名化。您仍然可以創建一個新帳戶，但這些貢獻將不會與之關聯。
+        confirm:
+          close: 關閉視窗
+          ok: 是，我想要删除我的帳戶
+          question: 您確定要刪除您的帳戶嗎？
+          title: 刪除我的帳號
+        explanation: 請填寫您想刪除帳戶的原因（可選）.
+        leaving_authorizations_behind: 某些與您的授權相關的資料將被保留以確保安全性。如果您創建另一個帳戶並重新進行授權，這些資料將被恢復到您的新帳戶中。
+      destroy:
+        error: 刪除您的帳戶時出現問題。
+        success: 您的帳號已經成功刪除.
+      download_your_data_export:
+        file_no_exists: 檔案不存在
+        notice: 您的資料正在下載中，完成後將會以電子郵件通知您。
+      email_change:
+        body1: 我們已經發送了一封郵件到 %{unconfirmed_email}，以驗證您的新電子郵件地址。
+        body2: 需要我們再次發送驗證電子郵件嗎？%{resend_link} 或%{cancel_link}。
+        cancel: 取消
+        cancel_error: 無法取消電子郵件更改。
+        cancel_successfully: 電子郵件更改已成功取消。
+        resend_error: 無法重新發送確認電子郵件。
+        resend_successfully: 確認郵件已成功重新發送至 %{unconfirmed_email}.
+        send_again: 再次傳送
+        title: 電子郵件變更驗證
+      show:
+        available_locales_helper: 選擇您想要使用的語言來瀏覽平台並接收通知.
+        change_password: 更改密碼
+        update_account: 更新帳號
+      update:
+        error: 更新您的帳戶有問題。
+        success: 您的帳號已成功更新
+        success_with_email_confirmation: 您的帳戶已成功更新。您將收到一封電子郵件以確認您的新電子郵件地址。
+    activity:
+      time_ago: "%{time} 之前"
+    admin:
+      actions:
+        cancel: 取消
+      password_change:
+        alert: 你需要更改你的密碼才能繼續進行操作。
+        notification: 管理員使用者需要每%{days} 天更改密碼。
+    admin_log:
+      area:
+        create: "%{user_name} 建立了 %{resource_name} 區域"
+        delete: "\"%{user_name} 刪除了 %{resource_name} 區域"
+        update: "%{user_name} 更新了 %{resource_name} 區域"
+      area_type:
+        create: "%{user_name} 建立了 %{resource_name} 區域類型"
+        delete: "%{user_name} 刪除了 %{resource_name} 區域類型"
+        update: "%{user_name} 更新了 %{resource_name} 區域類型"
+      attachment:
+        create: "%{user_name} 創建了 %{resource_name} 附件"
+        delete: "%{user_name} 刪除了 %{resource_name} 附件"
+        update: "%{user_name} 更新了 %{resource_name} 附件"
+      attachment_collection:
+        create: "%{user_name} 創建了 %{resource_name} 附件集合"
+        delete: "%{user_name} 刪除了 %{resource_name} 附件集合"
+        update: "%{user_name} 更新了 %{resource_name} 附件集合"
+      category:
+        create: "%{user_name} 將 %{resource_name} 分類添加到 %{space_name} 空間"
+        delete: "%{user_name} 從 %{space_name} 空間中刪除了 %{resource_name} 分類"
+        update: "%{user_name} 在 %{space_name} 空間中更新了 %{resource_name} 分類"
+      component:
+        create: "%{user_name} 將 %{resource_name} 元件添加到 %{space_name} 空間\n\n\n\n\nCopy to Clipboard\n\nRegenerate response"
+        delete: "%{user_name} 從 %{space_name} 空間中移除了 %{resource_name} 元件"
+        export_component: "%{user_name} 將 %{space_name} 空間中的 %{resource_name} %{component_name} 匯出為 %{format_name}"
+        publish: "%{user_name} 在 %{space_name} 空間中發佈了 %{resource_name} 元件"
+        unpublish: "%{user_name} 從 %{space_name} 空間中取消發佈了 %{resource_name} 元件"
+        update_permissions_with_space: "%{user_name} 更新了 %{space_name} 空間中 %{resource_name} 的權限"
+      contextual_help_section:
+        update: "%{user_name} 更新了 %{resource_name} 的說明部分"
+      helpers:
+        answers: 回答
+        comments: 評論
+        projects: 專案
+        results: 結果
+      impersonation_log:
+        manage: "%{user_name} 因為 %{reason} 管理了 %{resource_name}"
+      moderation:
+        hide: "%{user_name} 在 %{space_name} 空間中隱藏了一個 %{resource_type} 類型的資源"
+        unreport: "%{user_name} 在 %{space_name} 空間中取消了一個 %{resource_type} 類型的資源的報告"
+      newsletter:
+        create: "%{user_name} 創建了 %{resource_name} 新聞通訊"
+        delete: "%{user_name} 刪除了 %{resource_name} 新聞通訊"
+        deliver: "%{user_name} 發送了 %{resource_name} 新聞通訊"
+        update: "%{user_name} 更新了 %{resource_name} 新聞通訊"
+      oauth_application:
+        create: "%{user_name} 創建了 %{resource_name} OAuth 應用程式"
+        delete: "%{user_name} 刪除了 %{resource_name} OAuth 應用程式"
+        update: "%{user_name} 更新了 %{resource_name} OAuth 應用程式"
+      organization:
+        update: "%{user_name} 更新了組織設定"
+        update_external_domain: "%{user_name} 更新了組織外部域名"
+      participatory_space_private_user:
+        create: "%{user_name} 邀請了 %{resource_name} 成為私人參與者"
+        create_via_csv: "%{user_name} 透過 CSV 邀請了 %{resource_name} 成為私人參與者"
+        delete: "%{user_name} 將參與者 %{resource_name} 從私人參與者中移除"
+      scope:
+        create: "%{user_name} 創建了 %{resource_name} 範圍"
+        create_with_parent: "%{user_name} 在 %{parent_scope} 範圍內創建了 %{resource_name} 範圍"
+        delete: "%{user_name} 刪除了 %{resource_name} 範圍"
+        delete_with_parent: "%{user_name} 刪除了 %{parent_scope} 範圍內的 %{resource_name} 範圍"
+        update: "%{user_name} 更新了 %{resource_name} 範圍"
+        update_with_parent: "%{user_name} 更新了 %{parent_scope} 範圍內的 %{resource_name} 範圍"
+      scope_type:
+        create: "%{user_name} 創建了 %{resource_name} 範圍類型"
+        delete: "%{user_name} 刪除了 %{resource_name} 範圍類型"
+        update: "%{user_name} 更新了 %{resource_name} 範圍類型"
+      static_page:
+        create: "%{user_name} 創建了 %{resource_name} 靜態頁面"
+        delete: "%{user_name} 刪除了 %{resource_name} 靜態頁面"
+        update: "%{user_name} 更新了 %{resource_name} 靜態頁面"
+      user:
+        block: "%{user_name} 封鎖了使用者 %{resource_name}"
+        invite: "%{user_name} 邀請了參與者 %{resource_name}，角色為：%{role}"
+        officialize: "%{user_name} 將參與者 %{resource_name} 官方化"
+        promote: "%{user_name} 提升了 %{resource_name}"
+        remove_from_admin: "%{user_name} 移除了角色為 %{role} 的參與者 %{resource_name}"
+        show_email: "%{user_name} 恢復了參與者 %{resource_name} 的電子郵件"
+        transfer: "%{user_name} 轉移了參與者 %{resource_name}"
+        unblock: "%{user_name} 解封了使用者 %{resource_name}"
+        unofficialize: "%{user_name} 取消參與者 %{resource_name} 的官方化"
+      user_group:
+        block: "%{user_name} 封鎖了使用者群組 %{resource_name}"
+        reject: "%{user_name} 拒絕了 %{resource_name} 群組的驗證"
+        unblock: "%{user_name} 解封了使用者群組 %{resource_name}"
+        verify: "%{user_name} 驗證了群組 %{resource_name}"
+        verify_via_csv: "%{user_name} 透過 CSV 檔案驗證了群組 %{resource_name}"
+      user_moderation:
+        unreport: "%{user_name} 取消了對於 %{unreported_user_name} 的一個 %{resource_type} 的報告"
+    admin_terms_of_service:
+      default_body: "<h2>管理者服務條款</h2><p>我們相信您已經收到了當地系統管理員的慣例講話。通常可以總結為以下三點：</p><ol><li>尊重他人的隱私。</li><li>在點擊之前三思。</li><li>強大的權力伴隨著巨大的責任。</li></ol>"
+    alert:
+      dismiss: 清除通知
+    amendments:
+      accepted:
+        error: 接受修正案時發生錯誤。
+        success: 修正案已成功接受。
+      amendable:
+        button: 修正 %{model_name}
+        error: 在修改此資源時發生錯誤。
+        help_text: 透過修改 %{amendable_fields}，來改善這個 %{model_name}.
+        promote_button: 晉升為 %{model_name}
+        promote_confirm_text: 您確定要晉升此修正嗎？
+        promote_help_text: 您可以提升此修正，並將其發布為獨立的 %{model_name}.
+        section_heading: 修正案（%{count}）
+      compare_draft:
+        continue: 繼續
+        no_similars_found: 找不到相似的修正案。
+        title: 相似的修正案
+      created:
+        error: 創建修正案草稿時發生錯誤。
+        success: 修正案草稿已成功創建。
+      destroy_draft:
+        error: 刪除修正案草稿時遇到問題。
+        success: 修正案草稿已成功刪除。
+      edit_draft:
+        discard: 放棄此草案
+        send: 預覽
+        title: 編輯修正案草稿
+      emendation:
+        actions:
+          button_accept: 接受
+          button_reject: 拒絕
+          help_text: 審查更改並接受或拒絕此修正案。將向其作者發送通知。
+        announcement:
+          accepted: |-
+            對於 %{amendable_type} %{proposal_link} 的這個修正案已於 <strong>%{date}</strong> 被接受。
+          evaluating: |-
+            正在評估對於 %{amendable_type} %{proposal_link} 的修正案。
+          promoted: 晉升為 %{amendable_type}。
+          rejected: 對於 %{amendable_type} %{proposal_link} 的修正案在 <strong>%{date}</strong> 被拒絕。
+          withdrawn: |-
+            對於 %{amendable_type} %{proposal_link} 的修正案已被作者撤回。
+      new:
+        amendment_author: 修正案作者
+        send: 建立
+        title: 創建修正案草稿
+      preview_draft:
+        modify: 修改
+        publish: 發布
+        title: 發佈修正案草稿
+      promoted:
+        error: 發布修改案為新提案時出現問題。
+        success: 該修正案已成功作為新提案發布。
+      publish_draft:
+        error: 發佈修正案時遇到問題。
+        success: 修正案成功發佈。
+      rejected:
+        error: 拒絕此修改案時發生問題，請稍後再試。
+        success: 修正案已成功被拒绝.
+      review:
+        back: 返回
+        heading: 審查修正案
+        send: 接受修正案
+      update_draft:
+        error: 更新修正案草稿時遇到問題。
+        success: 修正案草稿成功更新。
+      withdraw:
+        error: 撤回修正案時發生錯誤.
+        success: 修正案已成功撤回.
+      wizard_step_form:
+        steps:
+          '1': 創建您的修正案
+          '2': 比較您的修正案
+          '3': 完成您的修正案
+          '4': 發佈您的修正案
+    anonymous_user: 匿名
+    application:
+      document:
+        download: 下載檔案
+      documents:
+        related_documents: 相關的檔案
+      photo:
+        alt: 媒體圖片
+        title: 圖片
+      photos:
+        related_photos: 相關影像
+    author:
+      avatar: '頭像： %{name}'
+      comments:
+        other: 評論
+      endorsements:
+        other: "one\n連署\nOther\n連署"
+      official_author: 官方
+    authorization_handlers:
+      another_dummy_authorization_handler:
+        explanation: 透過提供以字母“A”開頭的護照號碼進行驗證
+        fields:
+          passport_number: 護照號碼
+          postal_code: 郵政編碼
+        name: 另一個授權範例
+      dummy_authorization_handler:
+        explanation: 通過輸入以"X"結尾的證件號碼進行驗證
+        fields:
+          allowed_postal_codes: 允許的郵遞區號（以逗號分隔）
+          allowed_scope_id: 允許的範圍
+          document_number: 文件編號
+          postal_code: 郵政編碼
+          scope_id: 範圍
+        name: 範例授權
+      dummy_authorization_workflow:
+        name: 虛擬授權工作流程
+      errors:
+        duplicate_authorization: 已經有參與者以相同資料進行授權。管理員將與您聯繫以驗證您的詳細資料。
+      expired_at: 過期於 %{timestamp}
+      expires_at: 到期於 %{timestamp}
+      foo_authorization:
+        fields:
+          bar: Bar
+          foo: Foo
+        name: Foo 授權
+      granted_at: 授予時間：%{timestamp}
+      sms:
+        explanation: 請提供您的手機號碼以進行身份驗證。
+        name: 透過簡訊驗證碼
+      started_at: 開始時間為 %{timestamp}
+    authorization_modals:
+      content:
+        expired:
+          authorize: 重新授權使用 "%{authorization}"
+          explanation: 您的授權已過期。為了執行此操作，您需要重新授權使用 "%{authorization}"。
+          title: 授權已過期
+        incomplete:
+          cancel: 取消
+          explanation: '即使您目前已經經過"%{authorization}"的授權，我們需要您重新授權，因為我們缺少以下資料：'
+          invalid_field: "%{field}"
+          reauthorize: 重新授權
+          title: 請重新授權
+        missing:
+          authorize: 使用「%{authorization}」進行授權
+          explanation: 為了執行此操作，您需要使用「%{authorization}」進行授權。
+          title: 需要授權
+        ok:
+          title: 您已在此頁面授權。請重新載入頁面以執行您的操作。
+        pending:
+          explanation: 為了執行此操作，您需要使用 "%{authorization}" 進行授權，但您的授權仍在進行中。
+          resume: 檢查您的"%{authorization}"授權進度.
+          title: 授權仍在進行中
+        unauthorized:
+          explanation: 抱歉，由於您的某些授權資料不符，您無法執行此操作。
+          invalid_field: "%{field} 的值%{value} 無效"
+          ok: 確定
+          title: 尚未授權
+        unconfirmed:
+          confirmation_instructions: '如果您沒有收到確認指示，您可以再次請求：'
+          explanation_html: 為了執行此操作，您需要進行授權。在此之前，請確認您的電子郵件地址 <strong>%{email}</strong>。
+          request_confirmation_instructions: 要求確認指示
+          title: 確認您的電郵
+    block_user_mailer:
+      notify:
+        body_1: 您的帳戶已被封鎖。
+        body_2: '原因: %{justification}'
+        greetings: 問候,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: 您好！
+        subject: 您的帳戶已被 %{organization_name} 封鎖。
+    collapsible_list:
+      hidden_elements_count:
+        other: "one\n和 %{count} 個\n\nOther\n和 %{count} 個"
+      see_less: "(查看較少)"
+      see_more: "(查看更多)"
+    components:
+      component_order_selector:
+        no_content: 我們找不到符合這個條件的任何內容.
+        order:
+          all_types: 所有類型
+          collaborative_draft: 協作草稿
+          comment: 評論
+          debate: 辯論
+          initiative: 倡議
+          meeting: 會議
+          order: 預算投票
+          post: 文章
+          proposal: 提案
+          question: 問題
+        title: '顯示:'
+      dummy:
+        actions:
+          bar: Bar
+          foo: Foo
+        name: 虛擬元件
+        settings:
+          global:
+            amendments_enabled: 修改功能已啟用
+            comments_enabled: 啟用評論功能
+            comments_max_length: 評論最大長度
+            dummy_global_attribute1: 虛擬屬性 1
+            dummy_global_attribute2: 虛擬屬性 2
+            dummy_global_translatable_text: 虛擬可翻譯文字
+            enable_pads_creation: 啟用平板創建
+            resources_permissions_enabled: 啟用資源權限
+            scope_id: 範圍
+            scopes_enabled: 啟用範圍
+          step:
+            amendment_creation_enabled: 創建修正案已啟用
+            amendment_promotion_enabled: 修正提案提升功能啟用
+            amendment_reaction_enabled: 啟用修正提案反應
+            amendments_visibility: 修正案的可見性
+            comments_blocked: 留言已封鎖
+            dummy_step_attribute1: 虛擬步驟屬性1
+            dummy_step_attribute2: 虛擬步驟屬性2
+            dummy_step_translatable_text: 虛擬步驟可翻譯文字
+    contact: 聯絡方式
+    content_blocks:
+      cta:
+        name: 圖像、文字和呼籲操作按鈕
+      cta_settings_form:
+        background_image: 背景圖片
+        button_text: 呼籲操作文字
+        button_url: 呼籲操作URL
+        description: 說明
+      footer_sub_hero:
+        name: 頁尾子英雄橫幅
+      hero:
+        name: 英雄圖像
+      hero_settings_form:
+        background_image: 背景圖片
+        welcome_text: 歡迎文字
+      highlighted_content_banner:
+        name: 關注顯示的內容橫幅
+      highlighted_elements_settings_form:
+        orders:
+          label: '按以下方式排序元素:'
+          random: 隨機
+          recent: 最近
+      how_to_participate:
+        name: 如何參與
+      html:
+        html_content: HTML內容
+        name: HTML 區塊
+      last_activity:
+        name: 最後活動
+        title: 最後活動
+        view_all: 檢視全部
+      metrics:
+        name: 組織指標
+      static_page:
+        section:
+          name: 節
+          section_content: 內容
+        summary:
+          name: 摘要
+          summary_content: 內容
+        two_pane_section:
+          left_column: 左欄
+          name: 兩欄區域
+          right_column: 右欄
+      stats:
+        name: 組織統計數據
+      sub_hero:
+        name: 子英雄橫幅
+    core:
+      actions:
+        login_before_access: 請先登入您的帳戶再進行訪問.
+        unauthorized: 您無權限執行此操作.
+    devise:
+      omniauth_registrations:
+        create:
+          email_already_exists: 另一個帳戶已經使用了相同的電子郵件地址.
+        new:
+          complete_profile: 完成個人檔案
+          nickname_help: 在 %{organization} 中的別名。只能包含字母、數字、'-' 和 '_'。
+          sign_up: 請完成您的個人檔案
+          subtitle: 請填寫以下表單以完成註冊。
+          username_help: 在您的帖子中顯示的公開名稱。為確保匿名性，可以是任何名稱。
+      registrations:
+        new:
+          already_have_an_account?: 已經有帳號了嗎？
+          newsletter: 偶爾收到包含相關信息的時事通訊。
+          newsletter_title: 聯絡人權限
+          sign_up: 註冊登記
+          subtitle: 註冊以參與討論並支持提案。
+          terms: 此服務條款
+          tos_agreement: 通過註冊，您同意遵守 %{link}。
+          tos_title: 服務條款
+          username_help: 在您的帖子中顯示的公開名稱。為確保匿名性，可以是任何名稱。
+      sessions:
+        new:
+          are_you_new?: 是第一次使用這個平台嗎？
+          register: 建立一個帳號
+          sign_in_disabled: 你可以使用外部帳戶登入。
+          sign_up_disabled: 註冊已停用，您可以使用現有帳戶來登入。
+      shared:
+        newsletter_modal:
+          buttons:
+            check: 檢查並繼續
+            uncheck: 保持未勾選
+          notice: |-
+            <p>嗨，您確定不想收到電子報嗎？<br>
+            請再考慮勾選下面的電子報選項。<br>
+            對我們來說，讓您能收到偶爾的電子郵件，以便發布重要公告非常重要。
+            您可以隨時在通知設置頁面上更改此選項。</p>
+            <p>如果您不勾選此框，您可能會錯過有關平台上新的參與機會的相關信息。<br>
+            如果您仍然想避免收到電子報，我們完全理解您的決定。</p>
+            <p>感謝您閱讀此內容！</p>
+          title: 電子報通知
+        omniauth_buttons:
+          or: 或
+    doorkeeper:
+      authorizations:
+        new:
+          authorize: 授權應用程式
+          by_organization_link_html: <small class="heading-small">由 %{link} 提供</small>
+          cancel: 取消
+          publish_content: 代表您發佈內容
+          see_email: 查看您的電子郵件
+          see_name: 查看你的名稱
+          see_username: 查看您的暱稱
+          this_application_will_be_able_to: '此應用程式將可以：'
+          this_application_will_not_be_able_to: '這個應用程式無法：'
+          update_profile: 更新您的個人檔案
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> 希望使用您的帳戶"
+    download_your_data:
+      export:
+        ready: 準備就緒
+      show:
+        download_data: 下載資料
+        request_data: 請求數據
+    editor_images:
+      create:
+        error: 上傳圖片時發生錯誤.
+        success: 圖片上傳成功.
+      drag_and_drop_help: 通過拖放或粘貼方式添加圖片。
+    endorsement_buttons_cell:
+      already_endorsed: 不喜歡
+      endorse: 喜歡！
+    endorsements:
+      identities:
+        done: 已完成
+        select_identity: 選擇身份
+    endorsers_list:
+      endorsed_by: 被喜歡...
+    errors:
+      internal_server_error:
+        copied: 文字已複製!
+        copy_error_message_clarification: 將錯誤訊息複製到剪貼簿
+        copy_to_clipboard: 複製到剪貼板
+        date_and_time: 日期與時間
+        reference: 參考
+        request_method: 要求方法
+        title: 我們的伺服器出現問題
+        try_later: 請稍後再試。如果錯誤持續存在，請將下列資訊複製並與傳送給平台維護人員，並附上您想分享的其他資訊。
+        unknown: 未知
+        url: 網址
+        user: 使用者ID
+      not_found:
+        back_home: 返回首頁
+        content_doesnt_exist: 此地址不正確或已被移除。
+        title: 您所查找的頁面不存在
+    events:
+      amendments:
+        amendment_accepted:
+          affected_user:
+            email_intro: '已接受對於 %{amendable_title} 的修正案。您可以從此頁面中查看：'
+            email_outro: 你收到此通知，是因為你是%{amendable_title} 的作者。
+            email_subject: 已接受對於 %{amendable_title} 的修正案，來自於 %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_path}">修正案</a>由<a href="%{emendation_author_path}">%{emendation_author_nickname}</a>創建，已被接受適用於<a href="%{amendable_path}">%{amendable_title}</a>。
+          follower:
+            email_intro: '已接受對於 %{amendable_title} 的修正案。您可以從此頁面中查看：'
+            email_outro: 您收到此通知，是因為您正在關注 %{amendable_title}。您可以使用上面的連結停止接收通知。
+            email_subject: 已接受對於 %{amendable_title} 的修正案，來自於 %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_path}">修正案</a>由<a href="%{emendation_author_path}">%{emendation_author_nickname}</a>創建，已被接受適用於<a href="%{amendable_path}">%{amendable_title}</a>。
+        amendment_created:
+          affected_user:
+            email_intro: '已為 %{amendable_title} 創建一個新的修正案。您可以從此頁面查看：'
+            email_outro: 你收到此通知，是因為你是%{amendable_title} 的作者。
+            email_subject: 新的修正案，針對 %{amendable_title}
+            notification_title: 已為<a href="%{amendable_path}">%{amendable_title}</a>創建一個新的修正案。
+          follower:
+            email_intro: '已為 %{amendable_title} 創建一個新的修正案。您可以從此頁面查看：'
+            email_outro: 您收到此通知，是因為您正在關注 %{amendable_title}。您可以使用上面的連結停止接收通知。
+            email_subject: 新的修正案，針對 %{amendable_title}
+            notification_title: 已為<a href="%{amendable_path}">%{amendable_title}</a>創建一個新的修正案。
+        amendment_promoted:
+          affected_user:
+            email_intro: '一個被拒絕的修正案已被發佈為新的 %{amendable_type}，針對 %{amendable_title}。您可以從此頁面查看：'
+            email_outro: 你收到此通知，是因為你是%{amendable_title} 的作者。
+            email_subject: 來自 %{emendation_author_nickname} 的修正案已被發佈為新的 %{amendable_type}
+            notification_title: 一個<a href="%{emendation_path}">被拒絕的修正案</a>已由<a href="%{emendation_author_path}">%{emendation_author_nickname}</a>發佈為新的 %{amendable_type}，針對<a href="%{amendable_path}">%{amendable_title}</a>。
+          follower:
+            email_intro: '一個被拒絕的修正案已被發佈為新的 %{amendable_type}，針對 %{amendable_title}。您可以從此頁面查看：'
+            email_outro: 您收到此通知，是因為您正在關注 %{amendable_title}。您可以使用上面的連結停止接收通知。
+            email_subject: 來自 %{emendation_author_nickname} 的修正案已被發佈為新的 %{amendable_type}
+            notification_title: 一個<a href="%{emendation_path}">被拒絕的修正案</a>已由<a href="%{emendation_author_path}">%{emendation_author_nickname}</a>發佈為新的 %{amendable_type}，針對<a href="%{amendable_path}">%{amendable_title}</a>。
+        amendment_rejected:
+          affected_user:
+            email_intro: '一個修正案已被拒絕，針對 %{amendable_title}。您可以從此頁面查看：'
+            email_outro: 你收到此通知，是因為你是%{amendable_title} 的作者。
+            email_subject: 修正案由 %{emendation_author_nickname} 提交，針對 %{amendable_title}，已被拒絕。
+            notification_title: <a href="%{emendation_path}">%{emendation_author_nickname}</a>創建的<a href="%{emendation_path}">修正案</a>已被拒絕，針對<a href="%{amendable_path}">%{amendable_title}</a>。
+          follower:
+            email_intro: '一個修正案已被拒絕，針對 %{amendable_title}。您可以從此頁面查看：'
+            email_outro: 您收到此通知，是因為您正在關注 %{amendable_title}。您可以使用上面的連結停止接收通知。
+            email_subject: 修正案由 %{emendation_author_nickname} 提交，針對 %{amendable_title}，已被拒絕。
+            notification_title: <a href="%{emendation_path}">%{emendation_author_nickname}</a>創建的<a href="%{emendation_path}">修正案</a>已被拒絕，針對<a href="%{amendable_path}">%{amendable_title}</a>。
+      attachments:
+        attachment_created:
+          email_intro: '已新增一個文件至 %{resource_title}。您可以從此頁面查看：'
+          email_outro: 您收到此通知，是因為您正在關注 %{resource_title}。您可以使用上面的連結停止接收通知。
+          email_subject: '%{resource_title} 的更新'
+          notification_title: <a href="%{resource_path}">新文件</a>已新增至<a href="%{attached_to_url}">%{resource_title}</a>。
+      components:
+        component_published:
+          email_intro: '%{participatory_space_title} 現已啟用 %{resource_title} 元件。您可以從此頁面查看：'
+          email_outro: 你收到此通知是因為你正在追蹤 %{participatory_space_title}。你可以透過前面的連結停止接收通知。
+          email_subject: '%{participatory_space_title} 的更新'
+          notification_title: '%{resource_title} 元件現已對<a href="%{resource_path}">%{participatory_space_title}</a>啟用'
+      email_event:
+        email_greeting: 哈囉，%{user_name}!
+        email_intro: '%{resource_title}" 有更新。您可以從此頁面查看更新內容：'
+        email_outro: 您收到了此通知，是因為您正在關注 "%{resource_title}"。您可以通過前面的鏈接取消關注它。
+        email_subject: '%{resource_title} 的更新'
+      gamification:
+        badge_earned:
+          email_intro: 恭喜！您已經獲得了 <a href="%{resource_url}">%{badge_name} 徽章</a>(等級 %{current_level})。
+          email_outro: 您收到此通知是因為您在我們的網站上進行了相關活動。
+          email_subject: '您獲得了新的徽章: %{badge_name}!'
+          notification_title: 恭喜！您已經獲得了 <a href="%{resource_path}">%{badge_name} 徽章</a>(等級 %{current_level})。
+        level_up:
+          email_intro: 恭喜！您已經達到了 <a href="%{resource_url}">%{badge_name} 徽章</a>的 %{current_level} 級！
+          email_outro: 您收到此通知是因為您在我們的網站上進行了相關活動。
+          email_subject: 你已經達到了 %{badge_name} 徽章的 %{current_level} 等級！
+          notification_title: 恭喜！您已經達到了 <a href="%{resource_path}">%{badge_name} 徽章</a>的 %{current_level} 級！
+      groups:
+        demoted_membership:
+          email_intro: <a href="%{resource_url}">%{user_group_name}</a> 群組的管理員已將您的管理權限從該群組中移除。
+          email_outro: 您收到此通知是因為您是該群組的成員。
+          email_subject: 您不再是 %{user_group_name} 群組的管理員！
+          notification_title: 您不再是 <a href="%{resource_path}">%{user_group_name}</a> 群組的管理員。
+        invited_to_group:
+          email_intro: 一位<a href="%{resource_url}">%{user_group_name}</a> 群組的管理員邀請您加入該群組。
+          email_outro: 您收到此通知是因為您已獲邀請加入一個群組。請在個人檔案的「群組」選項中檢查並核准該邀請。
+          email_subject: 您已獲邀請加入 %{user_group_name} 群組！
+          notification_title: 您已獲邀請加入 <a href="%{resource_path}">%{user_group_name}</a> 群組。請檢查您個人檔案中的<a href="%{groups_profile_tab_path}">群組頁面</a>以進行批准！
+        join_request_accepted:
+          email_intro: 恭喜！<a href="%{resource_url}">%{user_group_name}</a> 群組的管理員已經接受您加入的請求。
+          email_outro: 您收到此通知是因為您的加入請求已經有了更新。
+          email_subject: 您已被接受加入 %{user_group_name} 群組！
+          notification_title: 您已被接受加入 <a href="%{resource_path}">%{user_group_name}</a> 群組。
+        join_request_created:
+          email_intro: 有人申請加入 %{user_group_name} 群組。您可以從<a href="%{resource_url}">群組成員頁面</a>接受或拒絕。
+          email_outro: 您收到此通知是因為您可以管理 %{user_group_name} 群組。
+          email_subject: 有人申請加入 %{user_group_name} 群組！
+          notification_title: 有人申請加入 %{user_group_name} 群組。您可以從<a href="%{resource_path}">群組成員頁面</a>接受或拒絕。
+        join_request_rejected:
+          email_intro: 一位 <a href="%{resource_url}">%{user_group_name}</a> 群組的管理員已拒絕了你加入的請求。
+          email_outro: 您收到此通知是因為您的加入請求已經有了更新。
+          email_subject: 你的加入 %{user_group_name} 群組的請求已被拒絕！
+          notification_title: 你加入 <a href="%{resource_path}">%{user_group_name}</a> 群組的請求已被拒絕。
+        promoted_to_admin:
+          email_intro: <a href="%{resource_url}">%{user_group_name}</a> 群組的管理員已經給予你該群組的管理權限。
+          email_outro: 您收到此通知是因為您是該群組的成員。
+          email_subject: 你現在是 %{user_group_name} 群組的管理員了！
+          notification_title: 你現在是 <a href="%{resource_path}">%{user_group_name}</a> 群組的管理員了！
+        removed_from_group:
+          email_intro: <a href="%{resource_url}">%{user_group_name}</a> 群組的管理員已將你從該群組中移除。
+          email_outro: 你收到這個通知是因為你曾經是該群組的成員。
+          email_subject: 你已從 %{user_group_name} 群組中移除！
+          notification_title: 您已被從<a href="%{resource_path}">%{user_group_name}</a> 群組中移除。
+        user_group_created:
+          email_intro: 一個名為 %{user_group_name} 的新用戶組已被創建。您現在可以在<a href="%{groups_admin_url}">管理員面板</a>中進行驗證。
+          email_outro: 你收到了這個通知是因為你是該平台的管理員。
+          email_subject: 已建立新的使用者群組
+          notification_title: 已建立 %{user_group_name} 使用者群組。您現在可以在<a href="%{groups_admin_path}">管理面板</a>中進行驗證。
+        user_group_updated:
+          email_intro: 名為 %{user_group_name} 的使用者群組已更新其個人檔案，尚未完成驗證。您現在可以在<a href="%{groups_admin_url}">管理面板</a>中進行驗證
+          email_outro: 你收到了這個通知是因為你是該平台的管理員。
+          email_subject: 一個使用者群組已更新其個人檔案。
+          notification_title: '%{user_group_name} 使用者群組已更新其個人資料，讓它未經驗證。您現在可以在<a href="%{groups_admin_path}">管理面板</a>中進行驗證。'
+      nickname_event:
+        notification_body: 我們已更正暱稱使用的方式，以避免重複，所以我們已經移除了大小寫敏感的規則。<br/>你的暱稱是在已有同名暱稱之後創建的，因此我們已經自動重新命名。你可以從<a href="%{link_to_account_settings}">帳戶設置</a>更改它。
+      notification_event:
+        notification_title: 發生了一個事件於<a href="%{resource_path}">%{resource_title}</a>。
+      reports:
+        resource_hidden:
+          email_intro: 一位管理員因為您的%{resource_type} 已被檢舉為%{report_reasons} 而將其移除。
+          email_outro: 您收到此通知是因為您是被移除內容的作者。
+          email_subject: 您的%{resource_type} 已被移除。
+          notification_title: |-
+            一位管理員因為 %{report_reasons} 的舉報，移除了您的%{resource_type}。</br> <i>%{resource_content}</i>
+      resource_endorsed:
+        email_intro: '%{endorser_name} %{endorser_nickname}，您正在關注的用戶，剛剛為"%{resource_title}"進行了連署，我們認為這可能對您很有興趣。請查看並做出貢獻：'
+        email_outro: 您收到此通知是因為您正在關注 %{endorser_nickname}。您可以點擊上方的連結停止接收通知。
+        email_subject: "%{endorser_nickname} 進行了一個新的連署。"
+        notification_title: <a href="%{resource_path}">%{resource_title}</a> 的 %{resource_type} 已被 <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> 連署。
+      users:
+        profile_updated:
+          email_intro: 你正在追蹤的 %{name}(%{nickname}) 的<a href="%{resource_path}">個人資料頁面</a>已被更新。
+          email_outro: 您收到此通知是因為您正在關注 %{nickname}。您可以點擊上方的連結停止接收通知。
+          email_subject: "%{nickname} 更新了他們的個人資料。"
+          notification_title: 你正在追蹤的 %{name}(%{nickname}) 的<a href="%{resource_path}">個人資料頁面</a>已被更新。
+        user_officialized:
+          email_intro: 參與者 %{name} (%{nickname}) 已被官方認證。
+          email_outro: 您收到此通知是因為您是該組織的管理員。
+          email_subject: "%{name} 已被官方認證。"
+          notification_title: 參與者 %{name} (%{nickname}) 已被官方認證。
+    export_mailer:
+      download_your_data_export:
+        click_button: '點擊下方鏈接下載您的資料。<br/>檔案將可取得直到 %{date}.<br/>您需要 <a href="https://www.7-zip.org/">7-Zip</a> (Windows)，<a href="https://www.keka.io/en/">Keka</a> (MacOS)，或<a href="https://peazip.github.io">PeaZip</a> (Linux) 來打開它。密碼: %{password}'
+        download: 下載
+      export:
+        ready: 請查收附上的壓縮檔，這是您的匯出資料。
+      subject: 您的匯出檔案 "%{name}" 已準備就緒。
+    filters:
+      linked_classes:
+        all: 全部
+        collaborative_draft: 協作草稿
+        dummy_resource: 虛擬資源
+        meeting: 會議
+        project: 專案
+        proposal: 提案
+        result: 結果
+    fingerprint:
+      check: 檢查指紋碼
+      explanation: 以下文字片段是原內容的簡化且經過雜湊處理後的表現方式。這是為了確保內容未被篡改，因為單一修改將導致完全不同的值。
+      online_calculator_name: 線上MD5計算器
+      replicate_help: 這個指紋是使用 SHA256 哈希算法計算的。為了自行複製，您可以使用一個 %{online_calculator_link}，將源數據複製並粘貼到該工具中進行計算。
+      source: 來源
+      title: 指紋
+      value: 數值
+    followers:
+      followers_count:
+        other: "One\n%{count} 位追蹤者\nOther\n%{count} 位追蹤者"
+      no_followers: 還沒有追蹤者
+    following:
+      following_count:
+        other: "One\n%{count} 位追蹤者\nOther\n%{count} 位追蹤者"
+      no_followings: 還沒有追蹤任何人或任何東西。
+      non_public_followings: 一些的追蹤資源不是公開的。
+    follows:
+      create:
+        button: 關注
+        error: 追蹤此資源時發生問題。
+        participatory_space: 追蹤中 <span class="show-for-sr">%{resource_name}</span>
+      destroy:
+        button: 取消追蹤
+        error: 取消追蹤此資源時發生問題。
+    forms:
+      errors:
+        decidim/user:
+          password: 密碼太短。
+          password_confirmation: 密碼確認必須與密碼相符。
+        error: 輸入欄位有誤。
+      file_help:
+        file:
+          explanation: '檔案指南：'
+          message_1: 必須是圖片或文件。
+          message_2: 對於圖像，最好使用橫向圖像，服務將對圖像進行裁剪。
+        icon:
+          explanation: '圖示指南：'
+          message_1: 必須為正方形影像。
+          message_2: 此圖像的建議尺寸為 512x512。
+        image:
+          explanation: '圖像的指導'
+          message_1: 最好選擇一張不含文字的橫向圖像。
+          message_2: 該服務裁剪圖像。
+      file_validation:
+        allowed_file_extensions: '允許的檔案擴展名： %{extensions}'
+        max_file_dimension: '最大檔案尺寸： %{resolution} 像素'
+        max_file_size: '最大檔案尺寸： %{megabytes} MB'
+      files:
+        extension_allowlist: '接受的格式： %{extensions}'
+      upload:
+        labels:
+          add_attachment: 新增附件
+          add_file: 添加檔案
+          add_image: 新增圖片
+          cancel: 取消
+          edit_image: 編輯圖片
+          error: 錯誤！
+          file_size_too_large: '檔案大小過大！最大檔案大小：%{megabytes}MB'
+          filename: 檔案名稱
+          remove: 移除
+          replace: 替換
+          save: 儲存
+          title: 標題
+          title_required: 標題為必填欄位！
+          uploaded: 已上傳
+          validating: 驗證中...
+          validation_error: 驗證錯誤!
+        select_file: 選擇檔案
+      upload_help:
+        dropzone: 將檔案拖曳到此處或點擊按鈕上傳。
+        explanation: 關於 %{attribute} 的指引
+    gamification:
+      all_badges_link: 查看所有可行徽章
+      badges:
+        followers:
+          conditions:
+            - 積極參與並追蹤其他人，有助於吸引其他人追蹤您。
+          description: 當您達到一定數量的追蹤者時，將獲得此徽章。%{organization_name} 是一個社交和政治網絡，藉此平台與其他人溝通，編織您的網絡。
+          description_another: 這位參與者有 %{score} 位追隨者。
+          description_own: "這位參與者有 %{score} 位追隨者。"
+          name: 追隨者
+          next_level_in: 再有 %{score} 位追隨者跟隨您，就可以達到下一個等級了！
+          unearned_another: 這位參與者還沒有任何追蹤者。
+          unearned_own: 您還沒有追隨者。
+        index:
+          badge_title: "%{name} 徽章"
+          how: 您可以如何獲得它
+          page_description: 徽章是對參與者在平台上的行動和進步的認可。當您開始探索、參與和互動平台時，您將獲得不同的徽章。以下是徽章的列表以及一些獲得徽章的方式：
+          title: 徽章
+      description: 徽章是對參與者在平台上的行動和進步的認可。隨著您開始探索、參與和互動平台，您將獲得不同的徽章。
+      level: 等級 %{level}
+      reached_top: 您已經達到此徽章的最高等級。
+      title: 徽章是什麼？
+    group_admins:
+      actions:
+        are_you_sure: 確定嗎？這將不會將該參與者從該組中移除。
+        demote_admin: 移除管理員
+      demote:
+        error: 刪除此參與者的管理員名單時發生問題。
+        success: 成功從管理員列表中刪除參與者.
+      index:
+        current_admins: '目前的管理員：'
+        manage_admins: 管理管理員
+    group_invites:
+      accept:
+        error: 這個邀請接受時發生問題。
+        success: 邀請已成功接受.
+      accept_invitation: 接受
+      accept_or_reject_group_invitations: '以下群組已邀請您加入。請接受或拒絕他們的邀請：'
+      index:
+        invite: 邀請
+        invite_user: 邀請一位參與者
+      invite:
+        error: 邀請參與者加入時發生問題.
+        success: 成功邀請參與者.
+      reject:
+        error: 拒絕邀請時出現問題.
+        success: 邀請已成功拒絕.
+      reject_invitation: 拒絕
+    group_members:
+      accept:
+        error: 加入請求接受時發生問題.
+        success: 加入申請已成功接受.
+      actions:
+        are_you_sure: 您確定嗎？
+        promote_to_admin: 設為管理員
+        remove_from_group: 刪除該參與者
+      index:
+        current_members_without_admins: '當前成員 (不包括管理員)：'
+        manage_members: 管理成員
+      promote:
+        error: 提升這位參與者的權限時發生問題.
+        success: 成功提升參與者權限.
+      reject:
+        error: 拒絕此加入請求時發生問題.
+        success: 加入申請已被拒絕.
+      remove:
+        error: 將此參與者從群組中移除時發生問題.
+        success: 已成功將參與者從群組中移除.
+    groups:
+      actions:
+        are_you_sure: 您確定嗎？
+      create:
+        error: 在建立這個群組時發生問題.
+        success: 分組已成功創建.
+      edit:
+        edit_user_group: 編輯群組
+        update_user_group: 更新群組
+      form:
+        document_number_help: 不要使用破折号或空格.
+        email_help: 組織、協會、集體、群組等的電子郵件地址。
+        fill_in_for_verification: '如果您希望您的群組進行驗證，請填寫以下字段：'
+        name_help: 您的組織、協會、集體、群組等的名稱。
+        nickname_help: 您的組織、協會、集體、群組等的暱稱。請勿使用空格或重音符號。
+        phone_help: 不要使用破折号或空格.
+      join:
+        error: 加入這個群組時發生問題.
+        success: 加入請求已成功建立。管理員將在接受您加入該組之前審查您的請求。
+      leave:
+        error: 離開這個群組時發生問題.
+        last_admin: 你無法從這個群組中移除自己，因為你是唯一的管理員。請先讓另一位成員成為管理員，然後才能離開該群組。
+        success: 成功退出群組。
+      members:
+        accept_or_reject_join_requests: '以下使用者申請加入該群組。請接受或拒絕他們的申請：'
+        accept_request: 接受
+        reject_request: 拒絕
+      new:
+        create_user_group: 建立群組
+        new_user_group: 新群組
+        subtitle: 建立一個群組並邀請其他使用者加入，以便在集體層面上參與。
+      no_user_groups: 尚未加入任何群組。
+      roles:
+        admin: 管理員
+        creator: 管理員
+        member: 成員
+      update:
+        error: 更新群組時，發生錯誤。
+        success: 成功更新群組.
+    help:
+      main_topic:
+        default_page:
+          content: "<p>在 %{organization} 中，您可以透過頂部畫面中的不同空間參與並決定各種議題，包括流程、集會、倡議和諮詢。</p> <p>在每個空間中，您將找到不同的參與選項：個人或與他人一起提出提案、參與辯論、優先考慮要實施的項目、參加面對面會議以及其他行動。</p>\n"
+          title: 我可以在 %{organization} 做什麼？”
+        description: 閱讀更多有關 %{organization} 的資訊.
+        title: 一般幫助
+    last_activities:
+      all: 所有活動類型
+      index:
+        last_activity: 最後活動
+    links:
+      invalid_url: 無效網址 URL
+      warning:
+        body_1: 您即將訪問外部連結，我們希望您對外部網站上的內容保持警覺。
+        body_2: 在繼續進行之前，請檢查您即將訪問的連結，確保您認識它並認為它是一個安全的網站。
+        cancel: 取消
+        proceed: 繼續
+        title: 開啟外部連結
+    log:
+      base_presenter:
+        create: "%{user_name} 創建了 %{resource_name}"
+        create_with_space: "%{user_name} 在 %{space_name} 中創建了 %{resource_name}"
+        delete: "%{user_name} 刪除了 %{resource_name}"
+        delete_with_space: "%{user_name} 在 %{space_name} 中刪除了 %{resource_name}"
+        publish_with_space: "%{user_name} 在 %{space_name} 中發布了 %{resource_name}"
+        unknown_action: "%{user_name} 在 %{resource_name} 上執行了一些操作"
+        unknown_action_with_space: "%{user_name} 在 %{space_name} 中的 %{resource_name} 上執行了一些操作"
+        unpublish_with_space: "%{user_name} 從%{space_name} 取消發布了%{resource_name}"
+        update: "%{user_name} 更新了%{resource_name}"
+        update_permissions_with_space: "%{user_name} 更新了 %{space_name} 空間中 %{resource_name} 的權限"
+        update_with_space: "%{user_name} 在%{space_name} 中更新了%{resource_name}"
+      value_types:
+        area_presenter:
+          not_found: '在數據庫中找不到該區域 (ID: %{id})'
+        area_type_presenter:
+          not_found: '在數據庫中找不到該區域類型(ID: %{id})'
+        scope_presenter:
+          not_found: '在數據庫中找不到該範圍 (ID: %{id})'
+        scope_type_presenter:
+          not_found: '在數據庫中找不到該範圍類型 (ID: %{id})'
+    managed_users:
+      expired_session: 該參與者的當前管理會話已過期。
+    map:
+      dynamic:
+        screen_reader_explanation: 下面的元素是一個地圖，它將此頁面上的項目呈現為地圖點。這個元素可以與螢幕閱讀器一起使用，但可能較難理解。
+        skip_button: 跳過地圖
+      static:
+        latlng_text: '緯度：%{latitude}，經度：%{longitude}'
+        map_service_brand: 開放街圖
+    members:
+      no_members: 這個群組還沒有任何成員。
+    menu:
+      help: 幫助
+      home: 首頁
+    messaging:
+      conversation_mailer:
+        comanagers_new_conversation:
+          admin_in_group: 您收到此通知是因為您是 %{group} 的管理員。
+          greeting: 嗨, %{recipient}!
+          intro: "%{manager} 以%{group} 的名義開始了一個新對話。點擊這裡查看："
+          subject: "%{manager} 以%{group} 的身份開始了一個新對話。"
+        comanagers_new_message:
+          admin_in_group: 您收到此通知是因為您是 %{group} 的管理員。
+          greeting: 嗨, %{recipient}!
+          intro: "%{manager} 以%{group} 的名義在一個對話中發佈了新訊息。點擊這裡查看它們："
+          subject: "%{manager} 以%{group} 的身份發送了新的訊息。點擊這裡查看它們："
+        new_conversation:
+          greeting: 嗨, %{recipient}!
+          intro: "%{sender} 與您開始了一個新的對話。點擊這裡查看它："
+          subject: "%{sender} 已與您開始對話"
+        new_group_conversation:
+          admin_in_group: 您收到此通知是因為您是 %{group} 的管理員。
+          greeting: 嗨, %{recipient}!
+          intro: "%{sender} 已與群組%{group} 開始了一個新的對話。點擊這裡查看："
+          subject: "%{sender} 已與%{group} 開始了一個對話"
+        new_group_message:
+          admin_in_group: 您收到此通知是因為您是 %{group} 的管理員。
+          greeting: 嗨, %{recipient}!
+          intro: "%{sender} 在與 %{group} 的對話中發表了新訊息。點擊這裡查看："
+          subject: "%{group} 收到了 %{sender} 的新訊息。"
+        new_message:
+          greeting: 嗨, %{recipient}!
+          intro: "%{sender} 在您的對話中發布了新訊息。點擊這裡查看："
+          subject: 您有來自 %{sender} 的新訊息。
+      conversations:
+        add_conversation_users:
+          add_max_users: '將使用者加入對話：最多可加入 9 名使用者。'
+          add_users_placeholder: 搜尋...
+          modal_title: 新的對話
+          no_results: 無結果
+          participant_with_disabled_message_reception: 此參與者不希望接收私人訊息。
+        create:
+          error: 對話未開始。請稍後再試。
+        error_modal:
+          close: 關閉視窗
+          correct_errors: 請修正錯誤後再試一次。
+          intro: '您的訊息有以下錯誤：'
+          ok: 好的
+        index:
+          new_conversation: 新的對話
+          next: 下一個
+          no_conversations: 您目前還沒有對話.
+          title: 對話
+        reply_form:
+          placeholder: 您的回覆...
+          send: 發送
+        show:
+          back: 返回所有對話
+          chat_with: 與 的對話
+          deleted_accounts: 你不能與已刪除的帳戶進行對話。
+          not_allowed: 該參與者不接受直接訊息。
+          title: 與 %{usernames} 的對話
+        start:
+          placeholder: 您的訊息...
+          send: 發送
+        update:
+          error: 由於錯誤，訊息未能傳送.
+    metrics:
+      download:
+        csv: 下載資料(CSV)
+      followers:
+        description: 追蹤此參與空間的參與者數量
+        object: 追隨者
+        title: 追隨者
+      participants:
+        description: 組織中活躍參與者的數量
+        object: 參與者
+        title: 參與者
+      users:
+        description: 組織中參與者的數量
+        object: 參與者
+        title: 參與者
+    newsletter_mailer:
+      newsletter:
+        no_reply_notice: 此封郵件是由無法接收傳入郵件的通知郵件地址發送的。請不要回覆此訊息。
+        note: 您收到此電子郵件，是因為您已訂閱了 %{organization_name} 的通訊。您可以在您的<a href="%{link}">通知頁面</a>更改設置。
+        see_on_website: 無法正確顯示此電子郵件？請於 <a href="%{link}" target="_blank" class="see-on-website">網站</a> 查看。
+        unsubscribe: 要取消接收此類郵件，<a href="%{link}" target="_blank" class="unsubscribe">取消訂閱</a>。
+    newsletter_templates:
+      basic_only_text:
+        body_preview: '正文的虛擬文字：Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
+        name: 基礎（僅文字）
+      basic_only_text_settings_form:
+        body: 正文
+        interpolations_hint: '提示：您可以在郵件正文或主題中使用"%{name}"，它將被收件人的名字替換。'
+      image_text_cta:
+        body_preview: '範例正文的虛擬文本：Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar.'
+        cta_text_preview: 呼籲操作文字
+        introduction_preview: '範例引言的虛擬文本：Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
+        name: 圖像、文字和呼籲操作按鈕
+      image_text_cta_settings_form:
+        body: 正文
+        cta_text: 行動呼籲按鈕文字
+        cta_url: 呼籲行動按鈕URL網址：
+        interpolations_hint: '提示：您可以在介紹、正文、CTA文字或主題中的任何地方使用 "%{name}"，它將被替換為收件人的名字。'
+        introduction: 介紹
+        main_image: 主圖片
+    newsletters:
+      unsubscribe:
+        check_subscription: 如果您想更改您的偏好設定，您可以在<a href="%{link}" target="_blank">配置頁面</a>進行更改。
+        error: 取消訂閱時發生問題.
+        success: 你已經成功取消訂閱
+        token_error: 該連結已過期。
+        unsubscribe: 取消訂閱
+    newsletters_opt_in:
+      unathorized: 抱歉，此連結已不再可用。
+      update:
+        error: 儲存通訊設定時出現問題。
+        success: 成功更新電子報設定.
+    newsletters_opt_in_mailer:
+      notify:
+        body_1: 個人資料的處理和保護對我們所有人來說變得越來越重要。隨著2018年5月25日新的《通用數據保護條例》（GDPR）的出台，個人對其個人資料擁有更好的控制權。因此，我們需要您的「確認」，以繼續向您發送有關 %{organization_name} 活動的相關資訊。
+        body_2: '您如何給予我們您的同意？只需點擊下面的按鈕：'
+        body_3: 通過此同意，您將能夠繼續接收有關平台服務的資訊。如果您沒有給予積極的確認，我們將停止向您發送訊息。如果您確認希望繼續收到資訊，您隨時可以選擇取消訂閱。
+        button: 是的，我希望繼續接收相關資訊。
+        greetings: 問候,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: 您好！
+        subject: 您是否希望繼續接收有關%{organization_name} 的相關資訊？
+    notification_mailer:
+      event_received:
+        no_translation_available: 很抱歉，無法在發送電子郵件時擷取自動翻譯。您可以在以下鏈接中檢查原始文本的翻譯：%{link}。
+        original_text: '原文：'
+        same_language: 內容已以您的首選語言（%{language}）發布，因此在此電子郵件中沒有顯示自動翻譯。
+        translated_text: '自動翻譯的文字：'
+    notifications:
+      no_notifications: 還沒有收到通知
+      show:
+        missing_event: 噢，這個通知屬於一個已經不存在的項目。您可以將其丟棄。
+    notifications_digest_mailer:
+      header:
+        daily: 每日通知摘要
+        weekly: 每週通知摘要
+      hello: 哈囉，%{name},
+      intro:
+        daily: '這些是根據您所關注的活動在最近一天內的通知：'
+        weekly: '這些是根據您所關注的活動在最近一周內的通知：'
+      outro: 您收到這些通知是因為您正在關注這些內容或其作者。您可以從相應的頁面取消關注。
+      see_more: 查看更多通知
+      subject: 這是您的郵件摘要。
+    notifications_settings:
+      show:
+        administrators: 管理員
+        allow_public_contact: 允許任何人向我發送私信，即使我沒有關注他們。
+        allow_push_notifications: 當您不在平台上時，接收推播通知以了解正在發生的事情。您可以隨時關閉。
+        direct_messages: 接收來自任何人的直接訊息。
+        email_on_moderations: 我想在每次有任何內容或使用者被舉報需要審核時收到郵件通知。
+        everything_followed: 我關注的所有內容
+        newsletter_notifications: 我想收到電子報。
+        newsletters: 電子報
+        notification_settings:
+          close_meeting_reminder: 我希望收到關於已結束的會議和未發布報告的電子郵件提醒。
+        notifications_sending_frequencies:
+          daily: 每日
+          none: 無
+          real_time: 即時
+          weekly: 每週
+        notifications_sending_frequency: 您希望多久收到一封通知郵件？
+        own_activity: 例如，當有人對我的提案發表評論或提及我時，我希望收到通知郵件。
+        push_notifications: 推播通知
+        push_notifications_reminder: 要從平台獲得通知，您需要先在瀏覽器設定中允許通知。
+        receive_notifications_about: 我希望收到有關以下方面的通知：
+        update_notifications_settings: 儲存變更
+      update:
+        error: 更新通知設定時出現問題。
+        success: 您的通知設定已成功更新。
+    offline:
+      show:
+        message: 看起來您目前處於離線狀態，請稍後再試。
+        retry: 重試
+    open_data:
+      not_available_yet: 開放數據檔案尚未可用，請稍後再試。
+    pad_iframe:
+      disclaimer: 此筆記內容由註冊用戶撰寫並表達其意見。%{organization} 對其內容不承擔責任。"
+      explanation: 使用此區塊共同協作撰寫會議紀錄，以便之後更輕鬆地撰寫會議記錄。
+      pad: 平板
+    pages:
+      home:
+        extended:
+          debates: 辯論
+          debates_explanation: 辯論和討論，分享你的觀點，豐富相關話題。
+          how_to_participate: 如何參與一個流程？
+          meetings: 會議
+          meetings_explanation: 尋找您可以參加公開會議的地點和時間。
+          more_info: 更多關於 %{resource_name} 的資訊
+          proposals: 提案
+          proposals_explanation: 提出建議、支持現有建議並推動您希望看到的變化。
+        footer_sub_hero:
+          footer_sub_hero_body: 一起建立更加開放、透明和協作的社會。<br /> 加入、參與和做出決策。
+          footer_sub_hero_headline: 歡迎來到 %{organization} 的參與平台。
+          register: 註冊
+        hero:
+          participate: 參與
+          welcome: 歡迎來到 %{organization}！
+        statistics:
+          headline: '%{organization} 的目前狀態'
+        sub_hero:
+          register: 註冊
+      index:
+        standalone_pages: 頁
+        subheading: 瀏覽 %{name} 的幫助頁面
+        title: 幫助
+        topics: 主題
+      participatory_space:
+        metrics:
+          headline: 指標
+          link: 顯示所有指標
+      terms_of_service:
+        accept:
+          error: 接受服務條款時出現問題。
+          success: 太棒了！您已經接受了服務條款。
+        form:
+          agreement: 我同意上述条款
+          legend: 我同意服務條款
+        refuse:
+          modal_body: 如果您拒絕，將無法使用該平台，您可以<a href="%{download_your_data_path}">下載您的數據</a>和/或<a href="%{delete_path}">刪除您的帳戶</a>。
+          modal_btn_continue: 接受條款並繼續
+          modal_btn_exit: 我稍後會再查看。
+          modal_button: 拒絕條款
+          modal_title: 您真的拒絕接受更新的服務條款嗎？
+        required_review:
+          alert: 我們已更新我們的服務條款，請您查閱。
+          body: 請花一點時間檢閱我們的服務條款更新，否則您將無法使用平台。
+          title: '必須：檢閱我們的服務條款更新'
+    participatory_space_private_users:
+      not_allowed: 您無權查看此內容
+    passwords:
+      update:
+        error: 密碼更新時發生問題.
+        success: 密碼已成功更新.
+    profile:
+      deleted: 已刪除的參與者
+      inaccessible_message: 由於違反服務條款，此個人資料無法存取！
+    profiles:
+      default_officialization_text_for_user_groups: 這個社群已公開驗證，其名稱已經被證實符合其真實名稱。
+      default_officialization_text_for_users: 這個參與者已經公開驗證，其名稱或角色已被證實與其真實名稱或角色相符。
+      show:
+        activity: 啟動
+        badges: 徽章
+        conversations: 對話
+        followers: 追隨者
+        following: 關注
+        groups: 群組
+        members: 成員
+        officialized: 正式認證參與者
+        send_private_message: 發送私人訊息
+      sidebar:
+        badges:
+          info: 徽章是通過在平台上執行特定活動而獲得的。
+          title: 徽章
+      user:
+        actions:
+          create_user_group: 建立群組
+          edit_profile: 編輯個人資料
+          edit_user_group: 編輯群組資料
+          invite_user: 邀請參與者
+          join_user_group: 申請加入群組
+          manage_user_group_admins: 管理管理員
+          manage_user_group_users: 管理成員
+          message: 訊息
+        confirmation_instructions_sent: 電子郵件確認指示已發送.
+        create_user_group: 建立群組
+        edit_profile: 編輯個人資料
+        edit_user_group: 編輯群組資料
+        fill_in_email_to_confirm_it: 請填寫您的群組電子郵件以進行確認.
+        invite_user: 邀請參與者
+        join_user_group: 申請加入群組
+        leave_user_group: 退出群組
+        manage_user_group_admins: 管理管理員
+        manage_user_group_users: 管理成員
+        resend_email_confirmation_instructions: 重新發送電子郵件確認指示
+    reported_mailer:
+      hide:
+        hello: 哈囉，%{name},
+        manage_moderations: 管理版主
+        report_html: <p>以下<a href="%{url}">內容</a>已自動隱藏。</p>
+        subject: 一個資源已被自動隱藏。
+      report:
+        authors: 作者
+        content: 已檢舉內容
+        content_original_language: 內容的原始語言
+        date: 報告於
+        details: 詳細資料
+        hello: 哈囉，%{name},
+        id: ID
+        participatory_space: 參與空間
+        reason: 理由
+        report_html: <p>以下<a href="%{url}">內容</a>已被檢舉。</p>
+        see_report: 查閱報告
+        subject: 一個資源已被檢舉。
+    reports:
+      create:
+        error: 在建立報告時發生錯誤。請再試一次。
+        success: 報告已成功建立，將由管理員進行審查。
+    resource_endorsements:
+      create:
+        error: 在連署操作過程中出現問題。
+    scopes:
+      global: 全域範圍
+      picker:
+        cancel: 取消
+        change: 更改所選範圍
+        choose: 選擇
+        currently_selected: 目前選取的範圍
+        title: 選擇 %{field}
+      prompt: 選擇一個範圍
+      scopes: 範圍
+      scopes_picker_input:
+        select_scope: '選擇範圍 (目前: %{current})'
+    search:
+      results: 搜尋結果
+      results_found_for_term: '搜尋結果：%{term}（共找到 %{count} 個結果）'
+      term_input_placeholder: 搜尋
+    searches:
+      filters:
+        jump_to: '跳到：'
+        state:
+          active: 啟動
+          all: 全部
+          future: 未來
+          past: 過去
+      filters_small_view:
+        filter: 篩選器
+        filter_by: 篩選條件
+      results:
+        view_all: 查看全部(%{count})
+    security:
+      selfxss_warning:
+        description: 這個瀏覽器功能是為開發人員設計的，如果有人要求您在此處粘貼任何內容，請不要這樣做。在此窗口粘貼內容可能危及您的隱私並使駭客能夠訪問您的帳戶。
+        title: 停止!
+    shared:
+      confirm_modal:
+        cancel: 取消
+        close_modal: 關閉視窗
+        ok: 好的
+        title: 確認
+      extended_navigation_bar:
+        more: 更多
+        unfold: 展開
+      filter_form_help:
+        help: 下方的表單會在搜尋條件變更時動態篩選搜尋結果。
+        skip: 跳到結果
+      flag_modal:
+        already_reported: 此內容已被舉報，將由管理員進行審查。
+        close: 關閉
+        description: 這個內容是否不適當？
+        does_not_belong: 包含非法活動、自殺威脅、個人資訊或其他您認為不適合在%{organization_name} 上的內容。
+        hide: 隱藏
+        hide_content: 隱藏此內容
+        offensive: 包含種族主義、性別歧視、辱罵、人身攻擊、死亡威脅、自殺要求或任何形式的仇恨言論
+        reason: 理由
+        report: 報告
+        spam: 包含點閱率誘導、廣告、詐騙或自動腳本。
+        title: 檢舉不當內容
+      flag_user_modal:
+        already_reported: 此內容已被舉報，將由管理員進行審查。
+        block: 封鎖此參與者
+        close: 關閉
+        description: 關於該使用者有什麼不適當的行為？
+        does_not_belong: 包含非法活動、自殺威脅、個人資訊或其他您認為不適合在%{organization_name} 上的內容。
+        hide: 隱藏所有內容
+        offensive: 包含種族主義、性別歧視、辱罵、人身攻擊、死亡威脅、自殺要求或任何形式的仇恨言論
+        report: 報告
+        spam: 包含點閱率誘導、廣告、詐騙或自動腳本。
+        title: 舉報不適當的使用者
+      floating_help:
+        help: 幫助
+      login_modal:
+        sign_up: 註冊登記
+      mentions_modal:
+        remove_recipient: 移除收件人 %{name}。
+      participatory_space_filters:
+        filters:
+          areas: 區域
+          select_an_area: 選擇一個地區
+      public_participation:
+        public_participation: 公開展示我的出席情況。
+      reference:
+        reference: '參考資料: %{reference}'
+      represent_user_group:
+        represent_user_group: 我代表一個群組。
+        select_user_group: 選擇一個群組
+      results_per_page:
+        label: '每頁顯示的結果：'
+        title: 選擇每頁的結果數量
+      share_modal:
+        copy_share_link: 複製
+        copy_share_link_clarification: 複製分享連結到剪貼簿。
+        copy_share_link_copied: 已複製！
+        copy_share_link_message: 連結已成功複製到剪貼簿。
+        share: 分享
+        share_link: 分享連結
+        share_to: 分享至 %{service}
+    statistics:
+      comments_count: 評論
+      endorsements_count: 連署
+      followers_count: 追隨者
+      headline: 統計資料
+      no_stats: 目前還沒有統計資料。
+      pages_count: 頁
+      participants_count: 參與者
+      users_count: 參與者
+    tags:
+      filter_results_for_category: '篩選類別為 %{resource} 的結果。'
+      filter_results_for_scope: '篩選範圍為 %{resource} 的結果。'
+    translation_bar:
+      help_text: "<strong>警告：</strong>內容可能會被自動翻譯，並且可能不是100％準確。"
+      show_original: 顯示原始文本
+      show_translated: 顯示自動翻譯的文本
+    user_activity:
+      index:
+        no_activities_warning: 這個參與者還沒有任何活動。
+    user_contact_disabled: 該參與者不接受直接訊息。
+    user_conversations:
+      create:
+        error: 訊息無法建立。請稍後再試。
+        existing_error: 無法建立訊息。該對話已存在，請現在重試。
+        success: 對話成功開始！
+      index:
+        conversations_info: 對話是私密的，沒有其他人可以看到。可以與平台上註冊的任何參與者或群組開始對話。
+        no_conversations_warning: 目前還沒有任何對話。
+        time_ago: "%{time} 之前"
+      reply:
+        placeholder: 您的回覆...
+        send: 發送
+      update:
+        error: 訊息未送出，請稍後再試。
+    user_interests:
+      show:
+        my_interests: 我的興趣
+        no_scopes: 這個組織目前還沒有設定範圍！
+        select_your_interests: 選擇您感興趣的主題，以接收與其相關的活動，並在您的個人檔案時間軸選項卡中查看。
+        update_my_interests: 更新我的興趣
+      update:
+        error: 更新您的興趣時發生問題。
+        success: 您的興趣已成功更新。
+    user_report_mailer:
+      notify:
+        body_1: 使用者 %{user} 已被 %{token} 舉報。
+        body_2: '原因: %{reason}'
+        details: 使用者提供的詳細資料
+        greetings: 問候,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: 哈囉，%{admin},
+        subject: 在 %{organization_name} 中有一個新使用者被舉報了。
+    version:
+      show:
+        back_to_resource: 返回
+        changes_at_title: '"%{title}" 的更改'
+        number_of_versions: 版本
+        version_created_at: 版本建立於
+    versions:
+      resource_version:
+        of_versions: "(的%{number})"
+        see_other_versions: 查看其他版本
+        version: 版本號碼 %{number}
+    versions_list_item:
+      show:
+        version_index: 版本 %{index}
+    welcome_notification:
+      default_body: <p>嗨 {{name}}，感謝您加入 {{organization}}，歡迎！</p><ul><li>如果您想快速了解此處的功能，請查看<a href="{{help_url}}">幫助</a>部分。</li><li>閱讀後，您將獲得第一個徽章。這裡是{{organization}} 中您可以參加的所有徽章的<a href="{{badges_url}}">清單</a></li><li>最後但並非最不重要的，加入其他人，分享與他們參與 {{organization}} 的經驗。提出建議，評論，辯論，考慮如何為共同利益做出貢獻，提供論據以說服，耐心聆聽並閱讀以取得信服，以具體且直接的方式表達您的想法，以耐心和決定力回應，捍衛您的想法，保持開放的態度以協作和加入其他人的想法。</li></ul>
+      default_subject: 感謝您加入 {{organization}}！
+    wizard_step_form:
+      wizard_aside:
+        back: 返回
+      wizard_header:
+        see_steps: 看步驟
+        step_of: 第 %{current_step} 步，共 %{total_steps} 步
+  devise:
+    confirmations:
+      confirmed: 您的電子郵件地址已成功確認。
+      new:
+        resend_confirmation_instructions: 重新發送確認指示
+      send_instructions: 您將在幾分鐘後收到一封電子郵件，內有驗證帳號的步驟說明。
+      send_paranoid_instructions: 如果我們的資料庫中有你的電郵地址，你將會在幾分鐘內收到一封電郵，內有確認電郵地址的方法。
+    failure:
+      already_authenticated: 您已經登入了。
+      inactive: 您的帳號尚未啟用。
+      invalid: 無效的 %{authentication_keys} 或密碼。
+      invited: 您有一份待處理的邀請，請接受它以完成您的帳戶創建。
+      last_attempt: 您還有最後一次嘗試機會，再次失敗您的帳號將會被鎖定。
+      locked: 您的帳號已被鎖定。
+      not_found_in_database: 無效的 %{authentication_keys} 或密碼。
+    invitations:
+      edit:
+        header: 完成您的帳戶設置
+        nickname_help: 在 %{organization} 中的暱稱。只能包含字母、數字、'-' 和 '_'。
+        submit_button: 儲存
+        subtitle: 如果您接受邀請，請設定您的暱稱和密碼。
+      invitation_removed: 您的邀請已被移除。
+      invitation_token_invalid: 提供的邀請代幣無效！
+      new:
+        header: 發送邀請
+        submit_button: 發送一個邀請
+      no_invitations_remaining: 沒有待處理的邀請
+      send_instructions: 已向 %{email} 發送了一封邀請郵件。
+      updated: 您的密碼已成功設定。您現在已登入。
+      updated_not_active: 您的密碼已成功設定。
+    mailer:
+      confirmation_instructions:
+        action: 確認我的帳戶
+        greeting: 歡迎 %{recipient} ！
+        instruction: '您可以通過下面的鏈接確認您的電子郵件帳戶：'
+        subject: 確認說明
+      email_changed:
+        greeting: 哈囉 %{recipient}!
+        message: 我們通知您，您的電子郵件正在更改為 %{email}。
+        subject: 已變更電子郵件地址
+      invitation_instructions:
+        accept: 接受邀請
+        accept_until: 此邀請的截止日期為 %{due_date}。
+        decline: 拒絕邀請
+        hello: 哈囉 %{email},
+        ignore: |-
+          如果您不想接受邀請，請忽略此電子郵件。<br />在您使用上述連結設置您的暱稱和密碼之前，您的帳戶不會被創建。
+        invited_you_as_admin: "%{invited_by} 邀請您成為 %{application} 的管理員。您可以通過下面的連結接受邀請。"
+        invited_you_as_private_user: "%{invited_by} 邀請您成為 %{application} 的私密參與者。您可以通過下面的連結接受邀請。"
+        someone_invited_you: 有人邀請您加入 %{application}。您可以通過下面的連結接受邀請。
+        someone_invited_you_as_admin: 有人邀請您成為 %{application} 的管理員，您可以通過下面的連結接受邀請。
+        someone_invited_you_as_private_user: 有人邀請您成為 %{application} 的私人參與者，您可以通過下面的連結接受邀請。
+        subject: 邀請說明
+      invite_admin:
+        subject: 你已經被邀請成為 %{organization} 的管理者
+      invite_collaborator:
+        subject: 你已獲邀成為 %{organization} 的協作者
+      invite_private_user:
+        subject: 您已被邀請參加 %{organization} 的私密參與過程。
+      organization_admin_invitation_instructions:
+        subject: 你已經被邀請成為 %{organization} 的管理者
+      password_change:
+        greeting: 哈囉 %{recipient}!
+        message: 我們通知您，您的密碼已經被更改。
+        subject: 密碼已變更
+      reset_password_instructions:
+        action: 變更我的密碼
+        greeting: 哈囉 %{recipient}!
+        instruction: 有人要求更改您的密碼，你可以通過下面的網址更改密碼。
+        instruction_2: 如果您沒有要求這，請忽略此電子郵件。
+        instruction_3: 在您點擊上面的網址和創建一個新的密碼之前，您現在的密碼不會更改。
+        subject: 重置密碼的說明
+      unlock_instructions:
+        action: 解鎖我的帳戶
+        greeting: 哈囉 %{recipient}!
+        instruction: '請按一下下面的網址來解鎖您的帳戶：'
+        subject: 解鎖說明
+    omniauth_callbacks:
+      failure: 無法驗證您的 %{kind} 因為"%{reason}"。
+      success: 成功從 %{kind} 帳戶進行驗證。
+    passwords:
+      edit:
+        change_my_password: 變更我的密碼
+        confirm_new_password: 確認新密碼
+        new_password: 新密碼
+        password_help: "最少 %{minimun_characters} 個字符，不能太常見（例如 123456），且必須與您的暱稱和電子郵件不同。"
+        password_help_admin: "最少 %{minimun_characters} 個字符，不能太常見（例如 123456），必須與您的暱稱和電子郵件不同，並且必須與您的舊密碼不同。"
+        title: 密碼變更
+      new:
+        forgot_your_password: 忘記密碼了嗎？
+        send_me_reset_password_instructions: 請發送重置密碼的說明給我
+      no_token: 您無法在未使用密碼重置電子郵件進入此頁面。如果您確實使用了密碼重置電子郵件，請確認您使用了提供的完整URL。
+      send_instructions: 您將在幾分鐘內收到一封包含重設密碼指示的電子郵件。
+      send_paranoid_instructions: 如果您的電子郵件地址存在於我們的資料庫中，您將在幾分鐘內收到一封包含密碼恢復連結的電子郵件。
+      updated: 您的密碼已成功更改。您現在已經登錄。
+      updated_not_active: 您的密碼已變更成功。
+    registrations:
+      destroyed: 您的帳號已成功取消，期待再相逢。
+      new:
+        sign_up: 註冊登記
+      signed_up: 歡迎！您已成功註冊。
+      signed_up_but_inactive: 您已註冊成功，但由於您的帳號尚未啟用，我們暫時無法讓您登入。
+      signed_up_but_locked: 你已成功註冊。然而，由於你的賬戶被鎖，我們無法讓你登入。
+      signed_up_but_unconfirmed: 確認信件已送至您的 Email 信箱，請點擊信件內連結以啓動您的帳號。
+      update_needs_confirmation: 您已經成功的更新帳號資訊，但我們仍需確認您的電子信箱，請至新信箱收信並點擊連結以確認您的新電子郵件帳號。
+      updated: 您的帳號已成功升級。
+    shared:
+      links:
+        back: 返回
+        didn_t_receive_confirmation_instructions: 沒有收到確認的說明嗎？
+        didn_t_receive_unlock_instructions: 沒有收到解鎖說明？
+        forgot_your_password: 忘記密碼了嗎？
+        sign_up: 註冊登記
+      minimum_password_length:
+        other: "One\n(最少%{count} 個字符)\n\nOther\n(最少%{count} 個字符)"
+    unlocks:
+      new:
+        resend_unlock_instructions: 重新發送解鎖說明
+      send_instructions: 您將在幾分鐘後收到一封電子郵件，內有將帳號解除鎖定的步驟說明。
+      send_paranoid_instructions: 如果你的賬戶存在，你將會在幾分鐘內收到一封電郵，內有解鎖賬戶的方法。
+  doorkeeper:
+    scopes:
+      public: 您的公開資訊。
+  emojis:
+    button: 新增Emoji
+    categories:
+      activities: 活躍狀態
+      animals-nature: 動物與自然
+      custom: 自訂
+      flags: 旗幟
+      food-drink: 食物 & 飲料
+      objects: 目標
+      people-body: 人與身體
+      recents: 最近使用的
+      smileys-emotion: 表情符號和情感
+      symbols: 符號
+      travel-places: 旅遊與地點
+    error:
+      load: 無法載入表情符號
+    recents:
+      clear: 清除最近的表情符號
+      none: 您尚未選擇任何表情符號。
+    retry: 再試一次
+    search:
+      _: 搜尋表情符號…
+      clear: 清除搜尋
+      error: 搜尋表情符號失敗。
+      not_found: 找不到結果
+  errors:
+    messages:
+      allowed_file_content_types: '只允許使用以下擴展名的檔案： %{types}'
+      blank: 不能為空白
+      cannot_be_blank: 不能為空白
+      confirmation: 不符合 %{attribute}
+      confirmation_period_expired: 需要在 %{period} 內完成驗證。請重新申請
+      content_type_allowlist_error: 檔案類型無效
+      cycle_detected: 一個範圍的父範圍不能是其子範圍之一
+      empty: 不能為空
+      expired: 已過期，請申請一個新的
+      file_size_is_less_than_or_equal_to: 檔案大小必須小於或等於 %{count}
+      invalid_time_zone: 不是有效的時區。
+      long_words: 包含過長的單詞(超過35個字符)
+      must_start_with_caps: 必須以大寫字母開頭
+      nesting_too_deep: 不能被放置在子類別中。
+      not_found: 找不到該項目。您之前註冊過嗎？
+      not_locked: 未被鎖定
+      not_saved:
+        other: "One\n在處理您的請求時發生了錯誤:\n\nOther\n在處理您的請求時出現了多個錯誤:"
+      too_many_marks: 使用了過多連續的標點符號(例如！和？)
+      too_much_caps: 使用了太多大寫字母（超過文本的25%）
+      too_short: 太短（少於%{count} 個字符）
+  forms:
+    correct_errors: 表單上有錯誤，請修正後繼續。
+    length_validator:
+      minimum:
+        other: "One\n至少 %{count} 個字元\n\nOther\n至少 %{count} 個字元"
+    required: 必填的欄位
+    required_explanation: "必填欄位已標示有星號(*)"
+  invisible_captcha:
+    sentence_for_humans: 如果你是人類，請忽略此欄位
+    timestamp_error_message: 抱歉，請慢一點！請重新提交。
+  layouts:
+    decidim:
+      data_consent:
+        details:
+          columns:
+            description: 說明
+            name: 名稱
+            service: 服務
+            type: 種類
+          items:
+            _session_id:
+              description: 允許網站在使用者在網頁之間移動時記住使用者。
+              service: 這個網站
+            decidim-consent:
+              description: 儲存使用者在這個網站上允許的 cookie 資訊。
+              service: 這個網站
+            pwaInstallPromptSeen:
+              description: 儲存使用者是否已經看過進階網頁應用程式 (PWA) 的安裝通知的狀態。
+              service: 這個網站
+          types:
+            cookie: Cookie
+            local_storage: 本地儲存
+        dialog:
+          accept_all: 全部接受
+          accept_only_essential: 僅接受必要的
+          description: 我們在我們的網站上使用cookies，以提升網站的性能和內容。這些cookies使我們能夠提供更個性化的用戶體驗和社交媒體功能。
+          settings: 設定
+          title: 關於網站使用的cookies的信息
+        modal:
+          accept_all: 全部接受
+          accept_only_essential: 僅接受必要的
+          analytics:
+            description: 這些cookies用於測量和分析網站的訪問人數，以幫助改善網站。
+            title: 分析和統計
+          description: 我們使用cookie來確保網站的基本功能並提升您的在線體驗。您可以隨時配置和接受cookie的使用，並修改您的同意選項。
+          essential:
+            description: 這些cookie啟用了網站的關鍵功能，並有助於保護其用戶的安全。它們會自動保存在瀏覽器中，無法禁用。
+            title: 基本功能
+          marketing:
+            description: 這些 cookie 收集有關您使用網站的信息，並可用於在您使用的不同網站上提供更個性化的營銷。
+            title: 市場行銷
+          preferences:
+            description: 這些 cookie 允許網站記住您在過去在該網站上所做的選擇，以提供更個性化的使用體驗給網站用戶。
+            title: 偏好設定
+          save_settings: 儲存設定
+          title: Cookie 設定
+          toggle: 切換 %{consent_category}
+        warning:
+          all_categories: 全部 cookies
+          change_settings: 更改 cookie 設定
+          consent_required: 您需要啟用 %{categories} 以查看此內容。
+      edit_link:
+        edit: 編輯
+      footer:
+        cc_by_license: 知識共用授權合約。
+        data_consent_settings: Cookie 設定
+        decidim_logo: Decidim 商標
+        download_open_data: 下載開放數據檔案
+        made_with_open_source: 使用<a target="_blank" href="https://github.com/decidim/decidim">自由軟體</a>建立的網站。
+        sign_up: 註冊
+      header:
+        main_menu: 主選單
+        user_menu: 使用者選單
+      impersonation_warning:
+        close_session: 關閉階段
+        description_html: 您正在管理參與者 <b>%{user_name}</b>。
+        expire_time_html: 您的會話將在 <b><span class="minutes">%{minutes}</span> 分鐘內過期</b>。
+      language_chooser:
+        choose_language: 選擇語言
+      notifications_dashboard:
+        mark_all_as_read: 全部標記為已讀
+        mark_as_read: 標記為已讀
+      offline_banner:
+        cache_version_page: 糟糕！您的網路離線了。您正在訪問的頁面是之前緩存的版本，可能內容不是最新的。
+      social_media_links:
+        facebook: "%{organization} 在 Facebook"
+        github: "%{organization} 在 GitHub"
+        instagram: "%{organization} 在 Instagram"
+        youtube: "%{organization} 在 YouTube"
+      timeout_modal:
+        body: 您已經閒置了 %{minutes} 分鐘。如果您繼續閒置，為了您的安全，您將被自動登出。
+        continue_session: 繼續會話
+        title: 您是否想要繼續進行本次對話？
+      upload_modal:
+        close_modal: 關閉視窗
+      user_menu:
+        account: '使用者帳戶： %{name}'
+        admin_dashboard: 管理員儀表板
+        conversations: 對話
+        notifications: 通知訊息
+        profile: 我的帳號
+        public_profile: 我的公開個人資料
+        title: 個人資料連結
+      user_profile:
+        account: 帳號
+        authorizations: 授權
+        delete_my_account: 刪除我的帳號
+        my_data: 我的資料
+        my_interests: 我的興趣
+        notifications_settings: 通知設定
+        title: 參與者設定
+        user_groups: 群組
+  locale:
+    name: 英文
+    name_with_error: 英文 (錯誤！)
+  password_validator:
+    denied: 被拒絕
+    domain_included_in_password: 與此域名稱太相似
+    email_included_in_password: 與您的電子郵件太相似
+    fallback: 為無效
+    name_included_in_password: 與您的名字太相似
+    nickname_included_in_password: 與您的暱稱太相似
+    not_enough_unique_characters: 沒有足夠的獨特字符
+    password_not_allowed: 不被允許
+    password_repeated: 不能重複使用舊密碼
+    password_too_common: 太常見了
+    password_too_long: 太長
+    password_too_short: 太短
+  ransack:
+    predicates:
+      dtgt: 之後
+      dtgteq: 在之後或等於
+      dtlt: 之前
+      dtlteq: 在之前或等於
+  social_share_button:
+    delicious: 美味
+    douban: 豆瓣
+    email: 電子郵件
+    facebook: Facebook(臉書)
+    google_bookmark: Google書籤
+    google_plus: Google+
+    hacker_news: 駭客新聞(Hacker News)
+    linkedin: LinkedIn
+    pinterest: 繽趣 (Pinterest)
+    qq: Qq空間 (Qzone)
+    reddit: 紅迪 (Reddit)
+    share_to: 分享至 %{name}
+    telegram: Telegram
+    tumblr: Tumblr
+    twitter: Twitter
+    vkontakte: Vkontakte
+    wechat: 微信 WeChat
+    wechat_footer: 請打開你的微信，點擊「發現」按鈕，然後點擊「掃描QR碼」選單。
+    weibo: 新浪微博 (Sina Weibo)
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
+    xing: Xing
+  time:
+    formats:
+      day_of_month: "%b %d"
+      day_of_week: "%a"
+      day_of_week_long: "%a %e"
+      day_of_year: "%d.%m.%y"
+      ddmm: "%d.%m"
+      ddmmyyyy: "%d.%m.%Y"
+      decidim_day_of_year: "%d %B %Y"
+      decidim_short: "%d/%m/%Y %H:%M"
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%B %d, %Y %I:%M %p"
+      long: "%B %d, %Y %H:%M"
+      long_dashed: "%Y-%m-%d %H:%M:%S"
+      long_with_particles: "%B %d, %Y 在 %H:%M"
+      short: "%d/%m/%Y %H:%M"
+      time_of_day: "%H:%M"
+  versions:
+    directions:
+      left: 刪除
+      right: 附加項
+    dropdown:
+      choose_diff_view_html: 'HTML 檢視模式:'
+      choose_diff_view_mode: '比較檢視模式'
+      option_escaped: 已轉義
+      option_split: 並排顯示
+      option_unescaped: 未轉義
+      option_unified: 統一顯示
+  views:
+    pagination:
+      next: 下一個
+      next_title: 鏈接到下一頁
+      pagination: 分頁
+      previous: 前一個
+      previous_title: 連結至前一頁
+      title: '頁碼： '
+      truncate: "&hellip;"

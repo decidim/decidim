@@ -54,7 +54,7 @@ module Decidim::Verifications::Sms
       context "when the code delivery fails" do
         before do
           allow(Decidim::Verifications::Sms::ExampleGateway)
-            .to(receive(:new).with(mobile_phone_number, kind_of(String)))
+            .to(receive(:new).with(mobile_phone_number, kind_of(String), { organization: kind_of(Decidim::Organization) }))
             .and_return(double(deliver_code: nil))
         end
 

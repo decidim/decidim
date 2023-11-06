@@ -19,10 +19,10 @@ module Decidim
       def call
         return broadcast(:invalid) unless form.valid?
 
-        transaction do
-          block!
+        with_events(with_transaction: true) do
+          find_or_create_moderation!
           register_justification!
-          notify_user!
+          block!
         end
 
         broadcast(:ok, form.user)
@@ -30,20 +30,29 @@ module Decidim
 
       private
 
-      attr_reader :form
+      attr_reader :form, :current_blocking
+
+      def event_arguments
+        {
+          resource: form.user,
+          extra: {
+            event_author: form.current_user,
+            locale:,
+            justification: form.justification,
+            hide: form.hide?
+          }
+        }
+      end
+
+      def find_or_create_moderation!
+        Decidim::UserModeration.find_or_create_by!(user: form.user)
+      end
 
       def register_justification!
         @current_blocking = UserBlock.create!(
           justification: form.justification,
           user: form.user,
           blocking_user: form.current_user
-        )
-      end
-
-      def notify_user!
-        Decidim::BlockUserJob.perform_later(
-          @current_blocking.user,
-          @current_blocking.justification
         )
       end
 
@@ -65,7 +74,7 @@ module Decidim
         ) do
           form.user.blocked = true
           form.user.blocked_at = Time.current
-          form.user.blocking = @current_blocking
+          form.user.block_id = @current_blocking.id
           form.user.extended_data["user_name"] = form.user.name
           form.user.name = "Blocked user"
           form.user.save!

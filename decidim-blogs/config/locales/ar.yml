@@ -1,5 +1,11 @@
 ar:
   activemodel:
+    attributes:
+      post:
+        body: النص
+        decidim_author_id: المؤلف
+        published_at: موعد النشر
+        title: العنوان
     models:
       decidim/blogs/create_post_event: بلوق وظيفة جديدة
   activerecord:
@@ -21,17 +27,7 @@ ar:
         new: منشور جديد
         title: أفعال
       admin:
-        models:
-          components:
-            body: الجسم
-          post:
-            name: بريد
         posts:
-          create:
-            invalid: حدثت مشكلة أثناء إنشاء هذا المنشور
-            success: تم النشر بنجاح
-          destroy:
-            success: تم حذف المشاركة بنجاح
           edit:
             save: تحديث
             title: تعديل المنشور
@@ -42,30 +38,28 @@ ar:
             title: إنشاء وظيفة
           update:
             invalid: حدثت مشكلة في حفظ المشاركة.
-            success: تم حفظ النشر بنجاح
+      admin_log:
+        post:
+          create: "%{user_name} أنشأ منشور المدونة %{resource_name} في %{space_name}"
+          delete: "%{user_name} حذف منشور المدونة%{resource_name} من %{space_name}"
+          update: "%{user_name} حدث منشور المدونة %{resource_name} في %{space_name}"
       last_activity:
-        new_post_at_html: "<span>وظيفة جديدة في %{link}</span>"
+        new_post: 'منشور جديد:'
       models:
         post:
           fields:
             author: مؤلف
             body: الجسم
-            created_at: أنشئت في
-            title: عنوان
-      posts:
-        show:
-          back: العودة إلى القائمة
-          comments: التعليقات
-          view: رأي
-        sidebar_blog:
-          comments: تعليقات
-          most_commented_posts: الأكثر تعليقًا عليها
-      read_more: قراءة المزيد
+            official_blog_post: المنشور الرسمي
+            published_at: موعد النشر
+            title: العنوان
     components:
       blogs:
         actions:
+          comment: التعليق
           create: إنشاء
           destroy: حذف
+          endorse: تأييد
           update: تحديث
         name: مدونة
         settings:

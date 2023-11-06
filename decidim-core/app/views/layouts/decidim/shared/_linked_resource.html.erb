@@ -1,0 +1,6 @@
+<% announcement_body = capture do %>
+  <%= t("decidim.linked_resource_from.included_in") %>
+  <%= link_to translated_attribute(linked_resource.title), located_linked_resource.path %>
+<% end %>
+
+<%= cell("decidim/announcement", { body: announcement_body }) %>

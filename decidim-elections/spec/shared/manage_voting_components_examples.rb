@@ -16,7 +16,7 @@ shared_examples "manage voting components" do
         find(".dummy").click
       end
 
-      within ".new_component" do
+      within ".item__edit-form" do
         fill_in_i18n(
           :component_name,
           "#component-name-tabs",
@@ -158,7 +158,7 @@ shared_examples "manage voting components" do
         click_link "Delete"
       end
 
-      expect(page).to have_no_content("My component")
+      expect(page).not_to have_content("My component")
     end
   end
 

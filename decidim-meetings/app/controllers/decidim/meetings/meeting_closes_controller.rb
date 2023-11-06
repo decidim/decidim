@@ -4,19 +4,18 @@ module Decidim
   module Meetings
     # This controller allows a participant to update the closing_report and the linked proposals of a closed meeting
     class MeetingClosesController < Decidim::Meetings::ApplicationController
-      include Decidim::Proposals::Admin::Picker if Decidim::Meetings.enable_proposal_linking
       include FormFactory
 
       helper_method :meeting
 
       def edit
-        enforce_permission_to :close, :meeting, meeting: meeting
+        enforce_permission_to(:close, :meeting, meeting:)
 
         @form = form(CloseMeetingForm).from_model(meeting)
       end
 
       def update
-        enforce_permission_to :close, :meeting, meeting: meeting
+        enforce_permission_to(:close, :meeting, meeting:)
 
         @form = form(CloseMeetingForm).from_params(params.merge(proposals: meeting.sibling_scope(:proposals)))
 

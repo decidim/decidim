@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/proposals/test/capybara_proposals_picker"
 
 describe "Admin manages accountability", type: :system do
   let(:manifest_name) { "accountability" }
@@ -21,7 +20,9 @@ describe "Admin manages accountability", type: :system do
 
   describe "child results" do
     before do
-      click_link translated(result.title)
+      within ".table-list__actions" do
+        click_link "New result"
+      end
     end
 
     it_behaves_like "manage child results"

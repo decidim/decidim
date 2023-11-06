@@ -8,8 +8,8 @@ module Decidim
       describe CreateQuestionnaireTemplate do
         subject { described_class.new(form) }
 
-        let(:organization) { create :organization }
-        let(:user) { create :user, :admin, :confirmed, organization: }
+        let(:organization) { create(:organization) }
+        let(:user) { create(:user, :admin, :confirmed, organization:) }
 
         let(:form) do
           instance_double(

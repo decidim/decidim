@@ -1,32 +1,14 @@
-<div class="user-activity">
-  <div id="activities" class="columns small-12">
+<div class="profile__activity">
+  <%= cell "decidim/resource_types_filter", resource_types, form_path: url_for, filter: %>
+  <div class="profile__activity__container" id="activities-container">
     <% if activities.length == 0 %>
-      <div class="callout warning">
-        <%= t "decidim.user_activity.index.no_activities_warning" %>
-      </div>
+      <%= cell "decidim/announcement", t("decidim.user_activity.index.no_activities_warning") %>
     <% else %>
-      <div class="row">
-        <div class="show-for-mediumlarge filters__left-legend">
-          <%= filter_form_for context[:filter] do |form| %>
-            <div class="columns mediumlarge-6 large-5">
-              <%= form.custom_select :resources,
-                                     :resource_type,
-                                     resource_types,
-                                     legend_title: t("title", scope:"decidim.components.component_order_selector"),
-                                     label: false,
-                                     selected: context[:filter].resource_type,
-                                     include_blank: t("all_types", scope: "decidim.components.component_order_selector.order") %>
-            </div>
-          <% end %>
-        </div>
-      </div>
-      <div class="row" id="activities-container">
-        <%= cell "decidim/activities", activities %>
-      </div>
-
-      <div class="row" id="decidim-paginate-container">
-        <%= decidim_paginate activities %>
-      </div>
+      <%= cell "decidim/activities", activities %>
     <% end %>
   </div>
+</div>
+
+<div id="decidim-paginate-container">
+  <%= decidim_paginate activities %>
 </div>

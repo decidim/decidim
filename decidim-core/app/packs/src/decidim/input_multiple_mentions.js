@@ -1,4 +1,5 @@
 import AutoComplete from "src/decidim/autocomplete";
+import icon from "src/decidim/icon";
 
 const updateSubmitButton = ($fieldContainer, $selectedItems) => {
   const $form = $fieldContainer.closest("form");
@@ -15,7 +16,7 @@ const updateSubmitButton = ($fieldContainer, $selectedItems) => {
 }
 
 $(() => {
-  const $fieldContainer = $(".multiple-mentions");
+  const $fieldContainer = $(".js-multiple-mentions");
   if ($fieldContainer.length < 1) {
     return;
   }
@@ -27,7 +28,6 @@ $(() => {
   const $selectedItems = $(`ul.${$searchInput.data().selected}`);
   const options = $fieldContainer.data();
   let selected = [];
-  const iconsPath = window.Decidim.config.get("icons_path");
   const removeLabel = messages.removeRecipient || "Remove recipient %name%";
 
   let emptyFocusElement = $fieldContainer[0].querySelector(".empty-list");
@@ -63,16 +63,16 @@ $(() => {
     },
     modifyResult: (element, value) => {
       $(element).html(`
-        <span class="author__avatar"><img src="${value.avatarUrl}" alt="${value.name}"></span>
-        <strong>${value.nickname}</strong>
+        <img src="${value.avatarUrl}" alt="${value.name}">
+        <span>${value.nickname}</span>
         <small>${value.name}</small>
       `);
       if (value.directMessagesEnabled === "false") {
         $(element).addClass("disabled");
-        $(element).append(`<span>${$searchInput.data().directMessagesDisabled}</span>`);
+        $(element).append(`<small>${$searchInput.data().directMessagesDisabled}</small>`);
       }
       if (value.membersCount) {
-        $(element).append(`<span class="is-group">${value.membersCount}x <svg class="icon--members icon"><use href="${iconsPath}#icon-members"/></svg></span>`);
+        $(element).append(`<small class="is-group">${value.membersCount}x ${icon("group-2-fill")}</small>`);
       }
     }
   });
@@ -89,9 +89,9 @@ $(() => {
     $selectedItems.append(`
       <li tabindex="-1">
         <input type="hidden" name="${options.name}" value="${id}">
-        <img src="${selection.value.avatarUrl}" class="author__avatar" alt="${selection.value.name}">
-        <b>${selection.value.name}</b>
-        <button type="button" class="float-right" data-remove="${id}" tabindex="0" aria-controls="0" aria-label="${label}">&times;</button>
+        <img src="${selection.value.avatarUrl}" alt="${selection.value.name}">
+        <span>${selection.value.name}</span>
+        <button type="button" data-remove="${id}" tabindex="0" aria-controls="0" aria-label="${label}">${icon("delete-bin-line")}</button>
       </li>
     `);
 
@@ -100,7 +100,7 @@ $(() => {
     updateSubmitButton($fieldContainer, $selectedItems);
 
     $selectedItems.find(`*[data-remove="${id}"]`).on("keypress click", (evt) => {
-      const target = evt.target.parentNode;
+      const target = evt.currentTarget.parentNode;
       if (target.tagName === "LI") {
         const focusElement = target.nextElementSibling || target.previousElementSibling || emptyFocusElement;
 

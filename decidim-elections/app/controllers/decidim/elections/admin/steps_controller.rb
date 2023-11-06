@@ -10,7 +10,7 @@ module Decidim
         helper_method :elections, :election, :current_step, :vote_stats, :bulletin_board_server, :authority_public_key, :election_unique_id, :quorum, :missing_trustees_allowed
 
         def index
-          enforce_permission_to :read, :steps, election: election
+          enforce_permission_to(:read, :steps, election:)
 
           if current_step_form_class
             @form = form(current_step_form_class).instance(election:)
@@ -19,7 +19,7 @@ module Decidim
         end
 
         def update
-          enforce_permission_to :update, :steps, election: election
+          enforce_permission_to(:update, :steps, election:)
           redirect_to election_steps_path(election) && return unless params[:id] == current_step
 
           @form = form(current_step_form_class).from_params(params, election:)

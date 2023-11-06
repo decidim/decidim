@@ -6,7 +6,7 @@ module Decidim::Assemblies::Admin
   describe AssemblyMembers do
     subject { described_class.for(Decidim::AssemblyMember.all, search, filter) }
 
-    let(:organization) { create :organization }
+    let(:organization) { create(:organization) }
     let(:search) { nil }
     let(:filter) { nil }
 
@@ -30,7 +30,7 @@ module Decidim::Assemblies::Admin
           let(:search) { "Argo" }
 
           it "returns all matching assembly members" do
-            expect(subject).to match_array([assembly_members[1], assembly_members[2]])
+            expect(subject).to contain_exactly(assembly_members[1], assembly_members[2])
           end
         end
 
@@ -81,7 +81,7 @@ module Decidim::Assemblies::Admin
         end
 
         it 'returns the "Ceased" assembly members matching the query search' do
-          expect(subject).to match_array([ceased_assembly_members[0], ceased_assembly_members[2]])
+          expect(subject).to contain_exactly(ceased_assembly_members[0], ceased_assembly_members[2])
         end
       end
     end

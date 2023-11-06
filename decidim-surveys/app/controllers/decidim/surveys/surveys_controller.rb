@@ -6,7 +6,9 @@ module Decidim
     class SurveysController < Decidim::Surveys::ApplicationController
       include Decidim::Forms::Concerns::HasQuestionnaire
       include Decidim::ComponentPathHelper
-      helper Decidim::Surveys::SurveyHelper
+      include Decidim::Surveys::SurveyHelper
+
+      helper_method :authorizations
 
       delegate :allow_unregistered?, to: :current_settings
 

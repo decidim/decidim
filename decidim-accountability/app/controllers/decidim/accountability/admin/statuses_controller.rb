@@ -32,13 +32,13 @@ module Decidim
         end
 
         def edit
-          enforce_permission_to :update, :status, status: status
+          enforce_permission_to(:update, :status, status:)
 
           @form = form(StatusForm).from_model(status)
         end
 
         def update
-          enforce_permission_to :update, :status, status: status
+          enforce_permission_to(:update, :status, status:)
 
           @form = form(StatusForm).from_params(params)
 
@@ -56,7 +56,7 @@ module Decidim
         end
 
         def destroy
-          enforce_permission_to :destroy, :status, status: status
+          enforce_permission_to(:destroy, :status, status:)
 
           Decidim.traceability.perform_action!("delete", status, current_user) do
             status.destroy!

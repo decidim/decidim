@@ -10,6 +10,7 @@ fi:
         end_time: Päättymisaika
         information_updates: Tietojen päivitykset
         instructions: Osallistumisohjeet
+        scope_id: Teema
         start_time: Alkamisaika
         title: Otsikko
         user_group_id: Luo keskustelu käyttäjänä
@@ -50,7 +51,6 @@ fi:
         confirm_destroy: Oletko varma?
         destroy: Poista
         edit: Muokkaa
-        new: Uusi %{name}
         title: Toiminnot
       admin:
         debate_closes:
@@ -80,9 +80,6 @@ fi:
             success: Keskustelun päivitys onnistui.
         exports:
           comments: Kommentit
-        models:
-          debate:
-            name: Keskustelu
       admin_log:
         debate:
           close: "%{user_name} sulki keskustelun %{resource_name} osallistumistilassa %{space_name}"
@@ -95,7 +92,7 @@ fi:
           invalid: Keskustelun sulkeminen epäonnistui.
           success: Keskustelun sulkeminen onnistui.
         close_debate_modal:
-          close: Sulje
+          cancel: Peruuta
           description: Mitkä olivat keskustelussa syntyneet johtopäätökset lyhyesti kerrottuna?
           send: Sulje keskustelu
         closed: Suljettu
@@ -122,18 +119,12 @@ fi:
           official: Virallinen
           origin: Alkuperä
           participants: Osallistujat
-          scope: Teema
           search: Hae
           state: Tila
           state_values:
             closed: Suljetut
             open: Avoimet
-          user_groups: Ryhmät
-        filters_small_view:
-          close_modal: Sulje ikkuna
-          filter: Suodata
-          filter_by: Suodata
-          unfold: Avaa
+          user_group: Ryhmät
         form:
           select_a_category: Valitse aihepiiri
         index:
@@ -149,7 +140,6 @@ fi:
           recent: Viimeisimmät
           updated: Viimeksi päivitetyt
         show:
-          back: Takaisin listaan
           close_debate: Sulje keskustelu
           date: Päivämäärä
           debate_closed: Suljettu
@@ -157,28 +147,21 @@ fi:
           edit_conclusions: Muokkaa johtopäätöksiä
           edit_debate: Muokkaa keskustelua
           groups_count: Ryhmiä
-          last_comment_by: Viimeisin kommentti käyttäjältä
-          no_comments_yet: Ei vielä kommentteja
           open: Avoin keskustelu
           participants_count: Osallistujia
         update:
           invalid: Keskustelun päivittäminen epäonnistui.
           success: Keskustelun päivittäminen onnistui.
-        versions:
-          debates:
-            back_to_resource: Takaisin keskusteluun
-          index:
-            title: Versiot
-        versions_list:
-          back_to_resource: Takaisin keskusteluun
       last_activity:
-        debate_updated_at_html: "<span>Keskustelu päivitetty osoitteessa %{link}</span>"
-        new_debate_at_html: "<span>Uusi keskustelu osoitteessa %{link}</span>"
+        debate_updated: 'Keskustelu päivitetty:'
+        new_debate: 'Uusi keskustelu:'
       models:
         debate:
           fields:
+            end: Päättymisaika
             end_time: Päättymispäivä
             official_debate: Virallinen keskustelu
+            start: Alkamisaika
             start_time: Alkamispäivä
             title: Otsikko
     events:
@@ -207,7 +190,7 @@ fi:
           email_intro: 'Nyt voit aloittaa uusia keskusteluja kohteessa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Keskusteluja nyt käyettävissä kohdassa %{participatory_space_title}
-          notification_title: Voit nyt aloittaa <a href="%{resource_path}">uusia keskusteluja</a> kohteessa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Nyt voit aloittaa <a href="%{resource_path}">uusia keskusteluja</a> osallistumistilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         debate_closed:
           affected_user:
             email_intro: 'Keskustelu "%{resource_title}" suljettiin. Voit lukea johtopäätökset täältä:'

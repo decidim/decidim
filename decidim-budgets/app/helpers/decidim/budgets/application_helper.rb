@@ -19,6 +19,10 @@ module Decidim
           ]
         )
       end
+
+      def component_name
+        (defined?(current_component) && translated_attribute(current_component&.name).presence) || t("decidim.components.budgets.name")
+      end
     end
   end
 end

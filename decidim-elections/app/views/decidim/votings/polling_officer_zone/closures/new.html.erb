@@ -1,64 +1,70 @@
-<div class="m-bottom">
-  <%= link_to polling_officers_path, class: "small hollow" do %>
-    <%= icon "chevron-left", class: "icon--small", role: "presentation", "aria-hidden": true %>
-    <%= t("back_to_polling_stations", scope: "decidim.votings.polling_officer_zone.closures") %>
-  <% end %>
-</div>
+<%= append_javascript_pack_tag "decidim_votings" %>
+<%= append_stylesheet_pack_tag "decidim_votings" %>
 
-<%= content_tag :h2, t(".heading") %>
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
 
-<p>
-  <%= content_tag :strong, t(".polling_station") %>
-  <br>
-  <%= present(polling_officer.polling_station).title %>
-  <br>
-  <%= present(polling_officer.polling_station).address %>
-</p>
-<p>
-  <%= content_tag :strong, t(".election") %> <%= present(election).title %>
-</p>
+  <div class="text-center py-10">
+    <h1 class="title-decorator inline-block text-left">
+      <%= t("heading", scope: "decidim.votings.polling_officer_zone.closures.new") %>
+    </h1>
+  </div>
 
-<div class="row section">
-  <div class="columns">
-    <div class="row mt-sm">
-      <div class="columns large-7">
-        <p>
-          <%= content_tag :strong, t(".info_text") %>
-        </p>
+  <div class="space-y-4 mb-8">
+    <p>
+      <%= content_tag :strong, t("polling_station", scope: "decidim.votings.polling_officer_zone.closures.new") %>
+      <br>
+      <span class="text-gray-2"><%= present(polling_officer.polling_station).title %></span>
+      <br>
+      <span class="text-gray-2"><%= present(polling_officer.polling_station).address %></span>
+    </p>
 
-        <div class="card--secondary">
-          <div class="card__content">
-            <%= decidim_form_for(@form, url: polling_officer_election_closure_path(polling_officer, election),
-                                  html: { class: "form new_closure" }) do |form| %>
+    <p>
+      <%= content_tag :strong, t("election", scope: "decidim.votings.polling_officer_zone.closures.new") %>
+      <span class="text-gray-2"><%= present(election).title %></span>
+    </p>
 
-              <%= form.hidden_field :election_id %>
-              <%= form.hidden_field :polling_station_id %>
-              <%= form.hidden_field :election_votes_count %>
+    <p class="text-gray-2">
+      <%= t("info_text", scope: "decidim.votings.polling_officer_zone.closures.new") %>
+    </p>
+  </div>
 
-              <%= content_tag :div,
-                              form.number_field(
-                                :total_ballots_count,
-                                label: t(".total_ballots_count"),
-                                min: 0
-                              ) %>
+  <%= decidim_form_for(@form, url: polling_officer_election_closure_path(polling_officer, election),
+                              html: { class: "form new_closure" }) do |form| %>
 
-              <%= form.submit t(".submit"),
-                              id: "submit-verify-votes",
-                              class: "button button--sc expanded mt-sm mb-none" %>
+    <%= form_required_explanation %>
 
-              <%= render "modal_ballots_count_error", form: form %>
+    <%= form.hidden_field :election_id %>
+    <%= form.hidden_field :polling_station_id %>
+    <%= form.hidden_field :election_votes_count %>
 
-              <button id="btn-modal-closure-count-error" class="button button--sc expanded mt-sm mb-none hide" data-open="modal-closure-count-error" aria-controls="modal-closure-count-error" aria-haspopup="dialog" tabindex="0">
-                <%= t(".submit") %>
-              </button>
-            <% end %>
-          </div>
-        </div>
+    <div class="form__wrapper">
+      <%= form.number_field(
+                        :total_ballots_count,
+                        label: t("total_ballots_count", scope: "decidim.votings.polling_officer_zone.closures.new"),
+                        min: 0
+                      ) %>
+    </div>
+
+    <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+      <%= link_to polling_officers_path, class: "button button__sm md:button__lg button__text-secondary" do %>
+        <%= icon "arrow-left-line" %>
+        <%= t("back_to_polling_stations", scope: "decidim.votings.polling_officer_zone.closures") %>
+      <% end %>
+
+      <div id="btn-modal-closure-count-error" hidden>
+        <button class="button button__sm md:button__lg button__secondary" data-dialog-open="modal-closure-count-error">
+          <%= t("submit", scope: "decidim.votings.polling_officer_zone.closures.new") %>
+        </button>
+      </div>
+
+      <div id="submit-verify-votes">
+        <%= form.submit t("submit", scope: "decidim.votings.polling_officer_zone.closures.new"),
+                        disabled: true,
+                        class: "button button__sm md:button__lg button__secondary" %>
       </div>
     </div>
-  </div>
-</div>
 
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_votings_voting_polling_officer_zone_new_closure" %>
+    <%= render "modal_ballots_count_error", form: %>
+  <% end %>
+
 <% end %>

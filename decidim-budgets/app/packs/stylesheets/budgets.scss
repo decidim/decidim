@@ -1,0 +1,273 @@
+.budget {
+  &-list__map {
+    @apply md:-ml-16 -mt-6 md:-mt-12 mb-6 aspect-square md:aspect-[21/9] [&>*]:h-full [&+*]:mt-6 md:[&+*]:mt-12;
+  }
+
+  &-summary {
+    @apply bg-tertiary;
+
+    box-shadow: 0 4px 6px 0 rgba(211, 211, 211, 0.25);
+
+    &__content {
+      @apply p-4 md:p-0;
+    }
+
+    &__container {
+      @apply -mt-12 -my-16 mb-8;
+
+      .budget-summary {
+        @apply -ml-16;
+      }
+    }
+
+    &__content__header {
+      @apply col-span-2 text-2xl mb-2;
+
+      .ql-editor {
+        @apply inline-block text-2xl;
+      }
+    }
+
+    &__content__header--title {
+      @apply font-semibold;
+    }
+
+    &__content__header--description {
+      @apply text-sm;
+    }
+
+    &__progressbar {
+      @apply my-4 relative;
+
+      .budget-progress {
+        @apply bg-white rounded;
+      }
+
+      &--minimum {
+        @apply absolute;
+
+        .progress-meter--minimum-mark {
+          @apply h-[20px] ml-auto w-[2px] bg-black block;
+        }
+      }
+
+      &--meter {
+        background-color: var(--success);
+
+        @apply h-[20px] rounded;
+      }
+    }
+
+    &__progressbar-marks {
+      @apply grid grid-cols-[70%_1fr_1fr] mt-2;
+    }
+
+    &__progressbar-marks_center {
+      @apply text-center -translate-x-2/4;
+    }
+
+    &__progressbar-marks_right {
+      @apply justify-self-end text-left md:text-right;
+    }
+
+    &__progressbar-legend {
+      @apply text-sm block;
+    }
+
+    &__progressbar-legend-strong {
+      @apply font-bold block;
+    }
+  }
+
+  &__card__list-project {
+    @apply ml-auto rounded py-3 px-6 bg-background w-[30%] min-w-[120px] grid grid-cols-1 md:grid-cols-2 md:place-items-center;
+  }
+
+  &__card__list-project__amount {
+    @apply font-semibold text-gray-2 text-xl inline-block text-center mb-2 md:mb-0;
+  }
+
+  &__card__highlight-vote {
+    @apply justify-center flex flex-col w-full md:w-1/4 bg-background p-4 bg-background font-bold text-gray-2 ml-auto;
+  }
+
+  &__card__highlight-vote__header {
+    @apply place-items-start pb-2;
+  }
+
+  &__card__highlight-vote__text {
+    @apply block text-sm text-gray-2 font-normal;
+  }
+
+  &__card__highlight-vote__number {
+    @apply text-xl font-semibold;
+  }
+
+  &__card__highlight-vote__button {
+    @apply mt-auto text-left mt-2;
+
+    &.button__secondary:hover {
+      @apply text-white #{!important};
+
+      background: rgb(var(--secondary-rgb) / var(--tw-bg-opacity)) !important;
+    }
+
+    &.button__transparent-secondary:hover {
+      @apply border-secondary text-secondary #{!important};
+
+      background: #fff !important;
+    }
+  }
+
+  &__definition-project__title .ql-editor {
+    @apply text-4xl mb-4;
+  }
+
+  &__definition-data__title {
+    @apply text-sm text-gray-2 mt-6 mb-2 block;
+  }
+
+  &__definition-data__number {
+    @apply text-gray-2 font-bold text-3xl bg-background text-center p-2 rounded;
+  }
+
+  &__filter-title {
+    @apply font-bold mb-4;
+  }
+
+  &__filter__container {
+    @apply my-4 rounded p-2 border-4 border-white;
+  }
+
+  &__list--header {
+    @apply grid grid-cols-2;
+  }
+
+  &-list {
+    .card__list {
+      @apply pr-0;
+    }
+
+    .card__link {
+      @apply mb-2 block;
+    }
+
+    .tag-container {
+      @apply [&:not(:first-child)]:px-6;
+    }
+
+    .card__list-content {
+      @apply w-full cursor-pointer;
+    }
+
+    .project-item {
+      @apply flex gap-4;
+
+      .card__list {
+        @apply inline-block w-[65%];
+      }
+
+      + .project-item {
+        @apply mt-6;
+      }
+    }
+  }
+}
+
+#budgets-to-vote {
+  .card__highlight-text {
+    @apply w-full md:w-[70%] p-0;
+  }
+
+  .order-by {
+    @apply mb-8;
+  }
+}
+
+.verification-modal .card__list .budget__card__list-project {
+  @apply inline-block w-[25%] text-center;
+}
+
+#budgets.card__highlight-container {
+  @apply mb-0;
+}
+
+.progressbox-fixed-wrapper {
+  @apply bg-tertiary fixed hidden inset-x-0 inset-y-0 h-max z-20;
+
+  box-shadow: 0 4px 6px 0 rgba(211, 211, 211, 0.25);
+}
+
+.progressbox-fixed-wrapper.is-progressbox-visible {
+  @apply block;
+}
+
+#budget-confirm .card__list__project-voted {
+  @apply hover:border-background cursor-default flex-row;
+
+  .card__list-title {
+    @apply cursor-default no-underline;
+  }
+
+  .card__list__content {
+    @apply w-[75%];
+  }
+}
+
+.budget-summary__progressbox--checked_out {
+  @apply hidden md:block;
+}
+
+.budget-summary__content {
+  @apply md:grid md:grid-cols-12 md:items-center md:px-16 pt-4 px-4;
+}
+
+.budget-summary__progressbox {
+  @apply md:col-span-8;
+}
+
+.budget-summary__progressbox-buttons {
+  @apply md:col-span-3 md:col-start-10;
+}
+
+.budget-summary__button-modal {
+  @apply col-span-12 mb-4 pb-4;
+}
+
+.progressbox-fixed-wrapper {
+  .budget-summary__progressbar {
+    @apply md:pl-32 md:pr-8;
+  }
+
+  .budget-summary__progressbox {
+    @apply md:col-span-5 md:col-start-4;
+  }
+
+  .budget-summary__progressbox-buttons {
+    @apply md:col-start-10 md:col-span-2;
+  }
+}
+
+#project-item {
+  .budget-summary__content {
+    @apply py-4 md:py-4 md:container md:grid grid-cols-1 md:grid-cols-12 md:items-center;
+  }
+
+  .budget-summary__progressbox {
+    @apply md:col-start-2 md:col-span-7 relative;
+  }
+
+  .budget-summary__progressbox-buttons {
+    @apply md:col-start-10 md:col-span-2;
+  }
+
+  .budget-summary__button-modal {
+    @apply col-span-10 col-start-2 justify-start;
+  }
+
+  .progressbox-fixed-wrapper {
+    .budget-summary__progressbar {
+      @apply md:col-start-1 md:col-span-7;
+    }
+  }
+}

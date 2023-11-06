@@ -10,7 +10,6 @@ import AutoLabelByPositionComponent from "src/decidim/admin/auto_label_by_positi
 import createSortList from "src/decidim/admin/sort_list.component"
 import createDynamicFields from "src/decidim/admin/dynamic_fields.component"
 import createFieldDependentInputs from "src/decidim/admin/field_dependent_inputs.component"
-import createQuillEditor from "src/decidim/editor"
 import initLanguageChangeSelect from "src/decidim/admin/choose_language"
 
 export default function createEditableForm() {
@@ -132,8 +131,10 @@ export default function createEditableForm() {
     const $collapsible = $target.find(".collapsible");
     if ($collapsible.length > 0) {
       const collapsibleId = $collapsible.attr("id").replace("-question-card", "");
-      const toggleAttr = `${collapsibleId}-question-card button--collapse-question-${collapsibleId} button--expand-question-${collapsibleId}`;
-      $target.find(".question--collapse").data("toggle", toggleAttr);
+      const toggleAttr = `${collapsibleId}-question-card`;
+
+      // we need to update the DOM, not just the dataset
+      $target.find(".question--collapse").attr("data-controls", toggleAttr);
     }
   };
 
@@ -387,14 +388,13 @@ export default function createEditableForm() {
       setupInitialQuestionAttributes($field);
       createSortableList();
 
-      $field.find(".editor-container").each((idx, el) => {
-        createQuillEditor(el);
-      });
-
       autoLabelByPosition.run();
       autoButtonsByPosition.run();
 
       initLanguageChangeSelect($field.find("select.language-change").toArray());
+
+      // instead of initialize specific stuff, we send an event, with the DOM fragment we wanna update/refresh/bind
+      document.dispatchEvent(new CustomEvent("ajax:loaded", { detail: $field[0] }));
     },
     onRemoveField: ($field) => {
       autoLabelByPosition.run();

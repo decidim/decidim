@@ -1,0 +1,34 @@
+<div id="dropdown-menu-search-mobile" class="main-bar__links-mobile__search" aria-hidden="true">
+  <div class="main-bar">
+    <div class="main-bar__logo">
+      <%= render partial: "layouts/decidim/logo", locals: { organization: current_organization } %>
+    </div>
+
+    <div>
+      <div class="main-bar__links-mobile__trigger" onclick="document.querySelector('#dropdown-trigger-links-mobile-search').click();">
+        <%= icon "close-line" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-bar__links-mobile__search-block">
+    <div class="-translate-y-full">
+      <label class="h4" for="input-search-mobile"><%= t("decidim.search.term_input_placeholder") %></label>
+      <%= form_tag(decidim.search_path, method: :get, class: "filter-search") do %>
+        <%= text_field_tag(
+          :term,
+          nil,
+          id: "input-search-mobile",
+          value: params[:term] || params.dig(:filter, :term),
+          placeholder: t("decidim.search.term_input_placeholder"),
+          title: t("decidim.search.term_input_placeholder"),
+          "aria-label": t("decidim.search.term_input_placeholder"),
+          tabindex: "0"
+        ) %>
+        <button type="submit" aria-label="<%= t("decidim.search.term_input_placeholder") %>">
+          <%= icon "search-line" %>
+        </button>
+      <% end %>
+    </div>
+  </div>
+</div>

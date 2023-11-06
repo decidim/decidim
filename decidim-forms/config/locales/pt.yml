@@ -22,8 +22,6 @@ pt:
             choices:
               missing: não estão completos
               too_many: são demasiados
-        questionnaire:
-          request_invalid: Ocorreu um erro ao processar o pedido. Por favor tente novamente
   decidim:
     forms:
       admin:
@@ -111,11 +109,6 @@ pt:
           update:
             invalid: Ocorreu um problema ao guardar o questionário.
             success: Formulário guardado com êxito
-      errors:
-        answer:
-          body: O corpo não pode ficar em branco
-      files:
-        extension_allowlist: 'Formatos aceites:'
       images:
         dimensions: "%{width} x %{height} px"
       question_types:
@@ -136,7 +129,6 @@ pt:
           max_choices: 'Escolhas máximas: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Inicie sessão com a sua conta</a> ou <a href="%{sign_up_link}">inscreva-se</a> para responder ao questionário.
             title: Responda ao questionário
           current_step: Passo %{step}
           of_total_steps: de %{total_steps}

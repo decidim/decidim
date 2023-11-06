@@ -11,7 +11,9 @@ describe "Admin manages conference attachment collections examples", type: :syst
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_conferences.edit_conference_path(conference)
-    click_link "Folders"
+    within_admin_sidebar_menu do
+      click_link "Folders"
+    end
   end
 
   it_behaves_like "manage attachment collections examples"

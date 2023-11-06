@@ -19,7 +19,7 @@ If somehow the metrics jobs fail to execute for a period of time, big difference
 
 If you have metrics generated for almost everyday and still see drastic changes from day to day, take into account that changing the visibility of a component or participatory space (making them private or unpublishing them) will naturally cause big differences in generated metrics.
 
-Finally, if you see that the differences in some days are multiples of a previous generated metric, meaning suddenly you have exactly the double or the triple of a calculated metric, it's very likely that you have duplicate generated metrics. We have only seen this problem with instances using Sidekiq, not Delayed Job. We do not know the cause of this, but it seems to be a known issue https://blog.francium.tech/avoiding-duplicate-jobs-in-sidekiq-dcbb1aca1e20[Avoiding duplicate jobs in Sidekiq].
+Finally, if you see that the differences in some days are multiples of a previous generated metric, meaning suddenly you have exactly the double or the triple of a calculated metric, it is very likely that you have duplicate generated metrics. We have only seen this problem with instances using Sidekiq, not Delayed Job. We do not know the cause of this, but it seems to be a known issue https://blog.francium.tech/avoiding-duplicate-jobs-in-sidekiq-dcbb1aca1e20[Avoiding duplicate jobs in Sidekiq].
 
 == Solutions
 

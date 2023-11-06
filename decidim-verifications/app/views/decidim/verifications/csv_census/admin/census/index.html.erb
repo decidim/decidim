@@ -1,43 +1,59 @@
-<div class="card">
-  <div class="card-divider">
-    <h2 class="card-title">
-      <%= t("admin.index.title", scope: "decidim.verifications.csv_census") %>
-    </h2>
-  </div>
-  <div class="card-section">
-    <% if @status.count > 0 %>
-      <p><%= t("decidim.verifications.csv_census.admin.index.data", count: @status.count,
-        due_date: l(@status.last_import_at, format: :long)) %>
-      </p>
-      <%= link_to t("decidim.verifications.csv_census.admin.destroy.title"),
-        destroy_all_census_path,
-        method: :delete,
-        class: "button alert",
-        data: { confirm: t("decidim.verifications.csv_census.admin.destroy.confirm") } %>
-      <% else %>
-        <p><%= t("admin.index.empty", scope: "decidim.verifications.csv_census") %></p>
-    <% end %>
-  </div>
+<% add_decidim_page_title(t("admin.index.title", scope: "decidim.verifications.csv_census")) %>
+
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t("admin.index.title", scope: "decidim.verifications.csv_census") %>
+  </h2>
 </div>
 
-<div class="card">
-  <div class="card-divider">
-    <h2 class="card-title">
-      <%= t("admin.new.title", scope: "decidim.verifications.csv_census") %>
-    </h2>
-  </div>
-  <div class="card-section">
-    <p><%= t("decidim.verifications.csv_census.admin.new.info") %></p>
-    <pre class="code-block">
-    user@example.org
-    user2@example.org
-    ...
-    ...
-    </pre>
-    <%= form_tag census_path, multipart: true, class: "form" do %>
-      <%= label_tag :name, t("admin.new.file", scope: "decidim.verifications.csv_census") %>
-      <%= file_field_tag :file %>
-      <%= submit_tag t("admin.new.submit", scope: "decidim.verifications.csv_census"), class: "button" %>
-    <% end %>
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <div class="form__wrapper">
+      <div class="card">
+        <div class="card-divider"></div>
+        <div class="card-section">
+
+        <% if @status.count > 0 %>
+          <div class="row column">
+            <p><%= t("decidim.verifications.csv_census.admin.index.data", count: @status.count,
+                                                                          due_date: l(@status.last_import_at, format: :long)) %>
+            </p>
+            <%= link_to t("decidim.verifications.csv_census.admin.destroy.title"),
+                        destroy_all_census_path,
+                        method: :delete,
+                        class: "button button__sm button__secondary alert",
+                        data: { confirm: t("decidim.verifications.csv_census.admin.destroy.confirm") } %>
+          </div>
+        <% else %>
+          <p class="row column"><%= t("admin.index.empty", scope: "decidim.verifications.csv_census") %></p>
+        <% end %>
+        </div>
+
+        <div class="card-divider">
+          <h2 class="card-title">
+            <%= t("admin.new.title", scope: "decidim.verifications.csv_census") %>
+          </h2>
+        </div>
+        <div class="card-section">
+          <div class="row column">
+            <p><%= t("decidim.verifications.csv_census.admin.new.info") %></p>
+            <pre class="code-block"><%= t("decidim.verifications.csv_census.admin.new.example") %></pre>
+          </div>
+
+          <div class="row column">
+            <%= decidim_form_for @form, url: census_path, multipart: true do |form| %>
+              <%= label_tag :file, t("admin.new.file", scope: "decidim.verifications.csv_census") %>
+              <%= form.file_field :file %>
+
+              <div class="item__edit-sticky">
+                <div class="item__edit-sticky-container">
+                  <%= submit_tag t("admin.new.submit", scope: "decidim.verifications.csv_census"), class: "button button__sm button__secondary" %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

@@ -1,24 +1,24 @@
 = Manual installation tutorial
 
-In order to develop on decidim, you'll need:
+In order to develop on decidim, you will need:
 
-* *Git* 2.15+
-* *PostgreSQL* 12.7+
-* *Ruby* 2.7.5
-* *NodeJS* 16.9.x
-* *Npm* 7.21.x
+* *Git* 2.34+
+* *PostgreSQL* 14.5+
+* *Ruby* 3.0.2
+* *NodeJS* 18.17.x
+* *Npm* 9.6.x
 * *ImageMagick*
 * *Chrome* browser and https://sites.google.com/a/chromium.org/chromedriver/[chromedriver].
 
-We're starting with an Ubuntu 20.04.2 LTS. This is an opinionated guide, so you're free to use the technology that you are most comfortable. If you have any doubts and you're blocked you can go and ask on https://matrix.to/#/#decidimdevs:matrix.org[our Matrix.org chat room for developers].
+We are starting with an Ubuntu 22.04.1 LTS. This is an opinionated guide, so you are free to use the technology that you are most comfortable. If you have any doubts and you are blocked you can go and ask on https://matrix.to/#/#decidimdevs:matrix.org[our Matrix.org chat room for developers].
 
 We recommend to have at least some basic proficiency in Ruby on Rails (a good starting point is http://guides.rubyonrails.org/getting_started.html[Getting Started with Ruby on Rails]) and have some knowledge on how gems work.
 
-In this guide, we'll see how to install rbenv, PostgreSQL, Node.js and, Decidim, and how to configure everything together for a development environment. Mind that if you want to make a production deployment with real users this guide isn't enough, you should configure a web server (like nginx), backups, monitoring, etc. This is out of the scope of this guide, but you can follow the https://platoniq.github.io/decidim-install/[Platoniq guide].
+In this guide, we will see how to install rbenv, PostgreSQL, Node.js and, Decidim, and how to configure everything together for a development environment. Mind that if you want to make a production deployment with real users this guide is not enough, you should configure a web server (like nginx), backups, monitoring, etc. This is out of the scope of this guide, but you can follow the https://platoniq.github.io/decidim-install/[Platoniq guide].
 
 == 1. Installing rbenv
 
-First, we're going to install https://github.com/rbenv/rbenv[rbenv], for managing various ruby versions. You could also use https://rvm.io/[rvm] or https://github.com/asdf-vm/asdf[asdf] as alternatives on this step. Mind that at the moment, Decidim isn't compatible with Ruby 3.0.
+First, we are going to install https://github.com/rbenv/rbenv[rbenv], for managing various ruby versions. You could also use https://rvm.io/[rvm] or https://github.com/asdf-vm/asdf[asdf] as alternatives on this step.
 
 [source,bash]
 ----
@@ -29,13 +29,13 @@ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(rbenv init -)"' >> ~/.bashrc
 source ~/.bashrc
 git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-rbenv install 2.7.5
-rbenv global 2.7.5
+rbenv install 3.0.2
+rbenv global 3.0.2
 ----
 
 == 2. Installing PostgreSQL
 
-Now we're going to install PostgreSQL for the database:
+Now we are going to install PostgreSQL for the database:
 
 [source,bash]
 ----
@@ -87,11 +87,11 @@ git commit -m "Initial commit. Generated with Decidim https://decidim.org"
 == 5. Configure the database
 
 Modify your secrets (see `config/database.yml`). For this you can use https://github.com/laserlemon/figaro[figaro], https://github.com/bkeepers/dotenv[dotenv] or https://github.com/rbenv/rbenv-vars[rbenv-vars]. You
-should always be careful of not uploading your plain secrets on git or your version control system. You can also upload the encrypted secrets, using the sekrets gem or if you're on Ruby on Rails greater than 5.1 you can do it natively.
+should always be careful of not uploading your plain secrets on git or your version control system. You can also upload the encrypted secrets, using the sekrets gem or if you are on Ruby on Rails greater than 5.1 you can do it natively.
 
 For a development environment, and if you are using rbenv, we strongly recommend you to use the https://github.com/rbenv/rbenv-vars[rbenv-vars] to facilitate the edition of ENV vars.
 
-First you'll need to install the rbenv-vars plugin:
+First you will need to install the rbenv-vars plugin:
 
 [source,bash]
 ----
@@ -113,17 +113,17 @@ Be careful where you put the `.rbenv-vars` file, as if you put it in the same fo
 
 == 6. Initializing your app for local development
 
+[NOTE]
+====
+Please refer to xref:install:empty-database.adoc[Empty database installation] section if you want to setup your instance with an empty database (without any seeds).
+====
+
 We should now create your database. For a first local installation, we recommend to start with some example contents (also known as seeds).
 [source,bash]
 ----
 bin/rails db:create db:migrate
 bin/rails db:seed
 ----
-
-[NOTE]
-====
-Please refer to xref:install:empty-database.adoc[Empty database installation] section if you want to setup your instance on an empty database (without any seeds)
-====
 
 This will also create some default data so you can start testing the app, with an administrator account with email admin@example.org and password `decidim123456789`
 
@@ -145,12 +145,12 @@ With these steps you would only have an initial installation for trying Decidim,
 
 == Extra notes
 
-Other user accounts that you'll have in the seeds are:
+Other user accounts that you will have in the seeds are:
 
 * To participate as a regular user, with email `user@example.org` and password `decidim123456789`.
 * To manage the Multitenant and being able to log in at `/system`, with email `system@example.org` and password `decidim123456789`.
 
-The seed data won't be created in production environments, if you still want to do it (for instance, for a Demo or Staging server), run:
+The seed data will not be created in production environments, if you still want to do it (for instance, for a Demo or Staging server), run:
 
 [source,bash]
 ----

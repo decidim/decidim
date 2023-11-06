@@ -1,58 +1,57 @@
-<% add_decidim_page_title(t("devise.sessions.new.sign_in")) %>
+<% add_decidim_page_title(t("devise.sessions.new.log_in")) %>
 
-<div class="wrapper">
-  <div class="row collapse">
-    <div class="row collapse">
-      <div class="columns large-8 large-centered text-center page-title">
-        <h1><%= t("devise.sessions.new.sign_in") %></h1>
-        <% if current_organization.sign_up_enabled? %>
-          <p>
-            <%= t(".are_you_new?") %>
-            <%= link_to t(".register"), new_user_registration_path %>
-          </p>
-        <% elsif current_organization.sign_in_enabled? %>
-          <p>
-            <%= t(".sign_up_disabled") %>
-          </p>
-        <% else %>
-          <p>
-            <%= t(".sign_in_disabled") %>
-          </p>
-        <% end %>
-      </div>
-    </div>
-    <% cache current_organization do %>
-      <%= render "decidim/devise/shared/omniauth_buttons" %>
-    <% end %>
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
 
-    <% if current_organization.sign_in_enabled? %>
-      <div class="row">
-        <div class="columns large-6 medium-centered">
-          <div class="card">
-            <div class="card__content">
-              <%= decidim_form_for(resource, namespace: "session", as: resource_name, url: session_path(resource_name), html: { class: "register-form new_user" }) do |f| %>
-                <div>
-                  <div class="field">
-                    <%= f.email_field :email, autocomplete: "email" %>
-                  </div>
-                  <div class="field">
-                    <%= f.password_field :password, autocomplete: "current-password" %>
-                  </div>
-                </div>
-                  <% if devise_mapping.rememberable? %>
-                    <div class="field">
-                      <%= f.check_box :remember_me %>
-                    </div>
-                  <% end %>
-                <div class="actions">
-                  <%= f.submit t("devise.sessions.new.sign_in"), class: "button expanded" %>
-                </div>
-              <% end %>
-              <%= render "decidim/devise/shared/links" %>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div class="flex justify-center">
+    <h1 class="title-decorator my-12"><%= t("devise.sessions.new.log_in") %></h1>
+  </div>
+
+  <div class="login__info font-semibold">
+    <% if current_organization.sign_up_enabled? %>
+      <p>
+        <%= t("decidim.devise.sessions.new.are_you_new?") %>
+        <%= link_to t("decidim.devise.sessions.new.register"), new_user_registration_path %>
+      </p>
+    <% elsif current_organization.sign_in_enabled? %>
+      <p>
+        <%= t("decidim.devise.sessions.new.sign_up_disabled") %>
+      </p>
+    <% else %>
+      <p>
+        <%= t("decidim.devise.sessions.new.sign_in_disabled") %>
+      </p>
     <% end %>
   </div>
-</div>
+
+  <span class="login__info-separator"></span>
+
+  <% cache current_organization do %>
+    <%= render "decidim/devise/shared/omniauth_buttons" %>
+  <% end %>
+
+  <% if current_organization.sign_in_enabled? %>
+    <%= decidim_form_for(resource, namespace: "session", as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form__wrapper">
+        <%= f.email_field :email, autocomplete: "email", placeholder: t("placeholder_email", scope: "decidim.devise.shared"), required: true %>
+
+        <%= render partial: "decidim/account/password_fields", locals: { form: f } %>
+
+        <% if devise_mapping.rememberable? %>
+          <%= f.check_box :remember_me, label_options: { class: "form__wrapper-checkbox-label" } %>
+        <% end %>
+      </div>
+
+      <div class="form__wrapper-block">
+        <button type="submit" class="button button__lg button__secondary">
+          <%= t("devise.sessions.new.log_in") %>
+          <%= icon "arrow-right-line", class: "fill-current" %>
+        </button>
+      </div>
+
+      <div class="login__links">
+        <%= render "decidim/devise/shared/links" %>
+      </div>
+    <% end %>
+
+  <% end %>
+<% end %>

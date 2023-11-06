@@ -18,7 +18,7 @@ describe Decidim::Elections::Admin::VotePeriodForm do
   let(:attributes) { {} }
 
   describe "for an election ready to start" do
-    let(:election) { create :election, :key_ceremony_ended, start_time: }
+    let(:election) { create(:election, :key_ceremony_ended, start_time:) }
     let(:start_time) { 1.hour.from_now }
     let(:formatted_start_time) { I18n.l(start_time, format: :long) }
 
@@ -45,7 +45,7 @@ describe Decidim::Elections::Admin::VotePeriodForm do
   end
 
   describe "for an election recently finished" do
-    let(:election) { create :election, :vote, end_time: }
+    let(:election) { create(:election, :vote, end_time:) }
     let(:end_time) { 1.minute.ago }
     let(:formatted_end_time) { I18n.l(end_time, format: :long) }
 
@@ -57,7 +57,7 @@ describe Decidim::Elections::Admin::VotePeriodForm do
                                      })
     end
 
-    context "when the election didn't finish yet" do
+    context "when the election did not finish yet" do
       let(:end_time) { 1.day.from_now }
 
       it { is_expected.to be_invalid }

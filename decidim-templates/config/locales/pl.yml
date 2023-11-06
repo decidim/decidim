@@ -6,19 +6,11 @@ pl:
       templates:
         apply:
           error: Wystąpił błąd z zastosowaniem tego szablonu.
-          success: Szablon został zastosowany
         copy:
           error: Wystąpił błąd podczas kopiowania tego szablonu.
-          success: Szablon został skopiowany
         create:
           error: Wystąpił błąd podczas tworzenia tego szablonu.
-          success: Szablon został utworzony
-        destroy:
-          success: Szablon został usunięty
         empty: Brak szablonów.
-        update:
-          error: Wystąpił błąd podczas aktualizowania szablonu.
-          success: Szablon został zaktualizowany
       titles:
         template_types:
           questionnaires: Szablony kwestionariusza
@@ -34,6 +26,9 @@ pl:
         name: Szablon
     templates:
       admin:
+        block_user_templates:
+          form:
+            save: Zapisz
         questionnaire_templates:
           choose:
             create_from_template: Utwórz z szablonu
@@ -43,11 +38,8 @@ pl:
             skip_template: Pomiń
           edit:
             edit: Edytuj
-            empty: Nie ma jeszcze żadnych pytań
             questionnaire: Kwestionariusz
           form:
-            save: Zapisz
-            template_title: Informacje o szablonie
             title: Szablon kwestionariusza %{questionnaire_for}
           index:
             confirm_delete: Czy na pewno chcesz usunąć ten szablon?

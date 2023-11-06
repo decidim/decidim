@@ -13,7 +13,6 @@ ru:
       proposal_answer:
         answer: Ответить
       proposals_copy:
-        copy_proposals: Я понимаю, что при этом все предложения из выбранной составляющей будут позаимствованы в текущую, и что это действие нельзя будет отменить.
         origin_component_id: Составляющая, откуда нужно скопировать предложения
     errors:
       models:
@@ -94,23 +93,19 @@ ru:
           email_intro: 'Теперь вы можете создавать новые предложения в %{participatory_space_title}! Начните со страницы:'
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
           email_subject: Теперь в %{participatory_space_title} можно вносить предложения
-          notification_title: Теперь в <a href="%{participatory_space_url}">%{participatory_space_title}</a> появилась возможность вносить <a href="%{resource_path}">новые предложения</a>
         endorsing_enabled:
           email_intro: 'Теперь вы можете поддерживать предложения в %{participatory_space_title}! Начните со страницы:'
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
           email_subject: В %{participatory_space_title} началось предоставление поддержки предложениям
-          notification_title: Теперь в <a href="%{participatory_space_url}">%{participatory_space_title}</a> появилась возможность <a href="%{resource_path}">поддерживать предложения</a>
         proposal_accepted:
           follower:
             email_intro: 'Предложение "%{resource_title}" было принято. Вы можете прочитать ответ на странице:'
             email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
-            email_subject: Предложение, за которым вы следите, было принято
             notification_title: Предложение <a href="%{resource_path}">%{resource_title}</a> было принято.
         proposal_evaluating:
           follower:
             email_intro: 'Предложение "%{resource_title}" сейчас рассматривается. Вы можете проверить наличие ответа на странице:'
             email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
-            email_subject: Предложение, за которым вы следите, сейчас рассматривается
             notification_title: Предложение <a href="%{resource_path}">%{resource_title}</a> на рассмотрении.
         proposal_mentioned:
           email_subject: Ваше предложение "%{mentioned_proposal_title}"было упомянуто
@@ -125,7 +120,6 @@ ru:
           follower:
             email_intro: 'Предложение "%{resource_title}" было отклонено. Вы можете прочитать ответ на странице:'
             email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
-            email_subject: Предложение, за которым вы следите, было отклонено
             notification_title: Предложение <a href="%{resource_path}">%{resource_title}</a> было отклонено.
         proposal_update_category:
           email_intro: 'Администратор обновил категорию вашего предложения «%{resource_title}», проверьте её:'
@@ -160,21 +154,12 @@ ru:
             rejected: Отклонено
             title: Ответ на предложение %{title}
         proposal_notes:
-          create:
-            error: При попытке добавить к предложению это примечание произошла ошибка
-            success: Примечание к предложению успешно добавлено
           form:
             note: Примечание
             submit: Отправить
           leave_your_note: Оставьте свое примечание
           title: Частные примечания
         proposals:
-          answer:
-            invalid: При попытке ответить на это предложение произошла ошибка
-            success: Успешно дан ответ на предложение
-          create:
-            invalid: При попытке создать предложение произошла ошибка
-            success: Предложение успешно создано
           form:
             attachment_legend: "(Необязательно) Прикрепить файл"
             select_a_category: Выберите категорию
@@ -188,21 +173,9 @@ ru:
           new:
             create: Внести
             title: Создать предложение
-          publish_answers:
-            select_a_proposal: Пожалуйста, выберите предложение
           show:
-            created_at: Дата создания
-            proposals: Предложения
             votes_count: Количество голосов
-          update_category:
-            select_a_category: Пожалуйста, выберите категорию
-            select_a_proposal: Пожалуйста, выберите предложение
-          update_scope:
-            select_a_proposal: Пожалуйста, выберите предложение
         proposals_imports:
-          create:
-            invalid: При попытке позаимствовать эти предложения произошла ошибка
-            success: "%{number} предложений успешно позаимствованы"
           new:
             create: Позаимствовать предложения
             no_components: В этом пространстве соучастия нет других составляющих предложений, из которых можно было бы позаимствовать предложения.
@@ -244,8 +217,6 @@ ru:
             state: Cостояние
             title: Заголовок
             votes: Голоса
-      new:
-        limit_reached: Вы не можете создавать новые предложения, так как вы превысили лимит.
       proposal_votes:
         create:
           error: При голосовании по этому предложению произошли ошибки.
@@ -274,21 +245,9 @@ ru:
           search: Поиск
           state: Cостояние
           voted: Проголосованные
-        filters_small_view:
-          close_modal: Закрыть окошко
-          filter: Отобрать
-          filter_by: 'Отобрать по признаку:'
-          unfold: Развернуть
         index:
           new_proposal: Внести предложение
           see_all_withdrawn: Просмотреть все отозванные предложения
-          view_proposal: Просмотреть предложение
-        linked_proposals:
-          proposal_votes:
-            one: голосовать
-            few: голоса
-            many: голоса
-            other: голоса
         new:
           send: Продолжить
         orders:
@@ -305,18 +264,12 @@ ru:
             other: Вы сможете отредактировать это предложение в течение первых %{count} минут после обнародования предложения. После того, как пройдет этот промежуток времени, вы не сможете редактировать предложение.
           publish: Обнародовать
           title: Обнародуйте свое предложение
-        proposal:
-          creation_date: 'Создано: %{date}'
-          view_proposal: Просмотреть предложение
         show:
           answer: Ответить
-          comments: Комментарии
           edit_proposal: Редактировать предложение
-          endorsements_list: Список тех, кто поддержал
           proposal_accepted_reason: 'Это предложение было принято, поскольку:'
           proposal_in_evaluation_reason: Это предложение сейчас рассматривается
           proposal_rejected_reason: 'Это предложение было отклонено, поскольку:'
-          report: Пожаловаться
           withdraw_btn_hint: Вы можете снять свое предложение, если передумаете, пока вы не получили никакой поддержки. Предложение не будет удалено, оно будет указано в списке снятых предложений.
           withdraw_proposal: Снять предложение
         vote_button:
@@ -332,30 +285,22 @@ ru:
             few: ГОЛОСА
             many: ГОЛОСОВ
             other: ГОЛОСА
-          most_popular_proposal: Самое популярное предложение
-          need_more_votes: Нужно больше голосов
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Каждое предложение может накапливать более %{limit} выражений поддержки
           proposal_limit:
             description: Вы можете создать до %{limit} предложений.
-          threshold_per_proposal:
-            description: Для того чтобы пройти проверку, предложения должны получить %{limit} выражений поддержки
           title: 'Голосование регулируется следующими правилами:'
           vote_limit:
             description: Вы можете проголосовать до %{limit} предложений.
-            left: Осталось
             votes: Голоса
         wizard_aside:
           back: Вернуться
-          info: Вы создаете <strong>предложение</strong>.
         wizard_steps:
-          see_steps: просмотреть шаги
           step_1: Создайте свое предложение
           step_2: Сравните
           step_3: Завершите
           step_4: Обнародуйте свое предложение
-          step_of: Шаг %{current_step_num} из %{total_steps}
       publish:
         error: При попытке обнародовать это предложение произошли ошибки.
         success: Предложение успешно обнародовано.

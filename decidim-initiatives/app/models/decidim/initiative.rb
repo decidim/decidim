@@ -27,6 +27,11 @@ module Decidim
 
     translatable_fields :title, :description, :answer
 
+    delegate :type, :scope, :scope_name, :supports_required, to: :scoped_type, allow_nil: true
+    delegate :document_number_authorization_handler, :promoting_committee_enabled?, :attachments_enabled?,
+             :promoting_committee_enabled?, :custom_signature_end_date_enabled?, :area_enabled?, to: :type
+    delegate :name, to: :area, prefix: true, allow_nil: true
+
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
                class_name: "Decidim::Organization"
@@ -34,10 +39,6 @@ module Decidim
     belongs_to :scoped_type,
                class_name: "Decidim::InitiativesTypeScope",
                inverse_of: :initiatives
-
-    delegate :type, :scope, :scope_name, :supports_required, to: :scoped_type, allow_nil: true
-    delegate :attachments_enabled?, :promoting_committee_enabled?, :custom_signature_end_date_enabled?, :area_enabled?, to: :type
-    delegate :name, to: :area, prefix: true, allow_nil: true
 
     has_many :votes,
              foreign_key: "decidim_initiative_id",
@@ -156,7 +157,7 @@ module Decidim
                         datetime: :published_at
                       },
                       index_on_create: ->(_initiative) { false },
-                      # is Resourceable instead of ParticipatorySpaceResourceable so we can't use `visible?`
+                      # is Resourceable instead of ParticipatorySpaceResourceable so we cannot use `visible?`
                       index_on_update: ->(initiative) { initiative.published? })
 
     def self.log_presenter_class_for(_log)
@@ -166,9 +167,6 @@ module Decidim
     def self.ransackable_scopes(_auth_object = nil)
       [:with_any_state, :with_any_type, :with_any_scope, :with_any_area]
     end
-
-    delegate :document_number_authorization_handler, :promoting_committee_enabled?, to: :type
-    delegate :type, :scope, :scope_name, to: :scoped_type, allow_nil: true
 
     # Public: Overrides participatory space's banner image with the banner image defined
     # for the initiative type.
@@ -184,7 +182,7 @@ module Decidim
     end
 
     # Public: Check if an initiative has been created by an individual person.
-    # If it's false, then it has been created by an authorized organization.
+    # If it is false, then it has been created by an authorized organization.
     #
     # Returns a Boolean
     def created_by_individual?
@@ -240,14 +238,14 @@ module Decidim
     end
 
     # Public: Overrides scopes enabled flag available in other models like
-    # participatory space or assemblies. For initiatives it won't be directly
+    # participatory space or assemblies. For initiatives it will not be directly
     # managed by the user and it will be enabled by default.
     def scopes_enabled?
       true
     end
 
     # Public: Overrides scopes enabled attribute value.
-    # For initiatives it won't be directly
+    # For initiatives it will not be directly
     # managed by the user and it will be enabled by default.
     def scopes_enabled
       true
@@ -439,13 +437,17 @@ module Decidim
       committee_members.approved.count >= minimum_committee_members
     end
 
+    def missing_committee_members
+      minimum_committee_members - committee_members.approved.count
+    end
+
     def component
       nil
     end
 
     # Public: Checks if the type the initiative belongs to enables SMS code
     # verification step. Tis configuration is ignored if the organization
-    # doesn't have the sms authorization available
+    # does not have the sms authorization available
     #
     # Returns a Boolean
     def validate_sms_code_on_votes?
@@ -475,7 +477,7 @@ module Decidim
     private
 
     # Private: This is just an alias because the naming on InitiativeTypeScope
-    # is very confusing. The `scopes` method doesn't return Decidim::Scope but
+    # is very confusing. The `scopes` method does not return Decidim::Scope but
     # Decidim::InitiativeTypeScopes.
     #
     # ¯\_(ツ)_/¯

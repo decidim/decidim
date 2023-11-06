@@ -49,32 +49,34 @@ describe "Authorizations revocation flow", type: :system do
     login_as admin, scope: :user
     visit decidim_admin.root_path
     click_link "Participants"
-    click_link "Authorizations"
+    within_admin_sidebar_menu do
+      click_link "Authorizations"
+    end
   end
 
   context "when showing revocation cell" do
     context "when showing Admin / Participants / Verifications menu with granted authorizations" do
       it "allows the user to see Verification's revocation menu cell" do
-        within ".container" do
+        within "[data-content]" do
           expect(page).to have_content(t("decidim.admin.menu.authorization_revocation.title"))
         end
       end
 
       it "allows the user to see Verification's revocation menu. Revoke all option" do
-        within ".container" do
+        within "[data-content]" do
           expect(page).to have_content(t("decidim.admin.menu.authorization_revocation.button"))
         end
       end
 
       it "allows the user to see Verification's revocation menu. Before date option" do
-        within ".container" do
+        within "[data-content]" do
           expect(page).to have_content(t("decidim.admin.menu.authorization_revocation.before_date_info"))
           expect(page).to have_content(t("decidim.admin.menu.authorization_revocation.button_before"))
         end
       end
 
-      it "doesn't allow the user to see No Granted Authorizations info message" do
-        within ".container" do
+      it "does not allow the user to see No Granted Authorizations info message" do
+        within "[data-content]" do
           expect(page).not_to have_content(t("decidim.admin.menu.authorization_revocation.no_data"))
         end
       end
@@ -88,13 +90,13 @@ describe "Authorizations revocation flow", type: :system do
       let(:granted_authorizations) { [] }
 
       it "allow the user to see No Granted Authorizations info message" do
-        within ".container" do
+        within "[data-content]" do
           expect(page).to have_content(t("decidim.admin.menu.authorization_revocation.no_data"))
         end
       end
 
-      it "doesn't allow the user to see Authorization's revocation options" do
-        within ".container" do
+      it "does not allow the user to see Authorization's revocation options" do
+        within "[data-content]" do
           expect(page).not_to have_content(t("decidim.admin.menu.authorization_revocation.button"))
           expect(page).not_to have_content(t("decidim.admin.menu.authorization_revocation.before_date_info"))
           expect(page).not_to have_content(t("decidim.admin.menu.authorization_revocation.button_before"))
@@ -106,7 +108,7 @@ describe "Authorizations revocation flow", type: :system do
   context "when clicking revocating authorizations. Prompts" do
     context "when clicking Revoke All authorizations option" do
       it "appears revoke all confirmation dialog" do
-        within ".container" do
+        within "[data-content]" do
           message = dismiss_confirm do
             click_link(t("decidim.admin.menu.authorization_revocation.button"))
           end
@@ -114,8 +116,8 @@ describe "Authorizations revocation flow", type: :system do
         end
       end
 
-      it "doesnt appear revoke before confirmation dialog" do
-        within ".container" do
+      it "does not appear revoke before confirmation dialog" do
+        within "[data-content]" do
           message = dismiss_confirm do
             click_link(t("decidim.admin.menu.authorization_revocation.button"))
           end
@@ -126,7 +128,7 @@ describe "Authorizations revocation flow", type: :system do
 
     context "when clicking Revoke Before Date authorizations option" do
       it "appears revoke before confirmation dialog" do
-        within ".container" do
+        within "[data-content]" do
           message = dismiss_confirm do
             click_button(t("decidim.admin.menu.authorization_revocation.button_before"))
           end
@@ -134,8 +136,8 @@ describe "Authorizations revocation flow", type: :system do
         end
       end
 
-      it "doesnt appear revoke all confirmation dialog" do
-        within ".container" do
+      it "does not appear revoke all confirmation dialog" do
+        within "[data-content]" do
           message = dismiss_confirm do
             click_button(t("decidim.admin.menu.authorization_revocation.button_before"))
           end
@@ -160,6 +162,7 @@ describe "Authorizations revocation flow", type: :system do
       accept_confirm do
         click_button(t("decidim.admin.menu.authorization_revocation.button_before"))
       end
+
       expect(page).to have_content(t("authorization_revocation.destroy_ok", scope: "decidim.admin.menu"))
       expect(page).not_to have_content(t("authorization_revocation.destroy_nok", scope: "decidim.admin.menu"))
     end

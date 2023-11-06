@@ -57,7 +57,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't create a user" do
+          it "does not create a user" do
             expect do
               command.call
             end.not_to change(User, :count)
@@ -83,6 +83,16 @@ module Decidim
             expect(user.newsletter_notifications_at).to be_nil
             expect(user).to be_confirmed
             expect(user.valid_password?("decidim123456789")).to be(true)
+          end
+
+          # NOTE: This is important so that the users who are only
+          # authenticating using omniauth will not need to update their
+          # passwords.
+          it "leaves password_updated_at nil" do
+            expect { command.call }.to broadcast(:ok)
+
+            user = User.find_by(email: form.email)
+            expect(user.password_updated_at).to be_nil
           end
 
           it "notifies about registration with oauth data" do
@@ -129,14 +139,14 @@ module Decidim
             context "with an unverified email" do
               let(:verified_email) { nil }
 
-              it "doesn't link a previously existing user" do
+              it "does not link a previously existing user" do
                 user = create(:user, email:, organization:)
                 expect { command.call }.to broadcast(:error)
 
                 expect(user.identities.length).to eq(0)
               end
 
-              it "doesn't confirm a previously existing user" do
+              it "does not confirm a previously existing user" do
                 create(:user, email:, organization:)
                 expect { command.call }.to broadcast(:error)
 
@@ -184,9 +194,9 @@ module Decidim
           end
 
           context "with another email than in the one reported by the identity" do
-            let(:verified_email) { "other@email.com" }
+            let(:verified_email) { "other@example.com" }
 
-            it "doesn't confirm the user" do
+            it "does not confirm the user" do
               command.call
 
               user = User.find_by(email:)

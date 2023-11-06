@@ -1,0 +1,11 @@
+<ul class="metadata__container layout-main__section" data-metadata-footer>
+  <% items.each do |item| %>
+    <li class="metadata__item">
+      <% if item.has_key? :partial %>
+        <%= render item[:partial] %>
+      <% else %>
+        <%= item[:text] %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

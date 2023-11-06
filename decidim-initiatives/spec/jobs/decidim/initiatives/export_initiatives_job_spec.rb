@@ -8,8 +8,8 @@ module Decidim
       subject { described_class.perform_now(user, organization, format, collection_ids) }
 
       let(:format) { "CSV" }
-      let(:organization) { create :organization }
-      let(:other_organization) { create :organization }
+      let(:organization) { create(:organization) }
+      let(:other_organization) { create(:organization) }
       let!(:user) { create(:user, organization:) }
       let!(:initiatives) { create_list(:initiative, 3, organization:) }
       let!(:other_initiatives) { create_list(:initiative, 3, organization: other_organization) }

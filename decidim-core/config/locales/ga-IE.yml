@@ -53,16 +53,6 @@ ga:
         publish: Foilsigh
       review:
         back: Ar Ais
-    application:
-      collection:
-        documents:
-          one: Cáipéis
-          two: Cáipéisí
-          few: Cáipéisí
-          many: Cáipéisí
-          other: Cáipéisí
-      geocoding:
-        geocoded_address: Seoladh
     authorization_handlers:
       another_dummy_authorization_handler:
         fields:
@@ -112,7 +102,6 @@ ga:
     devise:
       registrations:
         new:
-          sign_in: Logáil isteach
           sign_up: Cláraigh
       shared:
         omniauth_buttons:
@@ -124,11 +113,6 @@ ga:
     download_your_data:
       export:
         ready: Réidh
-    endorsable:
-      endorsements: Formhuinithe
-    endorsement_buttons_cell:
-      already_endorsed: Formhuinithe
-      endorse: Formhuinigh
     endorsements:
       identities:
         done: Críochnaithe
@@ -152,8 +136,6 @@ ga:
       badges:
         index:
           title: Suaitheantais
-        invitations:
-          name: Cuirí
     group_invites:
       accept_invitation: Glac
       index:
@@ -166,9 +148,6 @@ ga:
       roles:
         admin: Riarthóir
         member: Ball
-    last_activities:
-      index:
-        resource_type: Cineál
     links:
       warning:
         cancel: Cealaigh
@@ -181,12 +160,7 @@ ga:
         error_modal:
           ok: Togha
         index:
-          ago: ó shin
-          from: Ó
           next: I ndiaidh
-        reply:
-          send: Seol
-          title: Freagra
         start:
           send: Seol
     newsletter_templates:
@@ -201,11 +175,6 @@ ga:
     notifications_settings:
       show:
         administrators: Riarthóirí
-    own_user_groups:
-      index:
-        pending: Ar feitheamh
-        rejected: Diúltaithe
-        verified: Fíoraithe
     pad_iframe:
       pad: Ceap
     pages:
@@ -216,8 +185,6 @@ ga:
           proposals: Moltaí
         footer_sub_hero:
           register: Cláraigh
-        metrics:
-          headline: Méadrachtaí
         sub_hero:
           register: Cláraigh
       index:
@@ -227,8 +194,6 @@ ga:
       participatory_space:
         metrics:
           headline: Méadrachtaí
-    profile:
-      view: Amharc
     profiles:
       show:
         activity: Gníomhaíocht
@@ -261,7 +226,6 @@ ga:
           past: Roimhe
       filters_small_view:
         filter: Scagaire
-        unfold: Oscail
     security:
       selfxss_warning:
         title: Stad!
@@ -270,8 +234,6 @@ ga:
         cancel: Cealaigh
         ok: Togha
         title: Deimhnigh
-      embed_modal:
-        embed_link: Leabaigh
       extended_navigation_bar:
         more: Níos mó
         unfold: Oscail
@@ -298,22 +260,12 @@ ga:
       endorsements_count: Formhuinithe
       pages_count: Leathanaigh
     user_conversations:
-      index:
-        close: Dún
-        from: Ó
-        next: I ndiaidh
       reply:
         send: Seol
-        title_reply: Freagair
     version:
       show:
         back_to_resource: Dul ar ais
         number_of_versions: Leaganacha
-    versions_list:
-      show:
-        back_to_resource: Dul ar ais
-        number_of_versions: Leaganacha
-        title: Leaganacha
     wizard_step_form:
       wizard_aside:
         back: Ar Ais
@@ -322,37 +274,29 @@ ga:
       edit:
         submit_button: Sábháil
     registrations:
-      edit:
-        update: Nuashonraigh
       new:
         sign_up: Cláraigh
-    sessions:
-      new:
-        sign_in: Logáil isteach
     shared:
       links:
         back: Ar Ais
-        sign_in: Logáil isteach
         sign_up: Cláraigh
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: Cineál
       edit_link:
         edit: Eagar
-      header:
-        sign_in: Sínigh Isteach
+      footer:
         sign_up: Cláraigh
-      timeout_modal:
-        sign_out: Sínigh amach
-      user_menu:
-        sign_out: Sínigh amach
       user_profile:
         account: Cuntas
         my_data: Mo chuid sonraí
         user_groups: Grúpaí
-      widget:
-        see_more: Feic níos mó
   locale:
     name: Gaeilge
+    name_with_error: Gaeilge (earráid!)
   social_share_button:
     douban: Douban
     email: Seoladh ríomhphoist

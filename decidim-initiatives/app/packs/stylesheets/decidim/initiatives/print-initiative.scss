@@ -1,20 +1,20 @@
-@media all{
-  .printable{
+@media all {
+  .printable {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
   }
 
-  .initiative-letterhead{
+  .initiative-letterhead {
     font-size: 14pt;
     font-weight: bold;
 
-    img{
+    img {
       margin-right: 5pt;
     }
   }
 
-  .initiative-print-title{
+  .initiative-print-title {
     border: 1pt solid black;
     margin: 15pt 0;
     font-size: 12pt;
@@ -22,12 +22,12 @@
     text-align: center;
   }
 
-  .print-table{
+  .print-table {
     width: 100%;
     display: block;
     border: 1pt solid black;
 
-    .print-table-header{
+    .print-table-header {
       background-color: lightgray;
       display: inline-block;
       width: 100%;
@@ -37,108 +37,136 @@
       border-bottom: 1pt solid black;
     }
 
-    .print-table-row{
+    .print-table-row {
       width: 100%;
       display: inline-block;
       min-height: 33pt;
       border-bottom: 1pt solid black;
     }
 
-    .print-table-row::after{
-      content: '';
+    .print-table-row::after {
+      content: "";
       display: inline-block;
       clear: both;
     }
 
-    .print-table-row:last-child{
+    .print-table-row:last-child {
       border-bottom: 0;
     }
 
-    .print-table-cell{
+    .print-table-cell {
       padding-left: 5pt;
       display: inline-block;
       float: left;
       border-right: 1pt solid black;
       min-height: 36pt;
 
-      .cell-content{
+      .cell-content {
         font-size: 10pt;
         word-wrap: break-word;
       }
     }
 
-    .checkbox-cell{
+    .checkbox-cell {
       width: 36pt;
     }
 
-    .print-table-cell:last-child{
+    .print-table-cell:last-child {
       border-right: 0;
     }
 
-    .w33{
+    .w33 {
       width: 33%;
     }
 
-    .w66{
+    .w66 {
       width: 66%;
     }
 
-    .w50{
+    .w50 {
       width: 50%;
     }
   }
 
-  .no-border{
+  .no-border {
     border: none !important;
   }
 
-  .print-section-title{
+  .print-section-title {
     font-size: 12pt;
     font-weight: bold;
     margin-top: 15pt;
   }
 
-  .print-initiative-legal-text{
+  .print-initiative-legal-text {
     font-size: 10pt;
     margin-top: 80pt;
   }
 }
 
-@page{
+@page {
   size: A4;
   margin: 17mm 17mm 11mm 11mm;
 }
 
-@media print{
-  .process-header{
+@media print {
+  h3.print-section-title {
     display: none;
   }
 
-  .main-nav{
+  .print-button {
     display: none;
   }
 
-  .title-bar{
+  .omnipresent-banner {
     display: none;
   }
 
-  .layout-nav{
+  .decidim-accessibility-indicator {
     display: none;
   }
 
-  .button.expanded{
+  .decidim-accessibility-badge {
     display: none;
   }
 
-  .page-break{
+  .decidim-accessibility-report {
+    display: none;
+  }
+
+  .process-header {
+    display: none;
+  }
+
+  header {
+    display: none;
+  }
+
+  .main-nav {
+    display: none;
+  }
+
+  .title-bar {
+    display: none;
+  }
+
+  .layout-nav {
+    display: none;
+  }
+
+  .button.expanded {
+    display: none;
+  }
+
+  .page-break {
     page-break-before: auto;
   }
 
-  .main-footer{
+  .main-footer {
     display: none;
   }
 
-  .mini-footer{
+  .mini-footer {
     display: none;
   }
 }

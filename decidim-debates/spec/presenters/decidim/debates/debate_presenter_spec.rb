@@ -4,11 +4,11 @@ require "spec_helper"
 
 module Decidim::Debates
   describe DebatePresenter, type: :helper do
-    let(:debate) { create :debate, component: debate_component }
-    let(:user) { create :user, :admin, organization: }
+    let(:debate) { create(:debate, component: debate_component) }
+    let(:user) { create(:user, :admin, organization:) }
 
     let(:organization) { create(:organization) }
-    let(:participatory_process) { create :participatory_process, organization: }
+    let(:participatory_process) { create(:participatory_process, organization:) }
     let(:debates_component) { create(:debates_component, participatory_space: participatory_process) }
 
     let(:presented_debate) { described_class.new(debate) }

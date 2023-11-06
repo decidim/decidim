@@ -130,7 +130,7 @@ L.TileLayer.HERE = L.TileLayer.extend({
     this._map.off('moveend zoomend resetview', this._findCopyrightBBox, this);
 
     //
-    // Call the prototype last, once we've tidied up our own changes
+    // Call the prototype last, once we have tidied up our own changes
     //
     L.TileLayer.prototype.onRemove.call(this, map);
   },

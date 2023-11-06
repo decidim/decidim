@@ -4,12 +4,13 @@ Decidim.register_component(:sortitions) do |component|
   component.engine = Decidim::Sortitions::Engine
   component.admin_engine = Decidim::Sortitions::AdminEngine
   component.icon = "media/images/decidim_sortitions.svg"
+  component.icon_key = "billiards-line"
   # component.stylesheet = "decidim/sortitions/sortitions"
   component.permissions_class_name = "Decidim::Sortitions::Permissions"
   component.query_type = "Decidim::Sortitions::SortitionsType"
 
   component.on(:before_destroy) do |instance|
-    raise StandardError, "Can't remove this component" if Decidim::Sortitions::Sortition.where(component: instance).any?
+    raise StandardError, "Cannot remove this component" if Decidim::Sortitions::Sortition.where(component: instance).any?
   end
 
   # These actions permissions can be configured in the admin panel
@@ -17,7 +18,7 @@ Decidim.register_component(:sortitions) do |component|
 
   component.settings(:global) do |settings|
     settings.attribute :comments_enabled, type: :boolean, default: true
-    settings.attribute :comments_max_length, type: :integer, required: false
+    settings.attribute :comments_max_length, type: :integer, required: true
   end
 
   # Register an optional resource that can be referenced from other resources.

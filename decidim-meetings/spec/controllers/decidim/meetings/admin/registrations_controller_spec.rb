@@ -6,8 +6,8 @@ describe Decidim::Meetings::Admin::RegistrationsController, type: :controller do
   routes { Decidim::Meetings::AdminEngine.routes }
 
   let(:organization) { create(:organization) }
-  let(:user) { create :user, :admin, :confirmed, organization: }
-  let(:participatory_process) { create :participatory_process, organization: }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
+  let(:participatory_process) { create(:participatory_process, organization:) }
   let(:meeting_component) { create(:meeting_component, participatory_space: participatory_process) }
   let(:meeting) { create(:meeting, :published, component: meeting_component) }
 
@@ -37,7 +37,7 @@ describe Decidim::Meetings::Admin::RegistrationsController, type: :controller do
       let(:available_slots) { nil }
 
       it "renders the form again with alert message" do
-        put :update, params: params
+        put(:update, params:)
 
         expect(subject).to render_template(:edit)
         expect(flash[:alert]).not_to be_empty
@@ -48,7 +48,7 @@ describe Decidim::Meetings::Admin::RegistrationsController, type: :controller do
       let(:reserved_slots) { nil }
 
       it "renders the index view" do
-        put :update, params: params
+        put(:update, params:)
 
         expect(subject).to render_template(:edit)
         expect(flash[:alert]).not_to be_empty

@@ -7,6 +7,7 @@ module Decidim
       include TranslatableAttributes
 
       attribute :slug, String
+      validates :title, translatable_presence: true
       translatable_attribute :title, String
       translatable_attribute :content, String
       attribute :changed_notably, Boolean
@@ -18,7 +19,6 @@ module Decidim
       mimic :static_page
 
       validates :slug, presence: true
-      validates :title, :content, translatable_presence: true
       validates :slug, format: { with: %r{\A[a-zA-Z]+[a-zA-Z0-9\-_/]+\z} }, allow_blank: true
 
       validate :slug, :slug_uniqueness

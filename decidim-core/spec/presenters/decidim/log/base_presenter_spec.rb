@@ -15,15 +15,16 @@ describe Decidim::Log::BasePresenter, type: :helper do
       created_at: Date.new(2018, 1, 2).at_midnight
     )
   end
-  let(:user) { create :user, name: "O'Hara", organization: resource.component.participatory_space.organization }
+  let(:user) { create(:user, name: "O'Hara", organization: resource.component.participatory_space.organization) }
   let(:user_name) { user.name }
   let(:participatory_space) { action_log.participatory_space }
   let(:participatory_space_title) { h(participatory_space.title["en"]) }
-  let(:resource) { create :dummy_resource }
+  let(:resource) { create(:dummy_resource) }
   let(:resource_title) { h(translated(resource.title)) }
   let(:action) { :create }
   let(:version_double) { double(present?: false) }
   let(:presenter_double) { double(present: true) }
+  let(:changeset) { {} }
 
   before do
     helper.extend(Decidim::ApplicationHelper)
@@ -47,10 +48,20 @@ describe Decidim::Log::BasePresenter, type: :helper do
     end
 
     context "when version exists" do
-      let(:version_double) { double(present?: true, changeset: {}) }
+      let(:version_double) { double(present?: true, changeset:) }
 
-      it "renders a dropdown" do
-        expect(subject).to include("class=\"logs__log__actions-dropdown\"")
+      context "and changeset is present" do
+        let(:changeset) { { test: "test" } }
+
+        it "renders a dropdown" do
+          expect(subject).to include("class=\"logs__log__actions-dropdown\"")
+        end
+      end
+
+      context "and changeset is blank" do
+        it "does not render a dropdown" do
+          expect(subject).not_to include("class=\"logs__log__actions-dropdown\"")
+        end
       end
 
       it "renders the diff" do

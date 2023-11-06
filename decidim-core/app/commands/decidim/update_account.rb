@@ -13,7 +13,7 @@ module Decidim
     end
 
     def call
-      return broadcast(:invalid) unless @form.valid?
+      return broadcast(:invalid, @form.password) unless @form.valid?
 
       update_personal_data
       update_avatar
@@ -24,8 +24,10 @@ module Decidim
         notify_followers
         broadcast(:ok, @user.unconfirmed_email.present?)
       else
-        @form.errors.add :avatar, @user.errors[:avatar] if @user.errors.has_key? :avatar
-        broadcast(:invalid)
+        [:avatar, :password].each do |key|
+          @form.errors.add key, @user.errors[key] if @user.errors.has_key? key
+        end
+        broadcast(:invalid, @form.password)
       end
     end
 
@@ -52,11 +54,11 @@ module Decidim
       return if @form.password.blank?
 
       @user.password = @form.password
-      @user.password_confirmation = @form.password_confirmation
+      @user.password_updated_at = Time.current
     end
 
     def notify_followers
-      return if (@user.previous_changes.keys & %w(about personal_url)).empty?
+      return unless @user.previous_changes.keys.intersect?(%w(about personal_url))
 
       Decidim::EventsManager.publish(
         event: "decidim.events.users.profile_updated",

@@ -1,10 +1,22 @@
-<%= render partial: "decidim/shared/component_announcement" %>
+<%= append_javascript_pack_tag "decidim_blogs" %>
+<%= append_stylesheet_pack_tag "decidim_blogs" %>
 
-<div class="row column">
-  <div id="blogs" class="columns medium-7 mediumlarge-8">
-    <%= render partial: "posts" %>
-  </div>
-  <div id="most-commented" class="columns medium-5 mediumlarge-4 large-4">
-    <%= render partial: "sidebar_blog", locals: { posts: posts_most_commented } %>
-  </div>
-</div>
+<% content_for :aside do %>
+  <h1 class="title-decorator"><%= component_name %></h1>
+<% end %>
+
+<%= render layout: "layouts/decidim/shared/layout_two_col" do %>
+
+  <%= render partial: "decidim/shared/component_announcement" %>
+
+  <section id="blogs" class="layout-main__section layout-main__heading">
+    <h2 class="h5 md:h3 decorator"><%= t("count", scope: "decidim.blogs.posts.index", count: posts.length) %></h2>
+
+    <% paginate_posts.each do |post| %>
+      <%= card_for post, size: :l %>
+    <% end %>
+
+    <%= decidim_paginate paginate_posts %>
+  </section>
+
+<% end %>

@@ -2,13 +2,13 @@
 
 module Decidim
   module Initiatives
-    # This class infers the current initiative we're scoped to by
+    # This class infers the current initiative we are scoped to by
     # looking at the request parameters and the organization in the request
     # environment, and injects it into the environment.
     class CurrentInitiative
       include InitiativeSlug
 
-      # Public: Matches the request against an initative and injects it
+      # Public: Matches the request against an initiative and injects it
       #         into the environment.
       #
       # request - The request that holds the initiative relevant

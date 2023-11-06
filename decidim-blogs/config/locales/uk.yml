@@ -18,17 +18,7 @@ uk:
         new: Створити новий допис
         title: Дії
       admin:
-        models:
-          components:
-            body: Основний текст
-          post:
-            name: Допис
         posts:
-          create:
-            invalid: При спробі додати цей допис сталася помилка
-            success: Допис успішно додано
-          destroy:
-            success: Допис успішно видалено
           edit:
             save: Оновити
           index:
@@ -38,21 +28,11 @@ uk:
             title: Створити допис
           update:
             invalid: При спробі збереження цього допису сталися помилки.
-            success: Допис успішно збережено
       models:
         post:
           fields:
             author: Автор
             body: Основний текст
-            created_at: 'Створено:'
-            title: заголовок
-      posts:
-        show:
-          view: Переглянути
-        sidebar_blog:
-          comments: коментарі
-          most_commented_posts: Найбільш коментовані дописи
-      read_more: Читати далі
     components:
       blogs:
         name: Блог

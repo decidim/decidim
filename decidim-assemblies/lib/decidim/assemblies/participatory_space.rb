@@ -3,6 +3,7 @@
 Decidim.register_participatory_space(:assemblies) do |participatory_space|
   participatory_space.icon = "media/images/decidim_assemblies.svg"
   participatory_space.model_class_name = "Decidim::Assembly"
+  participatory_space.content_blocks_scope_name = "assembly_homepage"
 
   participatory_space.participatory_spaces do |organization|
     Decidim::Assemblies::OrganizationAssemblies.new(organization).query
@@ -11,6 +12,8 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
   participatory_space.permissions_class_name = "Decidim::Assemblies::Permissions"
 
   participatory_space.query_type = "Decidim::Assemblies::AssemblyType"
+
+  participatory_space.breadcrumb_cell = "decidim/assemblies/assembly_dropdown_metadata"
 
   participatory_space.register_resource(:assembly) do |resource|
     resource.model_class_name = "Decidim::Assembly"
@@ -133,7 +136,6 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
           name: Faker::Name.name,
           nickname: Faker::Twitter.unique.screen_name,
           password: "decidim123456789",
-          password_confirmation: "decidim123456789",
           organization:,
           confirmed_at: Time.current,
           locale: I18n.default_locale,
@@ -268,6 +270,8 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
         Decidim.component_manifests.each do |manifest|
           manifest.seed!(current_assembly.reload)
         end
+
+        Decidim::ContentBlocksCreator.new(current_assembly).create_default!
       end
     end
   end

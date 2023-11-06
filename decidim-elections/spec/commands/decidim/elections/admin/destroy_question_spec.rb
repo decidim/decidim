@@ -5,10 +5,10 @@ require "spec_helper"
 describe Decidim::Elections::Admin::DestroyQuestion do
   subject { described_class.new(question, user) }
 
-  let(:election) { create :election }
-  let!(:question) { create :question, election: }
+  let(:election) { create(:election) }
+  let!(:question) { create(:question, election:) }
   let(:organization) { election.component.organization }
-  let(:user) { create :user, :admin, :confirmed, organization: }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
 
   it "destroys the question" do
     expect { subject.call }.to change(Decidim::Elections::Question, :count).by(-1)
@@ -26,8 +26,8 @@ describe Decidim::Elections::Admin::DestroyQuestion do
     expect(action_log.version.event).to eq "destroy"
   end
 
-  context "when the election has started" do
-    let(:election) { create :election, :started }
+  context "when the election has been created in the bulletin board" do
+    let(:election) { create(:election, :ongoing) }
 
     it "is not valid" do
       expect { subject.call }.to broadcast(:invalid)

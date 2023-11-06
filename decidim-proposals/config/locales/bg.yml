@@ -26,7 +26,6 @@ bg:
       proposal_answer:
         answer: Отговор
       proposals_copy:
-        copy_proposals: Разбирам, че това ще вмъкне всички предложения от избрания компонент към текущия и това действие не е обратимо.
         origin_component_id: Компонент, от който да се копират предложенията
       proposals_import:
         import_proposals: Копиране на предложения
@@ -146,10 +145,8 @@ bg:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: Някой е направил бележка в предложението %{resource_title}. Вижте я в <a href="%{admin_proposal_info_url}">администраторския панел</a>
             email_outro: Получихте известие, защото можете да оценяте предложението.
             email_subject: Някой е направил бележка в предложението %{resource_title}.
-            notification_title: Някой е направил бележка в предложението <a href="%{resource_path}">%{resource_title}</a>. Вижте я в <a href="%{admin_proposal_info_path}">администраторския панел</a>
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} получи достъп като сътрудник в %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> <strong>получи достъп като сътрудник</strong> в съвместната чернова <a href="%{resource_path}">%{resource_title}</a>.
@@ -172,12 +169,10 @@ bg:
           email_intro: 'Вече може да създавате предложения в %{participatory_space_title}! Участвайте в тази страница:'
           email_outro: Получавате това известие, защото следвате %{participatory_space_title}. Може да прекратите известията чрез предната връзка.
           email_subject: Предложенията вече са достъпни в %{participatory_space_title}
-          notification_title: Вече може да направите <a href="%{resource_path}">ново предложение</a> в <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Можете да одобрите предложение в %{participatory_space_title}! Участвайте чрез тази страница:'
           email_outro: Получавате това известие, защото следвате %{participatory_space_title}. Може да прекратите известията чрез предната връзка.
           email_subject: Одобряването на предложения започна в %{participatory_space_title}
-          notification_title: Вече можете да <a href="%{resource_path}">одобрявате предложения</a> в <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           affected_user:
             email_intro: 'Вашето предложение "%{resource_title}" е одобрено. Прочетете отговора на страницата:'
@@ -187,7 +182,6 @@ bg:
           follower:
             email_intro: 'Предложението "%{resource_title}" е одобрено. Прочетете отговора на страницата:'
             email_outro: Получавате това известие, защото следвате "%{resource_title}". Може да премахнете следването чрез предната връзка.
-            email_subject: Предложение, което следвате е одобрено
             notification_title: Предложението <a href="%{resource_path}">%{resource_title}</a> беше одобрено.
         proposal_evaluating:
           affected_user:
@@ -198,7 +192,6 @@ bg:
           follower:
             email_intro: 'Предложението "%{resource_title}" се разглежда в момента. Прочетете отговора на страницата:'
             email_outro: Получавате това известие, защото следвате "%{resource_title}". Може да премахнете следването чрез предната връзка.
-            email_subject: Предложение, което следвате се разглежда
             notification_title: Предложението <a href="%{resource_path}">%{resource_title}</a> се разглежда.
         proposal_mentioned:
           email_intro: Вашето предложение "%{mentioned_proposal_title}" беше споменато в коментарите <a href="%{resource_url}">на това пространство</a>.
@@ -213,9 +206,3 @@ bg:
         proposal_published_for_space:
           email_intro: Предложението "%{resource_title}" беше добавено в "%{participatory_space_title}", което следвате.
           email_outro: Получавате това известие, защото следвате "%{participatory_space_title}". Може да прекратите известията чрез предната връзка.
-    proposals:
-      versions:
-        collaborative_drafts:
-          back_to_resource: Обратно към съвместната чернова
-        proposals:
-          back_to_resource: Обратно към предложението

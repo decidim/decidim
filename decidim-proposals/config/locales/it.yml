@@ -31,7 +31,6 @@ it:
         cost_report: Relazione sui costi
         execution_period: Periodo di esecuzione
       proposals_copy:
-        copy_proposals: Capisco che questo importerà tutte le proposte dal componente selezionato a quello corrente e che questa azione non può essere annullata.
         origin_component_id: Componente per copiare le proposte da
       proposals_import:
         import_proposals: Importa proposte
@@ -108,10 +107,6 @@ it:
               rejected: Rifiutato
               validating: Convalida Tecnica
               withdrawn: Ritirato
-          state_null:
-            label: Stato
-            values:
-              'true': Senza risposta
           valuator_role_ids_has:
             label: Assegnato al valutatore
         search_placeholder:
@@ -195,10 +190,8 @@ it:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: Qualcuno ha lasciato una nota sulla proposta%{resource_title}". Controllala al <a href="%{admin_proposal_info_url}">pannello di amministrazione</a>
             email_outro: Hai ricevuto questa notifica perché puoi valutare la proposta.
             email_subject: Qualcuno ha lasciato una nota sulla proposta %{resource_title}.
-            notification_title: Qualcuno ha lasciato una nota sulla proposta <a href="%{resource_path}">%{resource_title}</a>. Controllala presso <a href="%{admin_proposal_info_path}">il pannello di amministrazione</a>
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} è stato accettato per accedere come contributore del %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> è stato accettato <strong>come contributore</strong> del progetto collaborativo <a href="%{resource_path}">%{resource_title}</a>.
@@ -221,12 +214,10 @@ it:
           email_intro: 'Ora puoi creare nuove proposte in %{participatory_space_title}! Inizia a partecipare a questa pagina:'
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche facendo click su pulsante Smetti di seguire nella pagina del processo che stai seguendo.
           email_subject: Proposte ora disponibili in %{participatory_space_title}
-          notification_title: Ora puoi proporre <a href="%{resource_path}">nuove proposte</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Puoi sostenere proposte in %{participatory_space_title}! Inizia a partecipare a questa pagina:'
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche facendo click su pulsante Smetti di seguire nella pagina del processo che stai seguendo.
           email_subject: L'approvazione delle proposte è iniziata per %{participatory_space_title}
-          notification_title: È ora possibile avviare <a href="%{resource_path}">proposte di approvazione</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           affected_user:
             email_intro: 'La tua proposta "%{resource_title}" è stata accettata. Puoi leggere la risposta in questa pagina:'
@@ -236,7 +227,6 @@ it:
           follower:
             email_intro: 'La proposta "%{resource_title}" è stata accettata. Puoi leggere la risposta in questa pagina:'
             email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
-            email_subject: Una proposta che stai seguendo è stata accettata
             notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> è stata accettata.
         proposal_evaluating:
           affected_user:
@@ -247,7 +237,6 @@ it:
           follower:
             email_intro: 'La proposta "%{resource_title}" è attualmente in fase di valutazione. Puoi trovare una risposta in questa pagina:'
             email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
-            email_subject: Una proposta che stai seguendo è in corso di valutazione
             notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> è in fase di valutazione.
         proposal_mentioned:
           email_intro: La tua proposta%{mentioned_proposal_title}" è stata menzionata <a href="%{resource_url}">in questo spazio</a> nei commenti.
@@ -263,17 +252,14 @@ it:
           email_intro: La proposta "%{resource_title}" è stata aggiunta a "%{participatory_space_title}" che stai seguendo.
           email_outro: Hai ricevuto questa notifica perché stai seguendo "%{participatory_space_title}". Puoi smettere di seguirlo dal link precedente.
           email_subject: Nuova proposta "%{resource_title}" aggiunta a %{participatory_space_title}
-          notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> è stata aggiunta a %{participatory_space_title} da %{author}
         proposal_rejected:
           affected_user:
             email_intro: 'La tua proposta "%{resource_title}" è stata respinta. Puoi leggere la risposta in questa pagina:'
             email_outro: Hai ricevuto questa notifica perché sei un autore di "%{resource_title}".
-            email_subject: La tua proposta è stata respinta
             notification_title: La tua proposta <a href="%{resource_path}">%{resource_title}</a> è stata respinta.
           follower:
             email_intro: 'La proposta "%{resource_title}" è stata respinta. Puoi leggere la risposta in questa pagina:'
             email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
-            email_subject: Una proposta che stai seguendo è stata respinta
             notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> è stata respinta.
         proposal_update_category:
           email_intro: 'Un amministratore ha aggiornato la categoria della tua proposta "%{resource_title}", dai un''occhiata:'
@@ -312,7 +298,6 @@ it:
           description_own: Hai dato supporto a %{score} proposte.
           name: Supporti della proposta
           next_level_in: Dare supporto a %{score} ulteriori proposte per raggiungere il livello successivo!
-          unearned_another: Questo utente non ha ancora fornito supporto a nessuna proposta.
           unearned_own: Hai dato supporto a proposte.
         proposals:
           conditions:
@@ -323,7 +308,6 @@ it:
           description_own: Hai creato %{score} proposte.
           name: Proposte
           next_level_in: Crea altre %{score} proposte per raggiungere il livello successivo!
-          unearned_another: Questo utente non ha ancora creato alcuna proposta.
           unearned_own: Non hai ancora creato alcuna proposta.
     metrics:
       accepted_proposals:
@@ -384,12 +368,8 @@ it:
               md: .md
               odt: ODT
             bottom_hint: "(Sarai in grado di visualizzare in anteprima e ordinare le sezioni del documento)"
-            document_legend: 'Aggiungi un documento di dimensione inferiore a 2MB. Ciascuna sezione contenente fino a 3 livelli di profondità sarà suddivisa in proposte. I formati accettati sono i seguenti: %{valid_mime_types}'
             title: AGGIUNGI DOCUMENTO
             upload_document: Carica il documento
-          publish:
-            invalid: Impossibile pubblicare proposte
-            success: Tutte le proposte sono state pubblicate
           sections:
             article: "<em>Articolo</em>"
             section: "<em>Sezione:</em> <strong>%{title}</strong>"
@@ -404,21 +384,12 @@ it:
             rejected: Rifiutata
             title: Risposta per la proposta %{title}
         proposal_notes:
-          create:
-            error: Si è verificato un problema durante la creazione di questa nota di proposta
-            success: Nota della proposta creata con successo
           form:
             note: Nota
             submit: Invia
           leave_your_note: Lascia il tuo messaggio
           title: Note private
         proposals:
-          answer:
-            invalid: E' stato riscontrato un problema nella risposta per questa proposta
-            success: OK, risposta per la proposta registrata.
-          create:
-            invalid: Sono stati riscontrati dei problemi durante la creazione di questa proposta
-            success: OK, proposta creata.
           edit:
             title: Aggiorna proposta
             update: Aggiornare
@@ -453,48 +424,32 @@ it:
             title: Crea una proposta
           publish_answers:
             number_of_proposals: Le risposte per %{number} proposte saranno pubblicate.
-            select_a_proposal: Si prega di selezionare una proposta
           show:
             amendments_count: Numero di emendamenti
             assigned_valuators: Valutatori assegnati
-            authors: autori
             body: Corpo
             comments_count: Conteggio dei Commenti
-            comments_negative_count: Contro
-            comments_neutral_count: Neutrale
-            comments_positive_count: A favore
-            created_at: Data di creazione
             documents: Documenti
             endorsements_count: Numero di Appoggi
-            endorsements_ranking: Classifica per appoggi
             endorsers: Sostenitori
             link: Link
             n_more_endorsers:
               one: e 1 altro
               other: e altri %{count}
             photos: Foto
-            proposals: proposte
             ranking: "%{ranking} di %{total}"
             related_meetings: Riunioni correlate
             remove_assignment: Rimuovi assegnazione
             remove_assignment_confirmation: Sei sicuro di voler rimuovere il valutatore da questa proposta?
             valuators: Valutatori
             votes_count: Contare i voti
-            votes_ranking: Ordina per numero di supporti
           update_category:
             invalid: 'Queste proposte avevano già la categoria %{subject_name} %{proposals}.'
-            select_a_category: Si prega di selezionare una categoria
-            select_a_proposal: Si prega di selezionare una proposta
             success: 'Proposte aggiornate con successo alla categoria %{subject_name}: %{proposals}.'
           update_scope:
             invalid: 'Queste proposte avevano già il campo di applicazione %{subject_name} %{proposals}.'
-            select_a_proposal: Si prega di selezionare una proposta
-            select_a_scope: Seleziona un ambito
             success: 'Proposte aggiornate con successo all''ambito %{subject_name}: %{proposals}.'
         proposals_imports:
-          create:
-            invalid: C'è stato un problema nell'importazione delle proposte
-            success: "%{number} proposte importate con successo"
           new:
             create: Importa proposte
             no_components: Non ci sono altri componenti di proposta in questo spazio partecipativo per importare le proposte da.
@@ -507,13 +462,6 @@ it:
         proposals_splits:
           create:
             success: Suddiviso con successo le proposte in nuove.
-        valuation_assignments:
-          create:
-            invalid: Si è verificato un errore assegnando le proposte ad un valutatore
-            success: Proposte assegnate ad un valutatore con successo
-          delete:
-            invalid: Errore durante la cancellazione delle proposte da parte di un valutatore
-            success: Valutatore disassegnato dalle proposte con successo
       admin_log:
         proposal:
           answer: "%{user_name} ha risposto alla proposta %{resource_name} sullo spazio %{space_name}"
@@ -532,16 +480,12 @@ it:
         rejected: Rifiutata
         withdrawn: Ritirato
       application_helper:
-        filter_category_values:
-          all: Tutti
         filter_origin_values:
           all: Tutti
           meetings: Incontri
           official: Ufficiale
           participants: Utenti
           user_groups: Gruppi di utenti
-        filter_scope_values:
-          all: Tutti
         filter_state_values:
           accepted: Accettato
           all: Tutti
@@ -557,26 +501,18 @@ it:
           publish:
             error: Si sono verificati errori durante la pubblicazione della bozza collaborativa.
             irreversible_action_modal:
-              body: Dopo aver pubblicato la bozza come proposta, la bozza non sarà più modificabile. La proposta non accetterà nuovi autori o contributi.
               cancel: Annulla
               ok: Pubblica come proposta
               title: La seguente azione è irreversibile
             success: Bozza collaborativa pubblicata con successo come proposta.
-          view_collaborative_draft: Visualizza bozza collaborativa
           withdraw:
             error: Ci sono stati errori nel chiudere la bozza collaborativa.
             irreversible_action_modal:
-              body: Dopo aver chiuso la bozza, la bozza non sarà più modificabile. La bozza non accetterà nuovi autori o contributi.
               cancel: Annulla
               ok: Ritirare la bozza collaborativa
               title: La seguente azione è irreversibile
             success: Bozza collaborativa ritirata con successo.
-        count:
-          drafts_count:
-            one: "%{count} bozza collaborativa"
-            other: "%{count} bozza collaborativa"
         create:
-          error: Si è verificato un problema durante la creazione di queste bozze collaborative
           success: Bozza collaborativa creata con successo.
         edit:
           attachment_legend: "(Opzionale) Aggiungi un allegato"
@@ -600,6 +536,10 @@ it:
           filter: Filtro
           filter_by: Filtra per
           unfold: spiegare
+        index:
+          count:
+            one: "%{count} bozza collaborativa"
+            other: "%{count} bozza collaborativa"
         new:
           send: Continua
         new_collaborative_draft_button:
@@ -612,32 +552,26 @@ it:
         requests:
           accepted_request:
             error: Non può essere accettato come collaboratore, riprova più tardi.
-            success: "@%{user} è stato accettato con successo come collaboratore"
           access_requested:
             error: La tua richiesta non può essere completata, riprova più tardi.
-            success: La tua richiesta di collaborazione è stata inviata con successo
           collaboration_requests:
             accept_request: Accettare
             reject_request: Rifiutare
             title: Richieste di collaborazione
           rejected_request:
             error: Non può essere rifiutato come collaboratore, riprova più tardi.
-            success: "@%{user} è stato rifiutato come collaboratore con successo"
         show:
-          back: Indietro
           edit: Modifica bozza collaborativa
           final_proposal: proposta finale
           final_proposal_help_text: Questa bozza è finita. Puoi vedere la proposta finale finale
           hidden_authors_count:
             one: e %{count} altra persona
             other: e altre %{count} persone
-          info-message: Si tratta di un <strong>progetto collaborativo</strong> per una proposta. Ciò significa che puoi aiutare i loro autori a modellare la proposta utilizzando la sezione dei commenti qui sotto o migliorarla direttamente richiedendo l'accesso per modificarla. Una volta che gli autori ti concederanno l'accesso, sarai in grado di apportare modifiche a questa bozza.
           publish: Pubblica
           publish_info: Pubblica questa versione della bozza o
           published_proposal: proposta pubblicata
           request_access: Richiesta di accesso
           requested_access: Accesso richiesto
-          version_history: vedere la cronologia delle versioni per questa proposta
           withdraw: ritirare la bozza
         states:
           open: Aperto
@@ -648,27 +582,15 @@ it:
           success: Bozza collaborativa aggiornata correttamente.
         wizard_aside:
           back_from_collaborative_draft: Torna alle bozze collaborative
-          info: Stai creando una bozza collaborativa <strong></strong>.
         wizard_header:
           title: Crea la tua bozza collaborativa
-      content_blocks:
-        highlighted_proposals:
-          proposals: Proposte
       create:
         error: C'è stato un errore durante il salvataggio di questa proposta.
         success: Proposta creata con successo. Salvato come bozza.
       destroy_draft:
         error: Si sono verificati errori durante l'eliminazione della bozza della proposta.
         success: La bozza della proposta è stata cancellata con successo.
-      last_activity:
-        new_proposal_at_html: "<span>Nuova proposta al %{link}</span>"
-        proposal_updated_at_html: "<span>Proposta aggiornata a%{link}</span>"
       models:
-        collaborative_draft:
-          fields:
-            authors: autori
-            comments: Commenti
-            contributions: contributi
         proposal:
           fields:
             category: Categoria
@@ -684,14 +606,11 @@ it:
             valuator: Valutatore
             valuators: Valutatori
             votes: Voti
-      new:
-        limit_reached: Non è possibile creare nuove proposte dal momento che hai superato il limite.
       participatory_text_proposal:
         alternative_title: Al momento non ci sono testi di partecipazione
         buttons:
           amend: emendare
           comment: Commento
-          comments: Commenti
       proposal_votes:
         create:
           error: Ci sono stati errori durante la votazione della proposta.
@@ -703,17 +622,12 @@ it:
         complete:
           send: Inviare
           title: Completa la tua proposta
-        count:
-          proposals_count:
-            one: "%{count} proposta"
-            other: "%{count} proposte"
         dynamic_map_instructions:
           description: Le coordinate verranno aggiornate quando si fa clic sul pulsante 'Anteprima'. Tuttavia, l'indirizzo non cambia.
           instructions: Puoi spostare il punto sulla mappa.
         edit:
           attachment_legend: "(Opzionale) Aggiungi un allegato"
           back: Indietro
-          gallery_legend: "(Facoltativo) Aggiungi un'immagine alla scheda proposta"
           select_a_category: Seleziona una categoria
           send: Inviare
           title: Modifica la proposta
@@ -735,20 +649,13 @@ it:
           state: Stato
           type: genere
           voted: Votata
-        filters_small_view:
-          close_modal: Chiudi modalità
-          filter: Filtra
-          filter_by: Filtra per
-          unfold: Espandi
         index:
           collaborative_drafts_list: Accedi alle bozze di collaborazione
+          count:
+            one: "%{count} proposta"
+            other: "%{count} proposte"
           new_proposal: Nuova proposta
           see_all_withdrawn: Vedi tutte le proposte ritirate
-          view_proposal: Visualizza proposta
-        linked_proposals:
-          proposal_votes:
-            one: voto
-            other: voti
         new:
           send: Continua
         orders:
@@ -760,11 +667,6 @@ it:
           random: A caso
           recent: le più recenti
           with_more_authors: Con più autori
-        participatory_texts:
-          index:
-            document_index: Indice del documento
-          view_index:
-            see_index: Vedi indice
         placeholder:
           address: Homewood Drive 37, Brownsburg, IN 46112
         preview:
@@ -776,20 +678,10 @@ it:
             other: Potrai modificare questa proposta durante i primi %{count} minuti dopo la pubblicazione della proposta. Una volta passato questo periodo, non sarai più in grado di modificare la proposta.
           publish: Pubblica
           title: Pubblica la tua proposta
-        proposal:
-          creation_date: 'Creazione: %{date}'
-          view_proposal: Visualizza la proposta
-        proposals:
-          empty: Non c'è ancora nessuna proposta
-          empty_filters: Non c'è alcuna proposta con questo criterio
         show:
           answer: Risposta
-          back_to: Torna a
-          back_to_list: Torna alla lista
           changes_at_title: Modifica a "%{title}"
-          comments: Commenti
           edit_proposal: Modifica la proposta
-          endorsements_list: Elenco dei sostenitori
           estimated_cost: Costo stimato
           hidden_endorsers_count:
             one: e %{count} altra persona
@@ -803,14 +695,9 @@ it:
           proposal_accepted_reason: 'Questa proposta è stata accettata perché:'
           proposal_in_evaluation_reason: Questa proposta è in fase di valutazione
           proposal_rejected_reason: 'Questa proposta è stata rifiutata perché:'
-          read_less: Leggi di meno
-          read_more: Leggi di più
-          report: Report
           withdraw_btn_hint: Puoi ritirare la tua proposta se cambi idea, purché non abbia ricevuto alcun supporto. La proposta non viene cancellata, apparirà nell'elenco delle proposte ritirate.
           withdraw_confirmation_html: Sei sicuro di voler ritirare questa proposta?<br><br><strong>Questa azione non può essere annullata!</strong>
           withdraw_proposal: Ritirare la proposta
-        tags:
-          changed_from: "(modificato da <u>%{previous_name}</u> da un amministratore)"
         update:
           title: Aggiorna proposta
         vote_button:
@@ -824,23 +711,17 @@ it:
           count:
             one: VOTO
             other: VOTI
-          most_popular_proposal: La proposta più popolare
-          need_more_votes: Hai bisogno di più voti
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Ogni proposta può accumulare più di %{limit} supporti
           minimum_votes_per_user:
             description: Devi distribuire un minimo di %{votes} voti tra diverse proposte.
-            given_enough_votes: Hai dato abbastanza supporti.
             supports_remaining: Devi votare %{remaining_votes} altre proposte per i tuoi voti da prendere in considerazione.
           proposal_limit:
             description: Puoi creare fino a %{limit} proposte.
-          threshold_per_proposal:
-            description: Per essere accettate le proposte devono raggiungere %{limit} supporti
           title: 'Il voto è soggetto alle seguenti regole:'
           vote_limit:
             description: Puoi votare fino a %{limit} proposte.
-            left: Restano
             votes: Voti
         wizard_aside:
           back: Indietro
@@ -848,21 +729,15 @@ it:
           back_from_step_2: Torna alle proposte
           back_from_step_3: Torna a confrontare le proposte
           back_from_step_4: Torna a modificare la bozza
-          info: Stai creando una <strong>proposta</strong>.
         wizard_steps:
           current_step: Fase attuale
-          see_steps: vedere i passaggi
           step_1: Crea la tua proposta
           step_2: Confronta
           step_3: Completa
           step_4: Pubblica la tua proposta
-          step_of: Step %{current_step_num} di %{total_steps}
           title: Fasi di creazione delle proposte
       proposals_picker:
         choose_proposals: Scegli proposte
-        close: Chiudi
-        more_proposals: Ci sono altre %{number} proposte. Affina la tua ricerca per localizzarle.
-        no_proposals: Nessuna proposta corrisponde ai tuoi criteri di ricerca o non ci sono proposte.
       publish:
         error: Si sono verificati errori durante la pubblicazione della proposta.
         success: Proposta pubblicata con successo.
@@ -875,15 +750,8 @@ it:
         error: Si sono verificati errori durante il salvataggio della bozza della proposta.
         success: Bozza proposta aggiornata correttamente.
       versions:
-        collaborative_drafts:
-          back_to_resource: Torna alla bozza collaborativa
         index:
           title: versioni
-        proposals:
-          back_to_resource: Torna alla proposta
-      withdraw:
-        errors:
-          has_supports: Questa proposta non può essere ritirata perché ha già dei supporti.
     resource_links:
       copied_from_component:
         proposal_proposal: Proposte correlate

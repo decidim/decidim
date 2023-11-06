@@ -254,14 +254,14 @@ FactoryBot.define do
       if skip_injection
         Decidim::Faker::Localized.localized { generate(:title) }
       else
-        Decidim::Faker::Localized.localized { "<script>alert(\"TITLE\");</script> #{generate(:title)}" }
+        Decidim::Faker::Localized.localized { "<script>alert(\"Proposal TITLE\");</script> #{generate(:title)}" }
       end
     end
     body do
       if skip_injection
         Decidim::Faker::Localized.localized { Faker::Lorem.sentences(number: 3).join("\n") }
       else
-        Decidim::Faker::Localized.localized { "<script>alert(\"TITLE\");</script> #{Faker::Lorem.sentences(number: 3).join("\n")}" }
+        Decidim::Faker::Localized.localized { "<script>alert(\"Proposal BODY\");</script> #{Faker::Lorem.sentences(number: 3).join("\n")}" }
       end
     end
     component { create(:proposal_component) }
@@ -270,8 +270,20 @@ FactoryBot.define do
     latitude { Faker::Address.latitude }
     longitude { Faker::Address.longitude }
     cost { 20_000 }
-    cost_report { { en: "My cost report" } }
-    execution_period { { en: "My execution period" } }
+    cost_report do
+      if skip_injection
+        Decidim::Faker::Localized.localized { generate(:title) }
+      else
+        Decidim::Faker::Localized.localized { "<script>alert(\"Proposal cost report\")</script> #{generate(:title)}" }
+      end
+    end
+    execution_period do
+      if skip_injection
+        Decidim::Faker::Localized.localized { generate(:title) }
+      else
+        Decidim::Faker::Localized.localized { "<script>alert(\"Proposal execution period\")</script> #{generate(:title)}" }
+      end
+    end
 
     after(:build) do |proposal, evaluator|
       proposal.title = if evaluator.title.is_a?(String)
@@ -374,7 +386,7 @@ FactoryBot.define do
     end
 
     trait :not_answered do
-      state { nil }
+      state { :not_answered }
     end
 
     trait :draft do
@@ -429,7 +441,7 @@ FactoryBot.define do
     amendable { build(:proposal) }
     emendation { build(:proposal, component: amendable.component) }
     amender { build(:user, organization: amendable.component.participatory_space.organization) }
-    state { Decidim::Amendment::STATES.sample }
+    state { Decidim::Amendment::STATES.keys.sample }
   end
 
   factory :proposal_note, class: "Decidim::Proposals::ProposalNote" do
@@ -461,6 +473,14 @@ FactoryBot.define do
       end
     end
 
+    trait :participant_author do
+      after :build do |draft|
+        draft.coauthorships.clear
+        user = build(:user, organization: draft.component.participatory_space.organization)
+        draft.coauthorships.build(author: user)
+      end
+    end
+
     trait :published do
       state { "published" }
       published_at { Time.current }
@@ -476,8 +496,27 @@ FactoryBot.define do
   end
 
   factory :participatory_text, class: "Decidim::Proposals::ParticipatoryText" do
-    title { { en: "<script>alert(\"TITLE\");</script> #{generate(:title)}" } }
-    description { { en: "<script>alert(\"DESCRIPTION\");</script>\n#{Faker::Lorem.sentences(number: 3).join("\n")}" } }
+    transient do
+      skip_injection { false }
+    end
+
+    title do
+      if skip_injection
+        Decidim::Faker::Localized.localized { generate(:title) }
+      else
+        Decidim::Faker::Localized.localized { "<script>alert(\"Meetings TITLE\")</script> #{generate(:title)}" }
+      end
+    end
+
+    description do
+      Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+        if skip_injection
+          Decidim::Faker::Localized.localized { Faker::Lorem.sentences(number: 3).join("\n") }
+        else
+          Decidim::Faker::Localized.localized { "<script>alert(\"Meetings description\");</script> #{Faker::Lorem.sentences(number: 3).join("\n")}" }
+        end
+      end
+    end
     component { create(:proposal_component) }
   end
 

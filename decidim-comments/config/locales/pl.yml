@@ -3,6 +3,7 @@ pl:
     models:
       decidim/comments/comment_by_followed_user_event: Komentarz
       decidim/comments/comment_created_event: Komentarz
+      decidim/comments/comment_upvoted_event: Polubiono komentarz
       decidim/comments/reply_created_event: Odpowiedź na komentarz
       decidim/comments/user_group_mentioned_event: Wzmianka
       decidim/comments/user_mentioned_event: Wzmianka
@@ -20,6 +21,12 @@ pl:
         other: Głosy
   decidim:
     comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: Komentarze włączone
+            end_time: Komentarze włączone do
+            start_time: Komentowanie możliwe od
       comments:
         create:
           error: Wystąpił błąd podczas tworzenia komentarza.
@@ -28,22 +35,22 @@ pl:
         update:
           error: Wystąpił błąd podczas aktualizowania komentarza.
       comments_count: Liczba komentarzy
-      comments_title: Komentarze
+      comments_title: Komentarz
       last_activity:
-        new_comment_at_html: "<span>Nowy komentarz do %{link}</span>"
-      view: Zobacz
+        new_comment: 'Nowy komentarz:'
       votes:
         create:
           error: Podczas dodawania komentarza wystąpił błąd.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Zaloguj się na swoje konto</a> lub <a href="%{sign_up_url}">zarejestruj się</a>, aby dodać komentarz.
+        account_message: <a href="%{sign_in_url}">Zaloguj się na swoje konto</a> lub <a href="%{sign_up_url}">zarejestruj się</a>, aby dodać swój komentarz.
         form:
           body:
             label: Komentarz
             placeholder: Co o tym myślisz?
-          form_error: 'Tekst jest wymagany. Maksymalna liczba znaków to: %{length}.'
-          submit: Skomentuj
+          form_error: Tekst jest wymagany i nie może być dłuższy niż %{length} znaków.
+          submit_reply: Opublikuj odpowiedź
+          submit_root_comment: Opublikuj komentarz
           user_group_id:
             label: Komentuj jako
         opinion:
@@ -61,6 +68,7 @@ pl:
         alignment:
           against: Negatywny
           in_favor: Pozytywny
+        cancel_reply: Anuluj odpowiedź
         confirm_destroy: Czy na pewno chcesz usunąć ten komentarz?
         delete: Usuń
         deleted_at: Komentarz usunięty %{date}
@@ -76,11 +84,14 @@ pl:
           description: Czy ta treść jest nieodpowiednia?
           details: Dodatkowe komentarze
           reasons:
-            does_not_belong: Promuje nielegalną działalność, groźby samobójcze, informacje osobiste lub coś innego, co według Ciebie nie powinno pojawić się w %{organization_name}.
             offensive: Promuje rasizm, seksizm, nienawiść, ataki osobiste, groźby śmierci, groźby samobójcze jakąkolwiek formę mowy nienawiści.
             spam: Zawiera clickbaity, reklamy, oszustwa lub skrypty botów.
           title: Zgłoś niewłaściwą treść
-        show_replies: Pokaż %{replies_count} odpowiedzi
+        show_replies:
+          one: Pokaż odpowiedź
+          few: Pokaż %{count} odpowiedzi
+          many: Pokaż %{count} odpowiedzi
+          other: Pokaż %{count} odpowiedzi
         single_comment_link_title: Pobierz link
       comment_order_selector:
         order:
@@ -89,14 +100,13 @@ pl:
           older: Najstarsze
           recent: Najnowsze
         title: 'Sortuj według:'
-      comment_thread:
-        title: Rozmowa z %{authorName}
       comments:
         blocked_comments_for_unauthorized_user_warning: Musisz być zweryfikowany żeby teraz komentować, ale możesz przeczytać poprzednie komentarze.
         blocked_comments_for_user_warning: Nie możesz teraz komentować, ale możesz przeczytać poprzednie komentarze.
         blocked_comments_warning: Komentarze są w tej chwili wyłączone, ale możesz przeczytać poprzednie.
         comment_details_title: Szczegóły komentarza
         loading: Ładowanie komentarzy ...
+        single_comment_warning: <a href="%{url}">Zobacz wszystkie komentarze</a>
         single_comment_warning_title: Wyświetlasz teraz pojedynczy komentarz
         title:
           one: "%{count} komentarz"

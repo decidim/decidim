@@ -40,7 +40,7 @@ shared_examples "create an initiative" do
         expect { command.call }.to broadcast(:invalid)
       end
 
-      it "doesn't create an initiative" do
+      it "does not create an initiative" do
         expect do
           command.call
         end.not_to change(Decidim::Initiative, :count)
@@ -56,40 +56,6 @@ shared_examples "create an initiative" do
         expect do
           command.call
         end.to change(Decidim::Initiative, :count).by(1)
-      end
-
-      context "when attachment is present" do
-        let(:uploaded_files) do
-          [
-            upload_test_file(Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf"))
-          ]
-        end
-
-        it "creates an attachment for the proposal" do
-          expect { command.call }.to change(Decidim::Attachment, :count).by(1)
-          last_initiative = Decidim::Initiative.last
-          last_attachment = Decidim::Attachment.last
-          expect(last_attachment.attached_to).to eq(last_initiative)
-        end
-
-        context "when attachment is left blank" do
-          it "broadcasts ok" do
-            expect { command.call }.to broadcast(:ok)
-          end
-        end
-      end
-
-      context "when has multiple attachments" do
-        let(:uploaded_files) do
-          [
-            upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")),
-            upload_test_file(Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf"))
-          ]
-        end
-
-        it "creates multiple attachments for the initiative" do
-          expect { command.call }.to change(Decidim::Attachment, :count).by(2)
-        end
       end
 
       it "sets the author" do
@@ -142,53 +108,6 @@ shared_examples "create an initiative" do
           initiative = Decidim::Initiative.last
 
           expect(initiative.signature_end_date).to be_nil
-        end
-      end
-
-      context "when the initiative type enables custom signature end date" do
-        let(:initiative_type) { create(:initiatives_type, :custom_signature_end_date_enabled) }
-
-        let(:form_params) do
-          {
-            title: "A reasonable initiative title",
-            description: "A reasonable initiative description",
-            type_id: scoped_type.type.id,
-            signature_type: "online",
-            scope_id: scoped_type.scope.id,
-            decidim_user_group_id: nil,
-            signature_end_date: Date.tomorrow
-          }
-        end
-
-        it "sets the signature end date" do
-          command.call
-          initiative = Decidim::Initiative.last
-
-          expect(initiative.signature_end_date).to eq(Date.tomorrow)
-        end
-      end
-
-      context "when the initiative type enables area" do
-        let(:initiative_type) { create(:initiatives_type, :area_enabled) }
-        let(:area) { create(:area, organization: initiative_type.organization) }
-
-        let(:form_params) do
-          {
-            title: "A reasonable initiative title",
-            description: "A reasonable initiative description",
-            type_id: scoped_type.type.id,
-            signature_type: "online",
-            scope_id: scoped_type.scope.id,
-            decidim_user_group_id: nil,
-            area_id: area.id
-          }
-        end
-
-        it "sets the area" do
-          command.call
-          initiative = Decidim::Initiative.last
-
-          expect(initiative.decidim_area_id).to eq(area.id)
         end
       end
     end

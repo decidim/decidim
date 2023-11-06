@@ -3,19 +3,20 @@
 module Decidim
   module Verifications
     # This controller allows users to create and destroy their authorizations. It
-    # shouldn't be necessary to expand it to add new authorization schemes.
+    # should not be necessary to expand it to add new authorization schemes.
     class AuthorizationsController < Verifications::ApplicationController
       helper_method :handler, :unauthorized_methods, :authorization_method, :authorization
       before_action :valid_handler, only: [:new, :create]
 
       include Decidim::UserProfile
+      include Decidim::HtmlSafeFlash
       include Decidim::Verifications::Renewable
       helper Decidim::DecidimFormHelper
       helper Decidim::CtaButtonHelper
       helper Decidim::AuthorizationFormHelper
       helper Decidim::TranslationsHelper
 
-      layout "layouts/decidim/user_profile", only: [:index]
+      layout "layouts/decidim/authorizations", except: :index
 
       def new; end
 
@@ -38,6 +39,21 @@ module Decidim
         AuthorizeUser.call(handler, current_organization) do
           on(:ok) do
             flash[:notice] = t("authorizations.create.success", scope: "decidim.verifications")
+            redirect_to redirect_url || authorizations_path
+          end
+
+          on(:transferred) do |transfer|
+            message = t("authorizations.create.success", scope: "decidim.verifications")
+            if transfer.records.any?
+              flash[:html_safe] = true
+              message = <<~HTML
+                <p>#{CGI.escapeHTML(message)}</p>
+                <p>#{CGI.escapeHTML(t("authorizations.create.transferred", scope: "decidim.verifications"))}</p>
+                #{transfer.presenter.records_list_html}
+              HTML
+            end
+
+            flash[:notice] = message
             redirect_to redirect_url || authorizations_path
           end
 
@@ -72,8 +88,8 @@ module Decidim
         return true if handler
 
         msg = <<-MSG
-        Invalid authorization handler given: #{handler_name} doesn't
-        exist or you haven't added it to `Decidim.authorization_handlers.
+        Invalid authorization handler given: #{handler_name} does not
+        exist or you have not added it to `Decidim.authorization_handlers.
 
         Make sure this name matches with your registrations:\n\n
         Decidim::Verifications.register_workflow(:#{handler_name}) do

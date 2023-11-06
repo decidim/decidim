@@ -7,8 +7,8 @@ module Decidim
   # A concern with the features needed when you want a model to be searchable.
   #
   # A Searchable should include this concern and declare its `searchable_fields`.
-  # You'll also need to define it as `searchable` in its resource manifest,
-  # otherwise it won't appear as possible results.
+  # You will also need to define it as `searchable` in its resource manifest,
+  # otherwise it will not appear as possible results.
   #
   # The indexing of Searchables is managed through:
   # - after_create callback configurable via `index_on_create`.
@@ -35,11 +35,20 @@ module Decidim
     end
 
     def self.searchable_resources_of_type_component
-      searchable_resources.select { |r| r.constantize.ancestors.include?(Decidim::HasComponent) }
+      searchable_resources.select { |r| r.constantize.ancestors.include?(Decidim::Searchable) }
     end
 
     def self.searchable_resources_of_type_comment
       searchable_resources.select { |r| r == "Decidim::Comments::Comment" }
+    end
+
+    def self.searchable_resources_by_type
+      [
+        searchable_resources_of_type_participant,
+        searchable_resources_of_type_participatory_space,
+        searchable_resources_of_type_component,
+        searchable_resources_of_type_comment
+      ]
     end
 
     included do

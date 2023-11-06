@@ -2,7 +2,7 @@
 
 module Decidim
   module Votings
-    # This module, when injected into a controller, ensures there's a
+    # This module, when injected into a controller, ensures there is a
     # voting available and deducts it from the context.
     module NeedsVoting
       def self.enhance_controller(instance_or_module)

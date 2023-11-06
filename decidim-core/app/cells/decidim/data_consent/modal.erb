@@ -1,39 +1,35 @@
-<div class="reveal cc-modal" id="cc-modal" role="dialog" data-close-on-click="false" data-close-on-esc="false" aria-modal="true" data-reveal>
-  <div class="reveal__header">
-    <h3 class="reveal__title">
-      <%= t("layouts.decidim.cookie_consent.modal.title") %>
-    </h3>
-    <p>
-      <%= t("layouts.decidim.cookie_consent.modal.description") %>
-    </p>
-  </div>
-
-  <div class="cc-categories">
-    <% categories.each do |category| %>
-      <%= render(
-        {
-          view: :category,
-          locals: {
-            category: category
-          }
-        }
-      ) %>
-    <% end %>
-  </div>
-
-  <div class="cc-buttons-wrapper flex-center">
-    <div class="cc-buttons-left">
-      <button id="cc-modal-accept" class="button" data-close>
-        <%= t("layouts.decidim.cookie_consent.modal.accept_all") %>
-      </button>
-      <button id="cc-modal-reject" class="button hollow" data-close>
-        <%= t("layouts.decidim.cookie_consent.modal.accept_only_essential") %>
-      </button>
-    </div>
-    <div class="cc-buttons-right">
-      <button id="cc-modal-save" class="button clear" data-close>
-        <%= t("layouts.decidim.cookie_consent.modal.save_settings") %>
-      </button>
+<%= decidim_modal id: "dc-modal" do %>
+  <div data-dialog-container>
+    <h2 id="dialog-title-dc-modal" tabindex="-1" data-dialog-title><%= t("layouts.decidim.data_consent.modal.title") %></h2>
+    <div>
+      <p id="dialog-desc-dc-modal">
+        <%= t("layouts.decidim.data_consent.modal.description") %>
+      </p>
+      <div class="mt-8" data-component="accordion" data-multiselectable="false">
+        <% categories.each do |category| %>
+          <%= render(
+            {
+              view: :category,
+              locals: {
+                category:
+              }
+            }
+          ) %>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
+
+  <div data-dialog-actions>
+    <button id="dc-modal-accept" class="button button__sm md:button__lg button__transparent-secondary" data-dialog-close="dc-modal">
+      <%= t("layouts.decidim.data_consent.modal.accept_all") %>
+    </button>
+    <button id="dc-modal-reject" class="button button__sm md:button__lg button__transparent-secondary" data-dialog-close="dc-modal">
+      <%= t("layouts.decidim.data_consent.modal.accept_only_essential") %>
+    </button>
+    <button id="dc-modal-save" class="button button__sm md:button__lg button__secondary" data-dialog-close="dc-modal">
+      <span><%= t("layouts.decidim.data_consent.modal.save_settings") %></span>
+      <%= icon "save-line" %>
+    </button>
+  </div>
+<% end %>

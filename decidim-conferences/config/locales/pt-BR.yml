@@ -5,7 +5,6 @@ pt-BR:
         assemblies_ids: Assembleias Relacionadas
         available_slots: Vagas disponíveis
         banner_image: Imagem de banner
-        consultations_ids: Consultas Relacionadas
         copy_categories: Copiar categorias
         copy_components: Copiar componentes
         copy_features: Copiar recursos
@@ -28,7 +27,6 @@ pt-BR:
         show_statistics: Mostre estatisticas
         sign_date: Data de assinatura
         signature: Assinatura
-        signature_name: nome da assinatura
         slogan: Slogan
         slug: Lesma de URL
         start_date: Data de início
@@ -37,13 +35,11 @@ pt-BR:
         date: Data
         link: Link
         title: Título
-        weight: Peso
       conference_partner:
         link: Link
         logo: Logo
         name: Nome
         partner_type: Tipo de parceiro
-        weight: Peso
       conference_registration_invite:
         email: E-mail
         name: Nome
@@ -53,25 +49,17 @@ pt-BR:
         description: Descrição
         price: Preço
         title: Título
-        weight: Peso
       conference_speaker:
         affiliation: Afiliação
         avatar: Avatar
         conference_meeting_ids: Reuniões relacionadas
         full_name: Nome completo
         position: Posição
-        twitter_handle: Manipulador do Twitter
         user_id: Usuário
       conference_user_role:
         email: O email
         name: Nome
         role: Função
-    errors:
-      models:
-        conference_registration_invite:
-          attributes:
-            email:
-              already_invited: Este email já foi convidado
   activerecord:
     models:
       decidim/conference:
@@ -87,7 +75,6 @@ pt-BR:
     admin:
       actions:
         confirm: confirme
-        new_conference: Nova conferência
         send_diplomas: Envie certificados de participação
       conference_copies:
         new:
@@ -131,8 +118,6 @@ pt-BR:
         edit:
           title: Atualize o usuário da conferência.
           update: Atualizar
-        index:
-          conference_admins_title: usuários da conferência
         new:
           create: Crio
           title: Novo usuário da conferência.
@@ -150,7 +135,6 @@ pt-BR:
         form:
           title: Informação geral
         index:
-          not_published: Não publicado
           published: Publicados
         new:
           create: Crio
@@ -191,7 +175,6 @@ pt-BR:
           conference_invites: Convites
           conference_speakers: caixas de som
           diploma: Certificado de participação
-          info: Informações
           media_links: Links de Mídia
           moderations: Moderações
           partners: Parceiros
@@ -202,7 +185,6 @@ pt-BR:
         conference:
           fields:
             created_at: Criado em
-            promoted: Promovido
             published: Publicados
             title: Título
         conference_speaker:
@@ -325,9 +307,6 @@ pt-BR:
         title: caixas de som
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'Os slugs de URL são usados ​​para gerar as URLs que apontam para esta conferência. Aceita apenas letras, números e traços e deve começar com uma letra. Exemplo: %{url}'
         conference_invites:
           create:
             error: Houve um problema ao convidar o usuário para participar da conferência.
@@ -344,12 +323,10 @@ pt-BR:
               all: Todos
               rejected: Rejeitado
               sent: Enviei
-            filter_by: Filtrar por
             invite_attendee: Convidar participante
             invites: Convites
             search: Pesquisa
           new:
-            explanation: O usuário será convidado a participar de uma conferência. Se o email não estiver registrado, ele será convidado para a organização também.
             invite: Convite
             new_invite: Convidar Usuário
         conference_registrations:
@@ -369,7 +346,6 @@ pt-BR:
             registrations_count:
               one: Houve 1 registro.
               other: Houve %{count} inscrições.
-            slug_help: 'Os slugs de URL são usados ​​para gerar as URLs que apontam para esta conferência. Aceita apenas letras, números e traços e deve começar com uma letra. Exemplo: %{url}'
         diplomas:
           edit:
             save: Salve 
@@ -377,7 +353,7 @@ pt-BR:
         invite_join_conference_mailer:
           invite:
             decline: Recusar convite '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} convidou você para participar de uma conferência em %{application}. Você pode recusar ou aceitá-lo através dos links abaixo."
+            invited_existing_user_to_join_a_conference: "%{invited_by} convidou você para participar de uma conferência em %{application}. Você pode recusar ou aceitá-lo através dos links abaixo."
             registration: Registro para '%{conference_title}'
         partners:
           index:
@@ -402,18 +378,11 @@ pt-BR:
           cancel: Cancelar
           confirm: confirme
         show:
-          free: Livre
           going: Indo
           no_slots_available: Não há slots disponíveis
           registration: Cadastro
       conference_program:
-        program_meeting:
-          content: Conteúdo
-          location: Localização
-          speakers: Alto-falantes
-          streaming: Transmissão
         show:
-          day: Dia
           program: Programa
       conference_registration_mailer:
         confirmation:
@@ -435,7 +404,6 @@ pt-BR:
           invalid: Houve um problema ao sair desta conferência.
           success: Você saiu da conferência com sucesso.
       conference_speaker:
-        go_to_twitter: Vá para o Twitter
         more_info: mais informações
         personal_website: Site pessoal
         show:
@@ -444,18 +412,12 @@ pt-BR:
       conference_speaker_cell:
         personal_url:
           personal_website: Site pessoal
-        twitter_handle:
-          go_to_twitter: Vá para o Twitter
-      conference_speakers:
-        index:
-          speakers: caixas de som
       conferences:
         partners:
           collaborators: Parceiros
           main_promotors: Organizadores
         show:
           login_as: Você está logado como %{name} <%{email}>
-          make_conference_registration: 'Faça seu cadastro na conferência:'
           register: Registrar-se
       content_blocks:
         highlighted_conferences:
@@ -463,11 +425,6 @@ pt-BR:
       index:
         title: Conferências
       mailer:
-        conference_registration_mailer:
-          confirmation:
-            subject: O registro da sua conferência foi confirmado
-          pending_validation:
-            subject: O registro da sua conferência está pendente de confirmação
         invite_join_conference_mailer:
           invite:
             subject: Convite para participar de uma conferência
@@ -498,38 +455,18 @@ pt-BR:
       pages:
         home:
           highlighted_conferences:
-            active_conferences: Conferências ativas
-            conferences_button_title: Link para a página de Conferências exibindo todas as conferências
-            see_all_conferences: Veja todas as conferências
-      photo:
-        image:
-          attributes:
-            alt: Imagem da mídia
-        show:
-          close_modal: Fechar modal
-          photo: Foto
-      photos_list:
-        show:
-          related_photos: Fotos
+            active_spaces: Conferências ativas
       registration_types:
         index:
           choose_an_option: 'Escolha sua opção de registro:'
-          login_as: Você está logado como %{name} <%{email}>
           no_registrations: Sem inscrições
           register: registo
           title: Tipos de registro
-      shared:
-        conference_user_login:
-          already_account: Você já tem uma conta na decidim?
-          new_user: Novo usuário?
-          sign_in: Entre para se inscrever na conferência
-          sign_up: Crie uma conta no decidim para se inscrever na conferência
       show:
         details: Detalhes
         introduction: Introdução
         objectives: Objetivos
         related_assemblies: Assembleias Relacionadas
-        related_consultations: Consultas Relacionadas
         related_participatory_processes: Processos participativos relacionados
     events:
       conferences:
@@ -568,10 +505,6 @@ pt-BR:
           contextual: "<p>Uma <strong>conferência</strong> é uma coleção de reuniões organizadas em um programa, com várias pessoas convidadas como palestrantes, e outros campos de informação típicos de grandes congressos ou eventos sociais (registro, lista de organizações que apoiam ou patrocinam o evento, etc.).</p> <p>Exemplos: Uma conferência pode ser um evento relevante para uma organização e seus membros, ou realiza como parte de um processo participativo ou segue uma consulta.</p>\n"
           page: "<p>Uma <strong>conferência</strong> é uma coleção de reuniões organizadas em um programa, com várias pessoas convidadas como palestrantes, e outros campos de informação típicos de grandes congressos ou eventos sociais (registro, lista de organizações que apoiam ou patrocinam o evento, etc.).</p> <p>Exemplos: Uma conferência pode ser um evento relevante para uma organização e seus membros, ou realiza como parte de um processo participativo ou segue uma consulta.</p>\n"
           title: O que são conferências?
-    log:
-      value_types:
-        conference_presenter:
-          not_found: 'A conferência não foi encontrada no banco de dados (ID: %{id})'
     media:
       index:
         description: Links sobre esta conferência
@@ -588,9 +521,6 @@ pt-BR:
     decidim:
       conference_hero:
         register: registo
-      conference_widgets:
-        show:
-          take_part: Participar
       conferences:
         conference:
           more_info: Mais informações
@@ -601,11 +531,7 @@ pt-BR:
           conferences:
             one: "%{count} conferência"
             other: "%{count} conferências"
-        promoted_conference:
-          more_info: Mais informações
-          take_part: Participar
       conferences_nav:
-        conference_menu_item: Informação
         conference_partners_menu_item: Parceiros
         conference_speaker_menu_item: Alto-falantes
         media: Mídia

@@ -7,13 +7,13 @@ module Decidim
     let(:user_group) { create(:user_group, :confirmed) }
     let(:renderer) { described_class.new(content) }
     let(:presenter) { Decidim::UserGroupPresenter.new(user_group) }
-    let(:profile_url) { "http://#{user_group.organization.host}/profiles/#{user_group.nickname}" }
+    let(:profile_url) { "http://#{user_group.organization.host}:#{Capybara.server_port}/profiles/#{user_group.nickname}" }
 
     context "when content has a valid Decidim::UserGroup Global ID" do
       let(:content) { "This text contains a valid Decidim::UserGroup Global ID: #{user_group.to_global_id}" }
 
       it "renders the mention" do
-        expect(renderer.render).to eq(%(This text contains a valid Decidim::UserGroup Global ID: <a class="user-mention" href="#{profile_url}">@#{user_group.nickname}</a>))
+        expect(renderer.render).to eq(%(This text contains a valid Decidim::UserGroup Global ID: <a data-external-link="false" href="#{profile_url}">@#{user_group.nickname}</a>))
       end
     end
 
@@ -22,7 +22,7 @@ module Decidim
 
       it "renders the two mentions" do
         rendered = renderer.render
-        mention = %(<a class="user-mention" href="#{profile_url}">@#{user_group.nickname}</a>)
+        mention = %(<a data-external-link="false" href="#{profile_url}">@#{user_group.nickname}</a>)
         expect(rendered.scan(mention).length).to eq(2)
       end
     end
@@ -54,8 +54,20 @@ module Decidim
 
       it "ensure regex does not match across multiple gids" do
         rendered = renderer.render
-        mention = %(<a class="user-mention" href="#{profile_url}">@#{user_group.nickname}</a>)
+        mention = %(<a data-external-link="false" href="#{profile_url}">@#{user_group.nickname}</a>)
         expect(rendered.scan(mention).length).to eq(2)
+      end
+    end
+
+    context "when rendering for editor" do
+      let(:content) { "This text contains a valid Decidim::UserGroup Global ID: #{user_group.to_global_id}" }
+      let(:mention) { "@#{user_group.nickname}" }
+      let(:label) { "#{mention} (#{CGI.escapeHTML(user_group.name)})" }
+
+      it "renders the hashtag wrapper for the editor" do
+        expect(renderer.render(editor: true)).to eq(
+          %(This text contains a valid Decidim::UserGroup Global ID: <span data-type="mention" data-id="#{mention}" data-label="#{label}">#{label}</span>)
+        )
       end
     end
   end

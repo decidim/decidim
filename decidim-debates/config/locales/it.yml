@@ -50,7 +50,6 @@ it:
         confirm_destroy: Sei sicuro?
         destroy: Elimina
         edit: Modifica
-        new: Nuovo %{name}
         title: Azioni
       admin:
         debate_closes:
@@ -80,9 +79,6 @@ it:
             success: Dibattito aggiornato con successo.
         exports:
           comments: Commenti
-        models:
-          debate:
-            name: Dibattito
       admin_log:
         debate:
           close: "%{user_name} ha chiuso il dibattito %{resource_name} sullo spazio %{space_name}"
@@ -95,7 +91,6 @@ it:
           invalid: Si è verificato un errore durante la chiusura del dibattito.
           success: Dibattito chiuso con successo.
         close_debate_modal:
-          close: Chiudi
           description: Qual è la sintesi o la conclusione di questo dibattito?
           send: Chiudi dibattito
         closed: Chiuso
@@ -122,18 +117,11 @@ it:
           official: Ufficiale
           origin: Origine
           participants: Partecipanti
-          scope: Ambito
           search: Ricerca
           state: Stato
           state_values:
             closed: Chiuso
             open: Apri
-          user_groups: Gruppi
-        filters_small_view:
-          close_modal: Chiudi modalità
-          filter: Filtro
-          filter_by: Filtra per
-          unfold: Espandi
         form:
           select_a_category: Si prega di selezionare una categoria
         index:
@@ -149,7 +137,6 @@ it:
           recent: Più recenti
           updated: Aggiornato di recente
         show:
-          back: Torna alla lista
           close_debate: Chiudi dibattito
           date: Data
           debate_closed: Chiuso
@@ -157,23 +144,11 @@ it:
           edit_conclusions: Modifica conclusioni
           edit_debate: Modifica dibattito
           groups_count: Gruppi
-          last_comment_by: Ultimo commento di
-          no_comments_yet: Ancora nessun commento
           open: Apri il dibattito
           participants_count: Partecipanti
         update:
           invalid: C'è stato un problema durante l'aggiornamento di questo dibattito.
           success: Dibattito aggiornato con successo.
-        versions:
-          debates:
-            back_to_resource: Torna al dibattito
-          index:
-            title: Versioni
-        versions_list:
-          back_to_resource: Torna al dibattito
-      last_activity:
-        debate_updated_at_html: "<span>Dibattito aggiornato su %{link}</span>"
-        new_debate_at_html: "<span>Nuovo dibattito al %{link}</span>"
       models:
         debate:
           fields:
@@ -207,7 +182,6 @@ it:
           email_intro: 'Ora puoi iniziare nuovi dibattiti su %{participatory_space_title}! Inizia a partecipare a questa pagina:'
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
           email_subject: Discussioni ora disponibili in %{participatory_space_title}
-          notification_title: Ora puoi iniziare <a href="%{resource_path}">nuovi dibattiti</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         debate_closed:
           affected_user:
             email_intro: 'La discussione "%{resource_title}" si è conclusa. Puoi leggere le conclusioni sulla pagina:'
@@ -230,7 +204,6 @@ it:
           name: Dibattiti
           next_level_in: Partecipa a %{score} altri dibattiti per raggiungere il livello successivo!
           unearned_another: Questo utente non ha ancora partecipato a nessun dibattito.
-          unearned_own: Hai partecipato a qualche dibattito ancora.
     metrics:
       debates:
         description: Numero di dibattiti creati

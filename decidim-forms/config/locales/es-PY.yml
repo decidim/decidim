@@ -23,7 +23,7 @@ es-PY:
               missing: no están completos
               too_many: son demasiados
         questionnaire:
-          request_invalid: Ha ocurrido un error al enviar tu solicitud. Inténtalo de nuevo
+          request_invalid: Ha ocurrido un error al enviar tu solicitud. Por favor, Inténtalo de nuevo.
   decidim:
     forms:
       admin:
@@ -44,6 +44,8 @@ es-PY:
             actions:
               back: Volver a las respuestas
               export: Exportar
+              next: Siguiente &rsaquo;
+              previous: "&lsaquo; Anterior"
               show: Mostrar las respuestas
             empty: Aún no hay respuestas
             export:
@@ -127,8 +129,6 @@ es-PY:
       errors:
         answer:
           body: El campo no puede estar en blanco
-      files:
-        extension_allowlist: 'Formatos de archivo aceptados:'
       images:
         dimensions: "%{width} x %{height} px"
         processors:
@@ -144,6 +144,8 @@ es-PY:
         single_option: Opción única
         sorting: Ordenación
         title_and_description: Titulo y descripción
+      questionnaire_answer_presenter:
+        download_attachment: Descargar el archivo adjunto
       questionnaires:
         answer:
           invalid: Ha habido errores al responder al cuestionario.
@@ -153,7 +155,10 @@ es-PY:
           max_choices: 'Opciones máximas: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Inicia sesión con tu cuenta</a> o <a href="%{sign_up_link}">regístrese</a> para responder al cuestionario.
+            already_have_an_account?: '¿Ya tienes una cuenta?'
+            are_you_new?: '¿Eres una nueva usuaria?'
+            sign_in_description: Inicia tu sesión para responder la encuesta
+            sign_up_description: Crea una cuenta de participante para realizar la encuesta
             title: Responde al cuestionario
           current_step: Paso %{step}
           of_total_steps: de %{total_steps}

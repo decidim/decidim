@@ -3,7 +3,7 @@
 require "spec_helper"
 describe "Report Comment", type: :system do
   let!(:organization) { create(:organization) }
-  let(:user) { create :user, :confirmed, organization: }
+  let(:user) { create(:user, :confirmed, organization:) }
   let(:participatory_space) { commentable }
   let(:participatory_process) { commentable }
   let!(:commentable) { create(:initiative, organization:) }

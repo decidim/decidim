@@ -55,8 +55,10 @@ module Decidim
       end
     end
 
-    def document_cleanup!
-      documents_attached_to.documents.each do |document|
+    def document_cleanup!(include_all_attachments: false)
+      documents = include_all_attachments ? documents_attached_to.attachments.with_attached_file : documents_attached_to.documents
+
+      documents.each do |document|
         document.destroy! if @form.documents.map(&:id).exclude? document.id
       end
 

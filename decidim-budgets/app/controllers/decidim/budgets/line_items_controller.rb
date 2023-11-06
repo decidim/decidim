@@ -9,7 +9,7 @@ module Decidim
       helper_method :budget, :project
 
       def create
-        enforce_permission_to :vote, :project, project: project, budget: budget, workflow: current_workflow
+        enforce_permission_to :vote, :project, project:, budget:, workflow: current_workflow
 
         respond_to do |format|
           AddLineItem.call(persisted_current_order, project, current_user) do
@@ -44,11 +44,11 @@ module Decidim
       private
 
       def project
-        @project ||= Project.includes(:budget).find_by(id: params[:project_id], decidim_budgets_budget_id: params[:budget_id])
+        @project ||= budget&.projects&.find_by(id: params[:project_id])
       end
 
       def budget
-        @budget ||= project.budget
+        @budget ||= Budget.find_by(id: params[:budget_id], component: current_component)
       end
     end
   end

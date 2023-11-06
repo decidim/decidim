@@ -6,7 +6,6 @@ module Decidim
       # This command is executed when the user destroys an Election
       # from the admin panel.
       class DestroyElection < Decidim::Command
-        include ::Decidim::AttachmentMethods
         include ::Decidim::GalleryMethods
 
         def initialize(election, current_user)
@@ -31,7 +30,7 @@ module Decidim
         attr_reader :election, :current_user
 
         def invalid?
-          election.started?
+          election.blocked?
         end
 
         def destroy_election!

@@ -1,27 +1,28 @@
-<div class="card card--activity" id="<%= element_id %>">
-  <div class="card__content">
-    <div class="card__text">
-      <div class="text-medium">
-        <% if title.present? %>
+<div class="activity" data-activity>
+  <div class="activity__time">
+    <%= created_at %>
+  </div>
+  <div class="activity__content">
+    <span>
+      <% if title.present? %>
+        <span>
+          <%= title_icon %>
           <%= title %>
-        <% end %>
-      </div>
-    </div>
-    <div class="card__author inline-block">
-      <%= author_data = author %>
-    </div><div class="card__activity-date inline-block <%= "before-content" if author_data.present? %>">
-      <span class="text-medium mt-xs"><%= created_at %></span>
-    </div>
-    <div class="card__header mb-none">
-      <%= link_to resource_link_path, class: "card__link" do %>
-        <span class="card__title mb-none">
-          <% @sanitized_resource_link_text = html_truncate decidim_sanitize(resource_link_text, strip_tags: true), length: 80 %>
-          <%= @sanitized_resource_link_text %>
         </span>
       <% end %>
-      <% if description.present? && @sanitized_resource_link_text.present? %>
-        <%= html_truncate decidim_sanitize(description, strip_tags: true), length: 80 %>
-      <% end %>
-    </div>
+      <a href="<%= resource_link_path %>">
+        <%= html_truncate decidim_sanitize(resource_link_text, strip_tags: true), length: 80 %>
+      </a>
+    </span>
+    <% unless hide_participatory_space? %>
+      <span>
+        <%= participatory_space_link %>
+      </span>
+    <% end %>
   </div>
+  <% if show_author? %>
+    <div class="activity__author">
+      <%= author %>
+    </div>
+  <% end %>
 </div>

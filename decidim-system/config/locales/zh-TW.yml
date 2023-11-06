@@ -1,1 +1,186 @@
 zh-TW:
+  activemodel:
+    attributes:
+      oauth_application:
+        name: '"OAuth應用程式名稱'
+        organization_logo: 組織標誌 (方形)
+        organization_name: 組織
+        organization_url: 組織網址 URL
+        redirect_uri: 重新導向 URI
+      organization:
+        address: SMTP 主機名稱
+        from_email: 電子郵件地址
+        from_label: 標籤
+        password: 密碼
+        port: 通訊埠
+        user_name: 使用者名稱
+      organization_file_uploads:
+        allowed_content_types:
+          admin: 管理員 MIME 類型
+          default: 預設 MIME 類型
+        allowed_file_extensions:
+          admin: 管理員檔案副檔名
+          default: 預設檔案副檔名
+          image: 圖片檔案副檔名
+        maximum_file_size:
+          avatar: 頭像檔案大小
+          default: 預設檔案大小
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: 重導向 URI 必須是 SSL URI
+  decidim:
+    system:
+      actions:
+        confirm_destroy: 是否確定要刪除這個？
+        destroy: 刪除
+        edit: 編輯
+        save: 儲存
+        title: 操作
+      admins:
+        create:
+          error: 新增管理員時發生問題
+          success: 管理員創建成功.
+        destroy:
+          success: 管理員成功刪除.
+        edit:
+          title: 編輯管理貝
+          update: 更新
+        index:
+          title: 管理員
+        new:
+          create: 建立
+          title: 新增管理員
+        update:
+          error: 更新此管理員時發生問題。
+          success: 管理員已成功更新.
+      dashboard:
+        show:
+          current_organizations: 目前組織
+      default_pages:
+        placeholders:
+          content: 請在管理員儀表板的 %{page} 靜態頁面上新增有意義的內容。
+          summary: 請在管理員儀表板的 %{page} 靜態頁面上新增有意義的摘要
+          title: 預設的 %{page} 標題
+        terms-of-service: 服務條款
+      menu:
+        admins: 管理員
+        dashboard: 儀表板
+        oauth_applications: Oauth 應用程式
+        organizations: 組織
+      models:
+        admin:
+          fields:
+            created_at: 建立於
+            email: 電子郵件
+          validations:
+            email_uniqueness: 已有相同電子郵件的其他管理員存在
+        oauth_application:
+          fields:
+            created_at: 建立於
+            name: OAuth 應用程式名稱
+            organization_name: 組織
+        organization:
+          actions:
+            save_and_invite: 建立組織並邀請管理員
+          fields:
+            created_at: 建立於
+            file_upload_settings: 檔案上傳設定
+            name: 姓名
+            omniauth_settings: Omniauth 設置
+            smtp_settings: SMTP設定
+      oauth_applications:
+        create:
+          error: 創建應用程序時出現問題。
+          success: 應用程序已成功創建。
+        destroy:
+          error: 刪除應用程式時發生問題。
+          success: 應用程式已成功刪除。
+        edit:
+          save: 儲存
+          title: 編輯應用程式
+        form:
+          select_organization: 選擇一個組織。
+        index:
+          confirm_delete: 你確定要刪除這個應用程式?
+          title: Oauth 應用程式
+        new:
+          save: 儲存
+          title: 新增應用程式
+        update:
+          error: 更新應用程式時發生問題。
+          success: 應用程式已成功更新。
+      organizations:
+        advanced_settings:
+          hide: 隱藏進階設定
+          show: 顯示進階設定
+        create:
+          error: 創建新組織時發生問題。
+          success: 組織創建成功。
+        edit:
+          secondary_hosts_hint: 請在新的一行輸入每一個
+        file_upload_settings:
+          content_types:
+            admin_hint: 這些MIME類型允許管理員部分上傳。管理員用戶應該意識到上傳某些文檔格式的風險，因此您可以期望他們對文件上傳更加謹慎。
+            default_hint: 這些MIME類型默認情況下允許所有用戶使用。
+            intro_html: 您可以使用星號符號添加通配符來匹配 MIME 類型，例如<code>image/*</code>。
+            title: 允許的 MIME 類型
+          file_extensions:
+            admin_hint: 這些檔案副檔名可用於管理員區塊上傳。管理員用戶應該意識到上傳某些文件格式的風險，因此您可以期望他們在文件上傳時更加謹慎。
+            default_hint: 這些檔案副檔名預設是允許所有使用者上傳的。
+            image_hint: 這些檔案副檔名是用於任何類型的圖片上傳。
+            title: 允許的文件擴展名
+          file_sizes:
+            avatar_hint: 以 (MB) 為單位。此檔案大小限制用於頭像圖片上傳。
+            default_hint: 以兆位元組(MB) 為單位。此檔案大小限制是預設的，除非另有指定，否則適用於所有檔案上傳。
+            title: 最大的文件大小
+          intro: |
+            請在考慮更改這些設置時格外小心。允許的內容類型越少越好。
+            允許特定的文件擴展名或MIME類型可能會使系統使用者面臨安全風險，也可能會影響網站的可訪問性。
+        index:
+          title: 組織
+        new:
+          reference_prefix_hint: 參考前綴用於唯一標識所有組織中的資源.
+          secondary_hosts_hint: 請在新的一行輸入每一個.
+          title: 新增組織
+        omniauth_settings:
+          decidim:
+            client_id: 客戶端ID
+            client_secret: 客戶端金鑰
+            site_url: 網站 URL
+          enabled: 已啟用
+          enabled_by_default: 這個提供者是默認啟用的。它可以被編輯，但不能被禁用。
+          facebook:
+            app_id: 應用程式 ID
+            app_secret: 應用程式密鑰
+          google_oauth2:
+            client_id: 客戶端ID
+            client_secret: 客戶端金鑰
+          icon: 圖示
+          icon_path: 圖示路徑
+          twitter:
+            api_key: API 金鑰
+            api_secret: API 秘密
+        smtp_settings:
+          fieldsets:
+            sender: 寄件者
+          instructions:
+            from_label: '郵件發送者將會是："您的組織名稱 <your-organization@example.org>"。若要使用「電子郵件地址」作為標籤，請留空.'
+          placeholder:
+            from_email: your-organization@example.org
+            from_label: 你的組織名稱
+        update:
+          error: 更新此組織時發生問題。
+          success: 組織已成功更新。
+        users_registration_mode:
+          disabled: 只能使用外部帳戶進行存取
+          enabled: 允許參與者註冊和登錄
+          existing: 不允許參與者註冊，但允許現有參與者登錄
+      shared:
+        notices:
+          no_organization_warning_html: 你必須先建立一個組織才能開始。請確認在繼續前已閱讀 %{guide}。
+          our_getting_started_guide: 我們的入門指南
+      titles:
+        dashboard: 儀表板

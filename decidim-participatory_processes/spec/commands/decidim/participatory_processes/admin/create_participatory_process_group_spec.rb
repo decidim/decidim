@@ -6,8 +6,8 @@ module Decidim::ParticipatoryProcesses
   describe Admin::CreateParticipatoryProcessGroup do
     subject { described_class.new(form) }
 
-    let(:organization) { create :organization }
-    let(:current_user) { create :user, :admin, organization: }
+    let(:organization) { create(:organization) }
+    let(:current_user) { create(:user, :admin, organization:) }
     let(:errors) { double.as_null_object }
     let(:form) do
       instance_double(

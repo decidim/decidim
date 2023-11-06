@@ -23,7 +23,7 @@ describe "Locales", type: :system do
       within_language_menu do
         expect(page).to have_content("Català")
         expect(page).to have_content("English")
-        expect(page).to have_no_content("Castellano")
+        expect(page).not_to have_content("Castellano")
       end
     end
 
@@ -32,7 +32,7 @@ describe "Locales", type: :system do
         click_link "Català"
       end
 
-      click_link "Inici"
+      click_link "Inici", match: :first
 
       expect(page).to have_content("Inici")
     end
@@ -44,11 +44,11 @@ describe "Locales", type: :system do
 
       visit decidim_admin.root_path
 
-      expect(page).to have_content("Has d'iniciar la sessió o registrar-te abans de continuar.")
+      expect(page).to have_content("Cal iniciar sessió o registrar-te abans de continuar.")
     end
 
     it "displays devise messages with the right locale when authentication fails" do
-      click_link "Sign In"
+      click_link "Log in", match: :first
 
       within_language_menu do
         click_link "Català"
@@ -57,7 +57,7 @@ describe "Locales", type: :system do
       fill_in "session_user_email", with: "toto@example.org"
       fill_in "session_user_password", with: "toto"
 
-      click_button "Iniciar sessió"
+      click_button "Entra"
 
       expect(page).to have_content("Email o la contrasenya no són vàlids.")
     end

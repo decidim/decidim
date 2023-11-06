@@ -1,0 +1,45 @@
+<% add_decidim_page_title(t(".title")) %>
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t(".title") %>
+  </h2>
+</div>
+
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <%= form_for(@form, url: projects_import_index_path(@accountability), html: { class: "form form-defaults import_projects" }) do |f| %>
+      <% if @form.origin_components.any? %>
+        <div class="form__wrapper">
+          <div class="card pt-4">
+            <div class="card-section">
+              <div class="row column">
+                <%= f.select :origin_component_id, @form.origin_components_collection, prompt: t(".select_component"), label: t(".origin_component_id") %>
+              </div>
+              <div class="row column">
+                <% @form.origin_components.each do |component| %>
+                  <small id="component_<%= component.id %>" class="help-text hide
+                    <%= " form-error is-visible" if @form.selected_projects_count(component).zero? %>">
+                    <%= t(".new_items", count: @form.selected_projects_count(component)) %>
+                  </small>
+                <% end %>
+              </div>
+              <div class="row column">
+                <%= f.check_box :import_all_selected_projects, label: t(".import_all_selected_projects") %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="item__edit-sticky">
+          <div class="item__edit-sticky-container">
+            <%= f.submit t(".create"), class: "button button__sm button__secondary" %>
+          </div>
+        </div>
+      <% else %>
+        <p><%= t(".no_components") %></p>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<%= append_javascript_pack_tag "decidim_accountability_admin_imports" %>

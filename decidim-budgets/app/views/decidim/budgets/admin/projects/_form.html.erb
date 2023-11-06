@@ -1,51 +1,47 @@
-<div class="card">
-  <div class="card-divider">
-    <h2 class="card-title">
-      <%= title.html_safe %>
-    </h2>
-  </div>
-
-  <div class="card-section">
-    <div class="row column">
-      <%= form.translated :text_field, :title, autofocus: true %>
-    </div>
-
-    <div class="row column">
-      <%= form.translated :editor, :description %>
-    </div>
-
-    <div class="row column">
-      <%= form.number_field :budget_amount %>
-    </div>
-
-    <% if @form.geocoding_enabled? %>
+<div class="form__wrapper">
+  <div class="card pt-4">
+    <div class="card-section">
       <div class="row column">
-        <%= form.geocoding_field :address %>
+        <%= form.translated :text_field, :title, autofocus: true, aria: { label: :title } %>
       </div>
-    <% end %>
 
-    <% if current_component.has_subscopes? %>
       <div class="row column">
-        <%= scopes_picker_field form, :decidim_scope_id, root: budget.scope %>
+        <%= form.translated :editor, :description, aria: { label: :description } %>
       </div>
-    <% end %>
 
-    <div class="row column">
-      <%= form.categories_select :decidim_category_id, current_participatory_space.categories, include_blank: true, disable_parents: false %>
-    </div>
+      <div class="row column">
+        <%= form.number_field :budget_amount %>
+      </div>
+
+      <% if @form.geocoding_enabled? %>
+        <div class="row column">
+          <%= form.geocoding_field :address %>
+        </div>
+      <% end %>
+
+      <% if current_component.has_subscopes? %>
+        <div class="row column">
+          <%= scopes_select_field form, :decidim_scope_id, root: budget.scope %>
+        </div>
+      <% end %>
+
+      <div class="row column">
+        <%= form.categories_select :decidim_category_id, current_participatory_space.categories, include_blank: true, disable_parents: false %>
+      </div>
 
     <% if Decidim::Budgets.enable_proposal_linking %>
       <div class="row column">
-        <%= proposals_picker(form, :proposals, proposals_picker_projects_path) %>
+        <%= render partial: "decidim/proposals/proposals/proposals_picker.html.erb", locals: { form:, field: :proposals } %>
       </div>
     <% end %>
 
-    <%= render partial: "decidim/admin/shared/gallery", locals: { form: form } %>
+      <%= render partial: "decidim/admin/shared/gallery", locals: { form: } %>
 
-    <% if form.object.persisted? %>
-      <div class="row column">
-        <%= form.check_box :selected %>
-      </div>
-    <% end %>
+      <% if form.object.persisted? %>
+        <div class="row column">
+          <%= form.check_box :selected %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

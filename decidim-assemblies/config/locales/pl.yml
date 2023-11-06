@@ -4,6 +4,7 @@ pl:
       assemblies_setting:
         enable_organization_chart: Włącz wykres dla organizacji
       assembly:
+        announcement: Powiadomienie
         area_id: Kategoria
         assembly_type: Typ zespołu
         assembly_type_other: Typ zespołu inny
@@ -51,7 +52,6 @@ pl:
         subtitle: Podtytuł
         target: Do kogo kierowane
         title: Tytuł
-        twitter: Twitter
         weight: Kolejność na stronie
         youtube: YouTube
       assembly_member:
@@ -68,12 +68,6 @@ pl:
         email: E-mail
         name: Imię
         role: Rola
-    errors:
-      models:
-        assembly:
-          attributes:
-            document:
-              allowed_file_content_types: 'Nieprawidłowy typ dokumentu. Akceptowane formaty to: %{types}'
   activerecord:
     models:
       decidim/assembly:
@@ -104,7 +98,6 @@ pl:
         edit:
           update: Aktualizuj
         index:
-          not_published: Nieopublikowane
           private: Prywatny
           public: Publiczny
           published: Opublikowany
@@ -202,7 +195,6 @@ pl:
           attachments: Załączniki
           categories: Kategorie
           components: Komponenty
-          info: Informacje
           moderations: Moderacje
           private_users: Prywatni użytkownicy
         assemblies_types: Typy zespołów
@@ -248,6 +240,9 @@ pl:
     admin_log:
       assembly:
         create: "%{user_name} utworzył(a) zespół %{resource_name}"
+        duplicate: "%{user_name} zduplikował(a) zespół %{resource_name}"
+        export: "%{user_name} wyeksportował(a) zespół %{resource_name}"
+        import: "%{user_name} zaimportował(a) zespół %{resource_name}"
         publish: "%{user_name} upublicznił(a) zespół %{resource_name}"
         unpublish: "%{user_name} anulował(a) publikację zespołu %{resource_name}"
         update: "%{user_name} zaktualizował(a) zespół %{resource_name}"
@@ -282,7 +277,6 @@ pl:
             select_an_area: Wybierz kategorię
             select_an_assembly_type: Wybierz typ zespołu
             select_parent_assembly: Wybierz zespół nadrzędny
-            slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tego zespołu. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
             social_handlers: Profile społecznościowe
             title: Informacje ogólne
             visbility: Widoczność
@@ -294,13 +288,6 @@ pl:
         assemblies_types:
           form:
             title: Tytuł
-        assembly_copies:
-          form:
-            slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tego zespołu. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
-        assembly_imports:
-          form:
-            document_legend: Dodaj dokument
-            slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tego zespołu. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
         assembly_members:
           form:
             existing_user: Istniejący użytkownik
@@ -314,7 +301,6 @@ pl:
               all: Wszystko
               ceased: Byli
               not_ceased: Aktualni
-            filter_by: Filtruj według
             search: Szukaj
         content_blocks:
           highlighted_assemblies:
@@ -352,44 +338,18 @@ pl:
         working_group: Grupa robocza
       index:
         title: Zespoły
-      last_activity:
-        new_assembly: Nowy zespół
       pages:
-        home:
-          highlighted_assemblies:
-            active_assemblies: Aktywne zespoły
-            assemblies_button_title: Link do strony Zespołów wyświetlającej wszystkie zespoły
-            see_all_assemblies: Zobacz wszystkie zespoły
         user_profile:
           member_of:
             member_of: Członek
       show:
-        area: Kategoria
         assembly_type: Typ zespołu
-        children: Zespoły
-        closing_date: Data zamknięcia
-        composition: Skład zespołu
-        created_by: Utworzone przez
-        creation_date: Data utworzenia
-        developer_group: Grupa inicjatorów
         duration: Czas trwania
-        included_at: Dołączono
-        indefinite_duration: Nie określono
-        internal_organisation: Organizacja wewnętrzna
         is_transparent:
           'false': nietransparentny
           'true': transparentny
-        local_area: Obszar organizacji
-        participatory_scope: Zaproponowano
-        participatory_structure: Jak decydowano
         private_space: To jest prywatny zespół
-        purpose_of_action: Cel działania
-        read_less: Czytaj mniej
-        read_more: Czytaj więcej
         related_participatory_processes: Powiązane procesy partycypacyjne
-        scope: Zakres
-        social_networks: Portale społecznościowe
-        target: Do kogo kierowane
     assembly_members:
       assembly_member:
         designated_on: Wyznaczony na
@@ -431,9 +391,6 @@ pl:
         related_assemblies: Powiązane zespoły
     statistics:
       assemblies_count: Zespoły
-  errors:
-    messages:
-      cannot_be_blank: nie może być puste
   layouts:
     decidim:
       assemblies:
@@ -441,22 +398,12 @@ pl:
           more_info: Więcej informacji
           take_part: Dołącz
         index:
-          children: 'Zespoły: '
-          organizational_chart: Schemat organizacyjny
           promoted_assemblies: Wyróżnione zespoły
-          reset_chart: Resetuj
         order_by_assemblies:
           assemblies:
             one: "%{count} zespół"
             few: "%{count} zespoły"
             many: "%{count} zespołów"
             other: "%{count} zespołów"
-        promoted_assembly:
-          more_info: Więcej informacji
-          take_part: Dołącz
       assembly_navigation:
         assembly_member_menu_item: Członkowie
-        assembly_menu_item: Zespół
-      assembly_widgets:
-        show:
-          take_part: Dołącz

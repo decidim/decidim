@@ -10,36 +10,13 @@ describe "Menu", type: :system do
     visit decidim.root_path
   end
 
-  matcher :have_selected_option do |expected|
-    match do |page|
-      page.has_selector?(".main-nav__link--active", count: 1) &&
-        page.has_selector?(".main-nav__link--active", text: expected)
-    end
-  end
-
-  it "renders the default main menu" do
-    within ".main-nav" do
-      expect(page).to \
-        have_selector("li", count: 3) &
-        have_link("Home", href: "/") &
-        have_link("Initiatives", href: "/initiatives") &
-        have_link("Help", href: "/pages")
-    end
-  end
-
-  it "selects the correct default active option" do
-    within ".main-nav" do
-      expect(page).to have_selected_option("Home")
-    end
-  end
-
   context "when clicking on a menu entry" do
     before do
-      click_link "Help"
+      click_link("Help", match: :first)
     end
 
     it "switches the active option" do
-      expect(page).to have_selected_option("Help")
+      expect(page).to have_selector(".menu-bar__breadcrumb-desktop__dropdown-trigger", text: "Help")
     end
 
     context "and clicking on a subpage of that entry" do
@@ -52,36 +29,24 @@ describe "Menu", type: :system do
       end
 
       it "preserves the active option" do
-        expect(page).to have_selected_option("Help")
+        expect(page).to have_selector(".menu-bar__breadcrumb-desktop__dropdown-trigger", text: "Help")
       end
     end
   end
 
-  context "with a user logged in and multiple languages" do
-    let!(:user) { create :user, :confirmed, organization: }
+  context "when rendering a component with special characters" do
+    let(:component_name) { "Collaborative Drafts & Amendments" }
+    let(:participatory_space) { create(:participatory_process, organization:) }
+    let(:proposal_component) { create(:proposal_component, name: { en: component_name }, participatory_space:) }
+    let(:proposal) { create(:proposal, component: proposal_component) }
+    let(:proposal_path) { Decidim::ResourceLocatorPresenter.new(proposal).path }
 
     before do
-      login_as user, scope: :user
-
-      visit decidim.root_path
-
-      within_language_menu do
-        click_link "Català"
-      end
+      visit proposal_path
     end
 
-    after do
-      within_language_menu do
-        click_link "English"
-      end
-    end
-
-    it "works with multiple languages" do
-      visit decidim.root_path
-
-      within ".main-nav" do
-        expect(page).to have_selected_option("Inici")
-      end
+    it "renders the component name correctly" do
+      expect(page).to have_selector(".menu-bar__breadcrumb-desktop__dropdown-wrapper", text: component_name)
     end
   end
 end

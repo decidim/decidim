@@ -14,8 +14,8 @@ describe Decidim::Proposals::Permissions do
       component_settings:
     }
   end
-  let(:proposal_component) { create :proposal_component }
-  let(:proposal) { create :proposal, component: proposal_component }
+  let(:proposal_component) { create(:proposal_component) }
+  let(:proposal) { create(:proposal, component: proposal_component) }
   let(:component_settings) do
     double(vote_limit: 2)
   end
@@ -104,7 +104,7 @@ describe Decidim::Proposals::Permissions do
     end
 
     context "when trying by another user" do
-      let(:user) { build :user }
+      let(:user) { build(:user) }
 
       it { is_expected.to be false }
     end
@@ -146,9 +146,9 @@ describe Decidim::Proposals::Permissions do
       end
 
       before do
-        proposals = create_list :proposal, 2, component: proposal_component
-        create :proposal_vote, author: user, proposal: proposals[0]
-        create :proposal_vote, author: user, proposal: proposals[1]
+        proposals = create_list(:proposal, 2, component: proposal_component)
+        create(:proposal_vote, author: user, proposal: proposals[0])
+        create(:proposal_vote, author: user, proposal: proposals[1])
       end
 
       it { is_expected.to be false }

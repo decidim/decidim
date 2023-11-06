@@ -13,7 +13,7 @@ module Decidim
           ).with_context(current_organization: organization)
         end
 
-        let(:organization) { create :organization }
+        let(:organization) { create(:organization) }
 
         let(:attributes) do
           {

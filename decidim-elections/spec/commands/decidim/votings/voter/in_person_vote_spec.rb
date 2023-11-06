@@ -23,7 +23,7 @@ describe Decidim::Votings::Voter::InPersonVote do
   let(:voter_id) { "voter.1" }
   let(:organization) { create(:organization) }
   let(:component) { create(:elections_component, organization:) }
-  let(:user) { create :user, :confirmed, organization: }
+  let(:user) { create(:user, :confirmed, organization:) }
   let(:voting) { create(:voting, :published, organization:) }
   let(:polling_station) { create(:polling_station, id: 1, voting:) }
   let(:polling_station_slug) { polling_station.slug }

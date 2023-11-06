@@ -1,0 +1,137 @@
+.upload-modal {
+  &__dropzone {
+    @apply bg-background px-5 py-6 rounded max-h-[50vh] overflow-y-auto border-2 border-transparent;
+
+    &[hidden] + &:last-child {
+      @apply py-14;
+    }
+
+    &-container {
+      @apply mt-4 md:mt-12 space-y-4;
+    }
+
+    &-placeholder {
+      @apply w-full flex flex-col md:flex-row items-center justify-between gap-4 font-semibold text-gray-2 text-md [&>span]:inline-flex [&>span]:items-center [&>span]:gap-2;
+    }
+
+    &.is-dragover:not(.is-disabled):last-child {
+      @apply border-2 border-secondary border-dashed bg-background-4 [&_*]:pointer-events-none;
+    }
+
+    [data-filename] {
+      @apply w-full flex flex-col gap-4;
+
+      [data-template] {
+        @apply grow flex flex-col md:flex-row items-center justify-start gap-6;
+
+        > *:first-child {
+          @apply w-24 flex-none flex justify-center;
+        }
+
+        img:not([src^="data:image"]):not(
+            [src^="data:application/octet-stream"]
+          ) {
+          @apply hidden;
+        }
+
+        span {
+          @apply text-gray-2 text-sm;
+        }
+      }
+
+      [data-template="error"] {
+        svg {
+          @apply w-16 h-16 text-primary fill-current;
+        }
+
+        span:nth-child(2) {
+          @apply text-primary font-semibold;
+        }
+
+        li {
+          @apply text-gray-2 text-sm;
+        }
+      }
+
+      [data-template="error"] div:not(:first-child) {
+        @apply flex flex-col gap-2 [&_label]:font-semibold;
+      }
+
+      [data-template="titled"] div:not(:first-child) {
+        @apply flex flex-col md:flex-row justify-start items-stretch gap-6 md:gap-12 grow [&>div]:flex [&>div]:flex-col [&>div]:gap-2 [&>input]:mt-0 [&_label]:font-semibold;
+      }
+
+      img {
+        @apply h-full object-cover;
+      }
+
+      button {
+        @apply w-full md:w-auto md:ml-auto button button__sm button__transparent-primary;
+      }
+
+      progress {
+        @apply w-full h-1 appearance-none rounded-full overflow-hidden;
+
+        &::-webkit-progress-value {
+          @apply bg-success;
+        }
+
+        &::-webkit-progress-bar {
+          @apply bg-white;
+        }
+
+        &::-moz-progress-bar {
+          @apply bg-success;
+        }
+      }
+
+      [data-template="error"] + progress {
+        &::-webkit-progress-value {
+          @apply bg-alert;
+        }
+
+        &::-moz-progress-bar {
+          @apply bg-alert;
+        }
+      }
+
+      & + [data-filename] {
+        @apply mt-6;
+      }
+
+      &:only-child progress {
+        @apply h-4 rounded;
+      }
+    }
+  }
+
+  &__text {
+    @apply text-sm text-gray-2 mt-4 mb-8;
+
+    ul,
+    ol {
+      @apply list-disc pl-4;
+    }
+  }
+
+  &__files {
+    @apply mt-1 space-y-4;
+
+    &-container {
+      @apply space-y-10 [&_label]:block [&_label]:mb-4;
+    }
+
+    /* It does not use regular class names, because it could come from javascript also. Avoid binds among css and js */
+    > * {
+      @apply flex flex-col gap-2;
+
+      div {
+        @apply w-full rounded bg-background flex items-center justify-center py-4 [&_img]:object-cover [&_img]:h-[200px];
+      }
+
+      span {
+        @apply text-sm text-gray-2 mx-auto;
+      }
+    }
+  }
+}

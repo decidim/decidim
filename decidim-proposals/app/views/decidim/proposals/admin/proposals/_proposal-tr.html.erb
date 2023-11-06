@@ -2,25 +2,35 @@
   <td>
     <%= check_box_tag "proposal_ids_s[]", proposal.id, false, class: "js-check-all-proposal js-proposal-list-check  js-proposal-id-#{proposal.id}" %><br>
   </td>
-  <td>
-    <%= proposal.id %><br>
-  </td>
-  <td>
-    <%= link_to(
-     decidim_html_escape(present(proposal).title).html_safe,
-     proposal_path(proposal)
-    ) %><br>
-  </td>
-  <td>
-    <% if proposal.category %>
-      <%= translated_attribute proposal.category.name %>
+  <td class="!text-left">
+    <% if allowed_to? :edit, :proposal, proposal: proposal %>
+      <%= link_to present(proposal).title(html_escape: true), proposal_path(proposal) %><br>
+    <% else %>
+      <%= present(proposal).title(html_escape: true) %><br>
     <% end %>
+    <div class="flex items-center gap-x-1 mt-2">
+      <% if proposal.category %>
+        <%= icon "price-tag-3-line", class: "fill-gray w-4 h-4" %>
+        <%= translated_attribute proposal.category.name %>
+      <% end %>
+      <div class="flex items-center gap-x-1">
+        <%= icon "scan-line", class: "fill-gray w-4 h-4" %>
+        <span>
+          <% if proposal.scope %>
+             <%= translated_attribute proposal.scope.name %>
+          <% else %>
+             <%= t("decidim.scopes.global") %>
+          <% end %>
+        </span>
+      </div>
+    </div>
+  </td>
+  <td class="table-list__date">
+    <%= l proposal.created_at, format: :decidim_short %>
   </td>
 
-  <%= td_resource_scope_for(proposal.scope) %>
-
   <td>
-    <strong class="<%= proposal_state_css_class proposal %>">
+    <strong class="label <%= proposal_state_css_class proposal %>">
       <%= t("decidim/amendment", scope: "activerecord.models", count: 1) if proposal.emendation? %>
       <%= proposal_complete_state proposal %>
     </strong>
@@ -56,21 +66,17 @@
     <%= proposal.valuation_assignments.count %>
   </td>
 
-  <td>
-    <%= l proposal.created_at, format: :decidim_short %>
-  </td>
-
   <td class="table-list__actions">
     <% if allowed_to? :edit, :proposal, proposal: proposal %>
-      <%= icon_link_to "pencil", edit_proposal_path(proposal), t("actions.edit_proposal", scope: "decidim.proposals"), class: "action-icon--edit-proposal" %>
+      <%= icon_link_to "pencil-line", edit_proposal_path(proposal), t("actions.edit_proposal", scope: "decidim.proposals"), class: "action-icon--edit-proposal" %>
     <% else %>
       <span class="action-space icon"></span>
     <% end %>
 
     <%= icon_with_link_to_proposal(proposal) %>
 
-    <%= resource_permissions_link(proposal) %>
+    <%= icon_link_to "eye-line", resource_locator(proposal).path, t("actions.preview", scope: "decidim.proposals.admin"), class: "action-icon--preview", target: :blank, data: { "external-link": false } %>
 
-   <%= icon_link_to "eye", resource_locator(proposal).path, t("actions.preview", scope: "decidim.proposals.admin"), class: "action-icon--preview", target: :blank %>
+    <%= resource_permissions_link(proposal) %>
   </td>
 </tr>

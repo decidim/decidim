@@ -5,15 +5,15 @@ require "spec_helper"
 describe Decidim::ParticipatoryProcesses::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { create :user, :admin, organization: }
-  let(:organization) { create :organization }
-  let(:process) { create :participatory_process, organization: }
+  let(:user) { create(:user, :admin, organization:) }
+  let(:organization) { create(:organization) }
+  let(:process) { create(:participatory_process, organization:) }
   let(:context) { {} }
   let(:permission_action) { Decidim::PermissionAction.new(**action) }
-  let(:process_admin) { create :process_admin, participatory_process: process }
-  let(:process_collaborator) { create :process_collaborator, participatory_process: process }
-  let(:process_moderator) { create :process_moderator, participatory_process: process }
-  let(:process_valuator) { create :process_valuator, participatory_process: process }
+  let(:process_admin) { create(:process_admin, participatory_process: process) }
+  let(:process_collaborator) { create(:process_collaborator, participatory_process: process) }
+  let(:process_moderator) { create(:process_moderator, participatory_process: process) }
+  let(:process_valuator) { create(:process_valuator, participatory_process: process) }
 
   shared_examples "allows any action on subject" do |action_subject|
     context "when action subject is #{action_subject}" do
@@ -82,6 +82,23 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       )
     end
 
+    context "when accessing global moderation" do
+      subject { Decidim::Admin::Permissions.new(user, permission_action, context).permissions.allowed? }
+
+      let(:action) do
+        { scope: :admin, action: :read, subject: :global_moderation }
+      end
+
+      it_behaves_like(
+        "access for roles",
+        org_admin: true,
+        admin: true,
+        collaborator: false,
+        moderator: true,
+        valuator: false
+      )
+    end
+
     context "when reading a process" do
       let(:action) do
         { scope: :public, action: :read, subject: :process }
@@ -89,28 +106,28 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       let(:context) { { process: } }
 
       context "when the user is an admin" do
-        let(:user) { create :user, :admin }
+        let(:user) { create(:user, :admin) }
 
         it { is_expected.to be true }
       end
 
       context "when the process is published" do
-        let(:user) { create :user, organization: }
+        let(:user) { create(:user, organization:) }
 
         it { is_expected.to be true }
       end
 
       context "when the process is not published" do
-        let(:user) { create :user, organization: }
-        let(:process) { create :participatory_process, :unpublished, organization: }
+        let(:user) { create(:user, organization:) }
+        let(:process) { create(:participatory_process, :unpublished, organization:) }
 
-        context "when the user doesn't have access to it" do
+        context "when the user does not have access to it" do
           it { is_expected.to be false }
         end
 
         context "when the user has access to it" do
           before do
-            create :participatory_process_user_role, user:, participatory_process: process
+            create(:participatory_process_user_role, user:, participatory_process: process)
           end
 
           it { is_expected.to be true }

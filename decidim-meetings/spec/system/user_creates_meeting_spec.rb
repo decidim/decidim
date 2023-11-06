@@ -8,7 +8,7 @@ describe "User creates meeting", type: :system do
 
   let(:organization) { create(:organization, available_authorizations: %w(dummy_authorization_handler)) }
   let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
-  let(:current_component) { create :meeting_component, participatory_space: participatory_process }
+  let(:current_component) { create(:meeting_component, participatory_space: participatory_process) }
   let(:start_time) { 1.day.from_now }
   let(:meetings_count) { 5 }
   let!(:meetings) do
@@ -27,8 +27,8 @@ describe "User creates meeting", type: :system do
   end
 
   context "when creating a new meeting", :serves_geocoding_autocomplete do
-    let(:user) { create :user, :confirmed, organization: }
-    let!(:category) { create :category, participatory_space: }
+    let(:user) { create(:user, :confirmed, organization:) }
+    let!(:category) { create(:category, participatory_space:) }
 
     context "when the user is not logged in" do
       it "redirects the user to the sign in page" do
@@ -60,7 +60,7 @@ describe "User creates meeting", type: :system do
         let(:meeting_available_slots) { 30 }
         let(:meeting_registration_terms) { "These are the registration terms for this meeting" }
         let(:online_meeting_url) { "http://decidim.org" }
-        let(:meeting_scope) { create :scope, organization: }
+        let!(:meeting_scope) { create(:scope, organization:) }
         let(:datetime_format) { I18n.t("time.formats.decidim_short") }
         let(:time_format) { I18n.t("time.formats.time_of_day") }
 
@@ -92,11 +92,11 @@ describe "User creates meeting", type: :system do
             fill_in :meeting_location, with: meeting_location
             fill_in :meeting_location_hints, with: meeting_location_hints
             fill_in_geocoding :meeting_address, with: meeting_address
-            fill_in :meeting_start_time, with: meeting_start_time.strftime(datetime_format)
-            fill_in :meeting_end_time, with: meeting_end_time.strftime(datetime_format)
+            fill_in :meeting_start_time, with: meeting_start_time
+            fill_in :meeting_end_time, with: meeting_end_time
             select "Registration disabled", from: :meeting_registration_type
             select translated(category.name), from: :meeting_decidim_category_id
-            scope_pick select_data_picker(:meeting_decidim_scope_id), meeting_scope
+            select translated(meeting_scope.name), from: :meeting_decidim_scope_id
 
             find("*[type=submit]").click
           end
@@ -109,7 +109,7 @@ describe "User creates meeting", type: :system do
           expect(page).to have_content(meeting_address)
           expect(page).to have_content(meeting_start_time.strftime(time_format))
           expect(page).to have_content(meeting_end_time.strftime(time_format))
-          expect(page).to have_selector(".author-data", text: user.name)
+          expect(page).to have_selector("[data-author]", text: user.name)
         end
 
         context "when using the front-end geocoder" do
@@ -131,8 +131,8 @@ describe "User creates meeting", type: :system do
                 select "In person", from: :meeting_type_of_meeting
                 fill_in :meeting_location, with: meeting_location
                 fill_in :meeting_location_hints, with: meeting_location_hints
-                fill_in :meeting_start_time, with: meeting_start_time.strftime(datetime_format)
-                fill_in :meeting_end_time, with: meeting_end_time.strftime(datetime_format)
+                fill_in :meeting_start_time, with: meeting_start_time
+                fill_in :meeting_end_time, with: meeting_end_time
                 select "Registration disabled", from: :meeting_registration_type
               end
             end
@@ -140,7 +140,7 @@ describe "User creates meeting", type: :system do
         end
 
         context "when creating as a user group" do
-          let!(:user_group) { create :user_group, :verified, organization:, users: [user] }
+          let!(:user_group) { create(:user_group, :verified, organization:, users: [user]) }
 
           it "creates a new meeting", :slow do
             stub_geocoding(meeting_address, [latitude, longitude])
@@ -156,11 +156,11 @@ describe "User creates meeting", type: :system do
               fill_in :meeting_location, with: meeting_location
               fill_in :meeting_location_hints, with: meeting_location_hints
               fill_in_geocoding :meeting_address, with: meeting_address
-              fill_in :meeting_start_time, with: meeting_start_time.strftime(datetime_format)
-              fill_in :meeting_end_time, with: meeting_end_time.strftime(datetime_format)
+              fill_in :meeting_start_time, with: meeting_start_time
+              fill_in :meeting_end_time, with: meeting_end_time
               select "Registration disabled", from: :meeting_registration_type
               select translated(category.name), from: :meeting_decidim_category_id
-              scope_pick select_data_picker(:meeting_decidim_scope_id), meeting_scope
+              select translated(meeting_scope.name), from: :meeting_decidim_scope_id
               select user_group.name, from: :meeting_user_group_id
 
               find("*[type=submit]").click
@@ -174,8 +174,8 @@ describe "User creates meeting", type: :system do
             expect(page).to have_content(meeting_address)
             expect(page).to have_content(meeting_start_time.strftime(time_format))
             expect(page).to have_content(meeting_end_time.strftime(time_format))
-            expect(page).not_to have_css(".button", text: "JOIN MEETING")
-            expect(page).to have_selector(".author-data", text: user_group.name)
+            expect(page).not_to have_css(".button", text: "Register")
+            expect(page).to have_selector("[data-author]", text: user_group.name)
           end
 
           it "creates a new meeting with registrations on this platform", :slow do
@@ -192,13 +192,13 @@ describe "User creates meeting", type: :system do
               fill_in :meeting_location, with: meeting_location
               fill_in :meeting_location_hints, with: meeting_location_hints
               fill_in_geocoding :meeting_address, with: meeting_address
-              fill_in :meeting_start_time, with: meeting_start_time.strftime(datetime_format)
-              fill_in :meeting_end_time, with: meeting_end_time.strftime(datetime_format)
+              fill_in :meeting_start_time, with: meeting_start_time
+              fill_in :meeting_end_time, with: meeting_end_time
               select "On this platform", from: :meeting_registration_type
               fill_in :meeting_available_slots, with: meeting_available_slots
               fill_in :meeting_registration_terms, with: meeting_registration_terms
               select translated(category.name), from: :meeting_decidim_category_id
-              scope_pick select_data_picker(:meeting_decidim_scope_id), meeting_scope
+              select translated(meeting_scope.name), from: :meeting_decidim_scope_id
               select user_group.name, from: :meeting_user_group_id
 
               find("*[type=submit]").click
@@ -212,12 +212,12 @@ describe "User creates meeting", type: :system do
             expect(page).to have_content(meeting_address)
             expect(page).to have_content(meeting_start_time.strftime(time_format))
             expect(page).to have_content(meeting_end_time.strftime(time_format))
-            expect(page).to have_css(".button", text: "JOIN MEETING")
-            expect(page).to have_selector(".author-data", text: user_group.name)
+            expect(page).to have_css(".button", text: "Register")
+            expect(page).to have_selector("[data-author]", text: user_group.name)
           end
         end
 
-        context "when the user isn't authorized" do
+        context "when the user is not authorized" do
           before do
             permissions = {
               create: {
@@ -245,18 +245,18 @@ describe "User creates meeting", type: :system do
 
           within ".new_meeting" do
             select "Registration disabled", from: :meeting_registration_type
-            expect(page).to have_no_field("Registration URL")
-            expect(page).to have_no_field("Available slots")
-            expect(page).to have_no_field("Registration terms")
+            expect(page).not_to have_field("Registration URL")
+            expect(page).not_to have_field("Available slots")
+            expect(page).not_to have_field("Registration terms")
 
             select "On a different platform", from: :meeting_registration_type
             expect(page).to have_field("Registration URL")
-            expect(page).to have_no_field("Available slots")
-            expect(page).to have_no_field("Registration terms")
+            expect(page).not_to have_field("Available slots")
+            expect(page).not_to have_field("Registration terms")
 
             select "On this platform", from: :meeting_registration_type
             expect(page).to have_field("Available slots")
-            expect(page).to have_no_field("Registration URL")
+            expect(page).not_to have_field("Registration URL")
             expect(page).to have_field("Registration terms")
           end
         end
@@ -270,11 +270,11 @@ describe "User creates meeting", type: :system do
             select "In person", from: :meeting_type_of_meeting
             expect(page).to have_field("Address")
             expect(page).to have_field(:meeting_location)
-            expect(page).to have_no_field("Online meeting URL")
+            expect(page).not_to have_field("Online meeting URL")
 
             select "Online", from: :meeting_type_of_meeting
-            expect(page).to have_no_field("Address")
-            expect(page).to have_no_field(:meeting_location)
+            expect(page).not_to have_field("Address")
+            expect(page).not_to have_field(:meeting_location)
             expect(page).to have_field("Online meeting URL")
 
             select "Hybrid", from: :meeting_type_of_meeting
@@ -288,7 +288,7 @@ describe "User creates meeting", type: :system do
       context "when creation is not enabled" do
         it "does not show the creation button" do
           visit_component
-          expect(page).to have_no_link("New meeting")
+          expect(page).not_to have_link("New meeting")
         end
       end
     end

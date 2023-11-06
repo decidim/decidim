@@ -37,7 +37,6 @@ ja:
         actions:
           destroy: 並べ替えをキャンセル
           edit: 編集
-          new: 新しいソート順
           show: 並べ替えの詳細
         models:
           sortition:
@@ -51,8 +50,6 @@ ja:
               seed: Seed
               target_items: 選択するアイテム
               title: タイトル
-            name:
-              other: 並べ替え
         sortitions:
           confirm_destroy:
             confirm_destroy: この並べ替えをキャンセルしてもよろしいですか？
@@ -60,28 +57,27 @@ ja:
             title: 並べ替えのキャンセル
           create:
             error: 新しいソートの作成中に問題が発生しました。
-            success: ソートが正常に作成されました
+            success: ソートは正常に作成されました。
           destroy:
             error: ソートをキャンセルできません。
-            success: 並べ替えをキャンセルしました
+            success: ソートは正常にキャンセルされました。
           edit:
             title: 並べ替えに関する情報を更新する
             update: 更新
           form:
             all_categories: すべてのカテゴリ
             select_proposal_component: 提案セットを選択
-            title: 提案のための新しい並べ替え
           index:
             title: 並べ替え
           new:
-            confirm: 次のボタンを押すと、プラットフォームは日付と時刻(秒単位の精度) を記録し、サイコロのような乱数と日時の情報を元にランダムな選択を行います。この抽選は、一度ボタンをクリックすると入力されたデータとともに結果が公開され、変更できません。入力内容を注意深く確認してください。
+            confirm: 次のボタンを押すと、プラットフォームは日付と時刻(秒の精度で) を記録し、サイコロロールと一緒になります。 この情報はランダムな選択を生成するために使用されます。アクションは元に戻せません。ボタンをクリックすると、この描画の結果が公開されます。 このフォームに入力されたデータと一緒に変更することはできません。慎重に内容を確認してください。
             create: 作成
             title: 新しいソート順
           show:
             selected_proposals: ドローのために選択された提案
           update:
             error: ソートの更新に問題がありました。
-            success: ソートが正常に更新されました
+            success: ソートが正常に更新されました。
       admin_log:
         sortition:
           create: "%{user_name} が %{resource_name} で %{space_name}ソートを作成しました"
@@ -96,14 +92,7 @@ ja:
           all: すべて
           cancelled: キャンセルしました
           category: カテゴリ
-          category_prompt: カテゴリを選択
-          search: 検索
           state: ステータス
-        filters_small_view:
-          close_modal: モーダルを閉じる
-          filter: フィルター
-          filter_by: フィルター
-          unfold: 展開する
         linked_sortitions:
           selected_proposals: 選択された提案
         orders:
@@ -116,23 +105,21 @@ ja:
         show:
           algorithm: 並べ替えのアルゴリズム コード
           any_category: すべてのカテゴリから
-          back: リストに戻る
           cancelled: キャンセルされた並べ替え
           candidate_proposal_ids: 並べ替え提案の順序とID
           candidate_proposals_info: '次の提案の中でソートが行われました (%{category_label}), 以下のIDを持つ(選択した提案を太字で)  '
           category: '%{category} カテゴリから'
-          dice_result: "(1)サイコロ結果"
+          dice_result: (1)サイコロ結果
           introduction: 'このページには、ソート %{reference} の結果が含まれています。このソートにより、%{target_items} の数の結果が、以下に表示されている提案の集合から同確率でランダムに選択されています。結果とともにこのページに表示される情報は、保証を最大化し、結果を再現するために必要なすべての情報を提供します。このソートの品質の鍵となるのは、転がるサイコロ(目撃者による検証) による二重のランダム性と、ランダムな選択を生成するアルゴリズムの入力となるソートの正確な時間です。ソートのタイムシードは、人間がコントロールすることが不可能な正確さ(秒単位) を持っているため、公平な結果を保証するための二重の「コントロール不可能な」入力を提供しています。  '
           mathematical_result: 結果 (1) x (2)
           proposals_selected_by_sortition: 並べ替えによって選択された提案
           sortition_reproducibility_details: 並べ替え再現性の詳細
-          time_seed: "(2) 時間の種"
+          time_seed: (2) 時間の種
           witnesses: 目撃者
         sortition:
           random_seed: 乱数のシード
           selected_proposals:
             other: 提案を選択しました
-          view: 表示
         sortition_author:
           deleted: 退会者
         sortition_cancel_author:

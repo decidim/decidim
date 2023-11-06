@@ -1,11 +1,30 @@
-<div class="row accountability">
-  <div class="small-12 columns">
-    <%= render partial: "home_header" %>
-    <%= render partial: "scope_filters", locals: { url_method: :root_path } %>
-    <%= render partial: "home_categories" %>
-  </div>
-</div>
+<%= append_javascript_pack_tag "decidim_accountability" %>
+<%= append_stylesheet_pack_tag "decidim_accountability" %>
 
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_accountability" %>
+<% content_for :aside do %>
+  <h1 class="title-decorator"><%= component_name %></h1>
+
+  <% if component_settings.display_progress_enabled? %>
+    <%= cell(
+          "decidim/accountability/status",
+          nil,
+          title: t("decidim.accountability.results.home_header.global_status"),
+          progress: progress_calculator(current_scope, nil).presence,
+          extra_classes: "accountability__status__home"
+        ) %>
+  <% end %>
+
+  <%= render partial: "scope_filters" %>
+<% end %>
+
+<%= render layout: "layouts/decidim/shared/layout_two_col" do %>
+
+  <section class="layout-main__section">
+    <div class="editor-content"><%== translated_attribute component_settings.intro %></div>
+  </section>
+
+  <section class="layout-main__section">
+    <%= render partial: "home_categories" %>
+  </section>
+
 <% end %>

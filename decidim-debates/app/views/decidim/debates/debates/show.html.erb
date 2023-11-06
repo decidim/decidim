@@ -1,135 +1,132 @@
 <% add_decidim_meta_tags({
-  description: translated_attribute(debate.description),
-  title: present(debate).title,
-  url: debate_url(debate.id)
-}) %>
+                           description: translated_attribute(debate.description),
+                           title: present(debate).title,
+                           url: debate_url(debate.id)
+                         }) %>
 
 <%
 edit_link(
   resource_locator(debate).edit,
   :update,
   :debate,
-  debate: debate
+  debate:
 )
 %>
 
-<div class="row column view-header">
-  <div class="m-bottom">
-    <%= link_to debates_path, class: "small hollow js-back-to-list" do %>
-      <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
-      <%= t(".back") %>
-    <% end %>
-  </div>
-
-  <h2 class="heading3">
-    <%== present(debate).title(links: true, html_escape: true) %>
-  </h2>
-
-  <% debate_presenter = Decidim::Debates::DebatePresenter.new(debate) %>
-  <%= cell "decidim/author", debate_presenter.author, from: debate, context: { extra_classes: ["author-data--small"] } %>
-</div>
-<div class="row">
-  <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
-    <% if allowed_to?(:edit, :debate, debate: debate) %>
-      <%= link_to t(".edit_debate"), edit_debate_path(debate), class: "button secondary hollow expanded button-sc button--icon follow-button" %>
-    <% elsif admin_allowed_to?(:update, :debate, debate: debate) %>
-      <%= link_to t(".edit_debate"), resource_locator(debate).edit, class: "button secondary hollow expanded button-sc button--icon follow-button" %>
-    <% end %>
-    <% close_debate_action_text = (debate.closed? ? ".edit_conclusions" : ".close_debate" ) %>
-    <% if allowed_to?(:close, :debate, debate: debate) %>
-      <button type="button" data-open="closeDebateModal" title="<%= t(close_debate_action_text) %>" aria-controls="closeDebateModal" aria-haspopup="dialog" tabindex="0" class="button hollow expanded button-sc button--icon follow-button">
-        <%= t(close_debate_action_text) %>
-      </button>
-    <% elsif admin_allowed_to?(:close, :debate, debate: debate) %>
-      <%= link_to t(close_debate_action_text), Decidim::EngineRouter.admin_proxy(debate.component).edit_debate_debate_close_path(debate_id: debate.id, id: debate.id), class: "button hollow expanded button-sc button--icon follow-button" %>
-    <% end %>
-    <div class="card extra">
-      <div class="card__content">
-        <%= cell("decidim/date_range", { start: debate.start_time, end: debate.end_time }) %>
-
-        <% if endorsements_enabled? && allowed_to?(:endorse, :debate, debate: debate) %>
-          <div class="row collapse buttons__row">
-            <div class="column small-12 collapse">
-              <%= endorsement_buttons_cell(debate) %>
-            </div>
-          </div>
-        <% end %>
-        <%= follow_button_for(debate) %>
-      </div>
-    </div>
-    <div class="card extra">
-      <div class="definition-data">
-        <div class="definition-data__item definition-data__item">
-          <span class="definition-data__title">
-            <%= t ".last_comment_by" %>
-          </span>
-          <span class="definition-data__text">
-            <% if debate_presenter.last_comment_by %>
-              <%= cell "decidim/author", debate_presenter.last_comment_by, context: { extra_classes: ["author-data--small"] } %>
-            <% else %>
-              <%= t ".no_comments_yet" %>
-            <% end %>
-          </span>
-        </div>
-
-        <div class="definition-data__item definition-data__item--double">
-          <span class="definition-data__title">
-            <%= t ".participants_count" %>
-          </span>
-          <span class="definition-data__number"><%= debate_presenter.participants_count %></span>
-        </div>
-
-        <div class="definition-data__item definition-data__item--double">
-          <span class="definition-data__title">
-            <%= t ".groups_count" %>
-          </span>
-          <span class="definition-data__number"><%= debate_presenter.groups_count %></span>
-        </div>
-      </div>
-    </div>
-    <%= resource_reference(debate) %>
-    <%= resource_version(debate_presenter, versions_path: debate_versions_path(debate)) %>
-    <%= render partial: "decidim/shared/share_modal" %>
-    <%= embed_modal_for debate_widget_url(debate, format: :js) %>
-  </div>
-  <div class="columns mediumlarge-8 mediumlarge-pull-4">
-    <div class="section">
-      <% if debate.closed? %>
-        <span class="success label proposal-status">
-          <%= t(".debate_closed") %>
-        </span>
-      <% end %>
-
-      <%= render_debate_description(debate) %>
-
-      <% if debate.closed? %>
-        <%= cell("decidim/announcement", { title: t(".debate_conclusions_are", date: l(debate.closed_at, format: :decidim_short)), body: simple_format(translated_attribute(debate.conclusions)) }, callout_class: "success") %>
-      <% end %>
-
-      <% if translated_attribute(debate.instructions).present? %>
-        <div class="callout secondary">
-          <%= decidim_sanitize_editor(simple_format(translated_attribute(debate.instructions), {}, sanitize: false)) %>
-        </div>
-      <% end %>
-      <% if translated_attribute(debate.information_updates).present? %>
-        <div class="callout success">
-          <%= decidim_sanitize_editor(simple_format(translated_attribute(debate.information_updates), {}, sanitize: false)) %>
-        </div>
-      <% end %>
-
-      <%= render partial: "decidim/shared/tags", locals: { resource: debate, tags_class_extra: "tags--debate" } %>
-
-      <%= cell "decidim/endorsers_list", debate %>
-    </div>
-  </div>
-</div>
-
-<%= comments_for debate %>
-
-<%= cell("decidim/flag_modal", debate) %>
 <%=
   render partial: "close_debate_modal", locals: {
-    debate: debate,
+    debate:,
     form: close_debate_form
   }
 %>
+
+<%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: debates_path, commentable: debate } do %>
+  <section class="layout-main__section layout-main__heading">
+    <h1 class="h2 decorator">
+      <%== present(debate).title(links: true, html_escape: true) %>
+    </h1>
+
+    <% debate_presenter = Decidim::Debates::DebatePresenter.new(debate) %>
+    <div class="layout-author">
+      <%= cell "decidim/author", debate_presenter.author, skip_profile_link: true %>
+      <% if debate.closed? %>
+        <span class="success label proposal-status">
+          <%= t("debate_closed", scope: "decidim.debates.debates.show") %>
+        </span>
+      <% end %>
+    </div>
+  </section>
+
+  <section class="layout-main__section">
+    <div class="editor-content">
+      <%= render_debate_description(debate) %>
+    </div>
+  </section>
+
+  <% if debate.closed? || translated_attribute(debate.instructions).present? || translated_attribute(debate.information_updates).present? %>
+    <section class="layout-main__section">
+      <%= cell("decidim/announcement", { title: t("debate_conclusions_are", scope: "decidim.debates.debates.show", date: l(debate.closed_at, format: :decidim_short)), body: simple_format(translated_attribute(debate.conclusions)) }, callout_class: "success") if debate.closed? %>
+
+      <%= cell("decidim/announcement", decidim_sanitize_editor_admin(simple_format(translated_attribute(debate.instructions), {}, sanitize: false))) if translated_attribute(debate.instructions).present? %>
+
+      <%= cell("decidim/announcement", decidim_sanitize_editor_admin(simple_format(translated_attribute(debate.information_updates), {}, sanitize: false)), callout_class: "success") if translated_attribute(debate.information_updates).present? %>
+    </section>
+  <% end %>
+
+  <section class="layout-main__section layout-main__buttons" data-buttons>
+    <% if endorsements_enabled? && allowed_to?(:endorse, :debate, debate: debate) %>
+      <%= endorsement_buttons_cell(debate) %>
+    <% end %>
+    <%= cell "decidim/comments_button", nil %>
+
+    <div class="ml-auto">
+      <%= render partial: "decidim/shared/tags", locals: { resource: debate } %>
+    </div>
+  </section>
+  <%= cell "decidim/endorsers_list", debate, layout: :full %>
+
+  <% content_for :aside do %>
+  <% if allowed_to?(:edit, :debate, debate: debate) || admin_allowed_to?(:update, :debate, debate: debate) || allowed_to?(:close, :debate, debate: debate) || admin_allowed_to?(:close, :debate, debate: debate) %>
+    <section class="layout-aside__section layout-aside__buttons">
+      <% if allowed_to?(:edit, :debate, debate: debate) %>
+        <%= link_to t("edit_debate", scope: "decidim.debates.debates.show"), edit_debate_path(debate), class: "button button__secondary button__xl w-full mb-4" %>
+      <% elsif admin_allowed_to?(:update, :debate, debate: debate) %>
+        <%= link_to t("edit_debate", scope: "decidim.debates.debates.show"), resource_locator(debate).edit, class: "button button__secondary button__xl w-full mb-4" %>
+      <% end %>
+      <% close_debate_action_text = (debate.closed? ? "decidim.debates.debates.show.edit_conclusions" : "decidim.debates.debates.show.close_debate" ) %>
+      <% if allowed_to?(:close, :debate, debate: debate) %>
+        <button type="button" data-dialog-open="close-debate" title="<%= t(close_debate_action_text) %>" aria-controls="closeDebateModal" aria-haspopup="dialog" tabindex="0" class="button button__secondary button__xl w-full mb-4">
+          <%= t(close_debate_action_text) %>
+        </button>
+      <% elsif admin_allowed_to?(:close, :debate, debate: debate) %>
+        <%= link_to t(close_debate_action_text), Decidim::EngineRouter.admin_proxy(debate.component).edit_debate_debate_close_path(debate_id: debate.id, id: debate.id), class: "button button__secondary button__xl w-full mb-4" %>
+      <% end %>
+    </section>
+  <% end %>
+  <section class="layout-aside__section">
+    <div class="rounded p-4 bg-background mb-4 divide-y divide-gray-3 [&>*]:py-4 first:[&>*]:pt-0 last:[&>*]:pb-0">
+      <div class="text-gray-2 space-y-1.5">
+        <div class="text-sm flex items-center gap-1">
+          <%= icon "calendar-line", class: "inline-block" %>
+          <span class="text-gray-2 space-y-1.5"><%= t("start", scope: "decidim.debates.models.debate.fields") %> - <%= t("end", scope: "decidim.debates.models.debate.fields") %></span>
+        </div>
+
+        <div class="text-md font-semibold [&>svg]:inline-block">
+          <%= format_date_range(debate.start_time, debate.end_time) || t("open", scope: "decidim.debates.debates.show") %>
+        </div>
+      </div>
+      <div class="text-gray-2 space-y-1.5">
+        <div class="text-sm grid grid-cols-2 gap-1">
+          <div>
+            <span class="block text-center mb-2">
+              <%= t("participants_count", scope: "decidim.debates.debates.show") %>
+            </span>
+            <span class="text-4xl font-bold block text-center"><%= debate_presenter.participants_count %></span>
+          </div>
+          <div>
+            <span class="block text-center mb-2">
+              <%= t("groups_count", scope: "decidim.debates.debates.show") %>
+            </span>
+            <span class="text-4xl font-bold block text-center"><%= debate_presenter.groups_count %></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="layout-aside__section actions__secondary">
+    <%= follow_button_for(debate) %>
+    <%= cell "decidim/share_button", nil %>
+    <%= cell "decidim/report_button", debate %>
+  </section>
+
+  <% end %>
+
+  <% content_for :item_footer do %>
+    <%= comments_for debate %>
+    <ul class="metadata__container layout-main__section" data-metadata-footer>
+      <%= content_tag :li, resource_reference(debate), class: "metadata__item" %>
+      <%= content_tag :li, resource_version(debate, versions_path: debate_version_path(debate, debate.versions.count)), class: "metadata__item" %>
+    </ul>
+  <% end %>
+
+<% end %>

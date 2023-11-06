@@ -5,18 +5,25 @@ on:
       - "chore/l10n*"
     types: [opened, edited, synchronize, reopened]
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
 jobs:
   check_title:
     name: Check PR title
     runs-on: ubuntu-latest
     steps:
-      - uses: rokroskar/workflow-run-cleanup-action@v0.3.2
-        if: "github.ref != 'refs/heads/develop'"
-        env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
       - uses: deepakputhraya/action-pr-title@master
         with:
-          disallowed_prefixes: "feat,chore,build,ci,refactor,docs,wip"
+          disallowed_prefixes: "feat/,feature/,fix/,chore/,build/,ci/,refactor/,docs/,wip/,fix:"
           prefix_case_sensitive: false
+          regex: "^[A-Z].+"
           min_length: 5
           max_length: 100
+      - uses: jesusvasquez333/verify-pr-label-action@v1.4.0
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+          valid-labels: "type: feature, type:change, type: fix, type: removal, target: developer-experience, type: internal"
+          invalid-labels: "type: bug"
+          pull-request-number: "${{ github.event.pull_request.number }}"

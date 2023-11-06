@@ -13,7 +13,7 @@ describe "Admin manages initiative type permissions", type: :system do
   end
   let(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:participatory_space_engine) { decidim_admin_initiatives }
-  let!(:initiative_type) { create :initiatives_type, organization: }
+  let!(:initiative_type) { create(:initiatives_type, organization:) }
 
   let(:action) { "vote" }
 

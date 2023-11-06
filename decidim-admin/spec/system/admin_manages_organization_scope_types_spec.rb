@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Admin manages scope types", type: :system do
-  let(:admin) { create :user, :admin, :confirmed }
+  let(:admin) { create(:user, :admin, :confirmed) }
   let(:organization) { admin.organization }
 
   before do
@@ -19,7 +19,7 @@ describe "Admin manages scope types", type: :system do
       find(".new").click
     end
 
-    within ".new_scope_type" do
+    within ".item__edit-form" do
       fill_in_i18n(
         :scope_type_name,
         "#scope_type-name-tabs",
@@ -64,7 +64,7 @@ describe "Admin manages scope types", type: :system do
         click_link "Edit"
       end
 
-      within ".edit_scope_type" do
+      within ".item__edit-form" do
         fill_in_i18n(
           :scope_type_name,
           "#scope_type-name-tabs",
@@ -94,7 +94,7 @@ describe "Admin manages scope types", type: :system do
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).to have_no_content(translated(scope_type.name))
+        expect(page).not_to have_content(translated(scope_type.name))
       end
     end
   end

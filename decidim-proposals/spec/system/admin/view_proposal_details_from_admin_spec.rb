@@ -20,18 +20,20 @@ describe "Admin views proposal details from admin", type: :system do
     go_to_admin_proposal_page(proposal)
     path = "processes/#{participatory_process.slug}/f/#{component.id}/proposals/#{proposal.id}"
 
-    expect(page).to have_selector("a", text: path)
+    within ".component__show_nav" do
+      expect(page).to have_link("See proposal", href: /#{path}/)
+    end
   end
 
   describe "with authors" do
     context "when the proposal's author is other user" do
       let!(:other_user) { create(:user, organization: current_component.organization) }
-      let!(:proposal) { create :proposal, component: current_component, users: [other_user] }
+      let!(:proposal) { create(:proposal, component: current_component, users: [other_user]) }
 
       it "has a link to each author profile" do
         go_to_admin_proposal_page(proposal)
 
-        within "#proposal-authors-list" do
+        within ".component__show_nav-author" do
           proposal.authors.each do |author|
             list_item = find("li", text: author.name)
 
@@ -48,7 +50,7 @@ describe "Admin views proposal details from admin", type: :system do
       it "has a link to each author profile" do
         go_to_admin_proposal_page(proposal)
 
-        within "#proposal-authors-list" do
+        within ".component__show_nav-author" do
           proposal.authors.each do |author|
             list_item = find("li", text: author.name)
 
@@ -61,13 +63,13 @@ describe "Admin views proposal details from admin", type: :system do
     end
 
     context "when it has an organization as an author" do
-      let!(:proposal) { create :proposal, :official, component: current_component }
+      let!(:proposal) { create(:proposal, :official, component: current_component) }
 
-      it "doesn't show a link to the organization" do
+      it "does not show a link to the organization" do
         go_to_admin_proposal_page(proposal)
 
-        within "#proposal-authors-list" do
-          expect(page).to have_no_selector("a", text: "Official proposal")
+        within ".component__show_nav-author-title" do
+          expect(page).not_to have_selector("a", text: "Official proposal")
           expect(page).to have_content("Official proposal")
         end
       end
@@ -81,32 +83,32 @@ describe "Admin views proposal details from admin", type: :system do
   end
 
   describe "with an specific creation date" do
-    let!(:proposal) { create :proposal, component: current_component, created_at: Time.zone.parse("2020-01-29 15:00") }
+    let!(:proposal) { create(:proposal, component: current_component, created_at: Time.zone.parse("2020-01-29 15:00")) }
 
     it "shows the proposal creation date" do
       go_to_admin_proposal_page(proposal)
 
-      expect(page).to have_content("Creation date: 29/01/2020 15:00")
+      expect(page).to have_css(".component__show_nav-author-date", text: "29/01/2020 15:00")
     end
   end
 
   describe "with supports" do
     before do
-      create_list :proposal_vote, 2, proposal:
+      create_list(:proposal_vote, 2, proposal:)
     end
 
     it "shows the number of supports" do
       go_to_admin_proposal_page(proposal)
 
-      expect(page).to have_content("Supports count: 2")
+      expect(page).to have_css("[data-supports] [data-count]", text: "2")
     end
 
     it "shows the ranking by supports" do
-      another_proposal = create :proposal, component: component
-      create :proposal_vote, proposal: another_proposal
+      another_proposal = create(:proposal, component:)
+      create(:proposal_vote, proposal: another_proposal)
       go_to_admin_proposal_page(proposal)
 
-      expect(page).to have_content("Ranking by supports: 1 of")
+      expect(page).to have_css("[data-supports] [data-ranking]", text: "1 of ")
     end
   end
 
@@ -120,15 +122,15 @@ describe "Admin views proposal details from admin", type: :system do
     it "shows the number of endorsements" do
       go_to_admin_proposal_page(proposal)
 
-      expect(page).to have_content("Endorsements count: 2")
+      expect(page).to have_css("[data-endorsements] [data-count]", text: "2")
     end
 
     it "shows the ranking by endorsements" do
-      another_proposal = create :proposal, component: component
+      another_proposal = create(:proposal, component:)
       create(:endorsement, resource: another_proposal, author: build(:user, organization:))
       go_to_admin_proposal_page(proposal)
 
-      expect(page).to have_content("Ranking by endorsements: 1 of")
+      expect(page).to have_css("[data-endorsements] [data-ranking]", text: "1 of ")
     end
 
     it "has a link to each endorser profile" do
@@ -160,38 +162,38 @@ describe "Admin views proposal details from admin", type: :system do
   end
 
   it "shows the number of amendments" do
-    create :proposal_amendment, amendable: proposal
+    create(:proposal_amendment, amendable: proposal)
     go_to_admin_proposal_page(proposal)
 
-    expect(page).to have_content("Amendments count: 1")
+    expect(page).to have_css("[data-amendments] [data-count]", text: "1")
   end
 
   describe "with comments" do
     before do
-      create_list :comment, 2, commentable: proposal, alignment: -1
-      create_list :comment, 3, commentable: proposal, alignment: 1
-      create :comment, commentable: proposal, alignment: 0
+      create_list(:comment, 2, commentable: proposal, alignment: -1)
+      create_list(:comment, 3, commentable: proposal, alignment: 1)
+      create(:comment, commentable: proposal, alignment: 0)
 
       go_to_admin_proposal_page(proposal)
     end
 
     it "shows the number of comments" do
-      expect(page).to have_content("Comments count: 6")
+      expect(page).to have_css("[data-comments] [data-count]", text: "6")
     end
 
     it "groups the number of comments by alignment" do
       within "#proposal-comments-alignment-count" do
-        expect(page).to have_content("Favor: 3")
-        expect(page).to have_content("Neutral: 1")
-        expect(page).to have_content("Against: 2")
+        expect(page).to have_css("[data-comments] [data-positive]", text: "3")
+        expect(page).to have_css("[data-comments] [data-neutral]", text: "1")
+        expect(page).to have_css("[data-comments] [data-negative]", text: "2")
       end
     end
   end
 
   context "with related meetings" do
-    let(:meeting_component) { create :meeting_component, participatory_space: participatory_process }
-    let(:meeting) { create :meeting, :published, component: meeting_component }
-    let(:moderated_meeting) { create :meeting, component: meeting_component }
+    let(:meeting_component) { create(:meeting_component, participatory_space: participatory_process) }
+    let(:meeting) { create(:meeting, :published, component: meeting_component) }
+    let(:moderated_meeting) { create(:meeting, component: meeting_component) }
     let!(:moderation) { create(:moderation, reportable: moderated_meeting) }
 
     it "lists the related meetings" do
@@ -217,7 +219,7 @@ describe "Admin views proposal details from admin", type: :system do
 
   context "with attached documents" do
     it "lists the documents" do
-      document = create :attachment, :with_pdf, attached_to: proposal
+      document = create(:attachment, :with_pdf, attached_to: proposal)
       go_to_admin_proposal_page(proposal)
 
       within "#documents" do
@@ -229,13 +231,12 @@ describe "Admin views proposal details from admin", type: :system do
 
   context "with attached photos" do
     it "lists the documents" do
-      image = create :attachment, :with_image, attached_to: proposal
+      image = create(:attachment, :with_image, attached_to: proposal)
       image.reload
       go_to_admin_proposal_page(proposal)
 
       within "#photos" do
         expect(page).to have_selector(:xpath, "//img[@src=\"#{image.thumbnail_url}\"]")
-        expect(page).to have_selector(:xpath, "//a[@href=\"#{image.big_url}\"]")
       end
     end
   end

@@ -17,9 +17,10 @@ describe "Admin manages organization homepage", type: :system do
 
       expect(Decidim::ContentBlock.count).to eq 0
 
-      within ".js-list-availables" do
-        within find("li", text: "Hero image") do
-          find("svg.icon--pencil").click
+      within ".edit_content_blocks" do
+        click_button "Add content block"
+        within ".add-components" do
+          find("a", text: "Hero image").click
         end
       end
 
@@ -28,10 +29,10 @@ describe "Admin manages organization homepage", type: :system do
   end
 
   context "when editing a persisted content block" do
-    let!(:content_block) { create :content_block, organization:, manifest_name: :hero, scope_name: :homepage }
+    let!(:content_block) { create(:content_block, organization:, manifest_name: :hero, scope_name: :homepage) }
 
     it "updates the settings of the content block" do
-      visit decidim_admin.edit_organization_homepage_content_block_path(:hero)
+      visit decidim_admin.edit_organization_homepage_content_block_path(content_block)
 
       fill_in(
         :content_block_settings_welcome_text_en,
@@ -44,7 +45,7 @@ describe "Admin manages organization homepage", type: :system do
     end
 
     it "updates the images of the content block" do
-      visit decidim_admin.edit_organization_homepage_content_block_path(:hero)
+      visit decidim_admin.edit_organization_homepage_content_block_path(content_block)
 
       dynamically_attach_file(:content_block_images_background_image, Decidim::Dev.asset("city2.jpeg"))
 
@@ -55,8 +56,8 @@ describe "Admin manages organization homepage", type: :system do
   end
 
   context "when loading non-existing content blocks" do
-    let!(:unpublished_block) { create :content_block, organization:, scope_name: :homepage, published_at: nil }
-    let!(:published_block) { create :content_block, organization:, scope_name: :homepage }
+    let!(:unpublished_block) { create(:content_block, organization:, scope_name: :homepage, published_at: nil) }
+    let!(:published_block) { create(:content_block, organization:, scope_name: :homepage) }
 
     before do
       # We do this to simulate content blocks from some modules that have been

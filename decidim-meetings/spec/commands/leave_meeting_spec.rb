@@ -8,8 +8,8 @@ module Decidim::Meetings
 
     let(:registrations_enabled) { true }
     let(:available_slots) { 10 }
-    let(:meeting) { create :meeting, registrations_enabled:, available_slots: }
-    let(:user) { create :user, :confirmed, organization: meeting.organization }
+    let(:meeting) { create(:meeting, registrations_enabled:, available_slots:) }
+    let(:user) { create(:user, :confirmed, organization: meeting.organization) }
     let(:user_leaving_meeting) { user }
 
     before do
@@ -42,7 +42,7 @@ module Decidim::Meetings
     end
 
     context "when the user has not joined the meeting" do
-      let(:user_leaving_meeting) { create :user, :confirmed, organization: meeting.organization }
+      let(:user_leaving_meeting) { create(:user, :confirmed, organization: meeting.organization) }
 
       it "broadcasts invalid" do
         expect { subject.call }.to broadcast(:invalid)

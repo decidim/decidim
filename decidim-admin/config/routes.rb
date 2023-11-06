@@ -5,7 +5,7 @@ Decidim::Admin::Engine.routes.draw do
     resource :organization, only: [:edit, :update], controller: "organization" do
       resource :appearance, only: [:edit, :update], controller: "organization_appearance"
       resource :homepage, only: [:edit, :update], controller: "organization_homepage" do
-        resources :content_blocks, only: [:edit, :update], controller: "organization_homepage_content_blocks"
+        resources :content_blocks, only: [:edit, :update, :destroy, :create], controller: "organization_homepage_content_blocks"
       end
       resource :external_domain_whitelist, only: [:edit, :update], controller: "organization_external_domain_whitelist"
 
@@ -19,7 +19,10 @@ Decidim::Admin::Engine.routes.draw do
       mount manifest.context(:admin).engine, at: "/", as: "decidim_admin_#{manifest.name}"
     end
 
-    resources :static_pages
+    resources :static_pages do
+      put :update_content_blocks, on: :member
+      resources :content_blocks, only: [:edit, :update, :destroy, :create], controller: "static_page_content_blocks"
+    end
     resources :static_page_topics, except: [:index]
     resources :scope_types, except: [:show]
     resources :scopes, except: [:show] do
@@ -36,11 +39,12 @@ Decidim::Admin::Engine.routes.draw do
       mount manifest.admin_engine, at: "/#{manifest.name}", as: "decidim_admin_#{manifest.name}"
     end
 
+    mount Decidim::Templates::AdminEngine, at: "/templates", as: "decidim_admin_templates" if Decidim.module_installed?(:templates)
+
     resources :users, except: [:edit, :update], controller: "users" do
       member do
         post :resend_invitation, to: "users#resend_invitation"
       end
-      resource :block, only: [:new, :create, :destroy], controller: :block_user
     end
 
     resources :officializations, only: [:new, :create, :index, :destroy], param: :user_id do
@@ -52,6 +56,11 @@ Decidim::Admin::Engine.routes.draw do
     resources :moderated_users, only: [:index] do
       member do
         put :ignore
+      end
+      collection do
+        scope "/:user_id" do
+          resource :user_block, only: [:new, :create, :destroy], controller: :block_user
+        end
       end
     end
 
@@ -76,6 +85,7 @@ Decidim::Admin::Engine.routes.draw do
     resources :newsletters, except: [:new, :create] do
       member do
         get :recipients_count
+        post :send_to_user
         get :preview
         get :select_recipients_to_deliver
         post :deliver

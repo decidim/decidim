@@ -29,12 +29,9 @@ sl:
           create: Ustvari
     conferences:
       conference_speaker:
-        go_to_twitter: Pojdi na Twitter
         personal_website: Osebno spletno mesto
       conference_speaker_cell:
         personal_url:
           personal_website: Osebno spletno mesto
-        twitter_handle:
-          go_to_twitter: Pojdi na Twitter
       show:
         related_assemblies: Povezane združbe

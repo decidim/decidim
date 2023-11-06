@@ -5,13 +5,13 @@ shared_context "with controller rendering the view" do
   before do
     controller.view_context_class.class_eval do
       # Needed for the form_for to work (through decidim_form_for)
-      # The path shouldn't matter in the controller specs.
+      # The path should not matter in the controller specs.
       def polymorphic_path(_record, _options)
         "/"
       end
 
       # Needed for the head and link_to helpers to work
-      # The URL shouldn't matter in the controller specs.
+      # The URL should not matter in the controller specs.
       def url_for(_options)
         "/"
       end

@@ -37,15 +37,17 @@ cs:
         confirm_destroy: Opravdu to chcete smazat?
         destroy: Smazat
         edit: Upravit
-        new: Nový
+        new_admin: Nový administrátor
+        new_oauth_application: Nová aplikace OAuth
+        new_organization: Nová organizace
         save: Uložit
         title: Akce
       admins:
         create:
           error: Při vytváření nového administrátora došlo k chybě.
-          success: Správce byl úspěšně vytvořen
+          success: Správce byl úspěšně vytvořen.
         destroy:
-          success: Správce úspěšně smazán
+          success: Správce byl úspěšně smazán.
         edit:
           title: Upravit admin
           update: Aktualizace
@@ -54,16 +56,36 @@ cs:
         new:
           create: Vytvořit
           title: Nový admin
+        show:
+          destroy: Zničit
+          edit: Upravit
         update:
           error: Při aktualizaci tohoto administrátora došlo k chybě.
-          success: Správce byl úspěšně aktualizován
+          success: Správce byl úspěšně aktualizován.
       dashboard:
         show:
           current_organizations: Aktuální organizace
       default_pages:
         placeholders:
           content: Přidejte smysluplný obsah na statickou stránku %{page} na ovládacím panelu administrátora.
+          summary: Přidejte smysluplný obsah na statickou stránku %{page} na ovládacím panelu administrátora.
           title: Výchozí název pro %{page}
+        terms-of-service: Podmínky služby
+      devise:
+        passwords:
+          edit:
+            change_your_password: Změnit heslo
+            minimum_characters: "(minimum znaků%{minimum})"
+          new:
+            forgot_your_password: Zapomenuté heslo
+            send_me_reset_password_instructions: Poslat mi pokyny pro obnovení hesla
+        shared:
+          links:
+            did_not_receive_confirmation_instructions?: Neobdrželi jste potvrzovací instrukce?
+            did_not_receive_unlock_instructions?: Neobdrželi jste instrukce pro odemknutí?
+            forgot_your_password?: Zapomněli jste heslo?
+            log_in: Přihlásit se
+            sign_up: Zaregistrovat se
       menu:
         admins: Správci
         dashboard: Ovládací panel
@@ -74,7 +96,6 @@ cs:
           fields:
             created_at: Vytvořeno v
             email: E-mail
-          name: Správce
           validations:
             email_uniqueness: jiný admin se stejnou e-mailovou adresou již existuje
         oauth_application:
@@ -82,17 +103,16 @@ cs:
             created_at: Vytvořeno v
             name: Jméno žádosti OAuth
             organization_name: Organizace
-          name: Žádost OAuth
         organization:
           actions:
             save_and_invite: Vytvořit organizaci a pozvat administrátora
           fields:
+            content_security_policy: Zásady zabezpečení obsahu
             created_at: Vytvořeno v
             file_upload_settings: Nastavení nahrávání souborů
-            name: název
+            name: Název
             omniauth_settings: Nastavení Omniauth
             smtp_settings: SMTP nastavení
-          name: Organizace
       oauth_applications:
         create:
           error: Při vytváření této žádosti došlo k chybě.
@@ -121,6 +141,39 @@ cs:
         create:
           error: Při vytváření nové organizace došlo k chybě.
           success: Organizace byla úspěšně vytvořena.
+        csp_settings:
+          connect_src: Připojit src
+          connect_src_hint: |
+            Směrnice pro spojení - src omezuje URL, které mohou být načteny pomocí <script> prvků.
+            Platforma přidá 'sebe', ale umožňuje přidat další. Pokud si nejste jistí, ponechte prázdné.
+          default_src: Default src
+          default_src_hint: |
+            Default-src direktiva je výchozí zásada pro načítání obsahu, jako je JavaScript, Images, CSS, Fonts, AJAX requests, Frames, HTML5 Media.
+            Deicdim přidá "self" 'unsafe-inline'', ale umožňuje přidat další. Nechte prázdné, pokud si nejste jistí.
+          font_src: Font src
+          font_src_hint: |
+            Direktiva font-src omezuje URL, které lze nahrát pomocí @font-face.
+            Decidim přidá 'self', ale umožňuje přidat další. Nechte prázdné, pokud si nejste jistí.
+          frame_src: Frame src
+          frame_src_hint: |
+            Direktiva frame-src omezuje URL, které lze načíst pomocí prvků <frame>, <iframe> a <object>.
+            Decidim přidá 'self', ale umožňuje přidat další. Nechte prázdné, pokud si nejste jistí.
+          img_src: Img src
+          img_src_hint: |
+            Direktiva img-src omezuje URL, které lze nahrát pomocí prvků <img>, <image>, <picture> a <svg>.
+            Decidim přidá 'self', ale umožňuje přidat další. Nechte prázdné, pokud si nejste jistí.
+          media_src: Média src
+          media_src_hint: |
+            Direktiva media-src omezuje URL, které lze nahrát pomocí prvků <video>, <audio> a <source>.
+            Decidim přidá 'self', ale umožňuje přidat další. Nechte prázdné, pokud si nejste jistí.
+          script_src: Script src
+          script_src_hint: |
+            Direktiva script-src omezuje URL, které lze nahrát pomocí <script> prvků.
+            Decidim přidá "'self' 'unsafe-inline' 'unsafe-eval'", ale umožňuje přidat další. Nechte prázdné, pokud si nejste jistí.
+          style_src: Style src
+          style_src_hint: |
+            Směrnice style-src omezuje URL, které lze načíst pomocí <style> prvků.
+            Decidim přidá "'self' 'unsafe-inline'", ale umožňuje přidat další. Nechte prázdné, pokud si nejste jistí.
         edit:
           secondary_hosts_hint: Zadejte každý z nich do nového řádku
         file_upload_settings:
@@ -144,8 +197,11 @@ cs:
         index:
           title: Organizace
         new:
-          reference_prefix_hint: Předpona reference se používá k jednoznačné identifikaci zdrojů ve všech organizacích
-          secondary_hosts_hint: Zadejte každý z nich do nového řádku
+          default: Výchozí?
+          enabled: Povoleno
+          locale: Jazyk
+          reference_prefix_hint: Předpona reference se používá k jednoznačné identifikaci zdrojů ve všech organizacích.
+          secondary_hosts_hint: Každou vložte do nového řádku.
           title: Nová organizace
         omniauth_settings:
           decidim:
@@ -169,7 +225,7 @@ cs:
           fieldsets:
             sender: Odesilatel
           instructions:
-            from_label: 'Odesílatel e-mailu bude: "Název vaší organizace <your-organization@example.org>". Ponechte prázdné pro použití ''E-mailová adresa'' jako popisku'
+            from_label: 'Odesílatel e-mailu bude: "Název vaší organizace <your-organization@example.org>". Ponechte prázdné pro použití ''E-mailové adresy'' jako popisku.'
           placeholder:
             from_email: vaše-organizace@example.org
             from_label: jméno vaší organizace
@@ -179,10 +235,11 @@ cs:
         users_registration_mode:
           disabled: Přístup lze provádět pouze s externími účty
           enabled: Umožnit uživatelům registraci a přihlášení
-          existing: Nedovolte, aby se uživatelé registrovali, ale umožněte stávajícím uživatelům přihlášení
+          existing: Neumožnit účastníkům registraci, ale umožnit stávajícím účastníkům přihlášení
       shared:
         notices:
           no_organization_warning_html: Abyste mohli začít, musíte vytvořit organizaci. Před pokračováním se ujistěte, že jste si přečetli %{guide}.
           our_getting_started_guide: náš průvodce začínáme
       titles:
         dashboard: Ovládací panel
+        decidim: Decidim

@@ -1,1 +1,1118 @@
 zh-TW:
+  activemodel:
+    attributes:
+      area:
+        area_type: 區域類型
+        name: 名稱
+        organization: 組織
+      area_type:
+        name: 名稱
+        organization: 組織
+        plural: 複數
+      attachment:
+        attachment_collection_id: 資料夾
+        description: 說明
+        file: 檔案
+        title: 附加檔案或圖片名稱
+        weight: 排序位置
+      attachment_collection:
+        description: 說明
+        name: 名稱
+        weight: 排序位置
+      category:
+        description: 說明
+        name: 名稱
+        parent_id: 上層目錄：
+        weight: 排序位置
+      component:
+        name: 名稱
+        published_at: 發表時間
+        weight: 排序位置
+      external_domain:
+        value: 數值
+      help_section:
+        content: 內容
+      id: 編號
+      import:
+        user_group_id: 建立匯入成
+      newsletter:
+        body: 內容
+        subject: 主旨
+      organization:
+        admin_terms_of_service_body: 管理服務條款內容
+        alert_color: 警告
+        available_authorizations: 可用認證方式
+        badges_enabled: 啟用勳章
+        comments_max_length: 留言字數上限 (0 表示使用預設)
+        cta_button_path: 行動呼籲按鈕路徑
+        cta_button_text: 行動呼籲按鈕文字
+        customize_welcome_notification: 自訂歡迎通知
+        default_locale: 預設語言
+        description: 說明
+        enable_omnipresent_banner: 顯示全域廣告
+        enable_participatory_space_filters: 啟用參與空間過濾器
+        facebook_handler: Facebook 處理器
+        favicon: 圖示
+        force_authentication: 強制認證
+        force_users_to_authenticate_before_access_organization: 在使用者操作組織前強制要求認證
+        from: 寄件者電子郵件地址
+        github_handler: GitHub 處理器
+        header_snippets: 頁首片段
+        highlight_alternative_color: 高調、替代
+        highlight_color: 高調
+        highlighted_content_banner_action_subtitle: 行動按鈕子標題
+        highlighted_content_banner_action_title: 行動按鈕標題
+        highlighted_content_banner_action_url: 行動按鈕網址
+        highlighted_content_banner_enabled: 顯示強調的內容廣告
+        highlighted_content_banner_image: 圖片
+        highlighted_content_banner_short_description: 簡介
+        highlighted_content_banner_title: 標題
+        host: 主機
+        instagram_handler: Instagram 處理器
+        logo: 標誌
+        machine_translation_display_priority: 機器翻譯顯示順序
+        machine_translation_display_priority_original: 原始文字優先
+        machine_translation_display_priority_translation: 翻譯文字優先
+        name: 名稱
+        official_img_footer: 官方標誌頁尾
+        official_img_header: 官方標誌頁首
+        official_url: 官方組織網址
+        omnipresent_banner_short_description: 簡介
+        omnipresent_banner_title: 標題
+        omnipresent_banner_url: 網址
+        organization_admin_email: 組織管理員信箱
+        organization_admin_name: 組織管理員名稱
+        organization_locales: 組織語言
+        primary_color: 主要
+        reference_prefix: 參考前置字元
+        rich_text_editor_in_public_views: 為參與者啟用多功能編輯器
+        secondary_color: 次要
+        secondary_hosts: 次要主機
+        send_welcome_notification: 發送歡迎通知
+        success_color: 成功
+        time_zone: 時區
+        tos_version: 服務條款版本
+        user_groups_enabled: 啟用群組功能
+        users_registration_mode: 使用者註冊模式
+        warning_color: 警告
+        welcome_notification_body: 歡迎通知內容
+        welcome_notification_subject: 歡迎通知主旨
+        youtube_handler: YouTube 處理器
+      participatory_space_private_user:
+        email: 電子郵件
+        name: 名稱
+      scope:
+        code: 代碼
+        name: 名稱
+        organization: 組織
+        parent_id: 上層
+        scope_type: 範圍類型
+        scope_type_id: 範圍類型
+      scope_type:
+        name: 名稱
+        organization: 組織
+        plural: 複數
+      settings:
+        scope_id: 範圍
+      static_page:
+        allow_public_access: 允許未登入使用者操作
+        changed_notably: 已經有很多異動
+        content: 內容
+        organization: 組織
+        show_in_footer: 在頁尾顯示
+        slug: URL 固定連結
+        title: 標題
+        topic_id: 主題
+        weight: 排序位置
+      static_page_topic:
+        description: 說明
+        show_in_footer: 在頁尾顯示
+        title: 標題
+        weight: 排序位置
+      user_group_csv_verification:
+        file: 檔案
+    errors:
+      models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: 至少選擇一個參與空間
+        organization:
+          attributes:
+            official_img_footer:
+              allowed_file_content_types: 圖片有誤
+            official_img_header:
+              allowed_file_content_types: 圖片有誤
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: 匯入檔案格式有誤，請小心閱讀教學並且確認檔案是使用 UTF-8 編碼
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: 匯入檔案格式有誤，請小心閱讀教學並且確認檔案是使用 UTF-8 編碼
+      new_import:
+        attributes:
+          file:
+            invalid_file: 提供檔案有誤，請檢查檔案格式是否正確
+            invalid_mime_type: 無效的 MIME 類型
+  activerecord:
+    attributes:
+      decidim/static_page:
+        content: 內容
+        slug: URL 固定連結
+        title: 標題
+      doorkeeper/application:
+        authorize_url: 授權網址
+        client_id: 用戶 ID
+        client_secret: 客戶端金鑰
+        organization_name: 組織名稱
+        organization_url: 組織網址
+        redirect_uri: 重新導向 URI
+        site: 網站
+  decidim:
+    admin:
+      actions:
+        add: 新增
+        attachment:
+          new: 新增附件
+        attachment_collection:
+          new: 新增附件資料夾
+        browse: 瀏覽
+        category:
+          new: 新分類
+        export: 全部匯出
+        export-selection: 匯出選擇
+        import: 匯入
+        newsletter:
+          new: 新電子報
+        participatory_space_private_user:
+          new: 新參與空間私有使用者
+        per_page: 每頁
+        permissions: 權限
+        reject: 拒絕
+        share: 分享
+        user:
+          new: 新增管理員
+        verify: 驗證
+      admin_terms_of_service:
+        accept:
+          error: 點選同意管理員服務條款時發生錯誤
+          success: 太好了，已經同意管理員服務條款！
+        actions:
+          accept: 我同意這些條款
+          are_you_sure: 確定要拒絕管理員服務條款？
+          refuse: 拒絕管理員條款
+          title: 我同意服務條款
+        required_review:
+          alert: '必填：請審閱我們的管理者服務條款'
+          callout: 請花點時間審閱管理者服務條款，否則將無法管理平台
+          cta: 現在審閱
+        title: 管理者服務條款
+      area_types:
+        create:
+          error: 新增區域類型時發生錯誤
+          success: 區域類型建立成功
+        destroy:
+          success: 區域類型成功刪除
+        edit:
+          title: 編輯區域類型
+          update: 更新
+        new:
+          create: 建立區域類型
+          title: 新增區域類型
+        update:
+          error: 更新這個區域類型時發生錯誤
+          success: 區域類型更新成功
+      areas:
+        create:
+          error: 新增區域時發生錯誤
+          success: 區域建立成功
+        destroy:
+          has_spaces: 這個區域有相依空間，刪除之前請確認沒有參與空間使用這個區域
+          success: 區域成功刪除
+        edit:
+          title: 編輯區域
+          update: 更新
+        new:
+          create: 建立區域
+          title: 新增區域
+        no_areas: 沒有區域
+        update:
+          error: 更新這個區域時發生錯誤
+          success: 區域更新成功
+      attachment_collections:
+        create:
+          error: 新增資料夾時發生錯誤
+          success: 資料夾建立成功
+        destroy:
+          success: 資料夾刪除成功
+        edit:
+          title: 編輯資料夾
+          update: 更新
+        index:
+          attachment_collections_title: 附件資料夾
+        new:
+          create: 建立
+          title: 新資料夾
+        update:
+          error: 更新這個資料夾時發生錯誤
+          success: 資料夾更新成功
+      attachments:
+        create:
+          error: 建立新附件時發生錯誤
+          success: 附件建立成功
+        destroy:
+          success: 附件刪除成功
+        edit:
+          title: 編輯附件
+          update: 更新
+        index:
+          attachments_title: 附件
+        new:
+          create: 建立附件
+          title: 新增附件
+        update:
+          error: 更新這個附件時發生錯誤.
+          success: 已成功更新附件
+      attachments_privacy_warning:
+        message: 在操作私有空間的附加檔案時請注意，任何參與者可以把文件分享給其他人
+      autocomplete:
+        no_results: 找不到結果
+        search_prompt: 請至少輸入三個字元才可搜尋
+      block_user:
+        new:
+          action: 封鎖帳號並且發送理由
+          already_reported_html: 繼續操作也會隱藏所有參與者內容， <a href="%{link}">封鎖這個帳號</a>。
+          description: 封鎖一個使用者會讓他的帳號無法使用，可以在此提供建議說明如何取消封鎖
+          justification: 理由
+          title: 封鎖使用者 %{name}
+      categories:
+        create:
+          error: 建立這個分類時發生錯誤
+          success: 分類建立成功
+        destroy:
+          error: 刪除這個分類時發生錯誤，請先將子類別刪除，確認這個分類沒有其他關聯後重試
+          success: 分類刪除成功
+        edit:
+          title: 編輯分類
+          update: 更新
+        index:
+          categories_title: 分類
+        new:
+          create: 建立類別
+          title: 新分類
+        update:
+          error: 更新這個分類時發生錯誤
+          success: 更新類別成功。
+      component_permissions:
+        update:
+          error: 更新這個元件的權限時發生錯誤
+          success: 權限更新成功
+      components:
+        create:
+          error: 這個元件創建時出了問題
+          success: 新增元件成功。
+        destroy:
+          error: 刪除這個元件時發生錯誤
+          success: 成功刪除元件
+        edit:
+          title: 編輯組件
+          update: 更新
+        form:
+          default_step_settings: 預設步驟設定
+          global_settings: 全域設定
+          step_settings: 步驟設定
+        index:
+          add: 新增元件
+          headers:
+            actions: 操作
+            name: 組件名稱
+            scope: 組件作用域
+            type: 組件類型
+        new:
+          add: 新增元件
+          title: '新增元件： %{name}'
+        publish:
+          success: 這個元件已經成功發佈
+        title: 元件
+        unpublish:
+          success: 這個元件已經成功取消發佈
+        update:
+          error: 更新這個元件發生錯誤
+          success: 元件更新成功
+      conflicts:
+        attempts: 嘗試
+        'false': '否'
+        managed_user_name: 管理的使用者
+        solved: 已解決
+        title: 驗證衝突
+        transfer:
+          email: 電子郵件
+          error: 轉移現在參與者到管理參與者時發生錯誤
+          name: 名稱
+          reason: 理由
+          success: 目前的轉換完成
+          title: 轉換
+        'true': '是'
+        user_name: 使用者
+      dashboard:
+        pending_moderations:
+          anouncement:
+            other: 有 %{count} 個操作等待中
+          goto_moderation: 前往全域管理
+          title: 等待的操作
+        show:
+          view_more_logs: 檢視更多記錄
+      domain_whitelist:
+        form:
+          domain_too_short: 網址太短
+        update:
+          error: 網址白名單更新失敗
+          success: 網址白名單更新成功.
+      exports:
+        export_as: "%{name} 成為 %{export_format}"
+        formats:
+          CSV: CSV
+          Excel: Excel
+          FormPDF: PDF
+          JSON: JSON
+        notice: 匯出處理中，完成後會發出通知
+      filters:
+        category_id_eq:
+          label: 類別
+        filter_label: 篩選
+        invitation_accepted_at_present:
+          label: 邀請已接受
+          values:
+            'false': '否'
+            'true': '是'
+        last_sign_in_at_present:
+          label: 曾經登入
+          values:
+            'false': '否'
+            'true': '是'
+        moderated_users:
+          reports_reason_eq:
+            label: 回報原因
+            values:
+              does_not_belong: 不屬於
+              offensive: 攻擊行為
+              spam: 垃圾訊息
+        moderations:
+          reportable_type_string_eq:
+            label: 類別
+        officialized_at_null:
+          label: 狀態
+          values:
+            'false': 官方化
+            'true': 非官方化
+        participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: 邀請已接受
+            values:
+              'false': 未接受
+              'true': 已接受
+          user_invitation_sent_at_not_null:
+            label: 已發送邀請
+            values:
+              'false': 未發送
+              'true': 已送出
+        private_space_eq:
+          label: 私人的
+          values:
+            'false': 公開的
+            'true': 不公開
+        published_at_null:
+          label: 已發佈
+          values:
+            'false': 已發佈
+            'true': 取消發佈
+        scope_id_eq:
+          label: 範圍
+        search_label: 搜尋
+        search_placeholder:
+          name_or_nickname_or_email_cont: 按電子郵件、姓名或暱稱搜索%{collection}。
+          report_count_eq: 報告數量等於
+          reported_id_string_or_reported_content_cont: 按報告 Id 或內容搜索%{collection}。
+          title_cont: 按標題搜索%{collection}。
+          user_name_or_user_email_cont: 按名稱或電子郵件搜索%{collection}。
+          user_name_or_user_nickname_or_user_email_cont: 按電子郵件、姓名或暱稱搜索%{collection}。
+        state_eq:
+          label: 狀態
+          values:
+            all: 全部
+            pending: 等待中
+            rejected: 已拒絕
+            verified: 已驗證
+      forms:
+        file_help:
+          import:
+            explanation: '檔案指南：'
+            message_1: 支援 CSV、JSON 和 Excel (.xlsx) 檔案格式。
+            message_2: 對於 CSV 檔案，列之間的分隔符號必須是分號 (";")
+      help_sections:
+        error: 更新協助章節時發生問題。
+        form:
+          save: 儲存
+        success: 協助章節已成功更新.
+      impersonatable_users:
+        index:
+          filter:
+            all: 全部
+            managed: 已管理
+            not_managed: 未管理
+          impersonate: 模擬
+          impersonate_new_managed_user: 管理新參與者
+          managed: 已管理
+          name: 名稱
+          needs_authorization_warning: 此組織需要至少啟用一個授權
+          not_managed: 未管理
+          promote: 推廣
+          search: 搜尋
+          status: 狀態
+          view_logs: 查看日誌
+      impersonations:
+        close_session:
+          error: 關閉目前的參與者管理工作階段時發生問題。
+          success: 目前的模擬登入工作階段已成功結束。
+        create:
+          error: 管理參與者時出現問題。
+          success: 已成功建立管理的參與者。
+        form:
+          authorization_method: 授權方式
+          name: 名稱
+          reason: 理由
+        new:
+          impersonate: 模擬
+          impersonate_existing_managed_user: 管理參與者 "%{name}"
+          impersonate_existing_user: 管理參與者 "%{name}"
+          impersonate_new_managed_user: 管理新參與者
+      imports:
+        and: 和
+        data_errors:
+          duplicate_headers:
+            detail: 請確認檔案包含所需的欄位或標題，且每個欄位或標題只出現一次。
+            message:
+              other: "One\n重複的欄位 %{columns}。\n\nOther\n重複的欄位 %{columns}。"
+          invalid_indexes:
+            lines:
+              detail: 請檢查這些行是否格式正確並包含有效的記錄。
+              message:
+                other: "One\n找到了一個錯誤，位於匯入檔案的第 %{indexes} 行。\n\nOther\n找到了多個錯誤，位於匯入檔案的第 %{indexes} 行。"
+            records:
+              detail: 請檢查這些記錄是否格式正確且包含有效的資料。
+              message:
+                other: "One\n訂單編號為 %{indexes} 的記錄在導入文件中發現錯誤。\n\nOther\n多個訂單編號為 %{indexes} 的記錄在導入文件中發現錯誤。"
+          missing_headers:
+            detail: 請確認文件包含所需的欄位。
+            message:
+              other: "One\n缺少欄位 %{columns}。\n\nOther\n缺少欄位 %{columns}。"
+        error: 匯入過程中發生問題.
+        example_error: 建立範例時發生問題。
+        new:
+          accepted_mime_types:
+            csv: CSV
+            json: JSON
+            xlsx: Excel (.xlsx)
+          actions:
+            back: 返回
+          download_example: 下載示例
+          download_example_format: 範例：%{name}
+          file_legend: 新增一個將被解析的導入檔案。
+          import: 匯入
+        notice: "成功匯入%{count} 個%{resource_name}."
+      logs:
+        filters:
+          participatory_space: 尋找參與空間
+          text: 按用戶電子郵件、姓名或暱稱進行搜索。
+          user: 使用者
+        logs_list:
+          no_logs_yet: 尚未有任何日誌記錄.
+          no_matching_logs: 沒有符合提供的搜尋條件的記錄。請嘗試更改條件後重試。
+      managed_users:
+        promotion:
+          error: 提升被管理參與者時出現問題。
+          success: 已成功提升受管理的參與者。
+        promotions:
+          new:
+            explanation: 受管理的參與者可以晉升為標準參與者。這意味著他們將受邀加入應用程式，您將無法再對其進行管理。被邀請的參與者將收到一封電子郵件，以接受您的邀請。
+            new_managed_user_promotion: 晉升新的受管理參與者
+            promote: 推廣
+      menu:
+        admin_log: 管理員活動日誌
+        admins: 管理員
+        appearance: 外觀
+        area_types: 區域類型
+        areas: 區域
+        configuration: 配置
+        content: 被檢舉的內容
+        external_domain_whitelist: 允許的外部域名
+        help_sections: 幫助部分
+        homepage: 首頁
+        impersonations: 模擬登錄
+        moderation: 全局審查
+        newsletters: 電子報
+        participants: 參與者
+        reported_users: 已舉報的參與者
+        scope_types: 範圍類型
+        scopes: 範圍
+        settings: 設定
+        static_pages: 頁
+        user_groups: 群組
+        users: 參與者
+      metrics:
+        metrics:
+          see_more_metrics: 查看更多指標
+      models:
+        area:
+          fields:
+            area_type: 區域類型
+            name: 名稱
+        area_type:
+          fields:
+            name: 姓名
+            plural: 複數
+        attachment:
+          fields:
+            collection: 資料夾
+            content_type: 類別
+            file_size: 大小
+            title: 標題
+          name: 附件
+        attachment_collection:
+          name: 資料夾
+        category:
+          name: 類別
+        impersonation_log:
+          fields:
+            admin: 管理員
+            ended_at: 結束在
+            expired_at: 到期時間
+            reason: 理由
+            started_at: 開始於
+            user: 參與者
+        newsletter:
+          fields:
+            created_at: 建立於
+            progress: 進度
+            sent_at: 寄送時間
+            sent_to: 發送至
+            subject: 主旨
+          name: 電子報
+        participatory_space_private_user:
+          name: 參與空間私有參與者
+        scope:
+          fields:
+            name: 名稱
+            scope_type: 範圍類型
+        scope_type:
+          fields:
+            name: 名稱
+            plural: 複數
+        share_token:
+          fields:
+            created_at: 建立於
+            expires_at: 到期日
+            last_used_at: 上次使用時間
+            times_used: 使用次數
+            token: 代幣
+            user: 創建者
+        static_page:
+          fields:
+            created_at: 建立於
+            title: 標題
+        user:
+          fields:
+            created_at: 創建日期
+            email: 電子郵件
+            name: 姓名
+            role: 角色
+            roles:
+              admin: 管理員
+              user_manager: 參與者管理者
+          name: 參與者
+        user_group:
+          fields:
+            actions: 操作
+            created_at: 建立於
+            document_number: 文件編號
+            name: 名稱
+            nickname: 暱稱
+            phone: 電話號碼
+            state: 狀態
+            users_count: 參與者數目
+      moderated_users:
+        index:
+          actions:
+            block: 封鎖使用者
+            title: 操作
+            unblock: 取消封鎖使用者
+            unreport: 取消報告
+          name: 名稱
+          nickname: 暱稱
+          reason: 理由
+          reports: 報告數量
+          title: 已報告的參與者
+        report:
+          reasons:
+            does_not_belong: 不屬於
+            offensive: 冒犯性
+            spam: 垃圾郵件
+        tabs:
+          blocked: 已封鎖
+          unblocked: 未封鎖的
+      moderations:
+        index:
+          title: 已檢舉內容
+        report:
+          reasons:
+            does_not_belong: 不屬於
+            hidden_during_block: 在封鎖使用者的同時隱藏
+            offensive: 冒犯性
+            spam: 垃圾郵件
+        reports:
+          index:
+            author: 作者
+            callout_html: 當使用者(可以是任何已註冊帳戶的使用者)點擊項目旁邊的 %{icon} 旗幟來標記內容時，該內容會出現在審核面板中。
+            content_original_language: 原始語言
+            participatory_space: 參與空間
+            reported_content: 已檢舉內容
+            see_current: 查看當前語言
+            see_original: 查看原始語言
+            title: 審核報告
+          show:
+            report_details: 原因詳情
+            report_language: 報告的語言
+            report_reason: 理由
+            title: 報告理由
+      newsletter_templates:
+        index:
+          preview_template: 預覽
+          title: 通訊範本
+          use_template: 使用這個範本
+        show:
+          preview: '預覽範本： %{template_name}'
+          use_template: 使用這個範本
+      newsletters:
+        create:
+          error: 建立此通訊時出現問題。
+          success: 通訊成功建立。請在發送前先檢查一下。
+        deliver:
+          error: 發送這封通訊時出現問題。
+          success: 通訊已成功發送。
+        destroy:
+          error_already_sent: '無法刪除通訊：已經發送。'
+          success: 通訊已成功刪除。
+        edit:
+          save_and_preview: 儲存並預覽
+          title: 編輯通訊。
+        index:
+          all: 全部
+          all_users: '所有用戶 '
+          and: '和 '
+          confirm_delete: 您確定要刪除這份通訊嗎？
+          followers: '追隨者'
+          has_been_sent_to: '已發送至： '
+          no_scopes: 無範圍
+          not_sent: 未發送
+          participants: '參與者 '
+          segmented_to: '分段至 %{subject}: '
+          subscribed_count: '訂閱:'
+          title: 電子報
+        new:
+          save: 儲存
+          title: 新電子報
+        select_recipients_to_deliver:
+          all_spaces: 全部
+          all_users_help: 發送通訊給所有已確認的使用者。
+          confirm_deliver: 您確定要發送這封通訊嗎？此操作無法撤銷。
+          deliver: 發送通訊
+          followers_help: 將通訊發送給清單中所有已確認且關注任何選定參與空間的使用者。
+          none: 無
+          participants_help: 發送通訊給所有在列表中任何選定的參與空間中參與過的已確認使用者。
+          recipients_count: 此通訊將發送給<strong id='recipients_count'>%{count}</strong>位使用者。
+          scopes_help: 向在其帳戶的「我的興趣」設置中啟用任何選定範圍的使用者發送通訊。
+          select_scopes: 篩選條件為在其帳戶的「我的興趣」設置中啟用任何選定範圍的使用者。
+          select_spaces: 選擇要將通訊進行分割的空間
+          select_users: 選擇您想要發送通訊的使用者
+          title: 選擇要傳送的收件人
+          warning: "<strong>注意：</strong>此通訊將僅傳送給已在其通知設定中啟用<em>我想收到通訊</em>的使用者。"
+        send:
+          no_recipients: 沒有選擇收件人.
+        show:
+          preview: 預覽
+          select_recipients_to_deliver: 選擇要傳送的收件人
+          subject: 主旨
+        update:
+          error: 更新這份通訊時出現了問題。
+          success: 通訊更新成功。請在發送前檢查一下。
+      officializations:
+        block:
+          error: 封鎖參與者時發生錯誤.
+          success: 參與者已成功封鎖.
+        create:
+          success: 參與者已成功成為正式成員.
+        destroy:
+          success: 參與者已成功設為非正式成員.
+        index:
+          actions: 操作
+          badge: 徽章
+          block: 封鎖使用者
+          created_at: 建立於
+          name: 姓名
+          nickname: 暱稱
+          not_officialized: 非官方化
+          officialize: 官方化
+          officialized: 已官方化
+          reofficialize: 重新官方化
+          reports: 報告
+          show_email: 顯示電子郵件地址
+          status: 狀態
+          unblock: 取消封鎖使用者
+          unofficialize: 取消官方化
+        new:
+          badge: 官方化徽章
+          officialize: 官方化
+          title: 正式認證參與者 "%{name}"
+        show_email_modal:
+          description: 如果您需要直接聯繫參與者，您可以點擊「顯示」按鈕以查看他們的電子郵件地址。此操作將被記錄。
+          email_address: 電子郵件地址
+          full_name: 全名
+          hidden: 隱藏
+          show: 顯示
+          title: 顯示參與者的電子郵件地址
+        unblock:
+          error: 解除參與者封鎖時出現錯誤.
+          success: 參與者已成功解除封鎖.
+      organization:
+        edit:
+          title: 編輯組織
+          update: 更新
+        form:
+          facebook: 臉書
+          github: GitHub
+          instagram: Instagram
+          rich_text_editor_in_public_views_help: 在某些文字區域中，參與者可以使用所提供的富文本編輯器插入一些 HTML 標籤。
+          social_handlers: 社群
+          url: 網址
+          youtube: YouTube
+        update:
+          error: 更新此組織時發生問題。
+          success: 組織更新成功
+      organization_appearance:
+        edit:
+          update: 更新
+        form:
+          colors:
+            colors_title: 組織顏色
+            colors_warning_html: 警告！更改這些顏色可能會破壞可達性對比度。您可以使用<a href="%{link}">WebAIM對比度檢查器</a>或其他類似工具檢查您選擇的對比度。
+          cta_button_text_help: 您可以覆蓋主頁上每種語言對應的"呼籲行動"按鈕文本。如果未設置，將使用默認值。"呼籲行動"按鈕顯示在主頁的歡迎文本和描述之間。
+          homepage_appearance_title: 編輯主頁外觀
+          homepage_highlighted_content_banner_title: 重點顯示的內容橫幅
+          images:
+            layout_appearance_title: 編輯版面外觀
+            preview: 預覽
+          omnipresent_banner_appearance_title: 編輯無處不在的橫幅
+      organization_external_domain_whitelist:
+        edit:
+          update: 更新
+        external_domain:
+          down: 向下
+          external_domain: 外部網域
+          remove: 移除
+          up: 往上
+        form:
+          add: 新增到白名單
+          title: 外部域名白名單
+      organization_homepage:
+        content_blocks:
+          create:
+            error: 建立此內容區塊時出現問題。
+            success: 內容區塊建立成功。
+          destroy:
+            error: 刪除此內容區塊時出現問題。
+            success: 內容區塊已成功刪除。
+          edit:
+            update: 更新
+        edit:
+          active_content_blocks: 啟用的內容區塊
+          add: 添加內容塊
+          destroy_confirmation: 您確定要刪除此內容區塊嗎？
+          inactive_content_blocks: 停用的內容區塊
+          title: 頁面內容
+      participatory_space_private_users:
+        create:
+          error: 在此參與空間中添加私人參與者時出現問題。
+          success: 成功建立參與空間的私人參與者訪問權限。
+        destroy:
+          error: 刪除參與空間的私人參與者時發生問題。
+          success: 成功刪除參與空間的私人參與者訪問權限。
+        index:
+          import_via_csv: 透過 CSV 匯入
+          title: 參與空間私有參與者
+        new:
+          create: 建立
+          title: 新的參與空間私人參與者。
+      participatory_space_private_users_csv_imports:
+        create:
+          invalid: 讀取 CSV 檔案時發生問題。請確保您已按照指示進行操作。
+          success: CSV檔案上傳成功，我們正在發送邀請電子郵件給參與者。這可能需要一些時間。
+        new:
+          destroy:
+            button: 刪除所有私人參與者
+            confirm: 您確定要刪除所有私人參與者嗎？此操作無法撤銷，您將無法恢復它們。
+            empty: 您沒有私人參與者。
+            explanation: 您有 %{count} 位私人參與者。
+            title: 刪除私人參與者
+          example_file: '示例文件:'
+          explanation: '請上傳您的 CSV 檔案。檔案的第一欄應為電子郵件，最後一欄應為要添加到參與空間的使用者的名稱，檔案中不應包含標題。請避免在使用者名稱中使用無效字元，例如 <>?%&^*#@()[]=+:;"{}\|。'
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
+          title: 請上傳您的 CSV 檔案。
+          upload: 上傳
+      reminders:
+        create:
+          error: 在創建提醒時遇到問題。
+          success:
+            other: "One\n將提醒 %{count} 位使用者。\n\nOther\n將提醒 %{count} 位使用者。"
+        new:
+          submit: 發送
+      resource_permissions:
+        edit:
+          submit: 提交
+          title: 編輯權限
+        update:
+          success: 權限更新成功
+      resources:
+        index:
+          headers:
+            scope: 範圍
+      scope_types:
+        create:
+          error: 建立新範圍類型時發生問題。
+          success: 成功建立範圍類型。
+        destroy:
+          success: 成功刪除範圍類型。
+        edit:
+          title: 編輯範圍類型。
+          update: 更新
+        new:
+          create: 建立範圍類型。
+          title: 新範圍
+        update:
+          error: 更新此範圍類型時出現問題。
+          success: 範圍類型已成功更新。
+      scopes:
+        create:
+          error: 建立新範圍時發生問題。
+          success: 範圍成功建立。
+        destroy:
+          success: 範圍已成功刪除.
+        edit:
+          title: 修改範圍
+          update: 更新
+        new:
+          create: 建立範圍
+          title: 新範圍
+        no_scopes: 該層級下沒有範圍。
+        update:
+          error: 更新此範圍時出現問題。
+          success: 範圍更新成功。
+      share_tokens:
+        actions:
+          confirm_destroy: 您確定要刪除此標記嗎？
+          destroy: 刪除
+          share: 分享
+        destroy:
+          error: 刪除代幣時出現問題。
+          success: 代幣成功刪除。
+        share_tokens:
+          empty: 沒有有效的代幣.
+          help: 這些代幣用於向任何使用者公開分享此未發佈的資源。當資源被發佈時，它們將被隱藏。點擊代幣的分享圖標，以訪問可分享的URL。
+          title: 分享代幣
+      shared:
+        gallery:
+          add_images: 添加圖案
+          delete_image: 刪除圖片
+          edit_images: 編輯圖片
+          gallery_legend: 新增圖片庫(可選)
+      static_page_topics:
+        create:
+          error: 建立新主題時發生問題。
+          success: 主題已成功建立。
+        destroy:
+          success: 主題已成功刪除.
+        edit:
+          title: 編輯主題
+          update: 更新主題
+        new:
+          create: 建立主題
+          title: 新增主題
+        update:
+          error: 更新主題時發生問題。
+          success: 主題已成功更新。
+      static_pages:
+        actions:
+          view: 查看公開頁面。
+        content_blocks:
+          active_content_blocks: 啟用的內容區塊
+          add: 添加內容塊
+          create:
+            error: 建立此內容區塊時出現問題。
+            success: 內容區塊建立成功。
+          destroy:
+            error: 刪除此內容區塊時出現問題。
+            success: 內容區塊已成功刪除。
+          destroy_confirmation: 您確定要刪除此內容區塊嗎？
+          edit:
+            update: 更新
+          inactive_content_blocks: 停用的內容區塊
+          title: 頁面內容
+        create:
+          error: 創建新頁面時出現問題。
+          success: 頁面建立成功.
+        destroy:
+          success: 頁面已成功刪除
+        edit:
+          changed_notably_help: 如果勾選了此項，參與者將被通知接受新的服務條款。
+          title: 編輯頁面
+          update: 更新
+        form:
+          none: 無
+        new:
+          create: 建立頁面
+          title: 新頁面
+        topic:
+          destroy: 刪除主題
+          edit: 編輯主題
+          empty: 這個主題下沒有頁面.
+          without_topic: 沒有主題的頁面
+        update:
+          error: 更新此頁面時出現問題。
+          success: 頁面已更新成功.
+      titles:
+        admin_log: 管理日誌
+        area_types: 區域類型
+        areas: 區域
+        authorization_workflows: 驗證方式
+        dashboard: 儀表板
+        impersonatable_users: 可管理的參與者
+        impersonations: 參與者管理
+        metrics: 指標
+        panel: 管理員
+        participants: 參與者
+        scope_types: 範圍類型
+        scopes: 範圍
+        statistics: 啟動
+        user_groups: 群組
+        users: 管理員
+      user_group:
+        csv_verify:
+          invalid: 讀取 CSV 檔案時發生問題。
+          success: CSV檔案上傳成功，我們正在驗證符合條件的群組。這可能需要一些時間。
+        reject:
+          invalid: 拒絕此群組時發生問題。
+          success: 群組已成功拒絕.
+        verify:
+          invalid: 驗證此群組時發生問題。
+          success: 群組驗證成功.
+      user_groups:
+        index:
+          state:
+            pending: 等待中
+            rejected: 已拒絕
+            verified: 已驗證
+          verify_via_csv: 通過 CSV 驗證
+      user_groups_csv_verifications:
+        new:
+          example_file: '示例文件:'
+          explanation: 請上傳您的 CSV 檔案。檔案的第一欄應包含您組織中的群組官方電子郵件，不包含標頭。只有已確認其電子郵件並且在 CSV 檔案中出現的群組將被驗證。
+          explanation_example: |
+            acme@example.org
+            bubba.gump@example.org
+          title: 請上傳您的 CSV 檔案。
+          upload: 上傳
+      users:
+        create:
+          error: 邀請此管理員時出現問題。
+          success: 成功邀請參與者.
+        destroy:
+          error: 刪除此管理員時出現問題。
+          success: 參與者不再是管理員。
+        form:
+          email: 電子郵件
+          name: 名稱
+          role: 角色
+        new:
+          create: 邀請
+          title: 邀請新的管理員
+      users_statistics:
+        users_count:
+          admins: 管理員
+          last_day: 過去 1 天
+          last_month: 上個月
+          last_week: 上週
+          no_users_count_statistics_yet: 目前還沒有使用者統計數據。
+          participants: 參與者
+    forms:
+      errors:
+        impersonate_user:
+          reason: 你需要在管理非管理的參與者時提供一個原因.
+    metrics:
+      blocked_users:
+        object: 已封鎖的使用者
+        title: 已封鎖的使用者
+      reported_users:
+        object: 被舉報的使用者
+        title: 被舉報的使用者
+      user_reports:
+        object: 使用者報告
+        title: 使用者報告
+    moderations:
+      actions:
+        expand: 展開
+        hidden: 隱藏
+        hide: 隱藏
+        not_hidden: 不隱藏
+        title: 操作
+        unhide: 解除隱藏
+        unreport: 取消報告
+      admin:
+        reportable:
+          hide:
+            invalid: 隱藏資源時發生問題。
+            success: 資源已成功隱藏。
+          unhide:
+            invalid: 解除隱藏資源時出現問題。
+            success: 成功取消隱藏資源。
+          unreport:
+            invalid: 解除報告資源時發生問題。
+            success: 成功取消報告資源。
+      models:
+        moderation:
+          fields:
+            created_at: 報告時間
+            deleted_resource: 已刪除的資源
+            hidden_at: 隱藏於
+            participatory_space: 參與空間
+            report_count: 報告數量
+            reportable_id: ID
+            reportable_type: 類別
+            reported_content_url: 被舉報的內容URL網址
+            reports: 理由
+            visit_url: 訪問網址
+        report:
+          fields:
+            details: 原因詳情
+            locale: 語言
+            reason: 理由
+  errors:
+    messages:
+      invalid_json: 不正確 JSON
+  layouts:
+    decidim:
+      admin:
+        global_moderations:
+          title: 全局審查

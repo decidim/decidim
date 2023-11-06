@@ -41,6 +41,13 @@ module Decidim
       def current_step_dom_id
         "step-#{current_step_index}"
       end
+
+      def confirm_data
+        { data: {
+          confirm: t("decidim.forms.step_navigation.show.are_you_sure"),
+          disable: true
+        } }
+      end
     end
   end
 end

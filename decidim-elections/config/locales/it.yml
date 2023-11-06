@@ -18,6 +18,7 @@ it:
       voting:
         end_time: La votazione termina il
         start_time: La votazione inizia il
+        voting_type: Tipo di votazione
     errors:
       models:
         answer:
@@ -28,25 +29,7 @@ it:
           attributes:
             attachment:
               needs_to_be_reattached: Necessita di essere riallegato
-        trustee:
-          attributes:
-            name:
-              cant_be_changed: non modificabile
-            public_key:
-              cant_be_changed: non modificabile
   activerecord:
-    errors:
-      models:
-        decidim/votings/polling_officer:
-          attributes:
-            presided_polling_station:
-              president_and_manager: L'ufficiale elettorale è già presidente/gestore di un seggio
-            voting:
-              different_organization: La votazione deve essere effettuata nella stessa organizzazione dell'utente
-        decidim/votings/polling_station:
-          attributes:
-            polling_station_president:
-              different_voting: Il funzionario incaricato del voto deve avere la stessa funzione del posto di scrutinio
     models:
       decidim/elections/answer:
         one: Risposta
@@ -97,9 +80,6 @@ it:
             'true': Non firmato
         validated_eq:
           label: Convalidato
-          values:
-            'false': Convalidato
-            'true': Non convalidato
     components:
       elections:
         actions:
@@ -120,24 +100,16 @@ it:
         manage_answers: Gestisci le risposte
         manage_questions: Gestisci i quesiti
         manage_steps: Gestisci passaggi
-        new: Nuovo %{name}
         preview: Anteprima
         publish: Pubblica
         title: Azioni
         unpublish: Ritira
       admin:
         answers:
-          create:
-            invalid: Si è verificato un errore durante la creazione di questa risposta
-            success: Risposta creata con successo
-          destroy:
-            invalid: Si è verificato un problema durante l'eliminazione di questa risposta
-            success: Risposta eliminata con successo
           edit:
             title: Modifica risposta
             update: Aggiorna risposta
           index:
-            invalid_max_selections: Hai bisogno di %{missing_answers} altre risposte per scegliere le selezioni massime
             title: Risposte
           new:
             create: Crea risposta
@@ -146,22 +118,8 @@ it:
           select:
             disable: Deseleziona la risposta
             enable: Segna la risposta come selezionata
-            invalid: Si è verificato un problema durante la selezione di questa risposta
-            success: Risposta selezionata con successo
           selected: Selezionato
-          unselect:
-            invalid: Si è verificato un problema deselezionazionando questa risposta
-            success: Risposta deselezionata con successo
-          update:
-            invalid: Si è verificato un errore durante l'aggiornamento di questa risposta
-            success: Risposta aggiornata con successo
         elections:
-          create:
-            invalid: Si è verificato un errore durante la creazione di questa elezione
-            success: Elezione creata con successo
-          destroy:
-            invalid: Si è verificato un problema durante l'eliminazione di questa elezione
-            success: Elezione eliminata con successo
           edit:
             title: Modifica elezione
             update: Aggiorna elezione
@@ -175,9 +133,6 @@ it:
             success: L'elezione è stata pubblicata con successo.
           unpublish:
             success: L'elezione è stata ritirata con successo.
-          update:
-            invalid: Si è verificato un problema durante l'aggiornamento di questa elezione
-            success: Elezione aggiornata con successo
         exports:
           elections: Elezioni
           feedback_form_answers: Risposte al modulo di feedback
@@ -186,28 +141,13 @@ it:
         models:
           answer:
             name: Risposta
-          election:
-            name: Elezione
-          question:
-            name: Quesito
-          trustee:
-            name: Fiduciari
         proposals_imports:
-          create:
-            invalid: Si è verificato un problema durante l'importazione delle proposte nelle risposte
-            success: "%{number} proposte importate con successo in risposte"
           new:
             create: Importa proposte a cui rispondere
             no_components: Non vi sono altre componenti di proposte in questo spazio partecipativo per importare le proposte in risposte.
             select_component: Si prega di selezionare un componente
             title: Importa proposte
         questions:
-          create:
-            invalid: Si è verificato un errore durante la creazione di questa domanda
-            success: Domanda creata con successo
-          destroy:
-            invalid: Si è verificato un errore durante l'eliminazione di questa domanda
-            success: Domanda eliminata con successo
           edit:
             title: Modifica quesito
             update: Aggiorna quesito
@@ -216,9 +156,6 @@ it:
           new:
             create: Crea quesito
             title: Nuovo quesito
-          update:
-            invalid: Si è verificato un errore durante l'aggiornamento del quesito
-            success: Quesito aggiornato correttamente
         steps:
           create_election:
             errors:
@@ -241,13 +178,10 @@ it:
               time_before: La configurazione viene eseguita <strong>almeno %{hours} ore</strong> prima dell'inizio delle elezioni.
               trustees_number: Lo spazio partecipativo ha <strong>almeno %{number} fiduciari con chiave pubblica</strong>.
             submit: Imposta elezione
-            success: Elezione inviata con successo al Bollettino
             title: Imposta elezione
             trustees: Fiduciari Delle Elezioni
           created:
-            invalid: Si è verificato un problema iniziando la cerimonia della chiave
             submit: Iniziare la cerimonia della chiave
-            success: La richiesta di avvio della cerimonia della chiave è stata inviata con successo al Bulletin Board
             title: Elezione creata
             trustees: Garanti
           key_ceremony:
@@ -256,11 +190,9 @@ it:
           key_ceremony_ended:
             errors:
               time_before: La votazione sta per cominciare. Devi aspettare fino a %{hours} ore prima dell'ora di inizio (%{start_time}) per poter votare.
-            invalid: Si è verificato un problema iniziando il periodo di votazione
             requirements:
               time_before: L'elezione inizierà presto. È possibile iniziare il periodo di votazione manualmente, o sarà avviato automaticamente prima dell'ora di inizio, a %{start_time}.
             submit: Inizio del periodo di votazione
-            success: La richiesta di avvio della votazione é stata inviata con successo al Bulletin Board
             title: Pronti via
           processing: Processando...
           results_published:
@@ -278,21 +210,16 @@ it:
             result: Risultato
             selected: Selezionato
             submit: Pubblica i risultati
-            success: La richiesta di pubblicazione dei risultati é stata inviata con successo al Bulletin Board
             title: Risultati calcolati
           vote:
             errors:
               time_after: Le elezioni sono ancora in corso. Devi aspettare fino all´ora (%{end_time}) per terminare il periodo di votazione.
-            invalid: Si è verificato un problema nel concludere il periodo di votazione
             requirements:
               time_after: Le elezioni sono terminate. Puoi terminare manualmente il periodo di votazione, oppure si concluderà automaticamente tra qualche minuto.
             submit: Fine del periodo di votazione
-            success: La richiesta di chiusura della votazione é stata inviata con successo al Bulletin Board
             title: Periodo di votazione
           vote_ended:
-            invalid: Si è verificato un errore nell' inizio del conteggio
             submit: Inizia conteggio
-            success: La richiesta di avvio del conteggio é stata inviata con successo al Bulletin Board
             text: Il voto è terminato. È possibile iniziare il conteggio ora.
             title: Periodo di votazione terminato
           vote_stats:
@@ -304,13 +231,6 @@ it:
           actions:
             disable: Disattiva
             enable: Considerare
-          create:
-            exists: La persona garante esiste per questo spazio partecipativo
-            invalid: Si è verificato un errore creando la persona garante
-            success: Persona garante creata con successo
-          delete:
-            invalid: Si è verificato un problema durante la rimozione di questa persona garante
-            success: Persona garante rimossa con successo
           form:
             select_user: Selezionare utente
           index:
@@ -318,9 +238,6 @@ it:
           new:
             create: Crea garante
             title: Nuovo Garante
-          update:
-            invalid: Si è verificato un problema durante l'aggiornamento del garante %{trustee}
-            success: Garante %{trustee} aggiornato con successo
       admin_log:
         election:
           create: "%{user_name} ha creato l'elezione %{resource_name} di %{space_name}"
@@ -374,7 +291,6 @@ it:
           key_ceremony_title: Cerimonia della Chiave
           not_available: Non ancora disponibili
           not_created: Non creato
-          not_published: Non pubblicate
           not_ready: Non pronte
           not_started: Non iniziate
           published: Pubblicate
@@ -389,10 +305,10 @@ it:
             started: Il processo di conteggio è cominciato.
           tally_title: Conteggio
           title: Registro delle elezioni
+          unpublished: Non pubblicato
           verifiable_results:
             checksum: 'Somma di controllo del file SHA256:'
             description:
-              not_ready: Il file elettorale verificabile e la somma di controllo del file SHA256 non sono ancora disponibili. Non appena i risultati saranno pubblicati, sarai in grado di verificare queste elezioni.
               ready: 'Qui, si ha la possibilità di verificare l''elezione. In primo luogo, è necessario scaricare il file e assicurarsi che non è sia danneggiato. Per farlo, eseguire il seguente comando e verificare che il risultato corrisponda alla somma di controllo:'
             how_to_verify: 'Una volta scaricato il file e assicuratosi che sia ok, è possibile procedere con l''esecuzione del verificatore universale. Clona <a href=''https://github.com/decidim/decidim-bulletin-board''>questo repository</a> e, dalla cartella root, esegui il seguente comando:'
             title: Verifica i risultati delle elezioni
@@ -407,13 +323,7 @@ it:
           active: Attiva
           all: Tutti
           finished: Completata
-          search: Cerca
           upcoming: Imminente
-        filters_small_view:
-          close_modal: Chiudi finestra
-          filter: Filtra
-          filter_by: Filtra per
-          unfold: Espandi
         preview:
           available_answers: 'Risposte disponibili:'
           description: 'Queste sono le domande che troverete nel processo di votazione:'
@@ -431,7 +341,6 @@ it:
             change_vote: Cambia il tuo voto
             vote: Inizia a votare
             vote_again: Vota di nuovo
-          back: Elezioni disponibili
           callout:
             already_voted: Hai già espresso il tuo voto in questa elezione. Puoi cambiare il tuo voto o verificarlo.
             pending_vote: Il tuo voto è stato espresso sul server.
@@ -449,7 +358,6 @@ it:
       feedback:
         answer:
           invalid: Si è verificato un errore durante l'invio del tuo feedback.
-          spam_detected: C'è stato un problema nelle risposte ai quesiti. Forse sei stato troppo veloce, puoi riprovare?
           success: Feedback inviato con successo.
       models:
         answer:
@@ -489,7 +397,6 @@ it:
           backup_modal:
             description: Questa elezione è in corso di creazione nel Bollettino. È molto importante che ogni fiduciario che partecipa crei una copia di backup di queste chiavi e le memorizzi in un luogo sicuro. Dopo di che, il processo continuerà.
             download_election_keys: Scarica le chiavi
-            download_icon: Icona che indica un'azione di download
             title: Backup delle chiavi elettorali per %{election}
           key_ceremony_steps:
             back: Indietro
@@ -504,7 +411,6 @@ it:
               task: Attività
             process_warning: Una volta avviato il processo, non si dovrebbe uscire da questa pagina fino alla fine dello stesso. Ci vorranno diversi minuti, poiché tutti i Garanti dovrebbero essere collegati per completarlo.
             start: Avvia
-            start_icon: Icona che indica un pulsante avvia per avviare la generazione delle chiavi elettorali
             status:
               completed: Completata
               pending: In attesa
@@ -514,7 +420,6 @@ it:
             description: Il Bulletin Board ha ricevuto informazioni da parte tua in quanto Garante di queste elezioni. Per continuare il processo, caricare il file di backup generato durante la sessione precedente.
             title: Ripristina le chiavi elettorali per %{election}
             upload_election_keys: Carica chiavi elettorali
-            upload_icon: Icona che indica un'azione di download
           tally_started_steps:
             description: I risultati di queste elezioni sono in fase di elaborazione nel Bulletin Board. Per completare questo processo, è necessaria la tua partecipazione come Garante.
             keys:
@@ -523,9 +428,6 @@ it:
                 cast: Invio del conteggio
                 share: Condivisione del conteggio
             title: Conteggio di %{election}
-          update:
-            error: Lo stato delle elezioni non è stato aggiornato.
-            success: 'Lo stato delle elezioni è: %{status}'
         menu:
           trustee_zone: Zona Garanti
         no_bulletin_board:
@@ -551,39 +453,31 @@ it:
               generate_legend: Devi generare un paio di chiavi di identificazione per partecipare alle elezioni come Garante.
               generate_legend_1: Dopo aver premuto il pulsante dovresti scaricare il file con le chiavi di identificazione generate.
               generate_legend_2: Copia il file scaricato su un dispositivo USB pulito
-              generate_legend_3: Assicurati che sul computer non ci sia una copia del file (controlla anche le cartelle Download e Desktop).
               generate_legend_4: Fai un'altra copia del file su un altro dispositivo esterno e memorizzarlo in un luogo molto sicuro.
               submit: Invia
               submit_title: Invia la chiave di identificazione pubblica
               title: Codici di identificazione del Garante
               upload: Carica i tuoi codici di identificazione
-              upload_error:
-                invalid_format: Il file caricato non contiene alcun codice di identificazione.
-                invalid_key: I codici di identificazione nel file caricato non possono essere caricati.
-            not_supported_browser_description: Sembra che tu stia usando un browser web che non può essere usato in qualitá di Garante. Assicurati di utilizzare la versione più recente del tuo browser, o prova ad utilizzare uno dei browser più popolari che ti permettano di esercitare il ruolo di Garante.
             not_supported_browser_title: Aggiorna il browser per fungere da Garante
             trustee_role_description: Ti è stato assegnato di ruolo di Garante in alcune delle elezioni che si svolgeranno su questa piattaforma.
           update:
             success: I tuoi codici di identificazione pubblici sono stati salvati con successo.
       votes:
         ballot_decision:
-          audit: "( Voto di controllo )"
+          audit: ( Voto di controllo )
           back: Inizia nuovamente il processo di voto
           ballot_hash: 'Il tuo identificativo elettorale è:'
-          description: Qui, hai l'opzione di votare in modo che il tuo voto sia conteggiato correttamente o, in alternativa, di controllare che il tuo voto sia stato crittografato correttamente. Per motivi di sicurezza, controllare il tuo voto lo cancellerá, il che significa, che per esprimerlo, sarà necessario ripetere il processo di votazione.
           header: 'Il voto è criptato: confermalo o controllalo'
         casting:
           header: Salvo voto...
           text: Il tuo voto viene deposto nell'urna.
         confirm:
-          answer: Risposta
           answer_number: rispondi %{number}
           confirm: Conferma
           edit: modifica
           header: Conferma il tuo voto
           intro: Ecco un riassunto del voto che stai per lanciare. <br> Per favore conferma il tuo voto o modifica le tue risposte.
           nota_option: Vuoto
-          question: Domanda %{count}
         confirmed:
           back: Torna alle elezioni
           experience: Com'è stata la tua esperienza?
@@ -604,11 +498,7 @@ it:
           try_again: Riprova
         header:
           ballot_decision: Invia o controlla il tuo voto
-          casting: Invio voto
           confirm: Conferma il tuo voto
-          confirmed: Voto confermato
-          encrypting: Cifratura del voto
-          failed: Votazione fallita
         messages:
           invalid_token: La tua sessione elettorale non è valida. Prova a votare di nuovo.
           not_allowed: In questo momento non ti è permesso di votare a queste elezioni.
@@ -623,7 +513,6 @@ it:
           question_steps: Domanda %{current_step} di %{total_steps}
           selections: "%{selected} di %{max_selections}<br> selezioni"
         onboarding_modal:
-          close: Chiudi finestra
           create_account: Crea Account
           no_account: No, grazie.
         update:
@@ -642,12 +531,10 @@ it:
             title: Verifica il tuo voto
           success:
             header: Voto trovato!
-            info: Il tuo voto crittografato è nell'urna %{link}
         voting_step:
           back: Indietro
           continue: Successivo
       warnings:
-        no_elections_warning: Nessuna elezione corrisponde ai criteri della tua ricerca oppure non sono previste elezioni.
         no_scheduled_elections_warning: Al momento non sono previste elezioni, ma qui puoi trovare un elenco di tutte quelle passate.
     events:
       elections:
@@ -659,18 +546,15 @@ it:
         trustees:
           new_election:
             email_intro: Sei stato aggiunto come Garante per le elezioni %{resource_title}.
-            email_outro: Hai ricevuto questa notifica perché ti è stato assegnato il ruolo di Garante per le elezioni %{resource_title}.
             email_subject: Sei Garante delle elezioni %{resource_title}..
             notification_title: Sei Garante delle elezioni <a href="%{resource_path}">%{resource_title}</a>.
           new_trustee:
             email_intro: Un amministratore ti ha aggiunto come Garante di %{resource_name}. Dovresti creare la tua chiave pubblica <a href='%{trustee_zone_url}'>nella tua zona garanti </a>
-            email_outro: Hai ricevuto questa notifica perché sei stata aggiunta come Garante "%{resource_name}.
             email_subject: Sei Garante di %{resource_name}.
             notification_title: Sei Garante di <a href="%{participatory_space_url}">%{resource_name}</a>.
         votes:
           accepted_votes:
             email_intro: 'Il tuo voto è stato accettato! Usando il tuo token di voto: %{encrypted_vote_hash}, puoi verificare il tuo voto <a href="%{verify_url}">qui</a>.'
-            email_outro: Hai ricevuto questa notifica perché hai votato per l'elezione %{resource_name}.
             email_subject: Il tuo voto per %{resource_name} è stato accettato.
             notification_title: 'Il tuo voto è stato accettato. Verifica il tuo voto <a href="%{verify_url}">qui</a> usando il tuo token di voto: %{encrypted_vote_hash}'
       votings:
@@ -697,65 +581,29 @@ it:
     votings:
       admin:
         ballot_styles:
-          create:
-            error: Si è verificato un errore durante la creazione di questo stile di voto
-            success: Stile di voto creato con successo
-          destroy:
-            invalid: Si è verificato un errore durante l'eliminazione di questo stile di voto
-            success: Stile di voto eliminato con successo
           edit:
             title: Modifica stile di voto
             update: Aggiorna
           form:
-            code_help: 'Suggerimento: il codice è il collegamento tra il censimento e lo stile della votazione. Quando si caricano i dati della votazione, ad ogni voce verrà assegnato uno stile di voto abbinandogli il codice'
             election: Elezione
             questions: Domande per questo stile di voto
-            questions_help: 'Suggerimento: seleziona le domande dai componenti elettorali da presentare agli elettori assegnati a questo stile di voto'
           index:
             actions:
               confirm_destroy: Sei sicura?
               destroy: Elimina
               edit: Modifica
-              new: Nuovo
               title: Azioni
             associated_census_data: Voci di voto associate
-            explanation_callout: Uno stile di voto specifica quali domande verranno presentate all'elettore nella cabina. In uno stile di voto, puoi scegliere quali domande fra le componenti di questa elezione assegnare alla scheda elettorale. Il codice di stile della scheda elettorale viene utilizzato per abbinare un elettore/elettrice con la scheda elettorale che gli/le verrà presentata in cabina. Non creare uno stile di voto se si vuole sempre presentare tutte le domande.
             title: Stile di voto
           new:
             create: Crea
             title: Crea stile di voto
-          update:
-            invalid: Si è verificato un errore durante l'aggiornamento di questo stile di voto
-            success: Stile di voto aggiornato con successo
         content_blocks:
           highlighted_votings:
             max_results: Quantità massima di elementi da mostrare
-          landing_page:
-            attachments_and_folders:
-              name: Allegati e cartelle della votazione
-            description:
-              name: Descrizione del voto
-            elections:
-              name: Votazioni elettorali
-            header:
-              name: Intestazione delle votazioni
-            html_block_1:
-              name: Votazioni html blocco 1
-            html_block_2:
-              name: Votazioni html blocco 2
-            html_block_3:
-              name: Votazioni html blocco 3
-            metrics:
-              name: Metriche di voto
-            polling_stations:
-              name: Seggi elettorali
-            stats:
-              name: Statistiche di voto
-            timeline:
-              name: Calendario delle votazioni
         index:
-          not_published: Non Pubblicato
           published: Pubblicato
+          unpublished: Non pubblicato
         landing_page:
           content_blocks:
             edit:
@@ -772,7 +620,6 @@ it:
             ballot_styles: Stili di voto
             census: Censimento
             components: Componenti
-            info: Info
             landing_page: Pagina iniziale
             monitoring_committee: Comitato di Sorveglianza
             monitoring_committee_election_results: Convalida Risultati
@@ -785,29 +632,24 @@ it:
           ballot_style:
             fields:
               code: Codice
-            name: Modalità di voto
           monitoring_committee_member:
             fields:
               email: Email
               name: Nome
-            name: Membro del Comitato di Sorveglianza
           polling_officer:
             fields:
               email: Email
               name: Nome
               polling_station: Seggio elettorale (ruolo)
-            name: Scrutatrice/tore
           polling_station:
             fields:
               address: Indirizzo
               polling_station_managers: Gestori
               polling_station_president: Presidentessa/Presidente
               title: Titolo
-            name: Seggio elettorale
           voting:
             fields:
               created_at: Creato il
-              promoted: Evidenziato
               published: Pubblicato
               title: Titolo
         monitoring_committee_election_results:
@@ -834,16 +676,8 @@ it:
             publish_results: Pubblica i risultati
             publishing: Pubblicazione risultati...
           update:
-            invalid: Si è verificato un errore durante la pubblicazione dei risultati
             rejected: La pubblicazione dei risultati in bacheca è stata rifiutata. Riprova o contatta l'amministratore di sistema.
-            success: I risultati sono stati pubblicati correttamente
         monitoring_committee_members:
-          create:
-            invalid: Si è verificato un errore durante la creazione di questo Membro del Comitato di Sorveglianza
-            success: Membro del Comitato di Sorveglianza creato con successo
-          destroy:
-            invalid: Si è verificato un errore durante l'eliminazione di questo Membro del Comitato di Sorveglianza
-            success: Membro del comitato di sorveglianza eliminato con successo
           form:
             existing_user: Partecipante esistente
             non_user: Invita un nuovo partecipante
@@ -873,9 +707,6 @@ it:
           show:
             change_polling_station: Torna ai Seggi Elettorali
             monitoring_committee_notes: Osservazioni del comitato di sorveglianza
-          validate:
-            error: Si è verificato un errore durante la convalida della chiusura
-            success: La chiusura è stata convalidata correttamente
         monitoring_committee_verify_elections:
           index:
             download: Scarica
@@ -886,12 +717,6 @@ it:
             not_available: Non ancora disponibile
             title: Elezioni
         polling_officers:
-          create:
-            invalid: Si è verificato un errore durante la creazione di questa scrutinatrice
-            success: Scrutinatrice creata con successo
-          destroy:
-            invalid: Si è verificato un errore durante l'eliminazione di questa scrutinatrice
-            success: Scrutinatrice eliminata con successo
           form:
             existing_user: Partecipante esistente
             non_user: Invita un nuovo partecipante
@@ -908,14 +733,7 @@ it:
             choose_polling_officers: Crea responsabile sondaggio
             close: Chiudi
             more_polling_officers: Ci sono altre %{number} proposte. Affina la tua ricerca per localizzarle.
-            no_polling_officers: Nessun funzionario di sondaggio corrisponde ai tuoi criteri di ricerca o non c'è alcun funzionario di sondaggio.
         polling_stations:
-          create:
-            invalid: Si è verificato un errore durante la creazione di stazione di sondaggio
-            success: Stazione di sondaggio creata con successo
-          destroy:
-            invalid: Si è verificato un errore durante l'eliminazione di questa stazione di sondaggio
-            success: Stazione di sondaggio eliminata con successo
           edit:
             title: Modifica la stazione di sondaggio
             update: Aggiorna la stazione di sondaggio
@@ -924,16 +742,12 @@ it:
             location_help: 'Posizione: messaggio diretto agli elettori che implica il luogo esatto del seggi elettorali'
             location_hints_help: 'Suggerimenti di posizione: informazioni aggiuntive. Esempio: il piano dell''edificio in cui si trova la stazione elettorale.'
             polling_station_managers_help: 'Dirigenti dei sondaggi: i dirigenti che fungeranno da direttori dei seggi elettorali. Assicurarsi che i dirigenti siano già stati creati negli uffici Elettorali e che non siano già assegnati ad un altro seggi elettorali'
-            polling_station_president_help: 'Dirigente seggio elettorale: il dirigente che agirà come presidente del seggio. Assicurarsi che sia già stato creato in nell''ufficio Elettorale e che non sia già assegnato ad un altro seggio'
             select_president: Selezionare un funzionario dell'ufficio come presidente del seggio elettorale
           index:
             title: Seggio elettorale
           new:
             create: Crea
             title: Crea un seggio per la votazione
-          update:
-            invalid: Si è verificato un problema durante l'aggiornamento di questa votazione
-            success: Stato del voto aggiornato con successo
         titles:
           votings: Votazioni
         votings:
@@ -941,18 +755,10 @@ it:
             confirm_destroy: Sei sicuro?
             destroy: Elimina
             new_voting: Nuovo Spazio Di Votazione
-            publish: Pubblica
-            unpublish: Annulla la pubblicazione
-          create:
-            invalid: Si è verificato un problema durante la creazione di questa votazione
-            success: Votazione creata con successo
           edit:
-            add_election_component: Non hai nessuna elezione configurata per questo voto. Si prega di aggiungerla nella sezione Componenti
-            assign_missing_officers: Ci sono stazioni di sondaggio senza Presidente e/o Manager. Si prega di assegnarle dalla sezione Postazioni di sondaggio
             update: Aggiorna
           form:
             select_a_voting_type: Seleziona un tipo di votazione
-            slug_help: 'Gli URL slugs sono usati per generare gli URL che puntano a questo voto. Accetta solo lettere, numeri e trattini e deve iniziare con una lettera. Esempio: %{url}'
             title: Titolo
             voting_type:
               hybrid: Ibrido
@@ -961,13 +767,6 @@ it:
           new:
             create: Crea
             title: Nuova Votazione
-          publish:
-            success: Votazione pubblicata con successo
-          unpublish:
-            success: Votazione annullata con successo
-          update:
-            invalid: Si è verificato un errore durante l'aggiornamento di questa votazione
-            success: Votazione aggiornata con successo
       admin_log:
         ballot_style:
           create: "%{user_name} ha creato uno stile di voto con il codice %{ballot_style_code} nello spazio %{space_name}"
@@ -996,22 +795,14 @@ it:
           census:
             create:
               invalid: Si è verificato un errore durante il caricamento del censimento, riprova più tardi.
-              invalid_csv_header: Le intestazioni CSV sono mancanti o non corrette - si prega di leggere attentamente le istruzioni
-            creating_data:
-              info_message: "<strong>Attendere</strong>, elaborato %{processed_count} di %{raw_count} righe dal file %{file}."
             delete:
               button: Elimina tutti i dati del censimento
             destroy:
               error: Si è verificato un errore durante l'eliminazione del censimento, riprova più tardi.
-              success: Dati censimento eliminati
             export_access_codes:
               button: Esporta codici di accesso alle votazioni
               callout: Ora puoi procedere all'esportazione dei codici di accesso. Questo può essere fatto solo una volta. Una volta avviata l'esportazione, riceverai un'email con le istruzioni all'indirizzo <strong>%{email}</strong>
               confirm: Puoi esportare i codici di accesso solo una volta. Assicurati di avere accesso all'indirizzo <strong>%{email}</strong>.
-              launch_error: Problema nel lanciare l'esportazione dei codici di accesso
-              launch_success: Esportazione codici di accesso avviata. A breve riceverai un'email all'indirizzo %{email}
-            exporting_access_codes:
-              info_message: "<strong>Attendere</strong>, l'esportazione è in fase di preparazione, lo riceverai tra breve all'indirizzo %{email}"
             freeze:
               callout: Il censimento è congelato e non può essere modificato.
             generate_access_codes:
@@ -1022,8 +813,6 @@ it:
               info_message_warn: Si prega di controllare che non manchino dati, poiché %{data_count} record sono stati creati e il file caricato %{file} aveva %{raw_count} righe.
               launch_error: Problema nel lanciare la generazione di codici di accesso
               launch_success: Generazione di codici lanciata.
-            generating_access_codes:
-              info_message: "<strong>Attendere</strong>, vengono generati i codici di accesso alle votazioni..."
             new:
               file_help:
                 explanation: 'Guida per il file:'
@@ -1051,32 +840,19 @@ it:
             subject: L'esportazione dei codici di accesso della votazeion per %{voting_title} è disponibile
         vote_flow:
           already_voted_in_person: Questo partecipante ha già votato di persona e non ha diritto di voto.
-          datum_not_found: I dati forniti non corrispondono a nessun elettore.
       content_blocks:
         highlighted_votings:
           name: Votazioni evidenziate
         landing_page:
-          description:
-            title: Informazioni su questa votazione
-          metrics:
-            heading: Statistiche
           polling_stations:
             heading: Seggi elettorali
             no_polling_stations: Non ci sono ancora seggi elettorali.
-          timeline:
-            heading: Cronologia
       monitoring_committee_members:
         actions:
           confirm_destroy: Sei sicura?
           destroy: Elimina
           new: Nuovo membro
           title: Azioni
-      pages:
-        home:
-          highlighted_votings:
-            active_votings: Votazioni attive
-            see_all_votings: Vedi tutte le votazioni
-            votings_button_title: Link alla pagina Votazioni che mostra tutte le votazioni
       polling_officer_zone:
         closures:
           back_to_polling_stations: Torna ai seggi elettorali
@@ -1096,7 +872,6 @@ it:
             info_text: Si prega di introdurre il numero totale di risposte per ogni domanda.
             modal_ballots_results_count_error:
               close_modal: Chiudi
-              info_text: Il numero totale di votazioni non corrisponde al numero totale di buste. Controlla il totale delle votazioni.
               title: Il totale delle urne non si sommano
             save_recount: Salva riconteggio
             total_ballots: Votazioni totali
@@ -1109,8 +884,6 @@ it:
             info_text: 'Si prega di introdurre il numero totale di schede (buste) contate in questa stazione di sondaggio:'
             modal_ballots_count_error:
               btn_validate_total: Convalida il totale delle votazioni
-              close_modal: Chiudi
-              info_text: Il numero totale di schede (buste) introdotte non corrisponde al record di persone che hanno votato in questa Polling Station.
               message_for_monitoring_committee: Messaggio per il comitato di sorveglianza
               review_recount: Rivedi il conto
               text_area_placeholder: Digita il tuo messaggio
@@ -1125,15 +898,11 @@ it:
             info_text: Chiusura elettorale del sondaggio.
           sign:
             cancel: Annulla
-            check_box: Ho recensito questo ed è lo stesso del certificato di chiusura elettorale fisico
-            close_modal: Chiudi
             confirm: Ok, continua
             error: Si è verificato un errore, riprova.
             heading: Resoconto dei voti - Chiusura dei segni
-            info_text: Se si continua non è più possibile modificare nessuna delle informazioni, questa azione non può essere annullata.
             submit: Firma la chiusura
             success: Chiusura firmata con successo.
-            title: L'azione non può essere annullata
           update:
             error: Si è verificato un errore durante l'aggiornamento dei risultati della chiusura, riprova più tardi.
             success: Risultati di chiusura aggiornati con successo.
@@ -1142,7 +911,6 @@ it:
             available_answers: 'Risposte disponibili:'
             complete_voting: Completa la votazione
             identify_another: Identificare un altro utente
-            questions_title: 'Ha diritto di voto nelle seguenti domande:'
             voted: L'utente ha votato
           create:
             error: La votazione non è stata registrata. Per favore riprova.
@@ -1197,7 +965,6 @@ it:
         actions:
           confirm_destroy: Sei sicuro?
           destroy: Cancella
-          new: Nuovo
           title: Azioni
         roles:
           manager: Gestore
@@ -1218,12 +985,10 @@ it:
           confirm_destroy: Sei sicuro?
           destroy: Cancella
           edit: Modifica
-          new: Nuovo
           title: Azioni
       votings:
         access_code_modal:
           email: Invia per email a %{email}
-          info: Hai bisogno di un Codice di Accesso per partecipare. Se non ne hai ottenuto uno per posta postale, possiamo inviarne uno nuovo.
           no_email: Nessuna email disponibile
           no_sms: Nessun numero di telefono disponibile
           sms: Invia tramite SMS a %{sms}
@@ -1235,7 +1000,6 @@ it:
           invalid: Si è verificato un errore nel controllare il censimento.
           success:
             access_link_with_sms: via SMS o e-mail.
-            info: Avresti già dovuto ricevere il tuo Codice di Accesso per posta postale. Nel caso in cui non lo avessi puoi richiederlo qui
             title: I tuoi dati di censimento sono corretti!
           title: Posso votare?
         check_fields:
@@ -1256,9 +1020,7 @@ it:
             one: "%{count} votazioni"
             other: "%{count} votazioni"
         elections_log:
-          bb_status: Stato elettorale
           description: Il registro elettorale vi mostrerà tutte le informazioni pertinenti su ogni voto. Per esempio, lo stato della cerimonia chiave o tally o se i risultati sono già stati pubblicati. Fare clic sull'elezione in cui si desidera le informazioni di registro.
-          election_log: Registro Delle Elezioni
           title: Registro elettorale
         filters:
           active: Attivo
@@ -1266,11 +1028,6 @@ it:
           finished: Finito
           search: Ricerca
           upcoming: Prossimi
-        filters_small_view:
-          close_modal: Chiudi modalità
-          filter: Filtro
-          filter_by: Filtra per
-          unfold: Dispiega
         index:
           no_votings: Nessun voto corrisponde ai criteri di ricerca.
           only_finished: Al momento non sono previste elezioni, ma qui puoi trovare un elenco di tutte quelle passate.
@@ -1279,36 +1036,23 @@ it:
           access_code: Codice di accesso
           access_code_placeholder: Codice Accesso
           ask_for_a_new_one: Chiedi uno nuovo.
-          dont_have_access_code: Non hai un codice di accesso?
           form_title: 'Compila il seguente modulo per accedere alla votazione:'
           start_voting: Inizia a votare
-          step: Identificazione
           title: Identificarmi con i miei dati di censimento di voto
-        no_census_contact_information: Non ci sono ancora informazioni di contatto
         orders:
           label: 'Ordina le votazioni per:'
           random: Casuale
           recent: Più recente
-        send_access_code:
-          invalid: Si è verificato un problema durante l'invio del Codice di Accesso
-          success: Il tuo Codice di Accesso è stato inviato con successo
-        show:
-          dates: Date
       votings_m:
         badge_name:
           finished: Completata
           ongoing: In corso
           upcoming: In arrivo
-        footer_button_text:
-          participate: Partecipa
-          view: Visualizza
-          vote: Vota
         unspecified: Non specificato
         voting_type:
           hybrid: Ibrido
           in_person: Di persona
           online: Online
-        voting_types_label: Tipo di votazione
   layouts:
     decidim:
       election_votes_header:
@@ -1316,10 +1060,8 @@ it:
       voting_navigation:
         check_census: Posso votare?
         election_log: Registro elettorale
-        voting_menu_item: La votazione
       votings:
         index:
           promoted_votings: Votazioni in evidenza
         promoted_voting:
-          more_info: Ulteriori informazioni
           vote: Vota

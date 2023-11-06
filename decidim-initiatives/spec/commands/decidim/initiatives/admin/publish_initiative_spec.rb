@@ -8,11 +8,11 @@ module Decidim
       describe PublishInitiative do
         subject { described_class.new(initiative, user) }
 
-        let(:initiative) { create :initiative, :created }
-        let(:user) { create :user, :admin, :confirmed, organization: initiative.organization }
+        let(:initiative) { create(:initiative, :created) }
+        let(:user) { create(:user, :admin, :confirmed, organization: initiative.organization) }
 
         context "when the initiative is already published" do
-          let(:initiative) { create :initiative }
+          let(:initiative) { create(:initiative) }
 
           it "broadcasts :invalid" do
             expect { subject.call }.to broadcast(:invalid)

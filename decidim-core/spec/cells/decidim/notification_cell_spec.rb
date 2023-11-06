@@ -6,10 +6,10 @@ describe Decidim::NotificationCell, type: :cell do
   subject { my_cell.call }
 
   controller Decidim::PagesController
-  let!(:organization) { create :organization }
-  let(:user) { create :user, :confirmed, organization: }
+  let!(:organization) { create(:organization) }
+  let(:user) { create(:user, :confirmed, organization:) }
   let(:my_cell) { cell("decidim/notification", notification) }
-  let(:notification) { create :notification, user:, resource: }
+  let(:notification) { create(:notification, user:, resource:) }
   let(:component) { create(:component, manifest_name: "dummy", organization:) }
   let(:resource) { create(:dummy_resource, component:) }
 

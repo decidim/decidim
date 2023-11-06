@@ -7,7 +7,9 @@ shared_examples "manage assembly categories" do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_assemblies.edit_assembly_path(assembly)
-    click_link "Categories"
+    within_admin_sidebar_menu do
+      click_link "Categories"
+    end
   end
 
   it_behaves_like "manage categories examples"

@@ -6,9 +6,9 @@ module Decidim::Conferences
   describe Admin::CreateConference do
     subject { described_class.new(form) }
 
-    let(:organization) { create :organization }
-    let(:current_user) { create :user, :admin, :confirmed, organization: }
-    let(:scope) { create :scope, organization: }
+    let(:organization) { create(:organization) }
+    let(:current_user) { create(:user, :admin, :confirmed, organization:) }
+    let(:scope) { create(:scope, organization:) }
     let(:errors) { double.as_null_object }
     let!(:participatory_processes) do
       create_list(
@@ -24,14 +24,9 @@ module Decidim::Conferences
         organization:
       )
     end
-    let(:consultation) { create :consultation, organization: }
-    let!(:questions) do
-      create_list(
-        :question,
-        3,
-        consultation:
-      )
-    end
+    let(:related_processes_ids) { [participatory_processes.map(&:id)] }
+    let(:related_assemblies_ids) { [assemblies.map(&:id)] }
+
     let(:form) do
       instance_double(
         Admin::ConferenceForm,
@@ -39,6 +34,7 @@ module Decidim::Conferences
         invalid?: invalid,
         title: { en: "title" },
         slogan: { en: "slogan" },
+        weight: 1,
         slug: "slug",
         hashtag: "hashtag",
         location: "location location",
@@ -58,9 +54,8 @@ module Decidim::Conferences
         registrations_enabled: false,
         available_slots: 0,
         registration_terms: { en: "registrations terms" },
-        participatory_processes_ids: participatory_processes.map(&:id),
-        assemblies_ids: assemblies.map(&:id),
-        consultations_ids: questions.collect(&:consultation).uniq
+        participatory_processes_ids: related_processes_ids,
+        assemblies_ids: related_assemblies_ids
       )
     end
     let(:invalid) { false }
@@ -105,7 +100,7 @@ module Decidim::Conferences
     context "when everything is ok" do
       let(:conference) { Decidim::Conference.last }
 
-      it "creates an conference" do
+      it "creates a conference" do
         expect { subject.call }.to change(Decidim::Conference, :count).by(1)
       end
 
@@ -141,10 +136,44 @@ module Decidim::Conferences
         expect(linked_assemblies).to match_array(assemblies)
       end
 
-      it "links consultations" do
-        subject.call
-        linked_consultations = conference.linked_participatory_space_resources("Consultations", "included_consultations")
-        expect(linked_consultations).to match_array(questions.collect(&:consultation).uniq)
+      context "when sorting linked_participatory_space_resources" do
+        let!(:process_one) { create(:participatory_process, organization:, weight: 2) }
+        let!(:process_two) { create(:participatory_process, organization:, weight: 1) }
+        let(:related_processes_ids) { [process_one.id, process_two.id] }
+        let!(:assembly_one) { create(:assembly, organization:) }
+        let!(:assembly_two) { create(:assembly, organization:) }
+        let(:related_assemblies_ids) { [assembly_one.id, assembly_two.id] }
+
+        it "sorts by created at" do
+          subject.call
+
+          linked_assemblies = conference.linked_participatory_space_resources(:assemblies, "included_assemblies")
+          expect(linked_assemblies.first).to eq(assembly_one)
+        end
+
+        it "sorts by weight" do
+          subject.call
+
+          linked_processes = conference.linked_participatory_space_resources(:participatory_process, "included_participatory_processes")
+          expect(linked_processes.first).to eq(process_two)
+        end
+      end
+
+      context "when linking unpublished linked_participatory_space_resources" do
+        let!(:process_one) { create(:participatory_process, :unpublished, organization:, weight: 2) }
+        let!(:process_two) { create(:participatory_process, organization:, weight: 1) }
+        let(:related_processes_ids) { [process_one.id, process_two.id] }
+        let!(:assembly_one) { create(:assembly, :unpublished, organization:) }
+        let!(:assembly_two) { create(:assembly, organization:) }
+        let(:related_assemblies_ids) { [assembly_one.id, assembly_two.id] }
+
+        it "does not include unpublished assemblies" do
+          subject.call
+
+          linked_assemblies = conference.linked_participatory_space_resources(:assemblies, "included_assemblies")
+          expect(linked_assemblies.first).to eq(assembly_two)
+          expect(linked_assemblies.size).to eq(1)
+        end
       end
     end
   end

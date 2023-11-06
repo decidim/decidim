@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Admin::DashboardMetricChartsPresenter do
   subject { described_class.new(organization:, summary:, view_context: ActionController::Base.new.view_context) }
 
-  let(:organization) { create :organization }
+  let(:organization) { create(:organization) }
   let(:summary) { false }
 
   let(:summary_highlighted_metrics) { %w(users proposals) }

@@ -78,7 +78,6 @@ lv:
         edit: Labot
         filter:
           all_processes: Rādīt visus procesus
-          process_groups: Procesa grupas
         import_process: Importēt
         new_process: Jauns process
         new_process_group: Jauna procesa grupa
@@ -97,7 +96,6 @@ lv:
           attachments: Pielikumi
           categories: Kategorijas
           components: Komponenti
-          info: Informācija
           moderations: Moderācijas
           private_users: Privātie dalībnieki
           process_admins: Procesa administratori
@@ -107,7 +105,6 @@ lv:
           fields:
             created_at: Izveidots plkst.
             private: Privāts
-            promoted: Izcelts
             published: Publicēts
             title: Nosaukums
           name: Līdzdalības process
@@ -177,9 +174,6 @@ lv:
           success: Līdzdalības procesa fāze ir veiksmīgi izveidota.
         default_title: Ievads
         destroy:
-          error:
-            active_step: Nevar izdzēst aktīvo fāzi.
-            last_step: Nevar izdzēst procesa pēdējo fāzi.
           success: Līdzdalības procesa fāze ir veiksmīgi dzēsta.
         edit:
           title: Rediģēt līdzdalības procesa fāzi
@@ -218,7 +212,6 @@ lv:
         edit:
           update: Atjaunināt
         index:
-          not_published: Nav publicēts
           private: Privāts
           public: Publisks
           published: Publicēts
@@ -291,9 +284,6 @@ lv:
         description: Līdzdalības procesu skaits šajā organizācijā
         object: līdzdalības procesi
         title: Līdzdalības procesi
-    participatory_process:
-      show:
-        related_assemblies: Saistītās asamblejas
     participatory_process_groups:
       content_blocks:
         stats:
@@ -303,22 +293,16 @@ lv:
     participatory_process_steps:
       index:
         process_steps: Procesa fāzes
-        title: Līdzdalības procesa fāzes
     participatory_processes:
       admin:
         content_blocks:
           highlighted_processes:
             max_results: Maksimālais parādāmo elementu daudzums
-        participatory_process_copies:
-          form:
-            slug_help: 'URL sadaļas adrese (slug) tiek izmantota, lai ģenerētu URL, kas ved uz šo procesu. Tajā var būt tikai burti, cipari un defises, un tai jāsākas ar burtu. Piemērs: %{url}'
         participatory_process_imports:
           form:
             document_legend: Pievienot dokumentu
-            slug_help: 'URL sadaļas adrese (slug) tiek izmantota, lai ģenerētu URL, kas ved uz šo procesu. Tajā var būt tikai burti, cipari un defises, un tai jāsākas ar burtu. Piemērs: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Šeit izmantojiet daļējus ceļus, nevis pilnus URL. Tajos var būt tikai burti, cipari, defises un slīpsvītras, un tiem jāsākas ar burtu. Ja tas nav iestatīts, poga netiks rādīta. Piemērs:%{url}'
             cta_text_help: Ja tas nav iestatīts, poga netiks rādīta.
         participatory_processes:
           form:
@@ -332,7 +316,6 @@ lv:
             scope_type_max_depth_help: Ierobežojiet tvēruma filtra dziļumu; filtrētais rezultāts rādīs no vispārējā uz izvēlēto tvēruma veidu.
             select_an_area: Izvēlieties jomu
             select_process_group: Atlasiet procesa grupu
-            slug_help: 'URL sadaļas adrese (slug) tiek izmantota, lai ģenerētu URL, kas ved uz šo procesu. Tajā var būt tikai burti, cipari un defises, un tai jāsākas ar burtu. Piemērs: %{url}'
             title: Vispārēja informācija
             visbility: Redzamība
       content_blocks:
@@ -342,14 +325,6 @@ lv:
         title: Līdzdalības procesi
       last_activity:
         new_participatory_process: Jauns līdzdalības process
-      pages:
-        home:
-          highlighted_processes:
-            active_processes: Aktīvie procesi
-            active_step: Aktīvā fāze
-            more_information: Papildu informācija
-            participate: Piedalīties
-            see_all_processes: Skatīt visus procesus
       participatory_processes:
         filters:
           counters:
@@ -366,8 +341,6 @@ lv:
               one: viens gaidāmais process
               other: "%{count} gaidāmie procesi"
           explanations:
-            no_active: Nav aktīvu procesu
-            no_active_nor_upcoming: Nav ne aktīvu, ne gaidāmu procesu
             no_active_nor_upcoming_callout: Nav ne aktīvu, ne gaidāmu procesu. Šeit ir saraksts ar agrākajiem.
           names:
             active: Aktīvas
@@ -375,31 +348,15 @@ lv:
             past: Iepriekšējie
             upcoming: Gaidāmās
           see: Skatīt
-        index:
-          loading: Notiek rezultātu ielāde ...
       show:
-        area: Joma
-        developer_group: Atbalstītāju grupa
-        end_date: Beigu datums
-        local_area: Organizācijas joma
-        participatory_scope: Kas tiek izlemts
-        participatory_structure: Kā tas tiek izlemts
         private_space: Šis ir privāts process
         related_processes: Saistītie procesi
-        scope: Darbības tvērums
-        start_date: Sākuma datums
-        target: Kas piedalās
-        unspecified: Nav norādīts
   layouts:
     decidim:
       participatory_process_groups:
         participatory_process_group:
           browse: Pārlūkot
           processes_count: 'Procesi:'
-      participatory_process_widgets:
-        show:
-          active_step: Aktīvā fāze
-          take_part: Piedalīties
       participatory_processes:
         index:
           promoted_processes: Izceltie procesi
@@ -407,11 +364,3 @@ lv:
           active_step: 'Pašreizējā fāze:'
           more_info: Sīkāka informācija
           take_part: Piedalīties
-        promoted_process:
-          active_step: 'Pašreizējā fāze:'
-          more_info: Sīkāka informācija
-          take_part: Piedalīties
-      process_header_steps:
-        step: Fāze %{current} no %{total}
-      process_navigation:
-        process_menu_item: Process

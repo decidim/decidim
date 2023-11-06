@@ -8,10 +8,10 @@ module Decidim
       describe CreateBallotStyle do
         subject { described_class.new(form) }
 
-        let(:user) { create :user, :admin, :confirmed }
-        let(:election) { create :election, :complete, component: elections_component }
-        let(:elections_component) { create :elections_component, participatory_space: voting }
-        let(:voting) { create :voting, organization: user.organization }
+        let(:user) { create(:user, :admin, :confirmed) }
+        let(:election) { create(:election, :complete, component: elections_component) }
+        let(:elections_component) { create(:elections_component, participatory_space: voting) }
+        let(:voting) { create(:voting, organization: user.organization) }
 
         let(:form) do
           double(
@@ -74,7 +74,7 @@ module Decidim
         end
 
         context "when a ballot style with the same code exists" do
-          context "when it's in the same voting" do
+          context "when it is in the same voting" do
             let!(:existing_ballot_style) { create(:ballot_style, voting:, code:) }
 
             it "is not valid" do
@@ -83,7 +83,7 @@ module Decidim
             end
           end
 
-          context "when it's in another voting" do
+          context "when it is in another voting" do
             let!(:existing_ballot_style) { create(:ballot_style, code:) }
 
             it "is valid" do

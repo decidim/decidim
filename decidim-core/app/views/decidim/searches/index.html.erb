@@ -1,15 +1,21 @@
 <% add_decidim_page_title(t("term_input_placeholder", scope: "decidim.search")) %>
 
-<div class="wrapper">
-  <div class="row" id="search-count">
+<% content_for :header_snippets do %>
+  <meta name="robots" content="noindex">
+<% end %>
+
+<% content_for :aside do %>
+  <%= render partial: "filters" %>
+<% end %>
+
+<%= render layout: "layouts/decidim/shared/layout_two_col" do %>
+
+  <section id="search-count" class="layout-main__section">
     <%= render partial: "count" %>
-  </div>
-  <div class="row">
-    <div class="columns mediumlarge-4 large-3 search-filters">
-      <%= render partial: "filters" %>
-    </div>
-    <div id="results" class="columns mediumlarge-8 large-9">
-      <%= cell "decidim/search_results", @sections, params: params %>
-    </div>
-  </div>
-</div>
+  </section>
+
+  <section id="results" class="layout-main__section">
+    <%= cell "decidim/search_results", @sections, params: %>
+  </section>
+
+<% end %>

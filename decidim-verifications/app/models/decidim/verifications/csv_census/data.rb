@@ -21,7 +21,7 @@ module Decidim
           @values = []
           @errors = []
 
-          CSV.foreach(@file) do |row|
+          CSV.foreach(@file, encoding: "BOM|UTF-8") do |row|
             process_row(row)
           end
         end

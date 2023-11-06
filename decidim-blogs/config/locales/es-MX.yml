@@ -1,5 +1,11 @@
 es-MX:
   activemodel:
+    attributes:
+      post:
+        body: Cuerpo del texto
+        decidim_author_id: Autoria
+        published_at: Hora de publicación
+        title: Título
     models:
       decidim/blogs/create_post_event: Nueva publicación del blog
   activerecord:
@@ -17,57 +23,56 @@ es-MX:
         new: Nueva publicación
         title: Comportamiento
       admin:
-        models:
-          components:
-            body: Cuerpo
-          post:
-            name: Enviar
         posts:
           create:
-            invalid: Ha habido un problema al crear esta publicación
-            success: Publicación creada con éxito
+            invalid: Se ha producido un error al crear esta publicación.
+            success: Publicación creada correctamente.
           destroy:
-            success: Publicación eliminada con éxito
+            success: La publicación se ha eliminado correctamente.
           edit:
             save: Actualizar
             title: Editar publicación
           index:
+            not_published_yet: No publicada aún.
             title: Publicaciones
           new:
             create: Crear
             title: Crear publicación
           update:
             invalid: Ha habido errores al guardar la publicación.
-            success: Publicación guardada con éxito
+            success: Se ha guardado la publicación correctamente.
       admin_log:
         post:
           create: "%{user_name} creó el post %{resource_name} en el blog de %{space_name}"
           delete: "%{user_name} ha eliminado el post %{resource_name} en el blog de %{space_name}"
           update: "%{user_name} ha actualizado el post %{resource_name} en el blog de %{space_name}"
+      content_blocks:
+        highlighted_posts:
+          last_published: Última publicación
+          name: Publicaciones
+          see_all: Per todas las publicaciones
       last_activity:
-        new_post_at_html: "<span>Nueva publicación en %{link}</span>"
+        new_post: 'Nueva publicación:'
       models:
         post:
           fields:
             author: Autoría
             body: Cuerpo
-            created_at: Creado en
             official_blog_post: Post oficial
-            title: título
+            published_at: Hora de publicación
+            title: Título
       posts:
-        show:
-          back: Volver al listado
-          comments: Comentarios
-          view: Ver
-        sidebar_blog:
-          comments: comentarios
-          most_commented_posts: Publicaciones más comentadas
-      read_more: Leer más
+        index:
+          count:
+            one: "%{count} publicación"
+            other: "%{count} publicaciones"
     components:
       blogs:
         actions:
+          comment: Comentar
           create: Crear
           destroy: Borrar
+          endorse: Adherirse
           update: Actualizar
         name: Blog
         settings:

@@ -16,7 +16,7 @@ module Decidim
         # Executes the command. Broadcasts these events:
         #
         # - :ok when everything is valid.
-        # - :invalid if the form wasn't valid and we couldn't proceed.
+        # - :invalid if the form was not valid and we could not proceed.
         #
         # Returns nothing.
         def call
@@ -26,7 +26,6 @@ module Decidim
             add_admins_as_followers(conference)
             link_participatory_processes
             link_assemblies
-            link_consultations
 
             broadcast(:ok, conference)
           else
@@ -48,6 +47,7 @@ module Decidim
             title: form.title,
             slogan: form.slogan,
             slug: form.slug,
+            weight: form.weight,
             hashtag: form.hashtag,
             description: form.description,
             short_description: form.short_description,
@@ -94,15 +94,6 @@ module Decidim
 
         def link_assemblies
           conference.link_participatory_space_resources(assemblies, "included_assemblies")
-        end
-
-        def consultations
-          @consultations ||= conference.participatory_space_sibling_scope(:consultations)
-                                       .where(id: @form.consultations_ids)
-        end
-
-        def link_consultations
-          conference.link_participatory_space_resources(consultations, "included_consultations")
         end
       end
     end

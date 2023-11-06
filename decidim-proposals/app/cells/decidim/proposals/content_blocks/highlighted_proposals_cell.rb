@@ -3,16 +3,10 @@
 module Decidim
   module Proposals
     module ContentBlocks
-      class HighlightedProposalsCell < Decidim::ContentBlocks::HighlightedElementsCell
-        def base_relation
-          @base_relation ||= Decidim::Proposals::Proposal.published.not_hidden.except_withdrawn.where(component: published_components)
-        end
-
+      class HighlightedProposalsCell < Decidim::ContentBlocks::HighlightedElementsWithCellForListCell
         private
 
-        def limit
-          Decidim::Proposals.config.process_group_highlighted_proposals_limit
-        end
+        def list_cell_path = "decidim/proposals/highlighted_proposals_for_component"
       end
     end
   end

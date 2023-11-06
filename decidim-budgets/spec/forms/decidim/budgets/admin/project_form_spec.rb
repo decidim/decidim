@@ -14,9 +14,9 @@ module Decidim::Budgets
         current_participatory_space: participatory_process
       }
     end
-    let(:participatory_process) { create :participatory_process, organization: }
-    let(:current_component) { create :budgets_component, participatory_space: participatory_process }
-    let(:budget) { create :budget, component: current_component }
+    let(:participatory_process) { create(:participatory_process, organization:) }
+    let(:current_component) { create(:budgets_component, participatory_space: participatory_process) }
+    let(:budget) { create(:budget, component: current_component) }
     let(:title) do
       Decidim::Faker::Localized.sentence(word_count: 3)
     end
@@ -27,7 +27,7 @@ module Decidim::Budgets
     let(:parent_scope) { create(:scope, organization:) }
     let(:scope) { create(:subscope, parent: parent_scope) }
     let(:scope_id) { scope.id }
-    let(:category) { create :category, participatory_space: participatory_process }
+    let(:category) { create(:category, participatory_space: participatory_process) }
     let(:category_id) { category.id }
     let(:selected) { nil }
     let(:latitude) { 40.1234 }
@@ -50,7 +50,7 @@ module Decidim::Budgets
     it { is_expected.to be_valid }
 
     context "when geocoding is enabled" do
-      let(:current_component) { create :budgets_component, :with_geocoding_enabled, participatory_space: participatory_process }
+      let(:current_component) { create(:budgets_component, :with_geocoding_enabled, participatory_space: participatory_process) }
 
       context "when the address is not present" do
         it "does not store the coordinates" do
@@ -121,8 +121,8 @@ module Decidim::Budgets
     context "with proposals" do
       subject { described_class.from_model(project).with_context(context) }
 
-      let(:proposals_component) { create :component, manifest_name: :proposals, participatory_space: participatory_process }
-      let!(:proposal) { create :proposal, component: proposals_component }
+      let(:proposals_component) { create(:component, manifest_name: :proposals, participatory_space: participatory_process) }
+      let!(:proposal) { create(:proposal, component: proposals_component) }
 
       let(:project) do
         create(
@@ -155,7 +155,7 @@ module Decidim::Budgets
 
     describe "#selected" do
       context "and properly maps selected? from model" do
-        let(:project) { create :project, selected_at: }
+        let(:project) { create(:project, selected_at:) }
 
         context "when is not selected" do
           let(:selected_at) { nil }
@@ -185,7 +185,7 @@ module Decidim::Budgets
       subject { form.scope }
 
       context "when the scope exists" do
-        it { is_expected.to be_kind_of(Decidim::Scope) }
+        it { is_expected.to be_a(Decidim::Scope) }
       end
 
       context "when the scope does not exist" do

@@ -1,5 +1,15 @@
-<%= render layout:"layouts/decidim/shared/layout_one_col" do %>
-  <div class="grid grid-cols-8 [&>*]:col-span-8 lg:[&>*:not(.grow)]:col-start-2 lg:[&>*:not(.grow)]:col-span-6">
-    <%= yield %>
-  </div>
+<%
+main_enabled = true unless local_assigns.has_key?(:main_enabled)
+main_tag = main_enabled ? :main : :div
+columns ||= 6
+# Class names need to be complete, not metaprogarmmed, because of Tailwind class purge
+css_class = case columns
+            when 10 then "cols-10"
+            when 8 then "cols-8"
+            else "cols-6"
+            end
+%>
+
+<%= content_tag main_tag, class: "layout-1col #{css_class}" do %>
+  <%= yield %>
 <% end %>

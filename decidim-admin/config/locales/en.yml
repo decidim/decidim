@@ -15,25 +15,35 @@ en:
         description: Description
         file: File
         title: Attachment or image name
+        weight: Order position
       attachment_collection:
         description: Description
         name: Name
+        weight: Order position
       category:
         description: Description
         name: Name
         parent_id: Parent
+        weight: Order position
       component:
         name: Name
         published_at: Published at
         weight: Order position
+      external_domain:
+        value: Value
+      help_section:
+        content: Content
       id: ID
       import:
         user_group_id: Create imports as
       newsletter:
         body: Body
+        send_to_all_users: Send to all users
+        send_to_followers: Send to followers
+        send_to_participants: Send to participants
         subject: Subject
       organization:
-        admin_terms_of_use_body: Body for the admin terms of use
+        admin_terms_of_service_body: Body for the admin terms of service
         alert_color: Alert
         available_authorizations: Available authorizations
         badges_enabled: Enable badges
@@ -84,15 +94,19 @@ en:
         secondary_hosts: Secondary hosts
         send_welcome_notification: Send welcome notification
         success_color: Success
+        tertiary_color: Tertiary
         time_zone: Time Zone
         tos_version: Terms of service version
-        twitter_handler: Twitter handler
+        twitter_handler: X handler
         user_groups_enabled: Enable groups
         users_registration_mode: Users registration mode
         warning_color: Warning
         welcome_notification_body: Welcome notification body
         welcome_notification_subject: Welcome notification subject
         youtube_handler: YouTube handler
+      participatory_space_private_user:
+        email: Email
+        name: Name
       scope:
         code: Code
         name: Name
@@ -114,6 +128,7 @@ en:
         show_in_footer: Show in the footer
         slug: URL slug
         title: Title
+        topic_id: Topic
         weight: Order position
       static_page_topic:
         description: Description
@@ -127,18 +142,26 @@ en:
         newsletter:
           attributes:
             base:
-              at_least_one_space: Select at least one participatory space
+              at_least_one_space: Select at least one participatory space.
         organization:
           attributes:
             official_img_footer:
               allowed_file_content_types: Invalid image file
             official_img_header:
               allowed_file_content_types: Invalid image file
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: Malformed import file, please read through the instructions carefully and make sure the file is UTF-8 encoded.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: Malformed import file, please read through the instructions carefully and make sure the file is UTF-8 encoded.
       new_import:
         attributes:
           file:
-            invalid_file: Invalid file provided, please check that the file is correctly formatted
-            invalid_mime_type: Invalid mime type
+            invalid_file: Invalid file provided, please check that the file is correctly formatted.
+            invalid_mime_type: Invalid MIME type.
   activerecord:
     attributes:
       decidim/static_page:
@@ -160,15 +183,13 @@ en:
         attachment:
           new: New attachment
         attachment_collection:
-          new: New attachment collection
+          new: New attachment folder
         browse: Browse
         category:
           new: New category
         export: Export all
         export-selection: Export selection
         import: Import
-        manage: Manage
-        new: New %{name}
         newsletter:
           new: New newsletter
         participatory_space_private_user:
@@ -176,30 +197,31 @@ en:
         per_page: Per page
         permissions: Permissions
         reject: Reject
+        send_me_a_test_email: Send me a test email
         share: Share
         user:
           new: New admin
         verify: Verify
-      admin_terms_of_use:
+      admin_terms_of_service:
         accept:
-          error: There's been an error while accepting the admin terms of use.
-          success: Great! You've accepted the admin terms of use.
+          error: There was an error while accepting the admin terms of service.
+          success: Great! You have accepted the admin terms of service.
         actions:
-          accept: I agree with the following terms
-          are_you_sure: Are you sure you want to refuse the admin terms of use?
+          accept: I agree with the terms
+          are_you_sure: Are you sure you want to refuse the admin terms of service?
           refuse: Refuse the admin terms
-          title: Agree to the terms and conditions of use
+          title: Agree to the terms of service
         required_review:
-          alert: 'Required: Review our admin terms of use'
-          callout: Please take a moment to review Admin Terms of Use. Otherwise you won't be able to manage the platform.
+          alert: 'Required: Review our admin terms of service'
+          callout: Please take a moment to review the admin terms of service. Otherwise you will not be able to manage the platform.
           cta: Review them now.
-        title: Admin Terms of Use
+        title: Admin terms of service
       area_types:
         create:
           error: There was a problem creating a new area type.
           success: Area type created successfully.
         destroy:
-          success: Area type successfully destroyed
+          success: Area type successfully destroyed.
         edit:
           title: Edit area type
           update: Update
@@ -208,14 +230,14 @@ en:
           title: New area type
         update:
           error: There was a problem updating this area type.
-          success: Area type updated successfully
+          success: Area type updated successfully.
       areas:
         create:
           error: There was a problem creating a new area.
           success: Area created successfully.
         destroy:
           has_spaces: This area has dependent spaces. Please make sure no Participatory Space references this area before deleting it.
-          success: Area successfully destroyed
+          success: Area successfully destroyed.
         edit:
           title: Edit area
           update: Update
@@ -225,7 +247,7 @@ en:
         no_areas: No Areas
         update:
           error: There was a problem updating this area.
-          success: Area updated successfully
+          success: Area updated successfully.
       attachment_collections:
         create:
           error: There was a problem creating a new folder.
@@ -236,7 +258,6 @@ en:
           title: Edit folder
           update: Update
         index:
-          attachment_collection_used: This folder cannot be removed because it is in use.
           attachment_collections_title: Attachment folders
         new:
           create: Create
@@ -265,10 +286,11 @@ en:
         message: Be careful when working with attachments in a private space. Any participant could share this document to others.
       autocomplete:
         no_results: No results found
-        search_prompt: Type at least three characters to search
+        search_prompt: Type at least three characters to search.
       block_user:
         new:
           action: Block account and send justification
+          already_reported_html: Continuing with this action you will also hide all the participants contents. <a href="%{link}">Block the account</a>.
           description: Blocking a user will render their account unusable. You may provide in your justification any guidelines on ways you would consider unblocking the user.
           justification: Justification
           title: Block User %{name}
@@ -284,7 +306,6 @@ en:
           update: Update
         index:
           categories_title: Categories
-          category_used: This category cannot be removed because it is in use.
         new:
           create: Create category
           title: New category
@@ -299,6 +320,7 @@ en:
         create:
           error: There was a problem creating this component.
           success: Component created successfully.
+          success_landing_page: Component created successfully. You can add a content block for this component in the home of the space. Go to <a href="%{landing_page_path}">Landing page</a> to configure it.
         destroy:
           error: There was a problem destroying this component.
           success: Component deleted successfully.
@@ -343,15 +365,21 @@ en:
         'true': 'Yes'
         user_name: User
       dashboard:
+        pending_moderations:
+          anouncement:
+            one: There are %{count} pending moderation
+            other: There are %{count} pending moderations
+          goto_moderation: Go to global moderations
+          title: Pending Moderations
         show:
+          dropdown: Dropdown
           view_more_logs: View more logs
-          welcome: Welcome to the Admin Panel.
       domain_whitelist:
         form:
           domain_too_short: Domain too short
         update:
-          error: Failed to update domain whitelist
-          success: Domain whitelist updated successfully
+          error: Failed to update domain whitelist.
+          success: Domain whitelist updated successfully.
       exports:
         export_as: "%{name} as %{export_format}"
         formats:
@@ -359,7 +387,7 @@ en:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
-        notice: Your export is currently in progress. You'll receive an email when it's complete.
+        notice: Your export is currently in progress. You will receive an email when it is complete.
       filters:
         category_id_eq:
           label: Category
@@ -434,17 +462,16 @@ en:
             message_1: CSV, JSON and Excel (.xlsx) files are supported
             message_2: For CSV files, the separator between columns must be a semicolon (";")
       help_sections:
-        error: There was a problem updating the help sections
+        error: There was a problem updating the help sections.
         form:
           save: Save
-        success: Help sections updated successfully
+        success: Help sections updated successfully.
       impersonatable_users:
         index:
           filter:
             all: All
             managed: Managed
             not_managed: Not managed
-          filter_by: Filter by
           impersonate: Impersonate
           impersonate_new_managed_user: Manage new participant
           managed: Managed
@@ -495,8 +522,8 @@ en:
             message:
               one: Missing column %{columns}.
               other: Missing columns %{columns}.
-        error: There was a problem during the import
-        example_error: Could not create an example for the given type
+        error: There was a problem during the import.
+        example_error: There was a problem creating an example for the given type.
         new:
           accepted_mime_types:
             csv: CSV
@@ -508,7 +535,7 @@ en:
           download_example_format: Example as %{name}
           file_legend: Add an import file that will be parsed.
           import: Import
-        notice: "%{count} %{resource_name} successfully imported"
+        notice: "%{count} %{resource_name} successfully imported."
       logs:
         filters:
           participatory_space: Find participatory space
@@ -533,7 +560,7 @@ en:
         area_types: Area types
         areas: Areas
         configuration: Configuration
-        dashboard: Dashboard
+        content: Reported content
         external_domain_whitelist: Allowed external domains
         help_sections: Help sections
         homepage: Homepage
@@ -541,9 +568,10 @@ en:
         moderation: Global moderations
         newsletters: Newsletters
         participants: Participants
-        reported_users: Reported Users
+        reported_users: Reported participants
         scope_types: Scope types
         scopes: Scopes
+        see_site: See site
         settings: Settings
         static_pages: Pages
         user_groups: Groups
@@ -613,7 +641,7 @@ en:
           fields:
             created_at: Creation date
             email: Email
-            last_sign_in_at: Last sign in date
+            last_sign_in_at: Last log in date
             name: Name
             role: Role
             roles:
@@ -626,6 +654,7 @@ en:
             created_at: Created at
             document_number: Document number
             name: Name
+            nickname: Nickname
             phone: Phone
             state: State
             users_count: Participants count
@@ -640,7 +669,7 @@ en:
           nickname: Nickname
           reason: Reason
           reports: Reports count
-          title: Listing reported users
+          title: Reported participants
         report:
           reasons:
             does_not_belong: Does not belong
@@ -651,10 +680,11 @@ en:
           unblocked: Not Blocked
       moderations:
         index:
-          title: Moderations
+          title: Reported content
         report:
           reasons:
             does_not_belong: Does not belong
+            hidden_during_block: Hidden while blocking user
             offensive: Offensive
             spam: Spam
         reports:
@@ -722,28 +752,28 @@ en:
           select_scopes: Filter for users having activated any selected scope in their account's My Interests settings.
           select_spaces: Select spaces to segment the newsletter
           select_users: Select which users you want to send the newsletter
-          send_to_all_users: Send to all users
-          send_to_followers: Send to followers
-          send_to_participants: Send to participants
           title: Select recipients to deliver
           warning: "<strong>Attention:</strong> This newsletter will only be send to users that have activated <em>I want to receive newsletters</em> in their notifications settings."
         send:
-          no_recipients: No recipients for this selection
+          no_recipients: No recipients for this selection.
+        send_to_user:
+          sent_successfully: Newsletter has been sent successfully to %{email}
         show:
           preview: Preview
           select_recipients_to_deliver: Select recipients to deliver
+          send_me_a_test_email: Send me a test email
           subject: Subject
         update:
           error: There was a problem updating this newsletter.
           success: Newsletter updated successfully. Please review it before sending.
       officializations:
         block:
-          error: There was an error blocking the participant
-          success: Participant successfully blocked
+          error: There was an error blocking the participant.
+          success: Participant successfully blocked.
         create:
-          success: Participant successfully officialized
+          success: Participant successfully officialized.
         destroy:
-          success: Participant successfully unofficialized
+          success: Participant successfully unofficialized.
         index:
           actions: Actions
           badge: Badge
@@ -765,7 +795,6 @@ en:
           officialize: Officialize
           title: Officialize participant "%{name}"
         show_email_modal:
-          close_modal: Close modal
           description: If you need to contact a participant directly, you can click on the Show button to see their email address. This action will be logged.
           email_address: Email address
           full_name: Full name
@@ -773,8 +802,8 @@ en:
           show: Show
           title: Show participant's email address
         unblock:
-          error: There was an error unblocking the participant
-          success: Participant successfully unblocked
+          error: There was an error unblocking the participant.
+          success: Participant successfully unblocked.
       organization:
         edit:
           title: Edit organization
@@ -785,7 +814,7 @@ en:
           instagram: Instagram
           rich_text_editor_in_public_views_help: In some text areas, participants will be able to insert some HTML tags by using the rich text editor.
           social_handlers: Social
-          twitter: Twitter
+          twitter: X
           url: URL
           youtube: YouTube
         update:
@@ -796,10 +825,16 @@ en:
           update: Update
         form:
           colors:
+            choose_color: Choose a primary color
             colors_title: Organization colors
-            colors_warning_html: Warning! Changing these colors can break the accessibility contrasts. You can check the contrast of your choosing with <a href="%{link}">WebAIM Contrast Checker</a> or other similar tools.
-            header_snippets_help: Use this field to add things to the HTML head. The most common use is to integrate third-party services that require some extra JavaScript or CSS. Also, you can use it to add extra meta tags to the HTML. Note that this will only be rendered in public pages, not in the admin section.
-          cta_button_path_help: 'You can overwrite where the Call To Action button in the homepage links to. Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. The Call To Action button is shown in the homepage between the welcome text and the description. Example: %{url}'
+            colors_warning_html: Warning! Changing these colors can break the accessibility contrasts. You can check the contrast of your choosing with <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> or other similar tools.
+            explanation: This tool helps you out to choose a color scheme, made up of hues equally spaced around the color wheel, that will be used in the organization's website.
+            header_snippets_help_html: Use this field to add things to the HTML head. The most common use is to integrate third-party services that require some extra JavaScript or CSS. Also, you can use it to add extra meta tags to the HTML. Note that this will only be rendered in public pages, not in the admin section. If the code interacts with external APIs or does not comply with the application security guidelines, it will be necessary to change the Content Security Policy. Read more about <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">on the documentation site</a> .
+            legend_html: Main application colors, based on the <a href="https://www.color-meanings.com/triadic-colors/">Triadic algorithm</a>. The <i>secondary</i> color is auto-calculated from the primary color and the saturation you chose.
+            saturation: Saturation
+            title: Color chooser
+            update_suggested_colors: Update suggested colors
+          cta_button_path_help_html: 'You can overwrite where the Call To Action button in the homepage links to. Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. The Call To Action button is shown in the homepage between the welcome text and the description. Example: %{url}'
           cta_button_text_help: You can overwrite the Call To Action button text in the homepage for each available language in your organization. If not set, the default value will be used. The Call To Action button is shown in the homepage between the welcome text and the description.
           homepage_appearance_title: Edit homepage appearance
           homepage_highlighted_content_banner_title: Highligted content banner
@@ -819,12 +854,21 @@ en:
           add: Add to whitelist
           title: External domain whitelist
       organization_homepage:
+        content_blocks:
+          create:
+            error: There was a problem trying to create this content block.
+            success: Content block successfully created.
+          destroy:
+            error: There was a problem trying to delete this content block.
+            success: Content block successfully deleted.
+          edit:
+            update: Update
         edit:
           active_content_blocks: Active content blocks
+          add: Add content block
+          destroy_confirmation: Are you sure you want to delete this content block?
           inactive_content_blocks: Inactive content blocks
-      organization_homepage_content_blocks:
-        edit:
-          update: Update
+          title: Page contents
       participatory_space_private_users:
         create:
           error: There was a problem adding a private participant for this participatory space.
@@ -840,17 +884,23 @@ en:
           title: New Participatory Space private participant.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: There was a problem reading the CSV file.
-          success: CSV file uploaded successfully, we're sending an invitation email to participants. This might take a while.
+          invalid: There was a problem reading the CSV file. Please make sure you have followed the instructions.
+          success: CSV file uploaded successfully, we are sending an invitation email to participants. This might take a while.
         new:
+          csv_upload:
+            title: Upload your CSV file
           destroy:
             button: Delete all private participants
-            confirm: Are you sure you want to delete all private participants? This action can't be undone, you will not be able to recover them.
+            confirm: Are you sure you want to delete all private participants? This action cannot be undone, you will not be able to recover them.
             empty: You have no private participants.
             explanation: You have %{count} private participants.
             title: Delete private participants
-          explanation: Upload your CSV file. It must have two columns with email in the first column of the file and name in the last column of the file (email, name) of the users that you want to add to the participatory space, without headers. Avoid using invalid chars like `<>?%&^*#@()[]=+:;"{}\|` in user name.
-          title: Upload your CSV file
+          example_file: 'Example file:'
+          explanation: Upload your CSV file. It must have two columns with email in the first column of the file and name in the last column of the file of the users that you want to add to the participatory space, without headers. Avoid using invalid chars like `<>?%&^*#@()[]=+:;"{}\|` in user name.
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
+          title: Import private participants via CSV
           upload: Upload
       reminders:
         create:
@@ -881,7 +931,7 @@ en:
           update: Update
         new:
           create: Create scope type
-          title: New scope
+          title: New scope type
         update:
           error: There was a problem updating this scope type.
           success: Scope type updated successfully
@@ -890,7 +940,7 @@ en:
           error: There was a problem creating a new scope.
           success: Scope created successfully.
         destroy:
-          success: Scope successfully destroyed
+          success: Scope successfully destroyed.
         edit:
           title: Edit scope
           update: Update
@@ -910,13 +960,12 @@ en:
           error: There was a problem destroying the token.
           success: Token destroyed successfully.
         share_tokens:
-          empty: There are no active tokens
+          empty: There are no active tokens.
           help: These tokens are used to publicly share this unpublished resource to any user. They will be hidden when the resource is published. Click on the token's share icon to visit the shareable URL.
           title: Share tokens
       shared:
         gallery:
           add_images: Add images
-          delete_image: Delete Image
           edit_images: Edit images
           gallery_legend: Add an image gallery (Optional)
       static_page_topics:
@@ -924,7 +973,7 @@ en:
           error: There was a problem creating a new topic.
           success: Topic created successfully.
         destroy:
-          success: Topic successfully destroyed
+          success: Topic successfully destroyed.
         edit:
           title: Edit topic
           update: Update topic
@@ -937,58 +986,75 @@ en:
       static_pages:
         actions:
           view: View public page
+        content_blocks:
+          active_content_blocks: Active content blocks
+          add: Add content block
+          create:
+            error: There was a problem trying to create this content block.
+            success: Content block successfully created.
+          destroy:
+            error: There was a problem trying to delete this content block.
+            success: Content block successfully deleted.
+          destroy_confirmation: Are you sure you want to delete this content block?
+          edit:
+            update: Update
+          inactive_content_blocks: Inactive content blocks
+          title: Page contents
         create:
           error: There was a problem creating a new page.
           success: Page created successfully.
         destroy:
           success: Page successfully destroyed
         edit:
-          changed_notably_help: If checked, participants will be notified to accept the new terms and conditions.
+          changed_notably_help: If checked, participants will be notified to accept the new terms of service.
           title: Edit page
           update: Update
         form:
           none: None
-          slug_help: 'Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. Example: %{url}'
+          slug_help_html: 'Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. Example: %{url}'
         index:
-          last_notable_change: Last notable change
+          last_notable_change: 'Last notable change: %{tos_version_formatted}'
         new:
           create: Create page
           title: New page
         topic:
           destroy: Remove topic
           edit: Edit topic
-          empty: There's no page under this topic
+          empty: There are no pages under this topic.
           without_topic: Pages without topic
         update:
           error: There was a problem updating this page.
-          success: Page updated successfully
+          success: Page updated successfully.
       titles:
         admin_log: Admin log
         area_types: Area types
         areas: Areas
         authorization_workflows: Verification methods
         dashboard: Dashboard
+        edit_external_domains: External domain whitelist
+        edit_landing_page: Page contents
+        edit_organization_appearance: Edit homepage appearance
         impersonatable_users: Manageable participants
         impersonations: Participants management
         metrics: Metrics
+        pages: Pages
         panel: Admin
         participants: Participants
         scope_types: Scope types
         scopes: Scopes
-        static_pages: Pages
         statistics: Activity
         user_groups: Groups
         users: Administrators
       user_group:
         csv_verify:
           invalid: There was a problem reading the CSV file.
-          success: CSV file uploaded successfully, we're verifying the groups matching the criteria. This might take a while.
+          success: CSV file uploaded successfully, we are verifying the groups matching the criteria. This might take a while.
         reject:
           invalid: There was a problem rejecting this group.
-          success: Group successfully rejected
+          success: Group successfully rejected.
         verify:
           invalid: There was a problem verifying this group.
-          success: Group successfully verified
+          success: Group successfully verified.
       user_groups:
         index:
           state:
@@ -998,7 +1064,11 @@ en:
           verify_via_csv: Verify via CSV
       user_groups_csv_verifications:
         new:
+          example_file: 'Example file:'
           explanation: Upload your CSV file. It must have the official emails of the groups in your organization in the first column of the file, without headers. Only groups that have confirmed their email and that have an email appearing in the CSV file will be validated.
+          explanation_example: |
+            acme@example.org
+            bubba.gump@example.org
           title: Upload your CSV file
           upload: Upload
       users:
@@ -1021,13 +1091,12 @@ en:
           last_day: Last day
           last_month: Last month
           last_week: Last week
-          no_users_count_statistics_yet: There are no users count statistics yet
+          no_users_count_statistics_yet: There are no users count statistics yet.
           participants: Participants
-      view_public_page: View public page
     forms:
       errors:
         impersonate_user:
-          reason: You need to provide a reason when managing a non-managed participant
+          reason: You need to provide a reason when managing a non-managed participant.
     metrics:
       blocked_users:
         object: blocked users
@@ -1061,14 +1130,15 @@ en:
       models:
         moderation:
           fields:
-            created_at: Creation date
+            created_at: Reported at
+            deleted_resource: Deleted resource
             hidden_at: Hidden at
             participatory_space: Participatory space
-            report_count: Count
+            report_count: Reports count
             reportable_id: ID
             reportable_type: Type
             reported_content_url: Reported content URL
-            reports: Reports
+            reports: Reason
             visit_url: Visit URL
         report:
           fields:
@@ -1083,9 +1153,3 @@ en:
       admin:
         global_moderations:
           title: Global moderations
-        newsletters:
-          title: Newsletters
-        settings:
-          title: Settings
-        users:
-          title: Participants

@@ -64,7 +64,7 @@ shared_examples "manage invites" do
     end
 
     context "when registrations are enabled" do
-      let!(:meeting) { create :meeting, :published, scope:, component: current_component, registrations_enabled: true }
+      let!(:meeting) { create(:meeting, :published, scope:, component: current_component, registrations_enabled: true) }
 
       context "when inviting a unregistered user" do
         it "the invited user sign up into the application and joins the meeting" do
@@ -77,13 +77,12 @@ shared_examples "manage invites" do
           within "form.new_user" do
             fill_in :invitation_user_nickname, with: "caballo_loco"
             fill_in :invitation_user_password, with: "decidim123456789"
-            fill_in :invitation_user_password_confirmation, with: "decidim123456789"
             check :invitation_user_tos_agreement
             find("*[type=submit]").click
           end
 
           expect(page).to have_content "successfully"
-          expect(page).to have_css(".button", text: "CANCEL YOUR REGISTRATION")
+          expect(page).to have_css(".button", text: "Cancel your registration")
         end
 
         it "the invited user sign up into the application and declines the invitation" do
@@ -96,13 +95,12 @@ shared_examples "manage invites" do
           within "form.new_user" do
             fill_in :invitation_user_nickname, with: "caballo_loco"
             fill_in :invitation_user_password, with: "decidim123456789"
-            fill_in :invitation_user_password_confirmation, with: "decidim123456789"
             check :invitation_user_tos_agreement
             find("*[type=submit]").click
           end
 
           expect(page).to have_content "declined the invitation successfully"
-          expect(page).to have_css(".button", text: "JOIN MEETING")
+          expect(page).to have_css(".button", text: "Register")
         end
       end
 
@@ -116,7 +114,7 @@ shared_examples "manage invites" do
 
           visit last_email_link
 
-          expect(page).to have_css(".button", text: "CANCEL YOUR REGISTRATION")
+          expect(page).to have_css(".button", text: "Cancel your registration")
         end
 
         it "the invited user declines the invitation" do
@@ -126,7 +124,7 @@ shared_examples "manage invites" do
 
           visit last_email_first_link
 
-          expect(page).to have_css(".button", text: "JOIN MEETING")
+          expect(page).to have_css(".button", text: "Register")
         end
       end
 
@@ -140,7 +138,7 @@ shared_examples "manage invites" do
 
           visit last_email_link
 
-          expect(page).to have_css(".button", text: "CANCEL YOUR REGISTRATION")
+          expect(page).to have_css(".button", text: "Cancel your registration")
         end
 
         it "the invited user declines the invitation" do
@@ -150,7 +148,7 @@ shared_examples "manage invites" do
 
           visit last_email_first_link
 
-          expect(page).to have_css(".button", text: "JOIN MEETING")
+          expect(page).to have_css(".button", text: "Register")
         end
       end
     end
@@ -171,9 +169,9 @@ shared_examples "manage invites" do
       it "allows searching by text" do
         visit_meeting_invites_page
 
-        within ".filters__search" do
+        within ".filters__section" do
           fill_in :q, with: invites.first.user.email
-          find(".icon--magnifying-glass").click
+          click_button(type: "submit")
         end
 
         within "#meeting-invites table tbody" do
@@ -188,7 +186,7 @@ shared_examples "manage invites" do
         rejected_invite = create(:invite, :rejected, meeting:)
         visit_meeting_invites_page
 
-        within ".filters" do
+        within ".filters__section" do
           find("ul.dropdown > li > a").click # Open the dropdown-menu
           find_link("Accepted", visible: false).click
         end
@@ -199,7 +197,7 @@ shared_examples "manage invites" do
           expect(page).not_to have_content(rejected_invite.user.name)
         end
 
-        within ".filters" do
+        within ".filters__section" do
           find("ul.dropdown > li > a").click # Open the dropdown-menu
           find_link("Rejected", visible: false).click
         end

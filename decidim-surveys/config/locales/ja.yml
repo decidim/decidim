@@ -58,9 +58,9 @@ ja:
             invalid: 調査の保存中に問題が発生しました。
             success: アンケートを保存しました。
       last_activity:
-        new_survey_at_html: "<span>新しい調査 %{link}</span>"
+        new_survey: '新しいアンケート:'
       surveys:
         answer:
           invalid: アンケートの回答に問題がありました。
-          spam_detected: フォームに応答する際に問題が発生しました。もう一度試してみてください。
+          spam_detected: フォームでの回答中に問題が発生しました。もしかしたら回答が早すぎたかもしれません。再度お試しいただけますか？
           success: アンケートは正常に回答しました。

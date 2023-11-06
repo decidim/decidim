@@ -47,9 +47,6 @@ id:
             up: Naik
           update:
             invalid: Terjadi masalah saat menyimpan formulir.
-      errors:
-        answer:
-          body: Tubuh tidak boleh kosong
       question_types:
         long_answer: Jawaban panjang
         multiple_option: Opsi berganda
@@ -64,7 +61,6 @@ id:
           max_choices: 'Pilihan maksimal: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Masuk dengan akun Anda</a> atau <a href="%{sign_up_link}">mendaftar</a> untuk menjawab formulir.
             title: Jawab formulirnya
           questionnaire_answered:
             body: Anda sudah menjawab formulir ini.

@@ -1,0 +1,45 @@
+[data-dialog] {
+  @apply invisible opacity-0 fixed z-50 inset-0 bg-[rgba(0,0,0,0.25)] transition duration-300;
+
+  & > * {
+    @apply absolute inset-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] lg:max-w-[900px] max-h-[95vh] h-fit overflow-y-auto p-6 bg-white z-50 rounded shadow-[0_4px_6px_rgba(211,211,211,0.25)];
+
+    & > svg:only-child {
+      @apply w-8 h-8 mx-auto text-gray-2 fill-current animate-spin;
+    }
+  }
+
+  &[aria-hidden="false"] {
+    @apply visible opacity-100;
+  }
+
+  [data-dialog-closable] {
+    @apply absolute top-4 right-4 text-2xl text-secondary;
+  }
+
+  [data-dialog-container] {
+    @apply grid grid-cols-[auto_1fr] items-start md:items-center gap-2 text-left;
+
+    > svg {
+      @apply w-6 h-6 text-gray fill-current flex-none;
+    }
+
+    > :last-child {
+      @apply col-span-2 md:col-span-1 md:col-start-2;
+    }
+  }
+
+  [data-dialog-title] {
+    @apply text-2xl text-black font-semibold focus:outline-none;
+  }
+
+  [data-dialog-actions] {
+    @apply flex justify-between items-center gap-2 md:gap-4 flex-wrap mt-10 last:[&>*]:ml-auto;
+
+    /* 3 or more items spans the full width for mobile */
+    & > *:first-child:nth-last-child(n + 3),
+    & > *:first-child:nth-last-child(n + 3) ~ * {
+      @apply w-full md:w-auto;
+    }
+  }
+}

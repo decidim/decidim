@@ -40,8 +40,8 @@ pl:
         confirm_destroy: Czy na pewno chcesz usunąć %{name}?
         destroy: Usuń
         edit: Edytuj
+        import: Importuj projekty do wyników
         import_csv: Importuj CSV
-        new: Nowa %{name}
         preview: Podgląd
         timeline_entries: Rozwój projektu
         title: Działania
@@ -51,26 +51,29 @@ pl:
           results: Wyniki
         import_results:
           new:
+            download_export: Pobierz Eksport w formacie CSV
             import: Importuj
-            info: "<p> Zalecamy wykonanie następujących kroków:</p><ol><li>Utwórz Statusy dla Wyników, które chcesz dodać (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Utwórz co najmniej jeden wynik ręcznie z poziomu tego Panelu administracyjnego (<a href='%{link_new_result}' target='_blank'>link</a>) przed wybraniem opcji Importuj, aby lepiej zrozumieć format oraz jakie informacje należy załączyć.</li><li>Pobierz plik Eksport w formacie CSV (%{link_export_csv})</li><li>Wprowadź zmiany lokalnie. Możesz zmienić tylko następujące kolumny pliku CSV:</li></ol><ul><li><b>kategoria/id:</b> ID kategorii</li><li><b>zakres/id:</b> ID zakresu</li><li><b>element nadrzędny/id:</b> ID elementu nadrzędnego (dla powiązanych wyników). Opcjonalnie</li><li><b>tytuł/I18N:</b> Tytuł w języku X</li><li><b>opis/I18N:</b> Opis w języku X</li><li><b>start_date:</b> data rozpoczęcia pracy nad utworzeniem wyniku (format RRRR-MM-DD)</li><li><b>end_date:</b> data zakończenia pracy nad utworzeniem wyniku (format RRRR-MM-DD)</li><li><b>status/id:</b> ID statusu dla tego wyniku</li><li><b>postęp:</b> Postęp prac nad wynikiem wyrażony procentowo (od 0 do 100)</li><li><b>proposals_ids:</b> wewnętrzne ID powiązanych propozycji (oddzielone przecinkiem). Jest ono automatycznie konwertowane na <span class='attribute-name'>proposal_url</span></li></ul>"
-            link: link
             title: Importuj wyniki z CSV
-        imports:
-          create:
-            success: Rozpoczęło się importowanie pliku. W ciągu kilku minut otrzymasz wiadomość e-mail z wynikiem importowania
         models:
           result:
             name: Wynik
           status:
             name: Status
-          timeline_entry:
-            name: Wpis na osi czasu
-        results:
+        projects_import:
           create:
-            invalid: Podczas tworzenia tego wyniku wystąpił błąd
-            success: Wynik został utworzony
-          destroy:
-            success: Wynik został usunięty
+            invalid: Wystąpił problem z importem projektów do wyników, proszę postępować ostrożnie zgodnie z instrukcjami i upewnić się, że wybrałeś projekty do realizacji.
+          new:
+            create: Importuj
+            import_all_selected_projects: Importuj wszystkie projekty wybrane do wdrożenia
+            new_items:
+              one: 1 wybrany projekt zostanie zaimportowany
+              few: "%{count} wybrane projekty zostaną zaimportowane"
+              many: "%{count} wybranych projektów zostanie zaimportowanych"
+              other: "%{count} wybranych projektów zostanie zaimportowanych"
+            origin_component_id: Oryginalny komponent
+            select_component: Wybierz komponent
+            title: Importuj projekty do Rozliczeń
+        results:
           edit:
             title: Edytuj wynik
             update: Zaktualizuj wynik
@@ -79,18 +82,10 @@ pl:
           new:
             create: Utwórz wynik
             title: Nowy wynik
-          update:
-            invalid: Podczas aktualizowania tego wyniku wystąpił błąd
-            success: Wynik został zaktualizowany
         shared:
           subnav:
             statuses: Statusy
         statuses:
-          create:
-            invalid: Podczas tworzenia tego statusu wystąpił błąd
-            success: Status został utworzony
-          destroy:
-            success: Status został usunięty
           edit:
             title: Edytuj status
             update: Aktualizuj status
@@ -99,15 +94,7 @@ pl:
           new:
             create: Utwórz status
             title: Nowy status
-          update:
-            invalid: Wystąpił błąd podczas aktualizacji tego statusu
-            success: Status został zaktualizowany
         timeline_entries:
-          create:
-            invalid: Podczas tworzenia tego wpisu wystąpił błąd
-            success: Wpis został utworzony
-          destroy:
-            success: Wpis został usunięty
           edit:
             title: Edytuj wpis
             update: Aktualizuj wpis
@@ -116,9 +103,6 @@ pl:
           new:
             create: Utwórz wpis
             title: Nowy wpis
-          update:
-            invalid: Podczas aktualizowania tego wpisu wystąpił błąd
-            success: Wpis został zaktualizowany
       admin_log:
         result:
           create: "%{user_name} utworzył(a) wynik %{resource_name} w %{space_name}"
@@ -143,12 +127,14 @@ pl:
       import_mailer:
         import:
           errors: Błędy
-          errors_present: Podczas importowania wyników wystąpił błąd
           row_number: Wiersz
           subject: Importowanie wyników zakończyło się pomyślnie
           success: Importowanie wyników zakończyło się pomyślnie. Możesz przejrzeć wyniki w panelu administracyjnym.
+      import_projects_mailer:
+        import:
+          subject: Zaimportowano wyniki
       last_activity:
-        new_result_at_html: "<span>Nowy wynik w %{link}</span>"
+        new_result: 'Nowy wynik:'
       models:
         result:
           fields:
@@ -183,7 +169,6 @@ pl:
             other: "%{count} wyników"
         filters:
           all: Wszystkie
-          scopes: Zakresy
         home:
           categories_label: Kategorie
           subcategories_label: Podkategorie

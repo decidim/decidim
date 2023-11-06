@@ -6,12 +6,12 @@
     <div class="process-header__container row collapse column">
       <div class="columns mediumlarge-8 process-header__info">
         <div>
-          <h1 class="text-highlight heading2">
+          <h1>
             <%= participatory_space_helpers.translated_attribute(current_participatory_space.title) %>
           </h1>
         </div>
         <div>
-          <p class="text-highlight heading-small">
+          <p>
             <% if current_participatory_space.hashtag.present? %>
               <span class="process-header__hashtag">
                 <%= link_to "##{current_participatory_space.hashtag}", twitter_hashtag_url(current_participatory_space.hashtag), target: "_blank" %>
@@ -21,27 +21,7 @@
           </p>
         </div>
       </div>
-      <%= render partial: "layouts/decidim/initiative_header_steps", locals: { initiative: current_participatory_space } %>
     </div>
   </div>
-  <%
-    components = current_participatory_space.components.published.or(Decidim::Component.where(id: self.try(:current_component)))
-  %>
-
-  <%=
-    extended_navigation_bar([
-      {
-        name: t(".initiative_menu_item"),
-        url: decidim_initiatives.initiative_path(current_participatory_space),
-        active: is_active_link?(decidim_initiatives.initiative_path(current_participatory_space), :exclusive) ||
-                is_active_link?(decidim_initiatives.initiative_versions_path(current_participatory_space), :inclusive)
-      }
-    ] + components.map do |component|
-      {
-        name: translated_attribute(component.name),
-        url: main_component_path(component),
-        active: is_active_link?(main_component_path(component), :inclusive)
-      }
-    end)
-  %>
+  <%= extended_navigation_bar(initiative_nav_items(current_participatory_space)) %>
 </div>

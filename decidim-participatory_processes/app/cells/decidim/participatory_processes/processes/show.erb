@@ -1,0 +1,16 @@
+<div class="content-block__title">
+  <h2 class="h2 decorator"><%= title %></h2>
+  <div class="label text-lg"><%= total_count %></div>
+  <% if show_all_path.present? %>
+    <%= link_to show_all_path, class: "button button__sm button__text-secondary" do %>
+      <span><%= t("decidim.participatory_processes.pages.home.highlighted_processes.see_all_spaces") %></span>
+      <%= icon "arrow-right-line" %>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="participatory-space__block-grid">
+  <% processes.each do |process| %>
+    <%= card_for(process) %>
+  <% end %>
+</div>

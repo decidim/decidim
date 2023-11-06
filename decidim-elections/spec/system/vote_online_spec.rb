@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Vote online in an election", type: :system do
   let(:manifest_name) { "elections" }
-  let!(:election) { create :election, :bb_test, :vote, component: }
+  let!(:election) { create(:election, :bb_test, :vote, component:) }
   let(:user) { create(:user, :confirmed, organization: component.organization) }
   let!(:elections) { create_list(:election, 2, :vote, component:) } # prevents redirect to single election page
   let(:router) { Decidim::EngineRouter.main_proxy(component).decidim_participatory_process_elections }
@@ -30,17 +30,18 @@ describe "Vote online in an election", type: :system do
 
       uses_the_voting_booth
 
-      page.find("a.focus__exit").click
+      click_link "Back to elections"
+      click_link(id: "elections__election_#{election.id}")
 
       expect(page).to have_current_path router.election_path(id: election.id)
-
       expect(page).to have_content("You have already voted in this election.")
+
       click_link "Change your vote"
 
       uses_the_voting_booth
     end
 
-    context "when there's description in a question" do
+    context "when there is description in a question" do
       before do
         # rubocop:disable Rails/SkipsModelValidations
         Decidim::Elections::Answer.update_all(description: { en: "Some text" })
@@ -51,11 +52,11 @@ describe "Vote online in an election", type: :system do
         visit_component
         click_link translated(election.title)
         click_link "Start voting"
-        expect(page).to have_content("MORE INFORMATION")
+        expect(page).to have_content("More information")
       end
     end
 
-    context "when there's no description in a question" do
+    context "when there is no description in a question" do
       before do
         # rubocop:disable Rails/SkipsModelValidations
         Decidim::Elections::Answer.update_all(description: {})
@@ -66,30 +67,30 @@ describe "Vote online in an election", type: :system do
         visit_component
         click_link translated(election.title)
         click_link "Start voting"
-        expect(page).not_to have_content("MORE INFORMATION")
+        expect(page).not_to have_content("More information")
       end
     end
   end
 
   context "when the election is not published" do
-    let(:election) { create :election, :upcoming, :complete, component: }
+    let(:election) { create(:election, :upcoming, :complete, component:) }
 
-    it_behaves_like "doesn't allow to vote"
+    it_behaves_like "does not allow to vote"
     it_behaves_like "allows admins to preview the voting booth"
   end
 
   context "when the election has not started yet" do
-    let(:election) { create :election, :upcoming, :published, :complete, component: }
+    let(:election) { create(:election, :upcoming, :published, :complete, component:) }
 
-    it_behaves_like "doesn't allow to vote"
+    it_behaves_like "does not allow to vote"
     it_behaves_like "allows admins to preview the voting booth"
   end
 
   context "when the election has finished" do
-    let(:election) { create :election, :finished, :published, :complete, component: }
+    let(:election) { create(:election, :finished, :published, :complete, component:) }
 
-    it_behaves_like "doesn't allow to vote"
-    it_behaves_like "doesn't allow admins to preview the voting booth"
+    it_behaves_like "does not allow to vote"
+    it_behaves_like "does not allow admins to preview the voting booth"
   end
 
   context "when the component requires permissions to vote" do
@@ -115,7 +116,7 @@ describe "Vote online in an election", type: :system do
     end
 
     context "when the election has not started yet" do
-      let(:election) { create :election, :upcoming, :published, :complete, component: }
+      let(:election) { create(:election, :upcoming, :published, :complete, component:) }
 
       it_behaves_like "allows admins to preview the voting booth"
     end
@@ -144,7 +145,7 @@ describe "Vote online in an election", type: :system do
     end
 
     context "when the election has not started yet" do
-      let(:election) { create :election, :upcoming, :published, :complete, component: }
+      let(:election) { create(:election, :upcoming, :published, :complete, component:) }
 
       it_behaves_like "allows admins to preview the voting booth"
     end
@@ -158,7 +159,8 @@ describe "Vote online in an election", type: :system do
       click_link "Start voting"
 
       dismiss_prompt do
-        page.find("a.focus__exit").click
+        # click anything outside of the #vote-wrapper element
+        page.find("#main-bar [aria-label='Go to front page']").click
       end
 
       expect(page).to have_content("Next")

@@ -12,7 +12,7 @@ module Decidim
         private
 
         def default_filter_type_params
-          %w(all) + Decidim::Meetings::Meeting::TYPE_OF_MEETING
+          %w(all) + Decidim::Meetings::Meeting::TYPE_OF_MEETING.keys
         end
 
         def default_filter_origin_params

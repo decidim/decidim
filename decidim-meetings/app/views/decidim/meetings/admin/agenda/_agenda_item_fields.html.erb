@@ -1,15 +1,15 @@
 <div class="grid-x">
   <div class="cell auto">
-    <%= form.translated :text_field, :title, tabs_id: tabs_id %>
+    <%= form.translated :text_field, :title, tabs_id:, aria: { label: :title } %>
   </div>
   <div class="cell small-2">
-    <%= form.number_field :duration, tabs_id: tabs_id, min: 0 %>
+    <%= form.number_field :duration, tabs_id:, min: 0 %>
   </div>
 </div>
 
 <div class="grid-x">
   <div class="cell auto">
-    <%= form.translated :editor, :description, tabs_id: tabs_id, rows: 6 %>
+    <%= form.translated :editor, :description, tabs_id:, rows: 6, aria: { label: :description } %>
   </div>
 </div>
 

@@ -20,14 +20,14 @@ module Decidim
       # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid, together with the collaborative_draft.
-      # - :invalid if the form wasn't valid and we couldn't proceed.
+      # - :invalid if the form was not valid and we could not proceed.
       #
       # Returns nothing.
       def call
         return broadcast(:invalid) if form.invalid?
         return broadcast(:invalid) unless collaborative_draft.editable_by?(current_user)
 
-        transaction do
+        with_events(with_transaction: true) do
           update_collaborative_draft
         end
 
@@ -37,6 +37,16 @@ module Decidim
       private
 
       attr_reader :form, :collaborative_draft, :current_user
+
+      def event_arguments
+        {
+          resource: collaborative_draft,
+          extra: {
+            event_author: form.current_user,
+            locale:
+          }
+        }
+      end
 
       def update_collaborative_draft
         Decidim.traceability.update!(

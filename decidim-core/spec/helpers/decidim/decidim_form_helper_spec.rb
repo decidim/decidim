@@ -26,7 +26,7 @@ module Decidim
         end
       end
 
-      context "when there's errors on base" do
+      context "when there is errors on base" do
         it "adds an error callout" do
           form = Form.new
           form.errors.add(:base, "Arbitrary error")
@@ -34,7 +34,7 @@ module Decidim
           output = helper.decidim_form_for(form, url: "#") do
             # empty block
           end
-          expect(output).to include("callout")
+          expect(output).to include("data-alert-box")
           expect(output).to include("Arbitrary error")
         end
       end

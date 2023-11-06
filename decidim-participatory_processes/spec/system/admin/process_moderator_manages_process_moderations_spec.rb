@@ -11,7 +11,7 @@ describe "Process moderator manages process moderations", type: :system do
       participatory_process:
     )
   end
-  let(:current_component) { create :component, participatory_space: participatory_process }
+  let(:current_component) { create(:component, participatory_space: participatory_process) }
   let!(:reportables) { create_list(:dummy_resource, 2, component: current_component) }
   let(:participatory_space_path) do
     decidim_admin_participatory_processes.moderations_path(participatory_process)

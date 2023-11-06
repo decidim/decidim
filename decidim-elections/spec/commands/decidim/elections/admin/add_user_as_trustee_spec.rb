@@ -5,10 +5,10 @@ require "spec_helper"
 describe Decidim::Elections::Admin::AddUserAsTrustee do
   subject { described_class.new(form, current_user) }
 
-  let(:participatory_process) { create :participatory_process, organization: }
-  let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "elections" }
-  let(:current_user) { create :user, :admin, :confirmed, organization: }
-  let(:user) { create :user, :confirmed }
+  let(:participatory_process) { create(:participatory_process, organization:) }
+  let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "elections") }
+  let(:current_user) { create(:user, :admin, :confirmed, organization:) }
+  let(:user) { create(:user, :confirmed) }
   let(:organization) { user.organization }
   let(:form) do
     double(

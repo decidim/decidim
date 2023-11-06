@@ -15,8 +15,6 @@ lv:
             choices:
               missing: nav pabeigti
               too_many: ir par daudz
-        questionnaire:
-          request_invalid: Apstrādājot pieprasījumu, radās kļūda. Lūdzu, mēģiniet vēlreiz
   decidim:
     forms:
       admin:
@@ -62,11 +60,6 @@ lv:
             up: Augšup
           update:
             invalid: Saglabājot veidlapu, radās problēma.
-      errors:
-        answer:
-          body: Pamatteksts nevar būt tukšs
-      files:
-        extension_allowlist: 'Pieņemtie formāti:'
       images:
         dimensions: "%{width} x %{height} pikseļi"
       question_types:
@@ -86,7 +79,6 @@ lv:
           max_choices: 'Maksimālais izvēļu skaits: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Pierakstieties, izmantojot savu kontu,</a> vai <a href="%{sign_up_link}"> reģistrējieties </a>, lai atbildētu veidlapā.
             title: Atbildiet uz veidlapas jautājumiem
           current_step: '%{step} solis'
           of_total_steps: no %{total_steps}

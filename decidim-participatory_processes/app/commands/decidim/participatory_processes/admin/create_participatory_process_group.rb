@@ -16,7 +16,7 @@ module Decidim
         # Executes the command. Broadcasts these events:
         #
         # - :ok when everything is valid.
-        # - :invalid if the form wasn't valid and we couldn't proceed.
+        # - :invalid if the form was not valid and we could not proceed.
         #
         # Returns nothing.
         def call
@@ -25,6 +25,8 @@ module Decidim
           group = create_participatory_process_group
 
           if group.persisted?
+            Decidim::ContentBlocksCreator.new(group).create_default!
+
             broadcast(:ok, group)
           else
             form.errors.add(:hero_image, group.errors[:hero_image]) if group.errors.include? :hero_image

@@ -3,7 +3,7 @@
 module Decidim
   module Votings
     # This cell renders the card for an instance of a Voting
-    # the default size is the Medium Card (:m)
+    # the default size is the Search Card (:s)
     class VotingCell < Decidim::ViewModel
       def show
         cell card_size, model, options
@@ -12,7 +12,12 @@ module Decidim
       private
 
       def card_size
-        "decidim/votings/voting_m"
+        case @options[:size]
+        when :s
+          "decidim/votings/voting_s"
+        else
+          "decidim/votings/voting_g"
+        end
       end
     end
   end

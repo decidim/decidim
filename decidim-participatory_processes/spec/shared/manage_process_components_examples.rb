@@ -24,9 +24,9 @@ shared_examples "manage process components" do
           find(".dummy").click
         end
 
-        expect(page).to have_no_content("Share tokens")
+        expect(page).not_to have_content("Share tokens")
 
-        within ".new_component" do
+        within ".item__edit-form .new_component" do
           fill_in_i18n(
             :component_name,
             "#component-name-tabs",
@@ -87,7 +87,7 @@ shared_examples "manage process components" do
       end
     end
 
-    context "when the process doesn't have active steps" do
+    context "when the process does not have active steps" do
       let!(:participatory_process) do
         create(:participatory_process, organization:)
       end
@@ -99,7 +99,7 @@ shared_examples "manage process components" do
           find(".dummy").click
         end
 
-        within ".new_component" do
+        within ".item__edit-form .new_component" do
           fill_in_i18n(
             :component_name,
             "#component-name-tabs",
@@ -226,7 +226,7 @@ shared_examples "manage process components" do
       end
     end
 
-    context "when the process doesn't have active steps" do
+    context "when the process does not have active steps" do
       before { participatory_process.steps.destroy_all }
 
       it "updates the default step settings" do
@@ -277,7 +277,7 @@ shared_examples "manage process components" do
         click_link "Delete"
       end
 
-      expect(page).to have_no_content("My component")
+      expect(page).not_to have_content("My component")
     end
   end
 
@@ -333,7 +333,7 @@ shared_examples "manage process components" do
           click_link "Configure"
         end
 
-        expect(page).to have_no_content("Share tokens")
+        expect(page).not_to have_content("Share tokens")
       end
 
       it "unpublishes the component" do

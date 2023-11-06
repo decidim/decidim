@@ -23,7 +23,7 @@ module Decidim
       context "when rendering" do
         it "renders the card" do
           html = cell("decidim/debates/debate_activity", action_log).call
-          expect(html).to have_css("#action-#{action_log.id} .card__content")
+          expect(html).to have_css("[data-activity]")
         end
 
         context "when action is update" do
@@ -31,7 +31,7 @@ module Decidim
 
           it "renders the correct title" do
             html = cell("decidim/debates/debate_activity", action_log).call
-            expect(html).to have_css("#action-#{action_log.id} .card__content")
+            expect(html).to have_css("[data-activity]")
             expect(html).to have_content("Debate updated")
           end
         end
@@ -41,7 +41,7 @@ module Decidim
 
           it "renders the correct title" do
             html = cell("decidim/debates/debate_activity", action_log).call
-            expect(html).to have_css("#action-#{action_log.id} .card__content")
+            expect(html).to have_css("[data-activity]")
             expect(html).to have_content("New debate")
           end
         end
@@ -49,7 +49,7 @@ module Decidim
         context "when action is publish" do
           it "renders the correct title" do
             html = cell("decidim/debates/debate_activity", action_log).call
-            expect(html).to have_css("#action-#{action_log.id} .card__content")
+            expect(html).to have_css("[data-activity]")
             expect(html).to have_content("New debate")
           end
         end

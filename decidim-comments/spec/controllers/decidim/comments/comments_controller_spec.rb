@@ -8,7 +8,7 @@ module Decidim
       routes { Decidim::Comments::Engine.routes }
 
       let(:organization) { create(:organization) }
-      let(:participatory_process) { create :participatory_process, organization: }
+      let(:participatory_process) { create(:participatory_process, organization:) }
       let(:component) { create(:component, participatory_space: participatory_process) }
       let(:commentable) { create(:dummy_resource, component:) }
 
@@ -107,7 +107,7 @@ module Decidim
           end
 
           context "when trying to comment on a private space where the user is not assigned to" do
-            let(:participatory_process) { create :participatory_process, :private, organization: }
+            let(:participatory_process) { create(:participatory_process, :private, organization:) }
 
             it "redirects with a flash alert" do
               post :create, xhr: true, params: { comment: comment_params }
@@ -209,7 +209,7 @@ module Decidim
             sign_in user, scope: :user
           end
 
-          it "doesn't delete the comment" do
+          it "does not delete the comment" do
             expect do
               delete :destroy, xhr: true, params: { id: comment.id }
             end.not_to(change { Decidim::Comments::Comment.not_deleted.count })

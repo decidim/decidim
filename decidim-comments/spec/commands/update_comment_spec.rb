@@ -9,9 +9,9 @@ module Decidim
       let(:participatory_process) { create(:participatory_process, organization:) }
       let(:component) { create(:component, participatory_space: participatory_process) }
       let(:author) { create(:user, organization:) }
-      let(:dummy_resource) { create :dummy_resource, component: }
+      let(:dummy_resource) { create(:dummy_resource, component:) }
       let(:commentable) { dummy_resource }
-      let(:comment) { create :comment, author:, commentable: }
+      let(:comment) { create(:comment, author:, commentable:) }
       let(:body) { "This is a reasonable comment" }
       let(:form_params) do
         {
@@ -41,7 +41,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't update the comment" do
+          it "does not update the comment" do
             expect { command.call }.not_to change(comment, :body)
           end
         end
@@ -55,7 +55,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't update the comment" do
+          it "does not update the comment" do
             expect { command.call }.not_to change(comment, :body)
           end
         end
@@ -65,10 +65,13 @@ module Decidim
             expect { command.call }.to broadcast(:ok)
           end
 
+          it_behaves_like "fires an ActiveSupport::Notification event", "decidim.comments.update_comment:before"
+          it_behaves_like "fires an ActiveSupport::Notification event", "decidim.comments.update_comment:after"
+
           it "updates the comment" do
             command.call
             comment.reload
-            expect(comment.body).to be_kind_of(Hash)
+            expect(comment.body).to be_a(Hash)
             expect(comment.body["en"]).to eq body
           end
 

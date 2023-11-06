@@ -18,9 +18,9 @@ describe Decidim::Votings::Census::Datum do
   describe "uniqueness" do
     context "with hashed_in_person_data" do
       let!(:another_datum) do
-        create :datum,
+        create(:datum,
                dataset:,
-               hashed_in_person_data: datum.hashed_in_person_data
+               hashed_in_person_data: datum.hashed_in_person_data)
       end
 
       it { is_expected.not_to be_valid }
@@ -28,9 +28,9 @@ describe Decidim::Votings::Census::Datum do
 
     context "with hashed_check_data" do
       let!(:another_datum) do
-        create :datum,
+        create(:datum,
                dataset:,
-               hashed_check_data: datum.hashed_check_data
+               hashed_check_data: datum.hashed_check_data)
       end
 
       it { is_expected.not_to be_valid }

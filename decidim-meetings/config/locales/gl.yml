@@ -1,10 +1,6 @@
 gl:
   activemodel:
     attributes:
-      agenda:
-        description: Descrición
-        duration: Duración
-        title: Título
       close_meeting:
         attendees_count: Número de asistentes
         attending_organizations: Listaxe de organizacións que asistiron
@@ -21,7 +17,6 @@ gl:
         decidim_category_id: Categoría
         decidim_scope_id: Alcance
         description: Descrición
-        end_time: Hora de finalización
         location: Localización
         location_hints: Consellos de localización
         organizer_id: Organizador
@@ -30,20 +25,8 @@ gl:
         registration_form_enabled: Formulario de rexistro habilitado
         registration_terms: Termos de rexistro
         registrations_enabled: Rexistros habilitados
-        start_time: Hora de inicio
         title: Título
         transparent: Transparente
-    errors:
-      models:
-        meeting_agenda:
-          attributes:
-            base:
-              too_many_minutes: A duración dos elementos supera a duración da reunión por %{count} minutos
-              too_many_minutes_child: A duración do elemento secundario supera o elemento da axenda "%{parent_title}" a duración dos pais por %{count} minuto
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Este correo electrónico xa foi convidado
     models:
       decidim/meetings/close_meeting_event: Reunión pechada
       decidim/meetings/create_meeting_event: Reunión
@@ -80,7 +63,6 @@ gl:
           success: Reunión duplicada con éxito.
         new:
           copy: Copiar
-          select: Seleccione os datos que desexa duplicar
           title: Reunión duplicada
     components:
       meetings:
@@ -154,8 +136,6 @@ gl:
           description_own: Atendeu %{score} reunións.
           name: Reunións asistidas
           next_level_in: Asistir a %{score} reunións máis para alcanzar o seguinte nivel!
-          unearned_another: Este usuario aínda non asistiu a ningunha reunión.
-          unearned_own: Aínda non asistiu a ningunha reunión.
     meetings:
       actions:
         agenda: Axenda
@@ -165,7 +145,6 @@ gl:
         confirm_destroy: Estás seguro de que queres eliminar esta reunión?
         destroy: Eliminar
         edit: Editar
-        new: Nova reunión
         preview: Vista previa
         registrations: Rexistros
         title: Accións
@@ -183,9 +162,6 @@ gl:
             down: Baixo
             remove: Quitar
             up: Arriba
-          create:
-            invalid: Produciuse un problema ao crear esta axenda
-            success: Axenda creada con éxito
           edit:
             title: Editar axenda
             update: Actualización
@@ -197,9 +173,6 @@ gl:
           new:
             create: Crear
             title: Nova axenda
-          update:
-            invalid: Produciuse un problema ao actualizar esta axenda
-            success: A axenda actualizouse correctamente
         exports:
           answers: Respostas
           meetings: Reunións
@@ -226,24 +199,14 @@ gl:
               all: Todo
               rejected: Rexeitado
               sent: Enviado
-            filter_by: Filtrar por
             invite_attendee: Invitar asistente
             invites: Invitacións
-            registrations_disabled: Non podes invitar a un asistente porque os rexistros están desactivados.
             search: Busca
         meeting_closes:
           edit:
             close: Pechar
             title: Pechar reunión
-        meeting_copies:
-          form:
-            select_a_meeting_type: Por favor, selecciona un tipo de xuntanza
         meetings:
-          close:
-            invalid: Produciuse un problema ao pechar esta reunión
-            success: Reunión pechada con éxito
-          create:
-            invalid: Produciuse un problema ao crear esta reunión
           destroy:
             success: Reunión eliminada correctamente
           edit:
@@ -263,12 +226,6 @@ gl:
           services:
             add_service: Engadir servizo
             services: Servizos
-          update:
-            invalid: Produciuse un problema ao actualizar esta reunión
-            success: Reunión actualizada correctamente
-        models:
-          meeting:
-            name: Reunión
         registrations:
           edit:
             save: Gardar
@@ -282,7 +239,6 @@ gl:
             registrations_count:
               one: Houbo un rexistro de %{count}.
               other: Houbo %{count} rexistros.
-            reserved_slots_help: Déixao a 0 se non tes slots reservados
             reserved_slots_less_than: Debe ser inferior ou igual a %{count}
           update:
             invalid: Produciuse un problema ao gardar a configuración de rexistro.
@@ -309,18 +265,13 @@ gl:
           all: Todas
         filter_meeting_space_values:
           all: Todas
-        filter_scope_values:
-          all: Todas
       calendar_modal:
         calendar_url: URL do calendario
-        close_window: Pechar ventá
         export_calendar: Calendario de exportación
       conference_venues: Lugares de conferencias
       content_blocks:
         upcoming_meetings:
           name: Vindeiras xuntanzas
-          upcoming_meetings: Vindeiras xuntanzas
-          view_all_meetings: Ver todo
       directory:
         meetings:
           index:
@@ -330,9 +281,6 @@ gl:
         all: Todos os visitantes
       iframe_embed_type:
         open_in_new_tab: Abrir ligazón nunha nova lapela
-      last_activity:
-        meeting_updated_at_html: "<span>Xuntanza actualizada en %{link}</span>"
-        new_meeting_at_html: "<span>Nova reunión en %{link}</span>"
       layouts:
         live_event:
           administrate: Administrar
@@ -345,13 +293,10 @@ gl:
         registration_mailer:
           confirmation:
             subject: O rexistro da túa xuntanza foi confirmado
-      meeting:
-        not_allowed: Non tes permiso para ver esta reunión
       meetings:
         calendar_modal:
           add_to_calendar: Engadir ao calendario
           apple: Engadir ao Apple Calendar
-          close_window: Pechar xanela
           full_details_html: Ver todos os detalles en %{link}
           google: Engadir ao Google Calendar
           outlook: Engadir ao calendario do Outlook
@@ -361,11 +306,6 @@ gl:
           origin_values:
             participants: Participantes
           search: Busca
-        filters_small_view:
-          close_modal: Pechar modal
-          filter: Filtro
-          filter_by: Filtrar por
-          unfold: Despregar
         form:
           select_an_iframe_access_level: Por favor, selecciona o nivel de acceso ao iframe
         index:
@@ -373,10 +313,7 @@ gl:
           see_all: Ver todas as xuntanzas
           see_all_withdrawn: Ver todas as xuntanzas anuladas
           text_banner: Estás a ver todas as xuntanzas anuladas polos seus autores. %{go_back_link}.
-        meeting_minutes:
-          related_information: Información relacionada
         meetings:
-          no_meetings_warning: Non hai encontros que coincidan cos seus criterios de busca ou non hai ningunha reunión programada.
           upcoming_meetings_warning: Actualmente, non hai reunións programadas, pero aquí podes atopar todas as reunións anteriores.
         registration_confirm:
           cancel: Cancelar
@@ -384,8 +321,6 @@ gl:
         show:
           attendees: Os asistentes contan
           contributions: Contribucións contar
-          edit_close_meeting: Editar o informe da xuntanza
-          going: Inscribícheste nesta xuntaza
           join: Únete a reunión
           leave: Cancelar a túa inscrición
           leave_confirmation: Estás certo/a de querer cancelar a túa inscrición nesta xuntanza?
@@ -403,8 +338,6 @@ gl:
           withdraw_btn_hint: Podes anular a túa xuntanza se mudas de parecer. A xuntanza non está anulada, aparecerá na listaxe de xuntanzas anuladas.
           withdraw_confirmation_html: Estás certo/a de querer anular esta xuntanza?<br><br><strong>Esta acción non pode ser cancelada!</strong>
           withdraw_meeting: Anular xuntanza
-      meetings_map:
-        view_meeting: Ver reunión
       models:
         invite:
           fields:
@@ -449,7 +382,6 @@ gl:
       registrations:
         create:
           invalid: Produciuse un problema ao unirse a esta reunión.
-          success: Uniches á reunión correctamente.
         decline_invitation:
           invalid: Produciuse un problema ao diminuír a invitación.
           success: Rexeitou con éxito a invitación.
@@ -460,9 +392,6 @@ gl:
         private_meeting: Encontro privado
         transparent: Transparente
         withdraw: Anular
-      withdraw:
-        error: Produciuse un erro ao anular a xuntanza
-        success: Xuntanza anulada con éxito
     metrics:
       meetings:
         description: Número de reunións creadas
@@ -473,8 +402,6 @@ gl:
         past_meetings: Reunións pasadas
         see_all: Ver todos (%{count})
         upcoming_meetings: Próximas reunións
-      upcoming_meeting_for_card:
-        upcoming_meeting: Próxima reunión
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Resultados relacionados:'

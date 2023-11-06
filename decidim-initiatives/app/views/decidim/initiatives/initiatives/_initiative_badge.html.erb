@@ -1,5 +1,3 @@
-<% if initiative.rejected? || initiative.accepted? %>
-  <span class="<%= state_badge_css_class(initiative) %> label initiative-status">
-    <%= humanize_state initiative %>
-  </span>
-<% end %>
+<span class="<%= metadata_badge_css_class(initiative.state) %> label initiative-status rounded px-2">
+  <%= t(initiative.state, scope: "decidim.initiatives.show.badge_name") %>
+</span>

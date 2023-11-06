@@ -6,7 +6,7 @@ module Decidim
   describe NewslettersController, type: :controller do
     routes { Decidim::Core::Engine.routes }
 
-    let(:organization) { create :organization }
+    let(:organization) { create(:organization) }
 
     before do
       request.env["decidim.current_organization"] = organization

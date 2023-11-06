@@ -12,7 +12,7 @@ module Decidim
 
       routes do
         resources :results, only: [:index, :show] do
-          resources :versions, only: [:show, :index]
+          resources :versions, only: [:show]
         end
         root to: "results#home"
       end

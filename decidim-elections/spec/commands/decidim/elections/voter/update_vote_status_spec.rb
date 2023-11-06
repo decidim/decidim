@@ -5,9 +5,9 @@ require "spec_helper"
 describe Decidim::Elections::Voter::UpdateVoteStatus do
   subject { described_class.new(vote) }
 
-  let(:election) { create :election }
-  let(:vote) { create :vote, user:, email:, election: }
-  let(:user) { create :user, organization: }
+  let(:election) { create(:election) }
+  let(:vote) { create(:vote, user:, email:, election:) }
+  let(:user) { create(:user, organization:) }
   let(:component) { election.component }
   let(:organization) { component.organization }
   let(:email) { "an_email@example.org" }
@@ -44,14 +44,14 @@ describe Decidim::Elections::Voter::UpdateVoteStatus do
     subject.call
   end
 
-  it "doesn't send an extra email" do
+  it "does not send an extra email" do
     expect(Decidim::Elections::VoteAcceptedMailer)
       .not_to receive(:notification)
 
     subject.call
   end
 
-  context "when the vote doesn't have a user, but has an email address" do
+  context "when the vote does not have a user, but has an email address" do
     let(:user) { nil }
     let(:mailer) { double(:mailer) }
 
@@ -64,7 +64,7 @@ describe Decidim::Elections::Voter::UpdateVoteStatus do
       expect(vote.status).to eq "accepted"
     end
 
-    it "doesn't sends a notification" do
+    it "does not sends a notification" do
       expect(Decidim::EventsManager)
         .not_to receive(:publish)
 
@@ -83,7 +83,7 @@ describe Decidim::Elections::Voter::UpdateVoteStatus do
     end
   end
 
-  context "when the vote doesn't have a user not an email address" do
+  context "when the vote does not have a user not an email address" do
     let(:user) { nil }
     let(:email) { nil }
 
@@ -96,14 +96,14 @@ describe Decidim::Elections::Voter::UpdateVoteStatus do
       expect(vote.status).to eq "accepted"
     end
 
-    it "doesn't sends a notification" do
+    it "does not sends a notification" do
       expect(Decidim::EventsManager)
         .not_to receive(:publish)
 
       subject.call
     end
 
-    it "doesn't send an email" do
+    it "does not send an email" do
       expect(Decidim::Elections::VoteAcceptedMailer)
         .not_to receive(:notification)
 

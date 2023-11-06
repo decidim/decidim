@@ -27,7 +27,6 @@ bg:
       decidim/component_published_event: Активен компонент
       decidim/demoted_membership: Вече не сте администратор в групата
       decidim/gamification/badge_earned_event: Получихте значка
-      decidim/gamification/level_up_event: Повишихте нивото си
       decidim/join_request_accepted_event: Заявката за присъединяване е приета
       decidim/join_request_rejected_event: Заявката за присъединяване е отхвърлена
       decidim/profile_updated_event: Профилът е обновен
@@ -82,14 +81,12 @@ bg:
         success: Вашият профил е успешно изтрит.
       download_your_data_export:
         file_no_exists: Файлът не съществува
-        notice: Свалянето на Вашите данни е в процес. Ще получите ел. писмо когато приключи.
       show:
         change_password: Смяна на паролата
         update_account: Обнови профил
       update:
         error: Възникна проблем с обновяването на профила Ви.
         success: Профилът Ви е обновен успешно.
-        success_with_email_confirmation: Профилът Ви е обновен успешно. Ще получите ел. писмо за да потвърдите новия адрес за ел. поща.
     admin:
       actions:
         cancel: Отказ
@@ -141,20 +138,15 @@ bg:
         reject: "%{user_name} отхвърли потвърждението на група участници %{resource_name}"
         verify: "%{user_name} провери групата %{resource_name}"
         verify_via_csv: "%{user_name} провери групата %{resource_name} чрез CSV файл"
-    admin_terms_of_use:
-      default_body: "<h2>ПРАВИЛА НА АДМИНИСТРАТОРА</h2><p>Надяваме се, че сте получили указания от местния системен администратор. Обикновено се свеждат до тези три неща:</p><ol><li>Уважавайте личното пространство на другите.</li><li>Мисли, преди да натиснеш.</li><li>С големите права идва голямата отговорност.</li></ol>"
     amendments:
       accepted:
         error: Възникна грешка при одобряване на поправката.
         success: Поправката е одобрена успешно.
       amendable:
-        amended_by: Поправка от
         button: Променя %{model_name}
         error: Възникна грешка при промяната на ресурса.
-        help_text: Подобрете %{model_name} като измените неговите %{amendable_fields}
         promote_button: Обяви като %{model_name}
         promote_confirm_text: Сигурни ли сте, че искате да обявите тази поправка?
-        promote_help_text: Можете да обявите тази поправка като я публикувате като независим %{model_name}
         section_heading: Поправки (%{count})
       compare_draft:
         continue: Продължи
@@ -168,7 +160,6 @@ bg:
         success: Черновата на поправката е успешно изтрита.
       edit_draft:
         discard: Отхвърляне на черновата
-        discard_confirmation: Сигурни ли сте, че искате да отхвърлите тази чернова на поправка?
         send: Преглед
         title: Редактирай чернова на поправка
       emendation:
@@ -195,26 +186,16 @@ bg:
         modify: Промени
         publish: Публикувай
         title: Публикувай чернова на поправка
-      promoted:
-        error: Възникна проблем при публикуването на поправката като ново предложение
-        success: Поправката е успешно публикувана като ново предложение
       publish_draft:
         error: Възникна проблем при публикуване на поправката.
         success: Поправката е публикувана успешно.
-      rejected:
-        error: Възникна проблем при отхвърляне на поправката, опитайте по-късно
-        success: Поправката е успешно отхвърлена
       review:
         back: Назад
         heading: Преглед на поравка
-        help_text: Преглеждате поправка в %{model_name}
         send: Приеми поправка
       update_draft:
         error: Възникна проблем при обновяване черновата на поправка.
         success: Черновата на поправка е успешно обновена.
-      withdraw:
-        error: Възникна грешка при оттеглянето на поправка
-        success: Поправката беше оттеглена успешно
       wizard_step_form:
         steps:
           '1': Създайте Ваша поправка
@@ -223,10 +204,6 @@ bg:
           '4': Публикувайте Вашите поправки
     anonymous_user: Анонимен
     application:
-      collection:
-        documents:
-          one: Документ
-          other: Документи
       document:
         download: Изтегли файл
       documents:
@@ -242,13 +219,11 @@ bg:
         other: одобрявания
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Преминете проверка, като въведете номер на паспорт започващ с "A"
         fields:
           passport_number: Номер на паспорт
           postal_code: Пощенски код
         name: Друго примерна идентификация
       dummy_authorization_handler:
-        explanation: Преминете проверка, като въведете номер на документ завършващ с "X"
         fields:
           document_number: Номер на документ
           postal_code: Пощенски код
@@ -275,7 +250,6 @@ bg:
           title: Идентификацията изтече
         incomplete:
           cancel: Отказ
-          explanation: 'Въпреки че се идентифицирахте чрез "%{authorization}" е необходимо да се идентифицирате отново, защото липсват следните данни:'
           invalid_field: "%{field}"
           reauthorize: Нова идентификация
           title: Моля, направете нова идентификация
@@ -284,16 +258,11 @@ bg:
           explanation: За да изпълните това действие е необходима идентификация чрез "%{authorization}".
           title: Необходима е идентификация
         pending:
-          explanation: За да изпълните това действие е необходима идентификация чрез "%{authorization}", но Вашата идентификация все още не е завършена
-          resume: Проверете напредъка на Вашата "%{authorization}" идентификация
           title: Идентификацията не е завършила
         unauthorized:
-          explanation: Съжаляваме, не можете да извършите това действие, защото някои от идентификационните данни не съвпадат.
-          invalid_field: "За %{field} стойността %{value} не е валидна."
           ok: Добре
           title: Не сте идентифициран
         unconfirmed:
-          confirmation_instructions: 'Ако не сте получили инструкции за потвърждение, заявете ново изпращане:'
           explanation_html: За да изпълните това действие, първо се идентифицирайте, но преди това потвърдете вашата ел. поща <strong>%{email}</strong>.
           request_confirmation_instructions: Заявка на инструкции за потвърждение
           title: Потвърдете Вашата ел. поща
@@ -305,7 +274,6 @@ bg:
       see_more: "(покажи)"
     components:
       component_order_selector:
-        no_content: Няма съдържание, отговарящо на критерия
         order:
           all_types: Всички типове
           collaborative_draft: Съвместна чернова
@@ -366,16 +334,8 @@ bg:
         name: Статистики за организацията
       sub_hero:
         name: Банер на под-героя
-    core:
-      actions:
-        login_before_access: Влезте в профила си за достъп
-        unauthorized: Нямате права за това действие
-    datepicker:
-      help_text: 'Очакван формат: %{datepicker_format}'
     devise:
       omniauth_registrations:
-        create:
-          email_already_exists: Друг профил използва същия адрес за ел. поща
         new:
           complete_profile: Завърши профила
           sign_up: Моля, завършете профила си
@@ -386,12 +346,8 @@ bg:
           already_have_an_account?: Вече имате профил?
           newsletter: Получавайте извънреден бюлетин с подходяща информация
           newsletter_title: Разрешение за контакт с Вас
-          sign_in: Вход
           sign_up: Регистрация
-          sign_up_as:
-            legend: Регистрация като
           subtitle: Регистрирайте се за да участвате в обсъждания и поддържате предложения.
-          terms: обши условия
           tos_agreement: Регистрирайки се, приемате %{link}.
           tos_title: Общи условия
           username_help: Публичното име ще се показва във Вашите публикации. Ако желаете анонимност, изберете го произволно.
@@ -399,15 +355,10 @@ bg:
         new:
           are_you_new?: Нов сте в тази платформа?
           register: Създай профил
-          sign_in_disabled: Може да влезете с външен профил
-          sign_up_disabled: Регистрацията е забранена, може да ползвате съществуващ профил за достъп
       shared:
         newsletter_modal:
           buttons:
             check: Маркирай и продължи
-            close_modal: Затвори прозорчето
-          notice: |-
-            <p>Наистина ли не желаете да получавате писма с новини за дейностите в платформата?<br> Още веднъж преценете, дали да не поставите отметка по-долу.<br> Важно е понякога да получавате актуална информация. Винаги можете да се откажете от страницата с настройки.</p> <p>Когато това поле не е маркирано, може да пропуснете възможности за съвместна работа.<br> Ако все пак не желаете да Ви информираме за общите ни дела, уважаваме Вашето решение.</p> <p>Благодарим Ви, че прочетохте това!</p>
           title: Известия за новости
         omniauth_buttons:
           or: Или
@@ -417,7 +368,6 @@ bg:
           authorize: Потвърди приложение
           by_organization_link_html: <small class="heading-small"> чрез %{link}</small>
           cancel: Откажи
-          connect_your_account_html: Свържете вашия профил като се регистрирате в <strong>%{organization}</strong>
           publish_content: Публикувайте съдържание за вас
           see_email: Вижте Вашата ел. поща
           see_name: Вижте Вашето име
@@ -432,11 +382,6 @@ bg:
       show:
         download_data: Изтегляне на данни
         request_data: Заяви данни
-    endorsable:
-      endorsements: Одобрявания
-    endorsement_buttons_cell:
-      already_endorsed: Одобрен
-      endorse: Одобрявам
     endorsements:
       identities:
         done: Готово
@@ -444,11 +389,9 @@ bg:
     errors:
       internal_server_error:
         title: Възникна проблем с нашия сървър
-        try_later: Опитайте отново по-късно.
       not_found:
         back_home: Към Начало
         content_doesnt_exist: Този адрес е неправилен или е премахнат.
-        title: Търсената от вас страница не е намерена
     events:
       amendments:
         amendment_accepted:
@@ -514,15 +457,9 @@ bg:
         email_subject: Обновление в %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Поздравления! Вие заслужихте значка <a href="%{resource_url}">%{badge_name} </a> (ниво %{current_level}).
           email_outro: Получавате това известие, защото сте проявили активност на нашия сайт.
-          email_subject: 'Заслужихте нова значка: %{badge_name}!'
-          notification_title: Поздравления! Вие заслужихте значка <a href="%{resource_path}">%{badge_name} </a> (ниво %{current_level}).
         level_up:
-          email_intro: Поздравления! Достигнахте ниво %{current_level} на значката <a href="%{resource_url}">%{badge_name}</a>!
           email_outro: Получавате това известие, защото сте проявили активност на нашия сайт.
-          email_subject: Достигнахте ниво %{current_level} на значката %{badge_name}!
-          notification_title: Поздравления! Достигнахте ниво %{current_level} на значката <a href="%{resource_path}">%{badge_name}</a>!
       groups:
         demoted_membership:
           email_intro: Администратора на групата <a href="%{resource_url}">%{user_group_name}</a> отне администраторските Ви права за тази група.
@@ -599,7 +536,6 @@ bg:
         result: Резултати
     fingerprint:
       check: Проверете отпечатъка
-      explanation: Текста по-долу е съкратено, хеширано представяне на това съдържание. Използва се за да гарантира, че съдържанието не е подправено, тъй като всяка промяна води до съвсем различна стойност.
       online_calculator_name: MD5 калкулатор онлайн
       replicate_help: Този отпечатък е изчислен чрез SHA256 алгоритъм за хеширане. За да го изчислите самостоятелно, използвайте %{online_calculator_link} като копирате и поставите изходните данни.
       source: Източник
@@ -607,8 +543,6 @@ bg:
       value: Стойност
     followers:
       no_followers: Все още няма последователи.
-    following:
-      no_followings: Все още не следвате никой или нищо.
     follows:
       create:
         button: Следвай
@@ -617,13 +551,10 @@ bg:
         button: Спри следването
         error: Възникна проблем с отказа от следване на този ресурс.
     forms:
-      current_image: Текущо изображение
-      default_image: Изображение по подразбиране
       errors:
         decidim/user:
           password: Паролата е твърде къса.
           password_confirmation: Паролата и потвърждението на паролата трябва да съвпадат.
-        error: В това поле има грешка.
     gamification:
       all_badges_link: Виж всички достъпни значки.
       badges:
@@ -635,58 +566,27 @@ bg:
           description_own: "Следват Ви %{score} човека."
           name: Последователи
           next_level_in: Остават %{score} човека до достигане на следващото ниво!
-          unearned_another: Този участник все още няма последователи.
-          unearned_own: Нямате последователи все още.
         index:
           badge_title: "%{name} значка"
           how: Как може да я заслужите
           page_description: Значките са признания за действия на участниците и напредък в платформата. Когато започнете да откривате, участвате и взаимодействате в платформата, ще заслужите различни значки. Ето списъка със значки и някои начини, по които можете да ги заслужите.
           title: Значки
-        invitations:
-          conditions:
-            - Използвайте връзката "покани приятели" на своята страница, за да поканите приятелите си
-            - Персонализирайте, ако жеаете, съобщението, което изпращате
-            - Ще се повишите нивото си, като изпращате покани и те бъдат регистрирани.
-          description: Тази значка се предоставя, когато поканите някои хора и те отделят малко време да се регистрират в %{organization_name} и станат участници. Благодарим ви, че разказвате за %{organization_name} и така помогнете за разширяването на общността!
-          description_another: Този участник покани %{score} човека.
-          description_own: Вие поканихте %{score} човека.
-          name: Покани
-          next_level_in: Поканете още %{score} за да достигнете следващо ниво!
-          unearned_another: Този участник все още не е поканил никой.
-          unearned_own: Не сте поканил(а) никого все ще.
       description: Значките са признания за действия на участниците и напредък в платформата. Когато започнете да откривате, участвате и взаимодействате в платформата, ще спечелите различни значки.
       level: Ниво %{level}
-      reached_top: Достигнахте максималното ниво на значката.
     group_admins:
       actions:
-        are_you_sure: Сигурен(а) ли сте? Това няма да премахне участника от групата.
         demote_admin: Премахни администратор
-      demote:
-        error: Възникна проблем при премахването от списъка с администратори
-        success: Участника е успешно премахнат като администратор
       index:
         current_admins: 'Текущи администратори:'
         manage_admins: Управлявай администраторите
     group_invites:
-      accept:
-        error: Възникна проблем при приемането на поканата
-        success: Поканата е приета успешно
       accept_invitation: Приеми
       accept_or_reject_group_invitations: 'Следните групи ви поканиха да се присъедините. Приемете или отхвърлете заявките:'
       index:
         invite: Покани
         invite_user: Покани участник
-      invite:
-        error: Възникна проблем с поканата към участник
-        success: Участника е поканен успешно
-      reject:
-        error: Възникна проблем при отхвърлянето на поканата
-        success: Поканата е отхвърлена успешно
       reject_invitation: Отхвърли
     group_members:
-      accept:
-        error: Възникна проблем при приемането на заявката за присъединяване
-        success: Заявката за присъединяване е приета успешно
       actions:
         are_you_sure: Сигурни ли сте?
         promote_to_admin: Направи администратор
@@ -694,36 +594,20 @@ bg:
       index:
         current_members_without_admins: 'Текущи членове (без админи):'
         manage_members: Управллявай членовете
-      promote:
-        error: Възникна проблем при представянето на участника
-        success: Участника е представен успешно
-      reject:
-        error: Възникна проблем при отхвърлянето на заявката за присъединяване
-        success: Заявката за присъединяване е отхвърлена успешно
-      remove:
-        error: Възникна проблем при премахването на участник от групата
-        success: Участника е успешно премахнат от групата
     groups:
       actions:
         are_you_sure: Сигурни ли сте?
-      create:
-        error: Възникна проблем при създаване на групата
-        success: Групата създадена успешно
       edit:
         edit_user_group: Редактирай група
         update_user_group: Обнови група
       form:
-        document_number_help: Не използвайте тирета или интервали
         email_help: Ел. поща на вашата организация, асоциация, колектив, група и т.н.
         fill_in_for_verification: 'Попълнете тези полета, ако желаете вашата група да бъде проверена:'
         name_help: Име на вашата организация, асоциация, колектив, група и т.н.
         nickname_help: Псевдоним на вашата организация, асоциация, колектив, група и т.н.
-        phone_help: Не използвайте тирета или интервали
       join:
-        error: Възникна проблем при присъединяването към групата
         success: Заявката за присъединяване е създадена успешно. Администраторът ще прегледа вашата заявка, преди да ви приеме в групата.
       leave:
-        error: Възникна проблем при напускане на групата
         success: Групата е напусната успешно.
       members:
         accept_or_reject_join_requests: 'Следните участници кандидатстват за присъединяване към групата. Приемете или отхвърлете техните заявки:'
@@ -733,27 +617,19 @@ bg:
         create_user_group: Създай група
         new_user_group: Нова група
         subtitle: Създайте група и поканете други участници да се присъединят, за да участват на колективно ниво.
-      no_user_groups: Не принадлежи към никоя група.
       roles:
         admin: Администратор
         member: Член
-      update:
-        error: Възникна проблем при обновяването на групата
-        success: Групата е обновена успешно
     help:
       main_topic:
         default_page:
           content: "<p> В %{organization} можете да участвате и да решавате различни теми в разделите, които виждате в горното меню: Процеси, събрания, инициативи, консултации.</p><p>В рамките на всяка от тях ще намерите различни опции за участие: предложения - поотделно или с други хора, участие в дебати, дайте приоритет на проектите за изпълнение, присъствайте на лични срещи и други действия. </p>\n"
           title: Какво мога да правя в %{organization}?
-        description: Прочетете повече за %{organization}
         title: Обща помощ
     last_activities:
-      activities:
-        no_activities_warning: Няма дейност
       all: Всички видове активност
       index:
         last_activity: Последна активност
-        resource_type: Тип
     log:
       base_presenter:
         create: "%{user_name} създаде %{resource_name}"
@@ -775,8 +651,6 @@ bg:
           not_found: 'Типа сфера липсва в базата данни (ID: %{id})'
     managed_users:
       expired_session: Текущата сесия на участника като администратор е изтекла.
-    members:
-      no_members: Тази група все още няма членове.
     menu:
       help: Помощ
       home: Начало
@@ -786,35 +660,29 @@ bg:
           admin_in_group: Получавате това защото сте администратор в %{group}.
           greeting: Здравейте, %{recipient}!
           intro: "%{manager} започна нов разговор от името на %{group}. Натисни тук за да го видите:"
-          outro: Наслаждавайте се с decidim!
           subject: "%{manager} започна нов разговор като %{group}"
         comanagers_new_message:
           admin_in_group: Получавате това защото сте администратор в %{group}.
           greeting: Здравейте, %{recipient}!
           intro: "%{manager} публикува ново съобщение от името на %{group}. Натисни тук за да го видите:"
-          outro: Наслаждавайте се с decidim!
           subject: "%{manager} изпрати ново съобщение като %{group}"
         new_conversation:
           greeting: Здравейте, %{recipient}!
           intro: "%{sender} започна нов разговор с Вас. Натисни тук за да го видите:"
-          outro: Наслаждавайте се с decidim!
           subject: "%{sender} започва разговор с Вас"
         new_group_conversation:
           admin_in_group: Получавате това защото сте администратор в %{group}.
           greeting: Здравейте, %{recipient}!
           intro: "%{sender} започна нов разговор с групата %{group}. Натисни тук за да го видите:"
-          outro: Наслаждавайте се с decidim!
           subject: "%{sender} започна нов разговор с %{group}"
         new_group_message:
           admin_in_group: Получавате това защото сте администратор в %{group}.
           greeting: Здравейте, %{recipient}!
           intro: "%{sender} публикува ново съобщение в разговор с групата %{group}. Натисни тук за да го видите:"
-          outro: Наслаждавайте се с decidim!
           subject: "%{group} има ново съобщение от %{sender}"
         new_message:
           greeting: Здравейте, %{recipient}!
           intro: "%{sender} публикува ново съобщение във вашият разговор. Натисни тук за да го видите:"
-          outro: Наслаждавайте се с decidim!
           subject: Имате ново съобщение от %{sender}
       conversations:
         add_conversation_users:
@@ -822,29 +690,15 @@ bg:
           add_users_placeholder: Търсене...
           modal_title: Нов разговор
           no_results: Няма резултати
-          participant_with_disabled_message_reception: Участника е забранил получаването на съобщения
-        create:
-          error: Разговора не започна. Опитайте по-късно
         index:
-          ago: преди
-          close: Затвори прозорчето
-          from: Oт
-          groups: Моите Групи
-          last_message: Последно съобщение
           new_conversation: Нов разговор
           next: Напред
-          no_conversations: Все още нямате разговори
           title: Разговори
-        reply:
-          placeholder: Вашият отговор...
-          send: Изпрати
-          title: Отговори
         show:
           chat_with: Разговор с
           title: Разговор с %{usernames}
         start:
           send: Изпрати
-          title: Започнете разговор
     metrics:
       followers:
         description: Брой участници, които следват това пространство
@@ -860,8 +714,6 @@ bg:
         title: Участници
     newsletter_mailer:
       newsletter:
-        note: Получихте това писмо, защото сте абонирани за бюлетини на %{organization_name}. Можете да промените вашите настройки на <a href="%{link}">страницата "известия"</a>.
-        see_on_website: Не виждате това писмо правилно? Вижте го на <a href="%{link}" target="_blank">сайта</a>.
         unsubscribe: За да се откажете от получаването на такъв тип писма <a href="%{link}" target="_blank" class="unsubscribe">Отпишете се</a>.
     newsletter_templates:
       basic_only_text:
@@ -884,16 +736,9 @@ bg:
         main_image: Основно изображение
     newsletters:
       unsubscribe:
-        check_subscription: За да зададете предпочитанията си, отидете в страницата <a href="%{link}" target="_blank">настройки</a>
-        error: Възникна проблем при отписването
         success: Отписахте се успешно.
         token_error: Срокът на връзката е изтекъл.
         unsubscribe: Отписване
-    newsletters_opt_in:
-      unathorized: Съжаляваме, тази връзка вече е недостъпна
-      update:
-        error: Нещо се обърка
-        success: Настройките за бюлетина са успешно обновени
     newsletters_opt_in_mailer:
       notify:
         body_1: Обработката на личните данни и тяхната защита стават все по-важни за всички нас. С новия Общ регламент за защита на данните (GDPR) от 25 май 2018 г. лицата имат по-добър контрол върху личните си данни. Поради тази причина се нуждаем от вашето съгласие, за да продължим да изпращаме подходяща информация за дейностите на %{organization_name}.
@@ -907,7 +752,6 @@ bg:
       no_notifications: Още няма известия.
     notifications_settings:
       show:
-        allow_public_contact: Позволявам на всеки да ми изпраща директно съобщение, дори и да не го следвам.
         direct_messages: Получавайте директни съобщения от всеки
         everything_followed: Всичко, което следвам
         newsletter_notifications: Желая да получавам бюлетин
@@ -920,14 +764,8 @@ bg:
         success: Настройките Ви за известия са обновени успешно.
     open_data:
       not_available_yet: Файловете с отворени данни все още не са налице. Опитайте отново след няколко минути.
-    own_user_groups:
-      index:
-        pending: Предстоящ
-        rejected: Отхвърлен
-        verified: Проверен
     pad_iframe:
       disclaimer: Съдържанието в тази платформа, написано от участниците в нея изразява тяхното мнение. %{organization} не носи отговорност за това съдържание.
-      explanation: Използвайте тази платформа, за да правите съвместно бележки по време на срещата, за да е по-лесно да анализирате след това.
       pad: Платформа
     pages:
       home:
@@ -947,14 +785,11 @@ bg:
         hero:
           participate: Участвайте
           welcome: Добре дошли в %{organization}!
-        metrics:
-          headline: Индикатори
         statistics:
           headline: Текущо състояние на %{organization}
         sub_hero:
           register: Регистрация
       index:
-        read_more: Прочети още
         standalone_pages: Страници
         subheading: Придвижвайте се в помощта на %{name}
         title: Помощ
@@ -963,30 +798,11 @@ bg:
         metrics:
           headline: Индикатори
           link: Покажи всички индикатори
-      terms_and_conditions:
-        accept:
-          error: Възникна проблем при приемането на общите условия.
-          success: Чудесно! Вие приехте общите условия.
-        form:
-          legend: Съгласявам се с общите условия за ползване
-        refuse:
-          modal_btn_continue: Приемам условията и продължавам
-          modal_btn_exit: Ще ги прегледам по-късно
-          modal_button: Отказвам условията
-          modal_close: Затвори прозорчето
-          modal_title: Наистина ли отказвате обновените Общи условия?
-        required_review:
-          alert: Обновихме нашите Общи условия, моля прегледайте ги.
-          body: Моля, отделете време за да прегледате обновените Общи условия. В противен случай не може да използвате платформата.
-          title: 'Задължително: Прегледайте обновените Общи условия'
     participatory_space_private_users:
       not_allowed: Нямате права да преглеждате това съдържание
     profile:
-      deleted: Участника е изтрит
-      view: Изглед
+      deleted: Изтрит участник
     profiles:
-      default_officialization_text_for_user_groups: Тази група е публично проверена, нейното име е потвърдено, че съответства на истинското и име
-      default_officialization_text_for_users: Този участник е публично проверен, името му или ролята са потвърдени, че съответстват на истинските му име и роля
       show:
         activity: Дейност
         badges: Значки
@@ -995,18 +811,14 @@ bg:
         following: Следванния
         groups: Групи
         members: Членове
-        timeline: Хронология
-        view_full_profile: Виж пълния профил
       sidebar:
         badges:
           info: Значките се заслужват чрез извършване на конкретна дейност в платформата.
           title: Значки
       user:
-        confirmation_instructions_sent: Изпратени са инструкции за потвърждение по ел. поща
         create_user_group: Създай група
         edit_profile: Редактиране на профил
         edit_user_group: Редактиране профил на група
-        fill_in_email_to_confirm_it: Попълнете ел. поща на вашата група, за да бъде потвърдена
         invite_user: Покани участник
         join_user_group: Заявка за присъединяване към група
         leave_user_group: Напусни на групата
@@ -1043,7 +855,6 @@ bg:
       term_input_placeholder: Търсене
     searches:
       filters:
-        back: Върни се към резултатати
         jump_to: 'Отиди на:'
         state:
           active: Активни
@@ -1051,20 +862,11 @@ bg:
           future: Бъдещи
           past: Минали
       filters_small_view:
-        close_modal: Затвори прозорчето
         filter: Филтър
         filter_by: Филтър по
-        unfold: Разгъване
       results:
-        results:
-          one: "%{count} резултат"
-          other: "%{count} резултата"
         view_all: Виж всички (%{count})
     shared:
-      embed_modal:
-        close_window: Затвори прозореца
-        embed: Моля, поставете този код във вашата страница
-        embed_link: Вграждане
       extended_navigation_bar:
         more: Повече
         unfold: Разгъване
@@ -1072,17 +874,13 @@ bg:
         already_reported: Това съдържание вече е докладвано и ще бъде прегледано от администратор.
         close: Затвори
         description: Това съдържание неподходящо ли е?
-        does_not_belong: Съдържа незаконна дейност, заявка за самоубийство, лични сведения или друго недопустимо според Вас, за %{organization_name}.
         offensive: Съдържа расизъм, сексизъм, злословия, лични атаки, заплахи за смърт, заявки за самоубийство или всякаква форма на омраза.
         report: Доклад
         spam: Съдържа клик-байт, реклама, измами или скриптове.
         title: Съобщи за проблем
       floating_help:
         help: Помощ
-      follow_button:
-        sign_in_before_follow: Моля влезте, преди да извършите това действие
       login_modal:
-        please_sign_in: Моля, влезте
         sign_up: Регистрация
       participatory_space_filters:
         filters:
@@ -1097,50 +895,27 @@ bg:
         label: 'Резултати на страница:'
         title: Изберете брой резултати на страница
       share_modal:
-        close_window: Затвори прозореца
         share: Сподели
         share_link: Сподели връзка
     statistics:
       comments_count: Коментари
-    user_activity:
-      index:
-        no_activities_warning: Този участник все още не е имал активност.
     user_contact_disabled: Този участник не приема директни съобщения.
     user_conversations:
       create:
-        error: Съобщението не можа да бъде създадено. Опитайте по-късно
         existing_error: Съобщението не можа да бъде създадено. Разговорът вече съществува, моля опитайте отново сега.
         success: Разговорът започна успешно!
       index:
-        add_max_users: 'Добави участник в разговора: максимално 9'
-        add_users_placeholder: Търсене...
-        close: Затвори
         conversations_info: Разговорите са частни. никой друг не може да ги види. Разговор може да започне с всеки участник или група, регистрирана в платформата.
-        from: Oт
-        last_message: Последно съобщение
-        modal_title: Нов разговор
-        new_conversation: Нов разговор
-        next: Напред
         no_conversations_warning: Тук все още няма разговори.
-        no_results: Няма резултати
-        participant_with_disabled_message_reception: Участника е забранил получаването на съобщения
         time_ago: "преди %{time}"
-      new:
-        title: Започни разговор
       reply:
         placeholder: Вашият отговор...
         send: Изпрати
-        title_reply: Отговори
-      show:
-        not_allowed: Този участник не приема вече директни съобщения.
-        title: Разговор с %{usernames}
       update:
         error: Съобщението не е изпратено. Опитайте по-късно
     user_interests:
       show:
         my_interests: Моите интереси
-        no_scopes: Организацията няма никакви сфери!
-        select_your_interests: Изберете темите, които ви интересуват, за да получавате събития, свързани с тях, в раздела Времева линия на вашия профил.
         update_my_interests: Обнови моите интереси
       update:
         error: Възникна проблем с обновяването на интересите Ви.
@@ -1150,29 +925,15 @@ bg:
         back_to_resource: Назад
         changes_at_title: Промени в "%{title}"
         number_of_versions: Версии
-        show_all_versions: Покажи всички версии
-        version_author: Автор на версията
         version_created_at: Версията създадена на
-        version_number: Версия номер
-        version_number_out_of_total: "%{current_version} от общо %{total_count}"
-    version_author:
-      show:
-        deleted: Изтрит участник
     versions:
       resource_version:
         of_versions: "(от %{number})"
         version: Версия %{number}
-    versions_list:
-      show:
-        back_to_resource: Назад
-        changes_at_title: Промени в "%{title}"
-        number_of_versions: Версии
-        title: Версии
     versions_list_item:
       show:
         version_index: Версия %{index}
     welcome_notification:
-      default_body: <p> Здравейте {{name}}, благодаря за присъединяването към {{organization}} и добре дошли!</p><ul><li> Ако искате да добиете бърза представа какво можете да направите тук, разгледайте раздела <a href="{{help_url}}">Помощ</a>.</li><li> След като я прочетете, ще получите първата си значка. Ето<a href="{{badges_url}}">списък на всички значки</a>, които можете да получите, докато участвате в {{organization}}</li><li>Не на последно място, присъединете други хора, споделете с тях опита от присъединяването и участието в {{organization}}. Правете предложения, коментари, дискусии, помислете как да допринесете за общото благо, представете аргументи за да убедите, слушайте и четете за да бъдете убедени, изразявайте идеите си по конкретен и директен начин, отговаряйте с търпение и решимост, защитавайте идеите си и бъдете отворени за сътрудничество и присъединяване към идеите на други хора.</li></ul>
       default_subject: Благодарим за присъединяването към {{organization}}!
     wizard_step_form:
       wizard_aside:
@@ -1195,8 +956,6 @@ bg:
       last_attempt: Имате още един опит, преди профилът ви да бъде заключен.
       locked: Профилът Ви е заключен.
       not_found_in_database: Неправилни %{authentication_keys} или парола.
-      timeout: Вашата сесия изтече. Влезте отново за да продължите.
-      unauthenticated: Трябва да влезете или да се регистрирате, преди да продължите.
     invitations:
       edit:
         header: Завършете създаването на профила си
@@ -1219,46 +978,30 @@ bg:
         subject: Инструкции за потвърждение
       email_changed:
         greeting: Здравейте %{recipient}!
-        message: Свързваме се с вас за да ви уведомим, че адресът Ви за ел. поща се промени на %{email}.
         subject: Ел. поща е променена
       invitation_instructions:
         accept: Приеми поканата
         accept_until: Тази покана ще бъде валидна до %{due_date}.
         decline: Откажи поканата
         hello: Здравейте %{email},
-        ignore: |-
-          Ако не желаете да приемете поканата, игнорирайте това писмо.<br />
-          Вашият акаунт няма да бъде създаден, докато не посетите връзката по-горе и зададете псевдонима и паролата си.
         invited_you_as_admin: "%{invited_by} Ви покани за администратор на %{application}. Можете да приемете чрез връзката по-долу."
         invited_you_as_private_user: "%{invited_by} Ви покани като частен участник на %{application}. Можете да приемете чрез връзката по-долу."
         someone_invited_you: Някой Ви покани в %{application}. Можете да приемете чрез връзката по-долу.
         someone_invited_you_as_admin: Някой ви покани за администратор на %{application}, можете да приемете чрез връзката по-долу.
         someone_invited_you_as_private_user: Някой ви покани частен участник в %{application}, можете да приемете чрез връзката по-долу.
         subject: Инструкции за покана
-      invite_admin:
-        subject: Поканени сте да управлявате %{organization}
-      invite_collaborator:
-        subject: Поканени сте да сътрудничите в %{organization}
-      invite_private_user:
-        subject: Поканени сте в частен процес на сътрудничество в %{organization}
-      organization_admin_invitation_instructions:
-        subject: Поканени сте да управлявате %{organization}
       password_change:
         greeting: Здравейте %{recipient}!
-        message: Свързваме се с вас за да ви уведомим, че паролата Ви е променена.
         subject: Паролата е променена
       reset_password_instructions:
         action: Промяна на паролата ми
         greeting: Здравейте %{recipient}!
         instruction: Някой е поискал връзка за промяна на паролата Ви и можете да я промените чрез връзката по-долу.
-        instruction_2: В случай, че не сте поискали това, моля игнорирайте това писмо.
-        instruction_3: Вашата парола няма да се промени, докато не посетите връзката по-горе и не създадете нова.
         subject: Инструкции за възстановяване на паролата
       unlock_instructions:
         action: Отключи моя профил
         greeting: Здравейте %{recipient}!
         instruction: 'Натиснете връзката по-долу, за да отключите Вашия профил:'
-        message: Вашият акаунт е заключен поради множество неуспешни опити за влизане.
         subject: Инструкции за отключване
     omniauth_callbacks:
       failure: Не бяхте удостоверени от %{kind}, защото %{reason}.
@@ -1272,22 +1015,12 @@ bg:
       new:
         forgot_your_password: Забравили сте паролата си?
         send_me_reset_password_instructions: Изпрати ми инструкции за възстановяване на паролата
-      no_token: Не можете да получите достъп до тази страница, без да идвате от писмо за възстановяване на парола. Ако идвате от такова писмо, уверете се, че сте използвали пълния предоставен URL адрес.
       send_instructions: След няколко минути ще получите ел. писмо с инструкции, как да възстановите паролата си.
       send_paranoid_instructions: Ако Вашият адрес за ел. поща съществува в нашата база данни, след няколко минути ще получите връзка за възстановяване на паролата си.
       updated: Вашата парола беше променена успешно. Вече сте влезли.
       updated_not_active: Паролата Ви беше променена успешно.
     registrations:
       destroyed: Вашият акаунт беше успешно отказан. Надяваме се скоро да се видим отново.
-      edit:
-        are_you_sure: Сигурни ли сте?
-        cancel_my_account: Откажи профила ми
-        currently_waiting_confirmation_for_email: 'В момента се чака потвърждение за: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: оставете празно, ако не желаете промяна
-        title: Редактирай %{resource}
-        unhappy: Недоволни?
-        update: Обновяване
-        we_need_your_current_password_to_confirm_your_changes: имаме нужда от текущата Ви парола, за да потвърдим Вашите промени
       new:
         sign_up: Регистрация
       signed_up: Добре дошли! Регистрирахте се успешно.
@@ -1296,20 +1029,10 @@ bg:
       signed_up_but_unconfirmed: На Вашата ел. поща е изпратено писмо с връзка за потвърждение. Следвайте връзката, за да активирате профила си.
       update_needs_confirmation: Обновихте успешно профила си, но трябва да потвърдим Вашия нов адрес за ел. поща. Моля, проверете пощата си и следвайте връзката за потвърждение, за да потвърдите новия си адрес.
       updated: Профилът Ви беше обновен успешно.
-    sessions:
-      already_signed_out: Излязохте успешно.
-      new:
-        sign_in: Вход
-      signed_in: Влязохте успешно.
-      signed_out: Излязохте успешно.
     shared:
       links:
         back: Назад
-        didn_t_receive_confirmation_instructions: Не получихте инструкции за потвърждение?
-        didn_t_receive_unlock_instructions: Не получихте инструкции за отключване?
         forgot_your_password: Забравили сте паролата си?
-        sign_in: Вход
-        sign_in_with_provider: Влез със %{provider}
         sign_up: Регистрация
       minimum_password_length:
         one: "(%{count} символ минимум)"
@@ -1319,22 +1042,18 @@ bg:
         resend_unlock_instructions: Повторно изпращане на инструкции за отключване
       send_instructions: След няколко минути ще получите ел. писмо с инструкции, как да отключите профила си.
       send_paranoid_instructions: Ако профилът ви съществува, след няколко минути ще получите ел. писмо с инструкции как да го отключите.
-      unlocked: Вашият профил е успешно отключен. Моля, влезте за да продължите.
   doorkeeper:
     scopes:
       public: Вашата публична информация.
   errors:
     messages:
-      already_confirmed: вече сте потвърдени, опитайте да влезете
       confirmation_period_expired: трябва Ви потвърдят в рамките на %{period}, моля заявете отново
       content_type_allowlist_error: типа файл не е валиден
-      cycle_detected: родителската сфера не може да бъде свое дете
       expired: е изтекла, моля поискайте нова
       file_size_is_less_than_or_equal_to: размера на файла трябва да е по-малък или равен на %{count}
       invalid_time_zone: не е валидна часова зона
       long_words: съдържа думи, които са твърде дълги (над 35 знака)
       must_start_with_caps: трябва да започва с главна буква
-      nesting_too_deep: не може да бъде в подкатегория
       not_found: не може да бъде намерен. Регистрирахте ли се?
       not_locked: не беше заключена
       not_saved:
@@ -1342,7 +1061,6 @@ bg:
         other: 'При обработката на заявката Ви имаше няколко грешки:'
       too_many_marks: използва твърде много последователни препинателни знаци (напр. ! и ?)
       too_much_caps: използва твърде много главни букви (над 25% от текста)
-      too_short: е твърде къс (под 15 знака)
   forms:
     required: Задължително
   invisible_captcha:
@@ -1350,15 +1068,15 @@ bg:
     timestamp_error_message: Извинете, това беше твърде бързо! Моля, изпратете отново.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: Тип
       edit_link:
         edit: Редактирай
       footer:
         download_open_data: Изтеглете файлове с отворени данни
         made_with_open_source: Уебсайта работи със <a target="_blank" href="https://github.com/decidim/decidim">свободен софтуер</a>.
-      header:
-        close_menu: Затвори менюто
-        navigation: Навигация
-        sign_in: Влизане
         sign_up: Регистрация
       impersonation_warning:
         close_session: Затвори сесия
@@ -1372,7 +1090,6 @@ bg:
         notifications: Известия
         profile: Моят профил
         public_profile: Моя публичен профил
-        sign_out: Изход
       user_profile:
         account: Профил
         authorizations: Идентификация
@@ -1382,10 +1099,8 @@ bg:
         notifications_settings: Настройки на известията
         title: Настройки за участника
         user_groups: Групи
-      widget:
-        see_more: Виж още
   locale:
-    name: Английски
+    name: български език
   password_validator:
     domain_included_in_password: е твърде подобно на името на домейна
     email_included_in_password: е твърде подобно на Вашата ел. поща
@@ -1449,13 +1164,7 @@ bg:
       option_unified: Обединен
   views:
     pagination:
-      first: "&laquo; Първа"
-      first_title: Връзка към първата страница
-      last: Последна &raquo;
-      last_title: Връзка към последната страница
-      next: Следваща &rsaquo;
       next_title: Връзка към следващата страница
-      previous: "&lsaquo; Предна"
       previous_title: Връзка към предходната страница
       title: 'Страница номер: '
       truncate: "&hellip;"

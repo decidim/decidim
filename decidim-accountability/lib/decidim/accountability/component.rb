@@ -6,12 +6,13 @@ Decidim.register_component(:accountability) do |component|
   component.engine = Decidim::Accountability::Engine
   component.admin_engine = Decidim::Accountability::AdminEngine
   component.icon = "media/images/decidim_accountability.svg"
+  component.icon_key = "bar-chart-line"
   component.stylesheet = "decidim/accountability/accountability"
   component.permissions_class_name = "Decidim::Accountability::Permissions"
   component.query_type = "Decidim::Accountability::AccountabilityType"
 
   component.on(:before_destroy) do |instance|
-    raise StandardError, "Can't remove this component" if Decidim::Accountability::Result.where(component: instance).any?
+    raise StandardError, "Cannot remove this component" if Decidim::Accountability::Result.where(component: instance).any?
   end
 
   # These actions permissions can be configured in the admin panel
@@ -29,7 +30,7 @@ Decidim.register_component(:accountability) do |component|
     settings.attribute :scopes_enabled, type: :boolean, default: true
     settings.attribute :scope_id, type: :scope
     settings.attribute :comments_enabled, type: :boolean, default: true
-    settings.attribute :comments_max_length, type: :integer, required: false
+    settings.attribute :comments_max_length, type: :integer, required: true
     settings.attribute :intro, type: :text, translated: true, editor: true
     settings.attribute :categories_label, type: :string, translated: true, editor: true
     settings.attribute :subcategories_label, type: :string, translated: true, editor: true

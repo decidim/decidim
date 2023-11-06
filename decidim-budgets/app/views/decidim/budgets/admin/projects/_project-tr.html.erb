@@ -6,7 +6,11 @@
     <%= project.id %><br>
   </td>
   <td>
-    <%= translated_attribute(project.title) %><br>
+    <% if allowed_to? :update, :project, project: project %>
+      <%= link_to translated_attribute(project.title), resource_locator([budget, project]).edit %><br>
+    <% else %>
+      <%= translated_attribute(project.title) %><br>
+    <% end %>
   </td>
   <td>
     <% if project.category %>
@@ -25,26 +29,26 @@
     <% end %>
   </td>
   <td class="table-list__actions">
-    <%= icon_link_to "eye", resource_locator([budget, project]).path, t("actions.preview", scope: "decidim.budgets"), target: :blank, class: "action-icon--preview" %>
-
     <% if allowed_to? :update, :project, project: project %>
-      <%= icon_link_to "pencil", resource_locator([budget, project]).edit, t("actions.edit", scope: "decidim.budgets"), class: "action-icon--edit" %>
+      <%= icon_link_to "pencil-line", resource_locator([budget, project]).edit, t("actions.edit", scope: "decidim.budgets"), class: "action-icon--edit" %>
     <% end %>
 
     <% if allowed_to? :update, :project, project: project %>
-        <%= icon_link_to "folder", project_attachment_collections_path(project), t("actions.attachment_collections", scope: "decidim.budgets"), class: "action-icon--attachment_collections" %>
+      <%= icon_link_to "folder-line", project_attachment_collections_path(project), t("actions.attachment_collections", scope: "decidim.budgets"), class: "action-icon--attachment_collections" %>
     <% end %>
 
     <% if allowed_to? :update, :project, project: project %>
-      <%= icon_link_to "paperclip", project_attachments_path(project), t("actions.attachments", scope: "decidim.budgets"), class: "action-icon--attachments" %>
+      <%= icon_link_to "attachment-line", project_attachments_path(project), t("actions.attachments", scope: "decidim.budgets"), class: "action-icon--attachments" %>
     <% end %>
+
+    <%= icon_link_to "eye-line", resource_locator([budget, project]).path, t("actions.preview", scope: "decidim.budgets"), target: :blank, class: "action-icon--preview", data: { "external-link": false } %>
 
     <%= resource_permissions_link(project) %>
 
     <% if allowed_to? :destroy, :project, project: project %>
-      <%= icon_link_to "circle-x", resource_locator([budget, project]).show, t("actions.destroy", scope: "decidim.budgets"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.budgets") } %>
+      <%= icon_link_to "delete-bin-line", resource_locator([budget, project]).show, t("actions.destroy", scope: "decidim.budgets"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.budgets") } %>
     <% else %>
-      <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.destroy", scope: "decidim.budgets") %>
+      <%= icon "delete-bin-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.destroy", scope: "decidim.budgets") %>
     <% end %>
   </td>
 </tr>

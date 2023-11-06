@@ -3,8 +3,10 @@
 module Decidim
   # This cell creates the necessary elements for dynamic uploads.
   class UploadModalCell < Decidim::ViewModel
+    include LayoutHelper
     include Cell::ViewModel::Partial
     include ERB::Util
+    include Decidim::SanitizeHelper
 
     alias form model
 
@@ -23,13 +25,11 @@ module Decidim
     end
 
     def button_class
-      "button small hollow add-field add-file" if has_title?
-
-      "button small add-file"
+      options[:button_class] || ""
     end
 
     def label
-      options[:label]
+      form.send(:custom_label, attribute, options[:label], { required: required?, for: nil })
     end
 
     def button_label
@@ -60,10 +60,6 @@ module Decidim
       options[:resource_name]
     end
 
-    def actions_wrapper_class
-      has_title? ? "actions-wrapper titled" : "actions-wrapper"
-    end
-
     def attribute
       options[:attribute]
     end
@@ -72,24 +68,33 @@ module Decidim
       options[:multiple] || false
     end
 
-    def optional
-      options[:optional]
+    def required?
+      options[:required] == true
     end
 
-    # By default Foundation adds form errors next to input, but since input is in the modal
+    # By default FoundationRailsHelper adds form errors next to input, but since input is in the modal
     # and modal is hidden by default, we need to add an additional validation field to the form.
     # This should only be necessary when file is required by the form.
     def input_validation_field
       object_name = form.object.present? ? "#{form.object.model_name.param_key}[#{add_attribute}_validation]" : "#{add_attribute}_validation"
-      input = check_box_tag object_name, 1, attachments.present?, class: "hide", label: false, required: !optional
+      input = check_box_tag object_name, 1, attachments.present?, class: "reset-defaults", hidden: true, label: false, required: required?
       message = form.send(:abide_error_element, add_attribute) + form.send(:error_and_help_text, add_attribute)
       input + message
     end
 
     def explanation
-      return I18n.t("explanation", scope: options[:help_i18n_scope], attribute:) if options[:help_i18n_scope].present?
+      i18n_options = {
+        scope: options[:help_i18n_scope].presence || "decidim.forms.upload_help",
+        attribute: attribute_translation
+      }
 
-      I18n.t("explanation", scope: "decidim.forms.upload_help", attribute:)
+      I18n.t("explanation", **i18n_options)
+    end
+
+    def attribute_translation
+      I18n.t(attribute, scope: [:activemodel, :attributes, resource_class.constantize.model_name.param_key].join("."))
+    rescue NameError
+      I18n.t(attribute, scope: "activemodel.attributes")
     end
 
     def add_attribute
@@ -102,14 +107,12 @@ module Decidim
       options[:titled] == true
     end
 
-    def with_title
-      "with-title" if has_title?
+    def modal_only?
+      options[:modal_only] == true
     end
 
-    def attachment_label
-      return I18n.t("current_image", scope: "decidim.forms") if attachments.count.positive? && file_attachment_path(attachments.first).present?
-
-      I18n.t("default_image", scope: "decidim.forms")
+    def with_title
+      "with-title" if has_title?
     end
 
     def help_messages
@@ -133,28 +136,25 @@ module Decidim
     def title_for(attachment)
       return unless has_title?
 
-      translated_attribute(attachment.title)
+      decidim_html_escape(decidim_sanitize(translated_attribute(attachment.title)))
     end
 
     def truncated_file_name_for(attachment, max_length = 31)
-      filename = file_name_for(attachment)
-      return filename if filename.length <= max_length
+      filename = determine_filename(attachment)
+      return decidim_html_escape(filename).html_safe if filename.length <= max_length
 
       name = File.basename(filename, File.extname(filename))
-      name.truncate(max_length, omission: "...#{name.last((max_length / 2) - 3)}#{File.extname(filename)}")
+      decidim_html_escape(name.truncate(max_length, omission: "...#{name.last((max_length / 2) - 3)}#{File.extname(filename)}")).html_safe
     end
 
     def file_name_for(attachment)
-      filename = determine_filename(attachment)
-
-      return "(#{filename})" if has_title?
-
-      filename
+      decidim_html_escape(determine_filename(attachment)).html_safe
     end
 
     def determine_filename(attachment)
       return attachment.filename.to_s if attachment.is_a? ActiveStorage::Blob
       return blob(attachment).filename.to_s if blob(attachment).present?
+      return attachment.original_filename.to_s.presence || attachhment.path.split("/").last if attachment.is_a? ActionDispatch::Http::UploadedFile
 
       attachment.url.split("/").last
     end
@@ -164,7 +164,7 @@ module Decidim
       return Rails.application.routes.url_helpers.rails_blob_url(attachment, only_path: true) if attachment.is_a? ActiveStorage::Blob
 
       if attachment.try(:attached?)
-        attachment_path = Rails.application.routes.url_helpers&.rails_blob_url(attachment.blob, only_path: true)
+        attachment_path = Rails.application.routes.url_helpers&.rails_blob_url(blob(attachment), only_path: true)
         return attachment_path if attachment_path.present?
       end
 
@@ -190,12 +190,16 @@ module Decidim
       Rails.application.class.routes.url_helpers.rails_direct_uploads_path
     end
 
+    def upload_validations_url
+      Decidim::Core::Engine.routes.url_helpers.upload_validations_path
+    end
+
     def form_object_class
       form.object.class.to_s
     end
 
     def modal_id
-      @modal_id ||= "upload_#{SecureRandom.uuid}"
+      @modal_id ||= options[:modal_id] || "upload_#{SecureRandom.uuid}"
     end
 
     def current_organization

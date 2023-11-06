@@ -8,7 +8,7 @@ module Decidim
       describe InitiativesSettingsForm do
         subject { described_class.from_params(attributes).with_context(current_organization: organization) }
 
-        let(:organization) { create :organization }
+        let(:organization) { create(:organization) }
         let(:initiatives_order) { "date" }
 
         let(:attributes) do

@@ -25,27 +25,18 @@ pt:
       comments:
         create:
           error: Ocorreu um problema ao criar o comentário
-        delete:
-          error: O comentário não pode ser eliminado.
         update:
           error: Ocorreu um problema ao actualizar a comentário.
       comments_count: Contagem de comentários
-      comments_title: Comentários
-      last_activity:
-        new_comment_at_html: "<span>Novo comentário em %{link}</span>"
-      view: Visualizar
       votes:
         create:
           error: Houve erros na votação do comentário.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Ligue-se com sua conta</a> ou <a href="%{sign_up_url}">sign up</a> para adicionar seu comentário.
         form:
           body:
             label: Comente
             placeholder: O que você pensa sobre isso?
-          form_error: O texto é obrigatório e não pode ser maior que %{length} caracteres.
-          submit: Enviar
           user_group_id:
             label: Comente como
         opinion:
@@ -78,11 +69,9 @@ pt:
           description: Este conteúdo é impróprio?
           details: Comentários adicionais
           reasons:
-            does_not_belong: Contém atividades ilegais, ameaças suicidas, informações pessoais ou qualquer outra coisa que você acha que não pertence a %{organization_name}.
             offensive: Contém racismo, sexismo, insultos, ataques pessoais, ameaças de morte, pedidos de suicídio ou qualquer tipo de discurso de ódio.
             spam: Contém clickbait, publicidade, fraudes ou robots de scripts.
           title: Reportar conteúdo impróprio
-        show_replies: Mostrar %{replies_count} respostas
         single_comment_link_title: Obter ligação
       comment_order_selector:
         order:
@@ -91,8 +80,6 @@ pt:
           older: Mais velho
           recent: Recente
         title: 'Ordenar por:'
-      comment_thread:
-        title: Conversa com %{authorName}
       comments:
         blocked_comments_for_unauthorized_user_warning: Precisa de estar verificado para comentar neste momento, mas pode ler os precedentes.
         blocked_comments_for_user_warning: Não pode comentar neste momento, mas pode ler os anteriores.
@@ -163,6 +150,3 @@ pt:
         description: Número de comentários gerados pelos participantes
         object: comentários
         title: Comentários
-  errors:
-    messages:
-      cannot_have_comments: não pode ter comentários

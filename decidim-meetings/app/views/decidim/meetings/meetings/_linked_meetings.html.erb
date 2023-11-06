@@ -1,22 +1,3 @@
-<div class="row small-up-1 medium-up-2 card-grid">
-  <% resources.each do |meeting| %>
-    <div class="column">
-      <div class="card card--meeting">
-        <div class="card__content">
-          <%= link_to resource_locator(meeting).path, class: "card__link" do %>
-            <h5 class="card__title"><%= present(meeting).title(html_escape: true) %></h5>
-          <% end %>
-          <div class="card__datetime">
-            <div class="card__datetime__date">
-              <%= l meeting.start_time, format: "%d" %> <span class="card__datetime__month"><%= l meeting.start_time, format: "%B %Y" %></span>
-            </div>
-            <div class="card__datetime__time">
-              <%= meeting.start_time.strftime("%H:%M") %> - <%= meeting.end_time.strftime("%H:%M") %>
-            </div>
-          </div>
-          <%= decidim_sanitize_editor(present(meeting).description) %>
-        </div>
-      </div>
-    </div>
-  <% end %>
-</div>
+<% resources.each do |meeting| %>
+  <%= cell "decidim/meetings/meeting_l", meeting, url_extra_params: { included_in: resource.to_gid } %>
+<% end %>

@@ -21,6 +21,7 @@ nl:
       timeline_entry:
         description: Beschrijving
         entry_date: Datum
+        title: Titel
     models:
       decidim/accountability/proposal_linked_event: Voorstel opgenomen in een resultaat
       decidim/accountability/result_progress_updated_event: Resultaat voortgang bijgewerkt
@@ -38,7 +39,6 @@ nl:
         destroy: Verwijder
         edit: Bewerk
         import_csv: Importeer CSV
-        new: Nieuw %{name}
         preview: Voorbeeld
         timeline_entries: Project evolutie
         title: acties
@@ -49,24 +49,13 @@ nl:
         import_results:
           new:
             import: Importeren
-            link: link
             title: Importeer resultaten van CSV
-        imports:
-          create:
-            success: Het importeren van het bestand is gestart. Je ontvangt binnen enkele minuten een e-mail met het resultaat van het importeren
         models:
           result:
             name: Resultaat
           status:
             name: Status
-          timeline_entry:
-            name: Tijdlijn gebeurtenis
         results:
-          create:
-            invalid: Er is een probleem opgetreden bij het maken van dit resultaat
-            success: Resultaat met succes gemaakt
-          destroy:
-            success: Resultaat met succes verwijderd
           edit:
             title: Bewerk resultaat
             update: Update resultaat
@@ -75,18 +64,10 @@ nl:
           new:
             create: Maak resultaat
             title: Nieuw resultaat
-          update:
-            invalid: Er is een probleem opgetreden bij het bijwerken van dit resultaat
-            success: Resultaat met succes bijgewerkt
         shared:
           subnav:
             statuses: Statussen
         statuses:
-          create:
-            invalid: Er is een probleem opgetreden bij het maken van deze status
-            success: Status succesvol gemaakt
-          destroy:
-            success: Status succesvol verwijderd
           edit:
             title: Bewerk status
             update: Status bijwerken
@@ -95,15 +76,7 @@ nl:
           new:
             create: Maak een status
             title: Nieuwe status
-          update:
-            invalid: Er is een probleem opgetreden bij het maken van deze status
-            success: Status succesvol bijgewerkt
         timeline_entries:
-          create:
-            invalid: Er is een probleem opgetreden met het maken van deze invoer
-            success: Invoer succesvol gemaakt
-          destroy:
-            success: Invoer succesvol verwijderd
           edit:
             title: Bewerk invoer
             update: Update invoer
@@ -112,14 +85,19 @@ nl:
           new:
             create: Item maken
             title: Nieuw item
-          update:
-            invalid: Er is een probleem opgetreden met het bijwerken van dit item
-            success: Item succesvol bijgewerkt
       admin_log:
         result:
           create: "%{user_name} heeft het resultaat %{resource_name} gemaakt in %{space_name}"
           delete: "%{user_name} verwijderde het resultaat %{resource_name} in %{space_name}"
           update: "%{user_name} bijgewerkt resultaat %{resource_name} in %{space_name}"
+        status:
+          create: "%{user_name} heeft %{resource_name} status aangemaakt"
+          delete: "%{user_name} heeft %{resource_name} status verwijderd"
+          update: "%{user_name} heeft %{resource_name} status bijgewerkt"
+        timeline_entry:
+          create: "%{user_name} heeft timeline entry %{resource_name} aangemaakt"
+          delete: "%{user_name} heeft timeline entry %{resource_name} verwijderd"
+          update: "%{user_name} heeft timeline entry %{resource_name} bijgewerkt"
         value_types:
           parent_presenter:
             not_found: 'Het bovenliggende element is niet gevonden in de database (ID: %{id})'
@@ -131,12 +109,9 @@ nl:
       import_mailer:
         import:
           errors: Foutmeldingen
-          errors_present: Er is een probleem opgetreden bij het importeren van de resultaten
           row_number: Rij
           subject: Resultaten importeren geslaagd
           success: Resultaten importeren geslaagd. Je kunt de resultaten bekijken via de administratie interface.
-      last_activity:
-        new_result_at_html: "<span>Nieuw resultaat op %{link}</span>"
       models:
         result:
           fields:
@@ -158,6 +133,7 @@ nl:
         timeline_entry:
           fields:
             entry_date: Datum
+            title: Titel
       result_m:
         executed: Uitgevoerd
         view: Bekijk
@@ -168,7 +144,6 @@ nl:
             other: "%{count} resultaten"
         filters:
           all: Alle
-          scopes: scopes
         home:
           categories_label: Categorieën
           subcategories_label: subcategorieën

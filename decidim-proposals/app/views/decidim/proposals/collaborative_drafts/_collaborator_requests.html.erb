@@ -1,18 +1,14 @@
 <% if @collaborative_draft.requesters.presence && allowed_to?(:react_to_request_access, :collaborative_draft, collaborative_draft: @collaborative_draft) %>
-  <div class="card extra">
-    <div class="definition-data__item">
-      <span class="definition-data__title">
-        <%= t("title", scope: "decidim.proposals.collaborative_drafts.requests.collaboration_requests") %>
-      </span>
-    </div>
+  <div class="flex flex-col gap-4">
+    <p class="h5"><%= t("title", scope: "decidim.proposals.collaborative_drafts.requests.collaboration_requests") %></p>
+
     <% @collaborative_draft.requesters.each do |requester| %>
-      <div class="definition-data__item expanded" id="request_<%= requester.id %>">
-        <%= cell "decidim/author", present(requester), options: { extra_classes: ["author-data--small"] }, has_actions: false %>
+      <div id="request_<%= requester.id %>" class="flex flex-col gap-2 items-stretch">
+        <%= cell "decidim/author", present(requester) %>
 
-        <div>
-          <%= render partial: "accept_request_access_form", locals: { requester: requester } %>
-
-          <%= render partial: "reject_request_access_form", locals: { requester: requester } %>
+        <div class="flex gap-1 [&>*]:grow">
+          <%= render partial: "accept_request_access_form", locals: { requester: } %>
+          <%= render partial: "reject_request_access_form", locals: { requester: } %>
         </div>
       </div>
     <% end %>

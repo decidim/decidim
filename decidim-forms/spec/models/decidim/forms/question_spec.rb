@@ -19,14 +19,14 @@ module Decidim
       end
 
       it "has an association of display_conditions" do
-        expect(subject.display_conditions).to contain_exactly(*display_conditions)
+        expect(subject.display_conditions).to match_array(display_conditions)
       end
 
       context "when there are answer_options belonging to this question" do
         let(:answer_options) { create_list(:answer_option, 3, question:) }
 
         it "has an association of answer_options" do
-          expect(subject.answer_options).to contain_exactly(*answer_options)
+          expect(subject.answer_options).to match_array(answer_options)
         end
       end
 
@@ -34,11 +34,11 @@ module Decidim
         let(:matrix_rows) { create_list(:question_matrix_row, 3, question:) }
 
         it "has an association of matrix_rows" do
-          expect(subject.matrix_rows).to contain_exactly(*matrix_rows)
+          expect(subject.matrix_rows).to match_array(matrix_rows)
         end
       end
 
-      context "when question type doesn't exists in allowed types" do
+      context "when question type does not exists in allowed types" do
         let(:question_type) { "foo" }
 
         it { is_expected.not_to be_valid }
@@ -53,17 +53,17 @@ module Decidim
             expect(subject.class.conditioned).to contain_exactly(question_conditioned)
           end
 
-          it "doesn't include questions without display conditions" do
+          it "does not include questions without display conditions" do
             expect(subject.class.conditioned).not_to include(question_not_conditioned)
           end
         end
 
         describe "#not_conditioned" do
-          it "includes questions that don't have display conditions" do
+          it "includes questions that do not have display conditions" do
             expect(subject.class.not_conditioned).to contain_exactly(question_not_conditioned)
           end
 
-          it "doesn't include questions that have display conditions" do
+          it "does not include questions that have display conditions" do
             expect(subject.class.not_conditioned).not_to include(question_conditioned)
           end
         end

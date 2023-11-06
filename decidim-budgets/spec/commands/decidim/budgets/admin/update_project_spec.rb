@@ -6,13 +6,13 @@ module Decidim::Budgets
   describe Admin::UpdateProject do
     subject { described_class.new(form, project) }
 
-    let(:budget) { create :budget }
-    let(:project) { create :project, budget: }
+    let(:budget) { create(:budget) }
+    let(:project) { create(:project, budget:) }
     let(:organization) { budget.component.organization }
-    let(:scope) { create :scope, organization: }
-    let(:category) { create :category, participatory_space: budget.component.participatory_space }
+    let(:scope) { create(:scope, organization:) }
+    let(:category) { create(:category, participatory_space: budget.component.participatory_space) }
     let(:participatory_process) { budget.component.participatory_space }
-    let(:current_user) { create :user, :admin, :confirmed, organization: }
+    let(:current_user) { create(:user, :admin, :confirmed, organization:) }
     let(:uploaded_photos) { [] }
     let(:selected) { nil }
     let(:address) { "something" }
@@ -89,7 +89,7 @@ module Decidim::Budgets
       end
 
       context "when geocoding is enabled" do
-        let(:current_component) { create :budgets_component, :with_geocoding_enabled, participatory_space: participatory_process }
+        let(:current_component) { create(:budgets_component, :with_geocoding_enabled, participatory_space: participatory_process) }
 
         context "when the address is present" do
           let(:address) { "Some address" }
@@ -127,7 +127,7 @@ module Decidim::Budgets
           subject.call
 
           expect(project.selected_at).to be_present
-          expect(project.selected_at).to be_kind_of(Date)
+          expect(project.selected_at).to be_a(Date)
           expect(project.selected?).to be true
         end
       end

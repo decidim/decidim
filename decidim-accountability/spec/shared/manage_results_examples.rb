@@ -1,15 +1,17 @@
 # frozen_string_literal: true
 
+require "decidim/dev/test/rspec_support/tom_select"
+
 shared_examples "manage results" do
   include_context "when managing an accountability component as an admin"
 
   describe "admin form" do
-    before { click_on "New Result", match: :first }
+    before { click_on "New result", match: :first }
 
     it_behaves_like "having a rich text editor", "new_result", "full"
 
     it "displays the proposals picker" do
-      expect(page).to have_content("Choose proposals")
+      expect(page).to have_content("Proposals")
     end
 
     context "when proposal linking is disabled" do
@@ -28,7 +30,7 @@ shared_examples "manage results" do
 
   context "when having existing proposals" do
     let!(:proposal_component) { create(:proposal_component, participatory_space:) }
-    let!(:proposals) { create_list :proposal, 5, component: proposal_component, skip_injection: true }
+    let!(:proposals) { create_list(:proposal, 5, component: proposal_component) }
 
     it "updates a result" do
       within find("tr", text: translated(result.title)) do
@@ -44,7 +46,7 @@ shared_examples "manage results" do
           ca: "El meu nou títol"
         )
 
-        proposals_pick(select_data_picker(:result_proposals, multiple: true), proposals.last(2))
+        tom_select("#proposals_list", option_id: proposals.first(2).map(&:id))
 
         find("*[type=submit]").click
       end
@@ -57,7 +59,7 @@ shared_examples "manage results" do
     end
 
     it "creates a new result", :slow do
-      click_link "New Result", match: :first
+      click_link "New result", match: :first
 
       within ".new_result" do
         fill_in_i18n(
@@ -75,8 +77,9 @@ shared_examples "manage results" do
           ca: "Descripció més llarga"
         )
 
-        proposals_pick(select_data_picker(:result_proposals, multiple: true), proposals.first(2))
-        scope_pick(select_data_picker(:result_decidim_scope_id), scope)
+        tom_select("#proposals_list", option_id: proposals.first(2).map(&:id))
+
+        select translated(scope.name), from: :result_decidim_scope_id
         select translated(category.name), from: :result_decidim_category_id
 
         find("*[type=submit]").click
@@ -118,7 +121,7 @@ shared_examples "manage results" do
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).to have_no_content(translated(result2.title))
+        expect(page).not_to have_content(translated(result2.title))
       end
     end
   end

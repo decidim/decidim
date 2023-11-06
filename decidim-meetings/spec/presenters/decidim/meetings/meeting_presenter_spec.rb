@@ -4,11 +4,11 @@ require "spec_helper"
 
 module Decidim::Meetings
   describe MeetingPresenter, type: :helper do
-    let(:meeting) { create :meeting, component: meeting_component }
-    let(:user) { create :user, :admin, organization: }
+    let(:meeting) { create(:meeting, component: meeting_component) }
+    let(:user) { create(:user, :admin, organization:) }
 
     let(:organization) { create(:organization) }
-    let(:participatory_process) { create :participatory_process, organization: }
+    let(:participatory_process) { create(:participatory_process, organization:) }
     let(:meeting_component) { create(:meeting_component, participatory_space: participatory_process) }
     let(:proposal_component) { create(:proposal_component, participatory_space: participatory_process) }
     let(:proposal) { create(:proposal, component: proposal_component) }
@@ -61,7 +61,7 @@ module Decidim::Meetings
       end
     end
 
-    describe "description" do
+    describe "#description" do
       let(:description1) do
         Decidim::ContentProcessor.parse_with_processor(:hashtag, "Description #description", current_organization: organization).rewrite
       end
@@ -86,8 +86,8 @@ module Decidim::Meetings
         expect(meeting.description["machine_translations"]["es"]).to match(/gid:/)
 
         presented_description = presented_meeting.description(all_locales: true)
-        expect(presented_description["en"]).to eq("<div class=\"ql-editor ql-reset-decidim\">Description #description</div>")
-        expect(presented_description["machine_translations"]["es"]).to eq("<div class=\"ql-editor ql-reset-decidim\">Description in Spanish #description</div>")
+        expect(presented_description["en"]).to eq("Description #description")
+        expect(presented_description["machine_translations"]["es"]).to eq("Description in Spanish #description")
       end
 
       context "when sanitizes any HTML input" do
@@ -97,6 +97,17 @@ module Decidim::Meetings
           presented_description = presented_meeting.description(all_locales: true, strip_tags: true)
           expect(presented_description["en"]).to eq("XSS via target in a tag")
         end
+      end
+    end
+
+    describe "#editor_description" do
+      let(:meeting) { create(:meeting, component: meeting_component, description:) }
+      let(:description) { { en: html, es: html } }
+
+      include_context "with editor content containing hashtags and mentions"
+
+      it "converts the hastags and mentions to WYSIWYG editor ready elements" do
+        expect(presented_meeting.editor_description(all_locales: true)).to eq("en" => editor_html, "es" => editor_html)
       end
     end
   end

@@ -6,9 +6,9 @@ module Decidim::Meetings
   describe JoinMeeting do
     subject { described_class.new(meeting, user, registration_form) }
 
-    let(:organization) { create :organization }
-    let(:participatory_process) { create :participatory_process, organization: }
-    let(:component) { create :component, manifest_name: :meetings, participatory_space: participatory_process }
+    let(:organization) { create(:organization) }
+    let(:participatory_process) { create(:participatory_process, organization:) }
+    let(:component) { create(:component, manifest_name: :meetings, participatory_space: participatory_process) }
 
     let(:registrations_enabled) { true }
     let(:available_slots) { 10 }
@@ -22,7 +22,7 @@ module Decidim::Meetings
              questionnaire:)
     end
 
-    let(:user) { create :user, :confirmed, organization:, notifications_sending_frequency: "none" }
+    let(:user) { create(:user, :confirmed, organization:, notifications_sending_frequency: "none") }
 
     let(:registration_form) { Decidim::Meetings::JoinMeetingForm.new }
 
@@ -37,7 +37,7 @@ module Decidim::Meetings
       }
     end
 
-    let(:process_admin) { create :process_admin, participatory_process: }
+    let(:process_admin) { create(:process_admin, participatory_process:) }
     let(:admin_notification) do
       {
         event: "decidim.events.meetings.meeting_registrations_over_percentage",
@@ -77,12 +77,12 @@ module Decidim::Meetings
 
       context "when registration code is enabled" do
         let(:component) do
-          create :component,
+          create(:component,
                  manifest_name: :meetings,
                  participatory_space: participatory_process,
                  settings: {
                    registration_code_enabled: true
-                 }
+                 })
         end
 
         it "sends an email confirming the registration" do
@@ -149,7 +149,7 @@ module Decidim::Meetings
         let(:extra) { { percentage: 0.5 } }
 
         before do
-          create_list :registration, (available_slots * 0.5).round - 1, meeting:
+          create_list(:registration, (available_slots * 0.5).round - 1, meeting:)
         end
 
         it "also sends a notification to the process admins" do
@@ -162,10 +162,10 @@ module Decidim::Meetings
 
         context "when the 50% is already met" do
           before do
-            create :registration, meeting:
+            create(:registration, meeting:)
           end
 
-          it "doesn't notify it twice" do
+          it "does not notify it twice" do
             expect(Decidim::EventsManager).not_to receive(:publish).with(admin_notification)
 
             subject.call
@@ -177,7 +177,7 @@ module Decidim::Meetings
         let(:extra) { { percentage: 0.8 } }
 
         before do
-          create_list :registration, (available_slots * 0.8).round - 1, meeting:
+          create_list(:registration, (available_slots * 0.8).round - 1, meeting:)
         end
 
         it "also sends a notification to the process admins" do
@@ -190,10 +190,10 @@ module Decidim::Meetings
 
         context "when the 80% is already met" do
           before do
-            create_list :registration, (available_slots * 0.8).round, meeting:
+            create_list(:registration, (available_slots * 0.8).round, meeting:)
           end
 
-          it "doesn't notify it twice" do
+          it "does not notify it twice" do
             expect(Decidim::EventsManager).not_to receive(:publish).with(admin_notification)
 
             subject.call
@@ -205,7 +205,7 @@ module Decidim::Meetings
         let(:extra) { { percentage: 1 } }
 
         before do
-          create_list :registration, available_slots - 1, meeting:
+          create_list(:registration, available_slots - 1, meeting:)
         end
 
         it "also sends a notification to the process admins" do

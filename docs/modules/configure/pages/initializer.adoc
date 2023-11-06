@@ -1,6 +1,6 @@
 = Initializer
 
-There are some settings that you'll need to change in the `config/initializer/decidim.rb` file. We recommend that, whenever it is possible, you use xref:configure:environment_variables.adoc[Environment Variables], as just cleaner and easier to work with.
+There are some settings that you will need to change in the `config/initializer/decidim.rb` file. We recommend that, whenever it is possible, you use xref:configure:environment_variables.adoc[Environment Variables], as just cleaner and easier to work with.
 
 If you need to add special logic or if you feel more comfortable working with Ruby code instead of Environment Variables, then you can of course do all the changes that you need directly in the initializer file. Take into account that this file could be published in a Version Control System (like `git`) so you should be careful with the secrets/API keys that you add here.
 
@@ -8,7 +8,7 @@ Remember to restart your server when making changes in this file.
 
 This is where you can change the behaviour defined on the different components (most notably from `decidim-core`).
 
-After making changes to this file you'll need to also restart your application server.
+After making changes to this file you will need to also restart your application server.
 
 == Application name
 
@@ -268,10 +268,11 @@ An example class would be something like:
 [source,ruby]
 ....
 class MySMSGatewayService
-  attr_reader :mobile_phone_number, :code
-  def initialize(mobile_phone_number, code)
+  attr_reader :mobile_phone_number, :code, :context
+  def initialize(mobile_phone_number, code, context = {})
     @mobile_phone_number = mobile_phone_number
     @code = code
+    @context = context
   end
   def deliver_code
     # Actual code to deliver the code
@@ -280,7 +281,7 @@ class MySMSGatewayService
 end
 ....
 
-Then you'll need to configure it in the Decidim initializer:
+Then you will need to configure it in the Decidim initializer:
 
 [source,ruby]
 ....
@@ -312,7 +313,7 @@ class MyTimestampService
 end
 ....
 
-Then you'll need to configure it in the Decidim initializer:
+Then you will need to configure it in the Decidim initializer:
 
 [source,ruby]
 ....
@@ -440,3 +441,70 @@ To customize export fields, you can subscribe to any serialize event. Every seri
   end
 ....
 
+== Content Security Policy
+Defines additional content security policies following the structure keys are the CSP directives and the values are arrays of allowed sources
+
+List of additional content security policies to be appended to the default ones
+This is useful for adding custom CSPs for external services like Here Maps, YouTube, X (former Twitter) etc.
+
+Below you will find a the recepy of enabling X (former Twitter) timelines, based on https://content-security-policy.com/examples/twitter/[Content Security Policy (CSP) Examples Twitter example].
+The format is a Hash with the following structure:
+[source,ruby]
+....
+  {
+    "script-src": %w(platform.twitter.com syndication.twitter.com),
+    "style-src": %w('sha256-5g0QXxO6NfvHJ6Uf5BK/hqQHtso8ZOdjlnbyKtYLvwc='),
+    "frame-src": %w(platform.twitter.com),
+    "img-src": %w(syndication.twitter.com),
+  }
+....
+
+Additionally, the following example, will allow you to enable Decidim to properly load YouTube videos:
+
+[source,ruby]
+....
+  {
+      "frame-src" => %w(https://www.youtube-nocookie.com/),
+  }
+....
+
+The keys are the CSP directives and the values are arrays of allowed sources
+See https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy[CSP in MDN] for more information
+
+Please note, we strongly recommend not to use the wildcard (*) as a allowed source!
+
+The default value for this setting is an empty Hash
+
+We are starting from the following rules defined in `decidim-core` gem:
+[source,ruby]
+....
+  {
+    "default-src" => %w('self' 'unsafe-inline'),
+    "script-src" => %w('self' 'unsafe-inline' 'unsafe-eval'),
+    "style-src" => %w('self' 'unsafe-inline'),
+    "img-src" => %w('self'),
+    "font-src" => %w('self'),
+    "connect-src" => %w('self'),
+    "frame-src" => %w('self'),
+    "media-src" => %w('self')
+  }
+....
+
+And we automatically add the assets host to the `media-src`, `img-src`, `script-src`, `style-src` directives, and the `wss` protocol to the `connect-src` directive.
+To the those rules we are appending the additional content security policies defined at the organization level, if any.
+The order of the directives is the following:
+
+1. The default rules defined in `decidim-core` gem
+2. The content security policies required for serving the assets (defined by asset_host rails config)
+3. The additional content security policies defined by this setting
+4. The additional content security policies defined at the organization level
+
+[source,ruby]
+....
+  config.content_security_policies_extra = {}
+....
+
+Additional Reading:
+
+* https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy[Content-Security-Policy in MDN web docs]
+* xref:customize:content_security_policy.adoc[Customize Content Security Policy]

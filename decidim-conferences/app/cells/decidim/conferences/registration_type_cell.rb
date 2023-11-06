@@ -22,11 +22,11 @@ module Decidim
       end
 
       def description
-        decidim_sanitize_editor translated_attribute model.description
+        strip_tags translated_attribute model.description
       end
 
       def price
-        return I18n.t("free", scope: "decidim.conferences.conference.show") if model.price.blank?
+        return if model.price.blank? || model.price.zero?
 
         number_to_currency(model.price, locale: I18n.locale, unit: Decidim.currency_unit)
       end
@@ -36,7 +36,7 @@ module Decidim
       end
 
       def button_classes
-        "button button--sc small"
+        "button button__sm button__transparent-secondary"
       end
 
       def conference

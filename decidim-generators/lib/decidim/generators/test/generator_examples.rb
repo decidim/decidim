@@ -1,12 +1,47 @@
 # frozen_string_literal: true
 
+shared_context "when generating a new application" do
+  let(:env) do |example|
+    #
+    # When tracking coverage, make sure the ruby environment points to the
+    # local version, so we get the benefits of running `decidim` directly
+    # without `bundler` (more realistic test), but also get code coverage
+    # properly measured (we track coverage on the local version and not on the
+    # installed version).
+    #
+    if ENV["SIMPLECOV"]
+      {
+        "RUBYOPT" => "-rsimplecov #{ENV.fetch("RUBYOPT", nil)}",
+        "RUBYLIB" => "#{repo_root}/decidim-generators/lib:#{ENV.fetch("RUBYLIB", nil)}",
+        "PATH" => "#{repo_root}/decidim-generators/exe:#{ENV.fetch("PATH", nil)}",
+        "COMMAND_NAME" => example.full_description.tr(" ", "_")
+      }
+    else
+      {}
+    end
+  end
+
+  let(:result) do
+    Bundler.with_original_env { Decidim::GemManager.capture(command, env:) }
+  end
+
+  # rubocop:disable RSpec/BeforeAfterAll
+  before(:all) do
+    Bundler.with_original_env { Decidim::GemManager.install_all(out: File::NULL) }
+  end
+
+  after(:all) do
+    Bundler.with_original_env { Decidim::GemManager.uninstall_all(out: File::NULL) }
+  end
+  # rubocop:enable RSpec/BeforeAfterAll
+end
+
 shared_examples_for "a new production application" do
   it "includes optional plugins commented out in Gemfile" do
     expect(result[1]).to be_success, result[0]
 
     expect(File.read("#{test_app}/Gemfile"))
       .to match(/^# gem "decidim-initiatives"/)
-      .and match(/^# gem "decidim-consultations"/)
       .and match(/^# gem "decidim-elections"/)
       .and match(/^# gem "decidim-conferences"/)
       .and match(/^# gem "decidim-templates"/)
@@ -19,7 +54,6 @@ shared_examples_for "a new development application" do
 
     expect(File.read("#{test_app}/Gemfile"))
       .to match(/^gem "decidim-initiatives"/)
-      .and match(/^gem "decidim-consultations"/)
       .and match(/^gem "decidim-elections"/)
       .and match(/^gem "decidim-conferences"/)
       .and match(/^gem "decidim-templates"/)
@@ -44,7 +78,7 @@ shared_examples_for "a new development application" do
     end
 
     # Check that important node modules were installed
-    expect(Pathname.new("#{test_app}/node_modules/@rails/webpacker")).to be_directory
+    expect(Pathname.new("#{test_app}/node_modules/shakapacker")).to be_directory
 
     # Check that the configuration tweaks are applied properly
     expect(File.read("#{test_app}/config/spring.rb")).to match(%r{^require "decidim/spring"})
@@ -166,13 +200,13 @@ shared_context "with application env vars" do
       "DECIDIM_SESSION_TIMEOUT_INTERVAL" => "33",
       "DECIDIM_FOLLOW_HTTP_X_FORWARDED_HOST" => "true",
       "DECIDIM_MAXIMUM_CONVERSATION_MESSAGE_LENGTH" => "1234",
-      "DECIDIM_PASSWORD_BLACKLIST" => "i-dont-like-this-password, i-dont,like,this,one,either, password123456",
+      "DECIDIM_PASSWORD_SIMILARITY_LENGTH" => "4",
+      "DECIDIM_DENIED_PASSWORDS" => "i-do-not-like-this-password, i-do-not,like,this,one,either, password123456",
       "DECIDIM_ALLOW_OPEN_REDIRECTS" => "true",
       "DECIDIM_ADMIN_PASSWORD_EXPIRATION_DAYS" => "93",
       "DECIDIM_ADMIN_PASSWORD_MIN_LENGTH" => "18",
       "DECIDIM_ADMIN_PASSWORD_REPETITION_TIMES" => "8",
       "DECIDIM_ADMIN_PASSWORD_STRONG" => "false",
-      "DECIDIM_REDESIGN_ACTIVE" => "false",
       "RAILS_LOG_LEVEL" => "fatal",
       "RAILS_ASSET_HOST" => "http://assets.example.org",
       "ETHERPAD_SERVER" => "http://a-etherpad-server.com",
@@ -196,7 +230,6 @@ shared_context "with application env vars" do
       "MEETINGS_EMBEDDABLE_SERVICES" => "www.youtube.com www.twitch.tv meet.jit.si 8x8.vc",
       "BUDGETS_ENABLE_PROPOSAL_LINKING" => "false",
       "ACCOUNTABILITY_ENABLE_PROPOSAL_LINKING" => "false",
-      "CONSULTATIONS_STATS_CACHE_EXPIRATION_TIME" => "7",
       "INITIATIVES_CREATION_ENABLED" => "false",
       "INITIATIVES_SIMILARITY_THRESHOLD" => "0.99",
       "INITIATIVES_SIMILARITY_LIMIT" => "10",
@@ -289,7 +322,8 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim session_timeout_interval) => 10,
       %w(decidim follow_http_x_forwarded_host) => false,
       %w(decidim maximum_conversation_message_length) => 1000,
-      %w(decidim password_blacklist) => [],
+      %w(decidim password_similarity_length) => 4,
+      %w(decidim denied_passwords) => [],
       %w(decidim allow_open_redirects) => false,
       %w(decidim admin_password expiration_days) => 90,
       %w(decidim admin_password min_length) => 15,
@@ -324,7 +358,6 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim meetings embeddable_services) => [],
       %w(decidim budgets enable_proposal_linking) => "auto",
       %w(decidim accountability enable_proposal_linking) => "auto",
-      %w(decidim consultations stats_cache_expiration_time) => 5,
       %w(decidim initiatives creation_enabled) => "auto",
       %w(decidim initiatives similarity_threshold) => 0.25,
       %w(decidim initiatives similarity_limit) => 5,
@@ -337,7 +370,7 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim initiatives max_time_in_validating_state) => 60,
       %w(decidim initiatives print_enabled) => "auto",
       %w(decidim initiatives do_not_require_authorization) => false,
-      %w(elections setup_minimum_hours_before_start) => 3,
+      %w(elections setup_minimum_hours_before_start) => 1,
       %w(elections start_vote_maximum_hours_before_start) => 6,
       %w(elections voter_token_expiration_minutes) => 120,
       %w(elections votings check_census_max_requests) => 5,
@@ -393,7 +426,8 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim session_timeout_interval) => 33,
       %w(decidim follow_http_x_forwarded_host) => true,
       %w(decidim maximum_conversation_message_length) => 1234,
-      %w(decidim password_blacklist) => ["i-dont-like-this-password", "i-dont,like,this,one,either", "password123456"],
+      %w(decidim password_similarity_length) => 4,
+      %w(decidim denied_passwords) => ["i-do-not-like-this-password", "i-do-not,like,this,one,either", "password123456"],
       %w(decidim allow_open_redirects) => true,
       %w(decidim admin_password expiration_days) => 93,
       %w(decidim admin_password min_length) => 18,
@@ -428,7 +462,6 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim meetings embeddable_services) => %w(www.youtube.com www.twitch.tv meet.jit.si 8x8.vc),
       %w(decidim budgets enable_proposal_linking) => false,
       %w(decidim accountability enable_proposal_linking) => false,
-      %w(decidim consultations stats_cache_expiration_time) => 7,
       %w(decidim initiatives creation_enabled) => false,
       %w(decidim initiatives similarity_threshold) => 0.99,
       %w(decidim initiatives similarity_limit) => 10,
@@ -487,7 +520,8 @@ shared_examples_for "an application with configurable env vars" do
       "session_timeout_interval" => 10,
       "follow_http_x_forwarded_host" => false,
       "maximum_conversation_message_length" => 1000,
-      "password_blacklist" => [],
+      "password_similarity_length" => 4,
+      "denied_passwords" => [],
       "allow_open_redirects" => false,
       "etherpad" => nil,
       "maps" => nil
@@ -523,7 +557,8 @@ shared_examples_for "an application with configurable env vars" do
       "session_timeout_interval" => 33,
       "follow_http_x_forwarded_host" => true,
       "maximum_conversation_message_length" => 1234,
-      "password_blacklist" => ["i-dont-like-this-password", "i-dont,like,this,one,either", "password123456"],
+      "password_similarity_length" => 4,
+      "denied_passwords" => ["i-do-not-like-this-password", "i-do-not,like,this,one,either", "password123456"],
       "allow_open_redirects" => true,
       "etherpad" => {
         "server" => "http://a-etherpad-server.com",
@@ -688,7 +723,7 @@ shared_examples_for "an application with configurable env vars" do
       "Rails.application.config.log_level" => "fatal",
       "Rails.application.config.action_controller.asset_host" => "http://assets.example.org",
       "Rails.application.config.active_storage.service" => "test",
-      "Decidim::AssetRouter.new(nil).send(:default_options)" => { "host" => "https://cdn.example.org" },
+      "Decidim::AssetRouter::Storage.new(nil).send(:default_options)" => { "host" => "https://cdn.example.org" },
       "Decidim::Api::Schema.default_max_page_size" => 31,
       "Decidim::Api::Schema.max_complexity" => 3001,
       "Decidim::Api::Schema.max_depth" => 11
@@ -834,18 +869,6 @@ end
 shared_examples_for "an application with extra configurable env vars" do
   include_context "with application env vars"
 
-  let(:consultations_initializer_off) do
-    {
-      "stats_cache_expiration_time" => 300 # 5.minutes
-    }
-  end
-
-  let(:consultations_initializer_on) do
-    {
-      "stats_cache_expiration_time" => 420 # 7.minutes
-    }
-  end
-
   let(:initiatives_initializer_off) do
     {
       "creation_enabled" => true,
@@ -882,7 +905,7 @@ shared_examples_for "an application with extra configurable env vars" do
 
   let(:elections_initializer_off) do
     {
-      "setup_minimum_hours_before_start" => 3,
+      "setup_minimum_hours_before_start" => 1,
       "start_vote_maximum_hours_before_start" => 6,
       "voter_token_expiration_minutes" => 120
     }
@@ -924,20 +947,6 @@ shared_examples_for "an application with extra configurable env vars" do
 
   it "env vars generate secrets application" do
     expect(result[1]).to be_success, result[0]
-
-    # Test onto the initializer with ENV vars OFF for the Consultations module
-    json_off = initializer_config_for(test_app, env_off, "Decidim::Consultations")
-    consultations_initializer_off.each do |key, value|
-      current = json_off[key]
-      expect(current).to eq(value), "Consultations Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
-    end
-
-    # Test onto the initializer with ENV vars ON for the Consultations module
-    json_on = initializer_config_for(test_app, env_on, "Decidim::Consultations")
-    consultations_initializer_on.each do |key, value|
-      current = json_on[key]
-      expect(current).to eq(value), "Consultations Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
-    end
 
     # Test onto the initializer with ENV vars OFF for the Initiatives module
     json_off = initializer_config_for(test_app, env_off, "Decidim::Initiatives")
@@ -1071,5 +1080,27 @@ shared_examples_for "an application with storage and queue gems" do
     queues = %w(mailers vote_reminder reminders default newsletter newsletters_opt_in conference_diplomas events translations user_report block_user metrics exports
                 close_meeting_reminder)
     expect(current["queues"].flatten).to include(*queues), "sidekiq queues (#{current["queues"].flatten}) expected to eq containt (#{queues})"
+  end
+end
+
+def json_secrets_for(path, env)
+  JSON.parse cmd_capture(path, "bin/rails runner 'puts Rails.application.secrets.to_json'", env:)
+end
+
+def initializer_config_for(path, env, mod = "Decidim")
+  JSON.parse cmd_capture(path, "bin/rails runner 'puts #{mod}.config.to_json'", env:)
+end
+
+def rails_value(value, path, env)
+  JSON.parse cmd_capture(path, "bin/rails runner 'puts #{value}.to_json'", env:)
+end
+
+def repo_root
+  File.expand_path(File.join("..", "..", "..", "..", ".."), __dir__)
+end
+
+def cmd_capture(path, cmd, env: {})
+  Bundler.with_unbundled_env do
+    Decidim::GemManager.new(path).capture(cmd, env:, with_stderr: false)[0]
   end
 end

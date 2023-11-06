@@ -17,7 +17,7 @@ module Decidim
       # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid.
-      # - :invalid if the form wasn't valid and we couldn't proceed.
+      # - :invalid if the form was not valid and we could not proceed.
       #
       # Returns nothing.
       def call
@@ -53,6 +53,7 @@ module Decidim
         organization.omniauth_settings = form.encrypted_omniauth_settings
         organization.smtp_settings = form.encrypted_smtp_settings
         organization.file_upload_settings = form.file_upload_settings.final
+        organization.content_security_policy = form.content_security_policy
 
         organization.save!
       end

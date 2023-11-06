@@ -2,15 +2,16 @@
 
 require "spec_helper"
 
-describe "Explore Collaborative Drafts", versioning: true, type: :system do
+describe "Explore Collaborative Drafts", type: :system, versioning: true do
+  include Decidim::Proposals::ApplicationHelper
   include ActionView::Helpers::TextHelper
 
   include_context "with a component"
 
   let(:manifest_name) { "proposals" }
-  let!(:scope) { create :scope, organization: }
-  let!(:author) { create :user, :confirmed, organization: }
-  let!(:user) { create :user, :confirmed, organization: }
+  let!(:scope) { create(:scope, organization:) }
+  let!(:author) { create(:user, :confirmed, organization:) }
+  let!(:user) { create(:user, :confirmed, organization:) }
   let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
   let!(:component) do
     create(:proposal_component,
@@ -24,9 +25,9 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
              scope_id: participatory_process.scope&.id
            })
   end
-  let!(:category) { create :category, participatory_space: participatory_process }
-  let!(:category2) { create :category, participatory_space: participatory_process }
-  let!(:category3) { create :category, participatory_space: participatory_process }
+  let!(:category) { create(:category, participatory_space: participatory_process) }
+  let!(:category2) { create(:category, participatory_space: participatory_process) }
+  let!(:category3) { create(:category, participatory_space: participatory_process) }
   let!(:collaborative_draft) { create(:collaborative_draft, :open, component:, category:, scope:, users: [author]) }
   let!(:collaborative_draft_no_tags) { create(:collaborative_draft, :open, component:) }
 
@@ -35,8 +36,10 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
   let!(:published_collaborative_draft) { create(:collaborative_draft, :published, component:, category: category3) }
 
   let(:request_access_form) { Decidim::Proposals::RequestAccessToCollaborativeDraftForm.from_params(state: collaborative_draft.state, id: collaborative_draft.id) }
-  let!(:other_user) { create :user, :confirmed, organization: }
+  let!(:other_user) { create(:user, :confirmed, organization:) }
   let(:request_access_from_other_user) { Decidim::Proposals::RequestAccessToCollaborativeDraft.new(request_access_form, other_user) }
+
+  let(:selector) { '[id^="proposals__collaborative_draft"]' }
 
   context "with collaborative drafts enabled" do
     before do
@@ -46,25 +49,21 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
 
     describe "Renders collaborative drafts index" do
       it "shows Open Drafts by default" do
-        first ".card__text--paragraph" do
-          expect(page).to have_css(".success.card__text--status", text: "OPEN")
+        first ".card__list" do
+          expect(page).to have_css(".label.success", text: "Open")
         end
-        within ".filters" do
+        within "#dropdown-menu-filters" do
           expect(find(:css, "input[name='filter[with_any_state][]'][value='open']")).to be_checked
         end
       end
 
       it "renders links to each collaborative draft details" do
         collaborative_drafts_count = Decidim::Proposals::CollaborativeDraft.open.where(component:).count
-        expect(page).to have_css(".card.card--collaborative_draft.success", count: collaborative_drafts_count)
-        expect(page).to have_css(".card__button.button", count: collaborative_drafts_count)
-        first ".card__support" do
-          expect(page).to have_css(".card__button.button", text: "VIEW COLLABORATIVE DRAFT")
-        end
+        expect(page).to have_css(selector, count: collaborative_drafts_count)
       end
 
       it "shows state filters" do
-        within ".filters .with_any_state_check_boxes_tree_filter" do
+        within "[data-filters]" do
           expect(page).to have_field("All")
           expect(page).to have_field("Open")
           expect(page).to have_field("Withdrawn")
@@ -73,7 +72,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
       end
 
       it "shows category filters" do
-        within ".filters .with_any_category_check_boxes_tree_filter" do
+        within "[data-filters]" do
           expect(page).to have_field("All")
           [category, category2, category3].each do |cat|
             expect(page).to have_field(cat.name[I18n.locale.to_s])
@@ -84,21 +83,22 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
 
     describe "renders collaborative draft details" do
       before do
-        within "#collaborative_draft_#{collaborative_draft.id}" do
-          click_link "View Collaborative Draft"
-        end
+        click_link "proposals__collaborative_draft_#{collaborative_draft.id}"
       end
+
+      let(:html_body) { strip_tags(collaborative_draft.body).gsub(/\n/, " ").strip }
+      let(:stripped_body) { %(alert("BODY"); #{html_body}) }
 
       it "shows the title" do
         expect(page).to have_content(collaborative_draft.title)
       end
 
       it "shows the body" do
-        expect(page).to have_content(strip_tags(collaborative_draft.body))
+        expect(page).to have_content(stripped_body)
       end
 
       it "shows the state" do
-        expect(page).to have_css(".label.collaborative-draft-status", text: "Open")
+        expect(page).to have_css(".label", text: "Open")
       end
 
       context "when geocoding is enabled" do
@@ -129,7 +129,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
         end
 
         it "shows the body" do
-          expect(page).to have_content(strip_tags(collaborative_draft.body))
+          expect(page).to have_content(stripped_body)
         end
 
         it "shows the address" do
@@ -141,20 +141,18 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
         before do
           visit_component
           click_link "Access collaborative drafts"
-          within "#collaborative_draft_#{collaborative_draft_no_tags.id}" do
-            click_link "View Collaborative Draft"
-          end
+          click_link "proposals__collaborative_draft_#{collaborative_draft_no_tags.id}"
         end
 
         it "does not show any tag" do
-          expect(page).not_to have_selector("ul.tags.tags--collaborative-draft")
+          expect(page).not_to have_selector("ul.tags")
         end
       end
 
       context "with a category" do
         it "shows tags for category" do
-          expect(page).to have_selector("ul.tags.tags--collaborative-draft")
-          within "ul.tags.tags--collaborative-draft" do
+          expect(page).to have_selector("ul.tag-container")
+          within "ul.tag-container" do
             expect(page).to have_content(translated(collaborative_draft.category.name))
           end
         end
@@ -162,8 +160,8 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
 
       context "with a scope" do
         it "shows tags for scope" do
-          expect(page).to have_selector("ul.tags.tags--collaborative-draft")
-          within "ul.tags.tags--collaborative-draft" do
+          expect(page).to have_selector("ul.tag-container")
+          within "ul.tag-container" do
             expect(page).to have_content(translated(collaborative_draft.scope.name))
           end
         end
@@ -186,39 +184,39 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
 
       context "when publishing as a proposal" do
         before do
+          within "main" do
+            expect(page).to have_content(collaborative_draft.title)
+          end
           login_as author, scope: :user
           visit current_path
+          within ".main-bar__links-desktop" do
+            expect(page).to have_css("#trigger-dropdown-account")
+          end
         end
 
         it "shows the publish button" do
-          within ".view-side" do
-            expect(page).to have_css("button", text: "PUBLISH")
-          end
+          expect(page).to have_button(text: "Publish")
         end
 
-        context "when the published" do
+        context "when the publish button is clicked" do
           before do
-            visit current_path
             click_button "Publish"
           end
 
-          after do
-            click_button "Publish as a Proposal"
-          end
-
           it "shows the a modal" do
-            within "[id$='publish-irreversible-action-modal'" do
+            within "[id$='publish-irreversible-action-modal'][aria-modal]" do
               expect(page).to have_css("h3", text: "The following action is irreversible")
-              expect(page).to have_css("button", text: "Publish as a Proposal")
+              expect(page).to have_button(text: "Publish as a Proposal")
             end
+            click_button "Publish as a Proposal"
+            expect(page).to have_content("Collaborative draft published successfully as a proposal.")
           end
         end
       end
 
       context "when visits a guest user" do
         it "shows an announcement to collaborate" do
-          expect(page).to have_css(".callout.secondary")
-          within ".callout.secondary" do
+          within "[data-announcement]" do
             expect(page).to have_css("strong", text: "collaborative draft")
           end
         end
@@ -226,83 +224,88 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
 
       context "when visits an non author user" do
         before do
-          sign_in user, scope: :user
+          within "main" do
+            expect(page).to have_content(collaborative_draft.title)
+          end
+          login_as user, scope: :user
           visit current_path
+          within ".main-bar__links-desktop" do
+            expect(page).to have_css("#trigger-dropdown-account")
+          end
         end
 
         it "shows an announcement to collaborate" do
-          expect(page).to have_css(".callout.secondary")
-          within ".callout.secondary" do
+          within "[data-announcement]" do
             expect(page).to have_css("strong", text: "collaborative draft")
           end
         end
 
         it "renders a button to request access" do
-          within ".view-side" do
-            expect(page).to have_css(".button.expanded.button--sc.mt-s", text: "REQUEST ACCESS")
-          end
+          expect(page).to have_button(text: "Request access")
         end
 
         context "when the user requests access" do
           before do
             click_button "Request access"
+            expect(page).to have_button("Access requested", disabled: true)
           end
 
           it "renders an flash informing about the request" do
-            expect(page).to have_css(".flash.callout.success")
-            within ".flash.callout.success" do
+            expect(page).to have_css("[data-alert-box].success")
+            within "[data-alert-box].success" do
               expect(page).to have_content("Your request to collaborate has been successfully sent")
             end
           end
 
           it "removes the announcement to collaborate" do
-            expect(page).not_to have_css("callout.secondary")
+            expect(page).not_to have_css("[data-alert-box].secondary")
           end
 
-          it "shows that acces has been requested" do
-            within ".view-side" do
-              expect(page).to have_css(".button.expanded.button--sc.mt-s", text: "ACCESS REQUESTED")
-            end
+          it "shows that access has been requested" do
+            expect(page).to have_css("button[disabled]", text: "Access requested")
           end
 
           context "when the author receives the request" do
             before do
-              sign_in author, scope: :user
+              within ".main-bar__links-desktop" do
+                expect(page).to have_css("#trigger-dropdown-account")
+              end
+              relogin_as author, scope: :user
               visit current_path
+              within ".main-bar__links-desktop" do
+                expect(page).to have_css("#trigger-dropdown-account")
+              end
             end
 
             it "lists the user in Collaboration Requests" do
-              within ".card.extra" do
-                expect(page).to have_content("COLLABORATION REQUESTS")
-                expect(page).to have_css("#request_#{user.id}")
-              end
+              expect(page).to have_content("Collaboration requests")
+              expect(page).to have_css("#request_#{user.id}")
             end
 
             it "shows the button to accept the request" do
-              within ".card.extra" do
-                expect(page).to have_css(".button.hollow.secondary.small", text: "Accept")
-              end
+              expect(page).to have_button(text: "Accept")
             end
 
             it "shows the button to reject the request" do
-              within ".card.extra" do
-                expect(page).to have_button("Reject")
-              end
+              expect(page).to have_button("Reject")
             end
 
             context "when the request is accepted and the contributor visits the draft" do
               before do
                 click_button "Accept"
-                sign_in user, scope: :user
+                expect(page).to have_content("@#{user.nickname} has been accepted as a collaborator successfully")
+                relogin_as user, scope: :user
                 visit current_path
+                expect(page).to have_css("span.main-bar__avatar")
               end
 
               it "shows the user as a coauthor" do
-                expect(page).to have_content(user.name)
+                expect(page).to have_css("#content div.author__coauthors .author__name", text: user.name)
               end
 
               it "removes the announcement to collaborate" do
-                expect(page).not_to have_css("callout.secondary")
+                expect(page).not_to have_css("#new_accept_access_to_collaborative_draft_")
+                expect(page).not_to have_css("#new_reject_access_to_collaborative_draft_")
               end
 
               it "does not show the buttons to publish or withdraw" do
@@ -311,14 +314,14 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
               end
 
               it "shows a button to edit" do
-                expect(page).to have_css("#collaborative_draft_edit", text: "EDIT COLLABORATIVE DRAFT")
+                expect(page).to have_css("#collaborative_draft_edit", text: "Edit collaborative draft")
               end
 
               it "does not show the Collaboration Requests from other users" do
                 request_access_from_other_user.call
                 visit current_path
 
-                expect(page).not_to have_content("COLLABORATION REQUESTS")
+                expect(page).not_to have_content("Collaboration requests")
               end
             end
           end
@@ -327,12 +330,18 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
 
       context "when the author visits the collaborative draft" do
         before do
-          sign_in author, scope: :user
+          within "main" do
+            expect(page).to have_content(collaborative_draft.title)
+          end
+          login_as author, scope: :user
           visit current_path
+          within ".main-bar__links-desktop" do
+            expect(page).to have_css("#trigger-dropdown-account")
+          end
         end
 
         it "removes the announcement to collaborate" do
-          expect(page).not_to have_css("callout.secondary")
+          expect(page).not_to have_css("callout")
         end
 
         it "shows the buttons to publish or withdraw" do
@@ -341,7 +350,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
         end
 
         it "shows a button to edit" do
-          expect(page).to have_css("#collaborative_draft_edit", text: "EDIT COLLABORATIVE DRAFT")
+          expect(page).to have_css("#collaborative_draft_edit", text: "Edit collaborative draft")
         end
       end
     end
@@ -354,8 +363,8 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
       visit main_component_path(component)
     end
 
-    it "does not show the Collaborative drafts acces button" do
-      expect(page).to have_no_content("Access collaborative drafts")
+    it "does not show the Collaborative drafts access button" do
+      expect(page).not_to have_content("Access collaborative drafts")
     end
   end
 end

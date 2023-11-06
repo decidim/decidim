@@ -4,7 +4,10 @@ en:
     attributes:
       assemblies_setting:
         enable_organization_chart: Enable organization chart
+      assemblies_type:
+        title: Title
       assembly:
+        announcement: Announcement
         area_id: Area
         assembly_type: Assembly type
         assembly_type_other: Assembly type other
@@ -23,12 +26,16 @@ en:
         decidim_scope_id: Scope
         description: Description
         developer_group: Promoter group
+        document: Document
         domain: Domain
         duration: Duration
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
         hero_image: Home image
+        import_attachments: Import attachments
+        import_categories: Import categories
+        import_components: Import components
         included_at: Included at
         instagram: Instagram
         internal_organisation: Internal organisation
@@ -52,7 +59,7 @@ en:
         subtitle: Subtitle
         target: Who participates
         title: Title
-        twitter: Twitter
+        twitter: X
         weight: Order position
         youtube: YouTube
       assembly_member:
@@ -65,6 +72,7 @@ en:
         non_user_avatar: Avatar
         position: Position
         user_id: User or group
+        weight: Order position
       assembly_user_role:
         email: Email
         name: Name
@@ -74,7 +82,7 @@ en:
         assembly:
           attributes:
             document:
-              allowed_file_content_types: 'Invalid document type. Accepted formats are: %{types}'
+              allowed_file_content_types: 'Invalid document type. Only files with the following extensions are allowed: %{types}.'
   activerecord:
     models:
       decidim/assembly:
@@ -91,7 +99,9 @@ en:
       actions:
         import_assembly: Import
         new_assembly: New assembly
+        new_assembly_member: New assembly member
         new_assembly_type: New assembly type
+        new_assembly_user_role: New assembly admin
       assemblies:
         create:
           error: There was a problem creating a new assembly.
@@ -99,10 +109,10 @@ en:
         edit:
           update: Update
         index:
-          not_published: Not published
           private: Private
           public: Public
           published: Published
+          unpublished: Unpublished
         new:
           create: Create
           title: New assembly
@@ -149,13 +159,13 @@ en:
         destroy:
           success: Member successfully deleted for this assembly.
         edit:
-          title: Update assembly member.
+          title: Update assembly member
           update: Update
         index:
           assembly_members_title: Assembly members
         new:
           create: Create
-          title: New assembly member.
+          title: New assembly member
         update:
           error: There was a problem updating the member for this assembly.
           success: Member successfully updated for this assembly.
@@ -173,13 +183,13 @@ en:
         destroy:
           success: Admin successfully removed from this assembly.
         edit:
-          title: Update assembly admin.
+          title: Update assembly admin
           update: Update
         index:
           assembly_admins_title: Assembly admins
         new:
           create: Create
-          title: New assembly admin.
+          title: New assembly admin
         update:
           error: There was a problem updating an admin for this assembly.
           success: Admin updated successfully for this assembly.
@@ -197,9 +207,11 @@ en:
           attachments: Attachments
           categories: Categories
           components: Components
-          info: Info
+          info: About this assembly
+          landing_page: Landing page
           moderations: Moderations
           private_users: Private users
+          see_assembly: See assembly
         assemblies_types: Assemblies types
       models:
         assemblies_types:
@@ -208,6 +220,7 @@ en:
             title: Title
         assembly:
           fields:
+            actions: Actions
             created_at: Created at
             private: Private
             promoted: Highlighted
@@ -281,7 +294,7 @@ en:
             select_an_area: Select an Area
             select_an_assembly_type: Select an assembly type
             select_parent_assembly: Select parent assembly
-            slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             social_handlers: Social
             title: General Information
             visbility: Visibility
@@ -292,14 +305,13 @@ en:
             title: Settings for assemblies
         assemblies_types:
           form:
-            title: Title
+            title: Edit assembly type
         assembly_copies:
           form:
-            slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         assembly_imports:
           form:
-            document_legend: Add a document
-            slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         assembly_members:
           form:
             existing_user: Existing participant
@@ -315,7 +327,6 @@ en:
               all: All
               ceased: Ceased
               not_ceased: Not ceased
-            filter_by: Filter by
             search: Search
         content_blocks:
           highlighted_assemblies:
@@ -324,6 +335,26 @@ en:
           accepted_types:
             json: JSON
       assemblies:
+        description:
+          area_name: Area
+          closing_date: Closing date
+          created_by: Created by
+          creation_date: Date created
+          data: Assembly data
+          developer_group: Promoter group
+          duration: Duration
+          included_at: Included at
+          indefinite_duration: Indefinite
+          local_area: Organization Area
+          meta_scope: Scope
+          participatory_scope: What is decided
+          participatory_structure: How is it decided
+          target: Who participates
+          title: About this assembly
+        filters:
+          names:
+            all: All
+          type: Type
         show:
           title: About this assembly
       assembly_members:
@@ -338,8 +369,16 @@ en:
         participatory: Participatory
         working_group: Working group
       content_blocks:
+        children_assemblies:
+          name: Assemblies
+        dates_metadata:
+          name: Dates metadata
+        extra_data:
+          name: Type & duration
         highlighted_assemblies:
           name: Highlighted assemblies
+        related_assemblies:
+          name: Related assemblies
       created_by:
         city_council: City Council
         others: Others
@@ -357,44 +396,24 @@ en:
       index:
         title: Assemblies
       last_activity:
-        new_assembly: New assembly
+        new_assembly: 'New assembly:'
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Active assemblies
-            assemblies_button_title: Link to the Assemblies page displaying all the assemblies
-            see_all_assemblies: See all assemblies
+            active_spaces: Active assemblies
+            see_all_spaces: See all assemblies
         user_profile:
           member_of:
             member_of: Member of
       show:
-        area: Area
         assembly_type: Assembly type
-        children: Assemblies
-        closing_date: Closing date
-        composition: Composition
-        created_by: Created by
-        creation_date: Date created
-        developer_group: Promoter group
         duration: Duration
-        included_at: Included at
-        indefinite_duration: Indefinite
-        internal_organisation: Internal organisation
         is_transparent:
           'false': opaque
           'true': transparent
-        local_area: Organization area
-        participatory_scope: What is decided
-        participatory_structure: How is it decided
         private_space: This is a private assembly
-        purpose_of_action: Purpose of action
-        read_less: Read less
-        read_more: Read more
         related_participatory_processes: Related participatory processes
-        scope: Scope
-        social_networks: Social Networks
         social_networks_title: Visit assembly on
-        target: Who participates
     assembly_members:
       assembly_member:
         designated_on: Designated on
@@ -437,9 +456,6 @@ en:
         related_assemblies: Related assemblies
     statistics:
       assemblies_count: Assemblies
-  errors:
-    messages:
-      cannot_be_blank: can not be blank
   layouts:
     decidim:
       assemblies:
@@ -447,20 +463,14 @@ en:
           more_info: More info
           take_part: Take part
         index:
-          children: 'Assemblies: '
-          organizational_chart: Organizational chart
           promoted_assemblies: Highlighted assemblies
-          reset_chart: Reset
+        metadata:
+          children_item:
+            one: "%{count} assembly"
+            other: "%{count} assemblies"
         order_by_assemblies:
           assemblies:
             one: "%{count} assemblies"
             other: "%{count} assemblies"
-        promoted_assembly:
-          more_info: More info
-          take_part: Take part
       assembly_navigation:
         assembly_member_menu_item: Members
-        assembly_menu_item: The assembly
-      assembly_widgets:
-        show:
-          take_part: Take part

@@ -8,7 +8,7 @@ ja:
       conversation:
         body: 本文
       group:
-        about: About
+        about: グループについて
         avatar: アバター
         document_number: ドキュメント番号
         email: Eメールアドレス
@@ -20,7 +20,7 @@ ja:
       report:
         details: 追加コメント
       user:
-        about: About
+        about: 私について
         email: あなたのメールアドレス
         locale: 地域
         name: 表示名
@@ -29,6 +29,7 @@ ja:
         password_confirmation: パスワードの確認
         personal_url: 個人用URL
         remove_avatar: アバターを削除
+        tos_agreement: 利用規約
     models:
       decidim/attachment_created_event: 添付ファイル
       decidim/component_published_event: アクティブなコンポーネント
@@ -48,6 +49,9 @@ ja:
       decidim/welcome_notification_event: ウェルカムメッセージ
   activerecord:
     attributes:
+      decidim/action_log:
+        created_at: 時刻
+        with_participatory_space: 参加型スペース
       decidim/user:
         current_password: 現在のパスワード
         email: メールアドレス
@@ -69,12 +73,14 @@ ja:
     'true': 'はい'
   carrierwave:
     errors:
+      file_cannot_be_processed: ファイルを処理できません
       file_resolution_too_large: ファイルの解像度の値が大きすぎます
       file_size_too_large: ファイルサイズが大きすぎます
       not_inside_organization: ファイルはどの組織にも添付されていません
   date:
     formats:
       decidim_short: "%Y/%m/%d"
+      decidim_short_dashed: "%Y-%m-%d"
       decidim_short_with_month_name_short: "%Y %b %d"
       decidim_with_day_and_month_name: "%Y %b %d %A"
       decidim_with_month_name: "%Y %B %d"
@@ -90,14 +96,33 @@ ja:
         other: '%{count} 分未満'
       less_than_x_seconds:
         other: '%{count} 秒未満'
+      short:
+        about_x_days: "%{count}日"
+        about_x_hours: "%{count}時間"
+        about_x_minutes: "%{count}分"
+        about_x_months: "%{count} 月"
+        about_x_years: "%{count}年"
+        almost_x_years: "%{count}年"
+        half_a_minute: 1分
+        less_than_x_minutes: "%{count}分"
+        less_than_x_seconds: "%{count}秒"
+        over_x_years: "%{count}年"
+        x_days: "%{count}日"
+        x_hours: "%{count}時間"
+        x_minutes: "%{count}分"
+        x_months: "%{count} 月"
+        x_seconds: "%{count}秒"
+        x_years: "%{count}年"
       x_days:
-        other: "%{count} 日前"
+        other: "%{count} 日"
       x_hours:
-        other: "%{count} 時間前"
+        other: "%{count} 時間"
       x_minutes:
-        other: "%{count} 分前"
+        other: "%{count} 分"
+      x_months:
+        other: "%{count} ヶ月"
       x_seconds:
-        other: "%{count} 秒前"
+        other: "%{count} 秒"
   decidim:
     accessibility:
       external_link: 外部リンク
@@ -105,42 +130,48 @@ ja:
       logo: "%{organization}の公式ロゴ"
       skip_button: メインコンテンツにスキップ
     account:
-      blocked: このアカウントは利用規約違反によりブロックされています
+      blocked: このアカウントは利用規約に違反しているためブロックされています
       delete:
-        alert: この操作は元に戻せません。アカウントを削除すると、ログインできなくなります。 アカウントを削除すると、あなたの貢献が匿名化されます。 引き続き新しいアカウントを作成することはできますが、これらの貢献は関連付けられません。
+        alert: この操作は取り消すことができません。アカウントを削除すると、あなたのアカウント情報でログインできなくなります。 アカウントを削除すると、あなたの貢献内容は匿名化されます。 新しいアカウントを作成することはできますが、これらの貢献内容は新しいアカウントと関連付けられません。
         confirm:
           close: ウィンドウを閉じる
           ok: はい、アカウントを削除します
           question: アカウントを削除してもよろしいですか？
           title: アカウントを削除する
         explanation: アカウントを削除する理由を入力してください (オプション)。
+        leaving_authorizations_behind: 認証に紐付けられたデータがセキュリティのために保存されます。 別のアカウントを作成して再度認証すると、このデータは新しいアカウントで復元されます。
       destroy:
         error: アカウントの削除中に問題が発生しました。
         success: アカウントが正常に削除されました。
       download_your_data_export:
         file_no_exists: ファイルが存在しません
-        notice: データのダウンロードは現在進行中です。完了するとメールが届きます。
+        notice: データのダウンロードは現在進行中です。完了した際にはメールでお知らせします。
       email_change:
-        body1: 新しいメールアドレスを確認するため、 %{unconfirmed_email} にメールを送信しました。
+        body1: 新しいメールアドレスを確認するために、%{unconfirmed_email} 宛にメールを送信しました。
         body2: 確認メールをもう一度送信する必要がありますか？ %{resend_link} または %{cancel_link}
         cancel: キャンセル
         cancel_error: メールの変更をキャンセルできませんでした。
         cancel_successfully: メールの変更が正常にキャンセルされました。
         resend_error: 確認メールを再送信できませんでした。
-        resend_successfully: '%{unconfirmed_email} に確認メールが再送信されました'
+        resend_successfully: 確認メールが %{unconfirmed_email} に再送信されました。
         send_again: 再送信
         title: メールアドレスの変更確認
       show:
-        available_locales_helper: プラットフォーム上での通知と表示に使用する言語を選択してください
+        available_locales_helper: プラットフォームで閲覧および通知を受け取るために使用する言語を選択してください。
         change_password: パスワードの変更
         update_account: アカウントを更新
       update:
         error: アカウントの更新に問題が発生しました。
         success: アカウントが正常に更新されました。
-        success_with_email_confirmation: アカウントが正常に更新されました。新しいメールアドレスを確認するためのメールが届きます。
+        success_with_email_confirmation: アカウントを更新しました。新しいメールアドレスを確認するためのメールが届きます。
+    activity:
+      time_ago: "%{time} 前"
     admin:
       actions:
         cancel: キャンセル
+      password_change:
+        alert: 先に進むにはパスワードを変更する必要があります。
+        notification: 管理者ユーザーは、 %{days} 日ごとにパスワードを変更する必要があります。
     admin_log:
       area:
         create: "%{user_name} が %{resource_name} 領域を作成しました"
@@ -223,13 +254,15 @@ ja:
         unblock: "%{user_name} さんが %{resource_name} さんのブロックを解除しました"
         unofficialize: "%{user_name} が参加者 %{resource_name} を非公式にしました"
       user_group:
+        block: "%{user_name} がユーザーグループ %{resource_name} をブロックしました"
         reject: "%{user_name} が %{resource_name} グループの確認を拒否しました"
+        unblock: "%{user_name} がユーザーグループ %{resource_name} のブロックを解除しました"
         verify: "%{user_name} がグループ %{resource_name} を確認しました"
         verify_via_csv: "%{user_name} がCSVファイルを介してグループ %{resource_name} を確認しました"
       user_moderation:
         unreport: "%{user_name} が %{resource_type} - %{unreported_user_name} の報告を解除しました"
-    admin_terms_of_use:
-      default_body: "<h2>管理者向け利用規約</h2><p>システム管理者からレクチャーを受けたと思います。通常、以下の3つのことに集約されます。</p><ol><li>他社のプライバシーを尊重する</li><li>クリックする前に考える</li><li>大きな力には大きな責任が伴う</li></ol>"
+    admin_terms_of_service:
+      default_body: "<h2>管理者利用規約</h2><p>他のシステム管理者から一般的なレクチャーを受けたことを信じています。通常、それは以下の3つのポイントに集約されます：</p><ol><li>他人のプライバシーを尊重する。</li><li>クリックする前に考える。</li><li>偉大な力には偉大な責任が伴う。</li></ol>"
     alert:
       dismiss: 通知を消去
     amendments:
@@ -237,14 +270,16 @@ ja:
         error: 修正を承認中にエラーが発生しました。
         success: 修正が正常に受け入れられました。
       amendable:
-        amended_by: 修正者
         button: '%{model_name} を修正'
         error: リソースの修正中にエラーが発生しました。
-        help_text: '%{model_name} を変更して、この %{amendable_fields} を改善しましょう。'
+        help_text: '%{model_name} を変更することで、この %{amendable_fields} を改善します。'
         promote_button: '%{model_name} に昇格'
         promote_confirm_text: この修正を承認してもよろしいですか？
-        promote_help_text: この修正を昇格し、独立した %{model_name} として公開することができます
+        promote_help_text: この修正を促進し、独立した%{model_name} として公開できます。
         section_heading: 修正履歴 (%{count})
+      amendments:
+        title:
+          other: "%{count} 件の修正"
       compare_draft:
         continue: 続ける
         no_similars_found: 似たような表現は見つかりません。
@@ -257,9 +292,8 @@ ja:
         success: 修正案は正常に削除されました。
       edit_draft:
         discard: この下書きを破棄する
-        discard_confirmation: この修正案を破棄してもよろしいですか？
         send: プレビュー
-        title: 修正ドラフトを編集
+        title: 修正案を編集
       emendation:
         actions:
           button_accept: 同意する
@@ -276,35 +310,35 @@ ja:
           rejected: この %{amendable_type} %{proposal_link} の修正は <strong>%{date}</strong> で拒否されました。
           withdrawn: |-
             %{amendable_type} %{proposal_link}
-            のこの修正は著者によって取り消されました。
+            のこの修正は著者によって撤回されました。
+      name: 修正
       new:
         amendment_author: 著者の変更
         send: 作成
-        title: 修正ドラフトを作成
+        title: 修正案を作成
       preview_draft:
         modify: 変更
         publish: 公開
         title: 修正案を公開
       promoted:
-        error: 修正案を新しい提案として公表する際に問題が発生しました
-        success: 修正は新しい提案として正常に公開されました
+        error: 修正案を新しい提案として公開する際に問題がありました。
+        success: 修正案は新しい提案として正常に公開されました。
       publish_draft:
         error: 修正案を公表する際に問題が発生しました。
         success: 修正に成功しました。
       rejected:
-        error: この修正を拒否する際に問題が発生しました。後でもう一度やり直してください。
-        success: 修正は正常に拒否されました
+        error: この修正を却下する際に問題が発生しました。後ほどもう一度お試しください。
+        success: 修正案を却下しました。
       review:
         back: 戻る
         heading: 修正を確認する
-        help_text: '%{model_name} の修正を確認しています'
         send: 修正を承認する
       update_draft:
         error: 修正案の更新中に問題が発生しました。
         success: 修正の下書きが正常に更新されました。
       withdraw:
-        error: 修正の撤回中にエラーが発生しました
-        success: 修正は正常に撤回されました
+        error: 修正の撤回中にエラーが発生しました。
+        success: 修正を撤回しました。
       wizard_step_form:
         steps:
           '1': 修正を作成する
@@ -313,33 +347,33 @@ ja:
           '4': 修正内容を公開
     anonymous_user: 匿名です
     application:
-      collection:
-        documents:
-          other: ドキュメント
       document:
         download: ファイルをダウンロード
       documents:
+        documents: ドキュメント
         related_documents: 関連ドキュメント
-      geocoding:
-        geocoded_address: 住所
+      photo:
+        alt: メディア画像
+        title: 画像
       photos:
+        photos: 画像
         related_photos: 関連画像
     author:
       avatar: 'アバター: %{name}'
-      avatar_multiuser: 複数のユーザーのアバター
       comments:
         other: コメント
       endorsements:
         other: オススメ
+      official_author: 公式
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: '「A」で始まるパスポート番号を入力して確認する'
+        explanation: '「A」で始まるパスポート番号を入力して確認します'
         fields:
           passport_number: パスポート番号
           postal_code: 郵便番号
         name: 別の例の承認
       dummy_authorization_handler:
-        explanation: '「X」で終わるドキュメント番号を導入して認証を取得する'
+        explanation: '「X」で終わるドキュメント番号を入力して確認します'
         fields:
           allowed_postal_codes: 許可する郵便番号 (コンマで区切る)
           allowed_scope_id: 許可されたスコープ
@@ -359,7 +393,6 @@ ja:
           foo: Foo
         name: Foo 認証
       granted_at: '%{timestamp} で付与されます'
-      renew: 検証を更新する
       sms:
         explanation: 身分証を確認するために、携帯電話番号を提出してください。
         name: SMSによるコード
@@ -372,7 +405,7 @@ ja:
           title: 認証の有効期限が切れました
         incomplete:
           cancel: キャンセル
-          explanation: '現在「%{authorization}」で承認されていますが、以下のデータがないため、再認証が必要です。'
+          explanation: '現在 "%{authorization}" で認証されていますが、以下のデータが不足しているため、再度認証する必要があります:'
           invalid_field: "%{field}"
           reauthorize: 再承認
           title: 再承認してください
@@ -381,10 +414,10 @@ ja:
           explanation: このアクションを実行するには、"%{authorization}" で認証する必要があります。
           title: 認証が必要です
         ok:
-          title: このページにいる間は許可されています。アクションを実行するにはページを再読み込みしてください。
+          title: このページ内で認証されています。アクションを実行するため、ページをリロードしてください。
         pending:
-          explanation: このアクションを実行するには、"%{authorization}" で認証される必要がありますが、承認はまだ進行中です
-          resume: '「%{authorization}」認証の進行状況を確認してください'
+          explanation: このアクションを実行するには"%{authorization}" で認証されている必要がありますが、認証はまだ進行中です。
+          resume: '"%{authorization}" 認証の進行状況を確認してください。'
           title: 認証はまだ進行中です
         unauthorized:
           explanation: 一部の認証データが一致しないため、この操作は実行できません。
@@ -392,12 +425,10 @@ ja:
           ok: OK
           title: 権限がありません
         unconfirmed:
-          confirmation_instructions: '確認手順を受け取っていない場合は、再度リクエストすることができます:'
+          confirmation_instructions: '確認手順を受け取っていない場合は、再度要求することができます:'
           explanation_html: この操作を行うには、承認が必要です。その前に、メールアドレス <strong>%{email}</strong> を確認する必要があります。
           request_confirmation_instructions: 確認手順をリクエストする
           title: メールアドレスを確認してください
-      show:
-        close_modal: ウィンドウを閉じる
     block_user_mailer:
       notify:
         body_1: あなたのアカウントはブロックされました。
@@ -412,7 +443,7 @@ ja:
       see_more: "(続きを参照)"
     components:
       component_order_selector:
-        no_content: この基準のコンテンツが見つかりませんでした
+        no_content: この基準では何も見つかりませんでした。
         order:
           all_types: すべてのタイプ
           collaborative_draft: 共同草案
@@ -453,6 +484,8 @@ ja:
             dummy_step_translatable_text: ダミーステップ翻訳可能なテキスト
     contact: お問い合わせ
     content_blocks:
+      announcement:
+        name: お知らせ
       cta:
         name: 画像、テキスト、行動喚起 (CTA) ボタン
       cta_settings_form:
@@ -462,6 +495,8 @@ ja:
         description: 説明
       footer_sub_hero:
         name: フッターサブヒーローバナー
+      global_menu:
+        name: グローバルメニュー
       hero:
         name: ヒーロー画像
       hero_settings_form:
@@ -470,6 +505,9 @@ ja:
       highlighted_content_banner:
         name: 強調表示されたコンテンツバナー
       highlighted_elements_settings_form:
+        components:
+          all: すべて
+          label: 'コンポーネントを選択:'
         orders:
           label: '要素並べ替えのキー:'
           random: ランダム
@@ -483,22 +521,50 @@ ja:
         name: 最後のアクティビティ
         title: 最後のアクティビティ
         view_all: すべて表示
+      last_activity_settings_form:
+        max_last_activity_users: 最近のアクティビティを表示するユーザーアバターの最大数
+      main_data:
+        name: メインデータ
+      metadata:
+        name: メタデータ
       metrics:
         name: 組織の指標
+      participatory_space_metrics:
+        name: メトリクス
+      participatory_space_stats:
+        name: 統計情報
+      social_networks_metadata:
+        name: ソーシャルネットワーク
+      static_page:
+        section:
+          name: セクション
+          section_content: コンテンツ
+        summary:
+          name: 概要
+          summary_content: コンテンツ
+        two_pane_section:
+          left_column: 左カラム
+          name: 2カラムセクション
+          right_column: 右カラム
       stats:
         name: 組織の統計
       sub_hero:
         name: サブヒーローバナー
     core:
       actions:
-        login_before_access: アクセスする前にアカウントでログインしてください
+        login_before_access: アクセスする前に、あなたのアカウントでログインしてください。
         unauthorized: この操作を実行する権限がありません。
-    datepicker:
-      help_text: '期待されるフォーマット: %{datepicker_format}'
+      application_helper:
+        filter_area_values:
+          all: すべて
+        filter_category_values:
+          all: すべて
+        filter_scope_values:
+          all: すべて
     devise:
       omniauth_registrations:
         create:
-          email_already_exists: 別のアカウントは同じメールアドレスを使用しています
+          email_already_exists: 別のアカウントで同じメールアドレスを使用しています。
         new:
           complete_profile: プロファイルを完了
           nickname_help: '%{organization} でのニックネームです。文字、数字、''-'' および ''_'' のみを使用できます。'
@@ -508,13 +574,10 @@ ja:
       registrations:
         new:
           already_have_an_account?: 既にアカウントをお持ちですか？
+          log_in: ログイン
           newsletter: 関連するお知らせを受け取る
           newsletter_title: ニュースレターを受け取る
-          nickname_help: '%{organization} でのニックネームです。文字、数字、''-'' および ''_'' のみを使用できます。'
-          sign_in: ログイン
           sign_up: 新規登録
-          sign_up_as:
-            legend: として登録
           subtitle: 参加するにはユーザ登録をしてください。
           terms: 利用規約
           tos_agreement: ユーザ登録することで、 %{link} に同意したことになります。
@@ -524,33 +587,38 @@ ja:
         new:
           are_you_new?: プラットフォームは初めてですか？
           register: アカウントを作成
-          sign_in_disabled: 外部アカウントでアクセスできます
-          sign_up_disabled: ユーザ登録は無効です。既存のアカウントを使用してアクセスすることができます
+          sign_in_disabled: 外部アカウントでアクセスできます。
+          sign_up_disabled: 新規登録は無効になっています。既存のアカウントを使用してアクセスすることができます。
         user:
-          timed_out: 長時間非アクティブだったため、自動的にサービスからログアウトされました。 引き続きサービスをご利用になる場合、改めてログインしてください。
+          timed_out: 長時間非アクティブであり、自動的にサービスからログアウトされました。 引き続きサービスをご利用いただく場合は、再度ログインしてください。
       shared:
         newsletter_modal:
           buttons:
             check: 確認して続ける
-            close_modal: モーダルを閉じる
             uncheck: チェックを外してください
           notice: |-
-            <p>本当にニュースレターを購読しなくて良いですか？<br>
+            <p>本当にニュースレターを購読しなくて良いでしょうか？<br>
             ニュースレターのチェックボックスを是非オンにしてください。<br>
-            重要なお知らせメールを受け取ってもらうことは、私たちにとって非常に重要なことです。通知設定ページでいつでもこれを変更することができます。</p>
-            <p>ボックスにチェックを入れないと、プラットフォーム内での新しい参加機会についての関連情報を見逃してしまう可能性があります。<br>
+            重要なお知らせメールを受け取っていただくことは重要なことです。通知設定ページでいつでもこの設定を変更することができます。</p>
+            <p>チェックボックスにチェックを入れない場合、プラットフォーム内での新しい参加機会についての重要な情報を見逃してしまう可能性があります。<br>
             それでもニュースレターの受信を避けたい場合は、私たちはその決定を尊重します。 </p>
-            <p>読んでくれてありがとうございます！</p>
+            <p>お読みいただきありがとうございます。</p>
           title: ニュースレター通知
         omniauth_buttons:
           or: または
+        password_fields:
+          hidden_password: あなたのパスワードは非表示です
+          hide_password: パスワードを隠す
+          show_password: パスワードを表示
+          shown_password: パスワードは表示されています
+        placeholder_email: hi@example.org
     doorkeeper:
       authorizations:
         new:
           authorize: アプリケーションを承認する
           by_organization_link_html: <small class="heading-small">by %{link}</small>
           cancel: キャンセル
-          connect_your_account_html: <strong>%{organization}</strong> にログインしてアカウントに接続します
+          connect_your_account_html: '%{organization} にログインしてアカウントに接続します。'
           publish_content: コンテンツを公開する
           see_email: メールを見る
           see_name: 名前を確認してください
@@ -564,27 +632,36 @@ ja:
         ready: 準備完了
       show:
         download_data: データをダウンロード
-        download_data_description: あなたのアカウントに関連付けられたすべての情報を含むファイルを<strong>%{user_email}</strong> に送信します。このメールは.zipファイルとパスワードが添付されています。<br/><br/>ファイルを展開するには、 <a href="https://www.7-zip.org/">7-Zip</a> (Windowsユーザー向け) か <a href="https://www.keka.io/">Keka</a> (MacOSユーザー向け)が必要です。Linuxをお使いの場合、すでにツールがインストールされているはずです。インストールされていない場合、 <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> や <a href="https://peazip.github.io">PeaZip</a> が利用できます。
+        download_data_description_html: |-
+          あなたのアカウントに関連付けられたすべての情報を含むファイルを<strong>%{user_email}</strong> に送信します。このメールは.zipファイルとパスワードが添付されています。<br/><br/>ファイルを展開するには、 <a href="https://www.7-zip.org/">7-Zip</a> (Windowsユーザー向け) か <a href="https://www.keka.io/">Keka</a> (MacOSユーザー向け)等が必要です。Linuxをお使いの場合、すでにツールがインストールされているはずです。インストールされていない場合、 <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> や <a href="https://peazip.github.io">PeaZip</a> が利用できます。
         request_data: データを要求する
     editor_images:
       create:
-        error: アップロード画像のエラー
-        success: 画像が正常にアップロードされました
+        error: 画像のアップロードに失敗しました。
+        success: 画像が正常にアップロードされました。
       drag_and_drop_help: ドラッグ&ドロップまたは貼り付けることで画像を追加できます。
-    endorsable:
-      endorsements: オススメ
-      endorsements_count: オススメ数
     endorsement_buttons_cell:
-      already_endorsed: オススメ済み
-      endorse: オススメする
+      already_endorsed: 取り消し
+      endorse: いいね
     endorsements:
       identities:
         done: 完了
         select_identity: IDを選択
+    endorsers_list:
+      endorsed_by: オススメ
     errors:
       internal_server_error:
+        copied: テキストをコピーしました
+        copy_error_message_clarification: エラーメッセージをクリップボードにコピー
+        copy_to_clipboard: クリップボードにコピー
+        date_and_time: 日付と時刻
+        reference: 参照
+        request_method: リクエストメソッド
         title: サーバーに問題が発生しました
-        try_later: 後でもう一度お試しください。
+        try_later: 後ほどもう一度お試しください。 エラーが解決しない場合は、以下の情報をコピーし、共有したい情報と合わせてプラットフォームのメンテナに送信してください。
+        unknown: 不明
+        url: URL
+        user: ユーザー ID
       not_found:
         back_home: ホームに戻る
         content_doesnt_exist: このアドレスは正しくないか削除されています。
@@ -618,12 +695,12 @@ ja:
             email_intro: '%{amendable_title} の修正が却下されました。新しい %{amendable_type}として公開されました。このページから見ることができます:'
             email_outro: あなたは %{amendable_title} の作成者であるため、この通知を受け取りました。
             email_subject: '%{emendation_author_nickname} からの修正が新しい %{amendable_type} として公開されました'
-            notification_title: A <a href="%{emendation_path}">rejected amentment</a> for <a href="%{amendable_path}">%{amendable_title}</a> has been published as a new %{amendable_type} by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            notification_title: <a href="%{amendable_path}">%{amendable_title}</a>についての<a href="%{emendation_path}">却下された修正</a> が新しい %{amendable_type} として <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>によって公開されました.
           follower:
             email_intro: '%{amendable_title} の修正が却下されました。新しい %{amendable_type}として公開されました。このページから見ることができます:'
             email_outro: '%{amendable_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
             email_subject: '%{emendation_author_nickname} からの修正が新しい %{amendable_type} として公開されました'
-            notification_title: A <a href="%{emendation_path}">rejected amentment</a> for <a href="%{amendable_path}">%{amendable_title}</a> has been published as a new %{amendable_type} by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            notification_title: <a href="%{amendable_path}">%{amendable_title}</a>についての<a href="%{emendation_path}">却下された修正</a>が新しい%{amendable_type} として <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>によって公開されました.
         amendment_rejected:
           affected_user:
             email_intro: '%{amendable_title}の修正が拒否されました。このページから確認できます:'
@@ -659,10 +736,10 @@ ja:
           email_subject: '新しいバッジ： %{badge_name} を獲得しました！'
           notification_title: おめでとうございます！ <a href="%{resource_path}">%{badge_name} のバッジ</a> （レベル %{current_level}）を獲得しました。
         level_up:
-          email_intro: おめでとうございます！ あなたは <a href="%{resource_url}">%{badge_name} バッジ</a> のレベル %{current_level} に到達しました！
+          email_intro: おめでとうございます！ <a href="%{resource_url}">%{badge_name} バッジ</a>のレベル %{current_level} に到達しました！
           email_outro: サイトでの活動によって、この通知を受け取りました。
-          email_subject: '%{badge_name} のバッジがレベル %{current_level} に達しました！'
-          notification_title: おめでとうございます！ あなたは <a href="%{resource_path}">%{badge_name} バッジ</a> のレベル %{current_level} に到達しました！
+          email_subject: '%{current_level} バッジのレベル %{badge_name} に達しました！'
+          notification_title: おめでとうございます！ <a href="%{resource_path}">%{badge_name} バッジ</a>のレベル %{current_level} に到達しました！
       groups:
         demoted_membership:
           email_intro: <a href="%{resource_url}">%{user_group_name}</a> グループの管理者が、そのグループの管理者権限を削除しました。
@@ -710,7 +787,7 @@ ja:
           email_subject: ユーザーグループがプロファイルを更新しました
           notification_title: '%{user_group_name} ユーザーグループがプロファイルを更新し、未検証のままにしました。 <a href="%{groups_admin_path}">管理画面</a> で確認できるようになりました。'
       nickname_event:
-        notification_body: ニックネームの使用方法を修正し、重複がないようにしたため、大文字と小文字の区別のルールをなくしました。<br/> あなたのニックネームは、同じ名前の別のニックネームの後に作成されたため、自動的に名前が変更されました。<a href="%{link_to_account_settings}">アカウント設定</a>から変更することができます。
+        notification_body: ニックネームの使用方法を修正し、重複をなくすために大文字小文字を区別しないようにしました。<br/> あなたのニックネームは他の人と同じだったため、自動的にリネームされました。<a href="%{link_to_account_settings}">アカウント設定</a>から変更することができます。
       notification_event:
         notification_title: <a href="%{resource_path}">%{resource_title}</a> にイベントが発生しました。
       reports:
@@ -747,7 +824,8 @@ ja:
     filters:
       linked_classes:
         all: すべて
-        collaborative_draft: 共同ドラフト（下書き）
+        answer: 回答
+        collaborative_draft: 共同草案
         dummy_resource: ダミーリソース
         meeting: ミーティング
         project: プロジェクト
@@ -755,7 +833,7 @@ ja:
         result: 結果
     fingerprint:
       check: フィンガープリントを確認
-      explanation: 以下のテキストは、このコンテンツの短縮されたハッシュ化された表現です。 コンテンツが改ざんされていないことを確認すると便利です。単一の修正で全く異なる値になります。
+      explanation: 以下のテキストは、このコンテンツの短縮されたハッシュ化された表現です。 1回変更を行うと全く異なる値になるため、コンテンツが改ざんされていないことを確認できます。
       online_calculator_name: MD5カルキュレータオンライン
       replicate_help: このフィンガープリントはSHA256 ハッシュアルゴリズムを使用して計算されます。自分で複製するには、 %{online_calculator_link} を使用してソース データをコピー&ペーストできます。
       source: ソース
@@ -766,7 +844,9 @@ ja:
         other: "%{count} 人のフォロワー"
       no_followers: フォロワーはまだいません。
     following:
-      no_followings: フォローしている人やコンテンツはありません
+      following_count:
+        other: "{{count}} フォロワー"
+      no_followings: まだ何もフォローしていません
       non_public_followings: フォローしているリソースのいくつかは公開されていません。
     follows:
       create:
@@ -777,8 +857,6 @@ ja:
         button: フォローを停止
         error: リソースのフォローを解除する際に問題が発生しました。
     forms:
-      current_image: 現在の画像
-      default_image: デフォルトの画像
       errors:
         decidim/user:
           password: パスワードが短すぎます。
@@ -801,6 +879,8 @@ ja:
         allowed_file_extensions: 'アップロード可能なファイル形式: %{extensions}'
         max_file_dimension: '最大ファイルサイズ: %{resolution} ピクセル'
         max_file_size: '最大ファイルサイズ: %{megabytes}MB'
+      files:
+        extension_allowlist: '対応しているフォーマット: %{extensions}'
       upload:
         labels:
           add_attachment: 添付ファイルを追加
@@ -810,6 +890,7 @@ ja:
           edit_image: 画像を編集
           error: エラー
           file_size_too_large: 'ファイルサイズが大きすぎます！最大ファイルサイズ: %{megabytes}MB'
+          filename: ファイル名
           remove: 削除
           replace: 置換
           save: 保存
@@ -818,8 +899,9 @@ ja:
           uploaded: アップロード済
           validating: 検証中...
           validation_error: 検証エラー
+        select_file: ファイルを選択
       upload_help:
-        dropzone: ここにファイルをドロップするか、クリックしてアップロードします
+        dropzone: ここにファイルをドロップするか、ボタンをクリックしてアップロードします
         explanation: '%{attribute} のガイド'
     gamification:
       all_badges_link: 利用可能なバッジをすべて表示
@@ -833,57 +915,47 @@ ja:
           name: フォロワー
           next_level_in: '%{score} 人があなたをフォローして次のレベルに到達しましょう！'
           unearned_another: この参加者にはまだフォロワーがいません。
-          unearned_own: フォロワーはまだいません。
+          unearned_own: まだフォロワーがいません。
         index:
           badge_title: "%{name} バッジ"
           how: どうやって稼ぐことができますか？
           page_description: バッジは、プラットフォームの参加者の行動と進行状況を認識します。 プラットフォームで発見し、参加し、交流し始めると、異なるバッジを獲得できます。 ここにバッジのリストといくつかの方法があります。
           title: バッジ
-        invitations:
-          conditions:
-            - 友達を招待するには、ユーザーページの「友達招待」リンクを使用してください
-            - 必要に応じて、送信するメッセージをカスタマイズします
-            - 招待状を送信して登録することでレベルアップします。
-          description: このバッジは、あなたが何人かの人を招待し、その人たちが少し時間をかけて%{organization_name} に登録し、参加者になったときに与えられます。%{organization_name} を他の人に知らしめ、コミュニティの拡大に貢献してくれたことに感謝します！
-          description_another: この参加者は %{score} 人を招待しました。
-          description_own: '%{score} 人を招待しました。'
-          name: 招待
-          next_level_in: '%{score} 人を招待して次のレベルに到達しましょう！'
-          unearned_another: この参加者はまだ誰も招待していません。
-          unearned_own: まだ誰も招待していません。
       description: バッジは、プラットフォームの参加者の行動と進行状況を認識します。 プラットフォームで発見し、参加し、交流し始めると、異なるバッジを獲得できます。
       level: レベル %{level}
       reached_top: このバッジの最高レベルに達しました。
+      title: バッジとは？
     group_admins:
       actions:
-        are_you_sure: 本当によろしいですか？グループから参加者を削除しません。
+        are_you_sure: 本当によろしいですか？この操作はグループから参加者を削除しません。
         demote_admin: 管理者を削除
       demote:
-        error: この参加者を管理者リストから削除する際に問題が発生しました
-        success: 参加者を管理者から削除しました
+        error: この参加者を管理者リストから削除する際に問題が発生しました。
+        success: 参加者が管理者から削除されました。
       index:
         current_admins: '現在の管理者:'
         manage_admins: 管理者の管理
     group_invites:
       accept:
-        error: この招待を受け入れる際に問題が発生しました
-        success: 招待を承認しました
+        error: 招待を承認する際に問題が発生しました。
+        success: 招待を承認しました。
       accept_invitation: 同意する
       accept_or_reject_group_invitations: '以下のグループがあなたを招待しています。リクエストを承認または拒否します。'
       index:
         invite: 招待
         invite_user: 参加者を招待
       invite:
-        error: この参加者の招待中に問題が発生しました
-        success: 参加者の招待に成功しました
+        error: 参加者を招待する際に問題が発生しました。
+        success: 参加者の招待に成功しました。
+      pending_invitations: 保留中のリクエスト
       reject:
-        error: この招待を拒否する際に問題が発生しました
-        success: 招待を却下しました
+        error: この招待を却下する際に問題が発生しました。
+        success: 招待を却下しました。
       reject_invitation: 拒否
     group_members:
       accept:
-        error: この参加リクエストの承認中に問題が発生しました
-        success: 参加リクエストが正常に承認されました
+        error: この参加リクエストを承認する際に問題が発生しました。
+        success: 参加リクエストを承認しました。
       actions:
         are_you_sure: よろしいですか？
         promote_to_admin: 管理者にする
@@ -892,36 +964,36 @@ ja:
         current_members_without_admins: '現在のメンバー (管理者なし):'
         manage_members: メンバーの管理
       promote:
-        error: この参加者を昇格する際に問題が発生しました
-        success: 参加者が正常に昇格しました
+        error: この参加者を昇格する際に問題が発生しました。
+        success: 参加者は正常に昇格しました。
       reject:
-        error: この参加リクエストを拒否する際に問題が発生しました
-        success: 参加リクエストが正常に拒否されました
+        error: この参加リクエストを却下する際に問題が発生しました。
+        success: 参加リクエストは却下されました。
       remove:
-        error: この参加者をグループから削除する際に問題が発生しました
-        success: 参加者がグループから削除されました
+        error: この参加者をグループから削除する際に問題が発生しました。
+        success: 参加者がグループから削除されました。
     groups:
       actions:
         are_you_sure: よろしいですか？
       create:
-        error: グループの作成中に問題が発生しました
-        success: グループを作成しました
+        error: グループの作成中に問題が発生しました。
+        success: グループを作成しました。
       edit:
         edit_user_group: グループを編集
         update_user_group: グループを更新
       form:
-        document_number_help: ダッシュやスペースを使用しない
+        document_number_help: ダッシュやスペースは使用しないでください。
         email_help: 組織、団体、集団、グループなどのEメールアドレスです。
         fill_in_for_verification: 'グループを認証させたい場合は、以下の項目を入力してください。'
         name_help: 組織名、団体名、団体名、グループ名など。
         nickname_help: 団体名、団体名、団体名、団体名などスペースやアクセントは使用しないでください。
-        phone_help: ダッシュやスペースを使用しない
+        phone_help: ダッシュやスペースは使用しないでください。
       join:
-        error: グループへの参加中に問題が発生しました
+        error: グループに参加する際に問題が発生しました。
         success: 参加リクエストは正常に作成されました。管理者はあなたをグループに承認する前にリクエストを確認します。
       leave:
-        error: グループから脱退中に問題が発生しました
-        last_admin: あなたが最後の管理者であるため、このグループから自分自身を削除することはできません。グループから脱退するためには、別のメンバーを管理者にしてください。
+        error: グループを離れる際に問題が発生しました。
+        last_admin: あなたが唯一の管理者であるため、このグループから自分自身を削除することはできません。グループから離脱するには他のメンバーを管理者にしてください。
         success: グループを放棄しました。
       members:
         accept_or_reject_join_requests: '次のユーザーがこのグループに参加するために申請しました。リクエストを承認または拒否します。'
@@ -931,14 +1003,14 @@ ja:
         create_user_group: グループを作成
         new_user_group: 新しいグループ
         subtitle: グループを作成し、グループレベルに参加するために他のユーザーを招待します。
-      no_user_groups: まだどのグループにも属していません。
+      no_user_groups: どのグループにも属していません。
       roles:
         admin: 管理者
         creator: 管理者
         member: メンバー
       update:
-        error: グループの更新中に問題が発生しました
-        success: グループを更新しました
+        error: グループを更新する際に問題が発生しました。
+        success: グループを更新しました。
     help:
       main_topic:
         default_page:
@@ -947,19 +1019,19 @@ ja:
         description: '%{organization} についてもっと読む'
         title: 一般的なヘルプ
     last_activities:
-      activities:
-        no_activities_warning: アクティビティがありません
       all: すべてのアクティビティ種別
       index:
         last_activity: 最後のアクティビティ
-        resource_type: タイプ
+      name: 最後のアクティビティ
+      no_activities_warning: このアクティビティ種別に表示するエントリがありません。
+    linked_resource_from:
+      included_in: 含まれるリスト
     links:
       invalid_url: 無効な URL
       warning:
         body_1: あなたは外部リンクにアクセスしようとしています。外部サイトの内容にはご注意ください。
         body_2: サイトにアクセスする前に、訪問しようとしているリンクをチェックし、安全なサイトであるか確認してください。
         cancel: キャンセル
-        close_modal: 閉じる
         proceed: 続行
         title: 外部リンクを開く
     log:
@@ -968,8 +1040,10 @@ ja:
         create_with_space: "%{user_name} が %{resource_name} に %{space_name} を作成しました"
         delete: "%{user_name} が %{resource_name} を削除しました"
         delete_with_space: "%{user_name} が %{resource_name} で %{space_name} を削除しました"
+        publish_with_space: "%{user_name} が %{space_name} の %{resource_name} を公開しました"
         unknown_action: "%{user_name} が %{resource_name} にいくつかのアクションを実行しました"
         unknown_action_with_space: "%{user_name} が %{resource_name} で %{space_name} にアクションを実行しました"
+        unpublish_with_space: "%{user_name} が %{space_name} の %{resource_name} を非公開にしました"
         update: "%{user_name} が %{resource_name} を更新しました"
         update_permissions_with_space: "%{user_name} が %{space_name} の %{resource_name} の権限を更新しました"
         update_with_space: "%{user_name} さんが %{resource_name} で %{space_name} を更新しました"
@@ -1000,37 +1074,37 @@ ja:
       conversation_mailer:
         comanagers_new_conversation:
           admin_in_group: あなたは %{group}の管理者であるため、これを受け取っています。
-          greeting: Hi, %{recipient}!
+          greeting: '%{recipient} さん、こんにちは。'
           intro: "%{manager} が %{group}という名前で新しい会話を開始しました。こちらをクリックしてください:"
-          outro: お楽しみください!
+          outro: プラットフォームをお楽しみください!
           subject: "%{manager} が %{group} として新しい会話を開始しました"
         comanagers_new_message:
           admin_in_group: あなたは %{group}の管理者であるため、これを受け取っています。
-          greeting: Hi, %{recipient}!
+          greeting: '%{recipient} さん、こんにちは。'
           intro: "%{manager} は、 %{group}という名前の新しいメッセージを会話に投稿しました。それらを表示するにはここをクリックしてください："
-          outro: お楽しみください!
+          outro: プラットフォームをお楽しみください!
           subject: "%{manager} は %{group} として新しいメッセージを送信しました"
         new_conversation:
-          greeting: Hi, %{recipient}!
+          greeting: '%{recipient} さん、こんにちは。'
           intro: "%{sender} があなたと新しい会話を開始しました。こちらをクリックしてください:"
-          outro: お楽しみください!
+          outro: プラットフォームをお楽しみください!
           subject: "%{sender} があなたと会話を開始しました"
         new_group_conversation:
           admin_in_group: あなたは %{group}の管理者であるため、これを受け取っています。
-          greeting: Hi, %{recipient}!
+          greeting: '%{recipient} さん、こんにちは。'
           intro: "%{sender} がグループ %{group}との新しい会話を開始しました。こちらをクリックしてください:"
-          outro: お楽しみください!
+          outro: プラットフォームをお楽しみください!
           subject: "%{sender} が %{group} と会話を開始しました"
         new_group_message:
           admin_in_group: あなたは %{group}の管理者であるため、これを受け取っています。
-          greeting: Hi, %{recipient}!
+          greeting: '%{recipient} さん、こんにちは。'
           intro: "%{sender} がグループ %{group}との会話に新しいメッセージを投稿しました。こちらをクリックしてください:"
-          outro: お楽しみください!
+          outro: プラットフォームをお楽しみください!
           subject: "%{group} に %{sender} からの新しいメッセージがあります"
         new_message:
-          greeting: Hi, %{recipient}!
+          greeting: '%{recipient} さん、こんにちは。'
           intro: "%{sender} さんがあなたの会話に新しいメッセージを投稿しました。こちらをクリックしてください："
-          outro: お楽しみください!
+          outro: プラットフォームをお楽しみください!
           subject: '%{sender} からの新しいメッセージがあります'
       conversations:
         add_conversation_users:
@@ -1038,42 +1112,39 @@ ja:
           add_users_placeholder: 検索...
           modal_title: 新しい会話
           no_results: 結果がありません
-          participant_with_disabled_message_reception: この参加者はメッセージの受信を無効にしています
-        conversation:
-          show: '%{sender} との会話を表示'
+          participant_with_disabled_message_reception: この参加者はプライベートメッセージの受信を希望していません．
         create:
-          error: 会話が開始されませんでした。後でもう一度お試しください。
+          error: 会話が開始されませんでした。後ほど改めてお試しください。
         error_modal:
           close: ウィンドウを閉じる
           correct_errors: エラーを修正して、再度お試しください
           intro: 'あなたのメッセージには次のエラーがありました:'
           ok: OK
         index:
-          ago: 前
-          close: モーダルを閉じる
-          from: '差出人:'
-          groups: 自分のグループ
-          last_message: 最後のメッセージ
           new_conversation: 新しい会話
           next: 次へ
-          no_conversations: 会話がまだありません
+          no_conversations: まだ会話がありません。
           title: 会話
-          to: 宛先
-        reply:
+        reply_form:
           placeholder: あなたの返信...
           send: 送信
-          title: 返信
         show:
           back: すべての会話に戻る
           chat_with: 会話
-          deleted_accounts: 削除されたアカウントと会話することはできません。
+          deleted_accounts: 削除されたアカウントとは会話できません。
           not_allowed: この参加者はダイレクトメッセージを受け付けません。
           title: '%{usernames} との会話'
         start:
+          placeholder: あなたのメッセージ...
           send: 送信
-          title: 会話を開始
         update:
-          error: エラーのためメッセージは送信されませんでした
+          error: エラーが発生したため、メッセージは送信されませんでした。
+    metadata:
+      progress:
+        active: アクティブ
+        finished: '完了: %{end_date}'
+        not_started: まだ開始していません
+        remaining: "残り %{time_distance}"
     metrics:
       download:
         csv: ダウンロードデータ(CSV)
@@ -1091,8 +1162,9 @@ ja:
         title: 参加者
     newsletter_mailer:
       newsletter:
-        note: '%{organization_name}でニュースレターを購読しているため、このメールを受信しました。 <a href="%{link}">通知ページ</a> で設定を変更できます。'
-        see_on_website: このメールは正しく表示されませんか？ <a href="%{link}" target="_blank">ウェブサイト</a> で確認してください。
+        no_reply_notice: このメールは、メールを受信できない通知専用メールアドレスから送信されました。このメッセージには返信しないでください。
+        note: '%{organization_name} のニュースレターを購読者されているため、このメールを受け取りました。通知設定は<a href="%{link}">通知ページ</a>で変更できます。'
+        see_on_website: このメールを正しく見ることができない場合は <a href="%{link}" target="_blank" class="see-on-website">ウェブサイト</a> で確認してください。
         unsubscribe: この種類のメールの受信を拒否するには、 <a href="%{link}" target="_blank" class="unsubscribe">購読解除</a>.
     newsletter_templates:
       basic_only_text:
@@ -1116,15 +1188,15 @@ ja:
     newsletters:
       unsubscribe:
         check_subscription: 設定を変更したい場合は、 <a href="%{link}" target="_blank">設定ページ</a> で設定できます。
-        error: 購読解除中に問題が発生しました
+        error: 購読解除中に問題が発生しました。
         success: 購読解除に成功しました。
         token_error: リンクの有効期限が切れました。
         unsubscribe: 購読解除
     newsletters_opt_in:
       unathorized: 申し訳ありませんが、このリンクは使用できません。
       update:
-        error: 問題が発生しました
-        success: ニュースレターの設定を更新しました
+        error: ニュースレター設定の保存中に問題が発生しました。
+        success: ニュースレター設定を更新しました。
     newsletters_opt_in_mailer:
       notify:
         body_1: 個人データの処理とその保護は、私たち全員にとってますます重要になっています。 2018年5月25日の新しい一般データ保護規則(GDPR)により、個人は個人データをより良く管理できます。 このため、 %{organization_name} の活動に関する関連情報を送信し続けるには、お客様の "OK" が必要です。
@@ -1158,8 +1230,8 @@ ja:
     notifications_settings:
       show:
         administrators: 管理者
-        allow_public_contact: フォローしていない人からもダイレクトメッセージを受信する
-        allow_push_notifications: プッシュ通知を取得して、プラットフォームにいないときの動作を確認します。いつでもオフにすることができます。
+        allow_public_contact: 私をフォローしていないユーザーからでもダイレクトメッセージを送信できます
+        allow_push_notifications: プラットフォーム上にいないときに何が起きているかを知るためにプッシュ通知を受け取ります。いつでもオフにできます。
         direct_messages: ダイレクトメッセージを受信する
         email_on_moderations: 私はモデレーションの報告がなされたたびに毎回メールを受け取りたいです。
         everything_followed: 自分がフォローしているすべて
@@ -1175,26 +1247,22 @@ ja:
         notifications_sending_frequency: 通知メールを受信する頻度は？
         own_activity: 誰かが提案にコメントしたり、私に言及したりした時など、自分自身の活動
         push_notifications: プッシュ通知
-        push_notifications_reminder: プラットフォームから通知を受け取るには、まずブラウザの設定で許可する必要があります。
+        push_notifications_reminder: プラットフォームから通知を受け取るには、まずブラウザの設定で通知を許可する必要があります。
         receive_notifications_about: 通知を受け取りたい
         update_notifications_settings: 変更を保存
       update:
         error: 通知設定の更新中に問題が発生しました。
         success: 通知設定が正常に更新されました。
     offline:
+      name: オフライン
       show:
-        message: 現在オフラインのようです。後でもう一度お試しください。
+        message: 現在オフラインのようです。後ほど改めてお試しください。
         retry: 再試行
     open_data:
       not_available_yet: オープンデータファイルはまだ利用できません。数分後にもう一度お試しください。
-    own_user_groups:
-      index:
-        pending: 保留中
-        rejected: 拒否
-        verified: 確認済み
     pad_iframe:
       disclaimer: このパッドの内容は登録ユーザーによって書かれ、意見を表明します。 %{organization} はその内容について責任を負うことはできません。
-      explanation: このパッドを使用すると、ミーティング中にノートを取ることができ、その後すぐにメモを書き留めることができます。
+      explanation: ミーティング中に共同でメモを取るためにこのパッドを使ってください。後で議事録が書き起こしやすくなります。
       pad: パッド
     pages:
       home:
@@ -1213,15 +1281,14 @@ ja:
           register: 登録
         hero:
           participate: 参加
+          participate_title: プラットフォームのプロセスに参加する
           welcome: '%{organization} へようこそ！'
-        metrics:
-          headline: 指標
         statistics:
           headline: '%{organization} の現在の状態'
         sub_hero:
           register: 登録
+          register_title: サインアップしてアカウントを作成
       index:
-        read_more: もっと読む
         standalone_pages: ページ
         subheading: '%{name} のヘルプページをナビゲートします'
         title: ヘルプ
@@ -1230,33 +1297,35 @@ ja:
         metrics:
           headline: 指標
           link: すべての指標を表示
-      terms_and_conditions:
+      terms_of_service:
         accept:
-          error: 利用規約を受け入れる際に問題が発生しました。
-          success: 利用規約に同意しました。
+          error: 利用規約に同意する際に問題が発生しました。
+          success: 素晴らしい！利用規約に同意しました。
         form:
-          agreement: 上記の規約に同意する
+          agreement: これらの規約に同意します
           legend: 利用規約に同意する
         refuse:
-          modal_body: 拒否する場合、プラットフォームをご利用いただけなくなります。 <a href="%{download_your_data_path}">データをダウンロード</a> または <a href="%{delete_path}">アカウントを削除</a> することができます。
+          modal_body: 拒否された場合、プラットフォームを使用できなくなりますが、<a href="%{download_your_data_path}">データ</a> をダウンロードしたり、 <a href="%{delete_path}">アカウントを削除</a> することはできます。
           modal_btn_continue: 利用規約に同意して続ける
           modal_btn_exit: 後で確認する
-          modal_button: 同意しない
-          modal_close: モーダルを閉じる
+          modal_button: 利用規約に同意しない
           modal_title: 更新された利用規約を本当に拒否しますか?
         required_review:
-          alert: サービス利用規約を更新しました。ご確認ください。
-          body: サービス利用規約の更新を確認してください。そうでなければ、プラットフォームを使用することはできません。
-          title: '必須：サービス利用規約の更新を確認する'
+          alert: 利用規約を更新しました。ご確認ください。
+          body: 利用規約の更新内容を確認してください。確認しない場合、プラットフォームを使用することはできません。
+          title: '必須: 利用規約の更新を確認する'
     participatory_space_private_users:
       not_allowed: このコンテンツを表示する権限がありません
+    passwords:
+      update:
+        error: パスワードの更新中に問題が発生しました。
+        success: パスワードを更新しました。
     profile:
-      deleted: 参加者が削除されました
-      inaccessible_message: このプロファイルは利用規約違反によりアクセスできません
-      view: 表示
+      deleted: 参加者を削除しました
+      inaccessible_message: このプロファイルは利用規約違反のためアクセスできません！
     profiles:
-      default_officialization_text_for_user_groups: このグループは公に検証されており、その名前は実名と一致するように検証されています
-      default_officialization_text_for_users: この参加者は公的に検証されます。彼/彼女の名前または役割が実名とロールに対応していることが確認されています。
+      default_officialization_text_for_user_groups: このグループは公的に検証されており、その名前が実際の名前に対応していることが検証されています。
+      default_officialization_text_for_users: この参加者は公的に検証されます。彼/彼女の名前または役割が実名・実際の役割に対応していることが確認されています。
       show:
         activity: アクティビティ
         badges: バッジ
@@ -1267,18 +1336,29 @@ ja:
         members: メンバー
         officialized: 正規参加者
         send_private_message: プライベートメッセージを送信
-        timeline: タイムライン
-        view_full_profile: 全プロファイルを表示
       sidebar:
         badges:
           info: バッジはプラットフォームで特定のアクティビティを実行することで獲得できます。
           title: バッジ
       user:
-        confirmation_instructions_sent: メール確認の手順が送信されました
+        actions:
+          create_user_group: グループを作成
+          disabled_message: メッセージ
+          edit_profile: プロフィールを編集
+          edit_user_group: グループプロフィールを編集
+          invite_user: 参加者を招待
+          join_user_group: グループへの参加リクエスト
+          leave_user_group: グループから退出する
+          manage_user_group: グループを管理
+          manage_user_group_admins: 管理者の管理
+          manage_user_group_users: メンバーの管理
+          message: メッセージ
+          resend_email_confirmation_instructions: 確認メールを再送する
+        confirmation_instructions_sent: メール確認の手順を送信しました。
         create_user_group: グループを作成
         edit_profile: プロフィールを編集
         edit_user_group: グループプロファイルを編集
-        fill_in_email_to_confirm_it: グループのメールアドレスを入力して確認してください
+        fill_in_email_to_confirm_it: グループのメールアドレスを入力して確認してください。
         invite_user: 参加者の招待
         join_user_group: グループに参加するリクエスト
         leave_user_group: グループから退出する
@@ -1324,26 +1404,24 @@ ja:
       scopes_picker_input:
         select_scope: 'スコープを選択 (現在: %{current})'
     search:
+      name: 検索
       results: 検索結果
       results_found_for_term: '%{count} 検索結果: "%{term}"'
       term_input_placeholder: 検索
     searches:
       filters:
-        back: 結果に戻る
         jump_to: 'ジャンプ先:'
+        search: 検索
         state:
           active: アクティブ
           all: すべて
           future: 未来
           past: 過去
       filters_small_view:
-        close_modal: モーダルを閉じる
         filter: フィルター
+        filter_and_search: フィルターと検索
         filter_by: フィルター
-        unfold: 展開する
       results:
-        results:
-          other: "%{count} 件の結果"
         view_all: すべて表示 (%{count})
     security:
       selfxss_warning:
@@ -1355,10 +1433,6 @@ ja:
         close_modal: ウィンドウを閉じる
         ok: OK
         title: 確定
-      embed_modal:
-        close_window: ウィンドウを閉じる
-        embed: このコードをページに貼り付けてください
-        embed_link: 埋め込み
       extended_navigation_bar:
         more: もっと見る
         unfold: 展開する
@@ -1369,7 +1443,9 @@ ja:
         already_reported: このコンテンツはすでに報告されており、管理者が確認します。
         close: 閉じる
         description: このコンテンツは不適切ですか？
-        does_not_belong: 違法行為、個人情報、または %{organization_name} に属していないと思われる内容が含まれています。
+        does_not_belong: 違法行為、自殺予告、個人情報、または %{organization_name} に属していないと思われる内容が含まれています。
+        hide: 非表示
+        hide_content: このコンテンツを非表示
         offensive: 差別的な内容、誹謗中傷などの不適切な内容が含まれています。
         reason: 理由
         report: 報告
@@ -1377,28 +1453,31 @@ ja:
         title: 不適切な内容を報告する
       flag_user_modal:
         already_reported: このコンテンツはすでに報告されており、管理者が確認します。
+        block: この参加者をブロック
         close: 閉じる
         description: ユーザーに不適切なのはどの点ですか？
-        does_not_belong: 違法な行為、自殺の脅威、個人情報、または %{organization_name} に属していないと思われる何かが含まれています。
+        does_not_belong: 違法行為、自殺の脅威、個人情報、または %{organization_name} に属していないと思われる何かが含まれています。
+        hide: すべての内容を隠す
         offensive: 人種差別、性差別、中傷、個人攻撃、死の脅威、自殺要求や何かしらの形態のヘイトスピーチが含まれています。
         report: 報告
         spam: 虚偽情報、広告、詐欺やスクリプトボットが含まれています。
         title: 不適切なユーザーを報告
       floating_help:
-        close: ヘルプを閉じる
         help: ヘルプ
       follow_button:
-        sign_in_before_follow: このアクションを実行する前にログインしてください
+        log_in_before_follow: このアクションを実行する前にログインしてください
       login_modal:
-        close_modal: ウィンドウを閉じる
-        please_sign_in: ログインしてください
+        please_log_in: ログインしてください
         sign_up: 新規登録
       mentions_modal:
         remove_recipient: 受信者 %{name} を削除
       participatory_space_filters:
         filters:
+          area: エリア
           areas: エリア
+          scope: スコープ
           select_an_area: エリアを選択
+      progress: 進捗状況
       public_participation:
         public_participation: 参加を公開する
       reference:
@@ -1410,13 +1489,13 @@ ja:
         label: 'ページごとの結果:'
         title: ページあたりの結果数を選択
       share_modal:
-        close_window: ウィンドウを閉じる
         copy_share_link: コピー
         copy_share_link_clarification: 共有リンクをクリップボードにコピー
         copy_share_link_copied: コピーしました
         copy_share_link_message: リンクをクリップボードにコピーしました。
         share: 共有
         share_link: リンクを共有
+        share_to: '%{service} に共有'
     statistics:
       comments_count: コメント
       endorsements_count: オススメ
@@ -1435,45 +1514,27 @@ ja:
       show_translated: 機械翻訳されたテキストを表示する
     user_activity:
       index:
-        no_activities_warning: この参加者はまだアクティビティを行っていません。
+        no_activities_warning: この参加者にはまだアクティビティがありません。
     user_contact_disabled: この参加者はダイレクトメッセージを受け付けません。
     user_conversations:
       create:
-        error: メッセージを作成できませんでした。後でもう一度お試しください。
+        error: メッセージを作成できませんでした。後ほど改めてお試しください。
         existing_error: メッセージを作成できませんでした。会話はすでに存在します。今すぐやり直してください。
         success: 会話が正常に開始されました！
       index:
-        add_max_users: '会話にユーザーを追加: 最大 9 人のユーザー'
-        add_users_placeholder: 検索...
-        close: 閉じる
         conversations_info: 会話はプライベートです。他の誰も見ることはできません。会話はプラットフォームに登録されている参加者またはグループで開始できます。
-        from: '差出人:'
-        last_message: 最後のメッセージ
-        modal_title: 新しい会話
-        new_conversation: 新しい会話
-        next: 次へ
         no_conversations_warning: 会話はまだありません。
-        no_results: 結果がありません
-        participant_with_disabled_message_reception: この参加者はメッセージの受信を無効にしています
         time_ago: "%{time} 前"
-      new:
-        title: 会話を開始
       reply:
         placeholder: あなたの返信...
         send: 送信
-        title_reply: 返信
-      show:
-        back: すべての会話を表示
-        deleted_accounts: 削除されたアカウントと会話することはできません。
-        not_allowed: このユーザーはこれ以上のダイレクトメッセージを受け付けません。
-        title: '%{usernames} との会話'
       update:
         error: メッセージが送信されませんでした。後でもう一度お試しください。
     user_interests:
       show:
         my_interests: 興味のあるもの
-        no_scopes: この組織にはまだ範囲がありません！
-        select_your_interests: 興味のあるトピックを選択すると、プロフィールのタイムラインタブで関連するイベントを受け取ることができます。
+        no_scopes: この組織にはスコープが設定されていません
+        select_your_interests: プロフィールのタイムラインタブに関連するイベントを受け取るために、興味のあるトピックを選択してください。
         update_my_interests: 興味を更新する
       update:
         error: 更新中に問題が発生しました。
@@ -1491,31 +1552,17 @@ ja:
         back_to_resource: 戻る
         changes_at_title: 変更 "%{title}"
         number_of_versions: バージョン
-        show_all_versions: すべてのバージョンを表示
-        version_author: バージョンの作成者
         version_created_at: バージョン作成日時
-        version_number: バージョン番号
-        version_number_out_of_total: "%{current_version} / %{total_count}"
-    version_author:
-      show:
-        deleted: 削除された参加者
     versions:
       resource_version:
         of_versions: "/ %{number}"
         see_other_versions: 他のバージョンを見る
         version: バージョン %{number}
-    versions_list:
-      show:
-        back_to_resource: 戻る
-        changes_at_title: 変更 "%{title}"
-        number_of_versions: バージョン
-        title: バージョン
     versions_list_item:
-      back: すべてのバージョンを表示
       show:
         version_index: バージョン %{index}
     welcome_notification:
-      default_body: <p>こんにちは {{name}} さん, {{organization}} へご参加いただきありがとうございます。</p><ul><li>もし、このサイトの使い方は、 <a href="{{help_url}}">ヘルプ</a> セクションをご参照ください。</li><li>目を通していただけると、最初のバッジを獲得できます。<a href="{{badges_url}}">全てのバッジの一覧</a> から、この {{organization}} への参加で獲得できるバッジを見ることができます。</li><li>他の人と一緒に参加し、この {{organization}} へ参加した経験をシェアしましょう。 提案を作り、コメントし、議論し、共通善への貢献の仕方について考え、議論に説得力をもたせ、主張を聞いたり読んだりしながら納得し、具体的かつ直接的な方法であなたの考えを表明し、忍耐と決断を持って対応し、 自らの考えを守り、他人の考えを取り入れて協力し合いましょう。</li></ul>
+      default_body: <p>{{name}} さん、{{organization}} への参加ありがとうございます！</p><ul><li>このサイトで何ができるかを概観したい場合は、<a href="{{help_url}}">ヘルプ</a>セクションをご覧ください。</li><li>目を通していただけると、最初のバッジを手に入れることができます。こちらは{{organization}} で参加することで手に入るすべてのバッジの<a href="{{badges_url}}">リスト</a>です。</li><li>そして、他の人々と一緒に{{organization}} に参加した経験を共有しましょう。提案を行い、コメントをし、議論を行い、共通の利益に貢献する方法を考え、説得するための根拠を提供し、読んで説得され、具体的かつ直接的に自分の意見を表現し、忍耐強く決定的に応答し、自分の考えを守り、協力して他の人々のアイデアに参加するために心を開いてください。</li></ul>
       default_subject: '{{organization}} に参加していただきありがとうございます！'
     wizard_step_form:
       wizard_aside:
@@ -1538,8 +1585,8 @@ ja:
       last_attempt: アカウントがロックされる前にもう1回試行があります。
       locked: あなたのアカウントはロックされています。
       not_found_in_database: '%{authentication_keys} またはパスワードが無効です。'
-      timeout: セッションの有効期限が切れました。続行するには再度ログインしてください。
-      unauthenticated: 続行する前にログインまたはユーザ登録する必要があります。
+      timeout: セッションの有効期限が切れました。再度ログインしてください。
+      unauthenticated: 続行する前にログインまたはサインアップする必要があります。
     invitations:
       edit:
         header: アカウントの作成を完了する
@@ -1563,7 +1610,7 @@ ja:
         subject: 登録のご案内（メールアドレスの確認）
       email_changed:
         greeting: こんにちは、 %{recipient} さん!
-        message: メールアドレスが %{email}に変更されていることをお知らせするためにご連絡しています。
+        message: あなたのメールアドレスが %{email} に変更されていることをお知らせします。
         subject: メールアドレスを変更しました
       invitation_instructions:
         accept: 招待を承認する
@@ -1571,38 +1618,37 @@ ja:
         decline: 招待を拒否
         hello: こんにちは、 %{email} さん。
         ignore: |-
-          招待を受け入れたくない場合は、このメールを無視してください。<br />
-          上記のリンクにアクセスし、アカウントIDとパスワードを設定するまで、あなたのアカウントは作成されません。
+          招待を受け入れたくない場合は、このメールを無視してください。<br />上記のリンクにアクセスし、アカウントIDとパスワードを設定するまで、あなたのアカウントは作成されません。
         invited_you_as_admin: "%{invited_by} さんが %{application}の管理者としてあなたを招待しました。以下のリンクから承認できます。"
         invited_you_as_private_user: "%{invited_by} が %{application}の非公開参加者としてあなたを招待しました。以下のリンクから承認できます。"
-        someone_invited_you: 誰かが %{application}にあなたを招待しました。以下のリンクから受け入れることができます。
-        someone_invited_you_as_admin: 誰かが %{application}の管理者としてあなたを招待しました。以下のリンクから承認できます。
+        someone_invited_you: '%{application} にあなたを招待しました。以下のリンクから受け入れることができます。'
+        someone_invited_you_as_admin: '%{application} の管理者としてあなたを招待しました。以下のリンクから承認できます。'
         someone_invited_you_as_private_user: '%{application}の非公開参加者としてあなたを招待しました。以下のリンクから承認できます。'
         subject: 招待の説明
       invite_admin:
-        subject: '%{organization} の管理に招待されました'
+        subject: '%{organization} を管理するために招待されています'
       invite_collaborator:
-        subject: あなたは %{organization} でコラボレーションするよう招待されています
+        subject: あなたは %{organization} で共同作業に招待されています
       invite_private_user:
-        subject: '%{organization} のプライベート参加プロセスに招待されました'
+        subject: あなたは %{organization} のプライベート参加プロセスに招待されています
       organization_admin_invitation_instructions:
-        subject: '%{organization} の管理に招待されました'
+        subject: '%{organization} を管理するために招待されています'
       password_change:
         greeting: こんにちは、 %{recipient} さん!
-        message: パスワードが変更されたことをお知らせするために連絡しています。
+        message: パスワードが変更されたことをお知らせします。
         subject: パスワードの変更
       reset_password_instructions:
         action: パスワードを変更する
         greeting: こんにちは、 %{recipient} さん!
         instruction: 誰かがあなたのパスワードを変更するためのリンクを要求しています、そしてあなたは下のリンクを介してこれを行うことができます。
-        instruction_2: これをリクエストしていない場合は、このメールを無視してください。
-        instruction_3: 上記のリンクにアクセスして新しいパスワードを作成するまで、パスワードは変更されません。
+        instruction_2: あなた自身がこのリクエストを行っていない場合は、このメールは無視していただいて構いません。
+        instruction_3: 上記のリンクにアクセスして新しいパスワードを作成するまで、現在のパスワードは変更されません。
         subject: パスワードリセットの手順
       unlock_instructions:
         action: アカウントのロックを解除
         greeting: こんにちは、 %{recipient} さん!
         instruction: 'アカウントのロックを解除するには、下のリンクをクリックしてください:'
-        message: あなたのアカウントはログインに規定回数以上失敗したため、ロックされています。
+        message: あなたのアカウントは、ログインに失敗した回数が多すぎるためロックされています。
         subject: 説明のロックを解除する
     omniauth_callbacks:
       failure: '「 %{kind} 」のため、%{reason}から認証できませんでした。'
@@ -1613,25 +1659,18 @@ ja:
         confirm_new_password: 新しいパスワードを確認
         new_password: 新しいパスワード
         password_help: "半角英数字%{minimun_characters}文字以上で入力してください。単純すぎてはいけません（例：123456）。アカウントIDやメールアドレスと異なる必要があります。"
+        password_help_admin: "%{minimun_characters} 文字以上であり、過度に一般的ではない文字列 (例: 123456)ではなく, あなたのニックネームやあなたの電子メール、そしてあなたの古いパスワードと異なる文字列を指定してください。"
+        title: パスワードの変更
       new:
         forgot_your_password: パスワードをお忘れですか？
         send_me_reset_password_instructions: パスワードリセット手順を送信してください
-      no_token: このページにアクセスするには、パスワードリセットメールからアクセスします。 パスワードリセットメールからの場合は、提供されたURLを使用したことを確認してください。
+      no_token: パスワードリセットメールからのアクセスでない場合、このページにアクセスすることはできません。パスワードリセットメールからのアクセスの場合は、提供された完全なURLを使用したことを確認してください。
       send_instructions: 数分でパスワードをリセットする方法が記載されたメールが届きます。
       send_paranoid_instructions: 当社のデータベースにあなたのメールアドレスが存在する場合、数分後にあなたのメールアドレスにパスワード回復リンクが届きます。
       updated: パスワードが正常に変更されました。ログインしています。
       updated_not_active: パスワードが正常に変更されました。
     registrations:
       destroyed: お客様のアカウントは正常にキャンセルされました。しばらくお待ちください。
-      edit:
-        are_you_sure: よろしいですか？
-        cancel_my_account: アカウントをキャンセルする
-        currently_waiting_confirmation_for_email: '現在確認待ち: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: 変更したくない場合は空白のままにしてください
-        title: '%{resource} を編集'
-        unhappy: 不満？
-        update: 更新
-        we_need_your_current_password_to_confirm_your_changes: 変更を確認するには現在のパスワードが必要です
       new:
         sign_up: 新規登録
       signed_up: ようこそ！正常に登録完了しました。
@@ -1641,19 +1680,19 @@ ja:
       update_needs_confirmation: アカウントを正常に更新しましたが、新しいメールアドレスを確認する必要があります。 メールを確認し、新しいメールアドレスを確認するためのリンクに従ってください。
       updated: アカウントが正常に更新されました。
     sessions:
-      already_signed_out: 正常にログアウトしました。
+      already_signed_out: ログアウトしました。
       new:
-        sign_in: ログイン
-      signed_in: 正常にログインしました。
-      signed_out: 正常にログアウトしました。
+        log_in: ログイン
+      signed_in: ログインしました。
+      signed_out: ログアウトしました。
     shared:
       links:
         back: 戻る
         didn_t_receive_confirmation_instructions: ユーザ登録確認メールが届かない方はこちら
         didn_t_receive_unlock_instructions: ロック解除の手順を送信したい方はこちら
         forgot_your_password: パスワードをお忘れですか？
-        sign_in: ログイン
-        sign_in_with_provider: '%{provider} でログイン'
+        log_in: ログイン
+        log_in_with_provider: '%{provider} でログイン'
         sign_up: 新規登録
       minimum_password_length:
         other: "(%{count} 文字以上)"
@@ -1666,25 +1705,113 @@ ja:
   doorkeeper:
     scopes:
       public: 公開情報
+  editor:
+    extensions:
+      image:
+        altLabel: 画像の代替テキスト
+        nodeView:
+          resizer:
+            control:
+              resize: 画像のサイズを変更 (%position%)
+            position:
+              bottomLeft: 左下コーナー
+              bottomRight: 右下コーナー
+              topLeft: 左上コーナー
+              topRight: 右上コーナー
+        uploadError: ファイルのアップロードに失敗しました。
+      link:
+        bubbleMenu:
+          edit: 編集
+          remove: 削除
+          url: URL
+        hrefLabel: リンク URL
+        targetLabel: ターゲット
+        targets:
+          blank: 新しいタブ
+          default: 標準 (同じタブ)
+      videoEmbed:
+        titleLabel: タイトル
+        urlLabel: 動画URL
+    inputDialog:
+      buttons:
+        cancel: キャンセル
+        remove: 削除
+        save: 保存
+      close: 閉じる
+    toolbar:
+      control:
+        blockquote: 引用
+        bold: 太字
+        bulletList: 順序なしリスト
+        codeBlock: コードブロック
+        common:
+          eraseStyles: スタイルの消去
+        hardBreak: 改行
+        heading: テキストのスタイル
+        image: 画像
+        indent:
+          indent: インデントあり
+          outdent: インデントなし
+        italic: イタリック
+        link: リンク
+        orderedList: 順序付きリスト
+        underline: アンダーライン
+        videoEmbed: ビデオの埋め込み
+      textStyle:
+        heading: 見出し %level%
+        normal: 標準
+    upload:
+      uploadedFile: アップロードされたファイル
+  emojis:
+    button: 絵文字を追加
+    categories:
+      activities: アクティビティ
+      animals-nature: 動物・自然
+      custom: ユーザー定義
+      flags: 国旗
+      food-drink: フード・ドリンク
+      objects: 物
+      people-body: 人・体
+      recents: 最近使用したもの
+      smileys-emotion: スマイリー・エモティコン
+      symbols: シンボル
+      travel-places: 旅行・場所
+    error:
+      load: 絵文字の読み込みに失敗しました
+    recents:
+      clear: 最近の絵文字を消去
+      none: 絵文字がまだ選択されていません。
+    retry: やり直す
+    search:
+      _: 絵文字を検索...
+      clear: 検索をクリア
+      error: 絵文字の検索に失敗しました
+      not_found: 検索結果がありません
   errors:
     messages:
-      already_confirmed: が確認されました。ログインしてみてください
+      allowed_file_content_types: '次の拡張子を持つファイルのみが許可されています: %{types}'
+      already_confirmed: すでに確認済みです。ログインしてみてください。
+      blank: 空白にできません
+      cannot_be_blank: 空白にできません
+      confirmation: '%{attribute} と一致しません'
       confirmation_period_expired: '%{period}以内に確認する必要があります。新しいものをリクエストしてください'
       content_type_allowlist_error: ファイルの種類が無効です
-      cycle_detected: スコープの親は子孫ではありえません
+      cycle_detected: スコープの親は子孫の一人ではありえません
+      empty: 空にできません
       expired: 有効期限が切れています。新しいものをリクエストしてください
       file_size_is_less_than_or_equal_to: ファイルサイズは %{count} 以下でなければなりません
       invalid_time_zone: 有効なタイムゾーンではありません
       long_words: には長すぎる単語が含まれています（35文字以上）
       must_start_with_caps: 先頭は大文字でなければなりません
-      nesting_too_deep: サブカテゴリの中にあることはできません
+      nesting_too_deep: サブカテゴリ内にすることはできません
       not_found: 見つかりませんでした。以前に登録しましたか？
       not_locked: ロックされていません
       not_saved:
         other: 'リクエストの処理中に複数のエラーが発生しました:'
       too_many_marks: '連続する句読点が多すぎます (例: !, ?)'
       too_much_caps: 大文字が多すぎます(テキストの25%以上)
-      too_short: 短すぎます（15文字未満）
+      too_short: は短すぎます( %{count} 文字以下)
+      url_format: この URL は不正な形式です。
   forms:
     correct_errors: 下記のフォームにエラーがありました。修正して継続してください。
     length_validator:
@@ -1697,65 +1824,74 @@ ja:
     timestamp_error_message: 申し訳ありませんが、早すぎます！再提出してください。
   layouts:
     decidim:
-      cookie_consent:
-        cookie_details:
+      announcements:
+        view_less: 一部のみ表示
+        view_more: 詳しい情報
+      data_consent:
+        details:
           columns:
             description: 説明
             name: 名前
             service: サービス
-            type: タイプ
-          cookies:
+            type: 種別
+          items:
             _session_id:
               description: ウェブページ間を移動したときにウェブサイト内のユーザーをウェブサイトが記憶できるようにします。
               service: このウェブサイト
             decidim-consent:
               description: このウェブサイトでユーザーが許可するクッキーに関する情報を保存します。
               service: このウェブサイト
+            pwaInstallPromptSeen:
+              description: プログレッシブウェブアプリケーション(PWA) のインストール通知がユーザーによって既に表示されている場合、ステータスを保存します。
+              service: このウェブサイト
           types:
             cookie: クッキー
+            local_storage: ローカルストレージ
         dialog:
           accept_all: すべて受け入れる
           accept_only_essential: 必須のみを受け入れる
-          cookie_settings: 設定
           description: 本サイトは、サイトのパフォーマンスとコンテンツを向上させるために、ウェブサイト上でクッキーを使用しています。 クッキーは、より多くの個々のユーザーエクスペリエンスとソーシャルメディアチャネルを提供することができます。
+          settings: 設定
           title: ウェブサイトで使用されるクッキーに関する情報
         modal:
           accept_all: すべて受け入れる
           accept_only_essential: 必須のみを受け入れる
           analytics:
-            description: 分析クッキーは、ユーザーがウェブサイトをどのようにナビゲートして操作するかを追跡するクッキーです。 収集された情報は、ウェブサイトの所有者がウェブサイトを改善するために使用されます。
+            description: これらのクッキーは、ウェブサイトの改善に役立つウェブサイトの視聴者を測定および分析するために使用されます。
             title: 分析と統計
-          description: 本サイトはウェブサイトの基本的な機能を確保し、お客様のオンライン体験を向上させるためにクッキーを使用しています。 いつでもオプトイン/オプトアウトするカテゴリを選択できます。
+          description: このサイトは、ウェブサイトの基本的な機能を確保し、ユーザーのオンライン体験を向上させるためにクッキーを使用しています。 Cookieの使用を設定および承認したり、同意オプションを変更することはいつでもできます。
           essential:
-            description: これらのクッキーは、本ウェブサイトの基本的な機能に不可欠です。これらのクッキーがなければ、ウェブサイトが正しく機能しません。
+            description: これらのクッキーは、ウェブサイトの主要な機能を可能にし、ユーザーの安全を保つために使われます。 自動的にブラウザに保存され、無効にすることはできません。
             title: 必須
           marketing:
-            description: これらのクッキーは、ユーザーがウェブサイトをどのように使用するか、ユーザーが訪問したページ、およびユーザーがクリックしたリンクに関する情報を収集します。
+            description: これらのクッキーは、お客様がウェブサイトをどのように使用するかに関する情報を収集し、お客様が使用するさまざまなウェブサイトでよりパーソナライズされたマーケティングを提供するために利用することができます。
             title: マーケティング
           preferences:
-            description: これらのクッキーは、過去に行った選択をウェブサイトが記憶することを可能にします
+            description: これらのクッキーは、ウェブサイト上で過去に行った選択をウェブサイトが記憶し、ユーザーによりパーソナライズされた体験を提供することを可能にします。
             title: 設定
           save_settings: 設定を保存
           title: Cookieの設定
           toggle: '%{consent_category} の切り替え'
         warning:
-          all_cookies: すべてのクッキー
-          change_cookie_settings: Cookie の設定を変更する
-          need_cookies: このコンテンツを表示するには %{cookies} を有効にする必要があります。
+          all_categories: すべてのクッキー
+          change_settings: Cookie の設定を変更する
+          consent_required: このコンテンツを表示するには %{categories} を有効にする必要があります。
       edit_link:
         edit: 編集
       footer:
         cc_by_license: クリエイティブコモンズライセンス
-        cookie_settings: Cookieの設定
+        data_consent_settings: Cookieの設定
         decidim_logo: Decidim ロゴ
+        decidim_title: Decidim
         download_open_data: オープンデータファイルをダウンロード
+        log_in: ログイン
         made_with_open_source: このサイトは <a target="_blank" href="https://github.com/decidim/decidim">フリーソフトウェア</a>で作られています。
-      header:
-        close_menu: メニューを閉じる
-        main_menu: メインメニュー
-        navigation: ナビゲーション
-        sign_in: ログイン
+        resources: リソース
         sign_up: 新規登録
+        terms_and_conditions: 利用規約
+      header:
+        log_in: ログイン
+        main_menu: メインメニュー
         user_menu: ユーザーメニュー
       impersonation_warning:
         close_session: セッションを閉じる
@@ -1764,31 +1900,36 @@ ja:
       language_chooser:
         choose_language: 言語を選択
       notifications_dashboard:
-        mark_all_as_read: すべて既読にする
+        mark_all_as_read: すべての通知を削除する
         mark_as_read: 既読にする
       offline_banner:
-        cache_version_page: あなたのネットワークはオフラインです。以前にアクセスしたページのキャッシュされたバージョンを表示しています。コンテンツは最新ではないかもしれません。
+        cache_version_page: 注意：あなたのネットワークはオフラインです。これは以前にアクセスしているページのキャッシュされたバージョンです。おそらくコンテンツが最新ではありません。
+      shared:
+        layout_item:
+          next: 次のアイテム
+          prev: 前のアイテム
       social_media_links:
         facebook: "Facebook の %{organization}"
         github: "GitHub の %{organization}"
         instagram: "Instagramの%{organization}"
-        twitter: "Twitter の %{organization}"
+        x: "X の %{organization}"
         youtube: "YouTube の %{organization}"
       timeout_modal:
         body: '%{minutes} 分間アクティブではありませんでした。このまま非アクティブ状態を続けると、自動的にログアウトされます。'
         continue_session: セッションを続ける
-        sign_out: ログアウト
+        log_out: ログアウト
         title: セッションを続行しますか？
       upload_modal:
         close_modal: モーダルを閉じる
       user_menu:
         account: 'ユーザーアカウント: %{name}'
         admin_dashboard: 管理ダッシュボード
+        configuration: 設定
         conversations: 会話
+        log_out: ログアウト
         notifications: 通知
         profile: マイアカウント
         public_profile: 公開プロフィール
-        sign_out: ログアウト
         title: プロフィールリンク
       user_profile:
         account: アカウント
@@ -1797,15 +1938,14 @@ ja:
         my_data: 自分のデータ
         my_interests: 興味のあるもの
         notifications_settings: 通知の設定
+        profile: プロフィール
         title: 参加者の設定
         user_groups: グループ
-      widget:
-        see_more: もっと見る
   locale:
     name: 日本語
-    name_with_error: 英語 (エラー!)
+    name_with_error: 日本語 (エラー!)
   password_validator:
-    blacklisted: ブラックリストに登録済み
+    denied: 拒否されました
     domain_included_in_password: このドメイン名に似ています
     email_included_in_password: はあなたのメールアドレスに似ています
     fallback: 有効ではありません
@@ -1813,9 +1953,16 @@ ja:
     nickname_included_in_password: ニックネームに類似しすぎています
     not_enough_unique_characters: ユニークな文字が十分ではありません
     password_not_allowed: は許可されていません
+    password_repeated: 古いパスワードは再利用できません
     password_too_common: あまりにも一般的です
     password_too_long: 長すぎます
     password_too_short: 短すぎます
+  ransack:
+    predicates:
+      dtgt: 後
+      dtgteq: 後または同時刻
+      dtlt: 前
+      dtlteq: 前または同時刻
   social_share_button:
     delicious: Delicious
     douban: Douban
@@ -1838,6 +1985,7 @@ ja:
     weibo: Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
+    x: X
     xing: Xing
   time:
     formats:
@@ -1856,6 +2004,7 @@ ja:
             accept_until_format: "%Y %B %d, %I:%M %p"
       long: "%B %d, %Y %H:%M"
       long_dashed: "%Y-%m-%d %H:%M:%S"
+      long_with_particles: "%Y年%m月%d日 %H:%M"
       short: "%Y/%m/%d %H:%M"
       time_of_day: "%H:%M"
   versions:
@@ -1865,21 +2014,17 @@ ja:
     dropdown:
       choose_diff_view_html: 'HTML ビューモード:'
       choose_diff_view_mode: 'ビューモードを比較:'
-      choose_diff_view_mode_menu: 比較モードを選択
       option_escaped: エスケープあり
       option_split: 並べて表示
       option_unescaped: エスケープなし
       option_unified: 統合された
+      toggle: 表示の切り替え
   views:
     pagination:
-      first: "&laquo; 最初"
-      first_title: 最初のページへのリンク
-      last: 最終 &raquo;
-      last_title: 最後のページへのリンク
-      next: 次へ &rsaquo;
+      next: 次
       next_title: 次のページへのリンク
       pagination: 改ページ
-      previous: "&lsaquo; 前"
+      previous: 前
       previous_title: 前のページへのリンク
       title: 'ページ番号: '
       truncate: "&hellip;"

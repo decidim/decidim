@@ -2,7 +2,7 @@
 
 shared_examples "manage assemblies announcements" do
   it "can customize a general announcement for the assembly" do
-    click_link translated(assembly.title)
+    click_link "Configure"
 
     fill_in_i18n_editor(
       :assembly_announcement,
@@ -25,10 +25,14 @@ shared_examples "manage assemblies announcements" do
       end
     end
 
-    within "tr", text: translated(assembly.title) do
-      click_link "Preview"
+    new_window = window_opened_by do
+      within "tr", text: translated(assembly.title) do
+        click_link "Preview"
+      end
     end
 
-    expect(page).to have_content("An important announcement")
+    page.within_window(new_window) do
+      expect(page).to have_content("An important announcement")
+    end
   end
 end

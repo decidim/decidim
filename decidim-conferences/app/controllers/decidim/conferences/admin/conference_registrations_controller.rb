@@ -11,16 +11,18 @@ module Decidim
 
         helper_method :conference
 
-        def index
-          enforce_permission_to :read_conference_registrations, :conference, conference: conference
+        alias conference current_participatory_space
 
-          @conference_registrations = paginate(Decidim::Conferences::ConferenceRegistration.where(conference:))
+        def index
+          enforce_permission_to(:read_conference_registrations, :conference, conference: current_participatory_space)
+
+          @conference_registrations = paginate(current_participatory_space.conference_registrations)
         end
 
         def export
-          enforce_permission_to :export_conference_registrations, :conference, conference: conference
+          enforce_permission_to(:export_conference_registrations, :conference, conference: current_participatory_space)
 
-          ExportConferenceRegistrations.call(conference, params[:format], current_user) do
+          ExportConferenceRegistrations.call(current_participatory_space, params[:format], current_user) do
             on(:ok) do |export_data|
               send_data export_data.read, type: "text/#{export_data.extension}", filename: export_data.filename("conference_registrations")
             end
@@ -28,7 +30,7 @@ module Decidim
         end
 
         def confirm
-          enforce_permission_to :confirm, :conference_registration, conference_registration: conference_registration
+          enforce_permission_to(:confirm, :conference_registration, conference_registration:)
 
           ConfirmConferenceRegistration.call(conference_registration, current_user) do
             on(:ok) do
@@ -45,14 +47,10 @@ module Decidim
 
         private
 
-        def conference
-          @conference ||= Decidim::Conference.find_by(slug: params[:conference_slug])
-        end
-
         def conference_registration
           return if params[:id].blank?
 
-          @conference_registration ||= conference.conference_registrations.find_by(id: params[:id])
+          @conference_registration ||= current_participatory_space.conference_registrations.find_by(id: params[:id])
         end
       end
     end

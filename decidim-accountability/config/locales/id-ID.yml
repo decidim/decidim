@@ -34,7 +34,6 @@ id:
         confirm_destroy: Anda yakin ingin menghapus %{name}ini?
         destroy: Menghapus
         edit: Edit
-        new: Baru %{name}
         preview: Pratinjau
         timeline_entries: Evolusi proyek
         title: Tindakan
@@ -46,14 +45,7 @@ id:
             name: Hasil
           status:
             name: Status
-          timeline_entry:
-            name: Entri waktu
         results:
-          create:
-            invalid: Terjadi masalah saat membuat hasil ini
-            success: Hasil berhasil dibuat
-          destroy:
-            success: Hasilnya berhasil dihapus
           edit:
             title: Edit hasil
             update: Perbarui hasil
@@ -62,18 +54,10 @@ id:
           new:
             create: Buat hasil
             title: Hasil baru
-          update:
-            invalid: Terjadi masalah saat memperbarui hasil ini
-            success: Hasilnya berhasil diperbarui
         shared:
           subnav:
             statuses: Status
         statuses:
-          create:
-            invalid: Terjadi masalah saat membuat status ini
-            success: Status berhasil dibuat
-          destroy:
-            success: Status berhasil dihapus
           edit:
             title: Edit status
             update: Memperbaharui status
@@ -82,15 +66,7 @@ id:
           new:
             create: Buat status
             title: Status baru
-          update:
-            invalid: Terjadi masalah saat memperbarui status ini
-            success: Status berhasil diperbarui
         timeline_entries:
-          create:
-            invalid: Terjadi masalah saat membuat entri ini
-            success: Entri berhasil dibuat
-          destroy:
-            success: Entri berhasil dihapus
           edit:
             title: Edit entri
             update: Perbarui entri
@@ -99,9 +75,6 @@ id:
           new:
             create: Buat entri
             title: Masukan baru
-          update:
-            invalid: Terjadi masalah saat memperbarui entri ini
-            success: Entri berhasil diperbarui
       admin_log:
         result:
           create: "%{user_name} hasil yang dibuat %{resource_name} dalam %{space_name}"
@@ -110,8 +83,6 @@ id:
         value_types:
           parent_presenter:
             not_found: 'Induk tidak ditemukan pada basis data (ID: %{id})'
-      last_activity:
-        new_result_at_html: "<span>Hasil baru di %{link}</span>"
       models:
         result:
           fields:
@@ -135,7 +106,6 @@ id:
             other: "%{count} hasil"
         filters:
           all: Semua
-          scopes: Lingkup
         home:
           categories_label: Kategori
           subcategories_label: Subkategori

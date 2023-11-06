@@ -7,10 +7,10 @@ module Decidim
     module Admin
       describe UpdateProposalScope do
         describe "call" do
-          let!(:proposal) { create :proposal }
+          let!(:proposal) { create(:proposal) }
           let!(:proposals) { create_list(:proposal, 3, component: proposal.component) }
-          let!(:scope_one) { create :scope, organization: proposal.organization }
-          let!(:scope) { create :scope, organization: proposal.organization }
+          let!(:scope_one) { create(:scope, organization: proposal.organization) }
+          let!(:scope) { create(:scope, organization: proposal.organization) }
 
           context "with no scope" do
             it "broadcasts invalid_scope" do
@@ -30,7 +30,7 @@ module Decidim
                 proposal.update!(scope:)
               end
 
-              it "doesn't update the proposal" do
+              it "does not update the proposal" do
                 expect(proposal).not_to receive(:update!)
                 described_class.call(proposal.scope.id, proposal.id)
               end

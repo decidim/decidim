@@ -6,11 +6,11 @@ module Decidim::Accountability
   describe Admin::CreateTimelineEntry do
     subject { described_class.new(form, user) }
 
-    let(:organization) { create :organization, available_locales: [:en] }
-    let(:user) { create :user, organization: }
-    let(:participatory_process) { create :participatory_process, organization: }
-    let(:current_component) { create :accountability_component, participatory_space: participatory_process }
-    let(:result) { create :result, component: current_component }
+    let(:organization) { create(:organization, available_locales: [:en]) }
+    let(:user) { create(:user, organization:) }
+    let(:participatory_process) { create(:participatory_process, organization:) }
+    let(:current_component) { create(:accountability_component, participatory_space: participatory_process) }
+    let(:result) { create(:result, component: current_component) }
 
     let(:date) { "2017-8-23" }
     let(:title) { "Title" }

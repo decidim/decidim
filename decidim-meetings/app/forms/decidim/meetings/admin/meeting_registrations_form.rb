@@ -41,9 +41,9 @@ module Decidim
         # to resubmit the form, the form will not hold an ID, so the `to_param`
         # method will return an empty string and Rails will treat this as a
         # `create` action, thus raising an error since this action is not defined
-        # for the controller we're using.
+        # for the controller we are using.
         #
-        # TL;DR: if you remove this method, we'll get errors, so don't.
+        # TL;DR: if you remove this method, we will get errors, so do not.
         def id
           return super if super.present?
 

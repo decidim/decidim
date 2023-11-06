@@ -1,68 +1,65 @@
-<div class="callout warning">
-  <%= icon "info" %>
-  <span class="callout-text"><%= t("explanation_callout", scope: "decidim.votings.admin.ballot_styles.index") %></span>
-</div>
+<% add_decidim_page_title(t(".title")) %>
+
+<%= cell("decidim/announcement", t("explanation_callout", scope: "decidim.votings.admin.ballot_styles.index"), callout_class: "warning" ) %>
 <div class="card" id="ballot_styles">
-  <div class="card-divider">
-    <h2 class="card-title">
+  <div class="item_show__header">
+    <h2 class="item_show__header-title">
       <%= t(".title") %>
-      <%= link_to t("actions.new", scope: "decidim.votings.admin.ballot_styles.index", name: t("models.ballot_style.name", scope: "decidim.votings.admin")), new_voting_ballot_style_path(current_voting), class: "button tiny button--title" if allowed_to? :create, :ballot_style, voting: current_voting %>
+      <%= link_to t("actions.new", scope: "decidim.votings.admin.ballot_styles.index"), new_voting_ballot_style_path(current_voting), class: "button button__sm button__secondary" if allowed_to? :create, :ballot_style, voting: current_voting %>
     </h2>
   </div>
-  <div class="card-section">
-    <div class="table-scroll">
-      <table class="table-list">
-        <thead>
-          <tr>
-            <th rowspan="2"><%= t("code", scope: "decidim.votings.admin.models.ballot_style.fields") %></th>
-            <% voting_elections.each do |election| %>
-              <th colspan="<%= election.questions.count %>"><%= translated_attribute(election.title) %></th>
+  <div class="table-scroll">
+    <table class="table-list">
+      <thead>
+        <tr>
+          <th rowspan="2"><%= t("code", scope: "decidim.votings.admin.models.ballot_style.fields") %></th>
+          <% voting_elections.each do |election| %>
+            <th colspan="<%= election.questions.count %>"><%= translated_attribute(election.title) %></th>
+          <% end %>
+          <th rowspan="2"><%= t("associated_census_data", scope: "decidim.votings.admin.ballot_styles.index") %></th>
+          <th rowspan="2" class="actions"><%= t("actions.title", scope: "decidim.votings.admin.ballot_styles.index") %></th>
+        </tr>
+        <tr>
+          <% voting_elections.each do |election| %>
+            <% election.questions.each do |question| %>
+              <th data-tooltip class="ballot-style__question-header" title="<%= translated_attribute(question.title) %>"><%= translated_attribute(question.title) %></th>
             <% end %>
-            <th rowspan="2"><%= t("associated_census_data", scope: "decidim.votings.admin.ballot_styles.index") %></th>
-            <th rowspan="2" class="actions"><%= t("actions.title", scope: "decidim.votings.admin.ballot_styles.index") %></th>
-          </tr>
-          <tr>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <% ballot_styles.each do |ballot_style| %>
+          <tr data-id="<%= ballot_style.id %>">
+            <td>
+              <%= ballot_style.code %>
+            </td>
             <% voting_elections.each do |election| %>
               <% election.questions.each do |question| %>
-                <th data-tooltip class="ballot-style__question-header" title="<%= translated_attribute(question.title) %>"><%= translated_attribute(question.title) %></th>
+                <% icon_name, icon_style = ballot_style.questions.include?(question) ? ["check-line", "ballot-style__question--checked"] : ["close-circle-line", "ballot-style__question--unchecked"] %>
+                <td> <%= icon icon_name, class: icon_style %> </td>
               <% end %>
             <% end %>
-          </tr>
-        </thead>
-        <tbody>
-          <% ballot_styles.each do |ballot_style| %>
-            <tr data-id="<%= ballot_style.id %>">
-              <td>
-                <%= ballot_style.code %>
-              </td>
-              <% voting_elections.each do |election| %>
-                <% election.questions.each do |question| %>
-                  <% icon_name, icon_style = ballot_style.questions.include?(question) ? ["check", "ballot-style__question--checked"] : ["x", "ballot-style__question--unchecked"] %>
-                  <td> <%= icon icon_name, class: icon_style %> </td>
-                <% end %>
+            <td>
+              <%= ballot_style.census_data.count %>
+            </td>
+            <td class="table-list__actions">
+            <% if allowed_to? :update, :ballot_style, ballot_style: ballot_style, voting: current_voting %>
+                <%= icon_link_to "pencil-line", edit_voting_ballot_style_path(current_voting, ballot_style), t("actions.edit", scope: "decidim.votings.admin.ballot_styles.index"), class: "action-icon--edit" %>
+              <% else %>
+                <%= icon "pencil-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.edit", scope: "decidim.votings.admin.ballot_styles.index") %>
               <% end %>
-              <td>
-                <%= ballot_style.census_data.count %>
-              </td>
-              <td class="table-list__actions">
-              <% if allowed_to? :update, :ballot_style, ballot_style: ballot_style, voting: current_voting %>
-                  <%= icon_link_to "pencil", edit_voting_ballot_style_path(current_voting, ballot_style), t("actions.edit", scope: "decidim.votings.admin.ballot_styles.index"), class: "action-icon--edit" %>
-                <% else %>
-                  <%= icon "pencil", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.edit", scope: "decidim.votings.admin.ballot_styles.index") %>
-                <% end %>
 
-                <% if allowed_to? :delete, :ballot_style, ballot_style: ballot_style, voting: current_voting %>
-                  <%= icon_link_to "trash", voting_ballot_style_path(current_voting, ballot_style), t("actions.destroy", scope: "decidim.votings.admin.ballot_styles.index"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.votings.admin.ballot_styles.index") } %>
-                <% else %>
-                  <%= icon "trash", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.destroy", scope: "decidim.votings.admin.ballot_styles.index") %>
-                <% end %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
+              <% if allowed_to? :delete, :ballot_style, ballot_style: ballot_style, voting: current_voting %>
+                <%= icon_link_to "delete-bin-line", voting_ballot_style_path(current_voting, ballot_style), t("actions.destroy", scope: "decidim.votings.admin.ballot_styles.index"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.votings.admin.ballot_styles.index") } %>
+              <% else %>
+                <%= icon "delete-bin-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.destroy", scope: "decidim.votings.admin.ballot_styles.index") %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
 
-<%= stylesheet_pack_tag "decidim_votings_admin_votings", media: "all" %>
+<%= append_stylesheet_pack_tag "decidim_votings_admin" %>

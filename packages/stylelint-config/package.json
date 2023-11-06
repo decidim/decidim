@@ -11,6 +11,7 @@
   "license": "AGPL-3.0",
   "main": "index.js",
   "peerDependencies": {
-    "stylelint": "13.11.0"
+    "stylelint": "^15.3.0",
+    "stylelint-prettier": "^3.0.0"
   }
 }

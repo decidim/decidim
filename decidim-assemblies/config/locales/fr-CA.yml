@@ -3,7 +3,10 @@ fr-CA:
     attributes:
       assemblies_setting:
         enable_organization_chart: Activer le schéma d'assemblée
+      assemblies_type:
+        title: Titre
       assembly:
+        announcement: Message d'annonce
         area_id: Zone d'application
         assembly_type: Type d'assemblée
         assembly_type_other: Autre type d'assemblée
@@ -22,12 +25,16 @@ fr-CA:
         decidim_scope_id: Périmètre d'application
         description: Description
         developer_group: Organisateur
+        document: Document
         domain: Domaine
         duration: Durée
         facebook: Facebook
         github: GitHub
         hashtag: Mot-clic
         hero_image: Image de la page d'accueil
+        import_attachments: Importer les pièces jointes
+        import_categories: Importer les catégories
+        import_components: Importer les fonctionnalités
         included_at: Intégrée à cette plateforme le
         instagram: Instagram
         internal_organisation: Organisation interne
@@ -51,7 +58,7 @@ fr-CA:
         subtitle: Sous-titre
         target: Participants
         title: Titre
-        twitter: Twitter
+        twitter: X
         weight: Rang
         youtube: Youtube
       assembly_member:
@@ -64,6 +71,7 @@ fr-CA:
         non_user_avatar: Avatar
         position: Statut
         user_id: Utilisateur
+        weight: Rang d'affichage
       assembly_user_role:
         email: E-mail
         name: "Nom\n"
@@ -73,7 +81,7 @@ fr-CA:
         assembly:
           attributes:
             document:
-              allowed_file_content_types: 'Type de document invalide. Les formats acceptés sont: %{types}'
+              allowed_file_content_types: 'Type de document invalide. Seuls les fichiers avec les extensions suivantes sont autorisés : %{types}.'
   activerecord:
     models:
       decidim/assembly:
@@ -90,7 +98,9 @@ fr-CA:
       actions:
         import_assembly: Importation
         new_assembly: Nouvelle assemblée
+        new_assembly_member: Nouveau membre de l'assemblée
         new_assembly_type: Nouveau type d'assemblée
+        new_assembly_user_role: Nouvel administrateur de l'assemblée
       assemblies:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle assemblée.
@@ -98,10 +108,10 @@ fr-CA:
         edit:
           update: Mettre à jour
         index:
-          not_published: Non publié
           private: Privée
           public: Publique
           published: Publiée
+          unpublished: Non publié
         new:
           create: Créer
           title: Nouvelle assemblée
@@ -196,9 +206,11 @@ fr-CA:
           attachments: Documents liés
           categories: Catégories
           components: Composants
-          info: Information
+          info: À propos de cette assemblée
+          landing_page: Page d'accueil
           moderations: Modérations
           private_users: Utilisateurs privés
+          see_assembly: Voir l'assemblée
         assemblies_types: Types d'assemblée
       models:
         assemblies_types:
@@ -207,6 +219,7 @@ fr-CA:
             title: Titre
         assembly:
           fields:
+            actions: Actions
             created_at: Créée le
             private: Privée
             promoted: Mise en avant
@@ -280,7 +293,7 @@ fr-CA:
             select_an_area: Sélectionnez une zone d'application
             select_an_assembly_type: Sélectionnez un type d'assemblée
             select_parent_assembly: Sélectionnez l'assemblée parente
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les liens qui renvoient vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
             social_handlers: Réseaux sociaux
             title: Informations générales
             visbility: Visibilité
@@ -294,11 +307,10 @@ fr-CA:
             title: Titre
         assembly_copies:
           form:
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les liens qui envoient vers cette agora. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         assembly_imports:
           form:
-            document_legend: Ajouter un document
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         assembly_members:
           form:
             existing_user: Utilisateur existant
@@ -314,7 +326,6 @@ fr-CA:
               all: Tout
               ceased: Validité terminée
               not_ceased: Validité en cours
-            filter_by: Filtrer par
             search: Rechercher
         content_blocks:
           highlighted_assemblies:
@@ -323,6 +334,26 @@ fr-CA:
           accepted_types:
             json: JSON
       assemblies:
+        description:
+          area_name: Périmètre d'assemblée
+          closing_date: Date de clôture
+          created_by: Créé par
+          creation_date: Date de création
+          data: Données de l'assemblée
+          developer_group: Organisateur
+          duration: Durée
+          included_at: Intégré à cette plateforme le
+          indefinite_duration: Indéfinie
+          local_area: Zone de l’organisation
+          meta_scope: Secteur
+          participatory_scope: Ce qui est décidé
+          participatory_structure: Modalités de décision
+          target: Qui participe
+          title: À propos de cette assemblée
+        filters:
+          names:
+            all: Toutes
+          type: Type
         show:
           title: À propos de cette assemblée
       assembly_members:
@@ -337,8 +368,16 @@ fr-CA:
         participatory: Organe participatif
         working_group: Groupe de travail
       content_blocks:
+        children_assemblies:
+          name: Assemblées
+        dates_metadata:
+          name: Métadonnées des dates
+        extra_data:
+          name: Type et durée
         highlighted_assemblies:
           name: Assemblées mises en avant
+        related_assemblies:
+          name: Assemblées liées
       created_by:
         city_council: Conseil municipal
         others: Autres
@@ -356,44 +395,24 @@ fr-CA:
       index:
         title: Assemblées
       last_activity:
-        new_assembly: Nouvelle assemblée
+        new_assembly: 'Nouvelle assemblée :'
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Assemblées actives
-            assemblies_button_title: Lien vers la page Assemblées où toutes les assemblées sont affichées
-            see_all_assemblies: Voir toutes les assemblées
+            active_spaces: Assemblées actives
+            see_all_spaces: Voir toutes les assemblées
         user_profile:
           member_of:
             member_of: Membre de
       show:
-        area: Zone d'application
         assembly_type: Type d'assemblée
-        children: Sous-assemblées
-        closing_date: Date de clôture
-        composition: Composition
-        created_by: Créé par
-        creation_date: Date de création
-        developer_group: Organisateur
         duration: Durée
-        included_at: Inclus à
-        indefinite_duration: Indéfinie
-        internal_organisation: Organisation interne
         is_transparent:
           'false': non-visible par les non-membres
           'true': visible par les non-membres
-        local_area: Périmètre d'assemblée
-        participatory_scope: Objectifs
-        participatory_structure: Modalités de décision
         private_space: Ceci est une assemblée privée
-        purpose_of_action: But de l'action
-        read_less: Voir moins
-        read_more: Voir la suite
         related_participatory_processes: Concertations associées
-        scope: Périmètre d'application
-        social_networks: Réseaux sociaux
         social_networks_title: Visiter l'assemblée sur
-        target: Participants
     assembly_members:
       assembly_member:
         designated_on: Désigné le
@@ -436,9 +455,6 @@ fr-CA:
         related_assemblies: Assemblées associées
     statistics:
       assemblies_count: Assemblées
-  errors:
-    messages:
-      cannot_be_blank: ne peut être vide
   layouts:
     decidim:
       assemblies:
@@ -446,20 +462,14 @@ fr-CA:
           more_info: Plus d'informations
           take_part: Participer
         index:
-          children: 'Assemblées : '
-          organizational_chart: Organigramme
           promoted_assemblies: Assemblées mises en avant
-          reset_chart: Réinitialiser
+        metadata:
+          children_item:
+            one: "%{count} assemblée"
+            other: "%{count} assemblées"
         order_by_assemblies:
           assemblies:
             one: "%{count} assemblée"
             other: "%{count} assemblées"
-        promoted_assembly:
-          more_info: Plus d'informations
-          take_part: Participer
       assembly_navigation:
         assembly_member_menu_item: Membres
-        assembly_menu_item: L'assemblée
-      assembly_widgets:
-        show:
-          take_part: Participer

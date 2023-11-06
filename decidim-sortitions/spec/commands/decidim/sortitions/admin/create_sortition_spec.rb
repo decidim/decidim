@@ -50,7 +50,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't create the sortition" do
+          it "does not create the sortition" do
             expect do
               command.call
             end.not_to(change { Sortition.where(component: sortition_component).count })

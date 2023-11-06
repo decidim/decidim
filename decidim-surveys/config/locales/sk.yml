@@ -53,10 +53,7 @@ sk:
           update:
             invalid: Vyskytol sa problém s ukladaním prieskumu.
             success: Prieskum úspešne uložený.
-      last_activity:
-        new_survey_at_html: "<span>Nový prieskum na %{link}</span>"
       surveys:
         answer:
           invalid: Vyskytol sa problém s odpovedaním na prieskum.
-          spam_detected: Vyskytol sa problém s odpovedaním na formulár. Možno ste boli príliš rýchli, skúste prosíme znovu.
           success: Odpoveď úspešne zaznamenaná.

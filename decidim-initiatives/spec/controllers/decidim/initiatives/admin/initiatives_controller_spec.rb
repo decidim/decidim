@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Initiatives::Admin::InitiativesController, type: :controller do
   routes { Decidim::Initiatives::AdminEngine.routes }
 
-  let(:user) { create(:user, :confirmed, organization:) }
+  let(:user) { create(:user, :confirmed, :admin_terms_accepted, organization:) }
   let(:admin_user) { create(:user, :admin, :confirmed, organization:) }
   let(:organization) { create(:organization) }
   let!(:initiative) { create(:initiative, organization:) }
@@ -13,6 +13,9 @@ describe Decidim::Initiatives::Admin::InitiativesController, type: :controller d
 
   before do
     request.env["decidim.current_organization"] = organization
+    initiative.author.update(admin_terms_accepted_at: Time.current)
+    initiative.committee_members.approved.first.user.update(admin_terms_accepted_at: Time.current)
+    created_initiative.author.update(admin_terms_accepted_at: Time.current)
   end
 
   context "when index" do
@@ -314,6 +317,7 @@ describe Decidim::Initiatives::Admin::InitiativesController, type: :controller d
       let!(:discarded_initiative) { create(:initiative, :discarded, organization:) }
 
       before do
+        discarded_initiative.author.update(admin_terms_accepted_at: Time.current)
         sign_in discarded_initiative.author, scope: :user
       end
 

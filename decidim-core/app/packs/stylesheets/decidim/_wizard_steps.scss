@@ -1,0 +1,15 @@
+.wizard-steps {
+  @apply flex items-stretch my-10;
+
+  & > * {
+    @apply w-1/4 relative text-center text-sm text-gray-2 before:content-[''] before:absolute before:-top-3 before:-left-1/2 before:w-full first:before:w-0 before:h-0.5 before:bg-success before:-translate-y-1/2 after:z-10 after:content-[''] after:absolute after:-top-1 after:left-1/2 after:w-4 after:h-4 after:bg-success after:border after:border-white after:rounded-full after:-translate-y-full after:-translate-x-1/2;
+
+    &[aria-current] {
+      @apply font-semibold;
+    }
+
+    &[aria-current] ~ * {
+      @apply before:bg-gray-3 after:bg-gray-3;
+    }
+  }
+}

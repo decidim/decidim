@@ -6,7 +6,7 @@ nl:
     models:
       decidim/blogs/post:
         one: Post
-        other: berichten
+        other: Posts
   decidim:
     blogs:
       actions:
@@ -14,20 +14,10 @@ nl:
         confirm_destroy: Weet je zeker dat je dit bericht wilt verwijderen?
         destroy: Verwijder
         edit: Bewerk
-        new: Nieuw bericht
+        new: Nieuwe blogpost
         title: acties
       admin:
-        models:
-          components:
-            body: Tekstgedeelte
-          post:
-            name: Post
         posts:
-          create:
-            invalid: Er is een probleem opgetreden bij het maken van dit bericht
-            success: Post succesvol aangemaakt
-          destroy:
-            success: Post succesvol verwijderd
           edit:
             save: Bijwerken
             title: Bericht bewerken
@@ -37,26 +27,18 @@ nl:
             create: creëren
             title: Maak bericht
           update:
-            invalid: Er zijn fouten opgetreden bij het opslaan van het bericht.
-            success: Bericht succesvol opgeslagen
-      last_activity:
-        new_post_at_html: "<span>Nieuw bericht op %{link}</span>"
+            invalid: Er zijn fouten opgetreden bij het opslaan van deze blogpost.
+      admin_log:
+        post:
+          create: "%{user_name} heeft de %{resource_name} blog gemaakt in %{space_name}"
+          delete: "%{user_name} heeft de %{resource_name} blog verwijderd in %{space_name}"
+          update: "%{user_name} heeft de %{resource_name} blog bijgewerkt in %{space_name}"
       models:
         post:
           fields:
             author: Auteur
             body: Tekstgedeelte
-            created_at: Aangemaakt op
-            title: titel
-      posts:
-        show:
-          back: Terug naar het overzicht
-          comments: Reacties
-          view: Bekijk
-        sidebar_blog:
-          comments: reacties
-          most_commented_posts: Bericht met meeste reacties
-      read_more: Lees meer
+            official_blog_post: Officiële blogpost
     components:
       blogs:
         actions:

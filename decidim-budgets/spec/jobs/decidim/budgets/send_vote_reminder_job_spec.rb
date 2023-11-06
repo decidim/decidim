@@ -30,7 +30,7 @@ describe Decidim::Budgets::SendVoteReminderJob do
   end
 
   context "when no orders" do
-    it "doesn't send the email" do
+    it "does not send the email" do
       expect(mailer_class)
         .not_to receive(:vote_reminder)
 

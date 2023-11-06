@@ -1,7 +1,12 @@
 ar:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: تمكين الخريطة التنظيمية
+      assemblies_type:
+        title: العنوان
       assembly:
+        announcement: إعلان
         area_id: المنطقة
         assembly_type: نوع التجمع
         assembly_type_other: نوع آخر مِن الجمعيات
@@ -20,12 +25,16 @@ ar:
         decidim_scope_id: النطاق
         description: الوصف
         developer_group: مجموعة المروجين
+        document: وثيقة
         domain: النطاق
         duration: المدة الزمنية
         facebook: فيسبوك
         github: غِت‌ هَب
         hashtag: الوسم
         hero_image: الصورة الرئيسية
+        import_attachments: استيراد المرفقات
+        import_categories: استيراد الفئات
+        import_components: استيراد المكونات
         included_at: المدرجة في
         instagram: انستجرام
         internal_organisation: التنظيم الداخلي
@@ -49,7 +58,7 @@ ar:
         subtitle: العنوان الفرعي
         target: من يشارك
         title: العنوان
-        twitter: تويتر
+        weight: موضع الطلب
         youtube: يوتيوب
       assembly_member:
         birthday: تاريخ الميلاد
@@ -61,6 +70,7 @@ ar:
         non_user_avatar: الصورة الرمزية
         position: الموقع
         user_id: مستخدم أو مجموعة
+        weight: موضع الطلب
       assembly_user_role:
         email: البريد الإلكتروني
         name: الاسم
@@ -101,7 +111,6 @@ ar:
         edit:
           update: تحديث
         index:
-          not_published: غير منشور
           private: خاص
           public: عامة
           published: نشرت
@@ -115,8 +124,13 @@ ar:
         create:
           error: حدثت مشكلة في تكرار هذا التجميع.
           success: الجمعية مكررة بنجاح.
+      assemblies_settings:
+        update:
+          error: طرأت مشكلة أثناء تحديث الإعدادات.
+          success: تم تحديث الإعدادات بنجاح.
       assemblies_types:
         create:
+          error: حدثت مشكلة أثناء إنشاء جمعية جديدة.
           success: تم إنشاء نوع الجمعية بنجاح.
         destroy:
           success: تم حذف نوع الجمعية بنجاح.
@@ -132,8 +146,13 @@ ar:
           select: حدد البيانات التي ترغب في تكرارها
           title: نسخ الجمعية
       assembly_imports:
+        create:
+          error: حدثت مشكلة أثناء استيراد هذه الجمعية.
+          success: تم استيراد الجمعية بنجاح.
         new:
           import: استيراد
+          select: اختر البيانات التي ترغب في استيرادها
+          title: استيراد الجمعية
       assembly_members:
         create:
           error: حدثت مشكلة أثناء إضافة عضو لهذا التجميع.
@@ -175,6 +194,9 @@ ar:
         update:
           error: حدثت مشكلة أثناء تحديث مشرفٍ على هذه الجمعية.
           success: تم تحديث المشرف على هذه الجمعية بنجاح.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: نوع الجمعية
       menu:
         assemblies: الجمعيات
         assemblies_settings: الإعدادات
@@ -186,7 +208,6 @@ ar:
           attachments: المرفقات
           categories: الفئات
           components: المكونات
-          info: معلومات
           moderations: الإعتدال
           private_users: المستخدمون الخاصون
         assemblies_types: نوع التجمّعات
@@ -225,12 +246,16 @@ ar:
             admin: مدير
             collaborator: متعاون
             moderator: مُشرف
+            valuator: مُقيِّم
       titles:
         assemblies: الجمعيات
         assemblies_types: أنواع التجمّعات
     admin_log:
       assembly:
         create: "%{user_name} أنشأ الجمعية %{resource_name}"
+        duplicate: "%{user_name} كرر جمعية %{resource_name}"
+        export: "%{user_name} قام بتصدير الجمعية %{resource_name}"
+        import: "%{user_name} قام باستيراد الجمعية %{resource_name}"
         publish: "%{user_name} قام بنشر %{resource_name} الجمعية"
         unpublish: "%{user_name} قام بإلغاء نشر الجمعية %{resource_name}"
         update: "%{user_name} قام بتحديث الجمعية %{resource_name}"
@@ -238,8 +263,14 @@ ar:
         create: "%{user_name} أنشأ العضو %{resource_name} في الجمعية %{space_name}"
         delete: "%{user_name} إزالة العضو %{resource_name} من الجمعية %{space_name}"
         update: "%{user_name} بتحديث العضو %{resource_name} في الجمعية %{space_name}"
+      assembly_setting:
+        update: "قام %{user_name} بتحديث إعدادات الجمعية"
       assembly_type:
         create: "قام %{user_name} بإنشاء نوع الجمعية %{resource_name}"
+        delete: "%{user_name} حذف نوع التجمع %{resource_name}"
+        publish: "%{user_name} نشر نوع الجمعية %{resource_name}"
+        unpublish: "%{user_name} قام بإلغاء نشر نوع الجمعية %{resource_name}"
+        update: "%{user_name} حدث نوع الجمعية %{resource_name}"
       assembly_user_role:
         create: "%{user_name} دعا %{resource_name} إلى %{space_name} الجمعية"
         delete: "%{user_name} أزال المشارك %{resource_name} من الجمعية %{space_name}"
@@ -248,30 +279,36 @@ ar:
       admin:
         assemblies:
           form:
+            announcement_help: سيظهر النص الذي أدخلته هنا للمستخدم مباشرة تحت معلومات الجمعية.
             duration: المدة الزمنية
             duration_help: إذا كانت مدة هذه الجمعية محدودة ، فحدد تاريخ الانتهاء. خلاف ذلك ، سوف يظهر على أنه غير مسمى.
             filters: مرشحات
             images: الصور
+            included_at_help: حدد التاريخ الذي تمت فيه إضافة هذه الجمعية إلى المنصة. ليس بالضرورة أن يكون هو نفسه تاريخ الإنشاء.
             metadata: البيانات الوصفية
             other: آخر
             select_a_created_by: حدد تم إنشاؤها بواسطة
             select_an_area: اختر منطقة
             select_an_assembly_type: حدد نوع الجمعية
             select_parent_assembly: حدد الجمعية الأصلية
-            slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذا التجميع. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
             social_handlers: التواصل الاجتماعي
             title: معلومات عامة
             visbility: الرؤية
+        assemblies_settings:
+          edit:
+            update: تحديث
+          form:
+            title: إعدادات الجمعية
         assemblies_types:
           form:
             title: العنوان
-        assembly_copies:
-          form:
-            slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذا التجميع. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
         assembly_members:
           form:
             existing_user: المشارك الحالي
+            explanation: 'إرشادات للصورة:'
+            image_guide: يفضل أن تكون صورة لا تحتوي على أي نص.
             non_user: غير مشارك
+            non_user_avatar_help: يجب أن تحصل على موافقة الأشخاص قبل نشرهم كأعضاء.
             select_a_position: اختر المنصب
             select_user: اختيار مشارك
             user_type: نوع المشارك
@@ -280,11 +317,16 @@ ar:
               all: الكل
               ceased: توقف
               not_ceased: لم تتوقف
-            filter_by: مصنف بواسطة
             search: البحث
         content_blocks:
           highlighted_assemblies:
             max_results: أقصى قدر من العناصر لإظهارها
+        new_import:
+          accepted_types:
+            json: ملفات بصيغة (JSON)
+      assemblies:
+        show:
+          title: حول الجمعية
       assembly_members:
         index:
           members: الأعضاء
@@ -316,47 +358,38 @@ ar:
       index:
         title: الجمعيات
       last_activity:
-        new_assembly: جمعية جديدة
+        new_assembly: 'جمعية جديدة:'
       pages:
-        home:
-          highlighted_assemblies:
-            active_assemblies: الجمعيات النشطة
-            see_all_assemblies: عرض كافة الجمعيات
         user_profile:
           member_of:
             member_of: عضو في
       show:
-        area: المنطقة
         assembly_type: نوع الجمعية
-        children: الجمعيات
-        closing_date: الموعد النهائي
-        composition: المكونات
-        created_by: أنشئ من طرف
-        creation_date: تاريخ الإنشاء
-        developer_group: مجموعة المروجين
         duration: المدة الزمنية
-        included_at: المدرجة في
-        indefinite_duration: غير محدد
-        internal_organisation: التنظيم الداخلي
         is_transparent:
           'false': مبهمة
           'true': شفافة
-        local_area: منطقة التنظيم
-        participatory_scope: ما الذي تقرر
-        participatory_structure: كيف تقرر ذلك
         private_space: هذه جمعية خاصة
-        purpose_of_action: الغرض من الإجراء
-        read_less: أقرأ أقل
-        read_more: اقرأ المزيد
         related_participatory_processes: العمليات التشاركية ذات الصلة
-        scope: نطاق
-        social_networks: شبكات التواصل الاجتماعي
-        target: من يشارك
+        social_networks_title: زيارة التجمع على
     assembly_members:
       assembly_member:
         designated_on: المعينة على
       index:
         title: الأعضاء
+    events:
+      assemblies:
+        create_assembly_member:
+          email_intro: قام مشرف في تجمع <a href="%{resource_url}">%{resource_name}</a> بإضافتك كأحد الأعضاء فيه.
+          email_outro: لقد تلقيت هذا الإشعار لأنك قد دُعيت إلى التجمع. تحقق من <a href="%{resource_url}">صفحة التجمع</a> من أجل المساهمة!
+          email_subject: لقد تمت دعوتك لتكون عضوا في جمعية %{resource_name}!
+          notification_title: لقد تم تسجيلك كعضو في التجمع <a href="%{resource_path}">%{resource_name}</a>. تحقق من <a href="%{resource_path}">صفحة التجميع</a> للمساهمة!
+      assembly:
+        role_assigned:
+          email_intro: تم إعطائك %{role} في تجمع %{resource_title}.
+          email_outro: تلقيت هذا الإبلاغ لأنك %{role} في تجمع %{resource_title}.
+          email_subject: تم إعطائك %{role} لِ %{resource_title}.
+          notification_title: تم تعيينك %{role} للتجمع <a href="%{resource_url}">%{resource_title}</a>.
     help:
       participatory_spaces:
         assemblies:
@@ -367,6 +400,8 @@ ar:
       value_types:
         assembly_presenter:
           not_found: 'لم يتم العثور على التجميع في قاعدة البيانات (المعرف: %{id})'
+        assembly_type_presenter:
+          not_found: 'لم يتم العثور على نوع التجمع في قاعدة البيانات (الرقم-المُعرف: %{id})'
     menu:
       assemblies: الجمعيات
     metrics:
@@ -374,9 +409,11 @@ ar:
         description: عدد الجمعيات التي تم إنشاؤها
         object: المجالس
         title: الجمعيات
-  errors:
-    messages:
-      cannot_be_blank: لا يمكن أن يكون فارغا
+    participatory_processes:
+      show:
+        related_assemblies: التجمعات ذات الصلة
+    statistics:
+      assemblies_count: التجمعات
   layouts:
     decidim:
       assemblies:
@@ -384,10 +421,7 @@ ar:
           more_info: مزيد من المعلومات
           take_part: خذ جزء
         index:
-          children: 'المجالس: '
-          organizational_chart: الهيكل التنظيمي
           promoted_assemblies: المجالس البارزة
-          reset_chart: إعادة تعيين
         order_by_assemblies:
           assemblies:
             zero: "%{count} اجتماعات"
@@ -396,12 +430,5 @@ ar:
             few: "%{count} اجتماعات"
             many: "%{count} اجتماع"
             other: "%{count} اجتماعات"
-        promoted_assembly:
-          more_info: مزيد من المعلومات
-          take_part: خذ جزء
       assembly_navigation:
         assembly_member_menu_item: الأعضاء
-        assembly_menu_item: الجمعية
-      assembly_widgets:
-        show:
-          take_part: شارِك

@@ -7,6 +7,8 @@ module Decidim
     class OrganizationController < Decidim::Admin::ApplicationController
       layout "decidim/admin/settings"
 
+      add_breadcrumb_item_from_menu :admin_settings_menu
+
       def edit
         enforce_permission_to :update, :organization, organization: current_organization
         @form = form(OrganizationForm).from_model(current_organization)
@@ -15,6 +17,7 @@ module Decidim
       def update
         enforce_permission_to :update, :organization, organization: current_organization
         @form = form(OrganizationForm).from_params(params)
+        @form.id = current_organization.id
 
         UpdateOrganization.call(current_organization, @form) do
           on(:ok) do
@@ -30,11 +33,11 @@ module Decidim
       end
 
       def users
-        search(current_organization.users)
+        search(current_organization.users.available)
       end
 
       def user_entities
-        search(current_organization.user_entities)
+        search(current_organization.user_entities.available)
       end
 
       private
@@ -51,7 +54,7 @@ module Decidim
                           query.where("email ILIKE ?", "%#{term}%")
                         )
                       end
-              render json: query.all.collect { |u| { value: u.id, label: "#{u.name} (@#{u.nickname}) #{u.email}" } }
+              render json: query.all.collect { |u| { value: u.id, label: "#{u.name} (@#{u.nickname})" } }
             else
               render json: []
             end

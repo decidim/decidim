@@ -31,7 +31,7 @@ module Decidim
 
       let(:processes) { create_list(:participatory_process, 2, participatory_process_type:) }
 
-      it { is_expected.to contain_exactly(*processes) }
+      it { is_expected.to match_array(processes) }
     end
   end
 end

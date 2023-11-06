@@ -7,7 +7,7 @@ module Decidim
     subject { initiative }
 
     let(:organization) { create(:organization) }
-    let(:initiative) { build :initiative }
+    let(:initiative) { build(:initiative) }
 
     let(:initiatives_type_minimum_committee_members) { 2 }
     let(:initiatives_type) do
@@ -55,7 +55,7 @@ module Decidim
     end
 
     context "when published initiative" do
-      let(:published_initiative) { build :initiative }
+      let(:published_initiative) { build(:initiative) }
       let(:online_allowed_type) { create(:initiatives_type, :online_signature_enabled, organization:) }
       let(:online_allowed_scope) { create(:initiatives_type_scope, type: online_allowed_type) }
 
@@ -190,7 +190,7 @@ module Decidim
           expect(initiative).not_to be_supports_goal_reached
         end
 
-        it "can't be greater than 100" do
+        it "cannot be greater than 100" do
           initiative.update(online_votes: { scope_id => initiative.scoped_type.supports_required, "total" => initiative.scoped_type.supports_required * 2 })
           expect(initiative.percentage).to eq(100)
           expect(initiative).to be_supports_goal_reached
@@ -209,7 +209,7 @@ module Decidim
           expect(initiative).not_to be_supports_goal_reached
         end
 
-        it "can't be greater than 100" do
+        it "cannot be greater than 100" do
           online_votes = initiative.scoped_type.supports_required * 4
           offline_votes = initiative.scoped_type.supports_required * 4
           initiative.update(offline_votes: { scope_id => offline_votes, "total" => offline_votes },
@@ -261,6 +261,31 @@ module Decidim
         before { create_list(:initiatives_committee_member, initiatives_type_minimum_committee_members - 1, initiative:) }
 
         it { is_expected.to be false }
+      end
+    end
+
+    describe "#missing_committee_members" do
+      subject { initiative.missing_committee_members }
+
+      let(:initiatives_type_minimum_committee_members) { 2 }
+      let(:initiative) { create(:initiative, organization:, scoped_type:) }
+
+      before { initiative.committee_members.destroy_all }
+
+      context "when all missing members" do
+        it { is_expected.to be 2 }
+      end
+
+      context "when one missing member" do
+        before { create(:initiatives_committee_member, initiative:) }
+
+        it { is_expected.to be 1 }
+      end
+
+      context "when no missing members" do
+        before { create_list(:initiatives_committee_member, initiatives_type_minimum_committee_members, initiative:) }
+
+        it { is_expected.to be 0 }
       end
     end
 

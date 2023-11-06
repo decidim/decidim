@@ -26,11 +26,6 @@ ru:
         name: Полное имя
   activerecord:
     models:
-      decidim/initiative:
-        one: Почин
-        few: Почина
-        many: Починов
-        other: Починов
       decidim/initiative_comittee:
         one: Рабочая группа
         few: Рабочих группы
@@ -93,8 +88,6 @@ ru:
           index:
             approve: Одобрить
             confirm_revoke: Вы уверены?
-            invite_to_committee_help: Поделитесь этой ссылкой, чтобы пригласить других участников в рабочую группу по продвижению
-            no_members_yet: В рабочей группе по продвижению нет ни одного члена
             revoke: Отозвать
             title: Члены рабочей группы
         initiatives:
@@ -105,7 +98,6 @@ ru:
             export_votes: Сохранить выражения поддержки в виде файла
             reject: Отклонить почин
             send_to_technical_validation: Отправить на техническую проверку
-            success: Почин был направлен ​​на техническую проверку
             update: Обновить
           form:
             title: Общие сведения
@@ -113,48 +105,21 @@ ru:
             actions_title: Действие
             preview: Предпросмотр
             print: Распечатать
-          update:
-            error: Произошла ошибка
-            success: Гражданский почин успешно обновлен
         initiatives_type_scopes:
-          create:
-            error: Произошла ошибка
-            success: Создан новый охват для данного вида почина
-          destroy:
-            success: Охват успешно удален
           edit:
-            back: Вернуться
-            confirm_destroy: Вы уверены?
-            destroy: Удалить
             title: Изменить охват вида почина
             update: Обновить
           new:
-            back: Вернуться
             create: Создать
             title: Создать охват вида почина
-          update:
-            error: Произошла ошибка
-            success: Охват успешно обновлен
         initiatives_types:
-          create:
-            error: Произошла ошибка
-            success: Успешно создан новый вид почина
-          destroy:
-            success: Этот вид почина успешно удален
           edit:
-            confirm_destroy: Вы уверены?
-            destroy: Удалить
             update: Обновить
-          form:
-            title: Общие сведения
           initiative_type_scopes:
             title: Охваты для вида почина
           new:
             create: Создать
             title: Добавить вид почина
-          update:
-            error: Произошла ошибка
-            success: Этот вид починов успешно обновлен
       admin_log:
         initiative:
           publish: "%{user_name} обнародовал почин %{resource_name}"
@@ -173,7 +138,6 @@ ru:
       committee_requests:
         new:
           continue: Продолжить
-          help_text: Вы собираетесь подать запрос на членство в рабочей группе по продвижению этого почина
         spawn:
           success: Ваш запрос отправлен автору почина.
       content_blocks:
@@ -183,7 +147,6 @@ ru:
         fill_data:
           back: Вернуться
           continue: Продолжить
-          initiative_type: Вид почина
           more_information: "(Дополнительные сведения)"
           select_scope: Выбрать охват
         finish:
@@ -194,22 +157,13 @@ ru:
         previous_form:
           back: Вернуться
           continue: Продолжить
-          help: В чем состоит этот почин? Изложите название и описание. Мы рекомендуем лаконичное и немногословное название и описание, направленное на предлагаемое решение.
-          more_information: "(Дополнительные сведения)"
         promotal_committee:
-          back: Вернуться
           more_information: "(Дополнительные сведения)"
         select_initiative_type:
           back: Вернуться
-          more_information: "(Дополнительные сведения)"
+          more_information: (Дополнительные сведения)
         share_committee_link:
-          continue: Продолжить
           invite_to_committee_help: Ссылка для приглашения людей, которые войдут в рабочую группу по продвижению
-        show_similar_initiatives:
-          back: Вернуться
-          compare_help: Если какой-либо из следующих починов похож на ваш, мы призываем вас поддержать его. У вашего предложения будет больше возможностей для воплощения в жизнь.
-          continue: Мой почин другой
-          more_information: "(Дополнительные сведения)"
       events:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, за которым вы следите, создал новый почин. Прочитайте его и внесите свой вклад:"
@@ -221,14 +175,10 @@ ru:
           email_outro: Вы получили это уведомление, потому что вы следите за «%{author_nickname}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
           email_subject: Инициатива поддержана %{author_nickname}
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> поддержал почин <a href="%{resource_path}">%{resource_title}</a>.
-      index:
-        title: Почины
       initiative_votes:
         create:
           error: При попытке подписаться за этот почин произошли ошибки.
       initiatives:
-        author:
-          deleted: Удален
         author_list:
           hidden_authors_count:
             one: и еще 1 человек
@@ -248,11 +198,6 @@ ru:
           search: Поиск
           state: Cостояние
           type: Вид
-        filters_small_view:
-          close_modal: Закрыть окно
-          filter: Отобрать
-          filter_by: 'Отобрать по признаку:'
-          unfold: Развернуть
         index_header:
           new_initiative: Добавить почин
         orders:
@@ -292,11 +237,6 @@ ru:
         promotal_committee_help: Помните, что вы должны пригласить не менее %{member_count} человек в рабочую группу по продвижению. Перешлите им следующую ссылку, чтобы пригласить их в рабочую группу по продвижению
         status_change_body_for: 'Состояние почина %{title} изменилось на: %{state}'
         status_change_for: Состояние почина %{title} изменилось
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Действующие почины
-            see_all_initiatives: Просмотреть все инициативы
       states:
         accepted: Принятые
         expired: Истекшие
@@ -307,12 +247,8 @@ ru:
       initiative_creation_header:
         fill_data: Создать
         finish: Закончить
-        previous_form: Начать
         promotal_committee: Рабочая группа по продвижению
         select_initiative_type: Выбрать
-        show_similar_initiatives: Сравнить
-      initiative_header:
-        initiative_menu_item: Почин
       initiatives:
         initiative:
           check: Проверьте это

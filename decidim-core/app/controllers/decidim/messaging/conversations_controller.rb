@@ -6,12 +6,15 @@ module Decidim
     class ConversationsController < Decidim::ApplicationController
       include ConversationHelper
       include FormFactory
+      include HasSpecificBreadcrumb
 
       helper ConversationHelper
 
+      layout "layouts/decidim/application"
+
       before_action :authenticate_user!
 
-      helper_method :conversation, :user_grouped_messages, :sender_is_user?, :user_groups
+      helper_method :conversation, :user_grouped_messages, :sender_is_user?, :user_groups, :validation_messages
 
       # Shows the form to initiate a conversation with an user (the recipient)
       # recipient is passed via GET parameter:
@@ -60,10 +63,12 @@ module Decidim
 
         @conversations = UserConversations.for(current_user)
         @form = MessageForm.new
+
+        validation_messages << t("decidim.messaging.conversations.index.no_conversations") if @conversations.blank?
       end
 
       def show
-        enforce_permission_to :read, :conversation, conversation: conversation
+        enforce_permission_to(:read, :conversation, conversation:)
 
         @conversation.mark_as_read(current_user)
 
@@ -71,7 +76,7 @@ module Decidim
       end
 
       def update
-        enforce_permission_to :update, :conversation, conversation: conversation
+        enforce_permission_to(:update, :conversation, conversation:)
 
         @form = form(MessageForm).from_params(params, sender: current_user)
 
@@ -91,16 +96,21 @@ module Decidim
 
       def check_multiple
         @form = form(ConversationForm).from_params(params, sender: current_user)
-        redirect_link = current_or_new_conversation_path_with_multiple(@form.recipient)
+        redirect_link = current_or_new_conversation_path_with_multiple(@form.recipient, nickname: params[:nickname])
         redirect_to redirect_link
       end
 
       private
 
+      # deprecated
       def user_groups
         return [] unless current_organization.user_groups_enabled?
 
         current_user.manageable_user_groups
+      end
+
+      def validation_messages
+        @validation_messages ||= []
       end
 
       def conversation
@@ -126,6 +136,14 @@ module Decidim
 
       def sender_is_user?(sender)
         current_user.id == sender.id
+      end
+
+      def breadcrumb_item
+        {
+          label: t("layouts.decidim.user_menu.conversations"),
+          url: conversations_path,
+          active: true
+        }
       end
     end
   end

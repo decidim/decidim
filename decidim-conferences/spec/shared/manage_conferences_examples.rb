@@ -9,8 +9,13 @@ shared_examples "manage conferences" do
     let(:image2_path) { Decidim::Dev.asset(image2_filename) }
 
     before do
-      click_link "New Conference"
+      click_link "New conference"
     end
+
+    %w(description short_description objectives).each do |field|
+      it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='conference-#{field}-tabs']", "full"
+    end
+    it_behaves_like "having a rich text editor for field", "#conference_registrations_terms", "content"
 
     it "creates a new conference" do
       within ".new_conference" do
@@ -43,6 +48,7 @@ shared_examples "manage conferences" do
           ca: "Descripció més llarga"
         )
 
+        fill_in :conference_weight, with: 1
         fill_in :conference_slug, with: "slug"
         fill_in :conference_hashtag, with: "#hashtag"
       end
@@ -59,7 +65,7 @@ shared_examples "manage conferences" do
 
       expect(page).to have_admin_callout("successfully")
 
-      within ".container" do
+      within "[data-content]" do
         expect(page).to have_current_path decidim_admin_conferences.conferences_path
         expect(page).to have_content("My conference")
       end
@@ -71,7 +77,9 @@ shared_examples "manage conferences" do
     let(:image3_path) { Decidim::Dev.asset(image3_filename) }
 
     before do
-      click_link translated(conference.title)
+      within find("tr", text: translated(conference.title)) do
+        click_link "Configure"
+      end
     end
 
     it "updates a conference" do
@@ -90,20 +98,29 @@ shared_examples "manage conferences" do
 
       expect(page).to have_admin_callout("successfully")
 
-      within ".container" do
+      within "[data-content]" do
         expect(page).to have_selector("input[value='My new title']")
         expect(page).to have_css("img[src*='#{image3_filename}']")
       end
     end
   end
 
-  describe "updating an conference without images" do
+  describe "updating a conference without images" do
     before do
-      click_link translated(conference.title)
+      within find("tr", text: translated(conference.title)) do
+        click_link "Configure"
+      end
     end
 
+    %w(description short_description objectives).each do |field|
+      it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='conference-#{field}-tabs']", "full"
+    end
+    it_behaves_like "having a rich text editor for field", "#conference_registrations_terms", "content"
+
     it "update an conference without images does not delete them" do
-      click_submenu_link "Info"
+      within_admin_sidebar_menu do
+        click_link "About this conference"
+      end
       click_button "Update"
 
       expect(page).to have_admin_callout("successfully")
@@ -130,12 +147,16 @@ shared_examples "manage conferences" do
       let!(:conference) { create(:conference, organization:) }
 
       it "allows the user to preview the unpublished conference" do
-        within find("tr", text: translated(conference.title)) do
-          click_link "Preview"
+        new_window = window_opened_by do
+          within find("tr", text: translated(conference.title)) do
+            click_link "Preview"
+          end
         end
 
-        expect(page).to have_current_path decidim_conferences.conference_path(conference)
-        expect(page).to have_content(translated(conference.title))
+        page.within_window(new_window) do
+          expect(page).to have_current_path decidim_conferences.conference_path(conference)
+          expect(page).to have_content(translated(conference.title))
+        end
       end
     end
   end
@@ -150,7 +171,9 @@ shared_examples "manage conferences" do
     let!(:conference) { create(:conference, :unpublished, organization:) }
 
     before do
-      click_link translated(conference.title)
+      within find("tr", text: translated(conference.title)) do
+        click_link "Configure"
+      end
     end
 
     it "publishes the conference" do
@@ -168,7 +191,9 @@ shared_examples "manage conferences" do
     let!(:conference) { create(:conference, organization:) }
 
     before do
-      click_link translated(conference.title)
+      within find("tr", text: translated(conference.title)) do
+        click_link "Configure"
+      end
     end
 
     it "unpublishes the conference" do
@@ -185,7 +210,7 @@ shared_examples "manage conferences" do
   context "when there are multiple organizations in the system" do
     let!(:external_conference) { create(:conference) }
 
-    it "doesn't let the admin manage conferences form other organizations" do
+    it "does not let the admin manage conferences form other organizations" do
       within "table" do
         expect(page).not_to have_content(external_conference.title["en"])
       end
@@ -200,12 +225,13 @@ shared_examples "manage conferences" do
     end
 
     it "disables the scope for the conference" do
-      click_link translated(conference.title)
+      within find("tr", text: translated(conference.title)) do
+        click_link "Configure"
+      end
 
       uncheck :conference_scopes_enabled
 
-      expect(page).to have_selector("#conference_scope_id.disabled")
-      expect(page).to have_selector("#conference_scope_id .picker-values div input[disabled]", visible: :all)
+      expect(page).to have_selector("select#conference_scope_id[disabled]")
 
       within ".edit_conference" do
         find("*[type=submit]").click

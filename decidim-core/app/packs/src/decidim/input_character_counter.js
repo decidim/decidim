@@ -1,3 +1,5 @@
+/* eslint max-lines: ["error", {"max": 350, "skipBlankLines": true}] */
+
 const COUNT_KEY = "%count%";
 // How often SR announces the message in relation to maximum characters. E.g.
 // if max characters is 1000, screen reader announces the remaining characters
@@ -31,12 +33,12 @@ export default class InputCharacterCounter {
     this.$target = $(this.$input.data("remaining-characters"));
     this.minCharacters = parseInt(this.$input.attr("minlength"), 10);
     this.maxCharacters = parseInt(this.$input.attr("maxlength"), 10);
-    this.describeByCounter = typeof this.$input.attr("aria-describedby") === "undefined";
+    this.describeByCounter = this.$input.attr("type") !== "hidden" && typeof this.$input.attr("aria-describedby") === "undefined";
 
     // Define the closest length for the input "gaps" defined by the threshold.
     if (this.maxCharacters > 10) {
       if (this.maxCharacters > 100) {
-        this.announceThreshold = Math.floor(this.maxCharacters * SR_ANNOUNCE_THRESHOLD_RATIO / 100) * 100;
+        this.announceThreshold = Math.floor(this.maxCharacters * SR_ANNOUNCE_THRESHOLD_RATIO);
       } else {
         this.announceThreshold = 10;
       }
@@ -60,39 +62,65 @@ export default class InputCharacterCounter {
     if (this.$target.length > 0) {
       this.$target.attr("id", targetId)
     } else {
-      this.$target = $(`<span id="${targetId}" class="form-input-extra-before" />`)
+      const span = document.createElement("span")
+      span.id = targetId
+      span.className = "input-character-counter__text"
+
+      this.$target = $(span)
+
+      const container = document.createElement("span")
+      container.className = "input-character-counter__container"
+      container.appendChild(span)
 
       // If input is a hidden for WYSIWYG editor add it at the end
       if (this.$input.parent().is(".editor")) {
         this.$input.parent().after(this.$target);
-      }
-      // Prefix and suffix columns are wrapped in columns, so put the
-      // character counter before that.
-      else if (
-        this.$input.parent().is(".columns") &&
-        this.$input.parent().parent().is(".row")
-      ) {
-        this.$input.parent().parent().after(this.$target);
       } else {
-        this.$input.after(this.$target);
+        const wrapper = document.createElement("span")
+        wrapper.className = "input-character-counter"
+
+        // The form errors need to be in the same container with the field they
+        // belong to for Foundation Abide to show them automatically.
+        this.$input.next(".form-error").addBack().wrapAll(wrapper)
+        this.$input.after(container);
       }
     }
 
+    if (this.$target.length > 0 && (this.maxCharacters > 0 || this.minCharacters > 0)) {
+      // Create the screen reader target element. We do not want to constantly
+      // announce every change to screen reader, only occasionally.
+      const screenReaderId = `${targetId}_sr`;
+      this.$srTarget = $(`#${screenReaderId}`);
+      if (!this.$srTarget.length) {
+        this.$srTarget = $(
+          `<span role="status" id="${screenReaderId}" class="sr-only remaining-character-count-sr" />`
+        );
+        this.$target.before(this.$srTarget);
+      }
+      this.$target.attr("aria-hidden", "true");
+      this.$userInput = this.$input;
+
+      // In WYSIWYG editors (TipTap) we need to find the active editor from the
+      // DOM node.
+      if (this.$input.parent().is(".editor")) {
+        // Wait until the next javascript loop so WYSIWYG editors are created
+        setTimeout(() => {
+          this.editor = this.$input.siblings(".editor-container")[0].querySelector(".ProseMirror").editor;
+          this.$userInput = $(this.editor.view.dom);
+          this.initialize();
+        });
+      } else {
+        this.initialize();
+      }
+    }
+  }
+
+  initialize() {
     this.updateInputLength();
     this.previousInputLength = this.inputLength;
 
-    if (this.$target.length > 0 && (this.maxCharacters > 0 || this.minCharacters > 0)) {
-      // Create the screen reader target element. We don't want to constantly
-      // announce every change to screen reader, only occasionally.
-      this.$srTarget = $(
-        `<span role="status" id="${targetId}_sr" class="show-for-sr remaining-character-count-sr" />`
-      );
-      this.$target.before(this.$srTarget);
-      this.$target.attr("aria-hidden", "true");
-      this.setDescribedBy(true);
-
-      this.bindEvents();
-    }
+    this.bindEvents();
+    this.setDescribedBy(true);
   }
 
   setDescribedBy(active) {
@@ -101,46 +129,35 @@ export default class InputCharacterCounter {
     }
 
     if (active) {
-      this.$input.attr("aria-describedby", this.$srTarget.attr("id"));
+      this.$userInput.attr("aria-describedby", this.$srTarget.attr("id"));
     } else {
-      this.$input.removeAttr("aria-describedby");
+      this.$userInput.removeAttr("aria-describedby");
     }
   }
 
   bindEvents() {
-    // In WYSIWYG editors (Quill) we need to find the active editor from the
-    // DOM node. Quill has the experimental "find" method that should work
-    // fine in this case
-    if (Quill && this.$input.parent().is(".editor")) {
-      // Wait until the next javascript loop so Quill editors are created
-      setTimeout(() => {
-        const editor = Quill.find(this.$input.siblings(".editor-container")[0]);
-        editor.on("text-change", () => {
-          this.updateStatus();
-        });
-      })
+    if (this.editor) {
+      this.editor.on("update", () => {
+        this.handleInput();
+      });
+    } else {
+      this.$userInput.on("input", () => {
+        this.handleInput();
+      });
     }
-    this.$input.on("keyup", () => {
+
+    this.$userInput.on("keyup", () => {
       this.updateStatus();
     });
-    this.$input.on("input", () => {
-      this.updateInputLength();
-      this.checkScreenReaderUpdate();
-      // If the input is "described by" the character counter, some screen
-      // readers (NVDA) announce the status twice when it is updated. By
-      // removing the aria-describedby attribute while the user is typing makes
-      // the screen reader announce the status only once.
-      this.setDescribedBy(false);
-    });
-    this.$input.on("focus", () => {
+    this.$userInput.on("focus", () => {
       this.updateScreenReaderStatus();
     });
-    this.$input.on("blur", () => {
+    this.$userInput.on("blur", () => {
       this.updateScreenReaderStatus();
       this.setDescribedBy(true);
     });
-    if (this.$input.get(0) !== null) {
-      this.$input.get(0).addEventListener("emoji.added", () => {
+    if (this.$userInput.get(0) !== null) {
+      this.$userInput.get(0).addEventListener("emoji.added", () => {
         this.updateStatus();
       });
     }
@@ -154,7 +171,21 @@ export default class InputCharacterCounter {
 
   updateInputLength() {
     this.previousInputLength = this.inputLength;
-    this.inputLength = this.$input.val().length;
+    if (this.editor) {
+      this.inputLength = this.editor.storage.characterCount.characters();
+    } else {
+      this.inputLength = this.$input.val().length;
+    }
+  }
+
+  handleInput() {
+    this.updateInputLength();
+    this.checkScreenReaderUpdate();
+    // If the input is "described by" the character counter, some screen
+    // readers (NVDA) announce the status twice when it is updated. By
+    // removing the aria-describedby attribute while the user is typing makes
+    // the screen reader announce the status only once.
+    this.setDescribedBy(false);
   }
 
   /**
@@ -241,7 +272,7 @@ export default class InputCharacterCounter {
       if (remaining === 1) {
         message = MESSAGES.charactersLeft.one;
       }
-      this.$input[0].dispatchEvent(
+      this.$userInput[0].dispatchEvent(
         new CustomEvent("characterCounter", {detail: {remaining: remaining}})
       );
       showMessages.push(message.replace(COUNT_KEY, remaining));
@@ -278,17 +309,5 @@ const createCharacterCounter = ($input) => {
     $input.data("remaining-characters-counter", new InputCharacterCounter($input));
   }
 }
-
-$(() => {
-  $("input[type='text'], textarea, .editor>input[type='hidden']").each((_i, elem) => {
-    const $input = $(elem);
-
-    if (!$input.is("[minlength]") && !$input.is("[maxlength]")) {
-      return;
-    }
-
-    createCharacterCounter($input);
-  });
-});
 
 export {InputCharacterCounter, createCharacterCounter};

@@ -3,12 +3,12 @@
 require "spec_helper"
 
 describe Decidim::Comments::UserGroupMentionedEvent do
-  include_context "when it's a comment event"
+  include_context "when it is a comment event"
   let(:organization) { create(:organization) }
   let(:event_name) { "decidim.events.comments.user_group_mentioned" }
   let(:ca_comment_content) { "<div><p>Un commentaire pour #{author_link}</p></div>" }
   let(:en_comment_content) { "<div><p>Comment mentioning some user group, #{author_link}</p></div>" }
-  let(:author_link) { "<a class=\"user-mention\" href=\"http://#{organization.host}/profiles/#{group.nickname}\">@#{group.nickname}</a>" }
+  let(:author_link) { "<a href=\"http://#{organization.host}:#{Capybara.server_port}/profiles/#{group.nickname}\" data-external-link=\"false\" target=\"_blank\" rel=\"nofollow noopener noreferrer ugc\">@#{group.nickname}</a>" }
 
   let(:extra) do
     {
@@ -17,9 +17,9 @@ describe Decidim::Comments::UserGroupMentionedEvent do
     }
   end
 
-  let(:group) { create :user_group, organization:, users: members + [user] }
-  let(:members) { create_list :user, 2, organization: }
-  let(:user) { create :user, organization:, locale: "ca" }
+  let(:group) { create(:user_group, organization:, users: members + [user]) }
+  let(:members) { create_list(:user, 2, organization:) }
+  let(:user) { create(:user, organization:, locale: "ca") }
 
   let(:parsed_body) { Decidim::ContentProcessor.parse("Comment mentioning some user group, @#{group.nickname}", current_organization: organization) }
   let(:parsed_ca_body) { Decidim::ContentProcessor.parse("Un commentaire pour @#{group.nickname}", current_organization: organization) }
@@ -60,10 +60,10 @@ describe Decidim::Comments::UserGroupMentionedEvent do
   end
 
   describe "resource_text" do
-    let(:participatory_process) { create :participatory_process, organization: }
+    let(:participatory_process) { create(:participatory_process, organization:) }
     let(:component) { create(:component, participatory_space: participatory_process) }
     let(:commentable) { create(:dummy_resource, component:) }
-    let!(:comment) { create :comment, body:, commentable: }
+    let!(:comment) { create(:comment, body:, commentable:) }
 
     it "correctly renders comments with mentions" do
       expect(subject.resource_text).not_to include("gid://")
@@ -75,10 +75,10 @@ describe Decidim::Comments::UserGroupMentionedEvent do
     let(:en_body) { parsed_body.rewrite }
 
     let(:body) { { en: en_body, machine_translations: { ca: parsed_ca_body.rewrite } } }
-    let(:participatory_process) { create :participatory_process, organization: }
+    let(:participatory_process) { create(:participatory_process, organization:) }
     let(:component) { create(:component, participatory_space: participatory_process) }
     let(:commentable) { create(:dummy_resource, component:) }
-    let(:comment) { create :comment, body:, commentable: }
+    let(:comment) { create(:comment, body:, commentable:) }
     let(:en_version) { en_comment_content }
     let(:translatable) { true }
     let(:machine_translated) { ca_comment_content }

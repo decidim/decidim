@@ -8,7 +8,7 @@ module Decidim::Conferences
 
     let(:conference) { create(:conference) }
     let(:user) { nil }
-    let!(:current_user) { create :user, :confirmed, organization: conference.organization }
+    let!(:current_user) { create(:user, :confirmed, organization: conference.organization) }
     let(:meeting_component) do
       create(:component, manifest_name: :meetings, participatory_space: conference)
     end
@@ -90,7 +90,7 @@ module Decidim::Conferences
     context "when everything is ok" do
       let(:conference_speaker) { Decidim::ConferenceSpeaker.last }
 
-      it "creates an conference" do
+      it "creates a conference" do
         expect { subject.call }.to change(Decidim::ConferenceSpeaker, :count).by(1)
       end
 
@@ -112,6 +112,11 @@ module Decidim::Conferences
         expect { subject.call }.to change(Decidim::ActionLog, :count)
         action_log = Decidim::ActionLog.last
         expect(action_log.version).to be_present
+      end
+
+      it "sets the avatar" do
+        subject.call
+        expect(conference_speaker.avatar.blob).to be_a(ActiveStorage::Blob)
       end
 
       context "with an existing user in the platform" do

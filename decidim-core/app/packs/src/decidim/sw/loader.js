@@ -13,6 +13,6 @@ window.addEventListener("load", async () => {
       mandatoryElements.classList.add("hide")
     }
   } else {
-    console.log("Your browser doesn't support service workers 🤷‍♀️");
+    console.log("Your browser does not support service workers 🤷‍♀️");
   }
 });

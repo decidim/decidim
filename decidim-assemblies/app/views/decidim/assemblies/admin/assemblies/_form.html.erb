@@ -1,242 +1,284 @@
-<div class="card">
-  <div class="card-divider">
-    <h2 class="card-title"><%= t(".title") %></h2>
-  </div>
-
-  <div class="card-section">
-    <div class="row column">
-      <%= form.translated :text_field, :title, autofocus: true %>
+<div class="form__wrapper">
+  <div class="card" data-component="accordion" id="accordion-title">
+    <div class="card-divider">
+      <button class="card-divider-button" data-open="true" data-controls="panel-title" type="button">
+        <%= icon "arrow-right-s-line" %>
+        <h2 class="card-title" id="title">
+          <%= t("title", scope: "decidim.assemblies.admin.assemblies.form") %>
+        </h2>
+      </button>
     </div>
 
-    <div class="row column">
-      <%= form.translated :text_field, :subtitle %>
-    </div>
-
-    <div class="row column">
-      <%= form.number_field :weight %>
-    </div>
-
-    <div class="row">
-      <div class="columns xlarge-6 slug">
-        <%= form.text_field :slug %>
-        <p class="help-text">
-          <%== t(".slug_help", url: decidim_form_slug_url(:assemblies, form.object.slug)) %>
-        </p>
-      </div>
-
-      <div class="columns xlarge-6">
-        <%= form.text_field :hashtag %>
-      </div>
-    </div>
-
-    <div class="row column">
-      <%= form.translated :editor, :short_description %>
-    </div>
-
-    <div class="row column">
-      <%= form.translated :editor, :description, toolbar: :full, lines: 25 %>
-    </div>
-
-    <div class="row column">
-      <%= form.translated :editor, :purpose_of_action %>
-    </div>
-
-    <div class="row column">
-      <%= form.translated :editor, :composition %>
-    </div>
-
-    <div class="row column">
-      <%= form.translated :editor, :internal_organisation %>
-    </div>
-
-    <div class="row column">
-      <%= form.translated :editor, :announcement %>
-      <p class="help-text"><%== t(".announcement_help") %></p>
-    </div>
-  </div>
-
-  <div class="card-divider">
-    <h2 class="card-title"><%= t(".duration") %></h2>
-  </div>
-
-  <div class="card-section">
-    <div class="row column">
-      <%= form.date_field :creation_date %>
-    </div>
-
-    <div class="row column">
-      <%= form.date_field :included_at %>
-      <p class="help-text"><%== t(".included_at_help") %></p>
-    </div>
-
-    <div class="row column">
-      <%= form.date_field :duration %>
-      <p class="help-text"><%== t(".duration_help") %></p>
-    </div>
-
-    <div class="row column" id="closing_date_div">
-      <%= form.date_field :closing_date %>
-    </div>
-
-    <div class="row column" id="closing_date_reason_div">
-      <%= form.translated :editor, :closing_date_reason %>
-    </div>
-  </div>
-
-  <div class="card-divider">
-    <h2 class="card-title"><%= t(".images") %></h2>
-  </div>
-
-  <div class="card-section">
-    <div class="row">
-      <div class="columns xlarge-6">
-        <%= form.upload :hero_image %>
-      </div>
-
-      <div class="columns xlarge-6">
-        <%= form.upload :banner_image %>
-      </div>
-    </div>
-    </div>
-
-  <div class="card-divider">
-    <h2 class="card-title"><%= t(".filters") %></h2>
-  </div>
-
-  <div class="card-section">
-    <div class="row column">
-      <%= form.check_box :scopes_enabled %>
-    </div>
-
-    <div class="row column">
-      <%= scopes_picker_field form, :scope_id, root: nil %>
-    </div>
-
-    <div class="row column">
-      <%= form.areas_select :area_id,
-                            areas_for_select(current_organization),
-                            selected: current_assembly.try(:decidim_area_id),
-                            include_blank: t(".select_an_area") %>
-    </div>
-  </div>
-
-  <div class="card-divider">
-    <h2 class="card-title"><%= t(".metadata") %></h2>
-  </div>
-
-  <div class="card-section">
-    <div class="row column">
-      <%= form.translated :text_field, :participatory_scope %>
-    </div>
-
-    <div class="row column">
-      <%= form.translated :text_field, :participatory_structure %>
-    </div>
-    <div class="row">
-      <div class="columns xlarge-6">
-        <%= form.translated :text_field, :meta_scope %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="columns xlarge-6">
-        <%= form.translated :text_field, :developer_group %>
-      </div>
-
-      <div class="columns xlarge-6">
-        <%= form.translated :text_field, :local_area %>
-      </div>
-    </div>
-
-    <div class="row column">
-      <%= form.translated :text_field, :target %>
-    </div>
-      </div>
-
-  <div class="card-divider">
-    <h2 class="card-title"><%= t(".visbility") %></h2>
-  </div>
-
-  <div class="card-section">
-    <% if params[:parent_id].present? %>
-      <%= form.hidden_field :parent_id, value: @form.parent_id %>
-    <% else %>
+    <div id="panel-title" class="card-section">
       <div class="row column">
-        <%= form.select :parent_id,
-                        options_from_collection_for_select(
-                          parent_assemblies_for_select,
-                          :id,
-                          :translated_title,
-                          selected: current_assembly.try(:parent_id)
-                        ),
-                        include_blank: t(".select_parent_assembly") %>
+        <%= form.translated :text_field, :title, autofocus: true, aria: { label: :title } %>
       </div>
-    <% end %>
+
+      <div class="row column">
+        <%= form.translated :text_field, :subtitle, aria: { label: :subtitle } %>
+      </div>
+
+      <div class="row column">
+        <%= form.number_field :weight %>
+      </div>
+
+    <div class="row">
+      <div class="columns slug">
+        <%= form.text_field :slug, help_text: t(".slug_help_html", url: decidim_form_slug_url(:assemblies, form.object.slug)) %>
+      </div>
+
+        <div class="columns">
+          <%= form.text_field :hashtag %>
+        </div>
+      </div>
+
+      <div class="row column">
+        <%= form.translated :editor, :short_description, aria: { label: :short_description } %>
+      </div>
+
+      <div class="row column">
+        <%= form.translated :editor, :description, aria: { label: :description } %>
+      </div>
+
+      <div class="row column">
+        <%= form.translated :editor, :purpose_of_action, aria: { label: :purpose_of_action } %>
+      </div>
+
+      <div class="row column">
+        <%= form.translated :editor, :composition, aria: { label: :composition } %>
+      </div>
+
+      <div class="row column">
+        <%= form.translated :editor, :internal_organisation, aria: { label: :internal_organisation } %>
+      </div>
+
+      <div class="row column">
+        <%= form.translated :editor, :announcement, help_text: t(".announcement_help") %>
+      </div>
+    </div>
+  </div>
+  <div class="card" data-component="accordion" id="accordion-duration">
+    <div class="card-divider">
+      <button class="card-divider-button" data-open="true" data-controls="panel-duration" type="button">
+        <%= icon "arrow-right-s-line" %>
+        <h2 class="card-title" id="duration">
+          <%= t("duration", scope: "decidim.assemblies.admin.assemblies.form") %>
+        </h2>
+      </button>
+    </div>
+
+    <div id="panel-duration" class="card-section">
+      <div class="row column">
+        <%= form.date_field :creation_date %>
+      </div>
 
     <div class="row column">
-      <%= form.check_box :promoted %>
+      <%= form.date_field :included_at, help_text: t(".included_at_help") %>
     </div>
 
-    <div class="row column" id="private_space">
-      <%= form.check_box :private_space %>
+    <div class="row column">
+      <%= form.date_field :duration, help_text: t(".duration_help") %>
     </div>
 
-    <div class="row column" id="is_transparent">
-      <%= form.check_box :is_transparent %>
+      <div class="row column" id="closing_date_div">
+        <%= form.date_field :closing_date %>
+      </div>
+
+      <div class="row column" id="closing_date_reason_div">
+        <%= form.translated :editor, :closing_date_reason, toolbar: :content, aria: { label: :closing_date_reason } %>
+      </div>
     </div>
   </div>
 
-  <div class="card-divider">
-    <h2 class="card-title"><%= t(".other") %></h2>
+  <div class="card" data-component="accordion" id="accordion-images">
+    <div class="card-divider">
+      <button class="card-divider-button" data-open="true" data-controls="panel-images" type="button">
+        <%= icon "arrow-right-s-line" %>
+        <h2 class="card-title" id="images">
+          <%= t("images", scope: "decidim.assemblies.admin.assemblies.form") %>
+        </h2>
+      </button>
+    </div>
+
+    <div id="panel-images" class="card-section">
+      <div class="row">
+        <div class="columns">
+          <%= form.upload :hero_image, button_class: "button button__sm button__transparent-secondary" %>
+        </div>
+
+        <div class="columns">
+          <%= form.upload :banner_image, button_class: "button button__sm button__transparent-secondary" %>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="card-section">
-    <div class="row column">
-      <%= form.select :created_by,
-                      @form.created_by_for_select,
-                      { include_blank: t(".select_a_created_by") },
-                      { multiple: false } %>
+  <div class="card" data-component="accordion" id="accordion-filters">
+    <div class="card-divider">
+      <button class="card-divider-button" data-open="true" data-controls="panel-filters" type="button">
+        <%= icon "arrow-right-s-line" %>
+        <h2 class="card-title" id="filters">
+          <%= t("filters", scope: "decidim.assemblies.admin.assemblies.form") %>
+        </h2>
+      </button>
     </div>
 
-    <div class="row column" id="created_by_other">
-      <%= form.translated :text_field, :created_by_other %>
+    <div id="panel-filters" class="card-section">
+      <div class="row column">
+        <%= form.check_box :scopes_enabled %>
+      </div>
+
+      <div class="row column">
+        <%= scopes_select_field form, :scope_id, root: nil %>
+      </div>
+
+      <div class="row column">
+        <%= form.areas_select :area_id,
+                              areas_for_select(current_organization),
+                              selected: current_assembly.try(:decidim_area_id),
+                              include_blank: t(".select_an_area") %>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-component="accordion" id="accordion-metadata">
+    <div class="card-divider">
+      <button class="card-divider-button" data-open="true" data-controls="panel-metadata" type="button">
+        <%= icon "arrow-right-s-line" %>
+        <h2 class="card-title" id="metadata">
+          <%= t("metadata", scope: "decidim.assemblies.admin.assemblies.form") %>
+        </h2>
+      </button>
     </div>
 
-    <div class="row column">
-      <%= form.select :decidim_assemblies_type_id,
-                      @form.assembly_types_for_select,
-                      { include_blank: t(".select_an_assembly_type") },
-                      { multiple: false } %>
+    <div id="panel-metadata" class="card-section">
+      <div class="row column">
+        <%= form.translated :text_field, :participatory_scope, aria: { label: :participatory_scope } %>
+      </div>
+
+      <div class="row column">
+        <%= form.translated :text_field, :participatory_structure, aria: { label: :participatory_structure } %>
+      </div>
+      <div class="row">
+        <div class="columns">
+          <%= form.translated :text_field, :meta_scope, aria: { label: :meta_scope } %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="columns">
+          <%= form.translated :text_field, :developer_group, aria: { label: :developer_group } %>
+        </div>
+
+        <div class="columns">
+          <%= form.translated :text_field, :local_area, aria: { label: :local_area } %>
+        </div>
+      </div>
+
+      <div class="row column">
+        <%= form.translated :text_field, :target, aria: { label: :target } %>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-component="accordion" id="accordion-visbility">
+    <div class="card-divider">
+      <button class="card-divider-button" data-open="true" data-controls="panel-visbility" type="button">
+        <%= icon "arrow-right-s-line" %>
+        <h2 class="card-title" id="visbility">
+          <%= t("visbility", scope: "decidim.assemblies.admin.assemblies.form") %>
+        </h2>
+      </button>
     </div>
 
-    <div class="row column">
-      <% if @form.processes_for_select %>
-        <%= form.select :participatory_processes_ids,
-                        options_for_select(
-                            @form.processes_for_select,
-                            selected: processes_selected
+    <div id="panel-visbility" class="card-section">
+      <% if params[:parent_id].present? %>
+        <%= form.hidden_field :parent_id, value: @form.parent_id %>
+      <% else %>
+        <div class="row column">
+          <%= form.select :parent_id,
+                          options_from_collection_for_select(
+                            parent_assemblies_for_select,
+                            :id,
+                            :translated_title,
+                            selected: current_assembly.try(:parent_id)
                           ),
-                        { include_blank: false },
-                        { multiple: true, class: "chosen-select" } %>
+                          include_blank: t(".select_parent_assembly") %>
+        </div>
       <% end %>
+
+      <div class="row column">
+        <%= form.check_box :promoted %>
+      </div>
+
+      <div class="row column" id="private_space">
+        <%= form.check_box :private_space %>
+      </div>
+
+      <div class="row column" id="is_transparent">
+        <%= form.check_box :is_transparent %>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-component="accordion" id="accordion-other">
+    <div class="card-divider">
+      <button class="card-divider-button" data-open="true" data-controls="panel-other" type="button">
+        <%= icon "arrow-right-s-line" %>
+        <h2 class="card-title" id="other">
+          <%= t("other", scope: "decidim.assemblies.admin.assemblies.form") %>
+        </h2>
+      </button>
     </div>
 
-    <div class="row column" id="special_features">
-      <%= form.translated :editor, :special_features %>
-    </div>
+    <div id="panel-other" class="card-section">
+      <div class="row column">
+        <%= form.select :created_by,
+                        @form.created_by_for_select,
+                        { include_blank: t(".select_a_created_by") },
+                        { multiple: false } %>
+      </div>
 
-    <div class="columns xlarge-6">
-      <%= form.social_field :text_field,
-                            :social_handlers,
-                            Decidim::Assembly::SOCIAL_HANDLERS,
-                            label: t("social_handlers",
-                            scope: "decidim.assemblies.admin.assemblies.form") %>
-    </div>
+      <div class="row column" id="created_by_other">
+        <%= form.translated :text_field, :created_by_other, aria: { label: :created_by_other } %>
+      </div>
 
-    <div class="row column">
-      <%= form.check_box :show_statistics %>
+      <div class="row column">
+        <%= form.select :decidim_assemblies_type_id,
+                        @form.assembly_types_for_select,
+                        { include_blank: t(".select_an_assembly_type") },
+                        { multiple: false } %>
+      </div>
+
+      <div class="row column">
+        <% if @form.processes_for_select %>
+          <%= form.select :participatory_processes_ids,
+                          options_for_select(
+                              @form.processes_for_select,
+                              selected: processes_selected
+                            ),
+                          { include_blank: false },
+                          { multiple: true, class: "chosen-select" } %>
+        <% end %>
+      </div>
+
+      <div class="row column" id="special_features">
+        <%= form.translated :editor, :special_features, aria: { label: :special_features } %>
+      </div>
+
+      <div class="row column">
+        <%= form.social_field :text_field,
+                              :social_handlers,
+                              Decidim::Organization::SOCIAL_HANDLERS,
+                              label: t("social_handlers",
+                                       scope: "decidim.assemblies.admin.assemblies.form") %>
+      </div>
+
+      <div class="row column">
+        <%= form.check_box :show_statistics %>
+      </div>
     </div>
   </div>
 </div>
 
-<%= javascript_pack_tag "decidim_assemblies_admin" %>
+<%= append_javascript_pack_tag "decidim_assemblies_admin" %>

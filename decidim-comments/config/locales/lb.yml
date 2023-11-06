@@ -19,27 +19,18 @@ lb:
       comments:
         create:
           error: Beim Erstellen des Kommentars ist ein Fehler aufgetreten.
-        delete:
-          error: "Der Kommentar konnte nicht gelöscht werden.\n\n"
         update:
           error: Beim Aktualisieren des Kommentars ist ein Problem aufgetreten.
       comments_count: Kommentaranzahl
-      comments_title: Kommentare
-      last_activity:
-        new_comment_at_html: "<span>Neuer Kommentar unter %{link}</span>"
-      view: Ansicht
       votes:
         create:
           error: Beim Abstimmen des Kommentars sind Fehler aufgetreten.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Melden Sie sich mit Ihrem Konto an</a> oder <a href="%{sign_up_url}">registrieren Sie sich</a>, um Ihren Kommentar hinzuzufügen.
         form:
           body:
             label: Kommentar
             placeholder: Was denken Sie darüber?
-          form_error: Der Text ist erforderlich und darf nicht länger als %{length} Zeichen sein.
-          submit: Senden
           user_group_id:
             label: Kommentieren als
         opinion:
@@ -72,11 +63,9 @@ lb:
           description: Ist dieser Inhalt unangemessen?
           details: Zusätzliche Kommentare
           reasons:
-            does_not_belong: Enthält illegale Aktivitäten, Selbstmorddrohungen, persönliche Informationen oder etwas anderes, von dem Sie denken, dass es nicht auf %{organization_name} gehört.
             offensive: Enthält Rassismus, Sexismus, Verleumdungen, persönliche Angriffe, Morddrohungen, Selbstmordanträge oder jegliche Form von Hassreden.
             spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
           title: Ungeeigneten Inhalt melden
-        show_replies: '%{replies_count} Antworten anzeigen'
         single_comment_link_title: Link ufroen
       comment_order_selector:
         order:
@@ -85,8 +74,6 @@ lb:
           older: Chronologisch
           recent: Kürzlich hinzugefügt
         title: 'Sortieren nach:'
-      comment_thread:
-        title: Konversation mit %{authorName}
       comments:
         blocked_comments_for_unauthorized_user_warning: Sie müssen aktuell verifiziert sein um zu kommentieren, aber Sie können die bisherigen Kommentare lesen.
         blocked_comments_for_user_warning: Sie können momentan nichts kommentieren, aber Sie können die vorherigen lesen.
@@ -156,6 +143,3 @@ lb:
         description: Anzahl der von Benutzern generierten Kommentare
         object: Bemerkungen
         title: Bemerkungen
-  errors:
-    messages:
-      cannot_have_comments: kann keine Kommentare haben

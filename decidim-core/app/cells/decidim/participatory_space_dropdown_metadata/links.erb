@@ -1,0 +1,9 @@
+<% if nav_items.present? %>
+  <% nav_items.each do |item| %>
+    <li>
+      <%= link_to item[:url] do %>
+        <span><%= item[:name] %></span><%= icon "arrow-right-line" %>
+      <% end %>
+    </li>
+  <% end %>
+<% end %>

@@ -1,0 +1,49 @@
+.vertical-tabs {
+  @apply grid gap-10 lg:gap-20 grid-rows-[max-content] grid-cols-1 md:grid-cols-10 first:[&>*]:col-span-full md:first:[&>*]:col-span-3 last:[&>*]:col-span-full md:last:[&>*]:col-span-7;
+
+  &__list {
+    @apply md:bg-background rounded divide-y-0 md:divide-y divide-gray-3;
+
+    a {
+      @apply py-2 md:p-4 block w-full h-full text-secondary hover:underline;
+    }
+
+    li.is-active a {
+      @apply border-l-0 md:border-l-4 border-primary font-semibold;
+    }
+  }
+
+  nav {
+    @apply rounded border-4 border-background md:border-0 self-start;
+  }
+
+  [id*="dropdown-menu"] {
+    @apply flex flex-col mx-3.5 md:mx-0 md:px-0 py-2 md:py-0 border-t md:border-t-0 border-gray-3 cursor-pointer;
+
+    &[aria-hidden="true"] {
+      @apply hidden md:flex;
+    }
+  }
+
+  [data-target*="dropdown"] {
+    @apply w-full md:hidden flex items-center justify-between gap-2 p-2 first-of-type:[&>svg]:block last-of-type:[&>svg]:hidden;
+
+    & > span {
+      @apply font-semibold flex items-center gap-2 text-secondary [&_svg]:fill-current;
+    }
+
+    > svg {
+      @apply w-8 h-8 flex-none text-secondary fill-current;
+    }
+
+    &[aria-expanded="false"] > svg:last-of-type,
+    &[aria-expanded="true"] > svg:first-of-type {
+      @apply hidden;
+    }
+
+    &[aria-expanded="true"] > svg:last-of-type,
+    &[aria-expanded="false"] > svg:first-of-type {
+      @apply block;
+    }
+  }
+}

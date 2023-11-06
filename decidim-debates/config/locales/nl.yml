@@ -47,7 +47,6 @@ nl:
         confirm_destroy: Ben je zeker?
         destroy: Verwijder
         edit: Bewerk
-        new: Nieuw %{name}
         title: acties
       admin:
         debates:
@@ -73,9 +72,6 @@ nl:
             success: Debat succesvol bijgewerkt.
         exports:
           comments: Reacties
-        models:
-          debate:
-            name: Debat
       admin_log:
         debate:
           create: "%{user_name} heeft het %{resource_name} debat gemaakt in de %{space_name} ruimte"
@@ -106,18 +102,11 @@ nl:
           official: Officieel
           origin: Oorsprong
           participants: Deelnemers
-          scope: Scope
           search: Zoeken
           state: Status
           state_values:
             closed: Gesloten
             open: Open
-          user_groups: Gebruikersgroepen
-        filters_small_view:
-          close_modal: Sluit venster
-          filter: Sorteren
-          filter_by: Sorteren op
-          unfold: Uitvouwen
         form:
           select_a_category: Selecteer een categorie
         index:
@@ -133,23 +122,12 @@ nl:
           recent: Meest recent
           updated: Onlangs bijgewerkt
         show:
-          back: Terug naar het overzicht
           date: 'Datum:'
           edit_debate: Bewerk debat
           open: Debat openen
         update:
           invalid: Er is een fout opgetreden bij het bijwerken van het debat.
           success: Debat succesvol bijgewerkt.
-        versions:
-          debates:
-            back_to_resource: Ga terug naar het debat
-          index:
-            title: versies
-        versions_list:
-          back_to_resource: Ga terug naar het debat
-      last_activity:
-        debate_updated_at_html: "<span>Debat bijgewerkt op %{link}</span>"
-        new_debate_at_html: "<span>Nieuw debat op %{link}</span>"
       models:
         debate:
           fields:
@@ -183,7 +161,6 @@ nl:
           email_intro: 'Je kan nu nieuwe debatten aanmaken in %{participatory_space_title}! Start jouw deelname op deze pagina:'
           email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Je kan de meldingen uitschakelen door te klikken op de voorgaande link.
           email_subject: Debatten zijn nu beschikbaar in %{participatory_space_title}
-          notification_title: Je kan nu beginnen met <a href="%{resource_path}">nieuwe debatten</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         debate_closed:
           affected_user:
             email_intro: 'Het debat "%{resource_title}" is gesloten. U kunt de conclusies lezen op de pagina:'
@@ -206,7 +183,6 @@ nl:
           name: debatten
           next_level_in: Neem deel aan %{score} meer debatten om het volgende niveau te bereiken!
           unearned_another: Deze gebruiker heeft nog geen deelgenomen aan een debat.
-          unearned_own: Je hebt nog deelgenomen aan debatten.
     metrics:
       debates:
         description: Aantal debatten gemaakt

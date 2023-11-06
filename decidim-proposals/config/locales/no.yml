@@ -31,7 +31,6 @@
         cost_report: Kostnadsrapport
         execution_period: Utførelsesperiode
       proposals_copy:
-        copy_proposals: Jeg forstår at dette vil importere alle forslag fra den valgte komponenten til den nåværende, og at denne handlingen ikke kan reverseres.
         origin_component_id: Komponent å kopiere forslagene fra
       proposals_import:
         import_proposals: Importer forslag
@@ -107,10 +106,6 @@
               rejected: Avvist
               validating: Teknisk validering
               withdrawn: Tilbakekalt
-          state_null:
-            label: Tilstand
-            values:
-              'true': Ikke besvart
         search_placeholder:
           id_string_or_title_cont: Søk %{collection} etter ID eller tittel.
     components:
@@ -209,9 +204,6 @@
             votes_hidden: Støtter skjult (hvis støtter er aktivert, sjekke du av dette vil det skjule antall støtter)
     events:
       proposals:
-        admin:
-          proposal_note_created:
-            email_intro: Noen har lagt ut en merknad på forslaget "%{resource_title}". Sjekk det ut i <a href="%{admin_proposal_info_url}">administratorpanelet</a>
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} har blitt akseptert tilgang som bidragsyter til %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> har blitt <strong>akseptert tilgang som bidragsyter</strong> av <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.
@@ -234,12 +226,10 @@
           email_intro: 'Du kan nå lage nye forslag i %{participatory_space_title}! Begynn å delta på denne siden:'
           email_outro: Du har mottatt denne varslingen fordi du følger %{participatory_space_title}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
           email_subject: Forslag nå tilgjengelig i %{participatory_space_title}
-          notification_title: Du kan nå legge frem <a href="%{resource_path}">nye forslag</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Du kan påtegne forslag i %{participatory_space_title}! Begynn å delta på denne siden:'
           email_outro: Du har mottatt denne varslingen fordi du følger %{participatory_space_title}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
           email_subject: Forslags påtegnelse har startet for %{participatory_space_title}
-          notification_title: Du kan nå begynne å <a href="%{resource_path}">påtegne forslag</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           affected_user:
             email_intro: 'Forslaget ditt "%{resource_title}" er blitt akseptert. Du kan lese svaret på denne siden:'
@@ -249,7 +239,6 @@
           follower:
             email_intro: 'Forslaget "%{resource_title}" er blitt akseptert. Du kan lese svaret på denne siden:'
             email_outro: Du har mottatt denne varslingen fordi du følger "%{resource_title}". Du kan slutte å følge den fra den forrige lenken.
-            email_subject: Et forslag du følger har blitt akseptert
             notification_title: <a href="%{resource_path}">%{resource_title}</a> forslaget ble akseptert.
         proposal_evaluating:
           affected_user:
@@ -260,7 +249,6 @@
           follower:
             email_intro: 'Forslaget "%{resource_title}" holder på å bli evaluert. Du kan se etter svar på denne siden:'
             email_outro: Du har mottatt denne varslingen fordi du følger "%{resource_title}". Du kan slutte å følge den fra den forrige lenken.
-            email_subject: Et forslag du følger blir evaluert
             notification_title: <a href="%{resource_path}">%{resource_title}</a> forslaget blir evaluert.
         proposal_mentioned:
           email_outro: Du har mottatt denne varslingen fordi du er en forfatter av "%{resource_title}".
@@ -279,12 +267,10 @@
           affected_user:
             email_intro: 'Forslaget ditt "%{resource_title}" er blitt avvist. Du kan lese svaret på denne siden:'
             email_outro: Du har mottatt denne varslingen fordi du er en forfatter av "%{resource_title}".
-            email_subject: Forslaget ditt har blitt avvist
             notification_title: Forslaget ditt <a href="%{resource_path}">%{resource_title}</a> har blitt avvist.
           follower:
             email_intro: 'Forslaget "%{resource_title}" er blitt avvist. Du kan lese svaret på denne siden:'
             email_outro: Du har mottatt denne varslingen fordi du følger "%{resource_title}". Du kan slutte å følge den fra den forrige lenken.
-            email_subject: Et forslag du følger har blitt avslått
             notification_title: <a href="%{resource_path}">%{resource_title}</a> forslaget ble avvist.
         proposal_update_category:
           email_intro: 'En admin har oppdatert kategorien for forslaget ditt "%{resource_title}", sjekk det ut på denne siden:'
@@ -320,7 +306,6 @@
           description_own: Du har gitt støtte til %{score} forslag.
           name: Forslags støtter
           next_level_in: Gi støtte til %{score} flere forslag for å nå neste nivå!
-          unearned_another: Denne deltakeren har ingen gitt støtte til et forslag ennå.
           unearned_own: Du har ikke gitt støtte til noen forslag ennå.
         proposals:
           conditions:
@@ -331,7 +316,6 @@
           description_own: Du har opprettet %{score} forslag.
           name: Forslag
           next_level_in: Opprett %{score} flere forslag for å nå neste nivå!
-          unearned_another: Denne deltakeren har ikke opprettet et forslag ennå.
           unearned_own: Du har ikke opprettet noen forslag ennå.
     metrics:
       accepted_proposals:
@@ -408,9 +392,6 @@
             bottom_hint: "(Du vil kunne forhåndsvise og sortere dokument seksjoner)"
             title: LEGG TIL DOKUMENT
             upload_document: Last opp dokument
-          publish:
-            invalid: Kunne ikke publisere forslag
-            success: Alle forslagene er publisert
           sections:
             article: "<em>Artikkel</em>"
             section: "<em>Seksjon:</em> <strong>%{title}</strong>"
@@ -425,21 +406,12 @@
             rejected: Avvist
             title: Svar for forslag %{title}
         proposal_notes:
-          create:
-            error: Det oppsto et problem med å lage dette forslags notatet
-            success: Forslags notat opprettet
           form:
             note: Merk
             submit: Send inn
           leave_your_note: Legg igjen notatene dine
           title: Private notater
         proposals:
-          answer:
-            invalid: Det oppstod et problem med å svare på dette forslaget
-            success: Forslag besvart
-          create:
-            invalid: Det oppstod et problem med å opprette dette forslaget
-            success: Forslag opprettet
           edit:
             title: Oppdater forslag
             update: Oppdater
@@ -470,40 +442,22 @@
           new:
             create: Opprett
             title: Opprett forslag
-          publish_answers:
-            select_a_proposal: Vennligst velg et forslag
           show:
             amendments_count: Endringer teller
-            authors: Forfattere
             body: Body
             comments_count: Kommentarer teller
-            comments_negative_count: Imot
-            comments_neutral_count: Nøytral
-            comments_positive_count: Tjeneste
-            created_at: Opprettelsesdato
             documents: Dokumenter
             endorsements_count: Påtegnelser teller
-            endorsements_ranking: Rankingliste av påtegninger
             endorsers: Påtegnelser
             link: Lenke
             n_more_endorsers:
               one: og 1 til
               other: og %{count} til
             photos: Bilder
-            proposals: Forslag
             ranking: "%{ranking} av %{total}"
             related_meetings: Relaterte møter
             votes_count: Støtter antall
-            votes_ranking: Rangering etter støttere
-          update_category:
-            select_a_category: Velg en kategori
-            select_a_proposal: Vennligst velg et forslag
-          update_scope:
-            select_a_proposal: Vennligst velg et forslag
         proposals_imports:
-          create:
-            invalid: Det oppsto et problem med å importere forslagene
-            success: "%{number} forslag importert"
           new:
             create: Importer forslag
             no_components: Det er ingen andre forslags komponetner i dette deltaker området å importere forslagene fra.
@@ -529,15 +483,11 @@
         rejected: Avvist
         withdrawn: Trukket tilbake
       application_helper:
-        filter_category_values:
-          all: Alle
         filter_origin_values:
           all: Alle
           meetings: Møter
           official: Offisiell
           user_groups: Grupper
-        filter_scope_values:
-          all: Alle
         filter_state_values:
           accepted: Aksepterte
           all: Alle
@@ -553,26 +503,18 @@
           publish:
             error: Det oppsto et problem med å publisere samarbeids utkastet.
             irreversible_action_modal:
-              body: Etter å ha publisert utkastet som et forslag, kan utkastet ikke lenger redigeres. Forslaget vil ikke godta nye forfattere eller bidrag.
               cancel: Avbryt
               ok: Publiser som et Forslag
               title: Følgende handling kan ikke gjøres om
             success: Samarbeids utkastet publisert som et forslag.
-          view_collaborative_draft: Se Samarbeids Utkast
           withdraw:
             error: Det oppsto et problem med å lukke samarbeids utkastet.
             irreversible_action_modal:
-              body: Etter å ha lukket utkastet, kan utkastet ikke lenger redigeres. Utkastet vil ikke godta nye forfattere eller bidrag.
               cancel: Avbryt
               ok: Trakk tilbake samarbeids utkastet
               title: Følgende handling kan ikke gjøres om
             success: Samarbeids utkast trukket.
-        count:
-          drafts_count:
-            one: "%{count} samarbeids utkast"
-            other: "%{count} samarbeids utkaster"
         create:
-          error: Det oppsto et problem med å lage disse samarbeidsutkastene
           success: Samarbeids utkast opprettet.
         edit:
           attachment_legend: "(Valgfritt) Legg til et vedlegg"
@@ -596,6 +538,10 @@
           filter: Filter
           filter_by: Filtrer etter
           unfold: Åpne
+        index:
+          count:
+            one: "%{count} samarbeids utkast"
+            other: "%{count} samarbeids utkaster"
         new:
           send: Fortsett
         new_collaborative_draft_button:
@@ -608,32 +554,26 @@
         requests:
           accepted_request:
             error: Kunne ikke aksepteres som en samarbeidspartner, Prøv igjen senere.
-            success: "@%{user} har blitt godtatt som en samarbeidspartner"
           access_requested:
             error: Forespørselen din kunne ikke fullføres. Prøv igjen senere.
-            success: Forespørselen din om å samarbeide har blitt sendt
           collaboration_requests:
             accept_request: Aksepter
             reject_request: Avvis
             title: Forespørsler om samarbeid
           rejected_request:
             error: Kunne ikke bli avvist som en samarbeidspartner, Prøv igjen senere.
-            success: "@%{user} har blitt avvist som samarbeidspartner"
         show:
-          back: Tilbake
           edit: Rediger samarbeids utkastet
           final_proposal: endelig forslag
           final_proposal_help_text: Dette utkastet er ferdig. Sjekk ut det endelige forslaget
           hidden_authors_count:
             one: og %{count} til person
             other: og %{count} flere personer
-          info-message: Dette er et <strong>samarbeids utkast</strong> for et forslag. Dette betyr at du kan hjelpe forfatterne å forme forslaget med bruk av kommentarfeltet nedenfor eller forbedre det direkte med å be om tilgang til å redigere det. Når forfatterne gir deg tilgang, vil du kunne redigere utkastet.
           publish: Publiser
           publish_info: Publiser denne versjonen av utkastet eller
           published_proposal: publisert forslag
           request_access: Be om tilgang
           requested_access: Tilgang forespurt
-          version_history: se versjonshistorikk for dette forslaget
           withdraw: trekk tilbake utkastet
         states:
           open: Åpen
@@ -642,8 +582,6 @@
         update:
           error: Det oppstod et problem med å lagre samarbeids utkastet.
           success: Samarbeids utkast oppdatert.
-        wizard_aside:
-          info: Du oppretter et <strong>samarbeids utkast</strong>.
         wizard_header:
           title: Opprett ditt samarbeids utkast
       create:
@@ -652,14 +590,7 @@
       destroy_draft:
         error: Det oppsto et problem med å slette samarbeids utkastet.
         success: Forslags utkastet ble slettet.
-      last_activity:
-        new_proposal_at_html: "<span>Nytt forslag på %{link}</span>"
       models:
-        collaborative_draft:
-          fields:
-            authors: Forfattere
-            comments: Kommentarer
-            contributions: Bidragene
         proposal:
           fields:
             category: Kategori
@@ -672,14 +603,11 @@
             state: Status
             title: Tittel
             votes: Stemmer
-      new:
-        limit_reached: Du kan ikke opprette nye forslag fordi du har overstiger grensen.
       participatory_text_proposal:
         alternative_title: Det er ingen deltakende tekster for øyeblikket
         buttons:
           amend: Endre
           comment: Kommentar
-          comments: Kommentarer
       proposal_votes:
         create:
           error: Det oppstod et problem med å støtte forslaget.
@@ -691,10 +619,6 @@
         complete:
           send: Send
           title: Fullfør forslaget
-        count:
-          proposals_count:
-            one: "%{count} forslag"
-            other: "%{count} forslag"
         edit:
           attachment_legend: "(Valgfritt) Legg til et vedlegg"
           back: Tilbake
@@ -719,22 +643,15 @@
           state: Status
           type: Type
           voted: Støttet
-        filters_small_view:
-          close_modal: Lukk modal
-          filter: Filter
-          filter_by: Filtrer etter
-          unfold: Åpne
         index:
           collaborative_drafts_list: Lag utkast sammen med andre
+          count:
+            one: "%{count} forslag"
+            other: "%{count} forslag"
           new_proposal: Nytt forslag
           see_all: Se alle forslag
           see_all_withdrawn: Se alle tilbaketrukne forslag
           text_banner: Du ser en liste med forslag tilbaketrukket av deres forfattere. %{go_back_link}.
-          view_proposal: Se forslag
-        linked_proposals:
-          proposal_votes:
-            one: støtte
-            other: støtter
         new:
           send: Fortsett
         orders:
@@ -746,11 +663,6 @@
           random: Tilfeldig
           recent: Nylig
           with_more_authors: Med flere forfattere
-        participatory_texts:
-          index:
-            document_index: Dokument indeks
-          view_index:
-            see_index: Se index
         placeholder:
           address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
@@ -762,20 +674,10 @@
             other: Du vil kunne redigere dette forslaget i løpet av de første %{count} minuttene etter at forslaget er publisert. Etter dette tidsvinduet passerer, vil du ikke kunne redigere forslaget.
           publish: Publiser
           title: Publiser forslaget ditt
-        proposal:
-          creation_date: 'Opprettet: %{date}'
-          view_proposal: Se forslag
-        proposals:
-          empty: Det finnes ingen forslag enda
-          empty_filters: Det er ingen forslag med disse kriteriene
         show:
           answer: Svar
-          back_to: Tilbake til
-          back_to_list: Tilbake til listen
           changes_at_title: Endring til "%{title}"
-          comments: Kommentarer
           edit_proposal: Rediger forslaget
-          endorsements_list: Liste over Påtegnelser
           estimated_cost: Estimert kostnad
           hidden_endorsers_count:
             one: og %{count} til person
@@ -789,14 +691,9 @@
           proposal_accepted_reason: 'Dette forslaget ble akseptert fordi:'
           proposal_in_evaluation_reason: Dette forslaget blir evaluert
           proposal_rejected_reason: 'Dette forslaget ble avvist fordi:'
-          read_less: Vis mindre
-          read_more: Les mer
-          report: Rapport
           withdraw_btn_hint: Du kan trekke tilbake forslaget ditt hvis du ombestemmer deg, så lenge du ikke har fått noe støtte. Forslaget er ikke slettet, den vil vises i listen av tilbaketrukne forslag.
           withdraw_confirmation_html: Er du sikker på at du vil trekke tilbake dette forslaget?<br><br><strong>Denne handlingen kan ikke avbrytes!</strong>
           withdraw_proposal: Trekk tilbake forslag
-        tags:
-          changed_from: "(endret fra <u>%{previous_name}</u> av en administrator)"
         update:
           title: Oppdater forslag
         vote_button:
@@ -810,23 +707,17 @@
           count:
             one: STØTTE
             other: STØTTERE
-          most_popular_proposal: Mest populære forslag
-          need_more_votes: Trenger flere støtter
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Hvert forslag kan samle mer enn %{limit} støtter
           minimum_votes_per_user:
             description: Du må gi ut minimum %{votes} støtter mellom forskjellige forslag.
-            given_enough_votes: Du har gitt nok støtter.
             supports_remaining: Du må støtte %{remaining_votes} flere forslag for at støttene dine som skal tas i betraktning.
           proposal_limit:
             description: Du kan lage opptil %{limit} forslag.
-          threshold_per_proposal:
-            description: For å bli validert må forslagene nå %{limit} støtter
           title: 'Støtter er underlagt følgende regler:'
           vote_limit:
             description: Du kan støtte opptil %{limit} forslag.
-            left: Gjenstår
             votes: Støtter
         wizard_aside:
           back: Tilbake
@@ -834,21 +725,15 @@
           back_from_step_2: Tilbake til forslag
           back_from_step_3: Tilbake til sammenlign forslag
           back_from_step_4: Tilbake til redigering av utkast
-          info: Du lage et <strong>forslag</strong>.
         wizard_steps:
           current_step: Gjeldende trinn
-          see_steps: se trinn
           step_1: Opprett ditt forslag
           step_2: Sammenlign
           step_3: Fullført
           step_4: Publiser forslaget ditt
-          step_of: Trinn %{current_step_num} av %{total_steps}
           title: Trinn for opprettelse av forslag
       proposals_picker:
         choose_proposals: Velg forslag
-        close: Lukk
-        more_proposals: Det er %{number} flere forslag. Begrens søket for å finne dem.
-        no_proposals: Ingen forslag stemmer overens med søkekriteriene, eller så finnes det ikke noe forslag.
       publish:
         error: Det oppstod et problem med å publisere forslaget.
         success: Forslag publisert.
@@ -859,15 +744,8 @@
         error: Det oppstod et problem med å lagre samarbeids utkastet.
         success: Forslags utkastet ble oppdatert.
       versions:
-        collaborative_drafts:
-          back_to_resource: Gå tilbake til samarbeids utkast
         index:
           title: Versjoner
-        proposals:
-          back_to_resource: Gå tilbake til forslag
-      withdraw:
-        errors:
-          has_supports: Dette forslaget kan ikke trekkes tilbake fordi det allerede har støtte.
     resource_links:
       copied_from_component:
         proposal_proposal: Relaterte forslag

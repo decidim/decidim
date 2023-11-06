@@ -1,1 +1,80 @@
 zh-TW:
+  activemodel:
+    attributes:
+      questionnaire:
+        title: 標題
+      template:
+        description: 說明
+        name: 姓名
+  decidim:
+    admin:
+      menu:
+        templates: 範本
+      templates:
+        apply:
+          error: 套用此範本時發生問題。
+          success: 範本成功應用.
+        copy:
+          error: 複製此範本時發生問題。
+          success: 範本成功複製.
+        create:
+          error: 建立此範本時發生問題。
+          success: 範本建立成功.
+        destroy:
+          success: 範本删除成功.
+        empty: 尚未有範本。
+        update:
+          error: 更新此範本時發生問題。
+          success: 範本更新成功
+      titles:
+        template_types:
+          questionnaires: 問卷範本
+        templates: 範本
+    models:
+      questionnaire_template:
+        fields:
+          questions: 問題的數目
+          title: 問卷標題
+      template:
+        fields:
+          created_at: 建立於
+        name: 範本
+    templates:
+      admin:
+        block_user_templates:
+          form:
+            save: 儲存
+          index:
+            confirm_delete: 您是否確定要刪除本範本？
+            title: 封鎖使用者訊息
+          template_chooser:
+            select_template: 選擇範本回答
+        questionnaire_templates:
+          choose:
+            create_from_template: 從範本建立
+            description: 您即將建立一份新問卷。您可以選擇預定義的範本，並在之後進行修改。
+            label: 選擇範本
+            placeholder: 選擇範本
+            skip_template: 略過
+          edit:
+            edit: 編輯
+            empty: 目前為止還沒有什麼問題.
+            questionnaire: 問題調查
+          form:
+            title: 問卷範本 %{questionnaire_for}
+          index:
+            confirm_delete: 您是否確定要刪除本範本？
+            title: 問卷範本
+          preview:
+            current_step: 步驟%{step}
+            of_total_steps: 的%{total_steps}
+            tos_agreement: 透過參與，您同意其服務條款
+      admin_log:
+        template:
+          create: "%{user_name} 創建了 %{resource_name} 問卷模板"
+          delete: "%{user_name} 刪除了 %{resource_name} 問卷模板"
+          duplicate: "%{user_name} 複製了 %{resource_name} 問卷模板"
+          update: "%{user_name} 更新了 %{resource_name} 問卷模板"
+      template_types:
+        block_user: 封鎖使用者訊息
+        questionnaires: 問題調查

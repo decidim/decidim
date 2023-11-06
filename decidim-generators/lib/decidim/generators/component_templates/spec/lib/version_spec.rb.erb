@@ -1,0 +1,13 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+
+module Decidim
+  describe <%= component_module_name %> do
+    subject { described_class }
+
+    it "has version" do
+      expect(subject.version).to eq("<%= core_version %>")
+    end
+  end
+end

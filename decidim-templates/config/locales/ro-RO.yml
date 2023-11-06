@@ -9,27 +9,27 @@ ro:
   decidim:
     admin:
       menu:
-        templates: Modele
+        templates: Șabloane
       templates:
         apply:
-          error: A apărut o eroare la aplicarea acestui model.
-          success: Modelul a fost aplicat cu succes
+          error: A apărut o eroare la aplicarea acestui șablon.
+          success: Șablonul a fost aplicat cu succes.
         copy:
           error: A apărut o eroare la copierea acestui model.
-          success: Modelul a fost copiat cu succes
+          success: Șablonul a fost copiat cu succes.
         create:
           error: A apărut o eroare la crearea acestui model.
-          success: Modelul a fost creat cu succes
+          success: Șablonul a fost creat cu succes.
         destroy:
-          success: Modelul a fost şters cu succes
+          success: Șablonul a fost șters cu succes.
         empty: Nu există încă nici un model.
         update:
-          error: A apărut o eroare la actualizarea acestui model.
-          success: Modelul a fost actualizat cu succes
+          error: A apărut o eroare la actualizarea acestui șablon.
+          success: Șablonul a fost importat cu succes.
       titles:
         template_types:
-          questionnaires: Model de chestionar
-        templates: Modele
+          questionnaires: Şabloane chestionar
+        templates: Şabloane
     models:
       questionnaire_template:
         fields:
@@ -41,6 +41,14 @@ ro:
         name: Model
     templates:
       admin:
+        block_user_templates:
+          form:
+            save: Salvează
+          index:
+            confirm_delete: Sunteți sigur că doriți să ștergeți acest șablon?
+            title: Blochează mesajele utilizatorilor
+          template_chooser:
+            select_template: Selectați un răspuns șablon
         questionnaire_templates:
           choose:
             create_from_template: Creează după model
@@ -50,11 +58,9 @@ ro:
             skip_template: Treci peste
           edit:
             edit: Editează
-            empty: Nu există încă întrebări
+            empty: Nu există încă întrebări.
             questionnaire: Chestionar
           form:
-            save: Salvează
-            template_title: Informatii despre model
             title: Model de chestionar %{questionnaire_for}
           index:
             confirm_delete: Sigur dorești să ștergi acest model?
@@ -63,5 +69,12 @@ ro:
             current_step: Pasul %{step}
             of_total_steps: din %{total_steps}
             tos_agreement: Prin participare accepți Termenii și condițiile sale de utilizare
+      admin_log:
+        template:
+          create: "%{user_name} a creat șablonul chestionarului %{resource_name}"
+          delete: "%{user_name} a șters șablonul chestionarului %{resource_name}"
+          duplicate: "%{user_name} a duplicat șablonul chestionarului %{resource_name}"
+          update: "%{user_name} a actualizat șablonul chestionarului %{resource_name}"
       template_types:
+        block_user: Blochează mesajele utilizatorilor
         questionnaires: Chestionare

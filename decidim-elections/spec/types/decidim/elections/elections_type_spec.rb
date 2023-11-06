@@ -39,7 +39,7 @@ module Decidim
           end
         end
 
-        context "when the election doesn't belong to the component" do
+        context "when the election does not belong to the component" do
           let!(:election) { create(:election) }
 
           it "returns null" do

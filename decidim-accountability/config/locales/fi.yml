@@ -7,8 +7,9 @@ fi:
         decidim_scope_id: Teema
         description: Kuvaus
         end_date: Päättymispäivä
+        meetings_ids: Sisällytetyt tapaamiset
         progress: Edistyminen
-        project_ids: Liitetyt suunnitelmat
+        project_ids: Liitetyt hankkeet
         proposals: Sisällytetyt ehdotukset
         start_date: Alkamispäivä
         title: Otsikko
@@ -38,10 +39,10 @@ fi:
         confirm_destroy: Oletko varma, että haluat poistaa tämän kohteen nimeltä "%{name}"?
         destroy: Poista
         edit: Muokkaa
+        import: Tuo hankkeita tuloksiin
         import_csv: Tuo CSV
-        new: Uusi %{name}
         preview: Esikatsele
-        timeline_entries: Projektin edistyminen
+        timeline_entries: Hankkeen edistyminen
         title: Toiminnot
       admin:
         exports:
@@ -49,26 +50,61 @@ fi:
           results: Tulokset
         import_results:
           new:
+            download_export: Lataa vientitiedosto CSV-muodossa
             import: Tuo
-            info: "<p>Suosittelemme, että teet seuraavat toimenpiteet tässä järjestyksessä:</p><ol><li>Luo tulosten tilat (<a href='%{link_new_status}' target='_blank'>linkki</a>)</li><li>Luo vähintään yksi tulos manuaalisesti hallintapaneelin kautta (<a href='%{link_new_result}' target='_blank'>linkki</a>) ennen tuontia, ymmärtääksesi millaisessa muodossa tulosten tiedot tulee määrittää.</li><li>Vie tulokset CSV-tiedostoon (%{link_export_csv})</li><li>Tee muutokset tietokoneellasi. Voit ainoastaan muuttaa seuraavia asioita CSV-tiedoston kautta:</li></ol><ul><li><b>category/id:</b> Aihepiirin ID-numero</li><li><b>scope/id:</b> Teeman ID-numero</li><li><b>parent/id:</b> Isäntätuloksen ID-numero (toisiinsa liitetyille tuloksille, muille tyhjä). Valinnainen</li><li><b>title/I18N</b> Otsikko kielelle X</li><li><b>description/I18N:</b> Kuvaus kielelle X</li><li><b>start_date:</b> Päivämäärä, jolloin tuloksen toteuttaminen aloitetaan (muodossa YYYY-MM-DD)</li><li><b>end_date:</b> Päivämäärä, jolloin tuloksen toteuttaminen lopetetaan (muodossa YYYY-MM-DD)</li><li><b>status/id:</b> Tuloksen tilan ID-numero</li><li><b>progress:</b> Tuloksen toteutuksen tilan prosentuaalinen kuvaus (0-100)</li><li><b>proposal_ids:</b> Tulokseen liitettyjen ehdotusten ID-numerot (eroteltuna pilkulla). Muutetaan automaattisesti <span class='attribute-name'>proposal_url</span></li></ul>"
-            link: linkki
+            info: |
+              <p>Suorittelemme tekemään seuraavat toimenpiteet suorittaaksesi tuonnin onnistuneesti:</p>
+              <ol>
+              <li><a href='%{link_new_status}' target='_blank'>Luo tilat tuloksille</a></li>
+              <li><a href='%{link_new_result}' target='_blank'>Luo vähintään yksi tulos käsin</a> hallintapaneelin kautta ennen tuontia, jotta ymmärrät paremmin, miltä tuontitiedoston tulee näyttää.</li>
+              <li>%{link_export_csv}</li>
+              <li>Tee tiedostoon muutoksia tietokoneellasi. Voit muuttaa ainoastaan seuraavia sarakkeita CSV-tiedostossa:
+                <ul>
+                <li><b>category/id:</b> Aihepiirin ID-tunniste</li>
+                <li><b>scope/id:</b> Teeman ID-tunniste</li>
+                <li><b>parent/id:</b> Tuloksen isännän ID-tunniste. Vapaaehtoinen</li>
+                <li><b>title/fi:</b> Otsikko suomeksi. Tämän sarakkeen nimi riippuu alustalle määritetyistä kielistä.</li>
+                <li><b>description/fi:</b> Kuvaus suomeksi. Tämän sarakkeen nimi riippuu alustalle määritetyistä kielistä.</li>
+                <li><b>start_date:</b> Tuloksen toteuttamisen aloituspäivämäärä (muodossa YYYY-MM-DD)</li>
+                <li><b>end_date:</b> Tuloksen toteuttamisen päättymispäivämäärä (muodossa YYYY-MM-DD)</li>
+                <li><b>status/id:</b> Tuloksen tilan ID-tunniste</li>
+                <li><b>progress:</b> Tuloksen toteutuksen prosentuaalisen etenemisen tila (välillä 0-100)</li>
+                <li><b>proposals_ids:</b> Liittyvien ehdotusten ID-numerot (pilkulla eroteltuna). Nämä muutetaan automaattisesti <span class='attribute-name'>proposal_url</span></li>
+                </ul>
+              </li>
+              </ol>
             title: Tuo tulokset CSV-tiedostosta
         imports:
           create:
-            success: Tiedoston käsittely on aloitettu. Saat muutaman minuutin kuluttua sähköpostin tuonnin suorituksesta
+            invalid: Tulosten tuonti epäonnistui.
+            success: Tiedoston tuominen on aloitettu. Saat muutaman minuutin kuluttua sähköpostin, jossa ilmoitetaan tuonnin lopputulos.
         models:
           result:
             name: Tulos
           status:
             name: Tila
-          timeline_entry:
-            name: Aikajanan merkintä
+        projects_import:
+          create:
+            invalid: Hankkeiden tuominen tuloksiin epäonnistui, seuraa ohjeita tarkasti ja tarkasta, että olet valinnut hankkeita toteutukseen.
+          new:
+            create: Tuo
+            import_all_selected_projects: Tuo kaikki toteutukseen valitut hankkeet
+            new_items:
+              one: 1 toteutukseen valittu hanke tuodaan
+              other: "%{count} toteutukseen valittua hanketta tuodaan"
+            no_components: Tässä osallistumistilassa ei ole yhtään budjetointikomponenttia, josta hankkeet voitaisiin tuoda tuloksiksi.
+            origin_component_id: Lähdekomponentti
+            select_component: Valitse komponentti
+            success:
+              one: 1 hanke on lisätty jonoon tuotavaksi. Sinulle ilmoitetaan sähköpostitse, kun tuonti valmistuu.
+              other: "%{count} hanketta on lisätty jonoon tuotavaksi. Sinulle ilmoitetaan sähköpostitse, kun tuonti valmistuu."
+            title: Tuo hankkeita vastuullisuuskomponenttiin
         results:
           create:
-            invalid: Tuloksen luonti epäonnistui
-            success: Tuloksen luonti onnistui
+            invalid: Tuloksen luonti epäonnistui.
+            success: Tuloksen luonti onnistui.
           destroy:
-            success: Tuloksen poistaminen onnistui
+            success: Tuloksen poisto onnistui.
           edit:
             title: Muokkaa tulosta
             update: Päivitä tulos
@@ -78,17 +114,17 @@ fi:
             create: Luo tulos
             title: Uusi tulos
           update:
-            invalid: Tuloksen päivitys epäonnistui
-            success: Tuloksen päivittäminen onnistui
+            invalid: Tuloksen päivitys epäonnistui.
+            success: Tuloksen päivitys onnistui.
         shared:
           subnav:
             statuses: Tilat
         statuses:
           create:
-            invalid: Tilan luonti epäonnistui
-            success: Tilan luonti onnistui
+            invalid: Tilan luonti epäonnistui.
+            success: Tilan luonti onnistui.
           destroy:
-            success: Tilan poistaminen onnistui
+            success: Tilan poisto onnistui.
           edit:
             title: Muokkaa tilaa
             update: Päivitä tila
@@ -98,25 +134,25 @@ fi:
             create: Luo tila
             title: Uusi tila
           update:
-            invalid: Tilan päivitys epäonnistui
-            success: Tilan päivitys onnistui
+            invalid: Tilan päivitys epäonnistui.
+            success: Tilan päivitys onnistui.
         timeline_entries:
           create:
-            invalid: Kohteen luonti epäonnistui
-            success: Merkinnän luonti onnistui
+            invalid: Merkinnän luonti epäonnistui.
+            success: Merkinnän luonti onnistui.
           destroy:
-            success: Merkinnän poistaminen onnistui
+            success: Merkinnän poisto onnistui.
           edit:
             title: Muokkaa merkintää
             update: Päivitä merkintä
           index:
-            title: Projektin aikajanan merkinnät
+            title: Hankkeen aikajanan merkinnät
           new:
             create: Luo merkintä
             title: Uusi merkintä
           update:
-            invalid: Kohteen päivitys epäonnistui
-            success: Merkinnän päivitys onnistui
+            invalid: Merkinnän päivitys epäonnistui.
+            success: Merkinnän päivitys onnistui.
       admin_log:
         result:
           create: "%{user_name} loi tuloksen %{resource_name} osallistumistilassa %{space_name}"
@@ -141,12 +177,19 @@ fi:
       import_mailer:
         import:
           errors: Virheet
-          errors_present: Tulosten tuonti epäonnistui
+          errors_present: Tulosten tuonti epäonnistui.
           row_number: Rivi
           subject: Tulosten tuonti onnistui
           success: Tulosten tuonti onnistui. Voit katsoa tulokset hallintapaneelista.
+      import_projects_mailer:
+        import:
+          added_projects:
+            one: Yksi tulos tuotiin hankkeista.
+            other: "%{count} tulosta tuotiin hankkeista."
+          subject: Tulosten tuonti onnistui
+          success: Hankkeiden tuonti tuloksiksi %{component_name} -komponentista onnistui. Voit tarkastaa tuonnin tulokset hallintapaneelista.
       last_activity:
-        new_result_at_html: "<span>Uusi tulos osoitteessa %{link}</span>"
+        new_result: 'Uusi tulos:'
       models:
         result:
           fields:
@@ -179,7 +222,6 @@ fi:
             other: "%{count} tulosta"
         filters:
           all: Kaikki
-          scopes: Teemat
         home:
           categories_label: Aihepiirit
           subcategories_label: Ala-aihepiiri
@@ -187,6 +229,7 @@ fi:
           global_status: Yleisen toteutuksen tila
         nav_breadcrumb:
           global: Yleinen toteutus
+        no_results: Hankkeita ei ole saatavilla
         search:
           search: Hae toimintoja
         show:
@@ -201,7 +244,7 @@ fi:
             proposals: Ehdotukset
             votes: Kannatukset
         timeline:
-          title: Projektin kehitys
+          title: Hankkeen kehitys
     admin:
       filters:
         results:
@@ -222,7 +265,7 @@ fi:
             comments_enabled: Kommentointi käytössä
             comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
             display_progress_enabled: Näytä edistyminen
-            heading_leaf_level_results: Nimi termille "Suunnitelmat"
+            heading_leaf_level_results: Nimi termille "Hankkeet"
             heading_parent_level_results: Nimi termille "Tulokset"
             intro: Esittelyteksti
             scope_id: Teema
@@ -249,10 +292,10 @@ fi:
         title: Tulokset
     participatory_spaces:
       highlighted_results:
-        see_all: Näytä kaikki (%{count} kpl)
+        see_all: Näytä kaikki tulokset
     resource_links:
       included_projects:
-        result_project: Tähän tulokseen liittyvät suunnitelmat
+        result_project: Tähän tulokseen liittyvät hankkeet
       included_proposals:
         result_proposal: Tähän tulokseen liittyvät ehdotukset
     statistics:

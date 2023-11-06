@@ -146,7 +146,7 @@ module Decidim
             expect(response["closed"]).to be false
           end
 
-          it "doesn't have a closing report" do
+          it "does not have a closing report" do
             expect(response["closingReport"]).to be_nil
           end
         end

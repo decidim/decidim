@@ -30,17 +30,10 @@ pt:
         edit: Editar
         edit_projects: Gerir projectos
         import: Importar propostas para projetos
-        new: Novo %{name}
         preview: Pré-visualização
         title: Ações
       admin:
         budgets:
-          create:
-            invalid: Houve um problema ao criar este orçamento
-            success: Orçamento criado com êxito
-          destroy:
-            invalid: Houve um problema com ao apagar este orçamento
-            success: Orçamento apagado com êxito
           edit:
             title: Editar orçamento
             update: Actualizar orçamento
@@ -53,9 +46,6 @@ pt:
           new:
             create: Criar orçamento
             title: Novo orçamento
-          update:
-            invalid: Houve um problema ao actualizar este orçamento
-            success: Orçamento actualizado com êxito
         exports:
           projects: Projectos
         models:
@@ -64,11 +54,6 @@ pt:
           project:
             name: Projeto
         projects:
-          create:
-            invalid: Ocorreu um problema ao criar este projeto
-            success: Projeto criado corretamente
-          destroy:
-            success: Projeto excluído corretamente
           edit:
             title: Editar projeto
             update: Atualizar
@@ -80,13 +65,7 @@ pt:
           new:
             create: Criar
             title: Novo projeto
-          update:
-            invalid: Ocorreu um problema ao atualizar este projeto
-            success: Projeto atualizado corretamente
         proposals_imports:
-          create:
-            invalid: Ocorreu um problema ao importar as propostas nos projetos
-            success: "%{number} propostas importadas corretamente nos projetos"
           new:
             create: Importar propostas em projetos
             no_components: Não há outros componentes da proposta neste espaço participativo para importar as propostas em projetos.
@@ -108,23 +87,15 @@ pt:
         close_modal: Fechar o modal
         continue: Continuar
         more_information: Mais informação
-      budget_list_item:
-        voting_finished: Já votou este orçamento
-        voting_started: Já começou a votar este orçamento
       budgets_list:
         cancel_order:
           more_than_one: apague o seu voto em %{name} e comece de novo
           only_one: apague o seu voto e comece de novo
-        finished_message: Acabou o processo de votação. Obrigado pela participação!
         highlighted_cta: Votar em %{name}
-        if_change_opinion: Se mudou a sua ideia, pode
-        my_budgets: Os meus orçamentos
         progress: Finalizar votação
         show: Ver projectos
         vote: Votar
-        voted_on: Votou em %{links}
       limit_announcement:
-        cant_vote: Não pode votar este orçamento. <a href="%{landing_path}">Tente noutro orçamento</a>
         limit_reached: Tem votações activas em %{links}. Para votar neste orçamento precisa <a href="%{landing_path}">de apagar o seu voto e começar de novo</a>.
       models:
         budget:
@@ -151,34 +122,14 @@ pt:
         budget_excess:
           budget_excess:
             title: Orçamento máximo excedido
-          close: Fechar
           ok: OK
           projects_excess:
             title: Projectos máximos excedidos
         budget_summary:
           are_you_sure: Tem a certeza de que deseja cancelar o seu voto?
-          assigned: 'Atribuído:'
           cancel_order: elimine o seu voto e comece de novo
           checked_out:
-            description: Já votou no orçamento. Se mudou de ideia, pode %{cancel_link}.
             title: Votação do orçamento concluída
-          minimum_projects_rule:
-            description: Que projectos acha que devemos atribuir orçamento? Seleccione pelo menos %{minimum_number} projectos que você deseja e vote de acordo com suas preferências para definir o orçamento.
-            instruction: "<li>Seleccione pelo menos %{mínimo_número} projectos que você deseja e vote de acordo com suas preferências para definir o orçamento.</li>"
-          projects_rule:
-            description: Que projectos acha que devemos atribuir orçamento? Seleccione pelo menos %{minimum_number} e até %{maximum_number} projectos que você deseja e vote de acordo com suas preferências para definir o orçamento.
-            instruction: "<li>Seleccione pelo menos %{mínimo_número} e até %{maximum_number} projectos que deseja e vote de acordo com as suas preferências para definir o orçamento.</li>"
-          projects_rule_maximum_only:
-            description: Que projectos acha que devemos atribuir orçamento? Seleccione até %{maximum_number} projectos que você deseja e vote de acordo com suas preferências para definir o orçamento.
-            instruction: "<li>Seleccione até %{maximum_number} projectos que você deseja e vote de acordo com suas preferências para definir o orçamento.</li>"
-          rules:
-            title: Regras orçamentais
-          title: Você decide o orçamento
-          total_budget: Orçamento total
-          total_projects: Total de votos
-          vote_threshold_percent_rule:
-            description: Que projectos acha que devemos atribuir orçamento? Atribua pelo menos %{minimum_budget} projectos que você deseja e vote de acordo com suas preferências para definir o orçamento.
-            instruction: "<li>Atribua pelo menos %{minimum_budget} aos projectos que deseja e vote de acordo com as suas preferências para definir o orçamento.</li>"
         count:
           projects_count:
             one: 1 projeto
@@ -192,19 +143,6 @@ pt:
             all: Todos
             not_selected: Não seleccionado
             selected: Seleccionado
-        filters_small_view:
-          close_modal: Fechar modal
-          filter: Filtrar
-          filter_by: Filtrar por
-          unfold: Desdobrar
-        order_progress:
-          vote: Votação
-        order_selected_projects:
-          remove: Remover
-          selected_projects:
-            one: projeto selecionado
-            other: projetos selecionados
-          view: Visualização
         orders:
           highest_cost: Custo mais elevado
           label: Ordenar projetos por
@@ -213,23 +151,17 @@ pt:
           random: Ordem aleatória
           selected: Seleccionado
         project:
-          add: Adicionar projeto %{resource_name} à sua votação
-          remove: Remover projeto %{resource_name} da sua votação
           selected: Seleccionado
           view: Visualização
           votes:
             one: Votações
             other: Votações
-          you_voted: Votou isto
         project_budget_button:
           add: Adicionar à sua votação
-          add_descriptive: Adicionar projeto %{resource_name} à sua votação
           added: Adicionado à sua votação
-          added_descriptive: Projeto %{resource_name} adicionado à sua votação
         projects_for: Projectos para %{name}
         show:
           budget: Orçamento
-          view_all_projects: Ver todos os projetos
     components:
       budgets:
         actions:
@@ -241,10 +173,6 @@ pt:
             announcement: Anúncio
             comments_enabled: Comentários ativados
             comments_max_length: Comprimento máximo dos comentários (Deixar 0 para o valor predefinido)
-            form:
-              errors:
-                budget_voting_rule_only_one: Apenas deve estar ativa uma regra de votação
-                budget_voting_rule_required: É necessária uma regra de votação
             landing_page_content: Página de entrada dos orçamentos
             more_information_modal: Mais informações modal
             projects_per_page: Projetos por página
@@ -284,13 +212,6 @@ pt:
           email_outro: Recebeu esta notificação porque segue %{participatory_space_title}. Pode parar de receber notificações seguindo a hiperligação anterior.
           email_subject: A orçamento %{resource_title} está agora activo para %{participatory_space_title}.
           notification_title: O orçamento <a href="%{resource_path}”>%%{resource_title}</a> está agora activo para %{participatory_space_title}.
-    orders:
-      checkout:
-        error: Ocorreu um problema ao processar o seu voto
-        success: O seu voto foi aceite corretamente
-      destroy:
-        error: Ocorreu um problema ao cancelar o seu voto
-        success: O seu voto foi cancelado corretamente
     resource_links:
       included_proposals:
         project_proposal: Propostas incluídas neste projecto

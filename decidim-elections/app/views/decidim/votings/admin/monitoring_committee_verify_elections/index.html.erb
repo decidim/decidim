@@ -1,51 +1,49 @@
+<% add_decidim_page_title(t(".title")) %>
 <div class="card" id="monitoring_committee_verify_elections">
-  <div class="card-divider">
-    <h2 class="card-title">
+  <div class="item_show__header">
+    <h2 class="item_show__header-title">
       <%= t(".title") %>
     </h2>
   </div>
-
-  <div class="card-section">
-    <div class="table-scroll">
-      <table class="table-list">
-        <thead>
-          <tr>
-            <th><%= t("models.election.fields.title", scope: "decidim.elections") %></th>
-            <th><%= t("models.election.fields.verifiable_results_file_url", scope: "decidim.elections") %></th>
-            <th><%= t("models.election.fields.verifiable_results_file_hash", scope: "decidim.elections") %></th>
+  <div class="table-scroll">
+    <table class="table-list">
+      <thead>
+        <tr>
+          <th><%= t("models.election.fields.title", scope: "decidim.elections") %></th>
+          <th><%= t("models.election.fields.verifiable_results_file_url", scope: "decidim.elections") %></th>
+          <th><%= t("models.election.fields.verifiable_results_file_hash", scope: "decidim.elections") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% elections.each do |election| %>
+          <tr data-id="<%= election.id %>">
+            <td>
+              <%= translated_attribute(election.title) %>
+            </td>
+            <td>
+              <% if election.verifiable_results_file_url.present? %>
+                <%= link_to t(".download"), election.verifiable_results_file_url %>
+              <% else %>
+                <%= t(".not_available") %>
+              <% end %>
+            </td>
+            <td>
+              <% if election.verifiable_results_file_hash.present? %>
+                <%= election.verifiable_results_file_hash %>
+              <% else %>
+                <%= t(".not_available") %>
+              <% end %>
+            </td>
           </tr>
-        </thead>
-        <tbody>
-          <% elections.each do |election| %>
-            <tr data-id="<%= election.id %>">
-              <td>
-                <%= translated_attribute(election.title) %>
-              </td>
-              <td>
-                <% if election.verifiable_results_file_url.present? %>
-                  <%= link_to t(".download"), election.verifiable_results_file_url %>
-                <% else %>
-                  <%= t(".not_available") %>
-                <% end %>
-              </td>
-              <td>
-                <% if election.verifiable_results_file_hash.present? %>
-                  <%= election.verifiable_results_file_hash %>
-                <% else %>
-                  <%= t(".not_available") %>
-                <% end %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
 
 <div class="card" id="monitoring_committee_verify_elections_instructions">
-  <div class="card-divider">
-    <h2 class="card-title">
+  <div class="item_show__header">
+    <h2 class="item_show__header-title">
       <%= t(".how_to_title") %>
     </h2>
   </div>

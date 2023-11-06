@@ -32,7 +32,6 @@ lb:
         body: Haupttext
         subject: Betreff
       organization:
-        admin_terms_of_use_body: Körper für die Admin-Nutzungsbedingungen
         alert_color: Benachrichtigung
         available_authorizations: Verfügbare Autorisierungen
         badges_enabled: Abzeichen aktivieren
@@ -85,7 +84,6 @@ lb:
         success_color: Erfolg
         time_zone: Zeitzone
         tos_version: Nutzungsbedingungen Version
-        twitter_handler: Twitter-Handler
         user_groups_enabled: Benutzergruppen aktivieren
         users_registration_mode: Benutzerregistrierungs-Modus
         warning_color: Warnung
@@ -129,10 +127,6 @@ lb:
               allowed_file_content_types: Ungültige Bilddatei
             official_img_header:
               allowed_file_content_types: Ungültige Bilddatei
-      new_import:
-        attributes:
-          file:
-            invalid_mime_type: Ungültiger MIME-Typ
   activerecord:
     attributes:
       decidim/static_page:
@@ -153,16 +147,12 @@ lb:
         add: Hinzufügen
         attachment:
           new: Neuer Anhang
-        attachment_collection:
-          new: Neuer Ordner
         browse: Durchsuchen
         category:
           new: Neue Kategorie
         export: Alles exportéieren
         export-selection: Export Auswiel
         import: Importieren
-        manage: Verwalten
-        new: Neu %{name}
         newsletter:
           new: Neuer Newsletter
         participatory_space_private_user:
@@ -172,26 +162,10 @@ lb:
         reject: Ablehnen
         share: Teilen
         verify: Überprüfen
-      admin_terms_of_use:
-        accept:
-          error: Beim Akzeptieren der Nutzungsbedingungen ist ein Fehler aufgetreten.
-          success: Super! Sie haben die Admin-Nutzungsbedingungen akzeptiert.
-        actions:
-          accept: Ich stimme den folgenden Bedingungen zu
-          are_you_sure: Sidd Dir sécher datt Dir d'Admin Benotzungsconditioune wëllt refuséieren? Sidd Dir sécher datt Dir d'Admin Notzungsbedéngunge refuséiere wëllt?
-          refuse: Die Admin-Nutzungsbedingungen ablehnen
-          title: Den Admin-Nutzungsbedingungen zustimmen
-        required_review:
-          alert: 'Erforderlich: Überprüfen Sie unsere Admin-Nutzungsbedingungen'
-          callout: Huelt e Moment fir d'Admin Benotzungsconditiounen ze iwwerpréiwen. Soss kënnt Dir d'Plattform net managen
-          cta: Lesen Sie sie jetzt.
-        title: Admin-Nutzungsbedingungen
       area_types:
         create:
           error: Beim Erstellen eines neuen Bereichstyps ist ein Fehler aufgetreten.
           success: Bereichstyp wurde erfolgreich erstellt.
-        destroy:
-          success: Der Bereichstyp wurde erfolgreich zerstört
         edit:
           title: Bereichstyp bearbeiten
           update: Aktualisieren
@@ -200,14 +174,12 @@ lb:
           title: Neuer Bereichstyp
         update:
           error: Beim Aktualisieren dieses Bereichstyps ist ein Fehler aufgetreten.
-          success: Bereichstyp wurde erfolgreich aktualisiert
       areas:
         create:
           error: Beim Erstellen eines neuen Bereichs ist ein Fehler aufgetreten.
           success: Bereich wurde erfolgreich erstellt.
         destroy:
           has_spaces: Dëse Beräich huet ofhängeg Plazen. Gitt w.e.g. sécher datt kee Participatiounsraum dëst Gebitt bezitt ier Dir et läscht
-          success: Bereich wurde erfolgreich zerstört
         edit:
           title: Bereich bearbeiten
           update: Aktualisieren
@@ -217,7 +189,6 @@ lb:
         no_areas: Keine Bereiche
         update:
           error: Beim Aktualisieren dieses Bereichs ist ein Fehler aufgetreten.
-          success: Bereich wurde erfolgreich aktualisiert
       attachment_collections:
         create:
           error: Beim Erstellen eines neuen Ordners ist ein Fehler aufgetreten.
@@ -228,7 +199,6 @@ lb:
           title: Ordner bearbeiten
           update: Aktualisieren
         index:
-          attachment_collection_used: Dieser Ordner kann nicht entfernt werden, weil er verwendet wird.
           attachment_collections_title: Anhang Ordner
         new:
           create: Erstellen
@@ -255,7 +225,6 @@ lb:
           success: Anhang wurde erfolgreich aktualisiert.
       autocomplete:
         no_results: keine Ergebnisse gefunden
-        search_prompt: Geben Sie mindestens drei Zeichen ein, um zu suchen
       block_user:
         new:
           action: Konto sperren und Begründung senden
@@ -274,7 +243,6 @@ lb:
           update: Aktualisieren
         index:
           categories_title: Kategorien
-          category_used: Diese Kategorie kann nicht entfernt werden, weil sie verwendet wird.
         new:
           create: Kategorie erstellen
           title: Neue Kategorie
@@ -338,9 +306,6 @@ lb:
       domain_whitelist:
         form:
           domain_too_short: Domain zu kurz
-        update:
-          error: Domain-Whitelist konnte nicht aktualisiert werden
-          success: Domain-Whitelist erfolgreich aktualisiert
       exports:
         export_as: "%{name} als %{export_format}"
         formats:
@@ -348,7 +313,6 @@ lb:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
-        notice: Ihr Export wird gerade ausgeführt. Sie erhalten nach Fertigstellung eine E-Mail.
       filters:
         category_id_eq:
           label: Kategorie
@@ -414,17 +378,14 @@ lb:
             message_1: CSV, JSON und Excel (.xlsx) Dateien werden unterstützt
             message_2: Bei CSV-Dateien muss das Trennzeichen zwischen den Spalten ein Semikolon sein (";")
       help_sections:
-        error: Beim Aktualisieren der Hilfeabschnitte ist ein Fehler aufgetreten
         form:
           save: Speichern
-        success: Hilfeabschnitte wurden erfolgreich aktualisiert
       impersonatable_users:
         index:
           filter:
             all: Alle
             managed: Gelang es
             not_managed: Nicht verwaltet
-          filter_by: Filtern nach
           impersonate: Imitieren
           impersonate_new_managed_user: Sich als neuer verwalteter Benutzer ausgeben
           managed: Gelang es
@@ -452,7 +413,6 @@ lb:
           impersonate_existing_user: Imitieren von Benutzer "%{name}"
           impersonate_new_managed_user: Sich als neuer verwalteter Benutzer ausgeben
       imports:
-        error: Beim Importieren ist ein Fehler aufgetreten
         new:
           accepted_mime_types:
             xlsx: xlsx
@@ -460,10 +420,6 @@ lb:
             back: Zurück
           file_legend: Datei zum Importieren hinzufügen.
           import: Importieren
-        notice: "%{number}%{resource_name} erfolgreich importiert"
-      logs:
-        logs_list:
-          no_logs_yet: Es gibt noch keine Protokolle
       managed_users:
         promotion:
           error: Es ist ein Fehler aufgetreten, der den verwalteten Benutzer unterstützt.
@@ -480,7 +436,6 @@ lb:
         area_types: Bereichstypen
         areas: Bereiche
         configuration: Aufbau
-        dashboard: Instrumententafel
         external_domain_whitelist: Erlaabt extern Domainen
         help_sections: Hilfeabschnitte
         homepage: Startseite
@@ -488,7 +443,6 @@ lb:
         moderation: Globale Moderationen
         newsletters: Newsletter
         participants: Teilnehmer
-        reported_users: Gemeldete Nutzer
         scope_types: Bereichstypen
         scopes: Bereiche
         settings: die Einstellungen
@@ -560,7 +514,6 @@ lb:
           fields:
             created_at: Erstellungsdatum
             email: Email
-            last_sign_in_at: Letztes Anmeldedatum
             name: Name
             role: Rolle
             roles:
@@ -587,7 +540,6 @@ lb:
           nickname: Spitzname
           reason: Grund
           reports: Anzahl Meldungen
-          title: Liste der gemeldeten Benutzer
         report:
           reasons:
             does_not_belong: Gehört nicht zu
@@ -597,8 +549,6 @@ lb:
           blocked: Blockiert
           unblocked: Nicht blockiert
       moderations:
-        index:
-          title: Moderationen
         report:
           reasons:
             does_not_belong: Gehört nicht
@@ -669,13 +619,8 @@ lb:
           select_scopes: Nur Teilnehmer anzeigen, die einen der gewählten Themenbereiche in Ihren "Meine Interessen" Einstellungen ihres Kontos aktiviert haben.
           select_spaces: Wählen Sie Abschnitte, um den Newsletter zu unterteilen
           select_users: Wählen Sie aus, welchen Benutzern Sie den Newsletter senden möchten
-          send_to_all_users: An alle Benutzer senden
-          send_to_followers: An Follower senden
-          send_to_participants: An Teilnehmer senden
           title: Empfänger auswählen
           warning: "<strong>Achtung:</strong> Dieser Newsletter wird nur an Benutzer gesendet, die <em>Ich möchte Newsletter empfangen</em> in ihren Benachrichtigungseinstellungen aktiviert haben."
-        send:
-          no_recipients: Keine Empfänger für diese Auswahl
         show:
           preview: Vorschau
           select_recipients_to_deliver: Empfänger auswählen
@@ -684,13 +629,6 @@ lb:
           error: Beim Aktualisieren dieses Newsletters ist ein Fehler aufgetreten.
           success: Newsletter erfolgreich aktualisiert. Bitte überprüfen Sie es vor dem Senden.
       officializations:
-        block:
-          error: Beim Blockieren des Teilnehmers ist ein Fehler aufgetreten
-          success: Teilnehmer erfolgreich blockiert
-        create:
-          success: Benutzer wurde offiziell anerkannt
-        destroy:
-          success: Der Benutzer wurde erfolgreich inoffizialisiert
         index:
           actions: Aktionen
           badge: Abzeichen
@@ -712,16 +650,12 @@ lb:
           officialize: Offizialisieren
           title: Benutzer "%{name}" offiziellisieren
         show_email_modal:
-          close_modal: Modal schließen
           description: Wann Dir en Participant direkt kontaktéiere musst, kënnt Dir op de Show Knäppchen klickt fir hir E -Mail Adress ze gesinn. Dës Aktioun gëtt protokolléiert.
           email_address: E-Mail-Adresse
           full_name: Voller Name
           hidden: versteckt
           show: Anzeigen
           title: Weist dem E -Mail Adress vum Participant
-        unblock:
-          error: Beim Blockieren des Teilnehmers ist ein Fehler aufgetreten
-          success: Blockierung des Teilnehmers wurde erfolgreich aufgehoben
       organization:
         edit:
           title: Organisation bearbeiten
@@ -732,7 +666,6 @@ lb:
           instagram: Instagram
           rich_text_editor_in_public_views_help: In einigen Textbereichen können Teilnehmer mit Hilfe des Rich-Text-Editors HTML-Tags einfügen.
           social_handlers: Sozial
-          twitter: Twitter
           url: URL
           youtube: Youtube
         update:
@@ -744,8 +677,6 @@ lb:
         form:
           colors:
             colors_title: Organisationsfarben
-            header_snippets_help: Verwenden Sie dieses Feld, um Dinge zum HTML-Kopf hinzuzufügen. Die häufigste Verwendung ist die Integration von Drittanbieterdiensten, für die zusätzliches JavaScript oder CSS erforderlich ist. Außerdem können Sie damit dem HTML zusätzliche Meta-Tags hinzufügen. Beachten Sie, dass dies nur auf öffentlichen Seiten und nicht im Admin-Bereich erfolgt.
-          cta_button_path_help: 'Sie können überschreiben, wo die Call To Action-Schaltfläche in der Homepage verlinkt ist. Verwenden Sie hier Teilpfade, nicht vollständige URLs. Akzeptiert Buchstaben, Zahlen, Bindestriche und Schrägstriche und muss mit einem Buchstaben beginnen. Die Call To Action-Schaltfläche wird auf der Startseite zwischen Begrüßungstext und Beschreibung angezeigt. Beispiel: %{url}'
           cta_button_text_help: Sie können den Text der Call To Action-Schaltfläche auf der Startseite für jede verfügbare Sprache in Ihrer Organisation überschreiben. Wenn nicht festgelegt, wird der Standardwert verwendet. Die Call To Action-Schaltfläche wird auf der Startseite zwischen Begrüßungstext und Beschreibung angezeigt.
           homepage_appearance_title: Homepage-Erscheinungsbild bearbeiten
           homepage_highlighted_content_banner_title: Highlighted Inhaltsbanner
@@ -768,9 +699,6 @@ lb:
         edit:
           active_content_blocks: Aktive Inhaltsblöcke
           inactive_content_blocks: Inaktive Inhaltsblöcke
-      organization_homepage_content_blocks:
-        edit:
-          update: Aktualisieren
       participatory_space_private_users:
         create:
           error: Beim Hinzufügen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
@@ -785,11 +713,7 @@ lb:
           create: Erstellen
           title: Neuer privater Benutzer des Participatory Space.
       participatory_space_private_users_csv_imports:
-        create:
-          invalid: Beim Lesen der CSV-Datei ist ein Fehler aufgetreten.
-          success: CSV-Datei wurde erfolgreich hochgeladen, wir senden eine Einladungs-E-Mail an die Teilnehmer. Dies kann eine Weile dauern.
         new:
-          explanation: 'Laden Sie Ihre CSV-Datei hoch. Diese muss zwei Spalten haben ohne Kopfzeile, mit E-Mail in der ersten Spalte der Datei und Namen in der letzten Spalte der Datei (E-Mail, Name) in Bezug auf die Benutzer, die Sie dem Beteiligungsbereich hinzufügen möchten. Vermeiden sie ungültige Zeichen wie `<>?%&^*#@()[]=+:;"{}\|` im Namen des Nutzers zu verwenden.'
           title: CSV-Datei hochladen
           upload: Hochladen
       resource_permissions:
@@ -821,8 +745,6 @@ lb:
         create:
           error: Beim Erstellen eines neuen Bereichs ist ein Fehler aufgetreten.
           success: Bereich erfolgreich erstellt
-        destroy:
-          success: Bereich wurde erfolgreich zerstört
         edit:
           title: Bereich bearbeiten
           update: Aktualisieren
@@ -842,7 +764,6 @@ lb:
           error: Beim Löschen dieses Tokens ist ein Fehler aufgetreten.
           success: Token wurde erfolgreich gelöscht.
         share_tokens:
-          empty: Es gibt keine aktiven Token
           help: Diese Token werden verwendet, um diese unveröffentlichte Ressource öffentlich an jeden Benutzer weiterzugeben. Sie werden ausgeblendet, wenn das Werk veröffentlicht wird. Klicken Sie auf das Teilen-Symbol des Tokens um die teilbare URL zu besuchen.
           title: Token teilen
       shared:
@@ -854,8 +775,6 @@ lb:
         create:
           error: Beim Erstellen eines neuen Themas ist ein Fehler aufgetreten.
           success: Thema erfolgreich erstellt.
-        destroy:
-          success: Thema erfolgreich zerstört
         edit:
           title: Thema bearbeiten
           update: Thema aktualisieren
@@ -874,25 +793,19 @@ lb:
         destroy:
           success: Seite erfolgreich zerstört
         edit:
-          changed_notably_help: Wenn diese Option aktiviert ist, werden Benutzer benachrichtigt, um die neuen Nutzungsbedingungen zu akzeptieren.
           title: Seite bearbeiten
           update: Aktualisieren
         form:
           none: Keiner
-          slug_help: 'Benutze partielle Pfade, nicht vollständige URLs. Akzeptiert Buchstaben, Zahlen, Bindestriche und Schrägstriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
-        index:
-          last_notable_change: Letzte bemerkenswerte Änderung
         new:
           create: Seite erstellen
           title: Neue Seite
         topic:
           destroy: Thema entfernen
           edit: Thema bearbeiten
-          empty: Es gibt keine Seite zu diesem Thema
           without_topic: Seiten ohne Thema
         update:
           error: Beim Aktualisieren dieser Seite ist ein Fehler aufgetreten.
-          success: Seite wurde erfolgreich aktualisiert
       titles:
         admin_log: Adminprotokoll
         area_types: Bereichstypen
@@ -906,19 +819,15 @@ lb:
         participants: Benutzer
         scope_types: Bereichstypen
         scopes: Bereiche
-        static_pages: Seiten
         statistics: Aktivität
         user_groups: Benutzergruppen
       user_group:
         csv_verify:
           invalid: Beim Lesen der CSV-Datei ist ein Fehler aufgetreten.
-          success: CSV-Datei wurde erfolgreich hochgeladen. Wir überprüfen, ob die Benutzergruppen den Kriterien entsprechen. Das kann eine Weile dauern.
         reject:
           invalid: Beim Ablehnen dieser Benutzergruppe ist ein Fehler aufgetreten.
-          success: Benutzergruppe wurde erfolgreich abgelehnt
         verify:
           invalid: Beim Überprüfen dieser Benutzergruppe ist ein Fehler aufgetreten.
-          success: Benutzergruppe erfolgreich verifiziert
       user_groups:
         index:
           state:
@@ -950,13 +859,7 @@ lb:
           last_day: Letzter Tag
           last_month: Letzter Monat
           last_week: Letzte Woche
-          no_users_count_statistics_yet: Es gibt noch keine Nutzerstatistiken
           participants: Teilnehmer
-      view_public_page: Öffentliche Seite anzeigen
-    forms:
-      errors:
-        impersonate_user:
-          reason: Sie müssen einen Grund angeben, wenn Sie einen nicht verwalteten Teilnehmer verwalten
     metrics:
       blocked_users:
         object: blockierte Benutzer
@@ -990,13 +893,10 @@ lb:
       models:
         moderation:
           fields:
-            created_at: Erstellungsdatum
             hidden_at: Versteckt bei
             participatory_space: Beteiligungsbereich
-            report_count: Anzahl
             reportable_type: Typ
             reported_content_url: URL des gemeldeten Inhalts
-            reports: Berichte
             visit_url: Besuchs-URL
         report:
           fields:
@@ -1006,14 +906,3 @@ lb:
   errors:
     messages:
       invalid_json: Ungültiger JSON
-  layouts:
-    decidim:
-      admin:
-        global_moderations:
-          title: Globale Moderationen
-        newsletters:
-          title: Newsletter
-        settings:
-          title: die Einstellungen
-        users:
-          title: Benutzer

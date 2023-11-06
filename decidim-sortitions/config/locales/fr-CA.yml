@@ -38,7 +38,7 @@ fr-CA:
         actions:
           destroy: Annuler le tirage au sort
           edit: Éditer
-          new: Nouveau tirage au sort
+          new_sortition: Nouveau tirage au sort
           show: Détails du tirage au sort
         models:
           sortition:
@@ -52,9 +52,6 @@ fr-CA:
               seed: Valeur aléatoire
               target_items: Éléments à sélectionner
               title: Titre
-            name:
-              one: Tirage au sort
-              other: Tirages au sort
         sortitions:
           confirm_destroy:
             confirm_destroy: Êtes-vous sûr de vouloir annuler ce tirage au sort ?
@@ -62,28 +59,27 @@ fr-CA:
             title: Annulation du tirage au sort
           create:
             error: Une erreur s'est produite lors de la création d'un nouveau tirage au sort.
-            success: Le tirage au sort a été créé avec succès
+            success: Le tirage au sort a été créé avec succès.
           destroy:
             error: Impossible d'annuler le tirage au sort.
-            success: Le tirage au sort a été annulé avec succès
+            success: Le tirage au sort a été annulé avec succès.
           edit:
             title: Mettre à jour les informations sur le tirage au sort
             update: Mettre à jour
           form:
             all_categories: Toutes les catégories
             select_proposal_component: Sélectionnez un ensemble de propositions
-            title: Nouveau tirage au sort de propositions
           index:
             title: Tirages au sort
           new:
-            confirm: 'En appuyant sur le bouton suivant, la plateforme enregistrera la date et l''heure à la seconde près et, en association avec le résultat du tirage de dé, générera un choix aléatoire. Cette action est irréversible : une fois que vous aurez cliqué sur le bouton, le résultat du tirage ainsi que les données saisies dans le formulaire seront publiés et ne pourront pas être modifiés. Veillez donc bien à vérifier les informations renseignées en amont'
+            confirm: En appuyant sur le bouton suivant, la plateforme enregistra la date et l'heure (à la seconde près) et, avec le résultat du dé, cette information sera utilisée pour générer une sélection aléatoire. L'action sera irréversible, une fois le bouton cliqué, le résultat de ce tirage sera publié, ainsi que les données saisies dans ce formulaire et ne pourront pas être modifiées, veuillez vérifier attentivement le contenu.
             create: Créer
             title: Nouveau tirage au sort
           show:
             selected_proposals: Propositions sélectionnées pour le tirage au sort
           update:
             error: Une erreur est survenue lors de la mise à jour du tirage au sort.
-            success: Le tirage au sort a bien été mis à jour
+            success: Le tirage au sort a bien été mis à jour.
       admin_log:
         sortition:
           create: "%{user_name} a créé le tirage au sort %{resource_name} dans %{space_name}"
@@ -99,14 +95,7 @@ fr-CA:
           all: Tout
           cancelled: Annulé
           category: Catégorie
-          category_prompt: Sélectionner une catégorie
-          search: Rechercher
           state: État
-        filters_small_view:
-          close_modal: Fermer la fenêtre de dialogue
-          filter: Filtrer
-          filter_by: Filtrer par
-          unfold: Dérouler
         linked_sortitions:
           selected_proposals: Propositions sélectionnées
         orders:
@@ -120,24 +109,22 @@ fr-CA:
         show:
           algorithm: Code de l'algorithme de tirage au sort
           any_category: toutes les catégories
-          back: Retour à la liste
           cancelled: Tirage au sort annulé
           candidate_proposal_ids: Ordre des propositions du tirage au sort et identifiants
           candidate_proposals_info: 'Le tirage au sort a été effectué parmi les propositions suivantes (%{category_label}), avec les identifiants suivants (en gras les propositions sélectionnées)  '
           category: de la catégorie %{category}
-          dice_result: "(1) Résultat du tirage de dé"
+          dice_result: (1) Résultat du tirage de dé
           introduction: 'Cette page contient le résultat du tirage au sort %{reference}. Avec le tirage au sort, %{target_items} éléments ont été sélectionnés aléatoirement et avec une distribution de probabilité égale à partir de l''ensemble des propositions affichées ci-dessous. En plus du résultat, cette page fournit toutes les informations nécessaires pour maximiser les garanties et permettre de reproduire le résultat. Le tirage au sort résulte d''un double hasard fourni par le lancer d''un dé (vérifié par des témoins) et l''heure précise du tirage au sort, qui fournit l''entrée pour un algorithme qui génère une sélection aléatoire. La variable temporelle pour le tirage est si précise (de l''ordre de la seconde) qu''il est impossible de la contrôler par des humains fournissant ainsi une double entrée "infalsifiable" pour garantir un résultat juste.  '
           mathematical_result: Résultat (1) x (2)
           proposals_selected_by_sortition: Propositions sélectionnées par tirage au sort
           sortition_reproducibility_details: Détails de reproductibilité du tirage au sort
-          time_seed: "(2) Date et Heure"
+          time_seed: (2) Date et Heure
           witnesses: Témoins
         sortition:
           random_seed: Valeur aléatoire
           selected_proposals:
             one: proposition sélectionnée
             other: '%{count} propositions sélectionnées'
-          view: Voir
         sortition_author:
           deleted: Utilisateur supprimé
         sortition_cancel_author:

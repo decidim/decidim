@@ -8,10 +8,16 @@ module Decidim
 
       class ApplicationController < ::Decidim::ApplicationController
         include Decidim::UserProfile
+        include Decidim::Elections::ContentSecurityPolicy
 
         helper_method :trustee
 
         before_action :ensure_configured_bulletin_board!
+
+        register_permissions(::Decidim::Elections::TrusteeZone::ApplicationController,
+                             ::Decidim::Elections::Permissions,
+                             ::Decidim::Admin::Permissions,
+                             ::Decidim::Permissions)
 
         private
 
@@ -34,10 +40,7 @@ module Decidim
         end
 
         def permission_class_chain
-          [
-            Decidim::Elections::Permissions,
-            Decidim::Permissions
-          ]
+          ::Decidim.permissions_registry.chain_for(::Decidim::Elections::TrusteeZone::ApplicationController)
         end
       end
     end

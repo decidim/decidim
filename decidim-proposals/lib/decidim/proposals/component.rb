@@ -8,9 +8,10 @@ Decidim.register_component(:proposals) do |component|
   component.admin_engine = Decidim::Proposals::AdminEngine
   component.stylesheet = "decidim/proposals/proposals"
   component.icon = "media/images/decidim_proposals.svg"
+  component.icon_key = "chat-new-line"
 
   component.on(:before_destroy) do |instance|
-    raise "Can't destroy this component when there are proposals" if Decidim::Proposals::Proposal.where(component: instance).any?
+    raise "Cannot destroy this component when there are proposals" if Decidim::Proposals::Proposal.where(component: instance).any?
   end
 
   component.data_portable_entities = ["Decidim::Proposals::Proposal"]
@@ -28,19 +29,19 @@ Decidim.register_component(:proposals) do |component|
   component.settings(:global) do |settings|
     settings.attribute :scopes_enabled, type: :boolean, default: false
     settings.attribute :scope_id, type: :scope
-    settings.attribute :vote_limit, type: :integer, default: 0
-    settings.attribute :minimum_votes_per_user, type: :integer, default: 0
-    settings.attribute :proposal_limit, type: :integer, default: 0
+    settings.attribute :vote_limit, type: :integer, default: 0, required: true
+    settings.attribute :minimum_votes_per_user, type: :integer, default: 0, required: true
+    settings.attribute :proposal_limit, type: :integer, default: 0, required: true
     settings.attribute :proposal_length, type: :integer, default: 500
     settings.attribute :proposal_edit_time, type: :enum, default: "limited", choices: -> { %w(limited infinite) }
-    settings.attribute :proposal_edit_before_minutes, type: :integer, default: 5
-    settings.attribute :threshold_per_proposal, type: :integer, default: 0
+    settings.attribute :proposal_edit_before_minutes, type: :integer, default: 5, required: true
+    settings.attribute :threshold_per_proposal, type: :integer, default: 0, required: true
     settings.attribute :can_accumulate_supports_beyond_threshold, type: :boolean, default: false
     settings.attribute :proposal_answering_enabled, type: :boolean, default: true
     settings.attribute :default_sort_order, type: :select, default: "default", choices: -> { POSSIBLE_SORT_ORDERS }
     settings.attribute :official_proposals_enabled, type: :boolean, default: true
     settings.attribute :comments_enabled, type: :boolean, default: true
-    settings.attribute :comments_max_length, type: :integer, required: false
+    settings.attribute :comments_max_length, type: :integer, required: true
     settings.attribute :geocoding_enabled, type: :boolean, default: false
     settings.attribute :attachments_allowed, type: :boolean, default: false
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
@@ -131,6 +132,7 @@ Decidim.register_component(:proposals) do |component|
 
       collection = Decidim::Proposals::Proposal
                    .published
+                   .not_hidden
                    .where(component: component_instance)
                    .includes(:scope, :category, :component)
 
@@ -243,7 +245,7 @@ Decidim.register_component(:proposals) do |component|
                                           elsif n.positive?
                                             ["accepted", Decidim::Faker::Localized.sentence(word_count: 10), nil]
                                           else
-                                            [nil, nil, nil]
+                                            ["not_answered", nil, nil]
                                           end
 
       params = {
@@ -290,7 +292,6 @@ Decidim.register_component(:proposals) do |component|
         author = Decidim::User.find_or_initialize_by(email:)
         author.update!(
           password: "decidim123456789",
-          password_confirmation: "decidim123456789",
           name:,
           nickname: Faker::Twitter.unique.screen_name,
           organization: component.organization,
@@ -356,7 +357,6 @@ Decidim.register_component(:proposals) do |component|
         author = Decidim::User.find_or_initialize_by(email:)
         author.update!(
           password: "decidim123456789",
-          password_confirmation: "decidim123456789",
           name:,
           nickname: Faker::Twitter.unique.screen_name,
           organization: component.organization,
@@ -378,7 +378,6 @@ Decidim.register_component(:proposals) do |component|
           author = Decidim::User.find_or_initialize_by(email:)
           author.update!(
             password: "decidim123456789",
-            password_confirmation: "decidim123456789",
             name:,
             nickname: Faker::Twitter.unique.screen_name,
             organization: component.organization,
@@ -450,16 +449,10 @@ Decidim.register_component(:proposals) do |component|
 
       case n
       when 2
-        author2 = Decidim::User.where(organization: component.organization).all.sample
-        Decidim::Coauthorship.create(coauthorable: draft, author: author2)
-        author3 = Decidim::User.where(organization: component.organization).all.sample
-        Decidim::Coauthorship.create(coauthorable: draft, author: author3)
-        author4 = Decidim::User.where(organization: component.organization).all.sample
-        Decidim::Coauthorship.create(coauthorable: draft, author: author4)
-        author5 = Decidim::User.where(organization: component.organization).all.sample
-        Decidim::Coauthorship.create(coauthorable: draft, author: author5)
-        author6 = Decidim::User.where(organization: component.organization).all.sample
-        Decidim::Coauthorship.create(coauthorable: draft, author: author6)
+        authors = Decidim::User.where(organization: component.organization).all.sample(5)
+        authors.each do |local_author|
+          Decidim::Coauthorship.create(coauthorable: draft, author: local_author)
+        end
       when 3
         author2 = Decidim::User.where(organization: component.organization).all.sample
         Decidim::Coauthorship.create(coauthorable: draft, author: author2)

@@ -1,5 +1,5 @@
 var $aside = $("#admin-meeting-poll-aside");
 
 if($aside.length){
-  $aside.html('<%= j(render partial: "decidim/meetings/polls/questions/index_admin", locals: { open_question: open_question }).strip.html_safe %>');
+  $aside.html('<%= j(render partial: "decidim/meetings/polls/questions/index_admin", locals: { open_question: }).strip.html_safe %>');
 }

@@ -49,7 +49,6 @@ zh-CN:
         subtitle: 字幕
         target: 谁参与
         title: 标题
-        twitter: 推特
         youtube: YouTube
       assembly_member:
         birthday: 生日
@@ -84,7 +83,6 @@ zh-CN:
         edit:
           update: 更新
         index:
-          not_published: 未发布
           private: 非公开的
           public: 公开的
           published: 已发布
@@ -179,7 +177,6 @@ zh-CN:
           attachments: 附件
           categories: 类别管理
           components: 组件
-          info: 信息
           moderations: 版面
           private_users: 私人用户
         assemblies_types: 程序集类型
@@ -257,7 +254,6 @@ zh-CN:
             select_an_area: 选择区域
             select_an_assembly_type: 选择程序集类型
             select_parent_assembly: 选择父程序集
-            slug_help: 'URL slugs 用于生成指向此程序集的 URL。 只接受字母、数字和破折号，必须以字母开头。例如: %{url}'
             social_handlers: 社交活动
             title: 一般信息
             visbility: 可见性
@@ -269,13 +265,6 @@ zh-CN:
         assemblies_types:
           form:
             title: 标题
-        assembly_copies:
-          form:
-            slug_help: 'URL slugs 用于生成指向此程序集的 URL。 只接受字母、数字和破折号，必须以字母开头。例如: %{url}'
-        assembly_imports:
-          form:
-            document_legend: 添加文档
-            slug_help: 'URL slugs 用于生成指向此程序集的 URL。 只接受字母、数字和破折号，必须以字母开头。例如: %{url}'
         assembly_members:
           form:
             existing_user: 现有参与者
@@ -288,7 +277,6 @@ zh-CN:
               all: 所有的
               ceased: 缓存器
               not_ceased: 未停止
-            filter_by: 筛选方式
             search: 搜索
         content_blocks:
           highlighted_assemblies:
@@ -323,44 +311,18 @@ zh-CN:
         working_group: 工作组
       index:
         title: 程序集
-      last_activity:
-        new_assembly: 新建程序集
       pages:
-        home:
-          highlighted_assemblies:
-            active_assemblies: 活动的组件
-            assemblies_button_title: 链接到显示所有程序集的程序集页面
-            see_all_assemblies: 查看所有程序集
         user_profile:
           member_of:
             member_of: 成员
       show:
-        area: 区域
         assembly_type: 程序集类型
-        children: 程序集
-        closing_date: 结束日期
-        composition: 组成
-        created_by: 创建者
-        creation_date: 创建日期
-        developer_group: 促销者组
         duration: 期限
-        included_at: 包含于
-        indefinite_duration: 不确定
-        internal_organisation: 内部组织
         is_transparent:
           'false': 不透明度
           'true': 透明度
-        local_area: 组织区域
-        participatory_scope: 决定的内容
-        participatory_structure: 如何决定
         private_space: 这是一个私人装饰
-        purpose_of_action: 行动的目的
-        read_less: 阅读更多
-        read_more: 阅读更多
         related_participatory_processes: 相关的参与进程
-        scope: 范围
-        social_networks: 社交网络
-        target: 谁参与
     assembly_members:
       assembly_member:
         designated_on: 指定于
@@ -400,9 +362,6 @@ zh-CN:
     participatory_processes:
       show:
         related_assemblies: 相关的会议
-  errors:
-    messages:
-      cannot_be_blank: 不能为空
   layouts:
     decidim:
       assemblies:
@@ -410,19 +369,9 @@ zh-CN:
           more_info: 更多信息
           take_part: 参与
         index:
-          children: '程序集： '
-          organizational_chart: 组织结构图
           promoted_assemblies: 突出显示的会议
-          reset_chart: Reset
         order_by_assemblies:
           assemblies:
             other: "%{count} 个程序集"
-        promoted_assembly:
-          more_info: 更多信息
-          take_part: 参与
       assembly_navigation:
         assembly_member_menu_item: 成员
-        assembly_menu_item: 装饰
-      assembly_widgets:
-        show:
-          take_part: 参与

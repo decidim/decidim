@@ -25,13 +25,10 @@ uk:
           error: При голосуванні щодо коментаря сталися помилки.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Увійдіть за допомогою свого облікового запису</a> або <a href="%{sign_up_url}">зареєструйтесь</a>, щоб додати свій коментар.
         form:
           body:
             label: Коментар
             placeholder: Що ви думаєте з цього приводу?
-          form_error: Тут обов'язково потрібно ввести текст, але не більше, ніж %{length} символів.
-          submit: Надіслати
           user_group_id:
             label: Коментувати як
         opinion:
@@ -52,7 +49,6 @@ uk:
           description: Чи цей вміст неприпустимий?
           details: Додаткові коментарі
           reasons:
-            does_not_belong: Містить незаконну діяльність, загрози самогубства, особисті відомості чи ще щось, неприпустиме, на вашу думку, для %{organization_name}.
             offensive: Містить расизм, сексизм, образи, особисті напади, погрози вбивства, заяви про самогубство або будь-які ненависницькі висловлювання.
             spam: Містить клацоловки (маніпулятивно-сенсаційні заголовки), рекламу, афери або лохотрони.
       comment_order_selector:
@@ -62,8 +58,6 @@ uk:
           older: Давніші
           recent: Нещодавнє
         title: 'Впорядкувати за:'
-      comment_thread:
-        title: Бесіда з %{authorName}
       comments:
         blocked_comments_warning: Коментарі зараз вимкнені, але ви можете прочитати попередні.
         loading: Завантаження коментарів...
@@ -92,6 +86,3 @@ uk:
           email_outro: Ви отримали це сповіщення, оскільки вас згадали в %{resource_title}.
           email_subject: Вас згадали у %{resource_title}
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> згадав вас у <a href="%{resource_path}">%{resource_title}</a>
-  errors:
-    messages:
-      cannot_have_comments: не підлягає коментуванню

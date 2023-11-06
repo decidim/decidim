@@ -8,7 +8,7 @@ module Decidim
 
         linked_proposals.each do |proposal_id|
           proposal = Proposal.find(proposal_id)
-          affected_users = proposal.notifiable_identities
+          affected_users = proposal.notifiable_identities - [comment.author]
 
           Decidim::EventsManager.publish(
             event: "decidim.events.proposals.proposal_mentioned",

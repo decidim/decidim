@@ -1,1 +1,334 @@
 zh-TW:
+  activemodel:
+    attributes:
+      budget:
+        decidim_scope_id: 範圍
+        description: 說明
+        title: 標題
+        total_budget: 總預算
+        weight: 排序位置
+      project:
+        budget_amount: 預算金額
+        decidim_category_id: 類別
+        decidim_scope_id: 範圍
+        description: 說明
+        proposal_ids: 相關提案
+        proposals: 提案
+        selected: 選定實施
+        title: 標題
+      proposals_import:
+        scope_id: 範圍
+  activerecord:
+    models:
+      decidim/budgets/project:
+        other: 專案
+  decidim:
+    admin:
+      filters:
+        projects:
+          category_id_eq:
+            label: 類別
+          scope_id_eq:
+            label: 範圍
+          selected_at_null:
+            label: 已選取
+            values:
+              'false': 選定實施
+              'true': 未選擇實施
+    budgets:
+      actions:
+        attachment_collections: 資料夾
+        attachments: 附件
+        confirm_destroy: 你確定要刪除這個專案嗎？
+        destroy: 刪除
+        edit: 編輯
+        edit_projects: 管理專案
+        import: 將提案匯入專案
+        preview: 預覽
+        send_voting_reminders: 發送投票提醒
+        title: 操作
+      admin:
+        budgets:
+          create:
+            invalid: 建立預算時發生問題。
+            success: 預算已成功建立
+          destroy:
+            invalid: 刪除此預算時出現問題
+            success: 預算已成功刪除
+          edit:
+            title: 編輯預算
+            update: 更新預算
+          index:
+            finished_orders: 已完成投票
+            pending_orders: 待審核投票
+            title: 預算
+            users_with_finished_orders: 已完成投票的使用者
+            users_with_pending_orders: 仍在等待投票的使用者
+          new:
+            create: 建立預算
+            title: 新增預算
+          update:
+            invalid: 此預算更新時出了問題
+            success: 預算已成功更新
+        exports:
+          projects: 專案
+        models:
+          budget:
+            name: 預算
+          project:
+            name: 專案
+        projects:
+          create:
+            invalid: 這個專案創建時出了問題
+            success: 專案建立成功
+          destroy:
+            success: 專案刪除成功
+          edit:
+            title: 編輯專案
+            update: 更新
+          index:
+            actions: 操作
+            cancel: 撤銷
+            change_category: 變更類別
+            change_scope: 變更範圍
+            change_selected: 更改所選狀態
+            deselect_implementation: 從實施中取消選擇
+            finished_orders: 已完成投票
+            pending_orders: 待審核投票
+            select_for_implementation: 選定實施
+            selected: 已選取
+            title: 專案
+            update: 更新
+            update_scope_button: 更新範圍
+          new:
+            create: 建立
+            title: 新專案
+          update:
+            invalid: 更新此專案時出現問題
+            success: 專案更新成功。
+          update_category:
+            invalid: '這些專案已經擁有了 %{subject_name} 類別: %{projects}'
+            select_a_category: 請選擇一個類別。
+            select_a_project: 請選擇一個專案
+            success: '已成功將以下專案更新至 %{subject_name} 類別: %{projects}。'
+          update_scope:
+            invalid: '這些專案已經有了 %{subject_name} 的範圍: %{projects}。'
+            select_a_project: 請選擇一個專案
+            select_a_scope: 請選擇一個範圍。
+            success: '已成功將以下專案更新至 %{subject_name} 範圍: %{projects}。'
+          update_selected:
+            invalid:
+              selected: '這些專案已被選擇以實施：％{projects}。'
+              unselected: '這些專案已從實施中取消選擇: ％{projects}。'
+            select_a_project: 請選擇一個專案
+            select_a_selection: 請選擇實施狀態。
+            success:
+              selected: '這些專案已成功選擇實施：%{projects}。'
+              unselected: '這些專案已經成功從實施中取消選擇: %{projects}。'
+        proposals_imports:
+          create:
+            invalid: 將提案匯入專案時出現問題。
+            success: "%{number} 個提案已成功匯入專案。"
+          new:
+            create: 將提案匯入專案
+            default_budget: 預設預算
+            import_all_accepted_proposals: 導入所有已接受的提案
+            no_components: 在此參與空間中沒有其他提案元件可以將提案匯入到專案中。
+            origin_component_id: 原始元件
+            select_component: 請選擇一個組件
+            title: 導入提案
+        reminders:
+          orders:
+            description: 使用者將會收到一封電子郵件，內含連結至他們有待處理訂單的預算。
+            title:
+              other: 您即將向 %{count} 位使用者發送電子郵件提醒
+      admin_log:
+        budget:
+          create: "%{user_name} 在 %{space_name} 空間創建了 %{resource_name} 預算。"
+          delete: "%{user_name} 刪除了 %{space_name} 空間中的 %{resource_name} 預算"
+          update: "%{user_name} 在 %{space_name} 空間更新了 %{resource_name} 預算"
+        project:
+          create: "%{user_name} 在 %{space_name} 空間中創建了 %{resource_name} 專案"
+          delete: "%{user_name} 刪除了 %{space_name} 空間中的 %{resource_name} 專案。"
+          update: "%{user_name} 更新了 %{space_name} 空間中的 %{resource_name} 專案。"
+      budget:
+        view: 查看所有預算專案
+      budget_information_modal:
+        back_to: 返回 %{component_name}
+        close_modal: 關閉視窗
+        continue: 繼續
+        more_information: 更多資訊
+      budgets_list:
+        cancel_order:
+          more_than_one: 刪除您對於 %{name} 的投票並重新開始
+          only_one: 刪除您的投票並重新開始。
+        finished_message: 您已完成投票流程。感謝您的參與！
+        highlighted_cta: 在 %{name} 上投票
+        if_change_opinion: 如果您改變了主意，您可以
+        progress: 完成投票
+        show: 檢視專案
+        vote: 投票
+        voted_on: 你已經對 %{links} 投票。
+      last_activity:
+        new_vote_at: 新預算投票於
+      limit_announcement:
+        cant_vote: 你無法在這個預算中進行投票。<a href="%{landing_path}">嘗試在其他預算中投票</a>。
+        limit_reached: 您在 %{links} 上有進行中的投票。若要對此預算進行投票，您必須<a href="%{landing_path}">刪除您目前的投票並重新開始</a>。
+      models:
+        budget:
+          fields:
+            name: 姓名
+            projects_count: 專案數量
+            total_budget: 總預算
+        project:
+          fields:
+            category: 類別
+            id: ID
+            scope: 範圍
+            title: 標題
+      order_summary_mailer:
+        order_summary:
+          selected_projects: '你選擇的專案如下：'
+          subject: 您已經在 %{space_name} 參與空間投票
+          voted_on_space: 您已對「%{space_name}」參與空間的「%{budget_name}」預算進行投票。
+          voted_on_space_with_scope: 您已在%{scope_type} 的%{scope_name} 中，對%{space_name} 參與空間的%{budget_name} 預算進行了投票。
+      projects:
+        budget_confirm:
+          are_you_sure: 如果您改變了主意，稍後可以更改您的選票。
+          cancel: 撤銷
+          confirm: 確認
+          description: 這些是您選擇納入預算的專案
+          title: 確認投票
+        budget_excess:
+          budget_excess:
+            description: 這個專案超出了預算上限，無法被加入。如果您願意，您可以刪除您已經選擇的一個專案，以便能夠根據您的偏好再次進行投票。
+            title: 已超過最高預算
+          description: 這個專案超出了預算上限，無法被加入。如果您願意，您可以刪除您已經選擇的一個專案，以便能夠根據您的偏好再次進行投票。
+          ok: 好的
+          projects_excess:
+            description: 這個專案超出了最大項目數限制，無法被添加。如果你想的話，可以刪除你已經選擇的一個專案，以便根據你的偏好再次投票
+            title: 超過最大專案數量
+        budget_summary:
+          are_you_sure: 您確定要取消您的投票嗎?
+          cancel_order: 刪除你的投票並重新開始
+          checked_out:
+            description: 你已經對預算表決投票了。如果你改變了主意，你可以%{cancel_link}。
+            title: 預算投票完成
+        count:
+          projects_count:
+            other: "%{count} 專案"
+        exit_modal:
+          cancel: 返回投票
+          exit: 退出投票
+          message: 您的投票尚未被註冊，因為您尚未完成投票程序。您確定要退出投票嗎?
+          title: 您尚未投票
+        filters:
+          category: 類別
+          scope: 範圍
+          search: 搜尋
+          status: 狀態
+          status_values:
+            all: 全部
+            not_selected: 未選擇
+            selected: 已選取
+        orders:
+          highest_cost: 最高成本
+          label: 專案排序方式
+          lowest_cost: 最低成本
+          most_voted: 最高票
+          random: 隨機順序
+          selected: 已選取
+        project:
+          add: 將專案 %{resource_name} 添加到您的投票中。
+          remove: 從您的投票中移除專案 %{resource_name}。
+          selected: 已選取
+          view: 檢視
+          votes:
+            other: 投票
+          you_voted: 你已投票支持此
+        project_budget_button:
+          add: 加入您的投票
+          add_descriptive: 將專案 %{resource_name} 加入您的投票。
+          added: 加入您的投票
+          added_descriptive: 將專案 %{resource_name} 加入您的投票。
+        projects_for: 專案 %{name}
+        show:
+          budget: 預算
+      vote_reminder_mailer:
+        vote_reminder:
+          email_budgets: '您有尚未完成投票的領域:'
+          email_intro: 你已開始參與預算投票，但尚未完成。
+          email_link: 繼續投票
+          email_outro: 請記得完成投票。投票前，您必須先選擇要投票的提案，然後按下「投票」按鈕確認投票。
+          email_subject:
+            other: 你在參與式預算投票中有一個未完成的投票。
+    components:
+      budgets:
+        actions:
+          comment: 評論
+          vote: 投票
+        name: 預算
+        settings:
+          global:
+            announcement: 公告
+            comments_enabled: 啟用評論功能
+            comments_max_length: 評論字數最大長度(若要使用預設值請輸入0)
+            form:
+              errors:
+                budget_voting_rule_only_one: 僅能啟用一個投票規則。
+                budget_voting_rule_required: 必須啟用一種投票規則
+            geocoding_enabled: 地理編碼已啟用
+            landing_page_content: 預算網頁首頁
+            more_information_modal: 更多資訊彈出式視窗
+            projects_per_page: 每頁顯示專案
+            resources_permissions_enabled: 可為每個專案設定動作權限
+            scope_id: 範圍
+            scopes_enabled: 啟用範圍
+            title: 標題
+            total_budget: 總預算
+            vote_minimum_budget_projects_number: 最少需要投票的專案數量
+            vote_rule_minimum_budget_projects_enabled: '啟用規則：投票時需要投票的最少專案數量'
+            vote_rule_selected_projects_enabled: '啟用規則：最少和最多投票方案數量限制'
+            vote_rule_threshold_percent_enabled: '啟用規則: 最低預算百分比'
+            vote_selected_projects_maximum: 最多可以選擇的專案數量
+            vote_selected_projects_minimum: 最少可以選擇的專案數量
+            vote_threshold_percent: 投票門檻百分比
+            workflow: 工作流程
+            workflow_choices:
+              all: '全部投票：允許參與者投票所有預算。'
+              one: '僅限投一票: 參與者可以在任意預算中投票，但僅限投一票。'
+          step:
+            announcement: 公告
+            comments_blocked: 留言已封鎖
+            highlighted_heading: 突顯標題
+            landing_page_content: 預算網頁首頁
+            list_heading: 標題清單
+            more_information_modal: 更多資訊彈出式視窗
+            show_votes: 顯示投票
+            title: 標題
+            votes: 投票
+            votes_choices:
+              disabled: 投票已停用
+              enabled: 已啟用投票
+              finished: 投票已結束
+    events:
+      budgets:
+        budget_published:
+          email_intro: '現在 %{participatory_space_title} 的 %{resource_title} 預算已啟動，您可以從此頁面查看:'
+          email_outro: 你收到此通知是因為你正在追蹤 %{participatory_space_title}。你可以透過前面的連結停止接收通知。
+          email_subject: '%{participatory_space_title}」現在啟用了「%{resource_title}」預算。'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 預算現在已經在 %{participatory_space_title} 上啟動
+    orders:
+      checkout:
+        error: 處理您的投票時出現問題。
+      destroy:
+        error: 取消您的投票時出現問題
+        success: 您的投票已成功取消。
+    resource_links:
+      included_proposals:
+        project_proposal: 此專案中包括的提案
+    statistics:
+      orders_count: 支援
+      projects_count: 專案
+  index:
+    confirmed_orders_count: 投票數

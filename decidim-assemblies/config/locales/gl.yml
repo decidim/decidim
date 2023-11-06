@@ -51,7 +51,6 @@ gl:
         subtitle: Subtítulo
         target: Quen participa
         title: Título
-        twitter: Twitter
         weight: Orde de posición
         youtube: YouTube
       assembly_member:
@@ -92,7 +91,6 @@ gl:
         edit:
           update: Actualización
         index:
-          not_published: Non publicado
           private: Privado
           public: Público
           published: Publicado
@@ -190,7 +188,6 @@ gl:
           attachments: Anexos
           categories: Categorías
           components: Compoñentes
-          info: Información
           moderations: Moderacións
           private_users: Usuarios privados
         assemblies_types: Tipos de xuntanzas
@@ -271,7 +268,6 @@ gl:
             select_an_area: Seleccione unha área
             select_an_assembly_type: Seleccione un tipo de conxunto
             select_parent_assembly: Seleccione o conxunto primario
-            slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este conxunto. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
             social_handlers: Social
             title: Información xeral
             visbility: Visibilidade
@@ -283,12 +279,6 @@ gl:
         assemblies_types:
           form:
             title: Título
-        assembly_copies:
-          form:
-            slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este conxunto. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
-        assembly_imports:
-          form:
-            document_legend: Engadir un documento
         assembly_members:
           form:
             existing_user: Usuario existente
@@ -304,7 +294,6 @@ gl:
               all: Todo
               ceased: Cesado
               not_ceased: Non cesou
-            filter_by: Filtrar por
             search: Busca
         content_blocks:
           highlighted_assemblies:
@@ -345,44 +334,18 @@ gl:
         working_group: Grupo de traballo
       index:
         title: Asembleas
-      last_activity:
-        new_assembly: Nova montaxe
       pages:
-        home:
-          highlighted_assemblies:
-            active_assemblies: Asembleas activas
-            assemblies_button_title: Ligazón á páxina de Xuntanzas que amosa todas as xuntanzas
-            see_all_assemblies: Ver todos os conxuntos
         user_profile:
           member_of:
             member_of: Membro de
       show:
-        area: Área
         assembly_type: Tipo de montaxe
-        children: Asembleas
-        closing_date: Data de peche
-        composition: Composición
-        created_by: Creado por
-        creation_date: Data creada
-        developer_group: Grupo promotor
         duration: Duración
-        included_at: Incluído en
-        indefinite_duration: Indefinido
-        internal_organisation: Organización interna
         is_transparent:
           'false': opaco
           'true': transparente
-        local_area: Área de organización
-        participatory_scope: O que se decide
-        participatory_structure: Como se decide
         private_space: Esta é unha asemblea privada
-        purpose_of_action: Propósito da acción
-        read_less: Ler menos
-        read_more: Le máis
         related_participatory_processes: Procesos participativos relacionados
-        scope: Alcance
-        social_networks: Redes Sociais
-        target: Quen participa
     assembly_members:
       assembly_member:
         designated_on: Designado en
@@ -414,9 +377,6 @@ gl:
         related_assemblies: Xuntanzas relacionadas
     statistics:
       assemblies_count: Xuntanzas
-  errors:
-    messages:
-      cannot_be_blank: non pode estar baleiro
   layouts:
     decidim:
       assemblies:
@@ -424,20 +384,10 @@ gl:
           more_info: Máis información
           take_part: Participar
         index:
-          children: 'Xuntanzas: '
-          organizational_chart: Organigrama
           promoted_assemblies: Xuntanzas destacadas
-          reset_chart: Restablecer
         order_by_assemblies:
           assemblies:
             one: "%{count} xuntanza"
             other: "%{count} xuntanzas"
-        promoted_assembly:
-          more_info: Máis información
-          take_part: Participar
       assembly_navigation:
         assembly_member_menu_item: Membros
-        assembly_menu_item: A xuntanza
-      assembly_widgets:
-        show:
-          take_part: Participar

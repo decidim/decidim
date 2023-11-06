@@ -1,10 +1,6 @@
 uk:
   activemodel:
     attributes:
-      agenda:
-        description: Опис
-        duration: Тривалість
-        title: Заголовок
       close_meeting:
         attendees_count: Кількість учасників
         attending_organizations: Перелік організацій, які брали участь
@@ -18,27 +14,14 @@ uk:
         decidim_category_id: Категорія
         decidim_scope_id: Обсяг
         description: Опис
-        end_time: Час завершення
         location: Розташування
         location_hints: Як дістатися до цього місця
         organizer_id: Організатор
         private_meeting: Приватна зустріч
         registration_terms: Умови реєстрації
         registrations_enabled: Реєстрацію відкрито
-        start_time: Час початку
         title: Назва
         transparent: Прозора
-    errors:
-      models:
-        meeting_agenda:
-          attributes:
-            base:
-              too_many_minutes: Тривалість усіх питань перевищує тривалість зустрічі на %{count} хвилин
-              too_many_minutes_child: Тривалість вкладених питань перевищує тривалість загального питання порядку денного "%{parent_title}" на %{count} хвилин
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Учасника з такою адресою вже запрошено
     models:
       decidim/meetings/close_meeting_event: Зустріч закрито
       decidim/meetings/create_meeting_event: Зустріч
@@ -71,7 +54,6 @@ uk:
           success: Успішно створено копію зустрічі.
         new:
           copy: Скопіювати
-          select: Оберіть відомості, копію яких ви хотіли б створити
           title: Створити копію зустрічі
     components:
       meetings:
@@ -134,7 +116,6 @@ uk:
         confirm_destroy: Ви впевнені, що хочете видалити цю зустріч?
         destroy: Видалити
         edit: Редагувати
-        new: Додати зустріч
         preview: Попередній перегляд
         registrations: Реєстрації
         title: Дії
@@ -152,9 +133,6 @@ uk:
             down: Донизу
             remove: Видалити
             up: Догори
-          create:
-            invalid: При спробі створити цей порядок денний сталася помилка
-            success: Порядок денний успішно створено
           edit:
             title: Редагувати порядок денний
             update: Оновити
@@ -166,9 +144,6 @@ uk:
           new:
             create: Створити
             title: Додати порядок денний
-          update:
-            invalid: При спробі оновити цей порядок денний сталася помилка
-            success: Порядок денний успішно оновлено
         exports:
           registrations: Реєстрації
         invite_join_meeting_mailer:
@@ -193,21 +168,14 @@ uk:
               all: Усі
               rejected: Відхилені
               sent: Надіслані
-            filter_by: 'Відібрати за ознакою:'
             invite_attendee: Запросити учасника
             invites: Запрошення
-            registrations_disabled: Ви не можете запросити учасника, оскільки реєстрація відключена.
             search: Шукати
         meeting_closes:
           edit:
             close: Закрити
             title: Закрити зустріч
         meetings:
-          close:
-            invalid: При спробі закрити цю зустріч сталася помилка
-            success: Зустріч успішно завершено
-          create:
-            invalid: При спробі додати цю зустріч сталася помилка
           destroy:
             success: Зустріч успішно видалено
           edit:
@@ -227,12 +195,6 @@ uk:
           services:
             add_service: Додати послугу
             services: Послуги
-          update:
-            invalid: При спробі оновити цю зустріч сталася помилка
-            success: Зустріч успішно оновлено
-        models:
-          meeting:
-            name: Зустріч
         registrations:
           edit:
             save: Зберегти
@@ -241,7 +203,6 @@ uk:
           form:
             available_slots_help: Залиште це число нульовим, якщо у вас не обмежена кількість місць.
             invites: Запрошення
-            reserved_slots_help: Залиште його 0, якщо у вас немає заброньованих місць
             reserved_slots_less_than: Має бути меншим або рівним %{count}
           update:
             invalid: При спробі зберегти налаштування реєстрації сталася помилка.
@@ -270,22 +231,12 @@ uk:
         registration_mailer:
           confirmation:
             subject: Вашу реєстрацію на зустріч підтверджено
-      meeting:
-        not_allowed: У вас нема прав на перегляд цієї зустрічі
       meetings:
         filters:
           category: Категорія
           date: Дата
           search: Шукати
-        filters_small_view:
-          close_modal: Закрити віконце
-          filter: Відібрати
-          filter_by: 'Відібрати за ознакою:'
-          unfold: Розгорнути
-        meeting_minutes:
-          related_information: Супутні відомості
         meetings:
-          no_meetings_warning: Жодна зустріч не відповідає вашим критеріям пошуку, або жодних зустрічей не заплановано.
           upcoming_meetings_warning: Наразі нема запланованих зустрічей, але тут ви можете знайти перелік усіх попередніх зустрічей.
         registration_confirm:
           cancel: Скасувати
@@ -325,7 +276,6 @@ uk:
       registrations:
         create:
           invalid: При спробі долучитися до цієї зустрічі сталася помилка.
-          success: Ви успішно долучилися до цієї зустрічі.
         decline_invitation:
           invalid: При спробі відхилити це запрошення сталася помилка.
           success: Запрошення успішно відхилено.
@@ -339,8 +289,6 @@ uk:
       highlighted_meetings:
         past_meetings: Минулі зустрічі
         upcoming_meetings: Прийдешні зустрічі
-      upcoming_meeting_for_card:
-        upcoming_meeting: Прийдешня зустріч
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Пов''язані підсумки:'

@@ -1,12 +1,23 @@
+<% add_decidim_page_title(t(".title")) %>
 <div class="card">
-  <div class="card-divider">
-    <h2 class="card-title">
-      <%= link_to translated_attribute(election.title), elections_path %> &gt;
-      <%= link_to translated_attribute(question.title), election_questions_path(election) %> &gt;
-      <%= t(".title") %>
+  <div class="item_show__header">
+    <h2 class="item_show__header-title">
+      <div>
+        <%= link_to translated_attribute(election.title), elections_path %> &gt;
+        <%= link_to translated_attribute(question.title), election_questions_path(election) %> &gt;
+        <%= t(".title") %>
+      </div>
 
-      <%= link_to t("actions.new", scope: "decidim.elections", name: t("models.answer.name", scope: "decidim.elections.admin")), new_election_question_answer_path(election, question), class: "button tiny button--title" if allowed_to? :create, :answer, election: election, question: question %>
-      <%= link_to t("actions.import", scope: "decidim.elections", name: t("models.answer.name", scope: "decidim.elections.admin")), new_election_question_proposals_import_path(election, question), class: "button tiny button--title" if allowed_to? :import_proposals, :answer, election: election, question: question %>
+      <div class="ml-auto">
+        <% if allowed_to? :import_proposals, :answer, election: election, question: question %>
+          <%= import_dropdown do %>
+            <li class="imports--component">
+              <%= link_to t("actions.import", scope: "decidim.elections", name: t("models.answer.name", scope: "decidim.elections.admin")), new_election_question_proposals_import_path(election, question) %>
+            </li>
+          <% end %>
+        <% end %>
+        <%= link_to t("actions.new_answer", scope: "decidim.elections"), new_election_question_answer_path(election, question), class: "button button__sm button__secondary" if allowed_to? :create, :answer, election: election, question: question %>
+      </div>
     </h2>
   </div>
 
@@ -28,7 +39,11 @@
           <% answers.each do |answer| %>
             <tr data-id="<%= question.id %>">
               <td>
-                <%= translated_attribute(answer.title) %>
+                <% if allowed_to? :update, :answer, election: election, question: question, answer: answer %>
+                  <%= link_to translated_attribute(answer.title), edit_election_question_answer_path(election, question, answer) %>
+                <% else %>
+                  <%= translated_attribute(answer.title) %>
+                <% end %>
               </td>
               <td>
                 <%= answer.linked_resources(:proposals, "related_proposals").count %>
@@ -49,24 +64,24 @@
                 </td>
               <% end %>
               <td class="table-list__actions">
+                <% if allowed_to? :update, :answer, election: election, question: question, answer: answer %>
+                  <%= icon_link_to "pencil-line", edit_election_question_answer_path(election, question, answer), t("actions.edit", scope: "decidim.elections"), class: "action-icon--edit" %>
+                <% else %>
+                  <%= icon "pencil-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.edit", scope: "decidim.elections") %>
+                <% end %>
+
                 <% if election.results? %>
                   <% if answer.selected %>
-                    <%= icon_link_to "x", unselect_election_question_answer_path(election, question, answer), t("answers.select.disable", scope: "decidim.elections.admin"), class: "action-icon", method: :put %>
+                    <%= icon_link_to "close-circle-line", unselect_election_question_answer_path(election, question, answer), t("answers.select.disable", scope: "decidim.elections.admin"), class: "action-icon", method: :put %>
                   <% else %>
-                    <%= icon_link_to "check", select_election_question_answer_path(election, question, answer), t("answers.select.enable", scope: "decidim.elections.admin"), class: "action-icon", method: :put %>
+                    <%= icon_link_to "check-line", select_election_question_answer_path(election, question, answer), t("answers.select.enable", scope: "decidim.elections.admin"), class: "action-icon", method: :put %>
                   <% end %>
                 <% end %>
 
-                <% if allowed_to? :update, :answer, election: election, question: question, answer: answer %>
-                  <%= icon_link_to "pencil", edit_election_question_answer_path(election, question, answer), t("actions.edit", scope: "decidim.elections"), class: "action-icon--edit" %>
-                <% else %>
-                  <%= icon "pencil", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.edit", scope: "decidim.elections") %>
-                <% end %>
-
                 <% if allowed_to? :delete, :answer, election: election, question: question, answer: answer %>
-                  <%= icon_link_to "circle-x", election_question_answer_path(election, question, answer), t("actions.destroy", scope: "decidim.elections"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.elections") } %>
+                  <%= icon_link_to "delete-bin-line", election_question_answer_path(election, question, answer), t("actions.destroy", scope: "decidim.elections"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.elections") } %>
                 <% else %>
-                  <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.destroy", scope: "decidim.elections") %>
+                  <%= icon "delete-bin-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.destroy", scope: "decidim.elections") %>
                 <% end %>
               </td>
             </tr>

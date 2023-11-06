@@ -29,18 +29,22 @@ module Decidim
             end
           end
 
-          resources :attachment_collections, controller: "assembly_attachment_collections"
-          resources :attachments, controller: "assembly_attachments"
+          resources :attachment_collections, controller: "assembly_attachment_collections", except: [:show]
+          resources :attachments, controller: "assembly_attachments", except: [:show]
 
           resource :export, controller: "assembly_exports", only: :create
 
           collection do
             resources :imports, controller: "assembly_imports", only: [:new, :create]
           end
+
+          resource :landing_page, only: [:edit, :update], controller: "assembly_landing_page" do
+            resources :content_blocks, only: [:edit, :update, :destroy, :create], controller: "assembly_landing_page_content_blocks"
+          end
         end
 
         scope "/assemblies/:assembly_slug" do
-          resources :categories
+          resources :categories, except: [:show]
 
           resources :components do
             resource :permissions, controller: "component_permissions"
@@ -88,7 +92,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_assemblies.action_controller" do |app|
+      initializer "decidim_assemblies_admin.action_controller" do |app|
         app.config.to_prepare do
           ActiveSupport.on_load :action_controller do
             helper Decidim::Assemblies::Admin::AssembliesAdminMenuHelper if respond_to?(:helper)
@@ -96,19 +100,21 @@ module Decidim
         end
       end
 
-      initializer "decidim_assemblies.admin_menu" do
-        Decidim.menu :admin_menu do |menu|
+      initializer "decidim_assemblies_admin.menu" do
+        Decidim.menu :admin_menu_modules do |menu|
           menu.add_item :assemblies,
                         I18n.t("menu.assemblies", scope: "decidim.admin"),
                         decidim_admin_assemblies.assemblies_path,
-                        icon_name: "dial",
+                        icon_name: "government-line",
                         position: 2.2,
-                        active: :inclusive,
+                        active: is_active_link?(decidim_admin_assemblies.assemblies_path) ||
+                                is_active_link?(decidim_admin_assemblies.assemblies_types_path) ||
+                                is_active_link?(decidim_admin_assemblies.edit_assemblies_settings_path),
                         if: allowed_to?(:enter, :space_area, space_name: :assemblies)
         end
       end
 
-      initializer "decidim_assemblies.assemblies_admin_attachments_menu" do
+      initializer "decidim_assemblies_admin.attachments_menu" do
         Decidim.menu :assemblies_admin_attachments_menu do |menu|
           menu.add_item :assembly_attachment_collections,
                         I18n.t("attachment_collections", scope: "decidim.admin.menu.assemblies_submenu"),
@@ -123,7 +129,7 @@ module Decidim
                         if: allowed_to?(:read, :attachment, assembly: current_participatory_space)
         end
       end
-      initializer "decidim_assemblies.admin_assemblies_components_menu" do
+      initializer "decidim_assemblies_admin.components_menu" do
         Decidim.menu :admin_assemblies_components_menu do |menu|
           current_participatory_space.components.each do |component|
             caption = translated_attribute(component.name)
@@ -142,33 +148,40 @@ module Decidim
           end
         end
       end
-      initializer "decidim_assemblies.assemblies_admin_menu" do
+      initializer "decidim_assemblies_admin.assembly_menu" do
         Decidim.menu :admin_assembly_menu do |menu|
           menu.add_item :edit_assembly,
                         I18n.t("info", scope: "decidim.admin.menu.assemblies_submenu"),
                         decidim_admin_assemblies.edit_assembly_path(current_participatory_space),
                         position: 1,
-                        if: allowed_to?(:update, :assembly, assembly: current_participatory_space),
-                        active: is_active_link?(decidim_admin_assemblies.edit_assembly_path(current_participatory_space))
+                        icon_name: "information-line",
+                        if: allowed_to?(:update, :assembly, assembly: current_participatory_space)
+
+          menu.add_item :edit_assembly_landing_page,
+                        I18n.t("landing_page", scope: "decidim.admin.menu.assemblies_submenu"),
+                        decidim_admin_assemblies.edit_assembly_landing_page_path(current_participatory_space),
+                        icon_name: "layout-masonry-line",
+                        if: allowed_to?(:update, :assembly, assembly: current_participatory_space)
 
           menu.add_item :components,
                         I18n.t("components", scope: "decidim.admin.menu.assemblies_submenu"),
                         decidim_admin_assemblies.components_path(current_participatory_space),
-                        active: is_active_link?(decidim_admin_assemblies.components_path(current_participatory_space)),
+                        icon_name: "tools-line",
+                        active: is_active_link?(decidim_admin_assemblies.components_path(current_participatory_space), ["decidim/assemblies/admin/components", %w(index new edit)]),
                         if: allowed_to?(:read, :component, assembly: current_participatory_space),
-                        submenu: { target_menu: :admin_assemblies_components_menu, options: { container_options: { id: "components-list" } } }
+                        submenu: { target_menu: :admin_assemblies_components_menu }
 
           menu.add_item :categories,
                         I18n.t("categories", scope: "decidim.admin.menu.assemblies_submenu"),
                         decidim_admin_assemblies.categories_path(current_participatory_space),
-                        if: allowed_to?(:read, :category, assembly: current_participatory_space),
-                        active: is_active_link?(decidim_admin_assemblies.categories_path(current_participatory_space))
+                        icon_name: "price-tag-3-line",
+                        if: allowed_to?(:read, :category, assembly: current_participatory_space)
 
           menu.add_item :attachments,
                         I18n.t("attachments", scope: "decidim.admin.menu.assemblies_submenu"),
                         "#",
-                        active: is_active_link?(decidim_admin_assemblies.assembly_attachment_collections_path(current_participatory_space)) ||
-                                is_active_link?(decidim_admin_assemblies.assembly_attachments_path(current_participatory_space)),
+                        icon_name: "attachment-2",
+                        active: false,
                         if: allowed_to?(:read, :attachment_collection, assembly: current_participatory_space) ||
                             allowed_to?(:read, :attachment, assembly: current_participatory_space),
                         submenu: { target_menu: :assemblies_admin_attachments_menu }
@@ -176,29 +189,29 @@ module Decidim
           menu.add_item :assembly_members,
                         I18n.t("assembly_members", scope: "decidim.admin.menu.assemblies_submenu"),
                         decidim_admin_assemblies.assembly_members_path(current_participatory_space),
-                        if: allowed_to?(:read, :assembly_member, assembly: current_participatory_space),
-                        active: is_active_link?(decidim_admin_assemblies.assembly_members_path(current_participatory_space))
+                        icon_name: "user-settings-line",
+                        if: allowed_to?(:read, :assembly_member, assembly: current_participatory_space)
 
           menu.add_item :assembly_user_roles,
                         I18n.t("assembly_admins", scope: "decidim.admin.menu.assemblies_submenu"),
                         decidim_admin_assemblies.assembly_user_roles_path(current_participatory_space),
-                        if: allowed_to?(:read, :assembly_user_role, assembly: current_participatory_space),
-                        active: is_active_link?(decidim_admin_assemblies.assembly_user_roles_path(current_participatory_space))
+                        icon_name: "user-settings-line",
+                        if: allowed_to?(:read, :assembly_user_role, assembly: current_participatory_space)
 
           menu.add_item :participatory_space_private_users,
                         I18n.t("private_users", scope: "decidim.admin.menu.assemblies_submenu"),
                         decidim_admin_assemblies.participatory_space_private_users_path(current_participatory_space),
-                        if: allowed_to?(:read, :space_private_user, assembly: current_participatory_space),
-                        active: is_active_link?(decidim_admin_assemblies.participatory_space_private_users_path(current_participatory_space))
+                        icon_name: "spy-line",
+                        if: allowed_to?(:read, :space_private_user, assembly: current_participatory_space)
 
           menu.add_item :moderations,
                         I18n.t("moderations", scope: "decidim.admin.menu.assemblies_submenu"),
                         decidim_admin_assemblies.moderations_path(current_participatory_space),
-                        if: allowed_to?(:read, :moderation, assembly: current_participatory_space),
-                        active: is_active_link?(decidim_admin_assemblies.moderations_path(current_participatory_space))
+                        icon_name: "flag-line",
+                        if: allowed_to?(:read, :moderation, assembly: current_participatory_space)
         end
       end
-      initializer "decidim_assemblies.admin_assemblies_menu" do
+      initializer "decidim_assemblies_admin.assemblies_menu" do
         Decidim.menu :admin_assemblies_menu do |menu|
           menu.add_item :assemblies,
                         I18n.t("menu.assemblies", scope: "decidim.admin"),

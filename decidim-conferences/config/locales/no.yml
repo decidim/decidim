@@ -5,7 +5,6 @@
         assemblies_ids: Relaterte Forsamlinger
         available_slots: Tilgjengelige plasser
         banner_image: Bannerafbeelding
-        consultations_ids: Relaterte konsultasjoner
         copy_categories: Kopier kategorier
         copy_components: Kopier komponenter
         copy_features: Kopier funksjoner
@@ -28,7 +27,6 @@
         show_statistics: Vis statistikk
         sign_date: Underskriftsdato
         signature: Underskrift
-        signature_name: signaturnavn
         slogan: Slagord
         slug: URL slug
         start_date: Startdato
@@ -37,13 +35,11 @@
         date: Dato
         link: Lenke
         title: Tittel
-        weight: Vekt
       conference_partner:
         link: Lenke
         logo: Logo
         name: Navn
         partner_type: Type partner
-        weight: Vekt
       conference_registration_invite:
         email: E-post
         name: Navn
@@ -53,25 +49,17 @@
         description: Beskrivelse
         price: Pris
         title: Tittel
-        weight: Vekt
       conference_speaker:
         affiliation: Tilknytning
         avatar: Profilbilde
         conference_meeting_ids: Relaterte møter
         full_name: Fullt navn
         position: Stilling
-        twitter_handle: Brukernavn Twitter
         user_id: Bruker
       conference_user_role:
         email: Epost
         name: Navn
         role: Rolle
-    errors:
-      models:
-        conference_registration_invite:
-          attributes:
-            email:
-              already_invited: Denne e-postadressen er allerede invitert
   activerecord:
     models:
       decidim/conference:
@@ -87,7 +75,6 @@
     admin:
       actions:
         confirm: Bekreft
-        new_conference: Ny Konferanse
         send_diplomas: Send deltakerbevis
       conference_copies:
         new:
@@ -131,8 +118,6 @@
         edit:
           title: Oppdater konferanse administrator.
           update: Oppdater
-        index:
-          conference_admins_title: konferanse administratorer
         new:
           create: Opprett
           title: Ny konferanse administrator.
@@ -150,7 +135,6 @@
         form:
           title: Generell Informasjon
         index:
-          not_published: Ikke publisert
           published: Publisert
         new:
           create: Opprett
@@ -191,7 +175,6 @@
           conference_invites: Invitasjoner
           conference_speakers: Talere
           diploma: Sertifikat for Oppmøte
-          info: Info
           media_links: Media Lenker
           moderations: Moderering
           partners: Partnere
@@ -202,7 +185,6 @@
         conference:
           fields:
             created_at: Opprettet på
-            promoted: Fremhevet
             published: Publisert
             title: Tittel
         conference_speaker:
@@ -325,9 +307,6 @@
         title: Talere
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne konferansen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
         conference_invites:
           create:
             error: Det oppstod et problem med å invitere deltakeren til å delta på konferansen.
@@ -344,12 +323,10 @@
               all: Alle
               rejected: Avvist
               sent: Sendt
-            filter_by: Filtrer etter
             invite_attendee: Inviter deltaker
             invites: Invitasjoner
             search: Søk
           new:
-            explanation: Deltakeren vil bli invitert til å delta en konferanse. Hvis e-posten hennes ikke er registrert, vil hun også bli invitert i organisasjonen.
             invite: Inviter
             new_invite: Inviter deltaker
         conference_registrations:
@@ -369,7 +346,6 @@
             registrations_count:
               one: Det har vært 1 registrering.
               other: Det har vært %{count} registreringer.
-            slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne konferansen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
         diplomas:
           edit:
             save: Lagre
@@ -377,7 +353,7 @@
         invite_join_conference_mailer:
           invite:
             decline: Avvis invitasjon '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} har invitert deg til å delta et foredrag på %{application}. Du kan avvise eller godta gjennom lenkene nedenfor."
+            invited_existing_user_to_join_a_conference: "%{invited_by} har invitert deg til å delta et foredrag på %{application}. Du kan avvise eller godta gjennom lenkene nedenfor."
             registration: Påmelding til '%{conference_title}'
         partners:
           index:
@@ -402,18 +378,11 @@
           cancel: Avbryt
           confirm: Bekreft
         show:
-          free: Fri
           going: Møtende
           no_slots_available: Ingen plasser tilgjengelig
           registration: Registrering
       conference_program:
-        program_meeting:
-          content: Innhold
-          location: Plassering
-          speakers: Talere
-          streaming: Strømming
         show:
-          day: Dag
           program: Program
       conference_registration_mailer:
         confirmation:
@@ -435,7 +404,6 @@
           invalid: Det oppstod et problem med å forlate denne konferansen.
           success: Du har forlatt konferansen.
       conference_speaker:
-        go_to_twitter: Gå til Twitter
         more_info: mer info
         personal_website: Personlig nettside
         show:
@@ -444,18 +412,12 @@
       conference_speaker_cell:
         personal_url:
           personal_website: Personlig nettside
-        twitter_handle:
-          go_to_twitter: Gå til Twitter
-      conference_speakers:
-        index:
-          speakers: Talere
       conferences:
         partners:
           collaborators: Partnere
           main_promotors: Planleggere
         show:
           login_as: Du er innlogget som %{name} <%{email}>
-          make_conference_registration: 'Foreta din registrering til denne konferansen:'
           register: Registrer
       content_blocks:
         highlighted_conferences:
@@ -463,11 +425,6 @@
       index:
         title: Konferanser
       mailer:
-        conference_registration_mailer:
-          confirmation:
-            subject: Registrering av konferansen din er bekreftet
-          pending_validation:
-            subject: Registrering av konferansen din venter på bekreftelse
         invite_join_conference_mailer:
           invite:
             subject: Invitasjon til å delta en konferanse
@@ -498,38 +455,18 @@
       pages:
         home:
           highlighted_conferences:
-            active_conferences: Aktive konferanser
-            conferences_button_title: Lenke til konferansesiden som viser alle konferansene
-            see_all_conferences: Se alle konferanser
-      photo:
-        image:
-          attributes:
-            alt: Media bilde
-        show:
-          close_modal: Lukk modal
-          photo: Bilde
-      photos_list:
-        show:
-          related_photos: Bilder
+            active_spaces: Aktive konferanser
       registration_types:
         index:
           choose_an_option: 'Velg ditt registrerings alternativ:'
-          login_as: Du er innlogget som %{name} <%{email}>
           no_registrations: Ingen påmeldinger
           register: Registrer
           title: Registreringstyper
-      shared:
-        conference_user_login:
-          already_account: Har du allerede en konto i decidim?
-          new_user: Ny bruker?
-          sign_in: Logg inn for å registrere deg på konferansen
-          sign_up: Opprett en konto i decidim for å registrere deg på konferansen
       show:
         details: Detaljer
         introduction: Introduksjon
         objectives: Mål
         related_assemblies: Relaterte forsamlinger
-        related_consultations: Relaterte konsultasjoner
         related_participatory_processes: Relaterte deltakerprosesser
     events:
       conferences:
@@ -568,10 +505,6 @@
           contextual: "<p>En <strong>konferanse</strong> er en samling av møter i et program, med inviterte aktører som er typisk for store kongresser eller sosiale hendelser (påmelding, liste over organisasjoner som støtter eller sponser arrangementet, osv.).</p> <p>Eksempler: En konferanse kan være en relevant begivenhet for en organisasjon og dens medlemmer, eller finne sted som en del av en deltakerprosess eller som konsultasjon</p>\n"
           page: "<p>En <strong>konferanse</strong> er en samling av møter i et program, med inviterte aktører som er typisk for store kongresser eller sosiale hendelser (påmelding, liste over organisasjoner som støtter eller sponser arrangementet, osv.).</p> <p>Eksempler: En konferanse kan være en relevant begivenhet for en organisasjon og dens medlemmer, eller finne sted som en del av en deltakerprosess eller som konsultasjon</p>\n"
           title: Hva er konferanser?
-    log:
-      value_types:
-        conference_presenter:
-          not_found: 'Konferansen ble ikke funnet i databasen (ID: %{id})'
     media:
       index:
         description: Lenker om denne konferansen
@@ -588,9 +521,6 @@
     decidim:
       conference_hero:
         register: Registrer
-      conference_widgets:
-        show:
-          take_part: Delta
       conferences:
         conference:
           more_info: Mer info
@@ -601,11 +531,7 @@
           conferences:
             one: "%{count} konferanse"
             other: "%{count} konferanser"
-        promoted_conference:
-          more_info: Mer info
-          take_part: Delta
       conferences_nav:
-        conference_menu_item: Informasjon
         conference_partners_menu_item: Partnere
         conference_speaker_menu_item: Talere
         media: Medier

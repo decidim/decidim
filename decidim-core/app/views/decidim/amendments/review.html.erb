@@ -1,41 +1,30 @@
-<div class="wrapper">
-  <div class="row">
-    <div class="columns">
-      <div class="m-bottom">
-        <%= link_to :back do %>
-          <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
-          <%= t(".back") %>
-        <% end %>
-      </div>
-      <div class="section">
-        <p>
-          <%= t(".help_text", model_name: emendation.amendable.model_name.human.downcase) %>
-          <strong>
-            <%= emendation.amendable.title %>
-          </strong>
-        </p>
-      </div>
-    </div>
-    <div class="columns mediumlarge-6">
-      <%= cell("decidim/diff", emendation.versions.last) %>
-    </div>
-    <div class="columns mediumlarge-6">
-      <h2 class="section-heading">
-        <%= t(".heading") %>
-      </h2>
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
 
-      <div class="card">
-        <div class="card__content">
-          <%= decidim_form_for(@form, url: accept_amend_path(emendation.amendment), method: :patch) do |form| %>
-
-            <%= render partial: "edit_form_fields", locals: { form: form, original: :emendation } %>
-
-            <div class="actions">
-              <%= form.submit t(".send"), class: "button expanded mt-s mb-none", data: { disable: true } %>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
+  <div class="flex justify-center">
+    <h1 class="title-decorator my-12">
+      <%= t("heading", scope: "decidim.amendments.review") %>
+    </h1>
   </div>
-</div>
+
+  <h2 class="h3 text-secondary"><%= translated_attribute emendation.amendable.title %></h2>
+
+  <%= cell("decidim/diff", emendation.versions.last, path: proc { |extra_params| url_for(**extra_params) }) %>
+
+  <%= decidim_form_for(@form, url: accept_amend_path(emendation.amendment), method: :patch) do |form| %>
+    <div class="form__wrapper">
+      <%= render partial: "edit_form_fields", locals: { form:, original: :emendation } %>
+    </div>
+
+    <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+      <%= link_to :back, class: "button button__sm md:button__lg button__text-secondary" do %>
+        <%= icon "arrow-left-line" %>
+        <%= t("back", scope: "decidim.amendments.review") %>
+      <% end %>
+      <button type="submit" class="button button__sm md:button__lg button__secondary">
+        <span><%= t("send", scope: "decidim.amendments.review") %></span>
+        <%= icon "arrow-right-line" %>
+      </button>
+    </div>
+  <% end %>
+
+<% end %>

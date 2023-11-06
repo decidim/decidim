@@ -6,7 +6,7 @@ describe Decidim::UserGroupCreatedEvent do
   include_context "when a simple event"
 
   let(:event_name) { "decidim.events.groups.user_group_created" }
-  let(:resource) { create :user_group }
+  let(:resource) { create(:user_group) }
   let(:user_group_name) { escaped_html(resource.name) }
   let(:admin_panel_url) { "http://#{organization.host}/admin/user_groups" }
 

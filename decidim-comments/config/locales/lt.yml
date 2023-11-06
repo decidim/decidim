@@ -1,1 +1,178 @@
 lt:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Komentarai
+      decidim/comments/comment_created_event: Komentarai
+      decidim/comments/comment_upvoted_event: Komentaras palaikytas
+      decidim/comments/reply_created_event: Atsakymas į komentarą
+      decidim/comments/user_group_mentioned_event: Paminėjimas
+      decidim/comments/user_mentioned_event: Paminėti
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: Komentaras
+        few: Komentarai
+        many: Komentarai
+        other: Komentarai
+      decidim/comments/comment_vote:
+        one: Balsuoti
+        few: Balsai
+        many: Balsai
+        other: Balsai
+  decidim:
+    comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: Komentarai aktyvuoti
+            end_time: Komentarai aktyvuoti iki
+            start_time: Komentarai aktyvuoti nuo
+      comments:
+        create:
+          error: Kuriant šį komentarą iškilo problema.
+        delete:
+          error: Komentaro ištrinti nepavyko.
+        update:
+          error: Atnaujinant šį komentarą iškilo problema.
+      comments_count: Komentarų skaičius
+      comments_title: Komentaras
+      last_activity:
+        new_comment: 'Naujas komentaras:'
+      votes:
+        create:
+          error: Balsuojant už komentarą iškilo problema.
+    components:
+      add_comment_form:
+        form:
+          body:
+            label: Komentaras
+            placeholder: Ką manote apie tai?
+          form_error: Tekstas būtinais ir negali viršyti %{length} simbolių.
+          submit_reply: Skelbti atsakymą
+          submit_root_comment: Skelbti komentarą
+          user_group_id:
+            label: Komentuoti kaip
+        opinion:
+          label: Jūsų nuomonė šiuo klausimu
+          negative: Negatyvi
+          negative_selected: Jūsų nuomonė apie šią temą yra negatyvi
+          neutral: Neutrali
+          neutral_selected: Jūsų nuomonė apie šią temą yra neutrali
+          positive: Pozityvi
+          positive_selected: Jūsų nuomonė apie šią temą yra pozityvi
+        remaining_characters: "Liko %{count} simbolių"
+        remaining_characters_1: "Liko %{count} simbolių"
+        title: Pridėti komentarą
+      comment:
+        alignment:
+          against: Prieš
+          in_favor: Už
+        cancel_reply: Atšaukti atsakymą
+        confirm_destroy: Ar tikrai norite ištrinti šį komentarą?
+        delete: Ištrinti
+        deleted_at: Komentaras ištrintas %{date}
+        deleted_user: Ištrintas dalyvis
+        edit: Redaguoti
+        edited: Redaguota
+        hide_replies: Paslėpti atsakymus
+        moderated_at: Komentaras moderuotas %{date}
+        reply: Atsakyti
+        report:
+          action: Raportuoti
+          already_reported: Šis turinys jau praneštas ir bus peržiūrėtas administratoriaus.
+          close: Uždaryti
+          description: Ar šis turinys netinkamas?
+          details: Papildomi komentarai
+          reasons:
+            does_not_belong: Pateikiama informacija yra neteisėta veikla, grasinimai nusižudyti, asmeninė informacija arba tai, kas, jūsų nuomone, nepriklauso %{organization_name}.
+            offensive: Pateikiamoje informacijoje yra rasizmo, seksizmo, keiksmažodžių, asmeninių atakų, grasinimų ar kitokios neapykantos kalbos.
+            spam: Pateikiamoje informacijoje yra reklamos, antraščių mąsalo ar apgavysčių.
+          title: Pranešti apie netinkamą turinį
+        show_replies:
+          one: Rodyti atsakymą
+          few: Rodyti %{count} atsakymus
+          many: Rodyti %{count} atsakymus
+          other: Rodyti %{count} atsakymus
+        single_comment_link_title: Gauti nuorodą
+      comment_order_selector:
+        order:
+          best_rated: Geriausiai įvertinti
+          most_discussed: Labiausiai aptarti
+          older: Ankstesni
+          recent: Paskutiniai
+        title: 'Rikiuoti pagal:'
+      comments:
+        blocked_comments_for_unauthorized_user_warning: Norėdami komentuoti turite būti patvirtintas(-a), tačiau galite skaityti egzistuojančius komentarus.
+        blocked_comments_for_user_warning: Šiuo metu komentarų pateikti negalite, tačiau galite perskaityti ankstesnius komentarus.
+        blocked_comments_warning: Komentarai šiuo metu išjungti, tačiau galite perskaityti ankstesnius komentarus.
+        comment_details_title: Komentaro detalės
+        loading: Komentarai įkeliami...
+        single_comment_warning: <a href="%{url}">Peržiūrėti visus komentarus</a>
+        single_comment_warning_title: Matote vieną komentarą
+        title:
+          one: "%{count} komentaras"
+          few: "%{count} komentarai"
+          many: "%{count} komentarai"
+          other: "%{count} komentarai"
+      down_vote_button:
+        text: Nesutinku su šiuo komentaru
+      edit_comment_modal_form:
+        close: Uždaryti
+        form:
+          body:
+            label: Komentaras
+            placeholder: Ką apie tai manote?
+          submit: Siųsti
+        title: Taisyti komentarą
+      up_vote_button:
+        text: Sutinku su šiuo komentaru
+    events:
+      comments:
+        comment_by_followed_user:
+          email_intro: "%{author_name} pakomentavo %{resource_title}. Komentarą galite perskaityti:"
+          email_outro: Gavote šį pranešimą nes sekate %{author_name}. Galite pasirinkti nebesekti šio naudotojo jo profilio puslapyje.
+          email_subject: Naujas komentaras %{resource_title} iš %{author_name}
+          notification_title: Naujas komentaras <a href="%{resource_path}">%{resource_title}</a> iš <a href="%{author_path}">%{author_name}%{author_nickname}</a>.
+        comment_by_followed_user_group:
+          email_intro: 'Grupė %{author_name} paliko komentarą po %{resource_title}. Galite jį perskaityti šiame puslapyje:'
+          email_outro: Šį pranešimą gavote dėl to, kad sekate %{author_name}. Jūs galite nebesekti šios grupės pasirinkdami šį nustatymą jos profilio puslapyje.
+          email_subject: Naujas komentaras %{resource_title} iš %{author_name}
+          notification_title: Naujas komentaras <a href="%{resource_path}">%{resource_title}</a> iš <a href="%{author_path}">%{author_name}%{author_nickname}</a>.
+        comment_created:
+          email_intro: "%{resource_title} pateiktas komentaras. Komentarą galite perskaityti šiame puslapyje:"
+          email_outro: Šį pranešimą gavote dėl to, kad sekate „%{resource_title}“ arba jo autorių. Jūs galite jo nebesekti spustelėdami aukščiau esančią nuorodą.
+          email_subject: '%{author_name} paliko naują komentarą %{resource_title}'
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> paliko naują komentarą <a href="%{resource_path}">%{resource_title}</a>
+        comment_downvoted:
+          email_intro: Jūsų komentaras %{resource_title} buvo nepakaikyas. Komentaras dabar turi %{upvotes} palaikymus ir %{downvotes} nepalaikymus.
+          email_outro: Šį pranešimą gavote dėl to, kad esate pasiūlymo autorius.
+          email_subject: Jūsų komentaras %{resource_title} buvo įvertintas neigiamai.
+          notification_title: Jūsų <a href="%{resource_path}"> komentaras</a> %{resource_title} buvo įvertintas neigiamai. Dabar jis turi %{upvotes} teigiamus ir %{downvotes} neigiamus įvertinimus.
+        comment_upvoted:
+          email_intro: Jūsų komentaras %{resource_title} buvo įvertintas teigiamai. Jis turi %{upvotes} teigiamus ir %{downvotes} neigiamus įvertinimus.
+          email_outro: Šį pranešimą gavote nes esate komentaro autorius.
+          email_subject: Komentaras %{resource_title} buvo įvertintas teigiamai.
+          notification_title: Jūsų <a href="%{resource_path}">komentaras</a> %{resource_title} buvo įvertintas teigiamai. Jis turi %{upvotes} teigiamus ir %{downvotes} neigiamus įvertinimus.
+        reply_created:
+          email_intro: "%{author_name} atsakė į komentarą %{resource_title}. Galite jį perskaityti:"
+          email_outro: Gavote šį pranešimą nes į Jūsų komentarą buvo atsakyta.
+          email_subject: "%{author_name} atsakė į komentarą %{resource_title}"
+          notification_title: <a href="%{author_path}">%{author_name}%{author_nickname}</a> atsakė į komentarą <a href="%{resource_path}">%{resource_title}</a>
+        user_group_mentioned:
+          email_intro: Grupė, kuriai priklausote, buvo paminėta
+          email_outro: Gavote šį pranešimą nes esate %{resource_title} paminėtos grupės %{group_name} narė(-ys).
+          email_subject: Buvote paminėtas %{resource_title} kaip %{group_name} narys
+          notification_title: Buvote paminėtas <a href="%{resource_path}">%{resource_title} <a href="%{author_path}">%{author_name}%{author_nickname}</a> kaip <a href="%{group_path}">%{group_name}%{group_nickname}</a> narį
+        user_mentioned:
+          email_intro: Buvote paminėta(-s)
+          email_outro: Gavote šį pranešimą nes buvote paminėta(-s) %{resource_title}.
+          email_subject: Buvote paminėta(-s) %{resource_title}
+          notification_title: Buvote paminėta(-s) <a href="%{resource_path}"> %{resource_title}</a><a href="%{author_path}">%{author_name}%{author_nickname}</a>
+    metrics:
+      comments:
+        description: Komentarų sugeneruotų dalyvių skaičius
+        object: komentarai
+        title: Komentarai
+  errors:
+    messages:
+      cannot_have_comments: negali turėti komentarų

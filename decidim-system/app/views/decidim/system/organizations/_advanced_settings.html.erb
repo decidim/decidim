@@ -1,10 +1,12 @@
-<div class="row column">
-  <button type="button" class="button collapse hide"><%= t(".hide") %></button>
-  <button type="button" class="button expand"><%= t(".show") %></button>
-</div>
+<button id="advanced-settings-trigger" data-component="dropdown" data-target="advanced-settings-panel" type="button" class="button button__sm md:button__lg button__primary w-fit" aria-expanded="false">
+  <span><%= t(".show") %></span>
+  <span><%= t(".hide") %></span>
+</button>
 
-<div class="collapsible hide">
-  <%= render partial: "smtp_settings", locals: { f: f } %>
-  <%= render partial: "omniauth_settings", locals: { f: f } %>
-  <%= render partial: "file_upload_settings", locals: { f: f } %>
+<div id="advanced-settings-panel" aria-hidden="true">
+  <% %w(smtp_settings omniauth_settings file_upload_settings csp_settings).each do |partial| %>
+    <div class="border-2 rounded border-background p-4 form__wrapper mt-8 first:mt-0 last:pb-4">
+      <%= render partial:, locals: { f: } %>
+    </div>
+  <% end %>
 </div>

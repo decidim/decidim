@@ -1,22 +1,15 @@
-<div class="wrapper">
-  <div class="row collapse">
-    <div class="row collapse">
-      <div class="columns large-8 large-centered text-center">
-        <h1 class="heading1 page-title"><%= t(".title") %></h1>
-        <p class="heading5"><%= t(".verify_with_these_options") %></p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="columns medium-7 large-5 medium-centered">
-        <div class="card">
-          <div class="card__content">
-            <% unauthorized_methods.each do |unauthorized_method| %>
-              <%= link_to t(".actions.#{unauthorized_method.key}"), unauthorized_method.root_path, class: "button expanded" %>
-            <% end %>
-            <p class="text-center skip"><%= t("decidim.verifications.authorizations.skip_verification", link: link_to(t("decidim.verifications.authorizations.start_exploring"), cta_button_path).html_safe).html_safe %>.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="text-center py-10">
+  <h1 class="title-decorator inline-block text-left mb-12">
+    <%= t("decidim.verifications.authorizations.first_login.title") %>
+  </h1>
+  <p class="text-lg text-gray-2">
+    <%= t("decidim.verifications.authorizations.first_login.verify_with_these_options") %>
+  </p>
+</div>
+
+<div class="space-y-4">
+  <% unauthorized_methods.each do |unauthorized_method| %>
+    <%= link_to t("decidim.verifications.authorizations.first_login.actions.#{unauthorized_method.key}"), unauthorized_method.root_path, class: "block text-secondary" %>
+  <% end %>
+  <p class="prose prose-a:text-secondary"><%= t("decidim.verifications.authorizations.skip_verification", link: link_to(t("decidim.verifications.authorizations.start_exploring"), cta_button_path).html_safe).html_safe %>.</p>
 </div>

@@ -25,27 +25,18 @@
       comments:
         create:
           error: Et problem oppstod med å opprette kommentaren.
-        delete:
-          error: Kommentaren kunne ikke slettes.
         update:
           error: Et problem oppstod med å oppdatere kommentaren.
       comments_count: Antall kommentarer
-      comments_title: Kommentarer
-      last_activity:
-        new_comment_at_html: "<span>Ny kommentar på %{link}</span>"
-      view: Vis
       votes:
         create:
           error: Det oppstod et problem med å stemme kommentaren.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Logg på med kontoen din</a> eller <a href="%{sign_up_url}">opprett en</a> for å legge til kommentaren din.
         form:
           body:
             label: Kommentar
             placeholder: Hva mener du om dette?
-          form_error: Teksten er påkrevd og den kan ikke være lengre enn %{length} tegn.
-          submit: Send
           user_group_id:
             label: Kommenter som
         opinion:
@@ -78,11 +69,9 @@
           description: Er dette innholdet upassende?
           details: Ytterlige kommentarer
           reasons:
-            does_not_belong: Inneholder ulovlig aktivitet, selvmordstrusler, personlig informasjon eller noe annet du mener ikke hører hjemme på %{organization_name}.
             offensive: Inneholder rasisme, sexisme, banning, persjonangrep, dødstrusler, selvmords forespørsler eller all form for hatefullt språk.
             spam: Inneholder klikkagn, reklame, svindel eller manus-roboter.
           title: Rapporter upassende innhold
-        show_replies: Vis %{replies_count} svar
         single_comment_link_title: Få lenke
       comment_order_selector:
         order:
@@ -91,8 +80,6 @@
           older: Eldre
           recent: Nylig
         title: 'Sorter etter:'
-      comment_thread:
-        title: Samtale med %{authorName}
       comments:
         blocked_comments_for_unauthorized_user_warning: Du må verifiseres for å kommentere, men du kan lese de forrige.
         blocked_comments_for_user_warning: Du kan ikke kommentere for øyeblikket, men du kan lese de forrige.
@@ -163,6 +150,3 @@
         description: Antall kommenterer generert av deltakerne
         object: kommentarer
         title: Kommentarer
-  errors:
-    messages:
-      cannot_have_comments: kan ikke ha kommentarer

@@ -5,7 +5,7 @@ module Decidim
     module Import
       module Readers
         # Abstract class with a very naive default implementation. Each importable
-        # file type should have it's own reader.
+        # file type should have it is own reader.
         class Base
           # Defines which index of the records defines the first line of actual
           # data. E.g. with spreadsheet formats, the first row contains column

@@ -3,6 +3,7 @@ el:
     models:
       decidim/comments/comment_by_followed_user_event: Σχόλιο
       decidim/comments/comment_created_event: Σχόλιο
+      decidim/comments/comment_upvoted_event: Το σχόλιο ψηφίστηκε
       decidim/comments/reply_created_event: Απάντηση σχολίου
       decidim/comments/user_group_mentioned_event: Αναφορά
       decidim/comments/user_mentioned_event: Αναφορά
@@ -16,30 +17,31 @@ el:
         other: Ψήφοι
   decidim:
     comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: Τα σχόλια ενεργοποιήθηκαν
+            end_time: Τα σχόλια ενεργοποιήθηκαν μέχρι
+            start_time: Τα σχόλια ενεργοποιήθηκαν από
       comments:
         create:
           error: Υπήρξε ένα πρόβλημα στη δημιουργία του σχολίου.
         delete:
-          error: Το σχόλιο δεν μπορούσε να διαγραφεί.
+          error: Το σχόλιο δεν μπόρεσε να διαγραφεί.
         update:
           error: Υπήρξε ένα πρόβλημα στην ενημέρωση του σχολίου.
       comments_count: Αριθμός σχολίων
-      comments_title: Σχόλια
-      last_activity:
-        new_comment_at_html: "<span>Νέο σχόλιο στο %{link}</span>"
-      view: Προβολή
+      comments_title: Σχόλιο
       votes:
         create:
           error: Υπήρξε ένα πρόβλημα κατά την ψηφοφορία του σχολίου.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Είσοδος με τον λογαριασμό σας</a> ή <a href="%{sign_up_url}">εγγραφείτε</a> για να προσθέσετε το σχόλιό σας.
         form:
           body:
             label: Σχόλιο
             placeholder: Ποια είναι η γνώμη σας για αυτό;
-          form_error: Το κείμενο απαιτείται και δεν μπορεί να υπερβαίνει τους %{length} χαρακτήρες.
-          submit: Αποστολή
+          form_error: Το κείμενο είναι υποχρεωτικό και δεν μπορεί να υπερβαίνει τους %{length} χαρακτήρες.
           user_group_id:
             label: Σχόλιο ως
         opinion:
@@ -59,11 +61,12 @@ el:
           in_favor: Υπέρ
         confirm_destroy: Είστε σίγουροι ότι θέλετε να διαγράψετε αυτό το σχόλιο;
         delete: Διαγραφή
-        deleted_at: Σχόλιο διεγράφη στις %{date}
+        deleted_at: Το σχόλιο διεγράφη στις %{date}
         deleted_user: Διαγραμμένος συμμετέχων
         edit: Επεξεργασία
         edited: Επεξεργασμένο
         hide_replies: Απόκρυψη απαντήσεων
+        moderated_at: Σχόλιο διαχειρίστηκε στις %{date}
         reply: Απάντηση
         report:
           action: Αναφορά
@@ -76,7 +79,9 @@ el:
             offensive: Περιέχει ρατσισμό, σεξισμό, δυσφημίσεις, προσωπικές επιθέσεις, απειλές θανάτου, αιτήματα αυτοκτονίας ή οποιαδήποτε μορφή ρητορικής μίσους.
             spam: Περιέχει clickbait, διαφημίσεις, απάτες ή script bot.
           title: Αναφορά ακατάλληλου περιεχομένου
-        show_replies: Εμφάνιση %{replies_count} απαντήσεων
+        show_replies:
+          one: Εμφάνιση απάντησης
+          other: Εμφάνιση %{count} απαντήσεων
         single_comment_link_title: Αποκτήστε σύνδεσμο
       comment_order_selector:
         order:
@@ -85,14 +90,13 @@ el:
           older: Παλαιότερα
           recent: Πρόσφατα
         title: 'Ταξινόμηση κατά:'
-      comment_thread:
-        title: Συζήτηση με τον συντάκτη %{authorName}
       comments:
         blocked_comments_for_unauthorized_user_warning: Πρέπει να επαληθευτείτε για να σχολιάσετε αυτή τη στιγμή, αλλά μπορείτε να διαβάσετε τα προηγούμενα.
         blocked_comments_for_user_warning: Δεν μπορείτε να σχολιάσετε αυτήν τη στιγμή, αλλά μπορείτε να διαβάσετε τα προηγούμενα σχόλια.
         blocked_comments_warning: Τα σχόλια είναι απενεργοποιημένα αυτήν τη στιγμή, αλλά μπορείτε να διαβάσετε τα προηγούμενα σχόλια.
         comment_details_title: Λεπτομέρειες σχολίων
         loading: Φόρτωση σχολίων...
+        single_comment_warning: <a href="%{url}">Δείτε όλα τα σχόλια</a>
         single_comment_warning_title: Βλέπετε ένα μόνο σχόλιο
         title:
           one: "%{count} σχόλιο"

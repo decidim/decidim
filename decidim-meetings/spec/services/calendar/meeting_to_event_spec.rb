@@ -6,7 +6,7 @@ module Decidim::Meetings::Calendar
   describe MeetingToEvent do
     subject { described_class.new(meeting) }
 
-    let(:meeting) { create :meeting }
+    let(:meeting) { create(:meeting) }
     let(:event) { subject.event }
 
     describe "#event" do

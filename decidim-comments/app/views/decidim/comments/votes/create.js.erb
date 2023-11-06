@@ -3,12 +3,12 @@
   var upVotes = <%= comment.up_votes.count.to_json %>;
   var downVotes = <%= comment.down_votes.count.to_json %>;
   var $comment = $("#comment_" + commentId);
-  var $votes = $("> .comment__footer .comment__votes", $comment);
-  var $upVote = $(".comment__votes--up", $votes);
-  var $downVote = $(".comment__votes--down", $votes);
+  var $votes = $("> .comment__footer > .comment__footer-grid .comment__votes", $comment);
+  var $upVote = $(".js-comment__votes--up", $votes);
+  var $downVote = $(".js-comment__votes--down", $votes);
 
-  $(".comment__votes--count", $upVote).text(upVotes);
-  $(".comment__votes--count", $downVote).text(downVotes);
+  $("span", $upVote).text(upVotes);
+  $("span", $downVote).text(downVotes);
 
   $upVote.removeClass("is-vote-selected is-vote-notselected").removeAttr("disabled");
   $downVote.removeClass("is-vote-selected is-vote-notselected").removeAttr("disabled");

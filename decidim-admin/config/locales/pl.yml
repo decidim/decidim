@@ -32,7 +32,6 @@ pl:
         body: Treść
         subject: Temat
       organization:
-        admin_terms_of_use_body: Warunki korzystania z serwisu dla administratora
         alert_color: Powiadomienie
         available_authorizations: Dostępne formy uwierzytelniania
         badges_enabled: Włącz odznaki
@@ -85,7 +84,6 @@ pl:
         success_color: Powodzenie
         time_zone: Strefa czasowa
         tos_version: Warunki korzystania z Platformy
-        twitter_handler: Handler Twittera
         user_groups_enabled: Włącz grupy użytkowników
         users_registration_mode: Tryb rejestracji użytkowników
         warning_color: Ostrzeżenie
@@ -123,21 +121,12 @@ pl:
         file: Plik
     errors:
       models:
-        newsletter:
-          attributes:
-            base:
-              at_least_one_space: Wybierz co najmniej jedną przestrzeń partycypacyjną
         organization:
           attributes:
             official_img_footer:
               allowed_file_content_types: Nieprawidłowy plik obrazu
             official_img_header:
               allowed_file_content_types: Nieprawidłowy plik obrazu
-      new_import:
-        attributes:
-          file:
-            invalid_file: Podano nieprawidłowy plik, sprawdź czy plik jest poprawnie sformatowany
-            invalid_mime_type: Niepoprawny format
   activerecord:
     attributes:
       decidim/static_page:
@@ -158,16 +147,12 @@ pl:
         add: Dodaj
         attachment:
           new: Nowy załącznik
-        attachment_collection:
-          new: Nowa kolekcja załączników
         browse: Przeglądaj
         category:
           new: Nowa kategoria
         export: Eksportuj wszystko
         export-selection: Eksportuj wybrane
         import: Importuj
-        manage: Zarządzanie
-        new: 'Nowy: %{name}'
         newsletter:
           new: Nowy newsletter
         participatory_space_private_user:
@@ -179,26 +164,10 @@ pl:
         user:
           new: Nowy administrator
         verify: Zweryfikuj
-      admin_terms_of_use:
-        accept:
-          error: Wystąpił błąd podczas akceptowania warunków użytkowania dla administratorów.
-          success: Świetnie! Zaakceptowano warunki użytkowania dla administratorów.
-        actions:
-          accept: Zgadzam się z warunkami użytkowania
-          are_you_sure: Czy na pewno nie wyrażasz zgody na warunki użytkowania dla administratorów?
-          refuse: Nie akceptuję warunków dla administratorów
-          title: Akceptuję warunki użytkowania
-        required_review:
-          alert: 'Wymagane: Zapoznaj się z warunkami użytkowania dla administratorów'
-          callout: Poświęć chwilę, aby zapoznać się z Warunkami użytkowania dla administratorów. W przeciwnym razie nie uzyskasz dostępu do administrowania platformą.
-          cta: Zapoznaj się teraz.
-        title: Warunki użytkowania dla administratorów
       area_types:
         create:
           error: Wystąpił błąd podczas tworzenia nowego typu kategorii.
           success: Typ kategorii został pomyślnie utworzony.
-        destroy:
-          success: Typ kategorii został usunięty
         edit:
           title: Edytuj typ kategorii
           update: Aktualizuj
@@ -207,13 +176,10 @@ pl:
           title: Nowy typ kategorii
         update:
           error: Wystąpił błąd podczas aktualizowania tego typu kategorii.
-          success: Typ kategorii został pomyślnie zaktualizowany
       areas:
         create:
           error: Wystąpił błąd podczas tworzenia nowej ketegorii.
           success: Kategoria została utworzona.
-        destroy:
-          success: Kategoria została usunięta
         edit:
           title: Edytuj kategorię
           update: Aktualizuj
@@ -223,7 +189,6 @@ pl:
         no_areas: Brak kategorii
         update:
           error: Wystąpił błąd podczas aktualizowania tej kategorii.
-          success: Kategoria została zaktualizowana
       attachment_collections:
         create:
           error: Wystąpił błąd podczas tworzenia nowego folderu.
@@ -234,7 +199,6 @@ pl:
           title: Edytuj folder
           update: Aktualizuj
         index:
-          attachment_collection_used: Tego folderu nie można usunąć, ponieważ jest on używany.
           attachment_collections_title: Foldery załączników
         new:
           create: Utwórz
@@ -261,7 +225,6 @@ pl:
           success: Załącznik został zaktualizowany.
       autocomplete:
         no_results: Brak wyników
-        search_prompt: Wpisz co najmniej trzy znaki żeby wyszukać
       block_user:
         new:
           action: Zablokuj konto i wyślij uzasadnienie
@@ -280,7 +243,6 @@ pl:
           update: Aktualizuj
         index:
           categories_title: Kategorie
-          category_used: Ta kategoria nie może zostać usunięta, ponieważ jest w użyciu.
         new:
           create: Utwórz kategorię
           title: Nowa kategoria
@@ -341,13 +303,9 @@ pl:
       dashboard:
         show:
           view_more_logs: Zobacz więcej logów
-          welcome: Witamy w Panelu Administracyjnym.
       domain_whitelist:
         form:
           domain_too_short: Domena jest zbyt krótka
-        update:
-          error: Nie udało się zaktualizować białej listy domen
-          success: Biała lista domen pomyślnie zaktualizowana
       exports:
         export_as: "%{name} jako %{export_format}"
         formats:
@@ -355,7 +313,6 @@ pl:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
-        notice: Twój eksport jest obecnie w toku. Po jego zakończeniu otrzymasz e-maila.
       filters:
         category_id_eq:
           label: Kategoria
@@ -430,17 +387,14 @@ pl:
             message_1: Pliki CSV, JSON i Excel (.xlsx) są obsługiwane
             message_2: Dla plików w formacie CSV separatorem kolumn musi być średnik (";")
       help_sections:
-        error: Wystąpił błąd podczas aktualizowania sekcji pomocy
         form:
           save: Zapisz
-        success: Sekcje pomocy zostały pomyślnie zaktualizowane
       impersonatable_users:
         index:
           filter:
             all: Wszystko
             managed: Zamknięte
             not_managed: Niezamknięte
-          filter_by: Filtruj według
           impersonate: Podszywać się
           impersonate_new_managed_user: Zarządzaj nowym uczestnikiem
           managed: Zamknięte
@@ -499,8 +453,6 @@ pl:
               few: Brakujące kolumny %{columns}.
               many: Brakujące kolumny %{columns}.
               other: Brakujące kolumny %{columns}.
-        error: Podczas importowania wystąpił błąd
-        example_error: Nie można utworzyć przykładu dla podanego typu
         new:
           accepted_mime_types:
             csv: csv
@@ -512,10 +464,9 @@ pl:
           download_example_format: Przykład jako %{name}
           file_legend: Zaimportuj plik, który zostanie przetworzony.
           import: Importuj
-        notice: "Zaimportowano %{resource_name} %{number}"
       logs:
-        logs_list:
-          no_logs_yet: Nie ma jeszcze logów
+        filters:
+          user: Użytkownik
       managed_users:
         promotion:
           error: Podczas awansowania zarządzanego użytkownika wystąpił błąd.
@@ -532,7 +483,6 @@ pl:
         area_types: Typy kategorii
         areas: Kategorie
         configuration: Konfiguracja
-        dashboard: Panel
         external_domain_whitelist: Dozwolone domeny zewnętrzne
         help_sections: Sekcje pomocy
         homepage: Strona główna
@@ -540,7 +490,6 @@ pl:
         moderation: Globalne moderacje
         newsletters: Newslettery
         participants: Użytkownicy
-        reported_users: Zgłoszeni użytkownicy
         scope_types: Typy zakresów
         scopes: Zakresy
         settings: Ustawienia
@@ -612,7 +561,6 @@ pl:
           fields:
             created_at: Data utworzenia
             email: E-mail
-            last_sign_in_at: Ostatni dzień rejestracji
             name: Imię
             role: Rola
             roles:
@@ -639,7 +587,6 @@ pl:
           nickname: Pseudonim
           reason: Powód
           reports: Liczba zgłoszeń
-          title: Lista zgłoszonych użytkowników
         report:
           reasons:
             does_not_belong: Nie należy
@@ -649,8 +596,6 @@ pl:
           blocked: Zablokowany
           unblocked: Niezablokowany
       moderations:
-        index:
-          title: Moderacje
         report:
           reasons:
             does_not_belong: Nie należy
@@ -721,13 +666,8 @@ pl:
           select_scopes: Filtruj według użytkowników, którzy mają dowolny z wybranych zakresów ustawiony jako aktywny w zakładce konta „Moje zainteresowania”.
           select_spaces: Wybierz przestrzenie, aby podzielić newsletter
           select_users: Wybierz użytkowników, do których chcesz wysyłać newsletter
-          send_to_all_users: Wyślij do wszystkich użytkowników
-          send_to_followers: Wyślij do obserwujących
-          send_to_participants: Wyślij do uczestników
           title: Wybierz odbiorców
           warning: "<strong>Uwaga:</strong> Ten newsletter zostanie wysyłany tylko do użytkowników, którzy w ustawieniach powiadomień aktywowali opcję <em>Chcę otrzymywać newsletter</em>."
-        send:
-          no_recipients: Brak odbiorców dla tego wyboru
         show:
           preview: Podgląd
           select_recipients_to_deliver: Wybierz odbiorców
@@ -736,13 +676,6 @@ pl:
           error: Podczas aktualizowania tego newslettera wystąpił błąd.
           success: Newsletter został zaktualizowany. Przeczytaj go przed wysłaniem.
       officializations:
-        block:
-          error: Wystąpił błąd blokowania użytkownika
-          success: Użytkownik został zablokowany
-        create:
-          success: Użytkownik został zweryfikowany
-        destroy:
-          success: Cofnięto weryfikację użytkownika
         index:
           actions: Działania
           badge: Odznaka
@@ -764,16 +697,12 @@ pl:
           officialize: Oficjalizuj
           title: Oficjalizuj użytkownika "%{name}"
         show_email_modal:
-          close_modal: Zamknij okno
           description: Jeśli chcesz skontaktować się bezpośrednio z uczestnikiem, możesz kliknąć przycisk Pokaż aby zobaczyć jego adres e-mail. Ta akcja zostanie zarejestrowana.
           email_address: Adres e-mail
           full_name: Imię i nazwisko
           hidden: ukryty
           show: Pokaż
           title: Pokaż adres e-mail uczestnika
-        unblock:
-          error: Wystąpił błąd podczas odblokowywania użytkownika
-          success: Użytkownik został odblokowany
       organization:
         edit:
           title: Edytuj organizację
@@ -784,7 +713,6 @@ pl:
           instagram: Instagram
           rich_text_editor_in_public_views_help: W niektórych polach tekstowych uczestnicy będą mogli wstawiać znaczniki HTML za pomocą edytora.
           social_handlers: Profile społecznościowe
-          twitter: Twitter
           url: Adres URL
           youtube: YouTube
         update:
@@ -797,8 +725,6 @@ pl:
           colors:
             colors_title: Kolory organizacji
             colors_warning_html: Uwaga! Zmiana tych kolorów może ograniczyć czytelność. Możesz sprawdzić kontrast wybranych kolorów korzystając z <a href="%{link}">WebAIM Contrast Checker</a> albo innych podobnych narzędzi.
-            header_snippets_help: Użyj tego pola, aby dodać elementy do nagłówka kodu HTML. Najczęstszym zastosowaniem jest zintegrowanie usług innych firm, które wymagają dodatkowego kodu JavaScript lub CSS. Można również użyć go do dodawania dodatkowych meta tagów do HTML. Zauważ, że będzie to widoczne tylko na stronach publicznych, a nie w sekcji administracyjnej.
-          cta_button_path_help: 'Możesz nadpisać adres do jakiego kieruje przycisk CTA na stronie głównej. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr, myślników i ukośników. Musi zaczynać się od litery. Przycisk CTA zostanie wyświetlony na stronie głównej między tekstem powitalnym a opisem. Przykład: %{url}'
           cta_button_text_help: Można nadpisać tekst przycisku CTA na stronie głównej dla każdego dostępnego języka organizacji. Jeśli to pole nie zostanie wypełnione, zostanie użyta wartość domyślna. Przycisk CTA zostanie wyświetlony na stronie głównej między tekstem powitalnym a opisem.
           homepage_appearance_title: Edytuj wygląd strony głównej
           homepage_highlighted_content_banner_title: Wyróżniony baner tekstowy
@@ -821,9 +747,6 @@ pl:
         edit:
           active_content_blocks: Aktywne bloki treści
           inactive_content_blocks: Bloki nieaktywnych treści
-      organization_homepage_content_blocks:
-        edit:
-          update: Aktualizuj
       participatory_space_private_users:
         create:
           error: Wystąpił błąd podczas dodawania użytkownika prywatnego do tej przestrzeni partycypacyjnej.
@@ -838,14 +761,11 @@ pl:
           create: Utwórz
           title: Nowy prywatny użytkownik przestrzeni partycypacyjnej.
       participatory_space_private_users_csv_imports:
-        create:
-          invalid: Wystąpił błąd podczas odczytu pliku CSV.
-          success: Plik CSV został pomyślnie wgrany, wysyłamy e-mail z zaproszeniem do uczestników. To może zająć chwilę.
         new:
           destroy:
             button: Usuń wszystkich prywatnych uczestników
             title: Usuń prywatnych uczestników
-          explanation: 'Prześlij swój plik CSV. Plik musi składać się z dwóch kolumn: w pierwszej kolumnie adresy e-mail, w drugiej kolumnie imiona (adres e-mail, imię) użytkowników, których chcesz dodać do przestrzeni partycypacyjnej; bez nagłówków. Unikaj używania niepoprawnych znaków takich jak `<>?%&^*#@()[]=+:;"{}\|` w imieniu użytkownika.'
+          example_file: 'Przykładowy plik:'
           title: Prześlij swój plik CSV
           upload: Prześlij
       reminders:
@@ -887,8 +807,6 @@ pl:
         create:
           error: Podczas tworzenia nowego zakresu wystąpił błąd.
           success: Zakres został utworzony.
-        destroy:
-          success: Zakres został usunięty
         edit:
           title: Edytuj zakres
           update: Aktualizuj
@@ -908,7 +826,6 @@ pl:
           error: Wystąpił błąd podczas usuwania tokenu.
           success: Token został usunięty.
         share_tokens:
-          empty: Brak aktywnych tokenów
           help: Te tokeny są używane do publicznego udostępniania nieopublikowanego zasobu każdemu użytkownikowi. Zostaną one ukryte, gdy zasób zostanie opublikowany. Kliknij na ikonę udostępniania tokenu aby odwiedzić udostępniany adres URL.
           title: Udostępnij tokeny
       shared:
@@ -921,8 +838,6 @@ pl:
         create:
           error: Wystąpił błąd podczas tworzenia nowego tematu.
           success: Temat został utworzony.
-        destroy:
-          success: Temat został usunięty
         edit:
           title: Edytuj temat
           update: Zaktualizuj temat
@@ -941,25 +856,19 @@ pl:
         destroy:
           success: Strona została usunięta
         edit:
-          changed_notably_help: Jeśli ta opcja jest zaznaczona, użytkownicy zostaną powiadomieni o konieczności zaakceptowaniu nowych warunków użytkowania.
           title: Edytuj stronę
           update: Aktualizuj
         form:
-          none: Żadna
-          slug_help: 'Wpisz tutaj tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełny adres URL. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
-        index:
-          last_notable_change: Ostatnia istotna zmiana
+          none: Bez tematu
         new:
           create: Utwórz stronę
           title: Nowa strona
         topic:
           destroy: Usuń temat
           edit: Edytuj temat
-          empty: Nie ma stron w tym temacie
           without_topic: Strony bez tematu
         update:
           error: Podczas aktualizowania tej strony wystąpił błąd.
-          success: Strona została zaktualizowana
       titles:
         admin_log: Logi administratora
         area_types: Typy kategorii
@@ -973,20 +882,16 @@ pl:
         participants: Użytkownicy
         scope_types: Typy zakresów
         scopes: Zakresy
-        static_pages: Strony
         statistics: Aktywność
         user_groups: Grupy użytkowników
         users: Administratorzy
       user_group:
         csv_verify:
           invalid: Wystąpił błąd podczas odczytu pliku CSV.
-          success: Plik CSV przesłany pomyślnie, weryfikujemy grupy użytkowników pasujące do kryteriów. To może zająć chwilę.
         reject:
           invalid: Podczas odrzucania tej grupy użytkowników wystąpił błąd.
-          success: Grupa użytkowników została odrzucona
         verify:
           invalid: Podczas weryfikacji tej grupy użytkowników wystąpił błąd.
-          success: Grupa użytkowników została zweryfikowana
       user_groups:
         index:
           state:
@@ -996,6 +901,7 @@ pl:
           verify_via_csv: Zweryfikuj za pomocą CSV
       user_groups_csv_verifications:
         new:
+          example_file: 'Przykładowy plik:'
           explanation: 'Prześlij swój plik CSV. Plik musi zawierać: w pierwszej kolumnie oficjalne adresy e-mail grup w organizacji, bez nagłówków. Tylko grupy, które potwierdziły swój adres e-mail i których adres e-mail znajduje się w pliku CSV, zostaną zweryfikowane.'
           title: Prześlij swój plik CSV
           upload: Prześlij
@@ -1019,13 +925,7 @@ pl:
           last_day: Poprzedni dzień
           last_month: Poprzedni miesiąc
           last_week: Poprzedni tydzień
-          no_users_count_statistics_yet: Nie ma jeszcze statystyk dotyczących liczby użytkowników
           participants: Użytkownicy
-      view_public_page: Zobacz stronę publiczną
-    forms:
-      errors:
-        impersonate_user:
-          reason: Aby zarządzać uczestnikiem niezarządzanym należy podać powód
     metrics:
       blocked_users:
         object: zablokowani użytkownicy
@@ -1059,14 +959,12 @@ pl:
       models:
         moderation:
           fields:
-            created_at: Data utworzenia
+            deleted_resource: Usunięty zasób
             hidden_at: Ukryto
             participatory_space: Przestrzeń partycypacyjna
-            report_count: Liczba
             reportable_id: ID
             reportable_type: Typ
             reported_content_url: URL zgłoszonej treści
-            reports: Zgłoszenia
             visit_url: Odwiedź adres URL
         report:
           fields:
@@ -1076,14 +974,3 @@ pl:
   errors:
     messages:
       invalid_json: Nieprawidłowy JSON
-  layouts:
-    decidim:
-      admin:
-        global_moderations:
-          title: Globalne moderacje
-        newsletters:
-          title: Newslettery
-        settings:
-          title: Ustawienia
-        users:
-          title: Użytkownicy

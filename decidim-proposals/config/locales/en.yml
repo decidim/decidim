@@ -32,7 +32,7 @@ en:
         cost_report: Cost report
         execution_period: Execution period
       proposals_copy:
-        copy_proposals: I understand that this will import all proposals from the selected component to the current one and that this action can't be reversed.
+        copy_proposals: I understand that this will import all proposals from the selected component to the current one and that this action cannot be reversed.
         origin_component_id: Component to copy the proposals from
       proposals_import:
         import_proposals: Import proposals
@@ -46,7 +46,7 @@ en:
         participatory_text:
           attributes:
             document:
-              allowed_file_content_types: 'Invalid document type. Accepted formats are: %{types}'
+              allowed_file_content_types: 'Invalid document type. Only files with the following extensions are allowed: %{types}'
         proposal:
           attributes:
             add_documents:
@@ -111,16 +111,18 @@ en:
             values:
               accepted: Accepted
               evaluating: Evaluating
+              not_answered: Not answered
               published: Published
               rejected: Rejected
               validating: Technical validation
               withdrawn: Withdrawn
-          state_null:
-            label: State
-            values:
-              'true': Not answered
           valuator_role_ids_has:
             label: Assigned to valuator
+          with_any_state:
+            label: Answered
+            values:
+              state_not_published: Not answered
+              state_published: Answered
         search_placeholder:
           id_string_or_title_cont: Search %{collection} by ID or title.
     components:
@@ -214,7 +216,7 @@ en:
             endorsements_enabled: Endorsements enabled
             proposal_answering_enabled: Proposal answering enabled
             publish_answers_immediately: Publish proposal answers immediately
-            publish_answers_immediately_help_html: Mind that if you answer any proposal without this enabled, you'll need to publish them manually by selecting them and using the action for publication. For more info on how this works, see <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">proposals' answers documentation page</a>.
+            publish_answers_immediately_help_html: Mind that if you answer any proposal without this enabled, you will need to publish them manually by selecting them and using the action for publication. For more info on how this works, see <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">proposals' answers documentation page</a>.
             suggested_hashtags: Hashtags suggested to participants for new proposals
             votes_blocked: Supports blocked
             votes_enabled: Supports enabled
@@ -223,10 +225,10 @@ en:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: Someone has left a note on the proposal "%{resource_title}". Check it out at <a href="%{admin_proposal_info_url}">the admin panel</a>
+            email_intro: Someone has left a note on the proposal "%{resource_title}". Check it out at <a href="%{admin_proposal_info_url}">the admin panel</a>.
             email_outro: You have received this notification because you can valuate the proposal.
             email_subject: Someone left a note on proposal %{resource_title}.
-            notification_title: Someone has left a note on the proposal <a href="%{resource_path}">%{resource_title}</a>. Check it out at <a href="%{admin_proposal_info_path}">the admin panel</a>
+            notification_title: Someone has left a note on the proposal <a href="%{resource_path}">%{resource_title}</a>. Check it out at <a href="%{admin_proposal_info_path}">the admin panel</a>.
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} has been accepted to access as a contributor of the <a href="%{resource_url}">%{resource_title}</a> collaborative draft.'
           email_outro: You have received this notification because you are a collaborator of <a href="%{resource_url}">%{resource_title}</a>.
@@ -261,12 +263,12 @@ en:
           email_intro: 'You can now create new proposals in %{participatory_space_title}! Start participating in this page:'
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
           email_subject: Proposals now available in %{participatory_space_title}
-          notification_title: You can now put forward <a href="%{resource_path}">new proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: You can now put forward <a href="%{resource_path}">new proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         endorsing_enabled:
           email_intro: 'You can endorse proposals in %{participatory_space_title}! Start participating in this page:'
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
           email_subject: Proposals endorsing has started for %{participatory_space_title}
-          notification_title: You can now start <a href="%{resource_path}">endorsing proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: You can now start <a href="%{resource_path}">endorsing proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         proposal_accepted:
           affected_user:
             email_intro: 'Your proposal "%{resource_title}" has been accepted. You can read the answer in this page:'
@@ -276,7 +278,7 @@ en:
           follower:
             email_intro: 'The proposal "%{resource_title}" has been accepted. You can read the answer in this page:'
             email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
-            email_subject: A proposal you're following has been accepted
+            email_subject: A proposal you are following has been accepted
             notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been accepted.
         proposal_evaluating:
           affected_user:
@@ -287,7 +289,7 @@ en:
           follower:
             email_intro: 'The proposal "%{resource_title}" is currently being evaluated. You can check for an answer in this page:'
             email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
-            email_subject: A proposal you're following is being evaluated
+            email_subject: A proposal you are following is being evaluated
             notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal is being evaluated.
         proposal_mentioned:
           email_intro: Your proposal "%{mentioned_proposal_title}" has been mentioned <a href="%{resource_url}">in this space</a> in the comments.
@@ -303,18 +305,18 @@ en:
           email_intro: The proposal "%{resource_title}" has been added to "%{participatory_space_title}" that you are following.
           email_outro: You have received this notification because you are following "%{participatory_space_title}". You can stop receiving notifications following the previous link.
           email_subject: New proposal "%{resource_title}" added to %{participatory_space_title}
-          notification_title: The proposal <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title} by %{author}
-          notification_title_official: The official proposal <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}
+          notification_title: The proposal <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title} by %{author}.
+          notification_title_official: The official proposal <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}.
         proposal_rejected:
           affected_user:
             email_intro: 'Your proposal "%{resource_title}" has been rejected. You can read the answer in this page:'
             email_outro: You have received this notification because you are an author of "%{resource_title}".
-            email_subject: Your proposal been rejected
+            email_subject: Your proposal has been rejected
             notification_title: Your proposal <a href="%{resource_path}">%{resource_title}</a> has been rejected.
           follower:
             email_intro: 'The proposal "%{resource_title}" has been rejected. You can read the answer in this page:'
             email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
-            email_subject: A proposal you're following has been rejected
+            email_subject: A proposal you are following has been rejected
             notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been rejected.
         proposal_update_category:
           email_intro: 'An admin has updated the category of your proposal "%{resource_title}", check it out in this page:'
@@ -353,7 +355,7 @@ en:
           description_own: You have given support to %{score} proposals.
           name: Proposal supports
           next_level_in: Give support to %{score} more proposals to reach the next level!
-          unearned_another: This participant hasn't given support to any proposals yet.
+          unearned_another: This participant has not given support to any proposals yet.
           unearned_own: You have given support to no proposals yet.
         proposals:
           conditions:
@@ -364,7 +366,7 @@ en:
           description_own: You have created %{score} proposals.
           name: Proposals
           next_level_in: Create %{score} more proposals to reach the next level!
-          unearned_another: This participant hasn't created any proposals yet.
+          unearned_another: This participant has not created any proposals yet.
           unearned_own: You have created no proposals yet.
     metrics:
       accepted_proposals:
@@ -385,7 +387,8 @@ en:
         title: Supports
     participatory_spaces:
       highlighted_proposals:
-        see_all: See all proposals (%{count})
+        last: Last proposals
+        see_all: See all proposals
     proposals:
       actions:
         answer_proposal: Answer proposal
@@ -403,8 +406,21 @@ en:
           proposals: Proposals
         imports:
           help:
-            answers: 'The import document should contain the following columns: id, state (accepted, evaluating, rejected), answer/en (and other languages enabled for the organization).'
-            proposals: The file must have column names title/en and body/en (or another locale which you prefer eg. title/ca and body/ca). Also scope/id and category/id columns are supported.
+            answers: |
+              The import document should contain the following column names in case of CSV or Excel files, or key names in case of JSON files:
+              <ul>
+              <li><b>id:</b> ID of the proposal to answer</li>
+              <li><b>state:</b> One of "accepted", "evaluating", or "rejected"</li>
+              <li><b>answer/en:</b> Answer on English language. This will depend on your platform language configuration.</li>
+              </ul>
+            proposals: |
+              The file must have the following column names in case of CSV or Excel files, or key names in case of JSON files:
+              <ul>
+              <li><b>title/en:</b> Title on English language. This will depend on your platform language configuration.</li>
+              <li><b>body/en:</b> Body on English language. This will depend on your platform language configuration.</li>
+              <li><b>scope/id:</b> ID for the Scope</li>
+              <li><b>category/id:</b> ID for the Category</li>
+              </ul>
           label:
             answers: Import answers from a file
             proposals: Import proposals from a file
@@ -442,12 +458,12 @@ en:
               md: Markdown
               odt: ODT
             bottom_hint: "(You will be able to preview and sort document sections)"
-            document_legend: 'Add a document lesser than 2MB, each section until 3 levels deep will be parsed into proposals. Suported formats are: %{valid_mime_types}'
+            document_legend: 'Add a document lesser than 2MB, each section until 3 levels deep will be parsed into proposals. Supported formats are: %{valid_mime_types}'
             title: Add document
             upload_document: Upload document
           publish:
-            invalid: Could not publish proposals
-            success: All proposals have been published
+            invalid: There was a problem publishing proposals.
+            success: All proposals have been published.
           sections:
             article: "<em>Article</em>"
             section: "<em>Section:</em> <strong>%{title}</strong>"
@@ -464,8 +480,8 @@ en:
             title: Answer for proposal %{title}
         proposal_notes:
           create:
-            error: There was a problem creating this proposal note
-            success: Proposal note successfully created
+            error: There was a problem creating this proposal note.
+            success: Proposal note successfully created.
           form:
             note: Note
             submit: Submit
@@ -473,11 +489,11 @@ en:
           title: Private notes
         proposals:
           answer:
-            invalid: There's been a problem answering this proposal
-            success: Proposal successfully answered
+            invalid: There has been a problem answering this proposal.
+            success: Proposal successfully answered.
           create:
-            invalid: There's been a problem creating this proposal
-            success: Proposal successfully created
+            invalid: There has been a problem creating this proposal.
+            success: Proposal successfully created.
           edit:
             title: Update proposal
             update: Update
@@ -511,49 +527,41 @@ en:
             create: Create
             title: Create proposal
           publish_answers:
-            number_of_proposals: Answers for %{number} proposals will be published.
-            select_a_proposal: Please select a proposal
+            number_of_proposals: Answers for %{number} proposal's will be published?
+            select_a_proposal: Please select a proposal.
           show:
             amendments_count: Amendments count
             assigned_valuators: Assigned valuators
-            authors: Authors
             body: Body
             comments_count: Comments count
-            comments_negative_count: Against
-            comments_neutral_count: Neutral
-            comments_positive_count: Favor
-            created_at: Creation date
             documents: Documents
             endorsements_count: Endorsements count
-            endorsements_ranking: Ranking by endorsements
             endorsers: Endorsers
-            link: Link
+            link: See proposal
             n_more_endorsers:
               one: and 1 more
               other: and %{count} more
             photos: Photos
-            proposals: Proposals
             ranking: "%{ranking} of %{total}"
             related_meetings: Related meetings
             remove_assignment: Remove assignment
             remove_assignment_confirmation: Are you sure you want to remove the valuator from this proposal?
             valuators: Valuators
             votes_count: Supports count
-            votes_ranking: Ranking by supports
           update_category:
             invalid: 'These proposals already had the %{subject_name} category: %{proposals}.'
-            select_a_category: Please select a category
-            select_a_proposal: Please select a proposal
+            select_a_category: Please select a category.
+            select_a_proposal: Please select a proposal.
             success: 'Proposals successfully updated to the %{subject_name} category: %{proposals}.'
           update_scope:
             invalid: 'These proposals already had the %{subject_name} scope: %{proposals}.'
-            select_a_proposal: Please select a proposal
-            select_a_scope: Please select a scope
+            select_a_proposal: Please select a proposal.
+            select_a_scope: Please select a scope.
             success: 'Proposals successfully updated to the %{subject_name} scope: %{proposals}.'
         proposals_imports:
           create:
-            invalid: There was a problem importing the proposals
-            success: "%{number} proposals successfully imported"
+            invalid: There was a problem importing the proposals.
+            success: "%{number} proposals successfully imported."
           new:
             create: Import proposals
             no_components: There are no other proposal components in this participatory space to import the proposals from.
@@ -570,11 +578,11 @@ en:
             success: Successfully splitted the proposals into new ones.
         valuation_assignments:
           create:
-            invalid: There was an error assigning proposals to a valuator
-            success: Proposals assigned to a valuator successfully
+            invalid: There was an error assigning proposals to a valuator.
+            success: Proposals assigned to a valuator successfully.
           delete:
-            invalid: There was an error unassigning proposals from a valuator
-            success: Valuator unassigned from proposals successfully
+            invalid: There was an error unassigning proposals from a valuator.
+            success: Valuator unassigned from proposals successfully.
       admin_log:
         proposal:
           answer: "%{user_name} answered the %{resource_name} proposal on the %{space_name} space"
@@ -593,16 +601,12 @@ en:
         rejected: Rejected
         withdrawn: Withdrawn
       application_helper:
-        filter_category_values:
-          all: All
         filter_origin_values:
           all: All
           meetings: Meetings
           official: Official
           participants: Participants
           user_groups: Groups
-        filter_scope_values:
-          all: All
         filter_state_values:
           accepted: Accepted
           all: All
@@ -618,26 +622,21 @@ en:
           publish:
             error: There was a problem publishing the collaborative draft.
             irreversible_action_modal:
-              body: After publishing the draft as a proposal, the draft won't be editable anymore. The proposal won't accept new authors or contributions.
+              body: After publishing the draft as a proposal, it will not be editable anymore. The proposal will not accept new authors or contributions.
               cancel: Cancel
               ok: Publish as a Proposal
               title: The following action is irreversible
             success: Collaborative draft published successfully as a proposal.
-          view_collaborative_draft: View Collaborative Draft
           withdraw:
             error: There was a problem closing the collaborative draft.
             irreversible_action_modal:
-              body: After closing the draft, the draft won't be editable anymore. The draft won't accept new authors or contributions.
+              body: After closing the draft, it will not be editable anymore. The draft will not accept new authors or contributions.
               cancel: Cancel
               ok: Withdraw the collaborative draft
               title: The following action is irreversible
             success: Collaborative draft withdrawn successfully.
-        count:
-          drafts_count:
-            one: "%{count} collaborative draft"
-            other: "%{count} collaborative drafts"
         create:
-          error: There was a problem creating this collaborative drafts
+          error: There was a problem creating this collaborative draft.
           success: Collaborative draft successfully created.
         edit:
           attachment_legend: "(Optional) Add an attachment"
@@ -645,6 +644,8 @@ en:
           select_a_category: Please select a category
           send: Send
           title: Edit collaborative draft
+        empty: There are no collaborative drafts yet
+        empty_filters: There is no collaborative draft with this criteria
         filters:
           all: All
           amendment: Amendments
@@ -661,6 +662,11 @@ en:
           filter: Filter
           filter_by: Filter by
           unfold: Unfold
+        index:
+          count:
+            one: "%{count} collaborative draft"
+            other: "%{count} collaborative drafts"
+        name: Collaborative drafts
         new:
           add_file: Add file
           edit_file: Edit file
@@ -675,32 +681,30 @@ en:
         requests:
           accepted_request:
             error: Could not be accepted as a collaborator, please try again later.
-            success: "@%{user} has been accepted as a collaborator successfully"
+            success: "@%{user} has been accepted as a collaborator successfully."
           access_requested:
             error: Your request could not be completed, please try again later.
-            success: Your request to collaborate has been successfully sent
+            success: Your request to collaborate has been successfully sent.
           collaboration_requests:
             accept_request: Accept
             reject_request: Reject
             title: Collaboration requests
           rejected_request:
             error: Could not be rejected as a collaborator, please try again later.
-            success: "@%{user} has been successfully rejected as a collaborator"
+            success: "@%{user} has been successfully rejected as a collaborator."
         show:
-          back: Back
           edit: Edit collaborative draft
-          final_proposal: final proposal
+          final_proposal: Final proposal
           final_proposal_help_text: This draft is finished. Check out the final proposal
           hidden_authors_count:
             one: and %{count} more person
             other: and %{count} more people
-          info-message: This is a <strong>collaborative draft</strong> for a proposal. This means that you can help their authors to shape the proposal using the comment section below or improve it directly by requesting access to edit it. Once the authors grant you access, you'll be able to make changes to this draft.
+          info-message: This is a <strong>collaborative draft</strong> for a proposal. This means that you can help their authors to shape the proposal using the comment section below or improve it directly by requesting access to edit it. Once the authors grant you access, you will be able to make changes to this draft.
           publish: Publish
           publish_info: Publish this version of the draft or
-          published_proposal: published proposal
+          published_proposal: Published proposal
           request_access: Request access
           requested_access: Access requested
-          version_history: see version history for this proposal
           withdraw: withdraw the draft
         states:
           open: Open
@@ -711,12 +715,11 @@ en:
           success: Collaborative draft successfully updated.
         wizard_aside:
           back_from_collaborative_draft: Back to collaborative drafts
-          info: You are creating a <strong>collaborative draft</strong>.
         wizard_header:
           title: Create your collaborative draft
       content_blocks:
         highlighted_proposals:
-          proposals: Proposals
+          name: Proposals
       create:
         error: There was a problem saving the proposal.
         success: Proposal successfully created. Saved as a Draft.
@@ -724,14 +727,9 @@ en:
         error: There was a problem deleting the collaborative draft.
         success: Proposal draft was successfully deleted.
       last_activity:
-        new_proposal_at_html: "<span>New proposal at %{link}</span>"
-        proposal_updated_at_html: "<span>Proposal updated at %{link}</span>"
+        new_proposal: 'New proposal:'
+        proposal_updated: 'Proposal updated:'
       models:
-        collaborative_draft:
-          fields:
-            authors: Authors
-            comments: Comments
-            contributions: Contributions
         proposal:
           fields:
             category: Category
@@ -748,13 +746,12 @@ en:
             valuators: Valuators
             votes: Votes
       new:
-        limit_reached: You can't create new proposals since you've exceeded the limit.
+        limit_reached: You cannot create new proposals since you have exceeded the limit.
       participatory_text_proposal:
         alternative_title: There are no participatory texts at the moment
         buttons:
           amend: Amend
           comment: Comment
-          comments: Comments
       proposal_votes:
         create:
           error: There was a problem supporting the proposal.
@@ -766,21 +763,14 @@ en:
         complete:
           send: Send
           title: Complete your proposal
-        count:
-          proposals_count:
-            one: "%{count} proposal"
-            other: "%{count} proposals"
         dynamic_map_instructions:
           description: The coordinates will be updated when clicking on 'preview' button. However, the address does not change.
           instructions: You can move the point on the map.
         edit:
           add_documents: Add documents
-          add_image: Add image
           attachment_legend: "(Optional) Add an attachment"
           back: Back
           edit_documents: Edit documents
-          edit_image: Edit image
-          gallery_legend: "(Optional) Add an image to the proposal card"
           select_a_category: Please select a category
           send: Send
           title: Edit proposal
@@ -802,23 +792,16 @@ en:
           state: Status
           type: Type
           voted: Supported
-        filters_small_view:
-          close_modal: Close modal
-          filter: Filter
-          filter_by: Filter by
-          unfold: Unfold
         index:
           click_here: See all proposals
           collaborative_drafts_list: Access collaborative drafts
+          count:
+            one: "%{count} proposal"
+            other: "%{count} proposals"
           new_proposal: New proposal
           see_all: See all proposals
           see_all_withdrawn: See all withdrawn proposals
           text_banner: You are viewing the list of proposals withdrawn by their authors. %{go_back_link}.
-          view_proposal: View proposal
-        linked_proposals:
-          proposal_votes:
-            one: support
-            other: supports
         new:
           send: Continue
           title: Create your proposal
@@ -832,10 +815,8 @@ en:
           recent: Recent
           with_more_authors: With more authors
         participatory_texts:
-          index:
-            document_index: Document index
           view_index:
-            see_index: See index
+            document_index: Document index
         placeholder:
           address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
@@ -847,20 +828,13 @@ en:
             other: You will be able to edit this proposal during the first %{count} minutes after the proposal is published. Once this time window passes, you will not be able to edit the proposal.
           publish: Publish
           title: Publish your proposal
-        proposal:
-          creation_date: 'Creation: %{date}'
-          view_proposal: View proposal
         proposals:
-          empty: There is no proposal yet
-          empty_filters: There isn't any proposal with this criteria
+          empty: There are no proposals yet.
+          empty_filters: There are no proposals with this criteria.
         show:
           answer: Answer
-          back_to: Back to
-          back_to_list: Back to list
           changes_at_title: Amendment to "%{title}"
-          comments: Comments
           edit_proposal: Edit proposal
-          endorsements_list: List of Endorsements
           estimated_cost: Estimated cost
           hidden_endorsers_count:
             one: and %{count} more person
@@ -874,14 +848,9 @@ en:
           proposal_accepted_reason: 'This proposal has been accepted because:'
           proposal_in_evaluation_reason: This proposal is being evaluated
           proposal_rejected_reason: 'This proposal has been rejected because:'
-          read_less: Read less
-          read_more: Read more
-          report: Report
           withdraw_btn_hint: You can withdraw your proposal if you change your mind, as long as you have not received any support. The proposal is not deleted, it will appear in the list of withdrawn proposals.
           withdraw_confirmation_html: Are you sure you want to withdraw this proposal?<br><br><strong>This action cannot be cancelled!</strong>
           withdraw_proposal: Withdraw proposal
-        tags:
-          changed_from: "(changed from <u>%{previous_name}</u> by an administrator)"
         update:
           title: Update proposal
         vote_button:
@@ -895,45 +864,37 @@ en:
           count:
             one: Support
             other: Supports
-          most_popular_proposal: Most popular proposal
-          need_more_votes: Need more supports
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Each proposal can accumulate more than %{limit} supports
           minimum_votes_per_user:
             description: You must distribute a minimum of %{votes} supports among different proposals.
-            given_enough_votes: You've given enough supports.
+            given_enough_votes: You have given enough supports.
             supports_remaining: You have to support %{remaining_votes} more proposals for your supports to be taken into account.
           proposal_limit:
             description: You can create up to %{limit} proposals.
           threshold_per_proposal:
-            description: In order to be validated proposals need to reach %{limit} supports
+            description: In order to be validated proposals need to reach %{limit} supports.
           title: 'Supports are subject to the following rules:'
           vote_limit:
             description: You can support up to %{limit} proposals.
-            left: Remaining
-            votes: Supports
+            votes: Remaining %{number} supports
         wizard_aside:
           back: Back
           back_from_step_1: Back to proposals
           back_from_step_2: Back to proposals
           back_from_step_3: Back to compare proposals
           back_from_step_4: Back to edit draft
-          info: You are creating a <strong>proposal</strong>.
         wizard_steps:
           current_step: Current step
-          see_steps: see steps
           step_1: Create your proposal
           step_2: Compare
           step_3: Complete
           step_4: Publish your proposal
-          step_of: Step %{current_step_num} of %{total_steps}
           title: Proposal creation steps
       proposals_picker:
         choose_proposals: Choose proposals
-        close: Close
-        more_proposals: There are %{number} more proposals. Refine your search to locate them.
-        no_proposals: No proposals match your search criteria or there isn't any proposals.
+        no_proposals: No proposals match your search criteria or there is not any proposals.
       publish:
         error: There was a problem publishing the proposal.
         success: Proposal successfully published.
@@ -946,15 +907,11 @@ en:
         error: There was a problem saving the collaborative draft.
         success: Proposal draft successfully updated.
       versions:
-        collaborative_drafts:
-          back_to_resource: Go back to collaborative draft
         index:
           title: Versions
-        proposals:
-          back_to_resource: Go back to proposal
       withdraw:
         errors:
-          has_supports: This proposal can not be withdrawn because it already has supports.
+          has_supports: This proposal cannot be withdrawn because it already has supports.
     resource_links:
       copied_from_component:
         proposal_proposal: Related proposals

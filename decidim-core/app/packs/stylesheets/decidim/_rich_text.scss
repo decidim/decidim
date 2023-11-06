@@ -1,0 +1,103 @@
+.rich-text-display {
+  ul,
+  ol {
+    @apply mb-4;
+  }
+
+  .editor-content-videoEmbed {
+    @apply my-10 mx-auto;
+  }
+}
+
+.rich-text-display,
+.editor-container .editor-input .ProseMirror {
+  // Extra styling needed temporarily for redesign
+  p,
+  ul,
+  ol {
+    @apply mb-4;
+  }
+
+  // We do not want to show the bottom border in sub-lists. Also, Tiptap adds an
+  // extra <p> inside list items to support marks/styling within the list item
+  // content.
+  ul ul,
+  ul ol,
+  ol ol,
+  ol ul,
+  li p {
+    @apply mb-0;
+  }
+
+  // See the comments in the `renderHTML` method of the customized `OrderedList`
+  // extension.
+  //
+  // Details: https://github.com/tailwindlabs/tailwindcss-typography/issues/296
+  ol[data-type="a"] {
+    @apply list-[lower-alpha];
+  }
+
+  ol[data-type="A"] {
+    @apply list-[upper-alpha];
+  }
+
+  ol[data-type="i"] {
+    @apply list-[lower-roman];
+  }
+
+  ol[data-type="I"] {
+    @apply list-[upper-roman];
+  }
+
+  .editor-content-videoEmbed {
+    @apply max-w-screen-sm;
+
+    > div {
+      @apply relative h-0 w-full pb-[56.25%]; /* 16:9 */
+    }
+
+    iframe {
+      @apply absolute block top-0 left-0 w-full h-full;
+    }
+  }
+
+  .editor-indent-1 {
+    @apply ml-4;
+  }
+
+  .editor-indent-2 {
+    @apply ml-8;
+  }
+
+  .editor-indent-3 {
+    @apply ml-12;
+  }
+
+  .editor-indent-4 {
+    @apply ml-16;
+  }
+
+  .editor-indent-5 {
+    @apply ml-20;
+  }
+
+  .editor-indent-6 {
+    @apply ml-24;
+  }
+
+  .editor-indent-7 {
+    @apply ml-28;
+  }
+
+  .editor-indent-8 {
+    @apply ml-32;
+  }
+
+  .editor-indent-9 {
+    @apply ml-36;
+  }
+
+  .editor-indent-10 {
+    @apply ml-40;
+  }
+}

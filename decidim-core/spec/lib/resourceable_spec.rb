@@ -50,7 +50,7 @@ module Decidim
     end
 
     describe "sibling_scope" do
-      context "when there's a resource manifest" do
+      context "when there is a resource manifest" do
         context "when there are no component for the sibling" do
           it "returns a none relation" do
             expect(resource.sibling_scope(:foo)).to be_none
@@ -87,7 +87,7 @@ module Decidim
             target_component.unpublish!
           end
 
-          it "doesn't return anything from that component" do
+          it "does not return anything from that component" do
             expect(resource.sibling_scope(:dummy)).to be_empty
           end
         end
@@ -101,13 +101,13 @@ module Decidim
           let!(:target_resource) { create(:dummy_resource, component: target_component) }
           let!(:moderation) { create(:moderation, reportable: target_resource, hidden_at: Time.current) }
 
-          it "doesn't return anything from that component" do
+          it "does not return anything from that component" do
             expect(resource.sibling_scope(:dummy)).to be_empty
           end
         end
       end
 
-      context "when there's no resource manifest" do
+      context "when there is no resource manifest" do
         it "returns a none relation" do
           expect(resource.sibling_scope(:foo)).to be_none
         end
@@ -117,7 +117,7 @@ module Decidim
     describe "resource_manifest" do
       it "finds the resource manifest for the model" do
         manifest = resource.class.resource_manifest
-        expect(manifest).to be_kind_of(Decidim::ResourceManifest)
+        expect(manifest).to be_a(Decidim::ResourceManifest)
         expect(manifest.model_class).to eq(resource.class)
       end
     end
@@ -125,14 +125,14 @@ module Decidim
     describe "#linked_classes_for" do
       subject { Decidim::Proposals::Proposal }
 
-      let(:proposals_component1) { create :component, manifest_name: "proposals" }
-      let(:proposals_component2) { create :component, manifest_name: "proposals" }
-      let(:meetings_component) { create :component, manifest_name: "meetings", participatory_space: proposals_component1.participatory_space }
-      let(:dummy_component) { create :component, manifest_name: "dummy", participatory_space: proposals_component2.participatory_space }
-      let(:proposal1) { create :proposal, component: proposals_component1 }
-      let(:proposal2) { create :proposal, component: proposals_component2 }
-      let(:meeting) { create :meeting, component: meetings_component }
-      let(:dummy_resource) { create :dummy_resource, component: dummy_component }
+      let(:proposals_component1) { create(:component, manifest_name: "proposals") }
+      let(:proposals_component2) { create(:component, manifest_name: "proposals") }
+      let(:meetings_component) { create(:component, manifest_name: "meetings", participatory_space: proposals_component1.participatory_space) }
+      let(:dummy_component) { create(:component, manifest_name: "dummy", participatory_space: proposals_component2.participatory_space) }
+      let(:proposal1) { create(:proposal, component: proposals_component1) }
+      let(:proposal2) { create(:proposal, component: proposals_component2) }
+      let(:meeting) { create(:meeting, component: meetings_component) }
+      let(:dummy_resource) { create(:dummy_resource, component: dummy_component) }
 
       before do
         proposal1.link_resources([meeting], "proposals_from_meeting")

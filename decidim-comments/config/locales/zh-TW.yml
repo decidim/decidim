@@ -1,1 +1,161 @@
 zh-TW:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: 評論
+      decidim/comments/comment_created_event: 評論
+      decidim/comments/comment_upvoted_event: 評論已獲得讚同
+      decidim/comments/reply_created_event: 評論回覆
+      decidim/comments/user_group_mentioned_event: 提及
+      decidim/comments/user_mentioned_event: 提及
+  activerecord:
+    models:
+      decidim/comments/comment:
+        other: 評論
+      decidim/comments/comment_vote:
+        other: 投票
+  decidim:
+    comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: 啟用評論功能
+            end_time: 留言可用至
+            start_time: 留言可用自
+      comments:
+        create:
+          error: 創建評論時出現問題。
+        delete:
+          error: 該評論無法被刪除。
+        update:
+          error: 更新評論時出現問題。
+      comments_count: 評論次數
+      comments_title: 評論
+      votes:
+        create:
+          error: 投票評論時發生問題。
+    components:
+      add_comment_form:
+        form:
+          body:
+            label: 評論
+            placeholder: 你有什麼想法？
+          form_error: 文字為必填欄位，且不可超過 %{length} 個字元。
+          user_group_id:
+            label: 評論者：
+        opinion:
+          label: 關於此議題，您的意見
+          negative: 負面
+          negative_selected: 您對此主題的看法為負面
+          neutral: 中性
+          neutral_selected: 您對此主題的看法是中立的
+          positive: 正面
+          positive_selected: 您對此主題的看法是正面的
+        remaining_characters: "剩餘%{count} 個字元"
+        remaining_characters_1: "剩餘%{count} 個字元"
+        title: 新增您的評論
+      comment:
+        alignment:
+          against: 反對
+          in_favor: 贊成
+        confirm_destroy: 你確定要刪除此評論？
+        delete: 刪除
+        deleted_at: 評論已在 %{date} 刪除
+        deleted_user: 已刪除的參與者
+        edit: 編輯
+        edited: 已編輯
+        hide_replies: 隱藏答覆
+        moderated_at: 評論在%{date} 被審核
+        reply: 回覆
+        report:
+          action: 報告
+          already_reported: 此內容已被舉報，將由管理員進行審查。
+          close: 關閉
+          description: 評論於 %{date} 被審核
+          details: 附加評論
+          reasons:
+            does_not_belong: 包含非法活動、自殺威脅、個人資訊或其他您認為不適合在%{organization_name} 上的內容。
+            offensive: 包含種族主義、性別歧視、辱罵、人身攻擊、死亡威脅、自殺要求或任何形式的仇恨言論
+            spam: 包含點閱率誘導、廣告、詐騙或自動腳本。
+          title: 檢舉不當內容
+        show_replies:
+          other: 顯示 %{count} 則回覆
+        single_comment_link_title: 取得連結
+      comment_order_selector:
+        order:
+          best_rated: 最佳評分
+          most_discussed: 最多討論
+          older: 較早的
+          recent: 最近
+        title: '排序方式:'
+      comments:
+        blocked_comments_for_unauthorized_user_warning: 目前需要驗證您的身份才能發表評論，但您可以閱讀先前的評論。
+        blocked_comments_for_user_warning: 目前您無法發表評論，但您可以閱讀先前的評論。
+        blocked_comments_warning: 目前無法發表評論，但您可以閱讀先前的評論。
+        comment_details_title: 評論詳細資料
+        loading: 正在加載評論…
+        single_comment_warning: <a href="%{url}">查看所有評論</a>
+        single_comment_warning_title: 您正在查看單一評論
+        title:
+          other: "%{count} 則評論"
+      down_vote_button:
+        text: 我不同意此評論
+      edit_comment_modal_form:
+        close: 關閉
+        form:
+          body:
+            label: 評論
+            placeholder: 你有什麼想法？
+          submit: 發送
+        title: 編輯您的評論
+      up_vote_button:
+        text: 我同意此評論
+    events:
+      comments:
+        comment_by_followed_user:
+          email_intro: "%{author_name} 在%{resource_title} 留下了一則評論。您可以在此頁面上閱讀它:"
+          email_outro: 您收到此通知是因為您正在關注%{author_name}。您可以從他們的個人資料頁面取消關注該用戶。
+          email_subject: '%{author_name} 在%{resource_title} 發表了一則新的評論'
+          notification_title: 在<a href="%{resource_path}">%{resource_title}</a>中，<a href="%{author_path}">%{author_name} %{author_nickname}</a>有了一個新的評論。
+        comment_by_followed_user_group:
+          email_intro: '%{author_name} 群組在%{resource_title} 中留下了一則評論。您可以在此頁面中閱讀它:'
+          email_outro: 您收到此通知是因為您正在關注%{author_name}。您可以從其個人資料頁面取消關注此群組。
+          email_subject: '%{author_name} 在%{resource_title} 發表了一則新的評論'
+          notification_title: 在<a href="%{resource_path}">%{resource_title}</a>中，<a href="%{author_path}">%{author_name} %{author_nickname}</a>有了一個新的評論。
+        comment_created:
+          email_intro: "%{resource_title} 已被評論。您可以在此頁面中閱讀評論:"
+          email_outro: 您收到此通知是因為您正在關注「%{resource_title}」或其作者。您可以從上面的連結取消關注。
+          email_subject: '%{resource_title}」有新的評論來自 %{author_name}'
+          notification_title: 在 <a href="%{resource_path}">%{resource_title}</a>有新的評論來自 <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+        comment_downvoted:
+          email_intro: 您在「%{resource_title}」的評論已經倒讚。它現在的評分是 %{upvotes} 個讚和 %{downvotes} 個倒讚。
+          email_outro: 您收到此通知是因為您是此評論的作者。
+          email_subject: 您在「%{resource_title}」的評論已經被倒讚。
+          notification_title: 你在「%{resource_title}」的<a href="%{resource_path}">評論</a>已被負評。現在它的評分是 %{upvotes} 個讚和 %{downvotes} 個倒讚。
+        comment_upvoted:
+          email_intro: 你在「%{resource_title}」的評論已收到讚。現在它的評分是 %{upvotes} 個讚和 %{downvotes} 個倒讚。
+          email_outro: 您收到此通知是因為您是此評論的作者。
+          email_subject: 你在 "%{resource_title}" 中的評論已經收到讚。
+          notification_title: 你在 "<a href="%{resource_path}">resource_title</a>" 中的評論已經收到讚，現在它總共有 %{upvotes} 個讚和 %{downvotes} 個倒讚。
+        reply_created:
+          email_intro: "%{author_name} 已回覆你在%{resource_title} 中的評論。你可以在此頁面上閱讀:"
+          email_outro: 你收到此通知是因為有人回覆了你的評論。
+          email_subject: "%{author_name} 回覆了你在 %{resource_title} 中的評論。"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> 在 <a href="%{resource_path}">%{resource_title}</a> 中回覆了你的評論。
+        user_group_mentioned:
+          email_intro: 你所屬的群組被提及了
+          email_outro: 你收到了這個通知，因為你是 %{group_name} 的成員，而該小組在 %{resource_title} 中被提及。
+          email_subject: 你作為 %{group_name} 的成員在 %{resource_title} 中被提及
+          notification_title: 你作為<a href="%{group_path}">%{group_name} %{group_nickname}</a>的成員，被<a href="%{author_path}">%{author_name} %{author_nickname}</a>在<a href="%{resource_path}">%{resource_title}</a>中提及
+        user_mentioned:
+          email_intro: 您已被提及
+          email_outro: 您收到了此通知，因為您被提及在 %{resource_title} 中。
+          email_subject: 您被提及在 %{resource_title} 中
+          notification_title: 您被 <a href="%{author_path}">%{author_name} %{author_nickname}</a> 在 <a href="%{resource_path}">%{resource_title}</a> 中提及。
+    metrics:
+      comments:
+        description: 參與者產生的評論數量
+        object: 評論
+        title: 評論
+  errors:
+    messages:
+      cannot_have_comments: 無法評論

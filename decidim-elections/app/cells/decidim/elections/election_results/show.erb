@@ -1,40 +1,43 @@
-<div class="row">
-  <div class="columns large-8">
-    <h3 class="section-heading"><%= t("decidim.elections.elections.results.title") %></h3>
-
-    <p><%= t("decidim.elections.elections.results.description") %></p>
-
-    <ul class="accordion mb-m evote__preview"
-      data-accordion
-      data-multi-expand="true"
-      data-allow-all-closed="true">
-      <% model.questions.each_with_index do |question, i| %>
-        <li class="accordion-item evote__preview-question <%= " is-active" if i == 0 %>" data-accordion-item>
-          <a href="#" class="accordion-title flex--sbc"><%= translated_attribute(question.title) %></a>
-
-          <div class="accordion-content" data-tab-content>
-            <% question.answers.each do |answer| %>
-              <div class="evote__preview-result">
-                <h3 class="evote__preview-option">
-                  <%= translated_attribute(answer.title) %>
-
-                  <% if answer.selected? %>
-                    <span class="label label--small label--highlight">
-                      <%= t("decidim.elections.elections.results.selected") %>
-                    </span>
-                  <% end %>
-                </h3>
-
-                <%= render view: :progress_bar, locals: { results_percentage: answer.results_percentage, results_total: answer.results_total } %>
-              </div>
-            <% end %>
-
-            <% if question.results.blank_answers.any? %>
-              <%= render view: :blank_votes, locals: { question: question } %>
-            <% end %>
-          </div>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+<div class="election__section-title">
+  <%= icon "bar-chart-box-line" %>
+  <h2 class="h4"><%= t("decidim.elections.elections.results.title") %></h2>
 </div>
+
+<p class="election__section-desc"><%= t("decidim.elections.elections.results.description") %></p>
+
+<ul id="accordion-results" class="space-y-8" data-component="accordion">
+  <% model.questions.each_with_index do |question, ix| %>
+    <li class="election__accordion">
+      <button id="accordion-trigger-<%= ix %>" data-controls="accordion-panel-<%= ix %>" class="election__accordion-trigger" <%= " data-open='true'" if ix.zero? %>>
+        <%= translated_attribute(question.title) %>
+        <%= icon "arrow-down-s-line" %>
+        <%= icon "arrow-up-s-line" %>
+      </button>
+
+      <div id="accordion-panel-<%= ix %>" class="election__accordion-panel" aria-hidden="true">
+        <% question.answers.each do |answer| %>
+          <div>
+            <p>
+              <%= translated_attribute(answer.title) %>
+
+              <% if answer.selected? %>
+                <span class="label">
+                  <%= t("decidim.elections.elections.results.selected") %>
+                </span>
+              <% end %>
+            </p>
+
+            <%= render view: :progress_bar, locals: { id: answer.id, results_percentage: answer.results_percentage, results_total: answer.results_total } %>
+          </div>
+        <% end %>
+
+        <% if question.results.blank_answers.any? %>
+          <div>
+            <p><%= t("decidim.elections.votes.new.nota_option") %></p>
+            <%= render view: :progress_bar, locals: { id: answer.id, results_percentage: question.blank_votes_percentage, results_total: question.blank_votes } %>
+          </div>
+        <% end %>
+      </div>
+    </li>
+  <% end %>
+</ul>

@@ -1,0 +1,16 @@
+<div class="home__section-header">
+  <h2 class="home__section-title">
+    <%= t("active_spaces", scope: i18n_scope) %>
+  </h2>
+  <% if all_path.present? %>
+    <%= link_to all_path, class: "button button__sm button__text-secondary" do %>
+      <%= t("see_all_spaces", scope: i18n_scope) %>
+      <%= icon "arrow-right-line", class: "fill-current" %>
+    <% end %>
+  <% end %>
+</div>
+<div class="card__grid-home">
+  <% limited_highlighted_spaces.each do |space| %>
+    <%= card_for space, size: :g %>
+  <% end %>
+</div>

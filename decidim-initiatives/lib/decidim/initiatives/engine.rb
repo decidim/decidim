@@ -4,7 +4,6 @@ require "rails"
 require "active_support/all"
 require "decidim/core"
 require "decidim/initiatives/current_locale"
-require "decidim/initiatives/initiatives_filter_form_builder"
 require "decidim/initiatives/initiative_slug"
 require "decidim/initiatives/query_extensions"
 
@@ -19,7 +18,16 @@ module Decidim
         get "/initiative_type_scopes/search", to: "initiatives_type_scopes#search", as: :initiative_type_scopes_search
         get "/initiative_type_signature_types/search", to: "initiatives_type_signature_types#search", as: :initiative_type_signature_types_search
 
-        resources :create_initiative
+        resources :create_initiative do
+          collection do
+            get :select_initiative_type
+            put :select_initiative_type, to: "create_initiative#store_initiative_type"
+            get :fill_data
+            put :fill_data, to: "create_initiative#store_data"
+            get :promotal_committee
+            get :finish
+          end
+        end
 
         get "initiatives/:initiative_id", to: redirect { |params, _request|
           initiative = Decidim::Initiative.find(params[:initiative_id])
@@ -32,7 +40,18 @@ module Decidim
         }, constraints: { initiative_id: /[0-9]+/ }
 
         resources :initiatives, param: :slug, only: [:index, :show, :edit, :update], path: "initiatives" do
-          resources :initiative_signatures
+          resources :signatures, controller: "initiative_signatures" do
+            collection do
+              get :fill_personal_data
+              put :fill_personal_data, to: "initiative_signatures#store_personal_data"
+              get :sms_phone_number
+              put :sms_phone_number, to: "initiative_signatures#store_sms_phone_number"
+              get :sms_code
+              put :sms_code, to: "initiative_signatures#store_sms_code"
+              get :finish
+              put :finish, to: "initiative_signatures#store_finish"
+            end
+          end
 
           member do
             get :authorization_sign_modal, to: "authorization_sign_modals#show"
@@ -42,7 +61,6 @@ module Decidim
           end
 
           resource :initiative_vote, only: [:create, :destroy]
-          resource :widget, only: :show, path: "embed"
           resources :committee_requests, only: [:new] do
             collection do
               get :spawn
@@ -52,7 +70,7 @@ module Decidim
               delete :revoke
             end
           end
-          resources :versions, only: [:show, :index]
+          resources :versions, only: [:show]
         end
 
         scope "/initiatives/:initiative_slug/f/:component_id" do
@@ -90,7 +108,17 @@ module Decidim
                         I18n.t("menu.initiatives", scope: "decidim"),
                         decidim_initiatives.initiatives_path,
                         position: 2.4,
-                        active: :inclusive
+                        active: %r{^/(initiatives|create_initiative)},
+                        if: !Decidim::InitiativesType.joins(:scopes).where(organization: current_organization).all.empty?
+        end
+
+        Decidim.menu :home_content_block_menu do |menu|
+          menu.add_item :initiatives,
+                        I18n.t("menu.initiatives", scope: "decidim"),
+                        decidim_initiatives.initiatives_path,
+                        position: 30,
+                        active: :inclusive,
+                        if: !Decidim::InitiativesType.joins(:scopes).where(organization: current_organization).all.empty?
         end
       end
 
@@ -134,6 +162,15 @@ module Decidim
 
           Dir[root.join("spec/mailers/previews/**/*_preview.rb")].each do |file|
             require_dependency file
+          end
+        end
+      end
+
+      initializer "decidim_initiatives.authorization_transfer" do
+        config.to_prepare do
+          Decidim::AuthorizationTransfer.register(:initiatives) do |transfer|
+            transfer.move_records(Decidim::Initiative, :decidim_author_id)
+            transfer.move_records(Decidim::InitiativesVote, :decidim_author_id)
           end
         end
       end

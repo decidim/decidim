@@ -29,11 +29,20 @@ module Decidim::Comments
 
     it "eager loads comment's author, up_votes and down_votes" do
       comment = subject.query[0]
-      expect do
+      begin
+        subscriber = ActiveSupport::Notifications.subscribe("sql.active_record") do |_, _, _, _, data|
+          raise RSpec::Expectations::ExpectationNotMetError, "N+1 detected - #{data[:sql]}" if data[:sql] =~ /SELECT\s+.*\s+FROM\s/
+        end
+
         expect(comment.author.name).to be_present
         expect(comment.up_votes.size).to eq(0)
         expect(comment.down_votes.size).to eq(0)
-      end.not_to make_database_queries
+      rescue RSpec::Expectations::ExpectationNotMetError => e
+        ActiveSupport::Notifications.unsubscribe(subscriber)
+        raise e
+      ensure
+        ActiveSupport::Notifications.unsubscribe(subscriber)
+      end
     end
 
     it "return the comments ordered by created_at asc by default" do

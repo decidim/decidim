@@ -95,7 +95,7 @@ module Decidim
           @type ||= type_id ? Decidim::InitiativesType.find(type_id) : context.initiative.type
         end
 
-        # This method will add an error to the `attachment` field only if there's
+        # This method will add an error to the `attachment` field only if there is
         # any error in any other field. This is needed because when the form has
         # an error, the attachment is lost, so we need a way to inform the user of
         # this problem.

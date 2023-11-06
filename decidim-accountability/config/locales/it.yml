@@ -38,7 +38,6 @@ it:
         destroy: Cancella
         edit: Modifica
         import_csv: Importa da file CSV
-        new: Nuovo %{name}
         preview: Anteprima
         timeline_entries: Evoluzione del progetto
         title: Azioni
@@ -49,25 +48,13 @@ it:
         import_results:
           new:
             import: Importa
-            info: "<p>Si consiglia di seguire questi passaggi:</p><ol><li>Creare gli Stati per i risultati che si desidera aggiungere (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Creare manualmente almeno un risultato attraverso questo pannello di amministrazione (<a href='%{link_new_result}' target='_blank'>link</a>) prima di utilizzare Import, per avere una migliore comprensione del formato e di ciò che è necessario compilare.</li><li>Scarica l'esportazione nel formato CSV (%{link_export_csv})</li><li>Effettua le modifiche localmente. È possibile modificare solo le seguenti colonne del CSV:</li></ol><ul><li><b>categoria/id:</b> ID per la categoria</li><li><b>scope/id:</b> ID per l'ambito</li><li><b>parent/id:</b> ID dell'origine (per i risultati correlati). Opzionale</li><li><b>titolo/I18N:</b> Titolo sulla lingua X</li><li><b>descrizione/I18N:</b> Descrizione sulla lingua X</li><li><b>start_date:</b> data in cui il risultato inizia l'esecuzione (formato YYYY-MM-DD)</li><li><b>end_date:</b> data in cui il risultato termina l'esecuzione (formato AAAA-MM-DD)</li><li><b>status/id:</b> ID dello stato per questo risultato</li><li><b>progresso:</b> Percentuale (da 0 a 100) dell'esecuzione</li><li><b>proposte_ids:</b> ID interno delle relative proposte (separate da una virgola). Viene convertito automaticamente in <span class='attribute-name'>proposal_url</span></li></ul>"
-            link: collegamento
             title: Importa risultati da CSV
-        imports:
-          create:
-            success: L'importazione del file è iniziata. Riceverai un'email nei prossimi minuti con l'esito
         models:
           result:
             name: Risultato
           status:
             name: Stato
-          timeline_entry:
-            name: Voce della cronologia
         results:
-          create:
-            invalid: C'è stato un problema durante la creazione di questo risultato
-            success: Risultato creato con successo
-          destroy:
-            success: Risultato eliminato con successo
           edit:
             title: Modifica il risultato
             update: Aggiorna il risultato
@@ -76,18 +63,10 @@ it:
           new:
             create: Crea un risultato
             title: Nuovo risultato
-          update:
-            invalid: C'è stato un problema durante l'aggiornamento di questo risultato
-            success: Risultato modificato con successo
         shared:
           subnav:
             statuses: Stati
         statuses:
-          create:
-            invalid: C'è stato un problema nella creazione di questo stato
-            success: Stato creato con successo
-          destroy:
-            success: Stato eliminato con successo
           edit:
             title: Modifica lo stato
             update: Aggiorna lo stato
@@ -96,15 +75,7 @@ it:
           new:
             create: Crea stato
             title: Nuovo stato
-          update:
-            invalid: C'è stato un problema nel aggiornamento di questo stato
-            success: Stato aggiornato con successo
         timeline_entries:
-          create:
-            invalid: C'è stato un problema nella creazione di questa voce
-            success: Voce creata con successo
-          destroy:
-            success: La voce è stata eliminata correttamente
           edit:
             title: Modifica la voce
             update: Aggiorna la voce
@@ -113,9 +84,6 @@ it:
           new:
             create: Crea una voce
             title: Nuova voce
-          update:
-            invalid: C'è stato un problema nel aggiornamento di questa voce
-            success: Voce aggiornata con successo
       admin_log:
         result:
           create: "%{user_name} ha creato il risultato %{resource_name} in %{space_name}"
@@ -132,12 +100,9 @@ it:
       import_mailer:
         import:
           errors: Errori
-          errors_present: Si è verificato un problema durante l'importazione dei risultati
           row_number: Riga
           subject: Importazione dei risultati riuscita
           success: Importazione riuscita dei risultati. È possibile rivedere i risultati nell'interfaccia di amministrazione.
-      last_activity:
-        new_result_at_html: "<span>Nuovo risultato a %{link}</span>"
       models:
         result:
           fields:
@@ -169,7 +134,6 @@ it:
             other: "%{count} risultati"
         filters:
           all: Tutti
-          scopes: Ambiti
         home:
           categories_label: Categorie
           subcategories_label: Sottocategorie

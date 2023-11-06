@@ -22,7 +22,6 @@ module Decidim
     PARTICIPATORY_SPACES = %w(
       participatory_processes
       assemblies
-      consultations
       conferences
     ).freeze
 
@@ -105,6 +104,8 @@ module Decidim
         package_dirs do |dir|
           new(dir).replace_package_version
         end
+
+        replace_antora_version
       end
 
       def install_all(out: $stdout)
@@ -134,18 +135,29 @@ module Decidim
 
       def run_all(command, out: $stdout, include_root: true)
         all_dirs(include_root:) do |dir|
-          status = new(dir).run(command, out:)
+          status = run_at(dir, command, out:)
 
-          break unless status || ENV.fetch("FAIL_FAST", nil) == "false"
+          break if !status && fail_fast?
         end
       end
 
       def run_packages(command, out: $stdout)
         package_dirs do |dir|
-          status = new(dir).run(command, out:)
+          status = run_at(dir, command, out:)
 
-          break unless status || ENV.fetch("FAIL_FAST", nil) == "false"
+          break if !status && fail_fast?
         end
+      end
+
+      def run_at(dir, command, out: $stdout)
+        attempts = 0
+        until (status = new(dir).run(command, out:))
+          attempts += 1
+
+          break if attempts > Decidim::GemManager.retry_times
+        end
+
+        status
       end
 
       def version
@@ -179,6 +191,14 @@ module Decidim
         a_version.gsub(/\.pre/, "-pre").gsub(/\.dev/, "-dev").gsub(/.rc(\d*)/, "-rc\\1")
       end
 
+      def fail_fast?
+        ENV.fetch("FAIL_FAST", nil) != "false"
+      end
+
+      def retry_times
+        ENV.fetch("RETRY_TIMES", 10).to_i
+      end
+
       private
 
       def root
@@ -187,6 +207,12 @@ module Decidim
 
       def version_file
         File.join(root, ".decidim-version")
+      end
+
+      def replace_antora_version
+        antora_conf = File.join(root, "docs/antora.yml")
+        docs_version = version.match?(/\.dev$/) ? "develop" : "v#{version.match(/(\d*).(\d*)/)[0]}"
+        File.write(antora_conf, File.read(antora_conf).sub(/^version: .+/, "version: #{docs_version}"))
       end
     end
 

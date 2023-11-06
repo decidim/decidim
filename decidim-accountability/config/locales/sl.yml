@@ -31,7 +31,6 @@ sl:
         destroy: Izbriši
         edit: Uredi
         import_csv: Uvozi CSV
-        new: Novo %{name}
         preview: Predogled
         timeline_entries: Razvoj projekta
         title: Dejanja
@@ -41,7 +40,6 @@ sl:
         import_results:
           new:
             import: Uvozi
-            link: povezava
             title: Uvozi postavke iz CSV datoteke
         models:
           result:
@@ -49,31 +47,23 @@ sl:
           status:
             name: Status
         results:
-          create:
-            success: Rezultati uspešno ustvarjeni
           index:
             title: Rezultati
         shared:
           subnav:
             statuses: Statusi
         statuses:
-          create:
-            success: Status uspešno ustvarjen
           edit:
             title: Uredi status
             update: Posodobi status
           index:
             title: Statusi
         timeline_entries:
-          create:
-            success: Vnos uspešno ustvarjen
           edit:
             title: Uredi vnos
           new:
             create: Ustvari nov vnos
             title: Nov vnos
-          update:
-            success: Vnos uspešno posodobljen
       admin_log:
         result:
           create: "%{user_name} ustvaril(a) %{resource_name} v %{space_name}"

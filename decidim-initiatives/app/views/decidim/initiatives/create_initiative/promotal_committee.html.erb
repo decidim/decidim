@@ -1,21 +1,18 @@
-<% content_for :back_link do %>
-  <%= link_to :back do %>
-    <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
-    <%= t(".back") %>
-  <% end %>
+<% announcement_body = capture do %>
+  <%= t ".individual_help_text", committee_size: current_initiative.minimum_committee_members %>
+  <%= link_to t(".more_information"), decidim.page_path("initiatives"), target: "_blank", class: "button button__sm button__text-secondary block text-left" %>
 <% end %>
 
-<div class="row column">
-  <div class="medium-centered">
-    <div class="callout secondary">
-      <%= t ".individual_help_text", committee_size: current_initiative.minimum_committee_members %>
-      <%= link_to t(".more_information"), decidim.page_path("initiatives"), target: "_blank" %>.
-    </div>
-  </div>
+<%= cell("decidim/announcement", { body: announcement_body }, callout_class: "secondary") %>
+
+<div class="form__wrapper">
+  <%= render partial: "share_committee_link" %>
 </div>
-<br>
-<div class="row">
-  <div class="small-12 medium-centered">
-    <%= render partial: "share_committee_link" %>
-  </div>
+
+<div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+  <%= link_to :back, class: "button button__sm md:button__lg button__text-secondary" do %>
+    <%= icon "arrow-left-line", class: "fill-current" %>
+    <%= t("back", scope: "decidim.initiatives.create_initiative.previous_form") %>
+  <% end %>
+  <%= link_to t("continue", scope: "decidim.initiatives.create_initiative.previous_form"), finish_create_initiative_index_path, class: "button button__sm md:button__lg button__secondary" %>
 </div>

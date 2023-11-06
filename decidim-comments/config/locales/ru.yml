@@ -20,20 +20,15 @@ ru:
         other: Голосов
   decidim:
     comments:
-      last_activity:
-        new_comment_at_html: "<span>Новый комментарий в %{link}</span>"
       votes:
         create:
           error: При голосовании за комментарий произошли ошибки.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Войдите в систему через свою учетную запись</a> или <a href="%{sign_up_url}">зарегистрируйтесь</a>, чтобы добавить свой комментарий.
         form:
           body:
             label: Комментарий
             placeholder: Что вы думаете об этом?
-          form_error: Тут обязательно нужно ввести текст, но не больше %{length} символов.
-          submit: Отправить
           user_group_id:
             label: Комментировать как
         opinion:
@@ -54,7 +49,6 @@ ru:
           description: Это сообщение неприемлемо?
           details: Дополнительные комментарии
           reasons:
-            does_not_belong: Содержит незаконную деятельность, угрозы самоубийства, личные сведения или что-то еще, недопустимое, на ваш взгляд, для %{organization_name}.
             offensive: Содержит расизм, сексизм, оскорбления, личные нападки, угрозы убийства, заявления о самоубийстве, или любую форму разжигания ненависти.
             spam: Содержит кликоловки (манипулятивно-сенсационные заголовки), рекламу, мошенничество или лохотроны.
       comment_order_selector:
@@ -64,8 +58,6 @@ ru:
           older: Старые
           recent: Недавние
         title: 'Упорядочить по:'
-      comment_thread:
-        title: Беседа с %{authorName}
       comments:
         blocked_comments_for_user_warning: Сейчас вам недоступно комментирование, но вы можете прочесть предыдущие комментарии.
         blocked_comments_warning: Комментарии сейчас отключены, но вы можете прочитать предыдущие.
@@ -100,6 +92,3 @@ ru:
         description: Количество комментариев, созданных участниками
         object: коментарии
         title: Комментарии
-  errors:
-    messages:
-      cannot_have_comments: не подлежит комментированию

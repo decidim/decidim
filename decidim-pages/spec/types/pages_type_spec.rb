@@ -37,7 +37,7 @@ module Decidim
           end
         end
 
-        context "when the page doesn't belong to the component" do
+        context "when the page does not belong to the component" do
           let!(:page) { create(:page, component: create(:page_component)) }
 
           it "returns null" do

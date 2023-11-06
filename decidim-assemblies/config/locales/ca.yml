@@ -3,7 +3,10 @@ ca:
     attributes:
       assemblies_setting:
         enable_organization_chart: Habilitar organigrama
+      assemblies_type:
+        title: Títol
       assembly:
+        announcement: Avís
         area_id: Àrea
         assembly_type: Tipus d'assemblea
         assembly_type_other: Altre tipus d'assemblea
@@ -22,12 +25,16 @@ ca:
         decidim_scope_id: Àmbit
         description: Descripció
         developer_group: Grup promotor
+        document: Document
         domain: Domini
         duration: Durada
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
         hero_image: Imatge de portada
+        import_attachments: Importar arxius adjunts
+        import_categories: Importar categories
+        import_components: Importar components
         included_at: Inclòs a
         instagram: Instagram
         internal_organisation: Organització interna
@@ -51,7 +58,7 @@ ca:
         subtitle: Subtítol
         target: Qui participa
         title: Títol
-        twitter: Twitter
+        twitter: X
         weight: Ordre de posició
         youtube: YouTube
       assembly_member:
@@ -64,6 +71,7 @@ ca:
         non_user_avatar: Avatar
         position: Posició
         user_id: Participant o grup
+        weight: Ordre de posició
       assembly_user_role:
         email: Correu electrònic
         name: Nom
@@ -73,7 +81,7 @@ ca:
         assembly:
           attributes:
             document:
-              allowed_file_content_types: 'Tipus de document no vàlid. Els formats acceptats són: %{types}'
+              allowed_file_content_types: 'Tipus de document no vàlid. Només s''accepten arxius amb les següents extensions: %{types}.'
   activerecord:
     models:
       decidim/assembly:
@@ -90,7 +98,9 @@ ca:
       actions:
         import_assembly: Importar
         new_assembly: Nova assemblea
+        new_assembly_member: Afegir membre
         new_assembly_type: Nou tipus d'assemblea
+        new_assembly_user_role: Afegir administradora
       assemblies:
         create:
           error: S'ha produït un error en crear una nova assemblea.
@@ -98,10 +108,10 @@ ca:
         edit:
           update: Actualitzar
         index:
-          not_published: No publicada
           private: Privat
           public: Públic
           published: Publicat
+          unpublished: Despublicada
         new:
           create: Crea
           title: Nova assemblea
@@ -196,9 +206,11 @@ ca:
           attachments: Adjunts
           categories: Categories
           components: Components
-          info: Informació
+          info: Sobre aquesta assemblea
+          landing_page: Pàgina d'inici
           moderations: Moderacions
           private_users: Participants privades
+          see_assembly: Veure l'assemblea
         assemblies_types: Tipus d'assemblees
       models:
         assemblies_types:
@@ -207,6 +219,7 @@ ca:
             title: Títol
         assembly:
           fields:
+            actions: Accions
             created_at: Data de creació
             private: Privada
             promoted: Destacada
@@ -280,7 +293,7 @@ ca:
             select_an_area: Selecciona una Àrea
             select_an_assembly_type: Selecciona un tipus d'assemblea
             select_parent_assembly: Selecciona una assemblea principal
-            slug_help: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+            slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
             social_handlers: Social
             title: Informació general
             visbility: Visibilitat
@@ -294,11 +307,10 @@ ca:
             title: Títol
         assembly_copies:
           form:
-            slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+            slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
         assembly_imports:
           form:
-            document_legend: Afegir un document
-            slug_help: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+            slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
         assembly_members:
           form:
             existing_user: Participant existent
@@ -314,7 +326,6 @@ ca:
               all: Totes
               ceased: Cessada
               not_ceased: No cessada
-            filter_by: Filtra per
             search: Cerca
         content_blocks:
           highlighted_assemblies:
@@ -323,6 +334,26 @@ ca:
           accepted_types:
             json: JSON
       assemblies:
+        description:
+          area_name: Àrea
+          closing_date: Data de finalització
+          created_by: Creat per
+          creation_date: Data de creació
+          data: Administradora de l'assemblea
+          developer_group: Grup promotor
+          duration: Durada
+          included_at: Inclòs el
+          indefinite_duration: Indefinida
+          local_area: Àrea d'organització
+          meta_scope: Àmbit
+          participatory_scope: Què es decideix
+          participatory_structure: Com es decideix
+          target: Qui participa
+          title: Sobre aquesta assemblea
+        filters:
+          names:
+            all: Totes
+          type: Tipus
         show:
           title: Sobre aquesta assemblea
       assembly_members:
@@ -337,8 +368,16 @@ ca:
         participatory: Participativa
         working_group: Grup de treball
       content_blocks:
+        children_assemblies:
+          name: Assemblees
+        dates_metadata:
+          name: Metadades de dates
+        extra_data:
+          name: Tipus i durada
         highlighted_assemblies:
           name: Asemblees destacades
+        related_assemblies:
+          name: Assemblees relacionades
       created_by:
         city_council: Ajuntament
         others: Altres
@@ -356,47 +395,27 @@ ca:
       index:
         title: Assemblees
       last_activity:
-        new_assembly: Nova assemblea
+        new_assembly: 'Nova assemblea:'
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Assemblees actives
-            assemblies_button_title: Enllaç a la pàgina d'Assemblees mostrant totes les assemblees
-            see_all_assemblies: Veure totes les assemblees
+            active_spaces: Assemblees actives
+            see_all_spaces: Veure totes les assemblees
         user_profile:
           member_of:
             member_of: Membre de
       show:
-        area: Àrea
         assembly_type: Tipus d'assemblea
-        children: Assemblees
-        closing_date: Data de finalització
-        composition: Composició
-        created_by: Creat per
-        creation_date: Data de creació
-        developer_group: Grup promotor
         duration: Durada
-        included_at: Inclòs a
-        indefinite_duration: Indefinida
-        internal_organisation: Organització interna
         is_transparent:
           'false': opaca
           'true': transparent
-        local_area: Àrea d'organització
-        participatory_scope: Què es decideix
-        participatory_structure: Com es decideix
         private_space: Aquesta és una assemblea privada
-        purpose_of_action: Propòsit de l'acció
-        read_less: Llegir menys
-        read_more: Llegir més
         related_participatory_processes: Processos participatius relacionats
-        scope: Àmbit
-        social_networks: Xarxes socials
         social_networks_title: Visita l'assemblea a
-        target: Qui participa
     assembly_members:
       assembly_member:
-        designated_on: Designat a
+        designated_on: 'Data de designació:'
       index:
         title: Membres
     events:
@@ -436,9 +455,6 @@ ca:
         related_assemblies: Assemblees relacionades
     statistics:
       assemblies_count: Assemblees
-  errors:
-    messages:
-      cannot_be_blank: no es pot estar en blanc
   layouts:
     decidim:
       assemblies:
@@ -446,20 +462,14 @@ ca:
           more_info: Més informació
           take_part: Participa
         index:
-          children: 'Assemblees: '
-          organizational_chart: Organigrama
           promoted_assemblies: Assemblees destacades
-          reset_chart: Restablir
+        metadata:
+          children_item:
+            one: "%{count} assemblea"
+            other: "%{count} assemblees"
         order_by_assemblies:
           assemblies:
             one: "%{count} assemblea"
             other: "%{count} assemblees"
-        promoted_assembly:
-          more_info: Més informació
-          take_part: Participa
       assembly_navigation:
         assembly_member_menu_item: Membres
-        assembly_menu_item: L'assemblea
-      assembly_widgets:
-        show:
-          take_part: Participa

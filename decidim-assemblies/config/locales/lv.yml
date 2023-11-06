@@ -84,7 +84,6 @@ lv:
         edit:
           update: Atjaunināt
         index:
-          not_published: Nav publicēts
           private: Privāts
           public: Publisks
           published: Publicēts
@@ -171,7 +170,6 @@ lv:
           attachments: Pielikumi
           categories: Kategorijas
           components: Komponenti
-          info: Informācija
           moderations: Moderācijas
           private_users: Privāti lietotāji
         assemblies_types: Asambleju veidi
@@ -249,7 +247,6 @@ lv:
             select_an_area: Izvēlieties jomu
             select_an_assembly_type: Izvēlieties asamblejas veidu
             select_parent_assembly: Izvēlieties saistīto asambleju
-            slug_help: 'URL sadaļas adrese (slug) tiek izmantota, lai ģenerētu URL, kas ved uz šo asambleju. Tajā var būt tikai burti, cipari un defises, un tai jāsākas ar burtu. Piemērs: %{url}'
             social_handlers: Sociālie plašsaziņas līdzekļi
             title: Vispārēja informācija
             visbility: Redzamība
@@ -261,9 +258,6 @@ lv:
         assemblies_types:
           form:
             title: Nosaukums
-        assembly_copies:
-          form:
-            slug_help: 'URL sadaļas adrese (slug) tiek izmantota, lai ģenerētu URL, kas ved uz šo asambleju. Tajā var būt tikai burti, cipari un defises, un tai jāsākas ar burtu. Piemērs: %{url}'
         assembly_members:
           form:
             existing_user: Esošais dalībnieks
@@ -276,7 +270,6 @@ lv:
               all: Visi
               ceased: Beidzis darbu
               not_ceased: Nav beidzis darbu
-            filter_by: Filtrēt pēc
             search: Meklēt
         content_blocks:
           highlighted_assemblies:
@@ -311,44 +304,18 @@ lv:
         working_group: Darba grupa
       index:
         title: Asambleja
-      last_activity:
-        new_assembly: Jauna asambleja
       pages:
-        home:
-          highlighted_assemblies:
-            active_assemblies: Aktīvās asamblejas
-            assemblies_button_title: Saite uz lapu Asamblejas, kurā norādītas visas asamblejas
-            see_all_assemblies: Skatīt visas asamblejas
         user_profile:
           member_of:
             member_of: Dalībnieks
       show:
-        area: Joma
         assembly_type: Asamblejas veids
-        children: Asambleja
-        closing_date: Aizvēršanas datums
-        composition: Sastāvs
-        created_by: Izveidoja
-        creation_date: Izveidošanas datums
-        developer_group: Atbalstītāju grupa
         duration: Ilgums
-        included_at: Iekļauts plkst.
-        indefinite_duration: Nenoteikts
-        internal_organisation: Iekšējā organizācija
         is_transparent:
           'false': neskaidra
           'true': caurskatāma
-        local_area: Organizācijas joma
-        participatory_scope: Kas tiek izlemts
-        participatory_structure: Kā tas tiek izlemts
         private_space: Šī ir privāta asambleja
-        purpose_of_action: Darbības mērķis
-        read_less: Lasīt mazāk
-        read_more: Lasīt vairāk
         related_participatory_processes: Saistītie līdzdalības procesi
-        scope: Darbības tvērums
-        social_networks: Sociālie tīkli
-        target: Kas piedalās
     assembly_members:
       assembly_member:
         designated_on: Izraudzīts
@@ -388,9 +355,6 @@ lv:
     participatory_processes:
       show:
         related_assemblies: Saistītās asamblejas
-  errors:
-    messages:
-      cannot_be_blank: nevar būt tukšs
   layouts:
     decidim:
       assemblies:
@@ -398,21 +362,11 @@ lv:
           more_info: Sīkāka informācija
           take_part: Piedalīties
         index:
-          children: 'Asamblejas:'
-          organizational_chart: Organizatoriskā shēma
           promoted_assemblies: Izceltās asamblejas
-          reset_chart: Atiestatīt
         order_by_assemblies:
           assemblies:
             zero: "%{count} asamblejas"
             one: "%{count} asamblejas"
             other: "%{count} asamblejas"
-        promoted_assembly:
-          more_info: Sīkāka informācija
-          take_part: Piedalīties
       assembly_navigation:
         assembly_member_menu_item: Dalībnieki
-        assembly_menu_item: Asambleja
-      assembly_widgets:
-        show:
-          take_part: Piedalīties

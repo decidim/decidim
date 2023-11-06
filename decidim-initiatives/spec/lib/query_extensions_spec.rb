@@ -24,7 +24,7 @@ module Decidim
 
       describe "initiativesType" do
         let(:model) { create(:initiatives_type, organization: current_organization) }
-        let(:query) { %({ initiativesType(id: \"#{model.id}\") { id }}) }
+        let(:query) { %({ initiativesType(id: "#{model.id}") { id }}) }
 
         it "returns the initiativesType" do
           expect(response["initiativesType"]).to eq("id" => model.id.to_s)
@@ -38,7 +38,7 @@ module Decidim
 
         let(:query) { %({ initiatives { id }}) }
 
-        it "returns all the consultations" do
+        it "returns all the initiatives" do
           expect(response["initiatives"]).to include("id" => initiative1.id.to_s)
           expect(response["initiatives"]).to include("id" => initiative2.id.to_s)
           expect(response["initiatives"]).not_to include("id" => initiative3.id.to_s)
@@ -46,9 +46,9 @@ module Decidim
       end
 
       describe "initiative" do
-        let(:query) { %({ initiative(id: \"#{id}\") { id }}) }
+        let(:query) { %({ initiative(id: "#{id}") { id }}) }
 
-        context "with a consultation that belongs to the current organization" do
+        context "with an initiative that belongs to the current organization" do
           let!(:initiative) { create(:initiative, organization: current_organization) }
           let(:id) { initiative.id }
 

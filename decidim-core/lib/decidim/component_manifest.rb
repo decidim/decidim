@@ -8,7 +8,7 @@ module Decidim
   # This class handles all the logic associated to configuring a component
   # associated to a participatory process.
   #
-  # It's normally not used directly but through the API exposed through
+  # It is normally not used directly but through the API exposed through
   # `Decidim.register_component`.
   class ComponentManifest
     include ActiveModel::Model
@@ -44,6 +44,9 @@ module Decidim
     # engine's assets path.
     attribute :icon, String
 
+    # A String with the component's icon key.
+    attribute :icon_key, String
+
     # Actions are used to validate permissions of a component against particular
     # authorizations or potentially other authorization rules.
     #
@@ -51,7 +54,7 @@ module Decidim
     # on meetings.
     #
     # A Component can expose as many actions as it wants and the admin panel will
-    # generate a UI to handle them. There's a set of controller helpers available
+    # generate a UI to handle them. There is a set of controller helpers available
     # as well that allows checking for those permissions.
     attribute :actions, Array[String]
 

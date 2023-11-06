@@ -27,6 +27,7 @@ describe "Index Proposal Notes", type: :system do
     within find("tr", text: translated(proposal.title)) do
       click_link "Answer proposal"
     end
+    click_button "Private notes"
   end
 
   it "shows proposal notes for the current proposal" do
@@ -47,23 +48,24 @@ describe "Index Proposal Notes", type: :system do
 
       expect(page).to have_admin_callout("successfully")
 
-      within ".comment-thread .card:last-child" do
+      click_button "Private notes"
+      within ".component__show_notes-grid .comment:last-child" do
         expect(page).to have_content("New awesome body")
       end
     end
   end
 
-  context "when the form hasn't text inside body" do
+  context "when the form has not text inside body" do
     let(:body) { nil }
 
-    it "don't create a proposal note", :slow do
+    it "do not create a proposal note", :slow do
       within ".new_proposal_note" do
         fill_in :proposal_note_body, with: body
 
         find("*[type=submit]").click
       end
 
-      expect(page).to have_content("There's an error in this field.")
+      expect(page).to have_content("There is an error in this field.")
     end
   end
 end

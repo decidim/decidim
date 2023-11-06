@@ -1,13 +1,11 @@
 <div class="grid-x">
   <div class="cell">
     <%= form.hidden_field :position, class: "position" %>
-    <%= form.text_field :title, optional: false %>
+    <%= form.text_field :title, required: true %>
   </div>
-</div>
-<% if proposal.article? %>
-<div class="grid-x">
+  <% if proposal.article? %>
   <div class="cell">
-    <%= form.text_area :body, optional: false, rows: 5 %>
+    <%= form.text_area :body, required: true, rows: 5 %>
   </div>
+  <% end %>
 </div>
-<% end %>

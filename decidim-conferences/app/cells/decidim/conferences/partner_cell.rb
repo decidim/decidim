@@ -10,16 +10,18 @@ module Decidim
 
       private
 
+      # deprecated
       def name
         return unless model.name.presence
 
-        "<div class='text-medium'> #{model.name} </div>"
+        "<div> #{model.name} </div>"
       end
 
+      # deprecated
       def logo
         return unless model.logo.attached?
 
-        "<div class='card p-m flex--cc'> #{image_tag model.attached_uploader(:logo).path(variant: :medium), alt: "logo"} </div>"
+        "<div class='card p-m'> #{image_tag model.attached_uploader(:logo).path(variant: :medium), alt: "logo"} </div>"
       end
     end
   end

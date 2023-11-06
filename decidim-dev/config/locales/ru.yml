@@ -34,7 +34,6 @@ ru:
           description_own: Вы написали %{score} тест.
           name: Тесты
           next_level_in: Напишите еще %{score} тестов, чтобы достичь следующего уровня!
-          unearned_another: Этот участник еще не написал тестов.
           unearned_own: Вы еще не написали тестов.
     resource_links:
       test_link:

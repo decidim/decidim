@@ -1,31 +1,23 @@
 <% add_decidim_page_title(t(".new_user_group")) %>
 
-<div class="wrapper">
-<div class="row collapse">
-  <div class="row collapse">
-    <div class="columns large-8 large-centered text-center page-title">
-      <h1><%= t(".new_user_group") %></h1>
-      <p>
-        <%= t(".subtitle") %>
-      </p>
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
+  <div class="text-center py-10">
+    <h1 class="title-decorator inline-block text-left mb-12">
+      <%= t("new_user_group", scope: "decidim.groups.new") %>
+    </h1>
+
+    <div class="text-lg text-gray-2 text-left">
+      <%= t("subtitle", scope: "decidim.groups.new") %>
     </div>
   </div>
 
-  <div class="row">
-    <div class="columns large-6 medium-10 medium-centered">
-
-      <%= decidim_form_for(@form) do |f| %>
-        <div class="card">
-          <div class="card__content">
-            <%= render partial: "form", locals: { f: f } %>
-
-            <div class="actions">
-              <%= f.submit t(".create_user_group"), class: "button expanded" %>
-            </div>
-          </div>
-        </div>
-      <% end %>
+  <%= decidim_form_for(@form) do |f| %>
+    <div class="form__wrapper">
+      <%= render partial: "form", locals: { f: } %>
     </div>
-  </div>
-</div>
-</div>
+
+    <div class="form__wrapper-block">
+      <%= f.submit t("create_user_group", scope: "decidim.groups.new"), class: "button button__sm md:button__lg button__secondary" %>
+    </div>
+  <% end %>
+<% end %>

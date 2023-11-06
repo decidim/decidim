@@ -8,28 +8,30 @@ edit_link(
 )
 %>
 
-<%= participatory_space_wrapper do %>
+<%= append_stylesheet_pack_tag "decidim_participatory_processes", media: "all" %>
+<%= append_javascript_pack_tag "decidim_participatory_processes" %>
+
+<% content_for :aside do %>
+  <h1 class="title-decorator"><%= component_name %></h1>
+
+  <%= render partial: "decidim/shared/filters", locals: { filter_sections:, skip_to_id: "processes-grid" } %>
+<% end %>
+
+<%= render layout:"layouts/decidim/shared/layout_two_col" do %>
+
+  <%= participatory_space_floating_help %>
+
   <% if promoted_collection.any? %>
-    <section id="highlighted-processes" class="row section">
-      <h1 class="section-heading"><%= t("participatory_processes.index.promoted_processes", scope: "layouts.decidim") %></h1>
+    <section id="highlighted-processes" class="layout-main__section layout-main__heading">
+      <h2 class="h5 md:h3 decorator"><%= t("participatory_processes.index.promoted_processes", scope: "layouts.decidim") %></h2>
+
       <% promoted_collection.each do |promoted_item| %>
-        <%= render_highlighted_partial_for promoted_item %>
+        <%= card_for promoted_item, highlight: true, size: :g %>
       <% end %>
     </section>
   <% end %>
 
-  <section id="processes-grid" class="section row collapse">
-    <div class="processes-grid-order-by">
-      <%= render partial: "order_by_processes" %>
-    </div>
-    <%= render partial: "decidim/shared/participatory_space_filters/show" %>
-    <p class="loading"><%= t(".loading") %></p>
-    <div class="row small-up-1 medium-up-2 large-up-3 card-grid">
-      <%= render(collection) %>
-    </div>
+  <section id="processes-grid" class="layout-main__section layout-main__heading">
+    <%= render partial: "collection" %>
   </section>
-<% end %>
-
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_participatory_processes" %>
 <% end %>

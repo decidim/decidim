@@ -18,6 +18,7 @@ import AutoComplete from "src/decidim/autocomplete";
  */
 const autoConfigure = (el) => {
   const config = JSON.parse(el.dataset.autocomplete);
+  const searchUrl = new URL(config.searchURL);
   const textInput = document.createElement("input");
   textInput.type = "text";
   textInput.className = "autocomplete-input";
@@ -46,8 +47,11 @@ const autoConfigure = (el) => {
   }
 
   const dataSource = (query, callback) => {
-    const params = new URLSearchParams({ term: query });
-    fetch(`${config.searchURL}?${params.toString()}`, {
+    const params = new URLSearchParams({
+      ...Object.fromEntries(searchUrl.searchParams),
+      term: query
+    });
+    fetch(`${searchUrl.origin}${searchUrl.pathname}?${params.toString()}`, {
       method: "GET",
       headers: { "Content-Type": "application/json" }
     }).then((response) => response.json()).then((data) => {

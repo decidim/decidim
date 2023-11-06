@@ -22,7 +22,7 @@ module Decidim
     end
 
     describe "#collection" do
-      it "stores the block when a block is provided and returns it when it isnt" do
+      it "stores the block when a block is provided and returns it when it is not" do
         block = -> {}
         subject.collection(&block)
         expect(subject.collection).to eq(block)

@@ -2,7 +2,7 @@
 
 shared_examples "copy assemblies" do
   let!(:assembly) { create(:assembly, organization:) }
-  let!(:component) { create :component, manifest_name: :dummy, participatory_space: assembly }
+  let!(:component) { create(:component, manifest_name: :dummy, participatory_space: assembly) }
   let!(:category) do
     create(
       :category,
@@ -34,7 +34,7 @@ shared_examples "copy assemblies" do
 
       expect(page).to have_content("successfully")
       expect(page).to have_content("Copy assembly")
-      expect(page).to have_content("Not published")
+      expect(page).to have_content("Unpublished")
     end
   end
 
@@ -60,8 +60,12 @@ shared_examples "copy assemblies" do
 
       expect(page).to have_content("successfully")
 
-      click_link "Copy assembly"
-      click_link "Categories"
+      within find("tr", text: "Copy assembly") do
+        click_link "Configure"
+      end
+      within_admin_sidebar_menu do
+        click_link "Categories"
+      end
 
       within ".table-list" do
         assembly.categories.each do |category|
@@ -76,8 +80,12 @@ shared_examples "copy assemblies" do
 
       expect(page).to have_content("successfully")
 
-      click_link "Copy assembly"
-      click_link "Components"
+      within find("tr", text: "Copy assembly") do
+        click_link "Configure"
+      end
+      within_admin_sidebar_menu do
+        click_link "Components"
+      end
 
       within ".table-list" do
         assembly.components.each do |component|
@@ -110,7 +118,7 @@ shared_examples "copy assemblies" do
 
       expect(page).to have_content("successfully")
       expect(page).to have_content("Copy assembly")
-      expect(page).to have_content("Not published")
+      expect(page).to have_content("Unpublished")
     end
   end
 end

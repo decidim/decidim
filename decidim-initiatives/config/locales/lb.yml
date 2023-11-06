@@ -51,12 +51,8 @@ lb:
             attachment:
               file: Datei ist ungültig
               needs_to_be_reattached: Der Anhang muss erneut angehängt werden
-              title: Der Titel sollte nicht leer sein
   activerecord:
     models:
-      decidim/initiative:
-        one: Initativ
-        other: Initiativen
       decidim/initiative_comittee:
         one: Komitee
         other: Ausschüsse
@@ -171,10 +167,8 @@ lb:
             - Befolgen Sie die Schritte, um eine neue Initiative zu erstellen
           description: Dieses Abzeichen wird gewährt, wenn Sie neue Initiativen starten und mit anderen zusammenarbeiten, um sie durchzuführen.
           description_another: Dieser Benutzer hat %{score} Initiativen veröffentlicht.
-          description_own: Du hast %{score} Initiativen veröffentlicht.
           name: Veröffentlichte Initiativen
           next_level_in: Holen Sie sich %{score} weitere Initiativen veröffentlicht, um das nächste Level zu erreichen!
-          unearned_another: Dieser Benutzer hat noch keine Initiativen veröffentlicht.
           unearned_own: Sie haben noch keine Initiativen veröffentlicht.
     help:
       participatory_spaces:
@@ -200,20 +194,14 @@ lb:
           index:
             approve: Genehmigen
             confirm_revoke: Bist du sicher?
-            invite_to_committee_help: Teilen Sie diesen Link, um andere Benutzer zum Promotionskomitee einzuladen
-            no_members_yet: Es gibt keine Mitglieder im Promoter-Ausschuss
         initiatives_types:
           form:
             options: Optionen
-            title: Allgemeine Information
           initiative_type_scopes:
             title: Bereiche für den Typ der Initiative
           new:
             create: Erstellen
             title: Neuer Initiativentyp
-          update:
-            error: Ein Fehler ist aufgetreten
-            success: Der Initiativentyp wurde erfolgreich aktualisiert
       admin_log:
         initiative:
           publish: "%{user_name} hat die Initiative %{resource_name} veröffentlicht"
@@ -228,10 +216,6 @@ lb:
         rejected: Ungenügend Unterschriften
         validating: Technische Validierung
       application_helper:
-        filter_area_values:
-          all: Alle
-        filter_scope_values:
-          all: Alle
         filter_state_values:
           accepted: Ausreichend Unterschriften
           all: Alle
@@ -246,7 +230,6 @@ lb:
           success: Anfrage wurde bestätigt.
         new:
           continue: Fortsetzen
-          help_text: Sie sind dabei, ein Mitglied des Promoter-Komitees dieser Initiative zu werden
         revoke:
           success: Anfrage wurde zurückgezogen.
         spawn:
@@ -259,7 +242,6 @@ lb:
           back: Zurück
           continue: Fortsetzen
           fill_data_help: "<ul> <li>Inhalt Ihrer Initiative überprüfen. Ist Ihr Titel leicht verständlich? Ist das Ziel Ihrer Initiative klar?</li> <li>Sie müssen die Art der Unterschrift wählen. Persönlich, online oder eine Kombination aus beidem</li> <li>Was ist die geografische Reichweite der Initiative? Stadt, Bezirk?</li> </ul>"
-          initiative_type: Art der Initiative
           more_information: "(Weitere Informationen)"
           select_area: Wählen Sie einen Bereich aus
           select_scope: Wählen Sie einen Bereich aus
@@ -273,31 +255,21 @@ lb:
           more_information: "(Weitere Informationen)"
           send_my_initiative: Meine Initiative zur technischen Validierung senden
         finish_help:
-          access_reminder: Sie können auf Ihre Initiativen über den Filter %{link} auf der Seite Initiativen zugreifen.
           publish_helper_text: Denken Sie daran, dass Sie für die Veröffentlichung Ihrer Initiative die erforderlichen Informationen ausfüllen müssen und <strong>diese an die technische Validierung</strong> senden müssen, damit ein Administrator sie prüfen kann.
         previous_form:
           back: Zréck
           continue: Weider
-          help: Woraus besteht die Initiative? Schreiben Sie den Titel und die Beschreibung auf. Wir empfehlen einen kurzen und prägnanten Titel und eine Beschreibung der vorgeschlagenen Lösung.
-          more_information: "(Weitere Informationen)"
         promotal_committee:
-          back: Zréck
           individual_help_text: Diese Art der Bürgerinitiative erfordert einen Ausschuss der Initiatoren, der aus mindestens %{committee_size} Personen (Zeugen) besteht. Sie müssen den folgenden Link mit den anderen Personen teilen, die an dieser Initiative beteiligt sind. Wenn Ihre Kontakte diesen Link erhalten, müssen sie die angegebenen Schritte befolgen.
           more_information: "(Weitere Informationen)"
         select_initiative_type:
           back: Zréck
           choose_html: Ich möchte eine <strong>%{title}</strong> erstellen
-          more_information: "(Weitere Informationen)"
+          more_information: (Weitere Informationen)
           select: Ich möchte diese Initiative fördern
           select_initiative_type_help: Bürgerinitiativen sind ein Mittel, mit dem die Bürger eingreifen können, damit die Organisation Maßnahmen zur Verteidigung des Allgemeininteresses ergreifen kann, die in den Zuständigkeitsbereich der Stadtverwaltung fallen. Welche Initiative möchten Sie starten?
         share_committee_link:
-          continue: Weider
           invite_to_committee_help: Link, um Leute einzuladen, die Teil des Promoter-Komitees sein werden
-        show_similar_initiatives:
-          back: Zréck
-          compare_help: Wenn eine der folgenden Initiativen Ihrer ähnelt, empfehlen wir Ihnen, sie zu unterstützen. Ihr Vorschlag wird mehr Möglichkeiten haben, erledigt zu werden.
-          continue: Meine Initiative ist anders
-          more_information: "(Weitere Informationen)"
       edit:
         accept: Initiative akzeptieren
         back: Zréck
@@ -334,19 +306,9 @@ lb:
           email_outro: 'Sie haben diese Benachrichtigung erhalten, weil Sie der Autor der Initiative %{resource_title} sind'
           email_subject: "%{applicant_nickname} möchte Ihrer Initiative beitreten"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> hat sich für das Promoter-Komittee Ihrer Initiative <a href="%{resource_url}">%{resource_title}</a> beworben. Um anzunehmen oder abzulehnen, klicken Sie <a href="%{resource_url}/edit">hier</a>.
-      form:
-        add_attachments: Dokumente
-        delete_attachment: Löschen
-      index:
-        title: Initiativen
       initiative_signatures:
         fill_personal_data:
           continue: Fortsetzen
-          date_select:
-            day: Tag
-            month: Monat
-            year: Jahr
-          help: Bitte füllen Sie die folgenden Felder mit Ihren persönlichen Daten aus, um die Initiative zu unterzeichnen
         finish:
           back_to_initiative: Zurück zur Initiative
         sms_code:
@@ -354,21 +316,14 @@ lb:
           help: Überprüfen Sie die an Ihrem Telefon empfangene SMS
         sms_phone_number:
           continue: Senden Sie mir eine SMS
-          help: Füllen Sie das Formular mit Ihrer bestätigten Telefonnummer aus, um Ihren Bestätigungscode anzufordern
       initiative_votes:
         create:
           error: Beim Signieren der Initiative sind Fehler aufgetreten.
-          invalid: Die zur Unterzeichnung der Initiative bereitgestellten Daten sind nicht gültig
-          success_html: Herzliche Glückwünsche! Die <strong> %{title}</strong> -Initiative wurde korrekt unterzeichnet
         personal_data:
           invalid: Persönliche Daten stimmen nicht mit den zur Autorisierung angegebenen Daten überein.
-        sms_code:
-          invalid: Ihr Bestätigungscode stimmt nicht mit unserem überein. Bitte überprüfen Sie noch einmal die SMS, die wir Ihnen gesendet haben.
         sms_phone:
           invalid: Die Telefonnummer ist ungültig oder muss noch autorisiert werden. Bitte überprüfen Sie Ihre Berechtigungen.
       initiatives:
-        author:
-          deleted: Gelöscht
         author_list:
           hidden_authors_count:
             one: und 1 weitere Person
@@ -376,9 +331,6 @@ lb:
         committee_members:
           approve: Genehmigen
           confirm_revoke: Bist du dir sicher?
-          invite_to_committee_help: Teilen Sie diesen Link, um andere Benutzer zum Promotionskomitee einzuladen
-          no_members_yet: Es gibt keine Mitglieder im Promoter-Ausschuss
-          revoke: Widerrufen
           title: Ausschussmitglieder
         count:
           title:
@@ -393,18 +345,8 @@ lb:
           search: Suche
           state: Zustand
           type: Art
-        filters_small_view:
-          close_modal: Fenster schließen
-          filter: Filter
-          filter_by: Filtern nach
-          unfold: Entfalten
         index_header:
           new_initiative: Neue Initiative
-          not_authorized:
-            authorizations_page: Autorisierungen anzeigen
-            close: Schließen
-            explanation: Sie müssen überprüft werden, um eine neue Initiative zu schaffen.
-            title: Autorisierung erforderlich
         initiatives:
           closed_initiatives_warning: Derzeit gibt es keine offenen Initiativen, aber hier finden Sie alle abgeschlossenen Initiativen aufgelistet.
           no_initiatives_warning: Keine Initiativen entsprechen Ihren Suchkriterien.
@@ -417,13 +359,11 @@ lb:
           label: 'Initiativen sortieren nach:'
         print:
           city: Uertschaft
-      last_activity:
-        new_initiative: Neue Initiative
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Aktive Initiativen
-            see_all_initiatives: Sehen Sie alle Initiativen
+      modal:
+        not_authorized:
+          authorizations_page: Autorisierungen anzeigen
+          explanation: Sie müssen überprüft werden, um eine neue Initiative zu schaffen.
+          title: Autorisierung erforderlich
       show:
         badge_name:
           accepted: Ausreichend Unterschriften
@@ -436,12 +376,6 @@ lb:
         accepted: Akzeptiert
         expired: Abgelaufen
       unavailable_scope: Nicht verfügbarer Umfang
-      update:
-        error: Ein Fehler ist aufgetreten
-        success: Die Initiative wurde erfolgreich aktualisiert
-      versions:
-        shared:
-          back_to_resource: Zurück zur Initiative
     menu:
       initiatives: Initiativen
     resources:
@@ -455,27 +389,15 @@ lb:
   layouts:
     decidim:
       initiative_creation_header:
-        back: Zurück
         fill_data: Erstellen
         finish: Fertig
-        previous_form: Anfang
         promotal_committee: Promoter-Komitee
         select_initiative_type: Wählen
-        show_similar_initiatives: Vergleichen
-        step: Schritt %{current} von %{total}
-        title: Neue Initiative schaffen
-      initiative_header:
-        initiative_menu_item: Initiative
       initiative_signature_creation_header:
-        back: Zurück
         fill_personal_data: Ergänzen Sie Ihre Daten
         finish: Fertig
-        finished: Initiativsignatur erstellt
-        see_steps: siehe Schritte
-        select_identity: Identität auswählen
         sms_code: SMS-Code-Bestätigung
         sms_phone_number: Handynummer
-        step: Schritt %{current} von %{total}
         title: Zeichen %{initiative_title}
       initiatives:
         initiative:

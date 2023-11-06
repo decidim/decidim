@@ -1,0 +1,15 @@
+<%= link_to resource_path, class: "profile__user" do %>
+  <div class="profile__user-avatar-container">
+    <div class="profile__user-avatar">
+      <%= image_tag avatar, alt: t("decidim.author.avatar", name: decidim_sanitize(name)) %>
+    </div>
+    <%= render :badge if show_badge? %>
+  </div>
+  <div class="space-y-1">
+    <div class="profile__user-name">
+      <%= name %>
+      <%= render :role_badge if role.present? %>
+    </div>
+    <span class="profile__user-nick"><%= nickname %></span>
+  </div>
+<% end %>

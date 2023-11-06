@@ -17,7 +17,7 @@ describe "Trustee zone", type: :system do
   context "when the user name exists in this organization", download: true do
     let!(:other_trustee) { create(:trustee, :with_public_key, name: user.name, organization: user.organization) }
 
-    it "can't generate identification keys" do
+    it "cannot generate identification keys" do
       visit decidim.decidim_elections_trustee_zone_path
 
       expect(page).to have_content("Generate identification keys")
@@ -39,7 +39,9 @@ describe "Trustee zone", type: :system do
 
     expect(page).to have_content("Trustee zone")
 
-    click_link "Trustee zone"
+    within "#dropdown-menu-profile" do
+      click_link "Trustee zone"
+    end
 
     expect(page).to have_content("Trustee identification keys")
   end
@@ -89,7 +91,7 @@ describe "Trustee zone", type: :system do
       "a public_key" => "public_key.jwk",
       "an image" => "city.jpeg"
     }.each do |description, filename|
-      it "can't upload #{description}" do
+      it "cannot upload #{description}" do
         visit decidim.decidim_elections_trustee_zone_path
 
         expect(page).to have_content("Upload your identification keys")
@@ -108,7 +110,7 @@ describe "Trustee zone", type: :system do
   context "when the user is not a trustee" do
     let(:trustee) { create(:trustee) }
 
-    it "can't access to the trustee zone" do
+    it "cannot access to the trustee zone" do
       visit decidim.account_path
 
       expect(page).not_to have_content("Trustee zone")

@@ -100,7 +100,7 @@ module Decidim
         let(:user_group) { membership.user_group }
 
         context "when user accepted in the group" do
-          let(:membership) { create :user_group_membership, role: "member" }
+          let(:membership) { create(:user_group_membership, role: "member") }
 
           it "returns the user's groups" do
             groups = response["groups"]
@@ -109,7 +109,7 @@ module Decidim
         end
 
         context "when user is not accepted yet in the group" do
-          let(:membership) { create :user_group_membership, role: "requested" }
+          let(:membership) { create(:user_group_membership, role: "requested") }
 
           it "returns no groups" do
             groups = response["groups"]

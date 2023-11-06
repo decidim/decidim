@@ -3,3 +3,32 @@ ar:
     attributes:
       template:
         description: الوصف
+        name: الاسم
+  decidim:
+    admin:
+      menu:
+        templates: النماذج
+      titles:
+        templates: النماذج
+    models:
+      questionnaire_template:
+        fields:
+          questions: عدد الأسئلة
+      template:
+        name: النموذج
+    templates:
+      admin:
+        block_user_templates:
+          form:
+            save: حفظ
+        questionnaire_templates:
+          choose:
+            label: اختيار نموذج
+            placeholder: اختيار نموذج
+            skip_template: تخطي
+          edit:
+            edit: تعديل
+          preview:
+            current_step: الخطوة %{step}
+      template_types:
+        block_user: حظر رسائل المستخدم

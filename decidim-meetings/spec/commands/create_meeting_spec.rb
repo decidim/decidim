@@ -6,12 +6,12 @@ module Decidim::Meetings
   describe CreateMeeting do
     subject { described_class.new(form) }
 
-    let(:organization) { create :organization, available_locales: [:en] }
-    let(:current_user) { create :user, :admin, :confirmed, organization: }
-    let(:participatory_process) { create :participatory_process, organization: }
-    let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "meetings" }
-    let(:scope) { create :scope, organization: }
-    let(:category) { create :category, participatory_space: participatory_process }
+    let(:organization) { create(:organization, available_locales: [:en]) }
+    let(:current_user) { create(:user, :admin, :confirmed, organization:) }
+    let(:participatory_process) { create(:participatory_process, organization:) }
+    let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "meetings") }
+    let(:scope) { create(:scope, organization:) }
+    let(:category) { create(:category, participatory_space: participatory_process) }
     let(:address) { "address" }
     let(:invalid) { false }
     let(:latitude) { 40.1234 }
@@ -67,6 +67,13 @@ module Decidim::Meetings
 
     context "when everything is ok" do
       let(:meeting) { Meeting.last }
+
+      it_behaves_like "fires an ActiveSupport::Notification event", "decidim.meetings.create_meeting:before" do
+        let(:command) { subject }
+      end
+      it_behaves_like "fires an ActiveSupport::Notification event", "decidim.meetings.create_meeting:after" do
+        let(:command) { subject }
+      end
 
       it "creates and publishes the meeting and log both actions" do
         subject.call
@@ -126,7 +133,7 @@ module Decidim::Meetings
       end
 
       context "when the author is a user_group" do
-        let(:user_group) { create :user_group, :verified, users: [current_user], organization: }
+        let(:user_group) { create(:user_group, :verified, users: [current_user], organization:) }
         let(:user_group_id) { user_group.id }
 
         it "sets the user_group as the author" do
@@ -156,7 +163,7 @@ module Decidim::Meetings
       end
 
       it "schedules a upcoming meeting notification job 48h before start time" do
-        meeting = instance_double(Meeting, id: 1, start_time:, participatory_space: participatory_process)
+        meeting = instance_double(Meeting, id: 1, start_time:, participatory_space: participatory_process, author: current_user)
         allow(Decidim.traceability)
           .to receive(:create!)
           .and_return(meeting)
@@ -177,8 +184,8 @@ module Decidim::Meetings
         subject.call
       end
 
-      it "doesn't schedule an upcoming meeting notification if start time is in the past" do
-        meeting = instance_double(Meeting, id: 1, start_time: 2.days.ago, participatory_space: participatory_process)
+      it "does not schedule an upcoming meeting notification if start time is in the past" do
+        meeting = instance_double(Meeting, id: 1, start_time: 2.days.ago, participatory_space: participatory_process, author: current_user)
         allow(Decidim.traceability)
           .to receive(:create!)
           .and_return(meeting)

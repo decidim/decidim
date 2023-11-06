@@ -8,7 +8,7 @@ module Decidim
       describe DiplomaForm do
         subject(:form) { described_class.from_params(attributes).with_context(context) }
 
-        let(:organization) { create :organization }
+        let(:organization) { create(:organization) }
         let(:context) do
           {
             current_organization: organization

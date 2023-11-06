@@ -38,7 +38,7 @@ es-MX:
         actions:
           destroy: Cancelar el sorteo
           edit: Editar
-          new: Nuevo sorteo.
+          new_sortition: Añadir sorteo
           show: Detalles de la clasificación
         models:
           sortition:
@@ -52,9 +52,6 @@ es-MX:
               seed: Semilla
               target_items: Artículos para seleccionar
               title: Título
-            name:
-              one: Sorteo
-              other: Sorteos
         sortitions:
           confirm_destroy:
             confirm_destroy: '¿Seguro que quieres cancelar este sorteo?'
@@ -62,28 +59,27 @@ es-MX:
             title: Cancelar el sorteo
           create:
             error: Se produjo un error al crear un nuevo sorteo.
-            success: Sorteo creado con éxito.
+            success: Sorteo creado correctamente.
           destroy:
             error: No se puede cancelar el sorteo.
-            success: Orden cancelada con éxito
+            success: Sorteo cancelado correctamente.
           edit:
             title: Actualiza la información sobre el sorteo
             update: Actualizar
           form:
             all_categories: Todas las categorias
             select_proposal_component: Seleccione el conjunto de propuestas
-            title: Nueva clasificación para propuestas
           index:
             title: Sorteos
           new:
-            confirm: Al hacer clic en el siguiente botón, la plataforma registrará la fecha y hora (con una precisión de segundos) y el resultado del dado, y esta información se utilizará para generar una selección aleatoria. Esta acción será irreversible y, una vez que hayas hecho clic en el botón, se publicará el resultado del sorteo junto con los datos facilitados en el presente formulario y no podrán modificarse. Te pedimos que revises el contenido cuidadosamente
+            confirm: Al hacer clic en el siguiente botón, la plataforma registrará la fecha y hora (con una precisión de segundos) y el resultado del dado, esta información se utilizará para generar una selección aleatoria. Esta acción será irreversible y, una vez que hayas hecho clic en el botón, se publicará el resultado del sorteo junto con los datos facilitados en el presente formulario y no podrán modificarse. Te pedimos que revises el contenido cuidadosamente.
             create: Crear
             title: Nuevo sorteo
           show:
             selected_proposals: Propuestas seleccionadas para sorteo
           update:
             error: Se produjo un error al actualizar el sorteo.
-            success: Sorteo actualizado correctamente
+            success: Sorteo actualizado correctamente.
       admin_log:
         sortition:
           create: "%{user_name} creó el sorteo %{resource_name} en %{space_name}"
@@ -99,14 +95,7 @@ es-MX:
           all: Todas
           cancelled: Cancelado
           category: Categoría
-          category_prompt: Selecciona una categoría
-          search: Buscar
           state: Estado
-        filters_small_view:
-          close_modal: Cierre modal
-          filter: Filtrar
-          filter_by: Filtrado por
-          unfold: Desplegar
         linked_sortitions:
           selected_proposals: Propuestas seleccionadas
         orders:
@@ -120,24 +109,22 @@ es-MX:
         show:
           algorithm: Código de algoritmo del sorteo
           any_category: de todas las categorías
-          back: Volver al listado
           cancelled: Cancelación de la clasificación
           candidate_proposal_ids: Orden de propuestas de clasificación e ID
           candidate_proposals_info: 'La clasificación se realizó entre las siguientes propuestas (%{category_label}), con los siguientes ID (en negrita las propuestas seleccionadas)  '
           category: de la categoría %{category}
-          dice_result: "(1) resultado de los dados"
+          dice_result: (1) resultado de los dados
           introduction: 'Esta página contiene los resultados del sorteo %{reference}. Mediante esta clasificación, %{target_items} número de resultados se han seleccionado al azar y con una distribución de probabilidad igual del conjunto de propuestas que se muestran a continuación. Junto con los resultados, la información que se muestra en esta página proporciona toda la información necesaria para maximizar las garantías y reproducir los resultados. La clave de la calidad de esta clasificación es la doble aleatoriedad proporcionada por el lanzamiento de un dado (verificado por testigos) y el momento preciso del sorteo que proporciona la entrada para un algoritmo que genera una selección aleatoria. La semilla de tiempo del sorteo es tan precisa (segundos) que es imposible de controlar por los seres humanos, proporcionando así una doble entrada "incontrolable" para garantizar un resultado justo.  '
           mathematical_result: Resultado (1) x (2)
           proposals_selected_by_sortition: Propuestas seleccionadas por clasificación
           sortition_reproducibility_details: Detalles de reproducibilidad del sorteo
-          time_seed: "(2) Tiempo de semilla"
+          time_seed: (2) Tiempo de semilla
           witnesses: Testigos
         sortition:
           random_seed: Semilla aleatoria
           selected_proposals:
             one: 1 propuesta seleccionada
             other: '%{count} propuestas seleccionadas'
-          view: Ver
         sortition_author:
           deleted: Usuario eliminado
         sortition_cancel_author:

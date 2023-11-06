@@ -11,8 +11,8 @@ describe "User creates debate", type: :system do
   end
 
   context "when creating a new debate" do
-    let(:user) { create :user, :confirmed, organization: }
-    let!(:category) { create :category, participatory_space: }
+    let(:user) { create(:user, :confirmed, organization:) }
+    let!(:category) { create(:category, participatory_space:) }
 
     context "when the user is logged in" do
       before do
@@ -53,11 +53,11 @@ describe "User creates debate", type: :system do
           expect(page).to have_content("Should every organization use Decidim?")
           expect(page).to have_content("Add your comments on whether Decidim is useful for every organization.")
           expect(page).to have_content(translated(category.name))
-          expect(page).to have_selector(".author-data", text: user.name)
+          expect(page).to have_selector("[data-author]", text: user.name)
         end
 
         context "when creating as a user group" do
-          let!(:user_group) { create :user_group, :verified, organization:, users: [user] }
+          let!(:user_group) { create(:user_group, :verified, organization:, users: [user]) }
 
           it "creates a new debate", :slow do
             visit_component
@@ -77,11 +77,11 @@ describe "User creates debate", type: :system do
             expect(page).to have_content("Should every organization use Decidim?")
             expect(page).to have_content("Add your comment on whether Decidim is useful for every organization.")
             expect(page).to have_content(translated(category.name))
-            expect(page).to have_selector(".author-data", text: user_group.name)
+            expect(page).to have_selector("[data-author]", text: user_group.name)
           end
         end
 
-        context "when the user isn't authorized" do
+        context "when the user is not authorized" do
           before do
             permissions = {
               create: {
@@ -105,7 +105,7 @@ describe "User creates debate", type: :system do
       context "when creation is not enabled" do
         it "does not show the creation button" do
           visit_component
-          expect(page).to have_no_link("New debate")
+          expect(page).not_to have_link("New debate")
         end
       end
     end

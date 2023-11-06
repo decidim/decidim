@@ -5,8 +5,8 @@ require "spec_helper"
 module Decidim
   module Proposals
     describe PublishProposalEvent do
-      let(:resource) { create :proposal, title: "A nice proposal" }
-      let(:participatory_process) { create :participatory_process, organization: }
+      let(:resource) { create(:proposal, title: "A nice proposal") }
+      let(:participatory_process) { create(:participatory_process, organization:) }
       let(:proposal_component) { create(:proposal_component, participatory_space: participatory_process) }
       let(:resource_title) { translated(resource.title) }
       let(:event_name) { "decidim.events.proposals.proposal_published" }
@@ -23,7 +23,7 @@ module Decidim
 
       describe "email_subject" do
         context "when resource title contains apostrophes" do
-          let(:resource) { create :proposal, title: "It's a nice proposal" }
+          let(:resource) { create(:proposal, title: "It is a 'nice' proposal") }
 
           it "is generated correctly" do
             expect(subject.email_subject).to eq("New proposal \"#{resource_title}\" by @#{author.nickname}")
@@ -60,7 +60,7 @@ module Decidim
       end
 
       context "when the proposal is official" do
-        let(:resource) { create :proposal, :official, title: "A nice proposal" }
+        let(:resource) { create(:proposal, :official, title: "A nice proposal") }
         let(:extra) { { participatory_space: resource.participatory_space } }
 
         describe "notification_title" do
@@ -100,7 +100,7 @@ module Decidim
         describe "notification_title" do
           it "is generated correctly" do
             expect(subject.notification_title)
-              .to eq("The proposal <a href=\"#{resource_path}\">A nice proposal</a> has been added to #{participatory_space_title} by #{author.name} <a href=\"/profiles/#{author.nickname}\">@#{author.nickname}</a>")
+              .to eq("The proposal <a href=\"#{resource_path}\">A nice proposal</a> has been added to #{participatory_space_title} by #{author.name} <a href=\"/profiles/#{author.nickname}\">@#{author.nickname}</a>.")
           end
         end
       end
@@ -109,10 +109,10 @@ module Decidim
         let(:en_body) { "A nice proposal" }
         let(:body) { { en: en_body, machine_translations: { ca: "Une belle idee" } } }
         let(:resource) do
-          create :proposal,
+          create(:proposal,
                  component: proposal_component,
                  title: { en: "A nice proposal", machine_translations: { ca: "Une belle idee" } },
-                 body:
+                 body:)
         end
 
         let(:en_version) { subject.resource_text["en"] }

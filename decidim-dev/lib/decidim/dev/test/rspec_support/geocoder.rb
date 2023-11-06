@@ -49,7 +49,7 @@ module Decidim::Map::Provider
       def self.add_stub(address, coordinates)
         stubs.push(
           properties: address.is_a?(Hash) ? address : { street: address },
-          geometry: { coordinates: }
+          geometry: { coordinates: coordinates.reverse }
         )
       end
 
@@ -62,8 +62,8 @@ module Decidim::Map::Provider
       end
 
       class Builder < Decidim::Map::Autocomplete::Builder
-        def javascript_snippets
-          template.javascript_pack_tag("decidim_geocoding_provider_photon", defer: false)
+        def append_assets
+          template.append_javascript_pack_tag("decidim_geocoding_provider_photon")
         end
       end
     end
@@ -90,7 +90,7 @@ RSpec.configure do |config|
     # otherwise the utilities could remain unregistered which causes issues with
     # further tests.
     Decidim::Core::Engine.initializers.each do |i|
-      next unless i.name == "decidim.maps"
+      next unless i.name == "decidim_core.maps"
 
       i.run
       break
@@ -125,7 +125,7 @@ RSpec.configure do |config|
               country: "Country1"
             },
             geometry: {
-              coordinates: [1.123, 2.234]
+              coordinates: [2.234, 1.123]
             }
           },
           {
@@ -136,7 +136,7 @@ RSpec.configure do |config|
               country: "Country2"
             },
             geometry: {
-              coordinates: [3.345, 4.456]
+              coordinates: [4.456, 3.345]
             }
           },
           {
@@ -148,7 +148,7 @@ RSpec.configure do |config|
               country: "Country3"
             },
             geometry: {
-              coordinates: [5.567, 6.678]
+              coordinates: [6.678, 5.567]
             }
           }
         ]

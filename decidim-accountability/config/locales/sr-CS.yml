@@ -36,7 +36,6 @@ sr:
         confirm_destroy: Da li ste sigurni da želite da obrišete ovo %{name}?
         destroy: Obriši
         edit: Izmeni
-        new: Novo %{name}
         preview: Pregled
         timeline_entries: Evolucija predloga
         title: Akcije
@@ -48,14 +47,7 @@ sr:
             name: Rezultat
           status:
             name: Stanje
-          timeline_entry:
-            name: Unos u vremensku liniju
         results:
-          create:
-            invalid: Nastao je problem pri stvaranju ovog rezultata
-            success: Rezultat uspešno stvoren
-          destroy:
-            success: Rezultat uspešno obrisan
           edit:
             title: Izmeni rezultat
             update: Ažuriraj rezultat
@@ -64,18 +56,10 @@ sr:
           new:
             create: Stvori rezultat
             title: Novi rezultat
-          update:
-            invalid: Nastao je problem pri ažuriranju ovog rezultata
-            success: Rezultat uspešno ažuriran
         shared:
           subnav:
             statuses: Statusi
         statuses:
-          create:
-            invalid: Nastao je problem pri stvaranju ovog statusa
-            success: Status je uspešno stvoren
-          destroy:
-            success: Status je uspešno obrisan
           edit:
             title: Izmeni status
             update: Ažuriraj status
@@ -84,15 +68,7 @@ sr:
           new:
             create: Stvori status
             title: Novi status
-          update:
-            invalid: Nastao je problem pri ažuriranju ovog statusa
-            success: Status je uspešno ažuriran
         timeline_entries:
-          create:
-            invalid: Nastao je problem pri stvaranju ovog unosa
-            success: Unos je uspešno stvoren
-          destroy:
-            success: Unos je uspešno obrisan
           edit:
             title: Uredi unos
             update: Ažuriraj unos
@@ -101,9 +77,6 @@ sr:
           new:
             create: Stvori unos
             title: Nov unos
-          update:
-            invalid: Nastao je problem pri ažuriranju ovog unosa
-            success: Unos je uspešno ažuriran
       admin_log:
         result:
           create: "%{user_name} je stvorio rezultat %{resource_name} u %{space_name}"
@@ -112,8 +85,6 @@ sr:
         value_types:
           parent_presenter:
             not_found: 'Ovaj roditelj nije pronađen u bazi podataka (ID: %{id})'
-      last_activity:
-        new_result_at_html: "<span>Novi rezultat u %{link}</span>"
       models:
         result:
           fields:
@@ -139,7 +110,6 @@ sr:
             other: "%{count} rezultata"
         filters:
           all: Sve
-          scopes: Opsezi
         home:
           categories_label: Kategorije
           subcategories_label: Podkategorije

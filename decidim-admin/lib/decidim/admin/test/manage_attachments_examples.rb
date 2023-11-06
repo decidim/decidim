@@ -19,7 +19,7 @@ shared_examples "manage attachments examples" do
 
     it "can view an attachment details" do
       within "#attachments table" do
-        click_link translated(attachment.title, locale: :en)
+        click_link "Edit"
       end
 
       expect(page).to have_selector("input#attachment_title_en[value='#{translated(attachment.title, locale: :en)}']")
@@ -30,7 +30,7 @@ shared_examples "manage attachments examples" do
     end
 
     it "can add attachments without a collection to a process" do
-      find(".card-title a.new").click
+      click_link "New attachment"
 
       within ".new_attachment" do
         fill_in_i18n(
@@ -59,12 +59,12 @@ shared_examples "manage attachments examples" do
       expect(page).to have_admin_callout("successfully")
 
       within "#attachments table" do
-        expect(page).to have_link("Very Important Document")
+        expect(page).to have_text("Very Important Document")
       end
     end
 
     it "can add attachments within a collection to a process" do
-      find(".card-title a.new").click
+      click_link "New attachment"
 
       within ".new_attachment" do
         fill_in_i18n(
@@ -95,7 +95,7 @@ shared_examples "manage attachments examples" do
       expect(page).to have_admin_callout("successfully")
 
       within "#attachments table" do
-        expect(page).to have_link("Document inside a collection")
+        expect(page).to have_text("Document inside a collection")
         expect(page).to have_text(translated(attachment_collection.name, locale: :en))
       end
     end
@@ -116,7 +116,7 @@ shared_examples "manage attachments examples" do
 
       within "#attachments" do
         within find("tr", text: translated(attachment.title)) do
-          expect(page).to have_no_text(translated(attachment_collection.name, locale: :en))
+          expect(page).not_to have_text(translated(attachment_collection.name, locale: :en))
         end
       end
     end
@@ -128,7 +128,7 @@ shared_examples "manage attachments examples" do
 
       expect(page).to have_admin_callout("successfully")
 
-      expect(page).to have_no_content(translated(attachment.title, locale: :en))
+      expect(page).not_to have_content(translated(attachment.title, locale: :en))
     end
 
     it "can update an attachment" do
@@ -153,7 +153,7 @@ shared_examples "manage attachments examples" do
       expect(page).to have_admin_callout("successfully")
 
       within "#attachments table" do
-        expect(page).to have_link("This is a nice photo")
+        expect(page).to have_text("This is a nice photo")
       end
     end
   end

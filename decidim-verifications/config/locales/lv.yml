@@ -30,24 +30,15 @@ lv:
           before_date_info: Noderīgs, ja process jau ir sācies un jūs vēlaties atsaukt iepriekšējā procesa atļaujas.
           button: Atsaukt visas
           button_before: Atsaukt, sākot ar datumu
-          destroy:
-            confirm: Atļauju atsaukšana, sākot ar datumu, nevar tikt atsaukta. Vai tiešām vēlaties turpināt?
-            confirm_all: Visu atļauju atsaukšana nevar tikt atsaukta. Vai tiešām vēlaties turpināt?
-          destroy_nok: Atļauju atsaukšanas laikā radās problēma.
           info: Kopā ir %{count} verificētu dalībnieku.
-          no_data: Nav verificētu dalībnieku
     authorization_handlers:
       admin:
-        csv_census:
-          help:
-            - Administratori augšupielādē CSV ar pieņemto dalībnieku e-pastiem
-            - Tikai dalībnieki, kuru e-pasta adrese atrodas CSV failā, var tikt verificēti.
         id_documents:
           help:
             - Lietotāji aizpilda savu personīgo informāciju un augšupielādē sava dokumenta kopiju.
             - Jūs aizpildāt augšupielādētajā attēlā esošo informāciju.
             - Informācijai jāatbilst tai, kuru ievadījis lietotājs.
-            - Ja nevarat skaidri redzēt informāciju vai nevarat to pārbaudīt, noraidiet pieprasījumu, un lietotājs to varēs labot.
+            - 
         postal_letter:
           help:
             - Dalībnieki pieprasa verifikācijas kodu, kas jānosūta uz viņu adresi.
@@ -55,17 +46,14 @@ lv:
             - Jūs atzīmējat vēstuli kā nosūtītu.
             - Kad esat atzīmējis vēstuli kā nosūtītu, dalībnieks varēs ievadīt kodu un tikt verificēts.
       csv_census:
-        explanation: Tieciet verificēts, izmantojot organizācijas skaitīšanu
         name: Organizācijas skaitīšana
       direct: Tiešā
       help: Palīdzība
       id_documents:
-        explanation: Augšupielādējiet savus personu apliecinošos dokumentus, lai mēs varētu pārbaudīt jūsu identitāti
         name: Personu apliecinoši dokumenti
       multistep: Daudzpakāpju
       name: Nosaukums
       postal_letter:
-        explanation: Mēs jums nosūtīsim vēstuli pa pastu ar kodu, kas jums būs jāievada, lai mēs varētu pārbaudīt jūsu adresi
         name: Kods pa pastu
     verifications:
       authorizations:
@@ -74,11 +62,9 @@ lv:
           no_data_stored: Nav saglabāti dati.
         create:
           error: Autorizācijas izveides laikā radās problēma.
-          success: Jūs esat veiksmīgi autorizēts.
           unconfirmed: Lai autorizētos, jums jāapstiprina savs e-pasts.
         destroy:
           error: Autorizācijas dzēšanas laikā radās problēma.
-          success: Jūs esat veiksmīgi izdzēsis autorizāciju.
         first_login:
           actions:
             another_dummy_authorization_handler: Verificēt ar cita autorizācijas apstrādātāja piemēru
@@ -98,9 +84,7 @@ lv:
           authorize_with: Verificēt, izmantojot %{authorizer}
         renew_modal:
           cancel: Atcelt
-          close: aizvērt
           continue: Turpināt
-          info_renew: Ja vēlaties atjaunināt datus, turpiniet atjaunošanu
           title: Atjaunot verifikāciju
         skip_verification: Tagad varat to izlaist un %{link}
         start_exploring: sāciet izpētīt
@@ -109,14 +93,9 @@ lv:
           census:
             create:
               error: Importējot skaitīšanu, radās kļūda.
-              success: Veiksmīgi importēti %{count} vienumi (%{errors} kļūdas)
-            destroy_all:
-              success: Visi skaitīšanas dati ir dzēsti
           destroy:
-            confirm: Visu skaitīšanu izdzēšana nevar tikt atsaukta. Vai tiešām vēlaties turpināt?
             title: Dzēst visus skaitīšanas datus
           index:
-            data: Kopā ir ielādēti %{count} ieraksti. Pēdējais augšupielādes datums bija %{due_date}
             empty: Nav skaitīšanas datu. Izmantojiet turpmāk esošo veidlapu, lai tos importētu, lietojot CSV failu.
             title: Pašreizējie skaitīšanas dati
           instructions:
@@ -138,19 +117,12 @@ lv:
               update: Atjaunināt
             update:
               error: Konfigurācijas atjaunināšanas laikā radās problēma.
-              success: Konfigurācija ir veiksmīgi atjaunināta
           confirmations:
-            create:
-              error: Verifikācija neatbilst. Lūdzu, mēģiniet vēlreiz vai noraidiet verifikāciju, lai dalībnieks to varētu grozīt
-              success: Dalībnieks ir veiksmīgi verificēts
             new:
               introduce_user_data: Ievadiet attēlā redzamos datus
               reject: Noraidīt
               verify: Verificēt
           offline_confirmations:
-            create:
-              error: Verifikācija neatbilst. Lūdzu, mēģiniet vēlreiz vai lūdziet dalībniekam to grozīt
-              success: Dalībnieks ir veiksmīgi verificēts
             new:
               cancel: Atcelt
               introduce_user_data: Ievadiet dalībnieka e-pasta adresi un dokumentu datus
@@ -161,32 +133,19 @@ lv:
               offline_verification: Bezsaistes verifikācija
               title: Tiešsaistes verifikācijas, kas vēl gaida
               verification_number: 'Verifikācija #%{n}'
-          rejections:
-            create:
-              success: Verifikācija noraidīta. Dalībniekam tiks piedāvāts mainīt savus dokumentus
         authorizations:
           choose:
             choose_a_type: 'Lūdzu, atlasiet, kā vēlaties tikt verificēts:'
             offline: Bezsaistē
             online: Tiešsaistē
             title: Verificējiet sevi, izmantojot personu apliecinošu dokumentu
-          create:
-            error: Augšupielādējot jūsu dokumentu, radās problēma
-            success: Dokuments ir veiksmīgi augšupielādēts
           edit:
-            being_reviewed: Mēs pārskatām jūsu dokumentus. Drīz jūs tiksiet verificēts.
             offline: Izmantot bezsaistes verifikāciju
             online: Izmantot tiešsaistes verifikāciju
-            rejection_clarity: Pārliecinieties, vai augšupielādētajā attēlā informācija ir skaidri redzama
-            rejection_correctness: Pārliecinieties, vai ievadītā informācija ir pareiza
-            rejection_notice: Radās problēma ar jūsu verifikāciju. Lūdzu, mēģiniet vēlreiz
             send: Pieprasīt verifikāciju vēlreiz
           new:
             send: Pieprasīt verifikāciju
             title: Augšupielādējiet savu personu apliecinošu dokumentu
-          update:
-            error: Atkārtoti augšupielādējot jūsu dokumentu, radās problēma
-            success: Dokuments ir veiksmīgi atkārtoti augšupielādēts
         passport: Pase
       postal_letter:
         admin:
@@ -199,43 +158,24 @@ lv:
               title: Notiekošās verifikācijas
               username: Segvārds
               verification_code: Verifikācijas kods
-          postages:
-            create:
-              error: Kļūda, atzīmējot vēstuli kā nosūtītu
-              success: Vēstule ir veiksmīgi atzīmēta kā nosūtīta
         authorizations:
-          create:
-            error: Radās problēma ar jūsu pieprasījumu
-            success: Paldies! Mēs uz jūsu adresi nosūtīsim verifikācijas kodu
           edit:
             send: Apstiprināt
-            title: Ievadiet saņemto verifikācijas kodu
-            waiting_for_letter: Drīz mēs uz jūsu adresi nosūtīsim vēstuli ar jūsu verifikācijas kodu
           new:
             send: Nosūtīt man vēstuli
             title: Pieprasīt jūsu verifikācijas kodu
-          update:
-            error: Jūsu verifikācijas kods neatbilst mūsu kodam. Lūdzu, vēlreiz pārbaudiet vēstuli, kuru mēs jums nosūtījām.
-            success: Apsveicam! Jūs esat veiksmīgi verificēts
       sms:
         authorizations:
-          create:
-            error: Radās problēma ar jūsu pieprasījumu
-            success: Paldies! Mēs esam nosūtījuši SMS uz jūsu tālruni.
           destroy:
             success: Verifikācijas kods ir veiksmīgi atiestatīts. Lūdzu, atkārtoti ievadiet savu tālruņa numuru.
           edit:
             confirm_destroy: Vai tiešām vēlaties atiestatīt verifikācijas kodu?
             destroy: Atiestatīt verifikācijas kodu
-            resend: Nesaņēmāt verifikācijas kodu?
             send: Apstiprināt
             title: Ievadiet saņemto verifikācijas kodu
           new:
             send: Sūtīt man SMS
             title: Pieprasīt jūsu verifikācijas kodu
-          update:
-            error: Jūsu verifikācijas kods neatbilst mūsu kodam. Lūdzu, vēlreiz pārbaudiet SMS, kuru mēs jums nosūtījām.
-            success: Apsveicam! Jūs esat veiksmīgi verificēts.
   errors:
     messages:
       uppercase_only_letters_numbers: jābūt visiem lielajiem burtiem un jāsatur tikai burti un/vai cipari

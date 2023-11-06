@@ -1,0 +1,10 @@
+<div class="bg-background rounded p-4 space-y-3 text-sm [&_[data-activity]]:gap-4">
+  <%= cell(
+        "decidim/activities",
+        valid_activities,
+        **activities_options
+      ) %>
+</div>
+<%= link_to last_activities_path, class: "mt-2.5 button button__text-secondary" do %>
+  <span><%= t("decidim.content_blocks.last_activity.name") %></span><%= icon "arrow-right-line" %>
+<% end %>

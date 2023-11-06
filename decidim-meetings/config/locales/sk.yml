@@ -1,10 +1,6 @@
 sk:
   activemodel:
     attributes:
-      agenda:
-        description: Popis
-        duration: Čas trvania
-        title: Názov
       close_meeting:
         attendees_count: Počet účastníkov
         attending_organizations: Zoznam organizácií, ktoré sa zúčastnili
@@ -18,7 +14,6 @@ sk:
         decidim_category_id: Kategória
         decidim_scope_id: Rozsah
         description: Popis
-        end_time: Čas ukončenia
         location: Umiestnenie
         location_hints: Tipy pre umiestnenie
         organizer_id: Organizátor
@@ -26,20 +21,8 @@ sk:
         registration_form_enabled: Registračný formulár je povolený
         registration_terms: Podmienky registrácie
         registrations_enabled: Registrácia povolené
-        start_time: Čas začatia
         title: Názov
         transparent: Transparentné
-    errors:
-      models:
-        meeting_agenda:
-          attributes:
-            base:
-              too_many_minutes: Čas trvania položiek presahuje dobu trvania konferencie o%{count} minút
-              too_many_minutes_child: Dĺžka podradené položky presahuje dobu o%{count} minút z nadradenej položku programu "%{parent_title}"
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Tento e-mail už bol pozvaný
     models:
       decidim/meetings/close_meeting_event: Stretnutie uzavreté
       decidim/meetings/create_meeting_event: Stretnutie
@@ -72,7 +55,6 @@ sk:
           success: Duplicitné schôdzka úspešne.
         new:
           copy: kopírovať
-          select: Vyberte, ktoré dáta chcete duplikovať
           title: Duplicitné schôdzka
     components:
       meetings:
@@ -144,8 +126,6 @@ sk:
           description_own: Zúčastnili ste sa %{score} stretnutí.
           name: Stretnutia, ktorých ste sa zúčastnili
           next_level_in: Zúčastnite sa ďalších %{score} stretnutí pre dosiahnutie ďalšej úrovne!
-          unearned_another: Tento účastník sa nezúčastnil žiadneho stretnutia.
-          unearned_own: Zatiaľ ste sa nezúčastnili žiadnych stretnutí.
     meetings:
       actions:
         agenda: Denný program
@@ -155,7 +135,6 @@ sk:
         confirm_destroy: Naozaj chcete túto schôdzku vymazať?
         destroy: Odstrániť
         edit: Upraviť
-        new: Nové stretnutie
         preview: Náhľad
         registrations: Registrácia
         title: Akcia
@@ -173,9 +152,6 @@ sk:
             down: Dole
             remove: Odstrániť
             up: Hore
-          create:
-            invalid: Pri vytváraní tejto agendy došlo k problému
-            success: Agenda bola úspešne vytvorená
           edit:
             title: Upraviť agendu
             update: Aktualizácia
@@ -187,9 +163,6 @@ sk:
           new:
             create: Vytvoriť
             title: Nová agenda
-          update:
-            invalid: Pri aktualizácii tejto agendy došlo k problému
-            success: Agenda bola úspešne aktualizovaná
         exports:
           meetings: Stretnutie
           registrations: Registrácia
@@ -215,21 +188,14 @@ sk:
               all: Všetko
               rejected: Odmietnuté
               sent: Odoslaná
-            filter_by: Filtrovať podľa
             invite_attendee: Pozvať účastníka
             invites: Pozvánky
-            registrations_disabled: Nemôžete pozvať účastníka, pretože registrácia sú zakázané.
             search: Vyhľadávanie
         meeting_closes:
           edit:
             close: Zavrieť
             title: Zatvorte schôdzku
         meetings:
-          close:
-            invalid: Pri stretnutí došlo k problému
-            success: Stretnutie bolo úspešne uzavreté
-          create:
-            invalid: Pri vytváraní tohto stretnutia došlo k problému
           destroy:
             success: Stretnutie bolo úspešne vymazané
           edit:
@@ -252,12 +218,6 @@ sk:
           services:
             add_service: Pridať službu
             services: Služby
-          update:
-            invalid: Došlo k problému pri aktualizácii tohto stretnutia
-            success: Schôdzka bola úspešne aktualizovaná
-        models:
-          meeting:
-            name: Stretnutie
         registrations:
           edit:
             save: Uložiť
@@ -273,7 +233,6 @@ sk:
               few: Bolo tu%{count} registrácií.
               many: Bolo tu%{count} registrácií.
               other: Bolo tu%{count} registrácií.
-            reserved_slots_help: Nechajte ju na 0, ak nemáte vyhradenej sloty
             reserved_slots_less_than: Musí byť menšie alebo rovné%{count}
             title: Registrácia
           update:
@@ -298,19 +257,13 @@ sk:
               not_found: 'Organizátor nebol nájdený v databáze (ID:%{id})'
       calendar_modal:
         calendar_url: URL kalendára
-        close_window: Zatvorte okno
         export_calendar: Exportovať kalendár
       conference_venues: Konferenčné priestory
-      content_blocks:
-        upcoming_meetings:
-          view_all_meetings: Zobraziť všetko
       directory:
         meetings:
           index:
             meetings: Stretnutie
             space_type: Zúčastňujú priestor
-      last_activity:
-        new_meeting_at_html: "<span> Nové stretnutie v %{link} </ span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -318,29 +271,18 @@ sk:
         registration_mailer:
           confirmation:
             subject: Registrácia schôdzky bola potvrdená
-      meeting:
-        not_allowed: Túto schôdzku nie je povolené prehliadať
       meetings:
         filters:
           category: Kategória
           date: dátum
           search: Vyhľadávanie
-        filters_small_view:
-          close_modal: Zatvoriť modálne
-          filter: Filter
-          filter_by: Filtrovať podľa
-          unfold: Rozbaliť
-        meeting_minutes:
-          related_information: Súvisiace informácie
         meetings:
-          no_meetings_warning: Žiadne schôdzky nezodpovedajú vašim kritériám vyhľadávania alebo nie sú plánované žiadne schôdzky.
           upcoming_meetings_warning: V súčasnosti neexistujú žiadne plánované schôdzky, ale nájdete tu všetky minulé stretnutia.
         registration_confirm:
           cancel: Zrušiť
           confirm: Potvrdiť
         show:
           attendees: Počet účastníkov
-          back: Späť na zoznam
           contributions: Počet príspevkov
           join: Pripojte sa k stretnutie
           meeting_minutes: Zápisnica z porady
@@ -356,8 +298,6 @@ sk:
             many: "%{count} zostávajúcich blokov"
             other: "%{count} zostávajúcich blokov"
           view: Zobrazenie
-      meetings_map:
-        view_meeting: Zobraziť schôdzku
       models:
         invite:
           fields:
@@ -385,7 +325,6 @@ sk:
       registrations:
         create:
           invalid: Na schôdzi došlo k problému.
-          success: Pripojili ste sa úspešne ku stretnutiu. Pretože ste sa naň zaregistrovali, pošleme Vám upozornenie v prípade zmien a nových udalostí.
         decline_invitation:
           invalid: Vyskytol sa problém s odmietnutím pozvánky.
           success: Odmietli ste pozvánku úspešne.
@@ -405,8 +344,6 @@ sk:
         past_meetings: Minulé schôdze
         see_all: Zobraziť všetky (%{count})
         upcoming_meetings: Nadchádzajúce schôdzky
-      upcoming_meeting_for_card:
-        upcoming_meeting: Nadchádzajúce schôdzka
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Súvisiace výsledky:'

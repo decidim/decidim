@@ -6,9 +6,9 @@ describe "Collaborative drafts", type: :system do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 
-  let!(:category) { create :category, participatory_space: participatory_process }
-  let!(:scope) { create :scope, organization: }
-  let!(:user) { create :user, :confirmed, organization: }
+  let!(:category) { create(:category, participatory_space: participatory_process) }
+  let!(:scope) { create(:scope, organization:) }
+  let!(:user) { create(:user, :confirmed, organization:) }
   let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization:, scope:) }
 
   let(:address) { "Some address" }
@@ -23,13 +23,11 @@ describe "Collaborative drafts", type: :system do
   end
 
   matcher :have_author do |name|
-    match { |node| node.has_selector?(".author-data", text: name) }
-    match_when_negated { |node| node.has_no_selector?(".author-data", text: name) }
+    match { |node| node.has_selector?("[data-author]", text: name) }
+    match_when_negated { |node| node.has_no_selector?("[data-author]", text: name) }
   end
 
   context "when creating a new collaborative_draft" do
-    let(:scope_picker) { select_data_picker(:collaborative_draft_scope_id) }
-
     context "when the user is logged in" do
       before do
         login_as user, scope: :user
@@ -65,19 +63,20 @@ describe "Collaborative drafts", type: :system do
             visit new_collaborative_draft_path
 
             within "form.new_collaborative_draft" do
-              expect(page).to have_no_content("Scope")
+              expect(page).not_to have_content("Scope")
             end
           end
         end
 
         it "creates a new collaborative draft", :slow do
           visit new_collaborative_draft_path
+          visit new_collaborative_draft_path
 
           within ".new_collaborative_draft" do
             fill_in :collaborative_draft_title, with: "More sidewalks and less roads"
             fill_in :collaborative_draft_body, with: "Cities need more people, not more cars"
             select translated(category.name), from: :collaborative_draft_category_id
-            scope_pick scope_picker, scope
+            select translated(scope.name), from: :collaborative_draft_scope_id
 
             find("*[type=submit]").click
           end
@@ -90,7 +89,32 @@ describe "Collaborative drafts", type: :system do
           expect(page).to have_author(user.name)
         end
 
-        context "when geocoding is enabled", :serves_map, :serves_geocoding_autocomplete do
+        context "when there are errors on the form", :slow do
+          before do
+            visit new_collaborative_draft_path
+
+            within ".new_collaborative_draft" do
+              fill_in :collaborative_draft_title, with: "More sidewalks and less roads"
+              fill_in :collaborative_draft_body, with: "Cities"
+
+              find("*[type=submit]").click
+            end
+          end
+
+          it "shows the form with the error message" do
+            expect(page).to have_content("There was a problem creating this collaborative draft.")
+            expect(page).to have_field(:collaborative_draft_title, with: "More sidewalks and less roads")
+            expect(page).to have_field(:collaborative_draft_body, with: "Cities")
+          end
+
+          it "allows returning to the index" do
+            click_link "Back to collaborative drafts"
+
+            expect(page).to have_content("There are no collaborative drafts yet")
+          end
+        end
+
+        context "when geocoding is enabled", :serves_geocoding_autocomplete, :serves_map do
           let!(:component) do
             create(:proposal_component,
                    :with_creation_enabled,
@@ -111,12 +135,11 @@ describe "Collaborative drafts", type: :system do
             visit new_collaborative_draft_path
 
             within ".new_collaborative_draft" do
-              check :collaborative_draft_has_address
               fill_in :collaborative_draft_title, with: "More sidewalks and less roads"
               fill_in :collaborative_draft_body, with: "Cities need more people, not more cars"
               fill_in_geocoding :collaborative_draft_address, with: address
               select translated(category.name), from: :collaborative_draft_category_id
-              scope_pick scope_picker, scope
+              select translated(scope.name), from: :collaborative_draft_scope_id
 
               find("*[type=submit]").click
             end
@@ -144,7 +167,6 @@ describe "Collaborative drafts", type: :system do
               visit new_collaborative_draft_path
 
               within ".new_collaborative_draft" do
-                check :collaborative_draft_has_address
                 fill_in :collaborative_draft_title, with: "More sidewalks and less roads"
                 fill_in :collaborative_draft_body, with: "Cities need more people, not more cars"
               end
@@ -208,7 +230,7 @@ describe "Collaborative drafts", type: :system do
               fill_in :collaborative_draft_title, with: "More sidewalks and less roads"
               fill_in :collaborative_draft_body, with: "Cities need more people, not more cars"
               select translated(category.name), from: :collaborative_draft_category_id
-              scope_pick scope_picker, scope
+              select translated(scope.name), from: :collaborative_draft_scope_id
               select user_group.name, from: :collaborative_draft_user_group_id
 
               find("*[type=submit]").click
@@ -222,7 +244,7 @@ describe "Collaborative drafts", type: :system do
             expect(page).to have_author(user_group.name)
           end
 
-          context "when geocoding is enabled", :serves_map, :serves_geocoding_autocomplete do
+          context "when geocoding is enabled", :serves_geocoding_autocomplete, :serves_map do
             let!(:component) do
               create(:proposal_component,
                      :with_creation_enabled,
@@ -242,10 +264,9 @@ describe "Collaborative drafts", type: :system do
               within ".new_collaborative_draft" do
                 fill_in :collaborative_draft_title, with: "More sidewalks and less roads"
                 fill_in :collaborative_draft_body, with: "Cities need more people, not more cars"
-                check :collaborative_draft_has_address
                 fill_in :collaborative_draft_address, with: address
                 select translated(category.name), from: :collaborative_draft_category_id
-                scope_pick scope_picker, scope
+                select translated(scope.name), from: :collaborative_draft_scope_id
                 select user_group.name, from: :collaborative_draft_user_group_id
 
                 find("*[type=submit]").click
@@ -262,7 +283,7 @@ describe "Collaborative drafts", type: :system do
           end
         end
 
-        context "when the user isn't authorized" do
+        context "when the user is not authorized" do
           before do
             permissions = {
               create: {
@@ -300,7 +321,7 @@ describe "Collaborative drafts", type: :system do
               fill_in :collaborative_draft_body, with: "This is my collaborative draft and I want to upload attachments."
             end
 
-            dynamically_attach_file(:collaborative_draft_documents, Decidim::Dev.asset("city.jpeg"), { title: "My attachment" })
+            dynamically_attach_file(:collaborative_draft_documents, Decidim::Dev.asset("city.jpeg"))
 
             within ".new_collaborative_draft" do
               find("*[type=submit]").click
@@ -308,7 +329,7 @@ describe "Collaborative drafts", type: :system do
 
             expect(page).to have_content("successfully")
 
-            within ".section.images" do
+            within "#panel-images" do
               expect(page).to have_selector("img[src*=\"city.jpeg\"]", count: 1)
             end
           end
@@ -326,7 +347,7 @@ describe "Collaborative drafts", type: :system do
         it "does not show the creation button" do
           visit_component
           click_link "Access collaborative drafts"
-          expect(page).to have_no_link("New collaborative draft")
+          expect(page).not_to have_link("New collaborative draft")
         end
       end
     end
@@ -335,5 +356,9 @@ end
 
 def new_collaborative_draft_path
   visit_component
-  "#{current_path}/collaborative_drafts/new"
+  "#{current_proposal_path}/collaborative_drafts/new"
+end
+
+def current_proposal_path
+  current_path.sub("/proposals", "")
 end

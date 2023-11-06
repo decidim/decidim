@@ -13,12 +13,12 @@ module Decidim
         helper Decidim::Messaging::ConversationHelper
 
         def edit
-          enforce_permission_to :create, :proposal_answer, proposal: proposal
+          enforce_permission_to(:create, :proposal_answer, proposal:)
           @form = form(Admin::ProposalAnswerForm).from_model(proposal)
         end
 
         def update
-          enforce_permission_to :create, :proposal_answer, proposal: proposal
+          enforce_permission_to(:create, :proposal_answer, proposal:)
           @notes_form = form(ProposalNoteForm).instance
           @answer_form = form(Admin::ProposalAnswerForm).from_params(params)
 

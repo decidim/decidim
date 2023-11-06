@@ -11,6 +11,7 @@ module Decidim
         boolean: :check_box,
         integer: :number_field,
         string: :text_field,
+        float: :number_field,
         text: :text_area,
         select: :select_field,
         scope: :scope_field,
@@ -25,7 +26,7 @@ module Decidim
       # @param attribute [Decidim::SettingsManifest::Attribute] The Settings::Attribute instance with the
       #   description of the attribute.
       # @param name [Symbol] The name of the field.
-      # @param i18n_scope [String] The scope where it'll find all the texts for the internationalization (locales)
+      # @param i18n_scope [String] The scope where it will find all the texts for the internationalization (locales)
       # @param options [Hash] Extra options to be passed to the field helper.
       # @option options [String] :tabs_prefix The type of the setting.
       #   It can be "global-settings" or "step-N-settings", where N is the number of the step.
@@ -56,7 +57,7 @@ module Decidim
           elsif form_method == :select_field
             render_select_form_field(form, attribute, name, i18n_scope, options)
           elsif form_method == :scope_field
-            scopes_picker_field(form, name)
+            scopes_select_field(form, name)
           else
             form.send(form_method, name, options)
           end
@@ -108,14 +109,14 @@ module Decidim
                                                :last,
                                                :first,
                                                { checked: form.object.send(name) },
-                                               options) { |b| b.label { b.radio_button + b.text } }
+                                               options) { |b| b.label(class: "form__wrapper-checkbox-label") { b.radio_button + b.text } }
         end
         html << content_tag(:p, options[:help_text], class: "help-text") if options[:help_text]
         html
       end
 
       # Get the translation for a given attribute
-      # Returns a translation or nil. If nil, ZURB Foundation won't add the help_text.
+      # Returns a translation or nil. If nil, FoundationRailsHelper will not add the help_text.
       #
       # @param name (see #settings_attribute_input)
       # @param suffix [String] What suffix the i18n key has

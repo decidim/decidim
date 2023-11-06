@@ -8,7 +8,7 @@ module Decidim
   # This class handles all the logic associated to configuring a participatory
   # space, the highest level object of Decidim.
   #
-  # It's normally not used directly but through the API exposed through
+  # It is normally not used directly but through the API exposed through
   # `Decidim.register_participatory_space`.
   class ParticipatorySpaceManifest
     include ActiveModel::Model
@@ -16,8 +16,12 @@ module Decidim
 
     attribute :name, Symbol
 
-    # The ActiveRecord class name of the model we're exposing
+    # The ActiveRecord class name of the model we are exposing
     attribute :model_class_name, String
+
+    # The scope name of the content blocks associated with the participatory
+    # space
+    attribute :content_blocks_scope_name, String
 
     # The name of the named Rails route to create the url to the resource.
     # When not explicitly set, it will use the model name.
@@ -39,6 +43,10 @@ module Decidim
     # probably have the form of `Decidim::<MySpace>::Permissions`.
     attribute :permissions_class_name, String, default: "Decidim::DefaultPermissions"
 
+    # The cell to use as dropdown in the breadcrumb element associated to the space.
+    # If this value is omitted or blank, no breadcrumb is displayed
+    attribute :breadcrumb_cell, String
+
     # The cell path to use to render the card of a resource.
     attribute :card, String
 
@@ -48,7 +56,7 @@ module Decidim
     attribute :stylesheet, String, default: nil
 
     # A callback that will be executed when an account is destroyed.
-    # The Proc will receive the `user` that's being destroyed.
+    # The Proc will receive the `user` that is being destroyed.
     attribute :on_destroy_account, Proc, default: nil
 
     validates :name, presence: true

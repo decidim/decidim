@@ -1,0 +1,47 @@
+.meeting-calendar {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-4 md:gap-y-6 md:gap-x-8 lg:gap-y-12 lg:gap-x-16 place-items-start;
+
+  &__selector {
+    @apply flex items-center gap-4;
+
+    &-container {
+      @apply flex justify-between items-center mb-8;
+    }
+
+    &-arrow {
+      @apply w-6 h-6 rounded-full bg-background;
+    }
+  }
+
+  &__link {
+    @apply flex items-center gap-2 text-secondary font-semibold;
+  }
+
+  &__month {
+    @apply text-center border-separate;
+
+    caption {
+      @apply text-lg text-gray-2 text-left font-semibold mb-4;
+    }
+
+    th {
+      @apply text-xs text-black uppercase font-semibold;
+    }
+
+    td {
+      @apply text-md text-gray-2 font-semibold w-9 h-9 rounded;
+    }
+
+    .is-today {
+      @apply border border-gray bg-background font-bold;
+    }
+
+    .is-past-event {
+      @apply bg-gray-2 text-white font-bold;
+    }
+
+    .is-upcoming-event {
+      @apply bg-secondary text-white font-bold;
+    }
+  }
+}

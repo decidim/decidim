@@ -24,7 +24,6 @@ describe "Participatory texts", type: :system do
     prop_block.hover
     clean_proposal_body = strip_tags(translated(proposal.body))
 
-    expect(prop_block).to have_button("Follow")
     expect(prop_block).to have_link("Comment") if component.settings.comments_enabled
     expect(prop_block).to have_link(proposal.comments_count.to_s) if component.settings.comments_enabled
     expect(prop_block).to have_content(clean_proposal_body) if proposal.participatory_text_level == "article"
@@ -34,9 +33,12 @@ describe "Participatory texts", type: :system do
   shared_examples_for "lists all the proposals ordered" do
     it "by position" do
       visit_component
-      expect(page).to have_css(".hover-section", count: proposals.count)
-      proposals.each_with_index do |proposal, index|
-        should_have_proposal("#proposals div.hover-section:nth-child(#{index + 1})", proposal)
+
+      within "#proposals" do
+        expect(page).to have_css("[id^='proposal']", count: proposals.count)
+        proposals.each_with_index do |proposal, index|
+          should_have_proposal("[id^='proposal']:nth-child(#{index + 1})", proposal)
+        end
       end
     end
 
@@ -46,7 +48,7 @@ describe "Participatory texts", type: :system do
         proposal_section.participatory_text_level = "section"
         proposal_section.save!
         visit_component
-        should_have_proposal("#proposals div.hover-section:first-child", proposal_section)
+        should_have_proposal("#proposals section[id^='proposal']:first-child", proposal_section)
       end
     end
 
@@ -56,24 +58,22 @@ describe "Participatory texts", type: :system do
         proposal_article.participatory_text_level = "article"
         proposal_article.save!
         visit_component
-        should_have_proposal("#proposals div.hover-section:last-child", proposal_article)
+        should_have_proposal("#proposals section[id^='proposal']:last-child", proposal_article)
       end
     end
   end
 
   shared_examples "showing the Amend button and amendments counter when hovered" do
-    let(:amend_button_disabled?) { page.find("a", text: "AMEND")[:disabled].present? }
+    let(:amend_button_disabled?) { page.find("a", text: "Amend")[:disabled].present? }
 
     it "shows the Amend button and amendments counter inside the proposal div" do
       visit_component
       proposal_title = translated(proposals.first.title)
-      find("#proposals div.hover-section", text: proposal_title).hover
-      within all("#proposals div.hover-section").first, visible: :visible do
-        within ".amend-buttons" do
-          expect(page).to have_link("Amend")
-          expect(amend_button_disabled?).to eq(disabled_value)
-          expect(page).to have_link(amendments_count)
-        end
+      find("#proposals section[id^='proposal']", text: proposal_title).hover
+      within all("#proposals section[id^='proposal']").first, visible: :visible do
+        expect(page).to have_link("Amend")
+        expect(amend_button_disabled?).to eq(disabled_value)
+        expect(page).to have_link(amendments_count)
       end
     end
   end
@@ -82,8 +82,8 @@ describe "Participatory texts", type: :system do
     it "hides the Amend button and amendments counter inside the proposal div" do
       visit_component
       proposal_title = translated(proposals.first.title)
-      find("#proposals div.hover-section", text: proposal_title).hover
-      within all("#proposals div.hover-section").first, visible: :visible do
+      find("#proposals section[id^='proposal']", text: proposal_title).hover
+      within all("#proposals section[id^='proposal']").first, visible: :visible do
         expect(page).not_to have_css(".amend-buttons")
       end
     end
@@ -108,7 +108,7 @@ describe "Participatory texts", type: :system do
     end
 
     context "when admin has published a participatory text" do
-      let!(:participatory_text) { create :participatory_text, component: }
+      let!(:participatory_text) { create(:participatory_text, component:) }
       let!(:proposals) { create_list(:proposal, 3, :published, component:) }
       let!(:component) do
         create(:proposal_component,
@@ -144,7 +144,7 @@ describe "Participatory texts", type: :system do
 
       context "with existing amendments" do
         let!(:emendation1) { create(:proposal, :published, component:) }
-        let!(:amendment1) { create :amendment, amendable: proposals.first, emendation: emendation1 }
+        let!(:amendment1) { create(:amendment, amendable: proposals.first, emendation: emendation1) }
         let!(:emendation2) { create(:proposal, component:) }
         let!(:amendment2) { create(:amendment, amendable: proposals.first, emendation: emendation2) }
         let(:user) { amendment1.amender }

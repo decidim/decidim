@@ -9,11 +9,17 @@ edit_link(
 )
 %>
 
-<section class="" id="conference_speakers-grid">
-  <div class="row column">
-    <h3 class="section-heading"><%= t(".speakers") %></h3>
-    <div class="row small-up-2 medium-up-5 mb-l">
+<%# NOTE: this page does not use a regular layout %>
+<main class="container">
+
+  <section id="conference_speakers-grid">
+    <h1 class="title-decorator my-12">
+      <span class="not-sr-only"><%= t("decidim.conferences.conference_speakers.index.speakers", count: "") %></span>
+      <span class="sr-only"><%= t("decidim.conferences.conference_speakers.index.speakers", count: "") %> (<%= translated_attribute current_participatory_space.title %>)</span>
+    </h1>
+    <div class="conference__speaker__container">
       <%= render(collection) %>
     </div>
-  </div>
-</section>
+  </section>
+
+</main>

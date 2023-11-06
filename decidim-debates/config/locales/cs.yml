@@ -10,6 +10,7 @@ cs:
         end_time: Končí v
         information_updates: Aktualizace informací
         instructions: Pokyny k účasti
+        scope_id: Oblast působnosti
         start_time: Začíná v
         title: Titul
         user_group_id: Vytvořte debatu jako
@@ -52,7 +53,7 @@ cs:
         confirm_destroy: Jste si jisti?
         destroy: Odstranit
         edit: Upravit
-        new: Nové %{name}
+        new: Nová debata
         title: Akce
       admin:
         debate_closes:
@@ -82,9 +83,6 @@ cs:
             success: Debata byla úspěšně aktualizována.
         exports:
           comments: Komentáře
-        models:
-          debate:
-            name: Debata
       admin_log:
         debate:
           close: "%{user_name} ukončil debatu %{resource_name} ve skupině %{space_name}"
@@ -97,7 +95,7 @@ cs:
           invalid: Při uzavírání debaty došlo k chybě.
           success: Debata byla úspěšně uzavřena.
         close_debate_modal:
-          close: Zavřít
+          cancel: Zrušit
           description: Jaké je shrnutí nebo závěr této debaty?
           send: Ukončit debatu
         closed: Uzavřeno
@@ -126,18 +124,12 @@ cs:
           official: Oficiální
           origin: Původ
           participants: Účastníci
-          scope: Oblast působnosti
           search: Hledat
           state: Stav
           state_values:
             closed: Uzavřeno
             open: Otevřeno
-          user_groups: Skupiny
-        filters_small_view:
-          close_modal: Zavřít okno
-          filter: Filtr
-          filter_by: Filtrovat podle
-          unfold: Rozbalit
+          user_group: Skupiny
         form:
           select_a_category: Vyberte kategorii
         index:
@@ -153,7 +145,6 @@ cs:
           recent: Nejnovější
           updated: Naposledy aktualizované
         show:
-          back: Zpět na seznam
           close_debate: Ukončit debatu
           date: Datum
           debate_closed: Uzavřeno
@@ -161,28 +152,21 @@ cs:
           edit_conclusions: Upravit závěry
           edit_debate: Upravit debatu
           groups_count: Skupiny
-          last_comment_by: Poslední komentář od
-          no_comments_yet: Zatím žádné komentáře
-          open: Otevřít diskusi
+          open: Otevřená diskuse
           participants_count: Účastníci
         update:
           invalid: Při aktualizaci rozpravy došlo k chybě.
           success: Debata byla úspěšně aktualizována.
-        versions:
-          debates:
-            back_to_resource: Přejít zpět k debatě
-          index:
-            title: Verze
-        versions_list:
-          back_to_resource: Přejít zpět k debatě
       last_activity:
-        debate_updated_at_html: "<span>Debata byla aktualizována na %{link}</span>"
-        new_debate_at_html: "<span>Nová debata na %{link}</span>"
+        debate_updated: 'Debata aktualizována:'
+        new_debate: 'Nová debata:'
       models:
         debate:
           fields:
+            end: Konec
             end_time: Datum ukončení
             official_debate: Oficiální debata
+            start: Začátek
             start_time: Datum zahájení
             title: Titul
     events:
@@ -211,7 +195,7 @@ cs:
           email_intro: 'Nyní můžete začít debaty v %{participatory_space_title}! Začněte se účastnit této stránky:'
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Na předchozím odkazu můžete přestat přijímat oznámení.
           email_subject: Debaty jsou nyní k dispozici v %{participatory_space_title}
-          notification_title: Nyní můžete začít <a href="%{resource_path}">novou debatu</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Nyní můžete začít <a href="%{resource_path}">novou debatu</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         debate_closed:
           affected_user:
             email_intro: 'Debata "%{resource_title}" byla ukončena. Závěry si můžete přečíst z její stránky:'

@@ -1,0 +1,47 @@
+name: "[CI] Core"
+on:
+  push:
+    branches:
+      - develop
+      - release/*
+      - "*-stable"
+  pull_request:
+    branches-ignore:
+      - "chore/l10n*"
+    paths:
+      - "*"
+      - ".github/**"
+      - "decidim-api/**"
+      - "decidim-core/**"
+      - "decidim-dev/**"
+      - "packages/**"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  build_app:
+    uses: ./.github/workflows/build_app.yml
+    secrets: inherit
+    name: Build test application
+  main:
+    strategy:
+      fail-fast: false
+      matrix:
+        test-command:
+          - bundle exec parallel_test --type rspec --pattern spec/lib
+          - bundle exec parallel_test --type rspec --pattern spec/system
+          - bundle exec parallel_test --type rspec --pattern spec/ --exclude-pattern 'spec/(system|lib)'
+    needs: build_app
+    name: Tests
+    uses: ./.github/workflows/test_app.yml
+    secrets: inherit
+    with:
+      working-directory: "decidim-core"
+      test_command: ${{ matrix.test-command }}
+      bullet_enabled: false
+      bullet_counter_cache: false
+      bullet_n_plus_one: false
+      bullet_unused_eager_loading: false
+

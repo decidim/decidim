@@ -22,7 +22,7 @@ module Decidim
     # Executes the command. Broadcasts these events:
     #
     # - :ok when everything is valid, together with the search results.
-    # - :invalid if something failed and couldn't proceed.
+    # - :invalid if something failed and could not proceed.
     #
     # Returns nothing.
     def call

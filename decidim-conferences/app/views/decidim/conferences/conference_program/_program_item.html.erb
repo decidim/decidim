@@ -1,30 +1,27 @@
 <% if meetings.present? %>
-  <div class="row collapse">
-    <% categories = meetings.collect(&:category).uniq %>
-    <% seed = SecureRandom.hex(3).to_s %>
-    <% if categories.present? %>
-      <div class="row">
-        <div class="column medium-10 medium-push-2">
-          <ul class="tabs buttons__row" id="conference-row-<%= seed %>-tabs" data-tabs>
-            <% categories.each_with_index do |category, i| %>
-              <li class="tabs-title<%= " is-active" if i == 0 %>">
-                <!-- Wrap the anchor inside a div to keep correct button styling -->
-                <div>
-                  <a href="#conference-row-<%= seed %>-tab<%= i %>" class="button button--shadow tiny hollow">
-                    <%= category.present? ? translated_attribute(category.name) : "other" %>
-                  </a>
-                </div>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    <% end %>
-    <div class="tabs-content" data-tabs-content="conference-row-<%= seed %>-tabs">
+  <div class="conference__program-item">
+    <div class="conference__program-time">
+      <%= start_time.to_s(:time) %> - <%= end_time.to_s(:time) %>
+    </div>
+    <div data-component="accordion" data-multiselectable="false" data-collapsible="false">
+      <% categories = meetings.map(&:category).uniq %>
+      <% seed = SecureRandom.hex(3).to_s %>
+      <% if categories.present? %>
+        <ul class="conference__program-category-container">
+          <% categories.each_with_index do |category, i| %>
+            <li>
+              <button id="conference-item-trigger-<%= seed %>-tab<%= i %>" class="conference__program-category" data-controls="conference-item-panel-<%= seed %>-tab<%= i %>" data-open="<%= "true" if i.zero? %>">
+                <%= category.present? ? translated_attribute(category.name) : "other" %>
+              </button>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+
       <% meetings.group_by(&:category).each_with_index do |categories_block, i| %>
-        <div class="tabs-panel<%= " is-active" if i == 0 %>" id="conference-row-<%= seed %>-tab<%= i %>">
+        <div id="conference-item-panel-<%= seed %>-tab<%= i %>" class="conference__program-category-content">
           <% categories_block.last.each do |meeting| %>
-            <%= render partial: "program_meeting", locals: { end_time: end_time, start_time: start_time, meeting: meeting } %>
+            <%= render partial: "program_meeting", locals: { meeting: } %>
           <% end %>
         </div>
       <% end %>

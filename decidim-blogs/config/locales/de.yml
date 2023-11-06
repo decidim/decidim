@@ -1,5 +1,11 @@
 de:
   activemodel:
+    attributes:
+      post:
+        body: Haupttext
+        decidim_author_id: Autor*in
+        published_at: Veröffentlicht am
+        title: Titel
     models:
       decidim/blogs/create_post_event: Neuer Blogeintrag
   activerecord:
@@ -17,51 +23,56 @@ de:
         new: Neuer Beitrag
         title: Aktionen
       admin:
-        models:
-          components:
-            body: Haupttext
-          post:
-            name: Post
         posts:
           create:
-            invalid: Beim Erstellen dieses Posts ist ein Problem aufgetreten
-            success: Post erfolgreich erstellt
+            invalid: Beim Erstellen dieses Beitrags ist ein Problem aufgetreten.
+            success: Beitrag wurde erfolgreich erstellt.
           destroy:
-            success: Beitrag wurde erfolgreich gelöscht
+            success: Beitrag wurde erfolgreich gelöscht.
           edit:
             save: Aktualisieren
             title: Post bearbeiten
           index:
+            not_published_yet: Noch nicht veröffentlicht.
             title: Beiträge
           new:
             create: Erstellen
             title: Post erstellen
           update:
             invalid: Beim Speichern des Posts sind Fehler aufgetreten.
-            success: Beitrag wurde erfolgreich gespeichert
+            success: Beitrag wurde erfolgreich gespeichert.
+      admin_log:
+        post:
+          create: "%{user_name} hat den Blogpost %{resource_name} in %{space_name} erstellt"
+          delete: "%{user_name} hat den Blogpost %{resource_name} in %{space_name} gelöscht"
+          update: "%{user_name} hat den Blogpost %{resource_name} in %{space_name} aktualisiert"
+      content_blocks:
+        highlighted_posts:
+          last_published: Zuletzt veröffentlicht
+          name: Beiträge
+          see_all: Alle Beiträge ansehen
       last_activity:
-        new_post_at_html: "<span>Neuer Beitrag bei %{link}</span>"
+        new_post: 'Neuer Beitrag:'
       models:
         post:
           fields:
             author: Autor
             body: Haupttext
-            created_at: Hergestellt in
+            official_blog_post: Offizieller Post
+            published_at: Veröffentlicht am
             title: Titel
       posts:
-        show:
-          back: Zurück zur Liste
-          comments: Kommentare
-          view: Anzeigen
-        sidebar_blog:
-          comments: Bemerkungen
-          most_commented_posts: Meist kommentierte Posts
-      read_more: Weiterlesen
+        index:
+          count:
+            one: "%{count} Beitrag"
+            other: "%{count} Beiträge"
     components:
       blogs:
         actions:
+          comment: Kommentieren
           create: Erstellen
           destroy: Löschen
+          endorse: Unterstützen
           update: Aktualisieren
         name: Blog
         settings:

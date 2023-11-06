@@ -6,12 +6,12 @@ module Decidim::ParticipatoryProcesses
   describe Admin::CreateParticipatoryProcess, versioning: true do
     subject { described_class.new(form) }
 
-    let(:organization) { create :organization }
-    let(:participatory_process_group) { create :participatory_process_group, organization: }
-    let(:participatory_process_type) { create :participatory_process_type, organization: }
-    let(:scope) { create :scope, organization: }
-    let(:area) { create :area, organization: }
-    let(:current_user) { create :user, :admin, organization: }
+    let(:organization) { create(:organization) }
+    let(:participatory_process_group) { create(:participatory_process_group, organization:) }
+    let(:participatory_process_type) { create(:participatory_process_type, organization:) }
+    let(:scope) { create(:scope, organization:) }
+    let(:area) { create(:area, organization:) }
+    let(:current_user) { create(:user, :admin, organization:) }
     let(:errors) { double.as_null_object }
     let(:related_process_ids) { [] }
     let(:weight) { 1 }
@@ -121,7 +121,7 @@ module Decidim::ParticipatoryProcesses
         expect(process.steps.first).to be_active
       end
 
-      it "doesn't enable by default stats and metrics" do
+      it "does not enable by default stats and metrics" do
         subject.call
         expect(process.show_statistics).to be(false)
         expect(process.show_metrics).to be(false)
@@ -133,14 +133,27 @@ module Decidim::ParticipatoryProcesses
       end
 
       context "with related processes" do
-        let!(:another_process) { create :participatory_process, organization: }
+        let!(:another_process) { create(:participatory_process, organization:) }
         let(:related_process_ids) { [another_process.id] }
 
         it "links related processes" do
           subject.call
 
           linked_processes = process.linked_participatory_space_resources(:participatory_process, "related_processes")
-          expect(linked_processes).to match_array([another_process])
+          expect(linked_processes).to contain_exactly(another_process)
+        end
+
+        context "when sorting by weight" do
+          let!(:process_one) { create(:participatory_process, organization:, weight: 2) }
+          let!(:process_two) { create(:participatory_process, organization:, weight: 1) }
+          let(:related_process_ids) { [process_one.id, process_two.id] }
+
+          it "links processes in right way" do
+            subject.call
+
+            linked_processes = process.linked_participatory_space_resources(:participatory_process, "related_processes")
+            expect(linked_processes.first).to eq(process_two)
+          end
         end
       end
     end

@@ -16,6 +16,12 @@ module Decidim
           @user = user
         end
 
+        # Executes the command. Broadcasts these events:
+        #
+        # - :ok when everything is valid.
+        # - :invalid if the form was not valid and we could not proceed.
+        #
+        # Returns nothing.
         def call
           return broadcast(:invalid) unless @form.valid?
           return broadcast(:invalid) unless @user.organization == @template.organization

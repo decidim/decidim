@@ -19,7 +19,7 @@ describe "Homepage processes content blocks", type: :system do
   let!(:promoted_external_process) { create(:participatory_process, :promoted) }
 
   before do
-    create :content_block, organization: organization, scope_name: :homepage, manifest_name: :highlighted_processes
+    create(:content_block, organization:, scope_name: :homepage, manifest_name: :highlighted_processes)
     switch_to_host(organization.host)
   end
 
@@ -37,7 +37,7 @@ describe "Homepage processes content blocks", type: :system do
   context "when there are promoted process groups" do
     let!(:normal_group) { create(:participatory_process_group, organization:) }
     let!(:promoted_group) { create(:participatory_process_group, :promoted, organization:) }
-    let(:promoted_items_titles) { page.all("#highlighted-processes .card__title").map(&:text) }
+    let(:promoted_items_titles) { page.all("#highlighted-processes .card__grid .card__grid-text .h4").map(&:text) }
 
     it "includes promoted group in first place in the same homepage block" do
       visit decidim.root_path

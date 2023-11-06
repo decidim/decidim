@@ -1,1 +1,2 @@
-<%= options_for_select scoped_types.map { |s| [translated_attribute(s.scope_name), s&.scope&.id] }, params[:selected] %>
+<% blank = [t("select_scope", scope: "decidim.initiatives.create_initiative.fill_data"), ""] %>
+<%= options_for_select scoped_types.map { |s| [translated_attribute(s.scope_name), s&.scope&.id] }.prepend(blank), params[:selected] %>

@@ -1,19 +1,6 @@
 <% if geolocalizable.address.present? %>
-  <div class="card card--secondary">
-    <div class="card__content address">
-      <div class="address__info">
-        <div class="address__icon">
-          <%= icon icon_name, role: "img", "aria-hidden": true, width: 40, height: 70 %>
-        </div>
-        <div class="address__details">
-          <%= render partial: "decidim/shared/address_details", locals: { geolocalizable: geolocalizable } %>
-        </div>
-      </div>
-      <% if Decidim::Map.available?(:static) || Decidim::Map.available?(:dynamic) %>
-        <div class="address__map">
-          <%= static_map_link(geolocalizable) %>
-        </div>
-      <% end %>
-    </div>
-  </div>
+  <%= cell("decidim/address", geolocalizable) %>
+  <% if Decidim::Map.available?(:static) || Decidim::Map.available?(:dynamic) %>
+    <%= static_map_link(geolocalizable) %>
+  <% end %>
 <% end %>

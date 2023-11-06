@@ -8,7 +8,7 @@ class AddTosVersionToOrganization < ActiveRecord::Migration[5.1]
   def up
     add_column :decidim_organizations, :tos_version, :datetime
     Organization.find_each do |organization|
-      tos_version = Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization:).updated_at
+      tos_version = Decidim::StaticPage.find_by(slug: ["terms-and-conditions", "terms-of-service"], organization:).updated_at
       organization.update(tos_version:)
     end
   end

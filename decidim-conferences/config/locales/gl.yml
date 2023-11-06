@@ -5,7 +5,6 @@ gl:
         assemblies_ids: Asembleas relacionadas
         available_slots: Prazas dispoñíbeis
         banner_image: Imaxe do banner
-        consultations_ids: Consultas relacionadas
         copy_categories: Copiar categorías
         copy_components: Copiar compoñentes
         copy_features: Copiar funcións
@@ -28,7 +27,6 @@ gl:
         show_statistics: Amosar estatísticas
         sign_date: Data de sinatura
         signature: Sinatura
-        signature_name: nome da sinatura
         slogan: Eslogan
         slug: URL slug
         start_date: Data de inicio
@@ -37,13 +35,11 @@ gl:
         date: Data
         link: Ligazón
         title: Título
-        weight: Peso
       conference_partner:
         link: Ligazón
         logo: Logotipo
         name: Nome
         partner_type: Tipo de socio
-        weight: Peso
       conference_registration_invite:
         email: Correo electrónico
         name: Nome
@@ -53,25 +49,17 @@ gl:
         description: Descrición
         price: Prezo
         title: Título
-        weight: Peso
       conference_speaker:
         affiliation: Afiliación
         avatar: Avatar
         conference_meeting_ids: Xuntanzas relacionadas
         full_name: Nome completo
         position: Posición
-        twitter_handle: Conta do Twitter
         user_id: Usuario
       conference_user_role:
         email: Correo electrónico
         name: Nome
         role: Rol
-    errors:
-      models:
-        conference_registration_invite:
-          attributes:
-            email:
-              already_invited: Este correo electrónico xa foi convidado
   activerecord:
     models:
       decidim/conference:
@@ -87,7 +75,6 @@ gl:
     admin:
       actions:
         confirm: Confirmar
-        new_conference: Nova conferencia
         send_diplomas: Enviar certificados de asistencia
       conference_copies:
         new:
@@ -131,8 +118,6 @@ gl:
         edit:
           title: Actualiza o usuario da conferencia.
           update: Actualización
-        index:
-          conference_admins_title: usuarios de conferencias
         new:
           create: Crear
           title: Novo usuario da conferencia.
@@ -150,7 +135,6 @@ gl:
         form:
           title: Información xeral
         index:
-          not_published: Non publicado
           published: Publicado
         new:
           create: Crear
@@ -191,7 +175,6 @@ gl:
           conference_invites: Invitacións
           conference_speakers: Ponentes
           diploma: Certificado de asistencia
-          info: Información
           media_links: Ligazóns multimedia
           moderations: Moderacións
           partners: Socios
@@ -202,7 +185,6 @@ gl:
         conference:
           fields:
             created_at: Creado en
-            promoted: Promocionado
             published: Publicado
             title: Título
         conference_speaker:
@@ -321,9 +303,6 @@ gl:
         title: Ponentes
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a esta conferencia. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
         conference_invites:
           create:
             error: Houbo un problema ao invitar ao usuario a unirse á conferencia.
@@ -340,12 +319,10 @@ gl:
               all: Todo
               rejected: Rexeitado
               sent: Enviado
-            filter_by: Filtrar por
             invite_attendee: Invitar asistente
             invites: Invitacións
             search: Busca
           new:
-            explanation: Invitarase ao usuario a participar nunha conferencia. Se o correo electrónico non está rexistrado, tamén serán invitados á organización.
             invite: Invitar
             new_invite: Invitar ao usuario
         conference_registrations:
@@ -365,7 +342,6 @@ gl:
             registrations_count:
               one: Houbo 1 rexistro.
               other: Houbo %{count} rexistros.
-            slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a esta conferencia. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
         diplomas:
           edit:
             save: Gardar
@@ -373,7 +349,7 @@ gl:
         invite_join_conference_mailer:
           invite:
             decline: Declina a invitación '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} convidoute a unirse a unha conferencia en %{application}. Podes rexeitalo ou aceptalo a través das ligazóns a continuación."
+            invited_existing_user_to_join_a_conference: "%{invited_by} convidoute a unirse a unha conferencia en %{application}. Podes rexeitalo ou aceptalo a través das ligazóns a continuación."
             registration: Rexistro para '%{conference_title}'
         partners:
           index:
@@ -398,18 +374,11 @@ gl:
           cancel: Cancelar
           confirm: Confirmar
         show:
-          free: Gratis
           going: Indo
           no_slots_available: Non hai slots dispoñibles
           registration: Rexistro
       conference_program:
-        program_meeting:
-          content: Contido
-          location: Localización
-          speakers: Ponentes
-          streaming: Transmisión
         show:
-          day: Día
           program: Programa
       conference_registration_mailer:
         confirmation:
@@ -431,7 +400,6 @@ gl:
           invalid: Houbo un problema deixando esta conferencia.
           success: Deixaches con éxito a conferencia.
       conference_speaker:
-        go_to_twitter: Ir a Twitter
         more_info: máis información
         personal_website: Sitio web persoal
         show:
@@ -440,18 +408,12 @@ gl:
       conference_speaker_cell:
         personal_url:
           personal_website: Sitio web persoal
-        twitter_handle:
-          go_to_twitter: Ir a Twitter
-      conference_speakers:
-        index:
-          speakers: Ponentes
       conferences:
         partners:
           collaborators: Socios
           main_promotors: Organizadores
         show:
           login_as: Estás conectado como %{name} <%{email}>
-          make_conference_registration: 'Fai a túa inscrición na conferencia:'
           register: Rexistrarse
       content_blocks:
         highlighted_conferences:
@@ -459,11 +421,6 @@ gl:
       index:
         title: Conferencias
       mailer:
-        conference_registration_mailer:
-          confirmation:
-            subject: O rexistro da túa conferencia foi confirmado
-          pending_validation:
-            subject: A inscrición da túa conferencia está pendente de confirmación
         invite_join_conference_mailer:
           invite:
             subject: Invitación para participar nunha conferencia
@@ -494,38 +451,18 @@ gl:
       pages:
         home:
           highlighted_conferences:
-            active_conferences: Conferencias activas
-            conferences_button_title: Ligazón á páxina de Conferencias que amosa todas as conferencias
-            see_all_conferences: Ver todas as conferencias
-      photo:
-        image:
-          attributes:
-            alt: Imaxe
-        show:
-          close_modal: Pechar modal
-          photo: Foto
-      photos_list:
-        show:
-          related_photos: Fotos
+            active_spaces: Conferencias activas
       registration_types:
         index:
           choose_an_option: 'Elixe a túa opción de rexistro:'
-          login_as: Estás conectado como %{name} <%{email}>
           no_registrations: Sen rexistros
           register: Rexistrarse
           title: Tipos de rexistro
-      shared:
-        conference_user_login:
-          already_account: Xa tes unha conta en decidir?
-          new_user: Novo usuario?
-          sign_in: Iniciar sesión para rexistrarse na conferencia
-          sign_up: Crea unha conta na que decidimos rexistrarte para a conferencia
       show:
         details: Detalles
         introduction: Introdución
         objectives: Obxectivos
         related_assemblies: Asembleas relacionadas
-        related_consultations: Consultas relacionadas
         related_participatory_processes: Procesos participativos relacionados
     events:
       conferences:
@@ -561,10 +498,6 @@ gl:
       participatory_spaces:
         conferences:
           title: Que son as conferencias?
-    log:
-      value_types:
-        conference_presenter:
-          not_found: 'Non se atopou a conferencia na base de datos (ID: %{id})'
     media:
       index:
         description: Ligazóns sobre esta conferencia
@@ -581,9 +514,6 @@ gl:
     decidim:
       conference_hero:
         register: Rexistrarse
-      conference_widgets:
-        show:
-          take_part: Tomar parte en
       conferences:
         conference:
           more_info: Máis información
@@ -594,11 +524,7 @@ gl:
           conferences:
             one: "%{count} conferencia"
             other: "%{count} conferencias"
-        promoted_conference:
-          more_info: Máis información
-          take_part: Tomar parte en
       conferences_nav:
-        conference_menu_item: Información
         conference_partners_menu_item: Socios
         conference_speaker_menu_item: Ponentes
         media: Medios de comunicación

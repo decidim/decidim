@@ -8,7 +8,7 @@ module Decidim
       routes { Decidim::ParticipatoryProcesses::Engine.routes }
 
       let(:organization) { create(:organization) }
-      let!(:process_group) { create :participatory_process_group, organization: }
+      let!(:process_group) { create(:participatory_process_group, organization:) }
 
       describe "GET show" do
         before do
@@ -24,9 +24,9 @@ module Decidim
         end
 
         context "when the process group do not belong to the organization" do
-          let!(:process_group) { create :participatory_process_group }
+          let!(:process_group) { create(:participatory_process_group) }
 
-          it "redirects to 404 if there aren't any" do
+          it "redirects to 404 if there are not any" do
             expect { get :show, params: { id: process_group.id } }.to raise_error(ActiveRecord::RecordNotFound)
           end
         end

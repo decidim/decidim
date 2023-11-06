@@ -61,6 +61,7 @@ module Decidim
   autoload :ViewHooks, "decidim/view_hooks"
   autoload :ContentBlockRegistry, "decidim/content_block_registry"
   autoload :ContentBlockManifest, "decidim/content_block_manifest"
+  autoload :ContentBlocks, "decidim/content_blocks"
   autoload :MetricRegistry, "decidim/metric_registry"
   autoload :MetricManifest, "decidim/metric_manifest"
   autoload :MetricOperation, "decidim/metric_operation"
@@ -110,15 +111,26 @@ module Decidim
   autoload :AttributeObject, "decidim/attribute_object"
   autoload :Query, "decidim/query"
   autoload :Command, "decidim/command"
+  autoload :SocialShareServiceManifest, "decidim/social_share_service_manifest"
   autoload :EventRecorder, "decidim/event_recorder"
   autoload :ControllerHelpers, "decidim/controller_helpers"
   autoload :ProcessesFileLocally, "decidim/processes_file_locally"
-  autoload :RedesignLayout, "decidim/redesign_layout"
-  autoload :DisabledRedesignLayout, "decidim/disabled_redesign_layout"
+  autoload :BlockRegistry, "decidim/block_registry"
+  autoload :DependencyResolver, "decidim/dependency_resolver"
+  autoload :Upgrade, "decidim/upgrade"
+  autoload :ParticipatorySpaceUser, "decidim/participatory_space_user"
+  autoload :ModerationTools, "decidim/moderation_tools"
+  autoload :ContentSecurityPolicy, "decidim/content_security_policy"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
   def self.seed!
+    # After running the migrations, some records may have loaded their column
+    # caches at different stages of the migration process, so in order to
+    # prevent any "undefined method" errors if these tasks are run
+    # consecutively, reset the column cache before the migrations.
+    reset_all_column_information
+
     # Faker needs to have the `:en` locale in order to work properly, so we
     # must enforce it during the seeds.
     original_locale = I18n.available_locales
@@ -158,6 +170,17 @@ module Decidim
     I18n.available_locales = original_locale
   end
 
+  # Finds all currently loaded Decidim ActiveRecord classes and resets their
+  # column information.
+  def self.reset_all_column_information
+    ActiveRecord::Base.descendants.each do |cls|
+      next if cls.name.nil? # abstract classes registered during tests
+      next if cls.abstract_class? || !cls.name.match?(/^Decidim::/)
+
+      cls.reset_column_information
+    end
+  end
+
   # Exposes a configuration option: The application name String.
   config_accessor :application_name
 
@@ -177,7 +200,7 @@ module Decidim
 
   # Exposes a configuration option: The application available locales.
   config_accessor :available_locales do
-    %w(en bg ar ca cs da de el eo es es-MX es-PY et eu fi-pl fi fr fr-CA ga gl hr hu id is it ja ko lb lt lv mt nl no pl pt pt-BR ro ru sk sl sr sv tr uk vi zh-CN zh-TW)
+    %w(en bg ar ca cs da de el eo es es-MX es-PY et eu fa fi-pl fi fr fr-CA ga gl hr hu id is it ja ko lb lt lv mt nl no pl pt pt-BR ro ru sk sl sr sv tr uk vi zh-CN zh-TW)
   end
 
   # Exposes a configuration option: The application default locale.
@@ -233,10 +256,10 @@ module Decidim
       ref = ""
 
       if resource.is_a?(Decidim::HasComponent) && component.present?
-        # It's a component resource
+        # It is a component resource
         ref = component.participatory_space.organization.reference_prefix
       elsif resource.is_a?(Decidim::Participable)
-        # It's a participatory space
+        # It is a participatory space
         ref = resource.organization.reference_prefix
       end
 
@@ -308,7 +331,7 @@ module Decidim
     30.minutes
   end
 
-  # If set to true, users have option to "remember me". Notice that expire_session_after won't take
+  # If set to true, users have option to "remember me". Notice that expire_session_after will not take
   # effect when the user wants to be remembered.
   config_accessor :enable_remember_me do
     true
@@ -364,10 +387,9 @@ module Decidim
     # "MyTranslationService"
   end
 
-  # If set to true redesigned versions of layouts and cells will be used by
-  # default
-  config_accessor :redesign_active do
-    false
+  # Social Networking services used for social sharing
+  config_accessor :social_share_services do
+    %w(X Facebook WhatsApp Telegram)
   end
 
   # The Decidim::Exporters::CSV's default column separator
@@ -404,23 +426,24 @@ module Decidim
     1_000
   end
 
-  # Defines the name of the cookie used to check if the user allows Decidim to
-  # set cookies.
+  # Defines the name of the cookie used to check if the user has given consent
+  # to store local data in their browser.
   config_accessor :consent_cookie_name do
     "decidim-consent"
   end
 
-  # Defines cookie categories. Note that when adding a cookie you need to
-  # add following i18n entries also (change 'foo' with the name of the cookie).
+  # Defines data consent categories. Note that when adding an item you need to
+  # add following i18n entries also (change 'foo' with the name of the data
+  # which can be a cookie for instance).
   #
-  # layouts.decidim.cookie_consent.cookie_details.cookies.foo.service
-  # layouts.decidim.cookie_consent.cookie_details.cookies.foo.description
+  # layouts.decidim.data_consent.details.items.foo.service
+  # layouts.decidim.data_consent.details.items.foo.description
   config_accessor :consent_categories do
     [
       {
         slug: "essential",
         mandatory: true,
-        cookies: [
+        items: [
           {
             type: "cookie",
             name: "_session_id"
@@ -428,6 +451,10 @@ module Decidim
           {
             type: "cookie",
             name: Decidim.consent_cookie_name
+          },
+          {
+            type: "local_storage",
+            name: "pwaInstallPromptSeen"
           }
         ]
       },
@@ -446,9 +473,14 @@ module Decidim
     ]
   end
 
-  # Blacklisted passwords. Array may contain strings and regex entries.
-  config_accessor :password_blacklist do
+  # Denied passwords. Array may contain strings and regex entries.
+  config_accessor :denied_passwords do
     []
+  end
+
+  # Ignores strings similar to email / domain on password validation if too short
+  config_accessor :password_similarity_length do
+    4
   end
 
   # Defines if admins are required to have stronger passwords than other users
@@ -478,6 +510,18 @@ module Decidim
   # Enable/Disable the service worker
   config_accessor :service_worker_enabled do
     Rails.env.exclude?("development")
+  end
+
+  # List of static pages' slugs that can include content blocks
+  config_accessor :page_blocks do
+    %w(terms-of-service)
+  end
+
+  # List of additional content security policies to be appended to the default ones
+  # This is useful for adding custom CSPs for external services like Here Maps, YouTube, etc.
+  # Read more: https://docs.decidim.org/en/develop/configure/initializer#_content_security_policy
+  config_accessor :content_security_policies_extra do
+    {}
   end
 
   # Public: Registers a global engine. This method is intended to be used
@@ -553,6 +597,16 @@ module Decidim
     resource_registry.register(name, &)
   end
 
+  # Public: Registers a social share service.
+  #
+  # Returns nothing.
+  def self.register_social_share_service(name, &)
+    social_share_services_registry.register(name, &)
+  end
+
+  # Public: Registers a notification setting.
+  #
+  # Returns nothing.
   def self.notification_settings(name, &)
     notification_settings_registry.register(name, &)
   end
@@ -620,6 +674,7 @@ module Decidim
     @participatory_space_registry ||= ManifestRegistry.new(:participatory_spaces)
   end
 
+  # Public: Stores the registry of reminders
   def self.reminders_registry
     @reminders_registry ||= ReminderRegistry.new
   end
@@ -629,6 +684,12 @@ module Decidim
     @resource_registry ||= ManifestRegistry.new(:resources)
   end
 
+  # Public: Stores the registry of social shares services
+  def self.social_share_services_registry
+    @social_share_services_registry ||= ManifestRegistry.new(:social_share_services)
+  end
+
+  # Public: Stores the registry of notifications settings
   def self.notification_settings_registry
     @notification_settings_registry ||= ManifestRegistry.new(:notification_settings)
   end
@@ -636,6 +697,11 @@ module Decidim
   # Public: Stores the registry for user permissions
   def self.permissions_registry
     @permissions_registry ||= PermissionsRegistry.new
+  end
+
+  # Public: Stores the registry for authorization transfer handlers
+  def self.authorization_transfer_registry
+    @authorization_transfer_registry ||= BlockRegistry.new
   end
 
   # Public: Stores an instance of StatsRegistry
@@ -719,14 +785,45 @@ module Decidim
     Rails.autoloaders.main.ignore(path) if Rails.configuration.autoloader == :zeitwerk
   end
 
-  # Checks if a particular decidim gem is installed
-  # Note that defined(Decidim::Something) does not work all the times, specially when the
-  # Gemfile uses the "path" parameter to find the module.
-  # This is because the module can be defined by some files searched by Rails automatically
-  # (ie: decidim-initiatives/lib/decidim/initiatives/version.rb automatically defines Decidim::Intiatives even if not required)
-  # for extra safety, we check if the module is defined (via safe_constantize), this should enable situations
-  # like adding a line like 'gem "decidim-consultations", require: false' where the gem is loaded but not required
+  # Checks if a particular decidim gem is installed and needed by this
+  # particular instance. Preferrably this happens through bundler by inspecting
+  # the Gemfile of the instance but when Decidim is used without bundler, this
+  # will check:
+  # 1. If the gem is globally available or not in the loaded specs, i.e. the
+  #    gems available in the gem install directory/directories.
+  # 2. If the gem has been required through `require "decidim/foo"`.
+  #
+  # Using bundler is suggested as it will provide more accurate results
+  # regarding what is actually needed. It will resolve all the gems listed in
+  # the Gemfile and also their dependencies which provides us accurate
+  # information whether a gem is needed by the instance or not.
+  #
+  # Note that using something like defined?(Decidim::Foo) will not work because
+  # the way the Decidim handles version definitions for each gem. After the gems
+  # are loaded, this would always return true because the version definition
+  # files of each module define that module which means it is available at
+  # runtime if the gem is installed in the gem load path. In some situations it
+  # can be installed there through other projects or through the command line
+  # even if the instance does not require that module or even through
+  # installing gems from git sources or from file paths.
+  #
+  # When a gem is reported as "needed" by the dependency resolver, this will
+  # also require that module ensuring its availability for the initialization
+  # code.
+  #
+  # @param mod [Symbol, String] The module name to check, e.g. `:proposals`.
+  # @return [Boolean] A boolean indicating whether the module is installed.
   def self.module_installed?(mod)
-    Gem.loaded_specs.has_key?("decidim-#{mod}") && "Decidim::#{mod.to_s.camelize}".safe_constantize
+    return false unless Decidim::DependencyResolver.instance.needed?("decidim-#{mod}")
+
+    # The dependency may not be automatically loaded through the Gemfile if the
+    # user lists e.g. "decidim-core" and "decidim-budgets" in it. In this
+    # situation, "decidim-comments" is also needed because it is a dependency
+    # for "decidim-budgets".
+    require "decidim/#{mod}"
+
+    true
+  rescue LoadError
+    false
   end
 end

@@ -10,6 +10,7 @@ ja:
         end_time: 終了時刻
         information_updates: 情報の更新
         instructions: 参加方法
+        scope_id: スコープ
         start_time: 開始
         title: タイトル
         user_group_id: ディベートを作成
@@ -49,7 +50,6 @@ ja:
         confirm_destroy: よろしいですか？
         destroy: 削除
         edit: 編集
-        new: 新しい %{name}
         title: アクション
       admin:
         debate_closes:
@@ -79,9 +79,6 @@ ja:
             success: ディベートが正常に更新されました。
         exports:
           comments: コメント
-        models:
-          debate:
-            name: ディベート
       admin_log:
         debate:
           close: "%{user_name} は、 %{resource_name} スペースの %{space_name} ディベートを終了しました"
@@ -94,7 +91,7 @@ ja:
           invalid: ディベートを閉じるのに失敗しました。
           success: ディベートが正常に終了しました。
         close_debate_modal:
-          close: 閉じる
+          cancel: キャンセル
           description: このディベートの要約または結論は何ですか?
           send: ディベートを閉じる
         closed: 終了
@@ -118,20 +115,14 @@ ja:
           commented: 'コメント:'
           my_debates: 私の議論
           official: 事務局
-          origin: 起案者：
+          origin: 起案者
           participants: 参加者
-          scope: スコープ
           search: 検索
           state: ステータス
           state_values:
             closed: 終了
             open: 公開
-          user_groups: グループ
-        filters_small_view:
-          close_modal: モーダルを閉じる
-          filter: フィルター
-          filter_by: フィルター
-          unfold: 展開する
+          user_group: グループ
         form:
           select_a_category: カテゴリを選択してください
         index:
@@ -147,7 +138,6 @@ ja:
           recent: 新着順
           updated: 更新が新しい順
         show:
-          back: リストに戻る
           close_debate: ディベートを終了する
           date: 日付
           debate_closed: 終了
@@ -155,28 +145,21 @@ ja:
           edit_conclusions: 結論を編集
           edit_debate: ディベートを編集
           groups_count: グループ
-          last_comment_by: 最新コメント
-          no_comments_yet: コメントがありません
           open: 公開ディベート
           participants_count: 参加者
         update:
           invalid: ディベートの更新に問題がありました。
           success: ディベートが正常に更新されました。
-        versions:
-          debates:
-            back_to_resource: ディベートに戻る
-          index:
-            title: バージョン
-        versions_list:
-          back_to_resource: ディベートに戻る
       last_activity:
-        debate_updated_at_html: "<span>ディベートが %{link} に更新されました</span>"
-        new_debate_at_html: "<span> %{link}での新しいディベート</span>"
+        debate_updated: 'ディベートの更新日時:'
+        new_debate: '新しいディベート:'
       models:
         debate:
           fields:
+            end: 終了
             end_time: 終了日
             official_debate: 公式のディベート
+            start: 開始
             start_time: 開始日
             title: タイトル
     events:
@@ -205,7 +188,7 @@ ja:
           email_intro: '%{participatory_space_title}で新しいディベートを開始できます! このページに参加してください:'
           email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
           email_subject: ディベートは %{participatory_space_title} で利用可能になりました
-          notification_title: <a href="%{participatory_space_url}">%{participatory_space_title}</a> 内で <a href="%{resource_path}">新しいディベート</a> を開始できます。
+          notification_title: <a href="%{participatory_space_url}">%{participatory_space_title}</a>で<a href="%{resource_path}">新しいディベート</a>を開始できます。
         debate_closed:
           affected_user:
             email_intro: '「%{resource_title}」のディベートは終了しました。そのページから結論を読むことができます。'
@@ -228,7 +211,7 @@ ja:
           name: ディベート
           next_level_in: さらに %{score} のディベートに参加して、次のレベルに到達しましょう！
           unearned_another: この参加者はまだディベートに参加していません。
-          unearned_own: まだディベートに参加していません。
+          unearned_own: まだどのディベートにも参加していません。
     metrics:
       debates:
         description: 作成されたディベート数

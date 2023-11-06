@@ -40,9 +40,6 @@ gl:
             'true': Sen asinar
         validated_eq:
           label: Validado
-          values:
-            'false': Validado
-            'true': Sen validar
     components:
       elections:
         actions:
@@ -54,7 +51,6 @@ gl:
         manage_answers: Xestionar respostas
         manage_questions: Xestionar preguntas
         manage_steps: Xestionar pasos
-        new: Nova %{name}
         publish: Publicar
         title: Accións
       admin:
@@ -82,12 +78,6 @@ gl:
         models:
           answer:
             name: Resposta
-          election:
-            name: Elección
-          question:
-            name: Pregunta
-          trustee:
-            name: Comisario
         questions:
           edit:
             title: Editar pregunta
@@ -117,13 +107,9 @@ gl:
             question: Pregunta
             result: Resultado
             selected: Seleccionado
-            success: A solicitude de publicación de resultados foi enviada con éxito ao Bulletin Board
             title: Resultados calculados
           tally_started:
-            invalid: Produciuse un problema ao denunciar o comisario ausente
             mark_as_missing: Marcar coma ausente
-            mark_as_missing_description: Todos os comisarios teñen que participar neste proceso, mais se un comisario non pode tomar parte pode ser sinalado como ausente.
-            success: O informe sobre o comisario ausente foi enviado con éxito ao Bulletin Board
             tally_completion: O proceso completarase cando todos os comisarios estean activos ou marcados coma ausentes. Son necesarios polo menos %{quorum} comisarios para completar o proceso.
             undo_mark_as_missing: Un comisario sinalado como ausente poderá participar antes de se completar o proceso. Poderá proceder como é usual e a marca de ausencia será ignorada.
           vote_ended:
@@ -159,7 +145,6 @@ gl:
           download: Descargar
           not_available: Aínda non dispoñíbel
           not_created: Sen crear
-          not_published: Sen publicar
           not_started: Sen iniciar
           published: Publicado
           results_description:
@@ -173,12 +158,7 @@ gl:
           all: Todas
           date: Data
           finished: Finalizada
-          search: Procurar
           upcoming: Vindeiras
-        filters_small_view:
-          close_modal: Pechar modal
-          filter: Filtrar
-          filter_by: Filtrar por
         preview:
           available_answers: 'Respostas dispoñibles:'
           description: 'Estas son as preguntas que atoparás non proceso de votación:'
@@ -240,15 +220,11 @@ gl:
                 bb_status: Estado
             identification_keys:
               submit: Enviar
-              upload_error:
-                invalid_public_key: As claves de identificación no ficheiro a subir non coinciden coas claves públicas almacenadas.
-              upload_legend: O servidor ten as túas claves públicas, mais o teu navegador aínda non. Precisas importar ao teu computador o ficheiro coas túas claves de identificación dende a copia de seguranza creada despois de xerar as chaves.
       votes:
         ballot_decision:
-          audit: "( Auditar papeleta )"
+          audit: ( Auditar papeleta )
           back: Comezar o proceso de voto de novo
           ballot_hash: 'O identificador da túa papeleta é:'
-          description: Aquí tes as opcións para emitir a túa papeleta e que sexa contada de xeito válido ou, alternativamente, podes auditar o correcto cifrado da túa papeleta. Por razóns de seguranza, a auditoría danará a túa papeleta, o que significa, que terás de reiniciar o proceso de votación para emitir o teu voto.
         confirmed:
           experience: Como valoras a túa experiencia?
           feedback: Dános a túa opinión
@@ -262,14 +238,11 @@ gl:
         header:
           ballot_decision: Enviar ou auditar o teu voto
           confirm: Confirma o teu voto
-          confirmed: Voto confirmado
-          encrypting: Cifrando o voto
         messages:
           invalid_token: A túa sesión na cabina de votación non é válida. Tenta votar de novo.
         modal:
           close: Pechar
         onboarding_modal:
-          close: Pechar modal
           create_account: Crear conta
           description: Queres crear unha conta nova na plataforma? Poderás participar nos procesos e ser unha parte activa da organización.
           no_account: Non, grazas.
@@ -284,7 +257,6 @@ gl:
         votes:
           accepted_votes:
             email_intro: 'O teu voto foi aceptado! Empregando o teu token de votación: %{encrypted_vote_hash}, podes verificar o teu voto <a href="%{verify_url}">aquí</a>.'
-            email_outro: Recibiches esta notificación porque votaches pola elección de %{resource_name}.
             email_subject: O teu voto por %{resource_name} foi aceptado.
             notification_title: 'O teu voto foi aceptado, verifícao <a href="%{verify_url}">aquí</a> empregando o teu token de votación: %{encrypted_vote_hash}'
       votings:
@@ -297,12 +269,6 @@ gl:
     votings:
       admin:
         ballot_styles:
-          create:
-            error: Produciuse un erro ao crear este estilo de papeleta
-            success: Estilo de papeleta creado con éxito
-          destroy:
-            invalid: Produciuse un erro ao eliminar este estilo de papeleta
-            success: Estilo de papeleta eliminado con éxito
           edit:
             title: Editar estilo da papeleta
             update: Actualizar
@@ -314,15 +280,11 @@ gl:
               confirm_destroy: Estás certo/a?
               destroy: Eliminar
               edit: Editar
-              new: Novo
               title: Accións
             title: Estilos de papeletas
           new:
             create: Crear
             title: Crear un estilo de papeleta
-          update:
-            invalid: Produciuse un erro ao modificar este estilo de papeleta
-            success: Estilo de papeleta modificado con éxito
         menu:
           votings_submenu:
             ballot_styles: Estilos de papeletas
@@ -337,7 +299,6 @@ gl:
           ballot_style:
             fields:
               code: Código
-            name: Estilo de papeleta
         monitoring_committee_election_results:
           actions:
             title: Accións
@@ -362,9 +323,7 @@ gl:
             publish_results: Publicar resultados
             publishing: Publicando resultados...
           update:
-            invalid: Produciuse un problema ao publicar os resultados
             rejected: A publicación dos resultados foi rexeitada polo Boletín de Información. Téntao de novo ou contacta co administrador do sistema.
-            success: Resultados publicados con éxito
         monitoring_committee_polling_station_closures:
           actions:
             title: Accións
@@ -403,22 +362,12 @@ gl:
       census:
         admin:
           census:
-            create:
-              invalid_csv_header: Faltan as cabeceiras CSV ou non son correctas - por favor, le as instrucións con cuidado
-            creating_data:
-              info_message: "<strong>Agarda</strong>, procesadas %{processed_count} de %{raw_count} filas do ficheiro %{file}."
             delete:
               button: Eliminar todos os datos do censo
-            destroy:
-              success: Datos do censo eliminados
             export_access_codes:
               button: Exportar códigos de acceso da votación
               callout: Agora xa podes exportar os códigos de acceso. Só é posíbel facelo unha vez. Así que inicies a exportación, recibirás un correo electrónico coas instrucións en <strong>%{email}</strong>
               confirm: Só podes exportar os códigos de acceso unha vez. Asegúrate de ter acceso á conta de correo <strong>%{email}</strong>.
-              launch_error: Produciuse un problema ao iniciar a exportación dos códigos de acceso
-              launch_success: Iniciada a exportación dos códigos de acceso. Nun intre recibirás un correo en %{email}
-            exporting_access_codes:
-              info_message: "<strong>Agarda</strong>, a exportación esta a ser preparada, a recibirás nun intre en %{email}"
             freeze:
               callout: O censo está conxelado e non pode ser modificado.
             generate_access_codes:
@@ -429,8 +378,6 @@ gl:
               info_message_warn: Por favor, verifica que non se perderan datos, xa que se teñen creado %{data_count} rexistros e o ficheiro subido %{file} ten %{raw_count} filas.
               launch_error: Produciuse un problema ao iniciar a xeración dos códigos de acceso
               launch_success: Xeración dos códigos iniciada.
-            generating_access_codes:
-              info_message: "<strong>Agarda</strong>, os códigos de acceso para votar están a ser xerados..."
             new:
               file_help:
                 explanation: 'Instrucións para o ficheiro:'
@@ -449,19 +396,11 @@ gl:
             click_button: 'Fai clic na seguinte ligazón para descargar os datos dos códigos de acceso.<br/>O ficheiro estará dispoñíbel até o %{date}.<br/>É preciso que teñas <a href="https://www.7-zip.org/">7-Zip</a> (para Windows), <a href="https://www.keka.io/en/">Keka</a> (para macOS) ou <a href="https://peazip.github.io">PeaZip</a> (para Linux). Contrasinal: %{password}'
             download: Descargar
             subject: A exportación dos códigos de acceso á votación de %{voting_title} xa están dispoñibles
-        vote_flow:
-          datum_not_found: Non hai ningún votante con estes datos.
       content_blocks:
         landing_page:
-          description:
-            title: Sobre esta votación
-          metrics:
-            heading: Métricas
           polling_stations:
             heading: Puntos de votación
             no_polling_stations: Aínda non hai puntos de votación.
-          timeline:
-            heading: Liña de tempo
       polling_officer_zone:
         closures:
           back_to_polling_stations: Volver aos puntos de votación
@@ -478,7 +417,6 @@ gl:
             info_text: Por favor, insire o número total de respostas por cada pregunta.
             modal_ballots_results_count_error:
               close_modal: Pechar
-              info_text: O número total de papeletas non coincide co número de sobres. Por favor, revisa o total de papeletas.
               title: O total de papeletas non coincide
             save_recount: Gardar reconto
             total_ballots: Total de papeletas
@@ -491,8 +429,6 @@ gl:
             info_text: 'Por favor, insire o número total de papeletas (sobres) recontados neste punto de votación:'
             modal_ballots_count_error:
               btn_validate_total: Validar o reconto total de papeletas
-              close_modal: Pechar
-              info_text: O número total de papeletas (sobres) inseridas non coincide co rexistro de persoas que votaron neste punto de votación.
               message_for_monitoring_committee: Mensaxe para o comité de seguimento
               review_recount: Revisar o reconto
               text_area_placeholder: Por favor, escribe a túa mensaxe
@@ -506,7 +442,6 @@ gl:
             heading: Reconto de votos
           sign:
             cancel: Cancelar
-            close_modal: Pechar
             error: Produciuse un erro, téntao de novo.
           update:
             error: Produciuse un erro ao actualizar os resultados do peche, téntao de novo.
@@ -515,7 +450,6 @@ gl:
           complete_voting:
             available_answers: 'Respostas dispoñibles:'
             complete_voting: Completar votación
-            questions_title: 'Teñen dereito a votar nas seguintes preguntas:'
           in_person_form:
             census_not_present: Este participante non está no censo.
             census_not_present_description: Ten de ir á oficina de reclamacións do censo ou contactar coa asistencia técnica.
@@ -570,7 +504,6 @@ gl:
       votings:
         access_code_modal:
           email: Enviar a través de correo electrónico a %{email}
-          info: Precisas dun código de acceso para participar. Se non recibiches ningún por correo postal, podemos enviarche un de novo.
           no_email: Correo electrónico non dispoñíbel
           no_sms: Número de teléfono non dispoñíbel
           sms: Enviar a través de SMS a %{sms}
@@ -598,9 +531,7 @@ gl:
           year: Ano
           year_placeholder: YYYY
         elections_log:
-          bb_status: Estado da elección
           description: O rexistro da elección amosarache toda a información importante sobre cada votación. Por exemplo, o estado da cerimonia de chaves, o reconto ou se os resultados xa están publicados. Fai clic na elección da que desexas a información do rexistro.
-          election_log: Rexistro da elección
           title: Rexistro da elección
         filters:
           date: Data
@@ -608,18 +539,11 @@ gl:
           access_code: Código de acceso
           access_code_placeholder: Código de acceso
           ask_for_a_new_one: Solicitar un novo.
-          dont_have_access_code: Non tes un código de acceso?
           form_title: 'Enche o seguinte formulario para acceder á votación:'
           start_voting: Comezar votación
-          step: Identificación
           title: Identificarme cos meus datos do censo da votación
-        no_census_contact_information: Aínda non hai ningunha información de contacto
-        send_access_code:
-          invalid: Produciuse un problema ao enviar o codigo de acceso
-          success: O código de acceso foi enviado con éxito
   layouts:
     decidim:
       voting_navigation:
         check_census: Podo votar?
         election_log: Rexistro da elección
-        voting_menu_item: A votación

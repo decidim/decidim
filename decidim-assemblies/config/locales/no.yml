@@ -51,7 +51,6 @@
         subtitle: Undertittel
         target: Hvem deltar
         title: Tittel
-        twitter: Twitter
         weight: Prioritert rekkefølge
         youtube: YouTube
       assembly_member:
@@ -92,7 +91,6 @@
         edit:
           update: Oppdater
         index:
-          not_published: Ikke publisert
           private: Privat
           public: Offentlig
           published: Publisert
@@ -190,7 +188,6 @@
           attachments: Vedlegg
           categories: Kategorier
           components: Komponenter
-          info: Info
           moderations: Moderering
           private_users: Private brukere
         assemblies_types: Forsamlingstyper
@@ -270,7 +267,6 @@
             select_an_area: Velg et Område
             select_an_assembly_type: Velg en forsamlingstype
             select_parent_assembly: Velg foreldre-forsamling
-            slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne forsamlingen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
             social_handlers: Sosial
             title: Generell Informasjon
             visbility: Synlighet
@@ -282,13 +278,6 @@
         assemblies_types:
           form:
             title: Tittel
-        assembly_copies:
-          form:
-            slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne forsamlingen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
-        assembly_imports:
-          form:
-            document_legend: Legg til et dokument
-            slug_help: 'URL-slugs brukes til å generere URL-er som peker til denne forsamlingen. Aksepterer kun bokstaver, tall og bindestreker og må starte med en bokstav. Eksempel: %{url}'
         assembly_members:
           form:
             existing_user: Eksisterende deltaker
@@ -304,7 +293,6 @@
               all: Alle
               ceased: Opphørt
               not_ceased: Ikke opphørt
-            filter_by: Filtrer etter
             search: Søk
         content_blocks:
           highlighted_assemblies:
@@ -342,44 +330,18 @@
         working_group: Arbeidsgruppe
       index:
         title: Forsamlinger
-      last_activity:
-        new_assembly: Ny forsamling
       pages:
-        home:
-          highlighted_assemblies:
-            active_assemblies: Aktive forsamlinger
-            assemblies_button_title: Lenke til forsamlingssiden som viser alle forsamlinger
-            see_all_assemblies: Se alle forsamlingene
         user_profile:
           member_of:
             member_of: Medlem av
       show:
-        area: Område
         assembly_type: Forsamlingstype
-        children: Forsamlinger
-        closing_date: Lukkings dato
-        composition: Sammensetning
-        created_by: Opprettet av
-        creation_date: Dato opprettet
-        developer_group: Promotør gruppe
         duration: Varighet
-        included_at: Inkludert på
-        indefinite_duration: Ubestemt
-        internal_organisation: Intern organisasjon
         is_transparent:
           'false': opaque
           'true': privat
-        local_area: Organisasjonsområdet
-        participatory_scope: Hva er bestemt
-        participatory_structure: Hvordan blir det bestemt
         private_space: Dette er en privat forsamling
-        purpose_of_action: Formål
-        read_less: Les mindre
-        read_more: Les mer
         related_participatory_processes: Relaterte deltakerprosesser
-        scope: Tema
-        social_networks: Sosiale nettverk
-        target: Hvem deltar
     assembly_members:
       assembly_member:
         designated_on: Utpekt på
@@ -421,9 +383,6 @@
         related_assemblies: Relaterte forsamlinger
     statistics:
       assemblies_count: Forsamlinger
-  errors:
-    messages:
-      cannot_be_blank: kan ikke være blank
   layouts:
     decidim:
       assemblies:
@@ -431,20 +390,10 @@
           more_info: Mer info
           take_part: Delta
         index:
-          children: 'Forsamlinger: '
-          organizational_chart: Organisasjonsgraf
           promoted_assemblies: Fremhevede forsamlinger
-          reset_chart: Tilbakestill
         order_by_assemblies:
           assemblies:
             one: "%{count} forsamling"
             other: "%{count} forsamlinger"
-        promoted_assembly:
-          more_info: Mer info
-          take_part: Delta
       assembly_navigation:
         assembly_member_menu_item: Medlemmer
-        assembly_menu_item: Forsamlingen
-      assembly_widgets:
-        show:
-          take_part: Delta

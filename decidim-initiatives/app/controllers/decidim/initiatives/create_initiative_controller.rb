@@ -2,13 +2,10 @@
 
 module Decidim
   module Initiatives
-    require "wicked"
-
     # Controller in charge of managing the create initiative wizard.
     class CreateInitiativeController < Decidim::Initiatives::ApplicationController
       layout "layouts/decidim/initiative_creation"
 
-      include Wicked::Wizard
       include Decidim::FormFactory
       include InitiativeHelper
       include TypeSelectorOptions
@@ -16,133 +13,104 @@ module Decidim
 
       helper Decidim::Admin::IconLinkHelper
       helper InitiativeHelper
-      helper_method :similar_initiatives
+      helper SignatureTypeOptionsHelper
+
       helper_method :scopes
       helper_method :areas
       helper_method :current_initiative
       helper_method :initiative_type
       helper_method :promotal_committee_required?
 
-      steps :select_initiative_type,
-            :previous_form,
-            :show_similar_initiatives,
-            :fill_data,
-            :promotal_committee,
-            :finish
+      before_action :authenticate_user!
+      before_action :ensure_type_exists,
+                    only: [:store_initiative_type, :fill_data, :store_data, :promotal_committee, :finish]
+      before_action :ensure_user_can_create_initiative,
+                    only: [:fill_data, :store_data, :promotal_committee, :finish]
+      before_action :ensure_initiative_exists, only: [:promotal_committee, :finish]
 
-      def show
-        send("#{step}_step", initiative: session_initiative)
+      def select_initiative_type
+        @form = form(Decidim::Initiatives::SelectInitiativeTypeForm).from_params(params)
+
+        redirect_to fill_data_create_initiative_index_path if single_initiative_type?
       end
 
-      def update
-        enforce_permission_to :create, :initiative, { initiative_type: initiative_type_from_params }
-        send("#{step}_step", params)
+      def store_initiative_type
+        @form = form(Decidim::Initiatives::SelectInitiativeTypeForm).from_params(params)
+
+        if @form.valid?
+          session[:type_id] = @form.type_id
+          redirect_to fill_data_create_initiative_index_path
+        else
+          render :select_initiative_type
+        end
+      end
+
+      def fill_data
+        @form = if session[:initiative_id].present?
+                  form(Decidim::Initiatives::InitiativeForm).from_model(current_initiative, { initiative_type: })
+                else
+                  extras = { type_id: initiative_type_id, signature_type: initiative_type.signature_type }
+                  form(Decidim::Initiatives::InitiativeForm).from_params(params.merge(extras), { initiative_type: })
+                end
+      end
+
+      def store_data
+        @form = form(Decidim::Initiatives::InitiativeForm).from_params(params, { initiative_type: })
+
+        CreateInitiative.call(@form, current_user) do
+          on(:ok) do |initiative|
+            session[:initiative_id] = initiative.id
+
+            path = promotal_committee_required? ? "promotal_committee" : "finish"
+
+            redirect_to send("#{path}_create_initiative_index_path".to_sym)
+          end
+
+          on(:invalid) do
+            render :fill_data
+          end
+        end
+      end
+
+      def promotal_committee
+        redirect_to finish_create_initiative_index_path unless promotal_committee_required?
+      end
+
+      def finish
+        current_initiative.presence
+        session[:type_id] = nil
+        session[:initiative_id] = nil
       end
 
       private
 
-      def select_initiative_type_step(_parameters)
-        @form = form(Decidim::Initiatives::SelectInitiativeTypeForm).instance
-        session[:initiative] = {}
-
-        if single_initiative_type?
-          redirect_to next_wizard_path
-          return
-        end
-
-        @form = form(Decidim::Initiatives::SelectInitiativeTypeForm).instance
-        render_wizard unless performed?
-      end
-
-      def previous_form_step(parameters)
-        @form = build_form(Decidim::Initiatives::PreviousForm, parameters)
-
+      def ensure_user_can_create_initiative
         enforce_permission_to :create, :initiative, { initiative_type: }
-
-        render_wizard
       end
 
-      def show_similar_initiatives_step(parameters)
-        @form = build_form(Decidim::Initiatives::PreviousForm, parameters)
-        unless @form.valid?
-          redirect_to previous_wizard_path(validate_form: true)
-          return
-        end
-
-        if similar_initiatives.empty?
-          @form = build_form(Decidim::Initiatives::InitiativeForm, parameters)
-          redirect_to wizard_path(:fill_data)
-        end
-
-        render_wizard unless performed?
+      def initiative_type_id
+        @initiative_type_id ||= fetch_initiative_type_id
       end
 
-      def fill_data_step(parameters)
-        @form = build_form(Decidim::Initiatives::InitiativeForm, parameters)
-        @form.attachment = form(AttachmentForm).from_params({})
+      def fetch_initiative_type_id
+        return current_organization_initiatives_type.first.id if single_initiative_type?
+        return params.dig(:initiative, :type_id) if params.dig(:initiative, :type_id).present?
+        return current_initiative&.type&.id if session[:initiative_id].present?
 
-        render_wizard
+        session[:type_id]
       end
 
-      def promotal_committee_step(parameters)
-        @form = build_form(Decidim::Initiatives::InitiativeForm, parameters)
-        unless @form.valid?
-          redirect_to previous_wizard_path(validate_form: true)
-          return
-        end
-
-        skip_step unless promotal_committee_required?
-
-        if session_initiative.has_key?(:id)
-          render_wizard
-          return
-        end
-
-        CreateInitiative.call(@form, current_user) do
-          on(:ok) do |initiative|
-            session[:initiative][:id] = initiative.id
-            if current_initiative.created_by_individual?
-              render_wizard
-            else
-              redirect_to wizard_path(:finish)
-            end
-          end
-
-          on(:invalid) do |initiative|
-            logger.fatal "Failed creating initiative: #{initiative.errors.full_messages.join(", ")}" if initiative
-            redirect_to previous_wizard_path(validate_form: true)
-          end
-        end
+      def ensure_initiative_exists
+        redirect_to fill_data_create_initiative_index_path if session[:initiative_id].blank?
       end
 
-      def finish_step(_parameters)
-        render_wizard
-      end
+      def ensure_type_exists
+        destination_step = single_initiative_type? ? "fill_data" : "select_initiative_type"
 
-      def similar_initiatives
-        @similar_initiatives ||= Decidim::Initiatives::SimilarInitiatives
-                                 .for(current_organization, @form)
-                                 .all
-      end
+        return if action_name == destination_step
+        return if initiative_type_id.present? && initiative_type.present?
 
-      def build_form(klass, parameters)
-        @form = if single_initiative_type?
-                  form(klass).from_params(parameters.except(:id).merge(type_id: current_organization_initiatives_type.first.id), extra_context)
-                else
-                  form(klass).from_params(parameters.except(:id), extra_context)
-                end
-
-        attributes = @form.attributes_with_values
-        session[:initiative] = session_initiative.merge(attributes)
-        @form.valid? if params[:validate_form]
-
-        @form
-      end
-
-      def extra_context
-        return {} unless initiative_type_id
-
-        { initiative_type: }
+        redirect_to send("#{destination_step}_create_initiative_index_path".to_sym)
       end
 
       def scopes
@@ -150,27 +118,15 @@ module Decidim
       end
 
       def current_initiative
-        Initiative.find(session_initiative[:id]) if session_initiative.has_key?(:id)
+        @current_initiative ||= Initiative.where(organization: current_organization).find_by(id: session[:initiative_id] || nil)
       end
 
       def initiative_type
-        @initiative_type ||= InitiativesType.find(initiative_type_id)
-      end
-
-      def initiative_type_from_params
-        Decidim::InitiativesType.find_by(id: params["initiative"]["type_id"])
-      end
-
-      def initiative_type_id
-        session_initiative[:type_id] || @form&.type_id
-      end
-
-      def session_initiative
-        session[:initiative] ||= {}
-        session[:initiative].with_indifferent_access
+        @initiative_type ||= InitiativesType.where(organization: current_organization).find_by(id: initiative_type_id)
       end
 
       def promotal_committee_required?
+        return false if initiative_type.blank?
         return false unless initiative_type.promoting_committee_enabled?
 
         minimum_committee_members = initiative_type.minimum_committee_members ||

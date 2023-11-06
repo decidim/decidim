@@ -6,7 +6,7 @@ module Decidim::Admin
   describe NewsletterRecipients do
     subject { described_class.new(form) }
 
-    let(:newsletter) { create :newsletter }
+    let(:newsletter) { create(:newsletter) }
     let(:organization) { newsletter.organization }
     let(:send_to_all_users) { true }
     let(:send_to_followers) { false }
@@ -68,9 +68,6 @@ module Decidim::Admin
               "manifest_name" => "conferences",
               "ids" => [] },
             { "id" => nil,
-              "manifest_name" => "consultations",
-              "ids" => [] },
-            { "id" => nil,
               "manifest_name" => "initiatives",
               "ids" => [] }
           ]
@@ -104,9 +101,6 @@ module Decidim::Admin
               "ids" => [] },
             { "id" => nil,
               "manifest_name" => "conferences",
-              "ids" => [] },
-            { "id" => nil,
-              "manifest_name" => "consultations",
               "ids" => [] },
             { "id" => nil,
               "manifest_name" => "initiatives",
@@ -177,8 +171,8 @@ module Decidim::Admin
             create_list(:user, 3, :confirmed, organization:, newsletter_notifications_at: Time.current, extended_data: { "interested_scopes" => user_interset.id })
           end
 
-          it "don't return recipients" do
-            expect(subject.query).to match_array []
+          it "do not return recipients" do
+            expect(subject.query).to be_empty
           end
         end
       end

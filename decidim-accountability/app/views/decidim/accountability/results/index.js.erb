@@ -1,2 +1,5 @@
 var $results = $('#results');
+var $project_frame = $('#project_frame');
+
 $results.html('<%= j(render partial: "results") %>');
+$project_frame.data("filteredPath", "<%= request.fullpath %>");

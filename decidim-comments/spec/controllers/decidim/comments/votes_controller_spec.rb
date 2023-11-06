@@ -8,7 +8,7 @@ module Decidim
       routes { Decidim::Comments::Engine.routes }
 
       let(:organization) { create(:organization) }
-      let(:participatory_process) { create :participatory_process, organization: }
+      let(:participatory_process) { create(:participatory_process, organization:) }
       let(:component) { create(:component, participatory_space: participatory_process) }
       let(:commentable) { create(:dummy_resource, component:) }
       let(:comment) { create(:comment, commentable:) }
@@ -31,7 +31,7 @@ module Decidim
           end
 
           context "when trying to vote on a private space where the user is not assigned to" do
-            let(:participatory_process) { create :participatory_process, :private, organization: }
+            let(:participatory_process) { create(:participatory_process, :private, organization:) }
 
             it "redirects with a flash alert" do
               post :create, xhr: true, params: { comment_id: comment.id, weight: 1 }

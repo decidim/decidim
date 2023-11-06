@@ -7,6 +7,7 @@ ca:
         decidim_scope_id: Àmbit
         description: Descripció
         end_date: Data de finalització
+        meetings_ids: Trobades relacionades
         progress: Progrés
         project_ids: Projectes inclosos
         proposals: Propostes incloses
@@ -38,8 +39,11 @@ ca:
         confirm_destroy: Segur que vols suprimir aquest %{name}?
         destroy: Esborrar
         edit: Editar
+        import: Importar projectes a resultats
         import_csv: Importar CSV
-        new: Nou/va %{name}
+        new_result: Afegir resultat
+        new_status: Afegir estat
+        new_timeline_entry: Afegir entrada de la cronologia
         preview: Previsualitzar
         timeline_entries: Evolució del projecte
         title: Accions
@@ -49,26 +53,61 @@ ca:
           results: Resultats
         import_results:
           new:
+            download_export: Descarregar l'exportació en format CSV
             import: Importar
-            info: "<p>Et recomanem que segueixis les passes següents:</p><ol><li>Crea els estats per als resultats que vulguis afegir (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Crea com a mínim un resultat manualment a través del taulell d'administració (<a href='%{link_new_result}' target='_blank'>link</a>) abans d'importar, per a entendre millor el format i com cal omplir-ho.</li><li>Descarrega l'arxiu en format CSV(%{link_export_csv})</li><li>Fes els canvis en local. Només pots modificar les següents columnes del CSV:</li></ol><ul><li><b>id category/id:</b> ID per la categoria</li><li><b>scope/id:</b> ID per a l'àmbit</li><li><b>parent/id:</b> ID per al pare (per a resultats relacionats). Opcional</li><li><b>title/I18N:</b> Title en la llengua X</li><li><b>description/I18N:</b> Descripció en la lleguna X </li><li><b>start_date:</b> data en la que s'inicia l'execució del resultat (format YYYY-MM-DD)</li><li><b>end_date:</b> data en la que finalitza l'execució del resultat (format YYYY-MM-DD)</li><li><b>status/id:</b> ID de l'estat per a aquest resultat</li><li><b>progress:</b> Tant per cent (de 0 a 100) d'execució</li><li><b>proposals_ids:</b> ID intern de les propostes relacionades (separades per comes). Es convertirà automàticament en <span class='attribute-name'>proposal_url</span></li></ul>"
-            link: enllaç
+            info: |
+              <p>Et recomanem que segueixis les passes següents:</p>
+              <ol>
+              <li><a href='%{link_new_status}' target='_blank'>Crea els estats per als resultats</a> que vulguis afegir</li>
+              <li><a href='%{link_new_result}' target='_blank'>Crea com a mínim un resultat manualment</a> a través del taulell d'administració abans d'importar, per a entendre millor el format i com cal omplir-ho.</li>
+              <li>%{link_export_csv}</li>
+              <li>Fes els canvis en local. Només pots modificar les següents columnes del CSV:
+              <ul>
+              <li><b>id category/id:</b> ID per la categoria</li>
+              <li><b>scope/id:</b> ID per a l'àmbit</li>
+              <li><b>parent/id:</b> ID per al pare (per a resultats relacionats). Opcional</li>
+              <li><b>title/I18N:</b> Title en la llengua X</li>
+              <li><b>description/I18N:</b> Descripció en la lleguna X </li>
+              <li><b>start_date:</b> data en la que s'inicia l'execució del resultat (format YYYY-MM-DD)</li>
+              <li><b>end_date:</b> data en la que finalitza l'execució del resultat (format YYYY-MM-DD)</li>
+              <li><b>status/id:</b> ID de l'estat per a aquest resultat</li>
+              <li><b>progress:</b> Tant per cent (de 0 a 100) d'execució</li>
+              <li><b>proposals_ids:</b> ID intern de les propostes relacionades (separades per comes). Es convertirà automàticament en <span class='attribute-name'>proposal_url</span></li>
+              </ul>
+              </li>
+              </ol>
             title: Importar resultats via CSV
         imports:
           create:
-            success: S'està important el fitxer. Rebràs un correu electrònic en els propers minuts amb el resultat de la importació
+            invalid: Hi ha hagut un problema important els resultats.
+            success: S'està important el fitxer. Rebràs un correu electrònic en els pròxims minuts amb el resultat de la importació.
         models:
           result:
             name: Resultat
           status:
             name: Estat
-          timeline_entry:
-            name: Entrada de la cronologia
+        projects_import:
+          create:
+            invalid: Hi ha hagut un problema important els projectes com a resultats, si us plau, segueix les instruccions amb cura i assegura't de marcar els projectes seleccionats per a la seva implementació.
+          new:
+            create: Importar
+            import_all_selected_projects: Importar tots els projectes seleccionats per a ser implementats
+            new_items:
+              one: S'importarà 1 projecte seleccionat
+              other: "S'importaran %{count} projectes seleccionats"
+            no_components: No hi ha cap component de pressupostos en aquest espai de participació per a poder importar els projectes com a resultats.
+            origin_component_id: Component d'origen
+            select_component: Selecciona un component
+            success:
+              one: Hi ha 1 projecte a la cua per ser importat. Es notificarà per correu electrònic, quan es completi la importació.
+              other: "Hi ha %{count} a la cua per ser importats. Es notificarà per correu electrònic, quan es completi la importació."
+            title: Importar Projectes a Seguiment
         results:
           create:
-            invalid: S'ha produït un error en crear aquest resultat
-            success: Resultat creat correctament
+            invalid: S'ha produït un error en crear aquest resultat.
+            success: Resultat creat correctament.
           destroy:
-            success: Resultat eliminat correctament
+            success: Resultat eliminat correctament.
           edit:
             title: Editar resultat
             update: Actualitzar resultat
@@ -78,17 +117,17 @@ ca:
             create: Crear resultat
             title: Nou resultat
           update:
-            invalid: S'ha produït un error en actualitzar aquest resultat
-            success: Resultat actualitzat correctament
+            invalid: S'ha produït un error en actualitzar aquest resultat.
+            success: Resultat actualitzat correctament.
         shared:
           subnav:
             statuses: Estats
         statuses:
           create:
-            invalid: S'ha produït un error en crear aquest estat
-            success: L'estat ha estat creat correctament
+            invalid: S'ha produït un error en crear aquest estat.
+            success: Estat creat correctament.
           destroy:
-            success: L'estat ha estat eliminat correctament
+            success: Estat creat correctament.
           edit:
             title: Editar estat
             update: Actualitzar estat
@@ -98,14 +137,14 @@ ca:
             create: Crear estat
             title: Nou estat
           update:
-            invalid: S'ha produït un error en actualitzar aquest estat
-            success: L'estat ha estat actualitzat correctament
+            invalid: S'ha produït un error en actualitzar aquest estat.
+            success: Estat actualitzat correctament.
         timeline_entries:
           create:
-            invalid: S'ha produït un error en crear aquest element
-            success: L'element ha estat creat correctament
+            invalid: S'ha produït un error en crear aquesta entrada.
+            success: Entrada creada correctament.
           destroy:
-            success: L'element ha estat eliminat correctament
+            success: Entrada eliminada correctament.
           edit:
             title: Editar element
             update: Actualitzar element
@@ -115,8 +154,8 @@ ca:
             create: Crear element
             title: Nou element
           update:
-            invalid: S'ha produït un error en actualitzar aquest element
-            success: L'element ha estat actualitzat correctament
+            invalid: S'ha produït un error en actualitzar aquesta entrada.
+            success: Entrada actualitzada correctament.
       admin_log:
         result:
           create: "%{user_name} ha creat el resultat %{resource_name} en %{space_name}"
@@ -141,12 +180,19 @@ ca:
       import_mailer:
         import:
           errors: Errors
-          errors_present: Hi ha hagut un problema important els resultats
+          errors_present: Hi ha hagut un problema important els resultats.
           row_number: Fila
           subject: Els resultats s'han importat correctament
           success: Els resultats s'han important correctament. Pots revisar els resultats a través del panell d'administració.
+      import_projects_mailer:
+        import:
+          added_projects:
+            one: S'ha importat un resultat des de projectes.
+            other: "S'han importat %{count} resultats des de projectes."
+          subject: Els projectes s'han importat correctament
+          success: Projectes importats com a resultats amb èxit al component %{component_name}. Pots revisar els resultats al taulell d'administració.
       last_activity:
-        new_result_at_html: "<span>Nou resultat a %{link}</span>"
+        new_result: 'Nou resultat:'
       models:
         result:
           fields:
@@ -179,7 +225,6 @@ ca:
             other: "%{count} resultats"
         filters:
           all: Tots
-          scopes: Àmbits
         home:
           categories_label: Categories
           subcategories_label: Subcategories
@@ -187,6 +232,7 @@ ca:
           global_status: Estat d'execució global
         nav_breadcrumb:
           global: Execució global
+        no_results: No hi ha projectes
         search:
           search: Cercar actuacions
         show:

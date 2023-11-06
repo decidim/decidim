@@ -10,7 +10,7 @@ describe "Report Comment", type: :system do
   let!(:reportable) { create(:comment, commentable:) }
   let(:reportable_path) { resource_locator(commentable).path }
 
-  let!(:user) { create :user, :confirmed, organization: }
+  let!(:user) { create(:user, :confirmed, organization:) }
 
   let!(:component) do
     create(

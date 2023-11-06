@@ -1,53 +1,50 @@
 
 <div class="card" id="monitoring_committee_polling_station_closures">
-  <div class="card-divider">
-    <h2 class="card-title">
+  <div class="item_show__header">
+    <h2 class="item_show__header-title">
       <%= t(".title", election_title: translated_attribute(election.title)).html_safe %>
     </h2>
   </div>
-
-  <div class="card-section">
-    <div class="table-scroll">
-      <table class="table-list">
-        <thead>
-          <tr>
-            <th><%= t(".election_totals") %></th>
-            <th><%= t(".polling_stations") %></th>
-            <th><%= t(".bulletin_board") %></th>
-            <th><%= t(".totals") %></th>
-                <th></th>
-          </tr>
-        </thead>
-        <% groups.each do |group| %>
-          <tbody class="question_<%= group[:question]&.id %>">
-            <% if group[:question].present? %>
-              <tr>
-                <th colspan="4" class="text-left"><%= translated_attribute(group[:question].title) %></th>
-                <th></th>
-              </tr>
-            <% end %>
-            <% group[:results].each do |result| %>
-              <tr class="result <%= result[:answer].present? ? "answer answer_#{result[:answer].id}" : "not_answer #{result[:result_type]}" %>">
-                <td>
-                  <% if result[:answer].present? %>
-                    <%= translated_attribute(result[:answer].title) %>
-                  <% else %>
-                    <%= t(".result_types.#{result[:result_type]}") %>
-                  <% end %>
-                </td>
-                <td><%= result[:polling_station] %></td>
-                <td><%= result[:bulletin_board] %></td>
-                <td><%= result[:value] %></td>
-                <td>
-                  <% if result[:answer]&.selected %>
-                    <span class="text-success"><%= t(".selected") %></td>
-                  <% end %>
-                </td>
-              </tr>
-            <% end %>
-          </tbody>
-        <% end %>
-      </table>
-    </div>
+  <div class="table-scroll">
+    <table class="table-list">
+      <thead>
+        <tr>
+          <th><%= t(".election_totals") %></th>
+          <th><%= t(".polling_stations") %></th>
+          <th><%= t(".bulletin_board") %></th>
+          <th><%= t(".totals") %></th>
+          <th></th>
+        </tr>
+      </thead>
+      <% groups.each do |group| %>
+        <tbody class="question_<%= group[:question]&.id %>">
+          <% if group[:question].present? %>
+            <tr>
+              <th colspan="4" class="text-left"><%= translated_attribute(group[:question].title) %></th>
+              <th></th>
+            </tr>
+          <% end %>
+          <% group[:results].each do |result| %>
+            <tr class="result <%= result[:answer].present? ? "answer answer_#{result[:answer].id}" : "not_answer #{result[:result_type]}" %>">
+              <td>
+                <% if result[:answer].present? %>
+                  <%= translated_attribute(result[:answer].title) %>
+                <% else %>
+                  <%= t(".result_types.#{result[:result_type]}") %>
+                <% end %>
+              </td>
+              <td><%= result[:polling_station] %></td>
+              <td><%= result[:bulletin_board] %></td>
+              <td><%= result[:value] %></td>
+              <td>
+                <% if result[:answer]&.selected %>
+                  <span class="text-success"><%= t(".selected") %></span>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      <% end %>
+    </table>
   </div>
 </div>

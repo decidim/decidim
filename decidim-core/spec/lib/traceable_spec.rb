@@ -26,7 +26,7 @@ module Decidim
 
       describe "last_editor" do
         context "when last editor is a user" do
-          let(:user) { create :user, organization: resource.organization }
+          let(:user) { create(:user, organization: resource.organization) }
 
           it "returns the user" do
             Decidim.traceability.update!(subject, user, title: { en: "My new title 3" })

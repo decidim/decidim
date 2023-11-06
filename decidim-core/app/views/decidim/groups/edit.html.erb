@@ -1,28 +1,19 @@
 <% add_decidim_page_title(t(".edit_user_group")) %>
 
-<div class="wrapper">
-<div class="row collapse">
-  <div class="row collapse">
-    <div class="columns large-8 large-centered text-center page-title">
-      <h1><%= t(".edit_user_group") %></h1>
-    </div>
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
+  <div class="text-center py-10">
+    <h1 class="title-decorator inline-block text-left mb-12">
+      <%= t("edit_user_group", scope: "decidim.groups.edit") %>
+    </h1>
   </div>
 
-  <div class="row">
-    <div class="columns large-6 medium-10 medium-centered">
-
-      <%= decidim_form_for(@form, url: group_path(@user_group.nickname), method: :patch, html: { id: "edit-group" }) do |f| %>
-        <div class="card">
-          <div class="card__content">
-            <%= render partial: "form", locals: { f: f } %>
-
-            <div class="actions">
-              <%= f.submit t(".update_user_group"), class: "button expanded" %>
-            </div>
-          </div>
-        </div>
-      <% end %>
+  <%= decidim_form_for(@form, url: group_path(@user_group.nickname), method: :patch, html: { id: "edit-group" }) do |f| %>
+    <div class="form__wrapper">
+      <%= render partial: "form", locals: { f: } %>
     </div>
-  </div>
-</div>
-</div>
+
+    <div class="form__wrapper-block">
+      <%= f.submit t("update_user_group", scope: "decidim.groups.edit"), class: "button button__sm md:button__lg button__secondary" %>
+    </div>
+  <% end %>
+<% end %>

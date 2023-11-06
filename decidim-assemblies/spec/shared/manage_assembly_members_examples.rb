@@ -5,17 +5,18 @@ shared_examples "manage assembly members examples" do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_assemblies.edit_assembly_path(assembly)
-    click_link "Members"
+    within_admin_sidebar_menu do
+      click_link "Members"
+    end
   end
 
   context "without existing user" do
     let!(:assembly_member) { create(:assembly_member, assembly:) }
 
     it "creates a new assembly member" do
-      find(".card-title a.new").click
+      click_link "New assembly member"
 
-      execute_script("$('#assembly_member_designation_date').focus()")
-      find(".datepicker-days .active").click
+      fill_in :assembly_member_designation_date, with: Time.current
 
       within ".new_assembly_member" do
         fill_in(
@@ -44,13 +45,12 @@ shared_examples "manage assembly members examples" do
   end
 
   context "with existing user" do
-    let!(:member_user) { create :user, organization: assembly.organization }
+    let!(:member_user) { create(:user, organization: assembly.organization) }
 
     it "creates a new assembly member" do
-      find(".card-title a.new").click
+      click_link "New assembly member"
 
-      execute_script("$('#assembly_member_designation_date').focus()")
-      find(".datepicker-days .active").click
+      fill_in :assembly_member_designation_date, with: Time.current
 
       within ".new_assembly_member" do
         select "Existing participant", from: :assembly_member_existing_user
@@ -71,13 +71,12 @@ shared_examples "manage assembly members examples" do
   end
 
   context "with existing user group" do
-    let!(:member_organization) { create :user_group, :verified, organization: assembly.organization }
+    let!(:member_organization) { create(:user_group, :verified, organization: assembly.organization) }
 
     it "creates a new assembly member" do
-      find(".card-title a.new").click
+      click_link "New assembly member"
 
-      execute_script("$('#assembly_member_designation_date').focus()")
-      find(".datepicker-days .active").click
+      fill_in :assembly_member_designation_date, with: Time.current
 
       within ".new_assembly_member" do
         select "Existing participant", from: :assembly_member_existing_user
@@ -140,7 +139,7 @@ shared_examples "manage assembly members examples" do
       expect(page).to have_admin_callout("successfully")
 
       within "#assembly_members table" do
-        expect(page).to have_no_content(assembly_member.full_name)
+        expect(page).not_to have_content(assembly_member.full_name)
       end
     end
   end

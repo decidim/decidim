@@ -8,23 +8,31 @@ edit_link(
   conference: current_participatory_space
 )
 %>
-<div class="row">
-  <div class="columns mediumlarge-12">
-    <section class="section">
-      <h4 class="section-heading"><%= t("registration_types.index.register", scope: "decidim.conferences") %></h4>
-      <% if current_user.present? %>
-        <p><%= t(".login_as", name: current_user.name, email: current_user.email ) %></p>
-      <% else %>
-        <%= render partial: "decidim/conferences/shared/conference_user_login" %>
-      <% end %>
-      <% if collection.any? %>
-        <p><%= t(".choose_an_option") %></p>
+
+<%= append_javascript_pack_tag "decidim_conferences" %>
+<%= append_stylesheet_pack_tag "decidim_conferences" %>
+
+<%# NOTE: this page does not use a regular layout %>
+<main class="container">
+
+  <section class="section">
+    <h1 class="title-decorator my-12">
+      <span class="not-sr-only"><%= t("registration_types.index.register", scope: "decidim.conferences") %></span>
+      <span class="sr-only"><%= t("registration_types.index.register", scope: "decidim.conferences") %> (<%= translated_attribute current_participatory_space.title %>)</span>
+    </h1>
+
+    <%= render partial: "decidim/devise/shared/login_boxes", locals: { scope: "decidim.conferences.conferences.show" } unless current_user %>
+
+    <% if collection.any? %>
+      <p class="conference__registration-container-title"><%= t(".choose_an_option") %></p>
+      <div class="conference__registration-container">
         <% collection.each do |registration_type| %>
           <%= cell "decidim/conferences/registration_type", registration_type, allowed: allowed_to?(:join, :conference, conference: current_participatory_space) %>
         <% end %>
-      <% else %>
-        <%= t("registration_types.index.no_registrations", scope: "decidim.conferences") %>
-      <% end %>
-    </section>
-  </div>
-</div>
+      </div>
+    <% else %>
+      <%= cell("decidim/announcement", t("registration_types.index.no_registrations", scope: "decidim.conferences")) %>
+    <% end %>
+  </section>
+
+</main>

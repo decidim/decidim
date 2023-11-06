@@ -9,8 +9,6 @@ module Decidim
       helper InitiativeHelper
       helper Decidim::ActionAuthorizationHelper
 
-      layout "layouts/decidim/application"
-
       # GET /initiatives/:initiative_id/committee_requests/new
       def new
         enforce_permission_to :request_membership, :initiative, initiative: current_initiative
@@ -70,7 +68,7 @@ module Decidim
       private
 
       def membership_request
-        @membership_request ||= InitiativesCommitteeMember.find(params[:id])
+        @membership_request ||= InitiativesCommitteeMember.where(initiative: current_participatory_space).find(params[:id])
       end
     end
   end

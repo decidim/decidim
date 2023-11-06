@@ -37,15 +37,11 @@
         confirm_destroy: Er du sikker på at du vil slette dette?
         destroy: Slett
         edit: Rediger
-        new: Nytt
         save: Lagre
         title: Handlinger
       admins:
         create:
           error: Det oppstod et problem med å opprette en ny administrator.
-          success: Admin opprettet
-        destroy:
-          success: Admin ble slettet
         edit:
           title: Endre administrator
           update: Oppdater
@@ -56,7 +52,6 @@
           title: Ny administrator
         update:
           error: Det oppsto et problem med å oppdatere administratoren.
-          success: Admin ble oppdatert
       dashboard:
         show:
           current_organizations: Gjeldende organisasjoner
@@ -74,7 +69,6 @@
           fields:
             created_at: Opprettet på
             email: Epost
-          name: Administrator
           validations:
             email_uniqueness: en annen administrator med samme email eksisterer allerede
         oauth_application:
@@ -82,7 +76,6 @@
             created_at: Opprettet
             name: OAuth applikasjonsnavn
             organization_name: Organisasjon
-          name: OAuth applikasjon
         organization:
           actions:
             save_and_invite: Opprett organisasjon og inviter administrator
@@ -92,7 +85,6 @@
             name: Navn
             omniauth_settings: Omniauth innstillinger
             smtp_settings: SMTP innstillinger
-          name: Organisasjon
       oauth_applications:
         create:
           error: Kunne ikke opprette denne applikasjonen.
@@ -144,8 +136,6 @@
         index:
           title: Organisasjoner
         new:
-          reference_prefix_hint: Referanse prefikset brukes til å identifisere ressurser på tvers av alle organisasjoner
-          secondary_hosts_hint: Skriv inn hver enkelt av dem på en ny linje
           title: Ny organisasjon
         omniauth_settings:
           decidim:
@@ -168,8 +158,6 @@
         smtp_settings:
           fieldsets:
             sender: Avsender
-          instructions:
-            from_label: 'E-postavsender vil være: "Ditt organisasjons navn <your-organization@example.org>". La stå tomt for å bruke ''E-postadresse'' som merkelapp'
           placeholder:
             from_email: din-organisasjon@eksempel.org
             from_label: navn på organisasjonen
@@ -179,7 +167,6 @@
         users_registration_mode:
           disabled: Tilgang kan bare gjøres med eksterne kontoer
           enabled: Tillat deltakerne å registrere og logge inn
-          existing: Ikke la deltakerne registrere seg, men la eksisterende deltakere logge inn
       shared:
         notices:
           no_organization_warning_html: Du må opprette en organisasjon for å starte. Vær sikker på at du leser %{guide} før du fortsetter.

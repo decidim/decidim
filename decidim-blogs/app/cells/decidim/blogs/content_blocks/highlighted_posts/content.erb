@@ -1,0 +1,17 @@
+<div class="content-block__title">
+  <h2 class="h2 decorator"><%= single_component ? translated_attribute(single_component.name) : t("name", scope: "decidim.components.blogs") %></h2>
+  <div class="label text-lg"><%= posts_count %></div>
+  <% if single_component %>
+    <%= link_to decidim_blogs.root_path, class: "button button__sm button__text-secondary" do %>
+      <span><%= t("decidim.blogs.content_blocks.highlighted_posts.see_all") %></span>
+      <%= icon "arrow-right-line" %>
+    <% end %>
+  <% end %>
+</div>
+
+<span class="content-block__span"><%= t("decidim.blogs.content_blocks.highlighted_posts.last_published") %></span>
+<div class="participatory-space__block-grid">
+  <% posts_to_render.each do |post| %>
+    <%= cell "decidim/blogs/post_g", post %>
+  <% end %>
+</div>

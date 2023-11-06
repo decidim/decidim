@@ -44,6 +44,8 @@ ja:
             actions:
               back: 返信に戻る
               export: エクスポート
+              next: 次 &rsaquo;
+              previous: "&lsaquo; 前"
               show: 回答を表示
             empty: まだ回答がありません
             export:
@@ -127,8 +129,6 @@ ja:
       errors:
         answer:
           body: 本文は空白にできません
-      files:
-        extension_allowlist: '承認されたフォーマット:'
       images:
         dimensions: "%{width} x %{height} px"
         processors:
@@ -144,6 +144,8 @@ ja:
         single_option: 単一オプション
         sorting: 並び替え
         title_and_description: タイトルと説明
+      questionnaire_answer_presenter:
+        download_attachment: 添付ファイルをダウンロード
       questionnaires:
         answer:
           invalid: フォームの回答に問題がありました。
@@ -153,7 +155,10 @@ ja:
           max_choices: '最大選択肢: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">あなたのアカウントでログインする</a> か、 <a href="%{sign_up_link}">ユーザー登録</a> してフォームに回答してください。
+            already_have_an_account?: 既にアカウントをお持ちですか？
+            are_you_new?: 新しいユーザーですか？
+            sign_in_description: ログインしてアンケートに答える
+            sign_up_description: アンケートに答えるために参加者アカウントを作成します
             title: フォームに回答
           current_step: ステップ %{step}
           of_total_steps: / %{total_steps}

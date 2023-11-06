@@ -46,7 +46,7 @@ module Decidim
         expect(data[:stat_number]).to eq 10
       end
 
-      it "doesn't return 0 values" do
+      it "does not return 0 values" do
         data = subject.collection.second
         expect(data).to be_nil
       end

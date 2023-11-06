@@ -44,7 +44,6 @@ is-IS:
         subtitle: Texti
         target: Hver tekur þátt
         title: Titill
-        twitter: Twitter
         youtube: Youtube
       assembly_member:
         birthday: Afmælisdagur
@@ -79,7 +78,6 @@ is-IS:
         edit:
           update: Uppfæra
         index:
-          not_published: Ekki birt
           private: Einkamál
           public: Opinber
           published: Published
@@ -120,7 +118,6 @@ is-IS:
           attachments: Viðhengi
           categories: Flokkar
           components: Hluti
-          info: Upplýsingar
           moderations: Moderations
       models:
         assemblies_types:
@@ -178,15 +175,11 @@ is-IS:
             select_a_created_by: Veldu búið til af
             select_an_area: Veldu svæði
             select_an_assembly_type: Veldu gerð samsetningar
-            slug_help: 'Vefslóðir eru notaðir til að búa til slóðir sem benda til þessa samkomu. Aðeins viðurkennir stafir, tölur og bindur og verður að byrja með stafi. Dæmi: %{url}'
             social_handlers: Félagsleg
             title: Almennar upplýsingar
         assemblies_types:
           form:
             title: Titill
-        assembly_copies:
-          form:
-            slug_help: 'Vefslóðir eru notaðir til að búa til slóðir sem benda til þessa samkomu. Aðeins viðurkennir stafir, tölur og bindur og verður að byrja með stafi. Dæmi: %{url}'
         assembly_members:
           form:
             select_a_position: Veldu stöðu
@@ -195,7 +188,6 @@ is-IS:
               all: Allt
               ceased: Hætt
               not_ceased: Ekki hætt
-            filter_by: Sía eftir
             search: Leita
       assembly_members:
         index:
@@ -214,33 +206,14 @@ is-IS:
         public: Opinber
       index:
         title: Þing
-      pages:
-        home:
-          highlighted_assemblies:
-            active_assemblies: Virkir þættir
-            see_all_assemblies: Sjá allar þingmenn
       show:
-        area: Svæði
         assembly_type: Samsetning gerð
-        children: Þing
-        closing_date: Lokadagur
-        composition: Samsetning
-        created_by: Búið til af
-        creation_date: Dagsetning búin til
         duration: Lengd
-        included_at: Innifalið á
-        indefinite_duration: Óákveðinn
-        internal_organisation: Innri skipulagning
         is_transparent:
           'false': ógagnsæ
           'true': gagnsæ
         private_space: Þetta er einkasamkoma
-        purpose_of_action: Tilgangur aðgerða
-        read_less: Lesa minna
-        read_more: Lestu meira
         related_participatory_processes: Svipaðir þátttakandi ferli
-        scope: Umfang
-        social_networks: Samfélagsmiðlar
     assembly_members:
       index:
         title: Meðlimir
@@ -250,9 +223,6 @@ is-IS:
           not_found: 'Safnið fannst ekki í gagnagrunninum (ID: %{id})'
     menu:
       assemblies: Þing
-  errors:
-    messages:
-      cannot_be_blank: Ekki er hægt að eyða
   layouts:
     decidim:
       assemblies:
@@ -260,11 +230,3 @@ is-IS:
           take_part: Taka þátt
         index:
           promoted_assemblies: Hápunktar þingsins
-        promoted_assembly:
-          more_info: Meiri upplýsingar
-          take_part: Taka þátt
-      assembly_navigation:
-        assembly_menu_item: Samkoma
-      assembly_widgets:
-        show:
-          take_part: Taka þátt

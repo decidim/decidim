@@ -68,7 +68,6 @@ ga:
           edit:
             update: Nuashonraigh
           form:
-            attachments: Ceangaltáin
             settings: Socruithe
           index:
             actions_title: Gníomh
@@ -80,15 +79,11 @@ ga:
             photos: Grianghraif
         initiatives_type_scopes:
           edit:
-            back: Ar Ais
-            destroy: Scrios
             update: Nuashonraigh
           new:
-            back: Ar Ais
             create: Cruthaigh
         initiatives_types:
           edit:
-            destroy: Scrios
             update: Nuashonraigh
           form:
             options: Roghanna
@@ -97,10 +92,6 @@ ga:
       admin_states:
         created: Cruthaithe
       application_helper:
-        filter_area_values:
-          all: Uile
-        filter_scope_values:
-          all: Uile
         filter_state_values:
           all: Uile
           closed: Dúnta
@@ -119,32 +110,17 @@ ga:
         previous_form:
           back: Ar Ais
           continue: Lean ar aghaidh
-        promotal_committee:
-          back: Ar Ais
         select_initiative_type:
-          back: Ar Ais
-        share_committee_link:
-          continue: Lean ar aghaidh
-        show_similar_initiatives:
           back: Ar Ais
       edit:
         back: Ar Ais
         update: Nuashonraigh
-      form:
-        delete_attachment: Scrios
       initiative_signatures:
         fill_personal_data:
           continue: Lean ar aghaidh
-          date_select:
-            day: Lá
-            month: Mí
-            year: Bliain
       initiatives:
-        author:
-          deleted: Scriosta
         committee_members:
           approve: Ceadaigh
-          revoke: Cúlghairm
         filters:
           any: Ar Bith
           area: Ceantar
@@ -153,12 +129,6 @@ ga:
           search: Cuardaigh
           state: Stádas
           type: Cineál
-        filters_small_view:
-          filter: Scag
-          unfold: Oscail
-        index_header:
-          not_authorized:
-            close: Dún
         orders:
           random: Randamach
         print:
@@ -193,12 +163,8 @@ ga:
   layouts:
     decidim:
       initiative_creation_header:
-        back: Ar Ais
         fill_data: Cruthaigh
         finish: Críochnaigh
-        previous_form: Tosaigh
         select_initiative_type: Roghnaigh
-        show_similar_initiatives: Cuir i gcomparáid
       initiative_signature_creation_header:
-        back: Ar Ais
         finish: Críochnaigh

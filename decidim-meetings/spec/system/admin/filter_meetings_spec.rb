@@ -7,11 +7,11 @@ describe "Admin filters meetings", type: :system do
   let(:manifest_name) { "meetings" }
   let(:model_name) { Decidim::Meetings::Meeting.model_name }
   let(:resource_controller) { Decidim::Meetings::Admin::MeetingsController }
-  let!(:meeting) { create :meeting, scope:, component: current_component }
+  let!(:meeting) { create(:meeting, scope:, component: current_component) }
 
   include_context "when managing a component as an admin"
 
-  TYPES = Decidim::Meetings::Meeting::TYPE_OF_MEETING.map(&:to_sym)
+  TYPES = Decidim::Meetings::Meeting::TYPE_OF_MEETING.keys
 
   def create_meeting_with_trait(trait)
     create(:meeting, trait, component:)
@@ -35,7 +35,7 @@ describe "Admin filters meetings", type: :system do
     TYPES.each do |state|
       i18n_state = I18n.t(state, scope: "decidim.admin.filters.meetings.with_any_type.values")
 
-      context "filtering meetings by type: #{i18n_state}" do
+      context "when filtering meetings by type: #{i18n_state}" do
         it_behaves_like "a filtered collection", options: "Type", filter: i18n_state do
           let(:in_filter) { translated(meeting_with_type(state).title) }
           let(:not_in_filter) { translated(meeting_without_type(state).title) }

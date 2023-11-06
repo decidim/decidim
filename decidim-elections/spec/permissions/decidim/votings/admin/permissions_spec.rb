@@ -5,9 +5,9 @@ require "spec_helper"
 describe Decidim::Votings::Admin::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { create :user, :admin, organization: }
-  let(:organization) { create :organization }
-  let(:voting) { create :voting, organization: }
+  let(:user) { create(:user, :admin, organization:) }
+  let(:organization) { create(:organization) }
+  let(:voting) { create(:voting, organization:) }
   let(:context) { { participatory_space: voting }.merge(extra_context) }
   let(:extra_context) { {} }
   let(:permission_action) { Decidim::PermissionAction.new(**action) }
@@ -24,7 +24,7 @@ describe Decidim::Votings::Admin::Permissions do
   end
 
   context "when the user is not an admin" do
-    let(:user) { create :user, organization: }
+    let(:user) { create(:user, organization:) }
     let(:action) do
       { scope: :admin, action: :foo, subject: :bar }
     end
@@ -135,7 +135,7 @@ describe Decidim::Votings::Admin::Permissions do
     end
 
     context "when the user is a Monitoring Committee Member" do
-      let(:user) { create :user, organization: }
+      let(:user) { create(:user, organization:) }
       let!(:monitoring_committee_member) { create(:monitoring_committee_member, user:, voting:) }
 
       context "when accessing the admin panel" do

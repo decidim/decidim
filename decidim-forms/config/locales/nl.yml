@@ -17,8 +17,6 @@ nl:
             choices:
               missing: zijn niet compleet
               too_many: zijn te veel
-        questionnaire:
-          request_invalid: Er is een fout opgetreden bij het verwerken van het verzoek. Probeer het opnieuw
   decidim:
     forms:
       admin:
@@ -115,11 +113,6 @@ nl:
           update:
             invalid: Er zijn fouten opgetreden bij het opslaan van de vragenlijst.
             success: Formulier succesvol opgeslagen.
-      errors:
-        answer:
-          body: Lichaam mag niet leeg zijn
-      files:
-        extension_allowlist: 'Geaccepteerde formaten:'
       images:
         dimensions: "%{width} x %{height} px"
       question_types:
@@ -140,7 +133,6 @@ nl:
           max_choices: 'Max. Keuzes: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Meld u aan met uw account</a> of <a href="%{sign_up_link}">meld u aan</a> om de vragenlijst te beantwoorden.
             title: Beantwoord de vragenlijst
           current_step: Stap %{step}
           of_total_steps: van %{total_steps}

@@ -14,14 +14,17 @@ module Decidim
 
           # Executes the command. Broadcast this events:
           # - :ok when everything is valid
-          # - :invalid when the form wasn't valid and couldn't proceed-
+          # - :invalid when the form was not valid and could not proceed-
           #
           # Returns nothing.
           def call
             return broadcast(:invalid) unless @form.file
 
+            data = @form.data
+            return broadcast(:invalid) unless data
+
             # rubocop:disable Rails/SkipsModelValidations
-            CsvDatum.insert_all(@organization, @form.data.values)
+            CsvDatum.insert_all(@organization, data.values)
             # rubocop:enable Rails/SkipsModelValidations
             RemoveDuplicatesJob.perform_later(@organization)
 

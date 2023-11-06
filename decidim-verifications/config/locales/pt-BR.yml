@@ -30,13 +30,8 @@ pt-BR:
           before_date_info: Útil se o processo já começou e você deseja revogar as permissões do processo anterior.
           button: Revogar todos
           button_before: Revogar antes da data
-          destroy:
-            confirm: Revogar antes da data as autorizações não podem ser desfeitas. Tem certeza que deseja continuar?
-            confirm_all: Revogar todas as autorizações não pode ser desfeito. Tem certeza que deseja continuar?
-          destroy_nok: Houve um problema ao revogar as autorizações.
           destroy_ok: Todas as autorizações correspondentes foram revogadas com sucesso.
           info: Há um total de %{count} participantes verificados.
-          no_data: Nenhum participante verificado
           title: Revogação de Autorizações
         authorization_workflows: Autorizações
     admin_log:
@@ -46,16 +41,12 @@ pt-BR:
         grant_id_documents_offline_verification: "%{user_name} verificado %{resource_name} usando a autorização dos Documentos de Identidade offline"
     authorization_handlers:
       admin:
-        csv_census:
-          help:
-            - Administra o upload de um arquivo CSV com os e-mails dos participantes aceitos
-            - Somente participantes com um e-mail nesse arquivo CSV podem ser verificados
         id_documents:
           help:
             - Os usuários preenchem suas informações de identidade e carregam uma cópia do documento.
             - Você preencher as informações presentes na imagem carregada.
             - A informação deve corresponder ao que o usuário preenchido.
-            - Se você não pode ver claramente a informação ou não conseguir verificá-la, você pode rejeitar a solicitação e o usuário poderá consertá-la.
+            - 
         postal_letter:
           help:
             - Os usuários solicitaram que um código de verificação seja enviado para o endereço.
@@ -63,17 +54,14 @@ pt-BR:
             - Você marca a carta como enviada.
             - Depois de marcar a carta como enviada, o usuário poderá introduzir o código e ser verificado.
       csv_census:
-        explanation: Seja verificado usando o censo da organização
         name: Recenseamento da organização
       direct: Direto
       help: Ajuda
       id_documents:
-        explanation: Carregue seus documentos de identidade para que possamos verificar sua identidade
         name: Documentos de identidade
       multistep: Múltiplas etapas
       name: Nome
       postal_letter:
-        explanation: Nós lhe enviaremos uma carta postal com um código que você terá que inserir para que possamos verificar seu endereço
         name: Código por carta postal
     verifications:
       authorizations:
@@ -82,11 +70,9 @@ pt-BR:
           no_data_stored: Nenhum dado armazenado.
         create:
           error: Ocorreu um erro ao criar a autorização.
-          success: Você foi autorizado com sucesso.
           unconfirmed: Você precisa confirmar seu e-mail para se autorizar.
         destroy:
           error: Ocorreu um erro ao excluir a autorização.
-          success: Você excluiu a autorização com sucesso.
         first_login:
           actions:
             another_dummy_authorization_handler: Verificar contra outro exemplo de manipulador de autorização
@@ -102,15 +88,12 @@ pt-BR:
           expired_verification: O código de verificação expirou
           pending_verification: Verificação pendente
           show_renew_info: Clique para renovar a verificação
-          unauthorized_verification: Nova verificação
         new:
           authorize: Enviar
           authorize_with: Verifique com %{authorizer}
         renew_modal:
           cancel: Cancelar
-          close: fechar
           continue: Continuar
-          info_renew: Se você quiser atualizar os dados, continue com a renovação
           title: Renovar Verificação
         skip_verification: Você pode ignorar isso por enquanto e %{link}
         start_exploring: comece a explorar
@@ -119,14 +102,9 @@ pt-BR:
           census:
             create:
               error: Ocorreu um erro ao importar o censo.
-              success: Itens importados com sucesso %{count} (%{errors} erros)
-            destroy_all:
-              success: Todos os dados do censo foram excluídos
           destroy:
-            confirm: Excluir todo o censo não pode ser desfeito. Você tem certeza que quer continuar?
             title: Excluir todos os dados do censo
           index:
-            data: Existem %{count} registros carregados no total. A última data de envio foi em %{due_date}
             empty: Não há dados do censo. Use o formulário abaixo para importá-lo usando um arquivo CSV.
             title: Dados do censo atual
           instructions:
@@ -159,19 +137,12 @@ pt-BR:
               update: Atualizar
             update:
               error: Houve um erro ao atualizar a configuração.
-              success: Configuração atualizada com sucesso
           confirmations:
-            create:
-              error: A verificação não corresponde. Tente novamente ou rejeite a verificação para que o usuário possa corrigi-la
-              success: Usuário verificado com sucesso
             new:
               introduce_user_data: Introduza os dados na imagem
               reject: Rejeitar
               verify: Verificar
           offline_confirmations:
-            create:
-              error: A verificação não corresponde. Tente novamente ou diga ao usuário para alterá-lo
-              success: Usuário verificado com sucesso
             new:
               cancel: Cancelar
               introduce_user_data: Introduzir o email do usuário e os dados do documento
@@ -182,32 +153,19 @@ pt-BR:
               offline_verification: Verificação off-line
               title: Verificações pendentes
               verification_number: 'Verificação # %{n}'
-          rejections:
-            create:
-              success: Verificação rejeitada. O usuário será solicitado a alterar seus documentos
         authorizations:
           choose:
             choose_a_type: 'Por favor, selecione como deseja ser verificado:'
             offline: desligada
             online: Conectados
             title: Confirme-se usando seu documento de identidade
-          create:
-            error: Ocorreu um problema ao carregar seu documento
-            success: Documento carregado com sucesso
           edit:
-            being_reviewed: Estamos revisando seus documentos. Você será verificado em breve
             offline: Use a verificação off-line
             online: Use a verificação on-line
-            rejection_clarity: Verifique se a informação está claramente visível na imagem carregada
-            rejection_correctness: Verifique se as informações inseridas estão corretas
-            rejection_notice: Ocorreu um problema com sua verificação. Por favor, tente novamente
             send: Solicite novamente a verificação
           new:
             send: Solicitar verificação
             title: Carregue seu documento de identidade
-          update:
-            error: Ocorreu um problema ao recarregar seu documento
-            success: Documento reusado com sucesso
         dni: DNI
         nie: NIE
         passport: Passaporte
@@ -222,43 +180,24 @@ pt-BR:
               title: Verificações contínuas
               username: Nome de usuário
               verification_code: Código de verificação
-          postages:
-            create:
-              error: Carta de marcação de erro como enviada
-              success: Carta com sucesso marcada como enviada
         authorizations:
-          create:
-            error: Houve um problema com o seu pedido
-            success: Obrigado! Enviaremos um código de verificação ao seu endereço
           edit:
             send: confirme
-            title: Introduza o código de verificação que você recebeu
-            waiting_for_letter: Em breve enviaremos uma carta ao seu endereço com seu código de verificação
           new:
             send: Envie-me uma carta
             title: Solicite seu código de verificação
-          update:
-            error: O seu código de verificação não corresponde ao nosso. Verifique a carta que lhe enviamos
-            success: Parabéns. Você foi verificado com sucesso
       sms:
         authorizations:
-          create:
-            error: Houve um problema com o seu pedido
-            success: Obrigado! Enviamos um SMS para o seu telefone.
           destroy:
             success: O código de verificação foi redefinido com sucesso. Por favor, digite novamente o seu número de telefone.
           edit:
             confirm_destroy: Tem certeza de que deseja redefinir o código de verificação?
             destroy: Redefinir código de verificação
-            resend: Não recebeu o código de verificação?
             send: confirme
             title: Introduza o código de verificação recebido
           new:
             send: Envie-me um SMS
             title: Solicite seu código de verificação
-          update:
-            error: Seu código de verificação não corresponde ao nosso. Por favor, verifique novamente o SMS que lhe enviamos.
-            success: Parabéns. Você foi confirmado com sucesso.
   errors:
     messages:
       uppercase_only_letters_numbers: devem ser todas maiúsculas e conter apenas letras e / ou números

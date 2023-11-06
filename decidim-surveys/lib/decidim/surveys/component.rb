@@ -6,6 +6,7 @@ Decidim.register_component(:surveys) do |component|
   component.engine = Decidim::Surveys::Engine
   component.admin_engine = Decidim::Surveys::AdminEngine
   component.icon = "media/images/decidim_surveys.svg"
+  component.icon_key = "survey-line"
   component.stylesheet = "decidim/surveys/surveys"
   component.permissions_class_name = "Decidim::Surveys::Permissions"
   component.serializes_specific_data = true
@@ -15,13 +16,13 @@ Decidim.register_component(:surveys) do |component|
 
   component.on(:copy) do |context|
     Decidim::Surveys::CreateSurvey.call(context[:new_component]) do
-      on(:invalid) { raise "Can't create survey" }
+      on(:invalid) { raise "Cannot create survey" }
     end
   end
 
   component.on(:create) do |instance|
     Decidim::Surveys::CreateSurvey.call(instance) do
-      on(:invalid) { raise "Can't create survey" }
+      on(:invalid) { raise "Cannot create survey" }
     end
   end
 
@@ -33,7 +34,7 @@ Decidim.register_component(:surveys) do |component|
     survey = Decidim::Surveys::Survey.find_by(decidim_component_id: instance.id)
     survey_answers_for_component = Decidim::Forms::Answer.where(questionnaire: survey.questionnaire)
 
-    raise "Can't destroy this component when there are survey answers" if survey_answers_for_component.any?
+    raise "Cannot destroy this component when there are survey answers" if survey_answers_for_component.any?
   end
 
   component.register_resource(:survey) do |resource|

@@ -14,7 +14,7 @@ describe "rake decidim:webpacker:install", type: :task do
     task.execute
 
     package_json_content = JSON.parse(File.read(package_json))
-    expect(package_json_content["dependencies"].keys).to match_array(["@decidim/browserslist-config", "@decidim/core", "@decidim/elections", "@decidim/webpacker"])
-    expect(package_json_content["devDependencies"].keys).to match_array(["@decidim/dev", "@decidim/eslint-config", "@decidim/stylelint-config"])
+    expect(package_json_content["dependencies"].keys).to contain_exactly("@decidim/browserslist-config", "@decidim/core", "@decidim/elections", "@decidim/webpacker")
+    expect(package_json_content["devDependencies"].keys).to contain_exactly("@decidim/dev", "@decidim/eslint-config", "@decidim/prettier-config", "@decidim/stylelint-config")
   end
 end

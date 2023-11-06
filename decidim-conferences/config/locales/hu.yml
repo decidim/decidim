@@ -3,33 +3,65 @@ hu:
     attributes:
       conference:
         assemblies_ids: Kapcsolódó gyűlések
+        available_slots: Rendelkezésre álló időpontok
         banner_image: Banner kép
-        consultations_ids: Kapcsolódó konzultációk
         copy_categories: Másolási kategóriák
         copy_components: Másoljon komponenseket
         copy_features: Másolási funkciók
         decidim_scope_id: terület
         description: Leírás
+        end_date: Befejezés dátuma
         hashtag: Kettőskereszt
         hero_image: Kezdő kép
+        location: Helyszín
+        main_logo: Fő logó
+        objectives: Célok
         participatory_processes_ids: Kapcsolódó részvételi folyamatok
         promoted: Kiemelt
         published_at: Megjelent a
+        registration_terms: Regisztrációs feltételek
+        registrations_enabled: Regisztráció engedélyezve
         scope_id: terület
         scopes_enabled: A hatókör engedélyezett
         short_description: Rövid leírás
         show_statistics: Statisztikák megjelenítése
+        signature: Aláírás
+        signature_name: Aláíró neve
         slogan: Szlogen
         slug: URL slug
+        start_date: Kezdő dátum
         title: Cím
+        weight: Pozíció sorrend
       conference_media_link:
-        weight: Súly
+        date: Dátum
+        link: Hivatkozás
+        title: Cím
+        weight: Pozíció sorrend
       conference_partner:
-        weight: Súly
+        link: Hivatkozás
+        logo: Logó
+        name: Név
+        partner_type: Partner típus
+        weight: Pozíció sorrend
+      conference_registration_invite:
+        email: Email
+        name: Név
+        registration_type_id: Regisztráció típusa
+        user_id: Felhasználó
       conference_registration_type:
-        weight: Súly
+        description: Leírás
+        price: Ár
+        title: Cím
+        weight: Pozíció sorrend
       conference_speaker:
+        affiliation: Beosztás
+        avatar: Profilkép
+        conference_meeting_ids: Kapcsolódó találkozók
         full_name: Teljes név
+        personal_url: Személyes URL-cím
+        position: Pozíció
+        short_bio: Rövid önéletrajz
+        user_id: Felhasználó
       conference_user_role:
         email: Email
         name: Név
@@ -39,7 +71,7 @@ hu:
         conference_registration_invite:
           attributes:
             email:
-              already_invited: Ezt az e-mailt már meghívták
+              already_invited: Ezt az email címet már meghívták.
   activerecord:
     models:
       decidim/conference:
@@ -55,7 +87,6 @@ hu:
     admin:
       actions:
         confirm: Megerősít
-        new_conference: Új konferencia
         send_diplomas: Küldési igazolások küldése
       conference_copies:
         new:
@@ -100,7 +131,7 @@ hu:
           title: A konferencia felhasználó frissítése.
           update: frissítés
         index:
-          conference_admins_title: konferencia felhasználók számára
+          conference_admins_title: Konferencia adminisztrátorok
         new:
           create: Teremt
           title: Új konferencia felhasználó.
@@ -118,7 +149,6 @@ hu:
         form:
           title: Általános információ
         index:
-          not_published: Nem publikált
           published: Közzétett
         new:
           create: Teremt
@@ -159,7 +189,6 @@ hu:
           conference_invites: Meghívottak
           conference_speakers: Előadók
           diploma: Tanúsítvány a jelenlétről
-          info: Info
           media_links: Média linkek
           moderations: moderálások
           partners: Partnerek
@@ -170,7 +199,6 @@ hu:
         conference:
           fields:
             created_at: 'Létrehozva:'
-            promoted: promotált
             published: Közzétett
             title: Cím
         conference_speaker:
@@ -212,6 +240,7 @@ hu:
             price: Ár
             registrations_count: A regisztrációk száma
             title: Cím
+            weight: Pozíció sorrend
           name: Regisztrációs típus
       partners:
         create:
@@ -271,8 +300,13 @@ hu:
       conferences:
         conference_registration:
           confirm: "%{user_name} megerősítette konferencia regisztrációját a %{resource_name} konferencián"
+        partner:
+          create: "%{user_name} létrehozta a %{resource_name} partnert a %{space_name} konferencián"
+          delete: "%{user_name} eltávolította a %{resource_name} partnert a %{space_name} konferenciából"
+          update: "%{user_name} frissítette a %{resource_name} partnert a %{space_name} konferencián"
         registration_type:
           create: "%{user_name} létrehozta az %{resource_name} regisztrációs típust a %{space_name} konferencián"
+          delete: "%{user_name} eltávolította a %{resource_name} regisztrációs típust a %{space_name} konferenciból"
           publish: "%{user_name} közzétette az %{resource_name} regisztrációs típust a %{space_name} konferencián"
           unpublish: "%{user_name} visszavonta a %{resource_name} regisztrációs típus közzétételét a %{space_name} konferencián"
           update: "%{user_name} frissítette a %{resource_name} regisztrációs típust a %{space_name} konferencián"
@@ -288,9 +322,6 @@ hu:
         title: Hangszórók
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'Az URL-csigákat használják az e konferenciára utaló URL-ek előállításához. Csak leveleket, számokat és kötőjeleket fogad el, és betűvel kell kezdenie. Példa: %{url}'
         conference_invites:
           create:
             error: Probléma merült fel a felhasználó csatlakozásakor.
@@ -307,12 +338,11 @@ hu:
               all: Minden
               rejected: Elutasítva
               sent: Küldött
-            filter_by: Szűrés vlami alapján
             invite_attendee: Hívja meg a résztvevőt
             invites: Meghívottak
             search: Keresés
           new:
-            explanation: A felhasználó meghívást kap egy konferenciára. Ha az e-mail nincs regisztrálva, akkor a szervezet is meghívást kap.
+            explanation: A résztvevő meghívást kap egy konferenciára. Ha az e-mail cím nincs regisztrálva, akkor a szervezethez is meghívást kap.
             invite: Meghívás
             new_invite: Felhasználó meghívása
         conference_registrations:
@@ -332,7 +362,6 @@ hu:
             registrations_count:
               one: 1 regisztráció volt.
               other: '%{count} regisztráció volt.'
-            slug_help: 'Az URL-csigákat használják az e konferenciára utaló URL-ek előállításához. Csak leveleket, számokat és kötőjeleket fogad el, és betűvel kell kezdenie. Példa: %{url}'
         diplomas:
           edit:
             save: Mentés
@@ -340,7 +369,8 @@ hu:
         invite_join_conference_mailer:
           invite:
             decline: A "%{conference_title}" meghívása
-            invited_you_to_join_a_conference: "%{invited_by} meghívta Önt, hogy csatlakozzon egy konferenciához %{application}kor. Az alábbi linkeken keresztül visszautasíthatja vagy elfogadhatja."
+            invited_existing_user_to_join_a_conference: "%{invited_by} meghívta Önt, hogy csatlakozzon egy konferenciához %{application}kor. Az alábbi linkeken keresztül visszautasíthatja vagy elfogadhatja."
+            invited_user_to_join_a_conference: "%{invited_by} meghívott, hogy csatlakozz ehhez a conferenciához itt: %{application}. Az alábbi linken jelezz vissza számára."
             registration: Regisztráció a '%{conference_title}' -ra
         partners:
           index:
@@ -365,18 +395,11 @@ hu:
           cancel: Megszünteti
           confirm: megerősít
         show:
-          free: Ingyenes
           going: Haladó
           no_slots_available: Nincs szabad hely
           registration: Regisztráció
       conference_program:
-        program_meeting:
-          content: Tartalom
-          location: Helyszín
-          speakers: Előadók
-          streaming: Élő közvetítés
         show:
-          day: Nap
           program: Program
       conference_registration_mailer:
         confirmation:
@@ -398,27 +421,31 @@ hu:
           invalid: Probléma merült fel a konferencián.
           success: A konferencia sikeres volt.
       conference_speaker:
-        go_to_twitter: Menjen a Twitterre
         more_info: több információ
         personal_website: Személyes weboldal
         show:
           more_info: több információ
+          speaking_at: Előad ekkor
       conference_speaker_cell:
         personal_url:
           personal_website: Személyes weboldal
-        twitter_handle:
-          go_to_twitter: Menjen a Twitterre
       conference_speakers:
         index:
-          speakers: Hangszórók
+          speakers:
+            one: Előadó
+            other: Előadók
       conferences:
         partners:
           collaborators: Partnerek
           main_promotors: Szervezők
         show:
+          already_have_an_account?: Van már fiókja?
+          are_you_new?: Új résztvevő?
           login_as: '%{name} <%{email}> -ként jelentkeztél be'
-          make_conference_registration: 'Regisztráljon a konferencián:'
+          make_conference_registration: Regisztráció a konferenciára
           register: Regisztráció
+          sign_in_description: Jelentkezzen be a konferenciára történő regisztrációhoz
+          sign_up_description: Hozzon létre egy fiókot a konferenciára való jelentkezéshez
       content_blocks:
         highlighted_conferences:
           name: Kiemelt konferenciák
@@ -427,9 +454,9 @@ hu:
       mailer:
         conference_registration_mailer:
           confirmation:
-            subject: A konferencia regisztrációja megerősítést nyert
+            subject: Regisztrációja a konferenciára megerősítésre került.
           pending_validation:
-            subject: A konferencia regisztrációd megerősítése függőben van
+            subject: A regisztráció megerősítése a konferenciára függőben van.
         invite_join_conference_mailer:
           invite:
             subject: Meghívás egy konferenciára való belépéshez
@@ -460,36 +487,18 @@ hu:
       pages:
         home:
           highlighted_conferences:
-            active_conferences: Aktív konferenciák
-            see_all_conferences: Lásd az összes konferenciát
-      photo:
-        image:
-          attributes:
-            alt: Média ké
-        show:
-          close_modal: Modal bezárása
-          photo: Fénykép
-      photos_list:
-        show:
-          related_photos: Fotók
+            active_spaces: Aktív konferenciák
       registration_types:
         index:
           choose_an_option: 'Válassza ki a regisztrációs lehetőséget:'
-          login_as: '%{name} <%{email}> -ként jelentkezett be'
+          no_registrations: Nincs regisztráció
           register: Regisztráció
           title: Regisztrációs típusok
-      shared:
-        conference_user_login:
-          already_account: Van már fiókod a Decidimben?
-          new_user: Új felhasználó?
-          sign_in: Jelentkezz be a konferenciára való regisztrálásához
-          sign_up: Hozz létre egy fiókot a Decidimben, hogy regisztrálni tudja a konferenciára
       show:
         details: Részletek
         introduction: Bevezetés
         objectives: célok
         related_assemblies: Kapcsolódó gyűlések
-        related_consultations: Kapcsolódó konzultációk
         related_participatory_processes: Kapcsolódó részvételi folyamatok
     events:
       conferences:
@@ -512,21 +521,34 @@ hu:
           email_outro: Ezt az értesítést megkapta, mert a "%{resource_title}" konferenciát követi. Leiratkozhat az előző linkről.
           email_subject: A "%{resource_title}" konferencia lehetővé tette a regisztrációt.
           notification_title: A <a href="%{resource_path}">%{resource_title}</a> konferencia engedélyezte a regisztrációkat.
+        role_assigned:
+          email_intro: A(z) "%{resource_title}" konferencia %{role} szerepét rendelték Önhöz.
+          email_outro: 'Azért kapta ezt az értesítést, mert a(z) "%{resource_title}" konferencián a következő szerepet kapta: %{role}.'
+          email_subject: 'Önt a(z) %{role} szerephez rendelték itt: "%{resource_title}".'
+          notification_title: 'A(z) %{role} szerephez rendelték a következő konferencián: <a href="%{resource_url}">%{resource_title}</a>.'
         upcoming_conference:
           email_intro: 'A "%{resource_title}" konferencia 2 nap múlva kezdődik. Olvasd el a leírást ezen az oldalon:'
           email_outro: Ezt az értesítést azért kaptad, mert a "%{resource_title}" konferenciát követed. Leiratkozhatsz az értesítésekről az előző linken keresztül.
           email_subject: A "%{resource_title}" konferencia hamarosan indul!
           notification_title: A <a href="%{resource_path}">%{resource_title}</a> konferencia 2 nap múlva kezdődik.
+    help:
+      participatory_spaces:
+        conferences:
+          contextual: "<p>A <strong>konferencia</strong> egy programba rendezett találkozók gyűjteménye, számos meghívott előadóval és a nagy kongresszusokra vagy társadalmi eseményekre jellemző egyéb információs mezőkkel (regisztráció, a rendezvényt támogató vagy szponzoráló szervezetek listája stb.).</p> <p>Példák: Egy konferencia lehet egy szervezet és tagjai számára releváns esemény, vagy egy részvételi folyamat részeként, illetve egy konzultációt követően kerülhet megrendezésre.</p>\n"
+          page: "<p>A <strong>konferencia</strong> egy programba rendezett találkozók gyűjteménye, számos meghívott előadóval és a nagy kongresszusokra vagy társadalmi eseményekre jellemző egyéb információs mezőkkel (regisztráció, a rendezvényt támogató vagy szponzoráló szervezetek listája stb.).</p> <p>Példák: Egy konferencia lehet egy szervezet és tagjai számára releváns esemény, vagy egy részvételi folyamat részeként, illetve egy konzultációt követően kerülhet megrendezésre.</p>\n"
+          title: Mik a konferenciák?
     log:
       value_types:
         conference_presenter:
-          not_found: 'A konferencia nem található az adatbázisban (ID: %{id})'
+          not_found: 'A konferencia nem található az adatbázisban (ID: %{id}).'
     media:
       index:
         description: Linkek erről a konferenciáról
         title: Média és linkek
     menu:
       conferences: Konferenciák
+    statistics:
+      conferences_count: Konferenciák
   devise:
     mailer:
       join_conference:
@@ -535,9 +557,6 @@ hu:
     decidim:
       conference_hero:
         register: Regisztráció
-      conference_widgets:
-        show:
-          take_part: Részt vesz
       conferences:
         conference:
           more_info: Több információ
@@ -548,11 +567,7 @@ hu:
           conferences:
             one: "%{count} konferencia"
             other: "%{count} konferencia"
-        promoted_conference:
-          more_info: Több információ
-          take_part: Részt vesz
       conferences_nav:
-        conference_menu_item: Információ
         conference_partners_menu_item: Partnerek
         conference_speaker_menu_item: Hangszórók
         media: Média

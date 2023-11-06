@@ -7,7 +7,7 @@ RSpec.describe "Debate search", type: :request do
 
   subject { response.body }
 
-  let(:component) { create :debates_component }
+  let(:component) { create(:debates_component) }
   let(:participatory_space) { component.participatory_space }
   let(:organization) { participatory_space.organization }
   let(:filter_params) { {} }
@@ -60,10 +60,10 @@ RSpec.describe "Debate search", type: :request do
   it_behaves_like "a resource search with origin", :debate
 
   it "displays all debates without any filters" do
-    expect(subject).to include(translated(debate1.title))
-    expect(subject).to include(translated(debate2.title))
-    expect(subject).to include(translated(debate3.title))
-    expect(subject).to include(translated(debate4.title))
+    expect(subject).to have_escaped_html(translated(debate1.title))
+    expect(subject).to have_escaped_html(translated(debate2.title))
+    expect(subject).to have_escaped_html(translated(debate3.title))
+    expect(subject).to have_escaped_html(translated(debate4.title))
   end
 
   context "when searching by text" do
@@ -81,10 +81,10 @@ RSpec.describe "Debate search", type: :request do
     end
 
     it "displays all debates without any filters" do
-      expect(subject).to include(translated(debate1.title))
-      expect(subject).not_to include(translated(debate2.title))
-      expect(subject).not_to include(translated(debate3.title))
-      expect(subject).not_to include(translated(debate4.title))
+      expect(subject).to have_escaped_html(translated(debate1.title))
+      expect(subject).not_to have_escaped_html(translated(debate2.title))
+      expect(subject).not_to have_escaped_html(translated(debate3.title))
+      expect(subject).not_to have_escaped_html(translated(debate4.title))
     end
   end
 
@@ -95,10 +95,10 @@ RSpec.describe "Debate search", type: :request do
       let(:state) { %w(open) }
 
       it "returns the open debates" do
-        expect(subject).to include(translated(debate1.title))
-        expect(subject).to include(translated(debate2.title))
-        expect(subject).not_to include(translated(debate3.title))
-        expect(subject).to include(translated(debate4.title))
+        expect(subject).to have_escaped_html(translated(debate1.title))
+        expect(subject).to have_escaped_html(translated(debate2.title))
+        expect(subject).not_to have_escaped_html(translated(debate3.title))
+        expect(subject).to have_escaped_html(translated(debate4.title))
       end
     end
 
@@ -106,10 +106,10 @@ RSpec.describe "Debate search", type: :request do
       let(:state) { %w(closed) }
 
       it "returns the closed debates" do
-        expect(subject).not_to include(translated(debate1.title))
-        expect(subject).not_to include(translated(debate2.title))
-        expect(subject).to include(translated(debate3.title))
-        expect(subject).not_to include(translated(debate4.title))
+        expect(subject).not_to have_escaped_html(translated(debate1.title))
+        expect(subject).not_to have_escaped_html(translated(debate2.title))
+        expect(subject).to have_escaped_html(translated(debate3.title))
+        expect(subject).not_to have_escaped_html(translated(debate4.title))
       end
     end
   end
@@ -135,10 +135,10 @@ RSpec.describe "Debate search", type: :request do
       end
 
       it "returns the debates commented by the current user" do
-        expect(subject).not_to include(translated(debate1.title))
-        expect(subject).not_to include(translated(debate2.title))
-        expect(subject).not_to include(translated(debate3.title))
-        expect(subject).to include(translated(debate4.title))
+        expect(subject).not_to have_escaped_html(translated(debate1.title))
+        expect(subject).not_to have_escaped_html(translated(debate2.title))
+        expect(subject).not_to have_escaped_html(translated(debate3.title))
+        expect(subject).to have_escaped_html(translated(debate4.title))
       end
     end
 
@@ -163,12 +163,33 @@ RSpec.describe "Debate search", type: :request do
       end
 
       it "returns the debates commented by the current user" do
-        expect(subject).not_to include(translated(debate1.title))
-        expect(subject).not_to include(translated(debate2.title))
-        expect(subject).not_to include(translated(debate3.title))
-        expect(subject).not_to include(translated(debate4.title))
-        expect(subject).to include(translated(debate5.title))
+        expect(subject).not_to have_escaped_html(translated(debate1.title))
+        expect(subject).not_to have_escaped_html(translated(debate2.title))
+        expect(subject).not_to have_escaped_html(translated(debate3.title))
+        expect(subject).not_to have_escaped_html(translated(debate4.title))
+        expect(subject).to have_escaped_html(translated(debate5.title))
       end
     end
+  end
+
+  describe "#index" do
+    let(:url) { "http://#{component.organization.host + request_path}" }
+
+    it "redirects to the index page" do
+      get(
+        url_to_root(request_path),
+        params: {},
+        headers: { "HOST" => component.organization.host }
+      )
+      expect(response["Location"]).to eq(url)
+      expect(response).to have_http_status(:moved_permanently)
+    end
+  end
+
+  private
+
+  def url_to_root(url)
+    parts = url.split("/")
+    parts[0..-2].join("/")
   end
 end

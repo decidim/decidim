@@ -1,0 +1,14 @@
+<div class="menu-bar__breadcrumb-desktop__dropdown-wrapper" onmouseenter="document.getElementById('main-dropdown-menu').classList.remove('no-animation')">
+  <%= link_to decidim.root_url, class: "menu-bar__breadcrumb-desktop__dropdown-trigger", onmouseenter: "document.getElementById('main-dropdown-summary').click()" do %>
+    <%= icon "home-2-line", class: "pointer-events-none" %><span class="sr-only"><%= t("decidim.menu.home") %></span>
+  <% end %>
+  <button id="main-dropdown-summary" class="menu-bar__breadcrumb-desktop__dropdown-trigger" data-component="dropdown" data-hover="true" data-target="main-dropdown-menu">
+    <%= icon "arrow-drop-down-line" %><span class="sr-only"><%= t("layouts.decidim.header.main_menu") %></span>
+  </button>
+</div>
+
+<div id="main-dropdown-menu" class="menu-bar__breadcrumb-desktop__dropdown-content no-animation" aria-hidden="true">
+  <%= render partial: "layouts/decidim/header/menu_breadcrumb_main_dropdown", locals: { id: "breadcrumb-main-dropdown-desktop" } %>
+</div>
+
+<%= render partial: "layouts/decidim/header/menu_breadcrumb_items" %>

@@ -54,7 +54,7 @@ shared_examples "update an initiative type" do
         expect { command.call }.to broadcast(:invalid)
       end
 
-      it "doesn't update an initiative type" do
+      it "does not update an initiative type" do
         command.call
         expect(initiative_type.title).not_to eq(form_params[:title])
         expect(initiative_type.description).not_to eq(form_params[:description])
@@ -96,7 +96,7 @@ shared_examples "update an initiative type" do
         expect(initiative.signature_type).to eq("offline")
       end
 
-      it "doesn't propagate signature type to non-created initiatives" do
+      it "does not propagate signature type to non-created initiatives" do
         initiative = create(:initiative, :published, organization:, scoped_type: scope, signature_type: "online")
 
         command.call

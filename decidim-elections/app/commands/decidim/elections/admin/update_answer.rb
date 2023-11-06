@@ -6,7 +6,6 @@ module Decidim
       # This command is executed when the user updates an Answer
       # from the admin panel.
       class UpdateAnswer < Decidim::Command
-        include ::Decidim::AttachmentMethods
         include ::Decidim::GalleryMethods
 
         def initialize(form, answer)
@@ -41,7 +40,7 @@ module Decidim
         attr_reader :form, :answer, :gallery
 
         def invalid?
-          form.election.started? || form.invalid?
+          form.election.blocked? || form.invalid?
         end
 
         def update_answer

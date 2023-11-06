@@ -11,7 +11,9 @@ checks:
     enabled: false
 
   identical-code:
-    enabled: false
+    enabled: true
+    exclude_patterns:
+    - "decidim_app-design/packages/"
 
   method-complexity:
     enabled: false
@@ -29,7 +31,9 @@ checks:
     enabled: false
 
   similar-code:
-    enabled: false
+    enabled: true
+    exclude_patterns:
+      - "decidim-*/lib/decidim/*/admin_engine.rb"
 
 plugins:
   bundler-audit:
@@ -62,7 +66,9 @@ plugins:
       - 4cd229a46c20efb3b58249cd528bc66c
 
     exclude_patterns:
+      - "decidim-*/lib/decidim/*/admin_engine.rb"
       - "decidim-*/spec/**/*"
+      - "**/eslint-config/index.js"
 
   eslint:
     enabled: false
@@ -78,7 +84,8 @@ plugins:
       - decidim-core/app/assets/javascripts/decidim/core/bundle.js.map
       - decidim-core/app/assets/javascripts/decidim/core/bundle.js
       - decidim-elections/lib/decidim/elections/jwk_utils.rb
-      - .rubocop_ruby.yml
+      - decidim-dev/config/rubocop/ruby.yml
+      - docs/modules/develop/pages/maintainers/security.adoc
 
   grep:
     enabled: true
@@ -87,32 +94,30 @@ plugins:
       patterns:
         no-trailing-whitespace:
           pattern: \s*$
-          annotation: "Don't leave trailing whitespace"
+          annotation: "Do not leave trailing whitespace"
           severity: minor
           categories: Style
 
         no-tabs:
           pattern: "	"
-          annotation: "Don't use hard tabs"
+          annotation: "Do not use hard tabs"
           severity: minor
           categories: Style
+
+        no-sing-in-for-system-specs:
+          pattern: \s+sign_in[\s\(]
+          annotation: "Use login_as instead of sign_in at system specs"
+          severity: minor
+          categories: Style
+          path_patterns:
+            - "decidim-*/spec/system/**/*.rb"
 
     exclude_patterns:
       - "decidim_app-design/**/*"
       - "**/*/locales/*.yml"
       - "**/*/*.svg"
       - "decidim-dev/lib/decidim/dev/assets/iso-8859-15.md"
-
-  markdownlint:
-    enabled: true
-
-    exclude_patterns:
-      - .github/*
-      - decidim-dev/lib/decidim/dev/assets/participatory_text.md
-      - decidim-proposals/app/assets/documents/decidim/proposals/participatory_texts/participatory_text.md
-
-    issue_override:
-      severity: minor
+      - "decidim-dev/lib/decidim/dev/assets/import_participatory_space_private_users_iso8859-1.csv"
 
   stylelint:
     # FIXME: after the webpacker packages changes, this is broken with this error:
@@ -120,7 +125,7 @@ plugins:
     # > Error: Could not find "@decidim/stylelint-config". Do you need a `configBasedir`?
     # > See our documentation at https://docs.codeclimate.com/docs/stylelint for more information.
     #
-    # Disabling it for the moment, we should enable it as it's useful.
+    # Disabling it for the moment, we should enable it as it is useful.
     #
     enabled: false
     exclude_patterns:
@@ -136,3 +141,5 @@ exclude_patterns:
   - "spec/decidim_dummy_app/"
   - "coverage/"
   - "webpack.report.html"
+  - "decidim_app-design/public/sw.js"
+  - "decidim_app-design/public/sw.js.map"

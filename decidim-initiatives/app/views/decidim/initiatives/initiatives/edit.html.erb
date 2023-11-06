@@ -1,78 +1,73 @@
 <% add_decidim_page_title(action_name) %>
 
-<div class="row columns">
-  <%= link_to :back, class: "muted-link" do %>
-    <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
-    <%= t("back", scope: "decidim.initiatives.edit") %>
-  <% end %>
-  <h2 class="section-heading"><%= t("title", scope: "decidim.initiatives.edit") %></h2>
-</div>
-
-<div class="row">
-  <div class="columns large-6 medium-centered">
-    <div class="card">
-      <div class="card__content">
-        <%= decidim_form_for @form, html: { class: "form edit_initiative" } do |f| %>
-          <%= render partial: "form", object: f %>
-          <div class="actions">
-            <%= f.submit t("update", scope: "decidim.initiatives.edit"), class: "button expanded" if allowed_to? :update, :initiative, initiative: current_initiative %>
-
-            <% if allowed_to? :publish, :initiative, initiative: current_initiative %>
-              <%= link_to t("actions.publish", scope: "decidim.admin"),
-                          publish_initiative_path(current_initiative),
-                          method: :post,
-                          class: "button hollow expanded",
-                          data: { confirm: t("confirm", scope: "decidim.initiatives.edit") } %>
-            <% end %>
-
-            <% if allowed_to? :unpublish, :initiative, initiative: current_initiative %>
-              <%= link_to t("actions.unpublish", scope: "decidim.admin"),
-                          unpublish_initiative_path(current_initiative),
-                          method: :delete,
-                          class: "button alert expanded",
-                          data: { confirm: t("confirm", scope: "decidim.initiatives.edit") } %>
-            <% end %>
-
-            <% if allowed_to? :accept, :initiative, initiative: current_initiative %>
-                <%= link_to t("accept", scope: "decidim.initiatives.edit"),
-                            accept_initiative_path(current_initiative),
-                            method: :post,
-                            class: "button hollow expanded",
-                            data: { confirm: t("confirm", scope: "decidim.initiatives.edit") } %>
-            <% end %>
-
-            <% if allowed_to? :reject, :initiative, initiative: current_initiative %>
-                <%= link_to t("reject", scope: "decidim.initiatives.edit"),
-                            reject_initiative_path(current_initiative),
-                            method: :delete,
-                            class: "button alert expanded",
-                            data: { confirm: t("confirm", scope: "decidim.initiatives.edit") } %>
-            <% end %>
-
-            <% if allowed_to? :discard, :initiative, initiative: current_initiative %>
-              <%= link_to t("discard", scope: "decidim.initiatives.edit"),
-                          discard_initiative_path(current_initiative),
-                          method: :delete,
-                          class: "button alert expanded",
-                          data: { confirm: t("confirm", scope: "decidim.initiatives.edit") } %>
-            <% end %>
-
-            <% if allowed_to? :export_votes, :initiative, initiative: current_initiative %>
-              <%= link_to t("export_votes", scope: "decidim.initiatives.edit"),
-                          export_votes_initiative_path(current_initiative, format: :csv),
-                          class: "button alert expanded",
-                          data: { confirm: t("confirm", scope: "decidim.initiatives.edit") } %>
-            <% end %>
-
-            <% if allowed_to? :export_pdf_signatures, :initiative, initiative: current_initiative %>
-              <%= link_to t("export_pdf_signatures", scope: "decidim.initiatives.edit"),
-                          export_pdf_signatures_initiative_path(current_initiative, format: :pdf),
-                          class: "button alert expanded",
-                          data: { confirm: t("confirm", scope: "decidim.initiatives.edit") } %>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
-    </div>
+<%= render layout:"layouts/decidim/shared/layout_center" do %>
+  <div class="text-center py-10">
+    <h1 class="title-decorator inline-block text-left"><%= t("title", scope: "decidim.initiatives.edit") %></h1>
   </div>
-</div>
+
+  <%= decidim_form_for @form, html: { class: "form__wrapper edit_initiative" } do |f| %>
+    <%= render partial: "form", object: f %>
+
+    <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+      <%= link_to :back, class: "button button__sm md:button__lg button__text-secondary" do %>
+        <%= icon "arrow-left-line", class: "fill-current" %>
+        <%= t("back", scope: "decidim.initiatives.edit") %>
+      <% end %>
+      <%= f.submit t("update", scope: "decidim.initiatives.edit"), class: "button button__sm md:button__lg button__secondary" if allowed_to? :update, :initiative, initiative: current_initiative %>
+
+      <% if allowed_to? :publish, :initiative, initiative: current_initiative %>
+        <%= link_to t("actions.publish", scope: "decidim.admin"),
+                    publish_initiative_path(current_initiative),
+                    method: :post,
+                    class: "button button__sm md:button__lg button__secondary",
+                    data: { confirm: t("confirm", scope: "decidim.initiatives.edit") } %>
+      <% end %>
+
+      <% if allowed_to? :unpublish, :initiative, initiative: current_initiative %>
+        <%= link_to t("actions.unpublish", scope: "decidim.admin"),
+                    unpublish_initiative_path(current_initiative),
+                    method: :delete,
+                    class: "button button__sm md:button__lg button__secondary",
+                    data: { confirm: t("confirm", scope: "decidim.initiatives.edit") } %>
+      <% end %>
+
+      <% if allowed_to? :accept, :initiative, initiative: current_initiative %>
+          <%= link_to t("accept", scope: "decidim.initiatives.edit"),
+                      accept_initiative_path(current_initiative),
+                      method: :post,
+                      class: "button button__sm md:button__lg button__secondary",
+                      data: { confirm: t("confirm", scope: "decidim.initiatives.edit") } %>
+      <% end %>
+
+      <% if allowed_to? :reject, :initiative, initiative: current_initiative %>
+          <%= link_to t("reject", scope: "decidim.initiatives.edit"),
+                      reject_initiative_path(current_initiative),
+                      method: :delete,
+                      class: "button button__sm md:button__lg button__secondary",
+                      data: { confirm: t("confirm", scope: "decidim.initiatives.edit") } %>
+      <% end %>
+
+      <% if allowed_to? :discard, :initiative, initiative: current_initiative %>
+        <%= link_to t("discard", scope: "decidim.initiatives.edit"),
+                    discard_initiative_path(current_initiative),
+                    method: :delete,
+                    class: "button button__sm md:button__lg button__secondary",
+                    data: { confirm: t("confirm", scope: "decidim.initiatives.edit") } %>
+      <% end %>
+
+      <% if allowed_to? :export_votes, :initiative, initiative: current_initiative %>
+        <%= link_to t("export_votes", scope: "decidim.initiatives.edit"),
+                    export_votes_initiative_path(current_initiative, format: :csv),
+                    class: "button button__sm md:button__lg button__secondary",
+                    data: { confirm: t("confirm", scope: "decidim.initiatives.edit") } %>
+      <% end %>
+
+      <% if allowed_to? :export_pdf_signatures, :initiative, initiative: current_initiative %>
+        <%= link_to t("export_pdf_signatures", scope: "decidim.initiatives.edit"),
+                    export_pdf_signatures_initiative_path(current_initiative, format: :pdf),
+                    class: "button button__sm md:button__lg button__secondary",
+                    data: { confirm: t("confirm", scope: "decidim.initiatives.edit") } %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

@@ -15,11 +15,6 @@ ga:
         new: Postáil nua
         title: Gníomhartha
       admin:
-        models:
-          components:
-            body: Corp
-          post:
-            name: Postáil
         posts:
           edit:
             save: Nuashonraigh
@@ -34,13 +29,6 @@ ga:
           fields:
             author: Údar
             body: Corp
-            title: teideal
-      posts:
-        show:
-          comments: Tráchtanna
-          view: Amharc
-        sidebar_blog:
-          comments: tráchtanna
     components:
       blogs:
         name: Blag

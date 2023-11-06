@@ -3,7 +3,7 @@
 module Decidim
   # A default presenter for the cases when the presented object is nil.
   # For example, when there are data inconsistencies like when a Meeting which is the creator of a proposal is removed.
-  # This presenter will also be useful if the presenter for the presented object can not be resolved.
+  # This presenter will also be useful if the presenter for the presented object cannot be resolved.
   #
   # It behaves as a presenter for deleted resources.
   # Returns an empty string for most of the method calls.
@@ -22,7 +22,9 @@ module Decidim
       true
     end
 
-    def method_missing(_method, *_args)
+    def method_missing(method, *_args)
+      return false if method.end_with?("?")
+
       ""
     end
   end

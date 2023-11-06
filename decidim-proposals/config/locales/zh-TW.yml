@@ -1,1 +1,897 @@
 zh-TW:
+  activemodel:
+    attributes:
+      collaborative_draft:
+        address: 地址
+        body: 內容
+        category_id: 類別
+        decidim_scope_id: 範圍
+        has_address: 有地址
+        scope_id: 範圍
+        state: 狀態
+        title: 標題
+        user_group_id: 建立協作草稿為
+      proposal:
+        address: 地址
+        answer: 回答
+        answered_at: 回答
+        automatic_hashtags: 已自動添加標籤
+        body: 內容
+        category_id: 類別
+        decidim_scope_id: 範圍
+        has_address: 有地址
+        scope_id: 範圍
+        state: 狀態
+        suggested_hashtags: 建議使用標籤
+        title: 標題
+        user_group_id: 建立提案
+      proposal_answer:
+        answer: 回答
+        cost: 費用
+        cost_report: 成本報告
+        execution_period: 執行期間
+      proposals_copy:
+        copy_proposals: 我明白這將會將選定的元件中的所有提案匯入到目前的元件，而且這個動作是無法撤銷的。
+        origin_component_id: 從哪個組件複製提案
+      proposals_import:
+        import_proposals: 導入提案
+        keep_answers: 保留狀態和回答
+        keep_authors: 保留原作者
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: 檢核者名稱
+    errors:
+      models:
+        participatory_text:
+          attributes:
+            document:
+              allowed_file_content_types: '無效文件類型。只允許使用以下副檔名的文件：%{types}'
+        proposal:
+          attributes:
+            add_documents:
+              needs_to_be_reattached: 需要重新附加
+            add_photos:
+              needs_to_be_reattached: 需要重新附加
+            body:
+              cant_be_equal_to_template: 不能與模板相同
+              identical: 並且標題不能相同
+            title:
+              identical: 並且內容不能相同
+        proposals_merge:
+          attributes:
+            base:
+              not_official: 非正式
+              supported: 已獲得支持或連署
+        proposals_split:
+          attributes:
+            base:
+              not_official: 非正式
+              supported: 已獲得支持或連署
+    models:
+      decidim/proposals/accepted_proposal_event: 提案已接受
+      decidim/proposals/admin/update_proposal_category_event: 提案類別已更改
+      decidim/proposals/admin/update_proposal_scope_event: 提案範圍已更改
+      decidim/proposals/creation_enabled_event: 建立提案已啟用
+      decidim/proposals/endorsing_enabled_event: 提案連署功能已啟用
+      decidim/proposals/evaluating_proposal_event: 提案正在被評估中
+      decidim/proposals/proposal_mentioned_event: 提案已被提及
+      decidim/proposals/publish_proposal_event: 提案已發佈
+      decidim/proposals/rejected_proposal_event: 提案被拒絕
+      decidim/proposals/voting_enabled_event: 提案投票已啟用
+  activerecord:
+    models:
+      decidim/proposals/collaborative_draft:
+        other: 協作草稿
+      decidim/proposals/proposal:
+        other: 提案
+      decidim/proposals/proposal_note:
+        other: 備註
+      decidim/proposals/proposal_vote:
+        other: 支援
+  decidim:
+    admin:
+      filters:
+        proposals:
+          category_id_eq:
+            label: 分類
+          is_emendation_true:
+            label: 類別
+            values:
+              'false': 提案
+              'true': 修正案
+          scope_id_eq:
+            label: 範圍
+          state_eq:
+            label: 狀態
+            values:
+              accepted: 已接受
+              evaluating: 評估
+              published: 已發佈
+              rejected: 已拒絕
+              validating: 技術驗證
+              withdrawn: 已撤回
+          valuator_role_ids_has:
+            label: 已分配給評估人員
+        search_placeholder:
+          id_string_or_title_cont: 透過 ID 或標題搜尋%{collection}
+    components:
+      proposals:
+        actions:
+          amend: 修訂
+          comment: 評論
+          create: 建立
+          endorse: 連署
+          vote: 支援
+          vote_comment: 投票評論
+          withdraw: 撤回
+        name: 提案
+        settings:
+          global:
+            amendments_enabled: 修改功能已啟用
+            amendments_enabled_help: 如果啟用，則可以為每個步驟設置修改功能。
+            amendments_wizard_help_text: 修改向導説明文字
+            announcement: 公告
+            attachments_allowed: 允許附檔
+            can_accumulate_supports_beyond_threshold: 能夠累積支持至超過門檻
+            collaborative_drafts_enabled: ' 啟用協作草稿'
+            comments_enabled: 已啟用留言
+            comments_max_length: 評論字數最大長度(若要使用預設值請輸入0)
+            default_sort_order: 預設提案排序
+            default_sort_order_help: 默認意味著如果啟用了支持，則建議將提案按隨機順序排序，如果封鎖了支持，則將按最受支持的順序排序。
+            default_sort_order_options:
+              default: 預設值
+              most_commented: 最多評論
+              most_endorsed: 最多已連署
+              most_followed: 最多追蹤者
+              most_voted: 最受支持的
+              random: 隨機
+              recent: 最近
+              with_more_authors: 有更多作者
+            geocoding_enabled: 地理編碼已啟用
+            minimum_votes_per_user: 每位使用者最少贊成數量
+            new_proposal_body_template: 新提案正文樣板
+            new_proposal_body_template_help: 您可以定義新提案預先填寫的文字
+            new_proposal_help_text: 新提案幫助文本
+            official_proposals_enabled: 官方提案已啟用
+            participatory_texts_enabled: 參與式文字已啟用
+            participatory_texts_enabled_readonly: 如果已經存在提案，則無法與此設置互動。如果您想要啟用此功能，請創建一個新的“提案組件”，或者如果要禁用此功能，請在“參與式文字”選單中放棄所有已匯入的提案。
+            proposal_answering_enabled: 提案回答已啟用
+            proposal_edit_before_minutes: 在幾分鐘後，作者可以編輯提案
+            proposal_edit_time: 編輯提案
+            proposal_edit_time_choices:
+              infinite: 允許無限時間編輯提案
+              limited: 允許在特定時間範圍內編輯提案
+            proposal_length: 提案正文的最大長度
+            proposal_limit: 參與者可提出提案的上限
+            proposal_wizard_step_1_help_text: 提案向導「創建」步驟說明文字
+            proposal_wizard_step_2_help_text: 提案向導「比較」步驟說明文字
+            proposal_wizard_step_3_help_text: 提案向導「完成」步驟說明文字
+            proposal_wizard_step_4_help_text: 提案向導「發佈」步驟說明文字
+            resources_permissions_enabled: 每個提案都可以設定行動權限
+            scope_id: 範圍
+            scopes_enabled: 啟用範圍
+            threshold_per_proposal: 每個提案的門檻
+            vote_limit: 每位參與者可支持的數量上限
+          step:
+            amendment_creation_enabled: 創建修正案已啟用
+            amendment_creation_enabled_help: 參與者可修改提案
+            amendment_promotion_enabled: 修正提案提升功能啟用
+            amendment_promotion_enabled_help: 修正提案的作者將能夠將被拒絕的修正提案提升為提案。
+            amendment_reaction_enabled: 啟用修正提案反應
+            amendment_reaction_enabled_help: 提案的作者可以接受或拒絕參與者的修改。
+            amendments_visibility: 修正案的可見性
+            amendments_visibility_choices:
+              all: 所有人都可以看到修正案
+              participants: 修正案僅限作者可見
+            amendments_visibility_help: 若選擇「修正案僅限作者可見」選項，參與者必須登入以查看所做的修正。
+            announcement: 公告
+            answers_with_costs: 啟用提案回答的成本
+            automatic_hashtags: 所有提案都已添加標籤
+            comments_blocked: 留言已封鎖
+            creation_enabled: 參與者可以建立提案
+            creation_enabled_readonly: 啟用參與式文本功能後，此設置將被禁用。要將提案上傳為參與式文本，請點擊“參與式文本”按鈕，然後按照說明進行操作。
+            default_sort_order: 預設提案排序
+            default_sort_order_help: 默認意味著如果啟用了支持，則建議將提案按隨機順序排序，如果封鎖了支持，則將按最受支持的順序排序。
+            default_sort_order_options:
+              default: 預設值
+              most_commented: 最多評論
+              most_endorsed: 最多已連署
+              most_followed: 最多追蹤者
+              most_voted: 最受支持的
+              random: 隨機
+              recent: 最近
+              with_more_authors: 有更多作者
+            endorsements_blocked: 連署已封鎖
+            endorsements_enabled: 連署已啟用
+            proposal_answering_enabled: 提案回答已啟用
+            publish_answers_immediately: 立即發布提案回答
+            publish_answers_immediately_help_html: '請注意，如果您在未啟用此功能的情況下回答任何提案，您將需要手動選擇它們並使用發布操作進行發布。有關此操作的更多信息，請參閱 <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">提案答案文檔頁面</a>。'
+            suggested_hashtags: 為新提案建議參與者使用的標籤
+            votes_blocked: 封鎖支持
+            votes_enabled: 啟用支持
+            votes_hidden: 隱藏支持（如果支持被啟用，勾選此選項將隱藏支持的數量）
+    events:
+      proposals:
+        admin:
+          proposal_note_created:
+            email_intro: 有人在提案「%{resource_title}」上留了一則留言。在<a href="%{admin_proposal_info_url}">管理員面板</a>檢查它。
+            email_outro: 您收到此通知，因為您可以對提案進行評估。
+            email_subject: 有人在提案 %{resource_title} 上留下了一則註記。
+            notification_title: 有人在提案「<a href="%{resource_path}">%{resource_title}</a>」上留了一則留言。請至<a href="%{admin_proposal_info_path}">管理面板</a>查看。
+        collaborative_draft_access_accepted:
+          email_intro: '%{requester_name} 已經被接受成為 <a href="%{resource_url}">%{resource_title}</a> 協作草稿的貢獻者。'
+          email_outro: 您收到此通知，是因為您是 <a href="%{resource_url}">%{resource_title}</a> 的協作者。
+          email_subject: "%{requester_name} 已被接受為 %{resource_title} 的貢獻者。"
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> 已被<strong>接受為共同編輯者</strong>，可存取<a href="%{resource_path}">%{resource_title}</a>的共同協作草稿。
+        collaborative_draft_access_rejected:
+          email_intro: '%{requester_name} 已被拒絕加入<a href="%{resource_url}">%{resource_title}</a>協作草稿的貢獻者名單。'
+          email_outro: 您收到此通知，是因為您是 <a href="%{resource_url}">%{resource_title}</a> 的協作者。
+          email_subject: "%{requester_name} 已被拒絕加入 %{resource_title} 協作草稿的貢獻者名單。"
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> 被拒絕成為<a href="%{resource_path}">%{resource_title}</a>協作草稿的貢獻者。
+        collaborative_draft_access_requested:
+          email_intro: '%{requester_name} 提出了成為貢獻者的請求。您可以在 <a href="%{resource_url}">%{resource_title}</a> 協作草稿頁面中<strong>接受或拒絕該請求</strong>。'
+          email_outro: 您收到此通知，是因為您是 <a href="%{resource_url}">%{resource_title}</a> 的協作者。
+          email_subject: "%{requester_name} 要求加入以貢獻至 %{resource_title}。"
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> 要求加入以貢獻協作草稿 <a href="%{resource_path}">%{resource_title}</a>，請 <strong>接受或拒絕該請求</strong>。
+        collaborative_draft_access_requester_accepted:
+          email_intro: 您已被允許訪問<a href="%{resource_url}">%{resource_title}</a>協作草稿，以作為貢獻者。
+          email_outro: 您收到此通知是因為您請求成為<a href="%{resource_url}">%{resource_title}</a>的協作者。
+          email_subject: 你已經被接受為 %{resource_title} 的貢獻者。
+          notification_title: 你已被<strong>接受為參與者之一</strong>，可進入<a href="%{resource_path}">%{resource_title}</a>的協作草稿。
+        collaborative_draft_access_requester_rejected:
+          email_intro: 您的參與請求被拒絕，無法成為 <a href="%{resource_url}">%{resource_title}</a> 協作草稿的貢獻者。
+          email_outro: 您收到此通知是因為您請求成為<a href="%{resource_url}">%{resource_title}</a>的協作者。
+          email_subject: 你的協作者申請已被拒絕，無法成為 %{resource_title} 的貢獻者。
+          notification_title: 你的<a href="%{resource_path}">%{resource_title}</a>協作草稿的貢獻者申請已被拒絕。
+        collaborative_draft_withdrawn:
+          email_intro: <a href="%{author_url}">%{author_name} %{author_nickname}</a>已撤回<a href="%{resource_url}">%{resource_title}</a>協作草稿。
+          email_outro: 您收到此通知，是因為您是 <a href="%{resource_url}">%{resource_title}</a> 的協作者。
+          email_subject: "%{author_name} %{author_nickname} 撤回了 %{resource_title} 的協作草稿。"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>撤回了</strong> <a href="%{resource_path}">%{resource_title}</a> 的協作草稿。
+        creation_enabled:
+          email_intro: '你現在可以在 %{participatory_space_title} 中建立新的提案了！開始參與此頁面：'
+          email_outro: 你收到此通知是因為你正在追蹤 %{participatory_space_title}。你可以透過前面的連結停止接收通知。
+          email_subject: 現在可以在 %{participatory_space_title} 中建立新的提案了！
+          notification_title: 現在您可以在<a href="%{participatory_space_url}">%{participatory_space_title}</a>中提出<a href="%{resource_path}">新提案</a>。
+        endorsing_enabled:
+          email_intro: '您可以連署 %{participatory_space_title} 中的提案！請點擊以下連結參與：'
+          email_outro: 你收到此通知是因為你正在追蹤 %{participatory_space_title}。你可以透過前面的連結停止接收通知。
+          email_subject: 已開始對於 %{participatory_space_title} 的提案進行連署
+          notification_title: 現在您可以在<a href="%{participatory_space_url}">%{participatory_space_title}</a>中開始<a href="%{resource_path}">連署提案</a>。
+        proposal_accepted:
+          affected_user:
+            email_intro: '您的提案「%{resource_title}」已被接受。您可以在此頁面上閱讀回應：'
+            email_outro: 你收到此通知，是因為你是「%{resource_title}」的作者。
+            email_subject: 你的提案已被接受
+            notification_title: 您的提案 <a href="%{resource_path}">%{resource_title}</a> 已被接受。
+          follower:
+            email_intro: '該提案「%{resource_title}」已被接受。您可以在此頁面上閱讀回應：'
+            email_outro: 您收到了此通知，是因為您正在關注 "%{resource_title}"。您可以通過前面的鏈接取消關注它。
+            email_subject: 您追蹤的提案已被接受
+            notification_title: <a href="%{resource_path}">%{resource_title}</a>" 提案已經被接受。
+        proposal_evaluating:
+          affected_user:
+            email_intro: '您的提案“%{resource_title}”正在進行評估。您可以在此頁面上查看答案：'
+            email_outro: 你收到此通知，是因為你是「%{resource_title}」的作者。
+            email_subject: 您的提案正在被評估中
+            notification_title: 您的提案<a href="%{resource_path}">%{resource_title}</a>正在評估中。
+          follower:
+            email_intro: '該提案“%{resource_title}”正在進行評估。您可以在此頁面上查看答案：'
+            email_outro: 您收到了此通知，是因為您正在關注 "%{resource_title}"。您可以通過前面的鏈接取消關注它。
+            email_subject: 你追蹤的提案正在評估中
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> 提案正在評估中。
+        proposal_mentioned:
+          email_intro: 你的提案「%{mentioned_proposal_title}」在評論中被提及，<a href="%{resource_url}">請至此空間查看</a>。
+          email_outro: 你收到此通知，是因為你是「%{resource_title}」的作者。
+          email_subject: 你的提案「%{mentioned_proposal_title}」已被提及。
+          notification_title: 你的提案「%{mentioned_proposal_title}」在評論中被提及，<a href="%{resource_path}">請至此空間查看</a>。
+        proposal_published:
+          email_intro: '%{author_name} %{author_nickname}，你正在關注的用戶，已經發布了一個名為“%{resource_title}”的新提案。快去看看並參與：'
+          email_outro: 您收到此通知，是因為您正在關注 %{author_nickname}。您可以使用上面的連結停止接收通知。
+          email_subject: 新提案「%{resource_title}」由 %{author_nickname} 提交
+          notification_title: 提案 <a href="%{resource_path}">%{resource_title}</a> 由 <a href="%{author_path}">%{author_name} %{author_nickname}</a> 提出。
+        proposal_published_for_space:
+          email_intro: 您正在追蹤的「%{participatory_space_title}」中新增了提案「%{resource_title}」。
+          email_outro: 收到這個提醒是因為訂閱了 "%{participatory_space_title}" ，透過上面連結可以停止訂閱。
+          email_subject: 新增提案「%{resource_title}」至「%{participatory_space_title}」。
+          notification_title: '%{author} 將提案<a href="%{resource_path}">%{resource_title}</a>新增至%{participatory_space_title}.'
+          notification_title_official: 官方提案 <a href="%{resource_path}">%{resource_title}</a> 已經被添加到 %{participatory_space_title}.
+        proposal_rejected:
+          affected_user:
+            email_intro: '您的提案「%{resource_title}」已被駁回。您可以在此頁面中閱讀回覆：'
+            email_outro: 你收到此通知，是因為你是「%{resource_title}」的作者。
+            email_subject: 您的提案已被駁回
+            notification_title: 您的提案<a href="%{resource_path}">%{resource_title}</a>已被拒絕。
+          follower:
+            email_intro: '該提案「%{resource_title}」已被駁回。您可以在此頁面中閱讀回覆：'
+            email_outro: 您收到了此通知，是因為您正在關注 "%{resource_title}"。您可以通過前面的鏈接取消關注它。
+            email_subject: 您追蹤的提案已被拒絕
+            notification_title: <a href="%{resource_path}">%{resource_title}</a>" 提案已經被拒絕。
+        proposal_update_category:
+          email_intro: '管理員已更新您的提案 "%{resource_title}" 的分類，請前往此頁面查看：'
+          email_outro: 您收到此通知是因為您是該提案的作者。
+          email_subject: '「%{resource_title}」提案的分類已更新'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 提案類別已由管理員更新。
+        proposal_update_scope:
+          email_intro: '一位管理員已更新您的提案"%{resource_title}" 的範圍，您可以在此頁面檢查：'
+          email_outro: 您收到此通知是因為您是該提案的作者。
+          email_subject: '%{resource_title} 提案範圍已更新'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 提案範圍已由管理員更新。
+        voting_enabled:
+          email_intro: '你可以支持 %{participatory_space_title} 的提案！在此頁面開始參與：'
+          email_outro: 你收到此通知是因為你正在追蹤 %{participatory_space_title}。你可以透過前面的連結停止接收通知。
+          email_subject: 已開放 %{participatory_space_title} 的提案支持。
+          notification_title: 現在您可以開始<a href="%{resource_path}">支持提案</a>於<a href="%{participatory_space_url}">%{participatory_space_title}</a>
+    gamification:
+      badges:
+        accepted_proposals:
+          conditions:
+            - 選擇您有興趣的參與空間並啟用提交提案功能
+            - 嘗試提出可以實現的提案，這樣它們更有可能被接受。
+          description: 這個徽章是當你積極參與提出新的提案並且這些提案被接受時授予的。
+          description_another: 這個參與者有 %{score} 個被接受的提案。
+          description_own: 您有 %{score} 個提案被接受。
+          name: 已通過的提案
+          next_level_in: 再讓 %{score} 個提案被接受就可以升級到下一個等級了！
+          unearned_another: 該參與者目前尚未有任何被接受的提案。
+          unearned_own: 你尚未有任何提案被接受。
+        proposal_votes:
+          conditions:
+            - 瀏覽並花些時間閱讀其他人的提案
+            - 給你喜歡或覺得有趣的提案提供支持
+          description: 當您支持他人的提案時，將獲得此徽章。
+          description_another: 這個參與者支持了 %{score} 個提案。
+          description_own: 你已經支持了 %{score} 個提案。
+          name: 支持的提案
+          next_level_in: 給予支持給%{score} 更多提案，以達到下一個等級！
+          unearned_another: 這位參與者尚未對任何提案表示支持。
+          unearned_own: 您尚未給任何提案提供支持。
+        proposals:
+          conditions:
+            - 選擇您有興趣的參與空間並啟用提交提案功能
+            - 提出新的提案
+          description: 當您積極參與新提案時，將獲得此徽章。
+          description_another: 這個參與者已經創建了 %{score} 個提案。
+          description_own: 您已經建立了 %{score} 個提案。
+          name: 提案
+          next_level_in: 建立更多 %{score} 個提案以達到下一個等級！
+          unearned_another: 這位參與者還沒有建立任何提案。
+          unearned_own: 你還沒有建立提案。
+    metrics:
+      accepted_proposals:
+        description: 已接受的提案數
+        object: 提案
+        title: 已通過的提案
+      endorsements:
+        description: 對提案的連署次數
+        object: 連署
+        title: 連署
+      proposals:
+        description: 提案總數
+        object: 提案
+        title: 提案
+      votes:
+        description: 提案所獲得的支持數
+        object: 支持
+        title: 支援
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: 檢視所有提案 (%{count})
+    proposals:
+      actions:
+        answer_proposal: 回覆提案
+        edit_proposal: 編輯提案
+        import: 從其他元件匯入提案
+        new: 新提案
+        participatory_texts: 參與文字
+        show: 查看提案
+        title: 操作
+      admin:
+        actions:
+          preview: 預覽
+        exports:
+          proposal_comments: 評論
+          proposals: 提案
+        imports:
+          help:
+            answers: |
+              匯入文件如果是 CSV 或 Excel 檔案，應包含以下列名，如果是 JSON 檔案，則應包含以下名稱：
+
+              <ul>
+              <li><b>id：</b>要回答的提案的 ID</li>
+              <li><b>state：</b>狀態之一，可以是 "接受"、"評估中" 或 "拒絕"</li>
+              <li><b>answer/en：</b>英文語言的答案。這將取決於您平台的語言設置。</li>
+              </ul>
+            proposals: |
+              在 CSV 或 Excel 文件的情況下，或在 JSON 文件的情況下，文件必須具有以下列名稱：
+
+              <ul>
+              <li><b>title/en：</b>英文標題，這取決於您平台的語言配置。</li>
+              <li><b>body/en：</b>英文正文，這取決於您平台的語言配置。</li>
+              <li><b>scope/id：</b>範圍的 ID。</li>
+              <li><b>category/id：</b>類別的 ID。</li>
+              </ul>
+          label:
+            answers: 從檔案匯入回覆
+            proposals: 從檔案匯入提案
+          resources:
+            answers:
+              other: 提案回應
+            proposals:
+              other: 提案
+          title:
+            answers: 匯入提案回應
+            proposals: 導入提案
+        models:
+          proposal:
+            name: 提案
+        participatory_texts:
+          bulk-actions:
+            are_you_sure: 您確定要放棄整個參與性文本草案嗎？
+            discard_all: 捨棄全部
+            import_doc: 匯入文件
+          discard:
+            success: 所有的參與性文本草案都已經被放棄。
+          import:
+            invalid: 此表單無效!
+            invalid_file: 檔案內容有誤，請嘗試編輯檔案內容並重新上傳。
+            success: 恭喜，以下部分已轉換為提案。現在您可以在發布之前審查和調整它們。
+          index:
+            info_1: 以下部分已轉換為提案。現在您可以在發布之前審查和調整它們。
+            publish_document: 發佈文件
+            save_draft: 儲存草稿
+            title: 預覽參與性文件
+          new_import:
+            accepted_mime_types:
+              md: Markdown
+              odt: ODT
+            bottom_hint: "(您可以預覽和排序文件章節)"
+            title: 新增文件
+            upload_document: 上傳文件
+          publish:
+            invalid: 發佈提案時發生問題。
+            success: 所有提案已經發佈.
+          sections:
+            article: "<em>文章</em>"
+            section: "<em>章節：</em><strong>%{title}</strong>"
+            sub-section: "<em>子章節：</em>%{title}"
+          update:
+            success: 參與式文本已成功更新。
+        proposal_answers:
+          form:
+            accepted: 已接受
+            answer_proposal: 回答
+            evaluating: 評估
+            not_answered: 未回答
+            rejected: 已拒絕
+            title: 對於提案 %{title} 的回覆
+        proposal_notes:
+          create:
+            error: 建立提案備註時發生問題.
+            success: 提案註記已成功建立.
+          form:
+            note: 附註
+            submit: 提交
+          leave_your_note: 留下您的註記
+          title: 私有注解
+        proposals:
+          answer:
+            invalid: 回答這個提案時出現了問題.
+            success: 提案回覆成功.
+          create:
+            invalid: 創建提案時發生問題.
+            success: 提案已成功建立.
+          edit:
+            title: 更新提案
+            update: 更新
+          form:
+            attachment_legend: "(可選) 新增附件"
+            created_in_meeting: 這個提案來自會議
+            delete_attachment: 刪除附件
+            select_a_category: 選擇一個類別
+            select_a_meeting: 選擇一個會議
+          index:
+            actions: 操作
+            assign_to_valuator: 分配給評估人員
+            assign_to_valuator_button: 指派
+            cancel: 取消
+            change_category: 變更類別
+            change_scope: 變更範圍
+            merge: 合併為新提案
+            merge_button: 合併
+            publish: 發布
+            publish_answers: 發佈回應
+            select_component: 選擇一個元件
+            selected: 已選取
+            split: 拆分提案
+            split_button: 拆分
+            title: 提案
+            unassign_from_valuator: 取消分派給評估者
+            unassign_from_valuator_button: 取消分配
+            update: 更新
+            update_scope_button: 更新範圍
+          new:
+            create: 建立
+            title: 建立提案
+          publish_answers:
+            number_of_proposals: 共 %{number} 份提案的答案將會發佈。
+            select_a_proposal: 請選擇一個提案。
+          show:
+            amendments_count: 修改案數量
+            assigned_valuators: 已分配給評估人員
+            body: 正文
+            comments_count: 評論次數
+            documents: 文件
+            endorsements_count: 連署人數
+            endorsers: 贊助人
+            link: 連結
+            n_more_endorsers:
+              other: 還有 %{count} 位
+            photos: 圖片
+            ranking: "%{total} 的%{ranking}"
+            related_meetings: 相關會議
+            remove_assignment: 移除指派
+            remove_assignment_confirmation: 您確定要將評估者從此提案中移除嗎？
+            valuators: 評估者
+            votes_count: 支持數量
+          update_category:
+            invalid: '這些提案已經擁有 %{subject_name} 類別: %{proposals}。'
+            select_a_category: 請選擇一個類別。
+            select_a_proposal: 請選擇一個提案。
+            success: '已成功將以下提案更新至 %{subject_name} 類別: %{proposals}。'
+          update_scope:
+            invalid: '這些提案已經有了 %{subject_name} 的範圍: %{proposals}。'
+            select_a_proposal: 請選擇一個提案。
+            select_a_scope: 請選擇一個範圍。
+            success: '成功將提案更新到 %{subject_name} 的範圍內： %{proposals}。'
+        proposals_imports:
+          create:
+            invalid: 匯入提案時發生問題.
+            success: "%{number} 個提案成功匯入."
+          new:
+            create: 匯入提案
+            no_components: 這個參與空間中沒有其他的提案元件可以匯入提案。
+            select_component: 請選擇一個組件
+            select_states: 檢查要匯入的提案狀態。
+            title: 匯入提案
+        proposals_merges:
+          create:
+            invalid: '由於其中一些提案存在問題，因此無法合併所選提案：'
+            success: 已成功合併提案成為新的提案。
+        proposals_splits:
+          create:
+            invalid: '由於其中一些提案存在問題，因此無法分割所選提案：'
+            success: 成功將提案拆分為新的提案。
+        valuation_assignments:
+          create:
+            invalid: 有一個錯誤在指定提案給評估者。
+            success: 提案已成功分配給評估人員.
+          delete:
+            invalid: 取消指派建議書給評估人員時發生錯誤.
+            success: 評估員已成功取消分配提案.
+      admin_log:
+        proposal:
+          answer: "%{user_name} 回覆了在 %{space_name} 空間的 %{resource_name} 提案。"
+          create: "%{user_name} 在%{space_name} 空間中創建了官方提案%{resource_name}"
+          publish_answer: "%{user_name} 在%{space_name} 空間中發表了對%{resource_name} 提案的回答"
+          update: "%{user_name} 在%{space_name} 空間中更新了%{resource_name} 官方提案"
+        proposal_note:
+          create: "%{user_name} 在 %{space_name} 空間的 %{resource_name} 提案中留下了私人註記。"
+        valuation_assignment:
+          create: "%{user_name} 將 %{resource_name} 提案指派給了一個評估者。"
+          delete: "%{user_name} 取消了 %{proposal_title} 提案的評估者指派。"
+      answers:
+        accepted: 已接受
+        evaluating: 評估
+        not_answered: 未回答
+        rejected: 已拒絕
+        withdrawn: 已撤回
+      application_helper:
+        filter_origin_values:
+          all: 全部
+          meetings: 會議
+          official: 官方
+          participants: 參與者
+          user_groups: 群組
+        filter_state_values:
+          accepted: 已接受
+          all: 全部
+          evaluating: 評估
+          not_answered: 未回答
+          rejected: 已拒絕
+        filter_type_values:
+          all: 全部
+          amendments: 修正案
+          proposals: 提案
+      collaborative_drafts:
+        collaborative_draft:
+          publish:
+            error: 發布協作草稿時出現問題。
+            irreversible_action_modal:
+              body: 發佈這個草案成為提案後，它將不再可編輯。提案將不會接受新的作者或貢獻。
+              cancel: 取消
+              ok: 作為提案發布
+              title: 這個動作是不可逆的
+            success: 協作草稿已成功發布為提案。
+          withdraw:
+            error: 關閉協作草稿時出現問題
+            irreversible_action_modal:
+              body: 關閉草稿後，它將不再可編輯。該草稿將不再接受新的作者或貢獻。
+              cancel: 取消
+              ok: 撤回協作草稿
+              title: 這個動作是不可逆的
+            success: 協作草稿已成功撤回。
+        create:
+          error: 建立協作草稿時發生問題。
+          success: 協作草稿建立成功。
+        edit:
+          attachment_legend: "(可選) 新增附件"
+          back: 返回
+          select_a_category: 請選擇一個類別
+          send: 發送
+          title: 編輯協作草稿
+        filters:
+          all: 全部
+          amendment: 修正案
+          category: 類別
+          open: 開啟
+          published: 已發佈
+          related_to: 相關於
+          scope: 範圍
+          search: 搜尋
+          state: 狀態
+          withdrawn: 已撤回
+        filters_small_view:
+          close_modal: 關閉視窗
+          filter: 篩選
+          filter_by: 篩選條件
+          unfold: 展開
+        index:
+          count:
+            other: "%{count} 個協作草稿"
+        new:
+          add_file: 添加檔案
+          edit_file: 編輯檔案
+          send: 繼續
+        new_collaborative_draft_button:
+          new_collaborative_draft: 新的協作草稿
+        orders:
+          label: '依序排列草稿：'
+          most_contributed: 最多貢獻度
+          random: 隨機
+          recent: 最近
+        requests:
+          accepted_request:
+            error: 無法接受您的協作者申請，請稍後再試。
+            success: "@%{user} 已經成功被接受為協作者."
+          access_requested:
+            error: 您的請求無法完成，請稍後再試。
+            success: 您的合作請求已成功送出。
+          collaboration_requests:
+            accept_request: 接受
+            reject_request: 拒絕
+            title: 合作邀請
+          rejected_request:
+            error: 無法拒絕作為合作者，請稍後再試。
+            success: "@%{user} 已被成功拒絕成為協作者。"
+        show:
+          edit: 編輯協作草稿
+          final_proposal: 最終提案
+          final_proposal_help_text: 此草案已完成。請查看最終提案。
+          hidden_authors_count:
+            other: "one\n以及其他 %{count} 個人\n\nOther\n以及其他 %{count} 個人"
+          info-message: 這是一份提案的<strong>共同合作稿件</strong>，這表示您可以使用下面的評論區幫助作者們塑造提案，或直接請求編輯權限以對其進行改進。一旦作者們授予您訪問權限，您便可以對此起草稿進行更改。
+          publish: 發布
+          publish_info: 發佈這個版本的草案或
+          published_proposal: 發佈提案
+          request_access: 申請權限
+          requested_access: 授權請求
+          withdraw: 撤回草稿
+        states:
+          open: 開啟
+          published: 已發佈
+          withdrawn: 撤回
+        update:
+          error: 在儲存提案時出現問題
+          success: 協作草稿更新成功。
+        wizard_aside:
+          back_from_collaborative_draft: 回到協作草稿
+        wizard_header:
+          title: 建立你的協作草案
+      create:
+        error: 儲存提案時出現問題。
+        success: 提案已成功建立。儲存為草案。
+      destroy_draft:
+        error: 刪除協作草稿時發生問題。
+        success: 提案草案已成功刪除。
+      last_activity:
+        new_proposal: '新提案:'
+        proposal_updated: '提案更新：'
+      models:
+        proposal:
+          fields:
+            category: 分類
+            comments: 評論
+            id: ID
+            notes: 備註
+            official_proposal: 正式提案
+            published_answer: 已發布的回答
+            published_at: 發佈於
+            scope: 範圍
+            state: 狀態
+            title: 標題
+            valuator: 評估者
+            valuators: 評估者
+            votes: 投票
+      new:
+        limit_reached: 你已經超過了提案數量的限制，因此無法創建新的提案。
+      participatory_text_proposal:
+        alternative_title: 目前沒有參與性文字
+        buttons:
+          amend: 修訂
+          comment: 評論
+      proposal_votes:
+        create:
+          error: 支持提案時發生問題。
+      proposals:
+        compare:
+          continue: 繼續
+          no_similars_found: 做得好！沒有相似的提案
+          title: 相似的提案
+        complete:
+          send: 發送
+          title: 完成您的提案
+        dynamic_map_instructions:
+          description: 當點擊“預覽”按鈕時，座標將會更新，但地址不會更改。
+          instructions: 您可以在地圖上移動點。
+        edit:
+          add_documents: 新增文件
+          attachment_legend: "(可選) 新增附件"
+          back: 返回
+          edit_documents: 編輯文件
+          select_a_category: 請選擇一個類別
+          send: 發送
+          title: 編輯提案
+        edit_draft:
+          discard: 放棄此草案
+          discard_confirmation: 您確定要放棄此提案草案嗎？
+          send: 預覽
+          title: 編輯提案草案
+        filters:
+          activity: 我的活動
+          all: 全部
+          amendment_type: 類別
+          category: 分類
+          my_proposals: 我的提案
+          origin: 起源
+          related_to: 相關於
+          scope: 範圍
+          search: 搜尋
+          state: 狀態
+          type: 類別
+          voted: 支持
+        index:
+          click_here: 檢視所有提案
+          collaborative_drafts_list: 進入協作草稿
+          count:
+            other: "%{count} 個提案"
+          new_proposal: 新提案
+          see_all: 檢視所有提案
+          see_all_withdrawn: 查看所有撤回的提案
+          text_banner: 您正在查看由其作者撤回的提案列表。%{go_back_link}。
+        new:
+          send: 繼續
+          title: 創建你的提案
+        orders:
+          label: '依順序排序提案：'
+          most_commented: 最多評論
+          most_endorsed: 最多已連署
+          most_followed: 最多追蹤者
+          most_voted: 最受支持的
+          random: 隨機
+          recent: 最近
+          with_more_authors: 有更多作者
+        placeholder:
+          address: 37 Homewood Drive Brownsburg, IN 46112
+        preview:
+          announcement_body: 您的提案已被儲存為草案。它需要被發布才能出現在網站上。
+          announcement_title: 您的提案尚未發布
+          modify: 修改提案
+          proposal_edit_before_minutes:
+            other: "One\n提案發布後的前1分鐘內，您可以對其進行編輯。此時間窗口過後，您將無法編輯提案。\nOther\n提案發布後的前 %{count} 分鐘內，您可以對其進行編輯。此時間窗口過後，您將無法編輯提案。"
+          publish: 發布
+          title: 發佈您的提案
+        proposals:
+          empty: 目前尚未有提案.
+          empty_filters: 沒有符合此條件的提案。
+        show:
+          answer: 回答
+          changes_at_title: 修正案 "%{title}"
+          edit_proposal: 編輯提案
+          estimated_cost: 預估成本
+          hidden_endorsers_count:
+            other: "one\n以及其他 %{count} 個人\n\nOther\n以及其他 %{count} 個人"
+          link_to_collaborative_draft_help_text: 這個提案是由協作草稿所產生的。請查看歷史記錄。
+          link_to_collaborative_draft_text: 查看協作草稿
+          link_to_promoted_emendation_help_text: 這份提案是一項推動性的修正案
+          link_to_promoted_emendation_text: 查看被拒絕的修正案。
+          link_to_proposal_from_emendation_help_text: 這是一個被拒絕的修改動議
+          link_to_proposal_from_emendation_text: 查看提案
+          proposal_accepted_reason: '這個提案已經被接受，因為：'
+          proposal_in_evaluation_reason: 這個提案正在被評估中
+          proposal_rejected_reason: '這個提案被拒絕了，因為：'
+          withdraw_btn_hint: 如果你改變主意，只要你的提案沒有獲得任何支持，你可以撤回你的提案。提案不會被刪除，它會顯示在被撤回的提案清單中。
+          withdraw_confirmation_html: 您確定要撤回此提案嗎？<br><br><strong>此操作無法取消！</strong>
+          withdraw_proposal: 撤回提案
+        update:
+          title: 更新提案
+        vote_button:
+          already_voted: 已得到支持
+          already_voted_hover: 撤回支持
+          maximum_votes_reached: 已達支持上限
+          no_votes_remaining: 無剩餘支持次數
+          vote: 支持
+          votes_blocked: 支持已禁用
+        votes_count:
+          count:
+            other: 支持
+        voting_rules:
+          can_accumulate_supports_beyond_threshold:
+            description: 每個提案可以累積超過%{limit} 個支持
+          minimum_votes_per_user:
+            description: 你必須在不同的提案之間分配至少 %{votes} 票的支持。
+            given_enough_votes: 您已經提供足夠的支持。
+            supports_remaining: 您還需要支持 %{remaining_votes} 個提案，才能讓您的支持被考慮在內。
+          proposal_limit:
+            description: 您最多可以創建 %{limit} 個提案。
+          threshold_per_proposal:
+            description: 為了讓提案被認可，需要達到%{limit} 個支持票數.
+          title: '支持需遵守以下規則：'
+          vote_limit:
+            description: 您最多可以支持 %{limit} 個提案。
+            votes: 支持
+        wizard_aside:
+          back: 返回
+          back_from_step_1: 返回提案
+          back_from_step_2: 返回提案
+          back_from_step_3: 返回比較提案
+          back_from_step_4: 返回編輯草案
+        wizard_steps:
+          current_step: 當前步驟
+          step_1: 創建你的提案
+          step_2: 比較
+          step_3: 完成
+          step_4: 發佈您的提案
+          title: 提案創建步驟
+      proposals_picker:
+        choose_proposals: 選擇提案
+        no_proposals: 沒有符合您的搜尋條件的提案，或者目前沒有任何提案。
+      publish:
+        error: 發佈提案時出現問題。
+        success: 提案成功發布。
+      publish_answers:
+        success: 提案回答成功發布。
+      update:
+        error: 儲存提案時出現問題。
+        success: 成功更新提案
+      update_draft:
+        error: 在儲存提案時出現問題
+        success: 成功更新提案草案
+      versions:
+        index:
+          title: 版本
+      withdraw:
+        errors:
+          has_supports: 這份提案無法撤回，因為它已經得到支持。
+    resource_links:
+      copied_from_component:
+        proposal_proposal: 相關提案
+      included_projects:
+        project_result: '此專案中顯示的結果：'
+      included_proposals:
+        proposal_project: '出現在這些專案中的提案：'
+        proposal_result: '這些結果中出現的提案：'
+    statistics:
+      proposals_accepted: 已通過的提案
+      proposals_count: 提案
+      supports_count: 支持

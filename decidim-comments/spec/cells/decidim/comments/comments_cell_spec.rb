@@ -10,18 +10,18 @@ module Decidim::Comments
 
     let(:my_cell) { cell("decidim/comments/comments", comment.commentable) }
     let(:organization) { create(:organization) }
-    let(:participatory_process) { create :participatory_process, organization: }
+    let(:participatory_process) { create(:participatory_process, organization:) }
     let(:component) { create(:component, participatory_space: participatory_process) }
     let(:commentable) { create(:dummy_resource, component:) }
     let(:comment) { create(:comment, commentable:) }
 
     context "when rendering" do
       it "renders the thread" do
-        expect(subject).to have_css(".section-heading", text: "1 comment")
+        expect(subject).to have_css(".comments-count", text: "1 comment")
         expect(subject).to have_css(".callout.primary.loading-comments p", text: "Loading comments ...")
-        expect(subject).to have_no_content(comment.body.values.first)
+        expect(subject).not_to have_content(comment.body.values.first)
         expect(subject).to have_css(".add-comment")
-        expect(subject).to have_content("Sign in with your account or sign up to add your comment.")
+        expect(subject).to have_content("Log in with your account or sign up to add your comment.")
 
         {
           best_rated: "Best rated",
@@ -38,7 +38,6 @@ module Decidim::Comments
         let!(:other_comments) { create_list(:comment, 10, commentable:) }
 
         it "renders only the single comment" do
-          expect(subject).to have_css(".section-heading", text: "Comment details")
           expect(subject).to have_content(comment.body.values.first)
 
           other_comments.each do |other_comment|
@@ -92,9 +91,9 @@ module Decidim::Comments
           end
 
           it "renders the alignment buttons" do
-            expect(subject).to have_css(".opinion-toggle.button-group .opinion-toggle--ok")
-            expect(subject).to have_css(".opinion-toggle.button-group .opinion-toggle--meh")
-            expect(subject).to have_css(".opinion-toggle.button-group .opinion-toggle--ko")
+            expect(subject).to have_css(".opinion-toggle--ok")
+            expect(subject).to have_css(".opinion-toggle--meh")
+            expect(subject).to have_css(".opinion-toggle--ko")
           end
         end
 

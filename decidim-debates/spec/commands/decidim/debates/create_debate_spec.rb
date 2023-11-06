@@ -5,12 +5,12 @@ require "spec_helper"
 describe Decidim::Debates::CreateDebate do
   subject { described_class.new(form) }
 
-  let(:organization) { create :organization, available_locales: [:en, :ca, :es], default_locale: :en }
-  let(:participatory_process) { create :participatory_process, organization: }
-  let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "debates" }
-  let(:scope) { create :scope, organization: }
-  let(:category) { create :category, participatory_space: participatory_process }
-  let(:user) { create :user, organization: }
+  let(:organization) { create(:organization, available_locales: [:en, :ca, :es], default_locale: :en) }
+  let(:participatory_process) { create(:participatory_process, organization:) }
+  let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "debates") }
+  let(:scope) { create(:scope, organization:) }
+  let(:category) { create(:category, participatory_space: participatory_process) }
+  let(:user) { create(:user, organization:) }
   let(:form) do
     double(
       invalid?: invalid,
@@ -39,6 +39,13 @@ describe Decidim::Debates::CreateDebate do
 
     it "creates the debate" do
       expect { subject.call }.to change(Decidim::Debates::Debate, :count).by(1)
+    end
+
+    it_behaves_like "fires an ActiveSupport::Notification event", "decidim.debates.create_debate:before" do
+      let(:command) { subject }
+    end
+    it_behaves_like "fires an ActiveSupport::Notification event", "decidim.debates.create_debate:after" do
+      let(:command) { subject }
     end
 
     it "sets the scope" do
@@ -96,9 +103,9 @@ describe Decidim::Debates::CreateDebate do
 
   describe "events" do
     let(:author_follower) { create(:user, organization:) }
-    let!(:author_follow) { create :follow, followable: user, user: author_follower }
+    let!(:author_follow) { create(:follow, followable: user, user: author_follower) }
     let(:space_follower) { create(:user, organization:) }
-    let!(:space_follow) { create :follow, followable: participatory_process, user: space_follower }
+    let!(:space_follow) { create(:follow, followable: participatory_process, user: space_follower) }
 
     it "notifies the change to the author followers" do
       expect(Decidim::EventsManager)

@@ -11,13 +11,16 @@ sv:
         decidim_area_id: Område
         description: Beskrivning
         developer_group: Kampanjgrupp
+        document: Dokument
         domain: Domän
         end_date: Slutdatum
         hashtag: Hashtag
         hero_image: Hembild
+        import_steps: Importera steg
         local_area: Område
         meta_scope: Omfångets metadata
         participatory_process_group_id: Dialoggrupp
+        participatory_process_type_id: Dialogtyp
         participatory_scope: Vad som bestäms
         participatory_structure: Hur det bestäms
         promoted: Annonserad
@@ -87,8 +90,8 @@ sv:
         edit: Redigera
         filter:
           all_processes: Visa alla dialoger
-          process_groups: Dialoggrupper
         import_process: Importera
+        moderate: Moderera
         new_process: Ny dialog
         new_process_group: Ny dialoggrupp
         new_process_step: Nytt steg
@@ -110,7 +113,7 @@ sv:
           attachments: Bilagor
           categories: Kategorier
           components: Komponenter
-          info: Info
+          landing_page: Landningssida
           moderations: Moderering
           private_users: Privata deltagare
           process_admins: Dialogadministratörer
@@ -120,7 +123,6 @@ sv:
           fields:
             created_at: Skapad
             private: Privat
-            promoted: Annonserad
             published: Publicerad
             title: Titel
           name: Dialog
@@ -136,7 +138,9 @@ sv:
           name: Steg i dialog
         participatory_process_type:
           fields:
+            created_at: Skapad den
             title: Titel
+          name: Processtyp
         participatory_process_user_role:
           fields:
             email: E-post
@@ -161,6 +165,7 @@ sv:
         edit:
           active_content_blocks: Aktiva innehållsblock
           inactive_content_blocks: Inactiva innehållsblock
+          title: Sidans innehåll
       participatory_process_group_landing_page_content_blocks:
         edit:
           update: Uppdatera
@@ -202,9 +207,6 @@ sv:
           success: Steget i deltagarprocessen har skapats.
         default_title: Introduktion
         destroy:
-          error:
-            active_step: Det aktiva steget kan inte raderas.
-            last_step: Kan inte radera det sista steget i en dialog.
           success: Steget i dialogen har raderats.
         edit:
           title: Redigera steg i dialogen
@@ -221,9 +223,8 @@ sv:
           success: Steget i deltagarprocessen har uppdaterats.
       participatory_process_types:
         edit:
+          title: Redigera dialogtyp
           update: Uppdatera
-        form:
-          title: Titel
         new:
           create: Skapa
       participatory_process_user_roles:
@@ -250,7 +251,6 @@ sv:
         edit:
           update: Uppdatera
         index:
-          not_published: Ej publicerad
           private: Privat
           public: Offentlig
           published: Publicerad
@@ -323,30 +323,24 @@ sv:
         description: Antal dialoger i organisationen
         object: dialoger
         title: Dialoger
-    participatory_process:
-      show:
-        related_assemblies: Relaterade sammankomster
     participatory_process_groups:
       content_blocks:
+        extra_data:
+          name: Metadata
+        html:
+          name: HTML-block
         html_1:
           name: Första HTML-block
         html_2:
           name: Andra HTML-block
         html_3:
           name: Tredje HTML-block
-        metadata:
-          developer_group: Annonserad av
-          name: Metadata
-          participatory_scope: Vad som bestäms
-          participatory_structure: Hur det bestäms
-          target: Vem deltar
         participatory_processes:
           name: Dialoger
         stats:
           name: Statistik
         title:
           meta_scope: Omfång
-          name: Titel, beskrivning och hashtag
           participatory_processes:
             one: 1 dialog
             other: "%{count} dialoger"
@@ -355,30 +349,25 @@ sv:
     participatory_process_steps:
       index:
         process_steps: Steg i dialogen
-        title: Steg i dialogen
     participatory_processes:
       admin:
         content_blocks:
           highlighted_processes:
+            active: Aktiv
+            all: Alla
             max_results: Högsta antal element att visa
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help: 'URL-slugs används till att generera de URL:er som pekar på processen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadata
-            title: Allmän information
             visibility: Synlighet
         participatory_process_imports:
           form:
             document_legend: Lägg till ett dokument
-            slug_help: 'URL-slugs används till att generera de URL:er som pekar på dialogen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Använd relativa sökvägar, inte fullständiga URL: er här. Tar emot bokstäver, siffror, streck och snedstreck, och måste börja med en bokstav. Om den inte anges visas inte knappen. Exempel: %{url}'
             cta_text_help: Om den inte är på kommer knappen inte att visas.
         participatory_processes:
           form:
@@ -392,7 +381,6 @@ sv:
             scope_type_max_depth_help: Begränsa djupet på omfångsfilter; filtret kommer att visa från allmän till den valda omfångstypen.
             select_an_area: Välj ett område
             select_process_group: Välj en dialoggrupp
-            slug_help: 'URL-slugs används till att generera de URL:er som pekar på dialogen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
             title: Allmän information
             visbility: Synlighet
       content_blocks:
@@ -402,21 +390,17 @@ sv:
         title: Dialoger
       last_activity:
         new_participatory_process: Ny dialog
-      pages:
-        home:
-          highlighted_processes:
-            active_processes: Pågående dialoger
-            active_step: Aktivt steg
-            more_information: Mer information
-            participate: Delta
-            participate_in: Delta i dialogen %{resource_name}
-            processes_button_title: Länk till sidan som visar alla dialoger
-            see_all_processes: Visa alla dialoger
       participatory_process_steps:
         index:
           back_to_process: Tillbaka till dialogsidan
       participatory_processes:
+        description:
+          area_name: Område
+          data: Dialogdata
+          developer_group: Kampanjgrupp
+          meta_scope: Omfång
         filters:
+          all_types: Alla typer
           counters:
             active:
               one: En pågående dialog
@@ -430,9 +414,8 @@ sv:
             upcoming:
               one: En kommande dialog
               other: "%{count} kommande dialoger"
+          date: Datum
           explanations:
-            no_active: Inga pågående dialoger
-            no_active_nor_upcoming: Inga pågående eller kommande dialoger
             no_active_nor_upcoming_callout: Det finns inga pågående eller kommande dialoger. Här är en lista över tidigare dialoger.
           filter_by: Visa
           names:
@@ -441,23 +424,11 @@ sv:
             past: Tidigare
             upcoming: Kommande
           see: Se
-        index:
-          loading: Läser in resultat...
+          type: Typ
       show:
-        area: Område
         belongs_to_group: Denna dialog tillhör
-        dates: Datum
-        developer_group: Kampanjgrupp
-        end_date: Slutdatum
-        local_area: Område
-        participatory_scope: Vad som bestäms
-        participatory_structure: Hur bestäms det
         private_space: Detta är en privat dialog
         related_processes: Relaterade dialoger
-        scope: Omfång
-        start_date: Startdatum
-        target: Vilka deltar
-        unspecified: Ej angivet
     statistics:
       processes_count: Dialoger
   layouts:
@@ -467,10 +438,6 @@ sv:
           browse: Bläddra
           browse_resource: Bläddra i processgruppen %{resource_name}
           processes_count: 'Dialoger:'
-      participatory_process_widgets:
-        show:
-          active_step: Aktivt steg
-          take_part: Delta
       participatory_processes:
         index:
           promoted_processes: Viktiga dialoger just nu
@@ -480,16 +447,3 @@ sv:
           more_info_about: Mer information om processen %{resource_name}
           take_part: Delta
           take_part_in: Delta i dialogen %{resource_name}
-        promoted_process:
-          active_step: 'Aktuellt steg:'
-          more_info: Mer information
-          more_info_about: Mer information om dialogen %{resource_name}
-          take_part: Delta
-          take_part_in: Delta i dialogen %{resource_name}
-        promoted_process_group:
-          more_info: Mer information
-      process_header_steps:
-        step: Steg %{current} av %{total}
-        view_steps: Visa steg
-      process_navigation:
-        process_menu_item: Presentation

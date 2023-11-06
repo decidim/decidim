@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Sortitions::CreateSortitionEvent do
-  let(:resource) { create :sortition }
+  let(:resource) { create(:sortition) }
   let(:event_name) { "decidim.events.sortitions.sortition_created" }
 
   include_context "when a simple event"

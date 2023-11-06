@@ -6,7 +6,6 @@ module Decidim
     # Two possible layouts: One or two lines
     class ProjectVotesCountCell < Decidim::ViewModel
       include Decidim::IconHelper
-      delegate :show_votes_count?, to: :controller
 
       def show
         return unless show_votes_count?
@@ -16,22 +15,24 @@ module Decidim
 
       private
 
+      def show_votes_count?
+        model.component.current_settings.show_votes?
+      end
+
       def content
         if options[:layout] == :one_line
-          safe_join([model.confirmed_orders_count, " ", label(t("decidim.budgets.projects.project.votes",
-                                                                count: model.confirmed_orders_count))])
+          safe_join([model.confirmed_orders_count, " ", count_label])
         else
-          safe_join([number, label(t("decidim.budgets.projects.project.votes",
-                                     count: model.confirmed_orders_count))])
+          safe_join([number, count_label])
         end
       end
 
       def number
-        content_tag :div, model.confirmed_orders_count, class: "text-large"
+        content_tag :div, model.confirmed_orders_count
       end
 
-      def label(i18n_string)
-        content_tag :span, i18n_string, class: "text-uppercase text-small"
+      def count_label
+        content_tag(:span, t("decidim.budgets.projects.project.votes", count: model.confirmed_orders_count))
       end
 
       def css_class

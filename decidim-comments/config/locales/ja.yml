@@ -31,20 +31,20 @@ ja:
       comments_count: コメント数
       comments_title: コメント
       last_activity:
-        new_comment_at_html: "<span> %{link}に新しいコメント</span>"
-      view: 表示
+        new_comment: '新規コメント:'
       votes:
         create:
           error: コメントに投票中に問題がありました。
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">ログイン</a> または <a href="%{sign_up_url}">新規登録</a> することでコメントできます。
+        account_message: <a href="%{sign_in_url}">ログイン</a> または <a href="%{sign_up_url}">サインアップ</a> してコメントできます。
         form:
           body:
             label: コメント
             placeholder: これについてどう思いますか?
           form_error: テキストは必須で、 %{length} 文字を超えることはできません。
-          submit: 送信
+          submit_reply: 返信を公開
+          submit_root_comment: コメントを公開
           user_group_id:
             label: 'コメント:'
         opinion:
@@ -62,6 +62,7 @@ ja:
         alignment:
           against: 反対
           in_favor: 賛成
+        cancel_reply: 返信をキャンセル
         confirm_destroy: コメントを削除してもよろしいですか？
         delete: 削除
         deleted_at: '%{date} にコメントが削除されました'
@@ -78,21 +79,20 @@ ja:
           description: このコンテンツは不適切ですか？
           details: 追加コメント
           reasons:
-            does_not_belong: 違法行為、個人情報、または %{organization_name} に属していないと思われる内容が含まれています。
+            does_not_belong: 違法行為、自殺予告、個人情報、または %{organization_name} にふさわしくないと思われる何かが含まれています。
             offensive: 差別的な内容、誹謗中傷などの不適切な内容が含まれています。
             spam: 本来の内容に関係が無い広告、詐欺や悪意のある処理などが含まれています。
           title: 不適切なコンテンツを報告する
-        show_replies: '%{replies_count} 件の返信を表示'
+        show_replies:
+          other: '%{count} 件の返信を表示'
         single_comment_link_title: リンク取得
       comment_order_selector:
         order:
-          best_rated: 最高評価
-          most_discussed: 最も議論されたもの
+          best_rated: 評価の高い順
+          most_discussed: 議論数の多い順
           older: 古い順
-          recent: 最近のもの
+          recent: 新しい順
         title: '並び順：'
-      comment_thread:
-        title: '%{authorName} との会話'
       comments:
         blocked_comments_for_unauthorized_user_warning: 現在、コメントできるのは検証済アカウントのみになりますが、以前のコメントを読むことはできます。
         blocked_comments_for_user_warning: 現時点ではコメントできませんが、以前のコメントを読むことができます。
@@ -128,7 +128,7 @@ ja:
           email_subject: '%{author_name} から %{resource_title} に対して新しいコメントがあります'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> より <a href="%{resource_path}">%{resource_title} に対して新しいコメントがあります</a>.
         comment_created:
-          email_intro: "%{resource_title} はコメントされました。このページでコメントを読むことができます："
+          email_intro: "%{resource_title} にコメントがありました。このページでコメントを読むことができます："
           email_outro: '"%{resource_title}" 、またはその参加者をフォローしているためこの通知を受け取りました。前のリンクからフォローを解除することができます。'
           email_subject: '%{author_name} から %{resource_title} に対して新しいコメントがあります'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> から <a href="%{resource_path}">%{resource_title} に対して新しいコメントがあります</a>

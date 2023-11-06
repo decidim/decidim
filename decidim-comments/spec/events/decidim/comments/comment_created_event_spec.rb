@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Comments::CommentCreatedEvent do
-  include_context "when it's a comment event"
+  include_context "when it is a comment event"
   let(:event_name) { "decidim.events.comments.comment_created" }
 
   it_behaves_like "a comment event"

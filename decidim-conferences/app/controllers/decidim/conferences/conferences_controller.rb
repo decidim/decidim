@@ -1,16 +1,21 @@
 # frozen_string_literal: true
 
+# i18n-tasks-use t('decidim.conferences.conferences.show.already_have_an_account?')
+# i18n-tasks-use t('decidim.conferences.conferences.show.are_you_new?')
+# i18n-tasks-use t('decidim.conferences.conferences.show.sign_in_description')
+# i18n-tasks-use t('decidim.conferences.conferences.show.sign_up_description')
 module Decidim
   module Conferences
     # A controller that holds the logic to show Conferences in a
     # public layout.
     class ConferencesController < Decidim::Conferences::ApplicationController
       include ParticipatorySpaceContext
+      include Paginable
+
       participatory_space_layout only: :show
 
       helper Decidim::AttachmentsHelper
       helper Decidim::IconHelper
-      helper Decidim::WidgetUrlsHelper
       helper Decidim::SanitizeHelper
       helper Decidim::ResourceReferenceHelper
       helper Decidim::Conferences::PartnersHelper
@@ -18,7 +23,7 @@ module Decidim
       helper_method :collection, :promoted_conferences, :conferences, :stats
 
       def index
-        redirect_to "/404" if published_conferences.none?
+        raise ActionController::RoutingError, "Not Found" if published_conferences.none?
 
         enforce_permission_to :list, :conference
       end
@@ -49,7 +54,9 @@ module Decidim
         @conferences ||= OrganizationPrioritizedConferences.new(current_organization, current_user)
       end
 
-      alias collection conferences
+      def collection
+        @collection ||= paginate(conferences.query)
+      end
 
       def promoted_conferences
         @promoted_conferences ||= conferences | PromotedConferences.new

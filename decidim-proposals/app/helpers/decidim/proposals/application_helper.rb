@@ -39,13 +39,13 @@ module Decidim
 
         case state
         when "accepted"
-          "text-success"
+          "success"
         when "rejected", "withdrawn"
-          "text-alert"
+          "alert"
         when "evaluating"
-          "text-warning"
+          "warning"
         else
-          "text-info"
+          "info"
         end
       end
 
@@ -91,16 +91,27 @@ module Decidim
       end
 
       # If the proposal is official or the rich text editor is enabled on the
-      # frontend, the proposal body is considered as safe content; that's unless
+      # frontend, the proposal body is considered as safe content; that is unless
       # the proposal comes from a collaborative_draft or a participatory_text.
       def safe_content?
         (rich_text_editor_in_public_views? && not_from_collaborative_draft(@proposal)) ||
-          ((@proposal.official? || @proposal.official_meeting?) && not_from_participatory_text(@proposal))
+          safe_content_admin?
+      end
+
+      # For admin entered content, the proposal body can contain certain extra
+      # tags, such as iframes.
+      def safe_content_admin?
+        (@proposal.official? || @proposal.official_meeting?) && not_from_participatory_text(@proposal)
       end
 
       # If the content is safe, HTML tags are sanitized, otherwise, they are stripped.
       def render_proposal_body(proposal)
-        Decidim::ContentProcessor.render(render_sanitized_content(proposal, :body), "div")
+        sanitized = render_sanitized_content(proposal, :body)
+        if safe_content?
+          Decidim::ContentProcessor.render_without_format(sanitized).html_safe
+        else
+          Decidim::ContentProcessor.render(sanitized)
+        end
       end
 
       # Returns :text_area or :editor based on the organization' settings.
@@ -127,18 +138,6 @@ module Decidim
         ).count
       end
 
-      def votes_count_for(model, from_proposals_list)
-        render partial: "decidim/proposals/proposals/participatory_texts/proposal_votes_count.html", locals: { proposal: model, from_proposals_list: }
-      end
-
-      def vote_button_for(model, from_proposals_list)
-        render partial: "decidim/proposals/proposals/participatory_texts/proposal_vote_button.html", locals: { proposal: model, from_proposals_list: }
-      end
-
-      def form_has_address?
-        @form.address.present? || @form.has_address
-      end
-
       def show_voting_rules?
         return false unless votes_enabled?
 
@@ -160,24 +159,88 @@ module Decidim
       # Options to filter Proposals by activity.
       def activity_filter_values
         base = [
-          ["all", t(".all")],
-          ["my_proposals", t(".my_proposals")]
+          ["all", t("decidim.proposals.proposals.filters.all")],
+          ["my_proposals", t("decidim.proposals.proposals.filters.my_proposals")]
         ]
-        base += [["voted", t(".voted")]] if current_settings.votes_enabled?
+        base += [["voted", t("decidim.proposals.proposals.filters.voted")]] if current_settings.votes_enabled?
         base
       end
 
+      # Explicitely commenting the used I18n keys so their are not flagged as unused
+      # i18n-tasks-use t('decidim.proposals.application_helper.filter_origin_values.official')
+      # i18n-tasks-use t('decidim.proposals.application_helper.filter_origin_values.participants')
+      # i18n-tasks-use t('decidim.proposals.application_helper.filter_origin_values.user_groups')
+      # i18n-tasks-use t('decidim.proposals.application_helper.filter_origin_values.official')
+      # i18n-tasks-use t('decidim.proposals.application_helper.filter_origin_values.meetings')
+      # i18n-tasks-use t('decidim.proposals.application_helper.filter_origin_values.all')
       def filter_origin_values
+        scope = "decidim.proposals.application_helper.filter_origin_values"
         origin_values = []
-        origin_values << TreePoint.new("official", t("decidim.proposals.application_helper.filter_origin_values.official")) if component_settings.official_proposals_enabled
-        origin_values << TreePoint.new("participants", t("decidim.proposals.application_helper.filter_origin_values.participants"))
-        origin_values << TreePoint.new("user_group", t("decidim.proposals.application_helper.filter_origin_values.user_groups")) if current_organization.user_groups_enabled?
-        origin_values << TreePoint.new("meeting", t("decidim.proposals.application_helper.filter_origin_values.meetings"))
+        origin_values << TreePoint.new("official", t("official", scope:)) if component_settings.official_proposals_enabled
+        origin_values << TreePoint.new("participants", t("participants", scope:))
+        origin_values << TreePoint.new("user_group", t("user_groups", scope:)) if current_organization.user_groups_enabled?
+        origin_values << TreePoint.new("meeting", t("meetings", scope:))
 
         TreeNode.new(
-          TreePoint.new("", t("decidim.proposals.application_helper.filter_origin_values.all")),
+          TreePoint.new("", t("all", scope:)),
           origin_values
         )
+      end
+
+      def filter_proposals_state_values
+        Decidim::CheckBoxesTreeHelper::TreeNode.new(
+          Decidim::CheckBoxesTreeHelper::TreePoint.new("", t("decidim.proposals.application_helper.filter_state_values.all")),
+          [
+            Decidim::CheckBoxesTreeHelper::TreePoint.new("accepted", t("decidim.proposals.application_helper.filter_state_values.accepted")),
+            Decidim::CheckBoxesTreeHelper::TreePoint.new("evaluating", t("decidim.proposals.application_helper.filter_state_values.evaluating")),
+            Decidim::CheckBoxesTreeHelper::TreePoint.new("state_not_published", t("decidim.proposals.application_helper.filter_state_values.not_answered")),
+            Decidim::CheckBoxesTreeHelper::TreePoint.new("rejected", t("decidim.proposals.application_helper.filter_state_values.rejected"))
+          ]
+        )
+      end
+
+      # rubocop:disable Metrics/CyclomaticComplexity
+      # rubocop:disable Metrics/PerceivedComplexity
+      def filter_sections
+        @filter_sections ||= begin
+          items = []
+          if component_settings.proposal_answering_enabled && current_settings.proposal_answering_enabled
+            items.append(method: :with_any_state, collection: filter_proposals_state_values, label_scope: "decidim.proposals.proposals.filters", id: "state")
+          end
+          if current_component.has_subscopes?
+            items.append(method: :with_any_scope, collection: filter_scopes_values, label_scope: "decidim.proposals.proposals.filters", id: "scope")
+          end
+          if current_component.categories.any?
+            items.append(method: :with_any_category, collection: filter_categories_values, label_scope: "decidim.proposals.proposals.filters", id: "category")
+          end
+          if component_settings.official_proposals_enabled
+            items.append(method: :with_any_origin, collection: filter_origin_values, label_scope: "decidim.proposals.proposals.filters", id: "origin")
+          end
+          if current_user
+            items.append(method: :activity, collection: activity_filter_values, label_scope: "decidim.proposals.proposals.filters", id: "activity", type: :radio_buttons)
+          end
+          if @proposals.only_emendations.any?
+            items.append(method: :type, collection: filter_type_values, label_scope: "decidim.proposals.proposals.filters", id: "amendment_type", type: :radio_buttons)
+          end
+          if linked_classes_for(Decidim::Proposals::Proposal).any?
+            items.append(
+              method: :related_to,
+              collection: linked_classes_filter_values_for(Decidim::Proposals::Proposal),
+              label_scope: "decidim.proposals.proposals.filters",
+              id: "related_to",
+              type: :radio_buttons
+            )
+          end
+        end
+        # rubocop:enable Metrics/PerceivedComplexity
+        # rubocop:enable Metrics/CyclomaticComplexity
+
+        items.reject { |item| item[:collection].blank? }
+      end
+
+      def component_name
+        i18n_key = controller_name == "collaborative_drafts" ? "decidim.proposals.collaborative_drafts.name" : "decidim.components.proposals.name"
+        (defined?(current_component) && translated_attribute(current_component&.name).presence) || t(i18n_key)
       end
     end
   end

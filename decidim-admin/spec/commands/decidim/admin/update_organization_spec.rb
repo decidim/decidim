@@ -17,7 +17,7 @@ module Decidim::Admin
             badges_enabled: true,
             user_groups_enabled: true,
             send_welcome_notification: false,
-            admin_terms_of_use_body: { en: Faker::Lorem.paragraph },
+            admin_terms_of_service_body: { en: Faker::Lorem.paragraph },
             rich_text_editor_in_public_views: true,
             machine_translation_display_priority: "translation",
             enable_machine_translations: true
@@ -44,7 +44,7 @@ module Decidim::Admin
           expect { command.call }.to broadcast(:invalid)
         end
 
-        it "doesn't update the organization" do
+        it "does not update the organization" do
           command.call
           organization.reload
 

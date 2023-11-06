@@ -35,7 +35,9 @@ describe "Initiative signing", type: :system do
     allow(Decidim::Verifications::Sms::MobilePhoneForm).to receive(:new).and_return(verification_form)
     allow(verification_form).to receive(:verification_metadata).and_return(verification_code: sms_code)
 
-    within ".view-side" do
+    expect(page).to have_css(".initiative__aside", text: signature_text(0))
+
+    within ".initiative__aside" do
       expect(page).to have_content(signature_text(0))
       click_on "Sign"
     end
@@ -43,14 +45,13 @@ describe "Initiative signing", type: :system do
     if has_content?("Complete your data")
       fill_in :initiatives_vote_name_and_surname, with: confirmed_user.name
       fill_in :initiatives_vote_document_number, with: document_number
-      select 30.years.ago.year.to_s, from: :initiatives_vote_date_of_birth_1i
-      select "January", from: :initiatives_vote_date_of_birth_2i
-      select "1", from: :initiatives_vote_date_of_birth_3i
+      fill_in :initiatives_vote_date_of_birth, with: 30.years.ago.strftime("01/01/%Y")
+
       fill_in :initiatives_vote_postal_code, with: "01234"
 
       click_button "Continue"
 
-      expect(page).to have_no_css("div.alert")
+      expect(page).not_to have_css("div.alert")
     end
   end
 
@@ -58,7 +59,7 @@ describe "Initiative signing", type: :system do
     let(:initiatives_type) { create(:initiatives_type, :with_sms_code_validation, organization:) }
 
     it "The sms step appears" do
-      expect(page).to have_content("MOBILE PHONE NUMBER")
+      expect(page).to have_content("Mobile phone number")
     end
   end
 
@@ -71,7 +72,7 @@ describe "Initiative signing", type: :system do
           expect(page).to have_content("initiative has been successfully signed")
           click_on "Back to initiative"
 
-          within ".view-side" do
+          within ".initiative__aside" do
             expect(page).to have_content(signature_text(1))
             expect(initiative.reload.supports_count).to eq(1)
           end
@@ -128,7 +129,7 @@ describe "Initiative signing", type: :system do
               it "appears an invalid message" do
                 fill_sms_code
 
-                expect(page).to have_content("Your verification code doesn't match ours")
+                expect(page).to have_content("Your verification code does not match ours")
                 expect(initiative.reload.supports_count).to be_zero
               end
             end
@@ -162,7 +163,7 @@ def fill_sms_code
 end
 
 def signature_text(number)
-  return "1/#{initiative.supports_required}\nSIGNATURE" if number == 1
+  return "1 #{initiative.supports_required}\nSignature" if number == 1
 
-  "#{number}/#{initiative.supports_required}\nSIGNATURES"
+  "#{number} #{initiative.supports_required}\nSignatures"
 end

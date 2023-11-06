@@ -1,0 +1,39 @@
+.content-block {
+  @apply flex flex-col gap-8 items-stretch py-8 md:py-16;
+
+  &__title {
+    @apply flex justify-start items-center gap-4 last:[&>a]:ml-auto;
+  }
+
+  &__description {
+    @apply text-lg prose max-w-2xl;
+
+    &[data-component="accordion"] {
+      [id*="panel"][aria-hidden="true"] {
+        @apply block max-h-40 overflow-hidden relative first:[&_*]:mt-0 before:content-[''] before:absolute before:inset-0 before:h-full before:w-full before:bg-gradient-to-b before:from-transparent before:to-white after:content-[''] after:absolute after:inset-0 after:h-full after:w-full after:bg-gradient-to-b after:from-transparent after:to-white;
+      }
+
+      [aria-expanded="false"] > svg:last-of-type,
+      [aria-expanded="false"] > span:last-of-type,
+      [aria-expanded="true"] > span:first-of-type,
+      [aria-expanded="true"] > svg:first-of-type {
+        @apply hidden;
+      }
+
+      [aria-expanded="true"] > svg:last-of-type,
+      [aria-expanded="true"] > span:last-of-type,
+      [aria-expanded="false"] > span:first-of-type,
+      [aria-expanded="false"] > svg:first-of-type {
+        @apply block;
+      }
+    }
+  }
+
+  &__span {
+    @apply text-gray-2 font-semibold uppercase;
+  }
+
+  & ~ & {
+    @apply border-t-2 border-background;
+  }
+}

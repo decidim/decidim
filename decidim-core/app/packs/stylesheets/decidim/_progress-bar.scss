@@ -1,0 +1,42 @@
+.progress-bar {
+  @apply w-full h-1.5 mt-1 rounded overflow-hidden bg-gray translate-x-0 [&>*]:bg-success [&>*]:h-full;
+
+  > * {
+    animation-name: slideInLeft;
+    animation-duration: 500ms;
+
+    @keyframes slideInLeft {
+      from {
+        transform: translateX(-100%);
+      }
+    }
+  }
+
+  &__container {
+    @apply flex flex-col items-center;
+  }
+
+  &__number {
+    @apply text-2xl md:text-4xl md:[&>*:only-child]:text-5xl text-gray-2 font-bold;
+
+    > *:last-child:not(:only-child) {
+      @apply before:content-['_/_'] before:text-gray before:font-normal;
+    }
+  }
+
+  &__units {
+    @apply text-sm text-gray-2 first-letter:uppercase;
+  }
+
+  &__sm {
+    @apply w-16;
+  }
+
+  &__sm &__number {
+    @apply text-gray-2 font-normal text-sm;
+  }
+
+  &__sm &__units {
+    @apply hidden;
+  }
+}

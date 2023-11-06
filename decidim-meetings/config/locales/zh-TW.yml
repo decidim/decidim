@@ -1,1 +1,636 @@
 zh-TW:
+  activemodel:
+    attributes:
+      close_meeting:
+        attendees_count: 出席者人數
+        attending_organizations: 出席組織列表
+        audio_url: 音頻URL
+        closing_report: 分
+        closing_visible: 是否可見？
+        contributions_count: 貢獻數量
+        proposal_ids: 在會議中創建的提案
+        video_url: 影片網址
+      meeting:
+        address: 地址
+        available_slots: 此次會議的可用空位
+        customize_registration_email: 自定訂登記電子郵件
+        decidim_category_id: 分類
+        decidim_scope_id: 範圍
+        decidim_user_group_id: 用戶群組
+        description: 說明
+        end_time: 結束時間
+        id: ID
+        iframe_embed_type: Iframe 嵌入類型
+        location: 位置
+        location_hints: 場所提示
+        online_meeting_url: 線上會議URL
+        organizer_gid: 建立為
+        organizer_id: 管理員
+        private_meeting: 私人會議
+        registration_email_custom_content: 自訂註冊電子郵件內容
+        registration_form_enabled: 啟用註冊表格
+        registration_terms: 註冊條款
+        registration_type: 註冊類型
+        registration_url: 註冊URL
+        registrations_enabled: 啟用註冊
+        reserved_slots: 此次會議的保留席位
+        start_time: 開始時間
+        title: 標題
+        transparent: 透明
+        type_of_meeting: 類別
+      meeting_agenda:
+        title: 標題
+        visible: 可見
+      meeting_agenda_items:
+        description: 說明
+        duration: 持續時間
+        title: 標題
+      meeting_registration_invite:
+        email: 電子郵件
+        name: 名稱
+      validate_registration_code:
+        code: 代碼
+    errors:
+      models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: 這個URL無法在會議或現場活動頁面中嵌入。
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: 這些項目的總時長超過了會議時間 %{count} 分鐘.
+              too_many_minutes_child: 子項目的持續時間超過議程項目「%{parent_title}」的持續時間 %{count} 分鐘.
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: 這個電子郵件帳戶已經被邀請了。
+    models:
+      decidim/meetings/close_meeting_event: 會議關閉
+      decidim/meetings/create_meeting_event: 會議
+      decidim/meetings/meeting_registrations_enabled_event: 啟用註冊
+      decidim/meetings/meeting_registrations_over_percentage_event: 註冊超過上限
+      decidim/meetings/upcoming_meeting_event: 即將到來的會議
+      decidim/meetings/update_meeting_event: 會議已更新
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        other: 會議
+      decidim/meetings/minutes:
+        other: 分
+      decidim/meetings/registration:
+        other: 註冊
+  decidim:
+    admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: 分類
+          closed_at_present:
+            label: 狀態
+            values:
+              'false': 開啟
+              'true': 關閉
+          is_upcoming_true:
+            label: 日期
+            values:
+              'false': 過去
+              'true': 即將舉行
+          scope_id_eq:
+            label: 範圍
+          with_any_origin:
+            label: 起源
+            values:
+              official: 官方
+              participants: 參與者
+              user_group: 使用者群組
+          with_any_type:
+            label: 會議類型
+            values:
+              hybrid: 混合
+              in_person: 親自
+              online: 線上
+      meeting_copies:
+        create:
+          error: 複製此會議時發生問題。
+          success: 成功複製會議。
+        new:
+          copy: 複製
+          title: 複製會議
+    components:
+      meetings:
+        actions:
+          comment: 評論
+          join: 加入
+        name: 會議
+        settings:
+          global:
+            announcement: 公告
+            comments_enabled: 已啟用留言
+            comments_max_length: 評論字數最大長度(若要使用預設值請輸入0)
+            creation_enabled_for_participants: 參與者可以建立會議
+            default_registration_terms: 預設報名條款
+            enable_pads_creation: 啟用平板創建
+            maps_enabled: 啟用地圖
+            registration_code_enabled: 啟用註冊碼
+            resources_permissions_enabled: 可以針對每個會議設定操作權限
+            scope_id: 範圍
+            scopes_enabled: 啟用範圍
+            terms_and_conditions_url_for_meeting_creators: 會議創建者的使用條款和條件 URL
+          step:
+            announcement: 公告
+            comments_blocked: 留言已封鎖
+            creation_enabled_for_participants: 參與者可以創建會議
+            creation_enabled_for_user_groups: 使用者群組可以創建會議
+    events:
+      meetings:
+        meeting_closed:
+          affected_user:
+            email_intro: '您的會議「%{resource_title}」已結束。您可以從其頁面閱讀結論：'
+            email_outro: 你收到此通知是因為你組織了"%{resource_title}" 會議。
+            email_subject: '"%{resource_title}" 會議已經結束。'
+            notification_title: <a href="%{resource_path}">%{resource_title}</a>」會議已結束。
+          follower:
+            email_intro: '這個 "%{resource_title}" 會議已經結束，您可以從該會議頁面閱讀結論：'
+            email_outro: 您收到此通知是因為您正在追蹤 "%{resource_title}" 會議。您可以透過上方的連結取消追蹤。
+            email_subject: '"%{resource_title}" 會議已經結束。'
+            notification_title: <a href="%{resource_path}">%{resource_title}</a>」會議已結束。
+        meeting_created:
+          button_text: 登記參加會議
+          email_intro: 您正在關注的 "%{participatory_space_title}" 會議中新增了抽籤 "%{resource_title}"
+          email_outro: 您收到了此通知，是因為您正在關注 "%{participatory_space_title}"。您可以通過前面的鏈接取消關注它。
+          email_subject: 已新增一個新的會議至 %{participatory_space_title}
+          notification_title: 會議 <a href="%{resource_path}">%{resource_title}</a> 已經加入到 %{participatory_space_title} 中。
+        meeting_registration_confirmed:
+          notification_title: 您的<a href="%{resource_url}">%{resource_title}</a> 會議註冊已確認。您的註冊代碼為 %{registration_code}。
+        meeting_registrations_over_percentage:
+          email_intro: '"%{resource_title}"會議的可用名額已經超過 %{percentage}%。'
+          email_outro: 您收到此通知是因為您是會議參與空間的管理員。
+          email_subject: '"%{resource_title}"會議的可用名額已經超過 %{percentage}%。'
+          notification_title: 該會議的可用預約時段已滿 %{percentage}%。
+        meeting_updated:
+          email_intro: '%{resource_title} 會議已更新。您可以在該會議頁面上閱讀新版本:'
+          email_outro: 您收到此通知是因為您正在追蹤 "%{resource_title}" 會議。您可以透過上方的連結取消追蹤。
+          email_subject: '%{resource_title}" 會議已更新。'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 會議的可用名額已滿 %{percentage}%。
+        registration_code_validated:
+          email_intro: 您的 "%{resource_title}" 會議註冊代碼"%{registration_code}"已通過驗證。
+          email_outro: 您已收到此通知，因為您的註冊碼已驗證成功，可參加「%{resource_title}」會議。
+          email_subject: 您的 "%{resource_title}" 會議註冊代碼"%{registration_code}"已通過驗證。
+          notification_title: 您的註冊代碼 "%{registration_code}" 已經驗證通過，您可以參加 <a href="%{resource_path}">%{resource_title}</a> 會議了。
+        registrations_enabled:
+          email_intro: '"%{resource_title}" 會議已開啟註冊。您可以在其頁面上註冊:'
+          email_outro: 您收到此通知是因為您正在追蹤 "%{resource_title}" 會議。您可以透過上方的連結取消追蹤。
+          email_subject: '"%{resource_title}"會議已開放註冊。'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a>會議已開放註冊。
+        upcoming_meeting:
+          email_intro: '%{resource_title}" 會議將在不到48小時後開始。'
+          email_outro: 您收到此通知是因為您正在追蹤 "%{resource_title}" 會議。您可以透過上方的連結取消追蹤。
+          email_subject: '%{resource_title}" 會議將在不到48小時後開始。'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 會議將在 48 小時內開始。
+    forms:
+      meetings:
+        attendees_count_help_text: 別忘了在您的會議中包括所有與會者的總人數，無論是現場、線上還是混合的參與者。
+    gamification:
+      badges:
+        attended_meetings:
+          conditions:
+            - 註冊您想參加的會議
+          description: 這個徽章是當您參加多個面對面會議時獲得的。
+          description_another: 此參與者已經參加了 %{score} 場會議。
+          description_own: 您已經參加了 %{score} 場會議。
+          name: 已參加會議
+          next_level_in: 參加 %{score} 場會議以達到下一個等級！
+          unearned_another: 這個參與者還沒有參加過任何會議。
+          unearned_own: 你還沒有參加任何會議。
+    meetings:
+      actions:
+        agenda: 議程
+        attachment_collections: 資料夾
+        attachments: 附件
+        close: 關閉
+        confirm_destroy: 你確定要刪除此會議？
+        destroy: 刪除
+        edit: 編輯
+        invalid_destroy:
+          proposals_count:
+            other: '該會議因有 %{count} 個相關提案而無法刪除:'
+        manage_poll: 管理投票
+        preview: 預覽
+        registrations: 註冊
+        title: 操作
+      admin:
+        agenda:
+          agenda_item:
+            add_agenda_item_child: 新增議程子項目
+            agenda_item: 議程項目
+            agenda_item_children: 議程子項目
+            down: 向下
+            remove: 移除
+            up: 往上
+          agenda_item_child:
+            agenda_item_child: 議程子項目
+            down: 向下
+            remove: 移除
+            up: 往上
+          create:
+            invalid: 建立議程時發生問題.
+            success: 議程成功建立.
+          edit:
+            title: 編輯議程
+            update: 更新
+          form:
+            add_agenda_item: 新增議程項目
+            agenda_items: 議程項目
+            end_date: 結束日期
+            start_date: 開始日期
+          new:
+            create: 建立
+            title: 新的議程
+          update:
+            invalid: 更新議程時發生問題.
+            success: 議程已成功更新.
+        exports:
+          answers: 回答
+          meeting_comments: 評論
+          meetings: 會議
+          registrations: 註冊
+        invite_join_meeting_mailer:
+          invite:
+            decline: 拒絕邀請
+            invited_you_to_join_a_meeting: "%{invited_by} 邀請您加入 %{application} 的會議。您可以通過以下鏈接拒絕或接受邀請。"
+            join: 加入會議 '%{meeting_title}'
+        invites:
+          create:
+            error: 邀請參與者加入會議時發生問題。
+            success: 已成功邀請參與者加入會議。
+          form:
+            attendee_type: 參與者類型
+            existing_user: 現有參與者
+            invite: 邀請
+            invite_explanation: 參與者將被邀請加入會議和組織。
+            non_user: 不存在的參與者。
+            select_user: 選擇參與者
+          index:
+            filter:
+              accepted: 已接受
+              all: 全部
+              rejected: 已拒絕
+              sent: 傳送
+            invite_attendee: 邀請的與會者
+            invites: 邀請
+            registrations_disabled: 你無法邀請參加者，因為註冊已被禁用。
+            search: 搜尋
+        meeting_closes:
+          edit:
+            close: 關閉
+            title: 關閉會議
+        meetings:
+          close:
+            invalid: 關閉此會議時出現問題.
+            success: 會議已成功關閉.
+          create:
+            invalid: 建立會議時發生問題.
+            success: 會議已成功建立。請注意這仍未發佈，您需要手動發佈。
+          destroy:
+            invalid:
+              proposals_count:
+                other: 該會議因有 %{count} 個相關提案而無法刪除.
+            success: 會議已成功刪除
+          edit:
+            title: 編輯會議
+            update: 更新
+          form:
+            address_help: '地址：用於地理編碼器找到位置'
+            disclaimer: '免責聲明：使用外部註冊系統時，您知道%{organization} 的組織者不對使用者提供給外部服務的數據負責。'
+            location_help: '地點：針對使用者的消息，指示會議地點'
+            location_hints_help: '地點提示：額外的訊息。例如，如果是面對面的會議，可以提供建築物樓層的資訊；如果是限制存取權限的線上會議，可以提供會議密碼的資訊。'
+            online_meeting_url_help: '連結：允許參與者直接連接到您的會議'
+            registration_url_help: '連結：允許參與者進入您用於註冊的外部服務'
+            select_a_meeting_type: 請選擇一種會議類型。
+            select_a_registration_type: 請選擇一種註冊類型
+            select_an_iframe_access_level: 請選擇一個 iframe 存取級別
+            show_embedded_iframe_help: '只有以下域名的部分服務允許將會議或直播活動嵌入： %{domains}'
+          index:
+            title: 會議
+          new:
+            create: 建立
+            title: 建立會議
+          publish:
+            invalid: 發佈此會議時出現問題。
+            success: 會議成功發佈.
+          service:
+            description: 說明
+            down: 向下
+            remove: 移除
+            service: 服務
+            title: 標題
+            up: 往上
+          services:
+            add_service: 新增服務
+            services: 服務
+          unpublish:
+            invalid: 取消發佈會議時出了問題.
+            success: 會議已成功取消發佈。
+          update:
+            invalid: 更新會議時發生問題.
+            success: 會議成功更新.
+        meetings_poll:
+          form:
+            title: 編輯 %{questionnaire_for} 投票問卷
+          update:
+            invalid: 更新會議投票時出現問題.
+            success: 會議投票已成功更新"
+        registrations:
+          edit:
+            save: 儲存
+            validate: 驗證
+            validate_registration_code: 驗證註冊碼
+          form:
+            available_slots_help: 如果您有無限的可用名額，請將其設置為0。
+            invites: 邀請
+            recommendation_message: 出於隱私考量，建議您在不需要此報名表時刪除它。默認情況下，在會議結束後3個月會自動刪除。
+            registration_email_help: 這段文字會出現在註冊確認電子郵件中，位於註冊代碼之後。
+            registration_form: 註冊表單
+            registrations_count:
+              other: 已有 %{count} 個註冊。
+            reserved_slots_help: 若您沒有保留名額，請將其設為0。
+            reserved_slots_less_than: 必須小於或等於 %{count}
+            title: 註冊
+          update:
+            invalid: 儲存註冊設定時出現問題。
+            success: 會議註冊設定已成功保存。
+          validate_registration_code:
+            invalid: 此註冊碼無效。
+            success: 註冊碼已成功驗證。
+      admin_log:
+        invite:
+          create: "%{user_name} 邀請 %{attendee_name} 參加在 %{space_name} 空間舉行的 %{resource_name} 會議。"
+          deleted: "%{user_name} 已取消邀請%{attendee_name} 參加%{space_name} 空間中的%{resource_name} 會議"
+          update: "%{user_name} 邀請 %{attendee_name} 參加在 %{space_name} 空間舉行的 %{resource_name} 會議。"
+        meeting:
+          close: "%{user_name} 已關閉%{space_name} 空間中的%{resource_name} 會議"
+          create: "%{user_name} 在 %{space_name} 空間中創建了 %{resource_name} 會議"
+          delete: "%{user_name} 刪除了在 %{space_name} 空間中的 %{resource_name} 會議"
+          export_registrations: "%{user_name} 匯出了在%{space_name} 空間中的%{resource_name} 會議的註冊資訊"
+          update: "%{user_name} 已更新 %{space_name} 中的 %{resource_name} 會議"
+          value_types:
+            organizer_presenter:
+              not_found: '找不到資料庫中的組織者 (ID: %{id})'
+        questionnaire:
+          update: "%{user_name} 更新了 %{meeting_name} 會議的問卷"
+      application_helper:
+        filter_category_values:
+          all: 全部
+        filter_meeting_space_values:
+          all: 全部
+      calendar_modal:
+        calendar_url: 行事曆 URL
+        copy_calendar_url: 複製
+        copy_calendar_url_clarification: 將日曆 URL 複製到剪貼板
+        copy_calendar_url_copied: 已複製！
+        copy_calendar_url_description: 您可以在您的日曆應用程式或服務商中查看所有已發佈的會議。使用“從 URL 新增日曆”選項，將此 URL 複製並貼上到您的日曆中。
+        copy_calendar_url_explanation: 請注意，您正在匯出一個會議的選擇，因為存在有效的篩選器。如果您希望全部匯出，請先重置所有篩選器。
+        copy_calendar_url_message: URL 已成功複製到剪貼簿
+        export_calendar: 匯出行事曆
+      close_meeting_reminder_mailer:
+        close_meeting_reminder:
+          body: 會議<a href="%{meeting_path}">"%{meeting_title}"</a>等待關閉，請使用“關閉會議”按鈕添加會議報告。
+          greetings: 問候,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+          hello: 哈囉，%{username}！
+          subject: 您現在可以在 %{organization_name} 平台上透過報告結束您的會議。
+      conference_venues: 會議場地
+      content_blocks:
+        upcoming_meetings:
+          name: 即將到來的會議
+      directory:
+        meetings:
+          index:
+            meetings: 會議
+            space_type: 參與空間
+      iframe_access_level:
+        all: 所有訪客
+        registered: 已註冊參加此會議的參與者
+        signed_in: 僅限已登入的參與者
+      iframe_embed_type:
+        embed_in_meeting_page: 嵌入會議頁面
+        none: 沒有
+        open_in_live_event_page: 在直播活動頁面開啟(附加投票選項)
+        open_in_new_tab: 在新頁籤中開啟 URL
+      last_activity:
+        meeting_updated: '會議已更新:'
+        new_meeting: '新會議:'
+      layouts:
+        live_event:
+          administrate: 管理員
+          close: 關閉
+          questions: 問題
+      mailer:
+        invite_join_meeting_mailer:
+          invite:
+            subject: 邀請加入會議
+        registration_mailer:
+          confirmation:
+            subject: 您的會議註冊已確認。
+      meeting:
+        not_allowed: 你無權查看此會議。
+      meeting_closes:
+        edit:
+          back: 返回
+          close: 關閉會議
+          title: 關閉會議
+      meetings:
+        calendar_modal:
+          add_to_calendar: 新增至行事曆
+          apple: 新增至 Apple 日曆
+          full_details_html: 詳細內容請前往 %{link}
+          google: 新增至 Google 日曆
+          outlook: 添加到Outlook 行事曆
+        count:
+          meetings_count:
+            other: "One\n%{count} 個會議\nOther\n%{count} 個會議 "
+        create:
+          invalid: 建立會議時發生問題.
+          success: 您已成功創建會議。
+        edit:
+          back: 返回
+          title: 編輯您的會議
+          update: 更新
+        filters:
+          activity: 我的活動
+          all: 全部
+          category: 分類
+          date: 日期
+          date_values:
+            all: 全部
+            past: 過去
+            upcoming: 即將舉行
+          my_meetings: 我的會議
+          origin: 起源
+          origin_values:
+            all: 全部
+            official: 官方
+            participants: 參與者
+          search: 搜尋
+          type: 類別
+          type_values:
+            all: 全部
+            hybrid: 混合
+            in_person: 親自
+            online: 線上
+        form:
+          address_help: '地址：用於地理編碼器找到位置'
+          available_slots_help: 如果您有無限的可用名額，請將其設置為0。
+          create_as: 創建會議
+          disclaimer: '免責聲明：使用外部註冊系統時，您知道%{organization} 的組織者不對使用者提供給外部服務的數據負責。'
+          location_help: '地點：針對使用者的消息，指示會議地點'
+          location_hints_help: '地點提示：額外的訊息。例如，如果是面對面的會議，可以提供建築物樓層的資訊；如果是限制存取權限的線上會議，可以提供會議密碼的資訊。'
+          online_meeting_url_help: '連結：允許參與者直接連接到您的會議'
+          registration_url_help: '連結：允許參與者進入您用於註冊的外部服務'
+          select_a_category: 請選擇一個類別
+          select_a_meeting_type: 請選擇一種會議類型。
+          select_a_registration_type: 請選擇一種註冊類型
+          select_an_iframe_access_level: 請選擇一個 iframe 存取級別
+          show_embedded_iframe_help: '只有以下域名的部分服務允許將會議或直播活動嵌入： %{domains}'
+        index:
+          click_here: 查看所有會議
+          new_meeting: 新會議
+          see_all: 查看所有會議
+          see_all_withdrawn: 查看所有撤回的會議
+          text_banner: 您正在查看已被其作者撤回的會議列表。 %{go_back_link}。
+        meetings:
+          no_meetings_warning: 沒有符合搜尋條件的會議或者目前沒有任何已排定的會議。
+          upcoming_meetings_warning: 目前沒有安排的會議，但您可以在這裡找到所有過去的會議列表。
+        new:
+          back: 返回
+          create: 建立
+          title: 新增您的會議
+        registration_confirm:
+          cancel: 取消
+          confirm: 確認
+        show:
+          attendees: 出席人數
+          contributions: 貢獻次數
+          date: 日期
+          join: 加入會議
+          leave: 取消您的註冊
+          leave_confirmation: 您確定要取消此次會議的註冊嗎？
+          link_available_soon: 連結即將推出
+          link_closed: 會議連結將在開始前幾分鐘提供
+          live_event: 此會議正在進行中
+          meeting_minutes: 會議分鐘
+          micro_camera_permissions_warning: 當您點擊下面的按鈕時，系統會要求您授權使用麥克風和/或攝像頭，接著您就可以進入視訊會議。
+          no_slots_available: 無可用時段。
+          organizations: 參加的組織
+          registration_code_help_text: 您的報名代碼
+          registration_state:
+            validated: 已驗證
+            validation_pending: 驗證待處理
+          remaining_slots:
+            other: "剩餘 %{count} 個位置"
+          view: 檢視
+          visit_finished: 查看過去的會議
+          withdraw_btn_hint: 您可以撤回您的會議，如果您改變了主意。會議不會被刪除，而是會顯示在已撤回的會議列表中。
+          withdraw_confirmation_html: 您確定要撤回此會議嗎？<br><br><strong>此操作無法取消！</strong>
+          withdraw_meeting: 撤回會議
+        update:
+          invalid: 更新會議時發生問題.
+          success: 您已成功更新會議。
+      models:
+        invite:
+          fields:
+            email: 電子郵件
+            name: 姓名
+            sent_at: 寄送時間
+            status: 狀態
+          status:
+            accepted: 已接受 (%{at})
+            rejected: 已拒絕 (%{at})
+            sent: 傳送
+        meeting:
+          fields:
+            closed: 關閉
+            end_time: 結束日期
+            id: ID
+            map: 地圖
+            official_meeting: 官方會議
+            start_time: 開始日期
+            title: 標題
+      polls:
+        questions:
+          closed_question:
+            question_results: 問題結果
+          index:
+            empty_questions: 在本次會議期間，您將收到一些問題並且您可以回答這些問題。這些問題將會在此顯示。
+          index_admin:
+            admin_dashboard: 管理員儀表板
+            edit: 在管理面板中編輯
+            question: 問題
+            received_answer: 收到回答
+            received_answers: 收到回答
+            results: 結果
+            send: 發送
+            sent: 傳送
+          published_question:
+            max_choices_alert: 選擇的項目太多了
+            question: 問題
+            question_replied: 問題已回覆
+            reply_question: 回答問題
+      public_participants_list:
+        attending_participants: 參與的參與者
+        hidden_participants_count:
+          other: "one\n以及其他 %{count} 個人\n\nOther\n以及其他 %{count} 個人"
+      read_more: "(顯示較多)"
+      registration_mailer:
+        confirmation:
+          confirmed_html: 您的 <a href="%{url}">%{title}</a> 會議註冊已確認。
+          details: 有關會議的詳細信息，請參閱附件。
+          registration_code: 您的註冊碼為 %{code}。
+      registration_type:
+        on_different_platform: 在不同的平台上
+        on_this_platform: 在此平台上
+        registration_disabled: 註冊停用
+      registrations:
+        create:
+          invalid: 加入此會議時發生問題。
+          success: 您已成功加入會議。因為您已註冊此會議，如果有任何更新，您將收到通知。
+        decline_invitation:
+          invalid: 拒絕邀請出現問題。
+          success: 您已成功拒絕邀請。
+        destroy:
+          invalid: 離開此次會議發生了問題。
+          success: 您已成功離開會議。
+      type_of_meeting:
+        hybrid: 混合
+        in_person: 親自
+        online: 線上
+      types:
+        private_meeting: 私人會議
+        transparent: 透明
+        withdraw: 撤回
+      withdraw:
+        error: 退出會議時發生錯誤.
+        success: 會議已成功撤回.
+    metrics:
+      meetings:
+        description: 建立的會議次數
+        object: 會議
+        title: 會議
+    participatory_spaces:
+      highlighted_meetings:
+        past_meetings: 過去的會議
+        see_all: 檢視所有會議 (%{count})
+        upcoming_meetings: 即將到來的會議
+    resource_links:
+      meetings_through_proposals:
+        meeting_result: '相關結果：'
+        result_meeting: '相關會議:'
+      proposals_from_meeting:
+        meeting_proposal: '相關提案:'
+        proposal_meeting: '相關會議:'
+    statistics:
+      meetings_count: 會議
+  devise:
+    mailer:
+      join_meeting:
+        subject: 邀請加入會議

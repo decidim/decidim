@@ -7,6 +7,7 @@ de:
         decidim_scope_id: Umfang
         description: Beschreibung
         end_date: Enddatum
+        meetings_ids: Enthaltene Sitzungen
         progress: Fortschritt
         project_ids: Enthaltene Projekte
         proposals: Enthaltene Vorschläge
@@ -38,8 +39,8 @@ de:
         confirm_destroy: Sind Sie sicher, dass Sie diese %{name}löschen möchten?
         destroy: Löschen
         edit: Bearbeiten
+        import: Projekte zu Ergebnissen importieren
         import_csv: CSV importieren
-        new: Neu %{name}
         preview: Vorschau
         timeline_entries: Projektentwicklung
         title: Aktionen
@@ -49,26 +50,61 @@ de:
           results: Ergebnisse
         import_results:
           new:
+            download_export: Export im CSV-Format herunterladen
             import: Importieren
-            info: "<p>Wir empfehlen, dass Sie folgende Schritte befolgen:</p><ol><li>Erstellen Sie den Status der Ergebnisse, die Sie hinzufügen möchten (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Erstellen Sie mindestens ein Ergebnis über diesen Administrator-Panel (<a href='%{link_new_result}' target='_blank'>link</a>) bevor Sie Importieren, damit Sie mit dem Format und den benötigten Eingaben vertraut sind.</li><li>Laden Sie den Export im CSV-Format herunter (%{link_export_csv})</li><li>Nehmen Sie Änderungen lokal vor. Sie können nur die folgenden Spalten der CSV ändern:</li></ol><ul><li><b>Kategorie/ID:</b> ID der Kategorie</li><li><b>Umfang/ID:</b> ID des Umfangs</li><li><b>Übergeordnet/ID:</b> Übergeordnete ID (für verwandte Ergebnisse). Optional</li><li><b>Titel/I18N:</b> Titel in Sprache X </li><li><b>Beschreibung/I18N:</b> Beschreibung in Sprache X </li><li><b>start_datum:</b> Datum, an dem die Ausführung des Ergebnisses beginnt (Format JJJJ-MM-TT)</li><li><b>end_datum:</b> Datum, an dem die Ausführung des Ergebnisses endet (Format JJJJ-MM-TT)</li><li><b>Status/ID:</b> ID des Status dieses Ergebnisses</li><li><b>Fortschritt:</b> Prozentualer (von 0 bis 100) Fortschritt der Durchführung</li><li><b>Vorschläge_IDs:</b> Interne ID der verwandten Vorschläge (getrennt durch Komma). Dies wird automatisch umgewandelt in <span class='attribute-name'>proposal_url</span></li></ul>"
-            link: Verknüpfung
+            info: |
+              <p>Wir empfehlen, dass Sie die folgende Schritte befolgen:</p>
+              <ol>
+              <li><a href='%{link_new_status}' target='_blank'>Erstellen Sie den Status der Ergebnisse</a>, die Sie hinzufügen möchten</li>
+              <li><a href='%{link_new_result}' target='_blank'>Erstellen Sie mindestens ein Ergebnis manuell</a> über das Admin-Backend bevor Sie die Importfunktion nutzen, damit Sie mit dem Format und den benötigten Eingaben vertraut sind.</li>
+              <li>%{link_export_csv}</li>
+              <li>Machen Sie Änderungen lokal. Sie können nur die folgenden Spalten des CSV ändern:
+              <ul>
+              <li><b>category/id:</b> ID der Kategorie</li>
+              <li><b>scope/id:</b> ID des Themenbereichs</li>
+              <li><b>parent/id:</b> ID des übergeordneten Themenbereichs (für verwandte Ergebnisse). Optional</li>
+              <li><b>title/de:</b> Titel auf Deutsch. Dies wird von der Konfiguration ihrer Plattformsprachen abgängig sein.</li>
+              <li><b>description/de:</b> Beschreibung auf Deutsch. Dies wird von der Konfiguration ihrer Plattformsprachen abgängig sein.</li>
+              <li><b>start_date:</b> Datum, an dem die Umsetzung des Ergebnisses beginnt (Format JJJJ-MM-TT)</li>
+              <li><b>end_date:</b> Datum, an dem die Umsetzung des Ergebnisses endet (Format JJJJ-MM-TT)</li>
+              <li><b>status/id:</b> ID des Status dieses Ergebnisses</li>
+              <li><b>progress:</b> Prozentualer Fortschritt der Durchführung (von 0 bis 100)</li>
+              <li><b>proposals_ids:</b> Interne ID der verwandten Vorschläge (kommagetrennt). Diese werden automatisch umgewandelt in <span class='attribute-name'>proposal_url</span></li>
+              </ul>
+              </li>
+              </ol>
             title: Ergebnisse von CSV importieren
         imports:
           create:
-            success: Die Datei wird importiert. Innerhalb von ein paar Minuten erhalten Sie eine E-Mail mit dem Importergebnis
+            invalid: Beim Importieren der Ergebnisse ist ein Fehler aufgetreten.
+            success: Die Datei wird importiert. Innerhalb von ein paar Minuten erhalten Sie eine E-Mail mit dem Importergebnis.
         models:
           result:
             name: Ergebnis
           status:
             name: Status
-          timeline_entry:
-            name: Zeitachseneintrag
+        projects_import:
+          create:
+            invalid: Es gab ein Problem beim Importieren der Projekte in Ergebnisse, bitte befolgen Sie die Anweisungen sorgfältig und stellen Sie sicher, dass Sie Projekte für die Umsetzung ausgewählt haben.
+          new:
+            create: Importieren
+            import_all_selected_projects: Alle zur Umsetzung ausgewählten Projekte importieren
+            new_items:
+              one: 1 ausgewähltes Projekt wird importiert
+              other: "%{count} ausgewählte Projekte werden importiert"
+            no_components: Es gibt keine weiteren Budgetkomponenten in diesem partizipativen Raum, um die Projekte in Ergebnisse zu importieren.
+            origin_component_id: Ursprungskomponente
+            select_component: Komponente auswählen
+            success:
+              one: Ein Projekt wird importiert. Sie werden per E-Mail benachrichtigt, sobald der Import abgeschlossen ist.
+              other: "%{count} Projekte werden in der Warteschlange importiert. Sie werden per E-Mail benachrichtigt, sobald sie abgeschlossen sind."
+            title: Projekte in Rechenschaftspflicht importieren
         results:
           create:
-            invalid: Beim Erstellen dieses Ergebnisses ist ein Problem aufgetreten
-            success: Ergebnis erfolgreich erstellt
+            invalid: Beim Erstellen dieses Ergebnisses ist ein Problem aufgetreten.
+            success: Ergebnis erfolgreich erstellt.
           destroy:
-            success: Ergebnis erfolgreich gelöscht
+            success: Ergebnis erfolgreich gelöscht.
           edit:
             title: Ergebnis bearbeiten
             update: Ergebnis aktualisieren
@@ -78,17 +114,17 @@ de:
             create: Ergebnis erstellen
             title: Neues Ergebnis
           update:
-            invalid: Beim Aktualisieren dieses Ergebnisses ist ein Problem aufgetreten
-            success: Ergebnis erfolgreich aktualisiert
+            invalid: Beim Aktualisieren dieses Ergebnisses ist ein Problem aufgetreten.
+            success: Ergebnis erfolgreich aktualisiert.
         shared:
           subnav:
             statuses: Status
         statuses:
           create:
-            invalid: Beim Erstellen dieses Status ist ein Problem aufgetreten
-            success: Status erfolgreich erstellt
+            invalid: Beim Erstellen dieses Status ist ein Problem aufgetreten.
+            success: Status erfolgreich erstellt.
           destroy:
-            success: Status erfolgreich gelöscht
+            success: Status erfolgreich gelöscht.
           edit:
             title: Status bearbeiten
             update: Update Status
@@ -98,14 +134,14 @@ de:
             create: Status erstellen
             title: Neuer Status
           update:
-            invalid: Beim Aktualisieren dieses Status ist ein Problem aufgetreten
-            success: Status erfolgreich aktualisiert
+            invalid: Beim Aktualisieren dieses Status ist ein Problem aufgetreten.
+            success: Status erfolgreich aktualisiert.
         timeline_entries:
           create:
-            invalid: Beim Erstellen dieses Eintrags ist ein Problem aufgetreten
-            success: Der Eintrag wurde erfolgreich erstellt
+            invalid: Beim Erstellen dieses Eintrags ist ein Problem aufgetreten.
+            success: Der Eintrag wurde erfolgreich erstellt.
           destroy:
-            success: Der Eintrag wurde erfolgreich gelöscht
+            success: Der Eintrag wurde erfolgreich gelöscht.
           edit:
             title: Eintrag bearbeiten
             update: Eintrag aktualisieren
@@ -115,8 +151,8 @@ de:
             create: Eintrag erstellen
             title: Neuer Eintrag
           update:
-            invalid: Beim Aktualisieren dieses Eintrags ist ein Problem aufgetreten
-            success: Eintrag erfolgreich aktualisiert
+            invalid: Beim Aktualisieren dieses Eintrags ist ein Problem aufgetreten.
+            success: Eintrag erfolgreich aktualisiert.
       admin_log:
         result:
           create: "%{user_name} hat das Ergebnis %{resource_name} in %{space_name} erstellt"
@@ -141,12 +177,19 @@ de:
       import_mailer:
         import:
           errors: Fehler
-          errors_present: Beim Importieren der Ergebnisse ist ein Fehler aufgetreten
+          errors_present: Beim Importieren der Ergebnisse ist ein Fehler aufgetreten.
           row_number: Zeile
           subject: Ergebnisse wurden erfolgreich importiert
           success: Ergebnisse wurden erfolgreich importiert. Sie können die Ergebnisse über die Administrationsoberfläche aufrufen.
+      import_projects_mailer:
+        import:
+          added_projects:
+            one: Ein Ergebnis wurde aus Projekten importiert.
+            other: "%{count} Ergebnisse wurden aus Projekten importiert."
+          subject: Projekte wurden erfolgreich importiert
+          success: Projekte wurden erfolgreich in die Ergebnisse der %{component_name}-Komponente importiert. Sie können die Ergebnisse in der Administrationsoberfläche überprüfen.
       last_activity:
-        new_result_at_html: "<span>Neues Ergebnis bei %{link}</span>"
+        new_result: 'Neues Ergebnis:'
       models:
         result:
           fields:
@@ -179,7 +222,6 @@ de:
             other: "%{count} Ergebnisse"
         filters:
           all: Alle
-          scopes: Bereiche
         home:
           categories_label: Kategorien
           subcategories_label: Unterkategorien
@@ -187,6 +229,7 @@ de:
           global_status: Globaler Umsetzungsstatus
         nav_breadcrumb:
           global: Globale Ausführung
+        no_results: Es gibt keine Projekte
         search:
           search: Suche nach Aktionen
         show:

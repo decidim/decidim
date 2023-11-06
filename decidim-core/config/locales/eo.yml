@@ -27,7 +27,6 @@ eo:
       decidim/component_published_event: Aktiva komponanto
       decidim/demoted_membership: Ne plu grupa administranto
       decidim/gamification/badge_earned_event: Insigno gajnis
-      decidim/gamification/level_up_event: Vi nivelis
       decidim/join_request_accepted_event: Aliĝu al peto akceptita
       decidim/join_request_rejected_event: Aliĝi peto rifuzita
       decidim/profile_updated_event: Profilo ĝisdatigita
@@ -59,28 +58,17 @@ eo:
           close: Fermu la fenestron
       download_your_data_export:
         file_no_exists: Dosiero ne ekzistas
-        notice: La malŝarĝo de viaj datumoj nuntempe progresas. Vi ricevos retpoŝton kiam ĝi estos kompleta.
     amendments:
       accepted:
         success: La amendo estis akceptita sukcese.
       amendable:
-        amended_by: Modifita de
         button: Amendi %{model_name}
         error: Okazis eraro ŝanĝante ĉi tiun rimedon.
       edit_draft:
         send: Antaŭvido
-    group_admins:
-      demote:
-        success: Partoprenanto sukcese forigita de administranto
   devise:
-    sessions:
-      new:
-        sign_in: Ensaluti
     unlocks:
       send_instructions: Vi ricevos retpoŝton kun instrukcioj pri kiel malŝlosi vian konton en kelkaj minutoj.
-  layouts:
-    decidim:
-      user_menu:
-        sign_out: Elsaluti
   locale:
-    name: Angla
+    name: Esperanto
+    name_with_error: Esperanto (eraro!)

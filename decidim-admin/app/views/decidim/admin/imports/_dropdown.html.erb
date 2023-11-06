@@ -1,4 +1,7 @@
-<span class="imports dropdown tiny button button--simple" data-toggle="import-dropdown"><%= t "actions.import", scope: "decidim.admin" %></span>
+<span class="imports button button__sm button__secondary button--simple" data-toggle="import-dropdown">
+  <%= t "actions.import", scope: "decidim.admin" %>
+  <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
+</span>
 <div class="dropdown-pane" id="import-dropdown" data-dropdown data-position=bottom data-alignment=right data-auto-focus="true" data-close-on-click="true">
   <ul class="vertical menu add-components">
     <% if custom %>
@@ -6,7 +9,7 @@
     <% else %>
       <% component.manifest.import_manifests.each do |import_manifest| %>
         <li class="imports--file imports--<%= import_manifest.name %>">
-          <%= link_to import_manifest.message(:label, self), admin_imports_path(component, resource_id: resource_id, name: import_manifest.name) %>
+          <%= link_to import_manifest.message(:label, self), admin_imports_path(component, resource_id:, name: import_manifest.name) %>
         </li>
       <% end %>
     <% end %>

@@ -3,6 +3,7 @@ ro:
     models:
       decidim/comments/comment_by_followed_user_event: Comentariu
       decidim/comments/comment_created_event: Comentează
+      decidim/comments/comment_upvoted_event: Comentariu votat
       decidim/comments/reply_created_event: Răspuns la comentariu
       decidim/comments/user_group_mentioned_event: Menționează
       decidim/comments/user_mentioned_event: Menționează
@@ -32,22 +33,17 @@ ro:
         update:
           error: A apărut o eroare la actualizarea comentariului.
       comments_count: Număr de comentarii
-      comments_title: Comentarii
-      last_activity:
-        new_comment_at_html: "<span>Comentariu nou la %{link}</span>"
-      view: Vizualizează
+      comments_title: Comentariu
       votes:
         create:
           error: A apărut o problemă la votarea comentariului.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Autentifică-te cu contul tău</a> sau <a href="%{sign_up_url}">înregistrează-te</a> pentru a adăuga comentariul tău.
         form:
           body:
             label: Comentariu
             placeholder: Ce părere ai despre asta?
           form_error: Textul este obligatoriu și nu poate fi mai lung de %{length} caractere.
-          submit: Trimite
           user_group_id:
             label: Comentează în calitate de
         opinion:
@@ -72,6 +68,7 @@ ro:
         edit: Editează
         edited: Editat
         hide_replies: Ascunde răspunsurile
+        moderated_at: Comentariu moderat pe %{date}
         reply: Răspunde
         report:
           action: Raportează
@@ -84,7 +81,10 @@ ro:
             offensive: Conține rasism, sexism, insulte, atacuri personale, amenințări cu moartea, cereri de sinucidere sau orice formă de discurs de incitare la ură.
             spam: Conține clickbait, publicitate, escrocherii sau script rulat de roboți.
           title: Raportează conținut nepotrivit
-        show_replies: Arată %{replies_count} răspunsuri
+        show_replies:
+          one: Arată răspunsul
+          few: Arată %{count} răspunsuri
+          other: Arată %{count} răspunsuri
         single_comment_link_title: Obţine link
       comment_order_selector:
         order:
@@ -93,8 +93,6 @@ ro:
           older: Mai vechi
           recent: Recente
         title: 'Ordonare după:'
-      comment_thread:
-        title: Conversație cu %{authorName}
       comments:
         blocked_comments_for_unauthorized_user_warning: Trebuie să fii verificat pentru a trimite comentarii în acest moment, dar le poți citi pe cele anterioare.
         blocked_comments_for_user_warning: Nu poți comenta în acest moment, dar le poți citi pe cele anterioare.
@@ -168,4 +166,4 @@ ro:
         title: Comentarii
   errors:
     messages:
-      cannot_have_comments: nu poate fi comentat
+      cannot_have_comments: nu poate avea comentarii

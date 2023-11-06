@@ -1,4 +1,17 @@
-<div class="button-group button-group--collapse button--nomargin small">
-  <%= render_endorsements_count %>
-  <%= render_endorsements_button %>
+<div id="resource-<%= resource&.id %>-endorsement-button">
+  <% path = resource.endorsed_by?(current_user) ? path_to_destroy_endorsement(resource) : path_to_create_endorsement(resource) %>
+  <% label = resource.endorsed_by?(current_user) ? t("decidim.endorsement_buttons_cell.already_endorsed") : endorse_translated %>
+  <% method = resource.endorsed_by?(current_user) ? :delete : :post %>
+  <%= action_authorized_button_to(
+        :endorse,
+        path,
+        resource:,
+        method:,
+        remote: true,
+        class: button_classes,
+        id: "endorsement-button"
+      ) do %>
+    <%= label %>
+    <%= endorse_icon %>
+  <% end %>
 </div>

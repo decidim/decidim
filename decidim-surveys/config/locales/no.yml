@@ -58,10 +58,7 @@
           update:
             invalid: Det oppstod et problem med å lagre undersøkelsen.
             success: Undersøkelsen ble lagret.
-      last_activity:
-        new_survey_at_html: "<span>Ny undersøkelse på %{link}</span>"
       surveys:
         answer:
           invalid: Det oppstod et problem med å svare på undersøkelsen.
-          spam_detected: Det oppstod et problem med å svare på skjemaet. Kanskje du har vært for rask, kan du prøve igjen?
           success: Undersøkelsen ble besvart.

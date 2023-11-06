@@ -1,8 +1,8 @@
 <% if allowed_to? :send_to_technical_validation, :initiative, initiative: current_initiative %>
   <%= link_to title,
               send_to_technical_validation_initiative_path(current_initiative),
-              class: "button expanded",
-              data: { confirm: confirm } %>
+              class: "button button__xl w-full button__secondary mt-4",
+              data: { confirm: } %>
 <% else %>
-  <%= link_to title, "#", class: "button expanded disabled" %>
+  <%= link_to title, "#", class: "button button__xl w-full button__secondary mt-4 disabled", disabled: true %>
 <% end %>

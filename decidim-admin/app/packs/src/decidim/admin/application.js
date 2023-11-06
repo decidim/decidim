@@ -2,9 +2,6 @@
 
 import toggleNav from "src/decidim/admin/toggle_nav"
 import createSortList from "src/decidim/admin/sort_list.component"
-import createQuillEditor from "src/decidim/editor"
-import formDatePicker from "src/decidim/form_datepicker"
-import DataPicker from "src/decidim/data_picker"
 import FormFilterComponent from "src/decidim/form_filter"
 import Configuration from "src/decidim/configuration"
 import InputCharacterCounter from "src/decidim/input_character_counter"
@@ -16,8 +13,6 @@ window.Decidim.config = new Configuration()
 window.Decidim.InputCharacterCounter = InputCharacterCounter;
 
 $(() => {
-  window.theDataPicker = new DataPicker($(".data-picker"));
-
   $(document).foundation();
 
   toggleNav();
@@ -37,16 +32,9 @@ $(() => {
     }
   })
 
-  formDatePicker();
-
-  $(".editor-container").each((_idx, container) => {
-    createQuillEditor(container);
-  });
-
   $("form.new_filter").each(function () {
     const formFilter = new FormFilterComponent($(this));
 
     formFilter.mountComponent();
   })
 });
-

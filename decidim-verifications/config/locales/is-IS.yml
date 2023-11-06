@@ -23,27 +23,23 @@ is-IS:
             - Notendur fylla inn upplýsingar um auðkenni þeirra og senda afrit af skjalinu sínu.
             - Þú fyllir inn upplýsingar sem eru til staðar í myndinni sem hlaðið var upp.
             - Upplýsingarnar ættu að passa hvað sem notandinn hefur fyllt inn.
-            - Ef þú getur ekki séð upplýsingarnar greinilega eða þú getur ekki staðfest það, geturðu hafnað beiðninni og notandinn mun geta lagað það.
+            - 
         postal_letter:
           help:
-            - Participants request a verification code to be sent to their address.
+            - 
             - Þú sendir bréfið á heimilisfangið með staðfestingarkóðanum.
             - Þú merkir stafinn sem sendur er.
-            - Once you mark the letter as sent, the participant will be able to introduce the code and get verified.
+            - 
       direct: Bein
       help: Hjálp
       id_documents:
-        explanation: Hladdu upp skjölin þín svo að við getum athugað auðkenni þitt
         name: Kennimark
       multistep: Fjölþrep
       name: Nafn
       postal_letter:
-        explanation: Við sendum þér póstbréf með kóða sem þú verður að slá inn svo við getum staðfesta netfangið þitt
         name: Kóði með póstbréfi
     verifications:
       authorizations:
-        create:
-          success: Þú hefur verið samþykkt með góðum árangri.
         first_login:
           actions:
             dummy_authorization_handler: Staðfestu á móti heimildarmyndinni
@@ -68,19 +64,11 @@ is-IS:
             index:
               verification_number: 'Staðfesting #%{n}'
         authorizations:
-          create:
-            error: Vandamál kom upp við að hlaða upp skjalinu þínu
           edit:
-            being_reviewed: Við erum að skoða skjölin þín. Þú verður staðfest innan skamms
-            rejection_clarity: Gakktu úr skugga um að upplýsingarnar séu greinilega sýnilegar í myndinni sem hlaðið var upp
-            rejection_correctness: Gakktu úr skugga um að innsláttarupplýsingar séu réttar
-            rejection_notice: Vandamál kom upp við staðfestingu þína. Vinsamlegast reyndu aftur
             send: Beiðni um staðfestingu aftur
           new:
             send: Beiðni um staðfestingu
             title: Hladdu upp skjalið þitt
-          update:
-            error: Vandamál kom upp við að endurheimta skjalið þitt
         dni: DNI
         nie: NIE
         passport: Vegabréf
@@ -94,24 +82,12 @@ is-IS:
               not_yet_sent: Ekki enn sendur
               title: Áframhaldandi sannprófanir
               verification_code: Staðfestingarkóði
-          postages:
-            create:
-              error: Villa merkja bréf sem send var
-              success: Bréf með góðum árangri merkt sem send
         authorizations:
-          create:
-            error: Vandamál kom upp við beiðni þína
-            success: Takk! Við sendum staðfestingarkóða á netfangið þitt
           edit:
             send: Staðfesta
-            title: Kynntu staðfestingarkóðann sem þú fékkst
-            waiting_for_letter: Við sendum bréf til heimilisfangsins með staðfestingarkóðanum þínum fljótlega
           new:
             send: Sendu mér bréf
             title: Biðja um staðfestingarkóðann þinn
-          update:
-            error: Staðfestingarkóðinn þinn passar ekki við okkar. Vinsamlegast tvíttu athugaðu bréfið sem við sendum til þín
-            success: Til hamingju. Þú hefur verið staðfest með staðfestingu
   errors:
     messages:
       uppercase_only_letters_numbers: verður að vera allt hástafi og innihalda aðeins stafi og / eða númer

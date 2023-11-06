@@ -52,7 +52,8 @@ namespace :decidim do
         "--demo",
         "--profiling",
         "--locales",
-        "en,ca,es"
+        "en,ca,es",
+        "--dev_ssl"
       )
     end
   end

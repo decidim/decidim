@@ -1,18 +1,17 @@
-<div class="small reveal confirm-reveal" id="confirm-modal" aria-hidden="true" role="dialog" aria-labelledby="confirm-modal-title" data-reveal data-multiple-opened="true">
-  <div class="reveal__header">
-    <h2 class="reveal__title" id="confirm-modal-title"><%= t(".title") %></h2>
-    <button class="close-button" data-close aria-label="<%= t(".close_modal") %>"
-      type="button">
-      <span aria-hidden="true">&times;</span>
+<%= decidim_modal id: "confirm-modal" do %>
+  <div data-dialog-container>
+    <%= icon "delete-bin-line" %>
+    <h2 class="h2" data-dialog-title id="dialog-title-confirm-modal"><%= t("title", scope: "decidim.shared.confirm_modal") %></h2>
+
+    <div data-confirm-modal-content></div>
+  </div>
+
+  <div data-dialog-actions>
+    <button class="button button__lg button__transparent-secondary" data-confirm-cancel data-dialog-close="confirm-modal">
+      <span><%= t("cancel", scope: "decidim.shared.confirm_modal") %></span>
+    </button>
+    <button class="button button__lg button__secondary" data-confirm-ok>
+      <span><%= t("ok", scope: "decidim.shared.confirm_modal") %></span>
     </button>
   </div>
-  <div class="confirm-content">
-    <div class="confirm-modal-content"></div>
-  </div>
-  <div class="confirm-modal-footer reveal__footer">
-    <div class="buttons button--double">
-      <a class="button" role="button" href="#" data-confirm-ok aria-label="<%= t(".ok") %>"><%= t(".ok") %></a>
-      <a class="button clear" role="button" href="#" data-confirm-cancel aria-label="<%= t(".cancel") %>"><%= t(".cancel") %></a>
-    </div>
-  </div>
-</div>
+<% end %>

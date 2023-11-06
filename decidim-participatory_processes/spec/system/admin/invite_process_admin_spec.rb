@@ -22,27 +22,27 @@ describe "Invite process administrator", type: :system do
       within "form.new_user" do
         fill_in :invitation_user_nickname, with: "caballo_loco"
         fill_in :invitation_user_password, with: "decidim123456789"
-        fill_in :invitation_user_password_confirmation, with: "decidim123456789"
         check :invitation_user_tos_agreement
         find("*[type=submit]").click
       end
 
-      expect(page).to have_current_path "/admin/"
-      expect(page).to have_content("Dashboard")
+      expect(page).to have_current_path "/admin/admin_terms/show"
 
       visit decidim_admin.admin_terms_show_path
 
-      find_button("I agree with the following terms").click
+      find_button("I agree with the terms").click
 
       click_link "Processes"
 
-      within "#processes" do
+      within "div.table-scroll" do
         expect(page).to have_i18n_content(participatory_process.title)
-        click_link translated(participatory_process.title)
+        within find("tr", text: translated(participatory_process.title)) do
+          click_link translated(participatory_process.title)
+        end
       end
 
-      within ".secondary-nav" do
-        expect(page.text).to eq "View public page\nInfo\nPhases\nComponents\nCategories\nAttachments\nFolders\nFiles\nProcess admins\nPrivate participants\nModerations"
+      within_admin_sidebar_menu do
+        expect(page.text).to eq "About this process\nLanding page\nPhases\nComponents\nCategories\nAttachments\nFolders\nFiles\nProcess admins\nPrivate participants\nModerations"
       end
     end
   end
@@ -51,7 +51,7 @@ describe "Invite process administrator", type: :system do
     let(:email) { "administrator@example.org" }
 
     let!(:administrator) do
-      create :user, :confirmed, :admin_terms_accepted, email:, organization:
+      create(:user, :confirmed, :admin_terms_accepted, email:, organization:)
     end
 
     before do
@@ -62,17 +62,19 @@ describe "Invite process administrator", type: :system do
       login_as administrator, scope: :user
 
       visit decidim_admin.root_path
-      expect(page).to have_content("Dashboard")
 
       click_link "Processes"
 
-      within "#processes" do
+      within "div.table-scroll" do
         expect(page).to have_i18n_content(participatory_process.title)
-        click_link translated(participatory_process.title)
+        expect(page).to have_i18n_content(participatory_process.title)
+        within find("tr", text: translated(participatory_process.title)) do
+          click_link translated(participatory_process.title)
+        end
       end
 
-      within ".secondary-nav" do
-        expect(page.text).to eq "View public page\nInfo\nPhases\nComponents\nCategories\nAttachments\nFolders\nFiles\nProcess admins\nPrivate participants\nModerations"
+      within_admin_sidebar_menu do
+        expect(page.text).to eq "About this process\nLanding page\nPhases\nComponents\nCategories\nAttachments\nFolders\nFiles\nProcess admins\nPrivate participants\nModerations"
       end
     end
   end

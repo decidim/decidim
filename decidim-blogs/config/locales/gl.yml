@@ -17,17 +17,7 @@ gl:
         new: Nova publicación
         title: Accións
       admin:
-        models:
-          components:
-            body: Corpo
-          post:
-            name: Publicación
         posts:
-          create:
-            invalid: Produciuse un problema ao crear esta publicación
-            success: Publicación creada con éxito
-          destroy:
-            success: Publicación eliminada con éxito
           edit:
             save: Actualizar
             title: Editar publicación
@@ -38,25 +28,11 @@ gl:
             title: Crear unha publicación
           update:
             invalid: Produciuse un erro ao gardar a publicación.
-            success: Publicación gardada con éxito
-      last_activity:
-        new_post_at_html: "<span>Nova publicación en %{link}</span>"
       models:
         post:
           fields:
             author: Autor
             body: Corpo
-            created_at: Creado o
-            title: título
-      posts:
-        show:
-          back: Volver á listaxe
-          comments: Comentarios
-          view: Ver
-        sidebar_blog:
-          comments: comentarios
-          most_commented_posts: As publicacións máis comentadas
-      read_more: Ler máis
     components:
       blogs:
         actions:

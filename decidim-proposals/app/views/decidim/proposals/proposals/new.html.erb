@@ -1,40 +1,35 @@
 <% add_decidim_page_title(proposal_wizard_step_title(action_name)) %>
 
-<div class="row">
-  <%= render partial: "decidim/proposals/proposals/wizard_aside" %>
+<%= append_stylesheet_pack_tag "decidim_proposals", media: "all" %>
+<%= append_javascript_pack_tag "decidim_proposals" %>
 
-  <div class="columns large-6">
-    <%= render partial: "decidim/proposals/proposals/wizard_header" %>
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
 
-    <div class="card">
-      <div class="card__content">
-        <%= decidim_form_for(@form) do |form| %>
-          <%= form_required_explanation %>
+  <%= render partial: "wizard_header" %>
 
-          <div class="field hashtags__container">
-            <%= form.text_field :title, class: "js-hashtags" %>
-          </div>
+  <%= decidim_form_for(@form) do |form| %>
+    <%= form_required_explanation %>
 
-          <div class="field hashtags__container">
-            <%= text_editor_for_proposal_body(form) %>
-          </div>
+    <div class="form__wrapper">
+      <%= form.text_field :title, class: "js-hashtags" %>
+      <%= text_editor_for_proposal_body(form) %>
 
-          <% if current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
-            <div class="field">
-              <%= user_group_select_field form, :user_group_id %>
-            </div>
-          <% end %>
-
-          <div class="actions">
-            <%= form.submit t(".send"), class: "button expanded mt-s mb-none", data: { disable: true } %>
-          </div>
-        <% end %>
-      </div>
+      <% if current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
+        <%= user_group_select_field form, :user_group_id %>
+      <% end %>
     </div>
-  </div>
-  <div class="columns large-3"></div>
-</div>
 
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_proposals" %>
+    <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+      <%= link_to proposal_wizard_aside_link_to_back(@step), class: "button button__sm md:button__lg button__text-secondary" do %>
+        <%= icon "arrow-left-line" %>
+        <%= wizard_aside_back_text(@step) %>
+      <% end %>
+
+      <button type="submit" class="button button__sm md:button__lg button__secondary">
+        <span><%= t("send", scope: "decidim.proposals.proposals.new") %></span>
+        <%= icon "arrow-right-line" %>
+      </button>
+    </div>
+  <% end %>
+
 <% end %>

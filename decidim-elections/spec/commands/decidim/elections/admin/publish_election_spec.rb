@@ -27,7 +27,7 @@ module Decidim::Elections::Admin
     end
 
     it "fires an event" do
-      create :follow, followable: participatory_process, user: user
+      create(:follow, followable: participatory_process, user:)
 
       expect(Decidim::EventsManager)
         .to receive(:publish)
@@ -39,6 +39,21 @@ module Decidim::Elections::Admin
         )
 
       subject.call
+    end
+
+    context "when the meeting is being republished" do
+      let!(:follower) { create(:follow, followable: participatory_process, user:) }
+
+      it "does not fire an event", versioning: true do
+        subject.call
+        election.unpublish!
+        election.reload
+
+        expect(election.previously_published?).to be true
+        expect(Decidim::EventsManager).not_to receive(:publish)
+
+        subject.call
+      end
     end
   end
 end

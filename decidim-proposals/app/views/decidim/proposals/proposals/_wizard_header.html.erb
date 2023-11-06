@@ -1,8 +1,17 @@
+<div class="flex justify-center">
+  <h1 class="title-decorator my-12">
+    <%= proposal_wizard_step_title action_name %>
+    <%= "(#{@similar_proposals.count})" if @similar_proposals.present? %>
+  </h1>
+</div>
+
+<%= wizard_steps(@step) %>
+
 <% if @step == :step_4 %>
     <% body_messages = [t("decidim.proposals.proposals.preview.announcement_body")]
-    if component_settings.proposal_edit_time == "limited"
-      body_messages << t("decidim.proposals.proposals.preview.proposal_edit_before_minutes", count: component_settings.proposal_edit_before_minutes)
-    end %>
+       if component_settings.proposal_edit_time == "limited"
+         body_messages << t("decidim.proposals.proposals.preview.proposal_edit_before_minutes", count: component_settings.proposal_edit_before_minutes)
+       end %>
 
   <%= cell(
     "decidim/announcement",
@@ -17,26 +26,11 @@
 <% end %>
 
 <% if proposal_wizard_step_help_text?(@step) %>
-  <div class="proposal_wizard_help_text">
-    <% callout_step_help_text_class ||= nil %>
-    <%= cell(
-      "decidim/announcement",
-      component_settings.try("proposal_wizard_#{@step}_help_text"),
-      callout_class: callout_step_help_text_class
-    ) %>
-  </div>
+  <% callout_step_help_text_class ||= nil %>
+  <%= cell(
+    "decidim/announcement",
+    component_settings.try("proposal_wizard_#{@step}_help_text"),
+    callout_class: callout_step_help_text_class,
+    id: "proposal_wizard_help_text"
+  ) %>
 <% end %>
-
-<h2 class="section-heading">
-  <%= proposal_wizard_step_title action_name %>
-  <%= "(#{@similar_proposals.count})" if @similar_proposals.present? %>
-</h2>
-
-<div class="hide-for-large m-bottom">
-  <div><%= proposal_wizard_steps_title %></div>
-  <div><%= proposal_wizard_current_step_of(@step) %></div>
-
-  <div id="steps" class="wizard__steps steps-toggle is-hidden" data-toggler=".is-hidden">
-    <%= proposal_wizard_stepper(@step) %>
-  </div>
-</div>

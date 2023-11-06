@@ -1,6 +1,14 @@
 # frozen_string_literal: true
 
 shared_examples "manage posts" do
+  it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='post-body-tabs']", "full" do
+    before do
+      within find("tr", text: translated(post1.title)) do
+        click_link "Edit"
+      end
+    end
+  end
+
   it "updates a post" do
     within find("tr", text: translated(post1.title)) do
       click_link "Edit"
@@ -36,8 +44,8 @@ shared_examples "manage posts" do
     end
   end
 
-  it "creates a new post", :slow do
-    find(".card-title a.button").click
+  it "creates a new post" do
+    click_link "New post"
 
     fill_in_i18n(
       :post_title,
@@ -81,18 +89,18 @@ shared_examples "manage posts" do
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).to have_no_content(translated(post1.title))
+        expect(page).not_to have_content(translated(post1.title))
         expect(page).to have_content(translated(post2.title))
       end
     end
   end
 
   context "when user is in user group" do
-    let(:user_group) { create :user_group, :confirmed, :verified, organization: }
+    let(:user_group) { create(:user_group, :confirmed, :verified, organization:) }
     let!(:membership) { create(:user_group_membership, user:, user_group:) }
 
-    it "can set user group as posts author", :slow do
-      find(".card-title a.button").click
+    it "can set user group as posts author" do
+      click_link "New post"
 
       select user_group.name, from: "post_decidim_author_id"
 
@@ -147,8 +155,8 @@ shared_examples "manage posts" do
   context "when user is the organization" do
     let(:author) { organization }
 
-    it "can set organization as posts author", :slow do
-      find(".card-title a.button").click
+    it "can set organization as posts author" do
+      click_link "New post"
 
       select organization.name, from: "post_decidim_author_id"
 
@@ -203,8 +211,8 @@ shared_examples "manage posts" do
   context "when user is current_user" do
     let(:author) { user }
 
-    it "can set current_user as posts author", :slow do
-      find(".card-title a.button").click
+    it "can set current_user as posts author" do
+      click_link "New post"
 
       select user.name, from: "post_decidim_author_id"
 
@@ -253,6 +261,19 @@ shared_examples "manage posts" do
       within find("tr", text: translated(post1.title)) do
         expect(page).to have_content(author.name)
       end
+    end
+
+    it "changes the publish time" do
+      within find("tr", text: translated(post1.title)) do
+        click_link "Edit"
+      end
+      within ".edit_post" do
+        fill_in "Publish time", with: Time.current.change(year: 2022, month: 1, day: 1, hour: 0, min: 0)
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_content("01/01/2022 00:00")
     end
   end
 end

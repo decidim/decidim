@@ -11,7 +11,7 @@ class FixMeetingsRegistrationTerms < ActiveRecord::Migration[5.2]
         next if meeting.official?
 
         # Since user-created meetings have no way to override the `registration_terms` field
-        # and it's supposed to use the component defaults,
+        # and it is supposed to use the component defaults,
         # we can safely override this.
         meeting.registration_terms = meeting.component.settings.default_registration_terms
         meeting.save!

@@ -1,0 +1,15 @@
+[id*="dropdown-menu"].order-by {
+  @apply md:flex-row justify-start md:justify-end md:gap-x-4;
+
+  .button {
+    @apply justify-end items-end;
+  }
+}
+
+[data-target*="dropdown"].order-by__button {
+  @apply justify-end;
+
+  > svg {
+    @apply h-4 w-4 text-gray;
+  }
+}

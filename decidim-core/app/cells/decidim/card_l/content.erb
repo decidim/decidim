@@ -1,0 +1,10 @@
+<%= render :image if has_image? %>
+<% if has_link_to_resource? && !link_whole_card? %>
+  <%= link_to resource_path, class: "card__list-content" do %>
+    <%= render :title_and_details %>
+  <% end %>
+<% else %>
+  <%= content_tag(:div, class: "card__list-content") do %>
+    <%= render :title_and_details %>
+  <% end %>
+<% end %>

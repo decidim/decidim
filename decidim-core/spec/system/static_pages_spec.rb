@@ -8,6 +8,7 @@ describe "Static pages", type: :system do
   let!(:page2) { create(:static_page, :with_topic, organization:) }
   let!(:page3) { create(:static_page, organization:) }
   let(:user) { nil }
+  let(:pages_selector) { "#content" }
 
   before do
     switch_to_host(organization.host)
@@ -22,14 +23,8 @@ describe "Static pages", type: :system do
     it "lists all the standalone pages" do
       visit decidim.pages_path
 
-      within find(".row", text: "PAGES") do
+      within find(pages_selector, text: "Pages") do
         expect(page).to have_content translated(page3.title)
-      end
-    end
-
-    context "when visiting a single page with topic" do
-      it_behaves_like "accessible page" do
-        before { visit decidim.page_path(page1) }
       end
     end
 
@@ -41,7 +36,17 @@ describe "Static pages", type: :system do
 
     context "when page content has embedded iframe" do
       let!(:video_page) { create(:static_page, :with_topic, content:, organization:) }
-      let(:content) { { "en" => %(<p>foo</p><p><br></p><iframe class="ql-video" allowfullscreen="true" src="#{iframe_src}" frameborder="0"></iframe><p><br></p><p>bar</p>) } }
+      let(:content) do
+        {
+          "en" => <<~HTML
+            <p>foo</p>
+            <p><br></p>
+            <div data-video-embed="http://www.example.org" class="editor-content-videoEmbed"><div><iframe src="http://www.example.org" title="Example" frameborder="0"></iframe></div></div>
+            <p><br></p>
+            <p>bar</p>
+          HTML
+        }
+      end
       let(:iframe_src) { "http://www.example.org" }
 
       before do
@@ -56,6 +61,8 @@ describe "Static pages", type: :system do
           click_button "Accept only essential"
         end
 
+        it_behaves_like "accessible page"
+
         it "disables iframe" do
           visit decidim.page_path(video_page)
           expect(page).to have_content("You need to enable all cookies in order to see this content")
@@ -68,6 +75,8 @@ describe "Static pages", type: :system do
           click_link "Cookie settings"
           click_button "Accept all"
         end
+
+        it_behaves_like "accessible page"
 
         it "shows iframe" do
           visit decidim.page_path(video_page)
@@ -106,7 +115,7 @@ describe "Static pages", type: :system do
     it_behaves_like "requesting with very long URL parameters"
 
     context "when authenticated" do
-      let(:user) { create :user, :confirmed, organization: }
+      let(:user) { create(:user, :confirmed, organization:) }
 
       it_behaves_like "requesting with very long URL parameters"
     end

@@ -13,7 +13,7 @@ module Decidim
       def create
         raise ActionController::RoutingError, "Not Found" unless comment
 
-        enforce_permission_to :vote, :comment, comment: comment
+        enforce_permission_to(:vote, :comment, comment:)
 
         Decidim::Comments::VoteComment.call(comment, current_user, weight: params[:weight].to_i) do
           on(:ok) do

@@ -49,6 +49,14 @@ module Decidim
             expect(subject).to be_nil
           end
         end
+
+        context "with serialized ISO 8601 datetime format" do
+          let(:value) { "2017-02-01" }
+
+          it "parses the String in the correct format" do
+            expect(subject).to eq(Date.new(2017, 2, 1))
+          end
+        end
       end
     end
   end

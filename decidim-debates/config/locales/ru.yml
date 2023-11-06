@@ -39,7 +39,6 @@ ru:
         confirm_destroy: Вы уверены?
         destroy: Удалить
         edit: Редактировать
-        new: Добавить %{name}
         title: Действия
       admin:
         debates:
@@ -59,9 +58,6 @@ ru:
           update:
             invalid: При попытке обновить это обсуждение произошла ошибка.
             success: Обсуждение успешно обновлено.
-        models:
-          debate:
-            name: Обсуждение
       admin_log:
         debate:
           create: "%{user_name} создал обсуждение %{resource_name} в пространстве %{space_name}"
@@ -85,11 +81,6 @@ ru:
           official: Служебные
           origin: Источник
           search: Поиск
-        filters_small_view:
-          close_modal: Закрыть окошко
-          filter: Отобрать
-          filter_by: 'Отобрать по признаку:'
-          unfold: Развернуть
         form:
           select_a_category: Пожалуйста, выберите категорию
         index:
@@ -122,4 +113,3 @@ ru:
           email_intro: 'Теперь вы можете начинать новые обсуждения в %{participatory_space_title}! Начните со страницы:'
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
           email_subject: Теперь в %{participatory_space_title} можно начинать обсуждения
-          notification_title: Теперь в <a href="%{participatory_space_url}">%{participatory_space_title}</a> появилась возможность начинать <a href="%{resource_path}">новые обсуждения</a>

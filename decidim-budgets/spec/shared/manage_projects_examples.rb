@@ -3,15 +3,15 @@
 shared_examples "manage projects" do
   describe "admin form" do
     before do
-      within ".process-content" do
-        page.find(".button--title.new").click
+      within ".item_show__wrapper" do
+        click_link("New project", class: "button")
       end
     end
 
     it_behaves_like "having a rich text editor", "new_project", "full"
 
     it "displays the proposals picker" do
-      expect(page).to have_content("Choose proposals")
+      expect(page).to have_content("Proposals")
     end
 
     context "when geocoding is enabled", :serves_geocoding_autocomplete do
@@ -135,13 +135,15 @@ shared_examples "manage projects" do
 
     it "shows the order count" do
       visit current_path
-      expect(page).to have_content("Finished votes: \n10")
-      expect(page).to have_content("Pending votes: \n5")
+      expect(page).to have_content("Finished votes: 10")
+      expect(page).to have_content("Pending votes: 5")
     end
   end
 
   it "creates a new project", :slow do
-    find(".card-title a.button.new").click
+    within ".bulk-actions-budgets" do
+      click_link "New project"
+    end
 
     within ".new_project" do
       fill_in_i18n(
@@ -160,7 +162,7 @@ shared_examples "manage projects" do
       )
       fill_in :project_budget_amount, with: 22_000_000
 
-      scope_pick select_data_picker(:project_decidim_scope_id), scope
+      select translated(scope.name), from: :project_decidim_scope_id
       select translated(category.name), from: :project_decidim_category_id
 
       find("*[type=submit]").click
@@ -188,14 +190,14 @@ shared_examples "manage projects" do
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).to have_no_content(translated(project2.title))
+        expect(page).not_to have_content(translated(project2.title))
       end
     end
   end
 
   context "when having existing proposals" do
     let!(:proposal_component) { create(:proposal_component, participatory_space:) }
-    let!(:proposals) { create_list :proposal, 5, component: proposal_component, skip_injection: true }
+    let!(:proposals) { create_list(:proposal, 5, component: proposal_component) }
 
     it "updates a project" do
       within find("tr", text: translated(project.title)) do
@@ -211,7 +213,7 @@ shared_examples "manage projects" do
           ca: "El meu nou títol"
         )
 
-        proposals_pick(select_data_picker(:project_proposals, multiple: true), proposals.last(2))
+        tom_select("#proposals_list", option_id: proposals.last(2).map(&:id))
 
         find("*[type=submit]").click
       end
@@ -233,7 +235,7 @@ shared_examples "manage projects" do
       end
 
       within ".edit_project" do
-        proposals_remove(select_data_picker(:project_proposals, multiple: true), proposals.last(4))
+        tom_select("#proposals_list", option_id: proposals.first(proposals.length - 4).map(&:id))
 
         find("*[type=submit]").click
       end
@@ -243,8 +245,10 @@ shared_examples "manage projects" do
       expect(project.linked_resources(:proposals, "included_proposals").first.title).to eq(not_removed_projects_title)
     end
 
-    it "creates a new project", :slow do
-      find(".card-title a.button.new").click
+    it "creates a new project" do
+      within ".bulk-actions-budgets" do
+        click_link "New project"
+      end
 
       within ".new_project" do
         fill_in_i18n(
@@ -263,8 +267,9 @@ shared_examples "manage projects" do
         )
         fill_in :project_budget_amount, with: 22_000_000
 
-        proposals_pick(select_data_picker(:project_proposals, multiple: true), proposals.first(2))
-        scope_pick(select_data_picker(:project_decidim_scope_id), scope)
+        tom_select("#proposals_list", option_id: proposals.first(2).map(&:id))
+
+        select translated(scope.name), from: :project_decidim_scope_id
         select translated(category.name), from: :project_decidim_category_id
 
         find("*[type=submit]").click

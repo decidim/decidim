@@ -1,6 +1,3 @@
-<div>
-  <%= title %>
-  <div class="comment-thread">
-    <%= cell("decidim/comments/comment", model, root_depth: model.depth, order: order) %>
-  </div>
+<div class="comment-thread">
+  <%= cell("decidim/comments/comment", model, root_depth: model.depth, order:) %>
 </div>

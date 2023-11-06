@@ -72,7 +72,6 @@ zh-CN:
         edit: 编辑
         filter:
           all_processes: 显示所有进程
-          process_groups: 流程组
         import_process: 导入
         new_process: 新建进程
         new_process_group: 新建流程组
@@ -91,7 +90,6 @@ zh-CN:
           attachments: 附件
           categories: 类别管理
           components: 组件
-          info: 信息
           moderations: 版面
           private_users: 私人参与者
           process_admins: 进程管理员
@@ -101,7 +99,6 @@ zh-CN:
           fields:
             created_at: 创建于
             private: 非公开的
-            promoted: 高亮
             published: 已发布
             title: 标题
           name: 参与性进程
@@ -171,9 +168,6 @@ zh-CN:
           success: 参与进程阶段成功创建。
         default_title: 一. 导言
         destroy:
-          error:
-            active_step: 无法删除活动阶段。
-            last_step: 无法删除进程的最后一个阶段。
           success: 参与进程阶段已成功删除。
         edit:
           title: 编辑参与进程阶段
@@ -212,7 +206,6 @@ zh-CN:
         edit:
           update: 更新
         index:
-          not_published: 未发布
           private: 非公开的
           public: 公开的
           published: 已发布
@@ -285,9 +278,6 @@ zh-CN:
         description: 本组织参与进程的数目
         object: 参与进程
         title: 参与进程
-    participatory_process:
-      show:
-        related_assemblies: 相关的会议
     participatory_process_groups:
       content_blocks:
         stats:
@@ -297,22 +287,16 @@ zh-CN:
     participatory_process_steps:
       index:
         process_steps: 流程阶段
-        title: 参与进程阶段
     participatory_processes:
       admin:
         content_blocks:
           highlighted_processes:
             max_results: 显示元素的最大数量
-        participatory_process_copies:
-          form:
-            slug_help: 'URL slugs 用于生成指向此进程的URL。 只接受字母、数字和破折号，必须以字母开头。例如: %{url}'
         participatory_process_imports:
           form:
             document_legend: 添加文档
-            slug_help: 'URL slugs 用于生成指向此进程的URL。 只接受字母、数字和破折号，必须以字母开头。例如: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: '在这里使用部分路径，不是完整的 URL。接受字母、数字、破折号和斜线，并且必须以字母开头。 如果未设置，按钮将不会显示。例如： %{url}'
             cta_text_help: 如果未设置，按钮将不会显示。
         participatory_processes:
           form:
@@ -326,7 +310,6 @@ zh-CN:
             scope_type_max_depth_help: 限制范围过滤器深度; 过滤器将从一般到所选范围类型显示。
             select_an_area: 选择区域
             select_process_group: 选择一个流程组
-            slug_help: 'URL slugs 用于生成指向此进程的URL。 只接受字母、数字和破折号，必须以字母开头。例如: %{url}'
             title: 一般信息
             visbility: 可见性
       content_blocks:
@@ -336,15 +319,6 @@ zh-CN:
         title: 参与进程
       last_activity:
         new_participatory_process: 新的参与进程
-      pages:
-        home:
-          highlighted_processes:
-            active_processes: 活动进程
-            active_step: 活动阶段
-            more_information: 更多信息
-            participate: 参与
-            participate_in: 参与进程 %{resource_name}
-            see_all_processes: 查看所有进程
       participatory_process_steps:
         index:
           back_to_process: 返回进程页面
@@ -360,8 +334,6 @@ zh-CN:
             upcoming:
               other: "%{count} 个即将进行的进程"
           explanations:
-            no_active: 没有活动的进程
-            no_active_nor_upcoming: 没有活动或即将进行的进程
             no_active_nor_upcoming_callout: 没有活跃或即将开始的进程。这里是过去进程的清单。
           names:
             active: 已启用
@@ -369,22 +341,9 @@ zh-CN:
             past: 过去的
             upcoming: 即将到来的
           see: 查看
-        index:
-          loading: 正在加载结果...
       show:
-        area: 区域
-        dates: 日期
-        developer_group: 促销者组
-        end_date: 结束日期
-        local_area: 组织区域
-        participatory_scope: 决定的内容
-        participatory_structure: 如何决定
         private_space: 这是一个私密进程
         related_processes: 相关进程
-        scope: 范围
-        start_date: 开始日期
-        target: 谁参与
-        unspecified: 未指定
   layouts:
     decidim:
       participatory_process_groups:
@@ -392,27 +351,12 @@ zh-CN:
           browse: 浏览
           browse_resource: 浏览流程组 %{resource_name}
           processes_count: '进程：'
-      participatory_process_widgets:
-        show:
-          active_step: 活动阶段
-          take_part: 参与
       participatory_processes:
         index:
           promoted_processes: 高亮的进程
         participatory_process:
-          active_step: '当前阶段：'
+          active_step: 当前阶段：
           more_info: 更多信息
           more_info_about: 更多关于进程 %{resource_name} 的信息
           take_part: 参与
           take_part_in: 参与进程 %{resource_name}
-        promoted_process:
-          active_step: '当前阶段：'
-          more_info: 更多信息
-          more_info_about: 更多关于进程 %{resource_name} 的信息
-          take_part: 参与
-          take_part_in: 参与进程 %{resource_name}
-      process_header_steps:
-        step: '%{current} 的 %{total} 阶段'
-        view_steps: 流程阶段
-      process_navigation:
-        process_menu_item: 二. 进程

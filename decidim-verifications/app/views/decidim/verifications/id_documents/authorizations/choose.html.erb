@@ -1,21 +1,12 @@
-<div class="wrapper">
-  <div class="row collapse">
-    <div class="row collapse">
-      <div class="columns large-8 large-centered text-center page-title">
-        <h1><%= t(".title") %></h1>
-      </div>
-    </div>
+<div class="text-center py-10">
+  <h1 class="title-decorator inline-block text-left">
+    <%= t("decidim.verifications.id_documents.authorizations.choose.title") %>
+  </h1>
+</div>
 
-    <div class="row">
-      <div class="columns large-6 medium-centered">
-        <div class="card">
-          <div class="card__content">
-            <p><%= t(".choose_a_type") %></p>
-            <%= link_to t(".offline"), { action: :new, using: :offline }, class: "button button--sc expanded hollow" %>
-            <%= link_to t(".online"), { action: :new, using: :online }, class: "button button--sc expanded" %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<p><%= t("decidim.verifications.id_documents.authorizations.choose.choose_a_type") %></p>
+
+<div class="mt-4 flex justify-between">
+  <%= link_to t("decidim.verifications.id_documents.authorizations.choose.offline"), { action: :new, using: :offline }, class: "button button__sm md:button__lg button__transparent-secondary" %>
+  <%= link_to t("decidim.verifications.id_documents.authorizations.choose.online"), { action: :new, using: :online }, class: "button button__sm md:button__lg button__secondary" %>
 </div>

@@ -7,8 +7,17 @@ module Decidim
     belongs_to :resource, foreign_key: "decidim_resource_id", foreign_type: "decidim_resource_type", polymorphic: true
     belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
 
-    scope :daily, ->(time: Time.now.utc - 1.day) { where(created_at: time.all_day) }
-    scope :weekly, ->(time: Time.now.utc) { where(created_at: (time - 7.days)..time) }
+    # Daily notifications should contain all notifications within the previous
+    # day from the given day.
+    scope :daily, ->(time: Time.now.utc) { where(created_at: (time - 1.day).all_day) }
+
+    # Weekly notifications should contain all notifications within the previous
+    # week counting from the end of the previous day until the start of the day
+    # 1 week ago from the previous day.
+    scope :weekly, lambda { |time: Time.now.utc|
+      end_of_previous_day = (time - 1.day).end_of_day
+      where(created_at: (end_of_previous_day - 7.days).beginning_of_day..end_of_previous_day)
+    }
 
     def event_class_instance
       @event_class_instance ||= event_class.constantize.new(

@@ -7,7 +7,7 @@ module Decidim
       include Decidim::Forms::Concerns::HasQuestionnaire
 
       def answer
-        enforce_permission_to :join, :meeting, meeting: meeting
+        enforce_permission_to(:join, :meeting, meeting:)
 
         @form = form(Decidim::Forms::QuestionnaireForm).from_params(params, session_token:)
 
@@ -30,7 +30,7 @@ module Decidim
       end
 
       def create
-        enforce_permission_to :register, :meeting, meeting: meeting
+        enforce_permission_to(:register, :meeting, meeting:)
 
         @form = JoinMeetingForm.from_params(params)
 
@@ -48,7 +48,7 @@ module Decidim
       end
 
       def destroy
-        enforce_permission_to :leave, :meeting, meeting: meeting
+        enforce_permission_to(:leave, :meeting, meeting:)
 
         LeaveMeeting.call(meeting, current_user) do
           on(:ok) do
@@ -64,7 +64,7 @@ module Decidim
       end
 
       def decline_invitation
-        enforce_permission_to :decline_invitation, :meeting, meeting: meeting
+        enforce_permission_to(:decline_invitation, :meeting, meeting:)
 
         DeclineInvitation.call(meeting, current_user) do
           on(:ok) do

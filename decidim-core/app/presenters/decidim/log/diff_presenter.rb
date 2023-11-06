@@ -6,7 +6,7 @@ module Decidim
     # The data needed for this class to work should be sent by
     # `Decidim::Log::BasePresenter` or any of its children.
     #
-    # In order to be able to use your own class to present a diff, you'll need to
+    # In order to be able to use your own class to present a diff, you will need to
     # overwrite `BasePresenter#diff_presenter` to return your custom diff presenter.
     # The only requirement for custom renderers is that they should respond to `present`.
     class DiffPresenter
@@ -16,9 +16,10 @@ module Decidim
       # view_helpers - An object holding the view helpers at the render time.
       #   Most probably should come automatically from the views.
       # options - a Hash with options
-      def initialize(changeset, view_helpers, options = {})
+      def initialize(changeset, view_helpers, action_log, options = {})
         @changeset = changeset
         @view_helpers = view_helpers
+        @action_log = action_log
         @options = { show_previous_value?: true }.merge(options)
       end
 
@@ -31,7 +32,7 @@ module Decidim
 
       private
 
-      attr_reader :changeset, :view_helpers, :options
+      attr_reader :changeset, :view_helpers, :options, :action_log
       alias h view_helpers
 
       # Private: Presents the diff for this action. If the resource and the
@@ -41,7 +42,7 @@ module Decidim
       def present_diff
         return "".html_safe if changeset.blank?
 
-        h.content_tag(:div, class: "logs__log__diff") do
+        h.content_tag(:div, class: "logs__log__diff", id: "panel-#{h.dom_id(action_log)}") do
           changeset.each do |attribute|
             h.concat(present_new_value(attribute[:label], attribute[:new_value], attribute[:type]))
             h.concat(present_previous_value(attribute[:previous_value], attribute[:type])) if options[:show_previous_value?]
@@ -53,7 +54,7 @@ module Decidim
       #
       # value - the value for the given attribute
       # type - A symbol or String representing the type of the value.
-      #   If it's a String, it should be the name of the presenter that will
+      #   If it is a String, it should be the name of the presenter that will
       #   be in charge of presenting it.
       #
       # Returns an HTML-safe String.
@@ -69,7 +70,7 @@ module Decidim
       # label - the label name
       # value - the value for the given label
       # type - A symbol or String representing the type of the value.
-      #   If it's a String, it should be the name of the presenter that will
+      #   If it is a String, it should be the name of the presenter that will
       #   be in charge of presenting it.
       #
       # Returns an HTML-safe String.
@@ -84,7 +85,7 @@ module Decidim
       #
       # value - the value to be presented, no specific type.
       # type - A symbol or String representing the type of the value.
-      #   If it's a String, it should be the name of the presenter that will
+      #   If it is a String, it should be the name of the presenter that will
       #   be in charge of presenting it.
       #
       # Returns an HTML-safe String.
@@ -95,7 +96,7 @@ module Decidim
       # Private: Finds the presenter class for the given type.
       #
       # type - A symbol or String representing the type of the value.
-      #   If it's a String, it should be the name of the presenter that will
+      #   If it is a String, it should be the name of the presenter that will
       #   be in charge of presenting it.
       #
       # Returns a Class.

@@ -36,7 +36,6 @@ id:
         confirm_destroy: Apakah kamu yakin
         destroy: Menghapus
         edit: Edit
-        new: Baru %{name}
         title: Tindakan
       admin:
         debates:
@@ -56,9 +55,6 @@ id:
           update:
             invalid: Ada masalah saat memperbarui debat ini.
             success: Debat berhasil diperbarui.
-        models:
-          debate:
-            name: Perdebatan
       admin_log:
         debate:
           create: "%{user_name} menciptakan debat %{resource_name} pada %{space_name} ruang"
@@ -79,11 +75,6 @@ id:
           official: Resmi
           origin: Asal
           search: Pencarian
-        filters_small_view:
-          close_modal: Tutup modal
-          filter: Filter
-          filter_by: Saring menurut
-          unfold: Membuka
         form:
           select_a_category: Silakan pilih kategori
         index:
@@ -92,8 +83,6 @@ id:
           back: Kembali
           create: Membuat
           title: Debat baru
-      last_activity:
-        new_debate_at_html: "<span>Debat baru di %{link}</span>"
       models:
         debate:
           fields:
@@ -127,7 +116,6 @@ id:
           email_intro: 'Anda sekarang dapat memulai debat baru dalam %{participatory_space_title}! Mulai berpartisipasi di halaman ini:'
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{participatory_space_title}. Anda dapat berhenti menerima pemberitahuan setelah tautan sebelumnya.
           email_subject: Debat sekarang tersedia dalam %{participatory_space_title}
-          notification_title: Anda sekarang dapat memulai <a href="%{resource_path}">debat baru</a> dalam <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         commented_debates:
@@ -139,7 +127,6 @@ id:
           name: Debat
           next_level_in: Berpartisipasi dalam %{score} debat lagi untuk mencapai level selanjutnya!
           unearned_another: Peserta ini belum ikut serta dalam debat apa pun.
-          unearned_own: Anda belum berpartisipasi dalam debat apa pun.
     metrics:
       debates:
         description: Jumlah perdebatan dibuat

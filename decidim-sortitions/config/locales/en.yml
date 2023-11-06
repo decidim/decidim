@@ -39,7 +39,7 @@ en:
         actions:
           destroy: Cancel the sortition
           edit: Edit
-          new: New sortition
+          new_sortition: New sortition
           show: Sortition details
         models:
           sortition:
@@ -53,9 +53,6 @@ en:
               seed: Seed
               target_items: Items to select
               title: Title
-            name:
-              one: Sortition
-              other: Sortitions
         sortitions:
           confirm_destroy:
             confirm_destroy: Are you sure you want to cancel this sortition?
@@ -63,28 +60,27 @@ en:
             title: Cancellation of the sortition
           create:
             error: There was a problem creating a new sortition.
-            success: Sortition successfully created
+            success: Sortition successfully created.
           destroy:
-            error: Can not cancel the sortition.
-            success: Sortition successfully cancelled
+            error: Cannot cancel the sortition.
+            success: Sortition successfully cancelled.
           edit:
             title: Update the information about the sortition
             update: Update
           form:
             all_categories: All categories
             select_proposal_component: Select the proposals set
-            title: New sortition for proposals
           index:
             title: Sortitions
           new:
-            confirm: By pressing the next button the platform will record the date and time (with precision of seconds) and together with the dice roll, this information will be used to generate a random selection. The action will be irreversible, once the button is clicked the result of this draw will be published, together with the data entered in this form and can not be modified, please check the content carefully
+            confirm: By pressing the next button the platform will record the date and time (with precision of seconds) and together with the dice roll, this information will be used to generate a random selection. The action will be irreversible, once the button is clicked the result of this draw will be published, together with the data entered in this form and cannot be modified, please check the content carefully.
             create: Create
             title: New sortition
           show:
             selected_proposals: Proposals selected for draw
           update:
             error: There was a problem updating the sortition.
-            success: Sortition successfully updated
+            success: Sortition successfully updated.
       admin_log:
         sortition:
           create: "%{user_name} created the %{resource_name} sortition in %{space_name}"
@@ -100,14 +96,7 @@ en:
           all: All
           cancelled: Cancelled
           category: Category
-          category_prompt: Select a category
-          search: Search
           state: Status
-        filters_small_view:
-          close_modal: Close modal
-          filter: Filter
-          filter_by: Filter by
-          unfold: Unfold
         linked_sortitions:
           selected_proposals: Selected proposals
         orders:
@@ -116,29 +105,27 @@ en:
           recent: Recent
         results_count:
           count:
-            one: selected proposal
-            other: selected proposals
+            one: Selected proposal
+            other: Selected proposals
         show:
           algorithm: Sortition's algorithm code
           any_category: from all categories
-          back: Back to list
           cancelled: Cancelled sortition
           candidate_proposal_ids: Sortition proposals order and IDs
           candidate_proposals_info: 'The sortition was carried out among the following proposals (%{category_label}), with the following IDs (in bold the selected proposals)  '
           category: from the %{category} category
-          dice_result: "(1) Dice result"
+          dice_result: Dice result
           introduction: 'This page contains the results of the sortition %{reference}. By means of this sortition, %{target_items} number of results have been selected randomly and with an equal probability distribution from the set of proposals displayed bellow. Together with the results, the information displayed on this page provides all the information required to maximize guarantees and to reproduce the results. The key to the quality of this sortition is the double randomness provided by a the rolling of a dice(verified by witnesses) and the precise time of the sortition that provides input for an algorithm that generates a random selection. The time-seed for the sortition is so accurate (seconds) that it is impossible to control by humans thus providing a double "uncontrollable" input to guarantee a fair result.  '
-          mathematical_result: Result (1) x (2)
+          mathematical_result: Result (Dice x Seed)
           proposals_selected_by_sortition: Proposals selected by sortition
-          sortition_reproducibility_details: Sortition reproducibility details
-          time_seed: "(2) Time seed"
+          sortition_reproducibility_details: Sortition reproducibility
+          time_seed: Time seed
           witnesses: Witnesses
         sortition:
           random_seed: Random seed
           selected_proposals:
             one: proposal selected
             other: proposals selected
-          view: View
         sortition_author:
           deleted: Deleted participant
         sortition_cancel_author:

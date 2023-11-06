@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Explore budget notifications", :slow, type: :system do
   include_context "with a component"
   let(:manifest_name) { "budgets" }
-  let(:budget) { create :budget, component: }
+  let(:budget) { create(:budget, component:) }
   let(:projects_count) { 5 }
   let!(:projects) do
     create_list(:project, projects_count, budget:)

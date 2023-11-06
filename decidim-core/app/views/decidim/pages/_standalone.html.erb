@@ -1,21 +1,23 @@
-<div class="wrapper">
-  <div class="row column">
-    <div class="page-title-wrapper">
-      <h1 class="heading1 page-title">
-        <%= title %>
-      </h1>
-    </div>
+<%= render layout:"layouts/decidim/shared/layout_center" do %>
 
+  <div class="text-center py-12">
+    <h1 class="h1 decorator inline-block text-left">
+      <%= title %>
+    </h1>
+  </div>
+
+  <div class="page__container">
     <%= cell "decidim/tos_page", :announcement %>
 
-    <div class="columns small-12">
-      <div class="card">
-        <div class="card__content"><%= decidim_sanitize_editor translated_attribute page.content %></div>
-      </div>
+    <div class="editor-content">
+      <% page_content_blocks.each do |content_block| %>
+        <%= cell content_block.manifest.cell, content_block %>
+      <% end %>
+
+      <%= decidim_sanitize_editor_admin translated_attribute page.content %>
     </div>
 
-    <div class="columns small-12">
-      <%= cell "decidim/tos_page", :form %>
-    </div>
+    <%= cell "decidim/tos_page", :form %>
   </div>
-</div>
+
+<% end %>

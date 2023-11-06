@@ -7,9 +7,9 @@ describe "Edit collaborative_drafts", type: :system do
   let!(:component) { create(:proposal_component, :with_collaborative_drafts_enabled, organization:) }
   let(:manifest_name) { "proposals" }
 
-  let!(:user) { create :user, :confirmed, organization: participatory_process.organization }
-  let!(:another_user) { create :user, :confirmed, organization: participatory_process.organization }
-  let!(:collaborative_draft) { create :collaborative_draft, users: [user], component: }
+  let!(:user) { create(:user, :confirmed, organization: participatory_process.organization) }
+  let!(:another_user) { create(:user, :confirmed, organization: participatory_process.organization) }
+  let!(:collaborative_draft) { create(:collaborative_draft, users: [user], component:) }
 
   before do
     switch_to_host user.organization.host
@@ -30,7 +30,7 @@ describe "Edit collaborative_drafts", type: :system do
       click_link collaborative_draft.title
       click_link "Edit collaborative draft"
 
-      expect(page).to have_content "EDIT COLLABORATIVE DRAFT"
+      expect(page).to have_content "Edit collaborative draft"
 
       within "form.edit_collaborative_draft" do
         fill_in :collaborative_draft_title, with: new_title
@@ -58,7 +58,7 @@ describe "Edit collaborative_drafts", type: :system do
           click_link collaborative_draft.title
           click_link "Edit collaborative draft"
 
-          dynamically_attach_file(:collaborative_draft_documents, Decidim::Dev.asset("city.jpeg"), { title: "My attachment" })
+          dynamically_attach_file(:collaborative_draft_documents, Decidim::Dev.asset("city.jpeg"))
 
           within "form.edit_collaborative_draft" do
             find("*[type=submit]").click
@@ -67,6 +67,19 @@ describe "Edit collaborative_drafts", type: :system do
           expect(page).to have_content("successfully")
         end
       end
+    end
+
+    context "when rich text editor is enabled" do
+      before do
+        organization.update(rich_text_editor_in_public_views: true)
+        visit_component
+
+        click_link "Access collaborative drafts"
+        click_link collaborative_draft.title
+        click_link "Edit collaborative draft"
+      end
+
+      it_behaves_like "having a rich text editor", "edit_collaborative_draft", "basic"
     end
 
     context "when updating with wrong data" do
@@ -122,7 +135,7 @@ describe "Edit collaborative_drafts", type: :system do
 
       click_link "Access collaborative drafts"
       click_link collaborative_draft.title
-      expect(page).to have_no_content("Edit collaborative draft")
+      expect(page).not_to have_content("Edit collaborative draft")
       visit "#{current_path}/edit"
 
       expect(page).to have_content("not authorized")
@@ -130,7 +143,7 @@ describe "Edit collaborative_drafts", type: :system do
   end
 
   describe "editing my proposal outside the time limit" do
-    let!(:collaborative_draft) { create :collaborative_draft, users: [user], component:, created_at: 1.hour.ago }
+    let!(:collaborative_draft) { create(:collaborative_draft, users: [user], component:, created_at: 1.hour.ago) }
 
     before do
       login_as another_user, scope: :user
@@ -141,7 +154,7 @@ describe "Edit collaborative_drafts", type: :system do
 
       click_link "Access collaborative drafts"
       click_link collaborative_draft.title
-      expect(page).to have_no_content("Edit collaborative draft")
+      expect(page).not_to have_content("Edit collaborative draft")
       visit "#{current_path}/edit"
 
       expect(page).to have_content("not authorized")

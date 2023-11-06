@@ -7,6 +7,7 @@ pt-BR:
         decidim_scope_id: Âmbito
         description: Descrição
         end_date: Data final
+        meetings_ids: Reuniões incluídas
         progress: Progresso
         project_ids: Projetos incluídos
         proposals: Propostas incluídas
@@ -21,6 +22,7 @@ pt-BR:
       timeline_entry:
         description: Descrição
         entry_date: Encontro
+        title: Título
     models:
       decidim/accountability/proposal_linked_event: Proposta incluída em um resultado
       decidim/accountability/result_progress_updated_event: Progresso do resultado atualizado
@@ -37,8 +39,8 @@ pt-BR:
         confirm_destroy: Deseja mesmo excluir %{name}?
         destroy: Excluir
         edit: Editar
+        import: Importar projetos para resultados
         import_csv: Importar CSV
-        new: Novo %{name}
         preview: Pré-visualização
         timeline_entries: Evolução do projeto
         title: Ações
@@ -48,26 +50,60 @@ pt-BR:
           results: Resultados
         import_results:
           new:
+            download_export: Baixe a Exportação com formato CSV
             import: Importar
-            info: "<p>Nós recomendamos que vosê siga os seguintes passos:</p><ol><li>Crie os Status para os Resultados que você gostaria de adicionar(<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Crie o último Resultado manualmente através do Painel de Administração(<a href='%{link_new_result}' target='_blank'>link</a>) antes de usar Importação, para ter um melhor entendimento do formato e o que você precisa preencher.</li><li>Baixe a Exportação em formato CSV (%{link_export_csv})</li><li>Faça as mudanças localmente. Você só pode fazer mudanças nas seguintes colunas do CSV:</li></ol><ul><li><b>categoria/id:</b> ID da Categoria</li><li><b>escopo/id:</b> ID do Escopo</li><li><b>pai/id:</b> ID do pai(para resultados Relacionados). Opcional</li><li><b>Título/I18N:</b> Título na liinguagem X</li><li><b>Descrição/I18N:</b> Descrição na linguagem X</li><li><b>data_inicial:</b> data em que os resultados começaram a ser executados (formato YYYY-MM-DD)</li><li><b>data_final:</b> em que os resultados pararam de ser executados (formato YYYY-MM-DD)</li><li><b>status/id:</b> ID do Status para este resultado</li><li><b>progresso:</b> Percentual (De 0 a 100) de execução</li><li><b>id_propostas:</b> ID interno relacionado às propostas (separados por vírgula). Ele é convertido automaticamente para<span class='attribute-name'>url_proposta</span></li></ul>"
-            link: link
+            info: |
+              <p>Nós recomendamos que você siga esses passos:</p>
+              <ol>
+              <li><a href='%{link_new_status}' target='_blank'>Crie os Status para os Resultado</a>que você queira adicionar.</li>
+              <li><a href='%{link_new_result}' target='_blank'>Crie no mínimo um Resultado maualmente</a> através desse Painel de Administração antes de usar a função Importar, para um melhor entendimento a respeito do formato e o que você precisa preencher.</li>
+              <li>%{link_export_csv}</li>
+              <li>Faça as mudanças localmente. Você só pode alterar as seguintes colunas do CSV:
+                <ul>
+                <li><b>categoria/id:</b> Identificador para a Categoria</li>
+                <li><b>escopo/id:</b> Identificador  para o Escopo</li>
+                <li><b>pai/id:</b> Identificador do pai (para Resultados relacionados). Opcional</li>
+                <li><b>titulo/pt-br:</b> Título na língua Portuguesa. Isto dependerá das configurações de linguagem da sua plataforma.</li>
+                <li><b>descricao/pt-br:</b> Descrição na língua Portuguesa. Isto dependerá das configurações de linguagem da sua plataforma.</li>
+                <li><b>data_inicio:</b> data de início de execução dos resultados (formato DD-MM-YYYY)</li>
+                <li><b>data_fim:</b> data de fim da execução dos resultados (formato DD-MM-YYYY)</li>
+                <li><b>status/id:</b> Identificador do Status para este resultado</li>
+                <li><b>progresso:</b> Porcentagem (de 0 a 100) desta execução</li>
+                <li><b>ids_propostos:</b> Identificadores interno das propostas relacionadas (serparadas por vírgula). É automaticamente convertida para <span class='attribute-name'>url_proposta</span></li>
+                </ul>
+              </li>
+              </ol>
             title: Importar resultados de CSV
         imports:
           create:
-            success: O arquivo começou a importar. Você receberá um e-mail nos próximos minutos com o resultado da importação
+            success: O arquivo começou a importar. Você receberá um e-mail nos próximos minutos com o resultado da importação.
         models:
           result:
             name: Resultado
           status:
             name: Status
-          timeline_entry:
-            name: Entrada da linha de tempo
+        projects_import:
+          create:
+            invalid: Houve um problema ao importar os projetos para os resultados, por favor, siga as instruções cuidadosamente e verifique se você selecionou projetos para implementação.
+          new:
+            create: Importar
+            import_all_selected_projects: Importar todos os projetos selecionados para implementação
+            new_items:
+              one: 1 projeto selecionado será importado
+              other: "%{count} projetos selecionados serão importados"
+            no_components: Não há componentes de orçamento neste espaço participativo para importar os projetos em resultados.
+            origin_component_id: Componente de origem
+            select_component: Selecionar componente
+            success:
+              one: Projetos na fila para ser importado. Você será notificado no seu endereço eletrônico quando estiver completo.
+              other: "Projetos na fila para importar. Você sera notificado em seu endereço eletrônico quando estiver completo."
+            title: Importar Projetos para Responsabilidade
         results:
           create:
-            invalid: Houve um problema ao criar esse resultado
-            success: Resultado criado com sucesso
+            invalid: Houve um problema criando esse resultado.
+            success: Resultado criado com sucesso.
           destroy:
-            success: Resultado excluído com sucesso
+            success: Resultado removido com sucesso.
           edit:
             title: Editar resultado
             update: Atualizar resultado
@@ -77,17 +113,17 @@ pt-BR:
             create: Criar resultado
             title: Novo resultado
           update:
-            invalid: Houve um problema ao atualizar este resultado
-            success: Resultado atualizado com sucesso
+            invalid: Houve um problema atualizando esse resultado.
+            success: Resultado atualizado com sucesso.
         shared:
           subnav:
             statuses: Statuses
         statuses:
           create:
-            invalid: Houve um problema ao criar este status
-            success: Status criado com sucesso
+            invalid: Houve um problema ao criar esse status.
+            success: Status criado com sucesso.
           destroy:
-            success: Status excluído com êxito
+            success: Status deletado com sucesso.
           edit:
             title: Editar status
             update: Atualizar status
@@ -97,14 +133,14 @@ pt-BR:
             create: Criar status
             title: Novo status
           update:
-            invalid: Ocorreu um problema ao atualizar esse status
-            success: Status atualizado com sucesso
+            invalid: Houve um problema ao atualizar esse status.
+            success: Status atualizado com sucesso.
         timeline_entries:
           create:
-            invalid: Tem havido um problema ao criar esta entrada
-            success: Entrada criada com sucesso
+            invalid: Houve um problema ao criar esta entrada.
+            success: Entrada criada com sucesso.
           destroy:
-            success: Entrada excluída com êxito
+            success: Entrada deletada com sucesso.
           edit:
             title: Editar entrada
             update: Atualizar entrada
@@ -114,13 +150,21 @@ pt-BR:
             create: Criar entrada
             title: Nova entrada
           update:
-            invalid: Ocorreu um problema ao atualizar esta entrada
-            success: Entrada atualizada com sucesso
+            invalid: Houve um problema ao atualizar esta entrada.
+            success: Entrada atualizada com sucesso.
       admin_log:
         result:
           create: "%{user_name} resultado criado %{resource_name} em %{space_name}"
           delete: "%{user_name} eliminou o resultado %{resource_name} em %{space_name}"
           update: "%{user_name} resultado atualizado %{resource_name} em %{space_name}"
+        status:
+          create: "%{user_name} criou o status %{resource_name} "
+          delete: "%{user_name} deletou o status %{resource_name}."
+          update: "%{user_name} atualizou o status %{resource_name}."
+        timeline_entry:
+          create: "%{user_name} criou a conferência %{resource_name}"
+          delete: "%{user_name} apagou o %{resource_name} Boletim de Notícias"
+          update: "%{user_name} Atualizou a conferência %{resource_name}"
         value_types:
           parent_presenter:
             not_found: 'O pai não foi encontrado no banco de dados (ID: %{id})'
@@ -132,12 +176,19 @@ pt-BR:
       import_mailer:
         import:
           errors: Erros
-          errors_present: Houve um problema na exportação
+          errors_present: Houve um problema ao importar resultados.
           row_number: Linha
           subject: Importação bem sucedida de resultados
           success: Importação bem sucedida de resultados. Você pode revisar os resultados na interface de administração.
+      import_projects_mailer:
+        import:
+          added_projects:
+            one: Um resultado foi importado de projetos.
+            other: "%{count} resultados foram importados de projetos."
+          subject: Importação de projetos bem sucedida
+          success: Projetos importados com sucesso para resultados no componente %{component_name}. Você pode rever os resultados na “interface” de administração.
       last_activity:
-        new_result_at_html: "<span>Novo resultado em %{link}</span>"
+        new_result: 'Novo resultado:'
       models:
         result:
           fields:
@@ -159,6 +210,7 @@ pt-BR:
         timeline_entry:
           fields:
             entry_date: Data
+            title: Título
       result_m:
         executed: Executado
         view: Visualizar
@@ -169,7 +221,6 @@ pt-BR:
             other: "%{count} resultados"
         filters:
           all: Todos
-          scopes: Âmbitos
         home:
           categories_label: Categorias
           subcategories_label: Subcategorias
@@ -203,6 +254,8 @@ pt-BR:
             label: Status
     components:
       accountability:
+        actions:
+          comment: Comentário
         name: Prestação de contas
         settings:
           global:

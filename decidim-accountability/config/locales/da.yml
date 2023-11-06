@@ -36,7 +36,6 @@ da:
         destroy: Slet
         edit: Rediger
         import_csv: Importér CSV
-        new: Nyt %{name}
         preview: Eksempelvisning
         timeline_entries: Projektudvikling
         title: Handlinger
@@ -46,25 +45,13 @@ da:
         import_results:
           new:
             import: Import
-            info: "<p>Vi anbefaler, at du følger disse trin:</p><ol><li>Opret status for de resultater, du ønsker at tilføje (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Opret mindst ét resultat manuelt via dette administrationspanel (<a href='%{link_new_result}' target='_blank'>link</a>) før brug af import for at få en bedre forståelse af formatet, og hvad du har brug for til at udfylde det.</li><li>Download eksporten som CSV-format (%{link_export_csv})</li><li>Lav ændringerne lokalt. Du kan kun ændre følgende kolonner i CSV’et:</li></ol><ul><li><b>category/id:</b> ID for kategorien</li><li><b>scope/id:</b> ID for anvendelsesområde</li><li><b>parent/id:</b> ID for forælder(tilknyttede resultater). Valgfrit</li><li><b>title/I18N:</b> Titel for X-sprog</li><li><b>description/I18N:</b> Beskrivelse på X-sprog</li><li><b> dato, hvor resultatet begynder med at blive gennemført (format YYYY-MM-DD)</li><li><b>slutdato:</b> dato, hvor gennemførelsen af resultatet afsluttes (format YYYY-MM-DD)</li><li><b>status/id:</b> ID for status for dette resultat</li><li><b>fremskridt:</b> procentandel (fra 0 til 100) for gennemførelsen </li><li><b>proposals_ids:</b> internt ID for de tilknyttede forslag (adskilt med et komma). Den konverteres automatisk til <span class='attribute-name'>proposal_url</span></li></ul>"
-            link: link
             title: Importresultater fra CSV
-        imports:
-          create:
-            success: Import af filen er begyndt. Du vil inden for de næste få minutter modtage en e-mail med resultatet af importen
         models:
           result:
             name: Resultat
           status:
             name: Status
-          timeline_entry:
-            name: Indførsel på tidslinje
         results:
-          create:
-            invalid: Der opstod et problem med oprettelsen af dette resultat
-            success: Resultat oprettet
-          destroy:
-            success: Resultat slettet
           edit:
             title: Rediger resultat
             update: Opdater resultat
@@ -73,18 +60,10 @@ da:
           new:
             create: Opret resultat
             title: Nyt resultat
-          update:
-            invalid: Der opstod et problem med opdateringen af dette resultat
-            success: Resultat opdateret
         shared:
           subnav:
             statuses: Statusser
         statuses:
-          create:
-            invalid: Der opstod et problem med oprettelsen af denne status
-            success: Status oprettet
-          destroy:
-            success: Status slettet
           edit:
             title: Rediger status
             update: Opdater status
@@ -93,15 +72,7 @@ da:
           new:
             create: Opret status
             title: Ny status
-          update:
-            invalid: Der opstod et problem med oprettelsen af denne status
-            success: Status opdateret
         timeline_entries:
-          create:
-            invalid: Der opstod et problem med at oprette dette indlæg
-            success: Indlægget blev oprettet
-          destroy:
-            success: Indlægget blev slettet
           edit:
             title: Rediger Indlæg
             update: Opdater indlæg
@@ -110,9 +81,6 @@ da:
           new:
             create: Opret indlæg
             title: Nyt indlæg
-          update:
-            invalid: Der opstod et problem med at opdatere dette indlæg
-            success: Indlæg opdateret
       admin_log:
         result:
           create: "%{user_name} oprettede resultat %{resource_name} i %{space_name}"
@@ -124,12 +92,9 @@ da:
       import_mailer:
         import:
           errors: Fejl
-          errors_present: Der opstod et problem med at importere resultater
           row_number: Række
           subject: Succesfuld import af resultater
           success: Succesfuld import af resultater. Du kan gennemgå resultaterne i administrator interfacet.
-      last_activity:
-        new_result_at_html: "<span>Nyt resultat på %{link}</span>"
       models:
         result:
           fields:
@@ -154,7 +119,6 @@ da:
             other: "%{count} resultater"
         filters:
           all: Alle
-          scopes: Områder
         home:
           categories_label: Kategorier
           subcategories_label: Underkategorier

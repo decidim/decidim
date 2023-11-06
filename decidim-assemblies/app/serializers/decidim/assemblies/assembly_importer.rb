@@ -17,7 +17,7 @@ module Decidim
       #   - title: The +title+ for the new Assembly
       #   - slug: The +slug+ for the new Assembly
       #
-      # Returns a Assembly.
+      # Returns an Assembly instance.
       def import(attributes, _user, opts)
         title = opts[:title]
         slug = opts[:slug]
@@ -61,8 +61,9 @@ module Decidim
             meta_scope: attributes["meta_scope"],
             announcement: attributes["announcement"]
           )
-          @imported_assembly.remote_hero_image_url = attributes["remote_hero_image_url"] if remote_file_exists?(attributes["remote_hero_image_url"])
-          @imported_assembly.remote_banner_image_url = attributes["remote_banner_image_url"] if remote_file_exists?(attributes["remote_banner_image_url"])
+          @imported_assembly.attached_uploader(:hero_image).remote_url = attributes["remote_hero_image_url"] if attributes["remote_hero_image_url"].present?
+          @imported_assembly.attached_uploader(:banner_image).remote_url = attributes["remote_banner_image_url"] if attributes["remote_banner_image_url"].present?
+
           @imported_assembly.save!
           @imported_assembly
         end

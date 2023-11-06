@@ -6,9 +6,9 @@ module Decidim::Accountability
   describe Admin::DestroyResult do
     subject { described_class.new(result, user) }
 
-    let(:result) { create :result }
+    let(:result) { create(:result) }
     let(:organization) { result.component.organization }
-    let(:user) { create :user, organization: }
+    let(:user) { create(:user, organization:) }
 
     context "when everything is ok" do
       it "destroys the result" do

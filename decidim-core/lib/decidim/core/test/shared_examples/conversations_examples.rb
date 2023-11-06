@@ -2,7 +2,7 @@
 
 shared_examples_for "conversation field with maximum length" do |field|
   describe "character counter" do
-    let(:message) { "#{::Faker::Lorem.paragraph}\n#{::Faker::Lorem.paragraph}" }
+    let(:message) { "#{Faker::Lorem.paragraph}\n#{Faker::Lorem.paragraph}" }
     let(:max_length) { Decidim.config.maximum_conversation_message_length }
 
     before do

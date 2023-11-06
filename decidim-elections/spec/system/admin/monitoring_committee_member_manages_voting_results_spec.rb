@@ -15,16 +15,22 @@ describe "Monitoring committee member manages voting results", type: :system do
     visit decidim_admin_votings.edit_voting_path(voting)
   end
 
+  it_behaves_like "needs admin TOS accepted" do
+    let(:user) { create(:user, :confirmed, organization:) }
+  end
+
   context "when there are more than one finished elections" do
     let!(:other_election) { create(:election, :complete, :published, :finished, component: elections_component) }
 
     it "lists all the finished elections for the voting" do
-      click_link "Validate Results"
+      within_admin_sidebar_menu do
+        click_link "Validate Results"
+      end
 
       expect(page).to have_content(translated(other_election.title))
       click_link translated(election.title)
 
-      expect(page).to have_content("Results for the election #{translated(election.title)}")
+      expect(page).to have_content("Results for the election\n#{translated(election.title)}")
     end
   end
 
@@ -32,9 +38,11 @@ describe "Monitoring committee member manages voting results", type: :system do
     include_context "with test bulletin board"
 
     it "shows the results for the election" do
-      click_link "Validate Results"
+      within_admin_sidebar_menu do
+        click_link "Validate Results"
+      end
 
-      expect(page).to have_content("Results for the election #{translated(election.title)}")
+      expect(page).to have_content("Results for the election\n#{translated(election.title)}")
 
       within ".question_" do
         expect(page).to have_content("Total ballots")

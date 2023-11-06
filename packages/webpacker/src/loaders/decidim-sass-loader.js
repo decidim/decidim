@@ -1,7 +1,7 @@
 const sass = require("sass-embedded");
 const url = require("url");
 const path = require("path");
-const { config: { additional_paths: loadPaths, stylesheet_imports: stylesheetImports  } } = require("@rails/webpacker");
+const { config: { additional_paths: loadPaths, stylesheet_imports: stylesheetImports  } } = require("shakapacker");
 
 const decidimImporter = {
   canonicalize(importUrl, options) {

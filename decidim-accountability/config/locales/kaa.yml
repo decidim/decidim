@@ -1,0 +1,109 @@
+kaa:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: Jaǵday
+        decidim_category_id: Kategoriya
+      status:
+        name: Ataması
+      timeline_entry:
+        entry_date: Sáne
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Nátiyje
+        other: Nátiyje
+  decidim:
+    accountability:
+      actions:
+        attachment_collections: Papkalar
+        destroy: Óshiriw
+        edit: Ózgeris kirgiziw
+        preview: Aldınnan kóriw
+        title: Háreketler
+      admin:
+        exports:
+          results: Nátiyjeler
+        import_results:
+          new:
+            import: Importlaw
+        models:
+          result:
+            name: Nátiyje
+          status:
+            name: Jaǵday
+        projects_import:
+          new:
+            create: Importlaw
+        results:
+          create:
+            success: Nátiyje tabıslı jaratıldı.
+          destroy:
+            success: Nátiyje tabıslı óshirildi.
+          edit:
+            title: Nátiyjeni ózgertiw
+            update: Nátiyjeni jańalaw
+          index:
+            title: Nátiyjeler
+          new:
+            create: Nátiyje jaratıw
+            title: Jańa nátiyje
+          update:
+            success: Nátiyje tabıslı jańalandı.
+        shared:
+          subnav:
+            statuses: Jaǵdaylar
+        statuses:
+          create:
+            success: Jaǵday tabıslı jaratıldı.
+          destroy:
+            success: Jaǵday tabıslı óshirildi.
+          edit:
+            title: Jaǵdaydı ózgertiw
+            update: Jaǵdaydı jańalaw
+          index:
+            title: Jaǵdaylar
+          new:
+            create: Jaǵday jaratıw
+            title: Jańa jaǵday
+          update:
+            success: Jaǵday tabıslı jańalandı.
+      content_blocks:
+        highlighted_results:
+          results: Nátiyjeler
+          unspecified: Kórsetilmegen
+      import_mailer:
+        import:
+          errors: Qátelikler
+      last_activity:
+        new_result: 'Jańa nátiyje:'
+      models:
+        result:
+          fields:
+            category: Kategoriya
+            created_at: Jaratıldı
+            status: Jaǵday
+        timeline_entry:
+          fields:
+            entry_date: Sáne
+      results:
+        count:
+          results_count:
+            one: 1 nátiyje
+            other: "%{count} nátiyje"
+        home:
+          categories_label: Kategoriyalar
+    admin:
+      filters:
+        results:
+          status_id_eq:
+            label: Jaǵday
+    metrics:
+      results:
+        object: nátiyjeler
+        title: Nátiyjeler
+    participatory_spaces:
+      highlighted_results:
+        see_all: Barlıq nátiyjelerdi kóriw
+    statistics:
+      results_count: Nátiyjeler

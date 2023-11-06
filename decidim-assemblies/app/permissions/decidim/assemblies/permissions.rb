@@ -67,13 +67,13 @@ module Decidim
         end
       end
 
-      # It's an admin user if it's an organization admin or is a space admin
+      # It is an admin user if it is an organization admin or is a space admin
       # for the current `assembly`.
       def admin_user?
         user.admin? || (assembly ? can_manage_assembly?(role: :admin) : has_manageable_assemblies?)
       end
 
-      # It's an admin assembly when assembly exists and the user is allowed to
+      # It is an admin assembly when assembly exists and the user is allowed to
       # manage the current assembly.
       def admin_assembly?
         assembly.present? && assembly_admin_allowed_assemblies.include?(assembly)
@@ -136,7 +136,7 @@ module Decidim
         allow!
       end
 
-      # All users with a relation to a assembly and organization admins can enter
+      # All users with a relation to an assembly and organization admins can enter
       # the space area. The sapce area is considered to be the assemblies zone,
       # not the assembly groups one.
       def user_can_enter_space_area?

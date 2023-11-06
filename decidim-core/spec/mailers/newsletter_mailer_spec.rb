@@ -47,7 +47,7 @@ module Decidim
           expect(email_body(mail)).to include("Contingut per Sarah Connor")
         end
 
-        context "when there's no content in the user's locale" do
+        context "when there is no content in the user's locale" do
           let(:newsletter) do
             create(:newsletter,
                    organization:,

@@ -1,0 +1,20 @@
+<% filter_sections = [].tap do |f|
+    f.append(method: :with_any_date, collection: filter_date_values, label_scope: "decidim.meetings.meetings.filters", id: "date", type: :radio_buttons) if filter_options[:date]
+    f.append(method: :with_any_type, collection: filter_type_values, label_scope: "decidim.meetings.meetings.filters", id: "type") if filter_options[:type]
+    f.append(method: :with_any_scope, collection: filter_scopes_values, label_scope: "decidim.shared.participatory_space_filters.filters", id: "scope") if filter_options[:scopes]
+    f.append(method: :with_any_scope, collection: filter_global_scopes_values, label_scope: "decidim.shared.participatory_space_filters.filters", id: "scope") if filter_options[:directory_scopes]
+    f.append(method: :with_any_category, collection: filter_categories_values, label_scope: "decidim.meetings.meetings.filters", id: "category") if filter_options[:categories]
+    f.append(method: :with_any_global_category, collection: directory_filter_categories_values, label_scope: "decidim.meetings.meetings.filters", id: "category") if filter_options[:directory_categories]
+    f.append(method: :with_any_origin, collection: filter_origin_values, label_scope: "decidim.meetings.meetings.filters", id: "origin") if filter_options[:origin]
+    f.append(method: :with_any_space, collection: directory_meeting_spaces_values, label_scope: "decidim.meetings.directory.meetings.index", id: "space_type") if filter_options[:space_type]
+    f.append(method: :activity, collection: activity_filter_values, label_scope: "decidim.meetings.meetings.filters", id: "activity", type: :radio_buttons) if filter_options[:activity]
+  end %>
+
+<%= render layout: "decidim/shared/filters", locals: { filter_sections:, search_variable:, skip_to_id: "meetings" } do %>
+  <%= render partial: "decidim/meetings/calendar_modal", locals: {
+        path: short_url(
+          route_name: "calendar",
+          params: { filter: params.fetch(:filter, {}).try(:to_unsafe_hash) }
+        )
+      } %>
+<% end %>

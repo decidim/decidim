@@ -1,28 +1,22 @@
-<div class="wrapper">
-  <div class="row collapse">
-    <div class="row collapse">
-      <div class="columns large-8 large-centered text-center page-title">
-        <h1><%= t(".title") %></h1>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="columns large-6 medium-centered">
-        <div class="card">
-          <div class="card__content">
-            <%= translated_attribute(current_organization.id_documents_explanation_text).html_safe unless using_online? %>
-            <%= decidim_form_for(@form, url: authorization_path) do |form| %>
-              <%= render partial: "form", locals: { form: form } %>
-
-              <div class="card-section">
-                <div class="actions">
-                  <%= form.submit t(".send"), class: "button expanded", "data-disable-with" => "#{t('.send')}..." %>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="text-center py-10">
+  <h1 class="title-decorator inline-block text-left">
+    <%= t("decidim.verifications.id_documents.authorizations.new.title") %>
+  </h1>
 </div>
+
+<%= translated_attribute(current_organization.id_documents_explanation_text).html_safe unless using_online? %>
+
+<%= decidim_form_for(@form, url: authorization_path) do |form| %>
+      <%= render partial: "form", locals: { form: } %>
+
+  <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+    <%= link_to decidim_verifications.authorizations_path, class: "button button__sm md:button__lg button__text-secondary" do %>
+      <%= icon "arrow-left-line", class: "fill-current" %>
+      <%= t("decidim.wizard_step_form.wizard_aside.back") %>
+    <% end %>
+    <button type="submit" class="button button__sm md:button__lg button__secondary">
+      <%= t("decidim.verifications.id_documents.authorizations.new.send") %>
+      <%= icon "arrow-right-line", class: "fill-current" %>
+    </button>
+  </div>
+<% end %>

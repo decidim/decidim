@@ -29,6 +29,19 @@ module Decidim
         [:authentication, String],
         [:enable_starttls_auto, Boolean]
       ]
+
+      jsonb_attribute :content_security_policy, [
+        [:"default-src", String],
+        [:"img-src", String],
+        [:"media-src", String],
+        [:"script-src", String],
+        [:"style-src", String],
+        [:"frame-src", String],
+        [:"font-src", String],
+        [:"connect-src", String]
+      ]
+
+      attribute :password, String
       attribute :file_upload_settings, FileUploadSettingsForm
 
       OMNIATH_PROVIDERS_ATTRIBUTES = Decidim::OmniauthProvider.available.keys.map do |provider|
@@ -42,8 +55,6 @@ module Decidim
       end.flatten(1)
 
       jsonb_attribute :omniauth_settings, OMNIATH_PROVIDERS_ATTRIBUTES
-
-      attr_writer :password
 
       validates :name, :host, :users_registration_mode, presence: true
       validate :validate_organization_uniqueness
@@ -70,13 +81,13 @@ module Decidim
       end
 
       def password
-        Decidim::AttributeEncryptor.decrypt(encrypted_password) unless encrypted_password.nil?
+        encrypted_password.nil? ? super : Decidim::AttributeEncryptor.decrypt(encrypted_password)
       end
 
       def encrypted_smtp_settings
         smtp_settings["from"] = set_from
 
-        smtp_settings.merge(encrypted_password: Decidim::AttributeEncryptor.encrypt(@password))
+        smtp_settings.merge(encrypted_password: Decidim::AttributeEncryptor.encrypt(password))
       end
 
       def set_from

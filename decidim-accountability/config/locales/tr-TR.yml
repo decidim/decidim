@@ -7,6 +7,7 @@ tr:
         decidim_scope_id: kapsam
         description: Açıklama
         end_date: Bitiş tarihi
+        meetings_ids: Görüşmeler
         progress: İlerleme
         project_ids: Dahil edilen projeler
         proposals: Dahil edilen teklifler
@@ -21,6 +22,7 @@ tr:
       timeline_entry:
         description: Açıklama
         entry_date: tarih
+        title: Başlik / Unvani 
     models:
       decidim/accountability/proposal_linked_event: Teklif bir sonuca dahil edildi
       decidim/accountability/result_progress_updated_event: Sonuç ilerlemesi güncellendi
@@ -32,11 +34,16 @@ tr:
   decidim:
     accountability:
       actions:
+        attachment_collections: Klasörler 
+        attachments: Ekler 
         confirm_destroy: Bu %{name}silmek istediğinize emin misiniz?
         destroy: silmek
         edit: Düzenle
+        import: Projeleri sonuçlara aktar 
         import_csv: CSV'yi içe aktar
-        new: Yeni %{name}
+        new_result: Yeni sonuç
+        new_status: Yeni Durum
+        new_timeline_entry: Yeni Zaman çizelgesi Kaydı
         preview: Ön izleme
         timeline_entries: Proje evrimi
         title: Eylemler
@@ -46,26 +53,19 @@ tr:
           results: Sonuçlar
         import_results:
           new:
+            download_export: '  İhracat i CSV formatında indirin '
             import: İçe aktar
-            info: "<p>Bu adımları izlemenizi tavsiye ederiz:</p><ol><li>Eklemek istediğiniz Sonuçlar için Statüleri oluşturun (<a href='%{link_new_status}' target='_blank'>bağlantı</a>)</li><li>Biçimi ve neleri doldurmanız gerektiğini daha iyi anlamak için İçe Aktar'ı kullanmadan önce bu Yönetici paneli (<a href='%{link_new_result}' target='_blank'>bağlantı</a>) aracılığıyla yeniden en az bir Sonuç oluşturun. </li><li>Dışa aktarımı CSV formatında indirin (%{link_export_csv})</li><li>Değişiklikleri yerel olarak yapın. CSV'nin yalnızca aşağıdaki sütunlarını değiştirebilirsiniz:</li></ol><ul><li><b>category/id:</b> Kategori ID</li><li><b>scope/id:</b> Kapsam ID </li><li><b>parent/id:</b> Üst ID (ilgili Sonuçlar için). İsteğe bağlı</li><li><b>title/I18N:</b> X dilinde başlık</li><li><b>description/I18N:</b> X dilinde açıklama</li><li><b>start_date:</b> sonucun uygulamaya başladığı tarih (biçim YYYY-AA-GG)</li><li><b>end_date:</b> sonucun yürütmeyi bitirdiği tarih (biçim YYYY-AA-GG)</li><li><b>status/id:</b> Durum ID</li><li><b>progress:</b> Yürütme yüzdesi (0'dan 100'e)</li><li><b>proposals_ids:</b> İlgili tekliflerin ID'leri (virgülle ayrılmış). Otomatik olarak <span class='attribute-name'>proposal_url</span>'e dönüştürülür</li></ul>"
-            link: bağlantı
             title: Sonuçları CSV'den içe aktar
-        imports:
-          create:
-            success: Dosya içe aktarılmaya başladı. Önümüzdeki birkaç dakika içinde içe aktarmanın sonucunu içeren bir e-posta alacaksınız
         models:
           result:
             name: Sonuç
           status:
             name: durum
-          timeline_entry:
-            name: Zaman çizelgesi girişi
+        projects_import:
+          new:
+            create: İçe aktar
+            select_component: Bir bileşen seç
         results:
-          create:
-            invalid: Bu sonucu oluştururken bir sorun oluştu
-            success: Sonuç başarıyla oluşturuldu
-          destroy:
-            success: Sonuç başarıyla silindi
           edit:
             title: Sonucu düzenle
             update: Sonuç güncelle
@@ -74,18 +74,10 @@ tr:
           new:
             create: Sonuç oluştur
             title: Yeni sonuç
-          update:
-            invalid: Bu sonucu güncellerken bir sorun oluştu
-            success: Sonuç başarıyla güncellendi
         shared:
           subnav:
             statuses: durumlar
         statuses:
-          create:
-            invalid: Bu durumu oluştururken bir sorun oluştu
-            success: Durum başarıyla oluşturuldu
-          destroy:
-            success: Durum başarıyla silindi
           edit:
             title: Durumu düzenle
             update: Güncelleme durumu
@@ -94,15 +86,7 @@ tr:
           new:
             create: Durum oluştur
             title: Yeni statü
-          update:
-            invalid: Bu durumu güncellerken bir sorun oluştu
-            success: Durum başarıyla güncellendi
         timeline_entries:
-          create:
-            invalid: Bu girişi oluştururken bir sorun oluştu
-            success: Giriş başarıyla oluşturuldu
-          destroy:
-            success: Giriş başarıyla silindi
           edit:
             title: Girişi düzenle
             update: Girişi güncelle
@@ -111,9 +95,6 @@ tr:
           new:
             create: Giriş oluştur
             title: Yeni giriş
-          update:
-            invalid: Bu giriş güncellenirken bir sorun oluştu
-            success: Giriş başarıyla güncellendi
       admin_log:
         result:
           create: "%{user_name} sonuç yaratmıştır %{resource_name} içinde %{space_name}"
@@ -130,12 +111,9 @@ tr:
       import_mailer:
         import:
           errors: Hatalar
-          errors_present: Sonuçları içe aktarırken bir sorun oluştu
           row_number: Satır
           subject: Sonuçların içe aktarılması başarılı
           success: Sonuçların içe aktarılması başarılı. Sonuçları yönetim arayüzünde inceleyebilirsiniz.
-      last_activity:
-        new_result_at_html: "<span> %{link}</span>yeni sonuç"
       models:
         result:
           fields:
@@ -167,7 +145,6 @@ tr:
             other: "%{count} sonuç"
         filters:
           all: Herşey
-          scopes: kapsamları
         home:
           categories_label: Kategoriler
           subcategories_label: Alt Kategoriler
@@ -175,6 +152,7 @@ tr:
           global_status: Genel yürütme durumu
         nav_breadcrumb:
           global: Global yürütme
+        no_results: Proje Bulunamadı
         search:
           search: İşlemleri ara
         show:

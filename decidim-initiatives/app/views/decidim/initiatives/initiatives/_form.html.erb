@@ -1,114 +1,74 @@
 <%= form_required_explanation %>
 
-<div class="field">
-  <%= form.text_field :title, autofocus: true, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), value: translated_attribute(@form.title) %>
-</div>
+<%= form.text_field :title, autofocus: true, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), value: translated_attribute(@form.title) %>
 
-<div class="field">
-  <%= form.editor :description, toolbar: :full, lines: 8, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), value: translated_attribute(@form.description) %>
-</div>
+<%= text_editor_for(form, :description, toolbar: :content, lines: 8, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), value: translated_attribute(@form.description)) %>
 
-<div class="field">
-  <%= form.text_field :hashtag, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative) %>
-</div>
+<%= form.text_field :hashtag, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative) %>
 
-<div class="field">
-  <%= form.select :state,
-                  Decidim::Initiative.states.keys.map { |state| [I18n.t(state, scope: "decidim.initiatives.admin_states"), state] },
-                  {},
-                  { disabled: !@form.state_updatable? } %>
-</div>
-
-<% unless single_initiative_type? %>
-  <div class="field">
-    <%= form.select :type_id,
-                    initiative_type_options,
-                    {},
-                    {
-                      disabled: !@form.signature_type_updatable?,
-                      "data-scope-selector": "initiative_decidim_scope_id",
-                      "data-scope-id": form.object.scope_id.to_s,
-                      "data-scope-search-url": decidim_initiatives.initiative_type_scopes_search_url,
-                      "data-signature-types-selector": "initiative_signature_type",
-                      "data-signature-type": current_initiative.signature_type,
-                      "data-signature-types-search-url": decidim_initiatives.initiative_type_signature_types_search_url
-                    } %>
-  </div>
+<% if @form.state_updatable? %>
+  <%= form.select :state, Decidim::Initiative.states.keys.map { |state| [I18n.t(state, scope: "decidim.initiatives.admin_states"), state] }, {} %>
 <% end %>
 
-<div class="field">
-  <%= form.select :scope_id,
-                @form.available_scopes.map { |scope| [translated_attribute(scope.scope_name), scope&.scope&.id] },
-                { disabled: !@form.state_updatable? } %>
-</div>
+<% unless single_initiative_type? %>
+  <%= form.select :type_id,
+                  initiative_type_options,
+                  {},
+                  {
+                    disabled: !@form.signature_type_updatable?,
+                    "data-scope-selector": "initiative_decidim_scope_id",
+                    "data-scope-id": form.object.scope_id.to_s,
+                    "data-scope-search-url": decidim_initiatives.initiative_type_scopes_search_url,
+                    "data-signature-types-selector": "initiative_signature_type",
+                    "data-signature-type": current_initiative.signature_type,
+                    "data-signature-types-search-url": decidim_initiatives.initiative_type_signature_types_search_url
+                  } %>
+<% end %>
+
+<%= form.select :scope_id, @form.available_scopes.map { |scope| [translated_attribute(scope.scope_name), scope.scope&.id] }, {}, { disabled: !@form.state_updatable? } %>
 
 <% if can_edit_custom_signature_end_date?(current_initiative) %>
-  <div class="row column">
-    <%= form.date_field :signature_end_date, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative) %>
-  </div>
+  <%= form.date_field :signature_end_date, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative) %>
 <% end %>
 
 <% if current_initiative.area_enabled? %>
-  <div class="field">
-    <%= form.areas_select :area_id,
-                          areas_for_select(current_organization),
-                          {
-                            selected: current_initiative.decidim_area_id,
-                            include_blank: current_initiative.decidim_area_id.blank? || current_initiative.created?
-                          },
-                          disabled: !@form.area_updatable? %>
-  </div>
+  <%= form.areas_select :area_id,
+                        areas_for_select(current_organization),
+                        {
+                          selected: current_initiative.decidim_area_id,
+                          include_blank: current_initiative.decidim_area_id.blank? || current_initiative.created?
+                        },
+                        disabled: !@form.area_updatable? %>
 <% end %>
 
-<div class="field">
+<% signature_type_options = signature_type_options(form.object) %>
+<% if signature_type_options.length == 1 %>
+  <%= form.hidden_field :signature_type %>
+<% else %>
   <%= form.select :signature_type, [], {}, { disabled: !@form.signature_type_updatable? } %>
-</div>
+<% end %>
+
 <% if current_initiative.type.attachments_enabled? %>
-  <fieldset class="attachments_container">
-    <legend><%= t("attachment_legend", scope: "decidim.initiatives.form") %></legend>
+  <%= form.attachment :documents,
+                      multiple: true,
+                      label: t("decidim.initiatives.form.add_documents"),
+                      button_label: t("decidim.initiatives.form.add_documents"),
+                      button_class: "button button__lg button__transparent-secondary w-full",
+                      button_edit_label: t("decidim.initiatives.form.edit_documents"),
+                      help_text: t("decidim.initiatives.form.attachment_legend") %>
 
-    <% if @form.photos.any? %>
-      <% @form.photos.each do |photo| %>
-        <div class="callout gallery__item" data-closable>
-          <%= image_tag photo.thumbnail_url, class: "thumbnail", alt: photo.file.filename %>
-          <%= form.hidden_field :photos, multiple: true, value: photo.id, id: "photo-#{photo.id}" %>
-          <button class="close-button"
-                  aria-label="<%= t("delete_attachment", scope: "decidim.initiatives.form") %>"
-                  title="<%= t("delete_attachment", scope: "decidim.initiatives.form") %>"
-                  type="button"
-                  data-close>
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-      <% end %>
-    <% end %>
-
-    <% if @form.documents.any? %>
-      <% @form.documents.each do |document| %>
-        <div class="callout" data-closable>
-          <%= link_to translated_attribute(document.title), document.url %>
-          <small><%= document.file_type %> <%= number_to_human_size(document.file_size) %></small>
-          <%= form.hidden_field :documents, multiple: true, value: document.id, id: "document-#{document.id}" %>
-          <button class="close-button"
-                  aria-label="<%= t("delete_attachment", scope: "decidim.initiatives.form") %>"
-                  title="<%= t("delete_attachment", scope: "decidim.initiatives.form") %>"
-                  type="button" data-close>
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-      <% end %>
-    <% end %>
-
-    <div class="row column">
-      <%= form.file_field :add_documents, multiple: true, label: t("add_attachments", scope: "decidim.initiatives.form") %>
-    </div>
-  </fieldset>
+  <%= form.attachment :photos,
+                      multiple: true,
+                      label: t("decidim.initiatives.form.add_image"),
+                      button_label: t("decidim.initiatives.form.add_image"),
+                      button_class: "button button__lg button__transparent-secondary w-full",
+                      button_edit_label: t("decidim.initiatives.form.edit_image"),
+                      help_text: t("decidim.initiatives.form.image_legend") %>
 <% end %>
 
 <% if current_initiative.type.promoting_committee_enabled? %>
   <%= render partial: "committee_members" %>
 <% end %>
 
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_initiatives" %>
-<% end %>
+<%= append_javascript_pack_tag "decidim_initiatives" %>
+<%= append_stylesheet_pack_tag "decidim_initiatives", media: "all" %>

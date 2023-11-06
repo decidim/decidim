@@ -1,1 +1,196 @@
 lt:
+  activemodel:
+    attributes:
+      answer:
+        body: Atsakymas
+        choices: Pasirinkimai
+        selected_choices: Pasirinkti pasirinkimai
+      question:
+        max_choices: Maksimalus pasirinkimų skaičius
+        question_type: Tipas
+      questionnaire_question:
+        mandatory: Privaloma
+        max_characters: Simbolių limitas (palikti 0 jei limito nėra)
+    errors:
+      models:
+        answer:
+          attributes:
+            add_documents:
+              needs_to_be_reattached: Reikia pridėti iš naujo
+            body:
+              too_long: per ilgas
+            choices:
+              missing: nepilnas - trūksta elementų
+              too_many: per daug
+        questionnaire:
+          request_invalid: Tvarkant prašymą įvyko klaida. Bandykite dar kartą.
+  decidim:
+    forms:
+      admin:
+        models:
+          components:
+            description: Aprašymas
+            tos: Paslaugų teikimo sąlygos
+        questionnaires:
+          actions:
+            back: Grįžti į klausimus
+            show: Rodyti atsakymus
+          answer_option:
+            answer_option: Atsakymo variantas
+            free_text: Laisva forma
+            remove: Pašalinti
+            statement: Pareiškimas
+          answers:
+            actions:
+              back: Grįžti į atsakymus
+              export: Eksportuoti
+              next: Kitas &rsaquo;
+              previous: "&lsaquo; Ankst."
+              show: Rodyti atsakymus
+            empty: Atsakymų dar nėra
+            export:
+              answer:
+                title: 'Atsakymas #%{number}'
+            export_response:
+              title: apklausa_naudotoju_atsakymai_%{token}
+            index:
+              title: "%{total} iš viso atsakymų"
+            show:
+              title: 'Atsakymas #%{number}'
+          display_condition:
+            answer_option: Atsakymo variantas
+            condition_question: Klausimas
+            condition_type: Sąlyga
+            condition_types:
+              answered: Atsakyta
+              equal: Lygu
+              match: Įskaitant tekstą
+              not_answered: Neatsakyta
+              not_equal: Nelygu
+            condition_value: Įskaitytas tekstas
+            display_condition: Rodymo sąlyga
+            mandatory: Ši sąlyga turi būti patenkinta visada, neatsižvelgiant į kitų sąlygų statusą
+            remove: Pašalinti
+            save_warning: Prieš konfigūruodami rodymo sąlygas, nepamirškite išsaugoti formos
+            select_answer_option: Pasirinkite atsakymo variantą
+            select_condition_question: Pasirinkite klausimą
+            select_condition_type: Pasirinkti sąlygos tipą
+          edit:
+            save: Išsaugoti
+            title: Redaguoti klausimyną
+          form:
+            add_question: Pridėti klausimą
+            add_separator: Pridėti skyriklį
+            add_title_and_description: Pridėti pavadinimą ir aprašymą
+            already_answered_warning: Kai kurie naudotojai jau atsakė į formos klausimus, todėl jos klausimų keisti nebegalite.
+            collapse: Suskleisti visus klausimus
+            expand: Išskleisti visus klausimus
+            preview: Peržiūra
+            title: Taisyti %{questionnaire_for} formą
+            unpublished_warning: Forma nepaskelbta. Galite keisti klausimus, tačiau tai darydami pašalinsite esamus atsakymus.
+          matrix_row:
+            matrix_row: Eilutė
+            remove: Pašalinti
+            statement: Pareiškimas
+          question:
+            add_answer_option: Pridėti atsakymo variantą
+            add_display_condition: Pridėti rodymo sąlygą
+            add_display_condition_info: Išsaugokite formą, kad galėtumėt konfiguruoti rodymo sąlygas
+            add_matrix_row: Pridėti eilutę
+            any: Bet koks
+            collapse: Suskleisti
+            description: Aprašymas
+            down: Žemyn
+            expand: Išplėsti
+            question: Klausimas
+            remove: Pašalinti
+            statement: Pareiškimas
+            up: Į viršų
+          separator:
+            down: Žemyn
+            remove: Pašalinti
+            separator: Skirtukas
+            up: Į viršų
+          title_and_description:
+            collapse: Suskleisti
+            description: Aprašymas
+            down: Žemyn
+            expand: Išplėsti
+            remove: Pašalinti
+            title: Pavadinimas
+            title_and_description: Pavadinimas ir aprašymas
+            up: Aukštyn
+          update:
+            invalid: Išsaugant šią formą iškilo problema.
+            success: Forma sėkmingai išsaugota.
+      admin_log:
+        questionnaire:
+          update: "%{user_name} atnaujino %{resource_name} klausimyną"
+      errors:
+        answer:
+          body: Pagrindinė dalis negali būti tuščia
+      images:
+        dimensions: "%{width} x %{height} px"
+        processors:
+          resize_and_pad: Paveikslėlio dydis buvo pakeistas į %{dimensions}.
+          resize_to_fit: Paveikslėlio dydis buvo pakeistas į %{dimensions}.
+      question_types:
+        files: Dokumentai
+        long_answer: Ilgas atsakymas
+        matrix_multiple: Matrica (su keliais variantais)
+        matrix_single: Matrica (vienas variantas)
+        multiple_option: Keli variantai
+        short_answer: Trumpas atsakymas
+        single_option: Vienas variantas
+        sorting: Rūšiavimas
+        title_and_description: Pavadinimas ir aprašymas
+      questionnaire_answer_presenter:
+        download_attachment: Parsisiųsti priedą
+      questionnaires:
+        answer:
+          invalid: Atsakant į šią formą iškilo problema.
+          max_choices_alert: Per daug pasirinktų variantų
+          success: Į formos klausimus atsakyta.
+        question:
+          max_choices: 'Didžiausias pasirinkčių skaičius: %{n}'
+        show:
+          answer_questionnaire:
+            already_have_an_account?: Jau turite paskyrą?
+            are_you_new?: Naujas naudotojas?
+            sign_in_description: Prisijunkite norėdami dalyvauti apklausoje
+            sign_up_description: Norėdami dalyvauti apklausoje, susikurkite dalyvio paskyrą
+            title: Atsakyti į formos klausimus
+          current_step: Žingsnis %{step}
+          of_total_steps: iš%{total_steps}
+          questionnaire_answered:
+            body: Jau atsakėte iš šios formos klausimus.
+            title: Jau atsakyta
+          questionnaire_closed:
+            body: Forma uždaryta ir į ją atsakyti negalima.
+            title: Forma uždaryta
+          questionnaire_for_private_users:
+            body: Forma pateikiama tik privatiems naudotojams
+            title: Forma uždaryta
+          questionnaire_js_disabled:
+            body: Kai kurie šios formos funkcionalumai bus neaktyvūs. Kad pagerintumėte naudojimo patirtį, naršyklėje įjunkite „JavaScript“.
+            title: '„JavaScript“ išjungta'
+          questionnaire_not_published:
+            body: Ši forma dar nepaskelbta.
+          tos_agreement: Dalyvaudami sutinkate su paslaugos teikimo sąlygomis
+      step_navigation:
+        show:
+          are_you_sure: Šio veiksmo atšaukti negalima ir savo atsakymų keisti negalėsite. Ar esate įsitikinę?
+          back: Atgal
+          continue: Tęsti
+          submit: Pateikti
+      user_answers_serializer:
+        body: Atsakymas
+        completion: Užbaigimas
+        created_at: Atsakyta
+        id: Atsakymo ID
+        ip_hash: IP adreso "hash" kodas
+        question: Klausimas
+        registered: Užregistruota
+        session_token: Naudotojo identifikatorius
+        unregistered: Neregistruoti
+        user_status: Naudotojo būsena

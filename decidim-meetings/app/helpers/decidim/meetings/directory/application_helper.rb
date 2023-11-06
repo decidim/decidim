@@ -13,11 +13,12 @@ module Decidim
         include Decidim::Comments::CommentsHelper
         include Decidim::SanitizeHelper
         include Decidim::CheckBoxesTreeHelper
+        include Decidim::IconHelper
+        include Decidim::FiltersHelper
 
         def filter_type_values
-          type_values = []
-          Decidim::Meetings::Meeting::TYPE_OF_MEETING.each do |type|
-            type_values << TreePoint.new(type, t("decidim.meetings.meetings.filters.type_values.#{type}"))
+          type_values = flat_filter_values(*Decidim::Meetings::Meeting::TYPE_OF_MEETING.keys, scope: "decidim.meetings.meetings.filters.type_values").map do |args|
+            TreePoint.new(*args)
           end
 
           TreeNode.new(
@@ -27,55 +28,19 @@ module Decidim
         end
 
         def filter_date_values
-          TreeNode.new(
-            TreePoint.new("", t("decidim.meetings.meetings.filters.date_values.all")),
-            [
-              TreePoint.new("upcoming", t("decidim.meetings.meetings.filters.date_values.upcoming")),
-              TreePoint.new("past", t("decidim.meetings.meetings.filters.date_values.past"))
-            ]
-          )
-        end
-
-        def directory_filter_scopes_values
-          main_scopes = current_organization.scopes.top_level
-
-          scopes_values = main_scopes.includes(:scope_type, :children).flat_map do |scope|
-            TreeNode.new(
-              TreePoint.new(scope.id.to_s, translated_attribute(scope.name, current_organization)),
-              scope_children_to_tree(scope)
-            )
-          end
-
-          scopes_values.prepend(TreePoint.new("global", t("decidim.scopes.global")))
-
-          TreeNode.new(
-            TreePoint.new("", t("decidim.meetings.application_helper.filter_scope_values.all")),
-            scopes_values
-          )
-        end
-
-        def scope_children_to_tree(scope)
-          return unless scope.children.any?
-
-          scope.children.includes(:scope_type, :children).flat_map do |child|
-            TreeNode.new(
-              TreePoint.new(child.id.to_s, translated_attribute(child.name, current_organization)),
-              scope_children_to_tree(child)
-            )
-          end
+          %w(all upcoming past).map { |k| [k, t(k, scope: "decidim.meetings.meetings.filters.date_values")] }
         end
 
         def directory_meeting_spaces_values
           participatory_spaces = current_organization.public_participatory_spaces
 
           spaces = participatory_spaces.collect(&:model_name).uniq.map do |participatory_space|
-            TreePoint.new(participatory_space.name.underscore, participatory_space.human(count: 2))
+            [participatory_space.name.underscore, participatory_space.human(count: 2)]
           end
 
-          TreeNode.new(
-            TreePoint.new("", t("decidim.meetings.application_helper.filter_meeting_space_values.all")),
-            spaces
-          )
+          spaces.prepend(["", t("decidim.meetings.application_helper.filter_meeting_space_values.all")])
+
+          filter_tree_from_array(spaces)
         end
 
         def directory_filter_categories_values
@@ -106,24 +71,9 @@ module Decidim
           )
         end
 
-        def directory_filter_origin_values
-          origin_values = []
-          origin_values << TreePoint.new("official", t("decidim.meetings.meetings.filters.origin_values.official"))
-          origin_values << TreePoint.new("participants", t("decidim.meetings.meetings.filters.origin_values.participants"))
-          origin_values << TreePoint.new("user_group", t("decidim.meetings.meetings.filters.origin_values.user_groups")) if current_organization.user_groups_enabled?
-
-          TreeNode.new(
-            TreePoint.new("", t("decidim.meetings.meetings.filters.origin_values.all")),
-            origin_values
-          )
-        end
-
         # Options to filter meetings by activity.
         def activity_filter_values
-          [
-            ["all", t("decidim.meetings.meetings.filters.all")],
-            ["my_meetings", t("decidim.meetings.meetings.filters.my_meetings")]
-          ]
+          %w(all my_meetings).map { |k| [k, t(k, scope: "decidim.meetings.meetings.filters")] }
         end
 
         protected

@@ -9,7 +9,7 @@ module Decidim
         described_class.new(proposal)
       end
 
-      let!(:proposal) { create(:proposal, :accepted) }
+      let!(:proposal) { create(:proposal, :accepted, body:) }
       let!(:category) { create(:category, participatory_space: component.participatory_space) }
       let!(:scope) { create(:scope, organization: component.participatory_space.organization) }
       let(:participatory_process) { component.participatory_space }
@@ -20,6 +20,7 @@ module Decidim
 
       let!(:proposals_component) { create(:component, manifest_name: "proposals", participatory_space: participatory_process) }
       let(:other_proposals) { create_list(:proposal, 2, component: proposals_component) }
+      let(:body) { Decidim::Faker::Localized.localized { ::Faker::Lorem.sentences(number: 3).join("\n") } }
 
       let(:expected_answer) do
         answer = proposal.answer
@@ -146,6 +147,79 @@ module Decidim
 
           it "serializes the answer" do
             expect(serialized).to include(answer: expected_answer)
+          end
+        end
+
+        context "with rich text proposal body" do
+          let(:image) { "<img src=\"logo.png\" #{alt_attribute} width=\"407\">" }
+          let(:alt_attribute) { "alt=\"Logo alt attribute\"" }
+          let(:body_content) do
+            <<~TEXT
+              <h2>This is my "heading 2" title</h2>
+              <p>A "normal" description below Heading 2</p>
+              <p><br></p>
+              <h3>Now this is my "heading 3"</h3>
+              <p><br></p>
+              <ul>
+              <li>This is my first option</li>
+              <li>This is my second option</li>
+              <li>This is my third option</li>
+              </ul>
+              <p><br></p>
+              <p>And below an uploaded image</p>
+              <p>#{image}</p>
+              <p><br></p>
+              <p><code>Here is code block</code></p>
+            TEXT
+          end
+          let(:body) do
+            {
+              "en" => body_content,
+              "machine_translation" => {
+                "es" => body_content,
+                "ca" => body_content
+              }
+            }
+          end
+
+          it "serializes the body without HTML tags" do
+            expected_body = <<~TEXT.chomp
+              ----------------------------
+              This is my "heading 2" title
+              ----------------------------
+
+              A "normal" description below Heading 2
+
+              Now this is my "heading 3"
+              --------------------------
+
+              * This is my first option
+              * This is my second option
+              * This is my third option
+
+              And below an uploaded image
+
+              Logo alt attribute
+
+              Here is code block
+            TEXT
+
+            expect(serialized[:body]["en"]).to eq(expected_body)
+            expect(serialized[:body]["en"]).to include("Logo alt attribute")
+            expect(serialized[:body]["machine_translation"]["es"]).to eq(expected_body)
+            expect(serialized[:body]["machine_translation"]["es"]).to include("Logo alt attribute")
+            expect(serialized[:body]["machine_translation"]["ca"]).to eq(expected_body)
+            expect(serialized[:body]["machine_translation"]["ca"]).to include("Logo alt attribute")
+          end
+
+          context "and image is uploaded without 'alt' attribute" do
+            let(:alt_attribute) { "" }
+
+            it "serializes the body without image" do
+              expect(serialized[:body]["en"]).not_to include("Logo alt attribute")
+              expect(serialized[:body]["machine_translation"]["es"]).not_to include("Logo alt attribute")
+              expect(serialized[:body]["machine_translation"]["ca"]).not_to include("Logo alt attribute")
+            end
           end
         end
       end

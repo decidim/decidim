@@ -1,0 +1,55 @@
+.callout {
+  @apply rounded p-4 border-l-4 border-secondary bg-secondary/5 space-y-2;
+
+  &.success {
+    @apply border-success bg-success/5;
+  }
+
+  &.alert {
+    @apply border-alert bg-alert/5;
+  }
+
+  &.warning {
+    @apply border-warning bg-warning/5;
+  }
+
+  & + * {
+    @apply mt-4;
+  }
+
+  a {
+    @apply text-secondary;
+  }
+
+  &[data-component="accordion"] {
+    [id*="panel"][aria-hidden="true"] {
+      @apply block max-h-14 overflow-hidden relative before:content-[''] before:absolute before:inset-0 before:h-full before:w-full before:bg-gradient-to-b before:from-transparent before:to-white after:content-[''] after:absolute after:inset-0 after:h-full after:w-full after:bg-gradient-to-b after:from-transparent after:to-secondary/5;
+    }
+
+    &.success [id*="panel"][aria-hidden="true"] {
+      @apply after:to-success/5;
+    }
+
+    &.alert [id*="panel"][aria-hidden="true"] {
+      @apply after:to-alert/5;
+    }
+
+    &.warning [id*="panel"][aria-hidden="true"] {
+      @apply after:to-warning/5;
+    }
+
+    [aria-expanded="false"] > svg:last-of-type,
+    [aria-expanded="false"] > span:last-of-type,
+    [aria-expanded="true"] > span:first-of-type,
+    [aria-expanded="true"] > svg:first-of-type {
+      @apply hidden;
+    }
+
+    [aria-expanded="true"] > svg:last-of-type,
+    [aria-expanded="true"] > span:last-of-type,
+    [aria-expanded="false"] > span:first-of-type,
+    [aria-expanded="false"] > svg:first-of-type {
+      @apply block;
+    }
+  }
+}

@@ -1,29 +1,25 @@
-<div class="card">
-  <div class="card-divider">
-    <h2 class="card-title">
-      <%= title %>
-    </h2>
-  </div>
+<div class="form__wrapper">
+  <div class="card pt-4">
+    <div class="card-section">
+      <div class="row column">
+        <%= form.translated :text_field, :title, autofocus: true, aria: { label: :title } %>
+      </div>
 
-  <div class="card-section">
-    <div class="row column">
-      <%= form.translated :text_field, :title, autofocus: true %>
-    </div>
+      <div class="row column">
+        <%= form.number_field :weight %>
+      </div>
 
-    <div class="row column">
-      <%= form.number_field :weight %>
-    </div>
+      <div class="row column">
+        <%= form.translated :text_field, :description, aria: { label: :description } %>
+      </div>
 
-    <div class="row column">
-      <%= form.translated :text_field, :description %>
-    </div>
+      <div class="row column">
+        <%= form.select :attachment_collection_id, @form.attachment_collections.map { |c| [translated_attribute(c.name), c.id] }, include_blank: true %>
+      </div>
 
-    <div class="row column">
-      <%= form.select :attachment_collection_id, @form.attachment_collections.collect { |c| [translated_attribute(c.name), c.id] }, include_blank: true %>
-    </div>
-
-    <div class="row column">
-      <%= form.upload :file, optional: false %>
+      <div class="row column">
+        <%= form.upload :file, button_class: "button button__sm button__transparent-secondary" %>
+      </div>
     </div>
   </div>
 </div>

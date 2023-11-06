@@ -1,1 +1,475 @@
 zh-TW:
+  activemodel:
+    attributes:
+      participatory_process:
+        announcement: 公告
+        area_id: 區域
+        banner_image: 橫幅圖片
+        copy_categories: 複製類別
+        copy_components: 複製組件
+        copy_steps: 複製步驟
+        decidim_area_id: 區域
+        description: 說明
+        developer_group: 促銷團隊
+        document: 文件
+        domain: 網域
+        end_date: 結束日期
+        hashtag: 主題標籤
+        hero_image: 首頁圖片
+        import_attachments: 匯入附件
+        import_categories: 匯入類別
+        import_components: 匯入組件
+        import_steps: 匯入步驟
+        local_area: 組織區域
+        meta_scope: 元數據範圍
+        participatory_process_group_id: 程序群組
+        participatory_process_type_id: 處理類型
+        participatory_scope: 決定了什麼
+        participatory_structure: 如何決定
+        private_space: 私有程序
+        promoted: 推廣
+        published_at: 發佈於
+        related_process_ids: 相關程序
+        scope_id: 範圍
+        scope_type_max_depth_id: 範圍篩選深度
+        scopes_enabled: 啟用範圍
+        short_description: 簡短說明
+        show_metrics: 顯示度量
+        show_statistics: 顯示統計資料
+        slug: URL網址
+        start_date: 開始日期
+        subtitle: 子標題
+        target: 誰參加
+        title: 標題
+        weight: 排序位置
+      participatory_process_group:
+        description: 說明
+        developer_group: 促銷團隊
+        group_url: 網站
+        hashtag: 主題標籤
+        hero_image: 圖片
+        local_area: 組織區域
+        meta_scope: 元數據範圍
+        participatory_process_ids: 相關程序
+        participatory_scope: 決定了什麼
+        participatory_structure: 如何決定
+        target: 誰參加
+        title: 標題
+      participatory_process_step:
+        cta_path: 呼籲操作路徑
+        cta_text: 呼籲操作文字
+        description: 說明
+        end_date: 結束日期
+        short_description: 簡短說明
+        start_date: 開始日期
+        title: 標題
+      participatory_process_type:
+        title: 標題
+      participatory_process_user_role:
+        email: 電子郵件
+        name: 名稱
+        role: 角色
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              allowed_file_content_types: '無效文件類型。只允許使用以下副檔名的文件：%{types}'
+    models:
+      decidim/participatory_process_step_activated_event: 啟用階段
+      decidim/participatory_process_step_changed_event: 階段已更改
+  activerecord:
+    models:
+      decidim/participatory_process:
+        other: "One\n參與式流程\n\nOther\n參與式流程"
+      decidim/participatory_process_group:
+        other: "One\n參與式流程群組\n\nOther\n參與式流程群組"
+      decidim/participatory_process_step:
+        other: "One\n階段\n\nOther\n階段"
+  decidim:
+    admin:
+      actions:
+        activate: 啟動
+        configure: 配置
+        confirm_destroy: 確認刪除
+        destroy: 刪除
+        duplicate: 重複
+        edit: 編輯
+        filter:
+          all_processes: 顯示所有流程
+        import_process: 匯入
+        moderate: 管理
+        new_process: 新的程序
+        new_process_group: 新的程序群組
+        new_process_step: 新階段
+        new_process_type: 新的處理類型
+        new_process_user_role: 新程序管理員
+        preview: 預覽
+        publish: 發布
+        resend_invitation: 重新發送邀請
+        unpublish: 取消發佈
+      menu:
+        participatory_process_groups: 程序群組
+        participatory_process_groups_submenu:
+          info: 資訊
+          landing_page: 登陸頁面
+        participatory_process_types: 處理類型
+        participatory_processes: 程序
+        participatory_processes_submenu:
+          attachment_collections: 資料夾
+          attachment_files: 檔案
+          attachments: 附件
+          categories: 類別
+          components: 组件
+          moderations: 版主
+          private_users: 私人參與者
+          process_admins: 程序管理員
+          steps: 分類
+      models:
+        participatory_process:
+          fields:
+            created_at: 建立於
+            private: 隱私模式
+            published: 已發佈
+            title: 標題
+          name: 參與程序
+        participatory_process_group:
+          fields:
+            title: 標題
+          name: 程序群組
+        participatory_process_step:
+          fields:
+            end_date: 結束日期
+            start_date: 開始日期
+            title: 標題
+          name: 參與式過程階段
+        participatory_process_type:
+          fields:
+            created_at: 建立於
+            title: 標題
+          name: 處理類型
+        participatory_process_user_role:
+          fields:
+            email: 電子郵件
+            name: 名稱
+            role: 角色
+          name: 參與程序管理員
+          roles:
+            admin: 管理員
+            collaborator: 合作者
+            moderator: 版主
+            valuator: 評估者
+        user:
+          fields:
+            invitation_accepted_at: 邀請已接受時間
+            invitation_sent_at: 邀請已發送時間
+      participatory_process_copies:
+        new:
+          copy: 複製
+          select: 請選擇您想要複製的資料
+          title: 重複的參與性流程
+      participatory_process_group_landing_page:
+        edit:
+          active_content_blocks: 啟用的內容區塊
+          add: 添加內容塊
+          destroy_confirmation: 您確定要刪除此內容區塊嗎？
+          inactive_content_blocks: 停用的內容區塊
+          title: 頁面內容
+      participatory_process_group_landing_page_content_blocks:
+        create:
+          error: 建立此內容區塊時出現問題。
+          success: 內容區塊建立成功。
+        destroy:
+          error: 刪除此內容區塊時出現問題。
+          success: 內容區塊已成功刪除。
+        edit:
+          update: 更新
+      participatory_process_groups:
+        destroy:
+          error: 刪除參與性流程群組時發生錯誤。
+          success: 參與式流程組成功刪除。
+        edit:
+          title: 編輯程序群組
+          update: 更新
+        new:
+          create: 建立
+          title: 新的程序群組
+        update:
+          error: 更新參與程序群組時出現問題。
+          success: 參與程序群組已成功更新。
+      participatory_process_imports:
+        create:
+          error: 匯入參與性流程時發生問題。
+          success: 參與性流程已成功匯入。
+        new:
+          import: 匯入
+          select: 請選擇您想匯入的資料
+          title: 匯入參與流程
+      participatory_process_publications:
+        create:
+          error: 發佈參與流程時出現問題。
+          success: 成功發佈參與流程。
+        destroy:
+          error: 解除發布參與程序時發生問題。
+          success: 成功解除發布參與程序。
+      participatory_process_step_activations:
+        create:
+          error: 啟動參與過程階段時發生問題。
+          success: 成功啟用參與程序階段。
+      participatory_process_steps:
+        create:
+          error: 創建新參與程序階段時出現問題。
+          success: 成功創建參與程序階段。
+        default_title: 介紹
+        destroy:
+          error:
+            active_step: 無法刪除進行中的階段。
+            last_step: 無法刪除流程的最後一階段。
+          success: 參與程序階段成功刪除。
+        edit:
+          title: 編輯參與式過程階段
+          update: 更新
+        index:
+          steps_title: 階段
+        new:
+          create: 建立
+          title: 新的參與式過程階段
+        ordering:
+          error: 重新排列這個參與程序階段時出現問題。
+        update:
+          error: 更新參與程序階段時出現問題。
+          success: 參與式階段成功更新。
+      participatory_process_types:
+        create:
+          error: 新增程序類型時發生錯誤
+          success: 程序類型已成功創建
+        destroy:
+          success: 程序類型已成功刪除。
+        edit:
+          title: 編輯程序類型
+          update: 更新
+        new:
+          create: 建立
+          title: 新的處理類型
+        update:
+          error: 更新這個程序類型時發生錯誤
+          success: 程序類型成功更新。
+      participatory_process_user_roles:
+        create:
+          error: 新增參與者至此參與式過程時發生問題。
+          success: 管理者已成功加入此參與式過程。
+        destroy:
+          success: 管理員已成功從此參與過程中移除。
+        edit:
+          title: 更新參與程序管理員
+          update: 更新
+        index:
+          process_admins_title: 參與程序管理員
+        new:
+          create: 建立
+          title: 新的參與程序管理員
+        update:
+          error: 更新參與程序管理員時出現問題。
+          success: 管理員已成功更新此參與過程。
+      participatory_processes:
+        create:
+          error: 創建新參與程序時出現問題。
+          success: 參與式流程已成功建立。現在請配置其各階段。
+        edit:
+          update: 更新
+        index:
+          private: 隱私模式
+          public: 公開
+          published: 已發佈
+        new:
+          create: 建立
+          title: 新的參與程序
+        update:
+          error: 更新此參與程序時出現問題。
+          success: 參與程序已成功更新。
+      participatory_processes_copies:
+        create:
+          error: 複製參與流程時發生問題。
+          success: 成功複製參與過程。
+      participatory_processes_group:
+        create:
+          error: 創建新參與程序群組時出現問題。
+          success: 成功創建參與過程群組。
+      titles:
+        participatory_process_groups: 參與式流程群組
+        participatory_process_types: 參與式流程類型
+        participatory_processes: 參與程序
+      users:
+        resend_invitation:
+          error: 重新發送邀請時發生問題。
+          success: 邀請成功重新發送。
+    admin_log:
+      participatory_process:
+        create: "%{user_name} 建立了 %{resource_name} 參與式流程"
+        duplicate: "%{user_name} 複製了 %{resource_name} 參與式流程"
+        export: "%{user_name} 匯出了 %{resource_name} 參與式流程"
+        import: "%{user_name} 將匯入 %{resource_name} 參與式流程"
+        publish: "%{user_name} 發佈了 %{resource_name} 參與式流程"
+        unpublish: "%{user_name} 取消發佈了 %{resource_name} 參與式流程"
+        update: "%{user_name} 更新了%{resource_name} 的參與性流程"
+      participatory_process_group:
+        create: "%{user_name} 創建了%{resource_name} 的參與性流程群組"
+        update: "%{user_name} 更新了%{resource_name} 的參與性流程群組"
+      participatory_process_step:
+        activate: "%{user_name} 在 %{space_name} 參與式流程中啟用了 %{resource_name} 階段"
+        create: "%{user_name} 在 %{space_name} 參與式流程中創建了 %{resource_name} 階段"
+        delete: "%{user_name} 刪除了 %{space_name} 參與式流程中的 %{resource_name} 階段"
+        update: "%{user_name} 更新了 %{space_name} 參與式流程中的 %{resource_name} 階段"
+      participatory_process_type:
+        create: "%{user_name} 創建了 %{resource_name} 參與性流程類型"
+        delete: "%{user_name} 刪除了 %{resource_name} 參與性流程類型"
+        update: "%{user_name} 更新了 %{resource_name} 參與式流程類型"
+      participatory_process_user_role:
+        create: "%{user_name} 邀請了參與者 %{resource_name} 加入 %{space_name} 參與式流程"
+        delete: "%{user_name} 將參與者 %{resource_name} 從 %{space_name} 參與式流程中移除"
+        update: "使用者 %{user_name} 變更了 %{space_name} 參與流程中參與者 %{resource_name} 的角色"
+    events:
+      participatory_process:
+        role_assigned:
+          email_intro: 您已被指派為%{resource_title} 參與流程的 %{role}。
+          email_outro: 您收到此通知，因為您是 "%{resource_title}" 參與流程的 %{role}。
+          email_subject: 您已被分配為“%{resource_title}”的 %{role}。
+          notification_title: 您已被分配為參與式流程<a href="%{resource_url}">%{resource_title}</a>的%{role}。
+        step_activated:
+          email_intro: '現在，%{participatory_space_title} 的%{resource_title} 階段已啟動。您可以從此頁面查看：'
+          email_outro: 你收到此通知是因為你正在追蹤 %{participatory_space_title}。你可以透過前面的連結停止接收通知。
+          email_subject: '%{participatory_space_title} 的更新'
+          notification_title: 在 <a href="%{resource_path}">%{participatory_space_title}</a>，%{resource_title} 階段現在已啟動。
+        step_changed:
+          email_intro: '在 %{participatory_space_title}，%{resource_title} 階段的日期已更新。您可以在此頁面上查看：'
+          email_outro: 你收到此通知是因為你正在追蹤 %{participatory_space_title}。你可以透過前面的連結停止接收通知。
+          email_subject: '%{participatory_space_title} 的更新'
+          notification_title: 在 <a href="%{participatory_space_url}">%{participatory_space_title}</a> 的 <a href="%{resource_path}">%{resource_title}</a> 階段日期已更新。
+    help:
+      participatory_spaces:
+        participatory_processes:
+          contextual: "<p>一個<strong>參與式過程</strong>是一系列參與性活動的序列（例如，先填寫調查問卷，然後提出建議，在面對面或虛擬會議中進行討論，最終進行優先排序），旨在定義和就特定主題做出決定。</p> <p>參與式過程的例子包括：選舉委員會成員的過程（候選人首先進行介紹，然後進行辯論，最後選擇一個候選人），參與式預算（提出建議，經濟評估，使用可用的資金進行投票），戰略規劃過程，共同起草法規或標準，城市空間設計或公共政策計畫的製定。</p>\n"
+          page: "<p>一個<strong>參與性流程是一系列的參與性活動，(例如先填寫調查，然後提出建議，在面對面或虛擬會議中討論這些建議，最後進行優先排序)，以便針對特定主題進行定義和決策。</p> <p>參與性流程的例子包括：選舉委員會成員的程序（首先提出候選人，然後進行辯論，最後選出候選人），參與式預算（提出建議，經濟評估，用可用的資金進行投票），戰略規劃流程，協作制定規則或標準，城市空間的設計或公共政策計劃的制定。</p>\n"
+          title: 什麼是參與式過程？
+    log:
+      value_types:
+        participatory_process_type_presenter:
+          not_found: '未在資料庫(ID：%{id}) 中找到此流程類型'
+    menu:
+      processes: 程序
+    metrics:
+      participatory_processes:
+        description: 此組織中的參與式過程數量
+        object: 參與程序
+        title: 參與程序
+    participatory_process_groups:
+      content_blocks:
+        html_1:
+          name: 第一個 HTML 區塊
+        html_2:
+          name: 第二個 HTML 區塊
+        html_3:
+          name: 第三個 HTML 區塊
+        participatory_processes:
+          name: 參與程序
+        stats:
+          name: 統計資料
+        title:
+          meta_scope: 範圍
+          participatory_processes:
+            other: "One\n1 個程序\n\nOther\n%{count} 個程序"
+      show:
+        title: 參與程序群組
+    participatory_process_steps:
+      index:
+        process_steps: 程序階段
+    participatory_processes:
+      admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: 顯示的最大元素數量
+        new_import:
+          accepted_types:
+            json: JSON
+        participatory_process_groups:
+          form:
+            metadata: 元數據
+            visibility: 可見度
+        participatory_process_imports:
+          form:
+            document_legend: 添加文檔
+        participatory_process_steps:
+          form:
+            cta_text_help: 如果未設置，按鈕將不會顯示。
+        participatory_processes:
+          form:
+            announcement_help: 您在此處輸入的文字將顯示至使用者的正下方程序信息
+            duration: 持續時間
+            filters: 過濾器
+            images: 圖片
+            metadata: 元數據
+            other: 其他
+            related_processes: 相關程序
+            scope_type_max_depth_help: 限制範圍過濾器深度；過濾器將會從一般範圍到所選範圍層級進行顯示。
+            select_an_area: 選擇一個地區
+            select_participatory_process_type: 選擇一個程序類型
+            select_process_group: 選擇一個程序群組
+            title: 基本資訊
+            visbility: 可見度
+      content_blocks:
+        highlighted_processes:
+          name: 精選程序
+      index:
+        title: 參與程序
+      last_activity:
+        new_participatory_process: 新的參與程序
+      participatory_process_steps:
+        index:
+          back_to_process: 返回程序頁
+      participatory_processes:
+        filters:
+          all_types: 所有類型
+          counters:
+            active:
+              other: "One\n1個進行中的流程\nOther\n%{count} 個進行中的流程"
+            all:
+              other: "One\n1 個程序\n\nOther\n%{count} 個程序"
+            past:
+              other: "One\n1 個過去的程序\nOther\n%{count} 個過去的程序"
+            upcoming:
+              other: "One\n1 個即將到來的程序\nOther\n%{count} 個即將到來的程序"
+          explanations:
+            no_active: '"沒有進行中的流程'
+            no_active_nor_upcoming: 沒有進行中或即將開始的流程.
+            no_active_nor_upcoming_callout: 目前沒有進行中或即將開始的程序。以下是過去的程序清單
+          filter_by: 顯示
+          names:
+            active: 啟用中
+            all: 全部
+            past: 過去
+            upcoming: 即將舉行
+          see: 查看
+        show:
+          title: 關於此流程
+      show:
+        belongs_to_group: 此程序屬於
+        private_space: 這是不公開程序。
+        related_processes: 相關程序
+    statistics:
+      processes_count: 程序
+  layouts:
+    decidim:
+      participatory_process_groups:
+        participatory_process_group:
+          browse: 瀏覽
+          browse_resource: 瀏覽程序群組 %{resource_name}
+          processes_count: '程序:'
+      participatory_processes:
+        index:
+          promoted_processes: 精選程序
+        participatory_process:
+          active_step: 當前階段
+          more_info: 更多資訊
+          more_info_about: 關於程序 %{resource_name} 的更多資訊
+          take_part: 參與
+          take_part_in: 參與程序 %{resource_name}

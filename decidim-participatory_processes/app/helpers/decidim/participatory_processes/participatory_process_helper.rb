@@ -7,19 +7,19 @@ module Decidim
       include Decidim::FiltersHelper
       include Decidim::AttachmentsHelper
       include Decidim::IconHelper
-      include Decidim::WidgetUrlsHelper
       include Decidim::SanitizeHelper
       include Decidim::ResourceReferenceHelper
+      include Decidim::CheckBoxesTreeHelper
 
       # Public: Returns the dates for a step in a readable format like
-      # "2016-01-01 - 2016-02-05".
+      # "01/01/2016 - 05/02/2016".
       #
       # participatory_process_step - The step to format to
       #
       # Returns a String with the formatted dates.
       def step_dates(participatory_process_step)
         dates = [participatory_process_step.start_date, participatory_process_step.end_date]
-        dates.map { |date| date ? localize(date.to_date, format: :default) : "?" }.join(" - ")
+        dates.map { |date| date ? l(date.to_date, format: :decidim_short) : "?" }.join(" - ")
       end
 
       # Public: Returns the path for the participatory process cta button
@@ -57,15 +57,43 @@ module Decidim
         )
       end
 
-      # Public: Invokes the appropriate partial for a promoted
-      # participatory process or group based on the type name
-      #
-      # promoted_item - Can be a Decidim::ParticipatoryProcess or
-      #                 Decidim::ParticipatoryProcessGroup
-      def render_highlighted_partial_for(promoted_item)
-        name = promoted_item.class.name.demodulize.underscore.gsub("participatory_", "promoted_")
+      # Items to display in the navigation of a process
+      def process_nav_items(participatory_space)
+        components = participatory_space.components.published.or(Decidim::Component.where(id: try(:current_component)))
 
-        render partial: name, locals: { name => promoted_item }.symbolize_keys
+        components.map do |component|
+          {
+            name: translated_attribute(component.name),
+            url: main_component_path(component),
+            active: is_active_link?(main_component_path(component), :inclusive)
+          }
+        end
+      end
+
+      def filter_sections
+        [
+          { method: :with_date, collection: filter_dates_values, label_scope: "decidim.participatory_processes.participatory_processes.filters", id: "date" },
+          { method: :with_any_scope, collection: filter_global_scopes_values, label_scope: "decidim.shared.participatory_space_filters.filters", id: "scope" },
+          { method: :with_any_area, collection: filter_areas_values, label_scope: "decidim.shared.participatory_space_filters.filters", id: "area" },
+          { method: :with_any_type, collection: filter_types_values, label_scope: "decidim.participatory_processes.participatory_processes.filters", id: "type" }
+        ].reject { |item| item[:collection].blank? }
+      end
+
+      def process_types
+        @process_types ||= Decidim::ParticipatoryProcessType.joins(:processes).distinct
+      end
+
+      def filter_types_values
+        return if process_types.blank?
+
+        type_values = process_types.map { |type| [type.id.to_s, translated_attribute(type.title)] }
+        type_values.prepend(["", t("decidim.participatory_processes.participatory_processes.filters.names.all")])
+
+        filter_tree_from_array(type_values)
+      end
+
+      def filter_dates_values
+        flat_filter_values(:all, :upcoming, :past, :active, scope: "decidim.participatory_processes.participatory_processes.filters.names")
       end
     end
   end

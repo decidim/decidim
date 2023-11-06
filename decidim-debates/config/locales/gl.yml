@@ -39,7 +39,6 @@ gl:
         confirm_destroy: Estás seguro?
         destroy: Eliminar
         edit: Editar
-        new: Novo %{name}
         title: Accións
       admin:
         debates:
@@ -59,9 +58,6 @@ gl:
           update:
             invalid: Houbo un problema ao actualizar este debate.
             success: Debate actualizado con éxito.
-        models:
-          debate:
-            name: Debate
       admin_log:
         debate:
           create: "%{user_name} creou o %{resource_name} debate sobre o espazo %{space_name}"
@@ -84,11 +80,6 @@ gl:
           origin: Orixe
           participants: Participantes
           search: Busca
-        filters_small_view:
-          close_modal: Pechar modal
-          filter: Filtro
-          filter_by: Filtrar por
-          unfold: Despregar
         form:
           select_a_category: Selecciona unha categoría
         index:
@@ -97,9 +88,6 @@ gl:
           back: De volta
           create: Crear
           title: Novo debate
-      last_activity:
-        debate_updated_at_html: "<span>Debate actualizado en %{link}</span>"
-        new_debate_at_html: "<span>Novo debate en %{link}</span>"
       models:
         debate:
           fields:
@@ -133,7 +121,6 @@ gl:
           email_intro: 'Agora podes comezar novos debates en %{participatory_space_title}. Comezar a participar nesta páxina:'
           email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
           email_subject: Os debates agora están dispoñibles en %{participatory_space_title}
-          notification_title: Agora podes comezar <a href="%{resource_path}">novos debates</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         debate_closed:
           affected_user:
             email_intro: 'Pechouse o debate "%{resource_title}". Podes ler as súas conclusións na súa páxina:'
@@ -156,7 +143,6 @@ gl:
           name: Debates
           next_level_in: '¡Participa en %{score} debates máis para alcanzar o seguinte nivel!'
           unearned_another: Este usuario aínda non participou en ningún debate.
-          unearned_own: Participaches nos debates aínda.
     metrics:
       debates:
         description: Número de debates creados

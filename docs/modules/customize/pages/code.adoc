@@ -2,7 +2,7 @@
 
 If you want to override/change anything, you can just do it with the same name of the file, through Monkey Patching. Some real world examples of this method:
 
-* https://github.com/gencat/participa/blob/master/app/decorators/decidim/admin/selective_newsletter_form_decorator.rb[Decidim::Admin::SelectiveNewsletterForm]. As it's a decorator you also need to make it available in the https://github.com/gencat/participa/blob/3416992ae095f6ab1e826fee961253514c4ff0ef/config/application.rb#L48[application config]
+* https://github.com/gencat/participa/blob/master/app/decorators/decidim/admin/selective_newsletter_form_decorator.rb[Decidim::Admin::SelectiveNewsletterForm]. As it is a decorator you also need to make it available in the https://github.com/gencat/participa/blob/3416992ae095f6ab1e826fee961253514c4ff0ef/config/application.rb#L48[application config]
 * https://github.com/barcelonaregional/decidim-premet25/blob/master/config/initializers/etiquette_validator.rb[EtiquetteValidator.class_eval]
 
 If you want to extend Decidim, the preferred way should be by having a Module. This is a Ruby on Rails Engine which provides ruby code (models, views, controllers, assets, etc). You can use it in multiple ways:
@@ -18,7 +18,7 @@ gem "decidim-debates", path: "decidim-debates"
 
 [source,ruby]
 ----
-gem "decidim-consultations", git: "https://github.com/decidim/decidim-module-consultations"
+gem "decidim-initiatives", git: "https://github.com/example-github-organization/decidim-module-initiatives"
 ----
 
 * Publishing it on rubygems.org

@@ -2,16 +2,16 @@
   <% if steps %>
     <%= link_to(
       vote_label,
-      initiative_initiative_signatures_path(initiative_slug: current_initiative.slug),
-      class: "button expanded light button--sc"
+      initiative_signatures_path(initiative_slug: current_initiative.slug),
+      class: "button button__xl w-full button__secondary"
     ) %>
   <% else %>
     <%= button_to(
       vote_label,
-      initiative_initiative_signatures_path(initiative_slug: current_initiative.slug),
+      initiative_signatures_path(initiative_slug: current_initiative.slug),
       remote: true,
       data: { disable: true },
-      class: "button expanded light button--sc"
+      class: "button button__xl w-full button__secondary"
     ) %>
   <% end %>
 <% else %>
@@ -22,19 +22,19 @@
         method: :delete,
         remote: true,
         data: { disable: true },
-        class: "button expanded light button--sc success"
+        class: "button button__xl w-full button__secondary success"
       ) do %>
-        <%= icon("check", class: "icon--small") %>
+        <%= icon "check-line" %>
         <%= unvote_label %>
       <% end %>
     <% else %>
-      <button class='button expanded button--sc success light disabled' disabled>
-        <%= icon("check", class: "icon--small") %>
+      <button class='button button__xl w-full button__secondary success light' disabled>
+        <%= icon "check-line" %>
         <%= unvote_label %>
       </button>
     <% end %>
   <% else %>
-    <%= authorized_vote_modal_button(initiative, remote: true, class: "button expanded light button--sc") do %>
+    <%= authorized_vote_modal_button(initiative, remote: true, class: "button button__xl w-full button__secondary") do %>
       <%= verification_label %>
     <% end %>
   <% end %>

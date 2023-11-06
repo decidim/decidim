@@ -1,18 +1,13 @@
-<%# show highlighted budgets first %>
 <% if highlighted.any? %>
-  <div id="highlighted-budgets" class="card card--list budget-list">
-    <% highlighted.each do |budget| %>
-      <%= cell("decidim/budgets/budget_list_item", budget) %>
-    <% end %>
-  </div>
+  <% reordered_highlighted_budgets.each do |budget| %>
+    <%= cell("decidim/budgets/budget_list_item", budget) %>
+  <% end %>
 <% end %>
 
-<% non_highlighted = (budgets - highlighted - voted) %>
+<% non_highlighted = reorder(budgets).where.not(id: (highlighted + voted).map(&:id)) %>
 
-<% if non_highlighted.any? %>
-  <div id="budgets" class="card card--list budget-list">
-    <% non_highlighted.each do |budget| %>
-      <%= cell("decidim/budgets/budget_list_item", budget) %>
-    <% end %>
-  </div>
+<% if non_highlighted.exists? %>
+  <% non_highlighted.each do |budget| %>
+    <%= cell("decidim/budgets/budget_list_item", budget) %>
+  <% end %>
 <% end %>

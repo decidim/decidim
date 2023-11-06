@@ -1,10 +1,34 @@
-<div class="wrapper">
-  <div class="row">
-    <div class="large-8 large-centered">
-    <div class="static__message">
-      <h1 class="heading1 page-title"><%= t(".title") %></h1>
-      <p><%= t(".try_later") %></p>
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
+
+  <div class="place-self-center">
+    <div class="flex justify-center">
+      <h1 class="title-decorator my-12"><%= t("title", scope: "decidim.errors.internal_server_error") %></h1>
+    </div>
+
+    <div class="text-center space-y-8">
+      <p class="text-lg text-gray-2">
+        <%= t("try_later", scope: "decidim.errors.internal_server_error") %>
+      </p>
+
+      <table class="w-full border-separate border-spacing-2">
+        <% @info_hash.map do |key, val| %>
+          <tr>
+            <th class="text-right w-1/2"><%= t(key, scope: "decidim.errors.internal_server_error") %></th>
+            <td class="text-left w-1/2"><%= val %></td>
+          </tr>
+        <% end %>
+      </table>
+
+      <textarea id="referenceData" class="reset-defaults" hidden><%= @plain_info %></textarea>
+
+      <button class="button button__lg button__secondary"
+        data-clipboard-copy="#referenceData"
+        data-clipboard-copy-label="<%= t("copied", scope: "decidim.errors.internal_server_error") %>"
+        aria-label="<%= t("copy_error_message_clarification", scope: "decidim.errors.internal_server_error") %>">
+          <span><%= t("copy_to_clipboard", scope: "decidim.errors.internal_server_error") %></span>
+          <%= icon "file-copy-line" %>
+      </button>
     </div>
   </div>
-</div>
-</div>
+
+<% end %>

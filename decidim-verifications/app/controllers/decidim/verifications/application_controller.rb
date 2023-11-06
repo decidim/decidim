@@ -4,6 +4,9 @@ module Decidim
   module Verifications
     class ApplicationController < Decidim::ApplicationController
       include NeedsPermission
+      include HasAccountBreadcrumb
+
+      layout "layouts/decidim/authorizations"
 
       before_action :confirmed_user, only: [:new, :create, :renew]
 

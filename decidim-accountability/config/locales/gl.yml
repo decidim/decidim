@@ -38,7 +38,6 @@ gl:
         destroy: Eliminar
         edit: Editar
         import_csv: Importar CSV
-        new: Novo %{name}
         preview: Vista previa
         timeline_entries: Evolución do proxecto
         title: Accións
@@ -49,25 +48,13 @@ gl:
         import_results:
           new:
             import: Importar
-            info: "<p>Recomendámosche seguir os seguintes pasos:</p><ol><li>Crear os estados para os Resultados que desexes engadir (<a href='%{link_new_status}' target='_blank'>ligazón</a>)</li><li>Crear polo menos un Resultado de xeito manual a través deste panel de administrador (<a href='%{link_new_result}' target='_blank'>ligazón</a>) antes de usar Importar, para entender o formato e que precisas encher.</li><li>Descargar o ficheiro en formato CSV (%{link_export_csv})</li><li>Fai os trocos localmente. Só podes trocar as seguintes columnas do CSV:</li></ol><ul><li><b>category/id:</b> ID da categoría</li><li><b>scope/id:</b> ID do ámbito</li><li><b>parent/id:</b> ID do pai (para Resultados relacionados). Opcional</li><li><b>title/I18N:</b> Título no idioma X</li><li><b>description/I18N:</b> Descrición no idioma X</li><li><b>start_date:</b> data na que se inicia a execución do resultado (formato YYYY-MM-DD)</li><li><b>end_date:</b> data na que remata a execución (formato YYYY-MM-DD)</li><li><b>status/id:</b> ID do estado do resultado</li><li><b>progress:</b> Porcentaxe (de 0 a 100) da execución</li><li><b>proposals_ids:</b> ID interno das propostas relacionadas (separadas por comas). Isto converterase automaticamente en <span class='attribute-name'>proposal_url</span></li></ul>"
-            link: ligazón
             title: Importar resultados dun CSV
-        imports:
-          create:
-            success: Importando o ficheiro. Recibirás un correo electrónico nos vindeiros minutos co resultado da importación
         models:
           result:
             name: Resultado
           status:
             name: Estado
-          timeline_entry:
-            name: Entrada de liña de tempo
         results:
-          create:
-            invalid: Produciuse un problema ao crear este resultado
-            success: Resultado creado con éxito
-          destroy:
-            success: Resultado eliminado correctamente
           edit:
             title: Editar resultado
             update: Actualizar resultado
@@ -76,18 +63,10 @@ gl:
           new:
             create: Crear resultado
             title: Novo resultado
-          update:
-            invalid: Produciuse un problema ao actualizar este resultado
-            success: Resultado actualizado correctamente
         shared:
           subnav:
             statuses: Estatus
         statuses:
-          create:
-            invalid: Produciuse un problema ao crear este estado
-            success: Estado creado con éxito
-          destroy:
-            success: Estado eliminado con éxito
           edit:
             title: Editar o estado
             update: Actualizar o estado
@@ -96,15 +75,7 @@ gl:
           new:
             create: Crear estado
             title: Novo estado
-          update:
-            invalid: Houbo un problema ao actualizar este estado
-            success: Estado actualizado correctamente
         timeline_entries:
-          create:
-            invalid: Produciuse un problema ao crear esta entrada
-            success: Entrada creada con éxito
-          destroy:
-            success: Entrada correctamente eliminada
           edit:
             title: Editar entrada
             update: Actualizar a entrada
@@ -113,9 +84,6 @@ gl:
           new:
             create: Crear entrada
             title: Nova entrada
-          update:
-            invalid: Produciuse un problema ao actualizar esta entrada
-            success: Entrada actualizada con éxito
       admin_log:
         result:
           create: "%{user_name} resultado creado %{resource_name} en %{space_name}"
@@ -132,12 +100,9 @@ gl:
       import_mailer:
         import:
           errors: Erros
-          errors_present: Produciuse un erro ao importar os resultados
           row_number: Fila
           subject: Resultados importados con éxito
           success: Resultados importados con éxito. Podes revisar os resultados no panel de administración.
-      last_activity:
-        new_result_at_html: "<span>Novo resultado en %{link}</span>"
       models:
         result:
           fields:
@@ -169,7 +134,6 @@ gl:
             other: "%{count} resultados"
         filters:
           all: Todo
-          scopes: Ámbitos
         home:
           categories_label: Categorías
           subcategories_label: Subcategorías

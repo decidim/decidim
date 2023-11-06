@@ -18,9 +18,9 @@ module Decidim
       #
       # - :ok when everything is valid. Returns the verification metadata of
       #       the form.
-      # - :invalid if the user doesn't have an authorization for sms in ok
+      # - :invalid if the user does not have an authorization for sms in ok
       #            status or the phone number associated with its
-      #            authorization doesn't match the form number.
+      #            authorization does not match the form number.
       def call
         return broadcast(:invalid) unless authorized? && phone_match?
 

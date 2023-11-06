@@ -17,7 +17,7 @@ module Decidim
       ]
     end
     let!(:answers) do
-      questions.map { |question| create :answer, user:, questionnaire:, question: }.sort_by { |a| a.question.position }
+      questions.map { |question| create(:answer, user:, questionnaire:, question:) }.sort_by { |a| a.question.position }
     end
     let!(:answer) { subject.answers.first.answer }
     let!(:participant) { answers.first }
@@ -75,9 +75,9 @@ module Decidim
     describe "user answers more than one questionnaire" do
       let!(:component) { create(:component, participatory_space: questionnaire.questionnaire_for, organization: questionnaire.questionnaire_for.organization) }
       let!(:questionnaire2) { create(:questionnaire, questionnaire_for: component) }
-      let!(:questions2) { 3.downto(1).map { |n| create :questionnaire_question, questionnaire: questionnaire2, position: n } }
+      let!(:questions2) { 3.downto(1).map { |n| create(:questionnaire_question, questionnaire: questionnaire2, position: n) } }
       let!(:answers2) do
-        questions2.map { |question| create :answer, user:, questionnaire: questionnaire2, question: }.sort_by { |a| a.question.position }
+        questions2.map { |question| create(:answer, user:, questionnaire: questionnaire2, question:) }.sort_by { |a| a.question.position }
       end
       let!(:answer) { subject.answers.first.answer }
       let!(:participant2) { answers2.first }

@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Meetings::CreateMeetingEvent do
-  let(:resource) { create :meeting }
+  let(:resource) { create(:meeting) }
   let(:event_name) { "decidim.events.meetings.meeting_created" }
   let(:available_slots) { 10 }
   let(:questionnaire) { nil }
@@ -20,7 +20,8 @@ describe Decidim::Meetings::CreateMeetingEvent do
 
   describe "email_intro" do
     it "is generated correctly" do
-      expect(subject.email_intro).to eq("The meeting \"#{resource_title}\" has been added to \"#{participatory_space_title}\" that you are following.")
+      meeting_title = decidim_html_escape(resource_title)
+      expect(subject.email_intro).to eq("The meeting \"#{meeting_title}\" has been added to \"#{participatory_space_title}\" that you are following.")
     end
   end
 
@@ -33,8 +34,9 @@ describe Decidim::Meetings::CreateMeetingEvent do
 
   describe "notification_title" do
     it "is generated correctly" do
+      meeting_title = decidim_html_escape(resource_title)
       expect(subject.notification_title)
-        .to eq("The meeting <a href=\"#{resource_path}\">#{resource_title}</a> has been added to #{participatory_space_title}")
+        .to eq("The meeting <a href=\"#{resource_path}\">#{meeting_title}</a> has been added to #{participatory_space_title}")
     end
   end
 
@@ -57,9 +59,9 @@ describe Decidim::Meetings::CreateMeetingEvent do
   end
 
   context "when in a participatory space and the registration is enabled" do
-    let(:organization) { create :organization }
-    let(:participatory_process) { create :participatory_process, organization: }
-    let(:component) { create :component, manifest_name: :meetings, participatory_space: participatory_process }
+    let(:organization) { create(:organization) }
+    let(:participatory_process) { create(:participatory_process, organization:) }
+    let(:component) { create(:component, manifest_name: :meetings, participatory_space: participatory_process) }
     let(:registrations_enabled) { true }
     let(:resource) do
       create(:meeting,

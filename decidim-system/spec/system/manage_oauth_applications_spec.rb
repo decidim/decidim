@@ -5,8 +5,8 @@ require "spec_helper"
 describe "Manage OAuth applications", type: :system do
   include ActionView::Helpers::SanitizeHelper
 
-  let(:admin) { create :admin }
-  let!(:organization) { create :organization }
+  let(:admin) { create(:admin) }
+  let!(:organization) { create(:organization) }
 
   before do
     login_as admin, scope: :admin
@@ -14,7 +14,7 @@ describe "Manage OAuth applications", type: :system do
   end
 
   it "can create new applications" do
-    find(".new").click
+    click_link "New"
 
     within ".new_oauth_application" do
       fill_in :oauth_application_name, with: "Meta Decidim"
@@ -24,7 +24,7 @@ describe "Manage OAuth applications", type: :system do
       fill_in :oauth_application_organization_url, with: "https://www.barcelona.cat"
     end
 
-    dynamically_attach_file(:oauth_application_organization_logo, Decidim::Dev.asset("city.jpeg"))
+    dynamically_attach_file(:oauth_application_organization_logo, Decidim::Dev.asset("city.jpeg"), front_interface: true)
 
     within ".new_oauth_application" do
       find("*[type=submit]").click
@@ -69,7 +69,7 @@ describe "Manage OAuth applications", type: :system do
       expect(page).to have_content("successfully")
 
       within "table" do
-        expect(page).to have_no_content(application.name)
+        expect(page).not_to have_content(application.name)
       end
     end
 

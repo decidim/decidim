@@ -29,7 +29,7 @@ module Decidim
         Decidim::Api::MutationType.include MutationExtensions
       end
 
-      initializer "decidim.stats" do
+      initializer "decidim_comments.stats" do
         Decidim.stats.register :comments_count, priority: StatsRegistry::MEDIUM_PRIORITY do |organization|
           Decidim.component_manifests.sum do |component|
             component.stats.filter(tag: :comments).with_context(organization.published_components).map { |_name, value| value }.sum
@@ -69,6 +69,23 @@ module Decidim
 
       initializer "decidim_comments.webpacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
+      end
+
+      initializer "decidim_comments.authorization_transfer" do
+        config.to_prepare do
+          Decidim::AuthorizationTransfer.register(:comments) do |transfer|
+            transfer.move_records(Decidim::Comments::Comment, :decidim_author_id)
+            transfer.move_records(Decidim::Comments::CommentVote, :decidim_author_id)
+          end
+        end
+      end
+
+      initializer "decidim_comments.moderation_content" do
+        config.to_prepare do
+          ActiveSupport::Notifications.subscribe("decidim.admin.block_user:after") do |_event_name, data|
+            Decidim::Comments::HideAllCreatedByAuthorJob.perform_later(**data)
+          end
+        end
       end
     end
   end

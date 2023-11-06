@@ -30,11 +30,6 @@ sk:
           project:
             name: Projekt
         projects:
-          create:
-            invalid: Vyskytol sa problém s vytváraním projektu
-            success: Projekt bol úspešne vytvorený
-          destroy:
-            success: Projekt bol úspešne vymazaný
           edit:
             title: Upraviť projekt
             update: Aktualizovať
@@ -45,12 +40,7 @@ sk:
           new:
             create: Vytvoriť
             title: Nový projekt
-          update:
-            invalid: Vyskytol sa problém s aktualizáciou projektu
-            success: Projekt bol úspešne aktualizovaný
         proposals_imports:
-          create:
-            invalid: Vyskytol sa problém s importovaním návrhov do projektov
           new:
             create: Importovať návrhy do projektov
             no_components: V tomto participatívnom priestore nie sú žiadne ďalšie súčasti návrhov pre import návrhov do projektov.
@@ -77,16 +67,12 @@ sk:
         budget_excess:
           budget_excess:
             title: Maximálny rozpočet prekročený
-          close: Zavrieť
           ok: OK
         budget_summary:
           are_you_sure: Naozaj chcete zrušiť svoj hlas?
-          assigned: 'Priradený:'
           cancel_order: vymažte svoj hlas a začnite odznova
           checked_out:
-            description: Už ste hlasovali za rozpočet. Ak ste zmenili názor, môžete %{cancel_link}.
             title: Hlasovanie o rozpočte dokončené
-          title: Vy rozhodujete o rozpočte
         count:
           projects_count:
             one: 1 projekt
@@ -97,21 +83,6 @@ sk:
           category: Kategória
           scope: Rozsah
           search: Hľadať
-        filters_small_view:
-          close_modal: Zavrieť okno
-          filter: Filter
-          filter_by: Filtrovať podľa
-          unfold: Rozbaliť
-        order_progress:
-          vote: Hlasovať
-        order_selected_projects:
-          remove: Odstrániť
-          selected_projects:
-            one: vybraný projekt
-            few: vybrané projekty
-            many: vybrané projekty
-            other: vybrané projekty
-          view: Zobraziť
         orders:
           highest_cost: Najvyššie náklady
           label: Zoradiť projekty podľa
@@ -122,7 +93,6 @@ sk:
           view: Zobraziť
         show:
           budget: Rozpočet
-          view_all_projects: Zobraziť všetky projekty
     components:
       budgets:
         actions:
@@ -132,10 +102,6 @@ sk:
           global:
             announcement: Oznámenie
             comments_enabled: Komentáre povolené
-            form:
-              errors:
-                budget_voting_rule_only_one: Povolený smie byť iba jeden spôsob hlasovania
-                budget_voting_rule_required: Požaduje sa jeden spôsob hlasovania
             projects_per_page: Projektov na stránke
             total_budget: Celkový rozpočet
             vote_minimum_budget_projects_number: Minimálny počet projektov, za ktoré je možné hlasovať
@@ -148,12 +114,5 @@ sk:
             show_votes: Zobraziť hlasy
             votes_choices:
               enabled: Hlasovanie povolené
-    orders:
-      checkout:
-        error: Vyskytol sa problém pri spracovaní Vášho hlasu
-        success: Váš hlas bol úspešne schválený
-      destroy:
-        error: Vyskytol sa problém pri zrušení Vášho hlasu
-        success: Váš hlas bol úspešne zrušený
   index:
     confirmed_orders_count: Počet hlasov

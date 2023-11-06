@@ -12,8 +12,6 @@ sr:
     admin_log:
       user:
         show_email: "%{user_name} je pribavio e-mail adresu učesnika %{resource_name}"
-    admin_terms_of_use:
-      default_body: "<h2>USLOVI KORIŠĆENJA ZA ADMINISTRATORE</h2><p> Verujemo da si već čuo uobičajeno predavanje od svog lokalnog Administratora Sistema. Obično se svodi na ove tri stvari </p><ol><li>Poštuj privatnost drugih</li><li>Razmisli pre nego što klikneš</li><li>Sa velikom moći dolazi velika odgovornost</li></ol>"
     application:
       document:
         download: Preuzmi datoteku
@@ -28,9 +26,6 @@ sr:
         welcome_text: Tekst dobrodošlice
       stats:
         name: Statistika organizacije
-    endorsement_buttons_cell:
-      already_endorsed: Podržano
-      endorse: Podrži
     endorsements:
       identities:
         done: Gotovo
@@ -48,7 +43,6 @@ sr:
           add_users_placeholder: Pretraži...
           modal_title: Novi razgovor
           no_results: Nema rezultata
-          participant_with_disabled_message_reception: Ovaj učesnik je onemogućio prijem poruka
         index:
           new_conversation: Novi razgovor
           next: Slеdеćе
@@ -73,12 +67,8 @@ sr:
         main_image: Glavna slika
     notifications_settings:
       show:
-        allow_public_contact: Dozvoli svakome da mi pošalje direktnu poruku, čak iako ih ne pratim.
         direct_messages: Primaj direktne poruke od svih bez ograničenja
     pages:
-      home:
-        metrics:
-          headline: Metrika
       participatory_space:
         metrics:
           headline: Metrika
@@ -93,6 +83,8 @@ sr:
   errors:
     messages:
       invalid_time_zone: nije validna vremenska zona
+  locale:
+    name: Srpski
   time:
     formats:
       long_dashed: "%d-%m-%Y %H:%M:%S"
@@ -101,8 +93,6 @@ sr:
       choose_diff_view_html: 'HTML režim gledanja:'
   views:
     pagination:
-      first_title: Veza ka prvoj stranici
-      last_title: Veza ka poslednjoj stranici
       next_title: Veza ka sledećoj stranici
       previous_title: Veza ka prethodnoj stranici
       title: 'Redni broj stranice: '

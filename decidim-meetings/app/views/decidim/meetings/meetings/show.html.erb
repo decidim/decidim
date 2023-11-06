@@ -1,177 +1,21 @@
 <% provide(:title, present(meeting).title) %>
 
 <% add_decidim_meta_tags({
-  title: present(meeting).title,
-  description: present(meeting).description,
-  url: meeting_url(meeting.id)
-}) %>
+                           title: present(meeting).title,
+                           description: present(meeting).description,
+                           url: meeting_url(meeting.id)
+                         }) %>
 
 <%
 edit_link(
   resource_locator(meeting).edit,
   :update,
   :meeting,
-  meeting: meeting
+  meeting:
 )
 %>
 
-<div class="row column view-header">
-  <div class="m-bottom">
-    <%= link_to meetings_path, class: "small hollow js-back-to-list" do %>
-      <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
-      <%= t(".back") %>
-    <% end %>
-  </div>
+<%= append_stylesheet_pack_tag "decidim_meetings", media: "all" %>
+<%= append_javascript_pack_tag "decidim_meetings" %>
 
-  <h2 class="heading2"><%= present(meeting).title(links: true, html_escape: true ) %></h2>
-
-  <%= cell "decidim/author", author_presenter_for(meeting.normalized_author), has_actions: true, from: meeting, context: { extra_classes: ["author-data--small"] } %>
-
-</div>
-<div class="row">
-  <div class="columns section view-side mediumlarge-4 mediumlarge-push-8
-              large-3 large-push-9">
-
-    <% if allowed_to?(:update, :meeting, meeting: meeting) %>
-      <%= link_to t(".edit_meeting"), edit_meeting_path(meeting), class: "button secondary hollow expanded button-sc button--icon follow-button" %>
-    <% end %>
-
-    <% if allowed_to?(:close, :meeting, meeting: meeting) %>
-      <% caption =  meeting.closed? ? t(".edit_close_meeting") : t(".close_meeting") %>
-      <%= link_to caption, edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), class: "button hollow expanded button-sc button--icon follow-button" %>
-    <% end %>
-
-    <div class="card extra">
-      <div class="card__content">
-        <%= cell("decidim/date_range", { start: meeting.start_time, end: meeting.end_time }) %>
-
-        <%= cell "decidim/meetings/join_meeting_button", meeting, big_button: true, show_remaining_slots: true %>
-        <%= render partial: "decidim/shared/follow_button", locals: { followable: meeting, large: false  } %>
-      </div>
-      <% if meeting.closed? && meeting.closing_visible? %>
-        <% double = meeting.has_contributions? && meeting.has_attendees? %>
-        <div class="card card--secondary extra definition-data">
-          <% if meeting.has_contributions? %>
-            <div class="definition-data__item <%= "definition-data__item--double" if double %>">
-              <span class="definition-data__title"><%= t(".contributions") %></span>
-              <span class="definition-data__number"><%= meeting.contributions_count %></span>
-            </div>
-          <% end %>
-          <% if meeting.has_attendees? %>
-            <div class="definition-data__item <%= "definition-data__item--double" if double %>">
-              <span class="definition-data__title"><%= t(".attendees") %></span>
-              <span class="definition-data__number"><%= meeting.attendees_count %></span>
-            </div>
-          <% end %>
-          <% if meeting.attending_organizations.present? %>
-            <div class="definition-data__item">
-              <span class="definition-data__title"><%= t(".organizations") %></span>
-              <span class="definition-data__text"><%= simple_format(meeting.attending_organizations) %></span>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
-
-    <% if registration.present? && registration.meeting.component.settings.registration_code_enabled %>
-      <div class="card extra">
-        <div class="card__content">
-            <div class="registration_code">
-              <span><%= registration_code_help_text %></span>
-              <span><strong><%= registration.code %></strong></span>
-              <div class="text-small"><%= validation_state_for(registration) %></div>
-            </div>
-        </div>
-      </div>
-    <% end %>
-
-    <% if meeting.services.any? %>
-      <div class="card card--list">
-        <% meeting.services.each do |service| %>
-          <div class="card--list__item">
-            <div class="card--list__text card--list__text--top">
-              <%= icon "actions", class: "card--list__icon alert", role: "img", "aria-hidden": true %>
-              <div>
-                <h3 class="card--list__heading heading-small"><%= translated_attribute(service["title"]) %></h3>
-                <span class="text-medium"><%= translated_attribute(service["description"]) %></span>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-
-    <%= resource_reference(meeting) %>
-    <%= resource_version(meeting, versions_path: meeting_versions_path(meeting)) %>
-    <%= render partial: "decidim/shared/share_modal" %>
-    <%= embed_modal_for meeting_widget_url(meeting, format: :js) %>
-    <%= render partial: "calendar_modal", locals: { ics_url: calendar_meeting_url(meeting), google_url: google_calendar_event_url(meeting) } %>
-  </div>
-  <div class="columns mediumlarge-8 mediumlarge-pull-4">
-    <div class="section">
-      <% if meeting.private_meeting? %>
-        <span class="<%= meeting_type_badge_css_class("private") %> label proposal-status">
-          <%= t("private_meeting", scope: "decidim.meetings.types") %>
-        </span>
-      <% end %>
-      <% if meeting.private_meeting? and meeting.transparent? %>
-        <span class="<%= meeting_type_badge_css_class("transparent") %> label proposal-status">
-          <%= t("transparent", scope: "decidim.meetings.types") %>
-        </span>
-      <% end %>
-      <% if meeting.withdrawn? %>
-        <span class="<%= meeting_type_badge_css_class("withdraw") %> label proposal-status">
-          <%= t("withdraw", scope: "decidim.meetings.types") %>
-        </span>
-      <% end %>
-      <%= render_meeting_body(@meeting) %>
-
-      <% if meeting.maps_enabled? && !meeting.online_meeting? %>
-        <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: meeting } %>
-      <% end %>
-
-      <% unless meeting.in_person_meeting? || meeting.withdrawn? %>
-        <%= cell "decidim/meetings/online_meeting_link", meeting %>
-      <% end %>
-
-      <%= render partial: "decidim/shared/tags", locals: { resource: meeting, tags_class_extra: "tags--meeting" } %>
-    </div>
-
-    <% if meeting.agenda.present? && meeting.agenda.visible? %>
-      <%= render "meeting_agenda" %>
-    <% end %>
-
-    <%= cell "decidim/meetings/public_participants_list", meeting %>
-
-    <% if !meeting.closed? && meeting.user_group_registrations.any? %>
-      <% user_group_ids = meeting.user_group_registrations.user_group_ids %>
-      <div class="section">
-        <h4 class="section-heading"><%= t(".organizations") %></h4>
-        <div class="card card--list">
-          <% Decidim::UserGroup.where(id: user_group_ids).each do |group| %>
-            <div class="card--list__item">
-              <div class="card--list__text card--list__text--top">
-              <%= cell "decidim/author", present(group) %>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
-
-    <% if meeting.closed? && meeting.closing_visible? %>
-      <div class="section">
-        <h3 class="section-heading"><%= t(".meeting_minutes") %></h3>
-        <%= decidim_sanitize_editor translated_attribute meeting.closing_report %>
-      </div>
-    <% end %>
-
-    <%= linked_resources_for meeting, :proposals, "proposals_from_meeting" %>
-    <%= linked_resources_for meeting, :results, "meetings_through_proposals" %>
-  </div>
-</div>
-<%= attachments_for meeting %>
-<%= comments_for meeting %>
-<%= pad_iframe_for meeting %>
-
-<%= cell("decidim/flag_modal", meeting) %>
+<%= render partial: "meeting", locals: { meeting: } %>

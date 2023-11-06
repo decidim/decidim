@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Log::UserPresenter, type: :helper do
   subject { described_class.new(user, helper, extra).present }
 
-  let!(:user) { create :user }
+  let!(:user) { create(:user) }
   let(:user_nickname) { h(user.nickname) }
   let(:extra) do
     {
@@ -21,7 +21,7 @@ describe Decidim::Log::UserPresenter, type: :helper do
       end
     end
 
-    context "when the user doesn't exist" do
+    context "when the user does not exist" do
       let(:user) { nil }
       let(:extra) do
         {
@@ -30,7 +30,7 @@ describe Decidim::Log::UserPresenter, type: :helper do
         }
       end
 
-      it "doesn't link to their profile" do
+      it "does not link to their profile" do
         expect(subject).not_to include("href=\"/profiles/")
         expect(subject).to include("John O'Hara")
       end

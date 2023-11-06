@@ -14,8 +14,6 @@ module Decidim
 
       delegate :resource_manifest, :resource_key, to: :class
 
-      alias_method :manifest, :resource_manifest
-
       # Public: Whether the permissions for this object actions can be set at resource level.
       def allow_resource_permissions?
         false

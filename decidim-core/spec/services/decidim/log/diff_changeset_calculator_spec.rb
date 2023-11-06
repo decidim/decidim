@@ -29,11 +29,11 @@ describe Decidim::Log::DiffChangesetCalculator do
 
   describe "#changeset" do
     it "only keeps the fields in fields mapping" do
-      expect(attribute_names).to match_array([:updated_at, :title])
+      expect(attribute_names).to contain_exactly(:updated_at, :title)
     end
 
     it "generates the correct structure for the fields" do
-      expect(title_attribute.keys).to match_array([:attribute_name, :label, :previous_value, :new_value, :type])
+      expect(title_attribute.keys).to contain_exactly(:attribute_name, :label, :previous_value, :new_value, :type)
       expect(title_attribute[:attribute_name]).to eq :title
       expect(title_attribute[:previous_value]).to eq "Old title"
       expect(title_attribute[:new_value]).to eq "New title"
@@ -106,7 +106,7 @@ describe Decidim::Log::DiffChangesetCalculator do
             }
           end
 
-          it "doesn't try to generate a nice label" do
+          it "does not try to generate a nice label" do
             expect(subject.count).to eq 2
             expect(subject.first).to include(label: "My field (English)", previous_value: "Foo", new_value: "Doe")
             expect(subject.last).to include(label: "My field (zn)", previous_value: "Bar", new_value: "Doe")
@@ -209,7 +209,7 @@ describe Decidim::Log::DiffChangesetCalculator do
       let(:fields_mapping) { nil }
 
       it "renders nothing" do
-        expect(attribute_names).to match_array([:start_date, :title, :updated_at])
+        expect(attribute_names).to contain_exactly(:start_date, :title, :updated_at)
       end
     end
   end

@@ -28,14 +28,14 @@ require in your final decidim application in order to use it. To do that, you
 need to include the plugin in your application's `Gemfile`.
 
 For example, if you generated your component at
-`~/decidim-module-experimental_component`, you'll need to edit your `Gemfile` like
+`~/decidim-module-experimental_component`, you will need to edit your `Gemfile` like
 this in order for the component to be used:
 
 ```ruby
 gem "decidim-experimental_plugin", path: "~/decidim-module-experimental_plugin"
 ```
 
-Once you do that, and boot your application, you'll see the new component being
+Once you do that, and boot your application, you will see the new component being
 offered in the "New component" selector on the "Components" section of any
 participatory space in the admin dashboard.
 

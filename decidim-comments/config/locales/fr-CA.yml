@@ -31,22 +31,22 @@ fr-CA:
         update:
           error: Une erreur s'est produite lors de la mise à jour du commentaire.
       comments_count: Nombre de commentaires
-      comments_title: Commentaires
+      comments_title: Commentaire
       last_activity:
-        new_comment_at_html: "<span>Nouveau commentaire à %{link}</span>"
-      view: Voir
+        new_comment: 'Nouveau commentaire :'
       votes:
         create:
           error: Une erreur s'est produite lors du vote sur le commentaire.
     components:
       add_comment_form:
-        account_message: Pour ajouter votre commentaire <a href="%{sign_in_url}"> connectez-vous avec votre compte</a> ou <a href="%{sign_up_url}">inscrivez-vous</a>.
+        account_message: <a href="%{sign_in_url}">Connectez-vous avec votre compte</a> ou <a href="%{sign_up_url}"> inscrivez-vous </a> pour ajouter votre commentaire.
         form:
           body:
             label: Commentaire
             placeholder: Que pensez-vous de cela ?
-          form_error: Le texte est requis et ne peut pas dépasser %{length} caractères.
-          submit: Publier
+          form_error: Le texte est requis et ne doit pas dépasser %{length} caractères.
+          submit_reply: Publier la réponse
+          submit_root_comment: Publier le commentaire
           user_group_id:
             label: Commenter en tant que
         opinion:
@@ -64,6 +64,7 @@ fr-CA:
         alignment:
           against: Contre
           in_favor: Pour
+        cancel_reply: Annuler la réponse
         confirm_destroy: Êtes-vous sûr de vouloir supprimer ce commentaire?
         delete: Supprimer
         deleted_at: Commentaire supprimé le %{date}
@@ -80,11 +81,13 @@ fr-CA:
           description: Ce contenu est-il inapproprié ?
           details: Commentaires additionnels
           reasons:
-            does_not_belong: Contient d’autres types de contenus qui vous semblent inappropriés à %{organization_name} (activités illégales, menaces suicidaires, informations personnelles,...).
+            does_not_belong: Contient du contenu illégal, menace de suicide, informations personnelles ou tout autre élément qui, selon vous, n'aurait pas sa place sur %{organization_name}.
             offensive: Contient des propos contraires à la loi (propos racistes, sexistes, insultes, attaques personnelles, menaces de mort, incitations au suicide ou toute forme de discours de haine,...).
             spam: Contient des publicités, des escroqueries, des pièges à clic (clickbait) ou des robots fonctionnant au script (script bots).
           title: Signaler un contenu inapproprié
-        show_replies: Afficher %{replies_count} réponses
+        show_replies:
+          one: Afficher la réponse
+          other: Afficher %{count} réponses
         single_comment_link_title: Obtenir le lien
       comment_order_selector:
         order:
@@ -93,8 +96,6 @@ fr-CA:
           older: Les plus anciens
           recent: Les plus récents
         title: 'Classement par :'
-      comment_thread:
-        title: Conversation avec %{authorName}
       comments:
         blocked_comments_for_unauthorized_user_warning: Vous devez valider votre inscription pour commenter maintenant, mais vous pouvez lire les commentaires précédents.
         blocked_comments_for_user_warning: Vous n'êtes pas en mesure de commenter pour le moment, mais vous pouvez lire les précédents.
@@ -167,4 +168,4 @@ fr-CA:
         title: commentaires
   errors:
     messages:
-      cannot_have_comments: ne peut pas être commenté
+      cannot_have_comments: ne peut pas avoir de commentaires

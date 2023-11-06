@@ -31,7 +31,7 @@ module Decidim
 
       translatable_fields :title, :body
 
-      POSSIBLE_STATES = %w(not_answered evaluating accepted rejected withdrawn).freeze
+      STATES = { not_answered: 0, evaluating: 10, accepted: 20, rejected: -10, withdrawn: -20 }.freeze
 
       fingerprint fields: [:title, :body]
 
@@ -55,18 +55,19 @@ module Decidim
 
       geocoded_by :address
 
-      scope :answered, -> { where.not(answered_at: nil) }
-      scope :not_answered, -> { where(answered_at: nil) }
-
-      scope :state_not_published, -> { where(state_published_at: nil) }
-      scope :state_published, -> { where.not(state_published_at: nil).where.not(state: nil) }
+      enum state: STATES, _default: "not_answered"
 
       scope :accepted, -> { state_published.where(state: "accepted") }
       scope :rejected, -> { state_published.where(state: "rejected") }
       scope :evaluating, -> { state_published.where(state: "evaluating") }
-      scope :withdrawn, -> { where(state: "withdrawn") }
-      scope :except_rejected, -> { where.not(state: "rejected").or(state_not_published) }
-      scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }
+
+      scope :answered, -> { where.not(answered_at: nil) }
+      scope :not_answered, -> { where(answered_at: nil) }
+
+      scope :state_not_published, -> { where(state_published_at: nil) }
+      scope :state_published, -> { where.not(state_published_at: nil) }
+      scope :except_rejected, -> { not_rejected.or(state_not_published) }
+      scope :except_withdrawn, -> { not_withdrawn }
       scope :drafts, -> { where(published_at: nil) }
       scope :published, -> { where.not(published_at: nil) }
       scope :order_by_most_recent, -> { order(created_at: :desc) }
@@ -103,7 +104,7 @@ module Decidim
         order(Arel.sql("#{sort_by_valuation_assignments_count_nulls_last_query} DESC NULLS LAST").to_s)
       }
 
-      scope_search_multi :with_any_state, [:accepted, :rejected, :evaluating, :state_not_published]
+      scope_search_multi :with_any_state, [:accepted, :rejected, :evaluating, :state_not_published, :state_published]
 
       def self.with_valuation_assigned_to(user, space)
         valuator_roles = space.user_roles(:valuator).where(user:)
@@ -267,7 +268,7 @@ module Decidim
       end
 
       # Public: Overrides the `reported_searchable_content_extras` Reportable concern method.
-      # Returns authors name or title in case it's a meeting
+      # Returns authors name or title in case it is a meeting
       def reported_searchable_content_extras
         [authors.map { |p| p.respond_to?(:name) ? p.name : p.title }.join("\n")]
       end
@@ -399,6 +400,10 @@ module Decidim
 
       ransacker :id_string do
         Arel.sql(%{cast("decidim_proposals_proposals"."id" as text)})
+      end
+
+      ransacker :state, formatter: proc { |v| STATES[v.to_sym] } do |parent|
+        parent.table[:state]
       end
 
       ransacker :is_emendation do |_parent|

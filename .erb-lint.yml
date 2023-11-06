@@ -1,4 +1,8 @@
 ---
+glob: "decidim-*/app/{cells,views}/**/*.erb"
+exclude:
+  - '**/vendor/**/*'
+  - '**/node_modules/**/*'
 
 linters:
   ExtraNewline:
@@ -6,6 +10,9 @@ linters:
 
   FinalNewline:
     enabled: true
+
+  RequireInputAutocomplete:
+    enabled: false
 
   SpaceAroundErbTag:
     enabled: true
@@ -16,15 +23,101 @@ linters:
       - text/javascript
       - text/template
 
+  DeprecatedClasses:
+    enabled: true
+    exclude:
+      - 'decidim_app-design/**/*.erb'
+    addendum: "Please remove it from code."
+    rule_set:
+      - deprecated: ['process-content']
+        suggestion: "This class is deprecated. Please remove the surrounding element"
+      - deprecated: ['xlarge-[\w]*']
+        suggestion: "Foundation classes are deprecated."
+
   Rubocop:
     enabled: true
 
     rubocop_config:
+      inherit_from:
+        - .rubocop.yml
+
       AllCops:
         DisabledByDefault: true
+
+      Layout/InitialIndentation:
+        Enabled: false
+
+      Lint/SymbolConversion:
+        Enabled: false
+
+      Layout/SpaceInsideParens:
+        Enabled: false
+
+      Layout/SpaceAfterColon:
+        Enabled: false
+
+      Lint/UselessAssignment:
+        Enabled: false
+
+      Layout/ArgumentAlignment:
+        Enabled: true
+
+      Layout/SpaceAfterComma:
+        Enabled: false
+
+      Layout/TrailingWhitespace:
+        Enabled: false
+
+      Layout/LeadingEmptyLines:
+        Enabled: false
+
+      Layout/SpaceBeforeComma:
+        Enabled: false
+
+      Style/Copyright:
+        Enabled: false
+
+      Style/FrozenStringLiteralComment:
+        Enabled: false
 
       Style/StringLiterals:
         EnforcedStyle: double_quotes
 
+      Layout/LineLength:
+        Enabled: false
+
+      Layout/FirstArgumentIndentation:
+        Enabled: false
+
       Layout/SpaceInsideHashLiteralBraces:
         Enabled: true
+
+      Layout/BlockAlignment:
+        Enabled: false
+
+      Layout/MultilineMethodCallBraceLayout:
+        Enabled: false
+
+      Layout/FirstArrayElementIndentation:
+        Enabled: false
+
+      Layout/TrailingEmptyLines:
+        Enabled: false
+
+      Naming/FileName:
+        Enabled: false
+
+      Rails/LinkToBlank:
+        Enabled: false
+
+      Naming/VariableName:
+        Enabled: false
+
+      Layout/MultilineMethodCallIndentation:
+        Enabled: true
+
+      Layout/IndentationWidth:
+        Enabled: false
+
+      Layout/MultilineAssignmentLayout:
+        Enabled: false

@@ -6,11 +6,11 @@ module Decidim::Conferences
   describe Admin::CopyConference do
     subject { described_class.new(form, conference) }
 
-    let(:organization) { create :organization }
-    let(:scope) { create :scope, organization: }
+    let(:organization) { create(:organization) }
+    let(:scope) { create(:scope, organization:) }
     let(:errors) { double.as_null_object }
-    let!(:conference) { create :conference }
-    let!(:component) { create :component, manifest_name: :dummy, participatory_space: conference }
+    let!(:conference) { create(:conference) }
+    let!(:component) { create(:component, manifest_name: :dummy, participatory_space: conference) }
     let(:form) do
       instance_double(
         Admin::ConferenceCopyForm,
@@ -41,7 +41,7 @@ module Decidim::Conferences
     end
 
     context "when everything is ok" do
-      it "duplicates an conference" do
+      it "duplicates a conference" do
         expect { subject.call }.to change(Decidim::Conference, :count).by(1)
 
         old_conference = Decidim::Conference.first
@@ -86,7 +86,7 @@ module Decidim::Conferences
     context "when copy_components exists" do
       let(:copy_components) { true }
 
-      it "duplicates an conference and the components" do
+      it "duplicates a conference and the components" do
         dummy_hook = proc {}
         component.manifest.on :copy, &dummy_hook
         expect(dummy_hook).to receive(:call).with({ new_component: an_instance_of(Decidim::Component), old_component: component })

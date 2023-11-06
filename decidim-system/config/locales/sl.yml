@@ -5,15 +5,11 @@ sl:
         confirm_destroy: Ali ste prepričani, da želite izbrisati to?
         destroy: Izbriši
         edit: Uredi
-        new: Nov
         save: Shrani
         title: Dejanja
       admins:
         create:
           error: Pojavila se je težava pri kreiranju skrbnika.
-          success: Skrbnik uspešno kreiran
-        destroy:
-          success: Skrbnik uspešno izbrisan
         edit:
           title: Uredi skrbnika
           update: Posodobi
@@ -24,7 +20,6 @@ sl:
           title: Nov skrbnik
         update:
           error: Pojavila se je težava pri urejanju skrbnika.
-          success: Skrbnik uspešno posodobljen
       menu:
         admins: Skrbniki
         dashboard: Nadzorna plošča
@@ -34,7 +29,6 @@ sl:
           fields:
             created_at: Ustvarjen ob
             email: Email
-          name: Skrbnik
         organization:
           actions:
             save_and_invite: Ustvari organizacijo in povabi skrbnika
@@ -42,7 +36,6 @@ sl:
             created_at: Ustvarjen ob
             name: Ime
             smtp_settings: SMTP nastavitve
-          name: Organizacija
       organizations:
         create:
           error: Pojavila se je težava pri kreiranju organizacije.

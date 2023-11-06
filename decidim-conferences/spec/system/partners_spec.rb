@@ -14,20 +14,19 @@ describe "Conference partners", type: :system do
   context "when there are no partners" do
     it "the menu link is not shown" do
       visit decidim_conferences.conference_path(conference)
-      expect(page).to have_no_content("PARTNERS")
+      expect(page).not_to have_content("Partners")
     end
   end
 
   context "when there are partners" do
     let!(:main_promotors) { create_list(:partner, 2, :main_promotor, conference:) }
     let!(:collaborators) { create_list(:partner, 2, :collaborator, conference:) }
-    let!(:partners) { main_promotors + collaborators }
 
     it "the menu link is shown" do
       visit decidim_conferences.conference_path(conference)
 
-      within ".process-nav" do
-        expect(page).to have_content("PARTNERS")
+      within "aside .conference__nav-container" do
+        expect(page).to have_content("Partners")
         click_link "Partners"
       end
     end
@@ -35,13 +34,21 @@ describe "Conference partners", type: :system do
     it "lists all conference partners" do
       visit decidim_conferences.conference_path(conference)
 
-      within "#conference-partners" do
-        expect(page).to have_content("ORGANIZERS")
-        expect(page).to have_content("PARTNERS")
-        expect(page).to have_selector("#conference-partners .partner-box", count: 4)
+      within "#conference-partners-main_promotor" do
+        expect(page).to have_content("Organizers")
+        expect(page).to have_selector(".conference__grid-item", count: 2)
 
-        partners.each do |partner|
-          expect(page).to have_content(partner.name)
+        main_promotors.each do |collaborator|
+          expect(page).to have_content(collaborator.name)
+        end
+      end
+
+      within "#conference-partners-collaborator" do
+        expect(page).to have_content("Partners")
+        expect(page).to have_selector(".conference__grid-item", count: 2)
+
+        collaborators.each do |collaborator|
+          expect(page).to have_content(collaborator.name)
         end
       end
     end

@@ -51,10 +51,7 @@ lv:
           update:
             invalid: Saglabājot aptauju, radās problēma.
             success: Aptauja ir veiksmīgi saglabāta
-      last_activity:
-        new_survey_at_html: "<span>Jauna aptauja %{link}</span>"
       surveys:
         answer:
           invalid: Atbildot uz aptauju, radās problēma.
-          spam_detected: Atbildot uz aptaujas jautājumiem, radās problēma. Varbūt jūs esat rīkojies pārāk ātri, vai varat mēģināt vēlreiz?
           success: Uz aptaujas jautājumiem ir veiksmīgi atbildēts.

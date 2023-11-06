@@ -5,7 +5,7 @@ require "cgi"
 module Decidim
   module Meetings
     # This class handles the streaming url to be included in the iframe present
-    # in the live event. For some services it's required to transforma a bit
+    # in the live event. For some services it is required to transforma a bit
     # the structure of the URL.
     class MeetingIframeEmbedder
       # Public: Initializes the service.
@@ -36,15 +36,15 @@ module Decidim
       def embed_code(request_host)
         return nil if parsed_online_meeting_uri.nil?
 
-        %(
-<div
-  class="disabled-iframe"
-  allow="camera; microphone; fullscreen; display-capture; autoplay"
-  loading="lazy"
-  src="#{embed_transformed_url(request_host)}"
-  style="height: 100%; width: 100%; border: 0px;"
-></div>
-        )
+        <<~HTML
+          <div class="disabled-iframe">
+            <!-- <iframe
+              allow="camera; microphone; fullscreen; display-capture; autoplay"
+              loading="lazy"
+              src="#{embed_transformed_url(request_host)}"
+              style="height: 100%; width: 100%; border: 0px;"></iframe> -->
+          </div>
+        HTML
       end
 
       private

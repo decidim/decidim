@@ -1,10 +1,6 @@
 id:
   activemodel:
     attributes:
-      agenda:
-        description: Deskripsi
-        duration: Lamanya
-        title: Judul
       close_meeting:
         attendees_count: Jumlah peserta
         attending_organizations: Daftar organisasi yang hadir
@@ -18,7 +14,6 @@ id:
         decidim_category_id: Kategori
         decidim_scope_id: Cakupan
         description: Deskripsi
-        end_time: Akhir waktu
         location: Lokasi
         location_hints: Petunjuk lokasi
         organizer_id: Penyelenggara
@@ -26,20 +21,8 @@ id:
         registration_form_enabled: Formulir pendaftaran diaktifkan
         registration_terms: Ketentuan pendaftaran
         registrations_enabled: Pendaftaran diaktifkan
-        start_time: Waktu mulai
         title: Judul
         transparent: Transparan
-    errors:
-      models:
-        meeting_agenda:
-          attributes:
-            base:
-              too_many_minutes: Durasi barang melebihi durasi rapat dengan %{count} menit
-              too_many_minutes_child: Durasi item anak melebihi item agenda "%{parent_title}" durasi induk %{count} menit
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Email ini sudah diundang
     models:
       decidim/meetings/close_meeting_event: Pertemuan tertutup
       decidim/meetings/create_meeting_event: Pertemuan
@@ -63,7 +46,6 @@ id:
           success: Pertemuan duplikat berhasil.
         new:
           copy: Salinan
-          select: Pilih data mana yang ingin Anda gandakan
           title: Pertemuan duplikat
     components:
       meetings:
@@ -135,8 +117,6 @@ id:
           description_own: Anda telah menghadiri %{score} pertemuan.
           name: Menghadiri pertemuan
           next_level_in: Hadiri %{score} pertemuan lagi untuk mencapai level berikutnya!
-          unearned_another: Pengguna ini belum menghadiri rapat apa pun.
-          unearned_own: Anda belum menghadiri rapat apa pun.
     meetings:
       actions:
         agenda: Jadwal acara
@@ -146,7 +126,6 @@ id:
         confirm_destroy: Anda yakin ingin menghapus rapat ini?
         destroy: Menghapus
         edit: Edit
-        new: Pertemuan baru
         preview: Preview
         registrations: Pendaftaran
         title: Tindakan
@@ -164,9 +143,6 @@ id:
             down: Turun
             remove: Menghapus
             up: Naik
-          create:
-            invalid: Ada masalah saat membuat agenda ini
-            success: Agenda berhasil dibuat
           edit:
             title: Edit agenda
             update: Memperbarui
@@ -178,9 +154,6 @@ id:
           new:
             create: Membuat
             title: Agenda baru
-          update:
-            invalid: Terjadi masalah saat memperbarui agenda ini
-            success: Agenda berhasil diperbarui
         exports:
           meetings: Rapat
           registrations: Pendaftaran
@@ -206,21 +179,14 @@ id:
               all: Semua
               rejected: Ditolak
               sent: Terkirim
-            filter_by: Filter berdasarkan
             invite_attendee: Undang hadirin
             invites: Undangan
-            registrations_disabled: Anda tidak dapat mengundang peserta karena pendaftaran dinonaktifkan.
             search: Pencarian
         meeting_closes:
           edit:
             close: Dekat
             title: Tutup rapat
         meetings:
-          close:
-            invalid: Terjadi masalah saat menutup rapat ini
-            success: Rapat berhasil ditutup
-          create:
-            invalid: Ada masalah saat membuat rapat ini
           destroy:
             success: Rapat berhasil dihapus
           edit:
@@ -240,12 +206,6 @@ id:
           services:
             add_service: Tambahkan layanan
             services: Jasa
-          update:
-            invalid: Terjadi masalah saat memperbarui rapat ini
-            success: Rapat berhasil diperbarui
-        models:
-          meeting:
-            name: Pertemuan
         registrations:
           edit:
             save: Menyimpan
@@ -257,7 +217,6 @@ id:
             registration_form: Formulir pendaftaran
             registrations_count:
               other: Ada %{count} pendaftaran.
-            reserved_slots_help: Biarkan hingga 0 jika Anda tidak memiliki slot yang dipesan
             reserved_slots_less_than: Harus kurang dari atau sama dengan %{count}
           update:
             invalid: Terjadi masalah saat menyimpan pengaturan pendaftaran.
@@ -281,19 +240,13 @@ id:
               not_found: 'Organiser tidak ditemukan di database (ID: %{id})'
       calendar_modal:
         calendar_url: URL Kalender
-        close_window: Tutup jendela
         export_calendar: Ekspor kalender
       conference_venues: Tempat Konferensi
-      content_blocks:
-        upcoming_meetings:
-          view_all_meetings: Lihat semua
       directory:
         meetings:
           index:
             meetings: Rapat
             space_type: Ruang partisipatif
-      last_activity:
-        new_meeting_at_html: "<span>Pertemuan baru jam %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -301,22 +254,12 @@ id:
         registration_mailer:
           confirmation:
             subject: Pendaftaran pertemuan Anda telah dikonfirmasi
-      meeting:
-        not_allowed: Anda tidak diizinkan untuk melihat rapat ini
       meetings:
         filters:
           category: Kategori
           date: Tanggal
           search: Pencarian
-        filters_small_view:
-          close_modal: Tutup modal
-          filter: Filter
-          filter_by: Filter berdasarkan
-          unfold: Membuka
-        meeting_minutes:
-          related_information: Informasi Terkait
         meetings:
-          no_meetings_warning: Tidak ada pertemuan yang sesuai dengan kriteria pencarian Anda atau tidak ada jadwal pertemuan.
           upcoming_meetings_warning: Saat ini, tidak ada pertemuan yang dijadwalkan, tetapi di sini Anda dapat menemukan semua pertemuan sebelumnya yang terdaftar.
         registration_confirm:
           cancel: Membatalkan
@@ -335,8 +278,6 @@ id:
           remaining_slots:
             other: "%{count} slot tersisa"
           view: Melihat
-      meetings_map:
-        view_meeting: Lihat rapat
       models:
         invite:
           fields:
@@ -364,7 +305,6 @@ id:
       registrations:
         create:
           invalid: Ada masalah saat bergabung dengan rapat ini.
-          success: Anda telah berhasil bergabung dengan rapat.
         decline_invitation:
           invalid: Terjadi masalah saat menolak undangan.
           success: Anda berhasil menolak undangan.
@@ -384,8 +324,6 @@ id:
         past_meetings: Pertemuan sebelumnya
         see_all: Lihat semua (%{count})
         upcoming_meetings: Pertemuan yang akan datang
-      upcoming_meeting_for_card:
-        upcoming_meeting: Pertemuan yang akan datang
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Hasil terkait:'

@@ -1,66 +1,63 @@
-<div class='card' id="registration_types">
-  <div class="card-divider">
-    <h2 class="card-title">
+<% add_decidim_page_title(t(".title")) %>
+<div class="card" id="registration_types">
+  <div class="item_show__header">
+    <h2 class="item_show__header-title">
       <%= t(".title") %>
       <% if allowed_to? :create, :registration_type %>
-         <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.registration_type.name", scope: "decidim.admin")), new_conference_registration_type_path(current_conference), class: "button tiny button--title new" %>
+         <%= link_to t("actions.new_registration_type", scope: "decidim.admin"), new_conference_registration_type_path(current_conference), class: "button button__sm button__secondary new" %>
       <% end %>
     </h2>
   </div>
-
-  <div class="card-section">
-    <div class="table-scroll">
-      <table class="stack">
-        <thead>
+  <div class="table-scroll">
+    <table class="table-list">
+      <thead>
+        <tr>
+          <th><%= t("models.registration_type.fields.title", scope: "decidim.admin") %></th>
+          <th><%= t("models.registration_type.fields.price", scope: "decidim.admin") %></th>
+          <th><%= t("models.registration_type.fields.weight", scope: "decidim.admin") %></th>
+          <th><%= t("models.registration_type.fields.conference_meetings", scope: "decidim.admin") %></th>
+          <th><%= t("models.registration_type.fields.registrations_count", scope: "decidim.admin") %></th>
+          <th class="actions"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @registration_types.each do |registration_type| %>
           <tr>
-            <th><%= t("models.registration_type.fields.title", scope: "decidim.admin") %></th>
-            <th><%= t("models.registration_type.fields.price", scope: "decidim.admin") %></th>
-            <th><%= t("models.registration_type.fields.weight", scope: "decidim.admin") %></th>
-            <th><%= t("models.registration_type.fields.conference_meetings", scope: "decidim.admin") %></th>
-            <th><%= t("models.registration_type.fields.registrations_count", scope: "decidim.admin") %></th>
-            <th class="actions"></th>
+            <td>
+              <%= translated_attribute(registration_type.title) %>
+            </td>
+            <td>
+              <%= registration_type.price %>
+            </td>
+            <td>
+              <%= registration_type.weight %>
+            </td>
+            <td>
+              <%= registration_type.conference_meeting_registration_types.count %>
+            </td>
+            <td>
+              <%= registration_type.conference_registrations.count %>
+            </td>
+            <td class="table-list__actions">
+              <% if allowed_to?(:update, :registration_type, registration_type: registration_type) && !registration_type.conference_registrations.any? %>
+                <%= icon_link_to "pencil-line", edit_conference_registration_type_path(current_conference, registration_type), t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit" %>
+              <% end %>
+
+              <% if allowed_to?(:update, :registration_type, registration_type: registration_type) %>
+                <% if registration_type.published? %>
+                  <%= icon_link_to "close-circle-line", conference_registration_type_publish_path(current_conference, registration_type), t("actions.unpublish", scope: "decidim.admin"), class: "action-icon--unpublish", method: :delete %>
+                <% else %>
+                  <%= icon_link_to "check-line", conference_registration_type_publish_path(current_conference, registration_type), t("actions.publish", scope: "decidim.admin"), class: "action-icon--publish", method: :post %>
+                <% end %>
+              <% end %>
+              <% if allowed_to?(:destroy, :registration_type, registration_type: registration_type) && !registration_type.conference_registrations.any? %>
+                <%= icon_link_to "delete-bin-line", conference_registration_type_path(current_conference, registration_type), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+              <% end %>
+            </td>
           </tr>
-        </thead>
-        <tbody>
-          <% @registration_types.each do |registration_type| %>
-            <tr>
-              <td>
-                <%= translated_attribute(registration_type.title) %>
-              </td>
-              <td>
-                <%= registration_type.price %>
-              </td>
-              <td>
-                <%= registration_type.weight %>
-              </td>
-              <td>
-                <%= registration_type.conference_meeting_registration_types.count %>
-              </td>
-              <td>
-                <%= registration_type.conference_registrations.count %>
-              </td>
-              <td class="table-list__actions">
-                <% if allowed_to?(:update, :registration_type, registration_type: registration_type) && !registration_type.conference_registrations.any? %>
-                  <%= icon_link_to "pencil", edit_conference_registration_type_path(current_conference, registration_type), t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit" %>
-                <% end %>
-
-                <% if allowed_to?(:update, :registration_type, registration_type: registration_type) %>
-                  <% if registration_type.published? %>
-                    <%= icon_link_to "x", conference_registration_type_publish_path(current_conference, registration_type), t("actions.unpublish", scope: "decidim.admin"), class: "action-icon--unpublish", method: :delete %>
-                  <% else %>
-                    <%= icon_link_to "check", conference_registration_type_publish_path(current_conference, registration_type), t("actions.publish", scope: "decidim.admin"), class: "action-icon--publish", method: :post %>
-                  <% end %>
-                <% end %>
-
-                <% if allowed_to?(:destroy, :registration_type, registration_type: registration_type) && !registration_type.conference_registrations.any? %>
-                  <%= icon_link_to "circle-x", conference_registration_type_path(current_conference, registration_type), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
-                <% end %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <%= paginate @registration_types, theme: "decidim" %>
-    </div>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
+<%= decidim_paginate @registration_types %>

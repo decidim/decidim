@@ -7,7 +7,7 @@ module Decidim::Admin
     let(:reportable) { create(:dummy_resource) }
     let(:moderation) { create(:moderation, reportable:, report_count: 1) }
     let!(:report) { create(:report, moderation:) }
-    let(:current_user) { create :user, organization: reportable.participatory_space.organization }
+    let(:current_user) { create(:user, organization: reportable.participatory_space.organization) }
     let(:command) { described_class.new(reportable, current_user) }
     let(:author_notification) do
       {
@@ -22,6 +22,9 @@ module Decidim::Admin
     end
 
     context "when everything is ok" do
+      let(:arguments) { { resource: reportable } }
+      let(:fired_event) { "decidim.admin.hide_resource" }
+
       it "broadcasts ok" do
         expect { command.call }.to broadcast(:ok)
       end
@@ -30,6 +33,9 @@ module Decidim::Admin
         command.call
         expect(reportable.reload).to be_hidden
       end
+
+      it_behaves_like "fires an ActiveSupport::Notification event", "decidim.admin.hide_resource:before"
+      it_behaves_like "fires an ActiveSupport::Notification event", "decidim.admin.hide_resource:after"
 
       it "traces the action", versioning: true do
         expect(Decidim.traceability)

@@ -1,1 +1,217 @@
 zh-TW:
+  activemodel:
+    attributes:
+      debate:
+        category_id: 類別
+        closed_at: 關閉於
+        conclusions: 結論
+        decidim_category_id: 類別
+        description: 說明
+        end_time: 結束於
+        information_updates: 資訊更新
+        instructions: 參加指南
+        scope_id: 範圍
+        start_time: 開始於
+        title: 標題
+        user_group_id: 建立辯論為
+    models:
+      decidim/debates/close_debate_event: 辯論功能已關閉
+      decidim/debates/create_debate_event: 辯論
+      decidim/debates/creation_disabled_event: 辯論功能已禁用
+      decidim/debates/creation_enabled_event: 辯論創建已啟用
+  activerecord:
+    models:
+      decidim/debates/debate:
+        other: 辯論
+  decidim:
+    components:
+      debates:
+        actions:
+          comment: 留言
+          create: 建立
+          endorse: 連署
+        name: 辯論
+        settings:
+          global:
+            announcement: 公告
+            comments_enabled: 啟用評論功能
+            comments_max_length: 評論字數最大長度(若要使用預設值請輸入0)
+            scope_id: 範圍
+            scopes_enabled: 啟用範圍
+          step:
+            announcement: 公告
+            comments_blocked: 留言已封鎖
+            creation_enabled: 參與者可以建立辯論
+            endorsements_blocked: 連署已封鎖
+            endorsements_enabled: 連署已封鎖
+    debates:
+      actions:
+        close: 關閉
+        confirm_destroy: 您確定嗎？
+        destroy: 刪除
+        edit: 編輯
+        title: 操作
+      admin:
+        debate_closes:
+          edit:
+            close: 關閉
+            title: 關閉辯論
+        debates:
+          create:
+            invalid: 建立辯論時出現問題。
+            success: 辯論建立成功。
+          destroy:
+            success: 辯論已成功刪除。
+          edit:
+            title: 編輯辯論
+            update: 更新辯論
+          form:
+            debate_type: 辯論類型
+            finite: 有限期 (設定開始和結束時間)
+            open: 開放式 (沒有開始或結束時間)
+          index:
+            title: 辯論
+          new:
+            create: 建立辯論
+            title: 新辯論
+          update:
+            invalid: 更新此辯論時發生問題。
+            success: 辯論已成功更新
+        exports:
+          comments: 評論
+      admin_log:
+        debate:
+          close: "%{user_name} 在 %{space_name} 空間關閉了 %{resource_name} 辯論。"
+          create: "%{user_name} 在%{space_name} 空間中創建了%{resource_name} 辯論"
+          update: "%{user_name} 更新了 %{space_name} 空間中的 %{resource_name} 辯論"
+      debate_m:
+        commented_time_ago: 在 %{time} 前評論
+      debates:
+        close:
+          invalid: 關閉辯論時出現問題
+          success: 辯論成功關閉
+        close_debate_modal:
+          description: 這場辯論的總結或結論是什麼？
+          send: 關閉辯論
+        closed: 關閉
+        count:
+          debates_count:
+            other: "%{count} 場辯論"
+        create:
+          invalid: 建立辯論時出現問題。
+          success: 辯論建立成功。
+        debate:
+          participate: 參與
+        edit:
+          back: 返回
+          save: 保存更改
+          title: 編輯辯論
+        filters:
+          activity: 我的活動
+          all: 全部
+          category: 類別
+          category_prompt: 選擇一個類別
+          commented: 已回應
+          my_debates: 我的辯論
+          official: 官方
+          origin: 起源
+          participants: 參與者
+          search: 搜尋
+          state: 狀態
+          state_values:
+            closed: 關閉
+            open: 開啟
+        form:
+          select_a_category: 請選擇一個類別
+        index:
+          new_debate: 新辯論
+        new:
+          back: 返回
+          create: 建立
+          title: 新辯論
+        orders:
+          commented: 最多評論
+          label: 依序排列辯論
+          random: 隨機順序
+          recent: 最近
+          updated: 最近更新
+        show:
+          close_debate: 關閉辯論
+          date: 日期
+          debate_closed: 關閉
+          debate_conclusions_are: '此辯論已於 %{date} 結束，以下是總結結論：'
+          edit_conclusions: 修改結論
+          edit_debate: 編輯辯論
+          groups_count: 群組
+          open: 開放性辯論
+          participants_count: 參與者
+        update:
+          invalid: 更新此辯論時發生問題。
+          success: 辯論已成功更新
+      last_activity:
+        debate_updated: '辯論已更新:'
+        new_debate: '新辯論:'
+      models:
+        debate:
+          fields:
+            end_time: 結束日期
+            official_debate: 正式辯論
+            start_time: 開始日期
+            title: 標題
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              你好，
+              一個新的辯論「%{resource_title}」已經在 %{space_title} 參與空間中建立，請查看並參與：
+            email_outro: 您收到此通知，是因為您正在追蹤 %{space_title} 參與空間。您可以按照上述連結停止接收通知。
+            email_subject: '%{space_title} 參與空間上有新辯論主題%{resource_title}'
+            notification_title: 在<a href="%{space_path}">%{space_title}</a>上建立了辯論主題<a href="%{resource_path}">%{resource_title}</a>。
+          user_followers:
+            email_intro: |-
+              嗨，
+              你正在追蹤的 %{author_name} %{author_nickname} 創建了一個新辯論主題 "%{resource_title}"。點擊下方連結查看並參與辯論：
+            email_outro: 您收到此通知，是因為您正在關注 %{author_nickname}。您可以使用上面的連結停止接收通知。
+            email_subject: 新辯論主題「%{resource_title}」，由 %{author_nickname} 建立
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> 建立了 <a href="%{resource_path}">%{resource_title}</a> 辯論。
+        creation_disabled:
+          email_intro: '在 %{participatory_space_title} 中不再開放建立辯論。您仍可在此頁面參與開放辯論：'
+          email_outro: 你收到此通知是因為你正在追蹤 %{participatory_space_title}。你可以透過前面的連結停止接收通知。
+          email_subject: 在 %{participatory_space_title} 中已停用辯論建立
+          notification_title: 辯論建立現在在<a href="%{participatory_space_url}">%{participatory_space_title}</a>已被停用
+        creation_enabled:
+          email_intro: '現在您可以在 %{participatory_space_title} 開始新的辯論！在此頁面開始參與：'
+          email_outro: 你收到此通知是因為你正在追蹤 %{participatory_space_title}。你可以透過前面的連結停止接收通知。
+          email_subject: 在 %{participatory_space_title} 現在可以開始新的辯論！
+          notification_title: 您現在可以在<a href="%{participatory_space_url}">%{participatory_space_title}</a>中<a href="%{resource_path}">開始新的辯論</a>。
+        debate_closed:
+          affected_user:
+            email_intro: '在 "%{resource_title}" 辯論中已經關閉。您可以在其頁面上閱讀結論：'
+            email_outro: 您收到此通知是因為您正在追蹤「%{resource_title}」辯論。您可以透過上方的連結取消追蹤。
+            email_subject: '%{resource_title} 辯論已結束'
+            notification_title: 這個<a href="%{resource_path}">%{resource_title}</a>辯論已經結束。
+          follower:
+            email_intro: '在 "%{resource_title}" 辯論中已經關閉。您可以在其頁面上閱讀結論：'
+            email_outro: 您收到此通知是因為您正在追蹤「%{resource_title}」辯論。您可以透過上方的連結取消追蹤。
+            email_subject: '%{resource_title} 辯論已結束'
+            notification_title: 這個<a href="%{resource_path}">%{resource_title}</a>辯論已經結束。
+    gamification:
+      badges:
+        commented_debates:
+          conditions:
+            - 選擇一個開放辯論加入
+          description: 當你在不同辯論中發表評論時，會被授予此徽章。
+          description_another: 此參與者已參與了 %{score} 個辯論。
+          description_own: 您已經參與了 %{score} 場辯論
+          name: 辯論
+          next_level_in: 再參與 %{score} 個辯論，即可達成下一等級！
+          unearned_another: 這位參與者尚未參與任何辯論。
+          unearned_own: 您尚未參與任何辯論。
+    metrics:
+      debates:
+        description: 建立的辯論次數
+        object: 辯論
+        title: 辯論
+    statistics:
+      debates_count: 辯論

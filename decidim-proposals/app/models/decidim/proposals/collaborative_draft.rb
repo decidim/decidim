@@ -31,10 +31,10 @@ module Decidim
 
       geocoded_by :address
 
-      scope :open, -> { where(state: "open") }
-      scope :withdrawn, -> { where(state: "withdrawn") }
-      scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }
-      scope :published, -> { where(state: "published") }
+      STATES = { open: 0, published: 10, withdrawn: -1 }.freeze
+
+      enum state: STATES, _default: "open"
+      scope :except_withdrawn, -> { not_withdrawn.or(where(state: nil)) }
 
       scope_search_multi :with_any_state, [:open, :published, :withdrawn]
 
@@ -43,18 +43,6 @@ module Decidim
       # user - the user to check for authorship
       def editable_by?(user)
         authored_by?(user)
-      end
-
-      def open?
-        state == "open"
-      end
-
-      def withdrawn?
-        state == "withdrawn"
-      end
-
-      def published?
-        state == "published"
       end
 
       # Public: Overrides the `reported_content_url` Reportable concern method.

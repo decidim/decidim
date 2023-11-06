@@ -8,9 +8,9 @@ module Decidim
       describe CreatePollingStation do
         subject { described_class.new(form) }
 
-        let(:organization) { create :organization, available_locales: [:en, :ca, :es], default_locale: :en }
-        let(:user) { create :user, :admin, :confirmed, organization: }
-        let(:voting) { create :voting, voting_type: "hybrid", organization: }
+        let(:organization) { create(:organization, available_locales: [:en, :ca, :es], default_locale: :en) }
+        let(:user) { create(:user, :admin, :confirmed, organization:) }
+        let(:voting) { create(:voting, voting_type: "hybrid", organization:) }
         let(:president) { nil }
         let(:managers) { [] }
 

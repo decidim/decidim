@@ -40,22 +40,24 @@ es:
       actions:
         attachment_collections: Carpetas
         attachments: Adjuntos
-        confirm_destroy: '¿Estás segura de que deseas eliminar este proyecto?'
+        confirm_destroy: '¿Seguro que deseas eliminar este proyecto?'
         destroy: Borrar
         edit: Editar
         edit_projects: Gestionar proyectos
         import: Importar propuestas a proyectos
-        new: Nuevo %{name}
+        new_budget: Añadir presupuesto
+        new_project: Añadir proyecto
         preview: Previsualizar
+        send_voting_reminders: Enviar recordatorios de votación
         title: Acciones
       admin:
         budgets:
           create:
-            invalid: Se ha producido un error al crear este proyecto
-            success: Presupuesto creado correctamente
+            invalid: Se ha producido un error al crear este proyecto.
+            success: Presupuesto creado correctamente.
           destroy:
-            invalid: Hubo un problema al eliminar este presupuesto
-            success: Presupuesto eliminado correctamente
+            invalid: Hubo un problema al eliminar este presupuesto.
+            success: Presupuesto eliminado correctamente.
           edit:
             title: Editar presupuesto
             update: Actualizar presupuesto
@@ -69,8 +71,8 @@ es:
             create: Crear presupuesto
             title: Nuevo presupuesto
           update:
-            invalid: Se ha producido un problema al actualizar este presupuesto
-            success: Presupuesto actualizado correctamente
+            invalid: Se ha producido un problema al actualizar este presupuesto.
+            success: Presupuesto actualizado correctamente.
         exports:
           projects: Proyectos
         models:
@@ -80,10 +82,10 @@ es:
             name: Proyecto
         projects:
           create:
-            invalid: Se ha producido un error al crear este proyecto
-            success: Proyecto creado correctamente
+            invalid: Se ha producido un error al crear este proyecto.
+            success: Proyecto creado correctamente.
           destroy:
-            success: Proyecto eliminado correctamente
+            success: Proyecto eliminado correctamente.
           edit:
             title: Editar proyecto
             update: Actualizar
@@ -92,11 +94,11 @@ es:
             cancel: Cancelar
             change_category: Cambiar categoría
             change_scope: Cambiar ámbito
-            change_selected: Cambiar la selección
-            deselect_implementation: Deseleccionar
+            change_selected: Cambiar estado seleccionado
+            deselect_implementation: No seleccionado para implementar
             finished_orders: Votos terminados
             pending_orders: Votos pendientes
-            select_for_implementation: Seleccionar
+            select_for_implementation: Seleccionado para implementar
             selected: Seleccionado
             title: Proyectos
             update: Actualizar
@@ -105,27 +107,31 @@ es:
             create: Crear
             title: Nuevo proyecto
           update:
-            invalid: Se ha producido un error al actualizar este proyecto
-            success: Proyecto actualizado correctamente
+            invalid: Se ha producido un error al actualizar este proyecto.
+            success: Proyecto actualizado correctamente.
           update_category:
             invalid: 'Estas propuestas ya tenían la categoría %{subject_name}: %{projects}.'
-            select_a_category: Por favor, selecciona una categoría
-            select_a_project: Selecciona un proyecto
+            select_a_category: Por favor, selecciona una categoría.
+            select_a_project: Por favor, selecciona un proyecto.
             success: 'Los proyectos se han actualizado correctamente a la categoría %{subject_name}: %{projects}.'
           update_scope:
             invalid: 'Estos proyectos ya pertenecían al ámbito %{subject_name}: %{projects}.'
-            select_a_project: Por favor, selecciona un proyecto
-            select_a_scope: Por favor, selecciona un ámbito
+            select_a_project: Por favor, selecciona un proyecto.
+            select_a_scope: Por favor, selecciona un ámbito.
             success: 'Los proyectos se han actualizado correctamente al ámbito %{subject_name}: %{projects}.'
           update_selected:
-            invalid: 'Estos proyectos ya estaban seleccionados: %{projects}.'
-            select_a_project: Por favor, selecciona un proyecto
-            select_a_selection: Por favor, elige un estado
-            success: 'Selección de proyectos cambiada con éxito: %{projects}.'
+            invalid:
+              selected: 'Estos proyectos ya han sido seleccionados para ser implementados: %{projects}.'
+              unselected: 'Estos proyectos ya han sido deseleccionados de ser implementados: %{projects}.'
+            select_a_project: Por favor, selecciona un proyecto.
+            select_a_selection: Por favor, seleccione un estado de implementación.
+            success:
+              selected: 'Estos proyectos fueron seleccionados con éxito para ser implementados: %{projects}.'
+              unselected: 'Estos proyectos fueron deseleccionados con éxito para ser implementados: %{projects}.'
         proposals_imports:
           create:
-            invalid: Se ha producido un error al importar las propuestas a proyectos
-            success: "%{number} propuestas importadas correctamente en proyectos"
+            invalid: Se ha producido un error al importar las propuestas a proyectos.
+            success: "Se han importado con éxito %{number} propuestas a proyectos."
           new:
             create: Importar propuestas a proyectos
             default_budget: Presupuesto por defecto
@@ -156,23 +162,25 @@ es:
         close_modal: Cierra el modal
         continue: Continuar
         more_information: Más información
-      budget_list_item:
-        voting_finished: Has votado en este presupuesto
-        voting_started: Has empezado a votar en este presupuesto
       budgets_list:
+        budgets: Presupuestos
         cancel_order:
           more_than_one: eliminar tu voto en %{name} y empezar de nuevo
           only_one: eliminar tu voto y empezar de nuevo.
+        count:
+          one: "%{count} presupuesto"
+          other: "%{count} presupuestos"
         finished_message: Has terminado el proceso de votación. ¡Gracias por participar!
         highlighted_cta: Votar en %{name}
-        if_change_opinion: Si has cambiado de opinión, puedes
-        my_budgets: Mis presupuestos
+        if_change_opinion: Si has cambiado de opinión, puedes %{cancel_link}.
         progress: Finalizar votación
+        remove_vote: Eliminar el voto
         show: Ver proyectos
         vote: Votar
-        voted_on: Has votado en %{links}
+        voted_budgets: Presupuestos votados
+        voted_on: Has votado a %{links}.
       last_activity:
-        new_vote_at_html: "<span>Nueva votación presupiestaria en %{link}</span>"
+        new_vote_at: Nueva votación presupuestaria en
       limit_announcement:
         cant_vote: No puedes votar en este presupuesto. <a href="%{landing_path}"> Prueba con otro presupuesto</a>.
         limit_reached: Tienes votos activos en %{links}. Para votar en este presupuesto debes <a href="%{landing_path}">borrar tu voto y empezar de nuevo</a>.
@@ -203,45 +211,26 @@ es:
           title: Confirmar voto
         budget_excess:
           budget_excess:
-            description: Este proyecto sobrepasa el presupuesto máximo y no se puede añadir. Si lo deseas, puedes eliminar un proyecto que ya hayas seleccionado, o votar de acuerdo a tus preferencias.
+            description: No se puede añadir este proyecto porque sobrepasaría el máximo del presupuesto disponible. Si lo deseas, puedes eliminar alguno de los proyectos que ya hayas seleccionado para poder votar de acuerdo a tus preferencias.
             title: Presupuesto excedido
-          close: Cerrar
-          description: Este proyecto sobrepasa el presupuesto máximo y no se puede añadir. Si lo deseas, puedes eliminar un proyecto que ya hayas seleccionado, o votar de acuerdo a tus preferencias.
+          description: No se puede añadir este proyecto porque sobrepasaría el máximo del presupuesto disponible. Si lo deseas, puedes eliminar alguno de los proyectos que ya hayas seleccionado para poder votar de acuerdo a tus preferencias.
           ok: De acuerdo
           projects_excess:
             description: Este proyecto sobrepasa el presupuesto máximo y no se puede añadir. Si lo deseas, puedes eliminar un proyecto que ya hayas seleccionado, o votar de acuerdo a tus preferencias.
             title: Se ha superado el número máximo de proyectos
         budget_summary:
-          are_you_sure: '¿Estás seguro de que deseas cancelar tu voto?'
-          assigned: 'Asignado:'
+          are_you_sure: '¿Seguro que deseas cancelar tu voto?'
           cancel_order: eliminar tu voto y empezar de nuevo
           checked_out:
             description: Ya has votado para el presupuesto. Si has cambiado de idea, puedes %{cancel_link}.
             title: Voto para los presupuestos completado
-          minimum_projects_rule:
-            description: '¿A qué proyectos crees que deberíamos destinar el presupuesto? Selecciona por lo menos %{minimum_number} y vota según tus preferencias para definir el presupuesto.'
-            instruction: "<li>Selecciona al menos %{minimum_number} proyectos que quieras y vota de acuerdo a tus preferencias para definir el presupuesto.</li>"
-          projects_rule:
-            description: '¿A qué proyectos crees que deberíamos destinar el presupuesto? Selecciona entre %{minimum_number} y %{maximum_number} proyectos, y vota según tus preferencias para definir el presupuesto.'
-            instruction: "<li>Selecciona al menos %{minimum_number} y hasta %{maximum_number} proyectos que quieras y vota de acuerdo a tus preferencias para definir el presupuesto.</li>"
-          projects_rule_maximum_only:
-            description: '¿A qué proyectos crees que deberíamos destinar el presupuesto? Selecciona hasta %{maximum_number} y vota según tus preferencias para definir el presupuesto.'
-            instruction: "<li>Selecciona hasta %{maximum_number} proyectos que quieras y vota de acuerdo a tus preferencias para definir el presupuesto.</li>"
-          rules:
-            title: Reglas de presupuesto
-          title: Tú decides el presupuesto
-          total_budget: Presupuesto total
-          total_projects: Total de votos
-          vote_threshold_percent_rule:
-            description: '¿A qué proyectos crees que deberíamos asignar el presupuesto? Asigna por lo menos %{minimum_budget} a los proyectos que desees y vota para definir el presupuesto.'
-            instruction: "<li>Selecciona al menos %{minimum_budget} proyectos que quieras y vota de acuerdo a tus preferencias para definir el presupuesto.</li>"
+          vote: Votar presupuesto
         count:
           projects_count:
             one: 1 proyecto
             other: "%{count} proyectos"
         exit_modal:
           cancel: Volver a la votación
-          close_modal: Cerrar modal
           exit: Salir de la votación
           message: Tu voto no ha sido registrado porque aún no has completado el proceso de votación. ¿Seguro que quieres salir de la votación?
           title: Aún no has votado
@@ -254,21 +243,24 @@ es:
             all: Todos
             not_selected: No seleccionado
             selected: Seleccionado
-        filters_small_view:
-          close_modal: Cerrar ventana
-          filter: Filtrar
-          filter_by: Filtrar por
-          unfold: Desplegar
         index:
-          view_project: Ver proyecto
+          back_to_budgets: volver a los presupuestos
         order_progress:
-          vote: Vota
-        order_selected_projects:
-          remove: Eliminar
-          selected_projects:
-            one: proyecto seleccionado
-            other: proyectos seleccionados
-          view: Ver
+          assigned: Asignado
+          budget: Presupuesto
+          dynamic_help:
+            keep_adding_projects: Seguir añadiendo proyectos
+            minimum_reached: Has alcanzado el mínimo para poder votar
+            start_adding_projects: Empezar a añadir proyectos
+          minimum: Mínimo
+          minimum_projects_rule:
+            description: Selecciona al menos %{minimum_number} proyectos que quieras y vota de acuerdo a tus preferencias para definir el presupuesto.
+          projects_rule:
+            description: Selecciona al menos %{minimum_number} y hasta %{maximum_number} proyectos que quieras y vota de acuerdo a tus preferencias para definir el presupuesto.
+          projects_rule_maximum_only:
+            description: Selecciona hasta %{maximum_number} proyectos que quieras y vota de acuerdo a tus preferencias para definir el presupuesto.
+          vote_threshold_percent_rule:
+            description: Selecciona al menos %{minimum_budget} com los proyectos que quieras y vota de acuerdo a tus preferencias para definir el presupuesto.
         orders:
           highest_cost: Mayor coste
           label: Ordenar proyectos por
@@ -277,8 +269,8 @@ es:
           random: Orden aleatorio
           selected: Seleccionado
         project:
-          add: Añadir proyecto %{resource_name} a tu voto
-          remove: Eliminar el proyecto %{resource_name} de tu voto
+          add: Añadir proyecto %{resource_name} a tu voto.
+          remove: Eliminar el proyecto %{resource_name} de tu voto.
           selected: Seleccionado
           view: Ver
           votes:
@@ -287,13 +279,16 @@ es:
           you_voted: Has votado esto
         project_budget_button:
           add: Añadir a tu voto
-          add_descriptive: Añadir proyecto %{resource_name} a tu voto
+          add_descriptive: Añade el proyecto %{resource_name} a tu voto.
           added: Añadido a tu voto
-          added_descriptive: El proyecto %{resource_name} se ha añadido a tu voto
+          added_descriptive: El proyecto %{resource_name} se ha añadido a tu voto.
+        project_filter:
+          added: Añadido
+          all: Todos
         projects_for: Proyectos de %{name}
+        select_projects: Selecciona proyectos
         show:
           budget: Presupuesto
-          view_all_projects: Ver todos los proyectos
       vote_reminder_mailer:
         vote_reminder:
           email_budgets: 'Áreas donde tienes una votación inacabada:'
@@ -316,8 +311,8 @@ es:
             comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
             form:
               errors:
-                budget_voting_rule_only_one: Hay que activar por lo menos una norma para la votación
-                budget_voting_rule_required: Se requiere una norma para la votación
+                budget_voting_rule_only_one: Solo debe habilitarse una norma de votación.
+                budget_voting_rule_required: Se requiere una norma para la votación.
             geocoding_enabled: Geolocalización habilitada
             landing_page_content: Página de inicio de presupuestos
             more_information_modal: Modal de "Más información"
@@ -361,11 +356,12 @@ es:
           notification_title: El presupuesto <a href="%{resource_path}">%{resource_title}</a> en %{participatory_space_title} ya está activo.
     orders:
       checkout:
-        error: Se ha producido un error al procesar tu voto
-        success: Tu voto se ha tramitado correctamente
+        error: Se ha producido un error al procesar tu voto.
+        success_html: <p>Tu voto ha sido aceptado con éxito.</p> <p class="text-sm font-normal">Puedes <a class="text-secondary underline" href="%{rest_of_budgets_link}">explorar el resto de presupuestos</a>.</p>
+        success_no_left_budgets_html: Tu voto se ha aceptado correctamente.
       destroy:
-        error: Se ha producido un error al cancelar tu voto
-        success: Tu voto se ha cancelado correctamente
+        error: Se ha producido un error al cancelar tu voto.
+        success: Tu voto se ha cancelado correctamente.
     resource_links:
       included_proposals:
         project_proposal: Propuestas incluidas en este proyecto

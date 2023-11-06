@@ -39,10 +39,10 @@ module Decidim::Surveys
         it "imports survey" do
           expect(imported.size).to eq(1)
           imported_survey = imported.first
-          expect(imported_survey).to be_kind_of(Decidim::Surveys::Survey)
+          expect(imported_survey).to be_a(Decidim::Surveys::Survey)
           expect(imported_survey).to be_persisted
           questionnaire = imported_survey.questionnaire
-          expect(questionnaire).to be_kind_of(Decidim::Forms::Questionnaire)
+          expect(questionnaire).to be_a(Decidim::Forms::Questionnaire)
 
           attribs_to_ignore = %w(id updated_at created_at questionnaire_for_id published_at)
           expected_attrs = original_questionnaire.attributes.except(*attribs_to_ignore)

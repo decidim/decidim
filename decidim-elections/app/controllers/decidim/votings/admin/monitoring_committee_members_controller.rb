@@ -15,12 +15,12 @@ module Decidim
 
         def new
           enforce_permission_to :create, :monitoring_committee_member, voting: current_voting
-          @form = form(MonitoringCommitteeMemberForm).instance
+          @form = form(VotingUserRoleForm).instance
         end
 
         def create
           enforce_permission_to :create, :monitoring_committee_member, voting: current_voting
-          @form = form(MonitoringCommitteeMemberForm).from_params(params, voting: current_voting)
+          @form = form(VotingUserRoleForm).from_params(params, voting: current_voting)
 
           CreateMonitoringCommitteeMember.call(@form, current_user, current_voting) do
             on(:ok) do
@@ -36,7 +36,7 @@ module Decidim
         end
 
         def destroy
-          enforce_permission_to :delete, :monitoring_committee_member, voting: current_voting, monitoring_committee_member: monitoring_committee_member
+          enforce_permission_to(:delete, :monitoring_committee_member, voting: current_voting, monitoring_committee_member:)
 
           DestroyMonitoringCommitteeMember.call(monitoring_committee_member, current_user) do
             on(:ok) do

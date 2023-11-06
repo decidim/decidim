@@ -2,10 +2,6 @@
 en:
   activemodel:
     attributes:
-      agenda:
-        description: Description
-        duration: Duration
-        title: Title
       close_meeting:
         attendees_count: Number of attendees
         attending_organizations: List of organizations that attended
@@ -23,8 +19,10 @@ en:
         decidim_scope_id: Scope
         decidim_user_group_id: User group
         description: Description
-        end_time: End Time
+        end_time: End time
         id: ID
+        iframe_access_level: Iframe access level
+        iframe_embed_type: Iframe embed type
         location: Location
         location_hints: Location hints
         online_meeting_url: Online meeting URL
@@ -34,28 +32,43 @@ en:
         registration_email_custom_content: Registration email custom content
         registration_form_enabled: Registration form enabled
         registration_terms: Registration terms
+        registration_type: Registration type
         registration_url: Registration URL
         registrations_enabled: Registrations enabled
-        show_embedded_iframe: Show embedded iframe for this URL
-        start_time: Start Time
+        reserved_slots: Reserved slots for this meeting
+        start_time: Start time
         title: Title
         transparent: Transparent
         type_of_meeting: Type
+      meeting_agenda:
+        title: Title
+        visible: Visible
+      meeting_agenda_items:
+        description: Description
+        duration: Duration
+        title: Title
+      meeting_registration_invite:
+        email: Email
+        name: Name
+      validate_registration_code:
+        code: Code
     errors:
       models:
         meeting:
           attributes:
             iframe_embed_type:
-              not_embeddable: This URL can't be embedded in meeting or live event page
+              not_embeddable: This URL cannot be embedded in meeting or live event page.
+            online_meeting_url:
+              url_format: Must be valid URL
         meeting_agenda:
           attributes:
             base:
-              too_many_minutes: The duration of the items exceed the meeting duration by %{count} minutes
-              too_many_minutes_child: The duration of the item childs exceed the agenda item "%{parent_title}" parent duration by %{count} minutes
+              too_many_minutes: The duration of the items exceed the meeting duration by %{count} minutes.
+              too_many_minutes_child: The duration of the item childs exceed the agenda item "%{parent_title}" parent duration by %{count} minutes.
         meeting_registration_invite:
           attributes:
             email:
-              already_invited: This email account has already been invited
+              already_invited: This email account has already been invited.
     models:
       decidim/meetings/close_meeting_event: Meeting closed
       decidim/meetings/create_meeting_event: Meeting
@@ -110,7 +123,6 @@ en:
           success: Meeting successfully duplicated.
         new:
           copy: Copy
-          select: Select which data you would like to duplicate
           title: Duplicate meeting
     components:
       meetings:
@@ -185,7 +197,7 @@ en:
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting will start in less than 48h.
     forms:
       meetings:
-        attendees_count_help_text: Don't forget to include the total number of attendees at your meeting, whether in person, online or hybrid.
+        attendees_count_help_text: Do not forget to include the total number of attendees at your meeting, whether in person, online or hybrid.
     gamification:
       badges:
         attended_meetings:
@@ -196,8 +208,8 @@ en:
           description_own: You have attended %{score} meetings.
           name: Attended meetings
           next_level_in: Attend %{score} more meetings to reach the next level!
-          unearned_another: This participant hasn't attended any meeting yet.
-          unearned_own: You haven't attended any meeting yet.
+          unearned_another: This participant has not attended any meeting yet.
+          unearned_own: You have not attended any meeting yet.
     meetings:
       actions:
         agenda: Agenda
@@ -212,7 +224,7 @@ en:
             one: 'The meeting cannot be destroyed because it has %{count} proposal associated to it:'
             other: 'The meeting cannot be destroyed because it has %{count} proposals associated to it:'
         manage_poll: Manage poll
-        new: New meeting
+        new_meeting: New meeting
         preview: Preview
         registrations: Registrations
         title: Actions
@@ -231,8 +243,8 @@ en:
             remove: Remove
             up: Up
           create:
-            invalid: There was a problem creating this agenda
-            success: Agenda successfully created
+            invalid: There was a problem creating this agenda.
+            success: Agenda successfully created.
           edit:
             title: Edit agenda
             update: Update
@@ -245,8 +257,8 @@ en:
             create: Create
             title: New agenda
           update:
-            invalid: There was a problem updating this agenda
-            success: Agenda successfully updated
+            invalid: There was a problem updating this agenda.
+            success: Agenda successfully updated.
         exports:
           answers: Answers
           meeting_comments: Comments
@@ -274,37 +286,33 @@ en:
               all: All
               rejected: Rejected
               sent: Sent
-            filter_by: Filter by
             invite_attendee: Invite attendee
             invites: Invites
-            registrations_disabled: You can't invite an attendee because the registrations are disabled.
+            registrations_disabled: You cannot invite an attendee because the registrations are disabled.
             search: Search
         meeting_closes:
           edit:
             close: Close
             title: Close meeting
-        meeting_copies:
-          form:
-            select_a_meeting_type: Please select a meeting type
         meetings:
           close:
-            invalid: There was a problem closing this meeting
-            success: Meeting successfully closed
+            invalid: There was a problem closing this meeting.
+            success: Meeting successfully closed.
           create:
-            invalid: There was a problem creating this meeting
+            invalid: There was a problem creating this meeting.
             success: Meeting successfully created. Notice this is unpublished yet, you need to manually publish it.
           destroy:
             invalid:
               proposals_count:
-                one: The meeting cannot be destroyed because it has %{count} proposal associated to it
-                other: The meeting cannot be destroyed because it has %{count} proposals associated to it
+                one: The meeting cannot be destroyed because it has %{count} proposal associated to it.
+                other: The meeting cannot be destroyed because it has %{count} proposals associated to it.
             success: Meeting successfully deleted
           edit:
             title: Edit meeting
             update: Update
           form:
             address_help: 'Address: used by Geocoder to find the location'
-            disclaimer: 'Disclaimer: By using an external registration system, you''re aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service.'
+            disclaimer: 'Disclaimer: By using an external registration system, you are aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service.'
             location_help: 'Location: message directed to the users implying the spot to meet at'
             location_hints_help: 'Location hints: additional info. Example: the floor of the building if it is an in-person meeting, or the meeting password if it is an online meeting with restricted access.'
             online_meeting_url_help: 'Link: allow participants to connect directly to your meeting'
@@ -319,8 +327,8 @@ en:
             create: Create
             title: Create meeting
           publish:
-            invalid: There was a problem publishing this meeting
-            success: Meeting successfully published
+            invalid: There was a problem publishing this meeting.
+            success: Meeting successfully published.
           service:
             description: Description
             down: Down
@@ -332,20 +340,17 @@ en:
             add_service: Add service
             services: Services
           unpublish:
-            invalid: There was a problem unpublishing this meeting
-            success: Meeting successfully unpublished
+            invalid: There was a problem unpublishing this meeting.
+            success: Meeting successfully unpublished.
           update:
-            invalid: There was a problem updating this meeting
-            success: Meeting successfully updated
+            invalid: There was a problem updating this meeting.
+            success: Meeting successfully updated.
         meetings_poll:
           form:
             title: Edit poll questionnaire for %{questionnaire_for}
           update:
-            invalid: There was a problem updating this meeting poll
-            success: Meeting poll successfully updated
-        models:
-          meeting:
-            name: Meeting
+            invalid: There was a problem updating this meeting poll.
+            success: Meeting poll successfully updated.
         registrations:
           edit:
             save: Save
@@ -360,7 +365,7 @@ en:
             registrations_count:
               one: There has been %{count} registration.
               other: There has been %{count} registrations.
-            reserved_slots_help: Leave it to 0 if you don't have reserved slots
+            reserved_slots_help: Leave it to 0 if you do not have reserved slots.
             reserved_slots_less_than: Must be less than or equal to %{count}
             title: Registrations
           update:
@@ -390,16 +395,13 @@ en:
           all: All
         filter_meeting_space_values:
           all: All
-        filter_scope_values:
-          all: All
       calendar_modal:
         calendar_url: Calendar URL
-        close_window: Close window
         copy_calendar_url: Copy
         copy_calendar_url_clarification: Copy calendar URL to clipboard
         copy_calendar_url_copied: Copied!
         copy_calendar_url_description: You can see all the published meetings in your calendar application or provider. Copy and paste this URL in your calendar using the "Add new calendar from an URL" option.
-        copy_calendar_url_explanation: Please note that you're exporting a selection of meetings, as there are active filters. If you wish to export them all, reset all filters first.
+        copy_calendar_url_explanation: Please note that you are exporting a selection of meetings, as there are active filters. If you wish to export them all, reset all filters first.
         copy_calendar_url_message: The URL was successfully copied to clipboard.
         export_calendar: Export calendar
       close_meeting_reminder_mailer:
@@ -412,8 +414,6 @@ en:
       content_blocks:
         upcoming_meetings:
           name: Upcoming meetings
-          upcoming_meetings: Upcoming meetings
-          view_all_meetings: View all
       directory:
         meetings:
           index:
@@ -429,8 +429,8 @@ en:
         open_in_live_event_page: Open in live event page (with optional polls)
         open_in_new_tab: Open URL in a new tab
       last_activity:
-        meeting_updated_at_html: "<span>Meeting updated at %{link}</span>"
-        new_meeting_at_html: "<span>New meeting at %{link}</span>"
+        meeting_updated: 'Meeting updated:'
+        new_meeting: 'New meeting:'
       layouts:
         live_event:
           administrate: Administrate
@@ -444,7 +444,7 @@ en:
           confirmation:
             subject: Your meeting's registration has been confirmed
       meeting:
-        not_allowed: You are not allowed to view this meeting
+        not_allowed: You are not allowed to view this meeting.
       meeting_closes:
         edit:
           back: Back
@@ -454,7 +454,6 @@ en:
         calendar_modal:
           add_to_calendar: Add to calendar
           apple: Add to Apple calendar
-          close_window: Close window
           full_details_html: For full details go to %{link}
           google: Add to Google calendar
           outlook: Add to Outlook calendar
@@ -484,8 +483,7 @@ en:
             all: All
             official: Official
             participants: Participants
-            user_groups: Groups
-          scope: Scope
+            user_group: Groups
           search: Search
           type: Type
           type_values:
@@ -493,16 +491,11 @@ en:
             hybrid: Hybrid
             in_person: In-person
             online: Online
-        filters_small_view:
-          close_modal: Close modal
-          filter: Filter
-          filter_by: Filter by
-          unfold: Unfold
         form:
           address_help: 'Address: used by Geocoder to find the location'
           available_slots_help: Leave it to 0 if you have unlimited slots available
           create_as: Create meeting as
-          disclaimer: 'Disclaimer: By using an external registration system, you''re aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service.'
+          disclaimer: 'Disclaimer: By using an external registration system, you are aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service.'
           location_help: 'Location: message directed to the users implying the spot to meet at'
           location_hints_help: 'Location hints: additional info. Example: the floor of the building if it is an in-person meeting, or the meeting password if it is an online meeting with restricted access.'
           online_meeting_url_help: 'Link: allow participants to connect directly to your meeting'
@@ -518,10 +511,13 @@ en:
           see_all: See all meetings
           see_all_withdrawn: See all withdrawn meetings
           text_banner: You are viewing the list of meetings withdrawn by their authors. %{go_back_link}.
-        meeting_minutes:
-          related_information: Related Information
+        meeting:
+          close_meeting: Close meeting
+          edit_close_meeting: Edit meeting report
+          edit_meeting: Edit meeting
+          join_meeting: Join meeting
         meetings:
-          no_meetings_warning: No meetings match your search criteria or there isn't any meeting scheduled.
+          no_meetings_warning: No meetings match your search criteria or there is not any meeting scheduled.
           upcoming_meetings_warning: Currently, there are no scheduled meetings, but here you can find all the past meetings listed.
         new:
           back: Back
@@ -532,14 +528,8 @@ en:
           confirm: Confirm
         show:
           attendees: Attendees count
-          back: Back to list
-          close_meeting: Close meeting
           contributions: Contributions count
-          date: Date
-          edit_close_meeting: Edit meeting report
-          edit_meeting: Edit meeting
-          going: You have signed up for this meeting
-          join: Join meeting
+          join: Register
           leave: Cancel your registration
           leave_confirmation: Are you sure you want to cancel your registration for this meeting?
           link_available_soon: Link available soon
@@ -556,7 +546,6 @@ en:
           remaining_slots:
             one: "%{count} slot remaining"
             other: "%{count} slots remaining"
-          view: View
           visit_finished: View past meeting
           withdraw_btn_hint: You can withdraw your meeting if you change your mind. The meeting is not deleted, it will appear in the list of withdrawn meetings.
           withdraw_confirmation_html: Are you sure you want to withdraw this meeting?<br><br><strong>This action cannot be cancelled!</strong>
@@ -564,8 +553,6 @@ en:
         update:
           invalid: There was a problem updating the meeting.
           success: You have updated the meeting successfully.
-      meetings_map:
-        view_meeting: View meeting
       models:
         invite:
           fields:
@@ -607,7 +594,8 @@ en:
             question_replied: Question replied
             reply_question: Reply question
       public_participants_list:
-        attending_participants: Attending participants
+        attending_organizations: Organizations
+        attending_participants: Participants
         hidden_participants_count:
           one: and %{count} more person
           other: and %{count} more people
@@ -624,7 +612,7 @@ en:
       registrations:
         create:
           invalid: There was a problem joining this meeting.
-          success: You have joined the meeting successfully. Because you have registered for this meeting, you'll be notified if there are updates on it.
+          success: You have joined the meeting successfully. Because you have registered for this meeting, you will be notified if there are updates on it.
         decline_invitation:
           invalid: There was a problem declining the invitation.
           success: You have declined the invitation successfully.
@@ -639,11 +627,9 @@ en:
         private_meeting: Private meeting
         transparent: Transparent
         withdraw: Withdrawn
-      versions:
-        back_to_resource: Go back to meeting
       withdraw:
-        error: An error ocurred while withdrawing the meeting
-        success: The meeting has been withdrawn successfully
+        error: An error ocurred while withdrawing the meeting.
+        success: The meeting has been withdrawn successfully.
     metrics:
       meetings:
         description: Number of meetings created
@@ -652,10 +638,8 @@ en:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Past meetings
-        see_all: See all meetings (%{count})
+        see_all: See all meetings
         upcoming_meetings: Upcoming meetings
-      upcoming_meeting_for_card:
-        upcoming_meeting: Upcoming meeting
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Related results:'

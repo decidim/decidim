@@ -1,0 +1,18 @@
+<% title = component.present? ? translated_attribute(component.name) : t("decidim.components.meetings.name") %>
+<% if local_assigns[:main_action] %>
+  <h1 class="title-decorator"><%= title %></h1>
+<% else %>
+  <h2 class="title-decorator"><%= t("decidim.components.meetings.name") %></h2>
+<% end %>
+
+<% if try(:component_settings) && component_settings&.creation_enabled_for_participants? && current_component.participatory_space.can_participate?(current_user) %>
+  <%= action_authorized_link_to :create, new_meeting_path, class: "button button__xl button__secondary w-full", data: { "redirect_url" => new_meeting_path } do %>
+    <span><%= t("new_meeting", scope: "decidim.meetings.meetings.index") %></span>
+    <%= icon "add-line" %>
+  <% end %>
+<% end %>
+
+<%= render partial: "decidim/meetings/shared/filters", locals: {
+      search_variable:,
+      filter_options: filter_options || {}
+    } %>

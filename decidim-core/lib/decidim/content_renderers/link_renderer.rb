@@ -20,8 +20,18 @@ module Decidim
       def render(options = {})
         return content unless content.is_a?(String)
 
-        options = { target: "_blank", rel: "nofollow noopener noreferrer ugc" }.merge(options)
-        auto_link(content, options)
+        options = { target: "_blank", rel: "nofollow noopener noreferrer ugc" }.merge(options.transform_keys(&:to_sym))
+        rendered = auto_link(content, options)
+
+        # In case the content was already in HTML format, it may be that it
+        # contained links that were incorrectly formatted, e.g. with incorrect
+        # attributes.
+        fragment = html_fragment(rendered)
+        fragment.search("a[href]").each do |el|
+          attrs = el.attributes.transform_keys(&:to_sym).transform_values(&:value)
+          el.replace anchor_tag(attrs.delete(:href), el.inner_html, attrs.merge(options))
+        end
+        fragment.to_s
       end
 
       def auto_link(text, options = {}, &)
@@ -68,7 +78,7 @@ module Decidim
             # do not change string; URL is already linked
             href
           else
-            # don't include trailing punctuation character as part of the URL
+            # do not include trailing punctuation character as part of the URL
             while href.sub!(PUNCTUATION_RE, "")
               punctuation.push Regexp.last_match(0)
               if (opening = BRACKETS[punctuation.last]) && href.scan(opening).size > href.scan(punctuation.last).size

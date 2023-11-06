@@ -27,6 +27,19 @@ shared_examples "manage proposals" do
     end
   end
 
+  describe "listing" do
+    context "with enriched content" do
+      before do
+        proposal.update!(title: { en: "Proposal <strong>title</strong>" })
+        visit current_path
+      end
+
+      it "displays the correct title" do
+        expect(page.html).to include("Proposal &lt;strong&gt;title&lt;/strong&gt;")
+      end
+    end
+  end
+
   describe "creation" do
     context "when official_proposals setting is enabled" do
       before do
@@ -68,7 +81,7 @@ shared_examples "manage proposals" do
               fill_in_i18n :proposal_title, "#proposal-title-tabs", en: "Make decidim great again"
               fill_in_i18n_editor :proposal_body, "#proposal-body-tabs", en: "Decidim is great but it can be better"
               select translated(category.name), from: :proposal_category_id
-              scope_pick select_data_picker(:proposal_scope_id), scope
+              select translated(scope.name), from: :proposal_scope_id
               find("*[type=submit]").click
             end
 
@@ -96,7 +109,7 @@ shared_examples "manage proposals" do
             click_link "New proposal"
 
             within "form" do
-              expect(page).to have_no_content(/Scope/i)
+              expect(page).not_to have_content(/Scope/i)
             end
           end
 
@@ -123,7 +136,7 @@ shared_examples "manage proposals" do
           end
 
           context "when the process scope has a child scope" do
-            let!(:child_scope) { create :scope, parent: scope }
+            let!(:child_scope) { create(:scope, parent: scope) }
 
             it "can be related to a scope" do
               click_link "New proposal"
@@ -140,7 +153,7 @@ shared_examples "manage proposals" do
                 fill_in_i18n :proposal_title, "#proposal-title-tabs", en: "Make decidim great again"
                 fill_in_i18n_editor :proposal_body, "#proposal-body-tabs", en: "Decidim is great but it can be better"
                 select category.name["en"], from: :proposal_category_id
-                scope_repick :proposal_scope_id, scope, child_scope
+                select translated(child_scope.name), from: :proposal_scope_id
                 find("*[type=submit]").click
               end
 
@@ -276,12 +289,12 @@ shared_examples "manage proposals" do
 
         it "cannot create a new proposal from the main site" do
           visit_component
-          expect(page).to have_no_button("New Proposal")
+          expect(page).not_to have_button("New Proposal")
         end
 
         it "cannot create a new proposal from the admin site" do
           visit_component_admin
-          expect(page).to have_no_link(/New/)
+          expect(page).not_to have_link(/New/)
         end
       end
     end
@@ -293,12 +306,12 @@ shared_examples "manage proposals" do
 
       it "cannot create a new proposal from the main site" do
         visit_component
-        expect(page).to have_no_button("New Proposal")
+        expect(page).not_to have_button("New Proposal")
       end
 
       it "cannot create a new proposal from the admin site" do
         visit_component_admin
-        expect(page).to have_no_link(/New/)
+        expect(page).not_to have_link(/New/)
       end
     end
   end
@@ -326,7 +339,7 @@ shared_examples "manage proposals" do
           fill_in_i18n_editor(
             :proposal_answer_answer,
             "#proposal_answer-answer-tabs",
-            en: "The proposal doesn't make any sense",
+            en: "The proposal does not make any sense",
             es: "La propuesta no tiene sentido",
             ca: "La proposta no te sentit"
           )
@@ -387,7 +400,7 @@ shared_examples "manage proposals" do
         proposal.update!(
           state: "rejected",
           answer: {
-            "en" => "I don't like it"
+            "en" => "I do not like it"
           },
           answered_at: Time.current
         )
@@ -414,7 +427,7 @@ shared_examples "manage proposals" do
         proposal.update!(
           state: "rejected",
           answer: {
-            "en" => "I don't like it"
+            "en" => "I do not like it"
           },
           answered_at: Time.current
         )
@@ -458,7 +471,7 @@ shared_examples "manage proposals" do
         visit current_path
 
         within find("tr", text: proposal_title) do
-          expect(page).to have_no_link("Answer")
+          expect(page).not_to have_link("Answer")
         end
       end
     end
@@ -466,12 +479,12 @@ shared_examples "manage proposals" do
     context "when the proposal is an emendation" do
       let!(:amendable) { create(:proposal, component: current_component) }
       let!(:emendation) { create(:proposal, component: current_component) }
-      let!(:amendment) { create :amendment, amendable:, emendation:, state: "evaluating" }
+      let!(:amendment) { create(:amendment, amendable:, emendation:, state: "evaluating") }
 
       it "cannot answer a proposal" do
         visit_component_admin
         within find("tr", text: I18n.t("decidim/amendment", scope: "activerecord.models", count: 1)) do
-          expect(page).to have_no_link("Answer")
+          expect(page).not_to have_link("Answer")
         end
       end
     end
@@ -485,7 +498,7 @@ shared_examples "manage proposals" do
     it "cannot answer a proposal" do
       go_to_admin_proposal_page(proposal)
 
-      expect(page).to have_no_selector(".edit_proposal_answer")
+      expect(page).not_to have_selector(".edit_proposal_answer")
     end
   end
 
@@ -500,7 +513,7 @@ shared_examples "manage proposals" do
       )
     end
 
-    it "doesn't show the votes column" do
+    it "does not show the votes column" do
       visit current_path
 
       within "thead" do

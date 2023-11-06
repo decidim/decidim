@@ -23,7 +23,7 @@ es:
               missing: no están completos
               too_many: son demasiados
         questionnaire:
-          request_invalid: Ha ocurrido un error al enviar tu solicitud. Inténtalo de nuevo
+          request_invalid: Ha ocurrido un error al enviar tu solicitud. Por favor, Inténtalo de nuevo.
   decidim:
     forms:
       admin:
@@ -44,6 +44,8 @@ es:
             actions:
               back: Volver a las respuestas
               export: Exportar
+              next: Siguiente &rsaquo;
+              previous: "&lsaquo; Anterior"
               show: Mostrar las respuestas
             empty: Aún no hay respuestas
             export:
@@ -72,7 +74,7 @@ es:
             save_warning: Recuerda guardar el formulario antes de configurar las condiciones de visualización
             select_answer_option: Seleccionar opción de respuesta
             select_condition_question: Seleccionar una pregunta
-            select_condition_type: Seleccione un tipo de condición
+            select_condition_type: Selecciona un tipo de condición
           edit:
             save: Guardar
             title: Editar el cuestionario
@@ -127,8 +129,6 @@ es:
       errors:
         answer:
           body: El campo no puede estar en blanco
-      files:
-        extension_allowlist: 'Formatos de archivo aceptados:'
       images:
         dimensions: "%{width} x %{height} px"
         processors:
@@ -144,6 +144,8 @@ es:
         single_option: Opción única
         sorting: Ordenación
         title_and_description: Titulo y descripción
+      questionnaire_answer_presenter:
+        download_attachment: Descargar el archivo adjunto
       questionnaires:
         answer:
           invalid: Se ha producido un error al responder el formulario.
@@ -153,7 +155,10 @@ es:
           max_choices: 'Opciones máximas: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Inicia sesión con tu cuenta</a> o <a href="%{sign_up_link}">regístrate</a> para responder al formulario.
+            already_have_an_account?: '¿Ya tienes una cuenta?'
+            are_you_new?: '¿Eres una nueva usuaria?'
+            sign_in_description: Inicia tu sesión para responder la encuesta
+            sign_up_description: Crea una cuenta de participante para realizar la encuesta
             title: Responde el formulario
           current_step: Paso %{step}
           of_total_steps: de %{total_steps}

@@ -6,6 +6,7 @@ module Decidim
     class CreateInitiative < Decidim::Command
       include CurrentLocale
       include ::Decidim::MultipleAttachmentsMethods
+      include ::Decidim::GalleryMethods
 
       # Public: Initializes the command.
       #
@@ -19,7 +20,7 @@ module Decidim
       # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid.
-      # - :invalid if the form wasn't valid and we couldn't proceed.
+      # - :invalid if the form was not valid and we could not proceed.
       #
       # Returns nothing.
       def call
@@ -28,6 +29,11 @@ module Decidim
         if process_attachments?
           build_attachments
           return broadcast(:invalid) if attachments_invalid?
+        end
+
+        if process_gallery?
+          build_gallery
+          return broadcast(:invalid) if gallery_invalid?
         end
 
         initiative = create_initiative
@@ -50,8 +56,10 @@ module Decidim
 
         initiative.transaction do
           initiative.save!
+
           @attached_to = initiative
           create_attachments if process_attachments?
+          create_gallery if process_gallery?
 
           create_components_for(initiative)
           send_notification(initiative)
@@ -68,20 +76,16 @@ module Decidim
           title: { current_locale => form.title },
           description: { current_locale => form.description },
           author: current_user,
-          decidim_user_group_id: form.decidim_user_group_id,
           scoped_type:,
-          area:,
-          signature_type: form.signature_type,
-          signature_end_date:,
+          signature_type: form.type.signature_type,
+          decidim_user_group_id: form.decidim_user_group_id,
+          decidim_area_id: form.area_id,
           state: "created"
         )
       end
 
       def scoped_type
-        InitiativesTypeScope.find_by(
-          type: form.initiative_type,
-          scope: form.scope
-        )
+        InitiativesTypeScope.order(:id).find_by(type: form.type)
       end
 
       def signature_end_date
@@ -105,13 +109,13 @@ module Decidim
             participatory_space: initiative
           )
 
-          initialize_pages(component) if component_name == :pages
+          initialize_pages(component) if component_name.in? ["pages", :pages]
         end
       end
 
       def initialize_pages(component)
         Decidim::Pages::CreatePage.call(component) do
-          on(:invalid) { raise "Can't create page" }
+          on(:invalid) { raise "Cannot create page" }
         end
       end
 

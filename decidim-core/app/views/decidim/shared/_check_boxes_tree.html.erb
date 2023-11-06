@@ -1,21 +1,21 @@
   <% if collection.leaf %>
     <% options = options.map { |k, v| [k.to_sym, v] }.to_h if options.is_a?(Hash) %>
     <% data_checkboxes_tree_id = "#{check_boxes_tree_id}-#{collection.leaf.value}" %>
-    <% hide_node = (hide_node.present? and hide_node == "true") ? true : false %>
-    <% is_root_check_box = (collection.leaf.value == "") ? true : false %>
+    <% hide_node = hide_node.present? && (hide_node == "true") ? true : false %>
+    <% is_root_check_box = collection.leaf.value == "" ? true : false %>
     <% if is_root_check_box %>
-      <%= hidden_field_tag "#{form.object_name}[#{attribute}][]", "", id: "#{form.options[:namespace] rescue 'default'}_filter_#{attribute}_all" %>
+      <%= hidden_field_tag "#{form.object_name}[#{attribute}][]", "", id: "#{form.options[:namespace] rescue "default"}_filter_#{attribute}_all" %>
     <% else %>
       <div class="filters__has-subfilters">
     <% end %>
       <%= form.check_box attribute,
-                       check_boxes_tree_options(
-                         collection.leaf.value,
-                         collection.leaf.label,
-                         **({
-                           "data-checkboxes-tree": data_checkboxes_tree_id,
-                           is_root_check_box: is_root_check_box
-                         }.merge(options))),
+                         check_boxes_tree_options(
+                           collection.leaf.value,
+                           collection.leaf.label,
+                           **({
+                             "data-checkboxes-tree": data_checkboxes_tree_id,
+                             is_root_check_box:
+                           }.merge(options))),
                          collection.leaf.value.to_s, nil %>
 
     <% unless is_root_check_box %>
@@ -31,24 +31,24 @@
     <% end %>
 
     <% if collection.node.present? %>
-      <div id="<%= data_checkboxes_tree_id %>" class="filters__subfilters <%= "hide" if hide_node %>" <%= %{data-toggler=.hide} unless is_root_check_box %>>
+      <div id="<%= data_checkboxes_tree_id %>" class="filters__subfilters <%= "hide" if hide_node %>" <%= %(data-toggler=.hide) unless is_root_check_box %>>
         <% collection.node.each do |item| %>
           <% if item.tree_node? %>
             <%= render "decidim/shared/check_boxes_tree",
-                        form: form,
-                        attribute: attribute,
-                        collection: item,
-                        check_boxes_tree_id: "#{check_boxes_tree_id}-#{item.leaf.value}",
-                        hide_node: "true",
-                        options: options %>
+                       form:,
+                       attribute:,
+                       collection: item,
+                       check_boxes_tree_id: "#{check_boxes_tree_id}-#{item.leaf.value}",
+                       hide_node: "true",
+                       options: %>
           <% else %>
             <%= form.check_box attribute,
-                                check_boxes_tree_options(
-                                  item.value,
-                                  item.label,
-                                  **options
-                                ),
-                                item.value, nil %>
+                               check_boxes_tree_options(
+                                 item.value,
+                                 item.label,
+                                 **options
+                               ),
+                               item.value, nil %>
           <% end %>
         <% end %>
       </div>

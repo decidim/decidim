@@ -1,12 +1,10 @@
 <% provide :title do %>
-  <h2><%= t ".title" %></h2>
+  <h1 class="h1"><%= t ".title" %></h1>
 <% end %>
 
-<div class="actions title">
-  <%= link_to t("actions.new", scope: "decidim.system", name: t("models.admin.name", scope: "decidim.system")), [:new, :admin], class: "new" %>
-</div>
+<%= link_to t("actions.new_admin", scope: "decidim.system"), [:new, :admin], class: "button button__sm md:button__lg button__primary" %>
 
-<table class="stack">
+<table>
   <thead>
     <tr>
       <th><%= t("models.admin.fields.email", scope: "decidim.system") %></th>
@@ -25,7 +23,9 @@
         </td>
         <td class="actions">
           <%= link_to t("actions.edit", scope: "decidim.system"), [:edit, admin] %>
-          <%= link_to t("actions.destroy", scope: "decidim.system"), admin, method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.system") } %>
+          <% unless current_admin?(admin) %>
+            <%= link_to t("actions.destroy", scope: "decidim.system"), admin, method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.system") } %>
+          <% end %>
         </td>
       </tr>
     <% end %>

@@ -11,7 +11,7 @@ module Decidim
 
     def created_at_in_words
       if created_at.between?(1.month.ago, Time.current)
-        time_ago_in_words(created_at)
+        I18n.t("decidim.user_conversations.index.time_ago", time: time_ago_in_words(created_at))
       else
         format = created_at.year == Time.current.year ? :ddmm : :ddmmyyyy
         I18n.l(created_at, format:)

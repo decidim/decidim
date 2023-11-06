@@ -16,10 +16,11 @@ module Decidim
         resources :results, except: [:show] do
           get :proposals_picker, on: :collection
 
-          resources :attachment_collections
-          resources :attachments
+          resources :attachment_collections, except: [:show]
+          resources :attachments, except: [:show]
           resources :timeline_entries, except: [:show]
         end
+        resources :projects_import, only: [:new, :create]
         get :import_results, to: "import_results#new"
         post :import_results, to: "import_results#create"
         root to: "results#index"

@@ -1,26 +1,31 @@
 <% add_decidim_page_title(proposal_wizard_step_title(action_name)) %>
 
-<div class="row">
-  <%= render partial: "wizard_aside" %>
+<%= append_stylesheet_pack_tag "decidim_proposals", media: "all" %>
+<%= append_javascript_pack_tag "decidim_proposals" %>
 
-  <div class="columns large-6">
-    <%= render partial: "wizard_header" %>
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
 
-    <div class="card">
-      <div class="card__content">
-        <%= decidim_form_for(@form, url: update_draft_proposal_path(@proposal), method: :patch) do |form| %>
-          <%= render partial: "edit_form_fields", locals: { form: form } %>
+  <%= render partial: "wizard_header" %>
 
-          <div class="actions">
-            <%= form.submit t(".send"), class: "button expanded mt-s mb-none", data: { disable: true } %>
-          </div>
-        <% end %>
-      </div>
+  <%= decidim_form_for(@form, url: update_draft_proposal_path(@proposal), method: :patch) do |form| %>
+
+    <%= form_required_explanation %>
+
+    <div class="form__wrapper">
+      <%= render partial: "edit_form_fields", locals: { form: } %>
     </div>
-  </div>
-  <div class="columns large-3"></div>
-</div>
 
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_proposals" %>
+    <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+      <%= link_to proposal_wizard_aside_link_to_back(@step), class: "button button__sm md:button__lg button__text-secondary" do %>
+        <%= icon "arrow-left-line" %>
+        <%= wizard_aside_back_text(@step) %>
+      <% end %>
+
+      <button type="submit" class="button button__sm md:button__lg button__secondary">
+        <span><%= t("send", scope: "decidim.proposals.proposals.complete") %></span>
+        <%= icon "arrow-right-line" %>
+      </button>
+    </div>
+  <% end %>
+
 <% end %>

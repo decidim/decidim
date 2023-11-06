@@ -187,6 +187,10 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
         visit edit_component_path
       end
 
+      context "when comments_max_length is empty" do
+        it_behaves_like "has mandatory config setting", :comments_max_length
+      end
+
       context "when minimum projects rule is checked" do
         before do
           check "Enable rule: Minimum number of projects to be voted on"
@@ -194,19 +198,19 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
 
         it "is shown the number input" do
           expect(page).to have_content("Minimum number of projects to vote")
-          expect(page).to have_css("input#component_settings_vote_minimum_budget_projects_number")
+          expect(page).to have_field(id: "component_settings_vote_minimum_budget_projects_number")
         end
 
         it "is hidden the percent input" do
-          expect(page).to have_no_content("Vote threshold percent")
-          expect(page).to have_no_css("input#component_settings_vote_threshold_percent")
+          expect(page).not_to have_content("Vote threshold percent")
+          expect(page).not_to have_field(id: "component_settings_vote_threshold_percent")
         end
 
         it "is hidden the project rule inputs" do
-          expect(page).to have_no_content("Minimum amount of projects to be selected")
-          expect(page).to have_no_content("Maximum amount of projects to be selected")
-          expect(page).to have_no_css("input#component_settings_vote_selected_projects_minimum")
-          expect(page).to have_no_css("input#component_settings_vote_selected_projects_maximum")
+          expect(page).not_to have_content("Minimum amount of projects to be selected")
+          expect(page).not_to have_content("Maximum amount of projects to be selected")
+          expect(page).not_to have_field(id: "component_settings_vote_selected_projects_minimum")
+          expect(page).not_to have_field(id: "component_settings_vote_selected_projects_maximum")
         end
       end
 
@@ -218,18 +222,18 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
         it "is shown the number input" do
           expect(page).to have_content("Minimum amount of projects to be selected")
           expect(page).to have_content("Maximum amount of projects to be selected")
-          expect(page).to have_css("input#component_settings_vote_selected_projects_minimum")
-          expect(page).to have_css("input#component_settings_vote_selected_projects_maximum")
+          expect(page).to have_field(id: "component_settings_vote_selected_projects_minimum")
+          expect(page).to have_field(id: "component_settings_vote_selected_projects_maximum")
         end
 
         it "is hidden the percent input" do
-          expect(page).to have_no_content("Vote threshold percent")
-          expect(page).to have_no_css("input#component_settings_vote_threshold_percent")
+          expect(page).not_to have_content("Vote threshold percent")
+          expect(page).not_to have_field(id: "component_settings_vote_threshold_percent")
         end
 
         it "is hidden the number input" do
-          expect(page).to have_no_content("Minimum number of projects to vote")
-          expect(page).to have_no_css("input#component_settings_vote_minimum_budget_projects_number")
+          expect(page).not_to have_content("Minimum number of projects to vote")
+          expect(page).not_to have_field(id: "component_settings_vote_minimum_budget_projects_number")
         end
       end
 
@@ -240,19 +244,19 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
 
         it "is shown the percent input" do
           expect(page).to have_content("Vote threshold percent")
-          expect(page).to have_css("input#component_settings_vote_threshold_percent")
+          expect(page).to have_field(id: "component_settings_vote_threshold_percent")
         end
 
         it "is hidden the number input" do
-          expect(page).to have_no_content("Minimum number of projects to vote")
-          expect(page).to have_no_css("input#component_settings_vote_minimum_budget_projects_number")
+          expect(page).not_to have_content("Minimum number of projects to vote")
+          expect(page).not_to have_field(id: "component_settings_vote_minimum_budget_projects_number")
         end
 
         it "is hidden the project rule inputs" do
-          expect(page).to have_no_content("Minimum amount of projects to be selected")
-          expect(page).to have_no_content("Maximum amount of projects to be selected")
-          expect(page).to have_no_css("input#component_settings_vote_selected_projects_minimum")
-          expect(page).to have_no_css("input#component_settings_vote_selected_projects_maximum")
+          expect(page).not_to have_content("Minimum amount of projects to be selected")
+          expect(page).not_to have_content("Maximum amount of projects to be selected")
+          expect(page).not_to have_field(id: "component_settings_vote_selected_projects_minimum")
+          expect(page).not_to have_field(id: "component_settings_vote_selected_projects_maximum")
         end
       end
     end
@@ -279,7 +283,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
     let(:organization) { component.participatory_space.organization }
 
     context "when the user is an admin" do
-      let!(:user) { create :user, admin: true, organization: }
+      let!(:user) { create(:user, admin: true, organization:) }
 
       it "exports all budgets from the component" do
         expect(subject.count).to eq(2)
@@ -306,7 +310,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
     let(:organization) { component.participatory_space.organization }
 
     context "when the user is an admin" do
-      let!(:user) { create :user, admin: true, organization: }
+      let!(:user) { create(:user, admin: true, organization:) }
 
       it "exports projects of individual budget" do
         expect(subject.count).to eq(3)

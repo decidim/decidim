@@ -8,7 +8,7 @@ describe "Admin manages election steps", :slow, type: :system do
   include_context "when admin manages elections"
 
   describe "setup an election" do
-    let(:election) { create :election, :ready_for_setup, component: current_component, title: { en: "English title", es: "" } }
+    let(:election) { create(:election, :ready_for_setup, component: current_component, title: { en: "English title", es: "" }) }
 
     it "performs the action successfully" do
       visit_steps_page
@@ -19,7 +19,7 @@ describe "Admin manages election steps", :slow, type: :system do
         expect(page).to have_content("All the questions have a correct value for maximum of answers.")
         expect(page).to have_content("The election is published.")
         expect(page).to have_content("The election component is published.")
-        expect(page).to have_content("The setup is being done at least 3 hours before the election starts.")
+        expect(page).to have_content("The setup is being done at least 1 hour before the election starts.")
         expect(page).to have_content("The participatory space has at least 3 trustees with public key.")
         expect(page).to have_content("has a public key", minimum: 2)
         expect(page).not_to have_content("Census is uploaded.")
@@ -50,12 +50,12 @@ describe "Admin manages election steps", :slow, type: :system do
           expect(page).to have_content("All the questions have a correct value for maximum of answers.")
           expect(page).to have_content("The election is published.")
           expect(page).to have_content("The election component is published.")
-          expect(page).to have_content("The setup is being done at least 3 hours before the election starts.")
+          expect(page).to have_content("The setup is being done at least 1 hour before the election starts.")
           expect(page).to have_content("The participatory space has at least 3 trustees with public key.")
           expect(page).to have_content("has a public key", minimum: 2)
           expect(page).to have_content("There is no census uploaded for this election.")
-          expect(page).to have_content("Election codes for the census are not generated.")
-          expect(page).to have_content("Election codes are not exported.")
+          expect(page).to have_content("Access codes for the census are not generated.")
+          expect(page).to have_content("Access codes for the census are not exported.")
         end
       end
 
@@ -67,8 +67,8 @@ describe "Admin manages election steps", :slow, type: :system do
 
           within "form.create_election" do
             expect(page).to have_content("Census is uploaded.")
-            expect(page).to have_content("Census codes are generated.")
-            expect(page).to have_content("Codes are exported and census is frozen.")
+            expect(page).to have_content("Access codes for the census are generated.")
+            expect(page).to have_content("Access codes for the census are exported and census is frozen.")
           end
         end
       end
@@ -76,7 +76,7 @@ describe "Admin manages election steps", :slow, type: :system do
   end
 
   describe "start the key ceremony" do
-    let(:election) { create :election, :bb_test, :created, component: current_component }
+    let(:election) { create(:election, :bb_test, :created, component: current_component) }
 
     it "performs the action successfully" do
       visit_steps_page
@@ -107,8 +107,8 @@ describe "Admin manages election steps", :slow, type: :system do
 
       visit_steps_page
       expect(page).to have_content("Key ceremony")
-      expect(page).to have_css(".loading-spinner") # It shows the loading icon
-      expect(page).not_to have_css("svg.icon--task") # The trustees didn't participate yet
+      expect(page).to have_css(".loading") # It shows the loading icon
+      expect(page).not_to have_css(".active") # The trustees did not participate yet
       expect(page).to have_link("Continue", class: "disabled")
 
       download_election_keys(0)
@@ -117,15 +117,15 @@ describe "Admin manages election steps", :slow, type: :system do
 
       visit_steps_page
       expect(page).to have_content("Key ceremony")
-      expect(page).not_to have_css(".loading-spinner") # It's not waiting for any trustee
-      expect(page).to have_css("svg.icon--task") # All the trustees are active
+      expect(page).not_to have_css(".loading") # It is not waiting for any trustee
+      expect(page).to have_css(".active") # All the trustees are active
       expect(page).not_to have_link("Continue", class: "disabled")
       expect(page).to have_link("Continue")
     end
   end
 
   describe "start the voting period" do
-    let(:election) { create :election, :bb_test, :key_ceremony_ended, component: current_component }
+    let(:election) { create(:election, :bb_test, :key_ceremony_ended, component: current_component) }
 
     it "performs the action successfully" do
       visit_steps_page
@@ -149,7 +149,7 @@ describe "Admin manages election steps", :slow, type: :system do
   end
 
   describe "voting period" do
-    let(:election) { create :election, :bb_test, :vote, component: current_component }
+    let(:election) { create(:election, :bb_test, :vote, component: current_component) }
 
     context "with no vote statistics" do
       it "shows text about vote statistics" do
@@ -163,10 +163,10 @@ describe "Admin manages election steps", :slow, type: :system do
     end
 
     context "with vote statistics" do
-      let!(:user1) { create :user, :confirmed }
-      let!(:user2) { create :user, :confirmed }
-      let!(:user1_votes) { create_list :vote, 3, election:, status: "accepted", voter_id: "voter_#{user1.id}" }
-      let!(:user2_votes) { create :vote, election:, status: "accepted", voter_id: "voter_#{user2.id}" }
+      let!(:user1) { create(:user, :confirmed) }
+      let!(:user2) { create(:user, :confirmed) }
+      let!(:user1_votes) { create_list(:vote, 3, election:, status: "accepted", voter_id: "voter_#{user1.id}") }
+      let!(:user2_votes) { create(:vote, election:, status: "accepted", voter_id: "voter_#{user2.id}") }
 
       it "shows votes and unique voters" do
         visit_steps_page
@@ -186,7 +186,7 @@ describe "Admin manages election steps", :slow, type: :system do
   end
 
   describe "end the voting period" do
-    let(:election) { create :election, :bb_test, :vote, :finished, component: current_component }
+    let(:election) { create(:election, :bb_test, :vote, :finished, component: current_component) }
 
     it "performs the action successfully" do
       visit_steps_page
@@ -210,7 +210,7 @@ describe "Admin manages election steps", :slow, type: :system do
   end
 
   describe "start the tally" do
-    let(:election) { create :election, :bb_test, :vote_ended, component: current_component }
+    let(:election) { create(:election, :bb_test, :vote_ended, component: current_component) }
 
     it "performs the action successfully" do
       visit_steps_page
@@ -234,14 +234,14 @@ describe "Admin manages election steps", :slow, type: :system do
   end
 
   describe "report missing trustee" do
-    let(:election) { create :election, :bb_test, :tally_started, component: current_component }
+    let(:election) { create(:election, :bb_test, :tally_started, component: current_component) }
     let(:trustee) { election.trustees.first }
 
     it "marks the trustee as missing" do
       visit_steps_page
 
       # allows admin to mark trustees as missing
-      expect(page).to have_selector("button", text: "Mark as missing")
+      expect(page).to have_button(text: "Mark as missing")
 
       within find("tr", text: trustee.name) do
         click_button "Mark as missing"
@@ -251,16 +251,16 @@ describe "Admin manages election steps", :slow, type: :system do
 
       # shows the trustee as missing
       within find("tr", text: trustee.name) do
-        expect(page).to have_css("svg.icon--x")
+        expect(page).to have_css(".missing")
       end
 
-      # don't allow to mark more trustees as missing
-      expect(page).not_to have_selector("button", text: "Mark as missing")
+      # do not allow to mark more trustees as missing
+      expect(page).not_to have_button(text: "Mark as missing")
     end
   end
 
   describe "tally ended" do
-    let(:election) { create :election, :tally_ended, component: current_component }
+    let(:election) { create(:election, :tally_ended, component: current_component) }
     let(:question) { election.questions.first }
     let(:answer) { question.answers.first }
 
@@ -277,7 +277,7 @@ describe "Admin manages election steps", :slow, type: :system do
   end
 
   describe "publishing results" do
-    let(:election) { create :election, :bb_test, :tally_ended, component: current_component }
+    let(:election) { create(:election, :bb_test, :tally_ended, component: current_component) }
     let(:question) { election.questions.first }
     let(:answer) { question.answers.first }
 
@@ -310,6 +310,15 @@ describe "Admin manages election steps", :slow, type: :system do
 
     within find("tr", text: translated(election.title)) do
       page.find(".action-icon--manage-steps").click
+    end
+
+    # Ensure the correct page is loaded before proceeding further
+    if election.bb_status.nil?
+      within ".form.step.create_election .card .card-divider", match: :first do
+        expect(page).to have_css(".card-title", text: "Setup election")
+      end
+    else
+      expect(page).to have_css(".item_show__header .item_show__header-title", text: translated(election.title))
     end
   end
 end

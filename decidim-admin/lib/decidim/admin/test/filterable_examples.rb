@@ -16,7 +16,7 @@ shared_context "with filterable context" do
   end
 
   def remove_applied_filter(filter)
-    within(".label", text: /#{filter}/i) do
+    within("[data-applied-filters-tags] .label", text: /#{filter}/i) do
       click_link("Cancel")
     end
   end
@@ -39,9 +39,9 @@ shared_context "with filterable context" do
   end
 
   shared_examples "searching by text" do
-    before { search_by_text(text) }
+    before { search_by_text(ActionView::Base.full_sanitizer.sanitize(text)) }
 
-    it { expect(page).to have_content(text) }
+    it { expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(text)) }
 
     after { search_by_text("") }
   end

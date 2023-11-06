@@ -7,9 +7,9 @@ module Decidim
     describe AreaForm do
       subject { described_class.from_params(attributes).with_context(context) }
 
-      let(:organization) { create :organization }
+      let(:organization) { create(:organization) }
       let(:name) { Decidim::Faker::Localized.word }
-      let(:area_type) { create :area_type, organization: }
+      let(:area_type) { create(:area_type, organization:) }
       let(:area_type_id) { area_type.id }
       let(:attributes) do
         {

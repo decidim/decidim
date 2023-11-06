@@ -6,7 +6,7 @@ describe Decidim::Log::ValueTypes::ParticipatoryProcessTypePresenter, type: :hel
   subject { described_class.new(value, helper) }
 
   let(:value) { participatory_process_type.id }
-  let!(:participatory_process_type) { create :participatory_process_type }
+  let!(:participatory_process_type) { create(:participatory_process_type) }
 
   before do
     helper.extend(Decidim::ApplicationHelper)
@@ -26,7 +26,7 @@ describe Decidim::Log::ValueTypes::ParticipatoryProcessTypePresenter, type: :hel
       let(:value) { participatory_process_type.id + 1 }
 
       it "shows a string explaining the problem" do
-        expect(subject.present).to eq "The process type was not found on the database (ID: #{value})"
+        expect(subject.present).to eq "The process type was not found on the database (ID: #{value})."
       end
     end
   end

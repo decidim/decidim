@@ -8,7 +8,7 @@ module Decidim
       describe ImportParticipatoryTextForm do
         subject { form }
 
-        let(:component) { create :component, manifest_name: "proposals" }
+        let(:component) { create(:component, manifest_name: "proposals") }
         let(:title) do
           {
             ca: "Yes very good, patates amb suc",
@@ -53,7 +53,7 @@ module Decidim
         end
 
         context "when updating a participatory_text which has existing proposals" do
-          let!(:proposal) { create :proposal, component: }
+          let!(:proposal) { create(:proposal, component:) }
 
           context "when the document is not valid" do
             let(:document) { nil }

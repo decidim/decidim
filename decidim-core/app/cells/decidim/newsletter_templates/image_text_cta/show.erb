@@ -24,7 +24,7 @@ table.button table td {
               <tr>
                 <th>
                   <center>
-                    <%= render partial: "layouts/decidim/mailer_logo.html", locals: { organization: organization } %>
+                    <%= render partial: "layouts/decidim/mailer_logo.html", locals: { organization:, custom_url_for_mail_root: } %>
                   </center>
                 </th>
               </tr>
@@ -35,7 +35,7 @@ table.button table td {
               <tr>
                 <th>
                   <% if organization.official_img_header.attached? %>
-                    <%= link_to organization.official_url do %>
+                    <%= link_to newsletter.organization_official_url do %>
                       <%= image_tag organization.attached_uploader(:official_img_header).url(host: organization.host), alt: "", style: "max-height: 50px", class: "float-right" %>
                     <% end %>
                   <% end %>
@@ -111,8 +111,8 @@ table.button table td {
           <th class="expander"></th>
           <th class="small-12 first columns cityhall-bar">
             <div class="decidim-logo" style="float: right; text-align: right; padding-right: 16px">
-              <% if @custom_url_for_mail_root.present? %>
-                <%= link_to organization.name.html_safe, @custom_url_for_mail_root %>
+              <% if custom_url_for_mail_root.present? %>
+                <%= link_to organization.name.html_safe, custom_url_for_mail_root %>
               <% else %>
                 <%= link_to organization.name.html_safe, decidim.root_url(host: organization.host) %>
               <% end %>

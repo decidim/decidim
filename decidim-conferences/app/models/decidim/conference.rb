@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module Decidim
-  # Interaction between a user and an organization can be done via an Conference.
-  # It's a unit of action from the Organization point of view that groups
+  # Interaction between a user and an organization can be done via a Conference.
+  # It is a unit of action from the Organization point of view that groups
   # several components (proposals, debates...) that can be enabled or disabled.
   #
   class Conference < ApplicationRecord

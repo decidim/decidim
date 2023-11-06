@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 shared_examples "merge proposals" do
-  let!(:proposals) { create_list :proposal, 3, :official, component: current_component }
-  let!(:target_component) { create :proposal_component, participatory_space: current_component.participatory_space }
+  let!(:proposals) { create_list(:proposal, 3, :official, component: current_component) }
+  let!(:target_component) { create(:proposal_component, participatory_space: current_component.participatory_space) }
   include Decidim::ComponentPathHelper
 
   before do
@@ -31,7 +31,7 @@ shared_examples "merge proposals" do
         it "does not show the merge action option" do
           click_button "Actions"
 
-          expect(page).to have_no_selector(:link_or_button, "Merge into a new one")
+          expect(page).not_to have_selector(:link_or_button, "Merge into a new one")
         end
       end
     end
@@ -47,14 +47,14 @@ shared_examples "merge proposals" do
       end
 
       it "shows an update button" do
-        expect(page).to have_css("button#js-submit-merge-proposals", count: 1)
+        expect(page).to have_button(id: "js-submit-merge-proposals", count: 1)
       end
 
       context "when submiting the form" do
         before do
           within "#js-form-merge-proposals" do
             select translated(target_component.name), from: :target_component_id_
-            page.find("button#js-submit-merge-proposals").click
+            click_button(id: "js-submit-merge-proposals")
           end
         end
 
@@ -68,10 +68,10 @@ shared_examples "merge proposals" do
           let!(:target_component) { current_component }
           let!(:proposal_ids) { proposals.map(&:id) }
 
-          context "when the proposals can't be merged" do
-            let!(:proposals) { create_list :proposal, 3, :with_endorsements, :with_votes, component: current_component }
+          context "when the proposals cannot be merged" do
+            let!(:proposals) { create_list(:proposal, 3, :with_endorsements, :with_votes, component: current_component) }
 
-            it "doesn't create a new proposal and displays a validation fail message" do
+            it "does not create a new proposal and displays a validation fail message" do
               expect(page).to have_css(".table-list tbody tr", count: 3)
               expect(page).to have_content("There has been a problem merging the selected proposals")
               expect(page).to have_content("Are not official")

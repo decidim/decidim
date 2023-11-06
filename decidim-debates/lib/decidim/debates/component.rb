@@ -6,6 +6,7 @@ Decidim.register_component(:debates) do |component|
   component.engine = Decidim::Debates::Engine
   component.admin_engine = Decidim::Debates::AdminEngine
   component.icon = "media/images/decidim_debates.svg"
+  component.icon_key = "discuss-line"
   component.permissions_class_name = "Decidim::Debates::Permissions"
 
   component.query_type = "Decidim::Debates::DebatesType"
@@ -14,14 +15,14 @@ Decidim.register_component(:debates) do |component|
   component.newsletter_participant_entities = ["Decidim::Debates::Debate"]
 
   component.on(:before_destroy) do |instance|
-    raise StandardError, "Can't remove this component" if Decidim::Debates::Debate.where(component: instance).any?
+    raise StandardError, "Cannot remove this component" if Decidim::Debates::Debate.where(component: instance).any?
   end
 
   component.settings(:global) do |settings|
     settings.attribute :scopes_enabled, type: :boolean, default: false
     settings.attribute :scope_id, type: :scope
     settings.attribute :comments_enabled, type: :boolean, default: true
-    settings.attribute :comments_max_length, type: :integer, required: false
+    settings.attribute :comments_max_length, type: :integer, required: true
     settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 

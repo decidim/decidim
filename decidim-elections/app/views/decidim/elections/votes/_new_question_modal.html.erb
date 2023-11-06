@@ -1,29 +1,28 @@
-<div class="reveal" id="show-focus-modal-<%= answer.slug %>" data-reveal>
-  <div class="reveal__header">
-    <h3 class="reveal__title"><%= translated_attribute(answer.title) %></h3>
-    <button class="close-button" data-close aria-label="Close modal"
-      type="button">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="row m-bottom">
-    <div class="columns">
+<%= decidim_modal id: "show-focus-modal-#{answer.slug}", class: "election-question__modal" do %>
+  <div data-dialog-container>
+    <%= icon "arrow-right-line" %>
+
+    <h2 class="h2" id="dialog-title-show-focus-modal-<%= answer.slug %>" data-dialog-title>
+      <%= translated_attribute(answer.title) %>
+    </h2>
+
+    <div class="election-question__modal-explanation">
       <% if answer.photos.any? %>
-        <div class="section">
+        <div class="election-question__modal-grid">
           <% answer.photos.each do |photo| %>
-            <%= image_tag photo.thumbnail_url, class:"thumbnail", alt: strip_tags(translated_attribute(photo.title)) %>
+            <%= image_tag photo.thumbnail_url, alt: strip_tags(translated_attribute(photo.title)) %>
           <% end %>
         </div>
       <% end %>
+
       <% if answer.description %>
-        <div class="section">
+        <div class="editor-content">
           <%== translated_attribute(answer.description) %>
         </div>
       <% end %>
-    </div>
-    <div class="section">
+
       <% if answer.proposals.any? %>
-        <h4><%= t("decidim.elections.votes.modal.proposal_header") %></h4>
+        <h3 class="h4"><%= t("decidim.elections.votes.modal.proposal_header") %></h3>
         <ul>
           <% answer.proposals.each do |proposal| %>
             <li>
@@ -36,11 +35,9 @@
       <% end %>
     </div>
   </div>
-  <div class="row">
-    <div class="columns medium-4 medium-centered">
-      <button class="button expanded" data-close>
-        <%= t("decidim.elections.votes.modal.close") %>
-      </button>
-    </div>
+  <div data-dialog-actions>
+    <button data-dialog-close="show-focus-modal-<%= answer.slug %>" class="button button__sm md:button__lg button__secondary">
+      <%= t("decidim.elections.votes.modal.close") %>
+    </button>
   </div>
-</div>
+<% end %>

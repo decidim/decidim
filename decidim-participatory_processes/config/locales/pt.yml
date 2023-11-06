@@ -85,7 +85,6 @@ pt:
         edit: Editar
         filter:
           all_processes: Mostrar todos os processos
-          process_groups: Grupos de Processo
         import_process: Importar
         new_process: Novo processo
         new_process_group: Novo grupo de processo
@@ -107,7 +106,6 @@ pt:
           attachments: Anexos
           categories: Categorias
           components: Componentes
-          info: Info
           moderations: Moderações
           private_users: Participantes privados
           process_admins: Administradores de processo
@@ -117,7 +115,6 @@ pt:
           fields:
             created_at: Criado em
             private: Privado
-            promoted: Realçado
             published: Publicado
             title: Título
           name: Processo participativo
@@ -196,9 +193,6 @@ pt:
           success: Fase de processo participativo criada corretamente.
         default_title: Introdução
         destroy:
-          error:
-            active_step: Não é possível eliminar a fase ativa.
-            last_step: Não é possível eliminar a última fase de um processo.
           success: Fase do processo participativo eliminada corretamente.
         edit:
           title: Editar a fase do processo participativo
@@ -237,7 +231,6 @@ pt:
         edit:
           update: Atualizar
         index:
-          not_published: Não publicado
           private: Privado
           public: Público
           published: Publicado
@@ -310,9 +303,6 @@ pt:
         description: Número de processos participativos nesta organização
         object: processos participativos
         title: Processos participativos
-    participatory_process:
-      show:
-        related_assemblies: Reuniões relacionadas
     participatory_process_groups:
       content_blocks:
         html_1:
@@ -321,19 +311,12 @@ pt:
           name: Segundo bloco HTML
         html_3:
           name: Terceiro bloco HTML
-        metadata:
-          developer_group: Promovido por
-          name: Meta dados
-          participatory_scope: O que é decidido
-          participatory_structure: Como é decidido
-          target: Quem participa
         participatory_processes:
           name: Processos participativos
         stats:
           name: Estatísticas
         title:
           meta_scope: Âmbito
-          name: Título, descrição e hashtag
           participatory_processes:
             one: 1 processo
             other: "%{count} processos"
@@ -342,7 +325,6 @@ pt:
     participatory_process_steps:
       index:
         process_steps: Fases do processo
-        title: Fases do Processo participativo
     participatory_processes:
       admin:
         content_blocks:
@@ -351,21 +333,15 @@ pt:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help: 'Os campos de dados dinâmicos de URL são utilizados para gerar os URL que direcionam para este processo. Apenas aceitam letras, números e traços, devendo começar com uma letra. Exemplo: %{url}'
         participatory_process_groups:
           form:
             metadata: Meta dados
-            title: Informação geral
             visibility: Visibilidade
         participatory_process_imports:
           form:
             document_legend: Adicionar um documento
-            slug_help: 'Os campos de dados dinâmicos de URL são utilizados para gerar os URL que direcionam para este processo. Apenas aceitam letras, números e traços, devendo começar com uma letra. Exemplo: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Use caminhos parciais, não URLs completos aqui. Aceita letras, números, traços e barras, e deve começar com uma letra. Se não estiver definido, o botão não será mostrado. Exemplo: %{url}'
             cta_text_help: Se não estiver definido, o botão não será mostrado.
         participatory_processes:
           form:
@@ -379,7 +355,6 @@ pt:
             scope_type_max_depth_help: Restrinja a abrangência do filtro de âmbito; O filtro irá mostrar desde o tipo de âmbito geral até ao tipo de âmbito selecionado.
             select_an_area: Selecione uma Área
             select_process_group: Selecione um grupo do processo
-            slug_help: 'Os campos de dados dinâmicos de URL são utilizados para gerar os URL que direcionam para este processo. Apenas aceitam letras, números e traços, devendo começar com uma letra. Exemplo: %{url}'
             title: Informação geral
             visbility: Visibilidade
       content_blocks:
@@ -389,16 +364,6 @@ pt:
         title: Processos participativos
       last_activity:
         new_participatory_process: Novo processo participativo
-      pages:
-        home:
-          highlighted_processes:
-            active_processes: Processos ativos
-            active_step: Fase ativa
-            more_information: Mais informações
-            participate: Participar
-            participate_in: Participar no processo %{resource_name}
-            processes_button_title: Ligação para a página Processos exibindo todos os processos
-            see_all_processes: Ver todos os processos
       participatory_process_steps:
         index:
           back_to_process: Retroceder à página do processo
@@ -418,8 +383,6 @@ pt:
               one: 1 processo futuro
               other: "%{count} processos futuros"
           explanations:
-            no_active: Nenhum processo ativo
-            no_active_nor_upcoming: Não há processos ativos nem futuros
             no_active_nor_upcoming_callout: Não há processos ativos nem futuros. Aqui está uma lista dos últimos.
           names:
             active: Ativo
@@ -427,23 +390,10 @@ pt:
             past: Passado
             upcoming: Próximos
           see: Ver
-        index:
-          loading: Carregando os resultados...
       show:
-        area: Área
         belongs_to_group: Este processo pertence a
-        dates: Datas
-        developer_group: Grupo promotor
-        end_date: Data final
-        local_area: Área de Organização
-        participatory_scope: O que é decidido
-        participatory_structure: Como é decidido
         private_space: Este é um processo privado
         related_processes: Processos relacionados
-        scope: Âmbito
-        start_date: Data de início
-        target: Quem participa
-        unspecified: Não especificado
     statistics:
       processes_count: Processos
   layouts:
@@ -453,10 +403,6 @@ pt:
           browse: Navegar
           browse_resource: Pesquisar grupo do processo %{resource_name}
           processes_count: 'Processos:'
-      participatory_process_widgets:
-        show:
-          active_step: Fase ativa
-          take_part: Participar
       participatory_processes:
         index:
           promoted_processes: Processos realçados
@@ -466,16 +412,3 @@ pt:
           more_info_about: Mais informações sobre o processo %{resource_name}
           take_part: Participar
           take_part_in: Fazer parte do processo %{resource_name}
-        promoted_process:
-          active_step: 'Fase atual:'
-          more_info: Mais informações
-          more_info_about: Mais informações sobre o processo %{resource_name}
-          take_part: Participar
-          take_part_in: Fazer parte do processo %{resource_name}
-        promoted_process_group:
-          more_info: Mais informações
-      process_header_steps:
-        step: Fase %{current} de %{total}
-        view_steps: Visualizar fases
-      process_navigation:
-        process_menu_item: O processo

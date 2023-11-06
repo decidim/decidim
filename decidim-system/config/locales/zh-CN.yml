@@ -30,15 +30,11 @@ zh-CN:
         confirm_destroy: 您确定要删除这个吗？
         destroy: 删除
         edit: 编辑
-        new: 新的
         save: 保存
         title: 行动
       admins:
         create:
           error: 创建新管理员时出错。
-          success: 管理员创建成功
-        destroy:
-          success: 管理员删除成功
         edit:
           title: 编辑管理员
           update: 更新
@@ -49,7 +45,6 @@ zh-CN:
           title: 新管理员
         update:
           error: 更新此管理员时出错。
-          success: 管理员更新成功
       default_pages:
         placeholders:
           content: 请添加有意义的内容到管理仪表盘上的 %{page} 静态页面。
@@ -64,7 +59,6 @@ zh-CN:
           fields:
             created_at: 创建于
             email: 电子邮件地址
-          name: 管理员
           validations:
             email_uniqueness: 已存在具有相同电子邮件的其他管理员
         oauth_application:
@@ -72,7 +66,6 @@ zh-CN:
             created_at: 创建于
             name: OAuth 应用程序名称
             organization_name: 组织
-          name: OAuth 应用程序
         organization:
           actions:
             save_and_invite: 创建机构并邀请管理员
@@ -82,7 +75,6 @@ zh-CN:
             name: 名称
             omniauth_settings: Omniauth 设置
             smtp_settings: SMTP 设置
-          name: 组织
       oauth_applications:
         create:
           error: 创建此应用程序时出现问题。
@@ -131,8 +123,6 @@ zh-CN:
         index:
           title: 组织
         new:
-          reference_prefix_hint: 引用前缀被用来独特地识别所有组织的资源
-          secondary_hosts_hint: 在新行中输入其中每一个
           title: 新建组织
         omniauth_settings:
           decidim:
@@ -162,7 +152,6 @@ zh-CN:
         users_registration_mode:
           disabled: 只能通过外部帐户访问
           enabled: 允许参与者注册并登录
-          existing: 不允许参与者注册，但允许现有参与者登录
       shared:
         notices:
           no_organization_warning_html: 您必须创建一个组织才能启动。请确保您在继续之前阅读 %{guide}。

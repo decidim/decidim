@@ -3,26 +3,24 @@
 <div>
   <p><%= translated_attribute(question.body) %></p>
 
-  <% @form = form || Decidim::Meetings::AnswerForm.new(question_id: question.id, current_user: current_user) %>
-  <%= decidim_form_for(@form, url: meeting_polls_answers_path(meeting), method: :post, remote: true, html: { class: "form answer-questionnaire" }, data: { "safe-path" => meeting_live_event_path(meeting) }) do |form| %>
-    <div class="row column answer question" data-max-choices="<%= question.max_choices %>">
-      <%= render partial: "decidim/meetings/polls/answers/#{question.question_type}", locals: { answer: @form.answer, question: question, answer_form: form, disabled: question.answered_by?(current_user), field_id: question.id  } %>
+  <% @form = form || Decidim::Meetings::AnswerForm.new(question_id: question.id, current_user:) %>
+  <%= decidim_form_for(@form, url: meeting_polls_answers_path(meeting), method: :post, remote: true, html: { class: "form-defaults mt-4" }, data: { "safe-path" => meeting_live_event_path(meeting) }) do |form| %>
+    <div class="answer question" data-max-choices="<%= question.max_choices %>">
+      <%= render partial: "decidim/meetings/polls/answers/#{question.question_type}", locals: { answer: @form.answer, question:, answer_form: form, disabled: question.answered_by?(current_user), field_id: question.id } %>
 
       <%= form.hidden_field :question_id %>
 
       <small class="form-error max-choices-alert"><%= t(".max_choices_alert") %></small>
 
       <% @form.errors.full_messages.each do |msg| %>
-        <small class="form-error is-visible margin-top-1"><%= msg %></small>
+        <small class="form-error is-visible mt-1"><%= msg %></small>
       <% end %>
     </div>
     <% if question.answered_by?(current_user) %>
-      <div class="callout success margin-top-1">
-        <%= t(".question_replied") %>
-      </div>
+      <%= cell("decidim/announcement", t(".question_replied"), callout_class: "success" ) %>
     <% else %>
       <div class="text-right">
-        <button class="button button--nomargin primary small margin-top-1"><%= t(".reply_question") %></button>
+        <button class="ml-auto button button button__sm button__secondary"><%= t(".reply_question") %></button>
       </div>
     <% end %>
   <% end %>

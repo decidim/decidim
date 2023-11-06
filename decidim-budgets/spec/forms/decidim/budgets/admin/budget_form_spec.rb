@@ -12,9 +12,9 @@ describe Decidim::Budgets::Admin::BudgetForm do
       current_component:
     }
   end
-  let(:participatory_process) { create :participatory_process, organization: }
-  let(:current_component) { create :budgets_component, participatory_space: participatory_process }
-  let(:scope) { create :scope, organization: }
+  let(:participatory_process) { create(:participatory_process, organization:) }
+  let(:current_component) { create(:budgets_component, participatory_space: participatory_process) }
+  let(:scope) { create(:scope, organization:) }
   let(:scope_id) { scope.id }
   let(:title) { Decidim::Faker::Localized.sentence(word_count: 3) }
   let(:description) { Decidim::Faker::Localized.sentence(word_count: 3) }
@@ -47,6 +47,12 @@ describe Decidim::Budgets::Admin::BudgetForm do
 
   describe "when total_budget is missing" do
     let(:total_budget) { nil }
+
+    it { is_expected.not_to be_valid }
+  end
+
+  describe "when total_budget is equal to 0" do
+    let(:total_budget) { 0 }
 
     it { is_expected.not_to be_valid }
   end

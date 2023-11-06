@@ -13,10 +13,10 @@ module Decidim
       before_action :set_commentable, except: [:destroy, :update]
       before_action :ensure_commentable!, except: [:destroy, :update]
 
-      helper_method :root_depth, :commentable, :order, :reply?, :reload?
+      helper_method :root_depth, :commentable, :order, :reply?, :reload?, :root_comment
 
       def index
-        enforce_permission_to :read, :comment, commentable: commentable
+        enforce_permission_to(:read, :comment, commentable:)
 
         @comments = SortedComments.for(
           commentable,
@@ -47,7 +47,8 @@ module Decidim
 
       def update
         set_comment
-        enforce_permission_to :update, :comment, comment: comment
+        set_commentable
+        enforce_permission_to(:update, :comment, comment:)
 
         form = Decidim::Comments::CommentForm.from_params(
           params.merge(commentable: comment.commentable)
@@ -71,7 +72,7 @@ module Decidim
       end
 
       def create
-        enforce_permission_to :create, :comment, commentable: commentable
+        enforce_permission_to(:create, :comment, commentable:)
 
         form = Decidim::Comments::CommentForm.from_params(
           params.merge(commentable:)
@@ -106,7 +107,7 @@ module Decidim
         set_comment
         @commentable = @comment.commentable
 
-        enforce_permission_to :destroy, :comment, comment: comment
+        enforce_permission_to(:destroy, :comment, comment:)
 
         Decidim::Comments::DeleteComment.call(comment, current_user) do
           on(:ok) do
@@ -129,7 +130,11 @@ module Decidim
       attr_reader :commentable, :comment
 
       def set_commentable
-        @commentable = GlobalID::Locator.locate_signed(commentable_gid)
+        @commentable ||= if commentable_gid
+                           GlobalID::Locator.locate_signed(commentable_gid)
+                         elsif comment
+                           comment.root_commentable
+                         end
       end
 
       def set_comment
@@ -141,13 +146,21 @@ module Decidim
       end
 
       def handle_success(comment)
-        @comment = comment
+        @comment = comment.reload
         @comments_count = case commentable
                           when Decidim::Comments::Comment
                             commentable.root_commentable.comments_count
                           else
                             commentable.comments_count
                           end
+      end
+
+      def root_comment
+        @root_comment ||= begin
+          root_comment = comment
+          root_comment = root_comment.commentable while root_comment.commentable.is_a?(Decidim::Comments::Comment)
+          root_comment
+        end
       end
 
       def commentable_gid

@@ -26,7 +26,6 @@ lv:
       proposal_answer:
         answer: Atbilde
       proposals_copy:
-        copy_proposals: Es saprotu, ka tas importēs visus priekšlikumus no atlasītā komponenta uz pašreizējo un ka šo darbību nevar atsaukt.
         origin_component_id: Komponents, lai kopētu priekšlikumus no
       proposals_import:
         import_proposals: Importēt priekšlikumus
@@ -150,10 +149,8 @@ lv:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: Kāds ir atstājis piezīmi par priekšlikumu "%{resource_title}". Apskatiet to <a href="%{admin_proposal_info_url}">administratora panelī</a>
             email_outro: Jūs saņēmāt šo paziņojumu, jo varat izvērtēt priekšlikumu.
             email_subject: Kāds atstāja piezīmi par priekšlikumu %{resource_title}.
-            notification_title: Kāds ir atstājis piezīmi par priekšlikumu <a href="%{resource_path}">%{resource_title}</a>. Pārbaudiet to <a href="%{admin_proposal_info_path}">administratora panelī</a>
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} ir pieņemts, lai piekļūtu kā līdzautors %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ir <strong> pieņemts, lai piekļūtu kā līdzautors</strong> <a href="%{resource_path}">%{resource_title}</a> sadarbības projektā.
@@ -176,12 +173,10 @@ lv:
           email_intro: 'Tagad jūs varat izveidot jaunu priekšlikumu telpā %{participatory_space_title}! Sāciet piedalīties šajā lapā:'
           email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{participatory_space_title}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
           email_subject: Priekšlikumi tagad ir pieejami telpā %{participatory_space_title}
-          notification_title: Tagad jūs varat ierosināt <a href="%{resource_path}"> jaunus priekšlikumus </a> sadaļā <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Jūs varat atbalstīt priekšlikumus telpā %{participatory_space_title}! Sāciet piedalīties šajā lapā:'
           email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{participatory_space_title}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
           email_subject: Priekšlikumu atbalstīšana %{participatory_space_title} ir sākusies
-          notification_title: Tagad jūs varat sākt <a href="%{resource_path}"> atbalstīt priekšlikumus </a> sadaļā <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           affected_user:
             email_intro: 'Jūsu priekšlikums "%{resource_title}" tika pieņemts. Jūs varat izlasīt atbildi šajā lapā:'
@@ -191,7 +186,6 @@ lv:
           follower:
             email_intro: 'Priekšlikums "%{resource_title}" ir pieņemts. Jūs varat izlasīt atbildi šajā lapā:'
             email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat "%{resource_title}". Jūs varat atsekot tai no iepriekšējās saites.
-            email_subject: Priekšlikums, kam jūs sekojat, ir pieņemts.
             notification_title: <a href="%{resource_path}">%{resource_title}</a> priekšlikums ir pieņemts.
         proposal_evaluating:
           affected_user:
@@ -202,7 +196,6 @@ lv:
           follower:
             email_intro: 'Pašlaik tiek vērtēts jūsu priekšlikums "%{resource_title}". Atbilde būs pieejama šajā lapā:'
             email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat "%{resource_title}". Jūs varat atsekot tai no iepriekšējās saites.
-            email_subject: Priekšlikums, kam jūs sekojat, tiek vērtēts
             notification_title: Priekšlikums <a href="%{resource_path}">%{resource_title}</a> tiek vērtēts.
         proposal_mentioned:
           email_intro: Jūsu priekšlikums "%{mentioned_proposal_title}" ir pieminēts <a href="%{resource_url}"> šajā telpā </a> komentāros.
@@ -222,12 +215,10 @@ lv:
           affected_user:
             email_intro: 'Jūsu priekšlikums "%{resource_title}" tika noraidīts. Jūs varat izlasīt atbildi šajā lapā:'
             email_outro: Jūs saņēmāt šo paziņojumu, jo esat "%{resource_title}" autors.
-            email_subject: Jūsu priekšlikums tika noraidīts
             notification_title: Jūsu priekšlikums <a href="%{resource_path}">%{resource_title}</a> tika noraidīts.
           follower:
             email_intro: 'Priekšlikums "%{resource_title}" tika noraidīts. Jūs varat izlasīt atbildi šajā lapā:'
             email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat "%{resource_title}". Jūs varat atsekot tai no iepriekšējās saites.
-            email_subject: Priekšlikums, kam jūs sekojat, tika noraidīts
             notification_title: <a href="%{resource_path}">%{resource_title}</a> priekšlikums tika noraidīts.
         proposal_update_category:
           email_intro: 'Administrators ir atjauninājis jūsu priekšlikuma kategoriju "%{resource_title}", aplūkojiet to šajā lapā:'
@@ -266,7 +257,6 @@ lv:
           description_own: Jūs esat atbalstījis %{score} priekšlikumus.
           name: Atbalsti priekšlikumiem
           next_level_in: Atbalstiet vēl %{score} priekšlikumus, lai sasniegtu nākamo līmeni!
-          unearned_another: Šis dalībnieks vēl nav atbalstījis nevienu priekšlikumu.
           unearned_own: Jūs vēl neesat atbalstījis nevienu priekšlikumu.
         proposals:
           conditions:
@@ -277,7 +267,6 @@ lv:
           description_own: Jūs esat izveidojis %{score} priekšlikumus.
           name: Priekšlikumi
           next_level_in: Izveidojiet vēl %{score} priekšlikumus, lai sasniegtu nākamo līmeni!
-          unearned_another: Šis dalībnieks vēl nav izveidojis nevienu priekšlikumu.
           unearned_own: Jūs vēl neesat izveidojis nevienu priekšlikumu.
     metrics:
       accepted_proposals:
@@ -333,9 +322,6 @@ lv:
               md: Marķējums
             bottom_hint: "(Jūs varēsiet priekšskatīt un kārtot dokumentu sadaļas)"
             upload_document: Augšupielādēt dokumentu
-          publish:
-            invalid: Nevarēja publicēt priekšlikumus
-            success: Visi priekšlikumi ir publicēti
           sections:
             article: "<em>Raksts</em>"
             section: "<em>Sadaļa:</em> <strong>%{title}</strong>"
@@ -350,21 +336,12 @@ lv:
             rejected: Noraidīts
             title: Atbilde par priekšlikumu %{title}
         proposal_notes:
-          create:
-            error: Šī priekšlikuma piezīmes izveides laikā radās problēma
-            success: Priekšlikuma piezīme ir veiksmīgi izveidota.
           form:
             note: Piezīme
             submit: Iesniegt
           leave_your_note: Atstājiet savu piezīmi
           title: Privātas piezīmes
         proposals:
-          answer:
-            invalid: Atbildot uz šo priekšlikumu, radās problēma
-            success: Priekšlikums ir veiksmīgi atbildēts
-          create:
-            invalid: Šī priekšlikuma izveides laikā radās problēma
-            success: Priekšlikums ir veiksmīgi izveidots
           edit:
             title: Atjaunināt priekšlikumu
             update: Atjaunināt
@@ -398,20 +375,13 @@ lv:
             title: Izveidot priekšlikumu
           publish_answers:
             number_of_proposals: Tiks publicētas atbildes uz %{number} priekšlikumiem.
-            select_a_proposal: Lūdzu, izvēlieties priekšlikumu
           show:
             amendments_count: Grozījumu skaits
             assigned_valuators: Piešķirtie vērtētāji
-            authors: Autori
             body: Pamatteksts
             comments_count: Komentāru skaits
-            comments_negative_count: Pret
-            comments_neutral_count: Neitrāls
-            comments_positive_count: Par
-            created_at: Izveides datums
             documents: Dokumenti
             endorsements_count: Atbalstu skaits
-            endorsements_ranking: Sarindot pēc atbalsta
             endorsers: Atbalstītāji
             link: Saite
             n_more_endorsers:
@@ -419,28 +389,19 @@ lv:
               one: un vēl viens
               other: un %{count} vēl
             photos: Fotogrāfijas
-            proposals: Priekšlikumi
             ranking: "%{ranking} no %{total}"
             related_meetings: 'Saistītās sanāksmes:'
             remove_assignment: Noņemt uzdevumu
             remove_assignment_confirmation: Vai tiešām vēlaties noņemt vērtētāju šim priekšlikumam?
             valuators: Vērtētāji
             votes_count: Atbalstu skaits
-            votes_ranking: Sarindot pēc atbalstiem
           update_category:
             invalid: 'Šiem priekšlikumiem jau bija %{subject_name} kategorija: %{proposals}.'
-            select_a_category: Lūdzu, izvēlieties kategoriju
-            select_a_proposal: Lūdzu, izvēlieties priekšlikumu
             success: 'Priekšlikumi ir veiksmīgi atjaunināti kategorijā %{subject_name} kategorija: %{proposals}.'
           update_scope:
             invalid: 'Šiem priekšlikumiem jau bija %{subject_name} tvērums: %{proposals}.'
-            select_a_proposal: Lūdzu, izvēlieties priekšlikumu
-            select_a_scope: Lūdzu, atlasiet tvērumu
             success: 'Priekšlikumi ir veiksmīgi atjaunināti %{subject_name} tvērumam: %{proposals}.'
         proposals_imports:
-          create:
-            invalid: Importējot priekšlikumus, radās problēma
-            success: "%{number} priekšlikumi ir veiksmīgi importēti"
           new:
             create: Importēt priekšlikumus
             no_components: Šajā līdzdalības telpā nav citu priekšlikumu komentāru, no kuriem importēt priekšlikumus.
@@ -452,13 +413,6 @@ lv:
         proposals_splits:
           create:
             success: Priekšlikumi ir veiksmīgi sadalīti jaunos priekšlikumos.
-        valuation_assignments:
-          create:
-            invalid: Piešķirot vērtētājam priekšlikumus, radās kļūda
-            success: Priekšlikumi ir veiksmīgi piešķirti vērtētājam
-          delete:
-            invalid: Atsaucot priekšlikumus no vērtētāja, radās kļūda
-            success: Vērtētājs ir veiksmīgi atsaukts no priekšlikumiem
       admin_log:
         proposal:
           answer: "%{user_name} atbildēja projektam %{resource_name} telpā %{space_name}"
@@ -477,15 +431,11 @@ lv:
         rejected: Noraidīts
         withdrawn: Atsaukts
       application_helper:
-        filter_category_values:
-          all: Visi
         filter_origin_values:
           all: Visi
           meetings: Sanāksmes
           official: Oficiālā
           user_groups: Grupas
-        filter_scope_values:
-          all: Visi
         filter_state_values:
           accepted: Pieņemts
           all: Visi
@@ -501,27 +451,18 @@ lv:
           publish:
             error: Sadarbības projekta publicēšanas laikā radās problēma.
             irreversible_action_modal:
-              body: Kad projekts ir publicēts kā priekšlikums, to vairs nevar rediģēt. Priekšlikumam netiks pieņemti jauni autori vai papildinājumi.
               cancel: Atcelt
               ok: Publicēt kā priekšlikumu
               title: Šī darbība ir neatgriezeniska
             success: Sadarbības projekts ir veiksmīgi publicēts kā priekšlikums.
-          view_collaborative_draft: Aplūkot sadarbības projektu
           withdraw:
             error: Sadarbības projekta aizvēršanas laikā radās problēma.
             irreversible_action_modal:
-              body: Pēc projekta aizvēršanas tas vairs nebūs rediģējams. Projektā netiks pieņemti jauni autori vai papildinājumi.
               cancel: Atcelt
               ok: Atsaukt sadarbības projektu
               title: Šī darbība ir neatgriezeniska
             success: Sadarbības projekts ir veiksmīgi atsaukts.
-        count:
-          drafts_count:
-            zero: "%{count} sadarbības projekti"
-            one: "%{count} sadarbības projekts"
-            other: "%{count} sadarbības projekti"
         create:
-          error: Šo sadarbības projektu izveides laikā radās problēma
           success: Sadarbības projekts ir veiksmīgi izveidots.
         edit:
           attachment_legend: "(Pēc izvēles) Pievienojiet pielikumu"
@@ -545,6 +486,11 @@ lv:
           filter: Filtrēt
           filter_by: Filtrēt pēc
           unfold: Atritināt
+        index:
+          count:
+            zero: "%{count} sadarbības projekti"
+            one: "%{count} sadarbības projekts"
+            other: "%{count} sadarbības projekti"
         new:
           send: Turpināt
         new_collaborative_draft_button:
@@ -557,19 +503,15 @@ lv:
         requests:
           accepted_request:
             error: Nevarēja pieņemt par līdzautoru, lūdzu, vēlāk mēģiniet vēlreiz.
-            success: "@%{user} ir veiksmīgi pieņemts par līdzautoru"
           access_requested:
             error: Jūsu pieprasījumu nevarēja izpildīt, lūdzu, vēlāk mēģiniet vēlreiz.
-            success: Jūsu sadarbības pieprasījums ir veiksmīgi nosūtīts
           collaboration_requests:
             accept_request: Pieņemt
             reject_request: Noraidīt
             title: Sadarbības pieprasījumi
           rejected_request:
             error: Nevarēja noraidīt sadarbības pieprasījumu, lūdzu, vēlāk mēģiniet vēlreiz.
-            success: "@%{user} ir veiksmīgi noraidīts kā līdzautors"
         show:
-          back: Atpakaļ
           edit: Rediģēt sadarbības projektu
           final_proposal: galīgais priekšlikums
           final_proposal_help_text: Šis projekts ir pabeigts. Iepazīstieties ar galīgo priekšlikumu
@@ -577,13 +519,11 @@ lv:
             zero: un vēl %{count} personas
             one: un vēl %{count} persona
             other: un vēl %{count} personas
-          info-message: Šis ir <strong> sadarbības projekts </strong> priekšlikuma izveidei. Tas nozīmē, ka jūs varat palīdzēt tā autoriem veidot priekšlikumu, izmantojot turpmāk esošo komentāru sadaļu, vai arī to tieši uzlabot, pieprasot piekļuvi tā rediģēšanai. Kad autori jums piešķirs piekļuvi, jūs varēsiet veikt izmaiņas šajā projektā.
           publish: Publicēt
           publish_info: Publicējiet šo projekta versiju vai
           published_proposal: publicētais priekšlikums
           request_access: Pieprasīt piekļuvi
           requested_access: Piekļuve pieprasīta
-          version_history: skatīt šī priekšlikuma versiju vēsturi
           withdraw: atsaukt projektu
         states:
           open: Atvērts
@@ -592,8 +532,6 @@ lv:
         update:
           error: Sadarbības projekta saglabāšanas laikā radās problēma.
           success: Sadarbības projekts ir veiksmīgi saglabāts
-        wizard_aside:
-          info: Jūs veidojat <strong>sadarbības projektu</strong>.
         wizard_header:
           title: Izveidot jūsu sadarbības projektu
       create:
@@ -602,14 +540,7 @@ lv:
       destroy_draft:
         error: Sadarbības projekta dzēšanas laikā radās problēma.
         success: Grozījuma projekts tika veiksmīgi izdzēsts.
-      last_activity:
-        new_proposal_at_html: "<span>Jauns priekšlikums %{link}</span>"
       models:
-        collaborative_draft:
-          fields:
-            authors: Autori
-            comments: Komentāri
-            contributions: Papildinājumi
         proposal:
           fields:
             category: Kategorija
@@ -624,14 +555,11 @@ lv:
             valuator: Vērtētājs
             valuators: Vērtētāji
             votes: Balsis
-      new:
-        limit_reached: Jūs nevarat izveidot jaunus priekšlikumus, jo esat pārsniedzis limitu.
       participatory_text_proposal:
         alternative_title: Pašlaik nav neviena līdzdalības teksta
         buttons:
           amend: Grozīt
           comment: Komentēt
-          comments: Komentāri
       proposal_votes:
         create:
           error: Atbalstot priekšlikumu, radās problēma
@@ -643,11 +571,6 @@ lv:
         complete:
           send: Sūtīt
           title: Pabeidziet savu priekšlikumu
-        count:
-          proposals_count:
-            zero: "%{count} priekšlikumi"
-            one: "%{count} priekšlikums"
-            other: "%{count} priekšlikumi"
         edit:
           attachment_legend: "(Pēc izvēles) Pievienojiet pielikumu"
           back: Atpakaļ
@@ -672,21 +595,14 @@ lv:
           state: Statuss
           type: Veids
           voted: Atbalstīts
-        filters_small_view:
-          close_modal: Aizvērt modal
-          filter: Filtrēt
-          filter_by: Filtrēt pēc
-          unfold: Atritināt
         index:
           collaborative_drafts_list: Piekļūt sadarbības projektam
+          count:
+            zero: "%{count} priekšlikumi"
+            one: "%{count} priekšlikums"
+            other: "%{count} priekšlikumi"
           new_proposal: Jauns priekšlikums
           see_all_withdrawn: Skatīt visus atsauktos priekšlikumus
-          view_proposal: Skatīt priekšlikumu
-        linked_proposals:
-          proposal_votes:
-            zero: atbalsta
-            one: atbalsts
-            other: atbalsta
         new:
           send: Turpināt
         orders:
@@ -698,11 +614,6 @@ lv:
           random: Nejauši
           recent: Nesenie
           with_more_authors: Ar vairākiem autoriem
-        participatory_texts:
-          index:
-            document_index: Dokumentu indekss
-          view_index:
-            see_index: Skatīt indeksu
         preview:
           modify: Mainīt priekšlikumu
           proposal_edit_before_minutes:
@@ -711,20 +622,10 @@ lv:
             other: Jūs varēsiet rediģēt šo priekšlikumu pirmajās %{count} minūtēs pēc priekšlikuma publicēšanas. Kad šis laika logs būs pagājis, jūs nevarēsiet rediģēt priekšlikumu.
           publish: Publicēt
           title: Publicējiet savu priekšlikumu
-        proposal:
-          creation_date: 'Izveidots: %{date}'
-          view_proposal: Skatīt priekšlikumu
-        proposals:
-          empty: Pagaidām nav priekšlikuma
-          empty_filters: Nav neviena šim kritērija atbilstīga priekšlikuma
         show:
           answer: Atbilde
-          back_to: Atpakaļ uz
-          back_to_list: Atpakaļ uz sarakstu
           changes_at_title: Grozīts "%{title}"
-          comments: Komentāri
           edit_proposal: Rediģēt priekšlikumu
-          endorsements_list: Atbalsta saraksts
           estimated_cost: Paredzamās izmaksas
           hidden_endorsers_count:
             zero: un vēl %{count} personas
@@ -739,13 +640,8 @@ lv:
           proposal_accepted_reason: 'Šis priekšlikums ir pieņemts, jo:'
           proposal_in_evaluation_reason: Šis priekšlikums tiek vērtēts
           proposal_rejected_reason: 'Šis priekšlikums netika pieņemts, jo'
-          read_less: Lasīt mazāk
-          read_more: Lasīt vairāk
-          report: Ziņot
           withdraw_btn_hint: Ja pārdomājat, jūs varat atsaukt savu priekšlikumu, ja vien neesat saņēmis atbalstu. Priekšlikums netiks izdzēsts, bet tas parādīsies atsaukto priekšlikumu sarakstā.
           withdraw_proposal: Atsaukt priekšlikumu
-        tags:
-          changed_from: "(administrators mainījis no <u>%{previous_name}</u>)"
         vote_button:
           already_voted: Jau atbalstīts
           already_voted_hover: Atsaukt atbalstu
@@ -753,40 +649,27 @@ lv:
           no_votes_remaining: Nav atlikuši atbalsti
           vote: Atbalsts
           votes_blocked: Atbalsts nav iespējots
-        votes_count:
-          most_popular_proposal: Populārākais priekšlikums
-          need_more_votes: Nepieciešams lielāks atbalsts
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Katrs priekšlikums var uzkrāt vairāk nekā %{limit} atbalstu
           minimum_votes_per_user:
             description: Starp dažādiem priekšlikumiem jums ir jāsadala vismaz %{votes} balsis.
-            given_enough_votes: Jūs esat sniedzis pietiekami daudz atbalstu.
             supports_remaining: Jums ir jāatbalsta vēl %{remaining_votes} vairāk priekšlikumi, lai jūsu atbalsts tiktu ņemts vērā.
           proposal_limit:
             description: Jūs varat izveidot līdz %{limit} priekšlikumiem.
-          threshold_per_proposal:
-            description: Lai priekšlikumi tiktu apstiprināti, tiem jāsasniedz %{limit} atbalsts
           title: 'Atbalstam tiek piemēroti šādi noteikumi:'
           vote_limit:
             description: Jūs varat atbalstīt līdz %{limit} priekšlikumiem.
-            left: Atlikušas
             votes: Atbalsta
         wizard_aside:
           back: Atpakaļ
-          info: Jūs veidojat <strong>priekšlikumu</strong>.
         wizard_steps:
-          see_steps: skatīt soļus
           step_1: Izveidojiet savu priekšlikumu
           step_2: Salīdzināt
           step_3: Pabeigt
           step_4: Publicējiet savu priekšlikumu
-          step_of: Solis %{current_step_num} no %{total_steps}
       proposals_picker:
         choose_proposals: Izvēlieties priekšlikumus
-        close: Aizvērt
-        more_proposals: Ir vēl %{number} priekšlikumi. Precizējiet savus meklēšanas kritērijus, lai tos atrastu.
-        no_proposals: Neviena priekšlikums neatbilst jūsu meklēšanas kritērijiem, vai arī nav neviena priekšlikuma.
       publish:
         error: Priekšlikuma publicēšanas laikā radās problēma.
         success: Priekšlikums ir veiksmīgi publicēts.
@@ -799,15 +682,8 @@ lv:
         error: Sadarbības projekta saglabāšanas laikā radās problēma.
         success: Priekšlikuma projekts ir veiksmīgi atjaunināts.
       versions:
-        collaborative_drafts:
-          back_to_resource: Skatīt sadarbības projektu
         index:
           title: Versijas
-        proposals:
-          back_to_resource: Doties atpakaļ pie priekšlikuma
-      withdraw:
-        errors:
-          has_supports: Šo priekšlikumu nevar atsaukt, jo tas jau tiek atbalstīts.
     resource_links:
       copied_from_component:
         proposal_proposal: Saistītie priekšlikumi

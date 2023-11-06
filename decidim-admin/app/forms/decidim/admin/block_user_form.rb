@@ -2,10 +2,11 @@
 
 module Decidim
   module Admin
-    # A form object used to officialize users from the admin dashboard.
+    # A form object used to block users or user groups on the admin dashboard.
     class BlockUserForm < Form
       attribute :user_id, Integer
       attribute :justification, String
+      attribute :hide, Boolean, default: false
 
       validates :user, presence: true
       validates :justification, presence: true, length: { minimum: UserBlock::MINIMUM_JUSTIFICATION_LENGTH }
@@ -15,7 +16,7 @@ module Decidim
       end
 
       def user
-        @user ||= Decidim::User.find_by(
+        @user ||= Decidim::UserBaseEntity.find_by(
           id: user_id,
           organization: current_organization
         )

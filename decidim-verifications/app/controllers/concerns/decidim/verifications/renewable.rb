@@ -9,7 +9,7 @@ module Decidim
       extend ActiveSupport::Concern
       included do
         def renew
-          enforce_permission_to :renew, :authorization, authorization: authorization
+          enforce_permission_to(:renew, :authorization, authorization:)
 
           DestroyUserAuthorization.call(authorization) do
             on(:ok, authorization) do
@@ -25,7 +25,7 @@ module Decidim
         end
 
         def renew_modal
-          enforce_permission_to :renew, :authorization, authorization: authorization
+          enforce_permission_to(:renew, :authorization, authorization:)
 
           respond_to do |format|
             format.html { render layout: nil }

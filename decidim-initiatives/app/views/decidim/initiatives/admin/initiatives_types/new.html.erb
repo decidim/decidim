@@ -1,11 +1,19 @@
-<h2 class="process-title-summary">
-  <%= t ".title" %>
-</h2>
+<% add_decidim_page_title(t(".title")) %>
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t ".title" %>
+  </h2>
+</div>
 
-<%= decidim_form_for(@form, html: { class: "form new_initiatives_types" }) do |f| %>
-  <%= render partial: "form", object: f %>
-
-  <div class="button--double form-general-submit">
-    <%= f.submit t(".create") %>
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+  <%= decidim_form_for(@form, html: { class: "form form-defaults new_initiatives_types" }) do |f| %>
+    <%= render partial: "form", object: f %>
+    <div class="item__edit-sticky">
+      <div class="item__edit-sticky-container">
+        <%= f.submit t(".create"), class: "button button__sm button__secondary" %>
+      </div>
+    </div>
+  <% end %>
   </div>
-<% end %>
+</div>

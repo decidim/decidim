@@ -10,7 +10,7 @@ module Decidim
         email:,
         nickname:,
         password:,
-        password_confirmation:,
+        old_password:,
         avatar:,
         remove_avatar:,
         personal_url:,
@@ -22,14 +22,15 @@ module Decidim
       )
     end
 
-    let(:user) { create(:user) }
+    let(:user) { create(:user, password: user_password) }
     let(:organization) { user.organization }
+    let(:user_password) { "decidim1234567890" }
+    let(:old_password) { user_password }
 
     let(:name) { "Lord of the Foo" }
     let(:email) { "depths@ofthe.bar" }
     let(:nickname) { "foo_bar" }
     let(:password) { "Rf9kWTqQfyqkwseH" }
-    let(:password_confirmation) { password }
     let(:avatar) { upload_test_file(Decidim::Dev.test_file("avatar.jpg", "image/jpeg")) }
     let(:remove_avatar) { false }
     let(:personal_url) { "http://example.org" }
@@ -49,6 +50,24 @@ module Decidim
       end
     end
 
+    describe "name" do
+      context "with an empty name" do
+        let(:name) { "" }
+
+        it "is invalid" do
+          expect(subject).not_to be_valid
+        end
+      end
+
+      context "with invalid characters" do
+        let(:name) { "foo@bar" }
+
+        it "is invalid" do
+          expect(subject).not_to be_valid
+        end
+      end
+    end
+
     describe "email" do
       context "with an empty email" do
         let(:email) { "" }
@@ -58,7 +77,7 @@ module Decidim
         end
       end
 
-      context "when it's already in use in the same organization" do
+      context "when it is already in use in the same organization" do
         context "and belongs to a user" do
           let!(:existing_user) { create(:user, email:, organization:) }
 
@@ -76,7 +95,7 @@ module Decidim
         end
       end
 
-      context "when it's already in use in another organization" do
+      context "when it is already in use in another organization" do
         let!(:existing_user) { create(:user, email:) }
 
         it "is valid" do
@@ -94,7 +113,7 @@ module Decidim
         end
       end
 
-      context "when it's already in use in the same organization" do
+      context "when it is already in use in the same organization" do
         context "and belongs to a user" do
           let!(:existing_user) { create(:user, nickname:, organization:) }
 
@@ -112,7 +131,7 @@ module Decidim
         end
       end
 
-      context "when it's already in use in another organization" do
+      context "when it is already in use in another organization" do
         let!(:existing_user) { create(:user, nickname:) }
 
         it "is valid" do
@@ -137,8 +156,43 @@ module Decidim
       end
     end
 
+    describe "validate_old_password" do
+      context "when email changed" do
+        let(:password) { "" }
+        let(:email) { "foo@example.org" }
+
+        context "with correct old_password" do
+          it "is valid" do
+            expect(subject).to be_valid
+          end
+        end
+
+        context "with incorrect old_password" do
+          let(:old_password) { "foobar1234567890" }
+
+          it { is_expected.to be_invalid }
+        end
+      end
+
+      context "when password present" do
+        let(:email) { user.email }
+
+        context "with correct old_password" do
+          it "is valid" do
+            expect(subject).to be_valid
+          end
+        end
+
+        context "with incorrect old_password" do
+          let(:old_password) { "foobar1234567890" }
+
+          it { is_expected.to be_invalid }
+        end
+      end
+    end
+
     describe "personal_url" do
-      context "when it doesn't start with http" do
+      context "when it does not start with http" do
         let(:personal_url) { "example.org" }
 
         it "adds it" do
@@ -146,7 +200,7 @@ module Decidim
         end
       end
 
-      context "when it's not a valid URL" do
+      context "when it is not a valid URL" do
         let(:personal_url) { "foobar, aa" }
 
         it "is invalid" do

@@ -1,1 +1,93 @@
 lt:
+  activemodel:
+    attributes:
+      post:
+        body: Tekstas
+        decidim_author_id: Autorė(-ius)
+        published_at: Paskelbimo laikas
+        title: Pavadinimas
+    models:
+      decidim/blogs/create_post_event: Naujas tinklaraščio įrašas
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Publikacija
+        few: Publikacijos
+        many: Publikacijos
+        other: Publikacijos
+  decidim:
+    blogs:
+      actions:
+        author_id: Sukurti įrašą kaip
+        confirm_destroy: Ar tikrai norite ištrinti šį įrašą?
+        destroy: Ištrinti
+        edit: Redaguoti
+        new: Naujas įrašas
+        title: Veiksmai
+      admin:
+        posts:
+          create:
+            invalid: Kuriant šį įrašą iškilo problema.
+            success: Įrašas sukurtas sėkmingai.
+          destroy:
+            success: Įrašas pašalintas.
+          edit:
+            save: Atnaujinimas
+            title: Redaguoti publikaciją
+          index:
+            not_published_yet: Dar nepaskelbta.
+            title: Publikacijos
+          new:
+            create: Sukurti
+            title: Sukurti publikaciją
+          update:
+            invalid: Išsaugant šį įrašą iškilo problema.
+            success: Įrašas išsaugotas.
+      admin_log:
+        post:
+          create: "%{user_name} sukūrė %{resource_name} tinklaraščio įrašą %{space_name}"
+          delete: "%{user_name} ištrynė %{resource_name} tinklaraščio įrašą iš %{space_name}"
+          update: "%{user_name} atnaujino %{resource_name} tinklaraščio įrašą %{space_name}"
+      content_blocks:
+        highlighted_posts:
+          last_published: Paskutinis paskelbimas
+          name: Įrašai
+          see_all: Žiūrėti visus įrašus
+      last_activity:
+        new_post: 'Naujas įrašas:'
+      models:
+        post:
+          fields:
+            author: Autorė(-ius)
+            body: Pagrindinė dalis
+            official_blog_post: Oficiali publikacija
+            published_at: Paskelbimo laikas
+            title: Pavadinimas
+    components:
+      blogs:
+        actions:
+          comment: Komentuoti
+          create: Sukurti
+          destroy: Ištrinti
+          endorse: Palaikyti
+          update: Atnaujinti
+        name: Tinklaraštis
+        settings:
+          global:
+            announcement: Pranešimas
+            comments_enabled: Komentarai įjungti
+            comments_max_length: Maksimalus komentaro ilgis (įrašyti 0 įprastam ilgiui)
+          step:
+            announcement: Pranešimas
+            comments_blocked: Komentarai užblokuoti
+            endorsements_blocked: Pritarimai užblokuoti
+            endorsements_enabled: Pritarimai aktyvuoti
+    events:
+      blogs:
+        post_created:
+          email_intro: Publikacija%{resource_title} buvo publikuota %{participatory_space_title} kurią sekate.
+          email_outro: Gavote šį pranešimą nes sekate %{participatory_space_title}. Galite nebesekti dėka praėjusios nuorodos.
+          email_subject: Nauja publikacija paskelbta %{participatory_space_title}
+          notification_title: Publikacija <a href="%{resource_path}">%{resource_title}</a> buvo publikuota %{participatory_space_title}
+    statistics:
+      posts_count: Publikacijos

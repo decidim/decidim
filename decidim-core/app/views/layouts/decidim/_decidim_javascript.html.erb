@@ -1,12 +1,15 @@
-<%= javascript_pack_tag "decidim_core", defer: false %>
+<%# NOTE: for performance reasons defer this javacript call would be good, although there are references to jquery that need to be reviewed %>
+
 <% if Decidim.service_worker_enabled %>
-  <%= javascript_pack_tag "decidim_sw", defer: false %>
+  <%= javascript_pack_tag "decidim_core","decidim_sw", defer: false %>
+<% else %>
+  <%= javascript_pack_tag "decidim_core", defer: false %>
 <% end %>
+
 <%= render partial: "layouts/decidim/js_configuration" %>
 
 <%= yield :js_content %>
 
 <%= snippets.display(:foot) %>
-<%= content_for :header_snippets %>
 
 <%= render partial: "layouts/decidim/cors" if Decidim.cors_enabled %>

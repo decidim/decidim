@@ -1,24 +1,14 @@
-<div class="reveal" id="show-backup-modal" data-reveal data-close-on-click="false">
-  <div class="reveal__header">
-    <h3 class="reveal__title"><%= t(".title", election: translated_attribute(election.title)) %></h3>
-  </div>
-
-  <div class="row m-bottom">
-    <div class="columns">
-      <div class="section">
-        <div class="callout alert">
-          <p><%= t(".description") %></p>
-        </div>
-      </div>
+<%= decidim_modal id: "show-backup-modal" do %>
+  <div data-dialog-container>
+    <h2 id="dialog-title-show-backup-modal" tabindex="-1" data-dialog-title><%= t("title", scope: "decidim.elections.trustee_zone.elections.backup_modal", election: translated_attribute(election.title)) %></h2>
+    <div>
+      <p id="dialog-desc-show-backup-modal"><%= t("description", scope: "decidim.elections.trustee_zone.elections.backup_modal") %></p>
     </div>
   </div>
 
-  <div class="row">
-    <div class="columns medium-5 medium-centered">
-      <a class="button download-election-keys">
-        <%= icon "data-transfer-download", class: "icon", role: "img", aria_label: t(".download_icon") %>
-        <span><%= t(".download_election_keys") %></span>
-      </a>
-    </div>
+  <div data-dialog-actions>
+    <a id="download-election-keys" class="button button__sm md:button__lg button__secondary">
+      <span><%= t("download_election_keys", scope: "decidim.elections.trustee_zone.elections.backup_modal") %></span>
+    </a>
   </div>
-</div>
+<% end %>

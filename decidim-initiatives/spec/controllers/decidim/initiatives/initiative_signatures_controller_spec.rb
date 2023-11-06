@@ -19,7 +19,7 @@ module Decidim
       context "when POST create" do
         context "and authorized user" do
           context "and initiative with user extra fields required" do
-            it "can't vote" do
+            it "cannot vote" do
               sign_in initiative_with_user_extra_fields.author, scope: :user
               post :create, params: { initiative_slug: initiative_with_user_extra_fields.slug, format: :js }
               expect(response).to have_http_status(:unprocessable_entity)
@@ -58,7 +58,7 @@ module Decidim
           it "can get first step" do
             sign_in initiative.author, scope: :user
 
-            get :show, params: { initiative_slug: initiative.slug, id: :fill_personal_data }
+            get :fill_personal_data, params: { initiative_slug: initiative.slug }
             expect(subject.helpers.current_initiative).to eq(initiative)
             expect(subject.helpers.extra_data_legal_information).to eq(initiative.scoped_type.type.extra_fields_legal_information)
           end
@@ -69,7 +69,7 @@ module Decidim
         context "and initiative without user extra fields required" do
           it "action is unavailable" do
             sign_in initiative_without_user_extra_fields.author, scope: :user
-            expect { get :show, params: { initiative_slug: initiative_without_user_extra_fields.slug, id: :fill_personal_data } }.to raise_error(Wicked::Wizard::InvalidStepError)
+            expect(get(:fill_personal_data, params: { initiative_slug: initiative_without_user_extra_fields.slug })).to redirect_to("/")
           end
         end
       end

@@ -46,19 +46,9 @@ module Decidim
           @options = options
         end
 
-        # Displays the necessary front-end stylesheet assets for the map
+        # Automatically append the javascript and the stylesheet assets for the map
         # element.
-        #
-        # @return [String, nil] The map element's stylesheet assets markup for
-        #   the view or nil if there are no stylesheet assets.
-        def stylesheet_snippets; end
-
-        # Displays the necessary front-end JavaScript assets for the map
-        # element.
-        #
-        # @return [String, nil ] The map element's JavaScript assets markup for
-        #   the view or nil if there are no JavaScript assets.
-        def javascript_snippets; end
+        def append_assets; end
 
         protected
 

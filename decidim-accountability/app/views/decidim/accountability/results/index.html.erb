@@ -1,17 +1,17 @@
-<div class="row accountability">
-  <div class="small-12 columns">
-    <%= render partial: "scope_filters", locals: { url_method: :results_path } %>
-  </div>
+<%= append_javascript_pack_tag "decidim_accountability" %>
+<%= append_stylesheet_pack_tag "decidim_accountability" %>
 
-  <div class="small-12 columns">
-    <%= render partial: "nav_breadcrumb", locals: { category: category, result: nil } %>
-  </div>
+<% content_for :aside do %>
+  <%= render partial: "projects_aside", locals: { main_action: true } %>
+<% end %>
 
-  <div class="small-12 columns end">
-    <% if results.any?{|r| r.children_count > 0 } %>
-      <%= render partial: "results_parent", locals: { results: results, total_count: results.total_count } %>
-    <% else %>
-      <%= render partial: "results_leaf", locals: { results: results, total_count: results.total_count } %>
-    <% end %>
-  </div>
-</div>
+<%= render layout: "layouts/decidim/shared/layout_two_col" do %>
+  <section class="layout-main__section">
+    <h2 class="h4"><%= category.present? ? translated_attribute(category.name) : t("decidim.accountability.results.home_header.global_status") %></h2>
+  </section>
+
+  <section id="results" class="layout-main__section">
+    <%= cell "decidim/accountability/results", results %>
+    <%= decidim_paginate results, order_start_time: params[:order_start_time], with_scope: params.dig(:filter, :with_scope) %>
+  </section>
+<% end %>

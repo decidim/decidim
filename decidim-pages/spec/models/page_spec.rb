@@ -16,13 +16,13 @@ module Decidim
       it { is_expected.to be_versioned }
 
       context "without a component" do
-        let(:page) { build :page, component: nil }
+        let(:page) { build(:page, component: nil) }
 
         it { is_expected.not_to be_valid }
       end
 
       context "without a valid component" do
-        let(:page) { build :page, component: build(:component, manifest_name: "proposals") }
+        let(:page) { build(:page, component: build(:component, manifest_name: "proposals")) }
 
         it { is_expected.not_to be_valid }
       end

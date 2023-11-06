@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Admin manages budgets", type: :system do
-  let(:budget) { create :budget, component: current_component }
+  let(:budget) { create(:budget, component: current_component) }
   let(:manifest_name) { "budgets" }
 
   include_context "when managing a component as an admin"
@@ -15,15 +15,13 @@ describe "Admin manages budgets", type: :system do
   end
 
   describe "admin form" do
-    before { click_on "New Budget" }
+    before { click_on "New budget" }
 
-    it_behaves_like "having a rich text editor", "new_budget", "full"
+    it_behaves_like "having a rich text editor", "new_budget", "content"
   end
 
   it "creates a new budget" do
-    within ".card-title" do
-      click_link "New Budget"
-    end
+    click_link "New budget"
 
     within ".new_budget" do
       fill_in_i18n(
@@ -42,16 +40,12 @@ describe "Admin manages budgets", type: :system do
       )
       fill_in :budget_weight, with: 1
       fill_in :budget_total_budget, with: 100_000_00
-      scope_pick select_data_picker(:budget_decidim_scope_id), scope
+      select translated(scope.name), from: :budget_decidim_scope_id
     end
 
-    within ".new_budget" do
-      find("*[type=submit]").click
-    end
+    click_button "Create budget"
 
-    within ".callout-wrapper" do
-      expect(page).to have_content("successfully")
-    end
+    expect(page).to have_admin_callout("Budget successfully created.")
 
     within "table" do
       expect(page).to have_content("My Budget")
@@ -72,13 +66,11 @@ describe "Admin manages budgets", type: :system do
           es: "Mi nuevo título",
           ca: "El meu nou títol"
         )
-
-        find("*[type=submit]").click
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      click_button "Update budget"
+
+      expect(page).to have_admin_callout("Budget successfully updated.")
 
       within "table" do
         expect(page).to have_content("My new title")
@@ -101,9 +93,7 @@ describe "Admin manages budgets", type: :system do
         end
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("Budget successfully deleted.")
 
       within "table" do
         expect(page).not_to have_content(translated(budget.title))
@@ -115,7 +105,7 @@ describe "Admin manages budgets", type: :system do
 
       it "cannot delete the budget" do
         within find("tr", text: translated(budget.title)) do
-          expect(page).to have_no_selector(".action-icon--remove")
+          expect(page).not_to have_selector(".action-icon--remove")
         end
       end
     end
@@ -126,8 +116,8 @@ describe "Admin manages budgets", type: :system do
       let(:budget2) { create(:budget, :with_projects, component: current_component) }
       let(:project) { create(:project, budget:, budget_amount: 90_000_000) }
       let(:project2) { create(:project, budget: budget2, budget_amount: 95_000_000) }
-      let(:user2) { create :user, :confirmed, organization: }
-      let(:user3) { create :user, :confirmed, organization: }
+      let(:user2) { create(:user, :confirmed, organization:) }
+      let(:user3) { create(:user, :confirmed, organization:) }
 
       # User has one finished and pending order
       let!(:finished_order) do
@@ -172,16 +162,16 @@ describe "Admin manages budgets", type: :system do
       it "shows finished and pending orders" do
         visit current_path
         within find_all(".card-divider").last do
-          expect(page).to have_content("Finished votes: \n4")
-          expect(page).to have_content("Pending votes: \n1")
+          expect(page).to have_content("Finished votes: 4")
+          expect(page).to have_content("Pending votes: 1")
         end
       end
 
       it "shows count of users with finished and pending orders" do
         visit current_path
         within find_all(".card-divider").last do
-          expect(page).to have_content("Users with finished votes: \n3")
-          expect(page).to have_content("Users with pending votes: \n1")
+          expect(page).to have_content("Users with finished votes: 3")
+          expect(page).to have_content("Users with pending votes: 1")
         end
       end
     end

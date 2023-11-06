@@ -54,6 +54,9 @@ en:
       answers_count: Answers
     surveys:
       admin:
+        component:
+          actions:
+            answers_alert: If you publish the component, all results will be removed.
         exports:
           survey_user_answers: Survey participant answers
         surveys:
@@ -61,9 +64,14 @@ en:
             invalid: There was a problem saving the survey.
             success: Survey successfully saved.
       last_activity:
-        new_survey_at_html: "<span>New survey at %{link}</span>"
+        new_survey: 'New survey:'
+      survey_confirmation_mailer:
+        confirmation:
+          body: You have successfully answered the %{questionnaire_title} survey within %{participatory_space}
+          subject: Questionnaire %{questionnaire_title} answering confirmation
+        export_name: Survey answers
       surveys:
         answer:
           invalid: There was a problem answering the survey.
-          spam_detected: There was a problem answering the form. Maybe you've been too quick, can you try again?
+          spam_detected: There was a problem answering the form. Maybe you have been too quick, can you try again?
           success: Survey successfully answered.

@@ -15,21 +15,15 @@ zh-CN:
   decidim:
     comments:
       comments_count: 评论计数
-      last_activity:
-        new_comment_at_html: "<span>在 %{link}的新评论</span>"
-      view: 查看
       votes:
         create:
           error: 在表决该评论时出现问题。
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">使用您的帐户</a> 或 <a href="%{sign_up_url}">注册</a> 来添加您的评论。
         form:
           body:
             label: 评论
             placeholder: 你对此有什么看法？
-          form_error: 文本是必需的，不能超过 %{length} 个字符。
-          submit: 发送
           user_group_id:
             label: 评论为
         opinion:
@@ -51,11 +45,9 @@ zh-CN:
           description: 这个内容是否不适当？
           details: 其他评论
           reasons:
-            does_not_belong: 包含非法活动、自杀威胁、个人信息或你认为不属于 %{organization_name} 的其他东西。
             offensive: 包括种族主义、性别主义、污泥、个人攻击、死亡威胁、自杀请求或任何形式的仇恨言论。
             spam: 包含点击、广告、骗子或脚本机器人。
           title: 报告不恰当的内容
-        show_replies: 显示 %{replies_count} 个回复
       comment_order_selector:
         order:
           best_rated: 最佳评分
@@ -63,8 +55,6 @@ zh-CN:
           older: 更旧的
           recent: 最近的
         title: '排序方式：'
-      comment_thread:
-        title: 与 %{authorName} 的对话
       comments:
         blocked_comments_for_user_warning: 您此时无法评论，但您可以阅读前面的评论。
         blocked_comments_warning: 评论此时被禁用，但您可以阅读前面的评论。
@@ -112,6 +102,3 @@ zh-CN:
         description: 与会者生成的评论数
         object: 评论
         title: 评论
-  errors:
-    messages:
-      cannot_have_comments: 不能有评论

@@ -6,7 +6,6 @@ module Decidim
       # This command is executed when the user creates an Answer
       # from the admin panel.
       class CreateAnswer < Decidim::Command
-        include ::Decidim::AttachmentMethods
         include ::Decidim::GalleryMethods
 
         def initialize(form)
@@ -38,7 +37,7 @@ module Decidim
         attr_reader :form, :answer, :gallery
 
         def invalid?
-          form.election.started? || form.invalid?
+          form.election.blocked? || form.invalid?
         end
 
         def create_answer

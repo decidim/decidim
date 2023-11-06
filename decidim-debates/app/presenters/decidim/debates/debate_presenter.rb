@@ -8,6 +8,7 @@ module Decidim
     class DebatePresenter < Decidim::ResourcePresenter
       include Decidim::TranslationsHelper
       include Decidim::ResourceHelper
+      include Decidim::SanitizeHelper
       include ActionView::Helpers::DateHelper
 
       def debate
@@ -30,16 +31,10 @@ module Decidim
         super debate.title, links, html_escape, all_locales
       end
 
-      def description(strip_tags: false, links: false, all_locales: false)
+      def description(strip_tags: false, extras: true, links: false, all_locales: false)
         return unless debate
 
-        handle_locales(debate.description, all_locales) do |content|
-          content = strip_tags(content) if strip_tags
-          renderer = Decidim::ContentRenderers::HashtagRenderer.new(content)
-          content = renderer.render(links:).html_safe
-          content = Decidim::ContentRenderers::LinkRenderer.new(content).render if links
-          content
-        end
+        content_handle_locale(debate.description, all_locales, extras, links, strip_tags)
       end
 
       def last_comment_at

@@ -32,7 +32,6 @@ pt:
         body: Corpo
         subject: Assunto
       organization:
-        admin_terms_of_use_body: Corpo para os termos de utilização do administrador
         alert_color: Alerta
         available_authorizations: Autorizações disponíveis
         badges_enabled: Ativar distintivos
@@ -85,7 +84,6 @@ pt:
         success_color: Sucesso
         time_zone: Fuso Horário
         tos_version: Versão dos termos de serviço
-        twitter_handler: Manipulador do Twitter
         user_groups_enabled: Ativar grupos
         users_registration_mode: Modo de registo dos utilizadores
         warning_color: Aviso
@@ -129,10 +127,6 @@ pt:
               allowed_file_content_types: Ficheiro de imagem inválido
             official_img_header:
               allowed_file_content_types: Ficheiro de imagem inválido
-      new_import:
-        attributes:
-          file:
-            invalid_mime_type: Tipo MIME inválido
   activerecord:
     attributes:
       decidim/static_page:
@@ -153,16 +147,12 @@ pt:
         add: Adicionar
         attachment:
           new: Novo anexo
-        attachment_collection:
-          new: Nova colecção de anexos
         browse: Explorar
         category:
           new: Nova categoria
         export: Exportar tudo
         export-selection: Exportar selecção
         import: Importar
-        manage: Gerir
-        new: Novo %{name}
         newsletter:
           new: Novo boletim informativo
         participatory_space_private_user:
@@ -172,26 +162,10 @@ pt:
         reject: Rejeitar
         share: Partilhar
         verify: Verificar
-      admin_terms_of_use:
-        accept:
-          error: Ocorreu um erro ao aceitar os termos de utilização de administrador.
-          success: Excelente! Aceitou os termos de utilização de administrador.
-        actions:
-          accept: Concordo com os seguintes termos
-          are_you_sure: Tem a certeza que quer rejeitar os termos de utilização de administrador?
-          refuse: Recusar os termos de administrador
-          title: Concordar com os termos e condições de utilização
-        required_review:
-          alert: 'Necessário: Rever os nossos termos de utilização de administrador'
-          callout: Por favor reserve um momento para rever os termos de utilização de administrador. Caso contrário não lhe será possível gerir a plataforma.
-          cta: Reveja-os agora.
-        title: Termos de Utilização de Administrador
       area_types:
         create:
           error: Ocorreu um problema ao criar um novo tipo de área.
           success: Tipo de área criado corretamente.
-        destroy:
-          success: Tipo de área destruído corretamente
         edit:
           title: Editar tipo de área
           update: Atualizar
@@ -200,14 +174,12 @@ pt:
           title: Novo tipo de área
         update:
           error: Ocorreu um problema ao atualizar este tipo de área.
-          success: Tipo de área atualizado com sucesso
       areas:
         create:
           error: Ocorreu um problema ao criar uma nova área.
           success: Área criada corretamente.
         destroy:
           has_spaces: Está area tem espaços dependentes. For favor certifique-se que nenhum Espaço Participativo faz referência a esta área antes de a apagar.
-          success: Área destruída corretamente
         edit:
           title: Editar área
           update: Atualizar
@@ -217,7 +189,6 @@ pt:
         no_areas: Nenhuma Área
         update:
           error: Ocorreu um problema ao atualizar esta área.
-          success: Área atualizada corretamente
       attachment_collections:
         create:
           error: Ocorreu um problema ao criar uma nova pasta.
@@ -228,7 +199,6 @@ pt:
           title: Editar pasta
           update: Atualizar
         index:
-          attachment_collection_used: Esta pasta não pode ser removida porque está em uso.
           attachment_collections_title: Pastas de anexos
         new:
           create: Criar
@@ -255,7 +225,6 @@ pt:
           success: Anexo atualizado com sucesso.
       autocomplete:
         no_results: Nenhum resultado encontrado
-        search_prompt: Digite pelo menos três caracteres para pesquisar
       block_user:
         new:
           action: Bloquear conta e enviar justificação
@@ -274,7 +243,6 @@ pt:
           update: Atualizar
         index:
           categories_title: Categorias
-          category_used: Esta categoria não pode ser apagada porque está a ser usada.
         new:
           create: Criar categoria
           title: Nova categoria
@@ -338,9 +306,6 @@ pt:
       domain_whitelist:
         form:
           domain_too_short: Domínio demasiado curto
-        update:
-          error: Falha ao carregar a lista branca de domínios
-          success: Lista branca de domínios carregada com êxito
       exports:
         export_as: "%{name} como %{export_format}"
         formats:
@@ -348,7 +313,6 @@ pt:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
-        notice: A sua exportação está atualmente em curso. Receberá um e-mail quando estiver completa.
       filters:
         category_id_eq:
           label: Categoria
@@ -414,17 +378,14 @@ pt:
             message_1: Ficheiros CSV, JSON e Excel (.xlsx) não são suportados
             message_2: Para ficheiros CSV o separador entre coludas deve ser um ponto e vírgula (";")
       help_sections:
-        error: Ocorreu um problema ao atualizar as secções de ajuda
         form:
           save: Guardar
-        success: Secções de ajuda atualizadas corretamente
       impersonatable_users:
         index:
           filter:
             all: Todos
             managed: Gerido
             not_managed: Não gerido
-          filter_by: Filtrar por
           impersonate: Personificar
           impersonate_new_managed_user: Gerir novo participante
           managed: Gerido
@@ -452,7 +413,6 @@ pt:
           impersonate_existing_user: Gerir participante "%{name}"
           impersonate_new_managed_user: Gerir novo participante
       imports:
-        error: Houve um problema durante a importação
         new:
           accepted_mime_types:
             csv: CSV
@@ -462,10 +422,6 @@ pt:
             back: Voltar
           file_legend: Adicionar ficheiro para importar a analisar.
           import: Importar
-        notice: "%{number} %{resource_name} importado(s) com êxito"
-      logs:
-        logs_list:
-          no_logs_yet: Ainda não há registos
       managed_users:
         promotion:
           error: Ocorreu um problema ao promover o participante gerido.
@@ -482,7 +438,6 @@ pt:
         area_types: Tipos de área
         areas: Áreas
         configuration: Configuração
-        dashboard: Painel de controlo
         external_domain_whitelist: Domínios externos autorizados
         help_sections: Secções de ajuda
         homepage: Página inicial
@@ -490,7 +445,6 @@ pt:
         moderation: Moderações globais
         newsletters: Boletins informativos
         participants: Participantes
-        reported_users: Utilizadores denunciados
         scope_types: Tipos de âmbito
         scopes: Âmbitos
         settings: Configurações
@@ -562,7 +516,6 @@ pt:
           fields:
             created_at: Data de criação
             email: E-mail
-            last_sign_in_at: Última data de início de sessão
             name: Nome
             role: Função
             roles:
@@ -589,7 +542,6 @@ pt:
           nickname: Alcunha
           reason: Motivo
           reports: Contagem de denúncias
-          title: A listar utilizadores denunciados
         report:
           reasons:
             does_not_belong: Não pertence
@@ -599,8 +551,6 @@ pt:
           blocked: Bloqueado
           unblocked: Não bloqueado
       moderations:
-        index:
-          title: Moderações
         report:
           reasons:
             does_not_belong: Não pertence
@@ -671,13 +621,8 @@ pt:
           select_scopes: Filtro para os utilizadores que ativaram qualquer âmbito selecionado nas definições "Os meus interesses" das suas contas.
           select_spaces: Selecione os espaços para segmentar o boletim informativo
           select_users: Selecione os utilizadores para os quais pretende enviar o boletim informativo
-          send_to_all_users: Enviar para todos os utilizadores
-          send_to_followers: Enviar para os seguidores
-          send_to_participants: Enviar para os participantes
           title: Selecione os destinatários
           warning: "<strong>Atenção:</strong> Este boletim informativo apenas será enviado para utilizadores que tenham ativado a opção <em>Pretendo receber boletins informativo</em> nas suas definições de notificações."
-        send:
-          no_recipients: Nenhum destinatário para esta seleção
         show:
           preview: Pré-visualização
           select_recipients_to_deliver: Selecione os destinatários
@@ -686,13 +631,6 @@ pt:
           error: Ocorreu um problema ao atualizar este boletim informativo.
           success: Boletim informativo atualizado corretamente. Por favor, reveja-o antes de enviar.
       officializations:
-        block:
-          error: Houve um erro ao bloquear o participante
-          success: Participante bloqueado com sucesso
-        create:
-          success: Participante oficializado corretamente
-        destroy:
-          success: Remoção da oficialização do participante feita corretamente
         index:
           actions: Ações
           badge: Distintivo
@@ -714,16 +652,12 @@ pt:
           officialize: Oficializar
           title: Oficializar participante "%{name}"
         show_email_modal:
-          close_modal: Fechar modal
           description: Se precisar de contactar directamente um, pode clicar no botão Mostrar para ver seu endereço de e-mail.
           email_address: Endereço de e-mail
           full_name: Nome completo
           hidden: oculto
           show: Mostrar
           title: Mostrar o endereço de e-mail do participante
-        unblock:
-          error: Houve um erro ao desbloquear o participante
-          success: Participante desbloqueado com sucesso
       organization:
         edit:
           title: Editar organização
@@ -734,7 +668,6 @@ pt:
           instagram: Instagram
           rich_text_editor_in_public_views_help: Em algumas áreas de texto, os participantes serão capazes de inserir algumas etiquetas HTML utilizando o editor de texto avançado.
           social_handlers: Social
-          twitter: Twitter
           url: URL
           youtube: Youtube
         update:
@@ -746,8 +679,6 @@ pt:
         form:
           colors:
             colors_title: Cores da organização
-            header_snippets_help: Use este campo para adicionar coisas ao cabeçalho HTML. O uso mais comum é integrar serviços de terceiros que exigem algum JavaScript ou CSS extra. Além disso, pode usá-lo para adicionar meta tags adicionais ao HTML. Observe que isso só será exibido em páginas públicas, não na secção de administração.
-          cta_button_path_help: 'Pode substituir onde o botão Chamar para Ação na página inicial liga. Aqui use caminhos parciais, não URLs completos. Aceita letras, números, traços e barras, e deve começar com uma letra. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição. Exemplo: %{url}'
           cta_button_text_help: Pode substituir o texto do botão Chamar para Ação na página inicial para cada idioma disponível na sua organização. Se não for definido, o valor padrão será usado. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição.
           homepage_appearance_title: Editar a aparência da página inicial
           homepage_highlighted_content_banner_title: Faixa de conteúdo realçado
@@ -770,9 +701,6 @@ pt:
         edit:
           active_content_blocks: Blocos de conteúdo activos
           inactive_content_blocks: Blocos de conteúdo inactivos
-      organization_homepage_content_blocks:
-        edit:
-          update: Atualizar
       participatory_space_private_users:
         create:
           error: Ocorreu um problema ao adicionar um participante privado neste espaço participativo.
@@ -787,11 +715,7 @@ pt:
           create: Criar
           title: Novo participante privado do Espaço Participativo.
       participatory_space_private_users_csv_imports:
-        create:
-          invalid: Ocorreu um problema ao ler o ficheiro CSV.
-          success: Ficheiro CSV carregado com sucesso, estamos a enviar um e-mail de convite aos participantes. Isto poderá demorar algum tempo.
         new:
-          explanation: 'Carrege o seu ficheiro CSV. Deve ter duas colunas com o e-mail na primeira coluna do ficheiro e  o nome na última coluna do ficheiro (e-mail, nome) dos utilizadores que quer adicionar ao espaço participativo, sem cabeçalhos. Evite utilizar charactéres inválidos como “<>?%&^*#@=+:"{}\|” no nome de utente.'
           title: Carregar o seu ficheiro CSV
           upload: Carregar
       resource_permissions:
@@ -823,8 +747,6 @@ pt:
         create:
           error: Ocorreu um problema ao criar um novo âmbito.
           success: Âmbito criado com sucesso.
-        destroy:
-          success: Âmbito destruído com sucesso
         edit:
           title: Editar o âmbito
           update: Atualizar
@@ -844,7 +766,6 @@ pt:
           error: Houve um problema ao destruir o identificador
           success: Identificador destruído com sucesso.
         share_tokens:
-          empty: Não existem identificadores activos
           help: Estes identificadores são usados para partilhar publicamente para qualquer utilizador este recurso não publicado. Estarão escondidos quando o recurso estiver publicado. Clique no icone de partilha do identificador para visitar o URL parltilhável.
           title: Compartilhar identificadores
       shared:
@@ -856,8 +777,6 @@ pt:
         create:
           error: Ocorreu um problema ao criar um novo tópico.
           success: Tópico criado corretamente.
-        destroy:
-          success: Tópico destruído corretamente
         edit:
           title: Editar tópico
           update: Atualizar tópico
@@ -876,25 +795,19 @@ pt:
         destroy:
           success: Página destruída corretamente
         edit:
-          changed_notably_help: Se marcado, os participantes serão notificados para aceitar os novos termos e condições.
           title: Editar Página
           update: Atualizar
         form:
           none: Nenhum
-          slug_help: 'Utilize caminhos parciais e não URL completos aqui. Aceita letras, números e traços, devendo começar com uma letra. Exemplo: %{url}'
-        index:
-          last_notable_change: Última alteração notável
         new:
           create: Criar página
           title: Nova página
         topic:
           destroy: Remover tópico
           edit: Editar tópico
-          empty: Não há página sob este tópico
           without_topic: Páginas sem tópico
         update:
           error: Ocorreu um problema ao atualizar esta página.
-          success: Página atualizada corretamente
       titles:
         admin_log: Registo de administrador
         area_types: Tipos de área
@@ -908,19 +821,15 @@ pt:
         participants: Participantes
         scope_types: Tipos de âmbito
         scopes: Âmbitos
-        static_pages: Páginas
         statistics: Atividade
         user_groups: Grupos
       user_group:
         csv_verify:
           invalid: Ocorreu um problema ao ler o ficheiro CSV.
-          success: O ficheiro CSV foi enviado com sucesso, estamos a verificar os grupos que correspondem aos critérios. Isto pode demorar um pouco.
         reject:
           invalid: Ocorreu um problema ao rejeitar este grupo.
-          success: Grupo rejeitado corretamente
         verify:
           invalid: Ocorreu um problema ao verificar este grupo.
-          success: Grupo verificado corretamente
       user_groups:
         index:
           state:
@@ -952,13 +861,7 @@ pt:
           last_day: Último dia
           last_month: Último mês
           last_week: Última semana
-          no_users_count_statistics_yet: Ainda não existem estatísticas de contagem de utilizadores
           participants: Participantes
-      view_public_page: Ver página pública
-    forms:
-      errors:
-        impersonate_user:
-          reason: Precisa de fornecer um motivo para gerir um participante não gerido
     metrics:
       blocked_users:
         object: utilizadores bloqueados
@@ -992,13 +895,10 @@ pt:
       models:
         moderation:
           fields:
-            created_at: Data de criação
             hidden_at: Escondido em
             participatory_space: Espaço participativo
-            report_count: Contagem
             reportable_type: Tipo
             reported_content_url: URL de conteúdo reportado
-            reports: Relatórios
             visit_url: URL de visita
         report:
           fields:
@@ -1008,14 +908,3 @@ pt:
   errors:
     messages:
       invalid_json: JSON inválido
-  layouts:
-    decidim:
-      admin:
-        global_moderations:
-          title: Moderações globais
-        newsletters:
-          title: Boletins Informativos
-        settings:
-          title: Configurações
-        users:
-          title: Participantes

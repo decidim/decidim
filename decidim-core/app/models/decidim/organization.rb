@@ -18,7 +18,7 @@ module Decidim
     translatable_fields :description, :cta_button_text, :omnipresent_banner_title, :omnipresent_banner_short_description,
                         :highlighted_content_banner_title, :highlighted_content_banner_short_description, :highlighted_content_banner_action_title,
                         :highlighted_content_banner_action_subtitle, :welcome_notification_subject, :welcome_notification_body, :id_documents_explanation_text,
-                        :admin_terms_of_use_body
+                        :admin_terms_of_service_body
 
     has_many :static_pages, foreign_key: "decidim_organization_id", class_name: "Decidim::StaticPage", inverse_of: :organization, dependent: :destroy
     has_many :static_page_topics, class_name: "Decidim::StaticPageTopic", inverse_of: :organization, dependent: :destroy
@@ -35,10 +35,10 @@ module Decidim
 
     has_many :templates, foreign_key: "decidim_organization_id", class_name: "Decidim::Templates::Template", dependent: :destroy if defined? Decidim::Templates
 
-    # Users registration mode. Whether users can register or access the system. Doesn't affect users that access through Omniauth integrations.
+    # Users registration mode. Whether users can register or access the system. Does not affect users that access through Omniauth integrations.
     #  enabled: Users registration and sign in are enabled (default value).
-    #  existing: Users can't be registered in the system. Only existing users can sign in.
-    #  disable: Users can't register or sign in.
+    #  existing: Users cannot be registered in the system. Only existing users can sign in.
+    #  disable: Users cannot register or sign in.
     enum users_registration_mode: [:enabled, :existing, :disabled], _prefix: true
 
     validates :name, :host, uniqueness: true
@@ -87,6 +87,12 @@ module Decidim
       @top_scopes ||= scopes.top_level
     end
 
+    def participatory_spaces
+      @participatory_spaces ||= Decidim.participatory_space_manifests.flat_map do |manifest|
+        manifest.participatory_spaces.call(self)
+      end
+    end
+
     def public_participatory_spaces
       @public_participatory_spaces ||= Decidim.participatory_space_manifests.flat_map do |manifest|
         manifest.participatory_spaces.call(self).public_spaces
@@ -111,9 +117,9 @@ module Decidim
         multi_translation("decidim.welcome_notification.default_body", available_locales)
     end
 
-    def admin_terms_of_use_body
-      self[:admin_terms_of_use_body] ||
-        multi_translation("decidim.admin_terms_of_use.default_body", available_locales)
+    def admin_terms_of_service_body
+      self[:admin_terms_of_service_body] ||
+        multi_translation("decidim.admin_terms_of_service.default_body", available_locales)
     end
 
     def sign_up_enabled?
@@ -151,6 +157,15 @@ module Decidim
 
     def static_pages_accessible_for(user)
       static_pages.accessible_for(self, user)
+    end
+
+    def favicon_ico
+      return unless favicon.attached?
+      return favicon if favicon.content_type == "image/vnd.microsoft.icon"
+
+      uploader = attached_uploader(:favicon)
+      variant = uploader.variant(:favicon)
+      variant.processed.image
     end
 
     private

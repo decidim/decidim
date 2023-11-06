@@ -17,7 +17,7 @@ module Decidim
       field :created_at, Decidim::Core::DateTimeType, "When this election was created", null: true
       field :updated_at, Decidim::Core::DateTimeType, "When this election was updated", null: true
       field :published_at, Decidim::Core::DateTimeType, "When this election was published", null: true
-      field :blocked, GraphQL::Types::Boolean, "Whether this election has it's parameters blocked or not", method: :blocked?, null: true
+      field :blocked, GraphQL::Types::Boolean, "Whether this election has it is parameters blocked or not", method: :blocked?, null: true
       field :bb_status, GraphQL::Types::String, "The status for this election in the bulletin board", null: true, camelize: false
 
       field :questions, [Decidim::Elections::ElectionQuestionType, { null: true }], "The questions for this election", null: false

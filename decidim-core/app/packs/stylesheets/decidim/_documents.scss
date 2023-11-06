@@ -1,0 +1,60 @@
+.documents {
+  &__container {
+    @apply divide-y divide-background [&>*]:py-4 first:[&>*]:pt-0 last:[&>*]:pb-0;
+
+    > * {
+      @apply flex items-center justify-between gap-4;
+    }
+  }
+
+  &__collection-trigger {
+    @apply mt-8 flex gap-2 w-full md:max-w-[50%] text-lg bg-background;
+
+    > span {
+      @apply font-normal text-gray-2;
+    }
+
+    > svg {
+      @apply w-4 h-4 text-gray-2;
+    }
+
+    &__icon svg {
+      @apply text-gray fill-current;
+    }
+
+    &[aria-expanded="true"] {
+      @apply rounded bg-background-4;
+    }
+
+    &[aria-expanded="true"] > span,
+    &[aria-expanded="true"] &__icon svg {
+      @apply font-semibold text-secondary;
+    }
+
+    &[aria-expanded="false"] &__icon > svg:last-of-type,
+    &[aria-expanded="true"] &__icon > svg:first-of-type {
+      @apply hidden;
+    }
+
+    &[aria-expanded="true"] &__icon > svg:last-of-type,
+    &[aria-expanded="false"] &__icon > svg:first-of-type {
+      @apply block;
+    }
+  }
+
+  &__collection-content {
+    @apply md:pl-8 md:border-l-4 border-background-4 mt-4 w-full border-t-0;
+
+    &[aria-hidden="true"] {
+      @apply md:hidden;
+    }
+  }
+
+  &__collection-content &__container {
+    @apply mt-4 pt-4 border-t border-background;
+  }
+
+  &__container .card__list-text {
+    @apply text-sm;
+  }
+}

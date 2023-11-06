@@ -29,48 +29,48 @@ module Decidim::Meetings
       end
 
       context "when questionnaire enabled" do
-        let(:meeting) { create :meeting, :with_registrations_enabled }
+        let(:meeting) { create(:meeting, :with_registrations_enabled) }
         let(:serialized) { subject.serialize }
         let!(:user) { create(:user, organization: meeting.organization) }
         let!(:registration) { create(:registration, meeting:, user:) }
 
-        let!(:questions) { create_list :questionnaire_question, 3, questionnaire: meeting.questionnaire }
+        let!(:questions) { create_list(:questionnaire_question, 3, questionnaire: meeting.questionnaire) }
         let!(:answers) do
           questions.map do |question|
-            create :answer, questionnaire: meeting.questionnaire, question:, user:
+            create(:answer, questionnaire: meeting.questionnaire, question:, user:)
           end
         end
 
-        let!(:multichoice_question) { create :questionnaire_question, questionnaire: meeting.questionnaire, question_type: "multiple_option" }
-        let!(:multichoice_answer_options) { create_list :answer_option, 2, question: multichoice_question }
+        let!(:multichoice_question) { create(:questionnaire_question, questionnaire: meeting.questionnaire, question_type: "multiple_option") }
+        let!(:multichoice_answer_options) { create_list(:answer_option, 2, question: multichoice_question) }
         let!(:multichoice_answer) do
-          create :answer, questionnaire: meeting.questionnaire, question: multichoice_question, user:, body: nil
+          create(:answer, questionnaire: meeting.questionnaire, question: multichoice_question, user:, body: nil)
         end
         let!(:multichoice_answer_choices) do
           multichoice_answer_options.map do |answer_option|
-            create :answer_choice, answer: multichoice_answer, answer_option:, body: answer_option.body[I18n.locale.to_s]
+            create(:answer_choice, answer: multichoice_answer, answer_option:, body: answer_option.body[I18n.locale.to_s])
           end
         end
 
-        let!(:singlechoice_question) { create :questionnaire_question, questionnaire: meeting.questionnaire, question_type: "single_option" }
-        let!(:singlechoice_answer_options) { create_list :answer_option, 2, question: singlechoice_question }
+        let!(:singlechoice_question) { create(:questionnaire_question, questionnaire: meeting.questionnaire, question_type: "single_option") }
+        let!(:singlechoice_answer_options) { create_list(:answer_option, 2, question: singlechoice_question) }
         let!(:singlechoice_answer) do
-          create :answer, questionnaire: meeting.questionnaire, question: singlechoice_question, user:, body: nil
+          create(:answer, questionnaire: meeting.questionnaire, question: singlechoice_question, user:, body: nil)
         end
         let!(:singlechoice_answer_choice) do
           answer_option = singlechoice_answer_options.first
-          create :answer_choice, answer: singlechoice_answer, answer_option:, body: answer_option.body[I18n.locale.to_s]
+          create(:answer_choice, answer: singlechoice_answer, answer_option:, body: answer_option.body[I18n.locale.to_s])
         end
 
-        let!(:singlechoice_free_question) { create :questionnaire_question, questionnaire: meeting.questionnaire, question_type: "single_option" }
+        let!(:singlechoice_free_question) { create(:questionnaire_question, questionnaire: meeting.questionnaire, question_type: "single_option") }
         let!(:singlechoice_free_answer_options) do
-          options = create_list :answer_option, 2, question: singlechoice_free_question
+          options = create_list(:answer_option, 2, question: singlechoice_free_question)
           options << create(:answer_option, :free_text_enabled, question: singlechoice_free_question)
 
           options
         end
         let!(:singlechoice_free_answer) do
-          create :answer, questionnaire: meeting.questionnaire, question: singlechoice_free_question, user:, body: nil
+          create(:answer, questionnaire: meeting.questionnaire, question: singlechoice_free_question, user:, body: nil)
         end
         let!(:singlechoice_free_answer_choice) do
           answer_option = singlechoice_free_answer_options.find(&:free_text)

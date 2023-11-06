@@ -9,23 +9,26 @@ es:
   decidim:
     admin:
       menu:
+        manage: Gestionar
         templates: Plantillas
       templates:
+        actions:
+          new_template: Añadir plantilla
         apply:
           error: Se ha producido un error al aplicar esta plantilla.
-          success: Plantilla aplicada correctamente
+          success: Plantilla aplicada correctamente.
         copy:
           error: Se ha producido un error al copiar esta plantilla.
-          success: Plantilla copiada correctamente
+          success: Plantilla copiada correctamente.
         create:
           error: Se ha producido un error al crear esta plantilla.
-          success: Plantilla creada correctamente
+          success: Plantilla creada correctamente.
         destroy:
-          success: Plantilla eliminada correctamente
+          success: Plantilla eliminada correctamente.
         empty: Todavía no hay plantillas.
         update:
           error: Se ha producido un error al actualizar esta plantilla.
-          success: Plantilla actualizada correctamente
+          success: Plantilla actualizada correctamente.
       titles:
         template_types:
           questionnaires: Plantillas de cuestionario
@@ -41,6 +44,18 @@ es:
         name: Plantilla
     templates:
       admin:
+        block_user_templates:
+          edit:
+            title: Editar plantilla del mensaje de bloqueo de la cuenta de usuaria
+          form:
+            save: Guardar
+          index:
+            confirm_delete: '¿Seguro que quieres eliminar esta plantilla?'
+            title: Bloquear los mensajes de la usuaria
+          new:
+            title: Nueva plantilla para el mensaje de bloqueo de la cuenta de usuaria
+          template_chooser:
+            select_template: Selecciona una plantilla de respuesta
         questionnaire_templates:
           choose:
             create_from_template: Crear desde plantilla
@@ -50,15 +65,16 @@ es:
             skip_template: Omitir
           edit:
             edit: Editar
-            empty: Aún no hay preguntas
+            empty: Aún no hay preguntas.
             questionnaire: Cuestionario
+            title: Editar plantilla del cuestionario
           form:
-            save: Guardar
-            template_title: Información de la plantilla
             title: Plantilla de cuestionario %{questionnaire_for}
           index:
             confirm_delete: '¿Seguro que quieres eliminar esta plantilla?'
             title: Plantillas de cuestionario
+          new:
+            title: Nueva plantilla de cuestionario
           preview:
             current_step: Paso %{step}
             of_total_steps: de %{total_steps}
@@ -70,4 +86,5 @@ es:
           duplicate: "%{user_name} ha duplicado la plantilla del cuestionario %{resource_name}"
           update: "%{user_name} ha actualizado la platilla del cuestionario %{resource_name}"
       template_types:
+        block_user: Bloquear los mensajes de la usuaria
         questionnaires: Cuestionarios

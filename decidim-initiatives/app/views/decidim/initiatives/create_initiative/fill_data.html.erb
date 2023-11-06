@@ -1,99 +1,96 @@
-<% content_for :back_link do %>
-  <%= link_to :back do %>
-    <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
-    <%= t(".back") %>
-  <% end %>
+<% announcement_body = capture do %>
+  <div class="max-w-full prose">
+    <%= t("fill_data_help", scope: "decidim.initiatives.create_initiative.fill_data").html_safe %>
+    <%= link_to t(".more_information"), decidim.page_path("initiatives"), target: "_blank", class: "button button__sm button__text-secondary block text-left" %>
+  </div>
 <% end %>
 
-<div class="row column">
-  <div class="medium-centered">
-    <div class="callout secondary">
-      <%== t ".fill_data_help" %>
-      <%= link_to t(".more_information"), decidim.page_path("initiatives"), target: "_blank" %>.
+<%= cell("decidim/announcement", { body: announcement_body }, callout_class: "secondary") %>
+<%= decidim_form_for(@form, url: fill_data_create_initiative_index_path, method: :put, html: { class: "form-defaults new_initiative_form", novalidate: false }) do |f| %>
+  <div class="form__wrapper">
+    <%= form_required_explanation %>
+
+    <% if single_initiative_type? %>
+      <%= f.hidden_field :type_id %>
+    <% else %>
+      <%= f.select :type_id,
+                   initiative_type_options,
+                   {},
+                   {
+                     disabled: !@form.signature_type_updatable?,
+                     "data-scope-selector": "initiative_scope_id",
+                     "data-scope-id": f.object.scope_id.to_s,
+                     "data-scope-search-url": decidim_initiatives.initiative_type_scopes_search_url,
+                     "data-signature-types-selector": "initiative_signature_type",
+                     "data-signature-type": current_initiative&.signature_type.presence || initiative_type.signature_type,
+                     "data-signature-types-search-url": decidim_initiatives.initiative_type_signature_types_search_url
+                   } %>
+    <% end %>
+
+    <% unless single_initiative_type? %>
+      <label for="type_description"><%= t ".initiative_type" %>
+        <%= text_field_tag :type_description, strip_tags(translated_attribute(initiative_type.title)), readonly: true %>
+      </label>
+    <% end %>
+
+    <%= f.text_field :title, autofocus: true, value: translated_attribute(f.object.title) %>
+
+    <%= text_editor_for(f, :description, lines: 8, toolbar: :content, value: translated_attribute(f.object.description)) %>
+
+    <%= f.text_field :hashtag %>
+
+    <% signature_type_options = signature_type_options(f.object) %>
+    <% if signature_type_options.length == 1 %>
+      <%= f.hidden_field :signature_type, value: signature_type_options.first.last %>
+    <% else %>
+      <%= f.select :signature_type, signature_type_options %>
+    <% end %>
+
+    <% if scopes.length == 1 %>
+      <%= f.hidden_field :scope_id, value: scopes.first.scope&.id %>
+    <% else %>
+      <%= f.select :scope_id, scopes.map { |scope| [translated_attribute(scope.scope_name), scope&.scope&.id] }, required: true, include_blank: t(".select_scope") %>
+    <% end %>
+
+    <% if initiative_type.custom_signature_end_date_enabled? %>
+      <%= f.date_field :signature_end_date %>
+    <% end %>
+
+    <% if initiative_type.area_enabled? %>
+      <%= f.areas_select :area_id, areas_for_select(current_organization), prompt: t(".select_area") %>
+    <% end %>
+
+    <% if Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
+      <%= f.select :decidim_user_group_id, Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.map { |g| [g.name, g.id] }, include_blank: current_user.name %>
+    <% end %>
+
+    <% if initiative_type.attachments_enabled? %>
+      <%= f.attachment :documents,
+                       multiple: true,
+                       label: t("decidim.initiatives.form.add_documents"),
+                       button_label: t("decidim.initiatives.form.add_documents"),
+                       button_class: "button button__lg button__transparent-secondary w-full",
+                       button_edit_label: t("decidim.initiatives.form.edit_documents"),
+                       help_text: t("attachment_legend", scope: "decidim.initiatives.form") %>
+      <%= f.attachment :photos,
+                       multiple: true,
+                       label: t("decidim.initiatives.form.add_image"),
+                       button_label: t("decidim.initiatives.form.add_image"),
+                       button_class: "button button__lg button__transparent-secondary w-full",
+                       button_edit_label: t("decidim.initiatives.form.edit_image"),
+                       help_text: t("image_legend", scope: "decidim.initiatives.form") %>
+    <% end %>
+
+    <% if @form.state_updatable? %>
+      <%= f.select :state, Decidim::Initiative.states.keys.map { |state| [I18n.t(state, scope: "decidim.initiatives.admin_states"), state] }, {} %>
+    <% end %>
+
+    <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+      <%= link_to :back, class: "button button__sm md:button__lg button__text-secondary" do %>
+        <%= icon "arrow-left-line", class: "fill-current" %>
+        <%= t(".back") %>
+      <% end %>
+      <%= f.submit t(".continue"), class: "button button__sm md:button__lg button__secondary", data: { disable_with: true } %>
     </div>
   </div>
-</div>
-<br>
-<div class="row">
-  <div class="medium-centered">
-    <div class="card">
-      <div class="card__content">
-        <%= decidim_form_for(@form, url: next_wizard_path, method: :put, html: { class: "form new_initiative_form" }) do |f| %>
-          <%= form_required_explanation %>
-          <%= f.hidden_field :type_id %>
-          <div class=section>
-            <% unless single_initiative_type? %>
-              <div class="field">
-                <label for="type_description"><%= t ".initiative_type" %></label>
-                <%= text_field_tag :type_description, strip_tags(translated_attribute(initiative_type.title)), readonly: true %>
-              </div>
-            <% end %>
-
-            <div class="field">
-              <%= f.text_field :title, autofocus: true %>
-            </div>
-
-            <div class="field">
-              <%= f.editor :description, lines: 8, toolbar: :full %>
-            </div>
-
-            <% signature_type_options = signature_type_options(f.object) %>
-            <% if signature_type_options.length == 1 %>
-              <%= f.hidden_field :signature_type, value: signature_type_options.first.last %>
-            <% else %>
-              <div class="field">
-                <%= f.select :signature_type, signature_type_options %>
-              </div>
-            <% end %>
-
-            <% if scopes.length == 1 %>
-              <%= f.hidden_field :scope_id, value: scopes.first.scope&.id %>
-            <% else %>
-              <div class="field">
-                <%= f.select :scope_id,
-                             scopes.map { |scope| [translated_attribute(scope.scope_name), scope&.scope&.id] },
-                             required: true,
-                             include_blank: t(".select_scope") %>
-              </div>
-            <% end %>
-
-            <% if initiative_type.custom_signature_end_date_enabled? %>
-              <div class="field">
-                <%= f.date_field :signature_end_date %>
-              </div>
-            <% end %>
-
-            <% if initiative_type.area_enabled? %>
-              <div class="field">
-                <%= f.areas_select :area_id, areas_for_select(current_organization), prompt: t(".select_area") %>
-              </div>
-            <% end %>
-
-            <% if Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
-              <div class="field">
-                <%= f.select :decidim_user_group_id,
-                             Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.map { |g| [g.name, g.id] },
-                             include_blank: current_user.name %>
-              </div>
-            <% end %>
-
-            <% if initiative_type.attachments_enabled? %>
-              <fieldset class="attachments_container">
-                <legend><%= t("attachment_legend", scope: "decidim.initiatives.form") %></legend>
-
-                <div class="row column">
-                  <%= f.attachment :documents,
-                    multiple: true,
-                    label: t("add_attachments", scope: "decidim.initiatives.form") %>
-                </div>
-              </fieldset>
-            <% end %>
-          </div>
-          <div class="actions">
-            <%= f.submit t(".continue"), class: "button expanded", data: { disable_with: true } %>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
+<% end %>

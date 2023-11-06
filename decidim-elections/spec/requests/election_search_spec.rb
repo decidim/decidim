@@ -7,7 +7,7 @@ RSpec.describe "Election search", type: :request do
 
   subject { response.body }
 
-  let(:component) { create :component, manifest_name: "elections" }
+  let(:component) { create(:component, manifest_name: "elections") }
   let(:participatory_space) { component.participatory_space }
   let(:organization) { participatory_space.organization }
   let(:filter_params) { {} }
@@ -54,7 +54,7 @@ RSpec.describe "Election search", type: :request do
       component:
     )
   end
-  let!(:external_election) { create :election }
+  let!(:external_election) { create(:election) }
 
   let(:request_path) { Decidim::EngineRouter.main_proxy(component).elections_path }
 
@@ -142,5 +142,25 @@ RSpec.describe "Election search", type: :request do
         expect(subject).not_to include(translated(external_election.title))
       end
     end
+  end
+
+  describe "#index" do
+    let(:url) { "http://#{component.organization.host + request_path}" }
+
+    it "redirects to the index page" do
+      get(
+        url_to_root(request_path),
+        params: {},
+        headers: { "HOST" => component.organization.host }
+      )
+      expect(response["Location"]).to eq(url)
+    end
+  end
+
+  private
+
+  def url_to_root(url)
+    parts = url.split("/")
+    parts[0..-2].join("/")
   end
 end

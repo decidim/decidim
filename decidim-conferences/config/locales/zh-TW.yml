@@ -1,1 +1,565 @@
 zh-TW:
+  activemodel:
+    attributes:
+      conference:
+        assemblies_ids: 相關大會
+        available_slots: 可用時段
+        banner_image: 橫幅圖片
+        copy_categories: 複製類別
+        copy_components: 複製組件
+        copy_features: 複製功能
+        decidim_scope_id: 範圍
+        description: 說明
+        end_date: 結束日期
+        hashtag: 主題標籤
+        hero_image: 首頁圖片
+        location: 位置
+        main_logo: 主要標誌
+        objectives: 目標
+        participatory_processes_ids: 相關參與過程
+        promoted: 重點顯示
+        published_at: 發佈於
+        registration_terms: 註冊條款
+        registrations_enabled: 啟用註冊
+        scope_id: 範圍
+        scopes_enabled: 啟用範圍
+        short_description: 簡短說明
+        show_statistics: 顯示統計資料
+        sign_date: 簽到日期
+        signature: 簽名
+        signature_name: 簽名檔名稱
+        slogan: 標語
+        slug: URL名稱
+        start_date: 開始日期
+        title: 標題
+        weight: 排序位置
+      conference_media_link:
+        date: 日期
+        link: 連結
+        title: 標題
+        weight: 排序位置
+      conference_partner:
+        link: 連結
+        logo: 標誌
+        name: 姓名
+        partner_type: 夥伴類型
+        weight: 排序位置
+      conference_registration_invite:
+        email: 電子郵件
+        name: 名稱
+        registration_type_id: 註冊類型
+        user_id: 使用者
+      conference_registration_type:
+        description: 說明
+        price: 價格
+        title: 標題
+        weight: 排序位置
+      conference_speaker:
+        affiliation: 合作關係
+        avatar: 頭像
+        conference_meeting_ids: 相關會議
+        full_name: 全名
+        personal_url: 個人 URL
+        position: 職位
+        short_bio: 簡介
+        user_id: 使用者
+      conference_user_role:
+        email: 電子郵件
+        name: 名稱
+        role: 角色
+    errors:
+      models:
+        conference_registration_invite:
+          attributes:
+            email:
+              already_invited: 已發出邀請到此電子郵件.
+  activerecord:
+    models:
+      decidim/conference:
+        other: 研討會
+      decidim/conference_speaker:
+        other: 會議講者
+      decidim/conference_user_role:
+        other: 會議使用者角色
+  decidim:
+    admin:
+      actions:
+        confirm: 確認
+        send_diplomas: 發送出席證明書
+      conference_copies:
+        new:
+          copy: 複製
+          select: 請選擇您想要複製的資料
+          title: 複製研討會
+      conference_publications:
+        create:
+          error: 發布此研討會時出現問題。
+          success: 會議成功發佈。
+        destroy:
+          error: 取消發佈此會議出現問題。
+          success: 會議已成功取消發布。
+      conference_registration:
+        confirm:
+          error: 確認此會議註冊時出現問題。
+          success: 會議註冊已成功確認
+      conference_speakers:
+        create:
+          error: 新增會議講者時發生問題。
+          success: 會議講者已成功建立。
+        destroy:
+          success: 會議講者已成功刪除。
+        edit:
+          title: 更新會議講者。
+          update: 更新
+        index:
+          conference_speakers_title: 會議講者
+        new:
+          create: 建立
+          title: 新的會議講者。
+        update:
+          error: 更新會議講者時發生問題。
+          success: 會議講者成功更新。
+      conference_user_roles:
+        create:
+          error: 添加講者至此會議時發生問題。
+          success: 會議管理員已成功添加。
+        destroy:
+          success: 會議管理員已成功刪除。
+        edit:
+          title: 更新會議管理員。
+          update: 更新
+        index:
+          conference_admins_title: 會議管理員
+        new:
+          create: 創建
+          title: 新增會議管理員。
+        update:
+          error: 更新此會議管理員時發生問題。
+          success: 已成功更新會議管理員。
+      conferences:
+        create:
+          error: 建立此會議時發生問題。
+          success: 會議已成功建立。
+        edit:
+          update: 更新
+        exports:
+          registrations: 註冊
+        form:
+          title: 基本資訊
+        index:
+          published: 已發佈
+        new:
+          create: 建立
+          title: 研討會
+        update:
+          error: 更新此研討會時發生問題。
+          success: 研討會更新成功。
+      conferences_copies:
+        create:
+          error: 複製此研討會時發生問題。
+          success: 研討會複製成功。
+      media_links:
+        create:
+          error: 創建新的媒體連結時出現問題。
+          success: 媒體連結創建成功。
+        destroy:
+          success: 媒體連結成功刪除。
+        edit:
+          title: 更新媒體連結。
+          update: 更新
+        index:
+          media_links_title: 媒體連結
+        new:
+          create: 創建
+          title: 媒體連結
+        update:
+          error: 更新此媒體連結時出現問題
+          success: 媒體連結已成功更新。
+      menu:
+        conferences: 研討會
+        conferences_submenu:
+          attachment_collections: 資料夾
+          attachment_files: 檔案
+          attachments: 附件
+          categories: 類別
+          components: 组件
+          conference_admins: 會議管理員
+          conference_invites: 邀請
+          conference_speakers: 講者
+          diploma: 出席證明書
+          media_links: 媒體連結
+          moderations: 版主
+          partners: 夥伴
+          registration_types: 註冊類型
+          registrations: 註冊
+          user_registrations: 使用者註冊
+      models:
+        conference:
+          fields:
+            created_at: 建立於
+            published: 已發佈
+            title: 標題
+        conference_speaker:
+          fields:
+            affiliation: 合作關係
+            full_name: 全名
+            position: 職位
+          name: 會議講者
+        conference_user_role:
+          fields:
+            email: 電子郵件
+            name: 名稱
+            role: 角色
+          name: 會議管理員
+          roles:
+            admin: 管理員
+            collaborator: 合作者
+            moderator: 版主
+            valuator: 評價者
+        media_link:
+          fields:
+            date: 日期
+            link: 連結
+            title: 標題
+          name: 媒體連結
+        partner:
+          fields:
+            link: 連結
+            logo: 標誌
+            name: 名稱
+            partner_type: 類別
+          name: 夥伴
+          types:
+            collaborator: 合作者
+            main_promotor: 主要推動者
+        registration_type:
+          fields:
+            conference_meetings: 會議議程
+            price: 價格
+            registrations_count: 註冊人數
+            title: 標題
+            weight: 訂單位置
+          name: 註冊類型
+      partners:
+        create:
+          error: 在新增會議夥伴時出現問題。
+          success: 成功新增會議夥伴。
+        destroy:
+          success: 成功移除會議夥伴。
+        edit:
+          title: 更新合作夥伴。
+          update: 更新
+        new:
+          create: 創建
+          title: 新合夥人
+        update:
+          error: 在此會議中更新合作夥伴時出現問題。
+          success: 成功更新會議夥伴。
+      registration_type_publications:
+        create:
+          error: 發佈此註冊類型時出現問題。
+          success: 註冊類型已成功發布。
+        destroy:
+          error: 取消發佈此註冊類型出現問題。
+          success: 報名類型已成功取消發佈。
+      registration_types:
+        create:
+          error: 新增此會議的註冊類型時出現問題。
+          success: 成功新增會議註冊類型
+        destroy:
+          success: 此會議的註冊類型成功移除。
+        edit:
+          title: 更新註冊類型。
+          update: 更新
+        new:
+          create: 創建
+          title: 新的註冊類型
+        update:
+          error: 更新會議註冊類型時發生問題。
+          success: 會議註冊類型已成功更新。
+      titles:
+        conferences: 研討會
+    admin_log:
+      conference:
+        create: "%{user_name} 建立了 %{resource_name} 會議。"
+        publish: "%{user_name} 發布了 %{resource_name} 會議。"
+        send_conference_diplomas: "%{user_name} 傳送了出席 %{resource_name} 會議的出席證明"
+        unpublish: "%{user_name} 取消發布 %{resource_name} 會議"
+        update: "%{user_name} 更新了 %{resource_name} 會議"
+        update_diploma: "%{user_name} 更新了 %{resource_name} 會議的出席證明設定"
+      conference_speaker:
+        create: "%{user_name} 在 %{space_name} 會議中建立了 %{resource_name} 演講者"
+        delete: "%{user_name} 從 %{space_name} 會議中移除了 %{resource_name} 演講者"
+        update: "%{user_name} 更新了 %{space_name} 會議中的 %{resource_name} 演講者"
+      conference_user_role:
+        create: "%{user_name} 邀請 %{resource_name} 參加 %{space_name} 會議"
+        delete: "%{user_name} 從 %{space_name} 會議中移除了管理員 %{resource_name}"
+        update: "%{user_name} 在 %{space_name} 會議中更改了 %{resource_name} 的角色"
+      conferences:
+        conference_registration:
+          confirm: "%{user_name} 確認了 %{resource_name} 會議的註冊"
+        partner:
+          create: "%{user_name} 在 %{space_name} 會議中創建了夥伴 %{resource_name}"
+          delete: "%{user_name} 移除了合作夥伴%{resource_name} 於%{space_name} 會議中"
+          update: "%{user_name} 在%{space_name} 會議中更新了合作夥伴%{resource_name}"
+        registration_type:
+          create: "%{user_name} 在%{space_name} 會議中建立了%{resource_name} 的註冊類型"
+          delete: "%{user_name} 從%{space_name} 會議中刪除了%{resource_name} 的註冊類型"
+          publish: "%{user_name} 在 %{space_name} 會議中發佈了 %{resource_name} 註冊類型"
+          unpublish: "%{user_name} 在 %{space_name} 會議中取消發佈了 %{resource_name} 註冊類型"
+          update: "%{user_name} 在 %{space_name} 會議中更新了 %{resource_name} 註冊類型"
+      media_link:
+        create: "%{user_name} 在 %{space_name} 會議中創建了 %{resource_name} 媒體連結"
+        delete: "%{user_name} 在 %{space_name} 會議中刪除了 %{resource_name} 媒體連結"
+        update: "%{user_name} 在 %{space_name} 會議中更新了 %{resource_name} 的媒體連結"
+    conference_program:
+      index:
+        title: 節目表
+    conference_speakers:
+      index:
+        title: 講者
+    conferences:
+      admin:
+        conference_invites:
+          create:
+            error: 邀請參與者加入會議時發生問題。
+            success: 已成功邀請參與者加入會議。
+          form:
+            attendee_type: 參與者類型
+            existing_user: 現有參與者
+            invite_explanation: 參與者將被邀請加入會議和組織。
+            non_user: 不存在的參與者。
+            select_user: 選擇參與者
+          index:
+            filter:
+              accepted: 已接受
+              all: 全部
+              rejected: 已拒絕
+              sent: 傳送
+            invite_attendee: 邀請參與者
+            invites: 邀請
+            search: 搜尋
+          new:
+            explanation: 參加者將被邀請加入會議。如果他們的電子郵件尚未註冊，他們也會被邀請加入該組織。
+            invite: 邀請
+            new_invite: 邀請參與者
+        conference_registrations:
+          index:
+            registrations: 註冊
+        conference_speakers:
+          form:
+            existing_user: 現有參與者
+            non_user: 非參與者
+            select_user: 選擇參與者
+            user_type: 參與者類型
+          index:
+            search: 搜尋
+        conferences:
+          form:
+            available_slots_help: 如果您有無限的可用名額，請將其設置為0。
+            registrations_count:
+              other: 已有 %{count} 個註冊。
+        diplomas:
+          edit:
+            save: 儲存
+            title: 出席證明書
+        invite_join_conference_mailer:
+          invite:
+            decline: 拒絕邀請 '%{conference_title}'
+            invited_existing_user_to_join_a_conference: "%{invited_by} 邀請您加入 %{application} 的會議。您可以通過以下鏈接拒絕或接受邀請。"
+            invited_user_to_join_a_conference: "%{invited_by} 邀請您加入 %{application} 的會議。您可以通過以下鏈接接受邀請。"
+            registration: 註冊 '%{conference_title}'
+        partners:
+          index:
+            title: 夥伴
+        registration_types:
+          form:
+            select_conference_meetings: 選擇研討會會議
+          index:
+            title: 註冊類型
+        send_conference_diploma_mailer:
+          diploma:
+            diploma_html: 您將在附件中找到會議<a href="%{url}">%{title}</a>的出席證明書。
+          diploma_user:
+            attendance_verified_by: 出席驗證
+            certificate_of_attendance: 出席證明書
+            certificate_of_attendance_description: 此證明憑證明 <strong>%{user}</strong> 於<strong>%{location}</strong>於<strong>%{start} - %{end}</strong>參加了<strong>%{title}</strong>活動
+        send_diploma:
+          error: 發送會議出席證明時發生問題。
+          success: 成功發送會議出席證明
+      conference:
+        registration_confirm:
+          cancel: 取消
+          confirm: 確認
+        show:
+          going: 正在出席
+          no_slots_available: 無法預約
+          registration: 註冊
+      conference_program:
+        show:
+          program: 節目表
+      conference_registration_mailer:
+        confirmation:
+          confirmed_html: 您的 <a href="%{url}">%{title}</a> 會議註冊已確認。
+          details_1: '您已註冊參加本次 %{registration_type} 報名類型的會議，費用為 %{price}，您可以參加以下活動：'
+          details_2: 有關會議的詳細信息，請參閱附件。
+        pending_validation:
+          confirmation_pending: 您將很快收到確認信件
+          details: '您已註冊 %{registration_type} 方案，費用為 %{price}，並可以參加以下活動：'
+          pending_html: 您註冊了會議 <a href="%{url}">%{title}</a>，目前正在等待確認。
+      conference_registrations:
+        create:
+          invalid: 加入此會議時發生問題。
+          success: 您已成功加入此會議。
+        decline_invitation:
+          invalid: 拒絕邀請出現問題。
+          success: 您已成功拒絕邀請。
+        destroy:
+          invalid: 離開此會議時發生問題。
+          success: 您已成功離開此會議。
+      conference_speaker:
+        more_info: 更多資訊
+        personal_website: 個人網址
+        show:
+          more_info: 更多資訊
+          speaking_at: 演講於
+      conference_speaker_cell:
+        personal_url:
+          personal_website: 個人網址
+      conference_speakers:
+        index:
+          speakers:
+            other: 講者
+      conferences:
+        partners:
+          collaborators: 夥伴
+          main_promotors: 組織者
+        show:
+          login_as: 您已登入為 %{name} <%{email}>
+          make_conference_registration: 註冊參加會議
+          register: 註冊
+      content_blocks:
+        highlighted_conferences:
+          name: 重點會議
+      index:
+        title: 研討會
+      mailer:
+        conference_registration_mailer:
+          confirmation:
+            subject: 您的會議註冊已確認。
+          pending_validation:
+            subject: 您的會議註冊正在等待確認。
+        invite_join_conference_mailer:
+          invite:
+            subject: 邀請加入會議
+        send_conference_diploma_mailer:
+          diploma:
+            subject: 您的會議出席證書已經寄送
+      models:
+        conference_invite:
+          fields:
+            email: 電子郵件
+            name: 名稱
+            registration_type: 註冊類型
+            sent_at: 寄送時間
+            status: 狀態
+          status:
+            accepted: 已接受 (%{at})
+            rejected: 已拒絕 (%{at})
+            sent: 傳送
+        conference_registration:
+          fields:
+            email: 電子郵件
+            name: 名稱
+            registration_type: 註冊類型
+            state: 狀態
+            states:
+              confirmed: 已確認：
+              pending: 等待中
+      pages:
+        home:
+          highlighted_conferences:
+            active_spaces: 正在進行的會議
+      registration_types:
+        index:
+          choose_an_option: '選擇您的註冊選項:'
+          no_registrations: 沒有註冊
+          register: 登錄
+          title: 註冊類型
+      show:
+        details: 詳細資料
+        introduction: 簡介
+        objectives: 目標
+        related_assemblies: 相關大會
+        related_participatory_processes: 相關參與過程
+    events:
+      conferences:
+        conference_registration_confirmed:
+          notification_title: 您的 <a href="%{resource_url}">%{resource_title}</a> 會議註冊已確認。
+        conference_registration_validation_pending:
+          notification_title: 您的 <a href="%{resource_url}">%{resource_title}</a> 會議註冊等待確認。
+        conference_registrations_over_percentage:
+          email_intro: '%{resource_title}”會議的佔用席位已滿 %{percentage}%'
+          email_outro: 您收到此通知是因為您是該會議的參與空間的管理員。
+          email_subject: '%{resource_title}”會議的佔用席位已滿 %{percentage}%'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a>」會議的佔用名額已達到 %{percentage}%。
+        conference_updated:
+          email_intro: '%{resource_title} 會議已更新。您可以在該會議頁面上閱讀新版本:'
+          email_outro: 您收到此通知是因為您正在追蹤「%{resource_title}」會議。 您可以從上面的連結取消追蹤。
+          email_subject: '%{resource_title}" 會議已更新。'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 會議已更新。
+        registrations_enabled:
+          email_intro: '"%{resource_title}" 會議已開啟註冊。您可以在其頁面上註冊:'
+          email_outro: 您收到此通知是因為您正在追蹤「%{resource_title}」會議。 您可以從上面的連結取消追蹤。
+          email_subject: '"%{resource_title}"會議已開放註冊。'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a>會議已開放註冊。
+        role_assigned:
+          email_intro: 你已被指派為"%{resource_title}"會議的%{role}。
+          email_outro: 你收到了此通知，是因為你是"%{resource_title}"會議的%{role}。
+          email_subject: 您已被分配為“%{resource_title}”的 %{role}。
+          notification_title: 你已被指定為<a href="%{resource_url}">%{resource_title}</a>會議的%{role}。
+        upcoming_conference:
+          email_intro: '%{resource_title}」會議將於2天後舉行。您可以從其頁面閱讀會議描述:'
+          email_outro: 您收到此通知是因為您正在追蹤「%{resource_title}」會議。 您可以從上面的連結取消追蹤。
+          email_subject: '%{resource_title}」會議即將開始！'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a>」會議將在2天後舉行。
+    help:
+      participatory_spaces:
+        conferences:
+          contextual: "<p><strong>會議</strong>是一系列按照程序安排的會議集合，邀請了多位演講者和其他典型大型會議或社交活動的信息領域(註冊、支持或贊助該事件的組織列表等)。</p><p>例子：會議可以是一個組織和其成員的重要事件，也可以作為參與過程的一部分或遵循諮詢而發生。</p>\n"
+          page: "<p><strong>會議</strong>是一系列按照程序安排的會議集合，邀請了多位演講者和其他典型大型會議或社交活動的信息領域(註冊、支持或贊助該事件的組織列表等)。</p><p>例子：會議可以是一個組織和其成員的重要事件，也可以作為參與過程的一部分或遵循諮詢而發生。</p>\n"
+          title: 什麼是會議
+    log:
+      value_types:
+        conference_presenter:
+          not_found: '會議在資料庫中找不到(ID: %{id})。'
+    media:
+      index:
+        description: 本會議的連結
+        title: 媒體與連結
+    menu:
+      conferences: 研討會
+    statistics:
+      conferences_count: 研討會
+  devise:
+    mailer:
+      join_conference:
+        subject: 邀請加入會議
+  layouts:
+    decidim:
+      conference_hero:
+        register: 註冊
+      conferences:
+        conference:
+          more_info: 更多資訊
+          take_part: 參與
+        index:
+          promoted_conferences: 精選會議
+        order_by_conferences:
+          conferences:
+            other: "%{count} 個會議"
+      conferences_nav:
+        conference_partners_menu_item: 夥伴
+        conference_speaker_menu_item: 講者
+        media: 媒體
+        venues: 場地

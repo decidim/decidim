@@ -15,7 +15,7 @@ module Decidim
       private
 
       def organization_description
-        desc = decidim_sanitize(translated_attribute(current_organization.description))
+        desc = decidim_sanitize_admin(translated_attribute(current_organization.description))
 
         # Strip the surrounding paragraph tag because it is not allowed within
         # a <hN> element.

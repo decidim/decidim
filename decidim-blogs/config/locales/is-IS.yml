@@ -7,16 +7,7 @@ is-IS:
         edit: Breyta
         title: Aðgerðir
       admin:
-        models:
-          components:
-            body: Líkami
-          post:
-            name: Post
         posts:
-          create:
-            success: Post var búin til
-          destroy:
-            success: Post var eytt
           edit:
             save: Uppfæra
           index:
@@ -29,13 +20,6 @@ is-IS:
           fields:
             author: Höfundur
             body: Líkami
-            created_at: Búið til á
-            title: titill
-      posts:
-        sidebar_blog:
-          comments: athugasemdir
-          most_commented_posts: Flestar ummæli innleggar
-      read_more: Lestu meira
     components:
       blogs:
         name: Blogg

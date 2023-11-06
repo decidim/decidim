@@ -1,6 +1,12 @@
 ---
 en:
   activemodel:
+    attributes:
+      post:
+        body: Body
+        decidim_author_id: Author
+        published_at: Publish time
+        title: Title
     models:
       decidim/blogs/create_post_event: New blog post
   activerecord:
@@ -18,57 +24,56 @@ en:
         new: New post
         title: Actions
       admin:
-        models:
-          components:
-            body: Body
-          post:
-            name: Post
         posts:
           create:
-            invalid: There was a problem creating this post
-            success: Post successfully created
+            invalid: There was a problem creating this post.
+            success: Post successfully created.
           destroy:
-            success: Post successfully deleted
+            success: Post successfully deleted.
           edit:
             save: Update
             title: Edit post
           index:
+            not_published_yet: Not published yet.
             title: Posts
           new:
             create: Create
             title: Create post
           update:
             invalid: There was a problem saving the post.
-            success: Post successfully saved
+            success: Post successfully saved.
       admin_log:
         post:
           create: "%{user_name} created the %{resource_name} blog post in %{space_name}"
           delete: "%{user_name} deleted the %{resource_name} blog post from %{space_name}"
           update: "%{user_name} updated the %{resource_name} blog post in %{space_name}"
+      content_blocks:
+        highlighted_posts:
+          last_published: Last published
+          name: Posts
+          see_all: See all posts
       last_activity:
-        new_post_at_html: "<span>New post at %{link}</span>"
+        new_post: 'New post:'
       models:
         post:
           fields:
             author: Author
             body: Body
-            created_at: Created at
             official_blog_post: Official post
-            title: title
+            published_at: Publish time
+            title: Title
       posts:
-        show:
-          back: Back to list
-          comments: Comments
-          view: View
-        sidebar_blog:
-          comments: comments
-          most_commented_posts: Most commented posts
-      read_more: Read more
+        index:
+          count:
+            one: "%{count} post"
+            other: "%{count} posts"
     components:
       blogs:
         actions:
+          comment: Comment
           create: Create
           destroy: Delete
+          endorse: Endorse
           update: Update
         name: Blog
         settings:

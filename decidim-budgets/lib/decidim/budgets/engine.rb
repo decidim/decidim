@@ -20,8 +20,10 @@ module Decidim
             resource :line_item, only: [:create, :destroy]
           end
         end
-
-        root to: "budgets#index"
+        scope "/budgets" do
+          root to: "budgets#index"
+        end
+        get "/", to: redirect("budgets", status: 301)
       end
 
       initializer "decidim_budgets.add_cells_view_paths" do
@@ -44,18 +46,28 @@ module Decidim
       end
 
       initializer "decidim_budgets.register_reminders" do
-        Decidim.reminders_registry.register(:orders) do |reminder_registry|
-          reminder_registry.generator_class_name = "Decidim::Budgets::OrderReminderGenerator"
-          reminder_registry.form_class_name = "Decidim::Budgets::Admin::OrderReminderForm"
-          reminder_registry.command_class_name = "Decidim::Budgets::Admin::CreateOrderReminders"
+        config.after_initialize do
+          Decidim.reminders_registry.register(:orders) do |reminder_registry|
+            reminder_registry.generator_class_name = "Decidim::Budgets::OrderReminderGenerator"
+            reminder_registry.form_class_name = "Decidim::Budgets::Admin::OrderReminderForm"
+            reminder_registry.command_class_name = "Decidim::Budgets::Admin::CreateOrderReminders"
 
-          reminder_registry.settings do |settings|
-            settings.attribute :reminder_times, type: :array, default: [2.hours, 1.week, 2.weeks]
+            reminder_registry.settings do |settings|
+              settings.attribute :reminder_times, type: :array, default: [2.hours, 1.week, 2.weeks]
+            end
+
+            reminder_registry.messages do |msg|
+              msg.set(:title) { |count: 0| I18n.t("decidim.budgets.admin.reminders.orders.title", count:) }
+              msg.set(:description) { I18n.t("decidim.budgets.admin.reminders.orders.description") }
+            end
           end
+        end
+      end
 
-          reminder_registry.messages do |msg|
-            msg.set(:title) { |count: 0| I18n.t("decidim.budgets.admin.reminders.orders.title", count:) }
-            msg.set(:description) { I18n.t("decidim.budgets.admin.reminders.orders.description") }
+      initializer "decidim_budgets.authorization_transfer" do
+        config.to_prepare do
+          Decidim::AuthorizationTransfer.register(:budgets) do |transfer|
+            transfer.move_records(Decidim::Budgets::Order, :decidim_user_id)
           end
         end
       end

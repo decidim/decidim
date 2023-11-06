@@ -29,7 +29,6 @@ zh-CN:
       decidim/component_published_event: 活动组件
       decidim/demoted_membership: 不再是组管理员
       decidim/gamification/badge_earned_event: 获得的徽章
-      decidim/gamification/level_up_event: 您已经升级了
       decidim/join_request_accepted_event: 加入请求已接受
       decidim/join_request_rejected_event: 加入请求被拒绝
       decidim/profile_updated_event: 个人资料已更新
@@ -82,14 +81,12 @@ zh-CN:
         success: 您的帐户已成功删除。
       download_your_data_export:
         file_no_exists: 文件不存在
-        notice: 目前正在下载您的数据。完成后，您将收到一封电子邮件。
       show:
         change_password: 更改密码
         update_account: 更新帐户
       update:
         error: 更新您的帐户时出现问题。
         success: 您的帐户已成功更新。
-        success_with_email_confirmation: 您的帐户已成功更新。您将收到一封电子邮件以确认您的新电子邮件地址。
     admin:
       actions:
         cancel: 取消
@@ -141,8 +138,6 @@ zh-CN:
         reject: "%{user_name} 拒绝了 %{resource_name} 组验证"
         verify: "%{user_name} 验证了 %{resource_name} 组"
         verify_via_csv: "%{user_name} 通过 CSV 文件验证组 %{resource_name}"
-    admin_terms_of_use:
-      default_body: "<h2>额外使用条款</h2><p>我们相信您已经收到了本地系统管理员的通常讲授。 它通常归结为这三件事：</p><ol><li>尊重他人的隐私。</li><li>在您点击之前想想。</li><li>大国责任重大</li></ol>"
     alert:
       dismiss: 取消通知
     amendments:
@@ -150,13 +145,10 @@ zh-CN:
         error: 接受修改时发生错误。
         success: 修正已被成功接受。
       amendable:
-        amended_by: 修改者
         button: 修改 %{model_name}
         error: 修改此资源时出错。
-        help_text: 通过修改它的 %{model_name} 来改进这个 %{amendable_fields}
         promote_button: 提升至 %{model_name}
         promote_confirm_text: 您确定要推广此修饰吗？
-        promote_help_text: 您可以推广此修饰并将其作为一个独立的 %{model_name} 发布
         section_heading: 修饰(%{count})
       compare_draft:
         continue: 继续
@@ -170,7 +162,6 @@ zh-CN:
         success: 修正草案已成功删除。
       edit_draft:
         discard: 丢弃这个草稿
-        discard_confirmation: 您确定要放弃这个修正草案吗？
         send: 预览
         title: 编辑修正草案
       emendation:
@@ -189,26 +180,16 @@ zh-CN:
         modify: 修改
         publish: 发布
         title: 发布修正草案
-      promoted:
-        error: 有一个问题，将修正案作为一项新提案发布
-        success: 修正案已作为一项新提案成功发布
       publish_draft:
         error: 发布修正案时出现问题。
         success: 修改成功发布。
-      rejected:
-        error: 拒绝此修改时出现问题，请稍后再试
-        success: 修改已被成功拒绝
       review:
         back: 后退
         heading: 审查修正
-        help_text: 您正在审查对 %{model_name} 的修正
         send: 接受修正
       update_draft:
         error: 更新修正草案时遇到问题。
         success: 修正草稿已成功更新。
-      withdraw:
-        error: 撤回修正时发生错误
-        success: 已成功撤销该修正
       wizard_step_form:
         steps:
           '1': 创建您的修改
@@ -217,9 +198,6 @@ zh-CN:
           '4': 发布您的修改
     anonymous_user: 匿名的
     application:
-      collection:
-        documents:
-          other: www.un.org/webcast
       document:
         download: 下载文件
       documents:
@@ -233,13 +211,11 @@ zh-CN:
         other: 核准
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: 通过引入一个以“A”开头的护照号码获得验证
         fields:
           passport_number: 护照号码
           postal_code: 邮政编码
         name: 另一个示例授权
       dummy_authorization_handler:
-        explanation: 通过引入以“X”结尾的文档编号获得验证
         fields:
           allowed_postal_codes: 允许的邮政编码 (用逗号分隔)
           allowed_scope_id: 允许的范围
@@ -257,7 +233,6 @@ zh-CN:
           foo: Foo
         name: Foo 授权
       granted_at: 在 %{timestamp} 授权
-      renew: 更新验证
       sms:
         explanation: 提交您的手机号码，以便我们可以检查您的身份。
         name: 短信代码
@@ -270,7 +245,6 @@ zh-CN:
           title: 授权已过期
         incomplete:
           cancel: 取消
-          explanation: '即使您目前授权使用 "%{authorization}"，我们也需要您重新授权，因为我们缺少以下数据：'
           invalid_field: "%{field}"
           reauthorize: 重新授权
           title: 请重新授权
@@ -279,21 +253,14 @@ zh-CN:
           explanation: 要执行此操作，您需要通过 "%{authorization}" 授权。
           title: 需要授权
         pending:
-          explanation: 为了执行此操作，您需要通过 "%{authorization}"获得授权，但您的授权仍在进行中
-          resume: 检查您的 "%{authorization}"授权进度
           title: 授权仍在进行中
         unauthorized:
-          explanation: 对不起，您不能执行此操作，因为您的部分授权数据不匹配。
-          invalid_field: "%{field} 值 %{value} 无效。"
           ok: 好的
           title: 未授权
         unconfirmed:
-          confirmation_instructions: '如果您没有收到确认指示，您可以再次请求：'
           explanation_html: 要执行此操作，您需要获得授权，然后才能确认您的电子邮件 <strong>%{email}</strong>
           request_confirmation_instructions: 请求确认说明
           title: 确认您的电子邮件
-      show:
-        close_modal: 关闭模式
     collapsible_list:
       hidden_elements_count:
         other: 和 %{count} 更多
@@ -301,7 +268,6 @@ zh-CN:
       see_more: "(详见)"
     components:
       component_order_selector:
-        no_content: 我们无法找到任何符合此标准的内容
         order:
           all_types: 所有类型
           collaborative_draft: 协作草稿
@@ -365,16 +331,8 @@ zh-CN:
         name: 组织统计
       sub_hero:
         name: 子英雄广告
-    core:
-      actions:
-        login_before_access: 请在访问前使用您的帐户登录
-        unauthorized: 您无权执行此操作
-    datepicker:
-      help_text: '预期格式: %{datepicker_format}'
     devise:
       omniauth_registrations:
-        create:
-          email_already_exists: 另一个帐户正在使用相同的电子邮件地址
         new:
           complete_profile: 完整资料
           sign_up: 请填写您的个人资料
@@ -385,12 +343,8 @@ zh-CN:
           already_have_an_account?: 已经有一个帐户？
           newsletter: 接收附带相关信息的时事通讯
           newsletter_title: 联系人权限
-          sign_in: 登录
           sign_up: 注册
-          sign_up_as:
-            legend: 注册为
           subtitle: 注册参加讨论和支持建议。
-          terms: 使用条款
           tos_agreement: 通过注册您同意 %{link}。
           tos_title: 服务条款
           username_help: 在您的帖子上出现的公共名称。为了保证匿名，可以使用任何名称。
@@ -398,13 +352,10 @@ zh-CN:
         new:
           are_you_new?: 新建平台？
           register: 创建帐户
-          sign_in_disabled: 您可以使用外部账户访问
-          sign_up_disabled: 注册已禁用，您可以使用现有的帐户进行访问
       shared:
         newsletter_modal:
           buttons:
             check: 检查并继续
-            close_modal: 关闭模式
             uncheck: 保持未选中的
           title: 通讯通知
         omniauth_buttons:
@@ -415,7 +366,6 @@ zh-CN:
           authorize: 授权应用程序
           by_organization_link_html: <small class="heading-small">由 %{link}</small>
           cancel: 取消
-          connect_your_account_html: 登录到 <strong>%{organization}连接您的帐户</strong>
           publish_content: 发布您的内容
           see_email: 查看您的电子邮件
           see_name: 查看您的名字
@@ -430,12 +380,6 @@ zh-CN:
       show:
         download_data: 下载数据
         request_data: 请求数据
-    endorsable:
-      endorsements: 授权
-      endorsements_count: 批准次数
-    endorsement_buttons_cell:
-      already_endorsed: 已批准
-      endorse: 批准
     endorsements:
       identities:
         done: 完成
@@ -443,11 +387,9 @@ zh-CN:
     errors:
       internal_server_error:
         title: 服务器出现问题
-        try_later: 请稍后再试。
       not_found:
         back_home: 返回首页
         content_doesnt_exist: 此地址不正确或已被删除。
-        title: 找不到您正在查找的页面
     events:
       amendments:
         amendment_accepted:
@@ -511,15 +453,9 @@ zh-CN:
         email_subject: 更新到 %{resource_title}
       gamification:
         badge_earned:
-          email_intro: 恭喜！您已获得 <a href="%{resource_url}">%{badge_name} 徽章</a> (等级 %{current_level})。
           email_outro: 您收到此通知是因为您在我们的网站上进行了活动。
-          email_subject: '你赢得了一个新徽章： %{badge_name}！'
-          notification_title: 恭喜！您已获得 <a href="%{resource_path}">%{badge_name} 徽章</a> (等级 %{current_level})。
         level_up:
-          email_intro: 恭喜！您已经在 <a href="%{resource_url}">%{badge_name} 徽章</a> 上达到了等级 %{current_level}！
           email_outro: 您收到此通知是因为您在我们的网站上进行了活动。
-          email_subject: 您已经在 %{badge_name} 徽章上达到了等级 %{current_level}！
-          notification_title: 恭喜！您已经在 <a href="%{resource_path}">%{badge_name} 徽章</a> 上达到了等级 %{current_level}！
       groups:
         demoted_membership:
           email_intro: <a href="%{resource_url}">%{user_group_name}</a> 组的管理员已经删除了您对该组的管理员权限。
@@ -596,7 +532,6 @@ zh-CN:
         result: 成果
     fingerprint:
       check: 检查指纹
-      explanation: 下面的文本是这个内容的简短、散列的描述。 确保内容不被篡改是有用的，因为单一修改会产生完全不同的价值。
       online_calculator_name: MD5 计算器在线
       replicate_help: 这个指纹是用一个 SHA256 散列算法计算出来的。为了复制它，您可以使用一个 %{online_calculator_link} 并复制粘贴源数据。
       source: 来源
@@ -606,8 +541,6 @@ zh-CN:
       followers_count:
         other: "%{count} 位追随者"
       no_followers: 还没有关注者。
-    following:
-      no_followings: 尚未关注任何人或任何东西。
     follows:
       create:
         button: 关注
@@ -616,13 +549,10 @@ zh-CN:
         button: 停止关注
         error: 出现了一个不关注此资源的问题。
     forms:
-      current_image: 当前图像
-      default_image: 默认图像
       errors:
         decidim/user:
           password: 密码太短。
           password_confirmation: 密码确认必须匹配密码。
-        error: 此字段有错误。
       file_help:
         file:
           explanation: '文件指南：'
@@ -645,58 +575,27 @@ zh-CN:
           description_own: "%{score} 个人正在关注你。"
           name: 关注者
           next_level_in: 获得更多 %{score} 人跟随您进入下一个关卡！
-          unearned_another: 此参与者还没有任何关注者。
-          unearned_own: 你还没有跟随者。
         index:
           badge_title: "%{name} 徽章"
           how: 你如何赚钱
           page_description: 徽章是对参与者行动和平台进展的承认。 当您开始发现、参与和互动平台时，您将获得不同的徽章。 这里是徽章列表和您可以赚取它们的某些方式。
           title: 徽章
-        invitations:
-          conditions:
-            - 使用您用户页面上的“邀请好友”链接来邀请您的朋友
-            - 自定义，如果您想要，您正在发送的消息
-            - 您将通过发送邀请和注册来提高等级。
-          description: 当您已经邀请了一些人并且他们花了一些时间在 %{organization_name} 注册并成为参与者时，这个徽章将被授予。 感谢您向其他人宣传了 %{organization_name} 并帮助扩展社区！
-          description_another: 此参与者已邀请了 %{score} 人。
-          description_own: 您已邀请了 %{score} 人。
-          name: 邀请
-          next_level_in: 邀请更多 %{score} 人到达下一个关卡！
-          unearned_another: 此参与者尚未邀请任何人。
-          unearned_own: 你还没有邀请任何人。
       description: 徽章是对参与者行动和平台进展的承认。 当您开始发现、参与和互动平台时，您将获得不同的徽章。
       level: 等级 %{level}
-      reached_top: 你已经达到了这个徽章的顶级了。
     group_admins:
       actions:
-        are_you_sure: 您确定吗？这将不会从群组中删除参与者。
         demote_admin: 删除管理员
-      demote:
-        error: 从管理员列表中删除此参与者时出错
-        success: 成功地从管理员中删除参与者
       index:
         current_admins: '当前管理员：'
         manage_admins: 管理管理员
     group_invites:
-      accept:
-        error: 接受此邀请时出现问题
-        success: 邀请已被接受
       accept_invitation: 接受
       accept_or_reject_group_invitations: '以下群组邀请您加入他们。接受或拒绝他们的请求：'
       index:
         invite: 邀请
         invite_user: 邀请参与者
-      invite:
-        error: 邀请此参与者时出现问题
-        success: 成功邀请参与者
-      reject:
-        error: 拒绝此邀请时出现问题
-        success: 邀请已被拒绝
       reject_invitation: 拒绝
     group_members:
-      accept:
-        error: 接受此加入请求时出现问题
-        success: 加入请求已被接受
       actions:
         are_you_sure: 您确定吗？
         promote_to_admin: 设为管理员
@@ -704,36 +603,20 @@ zh-CN:
       index:
         current_members_without_admins: '当前成员 (无管理员)：'
         manage_members: 管理成员
-      promote:
-        error: 推广此参与者时出现问题
-        success: 参与者提升成功
-      reject:
-        error: 拒绝此加入请求时出现问题
-        success: 加入请求已被拒绝
-      remove:
-        error: 从群组中删除此参与者时出错
-        success: 参与者已成功从群组删除
     groups:
       actions:
         are_you_sure: 您确定吗？
-      create:
-        error: 创建群组时出错
-        success: 组已成功创建
       edit:
         edit_user_group: 编辑组
         update_user_group: 更新组
       form:
-        document_number_help: 不要使用破折号或空格
         email_help: 您的组织、协会、集体、群组等的电子邮件。
         fill_in_for_verification: '如果你想要验证你的组, 请填写这些字段:'
         name_help: 您的组织、协会、集体、团体等的名称
         nickname_help: 您的组织、社团、集体、群组等的昵称。请不要使用空格，也不要重音。
-        phone_help: 不要使用破折号或空格
       join:
-        error: 加入群组时出现问题
         success: 加入请求已成功创建。管理员将在接受您加入群组之前审查您的请求。
       leave:
-        error: 离开群组时出现问题
         success: 群组已成功放弃。
       members:
         accept_or_reject_join_requests: '以下用户已申请加入此组。接受或拒绝他们的请求：'
@@ -743,27 +626,19 @@ zh-CN:
         create_user_group: 创建组
         new_user_group: 新建组
         subtitle: 创建一个小组并邀请其他用户加入集体级别。
-      no_user_groups: 尚不属于任何群组。
       roles:
         admin: 管理员
         member: 成员
-      update:
-        error: 更新群组时出错
-        success: 组已成功更新
     help:
       main_topic:
         default_page:
           content: "<p>在 %{organization} 中，您可以参与并决定不同的主题， 通过你在顶菜单中看到的空间：程序、集会、倡议、协商。</p> <p>在每个选项中，您都会发现不同的参与选项：单独或与其他人一起提出建议 • 参加辩论、确定执行项目的优先次序、参加面对面会议和其他行动。</p>\n"
           title: 我可以在 %{organization} 中做什么？
-        description: 阅读更多关于 %{organization}
         title: 常规帮助
     last_activities:
-      activities:
-        no_activities_warning: 没有活动
       all: 所有活动类型
       index:
         last_activity: 上次活动
-        resource_type: 类型
     log:
       base_presenter:
         create: "%{user_name} 创建了 %{resource_name}"
@@ -792,8 +667,6 @@ zh-CN:
       static:
         latlng_text: '纬度: %{latitude}, 经度: %{longitude}'
         map_service_brand: OpenStreetMap
-    members:
-      no_members: 此组还没有任何成员。
     menu:
       help: 帮助
       home: 首页
@@ -803,35 +676,29 @@ zh-CN:
           admin_in_group: 您收到这是因为您是 %{group} 的管理员。
           greeting: Hi, %{recipient}!
           intro: "%{manager} 以 %{group}的名字开始了新的对话。点击这里查看："
-          outro: 享受决定！
           subject: "%{manager} 以 %{group} 身份开始了新的对话"
         comanagers_new_message:
           admin_in_group: 您收到这是因为您是 %{group} 的管理员。
           greeting: Hi, %{recipient}!
           intro: "%{manager} 在 %{group}的对话中发布了新消息。点击这里查看："
-          outro: 享受决定！
           subject: "%{manager} 已发送新消息为 %{group}"
         new_conversation:
           greeting: Hi, %{recipient}!
           intro: "%{sender} 已开始与您进行新的对话。点击这里查看："
-          outro: 享受决定！
           subject: "%{sender} 已开始了与您的对话"
         new_group_conversation:
           admin_in_group: 您收到这是因为您是 %{group} 的管理员。
           greeting: Hi, %{recipient}!
           intro: "%{sender} 已经开始了与组 %{group}的新对话。点击这里查看："
-          outro: 享受决定！
           subject: "%{sender} 已开始与 %{group} 的对话"
         new_group_message:
           admin_in_group: 您收到这是因为您是 %{group} 的管理员。
           greeting: Hi, %{recipient}!
           intro: "%{sender} 在与组 %{group}的对话中发布了新消息。点击这里查看："
-          outro: 享受决定！
           subject: "%{group} 有来自 %{sender} 的新消息"
         new_message:
           greeting: Hi, %{recipient}!
           intro: "%{sender} 已在您的对话中发布新消息。点击这里查看："
-          outro: 享受决定！
           subject: 您有来自 %{sender} 的新消息
       conversations:
         add_conversation_users:
@@ -839,39 +706,21 @@ zh-CN:
           add_users_placeholder: 搜索...
           modal_title: 新建对话
           no_results: 没有结果
-          participant_with_disabled_message_reception: 此参与者已禁用消息接收功能
-        conversation:
-          show: 显示与 %{sender} 的对话
-        create:
-          error: 对话未开始，请稍后再试
         error_modal:
           close: 关闭模式
           correct_errors: 请更正错误，然后重试。
           intro: '您的消息有以下错误：'
           ok: 好的
         index:
-          ago: 前
-          close: 关闭模式
-          from: 来自
-          groups: 我的群组
-          last_message: 最后一条消息
           new_conversation: 新建对话
           next: 下一个
-          no_conversations: 您还没有对话
           title: 对话
-        reply:
-          placeholder: 您的回复...
-          send: 发送
-          title: 答复
         show:
           back: 回到所有对话
           chat_with: 对话
           title: 与 %{usernames} 的对话
         start:
           send: 发送
-          title: 开始对话
-        update:
-          error: 消息因错误而未发送
     metrics:
       followers:
         description: 跟随此参与空间的参与者数量
@@ -887,8 +736,6 @@ zh-CN:
         title: 参加者
     newsletter_mailer:
       newsletter:
-        note: 您收到这封邮件是因为您订阅了 %{organization_name}的新闻通讯。您可以在您的 <a href="%{link}">通知页面</a> 更改您的设置。
-        see_on_website: 找不到正确的电子邮件？在 <a href="%{link}" target="_blank">网站</a> 上查看。
         unsubscribe: 选择不接收这种类型的电子邮件， <a href="%{link}" target="_blank" class="unsubscribe">取消订阅</a>。
     newsletter_templates:
       basic_only_text:
@@ -911,16 +758,9 @@ zh-CN:
         main_image: 主图像
     newsletters:
       unsubscribe:
-        check_subscription: 如果您想要更改您的偏好设置，您可以在 <a href="%{link}" target="_blank">配置页面</a> 中做到这一点。
-        error: 有一个取消订阅的问题
         success: 您已成功取消订阅。
         token_error: 链接已过期。
         unsubscribe: 取消订阅
-    newsletters_opt_in:
-      unathorized: 对不起，此链接不再可用
-      update:
-        error: 发生错误
-        success: 通讯设置已成功更新
     newsletters_opt_in_mailer:
       notify:
         body_1: 个人数据的处理和对数据的保护对我们大家都越来越重要。 根据2018年5月25日新的《一般数据保护条例》，个人可以更好地控制自己的个人数据。 为此原因，我们需要您的“确定”继续发送有关 %{organization_name} 活动的信息。
@@ -934,7 +774,6 @@ zh-CN:
       no_notifications: 尚无通知。
     notifications_settings:
       show:
-        allow_public_contact: 允许任何人向我发送一条直接消息，即使我没有关注它们。
         direct_messages: 从任何人接收私信
         everything_followed: 我关注的所有情况
         newsletter_notifications: 我想要收到新闻简报
@@ -947,14 +786,8 @@ zh-CN:
         success: 您的通知设置已成功更新。
     open_data:
       not_available_yet: 打开数据文件尚不可用，请几分钟后再试。
-    own_user_groups:
-      index:
-        pending: 待定
-        rejected: 已拒绝
-        verified: 已验证
     pad_iframe:
       disclaimer: 这个板块的内容由注册用户撰写并表达他们的意见。 %{organization} 不能对其内容负责。
-      explanation: 使用这个板块来协作在会上留下笔记，所以此后更容易写下笔记。
       pad: 平板
     pages:
       home:
@@ -974,14 +807,11 @@ zh-CN:
         hero:
           participate: 参与
           welcome: 欢迎使用 %{organization}！
-        metrics:
-          headline: 指标
         statistics:
           headline: 当前状态 %{organization}
         sub_hero:
           register: 注册
       index:
-        read_more: 阅读更多
         standalone_pages: 页 次
         subheading: 浏览 %{name} 的帮助页面
         title: 帮助
@@ -990,31 +820,11 @@ zh-CN:
         metrics:
           headline: 指标
           link: 显示所有指标
-      terms_and_conditions:
-        accept:
-          error: 接受条款和条件时出现问题。
-          success: 太棒了！您已接受条款和条件。
-        form:
-          agreement: 我同意这些条款
-          legend: 同意使用条款
-        refuse:
-          modal_btn_continue: 接受并继续
-          modal_btn_exit: 我稍后再查看
-          modal_button: 拒绝条款
-          modal_close: 关闭模式
-          modal_title: 您真的拒绝更新的条款和条件吗？
-        required_review:
-          alert: 我们已更新我们的服务条款，请查看。
-          body: 请花一点时间来审查我们服务条款的更新。否则您将无法使用该平台。
-          title: '需要：审查我们服务条款的更新'
     participatory_space_private_users:
       not_allowed: 您无权查看此内容
     profile:
-      deleted: 参与者已删除
-      view: 查看
+      deleted: 删除参与者
     profiles:
-      default_officialization_text_for_user_groups: 此组已公开验证，它的名称已被验证为与它的真实名称对应。
-      default_officialization_text_for_users: 此参与者已公开验证、 他/她的姓名或角色已被验证为符合他/她的真实姓名和角色
       show:
         activity: 活动
         badges: 徽章
@@ -1024,18 +834,14 @@ zh-CN:
         groups: 群組
         members: 成员
         officialized: 官方参与者
-        timeline: 时间表
-        view_full_profile: 查看完整资料
       sidebar:
         badges:
           info: 徽章是通过在平台上执行特定活动赚取的。
           title: 徽章
       user:
-        confirmation_instructions_sent: 邮件确认说明已发送
         create_user_group: 创建组
         edit_profile: 编辑配置文件
         edit_user_group: 编辑群组资料
-        fill_in_email_to_confirm_it: 请填写您的群组电子邮件以确认它
         invite_user: Invite participant
         join_user_group: 加入组的请求
         leave_user_group: 离开组
@@ -1083,7 +889,6 @@ zh-CN:
       term_input_placeholder: 搜索
     searches:
       filters:
-        back: 返回结果
         jump_to: '跳转到：'
         state:
           active: 已启用
@@ -1091,13 +896,9 @@ zh-CN:
           future: 未来
           past: 过去的
       filters_small_view:
-        close_modal: 关闭模式
         filter: 筛选器
         filter_by: 筛选方式
-        unfold: 展开...
       results:
-        results:
-          other: "%{count} 个结果"
         view_all: 查看所有 (%{count})
     security:
       selfxss_warning:
@@ -1109,10 +910,6 @@ zh-CN:
         close_modal: 关闭模式
         ok: 好的
         title: 确认
-      embed_modal:
-        close_window: 关闭窗口
-        embed: 请将此代码粘贴到您的页面
-        embed_link: 嵌入
       extended_navigation_bar:
         more: 更多
         unfold: 展开...
@@ -1123,19 +920,13 @@ zh-CN:
         already_reported: 此内容已经被报告，将由管理员审核。
         close: 关闭
         description: 这个内容是否不适当？
-        does_not_belong: 包含非法活动、自杀威胁、个人信息或你认为不属于 %{organization_name} 的其他东西。
         offensive: 包括种族主义、性别主义、污泥、个人攻击、死亡威胁、自杀请求或任何形式的仇恨言论。
         report: 报告
         spam: 包含点击、广告、骗子或脚本机器人。
         title: 报告不恰当的内容
       floating_help:
-        close: 关闭帮助
         help: 帮助
-      follow_button:
-        sign_in_before_follow: 请先登录才能执行此操作
       login_modal:
-        close_modal: 关闭模式
-        please_sign_in: 请登录
         sign_up: 注册
       participatory_space_filters:
         filters:
@@ -1150,7 +941,6 @@ zh-CN:
         label: '每页结果：'
         title: 选择每页结果数
       share_modal:
-        close_window: 关闭窗口
         share: 分享
         share_link: 分享链接
     statistics:
@@ -1162,45 +952,23 @@ zh-CN:
       help_text: "<strong>警告：</strong> 内容可能会被自动翻译而不是100%的准确性。"
       show_original: 显示原始文本
       show_translated: 显示自动翻译的文本
-    user_activity:
-      index:
-        no_activities_warning: 此参与者尚未有任何活动。
     user_contact_disabled: 此参与者不接受私信。
     user_conversations:
       create:
-        error: 无法创建消息，请稍后再试
         existing_error: 无法创建消息。对话已经存在，请现在重试。
         success: 对话已成功启动！
       index:
-        add_max_users: '将用户添加到对话中：最大9个用户'
-        add_users_placeholder: 搜索...
-        close: 关闭
         conversations_info: 对话是私密的。没有其他人可以看到他们。对话可以与在平台上注册的任何参与者或群组开始。
-        from: 来自
-        last_message: 最后一条消息
-        modal_title: 新建对话
-        new_conversation: 新建对话
-        next: 下一个
         no_conversations_warning: 还没有对话。
-        no_results: 没有结果
-        participant_with_disabled_message_reception: 此参与者已禁用消息接收功能
         time_ago: "%{time} 前"
-      new:
-        title: 开始对话
       reply:
         placeholder: 您的回复...
         send: 发送
-        title_reply: 答复
-      show:
-        not_allowed: 此用户不接受任何更多的直接消息。
-        title: 与 %{usernames} 的对话
       update:
         error: 消息发送失败，请稍后再试
     user_interests:
       show:
         my_interests: 我的利益
-        no_scopes: 这个组织还没有任何范围！
-        select_your_interests: 选择您感兴趣的主题，在您的配置文件时间线选项卡中接收与此相关的事件。
         update_my_interests: 更新我的兴趣
       update:
         error: 更新您的兴趣时出现问题。
@@ -1210,30 +978,16 @@ zh-CN:
         back_to_resource: 后退
         changes_at_title: 更改于 "%{title}"
         number_of_versions: 版本
-        show_all_versions: 显示所有版本
-        version_author: 版本作者
         version_created_at: 版本创建于
-        version_number: 版本号
-        version_number_out_of_total: "%{current_version} 中的 %{total_count}"
-    version_author:
-      show:
-        deleted: 删除参与者
     versions:
       resource_version:
         of_versions: "( %{number})"
         see_other_versions: 查看其他版本
         version: 版本号 %{number}
-    versions_list:
-      show:
-        back_to_resource: 后退
-        changes_at_title: 更改于 "%{title}"
-        number_of_versions: 版本
-        title: 版本
     versions_list_item:
       show:
         version_index: 版本 %{index}
     welcome_notification:
-      default_body: <p>你好， {{name}}，感谢你们加入 {{organization}} 并欢迎你们！</p><ul><li>如果您想要在这里快速了解您可以做些什么。 查看了 <a href="{{help_url}}">帮助</a> 部分。</li><li>阅读完毕后，您将获得第一张徽章。 这里有一个 <a href="{{badges_url}}">所有徽章列表</a> 你可以在参加 {{organization}}</li><li>最后但并非最不重要的。 与其他人一起分享参与和参与 {{organization}}的经验。 提出建议、评论、辩论、思考如何促进共同利益，提出令人信服、倾听和宣读被说服的论据， 以具体和直接的方式表达你的想法，耐心和果断地作出反应， 捍卫你的思想，开诚布公地合作并加入其他人的思想。</li></ul>
       default_subject: 感谢您加入 {{organization}}！
     wizard_step_form:
       wizard_aside:
@@ -1256,8 +1010,6 @@ zh-CN:
       last_attempt: 您还有一次尝试在您的帐户被锁定之前。
       locked: 您的帐户已被锁定。
       not_found_in_database: 无效的 %{authentication_keys} 或密码。
-      timeout: 您的会话已过期。请重新登录以继续。
-      unauthenticated: 您需要登录或注册才能继续。
     invitations:
       edit:
         header: 完成创建您的帐户
@@ -1280,46 +1032,30 @@ zh-CN:
         subject: 确认说明
       email_changed:
         greeting: 你好 %{recipient}！
-        message: 我们正在联系您通知您，您的电子邮件正被更改为 %{email}。
         subject: 电子邮件已更改
       invitation_instructions:
         accept: 接受邀请
         accept_until: 此邀请将在 %{due_date} 到期.
         decline: 拒绝邀请
         hello: 您好 %{email}，
-        ignore: |-
-          如果您不想接受邀请，请忽略此电子邮件。<br />
-          在您访问上面的链接并设置您的昵称和密码之前，您的帐户不会被创建。
         invited_you_as_admin: "%{invited_by} 邀请您担任了 %{application}的管理员。您可以通过下面的链接接受它。"
         invited_you_as_private_user: "%{invited_by} 邀请您作为私有参与者 %{application}。您可以通过下面的链接接受它。"
         someone_invited_you: 有人邀请您访问 %{application}。您可以通过下面的链接接受它。
         someone_invited_you_as_admin: 有人邀请您作为 %{application}的管理员，您可以通过下面的链接接受它。
         someone_invited_you_as_private_user: 有人邀请您作为私有参与者 %{application}，您可以通过下面的链接接受它。
         subject: 邀请说明
-      invite_admin:
-        subject: 您已被邀请管理 %{organization}
-      invite_collaborator:
-        subject: 您已被邀请在 %{organization} 上进行协作
-      invite_private_user:
-        subject: 您已被邀请在 %{organization} 的私人参与进程
-      organization_admin_invitation_instructions:
-        subject: 您已被邀请管理 %{organization}
       password_change:
         greeting: 你好 %{recipient}！
-        message: 我们正在联系您，通知您您您密码已更改。
         subject: 密码已更改
       reset_password_instructions:
         action: 更改我的密码
         greeting: 你好 %{recipient}！
         instruction: 有人请求链接更改您的密码，您可以通过下面的链接这样做。
-        instruction_2: 如果您没有提出这个请求，请忽略这个电子邮件。
-        instruction_3: 在您访问上面的链接并创建一个新链接之前，您的密码不会更改。
         subject: 重置密码说明
       unlock_instructions:
         action: 解锁我的帐户
         greeting: 你好 %{recipient}！
         instruction: '点击下面的链接解锁您的帐户：'
-        message: 由于登录失败次数过多，您的帐户已被锁定。
         subject: 解锁指令
     omniauth_callbacks:
       failure: 无法认证您来自 %{kind} 的身份，因为“%{reason}”。
@@ -1333,22 +1069,12 @@ zh-CN:
       new:
         forgot_your_password: 忘记密码？
         send_me_reset_password_instructions: 给我发送重置密码说明
-      no_token: 没有来自密码重置电子邮件，您不能访问此页面。 如果您确实来自密码重置电子邮件，请确保您使用了提供的完整URL。
       send_instructions: 您将在几分钟内收到一封电子邮件，说明如何重置您的密码。
       send_paranoid_instructions: 如果您的电子邮件地址存在于我们的数据库中，您将在几分钟内在您的电子邮件地址上收到密码恢复链接。
       updated: 您的密码已成功更改。您现在已登录。
       updated_not_active: 您的密码已成功更改。
     registrations:
       destroyed: 您的帐户已成功取消。我们希望很快再见到您。
-      edit:
-        are_you_sure: 您确定吗？
-        cancel_my_account: 取消我的帐户
-        currently_waiting_confirmation_for_email: '正在等待确认: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: 如果您不想更改它，请留空
-        title: 编辑 %{resource}
-        unhappy: 不愉快？
-        update: 更新
-        we_need_your_current_password_to_confirm_your_changes: 我们需要您当前的密码来确认您的更改
       new:
         sign_up: 注册
       signed_up: 欢迎！您已成功注册。
@@ -1357,20 +1083,10 @@ zh-CN:
       signed_up_but_unconfirmed: 一封带有确认链接的邮件已发送到您的电子邮件地址。请点击链接激活您的帐户。
       update_needs_confirmation: 您已成功更新您的帐户，但我们需要验证您的新电子邮件地址。 请检查您的电子邮件并点击确认链接以确认您的新电子邮件地址。
       updated: 您的帐户已成功更新。
-    sessions:
-      already_signed_out: 已成功注销。
-      new:
-        sign_in: 登录
-      signed_in: 登录成功。
-      signed_out: 已成功注销。
     shared:
       links:
         back: 后退
-        didn_t_receive_confirmation_instructions: 没有收到确认说明？
-        didn_t_receive_unlock_instructions: 没有收到解锁指令？
         forgot_your_password: 忘记密码？
-        sign_in: 登录
-        sign_in_with_provider: 使用 %{provider} 登录
         sign_up: 注册
       minimum_password_length:
         other: "(%{count} 个字符最小)"
@@ -1379,29 +1095,24 @@ zh-CN:
         resend_unlock_instructions: 重新发送解锁说明
       send_instructions: 几分钟后您将收到一封电子邮件，说明如何解锁您的帐户。
       send_paranoid_instructions: 如果您的帐户存在，您将收到一封电子邮件，说明如何在几分钟内解锁它。
-      unlocked: 您的帐户已成功解锁。请登录以继续。
   doorkeeper:
     scopes:
       public: 您的公共信息。
   errors:
     messages:
-      already_confirmed: 已经确认，请尝试登录
       confirmation_period_expired: 需要在 %{period}内确认, 请申请一个新的
       content_type_allowlist_error: 文件类型无效
-      cycle_detected: 一个 scope 的父目录不能是它的后代之一。
       expired: 已过期，请申请一个新的
       file_size_is_less_than_or_equal_to: 文件大小必须小于或等于 %{count}
       invalid_time_zone: 不是有效的时区
       long_words: 包含过长的单词 (超过 35 个字符)
       must_start_with_caps: 必须以大写字母开始
-      nesting_too_deep: 不能在子类别内
       not_found: 找不到。您以前注册过吗？
       not_locked: 未锁定
       not_saved:
         other: '处理您的请求时发生多个错误：'
       too_many_marks: 正在使用太多连续标点符号(例如! 和 ?)
       too_much_caps: 正在使用太多大写字母(超过25%文本)
-      too_short: 太短(低于15个字符)
   forms:
     correct_errors: 表单上有错误，请更正以继续。
     required: 必填字段
@@ -1411,6 +1122,10 @@ zh-CN:
     timestamp_error_message: 对不起，这太快了！请重新提交。
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: 类型
       edit_link:
         edit: 编辑
       footer:
@@ -1418,10 +1133,6 @@ zh-CN:
         decidim_logo: 解码徽标
         download_open_data: 下载打开的数据文件
         made_with_open_source: 使用 <a target="_blank" href="https://github.com/decidim/decidim">免费软件</a> 创建的网站。
-      header:
-        close_menu: 关闭菜单
-        navigation: Navigation
-        sign_in: 登录
         sign_up: 注册
       impersonation_warning:
         close_session: 关闭会话
@@ -1436,7 +1147,6 @@ zh-CN:
         facebook: "%{organization} 在 Facebook"
         github: "%{organization} 在 GitHub"
         instagram: "%{organization} 在 Instagram"
-        twitter: "%{organization} 在 Twitter"
         youtube: "%{organization} 在 YouTube"
       user_menu:
         account: '用户帐户: %{name}'
@@ -1445,7 +1155,6 @@ zh-CN:
         notifications: 通知
         profile: 我的帐户
         public_profile: 我的公开资料
-        sign_out: 登出
       user_profile:
         account: 账户
         authorizations: 授权
@@ -1455,11 +1164,9 @@ zh-CN:
         notifications_settings: 通知设置
         title: 参与者设置
         user_groups: 群組
-      widget:
-        see_more: 查看更多
   locale:
-    name: Distr.
-    name_with_error: 英文(错误!)
+    name: 中文
+    name_with_error: 中文(错误!)
   password_validator:
     domain_included_in_password: 与这个域名太近了
     email_included_in_password: 与您的电子邮件太相似了
@@ -1522,14 +1229,8 @@ zh-CN:
       option_unified: 统一的
   views:
     pagination:
-      first: "&laquo; 前"
-      first_title: 链接到第一页
-      last: 最后 &raquo;
-      last_title: 链接到最后一页
-      next: 下一个 &rsaquo;
       next_title: 链接到下一页
       pagination: 分页
-      previous: "&lsaquo; 上一个"
       previous_title: 链接到前一页
       title: '页面号码： '
       truncate: "&hellip;"

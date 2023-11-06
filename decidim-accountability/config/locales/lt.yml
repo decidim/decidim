@@ -7,6 +7,7 @@ lt:
         decidim_scope_id: Apimtis
         description: Aprašymas
         end_date: Pabaigos data
+        meetings_ids: Susiję susitikimai
         progress: Progresas
         project_ids: Įtraukti projektai
         proposals: Įtraukti pasiūlymai
@@ -40,8 +41,8 @@ lt:
         confirm_destroy: Ar tikrai norite pašalinti šį %{name}?
         destroy: Ištrinti
         edit: Redaguoti
+        import: Importuoti projektus į rezultatus
         import_csv: Importuoti CSV
-        new: Naujas %{name}
         preview: Peržiūra
         timeline_entries: Projekto raida
         title: Veiksmai
@@ -51,26 +52,64 @@ lt:
           results: Rezultatai
         import_results:
           new:
+            download_export: Eksportuoti CSV formatu
             import: Importuoti
-            info: "<p>Rekomenduojame atlikti šiuos veiksmus:</p><ol><li>Sukurti norimų pridėti rezultatų būsenas (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Sukurti bent vieną rezultatą rankiniu būdu pasinaudojant šia Administratoriaus panele (<a href='%{link_new_result}' target='_blank'>link</a>) prieš spustelint „Importuoti“, kad geriau suprastumėte formatą ir tai, ką turite užpildyti.</li><li>Parsisiųskite eksporto rinkmeną CSV formatu (%{link_export_csv})</li><li>Atlikite pakeitimus lokaliai. Galite pakeisti tik šias CSV skiltis:</li></ol><ul><li><b>category/id:</b> ID, skirtą kategorijai</li><li><b>scope/id:</b> ID, skirtą sričiai</li><li><b>parent/id:</b> pirminio elemento ID (skirtą susijusiems rezultatams). Neprivaloma</li><li><b>title/I18N:</b> Pavadinimas X kalba</li><li><b>description/I18N:</b> Aprašymas X kalba</li><li><b>start_date:</b> data, kada rezultatas pradedamas generuoti (MMMM-MM-DD formatas)</li><li><b>end_date:</b> data, kada rezultatas baigiamas generuoti (MMMM-MM-DD formatas)</li><li><b>status/id:</b> šio rezultato būsenos ID</li><li><b>progress:</b> Įvykdymo procentinė dalis (nuo 0 iki 100)</li><li><b>proposals_ids:</b> susijusių pasiūlymų vidaus ID (atskirta kableliu). Tai automatiškai pakeičiama į <span class='attribute-name'>proposal_url</span></li></ul>"
-            link: nuoroda
+            info: |
+              <p>Rekomenduojame laikytis šių žingsnių:</p>
+              <ol>
+              <li><a href='%{link_new_status}' target='_blank'>Sukurti rezultatų būsenas</a>, kuriuos norite pridėti</li>
+              <li><a href='%{link_new_result}' target='_blank'>Sukurti bent vieną rezultatą rankiniu būdu</a> per šią administratoriaus skydelį prieš naudojantis Importavimu, kad geriau suprastumėte formatą ir tai, ką reikės užpildyti.</li>
+              <li>%{link_export_csv}</li>
+              <li>Atlikite pakeitimus lokaliai. Galite keisti tik šias CSV stulpelių dalis:
+                <ul>
+                <li><b>category/id:</b> Kategorijos ID</li>
+                <li><b>scope/id:</b> Srities ID</li>
+                <li><b>parent/id:</b> Tėvinio ID (susijusiems rezultatams). Pasirinktinai</li>
+                <li><b>title/en:</b> Pavadinimas anglų kalba. Tai priklausys nuo jūsų platformos kalbos konfigūracijos.</li>
+                <li><b>description/en:</b> Aprašymas anglų kalba. Tai priklausys nuo jūsų platformos kalbos konfigūracijos.</li>
+                <li><b>start_date:</b> data, kada prasideda rezultato įgyvendinimas (formatas YYYY-MM-DD)</li>
+                <li><b>end_date:</b> data, kada baigiasi rezultato įgyvendinimas (formatas YYYY-MM-DD)</li>
+                <li><b>status/id:</b> Būsenos ID šiam rezultatui</li>
+                <li><b>progress:</b> Įvykdymo procentas (nuo 0 iki 100)</li>
+                <li><b>proposals_ids:</b> susijusių pasiūlymų vidinis ID (atskirtas kableliais). Automatiškai konvertuojamas į <span class='attribute-name'>proposal_url</span></li>
+                </ul>
+              </li>
+              </ol>
             title: Importuoti rezultatus iš CSV
         imports:
           create:
-            success: Failas pradėtas importuoti. Po kelių minučių gausite e. laišką su importo rezultatu
+            success: Failas pradėtas importuoti. Po kelių minučių gausite e. laišką su importo rezultatu.
         models:
           result:
             name: Rezultatas
           status:
             name: Statusas
-          timeline_entry:
-            name: Laiko juostos įrašas
+        projects_import:
+          create:
+            invalid: Importuojant projektus į rezultatus iškilo problema. Atidžiai vykdykite instrukcijas ir įsitikinkite, kad pasirinkote įgyvendinimui skirtus projektus.
+          new:
+            create: Importuoti
+            import_all_selected_projects: Importuoti visus projektus, kurie buvo pasirinkti įgyvendinimui
+            new_items:
+              one: 1 pasirinktas projektas bus importuotas
+              few: "%{count} pasirinkti projektai bus importuoti"
+              many: "%{count} pasirinktų projektų bus importuoti"
+              other: "%{count} pasirinkti projektai bus importuoti"
+            no_components: Šioje dalyvaujamojoje erdvėje nėra biudžeto komponentų, skirtų importuoti į rezultatus.
+            origin_component_id: Pirminis komponentas
+            select_component: Pasirinkite komponentą
+            success:
+              one: 1 projektas įtrauktas į importavimo eilę. Pasibaigus procesui, būsite informuoti el. paštu.
+              few: "%{count} projektai įtraukti į importavimo eilę. Pasibaigus procesui, būsite informuoti el. paštu."
+              many: "%{count} projektų buvo įtraukti į importavimo eilę. Pasibaigus procesui, būsite informuoti el. paštu."
+              other: "%{count} projektai buvo įtraukti į importavimo eilę. Pasibaigus procesui, būsite informuoti el. paštu."
+            title: Importuoti projektus į „Atskaitomybę“
         results:
           create:
-            invalid: Kuriant šį rezultatą iškilo problema
-            success: Rezultatas sėkmingai sukurtas
+            invalid: Kuriant šį rezultatą iškilo problema.
+            success: Rezultatas sėkmingai sukurtas.
           destroy:
-            success: Rezultatas sėkmingai ištrintas
+            success: Rezultatas sėkmingai ištrintas.
           edit:
             title: Keisti rezultatą
             update: Atnaujinti rezultatą
@@ -80,17 +119,17 @@ lt:
             create: Sukurti rezultatą
             title: Naujas rezultatas
           update:
-            invalid: Atnaujinant šį rezultatą iškilo problema
-            success: Rezultatas sėkmingai atnaujintas
+            invalid: Atnaujinant šį rezultatą iškilo problema.
+            success: Rezultatas sėkmingai atnaujintas.
         shared:
           subnav:
             statuses: Būsenos
         statuses:
           create:
-            invalid: Kuriant šią būseną iškilo problema
-            success: Būsena sėkmingai sukurta
+            invalid: Kuriant šią būseną iškilo problema.
+            success: Būsena sėkmingai sukurta.
           destroy:
-            success: Būsena sėkmingai pašalinta
+            success: Būsena sėkmingai pašalinta.
           edit:
             title: Redaguoti būseną
             update: Atnaujinti būseną
@@ -100,14 +139,14 @@ lt:
             create: Sukurti būseną
             title: Nauja būsena
           update:
-            invalid: Atnaujinant šią būseną iškilo problema
-            success: Būsena sėkmingai atnaujinta
+            invalid: Atnaujinant šią būseną iškilo problema.
+            success: Būsena sėkmingai atnaujinta.
         timeline_entries:
           create:
-            invalid: Kuriant šį įrašą iškilo problema
-            success: Įrašas sėkmingai sukurtas
+            invalid: Kuriant šį įrašą iškilo problema.
+            success: Įrašas sėkmingai sukurtas.
           destroy:
-            success: Įrašas sėkmingai pašalintas
+            success: Įrašas sėkmingai pašalintas.
           edit:
             title: Redaguoti įrašą
             update: Atnaujinti įrašą
@@ -117,8 +156,8 @@ lt:
             create: Sukurti įrašą
             title: Naujas įrašas
           update:
-            invalid: Atnaujinant šį įrašą iškilo problema
-            success: Įrašas sėkmingai atnaujintas
+            invalid: Atnaujinant šį įrašą iškilo problema.
+            success: Įrašas sėkmingai atnaujintas.
       admin_log:
         result:
           create: "%{user_name} sukūrė rezultatą %{resource_name} erdvėje %{space_name}"
@@ -143,12 +182,21 @@ lt:
       import_mailer:
         import:
           errors: Klaidos
-          errors_present: Importuojant rezultatus iškilo problema
+          errors_present: Importuojant rezultatus iškilo problema.
           row_number: Eilutė
           subject: Rezultatai sėkmingai importuoti
           success: Rezultatai sėkmingai importuoti. Rezultatus galite peržiūrėti administravimo sąsajoje.
+      import_projects_mailer:
+        import:
+          added_projects:
+            one: Vienas rezultatas buvo importuotas iš projektų.
+            few: "%{count} rezultatai buvo importuoti iš projektų."
+            many: "%{count} rezultatų buvo importuoti iš projektų."
+            other: "%{count} rezultatai buvo importuoti iš projektų."
+          subject: Projektai sėkmingai importuoti
+          success: Sėkmingai importuoti projektai į komponento %{component_name} rezultatus. Rezultatus galite peržiūrėti administravimo sąsajoje.
       last_activity:
-        new_result_at_html: "<span>Naujas rezultatas %{link}</span>"
+        new_result: 'Naujas rezultatas:'
       models:
         result:
           fields:
@@ -183,7 +231,6 @@ lt:
             other: "%{count} rezultatai"
         filters:
           all: Visi
-          scopes: Apimtys
         home:
           categories_label: Kategorijos
           subcategories_label: Subkategorijos
@@ -191,6 +238,7 @@ lt:
           global_status: Bendra vykdymo būsena
         nav_breadcrumb:
           global: Bendras vykdymas
+        no_results: Projektų nėra
         search:
           search: Ieškoti veiksmų
         show:

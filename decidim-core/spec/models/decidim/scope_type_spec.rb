@@ -13,7 +13,7 @@ module Decidim
 
       let(:scopes) { create_list(:scope, 2, scope_type:) }
 
-      it { is_expected.to contain_exactly(*scopes) }
+      it { is_expected.to match_array(scopes) }
     end
 
     context "without name" do

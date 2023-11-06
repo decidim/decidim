@@ -9,7 +9,7 @@ eu:
         max_choices: Gehienezko aukera kopurua
         question_type: Mota
       questionnaire_question:
-        mandatory: derrigorrezko
+        mandatory: Derrigorrezkoa
         max_characters: Karaktereen muga (utzi 0 mugarik ez badago)
     errors:
       models:
@@ -22,14 +22,12 @@ eu:
             choices:
               missing: ez dira osatu
               too_many: gehiegi dira
-        questionnaire:
-          request_invalid: Arazo bat izan da zure eskaera bidaltzean. Saiatu berriro
   decidim:
     forms:
       admin:
         models:
           components:
-            description: deskribapena
+            description: Deskribapena
             tos: Zerbitzu-baldintzak
         questionnaires:
           actions:
@@ -39,11 +37,13 @@ eu:
             answer_option: Erantzun aukera
             free_text: Testu librea
             remove: Kendu
-            statement: adierazpena
+            statement: Adierazpena
           answers:
             actions:
               back: Itzuli erantzunetara
               export: Esportatu
+              next: Hurrengoa &rsaquo;
+              previous: "&lsaquo; Aurrekoa"
               show: Erakutsi erantzunak
             empty: Oraindik ez dago erantzunik
             export:
@@ -74,12 +74,13 @@ eu:
             select_condition_question: Hautatu galdera bat
             select_condition_type: Hautatu baldintza mota bat
           edit:
-            save: Save
+            save: Gorde
             title: Editatu galdetegia
           form:
             add_question: Gehitu galdera
             add_separator: Gehitu banatzailea
-            already_answered_warning: Galdetegia dagoeneko erantzun dio erabiltzaile batzuek, beraz, ezin dituzu bere galderak aldatu.
+            add_title_and_description: Editatu izenburua eta deskribapena
+            already_answered_warning: Formularioa erabiltzaile batzuek erantzuten dute, beraz, ezin dira galderak aldatu.
             collapse: Bildu galdera guztiak
             expand: Zabaldu galdera guztiak
             preview: Aurreikusi
@@ -88,7 +89,7 @@ eu:
           matrix_row:
             matrix_row: Errenkada
             remove: Kendu
-            statement: adierazpena
+            statement: Adierazpena
           question:
             add_answer_option: Gehitu erantzun aukera
             add_display_condition: Gehitu bistaratzeko baldintza
@@ -96,28 +97,38 @@ eu:
             add_matrix_row: Gehitu errenkada
             any: Edozein
             collapse: Bildu
-            description: deskribapena
-            down: Down
+            description: Deskribapena
+            down: Behera
             expand: Zabaldu
             question: Galdera
             remove: Kendu
-            statement: adierazpena
-            up: up
+            statement: Adierazpena
+            up: Gora
           separator:
-            down: Jaitsi
+            down: Behera
             remove: Kendu
             separator: Bereizlea
-            up: Igo
+            up: Gora
+          title_and_description:
+            collapse: Tolestu
+            description: Deskribapena
+            down: Behera
+            expand: Zabaldu
+            remove: Kendu
+            title: Izenburua
+            title_and_description: Izenburua eta deskribapena
+            up: Gora
           update:
             invalid: Akatsik egon da galdeketa gordetzean.
             success: Galdetegia zuzen gorde da.
-      errors:
-        answer:
-          body: Gorputza ezin da hutsik egon
-      files:
-        extension_allowlist: 'Onartutako formatuak:'
+      admin_log:
+        questionnaire:
+          update: "%{user_name} erabiltzaileak %{resource_name} galdetegia eguneratu du"
       images:
         dimensions: "%{width} x %{height} px"
+        processors:
+          resize_and_pad: Irudi hau bigunduko eta birdimentsionatuko da %{dimensions} nehurrira.
+          resize_to_fit: Irudi hau bigunduko eta birdimentsionatuko da %{dimensions} nehurrira.
       question_types:
         files: Fitxategiak
         long_answer: Erantzun luzea
@@ -126,23 +137,29 @@ eu:
         multiple_option: Hainbat aukera
         short_answer: Erantzun laburra
         single_option: Aukera bakarra
-        sorting: Lazcoz
+        sorting: Sailkaketa
+        title_and_description: Izenburua eta deskribapena
+      questionnaire_answer_presenter:
+        download_attachment: Deskargatu eranskina
       questionnaires:
         answer:
-          invalid: Akatsik egon da galdeketa erantzutean.
+          invalid: Akatsen bat gertatu da galdeketa erantzutean.
           max_choices_alert: Aukera gehiegi daude hautatuta
-          success: Galdesortaz erantzun ona.
+          success: Formularioak ondo erantzun du.
         question:
           max_choices: 'Gehienezko aukerak: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Hasi saioa zure kontuarekin</a> edo <a href="%{sign_up_link}">saioa hasi</a> galdetegiari erantzuteko.
-            title: Erantzun galdetegia
+            already_have_an_account?: Baduzu kontu bat?
+            are_you_new?: Erabiltzaile berria?
+            sign_in_description: Sartu inkesta egiteko
+            sign_up_description: Parte-hartzaileen kontua sortu inkesta egiteko
+            title: Erantzun formularioari
           current_step: '%{step} urratsa'
           of_total_steps: '%{total_steps} etik'
           questionnaire_answered:
             body: Galdeketa honi erantzun dio.
-            title: Dagoeneko erantzun
+            title: Dagoeneko erantzunda
           questionnaire_closed:
             body: Galdetegia itxita dago eta ezin da erantzun.
             title: Galdeketa itxia
@@ -152,7 +169,9 @@ eu:
           questionnaire_js_disabled:
             body: Galdetegi honen ezaugarri batzuk desaktibatu egingo dira. Zure esperientzia hobetzeko, gaitu JavaScript zure nabigatzailean.
             title: Javascript desaktibatuta dago
-          tos_agreement: Zerbitzu-baldintzak onartzen dituzunean parte hartuz
+          questionnaire_not_published:
+            body: Argitalpen hau oraindik ez da argitaratu.
+          tos_agreement: Parte hartzean, haren zerbitzu-baldintzak onartzen dituzu
       step_navigation:
         show:
           are_you_sure: Ekintza hau ezin da desegin eta ezin izango dituzu zure erantzunak editatu. Ziur zaude?
@@ -162,7 +181,7 @@ eu:
       user_answers_serializer:
         body: Erantzuna
         completion: Amaiera
-        created_at: Erantzuna
+        created_at: Erantzunda
         id: Erantzun IDa
         ip_hash: IP Helbidearen Hash
         question: Galdera

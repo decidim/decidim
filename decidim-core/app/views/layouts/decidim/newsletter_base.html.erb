@@ -6,7 +6,7 @@
     <%= stylesheet_pack_tag "decidim_email" %>
   </head>
 
-  <body>
+  <body <%= @preview ? "class=preview" : nil %>>
     <!-- <style> -->
     <table class="body">
       <% if content_for?(:see_on_website) %>

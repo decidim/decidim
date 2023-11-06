@@ -1,19 +1,7 @@
-<section class="row section-statistics">
-  <div class="columns <%= wrapper_class %>">
-    <div class="row column">
-      <% if heading? %>
-        <h3 class="section-heading">
-          <%= stats_heading %>
-        </h3>
-      <% end %>
-
-      <div class="statistics-cell">
-        <% if stats.present? %>
-          <%= cell("decidim/statistic", collection: stats, design: design) %>
-        <% else %>
-          <span class="muted"><%= no_stats %></span>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</section>
+<div class="statistic__container">
+  <% if stats.present? %>
+    <%= cell("decidim/statistic", collection: stats) %>
+  <% else %>
+    <span><%= no_stats %></span>
+  <% end %>
+</div>

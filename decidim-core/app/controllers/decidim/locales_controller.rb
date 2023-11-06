@@ -16,7 +16,7 @@ module Decidim
 
     def referer_with_new_locale
       uri = URI(request.referer || "/")
-      query = uri.query.to_s.gsub(/locale=[a-zA-Z\-]{2,5}/, "")
+      query = uri.query.to_s.gsub(/locale=[a-zA-Z-]{2,5}/, "")
       params = URI.decode_www_form(query) << ["locale", current_locale]
       uri.query = URI.encode_www_form(params)
 

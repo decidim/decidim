@@ -37,15 +37,11 @@ pt:
         confirm_destroy: Tem a certeza de que pretende eliminar isto?
         destroy: Eliminar
         edit: Editar
-        new: Novo
         save: Guardar
         title: Ações
       admins:
         create:
           error: Ocorreu um problema ao criar um novo administrador.
-          success: Administrador criado corretamente
-        destroy:
-          success: Administrador eliminado corretamente
         edit:
           title: Editar administrador
           update: Atualizar
@@ -56,7 +52,6 @@ pt:
           title: Novo administrador
         update:
           error: Ocorreu um problema ao atualizar este administrador.
-          success: Administrador atualizado corretamente
       dashboard:
         show:
           current_organizations: Organizações actuais
@@ -74,7 +69,6 @@ pt:
           fields:
             created_at: Criado em
             email: E-mail
-          name: Administrador
           validations:
             email_uniqueness: já existe outro administrador com o mesmo e-mail
         oauth_application:
@@ -82,7 +76,6 @@ pt:
             created_at: Criado em
             name: Nome do aplicativo OAuth
             organization_name: Organização
-          name: Aplicativo OAuth
         organization:
           actions:
             save_and_invite: Criar organização e convidar administrador
@@ -92,7 +85,6 @@ pt:
             name: Nome
             omniauth_settings: Configurações Omniauth
             smtp_settings: Configurações SMTP
-          name: Organização
       oauth_applications:
         create:
           error: Houve um problema ao criar este modelo.
@@ -143,8 +135,6 @@ pt:
         index:
           title: Organizações
         new:
-          reference_prefix_hint: O prefixo de referência é usado para identificar recursos únicos em todas as organizações
-          secondary_hosts_hint: Insira cada um deles em uma nova linha
           title: Nova organização
         omniauth_settings:
           decidim:
@@ -167,8 +157,6 @@ pt:
         smtp_settings:
           fieldsets:
             sender: Remetente
-          instructions:
-            from_label: 'O remetente do email será “nome-sua-organizacao <your-organization@example.org>”. Deixe em branco para usar ‘Endereço de e-mail’ como rótulo'
           placeholder:
             from_email: sua-organizacao@exemplo.org
             from_label: nome-da-sua-organização
@@ -178,7 +166,6 @@ pt:
         users_registration_mode:
           disabled: O acesso só pode ser feito com contas externas
           enabled: Permitir que os participantes se registem e iniciem sessão
-          existing: Não permitir que os participantes se registem, mas permitir que participantes existentes iniciem sessão
       shared:
         notices:
           no_organization_warning_html: Você deve criar uma organização para começar. Certifique-se de ler %{guide} antes de prosseguir.

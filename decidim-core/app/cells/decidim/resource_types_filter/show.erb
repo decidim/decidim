@@ -1,0 +1,22 @@
+<div id="<%= id %>" class="filter-container">
+  <button id="dropdown-trigger-resource" data-component="dropdown" data-target="dropdown-menu-resource" data-auto-close="true" data-disabled-md="true">
+    <% resource_types.each do |resource_type| %>
+      <span data-value="<%= resource_type[0] %>" class="<%= "is-active" if filter_param == resource_type[0] %>">
+        <%= text_with_resource_icon(*resource_type) %>
+      </span>
+    <% end %>
+    <%= icon "arrow-down-s-line" %>
+    <%= icon "arrow-up-s-line" %>
+  </button>
+  <%= filter_form_for filter, form_path, class: "new_filter", id: "dropdown-menu-resource" do |form| %>
+    <%= form.collection_radio_buttons(
+          filter_param_key,
+          resource_types,
+          :first,
+          :last,
+          { checked: filter_param }
+        ) do |builder|
+            builder.label { builder.radio_button(class: "reset-defaults", hidden: true) + content_tag(:div, text_with_resource_icon(builder.value, builder.text), class: "filter") }
+      end %>
+  <% end %>
+</div>

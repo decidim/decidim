@@ -3,15 +3,10 @@
 module Decidim
   module Accountability
     module ContentBlocks
-      class HighlightedResultsCell < Decidim::ContentBlocks::HighlightedElementsCell
-        include Cell::ViewModel::Partial
-        include Decidim::IconHelper
-        include Decidim::Accountability::ApplicationHelper
-        include ActiveSupport::NumberHelper
+      class HighlightedResultsCell < Decidim::ContentBlocks::HighlightedElementsWithCellForListCell
+        private
 
-        def base_relation
-          @base_relation ||= Decidim::Accountability::Result.where(component: published_components)
-        end
+        def list_cell_path = "decidim/accountability/highlighted_results_for_component"
       end
     end
   end

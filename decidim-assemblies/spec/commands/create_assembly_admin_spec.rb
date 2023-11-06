@@ -2,30 +2,35 @@
 
 require "spec_helper"
 
-module Decidim::Assemblies
-  describe Admin::CreateAssemblyAdmin do
-    subject { described_class.new(form, current_user, my_assembly) }
+module Decidim::Admin
+  describe ParticipatorySpace::CreateAdmin, versioning: true do
+    subject { described_class.new(form, my_assembly, event_class:, event:, role_class:) }
 
-    let(:my_assembly) { create :assembly }
+    let(:role_class) { Decidim::AssemblyUserRole }
+    let(:event) { "decidim.events.assembly.role_assigned" }
+    let(:event_class) { Decidim::RoleAssignedToAssemblyEvent }
+
+    let(:my_assembly) { create(:assembly) }
     let!(:email) { "my_email@example.org" }
     let!(:role) { "admin" }
     let!(:name) { "Weird Guy" }
-    let!(:user) { create :user, email: "my_email@example.org", organization: my_assembly.organization }
-    let!(:current_user) { create :user, email: "some_email@example.org", organization: my_assembly.organization }
+    let!(:user) { create(:user, email: "my_email@example.org", organization: my_assembly.organization) }
+    let!(:current_user) { create(:user, email: "some_email@example.org", organization: my_assembly.organization) }
     let(:form) do
       double(
         invalid?: invalid,
         email:,
         role:,
         name:,
+        current_user:,
         current_participatory_space: my_assembly
       )
     end
     let(:invalid) { false }
     let(:user_notification) do
       {
-        event: "decidim.events.assembly.role_assigned",
-        event_class: Decidim::RoleAssignedToAssemblyEvent,
+        event:,
+        event_class:,
         resource: my_assembly,
         affected_users: [user],
         extra: { role: kind_of(String) }
@@ -41,9 +46,24 @@ module Decidim::Assemblies
     end
 
     context "when everything is ok" do
+      let(:log_info) do
+        hash_including(
+          resource: hash_including(
+            title: kind_of(String)
+          )
+        )
+      end
+      let(:role_params) do
+        {
+          role: role.to_sym,
+          user:,
+          assembly: my_assembly
+        }
+      end
+
       it "creates the user role" do
         subject.call
-        roles = Decidim::AssemblyUserRole.where(user:)
+        roles = role_class.where(user:)
 
         expect(roles.count).to eq 1
         expect(roles.first.role).to eq "admin"
@@ -55,7 +75,7 @@ module Decidim::Assemblies
         subject.call
       end
 
-      it "doesn't add admin privileges to the user" do
+      it "does not add admin privileges to the user" do
         subject.call
         user.reload
 
@@ -71,16 +91,18 @@ module Decidim::Assemblies
 
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
-          .to receive(:perform_action!)
-          .with(:create, Decidim::AssemblyUserRole, current_user, resource: hash_including(:title))
+          .to receive(:create!)
+          .with(role_class, current_user, role_params, log_info)
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)
+
         action_log = Decidim::ActionLog.last
         expect(action_log.version).to be_present
+        expect(action_log.version.event).to eq "create"
       end
 
-      it "doesn't invite the user again" do
+      it "does not invite the user again" do
         subject.call
         user.reload
 
@@ -106,17 +128,17 @@ module Decidim::Assemblies
           subject.call
         end
 
-        it "doesn't get created twice" do
+        it "does not get created twice" do
           expect { subject.call }.to broadcast(:ok)
 
-          roles = Decidim::AssemblyUserRole.where(user:)
+          roles = role_class.where(user:)
 
           expect(roles.count).to eq 1
           expect(roles.first.role).to eq "admin"
         end
       end
 
-      context "when the user hasn't accepted the invitation" do
+      context "when the user has not accepted the invitation" do
         before do
           user.invite!
         end

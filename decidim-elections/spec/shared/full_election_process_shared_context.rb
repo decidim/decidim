@@ -18,7 +18,7 @@ shared_context "when performing the whole process" do
       Decidim::Dev.asset("private_key3.jwk")
     ]
   end
-  let(:election) { create :election, :ready_for_setup, trustee_keys:, component: current_component }
+  let(:election) { create(:election, :ready_for_setup, trustee_keys:, component: current_component) }
 end
 
 module Decidim
@@ -58,16 +58,19 @@ module Decidim
       end
 
       def access_trustee_zone(trustee_index, upload_keys = true) # rubocop:disable Style/OptionalBooleanParameter
-        trustee = election.trustees[trustee_index]
+        trustee = election.trustees.order(:id)[trustee_index]
 
         relogin_as trustee.user, scope: :user
         visit decidim.decidim_elections_trustee_zone_path
+        expect(page).to have_content("Participant settings")
+        expect(page).to have_css("[aria-current='page']", text: "Trustee zone")
 
         if upload_keys
           expect(page).to have_content("Upload your identification keys")
           attach_file(private_keys[trustee_index]) do
             click_button "Upload your identification keys"
           end
+          expect(page).to have_content("You have been assigned to act as a Trustee in some of the elections celebrated in this platform.")
         end
 
         expect(page).not_to have_content("Upload your identification keys")
@@ -80,18 +83,18 @@ module Decidim
 
         click_link "Perform action"
 
-        expect(page).to have_content("Create election keys")
+        expect(page).to have_content("Create election keys for #{translated(election.title, locale: :en)}")
         expect(page).to have_css("#create_election", text: "Pending")
         expect(page).to have_css("#key_ceremony-step_1", text: "Pending")
         expect(page).to have_css("#key_ceremony-joint_election_key", text: "Pending")
 
-        expect(page).to have_selector("button.start:not(disabled)")
+        expect(page).to have_selector("#start:not(disabled)")
 
         sleep(1)
 
         click_button "Start"
 
-        expect(page).to have_selector("button.start:disabled")
+        expect(page).to have_button(id: "start", disabled: true)
       end
 
       def complete_key_ceremony(trustee_index)
@@ -108,7 +111,7 @@ module Decidim
         expect(page).to have_css("#create_election", text: "Completed")
         expect(page).to have_css("#key_ceremony-step_1", text: "Completed")
         expect(page).to have_css("#key_ceremony-joint_election_key", text: "Completed")
-        expect(page).not_to have_selector("button.start")
+        expect(page).not_to have_button(id: "start")
         expect(page).to have_link("Back")
 
         expect(page).to have_content("The election status is: key_ceremony_ended")
@@ -119,7 +122,7 @@ module Decidim
 
         expect(page).to have_content("Elections")
 
-        within ".trustee_zone table" do
+        within "#trustee_zone table" do
           expect(page).to have_content(translated(election.title, locale: :en))
           expect(page).to have_content("key_ceremony_ended")
           expect(page).not_to have_link("Perform action")

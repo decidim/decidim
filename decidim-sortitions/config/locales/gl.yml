@@ -38,7 +38,6 @@ gl:
         actions:
           destroy: Cancelar o sorteo
           edit: Editar
-          new: Nova xeración
           show: Detalles de clasificación
         models:
           sortition:
@@ -52,9 +51,6 @@ gl:
               seed: Semente
               target_items: Elementos a seleccionar
               title: Título
-            name:
-              one: Sortición
-              other: Edicións
         sortitions:
           confirm_destroy:
             confirm_destroy: Estás seguro de que queres cancelar este sortition?
@@ -62,28 +58,21 @@ gl:
             title: Cancelación do sortition
           create:
             error: Produciuse un erro ao crear unha nova xeración.
-            success: Creouse a edición correctamente
-          destroy:
-            error: Non se pode cancelar o sorteo.
-            success: A eliminación cancelouse correctamente
           edit:
             title: Actualiza a información sobre a clasificación
             update: Actualización
           form:
             all_categories: Todas as categorías
             select_proposal_component: Selecciona as propostas definidas
-            title: Nova xeración de propostas
           index:
             title: Edicións
           new:
-            confirm: Ao premer no seguinte botón, a plataforma rexistrará a data e hora (cunha precisión de segundos) e xunto coa tirada de dados, esta información empregarase para xerar unha escolla ao chou. Esta acción será irreversíbel, unha vez premido o botón publicarase o resultado deste sorteo xunto cos datos inseridos neste formulario e que non é posíbel modificar, por favor verifica o contido con coidado
             create: Crear
             title: Nova xeración
           show:
             selected_proposals: Propostas seleccionadas para o sorteo
           update:
             error: Produciuse un erro ao actualizar o sorteo.
-            success: A clasificación actualizouse correctamente
       admin_log:
         sortition:
           create: "%{user_name} creou o sorteo %{resource_name} en %{space_name}"
@@ -99,14 +88,7 @@ gl:
           all: Todo
           cancelled: Cancelada
           category: Categoría
-          category_prompt: Selecciona unha categoría
-          search: Busca
           state: Estado
-        filters_small_view:
-          close_modal: Pechar modal
-          filter: Filtro
-          filter_by: Filtrar por
-          unfold: Despregar
         linked_sortitions:
           selected_proposals: Propostas seleccionadas
         orders:
@@ -120,24 +102,22 @@ gl:
         show:
           algorithm: Codigo de algoritmo de Sortition
           any_category: de todas as categorías
-          back: Volver á listaxe
           cancelled: Cancelada sortition
           candidate_proposal_ids: Orde de propostas de clasificación e ID
           candidate_proposals_info: 'O sortition levouse a cabo entre as seguintes propostas (%{category_label}), coas seguintes ID (en negra as propostas seleccionadas)  '
           category: da categoría %{category}
-          dice_result: "(1) resultado de dados"
+          dice_result: (1) resultado de dados
           introduction: 'Esta páxina contén os resultados da clasificación %{reference}. Mediante esta clasificación, %{target_items} número de resultados foron seleccionados aleatoriamente e cunha distribución de probabilidade igual ao conxunto de propostas que se amosan debaixo. Xunto cos resultados, a información que se mostra nesta páxina proporciona toda a información necesaria para maximizar as garantías e reproducir os resultados. A clave para a calidade desta xeración é a aleatoriedade dobre proporcionada por un rolo dun dado (verificado por testemuñas) eo tempo preciso da xeración que proporciona entrada para un algoritmo que xera unha selección aleatoria. A semente de tempo para a xeración é tan precisa (segundos) que é imposible de controlar por parte dos seres humanos proporcionando así unha entrada dobre "incontrolable" para garantir un resultado xusto.  '
           mathematical_result: Resultado (1) x (2)
           proposals_selected_by_sortition: Propostas seleccionadas por sortition
           sortition_reproducibility_details: Detalles de reproducibilidade de sorteo
-          time_seed: "(2) Semente de tempo"
+          time_seed: (2) Semente de tempo
           witnesses: Testemuñas
         sortition:
           random_seed: Semente aleatoria
           selected_proposals:
             one: 1 proposta seleccionada
             other: '%{count} propostas seleccionadas'
-          view: Ver
         sortition_author:
           deleted: Usuario eliminado
         sortition_cancel_author:

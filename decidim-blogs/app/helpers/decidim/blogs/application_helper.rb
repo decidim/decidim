@@ -11,6 +11,10 @@ module Decidim
       include ::Decidim::EndorsableHelper
       include ::Decidim::FollowableHelper
       include Decidim::Comments::CommentsHelper
+
+      def component_name
+        (defined?(current_component) && translated_attribute(current_component&.name).presence) || t("decidim.components.blogs.name")
+      end
     end
   end
 end

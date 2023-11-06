@@ -1,11 +1,11 @@
 = GitHub Projects Workflow
 
-This is an internal document on how we're organizing the development of Decidim with external contractors through Github projects.
+This is an internal document on how we are organizing the development of Decidim with external contractors through Github projects.
 
 There are three teams:
 
 1. Product team: formed by representatives of the Barcelona City Council, Localret and Decidim Association who make functional decisions. They have the product vision and ensure that all the developments that are merged are coherent and consistent. You can summon them by mentioning in GitHub at @decidim/product
-2. Contractors: depends on the project. Most of the current developments are funded by the city of Barcelona, and the teams depend on the contract that has won the public procurement process. If there's any published contract we link it in the description of the project.
+2. Contractors: depends on the project. Most of the current developments are funded by the city of Barcelona, and the teams depend on the contract that has won the public procurement process. If there is any published contract we link it in the description of the project.
 3. Maintainers: developers that make the releases, review the Pull Requests, update dependencies and generally take care of all the Decidim source code. You can summon them by mentioning in GitHub at @decidim/core
 
 We follow some rules of Agile Development (mostly Scrum and KanBan).

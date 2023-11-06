@@ -1,13 +1,15 @@
+<div class="form__wrapper">
+  <div class="card pt-4">
+    <div class="row column">
+      <%= form.translated :text_field, :name, aria: { label: :name } %>
+    </div>
 
-<div class="row column">
-  <%= form.translated :text_field, :name %>
-</div>
+    <div class="row column">
+      <%= form.text_field :code %>
+    </div>
 
-<div class="row">
-  <div class="columns xlarge-6">
-    <%= form.text_field :code %>
-  </div>
-  <div class="columns xlarge-6">
-    <%= form.collection_select :scope_type_id, organization_scope_types, :id, :name %>
+    <div class="row column">
+      <%= form.collection_select :scope_type_id, organization_scope_types, :id, :name %>
+    </div>
   </div>
 </div>

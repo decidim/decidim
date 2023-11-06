@@ -222,7 +222,7 @@ shared_examples_for "a resource search with origin" do |factory_name|
     let!(:user_group_resource) { create(factory_name, :user_group_author, { component: }.merge(factory_params)) }
     let!(:participant_resource) { create(factory_name, :participant_author, { component: }.merge(factory_params)) }
 
-    if FactoryBot.factory_by_name(factory_name).defined_traits.map(&:name).include?(:meeting_resource)
+    if FactoryBot.factories[factory_name].defined_traits.map(&:name).include?(:meeting_resource)
       let!(:meeting_resource) { create(factory_name, :official_meeting, { component: }.merge(factory_params)) }
     end
 

@@ -10,6 +10,7 @@ de:
         end_time: Endet am
         information_updates: Informationsaktualisierungen
         instructions: Anweisungen zur Teilnahme
+        scope_id: Themenbereich
         start_time: Startet um
         title: Titel
         user_group_id: Debatte erstellen als
@@ -17,6 +18,7 @@ de:
       decidim/debates/close_debate_event: Debatte beendet
       decidim/debates/create_debate_event: Debatte
       decidim/debates/creation_disabled_event: Debatten deaktiviert
+      decidim/debates/creation_enabled_event: Erstellung von Debatten aktiviert
   activerecord:
     models:
       decidim/debates/debate:
@@ -26,6 +28,7 @@ de:
     components:
       debates:
         actions:
+          comment: Kommentar
           create: Erstellen
           endorse: Bestätigen
         name: Debatten
@@ -39,15 +42,15 @@ de:
           step:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
+            creation_enabled: Teilnehmer können Debatten erstellen
             endorsements_blocked: Bestätigungen blockiert
             endorsements_enabled: Bestätigungen aktiviert
     debates:
       actions:
         close: Schließen
-        confirm_destroy: Bist du sicher?
+        confirm_destroy: Sind Sie sicher?
         destroy: Löschen
         edit: Bearbeiten
-        new: Neu %{name}
         title: Aktionen
       admin:
         debate_closes:
@@ -77,9 +80,6 @@ de:
             success: Die Diskussion wurde erfolgreich aktualisiert.
         exports:
           comments: Kommentare
-        models:
-          debate:
-            name: Debatte
       admin_log:
         debate:
           close: "%{user_name} hat die Debatte %{resource_name} in %{space_name} geschlossen"
@@ -92,7 +92,7 @@ de:
           invalid: Beim Beenden der Debatte ist ein Problem aufgetreten.
           success: Debatte erfolgreich beendet.
         close_debate_modal:
-          close: Schließen
+          cancel: Abbrechen
           description: Wie lautet die Zusammenfassung oder Schlussfolgerung dieser Debatte?
           send: Debatte schließen
         closed: Geschlossen
@@ -118,18 +118,13 @@ de:
           my_debates: Meine Debatten
           official: Offiziell
           origin: Ursprung
-          scope: Bereich
+          participants: Teilnehmer
           search: Suche
           state: Status
           state_values:
             closed: Geschlossen
             open: Offen
-          user_groups: Gruppen
-        filters_small_view:
-          close_modal: Modal schließen
-          filter: Filter
-          filter_by: Filtern nach
-          unfold: Entfalten
+          user_group: Gruppen
         form:
           select_a_category: Bitte wählen sie eine Kategorie
         index:
@@ -145,7 +140,6 @@ de:
           recent: Neueste zuerst
           updated: Kürzlich aktualisiert
         show:
-          back: Zurück zur Liste
           close_debate: Debatte schließen
           date: Datum
           debate_closed: Geschlossen
@@ -153,28 +147,21 @@ de:
           edit_conclusions: Schlussfolgerungen bearbeiten
           edit_debate: Debatte bearbeiten
           groups_count: Gruppen
-          last_comment_by: Letzter Kommentar von
-          no_comments_yet: Noch keine Kommentare
           open: Offene Debatte
           participants_count: Teilnehmer
         update:
           invalid: Es gab ein Problem bei der Aktualisierung der Aussprache.
           success: Debatte erfolgreich aktualisiert.
-        versions:
-          debates:
-            back_to_resource: Zurück zur Debatte
-          index:
-            title: Versionen
-        versions_list:
-          back_to_resource: Zurück zur Debatte
       last_activity:
-        debate_updated_at_html: "<span>Debatte aktualisiert unter %{link}</span>"
-        new_debate_at_html: "<span>Neue Debatte bei %{link}</span>"
+        debate_updated: 'Debatte aktualisiert:'
+        new_debate: 'Neue Debatte:'
       models:
         debate:
           fields:
+            end: Ende
             end_time: Endtermin
             official_debate: Offizielle Debatte
+            start: Start
             start_time: Anfangsdatum
             title: Titel
     events:
@@ -203,7 +190,7 @@ de:
           email_intro: 'Sie können jetzt neue Debatten in %{participatory_space_title} eröffnen! Beteiligen Sie sich auf dieser Seite:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Debatten jetzt in %{participatory_space_title} verfügbar
-          notification_title: Sie können jetzt <a href="%{resource_path}">neue Debatten</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> starten
+          notification_title: Sie können jetzt <a href="%{resource_path}">neue Debatten</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> starten.
         debate_closed:
           affected_user:
             email_intro: 'Die Debatte "%{resource_title}" wurde beendet. Sie können die Resultate auf dieser Seite lesen:'

@@ -21,7 +21,7 @@ module Decidim
       attribute :default_locale, String
       attribute :badges_enabled, Boolean
       attribute :user_groups_enabled, Boolean
-      attribute :comments_max_length, Integer
+      attribute :comments_max_length, Integer, default: 0
       attribute :rich_text_editor_in_public_views, Boolean
       attribute :enable_machine_translations, Boolean
       attribute :machine_translation_display_priority, String
@@ -33,7 +33,7 @@ module Decidim
       translatable_attribute :welcome_notification_subject, String
       translatable_attribute :welcome_notification_body, String
 
-      translatable_attribute :admin_terms_of_use_body, String
+      translatable_attribute :admin_terms_of_service_body, String
 
       validates :welcome_notification_subject, :welcome_notification_body, translatable_presence: true, if: proc { |form| form.customize_welcome_notification }
 
@@ -42,8 +42,8 @@ module Decidim
       validates :time_zone, time_zone: true
       validates :default_locale, :reference_prefix, presence: true
       validates :default_locale, inclusion: { in: :available_locales }
-      validates :admin_terms_of_use_body, translatable_presence: true
-      validates :comments_max_length, numericality: { greater_than: 0 }, if: ->(form) { form.comments_max_length.present? }
+      validates :admin_terms_of_service_body, translatable_presence: true
+      validates :comments_max_length, presence: true, numericality: { greater_than_or_equal_to: 0 }
       validates :machine_translation_display_priority,
                 inclusion: { in: Decidim::Organization::AVAILABLE_MACHINE_TRANSLATION_DISPLAY_PRIORITIES },
                 if: :machine_translation_enabled?

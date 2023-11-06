@@ -23,7 +23,7 @@ ro:
               missing: nu sunt completate
               too_many: sunt prea multe
         questionnaire:
-          request_invalid: A apărut o eroare la procesarea cererii. Te rugăm să încerci din nou
+          request_invalid: A apărut o eroare la procesarea cererii. Te rugăm să încerci din nou.
   decidim:
     forms:
       admin:
@@ -44,6 +44,8 @@ ro:
             actions:
               back: Înapoi la răspunsuri
               export: Exportă
+              next: Următoarea &rsaquo;
+              previous: "&lsaquo; Anterioara"
               show: Afişează răspunsurile
             empty: Niciun răspuns încă
             export:
@@ -121,13 +123,17 @@ ro:
           update:
             invalid: A apărut o eroare la salvarea chestionarului.
             success: Chestionarul a fost salvat cu succes.
+      admin_log:
+        questionnaire:
+          update: "%{user_name} a actualizat chestionarul %{resource_name}"
       errors:
         answer:
           body: Conținutul nu poate fi gol
-      files:
-        extension_allowlist: 'Formate acceptate:'
       images:
         dimensions: "%{width} x %{height} px"
+        processors:
+          resize_and_pad: Această imagine va fi redimensionată pentru a se potrivi cu %{dimensions}.
+          resize_to_fit: Această imagine va fi redimensionată pentru a se potrivi cu %{dimensions}.
       question_types:
         files: Fișiere
         long_answer: Răspuns lung
@@ -138,6 +144,8 @@ ro:
         single_option: Opțiune unică
         sorting: Sortare
         title_and_description: Titlu și descriere
+      questionnaire_answer_presenter:
+        download_attachment: Descărcare atașament
       questionnaires:
         answer:
           invalid: A apărut o problemă la completarea chestionarului.
@@ -147,7 +155,10 @@ ro:
           max_choices: 'Număr maxim de alegeri: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Autentifică-te cu contul tău</a> sau <a href="%{sign_up_link}">înregistrează-te</a> pentru a răspunde la chestionar.
+            already_have_an_account?: Ai deja un cont?
+            are_you_new?: Utilizator nou?
+            sign_in_description: Autentifică-te pentru a participa la sondaj
+            sign_up_description: Creați un cont de participant pentru a participa la sondaj
             title: Completează chestionarul
           current_step: Pasul %{step}
           of_total_steps: din %{total_steps}

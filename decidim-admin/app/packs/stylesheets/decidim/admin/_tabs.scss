@@ -1,0 +1,74 @@
+.tabs--lang {
+  @apply bg-transparent flex items-center gap-x-1;
+
+  li {
+    @apply p-0.5 rounded-t-sm text-secondary text-xs;
+
+    background-color: rgba(243, 244, 247, 1);
+
+    &.is-active,
+    &:hover {
+      @apply border-b border-secondary;
+    }
+
+    &:hover {
+      background-color: rgba(243, 244, 247, 1);
+    }
+  }
+
+  a {
+    @apply text-xs p-0;
+
+    &::before {
+      @apply content-[''] w-2 h-2 inline-block bg-white rounded-full mr-2 border;
+
+      border-color: rgba(116, 129, 144, 1);
+    }
+  }
+
+  .tabs-title > a[aria-selected="true"] {
+    @apply font-bold text-secondary;
+
+    background-color: rgba(243, 244, 247, 1);
+
+    &::before {
+      @apply border-white;
+
+      background-color: rgba(40, 167, 69, 1);
+    }
+  }
+
+  a.is-tab-error {
+    color: red;
+  }
+}
+
+.label--tabs {
+  @apply flex justify-between items-end;
+
+  label {
+    @apply inline-block;
+  }
+}
+
+.tabs-panel[aria-hidden="true"] {
+  @apply hidden;
+}
+
+.form {
+  .language-change {
+    @apply h-8 mb-4;
+  }
+}
+
+.tab-custom-error-wrapper {
+  @apply flex flex-wrap;
+}
+
+.tab-custom-error {
+  @apply mr-1;
+}
+
+.is-tab-custom-error-visible {
+  @apply block;
+}

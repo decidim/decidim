@@ -7,6 +7,8 @@ module Decidim
       # conference - The model to render the partners
       #
       # Returns nothing.
+
+      # deprecated
       def partners_for(conference)
         render partial: "partners", locals: { conference: }
       end

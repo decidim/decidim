@@ -7,8 +7,8 @@ RSpec.describe "Proposal search", type: :request do
 
   subject { response.body }
 
-  let(:component) { create :proposal_component }
-  let(:user) { create :user, :confirmed, organization: }
+  let(:component) { create(:proposal_component) }
+  let(:user) { create(:user, :confirmed, organization:) }
   let(:participatory_space) { component.participatory_space }
   let(:organization) { participatory_space.organization }
   let(:filter_params) { {} }
@@ -22,10 +22,10 @@ RSpec.describe "Proposal search", type: :request do
   let!(:proposal7) { create(:proposal, :accepted, component:) }
 
   let(:meetings_component) { create(:component, manifest_name: "meetings", participatory_space:) }
-  let(:meeting) { create :meeting, :published, component: meetings_component }
+  let(:meeting) { create(:meeting, :published, component: meetings_component) }
 
   let(:dummy_component) { create(:component, manifest_name: "dummy", participatory_space:) }
-  let(:dummy_resource) { create :dummy_resource, component: dummy_component }
+  let(:dummy_resource) { create(:dummy_resource, component: dummy_component) }
 
   let(:request_path) { Decidim::EngineRouter.main_proxy(component).proposals_path }
 
@@ -219,5 +219,26 @@ RSpec.describe "Proposal search", type: :request do
         expect(subject).not_to have_escaped_html(translated(proposal7.title))
       end
     end
+  end
+
+  describe "#index" do
+    let(:url) { "http://#{component.organization.host + request_path}" }
+
+    it "redirects to the index page" do
+      get(
+        url_to_root(request_path),
+        params: {},
+        headers: { "HOST" => component.organization.host }
+      )
+      expect(response["Location"]).to eq(url)
+      expect(response).to have_http_status(:moved_permanently)
+    end
+  end
+
+  private
+
+  def url_to_root(url)
+    parts = url.split("/")
+    parts[0..-2].join("/")
   end
 end

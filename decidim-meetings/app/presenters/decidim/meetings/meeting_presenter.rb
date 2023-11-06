@@ -31,12 +31,13 @@ module Decidim
       def description(links: false, extras: true, strip_tags: false, all_locales: false)
         return unless meeting
 
-        new_description = handle_locales(meeting.description, all_locales) do |content|
-          renderer = Decidim::ContentRenderers::HashtagRenderer.new(sanitized(content))
-          renderer.render(links:).html_safe
-        end
+        content_handle_locale(meeting.description, all_locales, extras, links, strip_tags)
+      end
 
-        content_handle_locale(new_description, all_locales, extras, links, strip_tags)
+      def editor_description(all_locales: false, extras: true)
+        return unless meeting
+
+        editor_locales(meeting.description, all_locales, extras:)
       end
 
       def location(all_locales: false)

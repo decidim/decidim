@@ -5,11 +5,11 @@ require "spec_helper"
 module Decidim::Blogs::Admin
   describe PostsHelper, type: :helper do
     describe "#post_author_select_field" do
-      let(:organization) { create :organization }
-      let(:user) { create :user, :admin, :confirmed, organization: }
-      let!(:another_user) { create :user, :admin, :confirmed, organization: }
-      let!(:user_group) { create :user_group, :verified, decidim_organization_id: organization.id, users: [user] }
-      let!(:another_user_group) { create :user_group, :verified, decidim_organization_id: organization.id, users: [another_user] }
+      let(:organization) { create(:organization) }
+      let(:user) { create(:user, :admin, :confirmed, organization:) }
+      let!(:another_user) { create(:user, :admin, :confirmed, organization:) }
+      let!(:user_group) { create(:user_group, :verified, decidim_organization_id: organization.id, users: [user]) }
+      let!(:another_user_group) { create(:user_group, :verified, decidim_organization_id: organization.id, users: [another_user]) }
       let(:name) { "a-select-form-name" }
       let(:author) { user }
       let(:form) do
@@ -111,6 +111,32 @@ module Decidim::Blogs::Admin
 
         it "Returns all types of authors" do
           expect(helper.post_author_select_field(form, name)).to eq(extra_group_fields)
+        end
+      end
+    end
+
+    describe "#publish_data" do
+      let!(:created_at) { 3.days.ago }
+      let(:formatted_created_time) { created_at.strftime("%d/%m/%Y %H:%M") }
+
+      context "when published_at is reached" do
+        let(:published_at) { 2.days.ago }
+        let(:formatted_published_time) { published_at.strftime("%d/%m/%Y %H:%M") }
+
+        it "shows correct publishing info" do
+          action = helper.publish_data(published_at)
+          expect(action[:popup]).to be_nil
+        end
+      end
+
+      context "when publish in future" do
+        let(:published_at) { 2.days.from_now }
+        let(:formatted_published_time) { published_at.stftime("%d/%m/%Y %H:%M") }
+
+        it "shows correct publishing info" do
+          action = helper.publish_data(published_at)
+          expect(action[:popup]).to eq("Not published yet.")
+          expect(action[:icon]).to include("svg")
         end
       end
     end

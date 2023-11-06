@@ -8,6 +8,8 @@ describe Decidim::UserActivityCell, type: :cell do
 
   subject { my_cell.call }
 
+  let(:view_context) { Class.new(ActionView::Base).new(ActionView::LookupContext.new(ActionController::Base.view_paths), {}, []) }
+
   let(:my_cell) do
     cell(
       "decidim/user_activity",
@@ -16,6 +18,7 @@ describe Decidim::UserActivityCell, type: :cell do
         activities:,
         filter:,
         resource_types:,
+        view_context:,
         user: model
       }
     )
@@ -30,7 +33,6 @@ describe Decidim::UserActivityCell, type: :cell do
       Decidim::Meetings::Meeting
       Decidim::Blogs::Post
       Decidim::Proposals::Proposal
-      Decidim::Consultations::Question
     )
   end
   let(:filter) { Decidim::FilterResource::Filter.new({ resource_type: resource_types }) }
@@ -63,29 +65,24 @@ describe Decidim::UserActivityCell, type: :cell do
   end
   let(:controller) { double }
 
-  def redesigned_layout(name)
-    name
-  end
-
   before do
     allow(controller).to receive(:current_organization).and_return(component.organization)
-    allow(controller).to receive(:redesign_enabled?).and_return(true)
+    allow(controller).to receive(:params).and_return(ActionController::Parameters.new({}))
 
     allow(my_cell).to receive(:url_for).and_return("/")
-    allow(my_cell).to receive(:params).and_return(ActionController::Parameters.new({}))
     allow(my_cell).to receive(:controller).and_return(controller)
   end
 
   it "displays the latest items on the first page and a pagination" do
     logs.last(10).each do |log|
       root_link = Decidim::ResourceLocatorPresenter.new(log.resource.root_commentable).path
-      comment_link = "#{root_link}?commentId=#{log.resource.id}"
+      comment_link = "#{root_link}?commentId=#{log.resource.id}#comment_#{log.resource.id}"
       title = html_truncate(translated_attribute(log.resource.root_commentable.title), length: 80)
 
       expect(subject).to have_link(title, href: comment_link)
     end
 
-    within "#decidim-paginate-container .pagination" do
+    within ".pagination" do
       expect(page).to have_selector("li.page.current", text: "1")
       expect(page).to have_selector("li.page a", text: "2")
       expect(page).not_to have_selector("li.page a", text: "3")
@@ -98,13 +95,13 @@ describe Decidim::UserActivityCell, type: :cell do
     it "displays the oldest items and a pagination" do
       logs.first(5).each do |log|
         root_link = Decidim::ResourceLocatorPresenter.new(log.resource.root_commentable).path
-        comment_link = "#{root_link}?commentId=#{log.resource.id}"
+        comment_link = "#{root_link}?commentId=#{log.resource.id}#comment_#{log.resource.id}"
         title = html_truncate(translated_attribute(log.resource.root_commentable.title), length: 80)
 
         expect(subject).to have_link(title, href: comment_link)
       end
 
-      within "#decidim-paginate-container .pagination" do
+      within ".pagination" do
         expect(page).to have_selector("li.page a", text: "1")
         expect(page).to have_selector("li.page.current", text: "2")
       end
@@ -127,20 +124,20 @@ describe Decidim::UserActivityCell, type: :cell do
       # The first five items should be hidden through moderation
       logs.first(5).each do |log|
         root_link = Decidim::ResourceLocatorPresenter.new(log.resource.root_commentable).path
-        comment_link = "#{root_link}?commentId=#{log.resource.id}"
+        comment_link = "#{root_link}?commentId=#{log.resource.id}#comment_#{log.resource.id}"
         title = html_truncate(translated_attribute(log.resource.root_commentable.title), length: 80)
 
         expect(subject).not_to have_link(title, href: comment_link)
       end
       logs.last(10).each do |log|
         root_link = Decidim::ResourceLocatorPresenter.new(log.resource.root_commentable).path
-        comment_link = "#{root_link}?commentId=#{log.resource.id}"
+        comment_link = "#{root_link}?commentId=#{log.resource.id}#comment_#{log.resource.id}"
         title = html_truncate(translated_attribute(log.resource.root_commentable.title), length: 80)
 
         expect(subject).to have_link(title, href: comment_link)
       end
 
-      expect(subject).not_to have_selector("#decidim-paginate-container .pagination")
+      expect(subject).not_to have_selector(".pagination")
     end
   end
 end

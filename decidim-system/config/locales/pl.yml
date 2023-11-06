@@ -37,15 +37,11 @@ pl:
         confirm_destroy: Czy na pewno chcesz to usunąć?
         destroy: Usuń
         edit: Edytuj
-        new: Nowy
         save: Zapisz
         title: Działania
       admins:
         create:
           error: Podczas tworzenia nowego administratora wystąpił błąd.
-          success: Administrator został utworzony
-        destroy:
-          success: Administrator został usunięty
         edit:
           title: Edytuj administratora
           update: Aktualizuj
@@ -56,7 +52,6 @@ pl:
           title: Nowy administrator
         update:
           error: Podczas aktualizowania tego administratora wystąpił błąd.
-          success: Administrator został zaktualizowany
       default_pages:
         placeholders:
           content: Proszę dodać istotne treści do strony statycznej %{page} w panelu administratora.
@@ -71,7 +66,6 @@ pl:
           fields:
             created_at: Utworzono
             email: Adres e-mail
-          name: Administrator
           validations:
             email_uniqueness: inny administrator z tym samym e-mailem już istnieje
         oauth_application:
@@ -79,7 +73,6 @@ pl:
             created_at: Utworzono
             name: Nazwa aplikacji OAuth
             organization_name: Organizacja
-          name: Aplikacja OAuth
         organization:
           actions:
             save_and_invite: Utwórz organizację i zaproś administratora
@@ -89,7 +82,6 @@ pl:
             name: Nazwa
             omniauth_settings: Ustawienia Omniauth
             smtp_settings: Ustawienia SMTP
-          name: Organizacja
       oauth_applications:
         create:
           error: Wystąpił błąd podczas tworzenia tej aplikacji.
@@ -138,8 +130,6 @@ pl:
         index:
           title: Organizacje
         new:
-          reference_prefix_hint: Prefiks referencyjny służy do jednoznacznego identyfikowania zasobów we wszystkich organizacjach
-          secondary_hosts_hint: Wpisz każdy z nich w nowej linii
           title: Nowa organizacja
         omniauth_settings:
           decidim:
@@ -162,8 +152,6 @@ pl:
         smtp_settings:
           fieldsets:
             sender: Nadawca
-          instructions:
-            from_label: 'Nadawcą wiadomości e-mail będzie: "twoja-nazwa-organizacji <twoja-organizacja@przyklad.org>". Pozostaw puste, aby użyć "Adres e-mail" jako etykiety'
           placeholder:
             from_email: twoja-organizacja@przyklad.org
             from_label: twoja-nazwa-organizacji
@@ -173,7 +161,6 @@ pl:
         users_registration_mode:
           disabled: Dostęp można uzyskać tylko za pomocą kont zewnętrznych
           enabled: Zezwalaj użytkownikom na rejestrację i logowanie
-          existing: Nie zezwalaj użytkownikom na rejestrację, ale zezwalaj istniejącym użytkownikom na logowanie
       shared:
         notices:
           no_organization_warning_html: Aby rozpocząć, musisz utworzyć organizację. Przed kontynuowaniem przeczytaj %{guide}.

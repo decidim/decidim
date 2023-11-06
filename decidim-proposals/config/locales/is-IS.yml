@@ -13,7 +13,6 @@ is-IS:
       proposal_answer:
         answer: Svara
       proposals_copy:
-        copy_proposals: Ég skil að þetta mun flytja allar tillögur úr völdu hlutanum í núverandi og að þessi aðgerð geti ekki snúið við.
         origin_component_id: Hluti til að afrita tillögurnar frá
   decidim:
     components:
@@ -56,18 +55,15 @@ is-IS:
           email_intro: 'Þú getur samþykkt tillögur í %{participatory_space_title}! Byrja að taka þátt í þessari síðu:'
           email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{participatory_space_title}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
           email_subject: Tillögur um áritun hafa byrjað fyrir %{participatory_space_title}
-          notification_title: Þú getur nú byrjað á <a href="%{resource_path}">ábendingar um tillögur</a> í <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           follower:
             email_intro: 'Tillagan "%{resource_title}" hefur verið samþykkt. Þú getur lesið svarið á þessari síðu:'
             email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með "%{resource_title}". Þú getur sleppt því frá fyrri tengilinn.
-            email_subject: Tillaga sem þú ert að fylgja hefur verið samþykkt
             notification_title: <a href="%{resource_path}">%{resource_title}</a> tillöguna hefur verið samþykkt.
         proposal_evaluating:
           follower:
             email_intro: 'Tillagan "%{resource_title}" er nú metin. Þú getur leitað að svari á þessari síðu:'
             email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með "%{resource_title}". Þú getur sleppt því frá fyrri tengilinn.
-            email_subject: Tillaga sem þú fylgir er metin
             notification_title: <a href="%{resource_path}">%{resource_title}</a> tillögunni er metið.
         proposal_mentioned:
           email_subject: Tillagan þín "%{mentioned_proposal_title}" hefur verið minnst
@@ -81,7 +77,6 @@ is-IS:
           follower:
             email_intro: 'Tillagan "%{resource_title}" hefur verið hafnað. Þú getur lesið svarið á þessari síðu:'
             email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með "%{resource_title}". Þú getur sleppt því frá fyrri tengilinn.
-            email_subject: Tillaga sem þú ert að fylgja hefur verið hafnað
             notification_title: <a href="%{resource_path}">%{resource_title}</a> tillöguna hefur verið hafnað.
         proposal_update_category:
           email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú ert höfundur tillögunnar.
@@ -111,20 +106,12 @@ is-IS:
             rejected: Hafnað
             title: Svar fyrir tillögu %{title}
         proposal_notes:
-          create:
-            success: Tillaga athugasemd búin til
           form:
             note: Athugaðu
             submit: Senda inn
           leave_your_note: Skildu athugasemdina þína
           title: Einkaskilaboð
         proposals:
-          answer:
-            invalid: Vandamál kom upp við að svara þessari tillögu
-            success: Tillaga svarað með góðum árangri
-          create:
-            invalid: Vandamál kom upp við að búa til þessa tillögu
-            success: Tillaga búin til
           form:
             attachment_legend: "(Valfrjálst) Bæta við viðhengi"
             select_a_category: Veldu flokk
@@ -138,19 +125,7 @@ is-IS:
           new:
             create: Búa til
             title: Búðu tillögu
-          publish_answers:
-            select_a_proposal: Vinsamlegast veldu tillögu
-          show:
-            created_at: Sköpunardegi
-            proposals: Tillögur
-          update_category:
-            select_a_category: Vinsamlegast veldu flokk
-            select_a_proposal: Vinsamlegast veldu tillögu
-          update_scope:
-            select_a_proposal: Vinsamlegast veldu tillögu
         proposals_imports:
-          create:
-            success: "%{number} tillögur tókst að flytja inn"
           new:
             create: Innflutningur tillögur
             no_components: Það eru engar aðrar tillögur í þessum þátttökustíl til að flytja tillögur frá.
@@ -183,8 +158,6 @@ is-IS:
             scope: Umfang
             title: Titill
             votes: Atkvæði
-      new:
-        limit_reached: Þú getur ekki búið til nýjar tillögur þar sem þú hefur farið yfir mörkin.
       proposals:
         compare:
           no_similars_found: Vel gert! Engar svipaðar tillögur fundust
@@ -207,15 +180,9 @@ is-IS:
           origin: Uppruni
           related_to: Tengjast
           search: Leita
-        filters_small_view:
-          close_modal: Loka mát
-          filter: Sía
-          filter_by: Sía eftir
-          unfold: Fella út
         index:
           new_proposal: Ný tillaga
           see_all_withdrawn: Sjá öll afturkallað tillögur
-          view_proposal: Skoða tillögu
         new:
           send: Haltu áfram
         orders:
@@ -229,37 +196,23 @@ is-IS:
             other: Þú verður að geta breytt þessari tillögu á fyrstu %{count} mínútum eftir að tillagan er birt. Þegar þessi tími gluggi fer, munt þú ekki geta breytt tillögunni.
           publish: Birta
           title: Birta tillöguna þína
-        proposal:
-          creation_date: 'Sköpun: %{date}'
-          view_proposal: Skoða tillögu
         show:
           answer: Svara
-          comments: Athugasemdir
           edit_proposal: Breyta tillögu
           proposal_accepted_reason: 'Þessi tillaga hefur verið samþykkt vegna þess að:'
           proposal_in_evaluation_reason: Þessi tillaga er metin
           proposal_rejected_reason: 'Þessi tillaga hefur verið hafnað vegna þess að:'
-          report: Skýrsla
           withdraw_btn_hint: Þú getur afturkallað tillöguna þína ef þú skiptir um skoðun, svo lengi sem þú hefur ekki fengið stuðning. Tillagan er ekki eytt, hún mun birtast á lista yfir afturkallað tillögur.
           withdraw_proposal: Afturkalla tillögu
-        votes_count:
-          most_popular_proposal: Vinsælasta tillöguna
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Hver tillaga getur safnast meira en %{limit} styður
           proposal_limit:
             description: Þú getur búið til allt að %{limit} tillögur.
-          threshold_per_proposal:
-            description: Til að fullgilda tillögur þarf að ná %{limit} stuðningi
-          vote_limit:
-            left: Eftirstöðvar
         wizard_aside:
           back: Til baka
-          info: Þú ert að búa til <strong>tillögu</strong>.
         wizard_steps:
-          see_steps: sjá skref
           step_1: Búðu til tillöguna þína
           step_2: Bera saman
           step_3: Heill
           step_4: Birta tillöguna þína
-          step_of: Skref %{current_step_num} af %{total_steps}

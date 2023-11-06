@@ -7,8 +7,8 @@ module Decidim::Conferences
     subject { described_class.new(form, conference_speaker) }
 
     let!(:conference) { create(:conference) }
-    let(:conference_speaker) { create :conference_speaker, :with_user, conference: }
-    let!(:current_user) { create :user, :confirmed, organization: conference.organization }
+    let(:conference_speaker) { create(:conference_speaker, :with_user, conference:) }
+    let!(:current_user) { create(:user, :confirmed, organization: conference.organization) }
     let(:user) { nil }
     let!(:meeting_component) do
       create(:component, manifest_name: :meetings, participatory_space: conference)
@@ -107,6 +107,11 @@ module Decidim::Conferences
         expect { subject.call }.to change(Decidim::ActionLog, :count)
         action_log = Decidim::ActionLog.last
         expect(action_log.version).to be_present
+      end
+
+      it "sets the avatar" do
+        subject.call
+        expect(conference_speaker.avatar.blob).to be_a(ActiveStorage::Blob)
       end
 
       it "links meetings" do

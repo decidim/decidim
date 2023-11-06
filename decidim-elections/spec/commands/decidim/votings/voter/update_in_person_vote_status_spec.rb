@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Votings::Voter::UpdateInPersonVoteStatus do
   subject { described_class.new(in_person_vote) }
 
-  let(:in_person_vote) { create :in_person_vote }
+  let(:in_person_vote) { create(:in_person_vote) }
   let(:method_name) { :get_pending_message_status }
   let(:response) { :accepted }
 

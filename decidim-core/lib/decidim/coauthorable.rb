@@ -75,7 +75,7 @@ module Decidim
 
       # Returns all the authors of a coauthorable.
       #
-      # We need to do it this ways since the authors are polymorphic, and we can't have a has_many through relation
+      # We need to do it this ways since the authors are polymorphic, and we cannot have a has_many through relation
       # with polymorphic objects.
       def authors
         return @authors if defined?(@authors)

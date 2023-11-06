@@ -1,7 +1,0 @@
-<ul class="tags tags--initiative">
-  <li><%= link_to translated_attribute(resource.type.title), initiatives_path(filter: { type: [resource.type.id] }) %></li>
-  <li><%= link_to translated_attribute(resource.scope_name), initiatives_path(filter: { scope_id: [resource.scope&.id] }) %></li>
-  <% if resource.area %>
-    <li><%= link_to translated_attribute(resource.area_name), initiatives_path(filter: { area_id: [resource.area.id] }) %></li>
-  <% end %>
-</ul>

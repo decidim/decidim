@@ -185,8 +185,9 @@ module Decidim
           # the JavaScript asset which is used to initialize the geocoding
           # autocompletion functionality in the front-end:
           class Builder < Decidim::Map::Autocomplete::Builder
-            def javascript_snippets
-              template.javascript_pack_tag("decidim/geocoding/provider/your_provider")
+            def append_assets
+              template.append_stylesheet_pack_tag("decidim/geocoding/provider/your_provider")
+              template.append_javascript_pack_tag("decidim/geocoding/provider/your_provider")
             end
           end
         end
@@ -278,7 +279,7 @@ $(document).on("ready", () => {
     // => This would print out what you returned for the `callback` as shown
     // above.
 
-    // NOTE: YOU DON'T NEED THIS IF YOUR RESPONSE OBJECTS ALREADY CONTAINED THE
+    // NOTE: YOU DO NOT NEED THIS IF YOUR RESPONSE OBJECTS ALREADY CONTAINED THE
     //       COORDINATES IN THE `coordinates` KEY OF EACH RESULT OBJECT!
     // Then, once you know the coordinates, you trigger the following event on
     // the same input (obviously, you need to query the API first):
@@ -311,7 +312,7 @@ This is not 100% necessary but it improves the accuracy of the geocoding functio
 For the dynamic map functionality, you should primarily use a service provider that is compatible with the https://leafletjs.com/[Leaflet library] that ships with Decidim.
 You can also integrate to services that are not compatible with Leaflet but it will cause you more work and is not covered by this guide.
 
-Please note that you don't necessarily even need to create your own dynamic maps utility if your service provider is already compatible with the link:/decidim-core/lib/decidim/map/provider/dynamic_map/osm.rb[`Decidim::Map::Provider::DynamicMap::Osm`] provider.
+Please note that you do not necessarily even need to create your own dynamic maps utility if your service provider is already compatible with the link:/decidim-core/lib/decidim/map/provider/dynamic_map/osm.rb[`Decidim::Map::Provider::DynamicMap::Osm`] provider.
 In order to configure your custom OSM compatible service provider take a look at the xref:services:maps.adoc#configuring-open-street-maps-based-service-providers[maps and geocoding configuration] documentation.
 
 If your service provider is not fully compatible with the default OSM provider, you can start writing your customizations by creating an empty dynamic map provider utility with the following code:
@@ -434,8 +435,8 @@ By default, this will return a link to the configured static map URL with the fo
  ** `latitude` - The value for the `latitude` option provided for the method.
  ** `longitude` - The value for the `longitude` option provided for the method.
  ** `zoom` - The value for key `:zoom` in the options hash (default: 15).
- ** `width` - The value for key `:width` in the options hash (default: 120).
- ** `height` - The value for key `:height` in the options hash (default: 120).
+ ** `width` - The value for key `:width` in the options hash (default: 300).
+ ** `height` - The value for key `:height` in the options hash (default: 300).
 * `url_params(latitude:, longitude:, options: {})` - Returns a hash of prepared URL parameters for the `url` method.
 For the default parameters, see the explanations above for the `url` method.
 * `image_data(latitude:, longitude:, options: {})` - Does a request to the URL defined by the `url` method and returns the raw binary data in the response body of that request.
@@ -475,7 +476,7 @@ When calling the `url` method with the latitude of `1.123` and longitude of `2.4
 
 [source,bash]
 ----
-https://staticmap.example.org/?latitude=1.123&longitude=2.456&zoom=15&width=120&height=120&style=bright&foo=bar
+https://staticmap.example.org/?latitude=1.123&longitude=2.456&zoom=15&width=300&height=300&style=bright&foo=bar
 ----
 
 If you want to use the dynamic map replacements for the static map images, do not configure `static` section for your maps:
@@ -490,7 +491,7 @@ config.maps = {
 ----
 
 Even if you decide to use the dynamic map replacements, you will still need to define the static map utility because it is used to generate the link where users will be pointed at when they click the map image.
-In this case, the static map utility can be empty as you won't need any customization for it to work.
+In this case, the static map utility can be empty as you will not need any customization for it to work.
 
 == Configuring your own map service provider
 

@@ -2,13 +2,10 @@ is-IS:
   decidim:
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Skráðu þig inn með reikningnum þínum</a> eða <a href="%{sign_up_url}">skráðu þig</a> til að bæta við ummælum þínum.
         form:
           body:
             label: Athugasemd
             placeholder: Hvað finnst þér um þetta?
-          form_error: Textinn er krafist og það má ekki vera lengri en %{length} stafir.
-          submit: Senda
           user_group_id:
             label: Athugasemd sem
         opinion:
@@ -28,7 +25,6 @@ is-IS:
           description: Er þetta efni óviðeigandi?
           details: Önnur athugasemdir
           reasons:
-            does_not_belong: Inniheldur ólöglega starfsemi, sjálfsvígshugmyndir, persónulegar upplýsingar eða eitthvað sem þér finnst ekki tilheyra %{organization_name}.
             offensive: Inniheldur kynþáttafordóma, kynhneigð, slurðir, persónulegar árásir, dauðarefsárásir, sjálfsvígstilraunir eða hvers konar hatursmál.
             spam: Inniheldur clickbait, auglýsingar, óþekktarangi eða handritabots.
       comment_order_selector:
@@ -38,8 +34,6 @@ is-IS:
           older: Eldri
           recent: Nýleg
         title: 'Raða eftir:'
-      comment_thread:
-        title: Samtal við %{authorName}
       comments:
         blocked_comments_warning: Athugasemdir eru gerðar óvirkar á þessum tíma, en þú getur lesið þau fyrri.
         loading: Hleð inn athugasemdir ...
@@ -68,6 +62,3 @@ is-IS:
           email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú hefur verið nefndur í %{resource_title}.
           email_subject: Þú hefur verið nefndur í %{resource_title}
           notification_title: Þú hefur verið nefndur í <a href="%{resource_path}">%{resource_title}</a> af <a href="%{author_path}">%{author_name} %{author_nickname}</a>
-  errors:
-    messages:
-      cannot_have_comments: getur ekki haft athugasemdir

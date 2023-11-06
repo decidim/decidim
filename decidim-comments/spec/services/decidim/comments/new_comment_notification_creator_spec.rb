@@ -8,7 +8,7 @@ describe Decidim::Comments::NewCommentNotificationCreator do
   let(:organization) { create(:organization) }
   let(:participatory_process) { create(:participatory_process, organization:) }
   let(:component) { create(:component, participatory_space: participatory_process) }
-  let(:dummy_resource) { create :dummy_resource, component:, author: commentable_author }
+  let(:dummy_resource) { create(:dummy_resource, component:, author: commentable_author) }
   let(:commentable) { dummy_resource }
   let(:mentioned_user) { create(:user, organization:) }
   let(:another_mentioned_user) { create(:user, organization:) }
@@ -41,10 +41,10 @@ describe Decidim::Comments::NewCommentNotificationCreator do
 
   describe "when the author is a user" do
     let(:comment_author) { create(:user, organization:) }
-    let(:comment) { create :comment, author: comment_author, commentable:, root_commentable: dummy_resource }
+    let(:comment) { create(:comment, author: comment_author, commentable:, root_commentable: dummy_resource) }
 
     before do
-      create :follow, user: user_following_comment_author, followable: comment_author
+      create(:follow, user: user_following_comment_author, followable: comment_author)
     end
 
     it "notifies the mentioned users" do
@@ -114,7 +114,7 @@ describe Decidim::Comments::NewCommentNotificationCreator do
     context "when the author mentions a group" do
       subject { described_class.new(comment, mentioned_users, mentioned_groups) }
 
-      let(:group) { create :user_group, organization:, users: [another_mentioned_user] }
+      let(:group) { create(:user_group, organization:, users: [another_mentioned_user]) }
       let(:mentioned_users) { [] }
       let(:mentioned_groups) do
         Decidim::UserGroup.where(
@@ -307,7 +307,7 @@ describe Decidim::Comments::NewCommentNotificationCreator do
         )
       end
 
-      it "does not notify comment author even if it's following the commentable" do
+      it "does not notify comment author even if it is following the commentable" do
         expect(Decidim::EventsManager)
           .to receive(:publish)
           .twice
@@ -335,7 +335,7 @@ describe Decidim::Comments::NewCommentNotificationCreator do
       let(:commentable) { top_level_comment }
 
       context "when comment author is replying to herself" do
-        let(:top_level_comment) { create :comment, commentable: dummy_resource, author: comment_author }
+        let(:top_level_comment) { create(:comment, commentable: dummy_resource, author: comment_author) }
 
         it "does not notify the comment author" do
           expect(Decidim::EventsManager)
@@ -356,7 +356,7 @@ describe Decidim::Comments::NewCommentNotificationCreator do
 
       context "when comment author is not replying to herself" do
         let(:top_level_comment_author) { create(:user, organization:) }
-        let(:top_level_comment) { create :comment, commentable: dummy_resource, author: top_level_comment_author }
+        let(:top_level_comment) { create(:comment, commentable: dummy_resource, author: top_level_comment_author) }
 
         it "notifies the parent comment author" do
           expect(Decidim::EventsManager)
@@ -392,10 +392,10 @@ describe Decidim::Comments::NewCommentNotificationCreator do
   describe "when the author is a user_group with followers" do
     let(:user_following_user_group) { create(:user, organization:) }
     let(:user_group_author) { create(:user_group, :verified, organization:, users: [user_following_user_group, commentable_author]) }
-    let(:user_group_comment) { create :comment, author: commentable_author, commentable:, root_commentable: dummy_resource, decidim_user_group_id: user_group_author.id }
+    let(:user_group_comment) { create(:comment, author: commentable_author, commentable:, root_commentable: dummy_resource, decidim_user_group_id: user_group_author.id) }
 
     before do
-      create :follow, user: user_following_user_group, followable: user_group_author
+      create(:follow, user: user_following_user_group, followable: user_group_author)
     end
 
     it "notifies the followers of the user_group" do

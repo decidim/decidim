@@ -12,26 +12,21 @@ module Decidim
       include Decidim::SanitizeHelper
       include Decidim::CheckBoxesTreeHelper
       include Decidim::RichTextEditorHelper
+      include ::Decidim::FollowableHelper
 
       def filter_origin_values
-        origin_values = []
-        origin_values << TreePoint.new("official", t("decidim.meetings.meetings.filters.origin_values.official"))
-        origin_values << TreePoint.new("participants", t("decidim.meetings.meetings.filters.origin_values.participants")) # todo
-        if current_organization.user_groups_enabled?
-          origin_values << TreePoint.new("user_group", t("decidim.meetings.meetings.filters.origin_values.user_groups")) # todo
-        end
-        # if current_organization.user_groups_enabled? and component_settings enabled enabled
+        origin_keys = %w(official participants)
+        origin_keys << "user_group" if current_organization.user_groups_enabled?
 
-        TreeNode.new(
-          TreePoint.new("", t("decidim.meetings.meetings.filters.origin_values.all")),
-          origin_values
-        )
+        origin_values = flat_filter_values(*origin_keys, scope: "decidim.meetings.meetings.filters.origin_values")
+        origin_values.prepend(["", t("all", scope: "decidim.meetings.meetings.filters.origin_values")])
+
+        filter_tree_from_array(origin_values)
       end
 
       def filter_type_values
-        type_values = []
-        Decidim::Meetings::Meeting::TYPE_OF_MEETING.each do |type|
-          type_values << TreePoint.new(type, t("decidim.meetings.meetings.filters.type_values.#{type}"))
+        type_values = flat_filter_values(*Decidim::Meetings::Meeting::TYPE_OF_MEETING.keys, scope: "decidim.meetings.meetings.filters.type_values").map do |args|
+          TreePoint.new(*args)
         end
 
         TreeNode.new(
@@ -41,33 +36,35 @@ module Decidim
       end
 
       def filter_date_values
-        TreeNode.new(
-          TreePoint.new("", t("decidim.meetings.meetings.filters.date_values.all")),
-          [
-            TreePoint.new("upcoming", t("decidim.meetings.meetings.filters.date_values.upcoming")),
-            TreePoint.new("past", t("decidim.meetings.meetings.filters.date_values.past"))
-          ]
-        )
+        flat_filter_values(:all, :upcoming, :past, scope: "decidim.meetings.meetings.filters.date_values")
       end
 
       # Options to filter meetings by activity.
       def activity_filter_values
-        [
-          ["all", t("decidim.meetings.meetings.filters.all")],
-          ["my_meetings", t("decidim.meetings.meetings.filters.my_meetings")]
-        ]
+        flat_filter_values(:all, :my_meetings, scope: "decidim.meetings.meetings.filters")
       end
 
       # If the meeting is official or the rich text editor is enabled on the
-      # frontend, the meeting body is considered as safe content; that's unless
+      # frontend, the meeting body is considered as safe content; that is unless
       # the meeting comes from a collaborative_draft or a participatory_text.
       def safe_content?
-        rich_text_editor_in_public_views? || @meeting.official?
+        rich_text_editor_in_public_views? || safe_content_admin?
+      end
+
+      # For admin entered content, the meeting body can contain certain extra
+      # tags, such as iframes.
+      def safe_content_admin?
+        @meeting.official?
       end
 
       # If the content is safe, HTML tags are sanitized, otherwise, they are stripped.
       def render_meeting_body(meeting)
-        Decidim::ContentProcessor.render(render_sanitized_content(meeting, :description), "div")
+        sanitized = render_sanitized_content(meeting, :description)
+        if safe_content?
+          Decidim::ContentProcessor.render_without_format(sanitized).html_safe
+        else
+          Decidim::ContentProcessor.render(sanitized, "div")
+        end
       end
 
       def prevent_timeout_seconds
@@ -81,11 +78,16 @@ module Decidim
       end
 
       def online_or_hybrid_meeting?(meeting)
-        meeting.online_meeting? || meeting.hybrid_meeting?
+        meeting.online? || meeting.hybrid?
       end
 
       def iframe_embed_or_live_event_page?(meeting)
         %w(embed_in_meeting_page open_in_live_event_page).include? meeting.iframe_embed_type
+      end
+
+      def apply_meetings_pack_tags
+        append_stylesheet_pack_tag("decidim_meetings", media: "all")
+        append_javascript_pack_tag("decidim_meetings")
       end
     end
   end

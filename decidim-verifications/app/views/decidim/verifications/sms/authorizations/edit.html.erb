@@ -1,38 +1,29 @@
-<div class="wrapper">
-  <div class="row collapse">
-    <div class="row collapse">
-      <div class="columns large-8 large-centered text-center page-title">
-        <h1><%= t(".title") %></h1>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="columns large-6 medium-centered">
-        <div class="card">
-          <div class="card__content">
-            <%= decidim_form_for(@form, url: authorization_path(redirect_url: redirect_url), method: :put) do |form| %>
-              <%= form_required_explanation %>
-
-              <div class="field">
-                <%= form.text_field :verification_code %>
-              </div>
-
-              <div class="actions">
-                <%= form.submit t(".send"), class: "button expanded", "data-disable-with" => "#{t('.send')}..." %>
-              </div>
-            <% end %>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card__content">
-            <div class="field">
-              <p><%= t(".resend") %></p>
-              <%= link_to t(".destroy"), decidim_sms.authorization_path, method: :delete, data: { confirm: t(".confirm_destroy") } %>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="text-center py-10">
+  <h1 class="title-decorator inline-block text-left">
+    <%= t("decidim.verifications.sms.authorizations.edit.title") %>
+  </h1>
 </div>
+
+<%= decidim_form_for(@form, url: authorization_path(redirect_url:), method: :put) do |form| %>
+  <%= form_required_explanation %>
+
+  <div class="form__wrapper">
+    <%= form.text_field :verification_code, placeholder: "XXXXXX" %>
+  </div>
+
+  <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+    <%= link_to decidim_verifications.authorizations_path, class: "button button__sm md:button__lg button__text-secondary" do %>
+      <%= icon "arrow-left-line", class: "fill-current" %>
+      <span><%= t("decidim.wizard_step_form.wizard_aside.back") %></span>
+    <% end %>
+    <button type="submit" class="button button__sm md:button__lg button__secondary">
+      <span><%= t("decidim.verifications.sms.authorizations.edit.send") %></span>
+      <%= icon "arrow-right-line", class: "fill-current" %>
+    </button>
+  </div>
+
+  <p>
+    <%= t("decidim.verifications.sms.authorizations.edit.resend") %>
+    <%= link_to t("decidim.verifications.sms.authorizations.edit.destroy"), decidim_sms.authorization_path, method: :delete, data: { confirm: t("decidim.verifications.sms.authorizations.edit.confirm_destroy") }, class: "underline text-secondary" %>
+  </p>
+<% end %>

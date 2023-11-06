@@ -5,7 +5,6 @@ el:
         assemblies_ids: Σχετικές συνελεύσεις
         available_slots: Διαθέσιμες χρονοθυρίδες
         banner_image: Εικόνα διαφημιστικού πλαισίου
-        consultations_ids: Σχετικές διαβουλεύσεις
         copy_categories: Αντιγραφή κατηγοριών
         copy_components: Αντιγραφή στοιχείων
         copy_features: Αντιγραφή χαρακτηριστικών
@@ -28,23 +27,25 @@ el:
         show_statistics: Εμφάνιση στατιστικών
         sign_date: Ημερομηνία υπογραφής
         signature: Υπογραφή
-        signature_name: όνομα υπογραφής
+        signature_name: Όνομα υπογραφής
         slogan: Σύνθημα
         slug: Slug διεύθυνσης URL
         start_date: Ημερομηνία έναρξης
         title: Τίτλος
+        weight: Θέση κατάταξης
       conference_media_link:
         date: Ημερομηνία
         link: Σύνδεσμος
         title: Τίτλος
-        weight: Βάρος
+        weight: Θέση κατάταξης
       conference_partner:
         link: Σύνδεσμος
         logo: Λογότυπο
         name: Όνομα
         partner_type: Τύπος εταίρου
-        weight: Βάρος
+        weight: Θέση κατάταξης
       conference_registration_invite:
+        email: Email
         name: Όνομα
         registration_type_id: Τύπος εγγραφής
         user_id: Χρήστης
@@ -52,14 +53,15 @@ el:
         description: Περιγραφή
         price: Τιμή
         title: Τίτλος
-        weight: Βάρος
+        weight: Θέση κατάταξης
       conference_speaker:
         affiliation: Δεσμός
         avatar: Εικόνα Χρήστη
         conference_meeting_ids: Σχετικές συναντήσεις
         full_name: Ονοματεπώνυμο
+        personal_url: Προσωπικό URL
         position: Θέση
-        twitter_handle: Ψευδώνυμο Twitter
+        short_bio: Σύντομο βιογραφικό
         user_id: Χρήστης
       conference_user_role:
         email: Email
@@ -70,7 +72,7 @@ el:
         conference_registration_invite:
           attributes:
             email:
-              already_invited: Αυτή η διεύθυνση email έχει ήδη προσκληθεί
+              already_invited: Αυτή η διεύθυνση email έχει ήδη προσκληθεί.
   activerecord:
     models:
       decidim/conference:
@@ -86,7 +88,6 @@ el:
     admin:
       actions:
         confirm: Επιβεβαίωση
-        new_conference: Νέα διάσκεψη
         send_diplomas: Αποστολή πιστοποιητικών παρακολούθησης
       conference_copies:
         new:
@@ -131,7 +132,7 @@ el:
           title: Ενημέρωση διαχειριστή διάσκεψης.
           update: Ενημέρωση
         index:
-          conference_admins_title: διαχειριστές διάσκεψης
+          conference_admins_title: Διαχειριστές διάσκεψης
         new:
           create: Δημιουργία
           title: Νέος διαχειριστής διάσκεψης.
@@ -149,7 +150,6 @@ el:
         form:
           title: Γενικές πληροφορίες
         index:
-          not_published: Δεν έχει δημοσιευτεί
           published: Δημοσιεύτηκε
         new:
           create: Δημιουργία
@@ -190,7 +190,6 @@ el:
           conference_invites: Προσκλήσεις
           conference_speakers: Ομιλητές
           diploma: Πιστοποιητικό παρακολούθησης
-          info: Πληροφορίες
           media_links: Σύνδεσμοι πολυμέσων
           moderations: Εποπτεύσεις
           partners: Συνεργάτες
@@ -201,7 +200,6 @@ el:
         conference:
           fields:
             created_at: Δημιουργήθηκε στις
-            promoted: Επισημάνθηκε
             published: Δημοσιεύτηκε
             title: Τίτλος
         conference_speaker:
@@ -309,6 +307,7 @@ el:
           update: "Ο χρήστης %{user_name} ενημέρωσε τον εταίρο %{resource_name} στη διάσκεψη %{space_name}"
         registration_type:
           create: "Ο χρήστης %{user_name} δημιούργησε τον τύπο εγγραφής %{resource_name} στη διάσκεψη %{space_name}"
+          delete: "Ο χρήστης %{user_name} αφαίρεσε τον τύπο εγγραφής %{resource_name} από τη διάσκεψη %{space_name}"
           publish: "Ο χρήστης %{user_name} δημοσίευσε τον τύπο εγγραφής %{resource_name} στη διάσκεψη %{space_name}"
           unpublish: "Ο χρήστης %{user_name} κατάργησε τη δημοσίευση του τύπου εγγραφής %{resource_name} στη διάσκεψη %{space_name}"
           update: "Ο χρήστης %{user_name} ενημέρωσε τον τύπο εγγραφής %{resource_name} στη διάσκεψη %{space_name}"
@@ -324,9 +323,6 @@ el:
         title: Ομιλητές
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'Τα slug διεύθυνσης URL χρησιμοποιούνται για τη δημιουργία διευθύνσεων URL που οδηγούν σε αυτήν τη διάσκεψη. Δέχεται μόνο γράμματα, αριθμούς και παύλες, και πρέπει να ξεκινά με γράμμα. Παράδειγμα: διεύθυνση %{url}'
         conference_invites:
           create:
             error: Υπήρξε ένα πρόβλημα κατά την πρόσκληση του συμμετέχοντα στη διάσκεψη.
@@ -343,12 +339,11 @@ el:
               all: Όλα
               rejected: Απορρίφθηκε
               sent: Στάλθηκε
-            filter_by: Φιλτράρισμα κατά
             invite_attendee: Πρόσκληση συμμετέχοντα
             invites: Προσκλήσεις
             search: Αναζήτηση
           new:
-            explanation: Η συμμετέχουσα θα προσκληθεί να συμμετάσχει σε διάσκεψη. Εάν το email της δεν είναι καταχωρημένο, θα προσκληθεί και στον οργανισμό.
+            explanation: Ο συμμετέχων θα προσκληθεί να συμμετάσχει σε διάσκεψη. Εάν το email του δεν είναι καταχωρημένο, θα προσκληθεί και στον οργανισμό.
             invite: Πρόσκληση
             new_invite: Πρόσκληση συμμετέχοντα
         conference_registrations:
@@ -368,7 +363,6 @@ el:
             registrations_count:
               one: Πραγματοποιήθηκε 1 εγγραφή.
               other: Πραγματοποιήθηκαν %{count} εγγραφές.
-            slug_help: 'Τα slug διεύθυνσης URL χρησιμοποιούνται για τη δημιουργία διευθύνσεων URL που οδηγούν σε αυτήν τη διάσκεψη. Δέχεται μόνο γράμματα, αριθμούς και παύλες, και πρέπει να ξεκινά με γράμμα. Παράδειγμα: διεύθυνση %{url}'
         diplomas:
           edit:
             save: Αποθήκευση
@@ -376,7 +370,8 @@ el:
         invite_join_conference_mailer:
           invite:
             decline: Απόρριψη πρόσκλησης «%{conference_title}»
-            invited_you_to_join_a_conference: "Ο χρήστης %{invited_by} σάς προσκάλεσε να συμμετάσχετε σε μια διάσκεψη στην εφαρμογή %{application}. Μπορείτε να την απορρίψετε ή να την αποδεχτείτε μέσω των παρακάτω συνδέσμων."
+            invited_existing_user_to_join_a_conference: "Ο χρήστης %{invited_by} σάς προσκάλεσε να συμμετάσχετε σε μια διάσκεψη στην εφαρμογή %{application}. Μπορείτε να την απορρίψετε ή να την αποδεχτείτε μέσω των παρακάτω συνδέσμων."
+            invited_user_to_join_a_conference: "Ο/Η %{invited_by} σας προσκάλεσε να συμμετάσχετε σε μια διάσκεψη στο %{application}. Μπορείτε να την αποδεχτείτε μέσω του παρακάτω συνδέσμου."
             registration: Εγγραφή για τη διάσκεψη «%{conference_title}»
         partners:
           index:
@@ -401,18 +396,11 @@ el:
           cancel: Ακύρωση
           confirm: Επιβεβαίωση
         show:
-          free: Δωρεάν
           going: Συμμετέχοντες
           no_slots_available: Δεν υπάρχουν διαθέσιμες θέσεις
           registration: Εγγραφή
       conference_program:
-        program_meeting:
-          content: Περιεχόμενο
-          location: Τοποθεσία
-          speakers: Ομιλητές
-          streaming: Ροή
         show:
-          day: Ημέρα
           program: Πρόγραμμα
       conference_registration_mailer:
         confirmation:
@@ -434,7 +422,6 @@ el:
           invalid: Υπήρξε ένα πρόβλημα κατά την αποχώρηση από αυτήν τη διάσκεψη.
           success: Αποχωρήσατε από τη διάσκεψη με επιτυχία.
       conference_speaker:
-        go_to_twitter: Μετάβαση στο Twitter
         more_info: περισσότερες πληροφορίες
         personal_website: Προσωπικός ιστότοπος
         show:
@@ -443,18 +430,18 @@ el:
       conference_speaker_cell:
         personal_url:
           personal_website: Προσωπικός ιστότοπος
-        twitter_handle:
-          go_to_twitter: Μετάβαση στο Twitter
       conference_speakers:
         index:
-          speakers: Ομιλητές
+          speakers:
+            one: Ομιλητής
+            other: Ομιλητές
       conferences:
         partners:
           collaborators: Συνεργάτες
           main_promotors: Διοργανωτές
         show:
           login_as: Έχετε συνδεθεί ως %{name} <%{email}>
-          make_conference_registration: 'Εγγραφείτε στη διάσκεψη:'
+          make_conference_registration: Εγγραφείτε για τη διάσκεψη
           register: Εγγραφή
       content_blocks:
         highlighted_conferences:
@@ -464,9 +451,9 @@ el:
       mailer:
         conference_registration_mailer:
           confirmation:
-            subject: Η εγγραφή σας στη διάσκεψη επιβεβαιώθηκε
+            subject: Η εγγραφή σας στη διάσκεψη επιβεβαιώθηκε.
           pending_validation:
-            subject: Εκκρεμεί επιβεβαίωση για την εγγραφή σας στη διάσκεψη
+            subject: Η επιβεβαίωση της εγγραφής σας στη διάσκεψη εκκρεμεί.
         invite_join_conference_mailer:
           invite:
             subject: Πρόσκληση συμμετοχής σε διάσκεψη
@@ -497,38 +484,18 @@ el:
       pages:
         home:
           highlighted_conferences:
-            active_conferences: Ενεργές διασκέψεις
-            conferences_button_title: Σύνδεσμος προς τη σελίδα Διασκέψεων που εμφανίζει όλες τις διασκέψεις
-            see_all_conferences: Δείτε όλες τις διασκέψεις
-      photo:
-        image:
-          attributes:
-            alt: Εικόνα πολυμέσων
-        show:
-          close_modal: Κλείσιμο βοηθητικού στοιχείου
-          photo: Εικόνα
-      photos_list:
-        show:
-          related_photos: Εικόνες
+            active_spaces: Ενεργές διασκέψεις
       registration_types:
         index:
           choose_an_option: 'Ορίστε την επιλογή εγγραφής σας:'
-          login_as: Έχετε συνδεθεί ως %{name} <%{email}>
           no_registrations: Δεν υπάρχουν εγγραφές
           register: Εγγραφή
           title: Τύποι εγγραφής
-      shared:
-        conference_user_login:
-          already_account: Έχετε ήδη λογαριασμό στο decidim;
-          new_user: Νέος χρήστης;
-          sign_in: Συνδεθείτε για να εγγραφείτε στη διάσκεψη
-          sign_up: Δημιουργήστε έναν λογαριασμό στο decidim για να εγγραφείτε στη διάσκεψη
       show:
         details: Λεπτομέρειες
         introduction: Εισαγωγή
         objectives: Στόχοι
         related_assemblies: Σχετικές συνελεύσεις
-        related_consultations: Σχετικές διαβουλεύσεις
         related_participatory_processes: Σχετικές διαδικασίες συμμετοχής
     events:
       conferences:
@@ -570,7 +537,7 @@ el:
     log:
       value_types:
         conference_presenter:
-          not_found: 'Η διάσκεψη δεν βρέθηκε στη βάση δεδομένων (αναγνωριστικό: %{id})'
+          not_found: 'Η διάσκεψη δεν βρέθηκε στη βάση δεδομένων (ID: %{id}).'
     media:
       index:
         description: Σύνδεσμοι σχετικά με αυτήν τη διάσκεψη
@@ -587,9 +554,6 @@ el:
     decidim:
       conference_hero:
         register: Εγγραφή
-      conference_widgets:
-        show:
-          take_part: Συμμετάσχετε
       conferences:
         conference:
           more_info: Περισσότερες πληροφορίες
@@ -600,11 +564,7 @@ el:
           conferences:
             one: "%{count} διάσκεψη"
             other: "%{count} διασκέψεις"
-        promoted_conference:
-          more_info: Περισσότερες πληροφορίες
-          take_part: Συμμετάσχετε
       conferences_nav:
-        conference_menu_item: Πληροφορίες
         conference_partners_menu_item: Συνεργάτες
         conference_speaker_menu_item: Ομιλητές
         media: Πολυμέσα

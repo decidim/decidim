@@ -6,22 +6,24 @@ eu:
         closed_at: Amaiera-data
         conclusions: Ondorioak
         decidim_category_id: Kategoria
-        description: deskribapena
-        end_time: Amaitzen du
+        description: Deskribapena
+        end_time: Bukaera-data
         information_updates: Informazioaren eguneratzeak
         instructions: Parte hartzeko argibideak
+        scope_id: Eremua
         start_time: Hasi da
         title: Izenburua
         user_group_id: Sortu eztabaida gisa
     models:
       decidim/debates/close_debate_event: Eztabaida itxita
-      decidim/debates/create_debate_event: Debate
-      decidim/debates/creation_disabled_event: Debateak desgaituta daude
+      decidim/debates/create_debate_event: Eztabaida
+      decidim/debates/creation_disabled_event: Eztabaidak desgaituta daude
+      decidim/debates/creation_enabled_event: Eztabaidak sortzea gaituta
   activerecord:
     models:
       decidim/debates/debate:
-        one: Debate
-        other: eztabaidak
+        one: Eztabaida
+        other: Eztabaidak
   decidim:
     components:
       debates:
@@ -29,26 +31,27 @@ eu:
           comment: Iruzkina
           create: Sortu
           endorse: Atxiki
-        name: eztabaidak
+        name: Eztabaidak
         settings:
           global:
-            announcement: Anuntzio
+            announcement: Iragarpena
             comments_enabled: Iruzkinak gaituta
-            comments_max_length: Iruzkinen gehieneko luzera (utzi 0 defektuz)
+            comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsitako konfigurazioari eutsi nahi badiozu)
             scope_id: Eremua
             scopes_enabled: Esparruak gaituta
           step:
-            announcement: Anuntzio
+            announcement: Iragarpena
             comments_blocked: Iruzkinak blokeatuta
+            creation_enabled: Parte-hartzaileek eztabaidak sor ditzakete
             endorsements_blocked: Atxikimenduak blokeatuta
             endorsements_enabled: Atxikimenduak gaituta
     debates:
       actions:
         close: Itxi
         confirm_destroy: Ziur zaude?
-        destroy: ezabatu
+        destroy: Ezabatu
         edit: Editatu
-        new: '%{name} berria'
+        new: Beste eztabaida bat
         title: Ekintzak
       admin:
         debate_closes:
@@ -57,10 +60,10 @@ eu:
             title: Itxi eztabaida
         debates:
           create:
-            invalid: Arazo bat izan da eztabaida sortzen ari den bitartean.
-            success: Debate sortu da behar bezala.
+            invalid: Arazo bat gertatu da eztabaida sortzean.
+            success: Eztabaida zuzen sortu da.
           destroy:
-            success: Debata zuzen ezabatu da.
+            success: Eztabaida zuzen ezabatu da.
           edit:
             title: Editatu eztabaida
             update: Eguneratu eztabaida
@@ -78,9 +81,6 @@ eu:
             success: Debate arrakastaz eguneratu da.
         exports:
           comments: Iruzkinak
-        models:
-          debate:
-            name: Debate
       admin_log:
         debate:
           close: "%{user_name} erabiltzaileak %{resource_name} eztabaida sortu du %{space_name} esparruan"
@@ -93,7 +93,7 @@ eu:
           invalid: Arazo bat izan da eztabaida ixtean.
           success: Eztabaida zuzen itxi da.
         close_debate_modal:
-          close: Itxi
+          cancel: Ezeztatu
           description: Zein da eztabaida honen laburpena edo ondorioa?
           send: Itxi eztabaida
         closed: Itxita
@@ -119,18 +119,13 @@ eu:
           my_debates: Nire eztabaidak
           official: Ofiziala
           origin: Origin
-          scope: Eremua
-          search: Search
+          participants: Parte-hartzaileak
+          search: Bilatu
           state: Egoera
           state_values:
             closed: Itxita
             open: Ireki
-          user_groups: Taldeak
-        filters_small_view:
-          close_modal: Itxi modal
-          filter: Filter
-          filter_by: Iragazi arabera
-          unfold: Zabaldu
+          user_group: Taldeak
         form:
           select_a_category: Hautatu kategoria bat
         index:
@@ -146,7 +141,6 @@ eu:
           recent: Azkenak
           updated: Orain dela gutxi eguneratuak
         show:
-          back: Itzuli zerrendara
           close_debate: Itxi eztabaida
           date: Data
           debate_closed: Itxita
@@ -154,28 +148,21 @@ eu:
           edit_conclusions: Editatu ondorioak
           edit_debate: Editatu eztabaida
           groups_count: Taldeak
-          last_comment_by: Honen azken iruzkina
-          no_comments_yet: Oraindik ez dago iruzkinik
           open: Eztabaida irekita
           participants_count: Parte-hartzaileak
         update:
           invalid: Arazo bat izan da eztabaida hau eguneratzean.
           success: Eztabaida zuzen eguneratu da.
-        versions:
-          debates:
-            back_to_resource: Itzuli eztabaidara
-          index:
-            title: Bertsioak
-        versions_list:
-          back_to_resource: Itzuli eztabaidara
       last_activity:
-        debate_updated_at_html: "<span>eztabaida ordu honetan %{link}</span> eguneratuta"
-        new_debate_at_html: "<span> %{link}</span>eztabaida berria"
+        debate_updated: 'Eztabaida eguneratu da:'
+        new_debate: 'Eztabaida berria:'
       models:
         debate:
           fields:
+            end: Amaiera
             end_time: Amaiera data
             official_debate: Ofizial eztabaida
+            start: Hasi
             start_time: Hasiera data
             title: Izenburua
     events:
@@ -204,10 +191,9 @@ eu:
           email_intro: 'Orain %{participatory_space_title}hizketaldi berriak hasi ditzakezu! Hasi orri honetan parte hartzea:'
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: Debates orain eskuragarri %{participatory_space_title}
-          notification_title: Orain <a href="%{resource_path}">eztabaida berriak hasi ditzakezu</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         debate_closed:
           affected_user:
-            email_intro: '"%{resource_title}" eztabaida itrxi egin da. Ondorioak bere orrialdean irakur ditzakezu:'
+            email_intro: '"%{resource_title}" eztabaida itxi egin da. Ondorioak bere orrialdean irakur ditzakezu:'
             email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" eztabaida jarraitzen ari zarelako. Aurreko loturan utzi ahal diozu jarraitzeari .
             email_subject: '"%{resource_title}" eztabaida itxi egin da'
             notification_title: <a href="%{resource_path}">%{resource_title}</a> eztabaida itxi egin da.
@@ -227,7 +213,6 @@ eu:
           name: eztabaidak
           next_level_in: Parte hartu %{score} eztabaidagai gehiago hurrengo mailara iristeko!
           unearned_another: Erabiltzaile honek eztabaida batean parte hartu du oraindik.
-          unearned_own: Oraindik eztabaidetan parte hartu duzu.
     metrics:
       debates:
         description: Sortutako eztabaida kopurua

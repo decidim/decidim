@@ -7,8 +7,8 @@ module Decidim::Conferences
     subject { described_class.new(registration_type, current_user) }
 
     let(:conference) { create(:conference) }
-    let(:registration_type) { create :registration_type, conference: }
-    let!(:current_user) { create :user, :confirmed, organization: conference.organization }
+    let(:registration_type) { create(:registration_type, conference:) }
+    let!(:current_user) { create(:user, :confirmed, organization: conference.organization) }
 
     context "when everything is ok" do
       let(:log_info) do

@@ -7,10 +7,9 @@
  * @augments Component
  */
 
-import delayed from "src/decidim/delayed"
-import CheckBoxesTree from "src/decidim/check_boxes_tree"
-import { registerCallback, unregisterCallback, pushState, replaceState, state } from "src/decidim/history"
-import DataPicker from "src/decidim/data_picker"
+import delayed from "./delayed"
+import CheckBoxesTree from "./check_boxes_tree"
+import { registerCallback, unregisterCallback, pushState, replaceState, state } from "./history"
 
 export default class FormFilterComponent {
   constructor($form) {
@@ -19,7 +18,6 @@ export default class FormFilterComponent {
     this.mounted = false;
     this.changeEvents = true;
     this.theCheckBoxesTree = new CheckBoxesTree();
-    this.theDataPicker = window.theDataPicker || new DataPicker($(".data-picker"));
 
     this._updateInitialState();
     this._onFormChange = delayed(this, this._onFormChange.bind(this));
@@ -57,7 +55,7 @@ export default class FormFilterComponent {
       this.mounted = true;
       let queue = 0;
 
-      let contentContainer = $(this.$form.closest(".filters").parent().find(".skip").attr("href"));
+      let contentContainer = $("main");
       if (contentContainer.length === 0 && this.$form.data("remoteFill")) {
         contentContainer = this.$form.data("remoteFill");
       }
@@ -75,14 +73,14 @@ export default class FormFilterComponent {
         }
       });
 
-      this.$form.on("ajax:success", () => {
+      $(document).on("ajax:success", () => {
         queue -= 1;
         if (queue <= 0 && contentContainer.length > 0) {
           contentContainer.removeClass("spinner-container");
         }
       });
 
-      this.$form.on("ajax:error", () => {
+      $(document).on("ajax:error", () => {
         queue -= 1;
         if (queue <= 0 && contentContainer.length > 0) {
           contentContainer.removeClass("spinner-container");
@@ -141,7 +139,7 @@ export default class FormFilterComponent {
     // Every location param is constructed like this: filter[key]=value
     let regexpResult = decodeURIComponent(this._getLocation()).match(/filter\[([^\]]*)\](?:\[\])?=([^&]*)/g);
 
-    // The RegExp g flag returns null or an array of coincidences. It doesn't return the match groups
+    // The RegExp g flag returns null or an array of coincidences. It does not return the match groups
     if (regexpResult) {
       const filterParams = regexpResult.reduce((acc, result) => {
         const [, key, array, value] = result.match(/filter\[([^\]]*)\](\[\])?=([^&]*)/);
@@ -190,9 +188,6 @@ export default class FormFilterComponent {
       element.checked = element.indeterminate = false;
     });
     this.$form.find("input[type=radio]").attr("checked", false);
-    this.$form.find(".data-picker").each((_index, picker) => {
-      this.theDataPicker.clear(picker);
-    });
 
     // This ensure the form is reset in a valid state where a fieldset of
     // radio buttons has the first selected.
@@ -205,10 +200,9 @@ export default class FormFilterComponent {
   /**
    * Handles the logic when going back to a previous state in the filter form.
    * @private
-   * @param {Object} currentState - state stored along with location URL
    * @returns {Void} - Returns nothing.
    */
-  _onPopState(currentState) {
+  _onPopState() {
     this.changeEvents = false;
     this._clearForm();
 
@@ -243,14 +237,6 @@ export default class FormFilterComponent {
         }
       });
     }
-
-    // Retrieves picker information for selected values (value, text and link) from the state object
-    $(".data-picker", this.$form).each((_index, picker) => {
-      let pickerState = currentState[picker.id];
-      if (pickerState) {
-        this.theDataPicker.load(picker, pickerState);
-      }
-    })
 
     // Only one instance should submit the form on browser history navigation
     if (this.popStateSubmiter) {
@@ -289,7 +275,7 @@ export default class FormFilterComponent {
    */
   _currentStateAndPath() {
     const formAction = this.$form.attr("action");
-    const params = this.$form.find(":not(.ignore-filters)").find("select:not(.ignore-filter), input:not(.ignore-filter)").serialize();
+    const params = this.$form.find("input:not(.ignore-filter)").serialize();
 
     let path = "";
     let currentState = {};
@@ -299,11 +285,6 @@ export default class FormFilterComponent {
     } else {
       path = `${formAction}&${params}`;
     }
-
-    // Stores picker information for selected values (value, text and link) in the currentState object
-    $(".data-picker", this.$form).each((_index, picker) => {
-      currentState[picker.id] = this.theDataPicker.save(picker);
-    })
 
     return [path, currentState];
   }

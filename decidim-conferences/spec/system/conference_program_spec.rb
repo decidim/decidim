@@ -24,8 +24,8 @@ describe "Conference program", type: :system do
     it "the menu link is not shown" do
       visit decidim_conferences.conference_path(conference)
 
-      within ".process-nav" do
-        expect(page).to have_no_content(translated_attribute(component.name))
+      within "aside .conference__nav-container" do
+        expect(page).not_to have_content(translated_attribute(component.name))
       end
     end
   end
@@ -45,24 +45,37 @@ describe "Conference program", type: :system do
     end
 
     context "and accessing from the conference homepage" do
-      it "the menu link is shown" do
-        visit decidim_conferences.conference_path(conference)
+      context "when rendering" do
+        it "the menu link is shown" do
+          visit decidim_conferences.conference_path(conference)
 
-        within ".process-nav" do
-          expect(page).to have_content(translated_attribute(component.name).upcase)
-          click_link translated_attribute(component.name)
+          within "aside .conference__nav-container" do
+            expect(page).to have_content(translated_attribute(component.name))
+            click_link translated_attribute(component.name)
+          end
+
+          expect(page).to have_current_path decidim_conferences.conference_conference_program_path(conference, component)
+        end
+      end
+
+      context "with enriched content" do
+        before do
+          meetings.last.update!(title: { en: "Meeting <strong>title</strong>" })
+          visit current_path
         end
 
-        expect(page).to have_current_path decidim_conferences.conference_conference_program_path(conference, component)
+        it "displays the correct title" do
+          expect(page).to have_content("Meeting title")
+        end
       end
     end
 
     it "lists all conference meetings" do
-      within ".programme-day" do
-        expect(page).to have_selector(".programme-title", count: 3)
+      within "[data-conference-program-day]" do
+        expect(page).to have_selector("[data-conference-program-title]", count: 3)
 
         meetings.each do |meeting|
-          expect(page).to have_content(Decidim::ConferenceMeetingPresenter.new(meeting).title)
+          expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(Decidim::ConferenceMeetingPresenter.new(meeting).title))
         end
       end
     end

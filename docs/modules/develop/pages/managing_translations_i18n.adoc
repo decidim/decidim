@@ -12,8 +12,7 @@ Decidim uses https://crowdin.com/[Crowdin] to manage the translations.
 
 * Setup the new language in https://crowdin.com/project/decidim[_Crowdin's Decidim project_] (or open an issue on Github asking an admin to do that).
 * Add the locale mapping in the `crowdin.yml` file
-* Translate at least one key from every engine, so, your _yaml_ files are not empty. The easiest way to do this is to automatically translate and sync all the content. Later you'll be able to fix the content that wasn't properly translated.
-* Add https://github.com/najlepsiwebdesigner/foundation-datepicker/tree/master/js/locales[Foundation Datepicker]'s translations (https://github.com/decidim/decidim/pull/2039[PR]).
+* Translate at least one key from every engine, so, your _yaml_ files are not empty. The easiest way to do this is to automatically translate and sync all the content. Later you will be able to fix the content that was not properly translated.
 * Add the new language to `available_locales` (https://github.com/decidim/decidim/pull/1991[PR]).
 * Add the language in https://github.com/decidim/decidim/pull/5080/files#diff-9c9dc1c8c25dcecdfb8ce555d5ef5e47R15[decidim-core/spec/lib/available_locales_spec.rb].
 

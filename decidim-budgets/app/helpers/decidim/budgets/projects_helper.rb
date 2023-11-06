@@ -44,44 +44,61 @@ module Decidim
         current_order&.can_checkout?
       end
 
-      def current_rule_explanation
-        return unless current_order
+      # Returns false if the current order does not have a rule for minimum budget
+      # Returns false if the current order has not reached the minimum budget
+      # Otherwhise returns true
+      def current_order_minimum_reached?
+        return false if current_order.minimum_budget.zero?
 
-        if current_order.projects_rule?
-          if current_order.minimum_projects.positive? && current_order.minimum_projects < current_order.maximum_projects
-            t(
-              ".projects_rule.instruction",
-              minimum_number: current_order.minimum_projects,
-              maximum_number: current_order.maximum_projects
-            )
-          else
-            t(".projects_rule_maximum_only.instruction", maximum_number: current_order.maximum_projects)
-          end
-        elsif current_order.minimum_projects_rule?
-          t(".minimum_projects_rule.instruction", minimum_number: current_order.minimum_projects)
+        current_order.total > current_order.minimum_budget
+      end
+
+      def current_rule_call_for_action_text
+        return "" unless current_order
+
+        if current_order_minimum_reached?
+          t("minimum_reached", scope: "decidim.budgets.projects.order_progress.dynamic_help")
+        elsif current_order.projects.empty?
+          t("start_adding_projects", scope: "decidim.budgets.projects.order_progress.dynamic_help")
         else
-          t(".vote_threshold_percent_rule.instruction", minimum_budget: budget_to_currency(current_order.minimum_budget))
+          t("keep_adding_projects", scope: "decidim.budgets.projects.order_progress.dynamic_help")
         end
       end
 
       def current_rule_description
         return unless current_order
 
-        if current_order.projects_rule?
-          if current_order.minimum_projects.positive? && current_order.minimum_projects < current_order.maximum_projects
-            t(
-              ".projects_rule.description",
-              minimum_number: current_order.minimum_projects,
-              maximum_number: current_order.maximum_projects
-            )
-          else
-            t(".projects_rule_maximum_only.description", maximum_number: current_order.maximum_projects)
-          end
-        elsif current_order.minimum_projects_rule?
-          t(".minimum_projects_rule.description", minimum_number: current_order.minimum_projects)
-        else
-          t(".vote_threshold_percent_rule.description", minimum_budget: budget_to_currency(current_order.minimum_budget))
-        end
+        rule_text = if current_order_minimum_reached?
+                      ""
+                    elsif current_order.projects_rule?
+                      if current_order.minimum_projects.positive? && current_order.minimum_projects < current_order.maximum_projects
+                        t(
+                          "projects_rule.description",
+                          scope: "decidim.budgets.projects.order_progress",
+                          minimum_number: current_order.minimum_projects,
+                          maximum_number: current_order.maximum_projects
+                        )
+                      else
+                        t(
+                          "projects_rule_maximum_only.description",
+                          scope: "decidim.budgets.projects.order_progress",
+                          maximum_number: current_order.maximum_projects
+                        )
+                      end
+                    elsif current_order.minimum_projects_rule?
+                      t(
+                        "minimum_projects_rule.description",
+                        scope: "decidim.budgets.projects.order_progress",
+                        minimum_number: current_order.minimum_projects
+                      )
+                    else
+                      t(
+                        "vote_threshold_percent_rule.description",
+                        scope: "decidim.budgets.projects.order_progress",
+                        minimum_budget: budget_to_currency(current_order.minimum_budget)
+                      )
+                    end
+        %(<strong>#{current_rule_call_for_action_text}</strong>. #{rule_text}).html_safe
       end
 
       # Serialize a collection of geocoded projects to be used by the dynamic map component
@@ -98,9 +115,8 @@ module Decidim
           .slice(:latitude, :longitude, :address)
           .merge(
             title: decidim_html_escape(translated_attribute(project.title)),
-            description: html_truncate(decidim_sanitize_editor(translated_attribute(project.description)), length: 100),
-            icon: icon("project", width: 40, height: 70, remove_icon_class: true),
-            link: ::Decidim::ResourceLocatorPresenter.new([project.budget, project]).path
+            link: ::Decidim::ResourceLocatorPresenter.new([project.budget, project]).path,
+            items: cell("decidim/budgets/project_metadata", project).send(:project_items_for_map).to_json
           )
       end
 
@@ -108,6 +124,28 @@ module Decidim
         return if project.address.blank?
 
         project.latitude.present? && project.longitude.present?
+      end
+
+      def filter_addition_type_values(added_count:)
+        [
+          ["all", { text: t("all", scope: "decidim.budgets.projects.project_filter"), count: nil }],
+          ["added", { text: t("added", scope: "decidim.budgets.projects.project_filter"), count: added_count }]
+        ]
+      end
+
+      def filter_sections
+        @filter_sections ||= begin
+          items = []
+          items.append(method: :with_any_status, collection: filter_status_values, label_scope: "decidim.budgets.projects.filters", id: "status") if voting_finished?
+          if current_component.has_subscopes?
+            items.append(method: :with_any_scope, collection: resource_filter_scope_values(budget.scope), label_scope: "decidim.budgets.projects.filters", id: "scope")
+          end
+          if current_participatory_space.categories.any?
+            items.append(method: :with_any_category, collection: filter_categories_values, label_scope: "decidim.budgets.projects.filters", id: "category")
+          end
+        end
+
+        items.reject { |item| item[:collection].blank? }
       end
     end
   end

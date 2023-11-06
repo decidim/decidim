@@ -3,6 +3,7 @@ nl:
     models:
       decidim/comments/comment_by_followed_user_event: Commentaar
       decidim/comments/comment_created_event: Commentaar
+      decidim/comments/comment_upvoted_event: Reactie omhoog gestemd
       decidim/comments/reply_created_event: Reactie antwoord
       decidim/comments/user_group_mentioned_event: Vermelding
       decidim/comments/user_mentioned_event: Vermelding
@@ -23,26 +24,20 @@ nl:
             end_time: Reacties ingeschakeld tot
             start_time: Commentaren ingeschakeld vanaf
       comments:
-        delete:
-          error: De reactie kon niet worden verwijderd.
+        create:
+          error: Er is een probleem opgetreden bij het aanmaken van de reactie.
         update:
           error: Er is een probleem opgetreden bij het bijwerken van de reactie.
       comments_count: Aantal reacties
-      last_activity:
-        new_comment_at_html: "<span>Nieuwe opmerking op %{link}</span>"
-      view: Bekijk
       votes:
         create:
           error: Er is een probleem opgetreden bij het stemmen op de opmerking.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Meld u aan met uw account</a> of <a href="%{sign_up_url}">schrijf u in</a> om uw reactie toe te voegen.
         form:
           body:
             label: Reactie
             placeholder: Wat wil je hierover zeggen?
-          form_error: De tekst is verplicht en het kan niet langer zijn dan %{length} tekens.
-          submit: Verzenden
           user_group_id:
             label: Reageer als
         opinion:
@@ -67,6 +62,7 @@ nl:
         edit: Bewerk
         edited: Bewerkt
         hide_replies: Antwoorden verbergen
+        moderated_at: Reactie gemodereerd op %{date}
         reply: Antwoord
         report:
           action: Melden
@@ -75,11 +71,9 @@ nl:
           description: Is deze inhoud ongepast?
           details: aanvullende opmerkingen
           reasons:
-            does_not_belong: Bevat illegale activiteit, zelfmoord bedreigingen, persoonlijke gegevens, of iets anders dat je denkt dat hoort niet op %{organization_name}.
             offensive: Bevat racisme, seksisme, laster, persoonlijke aanvallen, bedreigingen met de dood, zelfmoord verzoeken of enige vorm van haatzaaien.
             spam: Bevat clickbait, reclame, oplichting of script bots.
           title: Meld ongepaste inhoud
-        show_replies: Toon %{replies_count} reacties
         single_comment_link_title: Haal link op
       comment_order_selector:
         order:
@@ -88,8 +82,6 @@ nl:
           older: Ouder
           recent: Meest recent
         title: 'Sorteer op:'
-      comment_thread:
-        title: Gesprek met %{authorName}
       comments:
         blocked_comments_for_unauthorized_user_warning: Je kan op dit moment geen opmerkingen toevoegen, maar je kunt de eerdere opmerkingen wel lezen.
         blocked_comments_for_user_warning: Je kunt op dit moment geen opmerkingen toevoegen, maar je kunt eerdere reacties wel lezen.
@@ -98,6 +90,9 @@ nl:
         loading: Reacties laden...
         single_comment_warning: <a href="%{url}">Bekijk alle reacties</a>
         single_comment_warning_title: Je ziet een enkele reactie
+        title:
+          one: "%{count} reacties"
+          other: "%{count} reacties"
       down_vote_button:
         text: Ik ben het niet eens met deze reactie
       edit_comment_modal_form:
@@ -127,6 +122,16 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je '%{resource_title}' of de auteur ervan volgt. Ontvolgen kan door te klikken op de vorige link.
           email_subject: Er is een nieuwe reactie van %{author_name} in %{resource_title}
           notification_title: Er is een nieuwe reactie van <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>
+        comment_downvoted:
+          email_intro: Je reactie in "%{resource_title}" kreeg een tegenstem. Het heeft nu een totaal van %{upvotes} stemmen 'voor' en %{downvotes} stemmen 'tegen'.
+          email_outro: Je hebt deze melding ontvangen omdat je de auteur bent van deze reactie.
+          email_subject: Je reactie in "%{resource_title}" kreeg een tegenstem.
+          notification_title: Je <a href="%{resource_path}">reactie</a> in "%{resource_title}" kreeg een tegenstem. Het heeft nu een totaal van %{upvotes} stemmen 'voor' en %{downvotes} stemmen 'tegen'.
+        comment_upvoted:
+          email_intro: Je reactie in "%{resource_title}" kreeg een stem 'voor'. Het heeft nu een totaal van %{upvotes} stemmen 'voor' en %{downvotes} stemmen 'tegen'.
+          email_outro: Je hebt deze melding ontvangen omdat je de auteur bent van deze reactie.
+          email_subject: Je reactie in "%{resource_title}" kreeg een stem 'voor'.
+          notification_title: Je <a href="%{resource_path}">reactie</a> in "%{resource_title}" kreeg een stem 'voor'. Het heeft nu een totaal van %{upvotes} stemmen 'voor' en %{downvotes} stemmen 'tegen'.
         reply_created:
           email_intro: "%{author_name} heeft gereageerd op jouw opmerking in %{resource_title}. Lees het via deze link:"
           email_outro: Je hebt deze melding ontvangen omdat je reactie beantwoord is.
@@ -147,6 +152,3 @@ nl:
         description: Aantal reacties gegenereerd door deelnemers
         object: reacties
         title: Reacties
-  errors:
-    messages:
-      cannot_have_comments: Kan geen reacties hebben

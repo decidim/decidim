@@ -1,60 +1,38 @@
 <% default_type = available_initiative_types.first %>
-<% content_for :back_link do %>
-  <%= link_to initiatives_path do %>
-    <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
-    <%= t(".back") %>
-  <% end %>
+<% announcement_body = capture do %>
+  <%= t("select_initiative_type_help", scope: "decidim.initiatives.create_initiative.select_initiative_type") %>
+  <%= link_to t("more_information", scope: "decidim.initiatives.create_initiative.select_initiative_type"), decidim.page_path("initiatives"), target: "_blank", class: "button button__sm button__text-secondary block text-left" %>
 <% end %>
 
-<div class="row column">
-  <div class="callout secondary">
-    <%= t ".select_initiative_type_help" %>
-    <%= link_to t(".more_information"), decidim.page_path("initiatives"), target: "_blank" %>.
-  </div>
-</div>
-<br>
-<div class="row column">
-  <div class="main-container">
-    <div class="row collapse main-container--side-panel">
-      <div class="columns medium-4 large-3">
-        <div class="side-panel">
-          <ul class="tabs vertical side-panel__tabs" id="initiatives-tabs" data-tabs>
-            <% initiative_types_each do |type| %>
-              <li class="tabs-title <%= "is-active" if type == default_type %>">
-                <%= link_to "#initiativeType#{type.id}" do %>
-                  <%= t(".choose_html", title: translated_attribute(type.title)) %>
-                <% end %>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-      <div class="columns medium-8 large-9">
-        <div class="main-container__content">
-          <div class="tabs-content vertical" data-tabs-content="initiatives-tabs">
-            <% initiative_types_each do |type| %>
-              <div class="tabs-panel <%= "is-active" if type == default_type %>" id="<%= "initiativeType#{type.id}" %>">
-                <h2 class="section-heading"><%= translated_attribute(type.title) %></h2>
-                <div>
-                  <%= raw translated_attribute type.description %>
-                </div>
-                <br>
-                <% if allowed_to?(:create, :initiative, { initiative_type: type }) %>
-                  <%= decidim_form_for(@form, url: next_wizard_path, method: :put, html: { id: "new_initiative_#{type.id}", class: "form select-initiative_type-form" }) do |f| %>
-                    <%= f.hidden_field :type_id, value: type.id, id: "initiative_type_id_#{ type.id }" %>
-                    <%= f.submit t(".select"), class: "button" %>
-                  <% end %>
-                <% else %>
-                  <%= authorized_create_modal_button(type, remote: true, class: "button") do %>
-                    <%= t(".verification_required") %>
-                  <% end %>
-                <% end %>
-              </div>
-            <% end %>
+<%= cell("decidim/announcement", { body: announcement_body }, callout_class: "secondary") %>
+
+<div class="initiatives__selection">
+  <% initiative_types_each do |type| %>
+    <% if allowed_to?(:create, :initiative, { initiative_type: type }) %>
+      <%= decidim_form_for(@form, url: select_initiative_type_create_initiative_index_path, method: :put, html: { id: "new_initiative_#{type.id}", class: "form-defaults " }) do |f| %>
+        <%= f.hidden_field :type_id, value: type.id, id: "initiative_type_id_#{type.id}" %>
+        <button class="card__highlight w-full">
+          <%= icon "lightbulb-flash-line", class: "verification__icon " %>
+          <div class="initiatives__selection__text">
+            <h2 class="h5 text-secondary"><%= translated_attribute(type.title) %></h2>
+            <span><%= raw translated_attribute type.description %></span>
           </div>
+          <%= icon "arrow-right-s-line", class: "fill-secondary initiatives__selection__icon" %>
+        </button>
+      <% end %>
+    <% else %>
+      <div class="card__highlight card__highlight-authorized">
+        <%= icon "lightbulb-flash-line", class: "verification__icon " %>
+        <div class="initiatives__selection__text">
+          <h2 class="h5 text-secondary"><%= translated_attribute(type.title) %></h2>
+          <span><%= raw translated_attribute type.description %></span>
+          <%= authorized_create_modal_button(type, remote: true, class: "button button__sm button__secondary") do %>
+            <%= t("verification_required", scope: "decidim.initiatives.create_initiative.select_initiative_type") %>
+          <% end %>
         </div>
       </div>
-    </div>
-  </div>
+    <% end %>
+  <% end %>
 </div>
+
 <%= render partial: "decidim/initiatives/modal" %>

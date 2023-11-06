@@ -5,32 +5,7 @@ module Decidim
   module AmendmentsHelper
     include RichTextEditorHelper
 
-    # Renders the emendations of an amendable resource
-    #
-    # Returns Html grid of CardM.
-    def amendments_for(amendable)
-      return unless amendable.amendable?
-      return unless (emendations = amendable.visible_emendations_for(current_user)).any?
-
-      content = content_tag(:h2, class: "section-heading", id: "amendments") do
-        t("section_heading", scope: "decidim.amendments.amendable", count: emendations.count)
-      end
-
-      content << cell("decidim/collapsible_list",
-                      emendations,
-                      cell_options: { context: { current_user: } },
-                      list_class: "row small-up-1 medium-up-2 card-grid amendment-list",
-                      size: 4).to_s
-
-      content_tag :div, content.html_safe, class: "section"
-    end
-
-    # Renders the amenders list of an amendable resource
-    def amenders_list_for(amendable)
-      return unless amendable.amendable?
-
-      cell("decidim/amendable/amenders_list", amendable)
-    end
+    TOTAL_STEPS = 4
 
     # Renders the state of an emendation
     #
@@ -85,7 +60,7 @@ module Decidim
       current_component.settings.amendments_enabled
     end
 
-    # Checks if there's a user that can react to an emendation
+    # Checks if there is a user that can react to an emendation
     def can_react_to_emendation?(emendation)
       return unless current_user && emendation.emendation?
 
@@ -149,6 +124,49 @@ module Decidim
       return params[:amendment][:emendation_params][attribute] if params[:amendment].present?
 
       present(send(original_resource)).send(attribute)
+    end
+
+    def total_steps = TOTAL_STEPS
+
+    def current_step
+      @current_step ||= case params[:action].to_sym
+                        when :new, :create
+                          1
+                        when :compare_draft
+                          2
+                        when :edit_draft, :update_draft, :destroy_draft
+                          3
+                        when :preview_draft, :publish_draft
+                          4
+                        end
+    end
+
+    # Returns the translation of the header title.
+    def wizard_header_title
+      key = case current_step
+            when 1
+              :new
+            when 2
+              :compare_draft
+            when 3
+              :edit_draft
+            when 4
+              :preview_draft
+            end
+
+      t("decidim.amendments.#{key}.title")
+    end
+
+    # Returns the link we want the back button to point to.
+    def wizard_aside_back_url(amendable)
+      case current_step
+      when 1
+        Decidim::ResourceLocatorPresenter.new(amendable).path
+      when 3
+        Decidim::Core::Engine.routes.url_helpers.compare_draft_amend_path(amendable.amendment)
+      when 4
+        Decidim::Core::Engine.routes.url_helpers.edit_draft_amend_path(amendable.amendment)
+      end
     end
   end
 end

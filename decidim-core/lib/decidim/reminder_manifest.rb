@@ -4,7 +4,7 @@ module Decidim
   # This class acts as a manifest for reminders.
   #
   # This manifest is a simple object that holds and stores reminder
-  # and it's generator class.
+  # and it is generator class.
   class ReminderManifest
     include ActiveModel::Model
     include Decidim::AttributeObject::Model

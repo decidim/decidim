@@ -39,9 +39,6 @@ gl:
         name: Nome completo
   activerecord:
     models:
-      decidim/initiative:
-        one: Initativo
-        other: Iniciais
       decidim/initiative_comittee:
         one: Comite
         other: Comités
@@ -121,10 +118,8 @@ gl:
             - Segue os pasos para crear unha nova iniciativa
           description: Este distintivo concedeuse cando se lanzan novas iniciativas, se asocian con outras persoas para realizalas.
           description_another: Este usuario obtivo %{score} iniciativas publicadas.
-          description_own: Tes publicado %{score} iniciativas.
           name: Iniciativas publicadas
           next_level_in: Recibe %{score} iniciativas máis publicadas para alcanzar o seguinte nivel!
-          unearned_another: Este usuario aínda non recibiu ningunha iniciativa publicada.
           unearned_own: Aínda non recibiu ningunha iniciativa publicada.
     help:
       participatory_spaces:
@@ -150,8 +145,6 @@ gl:
           index:
             approve: Aprobar
             confirm_revoke: Estás seguro?
-            invite_to_committee_help: Comparte esta ligazón para invitar outros usuarios á comisión de promoción
-            no_members_yet: Non hai membros no comité promotor
             revoke: Revocar
             title: Membros do comité
         content_blocks:
@@ -166,7 +159,6 @@ gl:
             export_votes: Soporte de exportación
             reject: Rexeita a iniciativa
             send_to_technical_validation: Enviar á validación técnica
-            success: A iniciativa foi enviada á validación técnica
             update: Actualización
           form:
             title: Información xeral
@@ -174,48 +166,21 @@ gl:
             actions_title: Acción
             preview: Vista previa
             print: Imprimir
-          update:
-            error: Produciuse un erro
-            success: A iniciativa cidadá foi actualizada con éxito
         initiatives_type_scopes:
-          create:
-            error: Produciuse un erro
-            success: Creouse un novo alcance para o tipo de iniciativa dada
-          destroy:
-            success: O alcance foi eliminado con éxito
           edit:
-            back: De volta
-            confirm_destroy: Estás seguro?
-            destroy: Eliminar
             title: Editar o alcance do tipo de iniciativa
             update: Actualización
           new:
-            back: De volta
             create: Crear
             title: Crea o alcance do tipo de iniciativa
-          update:
-            error: Produciuse un erro
-            success: O alcance foi actualizado con éxito
         initiatives_types:
-          create:
-            error: Produciuse un erro
-            success: Creouse un novo tipo de iniciativa
-          destroy:
-            success: O tipo de iniciativa eliminouse con éxito
           edit:
-            confirm_destroy: Estás seguro?
-            destroy: Eliminar
             update: Actualización
-          form:
-            title: Información xeral
           initiative_type_scopes:
             title: Alcances para o tipo de iniciativa
           new:
             create: Crear
             title: Novo tipo de iniciativa
-          update:
-            error: Produciuse un erro
-            success: O tipo de iniciativa foi actualizado con éxito
       admin_log:
         initiative:
           publish: "%{user_name} publicou a iniciativa %{resource_name}"
@@ -234,7 +199,6 @@ gl:
       committee_requests:
         new:
           continue: Continuar
-          help_text: Está a piques de solicitar ser membro do comité promotor desta iniciativa
         spawn:
           success: Enviouse a solicitude ao autor da iniciativa.
       content_blocks:
@@ -244,7 +208,6 @@ gl:
         fill_data:
           back: De volta
           continue: Continuar
-          initiative_type: Tipo de iniciativa
           more_information: "(Máis información)"
           select_scope: Seleccione un alcance
         finish:
@@ -255,24 +218,15 @@ gl:
         previous_form:
           back: De volta
           continue: Continuar
-          help: '¿Que consiste a iniciativa? Anota o título ea descrición. Recomendamos un título breve e conciso e unha descrición centrada na solución proposta.'
-          more_information: "(Máis información)"
         promotal_committee:
-          back: De volta
           more_information: "(Máis información)"
         select_initiative_type:
           back: De volta
           choose_html: Quero crear un <strong>%{title}</strong>
-          more_information: "(Máis información)"
+          more_information: (Máis información)
           select: Quero promocionar esta iniciativa
         share_committee_link:
-          continue: Continuar
           invite_to_committee_help: Ligazón para convidar persoas que formarán parte do comité promotor
-        show_similar_initiatives:
-          back: De volta
-          compare_help: Se algunha das seguintes iniciativas é similar á túa, recomendámosche que o soporte. A túa proposta terá máis posibilidades de facer.
-          continue: A miña iniciativa é diferente
-          more_information: "(Máis información)"
       events:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, quen está seguindo, creou unha nova iniciativa, revisa e contribúe:"
@@ -286,16 +240,9 @@ gl:
           notification_title: A <a href="%{resource_path}">%{resource_title}</a> iniciativa foi aprobada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       form:
         attachment_legend: "(Opcional) Engade un anexo"
-      index:
-        title: Iniciativas
       initiative_signatures:
         fill_personal_data:
           continue: Continuar
-          date_select:
-            day: Día
-            month: Mes
-            year: Ano
-          help: Complete os seguintes campos cos seus datos persoais para asinar a iniciativa
         finish:
           back_to_initiative: Volver á iniciativa
         sms_code:
@@ -303,21 +250,14 @@ gl:
           help: Comprobe o SMS recibido no seu teléfono
         sms_phone_number:
           continue: Envíame un SMS
-          help: Encha o formulario co número de teléfono verificado para solicitar o teu código de verificación
       initiative_votes:
         create:
           error: Houbo erros ao asinar a iniciativa.
-          invalid: Os datos proporcionados para asinar a iniciativa non son válidos
-          success_html: Parabéns! A iniciativa <strong> %{title}</strong> asinouse correctamente
         personal_data:
           invalid: Os datos persoais non son consistentes cos datos proporcionados para a autorización.
-        sms_code:
-          invalid: O teu código de verificación non coincide coa nosa. Verifique os SMS que lle enviamos.
         sms_phone:
           invalid: O número de teléfono non é válido nin está en espera de autorización. Verifique as súas autorizacións.
       initiatives:
-        author:
-          deleted: Eliminado
         author_list:
           hidden_authors_count:
             one: e 1 persoa máis
@@ -333,11 +273,6 @@ gl:
           search: Busca
           state: Estado
           type: Tipo
-        filters_small_view:
-          close_modal: Pechar ventá
-          filter: Filtro
-          filter_by: Filtrar por
-          unfold: Despregar
         index_header:
           new_initiative: Nova iniciativa
         interactions:
@@ -355,8 +290,6 @@ gl:
           city: Cidade
         result:
           initiative_rejected_reason: Esta iniciativa foi rexeitada debido á súa falta de apoios.
-        show:
-          follow_description: Recibir unha notificación cando hai noticias nesta iniciativa
         signatures_count:
           one: " sinatura"
           other: " sinaturas"
@@ -370,8 +303,6 @@ gl:
           count:
             one: FIRMA
             other: FIRMAS
-          most_popular_initiative: Iniciativa máis popular
-          need_more_votes: Necesitas máis sinaturas
       initiatives_mailer:
         creation_subject: Creouse a túa iniciativa cidadá "%{title}"
         initiative_link:
@@ -383,13 +314,6 @@ gl:
         promotal_committee_help: Lembre que debes convidar polo menos a %{member_count} persoas ao comité promotor. Reenvía a seguinte ligazón para invitar persoas á comisión de promotores
         status_change_body_for: 'A iniciativa %{title} cambiou o seu estado a: %{state}'
         status_change_for: A iniciativa %{title} cambiou o seu estado
-      last_activity:
-        new_initiative: Nova iniciativa
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Iniciativas activas
-            see_all_initiatives: Ver todas as iniciativas
       states:
         accepted: Aceptada
         expired: Vencido
@@ -404,27 +328,15 @@ gl:
   layouts:
     decidim:
       initiative_creation_header:
-        back: De volta
         fill_data: Crear
         finish: Rematar
-        previous_form: Comezar
         promotal_committee: Comité de promoción
         select_initiative_type: Elixe
-        show_similar_initiatives: Compare
-        step: Paso %{current} de %{total}
-        title: Crea unha nova iniciativa
-      initiative_header:
-        initiative_menu_item: Iniciativa
       initiative_signature_creation_header:
-        back: De volta
         fill_personal_data: Completa os teus datos
         finish: Finalizar
-        finished: Creouse a sinatura da iniciativa
-        see_steps: ver pasos
-        select_identity: Seleccionar identidade
         sms_code: Verificación do código SMS
         sms_phone_number: Número de teléfono
-        step: Paso %{current} de %{total}
         title: Rexistrar %{initiative_title}
       initiatives:
         initiative:

@@ -6,9 +6,10 @@ module Decidim
       # Controller that allows managing conference speakers.
       #
       class ConferenceSpeakersController < Decidim::Conferences::Admin::ApplicationController
-        helper Decidim::Conferences::Admin::ConferenceSpeakersHelper
         include Concerns::ConferenceAdmin
         include Decidim::Paginable
+
+        helper_method :conference_speaker, :meetings_selected
 
         def index
           enforce_permission_to :index, :conference_speaker
@@ -41,17 +42,15 @@ module Decidim
         end
 
         def edit
-          @item = collection.find(params[:id])
-          enforce_permission_to :update, :conference_speaker, speaker: @item
-          @form = form(ConferenceSpeakerForm).from_model(@item)
+          enforce_permission_to :update, :conference_speaker, speaker: conference_speaker
+          @form = form(ConferenceSpeakerForm).from_model(conference_speaker)
         end
 
         def update
-          @conference_speaker = collection.find(params[:id])
-          enforce_permission_to :update, :conference_speaker, speaker: @conference_speaker
+          enforce_permission_to :update, :conference_speaker, speaker: conference_speaker
           @form = form(ConferenceSpeakerForm).from_params(params)
 
-          UpdateConferenceSpeaker.call(@form, @conference_speaker) do
+          UpdateConferenceSpeaker.call(@form, conference_speaker) do
             on(:ok) do
               flash[:notice] = I18n.t("conference_speakers.update.success", scope: "decidim.admin")
               redirect_to conference_speakers_path(current_conference)
@@ -65,10 +64,9 @@ module Decidim
         end
 
         def destroy
-          @conference_speaker = collection.find(params[:id])
-          enforce_permission_to :destroy, :conference_speaker, speaker: @conference_speaker
+          enforce_permission_to :destroy, :conference_speaker, speaker: conference_speaker
 
-          DestroyConferenceSpeaker.call(@conference_speaker, current_user) do
+          DestroyConferenceSpeaker.call(conference_speaker, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("conference_speakers.destroy.success", scope: "decidim.admin")
               redirect_to conference_speakers_path(current_conference)
@@ -78,8 +76,16 @@ module Decidim
 
         private
 
+        def meetings_selected
+          @meetings_selected ||= @conference_speaker.conference_meetings.pluck(:id) if @conference_speaker.present?
+        end
+
+        def conference_speaker
+          @conference_speaker ||= collection.find(params[:id])
+        end
+
         def collection
-          @collection ||= Decidim::ConferenceSpeaker.where(conference: current_conference)
+          @collection ||= current_conference.speakers
         end
       end
     end

@@ -119,7 +119,7 @@ module Decidim
     validates :resource, presence: true, if: ->(log) { log.action != "delete" }
     validates :visibility, presence: true, inclusion: { in: %w(private-only admin-only public-only all) }
 
-    # To ensure records can't be deleted
+    # To ensure records cannot be deleted
     before_destroy { |_record| raise ActiveRecord::ReadOnlyRecord }
 
     # A scope that filters all the logs that should be visible at the admin panel.
@@ -133,13 +133,11 @@ module Decidim
         Decidim::Accountability::Result
         Decidim::Blogs::Post
         Decidim::Comments::Comment
-        Decidim::Consultations::Question
         Decidim::Debates::Debate
         Decidim::Meetings::Meeting
         Decidim::Proposals::Proposal
         Decidim::Surveys::Survey
         Decidim::Assembly
-        Decidim::Consultation
         Decidim::Initiative
         Decidim::ParticipatoryProcess
       ).select do |klass|
@@ -223,9 +221,9 @@ module Decidim
     # Returns a Batchloader for a given class to avoid N+1 queries.
     #
     # Since ActionLogs are related to many different resources, loading a collection
-    # of them would trigger a lot of N+1 queries. We're using BatchLoader to
+    # of them would trigger a lot of N+1 queries. We are using BatchLoader to
     # accumulate and group all the resource by their class and only loading them
-    # when it's necessary.
+    # when it is necessary.
     def self.lazy_relation(id_method, klass_name, cache)
       klass = klass_name.constantize
       BatchLoader.for(id_method).batch(cache:, key: klass.name.underscore) do |relation_ids, loader|
@@ -253,7 +251,7 @@ module Decidim
         participatory_space_lazy.present? &&
         !resource_lazy.try(:deleted?) &&
         !resource_lazy.try(:hidden?) &&
-        (!resource_lazy.respond_to?(:can_participate?) || resource_lazy.try(:can_participate?, user))
+        (participatory_space_lazy.try(:is_transparent?) || !resource_lazy.respond_to?(:can_participate?) || resource_lazy.try(:can_participate?, user))
     rescue NameError => e
       Rails.logger.warn "Failed resource for #{self.class.name}(id=#{id}): #{e.message}"
 

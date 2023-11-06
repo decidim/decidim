@@ -1,51 +1,88 @@
-<%= content_tag :div, id: "comment_#{model.id}", class: comment_classes, data: { comment_id: model.id } do %>
+<%= content_tag :div, id: "comment_#{model.id}", class: "comment relative", data: { comment_id: model.id } do %>
   <% if model.hidden? %>
     <%= render :moderation_data %>
   <% elsif model.deleted? %>
     <%= render :deletion_data %>
   <% else %>
     <div class="comment__header">
-      <div class="author-data">
-        <div class="author-data__main">
-          <%= render :author %>
-          <span>
-            <%= time_tag created_at, l(created_at, format: :decidim_short) %>
-          </span>
-          <% if edited? %>
-            <div class="author-data__extra">
-              <span class="comment__edited">
-                <%= t("decidim.components.comment.edited") %>
-              </span>
-            </div>
-          <% end %>
+      <span class="font-bold">
+        <%== cell("decidim/author", author_presenter) %>
+      </span>
+      <span class="text-gray-2 text-sm">
+        <%= time_tag created_at, time_ago_in_words(created_at) %>
+      </span>
+      <% if edited? %>
+        <span class="label">
+          <%= t("decidim.components.comment.edited") %>
+        </span>
+      <% end %>
+
+      <div class="relative ml-auto">
+        <button id="dropdown-trigger-<%= context_menu_id %>" data-component="dropdown" data-target="dropdown-menu-<%= context_menu_id %>">
+          &#8230;
+        </button>
+
+        <div id="dropdown-menu-<%= context_menu_id %>" aria-hidden="true">
+          <ul class="dropdown dropdown__bottom divide-y divide-gray-3 px-4">
+            <% unless reloaded? %>
+              <li>
+                <%= cell("decidim/report_button", model, only_button: true, button_classes: "dropdown__item flex-row-reverse", modal_id: "flagModalComment#{model.id}") %>
+              </li>
+            <% end %>
+            <li>
+              <%= link_to "#{commentable_path("commentId" => model.id)}#comment_#{model.id}", target: "_blank", data: { "external-link": "false" }, class: "dropdown__item", title: t("decidim.components.comment.single_comment_link_title") do %>
+                <%= icon "share-line" %>
+                <span><%= t("decidim.components.comment.single_comment_link_title") %></span>
+              <% end %>
+            </li>
+            <% if model.authored_by?(current_user) %>
+              <li>
+                <button type="button" class="dropdown__item" data-dialog-open="<%= "editCommentModal#{model.id}" %>" title="<%= t("decidim.components.comment.edit") %>" aria-controls="<%= "editCommentModal#{model.id}" %>" aria-haspopup="dialog" tabindex="2">
+                  <%= icon "edit-line" %>
+                  <span><%= t("decidim.components.comment.edit") %></span>
+                </button>
+              </li>
+              <li>
+                <%= link_to comment_path, remote: true, method: :delete, class: "dropdown__item", data: { confirm: t("decidim.components.comment.confirm_destroy") }, tabindex: 3 do %>
+                  <%= icon "delete-bin-line" %>
+                  <span><%= t("decidim.components.comment.delete") %></span>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
         </div>
       </div>
-      <%= render :utilities %>
     </div>
+
     <div class="comment__content">
       <%= alignment_badge %>
-      <%= comment_body %>
+      <div class="editor-content">
+        <%= comment_body %>
+      </div>
     </div>
-    <div class="comment__footer">
-      <%= render :actions %>
-      <%= votes %>
+
+    <div class="comment__footer" data-component="accordion" id="accordion-<%= model.id %>">
+      <div class="comment__footer-grid">
+        <%= render :actions %>
+        <%= votes %>
+      </div>
+      <% if can_reply? %>
+        <div id="panel-<%= reply_id %>" class="add-comment comment__additionalreply">
+          <%== cell("decidim/comments/comment_form", model, root_depth:, order:) %>
+        </div>
+      <% end %>
+      <div id="comment-<%= model.id %>-replies" class="<%= "comment-reply" if has_replies_in_children? %>">
+        <% if has_replies_in_children? %>
+          <%= render :replies %>
+        <% end %>
+      </div>
     </div>
   <% end %>
-  <div id="comment-<%= model.id %>-replies">
-    <% if has_replies_in_children? %>
-      <% replies.each do |reply| %>
-        <%= cell("decidim/comments/comment", reply, root_depth: root_depth, order: order, reloaded: reloaded?) %>
-      <% end %>
-    <% end %>
-  </div>
-  <% if can_reply? %>
-    <div class="comment__additionalreply<%= " hide" unless commentable? %>">
-      <button class="comment__reply muted-link" aria-controls="<%= reply_id %>" data-toggle="<%= reply_id %>">
-        <%= icon "pencil", class: "icon--small", role: "img", "aria-hidden": true %>&nbsp;<%= t("decidim.components.comment.reply") %>
-      </button>
-    </div>
-    <div class="add-comment hide" id="<%= reply_id %>" data-toggler=".hide">
-      <%== cell("decidim/comments/comment_form", model, root_depth: root_depth, order: order) %>
-    </div>
+  <% if current_user.present? %>
+    <%= cell("decidim/report_button", model, modal_id: "flagModalComment#{model.id}").flag_modal %>
+  <% end %>
+
+  <% if model.authored_by?(current_user) %>
+    <%= cell("decidim/comments/edit_comment_modal_form", model) %>
   <% end %>
 <% end %>

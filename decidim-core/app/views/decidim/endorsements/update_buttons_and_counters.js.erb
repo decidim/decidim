@@ -1,20 +1,27 @@
-<% if Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.empty? %>
-update_main_page_button();
-<% end %>
-update_identities_rows();
+updateEndorsementBlock();
 
-function update_main_page_button() {
+function updateEndorsementBlock() {
+  var $endorsementBlock = $('#resource-<%= resource.id %>-endorsement-block');
+  var $endorsementListTrigger = $('#resource-<%= resource.id %>-endorsement-block #dropdown-trigger');
   var $endorsementButton = $('#resource-<%= resource.id %>-endorsement-button');
-  morphdom($endorsementButton[0], '<%= j(endorsement_buttons_cell(resource).render_user_identity_endorse_button).strip.html_safe %>');
-}
-function update_identities_rows() {
-  <% fully_endorsed= fully_endorsed?(resource, current_user) %>
-  var $endorsementsRowCount = $('#resource-<%= resource.id %>-endorsements-count');
-  morphdom($endorsementsRowCount[0], '<%= j(endorsement_buttons_cell(resource).render_endorsements_count).strip.html_safe %>');
-  var $endorsementsRowButton = $($('#select-identity-button')[0]);
-  <% if fully_endorsed %>
-    $endorsementsRowButton.addClass('active')
-  <% else %>
-    $endorsementsRowButton.removeClass('active')
-  <% end %>
+  var $endorsementIdentitiesButton = $('#resource-<%= resource.id %>-endorsement-button #select-identity-button');
+  var $endorsementListGrid = $('#dropdown-menu-endorsers-list .endorsers-list__grid');
+  var endorsersCount = <%= j(cell("decidim/endorsers_list", resource).endorsers_count) %>
+
+  $endorsementListTrigger[0].innerHTML = '<%= j(cell("decidim/endorsers_list", resource)).strip.html_safe %>';
+  $endorsementListGrid[0].innerHTML = '<%= j(cell("decidim/endorsers_list", resource).full_endorsers_list).strip.html_safe %>';
+  if (endorsersCount > 0) {
+    $endorsementListTrigger.removeClass('hidden');
+  } else {
+    $endorsementListTrigger.addClass('hidden');
+  }
+
+  <%# If the endorsement button displays a modal to select the identity to endorse only the content of the button %>
+  <%# has to be updated to maintain the function of the button to open the modal. Otherwise the button has to be fully %>
+  <%# updated because the form request also changes %>
+  if ($endorsementIdentitiesButton.length == 0) {
+    $endorsementButton[0].outerHTML = '<%= j(cell("decidim/endorsement_buttons", resource).show).strip.html_safe %>';
+  } else {
+    $endorsementIdentitiesButton[0].innerHTML = '<%= j(cell("decidim/endorsement_buttons", resource).button_content).strip.html_safe %>';
+  }
 }

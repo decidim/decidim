@@ -7,10 +7,10 @@ module Decidim::Accountability
     subject { described_class.new(current_component, scope.id, category.id) }
 
     let(:participatory_process) { create(:participatory_process, :with_steps) }
-    let(:current_component) { create :accountability_component, participatory_space: participatory_process }
-    let(:scope) { create :scope, organization: current_component.organization }
-    let(:other_scope) { create :scope, organization: current_component.organization }
-    let(:category) { create :category, participatory_space: current_component.participatory_space }
+    let(:current_component) { create(:accountability_component, participatory_space: participatory_process) }
+    let(:scope) { create(:scope, organization: current_component.organization) }
+    let(:other_scope) { create(:scope, organization: current_component.organization) }
+    let(:category) { create(:category, participatory_space: current_component.participatory_space) }
     let!(:result1) do
       create(
         :result,

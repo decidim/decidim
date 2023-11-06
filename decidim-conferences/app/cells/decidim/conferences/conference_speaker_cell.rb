@@ -2,7 +2,7 @@
 
 module Decidim
   module Conferences
-    # This cell renders the card for an instance of an Conference Speaker
+    # This cell renders the card for an instance of a Conference Speaker
     class ConferenceSpeakerCell < Decidim::AuthorCell
       include Decidim::Meetings::MeetingCellsHelper
       include Cell::ViewModel::Partial
@@ -12,17 +12,7 @@ module Decidim
       property :profile_path
 
       def show
-        render
-      end
-
-      def speakers_list
-        cell(
-          "decidim/collapsible_list",
-          presenters_for_speakers(list),
-          cell_name: "decidim/author",
-          cell_options: options.merge(has_actions: false),
-          size:
-        )
+        render :show
       end
 
       private
@@ -66,7 +56,7 @@ module Decidim
       def twitter_handle
         return unless model.twitter_handle.presence
 
-        link_to t(".go_to_twitter"), "https://twitter.com/#{model.twitter_handle}", target: "_blank", rel: "noopener"
+        link_to "@#{model.twitter_handle}", "https://twitter.com/#{model.twitter_handle}", target: "_blank", rel: "noopener"
       end
 
       def personal_url

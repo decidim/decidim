@@ -1,0 +1,29 @@
+<%= render layout: "layouts/decidim/shared/layout_item", locals: nav_paths do %>
+  <%= cell("decidim/accountability/project", result) %>
+
+  <section class="layout-main__section layout-main__buttons" data-buttons>
+    <%= cell "decidim/comments_button", nil %>
+    <div class="ml-auto">
+      <%= cell "decidim/tags", result %>
+    </div>
+  </section>
+
+  <% content_for :aside do %>
+    <section class="layout-aside__section layout-aside__buttons accountability__project-aside">
+      <% if component_settings.display_progress_enabled? %>
+        <%= cell(
+          "decidim/accountability/status",
+          result,
+          title: t("models.result.fields.progress", scope: "decidim.accountability"),
+          extra_classes: "accountability__status__project"
+        ) %>
+      <% end %>
+
+    <%= cell("decidim/accountability/result_metadata", result, template: :project_aside) %>
+    </section>
+  <% end %>
+  <% content_for :item_footer do %>
+    <%= comments_for result %>
+    <%= cell "decidim/accountability/result_metadata", result, template: :show_footer %>
+  <% end %>
+<% end %>

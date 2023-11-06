@@ -13,25 +13,23 @@ describe "Assembly admin accesses admin sections", type: :system do
   context "when is a mother assembly" do
     it "can access all sections" do
       visit decidim_admin_assemblies.assemblies_path
-      click_link translated(assembly.title)
+      click_link "Configure"
 
-      within ".secondary-nav" do
-        expect(page).to have_content("Info")
-        expect(page).to have_content("Components")
-        expect(page).to have_content("Categories")
-        expect(page).to have_content("Attachments")
-        expect(page).to have_content("Folders")
-        expect(page).to have_content("Files")
-        expect(page).to have_content("Members")
-        expect(page).to have_content("Assembly admins")
-        expect(page).to have_content("Private users")
-        expect(page).to have_content("Moderations")
-      end
+      expect(page).to have_content("Info")
+      expect(page).to have_content("Components")
+      expect(page).to have_content("Categories")
+      expect(page).to have_content("Attachments")
+      expect(page).to have_content("Folders")
+      expect(page).to have_content("Files")
+      expect(page).to have_content("Members")
+      expect(page).to have_content("Assembly admins")
+      expect(page).to have_content("Private users")
+      expect(page).to have_content("Moderations")
     end
   end
 
   context "when is a child assembly" do
-    let!(:child_assembly) { create :assembly, parent: assembly, organization:, hashtag: "child" }
+    let!(:child_assembly) { create(:assembly, parent: assembly, organization:, hashtag: "child") }
 
     before do
       visit decidim_admin_assemblies.assemblies_path
@@ -39,22 +37,20 @@ describe "Assembly admin accesses admin sections", type: :system do
         click_link "Assemblies"
       end
 
-      click_link translated(child_assembly.title)
+      click_link "Configure"
     end
 
     it "can access all sections" do
-      within ".secondary-nav" do
-        expect(page).to have_content("Info")
-        expect(page).to have_content("Components")
-        expect(page).to have_content("Categories")
-        expect(page).to have_content("Attachments")
-        expect(page).to have_content("Folders")
-        expect(page).to have_content("Files")
-        expect(page).to have_content("Members")
-        expect(page).to have_content("Assembly admins")
-        expect(page).to have_content("Private users")
-        expect(page).to have_content("Moderations")
-      end
+      expect(page).to have_content("Info")
+      expect(page).to have_content("Components")
+      expect(page).to have_content("Categories")
+      expect(page).to have_content("Attachments")
+      expect(page).to have_content("Folders")
+      expect(page).to have_content("Files")
+      expect(page).to have_content("Members")
+      expect(page).to have_content("Assembly admins")
+      expect(page).to have_content("Private users")
+      expect(page).to have_content("Moderations")
     end
 
     it_behaves_like "assembly admin manage assembly components"

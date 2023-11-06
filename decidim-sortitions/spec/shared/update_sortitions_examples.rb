@@ -9,6 +9,8 @@ shared_examples "update sortitions" do
       click_link "Edit"
     end
 
+    it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='sortition-additional_info-tabs']", "full"
+
     it "requires title" do
       within "form" do
         expect(page).to have_content(/Title/i)

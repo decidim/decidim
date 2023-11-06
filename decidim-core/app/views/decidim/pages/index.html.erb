@@ -7,84 +7,68 @@ edit_link(
 )
 %>
 
-<div class="wrapper">
-  <div class="row">
-    <div class="page-title-wrapper">
-      <h1 class="heading1 page-title">
-        <%= t "decidim.pages.index.title" %>
-      </h1>
-      <p class="intro--text subheading1">
-        <%= t(".subheading", name: current_organization.name) %>
-      </p>
-    </div>
+<%= render layout:"layouts/decidim/shared/layout_center", locals: { columns: 8 } do %>
+
+  <div class="text-center py-10">
+    <h1 class="title-decorator inline-block text-left mb-12">
+      <%= t "decidim.pages.index.title" %>
+    </h1>
+    <p class="text-lg text-gray-2">
+      <%= t("decidim.pages.index.subheading", name: current_organization.name) %>
+    </p>
   </div>
 
-  <% if @topics.any? %>
-    <div class="row">
-      <h2 class="section-heading"><%= t ".topics" %></h2>
-      <div class="row collapse">
-        <div class="row small-up-1 smallmedium-up-2 mediumlarge-up-2 large-up-3 card-grid">
-          <% @topics.each do |topic| %>
+  <div class="space-y-16">
+    <% if @topics.any? %>
+      <div class="space-y-6">
+        <h2 class="h2 decorator"><%= t "decidim.pages.index.topics" %></h2>
+
+        <div class="space-y-6" data-component="accordion" id="topics-accordion">
+          <% @topics.each_with_index do |topic, ix| %>
             <% if topic.pages.any? %>
-              <div class="column">
-                <div class="card card--process card--mini">
-                  <div class="card__content">
-                    <h3 class="card__title">
-                      <%= link_to translated_attribute(topic.title), page_path(topic.pages.first), class: "card__link" %>
+              <div class="page__accordion">
+                <div class="page__accordion-trigger">
+                  <div>
+                    <h3 id="accordion-title-<%= ix %>" class="page__accordion-trigger-title">
+                      <%= link_to translated_attribute(topic.title), page_path(topic.pages.first) %>
                     </h3>
-                    <p><%= translated_attribute topic.description %></p>
-                    <ul>
-                      <% topic.pages.each do |page| %>
-                        <li><%= link_to translated_attribute(page.title), page_path(page) %></li>
-                      <% end %>
-                    </ul>
+                    <p class="page__accordion-trigger-snippet"><%= translated_attribute topic.description %></p>
                   </div>
-                  <div class="card__footer">
-                    <div class="card__support">
-                      <%= link_to page_path(topic.pages.first),
-                                  class: "card__button button button--sc small" do %>
-                        <%= t(".read_more") %>
-                        <span class="show-for-sr"><%= translated_attribute(topic.title) %></span>
-                      <% end %>
-                    </div>
-                  </div>
+                  <button id="accordion-trigger-<%= ix %>" data-controls="accordion-panel-<%= ix %>" aria-labelledby="accordion-title-<%= ix %>">
+                    <%= icon "arrow-down-s-line", class: "page__accordion-trigger-arrow" %>
+                    <%= icon "arrow-up-s-line", class: "page__accordion-trigger-arrow" %>
+                  </button>
+                </div>
+
+                <div id="accordion-panel-<%= ix %>" class="page__accordion-panel" aria-hidden="true">
+                  <ul role="menu">
+                    <% topic.pages.each do |page| %>
+                      <li role="menuitem"><%= link_to translated_attribute(page.title), page_path(page), class: "text-secondary" %></li>
+                    <% end %>
+                  </ul>
                 </div>
               </div>
             <% end %>
           <% end %>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
 
-  <% if @orphan_pages.any? %>
-    <div class="row">
-      <h3 class="section-heading"><%= t ".standalone_pages" %></h3>
-      <div class="row collapse">
-        <div class="row small-up-1 smallmedium-up-2 mediumlarge-up-2 large-up-3 card-grid">
+    <% if @orphan_pages.any? %>
+      <div class="space-y-6">
+        <h2 class="h2 decorator"><%= t "decidim.pages.index.standalone_pages" %></h2>
+        <div class="page__grid">
           <% @orphan_pages.each do |page| %>
-            <div class="column">
-              <div class="card card--process card--mini">
-                <div class="card__content">
-                  <span class="card__title">
-                    <%= link_to translated_attribute(page.title), page_path(page), class: "card__link" %>
-                  </span>
-                  <%== strip_tags html_truncate(translated_attribute(page.content), length: 140, separator: "...") %>
-                </div>
-                <div class="card__footer">
-                  <div class="card__support">
-                    <%= link_to page_path(page),
-                                class: "card__button button button--sc small" do %>
-                      <%= t(".read_more") %>
-                      <span class="show-for-sr"><%= translated_attribute(page.title) %></span>
-                    <% end %>
-                  </div>
-                </div>
-              </div>
+            <div class="page__accordion">
+              <h3 class="page__accordion-trigger-title">
+                <%= link_to translated_attribute(page.title), page_path(page) %>
+              </h3>
+              <p class="page__accordion-trigger-snippet"><%== strip_tags html_truncate(translated_attribute(page.content), length: 140, separator: "...") %></p>
             </div>
           <% end %>
         </div>
       </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+
+<% end %>

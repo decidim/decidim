@@ -30,11 +30,6 @@ uk:
           project:
             name: Проект
         projects:
-          create:
-            invalid: При спробі додати цей проект сталася помилка
-            success: Проект успішно додано
-          destroy:
-            success: Проект успішно видалено
           edit:
             title: Редагувати проект
             update: Оновити
@@ -45,13 +40,7 @@ uk:
           new:
             create: Додати
             title: Додати новий проект
-          update:
-            invalid: При спробі оновити цей проект сталася помилка
-            success: Проект успішно оновлено
         proposals_imports:
-          create:
-            invalid: При запозиченні цих пропозицій до проектів сталася помилка
-            success: "%{number} пропозицій успішно запозичено до проектів"
           new:
             create: Внести до проектів запозичені пропозиції
             no_components: У цьому просторі співучасті немає інших складових пропозицій, куди можна було б внести запозичені пропозиції.
@@ -74,16 +63,12 @@ uk:
         budget_excess:
           budget_excess:
             title: Перевищено граничний бюджет
-          close: Закрити
           ok: Гаразд
         budget_summary:
           are_you_sure: Ви дійсно бажаєте скасувати ваш голос?
-          assigned: 'Надано:'
           cancel_order: видалити ваш голос і почати все спочатку
           checked_out:
-            description: Ви вже проголосували за бюджет. Якщо ви змінили свою думку, ви можете %{cancel_link}.
             title: Голосування щодо бюджету завершено
-          title: Ви визначаєте бюджет
         count:
           projects_count:
             one: 1 проект
@@ -94,26 +79,10 @@ uk:
           category: Категорія
           scope: Обсяг
           search: Шукати
-        filters_small_view:
-          close_modal: Закрити віконце
-          filter: Відібрати
-          filter_by: 'Відібрати за ознакою:'
-          unfold: Розгорнути
-        order_progress:
-          vote: Голосувати
-        order_selected_projects:
-          remove: Видалити
-          selected_projects:
-            one: обраний проект
-            few: обраних проекти
-            many: обраних проектів
-            other: обраних проектів
-          view: Переглянути
         project:
           view: Переглянути
         show:
           budget: Бюджет
-          view_all_projects: Переглянути всi проекти
     components:
       budgets:
         actions:
@@ -132,12 +101,5 @@ uk:
             show_votes: Показати голоси
             votes_choices:
               enabled: Голосування увімкнене
-    orders:
-      checkout:
-        error: При обробці вашого голосу сталася помилка
-        success: Ваш голос успішно прийнято
-      destroy:
-        error: При скасуванні вашого голосу сталася помилка
-        success: Ваш голос було успішно скасовано
   index:
     confirmed_orders_count: Кількість голосів

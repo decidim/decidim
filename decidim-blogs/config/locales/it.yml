@@ -17,17 +17,7 @@ it:
         new: Nuovo post
         title: Azioni
       admin:
-        models:
-          components:
-            body: Corpo
-          post:
-            name: Inviare
         posts:
-          create:
-            invalid: Si è verificato un problema durante la creazione di questo post
-            success: Post creato con successo
-          destroy:
-            success: Posta cancellata con successo
           edit:
             save: Aggiornare
             title: Modifica post
@@ -38,25 +28,11 @@ it:
             title: Crea un post
           update:
             invalid: Si sono verificati errori durante il salvataggio del post.
-            success: Post salvato correttamente
-      last_activity:
-        new_post_at_html: "<span>Nuovo post a %{link}</span>"
       models:
         post:
           fields:
             author: Autore
             body: Corpo
-            created_at: Creato a
-            title: titolo
-      posts:
-        show:
-          back: Torna alla lista
-          comments: Commenti
-          view: vista
-        sidebar_blog:
-          comments: Commenti
-          most_commented_posts: La maggior parte dei post commentati
-      read_more: Leggi di più
     components:
       blogs:
         name: blog

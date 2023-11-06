@@ -1,24 +1,24 @@
-<div class="card">
-  <div class="card-divider">
-    <h2 class="card-title"><%= title %></h2>
-  </div>
-  <div class="card-section">
-    <div class="row column">
-      <%= form.text_field :code, autofocus: true %>
-    <p class="help-text"><%= t(".code_help") %></p>
-    </div>
-
-    <%= form.label :question_ids, t(".questions") %>
-    <p class="help-text"><%= t(".questions_help") %></p>
-
-    <% voting_elections.each do |election| %>
+<div class="form__wrapper">
+  <div class="card pt-4">
+    <div class="card-section">
       <div class="row column">
-        <%= "#{t(".election")}: #{translated_attribute(election.title)}" %>
-
-        <% election.questions.each do |question| %>
-          <%= form.check_box :question_ids, { multiple: true, label: translated_attribute(question.title), label_options: { for: nil } }, question.id, nil %>
-        <% end %>
+        <%= form.text_field :code, autofocus: true, help_text: t(".code_help") %>
       </div>
-    <% end %>
+
+      <div class="row column">
+        <%= form.label :question_ids, t(".questions") %>
+        <p class="help-text"><%= t(".questions_help") %></p>
+      </div>
+
+      <% voting_elections.each do |election| %>
+        <div class="row column">
+          <%= "#{t(".election")}: #{translated_attribute(election.title)}" %>
+
+          <% election.questions.each do |question| %>
+            <%= form.check_box :question_ids, { multiple: true, label: translated_attribute(question.title), label_options: { for: nil } }, question.id, nil %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

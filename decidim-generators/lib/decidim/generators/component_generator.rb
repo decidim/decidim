@@ -3,15 +3,26 @@
 
 require "bundler"
 require "thor"
+require "json"
 require "active_support/inflector"
 require "decidim/core/version"
+require "decidim/generators"
 
 module Decidim
   module Generators
     class ComponentGenerator < Thor
       include Thor::Actions
 
-      attr_reader :component_name, :component_module_name, :component_resource_name, :component_folder, :component_description, :core_version
+      attr_reader :component_name,
+                  :component_module_name,
+                  :component_resource_name,
+                  :component_folder,
+                  :component_description,
+                  :core_version,
+                  :npm_package_version,
+                  :required_ruby_version,
+                  :security_email,
+                  :edge_git_branch
 
       source_root File.expand_path("component_templates", __dir__)
 
@@ -24,7 +35,12 @@ module Decidim
         @component_module_name = component_name.camelize
         @component_folder = options[:destination_folder] || "decidim-module-#{component_name}"
         @core_version = Decidim::Core.version
+        @npm_package_version = "^#{semver_friendly_version}"
+        @edge_git_branch = Decidim::Generators.edge_git_branch
         @component_description = ask "Write a description for the new component:"
+        @required_ruby_version = RUBY_VERSION.length == 5 ? RUBY_VERSION[0..2] : RUBY_VERSION
+        @security_email = ask "Provide a public email in case of security concern:"
+        format_email!
 
         template "decidim-component.gemspec.erb", "#{component_folder}/decidim-#{component_name}.gemspec"
         template "Gemfile.erb", "#{component_folder}/Gemfile" if options[:external]
@@ -32,7 +48,13 @@ module Decidim
         template "LICENSE-AGPLv3.txt", "#{component_folder}/LICENSE-AGPLv3.txt"
         template "README.md.erb", "#{component_folder}/README.md"
         template "gitignore", "#{component_folder}/.gitignore"
-        template "circleci/config.yml", "#{component_folder}/.circleci/config.yml"
+        template "github/ci.yml.erb", "#{component_folder}/.github/workflows/ci_#{component_name}.yml"
+        template "package.json.erb", "#{component_folder}/package.json"
+        copy_file ".ruby-version", "#{component_folder}/.ruby-version"
+        copy_file ".node-version", "#{component_folder}/.node-version"
+        copy_file ".rubocop.yml", "#{component_folder}/.rubocop.yml"
+        copy_file ".eslintrc.json", "#{component_folder}/.eslintrc.json"
+        copy_file ".stylelintrc.json", "#{component_folder}/.stylelintrc.json"
 
         app_folder = "#{component_folder}/app"
         template "app/packs/js/entrypoint.js", "#{app_folder}/packs/entrypoints/decidim_#{component_name}.js"
@@ -42,6 +64,7 @@ module Decidim
         template "app/controllers/decidim/component/admin/application_controller.rb.erb", "#{app_folder}/controllers/decidim/#{component_name}/admin/application_controller.rb"
         template "app/helpers/decidim/component/application_helper.rb.erb", "#{app_folder}/helpers/decidim/#{component_name}/application_helper.rb"
         template "app/models/decidim/component/application_record.rb.erb", "#{app_folder}/models/decidim/#{component_name}/application_record.rb"
+        template "app/permissions/decidim/component/admin/permissions.rb.erb", "#{app_folder}/permissions/decidim/#{component_name}/admin/permissions.rb"
 
         bin_folder = "#{component_folder}/bin"
         template "bin/rails.erb", "#{bin_folder}/rails"
@@ -64,12 +87,31 @@ module Decidim
         spec_folder = "#{component_folder}/spec"
         template "spec/spec_helper.rb.erb", "#{spec_folder}/spec_helper.rb"
         template "spec/factories.rb.erb", "#{spec_folder}/factories.rb"
+        template "spec/permissions/admin/permissions_spec.rb.erb", "#{spec_folder}/permissions/admin/permissions_spec.rb"
+        template "spec/lib/version_spec.rb.erb", "#{spec_folder}/lib/decidim/#{component_name}/version_spec.rb"
 
         if options[:external]
           inside(component_folder) do
             Bundler.with_original_env { run "bundle install" }
+            Bundler.with_original_env { run "bundle lock --add-platform x86_64-linux" }
+            Bundler.with_original_env { run "bundle lock --add-platform ruby" }
           end
         end
+      end
+
+      private
+
+      def format_email!
+        return unless @security_email&.include?("@")
+
+        split = @security_email.split("@")
+        email = split.first
+        domain = split.last.gsub(".", " [dot] ")
+        @security_email = "#{email} [at] #{domain}"
+      end
+
+      def semver_friendly_version
+        Decidim::Generators.version.gsub(/\.pre/, "-pre").gsub(/\.dev/, "-dev").gsub(/.rc(\d*)/, "-rc\\1")
       end
     end
   end

@@ -1,27 +1,13 @@
-<% menu_id = "#{SecureRandom.uuid}_order_by_menu" %>
-<div class="order-by">
-  <div class="order-by__dropdown">
-    <span class="order-by__text"><%= t("#{i18n_scope}.label") %></span>
-    <ul class="dropdown menu" data-dropdown-menu
-      data-autoclose="false"
-      data-disable-hover="true"
-      data-click-open="true"
-      data-close-on-click="true"
-      role="menubar">
-      <li class="is-dropdown-submenu-parent" role="presentation">
-        <a href="#" id="<%= menu_id %>-control" aria-controls="<%= menu_id %>" aria-haspopup="menu" title="<%= t("#{i18n_scope}.label") %>" role="menuitem"><%= t("#{i18n_scope}.#{order}") %></a>
-
-        <ul id="<%= menu_id %>" class="menu" role="menu" aria-labelledby="<%= menu_id %>-control">
-          <% orders.each do |order_name| %>
-            <li role="presentation">
-              <%= order_link order_name,
-                          i18n_scope: i18n_scope,
-                          title: t("#{i18n_scope}.label"),
-                          role: "menuitem" %>
-            </li>
-          <% end %>
-        </ul>
-      </li>
-    </ul>
-  </div>
+<button class="order-by__button" id="dropdown-trigger-order" data-component="dropdown" data-target="dropdown-menu-order" data-open="false" data-disabled-md="true">
+  <%= icon "arrow-down-s-line" %>
+  <%= icon "arrow-up-s-line" %>
+  <span><%= t("#{i18n_scope}.label") %></span>
+</button>
+<div id="dropdown-menu-order" class="order-by">
+  <% orders.each do |order_name| %>
+    <%= order_link order_name,
+                   i18n_scope:,
+                   title: t("#{i18n_scope}.label"),
+                   class: "button button__sm button__text-secondary #{order_name == order ? "underline font-bold" : "font-normal"}" %>
+  <% end %>
 </div>

@@ -13,19 +13,11 @@ pt:
       templates:
         apply:
           error: Houve um problema ao aplicar este modelo
-          success: Modelo aplicado com êxito
         copy:
           error: Houve um problema ao copiar este modelo
-          success: Modelo copiado com êxito
         create:
           error: Houve um problema ao criar este modelo.
-          success: Modelo criado com êxito
-        destroy:
-          success: Modelo eliminado com êxito
         empty: Ainda não há modelos.
-        update:
-          error: Houve um problema ao actualizar este modelo.
-          success: Modelo actualizado com êxito
       titles:
         template_types:
           questionnaires: Modelos de questionário
@@ -41,6 +33,9 @@ pt:
         name: Modelo
     templates:
       admin:
+        block_user_templates:
+          form:
+            save: Guardar
         questionnaire_templates:
           choose:
             create_from_template: Criar a partir do modelo
@@ -50,11 +45,8 @@ pt:
             skip_template: Saltar
           edit:
             edit: Editar
-            empty: Ainda não há questões
             questionnaire: Questionário
           form:
-            save: Guardar
-            template_title: Informação do modelo
             title: Modelo de questionário %{questionnaire_for}
           index:
             confirm_delete: Tem a certeza que quer apagar este modelo?

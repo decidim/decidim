@@ -46,7 +46,6 @@
           description_own: Du har opprettet %{score} tester.
           name: Tester
           next_level_in: Opprett %{score} flere tester for å nå neste nivå!
-          unearned_another: Denne deltakeren har ikke opprettet en test ennå.
           unearned_own: Du har ikke laget noen tester ennå.
     resource_links:
       test_link:

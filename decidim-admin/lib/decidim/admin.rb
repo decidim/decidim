@@ -13,6 +13,7 @@ module Decidim
     autoload :FormBuilder, "decidim/admin/form_builder"
     autoload :SearchFormBuilder, "decidim/admin/search_form_builder"
     autoload :Import, "decidim/admin/import"
+    autoload :CustomImport, "decidim/admin/custom_import"
 
     include ActiveSupport::Configurable
 

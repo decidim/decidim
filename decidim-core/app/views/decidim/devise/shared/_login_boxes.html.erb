@@ -1,0 +1,28 @@
+<div class="login__box-container">
+  <button type="button" class="login__box" data-dialog-open="loginModal">
+    <%= icon "login-box-line", class: "login__box-icon" %>
+    <p class="login__box-title">
+      <%= t("already_have_an_account?", scope: ) %>
+    </p>
+    <p class="login__box-description">
+      <%= t("sign_in_description", scope: ) %>
+    </p>
+    <div class="login__box-link">
+      <%= t("decidim.devise.registrations.new.log_in") %>
+      <%= icon "arrow-right-line", class: "fill-current" %>
+    </div>
+  </button>
+  <%= link_to(decidim.new_user_registration_path, class: "login__box") do %>
+    <%= icon "user-add-line", class: "login__box-icon" %>
+    <p class="login__box-title">
+      <%= t("are_you_new?", scope: ) %>
+    </p>
+    <p class="login__box-description">
+      <%= t("sign_up_description", scope: ) %>
+    </p>
+    <div class="login__box-link">
+      <%= t("decidim.devise.registrations.new.sign_up") %>
+      <%= icon "arrow-right-line", class: "fill-current" %>
+    </div>
+  <% end %>
+</div>

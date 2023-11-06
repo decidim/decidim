@@ -10,6 +10,7 @@ module Decidim
   #       content_block.cell = "decidim/content_blocks/stats_block"
   #       content_block.public_name_key = "decidim.content_blocks.stats_block.name"
   #       content_block.settings_form_cell = "decidim/content_blocks/stats_block_settings_form"
+  #       content_block.component_manifest_name = "proposals"
   #
   #       content_block.settings do |settings|
   #         settings.attribute :minimum_priority_level,
@@ -18,7 +19,7 @@ module Decidim
   #       end
   #     end
   #
-  # Content blocks can also register attached images. Here's an example of a
+  # Content blocks can also register attached images. Here is an example of a
   # content block with 4 attached images:
   #
   #     Decidim.content_blocks.register(:homepage, :carousel) do |content_block|
@@ -47,7 +48,7 @@ module Decidim
     # name - a symbol representing the name of the content block
     # &block - The content block definition.
     #
-    # Returns nothing. Raises an error if there's already a content block
+    # Returns nothing. Raises an error if there is already a content block
     # registered with that name.
     def register(scope, name)
       scope = scope.to_s
@@ -56,7 +57,7 @@ module Decidim
       if block_exists
         raise(
           ContentBlockAlreadyRegistered,
-          "There's a content block already registered with the name `:#{name}` for the scope `:#{scope}, must be unique"
+          "There is a content block already registered with the name `:#{name}` for the scope `:#{scope}, must be unique"
         )
       end
 

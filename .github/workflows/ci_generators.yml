@@ -17,19 +17,39 @@ on:
 env:
   CI: "true"
   RUBY_VERSION: 3.1.1
-  NODE_VERSION: 16.9.1
+  NODE_VERSION: 18.17.1
+  NODE_ENV: "test"
   DECIDIM_MODULE: decidim-generators
   PARALLEL_TEST_PROCESSORS: 2
+  CODECOV_TOKEN: bc15b944-6b42-420a-b3f9-a5a8fb214326
+  SHAKAPACKER_RUNTIME_COMPILE: "false"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
 
 jobs:
   main:
-    name: Tests
+    strategy:
+      fail-fast: false
+      matrix:
+        test-command:
+          - bundle exec parallel_test --type rspec --pattern spec/runtime/branch_flag_spec.rb
+          - bundle exec parallel_test --type rspec --pattern spec/runtime/component_generator_spec.rb
+          - bundle exec parallel_test --type rspec --pattern spec/runtime/edge_flag_spec.rb
+          - bundle exec parallel_test --type rspec --pattern spec/runtime/no_flags_spec.rb
+          - bundle exec parallel_test --type rspec --pattern spec/runtime/path_flag_spec.rb
+          - bundle exec parallel_test --type rspec --pattern spec/runtime/queue_flag_spec.rb
+          - bundle exec parallel_test --type rspec --pattern spec/runtime/storage_flag_spec.rb
+          - bundle exec parallel_test --type rspec --pattern spec/runtime/full_app_generator_spec.rb
+          - bundle exec parallel_test --type rspec --pattern spec/lib/
+    name: "[CI] Generators"
     runs-on: ubuntu-latest
     if: "!startsWith(github.head_ref, 'chore/l10n')"
     timeout-minutes: 60
     services:
       postgres:
-        image: postgres:11
+        image: postgres:14
         ports: ["5432:5432"]
         options: >-
           --health-cmd pg_isready
@@ -44,40 +64,43 @@ jobs:
       DATABASE_HOST: localhost
       RUBYOPT: '-W:no-deprecated'
     steps:
-      - uses: rokroskar/workflow-run-cleanup-action@v0.3.0
-        if: "github.ref != 'refs/heads/develop'"
-        env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-      - uses: actions/checkout@v2.0.0
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 1
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
           bundler-cache: true
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
       - name: Get npm cache directory path
         id: npm-cache-dir-path
-        run: echo "::set-output name=dir::$(npm get cache)-${{ env.DECIDIM_MODULE }}"
-      - uses: actions/cache@v2
+        run: echo "dir=$(npm get cache)-${{ env.DECIDIM_MODULE }}" >> $GITHUB_OUTPUT
+      - uses: actions/cache@v3
         id: npm-cache
         with:
           path: ${{ steps.npm-cache-dir-path.outputs.dir }}
           key: npm-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             npm-
+      - uses: actions/cache@v3
+        id: app-cache
+        with:
+          path: ./Gemfile.lock
+          key: gemfile-${{ hashFiles('Gemfile.lock') }}
+          restore-keys: gemfile-${{ hashFiles('Gemfile.lock') }}
       - run: bundle install --jobs 4 --retry 3
         name: Install Ruby deps
         working-directory: ${{ env.DECIDIM_MODULE }}
-      - run: bundle exec brakeman --rails6 --force-scan .
-        name: Scanning Security issues on module
-        working-directory: ${{ env.DECIDIM_MODULE }}
-      - run: bundle exec rake parallel:spec
+      - run: ${{ matrix.test-command }}
         name: RSpec
         working-directory: ${{ env.DECIDIM_MODULE }}
         env:
           SIMPLECOV: "true"
-      - run: ./.github/upload_coverage.sh $DECIDIM_MODULE $GITHUB_EVENT_PATH
+      - uses: codecov/codecov-action@v3
         name: Upload coverage
+        with:
+          token: ${{ env.CODECOV_TOKEN }}
+          name: decidim-generators
+          flags: decidim-generators

@@ -19,6 +19,12 @@ describe "Admin manages assemblies", type: :system do
       click_link "New assembly"
     end
 
+    %w(purpose_of_action composition description short_description announcement internal_organisation).each do |field|
+      it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='assembly-#{field}-tabs']", "full"
+    end
+
+    it_behaves_like "having a rich text editor for field", "#closing_date_reason_div", "content"
+
     it "creates a new assembly" do
       within ".new_assembly" do
         fill_in_i18n(
@@ -64,7 +70,7 @@ describe "Admin manages assemblies", type: :system do
 
       expect(page).to have_admin_callout("successfully")
 
-      within ".container" do
+      within "[data-content]" do
         expect(page).to have_current_path decidim_admin_assemblies.assemblies_path(q: { parent_id_eq: parent_assembly&.id })
         expect(page).to have_content("My assembly")
       end
@@ -73,7 +79,7 @@ describe "Admin manages assemblies", type: :system do
 
   context "when managing parent assemblies" do
     let(:parent_assembly) { nil }
-    let!(:assembly) { create :assembly, organization: }
+    let!(:assembly) { create(:assembly, :with_content_blocks, organization:, blocks_manifests: [:announcement]) }
 
     before do
       switch_to_host(organization.host)
@@ -98,7 +104,7 @@ describe "Admin manages assemblies", type: :system do
         Decidim::AssembliesType.all.each do |assemblies_type|
           i18n_assemblies_type = assemblies_type.name[I18n.locale.to_s]
 
-          context "filtering collection by assemblies_type: #{i18n_assemblies_type}" do
+          context "when filtering collection by assemblies_type: #{i18n_assemblies_type}" do
             let!(:assembly1) { create(:assembly, organization:, assemblies_type: assemblies_type1) }
             let!(:assembly2) { create(:assembly, organization:, assemblies_type: assemblies_type2) }
 
@@ -123,8 +129,8 @@ describe "Admin manages assemblies", type: :system do
   end
 
   context "when managing child assemblies" do
-    let!(:parent_assembly) { create :assembly, organization: }
-    let!(:child_assembly) { create :assembly, organization:, parent: parent_assembly }
+    let!(:parent_assembly) { create(:assembly, organization:) }
+    let!(:child_assembly) { create(:assembly, :with_content_blocks, organization:, parent: parent_assembly, blocks_manifests: [:announcement]) }
     let(:assembly) { child_assembly }
 
     before do

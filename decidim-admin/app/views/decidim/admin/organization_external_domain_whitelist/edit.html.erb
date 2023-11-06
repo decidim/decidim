@@ -1,6 +1,18 @@
-<%= decidim_form_for(@form, html: { class: "form edit_organization_external_domain_whitelist" }, url: organization_external_domain_whitelist_path, method: :patch) do |f| %>
-  <%= render partial: "form", object: f %>
-  <div class="button--double form-general-submit">
-    <%= f.submit t(".update") %>
-  </div>
-<% end %>
+<% add_decidim_page_title(t("edit_external_domains", scope: "decidim.admin.titles")) %>
+
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t("title", scope: "decidim.admin.organization_external_domain_whitelist.form") %>
+  </h2>
+</div>
+
+<div class="item__edit-form">
+  <%= decidim_form_for(@form, html: { class: "form-defaults form edit_organization_external_domain_whitelist" }, url: organization_external_domain_whitelist_path, method: :patch) do |f| %>
+    <%= render partial: "form", object: f %>
+    <div class="item__edit-sticky">
+      <div class="item__edit-sticky-container">
+        <%= f.submit t(".update"), class: "button button__sm button__secondary" %>
+      </div>
+    </div>
+  <% end %>
+</div>

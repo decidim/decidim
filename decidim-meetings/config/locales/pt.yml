@@ -1,10 +1,6 @@
 pt:
   activemodel:
     attributes:
-      agenda:
-        description: Descrição
-        duration: Duração
-        title: Título
       close_meeting:
         attendees_count: Número de participantes
         attending_organizations: Lista de organizações que participaram
@@ -22,7 +18,6 @@ pt:
         decidim_scope_id: Âmbito
         decidim_user_group_id: Grupo de utilizadores
         description: Descrição
-        end_time: Hora de fim
         id: IDENTIFICAÇÃO
         location: Localização
         location_hints: Dicas de localização
@@ -35,22 +30,9 @@ pt:
         registration_terms: Termos de registo
         registration_url: URL de registo
         registrations_enabled: Registos ativados
-        show_embedded_iframe: Mostrar iframe embutido para este URL
-        start_time: Hora de início
         title: Título
         transparent: Transparente
         type_of_meeting: Tipo
-    errors:
-      models:
-        meeting_agenda:
-          attributes:
-            base:
-              too_many_minutes: A duração dos itens excede a duração da reunião em %{count} minutos
-              too_many_minutes_child: A duração dos filhos do item excede a duração do item pai da agenda "%{parent_title}" em %{count} minutos
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Esta conta de e-mail já foi convidada
     models:
       decidim/meetings/close_meeting_event: Reunião encerrada
       decidim/meetings/create_meeting_event: Reunião
@@ -100,7 +82,6 @@ pt:
           success: Reunião duplicada corretamente.
         new:
           copy: Copiar
-          select: Selecione os dados que pretende duplicar
           title: Reunião duplicada
     components:
       meetings:
@@ -183,8 +164,6 @@ pt:
           description_own: Participou em %{score} reuniões.
           name: Reuniões participadas
           next_level_in: Participe em mais %{score} reuniões para alcançar o próximo nível!
-          unearned_another: Este participante ainda não participou em nenhuma reunião.
-          unearned_own: Ainda não participou em nenhuma reunião.
     meetings:
       actions:
         agenda: Agenda
@@ -199,7 +178,6 @@ pt:
             one: 'A reunião não pode ser destruída porque tem %{count} proposta associada:'
             other: 'A reunião não pode ser destruída porque tem %{count} propostas associadas:'
         manage_poll: Gerir inquérito
-        new: Nova reunião
         preview: Pré-visualização
         registrations: Registos
         title: Ações
@@ -217,9 +195,6 @@ pt:
             down: Abaixo
             remove: Remover
             up: Acima
-          create:
-            invalid: Ocorreu um problema ao criar esta agenda
-            success: Agenda criada corretamente
           edit:
             title: Editar agenda
             update: Atualizar
@@ -231,9 +206,6 @@ pt:
           new:
             create: Criar
             title: Nova agenda
-          update:
-            invalid: Ocorreu um problema ao atualizar esta agenda
-            success: Agenda atualizada corretamente
         exports:
           answers: Respostas
           meeting_comments: Comentários
@@ -261,34 +233,23 @@ pt:
               all: Todos
               rejected: Rejeitados
               sent: Enviados
-            filter_by: Filtrar por
             invite_attendee: Convidar participante
             invites: Convites
-            registrations_disabled: Não pode convidar um participante porque os registos estão desativados.
             search: Pesquisar
         meeting_closes:
           edit:
             close: Fechar
             title: Encerrar reunião
         meetings:
-          close:
-            invalid: Ocorreu um problema ao encerrar esta reunião
-            success: Reunião encerrada corretamente
           create:
-            invalid: Ocorreu um problema ao criar esta reunião
             success: A reunião foi criada com êxito. Tome nota que ainda não foi publicada, precisa de a publicar manualmente.
           destroy:
-            invalid:
-              proposals_count:
-                one: A reunião não pode ser destruída porque tem %{count} proposta associada
-                other: A reunião não pode ser destruída porque tem %{count} propostas associadas
             success: Reunião eliminada corretamente
           edit:
             title: Editar reunião
             update: Atualizar
           form:
             address_help: 'Endereço: utilizado por Geocoder para encontrar a localização'
-            disclaimer: 'Declinação de responsabilidade: Ao usar um registo externo ao sistema fica ao corrente que os organizadores de %{organization} não são responsáveis pelos dados fornecidos pelo utilizador ao serviço externo.'
             location_help: 'Localização: mensagem direcionada para os utilizadores indicando o local de encontro'
             location_hints_help: 'Sugestões de localização: informação adicional. Exemplo: o piso do edifício se for uma reunião presencial, ou a palavra-chave se for uma reunião on-line de acesso restrito.'
             online_meeting_url_help: 'Ligação: permitir aos participantes ligarem-se directamente à sua reunião'
@@ -300,9 +261,6 @@ pt:
           new:
             create: Criar
             title: Criar reunião
-          publish:
-            invalid: Ocorreu um problema ao publicar esta reunião.
-            success: Reunião publicada com êxito
           service:
             description: Descrição
             down: Abaixo
@@ -313,21 +271,9 @@ pt:
           services:
             add_service: Adicionar serviço
             services: Serviços
-          unpublish:
-            invalid: Ocorreu um problema ao remover a publicação desta reunião.
-            success: Publicação da reunião retirada com êxito
-          update:
-            invalid: Ocorreu um problema ao atualizar esta reunião
-            success: Reunião atualizada corretamente
         meetings_poll:
           form:
             title: Editar questionário do inquérito para %{questionnaire_for}
-          update:
-            invalid: Ocorreu um problema ao actualizar o inquérito desta reunião
-            success: Inquérito da reunião actualizado com êxito
-        models:
-          meeting:
-            name: Reunião
         registrations:
           edit:
             save: Guardar
@@ -342,7 +288,6 @@ pt:
             registrations_count:
               one: Houve %{count} registo.
               other: Houve %{count} registos.
-            reserved_slots_help: Deixar a 0 se não tiver intervalos de tempo reservados
             reserved_slots_less_than: Deve ser menor ou igual a %{count}
             title: Registos
           update:
@@ -367,20 +312,13 @@ pt:
               not_found: 'O(A) organizador(a) não foi encontrado(a) na base de dados (ID: %{id})'
       calendar_modal:
         calendar_url: URL do calendário
-        close_window: Fechar janela
         export_calendar: Exportar calendário
       conference_venues: Locais da Conferência
-      content_blocks:
-        upcoming_meetings:
-          view_all_meetings: Ver todos
       directory:
         meetings:
           index:
             meetings: Reuniões
             space_type: Espaço participativo
-      last_activity:
-        meeting_updated_at_html: "<span>Proposta actualizada em %{link}</span>"
-        new_meeting_at_html: "<span>Nova reunião em %{link}</span>"
       layouts:
         live_event:
           administrate: Administradores
@@ -393,8 +331,6 @@ pt:
         registration_mailer:
           confirmation:
             subject: O seu registo da reunião foi confirmado
-      meeting:
-        not_allowed: Não tem permissão para ver esta reunião
       meeting_closes:
         edit:
           back: Recuar
@@ -404,7 +340,6 @@ pt:
         calendar_modal:
           add_to_calendar: Adicionar ao calendário
           apple: Adicionar ao calendário Apple
-          close_window: Fechar janela
           full_details_html: Para detalhes completos ir a %{link}
           google: Adicionar ao calendário Google
           outlook: Adicionar ao calendário Outlook
@@ -433,24 +368,16 @@ pt:
           origin_values:
             all: Todos
             official: Oficial
-            user_groups: Grupos
-          scope: Âmbito
           search: Pesquisar
           type: Tipo
           type_values:
             all: Todos
             in_person: Presencial
             online: On-line
-        filters_small_view:
-          close_modal: Fechar modal
-          filter: Filtrar
-          filter_by: Filtrar por
-          unfold: Desdobrar
         form:
           address_help: 'Endereço: utilizado pelo Geocoder para encontrar a localização'
           available_slots_help: Deixar em 0 se tiver número ilimitado de intervalos de tempo disponíveis
           create_as: Criar reunião como
-          disclaimer: 'Declinação de responsabilidade: Ao usar um registo externo ao sistema fica ao corrente que os organizadores de %{organization} não são responsáveis pelos dados fornecidos pelo utilizador ao serviço externo.'
           location_help: 'Localização: mensagem direcionada aos utilizadores sugerindo o local onde se encontrarem'
           location_hints_help: 'Sugestões de localização: informação adicional. Exemplo: o piso do edifício se for uma reunião presencial, ou a palavra-chave se for uma reunião on-line de acesso restrito.'
           online_meeting_url_help: 'Ligação: permitir aos participantes ligarem-se directamente à sua reunião'
@@ -460,10 +387,7 @@ pt:
           select_a_registration_type: Por favor seleccione um tipo de registo
         index:
           new_meeting: Nova reunião
-        meeting_minutes:
-          related_information: Informação Relacionada
         meetings:
-          no_meetings_warning: Nenhuma reunião corresponde aos seus critérios de pesquisa ou não há nenhuma reunião agendada.
           upcoming_meetings_warning: Atualmente, não há reuniões agendadas, mas aqui pode encontrar listadas todas as reuniões passadas.
         new:
           back: Retroceder
@@ -474,12 +398,8 @@ pt:
           confirm: Confirmar
         show:
           attendees: Contagem de participantes
-          back: Retroceder à lista
-          close_meeting: Encerrar reunião
           contributions: Contagem de contribuições
           date: Data
-          edit_meeting: Editar reunião
-          going: Inscreveu-se para esta reunião
           join: Adira à reunião
           leave: Cancele o seu registo
           leave_confirmation: Tem a certeza que quer cancelar o seu registo para esta reunião?
@@ -502,8 +422,6 @@ pt:
         update:
           invalid: Ocorreu um problema ao atualizar a reunião.
           success: Atualizou a reunião corretamente.
-      meetings_map:
-        view_meeting: Ver reunião
       models:
         invite:
           fields:
@@ -560,7 +478,6 @@ pt:
       registrations:
         create:
           invalid: Ocorreu um problema ao aderir a esta reunião.
-          success: Aderiu à reunião corretamente. Por se ter registado nesta reunião, será notificado se ocorrerem atualizações à mesma.
         decline_invitation:
           invalid: Ocorreu um problema ao recusar o convite.
           success: Recusou o convite corretamente.
@@ -573,8 +490,6 @@ pt:
       types:
         private_meeting: Reunião privada
         transparent: Transparente
-      versions:
-        back_to_resource: Retroceder para a reunião
     metrics:
       meetings:
         description: Número de reuniões criadas
@@ -585,8 +500,6 @@ pt:
         past_meetings: Reuniões passadas
         see_all: Ver todos (%{count})
         upcoming_meetings: Próximas reuniões
-      upcoming_meeting_for_card:
-        upcoming_meeting: Próximas reuniões
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Resultados relacionados:'

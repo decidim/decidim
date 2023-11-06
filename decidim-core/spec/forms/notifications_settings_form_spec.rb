@@ -85,7 +85,7 @@ module Decidim
       subject { described_class.from_model(user) }
 
       context "with notification_types all" do
-        let(:user) { create :user, notification_types: :all }
+        let(:user) { create(:user, notification_types: :all) }
 
         it "maps the fields correctly" do
           expect(subject.notifications_from_followed).to be true
@@ -94,7 +94,7 @@ module Decidim
       end
 
       context "with notification_types followed-only" do
-        let(:user) { create :user, notification_types: "followed-only" }
+        let(:user) { create(:user, notification_types: "followed-only") }
 
         it "maps the fields correctly" do
           expect(subject.notifications_from_followed).to be true
@@ -103,7 +103,7 @@ module Decidim
       end
 
       context "with notification_types own-only" do
-        let(:user) { create :user, notification_types: "own-only" }
+        let(:user) { create(:user, notification_types: "own-only") }
 
         it "maps the fields correctly" do
           expect(subject.notifications_from_followed).to be false
@@ -112,7 +112,7 @@ module Decidim
       end
 
       context "with notification_types none" do
-        let(:user) { create :user, notification_types: :none }
+        let(:user) { create(:user, notification_types: :none) }
 
         it "maps the fields correctly" do
           expect(subject.notifications_from_followed).to be false
@@ -121,7 +121,7 @@ module Decidim
       end
 
       context "with newsletter_notifications_at present" do
-        let(:user) { create :user, newsletter_notifications_at: Time.current }
+        let(:user) { create(:user, newsletter_notifications_at: Time.current) }
 
         it "maps the fields correctly" do
           expect(subject.newsletter_notifications).to be true
@@ -129,7 +129,7 @@ module Decidim
       end
 
       context "with newsletter_notifications_at blank" do
-        let(:user) { create :user, newsletter_notifications_at: nil }
+        let(:user) { create(:user, newsletter_notifications_at: nil) }
 
         it "maps the fields correctly" do
           expect(subject.newsletter_notifications).to be false
@@ -137,7 +137,7 @@ module Decidim
       end
 
       context "with allow_public_contact present" do
-        let(:user) { create :user, direct_message_types: "all" }
+        let(:user) { create(:user, direct_message_types: "all") }
 
         it "maps the fields correctly" do
           expect(subject.allow_public_contact).to be true
@@ -145,7 +145,7 @@ module Decidim
       end
 
       context "with allow_public_contact blank" do
-        let(:user) { create :user, direct_message_types: "followed-only" }
+        let(:user) { create(:user, direct_message_types: "followed-only") }
 
         it "maps the fields correctly" do
           expect(subject.allow_public_contact).to be false
@@ -153,7 +153,7 @@ module Decidim
       end
 
       context "with notifications_sending_frequency present" do
-        let(:user) { create :user, notifications_sending_frequency: "real_time" }
+        let(:user) { create(:user, notifications_sending_frequency: "real_time") }
 
         it "maps the fields correctly" do
           expect(subject.notifications_sending_frequency).to eq "real_time"
@@ -161,34 +161,10 @@ module Decidim
       end
     end
 
-    describe "#user_is_moderator?" do
-      context "when an organization has a moderator and a regular user" do
-        let(:organization) { create :organization, available_locales: [:en] }
-        let(:participatory_space) { create :participatory_process, organization: }
-        let(:moderator) do
-          create(
-            :process_moderator,
-            :confirmed,
-            organization:,
-            participatory_process: participatory_space
-          )
-        end
-        let(:user) { create :user, organization: }
-
-        it "returns false when user isnt a moderator" do
-          expect(subject.user_is_moderator?(user)).to be false
-        end
-
-        it "returns true when user is a moderator" do
-          expect(subject.user_is_moderator?(moderator)).to be true
-        end
-      end
-    end
-
     describe "#meet_push_notifications_requirements?" do
       context "when the notifications requirements are met" do
         before do
-          allow(Rails.application.secrets).to receive("vapid").and_return({ enabled: true })
+          Rails.application.secrets[:vapid] = { enabled: true }
         end
 
         it "returns true" do
@@ -196,9 +172,19 @@ module Decidim
         end
       end
 
-      context "when the notifications requirements aren't met" do
+      context "when vapid secrets are not present" do
         before do
-          allow(Rails.application.secrets).to receive("vapid").and_return({ enabled: false })
+          Rails.application.secrets.delete(:vapid)
+        end
+
+        it "returns false" do
+          expect(subject.meet_push_notifications_requirements?).to be false
+        end
+      end
+
+      context "when the notifications requirements are not met" do
+        before do
+          Rails.application.secrets[:vapid] = { enabled: false }
         end
 
         it "returns false" do

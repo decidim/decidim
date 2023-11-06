@@ -8,7 +8,7 @@ module Decidim
         helper_method :election, :polling_officer, :polling_station, :closure
 
         def show
-          enforce_permission_to :manage, :polling_station_results, polling_officer: polling_officer
+          enforce_permission_to(:manage, :polling_station_results, polling_officer:)
 
           @form = if closure.certificate_phase?
                     form(ClosureCertifyForm).instance.with_context(closure:)
@@ -18,7 +18,7 @@ module Decidim
         end
 
         def new
-          enforce_permission_to :create, :polling_station_results, polling_officer: polling_officer, closure: closure
+          enforce_permission_to(:create, :polling_station_results, polling_officer:, clousure:)
 
           @form = EnvelopesResultForm.new(
             polling_station_id: polling_station.id,
@@ -28,7 +28,7 @@ module Decidim
         end
 
         def create
-          enforce_permission_to :create, :polling_station_results, polling_officer: polling_officer, closure: closure
+          enforce_permission_to(:create, :polling_station_results, polling_officer:, clousure:)
           @form = form(EnvelopesResultForm).from_params(params).with_context(polling_officer:)
 
           CreatePollingStationClosure.call(@form) do
@@ -46,13 +46,13 @@ module Decidim
         end
 
         def edit
-          enforce_permission_to :edit, :polling_station_results, polling_officer: polling_officer, closure: closure
+          enforce_permission_to(:edit, :polling_station_results, polling_officer:, clousure:)
 
           @form = form(ClosureResultForm).from_model(closure)
         end
 
         def update
-          enforce_permission_to :edit, :polling_station_results, polling_officer: polling_officer, closure: closure
+          enforce_permission_to(:edit, :polling_station_results, polling_officer:, clousure:)
           @form = form(ClosureResultForm).from_params(params)
 
           CreatePollingStationResults.call(@form, closure) do
@@ -70,7 +70,7 @@ module Decidim
         end
 
         def destroy
-          enforce_permission_to :edit, :polling_station_results, polling_officer: polling_officer, closure: closure
+          enforce_permission_to(:edit, :polling_station_results, polling_officer:, closure:)
 
           DestroyPollingStationClosure.call(closure, current_user) do
             on(:ok) do
@@ -86,7 +86,7 @@ module Decidim
         end
 
         def certify
-          enforce_permission_to :edit, :polling_station_results, polling_officer: polling_officer, closure: closure
+          enforce_permission_to(:edit, :polling_station_results, polling_officer:, clousure:)
 
           @form = form(ClosureCertifyForm).from_params(params).with_context(closure:)
 
@@ -104,7 +104,7 @@ module Decidim
         end
 
         def sign
-          enforce_permission_to :edit, :polling_station_results, polling_officer: polling_officer, closure: closure
+          enforce_permission_to(:edit, :polling_station_results, polling_officer:, clousure:)
 
           @form = form(ClosureSignForm).from_params(params)
 
@@ -128,7 +128,10 @@ module Decidim
         end
 
         def election
-          @election ||= Decidim::Elections::Election.includes(questions: :answers).find_by(id: params[:election_id])
+          @election ||= Decidim::Elections::Election.joins(:component)
+                                                    .where(component: { participatory_space: current_organization.participatory_spaces })
+                                                    .includes(questions: :answers)
+                                                    .find_by(id: params[:election_id])
         end
 
         def polling_station

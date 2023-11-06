@@ -1,6 +1,6 @@
 <div class="card">
-  <div class="card-divider">
-    <h2 class="card-title"><%= t(".title") %></h2>
+  <div class="item_show__header">
+    <h2 class="item_show__header-title"><%= t(".title") %></h2>
   </div>
 
   <div id="trustees_process" class="card-section"
@@ -26,8 +26,8 @@
                 <%= trustee.name %>
               </td>
               <td>
-                <div class="loading"><span class="loading-spinner"></span></div>
-                <div class="active hide"><%= icon "task", class: "text-success" %></div>
+                <div class="loading"><%= icon "loader-4-line", class: "animate-spin" %></div>
+                <div class="active hide"><%= icon "list-check", class: "text-success" %></div>
               </td>
               <td>
                 <%= trustee.user.email %>
@@ -44,8 +44,8 @@
   </div>
 </div>
 
-<div class="button--double form-general-submit">
-  <%= link_to t("steps.key_ceremony.continue", scope: "decidim.elections.admin"), election_steps_path(election), class: "button disabled js-continue-link" %>
+<div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+  <%= link_to t("steps.key_ceremony.continue", scope: "decidim.elections.admin"), election_steps_path(election), class: "button button__sm button__secondary disabled js-continue-link" %>
 </div>
 
-<%= javascript_pack_tag "decidim_elections_admin_trustees_process" %>
+<%= append_javascript_pack_tag "decidim_elections_admin" %>

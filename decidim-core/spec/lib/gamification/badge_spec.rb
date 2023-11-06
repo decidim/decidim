@@ -16,7 +16,7 @@ module Decidim
       end
 
       context "without a name" do
-        it "isn't valid" do
+        it "is not valid" do
           badge = described_class.new
           badge.name = nil
           badge.valid?
@@ -26,7 +26,7 @@ module Decidim
 
       describe "levels" do
         context "with an empty array" do
-          it "doesn't validate" do
+          it "does not validate" do
             badge = described_class.new
             badge.levels = []
             badge.valid?
@@ -35,7 +35,7 @@ module Decidim
         end
 
         context "with negative values" do
-          it "doesn't validate" do
+          it "does not validate" do
             badge = described_class.new
             badge.levels = [-1, 5, 10]
             badge.valid?
@@ -44,7 +44,7 @@ module Decidim
         end
 
         context "with unordered values" do
-          it "doesn't validate" do
+          it "does not validate" do
             badge = described_class.new
             badge.levels = [1, 10, 5]
             badge.valid?
@@ -53,7 +53,7 @@ module Decidim
         end
 
         context "with repeated values" do
-          it "doesn't validate" do
+          it "does not validate" do
             badge = described_class.new
             badge.levels = [1, 10, 10, 20]
             badge.valid?

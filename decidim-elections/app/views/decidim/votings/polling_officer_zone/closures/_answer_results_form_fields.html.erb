@@ -1,12 +1,14 @@
 <% form.object.answer_results.each do |answer_form| %>
   <% next unless question.id == answer_form.question_id %>
 
-  <%= form.fields_for "[answer_results][]", answer_form do |f| %>
-    <%= f.hidden_field :question_id %>
-    <%= f.hidden_field :id %>
-    <%= f.number_field(:value,
-                       label: translated_attribute(answer_form.answer.title),
-                       min: 0,
-                       class: "medium-3") %>
+<% form.object.answer_results.each do |answer| %>
+  <% next unless question.id == answer.question_id %>
+
+  <%= form.fields_for "[answer_results][]", answer do |answer_form| %>
+    <%= answer_form.hidden_field :question_id %>
+    <%= answer_form.hidden_field :id %>
+    <%= answer_form.number_field(:value,
+                                 label: translated_attribute(answer.title),
+                                 min: 0) %>
   <% end %>
 <% end %>

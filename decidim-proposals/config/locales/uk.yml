@@ -13,7 +13,6 @@ uk:
       proposal_answer:
         answer: Відповісти
       proposals_copy:
-        copy_proposals: Я розумію, що при цьому всі пропозиції з обраної складової будуть запозичені до поточної складової, і що цю дію не можна буде потім скасувати.
         origin_component_id: Складова, звідки потрібно скопіювати пропозиції
     errors:
       models:
@@ -94,23 +93,19 @@ uk:
           email_intro: 'Тепер в %{participatory_space_title} з''явилась можливість вносити нові пропозиції! Почніть брати участь зі сторінки:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: В %{participatory_space_title} тепер можна вносити пропозиції
-          notification_title: Тепер в <a href="%{participatory_space_url}">%{participatory_space_title}</a> відкрилась можливість вносити <a href="%{resource_path}">нові пропозиції</a>
         endorsing_enabled:
           email_intro: 'Ви можете підтримувати пропозиції у %{participatory_space_title}! Почніть брати участь зі сторінки:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: У %{participatory_space_title} почалось надання підтримки пропозиціям
-          notification_title: Тепер в <a href="%{participatory_space_url}">%{participatory_space_title}</a> відкрилась можливість <a href="%{resource_path}">підтримувати пропозиції</a>
         proposal_accepted:
           follower:
             email_intro: 'Пропозиція "%{resource_title}" була прийнята. Ви можете прочитати відповідь на сторінці:'
             email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
-            email_subject: Пропозиція, за якою ви стежите, була прийнята
             notification_title: Пропозицію <a href="%{resource_path}">%{resource_title}</a> було прийнято.
         proposal_evaluating:
           follower:
             email_intro: 'Пропозиція "%{resource_title}" зараз розглядається. Ви можете перевірити наявність відповіді на сторінці:'
             email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
-            email_subject: Пропозиція, за якою ви стежите, зараз розглядається
             notification_title: Пропозиція <a href="%{resource_path}">%{resource_title}</a> розглядається.
         proposal_mentioned:
           email_subject: Вашу пропозицію "%{mentioned_proposal_title}" було згадано
@@ -125,7 +120,6 @@ uk:
           follower:
             email_intro: 'Пропозиція "%{resource_title}" була відхилена. Ви можете прочитати відповідь на сторінці:'
             email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
-            email_subject: Пропозиція, за якою ви стежите, була відхилена
             notification_title: Пропозицію <a href="%{resource_path}">%{resource_title}</a> було відхилено.
         proposal_update_category:
           email_intro: 'Адміністратор оновив категорію вашої пропозиції "%{resource_title}", перевірте її:'
@@ -160,21 +154,12 @@ uk:
             rejected: Відхилено
             title: Відповідь на пропозицію %{title}
         proposal_notes:
-          create:
-            error: При спробі додати примітку до цієї пропозиції сталася помилка
-            success: Примітку до пропозиції успішно створено
           form:
             note: Примітка
             submit: Надіслати
           leave_your_note: Залиште свою нотатку
           title: Приватні примітки
         proposals:
-          answer:
-            invalid: При спробі відповісти на цю пропозицію сталася помилка
-            success: Успішно дано відповідь на пропозицію
-          create:
-            invalid: При спробі створити цю пропозицію сталася помилка
-            success: Пропозицію успішно внесено
           form:
             attachment_legend: "(Необов'язково) Додати вкладений файл"
             select_a_category: Оберіть категорію
@@ -188,21 +173,9 @@ uk:
           new:
             create: Внести
             title: Створити пропозицію
-          publish_answers:
-            select_a_proposal: Будь ласка, оберіть пропозицію
           show:
-            created_at: Дата створення
-            proposals: Пропозиції
             votes_count: Кількість голосів
-          update_category:
-            select_a_category: Будь ласка, виберіть категорію
-            select_a_proposal: Будь ласка, оберіть пропозицію
-          update_scope:
-            select_a_proposal: Будь ласка, оберіть пропозицію
         proposals_imports:
-          create:
-            invalid: При запозиченні цих пропозицій сталася помилка
-            success: "%{number} пропозицій успішно запозичено"
           new:
             create: Запозичити пропозиції
             no_components: У цьому просторі співучасті немає інших складових пропозицій, звідки можна було б запозичити пропозиції.
@@ -244,8 +217,6 @@ uk:
             state: Стан
             title: Назва
             votes: Голоси
-      new:
-        limit_reached: Ви не можете вносити нові пропозиції, оскільки ви перевищили ліміт.
       proposal_votes:
         create:
           error: При голосуванні щодо пропозиції сталися помилки.
@@ -274,21 +245,9 @@ uk:
           search: Шукати
           state: Стан
           voted: Проголосоване
-        filters_small_view:
-          close_modal: Закрити віконце
-          filter: Відібрати
-          filter_by: 'Відібрати за ознакою:'
-          unfold: Розгорнути
         index:
           new_proposal: Додати нову пропозицію
           see_all_withdrawn: Переглянути всі відкликані пропозиції
-          view_proposal: Переглянути пропозицію
-        linked_proposals:
-          proposal_votes:
-            one: голос
-            few: голоси
-            many: голосів
-            other: голосів
         new:
           send: Продовжити
         orders:
@@ -305,18 +264,12 @@ uk:
             other: Ви зможете редагувати цю пропозицію протягом перших %{count} хвилин після оприлюднення пропозиції. Після цього проміжку часу ви не зможете редагувати пропозицію.
           publish: Оприлюднити
           title: Оприлюднити свою пропозицію
-        proposal:
-          creation_date: 'Внесено: %{date}'
-          view_proposal: Переглянути пропозицію
         show:
           answer: Відповісти
-          comments: Коментарі
           edit_proposal: Редагувати пропозицію
-          endorsements_list: Перелік тих, хто підтримав
           proposal_accepted_reason: 'Ця пропозиція була прийнята, тому що:'
           proposal_in_evaluation_reason: Ця пропозиція розглядається
           proposal_rejected_reason: 'Ця пропозиція була відхилена, оскільки:'
-          report: Поскаржитись
           withdraw_btn_hint: Ви можете зняти свою пропозицію, якщо ви передумали, доки ви не отримали жодної підтримки. Пропозиція не видаляється, вона з'явиться у списку відкликаних пропозицій.
           withdraw_proposal: Зняти пропозицію
         vote_button:
@@ -332,30 +285,22 @@ uk:
             few: ГОЛОСИ
             many: ГОЛОСІВ
             other: ГОЛОСІВ
-          most_popular_proposal: Найпопулярніша пропозиція
-          need_more_votes: Потрібно більше голосів
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Кожну пропозицію можуть підтримувати понад %{limit} людей
           proposal_limit:
             description: Ви можете висунути до %{limit} пропозицій.
-          threshold_per_proposal:
-            description: Для того, щоб пропозиції були підтверджені, їм мають надати підтримку %{limit} людей
           title: 'Голосування регулюється наступними правилами:'
           vote_limit:
             description: Ви можете проголосувати до %{limit} пропозицій.
-            left: Залишилось
             votes: Голоси
         wizard_aside:
           back: Повернутись
-          info: Ви вносите <strong>пропозицію</strong>.
         wizard_steps:
-          see_steps: переглянути кроки
           step_1: Внесіть свою пропозицію
           step_2: Порівняти
           step_3: Завершити
           step_4: Оприлюднити свою пропозицію
-          step_of: '%{current_step_num}-й крок з %{total_steps} кроків'
       publish:
         error: При спробі оприлюднити цю пропозицію сталися помилки.
         success: Пропозицію успішно оприлюднено.

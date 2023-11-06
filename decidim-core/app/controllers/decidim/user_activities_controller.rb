@@ -7,6 +7,7 @@ module Decidim
     include UserGroups
     include FilterResource
     include Flaggable
+    include HasProfileBreadcrumb
 
     helper Decidim::ResourceHelper
     helper_method :activities, :resource_types, :user
@@ -50,6 +51,10 @@ module Decidim
       { resource_type: nil }
     end
 
+    def all_value
+      "all"
+    end
+
     def resource_types
       @resource_types = begin
         array = %w(Decidim::Proposals::CollaborativeDraft
@@ -58,8 +63,7 @@ module Decidim
                    Decidim::Initiative
                    Decidim::Meetings::Meeting
                    Decidim::Blogs::Post
-                   Decidim::Proposals::Proposal
-                   Decidim::Consultations::Question)
+                   Decidim::Proposals::Proposal)
         array << "Decidim::Budgets::Order" if own_activities?
         array
       end

@@ -13,7 +13,9 @@ describe "Admin imports participatory process", type: :system do
 
   context "with context" do
     before "Imports the process with the basic fields" do
-      click_link "Import", match: :first
+      within_admin_menu do
+        click_link "Import"
+      end
 
       within ".import_participatory_process" do
         fill_in_i18n(
@@ -26,6 +28,9 @@ describe "Admin imports participatory process", type: :system do
         fill_in :participatory_process_slug, with: "pp-import"
       end
 
+      stub_get_request_with_format("http://localhost:3000/uploads/decidim/participatory_process/hero_image/1/city.jpeg", "image/jpeg")
+      stub_get_request_with_format("http://localhost:3000/uploads/decidim/participatory_process/banner_image/1/city2.jpeg", "image/jpeg")
+
       dynamically_attach_file(:participatory_process_document, Decidim::Dev.asset("participatory_processes.json"))
 
       click_button "Import"
@@ -34,22 +39,33 @@ describe "Admin imports participatory process", type: :system do
     it "imports the json document" do
       expect(page).to have_content("successfully")
       expect(page).to have_content("Import participatory process")
-      expect(page).to have_content("Not published")
+      expect(page).to have_content("Unpublished")
 
-      click_link "Import participatory process"
+      within find("tr", text: "Import participatory process") do
+        click_link "Import participatory process"
+      end
 
-      click_link "Phases"
+      within_admin_sidebar_menu do
+        click_link "Phases"
+      end
+
       within ".table-list" do
         expect(page).to have_content(translated("Magni."))
       end
 
-      click_link "Categories"
+      within_admin_sidebar_menu do
+        click_link "Categories"
+      end
+
       within ".table-list" do
         expect(page).to have_content(translated("Illum nesciunt praesentium explicabo qui."))
         expect(page).to have_content(translated("Expedita sint earum rerum consequatur."))
       end
 
-      click_link "Components"
+      within_admin_sidebar_menu do
+        click_link "Components"
+      end
+
       expect(Decidim::ParticipatoryProcess.last.components.size).to eq(3)
       within ".table-list" do
         Decidim::ParticipatoryProcess.last.components.each do |component|
@@ -57,7 +73,10 @@ describe "Admin imports participatory process", type: :system do
         end
       end
 
-      click_link "Files"
+      within_admin_sidebar_menu do
+        click_link "Files"
+      end
+
       if Decidim::ParticipatoryProcess.last.attachments.any?
         within ".table-list" do
           Decidim::ParticipatoryProcess.last.attachments.each do |attachment|

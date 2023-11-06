@@ -138,7 +138,7 @@ module Decidim
 
         it { is_expected.to eq(proposal.versions) }
 
-        context "when proposal has an answer that wasn't published yet" do
+        context "when proposal has an answer that was not published yet" do
           before do
             proposal.update!(answer: "an answer", state: "accepted", answered_at: Time.current)
           end
@@ -147,7 +147,7 @@ module Decidim
             expect(subject.count).to eq(1)
           end
 
-          it "doesn't include state on the version" do
+          it "does not include state on the version" do
             expect(subject.first.changeset.keys).not_to include("state")
           end
         end
@@ -164,12 +164,31 @@ module Decidim
             expect(subject.count).to eq(2)
           end
 
-          it "doesn't include state on the first version" do
+          it "does not include state on the first version" do
             expect(subject.first.changeset.keys).not_to include("state")
           end
 
           it "includes the state and the state_published_at fields in the last version" do
             expect(subject.last.changeset.keys).to include("state", "state_published_at")
+          end
+        end
+      end
+
+      describe "#editor_body" do
+        let(:organization) { create(:organization) }
+        let(:content) { html }
+
+        include_context "with editor content containing hashtags and mentions"
+
+        it "converts the hastags and mentions to WYSIWYG editor ready elements" do
+          expect(subject.editor_body).to eq(editor_html)
+        end
+
+        context "when modifying all locales" do
+          let(:content) { { en: html, es: html } }
+
+          it "converts the hastags and mentions to WYSIWYG editor ready elements" do
+            expect(subject.editor_body(all_locales: true)).to eq("en" => editor_html, "es" => editor_html)
           end
         end
       end

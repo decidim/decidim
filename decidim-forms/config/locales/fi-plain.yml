@@ -23,7 +23,7 @@ fi-pl:
               missing: ovat puutteellisia
               too_many: liian monta
         questionnaire:
-          request_invalid: Pyynnön käsittely ei onnistunut. Yritä uudestaan myöhemmin
+          request_invalid: Pyynnön käsittely ei onnistunut. Yritä uudestaan myöhemmin.
   decidim:
     forms:
       admin:
@@ -44,6 +44,8 @@ fi-pl:
             actions:
               back: Takaisin vastauksiin
               export: Vie
+              next: Seuraava &rsaquo;
+              previous: "&lsaquo; Edellinen"
               show: Näytä vastaukset
             empty: Ei vielä yhtään vastausta
             export:
@@ -127,8 +129,6 @@ fi-pl:
       errors:
         answer:
           body: Runkoteksti ei voi olla tyhjä
-      files:
-        extension_allowlist: 'Sallitut tiedostopäätteet:'
       images:
         dimensions: "%{width} x %{height} pikseliä"
         processors:
@@ -144,6 +144,8 @@ fi-pl:
         single_option: Yksi vaihtoehto
         sorting: Järjestäminen
         title_and_description: Otsikko ja kuvaus
+      questionnaire_answer_presenter:
+        download_attachment: Lataa liite
       questionnaires:
         answer:
           invalid: Kyselylomakkeeseen vastatessa tapahtui virheitä.
@@ -153,7 +155,10 @@ fi-pl:
           max_choices: 'Valintojen maksimimäärä: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Kirjaudu sisään tililläsi</a> tai <a href="%{sign_up_link}">rekisteröidy</a> vastataksesi kyselyyn.
+            already_have_an_account?: Onko sinulla jo käyttäjätili?
+            are_you_new?: Oletko uusi käyttäjä?
+            sign_in_description: Kirjaudu sisään vastataksesi kyselyyn
+            sign_up_description: Luo tili tähän palveluun vastataksesi kyselyyn
             title: Vastaa kyselyyn
           current_step: Vaihe %{step}
           of_total_steps: / %{total_steps}

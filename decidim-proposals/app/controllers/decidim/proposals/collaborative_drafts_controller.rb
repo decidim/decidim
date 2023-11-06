@@ -4,12 +4,12 @@ module Decidim
   module Proposals
     # Exposes Collaborative Drafts resource so users can view and create them.
     class CollaborativeDraftsController < Decidim::Proposals::ApplicationController
-      helper Decidim::WidgetUrlsHelper
       helper ProposalWizardHelper
       helper TooltipHelper
       helper UserGroupHelper
 
       include Decidim::ApplicationHelper
+      include Decidim::IconHelper
       include FormFactory
       include Flaggable
       include FilterResource
@@ -30,8 +30,8 @@ module Decidim
                                 .includes(:category)
                                 .includes(:scope)
 
-        @collaborative_drafts = paginate(@collaborative_drafts)
         @collaborative_drafts = reorder(@collaborative_drafts)
+        @collaborative_drafts = paginate(@collaborative_drafts)
       end
 
       def show
@@ -63,7 +63,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("proposals.collaborative_drafts.create.error", scope: "decidim")
-            render :complete
+            render :new
           end
         end
       end

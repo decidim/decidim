@@ -10,7 +10,7 @@ module Decidim::Comments
 
     let(:my_cell) { cell("decidim/comments/comment_thread", comment) }
     let(:organization) { create(:organization) }
-    let(:participatory_process) { create :participatory_process, organization: }
+    let(:participatory_process) { create(:participatory_process, organization:) }
     let(:component) { create(:component, participatory_space: participatory_process) }
     let(:commentable) { create(:dummy_resource, component:) }
     let(:comment) { create(:comment, commentable:) }
@@ -19,8 +19,7 @@ module Decidim::Comments
       it "renders the thread" do
         expect(subject).to have_css(".comment-thread")
         expect(subject).to have_content(comment.body.values.first)
-
-        expect(subject).not_to have_css(".comment-thread__title")
+        expect(subject).not_to have_css(".comment-reply")
       end
 
       context "with replies" do
@@ -32,16 +31,16 @@ module Decidim::Comments
           allow(resource_locator).to receive(:path).and_return("/dummies")
         end
 
-        it "renders the title" do
-          expect(subject).to have_css(".comment-thread__title", text: "Conversation with #{comment.author.name}")
+        it "renders the reply" do
+          expect(subject).to have_css(".comment-reply .comment", count: 10)
         end
 
         context "with a deleted user" do
           let(:user) { create(:user, :deleted, organization: component.organization) }
           let(:comment) { create(:comment, commentable:, author: user) }
 
-          it "renders the title" do
-            expect(subject).to have_css(".comment-thread__title", text: "Conversation with Deleted participant")
+          it "renders the user as deleted" do
+            expect(subject).to have_css(".comment__header", text: "Deleted participant")
           end
         end
       end

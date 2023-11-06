@@ -23,6 +23,7 @@ module Decidim
 
     belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
     has_one :organization, through: :user, class_name: "Decidim::Organization"
+    has_many :transfers, class_name: "Decidim::AuthorizationTransfer", dependent: :destroy
 
     validates :name, uniqueness: { scope: :decidim_user_id }
     validates :verification_metadata, absence: true, if: :granted?
@@ -36,10 +37,7 @@ module Decidim
         name: handler.handler_name
       )
 
-      authorization.attributes = {
-        unique_id: handler.unique_id,
-        metadata: handler.metadata
-      }
+      authorization.attributes = handler.authorization_attributes
 
       authorization.grant!
     end
@@ -79,6 +77,18 @@ module Decidim
 
     def expired?
       expires_at.present? && expires_at < Time.current
+    end
+
+    # Transfers the authorization and data bound to the authorization to the
+    # other user provided as an argument.
+    #
+    # @param handler [Decidim::AuthorizationHandler] The authorization handler
+    #   that caused the conflicting situation to happen and which stores the
+    #   authorizing user's information with the latest authorization data.
+    # @return [Decidim::AuthorizationTransfer] The authorization transfer that
+    #   was just processed with its information.
+    def transfer!(handler)
+      Decidim::AuthorizationTransfer.perform!(self, handler)
     end
 
     private

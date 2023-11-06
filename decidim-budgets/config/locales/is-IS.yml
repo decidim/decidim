@@ -21,8 +21,6 @@ is-IS:
           project:
             name: Verkefni
         projects:
-          create:
-            success: Verkefni búin til með góðum árangri
           edit:
             title: Breyta verkefnum
             update: Uppfæra
@@ -32,8 +30,6 @@ is-IS:
             title: Verkefni
           new:
             create: Búa til
-          update:
-            success: Verkefnið hefur verið uppfært
       admin_log:
         project:
           create: "%{user_name} búið til %{resource_name} verkefnið í %{space_name} rúminu"
@@ -52,16 +48,12 @@ is-IS:
         budget_excess:
           budget_excess:
             title: Hámarks fjárhagsáætlun yfir
-          close: Loka
           ok: Allt í lagi
         budget_summary:
           are_you_sure: Ertu viss um að þú viljir hætta við atkvæði þitt?
-          assigned: 'Úthlutað:'
           cancel_order: Eyðu atkvæðagreiðslunni og farðu yfir
           checked_out:
-            description: Þú hefur þegar kosið fyrir fjárhagsáætlunina. Ef þú hefur skipt um skoðun geturðu %{cancel_link}.
             title: Fjárhagsleg atkvæði lokið
-          title: Þú ákveður fjárhagsáætlunina
         count:
           projects_count:
             one: 1 verkefni
@@ -70,22 +62,8 @@ is-IS:
           category: Flokkur
           scope: Umfang
           search: Leita
-        filters_small_view:
-          close_modal: Loka mát
-          filter: Sía
-          filter_by: Sía eftir
-          unfold: Fella út
-        order_progress:
-          vote: Kjósa
-        order_selected_projects:
-          remove: Fjarlægja
-          selected_projects:
-            one: verkefni valin
-            other: verkefni valin
-          view: Útsýni
         show:
           budget: Fjárhagsáætlun
-          view_all_projects: Skoða öll verkefni
     components:
       budgets:
         actions:

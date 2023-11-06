@@ -34,18 +34,20 @@ ca:
   decidim:
     system:
       actions:
-        confirm_destroy: Segur que ho vols eliminar?
+        confirm_destroy: Segur que ho vols eliminar això?
         destroy: Suprimeix
         edit: Edita
-        new: Nou
+        new_admin: Afegir administradora
+        new_oauth_application: Afegir aplicació OAUTH
+        new_organization: Afegir organització
         save: Desa
         title: Accions
       admins:
         create:
           error: S'ha produït un error en crear una nova administradora.
-          success: Administradora creada correctament
+          success: Administradora creada correctament.
         destroy:
-          success: Administradora eliminada correctament
+          success: Administradora eliminada correctament.
         edit:
           title: Editar administradora
           update: Actualitza
@@ -54,16 +56,36 @@ ca:
         new:
           create: Crea
           title: Nova administradora
+        show:
+          destroy: Destruir
+          edit: Editar
         update:
           error: S'ha produït un error en actualitzar aquesta administradora.
-          success: L'administradora s'ha actualitzat correctament
+          success: L'administradora s'ha actualitzat correctament.
       dashboard:
         show:
           current_organizations: Organitzacions actuals
       default_pages:
         placeholders:
           content: Si us plau, afegeix contingut significatiu a la pàgina estàtica de %{page} dins el panell d'administració.
+          summary: Si us plau, afegeix un resum significatiu a la pàgina estàtica %{page} dins el panell d'administració.
           title: Títol predeterminat per %{page}
+        terms-of-service: Termes i condicions d'ús
+      devise:
+        passwords:
+          edit:
+            change_your_password: Canvia la teva contrasenya
+            minimum_characters: "(%{minimum} caràcters com a mínim)"
+          new:
+            forgot_your_password: Has oblidat la teva contrasenya?
+            send_me_reset_password_instructions: Envia'm les instruccions per restablir la contrasenya
+        shared:
+          links:
+            did_not_receive_confirmation_instructions?: No has rebut instruccions de confirmació?
+            did_not_receive_unlock_instructions?: No has rebut les instruccions de desbloqueig?
+            forgot_your_password?: Has oblidat la teva contrasenya?
+            log_in: Iniciar sessió
+            sign_up: Registra't
       menu:
         admins: Administradores
         dashboard: Tauler d'administració
@@ -74,7 +96,6 @@ ca:
           fields:
             created_at: Data de creació
             email: Correu electrònic
-          name: Administradora
           validations:
             email_uniqueness: ja existeix una altra administradora amb aquest correu electrònic
         oauth_application:
@@ -82,17 +103,16 @@ ca:
             created_at: Creat el
             name: Nom de l'aplicació OAuth
             organization_name: Organització
-          name: Aplicació OAuth
         organization:
           actions:
             save_and_invite: Crear organització i convidar l'administradora
           fields:
+            content_security_policy: Política de seguretat dels continguts
             created_at: Data de creació
             file_upload_settings: Configuració de pujada d'arxius
             name: Nom
             omniauth_settings: Configuració de l'Omniauth
             smtp_settings: Configuració d'SMTP
-          name: Organització
       oauth_applications:
         create:
           error: S'ha produït un error en crear aquesta aplicació.
@@ -121,6 +141,39 @@ ca:
         create:
           error: S'ha produït un error en crear una nova organització.
           success: L'organització s'ha creat correctament.
+        csp_settings:
+          connect_src: Adreces de connexió (connect-src)
+          connect_src_hint: |
+            Les adreces de connexió (connect-src) delimiten els URL que es poden carregar als elements <script>.
+            Decidim afegeix automàticament el valor 'self', però, si vols, pots afegir altres valors. Deixa el valor en blanc si no saps què significa.
+          default_src: SRC per defecte
+          default_src_hint: |
+            Default-src és la convenció predeterminada per a tot el contingut extern, com ara JavaScript, imatges, CSS, fonts, trucades asincròniques, marcs i arxius multimèdia HTML5.
+            Decidim afegeix automàticament el valor 'self' 'unsafe-inline'", però, si vols, pots afegir altres valors. Deixa el valor en blanc si no saps què significa.
+          font_src: Adreces de tipus de lletra (font-src)
+          font_src_hint: |
+            La directiva font-src restringeix els URL que es poden carregar amb @font-face.
+            Decidim afegeix automàticament 'self', però, si vols, pots afegir altres valors. Deixa-ho en blanc si no saps què significa.
+          frame_src: Adreces de marc (frame-src)
+          frame_src_hint: |
+            La directiva frame-src restringeix els URL que es poden carregar amb elements <frame>, <iframe> i <object>.
+            Decidim afegeix automàticament 'self', però, si vols, pots afegir altres valors. Deixa-ho en blanc si no saps què significa.
+          img_src: Adreces d'imatge (Img src)
+          img_src_hint: |
+            Els URL d'imatge (img-src) delimiten els URL que es poden carregar usant els elements <img>, <image>, <picture> i <svg>.
+            Decidim afegeix automàticament 'self', però, si vols, pots afegir altres valors. Deixa-ho en blanc si no saps què significa.
+          media_src: Adreces multimèdia (media-src)
+          media_src_hint: |
+            Les adreces multimèdia (media-src) delimiten els URL que es poden carregar als elements <video>, <audio> i <source>.
+            Decidim afegeix automàticament el valor 'self', però, si vols, pots afegir altres valors. Deixa el valor en blanc si no saps què significa.
+          script_src: Adreces d'script (script-src)
+          script_src_hint: |
+            Les adreces d'script (script-src) delimiten els URL que es poden carregar als elements <script>.
+            Decidim afegeix automàticament el valor '"self' 'unsafe-inline' 'unsafe-eval'", però, si vols, pots afegir altres valors. Deixa el valor en blanc si no saps què significa.
+          style_src: Adreces d'estil (style-src)
+          style_src_hint: |
+            Les adreces d'estil (style-src) limiten els URL que es poden carregar als elements <style>.
+            Decidim afegeix automàticament el valor "'self' 'unsafe-inline'", però, si vols, pots afegir altres valors. Deixa el valor en blanc si no saps què significa.
         edit:
           secondary_hosts_hint: Introdueix cada un d'ells en una nova línia
         file_upload_settings:
@@ -144,8 +197,11 @@ ca:
         index:
           title: Organitzacions
         new:
-          reference_prefix_hint: El prefix de la referència s'utilitza per identificar de forma única els recursos de tota la organització
-          secondary_hosts_hint: Introdueix cada un d'ells en una nova línia
+          default: Per defecte?
+          enabled: Habilitat
+          locale: Configuració regional
+          reference_prefix_hint: El prefix de la referència s'utilitza per identificar de forma única els recursos del conjunt de l'organització.
+          secondary_hosts_hint: Introdueix cada un d'ells en una nova línia.
           title: Nova organització
         omniauth_settings:
           decidim:
@@ -169,7 +225,7 @@ ca:
           fieldsets:
             sender: Remitent
           instructions:
-            from_label: 'El remitent de correu electrònic serà: "la-teva-organitzacio <your-organization@example.org>". Deixa-ho en blanc per a usar l''adreça de correu com a etiqueta'
+            from_label: 'El remitent de correu electrònic serà: "nom-de-la-teva-organitzacio <your-organization@example.org>". Deixa-ho en blanc per a usar ''l''adreça de correu'' com a etiqueta.'
           placeholder:
             from_email: la-teva-organitzacio@example.org
             from_label: el-nom-de-la-vostra-organitzacio
@@ -179,10 +235,11 @@ ca:
         users_registration_mode:
           disabled: Només es port accedir amb comptes externs
           enabled: Permetre a les participants registrar-se i iniciar sessió
-          existing: No permetre que es registrin noves participants, però permetre que les participants existents iniciïn sessió
+          existing: No permetre que es registrin noves participants, però permetre a les participants existents iniciar sessió
       shared:
         notices:
           no_organization_warning_html: Has de crear una organització per començar. Assegura't de llegir %{guide} abans de continuar.
           our_getting_started_guide: la nostra guia d'introducció
       titles:
         dashboard: Tauler de control
+        decidim: Decidim

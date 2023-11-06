@@ -1,13 +1,13 @@
+<% add_decidim_page_title(t(".title")) %>
 <div class="card">
-  <div class="card-divider">
-    <h2 class="card-title">
+  <div class="item_show__header">
+    <h2 class="item_show__header-title">
       <%= t ".title" %>
       <% if allowed_to?(:create, :template) %>
-        <%= link_to t("actions.new", scope: "decidim.admin", name: t("template.name", scope: "decidim.models").downcase), [:new, :questionnaire_template], class: "button tiny button--title new" %>
+        <%= link_to t("actions.new_template", scope: "decidim.admin.templates"), [:new, :questionnaire_template], class: "button button__sm button__secondary new" %>
       <% end %>
     </h2>
   </div>
-  <div class="card-section">
   <% if @templates.any? %>
     <div class="table-scroll">
       <table class="table-list questionnaire-templates">
@@ -29,15 +29,15 @@
               <td><%= l template.created_at, format: :long %></td>
               <td class="table-list__actions">
                 <% if allowed_to?(:update, :template, questionnaire_template: template) %>
-                  <%= icon_link_to "pencil", edit_questionnaire_template_path(template), t("actions.edit", scope: "decidim.admin"), class: "edit" %>
+                  <%= icon_link_to "pencil-line", edit_questionnaire_template_path(template), t("actions.edit", scope: "decidim.admin"), class: "edit" %>
                 <% end %>
 
                 <% if allowed_to?(:copy, :template, questionnaire_template: template) %>
-                  <%= icon_link_to "clipboard", copy_questionnaire_template_path(template), t("actions.duplicate", scope: "decidim.admin"), method: :post %>
+                  <%= icon_link_to "file-copy-line", copy_questionnaire_template_path(template), t("actions.duplicate", scope: "decidim.admin"), method: :post %>
                 <% end %>
 
                 <% if allowed_to?(:destroy, :template, questionnaire_template: template) %>
-                  <%= icon_link_to "circle-x", questionnaire_template_path(template), t("actions.destroy", scope: "decidim.admin"), method: :delete, data: { confirm: t(".confirm_delete") }, class: "action-icon--remove" %>
+                  <%= icon_link_to "delete-bin-line", questionnaire_template_path(template), t("actions.destroy", scope: "decidim.admin"), method: :delete, data: { confirm: t(".confirm_delete") }, class: "action-icon--remove" %>
                 <% end %>
               </td>
             </tr>
@@ -48,5 +48,4 @@
   <% else %>
     <%= t("templates.empty", scope: "decidim.admin") %>
   <% end %>
-  </div>
 </div>

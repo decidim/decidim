@@ -12,7 +12,7 @@ module Decidim
                     :creating_managed_user?
 
       def new
-        enforce_permission_to :impersonate, :impersonatable_user, user: user
+        enforce_permission_to(:impersonate, :impersonatable_user, user:)
 
         @form = form(ImpersonateUserForm).from_params(
           user:,
@@ -25,7 +25,7 @@ module Decidim
       end
 
       def create
-        enforce_permission_to :impersonate, :impersonatable_user, user: user
+        enforce_permission_to(:impersonate, :impersonatable_user, user:)
 
         @form = form(ImpersonateUserForm).from_params(
           user:,

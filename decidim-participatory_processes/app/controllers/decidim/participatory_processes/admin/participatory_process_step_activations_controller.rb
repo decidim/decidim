@@ -9,7 +9,7 @@ module Decidim
         include Concerns::ParticipatoryProcessAdmin
 
         def create
-          enforce_permission_to :activate, :process_step, process_step: process_step
+          enforce_permission_to(:activate, :process_step, process_step:)
 
           ActivateParticipatoryProcessStep.call(process_step, current_user) do
             on(:ok) do

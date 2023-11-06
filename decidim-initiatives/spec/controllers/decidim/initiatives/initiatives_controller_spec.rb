@@ -79,7 +79,7 @@ describe Decidim::Initiatives::InitiativesController, type: :controller do
         expect(subject.helpers.current_initiative).to eq(initiative)
       end
 
-      it "Returns 404 when there isn't an initiative" do
+      it "Returns 404 when there is not an initiative" do
         expect { get :show, params: { slug: "invalid-initiative" } }
           .to raise_error(ActiveRecord::RecordNotFound)
       end
@@ -104,12 +104,16 @@ describe Decidim::Initiatives::InitiativesController, type: :controller do
   end
 
   describe "Edit initiative as promoter" do
+    include ActionView::Helpers::TextHelper
+
     before do
       sign_in created_initiative.author, scope: :user
     end
 
     let(:valid_attributes) do
       attrs = attributes_for(:initiative, organization:)
+      attrs[:title] = truncate(translated(attrs[:title]), length: 150, omission: "")
+      attrs[:description] = Decidim::HtmlTruncation.new(translated(attrs[:description]), max_length: 150, tail: "").perform
       attrs[:signature_end_date] = I18n.l(attrs[:signature_end_date], format: :decidim_short)
       attrs[:signature_start_date] = I18n.l(attrs[:signature_start_date], format: :decidim_short)
       attrs[:type_id] = created_initiative.type.id

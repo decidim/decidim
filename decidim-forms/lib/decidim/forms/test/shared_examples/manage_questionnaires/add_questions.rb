@@ -3,6 +3,38 @@
 require "spec_helper"
 
 shared_examples_for "add questions" do
+  shared_examples_for "updating the max choices selector according to the configured options" do
+    it "updates them" do
+      expect(page).not_to have_select("Maximum number of choices")
+
+      select "Multiple option", from: "Type"
+      expect(page).to have_select("Maximum number of choices", options: %w(Any 2))
+
+      click_button "Add answer option"
+      expect(page).to have_select("Maximum number of choices", options: %w(Any 2 3))
+
+      click_button "Add answer option"
+      expect(page).to have_select("Maximum number of choices", options: %w(Any 2 3 4))
+
+      within(".questionnaire-question-answer-option:last-of-type") { click_button "Remove" }
+      expect(page).to have_select("Maximum number of choices", options: %w(Any 2 3))
+
+      within(".questionnaire-question-answer-option:last-of-type") { click_button "Remove" }
+      expect(page).to have_select("Maximum number of choices", options: %w(Any 2))
+
+      click_button "Add question"
+      expand_all_questions
+
+      within(".questionnaire-question:last-of-type") do
+        select multiple_option_string, from: "Type"
+        expect(page).to have_select("Maximum number of choices", options: %w(Any 2))
+
+        select single_option_string, from: "Type"
+        expect(page).not_to have_select("Maximum number of choices")
+      end
+    end
+  end
+
   it "adds a few questions and separators to the questionnaire" do
     fields_body = ["This is the first question", "This is the second question", "This is the first title and description"]
 
@@ -43,7 +75,7 @@ shared_examples_for "add questions" do
       within ".questionnaire-question" do
         fill_in find_nested_form_field_locator("body_en"), with: "Body"
 
-        fill_in_editor find_nested_form_field_locator("description_en", visible: false), with: "<strong>Superkalifragilistic description</strong>"
+        fill_in_editor find_nested_form_field_locator("description_en", visible: false), with: "<p>\n<strong>Superkalifragilistic description</strong>\n</p>"
       end
 
       click_button "Save"
@@ -72,7 +104,7 @@ shared_examples_for "add questions" do
       within ".questionnaire-question" do
         fill_in find_nested_form_field_locator("body_en"), with: "Body"
 
-        fill_in_editor find_nested_form_field_locator("description_en", visible: false), with: "<strong>Superkalifragilistic description</strong>"
+        fill_in_editor find_nested_form_field_locator("description_en", visible: false), with: "<p>\n<strong>Superkalifragilistic description</strong>\n</p>"
       end
 
       click_button "Save"
@@ -119,7 +151,7 @@ shared_examples_for "add questions" do
         end
       end
 
-      expect(page).to have_no_content "Add answer option"
+      expect(page).not_to have_content "Add answer option"
 
       page.all(".questionnaire-question").each do |question|
         within question do
@@ -158,24 +190,24 @@ shared_examples_for "add questions" do
     expand_all_questions
 
     select "Long answer", from: "Type"
-    expect(page).to have_no_selector(".questionnaire-question-answer-option")
-    expect(page).to have_no_selector(".questionnaire-question-matrix-row")
+    expect(page).not_to have_selector(".questionnaire-question-answer-option")
+    expect(page).not_to have_selector(".questionnaire-question-matrix-row")
 
     select "Single option", from: "Type"
     expect(page).to have_selector(".questionnaire-question-answer-option", count: 2)
-    expect(page).to have_no_selector(".questionnaire-question-matrix-row")
+    expect(page).not_to have_selector(".questionnaire-question-matrix-row")
 
     select "Multiple option", from: "Type"
     expect(page).to have_selector(".questionnaire-question-answer-option", count: 2)
-    expect(page).to have_no_selector(".questionnaire-question-matrix-row")
+    expect(page).not_to have_selector(".questionnaire-question-matrix-row")
 
     select "Matrix (Multiple option)", from: "Type"
     expect(page).to have_selector(".questionnaire-question-answer-option", count: 2)
     expect(page).to have_selector(".questionnaire-question-matrix-row", count: 2)
 
     select "Short answer", from: "Type"
-    expect(page).to have_no_selector(".questionnaire-question-answer-option")
-    expect(page).to have_no_selector(".questionnaire-question-matrix-row")
+    expect(page).not_to have_selector(".questionnaire-question-answer-option")
+    expect(page).not_to have_selector(".questionnaire-question-matrix-row")
 
     select "Matrix (Single option)", from: "Type"
     expect(page).to have_selector(".questionnaire-question-answer-option", count: 2)
@@ -363,12 +395,15 @@ shared_examples_for "add questions" do
       click_link "English", match: :first
 
       expect(page).to have_nested_field("body_en", with: "Bye")
-      expect(page).to have_no_selector(nested_form_field_selector("body_ca"))
-      expect(page).to have_no_content("Adeu")
+      expect(page).not_to have_selector(nested_form_field_selector("body_ca"))
+      expect(page).not_to have_content("Adeu")
     end
   end
 
   context "when adding a multiple option question" do
+    let(:multiple_option_string) { "Multiple option" }
+    let(:single_option_string) { "Single option" }
+
     before do
       visit questionnaire_edit_path
 
@@ -381,56 +416,31 @@ shared_examples_for "add questions" do
           fill_in find_nested_form_field_locator("body_en"), with: "This is the first question"
         end
 
-        expect(page).to have_no_content "Add answer option"
-        expect(page).to have_no_select("Maximum number of choices")
+        expect(page).not_to have_content "Add answer option"
+        expect(page).not_to have_select("Maximum number of choices")
       end
     end
 
     it "updates the free text option selector according to the selected question type" do
-      expect(page).to have_no_selector("input[type=checkbox][id$=_free_text]")
+      expect(page).not_to have_selector("input[type=checkbox][id$=_free_text]")
 
       select "Multiple option", from: "Type"
       expect(page).to have_selector("input[type=checkbox][id$=_free_text]")
 
       select "Short answer", from: "Type"
-      expect(page).to have_no_selector("input[type=checkbox][id$=_free_text]")
+      expect(page).not_to have_selector("input[type=checkbox][id$=_free_text]")
 
       select "Single option", from: "Type"
       expect(page).to have_selector("input[type=checkbox][id$=_free_text]")
     end
 
-    it "updates the max choices selector according to the configured options" do
-      expect(page).to have_no_select("Maximum number of choices")
-
-      select "Multiple option", from: "Type"
-      expect(page).to have_select("Maximum number of choices", options: %w(Any 2))
-
-      click_button "Add answer option"
-      expect(page).to have_select("Maximum number of choices", options: %w(Any 2 3))
-
-      click_button "Add answer option"
-      expect(page).to have_select("Maximum number of choices", options: %w(Any 2 3 4))
-
-      within(".questionnaire-question-answer-option:last-of-type") { click_button "Remove" }
-      expect(page).to have_select("Maximum number of choices", options: %w(Any 2 3))
-
-      within(".questionnaire-question-answer-option:last-of-type") { click_button "Remove" }
-      expect(page).to have_select("Maximum number of choices", options: %w(Any 2))
-
-      click_button "Add question"
-      expand_all_questions
-
-      within(".questionnaire-question:last-of-type") do
-        select "Multiple option", from: "Type"
-        expect(page).to have_select("Maximum number of choices", options: %w(Any 2))
-
-        select "Single option", from: "Type"
-        expect(page).to have_no_select("Maximum number of choices")
-      end
-    end
+    it_behaves_like "updating the max choices selector according to the configured options"
   end
 
   context "when adding a matrix question" do
+    let(:multiple_option_string) { "Matrix (Multiple option)" }
+    let(:single_option_string) { "Matrix (Single option)" }
+
     before do
       visit questionnaire_edit_path
 
@@ -442,53 +452,25 @@ shared_examples_for "add questions" do
           fill_in find_nested_form_field_locator("body_en"), with: "This is the first question"
         end
 
-        expect(page).to have_no_content "Add answer option"
-        expect(page).to have_no_content "Add row"
-        expect(page).to have_no_select("Maximum number of choices")
+        expect(page).not_to have_content "Add answer option"
+        expect(page).not_to have_content "Add row"
+        expect(page).not_to have_select("Maximum number of choices")
       end
     end
 
     it "updates the free text option selector according to the selected question type" do
-      expect(page).to have_no_selector("input[type=checkbox][id$=_free_text]")
+      expect(page).not_to have_selector("input[type=checkbox][id$=_free_text]")
 
       select "Matrix (Multiple option)", from: "Type"
       expect(page).to have_selector("input[type=checkbox][id$=_free_text]")
 
       select "Short answer", from: "Type"
-      expect(page).to have_no_selector("input[type=checkbox][id$=_free_text]")
+      expect(page).not_to have_selector("input[type=checkbox][id$=_free_text]")
 
       select "Matrix (Single option)", from: "Type"
       expect(page).to have_selector("input[type=checkbox][id$=_free_text]")
     end
 
-    it "updates the max choices selector according to the configured options" do
-      expect(page).to have_no_select("Maximum number of choices")
-
-      select "Matrix (Multiple option)", from: "Type"
-      expect(page).to have_select("Maximum number of choices", options: %w(Any 2))
-
-      click_button "Add answer option"
-      expect(page).to have_select("Maximum number of choices", options: %w(Any 2 3))
-
-      click_button "Add answer option"
-      expect(page).to have_select("Maximum number of choices", options: %w(Any 2 3 4))
-
-      within(".questionnaire-question-answer-option:last-of-type") { click_button "Remove" }
-      expect(page).to have_select("Maximum number of choices", options: %w(Any 2 3))
-
-      within(".questionnaire-question-answer-option:last-of-type") { click_button "Remove" }
-      expect(page).to have_select("Maximum number of choices", options: %w(Any 2))
-
-      click_button "Add question"
-      expand_all_questions
-
-      within(".questionnaire-question:last-of-type") do
-        select "Matrix (Multiple option)", from: "Type"
-        expect(page).to have_select("Maximum number of choices", options: %w(Any 2))
-
-        select "Matrix (Single option)", from: "Type"
-        expect(page).to have_no_select("Maximum number of choices")
-      end
-    end
+    it_behaves_like "updating the max choices selector according to the configured options"
   end
 end

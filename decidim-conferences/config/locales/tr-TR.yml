@@ -4,7 +4,6 @@ tr:
       conference:
         assemblies_ids: İlgili kurullar
         banner_image: Banner resmi
-        consultations_ids: İlgili istişareler
         copy_categories: Kategorileri kopyala
         copy_components: Bileşenleri kopyala
         copy_features: Özellikleri kopyala
@@ -22,24 +21,12 @@ tr:
         slogan: Slogan
         slug: URL özel bilgisi
         title: Başlık
-      conference_media_link:
-        weight: Ağırlık
-      conference_partner:
-        weight: Ağırlık
-      conference_registration_type:
-        weight: Ağırlık
       conference_speaker:
         full_name: Ad Soyad
       conference_user_role:
         email: E-posta
         name: Adı
         role: Rol
-    errors:
-      models:
-        conference_registration_invite:
-          attributes:
-            email:
-              already_invited: Bu e-posta zaten davet edildi
   activerecord:
     models:
       decidim/conference:
@@ -55,7 +42,12 @@ tr:
     admin:
       actions:
         confirm: Onayla
-        new_conference: Yeni konferans
+        new_conference: Yeni Konferans
+        new_conference_user_role: Yeni konferans yöneticisi
+        new_media_link: Yeni Medya Bağlantısı
+        new_partner: Yeni Ortak
+        new_registration_type: Yeni kayıt türü
+        new_speaker: Yeni Konuşmacı
         send_diplomas: Katılım sertifikaları gönder
       conference_copies:
         new:
@@ -99,8 +91,6 @@ tr:
         edit:
           title: Konferans yöneticisi güncelle.
           update: Güncelle
-        index:
-          conference_admins_title: konferans yöneticileri
         new:
           create: Oluştur
           title: Yeni konferans yöneticisi
@@ -118,7 +108,6 @@ tr:
         form:
           title: Genel bilgi
         index:
-          not_published: Yayınlanmadı
           published: Yayınlandı
         new:
           create: Oluştur
@@ -159,7 +148,6 @@ tr:
           conference_invites: Davetler
           conference_speakers: Konuşmacılar
           diploma: Katılım sertifikası
-          info: Bilgi
           media_links: Medya Bağlantıları
           moderations: Moderasyonlar
           partners: Ortaklar
@@ -170,7 +158,6 @@ tr:
         conference:
           fields:
             created_at: Düzenlendi
-            promoted: Vurgulanan
             published: Yayınlanan
             title: Başlık
         conference_speaker:
@@ -288,9 +275,6 @@ tr:
         title: Hoparlörler
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'URL sümükleri, bu konferansa işaret eden URL’leri oluşturmak için kullanılır. Sadece harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
         conference_invites:
           create:
             error: Kullanıcıyı konferansa katılmaya davet ederken bir sorun oluştu.
@@ -307,12 +291,10 @@ tr:
               all: Herşey
               rejected: Reddedilen
               sent: Gönderilen
-            filter_by: Tarafından filtre
             invite_attendee: Katılımcı Davet Et
             invites: Davetler
             search: Arama
           new:
-            explanation: Kullanıcı bir konferansa katılmaya davet edilecek. E-posta kayıtlı değilse, organizasyona da davet edilecektir.
             invite: Davet et
             new_invite: Kullanıcı davet et
         conference_registrations:
@@ -332,7 +314,6 @@ tr:
             registrations_count:
               one: 1 kayıt oldu.
               other: '%{count} kayıt var.'
-            slug_help: 'URL sümükleri, bu konferansa işaret eden URL’leri oluşturmak için kullanılır. Sadece harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
         diplomas:
           edit:
             save: Kayıt etmek
@@ -340,7 +321,7 @@ tr:
         invite_join_conference_mailer:
           invite:
             decline: '''%{conference_title}'' davetiyesini reddet'
-            invited_you_to_join_a_conference: "%{invited_by} sizi %{application}bir konferansa katılmaya davet etti. Aşağıdaki bağlantılardan reddedebilir veya kabul edebilirsiniz."
+            invited_existing_user_to_join_a_conference: "%{invited_by} sizi %{application}bir konferansa katılmaya davet etti. Aşağıdaki bağlantılardan reddedebilir veya kabul edebilirsiniz."
             registration: '''%{conference_title}'' için kayıt'
         partners:
           index:
@@ -365,18 +346,11 @@ tr:
           cancel: İptal etmek
           confirm: Onaylamak
         show:
-          free: Ücretsiz
           going: Gidiyor
           no_slots_available: Mevcut yuva yok
           registration: kayıt
       conference_program:
-        program_meeting:
-          content: içerik
-          location: yer
-          speakers: Hoparlörler
-          streaming: Yayın Akışı
         show:
-          day: Gün
           program: program
       conference_registration_mailer:
         confirmation:
@@ -391,14 +365,16 @@ tr:
         create:
           invalid: Bu konferansa katılırken bir sorun oluştu.
           success: Konferansa başarılı bir şekilde katıldınız.
+          unauthorized: Konferansa kayıt olmadan önce giriş yapmanız gerekmektedir.
         decline_invitation:
           invalid: Davetin reddedilmesiyle ilgili bir sorun oluştu.
           success: Davetiyeyi başarıyla reddettiniz.
+          unauthorized: Gelen Daveti reddetmeden önce giriş yapmanız gerekmektedir.
         destroy:
           invalid: Bu konferansı terk etmekle ilgili bir sorun oluştu.
           success: Konferansı başarıyla terk ettiniz.
       conference_speaker:
-        go_to_twitter: Twitter'a git
+        go_to_twitter: x'e git
         more_info: Daha fazla bilgi
         personal_website: Kişisel web sitesi
         show:
@@ -407,18 +383,13 @@ tr:
       conference_speaker_cell:
         personal_url:
           personal_website: Kişisel web sitesi
-        twitter_handle:
-          go_to_twitter: Twitter'a git
-      conference_speakers:
-        index:
-          speakers: Hoparlörler
       conferences:
         partners:
           collaborators: Ortaklar
           main_promotors: Organizatörler
         show:
           login_as: '%{name} <%{email}> olarak giriş yaptınız'
-          make_conference_registration: 'Kaydınızı konferansta yapın:'
+          manage_registration: Kayıt İşlemini Yönet
           register: Kayıt olmak
       content_blocks:
         highlighted_conferences:
@@ -426,11 +397,6 @@ tr:
       index:
         title: Konferanslar
       mailer:
-        conference_registration_mailer:
-          confirmation:
-            subject: Konferansınızın kaydı onaylandı
-          pending_validation:
-            subject: Konferansınızın kaydının onaylanması bekleniyor
         invite_join_conference_mailer:
           invite:
             subject: Bir konferansa katılma daveti
@@ -461,37 +427,19 @@ tr:
       pages:
         home:
           highlighted_conferences:
-            active_conferences: Aktif konferanslar
-            see_all_conferences: Tüm konferanslara bak
-      photo:
-        image:
-          attributes:
-            alt: Medya resmi
-        show:
-          close_modal: Yakın kalıcı
-          photo: Fotoğraf
-      photos_list:
-        show:
-          related_photos: Fotoğraflar
+            active_spaces: Aktif konferanslar
+            see_all_spaces: Tüm Konferanslar
       registration_types:
         index:
           choose_an_option: 'Kayıt seçeneğinizi seçin:'
-          login_as: '%{name} <%{email}> olarak giriş yaptınız'
           no_registrations: Kayıt yok
           register: Kayıt olmak
           title: Kayıt türleri
-      shared:
-        conference_user_login:
-          already_account: Decidim'de hesabınız var mı?
-          new_user: Yeni kullanıcı?
-          sign_in: Konferansa kayıt olmak için giriş yapın
-          sign_up: Konferansa kayıt olmak için decidim'de bir hesap oluşturun
       show:
         details: ayrıntılar
         introduction: Giriş
         objectives: Hedefler
         related_assemblies: İlgili montajlar
-        related_consultations: İlgili istişareler
         related_participatory_processes: İlgili Katılımcı Süreçler
     events:
       conferences:
@@ -530,10 +478,6 @@ tr:
           contextual: "<p> <strong> Konferans </strong>, çok sayıda kişinin konuşmacı olarak davet edildiği bir programda düzenlenen toplantılar ve büyük kongreler veya sosyal etkinlikler için tipik olan diğer bilgi alanları (kayıt, destek veren kuruluşların listesi) veya etkinlik sponsoru vb. </p> <p> Örnekler: Bir konferans, bir kuruluş ve üyeleri için alakalı bir etkinlik olabilir veya katılımcı bir sürecin parçası olarak veya bir danışma sürecini takiben gerçekleşebilir. </p>\n"
           page: "<p> <strong> Konferans </strong>, çok sayıda kişinin konuşmacı olarak davet edildiği bir programda düzenlenen toplantılar ve büyük kongreler veya sosyal etkinlikler için tipik olan diğer bilgi alanları (kayıt, destek veren kuruluşların listesi) veya etkinlik sponsoru vb. </p> <p> Örnekler: Bir konferans, bir kuruluş ve üyeleri için alakalı bir etkinlik olabilir veya katılımcı bir sürecin parçası olarak veya bir danışma sürecini takiben gerçekleşebilir. </p>\n"
           title: Konferans nedir?
-    log:
-      value_types:
-        conference_presenter:
-          not_found: 'Konferans veritabanında bulunamadı (ID: %{id})'
     media:
       index:
         description: Bu konferans hakkında bağlantılar
@@ -548,9 +492,6 @@ tr:
     decidim:
       conference_hero:
         register: Kayıt olmak
-      conference_widgets:
-        show:
-          take_part: Yer almak
       conferences:
         conference:
           more_info: Daha fazla bilgi
@@ -561,11 +502,7 @@ tr:
           conferences:
             one: "%{count} konferans"
             other: "%{count} konferans"
-        promoted_conference:
-          more_info: Daha fazla bilgi
-          take_part: Yer almak
       conferences_nav:
-        conference_menu_item: Bilgi
         conference_partners_menu_item: Ortaklar
         conference_speaker_menu_item: Hoparlörler
         media: medya

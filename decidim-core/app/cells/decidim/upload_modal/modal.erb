@@ -1,49 +1,67 @@
-<div class="reveal upload-modal" id="<%= modal_id %>" data-reveal>
-  <div class="reveal__header">
-    <h3 class="reveal__title" data-addlabel="<%= button_label %>" data-editlabel="<%= button_edit_label %>"><%= label %></h3>
-    <button class="close-button" data-close aria-label="<%= t("layouts.decidim.upload_modal.close_modal") %>"
-      type="button">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-
-  <div class="help">
-    <span><%= explanation %></span>
-    <ul>
-      <% help_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-  <div class="row dropzone-container" data-name="<%= attribute %>">
-    <%= tag.div class: "upload-items", data: {
-        locales: {
-          error: t("decidim.forms.upload.labels.error"),
-          title_required: t("decidim.forms.upload.labels.title_required"),
-          file_size_too_large: t("decidim.forms.upload.labels.file_size_too_large", megabytes: (max_file_size_mb)),
-          remove: t("decidim.forms.upload.labels.remove"),
-          title: t("decidim.forms.upload.labels.title"),
-          uploaded: t("decidim.forms.upload.labels.uploaded"),
-          validating: t("decidim.forms.upload.labels.validating"),
-          validation_error: t("decidim.forms.upload.labels.validation_error")
-        }
-      } %>
-    <label class="dropzone">
+<%= decidim_modal id: modal_id, class: "upload-modal" do %>
+<div data-dialog-container>
+  <%= icon "upload-cloud-2-line" %>
+  <h2 id="dialog-title-<%= modal_id %>" tabindex="-1" data-dialog-title data-addlabel="<%= button_label %>" data-editlabel="<%= button_edit_label %>"><%= label %></h2>
+  <div>
+    <div data-name="<%= attribute %>" class="upload-modal__dropzone-container" data-dropzone>
       <%= form.file_field add_attribute,
-        id: nil,
-        class: "hide",
-        label: false,
-        multiple: true,
-        direct_upload: true,
-        data: { direct_upload_url: direct_upload_url } %>
-      <span><%= t("decidim.forms.upload_help.dropzone") %></span>
-    </label>
-  </div>
+                          id: "files-#{modal_id}",
+                          label: false,
+                          required: false,
+                          multiple:,
+                          direct_upload: true,
+                          hidden: true,
+                          data: {
+                            direct_upload_url:,
+                            upload_validations_url:
+                          } %>
 
-  <div class="row columns reveal__content">
-    <div class="text-center">
-      <button class="button add-file-<%= attribute %>" data-close><%= t("decidim.forms.upload.labels.save") %></button>
-      <button class="link cancel-attachment margin-left-1" data-close><%= t("decidim.forms.upload.labels.cancel") %></button>
+      <%= tag.ul class: "upload-modal__dropzone", hidden: true, data: {
+            dropzone_items: "",
+            locales: {
+              error: t("decidim.forms.upload.labels.error"),
+              title_required: t("decidim.forms.upload.labels.title_required"),
+              filename: t("decidim.forms.upload.labels.filename"),
+              file_size_too_large: t("decidim.forms.upload.labels.file_size_too_large", megabytes: (max_file_size_mb)),
+              remove: t("decidim.forms.upload.labels.remove"),
+              title: t("decidim.forms.upload.labels.title"),
+              uploaded: t("decidim.forms.upload.labels.uploaded"),
+              validating: t("decidim.forms.upload.labels.validating"),
+              validation_error: t("decidim.forms.upload.labels.validation_error")
+            }
+          } %>
+
+      <div data-dropzone-no-items="" class="upload-modal__dropzone">
+        <div class="upload-modal__dropzone-placeholder">
+          <span>
+            <%= icon "upload-cloud-2-line", class: "w-8 h-8 text-gray fill-current" %>
+            <%= t("decidim.forms.upload_help.dropzone") %>
+          </span>
+          <label class="button button__sm button__secondary" for="files-<%= modal_id %>">
+            <span><%= t("decidim.forms.upload.select_file") %></span>
+            <%= icon "arrow-right-line", class: "fill-current" %>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="upload-modal__text">
+      <span id="dialog-desc-<%= modal_id %>" class="sr-only"><%= explanation %></span>
+      <ul>
+        <% help_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>
+<div data-dialog-actions>
+  <button type="button" class="button button__sm md:button__lg button__transparent-secondary" data-dropzone-cancel data-dialog-close="<%= modal_id %>">
+    <%= t("decidim.shared.confirm_modal.cancel") %>
+  </button>
+  <button type="button" class="button button__sm md:button__lg button__secondary" data-dropzone-save data-dialog-close="<%= modal_id %>" disabled>
+    <%= t("next", scope: "decidim.messaging.conversations.index") %>
+    <%= icon "arrow-right-line", class: "fill-current" %>
+  </button>
+</div>
+<% end %>

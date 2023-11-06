@@ -27,6 +27,10 @@ module Decidim
       end
     end
 
+    def active_item
+      presented_items.find(&:active?)
+    end
+
     def render
       content_tag :nav, class: "main-nav", "aria-label": @options.fetch(:label, nil) do
         render_menu
@@ -42,10 +46,14 @@ module Decidim
       end
     end
 
-    def menu_items
-      items.map do |menu_item|
-        MenuItemPresenter.new(menu_item, @view, @options).render
+    def presented_items
+      @presented_items ||= items.map do |menu_item|
+        MenuItemPresenter.new(menu_item, @view, @options)
       end
+    end
+
+    def menu_items
+      presented_items.map(&:render)
     end
   end
 end

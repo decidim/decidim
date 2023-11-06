@@ -8,6 +8,7 @@ en:
         decidim_scope_id: Scope
         description: Description
         end_date: End date
+        meetings_ids: Included meetings
         progress: Progress
         project_ids: Included projects
         proposals: Included proposals
@@ -39,8 +40,11 @@ en:
         confirm_destroy: Are you sure you want to delete this %{name}?
         destroy: Delete
         edit: Edit
+        import: Import projects to results
         import_csv: Import CSV
-        new: New %{name}
+        new_result: New result
+        new_status: New status
+        new_timeline_entry: New timeline entry
         preview: Preview
         timeline_entries: Project evolution
         title: Actions
@@ -50,26 +54,62 @@ en:
           results: Results
         import_results:
           new:
+            download_export: Download the Export with CSV format
             import: Import
-            info: "<p>We recommend that you follow these steps:</p><ol><li>Create the Statuses for the Results that you want to add (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Create at least one Result manually through this Admin panel (<a href='%{link_new_result}' target='_blank'>link</a>) before using Import, for having a better understanding of the format and what you'll need to fill out.</li><li>Download the Export with CSV format (%{link_export_csv})</li><li>Make the changes locally. You can only change the following columns of the CSV:</li></ol><ul><li><b>category/id:</b> ID for the Category</li><li><b>scope/id:</b> ID for the Scope</li><li><b>parent/id:</b> ID of the parent (for related Results). Optional</li><li><b>title/I18N:</b> Title on X language</li><li><b>description/I18N:</b> Description on X language</li><li><b>start_date:</b> date when the result starts execution (format YYYY-MM-DD)</li><li><b>end_date:</b> date when the result ends execution (format YYYY-MM-DD)</li><li><b>status/id:</b> ID of the Status for this result</li><li><b>progress:</b> Percentage (from 0 to 100) of the execution</li><li><b>proposals_ids:</b> internal ID of the related proposals (separated with a comma). It gets automatically converted to <span class='attribute-name'>proposal_url</span></li></ul>"
-            link: link
+            info: |
+              <p>We recommend that you follow these steps:</p>
+              <ol>
+              <li><a href='%{link_new_status}' target='_blank'>Create the Statuses for the Results</a> that you want to add</li>
+              <li><a href='%{link_new_result}' target='_blank'>Create at least one Result manually</a> through this Admin panel before using Import, for having a better understanding of the format and what you will need to fill out.</li>
+              <li>%{link_export_csv}</li>
+              <li>Make the changes locally. You can only change the following columns of the CSV:
+                <ul>
+                <li><b>category/id:</b> ID for the Category</li>
+                <li><b>scope/id:</b> ID for the Scope</li>
+                <li><b>parent/id:</b> ID of the parent (for related Results). Optional</li>
+                <li><b>title/en:</b> Title on English language. This will depend on your platform language configuration.</li>
+                <li><b>description/en:</b> Description on English language. This will depend on your platform language configuration.</li>
+                <li><b>start_date:</b> date when the result starts execution (format YYYY-MM-DD)</li>
+                <li><b>end_date:</b> date when the result ends execution (format YYYY-MM-DD)</li>
+                <li><b>status/id:</b> ID of the Status for this result</li>
+                <li><b>progress:</b> Percentage (from 0 to 100) of the execution</li>
+                <li><b>proposals_ids:</b> internal ID of the related proposals (separated with a comma). It gets automatically converted to <span class='attribute-name'>proposal_url</span></li>
+                </ul>
+              </li>
+              </ol>
             title: Import results from CSV
         imports:
           create:
-            success: The file has begun importing. You will receive an email in the next few minutes with the result of the import
+            invalid: There was a problem importing the results.
+            success: The file has begun importing. You will receive an email in the next few minutes with the result of the import.
         models:
           result:
             name: Result
           status:
             name: Status
-          timeline_entry:
-            name: Timeline entry
+        projects_import:
+          create:
+            invalid: There was a problem importing the projects into results, please follow the instructions carefully and make sure you have selected projects for implementation.
+          new:
+            create: Import
+            import_all_selected_projects: Import all projects selected for implementation
+            new_items:
+              one: 1 selected project will be imported
+              other: "%{count} selected projects will be imported"
+              zero: There are no selected projects in this origin component
+            no_components: There are no budgets components in this participatory space to import the projects into results.
+            origin_component_id: Origin component
+            select_component: Select a component
+            success:
+              one: 1 project queued to be imported. You will be notified by email, once completed.
+              other: "%{count} projects queued to be imported. You will be notified by email, once completed."
+            title: Import Projects to Accountability
         results:
           create:
-            invalid: There was a problem creating this result
-            success: Result successfully created
+            invalid: There was a problem creating this result.
+            success: Result successfully created.
           destroy:
-            success: Result successfully deleted
+            success: Result successfully deleted.
           edit:
             title: Edit result
             update: Update result
@@ -79,17 +119,17 @@ en:
             create: Create result
             title: New result
           update:
-            invalid: There was a problem updating this result
-            success: Result successfully updated
+            invalid: There was a problem updating this result.
+            success: Result successfully updated.
         shared:
           subnav:
             statuses: Statuses
         statuses:
           create:
-            invalid: There was a problem creating this status
-            success: Status successfully created
+            invalid: There was a problem creating this status.
+            success: Status successfully created.
           destroy:
-            success: Status successfully deleted
+            success: Status successfully deleted.
           edit:
             title: Edit status
             update: Update status
@@ -99,14 +139,14 @@ en:
             create: Create status
             title: New status
           update:
-            invalid: There was a problem updating this status
-            success: Status successfully updated
+            invalid: There was a problem updating this status.
+            success: Status successfully updated.
         timeline_entries:
           create:
-            invalid: There was a problem creating this entry
-            success: Entry successfully created
+            invalid: There was a problem creating this entry.
+            success: Entry successfully created.
           destroy:
-            success: Entry successfully deleted
+            success: Entry successfully deleted.
           edit:
             title: Edit entry
             update: Update entry
@@ -116,8 +156,8 @@ en:
             create: Create entry
             title: New entry
           update:
-            invalid: There was a problem updating this entry
-            success: Entry successfully updated
+            invalid: There was a problem updating this entry.
+            success: Entry successfully updated.
       admin_log:
         result:
           create: "%{user_name} created result %{resource_name} in %{space_name}"
@@ -136,18 +176,23 @@ en:
             not_found: 'The parent was not found on the database (ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Dates
           results: Results
-          unspecified: Not specified
       import_mailer:
         import:
           errors: Errors
-          errors_present: There was a problem importing results
+          errors_present: There was a problem importing results.
           row_number: Row
           subject: Successful import of results
           success: Successful import of results. You can review the results in the administration interface.
+      import_projects_mailer:
+        import:
+          added_projects:
+            one: One result was imported from projects.
+            other: "%{count} results were imported from projects."
+          subject: Successful import of projects
+          success: Successful imported projects to results in the %{component_name} component. You can review the results in the administration interface.
       last_activity:
-        new_result_at_html: "<span>New result at %{link}</span>"
+        new_result: 'New result:'
       models:
         result:
           fields:
@@ -170,9 +215,6 @@ en:
           fields:
             entry_date: Date
             title: Title
-      result_m:
-        executed: Executed
-        view: View
       results:
         count:
           results_count:
@@ -180,7 +222,6 @@ en:
             other: "%{count} results"
         filters:
           all: All
-          scopes: Scopes
         home:
           categories_label: Categories
           subcategories_label: Subcategories
@@ -188,6 +229,7 @@ en:
           global_status: Global execution status
         nav_breadcrumb:
           global: Global execution
+        no_results: There are no projects
         search:
           search: Search for actions
         show:
@@ -250,7 +292,7 @@ en:
         title: Results
     participatory_spaces:
       highlighted_results:
-        see_all: See all results (%{count})
+        see_all: See all results
     resource_links:
       included_projects:
         result_project: Projects included in this result

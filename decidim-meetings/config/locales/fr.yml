@@ -1,10 +1,6 @@
 fr:
   activemodel:
     attributes:
-      agenda:
-        description: Description
-        duration: Durée
-        title: Titre
       close_meeting:
         attendees_count: Nombre de participants
         attending_organizations: Liste des organisations qui ont participé à cette rencontre
@@ -22,8 +18,10 @@ fr:
         decidim_scope_id: Périmètre d'application
         decidim_user_group_id: Groupe d'utilisateurs
         description: Description
-        end_time: Date de fin
+        end_time: Heure de fin
         id: ID
+        iframe_access_level: Niveau d'accès Iframe
+        iframe_embed_type: Type d'Iframe encapsulée
         location: Lieu
         location_hints: Indicateurs d’emplacement
         online_meeting_url: URL de la rencontre
@@ -33,28 +31,43 @@ fr:
         registration_email_custom_content: Contenu personnalisé de l'e-mail d'inscription
         registration_form_enabled: Formulaire d'inscription activé
         registration_terms: Conditions d'inscription
+        registration_type: Type d'inscription
         registration_url: URL d'inscription
         registrations_enabled: Inscriptions ouvertes
-        show_embedded_iframe: Montrer l'iframe intégrée pour cette URL
+        reserved_slots: Places réservées pour cette rencontre
         start_time: Heure de début
         title: Titre
         transparent: Visible par les non-membres
         type_of_meeting: Type
+      meeting_agenda:
+        title: Titre
+        visible: Visible
+      meeting_agenda_items:
+        description: Description
+        duration: Durée
+        title: Titre
+      meeting_registration_invite:
+        email: Email
+        name: Nom
+      validate_registration_code:
+        code: Code
     errors:
       models:
         meeting:
           attributes:
             iframe_embed_type:
-              not_embeddable: Cette URL ne peut pas être intégrée dans la page de rencontre ou d'événement en direct
+              not_embeddable: Cette URL ne peut pas être intégrée dans la page de rencontre ou d'événement en direct.
+            online_meeting_url:
+              url_format: Veuillez saisir une adresse URL valide
         meeting_agenda:
           attributes:
             base:
-              too_many_minutes: La durée des éléments dépasse la durée de la réunion de %{count} minutes
-              too_many_minutes_child: La durée du sous-événement dépasse la durée de l'événement concerné "%{parent_title}" de %{count} minutes
+              too_many_minutes: La durée des éléments dépasse la durée de la réunion de %{count} minutes.
+              too_many_minutes_child: La durée du sous-événement dépasse la durée de l'événement concerné "%{parent_title}" de %{count} minutes.
         meeting_registration_invite:
           attributes:
             email:
-              already_invited: Cet email a déjà été invité
+              already_invited: Cet email a déjà été invité.
     models:
       decidim/meetings/close_meeting_event: Rencontre terminée
       decidim/meetings/create_meeting_event: Rencontre
@@ -109,7 +122,6 @@ fr:
           success: Cette rencontre a été dupliquée avec succès.
         new:
           copy: Copier
-          select: Sélectionnez les données que vous souhaitez dupliquer
           title: Dupliquer une rencontre
     components:
       meetings:
@@ -184,7 +196,7 @@ fr:
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> débutera dans moins de 48h.
     forms:
       meetings:
-        attendees_count_help_text: N'oubliez pas d'inclure le nombre total de participants à votre réunion, que ce soit en personne, en ligne ou en hybride.
+        attendees_count_help_text: N'oubliez pas d'inclure le nombre total de participants à votre réunion, que ce soit en personne, en ligne ou hybride.
     gamification:
       badges:
         attended_meetings:
@@ -211,7 +223,7 @@ fr:
             one: 'La rencontre ne peut être supprimée car %{count} proposition y est rattachée:'
             other: 'La rencontre ne peut être supprimée car %{count} propositions y sont rattachées:'
         manage_poll: Gérer le sondage
-        new: Nouvelle rencontre
+        new_meeting: Nouvelle rencontre
         preview: Aperçu
         registrations: Inscriptions
         title: Actions
@@ -230,8 +242,8 @@ fr:
             remove: Supprimer
             up: Décaler en haut
           create:
-            invalid: Un problème est survenu lors de la création de cet ordre du jour
-            success: Ordre du jour créé avec succès
+            invalid: Un problème est survenu lors de la création de cet ordre du jour.
+            success: Ordre du jour créé avec succès.
           edit:
             title: Modifier l'ordre du jour
             update: Mettre à jour
@@ -244,8 +256,8 @@ fr:
             create: Créer
             title: Nouvel ordre du jour
           update:
-            invalid: Un problème est survenu lors de la mise à jour de cet ordre du jour
-            success: Ordre du jour mis à jour avec succès
+            invalid: Un problème est survenu lors de la mise à jour de cet ordre du jour.
+            success: Ordre du jour mis à jour avec succès.
         exports:
           answers: Réponses
           meeting_comments: Commentaires
@@ -273,30 +285,26 @@ fr:
               all: Tout
               rejected: Rejeté
               sent: Envoyé
-            filter_by: Filtrer par
             invite_attendee: Inviter un participant
             invites: Invitations
-            registrations_disabled: Vous ne pouvez pas inviter un participant car les invitations sont désactivées.
+            registrations_disabled: Vous ne pouvez pas inviter un participant car les inscriptions sont désactivées.
             search: Chercher
         meeting_closes:
           edit:
             close: Clore
             title: Clore la rencontre
-        meeting_copies:
-          form:
-            select_a_meeting_type: Veuillez sélectionner un type de rencontre
         meetings:
           close:
-            invalid: Il y a eu un problème au moment de clore cette rencontre
-            success: Rencontre close avec succès
+            invalid: Il y a eu un problème au moment de clore cette rencontre.
+            success: Rencontre close avec succès.
           create:
-            invalid: Il y a eu un problème lors de la création de cette rencontre
+            invalid: Une erreur s'est produite lors de la création de cette rencontre.
             success: Rencontre créée avec succès. Notez que celle-ci n'est pas encore publiée, vous devez la publier manuellement.
           destroy:
             invalid:
               proposals_count:
-                one: La rencontre ne peut être supprimée car %{count} proposition y est rattachée
-                other: La rencontre ne peut être supprimée car %{count} propositions y sont rattachées
+                one: La rencontre ne peut être supprimée car %{count} proposition y est rattachée.
+                other: La rencontre ne peut être supprimée car %{count} propositions y sont rattachées.
             success: La rencontre a été supprimée avec succès
           edit:
             title: Modifier la rencontre
@@ -318,8 +326,8 @@ fr:
             create: Créer
             title: Créer une rencontre
           publish:
-            invalid: Une erreur s'est produite lors de la publication de la rencontre
-            success: Rencontre publiée avec succès
+            invalid: Une erreur s'est produite lors de la publication de la rencontre.
+            success: Rencontre publiée avec succès.
           service:
             description: Description
             down: Vers le bas
@@ -331,20 +339,17 @@ fr:
             add_service: Ajouter un service
             services: Services
           unpublish:
-            invalid: Une erreur s'est produite lors de la dépublication de la rencontre
-            success: Rencontre dépubliée avec succès
+            invalid: Une erreur s'est produite lors de la dépublication de la rencontre.
+            success: Rencontre dépubliée avec succès.
           update:
-            invalid: Il y a eu un problème lors de la mise à jour de cette rencontre
-            success: Rencontre mise à jour avec succès
+            invalid: Il y a eu un problème lors de la mise à jour de cette rencontre.
+            success: Rencontre mise à jour avec succès.
         meetings_poll:
           form:
             title: Modifier le questionnaire de sondage pour %{questionnaire_for}
           update:
-            invalid: Une erreur s'est produite lors de la mise à jour du sondage de la rencontre
-            success: Sondage de rencontre mis à jour avec succès
-        models:
-          meeting:
-            name: Rencontre
+            invalid: Une erreur s'est produite lors de la mise à jour du sondage de la rencontre.
+            success: Sondage de rencontre mis à jour avec succès.
         registrations:
           edit:
             save: Sauvegarder
@@ -359,7 +364,7 @@ fr:
             registrations_count:
               one: Il y a eu %{count} inscription.
               other: Il y a eu %{count} inscriptions.
-            reserved_slots_help: Laissez à 0 si vous n'avez pas de places réservées
+            reserved_slots_help: Laisser à 0 si vous n'avez pas de places réservées.
             reserved_slots_less_than: Doit être inférieur ou égal à %{count}
             title: Inscriptions
           update:
@@ -382,21 +387,20 @@ fr:
           value_types:
             organizer_presenter:
               not_found: 'L''organisateur n''a pas été trouvé dans la base de données (ID: %{id})'
+        questionnaire:
+          update: "%{user_name} a mis à jour le questionnaire pour la réunion %{meeting_name}"
       application_helper:
         filter_category_values:
           all: Tout
         filter_meeting_space_values:
           all: Tout
-        filter_scope_values:
-          all: Tout
       calendar_modal:
         calendar_url: URL du calendrier
-        close_window: Fermer la fenêtre
         copy_calendar_url: Copier
         copy_calendar_url_clarification: Copier l'URL du calendrier dans le presse-papiers
         copy_calendar_url_copied: Copié !
         copy_calendar_url_description: Vous pouvez voir toutes les réunions publiées dans votre application de calendrier. Copiez et collez cette URL dans votre calendrier en utilisant l'option "Ajouter un nouveau calendrier à partir d'une URL".
-        copy_calendar_url_explanation: Veuillez noter que vous exportez une sélection de réunions, car il y a des filtres actifs. Si vous souhaitez tous les exporter, réinitialisez d'abord tous les filtres.
+        copy_calendar_url_explanation: Veuillez noter que vous exportez une sélection de rencontres, car il y a des filtres actifs. Si vous souhaitez toutes les exporter, réinitialisez tous les filtres.
         copy_calendar_url_message: Le lien a bien été copié dans le presse-papier.
         export_calendar: Calendrier d'exportation
       close_meeting_reminder_mailer:
@@ -409,11 +413,10 @@ fr:
       content_blocks:
         upcoming_meetings:
           name: Rencontres à venir
-          upcoming_meetings: Rencontres à venir
-          view_all_meetings: Voir tout
       directory:
         meetings:
           index:
+            go_to_list: Voir la liste des événements
             meetings: Rencontres
             space_type: Espace participatif
       iframe_access_level:
@@ -426,8 +429,8 @@ fr:
         open_in_live_event_page: Ouvrir dans la page de l'événement en direct (avec sondages facultatifs)
         open_in_new_tab: Ouvrir le lien dans un nouvel onglet
       last_activity:
-        meeting_updated_at_html: "<span>Rencontre mise à jour à %{link}</span>"
-        new_meeting_at_html: "<span>Nouvelle rencontre dans %{link}</span>"
+        meeting_updated: 'Rencontre mise à jour :'
+        new_meeting: 'Nouvelle rencontre :'
       layouts:
         live_event:
           administrate: Administrer
@@ -441,7 +444,7 @@ fr:
           confirmation:
             subject: Votre inscription a bien été enregistrée
       meeting:
-        not_allowed: Vous n'êtes pas autorisé à voir cette rencontre
+        not_allowed: Vous n'êtes pas autorisé à voir cette rencontre.
       meeting_closes:
         edit:
           back: Retour
@@ -451,7 +454,6 @@ fr:
         calendar_modal:
           add_to_calendar: Ajouter au calendrier
           apple: Ajouter au calendrier Apple
-          close_window: Fermer la fenêtre
           full_details_html: Pour plus de détails, cliquez sur %{link}
           google: Ajouter au calendrier Google
           outlook: Ajouter au calendrier Outlook
@@ -481,8 +483,7 @@ fr:
             all: Toutes
             official: Officiel
             participants: Participants
-            user_groups: Groupes
-          scope: Secteur
+            user_group: Groupes
           search: Rechercher
           type: Type
           type_values:
@@ -490,11 +491,6 @@ fr:
             hybrid: Hybride
             in_person: En présentiel
             online: En ligne
-        filters_small_view:
-          close_modal: Fermer la fenêtre de dialogue
-          filter: Filtrer
-          filter_by: Filtrer par
-          unfold: Voir la suite
         form:
           address_help: 'L''adresse entrée est utilisée par le géocodage pour trouver l''emplacement et afficher la réunion sur la carte. Format accepté : [rue] [code postal] [ville]'
           available_slots_help: Laisser à 0 si le nombre de places disponibles est illimité
@@ -515,10 +511,13 @@ fr:
           see_all: Voir toutes les rencontres
           see_all_withdrawn: Voir toutes les rencontres annulées
           text_banner: Vous consultez la liste des rencontres annulées par leurs auteurs. %{go_back_link}.
-        meeting_minutes:
-          related_information: Informations liées
+        meeting:
+          close_meeting: Clore la rencontre
+          edit_close_meeting: Modifier le compte-rendu de la rencontre
+          edit_meeting: Modifier la rencontre
+          join_meeting: Participer à la rencontre
         meetings:
-          no_meetings_warning: Aucune rencontre ne correspond à vos critères de recherche ou aucune rencontre n'est prévue.
+          no_meetings_warning: Aucune rencontre ne correspond à vos critères de recherche ou aucune rencontre n'a été créée.
           upcoming_meetings_warning: À l'heure actuelle, il n'y a pas de rencontres planifiées. Ici vous trouverez une liste de toutes les rencontres passées.
         new:
           back: Précédent
@@ -529,13 +528,8 @@ fr:
           confirm: Confirmer
         show:
           attendees: Nombre de participants
-          back: Retour à la liste
-          close_meeting: Clore la rencontre
           contributions: Décompte des contributions
           date: Date
-          edit_close_meeting: Modifier le compte-rendu de la rencontre
-          edit_meeting: Modifier la rencontre
-          going: Vous vous êtes inscrit à cette rencontre
           join: Participer à la rencontre
           leave: Annuler votre inscription
           leave_confirmation: Êtes-vous sûr de vouloir annuler votre inscription à cette rencontre ?
@@ -561,8 +555,6 @@ fr:
         update:
           invalid: Une erreur s'est produite lors de la mise à jour de la rencontre.
           success: La rencontre a été mise à jour avec succès.
-      meetings_map:
-        view_meeting: Voir la réunion
       models:
         invite:
           fields:
@@ -604,7 +596,8 @@ fr:
             question_replied: Réponse envoyée
             reply_question: Répondre
       public_participants_list:
-        attending_participants: Participants présents
+        attending_organizations: Organisations
+        attending_participants: Participants
         hidden_participants_count:
           one: et %{count} personne de plus
           other: et %{count} personnes de plus
@@ -621,7 +614,7 @@ fr:
       registrations:
         create:
           invalid: Il y a eu un problème lors de votre inscription à cette rencontre.
-          success: Vous avez rejoint la rencontre avec succès.
+          success: "Vous avez rejoint la rencontre avec succès. En tant que parciticpant à cette rencontre, vous serez avisé \ndes éventuelles mises à jour."
         decline_invitation:
           invalid: Un problème est survenu lors du refus de l'invitation.
           success: Vous avez refusé l'invitation avec succès.
@@ -636,11 +629,9 @@ fr:
         private_meeting: Rencontre privée
         transparent: Visible par les non-membres
         withdraw: Retirée
-      versions:
-        back_to_resource: Revenir à la rencontre
       withdraw:
-        error: Une erreur s'est produite lors de l'annulation de la rencontre
-        success: La réunion a été annulée avec succès
+        error: Une erreur s'est produite lors de l'annulation de la rencontre.
+        success: La rencontre a été annulée avec succès.
     metrics:
       meetings:
         description: Nombre de rencontres créées
@@ -649,10 +640,8 @@ fr:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Rencontres passées
-        see_all: Tout voir (%{count})
+        see_all: Voir toutes les rencontres
         upcoming_meetings: Rencontres à venir
-      upcoming_meeting_for_card:
-        upcoming_meeting: Prochaine rencontre
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Résultats associés :'

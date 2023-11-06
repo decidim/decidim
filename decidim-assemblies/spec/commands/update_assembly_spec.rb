@@ -8,8 +8,8 @@ module Decidim::Assemblies
       let(:organization) { create(:organization) }
       let(:assembly_type) { create(:assemblies_type, organization:) }
       let(:assembly_type_id) { assembly_type.id }
-      let(:my_assembly) { create :assembly, assembly_type:, organization: }
-      let(:user) { create :user, :admin, :confirmed, organization: my_assembly.organization }
+      let(:my_assembly) { create(:assembly, assembly_type:, organization:) }
+      let(:user) { create(:user, :admin, :confirmed, organization: my_assembly.organization) }
 
       let(:participatory_processes) do
         create_list(
@@ -98,7 +98,7 @@ module Decidim::Assemblies
           expect { command.call }.to broadcast(:invalid)
         end
 
-        it "doesn't update the assembly" do
+        it "does not update the assembly" do
           command.call
           my_assembly.reload
 
@@ -225,7 +225,7 @@ module Decidim::Assemblies
         end
 
         context "when updating the parent assembly" do
-          let!(:parent_assembly) { create :assembly, organization: }
+          let!(:parent_assembly) { create(:assembly, organization:) }
 
           it "increments the parent's children_count counter correctly" do
             form.parent_id = parent_assembly.id

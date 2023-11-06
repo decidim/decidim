@@ -6,11 +6,11 @@ describe Decidim::Proposals::ProposalMentionedEvent do
   include_context "when a simple event"
 
   let(:event_name) { "decidim.events.proposals.proposal_mentioned" }
-  let(:organization) { create :organization }
-  let(:author) { create :user, organization: }
+  let(:organization) { create(:organization) }
+  let(:author) { create(:user, organization:) }
 
-  let(:source_proposal) { create :proposal, component: create(:proposal_component, organization:), title: "Proposal A" }
-  let(:mentioned_proposal) { create :proposal, component: create(:proposal_component, organization:), title: "It's proposal B" }
+  let(:source_proposal) { create(:proposal, component: create(:proposal_component, organization:), title: "Proposal A") }
+  let(:mentioned_proposal) { create(:proposal, component: create(:proposal_component, organization:), title: "It is proposal B") }
   let(:resource) { source_proposal }
   let(:extra) do
     {

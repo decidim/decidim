@@ -6,6 +6,8 @@ es-MX:
         offline: Desconectado
         offline_explanation: Instrucciones para la verificación fuera de línea
         online: En línea
+      confirmation:
+        verification_code: Código de verificación
       id_document_information:
         document_number: Número de documento (con letra)
         document_type: Tipo de documento
@@ -14,6 +16,8 @@ es-MX:
         document_type: Tipo de tu documento
         user: Usuario
         verification_attachment: Copia escaneada de tu documento
+      mobile_phone:
+        mobile_phone_number: Número de teléfono móvil
       offline_confirmation:
         email: Email del usuario
       postal_letter_address:
@@ -23,6 +27,12 @@ es-MX:
       postal_letter_postage:
         full_address: Dirección completa
         verification_code: Código de verificación
+    errors:
+      models:
+        census_data:
+          attributes:
+            file:
+              malformed: Archivo de importación mal formateado, por favor lea las instrucciones cuidadosamente y asegúrese de que el archivo está codificado en UTF-8.
   decidim:
     admin:
       menu:
@@ -36,7 +46,7 @@ es-MX:
           destroy_nok: Ha habido un problema al revocar las autorizaciones.
           destroy_ok: Todas las autorizaciones coincidentes han sido revocadas con éxito.
           info: Hay un total de %{count} participantes verificadas.
-          no_data: No hay participantes verificadas
+          no_data: No hay participantes verificadas.
           title: Revocación de autorizaciones
         authorization_workflows: Autorizaciones
     admin_log:
@@ -48,14 +58,14 @@ es-MX:
       admin:
         csv_census:
           help:
-            - Las administradoras cargan un CSV con los correos electrónicos de las participantes aceptadas
-            - Solo las participantes con un correo electrónico en ese archivo CSV pueden ser verificadas
+            - Las administradoras cargan un CSV con los correos electrónicos de las participantes aceptadas.
+            - Solamente se puedan verificar las participantes con un correo electrónico que figure en este archivo CSV.
         id_documents:
           help:
             - Los usuarios rellenan la información de su identidad y suben una copia de su documento.
             - Rellenas la información presente en la imagen subida.
             - La información debe coincidir con lo que el usuario envió.
-            - Si no puedes ver claramente la información o no puedes verificarla, puedes rechazar la solicitud y el usuario podrá corregirla.
+            - Si no puedes ver la información con claridad o no la puedes verificar, puedes rechazar la solicitud para que la participante la pueda corregir.
         postal_letter:
           help:
             - Los usuarios solicitan que se envíe un código de verificación a su dirección.
@@ -63,25 +73,25 @@ es-MX:
             - Marcas la carta como enviada.
             - Una vez hayas marcado la carta como enviada, el usuario podrá introducir el código y ser verificado.
       csv_census:
-        explanation: Verifíquese utilizando el censo de la organización.
+        explanation: Verifícate utilizando el censo de la organización.
         name: Censo de la organización
       direct: Directo
       help: Ayuda
       id_documents:
-        explanation: Sube tus documentos de identidad para que podamos verificar tu identidad
+        explanation: Sube tus documentos de identidad para que podamos verificarla.
         name: Documentos de identidad
       multistep: Con varios pasos
       name: Nombre
       postal_letter:
-        explanation: Te enviaremos una carta postal con un código que deberás ingresar para que podamos verificar tu dirección
+        explanation: Te enviaremos una carta postal con un código que deberás introducir para que podamos verificar tu dirección.
         name: Código por carta postal
     events:
       verifications:
         verify_with_managed_user:
-          email_intro: La participante <a href="%{resource_path}">%{resource_title}</a> ha intentado verificarse a si misma con los datos de la participante gestionada <a href="%{managed_user_path}">%{managed_user_name}</a>.
-          email_outro: Comprueba la <a href="%{conflicts_path}">lista de conflictos de verificaciones</a> y ponte en contacto con la participante para verificar sus detalles y resolver el problema.
-          email_subject: Error al intentar verificarse contra una participante gestionada
-          notification_title: La participante <a href="%{resource_path}">%{resource_title}</a> ha intentado verificarse a si misma con los datos de la participante gestionada <a href="%{managed_user_path}">%{managed_user_name}</a>.
+          email_intro: La participante <a href="%{resource_url}">%{resource_title}</a> ha intentado verificarse con los datos de otra participante (<a href="%{managed_user_url}">%{managed_user_name}</a>).
+          email_outro: Comprueba la <a href="%{conflicts_url}">lista de conflictos de verificaciones</a> y ponte en contacto con la participante para verificar sus detalles y resolver el problema.
+          email_subject: Error al intentar verificarse contra otra participante
+          notification_title: La participante <a href="%{resource_path}">%{resource_title}</a> ha intentado verificarse con los datos de otra participante (<a href="%{managed_user_path}">%{managed_user_name}</a>).
     verifications:
       authorizations:
         authorization_metadata:
@@ -89,11 +99,12 @@ es-MX:
           no_data_stored: No hay datos almacenados.
         create:
           error: Hubo un error al crear la autorización.
-          success: Has sido autorizado/a correctamente.
+          success: Se te ha autorizado correctamente.
+          transferred: 'Se han recuperado los siguientes datos de participación a partir de tu autorización:'
           unconfirmed: Necesitas confirmar tu correo electrónico para autorizarte.
         destroy:
           error: Se ha producido un error al borrar la autorización.
-          success: Ha eliminado correctamente la autorización.
+          success: Has borrado la autorización correctamente.
         first_login:
           actions:
             another_dummy_authorization_handler: Verificar contra otro ejemplo de controlador de autorización
@@ -107,17 +118,19 @@ es-MX:
           verify_with_these_options: 'Estas son las opciones disponibles para verificar tu identidad:'
         index:
           expired_verification: La verificación ha caducado
+          granted_verification: Autorización concedida
+          introduce_code: Introduce el código
           pending_verification: Pendiente de verificación
           show_renew_info: Haz click aquí para renovar la verificación
-          unauthorized_verification: Nueva verificación
+          subscribe: Suscribirse
+          unauthorized_methods: Metodos de verificación
         new:
           authorize: Enviar
           authorize_with: Verificar con %{authorizer}
         renew_modal:
           cancel: Cancelar
-          close: cerrar
           continue: Continuar
-          info_renew: Si quieres actualizar los datos, continua con la renovación
+          info_renew: Si quieres actualizar los datos, continua con la renovación.
           title: Renovar la verificación
         skip_verification: Puedes saltarte este paso por ahora y %{link}
         start_exploring: empezar a explorar
@@ -126,20 +139,23 @@ es-MX:
           census:
             create:
               error: Hubo un error al importar el censo.
-              success: '%{count} artículos importados exitosamente (%{errors} errores)'
+              success: '%{count} ítems importados correctamente (%{errors} errores).'
             destroy_all:
-              success: Todos los datos del censo han sido eliminados
+              success: Todos los datos del censo han sido eliminados.
           destroy:
-            confirm: Eliminar todo el censo no se puede deshacer. Estás seguro de que quieres continuar?
+            confirm: La eliminación de todo el censo no se puede deshacer. ¿Seguro que quieres continuar?
             title: Borrar todos los datos del censo
           index:
-            data: Hay %{count} registros cargados en total. La última fecha de carga fue en %{due_date}
+            data: Hay %{count} registros cargados en total. La última fecha de carga fue en %{due_date}.
             empty: No hay datos del censo. Utilice el siguiente formulario para importarlo usando un archivo CSV.
             title: Datos actuales del censo
           instructions:
             body: Para ello, debe ingresar a la administración del sistema y agregar las autorizaciones csv_census a la organización
             title: Necesitas activar el CSV para esta organización
           new:
+            example: |
+              john.doe@example.org
+              jane.doe@example.org
             file: "archivo .csv con datos de correos electrónicos"
             info: 'Debe ser un archivo en formato CSV con sólo una columna con la dirección de correo electrónico:'
             submit: Subir archivo
@@ -166,19 +182,19 @@ es-MX:
               update: Actualizar
             update:
               error: Se ha producido un error al actualizar la configuración.
-              success: Configuración actualizada correctamente
+              success: Configuración actualizada correctamente.
           confirmations:
             create:
-              error: La verificación no coincide. Inténtalo de nuevo o rechaza la verificación para que el usuario pueda modificarla
-              success: El usuario ha sido verificado correctamente
+              error: La verificación no coincide. Por favor inténtalo de nuevo o rechaza la verificación para que la participante pueda modificarla.
+              success: Participante verificada correctamente.
             new:
               introduce_user_data: Introduce los datos de la imagen
               reject: Rechazar
               verify: Verificar
           offline_confirmations:
             create:
-              error: La verificación no coincide. Inténtalo de nuevo o dile al usuario que lo corrija
-              success: Usuario verificado correctamente
+              error: La verificación no coincide. Por favor inténtalo de nuevo o dile a la participante que la modifique.
+              success: Participante verificada correctamente.
             new:
               cancel: Cancelar
               introduce_user_data: Introduce el correo electrónico del usuario y los datos del documento
@@ -191,7 +207,7 @@ es-MX:
               verification_number: 'Verificación #%{n}'
           rejections:
             create:
-              success: Verificación rechazada. Se le pedirá al usuario que modifique sus documentos
+              success: Verificación rechazada. Se pedirá a la participante que modifique sus documentos.
         authorizations:
           choose:
             choose_a_type: 'Por favor selecciona como quieres ser verificado:'
@@ -199,22 +215,22 @@ es-MX:
             online: Online
             title: Verifícate utilizando tu documento de identidad
           create:
-            error: Hubo un problema al subir tu documento
-            success: El documento se ha subido correctamente
+            error: Hubo un problema al subir tu documento.
+            success: El documento se ha cargado correctamente.
           edit:
-            being_reviewed: Estamos revisando tus documentos. Serás verificado en breve
+            being_reviewed: Estamos revisando tus documentos. Serás verificada en breve.
             offline: Utiliza la verificación presencial
             online: Utiliza la verificación online
-            rejection_clarity: Asegúrate de que la información sea claramente visible en la imagen subida
-            rejection_correctness: Asegúrate de que la información ingresada sea correcta
-            rejection_notice: Hubo un problema con tu verificación. Inténtalo de nuevo
+            rejection_clarity: Asegúrate de que la información sea claramente visible en la imagen cargada.
+            rejection_correctness: Asegúrate de que la información introducida sea correcta.
+            rejection_notice: Hubo un problema con tu verificación. Por favor, inténtalo de nuevo.
             send: Solicitar verificación de nuevo
           new:
             send: Solicitar verificación
             title: Sube tu documento de Identidad
           update:
-            error: Hubo un problema al volver a subir tu documento
-            success: El documento se ha resubido correctamente
+            error: Se ha producido un error al volver a cargar tu documento.
+            success: El documento se ha vuelto a cargar correctamente.
         dni: DNI
         nie: NIE
         passport: Pasaporte
@@ -231,26 +247,26 @@ es-MX:
               verification_code: Código de verificación
           postages:
             create:
-              error: Error al marcar la carta como enviada
-              success: Carta marcada como enviada correctamente
+              error: Se ha producido un error al marcar la carta como enviada.
+              success: Carta marcada correctamente como enviada.
         authorizations:
           create:
-            error: Hubo un problema con su petición
-            success: '¡Gracias! Te enviaremos un código de verificación a tu dirección'
+            error: Se ha producido un problema con tu solicitud.
+            success: '¡Gracias! Te enviaremos un código de verificación a tu dirección.'
           edit:
             send: Confirmar
-            title: Introduce el código de verificación que recibiste
-            waiting_for_letter: Pronto enviaremos una carta a tu dirección con tu código de verificación
+            title: Introduce el código de verificación que has recibido.
+            waiting_for_letter: Pronto enviaremos una carta a tu dirección con tu código de verificación.
           new:
             send: Mándame una carta
             title: Solicita tu código de verificación
           update:
-            error: Tu código de verificación no coincide con el nuestro. Por favor, revisa la carta que te enviamos
-            success: Felicidades. Has sido verificado correctamente
+            error: Tu código de verificación no coincide con el nuestro. Por favor, revisa la carta que te enviamos.
+            success: Felicidades. Te has verificado con éxito.
       sms:
         authorizations:
           create:
-            error: Hubo un problema con tu solicitud
+            error: Se ha producido un problema con tu solicitud.
             success: '¡Gracias! Hemos enviado un SMS a tu teléfono.'
           destroy:
             success: Código de verificación restablecido correctamente. Por favor vuelve a introducir tu número de teléfono.
@@ -264,8 +280,8 @@ es-MX:
             send: Mándame un SMS
             title: Solicita tu código de verificación
           update:
-            error: Tu código de verificación no coincide con el nuestro. Por favor, vuelve a comprobar los SMS que te enviamos.
-            success: Felicidades. Has sido verificado con éxito.
+            error: El código de verificación no coincide con el nuestro. Por favor, vuelve a revisar el SMS que te enviamos.
+            success: Felicidades. Te has verificado con éxito.
   errors:
     messages:
       uppercase_only_letters_numbers: debe ser todo en mayúsculas y contener solo letras y/o números

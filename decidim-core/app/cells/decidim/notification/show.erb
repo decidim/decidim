@@ -1,31 +1,15 @@
-<div class="card card--widget">
-  <ul class="card-data">
-    <li class="card-data__item">
-      <div class="card__link text-center">
-        <%= resource_icon notification.resource, class: "icon--large" %>
-        <span class="text-medium mt-xs" title="<%= l(notification.created_at) %>" data-tooltip="true" data-disable-hover="false">
-          <%= notification.created_at_in_words %>
-        </span>
-      </div>
-    </li>
-    <li class="card-data__item card-data__item--expand absolutes">
-      <div class="mr-s">
-        <span class="text-small"><%= notification.event_class.constantize.model_name.human %></span>
-        <br>
-        <span>
-          <%= notification_title %>
-        </span>
-        <% if notification.display_resource_text? %>
-          <p>
-            <em><%= notification.resource_text %></em>
-          </p>
-        <% end %>
-      </div>
-      <div class="right center mr-s">
-        <%= link_to model, remote: true, method: :delete, class: "mark-as-read-button" do %>
-          <%= icon "circle-x", class: "card__link", aria_label: t("mark_as_read", scope: "layouts.decidim.notifications_dashboard"), role: "img" %>
-        <% end %>
-      </div>
-    </li>
-  </ul>
+<div class="notification" data-notification>
+  <div class="notification__wrapper">
+    <div class="notification__time" title="<%= l(notification.created_at) %>"> <%= notification.created_at_in_words %></div>
+    <div class="notification__snippet">
+      <span class="notification__snippet-title"><%= notification_title %></span>
+      <% if notification.display_resource_text? %>
+        <div class="editor-content"><%= notification.resource_text %></div>
+      <% end %>
+    </div>
+  </div>
+  <%= link_to model, remote: true, method: :delete, class: "notification__button", data: { "notification-read": "" } do %>
+    <span class="sr-only md:not-sr-only"><%= t("mark_as_read", scope: "layouts.decidim.notifications_dashboard") %></span>
+    <%= icon "check-line", class: "fill-current" %>
+  <% end %>
 </div>

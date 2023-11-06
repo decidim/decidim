@@ -3,7 +3,10 @@ cs:
     attributes:
       assemblies_setting:
         enable_organization_chart: Povolit schéma organizace
+      assemblies_type:
+        title: Název
       assembly:
+        announcement: Oznámení
         area_id: Oblast
         assembly_type: Typ shromáždění
         assembly_type_other: Typ shromáždění ostatní
@@ -22,12 +25,16 @@ cs:
         decidim_scope_id: Oblast působnosti
         description: Popis
         developer_group: Skupina promotérů
+        document: Dokument
         domain: Doména
         duration: Doba trvání
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
         hero_image: Obrázek na hlavní stránce
+        import_attachments: Importovat přílohy
+        import_categories: Importovat kategorie
+        import_components: Importovat komponenty
         included_at: Zahrnuty v
         instagram: Instagram
         internal_organisation: Vnitřní organizace
@@ -51,7 +58,7 @@ cs:
         subtitle: Podtitul
         target: Kdo se účastní
         title: Titul
-        twitter: Twitter
+        twitter: X
         weight: Pozice v řazení
         youtube: Youtube
       assembly_member:
@@ -64,16 +71,17 @@ cs:
         non_user_avatar: Avatar
         position: Pozice
         user_id: Uživatel
+        weight: Pozice v řazení
       assembly_user_role:
         email: E-mail
-        name: název
+        name: Název
         role: Role
     errors:
       models:
         assembly:
           attributes:
             document:
-              allowed_file_content_types: 'Neplatný typ dokumentu. Přijatelné formáty jsou: %{types}'
+              allowed_file_content_types: 'Neplatný typ dokumentu. Jsou povoleny pouze soubory s následujícími příponami: %{types}.'
   activerecord:
     models:
       decidim/assembly:
@@ -96,7 +104,9 @@ cs:
       actions:
         import_assembly: Importovat
         new_assembly: Nové shromáždění
+        new_assembly_member: Nový člen shromáždění
         new_assembly_type: Nový typ shromáždění
+        new_assembly_user_role: Nový administrátor shromáždění
       assemblies:
         create:
           error: Při vytváření nového shromáždění došlo k chybě.
@@ -104,10 +114,10 @@ cs:
         edit:
           update: Aktualizace
         index:
-          not_published: Není zveřejněno
           private: Soukromé
           public: Veřejné
           published: Publikováno
+          unpublished: Nezveřejněno
         new:
           create: Vytvořit
           title: Nové shromáždění
@@ -136,7 +146,7 @@ cs:
           success: Typ shromáždění byl úspěšně aktualizován.
       assembly_copies:
         new:
-          copy: kopírovat
+          copy: Kopírovat
           select: Vyberte, která data chcete duplikovat
           title: Zduplikovat shromáždění
       assembly_imports:
@@ -202,9 +212,11 @@ cs:
           attachments: Přílohy
           categories: Kategorie
           components: Komponenty
-          info: Info
+          info: O tomto shromáždění
+          landing_page: Úvodní stránka
           moderations: Moderování
           private_users: Soukromí uživatelé
+          see_assembly: Zobrazit shromáždění
         assemblies_types: Typy shromáždění
       models:
         assemblies_types:
@@ -213,6 +225,7 @@ cs:
             title: Titul
         assembly:
           fields:
+            actions: Akce
             created_at: Vytvořeno v
             private: Soukromé
             promoted: Zvýrazněno
@@ -223,18 +236,18 @@ cs:
           fields:
             ceased_date: Datum ukončení
             designation_date: Datum označení
-            full_name: název
+            full_name: Název
             position: Pozice
           name: Člen
           positions:
-            other: jiný
+            other: Ostatní
             president: Prezident
             secretary: Tajemník
-            vice_president: Víceprezident
+            vice_president: Místopředseda
         assembly_user_role:
           fields:
             email: E-mail
-            name: název
+            name: Název
             role: Role
           name: Administrátor shromáždění
           roles:
@@ -278,15 +291,15 @@ cs:
             duration: Doba trvání
             duration_help: Pokud je doba trvání tohoto shromáždění omezená, zvolte konečné datum, jinak se objeví jako neurčitá.
             filters: Filtry
-            images: snímky
+            images: Obrázky
             included_at_help: Vyberte datum, kdy byla tato sestava přidána na platformu. Nemusí být nutně stejné jako datum vytvoření.
             metadata: Metadata
-            other: jiný
+            other: Ostatní
             select_a_created_by: Vybrat vytvořeno od
             select_an_area: Vyberte oblast
             select_an_assembly_type: Vyberte typ shromáždění
             select_parent_assembly: Vybrat nadřazené shromáždění
-            slug_help: 'URL slimy se používají k vygenerování adres URL, které odkazují na tuto sestavu. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
+            slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na toto shromáždění. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
             social_handlers: Sociální
             title: Obecná informace
             visbility: Viditelnost
@@ -300,11 +313,10 @@ cs:
             title: Titul
         assembly_copies:
           form:
-            slug_help: 'URL slug se používají k vygenerování adres URL, které odkazují na toto shromáždění. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
+            slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na toto shromáždění. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
         assembly_imports:
           form:
-            document_legend: Přidat dokument
-            slug_help: 'URL slug se používá k generování URL, které odkazují na toto shromáždění. přijímá pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
+            slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na toto shromáždění. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
         assembly_members:
           form:
             existing_user: Existující účastník
@@ -320,7 +332,6 @@ cs:
               all: Vše
               ceased: Ukončit
               not_ceased: Nekončí
-            filter_by: Filtrovat podle
             search: Vyhledávání
         content_blocks:
           highlighted_assemblies:
@@ -329,6 +340,26 @@ cs:
           accepted_types:
             json: JSON
       assemblies:
+        description:
+          area_name: Oblast
+          closing_date: Datum ukončení
+          created_by: Vytvořil
+          creation_date: Datum vytvoření
+          data: Data shromáždění
+          developer_group: Skupina propagátorů
+          duration: Doba trvání
+          included_at: Zahrnuto v
+          indefinite_duration: Neurčité
+          local_area: Oblast působnosti organizace
+          meta_scope: Oblast působnosti
+          participatory_scope: O čem se rozhoduje
+          participatory_structure: Jak se o tom rozhoduje
+          target: Kdo se účastní
+          title: O tomto shromáždění
+        filters:
+          names:
+            all: Vše
+          type: Typ
         show:
           title: O tomto shromáždění
       assembly_members:
@@ -343,8 +374,16 @@ cs:
         participatory: Účastnický
         working_group: Pracovní skupina
       content_blocks:
+        children_assemblies:
+          name: Shromáždění
+        dates_metadata:
+          name: Metadata dat
+        extra_data:
+          name: Typ a doba trvání
         highlighted_assemblies:
           name: Zvýrazněná shromáždění
+        related_assemblies:
+          name: Související shromáždění
       created_by:
         city_council: Městská rada
         others: Ostatní
@@ -362,44 +401,24 @@ cs:
       index:
         title: Shromáždění
       last_activity:
-        new_assembly: Nové shromáždění
+        new_assembly: 'Nové shromáždění:'
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Aktivní shromáždění
-            assemblies_button_title: Odkaz na stránku Shromáždění zobrazující všechna shromáždění
-            see_all_assemblies: Zobrazit všechny shromáždění
+            active_spaces: Aktivní shromáždění
+            see_all_spaces: Zobrazit všechna shromáždění
         user_profile:
           member_of:
             member_of: Člen
       show:
-        area: Oblast
         assembly_type: Typ shromáždění
-        children: Shromáždění
-        closing_date: Uzávěrka
-        composition: Složení
-        created_by: Vytvořil
-        creation_date: Datum vytvoření
-        developer_group: Skupina propagátorů
         duration: Doba trvání
-        included_at: Zahrnuto v
-        indefinite_duration: Neurčité
-        internal_organisation: Interní organizace
         is_transparent:
           'false': neprůhledný
           'true': transparentní
-        local_area: Oblast působnosti organizace
-        participatory_scope: Co se rozhodlo
-        participatory_structure: Jak se o tom rozhoduje
         private_space: Toto je soukromé shromáždění
-        purpose_of_action: Účel akce
-        read_less: Číst méně
-        read_more: Číst více
         related_participatory_processes: Související participativní procesy
-        scope: Oblast působnosti
-        social_networks: Sociální sítě
         social_networks_title: Navštivte shromáždění na
-        target: Kdo se účastní
     assembly_members:
       assembly_member:
         designated_on: Určen pro
@@ -442,9 +461,6 @@ cs:
         related_assemblies: Související shromáždění
     statistics:
       assemblies_count: Shromáždění
-  errors:
-    messages:
-      cannot_be_blank: nemůže být prázdný
   layouts:
     decidim:
       assemblies:
@@ -452,22 +468,18 @@ cs:
           more_info: Více informací
           take_part: Zúčastnit se
         index:
-          children: 'Shromáždění: '
-          organizational_chart: Organizační schéma
           promoted_assemblies: Zvýrazněná shromáždění
-          reset_chart: Resetovat
+        metadata:
+          children_item:
+            one: "%{count} shromáždění"
+            few: "%{count} shromáždění"
+            many: "%{count} shromáždění"
+            other: "%{count} shromáždění"
         order_by_assemblies:
           assemblies:
             one: "%{count} sestav"
             few: "%{count} sestav"
             many: "%{count} sestav"
             other: "%{count} shromáždění"
-        promoted_assembly:
-          more_info: Více informací
-          take_part: Zúčastnit se
       assembly_navigation:
         assembly_member_menu_item: Členové
-        assembly_menu_item: Shromáždění
-      assembly_widgets:
-        show:
-          take_part: Zúčastnit se

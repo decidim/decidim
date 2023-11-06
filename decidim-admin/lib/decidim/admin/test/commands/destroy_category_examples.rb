@@ -22,7 +22,7 @@ module Decidim
         context "when the category is not empty" do
           let!(:subcategory) { create :subcategory, parent: category }
 
-          it "doesn't destroy the category" do
+          it "does not destroy the category" do
             expect do
               command.call
             end.not_to change(Category, :count)

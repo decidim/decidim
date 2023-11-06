@@ -14,16 +14,20 @@ module Decidim
       end
 
       # Executes the command.
+      # i18n-tasks-use t('decidim.system.default_pages.terms-of-service')
       #
       # Returns nothing.
       def call
         Decidim::StaticPage::DEFAULT_PAGES.map do |slug|
-          Decidim::StaticPage.find_or_create_by!(organization:, slug:) do |page|
-            page.title = localized_attribute(slug, :title)
-            page.content = localized_attribute(slug, :content)
+          static_page = Decidim::StaticPage.find_or_create_by!(organization:, slug:) do |page|
+            translated_slug = I18n.t(slug, scope: "decidim.system.default_pages")
+            page.title = localized_attribute(translated_slug, :title)
+            page.content = localized_attribute(translated_slug, :content)
             page.show_in_footer = true
-            page.allow_public_access = true if slug == "terms-and-conditions"
+            page.allow_public_access = true if slug == "terms-of-service"
           end
+
+          create_summary_content_blocks_for(static_page) if slug == "terms-of-service"
         end
       end
 
@@ -39,6 +43,21 @@ module Decidim
 
           result.update(locale => text)
         end
+      end
+
+      def create_summary_content_blocks_for(page)
+        content_block_summary = Decidim::ContentBlock.create(
+          organization:,
+          scope_name: :static_page,
+          manifest_name: :summary,
+          weight: 1,
+          scoped_resource_id: page.id,
+          published_at: Time.current
+        )
+
+        translated_slug = I18n.t(page.slug, scope: "decidim.system.default_pages")
+        content_block_summary.settings = { summary: localized_attribute(translated_slug, :summary) }
+        content_block_summary.save!
       end
     end
   end

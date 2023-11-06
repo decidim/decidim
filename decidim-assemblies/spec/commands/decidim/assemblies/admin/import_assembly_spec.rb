@@ -4,10 +4,12 @@ require "spec_helper"
 
 module Decidim::Assemblies::Admin
   describe ImportAssembly do
+    include Decidim::ComponentTestHelpers
+
     subject { described_class.new(form, user) }
 
-    let(:organization) { create :organization }
-    let(:user) { create :user, organization: }
+    let(:organization) { create(:organization) }
+    let(:user) { create(:user, organization:) }
     let!(:document_file) { File.read(Decidim::Dev.asset(document_name)) }
     let(:form_doc) do
       instance_double(File,
@@ -39,7 +41,28 @@ module Decidim::Assemblies::Admin
     let(:import_attachments) { false }
     let(:import_categories) { false }
 
+    def stub_calls_to_external_files
+      stub_get_request_with_format(
+        "http://localhost:3000/uploads/decidim/assembly/hero_image/1/city.jpeg",
+        "image/jpeg"
+      )
+      stub_get_request_with_format(
+        "http://localhost:3000/uploads/decidim/assembly/banner_image/1/city2.jpeg",
+        "image/jpeg"
+      )
+      stub_get_request_with_format(
+        "http://localhost:3000/uploads/decidim/attachment/file/31/Exampledocument.pdf",
+        "application/pdf"
+      )
+      stub_get_request_with_format(
+        "http://localhost:3000/uploads/decidim/attachment/file/32/city.jpeg",
+        "image/jpeg"
+      )
+    end
+
     shared_examples "import assembly succeeds" do
+      before { stub_calls_to_external_files }
+
       it "broadcasts ok and create the assembly" do
         expect { subject.call }.to(
           broadcast(:ok) &&
@@ -73,7 +96,7 @@ module Decidim::Assemblies::Admin
         expect { subject.call }.to broadcast(:invalid)
       end
 
-      it "doesn't create any assembly" do
+      it "does not create any assembly" do
         expect do
           subject.call
         end.not_to change(::Decidim::Assembly, :count)
@@ -92,6 +115,8 @@ module Decidim::Assemblies::Admin
       let(:import_categories) { true }
 
       it "imports an assembly and the categories" do
+        stub_calls_to_external_files
+
         expect { subject.call }.to change(Decidim::Category, :count).by(8)
         expect(Decidim::Category.distinct.select(:decidim_participatory_space_id).count).to eq 1
 
@@ -109,7 +134,9 @@ module Decidim::Assemblies::Admin
       let(:import_attachments) { true }
 
       context "when attachment collections exists" do
-        it "imports a assembly and the collections" do
+        it "imports an assembly and the collections" do
+          stub_calls_to_external_files
+
           expect { subject.call }.to change(Decidim::AttachmentCollection, :count).by(1)
           imported_assembly_collection = Decidim::AttachmentCollection.first
           expect(imported_assembly_collection.name).to eq("ca" => "deleniti", "en" => "laboriosam", "es" => "quia")

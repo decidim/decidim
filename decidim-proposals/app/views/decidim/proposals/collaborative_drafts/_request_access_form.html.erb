@@ -2,6 +2,6 @@
   <%= decidim_form_for(@request_access_form, url: request_access_collaborative_draft_path(@collaborative_draft)) do |form| %>
     <%= form.hidden_field :id, value: @collaborative_draft.id %>
     <%= form.hidden_field :state, value: @collaborative_draft.state %>
-    <%= form.submit t(:request_access, scope: "decidim.proposals.collaborative_drafts.show"), class: "button expanded button--sc mt-s", data: { disable: true } %>
+    <%= form.submit t(:request_access, scope: "decidim.proposals.collaborative_drafts.show"), class: "button button__lg button__secondary w-full", data: { disable: true } %>
   <% end %>
 <% end %>

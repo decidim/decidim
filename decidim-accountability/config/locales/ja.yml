@@ -7,6 +7,7 @@ ja:
         decidim_scope_id: スコープ
         description: 説明
         end_date: 終了日
+        meetings_ids: 含まれるミーティング
         progress: 進捗状況
         project_ids: 含まれるプロジェクト
         proposals: 含まれる提案
@@ -37,8 +38,8 @@ ja:
         confirm_destroy: この %{name} を削除してもよろしいですか？
         destroy: 削除
         edit: 編集
+        import: プロジェクトを結果にインポート
         import_csv: CSVをインポート
-        new: 新しい %{name}
         preview: プレビュー
         timeline_entries: プロジェクトの進化
         title: アクション
@@ -48,26 +49,59 @@ ja:
           results: 結果
         import_results:
           new:
+            download_export: CSV形式でエクスポートをダウンロード
             import: インポート
-            info: "<p>以下の手順をお勧めします:</p><ol><li>追加したい結果のステータスを作成する (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>この管理ページを使用して、少なくとも1つの結果を手動で作成します。 (<a href='%{link_new_result}' target='_blank'>link</a>) インポートを使用する前に、フォーマットと何を記入する必要があるかをよりよく理解してください。</li><li>CSV形式でエクスポートをダウンロードしてください。 (%{link_export_csv})</li><li>ローカルで変更を行います。変更できるのは、CSVの次の列のみです:</li></ol><ul><li><b>category/id:</b> CategoryのID</li><li><b>scope/id:</b> Scope の ID</li><li><b>parent/id:</b> 関連する結果の親ID。任意</li><li><b>title/I18N:</b> 言語Xのタイトル</li><li><b>description/I18N:</b> 言語XのDescription</li><li><b>start_date:</b> 結果の効力が開始される日 (format YYYY-MM-DD)</li><li><b>end_date:</b> 結果の効力が失われる日 (format YYYY-MM-DD)</li><li><b>status/id:</b> 結果のステータスID</li><li><b>progress:</b> 進行のパーセンテージ(0 から 100)</li><li><b>proposals_ids:</b> 提案に関連する内部ID(カンマ区切り)。 自動的に <span class='attribute-name'>proposal_url</span> に変換されます。</li></ul>"
-            link: リンク
+            info: |
+              <p>以下の手順をお勧めします:</p>
+              <ol>
+              <li>追加したい<a href='%{link_new_status}' target='_blank'>結果のステータスを作成</a>してください。</li>
+              <li>インポートを使用する前に、この管理画面を通じて<a href='%{link_new_result}' target='_blank'>少なくとも1つの結果を手動で作成</a>し、フォーマットと必要な入力内容をより理解してください。</li>
+              <li>%{link_export_csv}</li>
+              <li>ローカルで変更を加えてください。次の列のみ変更可能です。
+                <ul>
+                <li><b>category/id:</b> カテゴリのID</li>
+                <li><b>scope/id:</b> スコープのID</li>
+                <li><b>parent/id:</b> 関連する結果のID（オプション）</li>
+                <li><b>title/en:</b> 英語のタイトル。プラットフォームの言語設定に依存します。</li>
+                <li><b>description/en:</b> 英語の説明。プラットフォームの言語設定に依存します。</li>
+                <li><b>start_date:</b> 結果が実行を開始する日付（形式：YYYY-MM-DD）</li>
+                <li><b>end_date:</b> 結果が実行を終了する日付（形式：YYYY-MM-DD）</li>
+                <li><b>status/id:</b> この結果のステータスのID</li>
+                <li><b>progress:</b> 実行の進捗率（0〜100のパーセント）</li>
+                <li><b>proposals_ids:</b> 関連する提案の内部ID（コンマで区切られています）。自動的に<span class='attribute-name'>proposal_url</span>に変換されます。</li>
+                </ul>
+              </li>
+              </ol>
             title: CSVから結果をインポート
         imports:
           create:
-            success: ファイルのインポートが開始されました。インポートの結果、数分後にメールが届きます。
+            invalid: 結果のインポート中に問題が発生しました。
+            success: ファイルのインポートが開始されました。インポートの結果は、数分後にメールで届きます。
         models:
           result:
             name: 結果
           status:
             name: ステータス
-          timeline_entry:
-            name: タイムラインのエントリ
+        projects_import:
+          create:
+            invalid: プロジェクトを結果にインポートする際に問題が発生しました。指示に従い、実装のためにプロジェクトを選択していることを確認してください。
+          new:
+            create: インポート
+            import_all_selected_projects: 実装のために選択されたすべてのプロジェクトをインポート
+            new_items:
+              other: "選択した %{count} 件のプロジェクトがインポートされます"
+            no_components: この参加スペースにはプロジェクトを結果にインポートするための予算コンポーネントはありません。
+            origin_component_id: 元のコンポーネント
+            select_component: コンポーネントを選択
+            success:
+              other: "%{count} 件のプロジェクトがインポートする準備を行いました。完了次第、メールで通知します。"
+            title: アカウンタビリティコンポーネントにプロジェクトをインポート
         results:
           create:
-            invalid: この結果を作成する際に問題が発生しました
-            success: 結果を作成しました
+            invalid: 結果の作成中に問題がありました。
+            success: 結果が正常に作成されました。
           destroy:
-            success: 結果を削除しました
+            success: 結果を削除しました。
           edit:
             title: 結果を編集
             update: 結果を更新
@@ -77,17 +111,17 @@ ja:
             create: 結果を作成
             title: 新しい結果
           update:
-            invalid: この結果の更新中に問題が発生しました
-            success: 結果を更新しました
+            invalid: 結果の更新中に問題が発生しました。
+            success: 結果を更新しました。
         shared:
           subnav:
             statuses: ステータス
         statuses:
           create:
-            invalid: ステータスの作成中に問題が発生しました
-            success: ステータスが正常に作成されました
+            invalid: ステータスの作成中に問題が発生しました。
+            success: ステータスが正常に作成されました。
           destroy:
-            success: ステータスが削除されました
+            success: ステータスを削除しました。
           edit:
             title: ステータスの編集
             update: ステータスを更新
@@ -97,14 +131,14 @@ ja:
             create: ステータスを作成
             title: 新しいステータス
           update:
-            invalid: ステータスの更新中に問題が発生しました
-            success: ステータスが正常に更新されました
+            invalid: ステータスの更新中に問題が発生しました。
+            success: ステータスが正常に更新されました。
         timeline_entries:
           create:
-            invalid: このエントリの作成中に問題が発生しました
+            invalid: エントリの作成中に問題が発生しました。
             success: エントリが正常に作成されました。
           destroy:
-            success: エントリが正常に削除されました。
+            success: エントリを削除しました。
           edit:
             title: エントリを編集
             update: エントリを更新
@@ -114,8 +148,8 @@ ja:
             create: エントリを作成
             title: 新しい項目
           update:
-            invalid: このエントリの更新中に問題が発生しました
-            success: エントリが正常に更新されました。
+            invalid: エントリの更新中に問題が発生しました。
+            success: エントリを更新しました。
       admin_log:
         result:
           create: "%{user_name} が結果 %{resource_name} を %{space_name} に作成しました"
@@ -140,12 +174,18 @@ ja:
       import_mailer:
         import:
           errors: エラー
-          errors_present: 結果のインポート中に問題が発生しました
+          errors_present: 結果のインポート中に問題が発生しました。
           row_number: 行
           subject: 結果のインポートに成功しました
           success: 結果のインポートに成功しました。管理画面で結果を確認できます。
+      import_projects_mailer:
+        import:
+          added_projects:
+            other: "%{count} 件の結果がプロジェクトからインポートされました。"
+          subject: プロジェクトのインポートに成功しました
+          success: '%{component_name} コンポーネントに結果をインポートしました。管理インターフェイスで結果を確認できます。'
       last_activity:
-        new_result_at_html: "<span>新しい結果 %{link}</span>"
+        new_result: '新しい結果:'
       models:
         result:
           fields:
@@ -177,7 +217,6 @@ ja:
             other: "%{count} 件の結果"
         filters:
           all: すべて
-          scopes: スコープ
         home:
           categories_label: カテゴリ
           subcategories_label: サブカテゴリ
@@ -185,6 +224,7 @@ ja:
           global_status: グローバル実行状況
         nav_breadcrumb:
           global: グローバル実行
+        no_results: プロジェクトがありません
         search:
           search: アクションを検索
         show:

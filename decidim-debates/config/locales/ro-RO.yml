@@ -10,6 +10,7 @@ ro:
         end_time: Se termină la
         information_updates: Actualizări informații
         instructions: Instrucţiuni de participare
+        scope_id: Domeniu de interes
         start_time: Începe la
         title: Titlu
         user_group_id: Creați o dezbatere în calitate de
@@ -51,7 +52,6 @@ ro:
         confirm_destroy: Sigur dorești asta?
         destroy: Ștergere
         edit: Editare
-        new: '%{name} nou'
         title: Acțiuni
       admin:
         debate_closes:
@@ -81,9 +81,6 @@ ro:
             success: Dezbatere actualizata cu succes.
         exports:
           comments: Comentarii
-        models:
-          debate:
-            name: Dezbatere
       admin_log:
         debate:
           close: "%{user_name} a închis dezbaterea %{resource_name} cu privire la spațiul %{space_name}"
@@ -96,7 +93,6 @@ ro:
           invalid: A existat o problemă la închiderea dezbaterii.
           success: Dezbatere închisă.
         close_debate_modal:
-          close: Închide
           description: Care este rezumatul sau concluzia acestei dezbateri?
           send: Închide dezbaterea
         closed: Închisă
@@ -124,18 +120,11 @@ ro:
           official: Oficial
           origin: Origine
           participants: Participanți
-          scope: Domeniu de interes
           search: Caută
           state: Stare
           state_values:
             closed: Închisă
             open: Deschide
-          user_groups: Grupuri
-        filters_small_view:
-          close_modal: Închide fereastra
-          filter: Filtrare
-          filter_by: Filtrare după
-          unfold: Desfășurat
         form:
           select_a_category: Te rugăm selectează o categorie
         index:
@@ -151,7 +140,6 @@ ro:
           recent: Cele mai recente
           updated: Actualizate recent
         show:
-          back: Înapoi la listă
           close_debate: Închide dezbaterea
           date: Data
           debate_closed: Închisă
@@ -159,23 +147,14 @@ ro:
           edit_conclusions: Editează concluziile
           edit_debate: Editează dezbaterea
           groups_count: Grupuri
-          last_comment_by: Ultimul comentariu din partea
-          no_comments_yet: Încă nu există comentarii
           open: Dezbatere deschisă
           participants_count: Participanţi
         update:
           invalid: A apărut o problemă la actualizarea dezbaterii.
           success: Dezbatere actualizata cu succes.
-        versions:
-          debates:
-            back_to_resource: Revenire la dezbatere
-          index:
-            title: Versiuni
-        versions_list:
-          back_to_resource: Înapoi la dezbatere
       last_activity:
-        debate_updated_at_html: "<span>Dezbatere actualizată la %{link}</span>"
-        new_debate_at_html: "<span>Noua dezbatere la %{link}</span>"
+        debate_updated: 'Dezbatere actualizată:'
+        new_debate: 'Dezbatere nouă:'
       models:
         debate:
           fields:
@@ -209,7 +188,7 @@ ro:
           email_intro: 'Acum poți începe noi dezbateri în %{participatory_space_title}! Participă acum:'
           email_outro: Ai primit această notificare deoarece urmărești %{participatory_space_title}. Poți opri notificările accesând linkul anterior.
           email_subject: Dezbaterile sunt acum disponibile în %{participatory_space_title}
-          notification_title: Acum poți începe <a href="%{resource_path}">noi dezbateri</a> în <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Acum poți începe <a href="%{resource_path}">noi dezbateri</a> în <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         debate_closed:
           affected_user:
             email_intro: 'Dezbaterea pentru "%{resource_title}” a fost închisă. Poți citi concluziile pe pagina dezbaterii:'

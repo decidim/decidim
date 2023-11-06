@@ -38,7 +38,7 @@ module Decidim
         end
 
         def edit
-          enforce_permission_to :update, :trustee_participatory_space, trustee_participatory_space: trustee_participatory_space
+          enforce_permission_to(:update, :trustee_participatory_space, trustee_participatory_space:)
 
           UpdateTrusteeParticipatorySpace.call(trustee_participatory_space) do
             on(:ok) do |trustee|
@@ -54,7 +54,7 @@ module Decidim
         end
 
         def destroy
-          enforce_permission_to :delete, :trustee_participatory_space, trustee_participatory_space: trustee_participatory_space
+          enforce_permission_to(:delete, :trustee_participatory_space, trustee_participatory_space:)
 
           RemoveTrusteeFromParticipatorySpace.call(trustee_participatory_space) do
             on(:ok) do
@@ -72,7 +72,7 @@ module Decidim
         private
 
         def trustee_participatory_space
-          @trustee_participatory_space ||= TrusteesParticipatorySpace.find_by(id: params[:id])
+          @trustee_participatory_space ||= TrusteesParticipatorySpace.find_by(id: params[:id], participatory_space: current_participatory_space)
         end
 
         def trustees

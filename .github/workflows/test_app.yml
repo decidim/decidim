@@ -1,0 +1,129 @@
+on:
+  workflow_call:
+    inputs:
+      codecov_token:
+        required: false
+        description: 'Codecov token'
+        default: "bc15b944-6b42-420a-b3f9-a5a8fb214326"
+        type: string
+      ruby_version:
+        description: 'Ruby Version'
+        default: "3.1.1"
+        required: false
+        type: string
+      working-directory:
+        required: true
+        type: string
+      test_command:
+        description: 'The testing command to be ran'
+        required: true
+        type: string
+      bullet_enabled:
+        description: 'Enable bullet performance testing'
+        required: false
+        default: false
+        type: boolean
+      bullet_n_plus_one:
+        description: 'Enable bullet n+1 testing'
+        required: false
+        default: false
+        type: boolean
+      bullet_counter_cache:
+        description: 'Enable bullet counter cache testing'
+        required: false
+        default: false
+        type: boolean
+      bullet_unused_eager_loading:
+        description: 'Enable bullet unused eager loading testing'
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  build_app:
+    name: Test app
+    runs-on: ubuntu-latest
+    if: "!startsWith(github.head_ref, 'chore/l10n')"
+    timeout-minutes: 60
+    env:
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: postgres
+      DATABASE_HOST: localhost
+      RUBYOPT: '-W:no-deprecated'
+    services:
+      validator:
+        image: ghcr.io/validator/validator:latest
+        ports: ["8888:8888"]
+      postgres:
+        image: postgres:14
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        env:
+          POSTGRES_PASSWORD: postgres
+      bulletin_board:
+        image: decidim/decidim-bulletin-board:0.24.1
+        ports: ["8000:8000"]
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@postgres/bb
+          RAILS_ENV: test
+          SEED: 1
+          IDENTIFICATION_PRIVATE_KEY: '{"kty":"RSA","n":"zMXsZpYPKkDlSmezX898y7zNOaJ7ENIN4kj4UhQ95Vm4HlgTpIs2VMMsO0eqynMaOR_G1mXdqbpbaJtXijBe4V8323QwGm6WVAa71E7pDXa5g6-uo5f8GePitN0YER9y2yNQN4uTaNzJiWV2uLBUYfMdj3SIif31YwLULHAOj3B_oleFK8coE_Qr3NzATcYBmsqE8AR4NljxTO6KDmP1SLdf5GBOBhOAIFbnL_Kpj2xkm7MS3hjMVKpiRhqA1UgX5oKZ8ixBv46fNJF0pBsHi3fHNjK9oZzgdx_AI-YFpdE_40-8bh_g9sWzxacqOM2-MdQLHbvRPEVltO3E8tr6I5YWrylcP7l9VD8OJeqjq2qFYHnGYdmLoD2XuXmI9EuBvSb9H4-qcartxZSIQCimKib_fxZvgrG1FSRRhK6YpvIdGv4-G2zfCCRsC4XD80TYI2bf-oYCoy7eU3_eVHFMV2yg4p1Wnuw2Vgq0edPL_bKaV9JvGx7F-U5juxNN0WZR9LzbPl4ReejzN95lyHgbj0nTH_u3bSpZmgJrQF-PwdnPcG46deVjJgUeosrlC4lQxVrRz0GL58BuFunnz2uYDBDrcJCiG60EbdkAFHjOcXU4wrUWATin7je_aqdBXhSnkTafcJAMvL7Y2Ld7vDge8nLqjAVlAi5am3rN0kqKT6M","e":"AQAB","kid":"a8e86f02ca27e1861bfc49e2a9a4614ca9068f8efdb6d42d19d3aab0eb2a31be"}'
+          DISABLE_DATABASE_ENVIRONMENT_CHECK: 1
+          RAILS_SERVE_STATIC_FILES: enabled
+          DATABASE_CLEANER_ALLOW_REMOTE_DATABASE_URL: true
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ inputs.ruby_version }}
+          bundler-cache: true
+      - uses: nanasess/setup-chromedriver@v2
+      - uses: actions/cache@v3
+        id: app-cache
+        with:
+          path: ./spec/decidim_dummy_app/
+          key: app-${{ github.sha }}
+          restore-keys: app-${{ github.sha }}
+      - run: bundle exec rake parallel:create parallel:load_schema
+        name: Parallel tests
+        shell: "bash"
+        working-directory: ./spec/decidim_dummy_app/
+      - run: |
+          sudo Xvfb -ac $DISPLAY -screen 0 1920x1084x24 > /dev/null 2>&1 & # optional
+          ${{ inputs.test_command }}
+        name: RSpec
+        working-directory: ${{ inputs.working-directory }}
+        env:
+          VALIDATOR_HTML_URI: http://localhost:8888/
+          ELECTIONS_BULLETIN_BOARD_SERVER: http://localhost:8000/api
+          RUBY_VERSION: ${{ inputs.ruby_version }}
+          DECIDIM_MODULE: ${{ inputs.working-directory }}
+          CODECOV_TOKEN: ${{ inputs.codecov_token }}
+          DECIDIM_BULLET_ENABLED: ${{ inputs.bullet_enabled }}
+          DECIDIM_BULLET_N_PLUS_ONE: ${{ inputs.bullet_n_plus_one }}
+          DECIDIM_BULLET_COUNTER_CACHE: ${{ inputs.bullet_counter_cache }}
+          DECIDIM_BULLET_UNUSED_EAGER: ${{ inputs.bullet_unused_eager_loading }}
+          DISPLAY: ":99"
+          CI: "true"
+          SIMPLECOV: "true"
+          PARALLEL_TEST_PROCESSORS: 2
+          SHAKAPACKER_RUNTIME_COMPILE: "false"
+          NODE_ENV: "test"
+      - uses: codecov/codecov-action@v3
+        name: Upload coverage
+        with:
+          token: ${{ inputs.codecov_token }}
+          name: ${{ inputs.working-directory }}
+          flags: ${{ inputs.working-directory }}
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: screenshots
+          path: ./spec/decidim_dummy_app/tmp/screenshots
+          if-no-files-found: ignore

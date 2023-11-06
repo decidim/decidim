@@ -37,7 +37,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't update the category" do
+          it "does not update the category" do
             command.call
             category.reload
 

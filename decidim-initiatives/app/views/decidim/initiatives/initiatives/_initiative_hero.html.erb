@@ -1,0 +1,13 @@
+<section style="background-image:url('<%= hero_background_path(current_initiative) %>');">
+  <div class="initiative__hero">
+    <div class="initiative__hero-text">
+      <h1 class="h1 text-5xl">
+        <%= translated_attribute(current_participatory_space.title) %>
+      </h1>
+      <p class="initiative__hero-slogan">
+        <%= render partial: "tags_type", locals: { resource: current_initiative } %>
+      </p>
+      <%= render partial: "layouts/decidim/initiative_header_steps", locals: { initiative: current_participatory_space } %>
+    </div>
+  </div>
+</section>

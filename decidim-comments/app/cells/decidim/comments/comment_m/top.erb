@@ -1,7 +1,0 @@
-<div class="card__top">
-  <% if render_space? %>
-    <div class="card__content text-small">
-      <span class="muted"><%= searchable_resource_human_name(model.root_commentable.class, count: 1) %>:</span>&nbsp;<%= link_to root_commentable_title, resource_link_path, class: "card__link text-ellipsis" %>
-    </div>
-  <% end %>
-</div>

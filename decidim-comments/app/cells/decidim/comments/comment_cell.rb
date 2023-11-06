@@ -91,15 +91,6 @@ module Decidim
         end
       end
 
-      def comment_classes
-        classes = ["comment"]
-        if nested?
-          classes << "comment--nested"
-          classes << "comment--nested--alt" if nested_level_even?
-        end
-        classes.join(" ")
-      end
-
       def alignment_badge_classes
         classes = %w(label alignment)
         case alignment
@@ -120,14 +111,14 @@ module Decidim
       end
 
       def votes_up_classes
-        classes = ["comment__votes--up"]
+        classes = ["button button__sm button__text-secondary js-comment__votes--up"]
         classes << "is-vote-selected" if voted_up?
         classes << "is-vote-notselected" if voted_down?
         classes.join(" ")
       end
 
       def votes_down_classes
-        classes = ["comment__votes--down"]
+        classes = ["button button__sm button__text-secondary js-comment__votes--down"]
         classes << "is-vote-selected" if voted_down?
         classes << "is-vote-notselected" if voted_up?
         classes.join(" ")
@@ -200,7 +191,6 @@ module Decidim
 
       def vote_button_to(path, params, &)
         # actions are linked to objects belonging to a component
-        # In consultations, a question belong to a participatory_space but it has comments
         # To apply :comment permission, the modal authorizer should be refactored to allow participatory spaces-level comments
         return button_to(path, params, &) unless current_component
 

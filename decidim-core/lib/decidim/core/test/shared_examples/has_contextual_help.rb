@@ -12,18 +12,24 @@ shared_examples "shows contextual help" do
   it "shows the contextual help on the root path on first visit, hides it on subsequent ones" do
     visit index_path
 
-    within ".floating-helper-container" do
+    within "#floating-helper-tip" do
+      click_button
+    end
+
+    within "#floating-helper-block" do
       expect(page).to have_content("Some relevant help")
-      find(".floating-helper__content-close").click
+      click_button
     end
 
     visit current_path
 
-    expect(page).to have_no_content("Some relevant help")
+    expect(page).not_to have_content("Some relevant help")
 
-    find(".floating-helper__text").click
+    within "#floating-helper-tip" do
+      click_button
+    end
 
-    within ".floating-helper__content" do
+    within "#floating-helper-block" do
       expect(page).to have_css("p", text: "Some relevant help")
     end
   end

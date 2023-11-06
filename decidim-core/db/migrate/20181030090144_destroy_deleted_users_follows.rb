@@ -10,7 +10,7 @@ class DestroyDeletedUsersFollows < ActiveRecord::Migration[5.2]
   end
 
   def change
-    deleted_users = Decidim::User.where.not(deleted_at: nil).pluck(:id)
+    deleted_users = User.where.not(deleted_at: nil).pluck(:id)
     Follow.where(decidim_followable_type: "Decidim::UserBaseEntity", decidim_followable_id: deleted_users).destroy_all
     Follow.where(decidim_user_id: deleted_users).destroy_all
   end

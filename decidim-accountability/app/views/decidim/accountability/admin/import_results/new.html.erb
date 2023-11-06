@@ -1,22 +1,31 @@
-<%= form_tag(import_results_path, multipart: true, class: "form new_import") do %>
-  <div class="card">
-    <div class="card-divider">
-      <h2 class="card-title">
-        <%= t(".title") %>
-      </h2>
-    </div>
-
-    <div class="card-section">
-      <div class="row column">
-        <%= file_field_tag :csv_file %>
+<% add_decidim_page_title(t(".title")) %>
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t(".title") %>
+  </h2>
+</div>
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <%= form_for(@form, url: import_results_path, html: { class: "form form-defaults import_projects" }) do |form| %>
+      <div class="card py-4">
+        <div class="card-section space-y-4 prose max-w-full">
+          <div class="row column">
+            <p><%= t(".info",
+                     link_new_status: new_status_path,
+                     link_new_result: new_result_path,
+                     link_export_csv: link_to(t(".download_export"),exports_path(current_component, id: "results", format: "CSV"), method: :post)
+                   ).try("html_safe") %></p>
+          </div>
+          <div class="row column">
+            <%= form.upload :file, button_class: "button button__sm button__transparent-secondary" %>
+          </div>
+        </div>
       </div>
-    </div>
+      <div class="item__edit-sticky">
+        <div class="item__edit-sticky-container">
+          <%= submit_tag t(".import"), class: "button button__sm button__secondary" %>
+        </div>
+      </div>
+    <% end %>
   </div>
-
-  <div class="button--double form-general-submit">
-    <%= submit_tag t(".import"), class: "button" %>
-  </div>
-  <div class="import-process-info">
-    <%= t(".info", link_new_status: new_status_path, link_new_result: new_result_path, link_export_csv: link_to(t(".link"), exports_path(current_component, id: "results", format: "CSV"), method: :post)).try("html_safe") %>
-  </div>
-<% end %>
+</div>

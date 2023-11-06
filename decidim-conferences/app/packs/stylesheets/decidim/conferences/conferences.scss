@@ -1,3 +1,5 @@
-.conference--date{
-  cursor: default;
-}
+@import "stylesheets/decidim/conferences/conference.scss";
+@import "stylesheets/decidim/conferences/speaker.scss";
+@import "stylesheets/decidim/conferences/registration.scss";
+@import "stylesheets/decidim/conferences/program.scss";
+@import "stylesheets/decidim/conferences/media.scss";

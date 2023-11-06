@@ -9,7 +9,7 @@ module Decidim
 
     let(:user) { create(:user, :confirmed) }
     let(:document_number) { "123456X" }
-    let(:scope) { create :scope, organization: user.organization }
+    let(:scope) { create(:scope, organization: user.organization) }
     let(:scope_id) { scope.id }
     let(:params) do
       {

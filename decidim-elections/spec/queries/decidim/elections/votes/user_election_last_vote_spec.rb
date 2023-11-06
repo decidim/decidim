@@ -6,7 +6,7 @@ module Decidim::Elections::Votes
   describe LastVoteForVoter do
     subject { described_class.new(election, voter_id).query }
 
-    let(:election) { create :election }
+    let(:election) { create(:election) }
     let(:voter_id) { "a voter id" }
 
     describe "when there are votes for the voter id and the election" do

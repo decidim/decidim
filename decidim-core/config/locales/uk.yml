@@ -53,14 +53,12 @@ uk:
         success: Ваш обліковий запис успішно видалено.
       download_your_data_export:
         file_no_exists: Файл не існує
-        notice: Зараз відбувається збереження у вигляді файлу. Ви отримаєте електронного листа після його завершення.
       show:
         change_password: Змінити пароль
         update_account: Оновити обліковий запис
       update:
         error: При спробі оновити ваш обліковий запис сталася помилка.
         success: Вашу обліковку успішно оновлено.
-        success_with_email_confirmation: Ваш обліковий запис успішно оновлено. Ви отримаєте електронний лист для підтвердження адреси електронної пошти.
     admin_log:
       area:
         create: "%{user_name} додав дільницю %{resource_name}"
@@ -106,12 +104,6 @@ uk:
         verify: "%{user_name} підтвердив гурт учасників %{resource_name}"
     anonymous_user: Анонімний вхід
     application:
-      collection:
-        documents:
-          one: Документ
-          few: Документи
-          many: Документів
-          other: Документів
       documents:
         related_documents: Супутні документи
       photos:
@@ -124,13 +116,11 @@ uk:
         other: коментарів
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Підтвердьте свою особу, ввівши номер паспорта, що починається з "А"
         fields:
           passport_number: Номер паспорта
           postal_code: Поштовий індекс
         name: Ще один приклад підтвердження особи
       dummy_authorization_handler:
-        explanation: Підтвердьте особу, ввівши номер документа, що закінчується на "X"
         fields:
           document_number: Номер документа
           postal_code: Поштовий індекс
@@ -153,7 +143,6 @@ uk:
           explanation: Строк дії підтвердження вашої особи вичерпався. Щоб виконати цю дію, вам потрібно знову підтвердити свою особу за допомогою "%{authorization}".
           title: Строк дії підтвердження особи вичерпався
         incomplete:
-          explanation: 'Незважаючи на те, що ви наразі підтвердили свою особу за допомогою "%{authorization}", ми просимо вас знову підтвердити свою особу, оскільки нам не вистачає наступних даних:'
           invalid_field: "Поле %{field}"
           reauthorize: Заново підтвердити свою особу
           title: Будь ласка, заново підтвердіть свою особу
@@ -162,12 +151,8 @@ uk:
           explanation: Щоб виконати цю дію, потрібно підтвердити свою особу за допомогою "%{authorization}".
           title: Необхідне підтвердження своєї особи
         pending:
-          explanation: Щоб виконати цю дію, потрібно підтвердити особу за допомогою "%{authorization}", але ваше підтвердження особи все ще триває
-          resume: Відстежте перебіг підтвердження особи "%{authorization}"
           title: Підтвердження особи все ще триває
         unauthorized:
-          explanation: Вибачте, ви не можете виконати цю дію, оскільки деякі з ваших даних підтвердження особи не збігаються.
-          invalid_field: "Для поля %{field} значення %{value} неприпустиме."
           ok: Гаразд
           title: Недостатньо прав через відсутність підтвердження особи
     collapsible_list:
@@ -203,13 +188,8 @@ uk:
         name: Статистика організації
       sub_hero:
         name: Під-багатирський банер
-    core:
-      actions:
-        unauthorized: Ви не маєте прав на виконання цієї дії
     devise:
       omniauth_registrations:
-        create:
-          email_already_exists: Інший обліковий запис використовує ту ж саму адресу електронної пошти
         new:
           complete_profile: Заповнити профіль
           sign_up: Будь ласка, заповніть свій профіль
@@ -220,12 +200,8 @@ uk:
           already_have_an_account?: Вже маєте обліковий запис?
           newsletter: Отримувати іноді розсилання зі свіжими новинами
           newsletter_title: Дозвіл на зв'язок
-          sign_in: Увійти
           sign_up: Зареєструватися
-          sign_up_as:
-            legend: Зареєструватися як
           subtitle: Зареєструйтесь, щоб брати участь у обговореннях та підтримувати пропозиції.
-          terms: умови участі
           tos_agreement: Реєструючись, ви приймаєте %{link}.
           tos_title: Умови участі
           username_help: Загальнодоступне ім'я, яке відображається у ваших дописах. З метою гарантування анонімності, може бути будь-яким.
@@ -237,9 +213,6 @@ uk:
         newsletter_modal:
           buttons:
             check: Поставити галочку та продовжити
-            close_modal: Закрити віконце
-          notice: |-
-            <p>Привіт, ви впевнені, що не хочете отримувати розсилання новин?<br> Будь ласка, ще раз розгляньте можливість поставити нижче галочку щодо розсилання.<br> Для нас дуже важливо, щоб ви могли іноді отримувати електронні листи з важливими оголошеннями. Ви завжди можете змінити це на сторінці налаштувань сповіщень.</p> <p>Якщо ви не поставите цю галочку, ви можете прогледіти доречні відомості щодо свіжих можливостей участі в роботі майданчика.<br> Якщо ви все ж бажаєте уникнути розсилань, ми прекрасно розуміємо таке ваше рішення.</p> <p>Дякуємо, що прочитали це!</p>
           title: Сповіщення про новини
         omniauth_buttons:
           or: Або
@@ -249,7 +222,6 @@ uk:
           authorize: Підтвердити додаток
           by_organization_link_html: <small class="heading-small">через %{link}</small>
           cancel: Скасувати
-          connect_your_account_html: Підключіть свій обліковий запис, увійшовши до <strong>%{organization}</strong>
           publish_content: Оприлюднювати за вас дописи
           see_email: Бачити вашу адресу ел-пошти
           see_name: Бачити ваше ім'я
@@ -264,16 +236,12 @@ uk:
       show:
         download_data: Завантажити дані
         request_data: Подати запит на дані
-    endorsable:
-      endorsements: Проявів підтримки
     errors:
       internal_server_error:
         title: При з'єднанні з нашим сервером сталася помилка
-        try_later: Будь ласка, спробуйте ще раз пізніше.
       not_found:
         back_home: Повернутися на головну
         content_doesnt_exist: Ця адреса невірна або була видалена.
-        title: Не вдалося знайти сторінку, яку ви шукаєте
     events:
       attachments:
         attachment_created:
@@ -316,7 +284,6 @@ uk:
         result: Підсумки
     fingerprint:
       check: Перевірте контрольний підсумок
-      explanation: Шматок тексту нижче - скорочений, хешований підсумок цього вмісту. Завдяки йому ви можете перевірити, чи не було вміст підмінено, оскільки будь-яка зміна призведе до абсолютно іншого значення підсумку.
       online_calculator_name: онлайновий калькулятор MD5
       replicate_help: Цей контрольний підсумок обчислюється за допомогою алгоритму хешування SHA256. Для того, щоб обчислювати його самостійно, ви можете використовувати %{online_calculator_link}.
       source: Джерело
@@ -324,8 +291,6 @@ uk:
       value: Значення
     followers:
       no_followers: Ще нема тих, хто стежить.
-    following:
-      no_followings: Ще ні за ким та ні за чим не стежить.
     follows:
       create:
         button: Стежити
@@ -333,11 +298,6 @@ uk:
       destroy:
         button: Припинити стежити
         error: При спробі припинити стежити за цим ресурсом сталася помилка.
-    forms:
-      current_image: Поточне зображення
-      default_image: Зображення за замовчуванням
-      errors:
-        error: У цьому полі є помилка.
     log:
       base_presenter:
         create: "%{user_name} створив %{resource_name}"
@@ -366,41 +326,22 @@ uk:
         new_conversation:
           greeting: Вітаємо, %{recipient}!
           intro: "%{sender} почав з вами нову бесіду. Клацніть тут, щоб прочитати її:"
-          outro: Насолоджуйтесь Десідім!
           subject: "%{sender} почав з вами бесіду"
         new_message:
           greeting: Доброго дня, %{recipient}!
           intro: "%{sender} написав нові повідомлення у вашій бесіді. Клацніть тут, щоб переглянути їх:"
-          outro: Насолоджуйтесь Десідім!
           subject: Ви отримали нові повідомлення від %{sender}
       conversations:
-        create:
-          error: Бесіда не розпочата. Спробуйте ще раз пізніше
-        index:
-          close: Закрити віконце
-          no_conversations: У вас ще немає бесід
-        reply:
-          title: Відповісти
         start:
           send: Надіслати
-          title: Почати бесіду
     newsletter_mailer:
       newsletter:
-        note: Ви отримали цього електронного листа, оскільки ви підписалися на новини щодо %{organization_name}. Ви можете змінити свої налаштування на <a href="%{link}">сторінці сповіщень</a>.
-        see_on_website: Не вдається до пуття переглянути це повідомлення? Перегляньте його на сайті <a href="%{link}" target="_blank"></a>.
         unsubscribe: Щоб відмовитися від отримання таких повідомлень, клацніть на <a href="%{link}" target="_blank" class="unsubscribe">Відмовитися</a>.
     newsletters:
       unsubscribe:
-        check_subscription: Якщо ви хочете змінити свої уподобання, ви можете зробити це на <a href="%{link}" target="_blank">сторінці налаштувань</a>
-        error: При спробі скасування підписки сталася помилка
         success: Ви успішно скасували підписку.
         token_error: Строк дії посилання закінчився.
         unsubscribe: Скасувати підписку
-    newsletters_opt_in:
-      unathorized: Вибачте, це посилання вже не доступне
-      update:
-        error: Трапилось щось не те
-        success: Розсилання новин успішно оновлено
     newsletters_opt_in_mailer:
       notify:
         body_1: Обробка особистих даних та їх захист стають дедалі важливішими для всіх нас. За новим "Загальним положенням про захист даних" (GDPR) від 25 травня 2018 року люди мають змогу керувати своїми особистими даними. Тому ми потребуємо вашої згоди, щоб продовжувати надсилати вам свіжі новини про діяльність %{organization_name}.
@@ -419,11 +360,6 @@ uk:
       update:
         error: При спробі оновити налаштування сповіщень сталася помилка.
         success: Ваші налаштування сповіщень успішно оновлено.
-    own_user_groups:
-      index:
-        pending: Очікує на розгляд
-        rejected: Відхилено
-        verified: Перевірено
     pages:
       home:
         extended:
@@ -446,29 +382,11 @@ uk:
           headline: Поточний стан %{organization}
         sub_hero:
           register: Зареєструватися
-      terms_and_conditions:
-        accept:
-          error: Під час прийняття умов участі виникла помилка.
-          success: Чудово! Ви прийняли умови участі.
-        form:
-          legend: Погодитися з умовами участі
-        refuse:
-          modal_btn_continue: Прийняти умови та продовжити
-          modal_btn_exit: Я перегляну це пізніше
-          modal_button: Відмовитися від умов участі
-          modal_close: Закрити віконце
-          modal_title: Ви дійсно відмовляєтеся від оновлених "Умов участі"?
-        required_review:
-          alert: Ми оновили наші "Умови участі", будь ласка, перегляньте їх.
-          body: Будь ласка, знайдіть хвилинку, щоб переглянути оновлення до наших "Умов участі". В іншому випадку ви не зможете використовувати наш майданчик.
-          title: 'Обов''язково: перегляньте оновлення до наших "Умов участі"'
     participatory_space_private_users:
       not_allowed: У вас нема прав на перегляд цього вмісту
     profile:
       deleted: Видалений учасник
-      view: Переглянути
     profiles:
-      default_officialization_text_for_users: Особу цього учасника прилюдно підтверджено, його ім'я чи роль перевірено на відповідність його справжньому імені та ролі
       show:
         followers: Ті, хто стежить
         following: 'Стежить за:'
@@ -501,35 +419,24 @@ uk:
       term_input_placeholder: Шукати
     searches:
       filters_small_view:
-        close_modal: Закрити віконце
         filter: Відібрати
         filter_by: 'Відібрати за ознакою:'
-        unfold: Розгорнути
     shared:
-      embed_modal:
-        close_window: Закрити вікно
-        embed: Будь ласка, вставте цей код на свою сторінку
-        embed_link: Вбудувати
       flag_modal:
         already_reported: Про цей вміст вже передано скаргу, і її перегляне адміністратор.
         close: Закрити
         description: Чи цей вміст неприпустимий?
-        does_not_belong: Містить незаконну діяльність, загрози самогубства, особисті відомості чи ще щось, неприпустиме, на вашу думку, для %{organization_name}.
         offensive: Містить расизм, сексизм, образи, особисті напади, погрози вбивства, заяви про самогубство або будь-які ненависницькі висловлювання.
         report: Поскаржитись
         spam: Містить клацоловки (маніпулятивно-сенсаційні заголовки), рекламу, афери або лохотрони.
         title: Поскаржитись на ускладнення
-      follow_button:
-        sign_in_before_follow: Будь ласка, увійдіть, перш ніж виконувати цю дію
       login_modal:
-        please_sign_in: Будь ласка, увійдіть
         sign_up: Зареєструватися
       reference:
         reference: 'Посилання на джерело: %{reference}'
       results_per_page:
         label: 'Результатів на сторінку:'
       share_modal:
-        close_window: Закрити вікно
         share: Поділитися
         share_link: Поділитись посиланням
     statistics:
@@ -537,9 +444,6 @@ uk:
     user_conversations:
       update:
         error: Повідомлення не надіслано. Спробуйте ще раз пізніше
-    version_author:
-      show:
-        deleted: Видалений учасник
   devise:
     invitations:
       edit:
@@ -552,24 +456,13 @@ uk:
         accept_until: Строк дії цього запрошення закінчується %{due_date}.
         decline: Відхилити запрошення
         hello: Доброго дня, %{email}%!
-        ignore: |-
-          Якщо ви не бажаєте приймати запрошення, проігноруйте цей лист.<br /> Ваш обліковий запис не буде створено, доки ви не перейдете за наведеним вище посиланням та встановите свій псевдонім та пароль.
         invited_you_as_admin: "%{invited_by} запросив вас як адміністратора %{application}. Ви можете прийняти це запрошення за посиланням нижче."
         invited_you_as_private_user: "%{invited_by} запросив вас як приватного учасника %{application}. Ви можете прийняти це запрошення за посиланням нижче."
         someone_invited_you: Хтось запросив вас до %{application}. Ви можете прийняти це запрошення за посиланням нижче.
         someone_invited_you_as_admin: Хтось запросив вас як адміністратора %{application}, ви можете прийняти це запрошення за посиланням нижче.
         someone_invited_you_as_private_user: Хтось запросив вас як приватного учасника %{application}, ви можете прийняти це запрошення за посиланням нижче.
-      invite_admin:
-        subject: Вас запросили керувати %{organization}
-      invite_collaborator:
-        subject: Вас запросили співпрацювати на %{organization}
-      invite_private_user:
-        subject: Вас запрошено до приватного руху співучасті від %{organization}
-      organization_admin_invitation_instructions:
-        subject: Вас запросили керувати %{organization}
       password_change:
         greeting: Доброго дня, %{recipient}!
-        message: Ми пишемо вам, щоб повідомити про те, що ваш пароль був змінений.
         subject: Пароль змінено
     passwords:
       edit:
@@ -580,9 +473,7 @@ uk:
   errors:
     messages:
       content_type_allowlist_error: цей тип файлу неприпустимий
-      cycle_detected: батько обсягу не може бути одним з його нащадків
       file_size_is_less_than_or_equal_to: розмір файлу має бути меншим або рівним %{count}
-      nesting_too_deep: не може бути всередині підкатегорії
   forms:
     required: Обов'язкове поле
   invisible_captcha:
@@ -594,10 +485,6 @@ uk:
         edit: Редагувати
       footer:
         made_with_open_source: Цей веб-сайт створено за допомогою <a target="_blank" href="https://github.com/decidim/decidim">безкоштовного програмного забезпечення</a>.
-      header:
-        close_menu: Закрити меню
-        navigation: Навігація
-        sign_in: Увійти
         sign_up: Зареєструватися
       impersonation_warning:
         close_session: Завершити сеанс
@@ -611,7 +498,6 @@ uk:
         notifications: Сповіщення
         profile: Мій обліковий запис
         public_profile: Мій загальнодоступний профіль
-        sign_out: Вийти
       user_profile:
         account: Обліковий запис
         authorizations: Підтвердження особи
@@ -619,10 +505,9 @@ uk:
         my_data: Мої дані
         notifications_settings: Налаштування сповіщень
         title: Налаштування учасника
-      widget:
-        see_more: Читати далі
   locale:
     name: Українська
+    name_with_error: Українська (помилка!)
   password_validator:
     domain_included_in_password: занадто схожий на це доменне ім'я
     email_included_in_password: занадто схожий на вашу електронну пошту
@@ -664,8 +549,4 @@ uk:
       time_of_day: "%H:%M"
   views:
     pagination:
-      first: "&laquo; Перша"
-      last: Остання &raquo;
-      next: Далі &rsaquo;
-      previous: "Попередня &lsaquo;"
       truncate: "&hellip;"

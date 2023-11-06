@@ -8,7 +8,7 @@ module Decidim
     before_action :check_current_user_with_token
 
     def update
-      enforce_permission_to :update, :user, current_user: current_user
+      enforce_permission_to(:update, :user, current_user:)
 
       current_user.newsletter_opt_in_validate
       if current_user.save

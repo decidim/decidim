@@ -4,11 +4,11 @@ Core functionality in Decidim. Every single decidim functionality depends on thi
 
 ## Usage
 
-You'll be using indirectly on any decidim application.
+You will be using indirectly on any decidim application.
 
 ## Installation
 
-Add `decidim` to your `Gemfile` and you'll be using it:
+Add `decidim` to your `Gemfile` and you will be using it:
 
 ```ruby
 gem 'decidim'
@@ -26,7 +26,7 @@ User authentication is set up with [`Devise`](https://github.com/plataformatec/d
 
 ## Amendments
 
-Core implements an Amendment feature that can be activated in the components. As of now, it's only implemented in the proposal component.
+Core implements an Amendment feature that can be activated in the components. As of now, it is only implemented in the proposal component.
 
 This feature makes it possible for anyone to edit the text of an amendable resource and create a child resource as an amendment. This child resource may receive support and the author of the amendable resource may accept or reject the amendment (or child proposal). In case of rejection, the author of the rejected emendation may raise the child resource to an independent resource.
 
@@ -59,7 +59,7 @@ They should be registered as resources. In their manifest, in the `register_reso
 This can be done in an initializer (like user does), in a participatory_space manifest, or in a component manifest. i.e.:
 
 ```ruby
-      initializer "decidim.core.register_resources" do
+      initializer "decidim_core.register_resources" do
         Decidim.register_resource(:user) do |resource|
           resource.model_class_name = "Decidim::User"
           resource.card = "decidim/user_profile"

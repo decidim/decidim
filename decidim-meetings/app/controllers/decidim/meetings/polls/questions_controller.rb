@@ -15,7 +15,7 @@ module Decidim
         end
 
         def update
-          enforce_permission_to :update, :question, question: question
+          enforce_permission_to(:update, :question, question:)
 
           Decidim::Meetings::Admin::UpdateQuestionStatus.call(question, current_user) do
             respond_to do |format|

@@ -6,8 +6,8 @@ module Decidim::Admin
   describe RejectUserGroup do
     subject { described_class.new(user_group, current_user) }
 
-    let(:organization) { create :organization }
-    let(:current_user) { create :user, organization: }
+    let(:organization) { create(:organization) }
+    let(:current_user) { create(:user, organization:) }
 
     describe "User group validation is pending" do
       let!(:user_group) { create(:user_group, decidim_organization_id: organization.id, users: [create(:user, organization:)]) }

@@ -4,7 +4,7 @@ require "decidim/core/test/factories"
 require "decidim/forms/test/factories"
 
 def format_birthdate(birthdate)
-  format("%04d%02d%02d", birthdate.year, birthdate.month, birthdate.day) # rubocop:disable Style/FormatStringToken
+  format("%04d%02d%02d", birthdate.year, birthdate.month, birthdate.day)
 end
 
 def hash_for(*data)
@@ -68,6 +68,22 @@ FactoryBot.define do
 
     trait :hybrid do
       voting_type { "hybrid" }
+    end
+
+    trait :with_content_blocks do
+      transient { blocks_manifests { [:hero] } }
+
+      after(:create) do |voting, evaluator|
+        evaluator.blocks_manifests.each do |manifest_name|
+          create(
+            :content_block,
+            organization: voting.organization,
+            scope_name: :voting_landing_page,
+            manifest_name:,
+            scoped_resource_id: voting.id
+          )
+        end
+      end
     end
   end
 

@@ -13,7 +13,7 @@ module Decidim
       # the results unless the order of the records is explicitly defined.
       #
       # Note that this needs to be called as the last method before returning
-      # the query so that it won't affect the desired ordering specified in the
+      # the query so that it will not affect the desired ordering specified in the
       # GraphQ query. In that case, ordering by ID will be the secondary order
       # of the records.
       def add_default_order

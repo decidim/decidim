@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "gem_overrides/webpacker/runner"
+require "gem_overrides/shakapacker/runner"
 
 module Decidim
   module Webpacker
@@ -16,7 +16,7 @@ module Decidim
         let(:runtime_config_path) do
           Rails.application.root.join("tmp/webpacker_runtime.yml")
         end
-        let(:runtime_config) { YAML.load_file(runtime_config_path) }
+        let(:runtime_config) { YAML.load_file(runtime_config_path, aliases: true) }
         let(:core_path) do
           core_gem = Bundler.load.specs.find { |spec| spec.name == "decidim-core" }
           core_gem.full_gem_path
@@ -43,24 +43,7 @@ module Decidim
             "decidim_geocoding_provider_photon" => "#{core_path}/app/packs/entrypoints/decidim_geocoding_provider_photon.js",
             "decidim_geocoding_provider_here" => "#{core_path}/app/packs/entrypoints/decidim_geocoding_provider_here.js",
             "decidim_map_provider_default" => "#{core_path}/app/packs/entrypoints/decidim_map_provider_default.js",
-            "decidim_map_provider_here" => "#{core_path}/app/packs/entrypoints/decidim_map_provider_here.js",
-            "decidim_widget" => "#{core_path}/app/packs/entrypoints/decidim_widget.js"
-          )
-        end
-
-        it "adds the stylesheet imports to the webpacker runtime configuration" do
-          expect(runtime_config["default"]["stylesheet_imports"].keys).to include("imports")
-          expect(runtime_config["default"]["stylesheet_imports"]["imports"].keys).to include("app")
-          expect(runtime_config["default"]["stylesheet_imports"]["imports"]["app"]).to include(
-            "stylesheets/decidim/accountability/accountability",
-            "stylesheets/decidim/budgets/budgets",
-            "stylesheets/decidim/proposals/proposals",
-            "stylesheets/decidim/surveys/surveys",
-            "stylesheets/decidim/conferences/conferences",
-            "stylesheets/decidim/consultations/consultations",
-            "stylesheets/decidim/elections/elections",
-            "stylesheets/decidim/votings/votings",
-            "stylesheets/decidim/initiatives/initiatives"
+            "decidim_map_provider_here" => "#{core_path}/app/packs/entrypoints/decidim_map_provider_here.js"
           )
         end
       end

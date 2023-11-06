@@ -4,7 +4,7 @@ module Decidim
   module Admin
     class ShareTokensController < Decidim::Admin::ApplicationController
       def destroy
-        enforce_permission_to :destroy, :share_token, share_token: share_token
+        enforce_permission_to(:destroy, :share_token, share_token:)
 
         DestroyShareToken.call(share_token, current_user) do
           on(:ok) do

@@ -1,16 +1,15 @@
-<div class="collection-sort-controls row small-up-1 medium-up-3 card-grid">
-  <div class="column">
-    <%= order_selector available_orders, i18n_scope: "decidim.proposals.collaborative_drafts.orders" %>
+<% if @collaborative_drafts.empty? %>
+  <%= cell("decidim/announcement", params[:filter].present? ? t("empty_filters", scope: "decidim.proposals.collaborative_drafts") : t("empty", scope: "decidim.proposals.collaborative_drafts")) %>
+<% else %>
+  <h2 class="h5 md:h3 decorator"><%= t("count", scope: "decidim.proposals.collaborative_drafts.index", count: @collaborative_drafts.length) %></h2>
+
+  <%= order_selector available_orders, i18n_scope: "decidim.proposals.collaborative_drafts.orders" %>
+
+  <div class="card__list-list">
+    <% @collaborative_drafts.each do |draft| %>
+      <%= card_for draft %>
+    <% end %>
   </div>
 
-  <div class="column">
-    <%= render partial: "decidim/shared/results_per_page" %>
-  </div>
-</div>
-
-<div class="row small-up-1 medium-up-2 card-grid">
-  <% @collaborative_drafts.each do |draft| %>
-    <%= card_for draft, context: { label: true } %>
-  <% end %>
-</div>
-<%= decidim_paginate @collaborative_drafts %>
+  <%= decidim_paginate @collaborative_drafts %>
+<% end %>

@@ -21,6 +21,9 @@ en:
         scope_id: Scope
   activerecord:
     models:
+      decidim/budgets/budget:
+        one: Budget
+        other: Budgets
       decidim/budgets/project:
         one: Project
         other: Projects
@@ -46,17 +49,19 @@ en:
         edit: Edit
         edit_projects: Manage projects
         import: Import proposals to projects
-        new: New %{name}
+        new_budget: New budget
+        new_project: New project
         preview: Preview
+        send_voting_reminders: Send voting reminders
         title: Actions
       admin:
         budgets:
           create:
-            invalid: There was a problem creating this budget
-            success: Budget successfully created
+            invalid: There was a problem creating this budget.
+            success: Budget successfully created.
           destroy:
-            invalid: There was a problem deleting this budget
-            success: Budget successfully deleted
+            invalid: There was a problem deleting this budget.
+            success: Budget successfully deleted.
           edit:
             title: Edit budget
             update: Update budget
@@ -70,8 +75,8 @@ en:
             create: Create budget
             title: New budget
           update:
-            invalid: There was a problem updating this budget
-            success: Budget successfully updated
+            invalid: There was a problem updating this budget.
+            success: Budget successfully updated.
         exports:
           projects: Projects
         models:
@@ -81,10 +86,10 @@ en:
             name: Project
         projects:
           create:
-            invalid: There was a problem creating this project
-            success: Project successfully created
+            invalid: There was a problem creating this project.
+            success: Project successfully created.
           destroy:
-            success: Project successfully deleted
+            success: Project successfully deleted.
           edit:
             title: Edit project
             update: Update
@@ -93,11 +98,11 @@ en:
             cancel: Cancel
             change_category: Change category
             change_scope: Change scope
-            change_selected: Change selected
-            deselect_implementation: Unselect
+            change_selected: Change selected state
+            deselect_implementation: Unselect from implementation
             finished_orders: Finished votes
             pending_orders: Pending votes
-            select_for_implementation: Select
+            select_for_implementation: Select for implementation
             selected: Selected
             title: Projects
             update: Update
@@ -106,27 +111,31 @@ en:
             create: Create
             title: New project
           update:
-            invalid: There was a problem updating this project
-            success: Project successfully updated
+            invalid: There was a problem updating this project.
+            success: Project successfully updated.
           update_category:
             invalid: 'These projects already had the %{subject_name} category: %{projects}.'
-            select_a_category: Please select a category
-            select_a_project: Please select a project
+            select_a_category: Please select a category.
+            select_a_project: Please select a project.
             success: 'Projects successfully updated to the %{subject_name} category: %{projects}.'
           update_scope:
             invalid: 'These projects already had the %{subject_name} scope: %{projects}.'
-            select_a_project: Please select a project
-            select_a_scope: Please select a scope
+            select_a_project: Please select a project.
+            select_a_scope: Please select a scope.
             success: 'Projects successfully updated to the %{subject_name} scope: %{projects}.'
           update_selected:
-            invalid: 'These projects already had the same selected: %{projects}.'
-            select_a_project: Please select a project
-            select_a_selection: Please select a selection
-            success: 'Projects selection successfully changed: %{projects}.'
+            invalid:
+              selected: 'These projects were already selected for implementation: %{projects}.'
+              unselected: 'These projects were already unselected from implementation: %{projects}.'
+            select_a_project: Please select a project.
+            select_a_selection: Please select an implementation state.
+            success:
+              selected: 'These projects were successfully selected for implementation: %{projects}.'
+              unselected: 'These projects were successfully unselected from implementation: %{projects}.'
         proposals_imports:
           create:
-            invalid: There was a problem importing the proposals into projects
-            success: "%{number} proposals successfully imported into projects"
+            invalid: There was a problem importing the proposals into projects.
+            success: "%{number} proposals successfully imported into projects."
           new:
             create: Import proposals to projects
             default_budget: Default budget
@@ -150,32 +159,32 @@ en:
           create: "%{user_name} created the %{resource_name} project in the %{space_name} space"
           delete: "%{user_name} deleted the %{resource_name} project in the %{space_name} space"
           update: "%{user_name} updated the %{resource_name} project in the %{space_name} space"
-      budget:
-        view: View all budget projects
       budget_information_modal:
         back_to: Back to %{component_name}
         close_modal: Close modal
         continue: Continue
         more_information: More information
-      budget_list_item:
-        voting_finished: You have voted in this budget
-        voting_started: You have started to vote in this budget
       budgets_list:
+        budgets: Budgets
         cancel_order:
           more_than_one: delete your vote on %{name} and start over
           only_one: delete your vote and start over.
-        finished_message: You've finished the voting process. Thanks for participating!
+        count:
+          one: "%{count} budget"
+          other: "%{count} budgets"
+        finished_message: You have finished the voting process. Thanks for participating!
         highlighted_cta: Vote on %{name}
-        if_change_opinion: If you've changed your mind, you can
-        my_budgets: My budgets
+        if_change_opinion: If you have changed your mind, you can
         progress: Finish voting
+        remove_vote: Remove vote
         show: See projects
         vote: Vote
-        voted_on: You've voted on %{links}
+        voted_budgets: Voted budgets
+        voted_on: You have voted on %{links}.
       last_activity:
-        new_vote_at_html: "<span>New budgeting vote at %{link}</span>"
+        new_vote_at: New budgeting vote at
       limit_announcement:
-        cant_vote: You can't vote on this budget. <a href="%{landing_path}">Try on another budget</a>.
+        cant_vote: You cannot vote on this budget. <a href="%{landing_path}">Try on another budget</a>.
         limit_reached: You have active votes in %{links}. To vote on this budget you must <a href="%{landing_path}">delete your vote and start over</a>.
       models:
         budget:
@@ -187,7 +196,6 @@ en:
           fields:
             category: Category
             id: ID
-            scope: Scope
             title: Title
       order_summary_mailer:
         order_summary:
@@ -204,45 +212,26 @@ en:
           title: Confirm vote
         budget_excess:
           budget_excess:
-            description: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected, in order to be able to vote again according to your preferences.
+            description: This project exceeds the maximum budget and cannot be added. If you want, you can delete a project you have already selected, in order to be able to vote again according to your preferences.
             title: Maximum budget exceeded
-          close: Close
-          description: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected, in order to be able to vote again according to your preferences.
+          description: This project exceeds the maximum budget and cannot be added. If you want, you can delete a project you have already selected, in order to be able to vote again according to your preferences.
           ok: OK
           projects_excess:
             description: This project exceeds the maximum number of projects and cannot be added. If you want, you can delete a project you have already selected, in order to be able to vote again according to your preferences.
             title: Maximum projects exceeded
         budget_summary:
           are_you_sure: Are you sure you want to cancel your vote?
-          assigned: 'Assigned:'
-          cancel_order: delete your vote and start over
+          cancel_order: delete your vote
           checked_out:
-            description: You've already voted for the budget. If you've changed your mind, you can %{cancel_link}.
+            description: You have already voted for the budget. If you have changed your mind, you can delete your vote.
             title: Budget vote completed
-          minimum_projects_rule:
-            description: What projects do you think we should allocate budget for? Select at least %{minimum_number} projects you want and vote according to your preferences to define the budget.
-            instruction: "<li>Select at least %{minimum_number} projects you want and vote according to your preferences to define the budget.</li>"
-          projects_rule:
-            description: What projects do you think we should allocate budget for? Select at least %{minimum_number} and up to %{maximum_number} projects you want and vote according to your preferences to define the budget.
-            instruction: "<li>Select at least %{minimum_number} and up to %{maximum_number} projects you want and vote according to your preferences to define the budget.</li>"
-          projects_rule_maximum_only:
-            description: What projects do you think we should allocate budget for? Select up to %{maximum_number} projects you want and vote according to your preferences to define the budget.
-            instruction: "<li>Select up to %{maximum_number} projects you want and vote according to your preferences to define the budget.</li>"
-          rules:
-            title: Budget rules
-          title: You decide the budget
-          total_budget: Total budget
-          total_projects: Total votes
-          vote_threshold_percent_rule:
-            description: What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote according to your preferences to define the budget.
-            instruction: "<li>Assign at least %{minimum_budget} to the projects you want and vote according to your preferences to define the budget.</li>"
+          vote: Vote budget
         count:
           projects_count:
             one: 1 project
             other: "%{count} projects"
         exit_modal:
           cancel: Return to voting
-          close_modal: Close modal
           exit: Exit voting
           message: Your vote has not been registered because you have not yet completed the voting process. Are you sure you want to exit voting?
           title: You have not yet voted
@@ -255,21 +244,22 @@ en:
             all: All
             not_selected: Not selected
             selected: Selected
-        filters_small_view:
-          close_modal: Close modal
-          filter: Filter
-          filter_by: Filter by
-          unfold: Unfold
-        index:
-          view_project: View project
         order_progress:
-          vote: Vote
-        order_selected_projects:
-          remove: Remove
-          selected_projects:
-            one: project selected
-            other: projects selected
-          view: View
+          assigned: Assigned
+          budget: Budget
+          dynamic_help:
+            keep_adding_projects: Keep adding projects
+            minimum_reached: You have reached the minimum to be able to vote
+            start_adding_projects: Start adding projects
+          minimum: Minimum
+          minimum_projects_rule:
+            description: Select at least %{minimum_number} projects you want and vote according to your preferences to define the budget.
+          projects_rule:
+            description: Select at least %{minimum_number} and up to %{maximum_number} projects you want and vote according to your preferences to define the budget.
+          projects_rule_maximum_only:
+            description: Select up to %{maximum_number} projects you want and vote according to your preferences to define the budget.
+          vote_threshold_percent_rule:
+            description: Assign at least %{minimum_budget} to the projects you want and vote according to your preferences to define the budget.
         orders:
           highest_cost: Highest cost
           label: Order projects by
@@ -278,23 +268,25 @@ en:
           random: Random order
           selected: Selected
         project:
-          add: Add project %{resource_name} to your vote
-          remove: Remove project %{resource_name} from your vote
+          add: Add project %{resource_name} to your vote.
+          remove: Remove project %{resource_name} from your vote.
           selected: Selected
-          view: View
           votes:
             one: vote
             other: votes
-          you_voted: You voted this
+          you_voted: You voted for this
         project_budget_button:
-          add: Add to your vote
-          add_descriptive: Add project %{resource_name} to your vote
-          added: Added to your vote
-          added_descriptive: Project %{resource_name} added to your vote
+          add: Add
+          add_descriptive: Add project %{resource_name} to your vote.
+          added: Added
+          added_descriptive: Project %{resource_name} added to your vote.
+        project_filter:
+          added: Added
+          all: All
         projects_for: Projects for %{name}
+        select_projects: Select projects
         show:
           budget: Budget
-          view_all_projects: View all projects
       vote_reminder_mailer:
         vote_reminder:
           email_budgets: 'Areas where you have an unfinished vote:'
@@ -317,8 +309,8 @@ en:
             comments_max_length: Comments max length (Leave 0 for default value)
             form:
               errors:
-                budget_voting_rule_only_one: Only one voting rule must be enabled
-                budget_voting_rule_required: One voting rule is required
+                budget_voting_rule_only_one: Only one voting rule must be enabled.
+                budget_voting_rule_required: One voting rule is required.
             geocoding_enabled: Geocoding enabled
             landing_page_content: Budgets landing page
             more_information_modal: More information modal
@@ -362,11 +354,12 @@ en:
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> budget is now active for %{participatory_space_title}.
     orders:
       checkout:
-        error: There was a problem processing your vote
-        success: Your vote has been successfully accepted
+        error: There was a problem processing your vote.
+        success_html: <p>Your vote has been successfully accepted.</p> <p class="text-sm font-normal">You can explore the <a class="text-secondary underline" href="%{rest_of_budgets_link}">rest of budgets</a>.</p>
+        success_no_left_budgets_html: Your vote has been successfully accepted.
       destroy:
-        error: There was a problem canceling your vote
-        success: Your vote has been successfully canceled
+        error: There was a problem canceling your vote.
+        success: Your vote has been successfully canceled.
     resource_links:
       included_proposals:
         project_proposal: Proposals included in this project

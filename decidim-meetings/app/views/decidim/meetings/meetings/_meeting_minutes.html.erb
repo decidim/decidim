@@ -1,37 +1,24 @@
-<div class="section minutes-section">
-  <% if meeting.video_url.presence || meeting.audio_url.presence %>
-    <div class="section">
-      <h4 class="section-heading"><%= t(".related_information") %></h4>
-      <div class="card card--list">
-        <% if meeting.video_url.presence %>
-          <div class="card--list__item">
-            <div class="card--list__text">
-              <div>
-                <%= link_to decidim_url_escape(meeting.video_url), decidim_html_escape(meeting.video_url), target: "_blank", rel: "noopener" %>
-              </div>
-            </div>
-            <div class="card--list__data" aria-hidden="true">
-              <%= link_to decidim_url_escape(meeting.video_url), target: "_blank", class: "card--list__data__icon", rel: "noopener" do %>
-                <%= icon "external-link", role: "img", "aria-hidden": true %>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
-        <% if meeting.audio_url.presence %>
-          <div class="card--list__item">
-            <div class="card--list__text">
-              <div>
-                <%= link_to decidim_url_escape(meeting.audio_url), decidim_html_escape(meeting.audio_url), target: "_blank", rel: "noopener" %>
-              </div>
-            </div>
-            <div class="card--list__data" aria-hidden="true">
-              <%= link_to decidim_url_escape(meeting.audio_url), target: "_blank", class: "card--list__data__icon", rel: "noopener" do %>
-                <%= icon "external-link", role: "img", "aria-hidden": true %>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
+<section>
+  <div class="meeting__agenda-title">
+    <%= icon "bill-line" %>
+    <h2 class="h4"><%= t("meeting_minutes", scope: "decidim.meetings.meetings.show") %></h2>
+  </div>
+
+  <div class="meeting__agenda-item">
+    <div class="meeting__agenda-item__description editor-content mb-4"><%= decidim_sanitize_editor translated_attribute meeting.closing_report %></div>
+
+    <% if meeting.video_url.presence %>
+      <div class="flex items-center gap-2 mt-2">
+        <%= icon "video-line", class: "w-4 h-4 text-tertiary fill-current" %>
+        <%= link_to decidim_url_escape(meeting.video_url), decidim_html_escape(meeting.video_url), target: "_blank", rel: "noopener" %>
       </div>
-    </div>
-  <% end %>
-</div>
+      <% end %>
+
+    <% if meeting.audio_url.presence %>
+      <div class="flex items-center gap-2 mt-2">
+        <%= icon "headphone-line", class: "w-4 h-4 text-tertiary fill-current" %>
+        <%= link_to decidim_url_escape(meeting.audio_url), decidim_html_escape(meeting.audio_url), target: "_blank", rel: "noopener" %>
+      </div>
+    <% end %>
+  </div>
+</section>

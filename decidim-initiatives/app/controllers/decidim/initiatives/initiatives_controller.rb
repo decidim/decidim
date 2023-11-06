@@ -5,9 +5,7 @@ module Decidim
     # This controller contains the logic regarding participants initiatives
     class InitiativesController < Decidim::Initiatives::ApplicationController
       include ParticipatorySpaceContext
-      participatory_space_layout only: [:show]
 
-      helper Decidim::WidgetUrlsHelper
       helper Decidim::AttachmentsHelper
       helper Decidim::FiltersHelper
       helper Decidim::OrdersHelper
@@ -18,6 +16,8 @@ module Decidim
       helper Decidim::ResourceReferenceHelper
       helper PaginateHelper
       helper InitiativeHelper
+      helper SignatureTypeOptionsHelper
+
       include InitiativeSlug
       include FilterResource
       include Paginable
@@ -26,9 +26,12 @@ module Decidim
       include TypeSelectorOptions
       include NeedsInitiative
       include SingleInitiativeType
+      include Decidim::IconHelper
 
-      helper_method :collection, :initiatives, :filter, :stats
+      helper_method :collection, :initiatives, :filter, :stats, :tabs, :panels
       helper_method :initiative_type, :available_initiative_types
+
+      before_action :authorize_participatory_space, only: [:show]
 
       # GET /initiatives
       def index
@@ -49,6 +52,8 @@ module Decidim
       # GET /initiatives/:id
       def show
         enforce_permission_to :read, :initiative, initiative: current_initiative
+
+        render layout: "decidim/initiative_head"
       end
 
       # GET /initiatives/:id/send_to_technical_validation
@@ -77,8 +82,6 @@ module Decidim
                   initiative: current_initiative
                 )
         @form.attachment = form_attachment_model
-
-        render layout: "decidim/initiative"
       end
 
       # PUT /initiatives/:id
@@ -86,6 +89,7 @@ module Decidim
         enforce_permission_to :update, :initiative, initiative: current_initiative
 
         params[:id] = params[:slug]
+        params[:type_id] = current_initiative.type&.id
         @form = form(Decidim::Initiatives::InitiativeForm)
                 .from_params(params, initiative_type: current_initiative.type, initiative: current_initiative)
 
@@ -111,6 +115,8 @@ module Decidim
       alias current_initiative current_participatory_space
 
       def current_participatory_space
+        return unless params["slug"]
+
         @current_participatory_space ||= Initiative.find(id_from_slug(params[:slug]))
       end
 
@@ -158,6 +164,35 @@ module Decidim
 
       def stats
         @stats ||= InitiativeStatsPresenter.new(initiative: current_initiative)
+      end
+
+      def tabs
+        @tabs ||= items.map { |item| item.slice(:id, :text, :icon) }
+      end
+
+      def panels
+        @panels ||= items.map { |item| item.slice(:id, :method, :args) }
+      end
+
+      def items
+        @items ||= [
+          {
+            enabled: @current_initiative.photos.present?,
+            id: "images",
+            text: t("decidim.application.photos.photos"),
+            icon: resource_type_icon_key("images"),
+            method: :cell,
+            args: ["decidim/images_panel", @current_initiative]
+          },
+          {
+            enabled: @current_initiative.documents.present?,
+            id: "documents",
+            text: t("decidim.application.documents.documents"),
+            icon: resource_type_icon_key("documents"),
+            method: :cell,
+            args: ["decidim/documents_panel", @current_initiative]
+          }
+        ].select { |item| item[:enabled] }
       end
     end
   end

@@ -1,11 +1,16 @@
-<%= render "layouts/decidim/admin/application" do %>
-  <div class="process-title">
-    <div class="process-title-content">
-      <%= link_to t("decidim.admin.titles.conferences"), decidim_conferences.conferences_path, target: "_blank" %>
-    </div>
+<% content_for :breadcrumb_context_menu do %>
+  <div class="process-title-content-breadcrumb-container-right">
+    <% if allowed_to? :create, :conference %>
+      <%= link_to new_conference_path, class: "button button__sm button__transparent process-title-content-breadcrumb-container-right-link" do %>
+        <%= icon "add-line", class: "w-4 h-4" %>
+        <span>
+          <%= t("actions.new_conference", scope: "decidim.admin") %>
+        </span>
+      <% end %>
+    <% end %>
   </div>
+<% end %>
 
-  <div class="process-content">
-    <%= yield %>
-  </div>
+<%= render "layouts/decidim/admin/application" do %>
+  <%= yield %>
 <% end %>

@@ -5,8 +5,8 @@ require "spec_helper"
 module Decidim::Conferences
   describe Admin::UpdateConference do
     describe "call" do
-      let(:my_conference) { create :conference }
-      let(:user) { create :user, :admin, :confirmed, organization: my_conference.organization }
+      let(:my_conference) { create(:conference) }
+      let(:user) { create(:user, :admin, :confirmed, organization: my_conference.organization) }
       let!(:participatory_processes) do
         create_list(
           :participatory_process,
@@ -21,14 +21,6 @@ module Decidim::Conferences
           organization: my_conference.organization
         )
       end
-      let(:consultation) { create :consultation, organization: my_conference.organization }
-      let!(:questions) do
-        create_list(
-          :question,
-          3,
-          consultation:
-        )
-      end
 
       let(:params) do
         {
@@ -41,6 +33,7 @@ module Decidim::Conferences
             slogan_ca: my_conference.slogan,
             slogan_es: my_conference.slogan,
             location: my_conference.location,
+            weight: my_conference.weight,
             slug: my_conference.slug,
             hashtag: my_conference.hashtag,
             promoted: my_conference.promoted,
@@ -62,8 +55,7 @@ module Decidim::Conferences
             available_slots: my_conference.available_slots,
             registration_terms: my_conference.registration_terms,
             participatory_processes_ids: participatory_processes.map(&:id),
-            assemblies_ids: assemblies.map(&:id),
-            consultations_ids: questions.collect(&:consultation).uniq
+            assemblies_ids: assemblies.map(&:id)
           }.merge(attachments_params)
         }
       end
@@ -94,7 +86,7 @@ module Decidim::Conferences
           expect { command.call }.to broadcast(:invalid)
         end
 
-        it "doesn't update the conference" do
+        it "does not update the conference" do
           command.call
           my_conference.reload
 
@@ -157,12 +149,6 @@ module Decidim::Conferences
           expect(linked_assemblies).to match_array(assemblies)
         end
 
-        it "links consultations" do
-          command.call
-          linked_consultations = my_conference.linked_participatory_space_resources("Consultations", "included_consultations")
-          expect(linked_consultations).to match_array(questions.collect(&:consultation).uniq)
-        end
-
         context "when homepage image is not updated" do
           let(:attachments_params) do
             {
@@ -199,7 +185,7 @@ module Decidim::Conferences
       end
 
       describe "events" do
-        let!(:follow) { create :follow, followable: my_conference, user: }
+        let!(:follow) { create(:follow, followable: my_conference, user:) }
         let(:title) { my_conference.title }
         let(:start_date) { my_conference.start_date }
         let(:end_date) { my_conference.end_date }
@@ -209,8 +195,9 @@ module Decidim::Conferences
             invalid?: false,
             title:,
             slogan: my_conference.slogan,
+            weight: my_conference.weight,
             slug: my_conference.slug,
-            hashtag: my_conference.slug,
+            hashtag: my_conference.hashtag,
             short_description: my_conference.short_description,
             description: my_conference.description,
             objectives: my_conference.objectives,
@@ -231,13 +218,12 @@ module Decidim::Conferences
             current_organization: my_conference.organization,
             current_user: user,
             participatory_processes_ids: participatory_processes.map(&:id),
-            assemblies_ids: assemblies.map(&:id),
-            consultations_ids: questions.collect(&:consultation).uniq
+            assemblies_ids: assemblies.map(&:id)
           )
         end
 
         context "when nothing changes" do
-          it "doesn't notify the change" do
+          it "does not notify the change" do
             expect(Decidim::EventsManager)
               .not_to receive(:publish)
 
@@ -252,14 +238,14 @@ module Decidim::Conferences
             }
           end
 
-          it "doesn't notify the change" do
+          it "does not notify the change" do
             expect(Decidim::EventsManager)
               .not_to receive(:publish)
 
             command.call
           end
 
-          it "doesn't schedule the upcoming conference notification job" do
+          it "does not schedule the upcoming conference notification job" do
             expect(UpcomingConferenceNotificationJob)
               .not_to receive(:perform_later)
 

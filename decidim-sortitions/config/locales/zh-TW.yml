@@ -1,1 +1,131 @@
 zh-TW:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: 隨機抽籤資訊
+        decidim_category_id: 你想要在哪些提案類別中進行抽籤
+        decidim_proposals_component_id: 提案集合
+        dice: 擲骰子的結果。擲一顆六面骰子，或尋找其他隨機產生1到6之間的數字的方法，然後在一些證人面前輸入結果的數字。這有助於確保結果的品質和隨機性的保證。
+        target_items: 被選出提案的數量(表示您希望在您之前選擇的提案組中通過抽籤選出的提案數量)
+        title: 標題
+        witnesses: 見證人
+    models:
+      decidim/sortitions/create_sortition_event: 抽籤
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        other: 抽籤
+  decidim:
+    components:
+      sortitions:
+        actions:
+          comment: 留言
+        name: 抽籤
+        settings:
+          global:
+            comments_enabled: 啟用評論功能
+            comments_max_length: 評論字數最大長度(若要使用預設值請輸入0)
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: 您正在關注的 "%{participatory_space_title}" 中新增了抽籤 "%{resource_title}"
+          email_outro: 您收到了此通知，是因為您正在關注 "%{participatory_space_title}"。您可以通過前面的鏈接取消關注它。
+          email_subject: '%{participatory_space_title}" 中新增了一個新的抽籤。'
+          notification_title: '%{participatory_space_title}」中已新增了<a href="%{resource_path}">%{resource_title}</a>的抽籤。'
+    sortitions:
+      admin:
+        actions:
+          destroy: 取消選民隨機抽籤
+          edit: 編輯
+          show: 抽籤詳細資料
+        models:
+          sortition:
+            fields:
+              category: 類別
+              created_at: 創建日期
+              decidim_proposals_component: 提案組成
+              dice: 骰子
+              reference: 參考
+              request_timestamp: 抽籤時間
+              seed: 種子碼
+              target_items: 選擇項目
+              title: 標題
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: 您確定要取消此選項嗎？
+            destroy: 取消抽籤
+            title: 取消抽籤
+          create:
+            error: 建立新抽籤時出現問題。
+            success: 抽籤已成功建立。
+          destroy:
+            error: 無法取消抽籤。
+            success: 抽籤取消成功。
+          edit:
+            title: 更新抽籤資訊
+            update: 更新
+          form:
+            all_categories: 所有類別
+            select_proposal_component: 選擇提案集
+          index:
+            title: 抽籤
+          new:
+            confirm: 當您按下「下一步」按鈕時，平台將會記錄日期和時間(秒級精度)，並與擲骰子結果一起使用以生成隨機選擇。此操作是不可逆轉的，一旦按下按鈕，抽籤結果將會與此表單中輸入的資料一起發佈，並且無法更改，請仔細檢查內容。
+            create: 建立
+            title: 新的抽籤
+          show:
+            selected_proposals: 已選擇的提案以進行抽籤
+          update:
+            error: 更新抽籤時發生問題。
+            success: 抽籤成功更新.
+      admin_log:
+        sortition:
+          create: "%{user_name} 在 %{space_name} 中創建了 %{resource_name} 抽籤"
+          delete: "%{user_name} 在 %{space_name} 中取消了 %{resource_name} 抽籤"
+          update: "%{user_name} 在 %{space_name} 中更新了 %{resource_name} 抽籤"
+      sortitions:
+        count:
+          proposals_count:
+            other: "%{count} 個提案"
+        filters:
+          active: 啟用中
+          all: 全部
+          cancelled: 已取消
+          category: 類別
+          state: 狀態
+        linked_sortitions:
+          selected_proposals: 選擇的提案
+        orders:
+          label: '抽籤排序方式:'
+          random: 隨機
+          recent: 最近
+        results_count:
+          count:
+            other: 選擇的提案
+        show:
+          algorithm: 抽籤排序算法
+          any_category: 從所有類別中
+          cancelled: 取消的抽籤
+          candidate_proposal_ids: 隨機抽籤提案的順序和 ID
+          candidate_proposals_info: '該抽籤是在以下提案中進行的 (%{category_label})，以下是這些提案的 ID (選中的提案以粗體標出)  '
+          category: 來自 %{category} 類別
+          dice_result: (1) 骰子結果
+          introduction: '本頁面包含了抽籤 %{reference} 的結果。透過這個抽籤，從下面顯示的提案集合中隨機且以等機率隨機選出了 %{target_items} 個結果。除了顯示的結果外，此頁面的資訊提供了最大化保證並重現結果所需的所有資訊。此抽籤質量的關鍵在於雙重隨機性，一方面是由證人驗證的擲骰子結果，另一方面是精確的抽籤時間提供的算法輸入以產生隨機選擇。抽籤的時間種子如此精確(秒級)，以至於人類無法控制，從而提供雙重「不可控制」輸入，以保證公平結果。  '
+          mathematical_result: 結果 (1) x (2)
+          proposals_selected_by_sortition: 通過抽籤選中的提案
+          sortition_reproducibility_details: 抽籤可重複性詳情
+          time_seed: (2) 時間種子
+          witnesses: 見證人
+        sortition:
+          random_seed: 隨機種子
+          selected_proposals:
+            other: 選中的提案
+        sortition_author:
+          deleted: 已刪除的參與者
+        sortition_cancel_author:
+          deleted: 已刪除的參與者
+        sortitions_count:
+          count:
+            other: "%{count} 個抽籤"
+    statistics:
+      sortitions_count: 抽籤

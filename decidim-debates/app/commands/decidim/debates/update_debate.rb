@@ -14,20 +14,33 @@ module Decidim
       # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid, together with the debate.
-      # - :invalid if the form wasn't valid and we couldn't proceed.
+      # - :invalid if the form was not valid and we could not proceed.
       #
       # Returns nothing.
       def call
         return broadcast(:invalid) if form.invalid?
         return broadcast(:invalid) unless form.debate.editable_by?(form.current_user)
 
-        update_debate
+        with_events(with_transaction: true) do
+          update_debate
+        end
+
         broadcast(:ok, @debate)
       end
 
       private
 
       attr_reader :form
+
+      def event_arguments
+        {
+          resource: @debate,
+          extra: {
+            event_author: form.current_user,
+            locale:
+          }
+        }
+      end
 
       def update_debate
         @debate = Decidim.traceability.update!(

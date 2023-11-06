@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::ResourceEndorsedEvent do
-  let(:resource) { create :dummy_resource, title: { en: "My super dummy resource" } }
+  let(:resource) { create(:dummy_resource, title: { en: "My super dummy resource" }) }
   let(:resource_type) { "Dummy resource" }
   let(:resource_text) { resource.body }
 

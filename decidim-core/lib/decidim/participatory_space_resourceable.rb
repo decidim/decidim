@@ -13,7 +13,7 @@ module Decidim
   # therefore depend on a `Component`.
   #
   # The second one, `ParticipatorySpaceResourceable`, it is used for linking
-  # `ParticipatorySpaces` to each other, and therefore don't depend on a
+  # `ParticipatorySpaces` to each other, and therefore do not depend on a
   # `Component` but rather that they depend to the `Organization`.
 
   module ParticipatorySpaceResourceable
@@ -47,7 +47,13 @@ module Decidim
              .joins(:participatory_space_resource_links_to)
              .where(decidim_participatory_space_links: { name: link_name, from_id: id, from_type: self.class.name })
 
-        klass.where(id: from).or(klass.where(id: to))
+        query = klass.where(id: from).or(klass.where(id: to)).published
+
+        if klass.column_names.include?("weight")
+          query.order(:weight)
+        else
+          query.order(created_at: :desc)
+        end
       end
 
       def participatory_space_sibling_scope(participatory_space_name)

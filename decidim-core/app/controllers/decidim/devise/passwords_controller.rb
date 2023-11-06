@@ -47,7 +47,7 @@ module Decidim
         redirect_to new_user_session_path unless current_organization.sign_in_enabled?
       end
 
-      # Since we're using a single Devise installation for multiple
+      # Since we are using a single Devise installation for multiple
       # organizations, and user emails can be repeated across organizations,
       # we need to identify the user by both the email and the organization.
       # Setting the organization ID here will be used by Devise internally to

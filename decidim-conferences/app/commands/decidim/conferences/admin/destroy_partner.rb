@@ -3,8 +3,8 @@
 module Decidim
   module Conferences
     module Admin
-      # A command with all the business logic when destroying an conference
-      # partner in the system.
+      # A command with all the business logic when destroying a conference
+      # Partner in the system.
       class DestroyPartner < Decidim::Command
         # Public: Initializes the command.
         #
@@ -18,7 +18,7 @@ module Decidim
         # Executes the command. Broadcasts these events:
         #
         # - :ok when everything is valid.
-        # - :invalid if the form wasn't valid and we couldn't proceed.
+        # - :invalid if the form was not valid and we could not proceed.
         #
         # Returns nothing.
         def call

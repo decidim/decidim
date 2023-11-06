@@ -14,7 +14,7 @@ module Decidim
         end
       end
 
-      # Since we're using a single Devise installation for multiple
+      # Since we are using a single Devise installation for multiple
       # organizations, and user emails can be repeated across organizations,
       # we need to identify the user by both the email and the organization.
       # Setting the organization ID here will be used by Devise internally to
@@ -30,6 +30,8 @@ module Decidim
       # Overwrites the default method to handle user groups confirmations.
       def after_confirmation_path_for(resource_name, resource)
         return profile_path(resource.nickname) if resource_name == :user_group
+
+        sign_in(resource)
 
         super
       end

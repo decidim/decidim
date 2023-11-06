@@ -60,9 +60,9 @@ fr:
             invalid: Erreurs lors de la sauvegarde de l'enquête.
             success: Enquête enregistrée avec succès.
       last_activity:
-        new_survey_at_html: "<span>Nouvelle enquête à %{link}</span>"
+        new_survey: 'Nouvelle enquête :'
       surveys:
         answer:
           invalid: Votre réponse à l'enquête comporte des erreurs.
-          spam_detected: Il y a eu un problème lors de la réponse au questionnaire. Peut-être avez-vous été trop rapide, pouvez-vous réessayer ?
+          spam_detected: Une erreur est survenue lorsque vous avez répondu au questionnaire. Pouvez-vous réessayer ?
           success: Votre réponse à l'enquête a bien été enregistrée.

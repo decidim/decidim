@@ -87,7 +87,6 @@
         edit: Rediger
         filter:
           all_processes: Vis alle medvirkningsprosesser
-          process_groups: Prosessgrupper
         import_process: Importer
         new_process: Ny prosess
         new_process_group: Ny prosessgruppe
@@ -111,7 +110,6 @@
           attachments: Vedlegg
           categories: Kategorier
           components: Komponenter
-          info: Info
           moderations: Moderering
           private_users: Private brukere
           process_admins: Prosessadministratorer
@@ -121,7 +119,6 @@
           fields:
             created_at: Opprettet på
             private: Privat
-            promoted: Fremhevet
             published: Publisert
             title: Tittel
           name: Deltakende prosess
@@ -205,9 +202,6 @@
           success: Medvirkningsfasen er blitt opprettet.
         default_title: Introduksjon
         destroy:
-          error:
-            active_step: Kan ikke slette den aktive fasen.
-            last_step: Kan ikke slette den siste fasen av en prosess.
           success: Medvirkningsfasen ble slettet.
         edit:
           title: Rediger medvirkningsfase
@@ -250,7 +244,6 @@
         edit:
           update: Oppdater
         index:
-          not_published: Ikke publisert
           private: Privat
           public: Offentlig
           published: Publisert
@@ -323,9 +316,6 @@
         description: Antall deltakende prosesser gjennom denne siden
         object: deltakende prosesser
         title: Deltakende prosesser
-    participatory_process:
-      show:
-        related_assemblies: Relaterte forsamlinger
     participatory_process_groups:
       content_blocks:
         html_1:
@@ -334,19 +324,12 @@
           name: Andre HTML-blokk
         html_3:
           name: Tredje HTML-blokk
-        metadata:
-          developer_group: Promotert av
-          name: Metadata
-          participatory_scope: Hva er bestemt
-          participatory_structure: Hvordan blir det bestemt
-          target: Hvem deltar
         participatory_processes:
           name: Deltakende prosesser
         stats:
           name: Aktivitet
         title:
           meta_scope: Omfang
-          name: Tittel, beskrivelse og hashtag
           participatory_processes:
             one: 1 prosess
             other: "%{count} prosesser"
@@ -355,7 +338,6 @@
     participatory_process_steps:
       index:
         process_steps: Medvirkningsfaser
-        title: Medvirkningsfaser
     participatory_processes:
       admin:
         content_blocks:
@@ -364,21 +346,15 @@
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne prosessen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadata
-            title: Generell Informasjon
             visibility: Synlighet
         participatory_process_imports:
           form:
             document_legend: Legg til et dokumentet
-            slug_help: 'URL-navn brukes til å generere nettadressene som peker på denne prosessen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Bruk delte baner, ikke fullstendige nettadresser her. Godtar bokstaver, tall, streker og skråstreker, og må starte med en bokstav. Hvis den ikke er satt, vises ikke knappen. Eksempel: %{url}'
             cta_text_help: Hvis ikke angitt, vil ikke knappen vises.
         participatory_processes:
           form:
@@ -393,7 +369,6 @@
             select_an_area: Velg et Område
             select_participatory_process_type: Velg en type prosess
             select_process_group: Velg en prosessgruppe
-            slug_help: 'URL-navn brukes til å generere nettadressene som peker på denne prosessen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
             title: Generell informasjon
             visbility: Synlighet
       content_blocks:
@@ -403,16 +378,6 @@
         title: Deltakende prosesser
       last_activity:
         new_participatory_process: Ny deltakende prosess
-      pages:
-        home:
-          highlighted_processes:
-            active_processes: Aktive prosesser
-            active_step: Aktiv medvirkningsfase
-            more_information: Mer informasjon
-            participate: Delta
-            participate_in: Delta i prosess %{resource_name}
-            processes_button_title: Lenke til prosessiden som viser alle prosesser
-            see_all_processes: Se alle prosesser
       participatory_process_steps:
         index:
           back_to_process: Tilbake til prosesssiden
@@ -433,8 +398,6 @@
               one: 1 kommende prosess
               other: "%{count} kommende prosesser"
           explanations:
-            no_active: Ingen aktive prosesser
-            no_active_nor_upcoming: Ingen aktive eller kommende prosesser
             no_active_nor_upcoming_callout: Det er ingen aktive eller kommende prosesser. Her er en liste over de som har vært.
           filter_by: Vis
           names:
@@ -443,25 +406,12 @@
             past: Tidligere
             upcoming: Kommende
           see: Se
-        index:
-          loading: Laster inn resultater...
         show:
           title: Om denne prosessen
       show:
-        area: Område
         belongs_to_group: Denne prosessen tilhører
-        dates: Datoer
-        developer_group: Prosessen styres av
-        end_date: Sluttdato
-        local_area: Organisasjonsområde
-        participatory_scope: Medvirkningen gjelder
-        participatory_structure: Hvordan det blir gjennomført
         private_space: Dette er en lukket prosess
         related_processes: Relaterte prosesser
-        scope: Tema
-        start_date: Startdato
-        target: Hvem kan delta
-        unspecified: Ikke spesifisert
     statistics:
       processes_count: Prosesser
   layouts:
@@ -471,10 +421,6 @@
           browse: Bla gjennom
           browse_resource: Bla gjennom prosessgruppe %{resource_name}
           processes_count: 'Prosesser:'
-      participatory_process_widgets:
-        show:
-          active_step: Aktiv fase
-          take_part: Delta
       participatory_processes:
         index:
           promoted_processes: Fremhevede prosesser
@@ -484,16 +430,3 @@
           more_info_about: Mer informasjon om prosess %{resource_name}
           take_part: Delta
           take_part_in: Delta i prosess %{resource_name}
-        promoted_process:
-          active_step: 'Nåværende fase:'
-          more_info: Mer info
-          more_info_about: Mer informasjon om prosess %{resource_name}
-          take_part: Delta
-          take_part_in: Delta i prosess %{resource_name}
-        promoted_process_group:
-          more_info: Mer info
-      process_header_steps:
-        step: Fase %{current} av %{total}
-        view_steps: Vis faser
-      process_navigation:
-        process_menu_item: Prosessen

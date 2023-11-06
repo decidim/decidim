@@ -13,7 +13,8 @@ module Decidim
     include ImpersonateUsers
     include HasStoredPath
     include NeedsTosAccepted
-    include HttpCachingDisabler
+    include Headers::HttpCachingDisabler
+    include Headers::ContentSecurityPolicy
     include ActionAuthorization
     include ForceAuthentication
     include SafeRedirect
@@ -21,9 +22,7 @@ module Decidim
     include UserBlockedChecker
     include DisableRedirectionToExternalHost
     include NeedsPasswordChange
-
-    include RedesignLayout
-    redesign active: true
+    include LinkedResourceReference
 
     helper Decidim::MetaTagsHelper
     helper Decidim::DecidimFormHelper
@@ -32,11 +31,14 @@ module Decidim
     helper Decidim::TranslationsHelper
     helper Decidim::AriaSelectedLinkToHelper
     helper Decidim::MenuHelper
+    helper Decidim::BreadcrumbHelper
     helper Decidim::ComponentPathHelper
     helper Decidim::ViewHooksHelper
     helper Decidim::CardHelper
     helper Decidim::SanitizeHelper
     helper Decidim::TwitterSearchHelper
+    helper Decidim::SocialShareButtonHelper
+    helper Decidim::FiltersHelper
 
     register_permissions(::Decidim::ApplicationController,
                          ::Decidim::Admin::Permissions,
@@ -77,7 +79,7 @@ module Decidim
 
     # We store whether the user is requesting to toggle the translations or not.
     # We need to store it this way because if we use an instance variable, then
-    # we're not able to access that value from inside the presenters, and we
+    # we are not able to access that value from inside the presenters, and we
     # need it there to translate some attributes.
     def store_machine_translations_toggle
       RequestStore.store[:toggle_machine_translations] = params[:toggle_translations].present?
@@ -101,7 +103,7 @@ module Decidim
       :public
     end
 
-    # Make sure Chrome doesn't use the cache from a different format. This
+    # Make sure Chrome does not use the cache from a different format. This
     # prevents a bug where clicking the back button of the browser
     # displays the JS response instead of the HTML one.
     def add_vary_header

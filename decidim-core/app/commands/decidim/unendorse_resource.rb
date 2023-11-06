@@ -17,7 +17,7 @@ module Decidim
     # Executes the command. Broadcasts these events:
     #
     # - :ok when everything is valid, together with the resource.
-    # - :invalid if the form wasn't valid and we couldn't proceed.
+    # - :invalid if the form was not valid and we could not proceed.
     #
     # Returns nothing.
     def call
@@ -31,7 +31,7 @@ module Decidim
       query = if @current_group.present?
                 @resource.endorsements.where(decidim_user_group_id: @current_group&.id)
               else
-                @resource.endorsements.where(author: @current_user)
+                @resource.endorsements.where(author: @current_user, decidim_user_group_id: nil)
               end
       query.destroy_all
     end

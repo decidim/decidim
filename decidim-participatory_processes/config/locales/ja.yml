@@ -11,15 +11,22 @@ ja:
         decidim_area_id: エリア
         description: 説明
         developer_group: プロモーターグループ
+        document: ドキュメント
         domain: ドメイン
         end_date: 終了日
         hashtag: ハッシュタグ
         hero_image: ホーム画像
+        import_attachments: 添付ファイルをインポート
+        import_categories: カテゴリをインポート
+        import_components: コンポーネントをインポート
+        import_steps: ステップをインポート
         local_area: 組織エリア
         meta_scope: スコープメタデータ
         participatory_process_group_id: 参加型プロセスグループ
+        participatory_process_type_id: プロセス種別
         participatory_scope: 決定されるもの
         participatory_structure: どのように決められますか？
+        private_space: プライベートプロセス
         promoted: プロモート
         published_at: 公開日時
         related_process_ids: 関連する参加型プロセス
@@ -67,7 +74,7 @@ ja:
         participatory_process:
           attributes:
             document:
-              allowed_file_content_types: '無効なドキュメントタイプです。使用できるフォーマット: %{types}'
+              allowed_file_content_types: '無効なドキュメントタイプです。次の拡張子を持つファイルのみが許可されています: %{types}'
     models:
       decidim/participatory_process_step_activated_event: フェーズ有効化
       decidim/participatory_process_step_changed_event: フェーズ変更
@@ -90,8 +97,9 @@ ja:
         edit: 編集
         filter:
           all_processes: すべての参加型プロセスを表示
-          process_groups: 参加型プロセス グループ
+          process_groups: グループ内のプロセスをフィルター
         import_process: インポート
+        moderate: モデレート
         new_process: 新規参加型プロセス
         new_process_group: 新規参加型プロセスグループ
         new_process_step: 新しいフェーズ
@@ -100,6 +108,7 @@ ja:
         preview: プレビュー
         publish: 公開
         resend_invitation: 招待を再送信する
+        see_process: プロセスを見る
         unpublish: 公開しない
       menu:
         participatory_process_groups: 参加型プロセスグループ
@@ -114,7 +123,8 @@ ja:
           attachments: 添付ファイル
           categories: カテゴリ
           components: コンポーネント
-          info: 情報
+          info: このプロセスについて
+          landing_page: ランディングページ
           moderations: モデレーション
           private_users: プライベート参加者
           process_admins: 参加型プロセス管理者
@@ -122,9 +132,9 @@ ja:
       models:
         participatory_process:
           fields:
+            actions: アクション
             created_at: 作成日時
             private: プライベート
-            promoted: 強調表示
             published: 公開済み
             title: タイトル
           name: 参加型プロセス
@@ -166,8 +176,17 @@ ja:
       participatory_process_group_landing_page:
         edit:
           active_content_blocks: アクティブコンテンツブロック
+          add: コンテンツブロックを追加
+          destroy_confirmation: このコンテンツブロックを削除してもよろしいですか？
           inactive_content_blocks: 非アクティブコンテンツブロック
+          title: ページコンテンツ
       participatory_process_group_landing_page_content_blocks:
+        create:
+          error: コンテンツブロックの作成中に問題が発生しました。
+          success: コンテンツブロックを作成しました。
+        destroy:
+          error: コンテンツブロックの削除中に問題が発生しました。
+          success: コンテンツブロックを削除しました。
         edit:
           update: 更新
       participatory_process_groups:
@@ -209,8 +228,8 @@ ja:
         default_title: はじめに
         destroy:
           error:
-            active_step: アクティブなフェーズは削除できません。
-            last_step: 参加型プロセスの最後のフェーズは削除できません。
+            active_step: 有効なフェーズは削除できません。
+            last_step: プロセスの最後のフェーズを削除できません。
           success: 参加型プロセスのフェーズが正常に削除されました。
         edit:
           title: 参加型プロセスのフェーズを編集
@@ -234,8 +253,6 @@ ja:
         edit:
           title: プロセス種別の編集
           update: 更新
-        form:
-          title: タイトル
         new:
           create: 作成
           title: 新しいプロセス種別
@@ -266,10 +283,10 @@ ja:
         edit:
           update: 更新
         index:
-          not_published: 未公開
           private: プライベート
           public: 公開
           published: 公開済み
+          unpublished: 未公開
         new:
           create: 作成
           title: 新しい参加型プロセス
@@ -343,7 +360,7 @@ ja:
     log:
       value_types:
         participatory_process_type_presenter:
-          not_found: 'プロセス種別がデータベース上に見つかりませんでした (ID: %{id})'
+          not_found: 'プロセス種別がデータベース上に見つかりませんでした (ID: %{id})。'
     menu:
       processes: 参加型プロセス
     metrics:
@@ -351,30 +368,31 @@ ja:
         description: この組織の参加型プロセス数
         object: 参加型プロセス
         title: 参加型プロセス
-    participatory_process:
-      show:
-        related_assemblies: 関連する参加型スペース
     participatory_process_groups:
       content_blocks:
+        extra_data:
+          developer_group: プロモーター
+          name: メタデータ
+          participatory_scope: 決めること
+          participatory_structure: 決定方法
+          target: 参加者
+        html:
+          name: HTMLブロック
         html_1:
           name: 最初の HTML ブロック
         html_2:
           name: 2番目のHTMLブロック
         html_3:
           name: 3番目の HTML ブロック
-        metadata:
-          developer_group: プロモーター
-          name: メタデータ
-          participatory_scope: 決定されること
-          participatory_structure: 決定方法
-          target: 参加者
+        main_data:
+          name: タイトルと説明
         participatory_processes:
+          active: アクティブな参加プロセス
           name: 参加型プロセス
         stats:
           name: 統計情報
         title:
           meta_scope: スコープ
-          name: タイトル、説明、ハッシュタグ
           participatory_processes:
             other: "%{count} 個のプロセス"
       show:
@@ -382,30 +400,32 @@ ja:
     participatory_process_steps:
       index:
         process_steps: 参加型プロセスのフェーズ
-        title: 参加型プロセスのフェーズ
     participatory_processes:
       admin:
         content_blocks:
           highlighted_processes:
+            active: アクティブ
+            all: すべて
             max_results: 表示する要素の最大量
+            selection_criteria: 選択条件
         new_import:
           accepted_types:
             json: JSON
         participatory_process_copies:
           form:
-            slug_help: 'URLスラグは、この参加型プロセスを指すURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
+            slug_help_html: 'URLスラグは、この参加型プロセスを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
         participatory_process_groups:
           form:
             metadata: メタデータ
-            title: 一般情報
+            title: このプロセスについて
             visibility: 公開範囲
         participatory_process_imports:
           form:
             document_legend: ドキュメントを追加
-            slug_help: 'URLスラグは、この参加型プロセスを指すURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
+            slug_help_html: 'URLスラグは、この参加型プロセスを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'ここでは完全な URL ではなく、部分パスを使用してください。文字、数字、ダッシュ、スラッシュを受け入れ、文字で始まる必要があります。 設定されていない場合、ボタンは表示されません。例: %{url}'
+            cta_path_help_html: 'ここでは完全な URL ではなく、相対パスを使用してください。英字、数字、ハイフン、スラッシュを受け入れ、英字で始まる必要があります。 設定されていない場合、ボタンは表示されません。例: %{url}'
             cta_text_help: 設定されていない場合、ボタンは表示されません。
         participatory_processes:
           form:
@@ -420,12 +440,18 @@ ja:
             select_an_area: エリアを選択
             select_participatory_process_type: プロセスの種別を選択
             select_process_group: 参加型プロセス グループを選択
-            slug_help: 'URLスラグは、この参加型プロセスを指すURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
+            slug_help_html: 'URLスラグは、この参加型プロセスを指すURLを生成するために使用されます。英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
             title: 一般情報
             visbility: 公開範囲
       content_blocks:
+        extra_data:
+          name: フェーズと期間
+        hero:
+          name: ヒーローイメージと CTA
         highlighted_processes:
           name: ハイライトされた参加型プロセス
+        related_processes:
+          name: 関連するプロセス
       index:
         title: 参加型プロセス
       last_activity:
@@ -433,17 +459,22 @@ ja:
       pages:
         home:
           highlighted_processes:
-            active_processes: アクティブな参加型プロセス
-            active_step: アクティブフェーズ
-            more_information: 詳細情報
-            participate: 参加
-            participate_in: 参加型プロセス %{resource_name} に参加する
-            processes_button_title: すべてのプロセスを表示するプロセスページへのリンク
-            see_all_processes: すべての参加型プロセスを見る
+            active_spaces: アクティブなプロセス
+            see_all_spaces: すべてのプロセスを見る
       participatory_process_steps:
         index:
           back_to_process: 参加型プロセスのページに戻る
       participatory_processes:
+        description:
+          area_name: エリア
+          data: プロセスデータ
+          developer_group: プロモーターグループ
+          local_area: 組織エリア
+          meta_scope: スコープ
+          participatory_scope: 決めること
+          participatory_structure: 決定方法
+          target: 参加者
+          title: このプロセスについて
         filters:
           all_types: すべての種別
           counters:
@@ -455,9 +486,10 @@ ja:
               other: "%{count} 個の過去の参加型プロセス"
             upcoming:
               other: "%{count} 件の今後の参加型プロセス"
+          date: 日付
           explanations:
-            no_active: アクティブな参加型プロセスはありません
-            no_active_nor_upcoming: アクティブな参加型プロセスも今後の参加型プロセスもありません
+            no_active: 有効なプロセスがありません。
+            no_active_nor_upcoming: アクティブなプロセスも今後のプロセスもありません。
             no_active_nor_upcoming_callout: アクティブな参加型プロセスも今後の参加型プロセスもありません。ここでは過去の参加型プロセスのリストを示します。
           filter_by: 表示
           names:
@@ -466,25 +498,13 @@ ja:
             past: 過去
             upcoming: 近日公開
           see: 見る
-        index:
-          loading: 結果を読み込み中...
+          type: 種別
         show:
           title: このプロセスについて
       show:
-        area: エリア
         belongs_to_group: このプロセスの所属グループ
-        dates: 日付
-        developer_group: プロモーターグループ
-        end_date: 終了日
-        local_area: 組織エリア
-        participatory_scope: 決定されるもの
-        participatory_structure: どのように決められますか？
         private_space: これはプライベートな参加型プロセスです
         related_processes: 関連する参加型プロセス
-        scope: スコープ
-        start_date: 開始日
-        target: 参加者
-        unspecified: 指定されていない
     statistics:
       processes_count: プロセス
   layouts:
@@ -494,10 +514,6 @@ ja:
           browse: 検索
           browse_resource: 参加型プロセスグループ %{resource_name} を参照
           processes_count: '参加型プロセス:'
-      participatory_process_widgets:
-        show:
-          active_step: アクティブフェーズ
-          take_part: 参加する
       participatory_processes:
         index:
           promoted_processes: ハイライトされた参加型プロセス
@@ -507,16 +523,3 @@ ja:
           more_info_about: 参加型プロセス %{resource_name} についての詳細情報
           take_part: 参加する
           take_part_in: 参加型プロセス %{resource_name} に参加する
-        promoted_process:
-          active_step: '現在のフェーズ:'
-          more_info: 詳細情報
-          more_info_about: 参加型プロセス %{resource_name} についての詳細情報
-          take_part: 参加する
-          take_part_in: 参加型プロセス %{resource_name} に参加する
-        promoted_process_group:
-          more_info: 詳細情報
-      process_header_steps:
-        step: 段階 %{current} / %{total}
-        view_steps: プロセスのフェーズ
-      process_navigation:
-        process_menu_item: プロセス

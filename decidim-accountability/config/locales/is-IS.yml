@@ -37,7 +37,6 @@ is-IS:
         destroy: Eyða
         edit: Breyta
         import_csv: Flytja inn CSV
-        new: Nýtt %{name}
         preview: Preview
         timeline_entries: Verkefnisþróun
         title: Aðgerðir
@@ -48,23 +47,13 @@ is-IS:
         import_results:
           new:
             import: Flytja inn
-            link: hlekkur
             title: Flytja inn niðurstöður frá CSV
-        imports:
-          create:
-            success: Innflutningur skjals er hafinn. Þú munt fá bráðlega fá tölvupóst með niðurstöðunum
         models:
           result:
             name: Niðurstaða
           status:
             name: Staða
-          timeline_entry:
-            name: Tímalína færsla
         results:
-          create:
-            success: Niðurstaða búin til
-          destroy:
-            success: Niðurstaða tókst að eyða
           edit:
             title: Breyta niðurstöðum
             update: Uppfæra niðurstöðu
@@ -73,16 +62,10 @@ is-IS:
           new:
             create: Búa til niðurstöðu
             title: Nýtt niðurstaða
-          update:
-            success: Niðurstaða tókst að uppfæra
         shared:
           subnav:
             statuses: Staða
         statuses:
-          create:
-            success: Staða búin til
-          destroy:
-            success: Staða var eytt
           edit:
             title: Breyta stöðu
             update: Uppfæra stöðu
@@ -91,13 +74,7 @@ is-IS:
           new:
             create: Búa til stöðu
             title: Ný staða
-          update:
-            success: Staða uppfærður með góðum árangri
         timeline_entries:
-          create:
-            success: Uppfærsla búin til með góðum árangri
-          destroy:
-            success: Innslátt tókst eytt
           edit:
             title: Breyta færslu
             update: Uppfæra færslu
@@ -106,8 +83,6 @@ is-IS:
           new:
             create: Búðu til færslu
             title: Ný færsla
-          update:
-            success: Uppfærsla uppfærð með góðum árangri
       admin_log:
         result:
           create: "%{user_name} búið til afleiðing %{resource_name} í %{space_name}"
@@ -156,7 +131,6 @@ is-IS:
             other: "%{count} niðurstöður"
         filters:
           all: Allt
-          scopes: Scopes
         home:
           categories_label: Flokkar
           subcategories_label: Undirflokka

@@ -1,5 +1,5 @@
 <% if questionnaire.all_questions_unpublished? %>
-  <p class="padding-1"><%= t(".empty_questions") %></p>
+  <p class="p-4"><%= t(".empty_questions") %></p>
 <% else %>
   <%= render partial: "decidim/meetings/polls/questions/question", collection: questionnaire.questions.includes([:questionnaire]).visible %>
 <% end %>

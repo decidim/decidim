@@ -2,44 +2,29 @@
 
 module Decidim
   module Assemblies
-    # Helpers related to the Assemblies filter by type.
-    #
-    # `filter` returns a Filter object from Decidim::FilterResource
+    # Helpers related to the Assemblies filters.
     module FilterAssembliesHelper
-      def available_filters
-        return if organization_assembly_types.blank?
+      include Decidim::CheckBoxesTreeHelper
 
-        [t("all", scope: "decidim.assemblies.filter")] + organization_assembly_types
+      def assembly_types
+        @assembly_types ||= AssembliesType.where(organization: current_organization).joins(:assemblies).distinct
       end
 
-      def filter_link(type_id)
-        Decidim::Assemblies::Engine
-          .routes
-          .url_helpers
-          .assemblies_path(
-            filter: {
-              with_scope: filter.with_scope,
-              with_area: filter.with_area,
-              type_id_eq: type_id
-            }
-          )
+      def filter_types_values
+        return if assembly_types.blank?
+
+        type_values = assembly_types.map { |type| [type.id.to_s, translated_attribute(type.title)] }
+        type_values.prepend(["", t("decidim.assemblies.assemblies.filters.names.all")])
+
+        filter_tree_from_array(type_values)
       end
 
-      def help_text
-        t("help", scope: "decidim.assemblies.filter")
-      end
-
-      def current_filter_name
-        type = AssembliesType.find_by(id: filter_params[:type_id_eq])
-        return translated_attribute type.title if type
-
-        t("all", scope: "decidim.assemblies.filter")
-      end
-
-      def organization_assembly_types
-        @organization_assembly_types ||= AssembliesType.where(organization: current_organization).joins(:assemblies).where(
-          decidim_assemblies: { id: search.result.unscope(where: :decidim_assemblies_type_id).parent_assemblies }
-        ).distinct&.map { |type| [translated_attribute(type.title), type.id] }
+      def filter_sections
+        [
+          { method: :with_any_scope, collection: filter_global_scopes_values, label_scope: "decidim.shared.participatory_space_filters.filters", id: "scope" },
+          { method: :with_any_area, collection: filter_areas_values, label_scope: "decidim.shared.participatory_space_filters.filters", id: "area" },
+          { method: :with_any_type, collection: filter_types_values, label_scope: "decidim.assemblies.assemblies.filters", id: "type" }
+        ].reject { |item| item[:collection].blank? }
       end
     end
   end

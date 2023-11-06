@@ -6,7 +6,6 @@ en:
         assemblies_ids: Related Assemblies
         available_slots: Available slots
         banner_image: Banner image
-        consultations_ids: Related Consultations
         copy_categories: Copy categories
         copy_components: Copy components
         copy_features: Copy features
@@ -29,22 +28,23 @@ en:
         show_statistics: Show statistics
         sign_date: Sign date
         signature: Signature
-        signature_name: signature name
+        signature_name: Signature name
         slogan: Slogan
         slug: URL slug
         start_date: Start date
         title: Title
+        weight: Order position
       conference_media_link:
         date: Date
         link: Link
         title: Title
-        weight: Weight
+        weight: Order position
       conference_partner:
         link: Link
         logo: Logo
         name: Name
         partner_type: Partner type
-        weight: Weight
+        weight: Order position
       conference_registration_invite:
         email: Email
         name: Name
@@ -54,7 +54,7 @@ en:
         description: Description
         price: Price
         title: Title
-        weight: Weight
+        weight: Order position
       conference_speaker:
         affiliation: Affiliation
         avatar: Avatar
@@ -63,7 +63,7 @@ en:
         personal_url: Personal URL
         position: Position
         short_bio: Short bio
-        twitter_handle: Twitter handle
+        twitter_handle: X handle
         user_id: User
       conference_user_role:
         email: Email
@@ -74,7 +74,7 @@ en:
         conference_registration_invite:
           attributes:
             email:
-              already_invited: This email has already been invited
+              already_invited: This email has already been invited.
   activerecord:
     models:
       decidim/conference:
@@ -90,7 +90,12 @@ en:
     admin:
       actions:
         confirm: Confirm
-        new_conference: New Conference
+        new_conference: New conference
+        new_conference_user_role: New conference admin
+        new_media_link: New media link
+        new_partner: New partner
+        new_registration_type: New registration type
+        new_speaker: New speaker
         send_diplomas: Send certificates of attendance
       conference_copies:
         new:
@@ -135,7 +140,7 @@ en:
           title: Update conference admin.
           update: Update
         index:
-          conference_admins_title: conference admins
+          conference_admins_title: Conference admins
         new:
           create: Create
           title: New conference admin.
@@ -153,8 +158,8 @@ en:
         form:
           title: General Information
         index:
-          not_published: Not published
           published: Published
+          unpublished: Unpublished
         new:
           create: Create
           title: Conference
@@ -194,18 +199,18 @@ en:
           conference_invites: Invites
           conference_speakers: Speakers
           diploma: Certificate of Attendance
-          info: Info
+          info: About this conference
           media_links: Media Links
           moderations: Moderations
           partners: Partners
           registration_types: Registration Types
           registrations: Registrations
+          see_conference: See conference
           user_registrations: User Registrations
       models:
         conference:
           fields:
             created_at: Created at
-            promoted: Highlighted
             published: Published
             title: Title
         conference_speaker:
@@ -313,6 +318,7 @@ en:
           update: "%{user_name} updated the partner %{resource_name} in the %{space_name} conference"
         registration_type:
           create: "%{user_name} created the %{resource_name} registration type in the %{space_name} conference"
+          delete: "%{user_name} removed the %{resource_name} registration type from the %{space_name} conference"
           publish: "%{user_name} published the %{resource_name} registration type in the %{space_name} conference"
           unpublish: "%{user_name} unpublished the %{resource_name} registration type in the %{space_name} conference"
           update: "%{user_name} updated the %{resource_name} registration type in the %{space_name} conference"
@@ -330,7 +336,7 @@ en:
       admin:
         conference_copies:
           form:
-            slug_help: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help_html: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         conference_invites:
           create:
             error: There was a problem inviting the participant to join the conference.
@@ -347,12 +353,11 @@ en:
               all: All
               rejected: Rejected
               sent: Sent
-            filter_by: Filter by
             invite_attendee: Invite participant
             invites: Invites
             search: Search
           new:
-            explanation: The participant will be invited to join a conference. If their email is not registered, they'll be invited to the organization as well.
+            explanation: The participant will be invited to join a conference. If their email is not registered, they will be invited to the organization as well.
             invite: Invite
             new_invite: Invite participant
         conference_registrations:
@@ -372,7 +377,7 @@ en:
             registrations_count:
               one: There has been 1 registration.
               other: There has been %{count} registrations.
-            slug_help: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help_html: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         diplomas:
           edit:
             save: Save
@@ -380,7 +385,8 @@ en:
         invite_join_conference_mailer:
           invite:
             decline: Decline invitation '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} has invited you to join a conference at %{application}. You can decline or accept it through the links below."
+            invited_existing_user_to_join_a_conference: "%{invited_by} has invited you to join a conference at %{application}. You can decline or accept it through the links below."
+            invited_user_to_join_a_conference: "%{invited_by} has invited you to join a conference at %{application}. You can accept it through the link below."
             registration: Registration for '%{conference_title}'
         partners:
           index:
@@ -405,18 +411,11 @@ en:
           cancel: Cancel
           confirm: Confirm
         show:
-          free: Free
           going: Attending
           no_slots_available: No slots available
           registration: Registration
       conference_program:
-        program_meeting:
-          content: Content
-          location: Location
-          speakers: Speakers
-          streaming: Streaming
         show:
-          day: Day
           program: Program
       conference_registration_mailer:
         confirmation:
@@ -431,14 +430,16 @@ en:
         create:
           invalid: There was a problem joining this conference.
           success: You have successfully joined the conference.
+          unauthorized: You need to log in before registering to the conference.
         decline_invitation:
           invalid: There was a problem declining the invitation.
           success: You have successfully declined the invitation.
+          unauthorized: You need to log in before declining the invitation.
         destroy:
           invalid: There was a problem leaving this conference.
           success: You have successfully left the conference.
       conference_speaker:
-        go_to_twitter: Go to Twitter
+        go_to_twitter: Go to X
         more_info: more info
         personal_website: Personal website
         show:
@@ -447,19 +448,24 @@ en:
       conference_speaker_cell:
         personal_url:
           personal_website: Personal website
-        twitter_handle:
-          go_to_twitter: Go to Twitter
       conference_speakers:
         index:
-          speakers: Speakers
+          speakers:
+            one: Speaker
+            other: Speakers
       conferences:
         partners:
           collaborators: Partners
           main_promotors: Organizers
         show:
+          already_have_an_account?: Already have an account?
+          are_you_new?: New participant?
           login_as: You are logged in as %{name} <%{email}>
-          make_conference_registration: 'Make your registration in the conference:'
+          make_conference_registration: Register for the conference
+          manage_registration: Manage registration
           register: Register
+          sign_in_description: Log in to register to the conference
+          sign_up_description: Create an account to register to the conference
       content_blocks:
         highlighted_conferences:
           name: Highlighted conferences
@@ -468,9 +474,9 @@ en:
       mailer:
         conference_registration_mailer:
           confirmation:
-            subject: Your conference's registration has been confirmed
+            subject: Your conference's registration has been confirmed.
           pending_validation:
-            subject: Your conference's registration is pending confirmation
+            subject: Your conference's registration is pending confirmation.
         invite_join_conference_mailer:
           invite:
             subject: Invitation to join a conference
@@ -501,38 +507,19 @@ en:
       pages:
         home:
           highlighted_conferences:
-            active_conferences: Active conferences
-            conferences_button_title: Link to the Conferences page displaying all the conferences
-            see_all_conferences: See all conferences
-      photo:
-        image:
-          attributes:
-            alt: Media picture
-        show:
-          close_modal: Close modal
-          photo: Image
-      photos_list:
-        show:
-          related_photos: Images
+            active_spaces: Active conferences
+            see_all_spaces: See all conferences
       registration_types:
         index:
           choose_an_option: 'Choose your registration option:'
-          login_as: You are logged in as %{name} <%{email}>
           no_registrations: No registrations
           register: Register
           title: Registration types
-      shared:
-        conference_user_login:
-          already_account: Do you already have an account in decidim?
-          new_user: New user?
-          sign_in: Login to register for the conference
-          sign_up: Create an account in decidim to register for the conference
       show:
         details: Details
         introduction: Introduction
         objectives: Objectives
         related_assemblies: Related assemblies
-        related_consultations: Related Consultations
         related_participatory_processes: Related participatory processes
     events:
       conferences:
@@ -574,7 +561,7 @@ en:
     log:
       value_types:
         conference_presenter:
-          not_found: 'The conference was not found on the database (ID: %{id})'
+          not_found: 'The conference was not found on the database (ID: %{id}).'
     media:
       index:
         description: Links about this conference
@@ -590,10 +577,8 @@ en:
   layouts:
     decidim:
       conference_hero:
+        manage_registration: Manage registration
         register: Register
-      conference_widgets:
-        show:
-          take_part: Take part
       conferences:
         conference:
           more_info: More info
@@ -604,11 +589,7 @@ en:
           conferences:
             one: "%{count} conference"
             other: "%{count} conferences"
-        promoted_conference:
-          more_info: More info
-          take_part: Take part
       conferences_nav:
-        conference_menu_item: Information
         conference_partners_menu_item: Partners
         conference_speaker_menu_item: Speakers
         media: Media

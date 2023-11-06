@@ -1,4 +1,4 @@
-/* eslint-disable no-ternary, no-plusplus, require-jsdoc */
+/* eslint-disable no-plusplus, require-jsdoc */
 
 class DisplayCondition {
   constructor(options = {}) {
@@ -27,7 +27,7 @@ class DisplayCondition {
 
     let multipleInput = [];
 
-    $conditionWrapperField.find(".radio-button-collection, .check-box-collection").find(".collection-input").each((idx, el) => {
+    $conditionWrapperField.find(".js-radio-button-collection, .js-check-box-collection").find(".js-collection-input").each((idx, el) => {
       const $input = $(el).find("input[name$=\\[body\\]]");
       const checked = $input.is(":checked");
 
@@ -51,7 +51,7 @@ class DisplayCondition {
       return $textInput;
     }
 
-    return $conditionWrapperField.find(".collection-input").find("input:not([type='hidden'])");
+    return $conditionWrapperField.find(".js-collection-input").find("input:not([type='hidden'])");
   }
 
   checkAnsweredCondition(value) {

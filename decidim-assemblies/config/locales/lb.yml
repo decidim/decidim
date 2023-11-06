@@ -51,7 +51,6 @@ lb:
         subtitle: Untertitel
         target: Wer nimmt teil?
         title: Titel
-        twitter: Twitter
         weight: Bestellposition
         youtube: Youtube
       assembly_member:
@@ -92,7 +91,6 @@ lb:
         edit:
           update: Aktualisieren
         index:
-          not_published: Nicht veröffentlicht
           private: Privat
           public: Öffentlich
           published: Veröffentlicht
@@ -186,7 +184,6 @@ lb:
           attachment_files: Dateien
           categories: Kategorien
           components: Komponenten
-          info: Info
           moderations: Moderationen
           private_users: Private Benutzer
         assemblies_types: Versammlungstypen
@@ -224,13 +221,6 @@ lb:
         assemblies_types:
           form:
             title: Titel
-        assembly_copies:
-          form:
-            slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Assembly verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
-        assembly_imports:
-          form:
-            document_legend: Dokument hinzufügen
-            slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Versammlung verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         assembly_members:
           form:
             existing_user: Existierender Benutzer
@@ -243,7 +233,6 @@ lb:
               all: Alle
               ceased: Aufgegeben
               not_ceased: Nicht aufgehört
-            filter_by: Filtern nach
             search: Suche
         content_blocks:
           highlighted_assemblies:
@@ -281,44 +270,18 @@ lb:
         working_group: Arbeitsgruppe
       index:
         title: Gremien
-      last_activity:
-        new_assembly: Neues Gremium
       pages:
-        home:
-          highlighted_assemblies:
-            active_assemblies: Aktive Gremien
-            assemblies_button_title: Verknüpfung zu der Versammlungsseite mit einem Überblick aller Versammlungen
-            see_all_assemblies: Alle Gremien anzeigen
         user_profile:
           member_of:
             member_of: Mitglied von
       show:
-        area: Bereich
         assembly_type: Montageart
-        children: Gremien
-        closing_date: Einsendeschluss
-        composition: Zusammensetzung
-        created_by: Erstellt von
-        creation_date: Datum erstellt
-        developer_group: Promoter-Gruppe
         duration: Dauer
-        included_at: Inbegriffen bei
-        indefinite_duration: Unbestimmt
-        internal_organisation: Interne Organisation
         is_transparent:
           'false': undurchsichtig
           'true': transparent
-        local_area: Organisationsbereich
-        participatory_scope: Was ist entschieden?
-        participatory_structure: Wie ist es entschieden?
         private_space: Dies ist eine private Versammlung
-        purpose_of_action: Zweck der Aktion
-        read_less: Lese weniger
-        read_more: Weiterlesen
         related_participatory_processes: Procesos participativos relacionados
-        scope: Umfang
-        social_networks: Soziale Netzwerke
-        target: Wer nimmt teil?
     assembly_members:
       assembly_member:
         designated_on: Bezeichnet am
@@ -360,9 +323,6 @@ lb:
         related_assemblies: Ähnliche Versammlungen
     statistics:
       assemblies_count: Gremien
-  errors:
-    messages:
-      cannot_be_blank: darf nicht leer sein
   layouts:
     decidim:
       assemblies:
@@ -370,20 +330,10 @@ lb:
           more_info: Mehr Informationen
           take_part: Teilnehmen
         index:
-          children: 'Versammlungen:'
-          organizational_chart: Organigramm
           promoted_assemblies: Hervorgehobene Gremien
-          reset_chart: Zurücksetzen
         order_by_assemblies:
           assemblies:
             one: "%{count} Gremien"
             other: "%{count} Gremien"
-        promoted_assembly:
-          more_info: Mehr Informationen
-          take_part: Teilnehmen
       assembly_navigation:
         assembly_member_menu_item: Mitglieder
-        assembly_menu_item: Das Gremium
-      assembly_widgets:
-        show:
-          take_part: Teilnehmen

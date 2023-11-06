@@ -22,7 +22,7 @@ module Decidim
         # Executes the command. Broadcasts these events:
         #
         # - :ok when everything is valid, together with the proposal.
-        # - :invalid if the form wasn't valid and we couldn't proceed.
+        # - :invalid if the form was not valid and we could not proceed.
         #
         # Returns nothing.
         def call
@@ -56,6 +56,10 @@ module Decidim
         private
 
         attr_reader :form, :proposal, :attachment, :gallery
+
+        def delete_attachment(attachment)
+          Attachment.find(attachment.id).delete if attachment.id.to_i == proposal.documents.first.id
+        end
 
         def update_proposal
           parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite

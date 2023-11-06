@@ -41,15 +41,6 @@ module Decidim
         end
       end
 
-      def election_vote_verify_path
-        engine_router.election_vote_verify_path(
-          "#{key_participatory_space_slug}": current_participatory_space.slug,
-          component_id: current_component.id,
-          election_id: model.id,
-          vote_id: "_"
-        )
-      end
-
       def callout_text
         if last_vote_pending?
           t("callout.pending_vote", scope: "decidim.elections.elections.show")

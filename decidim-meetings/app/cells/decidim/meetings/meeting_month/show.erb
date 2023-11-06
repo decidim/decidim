@@ -1,0 +1,33 @@
+<table class="meeting-calendar__month">
+  <caption><%= month_name %></caption>
+  <thead>
+    <% abbr_day_names.each_with_index do |day, i| %>
+      <th><abbr title="<%= day_names[i] %>"><%= day %></abbr></th>
+    <% end %>
+  </thead>
+  <tbody>
+    <% weeks.each do |days| %>
+      <tr>
+        <% is_first_day = first_day_of_month?(days.first) %>
+
+        <% if is_first_day %>
+          <% (7 - days.length).times do %>
+            <td></td>
+          <% end %>
+        <% end %>
+
+        <% days.each do |day| %>
+          <%= content_tag :td, class: day_class(day) do %>
+            <time datetime="<%= day %>"><%= l(day, format: "%d") %></time>
+          <% end %>
+        <% end %>
+
+        <% if !is_first_day %>
+          <% (7 - days.length).times do %>
+            <td></td>
+          <% end %>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

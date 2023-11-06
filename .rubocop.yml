@@ -1,4 +1,100 @@
-inherit_from:
-  - .rubocop_ruby.yml
-  - .rubocop_rails.yml
-  - .rubocop-disabled.yml
+inherit_gem:
+  decidim-dev: rubocop-decidim.yml
+
+inherit_mode:
+  merge:
+    - Exclude
+
+AllCops:
+  Exclude:
+    - "decidim-initiatives/lib/gem_overrides/origami/date.rb"
+
+Naming/FileName:
+  Exclude:
+    - "decidim-dev/lib/decidim-dev.rb"
+
+Metrics/CyclomaticComplexity:
+  Exclude:
+    - "decidim-admin/app/queries/decidim/admin/newsletter_recipients.rb"
+
+Metrics/ParameterLists:
+  Exclude:
+    - "decidim-core/lib/decidim/filter_form_builder.rb"
+
+Metrics/PerceivedComplexity:
+  Exclude:
+    - "decidim-admin/app/queries/decidim/admin/newsletter_recipients.rb"
+
+RSpec/DescribeClass:
+  Exclude:
+    - decidim-core/spec/lib/global_engines_spec.rb
+
+RSpec/EmptyExampleGroup:
+  Exclude:
+    - decidim-core/spec/lib/participatory_space_manifest_spec.rb
+
+RSpec/MultipleMemoizedHelpers:
+  Exclude:
+    - decidim-assemblies/spec/forms/assembly_form_spec.rb
+
+Rails/Output:
+  Exclude:
+    - lib/decidim/git_backport_manager.rb
+    - lib/decidim/github_manager/poster.rb
+    - decidim-core/lib/decidim/core.rb
+    - decidim-core/lib/decidim/component_manifest.rb
+    - decidim-core/lib/decidim/participatory_space_manifest.rb
+
+Rails/Exit:
+  Exclude:
+    - lib/decidim/git_backport_manager.rb
+
+RSpec/NoExpectationExample:
+  Exclude:
+    - decidim-admin/spec/system/participatory_space_private_user_spec.rb
+    - decidim-comments/spec/services/decidim/comments/comment_creation_spec.rb
+    - decidim-conferences/spec/cells/decidim/conferences/conference_speaker_cell_spec.rb
+    - decidim-core/spec/cells/decidim/date_range_cell_spec.rb
+    - decidim-core/spec/commands/decidim/unsubscribe_settings_spec.rb
+    - decidim-core/spec/controllers/registrations_controller_spec.rb
+    - decidim-core/spec/lib/importers/import_manifest_spec.rb
+    - decidim-core/spec/lib/map/geocoding_spec.rb
+    - decidim-core/spec/lib/participatory_space_manifest_spec.rb
+    - decidim-core/spec/services/decidim/events_manager_spec.rb
+    - decidim-core/spec/services/decidim/settings_change_spec.rb
+    - decidim-core/spec/services/decidim/zip_stream/zip_stream_writer_spec.rb
+    - decidim-core/spec/tasks/decidim_tasks_right_to_be_forgotten_spec.rb
+    - decidim-elections/spec/lib/tasks/decidim_election_generate_identification_keys_spec.rb
+    - decidim-elections/spec/lib/tasks/decidim_election_scheduled_tasks_spec.rb
+    - decidim-elections/spec/shared/vote_examples.rb
+    - decidim-elections/spec/system/key_ceremony_spec.rb
+    - decidim-elections/spec/system/vote_online_inside_a_voting_spec.rb
+    - decidim-initiatives/spec/system/admin/update_initiative_spec.rb
+    - decidim-initiatives/spec/system/initiative_signing_spec.rb
+    - decidim-meetings/spec/commands/admin/export_meeting_registrations_spec.rb
+    - decidim-meetings/spec/system/explore_meeting_directory_spec.rb
+    - decidim-meetings/spec/system/explore_meetings_spec.rb
+    - decidim-proposals/spec/lib/decidim/proposals/markdown_to_proposals_spec.rb
+    - decidim-proposals/spec/shared/import_proposals_examples.rb
+    - decidim-proposals/spec/shared/proposals_wizards_examples.rb
+    - decidim-proposals/spec/system/admin/admin_manages_participatory_texts_spec.rb
+    - decidim-proposals/spec/system/participatory_texts_spec.rb
+    - decidim-participatory_processes/spec/system/participatory_processes_spec.rb
+
+# fix these rules later
+Capybara/SpecificFinders:
+  Enabled: false
+
+Capybara/CurrentPathExpectation:
+  Enabled: false
+
+RSpec/IndexedLet:
+  Enabled: false
+
+RSpec/Rails/InferredSpecType:
+  Enabled: false
+
+Rails/HelperInstanceVariable:
+  Enabled: false
+
+# EOF fix these rules later

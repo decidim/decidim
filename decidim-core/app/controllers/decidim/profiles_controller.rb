@@ -2,21 +2,26 @@
 
 module Decidim
   # The controller to handle the user's public profile page.
+  #
+  # i18n-tasks-use t('decidim.profiles.show.badges')
+  # i18n-tasks-use t('decidim.profiles.show.groups')
+  # i18n-tasks-use t('decidim.profiles.show.group_admins')
+  # i18n-tasks-use t('decidim.profiles.show.group_members')
   class ProfilesController < Decidim::ApplicationController
     include UserGroups
     include Flaggable
+    include HasProfileBreadcrumb
 
     helper Decidim::Messaging::ConversationHelper
 
-    helper_method :profile_holder, :active_content
+    helper_method :profile_holder, :active_content, :context_menu
 
     before_action :ensure_profile_holder
     before_action :ensure_profile_holder_is_a_group, only: [:members]
     before_action :ensure_profile_holder_is_a_user, only: [:groups, :following]
-    before_action :ensure_user_not_blocked, only: [:following, :followers, :badges]
+    before_action :ensure_user_not_blocked
 
     def show
-      return redirect_to profile_timeline_path(nickname: params[:nickname]) if profile_holder == current_user
       return redirect_to profile_members_path if profile_holder.is_a?(Decidim::UserGroup)
 
       redirect_to profile_activity_path(nickname: params[:nickname])
@@ -53,6 +58,30 @@ module Decidim
 
       @content_cell = "decidim/members"
       @title_key = "members"
+      render :show
+    end
+
+    def group_admins
+      enforce_permission_to :manage, :user_group, user_group: profile_holder
+
+      @content_cell = "decidim/group_admins"
+      @title_key = "group_admins"
+      render :show
+    end
+
+    def group_members
+      enforce_permission_to :manage, :user_group, user_group: profile_holder
+
+      @content_cell = "decidim/group_members"
+      @title_key = "group_members"
+      render :show
+    end
+
+    def group_invites
+      enforce_permission_to :manage, :user_group, user_group: profile_holder
+
+      @content_cell = "decidim/group_invites"
+      @title_key = "group_invites"
       render :show
     end
 

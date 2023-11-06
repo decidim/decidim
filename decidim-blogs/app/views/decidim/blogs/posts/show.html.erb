@@ -1,10 +1,10 @@
 <% provide(:title, translated_attribute(post.title)) %>
 
 <% add_decidim_meta_tags({
-  title: translated_attribute(post.title),
-  description: translated_attribute(post.body),
-  url: post_url(post.id)
-}) %>
+                           title: translated_attribute(post.title),
+                           description: translated_attribute(post.body),
+                           url: post_url(post.id)
+                         }) %>
 
 <%
   edit_link(
@@ -15,47 +15,32 @@
   )
 %>
 
-<div class="row column view-header">
-  <div class="m-bottom">
-    <%= link_to :posts, class: "small hollow" do %>
-      <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
-      <%= t(".back") %>
-    <% end %>
-  </div>
-  <h2 class="heading2"><%= translated_attribute post.title %></h2>
+<%= append_javascript_pack_tag "decidim_blogs" %>
+<%= append_stylesheet_pack_tag "decidim_blogs" %>
 
-  <% post_presenter = Decidim::Blogs::PostPresenter.new(post) %>
-  <%= cell "decidim/author", post_presenter.author, from: post %>
-</div>
-<div class="row">
-  <% if show_endorsements_card? %>
-      <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
-        <div class="card">
-          <div class="card__content">
-            <div class="row collapse buttons__row">
-              <% if endorsements_enabled? %>
-                <div class="column small-9 collapse">
-                  <%= endorsement_buttons_cell(post) %>
-                </div>
-              <% end %>
-              <div class="column collapse <%= endorsements_enabled? ? "small-3" : "" %>">
-                <%= link_to "#comments", class: "button small compact hollow button--nomargin expanded" do %>
-                    <%= icon "comment-square", class: "icon--small", aria_label: t(".comments"), role: "img" %> <%= post.comments_count %>
-                <% end %>
-              </div>
-            </div>
-            <br>
-            <%= follow_button_for(post) %>
-          </div>
-        </div>
-      </div>
-  <% end %>
-  <div class="columns mediumlarge-8 <%= "mediumlarge-pull-4" if show_endorsements_card? %>">
-    <div class="section">
-      <%= decidim_sanitize_editor translated_attribute post.body %>
-    </div>
-    <%= cell "decidim/endorsers_list", post %>
+<%= render layout: "layouts/decidim/shared/layout_center", locals: { columns: 8 } do %>
+
+  <div class="flex justify-center">
+    <h1 class="title-decorator my-12"><%= translated_attribute post.title %></h1>
   </div>
-</div>
-<%= attachments_for post %>
-<%= comments_for post %>
+
+  <% if post.photo.present? %>
+    <div class="blog__image grow">
+      <%= image_tag post.photo.big_url, alt: post.photo.description || post.photo.title || t("alt", scope: "decidim.application.photo") %>
+    </div>
+  <% end %>
+
+  <div class="blog__container">
+    <%= cell "decidim/author", post_presenter.author, from: post, context_actions: [:date], layout: :compact %>
+
+    <div class="editor-content">
+      <%= decidim_sanitize_editor_admin translated_attribute post.body %>
+    </div>
+
+    <%= render partial: "actions" %>
+
+    <%= attachments_for post %>
+  </div>
+
+  <%= comments_for post %>
+<% end %>

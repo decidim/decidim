@@ -2,7 +2,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <% available_locales.each do |locale| %>
-  <link rel="alternate" href="<%= url_for(request.parameters.merge(locale: locale)) %>" hreflang="<%= locale %>">
+  <link rel="alternate" href="<%= url_for(request.parameters.merge(locale:)) %>" hreflang="<%= locale %>">
 <% end %>
 
 <meta name="twitter:card" content="summary_large_image">
@@ -17,8 +17,8 @@
 <meta property="og:description" content="<%= decidim_meta_description %>">
 <meta property="og:image" content="<%= decidim_meta_image_url %>">
 
-<% if current_organization.colors["theme"] %>
-  <meta name="theme-color" content="<%= current_organization.colors["theme"] %>">
+<% if current_organization.colors.present? %>
+  <meta name="theme-color" content="<%= current_organization.colors["primary"] %>">
 <% end %>
 
 <%= legacy_favicon %>
@@ -26,10 +26,14 @@
 <%= apple_favicon %>
 <link rel="manifest" href="/manifest.webmanifest">
 
+<%= prepend_javascript_pack_tag "decidim_core", defer: false %>
 <%= stylesheet_pack_tag "decidim_core", media: "all" %>
+<%= yield :css_content %>
+
 <%= invisible_captcha_styles %>
 <%= organization_colors %>
 
 <%= render partial: "layouts/decidim/head_extra" %>
 <%== current_organization.header_snippets if Decidim.enable_html_header_snippets %>
 <%= snippets.display(:head) %>
+<%= content_for :header_snippets %>

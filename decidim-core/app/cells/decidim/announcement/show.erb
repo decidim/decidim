@@ -1,11 +1,11 @@
-<div class="row column">
-  <%= content_tag :div, class: "callout announcement mb-sm #{callout_class} cell-announcement" do %>
-    <% if has_title? %>
-      <p class="heading5"><%= clean_title %></p>
-
-      <%= clean_body %>
-    <% else %>
-      <%= clean_announcement %>
-    <% end %>
+<%= content_tag :div, id: options[:id], class: "flash #{css_class}", data: { announcement: "" }.compact, hidden: options[:hidden] do %>
+  <% if has_title? %>
+    <div class="h4">
+      <%= clean_title %>
+    </div>
   <% end %>
-</div>
+
+  <span class="flash__message">
+    <%= text %>
+  </span>
+<% end %>

@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Admin manages comments", type: :system do
   let(:manifest_name) { "dummy" }
-  let!(:dummy) { create :dummy_resource, component: current_component }
+  let!(:dummy) { create(:dummy_resource, component: current_component) }
   let!(:resources) { create_list(:dummy_resource, 2, component: current_component) }
   let!(:reportables) do
     resources.map do |resource|

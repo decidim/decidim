@@ -7,11 +7,12 @@ module Decidim
       include NeedsCurrentOrder
 
       def checkout
-        enforce_permission_to :vote, :project, order: current_order, budget: budget, workflow: current_workflow
+        enforce_permission_to :vote, :project, order: current_order, budget:, workflow: current_workflow
 
         Checkout.call(current_order) do
           on(:ok) do
-            flash[:notice] = I18n.t("orders.checkout.success", scope: "decidim")
+            i18n_key = pending_to_vote_budgets.any? ? "success_html" : "success_no_left_budgets_html"
+            flash[:notice] = I18n.t(i18n_key, scope: "decidim.orders.checkout", rest_of_budgets_link: "#budgets")
             redirect_to budgets_path
           end
 
@@ -39,7 +40,7 @@ module Decidim
       private
 
       def budget
-        @budget ||= Budget.find_by(id: params[:budget_id])
+        @budget ||= Budget.find_by(id: params[:budget_id], component: current_component)
       end
 
       def redirect_path
@@ -48,6 +49,10 @@ module Decidim
         else
           budgets_path
         end
+      end
+
+      def pending_to_vote_budgets
+        current_workflow.budgets - current_workflow.voted - [current_order.budget]
       end
     end
   end

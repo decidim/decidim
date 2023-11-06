@@ -1,5 +1,11 @@
 pt-BR:
   activemodel:
+    attributes:
+      post:
+        body: Corpo
+        decidim_author_id: Autor
+        published_at: Horário da publicação
+        title: Título
     models:
       decidim/blogs/create_post_event: Nova postagem no blog
   activerecord:
@@ -17,48 +23,45 @@ pt-BR:
         new: Nova postagem
         title: Ações
       admin:
-        models:
-          components:
-            body: Corpo
-          post:
-            name: Postar
         posts:
           create:
-            invalid: Houve um problema ao criar esta postagem
-            success: Post criado com sucesso
+            invalid: Houve um problema ao criar esta postagem.
+            success: Post criado com sucesso.
           destroy:
-            success: Postagem excluída com sucesso
+            success: Postagem excluída com sucesso.
           edit:
             save: Atualizar
             title: Editar publicação
           index:
+            not_published_yet: Não publicado.
             title: Postagens
           new:
             create: Criar
             title: Criar post
           update:
             invalid: Falha ao salvar o post.
-            success: Post salvo com sucesso
+            success: Post salvo com sucesso.
+      content_blocks:
+        highlighted_posts:
+          last_published: Último publicado
+          name: Postagens
+          see_all: Ver tudo
       last_activity:
-        new_post_at_html: "<span>Nova postagem em %{link}</span>"
+        new_post: 'Nova postagem:'
       models:
         post:
           fields:
             author: Autor
             body: Corpo
-            created_at: Criado em
-            title: título
-      posts:
-        show:
-          back: Voltar para a lista
-          comments: Comentários
-          view: Visualizar
-        sidebar_blog:
-          comments: comentários
-          most_commented_posts: Posts mais comentados
-      read_more: Saiba mais
+            official_blog_post: Publicação oficial
+            published_at: Horário da publicação
+            title: Título
     components:
       blogs:
+        actions:
+          comment: Comentário
+          create: Criar
+          destroy: Excluir
         name: Blog
         settings:
           global:

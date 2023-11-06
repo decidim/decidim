@@ -1,11 +1,35 @@
-<div class="dynamic-uploads <%= with_title %> upload-container-for-<%= attribute %>">
-  <%= tag.strong label unless has_title? %>
-  <div class="<%= actions_wrapper_class %>">
-    <div class="active-uploads">
-      <% attachments.each do |attachment| %>
-        <% next if attachment.is_a? Array %>
+<div class="upload-modal__files-container upload-container-for-<%= attribute %> <%= with_title %>">
+  <div>
+    <%= label %>
 
-        <div class="attachment-details" data-title="<%= title_for(attachment) %>" data-filename="<%= file_name_for(attachment) %>" data-state="uploaded">
+    <% if options[:help_text].present? %>
+      <span class="help-text"><%= options[:help_text] %></span>
+    <% end %>
+
+    <%# NOTE: this block is about wrapping a default image for the avatar with the new styles,
+              when there is nothing uploaded yet. It is removed via javascript
+              at the time any image has been uploaded, but the form is still pending to submit %>
+    <% if attachments.blank? && !has_title? && uploader_default_image_path(attribute).present? %>
+    <div id="default-active-<%= modal_id %>" class="upload-modal__files">
+      <div class="attachment-details">
+        <div>
+          <%= image_tag(uploader_default_image_path(attribute), alt: attribute) %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+
+    <div class="active-uploads upload-modal__files" data-active-uploads="<%= modal_id %>">
+      <% attachments.each do |attachment| %>
+        <% next if [Array, Hash].any? { |klass| attachment.is_a? klass } %>
+
+        <div class="attachment-details" data-attachment-id="<%= attachment.id %>" data-title="<%= title_for(attachment) %>" data-filename="<%= file_name_for(attachment) %>" data-state="uploaded">
+          <% if file_attachment_path(attachment) && blob(attachment).image? %>
+            <div><%= image_tag(file_attachment_path(attachment), alt: title_for(attachment) || file_name_for(attachment)) %></div>
+          <% elsif uploader_default_image_path(attribute).present? %>
+            <div><%= image_tag uploader_default_image_path(attribute) %></div>
+          <% end %>
+
           <% if has_title? %>
             <span><%= title_for(attachment) %> (<%= truncated_file_name_for(attachment) %>)</span>
             <%= form.hidden_field attribute, multiple: true, value: attachment.id, id: attachment.id %>
@@ -19,34 +43,26 @@
         </div>
       <% end %>
     </div>
-    <%= tag.button button_label,
-      id: button_id,
-      name: attribute,
-      class: button_class,
-      type: "button",
-      data: {
-        open: modal_id,
-        upload: {
-          add_attribute: add_attribute,
-          resource_name: resource_name,
-          resource_class: resource_class,
-          optional: optional,
-          max_file_size: max_file_size,
-          multiple: multiple,
-          titled: has_title?,
-          form_object_class: form_object_class
-        }.transform_keys { |key| key.to_s.camelize(:lower) }
-      } %>
-    <%= input_validation_field unless optional %>
   </div>
 
-  <% if !has_title? && file_attachment_path(attachments.first) && blob(attachments.first).image? %>
-    <strong><%= attachment_label %></strong>
-    <%= link_to image_tag(file_attachment_path(attachments.first), alt: attribute), file_attachment_path(attachments.first) %>
-  <% elsif !has_title? && uploader_default_image_path(attribute).present? %>
-      <span><%= t("default_image", scope: "decidim.forms") %></span>
-      <%= link_to uploader_default_image_path(attribute) do %>
-        <%= image_tag uploader_default_image_path(attribute) %>
-      <% end %>
-  <% end %>
+  <%= tag.button button_label,
+                 id: button_id,
+                 name: attribute,
+                 class: button_class,
+                 type: "button",
+                 data: {
+                   "dialog-open": modal_id,
+                   upload: {
+                     add_attribute:,
+                     resource_name:,
+                     resource_class:,
+                     required: required?,
+                     max_file_size:,
+                     multiple:,
+                     titled: has_title?,
+                     form_object_class:
+                   }.transform_keys { |key| key.to_s.camelize(:lower) }
+                 } %>
+
+  <%= input_validation_field if required? %>
 </div>

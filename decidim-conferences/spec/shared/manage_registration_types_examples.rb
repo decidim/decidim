@@ -7,7 +7,9 @@ shared_examples "manage registration types examples" do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_conferences.edit_conference_path(conference)
-    click_link "Registration Types"
+    within_admin_sidebar_menu do
+      click_link "Registration Types"
+    end
   end
 
   it "shows conference registration types list" do
@@ -54,7 +56,7 @@ shared_examples "manage registration types examples" do
       expect(page).to have_admin_callout("successfully")
 
       within "#registration_types table" do
-        expect(page).to have_no_content(translated(registration_type.title))
+        expect(page).not_to have_content(translated(registration_type.title))
       end
     end
   end

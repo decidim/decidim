@@ -29,7 +29,7 @@ module Decidim
 
             it "returns the correct builder options" do
               expect(subject.builder_options).to eq(
-                marker_color: "#ef604d",
+                marker_color: "#e02d2d",
                 tile_layer: {
                   api_key: "key1234", foo: "bar", language: "eng"
                 }
@@ -48,7 +48,7 @@ module Decidim
               it "returns the correct builder options for CA" do
                 I18n.locale = "ca"
                 expect(subject.builder_options).to eq(
-                  marker_color: "#ef604d",
+                  marker_color: "#e02d2d",
                   tile_layer: {
                     api_key: "key1234", foo: "bar", language: "cat"
                   }
@@ -58,7 +58,7 @@ module Decidim
               it "returns the correct builder options for ES" do
                 I18n.locale = "es"
                 expect(subject.builder_options).to eq(
-                  marker_color: "#ef604d",
+                  marker_color: "#e02d2d",
                   tile_layer: {
                     api_key: "key1234", foo: "bar", language: "spa"
                   }
@@ -77,7 +77,7 @@ module Decidim
               it "returns the correct builder options" do
                 expect(ActiveSupport::Deprecation).to receive(:warn)
                 expect(subject.builder_options).to eq(
-                  marker_color: "#ef604d",
+                  marker_color: "#e02d2d",
                   tile_layer: {
                     app_id: "appid123",
                     app_code: "secret456",

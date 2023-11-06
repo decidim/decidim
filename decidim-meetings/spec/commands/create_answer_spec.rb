@@ -6,12 +6,12 @@ module Decidim
   module Meetings
     describe CreateAnswer do
       let(:current_organization) { create(:organization) }
-      let(:current_user) { create :user, organization: meeting_component.organization }
-      let(:meeting_component) { create :meeting_component }
-      let(:meeting) { create :meeting, component: meeting_component }
-      let(:poll) { create :poll, meeting: }
-      let(:questionnaire) { create :meetings_poll_questionnaire, questionnaire_for: poll }
-      let(:question) { create :meetings_poll_question, questionnaire: }
+      let(:current_user) { create(:user, organization: meeting_component.organization) }
+      let(:meeting_component) { create(:meeting_component) }
+      let(:meeting) { create(:meeting, component: meeting_component) }
+      let(:poll) { create(:poll, meeting:) }
+      let(:questionnaire) { create(:meetings_poll_questionnaire, questionnaire_for: poll) }
+      let(:question) { create(:meetings_poll_question, questionnaire:) }
       let(:answer_options) { create_list(:meetings_poll_answer_option, 5, question:) }
       let(:answer_option_ids) { answer_options.pluck(:id).map(&:to_s) }
       let(:form_params) do
@@ -44,7 +44,7 @@ module Decidim
           expect { command.call }.to broadcast(:invalid)
         end
 
-        it "doesn't create questionnaire answers" do
+        it "does not create questionnaire answers" do
           expect do
             command.call
           end.not_to change(Answer, :count)

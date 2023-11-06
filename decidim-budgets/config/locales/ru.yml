@@ -30,11 +30,6 @@ ru:
           project:
             name: Проект
         projects:
-          create:
-            invalid: При попытке добавить этот проект произошла ошибка
-            success: Проект успешно создан
-          destroy:
-            success: Проект успешно удален
           edit:
             title: Редактировать проект
             update: Обновить
@@ -45,13 +40,7 @@ ru:
           new:
             create: Создать
             title: Новый проект
-          update:
-            invalid: При попытке обновить этот проект произошла ошибка
-            success: Проект успешно обновлен
         proposals_imports:
-          create:
-            invalid: При попытке позаимствовать эти предложения в проекты произошла ошибка
-            success: "%{number} предложений успешно позаимствованы для проектов"
           new:
             create: Внести в проекты позаимствованные предложения
             no_components: В этом пространстве соучастия нет других составляющих предложений, куда можно было бы внести позаимствованные предложения.
@@ -74,16 +63,12 @@ ru:
         budget_excess:
           budget_excess:
             title: Превышен предельный бюджет
-          close: Закрыть
           ok: Хорошо
         budget_summary:
           are_you_sure: Вы действительно хотите отменить свой голос?
-          assigned: 'Выделено:'
           cancel_order: удалить свой голос и начать все сначала
           checked_out:
-            description: Вы уже голосовали за бюджет. Если вы передумали, вы можете %{cancel_link}.
             title: Голосование по бюджету завершено
-          title: Вы определяете бюджет
         count:
           projects_count:
             one: 1 проект
@@ -94,26 +79,10 @@ ru:
           category: Категория
           scope: Охват
           search: Поиск
-        filters_small_view:
-          close_modal: Закрыть окошко
-          filter: Отобрать
-          filter_by: 'Отобрать по признаку:'
-          unfold: Развернуть
-        order_progress:
-          vote: Голосовать
-        order_selected_projects:
-          remove: Удалить
-          selected_projects:
-            one: выбранный проект
-            few: выбранных проекта
-            many: выбранных проектов
-            other: выбранных проектов
-          view: Посмотреть
         project:
           view: Посмотреть
         show:
           budget: Бюджет
-          view_all_projects: Просмотреть все проекты
     components:
       budgets:
         actions:
@@ -132,12 +101,5 @@ ru:
             show_votes: Показать голоса
             votes_choices:
               enabled: Голосование включено
-    orders:
-      checkout:
-        error: При обработке вашего голоса произошла ошибка
-        success: Ваш голос был успешно принят
-      destroy:
-        error: При отмене вашего голоса произошла ошибка
-        success: Ваш голос успешно отменен
   index:
     confirmed_orders_count: Количество голосов

@@ -6,9 +6,9 @@ module Decidim
   # Helpers meant to be used only during capybara test runs.
   module CapybaraTestHelpers
     def switch_to_host(host = "lvh.me")
-      raise "Can't switch to a custom host unless it really exists. Use `whatever.lvh.me` as a workaround." unless /lvh\.me$/.match?(host)
+      raise "Cannot switch to a custom host unless it really exists. Use `whatever.lvh.me` as a workaround." unless /lvh\.me$/.match?(host)
 
-      app_host = (host ? "http://#{host}" : nil)
+      app_host = (host ? "#{protocol}://#{host}" : nil)
       Capybara.app_host = app_host
     end
 
@@ -17,13 +17,31 @@ module Decidim
     end
 
     def switch_to_secure_context_host
-      Capybara.app_host = "http://localhost"
+      Capybara.app_host = "#{protocol}://localhost"
+    end
+
+    def protocol
+      return "https" if ENV["TEST_SSL"]
+
+      "http"
     end
   end
 end
 
+1.step do
+  port = rand(5000..6999)
+  begin
+    Socket.tcp("127.0.0.1", port, connect_timeout: 5).close
+  rescue Errno::ECONNREFUSED
+    # When connection is refused, the port is available for use.
+    Capybara.server_port = port
+    break
+  end
+end
+
 Capybara.register_driver :headless_chrome do |app|
-  options = ::Selenium::WebDriver::Chrome::Options.new
+  options = Selenium::WebDriver::Chrome::Options.new
+  options.args << "--explicitly-allowed-ports=#{Capybara.server_port}"
   options.args << "--headless"
   options.args << "--no-sandbox"
   options.args << if ENV["BIG_SCREEN_SIZE"].present?
@@ -31,21 +49,24 @@ Capybara.register_driver :headless_chrome do |app|
                   else
                     "--window-size=1920,1080"
                   end
+  options.args << "--ignore-certificate-errors" if ENV["TEST_SSL"]
   Capybara::Selenium::Driver.new(
     app,
     browser: :chrome,
-    capabilities: [options]
+    options:
   )
 end
 
-Capybara.server_port = rand(5000..6999)
-
-# In order to work with PWA apps, Chrome can't be run in headless mode, and requires
+# In order to work with PWA apps, Chrome cannot be run in headless mode, and requires
 # setting up special prefs and flags
 Capybara.register_driver :pwa_chrome do |app|
-  options = ::Selenium::WebDriver::Chrome::Options.new
+  options = Selenium::WebDriver::Chrome::Options.new
+  options.args << "--explicitly-allowed-ports=#{Capybara.server_port}"
+  # If we have a headless browser things like the offline navigation feature stop working,
+  # so we need to have have a headful/recapitated (aka not headless) browser for these specs
+  # options.args << "--headless"
   options.args << "--no-sandbox"
-  # Don't limit browser resources
+  # Do not limit browser resources
   options.args << "--disable-dev-shm-usage"
   # Add pwa.lvh.me host as a secure origin
   options.args << "--unsafely-treat-insecure-origin-as-secure=http://pwa.lvh.me:#{Capybara.server_port}"
@@ -64,12 +85,12 @@ Capybara.register_driver :pwa_chrome do |app|
   Capybara::Selenium::Driver.new(
     app,
     browser: :chrome,
-    capabilities: [options]
+    options:
   )
 end
 
 Capybara.register_driver :iphone do |app|
-  options = ::Selenium::WebDriver::Chrome::Options.new
+  options = Selenium::WebDriver::Chrome::Options.new
   options.args << "--headless"
   options.args << "--no-sandbox"
   options.add_emulation(device_name: "iPhone 6")
@@ -77,13 +98,22 @@ Capybara.register_driver :iphone do |app|
   Capybara::Selenium::Driver.new(
     app,
     browser: :chrome,
-    capabilities: [options]
+    options:
   )
 end
 
-Capybara.server = :puma, { Silent: true, queue_requests: false }
-
-Capybara.asset_host = "http://localhost:3000"
+server_options = { Silent: true, queue_requests: false }
+if ENV["TEST_SSL"]
+  dev_gem = Bundler.load.specs.find { |spec| spec.name == "decidim-dev" }
+  cert_dir = "#{dev_gem.full_gem_path}/lib/decidim/dev/assets"
+  server_options.merge!(
+    Host: "ssl://#{Capybara.server_host}:#{Capybara.server_port}?key=#{cert_dir}/ssl-key.pem&cert=#{cert_dir}/ssl-cert.pem"
+  )
+  Capybara.asset_host = "https://localhost:3000"
+else
+  Capybara.asset_host = "http://localhost:3000"
+end
+Capybara.server = :puma, server_options
 
 Capybara.server_errors = [SyntaxError, StandardError]
 
@@ -95,12 +125,17 @@ RSpec.configure do |config|
     switch_to_default_host
     domain = (try(:organization) || try(:current_organization))&.host
     if domain
+      # Javascript sets the cookie also for all subdomains but localhost is a
+      # special case.
+      domain = ".#{domain}" unless domain == "localhost"
       page.driver.browser.execute_cdp(
         "Network.setCookie",
         domain:,
         name: Decidim.consent_cookie_name,
         value: { essential: true }.to_json,
-        path: "/"
+        path: "/",
+        expires: 1.day.from_now.to_i,
+        same_site: "Lax"
       )
     end
   end

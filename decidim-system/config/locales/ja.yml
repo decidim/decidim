@@ -37,15 +37,14 @@ ja:
         confirm_destroy: 削除してもよろしいですか？
         destroy: 削除
         edit: 編集
-        new: 新規作成
         save: 保存
         title: アクション
       admins:
         create:
           error: 新しい管理者の作成中に問題が発生しました。
-          success: 管理者が正常に作成されました
+          success: 管理者が正常に作成されました。
         destroy:
-          success: 管理者が正常に削除されました
+          success: 管理者を削除しました。
         edit:
           title: 管理者を編集
           update: 更新
@@ -54,16 +53,36 @@ ja:
         new:
           create: 作成
           title: 新しい管理者
+        show:
+          destroy: 破棄
+          edit: 編集
         update:
           error: 管理者の更新中に問題が発生しました。
-          success: 管理者が正常に更新されました
+          success: 管理者が正常に更新されました。
       dashboard:
         show:
           current_organizations: 現在の組織
       default_pages:
         placeholders:
           content: 管理ダッシュボードの %{page} 静的ページに意味のあるコンテンツを追加してください。
+          summary: 管理者ダッシュボードの静的ページ %{page} に意味のある概要を追加してください。
           title: '%{page} のデフォルトのタイトル'
+        terms-of-service: 利用規約
+      devise:
+        passwords:
+          edit:
+            change_your_password: パスワードの変更
+            minimum_characters: "(%{minimum} 文字以上)"
+          new:
+            forgot_your_password: パスワード再発行
+            send_me_reset_password_instructions: パスワードリセット手順の送信
+        shared:
+          links:
+            did_not_receive_confirmation_instructions?: 確認メールを受信できませんでしたか？
+            did_not_receive_unlock_instructions?: ロック解除メールを受信できませんでしたか？
+            forgot_your_password?: パスワードをお忘れですか？
+            log_in: ログイン
+            sign_up: 新規登録
       menu:
         admins: 管理者
         dashboard: ダッシュボード
@@ -74,7 +93,6 @@ ja:
           fields:
             created_at: 作成日時
             email: Eメールアドレス
-          name: 管理者
           validations:
             email_uniqueness: 同じメールアドレスを持つ別の管理者が既に存在します
         oauth_application:
@@ -82,17 +100,16 @@ ja:
             created_at: 作成日時
             name: OAuthアプリケーション名
             organization_name: 組織
-          name: OAuthアプリケーション
         organization:
           actions:
             save_and_invite: 組織を作成して管理者を招待する
           fields:
+            content_security_policy: コンテンツセキュリティポリシー
             created_at: 作成日時
             file_upload_settings: ファイルアップロードの設定
             name: 名前
             omniauth_settings: Omniauth 設定
             smtp_settings: SMTP設定
-          name: 組織
       oauth_applications:
         create:
           error: このアプリケーションの作成中に問題が発生しました。
@@ -121,6 +138,38 @@ ja:
         create:
           error: 新しい組織を作成する際に問題が発生しました。
           success: 組織が正常に作成されました。
+        csp_settings:
+          connect_src: Connect src
+          connect_src_hint: |
+            connect-srcディレクティブは、<script>要素を使用して読み込むURLを制限します。Decidimは'self'を追加しますが、他の設定を追加することも可能です。よく分からない場合は、空白のままにしておいてください。
+          default_src: Default src
+          default_src_hint: |
+            default-srcディレクティブは、JavaScript、画像、CSS、フォント、AJAXリクエスト、フレーム、HTML5メディアなどのコンテンツを読み込むためのデフォルトポリシーです。
+            Decidimは"'self' 'unsafe-inline'"を追加しますが、他の設定を指定することも可能です。よく分からない場合は、空白のままにしておいてください。
+          font_src: Font src
+          font_src_hint: |
+            font-srcディレクティブは、@font-faceを使用して読み込むURLを制限します。
+            Decidimは'self'を追加しますが、他の設定を指定することも可能です。よく分からない場合は、空白のままにしておいてください。
+          frame_src: Frame src
+          frame_src_hint: |
+            frame-srcディレクティブは、<frame>、<iframe>、および<object>要素を使用して読み込むURLを制限します。
+            Decidimは'self'を追加しますが、他の設定を指定することも可能です。よく分からない場合は、空白のままにしておいてください。
+          img_src: Img src
+          img_src_hint: |
+            img-srcディレクティブは、<img>、<image>、<picture>、および<svg>要素を使用して読み込むURLを制限します。
+            Decidimは'self'を追加しますが、他の設定を指定することも可能です。よく分からない場合は、空白のままにしておいてください。
+          media_src: Media src
+          media_src_hint: |
+            media-srcディレクティブは、<video>、<audio>、および<source>要素を使用して読み込めるURLを制限します。
+            Decidimは'self'を追加しますが、他の設定を指定することも可能です。よく分からない場合は、空白のままにしておいてください。
+          script_src: Script src
+          script_src_hint: |
+            script-srcディレクティブは、<script>要素を使用して読み込むURLを制限します。
+            Decidimは"'self' 'unsafe-inline' 'unsafe-eval'"を追加しますが、他の設定を指定することも可能です。よく分からない場合は、空白のままにしておいてください。
+          style_src: Style src
+          style_src_hint: |
+            style-srcディレクティブは、<style>要素を使用して読み込むURLを制限します。
+            Decidimは"'self' 'unsafe-inline'"を追加しますが、他の設定を指定することも可能です。よく分からない場合は、空白のままにしておいてください。
         edit:
           secondary_hosts_hint: 新しい行にそれぞれ入力してください
         file_upload_settings:
@@ -144,8 +193,11 @@ ja:
         index:
           title: 組織
         new:
-          reference_prefix_hint: 参照プレフィックスは、すべての組織でリソースを一意に識別するために使用されます。
-          secondary_hosts_hint: 新しい行にそれぞれ入力してください
+          default: デフォルト?
+          enabled: 有効
+          locale: 地域
+          reference_prefix_hint: 参照プレフィックスは、すべての組織をまたがってリソースを一意に識別するために使用されます。
+          secondary_hosts_hint: 新しい行にそれぞれ入力します。
           title: 新しい組織
         omniauth_settings:
           decidim:
@@ -169,7 +221,7 @@ ja:
           fieldsets:
             sender: 送信者
           instructions:
-            from_label: 'メール送信者は "your-organization-name <your-organization@example.org>"になります。メールアドレスをラベルとして使用する場合は空白のままにしてください。'
+            from_label: 'メール送信者は以下のようになります: "あなたの組織名 <your-organization@example.org>". ''メールアドレス'' をラベルとして使用する場合は空白のままにします.'
           placeholder:
             from_email: your-organization@example.org
             from_label: 組織名
@@ -179,10 +231,11 @@ ja:
         users_registration_mode:
           disabled: 外部アカウントでのみアクセスできます
           enabled: 参加者に登録とログインを許可する
-          existing: 参加者が登録することはできませんが、既存の参加者がログインできるようにします
+          existing: 参加者が登録することはできませんが、既存の参加者はログインできるようにします
       shared:
         notices:
           no_organization_warning_html: 開始するには組織を作成する必要があります。先に進む前に %{guide} を読んでください。
           our_getting_started_guide: 入門ガイド
       titles:
         dashboard: ダッシュボード
+        decidim: Decidim

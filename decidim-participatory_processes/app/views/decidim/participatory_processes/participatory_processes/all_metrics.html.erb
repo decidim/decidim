@@ -1,9 +1,22 @@
-<% if current_participatory_space.private_space? %>
-  <%= render partial: "decidim/shared/private_participatory_space", locals: { text: t("participatory_processes.show.private_space", scope: "decidim") } %>
+<%= render layout:"layouts/decidim/shared/layout_center", locals: { columns: 8 } do %>
+  <div class="text-center py-10">
+    <h2 class="title-decorator inline-block text-left">
+      <%= t("decidim.pages.participatory_space.metrics.headline", name: translated_attribute(current_participatory_space.title)) %>
+    </h2>
+  </div>
+
+  <% if current_participatory_space.private_space? %>
+    <%= cell("decidim/announcement", t("participatory_processes.show.private_space", scope: "decidim"), callout_class: "alert") %>
+  <% end %>
+
+  <div id="metrics" class="metric__container">
+    <%= metrics.params %>
+    <%= metrics.render_charts Decidim.metrics_registry.filtered(scope: "participatory_process", sort: true) %>
+  </div>
+
+  <%= link_to participatory_process_path(current_participatory_space), class: "button button__sm button__text-secondary mt-10" do %>
+    <%= icon "arrow-left-line" %>
+    <span><%= t("back_to_process", scope: "decidim.participatory_processes.participatory_process_steps.index") %></span>
+  <% end %>
+
 <% end %>
-<div class="section" id="metrics">
-  <%= metrics.params %>
-  <%= metrics.medium_stats %>
-  <%= metrics.big_stats %>
-  <%= metrics.small_stats %>
-</div>

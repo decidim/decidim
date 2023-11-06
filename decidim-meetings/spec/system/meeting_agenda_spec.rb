@@ -20,7 +20,7 @@ describe "Meeting agenda", type: :system do
     it "the section agenda is not visible" do
       visit_meeting
 
-      expect(page).not_to have_css(".agenda-section")
+      expect(page).not_to have_css("[data-meeting-agenda]")
     end
   end
 
@@ -28,11 +28,11 @@ describe "Meeting agenda", type: :system do
     it "shows the agenda section" do
       visit_meeting
 
-      expect(page).to have_css(".agenda-section")
+      expect(page).to have_css("[data-meeting-agenda]")
 
-      within ".agenda-section" do
-        expect(page).to have_i18n_content(agenda.title, upcase: true)
-        expect(page).to have_css(".agenda-item--title", count: agenda.agenda_items.first_class.count)
+      within "[data-meeting-agenda]" do
+        expect(page).to have_i18n_content(agenda.title)
+        expect(page).to have_css("h3", count: agenda.agenda_items.first_class.count)
       end
     end
   end

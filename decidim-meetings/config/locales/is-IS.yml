@@ -14,13 +14,11 @@ is-IS:
         decidim_category_id: Flokkur
         decidim_scope_id: Umfang
         description: Lýsing
-        end_time: Lokatími
         location: Staðsetning
         location_hints: Staðsetningarmöguleikar
         private_meeting: Einkafundur
         registration_terms: Skráningarskilmálar
         registrations_enabled: Skráningar virkt
-        start_time: Byrjunartími
         title: Titill
         transparent: Gegnsætt
   decidim:
@@ -28,7 +26,6 @@ is-IS:
       meeting_copies:
         new:
           copy: Afrita
-          select: Veldu hvaða gögn þú vilt afrita
           title: Afrita fundi
     components:
       meetings:
@@ -96,8 +93,6 @@ is-IS:
             close: Loka
             title: Loka fundi
         meetings:
-          close:
-            success: Fundur með góðum árangri lokað
           destroy:
             success: Fundur með góðum árangri eytt
           edit:
@@ -117,17 +112,11 @@ is-IS:
           services:
             add_service: Bæta við þjónustu
             services: Þjónusta
-          update:
-            success: Fundur tókst að uppfæra
-        models:
-          meeting:
-            name: Fundur
         registrations:
           edit:
             save: Vista
           form:
             available_slots_help: Leyfi það til 0 ef þú hefur ótakmarkaða rifa í boði.
-            reserved_slots_help: Leggðu það á 0 ef þú hefur ekki áskilinn rifa
             reserved_slots_less_than: Verður að vera minna en eða jafnt við %{count}
           update:
             success: Fundir skráningarstillingar voru vistaðar með góðum árangri.
@@ -148,20 +137,12 @@ is-IS:
         registration_mailer:
           confirmation:
             subject: Skráning fundarins hefur verið staðfest
-      meeting:
-        not_allowed: Þú mátt ekki skoða þennan fund
       meetings:
         filters:
           category: Flokkur
           date: Dagsetning
           search: Leita
-        filters_small_view:
-          close_modal: Loka mát
-          filter: Sía
-          filter_by: Sía eftir
-          unfold: Fella út
         meetings:
-          no_meetings_warning: Engar fundir samræmast leitarskilyrðum þínum eða það er ekki fundur áætlað.
           upcoming_meetings_warning: Eins og er, eru engar áætlanir fundar, en hér er hægt að finna allar fyrri fundi skráð.
         registration_confirm:
           cancel: Hætta við

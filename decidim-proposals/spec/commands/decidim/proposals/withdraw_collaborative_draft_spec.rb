@@ -13,7 +13,7 @@ module Decidim
         let(:other_author) { create(:user, organization:) }
         let(:state) { :open }
         let(:collaborative_draft) { create(:collaborative_draft, component:, state:, users: [current_user, other_author]) }
-        let!(:follow) { create :follow, followable: current_user, user: follower }
+        let!(:follow) { create(:follow, followable: current_user, user: follower) }
         let(:event) { "decidim.events.proposals.collaborative_draft_withdrawn" }
         let(:event_class) { Decidim::Proposals::CollaborativeDraftWithdrawnEvent }
 

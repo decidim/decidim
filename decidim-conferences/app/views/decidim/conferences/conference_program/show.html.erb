@@ -5,50 +5,38 @@ if respond_to?(:meeting_component) && meeting_component
     :read,
     :component,
     component: meeting_component,
-    current_participatory_space: current_participatory_space
+    current_participatory_space:
   )
 end
 %>
 <% add_decidim_meta_tags(title: t("conference_program.index.title", scope: "decidim")) %>
-<div class="section row">
-  <div class="columns mediumlarge-12">
-    <h3 class="section-heading"><%= t(".program") %></h3>
-    <div class="conference-programme">
-      <div class="row collapse programme-selector">
-        <div class="column medium-2">
-          <%= t(".day") %>
-        </div>
-        <div class="column medium-10">
-          <% if meeting_days.any? %>
-            <ul class="tabs" id="conference-day-tabs"
-              data-deep-link="true"
-              data-update-history="true"
-              data-deep-link-smudge="true"
-              data-deep-link-smudge-delay="500"
-              data-tabs>
-              <% meeting_days.each_with_index do |day, i| %>
-                <li class="tabs-title <%= "is-active" if i == 0 %>">
-                  <!-- Wrap the anchor inside a div to keep correct button styling -->
-                  <div>
-                    <a href="#conference-day-tab-<%= i %>" class="button button--nomargin button--sc hollow">
-                      <%= l day, format: :decidim_with_day_and_month_name %>
-                    </a>
-                  </div>
-                </li>
-              <% end %>
-            </ul>
-          <% end %>
-        </div>
-      </div>
-      <div class="tabs-content" data-tabs-content="conference-day-tabs">
+
+<%# NOTE: this page does not use a regular layout %>
+<main class="container">
+  <h1 class="title-decorator my-12">
+    <span class="not-sr-only"><%= t(".program") %></span>
+    <span class="sr-only"><%= t(".program") %> (<%= translated_attribute current_participatory_space.title %>)</span>
+  </h1>
+
+  <div data-component="accordion" data-multiselectable="false" data-collapsible="false">
+    <% if meeting_days.any? %>
+      <ul class="conference__program-selector">
         <% meeting_days.each_with_index do |day, i| %>
-          <div class="programme-day tabs-panel<%= " is-active" if i == 0 %>" id="conference-day-tab-<%= i %>">
-            <% meetings_for_day(meeting_component, day, current_user).each do |meeting_days, meetings| %>
-              <%= render partial: "program_item", locals: { start_time: meeting_days[:start_time], end_time: meeting_days[:end_time], meetings: meetings.pluck(:meeting) } %>
-            <% end %>
-          </div>
+          <li>
+            <button id="conference-trigger<%= i %>" class="button button__sm md:button__lg button__transparent-secondary" data-controls="conference-panel<%= i %>" data-open="<%= "true" if i.zero? %>">
+              <%= l day, format: :decidim_with_day_and_month_name %>
+            </button>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <% meeting_days.each_with_index do |day, i| %>
+      <div id="conference-panel<%= i %>" class="conference__program" data-conference-program-day>
+        <% meetings_for_day(meeting_component, day, current_user).each do |meeting_days, meetings| %>
+          <%= render partial: "program_item", locals: { start_time: meeting_days[:start_time], end_time: meeting_days[:end_time], meetings: meetings.pluck(:meeting) } %>
         <% end %>
       </div>
-    </div>
+    <% end %>
   </div>
-</div>
+</main>

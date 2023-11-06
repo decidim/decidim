@@ -28,7 +28,7 @@ module Decidim
 
       class_option :skip_gemfile, type: :boolean,
                                   default: false,
-                                  desc: "Don't generate a Gemfile for the application"
+                                  desc: "Do not generate a Gemfile for the application"
 
       class_option :profiling, type: :boolean,
                                default: false,
@@ -40,14 +40,13 @@ module Decidim
 
       def add_seeds
         append_file "db/seeds.rb", <<~RUBY
-          # You can remove the 'faker' gem if you don't want Decidim seeds.
+          # You can remove the 'faker' gem if you do not want Decidim seeds.
           Decidim.seed!
         RUBY
       end
 
       def copy_initializer
         copy_file "carrierwave.rb", "config/initializers/carrierwave.rb"
-        copy_file "social_share_button.rb", "config/initializers/social_share_button.rb"
       end
 
       def secrets
@@ -79,9 +78,8 @@ module Decidim
       end
 
       def install_decidim_webpacker
-        # Copy CSS files
+        # Copy CSS file
         copy_file "decidim_application.scss", "app/packs/stylesheets/decidim/decidim_application.scss"
-        copy_file "_decidim-settings.scss", "app/packs/stylesheets/decidim/_decidim-settings.scss"
 
         # Copy JS application file
         copy_file "decidim_application.js", "app/packs/src/decidim/decidim_application.js"
@@ -94,10 +92,17 @@ module Decidim
         # Regenerate webpacker binstubs
         remove_file "bin/yarn"
         bundle_install
-        rails "webpacker:binstubs"
+        rails "shakapacker:binstubs"
 
         # Run Decidim custom webpacker installation
         rails "decidim:webpacker:install"
+
+        # Run Decidim custom procfile installation
+        rails "decidim:procfile:install"
+
+        # Replace robots.txt
+        remove_file "public/robots.txt"
+        rails "decidim:robots:replace"
       end
 
       def build_api_docs
@@ -185,7 +190,7 @@ module Decidim
         rails "db:test:prepare"
       end
 
-      # Runs rails commands in a subprocess, and aborts if it doesn't suceeed
+      # Runs rails commands in a subprocess, and aborts if it does not suceeed
       def rails(*args)
         abort unless system("bin/rails", *args)
       end

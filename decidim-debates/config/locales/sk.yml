@@ -39,7 +39,6 @@ sk:
         confirm_destroy: Ste si istí?
         destroy: Odstrániť
         edit: Upraviť
-        new: Nová %{name}
         title: Akcie
       admin:
         debates:
@@ -59,9 +58,6 @@ sk:
           update:
             invalid: Pri aktualizácii debaty došlo k problému.
             success: Debata úspešne aktualizovaná
-        models:
-          debate:
-            name: Debata
       admin_log:
         debate:
           create: "%{user_name} vytvoril/a debatu%{resource_name} v priestore %{space_name}"
@@ -85,11 +81,6 @@ sk:
           official: Oficiálni
           origin: Pôvod
           search: Vyhľadávanie
-        filters_small_view:
-          close_modal: Zatvoriť okno
-          filter: Filter
-          filter_by: Filtrovať podľa
-          unfold: Rozbaliť
         form:
           select_a_category: Vyberte kategóriu
         index:
@@ -98,10 +89,6 @@ sk:
           back: Späť
           create: Vytvoriť
           title: Nová debata
-        show:
-          back: Späť na zoznam
-      last_activity:
-        new_debate_at_html: "<span>Nová debata na %{link}</span>"
       models:
         debate:
           fields:
@@ -134,7 +121,6 @@ sk:
           email_intro: 'Teraz môžete vytvoriť nové debaty v priestore %{participatory_space_title}! Zúčastnite sa na tejto stránke:'
           email_outro: Toto oznámenie ste dostali, pretože sledujete %{participatory_space_title}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
           email_subject: Debaty sú teraz k dispozícii v %{participatory_space_title}
-          notification_title: Teraz môžete začať <a href="%{resource_path}"> nové debaty v priestore </a><a href="%{participatory_space_url}">%{participatory_space_title} </a>
     gamification:
       badges:
         commented_debates:
@@ -146,7 +132,6 @@ sk:
           name: Debaty
           next_level_in: Podieľajte sa na ďalších %{score} debatách pre dosiahnutie ďalšej úrovne!
           unearned_another: Tento účastník sa nezúčastnil na žiadnej debate. 
-          unearned_own: ZatiaĽ ste sa nezúčastnili na žiadnej debate.
     metrics:
       debates:
         description: Počet vytvorených debát

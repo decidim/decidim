@@ -1,15 +1,20 @@
 <% add_decidim_meta_tags({
-  description: translated_attribute(@page.body),
-}) %>
+                           description: translated_attribute(@page.body)
+                         }) %>
 
-<%= render partial: "decidim/shared/component_announcement" %>
+<%= render layout:"layouts/decidim/shared/layout_center" do %>
+  <div class="py-12 space-y-12">
 
-<div class="row column">
-  <div class="row">
-    <div class="columns medium-7 mediumlarge-8">
-      <div class="section">
-        <%= decidim_sanitize_editor translated_attribute(@page.body) %>
-      </div>
+    <div class="text-center">
+      <h1 class="h1 decorator inline-block text-left">
+        <%= translated_attribute(@page.title) %>
+      </h1>
+    </div>
+
+    <%= render partial: "decidim/shared/component_announcement" %>
+
+    <div class="editor-content">
+      <%= decidim_sanitize_editor_admin translated_attribute(@page.body) %>
     </div>
   </div>
-</div>
+<% end %>

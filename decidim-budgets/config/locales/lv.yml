@@ -29,11 +29,6 @@ lv:
           project:
             name: Projekts
         projects:
-          create:
-            invalid: Šī projekta izveides laikā radās problēma
-            success: Projekts ir veiksmīgi izveidots
-          destroy:
-            success: Projekts ir veiksmīgi dzēsts
           edit:
             title: Rediģēt projektu
             update: Atjaunināt
@@ -44,13 +39,7 @@ lv:
           new:
             create: Izveidot
             title: Jauns projekts
-          update:
-            invalid: Šī projekta atjaunināšanas laikā radās problēma
-            success: Projekts ir veiksmīgi atjaunināts
         proposals_imports:
-          create:
-            invalid: Importējot priekšlikumus projektos, radās problēma
-            success: "%{number} priekšlikumi ir veiksmīgi importēti projektos"
           new:
             create: Importēt priekšlikumus projektos
             no_components: Šajā līdzdalības telpā nav citu priekšlikumu sastāvdaļu, lai priekšlikumus importētu projektos.
@@ -77,16 +66,12 @@ lv:
         budget_excess:
           budget_excess:
             title: Pārsniegts maksimālais budžets
-          close: Aizvērt
           ok: Labi
         budget_summary:
           are_you_sure: Vai tiešām vēlaties atcelt savu balsojumu?
-          assigned: 'Piešķirts:'
           cancel_order: izdzēsiet savu balsojumu un sāciet no jauna
           checked_out:
-            description: Jūs jau esat nobalsojis par budžetu. Ja esat mainījis savas domas, varat %{cancel_link}.
             title: Balsojums par budžetu pabeigts
-          title: Jūs lemjat par budžetu
         count:
           projects_count:
             zero: "%{count} projekti"
@@ -96,20 +81,6 @@ lv:
           category: Kategorija
           scope: Darbības tvērums
           search: Meklēt
-        filters_small_view:
-          close_modal: Aizvērt modal
-          filter: Filtrēt
-          filter_by: Filtrēt pēc
-          unfold: Atritināt
-        order_progress:
-          vote: Balsot
-        order_selected_projects:
-          remove: Noņemt
-          selected_projects:
-            zero: atlasītie projekti
-            one: atlasītais projekts
-            other: atlasītie projekti
-          view: Apskatīt
         orders:
           highest_cost: Lielākās izmaksas
           label: Sakārtot projektus pēc
@@ -120,7 +91,6 @@ lv:
           view: Apskatīt
         show:
           budget: Budžets
-          view_all_projects: Skatīt visus projektus
     components:
       budgets:
         actions:
@@ -130,10 +100,6 @@ lv:
           global:
             announcement: Paziņojums
             comments_enabled: Komentāri ir iespējoti
-            form:
-              errors:
-                budget_voting_rule_only_one: Jāiespējo tikai viens balsošanas noteikums
-                budget_voting_rule_required: Nepieciešams viens balsošanas noteikums
             projects_per_page: Projekti vienā lappusē
             total_budget: Kopējais budžets
             vote_minimum_budget_projects_number: Minimālais projektu skaits, par kuriem jābalso
@@ -146,12 +112,5 @@ lv:
             show_votes: Rādīt balsis
             votes_choices:
               enabled: Balsošana ir iespējota
-    orders:
-      checkout:
-        error: Jūsu balsojuma apstrādes laikā radās problēma
-        success: Jūsu balsojums ir veiksmīgi pieņemts
-      destroy:
-        error: Jūsu balsojuma atcelšanas laikā radās problēma
-        success: Jūsu balsojums ir veiksmīgi atcelts
   index:
     confirmed_orders_count: Balsu skaits

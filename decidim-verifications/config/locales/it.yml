@@ -30,13 +30,8 @@ it:
           before_date_info: Utile se il processo è già iniziato e si desidera revocare i permessi del processo precedente.
           button: Revoca tutto
           button_before: Revoca prima della data
-          destroy:
-            confirm: Le autorizzazioni di revoca prima della data non possono essere annullate. Sei sicuro di voler continuare?
-            confirm_all: Revocare tutte le autorizzazioni non può essere annullato. Sei sicuro di voler continuare?
-          destroy_nok: C'è stato un problema durante la revoca delle autorizzazioni.
           destroy_ok: Tutte le autorizzazioni corrispondenti sono state revocate correttamente.
           info: Ci sono un totale di %{count} partecipanti verificati.
-          no_data: Nessun partecipante verificato
           title: Revoca delle autorizzazioni
         authorization_workflows: Autorizzazioni
     admin_log:
@@ -46,16 +41,12 @@ it:
         grant_id_documents_offline_verification: "%{user_name} ha verificato %{resource_name} utilizzando un sistema di verifica offline dei documenti di identità"
     authorization_handlers:
       admin:
-        csv_census:
-          help:
-            - Gli amministratori caricano un CSV con le e-mail dei partecipanti accettati
-            - Solo i partecipanti con un'email in quel file CSV possono essere verificati
         id_documents:
           help:
             - Gli utenti inseriscono le loro informazioni di identità e caricano una copia del loro documento.
             - Inserisci le informazioni presenti nell'immagine caricata.
             - Le informazioni dovrebbero corrispondere a quello que l'utente ha inserito.
-            - Se non riesci a vedere chiaramente le informazioni o non riesci a verificarle, puoi rifiutare la richiesta e l'utente sarà in grado di risolverlo.
+            - 
         postal_letter:
           help:
             - Gli utenti richiedono un codice di verifica da inviare al loro indirizzo.
@@ -63,25 +54,15 @@ it:
             - Hai contrassegnato la lettera come inviata.
             - Dopo aver contrassegnato la lettera come inviata, l'utente potrà introdurre il codice e essere verificato.
       csv_census:
-        explanation: Verifica i tuoi permessi
         name: Verifica delle autorizzazioni
       direct: Diretto
       help: Aiuto
       id_documents:
-        explanation: Carica i tuoi documenti di identità in modo che possiamo verificare la tua identità
         name: Documenti di identità
       multistep: Multi-Step
       name: Nome
       postal_letter:
-        explanation: Ti invieremo una lettera postale con un codice che dovrai inserire per poter verificare il tuo indirizzo
         name: Codice via lettera postale
-    events:
-      verifications:
-        verify_with_managed_user:
-          email_intro: L'utente<a href="%{resource_path}">%{resource_title}</a> ha provato a verificarsi con i dati dell'utente<a href="%{managed_user_path}">%{managed_user_name}</a>.
-          email_outro: Controllare l'<a href="%{conflicts_path}">elenco dei conflitti nelle verifiche</a> e contattare l'utente per verificare i propri dati e risolvere il problema.
-          email_subject: 'Tentativo di verifica fallito: l''utente esiste già'
-          notification_title: L'utente<a href="%{resource_path}">%{resource_title}</a> ha provato a verificarsi con i dati dell'utente<a href="%{managed_user_path}">%{managed_user_name}</a>.
     verifications:
       authorizations:
         authorization_metadata:
@@ -89,11 +70,9 @@ it:
           no_data_stored: Nessun dato memorizzato.
         create:
           error: Si è verificato un errore durante la creazione dell'autorizzazione.
-          success: Sei stato autorizzato con successo.
           unconfirmed: Devi confermare la tua e-mail per autorizzarti.
         destroy:
           error: Si è verificato un errore durante l'eliminazione dell'autorizzazione.
-          success: Autorizzazione eliminata con successo.
         first_login:
           actions:
             another_dummy_authorization_handler: Verificare contro un altro esempio di gestore di autorizzazioni
@@ -109,15 +88,12 @@ it:
           expired_verification: Verifica scaduta
           pending_verification: In attesa di conferma
           show_renew_info: Fare clic per rinnovare la verifica
-          unauthorized_verification: Nuova verifica
         new:
           authorize: Invia
           authorize_with: Verifica con %{authorizer}
         renew_modal:
           cancel: Annulla
-          close: chiudi
           continue: Continua
-          info_renew: Se desideri aggiornare i dati, continua con il rinnovo
           title: Rinnova Verifica
         skip_verification: Puoi saltare questo per ora e %{link}
         start_exploring: comincia ad esplorare
@@ -126,14 +102,9 @@ it:
           census:
             create:
               error: Si è verificato un errore durante l'importazione del censimento.
-              success: Sono stati importati correttamente %{count} articoli (%{errors} errore)
-            destroy_all:
-              success: Tutti i dati del censimento sono stati cancellati
           destroy:
-            confirm: Cancellare tutto il censimento non può essere annullato. Sei sicuro di voler continuare?
             title: Elimina tutti i dati del censimento
           index:
-            data: Ci sono %{count} record caricati in totale. L'ultima data di caricamento era %{due_date}
             empty: Non ci sono dati del censimento. Utilizza il modulo sottostante per importarlo utilizzando un file CSV.
             title: Dati di censimento attuali
           instructions:
@@ -166,19 +137,12 @@ it:
               update: Aggiornare
             update:
               error: Si è verificato un errore durante l'aggiornamento della configurazione.
-              success: Configurazione aggiornata con successo
           confirmations:
-            create:
-              error: La verifica non corrisponde. Prova di nuovo o rifiuta la verifica in modo che l'utente possa modificarla
-              success: Utente verificato con successo
             new:
               introduce_user_data: Introduci i dati nella foto
               reject: Rifiuta
               verify: Verifica
           offline_confirmations:
-            create:
-              error: La verifica non corrisponde. Riprovare o chiedere all'utente di modificarlo
-              success: Utente verificato con successo
             new:
               cancel: Annulla
               introduce_user_data: Inserisci l'email dell'utente e i dati del documento
@@ -189,32 +153,19 @@ it:
               offline_verification: Verifica offline
               title: Verifiche pendenti
               verification_number: 'Verifica n. %{n}'
-          rejections:
-            create:
-              success: Verifica respinta. L'utente serà richiesto di modificare i suoi documenti
         authorizations:
           choose:
             choose_a_type: 'Si prega di selezionare come si desidera essere verificato:'
             offline: disconnesso
             online: in linea
             title: Verifica te stesso usando il tuo documento di identità
-          create:
-            error: Si è verificato un problema durante il caricamento del documento
-            success: Documento caricato con successo
           edit:
-            being_reviewed: Stiamo esaminando i tuoi documenti. Sarai verificato prossimamente
             offline: Utilizza la verifica offline
             online: Utilizza la verifica online
-            rejection_clarity: Assicurati che le informazioni siano chiaramente visibili nell'immagine caricata
-            rejection_correctness: Assicurati che le informazioni inserite siano corrette
-            rejection_notice: C'è stato un problema con la tua verifica. Per favore riprova
             send: Richiedi di nuovo la verifica
           new:
             send: Richiedi la verifica
             title: Carica il tuo documento di identità
-          update:
-            error: Si è verificato un problema durante il caricamento del documento
-            success: Documento ricaricato con successo
         dni: DNI
         nie: NIE
         passport: Passaporto
@@ -229,43 +180,24 @@ it:
               title: Verifiche in corso
               username: Nickname
               verification_code: Codice di verifica
-          postages:
-            create:
-              error: Errore durante il contrassegno della lettera inviata
-              success: Lettera contrassegnata con successo come inviata
         authorizations:
-          create:
-            error: Si è verificato un problema con la tua richiesta
-            success: Grazie! Invieremo un codice di verifica al tuo indirizzo
           edit:
             send: Conferma
-            title: Inserisci il codice di verifica che hai ricevuto
-            waiting_for_letter: A breve invieremo al tuo indirizzo una lettera con il tuo codice di verifica
           new:
             send: Inviami una lettera
             title: Richiedi il tuo codice di verifica
-          update:
-            error: Il tuo codice di verifica non corrisponde al nostro. Per favore controlla la lettera che ti abbiamo inviato
-            success: Felicitazioni. Sei stato verificato con successo
       sms:
         authorizations:
-          create:
-            error: c'è stato un problema con la tua richiesta
-            success: Grazie! Abbiamo inviato un SMS al tuo telefono.
           destroy:
             success: Codice di verifica ripristinato correttamente. Per favore reinserisci il tuo numero di telefono.
           edit:
             confirm_destroy: Sei sicuro di voler resettare il codice di verifica?
             destroy: Reimposta il codice di verifica
-            resend: Non hai ricevuto il codice di verifica?
             send: Confermare
             title: Inserisci il codice di verifica che hai ricevuto
           new:
             send: Mandami un sms
             title: Richiedi il tuo codice di verifica
-          update:
-            error: Il tuo codice di verifica non corrisponde al nostro. Si prega di ricontrollare l'SMS che ti abbiamo inviato.
-            success: Congratulazioni. Sei stato verificato con successo.
   errors:
     messages:
       uppercase_only_letters_numbers: deve essere tutto in maiuscolo e contenere solo lettere e / o numeri

@@ -1,21 +1,10 @@
-<%= render "layouts/decidim/application" do %>
-  <% if wizard_steps.first == step %>
-    <div class="wrapper">
-      <%= yield %>
-    </div>
-  <% else %>
-    <div class="wrapper">
-      <div class="row">
-        <%= render partial: "layouts/decidim/initiative_creation_header" %>
-        <div class="columns large-6">
-          <%= yield %>
-        </div>
-        <div class="columns large-3"></div>
-      </div>
-    </div>
-  <% end %>
+<%= append_javascript_pack_tag "decidim_initiatives" %>
+<%= append_stylesheet_pack_tag "decidim_initiatives", media: "all" %>
+<%= append_stylesheet_pack_tag "decidim_verifications", media: "all" %>
 
-  <% content_for :js_content do %>
-    <%= javascript_pack_tag "decidim_initiatives" %>
+<%= render "layouts/decidim/application" do %>
+  <%= render layout: "layouts/decidim/shared/layout_center" do %>
+    <%= render partial: "layouts/decidim/initiative_creation_header" %>
+    <%= yield %>
   <% end %>
 <% end %>

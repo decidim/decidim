@@ -16,8 +16,10 @@ pl:
         min_selections: Żadna z powyższych opcji
         title: Tytuł
       voting:
+        banner_image: Banner
         end_time: Głosowanie kończy się
         start_time: Głosowanie rozpoczyna się
+        voting_type: Typ głosowania
     errors:
       models:
         answer:
@@ -28,25 +30,7 @@ pl:
           attributes:
             attachment:
               needs_to_be_reattached: Załącz ponownie
-        trustee:
-          attributes:
-            name:
-              cant_be_changed: nie można zmienić
-            public_key:
-              cant_be_changed: nie można zmienić
   activerecord:
-    errors:
-      models:
-        decidim/votings/polling_officer:
-          attributes:
-            presided_polling_station:
-              president_and_manager: Oficer wyborczy już jest przewodniczącym lokalu wyborczego
-            voting:
-              different_organization: Głosowanie musi odbywać się w tej samej organizacji do której należy użytkownik
-        decidim/votings/polling_station:
-          attributes:
-            polling_station_president:
-              different_voting: Oficer wyborczy musi być w tym samym głosowaniu co lokal wyborczy
     models:
       decidim/elections/answer:
         one: Odpowiedź
@@ -113,9 +97,6 @@ pl:
             'true': Nie podpisano
         validated_eq:
           label: Zweryfikowano
-          values:
-            'false': Zweryfikowano
-            'true': Nie zweryfikowano
     components:
       elections:
         actions:
@@ -136,24 +117,16 @@ pl:
         manage_answers: Zarządzaj odpowiedziami
         manage_questions: Zarządzaj pytaniami
         manage_steps: Zarządzaj krokami
-        new: Nowy %{name}
         preview: Podgląd
         publish: Opublikuj
         title: Działania
         unpublish: Cofnij publikację
       admin:
         answers:
-          create:
-            invalid: Wystąpił błąd podczas tworzenia odpowiedzi
-            success: Odpowiedź została utworzona
-          destroy:
-            invalid: Wystąpił błąd podczas usuwania odpowiedzi
-            success: Odpowiedź została usunięta
           edit:
             title: Edytuj odpowiedź
             update: Aktualizuj odpowiedź
           index:
-            invalid_max_selections: Potrzebujesz jeszcze %{missing_answers} odpowiedzi, aby osiągnąć maksymalną liczbę opcji do wybrania
             title: Odpowiedzi
           new:
             create: Utwórz odpowiedź
@@ -162,22 +135,8 @@ pl:
           select:
             disable: Odznacz odpowiedź
             enable: Zaznacz odpowiedź
-            invalid: Wystąpił błąd z przy wybieraniu tej odpowiedzi
-            success: Zaznaczono odpowiedź
           selected: Wybrane
-          unselect:
-            invalid: Wystąpił problem z odznaczaniem tej odpowiedzi
-            success: Odznaczono odpowiedź
-          update:
-            invalid: Wystąpił błąd podczas aktualizowania odpowiedzi
-            success: Odpowiedź została zaktualizowana
         elections:
-          create:
-            invalid: Wystąpił błąd podczas tworzenia wyborów
-            success: Wybory zostały pomyślnie utworzone
-          destroy:
-            invalid: Wystąpił błąd podczas usuwania wyborów
-            success: Wybory zostały pomyślnie usunięte
           edit:
             title: Edytuj wybory
             update: Aktualizuj wybory
@@ -191,9 +150,6 @@ pl:
             success: Wybory zostały pomyślnie opublikowane.
           unpublish:
             success: Cofnięto publikacje wyborów.
-          update:
-            invalid: Wystąpił błąd podczas aktualizowania wyborów
-            success: Wybory zostały pomyślnie zaktualizowane
         exports:
           elections: Wybory
           feedback_form_answers: Odpowiedzi zebrane z formularza
@@ -202,28 +158,13 @@ pl:
         models:
           answer:
             name: Odpowiedź
-          election:
-            name: Wybory
-          question:
-            name: Pytanie
-          trustee:
-            name: Mąż (osoba) zaufania
         proposals_imports:
-          create:
-            invalid: Wystąpił problem podczas importowania propozycji do odpowiedzi
-            success: "Liczba propozycji pomyślnie zaimportowanych do odpowiedzi: %{number}"
           new:
             create: Importuj propozycje do odpowiedzi
             no_components: W tej przestrzeni partycypacyjnej nie ma już żadnych innych komponentów propozycji do zaimportowania do odpowiedzi.
             select_component: Wybierz komponent
             title: Importuj propozycje
         questions:
-          create:
-            invalid: Wystąpił błąd podczas tworzenia pytania
-            success: Pytanie zostało pomyślnie utworzone
-          destroy:
-            invalid: Wystąpił błąd podczas usuwania pytania
-            success: Pytanie zostało pomyślnie usunięte
           edit:
             title: Edytuj pytanie
             update: Zaktualizuj pytanie
@@ -232,9 +173,6 @@ pl:
           new:
             create: Utwórz pytanie
             title: Nowe pytanie
-          update:
-            invalid: Wystąpił błąd podczas aktualizowania tego pytania
-            success: Pytanie zostało pomyślnie zaktualizowane
         steps:
           create_election:
             errors:
@@ -257,13 +195,10 @@ pl:
               time_before: Konfiguracja odbywa się <strong>co najmniej %{hours} godzin(y)</strong> przed rozpoczęciem wyborów.
               trustees_number: Przestrzeń partycypacyjna <strong>musi mieć co najmniej %{number} mężów (osób) zaufania z kluczem publicznym</strong>.
             submit: Ustaw wybory
-            success: Wybory pomyślnie wysłano do tablicy danych wyborczych
             title: Skonfiguruj wybory
             trustees: Mężowie (osoby) zaufania
           created:
-            invalid: Wystąpił błąd przy rozpoczęciu "ceremonii kluczy"
             submit: Rozpocznij "ceremonię kluczy"
-            success: Prośba o rozpoczęcie "ceremonii kluczy" została przesłana do Tablicy danych wyborczych
             title: Utworzono wybory
             trustees: Mężowie (osoby) zaufania
           key_ceremony:
@@ -272,11 +207,9 @@ pl:
           key_ceremony_ended:
             errors:
               time_before: Wybory są gotowe do otwarcia. Aby rozpocząć głosowanie musisz poczekać do %{hours} godzin(y) przed czasem rozpoczęcia (%{start_time}).
-            invalid: Wystąpił błąd podczas otwierania głosowania
             requirements:
               time_before: Wybory rozpoczną się wkrótce. Możesz otworzyć głosowanie ręcznie lub rozpocznie się ono automatycznie przed godziną rozpoczęcia o %{start_time}.
             submit: Otwórz głosowanie
-            success: Prośba o otwarcie głosowania została pomyślnie przesłana do Tablicy danych wyborczych
             title: Gotowe do rozpoczęcia
           processing: Przetwarzanie...
           results_published:
@@ -294,28 +227,20 @@ pl:
             result: Wynik
             selected: Wybrano
             submit: Opublikuj wyniki
-            success: Prośba o publikację wyników została pomyślnie przesłana do Tablicy danych wyborczych
             title: Obliczone wyniki
           tally_started:
-            invalid: Wystąpił błąd podczas usuwania męża (osoby) zaufania
             mark_as_missing: Oznacz jako brakujący
-            mark_as_missing_description: Wszyscy mężowie zaufania powinni uczestniczyć w tym procesie, ale jeśli nie może wziąć udziału w tym procesie, możesz oznaczyć go jako brakujący.
-            success: Brakująca uwaga męża zaufania została pomyślnie wysłana do Tablicy
             tally_completion: 'Proces zostanie zakończony, gdy wszyscy mężowie zaufania będą aktywni lub zostaną oznaczeni jako brakujący. Wymagana ilość mężów zaufania: %{quorum}.'
             undo_mark_as_missing: Przed zakończeniem procesu będzie mógł uczestniczyć mąż zaufania oznaczony jako brakujący omyłkowo. Mężowie zaufania mogą postępować jak zwykle, a oznaczenie jako "brakujący" zostanie zignorowane.
           vote:
             errors:
               time_after: Wybory nadal trwają. Musisz poczekać do daty zakończenia (%{end_time}) aby zamknąć głosowanie.
-            invalid: Wystąpił błąd podczas zamykania głosowania
             requirements:
               time_after: Wybory zakończyły się. Możesz ręcznie zamknąć głosowanie lub zostanie ono automatycznie zamknięte za kilka minut.
             submit: Zamknij głosowanie
-            success: Prośba o zamknięcie głosowania została pomyślnie przesłana na Tablicy danych wyborczych
             title: Czas głosowania
           vote_ended:
-            invalid: Wystąpił błąd przy rozpoczęciu liczenia głosów
             submit: Ustal wynik głosowania
-            success: Prośba o rozpoczęcie liczenia głosów została pomyślnie przesłana do Tablicy danych wyborczych
             text: Głosowanie zakończyło się. Możesz rozpocząć proces ustalania wyniku głosowania.
             title: Czas głosowania zakończony
           vote_stats:
@@ -327,13 +252,6 @@ pl:
           actions:
             disable: Wyłącz
             enable: Rozważ
-          create:
-            exists: Istnieje mąż (osoba) zaufania dla tej przestrzeni partycypacyjnej
-            invalid: Podczas tworzenia męża (osoby) zaufania wystąpił błąd
-            success: Mąż (osoba) zaufania został utworzony
-          delete:
-            invalid: Wystąpił błąd podczas usuwania męża (osoby) zaufania
-            success: Mąż (osoba) zaufania został usunięty
           form:
             select_user: Wybierz użytkownika
           index:
@@ -341,9 +259,6 @@ pl:
           new:
             create: Utwórz męża (osobę) zaufania
             title: Nowy mąż (osoba) zaufania
-          update:
-            invalid: Podczas aktualizacji męża (osoby) zaufania %{trustee} wystąpił błąd
-            success: Mąż (osoba) zaufania %{trustee} został pomyślnie zaktualizowany
       admin_log:
         election:
           publish: "%{user_name} opublikował(a) wybory %{resource_name} w %{space_name}"
@@ -391,7 +306,6 @@ pl:
           key_ceremony_title: '"Ceremonia kluczy"'
           not_available: Jeszcze nie jest dostępny
           not_created: Nie został utworzony
-          not_published: Nie został ogłoszony
           not_ready: Nie jest gotowy
           not_started: Nie rozpoczął się
           published: Ogłoszony
@@ -409,7 +323,6 @@ pl:
           verifiable_results:
             checksum: 'Suma kontrolna SHA256 pliku:'
             description:
-              not_ready: Sprawdzalne dane wyborcze i suma kontrolna SHA256 nie są jeszcze dostępne. Będziesz mógł sprawdzić wybory zaraz po ogłoszeniu wyników głosowania.
               ready: 'Możesz tutaj skorzystać z opcji sprawdzenia wyborów. Aby to uczynić, pobierz wpierw plik i upewnij się, że nie został uszkodzony. Użyj następującego polecenia aby sprawdzić czy wynik jest zgodny z sumą kontrolną:'
             how_to_verify: 'Po pobraniu pliku i upewnieniu się, że plik jest w porządku, możesz przejść do uruchomienia uniwersalnego weryfikatora. Sklonuj <a href=''https://github.com/decidim/decidim-bulletin-board''>to repozytorium</a> i wykonaj następujące polecenie z katalogu root:'
             title: Zweryfikuj wyniki wyborów
@@ -424,13 +337,7 @@ pl:
           active: Aktywne
           all: Wszystkie
           finished: Zakończone
-          search: Szukaj
           upcoming: Nadchodzące
-        filters_small_view:
-          close_modal: Zamknij okno
-          filter: Filtr
-          filter_by: Filtruj według
-          unfold: Rozwiń
         preview:
           available_answers: 'Możliwe odpowiedzi:'
           description: 'Oto pytania, które zostaną zadane w procesie głosowania:'
@@ -450,7 +357,6 @@ pl:
             change_vote: Zmień swój głos
             vote: Rozpocznij głosowanie
             vote_again: Zagłosuj ponownie
-          back: Dostępne wybory
           callout:
             already_voted: Już głosowałeś w tych wyborach. Możesz zmienić swój głos lub zweryfikować go.
             pending_vote: Twój głos jest właśnie oddawany na serwerze.
@@ -468,7 +374,6 @@ pl:
       feedback:
         answer:
           invalid: Wystąpił błąd podczas wysyłania Twojej opinii.
-          spam_detected: Wystąpił błąd podczas wypełniania formularza. Być może zostało to zrobione zbyt szybko, czy możesz spróbować ponownie?
           success: Opinia została wysłana.
       models:
         answer:
@@ -508,7 +413,6 @@ pl:
           backup_modal:
             description: Te wybory są tworzone na Tablicy danych wyborczych. Każdy przypisany do niej mąż (osoba) zaufania powinien stworzyć kopię zapasową kluczy i przechowywać je w bezpiecznym miejscu. Po tym, proces będzie kontynuowany.
             download_election_keys: Pobierz klucze
-            download_icon: Ikona wskazująca akcję pobierania
             title: Kopia zapasowa kluczy dla głosowania %{election}
           key_ceremony_steps:
             back: Wróć
@@ -523,7 +427,6 @@ pl:
               task: Zadanie
             process_warning: Po rozpoczęciu procesu, nie powinieneś opuszczać tej strony do czasu jego zakończenia. Zajmie to kilka minut, ponieważ wszyscy mężowie (osoby) zaufania powinni być podłączeni w celu jego ukończenia.
             start: Rozpocznij
-            start_icon: Ikona wskazująca przycisk startu dla tworzenia kluczy wyborczych
             status:
               completed: Zakończono
               pending: Oczekujące
@@ -533,7 +436,6 @@ pl:
             description: Tablica danych wyborczych posiada informacje od Ciebie jako męża (osoby) zaufania w tych wyborach. Aby kontynuować proces, najpierw wgraj plik kopii zapasowej wygenerowany podczas poprzedniej sesji.
             title: Przywróć klucze dla wyborów %{election}
             upload_election_keys: Prześlij klucze wyborcze
-            upload_icon: Ikona wskazująca akcję pobierania
           tally_started_steps:
             description: Wyniki tego głosowania są generowane na Tablicy danych wyborczych. Aby zakończyć ten proces niezbędne jest twoje uczestnictwo jako męża (osoby) zaufania.
             keys:
@@ -542,9 +444,6 @@ pl:
                 cast: Suma oddanych głosów
                 share: Udostępnij ustalony wynik głosowania
             title: Wynik głosowania dla %{election}
-          update:
-            error: Status wyborów nie został zaktualizowany.
-            success: 'Status wyborów to: %{status}'
         menu:
           trustee_zone: Strefa mężów (osób) zaufania
         no_bulletin_board:
@@ -570,39 +469,32 @@ pl:
               generate_legend: Musisz utworzyć parę kluczy identyfikacyjnych do udziału w głosowaniu jako mąż (osoba) zaufania.
               generate_legend_1: Po kliknięciu przycisku powinieneś pobrać plik z utworzonymi kluczami identyfikacyjnymi.
               generate_legend_2: Skopiuj pobrany plik na puste urządzenia USB
-              generate_legend_3: Upewnij się, że Twój komputer nie ma kopii pliku (np. sprawdź foldery Pobrane i Pulpit).
               generate_legend_4: Utwórz kolejną kopię pliku na innym urządzeniu zewnętrznym i przechowuj go w bezpiecznym miejscu.
               submit: Prześlij
               submit_title: Prześlij publiczny klucz identyfikacyjny
               title: Klucze identyfikacyjne męża (osoby) zaufania
               upload: Prześlij swoje klucze identyfikacyjne
-              upload_error:
-                invalid_format: Wgrany plik nie zawiera żadnego klucza identyfikacyjnego.
-                invalid_key: Nie można załadować kluczy identyfikacyjnych z przesłanego pliku.
-            not_supported_browser_description: Wygląda na to, że używasz przeglądarki internetowej, która nie może być użyta do działań męża (osoby) zaufania. Upewnij się, że używasz najnowszej wersji przeglądarki, lub spróbuj użyć dowolnej z najpopularniejszych przeglądarek, aby móc wykonać zadania męża (osoby) zaufania.
             not_supported_browser_title: Aktualizuj przeglądarkę by działać jako mąż (osoba) zaufania
             trustee_role_description: Zostałeś powołany do pełnienia funkcji męża (osoby) zaufania w niektórych głosowaniach na tej platformie.
           update:
             success: Twój publiczny klucz identyfikacyjny został zapisany.
       votes:
         ballot_decision:
-          audit: "( Sprawdź kartę z oddanym głosem )"
+          audit: ( Sprawdź kartę z oddanym głosem )
           back: Rozpocznij proces głosowania ponownie
           ballot_hash: 'Numer Twojej karty do głosowania to:'
-          description: "Masz tutaj dwie opcje, albo możesz już oddać głos tak aby został poprawnie zliczony, albo możesz sprawdzić czy Twoja karta do głosowania została prawidłowo zaszyfrowania. Ze względów bezpieczeństwa sprawdzenie poprawności szyfrowania karty zepsuje ją. Oznacza to, że musisz ponownie rozpocząć od nowa proces oddawania głosu aby oddać głos.\n\nHere, you have the options to cast your ballot so that it's properly counted or, alternatively, you can audit that your ballot was correctly encrypted. For security reasons, auditing your ballot will spoil it. That means, to cast your vote, you will need to restart the voting process."
+          description: Masz tutaj dwie opcje, albo możesz już oddać głos tak aby został poprawnie zliczony, albo możesz sprawdzić czy Twoja karta do głosowania została prawidłowo zaszyfrowania. Ze względów bezpieczeństwa sprawdzenie poprawności szyfrowania karty zepsuje ją. Oznacza to, że musisz ponownie rozpocząć od nowa proces oddawania głosu aby oddać głos.
           header: 'Karta do głosowania została zaszyfrowana. Oddaj głos, albo sprawdź poprawność szyfrowania karty'
         casting:
           header: Oddawanie głosu...
           text: Twoja karta do głosowania jest składana do urny wyborczej.
         confirm:
-          answer: Odpowiedz
           answer_number: odpowiedz %{number}
           confirm: Potwierdź
           edit: edytuj
           header: Potwierdź swój głos
           intro: Oto podsumowanie głosu, który zamierzasz oddać. <br> Proszę potwierdzić swój głos lub edytuj swoje odpowiedzi.
           nota_option: Pusty
-          question: Pytanie %{count}
         confirmed:
           back: Wróć do wyborów
           experience: Jak oceniasz proces głosowania?
@@ -623,11 +515,7 @@ pl:
           try_again: Spróbuj ponownie
         header:
           ballot_decision: Oddaj głos, albo sprawdź poprawność szyfrowania Twojego głosu
-          casting: Oddawanie głosu
           confirm: Potwierdź swój głos
-          confirmed: Głos potwierdzony
-          encrypting: Szyfrowanie głosu
-          failed: Oddanie głosu nie powiodło się
         messages:
           invalid_token: Twoja sesja w kabinie wyborczej nie jest ważna. Spróbuj zagłosować ponownie.
           not_allowed: W tej chwili nie wolno Ci głosować w tych wyborach.
@@ -642,7 +530,6 @@ pl:
           question_steps: Pytanie %{current_step} z %{total_steps}
           selections: "%{selected} z %{max_selections}<br> opcji wyboru"
         onboarding_modal:
-          close: Zamknij okno
           create_account: Utwórz konto
           no_account: Nie, dziękuję.
         update:
@@ -661,12 +548,10 @@ pl:
             title: Zweryfikuj swój głos
           success:
             header: Odnaleziono głos!
-            info: Twój zaszyfrowany głos jest w urnie wyborczej %{link}
         voting_step:
           back: Wróć
           continue: Dalej
       warnings:
-        no_elections_warning: Brak wyborów spełniających kryteria wyszukiwania lub nie ma żadnych zaplanowanych wyborów.
         no_scheduled_elections_warning: Obecnie nie ma żadnych zaplanowanych wyborów, ale możesz zobaczyć wszystkie zakończone już wybory.
     events:
       elections:
@@ -678,18 +563,15 @@ pl:
         trustees:
           new_election:
             email_intro: Zostałeś powołany do pełnienia funkcji męża (osoby) zaufania do głosowania %{resource_title}.
-            email_outro: Otrzymujesz to powiadomienie ponieważ zostałeś powołany do pełnienia funkcji męża (osoby) zaufania w głosowaniu %{resource_title}”.
             email_subject: Jesteś mężem (osobą) zaufania w głosowaniu %{resource_title}..
             notification_title: Jesteś mężem (osobą) zaufania w głosowaniu <a href="%{resource_path}">%{resource_title}</a>.
           new_trustee:
             email_intro: Administrator ustanowił Cię mężem (osobą) zaufania w %{resource_name}. Powinieneś utworzyć klucz publiczny <a href='%{trustee_zone_url}'>w strefie osób zaufania</a>
-            email_outro: Otrzymujesz to powiadomienie ponieważ zostałeś powołany do pełnienia funkcji męża (osoby) zaufania w %{resource_name}”.
             email_subject: Jesteś mężem (osobą) zaufania w %{resource_name}.
             notification_title: Jesteś mężem (osobą) zaufania w <a href="%{participatory_space_url}">%{resource_name}</a>.
         votes:
           accepted_votes:
             email_intro: 'Twój głos został zaakceptowany! Używając tokenu głosowania: %{encrypted_vote_hash}, możesz zweryfikować swój głos <a href="%{verify_url}">tutaj</a>.'
-            email_outro: Otrzymujesz to powiadomienie ponieważ głosowałeś w wyborach %{resource_name}”.
             email_subject: Twój głos na %{resource_name} został zaakceptowany.
             notification_title: 'Twój głos został zaakceptowany. Zweryfikuj swój głos <a href="%{verify_url}">tutaj</a> używając swojego tokenu głosu: %{encrypted_vote_hash}'
       votings:
@@ -716,64 +598,27 @@ pl:
     votings:
       admin:
         ballot_styles:
-          create:
-            error: Wystąpił błąd przy tworzeniu tego rodzaju kart wyborczych
-            success: Rodzaj kart wyborczych został pomyślnie utworzony
-          destroy:
-            invalid: Wystąpił błąd przy usuwaniu tego rodzaju kart wyborczych
-            success: Rodzaj kart wyborczych został pomyślnie usunięty
           edit:
             title: Edytuj rodzaj kart wyborczych
             update: Aktualizuj
           form:
-            code_help: 'Uwaga: kod jest połączeniem między listą wyborców a rodzajami kart wyborczych. Podczas przesyłania danych listy wyborców, każdemu wpisowi zostanie przypisany rodzaj karty wyborczej poprzez dopasowanie kodu'
             election: Wybory
             questions: Pytania dla tego rodzaju kart wyborczych
-            questions_help: 'Uwaga: wybierz pytania z komponentów wyborczych, które mają być przedstawione wyborcom przypisanym do tego rodzaju kart wyborczych'
           index:
             actions:
               confirm_destroy: Czy na pewno?
               destroy: Usuń
               edit: Edytuj
-              new: Nowy
               title: Działania
             associated_census_data: Powiązane wpisy z listy wyborców
-            explanation_callout: Rodzaj karty wyborczej określa, jakie pytania zostaną zaprezentowane danemu wyborcy w kabinie do głosowania. Konfigurując rodzaje kart wyborczych możesz wybrać, jakie pytania z z tego komponentu wyborczego należą do głosowania. Kod rodzaju karty wyborczej jest używany do dopasowania wyborcy z listy wyborców do karty wyborczej, która zostanie przedstawiona mu w kabinie do głosowania. Nie twórz rodzajów kart wyborczych, jeśli zawsze chcesz zadać wszystkie pytania.
             title: Rodzaje kart wyborczych
           new:
             create: Utwórz
             title: Utwórz rodzaj kart wyborczych
-          update:
-            invalid: Wystąpił błąd podczas aktualizowania tego rodzaju kart wyborczych
-            success: Pomyślnie zaktualizowano ten rodzaj kart wyborczych
         content_blocks:
           highlighted_votings:
             max_results: Maksymalna ilość elementów do wyświetlenia
-          landing_page:
-            attachments_and_folders:
-              name: Załączniki i foldery do głosowania
-            description:
-              name: Opis głosowania
-            elections:
-              name: Wybory
-            header:
-              name: Nagłówek głosowania
-            html_block_1:
-              name: Pierwszy blok html głosowania
-            html_block_2:
-              name: Drugi blok html głosowania
-            html_block_3:
-              name: Trzeci blok html głosowania
-            metrics:
-              name: Metryka głosowania
-            polling_stations:
-              name: Lokale wyborcze
-            stats:
-              name: Statystyki głosowania
-            timeline:
-              name: Oś czasu głosowania
         index:
-          not_published: Nie opublikowano
           published: Opublikowano
         landing_page:
           content_blocks:
@@ -791,7 +636,6 @@ pl:
             ballot_styles: Rodzaje kart wyborczych
             census: Lista wyborców
             components: Komponenty
-            info: Informacje
             landing_page: Strona Startowa
             monitoring_committee: Komisja monitorująca
             monitoring_committee_election_results: Zweryfikuj wyniki
@@ -804,29 +648,24 @@ pl:
           ballot_style:
             fields:
               code: Kod
-            name: Rodzaj kart wyborczych
           monitoring_committee_member:
             fields:
               email: Adres e-mail
               name: Imię
-            name: Członek Komisji Wyborczej
           polling_officer:
             fields:
               email: Adres e-mail
               name: Imię
               polling_station: Lokal wyborczy (role)
-            name: Oficer wyborczy
           polling_station:
             fields:
               address: Adres
               polling_station_managers: Kierownicy
               polling_station_president: Przewodniczący
               title: Tytuł
-            name: Lokal wyborczy
           voting:
             fields:
               created_at: Utworzono
-              promoted: Wyróżniony
               published: Opublikowano
               title: Tytuł
         monitoring_committee_election_results:
@@ -853,16 +692,8 @@ pl:
             publish_results: Opublikuj wyniki
             publishing: Ogłaszanie wyników głosowania...
           update:
-            invalid: Wystąpił błąd przy ogłaszaniu wyników głosowania
             rejected: Ogłoszenie wyników głosowania zostało odrzucone przez Tablicę danych wyborczych. Spróbuj ponownie, albo skontaktuj się z administratorem systemu.
-            success: Pomyślnie ogłoszono wyniki głosowania
         monitoring_committee_members:
-          create:
-            invalid: Wystąpił błąd podczas tworzenia członka Komisji Wyborczej
-            success: Utworzono członka Komisji Wyborczej
-          destroy:
-            invalid: Podczas usuwania członka Komisji Wyborczej wystąpił błąd
-            success: Usunięto członka Komisji Wyborczej
           form:
             existing_user: Istniejący użytkownik
             non_user: Zaproś użytkownika
@@ -892,9 +723,6 @@ pl:
           show:
             change_polling_station: Wróć do lokali wyborczych
             monitoring_committee_notes: Uwagi Komisji Wyborczej
-          validate:
-            error: Wystąpił błąd przy weryfikacji zamknięcia
-            success: Zamknięcie zostało zaweryfikowane poprawnie
         monitoring_committee_verify_elections:
           index:
             download: Pobierz
@@ -905,12 +733,6 @@ pl:
             not_available: Jeszcze nie jest dostępny
             title: Wybory
         polling_officers:
-          create:
-            invalid: Przy tworzeniu oficera wyborczego wystąpił błąd
-            success: Dodano oficera wyborczego
-          destroy:
-            invalid: Wystąpił błąd podczas usuwania oficera wyborczego
-            success: Oficer wyborczy został usunięty
           form:
             existing_user: Istniejący użytkownik
             non_user: Zaproś użytkownika
@@ -927,14 +749,7 @@ pl:
             choose_polling_officers: Wybierz oficerów wyborczych
             close: Zamknij
             more_polling_officers: Jest jeszcze %{number} więcej oficerów wyborczych. Doprecyzuj kryteria wyszukiwania, aby ich zlokalizować.
-            no_polling_officers: Brak oficerów wyborczych spełniających kryteria wyszukiwania lub nie ma żadnego oficera wyborczego.
         polling_stations:
-          create:
-            invalid: Przy tworzeniu lokalu wyborczego wystąpił błąd
-            success: Dodano lokal wyborczy
-          destroy:
-            invalid: Podczas usuwania lokalu wyborczego wystąpił błąd
-            success: Usunięto lokal wyborczy
           edit:
             title: Edytuj lokal wyborczy
             update: Zaktualizowano lokal wyborczy
@@ -943,16 +758,12 @@ pl:
             location_help: 'Lokalizacja: wiadomość kierowana do wyborców wskazująca dokładne miejsce lokalu wyborczego'
             location_hints_help: 'Wskazówki dotyczące lokalizacji. Przykład: piętro budynku, w którym znajduje się lokal wyborczy.'
             polling_station_managers_help: 'Kierownicy lokali wyborczych: oficerowie pełniący funkcję kierowników lokali wyborczej. Upewnij się, że te osoby zostały już powołane na oficerów wyborczych i że nie zostały jeszcze przydzielone do innego lokalu wyborczego'
-            polling_station_president_help: 'Przewodniczący lokalu wyborczego: oficer pełniący funkcję przewodniczącego lokalu wyborczego. Upewnij się, że ta osoba została już powołana na oficera wyborczego i że nie została jeszcze przydzielona do innego lokalu wyborczego'
             select_president: Wybierz przewodniczącego lokalu wyborczego spośród oficerów wyborczych
           index:
             title: Lokale wyborcze
           new:
             create: Utwórz
             title: Utwórz lokal wyborczy
-          update:
-            invalid: Podczas aktualizowania lokalu wyborczego wystąpił błąd
-            success: Zaktualizowano lokal wyborczy
         titles:
           votings: Głosowania
         votings:
@@ -960,33 +771,19 @@ pl:
             confirm_destroy: Jesteś pewny?
             destroy: Usuń
             new_voting: Nowa przestrzeń do głosowania
-            publish: Publikuj
-            unpublish: Cofnij publikowanie
-          create:
-            invalid: Podczas tworzenia głosowania wystąpił błąd
-            success: Utworzono głosowanie
           edit:
-            add_election_component: Nie masz żadnych wyborów skonfigurowanych w tym głosowaniu. Dodaj je w sekcji Komponenty
-            assign_missing_officers: Wciąż są lokale wyborcze bez przewodniczącego i/lub menedżerów. Proszę przydzielić ich w sekcji lokali wyborczych
             update: Aktualizuj
           form:
             select_a_voting_type: Wybierz typ głosowania
-            slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tego procesu. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
             title: Tytuł
             voting_type:
               hybrid: Hybrydowe
               in_person: Osobiste
               online: Online
+            voting_type_label: Typ głosowania
           new:
             create: Utwórz
             title: Nowe głosowanie
-          publish:
-            success: Głosowanie zostało opublikowane
-          unpublish:
-            success: Cofnięto publikację głosowania
-          update:
-            invalid: Podczas aktualizowania głosowania wystąpił błąd
-            success: Głosowanie zostało zaktualizowane
       admin_log:
         voting:
           create: "%{user_name} utworzył(a) głosowanie %{resource_name}"
@@ -997,21 +794,14 @@ pl:
           census:
             create:
               invalid: Wystąpił błąd przy przesyłaniu listy wyborców. Spróbuj ponownie później.
-            creating_data:
-              info_message: "<strong>Poczekaj</strong>, przetworzono %{processed_count} z %{raw_count} wierszy z pliku %{file}."
             delete:
               button: Usuń wszystkie dane listy wyborców
             destroy:
               error: Wystąpił błąd przy usuwaniu listy wyborców. Spróbuj ponownie później.
-              success: Usunięto dane listy wyborców
             export_access_codes:
               button: Eksportuj kody dostępu do głosowania
               callout: Możesz teraz przejść do eksportu kodów dostępu. Można to zrobić tylko raz. Po uruchomieniu eksportu, otrzymasz e-mail z instrukcjami na adres <strong>%{email}</strong>
               confirm: Możesz wyeksportować kody dostępu tylko raz. Upewnij się, że masz dostęp do konta e-mail <strong>%{email}</strong>.
-              launch_error: Wystąpił problem z uruchomieniem eksportu kodów dostępu
-              launch_success: Eksport kodów dostępu został uruchomiony. Wkrótce otrzymasz e-mail na adres %{email}
-            exporting_access_codes:
-              info_message: "<strong>Poczekaj</strong>, eksport jest przygotowywany, wkrótce otrzymasz go na adres %{email}"
             freeze:
               callout: Lista wyborców została zamknięta i nie może być już zmieniania.
             generate_access_codes:
@@ -1022,8 +812,6 @@ pl:
               info_message_warn: Sprawdź, czy nie brakuje żadnych danych, ponieważ utworzono %{data_count} rekordów, a przesłany plik %{file} miał %{raw_count} wierszy.
               launch_error: Wystąpił błąd przy uruchomieniu tworzenia kodów dostępu
               launch_success: Uruchomiono tworzenie kodów.
-            generating_access_codes:
-              info_message: "<strong>Poczekaj</strong>, kody dostępu do głosowania są tworzone..."
             new:
               file_help:
                 explanation: 'Wytyczne dotyczące pliku:'
@@ -1051,30 +839,19 @@ pl:
             subject: Eksport kodów dostępu do głosowania dla %{voting_title} jest dostępny
         vote_flow:
           already_voted_in_person: Ten użytkownik zagłosował już osobiście i nie ma prawa głosu.
-          datum_not_found: Podane dane nie pasują do żadnego wyborcy.
       content_blocks:
         highlighted_votings:
           name: Wyróżnione głosowania
         landing_page:
-          metrics:
-            heading: Partycypacja w liczbach
           polling_stations:
             heading: Lokale wyborcze
             no_polling_stations: Nie ma jeszcze żadnych punktów wyborczych.
-          timeline:
-            heading: Oś czasu
       monitoring_committee_members:
         actions:
           confirm_destroy: Jesteś pewny?
           destroy: Usuń
           new: Nowy członek
           title: Działania
-      pages:
-        home:
-          highlighted_votings:
-            active_votings: Aktywne głosowania
-            see_all_votings: Zobacz wszystkie głosowania
-            votings_button_title: Link do strony Głosowań wyświetla wszystkie głosowania
       polling_officer_zone:
         closures:
           back_to_polling_stations: Wróć do lokali wyborczych
@@ -1094,7 +871,6 @@ pl:
             info_text: Proszę wprowadzić całkowitą liczbę odpowiedzi na każde pytanie.
             modal_ballots_results_count_error:
               close_modal: Zamknij
-              info_text: Całkowita liczba kart wyborczych nie jest zgodna z całkowitą liczbą kopert. Proszę przejrzeć całkowitą liczbę kart wyborczych.
               title: Suma kart wyborczych nie zgadza się
             save_recount: Zapisz przeliczenie głosów
             total_ballots: Suma oddanych głosów
@@ -1107,8 +883,6 @@ pl:
             info_text: 'Podaj liczbę oddanych głosów ponownie przeliczonych w tym lokalu wyborczym:'
             modal_ballots_count_error:
               btn_validate_total: Sprawdź sumę przeliczonych głosów
-              close_modal: Zamknij
-              info_text: Całkowita liczba kart wyborczych (kopert) nie odpowiada liczbie osób, które zagłosowały w tym lokalu wyborczym.
               message_for_monitoring_committee: Wiadomość dla Komisji Wyborczej
               review_recount: Zweryfikuje przeliczenie głosów
               text_area_placeholder: Wpisz wiadomość
@@ -1123,15 +897,11 @@ pl:
             info_text: Zamknięcie lokalu wyborczego.
           sign:
             cancel: Anuluj
-            check_box: Sprawdziłem to. Należy to rozumieć tak samo fizyczny certyfikat zamknięcia wyborów
-            close_modal: Zamknij
             confirm: Ok, kontynuuj
             error: Wystąpił błąd, spróbuj ponownie.
             heading: Przeliczenie głosów - Podpisz zamknięcie
-            info_text: Jeśli kontynuujesz, nie możesz już modyfikować żadnej z informacji, nie można cofnąć tej akcji.
             submit: Podpisz zamknięcie
             success: Zamknięcie podpisane pomyślnie.
-            title: Tej czynności nie można cofnąć
           update:
             error: Wystąpił błąd podczas aktualizacji wyników zamknięcia, spróbuj ponownie później.
             success: Wyniki zamknięcia zostały zaktualizowane.
@@ -1140,7 +910,6 @@ pl:
             available_answers: 'Możliwe odpowiedzi:'
             complete_voting: Zakończ głosowanie
             identify_another: Zidentyfikuj innego uczestnika
-            questions_title: 'Ma prawo do głosowania w następujących kwestiach:'
             voted: Uczestnik zagłosował
           create:
             error: Głos nie został zarejestrowany. Spróbuj ponownie.
@@ -1195,7 +964,6 @@ pl:
         actions:
           confirm_destroy: Jesteś pewny?
           destroy: Usuń
-          new: Nowy
           title: Działania
         roles:
           manager: Kierownik
@@ -1216,12 +984,10 @@ pl:
           confirm_destroy: Jesteś pewny?
           destroy: Usuń
           edit: Edytuj
-          new: Nowy
           title: Działania
       votings:
         access_code_modal:
           email: Wyślij e-mailem do %{email}
-          info: Potrzebujesz kodu dostępu, aby wziąć udział. Jeśli nie otrzymałeś go pocztą, możemy wysłać Ci nowy.
           no_email: Brak e-mail
           no_sms: Brak dostępnego numeru telefonu
           sms: Wyślij SMS do %{sms}
@@ -1233,7 +999,6 @@ pl:
           invalid: Wystąpił błąd przy sprawdzaniu listy wyborców.
           success:
             access_link_with_sms: poprzez SMS lub e-mail.
-            info: Powinieneś był już otrzymać swój kod dostępu pocztą. Jeśli go nie posiadasz, możesz poprosić o to tutaj
             title: Twoje dane z listy wyborców nie są prawidłowe!
           title: Mogę głosować?
         check_fields:
@@ -1256,9 +1021,7 @@ pl:
             many: "%{count} głosowań"
             other: "%{count} głosowania"
         elections_log:
-          bb_status: Status wyborów
           description: Dziennik zdarzeń wyborczych pokaże Ci wszystkie istotne informacje o każdym głosowaniu. Na przykład status ceremonii kluczy lub też, czy wyniki są już publikowane. Kliknij na wybory o którym chcesz uzyskać informacje z dziennika zdarzeń wyborczych.
-          election_log: Dziennik zdarzeń wyborczych
           title: Dziennik zdarzeń wyborczych
         filters:
           active: Aktywne
@@ -1266,11 +1029,6 @@ pl:
           finished: Zakończone
           search: Szukaj
           upcoming: Nadchodzące
-        filters_small_view:
-          close_modal: Zamknij okno
-          filter: Filtr
-          filter_by: Filtruj według
-          unfold: Rozwiń
         index:
           no_votings: Brak głosowań spełniających kryteria wyszukiwania.
           only_finished: Obecnie nie ma żadnych zaplanowanych głosowań, ale możesz zobaczyć wszystkie zakończone głosowania.
@@ -1279,36 +1037,23 @@ pl:
           access_code: Kod dostępu
           access_code_placeholder: Kod dostępu
           ask_for_a_new_one: Poproś o nowe.
-          dont_have_access_code: Nie masz kodu dostępu?
           form_title: 'Wypełnij poniższy formularz, aby uzyskać dostęp do głosowania:'
           start_voting: Rozpocznij głosowanie
-          step: Identyfikacja
           title: Zidentyfikuj mnie z danymi na liście wyborców
-        no_census_contact_information: Nie ma jeszcze żadnych danych kontaktowych
         orders:
           label: 'Sortuj głosowania według:'
           random: Losowo
           recent: Najnowsze
-        send_access_code:
-          invalid: Wystąpił błąd podczas wysyłania kodu dostępu
-          success: Twój kod dostępu został wysłany pomyślnie
-        show:
-          dates: Daty
       votings_m:
         badge_name:
           finished: Zakończone
           ongoing: W toku
           upcoming: Nadchodzące
-        footer_button_text:
-          participate: Dołącz
-          view: Zobacz
-          vote: Głosuj
         unspecified: Nie określono
         voting_type:
           hybrid: Hybrydowe
           in_person: Osobiste
           online: Online
-        voting_types_label: Typ głosowania
   layouts:
     decidim:
       election_votes_header:
@@ -1316,10 +1061,8 @@ pl:
       voting_navigation:
         check_census: Mogę głosować?
         election_log: Dziennik zdarzeń wyborczych
-        voting_menu_item: Głosowanie
       votings:
         index:
           promoted_votings: Wyróżnione głosowania
         promoted_voting:
-          more_info: Więcej informacji
           vote: Głosuj

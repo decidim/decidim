@@ -37,15 +37,14 @@ eu:
         confirm_destroy: '‘Ziur zaude ezabatu nahi duzula?’'
         destroy: Ezabatu
         edit: Editatu
-        new: Berria
+        new_admin: Beste administratzaile bat
+        new_oauth_application: Beste OAUTH aplikazio bat
+        new_organization: Beste erakunde bat
         save: Gorde
         title: Ekintzak
       admins:
         create:
           error: Errorea gertatu da administratzaile berri bat sortzean.
-          success: Administratzailea zuzen sortu da
-        destroy:
-          success: Admin ezabatu da
         edit:
           title: Editatu administratzailea
           update: Eguneratu
@@ -54,9 +53,11 @@ eu:
         new:
           create: Sortu
           title: Administratzaile berria
+        show:
+          destroy: Suntsitu
+          edit: Editatu
         update:
           error: Errorea gertatu da administratzaile hau eguneratzean.
-          success: Administratzailea zuzen eguneratu da
       dashboard:
         show:
           current_organizations: Uneko antolatzaileak
@@ -64,6 +65,22 @@ eu:
         placeholders:
           content: Gehitu eduki adierazgarria %{page} (a)ren orri estatikoaren administrazio-panelean.
           title: 'Izenburu lehenetsia orri honetarako: %{page}'
+        terms-of-service: Zerbitzu-baldintzak
+      devise:
+        passwords:
+          edit:
+            change_your_password: Aldatu pasahitza
+            minimum_characters: "(%{minimum} karaktere gutxienez)"
+          new:
+            forgot_your_password: Pasahitza ahaztu duzu
+            send_me_reset_password_instructions: Bidali jarraibideak pasahitza berrezartzeko
+        shared:
+          links:
+            did_not_receive_confirmation_instructions?: Ez duzu baieztatzeko instrukziorik jaso?
+            did_not_receive_unlock_instructions?: Ez duzu desblokeatzeko instrukziorik jaso?
+            forgot_your_password?: Pasahitza ahaztu duzu?
+            log_in: Hasi saioa
+            sign_up: Erregistratu
       menu:
         admins: Administratzaileak
         dashboard: Kontrol-panela
@@ -72,9 +89,8 @@ eu:
       models:
         admin:
           fields:
-            created_at: Tan sortua
+            created_at: Sortze-data
             email: Helbide elektronikoa
-          name: Administratzailea
           validations:
             email_uniqueness: beste administratzaile bat dago, helbide elektroniko hauxe bera duena
         oauth_application:
@@ -82,7 +98,6 @@ eu:
             created_at: Sortze-data
             name: OAuth Aplikazioaren izena
             organization_name: Antolatzailea
-          name: OAuth Aplikazioa
         organization:
           actions:
             save_and_invite: Sortu erakundea eta gonbit egin administratzaileari
@@ -92,7 +107,6 @@ eu:
             name: Izena
             omniauth_settings: Omniauth doikuntzak
             smtp_settings: SMTP konfigurazioa
-          name: Erakundea
       oauth_applications:
         create:
           error: Errore bat gertatu da aplikazio hau sortzean.
@@ -121,6 +135,10 @@ eu:
         create:
           error: Errorea izan da antolatzaile berri bat sortzean.
           success: Antolatzailea zuzen sortu da.
+        csp_settings:
+          connect_src_hint: |
+            Connect-src zuzentarauak murriztu egiten ditu < script> elementuen bidez karga daitezkeen URLak.
+            Plataformak 'self' gehituko du, baina gehiago gehitzeko aukera emango dizu.
         edit:
           secondary_hosts_hint: Sartu haietako bakoitza lerro batean
         file_upload_settings:
@@ -145,8 +163,9 @@ eu:
         index:
           title: Erakundeak
         new:
-          reference_prefix_hint: Erreferentzia-aurrizkia erabiltzen da erakunde guztien baliabideak modu bakarrean identifikatzeko
-          secondary_hosts_hint: Sartu haietako bakoitza lerro batean
+          default: Lehenetsita?
+          enabled: Gaituta
+          locale: Tokikoa
           title: Erakunde berria
         omniauth_settings:
           decidim:
@@ -169,8 +188,6 @@ eu:
         smtp_settings:
           fieldsets:
             sender: Bidaltzailea
-          instructions:
-            from_label: 'Posta elektronikoaren bidaltzailea honako hau izango da: "Erakundearen izena < your-organization@example.org>". Utzi hutsik ''Helbide elektronikoa'' eremua etiketa gisa erabiltzeko'
           placeholder:
             from_email: zure-erakundea@example.org
             from_label: erakundearen izena
@@ -180,10 +197,10 @@ eu:
         users_registration_mode:
           disabled: Sarbidea soilik kanpoko kontuekin egin daiteke
           enabled: Baimendu erabiltzaileei erregistratzea eta saioa hasteko
-          existing: Ez utzi erabiltzaileek erregistratu, baizik eta existitzen diren erabiltzaileei saioa hasteko
       shared:
         notices:
           no_organization_warning_html: Hasteko erakunde bat sortu behar duzu. Jarraitu aurretik ziurta zaitez %{guide} irakurri duzula.
           our_getting_started_guide: gure ongi etorri gida
       titles:
         dashboard: Kontrol-panela
+        decidim: Decidim

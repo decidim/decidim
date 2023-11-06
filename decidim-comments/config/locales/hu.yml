@@ -3,6 +3,7 @@ hu:
     models:
       decidim/comments/comment_by_followed_user_event: Megjegyzés
       decidim/comments/comment_created_event: Megjegyzés
+      decidim/comments/comment_upvoted_event: Hozzászólás feljebb szavazva
       decidim/comments/reply_created_event: Hozzászólás válasz
       decidim/comments/user_group_mentioned_event: Említés
       decidim/comments/user_mentioned_event: Említés
@@ -16,24 +17,41 @@ hu:
         other: Szavazatok
   decidim:
     comments:
-      last_activity:
-        new_comment_at_html: "<span>Új megjegyzés: %{link}</span>"
+      admin:
+        shared:
+          availability_fields:
+            enabled: Hozzászólások engedélyezve
+            end_time: Hozzászólás engedélyezve eddig
+            start_time: A hozzászólások engedélyezve ettől
+      comments:
+        create:
+          error: Hiba történt a hozzászólás létrehozása során.
+        delete:
+          error: A hozzászólás nem törölhető.
+        update:
+          error: Hiba történt a hozzászólás frissítése során.
+      comments_count: Hozzászólások száma
+      comments_title: Hozzászólás
       votes:
         create:
           error: Hiba történt a megjegyzésre való szavazáskor.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Jelentkezzen be fiókodba</a> vagy <a href="%{sign_up_url}">iratkozz fel</a> megjegyzés küldéséhez.
         form:
           body:
             label: Megjegyzés
             placeholder: Mit gondolsz erről?
           form_error: Kötelező kitölteni, és nem lehet hosszabb, mint %{length} karakter.
-          submit: Küldés
           user_group_id:
             label: 'Megjegyzés mint:'
         opinion:
+          label: A témáról alkotott véleménye
+          negative: Negatív
+          negative_selected: A témáról alkotott véleménye negatív
           neutral: Semleges
+          neutral_selected: A témáról alkotott véleménye semleges
+          positive: Pozitív
+          positive_selected: A témáról alkotott véleménye pozitív
         remaining_characters: "%{count} karakter maradt"
         remaining_characters_1: "%{count} karakter maradt"
         title: Szólj hozzá
@@ -41,7 +59,12 @@ hu:
         alignment:
           against: Ellenzem
           in_favor: Támogatom
+        confirm_destroy: Biztosan szeretné törölni ezt a hozzászólást?
+        delete: Törlés
+        deleted_at: 'Hozzászólás törölve ekkor:  %{date}'
         deleted_user: Törölt felhasználó
+        edit: Szerkesztés
+        edited: Szerkesztve
         hide_replies: Válaszok elrejtése
         moderated_at: Hozzászólás moderálva %{date}
         reply: Válasz
@@ -52,10 +75,11 @@ hu:
           description: Sértő a tartalom?
           details: További megjegyzések
           reasons:
-            does_not_belong: 'Illegális tevékenységet, öngyilkosságra való felhívást, személyes adatokat vagy más olyan dolgot tartalmaz, ami nem tartozik ide: %{organization_name}.'
+            does_not_belong: 'Illegális tevékenységet, öngyilkosságra való felhívást, személyes adatokat vagy más olyan dolgot tartalmaz, amiről úgy gondolja, nem tartozik ide: %{organization_name}.'
             offensive: Rasszizmust, szexizmust, gyalázkodást, személyeskedést, halálos fenyegetést, öngyilkosságra való felhívást vagy gyűlöletbeszédet tartalmaz.
             spam: Klikkvadászat, reklám, átverés vagy script bot.
-        show_replies: '%{replies_count} válasz mutatása'
+          title: Nem megfelelő tartalom bejelentése
+        single_comment_link_title: Link megszerzése
       comment_order_selector:
         order:
           best_rated: Legjobbra értékelt
@@ -63,14 +87,29 @@ hu:
           older: Korábbi
           recent: Legutóbbi
         title: 'Rendezés:'
-      comment_thread:
-        title: 'Beszélgetés vele: %{authorName}'
       comments:
+        blocked_comments_for_unauthorized_user_warning: Ebben a pillanatban nem tud megjegyzéseket tenni, de elolvashatja az előzőeket.
         blocked_comments_for_user_warning: Ebben a pillanatban nem tud megjegyzéseket tenni, de elolvashatja az előzőeket.
         blocked_comments_warning: A megjegyzések jelenleg le vannak tiltva, de a korábbiakat elolvashatod.
         comment_details_title: Megjegyzés részletei
         loading: Hozzászólások betöltése ...
+        single_comment_warning: <a href="%{url}"><a href="%{url}">Minden hozzászólás megtekintése</a>
         single_comment_warning_title: Egyetlen megjegyzést látsz
+        title:
+          one: "%{count} hozzászólás"
+          other: "%{count} hozzászólás"
+      down_vote_button:
+        text: Nem értek egyet ezzel a hozzászólással
+      edit_comment_modal_form:
+        close: Bezár
+        form:
+          body:
+            label: Hozzászólás
+            placeholder: Mit gondolsz erről?
+          submit: Elküld
+        title: Hozzászólásod szerkesztése
+      up_vote_button:
+        text: Egyetértek ezzel a hozzászólással
     events:
       comments:
         comment_by_followed_user:
@@ -88,6 +127,16 @@ hu:
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt (vagy ennek szerzőjét) követed: "%{resource_title}". Ha szeretnél, a link segítségével leiratkozhatsz.'
           email_subject: 'Új megjegyzés érkezett ehhez: %{resource_title}, tőle: %{author_name}'
           notification_title: 'Új megjegyzés tőle: <a href="%{author_path}">%{author_name} %{author_nickname}</a>, ehhez: <a href="%{resource_path}">%{resource_title}</a>'
+        comment_downvoted:
+          email_intro: A hozzászólásod itt %{resource_title} leszavazásra került. Most %{upvotes} szavazat van mellette és %{downvotes} ellene.
+          email_outro: Ezt az értesítést kaptad, mert te vagy a hozzászólás szerzője.
+          email_subject: A hozzászólásod itt %{resource_title} leszavazásra került.
+          notification_title: A hozzászólásod <a href="%{resource_path}"><a href="%{resource_path}"> itt %{resource_title} leszavazásra került. Most %{upvotes} szavazat van mellette és %{downvotes} ellene.
+        comment_upvoted:
+          email_intro: A hozzászólásod itt %{resource_title} felszavazták. Most %{upvotes} szavazat van mellette és %{downvotes} ellene.
+          email_outro: Ezt az értesítést kaptad, mert te vagy a hozzászólás szerzője.
+          email_subject: A hozzászólásod itt %{resource_title} támogató szavazatokat kapott.
+          notification_title: A <a href="%{resource_path}">hozzászólásod</a> itt %{resource_title} támogató szavazatokat kapott. Most %{upvotes} szavazat van mellette és %{downvotes} ellene.
         reply_created:
           email_intro: "%{author_name} megjegyzést fűzött ehhez: %{resource_title}. Ezen az oldalon megtalálod:"
           email_outro: Ezt az értesítést azért kaptad, mert valaki választolt a mejegyzésedre.
@@ -110,4 +159,4 @@ hu:
         title: Hozzászólások
   errors:
     messages:
-      cannot_have_comments: nem tudsz megjegyzéseket tenni
+      cannot_have_comments: nem adhat hozzá hozzászólásokat

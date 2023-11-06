@@ -1,3 +1,65 @@
-@import "stylesheets/decidim/plugins/leaflet";
-@import "stylesheets/decidim/plugins/MarkerCluster";
-@import "stylesheets/decidim/plugins/MarkerCluster.Default";
+/*
+  NOTE: Bad practice. These dependencies should not be loaded in this way (as static files),
+  but leaflet makes use of image files, which are being wrong resolved by webpack,
+  as currently is missing the "file-loader" in the webpack.config.js
+
+  See https://github.com/Leaflet/Leaflet/issues/4849 for further info
+*/
+@import "stylesheets/decidim/legacy/leaflet";
+@import "stylesheets/decidim/legacy/MarkerCluster";
+@import "stylesheets/decidim/legacy/MarkerCluster.Default";
+
+/* overwrite leaflet and card styles */
+.leaflet-popup-content-wrapper {
+  @apply bg-black w-fit rounded text-left text-white;
+
+  .card__list {
+    @apply border-tertiary focus:outline-none;
+
+    &-metadata {
+      @apply gap-1 md:gap-4 flex-wrap md:flex-nowrap;
+    }
+
+    &-metadata span:not([class]) {
+      @apply md:px-0 md:border-0;
+    }
+
+    &-metadata span:not([class]),
+    &-metadata svg,
+    &-title {
+      @apply font-sans text-white;
+    }
+
+    &-title {
+      @apply truncate;
+    }
+
+    &-content {
+      @apply w-full;
+    }
+
+    &:focus &-title {
+      @apply underline;
+    }
+  }
+}
+
+.leaflet-popup-tip {
+  @apply bg-black;
+}
+
+.leaflet-div-icon {
+  @apply text-secondary border-0 bg-transparent;
+}
+
+[data-decidim-map] {
+  @apply h-full bg-background z-0;
+}
+
+.map__skip {
+  @apply absolute z-10 top-1 left-1 -translate-y-full py-1 px-4 bg-primary rounded-br-lg text-white cursor-pointer transition focus:translate-y-0;
+
+  &-container {
+    @apply relative overflow-hidden focus-within:overflow-visible;
+  }
+}

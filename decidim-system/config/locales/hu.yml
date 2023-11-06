@@ -5,15 +5,11 @@ hu:
         confirm_destroy: Biztosan törölni szeretnéd ezt?
         destroy: Törlés
         edit: Szerkesztés
-        new: Új
         save: Mentés
         title: Műveletek
       admins:
         create:
           error: Hiba történt egy új admin létrehozásakor.
-          success: Admin létrehozása sikeres
-        destroy:
-          success: Admin törlése sikeres
         edit:
           title: Admin szerkesztése
           update: Frissítés
@@ -22,13 +18,30 @@ hu:
         new:
           create: Létrehozás
           title: Új admin
+        show:
+          destroy: Töröl
+          edit: Szerkesztés
         update:
           error: Hiba történt az admin frissítése során.
-          success: Admin sikeresen frissítve
       default_pages:
         placeholders:
           content: Adj hozzá értelmes tartalmat az admin irányítópult %{page} statikus oldalához.
           title: 'Alapértelmezett cím: %{page}'
+      devise:
+        passwords:
+          edit:
+            change_your_password: Változtasd meg a jelszavadat
+            minimum_characters: "(Legalább%{minimum} karakter)"
+          new:
+            forgot_your_password: Elfelejtett jelszó
+            send_me_reset_password_instructions: A jelszóviasszállítási instrukciók elküldését kérem
+        shared:
+          links:
+            did_not_receive_confirmation_instructions?: Nem kapta meg a megerősítő instrukciókat?
+            did_not_receive_unlock_instructions?: Nem kapta meg a feloldáshoz szükséges instrukciókat?
+            forgot_your_password?: Elfelejtett jelszó?
+            log_in: Belépés
+            sign_up: Regisztráció
       menu:
         admins: Adminok
         dashboard: Irányítópult
@@ -38,7 +51,6 @@ hu:
           fields:
             created_at: 'Létrehozva:'
             email: Email
-          name: Admin
           validations:
             email_uniqueness: egy másik admin már használja ezt az email címet
         organization:
@@ -49,7 +61,6 @@ hu:
             name: Név
             omniauth_settings: Omniauth beállítások
             smtp_settings: SMTP beállítások
-          name: Szervezet
       organizations:
         create:
           error: Hiba történt az új szervezet létrehozása során.
@@ -59,8 +70,9 @@ hu:
         index:
           title: Szervezetek
         new:
-          reference_prefix_hint: A hivatkozási előtag az erőforrások azonosítására szolgál a szervezetek esetében
-          secondary_hosts_hint: Mindegyiket új sorba írd be
+          default: Alapértelmezett?
+          enabled: Engedélyezve
+          locale: Helyi nyelv
           title: Új szervezet
         omniauth_settings:
           decidim:
@@ -85,10 +97,10 @@ hu:
         users_registration_mode:
           disabled: A hozzáférés csak külső fiókokkal végezhető el
           enabled: Engedélyezi a felhasználók regisztrálását és bejelentkezését
-          existing: A felhasználók regisztrációját nem, hanem a meglévő felhasználók bejelentkezését engedélyezi
       shared:
         notices:
           no_organization_warning_html: 'A kezdéshez hozz létre egy szervezetet. Mielőtt folytatnád, olvasd el az útmutatót: %{guide}.'
           our_getting_started_guide: első lépések útmutatója
       titles:
         dashboard: Irányítópult
+        decidim: Decidim

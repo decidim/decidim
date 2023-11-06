@@ -3,7 +3,10 @@ tr:
     attributes:
       assemblies_setting:
         enable_organization_chart: Organizasyon şemasını etkinleştir
+      assemblies_type:
+        title: Başlik / Unvani 
       assembly:
+        announcement: Duyuru
         area_id: Alan
         assembly_type: Kurul türü
         assembly_type_other: Diğer montaj türü
@@ -22,12 +25,16 @@ tr:
         decidim_scope_id: kapsam
         description: Açıklama
         developer_group: Tanıtım grubu
+        document: Belge 
         domain: domain
         duration: süre
         facebook: Facebook
         github: GitHub
         hashtag: Başlık etiketi
         hero_image: Ana resim
+        import_attachments: Eki içe aktar 
+        import_categories: Kategorileri içe aktar 
+        import_components: Bireşenleri içe aktar 
         included_at: Dahil
         instagram: Instagram
         internal_organisation: İç organizasyon
@@ -51,7 +58,7 @@ tr:
         subtitle: Alt Başlık
         target: Katılanlar
         title: Başlık
-        twitter: Twitter
+        weight: Sipariş pozisyonu
         youtube: YouTube
       assembly_member:
         birthday: Doğum günü
@@ -60,8 +67,10 @@ tr:
         designation_date: Atama tarihi
         full_name: Ad Soyad
         gender: Cinsiyet
+        non_user_avatar: Profil resmi
         position: Pozisyon
         user_id: Kullanıcı
+        weight: Sipatiş pozisyonu
       assembly_user_role:
         email: E-posta
         name: Adı
@@ -82,7 +91,9 @@ tr:
       actions:
         import_assembly: İçeri aktar
         new_assembly: Yeni kurul
+        new_assembly_member: Yeni Meclis Üyesi
         new_assembly_type: Yeni kurul türü
+        new_assembly_user_role: Yeni Meclis Yöneticisi
       assemblies:
         create:
           error: Yeni bir kurul oluştururken bir hata oluştu.
@@ -90,7 +101,6 @@ tr:
         edit:
           update: Güncelle
         index:
-          not_published: Yayınlanmadı
           private: Kişisel
           public: Ortak
           published: Yayınlanan
@@ -174,6 +184,9 @@ tr:
         update:
           error: Bu kurul için bir yönetici güncellenirken bir sorun oluştu.
           success: Yönetici bu kurul için başarıyla güncellendi.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Montaj tipi
       menu:
         assemblies: Kurullar
         assemblies_settings: Ayarlar
@@ -185,7 +198,6 @@ tr:
           attachments: Ekler
           categories: Kategoriler
           components: Bileşenler
-          info: Bilgi
           moderations: Yönetim
           private_users: Özel kullanıcılar
         assemblies_types: Kurul türü
@@ -231,6 +243,8 @@ tr:
     admin_log:
       assembly:
         create: "%{user_name} %{resource_name} kurulu oluşturdu"
+        duplicate: "%{kullanıcı_adı} kopyalandı %{kaynak_adı} toplantı"
+        export: "%{kullancı_adı} dışa aktarılan %{kaynak_adı} toplantı"
         publish: "%{user_name} %{resource_name} kurulu yayınladı"
         unpublish: "%{user_name} %{resource_name} kurulu yayından kaldırıldı"
         update: "%{user_name}, %{resource_name} kurulunu güncelledi"
@@ -263,7 +277,6 @@ tr:
             select_an_area: Bir alan seçin
             select_an_assembly_type: Bir kurul türü seçin
             select_parent_assembly: Bağlı olduğu kurulu seçin
-            slug_help: 'URL sümüklü böcekleri, bu kurula işaret eden URL''leri oluşturmak için kullanılır. Yalnızca harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
             social_handlers: Sosyal
             title: Genel bilgi
             visbility: görünürlük
@@ -275,13 +288,6 @@ tr:
         assemblies_types:
           form:
             title: Başlık
-        assembly_copies:
-          form:
-            slug_help: 'URL sümükleri, bu derleme işaret eden URL''leri oluşturmak için kullanılır. Sadece harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
-        assembly_imports:
-          form:
-            document_legend: Bir belge ekle
-            slug_help: 'URL sümüklü böcekleri, bu kurula işaret eden URL''leri oluşturmak için kullanılır. Yalnızca harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
         assembly_members:
           form:
             existing_user: Mevcut katılımcı
@@ -294,7 +300,6 @@ tr:
               all: Tümü
               ceased: Durduruldu
               not_ceased: Durdurulmadı
-            filter_by: Şuna göre filtrele
             search: Arama
         content_blocks:
           highlighted_assemblies:
@@ -332,44 +337,18 @@ tr:
         working_group: Çalışma Grubu
       index:
         title: Kurullar
-      last_activity:
-        new_assembly: Yeni kurul
       pages:
-        home:
-          highlighted_assemblies:
-            active_assemblies: Aktif kurullar
-            assemblies_button_title: Tüm kurulları görüntüleyen Kurullar sayfasına bağlantı
-            see_all_assemblies: Tüm kurulları gör
         user_profile:
           member_of:
             member_of: Üyesi
       show:
-        area: Alan
         assembly_type: Kurul türü
-        children: Kurullar
-        closing_date: Kapanış tarihi
-        composition: Komposizyon
-        created_by: Oluşturan
-        creation_date: Oluşturulma tarihi
-        developer_group: Tanıtım grubu
         duration: Süre
-        included_at: Dahil
-        indefinite_duration: Belirsiz
-        internal_organisation: İç organizasyon
         is_transparent:
           'false': opak
           'true': şeffaf
-        local_area: Organizasyon alanı
-        participatory_scope: Karar nedir
-        participatory_structure: Nasıl karar verilir
         private_space: Bu özel bir kurul
-        purpose_of_action: Eylem amacı
-        read_less: Daha az oku
-        read_more: Daha fazla oku
         related_participatory_processes: İlgili katılımcı süreçleri
-        scope: Kapsam
-        social_networks: Sosyal ağlar
-        target: Katılanlar
     assembly_members:
       assembly_member:
         designated_on: Üzerinde belirlenen
@@ -409,9 +388,6 @@ tr:
     participatory_processes:
       show:
         related_assemblies: İlgili kurullar
-  errors:
-    messages:
-      cannot_be_blank: boş bırakılamaz
   layouts:
     decidim:
       assemblies:
@@ -419,20 +395,10 @@ tr:
           more_info: Daha fazla bilgi
           take_part: Yer almak
         index:
-          children: 'Kurullar: '
-          organizational_chart: Organizasyon şeması
           promoted_assemblies: Vurgulanan kurullar
-          reset_chart: Sıfırla
         order_by_assemblies:
           assemblies:
             one: "%{count} kurul"
             other: "%{count} kurul"
-        promoted_assembly:
-          more_info: Daha fazla bilgi
-          take_part: Yer almak
       assembly_navigation:
         assembly_member_menu_item: Üyeler
-        assembly_menu_item: Kurul
-      assembly_widgets:
-        show:
-          take_part: Yer almak

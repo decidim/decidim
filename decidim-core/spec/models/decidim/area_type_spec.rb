@@ -13,7 +13,7 @@ module Decidim
 
       let(:areas) { create_list(:area, 2, area_type:) }
 
-      it { is_expected.to contain_exactly(*areas) }
+      it { is_expected.to match_array(areas) }
     end
 
     context "without name" do

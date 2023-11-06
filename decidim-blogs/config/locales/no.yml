@@ -17,17 +17,7 @@
         new: Nytt innlegg
         title: Handlinger
       admin:
-        models:
-          components:
-            body: Tekst
-          post:
-            name: Innlegg
         posts:
-          create:
-            invalid: Det oppstod et problem med å opprette dette innlegget
-            success: Innlegget ble opprettet
-          destroy:
-            success: Innlegget ble slettet
           edit:
             save: Oppdater
             title: Rediger innlegg
@@ -38,25 +28,11 @@
             title: Opprett innlegg
           update:
             invalid: Det oppstod et problem med å lagre dette innlegget.
-            success: Innlegget ble lagret
-      last_activity:
-        new_post_at_html: "<span>Nytt innlegg på %{link}</span>"
       models:
         post:
           fields:
             author: Forfatter
             body: Tekst
-            created_at: Opprettet på
-            title: tittel
-      posts:
-        show:
-          back: Tilbake til listen
-          comments: Kommentarer
-          view: Vis
-        sidebar_blog:
-          comments: kommentarer
-          most_commented_posts: Mest kommenterte innlegg
-      read_more: Les mer
     components:
       blogs:
         actions:

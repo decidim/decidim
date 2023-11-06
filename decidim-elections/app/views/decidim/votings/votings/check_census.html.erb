@@ -9,60 +9,60 @@ edit_link(
 )
 %>
 
-<%= cell("decidim/votings/content_blocks/landing_page/header", nil) %>
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
+  <div class="text-center py-10">
+    <h1 class="title-decorator inline-block text-left mb-12">
+      <%= t("title", scope: "decidim.votings.votings.check_census") %>
+    </h1>
 
-<div class="wrapper">
-  <div class="row section">
-    <div class="columns large-8">
-      <h1 class="heading3"><%= t(".title") %></h1>
-      <p><%= t(".description") %></p>
-      <% if success %>
-        <div class="verify-census-success callout success mt-s">
-          <h5><%= t("decidim.votings.votings.check_census.success.title") %></h5>
-          <p>
-            <%= t("decidim.votings.votings.check_census.success.info") %>
-            <button type="button" class="link" data-open="access-code-modal">
-              <% if Decidim.sms_gateway_service.to_s.safe_constantize %>
-              <%= t("decidim.votings.votings.check_census.success.access_link_with_sms") %>
-              <% else %>
-              <%= t("decidim.votings.votings.check_census.success.access_link") %>
-              <% end %>
-            </button>
-          </p>
-        </div>
-        <% if datum.email.present? || datum.mobile_phone_number.present? %>
-          <%= render partial: "access_code_modal", locals: { datum: datum, email: datum.email ? datum.email.gsub!(/^.+@/,"****@") : "", sms: datum.mobile_phone_number ? datum.mobile_phone_number.gsub!(/.{3}\d$/,"***") : "" } %>
-        <% end %>
-      <% elsif not_found %>
-        <div class="verify-census-error callout alert mt-s">
-          <h5><%= t("decidim.votings.votings.check_census.error.title") %></h5>
-          <p>
-            <%== t("decidim.votings.votings.check_census.error.info", census_contact_information: census_contact_information ) %>
-          </p>
-        </div>
-      <% end %>
-
-      <% if !success %>
-        <div class="verify-census-form">
-          <%= decidim_form_for(@form, url: voting_check_census_path, html: { class: "form", autocomplete: "off" }) do |f| %>
-            <div class="row mt-sm">
-              <div class="columns medium-7">
-                <p><strong><%= t(".form_title") %></strong></p>
-                <div class="card">
-                  <div class="card__content">
-                    <form>
-                      <div>
-                        <%= render partial: "check_fields", locals: { f: f, form: @form } %>
-                      </div>
-                      <%= f.submit t(".check_status"), class: "button expanded mt-s mb-none" %>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
+    <div class="text-lg text-gray-2 text-left">
+      <%= t("description", scope: "decidim.votings.votings.check_census") %>
     </div>
   </div>
-</div>
+
+  <% if success %>
+
+    <%# NOTE: announcement cell clean_body method will purge the button %>
+    <div class="flash success flex-col" data-announcement>
+      <div class="h4">
+        <%= t("decidim.votings.votings.check_census.success.title") %>
+      </div>
+      <span class="flash__message">
+        <%= t("decidim.votings.votings.check_census.success.info") %>
+        <button type="button" class="button button__text-secondary" data-dialog-open="access-code-modal">
+          <% if Decidim.sms_gateway_service.to_s.safe_constantize %>
+            <%= t("decidim.votings.votings.check_census.success.access_link_with_sms") %>
+          <% else %>
+            <%= t("decidim.votings.votings.check_census.success.access_link") %>
+          <% end %>
+        </button>
+      </span>
+    </div>
+
+    <% if datum.email.present? || datum.mobile_phone_number.present? %>
+      <%= render partial: "access_code_modal", locals: { datum:, email: datum.email ? datum.email.gsub!(/^.+@/,"****@") : "", sms: datum.mobile_phone_number ? datum.mobile_phone_number.gsub!(/.{3}\d$/,"***") : "" } %>
+    <% end %>
+
+  <% elsif not_found %>
+
+    <% announcement_not_found = { title: t("decidim.votings.votings.check_census.error.title"), body: t("decidim.votings.votings.check_census.error.info", census_contact_information: ) } %>
+
+    <%= cell("decidim/announcement", announcement_not_found, callout_class: "alert" ) %>
+  <% end %>
+
+  <% if !success %>
+    <%= decidim_form_for(@form, url: voting_check_census_path, html: { class: "form", autocomplete: "off" }) do |f| %>
+      <%= form_required_explanation %>
+
+      <div class="form__wrapper">
+        <p class="text-gray-2"><%= t("form_title", scope: "decidim.votings.votings.check_census") %></p>
+
+        <%= render partial: "check_fields", locals: { f:, form: @form } %>
+      </div>
+
+      <div class="form__wrapper-block">
+        <%= f.submit t("check_status", scope: "decidim.votings.votings.check_census"), class: "button button__sm md:button__lg button__secondary" %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

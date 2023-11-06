@@ -3,6 +3,7 @@ sv:
     models:
       decidim/comments/comment_by_followed_user_event: Kommentar
       decidim/comments/comment_created_event: Kommentar
+      decidim/comments/comment_upvoted_event: Kommentar uppröstad
       decidim/comments/reply_created_event: Svar till en kommentar
       decidim/comments/user_group_mentioned_event: Nämn
       decidim/comments/user_mentioned_event: Nämn
@@ -25,27 +26,20 @@ sv:
       comments:
         create:
           error: Det gick inte att skapa kommentaren.
-        delete:
-          error: Kommentaren kunde inte tas bort.
         update:
           error: Det gick inte att uppdatera kommentaren.
       comments_count: Antal kommentarer
-      comments_title: Kommentarer
-      last_activity:
-        new_comment_at_html: "<span>Ny kommentar på %{link}</span>"
-      view: Visa
+      comments_title: Kommentar
       votes:
         create:
           error: Det gick inte att rösta om kommentaren.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Logga in med ditt konto</a> eller <a href="%{sign_up_url}">registrera dig</a> för att lägga till din kommentar.
         form:
           body:
             label: Kommentera
             placeholder: Vad tycker du om detta?
-          form_error: Texten är obligatorisk och den kan inte vara längre än %{length} tecken.
-          submit: Skicka
+          submit_reply: Publicera svar
           user_group_id:
             label: Kommentera som
         opinion:
@@ -70,6 +64,7 @@ sv:
         edit: Redigera
         edited: Redigerad
         hide_replies: Göm svar
+        moderated_at: Kommentar modererad den %{date}
         reply: Svara
         report:
           action: Rapportera
@@ -78,11 +73,12 @@ sv:
           description: Är detta innehåll olämpligt?
           details: Ytterligare kommentarer
           reasons:
-            does_not_belong: Innehåller olaglig aktivitet, självmordshot, personlig information eller något annat du tycker inte hör hemma på %{organization_name}.
             offensive: Innehåller rasism, sexism, skällsord, personliga attacker, dödshot, uppmaningar att begå självmord eller någon form av hatpropaganda.
             spam: Innehåller clickbait, reklam, bedrägerier eller skriptrobotar.
           title: Rapportera olämpligt innehåll
-        show_replies: Visa %{replies_count} svar
+        show_replies:
+          one: Visa svar
+          other: Visa %{count} svar
         single_comment_link_title: Hämta länk
       comment_order_selector:
         order:
@@ -91,8 +87,6 @@ sv:
           older: Äldre
           recent: Senaste
         title: 'Sortera efter:'
-      comment_thread:
-        title: Samtal med %{authorName}
       comments:
         blocked_comments_for_unauthorized_user_warning: Du behöver verifiera dig för att kunna kommentera just nu, men du kan läsa tidigare kommentarer.
         blocked_comments_for_user_warning: Du kan inte kommentera just nu, men du kan läsa tidigare kommentarer.
@@ -163,6 +157,3 @@ sv:
         description: Antal kommentarer från deltagare
         object: kommentarer
         title: Kommentarer
-  errors:
-    messages:
-      cannot_have_comments: kan inte ha kommentarer

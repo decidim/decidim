@@ -6,6 +6,8 @@ module Decidim
     # them
     #
     class ImpersonatableUsersController < Decidim::Admin::ApplicationController
+      include Decidim::Admin::Officializations::Filterable
+
       layout "decidim/admin/users"
 
       helper_method :new_managed_user
@@ -24,7 +26,7 @@ module Decidim
       private
 
       def collection
-        @collection ||= current_organization.users.where(admin: false, roles: [])
+        @collection ||= current_organization.users.where(admin: false, roles: []).order(created_at: :desc)
       end
 
       def new_managed_user

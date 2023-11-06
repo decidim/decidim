@@ -5,7 +5,6 @@ sv:
         assemblies_ids: Relaterade grupper
         available_slots: Tillgängliga platser
         banner_image: Bannerbild
-        consultations_ids: Relaterade samråd
         copy_categories: Kopiera kategorier
         copy_components: Kopiera komponenter
         copy_features: Kopiera funktioner
@@ -28,22 +27,23 @@ sv:
         show_statistics: Visa statistik
         sign_date: Underskriftsdatum
         signature: Underskrift
-        signature_name: signaturnamn
+        signature_name: Signaturnamn
         slogan: Slogan
         slug: URL-slug
         start_date: Startdatum
         title: Titel
+        weight: Position i listan
       conference_media_link:
         date: Datum
         link: Länk
         title: Titel
-        weight: Vikt
+        weight: Ordning
       conference_partner:
         link: Länk
         logo: Logga
         name: Namn
         partner_type: Typ av partner
-        weight: Vikt
+        weight: Ordning
       conference_registration_invite:
         email: E-post
         name: Namn
@@ -53,25 +53,20 @@ sv:
         description: Beskrivning
         price: Pris
         title: Titel
-        weight: Vikt
+        weight: Ordning
       conference_speaker:
         affiliation: Anknytning
         avatar: Avatar
         conference_meeting_ids: Relaterade möten
         full_name: Fullständigt namn
+        personal_url: Personlig URL
         position: Plats
-        twitter_handle: Twitternamn
+        short_bio: Kort biographi
         user_id: Användare
       conference_user_role:
         email: E-post
         name: Namn
         role: Roll
-    errors:
-      models:
-        conference_registration_invite:
-          attributes:
-            email:
-              already_invited: Det här e-postadressen har redan blivit inbjuden
   activerecord:
     models:
       decidim/conference:
@@ -87,7 +82,6 @@ sv:
     admin:
       actions:
         confirm: Bekräfta
-        new_conference: Ny konferens
         send_diplomas: Skicka deltagarbevis
       conference_copies:
         new:
@@ -131,8 +125,6 @@ sv:
         edit:
           title: Uppdatera konferensadministratör.
           update: Uppdatera
-        index:
-          conference_admins_title: konferensadministratörer
         new:
           create: Skapa
           title: Ny konferensadministratör.
@@ -150,7 +142,6 @@ sv:
         form:
           title: Allmän information
         index:
-          not_published: Ej publicerad
           published: Publicerad
         new:
           create: Skapa
@@ -191,7 +182,6 @@ sv:
           conference_invites: Inbjudningar
           conference_speakers: Talare
           diploma: Närvarointyg
-          info: Info
           media_links: Medialänkar
           moderations: Moderering
           partners: Partners
@@ -202,7 +192,6 @@ sv:
         conference:
           fields:
             created_at: Skapad
-            promoted: Annonserad
             published: Publicerad
             title: Titel
         conference_speaker:
@@ -325,9 +314,6 @@ sv:
         title: Talare
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'URL-slugs används till att skapa de URL:er som pekar på konferensen. Tar bara emot bokstäver, siffror och bindestreck, och måste börja med en bokstav. Exempel: %{url}'
         conference_invites:
           create:
             error: Det gick inte att bjuda in deltagaren till konferensen.
@@ -344,12 +330,10 @@ sv:
               all: Alla
               rejected: Avvisad
               sent: Skickade
-            filter_by: Filtrera efter
             invite_attendee: Bjud in deltagare
             invites: Inbjudningar
             search: Sök
           new:
-            explanation: Deltagaren kommer att bli inbjuden att delta i en konferens. Om dennes e-postadress inte är registrerad kommer de även att bjudas in till organisationen.
             invite: Inbjudan
             new_invite: Bjud in deltagare
         conference_registrations:
@@ -369,7 +353,6 @@ sv:
             registrations_count:
               one: Det har gjorts en registrering.
               other: Det har gjorts %{count} registreringar.
-            slug_help: 'URL-slugs används till att skapa de URL:er som pekar på konferensen. Tar bara emot bokstäver, siffror och bindestreck, och måste börja med en bokstav. Exempel: %{url}'
         diplomas:
           edit:
             save: Spara
@@ -377,7 +360,7 @@ sv:
         invite_join_conference_mailer:
           invite:
             decline: Avböj inbjudan till '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} har bjudit in dig till en konferens på %{application}. Du kan avböja eller godkänna den via länkarna nedan."
+            invited_existing_user_to_join_a_conference: "%{invited_by} har bjudit in dig till en konferens på %{application}. Du kan avböja eller godkänna den via länkarna nedan."
             registration: Registrering till '%{conference_title}'
         partners:
           index:
@@ -402,18 +385,11 @@ sv:
           cancel: Avbryta
           confirm: Bekräfta
         show:
-          free: Fritt
           going: Närvarande
           no_slots_available: Inga platser tillgängliga
           registration: Registrering
       conference_program:
-        program_meeting:
-          content: Innehåll
-          location: Plats
-          speakers: Talare
-          streaming: Strömning
         show:
-          day: Dag
           program: Program
       conference_registration_mailer:
         confirmation:
@@ -435,7 +411,6 @@ sv:
           invalid: Det gick inte att lämna konferensen.
           success: Du har lämnat konferensen.
       conference_speaker:
-        go_to_twitter: Gå till Twitter
         more_info: mer information
         personal_website: Personlig hemsida
         show:
@@ -444,18 +419,17 @@ sv:
       conference_speaker_cell:
         personal_url:
           personal_website: Personlig hemsida
-        twitter_handle:
-          go_to_twitter: Gå till Twitter
       conference_speakers:
         index:
-          speakers: Talare
+          speakers:
+            one: Talare
+            other: Talare
       conferences:
         partners:
           collaborators: Partners
           main_promotors: Organisatörer
         show:
           login_as: Du är inloggad som %{name} <%{email}>
-          make_conference_registration: 'Registrera dig på konferensen:'
           register: Registrering
       content_blocks:
         highlighted_conferences:
@@ -463,11 +437,6 @@ sv:
       index:
         title: Konferenser
       mailer:
-        conference_registration_mailer:
-          confirmation:
-            subject: Din konferensregistrering har bekräftats
-          pending_validation:
-            subject: Din konferensregistrering väntar på bekräftelse
         invite_join_conference_mailer:
           invite:
             subject: Inbjudan att delta i en konferens
@@ -498,38 +467,19 @@ sv:
       pages:
         home:
           highlighted_conferences:
-            active_conferences: Pågående konferenser
-            conferences_button_title: Länk till sidan över konferenser som visar alla konferenser
-            see_all_conferences: Visa alla konferenser
-      photo:
-        image:
-          attributes:
-            alt: Mediabild
-        show:
-          close_modal: Stäng fönstret
-          photo: Bild
-      photos_list:
-        show:
-          related_photos: Bilder
+            active_spaces: Pågående konferenser
+            see_all_spaces: Se alla konferenser
       registration_types:
         index:
           choose_an_option: 'Välj registreringsalternativ:'
-          login_as: Du är inloggad som %{name} <%{email}>
           no_registrations: Inga anmälningar
           register: Registrera
           title: Registreringstyper
-      shared:
-        conference_user_login:
-          already_account: Har du redan ett konto i decidim?
-          new_user: Ny användare?
-          sign_in: Logga in om du vill registrera dig till konferensen
-          sign_up: Skapa ett konto i decidim om du vill registrera dig till konferensen
       show:
         details: Detaljer
         introduction: Introduktion
         objectives: Mål
         related_assemblies: Relaterade grupper
-        related_consultations: Relaterade samråd
         related_participatory_processes: Relaterade dialoger
     events:
       conferences:
@@ -568,10 +518,6 @@ sv:
           contextual: "<p>En <strong>konferens</strong> är en samling av möten som arrangeras i ett program, med ett antal personer inbjudna som talare, och andra informationsfält typiska för stora kongresser eller sociala evenemang (registrering, förteckning över organisationer som stöder eller sponsrar evenemanget, etc.).</p> <p>Exempel: En konferens kan vara ett relevant evenemang för en organisation och dess medlemmar, eller äga rum som en del av en deltagarprocess eller följa ett samråd.</p>\n"
           page: "<p>En <strong>konferens</strong> är en samling av möten som arrangeras i ett program, med ett antal personer inbjudna som talare, och andra informationsfält typiska för stora kongresser eller sociala evenemang (registrering, förteckning över organisationer som stöder eller sponsrar evenemanget, etc.).</p> <p>Exempel: En konferens kan vara ett relevant evenemang för en organisation och dess medlemmar, eller äga rum som en del av en deltagarprocess eller följa ett samråd.</p>\n"
           title: Vad är konferenser?
-    log:
-      value_types:
-        conference_presenter:
-          not_found: 'Konferensen hittades inte i databasen (ID: %{id})'
     media:
       index:
         description: Länkar om konferensen
@@ -588,9 +534,6 @@ sv:
     decidim:
       conference_hero:
         register: Registrera
-      conference_widgets:
-        show:
-          take_part: Medverka
       conferences:
         conference:
           more_info: Mer information
@@ -601,11 +544,7 @@ sv:
           conferences:
             one: "%{count} konferens"
             other: "%{count} konferenser"
-        promoted_conference:
-          more_info: Mer information
-          take_part: Medverka
       conferences_nav:
-        conference_menu_item: Information
         conference_partners_menu_item: Partners
         conference_speaker_menu_item: Talare
         media: Media

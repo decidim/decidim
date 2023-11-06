@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # Controller that allows to edit the content of the landing page content blocks
       class VotingsLandingPageContentBlocksController < Decidim::Votings::Admin::ApplicationController
-        include Decidim::Admin::LandingPageContentBlocks
+        include Decidim::Admin::ContentBlocks::LandingPageContentBlocks
 
         layout "decidim/admin/voting"
 
@@ -18,7 +18,7 @@ module Decidim
         end
 
         def scoped_resource
-          @scoped_resource ||= Voting.find_by(slug: params[:voting_slug])
+          @scoped_resource ||= Voting.find_by(slug: params[:voting_slug], organization: current_organization)
         end
 
         def enforce_permission_to_update_resource
@@ -35,6 +35,22 @@ module Decidim
 
         def submit_button_text
           t("landing_page.content_blocks.edit.update", scope: "decidim.votings.admin")
+        end
+
+        def content_block_create_success_text
+          t("landing_page.content_blocks.create.success", scope: "decidim.votings.admin")
+        end
+
+        def content_block_create_error_text
+          t("landing_page.content_blocks.create.error", scope: "decidim.votings.admin")
+        end
+
+        def content_block_destroy_success_text
+          t("landing_page.content_blocks.destroy.success", scope: "decidim.votings.admin")
+        end
+
+        def content_block_destroy_error_text
+          t("landing_page.content_blocks.destroy.error", scope: "decidim.votings.admin")
         end
 
         alias current_participatory_space scoped_resource

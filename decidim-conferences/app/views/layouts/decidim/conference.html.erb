@@ -2,26 +2,16 @@
 <% add_decidim_page_title(translated_attribute(current_participatory_space.title)) %>
 <% add_decidim_meta_tags(
   image_url: current_participatory_space.attached_uploader(:banner_image).path,
-  description: translated_attribute(current_participatory_space.short_description),
+  description: translated_attribute(current_participatory_space.short_description)
 ) %>
 
-<%= render "layouts/decidim/application" do %>
-  <%= render partial: "layouts/decidim/conference_hero" %>
-  <%= render partial: "layouts/decidim/conferences_nav" %>
-  <%= cell "decidim/translation_bar", current_organization %>
-  <div class="wrapper">
-    <%= yield %>
-  </div>
+<%= append_javascript_pack_tag "decidim_conferences" %>
+<%= append_stylesheet_pack_tag "decidim_conferences" %>
 
-  <% if content_for? :expanded %>
-    <div class="expanded">
-      <div class="wrapper wrapper--inner">
-        <div class="row">
-          <%= yield :expanded %>
-        </div>
-      </div>
-    </div>
-  <% end %>
+<%= render partial: "layouts/decidim/header/follow_space_menu_bar_button", locals: { participatory_space: current_participatory_space } %>
+
+<%= render "layouts/decidim/application" do %>
+  <%= yield %>
 <% end %>
 
 <% provide :meta_image_url, current_participatory_space.attached_uploader(:banner_image).path %>

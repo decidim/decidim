@@ -17,8 +17,12 @@ module Decidim
           project
         end
 
+        def projects
+          @projects ||= Decidim::Budgets::Project.joins(:budget).where(budget: { component: current_component })
+        end
+
         def project
-          @project ||= Decidim::Budgets::Project.find(params[:project_id])
+          @project ||= projects.find(params[:project_id])
         end
       end
     end

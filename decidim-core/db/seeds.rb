@@ -9,7 +9,7 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
   seeds_root = File.join(__dir__, "seeds")
 
   # Since we usually migrate and seed in the same process, make sure
-  # that we don't have invalid or cached information after a migration.
+  # that we do not have invalid or cached information after a migration.
   decidim_tables = ActiveRecord::Base.connection.tables.select do |table|
     table.starts_with?("decidim_")
   end
@@ -19,6 +19,23 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
 
   smtp_label = ENV.fetch("SMTP_FROM_LABEL", Faker::Twitter.unique.screen_name)
   smtp_email = ENV.fetch("SMTP_FROM_EMAIL", Faker::Internet.email)
+
+  primary_color, secondary_color, tertiary_color = [
+    ["#e02d2d", "#155abf", "#ebc34b"],
+    ["#4caf50", "#a0309e", "#a8753e"],
+    ["#e91e63", "#1ee9a5", "#e9b61e"],
+    ["#009688", "#d12c26", "#b4a110"],
+    ["#ff9800", "#00bcd4", "#ea0094"]
+  ].sample
+
+  colors = {
+    alert: "#e7131a",
+    primary: primary_color,
+    secondary: secondary_color,
+    tertiary: tertiary_color,
+    success: "#28a745",
+    warning: "#ffb703"
+  }
 
   organization = Decidim::Organization.first || Decidim::Organization.create!(
     name: Faker::Company.name,
@@ -37,6 +54,7 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
       port: ENV.fetch("SMTP_PORT", nil) || ENV.fetch("DECIDIM_SMTP_PORT", "25")
     },
     host: ENV.fetch("DECIDIM_HOST", "localhost"),
+    secondary_hosts: ENV.fetch("DECIDIM_HOST", "localhost") == "localhost" ? ["0.0.0.0", "127.0.0.1"] : nil,
     external_domain_whitelist: ["decidim.org", "github.com"],
     description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
       Decidim::Faker::Localized.sentence(word_count: 15)
@@ -50,7 +68,8 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
     badges_enabled: true,
     user_groups_enabled: true,
     send_welcome_notification: true,
-    file_upload_settings: Decidim::OrganizationSettings.default(:upload)
+    file_upload_settings: Decidim::OrganizationSettings.default(:upload),
+    colors:
   )
 
   if organization.top_scopes.none?
@@ -126,10 +145,11 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
     personal_url: Faker::Internet.url,
     about: Faker::Lorem.paragraph(sentence_count: 2),
     accepted_tos_version: organization.tos_version + 1.hour,
+    newsletter_notifications_at: Time.current,
     password_updated_at: Time.current,
     admin_terms_accepted_at: Time.current
   }
-  admin_hash.merge!(password: "decidim123456789", password_confirmation: "decidim123456789") if admin.encrypted_password.blank?
+  admin_hash.merge!(password: "decidim123456789") if admin.encrypted_password.blank?
   admin.update!(admin_hash)
 
   ["user@example.org", "user2@example.org"].each do |email|
@@ -137,14 +157,14 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
       name: Faker::Name.name,
       nickname: Faker::Twitter.unique.screen_name,
       password: "decidim123456789",
-      password_confirmation: "decidim123456789",
       confirmed_at: Time.current,
       locale: I18n.default_locale,
       organization:,
       tos_agreement: true,
       personal_url: Faker::Internet.url,
       about: Faker::Lorem.paragraph(sentence_count: 2),
-      accepted_tos_version: organization.tos_version + 1.hour
+      accepted_tos_version: organization.tos_version + 1.hour,
+      newsletter_notifications_at: Time.current
     )
   end
 
@@ -156,7 +176,6 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
     name: Faker::Name.name,
     nickname: Faker::Twitter.unique.screen_name,
     password: "decidim123456789",
-    password_confirmation: "decidim123456789",
     confirmed_at: Time.current,
     locale: I18n.default_locale,
     organization:,
@@ -171,7 +190,7 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
   Decidim::Messaging::Conversation.start!(
     originator: admin,
     interlocutors: [regular_user],
-    body: "Hey! I'm glad you like Decidim"
+    body: "Hey! I am glad you like Decidim"
   )
 
   Decidim::User.find_each do |user|

@@ -110,8 +110,26 @@ FactoryBot.define do
   end
 
   factory :initiative, class: "Decidim::Initiative" do
-    title { generate_localized_title }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    transient do
+      skip_injection { false }
+    end
+
+    title do
+      if skip_injection
+        Decidim::Faker::Localized.localized { generate(:title) }
+      else
+        Decidim::Faker::Localized.localized { "<script>alert(\"Initiative TITLE\")</script> #{generate(:title)}" }
+      end
+    end
+    description do
+      Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+        if skip_injection
+          Decidim::Faker::Localized.localized { generate(:title) }
+        else
+          Decidim::Faker::Localized.localized { "<script>alert(\"Meetings description\");</script> #{generate(:title)}" }
+        end
+      end
+    end
     organization
     author { create(:user, :confirmed, organization:) }
     published_at { Time.current }

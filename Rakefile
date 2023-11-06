@@ -3,6 +3,7 @@
 require "bundler/gem_tasks"
 require "rspec/core/rake_task"
 require "decidim/gem_manager"
+require "decidim/release_manager"
 
 RSpec::Core::RakeTask.new(:spec)
 
@@ -57,19 +58,49 @@ task :uninstall_all do
 end
 
 desc "Pushes a new build for each gem and package."
-task release_all: [:update_versions, :check_locale_completeness] do
-  Decidim::GemManager.run_all("rake release")
-  Decidim::GemManager.run_packages("npm publish --access public")
+task release_all: [:ensure_git_remote, :fetch_git_tags, :update_versions, :fetch_git_tags, :check_uncommitted_changes, :check_locale_completeness] do
+  commands = {}
+  Decidim::GemManager.all_dirs { |dir| commands[dir] = "rake release[#{Decidim::ReleaseManager.git_remote}]" }
+  Decidim::GemManager.package_dirs { |dir| commands[dir] = "npm publish --access public" }
+
+  commands.each do |dir, command|
+    status = Decidim::GemManager.run_at(dir, command)
+
+    break if !status && Decidim::GemManager.fail_fast?
+  end
+end
+
+task :ensure_git_remote do
+  unless Decidim::ReleaseManager.git_remote_set?
+    puts "ABORTING RELEASE"
+    puts ""
+    abort "Please set 'decidim/decidim' as one of your remotes to make a release."
+  end
+end
+
+desc "Fetches the git tags from the correct remote so that they are up to date before the release."
+task :fetch_git_tags do
+  system("git fetch #{Decidim::ReleaseManager.git_remote} --tags --force")
+end
+
+desc "Makes sure there are no uncommitted changes."
+task :check_uncommitted_changes do
+  unless system("git diff --exit-code --quiet")
+    puts "There are uncommitted changes, run `git diff` to see them."
+    abort "Please commit your changes before release!"
+  end
 end
 
 desc "Makes sure all official locales are complete and clean."
 task :check_locale_completeness do
-  system({ "ENFORCED_LOCALES" => "en,ca,es", "SKIP_NORMALIZATION" => "true" }, "rspec spec/i18n_spec.rb")
+  unless system({ "ENFORCED_LOCALES" => "en,ca,es", "SKIP_NORMALIZATION" => "true" }, "rspec spec/i18n_spec.rb")
+    puts "The officially supported locales have problems in them."
+    abort "Please correct these problems by following the instructions from the above outputs before release!"
+  end
 end
 
 load "decidim-dev/lib/tasks/generators.rake"
 load "lib/tasks/common_passwords_tasks.rake"
-load "lib/tasks/redesign_tasks.rake"
 
 desc "Generates a dummy app for testing"
 task test_app: "decidim:generate_external_test_app"
@@ -79,7 +110,7 @@ task development_app: "decidim:generate_external_development_app"
 
 desc "Bundle all Gemfiles"
 task :bundle do
-  [".", "decidim-generators", "decidim_app-design"].each do |dir|
+  [".", "decidim-generators"].each do |dir|
     Bundler.with_original_env do
       puts "Updating #{dir}...\n"
       system!("bundle install", dir)
@@ -87,24 +118,8 @@ task :bundle do
   end
 end
 
-desc "Synchronize npm packages files on the whole repo"
-task :webpack do
-  FileUtils.rm_rf(decidim_app_design_path.join("package-lock.json"))
-  FileUtils.rm_rf(decidim_app_design_path.join("packages"))
-  FileUtils.cp_r(root_folder.join("package.json"), decidim_app_design_path)
-  FileUtils.cp_r(root_folder.join("package-lock.json"), decidim_app_design_path)
-  FileUtils.cp_r(root_folder.join("packages"), decidim_app_design_path)
-
-  system!("npm install", root_folder)
-  system!("npm install", decidim_app_design_path)
-end
-
 def root_folder
   @root_folder ||= Pathname.new(__dir__)
-end
-
-def decidim_app_design_path
-  @decidim_app_design_path ||= Pathname.new(root_folder.join("decidim_app-design"))
 end
 
 def system!(command, path)

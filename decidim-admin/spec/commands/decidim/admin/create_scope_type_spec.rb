@@ -6,7 +6,7 @@ module Decidim::Admin
   describe CreateScopeType do
     subject { described_class.new(form, user) }
 
-    let(:organization) { create :organization }
+    let(:organization) { create(:organization) }
     let(:user) { create(:user, organization:) }
     let(:name) { Decidim::Faker::Localized.literal("province") }
     let(:plural) { Decidim::Faker::Localized.literal("provinces") }

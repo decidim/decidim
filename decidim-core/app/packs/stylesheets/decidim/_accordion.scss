@@ -1,0 +1,13 @@
+[data-component="accordion"] [id*="panel"][aria-hidden="true"] {
+  display: none;
+}
+
+[data-component="accordion"]
+  [id*="comment"][class="comment-reply"][aria-hidden="true"] {
+  display: block;
+}
+
+[data-component="accordion"]
+  [id*="comment"][class="comment-reply"][aria-hidden="false"] {
+  display: none;
+}

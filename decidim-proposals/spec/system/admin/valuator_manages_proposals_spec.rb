@@ -4,16 +4,16 @@ require "spec_helper"
 
 describe "Valuator manages proposals", type: :system do
   let(:manifest_name) { "proposals" }
-  let!(:assigned_proposal) { create :proposal, component: current_component }
-  let!(:unassigned_proposal) { create :proposal, component: current_component }
+  let!(:assigned_proposal) { create(:proposal, component: current_component) }
+  let!(:unassigned_proposal) { create(:proposal, component: current_component) }
   let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
   let(:participatory_space_path) do
     decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
   end
-  let!(:user) { create :user, organization: }
-  let!(:valuator_role) { create :participatory_process_user_role, role: :valuator, user:, participatory_process: }
-  let!(:another_user) { create :user, organization: }
-  let!(:another_valuator_role) { create :participatory_process_user_role, role: :valuator, user: another_user, participatory_process: }
+  let!(:user) { create(:user, organization:) }
+  let!(:valuator_role) { create(:participatory_process_user_role, role: :valuator, user:, participatory_process:) }
+  let!(:another_user) { create(:user, organization:) }
+  let!(:another_valuator_role) { create(:participatory_process_user_role, role: :valuator, user: another_user, participatory_process:) }
 
   include Decidim::ComponentPathHelper
 
@@ -22,8 +22,8 @@ describe "Valuator manages proposals", type: :system do
   before do
     user.update(admin: false)
 
-    create :valuation_assignment, proposal: assigned_proposal, valuator_role: valuator_role
-    create :valuation_assignment, proposal: assigned_proposal, valuator_role: another_valuator_role
+    create(:valuation_assignment, proposal: assigned_proposal, valuator_role:)
+    create(:valuation_assignment, proposal: assigned_proposal, valuator_role: another_valuator_role)
 
     visit current_path
   end
@@ -31,7 +31,7 @@ describe "Valuator manages proposals", type: :system do
   context "when listing the proposals" do
     it "can only see the assigned proposals" do
       expect(page).to have_content(translated(assigned_proposal.title))
-      expect(page).to have_no_content(translated(unassigned_proposal.title))
+      expect(page).not_to have_content(translated(unassigned_proposal.title))
     end
   end
 
@@ -48,7 +48,7 @@ describe "Valuator manages proposals", type: :system do
     it "can unassign themselves" do
       within "#js-form-unassign-proposals-from-valuator" do
         select user.name, from: :valuator_role_id
-        page.find("button#js-submit-unassign-proposals-from-valuator").click
+        click_button(id: "js-submit-unassign-proposals-from-valuator")
       end
 
       expect(page).to have_content("Valuator unassigned from proposals successfully")
@@ -57,7 +57,7 @@ describe "Valuator manages proposals", type: :system do
     it "cannot unassign others" do
       within "#js-form-unassign-proposals-from-valuator" do
         select another_user.name, from: :valuator_role_id
-        page.find("button#js-submit-unassign-proposals-from-valuator").click
+        click_button(id: "js-submit-unassign-proposals-from-valuator")
       end
 
       expect(page).to have_content("You are not authorized to perform this action")
@@ -66,7 +66,9 @@ describe "Valuator manages proposals", type: :system do
 
   context "when in the proposal page" do
     before do
-      click_link translated(assigned_proposal.title)
+      within find("tr", text: translated(assigned_proposal.title)) do
+        click_link "Answer proposal"
+      end
     end
 
     it "can only unassign themselves" do
@@ -75,7 +77,7 @@ describe "Valuator manages proposals", type: :system do
         expect(page).to have_content(another_user.name)
 
         within find("li", text: another_user.name) do
-          expect(page).to have_no_selector("a.red-icon")
+          expect(page).not_to have_selector("a.red-icon")
         end
 
         within find("li", text: user.name) do
@@ -91,12 +93,15 @@ describe "Valuator manages proposals", type: :system do
 
     it "can leave proposal notes" do
       expect(page).to have_content("Private notes")
-      within ".add-comment" do
+      click_button "Private notes"
+
+      within ".new_proposal_note" do
         fill_in "Note", with: " This is my note"
         click_button "Submit"
       end
 
-      within ".comment-thread" do
+      click_button "Private notes"
+      within ".component__show_notes-grid .comment:last-child" do
         expect(page).to have_content("This is my note")
       end
     end

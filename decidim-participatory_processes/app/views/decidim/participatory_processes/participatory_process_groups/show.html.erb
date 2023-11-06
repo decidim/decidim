@@ -10,15 +10,11 @@
   )
 %>
 
-<div class="wrapper">
-  <div class="row column">
-    <% Decidim::ContentBlock.published.for_scope(:participatory_process_group_homepage, organization: current_organization).where(scoped_resource_id: group.id).each do |content_block| %>
-      <% next unless content_block.manifest %>
-      <%= cell content_block.manifest.cell, content_block %>
-    <% end %>
-  </div>
+<div class="participatory-space__container">
+  <% active_content_blocks.each do |content_block| %>
+    <% next unless content_block.manifest %>
+    <%= cell content_block.manifest.cell, content_block %>
+  <% end %>
 </div>
 
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_participatory_processes" %>
-<% end %>
+<%= append_javascript_pack_tag "decidim_participatory_processes" %>

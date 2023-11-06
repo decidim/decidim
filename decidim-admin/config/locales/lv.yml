@@ -62,7 +62,6 @@ lv:
         success_color: Panākumi
         time_zone: Laika josla
         tos_version: Pakalpojumu sniegšanas noteikumu versija
-        twitter_handler: Twitter apdarinātājs
         user_groups_enabled: Iespējot grupas
         warning_color: Brīdinājums
         welcome_notification_body: Sveiciena paziņojuma pamatteksts
@@ -119,29 +118,14 @@ lv:
       actions:
         add: Pievienot
         browse: Pārlūkot
-        manage: Pārvaldīt
-        new: Jauns %{name}
         per_page: Lapā
         permissions: Atļaujas
         reject: Noraidīt
         verify: Verificēt
-      admin_terms_of_use:
-        accept:
-          error: Piekrītot administratora lietošanas noteikumiem, radās kļūda.
-          success: Lieliski! Jūs esat piekritis administratora lietošanas noteikumiem.
-        actions:
-          refuse: Nepiekrist administratora noteikumiem
-          title: Piekrist lietošanas noteikumiem
-        required_review:
-          alert: 'Obligāti: pārskatiet mūsu administratora lietošanas noteikumus'
-          cta: Pārskatiet tos tagad.
-        title: Administratora lietošanas noteikumi
       area_types:
         create:
           error: Jauna jomas veida radīšanas laikā radās problēma.
           success: Jomas veids ir veiksmīgi izveidots.
-        destroy:
-          success: Jomas veids ir veiksmīgi dzēsts
         edit:
           title: Labot jomas veidu
           update: Atjaunināt
@@ -150,13 +134,10 @@ lv:
           title: Jauns jomas veids
         update:
           error: Šī jomas veida atjaunināšanas laikā radās problēma.
-          success: Jomas veids ir veiksmīgi atjaunināts
       areas:
         create:
           error: Jaunas jomas izveides laikā radās problēma.
           success: Joma ir veiksmīgi izveidota.
-        destroy:
-          success: Joma ir veiksmīgi dzēsta
         edit:
           title: Labot jomu
           update: Atjaunināt
@@ -166,7 +147,6 @@ lv:
         no_areas: Nav jomu
         update:
           error: Šīs jomas atjaunināšanas laikā radās problēma.
-          success: Joma ir veiksmīgi atjaunināta
       attachment_collections:
         create:
           error: Jaunas mapes izveides laikā radās problēma.
@@ -177,7 +157,6 @@ lv:
           title: Rediģēt mapi
           update: Atjaunināt
         index:
-          attachment_collection_used: Šo mapi nevar noņemt, jo tā tiek izmantota.
           attachment_collections_title: Pielikumu mapes
         new:
           create: Izveidot
@@ -204,7 +183,6 @@ lv:
           success: Pielikums ir veiksmīgi atjaunināts.
       autocomplete:
         no_results: Netika atrasts neviens rezultāt
-        search_prompt: Ievadiet vismaz trīs rakstzīmes, lai meklētu
       categories:
         create:
           error: Šīs kategorijas izveides laikā radās problēma.
@@ -217,7 +195,6 @@ lv:
           update: Atjaunināt
         index:
           categories_title: Kategorijas
-          category_used: Šo kategoriju nevar noņemt, jo tā tiek izmantota.
         new:
           create: Izveidot kategoriju
           title: Jauna kategorija
@@ -264,7 +241,6 @@ lv:
           view_more_logs: Skatīt vairāk ierakstu
       exports:
         export_as: "%{name} kā %{export_format}"
-        notice: Pašlaik notiek jūsu eksportēšana. Jūs saņemsiet e-pastu, kad tā būs pabeigta.
       filters:
         category_id_eq:
           label: Kategorija
@@ -291,17 +267,14 @@ lv:
           name_or_nickname_or_email_cont: Meklējiet %{collection} pēc e-pasta adreses, vārda vai segvārda.
           title_cont: Meklējiet %{collection} pēc nosaukuma.
       help_sections:
-        error: Palīdzības sadaļu atjaunināšanas laikā radās problēma
         form:
           save: Saglabāt
-        success: Palīdzības sadaļas ir veiksmīgi atjauninātas
       impersonatable_users:
         index:
           filter:
             all: Visi
             managed: Tiek pārvaldīti
             not_managed: Netiek pārvaldīti
-          filter_by: Filtrēt pēc
           impersonate: Uzdoties par
           impersonate_new_managed_user: Pārvaldīt jaunu dalībnieku
           managed: Tiek pārvaldīti
@@ -328,9 +301,6 @@ lv:
           impersonate_existing_managed_user: Pārvaldīt dalībnieku "%{name}"
           impersonate_existing_user: Pārvaldīt dalībnieku "%{name}"
           impersonate_new_managed_user: Pārvaldīt jaunu dalībnieku
-      logs:
-        logs_list:
-          no_logs_yet: Pagaidām nav ierakstu
       managed_users:
         promotion:
           error: Pārvaldītā dalībnieka paaugstināšanas laikā radās problēma.
@@ -347,7 +317,6 @@ lv:
         area_types: Jomu veidi
         areas: Jomas
         configuration: Konfigurācija
-        dashboard: Informācijas panelis
         help_sections: Palīdzības sadaļas
         homepage: Sākumlapa
         impersonations: Uzdošanās par citu personu
@@ -415,7 +384,6 @@ lv:
           fields:
             created_at: Izveides datums
             email: E-pasts
-            last_sign_in_at: Pēdējās pierakstīšanās datums
             name: Nosaukums
             role: Loma
             roles:
@@ -432,8 +400,6 @@ lv:
             state: Stāvoklis
             users_count: Dalībnieku skaits
       moderations:
-        index:
-          title: Moderācijas
         report:
           reasons:
             does_not_belong: Neattiecas
@@ -488,13 +454,8 @@ lv:
           select_scopes: Filtrēt lietotājus, kuri sava konta iestatījumos "Manas intereses" ir aktivizējuši jebkuru izvēlēto darbības tvērumu.
           select_spaces: Izvēlieties telpas, lai segmentētu informatīvo biļetenu
           select_users: Izvēlieties lietotājus, kuriem vēlaties nosūtīt informatīvo biļetenu
-          send_to_all_users: Nosūtīt visiem lietotājiem
-          send_to_followers: Nosūtīt sekotājiem
-          send_to_participants: Nosūtīt dalībniekiem
           title: Izvēlieties adresātus, kuriem nosūtīt
           warning: "<strong>Uzmanību:</strong> šis informatīvais biļetens tiks nosūtīts tikai tiem lietotājiem, kuri savos paziņojumu iestatījumos ir aktivizējuši <em>Vēlos saņemt informatīvos biļetenus</em>."
-        send:
-          no_recipients: Šai izvēlei nav adresātu
         show:
           preview: Priekšskatīt
           select_recipients_to_deliver: Izvēlieties adresātus, kuriem nosūtīt
@@ -503,10 +464,6 @@ lv:
           error: Šī informatīvā biļetena atjaunināšanas laikā radās problēma.
           success: Informatīvais biļetens ir veiksmīgi atjaunināts. Lūdzu, pārskatiet to pirms nosūtīšanas.
       officializations:
-        create:
-          success: Oficiālais statuss dalībniekam veiksmīgi piešķirts
-        destroy:
-          success: Oficiālais statuss dalībniekam veiksmīgi noņemts
         index:
           actions: Darbības
           badge: Žetons
@@ -545,8 +502,6 @@ lv:
         form:
           colors:
             colors_title: Organizācijas krāsas
-            header_snippets_help: Izmantojiet šo lauku, lai pievienotu objektus HTML galvenei. Visbiežāk tiek izmantots, lai integrētu trešo pušu pakalpojumus, kuriem nepieciešams papildu JavaScript vai CSS. Varat arī to izmantot, lai HTML pievienotu papildu meta tagus. Ņemiet vērā, ka tas tiks parādīts tikai publiskajās lapās, nevis administratoru sadaļā.
-          cta_button_path_help: 'Jūs varat mainīt to, uz kurieni ved sākumlapā atrodamā poga Call To Action. Šeit izmantojiet daļējus ceļus, nevis pilnus URL. Tajos var būt tikai burti, cipari, defises un slīpsvītras, un tiem jāsākas ar burtu. Poga Call To Action redzama sākumlapā starp sveiciena tekstu un aprakstu. Piemērs: %{url}'
           cta_button_text_help: Jūs varat pārrakstīt sākumlapā redzamās pogas Call To Action tekstu visās jūsu organizācijā pieejamajās valodās. Ja vērtība nav iestatīta, tiks izmantota noklusējuma vērtība. Poga Call To Action redzama sākumlapā starp sveiciena tekstu un aprakstu.
           homepage_appearance_title: Labot sākumlapas izskatu
           homepage_highlighted_content_banner_title: Izceltais satura reklāmkarogs
@@ -558,9 +513,6 @@ lv:
         edit:
           active_content_blocks: Aktīvie satura bloki
           inactive_content_blocks: Neaktīvie satura bloki
-      organization_homepage_content_blocks:
-        edit:
-          update: Atjaunināt
       participatory_space_private_users:
         create:
           error: Pievienojot privāto dalībnieku šai līdzdalības telpai, radās problēma.
@@ -574,9 +526,6 @@ lv:
           create: Izveidot
           title: Jauns līdzdalības telpas privāts dalībnieks
       participatory_space_private_users_csv_imports:
-        create:
-          invalid: CSV faila lasīšanas laikā radās problēma.
-          success: CSV fails ir veiksmīgi augšupielādēts, nosūtām dalībniekiem uzaicinājuma e-pastu. Tas var aizņemt kādu laiku.
         new:
           title: Augšupielādējiet savu CSV failu
           upload: Augšupielādēt
@@ -605,8 +554,6 @@ lv:
         create:
           error: Jauna tvēruma izveides laikā radās problēma.
           success: Darbības tvērums ir veiksmīgi izveidots.
-        destroy:
-          success: Darbības tvērums ir veiksmīgi dzēsts
         edit:
           title: Rediģēt darbības tvērumu
           update: Atjaunināt
@@ -626,8 +573,6 @@ lv:
         create:
           error: Tēmas izveides laikā radās problēma.
           success: Tēma ir veiksmīgi izveidota.
-        destroy:
-          success: Tēma ir veiksmīgi dzēsta
         edit:
           title: Rediģēt tēmu
           update: Atjaunināt tēmu
@@ -646,25 +591,19 @@ lv:
         destroy:
           success: Lapa ir veiksmīgi dzēsta
         edit:
-          changed_notably_help: Ja atzīmēts, dalībnieki tiks informēti, lai viņi varētu pieņemt jaunos lietošanas noteikumus.
           title: Rediģēt lapu
           update: Atjaunināt
         form:
           none: Nav
-          slug_help: 'Šeit izmantojiet daļējus ceļus, nevis pilnus URL. Tajos var būt tikai burti, cipari, defises un slīpsvītras, un tiem jāsākas ar burtu. Piemērs: %{url}'
-        index:
-          last_notable_change: Pēdējās nozīmīgās izmaiņas
         new:
           create: Izveidot lapu
           title: Jauna lapa
         topic:
           destroy: Noņemt tēmu
           edit: Rediģēt tēmu
-          empty: Šajā tēmā nav nevienas lapas
           without_topic: Lapas bez tēmas
         update:
           error: Šīs lapas atjaunināšanas laikā radās problēma.
-          success: Lapa ir veiksmīgi atjaunināta
       titles:
         admin_log: Administratora žurnāls
         area_types: Jomu veidi
@@ -677,19 +616,15 @@ lv:
         participants: Dalībnieki
         scope_types: Tvēruma veidi
         scopes: Darbības tvērums
-        static_pages: Lapas
         statistics: Aktivitāte
         user_groups: Grupas
       user_group:
         csv_verify:
           invalid: CSV faila lasīšanas laikā radās problēma.
-          success: CSV fails tika augšupielādēts veiksmīgi, mēs pārbaudām grupas, kas atbilst kritērijiem. Tas var aizņemt kādu laiku.
         reject:
           invalid: Šīs grupas noraidīšanas laikā radās problēma.
-          success: Grupa ir veiksmīgi noraidīta
         verify:
           invalid: Šīs grupas pārbaudes laikā radās problēma.
-          success: Grupa ir veiksmīgi pārbaudīta
       user_groups:
         index:
           state:
@@ -721,9 +656,7 @@ lv:
           last_day: Pēdējā diena
           last_month: Iepriekšējais mēnesis
           last_week: Iepriekšējā nedēļa
-          no_users_count_statistics_yet: Pagaidām nav lietotāju skaita statistikas
           participants: Dalībnieki
-      view_public_page: Skatīt publisko lapu
     moderations:
       actions:
         hidden: Slēpts
@@ -747,19 +680,8 @@ lv:
         moderation:
           fields:
             hidden_at: Paslēpts plkst.
-            report_count: Skaits
             reported_content_url: Paziņotā satura URL
-            reports: Ziņojumi
             visit_url: Apmeklēt URL
   errors:
     messages:
       invalid_json: Nederīgs JSON
-  layouts:
-    decidim:
-      admin:
-        newsletters:
-          title: Informatīvie biļeteni
-        settings:
-          title: Iestatījumi
-        users:
-          title: Dalībnieki

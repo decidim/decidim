@@ -1,29 +1,20 @@
-<div class="columns mediumlarge-4 large-3">
-  <h1 class="section-heading">
-    <%= t("decidim.search.results_found_for_term", count: @results_count, term: term) %>
-  </h1>
+<div class="filter-search filter-container hidden md:block">
+  <%= form_tag(decidim.search_path, method: :get) do %>
+    <%= text_field_tag(
+      :term,
+      nil,
+      id: "input-search-page",
+      value: params[:term] || params.dig(:filter, :term),
+      placeholder: t("decidim.search.term_input_placeholder"),
+      title: t("decidim.search.term_input_placeholder"),
+      "aria-label": t("decidim.search.term_input_placeholder")
+    ) %>
+    <button type="submit" aria-controls="results" aria-label="<%= t("decidim.search.term_input_placeholder") %>">
+      <%= icon "search-line" %>
+    </button>
+  <% end %>
 </div>
-<div class="columns mediumlarge-8 large-9">
-  <div>
-    <%= form_tag(decidim.search_path, method: :get) do %>
-      <div class="input-group">
-        <%= label_tag "input-search" do %>
-          <%= text_field_tag(
-            :term,
-            nil,
-            class: "input-group-field",
-            id: "input-search",
-            value: params[:term] || params.dig(:filter, :term),
-            placeholder: t("decidim.search.term_input_placeholder"),
-            title: t("decidim.search.term_input_placeholder")
-          ) %>
-        <% end %>
-        <div class="input-group-button">
-          <button type="submit" class="button">
-            <%= icon "magnifying-glass", aria_label: t("decidim.search.term_input_placeholder"), role: "img" %>
-          </button>
-        </div>
-      </div>
-    <% end %>
-  </div>
-</div>
+
+<h1 class="h3 decorator mb-10 md:my-10">
+  <%= t("decidim.search.results_found_for_term", count: @results_count, term:) %>
+</h1>
