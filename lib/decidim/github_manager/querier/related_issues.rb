@@ -33,7 +33,7 @@ module Decidim
         # @return [Hash]
         def parse(metadata)
           references = metadata.select do |item|
-            item["event"] == "cross-referenced"
+            item["event"] == "cross-referenced" && item["source"]["issue"]["repository"]["full_name"] == "decidim/decidim"
           end
           references.map do |item|
             issue = item["source"]["issue"]
