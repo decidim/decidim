@@ -249,7 +249,7 @@ describe "Conferences", type: :system do
 
           visit decidim_conferences.conference_path(conference)
 
-          expect(page).to have_css(".conference__map-address", count: 3)
+          expect(page).to have_css("#venues .mb-s", count: 3)
         end
       end
     end
