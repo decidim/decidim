@@ -41,6 +41,8 @@ module Decidim
             token: form.token,
             include_in_stats: form.include_in_stats,
             css_class: form.css_class,
+            answerable: form.answerable,
+            notifiable: form.notifiable,
             component:
           }
         end

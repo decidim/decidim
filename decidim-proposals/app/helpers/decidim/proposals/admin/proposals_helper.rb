@@ -10,7 +10,7 @@ module Decidim
         include Decidim::Admin::ResourceScopeHelper
 
         def available_states
-          Decidim::Proposals::ProposalState.where(component: current_component)
+          Decidim::Proposals::ProposalState.answerable.where(component: current_component)
         end
 
         # Public: A formatted collection of Meetings to be used
@@ -39,7 +39,7 @@ module Decidim
           return humanize_proposal_state(proposal.state).html_safe if proposal.emendation?
           return humanize_proposal_state("not_answered").html_safe if proposal.proposal_state.nil?
 
-          return translated_attribute(proposal&.proposal_state&.title)
+          translated_attribute(proposal&.proposal_state&.title)
         end
         #
         # def proposals_admin_filter_tree

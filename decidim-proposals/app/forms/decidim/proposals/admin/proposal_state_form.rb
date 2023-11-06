@@ -12,6 +12,8 @@ module Decidim
         translatable_attribute :description, String
         attribute :default, Boolean
         attribute :system, Boolean
+        attribute :answerable, Boolean
+        attribute :notifiable, Boolean
         attribute :token, String
         attribute :css_class, String
         attribute :include_in_stats, [String]

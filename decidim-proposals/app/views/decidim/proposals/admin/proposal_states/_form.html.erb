@@ -11,10 +11,16 @@
         <%= form.text_field :token %>
       </div>
       <div class="row column">
-        <%= form.check_box :system %>
+        <%= form.check_box :system, disabled: true %>
       </div>
       <div class="row column">
         <%= form.check_box :default %>
+      </div>
+      <div class="row column">
+        <%= form.check_box :answerable %>
+      </div>
+      <div class="row column">
+        <%= form.check_box :notifiable %>
       </div>
       <div class="row column">
         <%#= form.check_box :include_in_stats %>

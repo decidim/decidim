@@ -10,6 +10,8 @@ class CreateDecidimProposalsProposalState < ActiveRecord::Migration[6.1]
       t.references :decidim_component, index: true, null: false
       t.integer :proposals_count, default: 0, null: false
       t.boolean :default, default: false, null: false
+      t.boolean :answerable, default: false, null: false
+      t.boolean :notifiable, default: false, null: false
       t.json :include_in_stats, default: {}, null: false
       t.string :css_class
     end

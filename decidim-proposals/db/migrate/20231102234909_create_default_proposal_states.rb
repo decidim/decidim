@@ -2,7 +2,6 @@
 
 class CreateDefaultProposalStates < ActiveRecord::Migration[6.1]
   class Proposal < ApplicationRecord
-
     belongs_to :proposal_state,
                class_name: "Decidim::Proposals::ProposalState",
                foreign_key: "decidim_proposals_proposal_state_id",

@@ -42,6 +42,13 @@ module Decidim
         end
 
         def notify_followers
+          if proposal.proposal_state.notifiable?
+            publish_event(
+              "decidim.events.proposals.proposal_state_changed",
+              Decidim::Proposals::ProposalStateChangedEvent
+            )
+          end
+          return
           if proposal.accepted?
             publish_event(
               "decidim.events.proposals.proposal_accepted",

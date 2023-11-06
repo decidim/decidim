@@ -14,6 +14,11 @@ module Decidim
 
       validates :token, presence: true, uniqueness: { scope: :component }
 
+      scope :answerable, -> { where(answerable: true) }
+      scope :system, -> { where(system: true) }
+      scope :default, -> { where(default: true) }
+      scope :notifiable, -> { where(notifiable: true) }
+
       translatable_fields :title, :description
 
       has_many :proposals,

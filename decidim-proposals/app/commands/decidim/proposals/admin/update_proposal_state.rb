@@ -38,6 +38,8 @@ module Decidim
             default: form.default,
             token: form.token,
             include_in_stats: form.include_in_stats,
+            answerable: form.answerable,
+            notifiable: form.notifiable,
             css_class: form.css_class
           }
         end
