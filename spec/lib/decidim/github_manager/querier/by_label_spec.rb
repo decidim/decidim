@@ -116,7 +116,8 @@ describe Decidim::GithubManager::Querier::ByLabel do
         <<~RESPONSE
           [
             {"number": 12345, "title": "Fix whatever", "labels": [{"name": "type: fix"}, {"name": "module: admin"}], "pull_request": { "merged_at": "2020-01-01T01:01:01Z" }},
-            {"number": 98765, "title": "Fix another thing", "labels": [{"name": "type: fix"}, {"name": "module: admin"}], "pull_request": { "merged_at": "nil" }}
+            {"number": 98765, "title": "Fix another thing", "labels": [{"name": "type: fix"}, {"name": "module: admin"}], "pull_request": { "merged_at": "nil" }},
+            {"number": 45678, "title": "Fix another thing without being merged", "labels": [{"name": "type: fix"}, {"name": "module: admin"}], "pull_request": { "created_at": "2020-01-01T01:01:01Z" }}
           ]
         RESPONSE
       end
