@@ -79,7 +79,7 @@
 }
 
 .design__heading__description {
-  @apply mt-10 text-gray-2 text-md font-normal [&>*+*]:mt-4;
+  @apply mt-10 text-gray-2 text-md font-normal [&>*+*]:mt-4 [&_a]:underline;
 }
 
 .design__section {
