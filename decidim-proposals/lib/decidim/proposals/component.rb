@@ -257,7 +257,7 @@ Decidim.register_component(:proposals) do |component|
                                                    elsif n.positive?
                                                      [default_states.dig(:accepted, :object), Decidim::Faker::Localized.sentence(word_count: 10), nil]
                                                    else
-                                                     [nil, nil, nil]
+                                                     [default_states.dig(:not_answered, :object), nil, nil]
                                                    end
 
       params = {
