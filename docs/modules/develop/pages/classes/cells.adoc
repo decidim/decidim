@@ -8,7 +8,9 @@ Cells classes are located in the `app/cells/decidim/<my_plugin>` directory, and 
 For example, if you want to create a cell that renders a simple text:
 
 ```ruby
-# app/cells/decidim/my_plugin/my_cell_cell.rb
+# frozen_string_literal: true
+
+# app/cells/decidim/my_module/my_cell_cell.rb
 module Decidim
   module MyPlugin
     class MyCellCell < Decidim::ViewModel

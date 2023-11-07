@@ -11,6 +11,7 @@ An example of a command class would:
 ```ruby
 # frozen_string_literal: true
 
+# app/commands/decidim/my_plugin/create_my_resource.rb
 module Decidim
   module MyPlugin
     # A command with the business logic to create a resource.
@@ -62,6 +63,9 @@ end
 Sometimes you may need to extend a `Decidim` supplied command, then you can either override the `attributes` method, either extend it with a `super` call.
 
 ```ruby
+# frozen_string_literal: true
+
+# app/overrides/commands/create_my_resource.rb
 module Decidim
   module Overrides
     module Commands
