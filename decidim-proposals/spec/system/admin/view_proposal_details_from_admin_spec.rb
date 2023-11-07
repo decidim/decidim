@@ -231,9 +231,7 @@ describe "Admin views proposal details from admin" do
 
         go_to_admin_proposal_page(proposal)
 
-        within "#related-meetings" do
-          expect(page).not_to have_css("a", text: translated(moderated_meeting.title))
-        end
+        expect(page).not_to have_content "Related meetings"
       end
     end
   end
