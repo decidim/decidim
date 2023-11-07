@@ -6,19 +6,30 @@ module Decidim
       def tab_panels_sections
         [
           {
+            id: "context",
+            contents: [
+              {
+                type: :text,
+                values: [
+                  "This tab-panel component gathers all the related contents or another resources of the main element displayed, in order to save vertical space. Clicking on the tab will activate the reated panel to show the content.",
+                  "Mainly is used within the <i>layout_item</i> or the <i>layout_center</i>, after the main content of the resource.",
+                ]
+              }
+            ]
+          },
+          {
             id: "usage",
             contents: [
               {
                 type: :text,
                 values: [
-                  "This component receives an array of hashes, and rearrange the output of each item into a tab-panel structure",
-                  "Available properties for each panel:",
-                  "<i>enabled</i>: Boolean. conditionally render the tab",
-                  "<i>id</i>: String. unique id",
-                  "<i>text</i>: String. tab title",
-                  "<i>icon</i>: String. remixicon key",
-                  "<i>method</i>: Symbol. any function rails understands",
-                  "<i>args</i>: Array. arguments for the previous method",
+                  "This component receives an array of hashes, and rearrange the output of each item into a tab-panel structure. Available properties for each panel:",
+                  "<strong>enabled</strong>: <i>Boolean</i>. Conditionally render the tab",
+                  "<strong>id</strong>: <i>String</i>. Unique id",
+                  "<strong>text</strong>: <i>String</i>. Tab title",
+                  "<strong>icon</strong>: <i>String</i>. Remixicon key",
+                  "<strong>method</strong>: <i>Symbol</i>. Any function rails understands",
+                  "<strong>args</strong>: <i>Array</i>. Arguments for the previous method",
                 ]
               },
               {
