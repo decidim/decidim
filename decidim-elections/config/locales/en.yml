@@ -1199,6 +1199,9 @@ en:
             info_text: Please detail the total number of answers for each question. This must match the total number of answers introduced in the previous step (%{total} answers total).
             modal_ballots_results_count_error:
               close_modal: Close
+              total: Expected total is %{expected} but the sum of the valid, blank and null ballots is %{current}.
+              valid: Expected total of valid votes is %{expected} but the sum of the valid questions is %{current}.
+              blank: Expected total of blank votes is %{expected} but the sum of the blank questions is %{current}.
               info_text: The total number of ballots does not match the total number of envelopes. Please review the total of ballots.
               title: Total of ballots do not add up
             save_recount: Save recount

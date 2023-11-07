@@ -18,7 +18,7 @@ module Decidim
         end
 
         def new
-          enforce_permission_to(:create, :polling_station_results, polling_officer:, clousure:)
+          enforce_permission_to(:create, :polling_station_results, polling_officer:, closure:)
 
           @form = EnvelopesResultForm.new(
             polling_station_id: polling_station.id,
@@ -28,7 +28,7 @@ module Decidim
         end
 
         def create
-          enforce_permission_to(:create, :polling_station_results, polling_officer:, clousure:)
+          enforce_permission_to(:create, :polling_station_results, polling_officer:, closure:)
           @form = form(EnvelopesResultForm).from_params(params).with_context(polling_officer:)
 
           CreatePollingStationClosure.call(@form) do
@@ -46,15 +46,13 @@ module Decidim
         end
 
         def edit
-          enforce_permission_to(:edit, :polling_station_results, polling_officer:, clousure:)
-
+          enforce_permission_to(:edit, :polling_station_results, polling_officer:, closure:)
           @form = form(ClosureResultForm).from_model(closure)
         end
 
         def update
-          enforce_permission_to(:edit, :polling_station_results, polling_officer:, clousure:)
+          enforce_permission_to(:edit, :polling_station_results, polling_officer:, closure:)
           @form = form(ClosureResultForm).from_params(params)
-
           CreatePollingStationResults.call(@form, closure) do
             on(:ok) do
               flash[:notice] = t(".success")
@@ -86,7 +84,7 @@ module Decidim
         end
 
         def certify
-          enforce_permission_to(:edit, :polling_station_results, polling_officer:, clousure:)
+          enforce_permission_to(:edit, :polling_station_results, polling_officer:, closure:)
 
           @form = form(ClosureCertifyForm).from_params(params).with_context(closure:)
 
@@ -104,7 +102,7 @@ module Decidim
         end
 
         def sign
-          enforce_permission_to(:edit, :polling_station_results, polling_officer:, clousure:)
+          enforce_permission_to(:edit, :polling_station_results, polling_officer:, closure:)
 
           @form = form(ClosureSignForm).from_params(params)
 

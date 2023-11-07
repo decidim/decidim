@@ -1,4 +1,3 @@
-<% console %>
 <% form.object.question_results.each do |question| %>
   <%= content_tag :h3,
                   translated_attribute(question.title),
@@ -12,6 +11,7 @@
 
       <%= question_form.number_field(:value,
                                      label: t("decidim.elections.votes.new.nota_option"),
+                                     class: "nota-value",
                                      min: 0) %>
     <% end %>
   <% end %>

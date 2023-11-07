@@ -9,21 +9,26 @@
                   hidden: true,
                   data: { total_ballots: ballot_form.object.total_ballots_count } %>
 
+  <%= ballot_form.hidden_field(:total_ballots_count) %>
+
   <%= ballot_form.number_field(
                     :valid_ballots_count,
                     label: t("edit.total_valid_ballots", scope: "decidim.votings.polling_officer_zone.closures"),
+                    class: "total-value",
                     min: 0
                   ) %>
 
   <%= ballot_form.number_field(
                     :blank_ballots_count,
                     label: t("edit.total_blank_ballots", scope: "decidim.votings.polling_officer_zone.closures"),
+                    class: "total-value",
                     min: 0
                   ) %>
 
   <%= ballot_form.number_field(
                     :null_ballots_count,
                     label: t("edit.total_null_ballots", scope: "decidim.votings.polling_officer_zone.closures"),
+                    class: "total-value",
                     min: 0
                   ) %>
 <% end %>

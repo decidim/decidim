@@ -34,11 +34,14 @@ module Decidim
         end
       end
 
+      # rubocop:disable Metrics/PerceivedComplexity
+      # rubocop:disable Metrics/CyclomaticComplexity
       def self.from_params(params)
         form = super(params)
 
         # not all questions are send via PATCH/POST if no nota is enabled so we need to
         # reconstruct the object and grab the user input value if exists
+        # It is necessary also to obtain the title of the question/answer
         form.question_results = form.election&.questions&.flat_map do |question|
           question_form = QuestionResultForm.from_model(question:, closure: form.closure)
           question_form.value = params.dig(:closure_result, :question_results, question.id.to_s, :value) ||
@@ -47,8 +50,20 @@ module Decidim
           question_form
         end
 
+        form.answer_results = form.election&.questions&.flat_map do |question|
+          question.answers.map do |answer|
+            answer_form = AnswerResultForm.from_model(answer:, closure: form.closure)
+            answer_form.value = params.dig(:closure_result, :answer_results, answer.id.to_s, :value) ||
+                                params.dig(:answer_results, answer.id.to_s, :value) || 0
+
+            answer_form
+          end
+        end
+
         form
       end
+      # rubocop:enable Metrics/PerceivedComplexity
+      # rubocop:enable Metrics/CyclomaticComplexity
 
       def election
         @election ||= Decidim::Elections::Election.find_by(id: election_id)

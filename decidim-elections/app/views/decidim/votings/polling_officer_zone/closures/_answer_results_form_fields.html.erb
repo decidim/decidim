@@ -1,6 +1,3 @@
-<% form.object.answer_results.each do |answer_form| %>
-  <% next unless question.id == answer_form.question_id %>
-
 <% form.object.answer_results.each do |answer| %>
   <% next unless question.id == answer.question_id %>
 
@@ -9,6 +6,7 @@
     <%= answer_form.hidden_field :id %>
     <%= answer_form.number_field(:value,
                                  label: translated_attribute(answer.title),
+                                 class: "answer-value",
                                  min: 0) %>
   <% end %>
 <% end %>
