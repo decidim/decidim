@@ -11,7 +11,8 @@ module Decidim
               {
                 type: :text,
                 values: [
-                  "This tab-panel component gathers all the related contents or another resources of the main element displayed, in order to save vertical space. Clicking on the tab will activate the reated panel to show the content.",
+                  "This tab-panel component gathers all the related contents or another resources of the main element displayed,
+                    in order to save vertical space. Clicking on the tab will activate the reated panel to show the content.",
                   "Mainly is used within the <i>layout_item</i> or the <i>layout_center</i>, after the main content of the resource."
                 ]
               }
@@ -37,7 +38,7 @@ module Decidim
                 options: { headings: %w(Display Values), style: "--cell-width: 50%;" },
                 items: tab_panels_table(
                   { values: tab_panels_items },
-                  { values: tab_panels_items_2 }
+                  { values: tab_panels_items_alt }
                 ),
                 cell_snippet: {
                   cell: "decidim/tab_panels",
@@ -79,7 +80,7 @@ module Decidim
         ]
       end
 
-      def tab_panels_items_2
+      def tab_panels_items_alt
         [
           {
             enabled: true,
