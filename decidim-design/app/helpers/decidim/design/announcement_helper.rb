@@ -19,7 +19,7 @@ module Decidim
                   { text: "I am an announcement", callout_class: nil },
                   { text: "I am an announcement", callout_class: "alert" },
                   { text: "I am an announcement", callout_class: "warning" },
-                  { text: "I am an announcement", callout_class: "success" },
+                  { text: "I am an announcement", callout_class: "success" }
                 ),
                 cell_snippet: {
                   cell: "decidim/announcement",
@@ -37,7 +37,7 @@ module Decidim
               },
               {
                 type: :table,
-                options: { headings: ["Announcement", "Argument"] },
+                options: { headings: %w(Announcement Argument) },
                 items: announcement_table(
                   { text: "I am just plain text", argument: '"I am just plain text"' },
                   { text: { title: "This is the title", body: "This is the body" }, argument: '{ title: "This is the title", body: "This is the body" }' }
@@ -48,14 +48,14 @@ module Decidim
                 }
               }
             ]
-          },
+          }
         ]
       end
 
       def announcement_table(*table_rows, **_opts)
-        table_rows.each_with_index.map do |table_cell, ix|
+        table_rows.each_with_index.map do |table_cell, _ix|
           row = []
-          row << { method: :cell, args: ["decidim/announcement", table_cell[:text], callout_class: table_cell[:callout_class]] }
+          row << { method: :cell, args: ["decidim/announcement", table_cell[:text], { callout_class: table_cell[:callout_class] }] }
           row << table_cell[:callout_class] if table_cell[:callout_class].present?
           row << table_cell[:argument] if table_cell[:argument].present?
           row
