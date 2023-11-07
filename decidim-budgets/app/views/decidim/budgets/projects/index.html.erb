@@ -47,11 +47,13 @@
 
   <%= cell("decidim/budgets/limit_announcement", budget) %>
 
-  <section class="layout-main__section">
-    <span class="text-xl font-semibold">
-      <%= voting_finished? ? t("selected_projects", scope: "decidim.budgets.projects") : t("select_projects", scope: "decidim.budgets.projects") %>
-    </span>
-  </section>
+  <% unless voting_finished? %>
+    <section class="layout-main__section">
+      <span class="text-xl font-semibold">
+        <%= t("select_projects", scope: "decidim.budgets.projects") %>
+      </span>
+    </section>
+  <% end %>
 
   <section id="projects" class="layout-main__section layout-main__heading">
     <%= render partial: "projects" %>
