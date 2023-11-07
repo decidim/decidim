@@ -1,4 +1,4 @@
-<%= content_tag :table, class: "design__table", style: do %>
+<%= content_tag :table, local_assigns.slice(:style).merge(class: "design__table") do %>
   <thead>
     <% headings.each do |heading| %>
       <th><%= heading %></th>
