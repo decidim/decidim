@@ -1,4 +1,4 @@
-<table class="design__table">
+<%= content_tag :table, class: "design__table", style: do %>
   <thead>
     <% headings.each do |heading| %>
       <th><%= heading %></th>
@@ -9,4 +9,4 @@
         <tr><%= render_row(row) %></tr>
     <% end %>
   </tbody>
-</table>
+<% end %>
