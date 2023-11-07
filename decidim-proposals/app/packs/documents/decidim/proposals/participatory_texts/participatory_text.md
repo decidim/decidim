@@ -1,16 +1,16 @@
 <!-- markdownlint-disable-file single-h1 strong-style emphasis-style -->
 
-# Section title 1: grouping content
+## Section title 1: grouping content
 
 Participatory texts relay on the parsing of Markdown texts to produce a structured document.
 
 Participatory texts are divided into 3 types of blocks:
 
-- Section: produced by main headers (paragraphs starting with "# ")
+- Section: produced by main headers (paragraphs starting with "## ")
 - Subsection: produced by secondary headers (paragraphs starting more than one "#") until 6 levels.
 - Article: produced by paragraphs and lists.
 
-## Subsection title 1.1
+### Subsection title 1.1
 
 Parsing of Markdown is strict.
 This means that, for paragraphs and lists, all blocks should be separated by a blank line between them.
@@ -20,7 +20,7 @@ This paragraph instead, will produce a single participatory text article.
 
 This paragraph also, will produce a third participatory text article.
 
-## Subsection title 1.2
+### Subsection title 1.2
 
 Inside a paragraph list or a list, **bold text** is supported, *italics text* is supported, __underlined text__ is supported.
 As explained [here](https://daringfireball.net/projects/markdown/syntax#em) Markdown treats asterisks (\*) and underscores (\_) as indicators of emphasis. Text wrapped with these characters will be wrapped with an HTML \<em> tag; double \*’s or \_’s will be wrapped with an HTML \<strong> tag. E.g., this input:
@@ -32,7 +32,7 @@ As explained [here](https://daringfireball.net/projects/markdown/syntax#em) Mark
 
 You can use the following reference when writing your documents: [https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
 
-# Section title 2: lists
+## Section title 2: lists
 
 Lists will be parsed as one block:
 
