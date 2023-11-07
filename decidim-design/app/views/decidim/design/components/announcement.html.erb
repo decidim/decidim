@@ -1,0 +1,11 @@
+<% content_for :heading do %>
+  Announcement
+<% end %>
+
+<% content_for :toc do %>
+  <% announcement_sections.each do |section| %>
+    <%= link_to(section_text(section), "##{section[:id]}") %>
+  <% end %>
+<% end %>
+
+<%= render partial: "decidim/design/shared/sections", locals: { sections: announcement_sections } %>

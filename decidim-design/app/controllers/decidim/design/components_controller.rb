@@ -7,6 +7,7 @@ module Decidim
       include Decidim::Design::HasTemplates
 
       helper ButtonsHelper
+      helper AnnouncementHelper
     end
   end
 end
