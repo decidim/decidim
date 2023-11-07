@@ -113,49 +113,60 @@ describe "Admin views proposal details from admin" do
   end
 
   describe "with endorsements" do
-    let!(:endorsements) do
-      2.times.collect do
-        create(:endorsement, resource: proposal, author: build(:user, organization:))
+    context "when there is not any endorsements" do
+      it "does not show the title" do
+        go_to_admin_proposal_page(proposal)
+
+        expect(page).not_to have_content "Endorsers"
       end
     end
 
-    it "shows the number of endorsements" do
-      go_to_admin_proposal_page(proposal)
-
-      expect(page).to have_css("[data-endorsements] [data-count]", text: "2")
-    end
-
-    it "shows the ranking by endorsements" do
-      another_proposal = create(:proposal, component:)
-      create(:endorsement, resource: another_proposal, author: build(:user, organization:))
-      go_to_admin_proposal_page(proposal)
-
-      expect(page).to have_css("[data-endorsements] [data-ranking]", text: "1 of ")
-    end
-
-    it "has a link to each endorser profile" do
-      go_to_admin_proposal_page(proposal)
-
-      within "#proposal-endorsers-list" do
-        proposal.endorsements.for_listing.each do |endorsement|
-          endorser = endorsement.normalized_author
-          expect(page).to have_selector("a", text: endorser.name)
-        end
-      end
-    end
-
-    context "with more than 5 endorsements" do
+    context "when there are endorsements" do
       let!(:endorsements) do
-        6.times.collect do
+        2.times.collect do
           create(:endorsement, resource: proposal, author: build(:user, organization:))
         end
       end
 
-      it "links to the proposal page to check the rest of endorsements" do
+      it "shows the number of endorsements" do
+        go_to_admin_proposal_page(proposal)
+
+        expect(page).to have_content "Endorsers"
+        expect(page).to have_css("[data-endorsements] [data-count]", text: "2")
+      end
+
+      it "shows the ranking by endorsements" do
+        another_proposal = create(:proposal, component:)
+        create(:endorsement, resource: another_proposal, author: build(:user, organization:))
+        go_to_admin_proposal_page(proposal)
+
+        expect(page).to have_css("[data-endorsements] [data-ranking]", text: "1 of ")
+      end
+
+      it "has a link to each endorser profile" do
         go_to_admin_proposal_page(proposal)
 
         within "#proposal-endorsers-list" do
-          expect(page).to have_selector("a", text: "and 1 more")
+          proposal.endorsements.for_listing.each do |endorsement|
+            endorser = endorsement.normalized_author
+            expect(page).to have_css("a", text: endorser.name)
+          end
+        end
+      end
+
+      context "with more than 5 endorsements" do
+        let!(:endorsements) do
+          6.times.collect do
+            create(:endorsement, resource: proposal, author: build(:user, organization:))
+          end
+        end
+
+        it "links to the proposal page to check the rest of endorsements" do
+          go_to_admin_proposal_page(proposal)
+
+          within "#proposal-endorsers-list" do
+            expect(page).to have_css("a", text: "and 1 more")
+          end
         end
       end
     end
