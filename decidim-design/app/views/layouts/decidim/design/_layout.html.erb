@@ -48,7 +48,7 @@
             <ul>
               <% items.each do |item| %>
                 <li>
-                  <%= link_to item[:name], item[:path], class: params[:id] == item[:name] && controller_name == section[:path] ? "font-bold" : "" %>
+                  <%= link_to item[:name].titleize, item[:path], class: params[:id] == item[:name] && controller_name == section[:path] ? "font-bold" : "" %>
                   <%= icon "arrow-right-line" %>
                 </li>
               <% end %>
