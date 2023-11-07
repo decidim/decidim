@@ -1,5 +1,3 @@
-<!-- markdown-lint-disable-file single-h1 -->
-
 # The great title for a new law
 
 ## A co-creation process to create creative creations
@@ -43,9 +41,5 @@ This article will require three paragraphs. This will be the third one.
 ![Important image for Decidim](https://meta.decidim.org/assets/decidim/decidim-logo-1f39092fb3e41d23936dc8aeadd054e2119807dccf3c395de88637e4187f0a3f.svg)
 
 Well, at the end we required one more paragraph and embedded an image, let's see what happens with this...
-
-# Summary
-
-We use here a main title again for the summary because we don't know what will happen when having many main titles in one document.
 
 Also, utf-8 characters should be supported. For example: "Cançó de Sangtraït".
