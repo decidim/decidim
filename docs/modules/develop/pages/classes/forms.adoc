@@ -4,7 +4,6 @@ This is a form example that can be implemented in your application.
 
 Form classes are located in the `app/forms/decidim/<my_plugin>` directory, and named: `<my_event>_form.rb`.
 
-
 ```ruby
 module Decidim
   module MyPlugin

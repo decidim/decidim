@@ -1,12 +1,14 @@
 = Controllers
 
-Decidim controllers, are plain Rails controllers, that usually implement the other concepts that we have described in this section.
+Decidim controllers are plain Rails controllers, that usually implement the other concepts that we have described in this section.
 
-Controller classes are located in the `app/controllers/decidim/<my_plugin>` directory, and named: `<my_event>_event.rb`.
+Controller classes are located in the `app/controllers/decidim/<my_plugin>` directory, and named: `<my_event>_controller.rb`.
 
 ```ruby
 # frozen_string_literal: true
 
+
+# app/controllers/decidim/my_plugin/resource_controller.rb
 module Decidim
   module MyPlugin
     class ResourceController < Decidim::MyPlugin::ApplicationController
@@ -17,15 +19,16 @@ end
 ```
 
 The admin controllers are following the `Decidim` conventions:
-In the below example, you will be able to see how the forms, commands, queries and permissions can be used.
+In the below example, you will be able to see how the forms (`ResourceForm`), commands (`CreateMyResource`, `UpdateMyResource`), queries (`Decidim::MyPlugin::MyQuery`) and permissions (`enforce_permission_to`) can be used.
 
 ```ruby
 # frozen_string_literal: true
+
+# app/controllers/decidim/my_plugin/admin/resource_controller.rb
 module Decidim
   module MyPlugin
     module Admin
-
-      class ResourceController < Decidim::MyPlugin::Admin::ApplicationController
+      class ResourcesController < Decidim::MyPlugin::Admin::ApplicationController
         def index
           enforce_permission_to :read, :resource
           @resources = paginate(resources)

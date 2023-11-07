@@ -5,7 +5,9 @@ The concept regarding the notitication is being described in the xref:develop:no
 Event classes are located in the `app/events/decidim/<my_plugin>` directory, and named: `<my_event>_event.rb`.
 
 ```ruby
+# frozen_string_literal: true
 
+# app/events/decidim/my_plugin/my_event_event.rb
 module Decidim
   module MyPlugin
     class MyEvent < Decidim::Events::SimpleEvent

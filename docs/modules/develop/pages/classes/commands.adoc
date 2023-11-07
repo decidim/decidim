@@ -1,6 +1,6 @@
 = Commands
 
-A command is custom class that manages the logic between your input, usually a xref:develop:classes/forms.adoc[form] object, a object and an actor.
+A command is custom class that manages the logic between your input, usually a xref:develop:classes/forms.adoc[form] object, an object and an user.
 
 Usually, a command is used to create, update or delete a object.
 
@@ -13,7 +13,7 @@ An example of a command class would:
 
 module Decidim
   module MyPlugin
-    # A command with the business logic to invite an user to an organization.
+    # A command with the business logic to create a resource.
     class CreateMyResource < Decidim::Command
       # Public: Initializes the command.
       #
@@ -57,11 +57,9 @@ module Decidim
     end
   end
 end
-
 ```
 
-
-Sometimes, you may need to extend a `Decidim` supplied command, then you can either override the `attributes` method, either extend it with a `super` call.
+Sometimes you may need to extend a `Decidim` supplied command, then you can either override the `attributes` method, either extend it with a `super` call.
 
 ```ruby
 module Decidim

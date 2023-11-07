@@ -19,7 +19,6 @@ module Decidim
         @start_at = options.delete(:start_at)
         @end_at = options.delete(:end_at)
       end
-.
       def query
         resources = Decidim::MyPlugin::MyResource.where(component: @components)
         resources = resources.where("created_at >= ?", @start_at) if @start_at.present?
