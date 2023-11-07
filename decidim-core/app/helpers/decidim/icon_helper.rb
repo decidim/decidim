@@ -44,9 +44,6 @@ module Decidim
       "activity" => { icon: "bubble-chart-line", description: "Activity", category: "profile" },
       "followers" => { icon: "group-line", description: "Followers", category: "profile" },
 
-      "official" => { icon: "star-line", description: "Official", category: "origin" },
-      "participants" => { icon: "open-arm-line", description: "Participants", category: "origin" },
-
       "documents" => { icon: "file-text-line", description: "Document", category: "documents" },
       "folder_open" => { icon: "folder-open-line", description: "Folder open", category: "documents" },
       "folder_close" => { icon: "folder-line", description: "Folder close", category: "documents" },
@@ -54,20 +51,14 @@ module Decidim
       "document_download" => { icon: "download-line", description: "Download", category: "documents" },
       "images" => { icon: "image-line", description: "Images", category: "documents" },
 
-      "in_person" => { icon: "community-line", description: "In person", category: "type" },
-      "online" => { icon: "webcam-line", description: "Online", category: "type" },
-      "hybrid" => { icon: "home-wifi-line", description: "Hybrid", category: "type" },
-
-      "accepted" => { icon: "checkbox-circle-line", description: "Accepted", category: "status" },
-      "evaluating" => { icon: "eye-line", description: "Evaluating", category: "status" },
-      "unanswered" => { icon: "message-3-line", description: "No answer", category: "status" },
-      "rejected" => { icon: "delete-back-2-line", description: "Rejected / Cancelled", category: "status" },
-      "active" => { icon: "pulse-line", description: "Active", category: "status" },
-      "next" => { icon: "calendar-2-line", description: "Next", category: "status" },
-      "closed" => { icon: "calendar-check-line", description: "Closed / Finished", category: "status" },
-
       "all" => { icon: "apps-2-line", description: "All", category: "other" },
       "other" => { icon: "question-line", description: "Other", category: "other" },
+
+      # Modules
+
+      "in_person" => { icon: "community-line", description: "In person", category: "meetings" },
+      "online" => { icon: "webcam-line", description: "Online", category: "meetings" },
+      "hybrid" => { icon: "home-wifi-line", description: "Hybrid", category: "meetings" },
 
       "assembly_type" => { icon: "group-2-line", description: "Type", category: "assemblies" },
 
