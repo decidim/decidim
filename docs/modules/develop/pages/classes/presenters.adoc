@@ -1,1 +1,120 @@
 = Persenters
+
+There are more types of presenters, that Decidim is using:
+
+- AdminLogPresenters
+
+== ResourcePresenter
+This presenter is used to show in the views the resource.
+
+The presenter classes are located in the `app/presenter/decidim/<my_module>/` directory, and named: `<my_resource>_presenter.rb`.
+
+If you need to use this, you can add in your model a method like this:
+
+``` ruby
+# Returns the presenter for this author, to be used in the views.
+# Required by ResourceRenderer.
+def presenter
+  Decidim::MyPlugin::MyResourcePresenter.new(self)
+end
+
+```
+
+Then, you can implement the presenter like this:
+
+```ruby
+
+module Decidim
+  module MyPlugin
+    class MyResourcePresenter < Decidim::ResourcePresenter
+    end
+  end
+end
+```
+
+
+== AdminLogPresenter
+
+This presenter is used to show the admin log in the admin panel.
+
+The presenter classes are located in the `app/presenter/decidim/<my_module>/admin_log` directory, and named: `<my_resource>_presenter.rb`.
+
+If you need to use this, you can add in your model a method like this:
+
+```ruby
+def self.log_presenter_class_for(_log)
+  Decidim::MyPlugin::AdminLog::MyResourcePresenter
+end
+```
+
+Then, you can implement the presenter like this:
+
+```ruby
+module Decidim
+  module MyPlugin
+    module AdminLog
+      class MyResourcePresenter < Decidim::Log::BasePresenter
+
+        # This is the list of field types that we want to show in the admin log, in the revision history
+        def diff_fields_mapping
+          {
+            title: :i18n,
+            some_field: :boolean,
+            some_other_field: :string
+          }
+        end
+
+        # This is the i18n key that we are using to load any strings
+        def i18n_labels_scope
+          "activemodel.attributes.my_resource"
+        end
+
+          # @api
+        def action_string
+          case action
+          when "publish"
+            "decidim.my_plugin.admin_log.my_resource.#{action}"
+          else
+            super
+          end
+        end
+      end
+    end
+  end
+end
+```
+
+When handling custom events, like `publish`, you need to add the translation to the `decidim.my_plugin.admin_log.my_resource` scope.
+You will also need to use a command to handle the event, having a method like this:
+
+```ruby
+module Decidim
+  module MyPlugin
+    # A command with the business logic to invite an user to an organization.
+    class PublishMyResource < Decidim::Command
+      # Public: Initializes the command.
+      #
+      # form
+      # resource
+      def initialize(resource, current_user)
+        @resource = resource
+        @current_user = current_user
+      end
+
+      def call
+        return broadcast(:invalid) unless resource.condition?
+
+        Decidim.traceability.perform_action!(
+          "publish",
+          @resource,
+          @current_user
+        ) do
+          resource.publish!
+        end
+
+        broadcast(:ok)
+      end
+    end
+  end
+end
+```

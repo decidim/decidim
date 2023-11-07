@@ -1,1 +1,39 @@
 = Queries
+
+The Query class pleace where you can store any complex queries your application may require.
+
+Query classes are located in the `app/query/decidim/<my_plugin>` directory, and named: `<my_query>_query.rb`.
+
+A typical query class looks like this:
+
+```ruby
+module Decidim
+  module MyPlugin
+    class MyQuery < Decidim::Query
+      def self.for(components, extra_params)
+        new(components, extra_params).query
+      end
+
+      def initialize(components, options)
+        @components = components
+        @start_at = options.delete(:start_at)
+        @end_at = options.delete(:end_at)
+      end
+.
+      def query
+        resources = Decidim::MyPlugin::MyResource.where(component: @components)
+        resources = resources.where("created_at >= ?", @start_at) if @start_at.present?
+        resources = resources.where("created_at <= ?", @end_at) if @end_at.present?
+        # and you can add any other query you need
+        resources
+      end
+    end
+  end
+end
+```
+
+Then you can use the query in your code:
+
+```ruby
+ @resources = Decidim::MyPlugin::MyQuery.for(components, start_at: 1.month.ago, end_at: Time.current)
+```

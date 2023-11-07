@@ -2,6 +2,8 @@
 
 Decidim controllers, are plain Rails controllers, that usually implement the other concepts that we have described in this section.
 
+Controller classes are located in the `app/controllers/decidim/<my_plugin>` directory, and named: `<my_event>_event.rb`.
+
 ```ruby
 # frozen_string_literal: true
 
@@ -75,7 +77,7 @@ module Decidim
 
         private
         def resources
-          @resources ||= ResourceQuery.for(current_component)
+          @resources ||= Decidim::MyPlugin::MyQuery.for([current_component])
         end
 
         def resource

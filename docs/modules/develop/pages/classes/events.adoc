@@ -2,7 +2,7 @@
 
 The concept regarding the notitication is being described in the xref:develop:notifications.adoc[Notifications] page.
 
-Event classes are located in the `app/events/<my_plugin>` directory, and named: `<my_event>_event.rb`.
+Event classes are located in the `app/events/decidim/<my_plugin>` directory, and named: `<my_event>_event.rb`.
 
 ```ruby
 

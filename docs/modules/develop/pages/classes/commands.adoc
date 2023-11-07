@@ -4,7 +4,7 @@ A command is custom class that manages the logic between your input, usually a x
 
 Usually, a command is used to create, update or delete a object.
 
-Commands are located in the `app/commands/<my_plugin>` directory, and named: `<my_command>.rb`.
+Commands are located in the `app/commands/decidim/<my_plugin>` directory, and named: `<my_command>.rb`.
 
 An example of a command class would:
 

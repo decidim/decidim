@@ -1,1 +1,112 @@
 = Permissions
+
+The permission class allows you to customize the security. You can use the permission class to enforce the security on the basis of the user, group, or role.
+You can read more about Decidim permissions in it's dedicated xref:develop:permissions.adoc[page].
+
+Permission classes are located in the `app/permissions/decidim/<my_module>` directory, and named: `permissions.rb`.
+
+The permission class is a simple class that inherits from `Decidim::DefaultPermissions`. And can be registered in a Permission chain among other chains that are provided by Decidim
+
+```ruby
+module Decidim
+  module MyPlugin
+    class Permissions < Decidim::DefaultPermissions
+      def permissions
+        # skip to the next chain
+        return permission_action unless user
+        # pass to the next chain, as the requested authorization
+        # is not in scope of this permission class
+        return permission_action if permission_action.scope != :public
+
+        # allow public read of the resource
+        permission_action.allow! if permission_action.action == :read
+
+        # allow full access to the resource if the user is the owner
+        # authored_by? is a method that you need to implement in your model by including
+        # Decidim::Authorable concern
+        permission_action.allow! if my_object.authored_by?(user)
+
+        # we return the permission chain
+        permission_action
+      end
+
+      private
+
+      def my_object
+        @my_object ||= context.fetch(:my_object, nil)
+      end
+
+    end
+  end
+end
+```
+
+Now that you have defined the permission class, you will need to properly register. Inside your component definition, you can populate the permissions_class_name parameter as follows:
+
+```ruby
+
+Decidim.register_component(:meetings) do |component|
+  component.permissions_class_name = "Decidim::MyPlugin::Permissions"
+end
+```
+
+If your controller does not handle a Decidim component (or associated), you can customize as follows in your controller:
+
+```ruby
+module Decidim
+  module MyPlugin
+    class MyResourceController < Decidim::MyPlugin::ApplicationController
+      include NeedsPermission
+
+      register_permissions(Decidim::MyPlugin::MyResourceController,
+                           ::Decidim::MyPlugin::Permissions,
+                           ::Decidim::Permissions)
+
+
+      private
+
+      def permission_class_chain
+        ::Decidim.permissions_registry.chain_for(::Decidim::MyPlugin::MyResourceController)
+      end
+
+      def permission_scope
+        :public
+      end
+    end
+  end
+end
+```
+
+Once you have defined those changes, you can use in your controllers the following statement:
+
+```ruby
+def index
+  enforce_permission_to :read, :resource
+  # other code specific for your business model/
+end
+```
+You can also pass parameters to the `enforce_permission_to` method, as follows:
+
+```ruby
+def index
+  enforce_permission_to :read, :resource, my_object: resource
+  # other code specific for your business model/
+end
+
+```
+
+Or you can check for permissions in the views:
+
+```
+<% if allowed_to? :read, :resource %>
+  <p> You can read this resource </p>
+<% end %>
+```
+You can also pass parameters to the `allowed_to` method, as follows:
+
+```
+<% if allowed_to? :read, :resource, my_object: resource %>
+  <p> You can read this resource </p>
+<% end %>
+```
+

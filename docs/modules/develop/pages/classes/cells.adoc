@@ -3,7 +3,9 @@
 
 As explained in dedicated page xref:develop:view_models_aka_cells.adoc[View Models (Cells)], a cell is an object that represent a fragment of your UI
 
-In order to define a cell, you need to create a class that inherits from `Decidim::ViewModel` in your plugin. The path where the cell class needs to be defined id `app/cells/decidim/<your_plugin>/<your_cell_name>_cell.rb`
+In order to define a cell, you need to create a class that inherits from `Decidim::ViewModel` in your plugin.
+
+Cells classes are located in the `app/cells/decidim/<my_plugin>` directory, and named: `<my_cell>_cell.rb`.
 
 For example, if you want to create a cell that renders a simple text:
 

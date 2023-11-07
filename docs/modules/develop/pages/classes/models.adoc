@@ -1,1 +1,90 @@
 = Models
+
+The models in Decidim are just plain `ActiveRecord` models, so you can use all the methods that come with it.
+
+A model class example would be:
+
+```ruby
+module Decidim
+  module MyPlugin
+    class MyResource < Decidim::MyPlugin::ApplicationRecord
+      include Decidim::HasComponent
+      include Decidim::Traceable
+      include Decidim::Loggable
+      include Decidim::Authorable
+      include Decidim::TranslatableResource
+    end
+  end
+end
+```
+
+
+== Scopes
+
+Within core provided classes there are no `default_scopes`.
+
+== Validations
+
+All the validations are defined in the models themselves.
+
+== Callbacks
+
+The number of the callbacks is reduced to the minimum.
+
+== Concerns
+
+The concerns are used to share code between models. They are located in `app/models/concerns`.
+
+Most commonly used concerns are:
+
+- `Decidim::ActsAsAuthor`
+- `Decidim::ActsAsTree`
+- `Decidim::Amendable`
+- `Decidim::Authorable`
+- `Decidim::Coauthorable`
+- `Decidim::DownloadYourData`
+- `Decidim::Endorsable`
+- `Decidim::FilterableResource`
+- `Decidim::Fingerprintable`
+- `Decidim::Followable`
+- `Decidim::FriendlyDates`
+- `Decidim::HasArea`
+- `Decidim::HasAttachmentCollections`
+- `Decidim::HasAttachments`
+- `Decidim::HasCategory`
+- `Decidim::HasComponent`
+- `Decidim::HasPrivateUsers`
+- `Decidim::HasReference`
+- `Decidim::HasResourcePermission`
+- `Decidim::HasUploadValidations`
+- `Decidim::Loggable`
+- `Decidim::NewsletterParticipant`
+- `Decidim::Paddable`
+- `Decidim::Participable`
+- `Decidim::ParticipatorySpaceResourceable`
+- `Decidim::ParticipatorySpaceUser`
+- `Decidim::Publicable`
+- `Decidim::Randomable`
+- `Decidim::RecordEncryptor`
+- `Decidim::Reportable`
+- `Decidim::Resourceable`
+- `Decidim::ScopableParticipatorySpace`
+- `Decidim::ScopableResource`
+- `Decidim::Searchable`
+- `Decidim::Traceable`
+- `Decidim::TranslatableAttributes`
+- `Decidim::TranslatableResource`
+
+=== Module specific concerns
+
+- `Decidim::Comments::Commentable`
+- `Decidim::Comments::CommentableWithComponent`
+- `Decidim::Comments::HasAvailabilityAttributes`
+- `Decidim::Forms::HasQuestionnaire`
+- `Decidim::Initiatives::HasArea`
+- `Decidim::Initiatives::InitiativeSlug`
+- `Decidim::Proposals::CommentableCollaborativeDraft`
+- `Decidim::Proposals::CommentableProposal`
+- `Decidim::Proposals::ParticipatoryTextSection`
+- `Decidim::Proposals::Valuatable`
+- `Decidim::Templates::Templatable`
