@@ -52,4 +52,4 @@ Ordered lists will be parsed too:
 
 A link to Decidim's web site uses [this format](https://decidim.org).
 
-![Important image for Decidim](https://meta.decidim.org/assets/decidim/decidim-logo-1f39092fb3e41d23936dc8aeadd054e2119807dccf3c395de88637e4187f0a3f.svg)
+![Important image for Decidim](https://raw.githubusercontent.com/decidim/decidim/develop/logo.svg)
