@@ -18,7 +18,7 @@ module Decidim
       helper_method :collection, :promoted_conferences, :conferences, :stats
 
       def index
-        redirect_to "/404" if published_conferences.none?
+        raise ActionController::RoutingError, "Not Found" if published_conferences.none?
 
         enforce_permission_to :list, :conference
       end
