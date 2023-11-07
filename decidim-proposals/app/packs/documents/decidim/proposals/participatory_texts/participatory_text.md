@@ -22,13 +22,11 @@ This paragraph also, will produce a third participatory text article.
 
 ### Subsection title 1.2
 
-Inside a paragraph list or a list, **bold text** is supported, *italics text* is supported, __underlined text__ is supported.
-As explained [here](https://daringfireball.net/projects/markdown/syntax#em) Markdown treats asterisks (\*) and underscores (\_) as indicators of emphasis. Text wrapped with these characters will be wrapped with an HTML \<em> tag; double \*’s or \_’s will be wrapped with an HTML \<strong> tag. E.g., this input:
+Inside a paragraph list or a list, **bold text** is supported, *italics text* is supported.
+As explained [here](https://daringfireball.net/projects/markdown/syntax#em) Markdown treats asterisks (\*) as indicators of emphasis. Text wrapped with this character will be wrapped with an HTML \<em> tag; double \*’s will be wrapped with an HTML \<strong> tag. E.g., this input:
 
 - *single asterisks*
-- _single underscores_
 - **double asterisks**
-- __double underscores__
 
 You can use the following reference when writing your documents: [https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
 
