@@ -25,8 +25,16 @@ module Decidim
                                  .limit(limit)
         end
 
-        def geolocation_enabled?
+        def show_map?
+          maps_active? && !all_online_meetings?
+        end
+
+        def maps_active?
           Decidim::Map.available?(:geocoding)
+        end
+
+        def all_online_meetings?
+          upcoming_meetings.collect(&:type_of_meeting).all?("online")
         end
 
         def meetings_directory_path
@@ -36,7 +44,7 @@ module Decidim
         private
 
         def limit
-          geolocation_enabled? ? 4 : 8
+          maps_active? ? 4 : 8
         end
 
         def meeting_components
