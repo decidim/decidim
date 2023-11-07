@@ -202,28 +202,38 @@ describe "Admin views proposal details from admin" do
   end
 
   context "with related meetings" do
-    let(:meeting_component) { create(:meeting_component, participatory_space: participatory_process) }
-    let(:meeting) { create(:meeting, :published, component: meeting_component) }
-    let(:moderated_meeting) { create(:meeting, component: meeting_component) }
-    let!(:moderation) { create(:moderation, reportable: moderated_meeting) }
+    context "when there is not any meeting" do
+      it "does not show the title" do
+        go_to_admin_proposal_page(proposal)
 
-    it "lists the related meetings" do
-      proposal.link_resources(meeting, "proposals_from_meeting")
-      go_to_admin_proposal_page(proposal)
-
-      within "#related-meetings" do
-        expect(page).to have_selector("a", text: translated(meeting.title))
+        expect(page).not_to have_content "Related meetings"
       end
     end
 
-    it "hides the moderated related meeting" do
-      proposal.link_resources(moderated_meeting, "proposals_from_meeting")
-      moderation.update(hidden_at: Time.current)
+    context "when there are meetings" do
+      let(:meeting_component) { create(:meeting_component, participatory_space: participatory_process) }
+      let(:meeting) { create(:meeting, :published, component: meeting_component) }
+      let(:moderated_meeting) { create(:meeting, component: meeting_component) }
+      let!(:moderation) { create(:moderation, reportable: moderated_meeting) }
 
-      go_to_admin_proposal_page(proposal)
+      it "lists the related meetings" do
+        proposal.link_resources(meeting, "proposals_from_meeting")
+        go_to_admin_proposal_page(proposal)
 
-      within "#related-meetings" do
-        expect(page).not_to have_selector("a", text: translated(moderated_meeting.title))
+        within "#related-meetings" do
+          expect(page).to have_css("a", text: translated(meeting.title))
+        end
+      end
+
+      it "hides the moderated related meeting" do
+        proposal.link_resources(moderated_meeting, "proposals_from_meeting")
+        moderation.update(hidden_at: Time.current)
+
+        go_to_admin_proposal_page(proposal)
+
+        within "#related-meetings" do
+          expect(page).not_to have_css("a", text: translated(moderated_meeting.title))
+        end
       end
     end
   end
