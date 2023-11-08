@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_authorization_handler"] do
+describe "Authorizations", with_authorization_workflows: ["dummy_authorization_handler"] do
   before do
     switch_to_host(organization.host)
   end

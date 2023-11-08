@@ -46,8 +46,14 @@ module Decidim
       end
 
       it "stores `editor`" do
-        subject.attribute :something # default: false
-        expect(subject.attributes[:something].editor).to be(false)
+        subject.attribute :something
+        expect(subject.attributes[:something].editor?({})).to be_nil
+
+        subject.attribute :something, editor: ->(_context) { true }
+        expect(subject.attributes[:something].editor?({})).to be(true)
+
+        subject.attribute :something, editor: ->(_context) { false }
+        expect(subject.attributes[:something].editor?({})).to be(false)
 
         subject.attribute :something, editor: true
         expect(subject.attributes[:something].editor).to be(true)

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages global moderations", type: :system do
+describe "Admin manages global moderations" do
   let!(:user) do
     create(
       :user,

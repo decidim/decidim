@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "User answers the initiative", type: :system do
+describe "User answers the initiative" do
   include_context "when admins initiative"
 
   def submit_and_validate(message)

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Private Assemblies", type: :system do
+describe "Private Assemblies" do
   let!(:organization) { create(:organization) }
   let!(:assembly) { create(:assembly, :published, organization:) }
   let!(:admin) { create(:user, :admin, :confirmed, organization:) }

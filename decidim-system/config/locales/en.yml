@@ -57,14 +57,12 @@ en:
         new:
           create: Create
           title: New admin
-        show:
-          destroy: Destroy
-          edit: Edit
         update:
           error: There was a problem updating this admin.
           success: Admin successfully updated.
       dashboard:
         show:
+          admins: Admins
           current_organizations: Current organizations
       default_pages:
         placeholders:
@@ -141,7 +139,22 @@ en:
           show: Show advanced settings
         create:
           error: There was a problem creating a new organization.
-          success: Organization successfully created.
+          success_html: |
+            <p>
+              Organization successfully created.
+            </p>
+            <ol>
+              <li>You may need to update your application code, as to allow requests to %{host} you need to add the following to your
+              environment configuration (i.e. <code>config/environment/production.rb</code>) or your <code>config/application.rb</code>:
+                <p> config.hosts << "%{host}" </p>
+              </li>
+              <li>
+                After that is done, you will be able to access to your platform through <a href="http://%{host}">http://%{host}</a>
+              </li>
+              <li>
+                We have sent an email to <b>%{email}</b> that you need to confirm.
+              </li>
+            </ol>
         csp_settings:
           connect_src: Connect src
           connect_src_hint: |
@@ -176,7 +189,10 @@ en:
             The style-src directive restricts the URLs which can be loaded using <style> elements.
             The platform will add "'self' 'unsafe-inline'", but allows you to add more. leave it blank if you are unsure.
         edit:
+          confirm_resend_invitation: Are you sure you want to resend the invitation?
+          resend_invitation: Resend invitation
           secondary_hosts_hint: Enter each one of them in a new line
+          title: Edit organization
         file_upload_settings:
           content_types:
             admin_hint: These MIME types are allowed for the admin section uploads. Admin users should be aware of the risks with uploading some document formats, so you can expect them to be more cautious with the file uploads.
@@ -201,6 +217,7 @@ en:
           default: Default?
           enabled: Enabled
           locale: Locale
+          organization_admin_email_hint: We will send an email to this address so you can confirm it and set up your password.
           reference_prefix_hint: The reference prefix is used to uniquely identify resources across all organization.
           secondary_hosts_hint: Enter each one of them in a new line.
           title: New organization
@@ -222,6 +239,9 @@ en:
           twitter:
             api_key: API key
             api_secret: API secret
+        resend_invitation:
+          error: There was a problem sending the invitation.
+          success: Invitation successfully sent.
         smtp_settings:
           fieldsets:
             sender: Sender
@@ -241,6 +261,14 @@ en:
         notices:
           no_organization_warning_html: You must create an organization to get started. Make sure you read %{guide} before proceeding.
           our_getting_started_guide: our getting started guide
+        organizations_list:
+          confirm_resend_invitation: Are you sure you want to resend the invitation?
+          resend_invitation: Resend invitation
       titles:
         dashboard: Dashboard
         decidim: Decidim
+  layouts:
+    decidim:
+      system:
+        login_items:
+          logout: Logout

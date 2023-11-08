@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages elections", type: :system do
+describe "Admin manages elections" do
   let(:election) { create(:election, :upcoming, :published, component: current_component) }
   let(:questionnaire) { election.questionnaire }
   let(:manifest_name) { "elections" }

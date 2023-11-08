@@ -80,6 +80,25 @@ module Decidim
         end
       end
 
+      initializer "decidim_admin.static_pages_menu" do
+        Decidim.menu :admin_static_pages_menu do |menu|
+          menu.add_item :static_pages,
+                        I18n.t("menu.static_pages", scope: "decidim.admin"),
+                        decidim_admin.static_pages_path,
+                        icon_name: "pages-line",
+                        position: 1,
+                        active: is_active_link?(decidim_admin.static_pages_path, :inclusive),
+                        if: allowed_to?(:read, :static_page)
+          menu.add_item :static_page_topics,
+                        I18n.t("menu.static_page_topics", scope: "decidim.admin"),
+                        decidim_admin.static_page_topics_path,
+                        icon_name: "pages-line",
+                        position: 2,
+                        active: is_active_link?(decidim_admin.static_page_topics_path, :inclusive),
+                        if: allowed_to?(:create, :static_page_topic)
+        end
+      end
+
       initializer "decidim_admin.user_menu" do
         Decidim.menu :admin_user_menu do |menu|
           menu.add_item :users,
@@ -112,6 +131,40 @@ module Decidim
         end
       end
 
+      initializer "decidim_admin.scopes_menu" do
+        Decidim.menu :admin_scopes_menu do |menu|
+          menu.add_item :scopes,
+                        I18n.t("menu.scopes", scope: "decidim.admin"),
+                        decidim_admin.scopes_path,
+                        icon_name: "price-tag-3-line",
+                        position: 1.3,
+                        if: allowed_to?(:read, :scope)
+          menu.add_item :scope_types,
+                        I18n.t("menu.scope_types", scope: "decidim.admin"),
+                        decidim_admin.scope_types_path,
+                        icon_name: "price-tag-3-line",
+                        position: 1.4,
+                        if: allowed_to?(:read, :scope_type)
+        end
+      end
+
+      initializer "decidim_admin.areas_menu" do
+        Decidim.menu :admin_areas_menu do |menu|
+          menu.add_item :areas,
+                        I18n.t("menu.areas", scope: "decidim.admin"),
+                        decidim_admin.areas_path,
+                        icon_name: "layout-masonry-line",
+                        position: 1.5,
+                        if: allowed_to?(:read, :area)
+          menu.add_item :area_types,
+                        I18n.t("menu.area_types", scope: "decidim.admin"),
+                        decidim_admin.area_types_path,
+                        icon_name: "layout-masonry-line",
+                        position: 1.6,
+                        if: allowed_to?(:read, :area_type)
+        end
+      end
+
       initializer "decidim_admin.settings_menu" do
         Decidim.menu :admin_settings_menu do |menu|
           menu.add_item :edit_organization,
@@ -141,25 +194,12 @@ module Decidim
                         icon_name: "price-tag-3-line",
                         position: 1.3,
                         if: allowed_to?(:read, :scope)
-          menu.add_item :scope_types,
-                        I18n.t("menu.scope_types", scope: "decidim.admin"),
-                        decidim_admin.scope_types_path,
-                        icon_name: "price-tag-3-line",
-                        position: 1.4,
-                        if: allowed_to?(:read, :scope_type)
           menu.add_item :areas,
                         I18n.t("menu.areas", scope: "decidim.admin"),
                         decidim_admin.areas_path,
                         icon_name: "layout-masonry-line",
                         position: 1.5,
                         if: allowed_to?(:read, :area)
-
-          menu.add_item :area_types,
-                        I18n.t("menu.area_types", scope: "decidim.admin"),
-                        decidim_admin.area_types_path,
-                        icon_name: "layout-masonry-line",
-                        position: 1.6,
-                        if: allowed_to?(:read, :area_type)
 
           menu.add_item :help_sections,
                         I18n.t("menu.help_sections", scope: "decidim.admin"),

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Initiative", type: :system do
+describe "Initiative" do
   let(:organization) { create(:organization, available_authorizations: authorizations) }
   let(:do_not_require_authorization) { true }
   let(:authorizations) { %w(dummy_authorization_handler) }

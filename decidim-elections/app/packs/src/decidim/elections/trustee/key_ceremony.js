@@ -19,8 +19,9 @@ import { TrusteeWrapperAdapter as ElectionGuardTrusteeWrapperAdapter } from "@de
 $(() => {
   // UI Elements
   const $keyCeremony = $("#trustee-step");
+  const trusteeStep = $keyCeremony.data("currentStep")
 
-  if ($keyCeremony.length) {
+  if ($keyCeremony.length && trusteeStep === "key_ceremony") {
     const $startButton = $keyCeremony.find("#start");
     const $backButton = $keyCeremony.find("#back");
 

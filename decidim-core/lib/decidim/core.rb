@@ -624,7 +624,7 @@ module Decidim
   #
   # Returns an Array[ComponentManifest].
   def self.component_manifests
-    component_registry.manifests
+    component_registry.manifests.sort_by(&:name)
   end
 
   # Public: Finds all registered participatory space manifest's via the
