@@ -7,13 +7,6 @@
 <% end %>
 
 <% content_for :toc do %>
-  <a href="#typefaces">Typefaces</a>
-  <a href="#headings">Headings</a>
-  <a href="#content">Content</a>
-  <a href="#readability">Readability</a>
-<% end %>
-
-<% content_for :toc do %>
   <% typography_sections.each do |section| %>
     <%= link_to(section_text(section), "##{section[:id]}") %>
   <% end %>
