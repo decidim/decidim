@@ -80,12 +80,20 @@ module Decidim
       private
 
       def max_answers_and_votes
-        byebug
-        # question_results.each do |question_form|
-        #   next unless question_form.value > ballot_results.blank_ballots_count
-
-        #   question_form.errors.add(:base, :blank_count_invalid)
-        # end
+        expected_blanks = question_results.sum { |q| q.value.to_i }
+        expected_answers = answer_results.sum { |a| a.value.to_i }
+        if ballot_results.blank_ballots_count != expected_blanks
+          ballot_results.errors.add(:blank_ballots_count, :invalid)
+          errors.add(:base, I18n.t("decidim.votings.polling_officer_zone.closures.edit.modal_ballots_results_count_error.blank",
+                                   expected: ballot_results.blank_ballots_count,
+                                   current: expected_blanks))
+        end
+        if ballot_results.valid_ballots_count != expected_answers
+          ballot_results.errors.add(:valid_ballots_count, :invalid)
+          errors.add(:base, I18n.t("decidim.votings.polling_officer_zone.closures.edit.modal_ballots_results_count_error.valid",
+                                   expected: ballot_results.valid_ballots_count,
+                                   current: expected_answers))
+        end
       end
     end
   end

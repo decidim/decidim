@@ -13,8 +13,6 @@ module Decidim
       validates :id, :value, presence: true
       validates :value, numericality: true
 
-      validate :max_blank_count
-
       def map_model(model)
         @question = model[:question]
         @closure = model[:closure]
@@ -30,14 +28,6 @@ module Decidim
 
       def closure
         @closure ||= context&.closure
-      end
-
-      private
-
-      def max_blank_count
-        return unless value.to_i > closure&.results&.blank_ballots&.first&.value.to_i
-
-        errors.add(:base, :blank_count_invalid)
       end
     end
   end

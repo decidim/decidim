@@ -1,9 +1,9 @@
 $(() => {
   const submitBtn = document.getElementById("submit-ballot-recount");
   const modalBtn = document.getElementById("btn-modal-closure-results-count-error");
-  const totals = document.querySelectorAll(".form.edit_closure .total-value");
-  const answers = document.querySelectorAll(".form.edit_closure .answer-value");
-  const notas = document.querySelectorAll(".form.edit_closure .nota-value");
+  const totals = document.querySelectorAll(".form.edit_closure input.total-value");
+  const answers = document.querySelectorAll(".form.edit_closure input.answer-value");
+  const notas = document.querySelectorAll(".form.edit_closure input.nota-value");
   const modalTotal = document.getElementById("dialog-total-modal-closure-results-count-error");
   const modalValid = document.getElementById("dialog-valid-modal-closure-results-count-error");
   const modalBlank = document.getElementById("dialog-blank-modal-closure-results-count-error");
