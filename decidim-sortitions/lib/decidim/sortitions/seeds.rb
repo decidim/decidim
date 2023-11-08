@@ -12,7 +12,7 @@ module Decidim
       end
 
       def call
-        component = Decidim::Component.create!(
+        Decidim::Component.create!(
           name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :sortitions).i18n_name,
           manifest_name: :sortitions,
           published_at: Time.current,
