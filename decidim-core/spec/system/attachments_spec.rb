@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Attachment spec", type: :system do
+describe "Attachment spec" do
   let(:user) { create(:user, :confirmed) }
   let(:organization) { user.organization }
   let(:file_location) { Decidim::Dev.asset("import_proposals.csv") }
