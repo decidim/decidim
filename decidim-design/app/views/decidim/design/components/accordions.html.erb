@@ -1,0 +1,66 @@
+<% content_for :heading do %>
+  Accordions
+<% end %>
+
+<% content_for :description do %>
+  Accordions are a javascript feature available thanks to an external library called <a href="https://github.com/jonathanlevaillant/a11y-accordion-component" target="_blank" rel="noopener noreferrer">a11y-accordion-component</a>.
+<% end %>
+
+<% content_for :toc do %>
+  <a href="#example">Demo</a>
+  <a href="#usage">Usage</a>
+<% end %>
+
+<section id="demo" class="design__section">
+  <h2>Demo</h2>
+
+  <p>Throughout the application the accordions are used, mainly, to show/hide content in tabs or fold/unfold visible texts.</p>
+
+  <div data-component="accordion" data-multiselectable="false" id="example-accordion-1">
+    <ul class="tab-x-container">
+      <% 3.times do |tab| %>
+        <li>
+          <button id="trigger-1-<%= tab %>" class="tab-x" data-controls="panel-1-<%= tab %>" <%= "data-open=true" if tab.zero? %>>
+            Trigger <%= tab %>
+          </button>
+        </li>
+      <% end %>
+    </ul>
+
+    <% 3.times do |panel| %>
+      <div id="panel-1-<%= panel %>" class="py-8 text-sm font-italic">
+        Content of the panel <%= panel %>
+      </div>
+    <% end %>
+  </div>
+</section>
+
+<section id="usage" class="design__section">
+  <h2>Usage</h2>
+
+  <p>An accordion requires at least three elements:</p>
+
+  <p>1. A wrapper <code>div</code>, with the data-attribute <code>data-component="accordion"</code>, over all the available triggers and panels.</p>
+
+  <p>2. A trigger element, user actionable (as a button), pointing to the collapsable element through <code>data-controls="panel"</code>, where <i>panel</i> is the <code>id</code> of the panel.</p>
+
+  <p>3. A hideable element, whose <code>id</code> matches the data-controls value the trigger refers to.</p>
+
+  <div class="design__section-snippet" style="margin-top: inherit;">
+    <p>Source code on GitHub: <%= link_to("decidim-core/app/packs/src/decidim/a11y.js", "https://github.com/decidim/decidim/blob/develop/decidim-core/app/packs/src/decidim/a11y.js", target: "_blank", rel: "noopener noreferrer") %></p>
+
+    <code>
+      <textarea rows="8">
+<div data-component="accordion" id="example-accordion">
+  <button id="trigger" data-controls="panel">
+    Trigger
+  </button>
+
+  <div id="panel" aria-hidden="true">
+    Panel
+  </div>
+</div>
+      </textarea>
+    </code>
+  </div>
+</section>
