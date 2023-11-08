@@ -280,6 +280,14 @@ module Decidim
         end
       end
 
+      initializer "decidim_core.clean_attachments" do
+        config.to_prepare do
+          ActiveSupport::Notifications.subscribe("service_upload.active_storage") do |_, _, _, _, payload|
+            Decidim::CleanUnattachedBlobJob.set(wait: 10.minutes).perform_later(payload[:key])
+          end
+        end
+      end
+
       initializer "decidim_core.validators" do
         config.to_prepare do
           # Decidim overrides to the file content type validator
