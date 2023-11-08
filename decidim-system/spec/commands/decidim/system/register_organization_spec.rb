@@ -107,6 +107,18 @@ module Decidim
             expect(organization.tos_version).to eq(tos_page.updated_at)
           end
 
+          it "sets the default colors" do
+            command.call
+            organization = Organization.last
+
+            expect(organization.colors["alert"]).to eq("#ec5840")
+            expect(organization.colors["primary"]).to eq("#53bf40")
+            expect(organization.colors["success"]).to eq("#57d685")
+            expect(organization.colors["warning"]).to eq("#ffae00")
+            expect(organization.colors["tertiary"]).to eq("#bf4053")
+            expect(organization.colors["secondary"]).to eq("#4053bf")
+          end
+
           describe "#encrypted_smtp_settings" do
             it "concatenates from_email and from_label" do
               expect do
