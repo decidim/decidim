@@ -105,6 +105,8 @@
 .design__table {
   @apply w-full text-center text-sm text-gray-2;
 
+  --cell-width: ;
+
   thead {
     @apply bg-gray-3;
   }
@@ -114,6 +116,6 @@
   }
 
   td {
-    @apply px-6 py-4 border border-background;
+    @apply px-6 py-4 border border-background w-[var(--cell-width)];
   }
 }
