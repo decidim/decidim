@@ -1,0 +1,11 @@
+<% content_for :heading do %>
+  Activity
+<% end %>
+
+<% content_for :toc do %>
+  <% activity_sections.each do |section| %>
+    <%= link_to(section_text(section), "##{section[:id]}") %>
+  <% end %>
+<% end %>
+
+<%= render partial: "decidim/design/shared/sections", locals: { sections: activity_sections } %>
