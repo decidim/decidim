@@ -68,7 +68,6 @@ module Decidim
                            ::Decidim::MyModule::Permissions,
                            ::Decidim::Permissions)
 
-
       private
 
       def permission_class_chain
