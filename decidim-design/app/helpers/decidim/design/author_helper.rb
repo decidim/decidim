@@ -45,7 +45,7 @@ module Decidim
               },
               {
                 type: :text,
-                values: ["Appending <code>layout: :compact</code> to the cell arguments will display the author version that identifies the resource creator."]
+                values: ["This author version is the common way to identify the resource creator."]
               },
               {
                 values: section_subtitle(title: "Avatar")
@@ -56,8 +56,7 @@ module Decidim
               },
               {
                 type: :text,
-                values: ["Appending <code>layout: :avatar</code> shows only the picture.
-                          Often it is used when there are narrow spaces, where the author is a secondary information"]
+                values: ["It is used when there are narrow spaces, where the author is a secondary information"]
               }
             ]
           },
