@@ -1,0 +1,89 @@
+<% content_for :heading do %>
+  Dialogs
+<% end %>
+
+<% content_for :description do %>
+  Dialogs are a javascript feature available thanks to an external library called <a href="https://github.com/jonathanlevaillant/a11y-dialog-component" target="_blank" rel="noopener noreferrer">a11y-dialog-component</a>.
+<% end %>
+
+<% content_for :toc do %>
+  <a href="#example">Demo</a>
+  <a href="#usage">Usage</a>
+  <a href="#html">HTML tips</a>
+<% end %>
+
+<section id="demo" class="design__section">
+  <h2>Demo</h2>
+
+  <p>The dialogs, or modal components, are implemented thorugh the rails helper <code>decidim_modal</code>. </p>
+
+  <button data-dialog-open="example" class="button button__lg button__secondary">
+    Show modal
+  </button>
+
+  <%= decidim_modal id: "example" do %>
+    I am a modal
+  <% end %>
+</section>
+
+<section id="usage" class="design__section">
+  <h2>Usage</h2>
+
+  <p>An dialog requires two elements:</p>
+
+  <p>1. A user actionable element, with the data-attribute <code>data-dialog-open="example"</code>, where example is the <code>id</code> of the modal.</p>
+
+  <p>2. A modal element, whose <code>id</code> matches the data-target value the trigger refers to.</p>
+
+  <div class="design__section-snippet" style="margin-top: inherit;">
+    <p>Source code on GitHub: <%= link_to("decidim-core/app/packs/src/decidim/a11y.js", "https://github.com/decidim/decidim/blob/develop/decidim-core/app/packs/src/decidim/a11y.js", target: "_blank", rel: "noopener noreferrer") %></p>
+
+    <code>
+      <textarea rows="7">
+&lt;button data-dialog-open=&quot;example&quot; class=&quot;button button__lg button__secondary&quot;&gt;
+  Show modal
+&lt;/button&gt;
+
+&#60;%= decidim_modal id: "example" do %&#62;
+  I am a modal
+&#60;% end %&#62;
+      </textarea>
+    </code>
+  </div>
+</section>
+
+<section id="html" class="design__section">
+  <h2>HTML tips</h2>
+
+  <p>In order to display a complex modal, matching up the styles, do the following markup:</p>
+
+  <p>Pay attention to the <i>data-attributes</i> and the <i>ids</i>. For instance, the <code>[data-dialog-title]</code>'s id starts with <i>dialog-title</i> plus the <i>modal id</i>.</p>
+
+  <div class="design__section-snippet" style="margin-top: inherit;">
+    <code>
+      <textarea rows="20">
+&#60;%= decidim_modal id: "example" do %&#62;
+  <div data-dialog-container>
+    &#60;%= icon "icon_identificator" %&#62; // ... pick a desired icon
+    <h3 id="dialog-title-example" tabindex="-1" data-dialog-title>
+      Modal title
+    </h3>
+    <div>
+      <p id="dialog-desc-example">
+        Modal description (optional)
+      </p>
+
+      // ... add more HTML
+    </div>
+  </div>
+  <div data-dialog-actions>
+    <button data-dialog-close="example">
+      Close modal
+    </button>
+    // ... add more buttons
+  </div>
+&#60;% end %&#62;
+      </textarea>
+    </code>
+  </div>
+</section>
