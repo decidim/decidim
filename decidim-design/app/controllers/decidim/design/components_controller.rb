@@ -7,9 +7,11 @@ module Decidim
       include Decidim::Design::HasTemplates
 
       helper ButtonsHelper
+      helper CardsHelper
       helper ShareHelper
       helper AnnouncementHelper
       helper ActivityHelper
+      helper TabPanelsHelper
     end
   end
 end
