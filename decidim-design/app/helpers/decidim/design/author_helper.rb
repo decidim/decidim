@@ -56,7 +56,7 @@ module Decidim
               },
               {
                 type: :text,
-                values: ["It is used when there are narrow spaces, where the author is a secondary information"]
+                values: ["It is used when there are narrow spaces, where the author is a secondary information."]
               }
             ]
           },
