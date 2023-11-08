@@ -58,15 +58,32 @@ module Decidim
                 type: :text,
                 values: ["Appending <code>layout: :avatar</code> shows only the picture.
                           Often it is used when there are narrow spaces, where the author is a secondary information"]
-              },
+              }
             ]
           },
+          {
+            id: "source_code",
+            contents: [
+              type: :table,
+              options: { headings: %w(Card Code Usage) },
+              items: author_table(
+                { name: "Default", url: "https://github.com/decidim/decidim/tree/develop/decidim-core/app/cells/decidim/author",
+                  usage: "https://github.com/decidim/decidim/blob/develop/decidim-core/app/cells/decidim/card_l/author.erb" },
+                { name: "Compact", url: "https://github.com/decidim/decidim/tree/develop/decidim-core/app/cells/decidim/author",
+                  usage: "https://github.com/decidim/decidim/blob/develop/decidim-blogs/app/views/decidim/blogs/posts/show.html.erb" },
+                { name: "Avatar", url: "https://github.com/decidim/decidim/tree/develop/decidim-core/app/cells/decidim/author", usage: "https://github.com/decidim/decidim/blob/develop/decidim-core/app/cells/decidim/endorsers_list/show.erb" }
+              )
+            ]
+          }
         ]
       end
 
       def author_table(*table_rows, **_opts)
-        table_rows.each_with_index.map do |table_cell, _ix|
+        table_rows.map do |table_cell|
           row = []
+          row << table_cell[:name]
+          row << link_to(table_cell[:url].split("/").last, table_cell[:url], target: "_blank", class: "text-secondary underline", rel: "noopener")
+          row << link_to(table_cell[:usage].split("/").last, table_cell[:usage], target: "_blank", class: "text-secondary underline", rel: "noopener")
           row
         end
       end
