@@ -2,15 +2,15 @@
 
 The concept regarding the notitication is being described in the xref:develop:notifications.adoc[Notifications] page.
 
-Event classes are located in the `app/events/decidim/<my_plugin>` directory, and named: `<my_event>_event.rb`.
+Event classes are located in the `app/events/decidim/<my_module>` directory, and named: `<my_resource>_event.rb`.
 
 ```ruby
 # frozen_string_literal: true
 
-# app/events/decidim/my_plugin/my_event_event.rb
+# app/events/decidim/my_module/my_resource_event.rb
 module Decidim
-  module MyPlugin
-    class MyEvent < Decidim::Events::SimpleEvent
+  module MyModule
+    class MyResourceEvent < Decidim::Events::SimpleEvent
       # Defines a list of methods that will be used to translate the resource inside the event.
       i18n_attributes :example_resource_title
 

@@ -2,11 +2,14 @@
 
 Decidim jobs classes are not do not implement anything different than what `ActiveJob` has to offer.
 
-Form classes are located in the `app/jobs/decidim/<my_plugin>` directory, and named: `<my_custom_job>_job.rb`.
+Jobs classes are located in the `app/jobs/decidim/<my_module>` directory, and named: `<my_custom>_job.rb`.
 
 ```ruby
+# frozen_string_literal: true
+
+# app/jobs/decidim/my_module/my_custom_job.rb
 module Decidim
-  module MyPlugin
+  module MyModule
     class MyCustomJob < ActiveJob::Base
       queue_as :default
 
@@ -17,3 +20,6 @@ module Decidim
   end
 end
 ```
+
+== More info
+- https://edgeguides.rubyonrails.org/active_job_basics.html[Active Job documentation]

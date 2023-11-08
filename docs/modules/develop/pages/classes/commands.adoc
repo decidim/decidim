@@ -4,16 +4,16 @@ A command is custom class that manages the logic between your input, usually a x
 
 Usually, a command is used to create, update or delete a object.
 
-Commands are located in the `app/commands/decidim/<my_plugin>` directory, and named: `<my_command>.rb`.
+Commands are located in the `app/commands/decidim/<my_module>` directory, and named: `<action>_<my_resource>.rb`.
 
-An example of a command class would:
 
+In the below example, you will be able to see how the command (`CreateMyResource`), events (`Decidim::MyModule::MyResourceEvent`) and jobs (`Decidim::MyModule::MyCustomJob`) can be used.
 ```ruby
 # frozen_string_literal: true
 
-# app/commands/decidim/my_plugin/create_my_resource.rb
+# app/commands/decidim/my_module/create_my_resource.rb
 module Decidim
-  module MyPlugin
+  module MyModule
     # A command with the business logic to create a resource.
     class CreateMyResource < Decidim::Command
       # Public: Initializes the command.
@@ -28,6 +28,8 @@ module Decidim
 
       transation do
          create_resource
+         dispatch_event
+         process_jobs
       end
       broadcast(:ok)
     end
@@ -36,8 +38,20 @@ module Decidim
 
     attr_reader :form, :resource
 
+    def process_jobs
+      Decidim::MyModule::MyCustomJob.perform_later(resource)
+    end
+
+    def dispatch_event
+        Decidim::EventsManager.publish(
+          event: "decidim.events.my_module.my_resource_created",
+          event_class: Decidim::MyModule::MyResourceEvent,
+          resource:
+        )
+    end
+
     def create_resource
-      Decidim.traceability.create!(
+      @resource = Decidim.traceability.create!(
         resource,
         form.current_user,
         **attributes,
@@ -63,7 +77,7 @@ Sometimes you may need to extend a `Decidim` supplied command, then you can eith
 ```ruby
 # frozen_string_literal: true
 
-# app/overrides/commands/create_my_resource.rb
+# app/lib/overrides/commands/create_my_resource.rb
 module Decidim
   module Overrides
     module Commands
@@ -80,5 +94,8 @@ module Decidim
   end
 end
 
-Decidim::MyPlugin::CreateMyResource.prepend(Decidim::Overrides::Commands::CreateMyResource)
+Decidim::MyModule::CreateMyResource.prepend(Decidim::Overrides::Commands::CreateMyResource)
 ```
+
+== More Info
+- `Decidim::Command` is an internalization of https://github.com/andypike/rectify[Rectify] gem created by Andy Pike

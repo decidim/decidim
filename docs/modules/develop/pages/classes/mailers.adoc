@@ -2,17 +2,20 @@
 
 The mailer class, is not that different than what default Rails has to offer.
 
-Mail classes are located in the `app/mailers/decidim/<my_plugin>` directory, and named: `<my_custom_mail>_mailer.rb`.
+Mail classes are located in the `app/mailers/decidim/<my_module>` directory, and named: `<my_custom>_mailer.rb`.
 
 ```ruby
+# frozen_string_literal: true
+
+# app/mailers/decidim/my_module/my_custom_mailer.rb
 module Decidim
-  module MyPlugin
-    class MyCustomMailer <  < Decidim::ApplicationMailer
+  module MyModule
+    class MyCustomMailer < Decidim::ApplicationMailer
       def greeting(user)
         with_user(user) do
           @user = user
 
-          subject = I18n.t("greeting.subject", scope: "decidim.my_plugin.mailer.my_custom_mailer")
+          subject = I18n.t("greeting.subject", scope: "decidim.my_module.mailer.my_custom_mailer")
           mail(to: user.email, subject:)
         end
       end
@@ -22,3 +25,6 @@ end
 ```
 
 Please notice the `with_user` method, that is being used to set the locale of the mailer to the user's locale.
+
+== More info
+- https://edgeguides.rubyonrails.org/action_mailer_basics.html[Action Mailer documentation]

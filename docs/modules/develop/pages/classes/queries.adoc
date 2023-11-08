@@ -2,14 +2,14 @@
 
 The Query class pleace where you can store any complex queries your application may require.
 
-Query classes are located in the `app/query/decidim/<my_plugin>` directory, and named: `<my_query>_query.rb`.
+Query classes are located in the `app/query/decidim/<my_module>` directory, and named: `<my_resource>_query.rb`.
 
 A typical query class looks like this:
 
 ```ruby
 module Decidim
-  module MyPlugin
-    class MyQuery < Decidim::Query
+  module MyModule
+    class MyResourceQuery < Decidim::Query
       def self.for(components, extra_params)
         new(components, extra_params).query
       end
@@ -19,8 +19,9 @@ module Decidim
         @start_at = options.delete(:start_at)
         @end_at = options.delete(:end_at)
       end
+
       def query
-        resources = Decidim::MyPlugin::MyResource.where(component: @components)
+        resources = Decidim::MyModule::MyResource.where(component: @components)
         resources = resources.where("created_at >= ?", @start_at) if @start_at.present?
         resources = resources.where("created_at <= ?", @end_at) if @end_at.present?
         # and you can add any other query you need
@@ -34,5 +35,8 @@ end
 Then you can use the query in your code:
 
 ```ruby
- @resources = Decidim::MyPlugin::MyQuery.for(components, start_at: 1.month.ago, end_at: Time.current)
+ @resources = Decidim::MyModule::MyQuery.for(components, start_at: 1.month.ago, end_at: Time.current)
 ```
+
+== More Info
+- `Decidim::Query` is an internalization of https://github.com/andypike/rectify[Rectify] gem created by Andy Pike

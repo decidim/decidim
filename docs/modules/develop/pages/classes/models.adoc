@@ -5,9 +5,12 @@ The models in Decidim are just plain `ActiveRecord` models, so you can use all t
 A model class example would be:
 
 ```ruby
+# frozen_string_literal: true
+
+# app/models/decidim/my_module/my_resource.rb
 module Decidim
-  module MyPlugin
-    class MyResource < Decidim::MyPlugin::ApplicationRecord
+  module MyModule
+    class MyResource < Decidim::MyModule::ApplicationRecord
       include Decidim::HasComponent
       include Decidim::Traceable
       include Decidim::Loggable
@@ -37,16 +40,16 @@ The concerns are used to share code between models. They are located in `app/mod
 
 Most commonly used concerns are:
 
-- `Decidim::ActsAsAuthor`
+- xref:`Decidim::ActsAsAuthor`
 - `Decidim::ActsAsTree`
 - `Decidim::Amendable`
-- `Decidim::Authorable`
-- `Decidim::Coauthorable`
+- `xref:develop:authorable.adoc[Decidim::Authorable]`
+- `xref:develop:authorable.adoc[Decidim::Coauthorable]`
 - `Decidim::DownloadYourData`
-- `Decidim::Endorsable`
+- `xref:develop:endorsable.adoc[Decidim::Endorsable]`
 - `Decidim::FilterableResource`
 - `Decidim::Fingerprintable`
-- `Decidim::Followable`
+- `xref:develop:followable.adoc[Decidim::Followable]`
 - `Decidim::FriendlyDates`
 - `Decidim::HasArea`
 - `Decidim::HasAttachmentCollections`
@@ -66,14 +69,15 @@ Most commonly used concerns are:
 - `Decidim::Publicable`
 - `Decidim::Randomable`
 - `Decidim::RecordEncryptor`
-- `Decidim::Reportable`
+- `xref:develop:reportable.adoc[Decidim::Reportable]`
 - `Decidim::Resourceable`
 - `Decidim::ScopableParticipatorySpace`
 - `Decidim::ScopableResource`
 - `Decidim::Searchable`
-- `Decidim::Traceable`
-- `Decidim::TranslatableAttributes`
-- `Decidim::TranslatableResource`
+- `xref:develop:share_tokens.adoc[Decidim::ShareableWithToken]`
+- `xref:develop:traceable.adoc[Decidim::Traceable]`
+- `xref:develop:machine_translations.adoc[Decidim::TranslatableAttributes]`
+- `xref:develop:machine_translations.adoc[Decidim::TranslatableResource]`
 
 === Module specific concerns
 
@@ -88,3 +92,6 @@ Most commonly used concerns are:
 - `Decidim::Proposals::ParticipatoryTextSection`
 - `Decidim::Proposals::Valuatable`
 - `Decidim::Templates::Templatable`
+
+== More info
+- https://edgeguides.rubyonrails.org/active_record_basics.html[Active Record documentation]

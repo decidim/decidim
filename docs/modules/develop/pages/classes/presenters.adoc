@@ -1,10 +1,11 @@
-= Persenters
+= Presenters
 
 There are more types of presenters, that Decidim is using:
 
 - AdminLogPresenters
 
 == ResourcePresenter
+
 This presenter is used to show in the views the resource.
 
 The presenter classes are located in the `app/presenter/decidim/<my_module>/` directory, and named: `<my_resource>_presenter.rb`.
@@ -15,7 +16,7 @@ If you need to use this, you can add in your model a method like this:
 # Returns the presenter for this author, to be used in the views.
 # Required by ResourceRenderer.
 def presenter
-  Decidim::MyPlugin::MyResourcePresenter.new(self)
+  Decidim::MyModule::MyResourcePresenter.new(self)
 end
 
 ```
@@ -23,9 +24,11 @@ end
 Then, you can implement the presenter like this:
 
 ```ruby
+# frozen_string_literal: true
 
+# app/presenters/decidim/my_module/my_resource_presenter.rb
 module Decidim
-  module MyPlugin
+  module MyModule
     class MyResourcePresenter < Decidim::ResourcePresenter
     end
   end
@@ -43,15 +46,18 @@ If you need to use this, you can add in your model a method like this:
 
 ```ruby
 def self.log_presenter_class_for(_log)
-  Decidim::MyPlugin::AdminLog::MyResourcePresenter
+  Decidim::MyModule::AdminLog::MyResourcePresenter
 end
 ```
 
 Then, you can implement the presenter like this:
 
 ```ruby
+# frozen_string_literal: true
+
+# app/presenters/decidim/my_module/admin_log/my_resource_presenter.rb
 module Decidim
-  module MyPlugin
+  module MyModule
     module AdminLog
       class MyResourcePresenter < Decidim::Log::BasePresenter
 
@@ -73,7 +79,7 @@ module Decidim
         def action_string
           case action
           when "publish"
-            "decidim.my_plugin.admin_log.my_resource.#{action}"
+            "decidim.my_module.admin_log.my_resource.#{action}"
           else
             super
           end
@@ -84,12 +90,15 @@ module Decidim
 end
 ```
 
-When handling custom events, like `publish`, you need to add the translation to the `decidim.my_plugin.admin_log.my_resource` scope.
+When handling custom events, like `publish`, you need to add the translation to the `decidim.my_module.admin_log.my_resource` scope.
 You will also need to use a command to handle the event, having a method like this:
 
 ```ruby
+# frozen_string_literal: true
+
+# app/commands/decidim/my_module/publish_my_resource.rb
 module Decidim
-  module MyPlugin
+  module MyModule
     # A command with the business logic to invite an user to an organization.
     class PublishMyResource < Decidim::Command
       # Public: Initializes the command.
