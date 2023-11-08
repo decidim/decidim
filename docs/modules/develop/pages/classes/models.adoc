@@ -21,7 +21,6 @@ module Decidim
 end
 ```
 
-
 == Scopes
 
 Within core provided classes there are no `default_scopes`.
