@@ -73,9 +73,7 @@ describe "Admin manages participatory texts" do
       "What should be accounted",
       "7", "8",
       "Following up accounted results",
-      "9", "10", "11", "12", "13",
-      "Summary",
-      "14", "15"
+      "9", "10", "11", "12", "13", "14"
     ]
     expect(proposals.count).to eq(titles.size)
     expect(proposals.published.count).to eq(titles.size)
@@ -115,7 +113,7 @@ describe "Admin manages participatory texts" do
     it "creates proposals" do
       visit_participatory_texts
       import_document
-      validate_occurrences(sections: 2, subsections: 5, articles: 15)
+      validate_occurrences(sections: 1, subsections: 5, articles: 14)
       move_some_sections
       publish_participatory_text
       validate_published
