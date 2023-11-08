@@ -14,27 +14,13 @@
 <section id="demo" class="design__section">
   <h2>Demo</h2>
 
-  <p>It is import to remark this is a ONLY a javascript feature. Styles are provided apart.</p>
-
-  <div data-component="accordion" id="example-accordion">
-    <% 3.times do |element| %>
-      <button id="trigger-<%= element %>" data-controls="panel-<%= element %>">
-        Trigger <%= element %>
-      </button>
-
-      <div id="panel-<%= element %>" aria-hidden="true">
-        Panel <%= element %>
-      </div>
-    <% end %>
-  </div>
-
-  <p>The following example shows an better-looking accordion with some styles attached.</p>
+  <p>Throughout the application the accordions are used, mainly, to show/hide content in tabs or fold/unfold visible texts.</p>
 
   <div data-component="accordion" data-multiselectable="false" id="example-accordion-1">
     <ul class="tab-x-container">
       <% 3.times do |tab| %>
         <li>
-          <button id="trigger-1-<%= tab %>" class="tab-x" data-controls="panel-1-<%= tab %>" >
+          <button id="trigger-1-<%= tab %>" class="tab-x" data-controls="panel-1-<%= tab %>" <%= "data-open=true" if tab.zero? %>>
             Trigger <%= tab %>
           </button>
         </li>
