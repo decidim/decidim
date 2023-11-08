@@ -75,7 +75,6 @@ module Decidim
           "activemodel.attributes.my_resource"
         end
 
-          # @api
         def action_string
           case action
           when "publish"
