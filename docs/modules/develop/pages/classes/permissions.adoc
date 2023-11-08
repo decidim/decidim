@@ -115,4 +115,3 @@ You can also pass parameters to the `allowed_to` method, as follows:
   <p> You can read this resource </p>
 <% end %>
 ```
-
