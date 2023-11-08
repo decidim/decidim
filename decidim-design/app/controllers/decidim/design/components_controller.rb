@@ -8,6 +8,8 @@ module Decidim
 
       helper ButtonsHelper
       helper CardsHelper
+      helper ShareHelper
+      helper AnnouncementHelper
     end
   end
 end
