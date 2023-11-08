@@ -49,7 +49,7 @@
             </p>
           </div>
         </div>
-        <% presented_endorsers = endorsers_presenters_for(proposal).to_a %>
+        <% presented_endorsers = endorsers_presenters_for(proposal).first(6).to_a %>
         <% if presented_endorsers.any? %>
           <div class="card-section">
             <div class="row column">
