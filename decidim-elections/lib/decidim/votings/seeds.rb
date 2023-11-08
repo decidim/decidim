@@ -3,6 +3,7 @@
 module Decidim
   module Votings
     class Seeds
+      # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
       def call
         organization = Decidim::Organization.first
         seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
@@ -196,6 +197,7 @@ module Decidim
           end
         end
       end
+      # rubocop:enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
     end
   end
 end

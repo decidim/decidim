@@ -11,6 +11,7 @@ module Decidim
         @participatory_space = participatory_space
       end
 
+      # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
       def call
         admin_user = Decidim::User.find_by(
           organization: participatory_space.organization,
@@ -288,6 +289,7 @@ module Decidim
           body: ::Faker::Lorem.paragraphs(number: 2).join("\n")
         )
       end
+      # rubocop:enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
     end
   end
 end
