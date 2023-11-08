@@ -44,6 +44,12 @@ describe "Orders", type: :system do
         visit_budget
       end
 
+      it "shows a filter to select added projects" do
+        within(".budget__list--header") do
+          expect(page).to have_text("Added")
+        end
+      end
+
       context "when voting by percentage threshold" do
         it "displays description messages" do
           within ".budget-summary", match: :first do
@@ -584,6 +590,14 @@ describe "Orders", type: :system do
         visit_budget
 
         expect(page).to have_selector(".card__list-metadata .success", count: 2)
+      end
+
+      it "does not show a filter to select added projects" do
+        visit_budget
+
+        within(".budget__list--header") do
+          expect(page).not_to have_text("Added")
+        end
       end
     end
   end
