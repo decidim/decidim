@@ -6,7 +6,6 @@ Usually, a command is used to create, update or delete a object.
 
 Commands are located in the `app/commands/decidim/<my_module>` directory, and named: `<action>_<my_resource>.rb`.
 
-
 In the below example, you will be able to see how the command (`CreateMyResource`), events (`Decidim::MyModule::MyResourceEvent`) and jobs (`Decidim::MyModule::MyCustomJob`) can be used.
 ```ruby
 # frozen_string_literal: true
