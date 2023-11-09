@@ -1,9 +1,9 @@
 = Events
 
-The concept regarding the notitication is being described in the xref:develop:notifications.adoc[Notifications] page.
+The concept regarding the notification is being described in the xref:develop:notifications.adoc[Notifications] page.
 
 - To dispatch notifications in the user account when something happens on a resource or a space they are following
-- To dispatch emails for the above notifications, if the user has not enabled the mail digest  
+- To dispatch emails for the above notifications, if the user has not enabled the mail digest
 - To dispatch push notifications  when the installation is active and the user has enabled them
 - To show the activity done by the user in the user's account page
 - In admin panel to show the activity of other admins

@@ -22,7 +22,7 @@ module Decidim
         @resource = resource
       end
 
-    def call
+      def call
       return broadcast(:invalid) if form.invalid?
 
       transation do
@@ -33,15 +33,15 @@ module Decidim
       broadcast(:ok)
     end
 
-    private
+      private
 
-    attr_reader :form, :resource
+      attr_reader :form, :resource
 
-    def process_jobs
+      def process_jobs
       Decidim::MyModule::MyCustomJob.perform_later(resource)
     end
 
-    def dispatch_event
+      def dispatch_event
         Decidim::EventsManager.publish(
           event: "decidim.events.my_module.my_resource_created",
           event_class: Decidim::MyModule::MyResourceEvent,
@@ -49,7 +49,7 @@ module Decidim
         )
     end
 
-    def create_resource
+      def create_resource
       @resource = Decidim.traceability.create!(
         resource,
         form.current_user,
@@ -58,14 +58,15 @@ module Decidim
       )
     end
 
-    # this is mapping of
-    # ActiveRecord::attribute => form.attribute
-    def attributes
+      # this is mapping of
+      # ActiveRecord::attribute => form.attribute
+      def attributes
       {
         title: form.title,
         description: form.description,
         resource: form.resource
       }
+    end
     end
   end
 end
