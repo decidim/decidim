@@ -12,7 +12,7 @@ module Decidim
         require "decidim/faker/localized"
         require "decidim/faker/internet"
 
-        seeds_root = File.join(__dir__, "seeds")
+        seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
 
         # Since we usually migrate and seed in the same process, make sure
         # that we do not have invalid or cached information after a migration.
