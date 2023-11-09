@@ -72,42 +72,47 @@
       </ul>
     </div>
 
-    <div class="row column">
-      <strong><%= t ".endorsers" %>:</strong>
-        <ul id="proposal-endorsers-list">
-          <% presented_endorsers = endorsers_presenters_for(proposal).to_a %>
-          <% presented_endorsers.first(5).each do |presented_endorser| %>
-            <li>
-              <%= link_to_if(
-                presented_endorser.profile_path.present?,
-                presented_endorser.name,
-                presented_endorser.profile_path,
-                target: :blank
-              ) %>
-            </li>
-          <% end %>
-          <% if presented_endorsers.count > 5 %>
-            <li>
-              <%= link_to(
-                  t(".n_more_endorsers", count: presented_endorsers.count - 5),
-                  resource_locator(proposal).path
-              ) %>
-            </li>
-          <% end %>
-        </ul>
-    </div>
+    <% presented_endorsers = endorsers_presenters_for(proposal).to_a %>
+    <% if presented_endorsers.any? %>
+      <div class="row column">
+        <strong><%= t ".endorsers" %>:</strong>
+          <ul id="proposal-endorsers-list">
+            <% presented_endorsers.first(5).each do |presented_endorser| %>
+              <li>
+                <%= link_to_if(
+                  presented_endorser.profile_path.present?,
+                  presented_endorser.name,
+                  presented_endorser.profile_path,
+                  target: :blank
+                ) %>
+              </li>
+            <% end %>
+            <% if presented_endorsers.count > 5 %>
+              <li>
+                <%= link_to(
+                    t(".n_more_endorsers", count: presented_endorsers.count - 5),
+                    resource_locator(proposal).path
+                ) %>
+              </li>
+            <% end %>
+          </ul>
+      </div>
+    <% end %>
 
-    <div class="row column">
-      <strong><%= t ".related_meetings" %>:</strong>
-        <ul id="related-meetings">
-          <% proposal.linked_resources(:meetings, "proposals_from_meeting").each do |meeting| %>
-            <% presented_meeting = present(meeting) %>
-            <li>
-              <%= link_to presented_meeting.title, presented_meeting.profile_path %>
-            </li>
-          <% end %>
-        </ul>
-    </div>
+    <% proposal_meetings = proposal.linked_resources(:meetings, "proposals_from_meeting") %>
+    <% if proposal_meetings.any? %>
+      <div class="row column">
+        <strong><%= t ".related_meetings" %>:</strong>
+          <ul id="related-meetings">
+            <% proposal_meetings.each do |meeting| %>
+              <% presented_meeting = present(meeting) %>
+              <li>
+                <%= link_to presented_meeting.title, presented_meeting.profile_path %>
+              </li>
+            <% end %>
+          </ul>
+      </div>
+    <% end %>
 
     <% if proposal.documents.any? %>
       <div class="row column">
