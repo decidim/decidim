@@ -2,8 +2,8 @@
 
 There are more types of presenters, that Decidim is using:
 
-- ResourcePresenter
-- AdminLogPresenter
+- ResourcePresenter - This presenter type is used to ensure consistency by properly format the resource in the views, like creating links to the resource, formatting or escaping the resource texts, ensure the references are being correctly represented. 
+- AdminLogPresenter - This presenter type is used to properly display the resource in the admin area, so that Decidim is able to display any changes done on a resource, or provide additional links, etc. 
 
 == ResourcePresenter
 
