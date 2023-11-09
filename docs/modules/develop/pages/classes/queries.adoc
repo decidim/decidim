@@ -1,12 +1,15 @@
 = Queries
 
-The Query class pleace where you can store any complex queries your application may require.
+The Query class is where you can store any complex queries your application may require.
 
-Query classes are located in the `app/query/decidim/<my_module>` directory, and named: `<my_resource>_query.rb`.
+Query classes are located in the `app/queries/decidim/<my_module>` directory, and named: `<my_resource>_query.rb`.
 
 A typical query class looks like this:
 
 ```ruby
+#frozen_string_literal: true 
+
+# app/queries/decidim/my_module/my_resource_query.rb
 module Decidim
   module MyModule
     class MyResourceQuery < Decidim::Query
@@ -38,5 +41,6 @@ Then you can use the query in your code:
  @resources = Decidim::MyModule::MyQuery.for(components, start_at: 1.month.ago, end_at: Time.current)
 ```
 
-== More Info
+== More information
+
 - `Decidim::Query` is an internalization of https://github.com/andypike/rectify[Rectify] gem created by Andy Pike

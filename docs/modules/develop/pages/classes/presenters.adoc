@@ -2,7 +2,8 @@
 
 There are more types of presenters, that Decidim is using:
 
-- AdminLogPresenters
+- ResourcePresenter
+- AdminLogPresenter
 
 == ResourcePresenter
 

@@ -21,5 +21,6 @@ module Decidim
 end
 ```
 
-== More info
+== More information
+
 - https://edgeguides.rubyonrails.org/active_job_basics.html[Active Job documentation]

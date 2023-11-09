@@ -91,5 +91,6 @@ module Decidim
 end
 ```
 
-== More info
+== More information
+
 - https://edgeguides.rubyonrails.org/action_controller_overview.html[Action Controller documentation]

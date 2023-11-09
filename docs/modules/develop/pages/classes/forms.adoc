@@ -31,5 +31,6 @@ module Decidim
 end
 ```
 
-== More Info
+== More information
+
 - `Decidim::Form` is an internalization of https://github.com/andypike/rectify[Rectify] gem created by Andy Pike

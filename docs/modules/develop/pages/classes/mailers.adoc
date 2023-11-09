@@ -26,5 +26,6 @@ end
 
 Please notice the `with_user` method, that is being used to set the locale of the mailer to the user's locale.
 
-== More info
+== More information
+
 - https://edgeguides.rubyonrails.org/action_mailer_basics.html[Action Mailer documentation]
