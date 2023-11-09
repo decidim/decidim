@@ -123,6 +123,7 @@ describe "Admin views proposal details from admin" do
 
     context "when there are endorsements" do
       let!(:endorsements) do
+        # We can not use `create_list`, as it gives a "Validation failed: Resource has already been taken"
         2.times.collect do
           create(:endorsement, resource: proposal, author: build(:user, organization:))
         end
@@ -156,6 +157,7 @@ describe "Admin views proposal details from admin" do
 
       context "with more than 5 endorsements" do
         let!(:endorsements) do
+          # We can not use `create_list`, as it gives a "Validation failed: Resource has already been taken"
           6.times.collect do
             create(:endorsement, resource: proposal, author: build(:user, organization:))
           end
