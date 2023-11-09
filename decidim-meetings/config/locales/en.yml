@@ -23,6 +23,7 @@ en:
         id: ID
         iframe_access_level: Iframe access level
         iframe_embed_type: Iframe embed type
+        iframe_embed_type_html: Only a few services allow the "Embed in meeting page" or "Open in live event page". Note that with the "Embed in the meeting page" option on mobiles, as the screen inherits different dimensions, it will actually work as an "Open in live event page".
         location: Location
         location_hints: Location hints
         online_meeting_url: Online meeting URL
@@ -313,6 +314,7 @@ en:
           form:
             address_help: 'Address: used by Geocoder to find the location'
             disclaimer: 'Disclaimer: By using an external registration system, you are aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service.'
+            iframe_embed_type_html: 'Only a few services allow embedding in meeting or live event from the following domains: %{domains}'
             location_help: 'Location: message directed to the users implying the spot to meet at'
             location_hints_help: 'Location hints: additional info. Example: the floor of the building if it is an in-person meeting, or the meeting password if it is an online meeting with restricted access.'
             online_meeting_url_help: 'Link: allow participants to connect directly to your meeting'
@@ -320,7 +322,6 @@ en:
             select_a_meeting_type: Please select a meeting type
             select_a_registration_type: Please select a registration type
             select_an_iframe_access_level: Please select an iframe access level
-            show_embedded_iframe_help: 'Only a few services allow embedding in meeting or live event from the following domains: %{domains}'
           index:
             title: Meetings
           new:
@@ -496,6 +497,7 @@ en:
           available_slots_help: Leave it to 0 if you have unlimited slots available
           create_as: Create meeting as
           disclaimer: 'Disclaimer: By using an external registration system, you are aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service.'
+          iframe_embed_type_html: 'Only a few services allow embedding in meeting or live event from the following domains: %{domains}'
           location_help: 'Location: message directed to the users implying the spot to meet at'
           location_hints_help: 'Location hints: additional info. Example: the floor of the building if it is an in-person meeting, or the meeting password if it is an online meeting with restricted access.'
           online_meeting_url_help: 'Link: allow participants to connect directly to your meeting'
@@ -504,7 +506,6 @@ en:
           select_a_meeting_type: Please select a meeting type
           select_a_registration_type: Please select a registration type
           select_an_iframe_access_level: Please select an iframe access level
-          show_embedded_iframe_help: 'Only a few services allow embedding in meeting or live event from the following domains: %{domains}'
         index:
           click_here: See all meetings
           new_meeting: New meeting

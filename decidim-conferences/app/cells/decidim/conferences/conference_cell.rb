@@ -13,8 +13,6 @@ module Decidim
 
       def card_size
         case @options[:size]
-        when :l
-          "decidim/conferences/conference_l"
         when :s
           "decidim/conferences/conference_s"
         else

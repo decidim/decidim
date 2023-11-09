@@ -5,10 +5,10 @@ module Decidim
     # Controller that allows managing all pages at the admin panel.
     #
     class StaticPagesController < Decidim::Admin::ApplicationController
+      include Decidim::Admin::Concerns::HasTabbedMenu
       include Decidim::Admin::ContentBlocks::LandingPage
       include Concerns::HasContentBlocks
 
-      layout "decidim/admin/pages"
       before_action :tos_version_formatted, only: [:index, :edit]
 
       helper_method :topics
@@ -33,26 +33,6 @@ module Decidim
 
       def resource_create_url(manifest_name)
         static_page_content_blocks_path(scoped_resource, manifest_name:)
-      end
-
-      def content_blocks_title
-        t("static_pages.content_blocks.title", scope: "decidim.admin")
-      end
-
-      def add_content_block_text
-        t("static_pages.content_blocks.add", scope: "decidim.admin")
-      end
-
-      def content_block_destroy_confirmation_text
-        t("static_pages.content_blocks.destroy_confirmation", scope: "decidim.admin")
-      end
-
-      def active_content_blocks_title
-        t("static_pages.content_blocks.active_content_blocks", scope: "decidim.admin")
-      end
-
-      def inactive_content_blocks_title
-        t("static_pages.content_blocks.inactive_content_blocks", scope: "decidim.admin")
       end
 
       def resource_content_block_cell
@@ -122,6 +102,8 @@ module Decidim
       end
 
       private
+
+      def tab_menu_name = :admin_static_pages_menu
 
       def form_params
         form_params = params.to_unsafe_hash

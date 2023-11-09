@@ -4,7 +4,7 @@ require "spec_helper"
 
 # We should ideally be using the shared_context for this, but it assumes the
 # resource belongs to a component, which is not the case.
-describe "Admin manages initiative type permissions", type: :system do
+describe "Admin manages initiative type permissions" do
   let(:organization) do
     create(
       :organization,

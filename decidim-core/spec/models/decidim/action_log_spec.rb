@@ -74,7 +74,97 @@ describe Decidim::ActionLog do
     end
   end
 
-  describe "visible_for" do
+  describe ".with_resource_type" do
+    subject { described_class.with_resource_type(type_key) }
+
+    let(:type_key) { publish_logs.first.resource.class.name }
+    let!(:publish_logs) { create_list(:action_log, 2, action: "publish") }
+    let!(:create_logs) { create_list(:action_log, 5) }
+
+    let(:public_types) { %w(Decidim::DummyResources::DummyResource) }
+    let(:publicable_types) { public_types }
+
+    before do
+      allow(described_class).to receive(:public_resource_types).and_return(public_types)
+      allow(described_class).to receive(:publicable_public_resource_types).and_return(publicable_types)
+    end
+
+    context "with publicable resource type" do
+      it "returns the correct resources" do
+        expect(subject.count).to eq(publish_logs.count)
+      end
+    end
+
+    context "with public but not publicable resource type" do
+      let(:publicable_types) { [] }
+
+      it "returns the correct resources" do
+        expect(subject.count).to eq(publish_logs.count + create_logs.count)
+      end
+    end
+
+    context "with non-public and non-publicable resource types" do
+      let(:public_types) { %w(Decidim::DummyResources::DummyResource Decidim::Comments::Comment) }
+      let(:publicable_types) { %w(Decidim::DummyResources::DummyResource) }
+
+      let(:type_key) { "Decidim::UnexistingResource" }
+      let!(:create_logs) { create_list(:action_log, 5, resource: create(:comment)) }
+
+      # In this situation it should return:
+      # 1. All publicable resources with action not matching with "create"
+      # 2. All public resource types with any action
+      it "returns the correct resources" do
+        expect(subject.count).to eq(publish_logs.count + create_logs.count)
+      end
+    end
+  end
+
+  describe ".with_new_resource_type" do
+    subject { described_class.with_new_resource_type(type_key) }
+
+    let(:type_key) { publish_logs.first.resource.class.name }
+    let!(:publish_logs) { create_list(:action_log, 2, action: "publish") }
+    let!(:create_logs) { create_list(:action_log, 5) }
+
+    let(:public_types) { %w(Decidim::DummyResources::DummyResource) }
+    let(:publicable_types) { public_types }
+
+    before do
+      allow(described_class).to receive(:public_resource_types).and_return(public_types)
+      allow(described_class).to receive(:publicable_public_resource_types).and_return(publicable_types)
+    end
+
+    context "with publicable resource type" do
+      it "returns the correct resources" do
+        expect(subject.count).to eq(publish_logs.count)
+      end
+    end
+
+    context "with public but not publicable resource type" do
+      let(:publicable_types) { [] }
+
+      it "returns the correct resources" do
+        expect(subject.count).to eq(create_logs.count)
+      end
+    end
+
+    context "with non-public and non-publicable resource types" do
+      let(:public_types) { %w(Decidim::DummyResources::DummyResource Decidim::Comments::Comment) }
+      let(:publicable_types) { %w(Decidim::DummyResources::DummyResource) }
+
+      let(:type_key) { "Decidim::UnexistingResource" }
+      let!(:create_logs) { create_list(:action_log, 5, resource: create(:comment)) }
+
+      # In this situation it should return:
+      # 1. All publicable resources with action "publish"
+      # 2. All public resource types with action "create"
+      it "returns the correct resources" do
+        expect(subject.count).to eq(publish_logs.count + create_logs.count)
+      end
+    end
+  end
+
+  describe "#visible_for?" do
     subject { action_log.visible_for?(user) }
 
     let(:action_log) { create(:action_log) }
@@ -132,5 +222,15 @@ describe Decidim::ActionLog do
     end
 
     it { is_expected.to be_truthy }
+  end
+
+  describe "#user_lazy" do
+    subject { action_log.user_lazy }
+
+    let(:action_log) { create(:action_log) }
+
+    it "returns the lazy-loaded user" do
+      expect(subject).to be_a(Decidim::User)
+    end
   end
 end

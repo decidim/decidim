@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Meeting live event poll answer", type: :system do
+describe "Meeting live event poll answer" do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 

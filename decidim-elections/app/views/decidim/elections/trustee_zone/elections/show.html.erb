@@ -3,6 +3,7 @@
 
 <% if current_step %>
   <div id="trustee-step"
+    data-current-step="<%= current_step %>"
     data-election-id="<%= election.id %>"
     data-trustee-public-key="<%= trustee.public_key %>"
     data-trustee-slug="<%= trustee.slug %>"

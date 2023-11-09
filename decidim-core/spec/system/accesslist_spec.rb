@@ -3,7 +3,7 @@
 require "spec_helper"
 require "rack/attack"
 
-describe "Access list", type: :system do
+describe "Access list" do
   let!(:organization) { create(:organization) }
   let!(:admin) { create(:admin) }
 

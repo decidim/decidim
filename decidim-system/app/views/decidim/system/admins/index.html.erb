@@ -1,33 +1,9 @@
+<% add_decidim_page_title(t(".title")) %>
+
 <% provide :title do %>
   <h1 class="h1"><%= t ".title" %></h1>
 <% end %>
 
 <%= link_to t("actions.new_admin", scope: "decidim.system"), [:new, :admin], class: "button button__sm md:button__lg button__primary" %>
 
-<table>
-  <thead>
-    <tr>
-      <th><%= t("models.admin.fields.email", scope: "decidim.system") %></th>
-      <th><%= t("models.admin.fields.created_at", scope: "decidim.system") %></th>
-      <th class="actions"><%= t("actions.title", scope: "decidim.system") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @admins.each do |admin| %>
-      <tr>
-        <td>
-          <%= link_to admin.email, admin %><br>
-        </td>
-        <td>
-          <%= l admin.created_at, format: :short %>
-        </td>
-        <td class="actions">
-          <%= link_to t("actions.edit", scope: "decidim.system"), [:edit, admin] %>
-          <% unless current_admin?(admin) %>
-            <%= link_to t("actions.destroy", scope: "decidim.system"), admin, method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.system") } %>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render partial: "decidim/system/shared/admins_list", locals: { admins: @admins } %>

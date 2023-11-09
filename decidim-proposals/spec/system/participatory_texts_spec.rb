@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Participatory texts", type: :system do
+describe "Participatory texts" do
   include Decidim::SanitizeHelper
   include ActionView::Helpers::TextHelper
 

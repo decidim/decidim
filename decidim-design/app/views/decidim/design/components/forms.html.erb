@@ -1,0 +1,235 @@
+<% content_for :heading do %>
+  <%= cell "decidim/announcement", "This page comes from a legacy view. Content is outdated.", callout_class: "alert" %>
+  Forms
+<% end %>
+
+<% content_for :toc do %>
+  <a href="#common">HTML regular inputs</a>
+  <a href="#helps">Help texts</a>
+  <a href="#disabled">Disabled</a>
+  <a href="#error">Errors</a>
+  <a href="#length">Min/Max length</a>
+  <a href="#emoji">Emojis</a>
+<% end %>
+
+<%
+  text_types = [
+                "date",
+                # "datetime-local",
+                # "email",
+                # "month",
+                "number",
+                "password",
+                # "search",
+                # "tel",
+                "text"
+                # "time",
+                # "url",
+                # "week"
+              ]
+
+  options_types = %w(checkbox radio)
+%>
+
+<section id="common-panel" class="design__section">
+  <h2 class="h2">HTML regular inputs</h2>
+
+  <div class="form__wrapper">
+    <%= cell "decidim/announcement", "Only displays common types, full available list: date, datetime-local, email, month, number, password, search, tel, text, time, url, week" %>
+
+    <% text_types.each do |element| %>
+      <label>
+        input type="<%= element %>"
+        <input type="<%= element %>">
+      </label>
+    <% end %>
+
+    <% options_types.each do |element| %>
+      <fieldset>
+        <legend>fieldset [legend]</legend>
+
+        <% 3.times do |i| %>
+          <label class="form__wrapper-checkbox-label">
+            <input type="<%= element %>">
+            input type="<%= element %>"
+          </label>
+        <% end %>
+      </fieldset>
+    <% end %>
+
+    <label>
+      textarea
+      <textarea cols="30" rows="10"></textarea>
+    </label>
+
+    <label>
+      select
+      <select>
+        <% 3.times do |i| %>
+          <option value="<%= i %>">option <%= i %></option>
+        <% end %>
+      </select>
+    </label>
+  </div>
+</section>
+
+<section id="helps" class="design__section">
+  <h2 class="h2">Help texts</h2>
+
+  <div class="form__wrapper">
+    <% text_types.each do |element| %>
+      <label>
+        input type="<%= element %>"
+        <span class="help-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos hic quos omnis vero aspernatur architecto!</span>
+        <input type="<%= element %>">
+      </label>
+    <% end %>
+
+    <% options_types.each do |element| %>
+      <fieldset>
+        <legend>fieldset [legend]</legend>
+        <span class="help-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos hic quos omnis vero aspernatur architecto!</span>
+
+        <% 3.times do |i| %>
+          <label class="form__wrapper-checkbox-label">
+            <input type="<%= element %>">
+            input type="<%= element %>"
+          </label>
+        <% end %>
+      </fieldset>
+    <% end %>
+
+    <label>
+      textarea
+      <span class="help-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos hic quos omnis vero aspernatur architecto!</span>
+      <textarea cols="30" rows="10"></textarea>
+    </label>
+
+    <label>
+      select
+      <span class="help-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos hic quos omnis vero aspernatur architecto!</span>
+      <select>
+        <% 3.times do |i| %>
+          <option value="<%= i %>">option <%= i %></option>
+        <% end %>
+      </select>
+    </label>
+  </div>
+</section>
+
+<section id="disabled" class="design__section">
+  <h2 class="h2">Disabled</h2>
+
+  <div class="form__wrapper">
+    <% text_types.each do |element| %>
+      <label>
+        input type="<%= element %>" disabled
+        <input type="<%= element %>" disabled>
+      </label>
+    <% end %>
+
+    <% options_types.each do |element| %>
+      <fieldset>
+        <legend>fieldset [legend]</legend>
+
+        <% 3.times do |i| %>
+          <label class="form__wrapper-checkbox-label">
+            <input type="<%= element %>" disabled>
+            input type="<%= element %>" disabled
+          </label>
+        <% end %>
+      </fieldset>
+    <% end %>
+
+    <label>
+      textarea disabled
+      <textarea cols="30" rows="10" disabled></textarea>
+    </label>
+
+    <label>
+      select disabled
+      <select disabled>
+        <% 3.times do |i| %>
+          <option value="<%= i %>">option <%= i %></option>
+        <% end %>
+      </select>
+    </label>
+  </div>
+</section>
+
+<section id="error" class="design__section">
+  <h2 class="h2">Errors</h2>
+
+  <div class="form__wrapper">
+    <%= cell "decidim/announcement", "Does not apply for select" %>
+
+    <% text_types.each do |element| %>
+      <label>
+        input type="<%= element %>" required
+        <input type="<%= element %>" required>
+        <div class="form-error">Lorem ipsum dolor sit amet.</div>
+      </label>
+    <% end %>
+
+    <% options_types.each do |element| %>
+      <fieldset>
+        <legend>fieldset [legend]</legend>
+        <div class="form-error">Lorem ipsum dolor sit amet.</div>
+
+        <% 3.times do |i| %>
+          <label class="form__wrapper-checkbox-label">
+            <input type="<%= element %>">
+            input type="<%= element %>"
+          </label>
+        <% end %>
+      </fieldset>
+    <% end %>
+
+    <label>
+      textarea required
+      <textarea cols="30" rows="10" required></textarea>
+      <div class="form-error">Lorem ipsum dolor sit amet.</div>
+    </label>
+  </div>
+</section>
+
+<section id="length" class="design__section">
+  <h2 class="h2">Min/Max length</h2>
+
+  <div class="form__wrapper">
+    <%= cell "decidim/announcement", "Only works for input type='text' and textarea" %>
+
+    <label>
+      input type="text" maxlength="20"
+      <input type="text" maxlength="20">
+    </label>
+
+    <label>
+      textarea maxlength="20"
+      <textarea cols="30" rows="10" maxlength="20"></textarea>
+    </label>
+
+    <label>
+      input type="text" minlength="5" maxlength="20"
+      <input type="text" minlength="5" maxlength="20">
+    </label>
+
+    <label>
+      textarea minlength="5" maxlength="20"
+      <textarea cols="30" rows="10" minlength="5" maxlength="20"></textarea>
+    </label>
+  </div>
+</section>
+
+<section id="emoji" class="design__section">
+  <h2 class="h2">Emojis</h2>
+
+  <div class="form__wrapper">
+    <%= cell "decidim/announcement", "Only works for textarea" %>
+
+    <label>
+      textarea data-input-emoji="true"
+      <textarea cols="30" rows="10" data-input-emoji="true"></textarea>
+    </label>
+  </div>
+</section>

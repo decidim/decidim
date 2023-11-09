@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Action Authorization", type: :system do
+describe "Action Authorization" do
   include_context "with a component"
 
   let(:manifest_name) { "proposals" }

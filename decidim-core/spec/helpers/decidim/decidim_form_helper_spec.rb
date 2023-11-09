@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe DecidimFormHelper, type: :helper do
+  describe DecidimFormHelper do
     describe "decidim_form_for" do
       it "injects custom options" do
         record = double("record").as_null_object
