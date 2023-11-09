@@ -123,7 +123,9 @@ describe "Admin views proposal details from admin" do
 
     context "when there are endorsements" do
       let!(:endorsements) do
-        create_list(:endorsement, 2, resource: proposal, author: build(:user, organization:))
+        2.times.collect do
+          create(:endorsement, resource: proposal, author: build(:user, organization:))
+        end
       end
 
       it "shows the number of endorsements" do
@@ -154,7 +156,9 @@ describe "Admin views proposal details from admin" do
 
       context "with more than 5 endorsements" do
         let!(:endorsements) do
-          create_list(:endorsement, 6, resource: proposal, author: build(:user, organization:))
+          6.times.collect do
+            create(:endorsement, resource: proposal, author: build(:user, organization:))
+          end
         end
 
         it "links to the proposal page to check the rest of endorsements" do
