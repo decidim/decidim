@@ -55,14 +55,14 @@ en:
           attributes:
             base:
               total_count_invalid: The total number of answers doesn't match the valid/blank/null breakdown.
-        question_result:
-          attributes:
-            base:
-              blank_count_invalid: The total number of blank answers cannot be greater than the total of blank ballots.
         election:
           attributes:
             attachment:
               needs_to_be_reattached: Needs to be reattached
+        question_result:
+          attributes:
+            base:
+              blank_count_invalid: The total number of blank answers cannot be greater than the total of blank ballots.
         trustee:
           attributes:
             name:
@@ -1198,12 +1198,12 @@ en:
             heading: Vote recount - Answers recount
             info_text: Please detail the total number of answers for each question. This must match the total number of answers introduced in the previous step (%{total} answers total).
             modal_ballots_results_count_error:
-              close_modal: Close
-              total: Expected total is %{expected} but the sum of the valid, blank and null ballots is %{current}.
-              valid: Expected total of valid votes is %{expected} but the sum of the valid questions is %{current}.
               blank: Expected total of blank votes is %{expected} but the sum of the blank questions is %{current}.
+              close_modal: Close
               info_text: The total number of ballots does not match the total number of envelopes. Please review the total of ballots.
               title: Total of ballots do not add up
+              total: Expected total is %{expected} but the sum of the valid, blank and null ballots is %{current}.
+              valid: Expected total of valid votes is %{expected} but the sum of the valid questions is %{current}.
             save_recount: Save recount
             start_over: If there's an error in the total number, you can delete everything and start over.
             total_ballots: Total ballots
