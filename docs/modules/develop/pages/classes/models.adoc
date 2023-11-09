@@ -92,5 +92,6 @@ Most commonly used concerns are:
 - `Decidim::Proposals::Valuatable`
 - `Decidim::Templates::Templatable`
 
-== More info
+== More information
+
 - https://edgeguides.rubyonrails.org/active_record_basics.html[Active Record documentation]
