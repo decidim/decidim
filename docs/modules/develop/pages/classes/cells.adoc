@@ -36,7 +36,7 @@ Then, you can render the cell in your view:
 <%= cell("decidim/my_module/my_cell") =>
 ```
 
-== More Info
+== More information
 
 * https://github.com/trailblazer/cells/blob/master/README.md[cells/README.md at master · trailblazer/cells]
 * http://trailblazer.to/gems/cells/[Trailblazer: Cells] / http://trailblazer.to/gems/cells/api.html[Trailblazer: Cells API]
