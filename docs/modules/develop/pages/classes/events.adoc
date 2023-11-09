@@ -2,6 +2,14 @@
 
 The concept regarding the notitication is being described in the xref:develop:notifications.adoc[Notifications] page.
 
+- To dispatch notifications in the user account when something happens on a resource or a space they are following
+- To dispatch emails for the above notifications, if the user has not enabled the mail digest  
+- To dispatch push notifications  when the installation is active and the user has enabled them
+- To show the activity done by the user in the user's account page
+- In admin panel to show the activity of other admins
+- To dispatch emails to admins when a resource or user is reported
+- To dispatch emails to users when an admin performs an action on the resource owned (like approving Proposal, accepting budgets etc )
+
 Event classes are located in the `app/events/decidim/<my_module>` directory, and named: `<my_resource>_event.rb`.
 
 ```ruby
