@@ -84,7 +84,7 @@ module Decidim
         create(:endorsement, resource:, author:, user_group: other_user_group)
       end
 
-      it "sorts user_grup endorsements first and then by created_at" do
+      it "sorts user_group endorsements first and then by created_at" do
         expected_sorting = [
           other_endorsement1.id, endorsement.id,
           other_endorsement2.id

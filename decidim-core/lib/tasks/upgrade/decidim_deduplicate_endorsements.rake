@@ -2,7 +2,7 @@
 
 namespace :decidim do
   namespace :upgrade do
-    desc "Modify nicknames with random numbers when exists similar ones case insensitively"
+    desc "Remove duplicated endorsements"
     task fix_duplicate_endorsements: :environment do
       logger = Logger.new($stdout)
       logger.info("Removing duplicate endorsements...")
