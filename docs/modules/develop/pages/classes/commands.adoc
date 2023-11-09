@@ -96,5 +96,6 @@ end
 Decidim::MyModule::CreateMyResource.prepend(Decidim::Overrides::Commands::CreateMyResource)
 ```
 
-== More Info
+== More information
+
 - `Decidim::Command` is an internalization of https://github.com/andypike/rectify[Rectify] gem created by Andy Pike
