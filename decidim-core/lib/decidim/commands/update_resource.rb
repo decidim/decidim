@@ -27,7 +27,7 @@ module Decidim
         end
 
         broadcast(:ok, resource)
-      rescue Decidim::Commands::HookError, ActiveRecord::ActiveRecordError
+      rescue Decidim::Commands::HookError
         broadcast(:invalid)
       end
 
