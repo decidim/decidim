@@ -157,7 +157,8 @@ module Decidim
       end
 
       def reference_budgets_for_select
-        references = Budget.where(component: current_component).order(weight: :asc)
+        references = Budget.joins(:component)
+                           .where(component: { participatory_space: current_participatory_space }).order(weight: :asc)
         references.map do |budget|
           ["#{"&nbsp;" * 4} #{translated_attribute(budget.title)}".html_safe, budget.id]
         end

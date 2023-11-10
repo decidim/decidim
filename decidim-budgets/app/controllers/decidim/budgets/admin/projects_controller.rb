@@ -166,10 +166,7 @@ module Decidim
           enforce_permission_to :update, :project, project: sample_project
           ::Decidim::Budgets::Admin::UpdateProjectsBudget.call(reference_budget, project_ids) do
             on(:invalid_project_ids) do
-              flash.now[:alert] = t(
-                "projects.update_budget.select_a_project",
-                scope: "decidim.budgets.admin"
-              )
+              flash.now[:alert] = t("projects.update_budget.select_a_project", scope: "decidim.budgets.admin")
             end
 
             on(:update_projects_budget) do

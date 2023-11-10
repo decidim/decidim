@@ -30,10 +30,12 @@ module Decidim
         attr_reader :selection, :project_ids
 
         def update_projects_budget
-          ::Decidim::Budgets::Project.where(id: project_ids).find_each do |project|
+          ::Decidim::Budgets::Project.includes(:budget, budget: { component: :participatory_space }).where(id: project_ids).find_each do |project|
             if update_allowed?(project)
               transaction do
-                update_project_budget project
+                project.update!(
+                  decidim_budgets_budget_id: @destination_budget.id
+                )
               end
               @response[:successful] << translated_attribute(project.title)
             else
@@ -41,12 +43,6 @@ module Decidim
               @response[:failed_ids] << project.id
             end
           end
-        end
-
-        def update_project_budget(project)
-          project.update!(
-            decidim_budgets_budget_id: @destination_budget.id
-          )
         end
 
         def update_allowed?(project)
