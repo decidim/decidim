@@ -21,7 +21,7 @@ module Decidim
                 ),
                 cell_snippet: {
                   cell: "decidim/follow_button",
-                  args: [Decidim::User.all.first]
+                  args: [Decidim::User.first]
                 }
               }
             ]
