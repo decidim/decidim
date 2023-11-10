@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Accountability
   describe Admin::CreateTimelineEntry do
-    subject { described_class.new(form, user) }
+    subject { described_class.new(form) }
 
     let(:organization) { create(:organization, available_locales: [:en]) }
     let(:user) { create(:user, organization:) }

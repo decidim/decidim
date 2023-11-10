@@ -2,11 +2,214 @@
 
 A command is custom class that manages the logic between your input, usually a xref:develop:classes/forms.adoc[form] object, an object and an user.
 
-Usually, a command is used to create, update or delete a object.
+Usually, a command is used to handle the interaction between the controller and the model.
 
 Commands are located in the `app/commands/decidim/<my_module>` directory, and named: `<action>_<my_resource>.rb`.
 
-In the below example, you will be able to see how the command (`CreateMyResource`), events (`Decidim::MyModule::MyResourceEvent`) and jobs (`Decidim::MyModule::MyCustomJob`) can be used.
+Because most of the time, a command is used to create, update a resource, we are shipping 3 commands by default, which you can inherit by default in your own commands:
+
+- xref:_decidimcommandscreateresource[`Decidim::Commands::CreateResource`] - for creating resources
+- xref:_decidimcommandsupdateresource[`Decidim::Commands::UpdateResource`] - for updating resources
+- xref:_decidimcommandsdestroyresource[`Decidim::Commands::DestroyResource`] - for destroying resources
+
+== Decidim::Commands::CreateResource
+
+In order to create a resource, you need to provide the form with the values you want to create.
+
+This is a custom implementation for demonstration purposes:
+
+```ruby
+# frozen_string_literal: true
+
+# app/commands/decidim/my_module/create_my_resource.rb
+module Decidim
+  module MyModule
+    class CreateMyResource < Decidim::Commands::CreateResource
+      # Tell the parent class which fields are going to be
+      # copied from the form
+      fetch_form_attributes :title, :description, :component
+
+      # This is the class initializer. It can be ignored if you do not need
+      # to do anything special.
+      def initialize(form)
+        @form = form
+      end
+
+      private
+      # Tell the parent what is the AcitveRecord class needed
+      # Ruby 3.0 endless method syntax
+      def resource_class = Decidim::MyModule::MyResource
+
+      # Prior to Ruby 3.0, still works
+      def resource_class
+        Decidim::MyModule::MyResource
+      end
+
+      # This method allows you to customize the log visbility
+      # Ruby 3.o endless method syntax
+      def extra_params = { visibility: "all" }
+
+      # Prior to Ruby 3.0, still works
+      def extra_params
+        { visibility: "all" }
+      end
+
+      # The command has a before hook that you can use:
+      def run_before_hooks
+        # do something
+      end
+
+      # The command has an after hook that you can use:
+      def run_after_hooks
+        # do something
+      end
+
+      # Addtionally, you can override the `attributes` method
+      # to add more attributes to the resource
+      def attributes
+        super.merge({
+          my_custom_attribute: form.my_custom_attribute
+        })
+      end
+
+      # You can also provide a custom form validation
+      # by overriding the `invalid?` method
+      def invalid?
+        return true if form.my_custom_attribute.blank?
+        super
+      end
+    end
+  end
+end
+```
+
+== Decidim::Commands::UpdateResource
+
+In order to update a resource, you need to provide the resource you want to update, and the form with the new values.
+
+This is a custom implementation for demonstration purposes:
+
+```ruby
+# frozen_string_literal: true
+
+# app/commands/decidim/my_module/update_my_resource.rb
+module Decidim
+  module MyModule
+    class UpdateMyResource < Decidim::Commands::UpdateResource
+      # Tell the parent class which fields are going to be
+      # copied from the form
+      fetch_form_attributes :title, :description, :component
+
+      # This is the class initializer. It can be ignored if you do not need
+      # to do anything special.
+      def initialize(form, resource)
+        @form = form
+        @resource = resource
+      end
+
+      private
+      # Tell the parent what is the AcitveRecord class needed
+      # Ruby 3.0 endless method syntax
+      def resource_class = Decidim::MyModule::MyResource
+
+      # This method allows you to customize the log visbility
+      # Ruby 3.o endless method syntax
+      def extra_params = { visibility: "all" }
+
+      # Prior to Ruby 3.0, still works
+      def extra_params
+        { visibility: "all" }
+      end
+
+      # Prior to Ruby 3.0, still works
+      def resource_class
+        Decidim::MyModule::MyResource
+      end
+
+      # The command has a before hook that you can use:
+      def run_before_hooks
+        # do something
+      end
+
+      # The command has an after hook that you can use:
+      def run_after_hooks
+        # do something
+      end
+
+      # Addtionally, you can override the `attributes` method
+      # to add more attributes to the resource
+      def attributes
+        super.merge({
+          my_custom_attribute: form.my_custom_attribute
+        })
+      end
+
+      # You can also provide a custom form validation
+      # by overriding the `invalid?` method
+      def invalid?
+        return true if form.my_custom_attribute.blank?
+        super
+      end
+    end
+  end
+end
+```
+
+== Decidim::Commands::DestroyResource
+
+If you do not need to do anything special, you can just call this command for any resource you want to destroy.
+
+If you still want to customize the command, you can do it like this:
+
+```ruby
+# frozen_string_literal: true
+
+# app/commands/decidim/my_module/destroy_my_resource.rb
+module Decidim
+  module MyModule
+    class DestoryMyResource < Decidim::Commands::DestroyResource
+      # This is the class initializer, that can be safely ignored if you do not perform additional actions
+      def initialize(resource, current_user)
+        @resource = resource
+        @current_user = current_user
+      end
+
+      private
+
+      # This method allows you to customize the log visbility
+      # Ruby 3.o endless method syntax
+      def extra_params = { visibility: "all" }
+
+      # Prior to Ruby 3.0, still works
+      def extra_params
+        { visibility: "all" }
+      end
+
+      # The command has a before hook that you can use:
+      def run_before_hooks
+        # do something
+      end
+
+      # The command has an after hook that you can use:
+      def run_after_hooks
+        # do something
+      end
+
+      # You can also provide a custom validation by overriding the `invalid?` method
+      # Ruby 3.0 endless method syntax
+      def invalid? = false
+
+      # Prior to Ruby 3.0, still works
+      def invalid?
+        false
+      end
+    end
+  end
+end
+```
+
+== Advanced usage
+In the below example, you will be able to see an advanced example on how you can write your custom command (`CreateMyResource`), events (`Decidim::MyModule::MyResourceEvent`) and jobs (`Decidim::MyModule::MyCustomJob`) can be used.
 ```ruby
 # frozen_string_literal: true
 
@@ -72,6 +275,7 @@ module Decidim
 end
 ```
 
+== Overriding Decidim commands
 Sometimes you may need to extend a `Decidim` supplied command, then you can either override the `attributes` method, either extend it with a `super` call.
 
 ```ruby

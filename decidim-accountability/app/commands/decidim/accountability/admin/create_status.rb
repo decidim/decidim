@@ -5,40 +5,12 @@ module Decidim
     module Admin
       # This command is executed when the user creates a Status from the admin
       # panel.
-      class CreateStatus < Decidim::Command
-        def initialize(form, user)
-          @form = form
-          @user = user
-        end
+      class CreateStatus < Decidim::Commands::CreateResource
+        fetch_form_attributes :key, :name, :description, :progress, :component
 
-        # Creates the status if valid.
-        #
-        # Broadcasts :ok if successful, :invalid otherwise.
-        def call
-          return broadcast(:invalid) if @form.invalid?
+        protected
 
-          transaction do
-            create_status
-          end
-
-          broadcast(:ok)
-        end
-
-        private
-
-        attr_reader :status
-
-        def create_status
-          @status = Decidim.traceability.create!(
-            Status,
-            @user,
-            component: @form.current_component,
-            key: @form.key,
-            name: @form.name,
-            description: @form.description,
-            progress: @form.progress
-          )
-        end
+        def resource_class = Decidim::Accountability::Status
       end
     end
   end
