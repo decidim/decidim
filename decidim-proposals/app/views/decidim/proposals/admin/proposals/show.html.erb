@@ -49,32 +49,34 @@
             </p>
           </div>
         </div>
-        <div class="card-section">
-          <div class="row column">
-            <span class="component__show-title"><%= t ".endorsers" %></span>
-            <ul id="proposal-endorsers-list">
-              <% presented_endorsers = endorsers_presenters_for(proposal).to_a %>
-              <% presented_endorsers.first(5).each do |presented_endorser| %>
-                <li>
-                  <%= link_to_if(
-                        presented_endorser.profile_path.present?,
-                        presented_endorser.name,
-                        presented_endorser.profile_path,
-                        target: :blank
-                      ) %>
-                </li>
-              <% end %>
-              <% if presented_endorsers.count > 5 %>
-                <li>
-                  <%= link_to(
-                        t(".n_more_endorsers", count: presented_endorsers.count - 5),
-                        resource_locator(proposal).path
-                      ) %>
-                </li>
-              <% end %>
-            </ul>
+        <% presented_endorsers = endorsers_presenters_for(proposal).first(6).to_a %>
+        <% if presented_endorsers.any? %>
+          <div class="card-section">
+            <div class="row column">
+              <span class="component__show-title"><%= t ".endorsers" %></span>
+              <ul id="proposal-endorsers-list">
+                <% presented_endorsers.first(5).each do |presented_endorser| %>
+                  <li>
+                    <%= link_to_if(
+                          presented_endorser.profile_path.present?,
+                          presented_endorser.name,
+                          presented_endorser.profile_path,
+                          target: :blank
+                        ) %>
+                  </li>
+                <% end %>
+                <% if presented_endorsers.count > 5 %>
+                  <li>
+                    <%= link_to(
+                          t(".n_more_endorsers", count: presented_endorsers.count - 5),
+                          resource_locator(proposal).path
+                        ) %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
           </div>
-        </div>
+        <% end %>
         <% if proposal.documents.any? %>
           <div class="card-section">
             <div class="row column">
@@ -105,19 +107,22 @@
             </div>
           </div>
         <% end %>
-        <div class="card-section">
-          <div class="row column">
-            <span class="component__show-title"><%= t ".related_meetings" %></span>
-            <ul id="related-meetings">
-              <% proposal.linked_resources(:meetings, "proposals_from_meeting").each do |meeting| %>
-                <% presented_meeting = present(meeting) %>
-                <li>
-                  <%= link_to presented_meeting.title(html_escape: true), presented_meeting.profile_path %>
-                </li>
-              <% end %>
-            </ul>
+        <% proposal_meetings = proposal.linked_resources(:meetings, "proposals_from_meeting") %>
+        <% if proposal_meetings.any? %>
+          <div class="card-section">
+            <div class="row column">
+              <span class="component__show-title"><%= t ".related_meetings" %></span>
+              <ul id="related-meetings">
+                <% proposal_meetings.each do |meeting| %>
+                  <% presented_meeting = present(meeting) %>
+                  <li>
+                    <%= link_to presented_meeting.title(html_escape: true), presented_meeting.profile_path %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
           </div>
-        </div>
+        <% end %>
         <% if allowed_to?(:create, :proposal_note, proposal: proposal) %>
           <div class="card-section">
             <%= render "decidim/proposals/admin/proposal_notes/proposal_notes" %>

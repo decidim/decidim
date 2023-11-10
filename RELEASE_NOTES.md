@@ -285,7 +285,17 @@ bundle exec rails decidim:robots:replace
 
 You can see more details about this change on PR [\#11693](https://github.com/decidim/decidim/pull/11693)
 
-### 3.12 Clean up orphaned attachment blobs
+### 3.12. Deduplicating endorsements
+
+We have identified a case when the same user can endorse the same resource multiple times. This is a bug that we have fixed in this release, but we need to clean up the existing duplicated endorsements. We have added a new task that helps you clean the duplicated endorsements.
+
+```bash
+bundle exec rails decidim:upgrade:fix_duplicate_endorsements
+```
+
+You can see more details about this change on PR [\#11853](https://github.com/decidim/decidim/pull/11853)
+
+### 3.13 Clean up orphaned attachment blobs
 
 We have added a new task that helps you clean the orphaned attachment blobs. This task will remove all the attachment blobs that are not referenced by any attachment record. This helps cleaning your filesystem of unused files.
 

@@ -66,24 +66,24 @@
   @apply text-5xl font-bold text-black;
 }
 
-.design__heading__3xl {
-  @apply text-3xl font-semibold;
-}
-
-.design__heading__xl {
-  @apply text-xl font-semibold;
-}
-
 .design__heading__section {
   @apply pb-10 border-b border-background;
 }
 
 .design__heading__description {
-  @apply mt-10 text-gray-2 text-md font-normal [&>*+*]:mt-4;
+  @apply mt-10 text-gray-2 text-md font-normal [&>*+*]:mt-4 [&_a]:underline;
 }
 
 .design__section {
   @apply [&>*+*]:mt-6 [&>p]:text-gray-2;
+
+  h2 {
+    @apply text-3xl font-semibold;
+  }
+
+  h3 {
+    @apply text-xl font-semibold inline-flex items-center gap-1;
+  }
 
   &-snippet {
     @apply mt-0;
@@ -105,6 +105,8 @@
 .design__table {
   @apply w-full text-center text-sm text-gray-2;
 
+  --cell-width: ;
+
   thead {
     @apply bg-gray-3;
   }
@@ -114,6 +116,6 @@
   }
 
   td {
-    @apply px-6 py-4 border border-background;
+    @apply px-6 py-4 border border-background w-[var(--cell-width)];
   }
 }
