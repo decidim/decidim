@@ -14,6 +14,7 @@ module Decidim
       helper TabPanelsHelper
       helper AuthorHelper
       helper AddressHelper
+      helper FollowHelper
     end
   end
 end
