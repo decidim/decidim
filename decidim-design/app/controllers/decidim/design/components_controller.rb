@@ -12,6 +12,7 @@ module Decidim
       helper AnnouncementHelper
       helper ActivitiesHelper
       helper TabPanelsHelper
+      helper ReportHelper
     end
   end
 end
