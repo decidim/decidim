@@ -11,7 +11,7 @@ module Decidim
               {
                 type: :text,
                 values: [
-                  "Address cell receives a resource, and searches the geolocalizable attributes to render an specific markup.",
+                  "Address cell receives a resource, and searches the geolocalizable attributes to render an specific markup."
                 ]
               },
               {
