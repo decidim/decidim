@@ -14,19 +14,15 @@ id:
         other: Voting
   decidim:
     comments:
-      last_activity:
-        new_comment_at_html: "<span>Komentar baru di %{link}</span>"
       votes:
         create:
           error: Terjadi masalah saat memilih komentar.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Masuk dengan akun Anda</a> atau <a href="%{sign_up_url}">mendaftar</a> untuk menambahkan komentar Anda.
         form:
           body:
             label: Komentar
             placeholder: Apa yang Anda pikirkan tentang ini?
-          submit: Kirim
           user_group_id:
             label: Beri komentar sebagai
         opinion:
@@ -56,8 +52,6 @@ id:
           older: Lebih tua
           recent: Baru
         title: 'Dipesan oleh:'
-      comment_thread:
-        title: Percakapan dengan %{authorName}
       comments:
         blocked_comments_for_user_warning: Anda tidak dapat berkomentar saat ini, tetapi Anda dapat membaca yang sebelumnya.
         blocked_comments_warning: Komentar dinonaktifkan saat ini, tetapi Anda dapat membaca yang sebelumnya.

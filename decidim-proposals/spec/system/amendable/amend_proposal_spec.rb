@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Amend Proposal", type: :system, versioning: true do
+describe "Amend Proposal", versioning: true do
   let!(:participatory_space) { create(:participatory_process, :with_steps) }
   let!(:component) { create(:proposal_component, participatory_space:) }
   let!(:proposal) { create(:proposal, title: { en: "Long enough title" }, component:) }
@@ -233,7 +233,7 @@ describe "Amend Proposal", type: :system, versioning: true do
               click_button "Create"
             end
 
-            it "is shown the Success Callout" do
+            it "is shown the Success Flash" do
               expect(page).to have_css("[data-alert-box].success")
             end
           end
@@ -246,7 +246,7 @@ describe "Amend Proposal", type: :system, versioning: true do
               click_button "Create"
             end
 
-            it "is shown the Error Callout" do
+            it "is shown the Error Flash" do
               expect(page).to have_css("[data-alert-box].alert", text: "An error ocurred while creating the amendment")
             end
 
@@ -312,7 +312,7 @@ describe "Amend Proposal", type: :system, versioning: true do
               end
             end
 
-            it "is shown the Success Callout" do
+            it "is shown the Success Flash" do
               expect(page).to have_css("[data-alert-box].success", text: "The amendment has been accepted successfully.")
             end
 
@@ -327,12 +327,12 @@ describe "Amend Proposal", type: :system, versioning: true do
             click_link "Reject"
           end
 
-          it "is shown the Success Callout" do
+          it "is shown the Success Flash" do
             expect(page).to have_css("[data-alert-box].success", text: "The amendment has been successfully rejected")
           end
 
           it "is changed the state of the emendation" do
-            expect(page).to have_css(".callout.alert[data-announcement]", text: "This amendment for the proposal #{proposal_title} was rejected")
+            expect(page).to have_css(".flash.alert[data-announcement]", text: "This amendment for the proposal #{proposal_title} was rejected")
           end
         end
       end
@@ -387,7 +387,7 @@ describe "Amend Proposal", type: :system, versioning: true do
             expect(accept_confirm).to eq("Are you sure you want to promote this emendation?")
           end
 
-          it "is shown the Success Callout when the alert text is accepted" do
+          it "is shown the Success Flash when the alert text is accepted" do
             accept_confirm
             expect(page).to have_content("The amendment has been successfully published as a new proposal")
           end

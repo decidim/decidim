@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Explore meetings", :slow, type: :system do
+describe "Explore meetings", :slow do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 
@@ -68,7 +68,7 @@ describe "Explore meetings", :slow, type: :system do
 
         it "shows an empty page with a message" do
           expect(page).to have_content("No meetings match your search criteria or there is not any meeting scheduled.")
-          within ".callout.info", match: :first do
+          within ".flash.info", match: :first do
             expect(page).to have_content("You are viewing the list of meetings withdrawn by their authors.")
           end
         end
@@ -84,7 +84,7 @@ describe "Explore meetings", :slow, type: :system do
 
         it "shows all the withdrawn meetings" do
           expect(page).to have_css("span", text: "Withdrawn", count: 3)
-          within ".callout.info", match: :first do
+          within ".flash.info", match: :first do
             expect(page).to have_content("You are viewing the list of meetings withdrawn by their authors.")
           end
         end
@@ -362,7 +362,7 @@ describe "Explore meetings", :slow, type: :system do
 
       it "shows the correct warning" do
         visit_component
-        within ".callout" do
+        within ".flash" do
           expect(page).to have_content("no scheduled meetings")
         end
       end
@@ -373,7 +373,7 @@ describe "Explore meetings", :slow, type: :system do
 
       it "shows the correct warning" do
         visit_component
-        within ".callout" do
+        within ".flash" do
           expect(page).to have_content("any meeting scheduled")
         end
       end
@@ -435,7 +435,7 @@ describe "Explore meetings", :slow, type: :system do
 
     context "without category or scope" do
       it "does not show any tag" do
-        expect(page).not_to have_selector("ul.tags.tag-container")
+        expect(page).not_to have_selector("[data-tags]")
       end
     end
 
@@ -448,14 +448,14 @@ describe "Explore meetings", :slow, type: :system do
       end
 
       it "shows tags for category" do
-        expect(page).to have_selector("ul.tags.tag-container")
-        within "ul.tags.tag-container" do
+        expect(page).to have_selector("[data-tags]")
+        within "[data-tags]" do
           expect(page).to have_content(translated(meeting.category.name))
         end
       end
 
       it "links to the filter for this category" do
-        within "ul.tags.tag-container" do
+        within "[data-tags]" do
           click_link translated(meeting.category.name)
         end
 
@@ -472,8 +472,8 @@ describe "Explore meetings", :slow, type: :system do
       end
 
       it "shows tags for scope" do
-        expect(page).to have_selector("ul.tags.tag-container")
-        within "ul.tags.tag-container" do
+        expect(page).to have_selector("[data-tags]")
+        within "[data-tags]" do
           expect(page).to have_content(translated(meeting.scope.name))
         end
       end

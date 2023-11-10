@@ -17,7 +17,7 @@ edit_link(
 <%= append_stylesheet_pack_tag "decidim_sortitions" %>
 
 <%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: :sortitions, commentable: sortition } do %>
-  <%= cell("decidim/announcement", t("introduction", scope: "decidim.sortitions.sortitions.show", reference: sortition.id, target_items: sortition.target_items), truncate: true, callout_class: "secondary") %>
+  <%= cell("decidim/announcement", t("introduction", scope: "decidim.sortitions.sortitions.show", reference: sortition.id, target_items: sortition.target_items), callout_class: "secondary") %>
 
   <section class="layout-main__section layout-main__heading">
     <h1 class="h1 decorator mb-4">
@@ -70,9 +70,7 @@ edit_link(
           </span>
         <% end %>
       </div>
-      <div class="callout alert">
-        <%= decidim_sanitize_editor translated_attribute sortition.cancel_reason %>
-      </div>
+      <%= cell("decidim/announcement", decidim_sanitize_editor(translated_attribute(sortition.cancel_reason)), callout_class: "alert") %>
     </section>
   <% end %>
 

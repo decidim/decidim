@@ -1,4 +1,4 @@
-name: "[CI] Elections (system admin)"
+name: "[CI] Elections"
 on:
   push:
     branches:
@@ -43,7 +43,5 @@ jobs:
     with:
       working-directory: "decidim-elections"
       test_command: ${{ matrix.test-command }}
-      bullet_enabled: false
-      bullet_counter_cache: false
       bullet_n_plus_one: false
       bullet_unused_eager_loading: false

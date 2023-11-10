@@ -7,6 +7,7 @@ module Decidim
       #
       class ConferenceInvitesController < Decidim::Conferences::Admin::ApplicationController
         include Concerns::ConferenceAdmin
+        include Decidim::Paginable
 
         helper_method :conference
 

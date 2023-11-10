@@ -34,8 +34,6 @@ jobs:
     secrets: inherit
     with:
       working-directory: "decidim-sortitions"
-      test_command: REDESIGN_ENABLED="false" bundle exec parallel_test --type rspec --pattern spec/
-      bullet_enabled: false
-      bullet_counter_cache: false
+      test_command: bundle exec parallel_test --type rspec --pattern spec/
       bullet_n_plus_one: false
       bullet_unused_eager_loading: false

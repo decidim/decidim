@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Amendment Diff", type: :system, versioning: true do
+describe "Amendment Diff", versioning: true do
   let!(:component) { create(:proposal_component) }
   let!(:proposal) { create(:proposal, title: { en: "Original long enough title" }, body: { en: "Original one liner body" }, component:) }
   # The first version of the emendation should hold the original proposal attribute values being amended.

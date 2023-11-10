@@ -5,7 +5,7 @@
 
 <% content_for :aside do %>
 
-  <h1 id="drafts-count" class="h3 md:h1 decorator"><%= component_name %></h1>
+  <h1 id="drafts-count" class="title-decorator"><%= component_name %></h1>
 
   <% if current_settings.creation_enabled %>
     <%= action_authorized_link_to :create, new_collaborative_draft_path, class: "button button__sm button__transparent-secondary", data: { "redirect_url" => new_collaborative_draft_path } do %>

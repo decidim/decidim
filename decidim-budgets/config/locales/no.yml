@@ -42,7 +42,6 @@
         edit: Editar
         edit_projects: Administrer prosjekter
         import: Importer forslag til prosjekter
-        new: Ny %{name}
         preview: Forhåndsvis
         title: Handlinger
       admin:
@@ -111,7 +110,6 @@
           more_than_one: slett stemmen din på %{name} og start på nytt
           only_one: slett stemmen din og begynn på nytt.
         highlighted_cta: Stem på %{name}
-        my_budgets: Mine budsjetter
         progress: Fullfør stemmegivningen
         show: Se prosjekter
         vote: Stem
@@ -144,40 +142,20 @@
         budget_excess:
           budget_excess:
             title: Maksimalt budsjett overskredet
-          close: Lukk
           ok: OK
           projects_excess:
             title: Maksimal antall prosjekter overskredet
         budget_summary:
           are_you_sure: Er du sikker på at du vil avbryte din stemme?
-          assigned: 'Tildelt:'
           cancel_order: slett stemmen din og begynn på nytt
           checked_out:
             title: Budtjett avstemning fullført
-          minimum_projects_rule:
-            description: Hvilke prosjekter mener du vi bør tildele budsjett for? Velg minst %{minimum_number} prosjekter du vil og stem i henhold til dine preferanser for å definere budsjettet.
-            instruction: "<li>Velg minst %{minimum_number} prosjekter du vil og stemme i henhold til dine preferanser for å definere budsjettet.</li>"
-          projects_rule:
-            description: Hvilke prosjekter mener du vi bør tildele budsjett for? Velg minst %{minimum_number} og opptil %{maximum_number} prosjekter du ønsker og stem i henhold til dine preferanser for å definere budsjettet.
-            instruction: "<li>Velg minst %{minimum_number} og inntil %{maximum_number} prosjekter du ønsker og stem i henhold til dine preferanser for å definere budsjettet</li>"
-          projects_rule_maximum_only:
-            description: Hvilke prosjekter mener du vi bør tildele budsjett for? Velg opptil %{maximum_number} prosjekter du ønsker og stem i henhold til dine preferanser for å definere budsjettet.
-            instruction: "<li>Velg opptil %{maximum_number} prosjekter du ønsker og stem i henhold til dine preferanser for å definere budsjettet.</li>"
-          rules:
-            title: Budsjettregler
-          title: Du bestemmer budsjettet
-          total_budget: Totalt budsjett
-          total_projects: Totalt antall stemmer
-          vote_threshold_percent_rule:
-            description: Hvilke prosjekter mener du vi bør tildele budsjett for? Tilordne minst %{minimum_budget} til de prosjektene du ønsker og stem i henhold til dine preferanser for å definere budsjettet.
-            instruction: "<li>Tilordne minst %{minimum_budget} til de prosjektene du ønsker og stem i henhold til dine preferanser for å definere budsjettet.</li>"
         count:
           projects_count:
             one: 1 prosjekt
             other: "%{count} prosjekter"
         exit_modal:
           cancel: Tilbake til avstemming
-          close_modal: Lukk dialogboks
           exit: Avslutt avstemning
           message: Stemmen din er ikke registrert fordi du ikke har fullført avstemmingen. Er du sikker på at du vil avslutte avstemming?
           title: Du har ikke stemt enda
@@ -190,19 +168,6 @@
             all: Alle
             not_selected: Ikke valgt
             selected: Valgt
-        filters_small_view:
-          close_modal: Lukk modal
-          filter: Filter
-          filter_by: Filtrer etter
-          unfold: Åpne
-        order_progress:
-          vote: Stemme
-        order_selected_projects:
-          remove: Fjern
-          selected_projects:
-            one: prosjekt valgt
-            other: prosjekter valgt
-          view: Vis
         orders:
           highest_cost: Høyeste kostnad
           label: Sorter prosjekter etter
@@ -222,7 +187,6 @@
         projects_for: Prosjekter for %{name}
         show:
           budget: Budsjett
-          view_all_projects: Vis alle prosjekter
       vote_reminder_mailer:
         vote_reminder:
           email_budgets: 'Områder hvor du har en uferdig stemme:'

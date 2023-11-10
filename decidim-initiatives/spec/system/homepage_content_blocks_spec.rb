@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Homepage initiatives content blocks", type: :system do
+describe "Homepage initiatives content blocks" do
   let(:organization) { create(:organization) }
   let!(:initiative) { create(:initiative, organization:) }
   let!(:closed_initiative) { create(:initiative, :rejected, organization:) }

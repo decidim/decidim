@@ -23,9 +23,6 @@ fr-CA:
         new: Nouvel article
         title: Actions
       admin:
-        models:
-          post:
-            name: Publier
         posts:
           create:
             invalid: Un problème est survenu lors de la création de cet article.
@@ -49,6 +46,11 @@ fr-CA:
           create: "%{user_name} a créé l'article de blog %{resource_name} dans %{space_name}"
           delete: "%{user_name} a supprimé l'article de blog %{resource_name} dans %{space_name}"
           update: "%{user_name} a mis à jour l'article de blog %{resource_name} dans %{space_name}"
+      content_blocks:
+        highlighted_posts:
+          last_published: Dernière publication
+          name: Articles
+          see_all: Voir tous les articles
       last_activity:
         new_post: 'Nouvel article :'
       models:
@@ -60,8 +62,10 @@ fr-CA:
             published_at: Date de publication
             title: Titre
       posts:
-        show:
-          view: Voir
+        index:
+          count:
+            one: "%{count} article"
+            other: "%{count} articles"
     components:
       blogs:
         actions:

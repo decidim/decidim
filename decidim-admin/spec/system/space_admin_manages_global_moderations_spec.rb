@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Space admin manages global moderations", type: :system do
+describe "Space admin manages global moderations" do
   let!(:user) do
     create(
       :process_admin,
@@ -34,10 +34,9 @@ describe "Space admin manages global moderations", type: :system do
       expect(page).to have_content("Please take a moment to review the admin terms of service")
     end
 
-    it "has only the Dashboard menu item in the main navigation" do
-      within ".main-nav" do
-        expect(page).to have_text("Dashboard")
-        expect(page).to have_selector("li a", count: 1)
+    it "has the main navigation empty" do
+      within ".layout-nav" do
+        expect(page).not_to have_selector("li a")
       end
     end
 
@@ -65,13 +64,6 @@ describe "Space admin manages global moderations", type: :system do
 
         find_link("Visit URL").hover
         expect(page).to have_content("Dummy Title")
-
-        tooltip_id = find_link("Visit URL")["data-toggle"]
-        # Keep the selector as is. If you try to find it with "##{tooltip_id}",
-        # the spec will fail in case the ID happens to have a number as its
-        # first character. This is a problem with the selenimum selectors.
-        result = page.find("[id='#{tooltip_id}']", visible: :all)
-        expect(result).to have_content("Dummy Title")
       end
     end
   end
@@ -79,11 +71,13 @@ describe "Space admin manages global moderations", type: :system do
   context "when the user can manage a space that has moderations" do
     it_behaves_like "manage moderations" do
       let(:moderations_link_text) { "Global moderations" }
+      let(:moderations_link_in_admin_menu) { false }
     end
 
     it_behaves_like "sorted moderations" do
       let!(:reportables) { create_list(:dummy_resource, 17, component: current_component) }
       let(:moderations_link_text) { "Global moderations" }
+      let(:moderations_link_in_admin_menu) { false }
     end
   end
 
@@ -95,7 +89,7 @@ describe "Space admin manages global moderations", type: :system do
     it "cannot see any moderation" do
       visit decidim_admin.moderations_path
 
-      within ".container" do
+      within "[data-content]" do
         expect(page).to have_content("Reported content")
 
         expect(page).not_to have_selector("table.table-list tbody tr")

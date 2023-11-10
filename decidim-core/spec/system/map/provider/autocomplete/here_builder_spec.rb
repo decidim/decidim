@@ -6,7 +6,7 @@ module Decidim
   module Map
     module Provider
       module Autocomplete
-        describe Here::Builder, type: :system do
+        describe Here::Builder do
           it_behaves_like "a page with geocoding input" do
             let(:options) { { apiKey: "key1234" } }
             let(:html_head) do
@@ -23,49 +23,37 @@ module Decidim
                       $("#ajax_request").text(JSON.stringify(request));
 
                       var response = {};
-                      if (request.url === "https://geocoder.ls.hereapi.com/6.2/geocode.json") {
+                      if (request.url === "https://lookup.search.hereapi.com/v1/lookup") {
                         response = {
-                          response: {
-                            view: [
-                              {
-                                result: [
-                                  {
-                                    location:{
-                                      displayPosition: {
-                                        latitude: 1.123,
-                                        longitude: 2.234
-                                      }
-                                    }
-                                  }
-                                ]
-                              }
-                            ]
+                          position: {
+                            lat: 1.123,
+                            lng: 2.234
                           }
                         };
                       } else {
                         response = {
-                          suggestions: [
+                          items: [
                             {
-                              label: "first item",
+                              title: "first item",
                               address: { street: "first item" },
-                              locationId: "location1"
+                              id: "location1"
                             },
                             {
-                              label: "second item",
+                              title: "second item",
                               address: { street: "second item" },
-                              locationId: "location2"
+                              id: "location2"
                             },
                             {
-                              label: "third item",
+                              title: "third item",
                               address: { street: "third item" },
-                              locationId: "location3"
+                              id: "location3"
                             }
                           ]
                         };
                       }
 
                       // This is a normal suggest call to:
-                      // https://autocomplete.geocoder.ls.hereapi.com/6.2/suggest.json
+                      // https://autocomplete.search.hereapi.com/v1/autocomplete
                       var deferred = $.Deferred().resolve(response);
                       return deferred.promise();
                     };
@@ -94,11 +82,11 @@ module Decidim
                 "#ajax_request",
                 text: {
                   method: "GET",
-                  url: "https://autocomplete.geocoder.ls.hereapi.com/6.2/suggest.json",
+                  url: "https://autocomplete.search.hereapi.com/v1/autocomplete",
                   data: {
                     apiKey: "key1234",
-                    query: "item",
-                    language: "en"
+                    q: "item",
+                    lang: "en"
                   },
                   dataType: "json"
                 }.to_json
@@ -109,12 +97,10 @@ module Decidim
                 "#ajax_request",
                 text: {
                   method: "GET",
-                  url: "https://geocoder.ls.hereapi.com/6.2/geocode.json",
+                  url: "https://lookup.search.hereapi.com/v1/lookup",
                   data: {
                     apiKey: "key1234",
-                    gen: 9,
-                    jsonattributes: 1,
-                    locationid: "location1"
+                    id: "location1"
                   },
                   dataType: "json"
                 }.to_json

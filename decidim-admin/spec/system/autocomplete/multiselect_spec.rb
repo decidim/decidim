@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Autocomplete multiselect", type: :system do
+describe "Autocomplete multiselect" do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:path) { URI.parse(decidim_admin.user_entities_organization_url).path }
@@ -52,8 +52,8 @@ describe "Autocomplete multiselect", type: :system do
           <html lang="en">
           <head>
             <title>Autocomplete multiselect Test</title>
-            #{stylesheet_pack_tag "decidim_admin"}
-            #{javascript_pack_tag "decidim_admin"}
+            #{stylesheet_pack_tag "decidim_core"}
+            #{javascript_pack_tag "decidim_core", "decidim_admin", defer: false}
             #{head_extra}
           </head>
           <body>

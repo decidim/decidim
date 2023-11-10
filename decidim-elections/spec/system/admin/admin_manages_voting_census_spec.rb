@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages polling officers", type: :system do
+describe "Admin manages polling officers" do
   include_context "when admin managing a voting"
 
   let(:csv_file) { upload_test_file(Decidim::Dev.test_file("import_voting_census.csv", "text/csv")) }
@@ -11,7 +11,9 @@ describe "Admin manages polling officers", type: :system do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_votings.edit_voting_path(voting)
-    click_link "Census"
+    within_admin_sidebar_menu do
+      click_link "Census"
+    end
   end
 
   context "when init_data" do
@@ -49,7 +51,7 @@ describe "Admin manages polling officers", type: :system do
     context "when deleting the census" do
       it "deletes the census" do
         within "#wrapper-action-view" do
-          accept_confirm(admin: true) { click_link "Delete all census data" }
+          accept_confirm { click_link "Delete all census data" }
         end
 
         expect(page).to have_admin_callout("Census data deleted")
@@ -76,7 +78,7 @@ describe "Admin manages polling officers", type: :system do
     context "when deleting the census" do
       it "deletes the census" do
         within ".voting-content" do
-          accept_confirm(admin: true) { click_link "Delete all census data" }
+          accept_confirm { click_link "Delete all census data" }
         end
 
         expect(page).to have_admin_callout("Census data deleted")
@@ -91,7 +93,7 @@ describe "Admin manages polling officers", type: :system do
     context "when generating the access codes" do
       it "deletes the census" do
         within ".voting-content" do
-          accept_confirm(admin: true) { click_link "Generate voting Access Codes" }
+          accept_confirm { click_link "Generate voting Access Codes" }
         end
 
         expect(page).to have_content("Please wait")
@@ -107,7 +109,7 @@ describe "Admin manages polling officers", type: :system do
 
     it "exports the access codes" do
       within ".voting-content" do
-        accept_confirm(admin: true) { click_link "Export voting Access Codes" }
+        accept_confirm { click_link "Export voting Access Codes" }
       end
 
       expect(page).to have_admin_callout("Access codes export launched")

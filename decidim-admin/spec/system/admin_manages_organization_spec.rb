@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages organization", type: :system do
+describe "Admin manages organization" do
   include ActionView::Helpers::SanitizeHelper
 
   let(:organization) { create(:organization) }
@@ -504,7 +504,7 @@ describe "Admin manages organization", type: :system do
               find("button[data-editor-type='videoEmbed']").click
             end
           end
-          within "div.reveal[aria-hidden='false']" do
+          within "div[data-dialog][aria-hidden='false']" do
             find("[data-input='src'] input[type='text']").fill_in with: "https://www.youtube.com/watch?v=f6JMgJAQ2tc"
             find("[data-input='title'] input[type='text']").fill_in with: "Test video"
             find("button[data-action='save']").click

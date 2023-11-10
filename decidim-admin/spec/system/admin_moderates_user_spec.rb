@@ -2,13 +2,12 @@
 
 require "spec_helper"
 
-describe "Admin reports user", type: :system do
+describe "Admin reports user" do
   let(:admin) { create(:user, :confirmed, :admin) }
   let(:reportable) { create(:user, :confirmed, organization: admin.organization) }
   let(:reportable_path) { decidim.profile_path(reportable.nickname) }
 
   before do
-    allow(Decidim).to receive(:redesign_active).and_return(true)
     switch_to_host(admin.organization.host)
     login_as admin, scope: :user
   end
@@ -17,10 +16,9 @@ describe "Admin reports user", type: :system do
     it "is redirected to admin panel" do
       visit reportable_path
 
-      selector = Decidim.redesign_active ? ".profile__actions-secondary" : ".profile--sidebar"
-      expect(page).to have_selector(selector)
+      expect(page).to have_selector(".profile__actions-secondary")
 
-      within selector, match: :first do
+      within ".profile__actions-secondary", match: :first do
         click_button
       end
 
@@ -41,10 +39,9 @@ describe "Admin reports user", type: :system do
     it "is redirected to admin panel" do
       visit reportable_path
 
-      selector = Decidim.redesign_active ? ".profile__actions-secondary" : ".profile--sidebar"
-      expect(page).to have_selector(selector)
+      expect(page).to have_selector(".profile__actions-secondary")
 
-      within selector, match: :first do
+      within ".profile__actions-secondary", match: :first do
         click_button
       end
 

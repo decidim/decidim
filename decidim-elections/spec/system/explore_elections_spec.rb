@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Explore elections", :slow, type: :system do
+describe "Explore elections", :slow do
   include_context "with a component"
   let(:manifest_name) { "elections" }
 
@@ -32,7 +32,7 @@ describe "Explore elections", :slow, type: :system do
       it "shows all elections for the given process" do
         visit_component
         within "#elections" do
-          expect(page).to have_selector("[id^=elections]", count: elections_count)
+          expect(page).to have_css("[id^=elections]", count: elections_count)
         end
 
         elections.each do |election|
@@ -117,7 +117,7 @@ describe "Explore elections", :slow, type: :system do
 
       it "shows the correct warning" do
         visit_component
-        within ".callout" do
+        within ".flash" do
           expect(page).to have_content("no scheduled elections")
         end
       end
@@ -130,7 +130,7 @@ describe "Explore elections", :slow, type: :system do
 
       it "shows the correct warning" do
         visit_component
-        within ".callout" do
+        within ".flash" do
           expect(page).to have_content("any election scheduled")
         end
       end

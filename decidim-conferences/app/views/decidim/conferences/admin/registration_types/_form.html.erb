@@ -1,30 +1,30 @@
-<div class="card">
-  <div class="card-divider">
-    <h2 class="card-title">
-      <%= title %>
-    </h2>
-  </div>
+<div class="form__wrapper">
+  <div class="card pt-4">
+    <div class="card-section">
+      <div class="row column">
+        <%= form.translated :text_field, :title, autofocus: true, aria: { label: :title } %>
+      </div>
 
-  <div class="card-section">
-    <div class="row column">
-      <%= form.translated :text_field, :title, autofocus: true %>
-    </div>
+      <div class="row column">
+        <%= form.number_field :weight %>
+      </div>
 
-    <div class="row column">
-      <%= form.number_field :weight %>
-    </div>
+      <div class="row column">
+        <%= form.translated :editor, :description, aria: { label: :description } %>
+      </div>
 
-    <div class="row column">
-      <%= form.translated :editor, :description %>
-    </div>
+      <div class="row column">
+        <%= form.number_field :price %>
+      </div>
 
-    <div class="row column">
-      <%= form.number_field :price %>
-    </div>
-
-    <div class="row column">
-      <%= form.label t(".select_conference_meetings") %>
-      <%= form.collection_check_boxes :conference_meeting_ids, @form.meetings, :value, :title, legend_title: "" %>
+      <div class="row column">
+        <%= form.label t(".select_conference_meetings") %>
+        <%= form.collection_check_boxes :conference_meeting_ids, @form.meetings, :value, :title, legend_title: "" do |b| %>
+          <div>
+            <%= b.label { b.check_box + b.text } %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

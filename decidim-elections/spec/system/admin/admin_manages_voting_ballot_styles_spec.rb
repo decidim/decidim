@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages ballot styles", type: :system do
+describe "Admin manages ballot styles" do
   let(:address) { "Somewhere over the rainbow" }
   let(:latitude) { 42.123 }
   let(:longitude) { 2.123 }
@@ -11,7 +11,9 @@ describe "Admin manages ballot styles", type: :system do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_votings.edit_voting_path(voting)
-    click_link "Ballot Styles"
+    within_admin_sidebar_menu do
+      click_link "Ballot Styles"
+    end
   end
 
   include_context "when admin managing a voting"
@@ -36,7 +38,7 @@ describe "Admin manages ballot styles", type: :system do
     end
 
     it "can add a ballot style" do
-      click_link("New")
+      click_link("New ballot style")
 
       within ".new_ballot_style" do
         fill_in :ballot_style_code, with: "new code"
@@ -50,13 +52,13 @@ describe "Admin manages ballot styles", type: :system do
 
       within "#ballot_styles table" do
         expect(page).to have_text("NEW CODE")
-        expect(page).to have_selector(".icon--check", count: ballot_style.questions.count + 1)
+        expect(page).to have_selector(".ballot-style__question--checked", count: ballot_style.questions.count + 1)
       end
     end
 
     it "can delete a ballot style" do
       within find("tr", text: ballot_style.code) do
-        accept_confirm(admin: true) { click_link "Delete" }
+        accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -87,7 +89,7 @@ describe "Admin manages ballot styles", type: :system do
 
       within "#ballot_styles table" do
         expect(page).to have_text("UPDATED CODE")
-        expect(page).to have_selector(".icon--check", count: 1)
+        expect(page).to have_selector(".ballot-style__question--checked", count: 1)
       end
     end
   end

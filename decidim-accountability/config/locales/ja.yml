@@ -40,7 +40,6 @@ ja:
         edit: 編集
         import: プロジェクトを結果にインポート
         import_csv: CSVをインポート
-        new: 新しい %{name}
         preview: プレビュー
         timeline_entries: プロジェクトの進化
         title: アクション
@@ -76,14 +75,13 @@ ja:
             title: CSVから結果をインポート
         imports:
           create:
+            invalid: 結果のインポート中に問題が発生しました。
             success: ファイルのインポートが開始されました。インポートの結果は、数分後にメールで届きます。
         models:
           result:
             name: 結果
           status:
             name: ステータス
-          timeline_entry:
-            name: タイムラインのエントリ
         projects_import:
           create:
             invalid: プロジェクトを結果にインポートする際に問題が発生しました。指示に従い、実装のためにプロジェクトを選択していることを確認してください。
@@ -226,6 +224,7 @@ ja:
           global_status: グローバル実行状況
         nav_breadcrumb:
           global: グローバル実行
+        no_results: プロジェクトがありません
         search:
           search: アクションを検索
         show:

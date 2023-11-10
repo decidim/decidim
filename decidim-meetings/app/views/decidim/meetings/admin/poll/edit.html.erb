@@ -1,9 +1,29 @@
-<%= decidim_form_for(@form, url: update_url, method: :put, html: { class: "form edit_questionnaire" }) do |form| %>
-  <%= render partial: "decidim/meetings/admin/poll/form", object: form %>
+<% add_decidim_page_title(edit_questionnaire_title) %>
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= edit_questionnaire_title %>
+    <% if questionnaire.answers.any? %>
+      <div class="button--title">
+        <%= export_dropdown(current_component, questionnaire.id) if allowed_to?(:export_answers, :questionnaire) %>
+      </div>
+    <% else %>
+      <button class="button button__sm button__secondary" disabled><%= t("empty", scope: "decidim.forms.admin.questionnaires.answers") %></button>
+    <% end %>
+  </h2>
+</div>
 
-  <% if questionnaire.questions_editable? %>
-    <div class="button--double form-general-submit">
-      <%= form.submit t("save", scope: "decidim.forms.admin.questionnaires.edit"), class: "button" %>
-    </div>
-  <% end %>
-<% end %>
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <%= decidim_form_for(@form, url: update_url, method: :put, html: { class: "form-defaults form edit_questionnaire" }) do |form| %>
+      <%= render partial: "decidim/meetings/admin/poll/form", object: form %>
+
+      <% if questionnaire.questions_editable? %>
+        <div class="item__edit-sticky">
+          <div class="item__edit-sticky-container">
+            <%= form.submit t("save", scope: "decidim.forms.admin.questionnaires.edit"), class: "button button__sm button__secondary" %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

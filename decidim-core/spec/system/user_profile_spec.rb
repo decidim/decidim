@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Profile", type: :system do
+describe "Profile" do
   let(:user) { create(:user, :confirmed) }
 
   before do
@@ -18,6 +18,10 @@ describe "Profile", type: :system do
       within_user_menu do
         find("a", text: "profile").click
       end
+    end
+
+    it "is not indexable by crawlers" do
+      expect(page.find('meta[name="robots"]', visible: false)[:content]).to eq("noindex")
     end
 
     it "shows the profile page when clicking on the menu" do
@@ -38,6 +42,10 @@ describe "Profile", type: :system do
   context "when navigating publicly" do
     before do
       visit decidim.profile_path(user.nickname)
+    end
+
+    it "is not indexable by crawlers" do
+      expect(page.find('meta[name="robots"]', visible: false)[:content]).to eq("noindex")
     end
 
     it "shows user name in the header, its nickname and a contact link" do
@@ -66,6 +74,11 @@ describe "Profile", type: :system do
       it "shows officialization status" do
         click_link "Badges"
         expect(page).to have_content("Major of Barcelona")
+      end
+
+      it "is not indexable by crawlers" do
+        click_link "Badges"
+        expect(page.find('meta[name="robots"]', visible: false)[:content]).to eq("noindex")
       end
     end
 
@@ -96,6 +109,7 @@ describe "Profile", type: :system do
         click_link "Followers"
 
         expect(page).to have_content(other_user.name)
+        expect(page.find('meta[name="robots"]', visible: false)[:content]).to eq("noindex")
       end
 
       it "lists the followings" do
@@ -107,6 +121,7 @@ describe "Profile", type: :system do
         expect(page).to have_content(translated(user_to_follow.name))
         expect(page).to have_content(translated(user_group.name))
         expect(page).not_to have_content(translated(public_resource.title))
+        expect(page.find('meta[name="robots"]', visible: false)[:content]).to eq("noindex")
       end
 
       context "when the user follows non public resources" do
@@ -207,6 +222,7 @@ describe "Profile", type: :system do
 
         expect(page).to have_content(accepted_user_group.name)
         expect(page).not_to have_content(pending_user_group.name)
+        expect(page.find('meta[name="robots"]', visible: false)[:content]).to eq("noindex")
       end
 
       context "when user groups are disabled" do

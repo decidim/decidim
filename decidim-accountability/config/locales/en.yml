@@ -42,7 +42,9 @@ en:
         edit: Edit
         import: Import projects to results
         import_csv: Import CSV
-        new: New %{name}
+        new_result: New result
+        new_status: New status
+        new_timeline_entry: New timeline entry
         preview: Preview
         timeline_entries: Project evolution
         title: Actions
@@ -78,14 +80,13 @@ en:
             title: Import results from CSV
         imports:
           create:
+            invalid: There was a problem importing the results.
             success: The file has begun importing. You will receive an email in the next few minutes with the result of the import.
         models:
           result:
             name: Result
           status:
             name: Status
-          timeline_entry:
-            name: Timeline entry
         projects_import:
           create:
             invalid: There was a problem importing the projects into results, please follow the instructions carefully and make sure you have selected projects for implementation.
@@ -175,9 +176,7 @@ en:
             not_found: 'The parent was not found on the database (ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Dates
           results: Results
-          unspecified: Not specified
       import_mailer:
         import:
           errors: Errors
@@ -216,9 +215,6 @@ en:
           fields:
             entry_date: Date
             title: Title
-      result_m:
-        executed: Executed
-        view: View
       results:
         count:
           results_count:

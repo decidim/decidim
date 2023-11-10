@@ -67,8 +67,8 @@ module Decidim
     def append_development_directives
       return unless Rails.env.development?
 
-      host = ::Webpacker.config.dev_server[:host]
-      port = ::Webpacker.config.dev_server[:port]
+      host = ::Shakapacker.config.dev_server[:host]
+      port = ::Shakapacker.config.dev_server[:port]
 
       append_csp_directive("connect-src", "wss://#{host}:#{port}")
       append_csp_directive("connect-src", "ws://#{host}:#{port}")
@@ -122,7 +122,7 @@ module Decidim
         "style-src" => %w('self' 'unsafe-inline'),
         "img-src" => %w('self' *.hereapi.com data:),
         "font-src" => %w('self'),
-        "connect-src" => %w('self' *.hereapi.com *.jsdelivr.net),
+        "connect-src" => %w('self' *.hereapi.com *.jsdelivr.net data:),
         "frame-src" => %w('self' www.youtube-nocookie.com player.vimeo.com),
         "media-src" => %w('self')
       }

@@ -1,51 +1,56 @@
 <div class="card">
   <div class="card-divider">
-    <h2 class="card-title"><%= t(".title") %></h2>
+    <h2 class="card-title">
+      <%= t(".title") %>
+    </h2>
   </div>
 
   <div class="card-section">
-    <ul class="no-bullet-indented">
-      <% form.messages.each do |key, value| %>
-        <% if form.errors.include?(key) %>
-          <li><%= icon "x", class: "text-alert", role: "img", "aria-hidden": true %>&nbsp;<%= form.errors.messages[key][0].html_safe %></li>
-        <% else %>
-          <li><%= icon "check", class: "text-success", role: "img", "aria-hidden": true %>&nbsp;<%= value.html_safe %></li>
-        <% end %>
-      <% end %>
-    </ul>
-
-    <% if form.needs_census? %>
-      <h4><%= t(".census") %></h4>
-      <ul class="no-bullet-indented">
-        <% form.census_messages.each do |key, value| %>
+    <div class="row column">
+      <ul>
+        <% form.messages.each do |key, value| %>
           <% if form.errors.include?(key) %>
-            <li><%= icon "x", class: "text-alert", role: "img", "aria-hidden": true %>&nbsp;<%= form.errors.messages[key][0].html_safe %></li>
+            <li><%= icon "close-line", class: "text-alert", role: "img", "aria-hidden": true %>&nbsp;<%= form.errors.messages[key][0].html_safe %></li>
           <% else %>
-            <li><%= icon "check", class: "text-success", role: "img", "aria-hidden": true %>&nbsp;<%= value.html_safe %></li>
+            <li><%= icon "check-line", class: "text-success", role: "img", "aria-hidden": true %>&nbsp;<%= value.html_safe %></li>
           <% end %>
         <% end %>
       </ul>
-    <% end %>
 
-    <h4><%= t(".trustees") %></h4>
-    <ul class="no-bullet-indented">
-      <% if form.participatory_space_trustees.none? %>
-        <li><%= icon "x", class: "text-alert", role: "img", "aria-hidden": true %>&nbsp;<%= t(".no_trustees") %></li>
-      <% end %>
-
-      <% form.participatory_space_trustees.map { |trustee| [trustee, form.trustees.none? || form.trustees.include?(trustee)] }
-                                          .sort_by { |_trustee, used| used ? 0 : 1 }
-                                          .each do |trustee, used| %>
-        <li <%= "class=text-muted" if !used %>>
-          <%= icon trustee.public_key ? "check" : "x", class: "text-#{trustee.public_key ? "success" : "alert"}", role: "img", "aria-hidden": true %>
-          <%= trustee.user.name || trustee.name %> <%= t(".public_key.#{used}").html_safe %>
-          <% if used %>
-            <%= f.hidden_field :trustee_ids, multiple: true, value: trustee.id %>
-          <% else %>
-            <%= t(".not_used_trustee") %>
+      <% if form.needs_census? %>
+        <h4><%= t(".census") %></h4>
+        <ul>
+          <% form.census_messages.each do |key, value| %>
+            <% if form.errors.include?(key) %>
+              <li><%= icon "close-line", class: "text-alert", role: "img", "aria-hidden": true %>&nbsp;<%= form.errors.messages[key][0].html_safe %></li>
+            <% else %>
+              <li><%= icon "check-line", class: "text-success", role: "img", "aria-hidden": true %>&nbsp;<%= value.html_safe %></li>
+            <% end %>
           <% end %>
-        </li>
+        </ul>
       <% end %>
-    </ul>
+
+      <h4><%= t(".trustees") %></h4>
+      <ul>
+        <% if form.participatory_space_trustees.none? %>
+          <li><%= icon "close-line", class: "text-alert", role: "img", "aria-hidden": true %>&nbsp;<%= t(".no_trustees") %></li>
+        <% end %>
+
+        <% form.participatory_space_trustees
+               .map { |trustee| [trustee, form.trustees.none? || form.trustees.include?(trustee)] }
+               .sort_by { |_trustee, used| used ? 0 : 1 }
+               .each do |trustee, used| %>
+          <li <%= "class=text-muted" if !used %>>
+            <%= icon trustee.public_key ? "check" : "x", class: "text-#{trustee.public_key ? "success" : "alert"}", role: "img", "aria-hidden": true %>
+            <%= trustee.user.name || trustee.name %> <%= t(".public_key.#{used}").html_safe %>
+            <% if used %>
+              <%= f.hidden_field :trustee_ids, multiple: true, value: trustee.id %>
+            <% else %>
+              <%= t(".not_used_trustee") %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>

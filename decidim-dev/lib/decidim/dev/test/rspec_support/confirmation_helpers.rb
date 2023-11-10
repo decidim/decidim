@@ -7,12 +7,12 @@ module ConfirmationHelpers
   #
   # See:
   # https://github.com/teamcapybara/capybara/blob/44621209496fe4dd352709799a0061a80d97d562/lib/capybara/session.rb#L647
-  def accept_confirm(_text = nil, **options)
+  def accept_confirm(_text = nil)
     yield if block_given?
 
     # The test can already be "within", so find the body using xpath
     body = find(:xpath, "/html/body")
-    confirm_selector = options.fetch(:admin, !Decidim.redesign_active) ? ".confirm-modal-content" : "[data-confirm-modal-content]"
+    confirm_selector = "[data-confirm-modal-content]"
     message = nil
 
     within body do
@@ -28,12 +28,12 @@ module ConfirmationHelpers
   #
   # See:
   # https://github.com/teamcapybara/capybara/blob/44621209496fe4dd352709799a0061a80d97d562/lib/capybara/session.rb#L657
-  def dismiss_confirm(_text = nil, **options)
+  def dismiss_confirm(_text = nil)
     yield if block_given?
 
     # The test can already be "within", so find the body using xpath
     body = find(:xpath, "/html/body")
-    confirm_selector = options.fetch(:admin, !Decidim.redesign_active) ? ".confirm-modal-content" : "[data-confirm-modal-content]"
+    confirm_selector = "[data-confirm-modal-content]"
     message = nil
 
     within body do

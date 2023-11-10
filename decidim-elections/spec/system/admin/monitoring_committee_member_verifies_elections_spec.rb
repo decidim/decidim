@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Monitoring committee member verifies elections", type: :system do
+describe "Monitoring committee member verifies elections" do
   include_context "when monitoring committee member manages voting"
 
   let(:elections_component) { create(:elections_component, participatory_space: voting) }
@@ -20,7 +20,9 @@ describe "Monitoring committee member verifies elections", type: :system do
 
   context "when listing the elections" do
     it "lists all the polling stations for the voting" do
-      click_link "Verify Elections"
+      within_admin_sidebar_menu do
+        click_link "Verify Elections"
+      end
 
       within "#monitoring_committee_verify_elections table" do
         expect(page).to have_content(translated(election.title))

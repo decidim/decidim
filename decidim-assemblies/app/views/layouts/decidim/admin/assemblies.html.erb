@@ -1,15 +1,17 @@
-<% content_for :sidebar_menu_nav do %>
-  <%= sidebar_menu(:admin_assemblies_menu).render %>
+<% content_for :breadcrumb_context_menu do %>
+  <div class="process-title-content-breadcrumb-container-right">
+    <% if allowed_to? :create, :assembly %>
+      <%= link_to new_assembly_path(parent_id: parent_assembly&.id), class: "button button__sm button__transparent process-title-content-breadcrumb-container-right-link" do %>
+        <%= icon "add-line", class: "w-4 h-4" %>
+        <span>
+          <%= t("actions.new_assembly", scope: "decidim.admin") %>
+        </span>
+      <% end %>
+    <% end %>
+    <%= render partial: "layouts/decidim/admin/manage_assemblies" %>
+  </div>
 <% end %>
 
 <%= render "layouts/decidim/admin/application" do %>
-  <div class="process-title">
-    <div class="process-title-content">
-      <%= link_to t("decidim.admin.titles.assemblies"), decidim_assemblies.assemblies_path, target: "_blank" %>
-    </div>
-  </div>
-
-  <div class="process-content">
-    <%= yield %>
-  </div>
+  <%= yield %>
 <% end %>

@@ -1,75 +1,71 @@
 <% add_decidim_page_title(t(".title")) %>
 <div class="card">
-  <div class="card-divider">
-    <h2 class="card-title">
+  <div class="item_show__header">
+    <h2 class="item_show__header-title">
       <%= t(".title") %>
-      <div class="button--title">
-        <%= export_dropdown if allowed_to? :export, :comments %>
-        <%= link_to t("actions.new", scope: "decidim.debates", name: t("models.debate.name", scope: "decidim.debates.admin")), new_debate_path, class: "button tiny button--simple" if allowed_to? :create, :debate %>
-      </div>
+      <%= export_dropdown if allowed_to? :export, :comments %>
+      <%= link_to t("actions.new", scope: "decidim.debates"), new_debate_path, class: "button button__sm button__secondary" if allowed_to? :create, :debate %>
+      <%= render partial: "decidim/admin/components/resource_action" %>
     </h2>
   </div>
+  <div class="table-scroll">
+    <table class="table-list">
+      <thead>
+        <tr>
+          <th><%= t("models.debate.fields.title", scope: "decidim.debates") %></th>
+          <th><%= t("models.debate.fields.start_time", scope: "decidim.debates") %></th>
+          <th><%= t("models.debate.fields.end_time", scope: "decidim.debates") %></th>
+          <%= th_resource_scope_label %>
+          <th class="actions"><%= t("actions.title", scope: "decidim.debates") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% debates.each do |debate| %>
+          <tr data-id="<%= debate.id %>">
+            <td>
+              <% if allowed_to? :update, :debate, debate: debate %>
+                <%= link_to present(debate).title(html_escape: true), edit_debate_path(debate) %>
+              <% else %>
+                <%= present(debate).title(html_escape: true) %><br>
+              <% end %>
+            </td>
+            <td>
+              <% if debate.start_time %>
+                <%= l debate.start_time, format: :long %>
+              <% end %>
+            </td>
+            <td>
+              <% if debate.end_time %>
+                <%= l debate.end_time, format: :long %>
+              <% end %>
+            </td>
+            <%= td_resource_scope_for(debate.scope) %>
+            <td class="table-list__actions">
+              <% if allowed_to? :update, :debate, debate: debate %>
+                <%= icon_link_to "pencil-line", edit_debate_path(debate), t("actions.edit", scope: "decidim.debates"), class: "action-icon--edit" %>
+              <% else %>
+                <span class="action-space icon"></span>
+              <% end %>
 
-  <div class="card-section">
-    <div class="table-scroll">
-      <table class="table-list">
-        <thead>
-          <tr>
-            <th><%= t("models.debate.fields.title", scope: "decidim.debates") %></th>
-            <th><%= t("models.debate.fields.start_time", scope: "decidim.debates") %></th>
-            <th><%= t("models.debate.fields.end_time", scope: "decidim.debates") %></th>
-            <%= th_resource_scope_label %>
-            <th class="actions"><%= t("actions.title", scope: "decidim.debates") %></th>
+              <% if allowed_to? :close, :debate, debate: debate %>
+                <%= icon_link_to "lock-line" , edit_debate_debate_close_path(debate_id: debate.id, id: debate.id), t("actions.close", scope: "decidim.debates"), class: "action-icon--close" %>
+              <% else %>
+                <span class="action-space icon"></span>
+              <% end %>
+
+              <%= icon_link_to "eye-line", resource_locator(debate).path, t("actions.preview", scope: "decidim.admin"), class: "action-icon--preview", target: :blank, data: { "external-link": false } %>
+
+              <%= resource_permissions_link(debate) %>
+
+              <% if allowed_to? :delete, :debate, debate: debate %>
+                <%= icon_link_to "delete-bin-line", debate_path(debate), t("actions.destroy", scope: "decidim.debates"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.debates") } %>
+              <% else %>
+                <span class="action-space icon"></span>
+              <% end %>
+            </td>
           </tr>
-        </thead>
-        <tbody>
-          <% debates.each do |debate| %>
-            <tr data-id="<%= debate.id %>">
-              <td>
-                <% if allowed_to? :update, :debate, debate: debate %>
-                  <%= link_to present(debate).title(html_escape: true), edit_debate_path(debate) %>
-                <% else %>
-                  <%= present(debate).title(html_escape: true) %><br>
-                <% end %>
-              </td>
-              <td>
-                <% if debate.start_time %>
-                  <%= l debate.start_time, format: :long %>
-                <% end %>
-              </td>
-              <td>
-                <% if debate.end_time %>
-                  <%= l debate.end_time, format: :long %>
-                <% end %>
-              </td>
-              <%= td_resource_scope_for(debate.scope) %>
-              <td class="table-list__actions">
-                <% if allowed_to? :update, :debate, debate: debate %>
-                  <%= icon_link_to "pencil", edit_debate_path(debate), t("actions.edit", scope: "decidim.debates"), class: "action-icon--edit" %>
-                <% else %>
-                  <span class="action-space icon"></span>
-                <% end %>
-
-                <% if allowed_to? :close, :debate, debate: debate %>
-                  <%= icon_link_to "lock-locked", edit_debate_debate_close_path(debate_id: debate.id, id: debate.id), t("actions.close", scope: "decidim.debates"), class: "action-icon--close" %>
-                <% else %>
-                  <span class="action-space icon"></span>
-                <% end %>
-
-                <%= icon_link_to "eye", resource_locator(debate).path, t("actions.preview", scope: "decidim.admin"), class: "action-icon--preview", target: :blank %>
-
-                <%= resource_permissions_link(debate) %>
-
-                <% if allowed_to? :delete, :debate, debate: debate %>
-                  <%= icon_link_to "circle-x", debate_path(debate), t("actions.destroy", scope: "decidim.debates"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.debates") } %>
-                <% else %>
-                  <span class="action-space icon"></span>
-                <% end %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>

@@ -1,7 +1,21 @@
-<%= decidim_form_for([election, @form], html: { class: "form edit_question" }) do |f| %>
-  <%= render partial: "form", object: f, locals: { title: t(".title") } %>
-
-  <div class="button--double form-general-submit">
-    <%= f.submit t(".update") %>
+<% add_decidim_page_title(t(".title")) %>
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <div>
+      <%= link_to translated_attribute(election.title), elections_path %> &gt;
+      <%= t(".title") %>
+    </div>
+  </h2>
+</div>
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <%= decidim_form_for([election, @form], html: { class: "form-defaults form edit_question" }) do |f| %>
+      <%= render partial: "form", object: f %>
+      <div class="item__edit-sticky">
+        <div class="item__edit-sticky-container">
+          <%= f.submit t(".update"), class: "button button__sm button__secondary" %>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>

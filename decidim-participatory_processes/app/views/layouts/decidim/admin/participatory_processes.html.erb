@@ -1,11 +1,17 @@
-<%= render "layouts/decidim/admin/application" do %>
-  <div class="process-title">
-    <div class="process-title-content">
-      <%= link_to t("decidim.admin.titles.participatory_processes"), decidim_participatory_processes.participatory_processes_path, target: "_blank" %>
-    </div>
+<% content_for :breadcrumb_context_menu do %>
+  <div class="process-title-content-breadcrumb-container-right">
+    <% if allowed_to? :create, :process %>
+      <%= link_to [:new, :participatory_process], class: "button button__sm button__transparent process-title-content-breadcrumb-container-right-link" do %>
+        <%= icon "add-line" %>
+        <span>
+          <%= t("actions.new_process", scope: "decidim.admin") %>
+        </span>
+      <% end %>
+    <% end %>
+    <%= render partial: "layouts/decidim/admin/manage_processes" %>
   </div>
+<% end %>
 
-  <div class="process-content">
-    <%= yield %>
-  </div>
+<%= render "layouts/decidim/admin/application" do %>
+  <%= yield %>
 <% end %>

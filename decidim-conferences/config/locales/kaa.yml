@@ -1,1 +1,20 @@
 kaa:
+  decidim:
+    admin:
+      conferences:
+        edit:
+          update: Jańalaw
+      media_links:
+        edit:
+          update: Jańalaw
+      partners:
+        edit:
+          update: Jańalaw
+      registration_types:
+        edit:
+          update: Jańalaw
+    conferences:
+      admin:
+        diplomas:
+          edit:
+            save: Saqlaw

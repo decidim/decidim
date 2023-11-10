@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "gem_overrides/webpacker/runner"
+require "gem_overrides/shakapacker/runner"
 
-module Webpacker
+module Shakapacker
   describe Runner do
     subject { described_class.new(argv) }
 
@@ -41,12 +41,6 @@ module Webpacker
           "decidim_geocoding_provider_here" => "#{core_path}/app/packs/entrypoints/decidim_geocoding_provider_here.js",
           "decidim_map_provider_default" => "#{core_path}/app/packs/entrypoints/decidim_map_provider_default.js",
           "decidim_map_provider_here" => "#{core_path}/app/packs/entrypoints/decidim_map_provider_here.js"
-        )
-
-        expect(runtime_config["default"]["stylesheet_imports"].keys).to include("imports")
-        expect(runtime_config["default"]["stylesheet_imports"]["imports"].keys).to include("app")
-        expect(runtime_config["default"]["stylesheet_imports"]["imports"]["app"]).to include(
-          "stylesheets/decidim/initiatives/initiatives"
         )
       end
 

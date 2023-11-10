@@ -99,7 +99,9 @@ en:
       actions:
         import_assembly: Import
         new_assembly: New assembly
+        new_assembly_member: New assembly member
         new_assembly_type: New assembly type
+        new_assembly_user_role: New assembly admin
       assemblies:
         create:
           error: There was a problem creating a new assembly.
@@ -107,10 +109,10 @@ en:
         edit:
           update: Update
         index:
-          not_published: Not published
           private: Private
           public: Public
           published: Published
+          unpublished: Unpublished
         new:
           create: Create
           title: New assembly
@@ -157,13 +159,13 @@ en:
         destroy:
           success: Member successfully deleted for this assembly.
         edit:
-          title: Update assembly member.
+          title: Update assembly member
           update: Update
         index:
           assembly_members_title: Assembly members
         new:
           create: Create
-          title: New assembly member.
+          title: New assembly member
         update:
           error: There was a problem updating the member for this assembly.
           success: Member successfully updated for this assembly.
@@ -181,19 +183,26 @@ en:
         destroy:
           success: Admin successfully removed from this assembly.
         edit:
-          title: Update assembly admin.
+          title: Update assembly admin
           update: Update
         index:
           assembly_admins_title: Assembly admins
         new:
           create: Create
-          title: New assembly admin.
+          title: New assembly admin
         update:
           error: There was a problem updating an admin for this assembly.
           success: Admin updated successfully for this assembly.
       filters:
+        ceased_date_not_null:
+          label: Ceased
+          values:
+            'false': Not ceased
+            'true': Ceased
         decidim_assemblies_type_id_eq:
           label: Assembly type
+        search_placeholder:
+          full_name_or_user_name_or_user_nickname_cont: Search by name or nickname
       menu:
         assemblies: Assemblies
         assemblies_settings: Settings
@@ -205,10 +214,11 @@ en:
           attachments: Attachments
           categories: Categories
           components: Components
-          info: Info
+          info: About this assembly
           landing_page: Landing page
           moderations: Moderations
           private_users: Private users
+          see_assembly: See assembly
         assemblies_types: Assemblies types
       models:
         assemblies_types:
@@ -217,6 +227,7 @@ en:
             title: Title
         assembly:
           fields:
+            actions: Actions
             created_at: Created at
             private: Private
             promoted: Highlighted
@@ -307,7 +318,6 @@ en:
             slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         assembly_imports:
           form:
-            document_legend: Add a document
             slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         assembly_members:
           form:
@@ -319,13 +329,6 @@ en:
             select_a_position: Select a position
             select_user: Select a participant
             user_type: Participant type
-          index:
-            filter:
-              all: All
-              ceased: Ceased
-              not_ceased: Not ceased
-            filter_by: Filter by
-            search: Search
         content_blocks:
           highlighted_assemblies:
             max_results: Maximum amount of elements to show

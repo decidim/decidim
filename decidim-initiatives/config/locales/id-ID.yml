@@ -163,22 +163,14 @@ id:
             print: Mencetak
         initiatives_type_scopes:
           edit:
-            back: Kembali
-            confirm_destroy: Apakah kamu yakin?
-            destroy: Menghapus
             title: Edit ruang lingkup jenis inisiatif
             update: Memperbarui
           new:
-            back: Kembali
             create: Membuat
             title: Buat ruang lingkup jenis inisiatif
         initiatives_types:
           edit:
-            confirm_destroy: Apakah kamu yakin?
-            destroy: Menghapus
             update: Memperbarui
-          form:
-            title: Informasi Umum
           initiative_type_scopes:
             title: Cakupan untuk jenis inisiatif
           new:
@@ -221,24 +213,15 @@ id:
         previous_form:
           back: Kembali
           continue: Terus
-          help: Apa inisiatif terdiri dari? Tuliskan judul dan deskripsi. Kami merekomendasikan judul singkat dan ringkas dan deskripsi yang difokuskan pada solusi yang diusulkan.
-          more_information: "(Informasi lebih lanjut)"
         promotal_committee:
-          back: Kembali
           more_information: "(Informasi lebih lanjut)"
         select_initiative_type:
           back: Kembali
           choose_html: Saya ingin membuat <strong>%{title}</strong>
-          more_information: "(Informasi lebih lanjut)"
+          more_information: (Informasi lebih lanjut)
           select: Saya ingin mempromosikan inisiatif ini
         share_committee_link:
-          continue: Terus
           invite_to_committee_help: Tautan untuk mengundang orang yang akan menjadi bagian dari komite promotor
-        show_similar_initiatives:
-          back: Kembali
-          compare_help: Jika salah satu inisiatif berikut serupa dengan inisiatif Anda, kami mendorong Anda untuk mendukungnya. Proposal Anda akan memiliki lebih banyak kemungkinan untuk diselesaikan.
-          continue: Inisiatif saya berbeda
-          more_information: "(Informasi lebih lanjut)"
       events:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, siapa yang Anda ikuti, telah membuat inisiatif baru, lihat dan sumbangkan:"
@@ -250,15 +233,9 @@ id:
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{author_nickname}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
           email_subject: Inisiatif yang didukung oleh %{author_nickname}
           notification_title: Prakarsa <a href="%{resource_path}">%{resource_title}</a> didukung oleh <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-      index:
-        title: Inisiatif
       initiative_signatures:
         fill_personal_data:
           continue: Terus
-          date_select:
-            day: Hari
-            month: Bulan
-            year: Tahun
         finish:
           back_to_initiative: Kembali ke inisiatif
         sms_code:
@@ -274,8 +251,6 @@ id:
         sms_phone:
           invalid: Nomor telepon tidak valid atau menunggu otorisasi. Silakan periksa otorisasi Anda.
       initiatives:
-        author:
-          deleted: Dihapus
         author_list:
           hidden_authors_count:
             other: dan %{count} lebih banyak orang
@@ -289,11 +264,6 @@ id:
           search: Pencarian
           state: Negara
           type: Mengetik
-        filters_small_view:
-          close_modal: Tutup jendela
-          filter: Filter
-          filter_by: Filter berdasarkan
-          unfold: Membuka
         index_header:
           new_initiative: Inisiatif baru
         interactions:
@@ -310,8 +280,6 @@ id:
           city: Kota
         result:
           initiative_rejected_reason: Inisiatif ini telah ditolak karena kurangnya dukungan.
-        show:
-          follow_description: Terima pemberitahuan saat ada berita dalam inisiatif ini
         signatures_count:
           other: " tanda tangan"
         vote_cabin:
@@ -323,8 +291,6 @@ id:
         votes_count:
           count:
             other: TANDATANGAN
-          most_popular_initiative: Inisiatif paling populer
-          need_more_votes: Perlu lebih banyak tanda tangan
       initiatives_mailer:
         creation_subject: Inisiatif warga Anda '%{title}' telah dibuat
         initiative_link:
@@ -336,11 +302,6 @@ id:
         promotal_committee_help: Ingat bahwa Anda harus mengundang setidaknya %{member_count} orang ke komite promotor. Teruskan tautan berikut untuk mengundang orang ke komite promotor
         status_change_body_for: 'Inisiatif %{title} telah mengubah negaranya menjadi: %{state}'
         status_change_for: Inisiatif %{title} telah mengubah keadaannya
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Inisiatif aktif
-            see_all_initiatives: Lihat semua inisiatif
       states:
         accepted: Diterima
         expired: Kadaluarsa
@@ -355,26 +316,15 @@ id:
   layouts:
     decidim:
       initiative_creation_header:
-        back: Kembali
         fill_data: Membuat
         finish: Selesai
-        previous_form: Mulai
         promotal_committee: Komite promotor
         select_initiative_type: Memilih
-        show_similar_initiatives: Membandingkan
-        title: Buat inisiatif baru
-      initiative_header:
-        initiative_menu_item: Prakarsa
       initiative_signature_creation_header:
-        back: Kembali
         fill_personal_data: Lengkapi data Anda
         finish: Selesai
-        finished: Tanda tangan inisiatif dibuat
-        see_steps: lihat langkah-langkahnya
-        select_identity: Pilih identitas
         sms_code: Verifikasi kode SMS
         sms_phone_number: Nomor ponsel
-        step: Langkah %{current} dari %{total}
         title: Tanda %{initiative_title}
       initiatives:
         initiative:

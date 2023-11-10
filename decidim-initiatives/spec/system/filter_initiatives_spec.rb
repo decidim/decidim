@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Filter Initiatives", :slow, type: :system do
+describe "Filter Initiatives", :slow do
   let!(:organization) { create(:organization) }
   let!(:type1) { create(:initiatives_type, organization:) }
   let!(:type2) { create(:initiatives_type, organization:) }

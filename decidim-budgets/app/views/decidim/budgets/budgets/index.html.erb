@@ -2,11 +2,11 @@
 <%= append_stylesheet_pack_tag "decidim_budgets", media: "all" %>
 
 <% content_for :aside do %>
-  <h1 class="h3 md:h1 decorator"><%= component_name %></h1>
+  <h1 class="title-decorator"><%= component_name %></h1>
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
-  <%= render partial: "decidim/shared/component_announcement", locals: { truncate: true } %>
+  <%= render partial: "decidim/shared/component_announcement" %>
 
   <section class="layout-main__section">
     <%= cell("decidim/budgets/budgets_header", current_workflow) %>

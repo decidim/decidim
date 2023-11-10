@@ -19,7 +19,7 @@ shared_examples "manage categories examples" do
   end
 
   it "creates a new category" do
-    find(".card-title a.new").click
+    click_link "New category"
 
     within ".new_category" do
       fill_in_i18n(
@@ -77,7 +77,7 @@ shared_examples "manage categories examples" do
 
         it "deletes a category" do
           within find("tr", text: translated(category2.name)) do
-            accept_confirm(admin: true) { click_link "Delete" }
+            accept_confirm { click_link "Delete" }
           end
 
           expect(page).to have_admin_callout("successfully")
@@ -97,7 +97,7 @@ shared_examples "manage categories examples" do
 
         it "deletes a category" do
           within find("tr", text: translated(category2.name)) do
-            accept_confirm(admin: true) { click_link "Delete" }
+            accept_confirm { click_link "Delete" }
           end
 
           expect(page).to have_admin_callout("problem deleting")

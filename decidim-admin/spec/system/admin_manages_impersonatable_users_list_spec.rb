@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages impersonatable users list", type: :system do
+describe "Admin manages impersonatable users list" do
   let(:organization) { create(:organization) }
 
   let!(:admin) { create(:user, :admin, :confirmed, organization:) }
@@ -24,7 +24,9 @@ describe "Admin manages impersonatable users list", type: :system do
     let!(:user_manager) { create(:user, :user_manager) }
 
     before do
-      click_link "Impersonations"
+      within_admin_sidebar_menu do
+        click_link "Impersonations"
+      end
     end
 
     it "shows each user and its managed status" do

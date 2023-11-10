@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Initiative", type: :system do
+describe "Initiative" do
   let(:organization) { create(:organization) }
   let(:state) { :published }
   let(:base_initiative) do
@@ -22,6 +22,10 @@ describe "Initiative", type: :system do
   describe "initiative page" do
     let!(:initiative) { base_initiative }
     let(:attached_to) { initiative }
+
+    before do
+      allow(Decidim::Initiatives).to receive(:print_enabled).and_return(true)
+    end
 
     it_behaves_like "editable content for admins" do
       let(:target_path) { decidim_initiatives.initiative_path(initiative) }
@@ -54,6 +58,14 @@ describe "Initiative", type: :system do
           expect(page).to have_content(translated(initiative.scope.name, locale: :en))
           expect(page).to have_content(initiative.reference)
         end
+      end
+
+      describe "follow button" do
+        let!(:user) { create(:user, :confirmed, organization:) }
+        let(:followable) { initiative }
+        let(:followable_path) { decidim_initiatives.initiative_path(initiative) }
+
+        include_examples "follows"
       end
 
       context "when signature interval is defined" do

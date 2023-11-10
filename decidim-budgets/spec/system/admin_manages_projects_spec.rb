@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/proposals/test/capybara_proposals_picker"
 
-describe "Admin manages projects", type: :system do
+describe "Admin manages projects" do
   let(:manifest_name) { "budgets" }
   let(:budget) { create(:budget, component: current_component) }
   let!(:project) { create(:project, budget:) }
@@ -39,7 +38,8 @@ describe "Admin manages projects", type: :system do
       click_button "Change category"
       select translated(category.name), from: "category_id"
       click_button "Update"
-      expect(page).to have_css(".callout.success")
+
+      expect(page).to have_admin_callout "Projects successfully updated to the category"
       within "tr[data-id='#{project.id}']" do
         expect(page).to have_content(translated(category.name))
       end
@@ -51,9 +51,10 @@ describe "Admin manages projects", type: :system do
       find(".js-resource-id-#{project.id}").set(true)
       find("#js-bulk-actions-button").click
       click_button "Change scope"
-      scope_pick select_data_picker(:scope_id), scope
+      select translated(scope.name), from: :scope_id
       click_button "Update"
-      expect(page).to have_css(".callout.success")
+
+      expect(page).to have_admin_callout "Projects successfully updated to the scope"
       within "tr[data-id='#{project.id}']" do
         expect(page).to have_content(translated(scope.name))
       end
@@ -67,7 +68,8 @@ describe "Admin manages projects", type: :system do
       click_button "Change selected"
       select "Select", from: "selected_value"
       click_button "Update"
-      expect(page).to have_css(".callout.success")
+
+      expect(page).to have_admin_callout "These projects were successfully selected for implementation"
       within "tr[data-id='#{project.id}']" do
         expect(page).to have_content("Selected")
       end

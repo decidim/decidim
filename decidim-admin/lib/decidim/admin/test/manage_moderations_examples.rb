@@ -10,10 +10,15 @@ shared_examples "sorted moderations" do
   end
   let!(:moderation) { moderations.first }
   let(:moderations_link_text) { "Moderations" }
+  let(:moderations_link_in_admin_menu) { true }
 
   before do
     visit participatory_space_path
-    click_link moderations_link_text
+    if moderations_link_in_admin_menu
+      within_admin_sidebar_menu { click_link(moderations_link_text) }
+    else
+      within("div.layout-nav") { click_link(moderations_link_text) }
+    end
   end
 
   it "sorts the most recent first" do
@@ -44,10 +49,15 @@ shared_examples "manage moderations" do
     end
   end
   let(:moderations_link_text) { "Moderations" }
+  let(:moderations_link_in_admin_menu) { true }
 
   before do
     visit participatory_space_path
-    click_link moderations_link_text
+    if moderations_link_in_admin_menu
+      within_admin_sidebar_menu { click_link(moderations_link_text) }
+    else
+      within("div.layout-nav") { click_link(moderations_link_text) }
+    end
   end
 
   context "when listing moderations" do
@@ -115,7 +125,7 @@ shared_examples "manage moderations" do
       search = moderation.reportable.id
       within ".filters__section" do
         fill_in("Search Moderation by reportable id or content.", with: search)
-        find(:xpath, "//button[@type='submit']").click
+        click_button(type: "submit")
       end
       expect(page).to have_selector("tbody tr", count: 1)
     end
@@ -174,9 +184,7 @@ shared_examples "manage moderations" do
 
   context "when listing hidden resources" do
     before do
-      within ".card-title" do
-        click_link "Hidden"
-      end
+      click_link "Hidden"
     end
 
     it "user cannot unreport them" do

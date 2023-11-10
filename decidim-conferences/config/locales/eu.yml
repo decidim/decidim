@@ -5,42 +5,45 @@ eu:
         assemblies_ids: Lotutako Batzarrak
         available_slots: Leku libreak
         banner_image: Banner irudia
-        consultations_ids: Lotutako kontsultak
         copy_categories: Kopiatu kategoriak
         copy_components: Kopiatu osagaiak
         copy_features: Kopiatu ezaugarriak
-        decidim_scope_id: esparrua
-        description: deskribapena
+        decidim_scope_id: Esparrua
+        description: Deskribapena
         end_date: Amaiera-data
-        hashtag: hashtag
-        hero_image: Hasiera irudia
+        hashtag: Traola
+        hero_image: Orri nagusiko irudia
         location: Kokapena
         main_logo: Logo nagusia
         objectives: Helburuak
-        participatory_processes_ids: Parte hartutako prozesu erlazionatuak
-        promoted: sustatuta
-        published_at: Argitaratu at
-        registration_terms: Izen-ematearen irizpideak eta baldintzak
-        registrations_enabled: Gaitu izen-emateak
-        scope_id: esparrua
-        scopes_enabled: Scopes gaituta
+        participatory_processes_ids: Lotutako parte-hartze prozesuak
+        promoted: Nabarmendua
+        published_at: Argitaratze-data
+        registration_terms: Erregistro-baldintzak
+        registrations_enabled: Izen-emateak gaituta
+        scope_id: Esparrua
+        scopes_enabled: Esparruak gaituta
         short_description: Deskribapen laburra
         show_statistics: Erakutsi estatistikak
         sign_date: Sinatze-data
         signature: Sinadura
+        signature_name: Sinaduraren izena
         slogan: Leloa
         slug: URL laburra
         start_date: Hasiera-data
         title: Izenburua
+        weight: Hurrenkera
       conference_media_link:
         date: Data
-        link: Lotura
+        link: Esteka
         title: Izenburua
+        weight: Hurrenkera
       conference_partner:
-        link: Lotura
+        link: Esteka
         logo: Logoa
         name: Izena
         partner_type: Lankidetza mota
+        weight: Hurrenkera
       conference_registration_invite:
         email: Helbide elektronikoa
         name: Izena
@@ -50,38 +53,51 @@ eu:
         description: Deskribapena
         price: Prezioa
         title: Izenburua
+        weight: Hurrenkera
       conference_speaker:
-        affiliation: Kidetza
-        avatar: Avatarra
+        affiliation: Afiliazioa
+        avatar: Abatar
         conference_meeting_ids: Honekin lotutako topaketak
-        full_name: Izen osoa
-        position: Kokapena
-        twitter_handle: Twitter kontua
+        full_name: Izena
+        personal_url: URL pertsonala
+        position: Lekua
+        short_bio: Biografia laburra
         user_id: Erabiltzailea
       conference_user_role:
-        email: Emaila
-        name: izena
-        role: Role
+        email: Helbide elektronikoa
+        name: Izena
+        role: Rola
+    errors:
+      models:
+        conference_registration_invite:
+          attributes:
+            email:
+              already_invited: Helbide elektronikoko kontu hau dagoeneko gonbidatuta dago.
   activerecord:
     models:
       decidim/conference:
-        one: Konferentzia
-        other: Jardunaldiak
+        one: Hitzaldia
+        other: Hitzaldiak
       decidim/conference_speaker:
-        one: Hitzaldi hizlaria
-        other: Hitzaldi hiztunak
+        one: Jardunaldiko hizlaria
+        other: Jardunaldiko hizlariak
       decidim/conference_user_role:
-        one: Konferentzia erabiltzailearen rola
-        other: Konferentzia erabiltzailearen rola
+        one: Jardunaldiko hizlari rola
+        other: Jardunaldiko hizlari rolak
   decidim:
     admin:
       actions:
         confirm: Berretsi
-        new_conference: Konferentzia berria
-        send_diplomas: Eman ziurtagiriak bidaltzeko
+        new_conference: Beste hitzaldi bat
+        new_conference_user_role: Hitzaldiaren beste administratzaile bat
+        new_media_link: Hedabideen beste lotura bat
+        new_partner: Beste bazkide bat
+        new_registration_type: Beste erregistro mota bat
+        new_speaker: Beste hizlari bat
+        send_diplomas: Bertaratze-ziurtagiriak bidali
       conference_copies:
         new:
-          copy: Copy
+          copy: Kopiatu
           select: Aukeratu zein datu bikoiztu nahi dituzun
           title: Bilera bikoiztua
       conference_publications:
@@ -138,7 +154,6 @@ eu:
         form:
           title: Informazio orokorra
         index:
-          not_published: Ez da argitaratu
           published: Argitaratutako
         new:
           create: Sortu
@@ -179,18 +194,18 @@ eu:
           conference_invites: Gonbidapenak
           conference_speakers: Hizlariak
           diploma: Asistentzia ziurtagiria
-          info: info
+          info: Hitzaldi honi buruz
           media_links: Media Links
           moderations: moderazioa
           partners: Bazkideak
           registration_types: Izen-emate motak
           registrations: Izen-emateak
+          see_conference: Ikusi hitzaldia
           user_registrations: Erabiltzaileen erregistroak
       models:
         conference:
           fields:
             created_at: Sortutako at
-            promoted: sustatuta
             published: Argitaratutako
             title: Izenburua
         conference_speaker:
@@ -313,9 +328,6 @@ eu:
         title: Hizlariak
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'URL slugs erabiltzen dira konferentzia honetara bidaltzen dituzten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
         conference_invites:
           create:
             error: Arazo bat izan da erabiltzaileak konferentziara sartzeko gonbidatuta.
@@ -332,7 +344,6 @@ eu:
               all: guztiak
               rejected: Baztertuta
               sent: bidalia
-            filter_by: Iragazi arabera
             invite_attendee: Gonbidatu parte-hartzailea
             invites: Gonbidapenak
             search: Bilatu
@@ -356,7 +367,6 @@ eu:
             registrations_count:
               one: Izena eman da.
               other: Dena den, %{count} matrikulazioak.
-            slug_help: 'URL slugs erabiltzen dira konferentzia honetara bidaltzen dituzten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
         diplomas:
           edit:
             save: Gorde
@@ -411,11 +421,11 @@ eu:
         decline_invitation:
           invalid: Arazo bat izan da gonbidapena gaindituz gero.
           success: Gonbidapena ongi egin du.
+          unauthorized: Gonbidapenari uko egin aurretik hasi behar duzu saioa.
         destroy:
           invalid: Arazo bat izan da hitzaldi hau utziz.
           success: Kongresua behar bezala utzi duzu.
       conference_speaker:
-        go_to_twitter: Joan Twitterrera
         more_info: informazio gehiago
         personal_website: Webgune pertsonala
         show:
@@ -429,8 +439,12 @@ eu:
           collaborators: Bazkideak
           main_promotors: Antolatzaileak
         show:
+          already_have_an_account?: Ba al duzu kontu bat?
           login_as: '%{name} <%{email}> gisa erregistratuta zaude'
+          manage_registration: Erregistroa kudeatu
           register: Eman izena
+          sign_in_description: Hasi saioa jardunaldian erregistratzeko
+          sign_up_description: Sortu kontu bat konferentzian erregistratzeko
       content_blocks:
         highlighted_conferences:
           name: Nabarmendutako konferentziak
@@ -467,9 +481,8 @@ eu:
       pages:
         home:
           highlighted_conferences:
-            active_conferences: Jardunaldi aktiboak
-            conferences_button_title: Lotura batzar guztiak erakusten dituen Batzarren orrialdera
-            see_all_conferences: Ikusi hitzaldi guztiak
+            active_spaces: Jardunaldi aktiboak
+            see_all_spaces: Ikusi hitzaldi guztiak
       registration_types:
         index:
           choose_an_option: 'Aukeratu zure erregistro-aukera:'
@@ -481,7 +494,6 @@ eu:
         introduction: Sarrera
         objectives: Helburuak
         related_assemblies: Lotutako Batzarrak
-        related_consultations: Lotutako kontsultak
         related_participatory_processes: Parte hartze prozesu erlazionatuak
     events:
       conferences:
@@ -535,10 +547,8 @@ eu:
   layouts:
     decidim:
       conference_hero:
+        manage_registration: Erregistroa kudeatu
         register: Eman izena
-      conference_widgets:
-        show:
-          take_part: Parte hartu
       conferences:
         conference:
           more_info: Informazio gehiago
@@ -549,11 +559,7 @@ eu:
           conferences:
             one: "%{count} hitzaldi"
             other: "%{count} hitzaldiak"
-        promoted_conference:
-          more_info: Informazio gehiago
-          take_part: Parte hartu
       conferences_nav:
-        conference_menu_item: informazioa
         conference_partners_menu_item: Bazkideak
         conference_speaker_menu_item: Hizlariak
         media: Media

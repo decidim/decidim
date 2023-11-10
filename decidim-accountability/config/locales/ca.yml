@@ -41,7 +41,9 @@ ca:
         edit: Editar
         import: Importar projectes a resultats
         import_csv: Importar CSV
-        new: Nou/va %{name}
+        new_result: Afegir resultat
+        new_status: Afegir estat
+        new_timeline_entry: Afegir entrada de la cronologia
         preview: Previsualitzar
         timeline_entries: Evolució del projecte
         title: Accions
@@ -77,14 +79,13 @@ ca:
             title: Importar resultats via CSV
         imports:
           create:
+            invalid: Hi ha hagut un problema important els resultats.
             success: S'està important el fitxer. Rebràs un correu electrònic en els pròxims minuts amb el resultat de la importació.
         models:
           result:
             name: Resultat
           status:
             name: Estat
-          timeline_entry:
-            name: Entrada de la cronologia
         projects_import:
           create:
             invalid: Hi ha hagut un problema important els projectes com a resultats, si us plau, segueix les instruccions amb cura i assegura't de marcar els projectes seleccionats per a la seva implementació.
@@ -231,6 +232,7 @@ ca:
           global_status: Estat d'execució global
         nav_breadcrumb:
           global: Execució global
+        no_results: No hi ha projectes
         search:
           search: Cercar actuacions
         show:

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages newsletter templates", type: :system do
+describe "Admin manages newsletter templates" do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, name: "Sarah Kerrigan", organization:) }
 
@@ -15,9 +15,7 @@ describe "Admin manages newsletter templates", type: :system do
     it "lists the available templates" do
       visit decidim_admin.newsletters_path
 
-      within ".secondary-nav" do
-        find(".button.new").click
-      end
+      find(".button.new").click
 
       expect(page).to have_content("Basic (only text)")
       expect(page).to have_content("Image, text and Call To Action button")
@@ -28,9 +26,7 @@ describe "Admin manages newsletter templates", type: :system do
     it "allows the user to preview a template" do
       visit decidim_admin.newsletters_path
 
-      within ".secondary-nav" do
-        find(".button.new").click
-      end
+      find(".button.new").click
 
       within "#basic_only_text" do
         click_link "Preview"
@@ -46,9 +42,7 @@ describe "Admin manages newsletter templates", type: :system do
     it "lets the user use the template to create a newsletter" do
       visit decidim_admin.newsletters_path
 
-      within ".secondary-nav" do
-        find(".button.new").click
-      end
+      find(".button.new").click
 
       within "#basic_only_text" do
         click_link "Preview"

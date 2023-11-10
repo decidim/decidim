@@ -5,7 +5,7 @@ require "spec_helper"
   require "decidim/#{space}/test/factories.rb"
 end
 
-describe "Admin manages newsletters", type: :system do
+describe "Admin manages newsletters" do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, name: "Sarah Kerrigan", organization:) }
   let!(:deliverable_users) { create_list(:user, 5, :confirmed, newsletter_notifications_at: Time.current, organization:) }
@@ -31,9 +31,7 @@ describe "Admin manages newsletters", type: :system do
     it "allows a newsletter to be created" do
       visit decidim_admin.newsletters_path
 
-      within ".secondary-nav" do
-        find(".button.new").click
-      end
+      find(".button.new").click
 
       within "#image_text_cta" do
         click_link "Use this template"
@@ -203,8 +201,8 @@ describe "Admin manages newsletters", type: :system do
             expect(page).to have_content(recipients_count)
           end
 
-          within ".button--double" do
-            accept_confirm(admin: true) { find("*", text: "Deliver").click }
+          within "form.newsletter_deliver .form__wrapper-block" do
+            accept_confirm { find("*", text: "Deliver").click }
           end
 
           expect(page).to have_content("Newsletters")
@@ -240,8 +238,8 @@ describe "Admin manages newsletters", type: :system do
             expect(page).to have_content(recipients_count)
           end
 
-          within ".button--double" do
-            accept_confirm(admin: true) { find("*", text: "Deliver").click }
+          within "form.newsletter_deliver .form__wrapper-block" do
+            accept_confirm { find("*", text: "Deliver").click }
           end
 
           expect(page).to have_content("Newsletters")
@@ -277,8 +275,8 @@ describe "Admin manages newsletters", type: :system do
             expect(page).to have_content(recipients_count)
           end
 
-          within ".button--double" do
-            accept_confirm(admin: true) { find("*", text: "Deliver").click }
+          within "form.newsletter_deliver .form__wrapper-block" do
+            accept_confirm { find("*", text: "Deliver").click }
           end
 
           expect(page).to have_content("Newsletters")
@@ -321,8 +319,8 @@ describe "Admin manages newsletters", type: :system do
             expect(page).to have_content(recipients_count)
           end
 
-          within ".button--double" do
-            accept_confirm(admin: true) { find("*", text: "Deliver").click }
+          within "form.newsletter_deliver .form__wrapper-block" do
+            accept_confirm { find("*", text: "Deliver").click }
           end
 
           expect(page).to have_content("Newsletters")
@@ -343,7 +341,7 @@ describe "Admin manages newsletters", type: :system do
       visit decidim_admin.newsletters_path
 
       within("tr[data-newsletter-id=\"#{newsletter.id}\"]") do
-        accept_confirm(admin: true) { click_link "Delete" }
+        accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_content("successfully")

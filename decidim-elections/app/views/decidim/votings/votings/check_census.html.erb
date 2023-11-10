@@ -11,7 +11,7 @@ edit_link(
 
 <%= render layout: "layouts/decidim/shared/layout_center" do %>
   <div class="text-center py-10">
-    <h1 class="h3 md:h1 decorator inline-block text-left mb-12">
+    <h1 class="title-decorator inline-block text-left mb-12">
       <%= t("title", scope: "decidim.votings.votings.check_census") %>
     </h1>
 
@@ -23,9 +23,11 @@ edit_link(
   <% if success %>
 
     <%# NOTE: announcement cell clean_body method will purge the button %>
-    <div class="callout success" data-announcement>
-      <h5><%= t("decidim.votings.votings.check_census.success.title") %></h5>
-      <p>
+    <div class="flash success flex-col" data-announcement>
+      <div class="h4">
+        <%= t("decidim.votings.votings.check_census.success.title") %>
+      </div>
+      <span class="flash__message">
         <%= t("decidim.votings.votings.check_census.success.info") %>
         <button type="button" class="button button__text-secondary" data-dialog-open="access-code-modal">
           <% if Decidim.sms_gateway_service.to_s.safe_constantize %>
@@ -34,7 +36,7 @@ edit_link(
             <%= t("decidim.votings.votings.check_census.success.access_link") %>
           <% end %>
         </button>
-      </p>
+      </span>
     </div>
 
     <% if datum.email.present? || datum.mobile_phone_number.present? %>

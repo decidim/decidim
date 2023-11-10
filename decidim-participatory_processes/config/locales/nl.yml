@@ -85,7 +85,6 @@ nl:
         edit: Bewerken
         filter:
           all_processes: Toon alle processen
-          process_groups: Procesgroepen
         import_process: Importeren
         new_process: Nieuw proces
         new_process_group: Nieuwe procesgroep
@@ -107,7 +106,6 @@ nl:
           attachments: Bijlagen
           categories: Categorieën
           components: Onderdelen
-          info: Info
           moderations: Moderaties
           private_users: Privégebruikers
           process_admins: Admins van het proces
@@ -117,7 +115,6 @@ nl:
           fields:
             created_at: Aangemaakt op
             private: Privé
-            promoted: Gemarkeerd
             published: Gepubliceerd
             title: Titel
           name: Inspraakproces
@@ -234,7 +231,6 @@ nl:
         edit:
           update: Bijwerken
         index:
-          not_published: Niet gepubliceerd
           private: Privé
           public: Openbaar
           published: Gepubliceerd
@@ -307,9 +303,6 @@ nl:
         description: Aantal participatieve processen in deze organisatie
         object: participatieve processen
         title: Participatieve processen
-    participatory_process:
-      show:
-        related_assemblies: Verwante assemblies
     participatory_process_groups:
       content_blocks:
         html_1:
@@ -318,17 +311,10 @@ nl:
           name: Tweede HTML-blok
         html_3:
           name: Derde HTML blok
-        metadata:
-          developer_group: Aanbevolen door
-          name: Metadata
-          participatory_scope: Wat wordt beslist
-          participatory_structure: Hoe wordt er beslist
-          target: Wie neemt deel
         stats:
           name: Activiteit
         title:
           meta_scope: Scope
-          name: Titel, beschrijving en hashtag
           participatory_processes:
             one: 1 proces
             other: "%{count} processen"
@@ -337,7 +323,6 @@ nl:
     participatory_process_steps:
       index:
         process_steps: Stappen van het proces
-        title: Fases van het participatieve proces
     participatory_processes:
       admin:
         content_blocks:
@@ -346,21 +331,15 @@ nl:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help: 'URL-paden worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadata
-            title: Algemene informatie
             visibility: Zichtbaarheid
         participatory_process_imports:
           form:
             document_legend: Document toevoegen
-            slug_help: 'URL-paden worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Gebruik hier gedeeltelijke paden, geen volledige URL''s. Accepteert letters, cijfers, streepjes en schuine strepen en moet beginnen met een letter. Als dit niet is ingesteld, wordt de knop niet weergegeven. Voorbeeld: %{url}'
             cta_text_help: Als dit niet is ingesteld, wordt de knop niet weergegeven.
         participatory_processes:
           form:
@@ -374,7 +353,6 @@ nl:
             scope_type_max_depth_help: Beperk de scope filter diepte; de filter zal uit het algemeen worden weergegeven tot het geselecteerde scope type.
             select_an_area: Selecteer een onderwerp
             select_process_group: Selecteer een procesgroep
-            slug_help: 'URL-paden worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
             title: Algemene informatie
             visbility: Zichtbaarheid
       content_blocks:
@@ -384,16 +362,6 @@ nl:
         title: Inspraakproces
       last_activity:
         new_participatory_process: Nieuw participatief proces
-      pages:
-        home:
-          highlighted_processes:
-            active_processes: Actieve thema's
-            active_step: Actieve stap
-            more_information: Meer informatie
-            participate: Deelnemen
-            participate_in: Deelnemen aan proces %{resource_name}
-            processes_button_title: Link naar de pagina Processen waarop alle processen worden weergegeven
-            see_all_processes: Bekijk alle thema's
       participatory_process_steps:
         index:
           back_to_process: Terug naar de procespagina
@@ -420,23 +388,10 @@ nl:
             past: Archief
             upcoming: Aankomende
           see: Bekijk
-        index:
-          loading: Laden van resultaten...
       show:
-        area: Onderwerp
         belongs_to_group: Dit proces hoort bij
-        dates: Datums
-        developer_group: Organisator
-        end_date: Einddatum
-        local_area: Organisatiegebied
-        participatory_scope: Wat is besloten
-        participatory_structure: Hoe wordt er besloten
         private_space: Dit is een privéthema
         related_processes: Verwante thema's
-        scope: Scope
-        start_date: Startdatum
-        target: Wie neemt deel
-        unspecified: Niet gespecificeerd
     statistics:
       processes_count: Inspraakprocessen
   layouts:
@@ -446,10 +401,6 @@ nl:
           browse: Bladeren
           browse_resource: Bekijk de procesgroep %{resource_name}
           processes_count: 'Processen:'
-      participatory_process_widgets:
-        show:
-          active_step: Actieve stap
-          take_part: Deelnemen
       participatory_processes:
         index:
           promoted_processes: Uitgelichte processen
@@ -459,16 +410,3 @@ nl:
           more_info_about: Meer informatie over proces %{resource_name}
           take_part: Deelnemen
           take_part_in: Neem deel aan proces %{resource_name}
-        promoted_process:
-          active_step: 'Huidige stap:'
-          more_info: Meer informatie
-          more_info_about: Meer informatie over proces %{resource_name}
-          take_part: Deelnemen
-          take_part_in: Neem deel aan proces %{resource_name}
-        promoted_process_group:
-          more_info: Meer informatie
-      process_header_steps:
-        step: Stap %{current} van %{total}
-        view_steps: Bekijk stappen
-      process_navigation:
-        process_menu_item: Het thema

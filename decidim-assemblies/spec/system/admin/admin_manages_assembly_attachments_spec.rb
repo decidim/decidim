@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages assembly attachments", type: :system do
+describe "Admin manages assembly attachments" do
   include_context "when admin administrating an assembly"
 
   let(:attached_to) { assembly }
@@ -12,7 +12,9 @@ describe "Admin manages assembly attachments", type: :system do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_assemblies.edit_assembly_path(assembly)
-    click_link "Files"
+    within_admin_sidebar_menu do
+      click_link "Attachments"
+    end
   end
 
   it_behaves_like "manage attachments examples"

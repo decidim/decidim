@@ -1,26 +1,39 @@
-<% add_decidim_page_title(t("votings.edit.update", scope: "decidim.votings.admin")) %>
-<%= decidim_form_for @form,
-                     method: :patch,
-                     url: voting_path(@current_voting),
-                     html: { class: "form edit_voting" } do |f| %>
-  <%= render partial: "form", object: f %>
-  <div class="button--double form-general-submit">
-    <%= f.submit t("votings.edit.update", scope: "decidim.votings.admin"), class: "button", disabled: !allowed_to?(:update, :voting, voting: @current_voting) %>
+<% add_decidim_page_title(t("info", scope: "decidim.votings.admin.menu.votings_submenu")) %>
+<% add_decidim_page_title(translated_attribute(current_participatory_space.title)) %>
+<div class="item_show__header">
+    <h2 class="item_show__header-title">
+    <%= t("info", scope: "decidim.votings.admin.menu.votings_submenu") %>
+  </h2>
+</div>
 
-    <% if allowed_to? :publish, :voting, voting: @current_voting %>
-      <% if @current_voting.published? %>
-        <%= link_to t("actions.unpublish", scope: "decidim.admin"), voting_publish_path(@current_voting), method: :delete, class: "button muted" %>
-      <% else %>
-        <%= link_to t("actions.publish", scope: "decidim.admin"), voting_publish_path(@current_voting), method: :post, class: "button hollow" %>
-      <% end %>
-    <% end %>
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <%= decidim_form_for @form,
+                         method: :patch,
+                         url: voting_path(@current_voting),
+                         html: { class: "form form-defaults edit_voting" } do |f| %>
+      <%= render partial: "form", object: f %>
+      <div class="item__edit-sticky">
+        <div class="item__edit-sticky-container">
+          <%= f.submit t("votings.edit.update", scope: "decidim.votings.admin"), class: "button button__sm button__secondary", disabled: !allowed_to?(:update, :voting, voting: current_voting) %>
 
-    <% if allowed_to? :destroy, :voting, voting: @current_voting %>
-      <%= link_to t("votings.actions.destroy", scope: "decidim.votings.admin"),
-                  @current_voting,
-                  method: :delete,
-                  class: "alert button",
-                  data: { confirm: t("votings.actions.confirm_destroy", scope: "decidim.votings.admin") } %>
+          <% if allowed_to? :publish, :voting, voting: @current_voting %>
+            <% if @current_voting.published? %>
+              <%= link_to t("actions.unpublish", scope: "decidim.admin"), voting_publish_path(@current_voting), method: :delete, class: "button button__sm button__secondary" %>
+            <% else %>
+              <%= link_to t("actions.publish", scope: "decidim.admin"), voting_publish_path(@current_voting), method: :post, class: "button button__sm button__secondary hollow" %>
+            <% end %>
+          <% end %>
+
+          <% if allowed_to? :destroy, :voting, voting: @current_voting %>
+            <%= link_to t("votings.actions.destroy", scope: "decidim.votings.admin"),
+                        @current_voting,
+                        method: :delete,
+                        class: "button button__sm button__secondary",
+                        data: { confirm: t("votings.actions.confirm_destroy", scope: "decidim.votings.admin") } %>
+          <% end %>
+        </div>
+      </div>
     <% end %>
   </div>
-<% end %>
+</div>

@@ -1,4 +1,4 @@
-name: "[CI] Core (lib specs)"
+name: "[CI] Core"
 on:
   push:
     branches:
@@ -40,8 +40,6 @@ jobs:
     with:
       working-directory: "decidim-core"
       test_command: ${{ matrix.test-command }}
-      bullet_enabled: false
-      bullet_counter_cache: false
       bullet_n_plus_one: false
       bullet_unused_eager_loading: false
 

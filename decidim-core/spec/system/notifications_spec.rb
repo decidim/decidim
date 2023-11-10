@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Notifications", type: :system do
+describe "Notifications" do
   let(:resource) { create(:dummy_resource) }
   let(:participatory_space) { resource.component.participatory_space }
   let(:organization) { participatory_space.organization }
@@ -103,6 +103,7 @@ describe "Notifications", type: :system do
       it "hides all notifications from the page" do
         click_link "Mark all as read"
         expect(page).not_to have_selector("[data-notification]")
+        expect(page).not_to have_content("Mark all as read")
         expect(page).to have_content("No notifications yet")
 
         within ".main-bar" do

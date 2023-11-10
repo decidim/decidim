@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Explore Budgets", :slow, type: :system do
+describe "Explore Budgets", :slow do
   include ActionView::Helpers::NumberHelper
 
   include_context "with a component"

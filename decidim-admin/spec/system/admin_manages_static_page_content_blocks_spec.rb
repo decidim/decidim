@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages static page content blocks", type: :system do
+describe "Admin manages static page content blocks" do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
   let!(:tos_page) { Decidim::StaticPage.find_by(slug: "terms-of-service", organization:) }
@@ -69,12 +69,8 @@ describe "Admin manages static page content blocks", type: :system do
 
       within ".edit_content_blocks" do
         within first("ul.js-list-actives li") do
-          find("a[data-method='delete']").click
+          accept_confirm { find("a[data-method='delete']").click }
         end
-      end
-
-      within ".confirm-modal-footer" do
-        find("a.button[data-confirm-ok]").click
       end
 
       expect(page).to have_content("Content block successfully deleted")

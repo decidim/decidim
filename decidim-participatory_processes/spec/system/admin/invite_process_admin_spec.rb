@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Invite process administrator", type: :system do
+describe "Invite process administrator" do
   include_context "when inviting process users"
 
   let(:role) { "Administrator" }
@@ -27,7 +27,6 @@ describe "Invite process administrator", type: :system do
       end
 
       expect(page).to have_current_path "/admin/admin_terms/show"
-      expect(page).to have_content("Dashboard")
 
       visit decidim_admin.admin_terms_show_path
 
@@ -35,15 +34,15 @@ describe "Invite process administrator", type: :system do
 
       click_link "Processes"
 
-      within "#processes" do
+      within "div.table-scroll" do
         expect(page).to have_i18n_content(participatory_process.title)
         within find("tr", text: translated(participatory_process.title)) do
-          click_link "Configure"
+          click_link translated(participatory_process.title)
         end
       end
 
-      within ".secondary-nav" do
-        expect(page.text).to eq "View public page\nInfo\nPhases\nComponents\nCategories\nAttachments\nFolders\nFiles\nProcess admins\nPrivate participants\nModerations\nLanding page"
+      within_admin_sidebar_menu do
+        expect(page.text).to eq "About this process\nLanding page\nPhases\nComponents\nCategories\nAttachments\nProcess admins\nPrivate participants\nModerations"
       end
     end
   end
@@ -63,19 +62,19 @@ describe "Invite process administrator", type: :system do
       login_as administrator, scope: :user
 
       visit decidim_admin.root_path
-      expect(page).to have_content("Dashboard")
 
       click_link "Processes"
 
-      within "#processes" do
+      within "div.table-scroll" do
+        expect(page).to have_i18n_content(participatory_process.title)
         expect(page).to have_i18n_content(participatory_process.title)
         within find("tr", text: translated(participatory_process.title)) do
-          click_link "Configure"
+          click_link translated(participatory_process.title)
         end
       end
 
-      within ".secondary-nav" do
-        expect(page.text).to eq "View public page\nInfo\nPhases\nComponents\nCategories\nAttachments\nFolders\nFiles\nProcess admins\nPrivate participants\nModerations\nLanding page"
+      within_admin_sidebar_menu do
+        expect(page.text).to eq "About this process\nLanding page\nPhases\nComponents\nCategories\nAttachments\nProcess admins\nPrivate participants\nModerations"
       end
     end
   end

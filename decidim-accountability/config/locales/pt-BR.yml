@@ -41,7 +41,6 @@ pt-BR:
         edit: Editar
         import: Importar projetos para resultados
         import_csv: Importar CSV
-        new: Novo %{name}
         preview: Pré-visualização
         timeline_entries: Evolução do projeto
         title: Ações
@@ -83,8 +82,6 @@ pt-BR:
             name: Resultado
           status:
             name: Status
-          timeline_entry:
-            name: Entrada da linha de tempo
         projects_import:
           create:
             invalid: Houve um problema ao importar os projetos para os resultados, por favor, siga as instruções cuidadosamente e verifique se você selecionou projetos para implementação.

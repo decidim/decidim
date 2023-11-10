@@ -1,4 +1,4 @@
-name: "[CI] Initiatives (unit tests)"
+name: "[CI] Initiatives"
 on:
   push:
     branches:
@@ -43,7 +43,5 @@ jobs:
     with:
       working-directory: "decidim-initiatives"
       test_command: ${{ matrix.test-command }}
-      bullet_enabled: false
-      bullet_counter_cache: false
       bullet_n_plus_one: false
       bullet_unused_eager_loading: false

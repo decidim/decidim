@@ -5,7 +5,12 @@ module Decidim
     # Controller that allows managing areatypes to group areas
 
     class AreaTypesController < Decidim::Admin::ApplicationController
+      include Decidim::Admin::Concerns::HasTabbedMenu
+
       layout "decidim/admin/settings"
+
+      add_breadcrumb_item_from_menu :admin_settings_menu
+
       helper_method :area_types
 
       def index
@@ -69,6 +74,8 @@ module Decidim
       end
 
       private
+
+      def tab_menu_name = :admin_areas_menu
 
       def area_type
         @area_type ||= area_types.find(params[:id])

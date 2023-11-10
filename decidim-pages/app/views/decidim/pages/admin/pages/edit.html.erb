@@ -1,8 +1,21 @@
 <% add_decidim_page_title(t(".title")) %>
-<%= decidim_form_for(@form, url: page_path, method: :post, html: { class: "form edit_page" }) do |form| %>
-  <%= render partial: "form", object: form, locals: { title: t(".title") } %>
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t(".title") %>
+    <%= render partial: "decidim/admin/components/resource_action" %>
+  </h2>
+</div>
 
-  <div class="button--double form-general-submit">
-    <%= form.submit t(".save") %>
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <%= decidim_form_for(@form, url: page_path, method: :post, html: { class: "form-defaults form edit_page" }) do |form| %>
+      <%= render partial: "form", object: form %>
+
+      <div class="item__edit-sticky">
+        <div class="item__edit-sticky-container">
+          <%= form.submit t(".save"), class: "button button__sm button__secondary" %>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>

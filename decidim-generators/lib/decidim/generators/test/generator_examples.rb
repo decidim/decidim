@@ -1,5 +1,41 @@
 # frozen_string_literal: true
 
+shared_context "when generating a new application" do
+  let(:env) do |example|
+    #
+    # When tracking coverage, make sure the ruby environment points to the
+    # local version, so we get the benefits of running `decidim` directly
+    # without `bundler` (more realistic test), but also get code coverage
+    # properly measured (we track coverage on the local version and not on the
+    # installed version).
+    #
+    if ENV["SIMPLECOV"]
+      {
+        "RUBYOPT" => "-rsimplecov #{ENV.fetch("RUBYOPT", nil)}",
+        "RUBYLIB" => "#{repo_root}/decidim-generators/lib:#{ENV.fetch("RUBYLIB", nil)}",
+        "PATH" => "#{repo_root}/decidim-generators/exe:#{ENV.fetch("PATH", nil)}",
+        "COMMAND_NAME" => example.full_description.tr(" ", "_")
+      }
+    else
+      {}
+    end
+  end
+
+  let(:result) do
+    Bundler.with_original_env { Decidim::GemManager.capture(command, env:) }
+  end
+
+  # rubocop:disable RSpec/BeforeAfterAll
+  before(:all) do
+    Bundler.with_original_env { Decidim::GemManager.install_all(out: File::NULL) }
+  end
+
+  after(:all) do
+    Bundler.with_original_env { Decidim::GemManager.uninstall_all(out: File::NULL) }
+  end
+  # rubocop:enable RSpec/BeforeAfterAll
+end
+
 shared_examples_for "a new production application" do
   it "includes optional plugins commented out in Gemfile" do
     expect(result[1]).to be_success, result[0]
@@ -171,7 +207,6 @@ shared_context "with application env vars" do
       "DECIDIM_ADMIN_PASSWORD_MIN_LENGTH" => "18",
       "DECIDIM_ADMIN_PASSWORD_REPETITION_TIMES" => "8",
       "DECIDIM_ADMIN_PASSWORD_STRONG" => "false",
-      "DECIDIM_REDESIGN_ACTIVE" => "false",
       "RAILS_LOG_LEVEL" => "fatal",
       "RAILS_ASSET_HOST" => "http://assets.example.org",
       "ETHERPAD_SERVER" => "http://a-etherpad-server.com",
@@ -846,7 +881,7 @@ shared_examples_for "an application with extra configurable env vars" do
       "second_notification_percentage" => 66,
       "stats_cache_expiration_time" => 300, # 5.minutes
       "max_time_in_validating_state" => 5_184_000, # 60.days
-      "print_enabled" => true,
+      "print_enabled" => false,
       "do_not_require_authorization" => false
     }
   end
@@ -1045,5 +1080,27 @@ shared_examples_for "an application with storage and queue gems" do
     queues = %w(mailers vote_reminder reminders default newsletter newsletters_opt_in conference_diplomas events translations user_report block_user metrics exports
                 close_meeting_reminder)
     expect(current["queues"].flatten).to include(*queues), "sidekiq queues (#{current["queues"].flatten}) expected to eq containt (#{queues})"
+  end
+end
+
+def json_secrets_for(path, env)
+  JSON.parse cmd_capture(path, "bin/rails runner 'puts Rails.application.secrets.to_json'", env:)
+end
+
+def initializer_config_for(path, env, mod = "Decidim")
+  JSON.parse cmd_capture(path, "bin/rails runner 'puts #{mod}.config.to_json'", env:)
+end
+
+def rails_value(value, path, env)
+  JSON.parse cmd_capture(path, "bin/rails runner 'puts #{value}.to_json'", env:)
+end
+
+def repo_root
+  File.expand_path(File.join("..", "..", "..", "..", ".."), __dir__)
+end
+
+def cmd_capture(path, cmd, env: {})
+  Bundler.with_unbundled_env do
+    Decidim::GemManager.new(path).capture(cmd, env:, with_stderr: false)[0]
   end
 end

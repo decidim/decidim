@@ -3,7 +3,7 @@
 require "spec_helper"
 require "decidim/core/test/shared_examples/has_contextual_help"
 
-describe "Participatory Processes", type: :system do
+describe "Participatory Processes" do
   let(:organization) { create(:organization) }
   let(:show_metrics) { true }
   let(:show_statistics) { true }
@@ -230,6 +230,14 @@ describe "Participatory Processes", type: :system do
         visit decidim_participatory_processes.participatory_process_path(participatory_process)
       end
 
+      describe "follow button" do
+        let!(:user) { create(:user, :confirmed, organization:) }
+        let(:followable) { participatory_process }
+        let(:followable_path) { decidim_participatory_processes.participatory_process_path(participatory_process) }
+
+        include_examples "follows"
+      end
+
       context "when requesting the process path" do
         context "when hero, main_data and phase and duration blocks are enabled" do
           let(:blocks_manifests) { [:process_hero, :main_data, :extra_data, :metadata] }
@@ -366,7 +374,7 @@ describe "Participatory Processes", type: :system do
             let(:show_metrics) { false }
 
             it "the metrics for the participatory processes are not rendered" do
-              expect(page).not_to have_css("h4.section-heading", text: "METRICS")
+              expect(page).not_to have_css("h4", text: "METRICS")
             end
 
             it "has no link to all metrics" do

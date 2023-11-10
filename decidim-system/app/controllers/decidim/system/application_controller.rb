@@ -11,6 +11,7 @@ module Decidim
 
       protect_from_forgery with: :exception, prepend: true
 
+      helper Decidim::MetaTagsHelper
       helper Decidim::TranslationsHelper
       helper Decidim::DecidimFormHelper
       helper Decidim::ReplaceButtonsHelper

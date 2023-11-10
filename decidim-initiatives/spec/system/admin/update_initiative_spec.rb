@@ -2,15 +2,15 @@
 
 require "spec_helper"
 
-describe "User prints the initiative", type: :system do
+describe "User prints the initiative" do
   include_context "when admins initiative"
 
   def submit_and_validate
-    find("*[type=submit]").click
-
-    within ".callout-wrapper" do
-      expect(page).to have_content("successfully")
+    within("[data-content]") do
+      find("*[type=submit]").click
     end
+
+    expect(page).to have_admin_callout "The initiative has been successfully updated."
   end
 
   context "when initiative update" do

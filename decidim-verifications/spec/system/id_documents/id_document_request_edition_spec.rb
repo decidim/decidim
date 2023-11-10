@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Identity document request edition", type: :system do
+describe "Identity document request edition" do
   let(:organization) do
     create(
       :organization,
@@ -140,7 +140,7 @@ describe "Identity document request edition", type: :system do
   def submit_upload_form(doc_type:, doc_number:, file_name: nil, remove_before: false)
     select doc_type, from: "Type of your document"
     fill_in "Document number (with letter)", with: doc_number
-    options = { front_interface: true, remove_before: }
+    options = { remove_before: }
     dynamically_attach_file(:id_document_upload_verification_attachment, Decidim::Dev.asset(file_name), options) if file_name
 
     click_button "Request verification again"

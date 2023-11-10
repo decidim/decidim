@@ -10,7 +10,9 @@ shared_examples "manage process attachments examples" do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
-    click_link "Files"
+    within_admin_sidebar_menu do
+      click_link "Attachments"
+    end
   end
 
   it_behaves_like "manage attachments examples"

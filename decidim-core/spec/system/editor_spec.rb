@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Editor", type: :system do
+describe "Editor" do
   include Decidim::FrontEndDataTestHelpers
   include Decidim::FrontEndFileTestHelpers
 
@@ -12,7 +12,6 @@ describe "Editor", type: :system do
   # Which features to enable for the toolbar: basic|full
   let(:features) { "basic" }
 
-  let(:redesigned) { true }
   let(:editor_content) { "" }
   let(:editor_options) { {} }
   let(:record) { OpenStruct.new(body: editor_content) }
@@ -33,49 +32,24 @@ describe "Editor", type: :system do
         selfxssWarning: I18n.t("decidim.security.selfxss_warning")
       }
     }
-    editor_wrapper = form.editor(:body, toolbar: features, image_upload: { redesigned: }, **editor_options)
-    pack_prefix = ""
+    editor_wrapper = form.editor(:body, toolbar: features, **editor_options)
     content_wrapper = ""
-    if redesigned
-      pack_prefix = "redesigned_"
-      content_wrapper = <<~HTML
-        <div data-content>
-          <main class="layout-1col">
-            <div class="cols-6">
-              <div class="text-center py-12">
-                <h1 class="h1 decorator inline-block text-left">Editor test</h1>
-              </div>
-              <div class="page__container">
-                <form action="/form_action" method="post">
-                  #{editor_wrapper}
-                </form>
-              </div>
+    content_wrapper = <<~HTML
+      <div data-content>
+        <main class="layout-1col">
+          <div class="cols-6">
+            <div class="text-center py-12">
+              <h1 class="h1 decorator inline-block text-left">Editor test</h1>
             </div>
-          </main>
-        </div>
-      HTML
-    else
-      content_wrapper = <<~HTML
-        <main id="content">
-          <div class="wrapper">
-            <div class="row column">
-              <div class="page-title-wrapper">
-                <h1 class="heading1 page-title">Editor test</h1>
-              </div>
-              <div class="columns small-12">
-                <div class="card">
-                  <div class="card__content">
-                    <form action="/form_action" method="post">
-                      #{editor_wrapper}
-                    </form>
-                  </div>
-                </div>
-              </div>
+            <div class="page__container">
+              <form action="/form_action" method="post">
+                #{editor_wrapper}
+              </form>
             </div>
           </div>
         </main>
-      HTML
-    end
+      </div>
+    HTML
     template.instance_eval do
       <<~HTML.strip
         <!doctype html>
@@ -88,7 +62,7 @@ describe "Editor", type: :system do
             protection.
           -->
           <meta name="csrf-token" content="abcdef0123456789">
-          #{stylesheet_pack_tag "#{pack_prefix}decidim_core", media: "all"}
+          #{stylesheet_pack_tag "decidim_core", media: "all"}
         </head>
         <body>
           <header>
@@ -96,7 +70,7 @@ describe "Editor", type: :system do
           </header>
           #{content_wrapper}
           <footer>Decidim</footer>
-          #{javascript_pack_tag "#{pack_prefix}decidim_core", defer: false}
+          #{javascript_pack_tag "decidim_core", defer: false}
           <script>
             Decidim.config.set(#{js_configs.to_json});
           </script>
@@ -1390,236 +1364,6 @@ describe "Editor", type: :system do
         within ".editor" do
           expect(page).not_to have_selector("[data-bubble-menu] [data-linkbubble]")
         end
-      end
-    end
-  end
-
-  # Note that the legacy design is necessary to maintain as long as we have
-  # the admin panel using the legacy design. This is also why we test that.
-  context "with legacy design" do
-    let(:redesigned) { false }
-
-    it_behaves_like "accessible page"
-
-    context "with basic toolbar controls" do
-      before do
-        prosemirror.native.send_keys "Hello, world!", [:enter], "Another paragraph."
-        prosemirror.native.send_keys [:shift, *Array.new(10).map { :left }]
-      end
-
-      it "link" do
-        click_toggle("link")
-        within "[data-reveal][aria-hidden='false']" do
-          fill_in "Link URL", with: "https://decidim.org"
-          select "New tab", from: "Target"
-          find("button[data-action='save']").click
-        end
-        expect_value(
-          <<~HTML
-            <p>Hello, world!</p>
-            <p>Another <a target="_blank" href="https://decidim.org">paragraph.</a></p>
-          HTML
-        )
-
-        within prosemirror_selector do
-          find("a").double_click
-        end
-        within "[data-reveal][aria-hidden='false']" do
-          fill_in "Link URL", with: "https://docs.decidim.org"
-          select "Default (same tab)", from: "Target"
-          find("button[data-action='save']").click
-        end
-        expect_value(
-          <<~HTML
-            <p>Hello, world!</p>
-            <p>Another <a href="https://docs.decidim.org">paragraph.</a></p>
-          HTML
-        )
-
-        # Test that editing works also when re-clicking the link toolbar button
-        click_toggle("link")
-        within "[data-reveal][aria-hidden='false']" do
-          fill_in "Link URL", with: "https://try.decidim.org"
-          select "New tab", from: "Target"
-          find("button[data-action='save']").click
-        end
-        expect_value(
-          <<~HTML
-            <p>Hello, world!</p>
-            <p>Another <a target="_blank" href="https://try.decidim.org">paragraph.</a></p>
-          HTML
-        )
-
-        click_toggle("common:eraseStyles")
-        expect_value(
-          <<~HTML
-            <p>Hello, world!</p>
-            <p>Another paragraph.</p>
-          HTML
-        )
-      end
-    end
-
-    context "with keyboard" do
-      context "when managing a link" do
-        before do
-          prosemirror.native.send_keys "Hello, world!", [:enter], "Another paragraph."
-          prosemirror.native.send_keys [:shift, *Array.new(10).map { :left }]
-        end
-
-        it "allows saving the link using ENTER" do
-          # Test that updating the link works using ENTER
-          click_toggle("link")
-          within "[data-reveal][aria-hidden='false']" do
-            fill_in "Link URL", with: "https://demo.decidim.org"
-            find("[data-input='href'] input").native.send_keys [:enter]
-          end
-          expect_value(
-            <<~HTML
-              <p>Hello, world!</p>
-              <p>Another <a href="https://demo.decidim.org">paragraph.</a></p>
-            HTML
-          )
-        end
-      end
-    end
-
-    context "with pointer device" do
-      let(:features) { "full" }
-
-      context "when resizing an image" do
-        let(:image) { create(:editor_image, organization:) }
-        let(:image_src) { image.attached_uploader(:file).path }
-        let(:editor_content) do
-          <<~HTML
-            <div class="editor-content-image" data-image="">
-              <img src="#{image_src}" alt="Test">
-            </div>
-          HTML
-        end
-
-        context "when the resize controls receive a click event" do
-          before do
-            # Focuses the image within the editor
-            prosemirror.native.send_keys [:left]
-          end
-
-          it "does not submit the form when resizing the image" do
-            page.find("[data-image-resizer-control='top-left']").click
-            page.find("[data-image-resizer-control='top-right']").click
-            page.find("[data-image-resizer-control='bottom-right']").click
-            page.find("[data-image-resizer-control='bottom-left']").click
-
-            expect(page).to have_current_path("/test_editor")
-          end
-        end
-      end
-    end
-
-    context "with full toolbar controls" do
-      let(:features) { "full" }
-
-      before do
-        prosemirror.native.send_keys "Hello, world!"
-      end
-
-      it "videoEmbed" do
-        click_toggle("videoEmbed")
-        within "[data-reveal][aria-hidden='false']" do
-          fill_in "Video URL", with: "https://www.youtube.com/watch?v=f6JMgJAQ2tc"
-          fill_in "Title", with: "Decidim"
-          find("button[data-action='save']").click
-        end
-
-        expect_value(
-          <<~HTML
-            <p>Hello, world!</p>
-            <div class="editor-content-videoEmbed" data-video-embed="https://www.youtube.com/watch?v=f6JMgJAQ2tc">
-              <div>
-                <iframe src="https://www.youtube-nocookie.com/embed/f6JMgJAQ2tc?cc_load_policy=1&amp;modestbranding=1" title="Decidim" frameborder="0" allowfullscreen="true"></iframe>
-              </div>
-            </div>
-          HTML
-        )
-
-        click_toggle("videoEmbed")
-        within "[data-reveal][aria-hidden='false']" do
-          fill_in "Video URL", with: "https://www.youtube.com/watch?v=zhMMW0TENNA"
-          fill_in "Title", with: "Free Open-Source"
-          find("button[data-action='save']").click
-        end
-
-        expect_value(
-          <<~HTML
-            <p>Hello, world!</p>
-            <div class="editor-content-videoEmbed" data-video-embed="https://www.youtube.com/watch?v=zhMMW0TENNA">
-              <div>
-                <iframe src="https://www.youtube-nocookie.com/embed/zhMMW0TENNA?cc_load_policy=1&amp;modestbranding=1" title="Free Open-Source" frameborder="0" allowfullscreen="true"></iframe>
-              </div>
-            </div>
-          HTML
-        )
-
-        # Test that updating the video works using ENTER
-        click_toggle("videoEmbed")
-        within "[data-reveal][aria-hidden='false']" do
-          fill_in "Video URL", with: "https://www.youtube.com/watch?v=ahVZLOlE3GE"
-          fill_in "Title", with: "La plataforma digital"
-          find("[data-input='src'] input").native.send_keys [:enter]
-        end
-
-        expect_value(
-          <<~HTML
-            <p>Hello, world!</p>
-            <div class="editor-content-videoEmbed" data-video-embed="https://www.youtube.com/watch?v=ahVZLOlE3GE">
-              <div>
-                <iframe src="https://www.youtube-nocookie.com/embed/ahVZLOlE3GE?cc_load_policy=1&amp;modestbranding=1" title="La plataforma digital" frameborder="0" allowfullscreen="true"></iframe>
-              </div>
-            </div>
-          HTML
-        )
-      end
-
-      it "image" do
-        click_toggle("image")
-        within "[data-reveal][aria-hidden='false']" do
-          add_file("city.jpeg", ".dropzone-container .dropzone", "drop")
-          fill_in "Alternative text for the image", with: "City landscape"
-
-          click_button(class: "add-file-file")
-        end
-        expect(Decidim::EditorImage.count).to be(1)
-
-        src = Decidim::EditorImage.last.attached_uploader(:file).path
-        expect_value(
-          <<~HTML
-            <p>Hello, world!</p>
-            <div class="editor-content-image" data-image="">
-              <img src="#{src}" alt="City landscape">
-            </div>
-          HTML
-        )
-      end
-
-      it "allows adding images through clicking the dropzone" do
-        click_toggle("image")
-        within "[data-reveal][aria-hidden='false']" do
-          add_file("city.jpeg", ".dropzone-container .dropzone", "select")
-          fill_in "Alternative text for the image", with: "City landscape"
-
-          click_button(class: "add-file-file")
-        end
-        expect(Decidim::EditorImage.count).to be(1)
-
-        src = Decidim::EditorImage.last.attached_uploader(:file).path
-        expect_value(
-          <<~HTML
-            <p>Hello, world!</p>
-            <div class="editor-content-image" data-image="">
-              <img src="#{src}" alt="City landscape">
-            </div>
-          HTML
-        )
       end
     end
   end

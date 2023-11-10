@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "User group manage members", type: :system do
+describe "User group manage members" do
   let!(:creator) { create(:user, :confirmed) }
   let!(:user_group) { create(:user_group, users: [creator], organization: creator.organization) }
   let!(:member) { create(:user, :confirmed, organization: creator.organization) }

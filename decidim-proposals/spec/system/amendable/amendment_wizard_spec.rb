@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Amendment Wizard", type: :system do
+describe "Amendment Wizard" do
   let!(:component) { create(:proposal_component, :with_amendments_enabled) }
   let!(:proposal) { create(:proposal, title: { en: "More roads and less sidewalks" }, component:) }
   let!(:user) { create(:user, :confirmed, organization: component.organization) }
@@ -230,7 +230,7 @@ describe "Amendment Wizard", type: :system do
         end
 
         it "publishes the amendment" do
-          expect(page).to have_css(".callout.warning[data-announcement]", text: "This amendment for the proposal #{translated(proposal.title)} is being evaluated.")
+          expect(page).to have_css(".flash.warning[data-announcement]", text: "This amendment for the proposal #{translated(proposal.title)} is being evaluated.")
 
           within "[data-alert-box].success" do
             expect(page).to have_content("Amendment successfully published.")

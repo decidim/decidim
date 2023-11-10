@@ -3,7 +3,7 @@
 require "spec_helper"
 require "decidim/core/test/shared_examples/has_contextual_help"
 
-describe "Assemblies", type: :system do
+describe "Assemblies" do
   let(:organization) { create(:organization) }
   let(:show_statistics) { true }
 
@@ -166,6 +166,14 @@ describe "Assemblies", type: :system do
         visit decidim_assemblies.assembly_path(assembly)
       end
 
+      describe "follow button" do
+        let!(:user) { create(:user, :confirmed, organization:) }
+        let(:followable) { assembly }
+        let(:followable_path) { decidim_assemblies.assembly_path(assembly) }
+
+        include_examples "follows"
+      end
+
       context "when hero, main_data extra_data, metadata and dates_metadata blocks are enabled" do
         let(:blocks_manifests) { [:hero, :main_data, :extra_data, :metadata, :dates_metadata] }
 
@@ -291,7 +299,7 @@ describe "Assemblies", type: :system do
         end
 
         it "shows only the published children assemblies" do
-          within(".assembly__block-grid") do
+          within(".participatory-space__block-grid") do
             expect(page).to have_link translated(child_assembly.title)
             expect(page).not_to have_link translated(unpublished_child_assembly.title)
           end
@@ -313,7 +321,7 @@ describe "Assemblies", type: :system do
         end
 
         it "shows only the published, private and transparent children assemblies" do
-          within(".assembly__block-grid") do
+          within(".participatory-space__block-grid") do
             expect(page).to have_link translated(private_transparent_child_assembly.title)
             expect(page).not_to have_link translated(private_transparent_unpublished_child_assembly.title)
           end
@@ -329,7 +337,7 @@ describe "Assemblies", type: :system do
         end
 
         it "not shows any children assemblies" do
-          expect(page).not_to have_css(".assembly__block-grid")
+          expect(page).not_to have_css(".participatory-space__block-grid")
         end
       end
     end

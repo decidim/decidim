@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Answer a survey", type: :system do
+describe "Answer a survey" do
   let(:manifest_name) { "surveys" }
 
   let(:title) do
@@ -86,6 +86,9 @@ describe "Answer a survey", type: :system do
     end
 
     context "when the survey is open" do
+      let(:callout_failure) { "There was a problem answering the survey." }
+      let(:callout_success) { "Survey successfully answered." }
+
       before do
         component.update!(
           step_settings: {

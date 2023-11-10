@@ -37,6 +37,9 @@ fr-CA:
         user_group_id: Créer des imports en tant que
       newsletter:
         body: Corps de texte
+        send_to_all_users: Envoyer à tous les utilisateurs
+        send_to_followers: Envoyer aux abonnés
+        send_to_participants: Envoyer aux participants
         subject: Objet
       organization:
         admin_terms_of_service_body: Termes et conditions d'utilisation administrateur
@@ -90,9 +93,10 @@ fr-CA:
         secondary_hosts: Secondary hosts
         send_welcome_notification: Envoyer un mail de bienvenue
         success_color: Succès
+        tertiary_color: Tertiaire
         time_zone: Fuseau horaire
         tos_version: Version des conditions d'utilisation
-        twitter_handler: Gestionnaire Twitter
+        twitter_handler: Gestionnaire X (ancien Twitter)
         user_groups_enabled: Activer les groupes d'utilisateurs
         users_registration_mode: Mode d'inscription des utilisateurs
         warning_color: Attention
@@ -185,8 +189,6 @@ fr-CA:
         export: Tout exporter
         export-selection: Exporter la sélection
         import: Importer
-        manage: Gérer
-        new: Nouvelle %{name}
         newsletter:
           new: Nouvelle newsletter
         participatory_space_private_user:
@@ -194,6 +196,7 @@ fr-CA:
         per_page: Par page
         permissions: Autorisations
         reject: Rejeter
+        send_me_a_test_email: Envoyez-moi un e-mail de test
         share: Partager
         user:
           new: Nouvel administrateur
@@ -254,7 +257,6 @@ fr-CA:
           title: Modifier le dossier
           update: Mettre à jour
         index:
-          attachment_collection_used: Ce dossier ne peut pas être supprimé car il est en cours d'utilisation.
           attachment_collections_title: Dossiers de pièces jointes
         new:
           create: Créer
@@ -303,7 +305,6 @@ fr-CA:
           update: Mettre à jour
         index:
           categories_title: Catégories
-          category_used: Cette catégorie ne peut pas être supprimée car elle est utilisée.
         new:
           create: Créer une catégorie
           title: Nouvelle catégorie
@@ -318,6 +319,7 @@ fr-CA:
         create:
           error: Une erreur s'est produite lors de la création de cette fonctionnalité.
           success: Fonctionnalité créée avec succès.
+          success_landing_page: Fonctionnalité créée avec succès. Vous pouvez ajouter un bloc de contenu pour cette fonctionnalité sur la page d'accueil de l'espace. Rendez-vous sur <a href="%{landing_page_path}">la page d'accueil de l'espace</a> pour la configurer.
         destroy:
           error: Une erreur s'est produite lors de la suppression de cette fonctionnalité.
           success: La fonctionnalité a été supprimée avec succès.
@@ -369,8 +371,8 @@ fr-CA:
           goto_moderation: Aller au panneau de modération global
           title: Modérations en attente
         show:
+          dropdown: Liste déroulante
           view_more_logs: Afficher plus
-          welcome: Bienvenue dans l'espace d'administration.
       domain_whitelist:
         form:
           domain_too_short: Le nom de domaine est trop court
@@ -469,7 +471,6 @@ fr-CA:
             all: Tout
             managed: Géré
             not_managed: Non géré
-          filter_by: Filtrer par
           impersonate: Représenter
           impersonate_new_managed_user: Représenter un nouvel utilisateur
           managed: Représenté
@@ -559,7 +560,6 @@ fr-CA:
         areas: Zones d'application
         configuration: Configuration
         content: Contenu signalé
-        dashboard: Tableau de bord
         external_domain_whitelist: Domaines externes autorisés
         help_sections: Sections d'aide
         homepage: Page d'accueil
@@ -570,6 +570,7 @@ fr-CA:
         reported_users: Participants signalés
         scope_types: Types de secteur
         scopes: Périmètres d’application
+        see_site: Voir le site
         settings: Paramètres
         static_pages: Pages
         user_groups: Groupes d'utilisateurs
@@ -750,16 +751,16 @@ fr-CA:
           select_scopes: Filtrer pour les utilisateurs ayant activé un secteur dans les paramètres "Mes intérêts".
           select_spaces: Sélectionnez les espaces pour segmenter la newsletter
           select_users: Sélectionnez les utilisateurs à qui vous souhaitez envoyer la newsletter
-          send_to_all_users: Envoyer à tous
-          send_to_followers: Envoyer aux abonnés
-          send_to_participants: Envoyer aux participants
           title: Sélectionner les destinataires
           warning: "<strong>Attention :</strong> Cette newsletter ne sera envoyée qu'aux utilisateurs qui ont activé <em>Je veux recevoir newsletters</em> dans leurs paramètres de notifications."
         send:
-          no_recipients: Selon votre sélection, cette newsletter ne sera envoyée à aucun destinataire. 
+          no_recipients: Selon votre sélection, cette newsletter ne sera envoyée à aucun destinataire.
+        send_to_user:
+          sent_successfully: La newsletter a été envoyée avec succès à %{email}
         show:
           preview: Aperçu
           select_recipients_to_deliver: Sélectionner les destinataires
+          send_me_a_test_email: Envoyez-moi un e-mail de test
           subject: Objet
         update:
           error: Erreur lors de la mise à jour de la newsletter.
@@ -793,7 +794,6 @@ fr-CA:
           officialize: Valider
           title: Valider l'utilisateur "%{name}"
         show_email_modal:
-          close_modal: Fermer la fenêtre modale
           description: Si vous avez besoin de contacter directement un participant, vous pouvez cliquer sur le bouton Afficher pour voir leur adresse mèl. Cette action sera enregistrée.
           email_address: Adresse e-mail
           full_name: Nom complet
@@ -813,7 +813,7 @@ fr-CA:
           instagram: Instagram
           rich_text_editor_in_public_views_help: Dans certains champs textuel, les participants pourront insérer des balises HTML en utilisant l'éditeur de texte avancé.
           social_handlers: Liens des réseaux sociaux
-          twitter: Twitter
+          twitter: X
           url: URL
           youtube: YouTube
         update:
@@ -824,10 +824,16 @@ fr-CA:
           update: Mettre à jour
         form:
           colors:
+            choose_color: Choisir une couleur primaire
             colors_title: Couleurs de l'organisation
             colors_warning_html: Attention ! La modification de ces couleurs peut rompre les contrastes d'accessibilité. Vous pouvez vérifier le contraste de votre choix avec <a href="%{link}">WebAIM Contrast Checker</a> ou d'autres outils similaires.
-            header_snippets_help: Utilisez ce champ pour ajouter des éléments entre les balises HTML <head> </head>. L'utilisation la plus courante de champs consiste à intégrer des services tiers nécessitant du JavaScript ou du CSS supplémentaire. Vous pouvez aussi l'utiliser pour ajouter des méta-tags supplémentaires au code HTML. Notez que cela ne fonctionnera que dans sur les pages publiques, et non dans la section admin.
-          cta_button_path_help: 'Vous pouvez remplacer le lien vers lequel renvoie le bouton de la page d''accueil. Utilisez ici des chemins partiels et non des URL complets. Il accepte les lettres, les chiffres, les tirets et les barres obliques, et doit commencer par une lettre. Le bouton apparaît sur la page d''accueil entre le texte de bienvenue et la description. Exemple : %{url}'
+            explanation: Cet outil vous aide à choisir une palette de couleurs, composée de teintes placées à égale distance autour de la roue de couleur, qui seront utilisés sur la plateforme.
+            header_snippets_help_html: 'Utilisez ce champ pour ajouter des éléments à l''élément de métadonnées HTML head. L’utilisation la plus courante est d’intégrer des services tiers qui nécessitent du JavaScript ou du CSS supplémentaires. De plus, vous pouvez l''utiliser pour ajouter des balises méta supplémentaires au HTML. Notez que cela ne sera rendu que dans les pages publiques, pas dans la section d''administration. Si le code interagit avec des API externes ou ne respecte pas les lignes directrices de sécurité de l''application, il sera nécessaire de modifier la politique de sécurité des contenus. En savoir plus sur <a href="https://docs.decidim.org/en/develop/configure/initializer#_content_security_policy">le site de documentation</a>.'
+            legend_html: Couleurs principales de l'application, basées sur <a href="https://www.color-meanings.com/triadic-colors/">l'algorithme triadique</a>. La couleur <i>secondaire</i> est automatiquement calculée à partir de la couleur primaire et de la saturation que vous avez choisies.
+            saturation: Saturation
+            title: Sélecteur de couleurs
+            update_suggested_colors: Mettre à jour les couleurs suggérées
+          cta_button_path_help_html: 'Vous pouvez remplacer le lien du bouton d''appel à l''action de la page d''accueil. Utilisez des chemins partiels, pas des URL complètes ici. Accepte les lettres, chiffres, tirets et barres obliques, et doit commencer par une lettre. Le bouton d''appel à l''action est affiché sur la page d''accueil entre le texte de bienvenue et la description. Exemple : %{url}'
           cta_button_text_help: Vous pouvez remplacer le texte du bouton dans la page d'accueil pour chaque langue disponible dans votre organisation. Si elle n'est pas définie, la valeur par défaut sera utilisée. Le bouton apparaît sur la page d'accueil entre le texte de bienvenue et la description.
           homepage_appearance_title: Modifier l'apparence de la page d'accueil
           homepage_highlighted_content_banner_title: Bannière de contenu mis en valeur
@@ -878,7 +884,7 @@ fr-CA:
       participatory_space_private_users_csv_imports:
         create:
           invalid: Un problème est survenu lors de la lecture du fichier CSV. Veuillez vous assurer que vous avez suivi les instructions.
-          success: Le fichier CSV a été téléchargé avec succès. Une invitation par courriel sera envoyée sous peu à chaque participant. Cela peut prendre quelques instants. 
+          success: Le fichier CSV a été téléchargé avec succès. Une invitation par courriel sera envoyée sous peu à chaque participant. Cela peut prendre quelques instants.
         new:
           destroy:
             button: Supprimer tous les utilisateurs privés
@@ -1003,9 +1009,7 @@ fr-CA:
           update: Mettre à jour
         form:
           none: Aucun
-          slug_help: 'Utilisez des chemins partiels, pas des URL complètes ici. Accepte les lettres, les chiffres, les tirets et les barres obliques et doit commencer par une lettre. Si non défini, le bouton ne sera pas affiché. Exemple: %{url}'
-        index:
-          last_notable_change: Dernier changement notable
+          slug_help_html: 'Utilisez des chemins partiels, pas des URL complètes ici. Accepte les lettres, les chiffres, les tirets et les barres obliques et doit commencer par une lettre. Exemple : %{url}'
         new:
           create: Créer une page
           title: Nouvelle page
@@ -1023,21 +1027,24 @@ fr-CA:
         areas: Zones d'application
         authorization_workflows: Méthodes de vérification
         dashboard: Tableau de bord
+        edit_external_domains: Liste des domaines externes autorisés
+        edit_landing_page: Contenus de la page
+        edit_organization_appearance: Modifier l'apparence de la page d'accueil
         impersonatable_users: Utilisateurs gérables
         impersonations: Gestion des utilisateurs
         metrics: Indicateurs
+        pages: Page(s)
         panel: Administrateur
         participants: Utilisateurs
         scope_types: Types de secteur
         scopes: Périmètres d'application
-        static_pages: Pages
         statistics: Activité
         user_groups: Groupes d'utilisateurs
         users: Administrateurs
       user_group:
         csv_verify:
           invalid: Une erreur s'est produite lors de la lecture du fichier CSV.
-          success: Le fichier CSV a été téléchargé avec succès, une vérification des groupes correspondant aux critères est en cours. Cela peut prendre quelques instants. 
+          success: Le fichier CSV a été téléchargé avec succès, une vérification des groupes correspondant aux critères est en cours. Cela peut prendre quelques instants.
         reject:
           invalid: Une erreur s'est produite lors du refus de ce groupe d'utilisateurs.
           success: Groupe d'utilisateurs refusé avec succès.
@@ -1082,7 +1089,6 @@ fr-CA:
           last_week: La semaine dernière
           no_users_count_statistics_yet: Il n'y a pas encore de statistiques du nombre d'utilisateurs.
           participants: Participants
-      view_public_page: Voir la page publique
     forms:
       errors:
         impersonate_user:
@@ -1143,9 +1149,3 @@ fr-CA:
       admin:
         global_moderations:
           title: Modération globale
-        newsletters:
-          title: Newsletters
-        settings:
-          title: Paramètres
-        users:
-          title: Utilisateurs

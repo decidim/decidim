@@ -58,7 +58,7 @@ es-PY:
         subtitle: Subtítulo
         target: Quién participa
         title: Título
-        twitter: Twitter
+        twitter:
         weight: Orden de posición
         youtube: Youtube
       assembly_member:
@@ -98,7 +98,9 @@ es-PY:
       actions:
         import_assembly: Importar
         new_assembly: Nueva asamblea
+        new_assembly_member: Añadir miembro
         new_assembly_type: Nuevo tipo de asamblea
+        new_assembly_user_role: Añadir administradora
       assemblies:
         create:
           error: Se produjo un error al crear una nueva asamblea.
@@ -106,10 +108,10 @@ es-PY:
         edit:
           update: Actualizar
         index:
-          not_published: No publicado
           private: Privado
           public: Público
           published: Publicado
+          unpublished: Despublicada
         new:
           create: Crear
           title: Nueva asamblea
@@ -204,9 +206,11 @@ es-PY:
           attachments: Archivos adjuntos
           categories: Categorías
           components: Componentes
-          info: Información
+          info: Acerca de esta asamblea
+          landing_page: Página de inicio
           moderations: Moderaciones
           private_users: Usuarios privados
+          see_assembly: Ver la asamblea
         assemblies_types: Tipos de asamblea
       models:
         assemblies_types:
@@ -215,6 +219,7 @@ es-PY:
             title: Título
         assembly:
           fields:
+            actions: Acciones
             created_at: Fecha de creación
             private: Privada
             promoted: Destacado
@@ -288,7 +293,7 @@ es-PY:
             select_an_area: Seleccione un Área
             select_an_assembly_type: Selecciona tipo de asamblea
             select_parent_assembly: Seleccionar ensamblaje principal
-            slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+            slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             social_handlers: Social
             title: Información general
             visbility: Visibilidad
@@ -302,11 +307,10 @@ es-PY:
             title: Título
         assembly_copies:
           form:
-            slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+            slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         assembly_imports:
           form:
-            document_legend: Añadir un documento
-            slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+            slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         assembly_members:
           form:
             existing_user: Usuario existente
@@ -322,7 +326,6 @@ es-PY:
               all: Todas
               ceased: Cesado
               not_ceased: No cesado
-            filter_by: Filtrado por
             search: Buscar
         content_blocks:
           highlighted_assemblies:
@@ -331,6 +334,26 @@ es-PY:
           accepted_types:
             json: JSON
       assemblies:
+        description:
+          area_name: Área
+          closing_date: Fecha de finalización
+          created_by: Creado por
+          creation_date: Fecha de creación
+          data: Administradora de la asamblea
+          developer_group: Grupo promotor
+          duration: Duración
+          included_at: Incluido el
+          indefinite_duration: Indefinida
+          local_area: Área de organización
+          meta_scope: Ámbito
+          participatory_scope: Qué se decide
+          participatory_structure: Cómo se decide
+          target: Quién participa
+          title: Acerca de esta asamblea
+        filters:
+          names:
+            all: Todas
+          type: Tipo
         show:
           title: Acerca de esta asamblea
       assembly_members:
@@ -345,8 +368,16 @@ es-PY:
         participatory: Participativo
         working_group: Grupo de trabajo
       content_blocks:
+        children_assemblies:
+          name: Asambleas
+        dates_metadata:
+          name: Metadatos de fechas
+        extra_data:
+          name: Tipo y duración
         highlighted_assemblies:
           name: Asambleas destacadas
+        related_assemblies:
+          name: Asambleas relacionadas
       created_by:
         city_council: Ayuntamiento
         others: Otros
@@ -368,40 +399,20 @@ es-PY:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Asambleas activas
-            assemblies_button_title: Enlace a la página de Asambleas que muestra todas las asambleas
-            see_all_assemblies: Ver todas las asambleas
+            active_spaces: Asambleas activas
+            see_all_spaces: Ver todas las asambleas
         user_profile:
           member_of:
             member_of: Miembro de
       show:
-        area: Área
         assembly_type: Tipo de asambleas
-        children: Asambleas
-        closing_date: Fecha de cierre
-        composition: Composición
-        created_by: Creado por
-        creation_date: Fecha de creación
-        developer_group: Grupo promotor
         duration: Duración
-        included_at: Incluido en
-        indefinite_duration: Indefinido
-        internal_organisation: Organización interna
         is_transparent:
           'false': opaco
           'true': transparente
-        local_area: Área de organización
-        participatory_scope: Qué se decide
-        participatory_structure: Cómo se decide
         private_space: Esta es una asamblea privada
-        purpose_of_action: Propósito de la acción
-        read_less: Leer menos
-        read_more: Lee más
         related_participatory_processes: Procesos participativos relacionados
-        scope: Ámbito
-        social_networks: Redes sociales
         social_networks_title: Visita la asamblea en
-        target: Quién participa
     assembly_members:
       assembly_member:
         designated_on: Designado en
@@ -451,20 +462,14 @@ es-PY:
           more_info: Más información
           take_part: Participa
         index:
-          children: 'Asambleas: '
-          organizational_chart: Organigrama
           promoted_assemblies: Asambleas destacadas
-          reset_chart: Reiniciar
+        metadata:
+          children_item:
+            one: "%{count} asamblea"
+            other: "%{count} asambleas"
         order_by_assemblies:
           assemblies:
             one: "%{count} asamblea"
             other: "%{count} asambleas"
-        promoted_assembly:
-          more_info: Más información
-          take_part: Participa
       assembly_navigation:
         assembly_member_menu_item: Miembros
-        assembly_menu_item: La asamblea
-      assembly_widgets:
-        show:
-          take_part: Participa

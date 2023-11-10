@@ -1,4 +1,4 @@
-name: "[CI] Admin (unit tests)"
+name: "[CI] Admin"
 on:
   push:
     branches:
@@ -33,13 +33,11 @@ jobs:
           - bundle exec parallel_test --type rspec --pattern spec/ --exclude-pattern spec/system
           - bundle exec parallel_test --type rspec --pattern spec/system
     needs: build_app
-    name: Tests
+    name: ${{ matrix.test-command }}
     uses: ./.github/workflows/test_app.yml
     secrets: inherit
     with:
       working-directory: "decidim-admin"
       test_command: ${{ matrix.test-command }}
-      bullet_enabled: false
-      bullet_counter_cache: false
       bullet_n_plus_one: false
       bullet_unused_eager_loading: false

@@ -5,14 +5,16 @@ shared_examples "manage assembly members examples" do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_assemblies.edit_assembly_path(assembly)
-    click_link "Members"
+    within_admin_sidebar_menu do
+      click_link "Members"
+    end
   end
 
   context "without existing user" do
     let!(:assembly_member) { create(:assembly_member, assembly:) }
 
     it "creates a new assembly member" do
-      find(".card-title a.new").click
+      click_link "New assembly member"
 
       fill_in :assembly_member_designation_date, with: Time.current
 
@@ -46,7 +48,7 @@ shared_examples "manage assembly members examples" do
     let!(:member_user) { create(:user, organization: assembly.organization) }
 
     it "creates a new assembly member" do
-      find(".card-title a.new").click
+      click_link "New assembly member"
 
       fill_in :assembly_member_designation_date, with: Time.current
 
@@ -72,7 +74,7 @@ shared_examples "manage assembly members examples" do
     let!(:member_organization) { create(:user_group, :verified, organization: assembly.organization) }
 
     it "creates a new assembly member" do
-      find(".card-title a.new").click
+      click_link "New assembly member"
 
       fill_in :assembly_member_designation_date, with: Time.current
 
@@ -131,7 +133,7 @@ shared_examples "manage assembly members examples" do
 
     it "deletes the assembly member" do
       within find("#assembly_members tr", text: assembly_member.full_name) do
-        accept_confirm(admin: true) { find("a.action-icon--remove").click }
+        accept_confirm { find("a.action-icon--remove").click }
       end
 
       expect(page).to have_admin_callout("successfully")

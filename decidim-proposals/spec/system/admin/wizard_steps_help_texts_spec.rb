@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Manage proposal wizard steps help texts", type: :system do
+describe "Manage proposal wizard steps help texts" do
   include_context "when admin manages proposals"
 
   before do

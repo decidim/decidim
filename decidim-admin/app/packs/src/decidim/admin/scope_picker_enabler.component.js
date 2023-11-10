@@ -5,8 +5,8 @@ $(() => {
   if ($(".edit_component, .new_component").length > 0) {
     $ComponentScopeEnabled.on("change", (event) => {
       const checked = event.target.checked;
-      window.theDataPicker.enabled($ComponentScopeId, checked);
+      $ComponentScopeId.attr("disabled", !checked);
     })
-    window.theDataPicker.enabled($ComponentScopeId, $ComponentScopeEnabled.prop("checked"));
+    $ComponentScopeId.attr("disabled", !$ComponentScopeEnabled.prop("checked"));
   }
 });

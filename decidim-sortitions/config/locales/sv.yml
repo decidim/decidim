@@ -38,7 +38,6 @@ sv:
         actions:
           destroy: Avbryt tilldelningen
           edit: Redigera
-          new: Ny tilldelning
           show: Detaljer om tilldelningen
         models:
           sortition:
@@ -52,9 +51,6 @@ sv:
               seed: Frö
               target_items: Objekt att välja
               title: Titel
-            name:
-              one: Tilldelning
-              other: Tilldelningar
         sortitions:
           confirm_destroy:
             confirm_destroy: Vill du avbryta tilldelningen?
@@ -68,7 +64,6 @@ sv:
           form:
             all_categories: Alla kategorier
             select_proposal_component: Välj förslagen som ska behandlas
-            title: Ny tilldelning av förslag
           index:
             title: Tilldelningar
           new:
@@ -93,14 +88,7 @@ sv:
           all: Alla
           cancelled: Avbrutna
           category: Kategori
-          category_prompt: Välj en kategori
-          search: Sök
           state: Status
-        filters_small_view:
-          close_modal: Stäng fönster
-          filter: Filtrera
-          filter_by: Filtrera efter
-          unfold: Veckla ut
         linked_sortitions:
           selected_proposals: Utvalda förslag
         orders:
@@ -114,24 +102,22 @@ sv:
         show:
           algorithm: Tilldelningens algoritmkod
           any_category: från alla kategorier
-          back: Tillbaka till listan
           cancelled: Avbruten tilldelning
           candidate_proposal_ids: Förslagens ordning och ID i tilldelningen
           candidate_proposals_info: 'Tilldelningen gjordes bland följande förslag (%{category_label}), med följande ID (de utvalda förslagen i fetstil)  '
           category: från kategorin %{category}
-          dice_result: "(1) Tärningskast"
+          dice_result: (1) Tärningskast
           introduction: 'Den här sidan innehåller resultaten från tilldelningen %{reference}. Med hjälp av tilldelningen har %{target_items} resultat valts ut slumpmässigt och med lika stor sannolikhet från listan med förslag nedan. Tillsammans med resultaten, innehåller informationen på denna sida allt som krävs för att garantera och återskapa resultaten. Nyckeln till kvalitén på tilldelningen är den dubblerade slumpmässigheten från ett bevittnat tärningskast samt den exakta tiden för tilldelningen, som matas in i en algoritm som genererar det slumpmässiga urvalet. Tidsfröet för tilldelningen är så exakt (sekunder) att den är omöjlig att styras av människor, vilket ger en dubblerad "okontrollerad" indata, i syfte att att garantera ett rättvist resultat.  '
           mathematical_result: Resultat (1) x (2)
           proposals_selected_by_sortition: Förslag valda genom tilldelning
           sortition_reproducibility_details: Detaljer för tilldelningens reproducerbarhet
-          time_seed: "(2) Tidsfrö"
+          time_seed: (2) Tidsfrö
           witnesses: Vittnen
         sortition:
           random_seed: Slumpmässigt frö
           selected_proposals:
             one: 1 valt förslag
             other: '%{count} utvalda förslag'
-          view: Visa
         sortition_author:
           deleted: Raderad deltagare
         sortition_cancel_author:

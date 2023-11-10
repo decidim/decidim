@@ -5,6 +5,7 @@ module Decidim
     module Admin
       module SortitionsHelper
         include Decidim::TranslationsHelper
+        include Decidim::PaginateHelper
 
         # Converst a list of components into a list of selectable options
         def components_options(components)

@@ -1,0 +1,41 @@
+.flash {
+  @apply flex justify-start items-center gap-4 rounded border-2 border-secondary text-secondary my-4 p-4 bg-secondary/5;
+
+  &__icon {
+    svg {
+      @apply w-12 h-12 fill-current flex-none;
+    }
+  }
+
+  &__message {
+    @apply gap-2 text-black font-semibold text-lg;
+
+    a {
+      @apply underline;
+    }
+
+    &-body {
+      @apply text-gray-2 text-sm font-normal prose-a:text-secondary prose-a:underline;
+    }
+  }
+
+  .close-button {
+    @apply ml-auto self-start;
+
+    svg {
+      @apply w-5 h-5 fill-current;
+    }
+  }
+
+  &.success {
+    @apply border-success text-success bg-success/5;
+  }
+
+  &.alert {
+    @apply border-alert text-alert bg-alert/5;
+  }
+
+  &.warning {
+    @apply border-warning text-warning bg-warning/5;
+  }
+}

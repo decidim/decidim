@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages meetings polls", type: :system do
+describe "Admin manages meetings polls" do
   let(:current_organization) { create(:organization) }
   let(:participatory_process) { create(:participatory_process, organization: current_organization) }
   let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "meetings") }
@@ -274,7 +274,7 @@ describe "Admin manages meetings polls", type: :system do
   end
 
   def expand_all_questions
-    find(".button.expand-all").click
+    click_button "Expand all questions"
   end
 
   def visit_questionnaire_edit_path_and_expand_all

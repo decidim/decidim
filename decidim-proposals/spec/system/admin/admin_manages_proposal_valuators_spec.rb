@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages proposals valuators", type: :system do
+describe "Admin manages proposals valuators" do
   let(:manifest_name) { "proposals" }
   let!(:proposal) { create(:proposal, component: current_component) }
   let!(:reportables) { create_list(:proposal, 3, component: current_component) }
@@ -138,7 +138,7 @@ describe "Admin manages proposals valuators", type: :system do
       within "#valuators" do
         expect(page).to have_content(valuator.name)
 
-        accept_confirm admin: true do
+        accept_confirm do
           find("a.red-icon").click
         end
       end

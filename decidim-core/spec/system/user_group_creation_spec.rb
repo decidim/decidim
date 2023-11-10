@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "User group creation", type: :system do
+describe "User group creation" do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :confirmed, organization:) }
 
@@ -22,7 +22,7 @@ describe "User group creation", type: :system do
     fill_in "Phone", with: "12345678"
     fill_in "About", with: "This is us."
 
-    dynamically_attach_file(:group_avatar, Decidim::Dev.asset("avatar.jpg"), front_interface: true)
+    dynamically_attach_file(:group_avatar, Decidim::Dev.asset("avatar.jpg"))
 
     click_button "Create group"
 

@@ -7,15 +7,11 @@ module Decidim
       #
       class AssemblyMembersController < Decidim::Assemblies::Admin::ApplicationController
         include Concerns::AssemblyAdmin
-        layout "decidim/admin/assembly_members"
+        include Decidim::Assemblies::Admin::AssemblyMembers::Filterable
 
         def index
           enforce_permission_to :index, :assembly_member
-
-          @query = params[:q]
-          @status = params[:status]
-
-          @assembly_members = Decidim::Assemblies::Admin::AssemblyMembers.for(collection, @query, @status).page(params[:page]).per(15)
+          @assembly_members = filtered_collection
         end
 
         def new

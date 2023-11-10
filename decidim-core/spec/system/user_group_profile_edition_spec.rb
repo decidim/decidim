@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "User group profile edition", type: :system do
+describe "User group profile edition" do
   let!(:creator) { create(:user, :confirmed) }
   let!(:user_group) { create(:user_group, users: [creator], organization: creator.organization) }
   let!(:member) { create(:user, :confirmed, organization: creator.organization) }
@@ -42,7 +42,7 @@ describe "User group profile edition", type: :system do
 
       fill_in "Name", with: "My super duper group"
       fill_in "About", with: "We are awesome"
-      dynamically_attach_file(:group_avatar, Decidim::Dev.asset("city.jpeg"), remove_before: true, front_interface: true)
+      dynamically_attach_file(:group_avatar, Decidim::Dev.asset("city.jpeg"), remove_before: true)
 
       click_button "Update group"
 

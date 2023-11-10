@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Identity document online review", type: :system do
+describe "Identity document online review" do
   let!(:organization) do
     create(:organization, available_authorizations: ["id_documents"])
   end
@@ -103,7 +103,7 @@ describe "Identity document online review", type: :system do
   def submit_reupload_form(doc_type:, doc_number:, file_name:)
     select doc_type, from: "Type of your document"
     fill_in "Document number (with letter)", with: doc_number
-    dynamically_attach_file(:id_document_upload_verification_attachment, Decidim::Dev.asset(file_name), front_interface: true)
+    dynamically_attach_file(:id_document_upload_verification_attachment, Decidim::Dev.asset(file_name))
 
     click_button "Request verification again"
   end

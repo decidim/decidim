@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Polling Officer zone", type: :system do
+describe "Polling Officer zone" do
   let(:organization) { create(:organization, :secure_context) }
   let(:user) { create(:user, :confirmed, organization:) }
   let(:polling_officers) { [assigned_polling_officer, unassigned_polling_officer] }
@@ -116,7 +116,7 @@ describe "Polling Officer zone", type: :system do
       it "can attach images to the closure" do
         expect(page).to have_content("Vote recount - Upload certificate")
 
-        dynamically_attach_file(:closure_certify_photos, Decidim::Dev.asset("city.jpeg"), front_interface: true)
+        dynamically_attach_file(:closure_certify_photos, Decidim::Dev.asset("city.jpeg"))
         within ".form.certify_closure" do
           find("*[type=submit]").click
         end

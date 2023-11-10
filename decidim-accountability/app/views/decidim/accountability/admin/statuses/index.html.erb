@@ -1,45 +1,42 @@
 <% add_decidim_page_title(t(".title")) %>
 <div class="card">
-  <div class="card-divider">
-    <h2 class="card-title">
+  <div class="item_show__header">
+    <h2 class="item_show__header-title">
       <%= t(".title") %>
-      <%= link_to t("actions.new", scope: "decidim.accountability", name: t("models.status.name", scope: "decidim.accountability.admin")), new_status_path, class: "button tiny button--title" if allowed_to? :create, :status %>
+      <%= link_to t("actions.new_status", scope: "decidim.accountability"), new_status_path, class: "button button__sm button__secondary" if allowed_to? :create, :status %>
     </h2>
   </div>
+  <div class="table-scroll">
+    <table class="table-list">
+      <thead>
+        <tr>
+          <th><%= t("models.status.fields.key", scope: "decidim.accountability") %></th>
+          <th><%= t("models.status.fields.name", scope: "decidim.accountability") %></th>
+          <th><%= t("models.status.fields.description", scope: "decidim.accountability") %></th>
+          <th><%= t("models.status.fields.progress", scope: "decidim.accountability") %></th>
+          <th class="actions"><%= t("actions.title", scope: "decidim.accountability") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% statuses.each do |status| %>
+          <tr data-id="<%= status.id %>">
+            <td><%= status.key %><br></td>
+            <td><%= translated_attribute(status.name) %></td>
+            <td><%= truncate translated_attribute(status.description), lenght: 50 %></td>
+            <td><%= status.progress %></td>
+            <td class="table-list__actions">
+              <% if allowed_to? :update, :status, status: status %>
+                <%= icon_link_to "pencil-line", edit_status_path(status), t("actions.edit", scope: "decidim.accountability"), class: "action-icon--edit" %>
+              <% end %>
 
-  <div class="card-section">
-    <div class="table-scroll">
-      <table class="table-list">
-        <thead>
-          <tr>
-            <th><%= t("models.status.fields.key", scope: "decidim.accountability") %></th>
-            <th><%= t("models.status.fields.name", scope: "decidim.accountability") %></th>
-            <th><%= t("models.status.fields.description", scope: "decidim.accountability") %></th>
-            <th><%= t("models.status.fields.progress", scope: "decidim.accountability") %></th>
-            <th class="actions"><%= t("actions.title", scope: "decidim.accountability") %></th>
+              <% if allowed_to? :destroy, :status, status: status %>
+                <%= icon_link_to "delete-bin-line", status_path(status), t("actions.destroy", scope: "decidim.accountability"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.accountability", name: t("models.status.name", scope: "decidim.accountability.admin")) } %>
+              <% end %>
+            </td>
           </tr>
-        </thead>
-        <tbody>
-          <% statuses.each do |status| %>
-            <tr data-id="<%= status.id %>">
-              <td><%= status.key %><br></td>
-              <td><%= translated_attribute(status.name) %></td>
-              <td><%= truncate translated_attribute(status.description), lenght: 50 %></td>
-              <td><%= status.progress %></td>
-              <td class="table-list__actions">
-                <% if allowed_to? :update, :status, status: status %>
-                  <%= icon_link_to "pencil", edit_status_path(status), t("actions.edit", scope: "decidim.accountability"), class: "action-icon--edit" %>
-                <% end %>
-
-                <% if allowed_to? :destroy, :status, status: status %>
-                  <%= icon_link_to "circle-x", status_path(status), t("actions.destroy", scope: "decidim.accountability"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.accountability", name: t("models.status.name", scope: "decidim.accountability.admin")) } %>
-                <% end %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <%= paginate statuses, theme: "decidim" %>
-    </div>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
+<%= decidim_paginate statuses %>

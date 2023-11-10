@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Check Census", type: :system do
+describe "Check Census" do
   include Rack::Test::Methods
 
   let!(:organization) { create(:organization) }

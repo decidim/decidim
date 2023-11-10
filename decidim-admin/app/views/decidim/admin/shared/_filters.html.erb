@@ -1,9 +1,10 @@
 <div class="filters__section">
-  <div class="fcell filter">
+  <div class="fcell">
     <ul class="dropdown menu" data-dropdown-menu data-close-on-click-inside="false">
       <li>
         <a href="#" class="dropdown button">
           <%= t("filter_label", scope: "decidim.admin.filters") %>
+          <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
         </a>
         <%= dropdown_submenu(submenu_options_tree(i18n_ctx)) %>
       </li>
@@ -22,19 +23,14 @@
                              scope: "decidim.admin.filters.search_placeholder")
             ) %>
         <div class="input-group-button">
-          <button type="submit" class="button">
-            <%= icon "magnifying-glass", aria_label: t("search_label", scope: "decidim.admin.filters") %>
+          <button type="submit" class="text-secondary" aria-label="<%= t("decidim.search.term_input_placeholder") %>">
+            <%= icon "search-line", class: "fill-secondary w-4 h-4" %>
           </button>
         </div>
       </div>
     <% end %>
   </div>
 </div>
-<div class="card-section fcell grid-x">
-  <div class="cell medium-10 filter-status">
-    <%= applied_filters_tags(i18n_ctx) %>
-  </div>
-  <div class="cell auto text-right">
-    <%= admin_filters_pagination %>
-  </div>
+<div class="fcell grid-x" data-applied-filters-tags>
+  <%= applied_filters_tags(i18n_ctx) %>
 </div>

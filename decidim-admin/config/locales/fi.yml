@@ -37,6 +37,9 @@ fi:
         user_group_id: Tuo käyttäjänä
       newsletter:
         body: Runko
+        send_to_all_users: Lähetä kaikille käyttäjille
+        send_to_followers: Lähetä seuraajille
+        send_to_participants: Lähetä osallistujille
         subject: Otsikko
       organization:
         admin_terms_of_service_body: Hallintakäyttäjien käyttöehtojen sisältöteksti
@@ -90,9 +93,10 @@ fi:
         secondary_hosts: Toissijaiset osoitteet
         send_welcome_notification: Lähetä tervetuloilmoitus
         success_color: Onnistuminen
+        tertiary_color: Kolmiasteinen värimääritys
         time_zone: Aikavyöhyke
         tos_version: Käyttöehtojen versio
-        twitter_handler: Twitter-käsittelijä
+        twitter_handler: X käsittelijä
         user_groups_enabled: Ota käyttäjäryhmät käyttöön
         users_registration_mode: Käyttäjien rekisteröintitila
         warning_color: Varoitus
@@ -185,8 +189,6 @@ fi:
         export: Vie kaikki
         export-selection: Vie valitut
         import: Tuo
-        manage: Hallitse
-        new: Uusi %{name}
         newsletter:
           new: Uusi uutiskirje
         participatory_space_private_user:
@@ -194,6 +196,7 @@ fi:
         per_page: Per sivu
         permissions: Oikeudet
         reject: Hylkää
+        send_me_a_test_email: Lähetä minulle testisähköposti
         share: Jaa
         user:
           new: Uusi hallintakäyttäjä
@@ -254,7 +257,6 @@ fi:
           title: Muokkaa kansiota
           update: Päivitä
         index:
-          attachment_collection_used: Tätä kansiota ei voi poistaa, koska se on käytössä.
           attachment_collections_title: Liitetiedostojen kansiot
         new:
           create: Luo
@@ -303,7 +305,6 @@ fi:
           update: Päivitä
         index:
           categories_title: Aihepiirit
-          category_used: Tätä aihepiiriä ei voida poistaa, koska se on käytössä.
         new:
           create: Luo aihepiiri
           title: Uusi aihepiiri
@@ -318,6 +319,7 @@ fi:
         create:
           error: Komponentin luonti epäonnistui.
           success: Komponentin luonti onnistui.
+          success_landing_page: Komponentti luotu onnistuneesti. Voit lisätä sisältölohkon tälle komponentille osallistumistilan etusivulle. Siirry <a href="%{landing_page_path}">Laskeutumissivu-osioon</a> lisätäksesi komponentin osallistumistilan etusivulle.
         destroy:
           error: Komponentin tuhoaminen epäonnistui.
           success: Komponentin poisto onnistui.
@@ -342,7 +344,7 @@ fi:
           success: Komponentin julkaisu onnistui.
         title: Komponentit
         unpublish:
-          success: Komponentin julkaisun peruminen onnistui.
+          success: Komponentin julkaisun lopettaminen onnistui.
         update:
           error: Komponentin päivitys epäonnistui.
           success: Komponentin päivitys onnistui.
@@ -369,8 +371,8 @@ fi:
           goto_moderation: Siirry yleisiin moderointeihin
           title: Odottavat moderoinnit
         show:
+          dropdown: Alasvetovalikko
           view_more_logs: Näytä lisää lokitietoja
-          welcome: Tervetuloa hallintapaneeliin.
       domain_whitelist:
         form:
           domain_too_short: Verkkotunnus on liian lyhyt
@@ -469,7 +471,6 @@ fi:
             all: Kaikki
             managed: Hallittu
             not_managed: Ei hallittu
-          filter_by: Suodata
           impersonate: Esiinny käyttäjänä
           impersonate_new_managed_user: Esiinny uutena hallittuna käyttäjänä
           managed: Hallittu
@@ -559,7 +560,6 @@ fi:
         areas: Alueet
         configuration: Asetukset
         content: Ilmoitettu sisältö
-        dashboard: Hallintapaneeli
         external_domain_whitelist: Sallitut ulkoiset verkko-osoitteet
         help_sections: Ohjeosiot
         homepage: Kotisivu
@@ -570,6 +570,7 @@ fi:
         reported_users: Ilmoitetut osallistujat
         scope_types: Teematyypit
         scopes: Teemat
+        see_site: Näytä sivusto
         settings: Asetukset
         static_pages: Sivut
         user_groups: Käyttäjäryhmät
@@ -639,7 +640,7 @@ fi:
           fields:
             created_at: Luontipäivämäärä
             email: Sähköposti
-            last_sign_in_at: Viimeisen kirjautumisen päivämäärä
+            last_sign_in_at: Viimeinen sisäänkirjautumispäivä
             name: Nimi
             role: Rooli
             roles:
@@ -750,16 +751,16 @@ fi:
           select_scopes: Suodata käyttäjiä, jotka ovat valinneet minkä tahansa teeman tilinsä "Kiinnostuksen kohteet" -asetuksesta.
           select_spaces: Valitse tilat, joille haluat kohdistaa uutiskirjeen
           select_users: Valitse käyttäjät, joille haluat lähettää uutiskirjeen
-          send_to_all_users: Lähetä kaikille käyttäjille
-          send_to_followers: Lähetä seuraajille
-          send_to_participants: Lähetä osallistujille
           title: Valitse vastaanottajat
           warning: "<strong>Huomio:</strong> Tämä uutiskirje lähetetään ainoastaan käyttäjille, jotka ovat valinneet asetuksen <em>Haluan vastaanottaa uutiskirjeitä</em> tilinsä ilmoitusasetuksista."
         send:
           no_recipients: Ei yhtään vastaanottajaa valituille rajauksille.
+        send_to_user:
+          sent_successfully: Uutiskirjeen lähetys osoitteeseen %{email} onnistui
         show:
           preview: Esikatsele
           select_recipients_to_deliver: Valitse vastaanottajat
+          send_me_a_test_email: Lähetä minulle testisähköposti
           subject: Otsikko
         update:
           error: Uutiskirjeen päivitys epäonnistui.
@@ -793,7 +794,6 @@ fi:
           officialize: Virallista
           title: Virallista käyttäjä "%{name}"
         show_email_modal:
-          close_modal: Sulje ikkuna
           description: Jos haluat ottaa suoraan yhteyttä osallistujaan, voit klikata Näytä-painiketta nähdäksesi hänen sähköpostiosoitteensa. Tästä toiminnosta jää jälki lokiin.
           email_address: Sähköpostiosoite
           full_name: Koko nimi
@@ -813,7 +813,7 @@ fi:
           instagram: Instagram
           rich_text_editor_in_public_views_help: Joissain tekstikentissä osallistujat voivat syöttää tiettyjä HTML-elementtejä rikkaan tekstieditorin kautta.
           social_handlers: Sosiaalinen media
-          twitter: Twitter
+          twitter: X
           url: URL
           youtube: YouTube
         update:
@@ -824,10 +824,16 @@ fi:
           update: Päivitä
         form:
           colors:
+            choose_color: Valitse ensisijainen väri
             colors_title: Organisaation värit
-            colors_warning_html: Varoitus! Näiden värien muuttaminen voi rikkoa palvelun saavutettavuuden vaatimat kontrastiarvot. Voit tarkastaa kontrastiarvot valitsemillesi väreille <a href="%{link}">WebAIM kontrastintarkastustyökalulla</a> tai muilla vastaavilla työkaluilla.
-            header_snippets_help: Käytä tätä kenttää lisätäksesi HTML-koodia sivun alkuun. Yleisin käyttötarve on sellaisten kolmannen osapuolen palveluiden integrointi, jotka vaativat JavaScript- tai CSS-koodin lisäystä sivun HTML-koodiin. Huomioi, että tämä lisätään ainoastaan julkisille sivuille, ei hallinnointisivuille.
-          cta_button_path_help: 'Voit määrittää, mihin kotisivun toimintopainike (Call To Action) linkkaa. Käytä tässä osoitepolkuja, ei kokonaisia URL-osoitteita. Hyväksyy kirjaimet, numerot, viivat ja kauttaviivat. Arvon on alettava kirjaimella. Toimintopainike näytetään kotisivulla Tervetuloa-tekstin ja kuvauksen välissä. Esimerkki: %{url}'
+            colors_warning_html: Varoitus! Näiden värien muuttaminen voi rikkoa palvelun saavutettavuuden vaatimat kontrastiarvot. Voit tarkastaa kontrastiarvot valitsemillesi väreille <a href="https://webaim.org/resources/contrastchecker">WebAIM kontrastintarkastustyökalulla</a> tai muilla vastaavilla työkaluilla.
+            explanation: Tämä työkalu auttaa sinua valitsemaan värimaailman, joka koostuu tasaisesti valituista väriympyrän sävyistä. Näitä värejä käytetään verkkosivuston värimäärityksissä.
+            header_snippets_help_html: Käytä tätä kenttää lisätäksesi uusia HTML-otsakkeita. Yleisin käyttötarkoitus on kolmannen osapuolen palveluiden integrointi, missä tarvitaan ylimääräisiä JavaScript- tai CSS-tiedostoja. Voit myös käyttää asetusta lisätäksesi uusia meta-merkintöjä HTML:ään. Huomaa, että tämä asetus pätee vain osallistujille suunnatuilla julkisilla sivuilla, ei hallintakäyttäjien osiossa. Jos koodi on vuorovaikutuksessa ulkoisten sovellusrajapintojen kanssa tai se ei ole sovelluksen turvallisuusohjeiden mukainen, sisällön turvallisuuskäytäntöä (CSP) on tarpeen muuttaa. Lue lisää <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">dokumentaatiosivustolta</a>.
+            legend_html: Pääsovelluksen värit valitaan <a href="https://www.color-meanings.com/triadic-colors/">kolmiasteisella algoritmilla (triadic)</a>. <i>Toissijainen</i> väri lasketaan automaattisesti ensisijaisen värin ja valitsemasi värikylläisyysarvon perusteella.
+            saturation: Värikylläisyys
+            title: Värin valinta
+            update_suggested_colors: Päivitä ehdotetut värit
+          cta_button_path_help_html: 'Voit määrittää, mihin kotisivun toimintopainike (Call To Action) linkkaa. Käytä tässä osoitepolkuja, ei kokonaisia URL-osoitteita. Hyväksyy kirjaimet, numerot, viivat ja kauttaviivat. Arvon on alettava kirjaimella. Toimintopainike näytetään kotisivulla Tervetuloa-tekstin ja kuvauksen välissä. Esimerkki: %{url}'
           cta_button_text_help: Voit korvata toimintopainikkeen (Call to Action) tekstin kotisivulla jokaiselle organisaatiosi kielelle. Mikäli tätä ei ole asetettu, oletusarvoa käytetään. Toimintopainike näytetään kotisivulla Tervetuloa-tekstin ja kuvauksen välissä.
           homepage_appearance_title: Muokkaa kotisivun ulkoasua
           homepage_highlighted_content_banner_title: Tärkeä sisältöbanneri
@@ -922,7 +928,7 @@ fi:
           update: Päivitä
         new:
           create: Luo teematyyppi
-          title: Uusi teema
+          title: Uusi teematyyppi
         update:
           error: Teematyyppin päivitys epäonnistui.
           success: Teematyypin päivitys onnistui
@@ -952,7 +958,7 @@ fi:
           success: Tunnisteen poistaminen onnistui.
         share_tokens:
           empty: Aktiivisia tunnisteita ei ole tällä hetkellä.
-          help: Näitä tunnisteita käytetään jaettaessa tätä kohdetta muille käyttäjille. Ne piilotetaan, kun kohde julkaistaan. Klikkaa tunnisteen jakoikonia vieraillaksesi jaettavassa URL-osoitteessa.
+          help: Näitä tunnisteita käytetään jaettaessa tätä julkaisematonta kohdetta muille käyttäjille. Ne piilotetaan, kun kohde julkaistaan. Klikkaa tunnisteen jakoikonia vieraillaksesi jaettavassa URL-osoitteessa.
           title: Jakotunnisteet
       shared:
         gallery:
@@ -1003,9 +1009,7 @@ fi:
           update: Päivitä
         form:
           none: Ei mitään
-          slug_help: 'Käytä tässä osoitepolkuja, ei koko URL-osoitteita. Hyväksyy kirjaimia, numeroita, viivoja ja kauttaviivoja. Arvo on aloitettava kirjaimella. Esimerkki: %{url}'
-        index:
-          last_notable_change: Viimeinen huomattava muutos
+          slug_help_html: 'Käytä tässä osoitepolkuja, ei koko URL-osoitteita. Hyväksyy kirjaimia, numeroita, viivoja ja kauttaviivoja. Arvo on aloitettava kirjaimella. Esimerkki: %{url}'
         new:
           create: Luo sivu
           title: Uusi sivu
@@ -1023,14 +1027,17 @@ fi:
         areas: Alueet
         authorization_workflows: Vahvistustavat
         dashboard: Hallintapaneeli
+        edit_external_domains: Sallittujen ulkoisten verkkotunnusten lista
+        edit_landing_page: Sivun sisältö
+        edit_organization_appearance: Muokkaa kotisivun ulkoasua
         impersonatable_users: Hallittavat käyttäjät
         impersonations: Käyttäjien hallinta
         metrics: Tilastomittarit
+        pages: Sivut
         panel: Hallintakäyttäjä
         participants: Käyttäjät
         scope_types: Teematyypit
         scopes: Teemat
-        static_pages: Sivut
         statistics: Toiminta
         user_groups: Käyttäjäryhmät
         users: Hallintakäyttäjät
@@ -1082,7 +1089,6 @@ fi:
           last_week: Viimeinen viikko
           no_users_count_statistics_yet: Käyttäjämäärätilastoja ei vielä ole.
           participants: Osallistujat
-      view_public_page: Näytä julkinen sivu
     forms:
       errors:
         impersonate_user:
@@ -1143,9 +1149,3 @@ fi:
       admin:
         global_moderations:
           title: Yleiset moderoinnit
-        newsletters:
-          title: Uutiskirjeet
-        settings:
-          title: Asetukset
-        users:
-          title: Käyttäjät

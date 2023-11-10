@@ -1,187 +1,288 @@
 <% add_decidim_page_title(translated_attribute(proposal.title)) %>
-<div class="card">
-  <div class="card-divider">
-    <h2 class="card-title">
-      <%= link_to "#{t ".proposals"} > ", proposals_path %>
-      <%= decidim_html_escape(present(proposal).title).html_safe %>
-
-      <% if allowed_to? :edit, :proposal, proposal: proposal %>
-        <%= icon_link_to "pencil", edit_proposal_path(proposal), t("actions.edit_proposal", scope: "decidim.proposals"), class: "action-icon--edit-proposal" %>
-      <% end %>
-    </h2>
-  </div>
-
-  <div class="card-section">
-    <div class="row column">
-      <strong><%= t ".link" %>:</strong>  <%= link_to resource_locator(proposal).url, resource_locator(proposal).path %>
+<div class="component__show">
+  <div class="card">
+    <div class="component__show_header">
+      <h2 class="component__show_header-title">
+        <%= decidim_html_escape(present(proposal).title).html_safe %>
+      </h2>
     </div>
 
-    <div class="row column">
-      <strong><%= t ".authors" %>:</strong>
-        <ul id="proposal-authors-list">
+    <div class="component__show_nav">
+      <div class="component__show_nav-author">
+        <div class="component__show_nav-circle">
+          <%= icon "award-line" %>
+        </div>
+        <div>
           <% coauthor_presenters_for(proposal).each do |presented_author| %>
-            <li>
+            <li class="component__show_nav-author-title">
               <%= link_to_if(
-                presented_author.profile_path.present?,
-                presented_author.name,
-                presented_author.profile_path,
-                target: :blank
-              ) %>
+                    presented_author.profile_path.present?,
+                    presented_author.name,
+                    presented_author.profile_path,
+                    target: :blank
+                  ) %>
               <% if presented_author.can_be_contacted? && presented_author.nickname != present(current_user).nickname %>
-                <%= icon_link_to "envelope-closed", current_or_new_conversation_path_with(presented_author), t("decidim.contact"), class:"action-icon--new" %>
+                <%= link_to_current_or_new_conversation_with(presented_author) %>
               <% end %>
             </li>
           <% end %>
-        </ul>
+          <span class="component__show_nav-author-date">
+            <%= l proposal.created_at, format: :decidim_short %>
+          </span>
+        </div>
+      </div>
+      <div class="ml-auto">
+        <%= link_to resource_locator(proposal).url, class: "button button__sm button__transparent-secondary", target: :blank, data: { "external-link": false } do %>
+          <%= icon "eye-line", class: "fill-current" %>
+          <%= t ".link" %>
+        <% end %>
+      </div>
     </div>
 
-    <div class="row column">
-      <strong><%= t ".body" %>:</strong> <%= simple_format(present(proposal).body(strip_tags: true)) %>
-    </div>
+    <div class="component__show_grid">
+      <div class="component__show_grid-item">
+        <div class="card-section">
+          <div class="row column">
+            <span class="component__show-title"><%= t ".body" %></span>
+            <p class="component__show-text">
+              <%= simple_format(present(proposal).body(strip_tags: true)) %>
+            </p>
+          </div>
+        </div>
+        <% presented_endorsers = endorsers_presenters_for(proposal).first(6).to_a %>
+        <% if presented_endorsers.any? %>
+          <div class="card-section">
+            <div class="row column">
+              <span class="component__show-title"><%= t ".endorsers" %></span>
+              <ul id="proposal-endorsers-list">
+                <% presented_endorsers.first(5).each do |presented_endorser| %>
+                  <li>
+                    <%= link_to_if(
+                          presented_endorser.profile_path.present?,
+                          presented_endorser.name,
+                          presented_endorser.profile_path,
+                          target: :blank
+                        ) %>
+                  </li>
+                <% end %>
+                <% if presented_endorsers.count > 5 %>
+                  <li>
+                    <%= link_to(
+                          t(".n_more_endorsers", count: presented_endorsers.count - 5),
+                          resource_locator(proposal).path
+                        ) %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        <% end %>
+        <% if proposal.documents.any? %>
+          <div class="card-section">
+            <div class="row column">
+              <strong><%= t ".documents" %>:</strong>
+              <ul id="documents">
+                <% proposal.documents.each do |document| %>
+                  <li>
+                    <%= link_to translated_attribute(document.title), document.url %>
+                    <small><%= document.file_type %> <%= number_to_human_size(document.file_size) %></small>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        <% end %>
+        <% if proposal.photos.any? %>
+          <div class="card-section">
+            <div class="row column">
+              <strong><%= t(".photos") %>:</strong>
+              <div id="photos" class="gallery row" data-gallery>
+                <% proposal.photos.each do |photo| %>
+                  <%= link_to photo.big_url, target: "_blank", rel: "noopener" do %>
+                    <%= image_tag photo.thumbnail_url,
+                                  class: "thumbnail", alt: strip_tags(translated_attribute(photo.title)) %>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <% proposal_meetings = proposal.linked_resources(:meetings, "proposals_from_meeting") %>
+        <% if proposal_meetings.any? %>
+          <div class="card-section">
+            <div class="row column">
+              <span class="component__show-title"><%= t ".related_meetings" %></span>
+              <ul id="related-meetings">
+                <% proposal_meetings.each do |meeting| %>
+                  <% presented_meeting = present(meeting) %>
+                  <li>
+                    <%= link_to presented_meeting.title(html_escape: true), presented_meeting.profile_path %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        <% end %>
+        <% if allowed_to?(:create, :proposal_note, proposal: proposal) %>
+          <div class="card-section">
+            <%= render "decidim/proposals/admin/proposal_notes/proposal_notes" %>
+          </div>
+        <% end %>
 
-    <div class="row column">
-      <strong><%= t ".created_at" %>:</strong> <%= l proposal.created_at, format: :decidim_short %>
-    </div>
+        <% if allowed_to?(:create, :proposal_answer, proposal: proposal) && !proposal.emendation? %>
+          <div class="card-section">
+            <%= render "decidim/proposals/admin/proposal_answers/form" %>
+          </div>
+        <% end %>
+      </div>
+      <div class="component__show_grid-item">
+        <% if proposal.category.present? %>
+          <div class="card-section">
+            <div class="row column">
+              <span class="component__show-title"><%= t("models.proposal.fields.category", scope: "decidim.proposals") %></span>
+              <div class="flex items-center gap-x-2 mt-2">
+                <%= icon "price-tag-3-line", class: "fill-gray" %>
+                <p class="component__show-icon-text">
+                  <%= translated_attribute proposal.category.name %>
+                </p>
+              </div>
+            </div>
+          </div>
+        <% end %>
 
-    <div class="row column">
-      <strong><%= t ".votes_count" %>:</strong> <%= proposal.proposal_votes_count %>
-    </div>
+        <% if proposal.scope.present? %>
+          <div class="card-section">
+            <div class="row column">
+              <span class="component__show-title"><%= t("models.proposal.fields.scope", scope: "decidim.proposals") %></span>
+              <div class="flex items-center gap-x-2 mt-2">
+                <%= icon "scan-line", class: "fill-gray" %>
+                <p class="component__show-icon-text">
+                  <%= translated_attribute proposal.scope.name %>
+                </p>
+              </div>
+            </div>
+          </div>
+        <% end %>
 
-    <div class="row column">
-      <strong><%= t ".votes_ranking" %>:</strong> <%= i18n_votes_ranking_for(proposal) %>
-    </div>
+        <div class="card-section">
+          <div class="row column" data-supports>
+            <span class="component__show-title"><%= t ".votes_count" %></span>
+            <div class="flex items-center gap-x-2 mt-2">
+              <%= icon "service-line", class: "fill-gray" %>
+              <p class="component__show-icon-text" data-count>
+                <%= proposal.proposal_votes_count %>
+              </p>
+              <div class="flex items-center gap-x-2 border-l border-gray pl-2">
+                <%= icon "bar-chart-2-line", class: "fill-gray" %>
+                <p class="component__show-icon-text" data-ranking>
+                  <%= i18n_votes_ranking_for(proposal) %>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    <div class="row column">
-      <strong><%= t ".endorsements_count" %>:</strong> <%= proposal.endorsements_count %>
-    </div>
+        <div class="card-section">
+          <div class="row column" data-endorsements>
+            <span class="component__show-title"><%= t ".endorsements_count" %></span>
+            <div class="flex items-center gap-x-2 mt-2">
+              <%= icon "heart-add-line", class: "fill-gray" %>
+              <p class="component__show-icon-text" data-count>
+                <%= proposal.endorsements_count %>
+              </p>
+              <div class="flex items-center gap-x-2 border-l border-gray pl-2">
+                <%= icon "bar-chart-2-line", class: "fill-gray" %>
+                <p class="component__show-icon-text" data-ranking>
+                  <%= i18n_endorsements_ranking_for(proposal) %>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    <div class="row column">
-      <strong><%= t ".endorsements_ranking" %>:</strong> <%= i18n_endorsements_ranking_for(proposal) %>
-    </div>
+        <div class="card-section">
+          <div class="row column" data-amendments>
+            <span class="component__show-title"><%= t ".amendments_count" %></span>
+            <div class="flex items-center gap-x-2 mt-2" data-count>
+              <%= icon "git-branch-line", class: "fill-gray" %>
+              <p class="component__show-icon-text">
+                <%= proposal.amendments.count %>
+              </p>
+            </div>
+          </div>
+        </div>
 
-    <div class="row column">
-      <strong><%= t ".amendments_count" %>:</strong> <%= proposal.amendments.count %>
+        <div class="card-section">
+          <div class="row column" data-comments>
+            <span class="component__show-title"><%= t ".comments_count" %></span>
+            <div class="flex items-center gap-x-2 mt-2">
+              <%= icon "chat-1-line", class: "fill-gray" %>
+              <p class="component__show-icon-text" data-count>
+                <%= proposal.comments_count %>
+              </p>
+              <div class="flex items-center gap-x-3 border-l border-gray pl-2" id="proposal-comments-alignment-count">
+                <div>
+                  <p class="component__show-icon-text" data-positive>
+                    <%= icon "thumb-up-line", class: "fill-gray" %>
+                    <%= proposal.comments.positive.count %>
+                  </p>
+                </div>
+                <div>
+                  <p class="component__show-icon-text" data-neutral>
+                    <%= icon "scales-line", class: "fill-gray" %>
+                    <%= proposal.comments.neutral.count %>
+                  </p>
+                </div>
+                <div>
+                  <p class="component__show-icon-text" data-negative>
+                    <%= icon "thumb-up-fill", class: "fill-gray" %>
+                    <%= proposal.comments.negative.count %>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <div class="row column">
-      <strong><%= t ".comments_count" %>:</strong> <%= proposal.comments_count %>
-      <ul id="proposal-comments-alignment-count">
-        <li><strong><%= t ".comments_positive_count" %>:</strong> <%= proposal.comments.positive.count %></li>
-        <li><strong><%= t ".comments_neutral_count" %>:</strong> <%= proposal.comments.neutral.count %></li>
-        <li><strong><%= t ".comments_negative_count" %>:</strong> <%= proposal.comments.negative.count %></li>
-      </ul>
-    </div>
+  <% if proposal.valuators.any? %>
+    <div class="card">
+      <div class="card-divider">
+        <h2 class="card-title">
+          <%= t ".valuators" %>
+        </h2>
+      </div>
 
-    <div class="row column">
-      <strong><%= t ".endorsers" %>:</strong>
-        <ul id="proposal-endorsers-list">
-          <% presented_endorsers = endorsers_presenters_for(proposal).to_a %>
-          <% presented_endorsers.first(5).each do |presented_endorser| %>
-            <li>
-              <%= link_to_if(
-                presented_endorser.profile_path.present?,
-                presented_endorser.name,
-                presented_endorser.profile_path,
-                target: :blank
-              ) %>
-            </li>
-          <% end %>
-          <% if presented_endorsers.count > 5 %>
-            <li>
-              <%= link_to(
-                  t(".n_more_endorsers", count: presented_endorsers.count - 5),
-                  resource_locator(proposal).path
-              ) %>
-            </li>
-          <% end %>
-        </ul>
-    </div>
-
-    <div class="row column">
-      <strong><%= t ".related_meetings" %>:</strong>
-        <ul id="related-meetings">
-          <% proposal.linked_resources(:meetings, "proposals_from_meeting").each do |meeting| %>
-            <% presented_meeting = present(meeting) %>
-            <li>
-              <%= link_to presented_meeting.title(html_escape: true), presented_meeting.profile_path %>
-            </li>
-          <% end %>
-        </ul>
-    </div>
-
-    <% if proposal.documents.any? %>
-      <div class="row column">
-        <strong><%= t ".documents" %>:</strong>
-          <ul id="documents">
-            <% proposal.documents.each do |document| %>
+      <div class="card-section">
+        <div class="row column">
+          <strong><%= t ".assigned_valuators" %>:</strong>
+          <ul id="valuators">
+            <% proposal.valuation_assignments.each do |assignment| %>
+              <% presented_valuator = present(assignment.valuator) %>
               <li>
-                <%= link_to translated_attribute(document.title), document.url %>
-                <small><%= document.file_type %> <%= number_to_human_size(document.file_size) %></small>
+                <%= link_to(
+                      presented_valuator.name,
+                      presented_valuator.profile_path,
+                      target: :blank
+                    ) %>
+
+                <% if allowed_to? :unassign_from_valuator, :proposals, valuator: assignment.valuator %>
+                  <%= icon_link_to(
+                        "delete-bin-line",
+                        proposal_valuation_assignment_path(proposal, assignment.valuator_role),
+                        t(".remove_assignment"),
+                        method: :delete,
+                        data: { confirm: t(".remove_assignment_confirmation") },
+                        class: "red-icon"
+                      ) %>
+                <% end %>
               </li>
             <% end %>
           </ul>
-      </div>
-    <% end %>
-
-    <% if proposal.photos.any? %>
-      <div class="row column">
-        <strong><%= t(".photos") %>:</strong>
-        <div id="photos" class="gallery row" data-gallery>
-          <% proposal.photos.each do |photo| %>
-            <%= link_to photo.big_url, target: "_blank", rel: "noopener" do %>
-              <%= image_tag photo.thumbnail_url, class:"thumbnail", alt: strip_tags(translated_attribute(photo.title)) %>
-            <% end %>
-          <% end %>
         </div>
       </div>
-    <% end %>
-
-  </div>
-</div>
-
-<% if proposal.valuators.any? %>
-<div class="card">
-  <div class="card-divider">
-    <h2 class="card-title">
-      <%= t ".valuators" %>
-    </h2>
-  </div>
-
-  <div class="card-section">
-    <div class="row column">
-      <strong><%= t ".assigned_valuators" %>:</strong>
-      <ul id="valuators">
-        <% proposal.valuation_assignments.each do |assignment| %>
-          <% presented_valuator = present(assignment.valuator) %>
-            <li>
-              <%= link_to(
-                presented_valuator.name,
-                presented_valuator.profile_path,
-                target: :blank
-              ) %>
-
-              <% if allowed_to? :unassign_from_valuator, :proposals, valuator: assignment.valuator %>
-                <%= icon_link_to(
-                  "circle-x",
-                  proposal_valuation_assignment_path(proposal, assignment.valuator_role),
-                  t(".remove_assignment"),
-                  method: :delete,
-                  data: { confirm: t(".remove_assignment_confirmation") },
-                  class: "red-icon"
-                ) %>
-              <% end %>
-            </li>
-        <% end %>
-      </ul>
     </div>
-  </div>
+  <% end %>
 </div>
-<% end %>
-
-<% if allowed_to?(:create, :proposal_note, proposal: proposal) %>
-  <%= render "decidim/proposals/admin/proposal_notes/proposal_notes" %>
-<% end %>
-
-<% if allowed_to?(:create, :proposal_answer, proposal: proposal) && !proposal.emendation? %>
-  <%= render "decidim/proposals/admin/proposal_answers/form" %>
-<% end %>

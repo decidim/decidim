@@ -1,5 +1,5 @@
 <div id="js-recategorize-projects-actions" class="hide js-bulk-action-form">
-  <%= form_tag(update_category_budget_projects_path, method: :post, remote: true, id: "js-form-recategorize-projects", class: "flex--cc flex-gap--1") do %>
+  <%= form_tag(update_category_budget_projects_path, method: :post, remote: true, id: "js-form-recategorize-projects", class: "form form-defaults flex items-center gap-x-2") do %>
     <div class="checkboxes hide">
       <% projects.each do |project| %>
         <%= check_box_tag "project_ids[]", project.id, false, class: "js-check-all-resources js-resource-id-#{project.id}" %>
@@ -8,8 +8,8 @@
 
     <%= bulk_categories_select current_component.categories %>
 
-    <%= submit_tag(t("decidim.budgets.admin.projects.index.update"), id: "js-submit-edit-category", class: "button small button--simple float-left") %>
+    <%= submit_tag(t("decidim.budgets.admin.projects.index.update"), id: "js-submit-edit-category", class: "button button__sm button__secondary small button--simple float-left") %>
 
-    <button id="js-cancel-edit-category" class="button tiny clear compact js-cancel-bulk-action" type="button"><%= t("decidim.budgets.admin.projects.index.cancel") %></button>
+    <button id="js-cancel-edit-category" class="button button__sm button__secondary clear compact js-cancel-bulk-action" type="button"><%= t("decidim.budgets.admin.projects.index.cancel") %></button>
   <% end %>
 </div>

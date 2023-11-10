@@ -23,6 +23,7 @@ en:
         id: ID
         iframe_access_level: Iframe access level
         iframe_embed_type: Iframe embed type
+        iframe_embed_type_html: Only a few services allow the "Embed in meeting page" or "Open in live event page". Note that with the "Embed in the meeting page" option on mobiles, as the screen inherits different dimensions, it will actually work as an "Open in live event page".
         location: Location
         location_hints: Location hints
         online_meeting_url: Online meeting URL
@@ -123,7 +124,6 @@ en:
           success: Meeting successfully duplicated.
         new:
           copy: Copy
-          select: Select which data you would like to duplicate
           title: Duplicate meeting
     components:
       meetings:
@@ -225,7 +225,7 @@ en:
             one: 'The meeting cannot be destroyed because it has %{count} proposal associated to it:'
             other: 'The meeting cannot be destroyed because it has %{count} proposals associated to it:'
         manage_poll: Manage poll
-        new: New meeting
+        new_meeting: New meeting
         preview: Preview
         registrations: Registrations
         title: Actions
@@ -287,7 +287,6 @@ en:
               all: All
               rejected: Rejected
               sent: Sent
-            filter_by: Filter by
             invite_attendee: Invite attendee
             invites: Invites
             registrations_disabled: You cannot invite an attendee because the registrations are disabled.
@@ -315,6 +314,7 @@ en:
           form:
             address_help: 'Address: used by Geocoder to find the location'
             disclaimer: 'Disclaimer: By using an external registration system, you are aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service.'
+            iframe_embed_type_html: 'Only a few services allow embedding in meeting or live event from the following domains: %{domains}'
             location_help: 'Location: message directed to the users implying the spot to meet at'
             location_hints_help: 'Location hints: additional info. Example: the floor of the building if it is an in-person meeting, or the meeting password if it is an online meeting with restricted access.'
             online_meeting_url_help: 'Link: allow participants to connect directly to your meeting'
@@ -322,7 +322,6 @@ en:
             select_a_meeting_type: Please select a meeting type
             select_a_registration_type: Please select a registration type
             select_an_iframe_access_level: Please select an iframe access level
-            show_embedded_iframe_help: 'Only a few services allow embedding in meeting or live event from the following domains: %{domains}'
           index:
             title: Meetings
           new:
@@ -353,9 +352,6 @@ en:
           update:
             invalid: There was a problem updating this meeting poll.
             success: Meeting poll successfully updated.
-        models:
-          meeting:
-            name: Meeting
         registrations:
           edit:
             save: Save
@@ -422,7 +418,6 @@ en:
       directory:
         meetings:
           index:
-            go_to_list: See the event list
             meetings: Meetings
             space_type: Participatory space
       iframe_access_level:
@@ -502,6 +497,7 @@ en:
           available_slots_help: Leave it to 0 if you have unlimited slots available
           create_as: Create meeting as
           disclaimer: 'Disclaimer: By using an external registration system, you are aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service.'
+          iframe_embed_type_html: 'Only a few services allow embedding in meeting or live event from the following domains: %{domains}'
           location_help: 'Location: message directed to the users implying the spot to meet at'
           location_hints_help: 'Location hints: additional info. Example: the floor of the building if it is an in-person meeting, or the meeting password if it is an online meeting with restricted access.'
           online_meeting_url_help: 'Link: allow participants to connect directly to your meeting'
@@ -510,7 +506,6 @@ en:
           select_a_meeting_type: Please select a meeting type
           select_a_registration_type: Please select a registration type
           select_an_iframe_access_level: Please select an iframe access level
-          show_embedded_iframe_help: 'Only a few services allow embedding in meeting or live event from the following domains: %{domains}'
         index:
           click_here: See all meetings
           new_meeting: New meeting
@@ -535,7 +530,6 @@ en:
         show:
           attendees: Attendees count
           contributions: Contributions count
-          date: Date
           join: Register
           leave: Cancel your registration
           leave_confirmation: Are you sure you want to cancel your registration for this meeting?
@@ -553,7 +547,6 @@ en:
           remaining_slots:
             one: "%{count} slot remaining"
             other: "%{count} slots remaining"
-          view: View
           visit_finished: View past meeting
           withdraw_btn_hint: You can withdraw your meeting if you change your mind. The meeting is not deleted, it will appear in the list of withdrawn meetings.
           withdraw_confirmation_html: Are you sure you want to withdraw this meeting?<br><br><strong>This action cannot be cancelled!</strong>

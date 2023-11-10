@@ -1,0 +1,16 @@
+<% content_for :breadcrumb_context_menu do %>
+  <div class="process-title-content-breadcrumb-container-right">
+    <% if allowed_to? :create, :voting %>
+      <%= link_to new_voting_path, class: "button button__sm button__transparent process-title-content-breadcrumb-container-right-link" do %>
+        <%= icon "add-line", class: "w-4 h-4" %>
+        <span>
+          <%= t("votings.actions.new_voting", scope: "decidim.votings.admin") %>
+        </span>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
+
+<%= render "layouts/decidim/admin/application" do %>
+  <%= yield %>
+<% end %>

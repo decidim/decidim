@@ -17,7 +17,7 @@ module Decidim
       # This comment (and the i18n keys) may be removed in future versions
       class AssembliesTypesController < Decidim::Assemblies::Admin::ApplicationController
         helper_method :available_assemblies_types, :current_assembly_type
-        layout "decidim/admin/assemblies"
+        layout "decidim/admin/assemblies_types"
 
         # GET /admin/assemblies_types
         def index

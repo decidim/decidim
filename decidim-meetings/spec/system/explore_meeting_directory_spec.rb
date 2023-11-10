@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Explore meeting directory", type: :system do
+describe "Explore meeting directory" do
   let(:directory) { Decidim::Meetings::DirectoryEngine.routes.url_helpers.root_path }
   let(:organization) { create(:organization) }
   let(:participatory_process) { create(:participatory_process, organization:) }

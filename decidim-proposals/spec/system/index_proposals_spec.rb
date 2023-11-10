@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Index proposals", type: :system do
+describe "Index proposals" do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 
@@ -27,7 +27,7 @@ describe "Index proposals", type: :system do
 
       it "shows an empty page with a message" do
         expect(page).to have_content("There are no proposals with this criteria.")
-        within ".callout.warning" do
+        within ".flash.warning" do
           expect(page).to have_content("You are viewing the list of proposals withdrawn by their authors.")
         end
       end
@@ -44,7 +44,7 @@ describe "Index proposals", type: :system do
 
       it "shows all the withdrawn proposals" do
         expect(page).to have_css(".card__list span.alert", count: 3)
-        within ".callout.warning" do
+        within ".flash.warning" do
           expect(page).to have_content("You are viewing the list of proposals withdrawn by their authors.")
         end
       end

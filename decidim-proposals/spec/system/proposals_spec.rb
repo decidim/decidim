@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Proposals", type: :system do
+describe "Proposals" do
   include ActionView::Helpers::TextHelper
   include_context "with a component"
   let(:manifest_name) { "proposals" }
@@ -290,7 +290,7 @@ describe "Proposals", type: :system do
 
         expect(page).to have_content("Evaluating")
 
-        within ".callout.warning[data-announcement]" do
+        within ".flash.warning[data-announcement]" do
           expect(page).to have_content("This proposal is being evaluated")
           expect(page).to have_i18n_content(proposal.answer)
         end
@@ -310,7 +310,7 @@ describe "Proposals", type: :system do
 
         expect(page).to have_content("Rejected")
 
-        within ".callout.alert[data-announcement]" do
+        within ".flash.alert[data-announcement]" do
           expect(page).to have_content("This proposal has been rejected")
           expect(page).to have_i18n_content(proposal.answer)
         end
@@ -326,7 +326,7 @@ describe "Proposals", type: :system do
 
         expect(page).to have_content("Accepted")
 
-        within ".callout.success[data-announcement]" do
+        within ".flash.success[data-announcement]" do
           expect(page).to have_content("This proposal has been accepted")
           expect(page).to have_i18n_content(proposal.answer)
         end

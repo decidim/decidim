@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Valuator manages proposals", type: :system do
+describe "Valuator manages proposals" do
   let(:manifest_name) { "proposals" }
   let!(:assigned_proposal) { create(:proposal, component: current_component) }
   let!(:unassigned_proposal) { create(:proposal, component: current_component) }
@@ -82,7 +82,7 @@ describe "Valuator manages proposals", type: :system do
 
         within find("li", text: user.name) do
           expect(page).to have_selector("a.red-icon")
-          accept_confirm admin: true do
+          accept_confirm do
             find("a.red-icon").click
           end
         end
@@ -93,12 +93,15 @@ describe "Valuator manages proposals", type: :system do
 
     it "can leave proposal notes" do
       expect(page).to have_content("Private notes")
-      within ".add-comment" do
+      click_button "Private notes"
+
+      within ".new_proposal_note" do
         fill_in "Note", with: " This is my note"
         click_button "Submit"
       end
 
-      within ".comment-thread" do
+      click_button "Private notes"
+      within ".component__show_notes-grid .comment:last-child" do
         expect(page).to have_content("This is my note")
       end
     end

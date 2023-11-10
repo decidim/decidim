@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Organization admins", type: :system do
+describe "Organization admins" do
   include Decidim::SanitizeHelper
 
   let(:admin) { create(:user, :admin, :confirmed) }
@@ -17,13 +17,13 @@ describe "Organization admins", type: :system do
       login_as admin, scope: :user
       visit decidim_admin.root_path
       click_link "Participants"
-      click_link "Admins"
+      within_admin_sidebar_menu do
+        click_link "Admins"
+      end
     end
 
     it "can invite new users" do
-      within ".card-title" do
-        find(".button--title").click
-      end
+      click_link "New admin"
 
       within ".new_user" do
         fill_in :user_name, with: "New admin"
@@ -40,9 +40,7 @@ describe "Organization admins", type: :system do
     end
 
     it "can invite a user with a specific role" do
-      within ".card-title" do
-        find(".button--title").click
-      end
+      click_link "New admin"
 
       within ".new_user" do
         fill_in :user_name, with: "New user manager"
@@ -84,7 +82,7 @@ describe "Organization admins", type: :system do
         expect(page).to have_content(other_admin.name)
 
         within "tr[data-user-id=\"#{other_admin.id}\"]" do
-          accept_confirm(admin: true) { click_link "Delete" }
+          accept_confirm { click_link "Delete" }
         end
 
         expect(page).not_to have_content(other_admin.name)

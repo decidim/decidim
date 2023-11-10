@@ -22,7 +22,7 @@ edit_link(
 
   <%= content_for :aside do %>
     <div class="conference__nav-container">
-      <button id="dropdown-trigger-conference" data-component="dropdown" data-target="dropdown-menu-conference" data-auto-close="true" data-disabled-md="true">
+      <button id="dropdown-trigger-conference" data-component="dropdown" data-target="dropdown-menu-conference" data-auto-close="true" data-disabled-md="true" data-scroll-to-menu="true">
         <span><%= t("decidim.searches.filters.jump_to") %></span>
         <%= icon "arrow-down-s-line" %>
         <%= icon "arrow-up-s-line" %>
@@ -100,7 +100,7 @@ edit_link(
             </div>
           </div>
         <% else %>
-          <%= render partial: "decidim/devise/shared/login_boxes" %>
+          <%= render partial: "decidim/devise/shared/login_boxes", locals: { scope: "decidim.conferences.conferences.show" } %>
         <% end %>
       </section>
     <% end %>

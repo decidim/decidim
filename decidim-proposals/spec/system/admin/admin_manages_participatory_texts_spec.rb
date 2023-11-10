@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages participatory texts", type: :system do
+describe "Admin manages participatory texts" do
   let(:manifest_name) { "proposals" }
   let(:participatory_space_path) do
     decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
@@ -104,7 +104,7 @@ describe "Admin manages participatory texts", type: :system do
   end
 
   def discard_participatory_text_drafts
-    accept_confirm "Are you sure to discard the whole participatory text draft?", admin: true do
+    accept_confirm "Are you sure to discard the whole participatory text draft?" do
       click_link "Discard all"
     end
     expect(page).to have_content "All participatory text drafts have been discarded."

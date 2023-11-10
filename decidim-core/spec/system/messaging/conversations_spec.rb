@@ -2,8 +2,8 @@
 
 require "spec_helper"
 
-describe "Conversations", type: :system do
-  let!(:organization) { create(:organization, twitter_handler: "redesigned") }
+describe "Conversations" do
+  let!(:organization) { create(:organization, twitter_handler: "organization") }
   let(:user) { create(:user, :confirmed, organization:) }
 
   before do

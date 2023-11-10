@@ -1,10 +1,13 @@
 <% manifest.settings(settings_name).attributes.each do |field_name, settings_attribute| %>
-  <%= settings_attribute_input(
-    form,
-    settings_attribute,
-    field_name,
-    "decidim.components.#{manifest.name}.settings.#{settings_name}",
-    tabs_prefix:,
-    readonly: settings_attribute.readonly?(component: @component)
-  ) %>
+  <div class="row column mb-2">
+    <%= settings_attribute_input(
+      form,
+      settings_attribute,
+      field_name,
+      "decidim.components.#{manifest.name}.settings.#{settings_name}",
+      tabs_prefix:,
+      readonly: settings_attribute.readonly?(component: @component),
+      editor: settings_attribute.editor?(component: @component)
+    ) %>
+  </div>
 <% end %>

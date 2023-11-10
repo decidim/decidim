@@ -38,7 +38,7 @@ lv:
             - Lietotāji aizpilda savu personīgo informāciju un augšupielādē sava dokumenta kopiju.
             - Jūs aizpildāt augšupielādētajā attēlā esošo informāciju.
             - Informācijai jāatbilst tai, kuru ievadījis lietotājs.
-            - If you cannot clearly see the information or you cannot get it verified, you can reject the request and the user will be able to fix it.
+            - 
         postal_letter:
           help:
             - Dalībnieki pieprasa verifikācijas kodu, kas jānosūta uz viņu adresi.

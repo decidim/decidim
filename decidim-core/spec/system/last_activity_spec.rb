@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Last activity", type: :system do
+describe "Last activity" do
   let(:organization) { create(:organization) }
   let(:commentable) { create(:dummy_resource, component:) }
   let(:comment) { create(:comment, commentable:) }
@@ -149,6 +149,21 @@ describe "Last activity", type: :system do
         it "does not show the activities" do
           expect(page).to have_css("[data-activity]", count: 0)
           expect(page).to have_content "There are no entries to show for this activity type."
+        end
+      end
+
+      context "when there are lots of moderated resources" do
+        before do
+          100.times.each do
+            comment = create(:comment)
+            create(:action_log, action: "create", visibility: "all", resource: comment, organization:)
+            create(:moderation, reportable: comment, hidden_at: 1.day.ago)
+          end
+          visit current_path
+        end
+
+        it "works without an empty pagination" do
+          expect(page).to have_css("[data-activity]", count: 3)
         end
       end
     end

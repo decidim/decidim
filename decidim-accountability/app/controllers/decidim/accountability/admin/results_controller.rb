@@ -7,7 +7,6 @@ module Decidim
       class ResultsController < Admin::ApplicationController
         include Decidim::ApplicationHelper
         include Decidim::SanitizeHelper
-        include Decidim::Proposals::Admin::Picker if Decidim::Accountability.enable_proposal_linking
         include Decidim::Accountability::Admin::Filterable
 
         helper_method :results, :parent_result, :parent_results, :statuses, :present

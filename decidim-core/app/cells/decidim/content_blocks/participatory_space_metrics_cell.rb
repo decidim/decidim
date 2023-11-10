@@ -24,13 +24,13 @@ module Decidim
       def highlighted_metrics
         return if metrics.blank?
 
-        metrics.redesigned_charts Decidim.metrics_registry.filtered(highlight: true, scope:)
+        metrics.render_charts Decidim.metrics_registry.filtered(highlight: true, scope:)
       end
 
       def not_highlighted_metrics
         return if metrics.blank?
 
-        metrics.redesigned_charts Decidim.metrics_registry.filtered(highlight: false, scope:)
+        metrics.render_charts Decidim.metrics_registry.filtered(highlight: false, scope:)
       end
 
       def display_not_highlighted_metrics = false

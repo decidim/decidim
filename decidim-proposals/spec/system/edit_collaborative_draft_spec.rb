@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Edit collaborative_drafts", type: :system do
+describe "Edit collaborative_drafts" do
   include_context "with a component"
   let!(:component) { create(:proposal_component, :with_collaborative_drafts_enabled, organization:) }
   let(:manifest_name) { "proposals" }
@@ -58,7 +58,7 @@ describe "Edit collaborative_drafts", type: :system do
           click_link collaborative_draft.title
           click_link "Edit collaborative draft"
 
-          dynamically_attach_file(:collaborative_draft_documents, Decidim::Dev.asset("city.jpeg"), front_interface: true)
+          dynamically_attach_file(:collaborative_draft_documents, Decidim::Dev.asset("city.jpeg"))
 
           within "form.edit_collaborative_draft" do
             find("*[type=submit]").click

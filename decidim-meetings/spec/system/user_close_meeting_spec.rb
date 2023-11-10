@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/proposals/test/capybara_proposals_picker"
 
-describe "User edit meeting", type: :system do
+describe "User edit meeting" do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 
@@ -45,7 +44,7 @@ describe "User edit meeting", type: :system do
       expect(page).to have_content "Close meeting"
 
       within "form.edit_close_meeting" do
-        expect(page).to have_content "Choose proposals"
+        expect(page).to have_content "Proposals"
 
         fill_in :close_meeting_closing_report, with: closing_report
         fill_in :close_meeting_attendees_count, with: 10
@@ -82,7 +81,8 @@ describe "User edit meeting", type: :system do
         expect(page).to have_content "Close meeting"
 
         within "form.edit_close_meeting" do
-          expect(page).to have_content "Choose proposals"
+          expect(page).to have_content "Proposals"
+
           fill_in :close_meeting_attendees_count, with: 10
           fill_in :close_meeting_closing_report, with: edit_closing_report
 
@@ -110,7 +110,7 @@ describe "User edit meeting", type: :system do
         expect(page).to have_content "Close meeting"
 
         within "form.edit_close_meeting" do
-          expect(page).not_to have_content "Choose proposals"
+          expect(page).not_to have_content "Proposals"
         end
       end
     end

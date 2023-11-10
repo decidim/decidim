@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages participatory process groups", type: :system do
+describe "Admin manages participatory process groups" do
   include_context "when admin administrating a participatory process"
 
   let!(:participatory_processes) do
@@ -19,11 +19,17 @@ describe "Admin manages participatory process groups", type: :system do
   end
 
   it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='participatory_process_group-description-tabs']", "full" do
-    before { find(".card-title .new").click }
+    before do
+      within "div.process-title" do
+        click_link "New process group"
+      end
+    end
   end
 
   it "creates a new participatory process group" do
-    find(".card-title .new").click
+    within "div.process-title" do
+      click_link "New process group"
+    end
 
     within ".new_participatory_process_group" do
       fill_in_i18n(
@@ -156,7 +162,7 @@ describe "Admin manages participatory process groups", type: :system do
       end
 
       click_button "Remove"
-      click_button "Save"
+      click_button "Next"
 
       click_button "Update"
 
@@ -165,7 +171,7 @@ describe "Admin manages participatory process groups", type: :system do
 
     it "can delete them" do
       within find("tr", text: participatory_process_group.title["en"]) do
-        accept_confirm(admin: true) { click_link "Delete" }
+        accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -175,17 +181,15 @@ describe "Admin manages participatory process groups", type: :system do
       end
     end
 
-    it "has sub nav with Info active by default" do
+    it "has a link to the landing page" do
       within find("tr", text: participatory_process_group.title["en"]) do
         click_link "Edit"
       end
 
-      within "div.secondary-nav" do
-        expect(page).to have_content("Info")
-        expect(page).to have_content("Landing page")
-        active_secondary_nav = find(:xpath, ".//li[@class='is-active']")
-        expect(active_secondary_nav.text).to eq("Info")
-      end
+      click_button "Manage"
+      click_link "Landing page"
+
+      expect(page).to have_content "Active content blocks"
     end
   end
 
@@ -197,9 +201,11 @@ describe "Admin manages participatory process groups", type: :system do
     end
 
     context "when within participatory processes" do
-      it "the secondary nav renders the participatory process group link" do
-        within ".secondary-nav" do
-          expect(page).to have_selector(:link_or_button, "Process groups")
+      it "there is a tab which renders the participatory process group link" do
+        within "[data-content] .main-nav" do
+          within(".tab-x-container li", text: "Process groups") do
+            expect(page).to have_selector(:link_or_button, "Process groups")
+          end
         end
       end
     end

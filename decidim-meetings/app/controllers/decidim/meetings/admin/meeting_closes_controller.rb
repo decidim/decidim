@@ -5,8 +5,6 @@ module Decidim
     module Admin
       # This controller allows an admin to manage meetings from a Participatory Process
       class MeetingClosesController < Admin::ApplicationController
-        include Decidim::Proposals::Admin::Picker if Decidim::Meetings.enable_proposal_linking
-
         helper_method :meeting
 
         def edit

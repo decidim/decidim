@@ -5,7 +5,6 @@ zh-TW:
         assemblies_ids: 相關大會
         available_slots: 可用時段
         banner_image: 橫幅圖片
-        consultations_ids: 相關咨詢
         copy_categories: 複製類別
         copy_components: 複製組件
         copy_features: 複製功能
@@ -63,7 +62,6 @@ zh-TW:
         personal_url: 個人 URL
         position: 職位
         short_bio: 簡介
-        twitter_handle: Twitter 處理
         user_id: 使用者
       conference_user_role:
         email: 電子郵件
@@ -87,7 +85,6 @@ zh-TW:
     admin:
       actions:
         confirm: 確認
-        new_conference: 新的會議
         send_diplomas: 發送出席證明書
       conference_copies:
         new:
@@ -150,7 +147,6 @@ zh-TW:
         form:
           title: 基本資訊
         index:
-          not_published: 未發佈
           published: 已發佈
         new:
           create: 建立
@@ -191,7 +187,6 @@ zh-TW:
           conference_invites: 邀請
           conference_speakers: 講者
           diploma: 出席證明書
-          info: 資訊
           media_links: 媒體連結
           moderations: 版主
           partners: 夥伴
@@ -202,7 +197,6 @@ zh-TW:
         conference:
           fields:
             created_at: 建立於
-            promoted: 重點顯示
             published: 已發佈
             title: 標題
         conference_speaker:
@@ -326,9 +320,6 @@ zh-TW:
         title: 講者
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'URL 標識符用於生成指向此會議的 URL。僅接受字母、數字和破折號，並且必須以字母開頭。例如：%{url}'
         conference_invites:
           create:
             error: 邀請參與者加入會議時發生問題。
@@ -345,7 +336,6 @@ zh-TW:
               all: 全部
               rejected: 已拒絕
               sent: 傳送
-            filter_by: 篩選條件
             invite_attendee: 邀請參與者
             invites: 邀請
             search: 搜尋
@@ -369,7 +359,6 @@ zh-TW:
             available_slots_help: 如果您有無限的可用名額，請將其設置為0。
             registrations_count:
               other: 已有 %{count} 個註冊。
-            slug_help: 'URL 標識符用於生成指向此會議的 URL。僅接受字母、數字和破折號，並且必須以字母開頭。例如：%{url}'
         diplomas:
           edit:
             save: 儲存
@@ -422,16 +411,13 @@ zh-TW:
         create:
           invalid: 加入此會議時發生問題。
           success: 您已成功加入此會議。
-          unauthorized: 在註冊會議前，您需要先登錄。
         decline_invitation:
           invalid: 拒絕邀請出現問題。
           success: 您已成功拒絕邀請。
-          unauthorized: 在拒絕邀請前，您需要先登錄。
         destroy:
           invalid: 離開此會議時發生問題。
           success: 您已成功離開此會議。
       conference_speaker:
-        go_to_twitter: 轉到Twitter
         more_info: 更多資訊
         personal_website: 個人網址
         show:
@@ -493,9 +479,7 @@ zh-TW:
       pages:
         home:
           highlighted_conferences:
-            active_conferences: 正在進行的會議
-            conferences_button_title: 顯示所有會議的會議頁面連結
-            see_all_conferences: 查看所有會議
+            active_spaces: 正在進行的會議
       registration_types:
         index:
           choose_an_option: '選擇您的註冊選項:'
@@ -507,7 +491,6 @@ zh-TW:
         introduction: 簡介
         objectives: 目標
         related_assemblies: 相關大會
-        related_consultations: 相關咨詢
         related_participatory_processes: 相關參與過程
     events:
       conferences:
@@ -566,9 +549,6 @@ zh-TW:
     decidim:
       conference_hero:
         register: 註冊
-      conference_widgets:
-        show:
-          take_part: 參與
       conferences:
         conference:
           more_info: 更多資訊
@@ -578,11 +558,7 @@ zh-TW:
         order_by_conferences:
           conferences:
             other: "%{count} 個會議"
-        promoted_conference:
-          more_info: 更多資訊
-          take_part: 參與
       conferences_nav:
-        conference_menu_item: 訊息
         conference_partners_menu_item: 夥伴
         conference_speaker_menu_item: 講者
         media: 媒體

@@ -72,7 +72,7 @@ module Decidim::Surveys
       end
 
       def imported_question_options_should_eq_serialized(imported_answer_options, original_answer_options)
-        expect(imported_answer_options.size).to eq(original_answer_options.size)
+        expect(imported_answer_options.count).to eq(original_answer_options.count)
         imported_answer_options.zip(original_answer_options).each do |imported, original|
           expect(imported.body).to eq(original.body)
           expect(imported.free_text).to eq(original.free_text)

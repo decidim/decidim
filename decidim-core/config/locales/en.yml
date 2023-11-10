@@ -23,9 +23,11 @@ en:
       user:
         about: About
         email: Your email
+        encrypted_password: Password
         locale: Locale
         name: Your name
         nickname: Nickname
+        old_password: Current password
         password: Password
         password_confirmation: Confirm your password
         personal_url: Personal URL
@@ -286,11 +288,9 @@ en:
       amendable:
         button: Amend %{model_name}
         error: There has been an error amending this resource.
-        help_text: Improve this %{model_name} by modifying its %{amendable_fields}.
         promote_button: Promote to %{model_name}
         promote_confirm_text: Are you sure you want to promote this emendation?
         promote_help_text: You can promote this emendation and publish it as an independent %{model_name}.
-        section_heading: Amendments (%{count})
       amendments:
         title:
           one: "%{count} amendment"
@@ -458,7 +458,6 @@ en:
         one: and %{count} more
         other: and %{count} more
       see_less: "(see less)"
-      see_more: "(see more)"
     components:
       component_order_selector:
         no_content: We could not find any content with this criteria.
@@ -590,6 +589,8 @@ en:
           subtitle: Please fill in the following form in order to complete the sign up
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
       registrations:
+        create:
+          error: There was a problem creating your account.
         new:
           already_have_an_account?: Already have an account?
           log_in: Log in
@@ -912,14 +913,12 @@ en:
           add_attachment: Add attachment
           add_file: Add file
           add_image: Add image
-          cancel: Cancel
           edit_image: Edit image
           error: Error!
           file_size_too_large: 'File size is too large! Maximun file size: %{megabytes}MB'
           filename: Filename
           remove: Remove
           replace: Replace
-          save: Save
           title: Title
           title_required: Title is required!
           uploaded: Uploaded
@@ -1102,35 +1101,35 @@ en:
           admin_in_group: You are receiving this because you are an admin in %{group}.
           greeting: Hi, %{recipient}!
           intro: "%{manager} has started a new conversation in the name of %{group}. Click here to see it:"
-          outro: Enjoy Decidim!
+          outro: Enjoy the platform!
           subject: "%{manager} has started a new conversation as a %{group}"
         comanagers_new_message:
           admin_in_group: You are receiving this because you are an admin in %{group}.
           greeting: Hi, %{recipient}!
           intro: "%{manager} has posted new messages in a conversation in the name of %{group}. Click here to see them:"
-          outro: Enjoy Decidim!
+          outro: Enjoy the platform!
           subject: "%{manager} has send new messages as a %{group}"
         new_conversation:
           greeting: Hi, %{recipient}!
           intro: "%{sender} has started a new conversation with you. Click here to see it:"
-          outro: Enjoy Decidim!
+          outro: Enjoy the platform!
           subject: "%{sender} has started a conversation with you"
         new_group_conversation:
           admin_in_group: You are receiving this because you are an admin in %{group}.
           greeting: Hi, %{recipient}!
           intro: "%{sender} has started a new conversation with the group %{group}. Click here to see it:"
-          outro: Enjoy Decidim!
+          outro: Enjoy the platform!
           subject: "%{sender} has started a conversation with %{group}"
         new_group_message:
           admin_in_group: You are receiving this because you are an admin in %{group}.
           greeting: Hi, %{recipient}!
           intro: "%{sender} has posted new messages in a conversation with the group %{group}. Click here to see it:"
-          outro: Enjoy Decidim!
+          outro: Enjoy the platform!
           subject: "%{group} have new messages from %{sender}"
         new_message:
           greeting: Hi, %{recipient}!
           intro: "%{sender} has posted new messages in your conversation. Click here to see them:"
-          outro: Enjoy Decidim!
+          outro: Enjoy the platform!
           subject: You have new messages from %{sender}
       conversations:
         add_conversation_users:
@@ -1358,6 +1357,8 @@ en:
         conversations: Conversations
         followers: Followers
         following: Follows
+        group_admins: Manage admins
+        group_members: Manage members
         groups: Groups
         members: Members
         officialized: Official participant
@@ -1573,6 +1574,15 @@ en:
         greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hello %{admin},
         subject: A new user has been reported in %{organization_name}
+    user_update_mailer:
+      notify:
+        body_1: We are sending you this message to inform you about an update to your account.
+        body_2: In case you have not performed such update yourself, please log in to your account to change your password. In case you cannot log in, please contact the platform support.
+        greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hello %{user}
+        main_body: 'The following details have been changed: %{updates}.'
+        update_fields: "%{updates} and %{last_update}"
+      subject: Your account was updated
     version:
       show:
         back_to_resource: Go back
@@ -1685,8 +1695,9 @@ en:
         change_my_password: Change my password
         confirm_new_password: Confirm new password
         new_password: New password
-        password_help: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email."
-        password_help_admin: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456), must be different from your nickname and your email and must be different from your old passwords."
+        old_password_help: In order to confirm the changes to your account, please provide your current password.
+        password_help: "%{minimum_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email."
+        password_help_admin: "%{minimum_characters} characters minimum, must not be too common (e.g. 123456), must be different from your nickname and your email and must be different from your old passwords."
         title: Password change
       new:
         forgot_your_password: Forgot your password?
@@ -1949,8 +1960,6 @@ en:
         continue_session: Continue session
         log_out: Log out
         title: Would you like to continue your session?
-      upload_modal:
-        close_modal: Close modal
       user_menu:
         account: 'User account: %{name}'
         admin_dashboard: Admin dashboard

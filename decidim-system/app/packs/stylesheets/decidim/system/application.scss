@@ -1,0 +1,109 @@
+@import "tom-select/dist/scss/tom-select";
+
+:root {
+  --primary: #e02d2d;
+  --primary-rgb: 224 45 45;
+  --secondary: #155abf;
+  --secondary-rgb: 21 90 191;
+  --tertiary: #ebc34b;
+  --tertiary-rgb: 235 195 75;
+  --success: #28a745;
+  --success-rgb: 40 167 69;
+  --warning: #ffb703;
+  --warning-rgb: 255 183 3;
+  --alert: #e7131a;
+  --alert-rgb: 231 19 26;
+}
+
+aside {
+  @apply bg-gray-4 w-full md:w-1/6 min-w-[250px] flex-none text-white relative translate-x-0 transition;
+
+  &[aria-hidden="true"] {
+    @apply absolute -translate-x-full;
+  }
+}
+
+.main-nav {
+  li {
+    @apply border-l-2 border-transparent font-semibold hover:bg-black transition;
+
+    &.active {
+      @apply border-primary bg-black;
+    }
+  }
+
+  a {
+    @apply block p-4;
+  }
+}
+
+table {
+  @apply w-full border-collapse;
+
+  th {
+    @apply font-semibold bg-background;
+  }
+
+  td,
+  th {
+    @apply p-2 text-center first:text-left;
+  }
+
+  tr:nth-child(even) td {
+    @apply bg-gray-3;
+  }
+
+  a {
+    @apply text-primary underline;
+  }
+}
+
+[id^="advanced-settings"] {
+  &[aria-expanded="false"] span:first-child,
+  &[aria-expanded="true"] span:last-child {
+    @apply block;
+  }
+
+  &[aria-expanded="false"] span:last-child,
+  &[aria-expanded="true"] span:first-child {
+    @apply hidden;
+  }
+
+  &[aria-hidden="true"] {
+    @apply hidden;
+  }
+}
+
+dl {
+  dt {
+    @apply font-semibold;
+  }
+
+  dd {
+    @apply text-gray-2;
+  }
+
+  dt + dd,
+  dd + dt {
+    @apply mt-4;
+  }
+}
+
+.flash__message {
+  p {
+    @apply my-4;
+  }
+
+  ol {
+    @apply list-decimal;
+  }
+}
+
+/* overwrite tom-select defaults */
+.ts-control {
+  margin-bottom: 0.5rem;
+}
+
+.ts-dropdown {
+  margin: 0;
+}

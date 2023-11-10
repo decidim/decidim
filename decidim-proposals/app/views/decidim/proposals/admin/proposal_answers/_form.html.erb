@@ -1,12 +1,13 @@
-<%= decidim_form_for(@answer_form, url: proposal_proposal_answer_path(proposal, @answer_form), html: { class: "form edit_proposal_answer" }) do |f| %>
-  <div class="card" id="proposal-answer">
-    <div class="card-divider">
-      <h2 class="card-title"><%= t ".title", title: present(proposal).title %></h2>
-    </div>
+<%= decidim_form_for(@answer_form, url: proposal_proposal_answer_path(proposal, @answer_form), html: { class: "form form-defaults edit_proposal_answer" }) do |f| %>
+  <div class="form__wrapper">
+    <div class="card" id="proposal-answer">
+      <div class="card-divider">
+        <h2 class="card-title"><%= t ".title", title: present(proposal).title %></h2>
+      </div>
 
-    <div class="card-section">
-      <div class="row column">
-        <%= f.collection_radio_buttons :internal_state, [["not_answered", t(".not_answered")], ["accepted", t(".accepted")], ["rejected", t(".rejected")], ["evaluating", t(".evaluating")]], :first, :last, prompt: true %>
+      <div class="row column flex items-center gap-x-4 my-2">
+        <%= f.collection_radio_buttons :internal_state, [["not_answered", t(".not_answered")], ["accepted", t(".accepted")], ["rejected", t(".rejected")], ["evaluating", t(".evaluating")]], :first, :last, prompt: true do |builder|
+              builder.label { builder.radio_button + builder.text } end %>
       </div>
 
       <div class="row column">
@@ -28,8 +29,9 @@
       <% end %>
     </div>
   </div>
-
-  <div class="button--double form-general-submit">
-    <%= f.submit t(".answer_proposal") %>
+  <div class="item__edit-sticky">
+    <div class="item__edit-sticky-container">
+      <%= f.submit t(".answer_proposal"), class: "button button__sm button__secondary" %>
+    </div>
   </div>
 <% end %>

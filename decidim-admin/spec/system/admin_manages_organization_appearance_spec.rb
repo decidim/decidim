@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages organization", type: :system do
+describe "Admin manages organization" do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
 
@@ -44,13 +44,15 @@ describe "Admin manages organization", type: :system do
         find(".color-picker summary").click
         selector = find("#primary-selector")
 
-        selector.click(x: 23, y: 23)
-        expect(find("#preview-primary", visible: :all).value).to eq "#40b3bf"
-        expect(find("#preview-secondary", visible: :all).value).to eq "#bf40b3"
+        selector.find("div[data-value='#40a8bf']").click
+        expect(find("#preview-primary", visible: :all).value).to eq "#40a8bf"
+        expect(find("#preview-secondary", visible: :all).value).to eq "#bf40a8"
+        expect(find("#preview-tertiary", visible: :all).value).to eq "#a8bf40"
 
-        selector.click(x: 323, y: 13)
-        expect(find("#preview-primary", visible: :all).value).to eq "#6e40bf"
-        expect(find("#preview-secondary", visible: :all).value).to eq "#bf6f40"
+        selector.find("div[data-value='#bf408c']").click
+        expect(find("#preview-primary", visible: :all).value).to eq "#bf408c"
+        expect(find("#preview-secondary", visible: :all).value).to eq "#8cbf40"
+        expect(find("#preview-tertiary", visible: :all).value).to eq "#408cbf"
       end
     end
 
@@ -77,7 +79,7 @@ describe "Admin manages organization", type: :system do
       expect(page).to have_content("updated successfully")
 
       within "#minimap" do
-        expect(page.all("img").count).to eq(4)
+        expect(page.all("img").count).to eq(3)
       end
     end
   end

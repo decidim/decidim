@@ -1,0 +1,122 @@
+.item__edit {
+  @apply grid grid-cols-1 md:grid-cols-[20%_80%] mb-8;
+
+  &-form {
+    .card {
+      @apply rounded bg-white border-background border fill-secondary;
+    }
+
+    .card-section {
+      @apply px-0 pb-0;
+    }
+
+    .row {
+      @apply px-4;
+    }
+
+    .card-divider {
+      @apply p-4 mt-0 pb-2 rounded-none;
+
+      *:not(.button--title) > svg {
+        @apply inline-block w-6 h-6;
+      }
+    }
+
+    .card-divider-button {
+      @apply flex items-center justify-start w-full pb-3;
+
+      svg {
+        @apply fill-secondary;
+      }
+
+      &[aria-expanded="true"] {
+        @apply border-solid border-b border-gray w-full rounded-none;
+
+        svg {
+          @apply rotate-90 transition-transform;
+        }
+      }
+    }
+
+    .card-title {
+      @apply font-semibold text-md text-left inline-block text-secondary;
+    }
+
+    .label--tabs {
+      @apply mb-2;
+    }
+
+    label {
+      @apply text-gray-2 text-sm;
+    }
+
+    .form {
+      [type="text"],
+      [type="password"],
+      [type="date"],
+      [type="datetime"],
+      [type="datetime-local"],
+      [type="month"],
+      [type="week"],
+      [type="email"],
+      [type="number"],
+      [type="search"],
+      [type="tel"],
+      [type="time"],
+      [type="url"],
+      [type="color"] {
+        @apply shadow-none bg-background-2 text-md h-[40px];
+      }
+
+      textarea {
+        @apply shadow-none bg-background-2 text-md;
+      }
+
+      .editor-container .editor-input .ProseMirror {
+        @apply bg-background-2;
+      }
+
+      &.edit_content_block {
+        .tabs-content {
+          @apply mb-2;
+        }
+      }
+    }
+  }
+
+  &-menu {
+    @apply pr-4;
+
+    &-anchor {
+      @apply block underline mb-3 text-secondary text-sm;
+    }
+
+    &-title {
+      @apply text-black font-semibold mb-3;
+    }
+
+    &-sticky {
+      @apply sticky top-0;
+    }
+  }
+
+  &-sticky {
+    @apply w-full fixed left-0 bottom-0 bg-gray-2 border-t border-white;
+
+    &-container {
+      @apply px-8 py-4 flex gap-x-4 justify-end;
+
+      .button {
+        @apply bg-white text-secondary;
+      }
+    }
+  }
+
+  .label--tabs {
+    @apply mb-2;
+  }
+}
+
+.item__edit-1col {
+  @apply grid grid-cols-[80%_20%];
+}

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin filters assemblies private space users", type: :system do
+describe "Admin filters assemblies private space users" do
   include_context "with filterable context"
 
   let(:organization) { create(:organization) }
@@ -25,7 +25,9 @@ describe "Admin filters assemblies private space users", type: :system do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_assemblies.edit_assembly_path(assembly)
-    find("a[href*='participatory_space_private_users']").click
+    within_admin_sidebar_menu do
+      click_link "Private users"
+    end
   end
 
   include_examples "filterable participatory space users"

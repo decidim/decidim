@@ -3,7 +3,7 @@
 require "spec_helper"
 require "decidim/core/test/shared_examples/has_contextual_help"
 
-describe "Conferences", type: :system do
+describe "Conferences" do
   let(:organization) { create(:organization) }
   let(:show_statistics) { true }
   let(:description) { { en: "Description", ca: "Descripció", es: "Descripción" } }
@@ -141,6 +141,14 @@ describe "Conferences", type: :system do
       visit decidim_conferences.conference_path(conference)
     end
 
+    describe "follow button" do
+      let!(:user) { create(:user, :confirmed, organization:) }
+      let(:followable) { conference }
+      let(:followable_path) { decidim_conferences.conference_path(conference) }
+
+      include_examples "follows"
+    end
+
     describe "conference venues" do
       before do
         meetings.empty?
@@ -240,6 +248,21 @@ describe "Conferences", type: :system do
         it "does not render the stats for those components that are not visible" do
           expect(page).not_to have_css(".statistic__title", text: "Proposals")
           expect(page).not_to have_css(".statistic__number", text: "3")
+        end
+      end
+
+      context "when the conference has multiple meetings components" do
+        let!(:meetings_component) { create(:component, :published, participatory_space: conference, manifest_name: :meetings) }
+        let!(:other_meetings_component) { create(:component, :published, participatory_space: conference, manifest_name: :meetings) }
+
+        it "show meeting venues" do
+          create(:meeting, :published, :online, address: "", location_hints: nil, location: "", component: meetings_component)
+          create(:meeting, :published, :in_person, address: "", location_hints: nil, location: "", component: other_meetings_component)
+          create_list(:meeting, 3, :published, :in_person, component: meetings_component)
+
+          visit decidim_conferences.conference_path(conference)
+
+          expect(page).to have_css(".conference__map-address", count: 3)
         end
       end
     end

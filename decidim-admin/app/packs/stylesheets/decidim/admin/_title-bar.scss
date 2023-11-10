@@ -1,0 +1,62 @@
+.title-bar {
+  @apply bg-tertiary text-black text-xs;
+
+  [data-target*="dropdown"] > svg:first-of-type {
+    @apply inline-block;
+  }
+
+  .layout-content__container {
+    @apply pt-2.5 pb-2 px-2 md:px-8 flex items-center;
+  }
+}
+
+.main .title-bar .dropdown__trigger {
+  @apply block border-transparent;
+
+  svg {
+    @apply fill-black w-4 h-4;
+  }
+}
+
+.menu-trigger {
+  @apply inline-block md:hidden p-2 w-10 text-center;
+}
+
+.logo {
+  @apply p-4 block max-w-[80px] md:max-w-[120px] bg-transparent md:bg-gray-2 relative pt-7 pb-8 min-h-[68px] md:min-h-[88px];
+
+  img {
+    @apply block;
+  }
+
+  svg {
+    @apply w-12 h-8 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+  }
+}
+
+.tool-bar {
+  @apply ml-auto gap-x-2 md:gap-x-4 flex items-center text-sm;
+
+  .user-login,
+  .language-choose {
+    @apply inline-block;
+  }
+
+  [id*="dropdown-menu"] {
+    @apply mx-0 md:mx-3;
+  }
+
+  .button__site {
+    @apply flex items-center gap-x-2 p-1 text-black font-normal rounded;
+
+    background-color: rgba(255, 255, 255, 0.15);
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.35);
+    }
+
+    svg {
+      @apply fill-black;
+    }
+  }
+}

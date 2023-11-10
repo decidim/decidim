@@ -2,21 +2,23 @@
 <% content_for(:subtitle) { t("profile", scope: "layouts.decidim.user_menu") } %>
 
 <%= render layout: "layouts/decidim/shared/layout_user_profile" do %>
-
   <% if current_user.unconfirmed_email.present? %>
-    <div id="email-change-pending" class="callout secondary">
-      <p>
-        <strong><%= t("decidim.account.email_change.title") %></strong>
-      </p>
-      <p>
-        <%= t("decidim.account.email_change.body1", unconfirmed_email: current_user.unconfirmed_email) %>
-      </p>
-      <p>
-        <%== t(
-          "decidim.account.email_change.body2",
-          resend_link: link_to(t("decidim.account.email_change.send_again"), resend_confirmation_instructions_account_path, role: :button, method: :post, remote: true),
-          cancel_link: link_to(t("decidim.account.email_change.cancel"), cancel_email_change_account_path, role: :button, method: :post, remote: true)) %>
-      </p>
+    <%# NOTE: announcement cell clean_body method will purge the button %>
+    <div id="email-change-pending" class="flash secondary" data-announcement>
+      <span class="flash__message flex-none block leading-relaxed">
+        <p>
+          <strong><%= t("decidim.account.email_change.title") %></strong>
+        </p>
+        <p>
+          <%= t("decidim.account.email_change.body1", unconfirmed_email: current_user.unconfirmed_email) %>
+        </p>
+        <p>
+          <%== t(
+            "decidim.account.email_change.body2",
+            resend_link: link_to(t("decidim.account.email_change.send_again"), resend_confirmation_instructions_account_path, role: :button, method: :post, remote: true),
+            cancel_link: link_to(t("decidim.account.email_change.cancel"), cancel_email_change_account_path, role: :button, method: :post, remote: true)) %>
+        </p>
+      </span>
     </div>
   <% end %>
 
@@ -28,7 +30,7 @@
 
       <%= f.text_field :name, autocomplete: "name" %>
       <%= f.text_field :nickname, autocomplete: "nickname" %>
-      <%= f.email_field :email, disabled: current_user.unconfirmed_email.present?, autocomplete: "email" %>
+      <%= f.email_field :email, disabled: current_user.unconfirmed_email.present?, autocomplete: "email", data: { original: current_user.email } %>
       <%= f.url_field :personal_url, autocomplete: "url" %>
       <%= f.text_area :about, rows: 5 %>
 
@@ -39,19 +41,26 @@
             ->(locale) { locale_name(locale) },
             help_text: t("available_locales_helper", scope:"decidim.account.show")
           ) %>
-
-      <% if @account.errors[:password].any? %>
+      <% if @account.password.present? %>
         <%= render partial: "password_fields", locals: { form: f, user: current_user } %>
-      <% else %>
-        <% if current_organization.sign_in_enabled? %>
-          <div data-component="accordion" id="accordion-password">
-            <span id="accordion-trigger-panel-password" class="text-lg font-semibold text-secondary underline block" data-controls="panel-password">
-              <%= t("change_password", scope:"decidim.account.show") %>
-            </span>
-            <div id="panel-password" class="form__wrapper">
-              <%= render partial: "password_fields", locals: { form: f, user: current_user } %>
-            </div>
+        <%= render partial: "old_password_field", locals: { form: f, show_help_text: true } %>
+      <% elsif current_organization.sign_in_enabled? %>
+        <div data-component="accordion" id="accordion-password">
+          <%= button_tag(
+            class: "text-lg font-semibold text-secondary underline block cursor-pointer",
+            id: "accordion-trigger-panel-password",
+            type: "button",
+            data: { controls: "panel-password" }
+          ) do %>
+            <%= t("change_password", scope:"decidim.account.show") %>
+          <% end %>
+          <div id="panel-password" class="mt-6">
+            <%= render partial: "password_fields", locals: { form: f, user: current_user } %>
           </div>
+        </div>
+
+        <%= content_tag :div, id: "panel-old-password", class: @account.errors[:old_password].any? ? nil : "hidden" do %>
+          <%= render partial: "old_password_field", locals: { form: f, show_help_text: true } %>
         <% end %>
       <% end %>
 

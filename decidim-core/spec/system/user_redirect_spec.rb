@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "UserRedirect", type: :system do
+describe "UserRedirect" do
   before do
     switch_to_host(organization.host)
   end
@@ -11,6 +11,20 @@ describe "UserRedirect", type: :system do
     let(:organization) { create(:organization, force_users_to_authenticate_before_access_organization: true) }
 
     let(:user) { create(:user, :confirmed, organization:) }
+
+    context "when accessing manifest" do
+      before do
+        visit decidim.manifest_path(format: "webmanifest")
+      end
+
+      it "does not redirect to login page" do
+        expect(page).not_to have_content("Log in")
+      end
+
+      it "renders a JSON with the manifest" do
+        expect(page).to have_content("\"display\": \"standalone\"")
+      end
+    end
 
     context "when logging for the first time" do
       before do
@@ -24,7 +38,7 @@ describe "UserRedirect", type: :system do
       end
 
       it "redirects the user to the page attempted to access before login" do
-        expect(page).to have_css("h1.h3", text: "Help")
+        expect(page).to have_css("h1.title-decorator", text: "Help")
       end
     end
   end

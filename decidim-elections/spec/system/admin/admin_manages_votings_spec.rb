@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages votings", type: :system do
+describe "Admin manages votings" do
   include_context "when admin managing a voting"
 
   before do
@@ -54,13 +54,13 @@ describe "Admin manages votings", type: :system do
 
       within ".new_voting" do
         select "Online", from: :voting_voting_type
-        scope_pick select_data_picker(:voting_scope_id), organization.scopes.first
+        select translated(organization.scopes.first.name), from: :voting_scope_id
         find("*[type=submit]").click
       end
 
       expect(page).to have_admin_callout("successfully")
 
-      within ".container" do
+      within "[data-content]" do
         expect(page).to have_current_path decidim_admin_votings.votings_path
         expect(page).to have_content("My voting")
       end
@@ -101,7 +101,7 @@ describe "Admin manages votings", type: :system do
       dynamically_attach_file(:voting_introductory_image, image2_path)
 
       within ".new_voting" do
-        scope_pick select_data_picker(:voting_scope_id), organization.scopes.first
+        select translated(organization.scopes.first.name), from: :voting_scope_id
         find("*[type=submit]").click
       end
 
@@ -138,7 +138,7 @@ describe "Admin manages votings", type: :system do
       expect(page).to have_admin_callout("successfully")
       expect(page).not_to have_admin_callout("You do not have any election configured")
 
-      within ".container" do
+      within "[data-content]" do
         expect(page).to have_selector("input[value='My new title']")
         expect(page).not_to have_css("img[src*='#{image2_filename}']")
         expect(page).to have_css("img[src*='#{image3_filename}']")
@@ -186,7 +186,7 @@ describe "Admin manages votings", type: :system do
         input_element.attach_file(image_invalid_path)
 
         expect(page).to have_content("only files with the following extensions are allowed: jpeg, jpg, png", count: 1)
-        expect(page).to have_css(".upload-errors .form-error", count: 1)
+        expect(page).to have_css("div[data-template='error']", text: "Validation error!", count: 1)
       end
     end
   end
@@ -296,14 +296,14 @@ describe "Admin manages votings", type: :system do
       end
     end
 
-    within ".secondary-nav--subnav" do
-      expect(page).to have_content("Information")
+    within_admin_sidebar_menu do
+      expect(page).to have_content("About this voting")
       expect(page).to have_content("Landing Page")
       expect(page).to have_content("Components")
       expect(page).to have_content("Attachments")
       expect(page).to have_content("Polling Stations")
       expect(page).to have_content("Polling Officers")
-      expect(page).to have_css(".is-active", text: "Information")
+      expect(page).to have_css(".is-active", text: "About this voting")
     end
   end
 end

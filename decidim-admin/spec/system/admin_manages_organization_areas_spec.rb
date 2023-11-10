@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Organization Areas", type: :system do
+describe "Organization Areas" do
   include Decidim::SanitizeHelper
 
   let(:admin) { create(:user, :admin, :confirmed) }
@@ -25,7 +25,7 @@ describe "Organization Areas", type: :system do
     it "can create new areas" do
       click_link "Add"
 
-      within ".new_area" do
+      within ".item__edit-form" do
         fill_in_i18n :area_name, "#area-name-tabs", en: "My area",
                                                     es: "Mi area",
                                                     ca: "La meva area"
@@ -60,7 +60,7 @@ describe "Organization Areas", type: :system do
           click_link "Edit"
         end
 
-        within ".edit_area" do
+        within ".item__edit-form" do
           fill_in_i18n :area_name, "#area-name-tabs", en: "Another area",
                                                       es: "Otra area",
                                                       ca: "Una altra area"
@@ -79,7 +79,7 @@ describe "Organization Areas", type: :system do
 
         expect(page).to have_admin_callout("successfully")
 
-        within ".card-section" do
+        within "#areas" do
           expect(page).not_to have_content(translated(area.name))
         end
       end
@@ -100,7 +100,7 @@ describe "Organization Areas", type: :system do
 
   def click_delete_area
     within find("tr", text: translated(area.name)) do
-      accept_confirm(admin: true) { click_link "Delete" }
+      accept_confirm { click_link "Delete" }
     end
   end
 end

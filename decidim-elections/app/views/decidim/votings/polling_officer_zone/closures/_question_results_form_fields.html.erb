@@ -1,7 +1,7 @@
 <% form.object.question_results.each do |question| %>
   <%= content_tag :h3,
-              translated_attribute(question.title),
-              class: "h4" %>
+                  translated_attribute(question.title),
+                  class: "h4" %>
 
   <%= render partial: "answer_results_form_fields", locals: { form:, question: } %>
 
@@ -10,8 +10,8 @@
       <%= question_form.hidden_field :id %>
 
       <%= question_form.number_field(:value,
-                                label: t("decidim.elections.votes.new.nota_option"),
-                                min: 0) %>
+                                     label: t("decidim.elections.votes.new.nota_option"),
+                                     min: 0) %>
     <% end %>
   <% end %>
 <% end %>
