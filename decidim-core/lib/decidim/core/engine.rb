@@ -55,6 +55,14 @@ module Decidim
       isolate_namespace Decidim
       engine_name "decidim"
 
+      initializer "decidim_core.register_icons" do |_app|
+        Decidim.icons.register(name: "upload-cloud-2-line", icon: "upload-cloud-2-line", resource: "core", category: "system",
+                               description: "Upload cloud 2 line used in attachments form")
+        Decidim.icons.register(name: "arrow-right-line", icon: "arrow-right-line", resource: "core", category: "system",
+                               description: "Arrow right line icon used in attachments form")
+        Decidim.icons.register(name: "facebook", icon: "facebook", resource: "core", description: "Facebook Logo", category: "system")
+      end
+
       initializer "decidim_core.patch_webpacker", before: "shakapacker.version_checker" do
         ENV["SHAKAPACKER_CONFIG"] = Decidim::Webpacker.configuration.configuration_file
       end
