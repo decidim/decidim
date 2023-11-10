@@ -225,7 +225,7 @@ describe "Admin manages proposal answer templates" do
       end
     end
 
-    context "does not display the templates from other components" do
+    context "when hides the templates from other components" do
       let!(:other_component) { create(:component, manifest_name: :proposals, name: { en: "Another component" }, participatory_space: participatory_process) }
       let!(:other_component_template) { create(:template, :proposal_answer, description: { en: "Foo bar" }, field_values: { internal_state: "evaluating" }, organization:, templatable: other_component) }
       let!(:proposal) { create(:proposal, component:) }
