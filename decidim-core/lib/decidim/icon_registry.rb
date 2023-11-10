@@ -6,8 +6,8 @@ module Decidim
       @icons = {}
     end
 
-    def register(icon: , resource: , description: , category: )
-      @icons[icon] = OpenStruct.new(icon:, resource: resource, description: description, category: category)
+    def register(icon:, resource:, description:, category:)
+      @icons[icon] = OpenStruct.new(icon:, resource:, description:, category:)
     end
 
     def find(icon)
