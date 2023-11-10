@@ -19,7 +19,21 @@ module Decidim
               {
                 type: :text,
                 values: ["Used by the last activity page, in a content block and within the dropdowns."]
+              }
+            ]
+          },
+          {
+            id: "variations",
+            contents: [
+              {
+                type: :text,
+                values: ["Regarding the type of activity, the cell could show different content, reporting the distinct resources,
+                          whether belong to a participatory space or not, has an author or not."]
               },
+              {
+                type: :partial,
+                template: "decidim/design/components/activities/static-activity"
+              }
             ]
           },
           {
