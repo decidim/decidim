@@ -20,7 +20,7 @@ module Decidim::Accountability
       double(
         invalid?: invalid,
         current_user: user,
-        current_component:,
+        component: current_component,
         key:,
         name: { en: name },
         description: { en: description },

@@ -19,6 +19,7 @@ module Decidim::Accountability
     let(:form) do
       double(
         invalid?: invalid,
+        current_user: user,
         decidim_accountability_result_id: result.id,
         entry_date: date,
         title: { en: title },
