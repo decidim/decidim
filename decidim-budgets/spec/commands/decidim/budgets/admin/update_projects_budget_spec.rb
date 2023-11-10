@@ -4,11 +4,11 @@ require "spec_helper"
 
 module Decidim::Budgets
   describe Admin::UpdateProjectsBudget do
-    subject { described_class.new(destin_budget, project_ids) }
+    subject { described_class.new(destination_budget, project_ids) }
 
     let!(:budgets) { create_list(:budget, 2, component: budgets_component) }
     let(:budgets_component) { create(:budgets_component) }
-    let(:destin_budget) { budgets.last }
+    let(:destination_budget) { budgets.last }
     let(:budget) { budgets.first }
 
     let!(:projects) { create_list(:project, 4, budget:) }
@@ -23,7 +23,7 @@ module Decidim::Budgets
     end
 
     context "when destination budget is not present" do
-      let!(:destin_budget) { nil }
+      let!(:destination_budget) { nil }
 
       it "broadcasts invalid" do
         expect { subject.call }.to broadcast(:invalid_project_ids)
@@ -46,12 +46,12 @@ module Decidim::Budgets
       it "broadcasts update with successfull flashes" do
         successful = projects.map { |p| translated(p.title) }
         expect(budget.projects.count).to eq(4)
-        expect(destin_budget.projects.count).to eq(0)
+        expect(destination_budget.projects.count).to eq(0)
         expect { subject.call }.to broadcast(:update_projects_budget, hash_including(selection_name: "", successful:, errored: [], failed_ids: []))
         budget.reload
-        destin_budget.reload
+        destination_budget.reload
         expect(budget.projects.count).to eq(0)
-        expect(destin_budget.projects.count).to eq(4)
+        expect(destination_budget.projects.count).to eq(4)
       end
     end
   end

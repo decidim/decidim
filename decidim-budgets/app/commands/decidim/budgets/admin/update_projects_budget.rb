@@ -8,17 +8,17 @@ module Decidim
 
         # Public: Initializes the command.
         #
-        # destin_budget - the destination budget for which the projects should update to.
+        # destination_budget - the destination budget for which the projects should update to.
         # project_ids - the project ids to update.
-        def initialize(destin_budget, project_ids)
-          @destin_budget = destin_budget
+        def initialize(destination_budget, project_ids)
+          @destination_budget = destination_budget
           @project_ids = project_ids
           @response = { selection_name: "", successful: [], errored: [], failed_ids: [] }
         end
 
         def call
           return broadcast(:invalid_project_ids) if @project_ids.blank?
-          return broadcast(:invalid_project_ids) if @destin_budget.blank?
+          return broadcast(:invalid_project_ids) if @destination_budget.blank?
 
           update_projects_budget
 
@@ -45,15 +45,15 @@ module Decidim
 
         def update_project_budget(project)
           project.update!(
-            decidim_budgets_budget_id: @destin_budget.id
+            decidim_budgets_budget_id: @destination_budget.id
           )
         end
 
         def update_allowed?(project)
           origin_budget = project.budget
-          return false if origin_budget == @destin_budget
+          return false if origin_budget == @destination_budget
 
-          origin_budget.participatory_space == @destin_budget.participatory_space
+          origin_budget.participatory_space == @destination_budget.participatory_space
         end
       end
     end
