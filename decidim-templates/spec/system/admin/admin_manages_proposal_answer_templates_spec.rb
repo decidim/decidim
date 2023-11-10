@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/proposals/test/factories"
 
-describe "Admin manages proposal answer templates", type: :system do
+describe "Admin manages proposal answer templates" do
   let!(:organization) { create(:organization) }
   let!(:user) { create(:user, :admin, :confirmed, organization:) }
 
@@ -21,7 +20,7 @@ describe "Admin manages proposal answer templates", type: :system do
     end
 
     it "shows a table with the templates info" do
-      within ".proposal_answer-templates" do
+      within ".table-list" do
         expect(page).to have_i18n_content(template.name)
         expect(page).to have_i18n_content("Global (available everywhere)")
       end
@@ -31,7 +30,7 @@ describe "Admin manages proposal answer templates", type: :system do
       let!(:template) { create(:template, :proposal_answer, organization:, templatable: create(:dummy_resource)) }
 
       it "shows a table info about the invalid resource" do
-        within ".proposal_answer-templates" do
+        within ".table-list" do
           expect(page).to have_i18n_content(template.name)
           expect(page).to have_i18n_content("(missing resource)")
         end
@@ -68,14 +67,14 @@ describe "Admin manages proposal answer templates", type: :system do
           )
 
           choose "Not answered"
-          select scope_name, from: :proposal_answer_template_scope_for_availability
+          select scope_name, from: :proposal_answer_template_component_constraint
 
           page.find("*[type=submit]").click
         end
 
         expect(page).to have_admin_callout("successfully")
         expect(page).to have_current_path decidim_admin_templates.proposal_answer_templates_path
-        within ".proposal_answer-templates" do
+        within ".table-list" do
           expect(page).to have_i18n_content(scope_name)
           expect(page).to have_content("My template")
         end
@@ -106,7 +105,7 @@ describe "Admin manages proposal answer templates", type: :system do
           ca: "El meu nou nom"
         )
 
-        select scope_name, from: :proposal_answer_template_scope_for_availability
+        select scope_name, from: :proposal_answer_template_component_constraint
 
         within ".edit_proposal_answer_template" do
           page.find("*[type=submit]").click
@@ -114,7 +113,7 @@ describe "Admin manages proposal answer templates", type: :system do
 
         expect(page).to have_admin_callout("successfully")
         expect(page).to have_current_path decidim_admin_templates.proposal_answer_templates_path
-        within ".proposal_answer-templates" do
+        within ".table-list" do
           expect(page).to have_i18n_content(scope_name)
           expect(page).to have_content("My new name")
         end
@@ -189,10 +188,8 @@ describe "Admin manages proposal answer templates", type: :system do
     let!(:component) { create(:component, manifest_name: :proposals, name: { en: "A component" }, participatory_space: participatory_process) }
 
     let(:description) { "Some meaningful answer" }
-    let(:values) do
-      { internal_state: "rejected" }
-    end
-    let!(:template) { create(:template, :proposal_answer, description: { en: description }, field_values: values, organization:, templatable: component) }
+    let(:field_values) { { internal_state: "rejected" } }
+    let!(:template) { create(:template, :proposal_answer, description: { en: description }, field_values:, organization:, templatable: component) }
     let!(:proposal) { create(:proposal, component:) }
 
     before do
@@ -201,6 +198,7 @@ describe "Admin manages proposal answer templates", type: :system do
     end
 
     it "uses the template" do
+      expect(proposal.reload.internal_state).to eq("not_answered")
       within ".edit_proposal_answer" do
         select template.name["en"], from: :proposal_answer_template_chooser
         expect(page).to have_content(description)
@@ -211,6 +209,98 @@ describe "Admin manages proposal answer templates", type: :system do
 
       within find("tr", text: proposal.title["en"]) do
         expect(page).to have_content("Rejected")
+      end
+      expect(proposal.reload.internal_state).to eq("rejected")
+    end
+
+    context "when there are no templates" do
+      before do
+        template.destroy!
+        visit Decidim::EngineRouter.admin_proxy(component).root_path
+        find("a", class: "action-icon--show-proposal").click
+      end
+
+      it "hides the proposal selector" do
+        expect(page).not_to have_select(:proposal_answer_template_chooser)
+      end
+    end
+
+    context "does not display the templates from other components" do
+      let!(:other_component) { create(:component, manifest_name: :proposals, name: { en: "Another component" }, participatory_space: participatory_process) }
+      let!(:other_component_template) { create(:template, :proposal_answer, description: { en: "Foo bar" }, field_values: { internal_state: "evaluating" }, organization:, templatable: other_component) }
+      let!(:proposal) { create(:proposal, component:) }
+
+      before do
+        visit Decidim::EngineRouter.admin_proxy(component).root_path
+        find("a", class: "action-icon--show-proposal").click
+      end
+
+      it "uses the template from organization" do
+        expect(proposal.reload.internal_state).to eq("not_answered")
+        expect(page).to have_select(:proposal_answer_template_chooser, with_options: [translated(template.name)])
+        expect(page).not_to have_select(:proposal_answer_template_chooser, with_options: [translated(other_component_template.name)])
+      end
+    end
+
+    context "when selected template is from organization" do
+      let!(:global_template) { create(:template, :proposal_answer, description: { en: "Foo bar" }, field_values: { internal_state: "evaluating" }, organization:, templatable: organization) }
+      let!(:proposal) { create(:proposal, component:) }
+
+      before do
+        visit Decidim::EngineRouter.admin_proxy(component).root_path
+        find("a", class: "action-icon--show-proposal").click
+      end
+
+      it "uses the template from organization" do
+        expect(proposal.reload.internal_state).to eq("not_answered")
+        expect(page).to have_select(:proposal_answer_template_chooser, with_options: [translated(template.name), translated(global_template.name)])
+        within ".edit_proposal_answer" do
+          select translated(global_template.name), from: :proposal_answer_template_chooser
+          expect(page).to have_content("Foo bar")
+          click_button "Answer"
+        end
+
+        expect(page).to have_admin_callout("Proposal successfully answered")
+
+        within find("tr", text: translated(proposal.title)) do
+          expect(page).to have_content("Evaluating")
+        end
+        expect(proposal.reload.internal_state).to eq("evaluating")
+      end
+    end
+
+    context "when template uses interpolations" do
+      context "when template uses organization interpolation" do
+        let(:description) { "Some meaningful answer with the %{organization}" }
+
+        it "changes the organization for the organization name" do
+          within ".edit_proposal_answer" do
+            select template.name["en"], from: :proposal_answer_template_chooser
+            expect(page).to have_content("Some meaningful answer with the #{organization.name}")
+          end
+        end
+      end
+
+      context "when template uses admin interpolation" do
+        let(:description) { "Some meaningful answer with the %{admin}" }
+
+        it "changes the admin for the organization name" do
+          within ".edit_proposal_answer" do
+            select template.name["en"], from: :proposal_answer_template_chooser
+            expect(page).to have_content("Some meaningful answer with the #{user.name}")
+          end
+        end
+      end
+
+      context "when template uses user interpolation" do
+        let(:description) { "Some meaningful answer with the %{name}" }
+
+        it "changes the user" do
+          within ".edit_proposal_answer" do
+            select template.name["en"], from: :proposal_answer_template_chooser
+            expect(page).to have_content("Some meaningful answer with the #{proposal.creator_author.name}")
+          end
+        end
       end
     end
   end

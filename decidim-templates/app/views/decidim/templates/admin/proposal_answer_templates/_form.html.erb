@@ -29,7 +29,9 @@
       </div>
 
       <div class="row column">
-        <%= form.select :scope_for_availability, availability_options_for_select, help_text: t(".scope_for_availability_help") %>
+        <%= form.select :component_constraint, availability_options_for_select,
+                        sselected: form.object.component_constraint,
+                        help_text: t(".component_constraint_help") %>
       </div>
     </div>
   </div>

@@ -4,21 +4,7 @@ module Decidim
   module Templates
     # A command with all the business logic when duplicating a proposal's answer template
     module Admin
-      class CopyProposalAnswerTemplate < Decidim::Command
-        def initialize(template)
-          @template = template
-        end
-
-        def call
-          return broadcast(:invalid) unless @template.valid?
-
-          Template.transaction do
-            copy_template
-          end
-
-          broadcast(:ok, @copied_template)
-        end
-
+      class CopyProposalAnswerTemplate < CopyTemplate
         def copy_template
           @copied_template = Template.create!(
             organization: @template.organization,

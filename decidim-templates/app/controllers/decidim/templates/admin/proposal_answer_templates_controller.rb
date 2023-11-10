@@ -83,7 +83,7 @@ module Decidim
         def copy
           enforce_permission_to :copy, :template
 
-          CopyProposalAnswerTemplate.call(template) do
+          CopyProposalAnswerTemplate.call(template, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("templates.copy.success", scope: "decidim.admin")
               redirect_to action: :index
@@ -134,32 +134,30 @@ module Decidim
 
         def availability_option_as_text(template)
           return unless template.templatable_type
+          return t("global_scope", scope: "decidim.templates.admin.proposal_answer_templates.index") if template.templatable == current_organization
 
-          key = "#{template.templatable_type.demodulize.tableize}-#{template.templatable_id}"
-          avaliablity_options[key].presence || t("templates.missing_resource", scope: "decidim.admin")
+          avaliablity_options.select { |a| a.last == template.templatable_id }&.flatten&.first || t("templates.missing_resource", scope: "decidim.admin")
         end
 
         def availability_options_for_select
-          avaliablity_options.collect { |key, value| [value, key] }.to_a
+          avaliablity_options
         end
 
         def avaliablity_options
-          @avaliablity_options = {}
-          Decidim::Component.includes(:participatory_space).where(manifest_name: accepted_components)
+          @avaliablity_options = []
+          @avaliablity_options.push [t("global_scope", scope: "decidim.templates.admin.proposal_answer_templates.index"), 0]
+
+          Decidim::Component.includes(:participatory_space).where(manifest_name: [:proposals])
                             .select { |a| a.participatory_space.decidim_organization_id == current_organization.id }.each do |component|
-            @avaliablity_options["components-#{component.id}"] = formated_name(component)
+            @avaliablity_options.push [formatted_name(component), component.id]
           end
-          global_scope = { "organizations-#{current_organization.id}" => t("global_scope", scope: "decidim.templates.admin.proposal_answer_templates.index") }
-          @avaliablity_options = global_scope.merge(@avaliablity_options.sort_by { |_, val| val }.to_h)
+
+          @avaliablity_options
         end
 
-        def formated_name(component)
+        def formatted_name(component)
           space_type = t(component.participatory_space.class.name.underscore, scope: "activerecord.models", count: 1)
           "#{space_type}: #{translated_attribute(component.participatory_space.title)} > #{translated_attribute(component.name)}"
-        end
-
-        def accepted_components
-          [:proposals]
         end
 
         def template

@@ -5,15 +5,17 @@ module Decidim
     module Admin
       class ProposalAnswerTemplateForm < TemplateForm
         attribute :internal_state, String
-        attribute :scope_for_availability, String
+        attribute :component_constraint, Integer
 
         validates :internal_state, presence: true
 
         def map_model(model)
-          self.scope_for_availability = "#{model.templatable_type.try(:demodulize).try(:tableize)}-#{model.templatable_id.to_i}"
-          (model.field_values || []).to_h.map do |k, v|
-            self[k.to_sym] = v
-          end
+          self.internal_state = model.field_values["internal_state"]
+          self.component_constraint = if model.templatable_type == "Decidim::Organization"
+                                        0
+                                      else
+                                        model.templatable&.id
+                                      end
         end
       end
     end
