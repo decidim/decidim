@@ -15,6 +15,7 @@ module Decidim
       helper AuthorHelper
       helper AddressHelper
       helper FollowHelper
+      helper ReportHelper
     end
   end
 end
