@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages participatory processes", type: :system, versioning: true do
+describe "Admin manages participatory processes", versioning: true do
   include_context "when admin administrating a participatory process"
 
   let!(:participatory_process_groups) do
@@ -101,7 +101,7 @@ describe "Admin manages participatory processes", type: :system, versioning: tru
         click_link translated(participatory_process3.title)
       end
 
-      within_admin_menu do
+      within_admin_sidebar_menu do
         click_link "About this process"
       end
 

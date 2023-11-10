@@ -825,7 +825,7 @@ After this time the initiative will be moved to discarded state.
 
 |INITIATIVES_PRINT_ENABLED
 |Print functionality enabled. Allows users to get a printed version of the initiative.
-|true
+|false
 |No
 
 |INITIATIVES_DO_NOT_REQUIRE_AUTHORIZATION

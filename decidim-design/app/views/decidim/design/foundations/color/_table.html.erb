@@ -1,0 +1,26 @@
+<table class="design__table">
+  <thead>
+    <th>Value</th>
+    <th>Tailwind name</th>
+    <% if columns.first[:rgba].present? %>
+      <th>Hex code</th>
+      <th>RGBA code</th>
+    <% end %>
+    <th>Usage</th>
+  </thead>
+  <tbody>
+    <% columns.each do |column| %>
+      <tr>
+        <td>
+          <div class="w-8 h-8 rounded shadow" style="background-color: <%= column[:value] %>;"></div>
+        </td>
+        <td><%= column[:name] %></td>
+        <% if column[:rgba].present? %>
+          <td><code><%= column[:value] %></code></td>
+          <td><code><%= column[:rgba] %></code></td>
+        <% end %>
+        <td><%= column[:usage] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

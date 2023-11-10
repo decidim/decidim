@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Private meetings", type: :system do
+describe "Private meetings" do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
   let(:meetings_selector) { "[id^='meetings__meeting_']" }

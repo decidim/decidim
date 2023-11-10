@@ -3,7 +3,7 @@
 .proposal-list {
   &__aside {
     &__button-container {
-      @apply flex flex-col gap-4 md:gap-10 w-full md:w-fit;
+      @apply flex flex-col gap-4 md:gap-10 w-full;
     }
   }
 
@@ -11,12 +11,6 @@
     /* negative main padding values */
     @apply md:-ml-16 -mt-6 md:-mt-12 aspect-square md:aspect-[21/9] [&>*]:h-full [&+*]:mt-6 md:[&+*]:mt-12;
   }
-}
-
-/* overwrite defaults */
-.static-map,
-[data-decidim-map] {
-  @apply aspect-[5/1];
 }
 
 .proposal {
@@ -31,6 +25,12 @@
   &__aside {
     &-vote {
       @apply flex flex-row-reverse md:flex-col gap-4 items-center md:items-stretch justify-between first:[&>*]:grow last:[&>*]:w-1/4 md:last:[&>*]:w-auto;
+    }
+  }
+
+  &__container {
+    [data-decidim-map] {
+      @apply aspect-[5/1];
     }
   }
 }

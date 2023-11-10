@@ -1,0 +1,16 @@
+<% content_for :heading do %>
+  Iconography
+<% end %>
+
+<% content_for :description do %>
+  <p>We use icons to reinforce the meaning of actions, titles, etc.</p>
+  <p>We use the Remixicon open source library: <a href="https://remixicon.com" target="_blank" rel="noopener noreferrer">https://remixicon.com</a></p>
+<% end %>
+
+<% content_for :toc do %>
+  <% iconography_sections.each do |section| %>
+    <%= link_to(section_text(section), "##{section[:id]}") %>
+  <% end %>
+<% end %>
+
+<%= render partial: "decidim/design/shared/sections", locals: { sections: iconography_sections } %>

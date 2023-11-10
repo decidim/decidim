@@ -168,7 +168,7 @@ export default class UploadModal {
 
   createUploadItem(file, errors, opts = {}) {
     const okTemplate = `
-      <img src="" alt="${file.name}" />
+      <img src="" alt="${escapeQuotes(file.name)}" />
       <span>${escapeHtml(truncateFilename(file.name))}</span>
     `
 
@@ -182,7 +182,7 @@ export default class UploadModal {
     `
 
     const titleTemplate = `
-      <img src="" alt="${file.name}" />
+      <img src="" alt="${escapeQuotes(file.name)}" />
       <div>
         <div>
           <label>${this.locales.filename}</label>
@@ -210,7 +210,6 @@ export default class UploadModal {
       template = "titled"
     }
 
-    // eslint-disable-next-line no-ternary
     const attachmentId = opts.attachmentId
       ? `data-attachment-id="${opts.attachmentId}"`
       : ""

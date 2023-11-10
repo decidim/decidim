@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "sms code verification", type: :system do
+describe "sms code verification" do
   let(:organization) do
     create(:organization, available_authorizations: ["sms"])
   end

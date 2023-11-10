@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Meetings
-  describe CloseMeetingReminderMailer, type: :mailer do
+  describe CloseMeetingReminderMailer do
     include ActionView::Helpers::SanitizeHelper
 
     let(:organization) { create(:organization) }

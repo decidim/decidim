@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin verifies user groups via CSV", type: :system do
+describe "Admin verifies user groups via CSV" do
   let(:organization) { create(:organization) }
 
   let!(:user) { create(:user, :admin, :confirmed, organization:) }
@@ -22,7 +22,7 @@ describe "Admin verifies user groups via CSV", type: :system do
     login_as user, scope: :user
     visit decidim_admin.root_path
     click_link "Participants"
-    within_admin_menu do
+    within_admin_sidebar_menu do
       click_link "Groups"
     end
     click_link "Verify via CSV"

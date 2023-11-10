@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Participatory Process Steps", type: :system do
+describe "Participatory Process Steps" do
   let(:organization) { create(:organization) }
   let!(:participatory_process) do
     create(

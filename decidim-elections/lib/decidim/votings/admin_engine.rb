@@ -102,18 +102,19 @@ module Decidim
       end
 
       initializer "decidim_votings_admin.attachments_menu" do
-        Decidim.menu :decidim_votings_attachments_menu do |menu|
-          menu.add_item :voting_attachment_collections,
-                        I18n.t("attachment_collections", scope: "decidim.votings.admin.menu.votings_submenu"),
-                        decidim_admin_votings.voting_attachment_collections_path(current_participatory_space),
-                        active: is_active_link?(decidim_admin_votings.voting_attachment_collections_path(current_participatory_space)),
-                        if: allowed_to?(:read, :attachment_collection)
-
+        Decidim.menu :votings_admin_attachments_menu do |menu|
           menu.add_item :voting_attachments,
                         I18n.t("attachment_files", scope: "decidim.votings.admin.menu.votings_submenu"),
                         decidim_admin_votings.voting_attachments_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_votings.voting_attachments_path(current_participatory_space)),
-                        if: allowed_to?(:read, :attachment)
+                        if: allowed_to?(:read, :attachment, voting: current_participatory_space),
+                        icon_name: "attachment-line"
+          menu.add_item :voting_attachment_collections,
+                        I18n.t("attachment_collections", scope: "decidim.votings.admin.menu.votings_submenu"),
+                        decidim_admin_votings.voting_attachment_collections_path(current_participatory_space),
+                        active: is_active_link?(decidim_admin_votings.voting_attachment_collections_path(current_participatory_space)),
+                        if: allowed_to?(:read, :attachment_collection, voting: current_participatory_space),
+                        icon_name: "folder-line"
         end
       end
 
@@ -147,30 +148,31 @@ module Decidim
           menu.add_item :edit_voting,
                         I18n.t("info", scope: "decidim.votings.admin.menu.votings_submenu"),
                         decidim_admin_votings.edit_voting_path(current_participatory_space),
-                        icon_name: "tools-line",
+                        icon_name: "information-line",
                         if: allowed_to?(:edit, :voting, voting: current_participatory_space)
 
           menu.add_item :edit_voting_landing_page,
                         I18n.t("landing_page", scope: "decidim.votings.admin.menu.votings_submenu"),
                         decidim_admin_votings.edit_voting_landing_page_path(current_participatory_space),
-                        icon_name: "tools-line",
+                        icon_name: "layout-masonry-line",
                         if: allowed_to?(:update, :landing_page)
 
           menu.add_item :components,
                         I18n.t("components", scope: "decidim.votings.admin.menu.votings_submenu"),
                         decidim_admin_votings.components_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_votings.components_path(current_participatory_space), ["decidim/votings/admin/components", %w(index new edit)]),
-                        icon_name: "layout-masonry-line",
+                        icon_name: "tools-line",
                         if: allowed_to?(:read, :components, voting: current_participatory_space),
                         submenu: { target_menu: :admin_votings_components_menu }
 
           menu.add_item :attachments,
                         I18n.t("attachments", scope: "decidim.votings.admin.menu.votings_submenu"),
-                        "#",
+                        decidim_admin_votings.voting_attachments_path(current_participatory_space),
                         icon_name: "attachment-2",
-                        active: false,
-                        if: allowed_to?(:read, :attachment_collection) || allowed_to?(:read, :attachment),
-                        submenu: { target_menu: :decidim_votings_attachments_menu }
+                        active: is_active_link?(decidim_admin_votings.voting_attachments_path(current_participatory_space)) ||
+                                is_active_link?(decidim_admin_votings.voting_attachment_collections_path(current_participatory_space)),
+                        if: allowed_to?(:read, :attachment, voting: current_participatory_space) ||
+                            allowed_to?(:read, :attachment_collection, voting: current_participatory_space)
 
           menu.add_item :voting_polling_stations,
                         I18n.t("polling_stations", scope: "decidim.votings.admin.menu.votings_submenu"),

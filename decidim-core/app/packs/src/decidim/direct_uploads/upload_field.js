@@ -1,5 +1,6 @@
 import UploadModal from "src/decidim/direct_uploads/upload_modal";
 import { truncateFilename } from "src/decidim/direct_uploads/upload_utility";
+import { escapeHtml, escapeQuotes } from "src/decidim/utilities/text";
 
 const updateModalTitle = (modal) => {
   if (modal.uploadItems.children.length === 0) {
@@ -33,7 +34,6 @@ const updateActiveUploads = (modal) => {
     let hidden = ""
     if (file.hiddenField) {
       // if there is hiddenField, this file is new
-      // eslint-disable-next-line no-ternary
       const fileField = isMultiple
         ? `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][file]`
         : `${modal.options.resourceName}[${modal.options.addAttribute}]`
@@ -41,7 +41,6 @@ const updateActiveUploads = (modal) => {
       hidden = `<input type="hidden" name="${fileField}" value="${file.hiddenField}" />`
     } else {
       // otherwise, we keep the attachmentId
-      // eslint-disable-next-line no-ternary
       const fileField = isMultiple
         ? `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][id]`
         : `${modal.options.resourceName}[${modal.options.addAttribute}]`
@@ -56,20 +55,19 @@ const updateActiveUploads = (modal) => {
       const titleValue = modal.modal.querySelectorAll('input[type="text"]')[ix].value
       // NOTE - Renaming the attachment is not supported when multiple uploader is disabled
       const titleField = `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][title]`
-      hidden += `<input type="hidden" name="${titleField}" value="${titleValue}" />`
+      hidden += `<input type="hidden" name="${titleField}" value="${escapeQuotes(titleValue)}" />`
 
       title = titleValue
     }
 
-    // eslint-disable-next-line no-ternary
     const attachmentIdOrHiddenField = file.attachmentId
       ? `data-attachment-id="${file.attachmentId}"`
       : `data-hidden-field="${file.hiddenField}"`
 
     const template = `
-      <div ${attachmentIdOrHiddenField} data-filename="${file.name}" data-title="${title}">
-        ${(/image/).test(file.type) && `<div><img src="" alt="${file.name}" /></div>` || ""}
-        <span>${title} (${truncateFilename(file.name)})</span>
+      <div ${attachmentIdOrHiddenField} data-filename="${escapeQuotes(file.name)}" data-title="${escapeQuotes(title)}">
+        ${(/image/).test(file.type) && `<div><img src="" alt="${escapeQuotes(file.name)}" /></div>` || ""}
+        <span>${escapeHtml(title)} (${escapeHtml(truncateFilename(file.name))})</span>
         ${hidden}
       </div>
     `

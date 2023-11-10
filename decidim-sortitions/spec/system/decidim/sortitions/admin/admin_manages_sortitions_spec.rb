@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages sortitions", type: :system do
+describe "Admin manages sortitions" do
   let(:manifest_name) { "sortitions" }
 
   include_context "when managing a component as an admin"
@@ -16,7 +16,7 @@ describe "Admin manages sortitions", type: :system do
 
     it "is added" do
       visit current_path
-      within_admin_menu do
+      within_admin_sidebar_menu do
         click_link "Components"
       end
       click_button "Add component"

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "DownloadYourData", type: :system do
+describe "DownloadYourData" do
   let(:user) { create(:user, :confirmed, name: "Hodor User") }
   let(:organization) { user.organization }
 

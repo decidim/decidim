@@ -136,17 +136,19 @@ module Decidim
       end
       initializer "decidim_conferences_admin.attachments_menu" do
         Decidim.menu :conferences_admin_attachments_menu do |menu|
-          menu.add_item :conference_attachment_collections,
-                        I18n.t("attachment_collections", scope: "decidim.admin.menu.conferences_submenu"),
-                        decidim_admin_conferences.conference_attachment_collections_path(current_participatory_space),
-                        active: is_active_link?(decidim_admin_conferences.conference_attachment_collections_path(current_participatory_space)),
-                        if: allowed_to?(:read, :attachment_collection, conference: current_participatory_space)
-
           menu.add_item :conference_attachments,
                         I18n.t("attachment_files", scope: "decidim.admin.menu.conferences_submenu"),
                         decidim_admin_conferences.conference_attachments_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_conferences.conference_attachments_path(current_participatory_space)),
-                        if: allowed_to?(:read, :attachment, conference: current_participatory_space)
+                        if: allowed_to?(:read, :attachment, conference: current_participatory_space),
+                        icon_name: "attachment-line"
+
+          menu.add_item :conference_attachment_collections,
+                        I18n.t("attachment_collections", scope: "decidim.admin.menu.conferences_submenu"),
+                        decidim_admin_conferences.conference_attachment_collections_path(current_participatory_space),
+                        active: is_active_link?(decidim_admin_conferences.conference_attachment_collections_path(current_participatory_space)),
+                        if: allowed_to?(:read, :attachment_collection, conference: current_participatory_space),
+                        icon_name: "folder-line"
         end
       end
       initializer "decidim_conferences_admin.conferences_menu" do
@@ -155,13 +157,13 @@ module Decidim
                         I18n.t("info", scope: "decidim.admin.menu.conferences_submenu"),
                         decidim_admin_conferences.edit_conference_path(current_participatory_space),
                         position: 1,
-                        icon_name: "tools-line",
+                        icon_name: "information-line",
                         if: allowed_to?(:update, :conference, conference: current_participatory_space)
 
           menu.add_item :components,
                         I18n.t("components", scope: "decidim.admin.menu.conferences_submenu"),
                         decidim_admin_conferences.components_path(current_participatory_space),
-                        icon_name: "layout-masonry-line",
+                        icon_name: "tools-line",
                         if: allowed_to?(:read, :component, conference: current_participatory_space),
                         active: is_active_link?(decidim_admin_conferences.components_path(current_participatory_space),
                                                 ["decidim/conferences/admin/components", %w(index new edit)]),
@@ -175,12 +177,12 @@ module Decidim
 
           menu.add_item :attachments,
                         I18n.t("attachments", scope: "decidim.admin.menu.conferences_submenu"),
-                        "#",
+                        decidim_admin_conferences.conference_attachments_path(current_participatory_space),
                         icon_name: "attachment-2",
-                        active: false,
-                        if: allowed_to?(:read, :attachment_collection, conference: current_participatory_space) ||
-                            allowed_to?(:read, :attachment, conference: current_participatory_space),
-                        submenu: { target_menu: :conferences_admin_attachments_menu }
+                        active: is_active_link?(decidim_admin_conferences.conference_attachment_collections_path(current_participatory_space)) ||
+                                is_active_link?(decidim_admin_conferences.conference_attachments_path(current_participatory_space)),
+                        if: allowed_to?(:read, :attachment, conference: current_participatory_space) ||
+                            allowed_to?(:read, :attachment_collection, conference: current_participatory_space)
 
           menu.add_item :conference_media_links,
                         I18n.t("media_links", scope: "decidim.admin.menu.conferences_submenu"),

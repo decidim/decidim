@@ -6,7 +6,8 @@
     </div>
   </div>
 
-  <div>
+  <div class="item_show__wrapper">
+    <%= admin_tabs(tab_menu_name).render if defined?(has_tab_menu?) && has_tab_menu? %>
     <%= yield %>
   </div>
 </div>

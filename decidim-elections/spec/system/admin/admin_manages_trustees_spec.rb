@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages trustees", type: :system do
+describe "Admin manages trustees" do
   let(:manifest_name) { "elections" }
 
   include_context "when managing a component as an admin"
@@ -11,7 +11,7 @@ describe "Admin manages trustees", type: :system do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit_component_admin
-    within_admin_menu do
+    within_admin_sidebar_menu do
       click_link "Trustees"
     end
   end

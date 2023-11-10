@@ -5,6 +5,7 @@
       <%= t(".title") %>
 
       <%= link_to t("actions.new_election", scope: "decidim.elections"), new_election_path, class: "button button__sm button__secondary" if allowed_to? :create, :election %>
+      <%= render partial: "decidim/admin/components/resource_action" %>
     </h2>
   </div>
   <div class="table-scroll">
@@ -49,7 +50,7 @@
               <%= icon_link_to "list-check", election_questions_path(election), t("actions.manage_questions", scope: "decidim.elections"), class: "action-icon--manage-questions" %>
 
               <% if allowed_to? :read, :steps, election: election %>
-                <%= icon_link_to "folder-line", election_steps_path(election), t("actions.manage_steps", scope: "decidim.elections"), class: "action-icon--manage-steps" %>
+                <%= icon_link_to "guide-line", election_steps_path(election), t("actions.manage_steps", scope: "decidim.elections"), class: "action-icon--manage-steps" %>
               <% end %>
 
               <% if allowed_to? :update, :questionnaire, questionnaire: election.questionnaire %>

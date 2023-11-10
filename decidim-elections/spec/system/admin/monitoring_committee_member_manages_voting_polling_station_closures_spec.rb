@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Monitoring committee member manages voting polling station closures", type: :system do
+describe "Monitoring committee member manages voting polling station closures" do
   include_context "when monitoring committee member manages voting"
   let(:elections_component) { create(:elections_component, participatory_space: voting) }
   let!(:election) { create(:election, :complete, :published, component: elections_component) }
@@ -13,7 +13,7 @@ describe "Monitoring committee member manages voting polling station closures", 
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_votings.edit_voting_path(voting)
-    within_admin_menu do
+    within_admin_sidebar_menu do
       click_link "Validate Certificates"
     end
   end

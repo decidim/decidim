@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages participatory space private users via csv import", type: :system do
+describe "Admin manages participatory space private users via csv import" do
   let(:organization) { create(:organization) }
 
   let!(:user) { create(:user, :admin, :confirmed, organization:) }
@@ -12,7 +12,7 @@ describe "Admin manages participatory space private users via csv import", type:
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_assemblies.edit_assembly_path(assembly)
-    within_admin_menu do
+    within_admin_sidebar_menu do
       click_link "Private users"
     end
     click_link "Import via CSV"

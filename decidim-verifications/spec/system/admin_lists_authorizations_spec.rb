@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin lists authorizations", type: :system do
+describe "Admin lists authorizations" do
   let!(:organization) do
     create(:organization, available_authorizations: ["id_documents"])
   end
@@ -14,7 +14,7 @@ describe "Admin lists authorizations", type: :system do
     login_as admin, scope: :user
     visit decidim_admin.root_path
     click_link "Participants"
-    within_admin_menu do
+    within_admin_sidebar_menu do
       click_link "Authorizations"
     end
   end

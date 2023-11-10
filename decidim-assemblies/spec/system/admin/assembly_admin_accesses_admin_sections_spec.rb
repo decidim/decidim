@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Assembly admin accesses admin sections", type: :system do
+describe "Assembly admin accesses admin sections" do
   include_context "when assembly admin administrating an assembly"
 
   before do
@@ -15,13 +15,10 @@ describe "Assembly admin accesses admin sections", type: :system do
       visit decidim_admin_assemblies.assemblies_path
       click_link "Configure"
 
-      click_button(id: "assembly-menu-trigger")
       expect(page).to have_content("Info")
       expect(page).to have_content("Components")
       expect(page).to have_content("Categories")
       expect(page).to have_content("Attachments")
-      expect(page).to have_content("Folders")
-      expect(page).to have_content("Files")
       expect(page).to have_content("Members")
       expect(page).to have_content("Assembly admins")
       expect(page).to have_content("Private users")
@@ -42,13 +39,10 @@ describe "Assembly admin accesses admin sections", type: :system do
     end
 
     it "can access all sections" do
-      click_button(id: "assembly-menu-trigger")
       expect(page).to have_content("Info")
       expect(page).to have_content("Components")
       expect(page).to have_content("Categories")
       expect(page).to have_content("Attachments")
-      expect(page).to have_content("Folders")
-      expect(page).to have_content("Files")
       expect(page).to have_content("Members")
       expect(page).to have_content("Assembly admins")
       expect(page).to have_content("Private users")

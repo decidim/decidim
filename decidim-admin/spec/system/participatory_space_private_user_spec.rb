@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin checks pagination on participatory space private users", type: :system do
+describe "Admin checks pagination on participatory space private users" do
   let(:organization) { create(:organization) }
 
   let!(:user) { create(:user, :admin, :confirmed, organization:) }
@@ -16,7 +16,7 @@ describe "Admin checks pagination on participatory space private users", type: :
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_assemblies.edit_assembly_path(assembly)
-    within_admin_menu do
+    within_admin_sidebar_menu do
       click_link "Private users"
     end
   end

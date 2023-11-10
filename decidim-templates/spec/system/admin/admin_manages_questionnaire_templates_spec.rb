@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages questionnaire templates", type: :system do
+describe "Admin manages questionnaire templates" do
   let!(:organization) { create(:organization) }
   let!(:user) { create(:user, :admin, :confirmed, organization:) }
 

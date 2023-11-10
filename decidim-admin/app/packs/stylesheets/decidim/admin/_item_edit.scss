@@ -64,9 +64,12 @@
       [type="tel"],
       [type="time"],
       [type="url"],
-      [type="color"],
-      textarea {
+      [type="color"] {
         @apply shadow-none bg-background-2 text-md h-[40px];
+      }
+
+      textarea {
+        @apply shadow-none bg-background-2 text-md;
       }
 
       .editor-container .editor-input .ProseMirror {
@@ -108,12 +111,12 @@
       }
     }
   }
+
+  .label--tabs {
+    @apply mb-2;
+  }
 }
 
 .item__edit-1col {
   @apply grid grid-cols-[80%_20%];
-}
-
-.process-content .label--tabs {
-  @apply mb-2;
 }

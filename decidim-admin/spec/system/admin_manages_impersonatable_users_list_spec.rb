@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages impersonatable users list", type: :system do
+describe "Admin manages impersonatable users list" do
   let(:organization) { create(:organization) }
 
   let!(:admin) { create(:user, :admin, :confirmed, organization:) }
@@ -12,7 +12,6 @@ describe "Admin manages impersonatable users list", type: :system do
     login_as admin, scope: :user
     visit decidim_admin.root_path
     click_link "Participants"
-    click_button(id: "user-menu-trigger")
   end
 
   describe "listing impersonatable users" do

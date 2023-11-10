@@ -13,7 +13,7 @@
           <th><%= t(".polling_stations") %></th>
           <th><%= t(".bulletin_board") %></th>
           <th><%= t(".totals") %></th>
-              <th></th>
+          <th></th>
         </tr>
       </thead>
       <% groups.each do |group| %>
@@ -38,7 +38,7 @@
               <td><%= result[:value] %></td>
               <td>
                 <% if result[:answer]&.selected %>
-                  <span class="text-success"><%= t(".selected") %></td>
+                  <span class="text-success"><%= t(".selected") %></span>
                 <% end %>
               </td>
             </tr>

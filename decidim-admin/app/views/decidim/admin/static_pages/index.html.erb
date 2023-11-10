@@ -3,9 +3,9 @@
 <div class="item_show__header">
   <h2 class="item_show__header-title">
     <%= t("pages", scope: "decidim.admin.titles") %>
-
-    <%= link_to t("static_page_topics.new.create", scope: "decidim.admin"), [:new, :static_page_topic], class: "button button__sm button__secondary expanded small new" %>
-    <%= link_to t("static_pages.new.create", scope: "decidim.admin"), [:new, :static_page], class: "button button__sm button__secondary expanded small new" %>
+    <% if allowed_to? :create, :static_page %>
+      <%= link_to t("static_pages.new.create", scope: "decidim.admin"), [:new, :static_page], class: "button button__sm button__secondary expanded small new" %>
+    <% end %>
   </h2>
 </div>
 

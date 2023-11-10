@@ -101,6 +101,10 @@
       @apply text-secondary;
     }
 
+    & + & {
+      @apply mt-6;
+    }
+
     &:focus &-title,
     &:hover &-title {
       @apply underline;
@@ -174,5 +178,9 @@
 
   &__placeholder-l {
     @apply top-[calc(100%-10rem)] left-[calc(100%-11.5rem)] absolute w-48 h-44 z-10 fill-primary;
+  }
+
+  &__placeholder-g {
+    @apply w-full h-full fill-primary;
   }
 }

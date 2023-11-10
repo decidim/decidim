@@ -78,9 +78,8 @@ module Decidim
       end
 
       def install_decidim_webpacker
-        # Copy CSS files
+        # Copy CSS file
         copy_file "decidim_application.scss", "app/packs/stylesheets/decidim/decidim_application.scss"
-        copy_file "_decidim-settings.scss", "app/packs/stylesheets/decidim/_decidim-settings.scss"
 
         # Copy JS application file
         copy_file "decidim_application.js", "app/packs/src/decidim/decidim_application.js"
@@ -93,13 +92,17 @@ module Decidim
         # Regenerate webpacker binstubs
         remove_file "bin/yarn"
         bundle_install
-        rails "webpacker:binstubs"
+        rails "shakapacker:binstubs"
 
         # Run Decidim custom webpacker installation
         rails "decidim:webpacker:install"
 
         # Run Decidim custom procfile installation
         rails "decidim:procfile:install"
+
+        # Replace robots.txt
+        remove_file "public/robots.txt"
+        rails "decidim:robots:replace"
       end
 
       def build_api_docs

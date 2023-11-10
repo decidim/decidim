@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages polling stations", serves_geocoding_autocomplete: true, type: :system do
+describe "Admin manages polling stations", serves_geocoding_autocomplete: true do
   let(:address) { "Somewhere over the rainbow" }
   let(:latitude) { 42.123 }
   let(:longitude) { 2.123 }
@@ -11,7 +11,7 @@ describe "Admin manages polling stations", serves_geocoding_autocomplete: true, 
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_votings.edit_voting_path(voting)
-    within_admin_menu do
+    within_admin_sidebar_menu do
       click_link "Polling Stations"
     end
   end

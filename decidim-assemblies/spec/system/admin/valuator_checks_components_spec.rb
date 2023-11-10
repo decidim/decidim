@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Valuator checks components", type: :system do
+describe "Valuator checks components" do
   let(:current_component) { create(:component, manifest_name: "proposals", participatory_space: assembly) }
   let!(:assigned_proposal) { create(:proposal, component: current_component) }
   let(:assembly) { create(:assembly, organization:) }
@@ -32,7 +32,7 @@ describe "Valuator checks components", type: :system do
 
   context "when listing components in the space components page" do
     it "can only see the proposals component" do
-      within_admin_menu do
+      within_admin_sidebar_menu do
         click_link "Components"
       end
 

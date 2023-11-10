@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Social share button", type: :system do
+describe "Social share button" do
   let!(:resource) { create(:dummy_resource) }
   let(:resource_path) { Decidim::ResourceLocatorPresenter.new(resource).path }
 

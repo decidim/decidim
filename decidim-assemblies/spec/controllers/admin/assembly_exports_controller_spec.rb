@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Assemblies
     module Admin
-      describe AssemblyExportsController, type: :controller do
+      describe AssemblyExportsController do
         routes { Decidim::Assemblies::AdminEngine.routes }
 
         let!(:organization) { create(:organization) }

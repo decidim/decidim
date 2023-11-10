@@ -3,7 +3,7 @@
 require "spec_helper"
 require "decidim/core/test/shared_examples/has_contextual_help"
 
-describe "Votings", type: :system do
+describe "Votings" do
   let(:organization) { create(:organization) }
 
   before do

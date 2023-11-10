@@ -26,7 +26,7 @@ module Decidim
       private
 
       def collection
-        @collection ||= current_organization.users.where(admin: false, roles: [])
+        @collection ||= current_organization.users.where(admin: false, roles: []).order(created_at: :desc)
       end
 
       def new_managed_user

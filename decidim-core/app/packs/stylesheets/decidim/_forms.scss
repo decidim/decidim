@@ -146,6 +146,18 @@
   }
 }
 
+.input-group__password {
+  @apply w-full relative;
+
+  input {
+    @apply w-full;
+  }
+
+  button {
+    @apply absolute right-2 top-8;
+  }
+}
+
 .emoji {
   &__container {
     @apply relative;
@@ -178,4 +190,10 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .autoComplete_wrapper {
   display: block;
+}
+
+.old-password__wrapper {
+  @apply p-10 border-2 border-solid border-secondary rounded;
+
+  background-color: rgb(var(--secondary-rgb) / 0.05);
 }

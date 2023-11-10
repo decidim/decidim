@@ -133,18 +133,20 @@ module Decidim
       end
 
       initializer "decidim_participatory_processes_admin.process_attachments_menu" do
-        Decidim.menu :admin_participatory_process_attachments_menu do |menu|
-          menu.add_item :participatory_process_attachment_collections,
-                        I18n.t("attachment_collections", scope: "decidim.admin.menu.participatory_processes_submenu"),
-                        decidim_admin_participatory_processes.participatory_process_attachment_collections_path(current_participatory_space),
-                        active: is_active_link?(decidim_admin_participatory_processes.participatory_process_attachment_collections_path(current_participatory_space)),
-                        if: allowed_to?(:read, :attachment_collection)
-
+        Decidim.menu :participatory_process_admin_attachments_menu do |menu|
           menu.add_item :participatory_process_attachments,
                         I18n.t("attachment_files", scope: "decidim.admin.menu.participatory_processes_submenu"),
                         decidim_admin_participatory_processes.participatory_process_attachments_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_participatory_processes.participatory_process_attachments_path(current_participatory_space)),
-                        if: allowed_to?(:read, :attachment)
+                        if: allowed_to?(:read, :attachment),
+                        icon_name: "attachment-line"
+
+          menu.add_item :participatory_process_attachment_collections,
+                        I18n.t("attachment_collections", scope: "decidim.admin.menu.participatory_processes_submenu"),
+                        decidim_admin_participatory_processes.participatory_process_attachment_collections_path(current_participatory_space),
+                        active: is_active_link?(decidim_admin_participatory_processes.participatory_process_attachment_collections_path(current_participatory_space)),
+                        if: allowed_to?(:read, :attachment_collection),
+                        icon_name: "folder-line"
         end
       end
 
@@ -174,14 +176,21 @@ module Decidim
                         I18n.t("info", scope: "decidim.admin.menu.participatory_processes_submenu"),
                         decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space)),
-                        icon_name: "tools-line",
+                        icon_name: "information-line",
+                        if: allowed_to?(:update, :process, process: current_participatory_space)
+
+          menu.add_item :edit_participatory_process_landing_page,
+                        I18n.t("landing_page", scope: "decidim.admin.menu.participatory_processes_submenu"),
+                        decidim_admin_participatory_processes.edit_participatory_process_landing_page_path(current_participatory_space),
+                        active: is_active_link?(decidim_admin_participatory_processes.participatory_process_landing_page_path(current_participatory_space)),
+                        icon_name: "layout-masonry-line",
                         if: allowed_to?(:update, :process, process: current_participatory_space)
 
           menu.add_item :participatory_process_steps,
                         I18n.t("steps", scope: "decidim.admin.menu.participatory_processes_submenu"),
                         decidim_admin_participatory_processes.participatory_process_steps_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_participatory_processes.participatory_process_steps_path(current_participatory_space)),
-                        icon_name: "layout-masonry-line",
+                        icon_name: "direction-line",
                         if: allowed_to?(:read, :process_step)
 
           menu.add_item :components,
@@ -189,7 +198,7 @@ module Decidim
                         decidim_admin_participatory_processes.components_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_participatory_processes.components_path(current_participatory_space),
                                                 ["decidim/participatory_processes/admin/components", %w(index new edit)]),
-                        icon_name: "layout-masonry-line",
+                        icon_name: "tools-line",
                         if: allowed_to?(:read, :component),
                         submenu: { target_menu: :admin_participatory_process_components_menu }
 
@@ -202,11 +211,11 @@ module Decidim
 
           menu.add_item :attachments,
                         I18n.t("attachments", scope: "decidim.admin.menu.participatory_processes_submenu"),
-                        "#",
-                        active: false,
+                        decidim_admin_participatory_processes.participatory_process_attachments_path(current_participatory_space),
+                        active: is_active_link?(decidim_admin_participatory_processes.participatory_process_attachment_collections_path(current_participatory_space)) ||
+                                is_active_link?(decidim_admin_participatory_processes.participatory_process_attachments_path(current_participatory_space)),
                         icon_name: "attachment-2",
-                        if: allowed_to?(:read, :attachment_collection) || allowed_to?(:read, :attachment),
-                        submenu: { target_menu: :admin_participatory_process_attachments_menu }
+                        if: allowed_to?(:read, :attachment_collection) || allowed_to?(:read, :attachment)
 
           menu.add_item :participatory_process_user_roles,
                         I18n.t("process_admins", scope: "decidim.admin.menu.participatory_processes_submenu"),
@@ -228,13 +237,6 @@ module Decidim
                         active: is_active_link?(decidim_admin_participatory_processes.moderations_path(current_participatory_space)),
                         icon_name: "flag-line",
                         if: allowed_to?(:read, :moderation)
-
-          menu.add_item :edit_participatory_process_landing_page,
-                        I18n.t("landing_page", scope: "decidim.admin.menu.participatory_processes_submenu"),
-                        decidim_admin_participatory_processes.edit_participatory_process_landing_page_path(current_participatory_space),
-                        active: is_active_link?(decidim_admin_participatory_processes.participatory_process_landing_page_path(current_participatory_space)),
-                        icon_name: "tools-line",
-                        if: allowed_to?(:update, :process, process: current_participatory_space)
         end
       end
 
@@ -251,7 +253,7 @@ module Decidim
                         I18n.t("landing_page", scope: "decidim.admin.menu.participatory_process_groups_submenu"),
                         decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_path(participatory_process_group),
                         position: 2,
-                        icon_name: "pages-line",
+                        icon_name: "layout-masonry-line",
                         if: allowed_to?(:update, :process_group, process_group: participatory_process_group),
                         active: is_active_link?(decidim_admin_participatory_processes.participatory_process_group_landing_page_path(participatory_process_group))
         end

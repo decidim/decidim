@@ -8,7 +8,7 @@ module Decidim
       include Orderable
     end
 
-    describe OrderableFakeController, type: :controller do
+    describe OrderableFakeController do
       let(:participatory_process) { create(:participatory_process, :with_steps) }
       let(:active_step_id) { participatory_process.active_step.id }
       let(:component) { create(:component, :with_one_step, participatory_space: participatory_process, manifest_name: "proposals") }

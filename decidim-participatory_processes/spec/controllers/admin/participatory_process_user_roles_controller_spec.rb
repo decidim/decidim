@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module ParticipatoryProcesses
     module Admin
-      describe ParticipatoryProcessUserRolesController, type: :controller do
+      describe ParticipatoryProcessUserRolesController do
         routes { Decidim::ParticipatoryProcesses::AdminEngine.routes }
 
         let(:organization) { create(:organization) }

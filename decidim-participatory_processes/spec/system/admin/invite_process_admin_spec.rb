@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Invite process administrator", type: :system do
+describe "Invite process administrator" do
   include_context "when inviting process users"
 
   let(:role) { "Administrator" }
@@ -41,8 +41,8 @@ describe "Invite process administrator", type: :system do
         end
       end
 
-      within_admin_menu do
-        expect(page.text).to eq "About this process\nPhases\nComponents\nCategories\nAttachments\nFolders\nFiles\nProcess admins\nPrivate participants\nModerations\nLanding page"
+      within_admin_sidebar_menu do
+        expect(page.text).to eq "About this process\nLanding page\nPhases\nComponents\nCategories\nAttachments\nProcess admins\nPrivate participants\nModerations"
       end
     end
   end
@@ -73,8 +73,8 @@ describe "Invite process administrator", type: :system do
         end
       end
 
-      within_admin_menu do
-        expect(page.text).to eq "About this process\nPhases\nComponents\nCategories\nAttachments\nFolders\nFiles\nProcess admins\nPrivate participants\nModerations\nLanding page"
+      within_admin_sidebar_menu do
+        expect(page.text).to eq "About this process\nLanding page\nPhases\nComponents\nCategories\nAttachments\nProcess admins\nPrivate participants\nModerations"
       end
     end
   end

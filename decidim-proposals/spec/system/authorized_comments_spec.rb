@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Authorized comments", type: :system do
+describe "Authorized comments" do
   let!(:commentable) { create(:proposal, component:, users: [author]) }
   let!(:author) { create(:user, :confirmed, organization:) }
   let!(:component) { create(:proposal_component, organization:) }

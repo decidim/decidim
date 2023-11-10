@@ -1,0 +1,15 @@
+<% content_for :heading do %>
+  Typography
+<% end %>
+
+<% content_for :description do %>
+  <p>These guidelines summarize how use typography at Decidim, and serve as guardrails for designers to design freely with best typographic practices in mind</p>
+<% end %>
+
+<% content_for :toc do %>
+  <% typography_sections.each do |section| %>
+    <%= link_to(section_text(section), "##{section[:id]}") %>
+  <% end %>
+<% end %>
+
+<%= render partial: "decidim/design/shared/sections", locals: { sections: typography_sections } %>
