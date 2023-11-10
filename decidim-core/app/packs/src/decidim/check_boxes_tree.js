@@ -91,6 +91,10 @@ export default class CheckBoxesTree {
     // search in the checkboxes array if some id ends with the childrenCheckbox key, what means it is the parent
     const parentCheck = this.checkboxesTree.find(({ id }) => new RegExp(`${key}$`, "i").test(id))
 
+    if (typeof parentCheck === "undefined") {
+      return;
+    }
+
     // search for leaves with the same parent, what means they are siblings
     const totalCheckSiblings = this.checkboxesLeaf.filter((node) => node.parentNode.dataset.childrenCheckbox === key)
     const checkedSiblings = totalCheckSiblings.filter((checkbox) => checkbox.checked)
