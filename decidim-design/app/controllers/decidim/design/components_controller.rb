@@ -13,6 +13,7 @@ module Decidim
       helper ActivitiesHelper
       helper TabPanelsHelper
       helper AuthorHelper
+      helper AddressHelper
     end
   end
 end
