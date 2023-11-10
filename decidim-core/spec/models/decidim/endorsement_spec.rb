@@ -86,8 +86,8 @@ module Decidim
 
       it "sorts user_group endorsements first and then by created_at" do
         expected_sorting = [
-          other_endorsement1.id, endorsement.id,
-          other_endorsement2.id
+          other_endorsement_1.id, endorsement.id,
+          other_endorsement_2.id
         ]
         expect(resource.endorsements.for_listing.pluck(:id)).to eq(expected_sorting)
       end
