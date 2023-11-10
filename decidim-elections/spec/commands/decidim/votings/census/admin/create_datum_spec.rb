@@ -15,7 +15,7 @@ module Decidim::Votings::Census::Admin
     let(:params) do
       {
         document_number:,
-        document_type: "DNI",
+        document_type: "passport",
         birthdate:,
         full_name: "Jane Doe",
         full_address: "Nowhere street 1",
