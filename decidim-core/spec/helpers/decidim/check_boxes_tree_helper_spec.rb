@@ -21,6 +21,64 @@ module Decidim
       allow(helper).to receive(:current_organization).and_return(organization)
     end
 
+    describe "#check_boxes_tree_options" do
+      context "when its a root leaf" do
+        let(:value) { "" }
+        let(:label) { "<span>All</span>" }
+        let(:options) do
+          {
+            class: "reset-defaults",
+            data: { checkboxes_tree: "with_any_whatever_" },
+            is_root_check_box: true,
+            parent_id: nil
+          }
+        end
+        let(:expected_options) do
+          {
+            class: "reset-defaults",
+            data: { checkboxes_tree: "with_any_whatever_" },
+            include_hidden: false,
+            label: "<span>All</span>",
+            label_options: { class: "filter", "data-global-checkbox": "", value: "" },
+            multiple: true,
+            value: ""
+          }
+        end
+
+        it "returns the options" do
+          expect(helper.check_boxes_tree_options(value, label, **options)).to eq(expected_options)
+        end
+      end
+
+      context "when its a child leaf" do
+        let(:value) { "an_option" }
+        let(:label) { "<span>An option</span>" }
+        let(:options) do
+          {
+            class: "reset-defaults",
+            data: {},
+            is_root_check_box: false,
+            parent_id: "with_any_whatever_"
+          }
+        end
+        let(:expected_options) do
+          {
+            class: "reset-defaults",
+            data: {},
+            value: "an_option",
+            label: "<span>An option</span>",
+            multiple: true,
+            include_hidden: false,
+            label_options: { "data-children-checkbox": "with_any_whatever_", value: "an_option", class: "filter" }
+          }
+        end
+
+        it "returns the options" do
+          expect(helper.check_boxes_tree_options(value, label, **options)).to eq(expected_options)
+        end
+      end
+    end
+
     describe "#filter_scopes_values" do
       let(:root) { helper.filter_scopes_values }
       let(:leaf) { helper.filter_scopes_values.leaf }
