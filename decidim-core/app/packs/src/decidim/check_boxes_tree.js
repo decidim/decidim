@@ -27,7 +27,7 @@ export default class CheckBoxesTree {
    * @returns {Void} - Returns nothing.
    */
   updateChecked(checkboxes, values) {
-    checkboxes.each((index, checkbox) => {
+    checkboxes.each((_idx, checkbox) => {
       if ((checkbox.value === "" && values.length === 1) || (checkbox.value !== "" && values.includes(checkbox.value))) {
         checkbox.checked = true;
         this.checkTheCheckBoxes(checkbox);
@@ -44,13 +44,13 @@ export default class CheckBoxesTree {
    */
   setContainerForm(theForm) {
     theForm.on("submit ajax:before", () => {
-      theForm.find(".ignore-filters input, input.ignore-filter").each((idx, elem) => {
+      theForm.find(".ignore-filters input, input.ignore-filter").each((_idx, elem) => {
         elem.disabled = true;
       });
     });
 
     theForm.on("ajax:send", () => {
-      theForm.find(".ignore-filters input, input.ignore-filter").each((idx, elem) => {
+      theForm.find(".ignore-filters input, input.ignore-filter").each((_idx, elem) => {
         elem.disabled = false;
       });
     });
