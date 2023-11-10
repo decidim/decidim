@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe "Election search", type: :request do
+RSpec.describe "Election search" do
   include Decidim::ComponentPathHelper
 
   subject { response.body }

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin creates proposals", type: :system do
+describe "Admin creates proposals" do
   let(:manifest_name) { "proposals" }
   let(:creation_enabled?) { true }
   let!(:component) do

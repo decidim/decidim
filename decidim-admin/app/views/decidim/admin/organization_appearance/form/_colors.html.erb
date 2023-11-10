@@ -65,11 +65,5 @@
         <%= form.color_field :alert_color, value: current_organization.colors["alert"] %>
       </div>
     </div>
-
-    <% if Decidim.enable_html_header_snippets %>
-      <div class="row column">
-        <%= form.text_area :header_snippets, help_text: t(".header_snippets_help_html") %>
-      </div>
-    <% end %>
   </div>
 </div>

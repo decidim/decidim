@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe SanitizeHelper, type: :helper do
+  describe SanitizeHelper do
     describe "#decidim_sanitize" do
       let(:user_input) { "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>" }
 

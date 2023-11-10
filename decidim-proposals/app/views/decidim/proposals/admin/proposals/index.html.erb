@@ -6,7 +6,8 @@
         <%= t(".title") %>
         <span id="js-selected-proposals-count" class="component-counter component-counter--inline" title="<%= t("decidim.proposals.admin.proposals.index.selected") %>"></span>
       </div>
-      <%= render partial: "bulk-actions" %>
+        <%= render partial: "bulk-actions" %>
+        <%= render partial: "decidim/admin/components/resource_action" %>
     </h2>
   </div>
   <%= admin_filter_selector(:proposals) %>

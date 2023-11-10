@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Filter Initiatives", :slow, type: :system do
+describe "Filter Initiatives", :slow do
   let!(:organization) { create(:organization) }
   let!(:type1) { create(:initiatives_type, organization:) }
   let!(:type2) { create(:initiatives_type, organization:) }
@@ -21,8 +21,11 @@ describe "Filter Initiatives", :slow, type: :system do
   end
 
   context "when filtering initiatives by SCOPE" do
+    let!(:initiatives) { create_list(:initiative, 2, organization:, scoped_type: scoped_type1) }
+    let(:first_initiative) { initiatives.first }
+    let!(:proposal_comment) { create(:comment, commentable: first_initiative) }
+
     before do
-      create_list(:initiative, 2, organization:, scoped_type: scoped_type1)
       create(:initiative, organization:, scoped_type: scoped_type2)
       create(:initiative, organization:, scoped_type: scoped_type3)
 
@@ -67,6 +70,20 @@ describe "Filter Initiatives", :slow, type: :system do
 
         expect(page).to have_css(".card__grid", count: 2)
         expect(page).to have_content("2 initiatives")
+      end
+
+      it "can be ordered by most commented after filtering" do
+        within "#panel-dropdown-menu-scope" do
+          click_filter_item "All"
+          click_filter_item scoped_type1.scope_name[I18n.locale.to_s]
+        end
+
+        within "#dropdown-menu-order" do
+          click_link "Most commented"
+        end
+
+        expect(page).to have_css(".card__grid[id^='initiative']", count: 2)
+        expect(page).to have_selector(".card__grid[id^='initiative']:first-child", text: translated(first_initiative.title))
       end
     end
   end
@@ -192,7 +209,7 @@ describe "Filter Initiatives", :slow, type: :system do
       end
     end
 
-    context "when there is more than on initiative_type" do
+    context "when there is more than one initiative_type" do
       before do
         create_list(:initiative, 2, organization:, scoped_type: scoped_type1)
         create(:initiative, organization:, scoped_type: scoped_type2)

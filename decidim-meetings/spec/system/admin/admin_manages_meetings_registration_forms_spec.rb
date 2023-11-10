@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages meetings registration forms", type: :system do
+describe "Admin manages meetings registration forms" do
   let(:manifest_name) { "meetings" }
 
   let!(:questionnaire) { create(:questionnaire) }

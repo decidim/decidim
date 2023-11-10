@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe UploadValidationsController, type: :controller do
+  describe UploadValidationsController do
     routes { Decidim::Core::Engine.routes }
 
     let(:params) do

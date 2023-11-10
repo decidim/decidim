@@ -5,6 +5,8 @@ module Decidim
     # Controller that allows managing scopes types at the admin panel.
     #
     class ScopeTypesController < Decidim::Admin::ApplicationController
+      include Decidim::Admin::Concerns::HasTabbedMenu
+
       layout "decidim/admin/settings"
 
       add_breadcrumb_item_from_menu :admin_settings_menu
@@ -72,6 +74,8 @@ module Decidim
       end
 
       private
+
+      def tab_menu_name = :admin_scopes_menu
 
       def scope_type
         @scope_type ||= scope_types.find(params[:id])

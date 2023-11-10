@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages assemblies", type: :system do
+describe "Admin manages assemblies" do
   include Decidim::SanitizeHelper
 
   let(:admin) { create(:user, :admin, :confirmed) }

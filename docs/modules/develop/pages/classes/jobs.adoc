@@ -1,0 +1,26 @@
+= Jobs
+
+Decidim jobs classes are not do not implement anything different than what `ActiveJob` has to offer.
+
+Jobs classes are located in the `app/jobs/decidim/<my_module>` directory, and named: `<my_custom>_job.rb`.
+
+```ruby
+# frozen_string_literal: true
+
+# app/jobs/decidim/my_module/my_custom_job.rb
+module Decidim
+  module MyModule
+    class MyCustomJob < ActiveJob::Base
+      queue_as :default
+
+      def perform(*args)
+        # Do something later
+      end
+    end
+  end
+end
+```
+
+== More information
+
+- https://edgeguides.rubyonrails.org/active_job_basics.html[Active Job documentation]

@@ -1,0 +1,15 @@
+<% content_for :heading do %>
+  Buttons
+<% end %>
+
+<% content_for :description do %>
+  Buttons are built using different combinations of CSS classes: the <code>button</code> class, a size and a color.
+<% end %>
+
+<% content_for :toc do %>
+  <% buttons_sections.each do |section| %>
+    <%= link_to(section_text(section), "##{section[:id]}") %>
+  <% end %>
+<% end %>
+
+<%= render partial: "decidim/design/shared/sections", locals: { sections: buttons_sections } %>

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "User manager manages impersonations", type: :system do
+describe "User manager manages impersonations" do
   let(:user) { create(:user, :user_manager, :confirmed, :admin_terms_accepted, organization:) }
 
   def navigate_to_impersonations_page

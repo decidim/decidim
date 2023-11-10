@@ -20,8 +20,10 @@ module Decidim
       update_password
 
       if @user.valid?
+        changes = @user.changed
         @user.save!
         notify_followers
+        send_update_summary!(changes)
         broadcast(:ok, @user.unconfirmed_email.present?)
       else
         [:avatar, :password].each do |key|
@@ -66,6 +68,21 @@ module Decidim
         resource: @user,
         followers: @user.followers
       )
+    end
+
+    def send_update_summary!(changes)
+      return if changes.empty?
+
+      updates = changes.map do |attr|
+        next unless attr_set.include?(attr)
+
+        I18n.t("activemodel.attributes.user.#{attr}")
+      end
+      UserUpdateMailer.notify(@user, updates).deliver_later
+    end
+
+    def attr_set
+      @attr_set ||= %w(name nickname email about personal_url encrypted_password locale)
     end
   end
 end

@@ -3,7 +3,7 @@
 require "spec_helper"
 require "decidim/core/test/shared_examples/has_contextual_help"
 
-describe "Assemblies", type: :system do
+describe "Assemblies" do
   let(:organization) { create(:organization) }
   let(:show_statistics) { true }
 

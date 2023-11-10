@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Preview debates with share token", type: :system do
+describe "Preview debates with share token" do
   let(:manifest_name) { "debates" }
 
   include_context "with a component"

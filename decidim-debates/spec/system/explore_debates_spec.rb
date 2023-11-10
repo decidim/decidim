@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Explore debates", type: :system do
+describe "Explore debates" do
   include_context "with a component"
   let(:manifest_name) { "debates" }
 

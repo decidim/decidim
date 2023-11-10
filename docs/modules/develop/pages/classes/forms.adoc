@@ -1,0 +1,36 @@
+= Forms
+
+This is a form example that can be implemented in your application.
+
+Form classes are located in the `app/forms/decidim/<my_module>` directory, and named: `<resource>_form.rb`.
+
+```ruby
+# frozen_string_literal: true
+
+# app/forms/decidim/my_module/resource_form.rb
+module Decidim
+  module MyModule
+    class ResourceForm < Decidim::Form
+      include Decidim::TranslatableAttributes
+
+      attribute :title, String
+      translatable_attribute :body, String
+
+      validates :title, length: { maximum: 150 }, translatable_presence: true
+      validates :body, translatable_presence: true
+
+      validate :some_custom_validation
+
+      private
+
+      def some_custom_validation
+        errors.add(:title, :invalid) if title == "invalid"
+      end
+    end
+  end
+end
+```
+
+== More information
+
+- `Decidim::Form` is an internalization of https://github.com/andypike/rectify[Rectify] gem created by Andy Pike

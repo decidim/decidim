@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin filters participatory processes private space users", type: :system do
+describe "Admin filters participatory processes private space users" do
   include_context "with filterable context"
 
   let(:organization) { create(:organization) }
