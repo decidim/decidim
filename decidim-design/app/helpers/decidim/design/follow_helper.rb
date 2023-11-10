@@ -10,7 +10,8 @@ module Decidim
             contents: [
               {
                 type: :text,
-                values: ["Make sure the partial <code>decidim/shared/login_modal</code> is present in the DOM. This partial is placed in the application layout when the user is logged in."]
+                values: ["Make sure the partial <code>decidim/shared/login_modal</code> is present in the DOM.
+                          This partial is placed in the application layout when the user is logged in."]
               },
               {
                 type: :table,
