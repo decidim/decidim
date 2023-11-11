@@ -3,7 +3,7 @@
 module Decidim
   class IconRegistry
     def initialize
-      @icons = {}
+      @icons = ActiveSupport::HashWithIndifferentAccess.new
     end
 
     def register(name:, icon:, resource:, description:, category:)
@@ -29,7 +29,7 @@ module Decidim
         Decidim.icons.register(name: "#{name}", icon: "#{name}", resource: "core", category: "system", description: "")
       }
 
-      raise message || ActiveSupport::Deprecation.warn(message)
+      # raise message || ActiveSupport::Deprecation.warn(message)
     end
   end
 end
