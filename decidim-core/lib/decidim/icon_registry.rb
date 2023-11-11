@@ -29,8 +29,7 @@ module Decidim
         Decidim.icons.register(name: "#{name}", icon: "#{name}", resource: "core", category: "system", description: "")
       }
 
-      # raise message ||
-      ActiveSupport::Deprecation.warn(message)
+      raise message || ActiveSupport::Deprecation.warn(message)
     end
   end
 end
