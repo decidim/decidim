@@ -55,7 +55,7 @@ module Decidim
       isolate_namespace Decidim
       engine_name "decidim"
 
-      initializer "decidim_core.register_icons" do |_app|
+      initializer "decidim_core.register_icons" do
         Decidim.icons.register(name: "upload-cloud-2-line", icon: "upload-cloud-2-line", resource: "core", category: "system",
                                description: "Upload cloud 2 line used in attachments form")
         Decidim.icons.register(name: "arrow-right-line", icon: "arrow-right-line", resource: "core", category: "system",
@@ -166,6 +166,15 @@ module Decidim
         Decidim.icons.register(name: "mic-line", icon: "mic-line", resource: "core", category: "system", description: "")
         Decidim.icons.register(name: "coin-line", icon: "coin-line", resource: "core", category: "system", description: "")
         Decidim.icons.register(name: "external-link-line", icon: "external-link-line", resource: "core", category: "system", description: "")
+
+        # Attachments
+        Decidim.icons.register(name: "file-text-line", icon: "file-text-line", resource: "core", category: "system", description: "")
+        Decidim.icons.register(name: "scales-2-line", icon: "scales-2-line", resource: "core", category: "system", description: "")
+        Decidim.icons.register(name: "image-line", icon: "image-line", resource: "core", category: "system", description: "")
+        Decidim.icons.register(name: "error-warning-line", icon: "error-warning-line", resource: "core", category: "system", description: "")
+
+        # participatory_space
+        Decidim.icons.register(name: "calendar-todo-line", icon: "calendar-todo-line", resource: "participatory_space", category: "system", description: "")
       end
 
       initializer "decidim_core.patch_webpacker", before: "shakapacker.version_checker" do

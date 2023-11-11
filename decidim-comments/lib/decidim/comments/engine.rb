@@ -36,7 +36,13 @@ module Decidim
           end
         end
       end
-
+      initializer "decidim_comments.register_icons" do
+        Decidim.icons.register(name: "thumb-up-line", icon: "thumb-up-line", resource: "comments", category: "system", description: "")
+        Decidim.icons.register(name: "thumb-up-fill", icon: "thumb-up-fill", resource: "comments", category: "system", description: "")
+        Decidim.icons.register(name: "thumb-down-line", icon: "thumb-down-line", resource: "comments", category: "system", description: "")
+        Decidim.icons.register(name: "thumb-down-fill", icon: "thumb-down-fill", resource: "comments", category: "system", description: "")
+        Decidim.icons.register(name: "edit-line", icon: "edit-line", resource: "comments", category: "system", description: "")
+      end
       initializer "decidim_comments.register_metrics" do
         Decidim.metrics_registry.register(:comments) do |metric_registry|
           metric_registry.manager_class = "Decidim::Comments::Metrics::CommentsMetricManage"

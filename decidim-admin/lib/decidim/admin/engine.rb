@@ -44,6 +44,9 @@ module Decidim
         Decidim.icons.register(name: "add-line", icon: "add-line", resource: "admin", category: "system", description: "")
         Decidim.icons.register(name: "upload-line", icon: "upload-line", resource: "admin", category: "system", description: "")
         Decidim.icons.register(name: "settings-4-line", icon: "settings-4-line", resource: "admin", category: "system", description: "")
+
+        Decidim.icons.register(name: "folder-line", icon: "folder-line", resource: "core", category: "system", description: "")
+        Decidim.icons.register(name: "attachment-line", icon: "attachment-line", resource: "core", category: "system", description: "")
       end
 
       initializer "decidim_admin.mime_types" do |_app|

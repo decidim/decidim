@@ -44,6 +44,10 @@ module Decidim
           resources :meetings, only: [:show], controller: :calendars, action: :meeting_calendar
         end
       end
+      initializer "decidim_accountability.register_icons" do
+        Decidim.icons.register(name: "calendar-check-line", icon: "calendar-check-line", resource: "core", category: "system", description: "")
+        Decidim.icons.register(name: "community-line", icon: "community-line", resource: "core", category: "system", description: "")
+      end
 
       initializer "decidim_meetings.content_processors" do |_app|
         Decidim.configure do |config|

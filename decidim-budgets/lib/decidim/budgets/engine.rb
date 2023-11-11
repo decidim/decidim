@@ -26,6 +26,10 @@ module Decidim
         get "/", to: redirect("budgets", status: 301)
       end
 
+      initializer "decidim_budgets.register_icons" do
+        Decidim.icons.register(name: "git-pull-request-line", icon: "git-pull-request-line", resource: "core", category: "system", description: "")
+      end
+
       initializer "decidim_budgets.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Budgets::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Budgets::Engine.root}/app/views") # for partials
