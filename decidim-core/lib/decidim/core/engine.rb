@@ -165,6 +165,7 @@ module Decidim
         Decidim.icons.register(name: "user-line", icon: "user-line", resource: "core", category: "system", description: "")
         Decidim.icons.register(name: "mic-line", icon: "mic-line", resource: "core", category: "system", description: "")
         Decidim.icons.register(name: "coin-line", icon: "coin-line", resource: "core", category: "system", description: "")
+        Decidim.icons.register(name: "external-link-line", icon: "external-link-line", resource: "core", category: "system", description: "")
       end
 
       initializer "decidim_core.patch_webpacker", before: "shakapacker.version_checker" do
