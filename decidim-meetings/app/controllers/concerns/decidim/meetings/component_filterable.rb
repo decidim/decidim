@@ -22,7 +22,7 @@ module Decidim
             with_any_category: nil,
             with_any_state: nil,
             with_any_origin: nil,
-            with_any_type: default_filter_type_params
+            with_any_type: nil
           }
         end
       end

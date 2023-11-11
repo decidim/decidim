@@ -8,7 +8,6 @@ module Decidim
         layout "layouts/decidim/application"
 
         include FilterResource
-        include Filterable
         include Paginable
 
         helper Decidim::FiltersHelper
