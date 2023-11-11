@@ -150,12 +150,6 @@ module Decidim
           related_to: ""
         }
       end
-
-      def default_filter_category_params
-        return unless current_component.participatory_space.categories.any?
-
-        ["without"] + current_component.participatory_space.categories.map { |category| category.id.to_s }
-      end
     end
   end
 end
