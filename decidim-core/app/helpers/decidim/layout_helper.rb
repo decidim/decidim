@@ -161,7 +161,7 @@ module Decidim
 
     def organization_description_label
       @organization_description_label ||= if translated_attribute(current_organization.description).blank?
-                                            t("decidim.pages.home.footer_sub_hero.footer_sub_hero_body")
+                                            t("decidim.pages.home.footer_sub_hero.footer_sub_hero_body_html")
                                           else
                                             decidim_sanitize_admin(translated_attribute(current_organization.description))
                                           end

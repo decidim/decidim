@@ -5,7 +5,7 @@
     </h2>
   </div>
   <p class="text-lg text-gray-2">
-    <%== t("decidim.pages.home.footer_sub_hero.footer_sub_hero_body") %>
+    <%== t("decidim.pages.home.footer_sub_hero.footer_sub_hero_body_html") %>
   </p>
   <% if current_organization.sign_up_enabled? && !current_user %>
     <%= link_to decidim.new_user_registration_path, class: "button button__sm md:button__lg button__secondary mt-4", title: t("decidim.pages.home.sub_hero.register_title") do %>
