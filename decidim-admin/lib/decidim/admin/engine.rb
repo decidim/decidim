@@ -37,6 +37,9 @@ module Decidim
         Decidim.icons.register(name: "computer-line", icon: "computer-line", resource: "admin", category: "system", description: "")
         Decidim.icons.register(name: "menu", icon: "menu", resource: "admin", category: "system", description: "")
         Decidim.icons.register(name: "arrow-right-s-line", icon: "arrow-right-s-line", resource: "admin", category: "system", description: "")
+        Decidim.icons.register(name: "arrow-up-line", icon: "arrow-up-line", resource: "core", category: "system", description: "")
+        Decidim.icons.register(name: "arrow-down-line", icon: "arrow-down-line", resource: "core", category: "system", description: "")
+
         Decidim.icons.register(name: "attachment-2", icon: "attachment-2", resource: "admin", category: "system", description: "")
         Decidim.icons.register(name: "spy-line", icon: "spy-line", resource: "admin", category: "system", description: "")
         Decidim.icons.register(name: "refresh-line", icon: "refresh-line", resource: "admin", category: "system", description: "")

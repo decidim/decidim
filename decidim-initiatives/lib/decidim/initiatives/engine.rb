@@ -89,6 +89,7 @@ module Decidim
         Decidim.icons.register(name: "add-fill", icon: "add-fill", resource: "core", category: "system", description: "")
         Decidim.icons.register(name: "printer-line", icon: "printer-line", resource: "core", category: "system", description: "")
         Decidim.icons.register(name: "forbid-line", icon: "forbid-line", resource: "core", category: "system", description: "")
+        Decidim.icons.register(name: "clipboard-line", icon: "clipboard-line", resource: "core", category: "system", description: "")
       end
 
       initializer "decidim_initiatives.content_blocks" do

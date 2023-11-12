@@ -19,6 +19,9 @@ module Decidim
         get "/", to: redirect("sortitions", status: 301)
       end
 
+      initializer "decidim_sortitions.register_icons" do
+        Decidim.icons.register(name: "seedling-line", icon: "seedling-line", resource: "core", category: "system", description: "")
+      end
       initializer "decidim_sortitions.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Sortitions::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Sortitions::Engine.root}/app/views") # for proposal partials

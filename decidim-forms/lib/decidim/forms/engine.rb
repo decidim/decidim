@@ -18,6 +18,7 @@ module Decidim
 
       initializer "decidim_forms.register_icons" do
         Decidim.icons.register(name: "drag-move-2-line", icon: "drag-move-2-line", resource: "forms", category: "system", description: "")
+        Decidim.icons.register(name: "drag-move-2-fill", icon: "drag-move-2-fill", resource: "core", category: "system", description: "")
       end
 
       initializer "decidim_forms.authorization_transfer" do
