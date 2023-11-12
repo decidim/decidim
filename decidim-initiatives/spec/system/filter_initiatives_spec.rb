@@ -63,7 +63,6 @@ describe "Filter Initiatives", :slow do
     context "when selecting one scope" do
       it "lists the filtered initiatives", :slow do
         within "#panel-dropdown-menu-scope" do
-          click_filter_item "All"
           click_filter_item scoped_type1.scope_name[I18n.locale.to_s]
         end
 
@@ -73,7 +72,6 @@ describe "Filter Initiatives", :slow do
 
       it "can be ordered by most commented after filtering" do
         within "#panel-dropdown-menu-scope" do
-          click_filter_item "All"
           click_filter_item scoped_type1.scope_name[I18n.locale.to_s]
         end
 
