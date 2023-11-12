@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 require "decidim/components/namer"
+require "decidim/seeds"
 
 module Decidim
   module Meetings
-    class Seeds
+    class Seeds < Decidim::Seeds
       attr_reader :participatory_space
 
       def initialize(participatory_space:)
@@ -144,43 +145,9 @@ module Decidim
             collection_for: meeting
           )
 
-          Decidim::Attachment.create!(
-            title: Decidim::Faker::Localized.sentence(word_count: 2),
-            description: Decidim::Faker::Localized.sentence(word_count: 5),
-            attachment_collection:,
-            attached_to: meeting,
-            content_type: "application/pdf",
-            file: ActiveStorage::Blob.create_and_upload!(
-              io: File.open(File.join(__dir__, "seeds", "Exampledocument.pdf")),
-              filename: "Exampledocument.pdf",
-              content_type: "application/pdf",
-              metadata: nil
-            ) # Keep after attached_to
-          )
-          Decidim::Attachment.create!(
-            title: Decidim::Faker::Localized.sentence(word_count: 2),
-            description: Decidim::Faker::Localized.sentence(word_count: 5),
-            attached_to: meeting,
-            content_type: "image/jpeg",
-            file: ActiveStorage::Blob.create_and_upload!(
-              io: File.open(File.join(__dir__, "seeds", "city.jpeg")),
-              filename: "city.jpeg",
-              content_type: "image/jpeg",
-              metadata: nil
-            ) # Keep after attached_to
-          )
-          Decidim::Attachment.create!(
-            title: Decidim::Faker::Localized.sentence(word_count: 2),
-            description: Decidim::Faker::Localized.sentence(word_count: 5),
-            attached_to: meeting,
-            content_type: "application/pdf",
-            file: ActiveStorage::Blob.create_and_upload!(
-              io: File.open(File.join(__dir__, "seeds", "Exampledocument.pdf")),
-              filename: "Exampledocument.pdf",
-              content_type: "application/pdf",
-              metadata: nil
-            ) # Keep after attached_to
-          )
+          create_attachment(attached_to: meeting, filename: "Exampledocument.pdf", attachment_collection:)
+          create_attachment(attached_to: meeting, filename: "city.jpeg")
+          create_attachment(attached_to: meeting, filename: "Exampledocument.pdf")
         end
 
         authors = [

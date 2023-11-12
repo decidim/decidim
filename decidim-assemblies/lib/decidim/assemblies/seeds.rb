@@ -135,40 +135,9 @@ module Decidim
               collection_for: current_assembly
             )
 
-            Decidim::Attachment.create!(
-              title: Decidim::Faker::Localized.sentence(word_count: 2),
-              description: Decidim::Faker::Localized.sentence(word_count: 5),
-              attachment_collection:,
-              attached_to: current_assembly,
-              content_type: "application/pdf",
-              file: ActiveStorage::Blob.create_and_upload!(
-                io: File.open(File.join(seeds_root, "Exampledocument.pdf")),
-                filename: "Exampledocument.pdf",
-                content_type: "application/pdf",
-                metadata: nil
-              ) # Keep after attached_to
-            )
-
-            Decidim::Attachment.create!(
-              title: Decidim::Faker::Localized.sentence(word_count: 2),
-              description: Decidim::Faker::Localized.sentence(word_count: 5),
-              attached_to: current_assembly,
-              content_type: "image/jpeg",
-              file: create_image!(seeds_file: "city.jpeg", filename: "city.jpeg") # Keep after attached_to
-            )
-
-            Decidim::Attachment.create!(
-              title: Decidim::Faker::Localized.sentence(word_count: 2),
-              description: Decidim::Faker::Localized.sentence(word_count: 5),
-              attached_to: current_assembly,
-              content_type: "application/pdf",
-              file: ActiveStorage::Blob.create_and_upload!(
-                io: File.open(File.join(seeds_root, "Exampledocument.pdf")),
-                filename: "Exampledocument.pdf",
-                content_type: "application/pdf",
-                metadata: nil
-              ) # Keep after attached_to
-            )
+            create_attachment(attached_to: assembly, filename: "Exampledocument.pdf", attachment_collection:)
+            create_attachment(attached_to: assembly, filename: "city.jpeg")
+            create_attachment(attached_to: assembly, filename: "Exampledocument.pdf")
 
             2.times do
               Decidim::Category.create!(

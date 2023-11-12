@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 require "decidim/components/namer"
+require "decidim/seeds"
 
 module Decidim
   module Elections
-    class Seeds
+    class Seeds < Decidim::Seeds
       attr_reader :participatory_space
 
       def initialize(participatory_space:)
@@ -84,18 +85,7 @@ module Decidim
                 visibility: "all"
               )
 
-              Decidim::Attachment.create!(
-                title: Decidim::Faker::Localized.sentence(word_count: 2),
-                description: Decidim::Faker::Localized.sentence(word_count: 5),
-                attached_to: answer,
-                content_type: "image/jpeg",
-                file: ActiveStorage::Blob.create_and_upload!(
-                  io: File.open(File.join(__dir__, "seeds", "city.jpeg")),
-                  filename: "city.jpeg",
-                  content_type: "image/jpeg",
-                  metadata: nil
-                ) # Keep after attached_to
-              )
+              create_attachment(attached_to: answer, filename: "city.jpeg")
             end
 
             questionnaire = Decidim::Forms::Questionnaire.create!(
@@ -181,18 +171,7 @@ module Decidim
                 visibility: "all"
               )
 
-              Decidim::Attachment.create!(
-                title: Decidim::Faker::Localized.sentence(word_count: 2),
-                description: Decidim::Faker::Localized.sentence(word_count: 5),
-                attached_to: answer,
-                content_type: "image/jpeg",
-                file: ActiveStorage::Blob.create_and_upload!(
-                  io: File.open(File.join(__dir__, "seeds", "city.jpeg")),
-                  filename: "city.jpeg",
-                  content_type: "image/jpeg",
-                  metadata: nil
-                ) # Keep after attached_to
-              )
+              create_attachment(attached_to: answer, filename: "city.jpeg")
             end
 
             questionnaire = Decidim::Forms::Questionnaire.create!(
@@ -302,18 +281,7 @@ module Decidim
                 visibility: "all"
               )
 
-              Decidim::Attachment.create!(
-                title: Decidim::Faker::Localized.sentence(word_count: 2),
-                description: Decidim::Faker::Localized.sentence(word_count: 5),
-                attached_to: answer,
-                content_type: "image/jpeg",
-                file: ActiveStorage::Blob.create_and_upload!(
-                  io: File.open(File.join(__dir__, "seeds", "city.jpeg")),
-                  filename: "city.jpeg",
-                  content_type: "image/jpeg",
-                  metadata: nil
-                ) # Keep after attached_to
-              )
+              create_attachment(attached_to: answer, filename: "city.jpeg")
 
               answer_value = ::Faker::Number.between(from: 0, to: question_pending)
               Decidim::Elections::Result.create!(
@@ -418,18 +386,7 @@ module Decidim
               visibility: "all"
             )
 
-            Decidim::Attachment.create!(
-              title: Decidim::Faker::Localized.sentence(word_count: 2),
-              description: Decidim::Faker::Localized.sentence(word_count: 5),
-              attached_to: answer,
-              content_type: "image/jpeg",
-              file: ActiveStorage::Blob.create_and_upload!(
-                io: File.open(File.join(__dir__, "seeds", "city.jpeg")),
-                filename: "city.jpeg",
-                content_type: "image/jpeg",
-                metadata: nil
-              ) # Keep after attached_to
-            )
+            create_attachment(attached_to: answer, filename: "city.jpeg")
           end
         end
 

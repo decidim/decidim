@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
+require "decidim/seeds"
+
 module Decidim
   module Initiatives
-    class Seeds
+    class Seeds < Decidim::Seeds
       def call
         organization = Decidim::Organization.first
 
@@ -60,18 +62,7 @@ module Decidim
 
           Decidim::Comments::Seed.comments_for(initiative)
 
-          Decidim::Attachment.create!(
-            title: Decidim::Faker::Localized.sentence(word_count: 2),
-            description: Decidim::Faker::Localized.sentence(word_count: 5),
-            attached_to: initiative,
-            content_type: "image/jpeg",
-            file: ActiveStorage::Blob.create_and_upload!(
-              io: File.open(File.join(seeds_root, "city.jpeg")),
-              filename: "city.jpeg",
-              content_type: "image/jpeg",
-              metadata: nil
-            )
-          )
+          create_attachment(attached_to: initiative, filename: "city.jpeg")
 
           Decidim::Initiatives.default_components.each do |component_name|
             component = Decidim::Component.create!(

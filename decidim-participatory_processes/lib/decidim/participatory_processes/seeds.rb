@@ -8,7 +8,6 @@ module Decidim
     class Seeds < Decidim::Seeds
       def call
         organization = Decidim::Organization.first
-        seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
 
         Decidim::ContentBlock.create(
           organization:,
@@ -132,40 +131,9 @@ module Decidim
             collection_for: process
           )
 
-          Decidim::Attachment.create!(
-            title: Decidim::Faker::Localized.sentence(word_count: 2),
-            description: Decidim::Faker::Localized.sentence(word_count: 5),
-            attachment_collection:,
-            content_type: "application/pdf",
-            attached_to: process,
-            file: ActiveStorage::Blob.create_and_upload!(
-              io: File.open(File.join(seeds_root, "Exampledocument.pdf")),
-              filename: "Exampledocument.pdf",
-              content_type: "application/pdf",
-              metadata: nil
-            ) # Keep after attached_to
-          )
-
-          Decidim::Attachment.create!(
-            title: Decidim::Faker::Localized.sentence(word_count: 2),
-            description: Decidim::Faker::Localized.sentence(word_count: 5),
-            attached_to: process,
-            content_type: "image/jpeg",
-            file: create_image!(seeds_file: "city.jpeg", filename: "city.jpeg") # Keep after attached_to
-          )
-
-          Decidim::Attachment.create!(
-            title: Decidim::Faker::Localized.sentence(word_count: 2),
-            description: Decidim::Faker::Localized.sentence(word_count: 5),
-            attached_to: process,
-            content_type: "application/pdf",
-            file: ActiveStorage::Blob.create_and_upload!(
-              io: File.open(File.join(seeds_root, "Exampledocument.pdf")),
-              filename: "Exampledocument.pdf",
-              content_type: "application/pdf",
-              metadata: nil
-            ) # Keep after attached_to
-          )
+          create_attachment(attached_to: process, filename: "Exampledocument.pdf", attachment_collection:)
+          create_attachment(attached_to: process, filename: "city.jpeg")
+          create_attachment(attached_to: process, filename: "Exampledocument.pdf")
 
           2.times do
             Decidim::Category.create!(

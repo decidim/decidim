@@ -13,6 +13,23 @@ module Decidim
 
     def banner_image = create_image!(seeds_file: "city2.jpeg", filename: "banner_image.jpeg")
 
+    def create_attachment(attached_to:, filename:, attachment_collection: nil)
+      content_type = {
+        jpg: "image/jpeg",
+        jpeg: "image/jpeg",
+        pdf: "application/pdf"
+      }[filename.split(".")[1].to_sym]
+
+      Decidim::Attachment.create!(
+        title: Decidim::Faker::Localized.sentence(word_count: 2),
+        description: Decidim::Faker::Localized.sentence(word_count: 5),
+        attachment_collection:,
+        attached_to:,
+        content_type:,
+        file: create_image!(seeds_file: filename, filename:) # Keep after attached_to
+      )
+    end
+
     def create_image!(seeds_file:, filename:)
       ActiveStorage::Blob.create_and_upload!(
         io: File.open(File.join(seeds_root, seeds_file)),
