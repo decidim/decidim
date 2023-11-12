@@ -30,6 +30,14 @@ module Decidim
       )
     end
 
+    def create_attachment_collection(collection_for:)
+      Decidim::AttachmentCollection.create!(
+        name: Decidim::Faker::Localized.word,
+        description: Decidim::Faker::Localized.sentence(word_count: 5),
+        collection_for:
+      )
+    end
+
     def create_image!(seeds_file:, filename:)
       ActiveStorage::Blob.create_and_upload!(
         io: File.open(File.join(seeds_root, seeds_file)),

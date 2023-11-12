@@ -69,12 +69,7 @@ module Decidim
             )
           end
 
-          attachment_collection = Decidim::AttachmentCollection.create!(
-            name: Decidim::Faker::Localized.word,
-            description: Decidim::Faker::Localized.sentence(word_count: 5),
-            collection_for: conference
-          )
-
+          attachment_collection = create_attachment_collection(collection_for: conference)
           create_attachment(attached_to: conference, filename: "Exampledocument.pdf", attachment_collection:)
           create_attachment(attached_to: conference, filename: "city.jpeg")
           create_attachment(attached_to: conference, filename: "Exampledocument.pdf")

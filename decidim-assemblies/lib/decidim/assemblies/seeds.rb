@@ -129,12 +129,8 @@ module Decidim
 
           [assembly, child].each do |current_assembly|
             current_assembly.add_to_index_as_search_resource
-            attachment_collection = Decidim::AttachmentCollection.create!(
-              name: Decidim::Faker::Localized.word,
-              description: Decidim::Faker::Localized.sentence(word_count: 5),
-              collection_for: current_assembly
-            )
 
+            attachment_collection = create_attachment_collection(collection_for: current_assembly)
             create_attachment(attached_to: assembly, filename: "Exampledocument.pdf", attachment_collection:)
             create_attachment(attached_to: assembly, filename: "city.jpeg")
             create_attachment(attached_to: assembly, filename: "Exampledocument.pdf")

@@ -125,12 +125,7 @@ module Decidim
             Decidim::ContentBlocksCreator.new(process).create_default!
           end
 
-          attachment_collection = Decidim::AttachmentCollection.create!(
-            name: Decidim::Faker::Localized.word,
-            description: Decidim::Faker::Localized.sentence(word_count: 5),
-            collection_for: process
-          )
-
+          attachment_collection = create_attachment_collection(collection_for: process)
           create_attachment(attached_to: process, filename: "Exampledocument.pdf", attachment_collection:)
           create_attachment(attached_to: process, filename: "city.jpeg")
           create_attachment(attached_to: process, filename: "Exampledocument.pdf")

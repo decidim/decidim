@@ -55,12 +55,7 @@ module Decidim
               budget_amount: ::Faker::Number.between(from: Integer(budget.total_budget * 0.7), to: budget.total_budget)
             )
 
-            attachment_collection = Decidim::AttachmentCollection.create!(
-              name: Decidim::Faker::Localized.word,
-              description: Decidim::Faker::Localized.sentence(word_count: 5),
-              collection_for: project
-            )
-
+            attachment_collection = create_attachment_collection(collection_for: project)
             create_attachment(attached_to: project, filename: "Exampledocument.pdf", attachment_collection:)
             create_attachment(attached_to: project, filename: "city.jpeg")
             create_attachment(attached_to: project, filename: "Exampledocument.pdf")
