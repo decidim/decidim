@@ -21,7 +21,8 @@ module Decidim
     end
 
     def find(name)
-      # raise "Icon name can't be blank" if name.blank?
+      raise "Icon name can't be blank" if name.blank?
+
       @icons[name] || deprecated(name)
     end
 
@@ -30,7 +31,7 @@ module Decidim
     end
 
     def categories
-      @icons.sort_by { |k| k["category"] }
+      all.values.group_by { |d| d[:engine].try(:to_s) }
     end
 
     def deprecated(name)

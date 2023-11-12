@@ -6,13 +6,13 @@ module Decidim
       include Decidim::IconHelper
 
       def iconography_sections
-        DEFAULT_RESOURCE_TYPE_ICONS.values.group_by { |d| d[:category] }.map do |category, values|
+        Decidim.icons.categories.sort.map do |category, values|
           {
             id: category,
             contents: [
               {
                 type: :table,
-                options: { headings: %w(Icon Code Description) },
+                options: { headings: %w(Icon Code Resource Category Description) },
                 items: iconography_table(values)
               }
             ]
@@ -26,6 +26,8 @@ module Decidim
 
           row << icon(table_cell[:icon], class: "mx-auto w-4 h-4 text-gray fill-current flex-none")
           row << content_tag(:code, table_cell[:icon])
+          row << table_cell[:resource]
+          row << table_cell[:category]
           row << table_cell[:description]
 
           row

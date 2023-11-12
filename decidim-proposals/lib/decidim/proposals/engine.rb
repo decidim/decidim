@@ -44,7 +44,18 @@ module Decidim
       initializer "decidim_proposals.register_icons" do
         Decidim.icons.register(name: "scan-line", icon: "scan-line", resource: "proposals", category: "system", description: "", engine: :proposals)
         Decidim.icons.register(name: "check", icon: "check", resource: "core", category: "system", description: "", engine: :proposals)
+        Decidim.icons.register(name: "edit-2-line", icon: "edit-2-line", resource: "Decidim::Proposals::CollaborativeDraft",
+                               category: "actions", description: "Edit icon for Collaborative Drafts", engine: :proposals)
+        Decidim.icons.register(name: "git-branch-line", icon: "git-branch-line", resource: "Decidim::Amendment", category: "activity",
+                               description: "Amendment", engine: :proposals)
+
+        Decidim.icons.register(name: "bookmark-line", icon: "bookmark-line", resource: "core", category: "system", description: "", engine: :proposals)
+        Decidim.icons.register(name: "arrow-right-s-fill", icon: "arrow-right-s-fill", resource: "core", category: "system", description: "", engine: :proposals)
+        Decidim.icons.register(name: "proposals", icon: "proposals", resource: "core", category: "system", description: "", engine: :proposals)
+        Decidim.icons.register(name: "bar-chart-2-line", icon: "bar-chart-2-line", resource: "core", category: "system", description: "", engine: :proposals)
+        Decidim.icons.register(name: "scales-line", icon: "scales-line", resource: "core", category: "system", description: "", engine: :proposals)
       end
+
       initializer "decidim_proposals.content_processors" do |_app|
         Decidim.configure do |config|
           config.content_processors += [:proposal]

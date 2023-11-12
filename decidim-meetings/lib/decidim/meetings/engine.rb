@@ -44,6 +44,7 @@ module Decidim
           resources :meetings, only: [:show], controller: :calendars, action: :meeting_calendar
         end
       end
+
       initializer "decidim_meetings.register_icons" do
         resource = "meetings"
         Decidim.icons.register(name: "calendar-check-line", icon: "calendar-check-line", resource:, category: "system", description: "", engine: :meetings)
