@@ -107,12 +107,7 @@ module Decidim
                 link: ::Faker::Internet.url,
                 partner_type: type,
                 conference:,
-                logo: ActiveStorage::Blob.create_and_upload!(
-                  io: File.open(File.join(seeds_root, "logo.png")),
-                  filename: "logo.png",
-                  content_type: "image/png",
-                  metadata: nil
-                ) # Keep after conference
+                logo: create_image!(seeds_file: "logo.png", filename: "logo.png")
               )
             end
           end
