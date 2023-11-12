@@ -4,7 +4,6 @@ module Decidim
   module Initiatives
     class Seeds
       def call
-        seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
         organization = Decidim::Organization.first
 
         Decidim::ContentBlock.create(
@@ -13,13 +12,6 @@ module Decidim
           scope_name: :homepage,
           manifest_name: :highlighted_initiatives,
           published_at: Time.current
-        )
-
-        banner_image = ActiveStorage::Blob.create_and_upload!(
-          io: File.open(File.join(seeds_root, "city2.jpeg")),
-          filename: "banner_image.jpeg",
-          content_type: "image/jpeg",
-          metadata: nil
         )
 
         3.times do |n|
