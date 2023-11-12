@@ -39,7 +39,7 @@ module Decidim
       end
 
       initializer "decidim_assemblies.register_icons" do
-        Decidim.icons.register(name: "group-2-line", icon: "group-2-line", resource: "core", category: "system", description: "")
+        Decidim.icons.register(name: "group-2-line", icon: "group-2-line", resource: "core", category: "system", description: "", engine: :assemblies)
       end
 
       initializer "decidim_assemblies.add_cells_view_paths" do

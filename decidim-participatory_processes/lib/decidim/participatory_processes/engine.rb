@@ -45,10 +45,11 @@ module Decidim
       end
 
       initializer "decidim_participatory_processes.register_icons" do
-        Decidim.icons.register(name: "drag-move-2-line", icon: "drag-move-2-line", resource: "participatory_process", category: "system", description: "")
-        Decidim.icons.register(name: "archive-line", icon: "archive-line", resource: "core", category: "system", description: "")
-        Decidim.icons.register(name: "grid-line", icon: "grid-line", resource: "core", category: "system", description: "")
-        Decidim.icons.register(name: "globe-line", icon: "globe-line", resource: "core", category: "system", description: "")
+        Decidim.icons.register(name: "drag-move-2-line", icon: "drag-move-2-line", resource: "participatory_process", category: "system", description: "",
+                               engine: :participatory_process)
+        Decidim.icons.register(name: "archive-line", icon: "archive-line", resource: "core", category: "system", description: "", engine: :participatory_process)
+        Decidim.icons.register(name: "grid-line", icon: "grid-line", resource: "core", category: "system", description: "", engine: :participatory_process)
+        Decidim.icons.register(name: "globe-line", icon: "globe-line", resource: "core", category: "system", description: "", engine: :participatory_process)
       end
 
       initializer "decidim_participatory_processes.query_extensions" do

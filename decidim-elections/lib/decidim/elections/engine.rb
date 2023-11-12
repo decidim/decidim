@@ -29,8 +29,8 @@ module Decidim
       end
 
       initializer "decidim_elections.register_icons" do
-        Decidim.icons.register(name: "list-check", icon: "list-check", resource: "core", category: "system", description: "")
-        Decidim.icons.register(name: "safe-line", icon: "safe-line", resource: "core", category: "system", description: "")
+        Decidim.icons.register(name: "list-check", icon: "list-check", resource: "core", category: "system", description: "", engine: :elections)
+        Decidim.icons.register(name: "safe-line", icon: "safe-line", resource: "core", category: "system", description: "", engine: :elections)
       end
       initializer "decidim_elections.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Elections::Engine.root}/app/cells")

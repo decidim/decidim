@@ -6,10 +6,18 @@ module Decidim
       @icons = ActiveSupport::HashWithIndifferentAccess.new
     end
 
-    def register(name:, icon:, resource:, description:, category:)
+    # Registers a new icon.
+    #
+    # @param name [String] The name of the icon. It will be used to find the icon later.
+    # @param icon [String] The id of the icon. It will be used to load the icon from remixicon library.
+    # @param resource [String] The resource name. The resource name. It will be used to link the icon to a specific resource.
+    # @param category [String] The category name. It will be used to group the icons by category.
+    # @param description [String] The description of the icon. It will be used to show the purpose of the icon in DDG.
+    # @param engine [String] The engine name.It is used internally to identify the module where the icon is being used.
+    def register(name:, icon:, resource:, description:, category:, engine:) # rubocop:disable Metrics/ParameterLists
       ActiveSupport::Deprecation.warn("#{name} already registered. #{@icons[name].inspect}") if @icons[name]
 
-      @icons[name] = { name:, icon:, resource:, description:, category: }
+      @icons[name] = { name:, icon:, resource:, description:, category:, engine: }
     end
 
     def find(name)

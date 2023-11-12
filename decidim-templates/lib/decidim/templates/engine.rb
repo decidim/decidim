@@ -16,8 +16,8 @@ module Decidim
       end
 
       initializer "decidim_templates.register_icons" do
-        Decidim.icons.register(name: "clipboard-line", icon: "clipboard-line", resource: "core", category: "system", description: "")
-        Decidim.icons.register(name: "user-forbid-line", icon: "user-forbid-line", resource: "core", category: "system", description: "")
+        Decidim.icons.register(name: "clipboard-line", icon: "clipboard-line", resource: "core", category: "system", description: "", engine: :templates)
+        Decidim.icons.register(name: "user-forbid-line", icon: "user-forbid-line", resource: "core", category: "system", description: "", engine: :templates)
       end
 
       initializer "decidim_templates.webpacker.assets_path" do

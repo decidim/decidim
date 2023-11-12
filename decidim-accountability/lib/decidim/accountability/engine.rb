@@ -18,8 +18,8 @@ module Decidim
       end
 
       initializer "decidim_accountability.register_icons" do
-        Decidim.icons.register(name: "focus-2-line", icon: "focus-2-line", resource: "accountability", category: "system", description: "")
-        Decidim.icons.register(name: "briefcase-2-line", icon: "briefcase-2-line", resource: "core", category: "system", description: "")
+        Decidim.icons.register(name: "focus-2-line", icon: "focus-2-line", resource: "core", category: "system", description: "", engine: :accountability)
+        Decidim.icons.register(name: "briefcase-2-line", icon: "briefcase-2-line", resource: "core", category: "system", description: "", engine: :accountability)
       end
 
       initializer "decidim_accountability.view_hooks" do

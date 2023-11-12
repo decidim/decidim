@@ -50,10 +50,10 @@ module Decidim
       end
 
       initializer "decidim_conferences.register_icons" do
-        # Decidim.icons.register(name: "film-line", icon: "film-line", resource: "conferences", category: "system", description: "")
-        # Decidim.icons.register(name: "ticket-line", icon: "ticket-line", resource: "conferences", category: "system", description: "")
-        # Decidim.icons.register(name: "user-follow-line", icon: "user-follow-line", resource: "conferences", category: "system", description: "")
-        # Decidim.icons.register(name: "link-m", icon: "link-m", resource: "core", category: "system", description: "")
+        Decidim.icons.register(name: "film-line", icon: "film-line", resource: "conferences", category: "system", description: "", engine: :conferences)
+        Decidim.icons.register(name: "ticket-line", icon: "ticket-line", resource: "conferences", category: "system", description: "", engine: :conferences)
+        Decidim.icons.register(name: "user-follow-line", icon: "user-follow-line", resource: "conferences", category: "system", description: "", engine: :conferences)
+        Decidim.icons.register(name: "link-m", icon: "link-m", resource: "core", category: "system", description: "", engine: :conferences)
       end
 
       initializer "decidim_conferences.add_cells_view_paths" do
