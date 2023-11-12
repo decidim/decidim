@@ -489,6 +489,27 @@ describe "Homepage" do
           end
         end
       end
+
+      describe "footer message" do
+        context "when the organization does not have a description" do
+          let(:organization) { create(:organization, description: { en: nil }) }
+
+          it "shows the default message" do
+            within "footer" do
+              expect(page).to have_text("Let's build a more open, transparent and collaborative society.")
+            end
+          end
+        end
+
+        context "when the organization has a description" do
+          it "shows the organization description" do
+            within "footer" do
+              expect(page).not_to have_text("Let's build a more open, transparent and collaborative society.")
+              expect(page).to have_text(strip_tags(translated(organization.description)))
+            end
+          end
+        end
+      end
     end
   end
 end
