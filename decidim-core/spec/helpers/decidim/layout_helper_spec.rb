@@ -130,6 +130,14 @@ module Decidim
         end
       end
 
+      context "when the organization have a description with an empty paragraph" do
+        let(:organization) { create(:organization, description: { en: "<p></p>" }) }
+
+        it "shows the default message" do
+          expect(subject).to eq("Let's build a more open, transparent and collaborative society.<br /> Join, participate and decide.")
+        end
+      end
+
       context "when the organization has a description" do
         let(:organization) { create(:organization) }
 
