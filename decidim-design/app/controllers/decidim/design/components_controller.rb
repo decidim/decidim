@@ -10,6 +10,7 @@ module Decidim
       helper CardsHelper
       helper ShareHelper
       helper AnnouncementHelper
+      helper ActivitiesHelper
       helper TabPanelsHelper
     end
   end

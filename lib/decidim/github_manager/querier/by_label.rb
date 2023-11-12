@@ -78,6 +78,9 @@ module Decidim
         end
 
         def merged?(item)
+          return false if item["pull_request"].nil?
+          return false if item["pull_request"]["merged_at"].nil?
+
           merged_at(item).present?
         rescue TypeError, Date::Error
           false

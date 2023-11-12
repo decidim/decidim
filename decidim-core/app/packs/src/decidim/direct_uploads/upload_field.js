@@ -1,5 +1,6 @@
 import UploadModal from "src/decidim/direct_uploads/upload_modal";
 import { truncateFilename } from "src/decidim/direct_uploads/upload_utility";
+import { escapeHtml, escapeQuotes } from "src/decidim/utilities/text";
 
 const updateModalTitle = (modal) => {
   if (modal.uploadItems.children.length === 0) {
@@ -54,7 +55,7 @@ const updateActiveUploads = (modal) => {
       const titleValue = modal.modal.querySelectorAll('input[type="text"]')[ix].value
       // NOTE - Renaming the attachment is not supported when multiple uploader is disabled
       const titleField = `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][title]`
-      hidden += `<input type="hidden" name="${titleField}" value="${titleValue}" />`
+      hidden += `<input type="hidden" name="${titleField}" value="${escapeQuotes(titleValue)}" />`
 
       title = titleValue
     }
@@ -64,9 +65,9 @@ const updateActiveUploads = (modal) => {
       : `data-hidden-field="${file.hiddenField}"`
 
     const template = `
-      <div ${attachmentIdOrHiddenField} data-filename="${file.name}" data-title="${title}">
-        ${(/image/).test(file.type) && `<div><img src="" alt="${file.name}" /></div>` || ""}
-        <span>${title} (${truncateFilename(file.name)})</span>
+      <div ${attachmentIdOrHiddenField} data-filename="${escapeQuotes(file.name)}" data-title="${escapeQuotes(title)}">
+        ${(/image/).test(file.type) && `<div><img src="" alt="${escapeQuotes(file.name)}" /></div>` || ""}
+        <span>${escapeHtml(title)} (${escapeHtml(truncateFilename(file.name))})</span>
         ${hidden}
       </div>
     `
