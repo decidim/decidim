@@ -1,18 +1,16 @@
 # frozen_string_literal: true
 
 require "faker"
+require "decidim/seeds"
+require "decidim/faker/localized"
+require "decidim/faker/internet"
 
 module Decidim
   module Core
-    class Seeds
+    class Seeds < Decidim::Seeds
       # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Rails/Output
       def call
         print "Creating seeds for decidim-core...\n" unless Rails.env.test?
-
-        require "decidim/faker/localized"
-        require "decidim/faker/internet"
-
-        seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
 
         # Since we usually migrate and seed in the same process, make sure
         # that we do not have invalid or cached information after a migration.
@@ -236,19 +234,14 @@ module Decidim
         Decidim::System::CreateDefaultContentBlocks.call(organization)
 
         hero_content_block = Decidim::ContentBlock.find_by(organization:, manifest_name: :hero, scope_name: :homepage)
-        hero_content_block.images_container.background_image = ActiveStorage::Blob.create_and_upload!(
-          io: File.open(File.join(seeds_root, "homepage_image.jpg")),
-          filename: "homepage_image.jpg",
-          content_type: "image/jpeg",
-          metadata: nil
-        )
+        hero_content_block.images_container.background_image = create_image!(seeds_file: "homepage_image.jpg", filename: "homepage_image.jpg")
         settings = {}
         welcome_text = Decidim::Faker::Localized.sentence(word_count: 5)
         settings = welcome_text.inject(settings) { |acc, (k, v)| acc.update("welcome_text_#{k}" => v) }
         hero_content_block.settings = settings
         hero_content_block.save!
       end
+      # rubocop:enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Rails/Output
     end
-    # rubocop:enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Rails/Output
   end
 end
