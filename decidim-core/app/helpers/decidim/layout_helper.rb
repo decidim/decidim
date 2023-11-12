@@ -159,6 +159,14 @@ module Decidim
       end
     end
 
+    def organization_description_label
+      @organization_description_label ||= if translated_attribute(current_organization.description).blank?
+                                            t("decidim.pages.home.footer_sub_hero.footer_sub_hero_body")
+                                          else
+                                            decidim_sanitize_admin(translated_attribute(current_organization.description))
+                                          end
+    end
+
     private
 
     def tag_builder
