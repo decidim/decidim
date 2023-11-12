@@ -44,9 +44,13 @@ module Decidim
           resources :meetings, only: [:show], controller: :calendars, action: :meeting_calendar
         end
       end
-      initializer "decidim_accountability.register_icons" do
+      initializer "decidim_meetings.register_icons" do
         Decidim.icons.register(name: "calendar-check-line", icon: "calendar-check-line", resource: "core", category: "system", description: "")
         Decidim.icons.register(name: "community-line", icon: "community-line", resource: "core", category: "system", description: "")
+        Decidim.icons.register(name: "webcam-line", icon: "webcam-line", resource: "core", category: "system", description: "")
+        Decidim.icons.register(name: "login-circle-line", icon: "login-circle-line", resource: "core", category: "system", description: "")
+        Decidim.icons.register(name: "download-cloud-2-line", icon: "download-cloud-2-line", resource: "core", category: "system", description: "")
+        Decidim.icons.register(name: "share-forward-2-line", icon: "share-forward-2-line", resource: "core", category: "system", description: "")
       end
 
       initializer "decidim_meetings.content_processors" do |_app|

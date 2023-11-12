@@ -21,6 +21,10 @@ module Decidim
         get "/", to: redirect("posts", status: 301)
       end
 
+      initializer "decidim_blogs.register_icons" do
+        Decidim.icons.register(name: "dislike-line", icon: "dislike-line", resource: "core", category: "system", description: "")
+        Decidim.icons.register(name: "list-check", icon: "list-check", resource: "core", category: "system", description: "")
+      end
       initializer "decidim_blogs.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Blogs::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Blogs::Engine.root}/app/views") # for partials

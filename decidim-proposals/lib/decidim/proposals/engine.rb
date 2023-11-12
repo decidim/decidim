@@ -40,8 +40,10 @@ module Decidim
         end
         get "/", to: redirect("proposals", status: 301)
       end
+
       initializer "decidim_proposals.register_icons" do
         Decidim.icons.register(name: "scan-line", icon: "scan-line", resource: "proposals", category: "system", description: "")
+        Decidim.icons.register(name: "check", icon: "check", resource: "core", category: "system", description: "")
       end
       initializer "decidim_proposals.content_processors" do |_app|
         Decidim.configure do |config|

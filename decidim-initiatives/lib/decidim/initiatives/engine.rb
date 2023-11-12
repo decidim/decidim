@@ -84,6 +84,13 @@ module Decidim
         end
       end
 
+      initializer "decidim_initiatives.register_icons" do
+        Decidim.icons.register(name: "apps-line", icon: "apps-line", resource: "core", category: "system", description: "")
+        Decidim.icons.register(name: "add-fill", icon: "add-fill", resource: "core", category: "system", description: "")
+        Decidim.icons.register(name: "printer-line", icon: "printer-line", resource: "core", category: "system", description: "")
+        Decidim.icons.register(name: "forbid-line", icon: "forbid-line", resource: "core", category: "system", description: "")
+      end
+
       initializer "decidim_initiatives.content_blocks" do
         Decidim.content_blocks.register(:homepage, :highlighted_initiatives) do |content_block|
           content_block.cell = "decidim/initiatives/content_blocks/highlighted_initiatives"

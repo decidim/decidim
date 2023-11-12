@@ -166,15 +166,25 @@ module Decidim
         Decidim.icons.register(name: "mic-line", icon: "mic-line", resource: "core", category: "system", description: "")
         Decidim.icons.register(name: "coin-line", icon: "coin-line", resource: "core", category: "system", description: "")
         Decidim.icons.register(name: "external-link-line", icon: "external-link-line", resource: "core", category: "system", description: "")
+        Decidim.icons.register(name: "arrow-down-s-fill", icon: "arrow-down-s-fill", resource: "core", category: "system", description: "")
+        Decidim.icons.register(name: "arrow-up-s-fill", icon: "arrow-up-s-fill", resource: "core", category: "system", description: "")
+
+        # initiatives + wizard
+        Decidim.icons.register(name: "chevron-left", icon: "chevron-left", resource: "core", category: "system", description: "")
+
+        # cardCell + Conference
+        Decidim.icons.register(name: "user-voice-line", icon: "user-voice-line", resource: "core", category: "system", description: "")
 
         # Attachments
         Decidim.icons.register(name: "file-text-line", icon: "file-text-line", resource: "core", category: "system", description: "")
         Decidim.icons.register(name: "scales-2-line", icon: "scales-2-line", resource: "core", category: "system", description: "")
         Decidim.icons.register(name: "image-line", icon: "image-line", resource: "core", category: "system", description: "")
         Decidim.icons.register(name: "error-warning-line", icon: "error-warning-line", resource: "core", category: "system", description: "")
+        Decidim.icons.register(name: "folder-open-line", icon: "folder-open-line", resource: "core", category: "system", description: "")
 
         # participatory_space
         Decidim.icons.register(name: "calendar-todo-line", icon: "calendar-todo-line", resource: "participatory_space", category: "system", description: "")
+        Decidim.icons.register(name: "home-8-line", icon: "home-8-line", resource: "core", category: "system", description: "")
       end
 
       initializer "decidim_core.patch_webpacker", before: "shakapacker.version_checker" do

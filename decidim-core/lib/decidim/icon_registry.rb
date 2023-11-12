@@ -7,12 +7,13 @@ module Decidim
     end
 
     def register(name:, icon:, resource:, description:, category:)
-      raise "#{name} already registered" if @icons[name]
+      ActiveSupport::Deprecation.warn("#{name} already registered. #{@icons[name].inspect}") if @icons[name]
 
       @icons[name] = { name:, icon:, resource:, description:, category: }
     end
 
     def find(name)
+      # raise "Icon name can't be blank" if name.blank?
       @icons[name] || deprecated(name)
     end
 
