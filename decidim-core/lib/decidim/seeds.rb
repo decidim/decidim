@@ -9,9 +9,9 @@ module Decidim
 
     def seeds_root = File.join(__dir__, "..", "..", "db", "seeds")
 
-    def hero_image = create_image!(seeds_file: "city.jpeg", filename: "hero_image.jpeg")
+    def hero_image = create_blob!(seeds_file: "city.jpeg", filename: "hero_image.jpeg", content_type: "image/jpeg")
 
-    def banner_image = create_image!(seeds_file: "city2.jpeg", filename: "banner_image.jpeg")
+    def banner_image = create_blob!(seeds_file: "city2.jpeg", filename: "banner_image.jpeg", content_type: "image/jpeg")
 
     def create_attachment(attached_to:, filename:, attachment_collection: nil)
       content_type = {
@@ -26,7 +26,7 @@ module Decidim
         attachment_collection:,
         attached_to:,
         content_type:,
-        file: create_image!(seeds_file: filename, filename:) # Keep after attached_to
+        file: create_blob!(seeds_file: filename, filename:, content_type: ) # Keep after attached_to
       )
     end
 
@@ -38,11 +38,11 @@ module Decidim
       )
     end
 
-    def create_image!(seeds_file:, filename:)
+    def create_blob!(seeds_file:, filename:, content_type: )
       ActiveStorage::Blob.create_and_upload!(
         io: File.open(File.join(seeds_root, seeds_file)),
         filename:,
-        content_type: "image/jpeg",
+        content_type:,
         metadata: nil
       )
     end

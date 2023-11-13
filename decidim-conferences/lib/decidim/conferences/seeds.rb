@@ -106,7 +106,7 @@ module Decidim
                 link: ::Faker::Internet.url,
                 partner_type: type,
                 conference:,
-                logo: create_image!(seeds_file: "logo.png", filename: "logo.png")
+                logo: create_blob!(seeds_file: "logo.png", filename: "logo.png", content_type: "image/png")
               )
             end
           end
