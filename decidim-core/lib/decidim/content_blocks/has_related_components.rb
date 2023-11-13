@@ -33,6 +33,8 @@ module Decidim
           end
         end
 
+        private
+
         def base_model_name(scope_name)
           scope_manifest = detect_manifest(Decidim.participatory_space_manifests, scope_name) || detect_manifest(Decidim.resource_manifests, scope_name)
           return scope_manifest.model_class_name if scope_manifest.present?
