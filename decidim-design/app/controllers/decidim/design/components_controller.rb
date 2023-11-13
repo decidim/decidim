@@ -10,9 +10,12 @@ module Decidim
       helper CardsHelper
       helper ShareHelper
       helper AnnouncementHelper
+      helper AuthorHelper
       helper ActivitiesHelper
       helper TabPanelsHelper
       helper ReportHelper
+      helper AddressHelper
+      helper FollowHelper
     end
   end
 end
