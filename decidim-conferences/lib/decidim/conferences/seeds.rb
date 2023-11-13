@@ -7,7 +7,6 @@ module Decidim
     class Seeds < Decidim::Seeds
       def call
         organization = Decidim::Organization.first
-        seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
 
         Decidim::ContentBlock.create(
           organization:,

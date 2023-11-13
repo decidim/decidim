@@ -8,7 +8,6 @@ module Decidim
       # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
       def call
         organization = Decidim::Organization.first
-        seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
 
         Decidim::ContentBlock.create(
           organization:,
