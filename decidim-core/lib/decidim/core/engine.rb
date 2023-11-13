@@ -161,6 +161,9 @@ module Decidim
         Decidim.icons.register(name: "external-link-line", icon: "external-link-line", resource: "core", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "arrow-down-s-fill", icon: "arrow-down-s-fill", resource: "core", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "arrow-up-s-fill", icon: "arrow-up-s-fill", resource: "core", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "treasure-map-line", icon: "treasure-map-line", resource: "core", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "chat-new-line", icon: "chat-new-line", resource: "core", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "draft-line", icon: "draft-line", resource: "core", category: "system", description: "", engine: :core)
 
         # cardCell + Conference
         Decidim.icons.register(name: "user-voice-line", icon: "user-voice-line", resource: "core", category: "system", description: "", engine: :core)
