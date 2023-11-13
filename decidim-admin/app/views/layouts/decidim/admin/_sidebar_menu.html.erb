@@ -2,7 +2,14 @@
 <div class="sidebar-menu__container">
   <div class="sidebar-menu">
     <div id="admin-sidebar-menu-settings">
-      <%= sidebar_menu(secondary_root_menu).render %>
+      <button id="dropdown-trigger-sidebar" data-component="dropdown" data-target="dropdown-menu-sidebar">
+        Trigger
+      </button>
+
+      <ul id="dropdown-menu-sidebar">
+        <%= sidebar_menu(secondary_root_menu).render %>
+      </ul>
+
     </div>
   </div>
 
