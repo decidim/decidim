@@ -103,15 +103,15 @@ module Decidim
     # Returns an HTML tag with the icon.
     def resource_icon(resource, options = {})
       if resource.instance_of?(Decidim::Comments::Comment)
-        icon "comment-square", options
+        icon "chat-1-line", options
       elsif resource.respond_to?(:component) && resource.component.present?
         component_icon(resource.component, options)
       elsif resource.respond_to?(:manifest) && resource.manifest.present?
         manifest_icon(resource.manifest, options)
       elsif resource.is_a?(Decidim::User)
-        icon "person", options
+        icon "user-line", options
       else
-        icon "bell", options
+        icon "notification-3-line", options
       end
     end
 

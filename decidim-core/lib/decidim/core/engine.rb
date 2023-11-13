@@ -82,6 +82,8 @@ module Decidim
         Decidim.icons.register(name: "menu-line", icon: "menu-line", resource: "core", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "home-2-line", icon: "home-2-line", resource: "core", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "twitter-x-line", icon: "twitter-x-line", resource: "core", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "twitter-x-fill", icon: "twitter-x-fill", resource: "core", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "google-fill", icon: "google-fill", resource: "core", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "facebook-fill", icon: "facebook-fill", resource: "core", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "instagram-line", icon: "instagram-line", resource: "core", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "youtube-line", icon: "youtube-line", resource: "core", category: "system", description: "", engine: :core)

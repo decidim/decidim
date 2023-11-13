@@ -34,7 +34,7 @@ describe Decidim::NavbarAdminLinkCell, type: :cell do
     let(:link_options) do
       {
         name: "Answer",
-        icon: "comment-square"
+        icon: "chat-1-line"
       }
     end
 
@@ -47,7 +47,7 @@ describe Decidim::NavbarAdminLinkCell, type: :cell do
     end
 
     it "renders the custom icon: comment" do
-      expect(subject).to have_css("svg [href*='#ri-comment-square']")
+      expect(subject).to have_css("svg [href*='#ri-chat-1-line']")
     end
   end
 end
