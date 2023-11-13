@@ -21,7 +21,7 @@ module Decidim
     end
 
     def find(name)
-      raise "Icon name can't be blank" if name.blank?
+      raise "Icon name cannot be blank" if name.blank?
 
       @icons[name] || deprecated(name)
     end
