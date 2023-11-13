@@ -75,10 +75,14 @@
   }
 
   &__pill {
-    @apply bg-gray-5 text-secondary mx-0 rounded-l rounded-r-none;
+    @apply bg-gray-5 text-secondary mx-0 rounded;
   }
 
-  &__pill:last-child {
+  &__pill:not(:last-child) {
+    @apply rounded-r-none;
+  }
+
+  &__pill + &__pill {
     @apply rounded-r rounded-l-none;
   }
 

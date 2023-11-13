@@ -11,6 +11,7 @@ module Decidim
       helper ShareHelper
       helper AnnouncementHelper
       helper AuthorHelper
+      helper ActivitiesHelper
       helper TabPanelsHelper
     end
   end
