@@ -30,9 +30,11 @@ module Decidim
       @icons
     end
 
-    def categories
-      all.values.group_by { |d| d[:engine].try(:to_s) }
+    def categories(field = :category)
+      all.values.group_by { |d| d[field].try(:to_s) }
     end
+
+    private
 
     def deprecated(name)
       message = %{Icon #{name} not found. Register it with \n

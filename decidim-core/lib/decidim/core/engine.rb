@@ -62,7 +62,7 @@ module Decidim
                                description: "Upload cloud 2 line used in attachments form", engine: :core)
         Decidim.icons.register(name: "arrow-right-line", icon: "arrow-right-line", resource: "core", category: "system",
                                description: "Arrow right line icon used in attachments form", engine: :core)
-
+        Decidim.icons.register(name: "arrow-left-s-fill", icon: "arrow-left-s-fill", resource: "core", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "flag-line", icon: "flag-line", resource: "core", category: "system", description: "Flag line icon", engine: :core)
         Decidim.icons.register(name: "check-line", icon: "check-line", resource: "core", category: "system", description: "Check icon", engine: :core)
         Decidim.icons.register(name: "question-line", icon: "question-line", resource: "core", category: "system", description: "Question icon", engine: :core)
