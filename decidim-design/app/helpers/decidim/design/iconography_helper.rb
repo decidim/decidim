@@ -13,7 +13,7 @@ module Decidim
               {
                 type: :table,
                 options: { headings: %w(Icon Code Resource Category Description) },
-                items: iconography_table(values)
+                items: iconography_table(values.sort_by { |v| v[:icon] })
               }
             ]
           }
