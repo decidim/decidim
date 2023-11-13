@@ -123,10 +123,6 @@ en:
         create:
           error: There was a problem duplicating this assembly.
           success: Assembly successfully duplicated.
-      assemblies_settings:
-        update:
-          error: There was a problem updating settings.
-          success: Settings updated successfully.
       assemblies_types:
         create:
           error: There was a problem creating a new assembly type.
@@ -205,7 +201,6 @@ en:
           full_name_or_user_name_or_user_nickname_cont: Search by name or nickname
       menu:
         assemblies: Assemblies
-        assemblies_settings: Settings
         assemblies_submenu:
           assembly_admins: Assembly admins
           assembly_members: Members
@@ -305,11 +300,6 @@ en:
             social_handlers: Social
             title: General Information
             visbility: Visibility
-        assemblies_settings:
-          edit:
-            update: Update
-          form:
-            title: Settings for assemblies
         assemblies_types:
           form:
             title: Edit assembly type
