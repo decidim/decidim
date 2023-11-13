@@ -37,6 +37,7 @@ module Decidim
         Decidim.icons.register(name: "book-2-line", icon: "book-2-line", resource: "core", category: "system", description: "", engine: :elections)
         Decidim.icons.register(name: "shut-down-line", icon: "shut-down-line", resource: "core", category: "system", description: "", engine: :elections)
         Decidim.icons.register(name: "article-line", icon: "article-line", resource: "core", category: "system", description: "", engine: :elections)
+        Decidim.icons.register(name: "bar-chart-box-line", icon: "bar-chart-box-line", resource: "core", category: "system", description: "", engine: :elections)
       end
 
       initializer "decidim_elections.add_cells_view_paths" do

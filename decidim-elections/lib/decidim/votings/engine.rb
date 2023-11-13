@@ -41,7 +41,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_elections.register_icons" do
+      initializer "decidim_votings.register_icons" do
         Decidim.icons.register(name: "lock-unlock-line", icon: "lock-unlock-line", resource: "core", category: "system", description: "", engine: :votings)
       end
 
