@@ -5,8 +5,13 @@
       <div class="hidden md:block">
         <%= sidebar_menu(secondary_root_menu).render %>
       </div>
-        <button class="button button__sm button__secondary w-16 mb-3" data-component="dropdown" data-target="dropdown-menu-sidebar">
-          <%= t("menu", scope: "decidim.admin.titles") %>
+        <button data-component="dropdown" data-target="dropdown-menu-sidebar" data-auto-close="true" data-disabled-md="true" data-scroll-to-menu="true">
+          <span><%= t("menu", scope: "decidim.admin.titles") %></span>
+
+          <%= icon "arrow-down-s-line" %>
+
+          <%= icon "arrow-up-s-line" %>
+
         </button>
 
         <ul id="dropdown-menu-sidebar">
