@@ -29,7 +29,6 @@ module Decidim
       initializer "decidim_budgets.register_icons" do
         Decidim.icons.register(name: "git-pull-request-line", icon: "git-pull-request-line", resource: "core", category: "system", description: "", engine: :budgets)
         Decidim.icons.register(name: "list-check", icon: "list-check", resource: "core", category: "system", description: "", engine: :budgets)
-        Decidim.icons.register(name: "check", icon: "check", resource: "core", category: "system", description: "", engine: :budgets)
       end
 
       initializer "decidim_budgets.add_cells_view_paths" do

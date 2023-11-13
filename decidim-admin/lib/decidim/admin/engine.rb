@@ -24,7 +24,6 @@ module Decidim
       end
 
       initializer "decidim_admin.register_icons" do |_app|
-        Decidim.icons.register(name: "envelope-closed", icon: "envelope-closed", resource: "admin", category: "system", description: "", engine: :admin)
         Decidim.icons.register(name: "layout-masonry-line", icon: "layout-masonry-line", resource: "admin", category: "system", description: "", engine: :admin)
         Decidim.icons.register(name: "service-line", icon: "service-line", resource: "admin", category: "system", description: "", engine: :admin)
         Decidim.icons.register(name: "fullscreen-line", icon: "fullscreen-line", resource: "admin", category: "system", description: "", engine: :admin)
@@ -35,7 +34,6 @@ module Decidim
         Decidim.icons.register(name: "key-2-line", icon: "key-2-line", resource: "admin", category: "system", description: "", engine: :admin)
         Decidim.icons.register(name: "arrow-go-back-line", icon: "arrow-go-back-line", resource: "admin", category: "system", description: "", engine: :admin)
         Decidim.icons.register(name: "computer-line", icon: "computer-line", resource: "admin", category: "system", description: "", engine: :admin)
-        Decidim.icons.register(name: "menu", icon: "menu", resource: "admin", category: "system", description: "", engine: :admin)
         Decidim.icons.register(name: "arrow-right-s-line", icon: "arrow-right-s-line", resource: "admin", category: "system", description: "", engine: :admin)
         Decidim.icons.register(name: "arrow-up-line", icon: "arrow-up-line", resource: "core", category: "system", description: "", engine: :admin)
         Decidim.icons.register(name: "arrow-down-line", icon: "arrow-down-line", resource: "core", category: "system", description: "", engine: :admin)

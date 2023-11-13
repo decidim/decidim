@@ -56,11 +56,12 @@ module Decidim
       engine_name "decidim"
 
       initializer "decidim_core.register_icons" do
+        Decidim.icons.register(name: "phone-line", icon: "phone-line", resource: "core", category: "system", description: "", engine: :core)
+
         Decidim.icons.register(name: "upload-cloud-2-line", icon: "upload-cloud-2-line", resource: "core", category: "system",
                                description: "Upload cloud 2 line used in attachments form", engine: :core)
         Decidim.icons.register(name: "arrow-right-line", icon: "arrow-right-line", resource: "core", category: "system",
                                description: "Arrow right line icon used in attachments form", engine: :core)
-        Decidim.icons.register(name: "facebook", icon: "facebook", resource: "core", description: "Facebook Logo", category: "system", engine: :core)
 
         Decidim.icons.register(name: "flag-line", icon: "flag-line", resource: "core", category: "system", description: "Flag line icon", engine: :core)
         Decidim.icons.register(name: "check-line", icon: "check-line", resource: "core", category: "system", description: "Check icon", engine: :core)
@@ -100,8 +101,6 @@ module Decidim
         Decidim.icons.register(name: "arrow-drop-down-line", icon: "arrow-drop-down-line", resource: "core", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "login-box-line", icon: "login-box-line", resource: "core", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "direction-line", icon: "direction-line", resource: "core", category: "system", description: "", engine: :core)
-        Decidim.icons.register(name: "x", icon: "x", resource: "core", category: "system", description: "", engine: :core)
-        Decidim.icons.register(name: "google", icon: "google", resource: "core", category: "system", description: "", engine: :core)
 
         Decidim.icons.register(name: "newspaper-line", icon: "newspaper-line", resource: "core", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "alert-line", icon: "alert-line", resource: "core", category: "system", description: "", engine: :core)
@@ -155,22 +154,15 @@ module Decidim
         Decidim.icons.register(name: "wechat-line", icon: "wechat-line", resource: "core", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "time-line", icon: "time-line", resource: "core", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "calendar-line", icon: "calendar-line", resource: "core", category: "system", description: "", engine: :core)
-        Decidim.icons.register(name: "arrow-thin-right", icon: "arrow-thin-right", resource: "core", category: "system", description: "", engine: :core)
-        Decidim.icons.register(name: "comment-square", icon: "comment-square", resource: "core", category: "system", description: "", engine: :core)
-        Decidim.icons.register(name: "bell", icon: "bell", resource: "core", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "question-mark", icon: "question-mark", resource: "core", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "arrow-left-s-line", icon: "arrow-left-s-line", resource: "core", category: "system", description: "", engine: :core)
 
-        Decidim.icons.register(name: "person", icon: "person", resource: "core", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "user-line", icon: "user-line", resource: "core", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "mic-line", icon: "mic-line", resource: "core", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "coin-line", icon: "coin-line", resource: "core", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "external-link-line", icon: "external-link-line", resource: "core", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "arrow-down-s-fill", icon: "arrow-down-s-fill", resource: "core", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "arrow-up-s-fill", icon: "arrow-up-s-fill", resource: "core", category: "system", description: "", engine: :core)
-
-        # initiatives + wizard
-        Decidim.icons.register(name: "chevron-left", icon: "chevron-left", resource: "core", category: "system", description: "", engine: :core)
 
         # cardCell + Conference
         Decidim.icons.register(name: "user-voice-line", icon: "user-voice-line", resource: "core", category: "system", description: "", engine: :core)

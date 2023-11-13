@@ -51,7 +51,6 @@ module Decidim
 
         Decidim.icons.register(name: "bookmark-line", icon: "bookmark-line", resource: "core", category: "system", description: "", engine: :proposals)
         Decidim.icons.register(name: "arrow-right-s-fill", icon: "arrow-right-s-fill", resource: "core", category: "system", description: "", engine: :proposals)
-        Decidim.icons.register(name: "proposals", icon: "proposals", resource: "core", category: "system", description: "", engine: :proposals)
         Decidim.icons.register(name: "bar-chart-2-line", icon: "bar-chart-2-line", resource: "core", category: "system", description: "", engine: :proposals)
         Decidim.icons.register(name: "scales-line", icon: "scales-line", resource: "core", category: "system", description: "", engine: :proposals)
       end

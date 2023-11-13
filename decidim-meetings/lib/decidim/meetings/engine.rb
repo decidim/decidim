@@ -55,7 +55,6 @@ module Decidim
         Decidim.icons.register(name: "share-forward-2-line", icon: "share-forward-2-line", resource:, category: "system", description: "", engine: :meetings)
         Decidim.icons.register(name: "home-wifi-line", icon: "home-wifi-line", resource:, category: "system", description: "", engine: :meetings)
         Decidim.icons.register(name: "drag-move-2-fill", icon: "drag-move-2-fill", resource:, category: "system", description: "", engine: :meetings)
-        Decidim.icons.register(name: "arrow-right", icon: "arrow-right", resource:, category: "system", description: "", engine: :meetings)
         Decidim.icons.register(name: "coupon-line", icon: "coupon-line", resource:, category: "system", description: "", engine: :meetings)
         Decidim.icons.register(name: "door-open-line", icon: "door-open-line", resource:, category: "system", description: "", engine: :meetings)
         Decidim.icons.register(name: "broadcast-line", icon: "broadcast-line", resource:, category: "system", description: "", engine: :meetings)
