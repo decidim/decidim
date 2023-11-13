@@ -22,7 +22,7 @@ module Decidim
       end
 
       initializer "decidim_blogs.register_icons" do
-        Decidim.icons.register(name: "dislike-line", icon: "dislike-line", resource: "core", category: "system", description: "", engine: :blogs)
+        Decidim.icons.register(name: "Decidim::Blogs::Post", icon: "pen-nib-line", description: "Blogs post", category: "activity", resource: "core", engine: :core)
         Decidim.icons.register(name: "list-check", icon: "list-check", resource: "core", category: "system", description: "", engine: :blogs)
       end
 

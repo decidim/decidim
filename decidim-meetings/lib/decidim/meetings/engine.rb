@@ -47,6 +47,11 @@ module Decidim
 
       initializer "decidim_meetings.register_icons" do
         resource = "meetings"
+        Decidim.icons.register(name: "Decidim::Meetings::Meeting", icon: "map-pin-line", description: "Meeting", category: "activity", resource: "core", engine: :meetings)
+        Decidim.icons.register(name: "in_person", icon: "community-line", description: "In person", category: "meetings", resource: "core", engine: :meetings)
+        Decidim.icons.register(name: "online", icon: "webcam-line", description: "Online", category: "meetings", resource: "core", engine: :meetings)
+        Decidim.icons.register(name: "hybrid", icon: "home-wifi-line", description: "Hybrid", category: "meetings", resource: "core", engine: :meetings)
+
         Decidim.icons.register(name: "calendar-check-line", icon: "calendar-check-line", resource:, category: "system", description: "", engine: :meetings)
         Decidim.icons.register(name: "community-line", icon: "community-line", resource:, category: "system", description: "", engine: :meetings)
         Decidim.icons.register(name: "webcam-line", icon: "webcam-line", resource:, category: "system", description: "", engine: :meetings)

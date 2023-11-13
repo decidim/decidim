@@ -29,6 +29,7 @@ module Decidim
       end
 
       initializer "decidim_elections.register_icons" do
+        Decidim.icons.register(name: "Decidim::Elections::Election", icon: "chat-poll-line", description: "Election", category: "activity", resource: "core", engine: :elections)
         Decidim.icons.register(name: "list-check", icon: "list-check", resource: "core", category: "system", description: "", engine: :elections)
         Decidim.icons.register(name: "safe-line", icon: "safe-line", resource: "core", category: "system", description: "", engine: :elections)
         Decidim.icons.register(name: "guide-line", icon: "guide-line", resource: "core", category: "system", description: "", engine: :elections)

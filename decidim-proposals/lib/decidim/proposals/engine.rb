@@ -42,11 +42,16 @@ module Decidim
       end
 
       initializer "decidim_proposals.register_icons" do
+        Decidim.icons.register(name: "Decidim::Proposals::CollaborativeDraft", icon: "draft-line", resource: "Decidim::Proposals::CollaborativeDraft", category: "activity",
+                               description: "Collaborative draft", engine: :proposals)
+        Decidim.icons.register(name: "Decidim::Proposals::Proposal", icon: "chat-new-line", resource: "Decidim::Proposals::Proposal", category: "activity",
+                               description: "Proposal", engine: :proposals)
+        Decidim.icons.register(name: "participatory_texts_item", icon: "bookmark-line", description: "Index item", category: "participatory_texts", resource: "core",
+                               engine: :proposals)
+
         Decidim.icons.register(name: "scan-line", icon: "scan-line", resource: "proposals", category: "system", description: "", engine: :proposals)
         Decidim.icons.register(name: "edit-2-line", icon: "edit-2-line", resource: "Decidim::Proposals::CollaborativeDraft",
                                category: "actions", description: "Edit icon for Collaborative Drafts", engine: :proposals)
-        Decidim.icons.register(name: "git-branch-line", icon: "git-branch-line", resource: "Decidim::Amendment", category: "activity",
-                               description: "Amendment", engine: :proposals)
 
         Decidim.icons.register(name: "bookmark-line", icon: "bookmark-line", resource: "core", category: "system", description: "", engine: :proposals)
         Decidim.icons.register(name: "arrow-right-s-fill", icon: "arrow-right-s-fill", resource: "core", category: "system", description: "", engine: :proposals)
