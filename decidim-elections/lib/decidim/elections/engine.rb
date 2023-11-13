@@ -32,6 +32,9 @@ module Decidim
         Decidim.icons.register(name: "list-check", icon: "list-check", resource: "core", category: "system", description: "", engine: :elections)
         Decidim.icons.register(name: "safe-line", icon: "safe-line", resource: "core", category: "system", description: "", engine: :elections)
         Decidim.icons.register(name: "guide-line", icon: "guide-line", resource: "core", category: "system", description: "", engine: :elections)
+        Decidim.icons.register(name: "loader-4-line", icon: "loader-4-line", resource: "core", category: "system", description: "", engine: :elections)
+        Decidim.icons.register(name: "checkbox-multiple-line", icon: "checkbox-multiple-line", resource: "core", category: "system", description: "", engine: :elections)
+
       end
 
       initializer "decidim_elections.add_cells_view_paths" do

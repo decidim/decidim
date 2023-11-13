@@ -43,7 +43,6 @@ module Decidim
 
       initializer "decidim_proposals.register_icons" do
         Decidim.icons.register(name: "scan-line", icon: "scan-line", resource: "proposals", category: "system", description: "", engine: :proposals)
-        Decidim.icons.register(name: "check", icon: "check", resource: "core", category: "system", description: "", engine: :proposals)
         Decidim.icons.register(name: "edit-2-line", icon: "edit-2-line", resource: "Decidim::Proposals::CollaborativeDraft",
                                category: "actions", description: "Edit icon for Collaborative Drafts", engine: :proposals)
         Decidim.icons.register(name: "git-branch-line", icon: "git-branch-line", resource: "Decidim::Amendment", category: "activity",
