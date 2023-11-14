@@ -138,6 +138,9 @@ zh-CN:
           copy: 复制
           select: 选择要重复的数据
           title: 重复的参与进程
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: 更新
       participatory_process_groups:
         destroy:
           error: 销毁参与性进程小组时出错。
