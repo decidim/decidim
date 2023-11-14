@@ -1065,7 +1065,6 @@ nl:
           proposals: voorstellen
           proposals_explanation: Maak voorstellen, ondersteun de bestaande en bevorder de veranderingen die u wilt zien.
         footer_sub_hero:
-          footer_sub_hero_body: Laten we een meer open, transparante en samenwerkende samenleving bouwen.<br /> Doe mee, neem deel en beslis.
           footer_sub_hero_headline: Welkom bij %{organization} participatief platform.
           register: Registreren
         hero:
