@@ -840,7 +840,7 @@ ca:
           file_size_too_large: 'L''arxiu és massa gran! Pes d''arxiu màxim: %{megabytes}MB'
           remove: Eliminar
           replace: Reemplaçar
-          save: Desar
+          save: Desa
           title: Títol
           title_required: Un títol és necessari!
           uploaded: Pujat
@@ -1226,7 +1226,6 @@ ca:
           proposals: Propostes
           proposals_explanation: Realitza propostes, dóna suport a les ja existents i promociona els canvis que vols veure.
         footer_sub_hero:
-          footer_sub_hero_body: Construïm una societat més oberta, transparent i col·laborativa.<br />Uneix-te, participa i decideix.
           footer_sub_hero_headline: Benvinguda a la plataforma participativa %{organization}.
           register: Registra't
         hero:
@@ -1796,7 +1795,7 @@ ca:
         facebook: "%{organization} a Facebook"
         github: "%{organization} a GitHub"
         instagram: "%{organization} a Instagram"
-        twitter: "%{organization} a Twitter"
+        x: "%{organization} a X"
         youtube: "%{organization} a YouTube"
       timeout_modal:
         body: Has estat sense activitat durant %{minutes} minuts. Si continues inactiva, es tancarà la teva sessió automàticament per la teva pròpia seguretat.
@@ -1804,7 +1803,7 @@ ca:
         sign_out: Tancar sessió
         title: Vols continuar amb la sessió?
       upload_modal:
-        close_modal: Tancar finestra
+        close_modal: Tancar el modal
       user_menu:
         account: 'Compte d''usuària: %{name}'
         admin_dashboard: Tauler d'administració
@@ -1863,6 +1862,7 @@ ca:
     weibo: Sina Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
+    x: X
     xing: Xing
   time:
     formats:
