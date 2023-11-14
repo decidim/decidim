@@ -653,6 +653,7 @@ ar:
           github: غِت‌ هَب
           instagram: إينستاجرام
           social_handlers: التواصل الاجتماعي
+          twitter: X
           url: عنوان الرابط
           youtube: يوتيوب
         update:
@@ -676,12 +677,11 @@ ar:
           update: تحديث
         external_domain:
           down: أسفل
+          external_domain: نطاق خارجي
           remove: إزالة
           up: أعلى
-      organization_homepage:
-        edit:
-          active_content_blocks: كتل المحتوى النشط
-          inactive_content_blocks: كتل المحتوى غير النشطة
+        form:
+          add: إضافة إلى القائمة البيضاء
       participatory_space_private_users:
         create:
           error: حدثت مشكلة أثناء إضافة مشارك خاص لهذه المساحة التشاركية.
@@ -701,7 +701,6 @@ ar:
             empty: ليس لديك أي مشاركين خاصين.
             explanation: لديك %{count} مشاركين خاصين.
             title: حذف جميع المشاركين الخاصين
-          title: حمّل ملف CSV الخاص بك
           upload: حمّل
       reminders:
         new:
@@ -752,7 +751,6 @@ ar:
       shared:
         gallery:
           add_images: إضافة صور
-          delete_image: احذف الصورة
           edit_images: تعديل الصورة
       static_page_topics:
         create:
@@ -770,8 +768,6 @@ ar:
       static_pages:
         actions:
           view: عرض الصفحة العامة
-        content_blocks:
-          title: محتوى الصفحة
         create:
           error: كانت هناك مشكلة في إنشاء صفحة جديدة.
           success: تم إنشاء الصفحة بنجاح.
@@ -782,12 +778,12 @@ ar:
           update: تحديث
         form:
           none: لا شيء
+        index:
+          last_notable_change: آخر تغيير ملحوظ
         new:
           create: إنشاء صفحة
           title: صفحة جديدة
         topic:
-          destroy: إزالة الموضوع
-          edit: تحرير الموضوع
           without_topic: صفحات بدون موضوع
         update:
           error: حدثت مشكلة أثناء تحديث هذه الصفحة.
@@ -799,6 +795,7 @@ ar:
         dashboard: لوحة القيادة
         impersonatable_users: المشاركون في الإدارة
         impersonations: إدارة المشاركين
+        pages: الصفحات
         panel: مدير
         participants: المشاركين
         scope_types: أنواع النطاق
