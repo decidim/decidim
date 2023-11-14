@@ -114,7 +114,7 @@ de:
       models:
         initiatives:
           fields:
-            created_at: Hergestellt in
+            created_at: Erstellt am
             id: ID
             published_at: Veröffentlicht am
             state: Zustand
@@ -127,7 +127,7 @@ de:
           name: Typ der Initiative
         initiatives_types:
           fields:
-            created_at: Hergestellt in
+            created_at: Erstellt am
             title: Arten von Initiativen
           name: Art der Initiative
         initiatives_votes:
@@ -210,7 +210,7 @@ de:
             answer: Antworten
             title: Antwort für %{title}
           info_initiative:
-            created_at: Hergestellt in
+            created_at: Erstellt am
             description: Beschreibung
             initiative_votes_count: Stimmen zählen
             initiatives: Initiativen
@@ -301,8 +301,6 @@ de:
             update: Aktualisieren
           form:
             authorizations: Autorisierungseinstellungen
-            child_scope_threshold_enabled_help: 'Diese Einstellung unterstützt keine Offline-Abstimmungen. Es aktiviert Unter-Themenbereiche und arbeitet mit einem Autorisierungs-Handler zusammen, der dem Teilnehmenden einen Themenbereich zuordnet. Stellen Sie sicher, dass Sie diese Autorisierung unten in den Autorisierungseinstellungen auswählen. Hierfür müssen die Themenbereiche auf hierarchische Weise konfiguriert werden: 1 Überthema - N Unterthemen. Weitere Informationen wie diese Konfiguration funktioniert, finden Sie unter diesem <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">Link</a>.'
-            only_global_scope_enabled_help: Aktivieren Sie diese Einstellung, wenn Sie "Unterthemen-Signaturen" aktiviert haben und den globalen Themenbereich als Ihren Elternbereich konfiguriert haben. Dadurch wird die Auswahl des Initialtyps im Assistenten zur Erstellung der Initiative übersprungen. Weitere Informationen darüber, wie diese Konfiguration funktioniert, finden Sie <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">hier</a>.
             options: Optionen
             title: Allgemeine Information
           initiative_type_scopes:
@@ -482,7 +480,7 @@ de:
             other: und %{count} weitere Leute
         committee_members:
           approve: Genehmigen
-          confirm_revoke: Bist du dir sicher?
+          confirm_revoke: Bist du sicher?
           invite_to_committee_help: Teilen Sie diesen Link, um andere Benutzer zum Promotionskomitee einzuladen
           no_members_yet: Es gibt keine Mitglieder im Promoter-Ausschuss
           revoke: Widerrufen
