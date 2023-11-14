@@ -58,7 +58,9 @@ module Decidim
     end
 
     def resource_type_icon_key(resource_type)
-      Decidim.icons.find(resource_type.to_s)["icon"] || Decidim.icons.find("other")["icon"]
+      return resource_type.to_s if Decidim.icons.all[resource_type.to_s]
+
+      "other"
     end
 
     def text_with_resource_icon(resource_name, text)
