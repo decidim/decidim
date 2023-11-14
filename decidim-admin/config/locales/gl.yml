@@ -722,10 +722,6 @@ gl:
         external_domain:
           external_domain: Dominio externo
           remove: Eliminar
-      organization_homepage:
-        edit:
-          active_content_blocks: Bloques de contido activo
-          inactive_content_blocks: Bloques de contido inactivo
       participatory_space_private_users:
         create:
           error: Produciuse un erro engadindo un usuario privado a este espazo participativo.
@@ -741,7 +737,6 @@ gl:
           title: Novo usuario privado do espazo participativo.
       participatory_space_private_users_csv_imports:
         new:
-          title: Sube o teu ficheiro CSV
           upload: Subir
       reminders:
         create:
@@ -804,7 +799,6 @@ gl:
       shared:
         gallery:
           add_images: Engadir imaxes
-          delete_image: Eliminar imaxe
           edit_images: Editar imaxes
           gallery_legend: Engadir unha galería de imaxes (opcional)
       static_page_topics:
@@ -833,12 +827,12 @@ gl:
           update: Actualización
         form:
           none: Nada
+        index:
+          last_notable_change: Último cambio notable
         new:
           create: Crear páxina
           title: Nova páxina
         topic:
-          destroy: Eliminar tema
-          edit: Editar tema
           without_topic: Páxinas sen tema
         update:
           error: Produciuse un erro ao actualizar esta páxina.
