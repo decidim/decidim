@@ -147,6 +147,9 @@ sk:
           copy: kopírovať
           select: Vyberte, ktoré dáta chcete duplikovať
           title: Duplicitné participačné proces
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Aktualizácia
       participatory_process_groups:
         destroy:
           error: Došlo k chybe pri zrušení skupiny účastníckych procesov.
