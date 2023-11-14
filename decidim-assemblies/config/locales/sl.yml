@@ -178,11 +178,10 @@ sl:
         assemblies_types:
           form:
             title: Naziv
-        assembly_members:
-          index:
-            filter:
-              all: Vsi
-            search: Išči
+      assemblies:
+        filters:
+          names:
+            all: Vsi
       assembly_members:
         index:
           members: Člani
