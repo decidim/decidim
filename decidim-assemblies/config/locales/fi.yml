@@ -321,6 +321,8 @@ fi:
           index:
             filter:
               all: Kaikki
+              ceased: Lopetettu
+              not_ceased: Ei lopetettu
             filter_by: Suodata
             search: Hae
         content_blocks:
