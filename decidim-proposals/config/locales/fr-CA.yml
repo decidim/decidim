@@ -526,7 +526,6 @@ fr-CA:
             create: Créer
             title: Créer une proposition
           publish_answers:
-            number_of_proposals: Les réponses pour %{number} propositions seront publiées.
             select_a_proposal: Veuillez sélectionner une proposition.
           show:
             amendments_count: Nombre d'amendements
@@ -536,7 +535,6 @@ fr-CA:
             documents: Documents
             endorsements_count: Nombre de soutiens
             endorsers: Soutiens
-            link: Lien
             n_more_endorsers:
               one: et 1 de plus
               other: et %{count} autres
