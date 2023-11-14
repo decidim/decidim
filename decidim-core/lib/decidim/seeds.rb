@@ -26,7 +26,7 @@ module Decidim
         attachment_collection:,
         attached_to:,
         content_type:,
-        file: create_blob!(seeds_file: filename, filename:, content_type: ) # Keep after attached_to
+        file: create_blob!(seeds_file: filename, filename:, content_type:) # Keep after attached_to
       )
     end
 
@@ -38,7 +38,7 @@ module Decidim
       )
     end
 
-    def create_blob!(seeds_file:, filename:, content_type: )
+    def create_blob!(seeds_file:, filename:, content_type:)
       ActiveStorage::Blob.create_and_upload!(
         io: File.open(File.join(seeds_root, seeds_file)),
         filename:,
