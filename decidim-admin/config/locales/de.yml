@@ -10,7 +10,7 @@ de:
         organization: Organisation
         plural: Plural
       attachment:
-        attachment_collection_id: Verzeichnis
+        attachment_collection_id: Ordner
         description: Beschreibung
         file: Datei
         title: Anhang oder Bildname
@@ -26,7 +26,7 @@ de:
         weight: Reihenfolge
       component:
         name: Name
-        published_at: Veröffentlicht unter
+        published_at: Veröffentlicht am
         weight: Reihenfolge
       external_domain:
         value: Wert
@@ -547,7 +547,7 @@ de:
         reported_users: Gemeldete Nutzer
         scope_types: Bereichstypen
         scopes: Bereiche
-        settings: die Einstellungen
+        settings: Einstellungen
         static_pages: Seiten
         user_groups: Benutzergruppen
         users: Benutzer
@@ -565,13 +565,13 @@ de:
             plural: Plural
         attachment:
           fields:
-            collection: Mappe
+            collection: Ordner
             content_type: Art
             file_size: Größe
             title: Titel
           name: Befestigung
         attachment_collection:
-          name: Mappe
+          name: Ordner
         category:
           name: Kategorie
         impersonation_log:
@@ -584,7 +584,7 @@ de:
             user: Benutzer
         newsletter:
           fields:
-            created_at: Hergestellt in
+            created_at: Erstellt am
             progress: Fortschritt
             sent_at: Gesendet um
             sent_to: Gesendet an
@@ -610,7 +610,7 @@ de:
             user: Erstellt von
         static_page:
           fields:
-            created_at: Hergestellt in
+            created_at: Erstellt am
             title: Titel
         user:
           fields:
@@ -626,7 +626,7 @@ de:
         user_group:
           fields:
             actions: Aktionen
-            created_at: Hergestellt in
+            created_at: Erstellt am
             document_number: Dokumentnummer
             name: Name
             phone: Telefon
@@ -751,7 +751,7 @@ de:
           actions: Aktionen
           badge: Abzeichen
           block: Benutzer blockieren
-          created_at: Hergestellt in
+          created_at: Erstellt am
           name: Name
           nickname: Spitzname
           not_officialized: Nicht offiziell
@@ -821,10 +821,6 @@ de:
         form:
           add: Zur Whitelist hinzufügen
           title: Externe Domain-Whitelist
-      organization_homepage:
-        edit:
-          active_content_blocks: Aktive Inhaltsblöcke
-          inactive_content_blocks: Inaktive Inhaltsblöcke
       organization_homepage_content_blocks:
         edit:
           update: Aktualisieren
@@ -847,7 +843,7 @@ de:
           success: CSV-Datei wurde erfolgreich hochgeladen, wir senden eine Einladungs-E-Mail an die Teilnehmer. Dies kann eine Weile dauern.
         new:
           explanation: 'Laden Sie Ihre CSV-Datei hoch. Diese muss zwei Spalten haben ohne Kopfzeile, mit E-Mail in der ersten Spalte der Datei und Namen in der letzten Spalte der Datei (E-Mail, Name) in Bezug auf die Benutzer, die Sie dem Beteiligungsbereich hinzufügen möchten. Vermeiden sie ungültige Zeichen wie `<>?%&^*#@()[]=+:;"{}\|` im Namen des Nutzers zu verwenden.'
-          title: CSV-Datei hochladen
+          title: Laden Sie Ihre CSV-Datei hoch
           upload: Hochladen
       resource_permissions:
         edit:
@@ -1078,6 +1074,6 @@ de:
         newsletters:
           title: Newsletter
         settings:
-          title: die Einstellungen
+          title: Einstellungen
         users:
           title: Teilnehmer
