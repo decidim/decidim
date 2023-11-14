@@ -717,6 +717,10 @@ lb:
       file_validation:
         allowed_file_extensions: 'Erlaabten Datei-Endungen %{extensions}'
         max_file_size: 'Maximal Datei-Gréisst: %{megabytes}MB'
+      upload:
+        labels:
+          cancel: Ofbriechen
+          save: Späicheren
     gamification:
       all_badges_link: Kuck der all méiglech Ofzeechen un.
       badges:
@@ -1051,7 +1055,6 @@ lb:
           proposals: Virschléi
           proposals_explanation: Maach Virschléi, ënnerstëtz Virschléi an fërder Verännerungen déi dir wichteg sinn.
         footer_sub_hero:
-          footer_sub_hero_body: Looss eis un enger méi oppener, transparenter an kollaborativer Gesellschaft schaffen. <br /> Komm mat, maach mat an entscheet mat.
           footer_sub_hero_headline: Wëllkomm %{organization} op der Participatiouns-Plattform.
           register: Registréieren
         hero:
@@ -1549,13 +1552,14 @@ lb:
         facebook: "%{organization} op Facebook"
         github: "%{organization} op GitHub"
         instagram: "%{organization} op Instagram"
-        twitter: "%{organization} opTwitter"
         youtube: "%{organization} op YouTube"
       timeout_modal:
         body: Du wos säit %{minutes} Minutten inaktiv. Wann s'du weider inaktiv bleifs, gëss de aus Sécherheetsgrënn ofgemellt.
         continue_session: Sëtzung fortsetzen
         sign_out: Ofmellen
         title: Wëlls du deng Sëtzung weiderféieren?
+      upload_modal:
+        close_modal: Modal zou maachen
       user_menu:
         account: 'Benotzer-Kont: %{name}'
         admin_dashboard: Admin-Dashboard
