@@ -174,9 +174,7 @@ ca:
             not_found: 'No s''ha trobat el pare a la base de dades (ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Dates
           results: Resultats
-          unspecified: Sense especificar
       import_mailer:
         import:
           errors: Errors
@@ -215,9 +213,6 @@ ca:
           fields:
             entry_date: Data
             title: Títol
-      result_m:
-        executed: Executat
-        view: Veure
       results:
         count:
           results_count:
