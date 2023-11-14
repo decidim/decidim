@@ -116,6 +116,8 @@ cs:
         information: Informace
         initiative_type_scopes: Typy oblasti působnosti iniciativy
         initiatives: Iniciativy
+        initiatives_menu:
+          see_initiative: Zobrazit iniciativu
         initiatives_settings: Nastavení
         initiatives_submenu:
           info: O této iniciativě
