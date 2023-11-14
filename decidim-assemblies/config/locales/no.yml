@@ -304,8 +304,6 @@
           index:
             filter:
               all: Alle
-              ceased: Opphørt
-              not_ceased: Ikke opphørt
             filter_by: Filtrer etter
             search: Søk
         content_blocks:
