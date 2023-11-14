@@ -90,11 +90,11 @@ module Decidim
 
             coauthor = case n
                        when 0
-                         Decidim::User.where(decidim_organization_id: participatory_space.decidim_organization_id).order(Arel.sql("RANDOM()")).first
+                         Decidim::User.where(decidim_organization_id: participatory_space.decidim_organization_id).sample
                        when 1
-                         Decidim::UserGroup.where(decidim_organization_id: participatory_space.decidim_organization_id).order(Arel.sql("RANDOM()")).first
+                         Decidim::UserGroup.where(decidim_organization_id: participatory_space.decidim_organization_id).sample
                        when 2
-                         Decidim::Meetings::Meeting.where(component: meeting_component).order(Arel.sql("RANDOM()")).first
+                         Decidim::Meetings::Meeting.where(component: meeting_component).sample
                        else
                          participatory_space.organization
                        end
