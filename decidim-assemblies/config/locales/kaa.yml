@@ -50,9 +50,6 @@ kaa:
         assemblies_settings:
           edit:
             update: Jańalaw
-        assembly_members:
-          index:
-            search: Izlew
         new_import:
           accepted_types:
             json: JSON
