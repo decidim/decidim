@@ -66,6 +66,15 @@ module Decidim
           end
           initiative.add_to_index_as_search_resource
 
+          if %w(published rejected accepted).include? state
+            users = []
+            rand(50).times do
+              author = (Decidim::User.all - users).sample
+              initiative.votes.create!(author:, scope: initiative.scope, hash_id: SecureRandom.hex)
+              users << author
+            end
+          end
+
           Decidim::Comments::Seed.comments_for(initiative)
 
           Decidim::Attachment.create!(
