@@ -55,6 +55,7 @@ cs:
           create: Vytvořit
           title: Nový admin
         show:
+          destroy: Vymazat
           edit: Upravit
         update:
           error: Při aktualizaci tohoto administrátora došlo k chybě.
