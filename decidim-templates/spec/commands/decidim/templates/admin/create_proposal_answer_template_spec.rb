@@ -66,7 +66,7 @@ module Decidim
           end
 
           context "when changing the internal state" do
-            context "when rejected" do
+            context "with rejected" do
               let(:internal_state) { "rejected" }
 
               it "saves the internal state" do
@@ -75,7 +75,7 @@ module Decidim
               end
             end
 
-            context "when accepted" do
+            context "with accepted" do
               let(:internal_state) { "accepted" }
 
               it "saves the internal state" do
@@ -84,7 +84,7 @@ module Decidim
               end
             end
 
-            context "when evaluating" do
+            context "with evaluating" do
               let(:internal_state) { "evaluating" }
 
               it "saves the internal state" do
@@ -93,7 +93,7 @@ module Decidim
               end
             end
 
-            context "when not_answered" do
+            context "with not_answered" do
               let(:internal_state) { "not_answered" }
 
               it "saves the internal state" do
@@ -104,7 +104,7 @@ module Decidim
           end
 
           context "when the form has a component constraint" do
-            context "when templatable is Organization" do
+            context "and templatable is Organization" do
               it "creates the second resource" do
                 expect(Decidim::Templates::Template.where(target: :proposal_answer).count).to eq(0)
                 expect { subject.call }.to broadcast(:ok)
@@ -112,7 +112,7 @@ module Decidim
               end
             end
 
-            context "when templatable is Proposal Component" do
+            context "and templatable is Proposal Component" do
               let(:component) { create(:proposal_component, organization:) }
               let(:component_constraint) { component.id }
 
