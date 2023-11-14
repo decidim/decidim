@@ -331,7 +331,6 @@ lt:
             select_a_meeting_type: Prašome pasirinkti susirinkimo tipą
             select_a_registration_type: Prašome pasirinkti registracijos tipą
             select_an_iframe_access_level: Pasirinkite iframe prieigos lygį
-            show_embedded_iframe_help: 'Tik kelios paslaugos leidžia integruotis susitikimuose iš šių domenų: %{domains}'
           index:
             title: Susirinkimai
           new:
@@ -534,7 +533,6 @@ lt:
           select_a_meeting_type: Pasirinkite susitikimo tipą
           select_a_registration_type: Pasirinkite registracijos tipą
           select_an_iframe_access_level: Pasirinkite iframe prieigos lygį
-          show_embedded_iframe_help: 'Tik kelios paslaugos leidžia įterpti susitikimą ar tiesioginį įvykį iš šių domenų: %{domains}'
         index:
           click_here: Žiūrėti visus susitikimus
           new_meeting: Naujas susitikimas
