@@ -55,6 +55,8 @@ fi-pl:
         new:
           create: Luo
           title: Uusi hallinnoija
+        show:
+          edit: Muokkaa
         update:
           error: Hallinnoijan päivityksessä tapahtui virhe.
           success: Hallinnoija päivitetty onnistuneesti
@@ -65,6 +67,21 @@ fi-pl:
         placeholders:
           content: Lisää merkityksellistä sisältöä staattiselle sivulle %{page} hallintapaneelista.
           title: Oletusotsikko sivulle %{page}
+      devise:
+        passwords:
+          edit:
+            change_your_password: Vaihda salasanasi
+            minimum_characters: "(vähintään %{minimum} merkkiä)"
+          new:
+            forgot_your_password: Unohditko salasanasi
+            send_me_reset_password_instructions: Lähetä minulle ohjeet salasanan vaihtamiseen
+        shared:
+          links:
+            did_not_receive_confirmation_instructions?: Etkö saanut vahvistusohjeita?
+            did_not_receive_unlock_instructions?: Etkö saanut ohjeita tilin lukituksen poistoon?
+            forgot_your_password?: Unohditko salasanasi?
+            log_in: Kirjaudu sisään
+            sign_up: Rekisteröidy
       menu:
         admins: Hallinnoijat
         dashboard: Hallintapaneeli
@@ -145,8 +162,11 @@ fi-pl:
         index:
           title: Organisaatiot
         new:
-          reference_prefix_hint: Viitekoodin avulla tunnistetaan yksilöllisesti resursseja kaikissa organisaatioissa
-          secondary_hosts_hint: Syötä jokainen niistä omalle rivilleen
+          default: Oletus?
+          enabled: Käytössä
+          locale: Kieli
+          reference_prefix_hint: Viitetunnisteen avulla tunnistetaan yksilöllisesti resursseja eri organisaatioiden välillä.
+          secondary_hosts_hint: Syötä jokainen niistä omalle rivilleen.
           title: Uusi organisaatio
         omniauth_settings:
           decidim:
@@ -187,3 +207,4 @@ fi-pl:
           our_getting_started_guide: aloitusoppaamme
       titles:
         dashboard: Hallintapaneeli
+        decidim: Decidim
