@@ -524,7 +524,6 @@ el:
             create: Δημιουργία
             title: Δημιουργία πρότασης
           publish_answers:
-            number_of_proposals: Θα δημοσιευτούν απαντήσεις για %{number} προτάσεις.
             select_a_proposal: Παρακαλώ επιλέξτε μια πρόταση.
           show:
             amendments_count: Πλήθος τροποποιήσεων
@@ -534,7 +533,6 @@ el:
             documents: Έγγραφα
             endorsements_count: Πλήθος επιδοκιμασιών
             endorsers: Υποστηρικτές
-            link: Σύνδεσμος
             n_more_endorsers:
               one: και 1 ακόμα
               other: και %{count} ακόμη
