@@ -402,8 +402,6 @@ tr:
           new:
             create: Oluştur
             title: Teklif oluştur
-          publish_answers:
-            number_of_proposals: '%{number} teklifleri için cevaplar yayınlanacak.'
           show:
             amendments_count: Değişikliklerin sayısı
             assigned_valuators: Atanan bilirkişiler
@@ -412,7 +410,6 @@ tr:
             documents: Dokümanlar
             endorsements_count: Onay sayısı
             endorsers: Onaycılar
-            link: Bağlantı
             n_more_endorsers:
               one: ve 1 tane daha
               other: ve %{count} tane daha
