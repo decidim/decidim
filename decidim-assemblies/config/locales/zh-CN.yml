@@ -132,13 +132,11 @@ zh-CN:
         destroy:
           success: 成功删除此组件的会员。
         edit:
-          title: 更新组装成员。
           update: 更新
         index:
           assembly_members_title: 大会成员
         new:
           create: 创建
-          title: 新议会议员。
         update:
           error: 更新这个会议的成员时出现问题。
           success: 会员已成功更新此程序集。
@@ -156,13 +154,11 @@ zh-CN:
         destroy:
           success: 管理员已成功从此组件中移除。
         edit:
-          title: 更新程序集管理员。
           update: 更新
         index:
           assembly_admins_title: 集合管理员
         new:
           create: 创建
-          title: 新组装管理员。
         update:
           error: 更新这个会议的管理员时出现问题。
           success: 管理员已成功更新此程序集。
@@ -272,15 +268,13 @@ zh-CN:
             select_a_position: 选择一个位置
             select_user: 选择一名参与者
             user_type: 参与者类型
-          index:
-            filter:
-              all: 所有的
-              ceased: 缓存器
-              not_ceased: 未停止
-            search: 搜索
         content_blocks:
           highlighted_assemblies:
             max_results: 显示元素的最大数量
+      assemblies:
+        filters:
+          names:
+            all: 所有的
       assembly_members:
         index:
           members: 成员
