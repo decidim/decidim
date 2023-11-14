@@ -93,7 +93,6 @@ pt-BR:
         success_color: Sucesso
         time_zone: Fuso Horário
         tos_version: Versão dos termos de serviço
-        twitter_handler: Manipulador do Twitter
         user_groups_enabled: Ativar grupos de usuários
         users_registration_mode: Modo de registro de usuários
         warning_color: Aviso
@@ -785,7 +784,6 @@ pt-BR:
           instagram: Instagram
           rich_text_editor_in_public_views_help: Em algumas áreas de texto, os participantes poderão inserir algumas tags HTML usando o editor de texto rico.
           social_handlers: Social
-          twitter: Twitter
           url: URL
           youtube: YouTube
         update:
@@ -817,10 +815,6 @@ pt-BR:
         form:
           add: Adicionar à lista branca
           title: Domínio externo na lista branca
-      organization_homepage:
-        edit:
-          active_content_blocks: Blocos de conteúdo ativo
-          inactive_content_blocks: Blocos de conteúdo inativo
       organization_homepage_content_blocks:
         edit:
           update: Atualizar
