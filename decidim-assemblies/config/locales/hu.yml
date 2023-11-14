@@ -312,8 +312,6 @@ hu:
           index:
             filter:
               all: Összes
-              ceased: Megszűnt
-              not_ceased: Nem szűnt meg
             filter_by: 'Szűrés ez alapján:'
             search: Keresés
         content_blocks:
