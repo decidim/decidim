@@ -103,9 +103,7 @@ nl:
             not_found: 'Het bovenliggende element is niet gevonden in de database (ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Datums
           results: Resultaten
-          unspecified: Niet gespecificeerd
       import_mailer:
         import:
           errors: Foutmeldingen
@@ -134,9 +132,6 @@ nl:
           fields:
             entry_date: Datum
             title: Titel
-      result_m:
-        executed: Uitgevoerd
-        view: Bekijk
       results:
         count:
           results_count:
