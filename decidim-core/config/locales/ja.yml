@@ -461,7 +461,7 @@ ja:
             comments_blocked: コメントをブロック
             dummy_step_attribute1: ダミーステップ属性１
             dummy_step_attribute2: ダミーステップ属性2
-            dummy_step_translatable_text: ダミーステップ翻訳可能なテキスト
+            dummy_step_translatable_text: ダミーフェーズ翻訳可能なテキスト
     contact: お問い合わせ
     content_blocks:
       cta:
@@ -1211,7 +1211,6 @@ ja:
           proposals: 提案
           proposals_explanation: 提案を行い、既存のものをサポートし、見たい変更を促進します。
         footer_sub_hero:
-          footer_sub_hero_body: より開かれた透明で協働的な社会を作りましょう。<br /> 参加し、決定しましょう。
           footer_sub_hero_headline: '%{organization} 参加型プラットフォームへようこそ。'
           register: 登録
         hero:
@@ -1778,7 +1777,7 @@ ja:
         facebook: "Facebook の %{organization}"
         github: "GitHub の %{organization}"
         instagram: "Instagramの%{organization}"
-        twitter: "Twitter の %{organization}"
+        x: "X の %{organization}"
         youtube: "YouTube の %{organization}"
       timeout_modal:
         body: '%{minutes} 分間アクティブではありませんでした。このまま非アクティブ状態を続けると、自動的にログアウトされます。'
@@ -1786,7 +1785,7 @@ ja:
         sign_out: ログアウト
         title: セッションを続行しますか？
       upload_modal:
-        close_modal: モーダルを閉じる
+        close_modal: ウィンドウを閉じる
       user_menu:
         account: 'ユーザーアカウント: %{name}'
         admin_dashboard: 管理ダッシュボード
@@ -1845,6 +1844,7 @@ ja:
     weibo: Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
+    x: X
     xing: Xing
   time:
     formats:
