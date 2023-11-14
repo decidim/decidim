@@ -301,7 +301,6 @@ hu:
             select_a_meeting_type: Válassza ki a találkozó típusát
             select_a_registration_type: Kérjük, válassza ki a regisztráció típusát
             select_an_iframe_access_level: Kérjük, válassz iframe hozzáférési szintet
-            show_embedded_iframe_help: 'Csak néhány szolgáltatás engedélyezi a beágyazást megbeszélésekbe vagy élő eseményekbe a következő domainekről: %{domains}'
           index:
             title: Találkozók
           new:
@@ -498,6 +497,7 @@ hu:
           back: Vissza a listához
           close_meeting: Ttalálkozó lezárása
           contributions: Hozzájárulások száma
+          date: Dátum
           edit_meeting: Találkozó szerkesztése
           meeting_minutes: Találkozó jegyzőkönyve
           no_slots_available: Nincs szabad hely
