@@ -192,7 +192,7 @@ de:
           fields:
             category: Kategorie
             id: ID
-            scope: Themenbereich
+            scope: Umfang
             title: Titel
       order_summary_mailer:
         order_summary:
