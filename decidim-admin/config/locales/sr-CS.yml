@@ -65,7 +65,6 @@ sr:
         success_color: Uspeh
         time_zone: Vremenska zona
         tos_version: Verzija uslova korišćenja
-        twitter_handler: Administrator Twitter-a
         user_groups_enabled: Omogući grupe
         warning_color: Upozorenje
         welcome_notification_body: Glavni tekst obaveštenja dobrodošlice
@@ -535,7 +534,6 @@ sr:
           instagram: Instagram
           rich_text_editor_in_public_views_help: U pojedinim delovima teksta učesnici će uz pomoć programa moći da ubace HTML oznake.
           social_handlers: Društvene
-          twitter: Twitter
           youtube: YouTube
         update:
           error: Pojavio se problem pri ažuriranju ove organizacije.
