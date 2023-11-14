@@ -314,8 +314,6 @@ ja:
           index:
             filter:
               all: すべて
-              ceased: 終了済み
-              not_ceased: 終了していません
             filter_by: フィルター
             search: 検索
         content_blocks:
