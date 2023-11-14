@@ -337,6 +337,7 @@ ar:
             many: و %{count} المزيد من الناس
             other: و %{count} المزيد من الناس
         committee_members:
+          confirm_revoke: هل أنت واثق؟
           revoke: سحب
         count:
           title:
