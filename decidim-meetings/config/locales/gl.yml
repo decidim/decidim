@@ -377,6 +377,7 @@ gl:
           attendees: Os asistentes contan
           close_meeting: Pechar reunión
           contributions: Contribucións contar
+          date: Data
           going: Inscribícheste nesta xuntaza
           leave: Cancelar a túa inscrición
           leave_confirmation: Estás certo/a de querer cancelar a túa inscrición nesta xuntanza?
