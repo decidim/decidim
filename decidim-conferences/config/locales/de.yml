@@ -18,7 +18,7 @@ de:
         objectives: Ziele
         participatory_processes_ids: Ähnliche Beteiligungsprozesse
         promoted: Gefördert
-        published_at: Veröffentlicht unter
+        published_at: Veröffentlicht am
         registration_terms: Registrierungsbedingungen
         registrations_enabled: Registrierungen aktiviert
         scope_id: Umfang
@@ -89,6 +89,12 @@ de:
     admin:
       actions:
         confirm: Bestätigen
+        new_conference: Neue Konferenz
+        new_conference_user_role: Neuer Konferenz-Admin
+        new_media_link: Neuer Medienlink
+        new_partner: Neuer Partner
+        new_registration_type: Neuer Registrierungstyp
+        new_speaker: Neuer Redner
         send_diplomas: Senden Sie eine Teilnahmebestätigung
       conference_copies:
         new:
@@ -152,6 +158,7 @@ de:
           title: Allgemeine Information
         index:
           published: Veröffentlicht
+          unpublished: Nicht veröffentlicht
         new:
           create: Erstellen
           title: Konferenz
@@ -191,16 +198,18 @@ de:
           conference_invites: Lädt ein
           conference_speakers: Lautsprecher
           diploma: Teilnahmebestätigung
+          info: Über diese Konferenz
           media_links: Medienlinks
           moderations: Moderationen
           partners: Partner
           registration_types: Registrierungsarten
           registrations: Registrierungen
+          see_conference: Konferenz ansehen
           user_registrations: Benutzerregistrierungen
       models:
         conference:
           fields:
-            created_at: Hergestellt in
+            created_at: Erstellt am
             published: Veröffentlicht
             title: Titel
         conference_speaker:
@@ -448,10 +457,14 @@ de:
           collaborators: Partner
           main_promotors: Organisatoren
         show:
+          already_have_an_account?: Sie haben bereits ein Konto?
+          are_you_new?: Sie haben noch nie teilgenommen?
           login_as: Sie sind als %{name} <%{email}> angemeldet
           make_conference_registration: Für die Konferenz registrieren
           manage_registration: Registrierung verwalten
           register: Registrieren
+          sign_in_description: Melden Sie sich an, um sich für die Konferenz zu registrieren
+          sign_up_description: Erstellen Sie ein Konto, um sich für die Konferenz zu registrieren
       content_blocks:
         highlighted_conferences:
           name: Hervorgehobene Konferenzen
