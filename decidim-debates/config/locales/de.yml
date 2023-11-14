@@ -51,6 +51,7 @@ de:
         confirm_destroy: Sind Sie sicher?
         destroy: Löschen
         edit: Bearbeiten
+        new: Neue Debatte
         title: Aktionen
       admin:
         debate_closes:
@@ -95,7 +96,6 @@ de:
           cancel: Abbrechen
           description: Wie lautet die Zusammenfassung oder Schlussfolgerung dieser Debatte?
           send: Debatte schließen
-        closed: Geschlossen
         count:
           debates_count:
             one: "%{count} Debatte"
@@ -103,8 +103,6 @@ de:
         create:
           invalid: Es gab ein Problem beim Erstellen der Debatte.
           success: Diskussion erfolgreich erstellt
-        debate:
-          participate: Mitmachen
         edit:
           back: Zurück
           save: Änderungen speichern
@@ -141,7 +139,6 @@ de:
           updated: Kürzlich aktualisiert
         show:
           close_debate: Debatte schließen
-          date: Datum
           debate_closed: Geschlossen
           debate_conclusions_are: 'Die Debatte wurde am %{date} mit diesen Ergebnissen geschlossen:'
           edit_conclusions: Schlussfolgerungen bearbeiten
