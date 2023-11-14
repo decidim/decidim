@@ -54,6 +54,8 @@ lt:
         new:
           create: Sukurti
           title: Naujas administratorius
+        show:
+          edit: Redaguoti
         update:
           error: Atnaujinant šį administratorių iškilo problema.
           success: Administratorius atnaujintas
@@ -144,8 +146,8 @@ lt:
         index:
           title: Organizacijos
         new:
-          reference_prefix_hint: Nuorodos priešdėlis naudojamas unikaliai identifikuoti išteklius visoje organizacijoje
-          secondary_hosts_hint: Kiekvieną iš jų įrašykite į naują eilutę
+          reference_prefix_hint: Nuorodos priešdėlis naudojamas unikaliai identifikuoti išteklius visoje organizacijoje.
+          secondary_hosts_hint: Kiekvieną iš jų įrašykite į naują eilutę.
           title: Nauja organizacija
         omniauth_settings:
           decidim:
