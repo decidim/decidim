@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "decidim/components/namer"
+require "decidim/pages/seeds"
 
 Decidim.register_component(:pages) do |component|
   component.engine = Decidim::Pages::Engine
@@ -52,18 +52,6 @@ Decidim.register_component(:pages) do |component|
   end
 
   component.seeds do |participatory_space|
-    component = Decidim::Component.create!(
-      name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :pages).i18n_name,
-      manifest_name: :pages,
-      published_at: Time.current,
-      participatory_space:
-    )
-
-    Decidim::Pages::Page.create!(
-      component:,
-      body: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-        Decidim::Faker::Localized.paragraph(sentence_count: 3)
-      end
-    )
+    Decidim::Pages::Seeds.new(participatory_space:).call
   end
 end
