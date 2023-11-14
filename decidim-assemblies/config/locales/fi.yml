@@ -98,7 +98,9 @@ fi:
       actions:
         import_assembly: Tuo
         new_assembly: Uusi ryhmä
+        new_assembly_member: Uusi ryhmän jäsen
         new_assembly_type: Uusi ryhmätyyppi
+        new_assembly_user_role: Uusi ryhmän hallintakäyttäjä
       assemblies:
         create:
           error: Uuden ryhmän luonti epäonnistui.
@@ -109,6 +111,7 @@ fi:
           private: Yksityinen
           public: Julkinen
           published: Julkaistu
+          unpublished: Julkaisematon
         new:
           create: Luo
           title: Uusi ryhmä
@@ -155,13 +158,13 @@ fi:
         destroy:
           success: Jäsenen poistaminen ryhmästä onnistui.
         edit:
-          title: Päivitä ryhmän jäsenen tietoja.
+          title: Päivitä ryhmän jäsenen tietoja
           update: Päivittää
         index:
           assembly_members_title: Ryhmän jäsenet
         new:
           create: Luoda
-          title: Uusi ryhmän jäsen.
+          title: Uusi ryhmän jäsen
         update:
           error: Ryhmän jäsenen päivitys epäonnistui.
           success: Ryhmän jäsenen tietojen päivitys onnistui.
@@ -179,19 +182,26 @@ fi:
         destroy:
           success: Hallintakäyttäjän poisto ryhmästä onnistui.
         edit:
-          title: Päivitä ryhmän hallintakäyttäjän tietoja.
+          title: Päivitä ryhmän hallintakäyttäjän tietoja
           update: Päivitä
         index:
           assembly_admins_title: Ryhmän hallintakäyttäjät
         new:
           create: Luo
-          title: Uusi ryhmän hallintakäyttäjä.
+          title: Uusi ryhmän hallintakäyttäjä
         update:
           error: Ryhmän hallintakäyttäjän päivitys epäonnistui.
           success: Ryhmän hallintakäyttäjän päivitys onnistui.
       filters:
+        ceased_date_not_null:
+          label: Lopetettu
+          values:
+            'false': Ei lopetettu
+            'true': Lopetettu
         decidim_assemblies_type_id_eq:
           label: Ryhmän tyyppi
+        search_placeholder:
+          full_name_or_user_name_or_user_nickname_cont: Etsi nimellä tai käyttäjänimellä
       menu:
         assemblies: Ryhmät
         assemblies_settings: Asetukset
@@ -203,9 +213,11 @@ fi:
           attachments: Liitteet
           categories: Aihepiirit
           components: Komponentit
+          info: Tietoa tästä ryhmästä
           landing_page: Laskeutumissivu
           moderations: Moderoinnit
           private_users: Yksityiset käyttäjät
+          see_assembly: Näytä ryhmä
         assemblies_types: Ryhmien tyypit
       models:
         assemblies_types:
@@ -214,6 +226,7 @@ fi:
             title: Otsikko
         assembly:
           fields:
+            actions: Toiminnot
             created_at: Luonnin ajankohta
             private: Yksityinen
             promoted: Korostettu
@@ -315,12 +328,6 @@ fi:
             select_a_position: Valitse asema
             select_user: Valitse käyttäjä
             user_type: Käyttäjätyyppi
-          index:
-            filter:
-              all: Kaikki
-              ceased: Lakkautettu
-              not_ceased: Ei lakkautettu
-            search: Hae
         content_blocks:
           highlighted_assemblies:
             max_results: Näytettävien elementtien enimmäismäärä
