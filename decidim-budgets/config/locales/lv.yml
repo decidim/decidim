@@ -64,6 +64,7 @@ lv:
       models:
         project:
           fields:
+            scope: Darbības tvērums
             title: Nosaukums
       order_summary_mailer:
         order_summary:
