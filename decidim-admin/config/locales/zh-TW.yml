@@ -825,22 +825,6 @@ zh-TW:
         form:
           add: 新增到白名單
           title: 外部域名白名單
-      organization_homepage:
-        content_blocks:
-          create:
-            error: 建立此內容區塊時出現問題。
-            success: 內容區塊建立成功。
-          destroy:
-            error: 刪除此內容區塊時出現問題。
-            success: 內容區塊已成功刪除。
-          edit:
-            update: 更新
-        edit:
-          active_content_blocks: 啟用的內容區塊
-          add: 添加內容塊
-          destroy_confirmation: 您確定要刪除此內容區塊嗎？
-          inactive_content_blocks: 停用的內容區塊
-          title: 頁面內容
       participatory_space_private_users:
         create:
           error: 在此參與空間中添加私人參與者時出現問題。
@@ -870,7 +854,6 @@ zh-TW:
           explanation_example: |
             john.doe@example.org%{csv_col_sep}John Doe
             jane.doe@example.org%{csv_col_sep}Jane Doe
-          title: 請上傳您的 CSV 檔案。
           upload: 上傳
       reminders:
         create:
@@ -935,7 +918,6 @@ zh-TW:
       shared:
         gallery:
           add_images: 添加圖案
-          delete_image: 刪除圖片
           edit_images: 編輯圖片
           gallery_legend: 新增圖片庫(可選)
       static_page_topics:
@@ -956,20 +938,6 @@ zh-TW:
       static_pages:
         actions:
           view: 查看公開頁面。
-        content_blocks:
-          active_content_blocks: 啟用的內容區塊
-          add: 添加內容塊
-          create:
-            error: 建立此內容區塊時出現問題。
-            success: 內容區塊建立成功。
-          destroy:
-            error: 刪除此內容區塊時出現問題。
-            success: 內容區塊已成功刪除。
-          destroy_confirmation: 您確定要刪除此內容區塊嗎？
-          edit:
-            update: 更新
-          inactive_content_blocks: 停用的內容區塊
-          title: 頁面內容
         create:
           error: 創建新頁面時出現問題。
           success: 頁面建立成功.
@@ -981,12 +949,12 @@ zh-TW:
           update: 更新
         form:
           none: 無
+        index:
+          last_notable_change: 最後重要更改
         new:
           create: 建立頁面
           title: 新頁面
         topic:
-          destroy: 刪除主題
-          edit: 編輯主題
           empty: 這個主題下沒有頁面.
           without_topic: 沒有主題的頁面
         update:
