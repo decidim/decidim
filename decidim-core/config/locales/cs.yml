@@ -311,11 +311,9 @@ cs:
       amendable:
         button: Změna %{model_name}
         error: Při změně tohoto zdroje došlo k chybě.
-        help_text: Zlepšete tento %{model_name} upravením jeho %{amendable_fields}.
         promote_button: Propagujte na %{model_name}
         promote_confirm_text: Opravdu chcete tuto emisi podpořit?
         promote_help_text: Můžete podpořit tuto opravu a publikovat ji jako nezávislý %{model_name}.
-        section_heading: Změny (%{count})
       amendments:
         title:
           one: "%{count} pozměňovací návrh"
@@ -491,7 +489,6 @@ cs:
         many: a %{count} dalších
         other: a %{count} dalších
       see_less: "(viz níže)"
-      see_more: "(viz další)"
     components:
       component_order_selector:
         no_content: S těmito kritérii jsme nenašli žádný obsah.
@@ -947,14 +944,12 @@ cs:
           add_attachment: Přidat přílohu
           add_file: Přidat soubor
           add_image: Přidat obrázek
-          cancel: Zrušit
           edit_image: Upravit obrázek
           error: Chyba!
           file_size_too_large: 'Velikost souboru je příliš velká! Maximální velikost souboru: %{megabytes}MB'
           filename: Název souboru
           remove: Odebrat
           replace: Nahradit
-          save: Uložit
           title: Název
           title_required: Název je povinný!
           uploaded: Nahráno
@@ -1337,7 +1332,6 @@ cs:
           proposals: Návrhy
           proposals_explanation: Vytvářejte návrhy, podporujte stávající návrhy a prosazujte změny, které chcete vidět.
         footer_sub_hero:
-          footer_sub_hero_body: Vybudujme otevřenější, transparentnější a spolupracující společnost.<br /> Přihlaste se, zúčastněte se a rozhodněte se.
           footer_sub_hero_headline: Vítejte na %{organization} participační platformě.
           register: Registrovat
         hero:
@@ -1722,8 +1716,6 @@ cs:
         change_my_password: Změňte heslo
         confirm_new_password: Potvrďte nové heslo
         new_password: Nové heslo
-        password_help: "%{minimun_characters} je minimum znaků, nesmí být příliš běžné (např. 123456) a musí být jiné než vaše přezdívka a váš e-mail."
-        password_help_admin: "minimálně %{minimun_characters} znaků, nesmí být příliš časté (např. 123456), musí se lišit od vaší přezdívky a e-mailu a musí se lišit od vašich starých hesel."
         title: Změna hesla
       new:
         forgot_your_password: Zapomněli jste heslo?
@@ -1992,8 +1984,6 @@ cs:
         continue_session: Pokračovat v relaci
         log_out: Odhlásit
         title: Chcete pokračovat v relaci?
-      upload_modal:
-        close_modal: Zavřít modal
       user_menu:
         account: 'Uživatelský účet: %{name}'
         admin_dashboard: Ovládací panel
