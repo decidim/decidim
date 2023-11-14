@@ -20,6 +20,11 @@ cs:
         scope_id: Oblast působnosti
   activerecord:
     models:
+      decidim/budgets/budget:
+        one: Rozpočet
+        few: Rozpočty
+        many: Rozpočtů
+        other: Rozpočtů
       decidim/budgets/project:
         one: Projekt
         few: Projekty
@@ -94,6 +99,7 @@ cs:
           index:
             actions: Akce
             cancel: Zrušit
+            change_budget: Změnit rozpočet
             change_category: Změnit kategorii
             change_scope: Změnit rozsah
             change_selected: Změnit vybraný stav
@@ -104,6 +110,7 @@ cs:
             selected: Vybrané
             title: Projekty
             update: Aktualizovat
+            update_budget_button: Aktualizovat rozpočet projektu
             update_scope_button: Aktualizovat rozsah
           new:
             create: Vytvořit
@@ -111,6 +118,9 @@ cs:
           update:
             invalid: Při aktualizaci tohoto projektu došlo k chybě.
             success: Projekt byl úspěšně aktualizován.
+          update_budget:
+            invalid: 'Tyto projekty jsou již ve stejném rozpočtu nebo jejich rozpočty jsou vyšší než povolené maximum: %{projects}.'
+            select_a_project: Vyberte projekt.
           update_category:
             invalid: 'Tyto projekty již mají kategorii %{subject_name}: %{projects}.'
             select_a_category: Vyberte prosím kategorii.
@@ -159,8 +169,6 @@ cs:
           create: "%{user_name} vytvořil %{resource_name} projekt ve %{space_name} prostoru"
           delete: "%{user_name} odstranil %{resource_name} projekt v prostoru %{space_name}"
           update: "%{user_name} aktualizoval %{resource_name} projekt v prostoru %{space_name}"
-      budget:
-        view: Zobrazit všechny rozpočtové projekty
       budget_information_modal:
         back_to: Zpět na %{component_name}
         close_modal: Zavřít okno
@@ -200,7 +208,6 @@ cs:
           fields:
             category: Kategorie
             id: ID
-            scope: Rozsah
             title: Titul
       order_summary_mailer:
         order_summary:
@@ -251,8 +258,6 @@ cs:
             all: Vše
             not_selected: Nevybráno
             selected: Vybrané
-        index:
-          back_to_budgets: zpět do rozpočtů
         order_progress:
           assigned: Přiřazeno
           budget: Rozpočet
@@ -280,7 +285,6 @@ cs:
           add: Přidat k hlasování projekt %{resource_name}.
           remove: Odebrat projekt %{resource_name} z vašeho hlasování.
           selected: Vybrané
-          view: Zobrazit
           votes:
             one: hlas
             few: hlasy
@@ -299,6 +303,7 @@ cs:
         select_projects: Vybrat projekty
         show:
           budget: Rozpočet
+      prompt: Vybrat rozpočet
       vote_reminder_mailer:
         vote_reminder:
           email_budgets: 'Oblasti, kde máte nedokončené hlasování:'
