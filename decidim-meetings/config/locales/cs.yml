@@ -329,7 +329,6 @@ cs:
             select_a_meeting_type: Vyberte prosím typ schůzky
             select_a_registration_type: Vyberte prosím typ registrace
             select_an_iframe_access_level: Vyberte prosím úroveň přístupu iframe
-            show_embedded_iframe_help: 'Pouze pár služeb umožňuje vložení do schůzky nebo živé události z následujících domén: %{domains}'
           index:
             title: Setkání
           new:
@@ -428,7 +427,6 @@ cs:
       directory:
         meetings:
           index:
-            go_to_list: Zobrazit seznam událostí
             meetings: Setkání
             space_type: Účastní prostor
       iframe_access_level:
@@ -518,7 +516,6 @@ cs:
           select_a_meeting_type: Vyberte prosím typ schůzky
           select_a_registration_type: Vyberte prosím typ registrace
           select_an_iframe_access_level: Vyberte prosím úroveň přístupu iframe
-          show_embedded_iframe_help: 'Pouze pár služeb umožňuje vložení do schůzky nebo živé události z následujících domén: %{domains}'
         index:
           click_here: Zobrazit všechny schůzky
           new_meeting: Nová schůzka
@@ -543,7 +540,6 @@ cs:
         show:
           attendees: Počet účastníků
           contributions: Počet příspěvků
-          date: Datum
           join: Připojte se k setkání
           leave: Zrušit registraci
           leave_confirmation: Opravdu chcete zrušit registraci na tuto schůzku?
@@ -563,7 +559,6 @@ cs:
             few: "%{count} zbývajících bloků"
             many: "%{count} zbývajících bloků"
             other: "%{count} zbývajících bloků"
-          view: Zobrazit
           visit_finished: Zobrazit minulou schůzku
           withdraw_btn_hint: Schůzku můžete stáhnout, pokud změníte názor. Schůzka není smazána, objeví se v seznamu stažených schůzek.
           withdraw_confirmation_html: Opravdu chcete tuto schůzku stáhnout?<br><br><strong>Tuto akci nelze zrušit!</strong>
