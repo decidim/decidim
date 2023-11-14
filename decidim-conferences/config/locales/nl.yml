@@ -57,7 +57,6 @@ nl:
         conference_meeting_ids: Gerelateerde vergaderingen
         full_name: Voor-en achternaam
         position: Positie
-        twitter_handle: Twitter-account
         user_id: Gebruiker
       conference_user_role:
         email: E-mail
@@ -426,7 +425,6 @@ nl:
           invalid: Er is een probleem met het verlaten van deze conferentie.
           success: U hebt de conferentie met succes verlaten.
       conference_speaker:
-        go_to_twitter: Ga naar Twitter
         more_info: meer informatie
         personal_website: Persoonlijke website
         show:
