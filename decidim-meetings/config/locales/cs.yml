@@ -22,6 +22,7 @@ cs:
         id: ID
         iframe_access_level: Úroveň přístupu do iframe
         iframe_embed_type: Typ vloženého rámu
+        iframe_embed_type_html: Jen pár služeb umožňuje "Vložit na stránku schůzky" nebo "Otevřít v živé události". Všimněte si, že s možností "Vložit na stránku schůzky" na mobilní zařízení, jako obrazovka dědí různé rozměry, bude fungovat jako "Otevřít v živé události".
         location: Umístění
         location_hints: Nápověda k poloze
         online_meeting_url: URL online schůzky
@@ -322,6 +323,7 @@ cs:
           form:
             address_help: 'Adresa: použita Geocoderem k nalezení polohy'
             disclaimer: 'Prohlášení o zřeknutí: Použitím externího registračního systému jste si vědomi toho, že organizátoři %{organization} nejsou odpovědní za data poskytovaná uživateli externí službě.'
+            iframe_embed_type_html: 'Pouze pár služeb umožňuje vložení do schůzky nebo živé události z následujících domén: %{domains}'
             location_help: 'Poloha: zpráva určená uživatelům, kteří předávají místo, aby se setkali'
             location_hints_help: 'Upřesnění k místu: dodatečné informace. Příklad: patro budovy, pokud se jedná o osobní schůzku, nebo vstupní heslo pro schůzku, pokud se jedná o schůzku s omezeným přístupem.'
             online_meeting_url_help: 'Odkaz: Umožnit účastníkům připojení přímo k vaší schůzce'
@@ -508,6 +510,7 @@ cs:
           available_slots_help: Ponechte 0, pokud máte k dispozici neomezený počet slotů
           create_as: Vytvořit schůzku jako
           disclaimer: 'Prohlášení o zřeknutí: použitím externího registračního systému, jste si vědomi toho, že organizátoři %{organization} nejsou odpovědní za data poskytovaná uživateli externí službě.'
+          iframe_embed_type_html: 'Pouze pár služeb umožňuje vložení do schůzky nebo živé události z následujících domén: %{domains}'
           location_help: 'Poloha: zpráva určená uživatelům, kteří navrhují místo ke schůzce na'
           location_hints_help: 'Upřesnění k místu: dodatečné informace. Příklad: patro budovy, pokud se jedná o osobní schůzku, nebo vstupní heslo pro schůzku, pokud se jedná o schůzku s omezeným přístupem.'
           online_meeting_url_help: 'Odkaz: Umožnit účastníkům připojení přímo k vaší schůzce'
