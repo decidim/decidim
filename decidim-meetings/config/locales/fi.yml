@@ -318,7 +318,6 @@ fi:
             select_a_meeting_type: Valitse tapaamisen tyyppi
             select_a_registration_type: Valitse ilmoittautumisten tyyppi
             select_an_iframe_access_level: Valitse iframe-upotusten käyttöoikeustaso
-            show_embedded_iframe_help: 'Vain palvelut näistä osoitteista sallivat tapaamisen upottamisen reaaliaikaisesti tapahtumasivulle: %{domains}'
           index:
             title: Tapaamiset
           new:
@@ -415,7 +414,6 @@ fi:
       directory:
         meetings:
           index:
-            go_to_list: Näytä tapaamisluettelo
             meetings: Tapaamiset
             space_type: Osallistumistila
       iframe_access_level:
@@ -503,7 +501,6 @@ fi:
           select_a_meeting_type: Valitse tapaamisen tyyppi
           select_a_registration_type: Valitse ilmoittautumisten tyyppi
           select_an_iframe_access_level: Valitse iframe-upotusten käyttöoikeustaso
-          show_embedded_iframe_help: 'Vain palvelut näistä osoitteista sallivat tapaamisen upottamisen reaaliaikaisesti tapaamisen sivulle: %{domains}'
         index:
           click_here: Näytä kaikki tapaamiset
           new_meeting: Uusi tapaaminen
@@ -528,7 +525,6 @@ fi:
         show:
           attendees: Osallistujamäärä
           contributions: Kontribuutioiden määrä
-          date: Päivämäärä
           join: Ilmoittaudu tapaamiseen
           leave: Peruuta ilmoittautumisesi
           leave_confirmation: Haluatko varmasti peruuttaa ilmoittautumisesi tähän tapaamiseen?
@@ -546,7 +542,6 @@ fi:
           remaining_slots:
             one: "%{count} paikka jäljellä"
             other: "%{count} paikkaa jäljellä"
-          view: Näytä
           visit_finished: Näytä mennyt tapaaminen
           withdraw_btn_hint: Voit peruuttaa tapaamisen, jos muutat mieltäsi. Tapaamista ei poisteta kokonaan, eli se löytyy edelleen peruutettujen tapaamisten listasta.
           withdraw_confirmation_html: Haluatko varmasti peruuttaa tämän tapaamisen?<br><br><strong>Tätä toimintoa ei voi peruuttaa!</strong>
