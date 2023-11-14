@@ -151,13 +151,11 @@ zh-TW:
         destroy:
           success: 該大會的成員已成功刪除
         edit:
-          title: 更新大會成員
           update: 更新
         index:
           assembly_members_title: 大會成員
         new:
           create: 建立
-          title: 新大會成員
         update:
           error: 更新此大會的成員時出現問題。
           success: 此大會的成員已成功更新。
@@ -175,13 +173,11 @@ zh-TW:
         destroy:
           success: 管理員已成功從此大會中刪除
         edit:
-          title: 更新大會管理員
           update: 更新
         index:
           assembly_admins_title: 大會管理員
         new:
           create: 建立
-          title: 新大會管理員
         update:
           error: 更新此大會的管理員時出現問題
           success: 此大會的管理員已成功更新。
@@ -303,12 +299,6 @@ zh-TW:
             select_a_position: 選擇一個位置
             select_user: 選擇與會者：
             user_type: 參與者類型
-          index:
-            filter:
-              all: 全部
-              ceased: 已停止
-              not_ceased: 沒有停止
-            search: 搜尋
         content_blocks:
           highlighted_assemblies:
             max_results: 顯示的最大元素數量
@@ -316,6 +306,9 @@ zh-TW:
           accepted_types:
             json: JSON
       assemblies:
+        filters:
+          names:
+            all: 全部
         show:
           title: 關於這個大會
       assembly_members:
