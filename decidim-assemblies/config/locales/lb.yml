@@ -140,13 +140,11 @@ lb:
         destroy:
           success: Mitglied wurde erfolgreich aus diesem Gremium entfernt.
         edit:
-          title: Aktualisieren Sie die Versammlungsmitglieder.
           update: Aktualisieren
         index:
           assembly_members_title: Gremienmitglieder
         new:
           create: Erstellen
-          title: Neues Gremienmitglied.
         update:
           error: Beim Aktualisieren des Mitglieds dieses Gremiums ist ein Fehler aufgetreten.
           success: Mitglied dieses Gremiums erfolgreich aktualisiert.
@@ -164,13 +162,11 @@ lb:
         destroy:
           success: Benutzer wurde erfolgreich von dieser Assembly entfernt.
         edit:
-          title: Aktualisiere den Benutzer der Baugruppe
           update: Aktualisieren
         index:
           assembly_admins_title: Assembly Benutzer
         new:
           create: Erstellen
-          title: Neuer Assembly-Benutzer
         update:
           error: Bei einem Fehler ist ein Benutzer für diese Assembly aktualisiert worden.
           success: Der Benutzer wurde für diese Assembly erfolgreich aktualisiert.
@@ -228,18 +224,16 @@ lb:
             select_a_position: Wählen Sie eine Position
             select_user: Wählen Sie einen Benutzer aus
             user_type: Benutzertyp
-          index:
-            filter:
-              all: Alle
-              ceased: Aufgegeben
-              not_ceased: Nicht aufgehört
-            search: Suche
         content_blocks:
           highlighted_assemblies:
             max_results: Maximale Anzahl der Elemente, die angezeigt werden sollen
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        filters:
+          names:
+            all: Alle
       assembly_members:
         index:
           members: Mitglieder
