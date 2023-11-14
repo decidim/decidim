@@ -55,6 +55,8 @@ es-PY:
         new:
           create: Crear
           title: Nuevo administrador
+        show:
+          edit: Editar
         update:
           error: Se ha producido un error al actualizar este administrador.
           success: Administrador actualizado correctamente
@@ -65,6 +67,21 @@ es-PY:
         placeholders:
           content: Agrega contenido significativo a la página estática de %{page} en el panel de admin.
           title: Título predeterminado para %{page}
+      devise:
+        passwords:
+          edit:
+            change_your_password: Cambia tu contraseña
+            minimum_characters: "(%{minimum} caracteres como mínimo)"
+          new:
+            forgot_your_password: '¿Has olvidado tu contraseña?'
+            send_me_reset_password_instructions: Envíame las instrucciones para restablecer la contraseña
+        shared:
+          links:
+            did_not_receive_confirmation_instructions?: '¿No has recibido las instrucciones de confirmación?'
+            did_not_receive_unlock_instructions?: '¿No has recibido las instrucciones de desbloqueo?'
+            forgot_your_password?: '¿Olvidaste tu contraseña?'
+            log_in: Iniciar sesión
+            sign_up: Regístrate
       menu:
         admins: Administradores
         dashboard: Panel de control
@@ -145,8 +162,11 @@ es-PY:
         index:
           title: Organizaciones
         new:
-          reference_prefix_hint: El prefijo de referencia se utiliza para identificar de forma única los recursos de todas las organizaciones
-          secondary_hosts_hint: Introduce cada uno de ellos en una nueva línea
+          default: '¿Por defecto?'
+          enabled: Habilitado
+          locale: Configuración regional
+          reference_prefix_hint: El prefijo de referencia se utiliza para identificar de forma única los recursos del conjunto de la organización.
+          secondary_hosts_hint: Introduce cada uno de ellos en una nueva línea.
           title: Nueva organización
         omniauth_settings:
           decidim:
@@ -187,3 +207,4 @@ es-PY:
           our_getting_started_guide: nuestra guía de inicio
       titles:
         dashboard: Panel de control
+        decidim: Decidim
