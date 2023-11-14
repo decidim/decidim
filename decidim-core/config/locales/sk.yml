@@ -627,6 +627,10 @@ sk:
           password: Heslo je príliš krátke.
           password_confirmation: Potvrdenie hesla sa musí zhodovať s vaším heslom.
         error: V tomto poli je chyba.
+      upload:
+        labels:
+          cancel: Zrušiť
+          save: Uložiť
     gamification:
       all_badges_link: Zobraziť všetky dostupné odznaky.
       badges:
@@ -899,7 +903,6 @@ sk:
           proposals: Návrhy
           proposals_explanation: Urobiť návrhy, podporiť existujúce a podporovať zmeny, ktoré chcete vidieť.
         footer_sub_hero:
-          footer_sub_hero_body: vybudujte otvorenejšia, transparentnejšia a spolupracujúca spoločnosť. <br /> Prihláste sa, zúčastnite sa a rozhodnite sa.
           footer_sub_hero_headline: Vitajte na%{organization} participatívnej platforme.
           register: Registrovať
         hero:
