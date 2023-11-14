@@ -830,7 +830,6 @@ lt:
             colors_title: Organizacijos spalvos
             colors_warning_html: Dėmesio! Spalvų pakeitimas gali padaryti puslapį neprieinamu. Norėdami patikrinti spalvų prieinamumą naudokite <a href="%{link}"> WebAIM Contrast Checker </a> arba kitus panašius įrankius.
             explanation: Šis įrankis padės jums pasirinkti spalvų schemą, sudarytą iš atspalvių, lygiai pasiskirstiusių spalvų rate, kuri bus naudojama organizacijos svetainėje.
-            header_snippets_help_html: Naudokite šį lauką, norėdami pridėti elementų į HTML galvą. Dažniausiai tai naudojama integruojant trečiųjų šalių paslaugas, kurioms reikia papildomo JavaScript ar CSS. Taip pat galite naudoti jį, norėdami pridėti papildomų meta žymų į HTML. Atkreipkite dėmesį, kad tai bus atvaizduojama tik viešuosiuose puslapiuose, o ne administravimo skyriuje. Jei kodas bendrauja su išorinėmis API arba nesilaiko programos saugumo gairių, reikės keisti turinio saugumo politiką. Sužinokite daugiau <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">dokumentacijos svetainėje</a>.
             legend_html: Pagrindinės programos spalvos, remiantis <a href="https://www.color-meanings.com/triadic-colors/">Triadinio algoritmo</a>. <i>Antrinė</i> spalva yra automatiškai apskaičiuojama iš pagrindinės spalvos ir pasirinkto prisotinimo.
             saturation: Sodrumas
             title: Spalvų parinkėjas
@@ -853,22 +852,6 @@ lt:
         form:
           add: Pridėti prie baltojo sąrašo
           title: Išorinių domenų baltasis sąrašas
-      organization_homepage:
-        content_blocks:
-          create:
-            error: Bandant sukurti šią turinio sekciją kilo problema.
-            success: Turinio blokas sėkmingai sukurtas.
-          destroy:
-            error: Bandant sukurti šį turinio bloką kilo problema.
-            success: Turinio blokas sėkmingai pašalintas.
-          edit:
-            update: Atnaujinti
-        edit:
-          active_content_blocks: Aktyvūs turinio blokai
-          add: Pridėti turinio bloką
-          destroy_confirmation: Ar tikrai norite ištrinti šį turinio bloką?
-          inactive_content_blocks: Neaktyvūs turinio blokai
-          title: Puslapio turiniai
       participatory_space_private_users:
         create:
           error: Pridedant privatų dalyvį į šia dalyvaujamają erdvę kilo problema.
@@ -898,7 +881,6 @@ lt:
           explanation_example: |
             john.doe@example.org%{csv_col_sep}John Doe
             jane.doe@example.org%{csv_col_sep}Jane Doe
-          title: Įkelkite CSV dokumentą
           upload: Įkelti
       reminders:
         create:
@@ -966,7 +948,6 @@ lt:
       shared:
         gallery:
           add_images: Pridėti paveikslėlių
-          delete_image: Pašalinti paveikslėlį
           edit_images: Redaguoti paveikslėlį
           gallery_legend: Pridėti paveikslėlių galeriją (Neprivaloma)
       static_page_topics:
@@ -987,20 +968,6 @@ lt:
       static_pages:
         actions:
           view: Peržiūrėti viešą puslapį
-        content_blocks:
-          active_content_blocks: Aktyvūs turinio blokai
-          add: Pridėti turinio bloką
-          create:
-            error: Bandant sukurti šią turinio sekciją kilo problema.
-            success: Turinio blokas sėkmingai sukurtas.
-          destroy:
-            error: Bandant sukurti šį turinio bloką kilo problema.
-            success: Turinio blokas sėkmingai pašalintas.
-          destroy_confirmation: Ar tikrai norite ištrinti šį turinio bloką?
-          edit:
-            update: Atnaujinti
-          inactive_content_blocks: Neaktyvūs turinio blokai
-          title: Puslapio turinys
         create:
           error: Kuriant naują puslapį iškilo problema.
           success: Puslapis sukurtas.
@@ -1012,12 +979,12 @@ lt:
           update: Atnaujinti
         form:
           none: Nėra
+        index:
+          last_notable_change: Paskutinis pastebimas pakeitimas
         new:
           create: Sukurti puslapį
           title: Naujas puslapis
         topic:
-          destroy: Šalinti temą
-          edit: Redaguoti temą
           empty: Šioje temoje puslapių nėra.
           without_topic: Puslapiai be temos
         update:
