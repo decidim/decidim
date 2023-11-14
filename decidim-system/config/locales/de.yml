@@ -55,6 +55,8 @@ de:
         new:
           create: Erstellen
           title: Neuer Administrator
+        show:
+          edit: Bearbeiten
         update:
           error: Beim Aktualisieren dieses Administrators ist ein Fehler aufgetreten.
           success: Administrator wurde erfolgreich aktualisiert
@@ -65,6 +67,21 @@ de:
         placeholders:
           content: Fügen Sie der statischen Seite %{page} im Admin-Dashboard sinnvollen Inhalt hinzu.
           title: Standardtitel für %{page}
+      devise:
+        passwords:
+          edit:
+            change_your_password: Passwort ändern
+            minimum_characters: "(Minimum %{minimum} Zeichen)"
+          new:
+            forgot_your_password: Passwort vergessen?
+            send_me_reset_password_instructions: Schicken Sie mir eine Anweisung zum Zurücksetzen des Passwortes
+        shared:
+          links:
+            did_not_receive_confirmation_instructions?: Keine Bestätigungs-Mail erhalten?
+            did_not_receive_unlock_instructions?: Anweisungen zum Entsperren nicht erhalten?
+            forgot_your_password?: Haben Sie Ihr Passwort vergessen?
+            log_in: Anmelden
+            sign_up: Registrieren
       menu:
         admins: Admins
         dashboard: Instrumententafel
@@ -73,7 +90,7 @@ de:
       models:
         admin:
           fields:
-            created_at: Hergestellt in
+            created_at: Erstellt am
             email: Email
           name: Administrator
           validations:
@@ -88,7 +105,7 @@ de:
           actions:
             save_and_invite: Organisation erstellen & den Admin einladen
           fields:
-            created_at: Hergestellt in
+            created_at: Erstellt am
             file_upload_settings: Datei-Upload Einstellungen
             name: Name
             omniauth_settings: Omniauth-Einstellungen
@@ -145,8 +162,11 @@ de:
         index:
           title: Organisationen
         new:
-          reference_prefix_hint: Das Referenzpräfix wird zur eindeutigen Identifizierung von Ressourcen in allen Organisationen verwendet
-          secondary_hosts_hint: Geben Sie jede von ihnen in einer neuen Zeile ein
+          default: Standard?
+          enabled: Aktiviert
+          locale: Spracheinstellung
+          reference_prefix_hint: Das Referenzpräfix wird zur eindeutigen Identifizierung von Ressourcen in allen Organisationen verwendet.
+          secondary_hosts_hint: Geben Sie jede von ihnen in einer neuen Zeile ein.
           title: Neue Organisation
         omniauth_settings:
           decidim:
@@ -187,3 +207,4 @@ de:
           our_getting_started_guide: unser Leitfaden für Anfänger
       titles:
         dashboard: Instrumententafel
+        decidim: Decidim
