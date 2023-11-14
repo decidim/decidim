@@ -172,22 +172,6 @@ fi-pl:
           copy: Kopio
           select: Valitse, mitkä tiedot haluat kopioida
           title: Kopioi osallisuusprosessi
-      participatory_process_group_landing_page:
-        edit:
-          active_content_blocks: Aktiiviset sisältölohkot
-          add: Lisää sisältölohko
-          destroy_confirmation: Haluatko varmasti poistaa tämän sisältölohkon?
-          inactive_content_blocks: Käytöstä poistetut sisältölohkot
-          title: Sivun sisältö
-      participatory_process_group_landing_page_content_blocks:
-        create:
-          error: Sisältölohkon luonti epäonnistui.
-          success: Sisältölohkon luonti onnistui.
-        destroy:
-          error: Sisältölohkon poisto epäonnistui.
-          success: Sisältölohkon poisto onnistui.
-        edit:
-          update: Päivitä
       participatory_process_groups:
         destroy:
           error: Osallisuusprosessien ryhmän poisto epäonnistui.
