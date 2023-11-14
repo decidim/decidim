@@ -56,9 +56,6 @@ es-PY:
         new:
           create: Crear
           title: Nuevo administrador
-        show:
-          destroy: Destruir
-          edit: Editar
         update:
           error: Se ha producido un error al actualizar este administrador.
           success: Administradora actualizada correctamente.
@@ -140,7 +137,6 @@ es-PY:
           show: Mostrar configuración avanzada
         create:
           error: Se ha producido un error al crear una nueva organización.
-          success: Organización creada correctamente.
         csp_settings:
           connect_src: Direcciones de conexión (connect-src)
           connect_src_hint: |
