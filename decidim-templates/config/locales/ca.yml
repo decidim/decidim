@@ -56,6 +56,9 @@ ca:
             title: Nova plantilla del missatge de bloqueig del compte d'usuària
           template_chooser:
             select_template: Selecciona una plantilla de resposta
+        proposal_answer_templates:
+          form:
+            save: Desar
         questionnaire_templates:
           choose:
             create_from_template: Crear des d'una plantilla
