@@ -22,6 +22,8 @@ id:
         new:
           create: Membuat
           title: Admin baru
+        show:
+          edit: Edit
         update:
           error: Terjadi masalah saat memperbarui admin ini.
           success: Admin berhasil diperbarui
@@ -56,8 +58,6 @@ id:
         index:
           title: Organisasi
         new:
-          reference_prefix_hint: Awalan referensi digunakan untuk mengidentifikasi sumber daya secara unik di semua organisasi
-          secondary_hosts_hint: Masukkan masing-masing dari mereka di baris baru
           title: Organisasi baru
         update:
           error: Ada masalah saat memperbarui organisasi ini.
