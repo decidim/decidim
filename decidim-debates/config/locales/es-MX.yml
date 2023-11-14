@@ -96,7 +96,6 @@ es-MX:
           cancel: Cancelar
           description: '¿Cuál es el resumen o la conclusión de este debate?'
           send: Cerrar debate
-        closed: Cerrado
         count:
           debates_count:
             one: "%{count} debate"
@@ -104,8 +103,6 @@ es-MX:
         create:
           invalid: Ha habido un problema al crear el debate.
           success: Debate creado con éxito.
-        debate:
-          participate: Participar
         edit:
           back: Atrás
           save: Guardar cambios
@@ -142,7 +139,6 @@ es-MX:
           updated: Actualizados recientemente
         show:
           close_debate: Cerrar debate
-          date: Fecha
           debate_closed: Cerrado
           debate_conclusions_are: 'El debate se cerró el %{date} con estas conclusiones:'
           edit_conclusions: Editar conclusiones
