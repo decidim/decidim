@@ -63,7 +63,7 @@ ja:
         personal_url: 個人URL
         position: 位置
         short_bio: 略歴
-        twitter_handle: Twitterアカウント
+        twitter_handle: Xハンドル
         user_id: ユーザー
       conference_user_role:
         email: Eメールアドレス
@@ -438,7 +438,7 @@ ja:
           invalid: このカンファレンスから退会するのに問題がありました。
           success: カンファレンスから退会しました。
       conference_speaker:
-        go_to_twitter: Twitter に移動
+        go_to_twitter: X に移動
         more_info: 詳細情報
         personal_website: 個人のウェブサイト
         show:
