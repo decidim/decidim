@@ -50,7 +50,7 @@
           </div>
         </div>
 
-        <% presented_endorsers = endorsers_presenters_for(proposal).first(6).to_a %>
+        <% presented_endorsers = endorsers_presenters_for(proposal) %>
         <% if presented_endorsers.any? %>
           <%= render partial: "endorsers", locals: { presented_endorsers:, proposal: } %>
         <% end %>
