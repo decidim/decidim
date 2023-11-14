@@ -841,6 +841,7 @@ de:
             timeline:
               name: Abstimmungszeitfolge
         index:
+          not_published: Nicht veröffentlicht
           published: Veröffentlicht
         landing_page:
           content_blocks:
