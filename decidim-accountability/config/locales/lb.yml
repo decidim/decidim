@@ -94,9 +94,7 @@ lb:
             not_found: 'Das übergeordnete Objekt wurde nicht in der Datenbank gefunden (ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Daten
           results: Ergebnisse
-          unspecified: Keine Angabe
       import_mailer:
         import:
           errors: Fehler
@@ -124,9 +122,6 @@ lb:
         timeline_entry:
           fields:
             entry_date: Datum
-      result_m:
-        executed: Ausgeführt
-        view: Ansicht
       results:
         count:
           results_count:
