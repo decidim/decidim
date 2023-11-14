@@ -1073,7 +1073,6 @@ it:
           proposals: proposte
           proposals_explanation: Fare proposte, sostenere quelle esistenti e promuovere le modifiche che vuoi vedere.
         footer_sub_hero:
-          footer_sub_hero_body: Costruiamo una società più aperta, trasparente e collaborativa.<br /> Unisciti, participa e decidi.
           footer_sub_hero_headline: Benvenuto sulla piattaforma partecipativa di %{organization}.
           register: Registrati
         hero:
