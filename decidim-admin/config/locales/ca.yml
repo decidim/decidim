@@ -821,10 +821,6 @@ ca:
         form:
           add: Afegir a la llista blanca
           title: Llista blanca de dominis externs
-      organization_homepage:
-        edit:
-          active_content_blocks: Blocs de contingut actiu
-          inactive_content_blocks: Blocs de contingut inactiu
       organization_homepage_content_blocks:
         edit:
           update: Actualitzar
