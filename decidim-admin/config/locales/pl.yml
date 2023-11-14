@@ -743,10 +743,6 @@ pl:
         form:
           add: Dodaj do białej listy
           title: Biała lista domen zewnętrznych
-      organization_homepage:
-        edit:
-          active_content_blocks: Aktywne bloki treści
-          inactive_content_blocks: Bloki nieaktywnych treści
       participatory_space_private_users:
         create:
           error: Wystąpił błąd podczas dodawania użytkownika prywatnego do tej przestrzeni partycypacyjnej.
@@ -766,7 +762,6 @@ pl:
             button: Usuń wszystkich prywatnych uczestników
             title: Usuń prywatnych uczestników
           example_file: 'Przykładowy plik:'
-          title: Prześlij swój plik CSV
           upload: Prześlij
       reminders:
         create:
@@ -831,7 +826,6 @@ pl:
       shared:
         gallery:
           add_images: Dodaj obrazy
-          delete_image: Usuń obraz
           edit_images: Edytuj obrazy
           gallery_legend: Dodaj galerię obrazów (opcjonalnie)
       static_page_topics:
@@ -860,12 +854,12 @@ pl:
           update: Aktualizuj
         form:
           none: Bez tematu
+        index:
+          last_notable_change: Ostatnia istotna zmiana
         new:
           create: Utwórz stronę
           title: Nowa strona
         topic:
-          destroy: Usuń temat
-          edit: Edytuj temat
           without_topic: Strony bez tematu
         update:
           error: Podczas aktualizowania tej strony wystąpił błąd.
