@@ -110,6 +110,50 @@ describe "Edit proposals", type: :system do
             expect(translated(Decidim::Attachment.find_by(attached_to_id: proposal.id, content_type: "application/pdf").title)).to eq(attachment_file_title)
           end
         end
+
+        context "with problematic file titles" do
+          let!(:photo) { create(:attachment, :with_image, weight: 0, attached_to: proposal) }
+          let!(:document) { create(:attachment, :with_pdf, weight: 1, attached_to: proposal) }
+
+          before do
+            document.update!(title: { en: "<svg onload=alert('ALERT')>.pdf" })
+            photo.update!(title: { en: "<svg onload=alert('ALERT')>.jpg" })
+          end
+
+          it "displays them correctly on the edit form" do
+            # With problematic code, should raise Selenium::WebDriver::Error::UnexpectedAlertOpenError
+            click_link "Edit proposal"
+            expect(page).to have_content("Required fields are marked with an asterisk")
+            click_button("Edit documents")
+            within "[data-reveal]" do
+              click_button("Save")
+            end
+            click_button("Send")
+            expect(page).to have_content("Proposal successfully updated.")
+          end
+        end
+
+        context "with problematic file names" do
+          let!(:photo) { create(:attachment, :with_image, weight: 0, attached_to: proposal) }
+          let!(:document) { create(:attachment, :with_pdf, weight: 1, attached_to: proposal) }
+
+          before do
+            document.file.blob.update!(filename: "<svg onload=alert('ALERT')>.pdf")
+            photo.file.blob.update!(filename: "<svg onload=alert('ALERT')>.jpg")
+          end
+
+          it "displays them correctly on the edit form" do
+            # With problematic code, should raise Selenium::WebDriver::Error::UnexpectedAlertOpenError
+            click_link "Edit proposal"
+            expect(page).to have_content("Required fields are marked with an asterisk")
+            click_button("Edit documents")
+            within "[data-reveal]" do
+              click_button("Save")
+            end
+            click_button("Send")
+            expect(page).to have_content("Proposal successfully updated.")
+          end
+        end
       end
 
       context "with multiple images" do

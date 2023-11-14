@@ -125,6 +125,22 @@ describe Decidim::UploadModalCell, type: :cell do
         expect(details).to have_content("#{attachments[0].title["en"]} (#{filename})")
       end
     end
+
+    context "when there is rich content in the filename" do
+      let(:blob) { ActiveStorage::Blob.find_signed(attachments.first) }
+
+      before do
+        blob.update!(filename: "<svg onload=alert('ALERT')>.pdf")
+      end
+
+      it "escapes the truncated filename" do
+        expect(my_cell.send(:truncated_file_name_for, attachments.first)).to eq("&lt;svg onload=alert(&#39;ALERT&#39;)&gt;.pdf")
+      end
+
+      it "escapes the filename" do
+        expect(my_cell.send(:file_name_for, attachments.first)).to eq("&lt;svg onload=alert(&#39;ALERT&#39;)&gt;.pdf")
+      end
+    end
   end
 
   context "when there is a title" do
