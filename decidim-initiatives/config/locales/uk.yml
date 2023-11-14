@@ -232,6 +232,7 @@ uk:
             many: і ще %{count} людей
             other: і ще %{count} людей
         committee_members:
+          confirm_revoke: Ви впевнені?
           revoke: Відкликати
         count:
           title:
