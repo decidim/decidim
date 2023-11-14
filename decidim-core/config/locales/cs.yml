@@ -568,6 +568,8 @@ cs:
           subtitle: Pro dokončení registrace vyplňte prosím následující formulář
           username_help: Veřejné jméno, které se zobrazí ve vašich příspěvcích. S cílem zaručit anonymitu může být jakékoliv jméno.
       registrations:
+        create:
+          error: Vyskytl se problém při vytváření účtu.
         new:
           already_have_an_account?: Máte již účet?
           newsletter: Chci dostávat příležitostný zpravodaj s relevantními informacemi
@@ -1269,6 +1271,7 @@ cs:
           proposals: Návrhy
           proposals_explanation: Vytvářejte návrhy, podporujte stávající návrhy a prosazujte změny, které chcete vidět.
         footer_sub_hero:
+          footer_sub_hero_body: Vytvořme otevřenější, transparentnější a více spolupracující společnost.<br /> Připojte se, účastněte se a rozhodujte.
           footer_sub_hero_headline: Vítejte na %{organization} participační platformě.
           register: Registrovat
         hero:
