@@ -318,8 +318,6 @@ lt:
           index:
             filter:
               all: Visi
-              ceased: Nutraukta
-              not_ceased: Nenutraukta
             filter_by: Filtruoti pagal
             search: Ieškoti
         content_blocks:
