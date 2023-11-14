@@ -98,8 +98,6 @@
           create: "%{user_name} opprettet %{resource_name} prosjektet i %{space_name} rommet"
           delete: "%{user_name} slettet %{resource_name} prosjektet i %{space_name} rommet"
           update: "%{user_name} oppdaterte %{resource_name} prosjektet i %{space_name} rommet"
-      budget:
-        view: Vis alle budsjettprosjekter
       budget_information_modal:
         back_to: Tilbake til %{component_name}
         close_modal: Lukk dialogboks
@@ -177,7 +175,6 @@
           selected: Valgt
         project:
           selected: Valgt
-          view: Vis
           votes:
             one: stem
             other: stemmer
