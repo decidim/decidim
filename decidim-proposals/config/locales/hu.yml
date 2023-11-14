@@ -457,7 +457,6 @@ hu:
             create: Létrehozás
             title: Javaslat létrehozása
           publish_answers:
-            number_of_proposals: A %{number} -s számú javaslatra adott válaszokat közzétesszük.
             select_a_proposal: Kérjük, válasszon egy javaslatot.
           show:
             amendments_count: Módosítás száma (%{count}
@@ -467,7 +466,6 @@ hu:
             documents: Dokumentumok
             endorsements_count: Jóváhagyások száma
             endorsers: Támogatók
-            link: Link
             n_more_endorsers:
               one: és még egy
               other: és még %{count}
