@@ -189,8 +189,6 @@ is-IS:
           index:
             filter:
               all: Allt
-              ceased: Hætt
-              not_ceased: Ekki hætt
             filter_by: Sía eftir
             search: Leita
       assembly_members:
