@@ -56,6 +56,9 @@ es-PY:
             title: Nueva plantilla para el mensaje de bloqueo de la cuenta de usuaria
           template_chooser:
             select_template: Selecciona una plantilla de respuesta
+        proposal_answer_templates:
+          form:
+            save: Guardar
         questionnaire_templates:
           choose:
             create_from_template: Crear desde plantilla
