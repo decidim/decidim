@@ -180,9 +180,7 @@ cs:
             not_found: 'Nadřazený nebyl nalezen v databázi (ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Data
           results: Výsledky
-          unspecified: Nespecifikováno
       import_mailer:
         import:
           errors: Chyby
@@ -223,9 +221,6 @@ cs:
           fields:
             entry_date: Datum
             title: Název
-      result_m:
-        executed: Provedeno
-        view: Zobrazit
       results:
         count:
           results_count:
