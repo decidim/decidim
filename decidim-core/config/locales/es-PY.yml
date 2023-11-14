@@ -1229,7 +1229,6 @@ es-PY:
           proposals: Propuestas
           proposals_explanation: Haz propuestas, apoya las existentes y promueve los cambios que deseas ver.
         footer_sub_hero:
-          footer_sub_hero_body: Construyamos una sociedad más abierta, transparente y colaborativa. <br /> Únete, participa y decide.
           footer_sub_hero_headline: Bienvenido a la plataforma participativa %{organization}.
           register: Regístrate
         hero:
@@ -1800,7 +1799,7 @@ es-PY:
         facebook: "%{organization} en Facebook"
         github: "%{organization} en GitHub"
         instagram: "%{organization} en Instagram"
-        twitter: "%{organization} en Twitter"
+        x: "%{organization} en X"
         youtube: "%{organization} en YouTube"
       timeout_modal:
         body: Has estado sin actividad durante %{minutes} minutos. Si sigues estando inactivo, serás desconectado automáticamente por tu propia seguridad.
@@ -1808,7 +1807,7 @@ es-PY:
         sign_out: Cerrar sesión
         title: '¿Quieres continuar con la sesión?'
       upload_modal:
-        close_modal: Cerrar ventana
+        close_modal: Cerrar el modal
       user_menu:
         account: 'Cuenta de usuario: %{name}'
         admin_dashboard: Tablero de administración
@@ -1867,6 +1866,7 @@ es-PY:
     weibo: Sina Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
+    x:
     xing: Xing
   time:
     formats:
