@@ -65,6 +65,8 @@ cs:
             success: Průzkum byl úspěšně uložen.
       last_activity:
         new_survey: 'Nový průzkum:'
+      survey_confirmation_mailer:
+        export_name: Odpovědi na dotazník
       surveys:
         answer:
           invalid: Při odpovědi na průzkum došlo k chybám.
