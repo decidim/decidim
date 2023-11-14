@@ -60,7 +60,7 @@ eu:
                 <ul>
                 <li><b> id category/id:</b> ID kategoriarako </li>
                 <li><b>scope /id:</b> ID eremurako </li>
-                <li><b>parent /id:</b> ID aitarentzat (erlazionatutako emaitzetarako). Aukerakoa </li>
+                <li><b>parent /id:</b> ID nagusiarentzat (erlazionatutako emaitzetarako). Aukerakoa </li>
                 <li><b>title /I18N:</b> Izenburua hizkuntzan X</li>
                 <li><b> deskribapena /I18N:</b> deskribapena hizkuntzan X</li>
                 <li><b>start_date:</b> emaitza gauzatzen den hasiera-data (AAAA-MM-DD formatua)</li>
@@ -84,7 +84,7 @@ eu:
             name: Sarrera kronologian
         results:
           create:
-            invalid: Arazo bat izan da emaitza hau sortzean.
+            invalid: Arazo bat egon da emaitza hau sortzean
             success: Emaitza zuzen sortu da
           destroy:
             success: Emaitza zuzen ezabatu da
@@ -97,14 +97,14 @@ eu:
             create: Sortu emaitza
             title: Emaitza berria
           update:
-            invalid: Arazo bat izan da emaitza hau eguneratzean.
+            invalid: Arazo bat egon da emaitza hau eguneratzean
             success: Emaitza zuzen eguneratu da
         shared:
           subnav:
             statuses: Egoerak
         statuses:
           create:
-            invalid: Arazo bat izan da egoera hau sortzean
+            invalid: Arazo bat egon da egoera hau sortzean
             success: Egoera behar bezala sortu da
           destroy:
             success: Egoera behar bezala ezabatu da
@@ -117,11 +117,11 @@ eu:
             create: Egoera sortu
             title: Egoera berria
           update:
-            invalid: Arazo bat izan da egoera hori eguneratzean
+            invalid: Arazo bat egon da egoera hau eguneratzean
             success: Egoera behar bezala eguneratu da
         timeline_entries:
           create:
-            invalid: Arazo bat izan da sarrera hau sortzeko
+            invalid: Arazo bat egon da sarrera hau sortzean
             success: Sarrera ondo sortu da
           destroy:
             success: Sarrera zuzen ezabatu da
@@ -134,7 +134,7 @@ eu:
             create: Sortu sarrera
             title: Sarrera berria
           update:
-            invalid: Arazo bat izan da sarrera hau eguneratzean
+            invalid: Arazo bat egon da sarrera hau eguneratzean
             success: Sarrera ondo eguneratu da
       admin_log:
         result:
@@ -143,7 +143,7 @@ eu:
           update: "%{user_name} k %{resource_name} emaitza eguneratu du %{space_name} espazioan"
         value_types:
           parent_presenter:
-            not_found: 'Gurasoa ez zen datu-basean aurkitu (ID: %{id})'
+            not_found: 'Nagusi ez zen aurkitu (ID: %{id}) datu-basean'
       content_blocks:
         highlighted_results:
           dates: Datak
@@ -152,7 +152,7 @@ eu:
       import_mailer:
         import:
           errors: Akatsak
-          errors_present: Arazo bat izan da emaitzak inportatzen
+          errors_present: Arazo bat egon da emaitzak inportatzean
           row_number: Errenkada
           subject: Emaitzak zuzen inportatu dira
           success: Emaitzak zuzen inportatu dira. Emaitzak administrazioaren panelaren bidez berrikusi ahal dituzu.
