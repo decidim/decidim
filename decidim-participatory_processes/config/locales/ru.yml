@@ -130,6 +130,9 @@ ru:
           copy: Копировать
           select: Выберите, какие данные вы хотите продублировать
           title: Создать копию движения соучастия
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Обновить
       participatory_process_groups:
         destroy:
           success: Группа движений соучастия успешно удалена.
