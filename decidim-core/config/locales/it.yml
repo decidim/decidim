@@ -726,6 +726,10 @@ it:
       file_validation:
         allowed_file_extensions: 'Estensioni file consentite: %{extensions}'
         max_file_size: 'Dimensione massima file: %{megabytes}MB'
+      upload:
+        labels:
+          cancel: Annulla
+          save: Salva
     gamification:
       all_badges_link: Vedi tutti i badge disponibili.
       badges:
@@ -1068,7 +1072,6 @@ it:
           proposals: proposte
           proposals_explanation: Fare proposte, sostenere quelle esistenti e promuovere le modifiche che vuoi vedere.
         footer_sub_hero:
-          footer_sub_hero_body: Costruiamo una società più aperta, trasparente e collaborativa.<br /> Unisciti, participa e decidi.
           footer_sub_hero_headline: Benvenuto sulla piattaforma partecipativa di %{organization}.
           register: Registrati
         hero:
@@ -1568,13 +1571,14 @@ it:
         facebook: "%{organization} su Facebook"
         github: "%{organization} su GitHub"
         instagram: "%{organization} su Instagram"
-        twitter: "%{organization} su Twitter"
         youtube: "%{organization} su YouTube"
       timeout_modal:
         body: Sei stato inattivo per %{minutes} minuti. Se continui ad essere inattivo, sarai automaticamente disconnesso per la tua sicurezza.
         continue_session: Continua la sessione
         sign_out: Esci
         title: Vorresti continuare la tua sessione?
+      upload_modal:
+        close_modal: Chiudi modalità
       user_menu:
         account: 'Account utente: %{name}'
         admin_dashboard: Cruscotto per gli amministratori (Admin dashboard)
