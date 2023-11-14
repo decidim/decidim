@@ -1228,7 +1228,6 @@ fi-pl:
           proposals: Ehdotukset
           proposals_explanation: Tee ehdotuksia, tue muiden tekemiä ehdotuksia ja edistä muutoksia, joita haluat nähdä.
         footer_sub_hero:
-          footer_sub_hero_body: Rakennetaan avoimempi, läpinäkyvämpi ja yhteisöllisempi yhteiskunta.<br /> Liity, osallistu ja päätä.
           footer_sub_hero_headline: Tervetuloa yhteisölliseen osallisuuspalveluun %{organization}.
           register: Rekisteröidy
         hero:
@@ -1799,7 +1798,7 @@ fi-pl:
         facebook: "%{organization} Facebookissa"
         github: "%{organization} GitHubissa"
         instagram: "%{organization} Instagramissa"
-        twitter: "%{organization} Twitterissä"
+        x: "%{organization} X-palvelussa"
         youtube: "%{organization} YouTubessa"
       timeout_modal:
         body: Et ole käyttänyt palvelua %{minutes} minuuttiin. Jos et jatka palvelun käyttöä, sinut kirjataan automaattisesti ulos oman turvallisuutesi takia.
@@ -1866,6 +1865,7 @@ fi-pl:
     weibo: Sina Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
+    x: X
     xing: Xing
   time:
     formats:
