@@ -1129,7 +1129,6 @@ es-PY:
           proposals: Propuestas
           proposals_explanation: Haz propuestas, apoya las existentes y promueve los cambios que deseas ver.
         footer_sub_hero:
-          footer_sub_hero_body: Construyamos una sociedad más abierta, transparente y colaborativa. <br /> Únete, participa y decide.
           footer_sub_hero_headline: Bienvenido a la plataforma participativa %{organization}.
           register: Regístrate
         hero:
