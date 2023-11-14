@@ -1269,7 +1269,6 @@ cs:
           proposals: Návrhy
           proposals_explanation: Vytvářejte návrhy, podporujte stávající návrhy a prosazujte změny, které chcete vidět.
         footer_sub_hero:
-          footer_sub_hero_body: Vybudujme otevřenější, transparentnější a spolupracující společnost.<br /> Přihlaste se, zúčastněte se a rozhodněte se.
           footer_sub_hero_headline: Vítejte na %{organization} participační platformě.
           register: Registrovat
         hero:
@@ -1848,7 +1847,7 @@ cs:
         facebook: "%{organization} na Facebooku"
         github: "%{organization} na GitHubu"
         instagram: "%{organization} na Instagramu"
-        twitter: "%{organization} na Twitteru"
+        x: "%{organization} v X"
         youtube: "%{organization} na YouTube"
       timeout_modal:
         body: '%{minutes} minut jste byli neaktivní. Pokud budete i nadále neaktivní, budete automaticky odhlášeni z důvodu své vlastní bezpečnosti.'
@@ -1856,7 +1855,7 @@ cs:
         sign_out: Odhlásit se
         title: Chcete pokračovat v relaci?
       upload_modal:
-        close_modal: Zavřít modal
+        close_modal: Zavřít okno
       user_menu:
         account: 'Uživatelský účet: %{name}'
         admin_dashboard: Ovládací panel
@@ -1915,6 +1914,7 @@ cs:
     weibo: Sina Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
+    x: X
     xing: Xing
   time:
     formats:
