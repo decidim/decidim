@@ -22,6 +22,8 @@ sl:
         new:
           create: Ustvari
           title: Nov skrbnik
+        show:
+          edit: Uredi
         update:
           error: Pojavila se je težava pri urejanju skrbnika.
           success: Skrbnik uspešno posodobljen
