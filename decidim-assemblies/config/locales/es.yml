@@ -158,13 +158,11 @@ es:
         destroy:
           success: Miembro eliminado correctamente para esta asamblea.
         edit:
-          title: Actualizar miembro de la asamblea.
           update: Actualizar
         index:
           assembly_members_title: Miembros de la asamblea
         new:
           create: Crear
-          title: Nuevo miembro de la asamblea.
         update:
           error: Se ha producido un error al actualizar el miembro para esta asamblea.
           success: Miembro actualizado correctamente para esta asamblea.
@@ -182,13 +180,11 @@ es:
         destroy:
           success: Administradora eliminada correctamente de esta asamblea.
         edit:
-          title: Actualizar administradora de la asamblea.
           update: Actualizar
         index:
           assembly_admins_title: Administradoras de la asamblea
         new:
           create: Crear
-          title: Nueva administradora de la asamblea.
         update:
           error: Se ha producido un error al actualizar una administradora para esta asamblea.
           success: Administradora actualizada correctamente para esta asamblea.
@@ -321,12 +317,6 @@ es:
             select_a_position: Selecciona una posición
             select_user: Selecciona una participante
             user_type: Tipo de participante
-          index:
-            filter:
-              all: Todas
-              ceased: Cesada
-              not_ceased: No cesada
-            search: Buscar
         content_blocks:
           highlighted_assemblies:
             max_results: Cantidad máxima de elementos para mostrar
