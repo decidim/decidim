@@ -520,7 +520,6 @@ ja:
             create: 作成
             title: 提案を作成
           publish_answers:
-            number_of_proposals: '%{number} の提案の回答が公開されます。'
             select_a_proposal: 提案を選択してください。
           show:
             amendments_count: 修正数
@@ -530,7 +529,6 @@ ja:
             documents: ドキュメント
             endorsements_count: オススメ数
             endorsers: オススメしている人
-            link: リンク
             n_more_endorsers:
               other: 他 %{count} 名
             photos: 写真
