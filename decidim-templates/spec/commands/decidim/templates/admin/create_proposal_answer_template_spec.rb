@@ -44,7 +44,7 @@ module Decidim
             expect { subject.call }.to broadcast(:ok)
           end
 
-          it "create a new template for the organization" do
+          it "creates a new template for the organization" do
             expect { subject.call }.to change(Decidim::Templates::Template, :count).by(1)
           end
 

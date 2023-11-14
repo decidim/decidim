@@ -220,7 +220,7 @@ describe "Admin manages proposal answer templates" do
         find("a", class: "action-icon--show-proposal").click
       end
 
-      it "hides the proposal selector" do
+      it "hides the template selector in the proposal answer page" do
         expect(page).not_to have_select(:proposal_answer_template_chooser)
       end
     end
@@ -269,11 +269,11 @@ describe "Admin manages proposal answer templates" do
       end
     end
 
-    context "when template uses interpolations" do
-      context "when template uses organization interpolation" do
+    context "when the template uses interpolations" do
+      context "with the organization variable" do
         let(:description) { "Some meaningful answer with the %{organization}" }
 
-        it "changes the organization for the organization name" do
+        it "changes it with the organization name" do
           within ".edit_proposal_answer" do
             select template.name["en"], from: :proposal_answer_template_chooser
             expect(page).to have_content("Some meaningful answer with the #{organization.name}")
@@ -281,10 +281,10 @@ describe "Admin manages proposal answer templates" do
         end
       end
 
-      context "when template uses admin interpolation" do
+      context "with the admin variable" do
         let(:description) { "Some meaningful answer with the %{admin}" }
 
-        it "changes the admin for the organization name" do
+        it "changes it with the admin's user name" do
           within ".edit_proposal_answer" do
             select template.name["en"], from: :proposal_answer_template_chooser
             expect(page).to have_content("Some meaningful answer with the #{user.name}")
@@ -292,10 +292,10 @@ describe "Admin manages proposal answer templates" do
         end
       end
 
-      context "when template uses user interpolation" do
+      context "with the user variable" do
         let(:description) { "Some meaningful answer with the %{name}" }
 
-        it "changes the user" do
+        it "changes it with the author's user name" do
           within ".edit_proposal_answer" do
             select template.name["en"], from: :proposal_answer_template_chooser
             expect(page).to have_content("Some meaningful answer with the #{proposal.creator_author.name}")
