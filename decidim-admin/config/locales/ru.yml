@@ -63,7 +63,6 @@ ru:
         send_welcome_notification: Отправить приветственное уведомление
         success_color: Успешно
         tos_version: Версия условий участия
-        twitter_handler: Обработчик Twitter
         user_groups_enabled: Включить группы
         warning_color: Предупреждение
         welcome_notification_body: Текст приветствия
@@ -475,7 +474,6 @@ ru:
           github: ГитХаб
           instagram: Инстаграм
           social_handlers: Социальные сети
-          twitter: Твиттер
           youtube: ЮТуб
         update:
           error: При попытке обновить эту организацию произошла ошибка.
@@ -492,10 +490,6 @@ ru:
           images:
             layout_appearance_title: Редактировать внешний вид макета
           omnipresent_banner_appearance_title: Редактировать вездесущий баннер
-      organization_homepage:
-        edit:
-          active_content_blocks: Блоки действующего содержимого
-          inactive_content_blocks: Блоки недействующего содержимого
       organization_homepage_content_blocks:
         edit:
           update: Обновить
@@ -510,6 +504,9 @@ ru:
         new:
           create: Добавить
           title: Добавить частного участника пространства соучастия.
+      participatory_space_private_users_csv_imports:
+        new:
+          title: Загрузите ваш CSV файл
       resource_permissions:
         edit:
           title: Редактировать права доступа
