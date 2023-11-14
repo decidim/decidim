@@ -93,9 +93,7 @@ is-IS:
             not_found: 'Móðirin fannst ekki í gagnagrunninum (ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Dagsetningar
           results: Niðurstöður
-          unspecified: Ekki tilgreint
       import_mailer:
         import:
           errors: Villur
@@ -121,9 +119,6 @@ is-IS:
         timeline_entry:
           fields:
             entry_date: Dagsetning
-      result_m:
-        executed: Framkvæmt
-        view: Skoða
       results:
         count:
           results_count:
