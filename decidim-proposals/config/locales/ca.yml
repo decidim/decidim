@@ -526,7 +526,6 @@ ca:
             create: Crea
             title: Crea proposta
           publish_answers:
-            number_of_proposals: Es publicaran les respostes per a %{number} propostes.
             select_a_proposal: Si us plau, selecciona una proposta.
           show:
             amendments_count: Número d'esmenes
@@ -536,7 +535,6 @@ ca:
             documents: Documents
             endorsements_count: Número d'esmenes
             endorsers: Adherides
-            link: Enllaç
             n_more_endorsers:
               one: i 1 més
               other: i %{count} més
