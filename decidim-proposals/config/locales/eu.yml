@@ -497,7 +497,7 @@ eu:
           form:
             attachment_legend: "(Aukerakoa) Gehitu eranskin bat"
             created_in_meeting: Proposamen hau bilera batetik dator
-            delete_attachment: Ezabatu erantsitako artxiboa
+            delete_attachment: Ezabatu eranskina
             select_a_category: Aukeratu kategoria bat
             select_a_meeting: Aukeratu bilera bat
           index:
@@ -839,7 +839,7 @@ eu:
           most_endorsed: Aldeko boto gehien dituztenak
           most_followed: Jarraitzaile gehien dituztenak
           most_voted: Bozkatuenak
-          random: Ausazkoa eran
+          random: Ausazko ordena
           recent: Berrienak
           with_more_authors: Egile gehiagorekin
         participatory_texts:
