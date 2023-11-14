@@ -21,6 +21,11 @@ cs:
         scope_id: Oblast působnosti
   activerecord:
     models:
+      decidim/budgets/budget:
+        one: Rozpočet
+        few: Rozpočty
+        many: Rozpočtů
+        other: Rozpočtů
       decidim/budgets/project:
         one: Projekt
         few: Projekty
