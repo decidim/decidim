@@ -192,7 +192,7 @@ fr-CA:
           fields:
             category: Catégorie
             id: ID
-            scope: Secteur
+            scope: Périmètre d'application
             title: Titre
       order_summary_mailer:
         order_summary:
