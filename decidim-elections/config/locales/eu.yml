@@ -23,11 +23,14 @@ eu:
         title: Izenburua
       question:
         max_selections: Gehieneko aukera kopurua
-        min_selections: Aurreko bat ere ez
+        min_selections: Aurreko aukeretatik bat ere ez
         title: Izenburua
+      trustees_participatory_space:
+        user_id: Parte-hartzailea
       voting:
         banner_image: Bannerra
         end_time: Bozketaren amaiera-data
+        scope_id: Esparrua
         start_time: Bozketaren hasiera-data
         title: Izenburua
         voting_type: Bozketa mota
@@ -36,12 +39,18 @@ eu:
         answer:
           attributes:
             attachment:
-              needs_to_be_reattached: Artxiboa berriro erantsi behar da
+              needs_to_be_reattached: Berriro erantsi behar da
         election:
           attributes:
             attachment:
-              needs_to_be_reattached: Artxiboa berriro erantsi behar da
+              needs_to_be_reattached: Berriro erantsi behar da
   activerecord:
+    errors:
+      models:
+        decidim/votings/polling_officer:
+          attributes:
+            voting:
+              different_organization: Bozketa parte-hartzailearen erakunde berean egon behar da.
     models:
       decidim/elections/answer:
         one: Erantzuna
@@ -129,10 +138,15 @@ eu:
         unpublish: Desargitaratu
       admin:
         answers:
+          create:
+            invalid: Arazo bat egon da erantzun hau sortzean.
+          destroy:
+            invalid: Arazo bat egon da erantzun hau ezabatzean.
           edit:
             title: Editatu erantzuna
             update: Eguneratu erantzuna
           index:
+            invalid_max_selections: '%{missing_answers} erantzun gehiago behar d(it)uzu gehieneko hautaketarekin bat etortzeko.'
             title: Erantzunak
           new:
             create: Sortu erantzuna
@@ -141,8 +155,17 @@ eu:
           select:
             disable: Desautatu erantzuna
             enable: Markatu erantzuna hautatu gisa
+            invalid: Arazo bat egon da erantzun hau hautatzean.
           selected: Hautatua
+          unselect:
+            invalid: Arazo bat egon da erantzun honen hautaketa kentzean.
+          update:
+            invalid: Arazo bat egon da erantzun hau eguneratzean.
         elections:
+          create:
+            invalid: Arazo bat egon da aukera hau sortzean.
+          destroy:
+            invalid: Arazo bat egon da aukera hau ezabatzean.
           edit:
             title: Editatu aukera
             update: Eguneratu aukera
@@ -156,21 +179,32 @@ eu:
             success: Aukera zuzen argitaratu da.
           unpublish:
             success: Aukera zuzen desargitaratu da.
+          update:
+            invalid: Arazo bat egon da aukera hau eguneratzean.
         exports:
           elections: Bozketak
           feedback_form_answers: Erantzunen feedbacka
+        mailers:
+          trustee_mailer:
+            body: "<p>Kaixo %{user_name}, </p><p> %{resource_name}-an sartu zaituzte, bermatzaile gisa.< p>"
         menu:
           trustees: Bermatzaileak
         models:
           answer:
             name: Erantzuna
         proposals_imports:
+          create:
+            invalid: Arazo bat egon da proposamenak erantzun gisa inportatzean.
           new:
             create: Inportatu proposamenak erantzun gisa
             no_components: Ez dago beste proposamen-osagairik espazio honetan.
             select_component: Mesedez, hautatu osagai bat
             title: Inportatu proposamenak
         questions:
+          create:
+            invalid: Arazo bat egon da galdera hau sortzean.
+          destroy:
+            invalid: Arazo bat egon da galdera hau ezabatzean.
           edit:
             title: Editatu galdera
             update: Eguneratu galdera
@@ -179,17 +213,19 @@ eu:
           new:
             create: Sortu galdera bat
             title: Galdera berria
+          update:
+            invalid: Arazo bat egon da galdera hau eguneratzean.
         steps:
           create_election:
             errors:
               census_codes_generated: Erroldarako sarbide kodeak ez dira sortu.
               census_frozen: Erroldarako sarbide kodeak ez dira esportatu.
-              max_selections: Galderek ez dute <strong>balio zuzenik </strong> galdera kopururako
+              max_selections: Galderek ez dute <strong>balio zuzenik </strong> erantzun kopururako
               minimum_answers: Galderek gutxienez eduki behar dituzte <strong> bi erantzun </strong>.
               minimum_questions: <strong>aukerak gutxienez </strong> galdera bat eduki behar du.
               published: <strong>aukera ez dago argitaratuta </strong>.
               trustees_number: <strong> espazio parte-hartzaileak gutxienez eduki behar du %{number} bermatzaile gako publikoarekin </strong>.
-            invalid: Arazo bat izan da aukera hau konfiguratzean
+            invalid: Arazo bat egon da aukera hau konfiguratzean
             no_trustees: Ez dago bermatzaile konfiguraturik espazio parte-hartzaile honetarako
             not_used_trustee: "(ez da erabiltzen)"
             public_key:
@@ -208,6 +244,7 @@ eu:
             title: Konfiguratu bozketa
             trustees: Hautaketaren bermatzaileak
           created:
+            invalid: Arazo bat egon da gakoen zeremonia hastean.
             submit: Hasi gakoen zeremonia
             title: Bozketa sortuta
             trustees: Bermatzaileak
@@ -217,6 +254,7 @@ eu:
           key_ceremony_ended:
             errors:
               time_before: Bozketa hasteko prest dago. (%{start_time}) hasierako ordua baino %{hours} ordu itxaron behar duzu bozketaldia hasteko.
+            invalid: Arazo bat egon da bozketaldia hastean.
             requirements:
               time_before: Bozketa laster hasiko da. Eskuz hasi ahal duzu bozketaldia, edo automatikoki hasiko da hasierako ordua izan baino lehen, ordu honetan %{start_time}.
             submit: Hasi bozketaldia
@@ -237,18 +275,29 @@ eu:
             result: Emaitza
             selected: Hautatua
             submit: Argitaratu emaitzak
+            success: Emaitzak argitaratzeko eskaera zuzen bidali da Iragarki Taulara
             title: Kalkulatutako emaitzak
           tally_started:
+            continue: Jarraitu
+            invalid: Arazo bat egon da galdutako bermatzailea erreportatzean.
             mark_as_missing: Marka desagertu da
+            mark_as_missing_description: Bermatzaile guztiek parte hartu beharko lukete prozesu honetan, baina horietako batek ezin badu parte hartu, desagertu gisa markatu dezakezu.
+            success: Desagertutako bermatzailearen txostena zuzen bidali da Iragarki-taulara.
+            tally_completion: Prozesua amaitu egingo da bermatzaileak aktibo daudenean edo desagertutzat jotzen direnean. Gutxienez % {quorum} bermatzaile behar dira prozesua amaitzeko.
+            title: Zenbatzeko prozesua
+            undo_mark_as_missing: Akats baten ondorioz desagertu gisa markatutako bermatzaile batek parte hartu ahal izango du prozesua amaitu aurretik. Ohi bezala joka dezakete, eta absentearen marka ez da kontuan hartuko.
           vote:
             errors:
               time_after: Bozketa oraindik ez dago martxan. (%{end_time}) amaierako ordura arte itxaron behar duzu bozketaldia amaitzeko.
+            invalid: Arazo bat egon da bozketaldia amaitzean.
             requirements:
               time_after: Bozketa amaitu da. Bozketaldia eskuz amaitu ahal duzu, edo minutu batzuk barru automatikoki amaituko da.
             submit: Amaitu bozketaldia
             title: Bozketa-aldia
           vote_ended:
+            invalid: Arazo bat egon da zenbaketa hastean.
             submit: Hasi zenbaketa
+            success: 'Zenbaketa hasteko eskaera zuzen bidali da hona: Iragarki Taula.'
             text: Bozketa amaitu da. Orain has zaitezke zenbaketa egiten.
             title: Bozketa-aldia amaituta
           vote_stats:
@@ -260,6 +309,10 @@ eu:
           actions:
             disable: Desgaitu
             enable: Kontuan hartu
+          create:
+            invalid: Arazo bat egon da bermatzailea sortzean.
+          delete:
+            invalid: Arazo bat egon da bermatzaile hau kentzean.
           form:
             select_user: Hautatu erabiltzailea
           index:
@@ -267,9 +320,24 @@ eu:
           new:
             create: Sortu bermatzailea
             title: Bermatzaile berria
+          update:
+            invalid: Arazo bat egon da %{trustee} bermatzailea eguneratzean.
       admin_log:
         election:
-          create: "%{user_name} k %{space_name} ko %{resource_name} aukera sortu zuen"
+          create: "%{user_name} k %{space_name} ko %{resource_name} aukera sortu du"
+          delete: "%{user_name} k ezabatu du %{space_name} ko %{resource_name} aukera"
+          end_vote: "%{user_name} k amaitu du bozketaldia %{space_name} ko %{resource_name} bozketarako Iragarki Taulan"
+          publish: "%{user_name} k argitaratu du %{space_name} ko %{resource_name} hautaketa"
+          publish_results: "%{user_name} k argitaratu ditu %{resource_name} hautaketarako emaitzak %{space_name} Iragarki Taulan"
+          report_missing_trustee: "% {user_name} k jakinarazi zion % {trustee_name} ri  desagertutako bermatzaile gisa % {space_name} aukeraren % {resource_name} zenbaketan Iragarki-taulan"
+          setup: "%{user_name} k sortu du %{space_name} ko %{resource_name} hautaketa Iragarki Taulan"
+          start_key_ceremony: "%{user_name} k hasi du kontaketa %{resource_name} hautaketarako Iragarki Taulan"
+          start_tally: "%{user_name} k hasi zuen kontaketa %{resource_name} aukerarako Iragarki Taulan"
+          start_vote: "%{user_name} k hasi du bozketaldia %{space_name} ko %{resource_name} hautaketarako Iragarki Taulan"
+          unpublish: "%{user_name} k despublikatu du %{space_name} ko %{resource_name} hautaketa"
+          update: "%{user_name} k eguneratu du %{space_name} ko %{resource_name} hautaketa"
+        trustee:
+          create: "%{user_name} k %{trustee_user} erabiltzailea esleitu du bermatzaile gisa"
       election_m:
         badge_name:
           finished: Amaituta
@@ -370,7 +438,7 @@ eu:
             upcoming: Bozketa hasiko da %{start_time}
       feedback:
         answer:
-          invalid: Errore bat izan da zure feedbacka bidaltzean.
+          invalid: Arazo bat egon da zure feedbacka bidaltzean.
           spam_detected: Arazo bat izan da galdetegia erantzutean. Agian azkarregi joan zara, berriro egin dezakezu?
           success: Feedbacka zuzen bidali da.
       models:
@@ -435,12 +503,22 @@ eu:
             title: Berriztu gakoak %{election} aukerarako
             upload_election_keys: Igo aukeraren gakoak
           tally_started_steps:
+            back: Atzera
             description: Aukera horren emaitzak Iragarki Taulan kalkulatzen ari dira. Prozesu hori osatzeko, bermatzaile gisa parte hartu behar duzu.
             keys:
               end_tally: Zenbaketa amaituta
               tally:
                 cast: Zenbaketa bidaltzea
                 share: Zenbaketa partekatzea
+            list:
+              status: Egoera
+              task: Eginkizuna
+            process_warning: Prozesua hasi ondoren, ez irten orri honetatik prozesua amaitu arte. Minutu batzuk beharko dira, bermatzaile guztiek konektatuta egon behar baitute osatzeko.
+            start: Hasi
+            status:
+              completed: Osatuta
+              pending: Zain
+              processing: Prozesatzen
             title: Zenbaketa %{election} aukerarako
         menu:
           trustee_zone: Bermatzailearen gunea
@@ -463,7 +541,7 @@ eu:
             identification_keys:
               cancel: Utzi
               generate: Sortu identifikatzeko gakoak
-              generate_error: Arazo bat izan da identifikatzeko gakoak sortzean.
+              generate_error: Errore bat egon da identifikatzeko gakoak sortzean.
               generate_legend: Bozketan bermatzaile gisa parte hartzeko, identifikatzeko gako pare bat sortu behar duzu.
               generate_legend_1: Botoia sakatu ondoren sortutako identifikatzeko gakoak dituen artxiboa deskargatu behar duzu.
               generate_legend_2: Kopiatu deskargatutako artxiboa USB gailu garbi batean
@@ -472,6 +550,7 @@ eu:
               submit_title: Bidali identifikatzeko gako publikoa
               title: Bermatzailearen identifikazio-gakoak
               upload: Igo zure identifikazio-gakoak
+            not_supported_browser_description: Dirudienez, bermatzaile gisa erabili ezin den nabigatzaile bat erabiltzen ari zara. Ziurtatu nabigatzailearen bertsio berriena erabiltzen ari zarela, edo saiatu nabigatzaile ezagunenetako edozein erabiltzen, zure zereginak bermatzaile gisa bete ahal izateko.
             not_supported_browser_title: Eguneratu nabigatzailea bermatzaile gisa aritzeko
             trustee_role_description: Plataforma honetan egindako bozketa batzuen bermatzaile gisa izendatu zaituzte.
           update:
@@ -501,7 +580,7 @@ eu:
           text: 'Ondorengo identifikatzaileari esker zure botoa hautestontzian zuzen sartu dela egiaztatu ahal duzu: '
           verify_link: 'Egiaztatzeko, kopiatu identifikatzailea eta itsatsi hemen: <a href="%{link}">página de verificación de voto</a>'
         create:
-          error: Arazo bat izan da botoa ematean. Mesedez, saiatu berriro.
+          error: Arazo bat egon da botoa ematean. Mesedez, saiatu berriro.
         encrypting:
           header: Botoa zifratzen ari da...
           text: Zure boto-papera zifratzen ari da boto sekretua bermatzeko.
@@ -528,12 +607,13 @@ eu:
           nota_option: Zuriz / Aurreko bat ere ez
           preview_alert: Hau bozketa-kabinaren aurrebista da.
           question_steps: '%{total_steps} etik %{current_step} galdera'
-          selections: "Aukeratuta <br> %{selected} de %{max_selections}"
+          selections: "%{max_selections} etik <br> %{selected} hautatuta"
         onboarding_modal:
           create_account: Sortu Kontua
           no_account: Ez, eskerrik asko.
+          title: Berria plataforman?
         update:
-          error: Arazo bat izan da botoaren egoera eguneratzean. Saiatu berriro.
+          error: Arazo bat egon da botoaren egoera eguneratzean. Mesedez, saiatu berriro.
         verify:
           content:
             heading: Egiaztatu zure botoa
@@ -542,6 +622,7 @@ eu:
             header: Botoa ez da aurkitu!
             info: Botoaren kodea ez da aurkitu %{link} hautestontzian, saiatu berriro.
           form:
+            back: Itzuli plataformara
             submit: Egiaztatu
             vote_identifier: 'Kode identifikatzailea:'
           header:
@@ -587,6 +668,8 @@ eu:
     help:
       participatory_spaces:
         votings:
+          contextual: "<p><strong>bozketa</strong> espazio honek aukera ematen die elkarte bateko pertsona guztiei galdera argi bat egiteko, bozketan parte hartzeko deia egiteko, erantzun baten aldeko edo kontrako eztabaida sortzeko eta agintzeko. Bozketaren data iristen denean, bozkatu eta emaitzak argitaratu ditzakezu.</p> <p>Adibideak: Kontsultak erakunde bati eragiten dion ia edozein alderdiri buruzkoak izan daitezke: adibidez, erakundearen izena edo logotipoa aldatzeko aukeren artean erabakitzeko; erakunde handiago bateko kide izateari buruz galdetuta Bai edo Ez erantzuteko; Plan estrategiko berri bat edo lan-talde baten lana onartzeko edo ukatzeko; edo karguek gehienez 1, 2 edo 3 agintalditan egon behar duten erabakitzeko.</p>"
+          page: "<p><strong>bozketa</strong> espazio honek aukera ematen die elkarte bateko pertsona guztiei galdera argi bat egiteko, bozketan parte hartzeko deia egiteko, erantzun baten aldeko edo kontrako eztabaida sortzeko eta agintzeko. Bozketaren data iristen denean, bozkatu eta emaitzak argitaratu ditzakezu.</p> <p>Adibideak: Kontsultak erakunde bati eragiten dion ia edozein alderdiri buruzkoak izan daitezke: adibidez, erakundearen izena edo logotipoa aldatzeko aukeren artean erabakitzeko; erakunde handiago bateko kide izateari buruz galdetuta Bai edo Ez erantzuteko; Plan estrategiko berri bat edo lan-talde baten lana onartzeko edo ukatzeko; edo karguek gehienez 1, 2 edo 3 agintalditan egon behar duten erabakitzeko.</p>"
           title: Zer dira bozketak?
     menu:
       votings: Bozketak
@@ -596,6 +679,10 @@ eu:
     votings:
       admin:
         ballot_styles:
+          create:
+            error: Arazo bat egon da boto-paper mota hau sortzean.
+          destroy:
+            invalid: Arazo bat egon da boto-paper hau ezabatzean.
           edit:
             title: Editatu boto-paper mota
             update: Eguneratu
@@ -614,24 +701,21 @@ eu:
           new:
             create: Sortu
             title: Sortu boto-paper mota
+          update:
+            invalid: Arazo bat egon da boto-paper hau eguneratzean.
         content_blocks:
+          attachments_and_folders:
+            name: Bozketako eranskinak eta karpetak
           highlighted_votings:
             max_results: Erakusteko gehieneko elementu kopurua
         index:
           published: Argitaratua
-        landing_page:
-          content_blocks:
-            edit:
-              update: Eguneratu
-          edit:
-            active_content_blocks: Eduki-blokeak aktibatuta
-            inactive_content_blocks: Eduki-blokeak desaktibatuta
         menu:
           votings: Bozketak
           votings_submenu:
             attachment_collections: Karpetak
             attachment_files: Fitxategiak
-            attachments: Erantsitako fitxategiak
+            attachments: Eranskinak
             ballot_styles: Boto-paper motak
             census: Errolda
             components: Osagaiak
@@ -693,8 +777,13 @@ eu:
             publish_results: Argitaratu emaitzak
             publishing: Emaitzak argitaratzen...
           update:
-            rejected: Iragarki Taulak baztertu egin zuen emaitzak argitaratzea. Saiatu berriro edo jarri harremanetan sistema-administratzailearekin.
+            invalid: Arazo bat egon da emaitzak argitaratzean.
+            rejected: Iragarki Taulak baztertu egin du emaitzak argitaratzea. Saiatu berriro edo jarri harremanetan sistema-administratzailearekin.
         monitoring_committee_members:
+          create:
+            invalid: Arazo bat egon da jarraipen-batzordekide hau sortzean.
+          destroy:
+            invalid: Arazo bat egon da jarraipen-batzordekide hau ezabatzean.
           form:
             existing_user: Parte-hartzailea badago
             non_user: Gonbidatu parte-hartzaile berri bat
@@ -724,6 +813,9 @@ eu:
           show:
             change_polling_station: Itzuli bozketa-guneetara
             monitoring_committee_notes: Jarraipen-batzordearen oharrak
+          validate:
+            error: Arazo bat egon da itxiera balidatzean.
+            success: Itxiera zuzen baliozkotu da.
         monitoring_committee_verify_elections:
           index:
             download: Deskargatu
@@ -734,6 +826,12 @@ eu:
             not_available: Oraindik ez dago erabilgarri
             title: Bozketak
         polling_officers:
+          create:
+            invalid: Arazo bat egon da mahaiko kudeatzailea sortzean.
+            success: Mahaiko kudeatzailea zuzen sortua.
+          destroy:
+            invalid: Arazo bat egon da mahaiko kudeatzailea ezabatzean.
+            success: Mahaiko kudeatzailea zuzen ezabatua.
           form:
             existing_user: Parte-hartzailea badago
             non_user: Gonbidatu parte-hartzaile berri bat
@@ -748,10 +846,14 @@ eu:
             title: Sortu mahaiko kudeatzailea
           polling_officers_picker:
             choose_polling_officers: Aukeratu mahaiko kudeatzailea
-            close: Itxi
-            more_polling_officers: '%{number} mahaiko kudeatzaile gehiago daude. Zehaztu berriro zure bilaketa aurkitzeko.'
             no_polling_officers: Ez dago zure bilaketa-irizpideekin bat datorren hauteslekurik edo ez dago hauteslekurik.
         polling_stations:
+          create:
+            invalid: Arazo bat egon da bozketa-gune hau sortzean.
+            success: Bozketa-gunea zuzen sortua.
+          destroy:
+            invalid: Arazo bat egon da bozketa-gune hau ezabatzean.
+            success: Bozketa-gunea zuzen ezabatua.
           edit:
             title: Editatu bozketa-gunea
             update: Eguneratu bozketa-gunea
@@ -760,12 +862,16 @@ eu:
             location_help: 'Kokapena: mezua boto-emaleei zuzendua bozketa-gune zehatza adieraziz'
             location_hints_help: 'Kokapenerako iradokizunak: Informazio gehigarria. Adibidez: Bozketa-gunea dagoen eraikinaren solairua.'
             polling_station_managers_help: 'Mahaiko administratzaileak: bozketa-guneko administratzaile gisa jardungo duten ofizialak. Ziurtatu ofizialak dagoeneko sortu direla Mahai-kudeatzaileetan eta ez daudela beste bozketa-gune bati esleituta'
+            polling_station_president_help: 'Bozketa-guneko presidentea: bozketa-guneko presidentearen funtzioak egingo dituen ofiziala. Ziurtatu ofiziala sortuta dagoela Mahaiko kudeatzaileetan eta ez duela esleituta beste bozketa-gunerik.'
             select_president: Hautatu mahaiko kudeatzaile bat bozketa-guneko presidente gisa
           index:
             title: Bozketa-guneak
           new:
             create: Sortu
             title: Sortu bozketa-gunea
+          update:
+            invalid: Arazo bat egon da bozketa-gune hau eguneratzean.
+            success: Bozketa-gunea zuzen eguneratua.
         titles:
           votings: Bozketak
         votings:
@@ -773,18 +879,27 @@ eu:
             confirm_destroy: Ziur zaude?
             destroy: Ezabatu
             new_voting: Bozketa-gune berri bat
+          create:
+            invalid: Arazo bat egon da bozketa hau sortzean.
+            success: Bozketa zuzen sortua.
           edit:
             update: Eguneratu
           form:
+            banner_image: Banner-irudia
             select_a_voting_type: Mesedez, hautatu bozketa mota bat
+            slug: Slug
             title: Izenburua
             voting_type:
               hybrid: Hibridoa
               in_person: Aurrez aurre
               online: Lineakoa
+            voting_type_label: Bozketa mota
           new:
             create: Sortu
             title: Bozketa berria
+          update:
+            invalid: Arazo bat egon da bozketa hau eguneratzean.
+            success: Bozketa zuzen eguneratua.
       admin_log:
         ballot_style:
           create: "%{user_name} k sortu du boto-paper bat kode honekin: %{ballot_style_code} espazio honetan: %{space_name}"
@@ -795,8 +910,8 @@ eu:
           delete: "%{user_name} k ezabatu du errolda espazio honetarako: %{space_name}"
           update: "%{user_name} k eguneratu du errolda espazio honetarako: %{space_name}"
         monitoring_committee_member:
-          create: "%{user_name} k esleitu du %{monitoring_committee_member_user} erabiltzailea jarraipeb-batzordeko kide gisa espazio honetan: %{space_name}"
-          delete: "%{user_name} k desesleitu du %{monitoring_committee_member_user} erabiltzailea jarraipeb-batzordeko kide gisa espazio honetan: %{space_name}"
+          create: "%{user_name} k esleitu du %{monitoring_committee_member_user} erabiltzailea jarraipen-batzordeko kide gisa espazio honetan: %{space_name}"
+          delete: "%{user_name} k desesleitu du %{monitoring_committee_member_user} erabiltzailea jarraipen-batzordeko kide gisa espazio honetan: %{space_name}"
         polling_officer:
           create: "%{user_name} k esleitu du %{polling_officer_user} erabiltzailea jarraipen-batzordeko kide gisa espazio honetan: %{space_name}"
           delete: "%{user_name} k desesleitu du %{polling_officer_user} erabiltzailea jarraipen-batzordeko kide gisa espazio honetan: %{space_name}"
@@ -821,6 +936,8 @@ eu:
               button: Esportatu bozketaren Sartzeko Kodeak
               callout: Orain sartzeko kodeak esportatu ahal dituzu. Hori behin baino ezin da egin. Behin esportazioa hasita, posta elektroniko bat jasoko duzu, bertan jarraibideak <strong>%{email}</strong>
               confirm: Sartzeko kodeak behin baino ezin dituzu esportatu. Ziurtatu <strong>%{email}</strong> posta elektronikoan sarbidea duzula.
+              file_not_exist: Fitxategi hau ez da existitzen.
+              launch_error: Arazoa sarbide-kodeak esportatzen hastean
             freeze:
               callout: Errolda itxita dago eta ezin da aldatu.
             generate_access_codes:
@@ -829,7 +946,7 @@ eu:
               confirm: Jarraitzen baduzu, ezin izango duzu errolda aldatu.
               info_message_all: "<strong>ilarak zuzen inportatu dira </strong> %{data_count}) ko (%{raw_count} fitxategiaren %{file} ilara."
               info_message_warn: Mesedez, egiaztatu daturik ez dela falta, %{data_count} erregistro sortu baitira, baina igo den (%{file}) fitxategiak %{raw_count} ilara zituen.
-              launch_error: Arazo bat izan da sartzeko kodeak sortzean
+              launch_error: Arazoa sarbide-kodeak sortzen hastean
               launch_success: Kodeak sortzen hasi da.
             new:
               file_help:
@@ -838,6 +955,7 @@ eu:
                 message_2: Zutabeen arteko banatzailea puntu eta koma (";") izan behar da.
               has_ballot_styles_message: Boto-paper motak konfiguratu dituzu. Mesedez, ziurtatu CSVren "%{ballot_style_code_header}" eremua eta nahi duzun boto-paper motaren kodea bat datozela.
               info_message: "<strong>Oraindik ez dago erroldarik.</strong> Mesedez, erabili hurrengo galdetegia sortzeko CSV batetik inportatuz."
+              submit: Bidali CSV
               title: Sortu errolda
             show:
               heading: Bozketa-gunearen errolda
@@ -847,8 +965,6 @@ eu:
               csv_header_after: Ez sartu ("%{ballot_style_code_header}") azken eremua, baldintza-galderarik/boto-paper motarik behar ez baduzu
               csv_header_before: 'Errolda CSV artxiboa izan behar da honako goiburu hau duena:'
         document_types:
-          dni: NAN
-          nie: AIZ
           passport: Pasaportea
         export_mailer:
           access_codes_export:
@@ -953,7 +1069,7 @@ eu:
             back: Itzuli bozketa-guneetara
             title: Aurrez aurreko botoa erregistratzearen zain
           update:
-            error: Arazo bat izan da botoa erregistratzean. Mesedez, saiatu berriro.
+            error: Arazo bat egon da boto hau erregistratzean. Mesedez, saiatu berriro.
             success:
               accepted: Botoa zuzen erregistratu da.
               rejected: Iragarki Taulak ez du onartu botoa. Mesedez, jarri harremanetan programaren administratzailearekin.
@@ -1016,7 +1132,7 @@ eu:
           check_status: Egiaztatu egoera
           description: Hemen, zure erroldako datuak egiaztatzeko aukera duzu, bozketan parte hartzeko eskubidea duzun jakiteko. Sarbide-kode bat izan beharko zenuke, baina galdu baduzu, berriro eska dezakezu, zure datuak zuzenak badira.
           form_title: 'Bete ondoko galdetegia zure erroldako datuak egiaztatzeko:'
-          invalid: Arazo bat izan da errolda egiaztatzean.
+          invalid: Arazo bat egon da errolda egiaztatzean.
           success:
             access_link_with_sms: sMSz edo posta elektronikoz.
             title: Zure erroldako datuak zuzenak dira!
@@ -1062,6 +1178,8 @@ eu:
           label: 'Ordenatu bozketak honen arabera:'
           random: Ausazkoa
           recent: Azkenak
+        send_access_code:
+          invalid: Arazo bat egon da sarbide-kodea bidaltzean.
       votings_m:
         badge_name:
           finished: Amaituta
@@ -1074,8 +1192,6 @@ eu:
           online: Lineakoa
   layouts:
     decidim:
-      election_votes_header:
-        exit: Irten
       voting_navigation:
         check_census: Botoa eman dezaket?
         election_log: Aukeraketaren erregistroa
