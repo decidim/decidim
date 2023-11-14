@@ -237,7 +237,6 @@ describe "Admin manages proposal answer templates" do
 
       it "displays the global template in dropdown" do
         expect(page).to have_select(:proposal_answer_template_chooser, with_options: [translated(template.name)])
-
       end
 
       it "hides templates scoped for other components" do
