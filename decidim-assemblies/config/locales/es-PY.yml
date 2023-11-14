@@ -59,7 +59,7 @@ es-PY:
         subtitle: Subtítulo
         target: Quién participa
         title: Título
-        twitter: Twitter
+        twitter:
         weight: Orden de posición
         youtube: Youtube
       assembly_member:
@@ -321,8 +321,6 @@ es-PY:
           index:
             filter:
               all: Todas
-              ceased: Cesado
-              not_ceased: No cesado
             filter_by: Filtrado por
             search: Buscar
         content_blocks:
