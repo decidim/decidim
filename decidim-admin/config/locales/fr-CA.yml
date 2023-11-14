@@ -832,6 +832,10 @@ fr-CA:
         form:
           add: Ajouter à la liste blanche
           title: Liste blanche du domaine externe
+      organization_homepage:
+        edit:
+          active_content_blocks: Blocs de contenu actifs
+          inactive_content_blocks: Blocs de contenu inactifs
       organization_homepage_content_blocks:
         edit:
           update: Mettre à jour
