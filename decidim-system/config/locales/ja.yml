@@ -54,6 +54,8 @@ ja:
         new:
           create: 作成
           title: 新しい管理者
+        show:
+          edit: 編集
         update:
           error: 管理者の更新中に問題が発生しました。
           success: 管理者が正常に更新されました
@@ -64,6 +66,21 @@ ja:
         placeholders:
           content: 管理ダッシュボードの %{page} 静的ページに意味のあるコンテンツを追加してください。
           title: '%{page} のデフォルトのタイトル'
+      devise:
+        passwords:
+          edit:
+            change_your_password: パスワードの変更
+            minimum_characters: "(%{minimum} 文字以上)"
+          new:
+            forgot_your_password: パスワード再発行
+            send_me_reset_password_instructions: パスワードリセット手順の送信
+        shared:
+          links:
+            did_not_receive_confirmation_instructions?: 確認メールを受信できませんでしたか？
+            did_not_receive_unlock_instructions?: ロック解除メールを受信できませんでしたか？
+            forgot_your_password?: パスワードをお忘れですか？
+            log_in: ログイン
+            sign_up: 新規登録
       menu:
         admins: 管理者
         dashboard: ダッシュボード
@@ -144,8 +161,11 @@ ja:
         index:
           title: 組織
         new:
-          reference_prefix_hint: 参照プレフィックスは、すべての組織でリソースを一意に識別するために使用されます。
-          secondary_hosts_hint: 新しい行にそれぞれ入力してください
+          default: デフォルト?
+          enabled: 有効
+          locale: 地域
+          reference_prefix_hint: 参照プレフィックスは、すべての組織をまたがってリソースを一意に識別するために使用されます。
+          secondary_hosts_hint: 新しい行にそれぞれ入力します。
           title: 新しい組織
         omniauth_settings:
           decidim:
@@ -186,3 +206,4 @@ ja:
           our_getting_started_guide: 入門ガイド
       titles:
         dashboard: ダッシュボード
+        decidim: Decidim
