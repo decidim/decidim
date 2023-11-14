@@ -143,9 +143,7 @@ sv:
             not_found: 'Föräldraposten hittades inte i databasen (ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Datum
           results: Resultat
-          unspecified: Ej angivet
       import_mailer:
         import:
           errors: Fel
@@ -183,9 +181,6 @@ sv:
           fields:
             entry_date: Datum
             title: Titel
-      result_m:
-        executed: Utfört
-        view: Visa
       results:
         count:
           results_count:
