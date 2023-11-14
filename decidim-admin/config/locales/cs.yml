@@ -93,7 +93,7 @@ cs:
         success_color: Úspěch
         time_zone: Časové pásmo
         tos_version: Verze podmínek služby
-        twitter_handler: Twitter handler
+        twitter_handler: X handler
         user_groups_enabled: Povolit skupiny
         users_registration_mode: Režim registrace uživatelů
         warning_color: Varování
@@ -807,7 +807,7 @@ cs:
           instagram: Instagram
           rich_text_editor_in_public_views_help: V některých textových polích budou účastníci moci vložit některé HTML tagy pomocí textového editoru.
           social_handlers: Sociální
-          twitter: Twitter
+          twitter: X
           url: URL
           youtube: Youtube
         update:
@@ -840,10 +840,6 @@ cs:
         form:
           add: Přidat do seznamu povolených
           title: Seznam externích povolených domén
-      organization_homepage:
-        edit:
-          active_content_blocks: Bloky aktivního obsahu
-          inactive_content_blocks: Neaktivní bloky obsahu
       organization_homepage_content_blocks:
         edit:
           update: Aktualizace
@@ -872,7 +868,7 @@ cs:
             explanation: Máte %{count} soukromých účastníků.
             title: Odstranit soukromé účastníky
           explanation: 'Nahrajte soubor CSV. Musí mít dva sloupce s e-mailem v prvním sloupci souboru a jméno v posledním sloupci souboru (e-mail, jméno) uživatelů, které chcete přidat do participačního prostoru, bez záhlaví. Vyhněte se používání neplatných znaků jako `<>?%&^*#@()[]=+:;"{}\|` v uživatelském jméně.'
-          title: Nahrajte Váš CSV soubor
+          title: Nahrát soubor CSV
           upload: Nahrát
       reminders:
         create:
