@@ -145,17 +145,29 @@ module Decidim
     participatory_space_manifests.each do |manifest|
       manifest.seed!
 
-      Organization.all.each do |organization|
-        ContextualHelpSection.set_content(
-          organization,
-          manifest.name,
-          Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-            Decidim::Faker::Localized.sentence(word_count: 15)
-          end
-        )
-      end
+      seed_contextual_help_sections!(manifest)
     end
 
+    seed_gamification_badges!
+
+    seed_endorsements!
+
+    I18n.available_locales = original_locale
+  end
+
+  def self.seed_contextual_help_sections!(manifest)
+    Organization.all.each do |organization|
+      ContextualHelpSection.set_content(
+        organization,
+        manifest.name,
+        Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+          Decidim::Faker::Localized.sentence(word_count: 15)
+        end
+      )
+    end
+  end
+
+  def self.seed_gamification_badges!
     Gamification.badges.each do |badge|
       puts "Setting random values for the \"#{badge.name}\" badge..."
       User.all.find_each do |user|
@@ -166,7 +178,9 @@ module Decidim
         )
       end
     end
+  end
 
+  def self.seed_endorsements!
     resources_types = Decidim.resource_manifests
                              .map { |resource| resource.attributes[:model_class_name] }
                              .select { |resource| resource.constantize.include? Decidim::Endorsable }
@@ -182,8 +196,6 @@ module Decidim
         end
       end
     end
-
-    I18n.available_locales = original_locale
   end
 
   # Finds all currently loaded Decidim ActiveRecord classes and resets their
