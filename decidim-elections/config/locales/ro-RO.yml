@@ -649,6 +649,8 @@ ro:
           new:
             create: Creează
             title: Creează verificator al scrutinului
+          polling_officers_picker:
+            close: Inchide
         polling_stations:
           new:
             create: Creează
