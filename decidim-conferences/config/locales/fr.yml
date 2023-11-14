@@ -63,7 +63,7 @@ fr:
         personal_url: Site internet personnel
         position: Profession
         short_bio: Courte biographie
-        twitter_handle: Gestionnaire Twitter
+        twitter_handle: Compte X
         user_id: Utilisateur
       conference_user_role:
         email: Email
@@ -189,7 +189,7 @@ fr:
           attachment_files: Fichiers
           attachments: Pièces jointes
           categories: Catégories
-          components: Composants
+          components: Fonctionnalités
           conference_admins: Administrateurs de conférence
           conference_invites: Invitations
           conference_speakers: Conférenciers
@@ -442,7 +442,7 @@ fr:
           invalid: Il y a eu un problème pour quitter cette conférence.
           success: Vous avez quitté la conférence avec succès.
       conference_speaker:
-        go_to_twitter: Aller sur Twitter
+        go_to_twitter: Aller sur X
         more_info: Plus d'informations
         personal_website: Site Web personnel
         show:
