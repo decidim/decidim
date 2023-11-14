@@ -67,7 +67,7 @@ eu:
         sidebar_blog:
           comments: iruzkinak
           most_commented_posts: Gehien iruzkinatutako mezu
-      read_more: Geihago irakurri
+      read_more: Gehiago irakurri
     components:
       blogs:
         actions:
