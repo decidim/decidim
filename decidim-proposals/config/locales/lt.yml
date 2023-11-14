@@ -538,7 +538,6 @@ lt:
             create: Sukurti
             title: Sukurti pasiūlymą
           publish_answers:
-            number_of_proposals: Bus paskelbti atsakymai į %{number} pasiūlymus (-ų).
             select_a_proposal: Pasirinkite pasiūlymą.
           show:
             amendments_count: Pakeitimų skaičius
@@ -548,7 +547,6 @@ lt:
             documents: Dokumentai
             endorsements_count: Palaikymų skaičius
             endorsers: Pritariantieji
-            link: Nuoroda
             n_more_endorsers:
               one: ir dar vienas
               few: ir dar %{count}
