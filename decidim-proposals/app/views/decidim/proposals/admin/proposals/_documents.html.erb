@@ -1,0 +1,13 @@
+<div class="card-section">
+  <div class="row column">
+    <strong><%= t "documents", scope: "decidim.proposals.admin.proposals.show" %>:</strong>
+    <ul id="documents">
+      <% proposal.documents.each do |document| %>
+        <li>
+          <%= link_to translated_attribute(document.title), document.url %>
+          <small><%= document.file_type %> <%= number_to_human_size(document.file_size) %></small>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

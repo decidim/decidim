@@ -161,7 +161,21 @@ module Decidim
       end
     end
 
+    def organization_description_label
+      @organization_description_label ||= if empty_organization_description?
+                                            t("decidim.pages.home.footer_sub_hero.footer_sub_hero_body_html")
+                                          else
+                                            decidim_sanitize_admin(translated_attribute(current_organization.description))
+                                          end
+    end
+
     private
+
+    def empty_organization_description?
+      organization_description = translated_attribute(current_organization.description)
+
+      organization_description.blank? || organization_description == "<p></p>"
+    end
 
     def tag_builder
       @tag_builder ||= ActionView::Helpers::TagHelper::TagBuilder.new(self)
