@@ -93,7 +93,7 @@ fr-CA:
         success_color: Succès
         time_zone: Fuseau horaire
         tos_version: Version des conditions d'utilisation
-        twitter_handler: Gestionnaire Twitter
+        twitter_handler: Gestionnaire X (ancien Twitter)
         user_groups_enabled: Activer les groupes d'utilisateurs
         users_registration_mode: Mode d'inscription des utilisateurs
         warning_color: Attention
@@ -799,7 +799,7 @@ fr-CA:
           instagram: Instagram
           rich_text_editor_in_public_views_help: Dans certains champs textuel, les participants pourront insérer des balises HTML en utilisant l'éditeur de texte avancé.
           social_handlers: Liens des réseaux sociaux
-          twitter: Twitter
+          twitter: X
           url: URL
           youtube: YouTube
         update:
@@ -832,10 +832,6 @@ fr-CA:
         form:
           add: Ajouter à la liste blanche
           title: Liste blanche du domaine externe
-      organization_homepage:
-        edit:
-          active_content_blocks: Blocs de contenu actif
-          inactive_content_blocks: Blocs de contenu inactif
       organization_homepage_content_blocks:
         edit:
           update: Mettre à jour
