@@ -63,7 +63,6 @@ lv:
         success_color: Panākumi
         time_zone: Laika josla
         tos_version: Pakalpojumu sniegšanas noteikumu versija
-        twitter_handler: Twitter apdarinātājs
         user_groups_enabled: Iespējot grupas
         warning_color: Brīdinājums
         welcome_notification_body: Sveiciena paziņojuma pamatteksts
@@ -547,10 +546,6 @@ lv:
             layout_appearance_title: Rediģēt izkārtojuma izskatu
             preview: Priekšskatīt
           omnipresent_banner_appearance_title: Rediģēt visuresošo reklāmkarogu
-      organization_homepage:
-        edit:
-          active_content_blocks: Aktīvie satura bloki
-          inactive_content_blocks: Neaktīvie satura bloki
       organization_homepage_content_blocks:
         edit:
           update: Atjaunināt
