@@ -121,9 +121,7 @@ pl:
             not_found: 'Nie znaleziono elementu nadrzędnego w bazie danych (ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Daty
           results: Wyniki
-          unspecified: Nie określono
       import_mailer:
         import:
           errors: Błędy
@@ -157,9 +155,6 @@ pl:
           fields:
             entry_date: Data
             title: Tytuł
-      result_m:
-        executed: Wykonane
-        view: Zobacz
       results:
         count:
           results_count:
