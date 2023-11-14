@@ -115,8 +115,6 @@ pt-BR:
           create: "%{user_name} criou o projeto %{resource_name} no espaço %{space_name}"
           delete: "%{user_name} excluiu o projeto %{resource_name} no espaço %{space_name}"
           update: "%{user_name} atualizou o projeto %{resource_name} no espaço %{space_name}"
-      budget:
-        view: Ver todos os projetos orçamentais
       budget_information_modal:
         back_to: Voltar para %{component_name}
         close_modal: Fechar modal
@@ -184,7 +182,6 @@ pt-BR:
           selected: Selecionado
         project:
           selected: Selecionado
-          view: Ver
           votes:
             one: voto
             other: votos
