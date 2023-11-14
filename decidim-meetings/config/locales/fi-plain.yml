@@ -318,7 +318,6 @@ fi-pl:
             select_a_meeting_type: Valitse tapaamisen tyyppi
             select_a_registration_type: Valitse ilmoittautumisten tyyppi
             select_an_iframe_access_level: Valitse iframe-upotusten käyttöoikeustaso
-            show_embedded_iframe_help: 'Vain palvelut näistä osoitteista sallivat tapaamisen upottamisen reaaliaikaisesti tapahtumasivulle: %{domains}'
           index:
             title: Tapahtumat
           new:
@@ -415,7 +414,6 @@ fi-pl:
       directory:
         meetings:
           index:
-            go_to_list: Näytä tapaamisluettelo
             meetings: Tapahtumat
             space_type: Osallisuustila
       iframe_access_level:
@@ -503,7 +501,6 @@ fi-pl:
           select_a_meeting_type: Valitse tapaamisen tyyppi
           select_a_registration_type: Valitse ilmoittautumisten tyyppi
           select_an_iframe_access_level: Valitse iframe-upotusten käyttöoikeustaso
-          show_embedded_iframe_help: 'Vain palvelut näistä osoitteista sallivat tapaamisen upottamisen reaaliaikaisesti tapahtumasivulle: %{domains}'
         index:
           click_here: Näytä kaikki tapahtumat
           new_meeting: Uusi tapahtuma
@@ -528,7 +525,6 @@ fi-pl:
         show:
           attendees: Osallistujamäärä
           contributions: Kontribuutioiden määrä
-          date: Päivämäärä
           join: Liity tapahtumaan
           leave: Peruuta ilmoittautumisesi
           leave_confirmation: Haluatko varmasti peruuttaa ilmoittautumisesi tähän tapaamiseen?
@@ -546,7 +542,6 @@ fi-pl:
           remaining_slots:
             one: "%{count} paikka jäljellä"
             other: "%{count} paikkaa jäljellä"
-          view: Näytä
           visit_finished: Näytä mennyt tapaaminen
           withdraw_btn_hint: Voit peruuttaa tapahtumasi, jos muutat mieltäsi. Tapahtumaa ei poisteta kokonaan, eli se löytyy edelleen peruutettujen tapahtumien listasta.
           withdraw_confirmation_html: Haluatko varmasti peruuttaa tämän tapahtuman?<br><br><strong>Tätä toimintoa ei voi peruuttaa!</strong>
