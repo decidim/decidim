@@ -1643,6 +1643,7 @@ cs:
         few: 'Při zpracování vašeho požadavku došlo k několika chybám:'
         many: 'Při zpracování vašeho požadavku došlo k mnoha chybám:'
         other: 'Při zpracování vašeho požadavku došlo k nějakým chybám:'
+      password_confirmation_message: '"Potvrzení hesla" neodpovídá heslu'
       too_many_marks: používá příliš mnoho po sobě jdoucích interpunkčních znamének (např.! a?)
       too_much_caps: používá příliš mnoho velkých písmen (více než 25% textu)
       too_short: je příliš krátká (pod %{count} znaků)
