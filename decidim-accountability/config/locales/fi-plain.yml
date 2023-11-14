@@ -41,6 +41,9 @@ fi-pl:
         edit: Muokkaa
         import: Tuo hankkeita tuloksiin
         import_csv: Tuo CSV
+        new_result: Uusi tulos
+        new_status: Uusi tila
+        new_timeline_entry: Uusi aikajanan merkintä
         preview: Esikatsele
         timeline_entries: Projektin edistyminen
         title: Toiminnot
@@ -171,9 +174,7 @@ fi-pl:
             not_found: 'Pääelementtiä ei löytynyt tietokannasta (ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Päivämäärät
           results: Tulokset
-          unspecified: Ei määritelty
       import_mailer:
         import:
           errors: Virheet
@@ -212,9 +213,6 @@ fi-pl:
           fields:
             entry_date: Päivämäärä
             title: Otsikko
-      result_m:
-        executed: Valmistunut
-        view: Näytä
       results:
         count:
           results_count:
