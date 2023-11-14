@@ -83,8 +83,6 @@ pl:
           create: "%{user_name} utworzył(a) projekt %{resource_name} w przestrzeni %{space_name}"
           delete: "%{user_name} usunął/usunęła projekt %{resource_name} z przestrzeni %{space_name}"
           update: "%{user_name} zaktualizował projekt %{resource_name} w przestrzeni %{space_name}"
-      budget:
-        view: Zobacz wszystkie budżety
       budget_information_modal:
         back_to: Wróć do %{component_name}
         close_modal: Zamknij okno
@@ -156,7 +154,6 @@ pl:
           selected: Wybrano
         project:
           selected: Wybrano
-          view: Zobacz
           votes:
             one: głos
             few: głosów
