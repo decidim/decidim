@@ -42,17 +42,17 @@ eu:
         authorization_workflows: Baimenak
     admin_log:
       organization:
-        update_id_documents_config: "%{user_name} k eguneratu zuen nortasun agiriko dokumentuen konfigurazioa"
+        update_id_documents_config: "%{user_name} k eguneratu du nortasun agiriko dokumentuen konfiguraziorako baimena"
       user:
         grant_id_documents_offline_verification: "%{user_name} k egiaztatu zuen %{resource_name} nortasun agirien baimen bat erabiliz"
     authorization_handlers:
       admin:
         id_documents:
           help:
-            - Erabiltzaileek beren identifikazio informazioa bete eta dokumentuaren kopia bat kargatu.
+            - Erabiltzaileek beren identifikazio informazioa bete, eta dokumentuaren kopia bat kargatzen dute.
             - Kargatutako irudian dagoen informazio hau bete behar duzu.
-            - Informazioa edozein erabiltzailek bete duenarekin bat egin beharko luke.
-            - 
+            - Informazioak edozein erabiltzailek bete duenarekin bat egin beharko luke.
+            - Informazioa ezin baduzu argi ikusi edo ezin baduzu egiaztatu, eskaera ukatu dezakezu eta erabiltzaileak konpondu ahal izango du.
         postal_letter:
           help:
             - Erabiltzaileek egiaztapen-kodea eskatu behar dute euren helbidea bidaltzeko.
@@ -72,21 +72,21 @@ eu:
     events:
       verifications:
         verify_with_managed_user:
-          email_intro: <a href="%{resource_url}">%{resource_title}</a> parte-hartzailea (<a href="%{managed_user_url}">%{managed_user_name}</a>) parte-hartzaileaen datuekin egiaztatzen saiatu da.
-          email_outro: Egiaztau <a href="%{conflicts_url}">gatazken zerrenda </a> eta jarri harremanetan parte-hartzailearekin bere datuak egiaztatu eta arazoa konpontzeko.
-          email_subject: Errorea beste parte-hartzaile baten bidez egiaztatzeagatik
-          notification_title: <a href="%{resource_url}">%{resource_title}</a> parte-hartzailea (<a href="%{managed_user_url}">%{managed_user_name}</a>) parte-hartzaileaen datuekin egiaztatzen saiatu da.
+          email_intro: <a href="%{resource_url}">%{resource_title}</a> parte-hartzailea saiatu da (<a href="%{managed_user_url}">%{managed_user_name}</a>) parte-hartzailearen datuekin egiaztatzen.
+          email_outro: Egiaztau <a href="%{conflicts_url}"> egiaztapenen gatazken zerrenda </a> eta jarri harremanetan parte-hartzailearekin bere datuak egiaztatu eta arazoa konpontzeko.
+          email_subject: Errorea beste parte-hartzaile baten bidez egiaztatzean
+          notification_title: <a href="%{resource_url}">%{resource_title}</a> parte-hartzailea saiatu da (<a href="%{managed_user_url}">%{managed_user_name}</a>) parte-hartzailearen datuekin egiaztatzen.
     verifications:
       authorizations:
         authorization_metadata:
           info: 'Hauek dira oraingo egiaztapenaren datuak:'
           no_data_stored: Ez dago datu gorderik.
         create:
-          error: Errore bat gertatu da baimena sortzean.
+          error: Arazo bat egon da baimena sortzean.
           transferred: 'Zure baimenetan oinarrituta, honako datu hauek berreskuratu ditugu:'
           unconfirmed: Zure posta elektronikoa baieztatzeko, baimena eman behar duzu.
         destroy:
-          error: Arazo bat izan da baimena ezabatzean.
+          error: Arazo bat egon da baimena ezabatzean.
         first_login:
           actions:
             another_dummy_authorization_handler: Egiaztatu baimenen kudeatzailearen beste adibide baten aurka
@@ -115,10 +115,12 @@ eu:
         admin:
           census:
             create:
-              error: Errore bat gertatu da errolda inportatzean.
+              error: Errore bat egon da errolda inportatzean.
+              success: Zuzen inportatutako %{count} itemak (%{errors} errors).
           destroy:
             title: Zentsu-datu guztiak ezabatu
           index:
+            data: Guztira, badaude %{count} erregistro kargatuta. Azken karga-data izan zen %{due_date}.
             empty: Ez dago zentsu-datuik. Erabili beheko formularioa CSV fitxategiaren bidez inportatzeko.
             title: Uneko erroldako datuak
           instructions:
@@ -142,7 +144,7 @@ eu:
             one: Partehartzea mugatua da %{postal_codes} kode postalarekin duten erabiltzaileentzat.
             other: 'Parte-hartzea honako posta-kode hauetakoren bat duten erabiltzaileentzat mugatuta dago: %{postal_codes}.'
           scope: Partehartzea mugatua da %{scope_name} eremuan egiaztatutako erabiltzaileentzat.
-          user_scope: Parte hartzea mugatuta dago %{scope_name} eremua duten parte-hartzaileentzat eta zure eremua hau da %{user_scope_name}.
+          user_scope: Parte hartzea mugatuta dago %{scope_name} esparrua duten parte-hartzaileentzat eta zure esparrua hau da %{user_scope_name}.
       id_documents:
         admin:
           config:
@@ -150,16 +152,18 @@ eu:
               title: Nortasun agirien konfigurazioa
               update: eguneratzearen
             update:
-              error: Errore bat gertatu da konfigurazioa eguneratzean.
+              error: Arazo bat egon da konfigurazioa eguneratzean.
           confirmations:
+            create:
+              error: Egiaztapena ez dator bat. Mesedez, saiatu berriro edo ukatu egiaztapena, parte-hartzaileak aldatu dezan.
             new:
-              introduce_user_data: Idatzi irudian datuak
+              introduce_user_data: Idatzi datuak irudian
               reject: Ukatu
               verify: Ziurtatu
           offline_confirmations:
             new:
               cancel: Utzi
-              introduce_user_data: Erabiltzailearen helbide elektronikoa eta dokumentuaren datuak sartu
+              introduce_user_data: Sartu erabiltzailearen helbide elektronikoa eta dokumentuaren datuak
               verify: Ziurtatu
           pending_authorizations:
             index:
@@ -167,19 +171,29 @@ eu:
               offline_verification: Lineaz kanpoko egiaztapena
               title: Zain dauden egiaztapenak
               verification_number: 'Egiaztapena # %{n}'
+          rejections:
+            create:
+              success: Egiaztapena ukatua. Parte-hartzaileak bere dokumentuak aldatu beharko ditu.
         authorizations:
           choose:
             choose_a_type: 'Hautatu nola egiaztatu nahi duzun:'
             offline: Offline
             online: Online
             title: Egiaztatu zure identifikazio dokumentua
+          create:
+            error: Arazo bat egon da zure dokumentua igotzean.
           edit:
             offline: Erabili lineaz kanpoko egiaztapena
             online: Erabili lineako egiaztapena
+            rejection_clarity: Ziurtatu informazioa argi eta garbi ageri dela kargatutako irudian.
+            rejection_correctness: Ziurtatu sartu duzun informazioa zuzena dela.
+            rejection_notice: Arazo bat egon da zure egiaztapenarekin. Mesedez, saiatu berriro.
             send: Eskatu egiaztapena berriro
           new:
             send: Eska ezazu egiaztapena
             title: Kargatu zure identifikazio dokumentua
+          update:
+            error: Arazo bat egon da zure dokumentua berriro igotzean.
         dni: DNI
         nie: NIE
         passport: pasaportea
@@ -192,9 +206,14 @@ eu:
               mark_as_sent: Markatu bidali gisa
               not_yet_sent: Ez da bidali oraindik
               title: Etengabeko egiaztapenak
-              username: Erabiltzaile izena
+              username: Ezizena
               verification_code: Egiaztapen kodea
+          postages:
+            create:
+              error: Errorea gutuna bidalita bezala markatzean.
         authorizations:
+          create:
+            error: Arazo bat egon da zure eskaerarekin.
           edit:
             send: Berretsi
           new:
@@ -202,6 +221,8 @@ eu:
             title: Eskatu egiaztapen-kodea
       sms:
         authorizations:
+          create:
+            error: Arazo bat egon da zure eskaerarekin.
           destroy:
             success: Egiaztapen kodea behar bezala berrezarri da. Sartu berriro zure telefono zenbakia.
           edit:
