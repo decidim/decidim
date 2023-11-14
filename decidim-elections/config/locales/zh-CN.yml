@@ -226,6 +226,9 @@ zh-CN:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> 选区现已启用 %{participatory_space_title}。
     votings:
       admin:
+        polling_officers:
+          polling_officers_picker:
+            close: 关闭
         votings:
           actions:
             publish: 发布
