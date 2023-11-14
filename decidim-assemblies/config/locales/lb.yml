@@ -52,7 +52,6 @@ lb:
         subtitle: Untertitel
         target: Wer nimmt teil?
         title: Titel
-        twitter: Twitter
         weight: Bestellposition
         youtube: Youtube
       assembly_member:
@@ -238,8 +237,6 @@ lb:
           index:
             filter:
               all: Alle
-              ceased: Aufgegeben
-              not_ceased: Nicht aufgehört
             filter_by: Filtern nach
             search: Suche
         content_blocks:
