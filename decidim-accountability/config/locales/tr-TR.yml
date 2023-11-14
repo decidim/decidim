@@ -105,9 +105,7 @@ tr:
             not_found: 'Üst veritabanında bulunamadı (ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Tarih
           results: Sonuç
-          unspecified: Belirtilmemiş
       import_mailer:
         import:
           errors: Hatalar
@@ -135,9 +133,6 @@ tr:
         timeline_entry:
           fields:
             entry_date: tarih
-      result_m:
-        executed: Yürütüldü
-        view: Görünüm
       results:
         count:
           results_count:
