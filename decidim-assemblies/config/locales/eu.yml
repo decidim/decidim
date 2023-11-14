@@ -2,29 +2,29 @@ eu:
   activemodel:
     attributes:
       assemblies_setting:
-        enable_organization_chart: Gaitu organigrama
+        enable_organization_chart: Gaitu erakundearen grafikoa
       assemblies_type:
         title: Izenburua
       assembly:
         announcement: Jakinaraztea
         area_id: Arloa
         assembly_type: Batzar mota
-        assembly_type_other: Batzar mota beste
+        assembly_type_other: Beste batzar mota bat
         banner_image: Bannerra
         closing_date: Amaiera data
-        closing_date_reason: Amaiera data arrazoia
-        composition: Konposizio
+        closing_date_reason: Amaiera-dataren arrazoia
+        composition: Osaera
         copy_categories: Kopiatu kategoriak
         copy_components: Kopiatu osagaiak
         copy_features: Kopiatu funtzionalitateak
-        created_by: Sortuta
+        created_by: Nork sortua
         created_by_other: Beste batek sortua
-        creation_date: Data sortu da
-        decidim_area_id: Area
-        decidim_assemblies_type_id: Muntatze-mota
-        decidim_scope_id: esparrua
+        creation_date: Sortze-data
+        decidim_area_id: Arloa
+        decidim_assemblies_type_id: Batzar mota
+        decidim_scope_id: Esparrua
         description: Deskribapena
-        developer_group: Sustatzailearen taldea
+        developer_group: Talde sustatzailea
         document: Dokumentua
         domain: Domeinua
         duration: Iraupena
@@ -35,20 +35,20 @@ eu:
         import_attachments: Eranskinak inportatu
         import_categories: Kategoriak inportatu
         import_components: Osagaiak inportatu
-        included_at: Barruan sartzen da
+        included_at: 'Honen barne:'
         instagram: Instagram
         internal_organisation: Barneko antolaketa
         is_transparent: Gardena da
-        local_area: Antolakuntza eremua
+        local_area: Antolakuntza Arloa
         meta_scope: 'Metadatuak: esparrua'
-        parent_id: Gurasoen muntaia
-        participatory_processes_ids: Parte hartutako prozesu erlazionatuak
-        participatory_scope: Zer erabaki
+        parent_id: Batzar nagusia
+        participatory_processes_ids: Erlazionatutako prozesu parte-hartzaileak
+        participatory_scope: Zer erabakitzen da?
         participatory_structure: Nola erabakitzen da?
         private_space: Espazio pribatua
         promoted: Nabarmendua
-        published_at: Argitaratu at
-        purpose_of_action: Ekintza xedea
+        published_at: Noiz argitaratua
+        purpose_of_action: Ekintzaren xedea
         scope_id: Esparrua
         scopes_enabled: Esparru gaituak
         short_description: Deskribapen laburra
@@ -56,25 +56,26 @@ eu:
         slug: URL laburra
         special_features: Ezaugarri bereziak
         subtitle: Azpititulua
-        target: Nor parte hartzen du
+        target: Nork hartzen du parte?
         title: Prozesu partizipatiboen multzoak
         twitter: Twitter
         weight: Kokapenaren hurrenkera
         youtube: YouTube
       assembly_member:
-        birthday: Urtebetetze
-        birthplace: sorlekua
-        ceased_date: Data amaitua
-        designation_date: Deuseztapen data
+        birthday: Urtebetetzea
+        birthplace: Sorlekua
+        ceased_date: Uzte-data
+        designation_date: Izendapen-data
         full_name: Izen osoa
         gender: Generoa
-        non_user_avatar: Abatar
-        position: Kargua
-        user_id: Parte-hartzailea edo taldea
+        non_user_avatar: Abatarra
+        position: Posizioa
+        user_id: Erabiltzailea edo taldea
+        weight: Kokapenaren hurrenkera
       assembly_user_role:
-        email: Emaila
+        email: E-maila
         name: Izena
-        role: Role
+        role: Rola
     errors:
       models:
         assembly:
@@ -87,54 +88,54 @@ eu:
         one: Batzarra
         other: Batzar
       decidim/assembly_member:
-        one: Batzar kidea
+        one: Batzarkidea
         other: Batzar kideak
       decidim/assembly_user_role:
-        one: Batzar erabiltzaileen rola
+        one: Batzarreko erabiltzaileen rola
         other: Batzar erabiltzailearen rolak
   decidim:
     admin:
       actions:
         import_assembly: Inportatu
-        new_assembly: Batzar berria
-        new_assembly_type: Batzar mota berria
+        new_assembly: Beste batzar bat
+        new_assembly_type: Beste batzar mota bat
       assemblies:
         create:
-          error: Errorea gertatu da batzar berri bat sortzean.
+          error: Arazo bat egon da beste batzar bat sortzean.
           success: Batzarra zuzen sortu da.
         edit:
           update: Eguneratu
         index:
           not_published: Argitaratu gabe
           private: Pribatua
-          public: Publiko
+          public: Publikoa
           published: Argitaratua
         new:
           create: Sortu
           title: Batzar berria
         update:
-          error: Errorea gertatu da batzar hau eguneratzean.
-          success: Batzarra zuzen eguneratu da.
+          error: Arazo bat egon da batzar hau eguneratzean.
+          success: Batzarra zuzen eguneratua.
       assemblies_copies:
         create:
-          error: Errorea gertatu da batzar hau kopiatzean.
-          success: Batzarra zuzen bikoiztu da.
+          error: Arazo bat egon da batzar hau bikoiztean.
+          success: Batzarra zuzen bikoiztua.
       assemblies_settings:
         update:
-          error: Arazo bat gertatu da konfigurazioa eguneratzean.
-          success: Konfigurazioa zuzen eguneratu da.
+          error: Arazo bat egon da konfigurazioa eguneratzean.
+          success: Konfigurazioa zuzen eguneratua.
       assemblies_types:
         create:
-          error: Errorea gertatu da batzar mota berri bat sortzean.
-          success: Batzar mota zuzen sortu da.
+          error: Arazo bat egon da beste batzar mota bat sortzean.
+          success: Batzar mota zuzen sortua.
         destroy:
-          success: Batzar mota zuzen ezabatu da.
+          success: Batzar mota behar bezala ezabatua.
         new:
           create: Sortu
           title: Batzar mota berria
         update:
-          error: Errore bat gertatu da batzar mota hau eguneratzean.
-          success: Batzar mota zuzen eguneratu da.
+          error: Arazo bat egon da batzar mota hau eguneratzean.
+          success: Batzar mota zuzen eguneratua.
       assembly_copies:
         new:
           copy: Kopiatu
@@ -142,20 +143,20 @@ eu:
           title: Kopiatu batzarra
       assembly_imports:
         create:
-          error: Errorea gertatu da batzar hau inportatzean.
-          success: Batzarra zuzen inportatu da.
+          error: Arazo bat egon da batzar hau inportatzean.
+          success: Batzarra zuzen inportatua.
         new:
           import: Inportatu
           select: Hautatu zein datu inportatu nahi dituzun
           title: Inportatu batzarra
       assembly_members:
         create:
-          error: Errore bat gertatu da kide bat gehitzea muntaia honetarako.
-          success: Batzar hau arrakastaz sortu da.
+          error: Arazo bat egon da kide bat gehitzean batzar honetarako.
+          success: Batzar honetarako kidea zuzen sortua.
         destroy:
-          success: Kidea muntaia honekin batera ezabatu da.
+          success: Batzar honetarako kidea zuzen ezabatua. 
         edit:
-          title: Eguneratu muntaia kidea.
+          title: Eguneratu batzarkidea.
           update: Eguneratu
         index:
           assembly_members_title: Batzarraen kideak
@@ -163,32 +164,32 @@ eu:
           create: Sortu
           title: Batzarkide berria.
         update:
-          error: Errore bat gertatu da kidea bistaratzeko muntaia honetarako.
-          success: Batzar hau behar bezala eguneratu da.
+          error: Arazo bat egon da kidea eguneratzean batzar honetarako.
+          success: Batzar honetarako kidea zuzen eguneratua.
       assembly_publications:
         create:
-          error: Errorea gertatu da batzar hau bikoiztean.
-          success: Batzarra ongi argitaratu da.
+          error: Arazo bat egon da batzar hau argitaratzean.
+          success: Batzarra zuzen argitaratua.
         destroy:
-          error: Errorea gertatu da batzar hau desargitaratzean.
-          success: Batzarra ongi desargitaratu da.
+          error: Arazo bat egon da batzar hau desargitaratzean.
+          success: Batzarra zuzen desargitaratua.
       assembly_user_roles:
         create:
-          error: Errore bat gertatu da muntaketa honen erabiltzaile bat gehitzean.
-          success: Erabiltzaileak muntaiarekin arrakastaz gehitu du.
+          error: Arazo bat egon da administratzailea gehitzean batzar honetarako.
+          success: Batzar honetarako administratzailea zuzen gehitua.
         destroy:
-          success: Erabiltzailea behar bezala kendu da muntaia honetatik.
+          success: Batzar honetatik administratzailea zuzen kendua.
         edit:
-          title: Eguneratu muntaia erabiltzailea.
+          title: Eguneratu batzarraren administratzailea.
           update: Eguneratu
         index:
-          assembly_admins_title: Batzar erabiltzaileak
+          assembly_admins_title: Batzarraren administratzaileak
         new:
           create: Sortu
-          title: Erabiltzaile muntaia berria.
+          title: Batzarraren beste administratzaile bat.
         update:
-          error: Errore bat gertatu da muntaketa honetarako erabiltzailea.
-          success: Erabiltzaileari behar bezala eguneratu da muntaia honetarako.
+          error: Arazo bat egon da administratzailea gehitzean batzar honetarako.
+          success: Batzar honetarako administratzailea zuzen eguneratua.
       filters:
         decidim_assemblies_type_id_eq:
           label: Batzar mota
@@ -196,7 +197,7 @@ eu:
         assemblies: Biltzarrak
         assemblies_settings: Ezarpenak
         assemblies_submenu:
-          assembly_admins: Batzar erabiltzaileak
+          assembly_admins: Batzarraren administratzaileak
           assembly_members: Kideak
           attachment_collections: Karpetak
           attachment_files: Fitxategiak
@@ -222,68 +223,69 @@ eu:
           name: Batzarra
         assembly_member:
           fields:
-            ceased_date: Data amaitua
-            designation_date: Deuseztapen data
+            ceased_date: Sortze-data
+            designation_date: Izendapen-data
             full_name: Izena
             position: Kargua
           name: kidea
           positions:
-            other: Beste
-            president: Lehendakaria
+            other: Beste bat
+            president: Presidentea
             secretary: Idazkaritza
-            vice_president: Lehendakariordea
+            vice_president: Presidenteordea
         assembly_user_role:
           fields:
             email: Helbide elektronikoa
             name: Izena
             role: Rola
-          name: Batzar Erabiltzailea
+          name: Batzarraren administratzailea
           roles:
             admin: Administratzailea
             collaborator: Kolaboratzaile
-            moderator: Moderatzaile
+            moderator: Moderatzailea
             valuator: Ebaluatzailea
       titles:
         assemblies: Biltzarrak
         assemblies_types: Batzar mota
     admin_log:
       assembly:
-        create: "%{user_name} %{resource_name} muntaia sortu zuen"
-        publish: "%{user_name} %{resource_name} muntaia argitaratu du"
-        unpublish: "%{user_name} %{resource_name} muntaia argitaratu gabe"
-        update: "%{user_name} %{resource_name} muntaia eguneratu du"
+        create: "%{user_name} k %{resource_name} batzarra sortu zuen"
+        publish: "%{user_name} k%{resource_name} batzarra argitaratu du"
+        unpublish: "%{user_name} k %{resource_name} batzarra desargitaratu du"
+        update: "%{user_name} k %{resource_name} batzarra eguneratu du"
       assembly_member:
-        create: "%{user_name} sortutako %{resource_name} kidea ere %{space_name} muntaia"
-        delete: "%{user_name} kendu %{resource_name} kideetako %{space_name} muntaia"
-        update: "%{user_name} eguneratu %{resource_name} kide %{space_name} muntaia"
+        create: "%{user_name} k %{resource_name} kidea sortu du %{space_name} batzarrean"
+        delete: "%{user_name} k kendu du %{resource_name} kidea %{space_name} batzarretik"
+        update: "%{user_name} k %{resource_name} kidea eguneratu du %{space_name} batzarrean"
       assembly_setting:
         update: "%{user_name} k batzarren konfigurazioa eguneratu du"
       assembly_type:
-        create: "%{user_name} k %{resource_name} batzar mota sortu zuen"
-        delete: "%{user_name} k %{resource_name} batzar mota ezabatu zuen"
-        publish: "%{user_name} k %{resource_name} batzar mota argitaratu zuen"
-        unpublish: "%{user_name} k %{resource_name} batzar mota desargitaratu zuen"
-        update: "%{user_name} k %{resource_name} batzar mota eguneratu zuen"
+        create: "%{user_name} k %{resource_name} batzar mota sortu du"
+        delete: "%{user_name} k %{resource_name} batzar mota ezabatu du"
+        publish: "%{user_name} k %{resource_name} batzar mota argitaratu du"
+        unpublish: "%{user_name} k %{resource_name} batzar mota despublikatu du"
+        update: "%{user_name} k %{resource_name} batzar mota eguneratu du"
       assembly_user_role:
-        create: "%{user_name} %{resource_name} gonbidatu %{space_name} muntaira"
-        delete: "%{user_name} erabiltzaileak %{resource_name} %{space_name} muntaia ezabatu du"
-        update: "%{user_name} %{resource_name} %{space_name} muntaiarako rola aldatu da"
+        create: "%{user_name} k %{resource_name} gonbidatu du %{space_name} batzarrera"
+        delete: "%{user_name} k %{resource_name} parte-hartzailea %{space_name} muntaia kendu du"
+        update: "%{user_name} k %{resource_name} rola aldatu du %{space_name} batzarrerako"
     assemblies:
       admin:
         assemblies:
           form:
             announcement_help: Hemen sartzen duzun testua batzarreko informazioaren azpian agertuko zaio parte-hartzaileari.
             duration: Iraupena
-            duration_help: Muntaia honen iraupena mugatua bada, hautatu amaiera-data. Bestela, mugagabea izango da.
+            duration_help: Batzar honen iraupena mugatua bada, hautatu amaiera-data. Bestela, mugagabea izango da.
             filters: iragazkiak
             images: Irudiak
             included_at_help: Hautatu batzarra Decidim-era gehitzeko data. Ez du zertan sortze-data bera izan.
             metadata: Metadata
-            other: Beste
-            select_a_created_by: Aukeratu egilea by egilea
-            select_an_area: Hautatu eremu bat
-            select_an_assembly_type: Hautatu muntatze mota bat
-            select_parent_assembly: Hautatu gurasoaren muntaia
+            other: Beste bat
+            select_a_created_by: Hautatu egilea
+            select_an_area: Hautatu Arlo bat
+            select_an_assembly_type: Hautatu batzar mota bat
+            select_parent_assembly: Hautatu batzar nagusia
+            slug_help: 'URL-ren testu laburrak batzar honetara daramaten URL-ak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: % {url}'
             social_handlers: Gizarte
             title: Informazio orokorra
             visbility: ikusgarritasuna
@@ -295,24 +297,26 @@ eu:
         assemblies_types:
           form:
             title: Batzar mota berria
+        assembly_copies:
+          form:
+            slug_help: 'URL-ren testu laburrak batzar honetara daramaten URL-ak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: % {url}'
         assembly_imports:
           form:
             document_legend: Gehitu dokumentu bat
+            slug_help: 'URL-ren testu laburrak batzar honetara daramaten URL-ak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: % {url}'
         assembly_members:
           form:
-            existing_user: Erabiltzaile existentea
+            existing_user: Parte-hartzailea existitzen da
             explanation: 'Jarraibideak irudirako:'
             image_guide: Ahal izanez gero, irudi bertikal bat testurik gabe.
             non_user: Erabiltzailea ez
-            non_user_avatar_help: Pertsonen baimena lortu beharko zenuke, kide gisa argitaratubaino lehen.
-            select_a_position: Aukeratu posizio bat
-            select_user: Aukeratu erabiltzaile bat
+            non_user_avatar_help: Pertsonen baimena lortu beharko zenuke, kide gisa argitaratu baino lehen.
+            select_a_position: Hautatu posizio bat
+            select_user: Hautatu parte-hartzaile bat
             user_type: Erabiltzaile mota
           index:
             filter:
-              all: guztiak
-              ceased: utzi zion
-              not_ceased: Ez da gelditu
+              all: Guztiak
             filter_by: Iragazi arabera
             search: Bilatu
         content_blocks:
@@ -321,81 +325,88 @@ eu:
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        show:
+          title: Batzar honi buruz
       assembly_members:
         index:
           members: Kideak
       assembly_types:
-        commission: Batzordeak
-        consultative_advisory: Aholku / Aholku
-        executive: exekutiboa
-        government: Gobernu
+        commission: Batzordea
+        consultative_advisory: Aholkularia
+        executive: Exekutiboa
+        government: Gobernua
         others: Beste batzuk
-        participatory: partehartzailea
-        working_group: Lan taldea
+        participatory: Parte-hartzailea
+        working_group: Lan-taldea
       content_blocks:
         highlighted_assemblies:
-          name: Elkarrizketa nabarmenak
+          name: Batzar nabarmenduak
       created_by:
         city_council: Udaletxea
         others: Beste batzuk
-        public: Publiko
+        public: Publikoa
       filter:
         all: Mota guztiak
-        commission: Batzorde
-        consultative_advisory: Aholku / Aholku
-        executive: exekutiboa
-        government: Gobernu
-        help: 'Show:'
+        commission: Batzordea
+        consultative_advisory: Aholkularia
+        executive: Exekutiboa
+        government: Gobernua
+        help: 'Erakutsi:'
         others: Beste batzuk
-        participatory: partehartzailea
-        working_group: Lan taldea
+        participatory: Parte-hartzailea
+        working_group: Lan-taldea
       index:
         title: Biltzarrak
       last_activity:
-        new_assembly: Batzar berria
+        new_assembly: Beste batzar bat
       pages:
         home:
           highlighted_assemblies:
+            active_assemblies: Batzar aktiboak
             assemblies_button_title: Lotura batzar guztiak erakusten dituen Batzarren orrialdera
+            see_all_assemblies: Ikusi batzar guztiak
         user_profile:
           member_of:
-            member_of: Kidea
+            member_of: 'Honen kidea:'
       show:
         area: Arloa
-        assembly_type: Muntatze-mota
+        assembly_type: Batzar mota
         children: Biltzarrak
         closing_date: Amaiera data
-        composition: Konposizio
-        created_by: Sortuta
-        creation_date: Data sortu da
-        developer_group: Sustatzailearen taldea
+        composition: Osaera
+        created_by: Nork sortua
+        creation_date: Sortze-data
+        developer_group: Talde sustatzailea
         duration: Iraupena
-        included_at: Barruan sartzen da
+        included_at: 'Honen barne:'
         indefinite_duration: Zehaztu gabe
         internal_organisation: Barneko antolaketa
         is_transparent:
           'false': opakua
           'true': gardena
-        local_area: Antolakuntza eremua
-        participatory_scope: Zer erabaki
+        local_area: Antolakuntza Arloa
+        participatory_scope: Zer erabakitzen da?
         participatory_structure: Nola erabakitzen da?
-        private_space: Hau muntaia pribatua da
-        purpose_of_action: Ekintza xedea
+        private_space: Hau batzar pribatua da
+        purpose_of_action: Ekintzaren xedea
         read_less: Irakurri gutxiago
         read_more: Irakurri gehiago
-        related_participatory_processes: Partaidetza prozesu erlazionatuak
-        scope: esparrua
+        related_participatory_processes: Erlazionatutako parte hartze prozesuak
+        scope: Esparrua
         social_networks: Sare sozialak
-        target: Nor parte hartzen du
+        social_networks_title: 'Bisitatu batzarra:'
+        target: Nork hartzen du parte?
     assembly_members:
       assembly_member:
-        designated_on: Izendatuta
+        designated_on: 'Izendatuta:'
       index:
         title: Kideak
     events:
       assemblies:
         create_assembly_member:
           email_intro: <a href="%{resource_url}">%{resource_name}</a> batzarraren administratzaile batek bere kide bezala gehitu zaitu.
+          email_outro: Jakinarazpen hau jaso duzu batzar batera gonbidatu zaituztelako. Sartu hemen <a href="%{resource_url}">assembly page</a> laguntza emateko!
           email_subject: Gonbidatu zaituzte %{resource_name} batzarraren kidea izatera!
           notification_title: Erregistratu zaituzte <a href="%{resource_path}">%{resource_name}</a> batzarraren kide bezala. Sartu hemen <a href="%{resource_path}">batzarraren orrian </a> laguntza emateko!
       assembly:
@@ -413,16 +424,16 @@ eu:
     log:
       value_types:
         assembly_presenter:
-          not_found: 'Ez da muntaia aurkitu datu-basean (ID: %{id})'
+          not_found: 'Batzarra ez da aurkitu datu-basean (ID: %{id})'
         assembly_type_presenter:
-          not_found: 'Batzar mota ez zen aurkitu (ID: %{id}) datu-basean'
+          not_found: 'Batzar mota ez da aurkitu (ID: %{id}) datu-basean'
     menu:
       assemblies: Biltzarrak
     metrics:
       assemblies:
-        description: Sortutako multzo kopurua
+        description: Sortutako batzar kopurua
         object: batzarrak
-        title: Batzar
+        title: Batzarrak
     participatory_processes:
       show:
         related_assemblies: Erlazionatutako batzarrak
@@ -444,7 +455,7 @@ eu:
           reset_chart: Berrezarri
         order_by_assemblies:
           assemblies:
-            one: "%{count} batzarra"
+            one: "%{count} batzarrak"
             other: "%{count} batzarrak"
         promoted_assembly:
           more_info: Informazio gehiago
