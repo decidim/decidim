@@ -799,6 +799,7 @@ ro:
           add_attachment: Adaugă atașament
           add_file: Adaugă fișier
           add_image: Adaugă imagine
+          cancel: Anulează
           edit_image: Schimbă imaginea
           error: Eroare!
           remove: Șterge
@@ -1171,7 +1172,6 @@ ro:
           proposals: Propuneri
           proposals_explanation: Formulează propuneri, votează propunerile existente și promovează schimbările pe care dorești să le vezi implementate.
         footer_sub_hero:
-          footer_sub_hero_body: Haideți să construim o societate mai deschisă, mai transparentă și mai colaborativă.<br /> Alăturați-vă, participați și decideți.
           footer_sub_hero_headline: Bun venit pe platforma participativă %{organization}.
           register: Inregistrare
         hero:
@@ -1677,13 +1677,14 @@ ro:
         facebook: "%{organization} pe Facebook"
         github: "%{organization} pe GitHub"
         instagram: "%{organization} la Instagram"
-        twitter: "%{organization} pe Twitter"
         youtube: "%{organization} pe YouTube"
       timeout_modal:
         body: Ai fost inactiv de %{minutes} minute. Dacă continui să fii inactiv, vei fi deconectat automat pentru propria ta securitate.
         continue_session: Continuă sesiunea
         sign_out: Ieșiți
         title: Vreți să continuați sesiunea?
+      upload_modal:
+        close_modal: Închide fereastra
       user_menu:
         account: 'Cont de utilizator: %{name}'
         admin_dashboard: Panou de administrare
