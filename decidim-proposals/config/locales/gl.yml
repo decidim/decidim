@@ -415,7 +415,6 @@ gl:
           show:
             body: Corpo
             documents: Documentos
-            link: Ligazón
             n_more_endorsers:
               one: e 1 máis
               other: e %{count} máis
