@@ -80,8 +80,6 @@ it:
           create: "%{user_name} ha creato il progetto %{resource_name} nello spazio %{space_name}"
           delete: "%{user_name} eliminato il progetto %{resource_name} nello spazio %{space_name}"
           update: "%{user_name} ha aggiornato il progetto %{resource_name} nello spazio %{space_name}"
-      budget:
-        view: Visualizza tutti i progetti budget
       budget_information_modal:
         back_to: Torna a %{component_name}
         close_modal: Chiudi modalità
@@ -157,7 +155,6 @@ it:
           selected: Selezionato
         project:
           selected: Selezionato
-          view: vista
           votes:
             one: voto
             other: voti
