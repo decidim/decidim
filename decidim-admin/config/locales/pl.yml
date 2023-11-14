@@ -86,7 +86,6 @@ pl:
         success_color: Powodzenie
         time_zone: Strefa czasowa
         tos_version: Warunki korzystania z Platformy
-        twitter_handler: Handler Twittera
         user_groups_enabled: Włącz grupy użytkowników
         users_registration_mode: Tryb rejestracji użytkowników
         warning_color: Ostrzeżenie
@@ -776,7 +775,6 @@ pl:
           instagram: Instagram
           rich_text_editor_in_public_views_help: W niektórych polach tekstowych uczestnicy będą mogli wstawiać znaczniki HTML za pomocą edytora.
           social_handlers: Profile społecznościowe
-          twitter: Twitter
           url: Adres URL
           youtube: YouTube
         update:
@@ -808,10 +806,6 @@ pl:
         form:
           add: Dodaj do białej listy
           title: Biała lista domen zewnętrznych
-      organization_homepage:
-        edit:
-          active_content_blocks: Aktywne bloki treści
-          inactive_content_blocks: Bloki nieaktywnych treści
       organization_homepage_content_blocks:
         edit:
           update: Aktualizuj
