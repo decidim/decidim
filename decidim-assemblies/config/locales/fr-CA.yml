@@ -158,13 +158,13 @@ fr-CA:
         destroy:
           success: Membre supprimé avec succès pour cette assemblée.
         edit:
-          title: Mettre à jour le membre de l'assemblée.
+          title: Mettre à jour le membre de l'assemblée
           update: Mettre à jour
         index:
           assembly_members_title: Membres de l'assemblée
         new:
           create: Créer
-          title: Nouveau membre de l'assemblée.
+          title: Nouveau membre de l'assemblée
         update:
           error: Une erreur s'est produite lors de la mise à jour du membre de cette assemblée.
           success: Membre mis à jour avec succès pour cette assemblée.
@@ -182,19 +182,20 @@ fr-CA:
         destroy:
           success: Utilisateur supprimé avec succès de cette assemblée.
         edit:
-          title: Mettre à jour l'utilisateur de l'assemblée.
+          title: Mettre à jour l'administrateur de l'assemblée
           update: Mettre à jour
         index:
           assembly_admins_title: Administrateurs de l'assemblée
         new:
           create: Créer
-          title: Nouvel administrateur de l'assemblée.
         update:
           error: Une erreur s'est produite lors de la mise à jour d'un utilisateur pour cette assemblée.
           success: Utilisateur mis à jour avec succès pour cette assemblée.
       filters:
         decidim_assemblies_type_id_eq:
           label: Type d'assemblée
+        search_placeholder:
+          full_name_or_user_name_or_user_nickname_cont: Rechercher par nom ou par pseudonyme
       menu:
         assemblies: Assemblées
         assemblies_settings: Paramètres
@@ -321,12 +322,6 @@ fr-CA:
             select_a_position: Sélectionnez un statut
             select_user: Sélectionnez un utilisateur
             user_type: Type d'utilisateur
-          index:
-            filter:
-              all: Tout
-              ceased: Validité terminée
-              not_ceased: Validité en cours
-            search: Rechercher
         content_blocks:
           highlighted_assemblies:
             max_results: Quantité maximale d'éléments à afficher
@@ -352,7 +347,7 @@ fr-CA:
           title: À propos de cette assemblée
         filters:
           names:
-            all: Toutes
+            all: Tout
           type: Type
         show:
           title: À propos de cette assemblée
