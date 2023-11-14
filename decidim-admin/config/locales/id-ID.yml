@@ -61,7 +61,6 @@ id:
         secondary_color: Sekunder
         success_color: Keberhasilan
         tos_version: Versi persyaratan layanan
-        twitter_handler: Penangan Twitter
         user_groups_enabled: Aktifkan grup pengguna
         warning_color: Peringatan
         youtube_handler: Penangan YouTube
@@ -462,7 +461,6 @@ id:
           github: GitHub
           instagram: Instagram
           social_handlers: Sosial
-          twitter: Kericau
           youtube: Youtube
         update:
           error: Terjadi kesalahan saat memperbarui organisasi ini.
@@ -480,10 +478,6 @@ id:
           images:
             layout_appearance_title: Edit tampilan tata letak
           omnipresent_banner_appearance_title: Edit spanduk yang ada di mana-mana
-      organization_homepage:
-        edit:
-          active_content_blocks: Blok konten aktif
-          inactive_content_blocks: Blok konten tidak aktif
       organization_homepage_content_blocks:
         edit:
           update: Memperbarui
@@ -502,6 +496,8 @@ id:
       participatory_space_private_users_csv_imports:
         create:
           invalid: Ada kesalahan saat membaca file CSV.
+        new:
+          title: Unggah file CSV Anda
       resource_permissions:
         edit:
           submit: Menyerahkan
