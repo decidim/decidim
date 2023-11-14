@@ -54,6 +54,8 @@ ca:
         new:
           create: Crea
           title: Nova administradora
+        show:
+          edit: Edita
         update:
           error: S'ha produït un error en actualitzar aquesta administradora.
           success: L'administradora s'ha actualitzat correctament
@@ -64,6 +66,21 @@ ca:
         placeholders:
           content: Si us plau, afegeix contingut significatiu a la pàgina estàtica de %{page} dins el panell d'administració.
           title: Títol predeterminat per %{page}
+      devise:
+        passwords:
+          edit:
+            change_your_password: Canvia la teva contrasenya
+            minimum_characters: "(%{minimum} caràcters com a mínim)"
+          new:
+            forgot_your_password: Has oblidat la teva contrasenya?
+            send_me_reset_password_instructions: Envia'm les instruccions per restablir la contrasenya
+        shared:
+          links:
+            did_not_receive_confirmation_instructions?: No has rebut instruccions de confirmació?
+            did_not_receive_unlock_instructions?: No has rebut les instruccions de desbloqueig?
+            forgot_your_password?: Has oblidat la teva contrasenya?
+            log_in: Iniciar sessió
+            sign_up: Registra't
       menu:
         admins: Administradores
         dashboard: Tauler d'administració
@@ -144,8 +161,11 @@ ca:
         index:
           title: Organitzacions
         new:
-          reference_prefix_hint: El prefix de la referència s'utilitza per identificar de forma única els recursos de tota la organització
-          secondary_hosts_hint: Introdueix cada un d'ells en una nova línia
+          default: Per defecte?
+          enabled: Habilitat
+          locale: Configuració regional
+          reference_prefix_hint: El prefix de la referència s'utilitza per identificar de forma única els recursos del conjunt de l'organització.
+          secondary_hosts_hint: Introdueix cada un d'ells en una nova línia.
           title: Nova organització
         omniauth_settings:
           decidim:
@@ -186,3 +206,4 @@ ca:
           our_getting_started_guide: la nostra guia d'introducció
       titles:
         dashboard: Tauler de control
+        decidim: Decidim
