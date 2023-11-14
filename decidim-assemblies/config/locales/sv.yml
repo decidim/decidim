@@ -310,8 +310,6 @@ sv:
           index:
             filter:
               all: Allt
-              ceased: Upphört
-              not_ceased: Inte upphört
             filter_by: Filtrera efter
             search: Sök
         content_blocks:
