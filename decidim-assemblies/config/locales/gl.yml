@@ -304,8 +304,6 @@ gl:
           index:
             filter:
               all: Todo
-              ceased: Cesado
-              not_ceased: Non cesou
             filter_by: Filtrar por
             search: Busca
         content_blocks:
