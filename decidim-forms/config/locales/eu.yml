@@ -22,6 +22,8 @@ eu:
             choices:
               missing: ez dira osatu
               too_many: gehiegi dira
+        questionnaire:
+          request_invalid: Errore bat egon da eskaera bidaltzean. Mesedez, saiatu berriro.
   decidim:
     forms:
       admin:
@@ -124,6 +126,9 @@ eu:
       admin_log:
         questionnaire:
           update: "%{user_name} erabiltzaileak %{resource_name} galdetegia eguneratu du"
+      errors:
+        answer:
+          body: "Gorputza ezin da hutsik egon\n"
       images:
         dimensions: "%{width} x %{height} px"
         processors:
