@@ -45,6 +45,8 @@ de:
         edit: Bearbeiten
         edit_projects: Projekte verwalten
         import: Vorschläge in Projekte importieren
+        new_budget: Neues Budget
+        new_project: Neues Projekt
         preview: Vorschau
         send_voting_reminders: Abstimmungserinnerungen versenden
         title: Aktionen
@@ -153,8 +155,6 @@ de:
           create: "%{user_name} hat das Projekt %{resource_name} in %{space_name} erstellt"
           delete: "%{user_name} hat das Projekt %{resource_name} in %{space_name} gelöscht"
           update: "%{user_name} hat das Projekt %{resource_name} in %{space_name} aktualisiert"
-      budget:
-        view: Alle Budgetprojekte anzeigen
       budget_information_modal:
         back_to: Zurück zu %{component_name}
         close_modal: Dialog schließen
@@ -192,7 +192,6 @@ de:
           fields:
             category: Kategorie
             id: ID
-            scope: Themenbereich
             title: Titel
       order_summary_mailer:
         order_summary:
@@ -241,8 +240,6 @@ de:
             all: Alle
             not_selected: Nicht ausgewählt
             selected: Ausgewählt
-        index:
-          back_to_budgets: zurück zu Budgets
         order_progress:
           assigned: Zugewiesen
           budget: Bugdet
@@ -270,7 +267,6 @@ de:
           add: Projekt %{resource_name} zu Ihrer Abstimmung hinzufügen.
           remove: Projekt %{resource_name} aus Ihrer Abstimmung entfernen.
           selected: Ausgewählt
-          view: Anzeigen
           votes:
             one: Abstimmung
             other: Abstimmungen
