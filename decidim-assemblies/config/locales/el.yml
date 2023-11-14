@@ -312,8 +312,6 @@ el:
           index:
             filter:
               all: Όλα
-              ceased: Τέθηκε σε παύση
-              not_ceased: Δεν τέθηκε σε παύση
             filter_by: Φιλτράρισμα κατά
             search: Αναζήτηση
         content_blocks:
