@@ -603,16 +603,6 @@ tr:
             layout_appearance_title: Düzen görünümünü düzenle
             preview: Önizleme
           omnipresent_banner_appearance_title: Her yerde bulunan banner'ı düzenle
-      organization_homepage:
-        content_blocks:
-          edit:
-            update: Güncellemeler 
-        edit:
-          active_content_blocks: Aktif içerik blokları
-          add: Içerik bloğu ekle 
-          destroy_confirmation: Bu içerik bloğunu silmek istediğnizeden emin misiniz 
-          inactive_content_blocks: Etkin olmayan içerik blokları
-          title: Sayfa içeriği
       participatory_space_private_users:
         create:
           error: Bu katılımcı alan için özel bir kullanıcı eklenirken bir hata oluştu.
@@ -628,7 +618,6 @@ tr:
           title: Yeni Katılımcı Uzay özel kullanıcısı.
       participatory_space_private_users_csv_imports:
         new:
-          title: CSV dosyası yükle
           upload: Yükle
       resource_permissions:
         edit:
@@ -683,7 +672,6 @@ tr:
       shared:
         gallery:
           add_images: Resim ekle
-          delete_image: Resmi sil
           gallery_legend: Bir resim galerisi ekleyin (İsteğe bağlı)
       static_page_topics:
         create:
@@ -701,11 +689,6 @@ tr:
       static_pages:
         actions:
           view: Genel sayfayı görüntüle
-        content_blocks:
-          add: Içerik bloğu ekle 
-          destroy_confirmation: Bu içerik bloğunu silmek istediğnizeden emin misiniz 
-          edit:
-            update: Güncellemeler 
         create:
           error: Yeni bir sayfa oluşturulurken bir hata oluştu.
           success: Sayfa başarıyla oluşturuldu.
@@ -716,12 +699,12 @@ tr:
           update: Güncelleştirme
         form:
           none: Yok
+        index:
+          last_notable_change: Son önemli değişiklik
         new:
           create: Sayfa oluştur
           title: Yeni sayfa
         topic:
-          destroy: Konuyu kaldır
-          edit: Konuyu düzenle
           without_topic: Konu olmayan sayfalar
         update:
           error: Bu sayfa güncellenirken bir hata oluştu.
