@@ -146,13 +146,11 @@ sv:
         destroy:
           success: Medlemmen har raderats från gruppen.
         edit:
-          title: Uppdatera medlem i gruppen.
           update: Uppdatera
         index:
           assembly_members_title: Medlemmar i gruppen
         new:
           create: Skapa
-          title: Ny gruppsmedlem.
         update:
           error: Det gick inte att uppdatera medlemmen i gruppen.
           success: Medlemmen i gruppen har uppdaterats.
@@ -170,13 +168,11 @@ sv:
         destroy:
           success: Administratören har tagits bort från gruppen.
         edit:
-          title: Uppdatera gruppsadministratör.
           update: Uppdatera
         index:
           assembly_admins_title: Gruppsadministratörer
         new:
           create: Skapa
-          title: Ny gruppsadministratör.
         update:
           error: Det gick inte att uppdatera en administratör för gruppen.
           success: Administratören för gruppen har uppdaterats.
@@ -295,12 +291,6 @@ sv:
             select_a_position: Välj en position
             select_user: Välj en deltagare
             user_type: Typ av deltagare
-          index:
-            filter:
-              all: Allt
-              ceased: Upphört
-              not_ceased: Inte upphört
-            search: Sök
         content_blocks:
           highlighted_assemblies:
             max_results: Maximalt antal element att visa
