@@ -293,8 +293,6 @@ fi-pl:
             update: Päivitä
           form:
             authorizations: Varmennuksen asetukset
-            child_scope_threshold_enabled_help: 'Tämä asetus ei tue fyysisiä äänestyksiä, se ottaa käyttöön alateemat ja toimii sellaisten tunnistautumistapojen kanssa, jotka yhdistävät käyttäjän tiettyyn teemaan. Varmista, että valitset tällaisen tunnistautumistavan alla olevista asetuksista. Tämän asetuksen toiminta vaatii teemojen määrityksen hierarkisesti: 1 isäntä - N lasta. Jos tarvitset lisätietoja kuinka tämä asetus toimii, tutustu <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">asetuksen dokumentaatioon täältä</a>.'
-            only_global_scope_enabled_help: Ota tämä asetus käyttöön, jos otit käyttöön "alateemojen allekirjoitukset" ja asetit yleisen yläteeman. Ottamalla tämän asetuksen käyttöön, aloitteen tyypin valinta sivuutetaan aloitteiden luontinäkymässä. Saat <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">lisätietoja tästä ominaisuudesta täältä</a>.
             options: Valinnat
           initiative_type_scopes:
             title: Aloitetyypin teemat
@@ -351,7 +349,6 @@ fi-pl:
           back: Takaisin
           continue: Jatka
           fill_data_help: "<ul> <li>Tarkasta aloitteesi sisältö. Onko aloitteen otsikko helppo ymmärtää? Onko aloitteen tavoitteet tarpeeksi selkeästi kuvattu?</li> <li>Sinun on valittava allekirjoitustapa. Palvelun ulkopuolella, verkossa tai molemmat.</li> <li>Mikä on aloitteen maantieteellinen laajuus?</li> </ul>"
-          initiative_type: Aloitteen tyyppi
           more_information: "(Lisää tietoa)"
           select_area: Valitse alue
           select_scope: Valitse teema
@@ -457,7 +454,6 @@ fi-pl:
             other: ja %{count} muuta henkilöä
         committee_members:
           approve: Hyväksy
-          confirm_revoke: Oletko varma?
           invite_to_committee_help: Jaa tämä linkki ja kutsu muita käyttäjiä kannatuskomiteaan.
           link: Linkki
           no_members_yet: Kannatuskomiteassa ei ole jäseniä.
@@ -472,7 +468,6 @@ fi-pl:
           author: Laatija
           myself: Omat aloitteeni
           scope: Teema
-          search: Hae
           state: Tila
           type: Tyyppi
         index_header:
@@ -605,8 +600,5 @@ fi-pl:
         sms_phone_number: Matkapuhelimen numero
         title: Allekirjoita %{initiative_title}
       initiatives:
-        initiative:
-          check: Tarkasta
-          check_and_support: Tarkista ja allekirjoita
         no_initiatives_yet:
           no_initiatives_yet: Ei vielä yhtään aloitetta!
