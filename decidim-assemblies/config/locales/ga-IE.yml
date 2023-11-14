@@ -112,15 +112,13 @@ ga:
         assemblies_types:
           form:
             title: Teideal
-        assembly_members:
-          index:
-            filter:
-              all: Uile
-              ceased: Stadta
-            search: Cuardaigh
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        filters:
+          names:
+            all: Uile
       assembly_members:
         index:
           members: Baill
