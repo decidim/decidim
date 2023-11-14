@@ -323,6 +323,8 @@ cs:
           index:
             filter:
               all: Vše
+              ceased: Ukončeno
+              not_ceased: Neukončeno
             filter_by: Filtrovat podle
             search: Vyhledávání
         content_blocks:
