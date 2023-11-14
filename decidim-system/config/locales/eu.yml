@@ -55,6 +55,8 @@ eu:
         new:
           create: Sortu
           title: Administratzaile berria
+        show:
+          edit: Editatu
         update:
           error: Errorea gertatu da administratzaile hau eguneratzean.
           success: Administratzailea zuzen eguneratu da
@@ -65,6 +67,21 @@ eu:
         placeholders:
           content: Gehitu eduki adierazgarria %{page} (a)ren orri estatikoaren administrazio-panelean.
           title: 'Izenburu lehenetsia orri honetarako: %{page}'
+      devise:
+        passwords:
+          edit:
+            change_your_password: Aldatu pasahitza
+            minimum_characters: "(%{minimum} karaktere gutxienez)"
+          new:
+            forgot_your_password: Pasahitza ahaztu duzu
+            send_me_reset_password_instructions: Bidali jarraibideak pasahitza berrezartzeko
+        shared:
+          links:
+            did_not_receive_confirmation_instructions?: Ez duzu baieztatzeko instrukziorik jaso?
+            did_not_receive_unlock_instructions?: Ez duzu desblokeatzeko instrukziorik jaso?
+            forgot_your_password?: Pasahitza ahaztu duzu?
+            log_in: Hasi saioa
+            sign_up: Erregistratu
       menu:
         admins: Administratzaileak
         dashboard: Kontrol-panela
@@ -146,8 +163,9 @@ eu:
         index:
           title: Erakundeak
         new:
-          reference_prefix_hint: Erreferentzia-aurrizkia erabiltzen da erakunde guztien baliabideak modu bakarrean identifikatzeko
-          secondary_hosts_hint: Sartu haietako bakoitza lerro batean
+          default: Lehenetsita?
+          enabled: Gaituta
+          locale: Tokikoa
           title: Erakunde berria
         omniauth_settings:
           decidim:
@@ -188,3 +206,4 @@ eu:
           our_getting_started_guide: gure ongi etorri gida
       titles:
         dashboard: Kontrol-panela
+        decidim: Decidim
