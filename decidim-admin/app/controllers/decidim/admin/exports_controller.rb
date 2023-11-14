@@ -27,16 +27,23 @@ module Decidim
       def export_filters
         @export_filters ||= begin
           filters = params.fetch(:filters, nil)
-          if filters.is_a?(ActionController::Parameters)
-            { id_in: Array(filters.fetch(:id_in, [])).compact }
-          else
+          if !filters.is_a?(ActionController::Parameters)
             { id_in: [] }
+          elsif commentable_filter?
+            # in this case, we need to search through the decidim_commentable
+            { decidim_commentable_id: Array(filters.fetch(:id_in, [])).compact }
+          else
+            { id_in: Array(filters.fetch(:id_in, [])).compact }
           end
         end.compact
       end
 
       def component
         @component ||= current_participatory_space.components.find(params[:component_id])
+      end
+
+      def commentable_filter?
+        params[:id].match?("comments$")
       end
     end
   end
