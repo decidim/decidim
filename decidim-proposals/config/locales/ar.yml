@@ -516,8 +516,6 @@ ar:
           new:
             create: إنشاء
             title: إنشاء اقتراح
-          publish_answers:
-            number_of_proposals: سيتم نشر إجابات %{number} الاقتراحات.
           show:
             amendments_count: تعداد التعديلات
             assigned_valuators: المقيِّمون الذين تم تعيينهم
@@ -526,7 +524,6 @@ ar:
             documents: المستندات
             endorsements_count: عد أصوات التأييدات
             endorsers: المؤيدون
-            link: الرابط
             n_more_endorsers:
               zero: و%{count} آخرين
               one: وواحد آخر
