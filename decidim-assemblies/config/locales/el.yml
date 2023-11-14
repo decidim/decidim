@@ -154,13 +154,11 @@ el:
         destroy:
           success: Το μέλος διαγράφηκε με επιτυχία για αυτήν τη συνέλευση.
         edit:
-          title: Ενημέρωση μέλους συνέλευσης.
           update: Ενημέρωση
         index:
           assembly_members_title: Μέλη συνέλευσης
         new:
           create: Δημιουργία
-          title: Νέο μέλος συνέλευσης.
         update:
           error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση του μέλους για αυτήν τη συνέλευση.
           success: Το μέλος ενημερώθηκε με επιτυχία για αυτήν τη συνέλευση.
@@ -178,13 +176,11 @@ el:
         destroy:
           success: Ο διαχειριστής καταργήθηκε με επιτυχία από αυτήν τη συνέλευση.
         edit:
-          title: Ενημέρωση διαχειριστή συνέλευσης.
           update: Ενημέρωση
         index:
           assembly_admins_title: Διαχειριστές συνέλευσης
         new:
           create: Δημιουργία
-          title: Νέος διαχειριστής συνέλευσης.
         update:
           error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση ενός διαχειριστή για αυτήν τη συνέλευση.
           success: Ο διαχειριστής ενημερώθηκε με επιτυχία για αυτήν τη συνέλευση.
@@ -306,12 +302,6 @@ el:
             select_a_position: Επιλέξτε θέση
             select_user: Επιλέξτε συμμετέχοντα
             user_type: Τύπος συμμετέχοντα
-          index:
-            filter:
-              all: Όλα
-              ceased: Τέθηκε σε παύση
-              not_ceased: Δεν τέθηκε σε παύση
-            search: Αναζήτηση
         content_blocks:
           highlighted_assemblies:
             max_results: Μέγιστη ποσότητα στοιχείων προς εμφάνιση
@@ -319,6 +309,9 @@ el:
           accepted_types:
             json: JSON
       assemblies:
+        filters:
+          names:
+            all: Όλα
         show:
           title: Σχετικά με τη συνέλευση
       assembly_members:
