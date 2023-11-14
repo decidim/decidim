@@ -141,13 +141,11 @@ it:
         destroy:
           success: Membro cancellato con successo per questa assemblea.
         edit:
-          title: Aggiorna membro dell'assemblea.
           update: Aggiorna
         index:
           assembly_members_title: Membri dell'Assemblea
         new:
           create: Crea
-          title: Nuovo membro dell'assemblea.
         update:
           error: Si è verificato un errore durante l'aggiornamento del membro per questa assemblea.
           success: Membro aggiornato correttamente per questa assemblea.
@@ -165,13 +163,11 @@ it:
         destroy:
           success: Utente rimosso con successo da questa assemblea.
         edit:
-          title: Aggiorna amministratore dell'assemblea.
           update: Aggiorna
         index:
           assembly_admins_title: Amministratori dell'assemblea
         new:
           create: Crea
-          title: Nuovo amministratore dell'assemblea.
         update:
           error: Si è verificato un errore durante l'aggiornamento di un amministratore per questa assemblea.
           success: Admin aggiornato correttamente per questa assemblea.
@@ -289,12 +285,6 @@ it:
             select_a_position: Seleziona una posizione
             select_user: Seleziona un utente
             user_type: Tipologia di utente
-          index:
-            filter:
-              all: Tutti
-              ceased: Cessato
-              not_ceased: Non è cessato
-            search: Ricerca
         content_blocks:
           highlighted_assemblies:
             max_results: Quantità massima di elementi da mostrare
@@ -302,6 +292,9 @@ it:
           accepted_types:
             json: JSON
       assemblies:
+        filters:
+          names:
+            all: Tutti
         show:
           title: Su questa assemblea
       assembly_members:
