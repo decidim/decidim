@@ -53,9 +53,6 @@ eu:
         new:
           create: Sortu
           title: Administratzaile berria
-        show:
-          destroy: Suntsitu
-          edit: Editatu
         update:
           error: Errorea gertatu da administratzaile hau eguneratzean.
       dashboard:
@@ -134,7 +131,6 @@ eu:
           show: Erakutsi aukera aurreratua
         create:
           error: Errorea izan da antolatzaile berri bat sortzean.
-          success: Antolatzailea zuzen sortu da.
         csp_settings:
           connect_src_hint: |
             Connect-src zuzentarauak murriztu egiten ditu < script> elementuen bidez karga daitezkeen URLak.
@@ -197,6 +193,7 @@ eu:
         users_registration_mode:
           disabled: Sarbidea soilik kanpoko kontuekin egin daiteke
           enabled: Baimendu erabiltzaileei erregistratzea eta saioa hasteko
+          existing: Ez utzi parte-hartzaile gehiagori erregistratzen, baina utzi existitzen diren parte-hartzaileei saioa hasten
       shared:
         notices:
           no_organization_warning_html: Hasteko erakunde bat sortu behar duzu. Jarraitu aurretik ziurta zaitez %{guide} irakurri duzula.
