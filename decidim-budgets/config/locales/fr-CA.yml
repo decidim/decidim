@@ -92,6 +92,7 @@ fr-CA:
           index:
             actions: Actions
             cancel: Annuler
+            change_budget: Modifier le budget
             change_category: Modifier la catégorie
             change_scope: Changer le secteur
             change_selected: Changer l'état sélectionné
@@ -102,6 +103,7 @@ fr-CA:
             selected: Sélectionné
             title: Projets
             update: Mettre à jour
+            update_budget_button: Mettre à jour le budget du projet
             update_scope_button: Mettre à jour le secteur
           new:
             create: Créer
@@ -109,6 +111,8 @@ fr-CA:
           update:
             invalid: Il y a eu un problème lors de la mise à jour de ce projet.
             success: Projet mis à jour avec succès.
+          update_budget:
+            select_a_project: Veuillez selectionner un projet.
           update_category:
             invalid: 'Ces projets avaient déjà la catégorie %{subject_name} : %{projects}.'
             select_a_category: Veuillez sélectionner une catégorie.
@@ -155,8 +159,6 @@ fr-CA:
           create: "%{user_name} a créé le projet %{resource_name} dans l'espace %{space_name}"
           delete: "%{user_name} a supprimé le projet %{resource_name} dans l'espace %{space_name}"
           update: "%{user_name} a mis à jour le projet %{resource_name} dans l'espace %{space_name}"
-      budget:
-        view: Voir tous les projets
       budget_information_modal:
         back_to: Retour à %{component_name}
         close_modal: Fermer la fenêtre de dialogue
@@ -194,7 +196,6 @@ fr-CA:
           fields:
             category: Catégorie
             id: ID
-            scope: Secteur
             title: Titre
       order_summary_mailer:
         order_summary:
@@ -243,8 +244,6 @@ fr-CA:
             all: Tous
             not_selected: Non sélectionné
             selected: Sélectionné
-        index:
-          back_to_budgets: Retour aux budgets
         order_progress:
           assigned: Assigné
           budget: Budget
@@ -272,7 +271,6 @@ fr-CA:
           add: Ajouter le projet %{resource_name} à votre vote.
           remove: Retirer le projet %{resource_name} de votre vote.
           selected: Sélectionné
-          view: Voir
           votes:
             one: vote
             other: votes
@@ -289,6 +287,7 @@ fr-CA:
         select_projects: Sélectionner des projets
         show:
           budget: Budget
+      prompt: Sélectionnez le budget
       vote_reminder_mailer:
         vote_reminder:
           email_budgets: 'Budgets où vous avez un vote encore en cours :'
