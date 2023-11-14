@@ -94,9 +94,7 @@ it:
             not_found: 'Il genitore non è stato trovato sul database (ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Date
           results: Risultati
-          unspecified: Non specificato
       import_mailer:
         import:
           errors: Errori
@@ -124,9 +122,6 @@ it:
         timeline_entry:
           fields:
             entry_date: Data
-      result_m:
-        executed: Eseguito
-        view: Visualizza
       results:
         count:
           results_count:
