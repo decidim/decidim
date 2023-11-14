@@ -465,8 +465,6 @@ sv:
           new:
             create: Skapa
             title: Skapa förslag
-          publish_answers:
-            number_of_proposals: Svar på %{number} förslag kommer att publiceras.
           show:
             amendments_count: Antal ändringsförslag
             assigned_valuators: Tilldelade värderare
@@ -475,7 +473,6 @@ sv:
             documents: Dokument
             endorsements_count: Antal instämmanden
             endorsers: Instämmer
-            link: Länk
             n_more_endorsers:
               one: och 1 till
               other: och %{count} till
