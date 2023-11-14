@@ -271,8 +271,6 @@ lv:
           index:
             filter:
               all: Visi
-              ceased: Beidzis darbu
-              not_ceased: Nav beidzis darbu
             filter_by: Filtrēt pēc
             search: Meklēt
         content_blocks:
