@@ -526,7 +526,6 @@ es-PY:
             create: Crear
             title: Crear propuesta
           publish_answers:
-            number_of_proposals: Se publicarán las respuestas para %{number} propuestas.
             select_a_proposal: Por favor, selecciona una propuesta.
           show:
             amendments_count: Número de enmiendas
@@ -536,7 +535,6 @@ es-PY:
             documents: Documentos
             endorsements_count: Número de adhesiones
             endorsers: Se han adherido
-            link: Enlace
             n_more_endorsers:
               one: y 1 más
               other: y %{count} más
