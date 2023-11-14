@@ -44,6 +44,8 @@ ja:
         edit: 編集
         edit_projects: プロジェクトの管理...
         import: プロジェクトへの提案をインポート
+        new_budget: 新しい予算
+        new_project: 新規プロジェクト
         preview: プレビュー
         send_voting_reminders: 投票リマインダーを送信
         title: アクション
@@ -151,8 +153,6 @@ ja:
           create: "%{user_name} が %{resource_name} スペースで %{space_name} プロジェクトを作成しました"
           delete: "%{user_name} が %{resource_name} スペースの %{space_name} プロジェクトを削除しました"
           update: "%{user_name} が %{resource_name} スペースの %{space_name} プロジェクトを更新しました"
-      budget:
-        view: 全ての予算プロジェクトを表示
       budget_information_modal:
         back_to: '%{component_name} に戻る'
         close_modal: ウィンドウを閉じる
@@ -189,7 +189,6 @@ ja:
           fields:
             category: カテゴリ
             id: ID
-            scope: スコープ
             title: タイトル
       order_summary_mailer:
         order_summary:
@@ -237,8 +236,6 @@ ja:
             all: 全て
             not_selected: 未選択
             selected: 選択済
-        index:
-          back_to_budgets: 予算に戻る
         order_progress:
           assigned: 割り当て済み
           budget: 予算
@@ -266,7 +263,6 @@ ja:
           add: プロジェクト %{resource_name} を投票に追加します。
           remove: プロジェクト %{resource_name} を投票から削除します。
           selected: 選択済
-          view: 表示
           votes:
             other: 投票
           you_voted: あなたの投票
