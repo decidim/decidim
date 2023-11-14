@@ -1,0 +1,300 @@
+sq:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: Statusi
+        decidim_category_id: Kategoria
+        decidim_scope_id: Fushëveprimi
+        description: Përshkrimi
+        end_date: Data e përfundimit
+        meetings_ids: Mbledhjet e përfshira
+        progress: Ecuria
+        project_ids: Projektet e përfshira
+        proposals: Proposimet e përfshira
+        start_date: Data e fillimit
+        title: Titulli
+        updated_at: Përditësuar në
+      status:
+        description: Përshkrimi
+        key: Çelësi
+        name: Emri
+        progress: Ecuria
+      timeline_entry:
+        description: Përshkrimi
+        entry_date: Data
+        title: Titulli
+    models:
+      decidim/accountability/proposal_linked_event: Propozimi i përfshirë në një rezultat
+      decidim/accountability/result_progress_updated_event: Ecuria e përditësuar e rezultatit
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Rezultati
+        other: Rezultati
+  decidim:
+    accountability:
+      actions:
+        attachment_collections: Dosjet
+        attachments: Bashkëngjitjet
+        confirm_destroy: Je i sigurt që dëshiron ta fshish këtë %{name}?
+        destroy: Fshij
+        edit: Përpuno
+        import: Importo projektet tek rezultatet
+        import_csv: Importo CSV
+        new_result: Rezultat i ri
+        new_status: Status i ri
+        new_timeline_entry: Afat kohor i ri
+        preview: Parapamje
+        timeline_entries: Evoluimi i projektit
+        title: Veprime
+      admin:
+        exports:
+          result_comments: Komente
+          results: Rezultatet
+        import_results:
+          new:
+            download_export: Shkarko dhe eksporto në formatin CSV
+            import: Importo
+            info: |
+              <p>Ju rekomandojmë t'i ndiqni këto hapa:</p>
+              <ol>
+              <li><a href='%{link_new_status}' target='_blank'>Krijo Statuset për Rezultatet</a> që doni t'i shtoni</li>
+              <li><a href='%{link_new_result}' target='_blank'>Krijo të paktën një Status manualisht</a>përmes panelit të Administrimit përpara se të bëni Import, që ta keni më të qartë se në çfarë formati dalin reyultatet.</li>
+              <li>%{link_export_csv}</li>
+              <li>Bëj ndryhimet lokalisht. Mund t'i ndryshosh këto kolona në CSV:
+                <ul>
+                <li><b>category/id:</b> ID për Kategorinë</li>
+                <li><b>scope/id:</b> ID për Fushëveprimin</li>
+                <li><b>parent/id:</b> "parent-ID" (për rezultatet e ngjashme). Opsionale</li>
+                <li><b>title/en:</b> Titulli në gjuhën angleze. Kjo do të varet nga gjuha e konfigurimit të platformës.</li>
+                <li><b>description/en:</b> Përshkrimi në gjuhën angleze. Kjo do të varet nga gjuha e konfigurimit të platformës.</li>
+                <li><b>start_date:</b> data e fillimit të ekzekutimit të rezultateve (format YYYY-MM-DD)</li>
+                <li><b>end_date:</b> data e mbarimit të ekzekutimit të rezultateve (format YYYY-MM-DD)</li>
+                <li><b>status/id:</b> ID e Statusit për këtë rezultat</li>
+                <li><b>progress:</b> Përqindja (nga 0 në 100) të ekzekutimit</li>
+                <li><b>proposals_ids:</b> "Internal ID" e propozimeve të ndërlidhura (të ndara me presje). Automatikisht konvertohet në <span class='attribute-name'>proposal_url</span></li>
+                </ul>
+              </li>
+              </ol>
+            title: Importo rezultatet nga CSV
+        imports:
+          create:
+            invalid: Ndodhi një gabim gjatë importimit të rezultateve.
+            success: Filloi importimi i fajlit. Do t'iu vijë një email pas disa minutave me rezultatin e importimit.
+        models:
+          result:
+            name: Rezultati
+          status:
+            name: Statusi
+        projects_import:
+          create:
+            invalid: Ndodhi një problem gjatë importimit të projekteve në rezultate, ju lutem ndiqni udhëzimet me kujdes dhe kujdesuni që të zgjidhni projektet për implementim.
+          new:
+            create: Importo
+            import_all_selected_projects: Importo të gjitha projektet për implementim
+            new_items:
+              one: 1 projekt i seleksinuar do të importohet
+              other: "%{count} projekt i seleksionuar do të importohet"
+            no_components: Nuk ka komponente buxheti në këtë hapësirë të pjesëmarrjes për të shndërruar projekte në rezultate.
+            origin_component_id: Komponenti i origjinës
+            select_component: Zgjedh një komponent
+            success:
+              one: 1 projekt në rradhë për t'u importuar. Do të njoftohesh me email, kur të përfundojë.
+              other: "%{count} projekte në rradhë për t'u importuar. Do të njoftohesh me email, kur të përfundojnë."
+            title: Importo Projektet tek Përgjegjësitë
+        results:
+          create:
+            invalid: Ndodhi një gabim gjatë krijimit të këtij rezultati.
+            success: Rezultati u krijua suksesshëm.
+          destroy:
+            success: Rezultati u fshi suksesshëm.
+          edit:
+            title: Ndrysho rezultatin
+            update: Përditëso rezultatin
+          index:
+            title: Rezultatet
+          new:
+            create: Krijo rezultatin
+            title: Rezultat i ri
+          update:
+            invalid: Ndodhi një gabim gjatë përditësimit të këtij rezultati.
+            success: Rezultati u përditësua suksesshëm.
+        shared:
+          subnav:
+            statuses: Statuset
+        statuses:
+          create:
+            invalid: Ndodhi një gabim gjatë krijimit të këtij statusi.
+            success: Statusi u krijua suksesshëm.
+          destroy:
+            success: Statusi u fshi suksesshëm.
+          edit:
+            title: Ndrysho statusin
+            update: Përditëso statusin
+          index:
+            title: Statuset
+          new:
+            create: Krijo statusin
+            title: Status i ri
+          update:
+            invalid: Ndodhi një gabim gjatë përditësimit të këtij statusi.
+            success: Statusi u përditësua suksesshëm.
+        timeline_entries:
+          create:
+            invalid: Ndodhi një gabim gjatë krijimit të këtij shënimi.
+            success: Shënimi u krijua suksesshëm.
+          destroy:
+            success: Shënimi u fshi suksesshëm.
+          edit:
+            title: Ndrysho shënimin
+            update: Përditëso shënimin
+          index:
+            title: Shënimet e afatit kohor të projektit
+          new:
+            create: Krijo një shënim të ri
+            title: Shënim i ri
+          update:
+            invalid: Ndodhi një gabim gjatë përditësimit të këtij shënimi.
+            success: Shënimi u përditësua suksesshëm.
+      admin_log:
+        result:
+          create: "%{user_name} krijoi rezultatin %{resource_name} në %{space_name}"
+          delete: "%{user_name} fshiu rezultatin %{resource_name} në %{space_name}"
+          update: "%{user_name} përditësoi rezultatin %{resource_name} në %{space_name}"
+        status:
+          create: "%{user_name} krijoi statusin %{resource_name}"
+          delete: "%{user_name} fshiu statusin %{resource_name}"
+          update: "%{user_name} përditësoi statusin %{resource_name}"
+        timeline_entry:
+          create: "%{user_name} krijoi %{resource_name}"
+          delete: "%{user_name} fshiu %{resource_name}"
+          update: "%{user_name} përditësoi %{resource_name}"
+        value_types:
+          parent_presenter:
+            not_found: '"Parent ID" nuk u gjetë në bazën e të dhënave(ID:%{id})'
+      content_blocks:
+        highlighted_results:
+          results: Rezultatet
+      import_mailer:
+        import:
+          errors: Gabime
+          errors_present: Ndodhi një gabim gjatë importimit të rezultateve.
+          row_number: Rradhë
+          subject: Rezultatet u importuan suksesshëm
+          success: Rezultatet u importuan suksesshëm. Tani mund t'i rishqyrtoni rezultaten në ndërfaqen e administrimit.
+      import_projects_mailer:
+        import:
+          added_projects:
+            one: U importua një rezultat nga projektet.
+            other: "U importuan %{count} rezultate nga projektet."
+          subject: Projektet u importuan suksesshëm
+          success: Projektet u importuan suksesshëm në rezultate në komponentin %{component_name}. Mund t'i rishqyrtoni rezultatet në ndërfaqen e administrimit.
+      last_activity:
+        new_result: 'Rezultat i ri:'
+      models:
+        result:
+          fields:
+            category: Kategoria
+            created_at: Krijuar
+            end_date: Data e përfundimit
+            id: ID
+            progress: Ecuria
+            scope: Fushëveprimi
+            start_date: Data e fillimit
+            status: Statusi
+            title: Titulli
+        status:
+          fields:
+            description: Përshkrimi
+            key: Çelësi
+            name: Emri
+            progress: Ecuria
+        timeline_entry:
+          fields:
+            entry_date: Data
+            title: Titulli
+      results:
+        count:
+          results_count:
+            one: 1 rezultat
+            other: "%{count} rezultate"
+        filters:
+          all: Të gjitha
+        home:
+          categories_label: Kategoritë
+          subcategories_label: Nënkategoritë
+        home_header:
+          global_status: Statusi i përgjithshëm i ekzekutimit
+        nav_breadcrumb:
+          global: Ekzekutimi i përgjithshëm
+        no_results: Nuk ka projekte
+        search:
+          search: Kërko për veprime
+        show:
+          stats:
+            attendees: Të pranishëm
+            back_to_resource: Kthehu mbrapsht tek rezultati
+            comments: Komente
+            contributions: Kontributet
+            last_edited_by: Së fundi edituar nga
+            last_updated_at: Përditësimi i fundit në
+            meetings: Mbledhjet
+            proposals: Propozimet
+            votes: Mbështetjet
+        timeline:
+          title: Evoluimi i projektit
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Kategoria
+          scope_id_eq:
+            label: Fushëveprimi
+          status_id_eq:
+            label: Statusi
+    components:
+      accountability:
+        actions:
+          comment: Koment
+        name: Përgjegjësia
+        settings:
+          global:
+            categories_label: Emri për "Kategoritë"
+            comments_enabled: Komentet e aktivizuara
+            comments_max_length: Madhësia maks. e komenteve
+            display_progress_enabled: Shfaq ecurinë
+            heading_leaf_level_results: Ermi për "Projekte"
+            heading_parent_level_results: Emri për "Rezultate"
+            intro: Hyrje
+            scope_id: Fushëveprimi
+            scopes_enabled: Fushveprimet e aktivizuara
+            subcategories_label: Emri për "Nënategoritë"
+          step:
+            comments_blocked: Komentet të bllokuara
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'Propozimi %{proposal_title} u përfshi në një rezultat. Mund ta shihni nga kjo faqe:'
+          email_outro: Ky njoftim iu vjen sepse ndiqni %{proposal_title}. Mund t'i ndaloni njoftimet me anë të linkut të mëparshëm.
+          email_subject: Një përditësim për %{proposal_title}
+          notification_title: Propozimi <a href="%{proposal_path}">%{proposal_title}</a> u përfshi në rezultatin <a href="%{resource_path}">%{resource_title}</a>.
+        result_progress_updated:
+          email_intro: 'Rezultati %{resource_title} që përmbanë propozimin %{proposal_title} tanimë është %{progress} % i kompletuar. Mund ta shihni nga kjo faqe:'
+          email_outro: Kw njoftim iu vjen sepse ndiqni %{proposal_title} dhe ky propozim është i përfshirë në rezultatin %{resource_title}. Mund t'i ndalosh njoftimet duke ndejkur linkun e mëparshëm.
+          email_subject: Një përditësim për ecurinë e %{resource_title}
+          notification_title: Rezultati <a href="%{resource_path}">%{resource_title}</a> që përfshinë <a href="%{proposal_path}">%{proposal_title}</a> tani është %{progress} % i kompletuar.
+    metrics:
+      results:
+        description: Numri i rezultateve të gjeneruara
+        object: rezultatet
+        title: Rezultatet
+    participatory_spaces:
+      highlighted_results:
+        see_all: Shiko të gjitha rezultatet
+    resource_links:
+      included_projects:
+        result_project: Projektet e përfshira në këtë rezultat
+      included_proposals:
+        result_proposal: Propozimet e përfshira në këtë rezultat
+    statistics:
+      results_count: Rezultatet
