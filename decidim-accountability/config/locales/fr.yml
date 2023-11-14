@@ -174,9 +174,7 @@ fr:
             not_found: 'Le parent n''a pas été trouvé dans la base de données (ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Dates
           results: Réalisations
-          unspecified: Non précisé
       import_mailer:
         import:
           errors: Erreurs
@@ -215,9 +213,6 @@ fr:
           fields:
             entry_date: Date
             title: Titre
-      result_m:
-        executed: Exécuté
-        view: Voir
       results:
         count:
           results_count:
