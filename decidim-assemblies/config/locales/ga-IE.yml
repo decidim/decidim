@@ -17,7 +17,6 @@ ga:
         slug: Píosa URL
         subtitle: Fotheideal
         title: Teideal
-        twitter: Twitter
         youtube: YouTube
       assembly_member:
         birthday: Breithlá
@@ -119,7 +118,6 @@ ga:
           index:
             filter:
               all: Uile
-              ceased: Stadta
             search: Cuardaigh
         new_import:
           accepted_types:
