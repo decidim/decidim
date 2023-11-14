@@ -56,6 +56,8 @@ eu:
           attributes:
             iframe_embed_type:
               not_embeddable: URL hau ezin da bileren edo ekitaldien orrian txertatu
+            online_meeting_url:
+              url_format: URL baliozkoa izan behar du.
         meeting_agenda:
           attributes:
             base:
@@ -318,7 +320,6 @@ eu:
             select_a_meeting_type: Mesedez, hautatu topaketa mota bat
             select_a_registration_type: Mesedez, aukeratu erregistro mota bat
             select_an_iframe_access_level: Mesedez, aukeratu iframe maila bat
-            show_embedded_iframe_help: 'Zerbitzu gutxi batzuek baino ez dute uzten topaketan edo zuzeneko gertakarietan txertatzen honako domeinu hauetatik:%{domains}'
           index:
             title: Topaketa-zerrenda
           new:
@@ -469,7 +470,7 @@ eu:
             one: "topaketa 1"
             other: "%{count} topaketa"
         create:
-          invalid: Arazo bat izan da topaketa hau sortzean.
+          invalid: Arazo bat egon da topaketa hau sortzean.
           success: Topaketa zuzen sortu duzu.
         edit:
           back: Atzera
@@ -517,7 +518,6 @@ eu:
           select_a_meeting_type: Mesedez, hautatu topaketa mota bat
           select_a_registration_type: Mesedez, hautatu erregistro mota bat
           select_an_iframe_access_level: Mesedez, aukeratu iframe maila bat
-          show_embedded_iframe_help: 'Zerbitzu gutxi batzuek baino ez dute uzten topaketan edo zuzeneko gertakarietan txertatzen honako domeinu hauetatik: %{domains}'
         index:
           click_here: Ikusi topaketa guztiak
           new_meeting: Topaketa berria
@@ -617,7 +617,7 @@ eu:
         hidden_participants_count:
           one: eta %{count} pertsona gehiago
           other: eta %{count} pertsona gehiago
-      read_more: "(geihago irakurri)"
+      read_more: "(gehiago irakurri)"
       registration_mailer:
         confirmation:
           confirmed_html: Zure izen-ematea baieztatu da <a href="%{url}">%{title}</a> topaketarako.
