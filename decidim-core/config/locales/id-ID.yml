@@ -129,7 +129,6 @@ id:
         error: Terjadi kesalahan saat mengubah sumber daya ini.
         promote_button: Promosikan ke %{model_name}
         promote_confirm_text: Anda yakin ingin mempromosikan perbaikan ini?
-        section_heading: Amandemen (%{count})
       emendation:
         actions:
           button_accept: Menerima
@@ -217,7 +216,6 @@ id:
       hidden_elements_count:
         other: dan %{count} lagi
       see_less: "(lihat lebih sedikit)"
-      see_more: "(lihat lebih lanjut)"
     components:
       dummy:
         actions:
@@ -632,7 +630,6 @@ id:
           proposals: Proposal
           proposals_explanation: Buat proposal, dukung yang sudah ada dan promosikan perubahan yang ingin Anda lihat.
         footer_sub_hero:
-          footer_sub_hero_body: Mari membangun masyarakat yang lebih terbuka, transparan, dan kolaboratif.<br /> Gabung, berpartisipasi, dan putuskan.
           footer_sub_hero_headline: Selamat datang di %{organization} platform partisipatif.
           register: Daftar
         hero:
