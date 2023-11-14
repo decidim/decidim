@@ -152,8 +152,6 @@ es-MX:
           create: "%{user_name} creó el proyecto %{resource_name} en el espacio %{space_name}"
           delete: "%{user_name} borró el proyecto %{resource_name} en el espacio %{space_name}"
           update: "%{user_name} actualizó el proyecto %{resource_name} en el espacio %{space_name}"
-      budget:
-        view: Ver todos los proyectos de presupuesto
       budget_information_modal:
         back_to: Volver a %{component_name}
         close_modal: Cierra el modal
@@ -191,7 +189,6 @@ es-MX:
           fields:
             category: Categoría
             id: ID
-            scope: Ámbito
             title: Título
       order_summary_mailer:
         order_summary:
@@ -240,8 +237,6 @@ es-MX:
             all: Todos
             not_selected: No seleccionado
             selected: Seleccionado
-        index:
-          back_to_budgets: volver a los presupuestos
         order_progress:
           assigned: Asignado
           budget: Presupuesto
@@ -269,7 +264,6 @@ es-MX:
           add: Añadir proyecto %{resource_name} a tu voto.
           remove: Eliminar el proyecto %{resource_name} de tu voto.
           selected: Seleccionado
-          view: Ver
           votes:
             one: voto
             other: votos
