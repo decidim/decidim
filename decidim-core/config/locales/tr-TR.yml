@@ -1039,7 +1039,6 @@ tr:
           proposals: Teklifler
           proposals_explanation: Öneriler yapın, mevcut olanları destekleyin ve görmek istediğiniz değişiklikleri tanıtın.
         footer_sub_hero:
-          footer_sub_hero_body: Daha açık, şeffaf ve işbirliğine dayalı bir toplum oluşturalım. <br /> Katılın, katılımcı olun ve karar verin.
           footer_sub_hero_headline: '%{organization} katılımcı platformuna hoş geldiniz.'
           register: Kayıt Ol
         hero:
