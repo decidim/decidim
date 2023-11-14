@@ -6,3 +6,6 @@ bg:
         destroy: Изтрий
         edit: Редактирай
         new: Нов
+      admins:
+        show:
+          edit: Редактирай
