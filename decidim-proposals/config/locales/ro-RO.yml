@@ -463,8 +463,6 @@ ro:
           new:
             create: Creează
             title: Creează propunere
-          publish_answers:
-            number_of_proposals: Vor fi publicate răspunsuri pentru %{number} propuneri.
           show:
             amendments_count: Număr de amendamente
             assigned_valuators: Evaluatori atribuiți
@@ -473,7 +471,6 @@ ro:
             documents: Documente
             endorsements_count: Număr de susțineri
             endorsers: Susţinători
-            link: Link
             n_more_endorsers:
               one: și încă 1
               few: și încă %{count}
