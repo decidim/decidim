@@ -1169,7 +1169,6 @@ cs:
           proposals: Návrhy
           proposals_explanation: Vytvářejte návrhy, podporujte stávající návrhy a prosazujte změny, které chcete vidět.
         footer_sub_hero:
-          footer_sub_hero_body: Vybudujme otevřenější, transparentnější a spolupracující společnost.<br /> Přihlaste se, zúčastněte se a rozhodněte se.
           footer_sub_hero_headline: Vítejte na %{organization} participační platformě.
           register: Registrovat
         hero:
