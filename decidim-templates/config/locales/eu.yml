@@ -16,13 +16,19 @@ eu:
           new_template: Beste txantiloi bat
         apply:
           error: Arazo bat izan da txantiloi hau aplikatzean.
+          success: Txantiloia zuzen aplikatua.
         copy:
           error: Arazo bat izan da txantiloi hau kopiatzean.
+          success: Txantiloia zuzen kopiatua.
         create:
           error: Arazo bat izan da txantiloi hau sortzean.
+          success: Txantiloia zuzen sortua.
+        destroy:
+          success: Txantiloia zuzen ezabatua.
         empty: Oraindik ez dago txantiloirik.
         update:
           error: Arazo bat izan da txantiloi hau eguneratzean.
+          success: Txantiloia zuzen eguneratua.
       titles:
         template_types:
           questionnaires: Galdeketa-txantiloiak
@@ -50,6 +56,9 @@ eu:
             title: Blokeko erabiltzaile-mezuaren txantiloi berria
           template_chooser:
             select_template: Hautatu txantiloi-fitxategi bat
+        proposal_answer_templates:
+          form:
+            save: Gorde
         questionnaire_templates:
           choose:
             create_from_template: Sortu txantiloitik
@@ -59,6 +68,7 @@ eu:
             skip_template: Saltatu
           edit:
             edit: Editatu
+            empty: Oraindik ez dago galderarik.
             questionnaire: Galdetegia
             title: Galdetegiaren txantiloia editatzea
           form:
