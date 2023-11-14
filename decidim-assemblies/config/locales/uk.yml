@@ -241,8 +241,6 @@ uk:
           index:
             filter:
               all: Усі
-              ceased: Повноваження припинені
-              not_ceased: Повноваження не припинені
             filter_by: 'Відібрати за ознакою:'
             search: Шукати
       assembly_members:
