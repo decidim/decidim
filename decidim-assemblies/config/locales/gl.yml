@@ -140,13 +140,11 @@ gl:
         destroy:
           success: O membro eliminouse con éxito por este conxunto.
         edit:
-          title: Actualiza o membro da montaxe.
           update: Actualización
         index:
           assembly_members_title: Membros da asemblea
         new:
           create: Crear
-          title: Novo membro da montaxe.
         update:
           error: Produciuse un erro ao actualizar o membro para este conxunto.
           success: Membro actualizado correctamente para este conxunto.
@@ -164,13 +162,11 @@ gl:
         destroy:
           success: O usuario eliminouse con éxito deste conxunto.
         edit:
-          title: Actualiza o usuario de montaxe.
           update: Actualización
         index:
           assembly_admins_title: Usuarios da asemblea
         new:
           create: Crear
-          title: Novo usuario de montaxe.
         update:
           error: Houbo un erro actualizado por un usuario para este conxunto.
           success: O usuario actualizouse con éxito para este conxunto.
@@ -289,12 +285,6 @@ gl:
             select_a_position: Seleccione unha posición
             select_user: Selecciona un usuario
             user_type: Tipo de usuario
-          index:
-            filter:
-              all: Todo
-              ceased: Cesado
-              not_ceased: Non cesou
-            search: Busca
         content_blocks:
           highlighted_assemblies:
             max_results: Cantidade máxima de elementos para mostrar
@@ -302,6 +292,9 @@ gl:
           accepted_types:
             json: JSON
       assemblies:
+        filters:
+          names:
+            all: Todo
         show:
           title: Sobre esta xuntanza
       assembly_members:
