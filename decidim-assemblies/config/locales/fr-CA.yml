@@ -317,8 +317,6 @@ fr-CA:
           index:
             filter:
               all: Tout
-              ceased: Validité terminée
-              not_ceased: Validité en cours
             filter_by: Filtrer par
             search: Rechercher
         content_blocks:
