@@ -55,6 +55,27 @@ eu:
           new:
             download_export: Deskargatu esportatutakoa CSV formatuan
             import: Inportatu
+            info: |
+              <p>Ondoko urrats hauek ematea gomendatzen dizugu:</p>
+              <ol>
+              <li>Sortu egoerak erantsi nahi dituzun emaitzetarako (<a href='%{link_new_status}' target='_blank'> link </a>)</li>
+              <li>Sortu emaitza bat gutxienez eskuz administrazioaren panelaren bidez (<a href='%{link_new_result}' target='_blank'>link</a>) inportatu baino lehen, hobeto ulertzeko formatua eta nola bete.</li>
+              <li>Deskargatu CSV formatuko artxiboa (%{link_export_csv})</li>
+              <li>Egin aldaketak lokalean. CSVren ondoko zutabeak baino ezin dituzu aldatu:
+                <ul>
+                <li><b> id category/id:</b> ID kategoriarako </li>
+                <li><b>scope /id:</b> ID eremurako </li>
+                <li><b>parent /id:</b> ID aitarentzat (erlazionatutako emaitzetarako). Aukerakoa </li>
+                <li><b>title /I18N:</b> Izenburua hizkuntzan X</li>
+                <li><b> deskribapena /I18N:</b> deskribapena hizkuntzan X</li>
+                <li><b>start_date:</b> emaitza gauzatzen den hasiera-data (AAAA-MM-DD formatua)</li>
+                <li><b>end emaitza gauzatzen den amaiera-data (AAAA-MM-DD formatua) </li>
+                <li><b> status /id:</b> egoeraren ID emaitza honetarako </li>
+                <li><b>progress:</b> gauzatzearen ehunekoa (0tik 100era) </li>
+                <li><b>proposals_ids:</b>erlazionatutako proposamenen barneko ID (komez bidez bereizita). Automatikoki bihurtuko da:<span class = 'attribute-name'>proposal_url</span></li>
+                </ul>
+              </li>
+              </ol>
             title: Inportatu emaitzak CSVtik
         imports:
           create:
@@ -150,12 +171,10 @@ eu:
           update: "%{user_name} k %{resource_name} sarrera eguneratu du kronologian"
         value_types:
           parent_presenter:
-            not_found: 'Gurasoa ez zen datu-basean aurkitu (ID: %{id})'
+            not_found: 'Nagusi ez zen aurkitu (ID: %{id}) datu-basean'
       content_blocks:
         highlighted_results:
-          dates: Datak
           results: Emaitzak
-          unspecified: Zehaztu gabe
       import_mailer:
         import:
           errors: Akatsak
@@ -194,9 +213,6 @@ eu:
           fields:
             entry_date: Data
             title: Izenburua
-      result_m:
-        executed: Burutua
-        view: Ikusi
       results:
         count:
           results_count:
