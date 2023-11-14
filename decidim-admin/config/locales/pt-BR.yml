@@ -838,22 +838,6 @@ pt-BR:
         form:
           add: Adicionar à lista branca
           title: Domínio externo na lista branca
-      organization_homepage:
-        content_blocks:
-          create:
-            error: Ocorreu um problema ao tentar criar esse bloco de conteúdo.
-            success: Bloco de conteúdo criado com sucesso.
-          destroy:
-            error: Ocorreu um problema ao tentar excluir esse bloco de conteúdo.
-            success: Bloco de conteúdo excluído com sucesso.
-          edit:
-            update: Atualizar
-        edit:
-          active_content_blocks: Blocos de conteúdo ativo
-          add: Adicionar bloco de conteúdo
-          destroy_confirmation: Tem certeza que deseja excluir esse bloco de conteúdo?
-          inactive_content_blocks: Blocos de conteúdo inativo
-          title: Conteúdo da página
       participatory_space_private_users:
         create:
           error: Ocorreu um erro ao adicionar um usuário privado para este espaço participativo.
@@ -879,7 +863,6 @@ pt-BR:
             explanation: Você tem %{count} participantes privados.
             title: Excluir participantes privados
           example_file: 'Arquivo de exemplo:'
-          title: Envie seu arquivo CSV
           upload: Upload
       reminders:
         create:
@@ -945,7 +928,6 @@ pt-BR:
       shared:
         gallery:
           add_images: Adicione imagens
-          delete_image: Excluir Imagem
           edit_images: Editar imagens
           gallery_legend: Adicionar uma galeria de imagens (Opcional)
       static_page_topics:
@@ -966,20 +948,6 @@ pt-BR:
       static_pages:
         actions:
           view: Ver página pública
-        content_blocks:
-          active_content_blocks: Blocos de conteúdo ativo
-          add: Adicionar bloco de conteúdo
-          create:
-            error: Ocorreu um problema ao tentar criar esse bloco de conteúdo.
-            success: Bloco de conteúdo criado com sucesso.
-          destroy:
-            error: Ocorreu um problema ao tentar excluir esse bloco de conteúdo.
-            success: Bloco de conteúdo excluído com sucesso.
-          destroy_confirmation: Tem certeza que deseja excluir esse bloco de conteúdo?
-          edit:
-            update: Atualizar
-          inactive_content_blocks: Blocos de conteúdo inativos
-          title: Conteúdo da página
         create:
           error: Ocorreu um erro ao criar uma nova página.
           success: Página criada com sucesso.
@@ -991,12 +959,12 @@ pt-BR:
           update: Atualizar
         form:
           none: Nenhum
+        index:
+          last_notable_change: Última alteração notável
         new:
           create: Criar página
           title: Nova página
         topic:
-          destroy: Remover tópico
-          edit: Editar tópico
           empty: Não há página sob este tópico.
           without_topic: Páginas sem tópico
         update:
