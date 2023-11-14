@@ -633,6 +633,10 @@ zh-CN:
       file_validation:
         allowed_file_extensions: '允许的文件扩展名: %{extensions}'
         max_file_size: '最大文件大小: %{megabytes}MB'
+      upload:
+        labels:
+          cancel: 取消
+          save: 保存
     gamification:
       all_badges_link: 查看所有可用的徽章。
       badges:
@@ -957,7 +961,6 @@ zh-CN:
           proposals: 建议
           proposals_explanation: 提出建议、支持现有建议并促进你想要看到的更改。
         footer_sub_hero:
-          footer_sub_hero_body: 让我们建设一个更加开放、透明和协作的社会。<br /> 加入、参与和决定。
           footer_sub_hero_headline: 欢迎使用 %{organization} 参与式平台。
           register: 注册
         hero:
@@ -1409,8 +1412,9 @@ zh-CN:
         facebook: "%{organization} 在 Facebook"
         github: "%{organization} 在 GitHub"
         instagram: "%{organization} 在 Instagram"
-        twitter: "%{organization} 在 Twitter"
         youtube: "%{organization} 在 YouTube"
+      upload_modal:
+        close_modal: 关闭模式
       user_menu:
         account: '用户帐户: %{name}'
         admin_dashboard: 管理员控制面板
