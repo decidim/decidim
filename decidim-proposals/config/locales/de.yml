@@ -753,7 +753,7 @@ de:
             notes: Anmerkungen
             official_proposal: Offizieller Vorschlag
             published_answer: Veröffentlichte Antwort
-            published_at: Veröffentlicht unter
+            published_at: Veröffentlicht am
             scope: Umfang
             state: Zustand
             title: Titel
@@ -785,7 +785,7 @@ de:
             other: "%{count} Vorschläge"
         dynamic_map_instructions:
           description: Die Koordinaten werden aktualisiert, wenn Sie auf "Vorschau" klicken. Die angegebene Adresse wird sich jedoch nicht ändern.
-          instructions: Sie können den Marker auf der Karte verschieben.
+          instructions: Sie können den Punkt auf der Karte verschieben.
         edit:
           add_documents: Dokumente hinzufügen
           add_image: Bild hinzufügen
