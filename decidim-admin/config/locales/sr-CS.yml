@@ -514,7 +514,6 @@ sr:
       shared:
         gallery:
           add_images: Dodaj slike
-          delete_image: Obriši Sliku
           gallery_legend: Dodaj galeriju slika (opciono)
       titles:
         metrics: Metrika
