@@ -59,7 +59,7 @@ ja:
         subtitle: サブタイトル
         target: 参加者
         title: タイトル
-        twitter: Twitter
+        twitter: X
         weight: 順番の位置
         youtube: YouTube
       assembly_member:
@@ -318,8 +318,6 @@ ja:
           index:
             filter:
               all: すべて
-              ceased: 終了済み
-              not_ceased: 終了していません
             filter_by: フィルター
             search: 検索
         content_blocks:
