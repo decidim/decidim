@@ -1107,7 +1107,6 @@ zh-TW:
           proposals: 提案
           proposals_explanation: 提出建議、支持現有建議並推動您希望看到的變化。
         footer_sub_hero:
-          footer_sub_hero_body: 一起建立更加開放、透明和協作的社會。<br /> 加入、參與和做出決策。
           footer_sub_hero_headline: 歡迎來到 %{organization} 的參與平台。
           register: 註冊
         hero:
