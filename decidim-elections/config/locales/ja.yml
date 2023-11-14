@@ -826,6 +826,7 @@ ja:
             timeline:
               name: 投票のタイムライン
         index:
+          not_published: 未公開
           published: 公開済み
         landing_page:
           content_blocks:
