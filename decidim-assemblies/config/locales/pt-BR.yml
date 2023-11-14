@@ -309,8 +309,6 @@ pt-BR:
           index:
             filter:
               all: Todos
-              ceased: Cessou
-              not_ceased: Não cessou
             filter_by: Filtrar por
             search: Procurar
         content_blocks:
