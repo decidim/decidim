@@ -170,9 +170,7 @@ hu:
             not_found: 'Nem található az adatbázisban (ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Dátumok
           results: Találatok
-          unspecified: Nincs meghatározva
       import_mailer:
         import:
           errors: Hibák
@@ -211,9 +209,6 @@ hu:
           fields:
             entry_date: Dátum
             title: Cím
-      result_m:
-        executed: Végrehajtva
-        view: Nézet
       results:
         count:
           results_count:
