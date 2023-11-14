@@ -121,6 +121,7 @@ cs:
           update_budget:
             invalid: 'Tyto projekty jsou již ve stejném rozpočtu nebo jejich rozpočty jsou vyšší než povolené maximum: %{projects}.'
             select_a_project: Vyberte projekt.
+            success: 'Projekty byly úspěšně aktualizovány do %{subject_name} rozpočtu: %{projects}.'
           update_category:
             invalid: 'Tyto projekty již mají kategorii %{subject_name}: %{projects}.'
             select_a_category: Vyberte prosím kategorii.
