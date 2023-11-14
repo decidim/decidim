@@ -410,8 +410,6 @@ pt-BR:
           new:
             create: Criar
             title: Criar proposta
-          publish_answers:
-            number_of_proposals: Respostas para propostas de %{number} serão publicadas.
           show:
             amendments_count: As alterações contam
             assigned_valuators: Avaliadores atribuídos
@@ -420,7 +418,6 @@ pt-BR:
             documents: Documentos
             endorsements_count: Contagem de endossos
             endorsers: Endossar
-            link: Link
             n_more_endorsers:
               one: e mais 1
               other: e mais %{count}
