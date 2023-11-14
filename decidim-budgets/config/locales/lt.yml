@@ -157,8 +157,6 @@ lt:
           create: "%{user_name} sukūrė %{resource_name} projektą %{space_name} erdvėje"
           delete: "%{user_name} ištrynė %{resource_name} projektą %{space_name} erdvėje"
           update: "%{user_name} atnaujino %{resource_name} projektą %{space_name} erdvėje"
-      budget:
-        view: Peržiūrėti visus biudžeto projektus
       budget_information_modal:
         back_to: Atgal į %{component_name}
         close_modal: Uždaryti modalinį langą
@@ -193,7 +191,6 @@ lt:
           fields:
             category: Kategorija
             id: ID
-            scope: Apimtis
             title: Pavadinimas
       order_summary_mailer:
         order_summary:
@@ -244,8 +241,6 @@ lt:
             all: Visi
             not_selected: Nepasrinkta
             selected: Pasirinkta
-        index:
-          back_to_budgets: atgal į biudžetus
         order_progress:
           assigned: Priskirta
           budget: Biudžetas
@@ -273,7 +268,6 @@ lt:
           add: Pridėti projektą %{resource_name} prie balsų.
           remove: Pašalinti projektą %{resource_name} iš balsų.
           selected: Pasirinkta
-          view: Peržiūrėti
           votes:
             one: balsas
             few: balsai
