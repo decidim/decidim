@@ -369,6 +369,9 @@ tr:
               name: Oylama istatistikleri
             timeline:
               name: Oylama Zaman Çizelgesi
+        polling_officers:
+          polling_officers_picker:
+            close: Kapat
         votings:
           actions:
             publish: Yayınla
