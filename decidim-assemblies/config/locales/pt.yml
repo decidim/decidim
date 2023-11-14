@@ -140,13 +140,11 @@ pt:
         destroy:
           success: Membro eliminado corretamente nesta reunião.
         edit:
-          title: Atualizar membro da reunião.
           update: Atualizar
         index:
           assembly_members_title: Membros da reunião
         new:
           create: Criar
-          title: Novo membro da reunião.
         update:
           error: Ocorreu um problema ao atualizar o membro nesta reunião.
           success: Membro atualizado corretamente nesta reunião.
@@ -164,13 +162,11 @@ pt:
         destroy:
           success: Administrador removido corretamente desta reunião.
         edit:
-          title: Atualizar o administrador da reunião.
           update: Atualizar
         index:
           assembly_admins_title: Administradores da reunião
         new:
           create: Criar
-          title: Novo administrador da reunião.
         update:
           error: Ocorreu um problema ao atualizar um administrador para esta reunião.
           success: Administrador atualizador corretamente para esta reunião.
@@ -288,18 +284,16 @@ pt:
             select_a_position: Selecione uma posição
             select_user: Selecione um participante
             user_type: Tipo de participante
-          index:
-            filter:
-              all: Todos
-              ceased: Cessado
-              not_ceased: Não cessado
-            search: Pesquisar
         content_blocks:
           highlighted_assemblies:
             max_results: Quantidade máxima de elementos a mostrar
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        filters:
+          names:
+            all: Todos
       assembly_members:
         index:
           members: Membros
