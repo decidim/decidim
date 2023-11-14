@@ -107,8 +107,6 @@ sv:
           create: "%{user_name} skapade projektet %{resource_name} i utrymmet %{space_name}"
           delete: "%{user_name} raderade projektet %{resource_name} i utrymmet %{space_name}"
           update: "%{user_name} uppdaterade projektet %{resource_name} i utrymmet %{space_name}"
-      budget:
-        view: Visa alla budgetprojekt
       budget_information_modal:
         back_to: Tillbaka till %{component_name}
         close_modal: Stäng fönster
@@ -136,7 +134,6 @@ sv:
           fields:
             category: Kategori
             id: ID
-            scope: Omfång
             title: Titel
       order_summary_mailer:
         order_summary:
@@ -195,7 +192,6 @@ sv:
           selected: Valda
         project:
           selected: Valda
-          view: Visa
           votes:
             one: röst
             other: röster
