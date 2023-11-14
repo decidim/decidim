@@ -37,6 +37,9 @@ fi:
         confirm_destroy: Haluatko varmasti poistaa tämän?
         destroy: Poista
         edit: Muokkaa
+        new_admin: Uusi hallintakäyttäjä
+        new_oauth_application: Uusi OAuth-Sovellus
+        new_organization: Uusi organisaatio
         save: Tallenna
         title: Toiminnot
       admins:
@@ -53,14 +56,12 @@ fi:
         new:
           create: Luo
           title: Uusi hallinnoija
-        show:
-          destroy: Poista
-          edit: Muokkaa
         update:
           error: Hallintakäyttäjän päivitys epäonnistui.
           success: Hallintakäyttäjän päivitys onnistui.
       dashboard:
         show:
+          admins: Hallintakäyttäjät
           current_organizations: Nykyiset organisaatiot
       default_pages:
         placeholders:
@@ -137,7 +138,6 @@ fi:
           show: Näytä lisäasetukset
         create:
           error: Uuden organisaation luonti epäonnistui.
-          success: Organisaation luonti onnistui.
         csp_settings:
           connect_src: Yhteysosoitteet (connect-src)
           connect_src_hint: |
@@ -172,7 +172,10 @@ fi:
             Tyyliosoitteet (style-src) rajaavat ne URL-osoitteet, joita voidaan ladata <style>-elementteihin.
             Palvelu lisää automaattisesti arvon "'self' 'unsafe-inline'", mutta voit lisätä halutessasi muita arvoja. Jätä arvo tyhjäksi, jos et tiedä, mitä se tarkoittaa.
         edit:
+          confirm_resend_invitation: Haluatko varmasti lähettää kutsun uudelleen?
+          resend_invitation: Lähetä kutsu uudelleen
           secondary_hosts_hint: Syötä jokainen niistä omalle rivilleen
+          title: Muokkaa organisaatiota
         file_upload_settings:
           content_types:
             admin_hint: Nämä MIME-tyypit sallitaan hallintakäyttäjien tiedostolatauksiin. Hallintakäyttäjien tulisi ymmärtää riskit tietyntyyppisten tiedostoformaattien kanssa, joten voit olettaa heidän olevan varovaisempia tiedostojen lataamisen suhteen.
@@ -197,6 +200,7 @@ fi:
           default: Oletus?
           enabled: Käytössä
           locale: Kieli
+          organization_admin_email_hint: Lähetämme tähän sähköpostiosoitteeseen viestin vahvistaaksesi kyseisen sähköpostiosoitteen ja asettaaksesi salasanan käyttäjätilillesi.
           reference_prefix_hint: Viitetunnisteen avulla tunnistetaan yksilöllisesti resursseja eri organisaatioiden välillä.
           secondary_hosts_hint: Syötä jokainen niistä omalle rivilleen.
           title: Uusi organisaatio
@@ -218,6 +222,9 @@ fi:
           twitter:
             api_key: API-avain
             api_secret: API-salausavain
+        resend_invitation:
+          error: Kutsun lähettäminen epäonnistui.
+          success: Kutsun lähettäminen onnistui.
         smtp_settings:
           fieldsets:
             sender: Lähettäjä
@@ -237,6 +244,14 @@ fi:
         notices:
           no_organization_warning_html: Sinun on luotava organisaatio päästäksesi alkuun. Muista lukea %{guide} ennen jatkamista.
           our_getting_started_guide: aloitusoppaamme
+        organizations_list:
+          confirm_resend_invitation: Haluatko varmasti lähettää kutsun uudelleen?
+          resend_invitation: Lähetä kutsu uudelleen
       titles:
         dashboard: Hallintapaneeli
         decidim: Decidim
+  layouts:
+    decidim:
+      system:
+        login_items:
+          logout: Kirjaudu ulos
