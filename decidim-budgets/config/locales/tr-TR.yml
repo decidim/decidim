@@ -77,8 +77,6 @@ tr:
           create: "%{user_name}, %{space_name} alanında %{resource_name} proje yarattı"
           delete: "%{user_name}, %{space_name} alanında %{resource_name} projeyi sildi"
           update: "%{user_name}, %{space_name} alanında %{resource_name} projesini güncellendi"
-      budget:
-        view: Tüm bütçe projelerini görüntüleyin
       budget_information_modal:
         back_to: '%{component_name} öğesine geri dön'
         close_modal: Pencereyi kapat
@@ -146,7 +144,6 @@ tr:
           selected: Seçili
         project:
           selected: Seçili
-          view: Görünüm
           votes:
             one: oy
             other: oylar
