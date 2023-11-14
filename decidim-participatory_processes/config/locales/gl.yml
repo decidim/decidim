@@ -153,7 +153,7 @@ gl:
           inactive_content_blocks: Bloques de contido inactivos
       participatory_process_group_landing_page_content_blocks:
         edit:
-          update: Actualizar
+          update: Actualización
       participatory_process_groups:
         destroy:
           success: Grupo de proceso participativo eliminado con éxito.
