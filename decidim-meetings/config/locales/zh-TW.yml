@@ -314,7 +314,6 @@ zh-TW:
             select_a_meeting_type: 請選擇一種會議類型。
             select_a_registration_type: 請選擇一種註冊類型
             select_an_iframe_access_level: 請選擇一個 iframe 存取級別
-            show_embedded_iframe_help: '只有以下域名的部分服務允許將會議或直播活動嵌入： %{domains}'
           index:
             title: 會議
           new:
@@ -510,7 +509,6 @@ zh-TW:
           select_a_meeting_type: 請選擇一種會議類型。
           select_a_registration_type: 請選擇一種註冊類型
           select_an_iframe_access_level: 請選擇一個 iframe 存取級別
-          show_embedded_iframe_help: '只有以下域名的部分服務允許將會議或直播活動嵌入： %{domains}'
         index:
           click_here: 查看所有會議
           new_meeting: 新會議
