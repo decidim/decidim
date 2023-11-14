@@ -828,7 +828,6 @@ es-PY:
             colors_title: Colores de organizacion
             colors_warning_html: '¡Advertencia! Cambiar estos colores puede romper los contrastes de accesibilidad. Puedes comprobar el contraste de tu elección con <a href="%{link}">WebAIM Contrast Checker</a> u otras herramientas similares.'
             explanation: Esta herramienta te ayuda a elegir un esquema de color, compuesto por distintas tonalidades seleccionadas de forma armoniosa para usarse en el sitio web de la organización.
-            header_snippets_help_html: Utiliza este campo para añadir cosas a la cabecera HTML. El uso más común es integrar servicios de terceros que requieren JavaScript o CSS adicionales. También, puedes usarlo para añadir meta-etiquetas extra al HTML. Ten en cuenta que esto sólo será renderizado en páginas públicas, no en la sección de administración. Si el código interactúa con APIs externas o no cumple con las pautas de seguridad de la aplicación, será necesario cambiar la Política de Seguridad del Contenido. Lea más sobre <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">en el sitio de documentación</a>.
             legend_html: Colores principales de la aplicación, basados en el <a href="https://www.color-meanings.com/triadic-colors/">algoritmo Triadic</a>. El color <i>secundario</i> es autocalculado a partir del color primario y la saturación que has elegido.
             saturation: Saturación
             title: Selector de color
@@ -852,22 +851,6 @@ es-PY:
         form:
           add: Añadir a la lista blanca
           title: Lista blanca de dominios externos
-      organization_homepage:
-        content_blocks:
-          create:
-            error: Se ha producido un error al intentar crear este bloque de contenido.
-            success: Bloque de contenido creado correctamente.
-          destroy:
-            error: Se ha producido un error al tratar de eliminar este bloque de contenido.
-            success: Bloque de contenido eliminado correctamente.
-          edit:
-            update: Actualizar
-        edit:
-          active_content_blocks: Bloques de contenido activos
-          add: Añadir bloque de contenido
-          destroy_confirmation: '¿Seguro que quieres borrar este bloque de contenido?'
-          inactive_content_blocks: Bloques de contenido inactivos
-          title: Contenidos de la página
       participatory_space_private_users:
         create:
           error: Hubo un error al agregar un usuario privado para este espacio participativo.
@@ -897,7 +880,6 @@ es-PY:
           explanation_example: |
             john.doe@example.org%{csv_col_sep}John Doe
             jane.doe@example.org%{csv_col_sep}Jane Doe
-          title: Sube tu archivo CSV
           upload: Subir
       reminders:
         create:
@@ -963,7 +945,6 @@ es-PY:
       shared:
         gallery:
           add_images: Añadir imágenes
-          delete_image: Borrar la imagen
           edit_images: Editar imagenes
           gallery_legend: Añadir una galería de imágenes (opccional)
       static_page_topics:
@@ -984,20 +965,6 @@ es-PY:
       static_pages:
         actions:
           view: Ver la página pública
-        content_blocks:
-          active_content_blocks: Bloques de contenido activos
-          add: Añadir bloque de contenido
-          create:
-            error: Se ha producido un error al intentar crear este bloque de contenido.
-            success: El bloque de contenido se ha creado correctamente.
-          destroy:
-            error: Se ha producido un error al intentar eliminar este bloque de contenido.
-            success: Bloque de contenido eliminado correctamente.
-          destroy_confirmation: '¿Seguro que quieres borrar este bloque de contenido?'
-          edit:
-            update: Actualizar
-          inactive_content_blocks: Bloques de contenido inactivos
-          title: Contenido de la página
         create:
           error: Se ha producido un error al crear una nueva página.
           success: La página se ha creado correctamente. Sigue ahora con la configuración de las fases.
@@ -1010,12 +977,12 @@ es-PY:
         form:
           none: Ninguna
           slug_help_html: 'Usa rutas parciales, no direcciones URL completas aquí. Acepta letras, números, guiones y barras diagonales, y debe comenzar con una letra. Ejemplo: %{url}'
+        index:
+          last_notable_change: Último cambio notable
         new:
           create: Crear página
           title: Nueva página
         topic:
-          destroy: Eliminar tema
-          edit: Editar tema
           empty: No hay ninguna página sobre este tema.
           without_topic: Páginas sin tema
         update:
