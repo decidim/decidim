@@ -10,18 +10,20 @@ module Decidim
     #
     # @param name [String] The name of the icon. It will be used to find the icon later.
     # @param icon [String] The id of the icon. It will be used to load the icon from remixicon library.
-    # @param resource [String] The resource name. The resource name. It will be used to link the icon to a specific resource.
     # @param category [String] The category name. It will be used to group the icons by category.
     # @param description [String] The description of the icon. It will be used to show the purpose of the icon in DDG.
     # @param engine [String] The engine name.It is used internally to identify the module where the icon is being used.
-    def register(name:, icon:, resource:, description:, category:, engine:) # rubocop:disable Metrics/ParameterLists
+    def register(name:, icon:, description:, category:, engine:)
       ActiveSupport::Deprecation.warn("#{name} already registered. #{@icons[name].inspect}") if @icons[name]
 
-      @icons[name] = { name:, icon:, resource:, description:, category:, engine: }
+      @icons[name] = { name:, icon:, description:, category:, engine: }
     end
 
     def find(name)
-      raise "Icon name cannot be blank" if name.blank?
+      if name.blank?
+        deprecated("The requested icon is blank.")
+        name = other
+      end
 
       @icons[name] || deprecated(name)
     end
@@ -38,10 +40,11 @@ module Decidim
 
     def deprecated(name)
       message = %{Icon #{name} not found. Register it with \n
-        Decidim.icons.register(name: "#{name}", icon: "#{name}", resource: "core", category: "system", description: "")
+        Decidim.icons.register(name: "#{name}", icon: "#{name}", category: "system", description: "", engine: :core)
       }
 
-      raise message || ActiveSupport::Deprecation.warn(message)
+      ActiveSupport::Deprecation.warn(message)
+      raise message if Rails.env.development? || Rails.env.test?
     end
   end
 end

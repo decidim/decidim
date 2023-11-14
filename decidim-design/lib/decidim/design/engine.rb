@@ -17,9 +17,9 @@ module Decidim
       end
 
       initializer "decidim_admin.register_icons" do
-        Decidim.icons.register(name: "home-7-line", icon: "home-7-line", resource: "design", category: "system", description: "", engine: :design)
-        Decidim.icons.register(name: "ruler-line", icon: "ruler-line", resource: "core", category: "system", description: "", engine: :design)
-        Decidim.icons.register(name: "focus-line", icon: "focus-line", resource: "core", category: "system", description: "", engine: :design)
+        Decidim.icons.register(name: "home-7-line", icon: "home-7-line", category: "system", description: "", engine: :design)
+        Decidim.icons.register(name: "ruler-line", icon: "ruler-line", category: "system", description: "", engine: :design)
+        Decidim.icons.register(name: "focus-line", icon: "focus-line", category: "system", description: "", engine: :design)
       end
 
       initializer "decidim_design.add_cells_view_paths" do

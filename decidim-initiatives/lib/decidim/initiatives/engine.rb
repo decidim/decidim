@@ -85,12 +85,12 @@ module Decidim
       end
 
       initializer "decidim_initiatives.register_icons" do
-        Decidim.icons.register(name: "Decidim::Initiative", icon: "lightbulb-flash-line", description: "Initiative", category: "activity", resource: "core", engine: :initiatives)
-        Decidim.icons.register(name: "apps-line", icon: "apps-line", resource: "core", category: "system", description: "", engine: :initiatives)
-        Decidim.icons.register(name: "add-fill", icon: "add-fill", resource: "core", category: "system", description: "", engine: :initiatives)
-        Decidim.icons.register(name: "printer-line", icon: "printer-line", resource: "core", category: "system", description: "", engine: :initiatives)
-        Decidim.icons.register(name: "forbid-line", icon: "forbid-line", resource: "core", category: "system", description: "", engine: :initiatives)
-        Decidim.icons.register(name: "clipboard-line", icon: "clipboard-line", resource: "core", category: "system", description: "", engine: :initiatives)
+        Decidim.icons.register(name: "Decidim::Initiative", icon: "lightbulb-flash-line", description: "Initiative", category: "activity", engine: :initiatives)
+        Decidim.icons.register(name: "apps-line", icon: "apps-line", category: "system", description: "", engine: :initiatives)
+        Decidim.icons.register(name: "add-fill", icon: "add-fill", category: "system", description: "", engine: :initiatives)
+        Decidim.icons.register(name: "printer-line", icon: "printer-line", category: "system", description: "", engine: :initiatives)
+        Decidim.icons.register(name: "forbid-line", icon: "forbid-line", category: "system", description: "", engine: :initiatives)
+        Decidim.icons.register(name: "clipboard-line", icon: "clipboard-line", category: "system", description: "", engine: :initiatives)
       end
 
       initializer "decidim_initiatives.content_blocks" do

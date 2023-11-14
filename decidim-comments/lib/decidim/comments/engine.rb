@@ -38,10 +38,10 @@ module Decidim
       end
 
       initializer "decidim_comments.register_icons" do
-        common_parameters = { resource: "Decidim::Comments::Comment", category: "actions", engine: :comments }
+        common_parameters = { category: "actions", engine: :comments }
 
-        Decidim.icons.register(name: "Decidim::Comments::Comment", icon: "chat-1-line", description: "Comment", category: "activity", resource: "core", engine: :comments)
-        Decidim.icons.register(name: "comments_count", icon: "wechat-line", description: "Comments Count", category: "activity", resource: "core", engine: :comments)
+        Decidim.icons.register(name: "Decidim::Comments::Comment", icon: "chat-1-line", description: "Comment", category: "activity", engine: :comments)
+        Decidim.icons.register(name: "comments_count", icon: "wechat-line", description: "Comments Count", category: "activity", engine: :comments)
 
         Decidim.icons.register(name: "thumb-up-line", icon: "thumb-up-line", description: "Upvote comment button", **common_parameters)
         Decidim.icons.register(name: "thumb-up-fill", icon: "thumb-up-fill", description: "User upvoted comment", **common_parameters)

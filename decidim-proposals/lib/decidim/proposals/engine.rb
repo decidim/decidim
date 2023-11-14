@@ -42,21 +42,21 @@ module Decidim
       end
 
       initializer "decidim_proposals.register_icons" do
-        Decidim.icons.register(name: "Decidim::Proposals::CollaborativeDraft", icon: "draft-line", resource: "Decidim::Proposals::CollaborativeDraft", category: "activity",
+        Decidim.icons.register(name: "Decidim::Proposals::CollaborativeDraft", icon: "draft-line", category: "activity",
                                description: "Collaborative draft", engine: :proposals)
-        Decidim.icons.register(name: "Decidim::Proposals::Proposal", icon: "chat-new-line", resource: "Decidim::Proposals::Proposal", category: "activity",
+        Decidim.icons.register(name: "Decidim::Proposals::Proposal", icon: "chat-new-line", category: "activity",
                                description: "Proposal", engine: :proposals)
-        Decidim.icons.register(name: "participatory_texts_item", icon: "bookmark-line", description: "Index item", category: "participatory_texts", resource: "core",
+        Decidim.icons.register(name: "participatory_texts_item", icon: "bookmark-line", description: "Index item", category: "participatory_texts",
                                engine: :proposals)
 
-        Decidim.icons.register(name: "scan-line", icon: "scan-line", resource: "proposals", category: "system", description: "", engine: :proposals)
-        Decidim.icons.register(name: "edit-2-line", icon: "edit-2-line", resource: "Decidim::Proposals::CollaborativeDraft",
+        Decidim.icons.register(name: "scan-line", icon: "scan-line", category: "system", description: "", engine: :proposals)
+        Decidim.icons.register(name: "edit-2-line", icon: "edit-2-line",
                                category: "actions", description: "Edit icon for Collaborative Drafts", engine: :proposals)
 
-        Decidim.icons.register(name: "bookmark-line", icon: "bookmark-line", resource: "core", category: "system", description: "", engine: :proposals)
-        Decidim.icons.register(name: "arrow-right-s-fill", icon: "arrow-right-s-fill", resource: "core", category: "system", description: "", engine: :proposals)
-        Decidim.icons.register(name: "bar-chart-2-line", icon: "bar-chart-2-line", resource: "core", category: "system", description: "", engine: :proposals)
-        Decidim.icons.register(name: "scales-line", icon: "scales-line", resource: "core", category: "system", description: "", engine: :proposals)
+        Decidim.icons.register(name: "bookmark-line", icon: "bookmark-line", category: "system", description: "", engine: :proposals)
+        Decidim.icons.register(name: "arrow-right-s-fill", icon: "arrow-right-s-fill", category: "system", description: "", engine: :proposals)
+        Decidim.icons.register(name: "bar-chart-2-line", icon: "bar-chart-2-line", category: "system", description: "", engine: :proposals)
+        Decidim.icons.register(name: "scales-line", icon: "scales-line", category: "system", description: "", engine: :proposals)
       end
 
       initializer "decidim_proposals.content_processors" do |_app|

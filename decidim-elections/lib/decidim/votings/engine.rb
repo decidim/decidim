@@ -42,8 +42,8 @@ module Decidim
       end
 
       initializer "decidim_votings.register_icons" do
-        Decidim.icons.register(name: "Decidim::Votings::Voting", icon: "check-double-fill", description: "Voting", category: "activity", resource: "core", engine: :votings)
-        Decidim.icons.register(name: "lock-unlock-line", icon: "lock-unlock-line", resource: "core", category: "system", description: "", engine: :votings)
+        Decidim.icons.register(name: "Decidim::Votings::Voting", icon: "check-double-fill", description: "Voting", category: "activity", engine: :votings)
+        Decidim.icons.register(name: "lock-unlock-line", icon: "lock-unlock-line", category: "system", description: "", engine: :votings)
       end
 
       initializer "decidim_votings.stats" do

@@ -46,27 +46,26 @@ module Decidim
       end
 
       initializer "decidim_meetings.register_icons" do
-        resource = "meetings"
-        Decidim.icons.register(name: "Decidim::Meetings::Meeting", icon: "map-pin-line", description: "Meeting", category: "activity", resource: "core", engine: :meetings)
-        Decidim.icons.register(name: "in_person", icon: "community-line", description: "In person", category: "meetings", resource: "core", engine: :meetings)
-        Decidim.icons.register(name: "online", icon: "webcam-line", description: "Online", category: "meetings", resource: "core", engine: :meetings)
-        Decidim.icons.register(name: "hybrid", icon: "home-wifi-line", description: "Hybrid", category: "meetings", resource: "core", engine: :meetings)
+        Decidim.icons.register(name: "Decidim::Meetings::Meeting", icon: "map-pin-line", description: "Meeting", category: "activity", engine: :meetings)
+        Decidim.icons.register(name: "in_person", icon: "community-line", description: "In person", category: "meetings", engine: :meetings)
+        Decidim.icons.register(name: "online", icon: "webcam-line", description: "Online", category: "meetings", engine: :meetings)
+        Decidim.icons.register(name: "hybrid", icon: "home-wifi-line", description: "Hybrid", category: "meetings", engine: :meetings)
 
-        Decidim.icons.register(name: "calendar-check-line", icon: "calendar-check-line", resource:, category: "system", description: "", engine: :meetings)
-        Decidim.icons.register(name: "community-line", icon: "community-line", resource:, category: "system", description: "", engine: :meetings)
-        Decidim.icons.register(name: "webcam-line", icon: "webcam-line", resource:, category: "system", description: "", engine: :meetings)
-        Decidim.icons.register(name: "login-circle-line", icon: "login-circle-line", resource:, category: "system", description: "", engine: :meetings)
-        Decidim.icons.register(name: "download-cloud-2-line", icon: "download-cloud-2-line", resource:, category: "system", description: "", engine: :meetings)
-        Decidim.icons.register(name: "share-forward-2-line", icon: "share-forward-2-line", resource:, category: "system", description: "", engine: :meetings)
-        Decidim.icons.register(name: "home-wifi-line", icon: "home-wifi-line", resource:, category: "system", description: "", engine: :meetings)
-        Decidim.icons.register(name: "drag-move-2-fill", icon: "drag-move-2-fill", resource:, category: "system", description: "", engine: :meetings)
-        Decidim.icons.register(name: "coupon-line", icon: "coupon-line", resource:, category: "system", description: "", engine: :meetings)
-        Decidim.icons.register(name: "door-open-line", icon: "door-open-line", resource:, category: "system", description: "", engine: :meetings)
-        Decidim.icons.register(name: "broadcast-line", icon: "broadcast-line", resource:, category: "system", description: "", engine: :meetings)
-        Decidim.icons.register(name: "star-line", icon: "star-line", resource:, category: "system", description: "", engine: :meetings)
-        Decidim.icons.register(name: "list-ordered", icon: "list-ordered", resource:, category: "system", description: "", engine: :meetings)
-        Decidim.icons.register(name: "bill-line", icon: "bill-line", resource:, category: "system", description: "", engine: :meetings)
-        Decidim.icons.register(name: "add-box-line", icon: "add-box-line", resource:, category: "system", description: "", engine: :meetings)
+        Decidim.icons.register(name: "calendar-check-line", icon: "calendar-check-line", category: "system", description: "", engine: :meetings)
+        Decidim.icons.register(name: "community-line", icon: "community-line", category: "system", description: "", engine: :meetings)
+        Decidim.icons.register(name: "webcam-line", icon: "webcam-line", category: "system", description: "", engine: :meetings)
+        Decidim.icons.register(name: "login-circle-line", icon: "login-circle-line", category: "system", description: "", engine: :meetings)
+        Decidim.icons.register(name: "download-cloud-2-line", icon: "download-cloud-2-line", category: "system", description: "", engine: :meetings)
+        Decidim.icons.register(name: "share-forward-2-line", icon: "share-forward-2-line", category: "system", description: "", engine: :meetings)
+        Decidim.icons.register(name: "home-wifi-line", icon: "home-wifi-line", category: "system", description: "", engine: :meetings)
+        Decidim.icons.register(name: "drag-move-2-fill", icon: "drag-move-2-fill", category: "system", description: "", engine: :meetings)
+        Decidim.icons.register(name: "coupon-line", icon: "coupon-line", category: "system", description: "", engine: :meetings)
+        Decidim.icons.register(name: "door-open-line", icon: "door-open-line", category: "system", description: "", engine: :meetings)
+        Decidim.icons.register(name: "broadcast-line", icon: "broadcast-line", category: "system", description: "", engine: :meetings)
+        Decidim.icons.register(name: "star-line", icon: "star-line", category: "system", description: "", engine: :meetings)
+        Decidim.icons.register(name: "list-ordered", icon: "list-ordered", category: "system", description: "", engine: :meetings)
+        Decidim.icons.register(name: "bill-line", icon: "bill-line", category: "system", description: "", engine: :meetings)
+        Decidim.icons.register(name: "add-box-line", icon: "add-box-line", category: "system", description: "", engine: :meetings)
       end
 
       initializer "decidim_meetings.content_processors" do |_app|

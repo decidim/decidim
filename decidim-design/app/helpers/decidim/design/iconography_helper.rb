@@ -12,7 +12,7 @@ module Decidim
             contents: [
               {
                 type: :table,
-                options: { headings: %w(Icon Code Resource Category Description) },
+                options: { headings: %w(Icon Code Category Description) },
                 items: iconography_table(values.sort_by { |v| v[:icon] })
               }
             ]
@@ -26,7 +26,6 @@ module Decidim
 
           row << icon(table_cell[:icon], class: "mx-auto w-4 h-4 text-gray fill-current flex-none")
           row << content_tag(:code, table_cell[:icon])
-          row << table_cell[:resource]
           row << table_cell[:category]
           row << table_cell[:description]
 
