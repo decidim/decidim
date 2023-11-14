@@ -26,9 +26,10 @@ eu:
       comments:
         create:
           error: Arazoa gertatu da iruzkina sortzean.
+        delete:
+          error: Iruzkina ezin izan da ezabatu.
         update:
           error: Arazoa gertatu da iruzkina eguneratzean.
-      comments_count: Iruzkin kopurua
       comments_title: Iruzkina
       last_activity:
         new_comment: 'Iruzkin berria:'
@@ -37,10 +38,12 @@ eu:
           error: Arazo bat dago iruzkina bozkatzeko.
     components:
       add_comment_form:
+        account_message: <a href="%{sign_in_url}">Sartu zure kontuarekin</a> edo <a href="%{sign_up_url}">erregistratu</a> zure iruzkina gehitzeko.
         form:
           body:
             label: Iruzkina
             placeholder: Zer deritzozu honi?
+          form_error: Testua behar da, eta ezin du izan %{length} karaktere baino gehiago.
           submit_reply: Erantzuna argitaratu
           submit_root_comment: Iruzkina argitaratu
           user_group_id:
@@ -77,6 +80,7 @@ eu:
           description: Eduki hau desegokia da?
           details: Iruzkin gehigarriak
           reasons:
+            does_not_belong: Bertan badago legez kontrako jardunik, suizidio-mehatxurik, informazio pertsonalik edo beste zernahi, zure ustez %{organization_name}-ri ez dagokionik.
             offensive: Ertan badago arrazakeriarik, sexismorik, irainik, eraso pertsonalik, heriotza-mehatxurik, suizidio-eskaerarik edo beste edozein eratako gorroto-diskurtsorik.
             spam: Bertan badago clickbait-ik, publizitaterik edo iruzurrik.
           title: Jakinarazi eduki desegokia
@@ -161,3 +165,6 @@ eu:
         description: Erabiltzaileek sortutako iruzkin kopurua
         object: iruzkinak
         title: Oharrak
+  errors:
+    messages:
+      cannot_have_comments: ezin zaio iruzkinik egin
