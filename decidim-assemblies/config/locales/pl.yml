@@ -309,8 +309,6 @@ pl:
           index:
             filter:
               all: Wszystko
-              ceased: Byli
-              not_ceased: Aktualni
             filter_by: Filtruj według
             search: Szukaj
         content_blocks:
