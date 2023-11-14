@@ -38,6 +38,7 @@ de:
         actions:
           destroy: Brechen Sie die Sortierung ab
           edit: Bearbeiten
+          new_sortition: Neue Sortierung
           show: Sortierdetails
         models:
           sortition:
