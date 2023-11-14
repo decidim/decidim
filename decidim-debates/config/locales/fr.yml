@@ -96,7 +96,6 @@ fr:
           cancel: Annuler
           description: Quel est le résumé ou la conclusion de ce débat?
           send: Clore le débat
-        closed: Fermé
         count:
           debates_count:
             one: "%{count} débat"
@@ -104,8 +103,6 @@ fr:
         create:
           invalid: Il y a eu un problème lors de la création de ce débat.
           success: Débat créé avec succès.
-        debate:
-          participate: Participer
         edit:
           back: Retour
           save: Enregistrer les modifications
@@ -142,7 +139,6 @@ fr:
           updated: Mis à jour récemment
         show:
           close_debate: Clore le débat
-          date: Date
           debate_closed: Fermé
           debate_conclusions_are: 'Le débat a été clos le %{date} avec ces conclusions:'
           edit_conclusions: Modifier les conclusions
