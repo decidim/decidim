@@ -55,6 +55,7 @@ fi:
           create: Luo
           title: Uusi hallinnoija
         show:
+          destroy: Poista
           edit: Muokkaa
         update:
           error: Hallintakäyttäjän päivitys epäonnistui.
@@ -140,6 +141,7 @@ fi:
           success: Organisaation luonti onnistui.
         edit:
           secondary_hosts_hint: Syötä jokainen niistä omalle rivilleen
+          title: Muokkaa organisaatiota
         file_upload_settings:
           content_types:
             admin_hint: Nämä MIME-tyypit sallitaan hallintakäyttäjien tiedostolatauksiin. Hallintakäyttäjien tulisi ymmärtää riskit tietyntyyppisten tiedostoformaattien kanssa, joten voit olettaa heidän olevan varovaisempia tiedostojen lataamisen suhteen.
@@ -207,3 +209,8 @@ fi:
       titles:
         dashboard: Hallintapaneeli
         decidim: Decidim
+  layouts:
+    decidim:
+      system:
+        login_items:
+          logout: Kirjaudu ulos
