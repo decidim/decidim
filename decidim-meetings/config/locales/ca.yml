@@ -319,7 +319,6 @@ ca:
             select_a_meeting_type: Si us plau selecciona un tipus de trobada
             select_a_registration_type: Si us plau selecciona un tipus d'inscripció
             select_an_iframe_access_level: Si us plau, selecciona el nivell d'accés a l'iframe
-            show_embedded_iframe_help: 'Només uns quants serveis es poden incrustar a una trobada o esdeveniment en directe des dels següents dominis: %{domains}'
           index:
             title: Trobades
           new:
@@ -416,7 +415,6 @@ ca:
       directory:
         meetings:
           index:
-            go_to_list: Veure el llistat de trobades
             meetings: Trobades
             space_type: Espai participatiu
       iframe_access_level:
@@ -504,7 +502,6 @@ ca:
           select_a_meeting_type: Si us plau selecciona un tipus de trobada
           select_a_registration_type: Si us plau selecciona un tipus d'inscripció
           select_an_iframe_access_level: Si us plau, selecciona el nivell d'accés a l'iframe
-          show_embedded_iframe_help: 'Només uns quants serveis es poden incrustar a una trobada o esdeveniment en directe des dels següents dominis: %{domains}'
         index:
           click_here: Veure totes les trobades
           new_meeting: Nova trobada
@@ -529,7 +526,6 @@ ca:
         show:
           attendees: Nombre d'assistents
           contributions: Nombre d'aportacions
-          date: Data
           join: Unir-se a la trobada
           leave: Cancel·la la teva inscripció
           leave_confirmation: Segur que vols cancel·lar la teva inscripció a aquesta trobada?
@@ -547,7 +543,6 @@ ca:
           remaining_slots:
             one: "%{count} plaça restant"
             other: "%{count} places restants"
-          view: Veure
           visit_finished: Veure trobada passada
           withdraw_btn_hint: Pots cancel·lar la teva trobada si canvies de parer. La trobada no s'elimina, apareixerà al llistat de trobades cancel·lades.
           withdraw_confirmation_html: Segur que vols cancel·lar aquesta trobada?<br><br><strong>Aquesta acció no es pot desfer!</strong>
