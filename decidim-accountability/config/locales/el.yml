@@ -170,9 +170,7 @@ el:
             not_found: 'H γονική διαδικασία δεν βρέθηκε στη βάση δεδομένων (αναγνωριστικό: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Ημερομηνίες
           results: Αποτελέσματα
-          unspecified: Δεν έχει καθοριστεί
       import_mailer:
         import:
           errors: Σφάλματα
@@ -211,9 +209,6 @@ el:
           fields:
             entry_date: Ημερομηνία
             title: Τίτλος
-      result_m:
-        executed: Εκτελέσθηκε
-        view: Προβολή
       results:
         count:
           results_count:
