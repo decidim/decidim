@@ -46,6 +46,7 @@ ga:
             name: Ainm
         project:
           fields:
+            scope: Scóip
             title: Teideal
       projects:
         budget_confirm:
