@@ -151,8 +151,6 @@ zh-TW:
           create: "%{user_name} 在 %{space_name} 空間中創建了 %{resource_name} 專案"
           delete: "%{user_name} 刪除了 %{space_name} 空間中的 %{resource_name} 專案。"
           update: "%{user_name} 更新了 %{space_name} 空間中的 %{resource_name} 專案。"
-      budget:
-        view: 查看所有預算專案
       budget_information_modal:
         back_to: 返回 %{component_name}
         close_modal: 關閉視窗
@@ -184,7 +182,6 @@ zh-TW:
           fields:
             category: 類別
             id: ID
-            scope: 範圍
             title: 標題
       order_summary_mailer:
         order_summary:
@@ -242,7 +239,6 @@ zh-TW:
           add: 將專案 %{resource_name} 添加到您的投票中。
           remove: 從您的投票中移除專案 %{resource_name}。
           selected: 已選取
-          view: 檢視
           votes:
             other: 投票
           you_voted: 你已投票支持此
