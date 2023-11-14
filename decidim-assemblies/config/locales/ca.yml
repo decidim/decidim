@@ -59,7 +59,7 @@ ca:
         subtitle: Subtítol
         target: Qui participa
         title: Títol
-        twitter: Twitter
+        twitter: X
         weight: Ordre de posició
         youtube: YouTube
       assembly_member:
@@ -321,8 +321,6 @@ ca:
           index:
             filter:
               all: Totes
-              ceased: Cessada
-              not_ceased: No cessada
             filter_by: Filtra per
             search: Cerca
         content_blocks:
