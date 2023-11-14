@@ -6,7 +6,11 @@ module Decidim
       @icons = ActiveSupport::HashWithIndifferentAccess.new
     end
 
-    # Registers a new icon.
+    # It allows detecting with icons are valid remixicons icons, and also for documenting them in the
+    # `decidim-design` (aka Decidim Design Guide or DDG).
+    #
+    # Some of these fields are used to load and work with the icon (`name` and `icon`) and others are
+    # for documentation purposes in DDG (`category`, `description`, and `engine`).
     #
     # @param name [String] The name of the icon. It will be used to find the icon later.
     # @param icon [String] The id of the icon. It will be used to load the icon from remixicon library.
