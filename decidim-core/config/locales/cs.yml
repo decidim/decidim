@@ -1731,6 +1731,8 @@ cs:
         confirm_new_password: Potvrďte nové heslo
         new_password: Nové heslo
         old_password_help: Chcete-li potvrdit změny vašeho účtu, zadejte prosím své aktuální heslo.
+        password_help: "minimální počet znaků je %{minimun_characters}, nesmí být příliš obvyklý (např. 123456) a musí se lišit od vašeho uživatelského jména a e-mailu."
+        password_help_admin: "minimální počet znaků je %{minimum_characters}, nesmí být příliš časté (např. 123456), musí se lišit od vaší přezdívky a e-mailu a musí se lišit od vašich starých hesel."
         title: Změna hesla
       new:
         forgot_your_password: Zapomněli jste heslo?
