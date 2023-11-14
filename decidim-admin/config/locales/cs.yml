@@ -829,10 +829,6 @@ cs:
         form:
           add: Přidat do seznamu povolených
           title: Seznam externích povolených domén
-      organization_homepage:
-        edit:
-          active_content_blocks: Bloky aktivního obsahu
-          inactive_content_blocks: Neaktivní bloky obsahu
       organization_homepage_content_blocks:
         edit:
           update: Aktualizace
@@ -855,7 +851,7 @@ cs:
           success: CSV soubor byl úspěšně nahrán, posíláme e-maily na účastníky. To může trvat nějakou dobu.
         new:
           explanation: 'Nahrajte soubor CSV. Musí mít dva sloupce s e-mailem v prvním sloupci souboru a jméno v posledním sloupci souboru (e-mail, jméno) uživatelů, které chcete přidat do participačního prostoru, bez záhlaví. Vyhněte se používání neplatných znaků jako `<>?%&^*#@()[]=+:;"{}\|` v uživatelském jméně.'
-          title: Nahrajte Váš CSV soubor
+          title: Nahrát soubor CSV
           upload: Nahrát
       resource_permissions:
         edit:
