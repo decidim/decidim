@@ -21,6 +21,8 @@ ga:
           title: Riaracháin
         new:
           create: Cruthaigh
+        show:
+          edit: Eagar
       menu:
         admins: Riaracháin
       models:
