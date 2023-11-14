@@ -538,6 +538,7 @@ cs:
             create: Vytvořit
             title: Vytvořte návrh
           publish_answers:
+            number_of_proposals: Odpovědi na %{number} návrhů budou zveřejněny?
             select_a_proposal: Vyberte návrh.
           show:
             amendments_count: Počet pozměňovacích návrhů
