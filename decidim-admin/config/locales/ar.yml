@@ -721,12 +721,11 @@ ar:
           update: تحديث
         external_domain:
           down: أسفل
+          external_domain: نطاق خارجي
           remove: إزالة
           up: أعلى
-      organization_homepage:
-        edit:
-          active_content_blocks: كتل المحتوى النشط
-          inactive_content_blocks: كتل المحتوى غير النشطة
+        form:
+          add: إضافة إلى القائمة البيضاء
       organization_homepage_content_blocks:
         edit:
           update: تحديث
@@ -746,7 +745,7 @@ ar:
         create:
           invalid: حدثت مشكلة في قراءة ملف CSV.
         new:
-          title: حمّل ملف CSV الخاص بك
+          title: قم بتحميل ملف CSV الخاص بك
           upload: حمّل
       resource_permissions:
         edit:
@@ -847,6 +846,7 @@ ar:
         dashboard: لوحة القيادة
         impersonatable_users: المشاركون في الإدارة
         impersonations: إدارة المشاركين
+        pages: الصفحات
         panel: مدير
         participants: المشاركين
         scope_types: أنواع النطاق
