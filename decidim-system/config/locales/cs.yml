@@ -142,6 +142,7 @@ cs:
           success: Organizace byla úspěšně vytvořena.
         edit:
           secondary_hosts_hint: Zadejte každý z nich do nového řádku
+          title: Upravit organizaci
         file_upload_settings:
           content_types:
             admin_hint: Tyto typy MIME jsou povoleny pro nahrávání sekcí administrace. Administrátoři by si měli být vědomi rizik spojených s nahráváním některých formátů dokumentů, takže můžete očekávat, že budou opatrnější při nahrávání souborů.
@@ -209,3 +210,8 @@ cs:
       titles:
         dashboard: Ovládací panel
         decidim: Decidim
+  layouts:
+    decidim:
+      system:
+        login_items:
+          logout: Odhlásit
