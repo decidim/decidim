@@ -398,6 +398,9 @@ gl:
             how_to_title: Como verificar a validez dunha elección
             not_available: Aínda non dispoñíbel
             title: Eleccións
+        polling_officers:
+          polling_officers_picker:
+            close: Pechar
         votings:
           actions:
             publish: Publicar
