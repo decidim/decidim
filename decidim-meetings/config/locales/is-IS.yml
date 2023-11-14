@@ -168,6 +168,7 @@ is-IS:
           attendees: Þátttakendur telja
           close_meeting: Loka fundi
           contributions: Framlög telja
+          date: Dagsetning
           no_slots_available: Engar rifa í boði
           organizations: Mæta stofnanir
       models:
