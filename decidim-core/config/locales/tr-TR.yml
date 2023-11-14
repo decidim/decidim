@@ -706,6 +706,10 @@ tr:
       file_validation:
         allowed_file_extensions: 'İzin verilen dosya uzantıları: %{extensions}'
         max_file_size: 'Maksimum dosya boyutu: %{megabytes} MB'
+      upload:
+        labels:
+          cancel: İptal Et
+          save: Kayıt etmek
     gamification:
       all_badges_link: Tüm mevcut rozetleri görün.
       badges:
@@ -1032,7 +1036,6 @@ tr:
           proposals: Teklifler
           proposals_explanation: Öneriler yapın, mevcut olanları destekleyin ve görmek istediğiniz değişiklikleri tanıtın.
         footer_sub_hero:
-          footer_sub_hero_body: Daha açık, şeffaf ve işbirliğine dayalı bir toplum oluşturalım. <br /> Katılın, katılımcı olun ve karar verin.
           footer_sub_hero_headline: '%{organization} katılımcı platformuna hoş geldiniz.'
           register: Kayıt Ol
         hero:
@@ -1510,8 +1513,10 @@ tr:
         facebook: "Facebook'ta %{organization}"
         github: "GitHub'da %{organization}"
         instagram: "Instagram'da %{organization}"
-        twitter: "Twitter'da %{organization}"
+        x: "X 'de % organizasyon "
         youtube: "YouTube'da %{organization}"
+      upload_modal:
+        close_modal: Pencereyi kapat
       user_menu:
         account: 'Kullanıcı hesabı: %{name}'
         admin_dashboard: Yönetici kontrol paneli
@@ -1566,6 +1571,7 @@ tr:
     weibo: Sina Weibo
     whatsapp_app: Whatsapp
     whatsapp_web: WhatsApp
+    x: X
     xing: Xing
   time:
     formats:
