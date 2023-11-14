@@ -41,6 +41,9 @@ de:
         edit: Bearbeiten
         import: Projekte zu Ergebnissen importieren
         import_csv: CSV importieren
+        new_result: Neues Ergebnis
+        new_status: Neuer Status
+        new_timeline_entry: Neuer Zeitachseneintrag
         preview: Vorschau
         timeline_entries: Projektentwicklung
         title: Aktionen
@@ -171,9 +174,7 @@ de:
             not_found: 'Das übergeordnete Objekt wurde nicht in der Datenbank gefunden (ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Daten
           results: Ergebnisse
-          unspecified: Keine Angabe
       import_mailer:
         import:
           errors: Fehler
@@ -212,9 +213,6 @@ de:
           fields:
             entry_date: Datum
             title: Titel
-      result_m:
-        executed: Ausgeführt
-        view: Ansicht
       results:
         count:
           results_count:
