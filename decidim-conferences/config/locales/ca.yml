@@ -63,7 +63,7 @@ ca:
         personal_url: URL personal
         position: Càrrec
         short_bio: Breu biografia
-        twitter_handle: Compte de Twitter
+        twitter_handle: Compte a X
         user_id: Usuària
       conference_user_role:
         email: Correu electrònic
@@ -442,7 +442,7 @@ ca:
           invalid: S'ha produït un error en abandonar aquesta jornada.
           success: Has abandonat la jornada correctament.
       conference_speaker:
-        go_to_twitter: Anar a Twitter
+        go_to_twitter: Ves a X
         more_info: més informació
         personal_website: Lloc web personal
         show:
