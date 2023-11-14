@@ -155,6 +155,7 @@
           fields:
             category: Kategori
             id: ID
+            scope: Tema
             title: Tittel
       order_summary_mailer:
         order_summary:
