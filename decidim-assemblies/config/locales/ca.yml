@@ -158,13 +158,11 @@ ca:
         destroy:
           success: El membre per a aquesta assemblea s'ha eliminat correctament.
         edit:
-          title: Actualitza el membre de l'assemblea.
           update: Actualitza
         index:
           assembly_members_title: Membres de l'assemblea
         new:
           create: Crea
-          title: Nou membre de l'assemblea.
         update:
           error: S'ha produït un error en actualitzar el membre d'aquesta assemblea.
           success: Membre actualitzat correctament per a aquesta assemblea.
@@ -182,13 +180,11 @@ ca:
         destroy:
           success: L'administradora s'ha eliminat correctament d'aquesta assemblea.
         edit:
-          title: Actualitza l'administradora de l'assemblea.
           update: Actualitza
         index:
           assembly_admins_title: Administradores de l'assemblea
         new:
           create: Crea
-          title: Nova administradora de l'assemblea.
         update:
           error: S'ha produït un error en actualitzar una administradora per a aquesta assemblea.
           success: L'administradora s'ha actualitzat correctament per a aquesta assemblea.
@@ -321,12 +317,6 @@ ca:
             select_a_position: Selecciona una posició
             select_user: Selecciona una participant
             user_type: Tipus de participant
-          index:
-            filter:
-              all: Totes
-              ceased: Cessada
-              not_ceased: No cessada
-            search: Cerca
         content_blocks:
           highlighted_assemblies:
             max_results: Quantitat màxima d'elements que es mostraran
