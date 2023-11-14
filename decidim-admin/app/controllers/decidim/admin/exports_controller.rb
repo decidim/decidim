@@ -31,7 +31,7 @@ module Decidim
             { id_in: [] }
           elsif commentable_filter?
             # in this case, we need to search through the decidim_commentable
-            { decidim_commentable_id: Array(filters.fetch(:id_in, [])).compact }
+            { decidim_commentable_id_in: Array(filters.fetch(:id_in, [])).compact }
           else
             { id_in: Array(filters.fetch(:id_in, [])).compact }
           end
