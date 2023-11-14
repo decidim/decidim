@@ -465,10 +465,6 @@ ru:
           images:
             layout_appearance_title: Редактировать внешний вид макета
           omnipresent_banner_appearance_title: Редактировать вездесущий баннер
-      organization_homepage:
-        edit:
-          active_content_blocks: Блоки действующего содержимого
-          inactive_content_blocks: Блоки недействующего содержимого
       participatory_space_private_users:
         create:
           error: При попытке добавить частного участника в это пространство соучастия произошла ошибка.
@@ -523,6 +519,8 @@ ru:
         edit:
           title: Отредактировать страницу
           update: Обновить
+        index:
+          last_notable_change: Последнее заметное изменение
         new:
           title: Создать страницу
         update:
