@@ -94,9 +94,7 @@ gl:
             not_found: 'Non se atopou o pai na base de datos (ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Datas
           results: Resultados
-          unspecified: Sen especificar
       import_mailer:
         import:
           errors: Erros
@@ -124,9 +122,6 @@ gl:
         timeline_entry:
           fields:
             entry_date: Data
-      result_m:
-        executed: Executado
-        view: Ver
       results:
         count:
           results_count:
