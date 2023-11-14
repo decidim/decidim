@@ -1101,7 +1101,6 @@ pl:
           proposals: Propozycje
           proposals_explanation: Zgłaszaj nowe propozycje, wspieraj te już zgłoszone oraz wspieraj te zmiany, które chcesz zobaczyć.
         footer_sub_hero:
-          footer_sub_hero_body: Zbudujmy społeczeństwo bardziej otwarte, przejrzyste i współpracujące.<br /> Dołącz, uczestnicz i decyduj.
           footer_sub_hero_headline: Witamy na %{organization} platformie partycypacyjnej.
           register: Zarejestruj się
         hero:
