@@ -59,7 +59,6 @@ lt:
         subtitle: Paantraštė
         target: Kas dalyvauja
         title: Pavadinimas
-        twitter: Twitter
         weight: Vieta eilėje
         youtube: YouTube
       assembly_member:
@@ -322,8 +321,6 @@ lt:
           index:
             filter:
               all: Visi
-              ceased: Nutraukta
-              not_ceased: Nenutraukta
             filter_by: Filtruoti pagal
             search: Ieškoti
         content_blocks:
