@@ -57,7 +57,6 @@ gl:
         conference_meeting_ids: Xuntanzas relacionadas
         full_name: Nome completo
         position: Posición
-        twitter_handle: Conta do Twitter
         user_id: Usuario
       conference_user_role:
         email: Correo electrónico
@@ -422,7 +421,6 @@ gl:
           invalid: Houbo un problema deixando esta conferencia.
           success: Deixaches con éxito a conferencia.
       conference_speaker:
-        go_to_twitter: Ir a Twitter
         more_info: máis información
         personal_website: Sitio web persoal
         show:
