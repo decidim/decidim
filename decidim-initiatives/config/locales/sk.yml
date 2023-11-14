@@ -303,6 +303,7 @@ sk:
             many: a%{count} ďalších ľudí
             other: a%{count} ďalších ľudí
         committee_members:
+          confirm_revoke: Si si istý?
           revoke: Zrušiť
         count:
           title:
