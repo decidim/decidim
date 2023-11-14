@@ -150,13 +150,11 @@ tr:
         destroy:
           success: Üye bu kuruldan başarıyla silindi.
         edit:
-          title: Kurul üyesini güncelle.
           update: Güncelle
         index:
           assembly_members_title: Kurul üyeleri
         new:
           create: Oluştur
-          title: Yeni kurul üyesi.
         update:
           error: Bu kurul için üye güncellenirken bir hata oluştu.
           success: Üye bu kurul için başarıyla güncellendi.
@@ -174,13 +172,11 @@ tr:
         destroy:
           success: Yönetici bu kuruldan başarıyla kaldırıldı.
         edit:
-          title: Kurul yöneticisini güncelleyin.
           update: Güncelle
         index:
           assembly_admins_title: Kurul yöneticileri
         new:
           create: Oluştur
-          title: Yeni kurul yöneticisi.
         update:
           error: Bu kurul için bir yönetici güncellenirken bir sorun oluştu.
           success: Yönetici bu kurul için başarıyla güncellendi.
@@ -295,18 +291,16 @@ tr:
             select_a_position: Bir pozisyon seç
             select_user: Bir katılımcı seçin
             user_type: Katılımcı tipi
-          index:
-            filter:
-              all: Tümü
-              ceased: Durduruldu
-              not_ceased: Durdurulmadı
-            search: Arama
         content_blocks:
           highlighted_assemblies:
             max_results: Gösterilecek maksimum öğe miktarı
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        filters:
+          names:
+            all: Tümü
       assembly_members:
         index:
           members: Üyeler
