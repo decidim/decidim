@@ -211,11 +211,11 @@ de:
       models:
         assemblies_types:
           fields:
-            created_at: Hergestellt in
+            created_at: Erstellt am
             title: Titel
         assembly:
           fields:
-            created_at: Hergestellt in
+            created_at: Erstellt am
             private: Privat
             promoted: Hervorgehoben
             published: Veröffentlicht
@@ -317,8 +317,6 @@ de:
           index:
             filter:
               all: Alle
-              ceased: Aufgegeben
-              not_ceased: Nicht aufgehört
             filter_by: Filtern nach
             search: Suche
         content_blocks:
