@@ -59,7 +59,7 @@ cs:
         subtitle: Podtitul
         target: Kdo se účastní
         title: Titul
-        twitter: Twitter
+        twitter: X
         weight: Pozice v řazení
         youtube: Youtube
       assembly_member:
@@ -327,8 +327,6 @@ cs:
           index:
             filter:
               all: Vše
-              ceased: Ukončit
-              not_ceased: Nekončí
             filter_by: Filtrovat podle
             search: Vyhledávání
         content_blocks:
