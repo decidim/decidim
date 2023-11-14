@@ -55,6 +55,8 @@ eu:
           attributes:
             iframe_embed_type:
               not_embeddable: URL hau ezin da bileren edo ekitaldien orrian txertatu
+            online_meeting_url:
+              url_format: URL baliozkoa izan behar du.
         meeting_agenda:
           attributes:
             base:
@@ -454,7 +456,7 @@ eu:
             one: "topaketa 1"
             other: "%{count} topaketa"
         create:
-          invalid: Arazo bat izan da topaketa hau sortzean.
+          invalid: Arazo bat egon da topaketa hau sortzean.
           success: Topaketa zuzen sortu duzu.
         edit:
           back: Atzera
@@ -601,7 +603,7 @@ eu:
         hidden_participants_count:
           one: eta %{count} pertsona gehiago
           other: eta %{count} pertsona gehiago
-      read_more: "(geihago irakurri)"
+      read_more: "(gehiago irakurri)"
       registration_mailer:
         confirmation:
           confirmed_html: Zure izen-ematea baieztatu da <a href="%{url}">%{title}</a> topaketarako.
