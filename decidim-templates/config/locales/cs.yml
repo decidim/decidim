@@ -56,6 +56,9 @@ cs:
             title: Nová šablona zprávy uživatele
           template_chooser:
             select_template: Vyberte šablonu odpovědi
+        proposal_answer_templates:
+          form:
+            save: Uložit
         questionnaire_templates:
           choose:
             create_from_template: Vytvořit ze šablony
