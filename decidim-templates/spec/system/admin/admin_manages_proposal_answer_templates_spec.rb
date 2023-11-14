@@ -225,7 +225,7 @@ describe "Admin manages proposal answer templates" do
       end
     end
 
-    context "when hides the templates from other components" do
+    context "when displaying current component and organization templates" do
       let!(:other_component) { create(:component, manifest_name: :proposals, name: { en: "Another component" }, participatory_space: participatory_process) }
       let!(:other_component_template) { create(:template, :proposal_answer, description: { en: "Foo bar" }, field_values: { internal_state: "evaluating" }, organization:, templatable: other_component) }
       let!(:proposal) { create(:proposal, component:) }
@@ -235,14 +235,18 @@ describe "Admin manages proposal answer templates" do
         find("a", class: "action-icon--show-proposal").click
       end
 
-      it "uses the template from organization" do
-        expect(proposal.reload.internal_state).to eq("not_answered")
+      it "displays the global template in dropdown" do
         expect(page).to have_select(:proposal_answer_template_chooser, with_options: [translated(template.name)])
+
+      end
+
+      it "hides templates scoped for other components" do
+        expect(proposal.reload.internal_state).to eq("not_answered")
         expect(page).not_to have_select(:proposal_answer_template_chooser, with_options: [translated(other_component_template.name)])
       end
     end
 
-    context "when selected template is from organization" do
+    context "when selecting a global template" do
       let!(:global_template) { create(:template, :proposal_answer, description: { en: "Foo bar" }, field_values: { internal_state: "evaluating" }, organization:, templatable: organization) }
       let!(:proposal) { create(:proposal, component:) }
 
@@ -251,7 +255,7 @@ describe "Admin manages proposal answer templates" do
         find("a", class: "action-icon--show-proposal").click
       end
 
-      it "uses the template from organization" do
+      it "all the fields are properly changed" do
         expect(proposal.reload.internal_state).to eq("not_answered")
         expect(page).to have_select(:proposal_answer_template_chooser, with_options: [translated(template.name), translated(global_template.name)])
         within ".edit_proposal_answer" do
