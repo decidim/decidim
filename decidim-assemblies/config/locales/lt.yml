@@ -160,13 +160,11 @@ lt:
         destroy:
           success: Šios asamblėjos narys pašalintas sėkmingai.
         edit:
-          title: Atnaujinti asamblėjos narį.
           update: Atnaujinti
         index:
           assembly_members_title: Asamblėjos nariai
         new:
           create: Sukurti
-          title: Naujas asamblėjos narys.
         update:
           error: Atnaujinant šios asamblėjos narį iškilo problema.
           success: Šios asamblėjos narys atnaujintas sėkmingai.
@@ -184,13 +182,11 @@ lt:
         destroy:
           success: Administratorius sėkmingai panaikintas iš šios asamblėjos.
         edit:
-          title: Atnaujinti asamblėjos administratorių.
           update: Atnaujinti
         index:
           assembly_admins_title: Asamblėjos administratoriai
         new:
           create: Sukurti
-          title: Naujas asamblėjos administratorius.
         update:
           error: Atnaujinant asamblėjos administratorių kilo problema.
           success: Šios asamblėjos administratorius sėkmingai atnaujintas.
@@ -313,12 +309,6 @@ lt:
             select_a_position: Pasirinkti poziciją
             select_user: Pasirinkti dalyvį
             user_type: Dalyvio tipas
-          index:
-            filter:
-              all: Visi
-              ceased: Nutraukta
-              not_ceased: Nenutraukta
-            search: Ieškoti
         content_blocks:
           highlighted_assemblies:
             max_results: Didžiausias rodomų elementų skaičius
