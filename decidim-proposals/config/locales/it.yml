@@ -422,8 +422,6 @@ it:
           new:
             create: Crea
             title: Crea una proposta
-          publish_answers:
-            number_of_proposals: Le risposte per %{number} proposte saranno pubblicate.
           show:
             amendments_count: Numero di emendamenti
             assigned_valuators: Valutatori assegnati
@@ -432,7 +430,6 @@ it:
             documents: Documenti
             endorsements_count: Numero di Appoggi
             endorsers: Sostenitori
-            link: Link
             n_more_endorsers:
               one: e 1 altro
               other: e altri %{count}
