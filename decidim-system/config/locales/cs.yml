@@ -172,8 +172,10 @@ cs:
             Směrnice style-src omezuje URL, které lze načíst pomocí <style> prvků.
             Decidim přidá "'self' 'unsafe-inline'", ale umožňuje přidat další. Nechte prázdné, pokud si nejste jistí.
         edit:
+          confirm_resend_invitation: Opravdu chcete znovu odeslat pozvánku?
           resend_invitation: Znovu odeslat pozvánku
           secondary_hosts_hint: Zadejte každý z nich do nového řádku
+          title: Upravit organizaci
         file_upload_settings:
           content_types:
             admin_hint: Tyto typy MIME jsou povoleny pro nahrávání sekcí administrace. Administrátoři by si měli být vědomi rizik spojených s nahráváním některých formátů dokumentů, takže můžete očekávat, že budou opatrnější při nahrávání souborů.
@@ -198,6 +200,7 @@ cs:
           default: Výchozí?
           enabled: Povoleno
           locale: Jazyk
+          organization_admin_email_hint: Na tuto adresu zašleme e-mail, abyste ji mohli potvrdit a nastavit své heslo.
           reference_prefix_hint: Předpona reference se používá k jednoznačné identifikaci zdrojů ve všech organizacích.
           secondary_hosts_hint: Každou vložte do nového řádku.
           title: Nová organizace
@@ -219,6 +222,9 @@ cs:
           twitter:
             api_key: Klíč API
             api_secret: API heslo
+        resend_invitation:
+          error: Při odesílání pozvánky došlo k chybě.
+          success: Pozvánka úspěšně odeslána.
         smtp_settings:
           fieldsets:
             sender: Odesilatel
@@ -238,6 +244,14 @@ cs:
         notices:
           no_organization_warning_html: Abyste mohli začít, musíte vytvořit organizaci. Před pokračováním se ujistěte, že jste si přečetli %{guide}.
           our_getting_started_guide: náš průvodce začínáme
+        organizations_list:
+          confirm_resend_invitation: Opravdu chcete znovu odeslat pozvánku?
+          resend_invitation: Znovu odeslat pozvánku
       titles:
         dashboard: Ovládací panel
         decidim: Decidim
+  layouts:
+    decidim:
+      system:
+        login_items:
+          logout: Odhlásit
