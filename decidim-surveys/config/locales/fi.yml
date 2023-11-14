@@ -61,6 +61,10 @@ fi:
             success: Kyselyn tallennus onnistui.
       last_activity:
         new_survey: 'Uusi kysely:'
+      survey_confirmation_mailer:
+        confirmation:
+          subject: Kyselyn "%{questionnaire_title}" vastaamisen vahvistus
+        export_name: Kyselyn vastaukset
       surveys:
         answer:
           invalid: Kyselyyn vastaaminen epäonnistui.
