@@ -127,9 +127,7 @@ ar:
             not_found: 'لم يتم العثور على الأصل في قاعدة البيانات (الرقم-المُعرف: %{id})'
       content_blocks:
         highlighted_results:
-          dates: التواريخ
           results: النتائج
-          unspecified: غير محدد
       import_mailer:
         import:
           errors: أخطاء
@@ -164,9 +162,6 @@ ar:
           fields:
             entry_date: تاريخ
             title: العنوان
-      result_m:
-        executed: تم التنفيذ
-        view: عرض
       results:
         count:
           results_count:
