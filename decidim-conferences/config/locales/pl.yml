@@ -57,7 +57,6 @@ pl:
         conference_meeting_ids: Powiązane spotkania
         full_name: Pełne imię i nazwisko
         position: Pozycja
-        twitter_handle: Nazwa użytkownika na Twitterze
         user_id: Użytkownik
       conference_user_role:
         email: E-mail
@@ -434,7 +433,6 @@ pl:
           invalid: Podczas opuszczania tej konferencji wystąpił błąd.
           success: Opuszczono konferencję.
       conference_speaker:
-        go_to_twitter: Idź do Twittera
         more_info: więcej informacji
         personal_website: Osobista strona internetowa
         show:
