@@ -91,7 +91,6 @@ pt:
         close_debate_modal:
           description: Qual é o sumário ou conclusão para este debate?
           send: Fechar debate
-        closed: Fechado
         count:
           debates_count:
             one: "%{count} debate"
@@ -99,8 +98,6 @@ pt:
         create:
           invalid: Ocorreu um problema ao criar o debate.
           success: Debate criado corretamente.
-        debate:
-          participate: Participar
         edit:
           back: Retroceder
           save: Guardar alterações
@@ -135,7 +132,6 @@ pt:
           updated: Actualizado recentemente
         show:
           close_debate: Fechar debate
-          date: Data
           debate_closed: Fechar
           debate_conclusions_are: 'O debate foi fechado em %{date} com as seguintes conclusões:'
           edit_conclusions: Editar conclusões
