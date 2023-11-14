@@ -298,8 +298,6 @@ ca:
             update: Actualitza
           form:
             authorizations: Configuració de l'autorització
-            child_scope_threshold_enabled_help: 'Aquest ajust de configuració no admet les votacions sense connexió. Habilita els subàmbits i funciona amb un gestor d''autoritzacions que associa un àmbit a la participant. Assegura''t de seleccionar aquesta autorització, més avall a la configuració d''autoritzacions. Per a que funcioni, els àmbits han de configurar-se de forma jerárquica: 1 Pare - N fills. Per a més informació sobre com funciona aquesta configuració, <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">veure la documentació sobre l''administració d''iniciatives</a>.'
-            only_global_scope_enabled_help: Marca aquesta casella si has habilitat "Activar signatures per subàmbit" i vas configurar l'àmbit global com l'àmbit principal. En habilitar aquesta casella, la selecció del tipus d'iniciativa s'ometrà en l'assistent de creació d'iniciatives. Per a més informació sobre com funciona aquesta configuració, consulta aquest <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">enllaç</a>.
             options: Opcions
           initiative_type_scopes:
             title: Àmbits del tipus d'iniciativa
@@ -356,7 +354,6 @@ ca:
           back: Torna
           continue: Continua
           fill_data_help: "<ul> <li>Revisa el contingut de la teva iniciativa. El títol és fàcil d'entendre? L'objectiu de la teva iniciativa és clar?</li> <li>Has d'escollir el tipus de signatura. Presencial, digital o una combinació de totes dues.</li> <li>Quin és l'àmbit geogràfic de la iniciativa?</li> </ul>"
-          initiative_type: Tipus d'iniciativa
           more_information: "(Més informació)"
           select_area: Selecciona una àrea
           select_scope: Selecciona un àmbit d'aplicació
@@ -462,7 +459,6 @@ ca:
             other: i %{count} persones més
         committee_members:
           approve: Aprova
-          confirm_revoke: Segur?
           invite_to_committee_help: Comparteix aquest enllaç per convidar altres participants a la comissió promotora.
           link: Enllaç
           no_members_yet: La comissió promotora no té membres.
@@ -477,7 +473,6 @@ ca:
           author: Autora
           myself: Les meves iniciatives
           scope: Àmbit
-          search: Cerca
           state: Estat
           type: Tipus
         index_header:
@@ -610,8 +605,5 @@ ca:
         sms_phone_number: Número de telèfon mòbil
         title: Signa %{initiative_title}
       initiatives:
-        initiative:
-          check: Comprova-ho
-          check_and_support: Mira-ho i signa
         no_initiatives_yet:
           no_initiatives_yet: Encara no hi ha iniciatives!
