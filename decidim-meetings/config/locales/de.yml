@@ -223,6 +223,7 @@ de:
             one: 'Die Besprechung kann nicht gelöscht werden, da %{count} Vorschlag mit dieser verbunden ist:'
             other: 'Die Besprechung kann nicht gelöscht werden, da %{count} Vorschläge mit dieser verbunden sind:'
         manage_poll: Umfrage verwalten
+        new_meeting: Neue Veranstaltung
         preview: Vorschau
         registrations: Anmeldungen
         title: Aktionen
@@ -318,7 +319,6 @@ de:
             select_a_meeting_type: Bitte eine Meeting-Typ auswählen
             select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
             select_an_iframe_access_level: Bitte wählen Sie eine iFrame-Zugriffsebene aus
-            show_embedded_iframe_help: 'Nur wenige Dienste erlauben das Einbetten einer Veranstaltung oder eines Livestreams: %{domains}'
           index:
             title: Meetings
           new:
@@ -415,7 +415,6 @@ de:
       directory:
         meetings:
           index:
-            go_to_list: Veranstaltungsliste ansehen
             meetings: Meetings
             space_type: Partizipativer Raum
       iframe_access_level:
@@ -503,7 +502,6 @@ de:
           select_a_meeting_type: Bitte eine Meeting-Art auswählen
           select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
           select_an_iframe_access_level: Bitte wählen Sie eine iFrame-Zugriffsebene aus
-          show_embedded_iframe_help: 'Nur wenige Dienste erlauben das Einbetten einer Veranstaltung oder eines Livestreams: %{domains}'
         index:
           click_here: Alle Treffen anzeigen
           new_meeting: Neue Besprechung
@@ -528,7 +526,6 @@ de:
         show:
           attendees: Teilnehmer zählen
           contributions: Beiträge zählen
-          date: Datum
           join: Tritt dem Treffen bei
           leave: Registrierung stornieren
           leave_confirmation: Sind Sie sicher dass Sie Ihre Registrierung für diese Sitzung stornieren möchten?
@@ -546,7 +543,6 @@ de:
           remaining_slots:
             one: "%{count} Slot bleibt übrig"
             other: "Noch %{count} Slots"
-          view: Anzeigen
           visit_finished: Vergangene Treffen anzeigen
           withdraw_btn_hint: Sie können Ihr Treffen zurückziehen, wenn Sie Ihre Meinung ändern. Das Meeting wird nicht gelöscht, es wird in der Liste der zurückgezogenen Meetings angezeigt.
           withdraw_confirmation_html: Sind Sie sicher, dass Sie diese Veranstaltung zurückziehen möchten?<br><br><strong> Diese Aktion kann nicht rückgängig gemacht werden!</strong>
