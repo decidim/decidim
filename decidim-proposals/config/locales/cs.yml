@@ -538,7 +538,6 @@ cs:
             create: Vytvořit
             title: Vytvořte návrh
           publish_answers:
-            number_of_proposals: Odpovědi na %{number} návrhů budou publikovány.
             select_a_proposal: Vyberte návrh.
           show:
             amendments_count: Počet pozměňovacích návrhů
@@ -548,7 +547,6 @@ cs:
             documents: Dokumenty
             endorsements_count: Počet schvalování
             endorsers: Schvalující
-            link: Odkaz
             n_more_endorsers:
               one: a další 1
               few: a %{count} dalších
