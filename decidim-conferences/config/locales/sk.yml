@@ -394,7 +394,6 @@ sk:
           invalid: Vyskytol sa problém s opustením tejto konferencie.
           success: Úspešne ste opustili konferenciu.
       conference_speaker:
-        go_to_twitter: Ísť na Twitter
         more_info: viac informácií
         personal_website: Osobná stránka
         show:
