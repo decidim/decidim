@@ -26,6 +26,7 @@ cs:
         destroy:
           success: Šablona byla úspěšně odstraněna.
         empty: Zatím nejsou žádné šablony.
+        missing_resource: "(chybějící zdroj)"
         update:
           error: Při aktualizaci této šablony došlo k chybě.
           success: Šablona byla úspěšně aktualizována.
