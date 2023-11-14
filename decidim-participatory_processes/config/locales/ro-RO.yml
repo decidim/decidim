@@ -174,22 +174,6 @@ ro:
           copy: Copiază
           select: Selectează datele pe care dorești să le duplici
           title: Duplicarea procesului participativ
-      participatory_process_group_landing_page:
-        edit:
-          active_content_blocks: Blocuri active de conținut
-          add: Adaugă bloc de conținut
-          destroy_confirmation: Sunteţi sigur că doriţi să ştergeţi acest bloc de conţinut?
-          inactive_content_blocks: Blocuri inactive de conținut
-          title: Conţinutul paginii
-      participatory_process_group_landing_page_content_blocks:
-        create:
-          error: A apărut o problemă la crearea acestui bloc de conținut.
-          success: Blocul de conținut creat cu succes.
-        destroy:
-          error: A apărut o eroare la ștergerea acestui bloc de conținut.
-          success: Bloc de conținut șters cu succes.
-        edit:
-          update: Actualizează
       participatory_process_groups:
         destroy:
           error: A apărut o eroare la eliminarea grupului de proces participativ.
