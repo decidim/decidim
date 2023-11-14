@@ -25,8 +25,8 @@ module Decidim
 
     def find(name)
       if name.blank?
-        deprecated("The requested icon is blank.")
-        name = other
+        ActiveSupport::Deprecation.warn "The requested icon is blank."
+        name = "other"
       end
 
       @icons[name] || deprecated(name)
