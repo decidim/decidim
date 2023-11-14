@@ -12,7 +12,7 @@ module Decidim
     # @param icon [String] The id of the icon. It will be used to load the icon from remixicon library.
     # @param category [String] The category name. It will be used to group the icons by category.
     # @param description [String] The description of the icon. It will be used to show the purpose of the icon in DDG.
-    # @param engine [String] The engine name.It is used internally to identify the module where the icon is being used.
+    # @param engine [String] The engine name. It is used internally to identify the module where the icon is being used.
     def register(name:, icon:, description:, category:, engine:)
       ActiveSupport::Deprecation.warn("#{name} already registered. #{@icons[name].inspect}") if @icons[name]
 
