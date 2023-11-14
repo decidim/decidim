@@ -154,13 +154,11 @@ hu:
         destroy:
           success: A tag eltávolítása a gyűlésből sikeres volt.
         edit:
-          title: Gyűlés tagjának frissítése.
           update: Frissítés
         index:
           assembly_members_title: Gyűlés tagjai
         new:
           create: Létrehozás
-          title: Új gyűlés tag.
         update:
           error: Hiba történt a gyűlés tagjának frissítése során.
           success: Gyűlés tagjának frissítése sikeres.
@@ -178,13 +176,11 @@ hu:
         destroy:
           success: Admin eltávolítása a gyűlésből sikeres.
         edit:
-          title: Gyűlés adminjának frissítése.
           update: Frissítés
         index:
           assembly_admins_title: Gyűlés adminjai
         new:
           create: Létrehozás
-          title: Új gyűlés admin.
         update:
           error: Hiba történt a gyűlés adminjának frissítése során.
           success: Gyűlés adminjának frissítése sikeres.
@@ -307,12 +303,6 @@ hu:
             select_a_position: Válassz pozíciót
             select_user: Válasszon ki egy résztvevőt
             user_type: Résztvevő típusa
-          index:
-            filter:
-              all: Összes
-              ceased: Megszűnt
-              not_ceased: Nem szűnt meg
-            search: Keresés
         content_blocks:
           highlighted_assemblies:
             max_results: A megjelenítendő elemek maximális száma
