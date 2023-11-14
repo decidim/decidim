@@ -780,7 +780,7 @@ sv:
           add_attachment: Lägg till bilaga
           add_file: Lägg till fil
           add_image: Lägg till bild
-          cancel: Avbryta
+          cancel: Avbryt
           edit_image: Redigera bild
           error: Fel!
           remove: Ta bort
@@ -1147,7 +1147,6 @@ sv:
           proposals: Förslag
           proposals_explanation: Lämna förslag, stötta befintliga förslag och stöd de förändringar som du vill se.
         footer_sub_hero:
-          footer_sub_hero_body: Låt oss bygga ett öppet, transparent och samarbetande samhälle.<br /> Gå med, delta och fatta beslut.
           footer_sub_hero_headline: Välkommen till %{organization} deltagarplattform.
           register: Registrera dig
         hero:
@@ -1674,7 +1673,6 @@ sv:
         facebook: "%{organization} på Facebook"
         github: "%{organization} på GitHub"
         instagram: "%{organization} på Instagram"
-        twitter: "%{organization} på Twitter"
         youtube: "%{organization} på YouTube"
       timeout_modal:
         body: Du har varit inaktiv i %{minutes} minuter. Om du fortsätter att vara inaktiv kommer du automatiskt att loggas ut för din egen säkerhet.
@@ -1682,7 +1680,7 @@ sv:
         sign_out: Logga ut
         title: Vill du fortsätta med din session?
       upload_modal:
-        close_modal: Stäng fönstret
+        close_modal: Stäng modal
       user_menu:
         account: 'Användarkonto: %{name}'
         admin_dashboard: Adminpanel
