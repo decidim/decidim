@@ -319,7 +319,6 @@ es-PY:
             select_a_meeting_type: Por favor, selecciona un tipo de encuentro
             select_a_registration_type: Por favor, seleccione un tipo de inscripción
             select_an_iframe_access_level: Por favor, seleccione un nivel de acceso iframe
-            show_embedded_iframe_help: 'Solo unos pocos servicios permiten ser incrustados en encuentros o eventos en vivo desde los siguientes dominios: %{domains}'
           index:
             title: Encuentros
           new:
@@ -416,7 +415,6 @@ es-PY:
       directory:
         meetings:
           index:
-            go_to_list: Ver el listado de encuentros
             meetings: Reuniones
             space_type: Espacio participativo
       iframe_access_level:
@@ -504,7 +502,6 @@ es-PY:
           select_a_meeting_type: Por favor, selecciona un tipo de encuentro
           select_a_registration_type: Por favor, selecciona un tipo de inscripción
           select_an_iframe_access_level: Por favor, selecciona un nivel de acceso iframe
-          show_embedded_iframe_help: 'Solo unos pocos servicios permiten ser incrustados en encuentros o eventos en vivo desde los siguientes dominios: %{domains}'
         index:
           click_here: Ver todos los encuentros
           new_meeting: Nuevo encuentro
@@ -529,7 +526,6 @@ es-PY:
         show:
           attendees: Número de asistentes
           contributions: Número de contribuciones
-          date: Fecha
           join: Inscribirse al encuentro
           leave: Cancela tu inscripción
           leave_confirmation: '¿Seguro que quieres cancelar tu inscripción para este encuentro?'
@@ -547,7 +543,6 @@ es-PY:
           remaining_slots:
             one: "Queda %{count} ranuras"
             other: "%{count} ranuras restantes"
-          view: Ver
           visit_finished: Ver encuentro pasado
           withdraw_btn_hint: Puedes retirar tu encuentro si cambias de opinión. El encuentro no será eliminado, aparecerá en la lista de encuentros retirados.
           withdraw_confirmation_html: '¿Seguro que quieres retirar este encuentro?<br><br><strong>¡Esta acción no se puede cancelar!</strong>'
