@@ -832,6 +832,10 @@ fi:
         form:
           add: Lisää sallittujen listalle
           title: Sallittujen ulkoisten verkkotunnusten lista
+      organization_homepage:
+        edit:
+          active_content_blocks: Aktiiviset sisältölohkot
+          inactive_content_blocks: Käytöstä poistetut sisältölohkot
       organization_homepage_content_blocks:
         edit:
           update: Päivitä
