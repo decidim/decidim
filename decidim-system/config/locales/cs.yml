@@ -56,9 +56,6 @@ cs:
         new:
           create: Vytvořit
           title: Nový admin
-        show:
-          destroy: Zničit
-          edit: Upravit
         update:
           error: Při aktualizaci tohoto administrátora došlo k chybě.
           success: Správce byl úspěšně aktualizován.
@@ -140,7 +137,6 @@ cs:
           show: Zobrazit pokročilá nastavení
         create:
           error: Při vytváření nové organizace došlo k chybě.
-          success: Organizace byla úspěšně vytvořena.
         csp_settings:
           connect_src: Připojit src
           connect_src_hint: |
