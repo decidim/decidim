@@ -534,6 +534,8 @@ fi:
           subtitle: Täytä seuraava lomake viimeistelläksesi rekisteröitymisesi
           username_help: Julkinen nimi, joka näkyy viesteissäsi. Anonyymiteetin taataksemme, voi olla mikä tahansa nimi.
       registrations:
+        create:
+          error: Käyttäjätilin luonti epäonnistui.
         new:
           already_have_an_account?: Onko sinulla jo käyttäjätili?
           newsletter: Vastaanota silloin tällöin ajankohtaista tietoa sisältävä uutiskirje
@@ -1702,6 +1704,7 @@ fi:
       not_saved:
         one: 'Virhe käsiteltäessä pyyntöä:'
         other: 'Virheitä käsiteltäessä pyyntöä:'
+      password_confirmation_message: '"Vahvista salasanasi" -kenttä ei vastaa antamaasi salasanaa'
       too_many_marks: liian monta välimerkkiä peräkkäin (esim. ! ja ?)
       too_much_caps: liian monta isoa kirjainta (yli 25% tekstistä)
       too_short: liian lyhyt (alle %{count} merkkiä)
