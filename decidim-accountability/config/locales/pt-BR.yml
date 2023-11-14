@@ -170,9 +170,7 @@ pt-BR:
             not_found: 'O pai não foi encontrado no banco de dados (ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Datas
           results: Resultados
-          unspecified: Não especificado
       import_mailer:
         import:
           errors: Erros
@@ -211,9 +209,6 @@ pt-BR:
           fields:
             entry_date: Data
             title: Título
-      result_m:
-        executed: Executado
-        view: Visualizar
       results:
         count:
           results_count:
