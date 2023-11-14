@@ -210,6 +210,7 @@ eu:
             endorsements_enabled: Onarpen gaituak
             proposal_answering_enabled: Proposamena erantzutea gaituta dago
             publish_answers_immediately: Argitaratu berehala proposamen erantzunak
+            publish_answers_immediately_help_html: 'Kontuz, proposamenen bati erantzuten badiozu hau gabe, eskuz argitaratu beharko dituzu, aukeratuz eta argitaratzeko ekintza erabiliz. Nola funtzionatzen duen jakiteko, ikus <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank"> proposals'' answers documentation page</a>proposamenen erantzunen dokumentazio-orria.'
             suggested_hashtags: Traolek erabiltzaileei proposamen berriak proposatu dizkie
             votes_blocked: Botoak blokeatuta
             votes_enabled: Botoak gaituta
@@ -254,10 +255,12 @@ eu:
           email_intro: 'Orain %{participatory_space_title} proposamen berriak sor ditzakezu! Hasi parte hartzen orri honetan:'
           email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Jakinarazpenak jasotzeari utz diezaiokezu, aurreko estekan.
           email_subject: Proposamenak orain eskuragarri %{participatory_space_title}-an
+          notification_title: 'Orain honi <a href="%{resource_path}"> proposamen berriak aurkeztu ahal dizkiozu hemen: <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
         endorsing_enabled:
           email_intro: 'Proposamenak egin ditzakezu %{participatory_space_title} parte hartze espazioan! Hasi orri honetan parte hartzen:'
           email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen duzulako. Jakinarazpenak jasotzeari utz diezaiokezu aurreko estekari jarraituz.
           email_subject: Onarpen proposamenak %{participatory_space_title}-an hasi dira
+          notification_title: 'Orain has zaitezke <a href="%{resource_path}"></a> proposamenak onartzen hemen: <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
         proposal_accepted:
           affected_user:
             email_intro: 'Zure proposamena "%{resource_title}" onartu da. Orri honetan erantzun dezakezu:'
@@ -301,6 +304,7 @@ eu:
           follower:
             email_intro: '"%{resource_title}" proposamena baztertu egin da. Orri honetan erantzun dezakezu:'
             email_outro: Jakinarazpena jaso duzu "%{resource_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
+            email_subject: Zuk jarraitzen duzun proposamen bat ukatu da
             notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena baztertu da.
         proposal_update_category:
           email_intro: 'Administratzaileak "%{resource_title}" proposamenaren kategoria eguneratu du, ikus ezazu orri honetan:'
@@ -444,6 +448,8 @@ eu:
             document_legend: 'Erantsi 2MB baino txikiagoa den dokumentu bat. Atal bakoitza, 3 sakontasun-mailaraino, proposamen bihurtuko da. Hauek dira onartutako formatuak: %{valid_mime_types}'
             title: ADD DOCUMENT
             upload_document: Kargatu dokumentua
+          publish:
+            invalid: Arazo bat egon da proposamenak argitaratzean.
           sections:
             article: "<em>Artikulua</em>"
             section: "<em>Atala:</em> <strong>%{title}</strong>"
@@ -459,6 +465,8 @@ eu:
             rejected: Ukatua
             title: 'Erantzun proposamen honi: %{title}'
         proposal_notes:
+          create:
+            error: Arazo bat egon da proposamen-ohar hau sortzean.
           form:
             note: Oharra
             submit: Bidali
@@ -471,7 +479,7 @@ eu:
           form:
             attachment_legend: "(Aukerakoa) Gehitu eranskin bat"
             created_in_meeting: Proposamen hau bilera batetik dator
-            delete_attachment: Ezabatu erantsitako artxiboa
+            delete_attachment: Ezabatu eranskina
             select_a_category: Aukeratu kategoria bat
             select_a_meeting: Aukeratu bilera bat
           index:
@@ -497,8 +505,6 @@ eu:
           new:
             create: Sortu
             title: Sortu proposamena
-          publish_answers:
-            number_of_proposals: '%{number} proposamenetarako erantzunak argitaratuko dira.'
           show:
             amendments_count: Zuzenketa kopurua
             assigned_valuators: Ebaluatzaileak esleituta
@@ -507,7 +513,6 @@ eu:
             documents: Dokumentuak
             endorsements_count: Atxikimendu kopurua
             endorsers: Atxiki dira
-            link: Esteka
             n_more_endorsers:
               one: eta 1 gehiago
               other: eta %{count} gehiago
@@ -523,8 +528,12 @@ eu:
             success: 'Proposamenak zuzen eguneratuta %{subject_name}: %{proposals} kategoriara.'
           update_scope:
             invalid: 'Proposamen hauek bazuten %{subject_name}: %{proposals} eremua.'
+            select_a_proposal: Mesedez, hautatu proposamen bat.
+            select_a_scope: Mesedez, hautatu esparru bat.
             success: 'Proposamenak zuzen eguneratuta %{subject_name}: %{proposals} eremuan.'
         proposals_imports:
+          create:
+            invalid: Arazo bat egon da proposamenak inportatzean.
           new:
             create: Proposamenak inportatu
             no_components: Espazio honetan ez dago beste proposamenik proposamenak inportatzeko.
@@ -539,6 +548,11 @@ eu:
           create:
             invalid: 'Arazo bat egon da hautatutako proposamenak zatitzeko; izan ere, horietako batzuk honako hauek izan dira:'
             success: Proposamen berrietara egokitu dira.
+        valuation_assignments:
+          create:
+            invalid: Arazo bat egon da proposamenak ebaluatzaile bati esleitzean.
+          delete:
+            invalid: Arazo bat egon da ebaluatzaile bati proposamenak desesleitzean.
       admin_log:
         proposal:
           answer: "%{user_name} erabiltzaileak %{resource_name} %{space_name} espazioko proposamenari erantzun dio"
@@ -632,6 +646,7 @@ eu:
         requests:
           accepted_request:
             error: Ezin izan da kolaboratzaile gisa onartu, saiatu berriro geroago.
+            success: "@%{user} behar bezala onartua kolaboratzaile gisa."
           access_requested:
             error: Zure eskaera ezin da amaitu, saiatu berriro geroago.
           collaboration_requests:
@@ -640,6 +655,7 @@ eu:
             title: Lankidetza eskaerak
           rejected_request:
             error: Ezin izan da laguntzailea baztertu, saiatu berriro geroago.
+            success: "@%{user} behar bezala ukatu da kolaboratzaile gisa."
         show:
           edit: Editatu lankidetza zirriborroa
           final_proposal: azken proposamena
@@ -647,6 +663,7 @@ eu:
           hidden_authors_count:
             one: eta pertsona %{count} gehiago
             other: eta beste %{count} pertsona
+          info-message: Hau <strong>zirriborro kolaboratiboa </strong> da proposamen baterako. Horrek esan nahi du egileei proposamena taxutzen lagundu ahal diezula, jarraian agertzen den iruzkinen atala erabiliz, edo zuzenean hobetu daitekeela editatzeko sarbidea eskatuz. Egileek sarbidea ematen dizutenean, zirriborro honetan aldaketak egin ahal izango dituzu.
           publish: Argitaratu
           publish_info: Argitaratu zirriborroaren bertsio hau edo
           published_proposal: argitaratutako proposamena
@@ -753,7 +770,7 @@ eu:
           most_endorsed: Aldeko boto gehien dituztenak
           most_followed: Jarraitzaile gehien dituztenak
           most_voted: Bozkatuenak
-          random: Ausazkoa eran
+          random: Ausazko ordena
           recent: Berrienak
           with_more_authors: Egile gehiagorekin
         placeholder:
@@ -805,6 +822,7 @@ eu:
             description: Proposamen bakoitzak %{limit} babes baino gehiagotan jaso dezake
           minimum_votes_per_user:
             description: Gutxienez %{votes} bozka eman behar dituzu proposamen desberdinen artean.
+            given_enough_votes: Nahiko babes eman dituzu.
             supports_remaining: '%{remaining_votes} boto gehiago proposatu behar dituzu zure botoak kontuan hartzeko.'
           proposal_limit:
             description: '%{limit} proposamen sortu ditzakezu.'
@@ -841,6 +859,9 @@ eu:
       versions:
         index:
           title: Bertsioak
+      withdraw:
+        errors:
+          has_supports: Proposamen hau ezin da bertan behera utzi, dagoeneko babesa duelako.
     resource_links:
       copied_from_component:
         proposal_proposal: Lotutako proposamenak
