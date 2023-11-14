@@ -304,8 +304,6 @@ nl:
           index:
             filter:
               all: Alle
-              ceased: Gestopt
-              not_ceased: Niet gestopt
             filter_by: Filteren op
             search: Zoeken
         content_blocks:
