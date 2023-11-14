@@ -167,6 +167,22 @@ module Decidim
       end
     end
 
+    resources_types = Decidim.resource_manifests
+                             .map { |resource| resource.attributes[:model_class_name] }
+                             .select { |resource| resource.constantize.include? Decidim::Endorsable }
+
+    resources_types.each do |resource_type|
+      resource_type.constantize.find_each do |resource|
+        # exclude the users that already endorsed
+        users = resource.endorsements.map(&:author)
+        rand(50).times do
+          user = (Decidim::User.all - users).sample
+          Decidim::Endorsement.create!(resource:, author: user)
+          users << user
+        end
+      end
+    end
+
     I18n.available_locales = original_locale
   end
 
