@@ -56,9 +56,6 @@ ca:
         new:
           create: Crea
           title: Nova administradora
-        show:
-          destroy: Destruir
-          edit: Editar
         update:
           error: S'ha produït un error en actualitzar aquesta administradora.
           success: L'administradora s'ha actualitzat correctament.
@@ -140,7 +137,6 @@ ca:
           show: Mostra la configuració avançada
         create:
           error: S'ha produït un error en crear una nova organització.
-          success: L'organització s'ha creat correctament.
         csp_settings:
           connect_src: Adreces de connexió (connect-src)
           connect_src_hint: |
