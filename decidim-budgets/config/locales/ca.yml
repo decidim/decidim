@@ -155,8 +155,6 @@ ca:
           create: "%{user_name} ha creat el projecte %{resource_name} a l'espai %{space_name}"
           delete: "%{user_name} ha eliminat el projecte %{resource_name} de l'espai %{space_name}"
           update: "%{user_name} ha actualitzat el projecte %{resource_name} de l'espai %{space_name}"
-      budget:
-        view: Veure tots els projectes de pressupost
       budget_information_modal:
         back_to: Tornar a %{component_name}
         close_modal: Tancar el modal
@@ -194,7 +192,6 @@ ca:
           fields:
             category: Categoria
             id: ID
-            scope: Àmbit
             title: Títol
       order_summary_mailer:
         order_summary:
@@ -243,8 +240,6 @@ ca:
             all: Tots
             not_selected: No seleccionat
             selected: Seleccionat
-        index:
-          back_to_budgets: tornar als pressupostos
         order_progress:
           assigned: Assignat
           budget: Pressupost
@@ -272,7 +267,6 @@ ca:
           add: Afegir el projecte %{resource_name} al teu vot.
           remove: Esborrar el projecte %{resource_name} del teu vot.
           selected: Seleccionat
-          view: Veure
           votes:
             one: vot
             other: vots
