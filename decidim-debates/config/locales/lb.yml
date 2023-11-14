@@ -51,6 +51,7 @@ lb:
           debate:
             name: Debatte
       debates:
+        closed: Geschlossen
         filters:
           scope: Bereich
           search: Suche
