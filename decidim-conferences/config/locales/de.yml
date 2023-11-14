@@ -20,7 +20,7 @@ de:
         objectives: Ziele
         participatory_processes_ids: Ähnliche Beteiligungsprozesse
         promoted: Gefördert
-        published_at: Veröffentlicht unter
+        published_at: Veröffentlicht am
         registration_terms: Registrierungsbedingungen
         registrations_enabled: Registrierungen aktiviert
         scope_id: Umfang
@@ -63,7 +63,7 @@ de:
         personal_url: Persönliche URL
         position: Position
         short_bio: Kurze Beschreibung
-        twitter_handle: Twitter-Handle
+        twitter_handle: X-Handler
         user_id: Nutzer
       conference_user_role:
         email: Email
@@ -204,7 +204,7 @@ de:
       models:
         conference:
           fields:
-            created_at: Hergestellt in
+            created_at: Erstellt am
             promoted: Gefördert
             published: Veröffentlicht
             title: Titel
@@ -442,7 +442,7 @@ de:
           invalid: Beim Verlassen dieser Konferenz ist ein Problem aufgetreten.
           success: Sie haben die Konferenz erfolgreich verlassen.
       conference_speaker:
-        go_to_twitter: Gehe zu Twitter
+        go_to_twitter: Gehe zu X
         more_info: Mehr Informationen
         personal_website: Persönliche Webseite
         show:
