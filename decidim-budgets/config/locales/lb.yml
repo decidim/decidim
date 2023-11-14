@@ -74,8 +74,6 @@ lb:
           create: "%{user_name} hat das Projekt %{resource_name} in %{space_name} erstellt"
           delete: "%{user_name} hat das Projekt %{resource_name} in %{space_name} gelöscht"
           update: "%{user_name} hat das Projekt %{resource_name} in %{space_name} aktualisiert"
-      budget:
-        view: Alle Budgetprojekte anzeigen
       budget_information_modal:
         back_to: Zurück zu %{component_name}
         close_modal: Dialog schließen
@@ -141,7 +139,6 @@ lb:
           selected: Ausgewählt
         project:
           selected: Ausgewählt
-          view: Anzeigen
           votes:
             one: Abstimmung
             other: Abstimmungen
