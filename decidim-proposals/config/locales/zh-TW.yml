@@ -514,7 +514,6 @@ zh-TW:
             create: 建立
             title: 建立提案
           publish_answers:
-            number_of_proposals: 共 %{number} 份提案的答案將會發佈。
             select_a_proposal: 請選擇一個提案。
           show:
             amendments_count: 修改案數量
@@ -524,7 +523,6 @@ zh-TW:
             documents: 文件
             endorsements_count: 連署人數
             endorsers: 贊助人
-            link: 連結
             n_more_endorsers:
               other: 還有 %{count} 位
             photos: 圖片
