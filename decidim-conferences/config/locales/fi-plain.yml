@@ -89,6 +89,12 @@ fi-pl:
     admin:
       actions:
         confirm: Vahvista
+        new_conference: Uusi konferenssi
+        new_conference_user_role: Uusi konferenssin hallintakäyttäjä
+        new_media_link: Uusi medialinkki
+        new_partner: Uusi yhteistyökumppani
+        new_registration_type: Uusi ilmoittautumistyyppi
+        new_speaker: Uusi puhuja
         send_diplomas: Lähetä läsnäolotodistukset
       conference_copies:
         new:
@@ -152,6 +158,7 @@ fi-pl:
           title: Yleistä tietoa
         index:
           published: Julkaistu
+          unpublished: Julkaisematon
         new:
           create: Luo
           title: Konferenssi
@@ -191,11 +198,13 @@ fi-pl:
           conference_invites: Kutsut
           conference_speakers: Puhujat
           diploma: Läsnäolotodistus
+          info: Tietoja tästä konferenssista
           media_links: Medialinkit
           moderations: Moderoinnit
           partners: Yhteistyökumppanit
           registration_types: Ilmoittautumistyypit
           registrations: Ilmoittautumiset
+          see_conference: Näytä konferenssi
           user_registrations: Käyttäjien ilmoittautumiset
       models:
         conference:
@@ -448,10 +457,14 @@ fi-pl:
           collaborators: Yhteistyökumppanit
           main_promotors: Järjestäjät
         show:
+          already_have_an_account?: Onko sinulla jo käyttäjätili?
+          are_you_new?: Oletko uusi osallistuja?
           login_as: Olet kirjautunut sisään henkilönä %{name} <%{email}>
           make_conference_registration: Ilmoittaudu konferenssiin
           manage_registration: Hallinnoi ilmoittautumistasi
           register: Rekisteröidy
+          sign_in_description: Kirjaudu sisään ilmoittautuaksesi tähän konferenssiin
+          sign_up_description: Luo käyttäjätili palveluun ilmoittautuaksesi konferenssin
       content_blocks:
         highlighted_conferences:
           name: Tärkeimmät konferenssit
