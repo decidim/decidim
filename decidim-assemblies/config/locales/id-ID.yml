@@ -50,7 +50,6 @@ id:
         subtitle: Subtitle
         target: Yang berpartisipasi
         title: Judul
-        twitter: Kericau
         youtube: Youtube
       assembly_member:
         birthday: Ulang tahun
@@ -240,8 +239,6 @@ id:
           index:
             filter:
               all: Semua
-              ceased: Hentikan
-              not_ceased: Tidak berhenti
             filter_by: Filter berdasarkan
             search: Pencarian
         content_blocks:
