@@ -825,10 +825,6 @@ lt:
         form:
           add: Pridėti prie baltojo sąrašo
           title: Išorinių domenų baltasis sąrašas
-      organization_homepage:
-        edit:
-          active_content_blocks: Aktyvūs turinio blokai
-          inactive_content_blocks: Neaktyvūs turinio blokai
       organization_homepage_content_blocks:
         edit:
           update: Atnaujinti
@@ -851,7 +847,7 @@ lt:
           success: CSV dokumentas įkeltas sėkmingai, dalyviai kviečiami e. laišku - tai gali užtrukti.
         new:
           explanation: 'Įkelkite CSV dokumentą. Jis turi turėti du stulpelius su naudotojų el. paštu pirmajame ir vardu paskutiniąjame. Dokumente neturėtų būti laukų pavadinimų ir šių simbolių naudotojų varduose "<>?%&^*#@()[]=+:;"{}\|".'
-          title: Įkelkite CSV dokumentą
+          title: Įkelkite savo CSV rinkmeną
           upload: Įkelti
       resource_permissions:
         edit:
