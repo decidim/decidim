@@ -86,7 +86,6 @@ lb:
         success_color: Erfolg
         time_zone: Zeitzone
         tos_version: Nutzungsbedingungen Version
-        twitter_handler: Twitter-Handler
         user_groups_enabled: Benutzergruppen aktivieren
         users_registration_mode: Benutzerregistrierungs-Modus
         warning_color: Warnung
@@ -724,7 +723,6 @@ lb:
           instagram: Instagram
           rich_text_editor_in_public_views_help: In einigen Textbereichen können Teilnehmer mit Hilfe des Rich-Text-Editors HTML-Tags einfügen.
           social_handlers: Sozial
-          twitter: Twitter
           url: URL
           youtube: Youtube
         update:
@@ -755,10 +753,6 @@ lb:
         form:
           add: Zur Whitelist hinzufügen
           title: Whitelist für externe Domains
-      organization_homepage:
-        edit:
-          active_content_blocks: Aktive Inhaltsblöcke
-          inactive_content_blocks: Inaktive Inhaltsblöcke
       organization_homepage_content_blocks:
         edit:
           update: Aktualisieren
@@ -781,7 +775,7 @@ lb:
           success: CSV-Datei wurde erfolgreich hochgeladen, wir senden eine Einladungs-E-Mail an die Teilnehmer. Dies kann eine Weile dauern.
         new:
           explanation: 'Laden Sie Ihre CSV-Datei hoch. Diese muss zwei Spalten haben ohne Kopfzeile, mit E-Mail in der ersten Spalte der Datei und Namen in der letzten Spalte der Datei (E-Mail, Name) in Bezug auf die Benutzer, die Sie dem Beteiligungsbereich hinzufügen möchten. Vermeiden sie ungültige Zeichen wie `<>?%&^*#@()[]=+:;"{}\|` im Namen des Nutzers zu verwenden.'
-          title: CSV-Datei hochladen
+          title: Laden Sie Ihre CSV-Datei hoch
           upload: Hochladen
       resource_permissions:
         edit:
