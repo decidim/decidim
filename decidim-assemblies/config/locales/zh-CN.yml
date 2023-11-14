@@ -288,8 +288,6 @@ zh-CN:
           index:
             filter:
               all: 所有的
-              ceased: 缓存器
-              not_ceased: 未停止
             filter_by: 筛选方式
             search: 搜索
         content_blocks:
