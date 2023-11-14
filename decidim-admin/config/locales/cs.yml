@@ -840,6 +840,10 @@ cs:
         form:
           add: Přidat do seznamu povolených
           title: Seznam externích povolených domén
+      organization_homepage:
+        edit:
+          active_content_blocks: Aktivní bloky obsahu
+          inactive_content_blocks: Neaktivní bloky obsahu
       organization_homepage_content_blocks:
         edit:
           update: Aktualizace
