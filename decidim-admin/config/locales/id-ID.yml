@@ -452,10 +452,6 @@ id:
           images:
             layout_appearance_title: Edit tampilan tata letak
           omnipresent_banner_appearance_title: Edit spanduk yang ada di mana-mana
-      organization_homepage:
-        edit:
-          active_content_blocks: Blok konten aktif
-          inactive_content_blocks: Blok konten tidak aktif
       participatory_space_private_users:
         create:
           error: Terjadi kesalahan saat menambahkan pengguna pribadi untuk ruang partisipatif ini.
@@ -529,12 +525,12 @@ id:
           update: Memperbarui
         form:
           none: Tidak ada
+        index:
+          last_notable_change: Perubahan penting terakhir
         new:
           create: Membuat halaman
           title: Halaman baru
         topic:
-          destroy: Hapus topik
-          edit: Edit topik
           without_topic: Halaman tanpa topik
         update:
           error: Terjadi kesalahan saat memperbarui halaman ini.
