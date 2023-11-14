@@ -182,7 +182,7 @@ hu:
           fields:
             category: Kategória
             id: Azonosító
-            scope: Hatókör
+            scope: Hatáskör
             title: Cím
       order_summary_mailer:
         order_summary:
