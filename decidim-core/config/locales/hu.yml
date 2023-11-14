@@ -1090,7 +1090,6 @@ hu:
           proposals: Javaslatok
           proposals_explanation: Tegyél javaslatot, támogasd a már meglévőket, legyél Te a változás motorja.
         footer_sub_hero:
-          footer_sub_hero_body: Egy nyitottabb, átláthatóbb és együttműködőbb társadalomért.<br /> Csatlakozz, szervezz és dönts.
           footer_sub_hero_headline: Üdvözöljük a %{organization} részvételi platformján.
           register: Regisztráció
         hero:
