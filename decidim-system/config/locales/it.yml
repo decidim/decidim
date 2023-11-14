@@ -54,6 +54,8 @@ it:
         new:
           create: Crea
           title: Nuovo Amministratore
+        show:
+          edit: Modifica
         update:
           error: E' successo un errore durante la modifica di questo utente Admin.
           success: Admin modificato con successo
@@ -144,8 +146,6 @@ it:
         index:
           title: Organizzazioni
         new:
-          reference_prefix_hint: Il prefisso di riferimento è utilizzato solamente per identificare le risorse in tutte le organizzazioni
-          secondary_hosts_hint: Inserisci ciascun elemento in una nuova linea
           title: Nuova Organizzazione
         omniauth_settings:
           decidim:
