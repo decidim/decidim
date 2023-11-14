@@ -58,7 +58,6 @@ ar:
         conference_meeting_ids: الاجتماعات ذات الصلة
         full_name: الاسم الكامل
         position: المنصب
-        twitter_handle: مُعرّف حساب تويتر
         user_id: المستخدم
       conference_user_role:
         email: البريد الإلكتروني
@@ -443,7 +442,6 @@ ar:
           invalid: حدثت مشكلة أثناء مغادرة هذا المؤتمر.
           success: لقد تركت المؤتمر بنجاح.
       conference_speaker:
-        go_to_twitter: انتقل إلى تويتر
         more_info: مزيد من المعلومات
         personal_website: موقع الويب الشخصي
         show:
