@@ -823,7 +823,6 @@ ja:
             colors_title: 組織の色
             colors_warning_html: '警告: これらの色を変更すると、アクセシビリティのコントラストが壊れる可能性があります。 <a href="%{link}">WebAIM Contrast Checker</a> または他の同様のツールで、選択したコントラストを確認できます。'
             explanation: このツールは、カラーホイールの周りに均等に間隔を置いた色相で構成された配色を選択するのに役立ちます。 これは組織のウェブサイトに掲載されています
-            header_snippets_help_html: HTMLヘッダ部分に追加するには、このフィールドを使用します。 最も一般的な用途は、追加の JavaScript や CSS を必要とするサードパーティのサービスとの統合です。 また、HTML に追加のメタタグを追加するためにも使用できます。 これは一般向けの公開ページでのみ表示され、管理者向けセクションでは表示されないことに注意してください。 コードが外部 API と相互作用する場合や、アプリケーション・セキュリティ・ガイドラインに準拠していない場合、コンテンツセキュリティポリシーを変更する必要があります。 詳細は <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">ドキュメント サイト</a> をご覧ください。
             legend_html: <a href="https://www.color-meanings.com/triadic-colors/">三角法に基づく</a>に基づくメインのアプリケーションカラーです. 選択されたプライマリカラーと彩度に基づいて、<i>セカンダリ</i> カラーはは自動的に計算されます.
             saturation: 彩度
             title: 色の選択
@@ -847,22 +846,6 @@ ja:
         form:
           add: ホワイトリストに追加
           title: 外部ドメインのホワイトリスト
-      organization_homepage:
-        content_blocks:
-          create:
-            error: コンテンツブロックの作成中に問題が発生しました。
-            success: コンテンツブロックを作成しました。
-          destroy:
-            error: コンテンツブロックの削除中に問題が発生しました。
-            success: コンテンツブロックを削除しました。
-          edit:
-            update: 更新
-        edit:
-          active_content_blocks: アクティブなコンテンツブロック
-          add: コンテンツブロックを追加
-          destroy_confirmation: このコンテンツブロックを削除してもよろしいですか？
-          inactive_content_blocks: 非アクティブコンテンツブロック
-          title: ページ内容
       participatory_space_private_users:
         create:
           error: この参加型スペースにプライベート参加者を追加する際に問題が発生しました。
@@ -892,7 +875,6 @@ ja:
           explanation_example: |
             john.doe@example.org%{csv_col_sep}John Doe
             jane.doe@example.org%{csv_col_sep}Jane Doe
-          title: CSVファイルをアップロード
           upload: アップロード
       reminders:
         create:
@@ -957,7 +939,6 @@ ja:
       shared:
         gallery:
           add_images: 画像を追加
-          delete_image: 画像を削除
           edit_images: 画像を編集
           gallery_legend: 画像ギャラリーを追加 (オプション)
       static_page_topics:
@@ -978,20 +959,6 @@ ja:
       static_pages:
         actions:
           view: 公開ページを表示
-        content_blocks:
-          active_content_blocks: アクティブコンテンツブロック
-          add: コンテンツブロックを追加
-          create:
-            error: コンテンツブロックの作成中に問題が発生しました。
-            success: コンテンツブロックを作成しました。
-          destroy:
-            error: コンテンツブロックの削除中に問題が発生しました。
-            success: コンテンツブロックを削除しました。
-          destroy_confirmation: このコンテンツブロックを削除してもよろしいですか？
-          edit:
-            update: 更新
-          inactive_content_blocks: 非アクティブコンテンツブロック
-          title: ページ内容
         create:
           error: 新しいページの作成中に問題が発生しました。
           success: ページの作成に成功しました。
@@ -1004,12 +971,12 @@ ja:
         form:
           none: なし
           slug_help_html: 'ここでは完全な URL ではなく、相対パスを使用してください。英字、数字、ハイフン、スラッシュを受け入れ、英字で始まる必要があります。例: %{url}'
+        index:
+          last_notable_change: 前回の注目すべき変更
         new:
           create: ページを作成
           title: 新しいページ
         topic:
-          destroy: トピックを削除
-          edit: トピックを編集
           empty: このトピックのページはありません。
           without_topic: トピックがないページ
         update:
