@@ -49,6 +49,9 @@ zh-TW:
             title: 封鎖使用者訊息
           template_chooser:
             select_template: 選擇範本回答
+        proposal_answer_templates:
+          form:
+            save: 儲存
         questionnaire_templates:
           choose:
             create_from_template: 從範本建立
