@@ -99,7 +99,7 @@
           close: Lukk
           description: Hva er oppsummeringen fra denne innspillstråden?
           send: Lukk innspillstråd
-        closed: Avsluttet
+        closed: Lukket
         count:
           debates_count:
             one: "%{count} innspillstråd"
