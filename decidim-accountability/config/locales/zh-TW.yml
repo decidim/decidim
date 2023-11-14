@@ -167,9 +167,7 @@ zh-TW:
             not_found: '資料庫中找不到上一層 (ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: 日期
           results: 結果
-          unspecified: 未指定
       import_mailer:
         import:
           errors: 錯誤
@@ -207,9 +205,6 @@ zh-TW:
           fields:
             entry_date: 日期
             title: 標題
-      result_m:
-        executed: 已執行
-        view: 檢視
       results:
         count:
           results_count:
