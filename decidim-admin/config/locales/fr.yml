@@ -131,6 +131,7 @@ fr:
         weight: Rang d'affichage
       static_page_topic:
         description: La description
+        name: Nom du sujet
         show_in_footer: Montrer dans le pied de page
         title: Titre
         weight: Rang d'affichage
@@ -363,6 +364,19 @@ fr:
           title: Transfert
         'true': 'Oui'
         user_name: Utilisateur
+      content_blocks:
+        create:
+          error: Une erreur s'est produite lors de la création du bloc de contenu.
+          success: Le bloc de contenu a été créé avec succès.
+        destroy:
+          error: Une erreur est survenue lors de la suppression de ce bloc de contenu.
+          success: Le bloc de contenu a été supprimé avec succès.
+        edit:
+          active_content_blocks: Blocs de contenu actifs
+          add: Ajouter un bloc de contenu
+          destroy_confirmation: Êtes-vous sûr(e) de vouloir supprimer ce bloc de contenu ?
+          inactive_content_blocks: Blocs de contenu inactifs
+          title: Contenus de la page
       dashboard:
         pending_moderations:
           anouncement:
@@ -572,6 +586,7 @@ fr:
         scopes: Secteurs
         see_site: Voir le site
         settings: Paramètres
+        static_page_topics: Sujets
         static_pages: Pages
         user_groups: Groupes d'utilisateurs
         users: Utilisateurs
@@ -828,7 +843,6 @@ fr:
             colors_title: Couleurs de l'organisation
             colors_warning_html: Attention ! La modification de ces couleurs peut contrevenir aux règles d'accessibilité sur les taux de contraste. Vous pouvez vérifier le taux de contraste de votre choix avec <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> ou d'autres outils similaires.
             explanation: Cet outil vous aide à choisir une palette de couleurs, composée de teintes placées à égale distance autour de la roue de couleur, qui seront utilisés sur la plateforme.
-            header_snippets_help_html: 'Utilisez ce champ pour ajouter des éléments à l''élément de métadonnées HTML head. L’utilisation la plus courante est d’intégrer des services tiers qui nécessitent du JavaScript ou du CSS supplémentaires. De plus, vous pouvez l''utiliser pour ajouter des balises méta supplémentaires au HTML. Notez que cela ne sera rendu que dans les pages publiques, pas dans la section d''administration. Si le code interagit avec des API externes ou ne respecte pas les lignes directrices de sécurité de l''application, il sera nécessaire de modifier la politique de sécurité des contenus. En savoir plus sur <a href="https://docs.decidim.org/en/develop/configure/initializer#_content_security_policy">le site de documentation</a>.'
             legend_html: Couleurs principales de l'application, basées sur <a href="https://www.color-meanings.com/triadic-colors/">l'algorithme triadique</a>. La couleur <i>secondaire</i> est automatiquement calculée à partir de la couleur primaire et de la saturation que vous avez choisies.
             saturation: Saturation
             title: Sélecteur de couleurs
@@ -852,22 +866,6 @@ fr:
         form:
           add: Ajouter à la liste blanche
           title: Liste des domaines externes autorisés
-      organization_homepage:
-        content_blocks:
-          create:
-            error: Un problème est survenu lors de la création de ce bloc de contenu.
-            success: Le bloc de contenu a été créé avec succès.
-          destroy:
-            error: Une erreur est survenue lors de la suppression de ce bloc de contenu.
-            success: Le bloc de contenu a été supprimé avec succès.
-          edit:
-            update: Mettre à jour
-        edit:
-          active_content_blocks: Blocs de contenu actif
-          add: Ajouter un bloc de contenu
-          destroy_confirmation: Êtes-vous sûr(e) de vouloir supprimer ce bloc de contenu ?
-          inactive_content_blocks: Blocs de contenu inactif
-          title: Contenus de la page
       participatory_space_private_users:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cet espace participatif.
@@ -897,7 +895,6 @@ fr:
           explanation_example: |
             john.doe@example.org%{csv_col_sep}Jean Doe
             jane.doe@example.org%{csv_col_sep}Jane Doe
-          title: Téléchargez votre fichier CSV
           upload: Télécharger
       reminders:
         create:
@@ -963,7 +960,6 @@ fr:
       shared:
         gallery:
           add_images: Ajouter des images
-          delete_image: Supprimer l'image
           edit_images: Modifier les images
           gallery_legend: Ajouter une galerie d'images (facultatif)
       static_page_topics:
@@ -984,20 +980,6 @@ fr:
       static_pages:
         actions:
           view: Voir la page publique
-        content_blocks:
-          active_content_blocks: Blocs de contenu actifs
-          add: Ajouter un bloc de contenu
-          create:
-            error: Un problème est survenu lors de la création de ce bloc de contenu.
-            success: Le bloc de contenu a été créé avec succès.
-          destroy:
-            error: Un problème est survenu lors de la suppression de ce bloc de contenu.
-            success: Le bloc de contenu a été supprimé avec succès.
-          destroy_confirmation: Êtes-vous sûr(e) de vouloir supprimer ce bloc de contenu ?
-          edit:
-            update: Mettre à jour
-          inactive_content_blocks: Blocs de contenu inactifs
-          title: Contenu de la page
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle page.
           success: Page créée avec succès.
@@ -1005,17 +987,18 @@ fr:
           success: La page a été détruite avec succès
         edit:
           changed_notably_help: Si cette case est cochée, les utilisateurs devront accepter les nouvelles conditions d'utilisation.
+          last_notable_change: 'Dernier changement notable : %{tos_version_formatted}'
           title: Modifier la page
           update: Mettre à jour
         form:
           none: Aucun
           slug_help_html: 'Utilisez des chemins partiels, pas des URL complètes ici. Accepte les lettres, les chiffres, les tirets et les barres obliques et doit commencer par une lettre. Exemple : %{url}'
+        index:
+          last_notable_change: Dernier changement notable
         new:
           create: Créer une page
           title: Nouvelle page
         topic:
-          destroy: Supprimer le sujet
-          edit: Modifier le sujet
           empty: Il n'y a aucune page dans ce sujet.
           without_topic: Pages sans sujet
         update:
@@ -1033,6 +1016,7 @@ fr:
         impersonatable_users: Utilisateurs pouvant être représentés
         impersonations: Gestion des utilisateurs
         metrics: Indicateurs
+        page_topics: Sujets
         pages: Page(s)
         panel: Administrateur
         participants: Utilisateurs
