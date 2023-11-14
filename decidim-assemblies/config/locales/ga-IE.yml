@@ -118,7 +118,6 @@ ga:
           index:
             filter:
               all: Uile
-              ceased: Stadta
             search: Cuardaigh
         new_import:
           accepted_types:
