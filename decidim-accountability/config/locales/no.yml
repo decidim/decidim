@@ -103,9 +103,7 @@
             not_found: 'Overordnede ble ikke funnet i databasen (ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Datoer
           results: Resultater
-          unspecified: Ikke spesifisert
       import_mailer:
         import:
           errors: Feil
@@ -134,9 +132,6 @@
           fields:
             entry_date: Dato
             title: Tittel
-      result_m:
-        executed: Utført
-        view: Vis
       results:
         count:
           results_count:
