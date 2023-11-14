@@ -1224,7 +1224,6 @@ fr:
           proposals: Propositions
           proposals_explanation: Faites des propositions, appuyez les projets existants et soutenez les idées que vous souhaitez voir advenir.
         footer_sub_hero:
-          footer_sub_hero_body: Construisons une société plus ouverte, transparente et collaborative.<br /> Rejoignez le mouvement, participez et décidez, ensemble.
           footer_sub_hero_headline: Bienvenue sur la plate-forme participative de %{organization}.
           register: S'inscrire
         hero:
@@ -1795,7 +1794,7 @@ fr:
         facebook: "%{organization} sur Facebook"
         github: "%{organization} sur GitHub"
         instagram: "%{organization} sur Instagram"
-        twitter: "%{organization} sur Twitter"
+        x: "%{organization} sur X"
         youtube: "%{organization} sur YouTube"
       timeout_modal:
         body: Vous avez été inactif pendant %{minutes} minutes. Si vous continuez à être inactif, vous serez automatiquement déconnecté de la plateforme pour des raisons de sécurité.
@@ -1803,7 +1802,7 @@ fr:
         sign_out: Se déconnecter
         title: Voulez-vous poursuivre votre session ?
       upload_modal:
-        close_modal: Fermer la fenêtre
+        close_modal: Fermer la fenêtre de dialogue
       user_menu:
         account: 'Compte utilisateur: %{name}'
         admin_dashboard: Tableau de bord des administrateurs
@@ -1862,6 +1861,7 @@ fr:
     weibo: Sina Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
+    x: X
     xing: Xing
   time:
     formats:
