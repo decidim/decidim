@@ -176,9 +176,7 @@ lt:
             not_found: 'Motininis elementas duomenų bazėje nerastas (ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Datos
           results: Rezultatai
-          unspecified: Nenurodyta
       import_mailer:
         import:
           errors: Klaidos
@@ -219,9 +217,6 @@ lt:
           fields:
             entry_date: Data
             title: Pavadinimas
-      result_m:
-        executed: Įvykdyta
-        view: Rodymas
       results:
         count:
           results_count:
