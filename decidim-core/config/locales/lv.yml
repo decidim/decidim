@@ -932,7 +932,6 @@ lv:
           proposals: Priekšlikumi
           proposals_explanation: Iesniedziet jaunus priekšlikumus, atbalstiet esošos un veiciniet vēlamās izmaiņas.
         footer_sub_hero:
-          footer_sub_hero_body: Veidosim atvērtāku, caurskatāmāku un uz sadarbību tendētu sabiedrību. <br /> Pievienojieties, piedalieties un izlemiet!
           footer_sub_hero_headline: Laipni lūdzam %{organization} līdzdalības platformā.
           register: Reģistrēties
         hero:
