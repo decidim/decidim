@@ -93,9 +93,7 @@ sk:
             not_found: 'Nadradený záznam nebol nájdený v databáze(ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Dátumy
           results: Výsledky
-          unspecified: Nešpecifikované
       import_mailer:
         import:
           errors: Chyby
@@ -119,8 +117,6 @@ sk:
         timeline_entry:
           fields:
             entry_date: Dátum
-      result_m:
-        view: Zobraziť
       results:
         count:
           results_count:
