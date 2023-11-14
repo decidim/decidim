@@ -164,13 +164,13 @@ cs:
         destroy:
           success: Člen byl úspěšně smazán pro toto shromáždění.
         edit:
-          title: Aktualizovat člena shromáždění.
+          title: Aktualizovat člena shromáždění
           update: Aktualizace
         index:
           assembly_members_title: Členové shromáždění
         new:
           create: Vytvořit
-          title: Nový člen shromáždění.
+          title: Nový člen shromáždění
         update:
           error: Při aktualizaci člena tohoto shromáždění došlo k chybě.
           success: Člen byl úspěšně aktualizován pro toto shromáždění.
@@ -188,19 +188,26 @@ cs:
         destroy:
           success: Administrátor byl z tohoto shromáždění úspěšně odstraněn.
         edit:
-          title: Aktualizovat administrátora shromáždění.
+          title: Aktualizovat administrátora shromáždění
           update: Aktualizace
         index:
           assembly_admins_title: Administrátoři shromáždění
         new:
           create: Vytvořit
-          title: Nový administrátor shromáždění.
+          title: Nový administrátor shromáždění
         update:
           error: Při aktualizaci administrátora pro toto shromáždění došlo k chybě.
           success: Administrátor úspěšně aktualizován pro toto shromáždění.
       filters:
+        ceased_date_not_null:
+          label: Ukončeno
+          values:
+            'false': Neukončeno
+            'true': Ukončeno
         decidim_assemblies_type_id_eq:
           label: Typ shromáždění
+        search_placeholder:
+          full_name_or_user_name_or_user_nickname_cont: Hledat podle jména nebo přezdívky
       menu:
         assemblies: Shromáždění
         assemblies_settings: Nastavení
@@ -327,12 +334,6 @@ cs:
             select_a_position: Vyberte pozici
             select_user: Vybrat účastníka
             user_type: Typ účastníka
-          index:
-            filter:
-              all: Vše
-              ceased: Ukončit
-              not_ceased: Nekončí
-            search: Vyhledávání
         content_blocks:
           highlighted_assemblies:
             max_results: Maximální množství prvků, které chcete zobrazit
