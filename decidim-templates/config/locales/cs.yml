@@ -59,6 +59,13 @@ cs:
         proposal_answer_templates:
           form:
             save: Uložit
+          index:
+            internal_state: Vnitřní stav
+            title: Odpovědi na návrh
+          new:
+            title: Nová šablona odpovědi na návrh
+          template_chooser:
+            select_template: Vyberte šablonu odpovědi
         questionnaire_templates:
           choose:
             create_from_template: Vytvořit ze šablony
@@ -90,4 +97,5 @@ cs:
           update: "%{user_name} aktualizoval šablonu dotazníku %{resource_name}"
       template_types:
         block_user: Blokovat zprávy uživatele
+        proposal_answer_templates: Odpovědi na návrhy
         questionnaires: Dotazníky
