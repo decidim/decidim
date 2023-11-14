@@ -203,7 +203,7 @@ fr:
           attachment_files: Fichiers
           attachments: Documents liés
           categories: Catégories
-          components: Composants
+          components: Fonctionnalités
           info: Information
           moderations: Modérations
           private_users: Utilisateurs privés
@@ -317,8 +317,6 @@ fr:
           index:
             filter:
               all: Tout
-              ceased: Validité terminée
-              not_ceased: Validité en cours
             filter_by: Filtrer par
             search: Rechercher
         content_blocks:
