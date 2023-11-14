@@ -285,11 +285,9 @@ es-MX:
       amendable:
         button: Enmendar %{model_name}
         error: Se ha producido un error al modificar este recurso.
-        help_text: Mejora este %{model_name} modificando su %{amendable_fields}.
         promote_button: Promocionar a %{model_name}
         promote_confirm_text: '¿Seguro que quieres promocionar esta enmienda?'
         promote_help_text: Puedes promocionar esta enmienda y publicarla como una %{model_name} independiente.
-        section_heading: Enmiendas (%{count})
       amendments:
         title:
           one: "%{count} enmienda"
@@ -457,7 +455,6 @@ es-MX:
         one: y %{count} más
         other: y %{count} más
       see_less: "(ver menos)"
-      see_more: "(ver más)"
     components:
       component_order_selector:
         no_content: No hemos podido encontrar ningún contenido con este criterio.
@@ -907,14 +904,12 @@ es-MX:
           add_attachment: Añadir adjunto
           add_file: Añadir archivo
           add_image: Añadir imagen
-          cancel: Cancelar
           edit_image: Editar imagen
           error: '¡Error!'
           file_size_too_large: '¡El archivo es demasiado grande! Peso de archivo máximo: %{megabytes}MB'
           filename: Nombre del archivo
           remove: Eliminar
           replace: Reemplazar
-          save: Guardar
           title: Título
           title_required: '¡Se requiere un título!'
           uploaded: Subido
@@ -1297,7 +1292,6 @@ es-MX:
           proposals: Propuestas
           proposals_explanation: Haz propuestas, apoya las existentes y promueve los cambios que deseas ver.
         footer_sub_hero:
-          footer_sub_hero_body: Construyamos una sociedad más abierta, transparente y colaborativa. <br /> Únete, participa y decide.
           footer_sub_hero_headline: Bienvenido/a a la plataforma participativa %{organization}.
           register: Regístrate
         hero:
@@ -1681,8 +1675,6 @@ es-MX:
         change_my_password: Cambiar mi contraseña
         confirm_new_password: Confirmar la nueva contraseña
         new_password: Contraseña
-        password_help: "%{minimun_characters} caracteres mínimos, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu apodo y tu correo electrónico."
-        password_help_admin: "%{minimun_characters} caracteres como mínimo, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu alias, correo electrónico y antiguas contraseñas."
         title: Cambio de contraseña
       new:
         forgot_your_password: '¿Olvidaste tu contraseña?'
@@ -1945,8 +1937,6 @@ es-MX:
         continue_session: Continuar sesión
         log_out: Salir
         title: '¿Quieres continuar con la sesión?'
-      upload_modal:
-        close_modal: Cerrar ventana
       user_menu:
         account: 'Cuenta de usuario: %{name}'
         admin_dashboard: Tablero de administración
