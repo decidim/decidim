@@ -61,6 +61,7 @@ cs:
           success: Správce byl úspěšně aktualizován.
       dashboard:
         show:
+          admins: Administrátoři
           current_organizations: Aktuální organizace
       default_pages:
         placeholders:
@@ -171,6 +172,7 @@ cs:
             Směrnice style-src omezuje URL, které lze načíst pomocí <style> prvků.
             Decidim přidá "'self' 'unsafe-inline'", ale umožňuje přidat další. Nechte prázdné, pokud si nejste jistí.
         edit:
+          resend_invitation: Znovu odeslat pozvánku
           secondary_hosts_hint: Zadejte každý z nich do nového řádku
         file_upload_settings:
           content_types:
