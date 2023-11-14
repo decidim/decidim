@@ -56,7 +56,7 @@ de:
           fields:
             author: Autor
             body: Haupttext
-            created_at: Hergestellt in
+            created_at: Erstellt am
             official_blog_post: Offizieller Post
             title: Titel
       posts:
