@@ -63,7 +63,6 @@ ro:
         personal_url: URL personal
         position: Poziție
         short_bio: Biografie scurtă
-        twitter_handle: Responsabil Twitter
         user_id: Utilizator
       conference_user_role:
         email: E-mail
@@ -442,7 +441,6 @@ ro:
           invalid: A apărut o problemă la ieşirea din această conferinţă.
           success: Aţi părăsit cu succes conferinţa.
       conference_speaker:
-        go_to_twitter: Mergi la Twitter
         more_info: mai multe informații
         personal_website: Website personal
         show:
