@@ -1,19 +1,13 @@
 # frozen_string_literal: true
 
+require "decidim/seeds"
+
 module Decidim
   module Votings
-    class Seeds
+    class Seeds < Decidim::Seeds
       # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
       def call
         organization = Decidim::Organization.first
-        seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
-
-        banner_image = ActiveStorage::Blob.create_and_upload!(
-          io: File.open(File.join(seeds_root, "city2.jpeg")),
-          filename: "banner_image.jpeg",
-          content_type: "image/jpeg",
-          metadata: nil
-        )
 
         3.times do |n|
           params = {

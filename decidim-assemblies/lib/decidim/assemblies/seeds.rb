@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
+require "decidim/seeds"
+
 module Decidim
   module Assemblies
-    class Seeds
+    class Seeds < Decidim::Seeds
       # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
       def call
         organization = Decidim::Organization.first
-        seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
 
         Decidim::ContentBlock.create(
           organization:,
@@ -14,19 +15,6 @@ module Decidim
           scope_name: :homepage,
           manifest_name: :highlighted_assemblies,
           published_at: Time.current
-        )
-
-        hero_image = ActiveStorage::Blob.create_and_upload!(
-          io: File.open(File.join(seeds_root, "city.jpeg")),
-          filename: "hero_image.jpeg",
-          content_type: "image/jpeg",
-          metadata: nil
-        )
-        banner_image = ActiveStorage::Blob.create_and_upload!(
-          io: File.open(File.join(seeds_root, "city2.jpeg")),
-          filename: "banner_image.jpeg",
-          content_type: "image/jpeg",
-          metadata: nil
         )
 
         2.times do |n|
@@ -140,51 +128,11 @@ module Decidim
 
           [assembly, child].each do |current_assembly|
             current_assembly.add_to_index_as_search_resource
-            attachment_collection = Decidim::AttachmentCollection.create!(
-              name: Decidim::Faker::Localized.word,
-              description: Decidim::Faker::Localized.sentence(word_count: 5),
-              collection_for: current_assembly
-            )
 
-            Decidim::Attachment.create!(
-              title: Decidim::Faker::Localized.sentence(word_count: 2),
-              description: Decidim::Faker::Localized.sentence(word_count: 5),
-              attachment_collection:,
-              attached_to: current_assembly,
-              content_type: "application/pdf",
-              file: ActiveStorage::Blob.create_and_upload!(
-                io: File.open(File.join(seeds_root, "Exampledocument.pdf")),
-                filename: "Exampledocument.pdf",
-                content_type: "application/pdf",
-                metadata: nil
-              ) # Keep after attached_to
-            )
-
-            Decidim::Attachment.create!(
-              title: Decidim::Faker::Localized.sentence(word_count: 2),
-              description: Decidim::Faker::Localized.sentence(word_count: 5),
-              attached_to: current_assembly,
-              content_type: "image/jpeg",
-              file: ActiveStorage::Blob.create_and_upload!(
-                io: File.open(File.join(seeds_root, "city.jpeg")),
-                filename: "city.jpeg",
-                content_type: "image/jpeg",
-                metadata: nil
-              ) # Keep after attached_to
-            )
-
-            Decidim::Attachment.create!(
-              title: Decidim::Faker::Localized.sentence(word_count: 2),
-              description: Decidim::Faker::Localized.sentence(word_count: 5),
-              attached_to: current_assembly,
-              content_type: "application/pdf",
-              file: ActiveStorage::Blob.create_and_upload!(
-                io: File.open(File.join(seeds_root, "Exampledocument.pdf")),
-                filename: "Exampledocument.pdf",
-                content_type: "application/pdf",
-                metadata: nil
-              ) # Keep after attached_to
-            )
+            attachment_collection = create_attachment_collection(collection_for: current_assembly)
+            create_attachment(attached_to: assembly, filename: "Exampledocument.pdf", attachment_collection:)
+            create_attachment(attached_to: assembly, filename: "city.jpeg")
+            create_attachment(attached_to: assembly, filename: "Exampledocument.pdf")
 
             2.times do
               Decidim::Category.create!(
