@@ -139,6 +139,7 @@ pl:
             total_budget: Całkowity budżet
         project:
           fields:
+            scope: Zakres
             title: Tytuł
       order_summary_mailer:
         order_summary:
