@@ -241,8 +241,6 @@ ru:
           index:
             filter:
               all: Все
-              ceased: Срок полномочий истек
-              not_ceased: Срок полномочий не истек
             filter_by: 'Отобрать по признаку:'
             search: Поиск
       assembly_members:
