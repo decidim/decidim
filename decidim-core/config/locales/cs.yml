@@ -22,9 +22,11 @@ cs:
       user:
         about: O nás
         email: Váš email
+        encrypted_password: Heslo
         locale: Jazyk
         name: Vaše jméno
         nickname: Přezdívka
+        old_password: Aktuální heslo
         password: Heslo
         password_confirmation: Potvrzení hesla
         personal_url: Osobní URL
@@ -620,6 +622,8 @@ cs:
           subtitle: Pro dokončení registrace vyplňte prosím následující formulář
           username_help: Veřejné jméno, které se zobrazí ve vašich příspěvcích. S cílem zaručit anonymitu může být jakékoliv jméno.
       registrations:
+        create:
+          error: Vyskytl se problém při vytváření účtu.
         new:
           already_have_an_account?: Máte již účet?
           log_in: Přihlásit
@@ -1332,6 +1336,7 @@ cs:
           proposals: Návrhy
           proposals_explanation: Vytvářejte návrhy, podporujte stávající návrhy a prosazujte změny, které chcete vidět.
         footer_sub_hero:
+          footer_sub_hero_body_html: Vytvořme otevřenější, transparentnější a více spolupracující společnost.<br /> Připojte se, účastněte se a rozhodujte.
           footer_sub_hero_headline: Vítejte na %{organization} participační platformě.
           register: Registrovat
         hero:
@@ -1604,6 +1609,15 @@ cs:
         greetings: Zdravíme<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Dobrý den %{admin},
         subject: Nový uživatel byl nahlášen v %{organization_name}
+    user_update_mailer:
+      notify:
+        body_1: Posíláme vám tuto zprávu, abychom vás informovali o aktualizaci vašeho účtu.
+        body_2: V případě, že jste takovou aktualizaci neprovedli, přihlaste se prosím ke svému účtu a změňte své heslo. Pokud se nemůžete přihlásit, kontaktujte prosím podporu platformy.
+        greetings: Dobrý den,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Dobrý den %{user}
+        main_body: 'Následující podrobnosti byly změněny: %{updates}.'
+        update_fields: "%{updates} a %{last_update}"
+      subject: Váš účet byl aktualizován
     version:
       show:
         back_to_resource: Jít zpět
@@ -1716,6 +1730,7 @@ cs:
         change_my_password: Změňte heslo
         confirm_new_password: Potvrďte nové heslo
         new_password: Nové heslo
+        old_password_help: Chcete-li potvrdit změny vašeho účtu, zadejte prosím své aktuální heslo.
         title: Změna hesla
       new:
         forgot_your_password: Zapomněli jste heslo?
