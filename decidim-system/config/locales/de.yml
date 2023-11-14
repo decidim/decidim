@@ -37,6 +37,9 @@ de:
         confirm_destroy: Möchtest du das wirklich löschen?
         destroy: Löschen
         edit: Bearbeiten
+        new_admin: Neuer Admin
+        new_oauth_application: Neue OAUTH-Anwendung
+        new_organization: Neue Organisation
         save: Speichern
         title: Aktionen
       admins:
@@ -53,9 +56,6 @@ de:
         new:
           create: Erstellen
           title: Neuer Administrator
-        show:
-          destroy: Löschen
-          edit: Bearbeiten
         update:
           error: Beim Aktualisieren dieses Administrators ist ein Fehler aufgetreten.
           success: Admin erfolgreich aktualisiert.
@@ -91,7 +91,7 @@ de:
       models:
         admin:
           fields:
-            created_at: Hergestellt in
+            created_at: Erstellt am
             email: Email
           validations:
             email_uniqueness: ein anderer Administrator mit der gleichen E-Mail existiert bereits
@@ -105,7 +105,7 @@ de:
             save_and_invite: Organisation erstellen & den Admin einladen
           fields:
             content_security_policy: Sicherheitsrichtlinie für Inhalte (Content Security Policy)
-            created_at: Hergestellt in
+            created_at: Erstellt am
             file_upload_settings: Datei-Upload Einstellungen
             name: Name
             omniauth_settings: Omniauth-Einstellungen
@@ -137,7 +137,6 @@ de:
           show: Zeige erweiterte Einstellungen
         create:
           error: Beim Erstellen einer neuen Organisation ist ein Fehler aufgetreten.
-          success: Organisation erfolgreich erstellt
         csp_settings:
           connect_src: Verbindungsvorschriften (connect-src)
           connect_src_hint: |
