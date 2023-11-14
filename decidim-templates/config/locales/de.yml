@@ -12,6 +12,8 @@ de:
         manage: Verwalten
         templates: Vorlagen
       templates:
+        actions:
+          new_template: Neue Vorlage
         apply:
           error: Es gab ein Problem beim Anwenden dieser Vorlage.
           success: Vorlage erfolgreich angewendet.
@@ -54,6 +56,9 @@ de:
             title: Neue Vorlage für Nachricht an zu blockierende Nutzende
           template_chooser:
             select_template: Wählen Sie eine Antwortvorlage aus
+        proposal_answer_templates:
+          form:
+            save: Speichern
         questionnaire_templates:
           choose:
             create_from_template: Aus Vorlage erstellen
