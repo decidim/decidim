@@ -323,6 +323,7 @@ id:
           attendees: Jumlah peserta
           close_meeting: Tutup rapat
           contributions: Kontribusi dihitung
+          date: Tanggal
           meeting_minutes: Risalah Pertemuan
           no_slots_available: Tidak ada slot yang tersedia
           organizations: Menghadiri organisasi
