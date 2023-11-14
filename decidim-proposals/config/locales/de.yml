@@ -457,6 +457,7 @@ de:
               md: Markdown
               odt: ODT
             bottom_hint: "(Sie können Dokumentabschnitte in der Vorschau anzeigen und sortieren.)"
+            document_legend: 'Fügen Sie ein Dokument hinzu, das kleiner als 2MB ist. Für alle Abschnitte (bis 3 Ebenen tief) werden Vorschläge erstellt. Unterstützte Formate sind: %{valid_mime_types}'
             title: DOKUMENT HINZUFÜGEN
             upload_document: Dokument hochladen
           publish:
@@ -525,7 +526,6 @@ de:
             create: Erstellen
             title: Vorschlag erstellen
           publish_answers:
-            number_of_proposals: Die Antworten für %{number} Vorschläge werden veröffentlicht.
             select_a_proposal: Bitte wählen Sie einen Vorschlag.
           show:
             amendments_count: Anzahl der Ergänzungen
@@ -535,7 +535,6 @@ de:
             documents: Unterlagen
             endorsements_count: Anzahl der Befürwortungen
             endorsers: Befürworter
-            link: Verknüpfung
             n_more_endorsers:
               one: und 1 mehr
               other: und %{count} mehr
@@ -736,7 +735,7 @@ de:
             notes: Anmerkungen
             official_proposal: Offizieller Vorschlag
             published_answer: Veröffentlichte Antwort
-            published_at: Veröffentlicht unter
+            published_at: Veröffentlicht am
             scope: Umfang
             state: Zustand
             title: Titel
@@ -763,7 +762,7 @@ de:
           title: Vorschlag vervollständigen
         dynamic_map_instructions:
           description: Die Koordinaten werden aktualisiert, wenn Sie auf "Vorschau" klicken. Die angegebene Adresse wird sich jedoch nicht ändern.
-          instructions: Sie können den Marker auf der Karte verschieben.
+          instructions: Sie können den Punkt auf der Karte verschieben.
         edit:
           add_documents: Dokumente hinzufügen
           attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
