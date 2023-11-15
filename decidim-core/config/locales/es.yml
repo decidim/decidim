@@ -490,6 +490,8 @@ es:
           subtitle: Por favor, rellena el siguiente formulario para completar la inscripción
           username_help: Nombre público que aparece en tus aportaciones. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
       registrations:
+        create:
+          error: Hubo un problema al crear tu cuenta.
         new:
           already_have_an_account?: '¿Ya tienes una cuenta?'
           newsletter: Quiero recibir un boletín ocasional con información relevante
@@ -1126,6 +1128,7 @@ es:
           proposals: Propuestas
           proposals_explanation: Haz propuestas, apoya las existentes y promueve los cambios que deseas ver.
         footer_sub_hero:
+          footer_sub_hero_body: Construyamos una sociedad más abierta, transparente y colaborativa. <br /> Únete, participa y decide.
           footer_sub_hero_headline: Bienvenida a la plataforma participativa %{organization}.
           register: Regístrate
         hero:
