@@ -551,8 +551,10 @@ eu:
         valuation_assignments:
           create:
             invalid: Arazo bat egon da proposamenak ebaluatzaile bati esleitzean.
+            success: Proposamenak zuzen esleituta ebaluatzaileari.
           delete:
             invalid: Arazo bat egon da ebaluatzaile bati proposamenak desesleitzean.
+            success: Proposamenentzako ebaluatzailea zuzen desesleitua.
       admin_log:
         proposal:
           answer: "%{user_name} erabiltzaileak %{resource_name} %{space_name} espazioko proposamenari erantzun dio"
