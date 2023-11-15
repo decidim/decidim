@@ -464,9 +464,11 @@ ca:
         committee_members:
           approve: Aprova
           confirm_approve: Segur que vols afegir aquest membre?
+          confirm_revoke: Segur que vols revocar aquest membre?
           invite_to_committee_help: Comparteix aquest enllaç per convidar altres participants a la comissió promotora.
           link: Enllaç
           no_members_yet: La comissió promotora no té membres.
+          revoke: Revocar
           title: Membres de la comissió
         count:
           title:
