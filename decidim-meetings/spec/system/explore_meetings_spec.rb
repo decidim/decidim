@@ -31,7 +31,7 @@ describe "Explore meetings", :slow, type: :system do
     end
 
     context "when displaying calendar" do
-      let(:component) { create(:meeting_component, participatory_space:) }
+      let(:component) { create(:meeting_component, participatory_space: participatory_space) }
       let(:link) { Decidim::ShortLink.find_by(target_type: "Decidim::Component", target_id: component.id) }
 
       before do
@@ -39,7 +39,7 @@ describe "Explore meetings", :slow, type: :system do
       end
 
       context "when meetings mounted under paraticipatory process" do
-        let(:participatory_space) { create(:participatory_process, organization:) }
+        let(:participatory_space) { create(:participatory_process, organization: organization) }
 
         it "properly saves the shortened link" do
           expect(link.mounted_engine_name).to eq("decidim_participatory_process_meetings")
@@ -47,7 +47,7 @@ describe "Explore meetings", :slow, type: :system do
       end
 
       context "when meetings mounted under assemblies" do
-        let(:participatory_space) { create(:assembly, organization:) }
+        let(:participatory_space) { create(:assembly, organization: organization) }
 
         it "properly saves the shortened link" do
           expect(link.mounted_engine_name).to eq("decidim_assembly_meetings")
