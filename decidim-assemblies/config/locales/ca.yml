@@ -158,11 +158,13 @@ ca:
         destroy:
           success: El membre per a aquesta assemblea s'ha eliminat correctament.
         edit:
+          title: Actualitzar membre de l'assemblea
           update: Actualitza
         index:
           assembly_members_title: Membres de l'assemblea
         new:
           create: Crea
+          title: Nou membre de l'assemblea
         update:
           error: S'ha produït un error en actualitzar el membre d'aquesta assemblea.
           success: Membre actualitzat correctament per a aquesta assemblea.
@@ -180,17 +182,26 @@ ca:
         destroy:
           success: L'administradora s'ha eliminat correctament d'aquesta assemblea.
         edit:
+          title: Actualitzar administradora de l'assemblea
           update: Actualitza
         index:
           assembly_admins_title: Administradores de l'assemblea
         new:
           create: Crea
+          title: Afegir administradora
         update:
           error: S'ha produït un error en actualitzar una administradora per a aquesta assemblea.
           success: L'administradora s'ha actualitzat correctament per a aquesta assemblea.
       filters:
+        ceased_date_not_null:
+          label: Cessada
+          values:
+            'false': No cessada
+            'true': Cessada
         decidim_assemblies_type_id_eq:
           label: Tipus d'assemblea
+        search_placeholder:
+          full_name_or_user_name_or_user_nickname_cont: Cerca per nom o àlies
       menu:
         assemblies: Assemblees
         assemblies_settings: Configuració
