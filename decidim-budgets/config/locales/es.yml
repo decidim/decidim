@@ -21,6 +21,9 @@ es:
         scope_id: Ámbito
   activerecord:
     models:
+      decidim/budgets/budget:
+        one: Presupuesto
+        other: Presupuestos
       decidim/budgets/project:
         one: Proyecto
         other: Proyectos
