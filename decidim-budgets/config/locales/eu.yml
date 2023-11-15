@@ -109,6 +109,8 @@ eu:
           update:
             invalid: Arazo bat egon da proiektu hau eguneratzean.
             success: Proiektua zuzen eguneratua.
+          update_budget:
+            success: 'Proiektuak zuzen eguneratuta %{subject_name} aurrekontuan: %{projects}.'
           update_category:
             invalid: 'Proiektu hauek bazuten %{subject_name}: %{projects} kategoria.'
             select_a_category: Mesedez, hautatu kategoria bat.
