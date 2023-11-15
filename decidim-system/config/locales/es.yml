@@ -238,6 +238,9 @@ es:
           twitter:
             api_key: Clave API
             api_secret: Secreto API
+        resend_invitation:
+          error: Se ha producido un error al volver a enviar la invitación.
+          success: Invitación enviada con éxito.
         smtp_settings:
           fieldsets:
             sender: Remitente
@@ -257,6 +260,8 @@ es:
         notices:
           no_organization_warning_html: Debes crear una organización para comenzar. Asegúrate de leer %{guide} antes de continuar.
           our_getting_started_guide: nuestra guía de inicio
+        organizations_list:
+          confirm_resend_invitation: '¿Seguro que quieres reenviar la invitación?'
       titles:
         dashboard: Panel de administración
         decidim: Decidim
