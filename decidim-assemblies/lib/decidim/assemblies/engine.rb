@@ -51,6 +51,7 @@ module Decidim
       end
 
 
+      initializer "decidim_assemblies.menu" do
         Decidim::Assemblies::Menu.register_engine_menu!
       end
 
