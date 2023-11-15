@@ -22,9 +22,11 @@ es:
       user:
         about: Acerca de
         email: Tu correo electrónico
+        encrypted_password: Contraseña
         locale: Configuración regional
         name: Tu nombre
         nickname: Alias
+        old_password: Contraseña actual
         password: Contraseña
         password_confirmation: Confirma tu contraseña
         personal_url: URL personal
@@ -583,6 +585,8 @@ es:
           subtitle: Por favor, rellena el siguiente formulario para completar la inscripción
           username_help: Nombre público que aparece en tus aportaciones. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
       registrations:
+        create:
+          error: Hubo un problema al crear tu cuenta.
         new:
           already_have_an_account?: '¿Ya tienes una cuenta?'
           log_in: Entra
@@ -1289,6 +1293,7 @@ es:
           proposals: Propuestas
           proposals_explanation: Haz propuestas, apoya las existentes y promueve los cambios que deseas ver.
         footer_sub_hero:
+          footer_sub_hero_body_html: Construyamos una sociedad más abierta, transparente y colaborativa. <br /> Únete, participa y decide.
           footer_sub_hero_headline: Bienvenida a la plataforma participativa %{organization}.
           register: Regístrate
         hero:
@@ -1561,6 +1566,15 @@ es:
         greetings: Saludos,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hola %{admin},
         subject: Una nueva usuaria ha sido reportada en %{organization_name}
+    user_update_mailer:
+      notify:
+        body_1: Recibes este mensaje para informarte de una actualización de tu cuenta.
+        body_2: En caso de que no hayas sido tú quien ha realizado esta actualización, por favor, inicia tu sesión y modifica la contraseña. Si no pudieras iniciar tu sesión, ponte en contacto con el servicio de soporte de la plataforma.
+        greetings: Hola,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hola %{user}
+        main_body: 'Se han modificado los siguientes detalles: %{updates}.'
+        update_fields: "%{updates} y %{last_update}"
+      subject: Se ha actualizado tu cuenta
     version:
       show:
         back_to_resource: Volver atrás
@@ -1672,6 +1686,9 @@ es:
         change_my_password: Cambiar mi contraseña
         confirm_new_password: Confirmar la nueva contraseña
         new_password: Nueva contraseña
+        old_password_help: Para confirmar los cambios en tu cuenta, por favor proporciónanos tu contraseña actual.
+        password_help: "%{minimum_characters} caracteres mínimos, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu alias y tu correo electrónico."
+        password_help_admin: "%{minimum_characters} caracteres como mínimo, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu alias, tu correo electrónico y de tus antiguas contraseñas."
         title: Cambio de contraseña
       new:
         forgot_your_password: '¿Olvidaste tu contraseña?'
