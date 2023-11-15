@@ -14,7 +14,7 @@ module Decidim
       # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
       def call
         admin_user = Decidim::User.find_by(
-          organization: participatory_space.organization,
+          organization:,
           email: "admin@example.org"
         )
 
@@ -90,13 +90,13 @@ module Decidim
 
             coauthor = case n
                        when 0
-                         Decidim::User.where(decidim_organization_id: participatory_space.decidim_organization_id).sample
+                         Decidim::User.where(organization:).sample
                        when 1
-                         Decidim::UserGroup.where(decidim_organization_id: participatory_space.decidim_organization_id).sample
+                         Decidim::UserGroup.where(organization:).sample
                        when 2
                          Decidim::Meetings::Meeting.where(component: meeting_component).sample
                        else
-                         participatory_space.organization
+                         organization
                        end
             proposal.add_coauthor(coauthor)
             proposal.save!
@@ -112,7 +112,7 @@ module Decidim
               password: "decidim123456789",
               name:,
               nickname: ::Faker::Twitter.unique.screen_name,
-              organization: component.organization,
+              organization:,
               tos_agreement: "1",
               confirmed_at: Time.current
             )
@@ -126,7 +126,7 @@ module Decidim
                 phone: ::Faker::PhoneNumber.phone_number,
                 verified_at: Time.current
               },
-              decidim_organization_id: component.organization.id,
+              organization:,
               confirmed_at: Time.current
             )
 
@@ -177,7 +177,7 @@ module Decidim
               password: "decidim123456789",
               name:,
               nickname: ::Faker::Twitter.unique.screen_name,
-              organization: component.organization,
+              organization:,
               tos_agreement: "1",
               confirmed_at: Time.current,
               personal_url: ::Faker::Internet.url,
@@ -198,7 +198,7 @@ module Decidim
                 password: "decidim123456789",
                 name:,
                 nickname: ::Faker::Twitter.unique.screen_name,
-                organization: component.organization,
+                organization:,
                 tos_agreement: "1",
                 confirmed_at: Time.current
               )
@@ -212,7 +212,7 @@ module Decidim
                     phone: ::Faker::PhoneNumber.phone_number,
                     verified_at: Time.current
                   },
-                  decidim_organization_id: component.organization.id,
+                  organization:,
                   confirmed_at: Time.current
                 )
 
@@ -227,7 +227,7 @@ module Decidim
           end
 
           (n % 3).times do
-            author_admin = Decidim::User.where(organization: component.organization, admin: true).all.sample
+            author_admin = Decidim::User.where(organization:, admin: true).all.sample
 
             Decidim::Proposals::ProposalNote.create!(
               proposal:,
@@ -248,7 +248,7 @@ module Decidim
                   else
                     "open"
                   end
-          author = Decidim::User.where(organization: component.organization).all.sample
+          author = Decidim::User.where(organization:).all.sample
 
           draft = Decidim.traceability.perform_action!("create", Decidim::Proposals::CollaborativeDraft, author) do
             draft = Decidim::Proposals::CollaborativeDraft.new(
@@ -267,12 +267,12 @@ module Decidim
 
           case n
           when 2
-            authors = Decidim::User.where(organization: component.organization).all.sample(5)
+            authors = Decidim::User.where(organization:).all.sample(5)
             authors.each do |local_author|
               Decidim::Coauthorship.create(coauthorable: draft, author: local_author)
             end
           when 3
-            author2 = Decidim::User.where(organization: component.organization).all.sample
+            author2 = Decidim::User.where(organization:).all.sample
             Decidim::Coauthorship.create(coauthorable: draft, author: author2)
           end
 
@@ -281,7 +281,7 @@ module Decidim
 
         Decidim.traceability.update!(
           Decidim::Proposals::CollaborativeDraft.all.sample,
-          Decidim::User.where(organization: component.organization).all.sample,
+          Decidim::User.where(organization:).all.sample,
           component:,
           category: participatory_space.categories.sample,
           scope: ::Faker::Boolean.boolean(true_ratio: 0.5) ? global : scopes.sample,
@@ -290,6 +290,10 @@ module Decidim
         )
       end
       # rubocop:enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
+
+      def organization
+        @organization ||= participatory_space.organization
+      end
     end
   end
 end
