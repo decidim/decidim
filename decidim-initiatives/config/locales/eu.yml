@@ -273,6 +273,7 @@ eu:
             update: eguneratzearen
           form:
             authorizations: Baimen-doikuntzak
+            only_global_scope_enabled_help_html: 'Markatu lauki hau "Aktibatu sinadurak azpiesparruaren arabera" gaitu baduzu eta esparru globala esparru nagusi gisa eratu baduzu. Lauki hori gaitzean, ekimenak sortzeko laguntzaileak ez du ekimen-motaren hautaketarik egingo. Konfigurazio horrek nola funtzionatzen duen jakiteko, kontsultatu esteka hau: <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.'
             options: Aukerak
           initiative_type_scopes:
             title: Ekimen motako esparruak
@@ -407,6 +408,8 @@ eu:
       initiative_votes:
         create:
           error: Arazo bat egon da ekimena sinatzean.
+          invalid: Ekimena sinatzeko emandako datuak ez dira baliozkoak.
+          success_html: Zorionak! <strong> %{title}</strong> ekimena ongi sinatu da.
         personal_data:
           invalid: Datu pertsonalak ez dira bat datozen baimenarekin emandako datuak.
         sms_phone:
