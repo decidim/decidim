@@ -11,96 +11,17 @@ module Decidim
         @participatory_space = participatory_space
       end
 
-      # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
+      # rubocop:disable Metrics/CyclomaticComplexity
       def call
         component = create_component!
 
         5.times do |n|
           proposal = create_proposal!(component:)
 
-          if proposal.state.nil?
-            email = "amendment-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{n}-amend#{n}@example.org"
-            name = "#{::Faker::Name.name} #{participatory_space.id} #{n} amend#{n}"
+          emendation = create_emendation!(proposal:) if proposal.state.nil?
 
-            author = Decidim::User.find_or_initialize_by(email:)
-            author.update!(
-              password: "decidim123456789",
-              name:,
-              nickname: ::Faker::Twitter.unique.screen_name,
-              organization:,
-              tos_agreement: "1",
-              confirmed_at: Time.current
-            )
-
-            group = Decidim::UserGroup.create!(
-              name: ::Faker::Name.name,
-              nickname: ::Faker::Twitter.unique.screen_name,
-              email: ::Faker::Internet.email,
-              extended_data: {
-                document_number: ::Faker::Code.isbn,
-                phone: ::Faker::PhoneNumber.phone_number,
-                verified_at: Time.current
-              },
-              organization:,
-              confirmed_at: Time.current
-            )
-
-            Decidim::UserGroupMembership.create!(
-              user: author,
-              role: "creator",
-              user_group: group
-            )
-
-            params = {
-              component:,
-              category: participatory_space.categories.sample,
-              scope: random_scope,
-              title: { en: "#{proposal.title["en"]} #{::Faker::Lorem.sentence(word_count: 1)}" },
-              body: { en: "#{proposal.body["en"]} #{::Faker::Lorem.sentence(word_count: 3)}" },
-              state: "evaluating",
-              answer: nil,
-              answered_at: Time.current,
-              published_at: Time.current
-            }
-
-            emendation = Decidim.traceability.perform_action!(
-              "create",
-              Decidim::Proposals::Proposal,
-              author,
-              visibility: "public-only"
-            ) do
-              emendation = Decidim::Proposals::Proposal.new(params)
-              emendation.add_coauthor(author, user_group: author.user_groups.first)
-              emendation.save!
-              emendation
-            end
-
-            Decidim::Amendment.create!(
-              amender: author,
-              amendable: proposal,
-              emendation:,
-              state: "evaluating"
-            )
-          end
-
-          (n % 3).times do |m|
-            email = "vote-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{n}-#{m}@example.org"
-            name = "#{::Faker::Name.name} #{participatory_space.id} #{n} #{m}"
-
-            author = Decidim::User.find_or_initialize_by(email:)
-            author.update!(
-              password: "decidim123456789",
-              name:,
-              nickname: ::Faker::Twitter.unique.screen_name,
-              organization:,
-              tos_agreement: "1",
-              confirmed_at: Time.current,
-              personal_url: ::Faker::Internet.url,
-              about: ::Faker::Lorem.paragraph(sentence_count: 2)
-            )
-
-            Decidim::Proposals::ProposalVote.create!(proposal:, author:) unless proposal.published_state? && proposal.rejected?
-            Decidim::Proposals::ProposalVote.create!(proposal: emendation, author:) if emendation
+          (n % 3).times do |_m|
+            create_proposal_votes!(proposal:, emendation:)
           end
 
           unless proposal.published_state? && proposal.rejected?
@@ -204,7 +125,7 @@ module Decidim
           body: ::Faker::Lorem.paragraphs(number: 2).join("\n")
         )
       end
-      # rubocop:enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
+      # rubocop:enable Metrics/CyclomaticComplexity
 
       def organization
         @organization ||= participatory_space.organization
@@ -291,6 +212,96 @@ module Decidim
           proposal.save!
           proposal
         end
+      end
+
+      def create_emendation!(proposal:)
+        n = rand(5)
+        email = "amendment-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{n}-amend#{n}@example.org"
+        name = "#{::Faker::Name.name} #{participatory_space.id} #{n} amend#{n}"
+
+        author = Decidim::User.find_or_initialize_by(email:)
+        author.update!(
+          password: "decidim123456789",
+          name:,
+          nickname: ::Faker::Twitter.unique.screen_name,
+          organization:,
+          tos_agreement: "1",
+          confirmed_at: Time.current
+        )
+
+        group = Decidim::UserGroup.create!(
+          name: ::Faker::Name.name,
+          nickname: ::Faker::Twitter.unique.screen_name,
+          email: ::Faker::Internet.email,
+          extended_data: {
+            document_number: ::Faker::Code.isbn,
+            phone: ::Faker::PhoneNumber.phone_number,
+            verified_at: Time.current
+          },
+          organization:,
+          confirmed_at: Time.current
+        )
+
+        Decidim::UserGroupMembership.create!(
+          user: author,
+          role: "creator",
+          user_group: group
+        )
+
+        params = {
+          component: proposal.component,
+          category: participatory_space.categories.sample,
+          scope: random_scope,
+          title: { en: "#{proposal.title["en"]} #{::Faker::Lorem.sentence(word_count: 1)}" },
+          body: { en: "#{proposal.body["en"]} #{::Faker::Lorem.sentence(word_count: 3)}" },
+          state: "evaluating",
+          answer: nil,
+          answered_at: Time.current,
+          published_at: Time.current
+        }
+
+        emendation = Decidim.traceability.perform_action!(
+          "create",
+          Decidim::Proposals::Proposal,
+          author,
+          visibility: "public-only"
+        ) do
+          emendation = Decidim::Proposals::Proposal.new(params)
+          emendation.add_coauthor(author, user_group: author.user_groups.first)
+          emendation.save!
+          emendation
+        end
+
+        Decidim::Amendment.create!(
+          amender: author,
+          amendable: proposal,
+          emendation:,
+          state: "evaluating"
+        )
+
+        emendation
+      end
+
+      def create_proposal_votes!(proposal:, emendation: nil)
+        n = rand(5)
+        m = rand(5)
+        email = "vote-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{n}-#{m}@example.org"
+        name = "#{::Faker::Name.name} #{participatory_space.id} #{n} #{m}"
+
+        author = Decidim::User.find_or_initialize_by(email:)
+        author.update!(
+          password: "decidim123456789",
+          name:,
+          nickname: ::Faker::Twitter.unique.screen_name,
+          organization:,
+          tos_agreement: "1",
+          confirmed_at: Time.current,
+          personal_url: ::Faker::Internet.url,
+          about: ::Faker::Lorem.paragraph(sentence_count: 2)
+        )
+
+        Decidim::Proposals::ProposalVote.create!(proposal:, author:) unless proposal.published_state? && proposal.rejected?
+        Decidim::Proposals::ProposalVote.create!(proposal: emendation, author:) if emendation
       end
 
       def random_scope
