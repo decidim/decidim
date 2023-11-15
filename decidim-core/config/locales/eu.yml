@@ -164,12 +164,14 @@ eu:
       update:
         error: Akats bat gertatu da zure kontua eguneratzean.
         success: Zure kontua zuzen eguneratu da.
+        success_with_email_confirmation: Zure kontua zuzen eguneratu da. Mezu elektroniko bat jasoko duzu zure helbide elektroniko berria baieztatzeko.
     activity:
       time_ago: "duela %{time}"
     admin:
       actions:
         cancel: Utzi
       password_change:
+        alert: Pasahitza aldatu behar duzu aurrera jarraitu ahal izateko.
         notification: Administratzaile rola duten erabiltzaileek pasahitza aldatu behar dute %{days} egunik behin.
     admin_log:
       area:
@@ -303,7 +305,7 @@ eu:
             %{amendable_type} %{amendable_link}
             ren aldaketa hori egilearen arabera kendu da.
       new:
-        amendment_author: Egile aldaketa
+        amendment_author: Zuzenketaren egilea
         send: Sortu
         title: Sortu zuzenketa-zirriborroa
       preview_draft:
@@ -560,7 +562,14 @@ eu:
           buttons:
             check: Egiaztatu eta jarraitu
             uncheck: Mantendu markatu gabe
-          title: Buletina jakinarazpenak
+          notice: |-
+            <p>Kaixo, ziur ez duzula buletin informatiborik jaso nahi?<br>
+            Mesedez, jarraian markatu berriro buletina hautatzeko laukia.<br>
+            Oso garrantzitsua da guretzat noizbehinkako mezu elektronikoak jaso ahal izatea abisu garrantzitsuak egiteko, beti alda dezakezu hori jakinarazpenen konfigurazio-orrian.</p>
+            </p>Laukitxoa markatzen ez baduzu, baliteke informazio garrantzitsua galtzea plataforman parte hartzeko aukera berriei buruz.</p>
+            Oraindik ere buletinak jasotzea saihestu nahi baduzu, ondo baino hobeto ulertzen dugu zure erabakia.</p>
+            </p>Eskerrik asko hau irakurtzeagatik.</p>
+          title: Buletinetako jakinarazpenak
         omniauth_buttons:
           or: Edo
         password_fields:
@@ -641,10 +650,10 @@ eu:
             email_subject: 'Bezte zuzenketa bat honetarako: %{amendable_title}'
             notification_title: 'Beste zuzenketa bat sortu da honetarako: <a href="%{amendable_path}">%{amendable_title}</a>.'
           follower:
-            email_intro: 'Zuzenketa berri bat izan da sortu %{amendable_title}. Orrialde hau ikusi dezakezu:'
+            email_intro: 'Beste zuzenketa bat sortu da honetarako: %{amendable_title}. Orrialde honetatik kusi dezakezu:'
             email_outro: Jakinarazpen hau jaso duzu %{amendable_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-            email_subject: '%{amendable_title}aldaketa'
-            notification_title: Aldaketa berri bat sortu da <a href="%{amendable_path}">%{amendable_title}</a>.
+            email_subject: 'Beste zuzenketa bat honetarako: %{amendable_title}'
+            notification_title: 'Beste zuzenketa bat sortu da honetarako: <a href="%{amendable_path}">%{amendable_title}</a>.'
         amendment_promoted:
           affected_user:
             email_intro: ' %{amendable_title} rako ukatutako zuzenketa bat %{amendable_type} berri gisa argitaratu da. Orrialde honetatik ikus dezakezu:'
@@ -1012,7 +1021,7 @@ eu:
           subject: "%{manager} k mezu berriak bidali ditu %{group} gisa"
         new_conversation:
           greeting: Kaixo, %{recipient}!
-          intro: "%{sender} elkarrizketa berria hasi duzu zurekin. Egin klik hemen ikusteko:"
+          intro: "%{sender} k beste elkarrizketa bat hasi du zurekin. Egin klik hemen ikusteko:"
           outro: Ongi etorri plataformara!
           subject: "%{sender} elkarrizketa bat hasi da zurekin"
         new_group_conversation:
@@ -1031,7 +1040,7 @@ eu:
           greeting: Kaixo, %{recipient}!
           intro: "%{sender} k elkarrizketan mezu berriak argitaratu ditu. Egin klik hemen ikusteko:"
           outro: Ongi etorri plataformara!
-          subject: '%{sender}-tik mezu berriak dituzu'
+          subject: '%{sender} ren mezu berriak dituzu'
       conversations:
         add_conversation_users:
           add_max_users: 'Gehitu erabiltzaileak elkarrizketara: gehienez 9 erabiltzaile'
@@ -1085,6 +1094,7 @@ eu:
     newsletter_mailer:
       newsletter:
         no_reply_notice: Posta elektroniko hori jakinarazpen-helbide batetik bidali zen, eta ezin du posta elektronikorik sartu. Mesedez, ez erantzun mezu honi.
+        note: 'Mezu hau jaso duzu albiste-buletinean harpidetuta zaudelako hemen: %{organization_name}. Ezarpenak aldatu ditzakezu zure <a href="%{link}">jakinarazpen-orrian</a>.'
         unsubscribe: Mezu mota hau jasotzeko ez onartzeko, <a href="%{link}" target="_blank" class="unsubscribe"> Harpidetu</a>.
     newsletter_templates:
       basic_only_text:
@@ -1114,9 +1124,10 @@ eu:
     newsletters_opt_in:
       update:
         error: Arazo bat egon da buletinaren konfigurazioak gordetzean.
+        success: Buletinaren ezarpenak zuzen eguneratuak.
     newsletters_opt_in_mailer:
       notify:
-        body_1: Datu pertsonalen tratamendua eta babesak gero eta garrantzi handiagoa hartzen ari dira guztiontzat. 2018ko maiatzaren 25eko Datuen Babeserako Datu Orokor berriaren (GDPR) datu pertsonalak hobeto kontrolatzen ditu. Horregatik, "OK" behar dugu, %{organization_name}jardueren inguruko informazio garrantzitsua bidaltzen jarraitzeko.
+        body_1: Datu pertsonalen tratamendua eta babesak gero eta garrantzi handiagoa hartzen ari dira guztiontzat. 2018ko maiatzaren 25eko Datuen Babeserako Datu Orokor berriak (GDPR) datu pertsonalak hobeto kontrolatzen ditu. Horregatik, zure adostasuna behar dugu, %{organization_name} jardueren inguruko informazio garrantzitsua bidaltzen jarraitzeko.
         body_2: 'Nola eman dezakezun zure baimena? Egin klik botoi honetan:'
         body_3: Baimen honekin plataformako zerbitzuei buruzko informazioa jasotzen jarraitu ahal izango duzu. Aitzitik, zure baieztapena jasotzen ez badugu, gure mezuak bidaltzeari utziko diogu. Informatuta egon nahi duzula baieztatzen baduzu, edozein unetan ezeztatzeko aukera izango duzu.
         button: Bai, informazio garrantzitsua jasotzen jarraitu nahi dut
@@ -1210,6 +1221,7 @@ eu:
     passwords:
       update:
         error: Arazo bat egon da pasahitza eguneratzean.
+        success: Pasahitza zuzen eguneratua.
     profile:
       deleted: Erabiltzailea ezabatua
     profiles:
@@ -1430,6 +1442,9 @@ eu:
         greetings: Agur, <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Kaixo %{admin},
         subject: Beste erabiltzaile bat erreportatu dute hemen %{organization_name}
+    user_update_mailer:
+      notify:
+        body_2: Zuk zeuk ez baduzu eguneratze hori egin, sartu zure kontuan pasahitza aldatzeko. Ezin baduzu saioa hasi, mesedez, jarri harremanetan plataformaren babeslearekin.
     version:
       show:
         back_to_resource: Atzera joan
@@ -1460,7 +1475,7 @@ eu:
       send_instructions: Jarraibideak azaltzen dituen mezu elektroniko bat jasoko duzu, zure helbide elektronikoa berretsi ahal izateko minutu gutxi barru.
       send_paranoid_instructions: Zure helbide elektronikoa gure datu-basean badago, zure helbide elektronikoa berretsi ahal izateko gutxienez minutu bat jasoko duzu.
     failure:
-      already_authenticated: Saioa hasi zara.
+      already_authenticated: Saioa hasi duzu.
       inactive: Zure kontua ez dago oraindik aktibatuta.
       invalid: '%{authentication_keys} edo pasahitza baliogabea.'
       invited: Gonbidapen bat dago zain, onartu zure kontua sortzerakoan.
@@ -1496,6 +1511,8 @@ eu:
         accept_until: 'Gonbit hau data honetan iraungiko da: %{due_date}.'
         decline: Deuseztatu gonbita
         hello: Kaixo, %{email},
+        ignore: |-
+          Gonbidapena onartu nahi ez baduzu, mesedez, ez egin kasurik mezu elektroniko honi. < br/> Zure kontua ez da sortuko, goiko estekara sartu eta zure erabiltzaile-izena eta pasahitza ezarri arte.
         invited_you_as_admin: "%{invited_by} %{application} administratzaile gisa gonbidatu zaitu. Beheko estekan onartu dezakezu."
         invited_you_as_private_user: "%{invited_by} k egonbidatu zaitu %{application} ko erabiltzaile pribatu gisa. Beheko estekan onartu dezakezu."
         someone_invited_you: Norbaitek %{application} gonbidatu zaitu. Beheko estekan onartu dezakezu.
@@ -1506,11 +1523,13 @@ eu:
         subject: Gonbidatu zaituzte prozesu parte-hartzaile pribatu batean %{organization} erakundean
       password_change:
         greeting: Kaixo %{recipient}!
+        message: Zuregana jotzen dugu jakinarazteko zure pasahitza zuzen aldatu dela.
         subject: Pasahitza aldatu da
       reset_password_instructions:
         action: Aldatu nire pasahitza
         greeting: Kaixo %{recipient}!
         instruction: Norbaitek zure pasahitza aldatzeko esteka eskatu du, eta beheko estekan egin dezakezu.
+        instruction_2: Ez baduzu hori eskatu, ez egin kasurik mezu honi.
         instruction_3: Zure pasahitza ez da aldatuko aurreko estekara sartu eta beste bat sortu arte.
         subject: Berrezarri pasahitzaren argibideak
       unlock_instructions:
@@ -1526,13 +1545,17 @@ eu:
         change_my_password: Aldatu nire pasahitza
         confirm_new_password: Berretsi pasahitz berria
         new_password: Pasahitz berria
+        old_password_help: Zure kontuaren aldaketak baieztatzeko, mesedez eman zure egungo pasahitza.
+        password_help: "%{minimum_characters} gutxieneko karaktereek, ez dute arruntegiak izan behar (adibidez, 123456), zure ezizenaren eta posta elektronikoaren desberdinak izan behar dute."
+        password_help_admin: "%{minimum_characters} gutxieneko karaktereek, ez dute arruntegiak izan behar (adibidez, 123456), zure ezizenaren eta posta elektronikoaren desberdinak izan behar dute, baita zure pasahitz zaharren desberdina ere."
         title: Pasahitza aldatu da
       new:
         forgot_your_password: Zure pasahitza ahaztu duzu?
-        send_me_reset_password_instructions: Bidali berrezarri pasahitzaren argibideak
-      send_instructions: Mezu elektroniko bat jasoko duzu pasahitza berrabiarazteko minutu gutxian.
+        send_me_reset_password_instructions: Bidali pasahitza berrezartzeko argibideak
+      no_token: Ezin zara orrialde honetara sartu pasahitza berrezartzeko posta elektronikotik ez bazatoz. Pasahitza berrezartzeko mezu elektroniko batetik bazatoz, ziurtatu emandako URL osoa erabili duzula.
+      send_instructions: Mezu elektroniko bat jasoko duzu pasahitza berrezartzeko argibideekin minutu gutxian.
       send_paranoid_instructions: Zure helbide elektronikoa gure datu-basean badago, pasahitza berreskuratzeko esteka jasoko duzu helbide elektronikoan minutu gutxitan.
-      updated: Pasahitza ondo aldatu da. Saioa hasi zara.
+      updated: Pasahitza ondo aldatu da. Saioa hasi duzu.
       updated_not_active: Pasahitza ondo aldatu da.
     registrations:
       destroyed: Agur! Zure kontua behar bezala bertan behera utzi da. Laster ikusiko dugu berriro.
@@ -1581,6 +1604,8 @@ eu:
           edit: Editatu
           remove: Kendu
           url: URL-a
+        targets:
+          blank: Beste etiketa bat
       videoEmbed:
         titleLabel: Izenburua
     inputDialog:
@@ -1614,11 +1639,11 @@ eu:
       blank: ezin da hutsik egon
       cannot_be_blank: ezin da hutsik egon
       confirmation: ez dator bat honekin %{attribute}
-      confirmation_period_expired: '%{period}barruan baieztatu behar da, eskatu beste bat'
+      confirmation_period_expired: '%{period} barruan baieztatu behar da, mesedez, eskatu beste bat'
       content_type_allowlist_error: fitxategiaren mota ez da baliozkoa
       cycle_detected: esparru nagusia ezin da izan bere ondorengoetako bat
       empty: ezin da hutsik egon
-      expired: iraungi egin da, eskatu beste bat
+      expired: iraungi egin da; mesedez, eskatu beste bat
       file_size_is_less_than_or_equal_to: fitxategiaren pisuak %{count} izan behar du, edo gutxiago
       invalid_time_zone: ordu-zona ez da baliozkoa
       long_words: luzeegiak diren hitzak ditu (35 karaktere baino gehiago)
@@ -1739,6 +1764,7 @@ eu:
     nickname_included_in_password: zure ezizenaren antzekoegia da
     not_enough_unique_characters: ez da nahikoa karaktere berezirik
     password_not_allowed: ez da onartzen
+    password_repeated: Ezin da erabili pasahitz zaharra
     password_too_common: oso ohikoa da
     password_too_long: luzeegia da
     password_too_short: oso laburra da
