@@ -27,29 +27,7 @@ module Decidim
               create_category!(participatory_space: current_assembly)
             end
 
-            Decidim::AssemblyMember::POSITIONS.each do |position|
-              Decidim::AssemblyMember.create!(
-                full_name: ::Faker::Name.name,
-                gender: ::Faker::Lorem.word,
-                birthday: ::Faker::Date.birthday(min_age: 18, max_age: 65),
-                birthplace: ::Faker::Demographic.demonym,
-                designation_date: ::Faker::Date.between(from: 1.year.ago, to: 1.month.ago),
-                position:,
-                position_other: position == "other" ? ::Faker::Job.position : nil,
-                assembly: current_assembly
-              )
-            end
-
-            Decidim::AssemblyMember.create!(
-              user: current_assembly.organization.users.first,
-              gender: ::Faker::Lorem.word,
-              birthday: ::Faker::Date.birthday(min_age: 18, max_age: 65),
-              birthplace: ::Faker::Demographic.demonym,
-              designation_date: ::Faker::Date.between(from: 1.year.ago, to: 1.month.ago),
-              position: "other",
-              position_other: ::Faker::Job.position,
-              assembly: current_assembly
-            )
+            create_assembly_members!(assembly: current_assembly)
 
             Decidim.component_manifests.each do |manifest|
               manifest.seed!(current_assembly.reload)
@@ -158,6 +136,32 @@ module Decidim
             role:
           )
         end
+      end
+
+      def create_assembly_members!(assembly:)
+        Decidim::AssemblyMember::POSITIONS.each do |position|
+          Decidim::AssemblyMember.create!(
+            full_name: ::Faker::Name.name,
+            gender: ::Faker::Lorem.word,
+            birthday: ::Faker::Date.birthday(min_age: 18, max_age: 65),
+            birthplace: ::Faker::Demographic.demonym,
+            designation_date: ::Faker::Date.between(from: 1.year.ago, to: 1.month.ago),
+            position:,
+            position_other: position == "other" ? ::Faker::Job.position : nil,
+            assembly:
+          )
+        end
+
+        Decidim::AssemblyMember.create!(
+          user: assembly.organization.users.first,
+          gender: ::Faker::Lorem.word,
+          birthday: ::Faker::Date.birthday(min_age: 18, max_age: 65),
+          birthplace: ::Faker::Demographic.demonym,
+          designation_date: ::Faker::Date.between(from: 1.year.ago, to: 1.month.ago),
+          position: "other",
+          position_other: ::Faker::Job.position,
+          assembly:
+        )
       end
     end
   end
