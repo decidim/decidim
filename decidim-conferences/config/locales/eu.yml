@@ -433,9 +433,11 @@ eu:
         create:
           invalid: Arazo bat egon da hitzaldi honetara lotzean.
           success: Konferentzia ondo sartu zara.
+          unauthorized: Hasi behar duzu hitzaldian erregistratu aurretik.
         decline_invitation:
           invalid: Arazo bat egon da gonbidapena ez onartzean.
           success: Gonbidapena ongi egin du.
+          unauthorized: Hasi behar duzu gonbidapenari uko egin aurretik.
         destroy:
           invalid: Arazo bat egon da hitzaldi hau uztean.
           success: Kongresua behar bezala utzi duzu.
@@ -548,7 +550,7 @@ eu:
           email_subject: Biltzarrak "%{resource_title}" okupatutako slotak% %{percentage}baino gehiago dira.
           notification_title: <a href="%{resource_path}">%{resource_title}</a> konferentzia okupatutako slot-ak %{percentage}% baino gehiago dira.
         conference_updated:
-          email_intro: '"%{resource_title}" konferentzia eguneratu da. Bertsio berria irakur dezakezu bere orritik:'
+          email_intro: '"%{resource_title}" hitzaldia eguneratu da. Bertsio berria irakur dezakezu bere orritik:'
           email_outro: Jakinarazpen hau jaso duzu delako "%{resource_title}" konferentzia jarraituz. Aurreko esteka estekan jarrai dezakezu.
           email_subject: '"%{resource_title}" konferentzia eguneratu da'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> konferentzia eguneratu da.
