@@ -36,7 +36,7 @@ module Decidim::Votings
       }
     end
     let(:datum_params_changes) { {} }
-    let(:document_type) { "DNI" }
+    let(:document_type) { "passport" }
     let(:document_number) { "00000001R" }
     let(:birthdate) { Date.civil(1980, 1, 1) }
     let(:postal_code) { "08001" }

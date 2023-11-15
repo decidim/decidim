@@ -365,6 +365,20 @@ en:
           title: Transfer
         'true': 'Yes'
         user_name: User
+      content_blocks:
+        create:
+          error: There was an error while creating the content block.
+          success: Content block successfully created.
+        destroy:
+          error: There was a problem trying to delete this content block.
+          success: Content block successfully deleted.
+        edit:
+          active_content_blocks: Active content blocks
+          add: Add content block
+          destroy_confirmation: Are you sure you want to delete this content block?
+          inactive_content_blocks: Inactive content blocks
+          title: Page contents
+          update: Update
       dashboard:
         pending_moderations:
           anouncement:
@@ -831,13 +845,15 @@ en:
             colors_title: Organization colors
             colors_warning_html: Warning! Changing these colors can break the accessibility contrasts. You can check the contrast of your choosing with <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> or other similar tools.
             explanation: This tool helps you out to choose a color scheme, made up of hues equally spaced around the color wheel, that will be used in the organization's website.
-            header_snippets_help_html: Use this field to add things to the HTML head. The most common use is to integrate third-party services that require some extra JavaScript or CSS. Also, you can use it to add extra meta tags to the HTML. Note that this will only be rendered in public pages, not in the admin section. If the code interacts with external APIs or does not comply with the application security guidelines, it will be necessary to change the Content Security Policy. Read more about <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">on the documentation site</a> .
             legend_html: Main application colors, based on the <a href="https://www.color-meanings.com/triadic-colors/">Triadic algorithm</a>. The <i>secondary</i> color is auto-calculated from the primary color and the saturation you chose.
             saturation: Saturation
             title: Color chooser
             update_suggested_colors: Update suggested colors
           cta_button_path_help_html: 'You can overwrite where the Call To Action button in the homepage links to. Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. The Call To Action button is shown in the homepage between the welcome text and the description. Example: %{url}'
           cta_button_text_help: You can overwrite the Call To Action button text in the homepage for each available language in your organization. If not set, the default value will be used. The Call To Action button is shown in the homepage between the welcome text and the description.
+          header_snippets:
+            header_snippets_help_html: Use this field to add things to the HTML head. The most common use is to integrate third-party services that require some extra JavaScript or CSS. Also, you can use it to add extra meta tags to the HTML. Note that this will only be rendered in public pages, not in the admin section. If the code interacts with external APIs or does not comply with the application security guidelines, it will be necessary to change the Content Security Policy. Read more about <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">on the documentation site</a> .
+            title: HTML header snippets
           homepage_appearance_title: Edit homepage appearance
           homepage_highlighted_content_banner_title: Highligted content banner
           images:
@@ -855,22 +871,6 @@ en:
         form:
           add: Add to whitelist
           title: External domain whitelist
-      organization_homepage:
-        content_blocks:
-          create:
-            error: There was a problem trying to create this content block.
-            success: Content block successfully created.
-          destroy:
-            error: There was a problem trying to delete this content block.
-            success: Content block successfully deleted.
-          edit:
-            update: Update
-        edit:
-          active_content_blocks: Active content blocks
-          add: Add content block
-          destroy_confirmation: Are you sure you want to delete this content block?
-          inactive_content_blocks: Inactive content blocks
-          title: Page contents
       participatory_space_private_users:
         create:
           error: There was a problem adding a private participant for this participatory space.
@@ -988,20 +988,6 @@ en:
       static_pages:
         actions:
           view: View public page
-        content_blocks:
-          active_content_blocks: Active content blocks
-          add: Add content block
-          create:
-            error: There was a problem trying to create this content block.
-            success: Content block successfully created.
-          destroy:
-            error: There was a problem trying to delete this content block.
-            success: Content block successfully deleted.
-          destroy_confirmation: Are you sure you want to delete this content block?
-          edit:
-            update: Update
-          inactive_content_blocks: Inactive content blocks
-          title: Page contents
         create:
           error: There was a problem creating a new page.
           success: Page created successfully.

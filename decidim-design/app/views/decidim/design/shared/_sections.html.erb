@@ -1,0 +1,9 @@
+<% sections.each do |section| %>
+  <section id="<%= section[:id] %>" class="design__section">
+    <%= section_title(section) %>
+    <% section[:contents].each do |content| %>
+      <%= render_content(content) %>
+      <%= render_cell_snippet(content) if content.dig(:cell_snippet, :cell).present? %>
+    <% end %>
+  </section>
+<% end %>

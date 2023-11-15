@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "decidim/components/namer"
+require "decidim/blogs/seeds"
 
 Decidim.register_component(:blogs) do |component|
   component.engine = Decidim::Blogs::Engine
@@ -42,63 +42,6 @@ Decidim.register_component(:blogs) do |component|
   end
 
   component.seeds do |participatory_space|
-    admin_user = Decidim::User.find_by(
-      organization: participatory_space.organization,
-      email: "admin@example.org"
-    )
-
-    step_settings = if participatory_space.allows_steps?
-                      { participatory_space.active_step.id => { comments_enabled: true, comments_blocked: false } }
-                    else
-                      {}
-                    end
-
-    params = {
-      name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :blogs).i18n_name,
-      manifest_name: :blogs,
-      published_at: Time.current,
-      participatory_space:,
-      settings: {
-        vote_limit: 0
-      },
-      step_settings:
-    }
-
-    component = Decidim.traceability.perform_action!(
-      "publish",
-      Decidim::Component,
-      admin_user,
-      visibility: "all"
-    ) do
-      Decidim::Component.create!(params)
-    end
-
-    6.times do |n|
-      author = if n >= 3
-                 Decidim::User.where(organization: component.organization).order(Arel.sql("RANDOM()")).first
-               elsif n <= 1
-                 Decidim::UserGroup.where(organization: component.organization).order(Arel.sql("RANDOM()")).first
-               else
-                 component.organization
-               end
-
-      params = {
-        component:,
-        title: Decidim::Faker::Localized.sentence(word_count: 5),
-        body: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-          Decidim::Faker::Localized.paragraph(sentence_count: 20)
-        end,
-        author:
-      }
-
-      post = Decidim.traceability.create!(
-        Decidim::Blogs::Post,
-        author,
-        params,
-        visibility: "all"
-      )
-
-      Decidim::Comments::Seed.comments_for(post)
-    end
+    Decidim::Blogs::Seeds.new(participatory_space:).call
   end
 end

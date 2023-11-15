@@ -96,6 +96,7 @@ en:
           index:
             actions: Actions
             cancel: Cancel
+            change_budget: Change budget
             change_category: Change category
             change_scope: Change scope
             change_selected: Change selected state
@@ -106,6 +107,7 @@ en:
             selected: Selected
             title: Projects
             update: Update
+            update_budget_button: Update project's budget
             update_scope_button: Update scope
           new:
             create: Create
@@ -113,6 +115,10 @@ en:
           update:
             invalid: There was a problem updating this project.
             success: Project successfully updated.
+          update_budget:
+            invalid: 'These projects already are in the same budget or their budgets are more than the maximum allowed: %{projects}.'
+            select_a_project: Please select a project.
+            success: 'Projects successfully updated to the %{subject_name} budget: %{projects}.'
           update_category:
             invalid: 'These projects already had the %{subject_name} category: %{projects}.'
             select_a_category: Please select a category.
@@ -287,6 +293,7 @@ en:
         select_projects: Select projects
         show:
           budget: Budget
+      prompt: Select budget
       vote_reminder_mailer:
         vote_reminder:
           email_budgets: 'Areas where you have an unfinished vote:'

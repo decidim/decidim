@@ -476,6 +476,7 @@ if Decidim.module_installed? :elections
     config.setup_minimum_hours_before_start = Rails.application.secrets.dig(:elections, :setup_minimum_hours_before_start).presence || 1
     config.start_vote_maximum_hours_before_start = Rails.application.secrets.dig(:elections, :start_vote_maximum_hours_before_start).presence || 6
     config.voter_token_expiration_minutes = Rails.application.secrets.dig(:elections, :voter_token_expiration_minutes).presence || 120
+    config.document_types = Rails.application.secrets.dig(:elections, :document_types).presence || %w(identification_number passport)
   end
 
   Decidim::Votings.configure do |config|
