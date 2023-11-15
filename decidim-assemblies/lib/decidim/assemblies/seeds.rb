@@ -11,27 +11,7 @@ module Decidim
         2.times do |_n|
           assembly = create_assembly!
 
-          # Create users with specific roles
-          Decidim::AssemblyUserRole::ROLES.each do |role|
-            email = "assembly_#{assembly.id}_#{role}@example.org"
-
-            user = Decidim::User.find_or_initialize_by(email:)
-            user.update!(
-              name: ::Faker::Name.name,
-              nickname: ::Faker::Twitter.unique.screen_name,
-              password: "decidim123456789",
-              organization:,
-              confirmed_at: Time.current,
-              locale: I18n.default_locale,
-              tos_agreement: true
-            )
-
-            Decidim::AssemblyUserRole.find_or_create_by!(
-              user:,
-              assembly:,
-              role:
-            )
-          end
+          create_assembly_user_roles!(assembly:)
 
           child = create_assembly!(parent: assembly)
 
@@ -153,6 +133,30 @@ module Decidim
           visibility: "all"
         ) do
           Decidim::Assembly.create!(params)
+        end
+      end
+
+      def create_assembly_user_roles!(assembly:)
+        # Create users with specific roles
+        Decidim::AssemblyUserRole::ROLES.each do |role|
+          email = "assembly_#{assembly.id}_#{role}@example.org"
+
+          user = Decidim::User.find_or_initialize_by(email:)
+          user.update!(
+            name: ::Faker::Name.name,
+            nickname: ::Faker::Twitter.unique.screen_name,
+            password: "decidim123456789",
+            organization:,
+            confirmed_at: Time.current,
+            locale: I18n.default_locale,
+            tos_agreement: true
+          )
+
+          Decidim::AssemblyUserRole.find_or_create_by!(
+            user:,
+            assembly:,
+            role:
+          )
         end
       end
     end
