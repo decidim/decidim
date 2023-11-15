@@ -22,7 +22,7 @@ module Decidim
       target ||= Rails.application
 
       mounted_engine = EngineResolver.new(_routes).mounted_name
-      ShortLink.to(target, mounted_engine, **kwargs).short_url
+      ShortLink.to(target, target.try(:mounted_engine) || mounted_engine, **kwargs).short_url
     end
   end
 end
