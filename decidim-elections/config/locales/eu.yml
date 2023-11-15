@@ -200,6 +200,7 @@ eu:
         mailers:
           trustee_mailer:
             body: "< p>Kaixo %{user_name}, </p><p> %{resource_name}-an sartu zaituzte, konfiantzazko gisa.< p>"
+            subject: Gehitu zaituzte %{resource_name} -ren bermatzaile gisa
         menu:
           trustees: Bermatzaileak
         models:
