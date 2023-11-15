@@ -185,6 +185,8 @@ eu:
         smtp_settings:
           fieldsets:
             sender: Bidaltzailea
+          instructions:
+            from_label: 'Posta elektronikoaren bidaltzailea honako hau izango da: "Erakundearen izena < your-organization@example.org>". Utzi hutsik ''Helbide elektronikoa'' eremua etiketa gisa erabiltzeko.'
           placeholder:
             from_email: zure-erakundea@example.org
             from_label: erakundearen izena
