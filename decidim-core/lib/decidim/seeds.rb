@@ -46,5 +46,15 @@ module Decidim
         metadata: nil
       )
     end
+
+    def create_category!(participatory_space:)
+      Decidim::Category.create!(
+        name: Decidim::Faker::Localized.sentence(word_count: 5),
+        description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+          Decidim::Faker::Localized.paragraph(sentence_count: 3)
+        end,
+        participatory_space:
+      )
+    end
   end
 end

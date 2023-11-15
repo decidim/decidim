@@ -8,7 +8,7 @@ module Decidim
       def call
         create_content_block!
 
-        2.times do |n|
+        2.times do |_n|
           assembly = create_assembly!
 
           # Create users with specific roles
@@ -44,13 +44,7 @@ module Decidim
             create_attachment(attached_to: assembly, filename: "Exampledocument.pdf")
 
             2.times do
-              Decidim::Category.create!(
-                name: Decidim::Faker::Localized.sentence(word_count: 5),
-                description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-                  Decidim::Faker::Localized.paragraph(sentence_count: 3)
-                end,
-                participatory_space: current_assembly
-              )
+              create_category!(participatory_space: current_assembly)
             end
 
             Decidim::AssemblyMember::POSITIONS.each do |position|
