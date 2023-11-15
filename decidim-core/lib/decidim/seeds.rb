@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require "faker"
+require "decidim/faker/internet"
+require "decidim/faker/localized"
 
 module Decidim
   # Base class to be inherited from the different modules' seeds classes
