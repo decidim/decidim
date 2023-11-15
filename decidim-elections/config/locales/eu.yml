@@ -687,8 +687,10 @@ eu:
             title: Editatu boto-paper mota
             update: Eguneratu
           form:
+            code_help: 'Laguntza: kodea erroldaren eta boto-paper motaren arteko lotura da. Erroldako datuak eguneratzean, sarrera bakoitzari kodearekin bat datorren boto-paper mota esleitzen zaio.'
             election: Aukera
             questions: Galderak boto-paper mota honetarako
+            questions_help: 'Laguntza: hautatu bozketako osagaien galderak, boto-paper mota honetarako boto-emaileei aurkezteko.'
           index:
             actions:
               confirm_destroy: Ziur zaude?
@@ -883,6 +885,7 @@ eu:
             invalid: Arazo bat egon da bozketa hau sortzean.
             success: Bozketa zuzen sortua.
           edit:
+            assign_missing_officers: Presidenterik eta/edo administratzailerik gabeko bozketa-guneak daude. Esleitu itzazu bozketa-guneen ataletik.
             update: Eguneratu
           form:
             banner_image: Banner-irudia
@@ -1031,9 +1034,11 @@ eu:
             info_text: Bozketa-guneko bozketaren itxiera.
           sign:
             cancel: Utzi
+            check_box: Berrikusi dut eta bozketaren itxieraren ziurtagiri fisikoaren berdina da
             confirm: Ados, jarraitu
             error: Arazo bat izan da, mesedez, saiatu berriro.
             heading: Botoen zenbaketa - Sinatu itxiera
+            info_text: Jarraitzen baduzu, ezin izango duzu informaziorik aldatu, ekintza hau ezin da desegin.
             submit: Sinatu itxiera
             success: Itxiera zuzen itxi da.
           update:
