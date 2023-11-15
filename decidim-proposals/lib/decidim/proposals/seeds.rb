@@ -29,45 +29,7 @@ module Decidim
 
           Decidim::Comments::Seed.comments_for(proposal)
 
-          #
-          # Collaborative drafts
-          #
-          state = if n > 3
-                    "published"
-                  elsif n > 2
-                    "withdrawn"
-                  else
-                    "open"
-                  end
-          author = Decidim::User.where(organization:).all.sample
-
-          draft = Decidim.traceability.perform_action!("create", Decidim::Proposals::CollaborativeDraft, author) do
-            draft = Decidim::Proposals::CollaborativeDraft.new(
-              component:,
-              category: participatory_space.categories.sample,
-              scope: random_scope,
-              title: ::Faker::Lorem.sentence(word_count: 2),
-              body: ::Faker::Lorem.paragraphs(number: 2).join("\n"),
-              state:,
-              published_at: Time.current
-            )
-            draft.coauthorships.build(author: participatory_space.organization)
-            draft.save!
-            draft
-          end
-
-          case n
-          when 2
-            authors = Decidim::User.where(organization:).all.sample(5)
-            authors.each do |local_author|
-              Decidim::Coauthorship.create(coauthorable: draft, author: local_author)
-            end
-          when 3
-            author2 = Decidim::User.where(organization:).all.sample
-            Decidim::Coauthorship.create(coauthorable: draft, author: author2)
-          end
-
-          Decidim::Comments::Seed.comments_for(draft)
+          create_collaborative_draft!(component:)
         end
 
         Decidim.traceability.update!(
@@ -266,6 +228,46 @@ module Decidim
           author: author_admin,
           body: ::Faker::Lorem.paragraphs(number: 2).join("\n")
         )
+      end
+
+      def create_collaborative_draft!(component:)
+        n = rand(5)
+        state = if n > 3
+                  "published"
+                elsif n > 2
+                  "withdrawn"
+                else
+                  "open"
+                end
+        author = Decidim::User.where(organization:).all.sample
+
+        draft = Decidim.traceability.perform_action!("create", Decidim::Proposals::CollaborativeDraft, author) do
+          draft = Decidim::Proposals::CollaborativeDraft.new(
+            component:,
+            category: participatory_space.categories.sample,
+            scope: random_scope,
+            title: ::Faker::Lorem.sentence(word_count: 2),
+            body: ::Faker::Lorem.paragraphs(number: 2).join("\n"),
+            state:,
+            published_at: Time.current
+          )
+          draft.coauthorships.build(author: participatory_space.organization)
+          draft.save!
+          draft
+        end
+
+        case n
+        when 2
+          authors = Decidim::User.where(organization:).all.sample(5)
+          authors.each do |local_author|
+            Decidim::Coauthorship.create(coauthorable: draft, author: local_author)
+          end
+        when 3
+          author2 = Decidim::User.where(organization:).all.sample
+          Decidim::Coauthorship.create(coauthorable: draft, author: author2)
+        end
+
+        Decidim::Comments::Seed.comments_for(draft)
       end
 
       def random_scope
