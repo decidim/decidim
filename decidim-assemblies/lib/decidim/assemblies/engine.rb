@@ -5,6 +5,7 @@ require "active_support/all"
 
 require "decidim/core"
 require "decidim/assemblies/query_extensions"
+require "decidim/assemblies/menu"
 
 module Decidim
   module Assemblies
@@ -49,24 +50,8 @@ module Decidim
         end
       end
 
-      initializer "decidim_assemblies.menu" do
-        Decidim.menu :menu do |menu|
-          menu.add_item :assemblies,
-                        I18n.t("menu.assemblies", scope: "decidim"),
-                        decidim_assemblies.assemblies_path,
-                        position: 2.2,
-                        if: OrganizationPublishedAssemblies.new(current_organization, current_user).any?,
-                        active: :inclusive
-        end
 
-        Decidim.menu :home_content_block_menu do |menu|
-          menu.add_item :assemblies,
-                        I18n.t("menu.assemblies", scope: "decidim"),
-                        decidim_assemblies.assemblies_path,
-                        position: 20,
-                        if: OrganizationPublishedAssemblies.new(current_organization, current_user).any?,
-                        active: :inclusive
-        end
+        Decidim::Assemblies::Menu.register_engine_menu!
       end
 
       initializer "decidim_assemblies.view_hooks" do
