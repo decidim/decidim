@@ -228,7 +228,7 @@ eu:
             confirm: Ziur zaude?
             confirm_send_to_technical_validation: Ziur zaude?
             discard: Ekimena baztertu
-            export_pdf_signatures: Esportatu sinadurak PDF
+            export_pdf_signatures: Esportatu sinaduren PDF
             export_votes: Esportatu euskarriak
             reject: Ukatu ekimena
             send_to_technical_validation: Bidali baliozkotzeko teknikora
@@ -285,6 +285,7 @@ eu:
             update: eguneratzearen
           form:
             authorizations: Baimen-doikuntzak
+            only_global_scope_enabled_help: 'Markatu lauki hau "Aktibatu sinadurak azpiesparruaren arabera" gaitu baduzu eta esparru globala esparru nagusi gisa eratu baduzu. Lauki hori gaitzean, ekimenak sortzeko laguntzaileak ez du ekimen-motaren hautaketarik egingo. Konfigurazio horrek nola funtzionatzen duen jakiteko, kontsultatu esteka hau: <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.'
             options: Aukerak
             title: Informazio orokorra
           initiative_type_scopes:
