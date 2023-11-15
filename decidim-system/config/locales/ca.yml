@@ -140,6 +140,7 @@ ca:
           success: L'organització s'ha creat correctament.
         edit:
           secondary_hosts_hint: Introdueix cada un d'ells en una nova línia
+          title: Editar l'organització
         file_upload_settings:
           content_types:
             admin_hint: Aquests tipus MIME estan permesos per a pujar-se des del panell d'administració. Les persones administradores han de ser conscients dels riscos en pujar alguns formats de documents, per la qual cosa cal esperar que siguin més cauteloses amb les pujades d'arxius.
