@@ -56,6 +56,7 @@ de:
           create: Erstellen
           title: Neuer Administrator
         show:
+          destroy: Löschen
           edit: Bearbeiten
         update:
           error: Beim Aktualisieren dieses Administrators ist ein Fehler aufgetreten.
