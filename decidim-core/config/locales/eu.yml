@@ -304,6 +304,7 @@ eu:
           withdrawn: |-
             %{amendable_type} %{amendable_link}
             ren aldaketa hori egilearen arabera kendu da.
+      name: Zuzenketa
       new:
         amendment_author: Zuzenketaren egilea
         send: Sortu
@@ -466,6 +467,8 @@ eu:
             dummy_step_translatable_text: Itzul daitekeen adibidearen fasea
     contact: Harremanetarako
     content_blocks:
+      announcement:
+        name: Oharra
       cta:
         name: Irudia, testua eta ekintzaren botoia
       cta_settings_form:
@@ -475,6 +478,8 @@ eu:
         description: Deskribapena
       footer_sub_hero:
         name: Oinaren azpi-heroiaren pankarta
+      global_menu:
+        name: Menu globala
       hero:
         name: Heroi irudia
       hero_settings_form:
@@ -518,9 +523,11 @@ eu:
           name: Atala
           section_content: Edukia
         summary:
+          name: Laburpena
           summary_content: Edukia
         two_pane_section:
           left_column: Ezkerreko zutabea
+          name: Bi zutaberen aukeraketa
           right_column: Eskubiko zutabea
       stats:
         name: Erakundearen estatistikak
@@ -966,6 +973,7 @@ eu:
       all: Jarduera mota guztiak
       index:
         last_activity: Azken jarduerak
+      name: Azken jarduerak
       no_activities_warning: Ez dago sarrerarik ikusgai jarduera mota honetan.
     links:
       invalid_url: URL baliogabea
@@ -1170,6 +1178,7 @@ eu:
         error: Arazo bat egon da zure jakinarazpenen konfigurazioa eguneratzean.
         success: Jakinarazpenen konfigurazioa zuzen eguneratu da.
     offline:
+      name: Konexiorik gabe
       show:
         retry: Saiatu berriro
     open_data:
@@ -1309,6 +1318,7 @@ eu:
       scopes_picker_input:
         select_scope: 'Hautatu esparru bat (gaur egun: %{current})'
     search:
+      name: Bilatu
       results: Bilaketaren emaitzak
       results_found_for_term: '%{count} Bilaketaren emaitzak: "%{term}"'
       term_input_placeholder: Bilatu
