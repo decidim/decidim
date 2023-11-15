@@ -13,11 +13,6 @@ module Decidim
 
       # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
       def call
-        admin_user = Decidim::User.find_by(
-          organization:,
-          email: "admin@example.org"
-        )
-
         step_settings = if participatory_space.allows_steps?
                           { participatory_space.active_step.id => { votes_enabled: true, votes_blocked: false, creation_enabled: true } }
                         else
@@ -294,6 +289,8 @@ module Decidim
       def organization
         @organization ||= participatory_space.organization
       end
+
+      def admin_user = Decidim::User.find_by(organization:, email: "admin@example.org")
     end
   end
 end
