@@ -464,9 +464,11 @@ es:
         committee_members:
           approve: Aprobar
           confirm_approve: '¿Seguro que quieres añadir este miembro?'
+          confirm_revoke: '¿Seguro que quieres revocar este miembro?'
           invite_to_committee_help: Comparte este enlace para invitar a otras participantes a la comisión promotora.
           link: Enlace
           no_members_yet: La comisión promotora no tiene miembros.
+          revoke: Revocar
           title: Miembros del comité
         count:
           title:
