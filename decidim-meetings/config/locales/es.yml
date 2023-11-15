@@ -22,6 +22,7 @@ es:
         id: ID
         iframe_access_level: Visualización de la sala videoconferencia
         iframe_embed_type: Visualización de la sala de videoconferencia
+        iframe_embed_type_html: Sólo unos pocos servicios permiten "Incrustar en la página de reunión" o "Abrir en la página del evento en directo". Tenga en cuenta que con la opción "Incrustar en la página de reunión" en teléfonos móviles, ya que la pantalla hereda diferentes dimensiones, en realidad funcionará como una "Abrir en la página del evento en directo".
         location: Ubicación
         location_hints: Detalles de ubicación
         online_meeting_url: URL del encuentro online
@@ -312,6 +313,7 @@ es:
           form:
             address_help: 'Dirección: usada por Geocoder para encontrar la ubicación'
             disclaimer: 'Descargo de responsabilidad: Mediante el uso de un sistema de inscripción externo, aceptas que las organizadoras de %{organization} no son responsables de los datos proporcionados por las usuarias en el servicio externo.'
+            iframe_embed_type_html: 'Solo unos pocos servicios permiten ser incrustados en encuentros o eventos en directo desde los siguientes dominios: %{domains}'
             location_help: 'Ubicación: mensaje dirigido a las participantes indicando el lugar donde reunirse'
             location_hints_help: 'Consejos de ubicación: información adicional. Ejemplo: la planta del edificio si se trata de un encuentro presencial, o la contraseña de la sala si se trata de un encuentro online con acceso restringido.'
             online_meeting_url_help: 'Enlace: permitir a las participantes conectarse directamente a tu encuentro'
@@ -494,6 +496,7 @@ es:
           available_slots_help: Déjalo a 0 si tienes espacio ilimitado disponible
           create_as: Crear encuentro como
           disclaimer: 'Descargo de responsabilidad: Mediante el uso de un sistema de inscripción externo, aceptas que las organizadoras de %{organization} no son responsables de los datos proporcionados por las usuarias en el servicio externo.'
+          iframe_embed_type_html: 'Solo unos pocos servicios permiten ser incrustados en encuentros o eventos en directo desde los siguientes dominios: %{domains}'
           location_help: 'Ubicación: mensaje dirigido a las participantes indicando el lugar donde reunirse'
           location_hints_help: 'Consejos de ubicación: información adicional. Ejemplo: la planta del edificio si se trata de un encuentro presencial, o la contraseña de la sala si se trata de un encuentro online con acceso restringido.'
           online_meeting_url_help: 'Enlace: permitir a las participantes conectarse directamente a tu encuentro'
