@@ -131,6 +131,7 @@ eu:
         weight: Kokapenaren hurrenkera
       static_page_topic:
         description: Deskribapena
+        name: Gaiaren izena
         show_in_footer: Erakutsi orri-oinean
         title: Izenburua
         weight: Kokapenaren hurrenkera
