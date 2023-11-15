@@ -560,7 +560,7 @@ eu:
     doorkeeper:
       authorizations:
         new:
-          authorize: Baimena eskatu
+          authorize: Aplikazioa baimentzen du
           by_organization_link_html: <small class="heading-small"> %{link}</small>
           cancel: Utzi
           connect_your_account_html: Konektatu kontua <strong>%{organization}</strong>-n sartzean
@@ -1376,6 +1376,8 @@ eu:
         close_modal: Itxi leihoa
         please_sign_in: Mesedez, erregistratu
         sign_up: Erregistratu
+      mentions_modal:
+        remove_recipient: Kendu %{name} hartzailea
       participatory_space_filters:
         filters:
           areas: Arloak
