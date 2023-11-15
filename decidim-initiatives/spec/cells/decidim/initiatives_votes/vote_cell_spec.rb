@@ -5,6 +5,8 @@ require "spec_helper"
 describe Decidim::InitiativesVotes::VoteCell, type: :cell do
   subject { cell("decidim/initiatives_votes/vote", vote).call }
 
+  include Decidim::SanitizeHelper
+
   controller Decidim::PagesController
 
   let(:vote) do
@@ -23,10 +25,9 @@ describe Decidim::InitiativesVotes::VoteCell, type: :cell do
   end
 
   context "when rendering" do
-    it "shows title and identifier of initiative" do
-      expect(vote.initiative.title["en"]).to eq(translated(vote.initiative.title, locale: :en))
-      expect(subject.to_s).to include(vote.initiative.title["en"])
-      expect(subject.to_s).to include(translated(vote.initiative.title, locale: :en))
+    it "shows title and reference of initiative" do
+      expect(subject.to_s).to include(vote.initiative.reference)
+      expect(subject.to_s).to include(decidim_sanitize(translated(vote.initiative.title)))
     end
 
     it "shows decrypted data" do
