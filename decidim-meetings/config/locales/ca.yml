@@ -22,6 +22,7 @@ ca:
         id: ID
         iframe_access_level: Visualització de la sala de videoconferència
         iframe_embed_type: Visualització de la sala de videoconferència
+        iframe_embed_type_html: Tan sols alguns serveis permeten "Incrustar a la pàgina de la trobada" o "Obrir a la pàgina de l'esdevenimet en directe". Tingues en compte que amb l'opció de "Inscrustar a la pàgina de la trobada" als telèfons mòbils, com la pantalla hereta diferents dimensions, en realitat funcionarà com "Obrir a la pàgina de l'esdevenimet en directe".
         location: Ubicació
         location_hints: Detalls d'ubicació
         online_meeting_url: URL de trobada en línia
@@ -312,6 +313,7 @@ ca:
           form:
             address_help: 'Adreça: que farà servir per Geocoder per a trobar la localització'
             disclaimer: 'Descàrrec de responsabilitat: en utilitzar un sistema d''inscripcions extern, ets conscient que les organitzadores de %{organization} no són responsables de les dades proporcionades per les usuàries al servei extern.'
+            iframe_embed_type_html: 'Només uns quants serveis es poden incrustar a una trobada o esdeveniment en directe des dels següents dominis: %{domains}'
             location_help: 'Localització: missatge dirigit a les participants indicant el lloc on trobar-se'
             location_hints_help: 'Detalls d''ubicació: informació addicional. Exemple: la planta de l''edifici si es tracta d''una reunió presencial, o la contrasenya de la reunió si es tracta d''una reunió en línia amb accés restringit.'
             online_meeting_url_help: 'Enllaç: permetre que les participants es connectin directament a la teva trobada'
@@ -494,6 +496,7 @@ ca:
           available_slots_help: Deixa-ho a 0 si les places disponibles són il·limitades
           create_as: Crear trobada com a
           disclaimer: 'Descàrrec de responsabilitat: en utilitzar un sistema d''inscripcions extern, ets conscient que les organitzadores de %{organization} no són responsables de les dades proporcionades per les usuàries al servei extern.'
+          iframe_embed_type_html: 'Només uns quants serveis es poden incrustar a una trobada o esdeveniment en directe des dels següents dominis: %{domains}'
           location_help: 'Localització: missatge dirigit a les participants indicant el lloc on trobar-se'
           location_hints_help: 'Detalls d''ubicació: informació addicional. Exemple: la planta de l''edifici si es tracta d''una reunió presencial, o la contrasenya de la reunió si es tracta d''una reunió en línia amb accés restringit.'
           online_meeting_url_help: 'Enllaç: permetre que les participants es connectin directament a la teva trobada'
