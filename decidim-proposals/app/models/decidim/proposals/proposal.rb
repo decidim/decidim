@@ -210,10 +210,18 @@ module Decidim
         published_at.present?
       end
 
+      def customized_proposal_state
+        return amendment.state if emendation?
+        return nil unless published_state? || withdrawn?
+
+        proposal_state&.token
+      end
+
       # Public: Returns the published state of the proposal.
       #
       # Returns Boolean.
       def state
+        raise "Method deprecated use customized_proposal_#{__method__}"
         return amendment.state if emendation?
         return nil unless published_state? || withdrawn?
 
@@ -223,10 +231,17 @@ module Decidim
       # This is only used to define the setter, as the getter will be overriden below.
       alias_attribute :internal_state, :state
 
+      def customized_proposal_internal_state
+        return amendment.state if emendation?
+
+        proposal_state&.token
+      end
+
       # Public: Returns the internal state of the proposal.
       #
       # Returns Boolean.
       def internal_state
+        raise "Method deprecated use customized_proposal_#{__method__}"
         return amendment.state if emendation?
 
         proposal_state&.token
