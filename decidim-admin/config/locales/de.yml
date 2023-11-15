@@ -821,6 +821,10 @@ de:
         form:
           add: Zur Whitelist hinzufügen
           title: Externe Domain-Whitelist
+      organization_homepage:
+        edit:
+          active_content_blocks: Aktive Inhaltsblöcke
+          inactive_content_blocks: Inaktive Inhaltsblöcke
       organization_homepage_content_blocks:
         edit:
           update: Aktualisieren
@@ -934,7 +938,7 @@ de:
           none: Keiner
           slug_help: 'Verwenden Sie hier Teilpfade, nicht die vollständige URL. Buchstaben, Zahlen, Bindestriche und Schrägstriche sind erlaubt; an der ersten Stelle ist ein Buchstabe erforderlich. Beispiel: %{url}'
         index:
-          last_notable_change: Letzte bemerkenswerte Änderung
+          last_notable_change: Letzte signifikante Änderung
         new:
           create: Seite erstellen
           title: Neue Seite
