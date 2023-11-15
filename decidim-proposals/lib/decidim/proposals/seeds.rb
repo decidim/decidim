@@ -13,32 +13,7 @@ module Decidim
 
       # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
       def call
-        step_settings = if participatory_space.allows_steps?
-                          { participatory_space.active_step.id => { votes_enabled: true, votes_blocked: false, creation_enabled: true } }
-                        else
-                          {}
-                        end
-
-        params = {
-          name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :proposals).i18n_name,
-          manifest_name: :proposals,
-          published_at: Time.current,
-          participatory_space:,
-          settings: {
-            vote_limit: 0,
-            collaborative_drafts_enabled: true
-          },
-          step_settings:
-        }
-
-        component = Decidim.traceability.perform_action!(
-          "publish",
-          Decidim::Component,
-          admin_user,
-          visibility: "all"
-        ) do
-          Decidim::Component.create!(params)
-        end
+        component = create_component!
 
         if participatory_space.scope
           scopes = participatory_space.scope.descendants
@@ -291,6 +266,35 @@ module Decidim
       end
 
       def admin_user = Decidim::User.find_by(organization:, email: "admin@example.org")
+
+      def create_component!
+        step_settings = if participatory_space.allows_steps?
+                          { participatory_space.active_step.id => { votes_enabled: true, votes_blocked: false, creation_enabled: true } }
+                        else
+                          {}
+                        end
+
+        params = {
+          name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :proposals).i18n_name,
+          manifest_name: :proposals,
+          published_at: Time.current,
+          participatory_space:,
+          settings: {
+            vote_limit: 0,
+            collaborative_drafts_enabled: true
+          },
+          step_settings:
+        }
+
+        Decidim.traceability.perform_action!(
+          "publish",
+          Decidim::Component,
+          admin_user,
+          visibility: "all"
+        ) do
+          Decidim::Component.create!(params)
+        end
+      end
     end
   end
 end
