@@ -15,63 +15,8 @@ module Decidim
       def call
         component = create_component!
 
-        if participatory_space.scope
-          scopes = participatory_space.scope.descendants
-          global = participatory_space.scope
-        else
-          scopes = participatory_space.organization.scopes
-          global = nil
-        end
-
         5.times do |n|
-          state, answer, state_published_at = if n > 3
-                                                ["accepted", Decidim::Faker::Localized.sentence(word_count: 10), Time.current]
-                                              elsif n > 2
-                                                ["rejected", nil, Time.current]
-                                              elsif n > 1
-                                                ["evaluating", nil, Time.current]
-                                              elsif n.positive?
-                                                ["accepted", Decidim::Faker::Localized.sentence(word_count: 10), nil]
-                                              else
-                                                ["not_answered", nil, nil]
-                                              end
-
-          params = {
-            component:,
-            category: participatory_space.categories.sample,
-            scope: ::Faker::Boolean.boolean(true_ratio: 0.5) ? global : scopes.sample,
-            title: { en: ::Faker::Lorem.sentence(word_count: 2) },
-            body: { en: ::Faker::Lorem.paragraphs(number: 2).join("\n") },
-            state:,
-            answer:,
-            answered_at: state.present? ? Time.current : nil,
-            state_published_at:,
-            published_at: Time.current
-          }
-
-          proposal = Decidim.traceability.perform_action!(
-            "publish",
-            Decidim::Proposals::Proposal,
-            admin_user,
-            visibility: "all"
-          ) do
-            proposal = Decidim::Proposals::Proposal.new(params)
-            meeting_component = participatory_space.components.find_by(manifest_name: "meetings")
-
-            coauthor = case n
-                       when 0
-                         Decidim::User.where(organization:).sample
-                       when 1
-                         Decidim::UserGroup.where(organization:).sample
-                       when 2
-                         Decidim::Meetings::Meeting.where(component: meeting_component).sample
-                       else
-                         organization
-                       end
-            proposal.add_coauthor(coauthor)
-            proposal.save!
-            proposal
-          end
+          proposal = create_proposal!(component:)
 
           if proposal.state.nil?
             email = "amendment-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{n}-amend#{n}@example.org"
@@ -294,6 +239,70 @@ module Decidim
         ) do
           Decidim::Component.create!(params)
         end
+      end
+
+      def create_proposal!(component:)
+        n = rand(5)
+        state, answer, state_published_at = if n > 3
+                                              ["accepted", Decidim::Faker::Localized.sentence(word_count: 10), Time.current]
+                                            elsif n > 2
+                                              ["rejected", nil, Time.current]
+                                            elsif n > 1
+                                              ["evaluating", nil, Time.current]
+                                            elsif n.positive?
+                                              ["accepted", Decidim::Faker::Localized.sentence(word_count: 10), nil]
+                                            else
+                                              ["not_answered", nil, nil]
+                                            end
+
+        params = {
+          component:,
+          category: participatory_space.categories.sample,
+          scope: random_scope,
+          title: { en: ::Faker::Lorem.sentence(word_count: 2) },
+          body: { en: ::Faker::Lorem.paragraphs(number: 2).join("\n") },
+          state:,
+          answer:,
+          answered_at: state.present? ? Time.current : nil,
+          state_published_at:,
+          published_at: Time.current
+        }
+
+        proposal = Decidim.traceability.perform_action!(
+          "publish",
+          Decidim::Proposals::Proposal,
+          admin_user,
+          visibility: "all"
+        ) do
+          proposal = Decidim::Proposals::Proposal.new(params)
+          meeting_component = participatory_space.components.find_by(manifest_name: "meetings")
+
+          coauthor = case n
+                     when 0
+                       Decidim::User.where(organization:).sample
+                     when 1
+                       Decidim::UserGroup.where(organization:).sample
+                     when 2
+                       Decidim::Meetings::Meeting.where(component: meeting_component).sample
+                     else
+                       organization
+                     end
+          proposal.add_coauthor(coauthor)
+          proposal.save!
+          proposal
+        end
+      end
+
+      def random_scope
+        if participatory_space.scope
+          scopes = participatory_space.scope.descendants
+          global = participatory_space.scope
+        else
+          scopes = participatory_space.organization.scopes
+          global = nil
+        end
+
+        ::Faker::Boolean.boolean(true_ratio: 0.5) ? global : scopes.sample
       end
     end
   end
