@@ -228,7 +228,7 @@ eu:
             confirm: Ziur zaude?
             confirm_send_to_technical_validation: Ziur zaude?
             discard: Ekimena baztertu
-            export_pdf_signatures: Esportatu sinadurak PDF
+            export_pdf_signatures: Esportatu sinaduren PDF
             export_votes: Esportatu euskarriak
             reject: Ukatu ekimena
             send_to_technical_validation: Bidali baliozkotzeko teknikora
