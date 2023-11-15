@@ -52,7 +52,8 @@ module Decidim
 
 
       initializer "decidim_assemblies.menu" do
-        Decidim::Assemblies::Menu.register_engine_menu!
+        Decidim::Assemblies::Menu.register_engine_assemblies_menu!
+        Decidim::Assemblies::Menu.register_engine_home_content_block_menu!
       end
 
       initializer "decidim_assemblies.view_hooks" do

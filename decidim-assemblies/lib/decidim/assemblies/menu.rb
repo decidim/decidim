@@ -5,7 +5,7 @@ require "decidim/seeds"
 module Decidim
   module Assemblies
     class Menu
-      def self.register_engine_menu!
+      def self.register_engine_assemblies_menu!
         Decidim.menu :menu do |menu|
           menu.add_item :assemblies,
                         I18n.t("menu.assemblies", scope: "decidim"),
@@ -14,7 +14,9 @@ module Decidim
                         if: OrganizationPublishedAssemblies.new(current_organization, current_user).any?,
                         active: :inclusive
         end
+      end
 
+      def self.register_engine_home_content_block_menu!
         Decidim.menu :home_content_block_menu do |menu|
           menu.add_item :assemblies,
                         I18n.t("menu.assemblies", scope: "decidim"),
