@@ -1,10 +1,10 @@
 <% content_for :breadcrumb_context_menu do %>
   <div class="inline-block relative">
-    <%= button_tag data: { component: "dropdown", target: "assemblies-dropdown-menu-settings" }, class: "dropdown__trigger button button__transparent" do %>
+    <%= button_tag data: { component: "dropdown", target: "initiatives-dropdown-menu-settings" }, class: "dropdown__trigger button button__transparent" do %>
       <%= t("actions.manage", scope: "decidim.admin") %>
       <%= icon "arrow-down-s-line" %>
     <% end %>
-    <div id="assemblies-dropdown-menu-settings" aria-hidden="true">
+    <div id="initiatives-dropdown-menu-settings" aria-hidden="true">
       <ul class="dropdown dropdown__bottom">
         <li class="dropdown__item">
           <% if allowed_to?(:index, :initiative) %>
