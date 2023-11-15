@@ -1448,7 +1448,7 @@ eu:
         submit_button: Gonbidapena bidali
       no_invitations_remaining: Ez da gonbidapenik geratzen
       send_instructions: Gonbidapen mezu bat bidali da %{email}.
-      updated: Pasahitza ondo ezarri da. Saioa hasi zara.
+      updated: Pasahitza ondo ezarri da. Saioa hasi duzu.
       updated_not_active: Pasahitza ondo ezarri da.
     mailer:
       confirmation_instructions:
@@ -1490,8 +1490,8 @@ eu:
         action: Aldatu nire pasahitza
         greeting: Kaixo %{recipient}!
         instruction: Norbaitek zure pasahitza aldatzeko esteka eskatu du, eta beheko estekan egin dezakezu.
-        instruction_2: Ez baduzu eskatu, mesedez jaramonik egin mezu hau.
-        instruction_3: Pasahitza ez da aldatuko goiko estekan sartzeko eta beste bat sortu arte.
+        instruction_2: Ez baduzu eskatu, ez egin kasurik mezu elektroniko honi.
+        instruction_3: Pasahitza ez da aldatuko goiko estekan sartu eta beste bat sortu arte.
         subject: Berrezarri pasahitzaren argibideak
       unlock_instructions:
         action: Desblokeatu nire kontua
@@ -1512,7 +1512,7 @@ eu:
       new:
         forgot_your_password: Zure pasahitza ahaztu duzu?
         send_me_reset_password_instructions: Bidali berrezarri pasahitzaren argibideak
-      no_token: Ezin duzu orrialde honetara sartu pasahitza berrezartzeko posta elektronikotik etorri gabe. Pasahitza berrezartzeko mezu elektroniko batetik etorri bazara, ziurtatu emandako URL osoa erabili duzula.
+      no_token: Ezin zara orrialde honetara sartu pasahitza berrezartzeko posta elektronikotik ez bazatoz. Pasahitza berrezartzeko mezu elektroniko batetik bazatoz, ziurtatu emandako URL osoa erabili duzula.
       send_instructions: Mezu elektroniko bat jasoko duzu pasahitza berrabiarazteko minutu gutxian.
       send_paranoid_instructions: Zure helbide elektronikoa gure datu-basean badago, pasahitza berreskuratzeko esteka jasoko duzu helbide elektronikoan minutu gutxitan.
       updated: Pasahitza ondo aldatu da. Saioa hasi zara.
