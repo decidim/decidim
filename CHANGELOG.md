@@ -2,6 +2,16 @@
 
 ## Unreleased
 
+### Upgrade notes
+
+We have identified that some of the short links for components are not working properly. We have added a new task that helps you fix the short links for components.
+
+```bash
+bundle exec rails decidim:upgrade:fix_short_urls
+```
+
+You can see more details about this change on PR [\#12004](https://github.com/decidim/decidim/pull/12004)
+
 ### Added
 
 Nothing.
