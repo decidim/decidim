@@ -4,7 +4,7 @@
       <%= t("actions.manage", scope: "decidim.admin") %>
       <%= icon "arrow-down-s-line" %>
     <% end %>
-    <div id="assemblies-dropdown-menu-settings">
+    <div id="assemblies-dropdown-menu-settings" aria-hidden="true">
       <ul class="dropdown dropdown__bottom">
         <li class="dropdown__item">
           <% if allowed_to?(:index, :initiative) %>
