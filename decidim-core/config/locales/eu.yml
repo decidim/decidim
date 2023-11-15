@@ -22,9 +22,11 @@ eu:
       user:
         about: Honi buruz
         email: Zure helbide elektronikoa
+        encrypted_password: Pasahitza
         locale: Tokikoa
         name: Zure izena
         nickname: Ezizena
+        old_password: Egungo pasahitza
         password: Pasahitza
         password_confirmation: Berretsi pasahitza
         personal_url: URL pertsonala
@@ -1478,7 +1480,7 @@ eu:
         submit_button: Gonbidapena bidali
       no_invitations_remaining: Ez da gonbidapenik geratzen
       send_instructions: Gonbidapen mezu bat bidali da %{email}.
-      updated: Pasahitza ondo ezarri da. Saioa hasi zara.
+      updated: Pasahitza ondo ezarri da. Saioa hasi duzu.
       updated_not_active: Pasahitza ondo ezarri da.
     mailer:
       confirmation_instructions:
