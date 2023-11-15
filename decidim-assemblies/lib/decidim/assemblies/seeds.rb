@@ -18,10 +18,7 @@ module Decidim
           [assembly, child].each do |current_assembly|
             current_assembly.add_to_index_as_search_resource
 
-            attachment_collection = create_attachment_collection(collection_for: current_assembly)
-            create_attachment(attached_to: assembly, filename: "Exampledocument.pdf", attachment_collection:)
-            create_attachment(attached_to: assembly, filename: "city.jpeg")
-            create_attachment(attached_to: assembly, filename: "Exampledocument.pdf")
+            create_attachments!(attached_to: current_assembly)
 
             2.times do
               create_category!(participatory_space: current_assembly)
