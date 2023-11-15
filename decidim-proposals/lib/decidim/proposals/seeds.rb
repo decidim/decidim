@@ -11,7 +11,6 @@ module Decidim
         @participatory_space = participatory_space
       end
 
-      # rubocop:disable Metrics/CyclomaticComplexity
       def call
         component = create_component!
 
@@ -25,13 +24,7 @@ module Decidim
           end
 
           (n % 3).times do
-            author_admin = Decidim::User.where(organization:, admin: true).all.sample
-
-            Decidim::Proposals::ProposalNote.create!(
-              proposal:,
-              author: author_admin,
-              body: ::Faker::Lorem.paragraphs(number: 2).join("\n")
-            )
+            create_proposal_notes!(proposal:)
           end
 
           Decidim::Comments::Seed.comments_for(proposal)
@@ -87,7 +80,6 @@ module Decidim
           body: ::Faker::Lorem.paragraphs(number: 2).join("\n")
         )
       end
-      # rubocop:enable Metrics/CyclomaticComplexity
 
       def organization
         @organization ||= participatory_space.organization
@@ -264,6 +256,16 @@ module Decidim
 
         Decidim::Proposals::ProposalVote.create!(proposal:, author:) unless proposal.published_state? && proposal.rejected?
         Decidim::Proposals::ProposalVote.create!(proposal: emendation, author:) if emendation
+      end
+
+      def create_proposal_notes!(proposal:)
+        author_admin = Decidim::User.where(organization:, admin: true).all.sample
+
+        Decidim::Proposals::ProposalNote.create!(
+          proposal:,
+          author: author_admin,
+          body: ::Faker::Lorem.paragraphs(number: 2).join("\n")
+        )
       end
 
       def random_scope
