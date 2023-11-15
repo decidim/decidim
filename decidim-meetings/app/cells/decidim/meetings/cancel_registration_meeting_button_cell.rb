@@ -27,7 +27,7 @@ module Decidim
       end
 
       def icon_name
-        resource_type_icon_key("Decidim::Meetings::Meeting")
+        "calendar-close-line"
       end
 
       def registration_form
