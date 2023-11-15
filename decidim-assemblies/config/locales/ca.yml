@@ -317,6 +317,8 @@ ca:
           index:
             filter:
               all: Totes
+              ceased: Cessada
+              not_ceased: No cessada
             filter_by: Filtra per
             search: Cerca
         content_blocks:
