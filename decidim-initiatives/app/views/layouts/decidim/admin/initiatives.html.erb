@@ -1,6 +1,6 @@
 <% content_for :breadcrumb_context_menu do %>
   <div class="inline-block relative">
-    <%= button_tag id: "assemblies-menu-trigger", data: { component: "dropdown", target: "assemblies-dropdown-menu-settings" }, class: "dropdown__trigger button button__transparent" do %>
+    <%= button_tag data: { component: "dropdown", target: "assemblies-dropdown-menu-settings" }, class: "dropdown__trigger button button__transparent" do %>
       <%= t("actions.manage", scope: "decidim.admin") %>
       <%= icon "arrow-down-s-line" %>
     <% end %>
