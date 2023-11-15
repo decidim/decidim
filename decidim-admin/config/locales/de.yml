@@ -131,6 +131,7 @@ de:
         weight: Reihenfolge
       static_page_topic:
         description: Beschreibung
+        name: Name des Themas
         show_in_footer: In der Fußzeile anzeigen
         title: Titel
         weight: Reihenfolge
@@ -363,6 +364,20 @@ de:
           title: Übertragung
         'true': 'Ja'
         user_name: Nutzer
+      content_blocks:
+        create:
+          error: Beim Erstellen des Inhaltsblocks ist ein Fehler aufgetreten.
+          success: Inhaltsblock erfolgreich erstellt.
+        destroy:
+          error: Es gab ein Problem beim Löschen dieses Inhaltsblocks.
+          success: Inhaltsblock erfolgreich gelöscht.
+        edit:
+          active_content_blocks: Aktive Inhaltsblöcke
+          add: Inhaltsblock hinzufügen
+          destroy_confirmation: Sind Sie sicher, dass Sie diesen Inhaltsblock löschen möchten?
+          inactive_content_blocks: Inaktive Inhaltsblöcke
+          title: Seiteninhalte
+          update: Aktualisieren
       dashboard:
         pending_moderations:
           anouncement:
@@ -572,6 +587,7 @@ de:
         scopes: Bereiche
         see_site: Seite ansehen
         settings: Einstellungen
+        static_page_topics: Themen
         static_pages: Seiten
         user_groups: Benutzergruppen
         users: Benutzer
@@ -834,6 +850,9 @@ de:
             update_suggested_colors: Vorgeschlagene Farben aktualisieren
           cta_button_path_help_html: 'Sie können überschreiben, womit die Call To Action-Schaltfläche auf der Homepage verlinkt ist. Verwenden Sie hier Teilpfade, nicht die vollständige URL. Buchstaben, Zahlen, Bindestriche und Schrägstriche sind erlaubt; an der ersten Stelle ist ein Buchstabe erforderlich. Die Call To Action-Schaltfläche wird auf der Startseite zwischen Begrüßungstext und Beschreibung angezeigt. Beispiel: %{url}'
           cta_button_text_help: Sie können den Text der Call To Action-Schaltfläche auf der Startseite für jede verfügbare Sprache in Ihrer Organisation überschreiben. Wenn nicht festgelegt, wird der Standardwert verwendet. Die Call To Action-Schaltfläche wird auf der Startseite zwischen Begrüßungstext und Beschreibung angezeigt.
+          header_snippets:
+            header_snippets_help_html: Benutzen Sie dieses Feld, um dem HTML-Head Inhalte hinzuzufügen. Die häufigste Verwendung ist die Integration von Drittanbieter-Diensten, die ein zusätzliches JavaScript oder CSS erfordern. Außerdem können Sie dem HTML-Code zusätzliche Meta-Tags hinzuzufügen. Beachten Sie, dass dies nur auf den öffentlichen Seiten dargestellt wird und nicht im Admin-Bereich. Wenn der Code mit externen APIs interagiert oder nicht mit den Sicherheitsrichtlinien der Anwendung übereinstimmt, ist es notwendig, die Sicherheitsrichtlinien der Inhalte (Content Security Policy) zu ändern. Weitere Informationen finden Sie <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">auf der Dokumentationsseite</a>.
+            title: HTML-Header-Snippets
           homepage_appearance_title: Homepage-Erscheinungsbild bearbeiten
           homepage_highlighted_content_banner_title: Highlighted Inhaltsbanner
           images:
@@ -869,6 +888,8 @@ de:
           invalid: Beim Lesen der CSV-Datei ist ein Problem aufgetreten. Bitte stellen Sie sicher, dass Sie den Anweisungen korrekt gefolgt sind.
           success: CSV-Datei wurde erfolgreich hochgeladen, wir senden eine Einladungs-E-Mail an die Teilnehmenden. Dies kann eine Weile dauern.
         new:
+          csv_upload:
+            title: CSV-Datei hochladen
           destroy:
             button: Alle private Teilnehmende auswählen
             confirm: Sind Sie sicher, dass Sie alle private Teilnehmende entfernen möchten? Diese Aktion kann nicht rückgängig gemacht werden. Sie werden sie nicht wiederherstellen können.
@@ -880,6 +901,7 @@ de:
           explanation_example: |
             john.doe@example.org%{csv_col_sep}John Doe
             jane.doe@example.org%{csv_col_sep}Jane Doe
+          title: Private Teilnehmende via CSV importieren
           upload: Hochladen
       reminders:
         create:
@@ -972,13 +994,14 @@ de:
           success: Seite erfolgreich zerstört
         edit:
           changed_notably_help: Wenn diese Option aktiviert ist, werden Nutzende benachrichtigt, um die neuen Nutzungsbedingungen zu akzeptieren.
+          last_notable_change: 'Letzte signifikante Änderung: %{tos_version_formatted}'
           title: Seite bearbeiten
           update: Aktualisieren
         form:
           none: Keiner
           slug_help_html: 'Verwenden Sie hier Teilpfade, nicht die vollständige URL. Buchstaben, Zahlen, Bindestriche und Schrägstriche sind erlaubt; an der ersten Stelle ist ein Buchstabe erforderlich. Beispiel: %{url}'
         index:
-          last_notable_change: Letzte bemerkenswerte Änderung
+          last_notable_change: Letzte signifikante Änderung
         new:
           create: Seite erstellen
           title: Neue Seite
@@ -1000,6 +1023,7 @@ de:
         impersonatable_users: Überschaubare Benutzer
         impersonations: Benutzerverwaltung
         metrics: Kriterien
+        page_topics: Themen
         pages: Seiten
         panel: Admin
         participants: Benutzer
