@@ -32,15 +32,7 @@ module Decidim
           create_collaborative_draft!(component:)
         end
 
-        Decidim.traceability.update!(
-          Decidim::Proposals::CollaborativeDraft.all.sample,
-          Decidim::User.where(organization:).all.sample,
-          component:,
-          category: participatory_space.categories.sample,
-          scope: random_scope,
-          title: ::Faker::Lorem.sentence(word_count: 2),
-          body: ::Faker::Lorem.paragraphs(number: 2).join("\n")
-        )
+        update_traceability!(component:)
       end
 
       def organization
@@ -268,6 +260,18 @@ module Decidim
         end
 
         Decidim::Comments::Seed.comments_for(draft)
+      end
+
+      def update_traceability!(component:)
+        Decidim.traceability.update!(
+          Decidim::Proposals::CollaborativeDraft.all.sample,
+          Decidim::User.where(organization:).all.sample,
+          component:,
+          category: participatory_space.categories.sample,
+          scope: random_scope,
+          title: ::Faker::Lorem.sentence(word_count: 2),
+          body: ::Faker::Lorem.paragraphs(number: 2).join("\n")
+        )
       end
 
       def random_scope
