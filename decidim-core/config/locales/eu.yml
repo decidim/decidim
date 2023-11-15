@@ -548,6 +548,7 @@ eu:
           newsletter_title: Harremanetarako baimena
           sign_up: Erregistratu
           subtitle: Sortu kontu bat eztabaidetan parte hartzeko eta proposamenen alde egiteko
+          terms: zerbitzuaren baldintzak
           tos_agreement: 'Erregistratzean hau onartzen duzu: %{link}.'
           tos_title: Zerbitzu-baldintzak
           username_help: Zure mezuetan agertuko den izen publikoa. Anonimatua bermatze aldera, edozein izen izan daiteke.
@@ -555,6 +556,8 @@ eu:
         new:
           are_you_new?: Berria zara plataforman?
           register: Sortu zure kontua
+          sign_in_disabled: Kanpoko kontu batez sartu ahal zara.
+          sign_up_disabled: Izen-ematea desgaituta dago, sartzeko lehendik dagoen kontu bat erabil dezakezu.
         user:
           timed_out: Denbora luzeegi egon zara jarduerarik gabe, eta zure saioa automatikoki itxi da. Parte hartzen jarraitu nahi baduzu, hasi saioa berriro.
       shared:
@@ -581,9 +584,10 @@ eu:
     doorkeeper:
       authorizations:
         new:
-          authorize: Baimena eskatu
+          authorize: Aplikazioa baimentzen du
           by_organization_link_html: <small class="heading-small"> %{link}</small>
           cancel: Utzi
+          connect_your_account_html: 'Konektatu zure kontua saioa hasteko hemen: %{organization}.'
           publish_content: Argitaratu zure edukia
           see_email: Ikusi zure helbide elektronikoa
           see_name: Ikusi zure izena
@@ -1482,6 +1486,7 @@ eu:
       last_attempt: Zure kontua blokeatuta dago aurretik zure saiakera gehiago duzu.
       locked: Zure kontua blokeatuta dago.
       not_found_in_database: '%{authentication_keys} edo pasahitza baliogabea.'
+      unauthenticated: Saioa hasi edo izena eman behar duzu jarraitu aurretik.
     invitations:
       edit:
         header: Amaitu zure kontua sortzea
