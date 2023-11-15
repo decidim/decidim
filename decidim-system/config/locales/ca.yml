@@ -61,6 +61,7 @@ ca:
           success: L'administradora s'ha actualitzat correctament.
       dashboard:
         show:
+          admins: Administradores
           current_organizations: Organitzacions actuals
       default_pages:
         placeholders:
@@ -137,6 +138,21 @@ ca:
           show: Mostra la configuració avançada
         create:
           error: S'ha produït un error en crear una nova organització.
+          success_html: |
+            <p>
+            Organitzció creada correctament.
+            </p>
+            <ol>
+            <li>És possible que hagis d'actualitzar el codi de la teva aplicació, per tal d'autoritzar peticions al %{host} caldrà afegir això a la teva configuració d'entron (p.e <code>config/environment/production.rb</code>) o el teu <code>config/application.rb</code>:
+            <p>config.hosts << "%{host}" </p>
+            </li>
+            <li>
+            Un cop fet, hauries de tenir accés a la teva plataforma via <a href="http://%{host}">http://%{host}</a>
+            </li>
+            <li>
+            T'hem enviat un correu a <b>%{email}</b> que cal que confirmis.
+            </li>
+            </ol>
         csp_settings:
           connect_src: Adreces de connexió (connect-src)
           connect_src_hint: |
@@ -171,7 +187,10 @@ ca:
             Les adreces d'estil (style-src) limiten els URL que es poden carregar als elements <style>.
             Decidim afegeix automàticament el valor "'self' 'unsafe-inline'", però, si vols, pots afegir altres valors. Deixa el valor en blanc si no saps què significa.
         edit:
+          confirm_resend_invitation: Segur que vols reenviar la invitació?
+          resend_invitation: Reenviar la invitació
           secondary_hosts_hint: Introdueix cada un d'ells en una nova línia
+          title: Editar l'organització
         file_upload_settings:
           content_types:
             admin_hint: Aquests tipus MIME estan permesos per a pujar-se des del panell d'administració. Les persones administradores han de ser conscients dels riscos en pujar alguns formats de documents, per la qual cosa cal esperar que siguin més cauteloses amb les pujades d'arxius.
@@ -196,6 +215,7 @@ ca:
           default: Per defecte?
           enabled: Habilitat
           locale: Configuració regional
+          organization_admin_email_hint: T'enviarem un correu electrònic a aquesta adreça perquè puguis confirmar-la i configurar la teva contrasenya.
           reference_prefix_hint: El prefix de la referència s'utilitza per identificar de forma única els recursos del conjunt de l'organització.
           secondary_hosts_hint: Introdueix cada un d'ells en una nova línia.
           title: Nova organització
