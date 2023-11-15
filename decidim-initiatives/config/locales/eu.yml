@@ -222,7 +222,7 @@ eu:
             confirm: Ziur zaude?
             confirm_send_to_technical_validation: Ziur zaude?
             discard: Ekimena baztertu
-            export_pdf_signatures: Esportatu sinadurak PDF
+            export_pdf_signatures: Esportatu sinaduren PDF
             export_votes: Esportatu euskarriak
             reject: Ukatu ekimena
             send_to_technical_validation: Bidali baliozkotzeko teknikora
@@ -276,6 +276,7 @@ eu:
           form:
             authorizations: Baimen-doikuntzak
             child_scope_threshold_enabled_help: 'Konfigurazio-doikuntza horrek ez ditu onartzen konexiorik gabeko bozketak. Azpieremuak gaitzen ditu eta eremu bat erabiltzailearekin lotzen duen baimen-kudeatzaile batekin funtzionatzen du. Ziurtatu baimen hori hautatu duzula, beherago baimenen konfigurazioan. Funtziona dezan, eremuak hierarkikoki eratu behar dira: 1 Nagusia - Txikiak. Konfigurazio horrek nola funtzionatzen duen jakiteko, ikus <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">ekimenen administrazioari buruzko dokumentazioa.'
+            only_global_scope_enabled_help: 'Markatu lauki hau "Aktibatu sinadurak azpiesparruaren arabera" gaitu baduzu eta esparru globala esparru nagusi gisa eratu baduzu. Lauki hori gaitzean, ekimenak sortzeko laguntzaileak ez du ekimen-motaren hautaketarik egingo. Konfigurazio horrek nola funtzionatzen duen jakiteko, kontsultatu esteka hau: <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.'
             options: Aukerak
             title: Informazio orokorra
           initiative_type_scopes:
