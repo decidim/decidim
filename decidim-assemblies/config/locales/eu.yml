@@ -163,6 +163,7 @@ eu:
           assembly_members_title: Batzarraen kideak
         new:
           create: Sortu
+          title: Beste batzarkide bat
         update:
           error: Arazo bat egon da kidea eguneratzean batzar honetarako.
           success: Batzar honetarako kidea zuzen eguneratua.
@@ -185,6 +186,7 @@ eu:
           assembly_admins_title: Batzarraren administratzaileak
         new:
           create: Sortu
+          title: Batzarraren beste administratzaile bat
         update:
           error: Arazo bat egon da administratzailea gehitzean batzar honetarako.
           success: Batzar honetarako administratzailea zuzen eguneratua.
