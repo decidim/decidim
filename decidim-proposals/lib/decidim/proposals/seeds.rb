@@ -54,7 +54,7 @@ module Decidim
             params = {
               component:,
               category: participatory_space.categories.sample,
-              scope: ::Faker::Boolean.boolean(true_ratio: 0.5) ? global : scopes.sample,
+              scope: random_scope,
               title: { en: "#{proposal.title["en"]} #{::Faker::Lorem.sentence(word_count: 1)}" },
               body: { en: "#{proposal.body["en"]} #{::Faker::Lorem.sentence(word_count: 3)}" },
               state: "evaluating",
@@ -169,7 +169,7 @@ module Decidim
             draft = Decidim::Proposals::CollaborativeDraft.new(
               component:,
               category: participatory_space.categories.sample,
-              scope: ::Faker::Boolean.boolean(true_ratio: 0.5) ? global : scopes.sample,
+              scope: random_scope,
               title: ::Faker::Lorem.sentence(word_count: 2),
               body: ::Faker::Lorem.paragraphs(number: 2).join("\n"),
               state:,
@@ -199,7 +199,7 @@ module Decidim
           Decidim::User.where(organization:).all.sample,
           component:,
           category: participatory_space.categories.sample,
-          scope: ::Faker::Boolean.boolean(true_ratio: 0.5) ? global : scopes.sample,
+          scope: random_scope,
           title: ::Faker::Lorem.sentence(word_count: 2),
           body: ::Faker::Lorem.paragraphs(number: 2).join("\n")
         )
