@@ -141,6 +141,7 @@ es:
           success: Organización creada correctamente.
         edit:
           secondary_hosts_hint: Introduce cada uno de ellos en una nueva línea
+          title: Editar la organizacion
         file_upload_settings:
           content_types:
             admin_hint: Estos tipos MIME están permitidos para subirse desde el panel de administración. Las personas administradoras deben ser conscientes de los riesgos al subir algunos formatos de documentos, por lo que cabe esperar que sean más cautelosas con las subidas de archivos.
