@@ -61,6 +61,8 @@ eu:
             success: Inkesta ondo gorde da.
       last_activity:
         new_survey: 'Inkesta berria:'
+      survey_confirmation_mailer:
+        export_name: Inkestaren erantzunak
       surveys:
         answer:
           invalid: Inkesta erantzutean errorea gertatu da.
