@@ -237,6 +237,9 @@ ca:
           twitter:
             api_key: Clau de l'API
             api_secret: Clau secreta de l'API
+        resend_invitation:
+          error: S'ha produït un error en reenviar la invitació.
+          success: Invitació reenviada amb èxit.
         smtp_settings:
           fieldsets:
             sender: Remitent
@@ -256,6 +259,8 @@ ca:
         notices:
           no_organization_warning_html: Has de crear una organització per començar. Assegura't de llegir %{guide} abans de continuar.
           our_getting_started_guide: la nostra guia d'introducció
+        organizations_list:
+          confirm_resend_invitation: Segur que vols reenviar la invitació?
       titles:
         dashboard: Tauler de control
         decidim: Decidim
