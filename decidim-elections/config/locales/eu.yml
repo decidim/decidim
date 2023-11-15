@@ -788,6 +788,24 @@ eu:
               name: Bozketako eranskinak eta karpetak
             description:
               name: Bozketaren deskribapena
+            elections:
+              name: Bozketako aukerak
+            header:
+              name: Bozketaren goiburua
+            html_block_1:
+              name: Bozketaren html 1 blokea
+            html_block_2:
+              name: Bozketaren html 2 blokea
+            html_block_3:
+              name: Bozketaren html 3 blokea
+            metrics:
+              name: Bozketaren metrikak
+            polling_stations:
+              name: Bozketa-guneak
+            stats:
+              name: Bozketaren estatistikak
+            timeline:
+              name: Bozketaren egutegia
         index:
           published: Argitaratua
         landing_page:
