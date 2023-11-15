@@ -55,7 +55,7 @@ module Decidim
       isolate_namespace Decidim
       engine_name "decidim"
 
-      initializer "decidim_core.register_icons" do
+      initializer "decidim_core.register_icons", after: "decidim_core.add_social_share_services" do
         Decidim.icons.register(name: "phone-line", icon: "phone-line", category: "system", description: "", engine: :core)
 
         Decidim.icons.register(name: "upload-cloud-2-line", icon: "upload-cloud-2-line", category: "system",
@@ -81,13 +81,6 @@ module Decidim
         Decidim.icons.register(name: "logout-box-r-line", icon: "logout-box-r-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "menu-line", icon: "menu-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "home-2-line", icon: "home-2-line", category: "system", description: "", engine: :core)
-        Decidim.icons.register(name: "twitter-x-line", icon: "twitter-x-line", category: "system", description: "", engine: :core)
-        Decidim.icons.register(name: "twitter-x-fill", icon: "twitter-x-fill", category: "system", description: "", engine: :core)
-        Decidim.icons.register(name: "google-fill", icon: "google-fill", category: "system", description: "", engine: :core)
-        Decidim.icons.register(name: "facebook-fill", icon: "facebook-fill", category: "system", description: "", engine: :core)
-        Decidim.icons.register(name: "instagram-line", icon: "instagram-line", category: "system", description: "", engine: :core)
-        Decidim.icons.register(name: "youtube-line", icon: "youtube-line", category: "system", description: "", engine: :core)
-        Decidim.icons.register(name: "github-fill", icon: "github-fill", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "global-line", icon: "global-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "creative-commons-line", icon: "creative-commons-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "creative-commons-by-line", icon: "creative-commons-by-line", category: "system", description: "", engine: :core)
@@ -95,9 +88,6 @@ module Decidim
         Decidim.icons.register(name: "delete-bin-line", icon: "delete-bin-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "loader-3-line", icon: "loader-3-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "share-line", icon: "share-line", category: "system", description: "", engine: :core)
-        Decidim.icons.register(name: "facebook-circle-line", icon: "facebook-circle-line", category: "system", description: "", engine: :core)
-        Decidim.icons.register(name: "whatsapp-line", icon: "whatsapp-line", category: "system", description: "", engine: :core)
-        Decidim.icons.register(name: "telegram-line", icon: "telegram-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "file-copy-line", icon: "file-copy-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "check-double-line", icon: "check-double-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "arrow-drop-down-line", icon: "arrow-drop-down-line", category: "system", description: "", engine: :core)
@@ -149,7 +139,6 @@ module Decidim
         Decidim.icons.register(name: "check-double-fill", icon: "check-double-fill", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "file-list-3-line", icon: "file-list-3-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "price-tag-3-line", icon: "price-tag-3-line", category: "system", description: "", engine: :core)
-        Decidim.icons.register(name: "wechat-line", icon: "wechat-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "time-line", icon: "time-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "calendar-line", icon: "calendar-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "question-mark", icon: "question-mark", category: "system", description: "", engine: :core)
@@ -164,7 +153,6 @@ module Decidim
         Decidim.icons.register(name: "treasure-map-line", icon: "treasure-map-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "chat-new-line", icon: "chat-new-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "draft-line", icon: "draft-line", category: "system", description: "", engine: :core)
-        Decidim.icons.register(name: "linkedin-box-fill", icon: "linkedin-box-fill", category: "social icon", description: "", engine: :core)
         Decidim.icons.register(name: "user-voice-line", icon: "user-voice-line", category: "system", description: "", engine: :core)
 
         # Attachments
@@ -210,6 +198,23 @@ module Decidim
         Decidim.icons.register(name: "images", icon: "image-line", description: "Images", category: "documents", engine: :core)
         Decidim.icons.register(name: "all", icon: "apps-2-line", description: "All", category: "other", engine: :core)
         Decidim.icons.register(name: "other", icon: "question-line", description: "Other", category: "other", engine: :core)
+
+        # social icons
+        Decidim.icons.register(name: "wechat-line", icon: "wechat-line", category: "social icon", description: "", engine: :core)
+        Decidim.icons.register(name: "linkedin-box-fill", icon: "linkedin-box-fill", category: "social icon", description: "", engine: :core)
+        Decidim.icons.register(name: "twitter-x-line", icon: "twitter-x-line", category: "social icon", description: "", engine: :core)
+        Decidim.icons.register(name: "whatsapp-line", icon: "whatsapp-line", category: "social icon", description: "", engine: :core)
+        Decidim.icons.register(name: "telegram-line", icon: "telegram-line", category: "social icon", description: "", engine: :core)
+        Decidim.icons.register(name: "twitter-x-fill", icon: "twitter-x-fill", category: "social icon", description: "", engine: :core)
+        Decidim.icons.register(name: "google-fill", icon: "google-fill", category: "social icon", description: "", engine: :core)
+        Decidim.icons.register(name: "facebook-fill", icon: "facebook-fill", category: "social icon", description: "", engine: :core)
+        Decidim.icons.register(name: "instagram-line", icon: "instagram-line", category: "social icon", description: "", engine: :core)
+        Decidim.icons.register(name: "youtube-line", icon: "youtube-line", category: "social icon", description: "", engine: :core)
+        Decidim.icons.register(name: "github-fill", icon: "github-fill", category: "social icon", description: "", engine: :core)
+        Decidim.icons.register(name: "facebook-circle-line", icon: "facebook-circle-line", category: "social icon", description: "", engine: :core)
+        Decidim.social_share_services_registry.manifests.each do |manifest|
+          Decidim.icons.register(name: manifest.icon, icon: manifest.icon, description: "Social share ", category: "social icon", engine: :core)
+        end
       end
 
       initializer "decidim_core.patch_webpacker", before: "shakapacker.version_checker" do
