@@ -634,6 +634,7 @@ eu:
           count:
             one: "%{count} lankidetza zirriborroa"
             other: "%{count} zirriborro kolaboratiboa"
+        name: Zirriborro kolaboratzaileak
         new:
           add_file: Gehitu fitxategiak
           edit_file: Fitxategia editatu
@@ -683,6 +684,9 @@ eu:
           back_from_collaborative_draft: Itzuli zirriborro kolaboratzaileetara
         wizard_header:
           title: Sortu zure lankidetza zirriborroa
+      content_blocks:
+        highlighted_proposals:
+          name: Proposamenak
       create:
         error: Erroreak gertatu dira proposamena gordetzean.
         success: Onartutako proposamena. Zirriborro gisa gorde da.
