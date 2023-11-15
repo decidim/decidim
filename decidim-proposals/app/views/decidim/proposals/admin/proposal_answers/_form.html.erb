@@ -5,6 +5,10 @@
         <h2 class="card-title"><%= t ".title", title: present(proposal).title %></h2>
       </div>
 
+      <% if defined?(Decidim::Templates) %>
+        <%= render "decidim/templates/admin/proposal_answer_templates/template_chooser", form: f %>
+      <% end %>
+
       <div class="row column flex items-center gap-x-4 my-2">
         <%= f.collection_radio_buttons :internal_state, available_states, :token, ->(a) { translated_attribute(a.title) }, prompt: true do |builder|
               builder.label { builder.radio_button + builder.text } end %>

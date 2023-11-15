@@ -10,6 +10,15 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
+        resources :proposal_answer_templates do
+          member do
+            post :copy
+          end
+          collection do
+            get :fetch
+          end
+        end
+
         ## Routes for Questionnaire Templates
         resources :questionnaire_templates do
           member do
@@ -48,7 +57,8 @@ module Decidim
                         active: (
                           is_active_link?(decidim_admin_templates.questionnaire_templates_path) ||
                             is_active_link?(decidim_admin_templates.root_path)
-                        ) && !is_active_link?(decidim_admin_templates.block_user_templates_path)
+                        ) && !is_active_link?(decidim_admin_templates.block_user_templates_path) &&
+                                !is_active_link?(decidim_admin_templates.proposal_answer_templates_path)
 
           menu.add_item :user_reports,
                         I18n.t("template_types.block_user", scope: "decidim.templates"),
@@ -56,6 +66,13 @@ module Decidim
                         icon_name: "user-forbid-line",
                         if: allowed_to?(:index, :templates),
                         active: is_active_link?(decidim_admin_templates.block_user_templates_path)
+
+          menu.add_item :proposal_answers,
+                        I18n.t("template_types.proposal_answer_templates", scope: "decidim.templates"),
+                        decidim_admin_templates.proposal_answer_templates_path,
+                        icon_name: "file-copy-line",
+                        if: allowed_to?(:index, :templates),
+                        active: is_active_link?(decidim_admin_templates.proposal_answer_templates_path)
         end
       end
 

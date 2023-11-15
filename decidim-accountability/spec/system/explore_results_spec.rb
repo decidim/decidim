@@ -94,7 +94,7 @@ describe "Explore results", versioning: true do
           if category_count.positive?
             expect(page).to have_content(translated(category.name))
           else
-            expect(page).not_to have_content(translated(category.name))
+            expect(page).to have_content("There are no projects")
           end
         end
       end

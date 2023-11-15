@@ -70,22 +70,6 @@ module Decidim
         nil
       end
 
-      def default_filter_category_params
-        return "all" unless current_component.participatory_space.categories.any?
-
-        ["all"] + current_component.participatory_space.categories.pluck(:id).map(&:to_s)
-      end
-
-      def default_filter_scope_params
-        return "all" unless current_component.scopes.any?
-
-        if current_component.scope
-          ["all", current_component.scope.id] + current_component.scope.children.map { |scope| scope.id.to_s }
-        else
-          %w(all global) + current_component.scopes.pluck(:id).map(&:to_s)
-        end
-      end
-
       # If the controller responds to current_component, its is probably
       # searching against that component. Otherwise it is be likely to search
       # against a participatory space. The context params are passed to the
