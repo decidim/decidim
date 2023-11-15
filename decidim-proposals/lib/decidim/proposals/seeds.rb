@@ -24,44 +24,6 @@ module Decidim
             create_proposal_votes!(proposal:, emendation:)
           end
 
-          unless proposal.published_state? && proposal.rejected?
-            (n * 2).times do |index|
-              email = "endorsement-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{n}-endr#{index}@example.org"
-              name = "#{::Faker::Name.name} #{participatory_space.id} #{n} endr#{index}"
-
-              author = Decidim::User.find_or_initialize_by(email:)
-              author.update!(
-                password: "decidim123456789",
-                name:,
-                nickname: ::Faker::Twitter.unique.screen_name,
-                organization:,
-                tos_agreement: "1",
-                confirmed_at: Time.current
-              )
-              if index.even?
-                group = Decidim::UserGroup.create!(
-                  name: ::Faker::Name.name,
-                  nickname: ::Faker::Twitter.unique.screen_name,
-                  email: ::Faker::Internet.email,
-                  extended_data: {
-                    document_number: ::Faker::Code.isbn,
-                    phone: ::Faker::PhoneNumber.phone_number,
-                    verified_at: Time.current
-                  },
-                  organization:,
-                  confirmed_at: Time.current
-                )
-
-                Decidim::UserGroupMembership.create!(
-                  user: author,
-                  role: "creator",
-                  user_group: group
-                )
-              end
-              Decidim::Endorsement.create!(resource: proposal, author:, user_group: author.user_groups.first)
-            end
-          end
-
           (n % 3).times do
             author_admin = Decidim::User.where(organization:, admin: true).all.sample
 
