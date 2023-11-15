@@ -7,8 +7,6 @@ module Decidim
     class Seeds < Decidim::Seeds
       # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
       def call
-        organization = Decidim::Organization.first
-
         Decidim::ContentBlock.create(
           organization:,
           weight: 32,
@@ -177,6 +175,8 @@ module Decidim
         end
       end
       # rubocop:enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
+
+      def organization = Decidim::Organization.first
     end
   end
 end
