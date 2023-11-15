@@ -7,13 +7,7 @@ module Decidim
     class Seeds < Decidim::Seeds
       # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
       def call
-        Decidim::ContentBlock.create(
-          organization:,
-          weight: 32,
-          scope_name: :homepage,
-          manifest_name: :highlighted_assemblies,
-          published_at: Time.current
-        )
+        create_content_block!
 
         2.times do |n|
           params = {
@@ -177,6 +171,16 @@ module Decidim
       # rubocop:enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
 
       def organization = Decidim::Organization.first
+
+      def create_content_block!
+        Decidim::ContentBlock.create(
+          organization:,
+          weight: 32,
+          scope_name: :homepage,
+          manifest_name: :highlighted_assemblies,
+          published_at: Time.current
+        )
+      end
     end
   end
 end
