@@ -146,6 +146,8 @@ eu:
             start_date: Hasiera-data
             title: Titulua
           name: Prozesu partizipatiboaren fasea
+        participatory_process_type:
+          name: Prozesu mota
         participatory_process_user_role:
           fields:
             email: Helbide elektronikoa
