@@ -44,6 +44,10 @@ eu:
           attributes:
             attachment:
               needs_to_be_reattached: Berriro erantsi behar da
+        trustee:
+          attributes:
+            name:
+              cant_be_changed: ezin da aldatu
   activerecord:
     errors:
       models:
@@ -187,6 +191,7 @@ eu:
         mailers:
           trustee_mailer:
             body: "<p>Kaixo %{user_name}, </p><p> %{resource_name}-an sartu zaituzte, bermatzaile gisa.< p>"
+            subject: Gehitu zaituzte %{resource_name} -ren bermatzaile gisa.
         menu:
           trustees: Bermatzaileak
         models:
@@ -648,11 +653,13 @@ eu:
             notification_title: Bermatzailea zara <a href="%{resource_path}">%{resource_title}</a> aukerarako.
           new_trustee:
             email_intro: 'Administratzaile batek gehitu zaitu bermatzaile gisa honetarako: %{resource_name}. Zure gako publikoa sortu behar duzu =<''%{trustee_zone_url}''>bermatzaileen zure gunean</a>'
+            email_outro: Jakinarazpen hau jaso duzu bermatzaile gisa gehitu zaituztelako %{resource_name} aukerarako.
             email_subject: '%{resource_name} ren bermatzailea zara.'
             notification_title: <a href="%{participatory_space_url}">%{resource_name}</a> ren bermatzailea zara.
         votes:
           accepted_votes:
             email_intro: 'Zure botoa onartu egin da! Zure botoaren tokena erabiliz: %{encrypted_vote_hash}, zure botoa egiaztatu ahal duzu<a href="%{verify_url}">hemen</a>.'
+            email_outro: Jakinarazpen hau jaso duzu %{resource_name} aukeran botoa eman duzulako.
             email_subject: Zure botoa %{resource_name} aukerarako onartu egin da.
             notification_title: 'Zure botoa onartu egin da. Egiaztatu zure botoa <a href="%{verify_url}">hemen</a> zure botoaren tokena erabiliz: %{encrypted_vote_hash}'
       votings:
@@ -708,8 +715,28 @@ eu:
         content_blocks:
           attachments_and_folders:
             name: Bozketako eranskinak eta karpetak
+          header:
+            name: Bozketaren goiburua
           highlighted_votings:
             max_results: Erakusteko gehieneko elementu kopurua
+          html_block_1:
+            name: Bozketaren html 1 blokea
+          html_block_2:
+            name: Bozketaren html 2 blokea
+          html_block_3:
+            name: Bozketaren html 3 blokea
+          main_data:
+            name: Izenburua eta deskribapena
+          metrics:
+            name: Bozketaren metrikak
+          polling_stations:
+            name: Bozketa-guneak
+          related_elections:
+            name: Bozketako aukerak
+          stats:
+            name: Bozketaren estatistikak
+          timeline:
+            name: Bozketaren egutegia
         index:
           published: Argitaratua
         menu:
