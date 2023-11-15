@@ -162,6 +162,7 @@ eu:
           default: Lehenetsita?
           enabled: Gaituta
           locale: Tokikoa
+          organization_admin_email_hint: Mezu elektroniko bat bidaliko dugu helbide honetara, baieztatu eta pasahitza jar dezazun.
           title: Erakunde berria
         omniauth_settings:
           decidim:
