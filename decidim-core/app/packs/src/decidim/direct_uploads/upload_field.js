@@ -1,9 +1,11 @@
 import UploadModal from "src/decidim/direct_uploads/upload_modal";
 import { truncateFilename, createHiddenInput } from "src/decidim/direct_uploads/upload_utility";
+import { escapeHtml } from "src/decidim/utilities/text";
 
 const loadAttachments = (modal) => {
   Array.from(modal.activeAttachments.children).forEach((child) => {
-    modal.createUploadItem(child.dataset.filename, child.dataset.title, "validated");
+    const uploadItem = modal.createUploadItem(child.dataset.filename, child.dataset.title, "validated");
+    child.dataset.fileid = uploadItem.dataset.fileid;
   })
 }
 
@@ -61,7 +63,7 @@ const addSaveButtonEventListener = (modal) => {
       if (details) {
         modal.activeAttachments.appendChild(details);
       } else {
-        details = modal.activeAttachments.querySelector(`.attachment-details[data-filename='${item.dataset.filename}'`);
+        details = modal.activeAttachments.querySelector(`.attachment-details[data-fileid='${item.dataset.fileid}'`);
       }
       const span = details.querySelector("span");
       span.classList.add("filename");
@@ -79,9 +81,9 @@ const addSaveButtonEventListener = (modal) => {
           details.appendChild(hiddenTitleField);
           details.appendChild(hiddenIdField);
         }
-        span.innerHTML = `${title} (${truncateFilename(item.dataset.filename)})`;
+        span.innerHTML = `${escapeHtml(title)} (${escapeHtml(truncateFilename(item.dataset.filename))})`;
       } else {
-        span.innerHTML = truncateFilename(item.dataset.filename, 19);
+        span.innerHTML = escapeHtml(truncateFilename(item.dataset.filename, 19));
       }
       span.style.display = "block";
     });

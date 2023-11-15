@@ -4,6 +4,18 @@
 
 ### Upgrade notes
 
+#### Deduplicating endorsements
+
+We have identified a case when the same user can endorse the same resource multiple times. This is a bug that we have fixed in this release, but we need to clean up the existing duplicated endorsements. We have added a new task that helps you clean the duplicated endorsements.
+
+```bash
+bundle exec rails decidim:upgrade:fix_duplicate_endorsements
+```
+
+You can see more details about this change on PR [\#11853](https://github.com/decidim/decidim/pull/11853)
+
+#### Fix component short links
+
 We have identified that some of the short links for components are not working properly. We have added a new task that helps you fix the short links for components.
 
 ```bash

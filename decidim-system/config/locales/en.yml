@@ -55,6 +55,9 @@ en:
         new:
           create: Create
           title: New admin
+        show:
+          destroy: Destroy
+          edit: Edit
         update:
           error: There was a problem updating this admin.
           success: Admin successfully updated
@@ -65,6 +68,21 @@ en:
         placeholders:
           content: Please add meaningful content to the %{page} static page on the admin dashboard.
           title: Default title for %{page}
+      devise:
+        passwords:
+          edit:
+            change_your_password: Change your password
+            minimum_characters: "(%{minimum} characters minimum)"
+          new:
+            forgot_your_password: Forgot your password
+            send_me_reset_password_instructions: Send me reset password instructions
+        shared:
+          links:
+            did_not_receive_confirmation_instructions?: Did not receive confirmation instructions?
+            did_not_receive_unlock_instructions?: Did not receive unlock instructions?
+            forgot_your_password?: Forgot your password?
+            log_in: Log in
+            sign_up: Sign up
       menu:
         admins: Admins
         dashboard: Dashboard
@@ -124,6 +142,7 @@ en:
           success: Organization successfully created.
         edit:
           secondary_hosts_hint: Enter each one of them in a new line
+          title: Edit organization
         file_upload_settings:
           content_types:
             admin_hint: These MIME types are allowed for the admin section uploads. Admin users should be aware of the risks with uploading some document formats, so you can expect them to be more cautious with the file uploads.
@@ -145,8 +164,11 @@ en:
         index:
           title: Organizations
         new:
-          reference_prefix_hint: The reference prefix is used to uniquely identify resources across all organization
-          secondary_hosts_hint: Enter each one of them in a new line
+          default: Default?
+          enabled: Enabled
+          locale: Locale
+          reference_prefix_hint: The reference prefix is used to uniquely identify resources across all organization.
+          secondary_hosts_hint: Enter each one of them in a new line.
           title: New organization
         omniauth_settings:
           decidim:
@@ -187,3 +209,9 @@ en:
           our_getting_started_guide: our getting started guide
       titles:
         dashboard: Dashboard
+        decidim: Decidim
+  layouts:
+    decidim:
+      system:
+        login_items:
+          logout: Logout
