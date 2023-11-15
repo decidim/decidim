@@ -15,9 +15,9 @@ module Decidim
       end
 
       def state_item
-        return if state.blank?
+        return unless model.proposal_state&.answerable?
 
-        { text: content_tag(:span, humanize_proposal_state(state), class: "label #{state_class}") }
+        { text: content_tag(:span, translated_attribute(model.proposal_state&.title), class: "label #{model.proposal_state.css_class}") }
       end
 
       private
@@ -42,19 +42,6 @@ module Decidim
           text: presented_author.name,
           icon: "account-circle-line"
         }
-      end
-
-      def state_class
-        case state
-        when "accepted"
-          "success"
-        when "rejected", "withdrawn"
-          "alert"
-        when "evaluating"
-          "warning"
-        else
-          "muted"
-        end
       end
     end
   end

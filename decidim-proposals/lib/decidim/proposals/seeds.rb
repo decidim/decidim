@@ -105,7 +105,7 @@ module Decidim
             proposal
           end
 
-          if proposal.state.nil?
+          if proposal.customized_proposal_state.nil?
             email = "amendment-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{n}-amend#{n}@example.org"
             name = "#{::Faker::Name.name} #{participatory_space.id} #{n} amend#{n}"
 
@@ -186,11 +186,11 @@ module Decidim
               about: ::Faker::Lorem.paragraph(sentence_count: 2)
             )
 
-            Decidim::Proposals::ProposalVote.create!(proposal:, author:) unless proposal.published_state? && proposal.rejected?
+            Decidim::Proposals::ProposalVote.create!(proposal:, author:) unless proposal.published_state? && proposal.customized_proposal_rejected?
             Decidim::Proposals::ProposalVote.create!(proposal: emendation, author:) if emendation
           end
 
-          unless proposal.published_state? && proposal.rejected?
+          unless proposal.published_state? && proposal.customized_proposal_rejected?
             (n * 2).times do |index|
               email = "endorsement-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{n}-endr#{index}@example.org"
               name = "#{::Faker::Name.name} #{participatory_space.id} #{n} endr#{index}"

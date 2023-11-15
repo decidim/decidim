@@ -16,7 +16,7 @@ module Decidim::Amendable
     end
 
     def emendation_message
-      message(model.state, amendable_type, proposal_link, announcement_date)
+      message(model.customized_proposal_state, amendable_type, proposal_link, announcement_date)
     end
 
     def promoted_message
@@ -51,6 +51,7 @@ module Decidim::Amendable
     end
 
     def state_classes
+      return model.proposal_state.css_class
       case model.state
       when "accepted"
         "success"

@@ -212,7 +212,7 @@ module Decidim
 
       def customized_proposal_state
         return amendment.state if emendation?
-        return nil unless published_state? || withdrawn?
+        return nil unless published_state? || customized_proposal_withdrawn?
 
         proposal_state&.token
       end
@@ -268,6 +268,10 @@ module Decidim
         internal_state == "withdrawn"
       end
 
+      def customized_proposal_withdrawn?
+        proposal_state&.token == "withdrawn"
+      end
+
       # Public: Checks if the organization has accepted a proposal.
       #
       # Returns Boolean.
@@ -280,6 +284,10 @@ module Decidim
       # Returns Boolean.
       def rejected?
         state == "rejected"
+      end
+
+      def customized_proposal_rejected?
+        proposal_state&.token == "rejected"
       end
 
       # Public: Checks if the organization has marked the proposal as evaluating it.
