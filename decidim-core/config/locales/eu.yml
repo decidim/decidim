@@ -273,6 +273,7 @@ eu:
         error: Errore bat egon da baliabide hau aldatzean.
         promote_button: '%{model_name}suspertzea'
         promote_confirm_text: Ziur al zaude zuzenketa hau sustatu nahi duzula?
+        promote_help_text: Zuzenketa hau sustatu eta %{model_name} independiente gisa argitara dezakezu.
       compare_draft:
         continue: Jarraitu
         no_similars_found: Ez da aurkitu antzeko zuzenketarik.
@@ -1355,6 +1356,7 @@ eu:
         already_reported: Eduki hau jada salatuta dago, eta administratzaile batek berrikusiko du.
         close: Itxi
         description: Eduki hau desegokia da?
+        does_not_belong: Bertan badago legez kontrako jardunik, suizidio-mehatxurik, informazio pertsonalik edo beste zernahi, zure ustez %{organization_name}-ri ez dagokionik.
         hide: Ezkutatu
         hide_content: Edukia ezkutatu
         offensive: Bertan badago arrazakeriarik, sexismorik, irainik, eraso pertsonalik, heriotza-mehatxurik, suizidio-eskaerarik edo beste edozein eratako gorroto-diskurtsorik.
@@ -1380,6 +1382,8 @@ eu:
       login_modal:
         please_log_in: Mesedez, hasi saioa
         sign_up: Erregistratu
+      mentions_modal:
+        remove_recipient: Kendu %{name} hartzailea
       participatory_space_filters:
         filters:
           area: Arloa
@@ -1459,6 +1463,7 @@ eu:
     user_update_mailer:
       notify:
         body_2: Zuk zeuk ez baduzu eguneratze hori egin, sartu zure kontuan pasahitza aldatzeko. Ezin baduzu saioa hasi, mesedez, jarri harremanetan plataformaren babeslearekin.
+        greetings: Agur, <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
     version:
       show:
         back_to_resource: Atzera joan
@@ -1474,6 +1479,7 @@ eu:
       show:
         version_index: '%{index} bertsioa'
     welcome_notification:
+      default_body: "\n<p>Kaixo {{name}}, eskerrik asko {{organization}} ra lotzeagatik eta ongi etorria!</p><ul><li>Hemen zer egin dezakezun ideia azkar bat nahi baduzu, begiratu <a href=\"{{help_url}}\">Laguntza</a> atalean.</li><li>Behin irakurri ondoren, zure lehen garaikurra jasoko duzu. Hemen da <a href=\"{{badges_url}}\">garaikur guztien zerrenda</a> zuk lor ditzakezunak {{organization}}</li><li> ean parte hartuz. Azkenik, lotu beste pertsona batzuei eta partekatu haiekin inplikatzearen eta {{organization}} ean parte hartzearen esperientzia. Egin proposamenak, iruzkinak, eztabaidak, pentsatu nola lagundu denon onerako, eman argudioak konbentzitzeko, entzun eta irakurri zeure burua konbentzitzeko, adierazi zure ideiak modu zehatzean, erantzun pazientziaz eta erabakiz, defendatu zure ideiak eta mantendu burua zabalik, beste pertsona batzuen ideietan lankidetzan aritzeko.</li></ul>\n"
       default_subject: Eskerrik asko sartzeko {{organization}}!
     wizard_step_form:
       wizard_aside:
