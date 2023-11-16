@@ -11,13 +11,6 @@
 
 .rich-text-display,
 .editor-container .editor-input .ProseMirror {
-  // Extra styling needed temporarily for redesign
-  p,
-  ul,
-  ol {
-    @apply mb-4;
-  }
-
   // We do not want to show the bottom border in sub-lists. Also, Tiptap adds an
   // extra <p> inside list items to support marks/styling within the list item
   // content.
