@@ -132,10 +132,31 @@ eu:
           show: Erakutsi aukera aurreratua
         create:
           error: Errorea izan da antolatzaile berri bat sortzean.
+          success_html: |
+            <p>
+            Arrakastaz sortutako erakundea.
+            </p>
+            <ol>
+            <li>Zure eskaera-kodea eguneratu beharko duzu; %{host} eskaerak baimentzeari dagokionez, honakoa gehitu behar duzu zure ingurunearen konfiguraziora (adib. <code>config/environment/production.rb</code>) or your <code>config/application.rb</code>:
+               <p> config.hosts << "%{host}" </p>
+              </li>
+              <li>
+            Hori amaitu ondoren, zure plataformara sartu ahal izango zara hemendik  <a href="http://%{host}">http://%{host}</a>
+             </li>
+              <li>
+            E-mail bat bidali dugu hona <b>%{email}</b> eta baieztatu behar duzu.
+             </li>
+            </ol>
         csp_settings:
           connect_src_hint: |
             Connect-src zuzentarauak murriztu egiten ditu < script> elementuen bidez karga daitezkeen URLak.
             Plataformak 'self' gehituko du, baina gehiago gehitzeko aukera emango dizu.
+          script_src_hint: |
+            (style-src) ereduko helbideek <script> elementuetan kargatu daitezkeen URLak murrizten dituzte.
+            Plataformak "'self' 'unsafe-inline' 'unsafe-eval'" erantsiko du, baina gehiago gehitzeko aukera duzu. Utzi zuriz, ziur ez bazaude.
+          style_src_hint: |
+            (style-src) ereduko helbideek <style> elementuetan kargatu daitezkeen URLak murrizten dituzte.
+            Plataformak "'self' 'unsafe-inline'" erantsiko du, baina gehiago gehitzeko aukera duzu. Utzi zuriz, ziur ez bazaude.
         edit:
           confirm_resend_invitation: Ziur zaude gonbidapena birbidali nahi duzula?
           resend_invitation: Birbidali gonbidapena
