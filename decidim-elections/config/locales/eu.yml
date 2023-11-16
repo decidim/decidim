@@ -1149,6 +1149,7 @@ eu:
             modal_ballots_count_error:
               btn_validate_total: Baliozkotu boto-paperen zenbaketa osoa
               close_modal: Itxi
+              info_explanation_text: 'Mesedez, berrikusi zein boto-paper kopuru dagoen. Kopuru osoa zuzena ez bada, Jarraipen Batzordeari azalpenak eman behar dizkiozu:'
               info_text: Sartutako boto-paperen kopurua (gutun-azalak) gutira, ez dator bat bozketa-gune honetan botoa eman duten pertsonen erregistroarekin.
               message_for_monitoring_committee: Mezua Jarraipen Batzordearentzat
               review_recount: Berrikusi zenbaketa
@@ -1157,7 +1158,7 @@ eu:
               total_ballots: 'Boto-paperak, guztira:'
               total_people: 'Pertsona kopurua, guztira:'
             polling_station: 'Bozketa-gunea:'
-            submit: Egiaztatu telefono zenbakia
+            submit: Egiaztatu guztizko zenbakia
             total_ballots_count: Boto-paper kopurua
           show:
             heading: Botoen zenbaketa
@@ -1202,7 +1203,7 @@ eu:
             year_placeholder: UUUU
           new:
             back: Itzuli bozketa-guneetara
-            title: Pertsona bat identifikatzea eta egiaztatzea
+            title: Identifikatu eta egiaztatu parte-hartzaile bat
           show:
             back: Itzuli bozketa-guneetara
             title: Aurrez aurreko botoa erregistratzearen zain
