@@ -119,17 +119,7 @@ module Decidim
             end
           end
 
-          if Decidim.module_installed?(:participatory_processes)
-            Decidim.content_blocks.register(:assembly_homepage, :related_processes) do |content_block|
-              content_block.cell = "decidim/participatory_processes/content_blocks/related_processes"
-              content_block.settings_form_cell = "decidim/participatory_processes/content_blocks/highlighted_processes_settings_form"
-              content_block.public_name_key = "decidim.participatory_processes.content_blocks.related_processes.name"
-
-              content_block.settings do |settings|
-                settings.attribute :max_results, type: :integer, default: 6
-              end
-            end
-          end
+          register_related_processes
 
           Decidim.content_blocks.register(:assembly_homepage, :related_assemblies) do |content_block|
             content_block.cell = "decidim/assemblies/content_blocks/children_assemblies"
@@ -152,6 +142,20 @@ module Decidim
           end
 
           register_highlighted_posts
+        end
+
+        def self.register_related_processes
+          return unless Decidim.module_installed?(:participatory_processes)
+
+          Decidim.content_blocks.register(:assembly_homepage, :related_processes) do |content_block|
+            content_block.cell = "decidim/participatory_processes/content_blocks/related_processes"
+            content_block.settings_form_cell = "decidim/participatory_processes/content_blocks/highlighted_processes_settings_form"
+            content_block.public_name_key = "decidim.participatory_processes.content_blocks.related_processes.name"
+
+            content_block.settings do |settings|
+              settings.attribute :max_results, type: :integer, default: 6
+            end
+          end
         end
 
         def self.register_highlighted_posts
