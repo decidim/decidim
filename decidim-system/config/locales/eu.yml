@@ -55,6 +55,7 @@ eu:
           create: Sortu
           title: Administratzaile berria
         show:
+          destroy: Suntsitu
           edit: Editatu
         update:
           error: Errorea gertatu da administratzaile hau eguneratzean.
@@ -140,6 +141,7 @@ eu:
           success: Antolatzailea zuzen sortu da.
         edit:
           secondary_hosts_hint: Sartu haietako bakoitza lerro batean
+          title: Editatu erakundea
         file_upload_settings:
           content_types:
             admin_hint: MIME mota horiek baimenduta daude administrazio-paneletik igotzeko. Administratzaileek dokumentuen formatu batzuk igotzean dauden arriskuez jabetu behar dute, eta, beraz, artxiboen igoeretan zuhurragoak izatea espero daiteke.
@@ -165,6 +167,8 @@ eu:
           default: Lehenetsita?
           enabled: Gaituta
           locale: Tokikoa
+          reference_prefix_hint: Erreferentzia-aurrizkia erakunde guztietan baliabideak identifikatzeko erabiltzen da.
+          secondary_hosts_hint: Sartu haietako bakoitza beste lerro batean.
           title: Erakunde berria
         omniauth_settings:
           decidim:
@@ -206,3 +210,8 @@ eu:
       titles:
         dashboard: Kontrol-panela
         decidim: Decidim
+  layouts:
+    decidim:
+      system:
+        login_items:
+          logout: Logout
