@@ -2,7 +2,7 @@
 
 module Decidim
   module Proposals
-    class AcceptedProposalEvent < Decidim::Events::SimpleEvent
+    class ProposalStateChangedEvent < Decidim::Events::SimpleEvent
       include Decidim::Events::AuthorEvent
 
       def resource_text

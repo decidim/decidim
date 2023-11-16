@@ -20,7 +20,7 @@ module Decidim
             expect do
               expect { command.call }.to broadcast(:ok)
             end.not_to change(Decidim::Proposals::Proposal, :count)
-            expect(proposal.state).to eq("withdrawn")
+            expect(proposal.customized_proposal_state).to eq("withdrawn")
           end
         end
 
@@ -33,7 +33,7 @@ module Decidim
             expect do
               expect { command.call }.to broadcast(:has_supports)
             end.not_to change(Decidim::Proposals::Proposal, :count)
-            expect(proposal.state).not_to eq("withdrawn")
+            expect(proposal.customized_proposal_state).not_to eq("withdrawn")
           end
         end
       end

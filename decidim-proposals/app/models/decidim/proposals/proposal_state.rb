@@ -32,6 +32,9 @@ module Decidim
         Decidim::Proposals::AdminLog::ProposalStatePresenter
       end
 
+      def gamified?
+        %w(accepted).include?(token)
+      end
 
       def announcement_title
         i18n_key = case token
@@ -42,7 +45,6 @@ module Decidim
                    end
         { I18n.locale => I18n.t(i18n_key, scope: "decidim.proposals.proposals.show") }
       end
-
     end
   end
 end

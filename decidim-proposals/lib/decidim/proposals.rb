@@ -47,15 +47,17 @@ module Decidim
     end
 
     def self.create_default_states!(component, admin_user, with_traceability: true)
-
       locale = Decidim.default_locale
       default_states = {
         not_answered: {
           token: :not_answered,
           css_class: "info",
-          default: true, include_in_stats: {} ,
+          default: true,
+          include_in_stats: {},
           system: true,
-          title: { locale => I18n.with_locale(locale) { I18n.t(:not_answered, scope: "decidim.proposals.answers")} }
+          answerable: false,
+          notifiable: false,
+          title: { locale => I18n.with_locale(locale) { I18n.t(:not_answered, scope: "decidim.proposals.answers") } }
         },
         evaluating: {
           token: :evaluating,
@@ -64,7 +66,8 @@ module Decidim
           include_in_stats: {},
           answerable: true,
           system: true,
-          title: { locale => I18n.with_locale(locale) { I18n.t(:evaluating, scope: "decidim.proposals.answers")} }
+          notifiable: true,
+          title: { locale => I18n.with_locale(locale) { I18n.t(:evaluating, scope: "decidim.proposals.answers") } }
         },
         accepted: {
           token: :accepted,
@@ -72,17 +75,19 @@ module Decidim
           default: false,
           include_in_stats: {},
           answerable: true,
+          notifiable: true,
           system: true,
-          title: { locale => I18n.with_locale(locale) { I18n.t(:accepted, scope: "decidim.proposals.answers")} }
+          title: { locale => I18n.with_locale(locale) { I18n.t(:accepted, scope: "decidim.proposals.answers") } }
         },
         rejected: {
           token: :rejected,
           css_class: "alert",
           default: false,
           include_in_stats: {},
-          answerable: true ,
+          answerable: true,
+          notifiable: true,
           system: true,
-          title: { locale => I18n.with_locale(locale) { I18n.t(:rejected, scope: "decidim.proposals.answers")} }
+          title: { locale => I18n.with_locale(locale) { I18n.t(:rejected, scope: "decidim.proposals.answers") } }
         },
         withdrawn: {
           token: :withdrawn,
@@ -90,7 +95,9 @@ module Decidim
           default: false,
           include_in_stats: {},
           system: true,
-          title: { locale => I18n.with_locale(locale) { I18n.t(:withdrawn, scope: "decidim.proposals.answers")}}
+          answerable: false,
+          notifiable: false,
+          title: { locale => I18n.with_locale(locale) { I18n.t(:withdrawn, scope: "decidim.proposals.answers") } }
         }
       }
       default_states.each_key do |key|

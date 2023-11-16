@@ -38,7 +38,7 @@ module Decidim
         end
 
         it "changes the proposal state" do
-          expect { subject }.to change { proposal.reload.state }.to("rejected")
+          expect { subject }.to change { proposal.reload.customized_proposal_state }.to("rejected")
         end
 
         it "traces the action", versioning: true do
@@ -54,9 +54,10 @@ module Decidim
         end
 
         it "notifies the proposal answer" do
+          expect(proposal.proposal_state.token).to eq("not_answered")
           expect(NotifyProposalAnswer)
             .to receive(:call)
-            .with(proposal, nil)
+            .with(proposal, proposal.proposal_state)
 
           subject
         end
@@ -71,7 +72,7 @@ module Decidim
           end
 
           it "does not change the proposal state" do
-            expect { subject }.not_to(change { proposal.reload.state })
+            expect { subject }.not_to(change { proposal.reload.customized_proposal_state })
           end
         end
 
@@ -83,13 +84,15 @@ module Decidim
           end
 
           it "changes the proposal state" do
-            expect { subject }.to change { proposal.reload.state }.to("rejected")
+            expect { subject }.to change { proposal.reload.customized_proposal_state }.to("rejected")
           end
 
           it "notifies the proposal new answer" do
+            expect(proposal.proposal_state.token).to eq("accepted")
+
             expect(NotifyProposalAnswer)
               .to receive(:call)
-              .with(proposal, "accepted")
+              .with(proposal, proposal.proposal_state)
 
             subject
           end
@@ -104,7 +107,7 @@ module Decidim
           end
 
           it "changes the proposal internal state" do
-            expect { subject }.to change { proposal.reload.internal_state }.to("rejected")
+            expect { subject }.to change { proposal.reload.customized_proposal_internal_state }.to("rejected")
           end
 
           it "does not publish the proposal answer" do

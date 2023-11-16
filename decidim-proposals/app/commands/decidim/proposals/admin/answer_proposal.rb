@@ -71,7 +71,7 @@ module Decidim
 
         def store_initial_proposal_state
           @initial_has_state_published = proposal.published_state?
-          @initial_state = proposal.state
+          @initial_state = proposal.proposal_state
         end
       end
     end

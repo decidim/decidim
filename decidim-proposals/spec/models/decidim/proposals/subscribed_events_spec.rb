@@ -36,7 +36,7 @@ module Decidim
 
         it "is accepted" do
           proposal.reload
-          expect(proposal.state).to eq("accepted")
+          expect(proposal.customized_proposal_state).to eq("accepted")
         end
       end
     end

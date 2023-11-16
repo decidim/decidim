@@ -6,8 +6,6 @@ module Decidim
       # This class is responsible for creating the imported proposal answers
       # and must be included in proposals component's import manifest.
       class ProposalAnswerCreator < Decidim::Admin::Import::Creator
-        POSSIBLE_ANSWER_STATES = %w(evaluating accepted rejected).freeze
-
         # Retuns the resource class to be created with the provided data.
         def self.resource_klass
           Decidim::Proposals::Proposal
@@ -58,10 +56,12 @@ module Decidim
 
           proposal.answer = answer
           proposal.answered_at = Time.current
-          @initial_state = proposal.state
+          @initial_state = proposal.proposal_state
 
-          if POSSIBLE_ANSWER_STATES.include?(state)
-            proposal.assign_state(state)
+          proposal_state = Decidim::Proposals::ProposalState.where(component:, token: state).first
+
+          if proposal_state.answerable?
+            proposal.proposal_state = proposal_state
             proposal.state_published_at = Time.current if component.current_settings.publish_answers_immediately?
           else
             proposal.errors.add(:state, :invalid)

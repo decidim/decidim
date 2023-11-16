@@ -7,7 +7,7 @@ shared_examples "accept amendment" do
     end
 
     it "changes the emendation state to accepted" do
-      expect { command.call && emendation.reload }.to change(emendation, :state)
+      expect { command.call && emendation.reload }.to change(emendation, :customized_proposal_state)
         .from("evaluating").to("accepted")
     end
 

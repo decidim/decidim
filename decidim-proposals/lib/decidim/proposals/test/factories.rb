@@ -263,18 +263,24 @@ FactoryBot.define do
       title { generate_state_title(:evaluating) }
       token { :evaluating }
       system { true }
+      notifiable { true }
+      answerable { true }
     end
 
     trait :accepted do
       title { generate_state_title(:accepted) }
       token { :accepted }
       system { true }
+      notifiable { true }
+      answerable { true }
     end
 
     trait :rejected do
       title { generate_state_title(:rejected) }
       token { :rejected }
       system { true }
+      notifiable { true }
+      answerable { true }
     end
 
     trait :withdrawn do
@@ -330,12 +336,13 @@ FactoryBot.define do
 
     after(:build) do |proposal, evaluator|
       if proposal.component
-        existing_states = Decidim::Proposals::ProposalState.where(component: proposal.component).any?
+        existing_states = Decidim::Proposals::ProposalState.where(component: proposal.component)
 
-        Decidim::Proposals.create_default_states!(proposal.component, nil, with_traceability: false) unless existing_states
+        Decidim::Proposals.create_default_states!(proposal.component, nil, with_traceability: false) unless existing_states.any?
       end
 
       proposal.assign_state(evaluator.state)
+
       proposal.title = if evaluator.title.is_a?(String)
                          { proposal.try(:organization).try(:default_locale) || "en" => evaluator.title }
                        else

@@ -79,6 +79,8 @@ module Decidim
       scope :not_status, ->(status) { joins(:proposal_state).where.not(decidim_proposals_proposal_states: { token: status }) }
       scope :only_status, ->(status) { joins(:proposal_state).where(decidim_proposals_proposal_states: { token: status }) }
 
+      scope :gamified, -> { state_published.only_status(:accepted) }
+
       scope :accepted, -> { state_published.only_status(:accepted) }
       scope :rejected, -> { state_published.only_status(:rejected) }
       scope :evaluating, -> { state_published.only_status(:evaluating) }
