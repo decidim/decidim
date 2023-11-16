@@ -6,6 +6,20 @@ describe "Explore posts" do
   include_context "with a component"
   let(:manifest_name) { "blogs" }
 
+  context "when there are no posts" do
+    describe "index" do
+      before do
+        visit_component
+      end
+
+      it "shows an empty page with a message" do
+        within "main" do
+          expect(page).to have_content "There are no posts yet"
+        end
+      end
+    end
+  end
+
   context "when there are posts" do
     let!(:old_post) { create(:post, component:, created_at: 2.days.ago) }
     let!(:new_post) { create(:post, component:, created_at: Time.current) }
