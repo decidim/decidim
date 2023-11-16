@@ -8,6 +8,7 @@ module Decidim
       #
       module ProposalsHelper
         include Decidim::Admin::ResourceScopeHelper
+        include Decidim::TranslatableAttributes
 
         def available_states
           Decidim::Proposals::ProposalState.answerable.where(component: current_component)
@@ -36,7 +37,6 @@ module Decidim
         end
 
         def proposal_complete_state(proposal)
-          return humanize_proposal_state(proposal.state).html_safe if proposal.emendation?
           return humanize_proposal_state("not_answered").html_safe if proposal.proposal_state.nil?
 
           translated_attribute(proposal&.proposal_state&.title)

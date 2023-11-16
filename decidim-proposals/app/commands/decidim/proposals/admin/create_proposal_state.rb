@@ -43,6 +43,8 @@ module Decidim
             css_class: form.css_class,
             answerable: form.answerable,
             notifiable: form.notifiable,
+            gamified: form.gamified,
+            announcement_title: form.announcement_title,
             component:
           }
         end

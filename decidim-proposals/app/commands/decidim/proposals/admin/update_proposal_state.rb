@@ -36,12 +36,13 @@ module Decidim
             title: form.title,
             description: form.description,
             default: form.default,
-            token: form.token,
             include_in_stats: form.include_in_stats,
             answerable: form.answerable,
             notifiable: form.notifiable,
+            gamified: form.gamified,
+            announcement_title: form.announcement_title,
             css_class: form.css_class
-          }
+          }.merge(state.system? ? {} : { token: form.token })
         end
       end
     end

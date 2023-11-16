@@ -8,7 +8,10 @@
         <%= form.translated :text_area, :description, aria: { label: :description } %>
       </div>
       <div class="row column">
-        <%= form.text_field :token %>
+        <%= form.translated :text_area, :announcement_title, aria: { label: :announcement_title } %>
+      </div>
+      <div class="row column">
+        <%= form.text_field :token, disabled: form.object.system %>
       </div>
       <div class="row column">
         <%= form.check_box :system, disabled: true %>
@@ -21,6 +24,9 @@
       </div>
       <div class="row column">
         <%= form.check_box :notifiable %>
+      </div>
+      <div class="row column">
+        <%= form.check_box :gamified %>
       </div>
       <div class="row column">
         <%#= form.check_box :include_in_stats %>

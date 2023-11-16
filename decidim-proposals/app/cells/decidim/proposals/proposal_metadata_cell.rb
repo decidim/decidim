@@ -6,7 +6,7 @@ module Decidim
     class ProposalMetadataCell < Decidim::CardMetadataCell
       include Decidim::Proposals::ApplicationHelper
 
-      delegate :state, to: :model
+      delegate :customized_proposal_state, to: :model
 
       def initialize(*)
         super
@@ -15,9 +15,13 @@ module Decidim
       end
 
       def state_item
-        return unless model.proposal_state&.answerable?
+        return if customized_proposal_state.blank?
 
-        { text: content_tag(:span, translated_attribute(model.proposal_state&.title), class: "label #{model.proposal_state.css_class}") }
+        if model.emendation?
+          { text: content_tag(:span, humanize_proposal_state(customized_proposal_state), class: "label #{state_class}") }
+        else
+          { text: content_tag(:span, translated_attribute(model.proposal_state&.title), class: "label #{state_class}") }
+        end
       end
 
       private
@@ -42,6 +46,21 @@ module Decidim
           text: presented_author.name,
           icon: "account-circle-line"
         }
+      end
+
+      def state_class
+        return model.proposal_state.css_class unless model.emendation?
+
+        case customized_proposal_state
+        when "accepted"
+          "success"
+        when "rejected", "withdrawn"
+          "alert"
+        when "evaluating"
+          "warning"
+        else
+          "muted"
+        end
       end
     end
   end

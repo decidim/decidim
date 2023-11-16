@@ -64,7 +64,7 @@ module Decidim::Proposals
 
         it "renders the emendation state (evaluating by default)" do
           expect(subject).to have_css(".warning")
-          expect(subject).to have_css("span.label", text: emendation.state.capitalize)
+          expect(subject).to have_css("span.label", text: emendation.customized_proposal_state.capitalize)
         end
       end
     end

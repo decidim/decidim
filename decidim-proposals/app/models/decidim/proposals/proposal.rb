@@ -271,7 +271,7 @@ module Decidim
       end
 
       def customized_proposal_withdrawn?
-        proposal_state&.token == "withdrawn"
+        customized_proposal_internal_state == "withdrawn"
       end
 
       # Public: Checks if the organization has accepted a proposal.
@@ -281,6 +281,11 @@ module Decidim
         state == "accepted"
       end
 
+      def customized_proposal_accepted?
+        customized_proposal_state == "accepted"
+      end
+
+
       # Public: Checks if the organization has rejected a proposal.
       #
       # Returns Boolean.
@@ -289,7 +294,7 @@ module Decidim
       end
 
       def customized_proposal_rejected?
-        proposal_state&.token == "rejected"
+        customized_proposal_state == "rejected"
       end
 
       # Public: Checks if the organization has marked the proposal as evaluating it.
@@ -297,6 +302,10 @@ module Decidim
       # Returns Boolean.
       def evaluating?
         state == "evaluating"
+      end
+
+      def customized_proposal_evaluating?
+        customized_proposal_state == "evaluating"
       end
 
       # Public: Overrides the `reported_content_url` Reportable concern method.

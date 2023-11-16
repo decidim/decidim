@@ -67,6 +67,7 @@ module Decidim
           answerable: true,
           system: true,
           notifiable: true,
+          announcement_title: { locale => I18n.with_locale(locale) { I18n.t("proposal_in_evaluation_reason", scope: "decidim.proposals.proposals.show")}},
           title: { locale => I18n.with_locale(locale) { I18n.t(:evaluating, scope: "decidim.proposals.answers") } }
         },
         accepted: {
@@ -77,6 +78,8 @@ module Decidim
           answerable: true,
           notifiable: true,
           system: true,
+          gamified: true,
+          announcement_title: { locale => I18n.with_locale(locale) { I18n.t("proposal_accepted_reason", scope: "decidim.proposals.proposals.show")}},
           title: { locale => I18n.with_locale(locale) { I18n.t(:accepted, scope: "decidim.proposals.answers") } }
         },
         rejected: {
@@ -87,6 +90,7 @@ module Decidim
           answerable: true,
           notifiable: true,
           system: true,
+          announcement_title: { locale => I18n.with_locale(locale) { I18n.t("proposal_rejected_reason", scope: "decidim.proposals.proposals.show")}},
           title: { locale => I18n.with_locale(locale) { I18n.t(:rejected, scope: "decidim.proposals.answers") } }
         },
         withdrawn: {

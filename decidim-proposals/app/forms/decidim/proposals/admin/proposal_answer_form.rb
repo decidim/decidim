@@ -33,6 +33,24 @@ module Decidim
           current_component.current_settings.publish_answers_immediately?
         end
 
+        # TODO: This method should not be added to main repository
+        def self.from_model(model)
+
+          form_attributes = {
+            id: model.id,
+            internal_state: model.customized_proposal_internal_state,
+            answer: model.answer,
+            cost: model.cost,
+            cost_report: model.cost_report,
+            execution_period: model.execution_period
+          }
+
+          form = new(form_attributes)
+          form.map_model(model)
+
+          form
+        end
+
         private
 
         def proposal_states

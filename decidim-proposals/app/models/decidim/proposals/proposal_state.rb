@@ -31,20 +31,6 @@ module Decidim
       def self.log_presenter_class_for(_log)
         Decidim::Proposals::AdminLog::ProposalStatePresenter
       end
-
-      def gamified?
-        %w(accepted).include?(token)
-      end
-
-      def announcement_title
-        i18n_key = case token
-                   when "evaluating"
-                     "proposal_in_evaluation_reason"
-                   else
-                     "proposal_#{token}_reason"
-                   end
-        { I18n.locale => I18n.t(i18n_key, scope: "decidim.proposals.proposals.show") }
-      end
     end
   end
 end

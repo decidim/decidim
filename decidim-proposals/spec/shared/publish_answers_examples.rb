@@ -24,7 +24,7 @@ shared_examples "publish answers" do
         sleep(1)
         expect(page).to have_content(I18n.t("proposals.publish_answers.success", scope: "decidim"))
         break
-      rescue e
+      rescue
         # ignore and loop again if ajax content is still not there
         nil
       end
