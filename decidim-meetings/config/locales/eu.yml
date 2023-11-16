@@ -320,6 +320,7 @@ eu:
             select_a_meeting_type: Mesedez, hautatu topaketa mota bat
             select_a_registration_type: Mesedez, aukeratu erregistro mota bat
             select_an_iframe_access_level: Mesedez, aukeratu iframe maila bat
+            show_embedded_iframe_help: 'Zerbitzu gutxi batzuek baino ez dute uzten topaketan edo zuzeneko gertakarietan txertatzen honako domeinu hauetatik:%{domains}'
           index:
             title: Topaketa-zerrenda
           new:
@@ -518,6 +519,7 @@ eu:
           select_a_meeting_type: Mesedez, hautatu topaketa mota bat
           select_a_registration_type: Mesedez, hautatu erregistro mota bat
           select_an_iframe_access_level: Mesedez, aukeratu iframe maila bat
+          show_embedded_iframe_help: 'Zerbitzu gutxi batzuek baino ez dute uzten topaketan edo zuzeneko gertakarietan txertatzen honako domeinu hauetatik:%{domains}'
         index:
           click_here: Ikusi topaketa guztiak
           new_meeting: Topaketa berria
