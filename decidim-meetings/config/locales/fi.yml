@@ -223,6 +223,7 @@ fi:
             one: 'Tapaamista ei voi poistaa, koska siihen on liitetty %{count} ehdotus:'
             other: 'Tapaamista ei voi poistaa, koska siihen on liitetty %{count} ehdotusta:'
         manage_poll: Hallitse mielipidetiedustelua
+        new_meeting: Uusi tapaaminen
         preview: Esikatsele
         registrations: Ilmoittautumiset
         title: Toiminnot
