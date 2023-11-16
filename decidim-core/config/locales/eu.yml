@@ -1699,6 +1699,9 @@ eu:
             pwaInstallPromptSeen:
               description: Egoera gordetzen du, erabiltzaileak ikusia badu web aplikazio progresiboaren (PWA) instalazioaren jakinarazpena.
               service: Webgune hau
+          types:
+            cookie: Cookie
+            local_storage: Memoria lokala
         dialog:
           accept_all: Onartu dena
           description: Cookie-ak erabiltzen ditugu gure webgunean, haien errendimendua eta edukia hobetzeko. Cookieei esker, erabiltzaile-esperientzia eta eduki pertsonalizatuagoak eskain ditzakegu sare sozialetako gure kanaletatik.
