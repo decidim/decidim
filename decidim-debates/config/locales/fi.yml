@@ -51,6 +51,7 @@ fi:
         confirm_destroy: Oletko varma?
         destroy: Poista
         edit: Muokkaa
+        new: Uusi keskustelu
         title: Toiminnot
       admin:
         debate_closes:
