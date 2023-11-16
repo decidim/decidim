@@ -542,7 +542,7 @@ eu:
           email_subject: '%{role} rola esleitu zaizu <a href="%{resource_title}"> batzarrean.'
           notification_title: '%{role} rola esleitu zaizu <a href="%{resource_url}">%{resource_title}</a> batzarrean.'
         upcoming_conference:
-          email_intro: '"%{resource_title}" konferentzia egiten ari da 2 egunetan. Bere orrialdearen azalpena irakur dezakezu:'
+          email_intro: '"%{resource_title}" hitzaldia egiten ari da 2 egunetan. Deskribapena bere orrialdetik irakur dezakezu:'
           email_outro: Jakinarazpen hau jaso duzu delako "%{resource_title}" konferentzia jarraituz. Aurreko esteka estekan jarrai dezakezu.
           email_subject: Biltzarra "%{resource_title}" dator!
           notification_title: <a href="%{resource_path}">%{resource_title}</a> konferentzia 2 egunetan egongo da.
@@ -558,7 +558,7 @@ eu:
           not_found: 'Hitzaldia ez da aurkitu (ID: %{id}) datu-basean.'
     media:
       index:
-        description: Kongresu honi buruzko estekak
+        description: Estekak hitzaldi honi buruz
         title: Media eta estekak
     menu:
       conferences: Jardunaldiak
