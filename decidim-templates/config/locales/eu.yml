@@ -26,6 +26,7 @@ eu:
         destroy:
           success: Txantiloia zuzen ezabatua.
         empty: Oraindik ez dago txantiloirik.
+        missing_resource: "(baliabide galdua)"
         update:
           error: Arazo bat izan da txantiloi hau eguneratzean.
           success: Txantiloia zuzen eguneratua.
@@ -57,11 +58,23 @@ eu:
           template_chooser:
             select_template: Hautatu txantiloi-fitxategi bat
         proposal_answer_templates:
+          edit:
+            title: Editatu proposamenaren erantzun-txantilioia
           form:
             hint1_html: "\n<strong>%{organization}</strong>  erakundearen izenak ordezkatuko du."
             hint2_html: "<strong>%{name}</strong> egilearen izenak ordezkatuko du."
             hint3_html: "<strong>%{admin}</strong> administratzailearen izenak ordezkatuko du (proposamenari erantzuten diona)."
             save: Gorde
+          index:
+            component_constraint: Gehitu hertsapena.
+            confirm_delete: Ziur zaude txantiloi hau ezabatu nahi duzula?
+            global_scope: Globala (nonahi eskuragarri)
+            internal_state: Barne egoera
+            title: Proposamenen erantzunak
+          new:
+            title: Proposamenaren erantzun-txantilioi berria
+          template_chooser:
+            select_template: Aukeratu erantzun-txantiloi bat.
         questionnaire_templates:
           choose:
             create_from_template: Sortu txantiloitik
@@ -93,4 +106,5 @@ eu:
           update: "%{user_name} -k%{resource_name} galdetegia eguneratu du"
       template_types:
         block_user: Blokeatutako mezuak
+        proposal_answer_templates: Proposamenen erantzunak
         questionnaires: Galdetegiak
