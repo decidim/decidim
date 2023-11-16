@@ -63,6 +63,8 @@ eu:
         short_description: Deskribapen laburra
         start_date: Hasiera-data
         title: Titulua
+      participatory_process_type:
+        title: Izenburua
       participatory_process_user_role:
         email: Helbide elektronikoa
         name: Izena
@@ -100,9 +102,10 @@ eu:
           all_processes: Erakutsi prozesu guztiak
           process_groups: Iragazki prozesuak taldeetan
         import_process: Inportatu
-        new_process: Prozesu berria
-        new_process_group: Prozesu talde berria
-        new_process_step: Urrats berria
+        new_process: Beste prozesu bat
+        new_process_group: Beste prozesu-talde bat
+        new_process_step: Beste urrats bat
+        new_process_type: Beste prozesu mota bat
         new_process_user_role: Prozesuaren beste administratzaile bat
         preview: Aurreikusi
         publish: Argitaratu
@@ -147,6 +150,9 @@ eu:
             title: Titulua
           name: Prozesu partizipatiboaren fasea
         participatory_process_type:
+          fields:
+            created_at: Noiz sortua
+            title: Izenburua
           name: Prozesu mota
         participatory_process_user_role:
           fields:
@@ -217,7 +223,7 @@ eu:
           steps_title: Prozesuaren faseak
         new:
           create: Sortu
-          title: Prozesu partizipatiboaren fase berria
+          title: Prozesu parte-hartzailearen beste fase bat
         ordering:
           error: Arazo bat egon da prozesu partehartzaile honen faseak berrantolatzean.
         update:
@@ -226,6 +232,12 @@ eu:
       participatory_process_types:
         create:
           error: Arazo bat egon da beste prozesu mota bat sortzean.
+        edit:
+          title: Editatu prozesu mota
+          update: Eguneratu
+        new:
+          create: Sortu
+          title: Beste prozesu mota bat
         update:
           error: Arazo bat egon da prozesu mota hau eguneratzean.
       participatory_process_user_roles:
@@ -395,6 +407,7 @@ eu:
             related_processes: Elkarrekin lotutako prozesuak
             scope_type_max_depth_help: Murriztu esparru-iragazkiaren sakonera; iragazkia esparru orokorretik hautatutakora erakutsiko da.
             select_an_area: Hautatu eremu bat
+            select_participatory_process_type: Aukeratu prozesu-mota bat
             select_process_group: Hautatu prozesu talde bat
             title: Informazio orokorra
             visbility: ikusgarritasuna
@@ -410,7 +423,7 @@ eu:
       index:
         title: Prozesu partizipatiboak
       last_activity:
-        new_participatory_process: Partaidetza prozesu berria
+        new_participatory_process: Beste prozesu parte-hartzaile bat
       pages:
         home:
           highlighted_processes:
@@ -431,6 +444,7 @@ eu:
           target: Parte-hartzaileak
           title: Prozesuari buruz
         filters:
+          all_types: Mota guztiak
           counters:
             active:
               one: 1 prozesu aktibo
