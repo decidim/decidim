@@ -48,31 +48,58 @@ module Decidim
 
     def self.create_default_states!(component, admin_user, with_traceability: true)
       default_states = {
-        not_answered: { token: :not_answered, css_class: "info", default: true, include_in_stats: {} },
-        evaluating: { token: :evaluating, css_class: "warning", default: false, include_in_stats: {} },
-        accepted: { token: :accepted, css_class: "success", default: false, include_in_stats: {} },
-        rejected: { token: :rejected, css_class: "alert", default: false, include_in_stats: {} },
-        withdrawn: { token: :withdrawn, css_class: "alert", default: false, include_in_stats: {} }
+        not_answered: {
+          token: :not_answered,
+          css_class: "info",
+          default: true, include_in_stats: {} ,
+          system: true,
+          title: { locale => I18n.with_locale(locale) { I18n.t(:not_answered, scope: "decidim.proposals.answers")} }
+        },
+        evaluating: {
+          token: :evaluating,
+          css_class: "warning",
+          default: false,
+          include_in_stats: {},
+          answerable: true,
+          system: true,
+          title: { locale => I18n.with_locale(locale) { I18n.t(:evaluating, scope: "decidim.proposals.answers")} }
+        },
+        accepted: {
+          token: :accepted,
+          css_class: "success",
+          default: false,
+          include_in_stats: {},
+          answerable: true,
+          system: true,
+          title: { locale => I18n.with_locale(locale) { I18n.t(:accepted, scope: "decidim.proposals.answers")} }
+        },
+        rejected: {
+          token: :rejected,
+          css_class: "alert",
+          default: false,
+          include_in_stats: {},
+          answerable: true ,
+          system: true,
+          title: { locale => I18n.with_locale(locale) { I18n.t(:rejected, scope: "decidim.proposals.answers")} }
+        },
+        withdrawn: {
+          token: :withdrawn,
+          css_class: "alert",
+          default: false,
+          include_in_stats: {},
+          system: true,
+          title: { locale => I18n.with_locale(locale) { I18n.t(:withdrawn, scope: "decidim.proposals.answers")}}
+        }
       }
 
       locale = Decidim.default_locale
       default_states.each_key do |key|
-        attributes = {
-          title: { locale => I18n.with_locale(locale) { I18n.t(key, scope: "decidim.proposals.answers") } },
-          component:,
-          token: default_states.dig(key, :token),
-          system: true,
-          default: default_states.dig(key, :default),
-          include_in_stats: default_states.dig(key, :include_in_stats),
-          css_class: default_states.dig(key, :css_class)
-        }
-
         default_states[key][:object] = if with_traceability
                                          Decidim.traceability.create(
-                                           Decidim::Proposals::ProposalState, admin_user, **attributes
+                                           Decidim::Proposals::ProposalState, admin_user, component:, **attributes
                                          )
                                        else
-                                         Decidim::Proposals::ProposalState.create(**attributes)
+                                         Decidim::Proposals::ProposalState.create(component:, **attributes)
                                        end
       end
       default_states
