@@ -78,14 +78,6 @@ module Decidim
             content_block.public_name_key = "decidim.content_blocks.participatory_space_stats.name"
           end
 
-          register_highlighted_results
-
-          register_highlighted_meetings
-
-          register_highlighted_proposals
-
-          register_related_processes
-
           Decidim.content_blocks.register(:assembly_homepage, :related_assemblies) do |content_block|
             content_block.cell = "decidim/assemblies/content_blocks/children_assemblies"
             content_block.settings_form_cell = "decidim/assemblies/content_blocks/highlighted_assemblies_settings_form"
@@ -106,7 +98,11 @@ module Decidim
             content_block.public_name_key = "decidim.application.photos.related_photos"
           end
 
+          register_highlighted_meetings
           register_highlighted_posts
+          register_highlighted_proposals
+          register_highlighted_results
+          register_related_processes
         end
 
         def self.register_highlighted_results
