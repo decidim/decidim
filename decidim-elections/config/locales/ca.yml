@@ -1117,6 +1117,7 @@ ca:
               csv_header_after: No incloguis l'últim camp ("%{ballot_style_code_header}") si no necessites preguntes condicionals/estils de papereta
               csv_header_before: 'El fitxer del cens ha de ser un fitxer CSV amb la següent capçalera:'
         document_types:
+          identification_number: Número d'identificació
           passport: Passaport
         export_mailer:
           access_codes_export:
