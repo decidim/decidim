@@ -11,7 +11,7 @@ module Decidim
           enforce_permission_to(:manage, :polling_station_results, polling_officer:)
 
           @form = if closure.certificate_phase?
-                    form(ClosureCertifyForm).instance.with_context(closure:)
+                    form(ClosureCertifyForm).from_model(closure)
                   elsif closure.signature_phase?
                     form(ClosureSignForm).instance
                   end

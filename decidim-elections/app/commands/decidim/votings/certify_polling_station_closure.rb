@@ -30,6 +30,8 @@ module Decidim
         end
 
         transaction do
+          photo_cleanup!
+
           create_gallery if process_gallery?
           closure.update!(phase: :signature)
         end

@@ -1,13 +1,11 @@
 <%= append_javascript_pack_tag "decidim_votings" %>
 <%= append_stylesheet_pack_tag "decidim_votings" %>
 
-<%= render layout: "layouts/decidim/shared/layout_center" do %>
+<%= render layout: "layouts/decidim/shared/layout_center", locals: { columns: 8 } do %>
 
-  <div class="text-center py-10">
-    <h1 class="title-decorator inline-block text-left">
-      <%= t("heading", scope: "decidim.votings.polling_officer_zone.closures.new") %>
-    </h1>
-  </div>
+  <h1 class="title-decorator inline-block my-10">
+    <%= t("heading", scope: "decidim.votings.polling_officer_zone.closures.new") %>
+  </h1>
 
   <div class="space-y-4 mb-8">
     <p>

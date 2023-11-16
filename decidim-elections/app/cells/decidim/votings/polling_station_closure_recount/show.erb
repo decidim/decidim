@@ -1,4 +1,4 @@
-<div class="form__wrapper">
+<div class="form__wrapper gap-4">
   <p class="font-semibold">
     <%= t("recount_summary", scope: "decidim.votings.polling_station_closure_recount") %>
   </p>
@@ -52,19 +52,21 @@
     <% end %>
   </code>
 
-  <p>
+  <p class="font-semibold">
     <%= t("polling_officer_notes", scope: "decidim.votings.polling_station_closure_recount") %>
-    <br>
+  </p>
+  <code>
     <% if model.polling_officer_notes.present? %>
       <%= model.polling_officer_notes %>
     <% else %>
       <%= content_tag :span, t("polling_officer_notes_blank", scope: "decidim.votings.polling_station_closure_recount") %>
     <% end %>
-  </p>
+  </code>
 
   <% if model.signed? %>
-    <p>
-      <%= t("signed", scope: "decidim.votings.polling_station_closure_recount") %>
+    <p class="text-secondary">
+      <%= icon "check-double-fill", class: "w-8 h-8 inline-block fill-secondary", role: "img", "aria-hidden": true %>
+      <strong><%= t("signed", scope: "decidim.votings.polling_station_closure_recount") %></strong>
     </p>
   <% end %>
 </div>

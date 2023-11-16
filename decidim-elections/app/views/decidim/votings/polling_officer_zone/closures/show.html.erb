@@ -1,51 +1,47 @@
 <%= append_javascript_pack_tag "decidim_votings" %>
 <%= append_stylesheet_pack_tag "decidim_votings" %>
 
-<%= render layout: "layouts/decidim/shared/layout_center" do %>
+<%= render layout: "layouts/decidim/shared/layout_center", locals: { columns: 8 } do %>
 
-  <div class="text-center py-10">
-    <h1 class="title-decorator inline-block text-left">
-      <%= if closure.certificate_phase?
-            t("heading", scope: "decidim.votings.polling_officer_zone.closures.certify")
-          elsif closure.signature_phase?
-            t("heading", scope: "decidim.votings.polling_officer_zone.closures.sign")
-          else
-            t("heading", scope: "decidim.votings.polling_officer_zone.closures.show")
-          end %>
-    </h1>
-    <p><%= if closure.complete_phase?
-             t("sub_heading", scope: "decidim.votings.polling_officer_zone.closures.completed")
-           else
-             t("sub_heading", scope: "decidim.votings.polling_officer_zone.closures.show")
-           end %>
-    </p>
-  </div>
+  <h1 class="title-decorator inline-block pt-10">
+    <%= if closure.certificate_phase?
+          t("heading", scope: "decidim.votings.polling_officer_zone.closures.certify")
+        elsif closure.signature_phase?
+          t("heading", scope: "decidim.votings.polling_officer_zone.closures.sign")
+        else
+          t("heading", scope: "decidim.votings.polling_officer_zone.closures.show")
+        end %>
+  </h1>
+  <p class="pt-10"><%= if closure.complete_phase?
+                         t("sub_heading", scope: "decidim.votings.polling_officer_zone.closures.completed")
+                       else
+                         t("sub_heading", scope: "decidim.votings.polling_officer_zone.closures.show")
+                       end %>
+  </p>
 
   <% unless closure.complete_phase? %>
-    <p><%= link_to t("edit_count_votes", scope: "decidim.votings.polling_officer_zone.closures.show"),
-                   edit_polling_officer_election_closure_path(polling_officer, election) %></p>
+    <%= cell "decidim/announcement", link_to(t("edit_count_votes", scope: "decidim.votings.polling_officer_zone.closures.show"),
+                                             edit_polling_officer_election_closure_path(polling_officer, election)) %>
   <% end %>
 
-  <p class="text-gray-2">
-    <%= if closure.certificate_phase?
-          t("info_text", scope: "decidim.votings.polling_officer_zone.closures.certify")
-        elsif closure.signature_phase?
-          t("info_text", scope: "decidim.votings.polling_officer_zone.closures.sign")
-        else
-          t("info_text", scope: "decidim.votings.polling_officer_zone.closures.show")
-        end %>
-  </p>
+  <%= cell "decidim/announcement", if closure.certificate_phase?
+                                     t("info_text", scope: "decidim.votings.polling_officer_zone.closures.certify")
+                                   elsif closure.signature_phase?
+                                     t("info_text", scope: "decidim.votings.polling_officer_zone.closures.sign")
+                                   else
+                                     t("info_text", scope: "decidim.votings.polling_officer_zone.closures.show")
+                                   end, callout_class: "warning" %>
 
   <%= cell("decidim/votings/polling_station_closure_recount", closure) %>
 
-  <%= cell("decidim/votings/polling_station_closure_certificate", closure) %>
+  <%= cell("decidim/votings/polling_station_closure_certificate", closure) unless closure.certificate_phase? %>
 
   <%= render "certify_form" if closure.certificate_phase? %>
 
   <%= render "sign_form" if closure.signature_phase? && !closure.signed? %>
 
   <% unless closure.certificate_phase? || (closure.signature_phase? && !closure.signed?) %>
-    <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+    <div class="form__wrapper-block gap-4 flex-col-reverse md:flex-row justify-between">
       <%= link_to polling_officers_path, class: "button button__sm md:button__lg button__text-secondary" do %>
         <%= icon "arrow-left-line" %>
         <%= t("back_to_polling_stations", scope: "decidim.votings.polling_officer_zone.closures") %>

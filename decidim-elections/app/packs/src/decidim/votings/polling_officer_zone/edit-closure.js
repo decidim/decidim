@@ -65,9 +65,11 @@ $(() => {
     setButtonState(totalBallots && validTotals && blankTotals);
   };
 
-  runChecks();
+  if (submitBtn) {
+    runChecks();
 
-  [...totals].concat([...answers]).concat([...notas]).forEach((box) => {
-    box.addEventListener("blur", runChecks);
-  });
+    [...totals].concat([...answers]).concat([...notas]).forEach((box) => {
+      box.addEventListener("blur", runChecks);
+    });
+  }
 });

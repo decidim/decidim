@@ -87,9 +87,13 @@ describe "Polling Officer zone" do
       before do
         visit decidim_votings_polling_officer_zone.new_polling_officer_election_closure_path(assigned_polling_officer, election)
         within ".form.new_closure" do
-          fill_in "envelopes_result_total_ballots_count", with: 0
+          fill_in "envelopes_result_total_ballots_count", with: 20
           find("#envelopes_result_total_ballots_count").native.send_keys(:tab)
-          find("*[type=submit]").click
+          click_button "Verify total number"
+        end
+        within "#modal-closure-count-error-content" do
+          fill_in "modal-polling-officer-notes", with: "Some notes"
+          click_button "Validate total recount of ballots"
         end
       end
 
@@ -97,20 +101,34 @@ describe "Polling Officer zone" do
         expect(page).to have_content("Vote recount - Answers recount")
 
         within ".form.edit_closure" do
-          fill_in "closure_result__ballot_results__valid_ballots_count", with: 0
-          fill_in "closure_result__ballot_results__blank_ballots_count", with: 0
-          fill_in "closure_result__ballot_results__null_ballots_count", with: 0
+          fill_in "closure_result__ballot_results__valid_ballots_count", with: 5
+          fill_in "closure_result__ballot_results__blank_ballots_count", with: 4
+          fill_in "closure_result__ballot_results__null_ballots_count", with: 5
           find("#closure_result__ballot_results__null_ballots_count").native.send_keys(:tab)
 
           questions.each do |question|
             question.answers.each do |answer|
-              fill_in "closure_result__answer_results__#{answer.id}_value", with: Faker::Number.number(digits: 1)
+              fill_in "closure_result__answer_results__#{answer.id}_value", with: 2
             end
           end
 
-          find("*[type=submit]").click
+          click_button "Save recount"
         end
 
+        expect(page).to have_content("Total records do not add up")
+        expect(page).to have_content("Expected total of valid votes is 5 but the sum of the valid questions is 6")
+        expect(page).to have_content("Expected total of blank votes is 4 but the sum of the blank questions is 0")
+        expect(page).to have_content("Expected total is 20 but the sum of the valid, blank and null ballots is 14")
+        click_button "Close"
+
+        within ".form.edit_closure" do
+          fill_in "closure_result__ballot_results__blank_ballots_count", with: 0
+          fill_in "closure_result__ballot_results__valid_ballots_count", with: 6
+          fill_in "closure_result__ballot_results__null_ballots_count", with: 14
+          find("#closure_result__ballot_results__null_ballots_count").native.send_keys(:tab)
+        end
+
+        click_button "Save recount"
         expect(page).to have_content("Closure results successfully updated")
       end
     end

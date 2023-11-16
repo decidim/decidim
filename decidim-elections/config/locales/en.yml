@@ -1162,13 +1162,14 @@ en:
         closures:
           back_to_polling_stations: Back to polling stations
           certify:
-            add_images: Add images
+            add_photos: Add photos
+            edit_photos: Edit photos
             error: An error occurred attaching the certificate, please try again.
-            form_legend: Upload a picture of the Electoral Closure Certificate
             heading: Vote recount - Upload certificate
             info_text: Please upload a picture of the Electoral Closure Certificate.
             submit: Upload the certificate
             success: Certificate uploaded successfully.
+            upload_photos: Upload a picture of the Electoral Closure Certificate
           completed:
             sub_heading: This recount has been certified and can not longer be edited.
           create:
@@ -1215,7 +1216,6 @@ en:
             edit_count_votes: Wrong numbers? You can still edit them.
             heading: Vote recount
             info_text: Polling station electoral closure.
-            recount_certificate: Recount certificate
             sub_heading: The recount needs to be closed by uploading a certificate. Once this is done, the recount will be sealed and can no longer be edited.
           sign:
             cancel: Cancel

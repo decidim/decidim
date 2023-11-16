@@ -1,13 +1,11 @@
 <%= append_javascript_pack_tag "decidim_votings" %>
 <%= append_stylesheet_pack_tag "decidim_votings" %>
 
-<%= render layout: "layouts/decidim/shared/layout_center" do %>
+<%= render layout: "layouts/decidim/shared/layout_center", locals: { columns: 8 } do %>
 
-  <div class="text-center py-10">
-    <h1 class="title-decorator inline-block text-left">
-      <%= t("heading", scope: "decidim.votings.polling_officer_zone.closures.edit") %>
-    </h1>
-  </div>
+  <h1 class="title-decorator inline-block my-10">
+    <%= t("heading", scope: "decidim.votings.polling_officer_zone.closures.edit") %>
+  </h1>
 
   <div class="space-y-4 mb-8">
     <h2 class="h3">
@@ -24,9 +22,11 @@
     <p class="text-gray-2">
       <%= t("info_text", scope: "decidim.votings.polling_officer_zone.closures.edit", total: "<strong>#{closure.results.total_ballots&.first&.value}</strong>").html_safe %>
     </p>
-    <p class="text-warning">
-      <%= link_to(t("start_over", scope: "decidim.votings.polling_officer_zone.closures.edit"), polling_officer_election_closure_path(polling_officer, election), method: :delete, data: { confirm: t("confirm_start_over", scope: "decidim.votings.polling_officer_zone.closures.edit") }) %>
-    </p>
+
+    <div class="flash">
+      <span class="flash__message"><%= link_to(t("start_over", scope: "decidim.votings.polling_officer_zone.closures.edit"), polling_officer_election_closure_path(polling_officer, election), method: :delete, data: { confirm: t("confirm_start_over", scope: "decidim.votings.polling_officer_zone.closures.edit") }) %></span>
+    </div>
+
   </div>
 
   <%= decidim_form_for(@form, method: :patch, url: polling_officer_election_closure_path(polling_officer, election),

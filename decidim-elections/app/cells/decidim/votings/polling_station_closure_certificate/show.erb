@@ -1,5 +1,5 @@
 <% if has_images? %>
-  <p>
+  <p class="pb-4">
     <%= content_tag :strong, t("current_certificate", scope: "decidim.votings.polling_station_closure_certificate") %>
   </p>
   <% model.photos.each do |image| %>
