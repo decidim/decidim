@@ -1593,6 +1593,7 @@ ca:
       not_saved:
         one: 'S''ha produït un error en processar la teva sol·licitud:'
         other: 'S''han produït múltiples errors en processar la vostra sol·licitud:'
+      password_confirmation_message: '"Confirma la teva contrasenya" no coincideix amb la Contrasenya'
       too_many_marks: Estàs fent servir massa signes de puntuació consecutius (p. ex. i?)
       too_much_caps: Estàs utilitzant massa lletres majúscules (més del 25% del text)
       too_short: és massa curt (menys %{count} caràcters)
