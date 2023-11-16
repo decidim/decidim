@@ -881,9 +881,9 @@ eu:
         followers:
           conditions:
             - Beste pertsona batzuei aktibo eta jarraitzen zaien ziurgabetasuna beste pertsona batzuek segituko dute.
-          description: Idazmahaia jarraitzaile kopuru jakin batera iristen zarenean ematen da. %{organization_name} sare sozial eta politikoa da, zure weba plataforman beste pertsona batzuekin komunikatzeko ehundu.
+          description: Bereizgarria jarraitzaile kopuru jakin batera iristen zarenean ematen da. %{organization_name} sare soziala eta politikoa da, zure web-orria plataforman beste pertsona batzuekin komunikatzeko ehuna egiten du.
           description_another: Erabiltzaile honek %{score} jarraitzaile ditu.
-          description_own: "%{score} erabiltzaile jarraitzen zaituzte."
+          description_own: "%{score} erabiltzailek jarraitzen zaituzte."
           name: Jarraitzaileak
           next_level_in: Lortu %{score} erabiltzaile gehiago jarraitzeko hurrengo mailara iristeko!
         index:
