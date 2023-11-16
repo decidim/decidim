@@ -56,6 +56,7 @@ ca:
           create: Crea
           title: Nova administradora
         show:
+          destroy: Eliminar
           edit: Edita
         update:
           error: S'ha produït un error en actualitzar aquesta administradora.
@@ -209,3 +210,8 @@ ca:
       titles:
         dashboard: Tauler de control
         decidim: Decidim
+  layouts:
+    decidim:
+      system:
+        login_items:
+          logout: Tancar sessió
