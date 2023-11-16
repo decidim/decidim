@@ -137,7 +137,7 @@ eu:
         newsletter:
           attributes:
             base:
-              at_least_one_space: Aukeratu parte hartzeko espazio bat gutxienez
+              at_least_one_space: Hautatu gutxienez parte hartzeko espazio bat
         organization:
           attributes:
             official_img_footer:
@@ -178,7 +178,7 @@ eu:
         export-selection: Esportatu hautaketa
         import: Inportatu
         manage: Kudeatu
-        new: '%{name}berria'
+        new: '%{name} berria'
         newsletter:
           new: Beste buletin bat
         participatory_space_private_user:
@@ -922,7 +922,7 @@ eu:
         destroy:
           success: Orria zuzen ezabatu da.
         edit:
-          changed_notably_help: Egiaztatuta badago, erabiltzaileei jakinaraziko zaie baldintza eta baldintza berriak onartzeko.
+          changed_notably_help: Egiaztatuz gero, parte-hartzaileei jakinaraziko zaie baldintza eta termino berriak onartzeko.
           title: Editatu orria
           update: Eguneratu
         form:
