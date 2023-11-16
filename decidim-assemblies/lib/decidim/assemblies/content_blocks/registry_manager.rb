@@ -78,19 +78,7 @@ module Decidim
             content_block.public_name_key = "decidim.content_blocks.participatory_space_stats.name"
           end
 
-          if Decidim.module_installed?(:accountability)
-            Decidim.content_blocks.register(:assembly_homepage, :highlighted_results) do |content_block|
-              content_block.cell = "decidim/accountability/content_blocks/highlighted_results"
-              content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_for_component_settings_form"
-              content_block.public_name_key = "decidim.accountability.content_blocks.highlighted_results.results"
-              content_block.component_manifest_name = "accountability"
-
-              content_block.settings do |settings|
-                settings.attribute :order, type: :enum, default: "random", choices: %w(random recent)
-                settings.attribute :component_id, type: :select, default: nil
-              end
-            end
-          end
+          register_highlighted_results
 
           register_highlighted_meetings
 
@@ -119,6 +107,22 @@ module Decidim
           end
 
           register_highlighted_posts
+        end
+
+        def self.register_highlighted_results
+          return unless Decidim.module_installed?(:accountability)
+
+          Decidim.content_blocks.register(:assembly_homepage, :highlighted_results) do |content_block|
+            content_block.cell = "decidim/accountability/content_blocks/highlighted_results"
+            content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_for_component_settings_form"
+            content_block.public_name_key = "decidim.accountability.content_blocks.highlighted_results.results"
+            content_block.component_manifest_name = "accountability"
+
+            content_block.settings do |settings|
+              settings.attribute :order, type: :enum, default: "random", choices: %w(random recent)
+              settings.attribute :component_id, type: :select, default: nil
+            end
+          end
         end
 
         def self.register_highlighted_meetings
