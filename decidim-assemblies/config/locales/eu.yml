@@ -158,6 +158,7 @@ eu:
         destroy:
           success: Batzar honetarako kidea zuzen ezabatua. 
         edit:
+          title: Eguneratu batzarkidea
           update: Eguneratu
         index:
           assembly_members_title: Batzarraen kideak
@@ -181,6 +182,7 @@ eu:
         destroy:
           success: Batzar honetatik administratzailea zuzen kendua.
         edit:
+          title: Eguneratu batzarraren administratzailea
           update: Eguneratu
         index:
           assembly_admins_title: Batzarraren administratzaileak
@@ -191,6 +193,11 @@ eu:
           error: Arazo bat egon da administratzailea gehitzean batzar honetarako.
           success: Batzar honetarako administratzailea zuzen eguneratua.
       filters:
+        ceased_date_not_null:
+          label: Utzia
+          values:
+            'false': Ez utzia
+            'true': Utzia
         decidim_assemblies_type_id_eq:
           label: Batzar mota
         search_placeholder:
