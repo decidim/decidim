@@ -324,7 +324,7 @@ eu:
             title: Bermatzaileak
           new:
             create: Sortu bermatzailea
-            title: Bermatzaile berria
+            title: Beste bermatzaile bat
           update:
             invalid: Arazo bat egon da %{trustee} bermatzailea eguneratzean.
       admin_log:
@@ -615,6 +615,7 @@ eu:
           selections: "%{max_selections} etik <br> %{selected} hautatuta"
         onboarding_modal:
           create_account: Sortu Kontua
+          description: Beste kontu bat sortu nahi duzu plataforman? Prozesuetan parte hartu ahal izango duzu eta erakundearen parte aktiboa izango zara.
           no_account: Ez, eskerrik asko.
           title: Berria plataforman?
         update:
@@ -815,7 +816,7 @@ eu:
             invalid: Arazo bat egon da jarraipen-batzordekide hau ezabatzean.
           form:
             existing_user: Parte-hartzailea badago
-            non_user: Gonbidatu parte-hartzaile berri bat
+            non_user: Gonbidatu beste parte-hartzaile bat
             select_user: Bilatu helbide elektroniko, izen edo ezizenaren arabera
             user_type: Parte-hartzaile mota
           index:
@@ -863,7 +864,7 @@ eu:
             success: Mahaiko kudeatzailea zuzen ezabatua.
           form:
             existing_user: Parte-hartzailea badago
-            non_user: Gonbidatu parte-hartzaile berri bat
+            non_user: Gonbidatu beste parte-hartzaile bat
             select_user: Bilatu helbide elektroniko, izen edo ezizenaren arabera
             user_type: Parte-hartzaile mota
           index:
@@ -907,7 +908,7 @@ eu:
           actions:
             confirm_destroy: Ziur zaude?
             destroy: Ezabatu
-            new_voting: Bozketa-gune berri bat
+            new_voting: Beste bozketa-gune bat
           create:
             invalid: Arazo bat egon da bozketa hau sortzean.
             success: Bozketa zuzen sortua.
@@ -926,7 +927,7 @@ eu:
             voting_type_label: Bozketa mota
           new:
             create: Sortu
-            title: Bozketa berria
+            title: Beste bozketa bat
           update:
             invalid: Arazo bat egon da bozketa hau eguneratzean.
             success: Bozketa zuzen eguneratua.
@@ -1015,7 +1016,7 @@ eu:
         actions:
           confirm_destroy: Ziur zaude?
           destroy: Ezabatu
-          new: Kide berria
+          new: Beste kide bat
           title: Ekintzak
       polling_officer_zone:
         closures:
@@ -1157,6 +1158,7 @@ eu:
       votings:
         access_code_modal:
           email: 'Bidali posta elektronikoz honi: %{email}'
+          info: Parte hartzeko sarbide-kodea behar duzu. Postaz bat jaso ez baduzu, beste bat bidali ahal dizugu.
           no_email: Posta elektronikoa ez erabilgarri
           no_sms: Telefono zenbakia ez erabilgarri
           sms: Bidali SMSz honi %{sms}
@@ -1203,7 +1205,7 @@ eu:
         login:
           access_code: Sarbide-kodea
           access_code_placeholder: Sarbide-kodea
-          ask_for_a_new_one: Eskatu berri bat.
+          ask_for_a_new_one: Eskatu beste bat.
           form_title: 'Bete ezazu ondoko galdetegia bozketan sartzeko:'
           start_voting: Botoa ematen hasi
           title: Neure burua identifikatu erroldako nire datuekin
