@@ -55,6 +55,7 @@ es:
           create: Crear
           title: Nueva administradora
         show:
+          destroy: Eliminar
           edit: Editar
         update:
           error: Se ha producido un error al actualizar esta administradora.
@@ -208,3 +209,8 @@ es:
       titles:
         dashboard: Panel de administración
         decidim: Decidim
+  layouts:
+    decidim:
+      system:
+        login_items:
+          logout: Cerrar sesión
