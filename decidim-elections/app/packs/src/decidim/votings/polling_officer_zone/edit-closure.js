@@ -10,7 +10,7 @@ $(() => {
 
   const setButtonState = (ok) => {
     if (ok) {
-      submitBtn.removeAttribute("hidden") 
+      submitBtn.removeAttribute("hidden");
       modalBtn.setAttribute("hidden", true);
     } else {
       submitBtn.setAttribute("hidden", true);
@@ -52,7 +52,7 @@ $(() => {
   const checkBlankTotals = () => {
     const totalBlanks = Number(document.getElementById("closure_result__ballot_results__blank_ballots_count").value);
     let recount = Array.from(notas).reduce((acc, el) => acc + Number(el.value), 0);
-    
+
     setModalElement(modalBlank, recount, totalBlanks);
     return recount === totalBlanks;
   };
