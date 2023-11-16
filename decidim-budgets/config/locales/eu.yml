@@ -176,6 +176,8 @@ eu:
         show: Ikusi proiektuak
         vote: Eman botoa
         voted_on: Botoa eman duzu hemen %{links}
+      last_activity:
+        new_vote_at_html: "<span>Beste bozketa bat hemen: %{link}</span>"
       limit_announcement:
         cant_vote: Ezin duzu botoa eman aurrekontu honetan. <a href="%{landing_path}"> Saiatu beste aurrekontu batekin</a>.
         limit_reached: Badituzu botoak aktibo hemen %{links}. Aurrekontu honetan botoa emateko <a href="%{landing_path}">ezabatu behar duzu zure botoa eta berriro hasi</a>.
