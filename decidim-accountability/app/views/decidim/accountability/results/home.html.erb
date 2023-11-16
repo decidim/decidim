@@ -24,6 +24,12 @@
   </section>
 
   <section class="layout-main__section">
+    <% if first_class_categories.empty? %>
+      <%= cell("decidim/announcement",
+               params[:filter].present? ?
+               t("empty_filters", scope: "decidim.accountability.results.home") :
+               t("empty", scope: "decidim.accountability.results.home")) %>
+    <% end %>
     <%= render partial: "home_categories" %>
   </section>
 

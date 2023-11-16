@@ -6,6 +6,44 @@ describe "Explore results", :versioning do
   include_context "with a component"
 
   let(:manifest_name) { "accountability" }
+  let(:path) { decidim_participatory_process_accountability.root_path(participatory_process_slug: participatory_process.slug, component_id: component.id) }
+
+  context "when there are no results" do
+    before do
+      visit path
+    end
+
+    context "without any category" do
+      let(:category) { nil }
+
+      it "shows an empty page with a message" do
+        expect(page).to have_content "There are no results yet"
+      end
+
+      context "when filtering by scope" do
+        it "shows an empty page with a message" do
+          within "div.filter-container" do
+            click_link translated(scope.name)
+          end
+
+          within "main" do
+            expect(page).to have_content("There are no results with this criteria")
+          end
+        end
+      end
+    end
+
+    context "with a category" do
+      let!(:category) { create(:category, participatory_space:) }
+
+      it "shows an empty page with a message" do
+        within "main" do
+          expect(page).to have_i18n_content(category.name)
+          expect(page).to have_content "There are no projects"
+        end
+      end
+    end
+  end
 
   context "when there are results" do
     let(:results_count) { 5 }
@@ -30,8 +68,6 @@ describe "Explore results", :versioning do
 
       let(:subcategory) { create(:subcategory, parent: category) }
       let(:other_subcategory) { create(:subcategory, parent: other_category) }
-
-      let(:path) { decidim_participatory_process_accountability.root_path(participatory_process_slug: participatory_process.slug, component_id: component.id) }
 
       before do
         # Add scopes and categories for the results to test they work correctly
