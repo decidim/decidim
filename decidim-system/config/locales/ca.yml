@@ -261,6 +261,12 @@ ca:
           our_getting_started_guide: la nostra guia d'introducció
         organizations_list:
           confirm_resend_invitation: Segur que vols reenviar la invitació?
+          resend_invitation: Reenviar la invitació
       titles:
         dashboard: Tauler de control
         decidim: Decidim
+  layouts:
+    decidim:
+      system:
+        login_items:
+          logout: Tancar sessió
