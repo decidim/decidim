@@ -69,9 +69,9 @@ eu:
     admin:
       actions:
         back_to_responses: Itzuli erantzunetara
-        new_consultation: Kontsulta berria
-        new_question: Galdera berria
-        new_response: Erantzun berria
+        new_consultation: Beste kontsulta bat
+        new_question: Beste galdera bat
+        new_response: Beste erantzun bat
         new_response_group: Talde berri bat
         publish_results: Argitaratu emaitzak
         response_groups: Kudeatu erantzun-multzoak
@@ -105,7 +105,7 @@ eu:
           published: Argitaratutako
         new:
           create: Sortu
-          title: Kontsulta berria
+          title: Beste kontsulta bat
         results:
           not_visible: Emaitzak eskuragai egongo dira inkesta ixten denean
           participants: "%{count} parte-hartzaile"
@@ -179,7 +179,7 @@ eu:
           published: Argitaratutako
         new:
           create: Sortu
-          title: Galdera berria
+          title: Beste galdera bat
         update:
           error: Arazo bat egon da galdera hau eguneratzean.
           success: Galdera ondo eguneratu da.
@@ -197,7 +197,7 @@ eu:
         help: Erabili multzoak aukera anitzeko galderak paketetan antolatzeko.
         new:
           create: Sortu
-          title: Erantzun-multzo berria
+          title: Beste erantzun-multzo bat
         update:
           error: Arazo bat egon da erantzun hau eguneratzean.
           success: Erantzuna zuzen eguneratu da.
@@ -214,7 +214,7 @@ eu:
           title: Informazio orokorra
         new:
           create: Sortu
-          title: Erantzun berria
+          title: Beste erantzun bat
         update:
           error: Arazo bat egon da erantzun hau eguneratzean.
           success: Erantzun arrakastaz eguneratu da.
@@ -265,8 +265,8 @@ eu:
       index:
         title: kontsultak
       last_activity:
-        new_consultation: Kontsulta berria
-        new_question_at_html: "<span>Galdera berria %{link}</span>"
+        new_consultation: Beste kontsulta bat
+        new_question_at_html: "<span>Galdera berria hemen: %{link}</span>"
       pages:
         home:
           highlighted_consultations:
