@@ -54,7 +54,7 @@ en:
         ballot_result:
           attributes:
             base:
-              total_count_invalid: The total number of answers doesn't match the valid/blank/null breakdown.
+              total_count_invalid: The total number of answers does not match the valid/blank/null breakdown.
         election:
           attributes:
             attachment:
@@ -1171,7 +1171,7 @@ en:
             success: Certificate uploaded successfully.
             upload_photos: Upload a picture of the Electoral Closure Certificate
           completed:
-            sub_heading: This recount has been certified and can not longer be edited.
+            sub_heading: This recount has been certified and cannot longer be edited.
           create:
             error: An error occurred creating the closure, please try again later.
             success: Closure successfully created.
@@ -1190,7 +1190,7 @@ en:
               total: Expected total is %{expected} but the sum of the valid, blank and null ballots is %{current}.
               valid: Expected total of valid votes is %{expected} but the sum of the valid questions is %{current}.
             save_recount: Save recount
-            start_over: If there's an error in the total number, you can delete everything and start over.
+            start_over: If there is an error in the total number, you can delete everything and start over.
             total_ballots: Total ballots
             total_blank_ballots: Total blank ballots
             total_null_ballots: Total null ballots

@@ -109,7 +109,7 @@ module Decidim
 
           it_behaves_like "not allowed when a polling officer is not attached to the current user"
 
-          context "when there's no closure" do
+          context "when there is no closure" do
             let(:context) do
               { polling_officer: }
             end
