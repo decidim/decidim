@@ -353,7 +353,7 @@ eu:
             invites: Gonbidapenak
             search: Bilatu
           new:
-            explanation: Erabiltzaileari hitzaldi batean parte hartzeko gonbidapena egongo da. Posta elektronikoa ez bada erregistratuta, erakundera gonbidatuko dute.
+            explanation: Erabiltzailea hitzaldi batean parte hartzera gonbidatuko da. Posta elektronikoa erregistratuta ez badago, erakundera gonbidatuko dute.
             invite: gonbidatu
             new_invite: Gonbidatu erabiltzailea
         conference_registrations:
