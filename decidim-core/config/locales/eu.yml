@@ -136,6 +136,7 @@ eu:
         send_again: Bidali berriro
         title: Posta elektronikoaren aldaketak egiaztatzea
       show:
+        available_locales_helper: Aukeratu zein hizkuntza erabili nahi duzun plataforman nabigatzeko eta jakinarazpenak jasotzeko
         change_password: Aldatu pasahitza
         update_account: Eguneratu kontua
       update:
@@ -296,7 +297,7 @@ eu:
         title: Argitaratu zuzenketa-zirriborroa
       promoted:
         error: Arazo bat egon da zuzenketa proposamen berri gisa argitaratzean
-        success: Emendazioa arrakastaz sustatu da
+        success: Zuzenketa zuzen argitaratu da beste proposamen bat gisa
       publish_draft:
         error: Arazo bat egon da zuzenketa argitaratzean.
         success: Zuzenketa zuzen argitaratu da.
@@ -539,8 +540,8 @@ eu:
         new:
           are_you_new?: Berria zara plataforman?
           register: Sortu zure kontua
-          sign_in_disabled: Kanpoko kontu batekin sar zaitezke
-          sign_up_disabled: Erregistratu ezgaituta dago, lehendik dagoen erabiltzaile bat erabil dezakezu sartzeko
+          sign_in_disabled: Kanpoko kontu batez sar zaitezke
+          sign_up_disabled: Erregistroa desgaituta dago, lehendik dagoen erabiltzaile bat erabil dezakezu sartzeko
         user:
           timed_out: Denbora gehiegi egon zara lanik egin gabe, eta automatikoki bidali zaituzte zerbitzutik. Zerbitzua erabiltzen jarraitu nahi baduzu, sinatu berriro.
       shared:
@@ -550,12 +551,12 @@ eu:
             close_modal: Itxi leihoa
             uncheck: Mantendu markatu gabe
           notice: |-
-            <p>Hola, ziur zaude buletin bat jaso nahi duzula?<br>
-            Berriro begiratu berriro buletina kontrol-laukia markatuta.<br>
+            <p>Kaixo, ziur zaude buletin bat jaso nahi duzula?<br>
+            Mesedez, begiratu berriro buletina kontrol-laukia markatuta.<br>
             Oso garrantzitsua da guretzat noizean behin mezu elektronikoak jasotzea iragarki garrantzitsuak egiteko, beti ere zure jakinarazpen ezarpenen orrian alda dezakezu.</p>
             <p>Kutxa markatzen ez baduzu, plataformaren barruan aukera partaide berriei buruzko informazio garrantzitsua falta zaizu.<br>
             Buletinak jasotzea saihestu nahi baduzu, zure erabakia erabat ulertzen dugu.</p>
-            <p>Eskerrik asko irakurri hau!</p>
+            <p>Eskerrik asko hau irakurtzeagatik!</p>
           title: Buletinetako jakinarazpenak
         omniauth_buttons:
           or: Edo
@@ -849,9 +850,9 @@ eu:
         index:
           badge_title: "%{name} txapela"
           how: Nola irabaz dezakezu?
-          page_description: Badiak partaideen ekintzak eta plataforma aurrerapenean aitortzen dira. Plataforman ezagutzeko, parte hartu eta elkarreraginean hasten zarenean, txapak irabazten dituzu. Hona hemen txapak eta irabazi ditzakezun modu batzuk.
+          page_description: Garaikurrak parte-hartzaileen ekintzetan eta plataforma aurrerapenean aitortzen dira. Plataforma ezagutu, bertan parte hartu eta elkarreraginean hasten zarenean, garaikurrak irabazten dituzu. Hona hemen garaikurren zerrenda eta irabaztzeko dituzun modu batzuk.
           title: Intsigniak
-      description: Badiak partaideen ekintzak eta plataforma aurrerapenean aitortzen dira. Plataforman ezagutzeko, parte hartu eta elkarreraginean hasten zarenean, txapak irabazten dituzu.
+      description: Garaikurrak parte-hartzaileen ekintzetan eta plataforma aurrerapenean aitortzen dira. Plataforma ezagutu, bertan parte hartu eta elkarreraginean hasten zarenean, garaikurrak irabazten dituzu. Hona hemen garaikurren zerrenda eta irabaztzeko dituzun modu batzuk.
       level: '%{level}maila'
       reached_top: Idatzi honen goialdean iritsi zara.
     group_admins:
@@ -1014,7 +1015,7 @@ eu:
         new_conversation:
           greeting: Kaixo, %{recipient}!
           intro: "%{sender} k beste elkarrizketa bat hasi du zurekin. Egin klik hemen ikusteko:"
-          outro: Gozatu erabaki!
+          outro: Gozatu decidim!
           subject: "%{sender} elkarrizketa bat hasi da zurekin"
         new_group_conversation:
           admin_in_group: Jakinarazpen hau jaso duzu %{group} taldearen administratzailea zarelako.
@@ -1091,6 +1092,7 @@ eu:
     newsletter_mailer:
       newsletter:
         note: 'Mezu hau jaso duzu albiste-buletinean harpidetuta zaudelako hemen: %{organization_name}. Ezarpenak aldatu ditzakezu zure <a href="%{link}">jakinarazpen-orrian</a>.'
+        see_on_website: 'Ezin duzu ondo ikusi korreo hau? Ikusi hau: <a href="%{link}" target="_blank" class="see-on-website">website</a>.'
         unsubscribe: Mezu mota hau jasotzea desaktibatzeko, <a href="%{link}" target="_blank" class="unsubscribe"> Harpidetu</a>.
     newsletter_templates:
       basic_only_text:
@@ -1119,10 +1121,10 @@ eu:
         token_error: Lotura iraungi da.
         unsubscribe: Baja eman
     newsletters_opt_in:
-      unathorized: Esteka hau jada ez dago erabilgarri
+      unathorized: Sentitzen dugu, esteka hau jada ez dago erabilgarri
       update:
-        error: Zerbait gaizki gertatu zen
-        success: Buletinaren ezarpenak behar bezala eguneratu dira
+        error: Errore bat egon da
+        success: Buletinaren ezarpenak zuzen eguneratu dira
     newsletters_opt_in_mailer:
       notify:
         body_1: Datu pertsonalen tratamendua eta babesak gero eta garrantzi handiagoa hartzen ari dira guztiontzat. 2018ko maiatzaren 25eko Datuen Babeserako Datu Orokor berriak (GDPR) datu pertsonalak hobeto kontrolatzen ditu. Horregatik, zure adostasuna behar dugu, %{organization_name} jardueren inguruko informazio garrantzitsua bidaltzen jarraitzeko.
@@ -1148,6 +1150,7 @@ eu:
       show:
         administrators: Administratzaileak
         allow_public_contact: Baimentzea edonork bidali diezadala mezu zuzena, nahiz eta nik jarraitu ez.
+        allow_push_notifications: Bidali mezuak plataforman ez zaudenean zer gertatzen den jakiteko. Nahi duzunean desgaitu ditzakezu.
         direct_messages: Edonoren mezu zuzenak jasotzea
         everything_followed: Jarraitzen dudan guztia
         newsletter_notifications: Buletinak jaso nahi ditut
@@ -1159,6 +1162,7 @@ eu:
           weekly: Astero
         own_activity: Neure jarduera, norbaitek nire proposamenean iruzkina egiten duenean bezala, edo aipatzen nauenean
         push_notifications: Jakinarazpena jarri
+        push_notifications_reminder: Plataformaren jakinarazpenak jasotzeko, lehen zure nabigatzailearen konfigurazioan baimendu behar dituzu.
         receive_notifications_about: Jakinarazpenak jaso nahi ditut
         update_notifications_settings: Gorde aldaketak
       update:
