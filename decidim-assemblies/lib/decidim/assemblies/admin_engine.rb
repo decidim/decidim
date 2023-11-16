@@ -102,15 +102,15 @@ module Decidim
       end
 
       initializer "decidim_assemblies_admin.menu" do
-        Decidim::Assemblies::Menu.register_admin_engine_menu!
+        Decidim::Assemblies::Menu.register_admin_menu_modules!
       end
 
       initializer "decidim_assemblies_admin.attachments_menu" do
-        Decidim::Assemblies::Menu.register_admin_attachments_menu!
+        Decidim::Assemblies::Menu.register_assemblies_admin_attachments_menu!
       end
 
       initializer "decidim_assemblies_admin.components_menu" do
-        Decidim::Assemblies::Menu.register_admin_components_menu!
+        Decidim::Assemblies::Menu.register_admin_assemblies_components_menu!
       end
 
       initializer "decidim_assemblies_admin.assembly_menu" do

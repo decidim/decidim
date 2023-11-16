@@ -1,11 +1,9 @@
 # frozen_string_literal: true
 
-require "decidim/seeds"
-
 module Decidim
   module Assemblies
     class Menu
-      def self.register_engine_assemblies_menu!
+      def self.register_menu!
         Decidim.menu :menu do |menu|
           menu.add_item :assemblies,
                         I18n.t("menu.assemblies", scope: "decidim"),
@@ -16,7 +14,7 @@ module Decidim
         end
       end
 
-      def self.register_engine_home_content_block_menu!
+      def self.register_home_content_block_menu!
         Decidim.menu :home_content_block_menu do |menu|
           menu.add_item :assemblies,
                         I18n.t("menu.assemblies", scope: "decidim"),
@@ -27,7 +25,7 @@ module Decidim
         end
       end
 
-      def self.register_admin_engine_menu!
+      def self.register_admin_menu_modules!
         Decidim.menu :admin_menu_modules do |menu|
           menu.add_item :assemblies,
                         I18n.t("menu.assemblies", scope: "decidim.admin"),
@@ -41,7 +39,7 @@ module Decidim
         end
       end
 
-      def self.register_admin_attachments_menu!
+      def self.register_assemblies_admin_attachments_menu!
         Decidim.menu :assemblies_admin_attachments_menu do |menu|
           menu.add_item :assembly_attachments,
                         I18n.t("attachment_files", scope: "decidim.admin.menu.assemblies_submenu"),
@@ -58,7 +56,7 @@ module Decidim
         end
       end
 
-      def self.register_admin_components_menu!
+      def self.register_admin_assemblies_components_menu!
         Decidim.menu :admin_assemblies_components_menu do |menu|
           current_participatory_space.components.each do |component|
             caption = translated_attribute(component.name)
