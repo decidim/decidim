@@ -71,8 +71,8 @@ eu:
     admin:
       actions:
         manage: Kudeatu
-        new_initiative_type: Ekimen mota berria
-        new_initiative_type_scope: Gehitu ekimen motaren esparrua
+        new_initiative_type: Beste ekimen mota bat
+        new_initiative_type_scope: Beste ekimen mota bat esparruan
       filters:
         initiatives:
           decidim_area_id_eq:
@@ -100,6 +100,8 @@ eu:
         information: informazioa
         initiative_type_scopes: Ekimen motaren esparruak
         initiatives: Ekimenak
+        initiatives_menu:
+          see_initiative: Ikusi ekimena 
         initiatives_submenu:
           info: Ekimen honi buruz
         initiatives_types: Ekimen motak
@@ -168,7 +170,7 @@ eu:
           follower:
             email_intro: '%{resource_title} ekimena sinadurak% %{percentage}lortu ditu!'
             email_outro: Jakinarazpen hau jaso duzu %{resource_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-            email_subject: Mugarri berria osatu da!
+            email_subject: Beste maila bat osatua!
             notification_title: <a href="%{resource_path}">%{resource_title}</a> ekimenek sinadurak% %{percentage}lortu dituzte.
         support_threshold_reached:
           email_intro: '%{resource_title} ekimena sinadura-atarira heldu da'
@@ -180,8 +182,8 @@ eu:
         initiatives:
           conditions:
             - Joan zaitez Intiatives-ko partaidetza eremura
-            - Jarraitu urrats berriak ekimen berri bat sortzeko
-          description: Idazmahaia ekimen berriak abiarazten dituzunean, besteekin elkarlanean aritzea ekartzen baduzu.
+            - Jarraitu urrats berriak beste ekimen bat sortzeko
+          description: Garaikur hau ekimen berriak martxan jartzean ematen da, beste batzuekin partekatuz horiek lortzeko.
           description_another: Erabiltzaile honek argitaratutako %{score} ekimen lortu ditu.
           name: Argitaratutako ekimenak
           next_level_in: Talde %{score} ekimen gehiago argitaratu hurrengo mailara iristeko!
@@ -243,7 +245,7 @@ eu:
           initiative_attachments:
             documents: Dokumentuak
             edit: Editatu
-            new: Berria
+            new: Beste bat
             photos: Argazkiak
           update:
             error: Errore bat egon da.
@@ -269,6 +271,7 @@ eu:
         initiatives_types:
           create:
             error: Errore bat egon da.
+            success: Beste ekimen mota bat zuzen sortu da.
           edit:
             update: eguneratzearen
           form:
@@ -279,7 +282,7 @@ eu:
             title: Ekimen motako esparruak
           new:
             create: Sortu
-            title: Ekimen mota berria
+            title: Beste ekimen mota bat
           update:
             error: Errore bat egon da.
       admin_log:
@@ -316,6 +319,7 @@ eu:
           success: Eskaera onartu egin da.
         new:
           continue: Jarraitu
+          help_text: Ekimen hau sustatzeko batzarkide izatea eskatzekotan zaude.
         revoke:
           success: Eskaera baliogabetu egin da.
         spawn:
@@ -351,6 +355,7 @@ eu:
           back: Back
           choose_html: <strong>%{title}</strong>bat sortu nahi dut
           more_information: (Informazio gehiago)
+          new: Sortu beste ekimen bat
           select: Ekimen hau sustatu nahi dut
           select_initiative_type_help: Ekimenen bidez, parte-hartzaileek esku har dezakete erakundeak interes orokorraren aldeko ekintzak egin ditzan. Zein ekimen abiarazi nahi duzu?
         share_committee_link:
@@ -372,9 +377,9 @@ eu:
           email_subject: "%{author_nickname} k onartu du zure eskaera batzorde bultzatzailean parte hartzeko"
           notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> k onartu du zure eskaera <a href="%{resource_url}">%{resource_title}</a> ekimenaren batzorde bultzatzailean parte hartzeko.
         create_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, jarraitzen ari zarenak, ekimen berri bat sortu du, egiaztatu eta lagundu:"
+          email_intro: "%{author_name} %{author_nickname} k, jarraitzen ari zarenak, beste ekimen bat sortu du, egiaztatu eta lagundu:"
           email_outro: Jakinarazpena jaso duzu %{author_nickname}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-          email_subject: '%{author_nickname} ekimen berria'
+          email_subject: '%{author_nickname} ren bete ekimen bat'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> ekimena <a href="%{author_path}">%{author_name} %{author_nickname}</a> sortu zen.
         endorse_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, jarraitzen ari zarenak, hurrengo ekimena onartu du, agian elkarrizketan lagundu nahi baduzu:"
@@ -421,7 +426,10 @@ eu:
             other: eta beste %{count} pertsona
         committee_members:
           approve: Onartu
+          confirm_approve: Ziur zaude kide hau onartu nahi duzula?
+          confirm_revoke: Ziur zaude kide hau baliogabetu nahi duzula?
           no_members_yet: Ez dago kiderik batzorde bultzatzailean.
+          revoke: Baliogabetu
           title: Batzorde-kideak
         count:
           title:
@@ -436,7 +444,7 @@ eu:
           state: Estatu
           type: Mota
         index_header:
-          new_initiative: Ekimen berria
+          new_initiative: Beste ekimen bat
         initiatives:
           closed_initiatives_warning: Gaur egun ez dago ekimen irekirik, baina hemen aurki ditzakezu itxitako ekimen guztiak zerrendatuta.
           no_initiatives_warning: Ez dago bilaketa-irizpideekin bat datorren ekimenik.
@@ -506,6 +514,8 @@ eu:
         promotal_committee_help: Gogoan izan gutxienez %{member_count} pertsona gonbidatu behar dituzula sustatzaile batzordera. Birbidali hurrengo estekara gonbidatzeko jendea sustatzaile batzordera
         status_change_body_for: '%{title} ekimena bere egoera aldatu du: %{state}'
         status_change_for: '%{title} ekimena bere egoera aldatu du'
+      last_activity:
+        new_initiative: 'Beste ekimen bat:'
       modal:
         not_authorized:
           authorizations_page: Ikusi baimenak
