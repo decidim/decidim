@@ -321,6 +321,8 @@ eu:
           index:
             filter:
               all: Guztiak
+              ceased: Utzia
+              not_ceased: Ez utzia
             filter_by: Iragazi arabera
             search: Bilatu
         content_blocks:
