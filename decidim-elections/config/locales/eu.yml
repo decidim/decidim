@@ -135,7 +135,7 @@ eu:
         new_answer: Beste erantzun bat
         new_election: Beste aukera bat
         new_question: Beste galdera bat
-        new_trustee: Beste administratzaile bat
+        new_trustee: Beste bermatzaile bat
         preview: Aurrebistaratu
         publish: Argitaratu
         title: Ekintzak
@@ -178,7 +178,7 @@ eu:
             title: Aukerak
           new:
             create: Sortu aukera
-            title: Aukera berria
+            title: Beste aukera bat
           publish:
             success: Aukera zuzen argitaratu da.
           unpublish:
@@ -217,7 +217,7 @@ eu:
             title: Galderak
           new:
             create: Sortu galdera bat
-            title: Galdera berria
+            title: Beste galdera bat
           update:
             invalid: Arazo bat egon da galdera hau eguneratzean.
         steps:
@@ -995,6 +995,7 @@ eu:
               csv_header_after: Ez sartu ("%{ballot_style_code_header}") azken eremua, baldintza-galderarik/boto-paper motarik behar ez baduzu
               csv_header_before: 'Errolda CSV artxiboa izan behar da honako goiburu hau duena:'
         document_types:
+          identification_number: Identifikazio-zenbakia 
           passport: Pasaportea
         export_mailer:
           access_codes_export:
