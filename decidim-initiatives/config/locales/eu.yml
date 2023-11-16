@@ -593,7 +593,7 @@ eu:
         select_initiative_type: Aukeratu
         show_similar_initiatives: konparatu
         step: Step %{current} of %{total}
-        title: Sortu ekimen berria
+        title: Sortu beste ekimen bat
       initiative_header:
         initiative_menu_item: Initiative
       initiative_signature_creation_header:
