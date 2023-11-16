@@ -20,6 +20,9 @@ eu:
         scope_id: Eremua
   activerecord:
     models:
+      decidim/budgets/budget:
+        one: Aurrekontua
+        other: Aurrekontuak
       decidim/budgets/project:
         one: Proiektua
         other: Proiektuak
@@ -92,6 +95,7 @@ eu:
           index:
             actions: Ekintzak
             cancel: Ezeztatu
+            change_budget: Aldatu aurrekontua
             change_category: Kategoria aldatu
             change_scope: Aldatu eremua
             change_selected: Aldatu hautatutako eremua
@@ -102,6 +106,7 @@ eu:
             selected: Hautatua
             title: Proiektuak
             update: Eguneratu
+            update_budget_button: Eguneratu proiektuaren aurrekontua
             update_scope_button: Eguneratu eremua
           new:
             create: Sortu
@@ -110,6 +115,8 @@ eu:
             invalid: Arazo bat egon da proiektu hau eguneratzean.
             success: Proiektua zuzen eguneratua.
           update_budget:
+            invalid: 'Proiektu horiek aurrekontu berean daude jada, edo aurrekontu horiek baimendutako gehienekoa baino handiagoak dira: % {projects}.'
+            select_a_project: Mesedez, hautatu proiektu bat.
             success: 'Proiektuak zuzen eguneratuta %{subject_name} aurrekontuan: %{projects}.'
           update_category:
             invalid: 'Proiektu hauek bazuten %{subject_name}: %{projects} kategoria.'
@@ -279,6 +286,7 @@ eu:
         select_projects: Hautatu proiektuak 
         show:
           budget: Aurrekontua
+      prompt: Aukeratu aurrekontua
       vote_reminder_mailer:
         vote_reminder:
           email_budgets: 'Arlo hauetan duzu amaitu gabeko bozketa:'
