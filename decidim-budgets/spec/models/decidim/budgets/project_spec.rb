@@ -109,5 +109,25 @@ module Decidim::Budgets
         end
       end
     end
+
+    describe "#visible?" do
+      subject { project.visible? }
+
+      context "when component is not published" do
+        before do
+          allow(project.budget.component).to receive(:published?).and_return(false)
+        end
+
+        it { is_expected.not_to be_truthy }
+      end
+
+      context "when participatory space is visible" do
+        before do
+          allow(project.budget.component.participatory_space).to receive(:visible?).and_return(false)
+        end
+
+        it { is_expected.not_to be_truthy }
+      end
+    end
   end
 end
