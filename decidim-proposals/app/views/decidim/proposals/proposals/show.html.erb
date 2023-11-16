@@ -35,7 +35,7 @@ extra_admin_link(
   <section class="layout-main__section layout-main__heading">
     <%= render partial: "voting_rules" %>
 
-    <%= cell("decidim/announcement", proposal_reason_callout_announcement, callout_class: proposal_reason_callout_class) if @proposal.answered? && @proposal.published_state? %>
+    <%= cell("decidim/announcement", proposal_reason_callout_announcement, callout_class: @proposal.proposal_state&.css_class) if @proposal.answered? && @proposal.published_state? %>
 
     <%= emendation_announcement_for @proposal %>
 

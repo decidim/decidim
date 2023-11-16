@@ -47,6 +47,8 @@ module Decidim
     end
 
     def self.create_default_states!(component, admin_user, with_traceability: true)
+
+      locale = Decidim.default_locale
       default_states = {
         not_answered: {
           token: :not_answered,
@@ -91,15 +93,13 @@ module Decidim
           title: { locale => I18n.with_locale(locale) { I18n.t(:withdrawn, scope: "decidim.proposals.answers")}}
         }
       }
-
-      locale = Decidim.default_locale
       default_states.each_key do |key|
         default_states[key][:object] = if with_traceability
                                          Decidim.traceability.create(
-                                           Decidim::Proposals::ProposalState, admin_user, component:, **attributes
+                                           Decidim::Proposals::ProposalState, admin_user, component:, **default_states[key]
                                          )
                                        else
-                                         Decidim::Proposals::ProposalState.create(component:, **attributes)
+                                         Decidim::Proposals::ProposalState.create(component:, **default_states[key])
                                        end
       end
       default_states

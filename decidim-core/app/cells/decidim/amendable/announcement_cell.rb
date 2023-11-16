@@ -51,17 +51,7 @@ module Decidim::Amendable
     end
 
     def state_classes
-      return model.proposal_state.css_class
-      case model.state
-      when "accepted"
-        "success"
-      when "rejected", "withdrawn"
-        "alert"
-      when "evaluating"
-        "warning"
-      else
-        "muted"
-      end
+      model.proposal_state&.answerable? ? model.proposal_state&.css_class : "muted"
     end
   end
 end

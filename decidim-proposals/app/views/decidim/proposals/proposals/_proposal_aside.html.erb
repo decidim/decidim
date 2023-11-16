@@ -1,7 +1,7 @@
 <% if current_settings.votes_enabled? && (show_endorsements_card? || current_user) %>
 <section class="layout-aside__section">
   <div class="proposal__aside-vote">
-    <%= render partial: "vote_button", locals: { proposal: @proposal, from_proposals_list: false } unless @proposal.withdrawn? %>
+    <%= render partial: "vote_button", locals: { proposal: @proposal, from_proposals_list: false } unless @proposal.customized_proposal_withdrawn? %>
     <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
   </div>
 </section>

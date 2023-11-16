@@ -1,6 +1,6 @@
 <% button_classes = "button button__lg button__secondary w-full" %>
 
-<% unless proposal.rejected? || proposal.withdrawn? %>
+<% unless proposal.customized_proposal_rejected? || proposal.customized_proposal_withdrawn? %>
   <% if component_settings.participatory_texts_enabled? && from_proposals_list %>
     <%= render partial: "decidim/proposals/proposals/participatory_texts/proposal_vote_button", locals: { proposal:, from_proposals_list: true } %>
   <% else %>
