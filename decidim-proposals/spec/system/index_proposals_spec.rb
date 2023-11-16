@@ -7,7 +7,7 @@ describe "Index proposals" do
   let(:manifest_name) { "proposals" }
 
   context "when there are proposals" do
-    let!(:proposals) { create_list(:proposal, 3, component:) }
+    let!(:proposals) { create_list(:proposal, 20, component:) }
 
     it "does not display empty message" do
       visit_component
@@ -18,7 +18,7 @@ describe "Index proposals" do
 
   context "when checking withdrawn proposals" do
     context "when there are no withrawn proposals" do
-      let!(:proposals) { create_list(:proposal, 3, component:) }
+      let!(:proposals) { create_list(:proposal, 20, component:) }
 
       before do
         visit_component
@@ -34,8 +34,8 @@ describe "Index proposals" do
     end
 
     context "when there are withrawn proposals" do
-      let!(:proposals) { create_list(:proposal, 3, component:) }
-      let!(:withdrawn_proposals) { create_list(:proposal, 3, :withdrawn, component:) }
+      let!(:proposals) { create_list(:proposal, 20, component:) }
+      let!(:withdrawn_proposals) { create_list(:proposal, 20, :withdrawn, component:) }
 
       before do
         visit_component
