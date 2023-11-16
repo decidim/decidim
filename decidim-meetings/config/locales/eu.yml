@@ -22,6 +22,7 @@ eu:
         id: ID
         iframe_access_level: Iframe sarbide-maila
         iframe_embed_type: Txertatutako iframe mota
+        iframe_embed_type_html: Zerbitzu gutxi batzuek bakarrik ematen dute aukera "Bileraren orrian sartzeko" edo "Ekitaldiaren orrian zuzenean irekitzeko". Kontuan izan telefono mugikorretan "Sartu bilera-orrian" aukerarekin, pantailak hainbat dimentsio heredatzen baititu, benetan "Ireki ekitaldiaren orrian zuzenean" gisa funtzionatuko duela.
         location: Kokapena
         location_hints: Kokapen-argibideak
         online_meeting_url: Lineako topaketaren URL helbidea
@@ -299,6 +300,7 @@ eu:
           form:
             address_help: 'Helbidea: Geocoderrek erabiltzen du kokapena aurkitzeko'
             disclaimer: 'Erantzukizun-deskargua: Kanpoko inskripzio-sistema bat erabiliz, onartzen duzu %{organization} ko antolatzaileak ez direla kanpo-zerbitzuko erabiltzaileek emandako datuen erantzule.'
+            iframe_embed_type_html: 'Zerbitzu gutxi batzuek baino ez dute uzten topaketan edo zuzeneko gertakarietan txertatzen honako domeinu hauetatik:%{domains}'
             location_help: 'Kokapena: erabiltzaileentzako mezua, non bildu behar dugun adierazten duena'
             location_hints_help: 'Kokapen-aholkuak: informazio gehigarria. Adibidez: eraikinaren solairua, aurrez aurreko topaketa bat bada, edo topaketarako pasahitza, sarbide mugatuko online topaketa bat bada.'
             online_meeting_url_help: 'Esteka: Utzi parte-hartzaileei zuzenean konektatzen zure topaketara'
@@ -474,6 +476,7 @@ eu:
           available_slots_help: Uzti 0an erabiltzeko espazio mugatua baduzu
           create_as: Sortu topaketa honela
           disclaimer: 'Erantzukizun-deskargua: Kanpoko inskripzio-sistema bat erabiliz, onartzen duzu %{organization} ko antolatzaileak ez direla kanpo-zerbitzuko erabiltzaileek emandako datuen erantzule.'
+          iframe_embed_type_html: 'Zerbitzu gutxi batzuek baino ez dute uzten topaketan edo zuzeneko gertakarietan txertatzen honako domeinu hauetatik:%{domains}'
           location_help: 'Kokapena: mezua part-hartzaileei zuzendua biltzeko lekua adieraziz'
           location_hints_help: 'Kokapen-aholkuak: informazio gehigarria. Adibidea: eraikinaren solairua, aurrez aurreko topaketa bada, edo aretoaren pasahitza, sarrera mugatua duen online topaketa bada.'
           online_meeting_url_help: 'Lotura: Utzi parte-hartzaileei zuzenean konektatzen zure topaketara'
@@ -589,6 +592,7 @@ eu:
       registrations:
         create:
           invalid: Arazo bat izan da topaketa honekin bat egitean.
+          success: Topaketan izena ongi eman duzu. Bilera honetarako izena eman duzulako, jakinarazi egingo dizute eguneraketak badaude.
         decline_invitation:
           invalid: Arazo bat egon da gonbidapenari uko egiten.
           success: Arrakastaz uko egin diozu gonbidapenari.
