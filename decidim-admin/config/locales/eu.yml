@@ -716,27 +716,27 @@ eu:
           title: Buletin berria
         select_recipients_to_deliver:
           all_spaces: Denak
-          all_users_help: Bidali albisteen buletina baieztatu duten erabiltzaile guztiei.
+          all_users_help: Albisteen buletina baieztatu duten erabiltzaile guztiei bidaltzen die.
           confirm_deliver: Ziur zaude buletin hau bidali nahi duzula? Ekintza hau ezin da desegin.
           deliver: Bidali buletina
-          followers_help: Bidali albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein eremu jarraitzen duten erabiltzaile guztiei.
+          followers_help: Albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein eremu jarraitzen duten erabiltzaile guztiei bidaltzen die.
           none: Bat ere ez
-          participants_help: Bidali albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein eremu parte-hartzailetan esku hartu duten erabiltzaile guztiei.
+          participants_help: Albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein eremu parte-hartzailetan esku hartu duten erabiltzaile guztiei bidaltzen die.
           recipients_count: 'Buletin hau erabiltzaile hauei bidaliko zaie: <strong id=''recipients_count''>%{count}</strong>.'
-          scopes_help: Bidali albisteen buletina "Nire interesekoak" konfigurazioan edozein esparru aktibatuta duten erabiltzaileei.
+          scopes_help: Albisteen buletina "Nire interesekoak" konfigurazioan edozein esparru aktibatuta duten erabiltzaileei bidaltzen die.
           select_scopes: Iragazi "Nire interesekoak" konfigurazioan edozein esparru aktibatu duten erabiltzaileentzat.
           select_spaces: Hautatu espazioak buletina zatitzeko
           select_users: Hautatu zein erabiltzaileri bidali nahi diezun buletina
           send_to_all_users: Bidali erabiltzaile guztiei
           send_to_followers: Bidali jarraitzaileei
           send_to_participants: Bidali parte-hartzaileei
-          title: Hautatu hartzaileak
+          title: Hautatu hartzaileak entregatzeko
           warning: "<strong>Adi:</strong> Jakinarazpen-doikuntzetan “Albiste-buletinak jaso nahi ditut” aktibatu duten erabiltzaileei baino ez zaie bidaliko buletin hau."
         send:
           no_recipients: Ez dago hartzailerik hautaketa honetarako
         show:
           preview: Aurreikusi
-          select_recipients_to_deliver: Hautatu hartzaileak
+          select_recipients_to_deliver: Hautatu hartzaileak entregatzeko
           subject: Gaia
         update:
           error: Arazo bat egon da buletin hau eguneratzean.
@@ -768,7 +768,7 @@ eu:
         new:
           badge: Ofizializazio-garaikurra
           officialize: Ofizializatzen du
-          title: Erabiltzaile ofiziala "%{name}"
+          title: Parte-hartzaile ofiziala "%{name}"
         show_email_modal:
           close_modal: Itxi leihoa
           description: Parte-hartzaile batekin zuzenean harremanetan jarri behar baduzu, Erakutsi botoian klik egin dezakezu helbide elektronikoa ikusteko. Ekintza hori erregistratu egingo da.
@@ -823,6 +823,10 @@ eu:
         form:
           add: Gehitu zerrenda zurian
           title: Kanpoko domeinuen zerrenda zuria
+      organization_homepage:
+        edit:
+          active_content_blocks: Eduki-bloke aktiboak
+          inactive_content_blocks: Eduki-bloke inaktiboak
       organization_homepage_content_blocks:
         edit:
           update: Onartu
