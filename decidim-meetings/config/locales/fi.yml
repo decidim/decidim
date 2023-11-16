@@ -22,6 +22,7 @@ fi:
         id: ID
         iframe_access_level: Iframe-käyttöoikeustaso
         iframe_embed_type: Iframe-upotuksen tyyppi
+        iframe_embed_type_html: Vain jotkin ulkoiset palvelut tukevat asetuksia "Upota tapaamisen sivulle" tai "Avaa reaaliaikaisen tapahtuman sivu". Huomioi, että "Upota tapaamisen sivulle" -asetus toimii mobiililaitteilla kuten "Avaa reaaliaikaisen tapahtuman sivu" ruudun kokorajoituksista johtuen.
         location: Paikka
         location_hints: Paikan tarkemmat tiedot
         online_meeting_url: Verkkotapaamisen osoite (URL)
@@ -312,6 +313,7 @@ fi:
           form:
             address_help: 'Osoite: käytetään karttapisteen etsimiseen geokoodauksen avulla'
             disclaimer: 'Vastuuvapauslauseke: Käyttämällä ulkoista ilmoittautumisjärjestelmää olet tietoinen siitä, että palvelu %{organization} ei ole vastuussa tiedoista, jotka käyttäjät ovat antaneet ulkoiselle palvelulle.'
+            iframe_embed_type_html: 'Vain jotkin ulkoiset palvelut näistä osoitteista sallivat tapaamisen upottamisen reaaliaikaisesti tapaamisen sivulle: %{domains}'
             location_help: 'Paikka: kuvaus tapaamispaikan tarkemmasta sijainnista osallistujille'
             location_hints_help: 'Vihjeet sijainnille: sijainnin lisätieto. Esimerkiksi rakennuksen kerros fyysisissä tapaamisissa tai tapaamisen salasana rajatussa verkkotapaamisessa.'
             online_meeting_url_help: 'Linkki: salli osallistujien yhdistäminen tapaamiseen suoraan'
@@ -494,6 +496,7 @@ fi:
           available_slots_help: Määritä tähän kenttään arvo 0, jos tapaamisen paikkamäärää ei ole rajoitettu
           create_as: Luo tapaaminen käyttäjänä
           disclaimer: 'Vastuuvapauslauseke: Käyttämällä ulkoista ilmoittautumisjärjestelmää olet tietoinen siitä, että palvelu %{organization} ei ole vastuussa tiedoista, jotka käyttäjät ovat antaneet ulkoiselle palvelulle.'
+          iframe_embed_type_html: 'Vain jotkin ulkoiset palvelut näistä osoitteista sallivat tapaamisen upottamisen reaaliaikaisesti tapaamisen sivulle: %{domains}'
           location_help: 'Paikka: kuvaus tapaamispaikan tarkemmasta sijainnista osallistujille'
           location_hints_help: 'Vihjeet sijainnille: sijainnin lisätieto. Esimerkiksi rakennuksen kerros fyysisissä tapaamisissa tai tapaamisen salasana rajatussa verkkotapaamisessa.'
           online_meeting_url_help: 'Linkki: salli osallistujien yhdistäminen tapaamiseen suoraan'
