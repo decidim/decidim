@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "decidim/components/namer"
+require "decidim/faker/localized"
 
 module Decidim
   module Proposals
