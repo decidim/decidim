@@ -138,6 +138,21 @@ fi:
           show: Näytä lisäasetukset
         create:
           error: Uuden organisaation luonti epäonnistui.
+          success_html: |
+            <p>
+              Organisaation luonti onnistui.
+            </p>
+            <ol>
+              <li>Sinun täytyy mahdollisesti päivittää sovelluksen koodia, koska pyynnöt osoitteeseen %{host} vaativat seuraavan asetuksen lisäämisen ympäristöasetusten tiedostoon (kuten <code>config/environment/production.rb</code>) tai sovelluksen asetustiedostoon <code>config/application.rb</code>:
+                <p> config.hosts << "%{host}" </p>
+              </li>
+              <li>
+                Tämän jälkeen pääset alustalle osoitteesta <a href="http://%{host}">http://%{host}</a>
+              </li>
+              <li>
+                Lähetimme sähköpostin osoitteeseen <b>%{email}</b>, joka sinun tulee vahvistaa.
+              </li>
+            </ol>
         csp_settings:
           connect_src: Yhteysosoitteet (connect-src)
           connect_src_hint: |
