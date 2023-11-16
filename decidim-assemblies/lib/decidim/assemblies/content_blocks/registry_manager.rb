@@ -92,18 +92,7 @@ module Decidim
             end
           end
 
-          if Decidim.module_installed?(:meetings)
-            Decidim.content_blocks.register(:assembly_homepage, :highlighted_meetings) do |content_block|
-              content_block.cell = "decidim/meetings/content_blocks/highlighted_meetings"
-              content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_for_component_settings_form"
-              content_block.public_name_key = "decidim.meetings.content_blocks.upcoming_meetings.name"
-              content_block.component_manifest_name = "meetings"
-
-              content_block.settings do |settings|
-                settings.attribute :component_id, type: :select, default: nil
-              end
-            end
-          end
+          register_highlighted_meetings
 
           register_highlighted_proposals
 
@@ -130,6 +119,21 @@ module Decidim
           end
 
           register_highlighted_posts
+        end
+
+        def self.register_highlighted_meetings
+          return unless Decidim.module_installed?(:meetings)
+
+          Decidim.content_blocks.register(:assembly_homepage, :highlighted_meetings) do |content_block|
+            content_block.cell = "decidim/meetings/content_blocks/highlighted_meetings"
+            content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_for_component_settings_form"
+            content_block.public_name_key = "decidim.meetings.content_blocks.upcoming_meetings.name"
+            content_block.component_manifest_name = "meetings"
+
+            content_block.settings do |settings|
+              settings.attribute :component_id, type: :select, default: nil
+            end
+          end
         end
 
         def self.register_highlighted_proposals
