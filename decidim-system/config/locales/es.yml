@@ -262,6 +262,12 @@ es:
           our_getting_started_guide: nuestra guía de inicio
         organizations_list:
           confirm_resend_invitation: '¿Seguro que quieres reenviar la invitación?'
+          resend_invitation: Reenviar la invitación
       titles:
         dashboard: Panel de administración
         decidim: Decidim
+  layouts:
+    decidim:
+      system:
+        login_items:
+          logout: Cerrar sesión
