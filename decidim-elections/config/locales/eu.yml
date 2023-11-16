@@ -650,6 +650,7 @@ eu:
         trustees:
           new_election:
             email_intro: Bazaude gehituta bermatzaile gisa %{resource_title} aukerarako.
+            email_outro: Jakinarazpen hau jaso duzu bermatzaile gisa gehitu zaituztelako %{resource_title} aukerarako.
             email_subject: Bermatzailea zara %{resource_title} aukerarako..
             notification_title: Bermatzailea zara <a href="%{resource_path}">%{resource_title}</a> aukerarako.
           new_trustee:
@@ -1049,6 +1050,8 @@ eu:
             info_text: 'Mesedez, sartu bozketa-puntu honetan birzenbatutako boto-txartelen (gutun-azalen) kopuru osoa:'
             modal_ballots_count_error:
               btn_validate_total: Baliozkotu boto-paperen zenbaketa osoa
+              info_explanation_text: 'Mesedez, berrikusi zein boto-paper kopuru dagoen. Kopuru osoa zuzena ez bada, Jarraipen Batzordeari azalpenak eman behar dizkiozu:'
+              info_text: Aurkeztutako boto kopuru osoa (gutun-azalak) ez dator bat botoa eman dutenen erregistroarekin.
               message_for_monitoring_committee: Mezua Jarraipen Batzordearentzat
               review_recount: Berrikusi zenbaketa
               text_area_placeholder: Mesedez, idatzi zure mezua
@@ -1056,7 +1059,7 @@ eu:
               total_ballots: 'Boto-paperak, guztira:'
               total_people: 'Pertsona kopurua, guztira:'
             polling_station: 'Bozketa-gunea:'
-            submit: Egiaztatu telefono zenbakia
+            submit: Egiaztatu guztizko zenbakia
             total_ballots_count: Boto-paper kopurua
           show:
             heading: Botoen zenbaketa
@@ -1098,7 +1101,7 @@ eu:
             year_placeholder: UUUU
           new:
             back: Itzuli bozketa-guneetara
-            title: Pertsona bat identifikatzea eta egiaztatzea
+            title: Identifikatu eta egiaztatu parte-hartzaile bat
           show:
             back: Itzuli bozketa-guneetara
             title: Aurrez aurreko botoa erregistratzearen zain
