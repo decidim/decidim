@@ -75,7 +75,7 @@ eu:
             title: eztabaidak
           new:
             create: Sortu eztabaida
-            title: Berri eztabaida
+            title: Beste eztabaida bat
           update:
             invalid: Arazo bat egon da eztabaida hau eguneratzean.
             success: Debate arrakastaz eguneratu da.
@@ -126,11 +126,11 @@ eu:
         form:
           select_a_category: Hautatu kategoria bat
         index:
-          new_debate: Berri eztabaida
+          new_debate: Beste eztabaida bat
         new:
-          back: Back
+          back: Atzera
           create: Sortu
-          title: Berri eztabaida
+          title: Beste eztabaida bat
         orders:
           commented: Iruzkin gehien dituztenak
           label: Ordenatu eztabaidak honen arabera
@@ -167,16 +167,16 @@ eu:
           space_followers:
             email_intro: |-
               Kaixo,
-              "%{resource_title}" eztabaida berri bat sortu da %{space_title} partehartze espazioan, begiratu eta lagundu:
+              "%{resource_title}" beste eztabaida bat sortu da %{space_title} parte hartzeko espazioan, begiratu eta lagundu:
             email_outro: Jakinarazpen hori jaso duzu %{space_title} partaidetzazko espazioa jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-            email_subject: Eztabaida berriak "%{resource_title}" on %{space_title}
+            email_subject: Beste eztabaida bat "%{resource_title}" hemen %{space_title}
             notification_title: <a href="%{resource_path}">%{resource_title}</a> eztabaida sortu zen <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
               Kaixo,
               %{author_name} %{author_nickname} k, jarraitzen ari zarenak, "%{resource_title}" eztabaida berri bat sortu du. Begiratu eta lagundu:
             email_outro: Jakinarazpena jaso duzu %{author_nickname} jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-            email_subject: '%{author_nickname} k "%{resource_title}" eztabaida berria sortu du'
+            email_subject: '%{author_nickname} k "%{resource_title}" beste eztabaida bat sortu du'
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> k sortu du <a href="%{resource_path}">%{resource_title}</a> eztabaida.
         creation_disabled:
           email_intro: 'Debate sortzea ez dago aktibo %{participatory_space_title}. Oraindik eztabaidak ireki ditzakezu orri honetatik:'
@@ -184,7 +184,7 @@ eu:
           email_subject: Debate sortzea desgaituta %{participatory_space_title}
           notification_title: Debateen sorrera desaktibatuta dago orain <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         creation_enabled:
-          email_intro: 'Orain %{participatory_space_title} eztabaida berriak hasi ditzakezu! Hasi parte-hartzea orri honetan:'
+          email_intro: 'Oraineztabaida berriak hasi ditzakezu hemen: %{participatory_space_title}! Hasi parte-hartzea orri honetan:'
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: 'Eztabaidak orain eskuragarri hemen: %{participatory_space_title}'
           notification_title: 'Orain <a href="%{resource_path}">eztabaida berriak hasi ditzakezu hemen: </a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
