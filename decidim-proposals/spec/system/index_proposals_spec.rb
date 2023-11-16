@@ -43,7 +43,7 @@ describe "Index proposals" do
       end
 
       it "shows all the withdrawn proposals" do
-        expect(page).to have_css(".card__list span.alert", count: 20)
+        expect(page).to have_css(".card__list span.alert", count: 10)
         within ".flash.warning" do
           expect(page).to have_content("You are viewing the list of proposals withdrawn by their authors.")
         end
