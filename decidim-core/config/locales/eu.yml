@@ -519,6 +519,8 @@ eu:
           subtitle: Mesedez, bete inprimaki hau izen-ematea osatzeko
           username_help: Zure mezuetan agertuko den izen publikoa. Anonimatua bermatze aldera, edozein izen izan daiteke.
       registrations:
+        create:
+          error: Arazo bat izan da kontua sortzean.
         new:
           already_have_an_account?: Baduzu kontu bat?
           newsletter: Jaso nahi dut noizbehinka informazio garrantzitsua duen buletina
@@ -531,7 +533,7 @@ eu:
           subtitle: Sortu kontu bat eztabaidetan parte hartzeko eta proposamenen alde egiteko
           terms: erabilera-baldintzak
           tos_agreement: 'Erregistratzean hau onartzen duzu: %{link}.'
-          tos_title: Zerbitzu-baldintzak
+          tos_title: Zerbitzuaren baldintzak
           username_help: Zure mezuetan agertuko den izen publikoa. Anonimatua bermatze aldera, edozein izen izan daiteke.
       sessions:
         new:
@@ -564,7 +566,7 @@ eu:
           by_organization_link_html: <small class="heading-small"> %{link}</small>
           cancel: Utzi
           connect_your_account_html: Konektatu kontua <strong>%{organization}</strong>-n sartzean
-          publish_content: Argitaratu zure edukia
+          publish_content: Argitaratu edukia zuretzat
           see_email: Ikusi zure helbide elektronikoa
           see_name: Ikusi zure izena
           see_username: Ikusi zure erabiltzaile-izena
@@ -1089,7 +1091,7 @@ eu:
     newsletter_mailer:
       newsletter:
         note: 'Mezu hau jaso duzu albiste-buletinean harpidetuta zaudelako hemen: %{organization_name}. Ezarpenak aldatu ditzakezu zure <a href="%{link}">jakinarazpen-orrian</a>.'
-        unsubscribe: Mezu mota hau jasotzeko ez onartzeko, <a href="%{link}" target="_blank" class="unsubscribe"> Harpidetu</a>.
+        unsubscribe: Mezu mota hau jasotzea desaktibatzeko, <a href="%{link}" target="_blank" class="unsubscribe"> Harpidetu</a>.
     newsletter_templates:
       basic_only_text:
         body_preview: 'Alegiazko testua: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu".'
@@ -1113,7 +1115,7 @@ eu:
       unsubscribe:
         check_subscription: Zure hobespenak aldatu nahi badituzu, <a href="%{link}" target="_blank">configurazio orriko 1233_4_1_321 orrian egin dezakezu.
         error: Arazo bat egon da harpidetza kentzean
-        success: Harpidetuta zaude ondo.
+        success: Harpidetza zuzen ezeztatua.
         token_error: Lotura iraungi da.
         unsubscribe: Baja eman
     newsletters_opt_in:
@@ -1124,12 +1126,12 @@ eu:
     newsletters_opt_in_mailer:
       notify:
         body_1: Datu pertsonalen tratamendua eta babesak gero eta garrantzi handiagoa hartzen ari dira guztiontzat. 2018ko maiatzaren 25eko Datuen Babeserako Datu Orokor berriak (GDPR) datu pertsonalak hobeto kontrolatzen ditu. Horregatik, zure adostasuna behar dugu, %{organization_name} jardueren inguruko informazio garrantzitsua bidaltzen jarraitzeko.
-        body_2: 'Nola eman dezakezun zure baimena? Egin klik botoi honetan:'
+        body_2: 'Nola eman ahal diguzu baimena? Egin klik botoi honetan:'
         body_3: Baimen honekin plataformako zerbitzuei buruzko informazioa jasotzen jarraitu ahal izango duzu. Aitzitik, zure baieztapena jasotzen ez badugu, gure mezuak bidaltzeari utziko diogu. Informatuta egon nahi duzula baieztatzen baduzu, edozein unetan ezeztatzeko aukera izango duzu.
         button: Bai, informazio garrantzitsua jasotzen jarraitu nahi dut
         greetings: Agurrak,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Kaixo,
-        subject: '%{organization_name}inguruko informazio garrantzitsua jasotzen jarraitu nahi al duzu?'
+        subject: Jarraitu nahi al duzu %{organization_name} ren inguruko informazio garrantzitsua jasotzen?
     notification_mailer:
       event_received:
         no_translation_available: 'Sentitzen dugu, itzulpen automatizatua ezin izan da berreskuratu posta elektronikoa bidali denean. Jatorrizko testuaren itzulpena ikus dezakezu esteka honetan: %{link}.'
@@ -1226,6 +1228,7 @@ eu:
         required_review:
           alert: Zerbitzu-baldintzak eguneratu ditugu, mesedez, berrikusi.
           body: Jarri une bat gure Zerbitzu Baldintzak eguneratzeak berrikusteko. Bestela, ezin izango duzu plataforma erabili.
+          title: 'Eskatuta: berrikusi eguneraketak gure zerbitzuaren baldintzetan'
     participatory_space_private_users:
       not_allowed: Ez duzu baimenik eduki hau ikusteko
     passwords:
@@ -1533,7 +1536,7 @@ eu:
       invitation_token_invalid: Gonbidapen token hori ez da baliozkoa!
       new:
         header: Bidali gonbidapena
-        submit_button: Gonbidapena bidali
+        submit_button: Bidali gonbidapena
       no_invitations_remaining: Ez da gonbidapenik geratzen
       send_instructions: Gonbidapen mezu bat bidali da %{email}.
       updated: Pasahitza ondo ezarri da. Saioa hasi duzu.
@@ -1599,7 +1602,7 @@ eu:
         password_help_admin: "%{minimun_characters} karaktere minimo, ez da oso arrunta izan behar (adibidez, 123456), zure ezizena eta posta elektronikoa desberdinak izan behar dira eta zure pasahitz zaharrak ez bezalakoak izan behar dute."
         title: Pasahitza aldatu da
       new:
-        forgot_your_password: Zure pasahitza ahaztu duzu?
+        forgot_your_password: Pasahitza ahaztu duzu?
         send_me_reset_password_instructions: Bidali pasahitza berrezartzeko argibideak
       no_token: Ezin zara orrialde honetara sartu pasahitza berrezartzeko posta elektronikotik ez bazatoz. Pasahitza berrezartzeko mezu elektroniko batetik bazatoz, ziurtatu emandako URL osoa erabili duzula.
       send_instructions: Mezu elektroniko bat jasoko duzu pasahitza berrezartzeko argibideekin minutu gutxian.
@@ -1636,7 +1639,7 @@ eu:
         other: "(Gutxienez%{count} karaktere)"
     unlocks:
       new:
-        resend_unlock_instructions: Berriro desblokeatzeko argibideak berriro bidaltzea
+        resend_unlock_instructions: Birbidali desblokeatzeko argibideak
       send_instructions: Mezu elektroniko bat jasoko duzu jarraibideak zure kontua desblokeatzeko minutu gutxi barru.
       send_paranoid_instructions: Zure kontua badago, mezu elektroniko bat jasoko duzu minutu batzuk barru nola desblokeatzeko argibideekin.
       unlocked: Zure kontua desblokeatu egin da. Hasi saioa jarraitzeko.
@@ -1689,10 +1692,13 @@ eu:
           items:
             _session_id:
               description: Webguneei aukera ematen die erabiltzaileari webgune baten barruan gogorarazteko, webguneen artean mugitzen denean.
+              service: Webgune hau
             decidim-consent:
               description: Informazioa gordetzen du erabiltzaileak webgune honetan baimendutako cookieei buruz.
+              service: Webgune hau
             pwaInstallPromptSeen:
               description: Egoera gordetzen du, erabiltzaileak ikusia badu web aplikazio progresiboaren (PWA) instalazioaren jakinarazpena.
+              service: Webgune hau
         dialog:
           accept_all: Onartu dena
           description: Cookie-ak erabiltzen ditugu gure webgunean, haien errendimendua eta edukia hobetzeko. Cookieei esker, erabiltzaile-esperientzia eta eduki pertsonalizatuagoak eskain ditzakegu sare sozialetako gure kanaletatik.
