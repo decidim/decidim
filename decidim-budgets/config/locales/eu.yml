@@ -20,6 +20,9 @@ eu:
         scope_id: Eremua
   activerecord:
     models:
+      decidim/budgets/budget:
+        one: Aurrekontua
+        other: Aurrekontuak
       decidim/budgets/project:
         one: Proiektua
         other: Proiektuak
