@@ -1,38 +1,35 @@
-<div class="flex items-center gap-x-4 mb-4">
+<div class="flex align-middle text-center gap-x-4 ml-auto" id="js-other-actions-wrapper">
+  <%= render partial: "decidim/proposals/admin/proposals/bulk_actions/dropdown" %>
+  <% if component_settings.participatory_texts_enabled? %>
+    <%= link_to t("actions.participatory_texts", scope: "decidim.proposals"), participatory_texts_path, id: "participatory_texts", class: "button button__sm button__secondary" %>
+  <% end %>
 
-  <div class="flex align-middle text-center gap-x-4 ml-auto" id="js-other-actions-wrapper">
-    <%= render partial: "decidim/proposals/admin/proposals/bulk_actions/dropdown" %>
-    <% if component_settings.participatory_texts_enabled? %>
-      <%= link_to t("actions.participatory_texts", scope: "decidim.proposals"), participatory_texts_path, id: "participatory_texts", class: "button button__sm button__secondary" %>
-    <% end %>
+  <% if allowed_to? :export, :proposals %>
+    <%= export_dropdowns(query) %>
+  <% end %>
 
-    <% if allowed_to? :export, :proposals %>
-      <%= export_dropdown %>
-    <% end %>
-
-    <% if allowed_to? :import, :proposals %>
-      <%= import_dropdown do %>
-        <li class="imports--component imports--proposals">
-          <%= link_to t("actions.import", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), new_proposals_import_path %>
+  <% if allowed_to? :import, :proposals %>
+    <%= import_dropdown do %>
+      <li class="imports--component imports--proposals">
+        <%= link_to t("actions.import", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), new_proposals_import_path %>
+      </li>
+      <% current_component.manifest.import_manifests.each do |import_manifest| %>
+        <li class="imports--file imports--<%= import_manifest.name %>">
+          <%= link_to import_manifest.message(:label, self), admin_imports_path(current_component, name: import_manifest.name) %>
         </li>
-        <% current_component.manifest.import_manifests.each do |import_manifest| %>
-          <li class="imports--file imports--<%= import_manifest.name %>">
-            <%= link_to import_manifest.message(:label, self), admin_imports_path(current_component, name: import_manifest.name) %>
-          </li>
-        <% end %>
       <% end %>
     <% end %>
+  <% end %>
 
-    <% if allowed_to? :create, :proposal %>
-      <%= link_to t("actions.new", scope: "decidim.proposals"), new_proposal_path, class: "button button__sm button__secondary" %>
-    <% end %>
-  </div>
-
-  <%= render partial: "decidim/proposals/admin/proposals/bulk_actions/recategorize" %>
-  <%= render partial: "decidim/proposals/admin/proposals/bulk_actions/scope-change" %>
-  <%= render partial: "decidim/proposals/admin/proposals/bulk_actions/merge" %>
-  <%= render partial: "decidim/proposals/admin/proposals/bulk_actions/split" %>
-  <%= render partial: "decidim/proposals/admin/proposals/bulk_actions/assign_to_valuator" %>
-  <%= render partial: "decidim/proposals/admin/proposals/bulk_actions/unassign_from_valuator" %>
-  <%= render partial: "decidim/proposals/admin/proposals/bulk_actions/publish_answers" %>
+  <% if allowed_to? :create, :proposal %>
+    <%= link_to t("actions.new", scope: "decidim.proposals"), new_proposal_path, class: "button button__sm button__secondary" %>
+  <% end %>
 </div>
+
+<%= render partial: "decidim/proposals/admin/proposals/bulk_actions/recategorize" %>
+<%= render partial: "decidim/proposals/admin/proposals/bulk_actions/scope-change" %>
+<%= render partial: "decidim/proposals/admin/proposals/bulk_actions/merge" %>
+<%= render partial: "decidim/proposals/admin/proposals/bulk_actions/split" %>
+<%= render partial: "decidim/proposals/admin/proposals/bulk_actions/assign_to_valuator" %>
+<%= render partial: "decidim/proposals/admin/proposals/bulk_actions/unassign_from_valuator" %>
+<%= render partial: "decidim/proposals/admin/proposals/bulk_actions/publish_answers" %>

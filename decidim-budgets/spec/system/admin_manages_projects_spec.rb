@@ -2,10 +2,11 @@
 
 require "spec_helper"
 
-describe "Admin manages projects", type: :system do
+describe "Admin manages projects" do
   let(:manifest_name) { "budgets" }
   let(:budget) { create(:budget, component: current_component) }
   let!(:project) { create(:project, budget:) }
+  let!(:destination_budget) { create(:budget, component: current_component) }
 
   include_context "when managing a component as an admin"
 
@@ -22,6 +23,7 @@ describe "Admin manages projects", type: :system do
 
   it_behaves_like "manage projects"
   it_behaves_like "import proposals to projects"
+  it_behaves_like "export projects"
 
   describe "bulk actions" do
     let!(:project2) { create(:project, budget:) }
@@ -79,5 +81,41 @@ describe "Admin manages projects", type: :system do
       expect(Decidim::Budgets::Project.find(project.id).selected_at).to eq(Time.zone.today)
       expect(Decidim::Budgets::Project.find(project2.id).selected_at).to eq(Time.zone.today)
     end
+
+    describe "update projects budget" do
+      let!(:another_component) { create(:budgets_component, organization:, participatory_space: current_component.participatory_space) }
+      let!(:another_budget) { create(:budget, component: another_component) }
+
+      it "shows all of the budgets within the participatory_space" do
+        visit current_path
+        find("#projects_bulk").set(true)
+        find("#js-bulk-actions-button").click
+        click_button "Change budget"
+        options = ["Select budget", format_title(destination_budget), format_title(budget), format_title(another_budget)]
+        expect(page).to have_select("reference_id", options:)
+      end
+
+      it "changes project budget" do
+        find("#projects_bulk").set(true)
+        find("#js-bulk-actions-button").click
+        click_button "Change budget"
+        select translated(destination_budget.title), from: "reference_id"
+        click_button "Update project's budget"
+        within_flash_messages do
+          expect(page).to have_content("Projects successfully updated to the budget: #{translated(project.title)} and #{translated(project2.title)}")
+        end
+        expect(page).not_to have_css("tr[data-id='#{project.id}']")
+        expect(page).not_to have_css("tr[data-id='#{project2.id}']")
+
+        expect(project.reload.budget).to eq(destination_budget)
+        expect(project2.reload.budget).to eq(destination_budget)
+      end
+    end
+  end
+
+  private
+
+  def format_title(budget)
+    "     #{translated(budget.title)}"
   end
 end

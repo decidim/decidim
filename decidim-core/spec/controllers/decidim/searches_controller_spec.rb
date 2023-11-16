@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe SearchesController, type: :controller do
+  describe SearchesController do
     routes { Decidim::Core::Engine.routes }
 
     let(:organization) { create(:organization) }

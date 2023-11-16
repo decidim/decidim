@@ -8,73 +8,9 @@
 <% end %>
 
 <% content_for :toc do %>
-  <a href="#base">Base</a>
-  <a href="#state">State</a>
-  <a href="#main">Main</a>
+  <% colors_sections.each do |section| %>
+    <%= link_to(section_text(section), "##{section[:id]}") %>
+  <% end %>
 <% end %>
 
-<section id="base">
-  <h2 class="text-3xl font-semibold">Base</h2>
-
-  <%
-    base_columns = []
-    base_columns << { value: "var(--primary)", name: "primary", usage: "Main nav component background\nNav menus in homepage and space home" }
-    base_columns << { value: "var(--secondary)", name: "secondary", usage: "Main color for links and buttons" }
-    base_columns << { value: "var(--tertiary)", name: "tertiary", usage: "Graphic ornaments and accent color\nCards and list items hover state border" }
-  %>
-
-  <%= render partial: "decidim/design/foundations/color/table", locals: { columns: base_columns } %>
-</section>
-
-<section id="state">
-  <h2 class="text-3xl font-semibold">State</h2>
-
-  <%
-    state_columns = []
-    state_columns << { value: "#28A745", name: "success", rgba: "rgba(40,167,69,1)", usage: "Success notice border\nAlert notice icon fill\nButton background on success message" }
-    state_columns << { value: "#FFB703", name: "warning", rgba: "rgba(255,183,3,1)", usage: "Warning notice border" }
-    state_columns << { value: "#ED1C24", name: "alert", rgba: "rgba(237,28,36,1)", usage: "Alert notice border\nAlert notice icon fill" }
-  %>
-
-  <%= render partial: "decidim/design/foundations/color/table", locals: { columns: state_columns } %>
-</section>
-
-<section id="main">
-  <h2 class="text-3xl font-semibold">Main colors</h2>
-
-  <h3 class="mt-10 text-xl font-semibold">Typography and texts</h3>
-
-  <%
-    text_columns = []
-    text_columns << { value: "#020203", name: "black", rgba: "rgba(2,2,3,1)", usage: "Headings and section titles" }
-    text_columns << { value: "#3E4C5C", name: "gray-2", rgba: "rgba(62,76,92,1)", usage: "Inline text" }
-    text_columns << { value: "#FFFFFF", name: "white", rgba: "rgba(255,255,255,1)", usage: "Text over dark background" }
-    text_columns << { value: "#155ABF", name: "secondary", rgba: "rgba(21,90,191,1)", usage: "Links and buttons" }
-  %>
-
-  <%= render partial: "decidim/design/foundations/color/table", locals: { columns: text_columns } %>
-
-  <h3 class="mt-10 text-xl font-semibold">Background and borders</h3>
-
-  <%
-    bg_columns = []
-    bg_columns << { value: "#F3F4F7", name: "background", rgba: "rgba(243,244,247,1)", usage: "Aside background" }
-    bg_columns << { value: "#E4EEFF99", name: "background-4", rgba: "rgba(228,238,255,0.8)", usage: "Selected sidebar filter background" }
-    bg_columns << { value: "#6B7280CC", name: "gray", rgba: "rgba(107,114,128,0.3)", usage: "Default icon color" }
-    bg_columns << { value: "#E1E5EF", name: "gray-3", rgba: "rgba(225,229,239,1)", usage: "Lines and separators" }
-    bg_columns << { value: "#242424", name: "gray-4", rgba: "rgba(36,36,36,1)", usage: "Footer background" }
-    bg_columns << { value: "#F6F8FA", name: "gray-5", rgba: "rgb(246,248,250,1)", usage: "Admin layout background" }
-  %>
-
-  <%= render partial: "decidim/design/foundations/color/table", locals: { columns: bg_columns } %>
-
-  <h3 class="mt-10 text-xl font-semibold">Form elements</h3>
-
-  <%
-    form_elements = []
-    form_elements << { value: "#FAFBFC", name: "background-2", rgba: "rgba(250,251,252,1)", usage: "Input elements default background" }
-    form_elements << { value: "#EFEFEF", name: "background-3", rgba: "rgba(239,239,239,1))", usage: "Input elements disabled state background" }
-  %>
-
-  <%= render partial: "decidim/design/foundations/color/table", locals: { columns: form_elements } %>
-</section>
+<%= render partial: "decidim/design/shared/sections", locals: { sections: colors_sections } %>

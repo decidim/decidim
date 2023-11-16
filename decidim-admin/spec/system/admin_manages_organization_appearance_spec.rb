@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages organization", type: :system do
+describe "Admin manages organization" do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
 
@@ -79,7 +79,7 @@ describe "Admin manages organization", type: :system do
       expect(page).to have_content("updated successfully")
 
       within "#minimap" do
-        expect(page.all("img").count).to eq(4)
+        expect(page.all("img").count).to eq(3)
       end
     end
   end

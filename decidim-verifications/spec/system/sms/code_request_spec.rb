@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "SMS code request", type: :system do
+describe "SMS code request" do
   let!(:organization) do
     create(:organization, available_authorizations: ["sms"])
   end

@@ -23,6 +23,7 @@ en:
       user:
         about: About
         email: Your email
+        encrypted_password: Password
         locale: Locale
         name: Your name
         nickname: Nickname
@@ -590,6 +591,8 @@ en:
           subtitle: Please fill in the following form in order to complete the sign up
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
       registrations:
+        create:
+          error: There was a problem creating your account.
         new:
           already_have_an_account?: Already have an account?
           log_in: Log in
@@ -1300,7 +1303,7 @@ en:
           proposals: Proposals
           proposals_explanation: Make proposals, support existing ones and promote the changes you want to see.
         footer_sub_hero:
-          footer_sub_hero_body: Let's build a more open, transparent and collaborative society.<br /> Join, participate and decide.
+          footer_sub_hero_body_html: Let's build a more open, transparent and collaborative society.<br /> Join, participate and decide.
           footer_sub_hero_headline: Welcome to %{organization} participatory platform.
           register: Register
         hero:
@@ -1573,6 +1576,15 @@ en:
         greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hello %{admin},
         subject: A new user has been reported in %{organization_name}
+    user_update_mailer:
+      notify:
+        body_1: We are sending you this message to inform you about an update to your account.
+        body_2: In case you have not performed such update yourself, please log in to your account to change your password. In case you cannot log in, please contact the platform support.
+        greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hello %{user}
+        main_body: 'The following details have been changed: %{updates}.'
+        update_fields: "%{updates} and %{last_update}"
+      subject: Your account was updated
     version:
       show:
         back_to_resource: Go back

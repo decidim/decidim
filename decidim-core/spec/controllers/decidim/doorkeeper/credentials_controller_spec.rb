@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::Doorkeeper::CredentialsController, type: :controller do
+describe Decidim::Doorkeeper::CredentialsController do
   routes { Decidim::Core::Engine.routes }
 
   let(:user) { create(:user, :confirmed) }

@@ -1,0 +1,44 @@
+= Cells
+
+As explained in dedicated page xref:develop:view_models_aka_cells.adoc[View Models (Cells)], a cell is an object that represent a fragment of your UI.
+
+In order to define a cell, you need to create a class that inherits from `Decidim::ViewModel` in your module.
+
+Cells classes are located in the `app/cells/decidim/<my_module>` directory, and named: `<my_cell>_cell.rb`.
+
+For example, if you want to create a cell that renders a simple text:
+
+```ruby
+# frozen_string_literal: true
+
+# app/cells/decidim/my_module/my_cell_cell.rb
+module Decidim
+  module MyModule
+    class MyCellCell < Decidim::ViewModel
+
+      def show
+        render if condition?
+      end
+
+      private
+
+      def condition?
+        true
+      end
+    end
+  end
+end
+```
+
+Then, you can render the cell in your view:
+
+```erb
+<%= cell("decidim/my_module/my_cell") =>
+```
+
+== More information
+
+* https://github.com/trailblazer/cells/blob/master/README.md[cells/README.md at master · trailblazer/cells]
+* http://trailblazer.to/gems/cells/[Trailblazer: Cells] / http://trailblazer.to/gems/cells/api.html[Trailblazer: Cells API]
+* https://www.sitepoint.com/introduction-to-cells-a-better-view-layer-for-rails/[Introduction to Cells: A Better View Layer for Rails -- SitePoint]
+

@@ -4,8 +4,11 @@
 
 $(() => {
   const WAIT_TIME_MS = 3000; // 3s
+  const url = $("#vote-stats").data("refreshUrl");
 
-  setInterval(function() {
-    $("#vote-stats").load($("#vote-stats").data("refreshUrl"));
-  }, WAIT_TIME_MS);
+  if (url) {
+    setInterval(function() {
+      $("#vote-stats").load(url);
+    }, WAIT_TIME_MS);
+  }
 })

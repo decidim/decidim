@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Initiatives
     module Admin
-      describe ExportsController, type: :controller do
+      describe ExportsController do
         routes { Decidim::Initiatives::AdminEngine.routes }
 
         let!(:organization) { create(:organization) }
@@ -32,7 +32,7 @@ module Decidim
               params[:format] = "csv"
 
               expect(ExportJob).to receive(:perform_later)
-                .with(user, component, "dummies", "csv", nil)
+                .with(user, component, "dummies", "csv", nil, { id_in: [] })
 
               post(:create, params:)
             end
@@ -41,7 +41,7 @@ module Decidim
           context "when a format is not provided" do
             it "enqueues a job with the default format" do
               expect(ExportJob).to receive(:perform_later)
-                .with(user, component, "dummies", "json", nil)
+                .with(user, component, "dummies", "json", nil, { id_in: [] })
 
               post(:create, params:)
             end

@@ -1,0 +1,11 @@
+<% content_for :heading do %>
+  Cards
+<% end %>
+
+<% content_for :toc do %>
+  <% cards_sections.each do |section| %>
+    <%= link_to(section_text(section), "##{section[:id]}") %>
+  <% end %>
+<% end %>
+
+<%= render partial: "decidim/design/shared/sections", locals: { sections: cards_sections } %>

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Explore projects", :slow, type: :system do
+describe "Explore projects", :slow do
   include_context "with a component"
   let(:manifest_name) { "budgets" }
   let(:budget) { create(:budget, component:) }
@@ -81,7 +81,6 @@ describe "Explore projects", :slow, type: :system do
         visit_budget
 
         within "#panel-dropdown-menu-scope" do
-          click_filter_item "All"
           click_filter_item translated(scope.name)
         end
 
@@ -99,7 +98,6 @@ describe "Explore projects", :slow, type: :system do
         visit_budget
 
         within "#panel-dropdown-menu-category" do
-          click_filter_item "All"
           click_filter_item translated(category.name)
         end
 

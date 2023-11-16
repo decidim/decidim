@@ -28,6 +28,8 @@ import uploadTemplates from "./fixtures/upload_templates";
 
 const config = { messages: { editor: editorMessages } };
 window.Decidim = { config: { get: (key) => config[key] } };
+window.ClipboardEvent = class ClipboardEvent extends Event {};
+window.DragEvent = class DragEvent extends Event {};
 
 const defaultEditorConfig = {
   contentTypes: {

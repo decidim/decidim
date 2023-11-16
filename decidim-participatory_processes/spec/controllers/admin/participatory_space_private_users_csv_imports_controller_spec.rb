@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module ParticipatoryProcesses
     module Admin
-      describe ParticipatorySpacePrivateUsersCsvImportsController, type: :controller do
+      describe ParticipatorySpacePrivateUsersCsvImportsController do
         routes { Decidim::ParticipatoryProcesses::AdminEngine.routes }
 
         let!(:organization) { create(:organization) }

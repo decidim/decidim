@@ -2,13 +2,13 @@
 
 require "spec_helper"
 
-describe "Vote online in an election inside a Voting", type: :system do
+describe "Vote online in an election inside a Voting" do
   let(:manifest_name) { "elections" }
   let(:questionnaire) { create(:questionnaire, :with_questions) }
   let!(:election) { create(:election, :bb_test, :vote, component:, questionnaire:) }
   let(:user) { create(:user, :confirmed, organization: component.organization) }
   let!(:datum) do
-    create(:datum, :with_access_code, document_type: "DNI", document_number: "12345678X", birthdate: Date.civil(1980, 5, 11), postal_code: "04001", access_code: "1234", dataset:)
+    create(:datum, :with_access_code, document_type: "passport", document_number: "12345678X", birthdate: Date.civil(1980, 5, 11), postal_code: "04001", access_code: "1234", dataset:)
   end
   let!(:elections) { create_list(:election, 2, :vote, component:) } # prevents redirect to single election page
   let(:router) { Decidim::EngineRouter.main_proxy(component).decidim_voting_elections }
@@ -137,7 +137,7 @@ describe "Vote online in an election inside a Voting", type: :system do
       click_link "Start voting"
 
       within "[data-content]" do
-        select("DNI", from: "Document type")
+        select("Passport", from: "Document type")
         fill_in "Document number", with: "12345678X"
         fill_in "Postal code", with: "04001"
         fill_in "Day", with: "11"
@@ -159,7 +159,7 @@ describe "Vote online in an election inside a Voting", type: :system do
     let(:voter_id) { vote_flow.voter_id }
     let(:vote_flow) do
       ret = Decidim::Votings::CensusVoteFlow.new(election)
-      ret.voter_in_person(document_type: "DNI", document_number: "12345678X", day: "11", month: "05", year: "1980")
+      ret.voter_in_person(document_type: "passport", document_number: "12345678X", day: "11", month: "05", year: "1980")
       ret
     end
 
@@ -169,7 +169,7 @@ describe "Vote online in an election inside a Voting", type: :system do
       click_link "Start voting"
 
       within "[data-content]" do
-        select("DNI", from: "Document type")
+        select("Passport", from: "Document type")
         fill_in "Document number", with: "12345678X"
         fill_in "Postal code", with: "04001"
         fill_in "Day", with: "11"
@@ -206,7 +206,7 @@ describe "Vote online in an election inside a Voting", type: :system do
     click_link "Start voting"
 
     within "[data-content]" do
-      select("DNI", from: "Document type")
+      select("Passport", from: "Document type")
       fill_in "Document number", with: "12345678X"
       fill_in "Postal code", with: "04001"
       fill_in "Day", with: "11"

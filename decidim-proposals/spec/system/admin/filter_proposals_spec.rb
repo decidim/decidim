@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin filters proposals", type: :system do
+describe "Admin filters proposals" do
   include_context "when admin manages proposals"
   include_context "with filterable context"
 

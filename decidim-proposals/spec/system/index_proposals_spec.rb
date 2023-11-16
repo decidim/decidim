@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Index proposals", type: :system do
+describe "Index proposals" do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 

@@ -28,7 +28,8 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib,vendor,docs}/**/*", "Rakefile", "README.md"]
 
   s.add_dependency "commonmarker", "~> 0.23.0", ">= 0.23.9"
-  s.add_dependency "graphql", "~> 2.0"
+  # Graphql version 2.1 breaks graphql-client compatibility See https://github.com/github/graphql-client/pull/310
+  s.add_dependency "graphql", "~> 2.0.0"
   s.add_dependency "graphql-docs", "~> 3.0.1"
   s.add_dependency "rack-cors", "~> 1.0"
   s.add_development_dependency "decidim-comments", Decidim::Api.version

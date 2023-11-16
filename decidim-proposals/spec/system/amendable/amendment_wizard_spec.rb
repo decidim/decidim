@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Amendment Wizard", type: :system do
+describe "Amendment Wizard" do
   let!(:component) { create(:proposal_component, :with_amendments_enabled) }
   let!(:proposal) { create(:proposal, title: { en: "More roads and less sidewalks" }, component:) }
   let!(:user) { create(:user, :confirmed, organization: component.organization) }

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "sortitions", type: :system do
+describe "sortitions" do
   include_context "with a component"
 
   let(:manifest_name) { "sortitions" }

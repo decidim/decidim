@@ -1,0 +1,97 @@
+= Models
+
+The models in Decidim are just plain `ActiveRecord` models, so you can use all the methods that come with it.
+
+A model class example would be:
+
+```ruby
+# frozen_string_literal: true
+
+# app/models/decidim/my_module/my_resource.rb
+module Decidim
+  module MyModule
+    class MyResource < Decidim::MyModule::ApplicationRecord
+      include Decidim::HasComponent
+      include Decidim::Traceable
+      include Decidim::Loggable
+      include Decidim::Authorable
+      include Decidim::TranslatableResource
+    end
+  end
+end
+```
+
+== Scopes
+
+Within core provided classes there are no `default_scopes`.
+
+== Validations
+
+All the validations are defined in the models themselves.
+
+== Callbacks
+
+The number of the callbacks is reduced to the minimum.
+
+== Concerns
+
+The concerns are used to share code between models. They are located in `app/models/concerns`.
+
+Most commonly used concerns are:
+
+- xref:`Decidim::ActsAsAuthor`
+- `Decidim::ActsAsTree`
+- `Decidim::Amendable`
+- `xref:develop:authorable.adoc[Decidim::Authorable]`
+- `xref:develop:authorable.adoc[Decidim::Coauthorable]`
+- `Decidim::DownloadYourData`
+- `xref:develop:endorsable.adoc[Decidim::Endorsable]`
+- `Decidim::FilterableResource`
+- `Decidim::Fingerprintable`
+- `xref:develop:followable.adoc[Decidim::Followable]`
+- `Decidim::FriendlyDates`
+- `Decidim::HasArea`
+- `Decidim::HasAttachmentCollections`
+- `Decidim::HasAttachments`
+- `Decidim::HasCategory`
+- `Decidim::HasComponent`
+- `Decidim::HasPrivateUsers`
+- `Decidim::HasReference`
+- `Decidim::HasResourcePermission`
+- `Decidim::HasUploadValidations`
+- `Decidim::Loggable`
+- `Decidim::NewsletterParticipant`
+- `Decidim::Paddable`
+- `Decidim::Participable`
+- `Decidim::ParticipatorySpaceResourceable`
+- `Decidim::ParticipatorySpaceUser`
+- `Decidim::Publicable`
+- `Decidim::Randomable`
+- `Decidim::RecordEncryptor`
+- `xref:develop:reportable.adoc[Decidim::Reportable]`
+- `Decidim::Resourceable`
+- `Decidim::ScopableParticipatorySpace`
+- `Decidim::ScopableResource`
+- `Decidim::Searchable`
+- `xref:develop:share_tokens.adoc[Decidim::ShareableWithToken]`
+- `xref:develop:traceable.adoc[Decidim::Traceable]`
+- `xref:develop:machine_translations.adoc[Decidim::TranslatableAttributes]`
+- `xref:develop:machine_translations.adoc[Decidim::TranslatableResource]`
+
+=== Module specific concerns
+
+- `Decidim::Comments::Commentable`
+- `Decidim::Comments::CommentableWithComponent`
+- `Decidim::Comments::HasAvailabilityAttributes`
+- `Decidim::Forms::HasQuestionnaire`
+- `Decidim::Initiatives::HasArea`
+- `Decidim::Initiatives::InitiativeSlug`
+- `Decidim::Proposals::CommentableCollaborativeDraft`
+- `Decidim::Proposals::CommentableProposal`
+- `Decidim::Proposals::ParticipatoryTextSection`
+- `Decidim::Proposals::Valuatable`
+- `Decidim::Templates::Templatable`
+
+== More information
+
+- https://edgeguides.rubyonrails.org/active_record_basics.html[Active Record documentation]

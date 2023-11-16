@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin checks logs", type: :system do
+describe "Admin checks logs" do
   let(:organization) { create(:organization) }
 
   let!(:user) { create(:user, :admin, :confirmed, organization:) }

@@ -285,6 +285,26 @@ bundle exec rails decidim:robots:replace
 
 You can see more details about this change on PR [\#11693](https://github.com/decidim/decidim/pull/11693)
 
+### 3.12. Deduplicating endorsements
+
+We have identified a case when the same user can endorse the same resource multiple times. This is a bug that we have fixed in this release, but we need to clean up the existing duplicated endorsements. We have added a new task that helps you clean the duplicated endorsements.
+
+```bash
+bundle exec rails decidim:upgrade:fix_duplicate_endorsements
+```
+
+You can see more details about this change on PR [\#11853](https://github.com/decidim/decidim/pull/11853)
+
+### 3.13 Fix component short links
+
+We have identified that some of the short links for components are not working properly. We have added a new task that helps you fix the short links for components.
+
+```bash
+bundle exec rails decidim:upgrade:fix_short_urls
+```
+
+You can see more details about this change on PR [\#12004](https://github.com/decidim/decidim/pull/12004)
+
 ## 4. Scheduled tasks
 
 Implementers need to configure these changes it in your scheduler task system in the production server. We give the examples
@@ -724,3 +744,19 @@ Prior to 0.28, there was the possibility of configuring a list of disallowed pas
 - `DECIDIM_PASSWORD_BLACKLIST` becomes `DECIDIM_DENIED_PASSWORDS`
 
 You can read more about this change on PR [\#10288](https://github.com/decidim/decidim/pull/10288).
+
+### 5.6. Change in Initiatives configuration
+
+Initiatives configuration has a setting to enable a form to be printed for the creation of Initiatives.
+
+This used to be enabled by default, and now it's disabled.
+
+If you need to enable back, you can do so by setting the `INITIATIVES_PRINT_ENABLED` environment variable to `true`
+or if you have not migrated to the environment variables configurations (the default since v0.25.0), then you can do
+so by adding the following snippet in `config/initializers/decidim.rb`
+
+```ruby
+Decidim::Initiatives.configure do |config|
+  config.print_enabled = true
+end
+```
