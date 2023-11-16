@@ -182,7 +182,7 @@ eu:
             title: Aukerak
           new:
             create: Sortu aukera
-            title: Aukera berria
+            title: Beste aukera bat
           publish:
             success: Aukera zuzen argitaratu da.
           unpublish:
@@ -232,7 +232,7 @@ eu:
             title: Galderak
           new:
             create: Sortu galdera bat
-            title: Galdera berria
+            title: Beste galdera bat
           update:
             invalid: Arazo bat egon da galdera hau eguneratzean
             success: Galdera zuzen eguneratu da
@@ -347,7 +347,7 @@ eu:
             title: Bermatzaileak
           new:
             create: Sortu bermatzailea
-            title: Bermatzaile berria
+            title: Beste bermatzaile bat
           update:
             invalid: Arazo bat egon da %{trustee} bermatzailea eguneratzean
             success: '%{trustee} bermatzailea zuzen eguneratu da'
@@ -898,7 +898,7 @@ eu:
             success: Jarraipen-batzordeko kidea zuzen ezabatu da
           form:
             existing_user: Parte-hartzailea badago
-            non_user: Gonbidatu parte-hartzaile berri bat
+            non_user: Gonbidatu beste parte-hartzaile bat
             select_user: Bilatu helbide elektroniko, izen edo ezizenaren arabera
             user_type: Parte-hartzaile mota
           index:
@@ -946,7 +946,7 @@ eu:
             success: Mahaiko kudeatzailea zuzen ezabatu da
           form:
             existing_user: Parte-hartzailea badago
-            non_user: Gonbidatu parte-hartzaile berri bat
+            non_user: Gonbidatu beste parte-hartzaile bat
             select_user: Bilatu helbide elektroniko, izen edo ezizenaren arabera
             user_type: Parte-hartzaile mota
           index:
@@ -992,7 +992,7 @@ eu:
           actions:
             confirm_destroy: Ziur zaude?
             destroy: Ezabatu
-            new_voting: Bozketa-gune berri bat
+            new_voting: Beste bozketa-gune bat
             publish: Argitaratu
             unpublish: Desargitaratu
           create:
@@ -1014,7 +1014,7 @@ eu:
             voting_type_label: Bozketa mota
           new:
             create: Sortu
-            title: Bozketa berria
+            title: Beste bozketa bat
           publish:
             success: Bozketa zuzen argitaratu da
           unpublish:
@@ -1122,7 +1122,7 @@ eu:
         actions:
           confirm_destroy: Ziur zaude?
           destroy: Ezabatu
-          new: Kide berria
+          new: Beste kide bat
           title: Ekintzak
       pages:
         home:
@@ -1161,6 +1161,7 @@ eu:
             modal_ballots_count_error:
               btn_validate_total: Baliozkotu boto-paperen zenbaketa osoa
               close_modal: Itxi
+              info_explanation_text: 'Mesedez, berrikusi zein boto-paper kopuru dagoen. Kopuru osoa zuzena ez bada, Jarraipen Batzordeari azalpenak eman behar dizkiozu:'
               info_text: Sartutako boto-paperen kopurua (gutun-azalak) gutira, ez dator bat bozketa-gune honetan botoa eman duten pertsonen erregistroarekin.
               message_for_monitoring_committee: Mezua Jarraipen Batzordearentzat
               review_recount: Berrikusi zenbaketa
@@ -1169,7 +1170,7 @@ eu:
               total_ballots: 'Boto-paperak, guztira:'
               total_people: 'Pertsona kopurua, guztira:'
             polling_station: 'Bozketa-gunea:'
-            submit: Egiaztatu telefono zenbakia
+            submit: Egiaztatu guztizko zenbakia
             total_ballots_count: Boto-paper kopurua
           show:
             heading: Botoen zenbaketa
@@ -1216,7 +1217,7 @@ eu:
             year_placeholder: UUUU
           new:
             back: Itzuli bozketa-guneetara
-            title: Pertsona bat identifikatzea eta egiaztatzea
+            title: Identifikatu eta egiaztatu parte-hartzaile bat
           show:
             back: Itzuli bozketa-guneetara
             title: Aurrez aurreko botoa erregistratzearen zain
@@ -1334,7 +1335,7 @@ eu:
         login:
           access_code: Sarbide-kodea
           access_code_placeholder: Sarbide-kodea
-          ask_for_a_new_one: Eskatu berri bat.
+          ask_for_a_new_one: Eskatu beste bat.
           dont_have_access_code: Ez duzu sarbide-koderik?
           form_title: 'Bete ezazu ondoko galdetegia bozketan sartzeko:'
           start_voting: Botoa ematen hasi
