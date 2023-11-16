@@ -62,6 +62,8 @@ eu:
       last_activity:
         new_survey: 'Inkesta berria:'
       survey_confirmation_mailer:
+        confirmation:
+          subject: '%{questionnaire_title} galdetegiaren erantzun-baieztapena'
         export_name: Inkestaren erantzunak
       surveys:
         answer:
