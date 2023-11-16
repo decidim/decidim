@@ -151,6 +151,10 @@ module Decidim
             content_block.public_name_key = "decidim.application.photos.related_photos"
           end
 
+          register_highlighted_posts
+        end
+
+        def self.register_highlighted_posts
           return unless Decidim.module_installed?(:blogs)
 
           Decidim.content_blocks.register(:assembly_homepage, :highlighted_posts) do |content_block|
