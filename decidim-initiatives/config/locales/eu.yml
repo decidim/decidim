@@ -19,6 +19,7 @@ eu:
           online: Digitala
         state: Egoera
         title: Izenburua
+        type_id: Mota
       initiatives_committee_member:
         user: Batzordeko kidea
       initiatives_type:
@@ -71,7 +72,7 @@ eu:
   decidim:
     admin:
       actions:
-        new_initiative_type: Ekimen mota berria
+        new_initiative_type: Beste ekimen mota bat
       filters:
         initiatives:
           decidim_area_id_eq:
@@ -165,7 +166,7 @@ eu:
           follower:
             email_intro: '%{resource_title} ekimena sinadurak% %{percentage}lortu ditu!'
             email_outro: Jakinarazpen hau jaso duzu %{resource_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-            email_subject: Mugarri berria osatu da!
+            email_subject: Beste maila bat osatua!
             notification_title: <a href="%{resource_path}">%{resource_title}</a> ekimenek sinadurak% %{percentage}lortu dituzte.
         support_threshold_reached:
           email_intro: '%{resource_title} ekimena sinadura-atarira heldu da'
@@ -177,8 +178,8 @@ eu:
         initiatives:
           conditions:
             - Joan zaitez Intiatives-ko partaidetza eremura
-            - Jarraitu urrats berriak ekimen berri bat sortzeko
-          description: Idazmahaia ekimen berriak abiarazten dituzunean, besteekin elkarlanean aritzea ekartzen baduzu.
+            - Jarraitu urrats berriak beste ekimen bat sortzeko
+          description: Garaikur hau ekimen berriak martxan jartzean ematen da, beste batzuekin partekatuz horiek lortzeko.
           description_another: Erabiltzaile honek argitaratutako %{score} ekimen lortu ditu.
           description_own: Argitaratutako %{score} ekimen dituzu.
           name: Argitaratutako ekimenak
@@ -245,7 +246,7 @@ eu:
           initiative_attachments:
             documents: Dokumentuak
             edit: Editatu
-            new: Berria
+            new: Beste bat
             photos: Argazkiak
           update:
             error: akats bat gertatu da
@@ -292,7 +293,7 @@ eu:
             title: Ekimen motako esparruak
           new:
             create: Sortu
-            title: Ekimen mota berria
+            title: Beste ekimen mota bat
           update:
             error: akats bat gertatu da
             success: Ekimen mota ondo eguneratu da
@@ -402,9 +403,9 @@ eu:
           email_subject: "%{author_nickname} k onartu du zure eskaera batzorde bultzatzailean parte hartzeko"
           notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> k onartu du zure eskaera <a href="%{resource_url}">%{resource_title}</a> ekimenaren batzorde bultzatzailean parte hartzeko.
         create_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, jarraitzen ari zarenak, ekimen berri bat sortu du, egiaztatu eta lagundu:"
+          email_intro: "%{author_name} %{author_nickname} k, jarraitzen ari zarenak, beste ekimen bat sortu du, egiaztatu eta lagundu:"
           email_outro: Jakinarazpena jaso duzu %{author_nickname}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-          email_subject: '%{author_nickname} ekimen berria'
+          email_subject: '%{author_nickname} ren bete ekimen bat'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> ekimena <a href="%{author_path}">%{author_name} %{author_nickname}</a> sortu zen.
         endorse_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, jarraitzen ari zarenak, hurrengo ekimena onartu du, agian elkarrizketan lagundu nahi baduzu:"
@@ -487,7 +488,7 @@ eu:
           filter_by: Iragazi arabera
           unfold: Zabaldu
         index_header:
-          new_initiative: Ekimen berria
+          new_initiative: Beste ekimen bat
           not_authorized:
             authorizations_page: Ikusi baimenak
             close: Itxi
@@ -567,7 +568,7 @@ eu:
         status_change_body_for: '%{title} ekimena bere egoera aldatu du: %{state}'
         status_change_for: '%{title} ekimena bere egoera aldatu du'
       last_activity:
-        new_initiative: Ekimen berria
+        new_initiative: Beste ekimen bat
       show:
         badge_name:
           accepted: Beharrezko sinadurekin
