@@ -57,6 +57,7 @@ eu:
           error: Errorea gertatu da administratzaile hau eguneratzean.
       dashboard:
         show:
+          admins: Administratzaileak
           current_organizations: Uneko antolatzaileak
       default_pages:
         placeholders:
@@ -136,7 +137,10 @@ eu:
             Connect-src zuzentarauak murriztu egiten ditu < script> elementuen bidez karga daitezkeen URLak.
             Plataformak 'self' gehituko du, baina gehiago gehitzeko aukera emango dizu.
         edit:
+          confirm_resend_invitation: Ziur zaude gonbidapena birbidali nahi duzula?
+          resend_invitation: Birbidali gonbidapena
           secondary_hosts_hint: Sartu haietako bakoitza lerro batean
+          title: Editatu erakundea
         file_upload_settings:
           content_types:
             admin_hint: MIME mota horiek baimenduta daude administrazio-paneletik igotzeko. Administratzaileek dokumentuen formatu batzuk igotzean dauden arriskuez jabetu behar dute, eta, beraz, artxiboen igoeretan zuhurragoak izatea espero daiteke.
@@ -163,6 +167,8 @@ eu:
           enabled: Gaituta
           locale: Tokikoa
           organization_admin_email_hint: Mezu elektroniko bat bidaliko dugu helbide honetara, baieztatu eta pasahitza jar dezazun.
+          reference_prefix_hint: Erreferentzia-aurrizkia erakunde guztietan baliabideak identifikatzeko erabiltzen da.
+          secondary_hosts_hint: Sartu haietako bakoitza beste lerro batean.
           title: Erakunde berria
         omniauth_settings:
           decidim:
@@ -182,6 +188,8 @@ eu:
           twitter:
             api_key: API giltza
             api_secret: API sekretua
+        resend_invitation:
+          success: Gonbidapena zuzen bidalia.
         smtp_settings:
           fieldsets:
             sender: Bidaltzailea
@@ -201,6 +209,14 @@ eu:
         notices:
           no_organization_warning_html: Hasteko erakunde bat sortu behar duzu. Jarraitu aurretik ziurta zaitez %{guide} irakurri duzula.
           our_getting_started_guide: gure ongi etorri gida
+        organizations_list:
+          confirm_resend_invitation: Ziur zaude gonbidapena birbidali nahi duzula?
+          resend_invitation: Birbidali gonbidapena
       titles:
         dashboard: Kontrol-panela
         decidim: Decidim
+  layouts:
+    decidim:
+      system:
+        login_items:
+          logout: Logout
