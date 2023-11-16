@@ -505,6 +505,8 @@ eu:
           new:
             create: Sortu
             title: Sortu proposamena
+          publish_answers:
+            number_of_proposals: '%{number} proposamenetarako erantzunak argitaratuko dira?'
           show:
             amendments_count: Zuzenketa kopurua
             assigned_valuators: Ebaluatzaileak esleituta
@@ -513,6 +515,7 @@ eu:
             documents: Dokumentuak
             endorsements_count: Atxikimendu kopurua
             endorsers: Atxiki dira
+            link: Ikusi proposamena
             n_more_endorsers:
               one: eta 1 gehiago
               other: eta %{count} gehiago
@@ -594,6 +597,7 @@ eu:
           publish:
             error: Arazoak izan dira zirriborro kolaboratiboa argitaratzean.
             irreversible_action_modal:
+              body: Zirriborroa proposamen gisa argitaratu ondoren, jada ez da editagarria izango. Proposamenak ez du beste egile edo ekarpenik onartuko.
               cancel: Utzi
               ok: Proposamen gisa argitaratu
               title: Hurrengo ekintza atzeraezina da
@@ -601,6 +605,7 @@ eu:
           withdraw:
             error: Arazoak izan dira lankidetza zirriborroa ixtean.
             irreversible_action_modal:
+              body: Zirriborroa itxi ondoren, ezin izango da berriro editatu. Zirriborroak ez du onartuko beste egile edo ekarpenik.
               cancel: Utzi
               ok: Lankidetza zirriborroa kendu
               title: Hurrengo ekintza atzeraezina da
@@ -712,6 +717,8 @@ eu:
             valuator: Ebaluatzailea
             valuators: Ebaluatzaileak
             votes: Botoak
+      new:
+        limit_reached: Ezin duzu proposamen gehiago egin, muga gainditu duzulako.
       participatory_text_proposal:
         alternative_title: Une honetan ez dago partaidetzazko testurik
         buttons:
