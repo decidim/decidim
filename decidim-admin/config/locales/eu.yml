@@ -364,6 +364,20 @@ eu:
           title: Transferentzia
         'true': 'Bai'
         user_name: Erabiltzailea
+      content_blocks:
+        create:
+          error: Errorea izan da eduki-blokea sortzean
+          success: Eduki-blokea zuzen sortua.
+        destroy:
+          error: Arazoa izan da eduki-bloke hau ezabatzen saiatzean
+          success: Eduki-blokea zuzen ezabatua.
+        edit:
+          active_content_blocks: Eduki-bloke aktiboak
+          add: Gehitu eduki-blokea
+          destroy_confirmation: Ziur zaude eduki-bloke hau ezabatu nahi duzula?
+          inactive_content_blocks: Eduki-bloke inaktiboak
+          title: Orriaren edukiak
+          update: Eguneratu
       dashboard:
         pending_moderations:
           anouncement:
@@ -564,6 +578,7 @@ eu:
         scopes: Esparruak
         see_site: Ikusi web-orria
         settings: Ezarpenak
+        static_page_topics: Gaiak
         static_pages: Orriak
         user_groups: Erabiltzaile-taldeak
         users: Parte-hartzaileak 
@@ -826,6 +841,9 @@ eu:
             update_suggested_colors: Kolore iradokitzaileak eguneratu
           cta_button_path_help_html: 'Hasierako orriko ekintzara deitzeko botoia nora estekatzen den gainidatz dezakezu. Erabili hemen ibilbide partzialak, ez URL osoak. Letrak, zenbakiak, gidoiak eta barrak onartzen ditu, eta letra batetik hasi behar du. Ekintzara deitzeko botoia hasierako orrian agertuko da, ongietorri-testuaren eta deskribapenaren artean. Adibidez:%{url}'
           cta_button_text_help: Hasierako pantailako Call To Action botoian testua gainidatz dezakezu zure erakundeko hizkuntza bakoitzarentzat. Ezartzen bada, balio lehenetsia erabiliko da. The Call To Action botoian hasierako orrian erakusten da ongietorri testua eta azalpena.
+          header_snippets:
+            header_snippets_help_html: Eremu hau erabili HTML goiburuari gauzak gehitzeko. Erabilera ohikoena da JavaScript edo CSS osagarriak behar dituzten hirugarrenen zerbitzuak integratzea. HTMLri meta-etiketa gehigarriak gehitzeko ere erabil dezakezu. Kontuan izan hori orrialde publikoetan soilik renderizatuko dela, ez administrazio-atalean. Kodeak kanpoko APIekin elkarreragiten badu edo aplikazioaren segurtasun-jarraibideak betetzen ez baditu, Edukiaren Segurtasun Politika aldatu beharko da. Irakurri gehiago honetaz<a href="https://docs.decidim.org/develop/en/customize/content_security_policy"> dokumentazioaren kokalekuan</a>.
+            title: Goiburuko HTML kode-zatiak
           homepage_appearance_title: Editatu hasierako orriaren itxura
           homepage_highlighted_content_banner_title: Edukien bannerra nabarmendua
           images:
@@ -861,6 +879,8 @@ eu:
           invalid: Arazo bat sortu da CSV fitxategia irakurtzean. Mesedez, ziurtatu jarraibideei kasu egin diezula.
           success: CSV fitxategia zuzen igo da, eta parte-hartzaileei gonbidapen-mezu elektroniko bat bidaltzen ari gara. Prozesu horrek denbora behar du.
         new:
+          csv_upload:
+            title: Igo zure CSV fitxategia
           destroy:
             button: Ezabatu parte-hartzaile pribatu guztiak
             confirm: Ziur zaude parte-hartzaile pribatu guztiak ezabatu nahi dituzula? Ekintza hau ezin da desegin, ezin izango dituzu berreskuratu.
@@ -962,6 +982,7 @@ eu:
           success: Orria zuzen ezabatu da.
         edit:
           changed_notably_help: Egiaztatuz gero, parte-hartzaileei jakinaraziko zaie zerbitzuaren baldintza berriak onartzeko.
+          last_notable_change: 'Azken aldaketa nabarmena: %{tos_version_formatted}'
           title: Editatu orria
           update: Eguneratu
         form:
@@ -990,6 +1011,7 @@ eu:
         impersonatable_users: Erabiltzaile erabilgarriak
         impersonations: Erabiltzaileen kudeaketa
         metrics: Metrikak
+        page_topics: Gaiak
         pages: Orriak
         panel: Administratzailea
         participants: erabiltzaileak
