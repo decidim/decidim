@@ -1702,6 +1702,7 @@ es:
       not_saved:
         one: 'Se ha producido un error procesando tu solicitud:'
         other: 'Hubo varios errores al procesar tu solicitud:'
+      password_confirmation_message: '"Confirma tu contraseña" no coincide con la Contraseña'
       too_many_marks: Estás usando demasiados signos de puntuación consecutivos (por ejemplo,! y?)
       too_much_caps: Está usando demasiadas letras mayúsculas (más del 25% del texto)
       too_short: es demasiado corto (menos %{count} caracteres)
