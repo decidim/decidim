@@ -117,6 +117,7 @@ eu:
         participatory_process_groups_submenu:
           info: Informazioa
           landing_page: Hasierako orrialdea
+        participatory_process_types: Prozesu motak
         participatory_processes: Prozesuak
         participatory_processes_submenu:
           attachment_collections: Karpetak
@@ -232,6 +233,9 @@ eu:
       participatory_process_types:
         create:
           error: Arazo bat egon da beste prozesu mota bat sortzean.
+          success: Prozesu mota zuzen sortua.
+        destroy:
+          success: Prozesu mota zuzen ezabatua.
         edit:
           title: Editatu prozesu mota
           update: Eguneratu
@@ -240,6 +244,7 @@ eu:
           title: Beste prozesu mota bat
         update:
           error: Arazo bat egon da prozesu mota hau eguneratzean.
+          success: Prozesu mota zuzen eguneratua.
       participatory_process_user_roles:
         create:
           error: Arazo bat egon da prozesu partehartzaile honetarako partehartzailea gehitzean.
@@ -284,6 +289,7 @@ eu:
           success: Multzoa zuzen eguneratu da.
       titles:
         participatory_process_groups: Prozesu partizipatiboen multzoak
+        participatory_process_types: Parte hartze prozesu motak
         participatory_processes: Prozesu partizipatiboak
       users:
         resend_invitation:
