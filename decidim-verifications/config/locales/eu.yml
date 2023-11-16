@@ -106,8 +106,9 @@ eu:
           authorize: Bidali
           authorize_with: Egiaztatu %{authorizer} rekin
         renew_modal:
-          cancel: Utzi
+          cancel: Ezeztatu
           continue: Jarraitu
+          info_renew: Datuak eguneratu nahi badituzu, jarraitu berritzen.
           title: Berritu egiaztapena
         skip_verification: Hau saltatu dezakezu oraingoz eta %{link}
         start_exploring: Hasi esploratzen
@@ -132,12 +133,12 @@ eu:
               jane.doe@example.org
             file: ".csv fitxategia helbide elektronikoen datuekin"
             info: 'CSV formatudun artxiboa izan behar da eta zutabe batean posta elektronikoaren helbidea:'
-            submit: Kargatu fitxategia
-            title: Kargatu zentsu berri bat
+            submit: Igo fitxategia
+            title: Igo beste errolda bat
         authorizations:
           new:
-            error: Ezin izan dugu zure kontua egiaztatu edo ez duzu erakundearen zentsuan.
-            success: Zure kontua ondo egiaztatu da.
+            error: Ezin izan dugu zure kontua egiaztatu edo ez zaude erakundearen erroldan.
+            success: Zure kontua zuzen egiaztatu da.
       dummy_authorization:
         extra_explanation:
           postal_codes:
@@ -162,7 +163,7 @@ eu:
               verify: Ziurtatu
           offline_confirmations:
             new:
-              cancel: Utzi
+              cancel: Ezeztatu
               introduce_user_data: Sartu erabiltzailearen helbide elektronikoa eta dokumentuaren datuak
               verify: Ziurtatu
           pending_authorizations:
@@ -190,8 +191,8 @@ eu:
             rejection_notice: Arazo bat egon da zure egiaztapenarekin. Mesedez, saiatu berriro.
             send: Eskatu egiaztapena berriro
           new:
-            send: Eska ezazu egiaztapena
-            title: Kargatu zure identifikazio dokumentua
+            send: Eskatu egiaztapena
+            title: Igo zure identifikazio agiria
           update:
             error: Arazo bat egon da zure dokumentua berriro igotzean.
         dni: DNI
@@ -217,7 +218,7 @@ eu:
           edit:
             send: Berretsi
           new:
-            send: Bidali gutun bat
+            send: Bidali iezadazu gutun bat
             title: Eskatu egiaztapen-kodea
       sms:
         authorizations:
@@ -232,7 +233,7 @@ eu:
             title: Jasotako egiaztapen-kodea sartu
           new:
             send: Bidal iezadazu SMS bat
-            title: Eskatu egiaztapen-kodea
+            title: Eskatu zure egiaztapen-kodea
   errors:
     messages:
       uppercase_only_letters_numbers: guztiak maiuskulaz eta letrak eta / edo zenbakiak bakarrik izan behar ditu
