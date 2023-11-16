@@ -5,6 +5,7 @@ require "active_support/all"
 require "decidim/core"
 require "decidim/initiatives/current_locale"
 require "decidim/initiatives/initiative_slug"
+require "decidim/initiatives/menu"
 require "decidim/initiatives/query_extensions"
 
 module Decidim
@@ -103,23 +104,8 @@ module Decidim
       end
 
       initializer "decidim_initiatives.menu" do
-        Decidim.menu :menu do |menu|
-          menu.add_item :initiatives,
-                        I18n.t("menu.initiatives", scope: "decidim"),
-                        decidim_initiatives.initiatives_path,
-                        position: 2.4,
-                        active: %r{^/(initiatives|create_initiative)},
-                        if: !Decidim::InitiativesType.joins(:scopes).where(organization: current_organization).all.empty?
-        end
-
-        Decidim.menu :home_content_block_menu do |menu|
-          menu.add_item :initiatives,
-                        I18n.t("menu.initiatives", scope: "decidim"),
-                        decidim_initiatives.initiatives_path,
-                        position: 30,
-                        active: :inclusive,
-                        if: !Decidim::InitiativesType.joins(:scopes).where(organization: current_organization).all.empty?
-        end
+        Decidim::Initiatives::Menu.register_menu!
+        Decidim::Initiatives::Menu.register_home_content_block_menu!
       end
 
       initializer "decidim_initiatives.badges" do
