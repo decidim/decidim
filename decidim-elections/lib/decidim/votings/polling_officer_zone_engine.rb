@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "decidim/votings/menu"
+require "decidim/votings/polling_officer_zone_menu"
 
 module Decidim
   module Votings
@@ -31,7 +31,7 @@ module Decidim
       end
 
       initializer "decidim_elections.polling_officer_zone.menu" do
-        Decidim::Votings::Menu.register_user_menu!
+        Decidim::Votings::PollingOfficerZoneMenu.register_user_menu!
       end
     end
   end
