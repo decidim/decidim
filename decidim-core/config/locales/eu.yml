@@ -159,6 +159,7 @@ eu:
         send_again: Bidali berriro
         title: Posta elektronikoaren aldaketak egiaztatzea
       show:
+        available_locales_helper: Aukeratu zein hizkuntza erabili nahi duzun plataforman nabigatzeko eta jakinarazpenak jasotzeko
         change_password: Aldatu pasahitza
         update_account: Eguneratu kontua
       update:
@@ -262,6 +263,8 @@ eu:
         verify_via_csv: "%{user_name} k egiaztatu du %{resource_name} erabiltzaile-taldea CSV fitxategi baten bidez"
       user_moderation:
         unreport: "%{user_name} desegin du %{resource_type} - %{unreported_user_name} erreportea"
+    admin_terms_of_service:
+      default_body: "<h2>ZERBITZUAREN ADMINISTRAZIO BALDINTZAK</h2><p>Sistemaren tokiko administratzailearen ohiko azalpena jaso duzulakoan gaude. Oro har, hiru gauza hauetara mugatzen da:</p><ol><li>Errespetatu besteen pribatutasuna.</li><li>Klikatu aurretik pentsatu.</li><li>Botere handiak erantzukizun handia dakar.</li></ol>"
     alert:
       dismiss: Baztertu jakinarazpena
     amendments:
@@ -886,9 +889,9 @@ eu:
         index:
           badge_title: "%{name} txapela"
           how: Nola irabaz dezakezu?
-          page_description: Badiak partaideen ekintzak eta plataforma aurrerapenean aitortzen dira. Plataforman ezagutzeko, parte hartu eta elkarreraginean hasten zarenean, txapak irabazten dituzu. Hona hemen txapak eta irabazi ditzakezun modu batzuk.
+          page_description: Garaikurrak parte-hartzaileen ekintzetan eta plataforma aurrerapenean aitortzen dira. Plataforma ezagutu, bertan parte hartu eta elkarreraginean hasten zarenean, garaikurrak irabazten dituzu. Hona hemen garaikurren zerrenda eta irabaztzeko dituzun modu batzuk.
           title: Intsigniak
-      description: Badiak partaideen ekintzak eta plataforma aurrerapenean aitortzen dira. Plataforman ezagutzeko, parte hartu eta elkarreraginean hasten zarenean, txapak irabazten dituzu.
+      description: Garaikurrak parte-hartzaileen ekintzetan eta plataforma aurrerapenean aitortzen dira. Plataforma ezagutu, bertan parte hartu eta elkarreraginean hasten zarenean, garaikurrak irabazten dituzu. Hona hemen garaikurren zerrenda eta irabaztzeko dituzun modu batzuk.
       level: '%{level}maila'
       title: Zer da intsignia bat?
     group_admins:
@@ -1167,6 +1170,7 @@ eu:
     notifications_settings:
       show:
         administrators: Administratzaileak
+        allow_push_notifications: Bidali mezuak plataforman ez zaudenean zer gertatzen den jakiteko. Nahi duzunean desgaitu ditzakezu.
         direct_messages: Edonoren mezu zuzenak jasotzea
         everything_followed: Jarraitzen dudan guztia
         newsletter_notifications: Buletinak jaso nahi ditut
@@ -1178,6 +1182,7 @@ eu:
           weekly: Astero
         own_activity: Neure jarduera, norbaitek nire proposamenean iruzkina egiten duenean bezala, edo aipatzen nauenean
         push_notifications: Jakinarazpena jarri
+        push_notifications_reminder: Plataformaren jakinarazpenak jasotzeko, lehen zure nabigatzailearen konfigurazioan baimendu behar dituzu.
         receive_notifications_about: Jakinarazpenak jaso nahi ditut
         update_notifications_settings: Gorde aldaketak
       update:
@@ -1208,6 +1213,7 @@ eu:
           register: Erregistroa
         hero:
           participate: Parte hartu
+          participate_title: Hartu parte plataformako prozesuetan
           welcome: Ongi etorri %{organization} erakundera!
         statistics:
           headline: '%{organization} erakundearen egungo egoera'
@@ -1238,6 +1244,7 @@ eu:
           modal_title: Benetan ez dituzu onartzen zerbitzuaren baldintza eguneratuak?
         required_review:
           alert: "Gure zerbitzu baldintzak eguneratu ditugu., berrikusi, mesedez.\n"
+          body: Mesedez, hartu tarte bat erabilerarako gure baldintzak eta irizpideak berrikusteko. Bestela, ezin izango duzu plataforman parte hartu.
           title: 'Eskatuta: berrikusi eguneraketak gure zerbitzuaren baldintzetan'
     participatory_space_private_users:
       not_allowed: Ez duzu baimenik eduki hau ikusteko
