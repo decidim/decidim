@@ -1068,6 +1068,7 @@ eu:
       event_received:
         no_translation_available: 'Sentitzen dugu, itzulpen automatizatua ezin izan da berreskuratu posta elektronikoa bidali denean. Jatorrizko testuaren itzulpena ikus dezakezu esteka honetan: %{link}.'
         original_text: 'Jatorrizko testua:'
+        translated_text: 'Automatikoki itzulitako testua:'
     notifications:
       no_notifications: Oraindik ez dago jakinarazpenik.
     notifications_settings:
