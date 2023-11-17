@@ -435,6 +435,7 @@ eu:
           debate: Eztabaida
           initiative: Ekimena
           meeting: Topaketa
+          order: Aurrekontuen bozketa
           post: Argitaratu
           proposal: Proposamena
           question: Galdera
@@ -836,6 +837,7 @@ eu:
           validation_error: Errorea baliozkotzean!
       upload_help:
         dropzone: Bota artxiboak hona edo egin klik igotzeko
+        explanation: Gida honetarako %{attribute}
     gamification:
       all_badges_link: Ikusi eskuragarri dauden txapak.
       badges:
@@ -1140,6 +1142,7 @@ eu:
       event_received:
         no_translation_available: 'Sentitzen dugu, itzulpen automatizatua ezin izan da berreskuratu posta elektronikoa bidali denean. Jatorrizko testuaren itzulpena ikus dezakezu esteka honetan: %{link}.'
         original_text: 'Jatorrizko testua:'
+        translated_text: 'Automatikoki itzulitako testua:'
     notifications:
       no_notifications: Oraindik ez dago jakinarazpenik.
     notifications_digest_mailer:
@@ -1148,6 +1151,7 @@ eu:
         weekly: Jakinarazpenen asteko laburpena
       hello: Kaixo %{name},
       see_more: Ikusi jakinarazpen gehiago
+      subject: Hau da zure laburpen-posta
     notifications_settings:
       show:
         administrators: Administratzaileak
