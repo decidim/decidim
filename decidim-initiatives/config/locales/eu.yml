@@ -5,7 +5,7 @@ eu:
         area_id: Arloa
         decidim_scope_id: Esparrua
         decidim_user_group_id: Egilea
-        description: deskribapena
+        description: Deskribapena
         offline_votes: Aurrez aurreko sinadurak
         offline_votes_for_scope: Aurrez aurreko sinadurak %{scope_name} rentzat
         scope_id: Esparrua
@@ -62,6 +62,9 @@ eu:
               title: Izenburua ezin da hutsik egon
   activerecord:
     models:
+      decidim/initiative:
+        one: Ekimena
+        other: Ekimenak
       decidim/initiative_comittee:
         one: Batzordea
         other: Comittees
@@ -185,7 +188,8 @@ eu:
             - Joan zaitez Intiatives-ko partaidetza eremura
             - Jarraitu urrats berriak beste ekimen bat sortzeko
           description: Garaikur hau ekimen berriak martxan jartzean ematen da, beste batzuekin partekatuz horiek lortzeko.
-          description_another: Erabiltzaile honek argitaratutako %{score} ekimen lortu ditu.
+          description_another: Parte-hartzaile honek %{score} ekimen argitaratzea lortu du.
+          description_own: '%{score} ekimen dituzu argitaratuta.'
           name: Argitaratutako ekimenak
           next_level_in: Talde %{score} ekimen gehiago argitaratu hurrengo mailara iristeko!
           unearned_own: Ez duzu oraindik argitaratutako ekimenik.
@@ -205,7 +209,7 @@ eu:
             title: '%{title}erantzun'
           info_initiative:
             created_at: Sortutako at
-            description: deskribapena
+            description: Deskribapena
             initiative_votes_count: Botoien zenbaketa
             initiatives: Ekimenak
             state: Estatu
