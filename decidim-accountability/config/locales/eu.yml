@@ -152,7 +152,7 @@ eu:
             title: Proiektuaren bilakaera
           new:
             create: Sortu sarrera
-            title: Sarrera berria
+            title: Beste sarrera bat
           update:
             invalid: Arazoren bat gertatu da sarrera hau eguneratzean.
             success: Sarrera ondo sortu da.
