@@ -439,6 +439,7 @@ eu:
           debate: Eztabaida
           initiative: Ekimena
           meeting: Topaketa
+          order: Aurrekontuen bozketa
           post: Argitaratu
           proposal: Proposamena
           question: Galdera
@@ -622,6 +623,7 @@ eu:
     editor_images:
       create:
         error: Arazo bat gertatu da irudia eguneratzean.
+        success: Irudia zuzen igota.
       drag_and_drop_help: Gehitu irudiak arrastatuz edo itsatsiz.
     endorsement_buttons_cell:
       already_endorsed: Desatsegiteak
@@ -630,6 +632,8 @@ eu:
       identities:
         done: Eginda
         select_identity: Hautatu identitatea
+    endorsers_list:
+      endorsed_by: Gustuko du…
     errors:
       internal_server_error:
         copied: Testua kopiatuta!
@@ -877,6 +881,7 @@ eu:
         select_file: Fitxategi bat aukeratu
       upload_help:
         dropzone: Bota artxiboak hona edo egin klik igotzeko
+        explanation: Gida honetarako %{attribute}
     gamification:
       all_badges_link: Ikusi eskuragarri dauden txapak.
       badges:
@@ -888,6 +893,8 @@ eu:
           description_own: "%{score} erabiltzailek jarraitzen zaituzte."
           name: Jarraitzaileak
           next_level_in: Lortu %{score} erabiltzaile gehiago jarraitzeko hurrengo mailara iristeko!
+          unearned_another: Erabiltzaile honek oraindik ez du jarraitzailerik.
+          unearned_own: Oraindik ez duzu jarraitzailerik.
         index:
           badge_title: "%{name} txapela"
           how: Nola irabaz dezakezu?
@@ -916,6 +923,8 @@ eu:
         invite_user: Gonbidatu parte-hartzaile bat
       invite:
         error: Arazo bat egon da parte-hartzaile hau gonbidatzean.
+        success: Parte-hartzailea zuzen gonbidatua.
+      pending_invitations: Zain dauden eskariak
       reject:
         error: Arazo bat egon da gonbidapen hau ukatzean.
         success: Gonbidapena behar bezala ukatu da.
@@ -933,6 +942,7 @@ eu:
         manage_members: Kudeatu kideak
       promote:
         error: Arazo bat egon da parte-hartzaile hau promozionatzean.
+        success: Parte-hartzailea zuzen sustatua.
       reject:
         error: Arazo bat egon da lotzeko eskaera ukatzean.
         success: Lotzeko eskaera behar bezala ukatua.
@@ -947,10 +957,12 @@ eu:
         edit_user_group: Editatu taldea
         update_user_group: Eguneratu taldea
       form:
+        document_number_help: Ez erabili gidoirik ez espaziorik.
         email_help: Zure erakundearen, elkarte, talde, taldeen eta abarren posta elektronikoa.
         fill_in_for_verification: 'Eremu hauek bete behar dituzu zure taldea egiaztatu nahi baduzu:'
         name_help: Zure erakundearen izena, elkartea, kolektiboa, taldea, eta abar.
         nickname_help: Zure erakunde, elkarte, kolektibo, talde eta abarren ezizena. Ez erabili ez espaziorik ez azenturik.
+        phone_help: Ez erabili gidoirik ez espaziorik.
       join:
         error: Arazo bat egon da taldera lotzean.
         success: Erregistratu eskaera behar bezala sortu da. Administratzaileak zure eskaera berrikusiko du taldera onartu aurretik.
@@ -972,6 +984,7 @@ eu:
         member: Kidea
       update:
         error: Arazo bat egon da taldea eguneratzean.
+        success: Taldea zuzen eguneratua.
     help:
       main_topic:
         default_page:
@@ -985,6 +998,8 @@ eu:
         last_activity: Azken jarduerak
       name: Azken jarduerak
       no_activities_warning: Ez dago sarrerarik ikusgai jarduera mota honetan.
+    linked_resource_from:
+      included_in: Honen barne
     links:
       invalid_url: URL baliogabea
       warning:
@@ -1080,6 +1095,7 @@ eu:
         index:
           new_conversation: Elkarrizketa berria
           next: Hurrengoa
+          no_conversations: Oraindik ez duzu elkarrizketarik.
           title: Elkarrizketak
         reply_form:
           placeholder: Zure erantzuna...
@@ -1087,6 +1103,7 @@ eu:
         show:
           back: Itzuli elkarrizketa guztietara
           chat_with: Elkarrizketa honekin
+          deleted_accounts: Ezin duzu elkarrizketarik izan ezabatutako kontuekin.
           not_allowed: Parte-hartzaile honek ez du mezu zuzenik onartzen.
           title: Elkarrizketa honekin %{usernames}
         start:
@@ -1098,6 +1115,8 @@ eu:
       progress:
         active: Aktibo
         finished: 'Noiz amaitua: %{end_date}'
+        not_started: Oraindik ez da hasi
+        remaining: "%{time_distance} falta da"
     metrics:
       download:
         csv: Deskargatu datuak (CSV)
@@ -1163,6 +1182,7 @@ eu:
       event_received:
         no_translation_available: 'Sentitzen dugu, itzulpen automatizatua ezin izan da berreskuratu posta elektronikoa bidali denean. Jatorrizko testuaren itzulpena ikus dezakezu esteka honetan: %{link}.'
         original_text: 'Jatorrizko testua:'
+        translated_text: 'Automatikoki itzulitako testua:'
     notifications:
       no_notifications: Oraindik ez dago jakinarazpenik.
     notifications_digest_mailer:
@@ -1171,6 +1191,7 @@ eu:
         weekly: Jakinarazpenen asteko laburpena
       hello: Kaixo %{name},
       see_more: Ikusi jakinarazpen gehiago
+      subject: Hau da zure laburpen-posta
     notifications_settings:
       show:
         administrators: Administratzaileak
