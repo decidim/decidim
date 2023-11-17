@@ -875,6 +875,8 @@ eu:
           validating: Balidatzen...
           validation_error: Errorea baliozkotzean!
         select_file: Fitxategi bat aukeratu
+      upload_help:
+        dropzone: Bota artxiboak hona edo egin klik igotzeko
     gamification:
       all_badges_link: Ikusi eskuragarri dauden txapak.
       badges:
@@ -975,7 +977,7 @@ eu:
         default_page:
           content: "<p> %{organization} gai desberdinetan parte hartu eta erabaki dezakezu, menu nagusian ikusten dituzun espazioen bidez: Prozesuak, Biltzarrak, Ekimenak, Kontsultak.</p> <p>Parte bakoitzean parte hartzeko aukera desberdinak aurkituko dituzu: proposamenak egitea, banaka edo beste pertsona batzuekin, eztabaidetan parte hartzea, proiektuak gauzatzeko aurreikusitako aurrekontuak, aurrez aurreko topaketak eta bestelako ekintzak biltzea.</p>\n"
           title: Zer egin dezaket %{organization}?
-        description: Irakurri gehiago honetaz
+        description: 'Irakurri gehiago honetaz: %{organization}.'
         title: Laguntza orokorra
     last_activities:
       all: Jarduera mota guztiak
@@ -1100,7 +1102,7 @@ eu:
       download:
         csv: Deskargatu datuak (CSV)
       followers:
-        description: Parte hartze espazio hau jarraitzen duten erabiltzaile kopurua
+        description: Parte hartzeko espazio hau jarraitzen duten erabiltzaile kopurua
         object: jarraitzaile
         title: Jarraitzaileak
       participants:
@@ -1660,6 +1662,14 @@ eu:
         image: Irudia
         italic: Italikoa
         link: Esteka
+        orderedList: Zerrenda ordenatua
+        underline: Azpimarra
+        videoEmbed: Bideo inkrustatua
+      textStyle:
+        heading: '%level% goiburua'
+        normal: Normala
+    upload:
+      uploadedFile: Igotako fitxategia
   emojis:
     button: Gehitu emojia
     categories:
@@ -1855,6 +1865,7 @@ eu:
     weibo: Sina Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
+    x: X
     xing: Xing
   time:
     formats:
