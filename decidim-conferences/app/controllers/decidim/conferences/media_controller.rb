@@ -4,10 +4,9 @@ module Decidim
   module Conferences
     class MediaController < Decidim::Conferences::ApplicationController
       include ParticipatorySpaceContext
+
       helper Decidim::Conferences::MediaAttachmentsHelper
       helper Decidim::SanitizeHelper
-
-      participatory_space_layout only: :index
 
       helper_method :collection, :conference
 

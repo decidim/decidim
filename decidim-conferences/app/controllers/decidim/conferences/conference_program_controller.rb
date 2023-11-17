@@ -4,9 +4,9 @@ module Decidim
   module Conferences
     class ConferenceProgramController < Decidim::Conferences::ApplicationController
       include ParticipatorySpaceContext
+
       helper Decidim::SanitizeHelper
       helper Decidim::Conferences::ConferenceProgramHelper
-      participatory_space_layout only: :show
 
       helper_method :collection, :conference, :meeting_days, :meeting_component
 

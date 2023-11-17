@@ -5,8 +5,6 @@ module Decidim
     class ConferenceSpeakersController < Decidim::Conferences::ApplicationController
       include ParticipatorySpaceContext
 
-      participatory_space_layout only: :index
-
       helper_method :collection, :conference
 
       def index

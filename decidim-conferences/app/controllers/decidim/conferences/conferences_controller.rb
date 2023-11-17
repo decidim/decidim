@@ -12,8 +12,6 @@ module Decidim
       include ParticipatorySpaceContext
       include Paginable
 
-      participatory_space_layout only: :show
-
       helper Decidim::AttachmentsHelper
       helper Decidim::IconHelper
       helper Decidim::SanitizeHelper
