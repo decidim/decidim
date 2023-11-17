@@ -64,7 +64,7 @@ eu:
         highlight_alternative_color: Nabarmendua, aukerakoa
         highlight_color: Nabarmendua
         highlighted_content_banner_action_subtitle: Ekintza-botoiaren azpititulua
-        highlighted_content_banner_action_title: Ekintza-botoiaren titulua
+        highlighted_content_banner_action_title: Ekintza-botoiaren izenburua
         highlighted_content_banner_action_url: Ekintza-botoiaren URLa
         highlighted_content_banner_enabled: Erakutsi nabarmendutako edukien bannera
         highlighted_content_banner_image: Irudia
@@ -275,10 +275,10 @@ eu:
           title: Editatu fitxategi erantsia
           update: Eguneratu
         index:
-          attachments_title: Eranskinak
+          attachments_title: Fitxategi erantsia
         new:
           create: Sortu fitxategi erantsia
-          title: Fitxategi erantsi berria
+          title: Beste fitxategi erantsi bat
         update:
           error: Arazo bat egon da eranskin hau eguneratzean.
           success: Fitxategi erantsia zuzen eguneratu da.
@@ -308,7 +308,7 @@ eu:
           categories_title: Kategoriak
         new:
           create: Sortu kategoria
-          title: Kategoria berria
+          title: Beste kategoria bat
         update:
           error: Arazo bat egon da kategoria hau eguneratzean.
           success: Kategoria zuzen eguneratu da.
@@ -459,7 +459,7 @@ eu:
           name_or_nickname_or_email_cont: Bilatu %{collection} helbide elektroniko, izen edo ezizenaren arabera.
           report_count_eq: Salaketa kopurua
           reported_id_string_or_reported_content_cont: Bilatu %{collection} eduki edo Id erreportablearen arabera.
-          title_cont: Bilatu %{collection} tituluaren arabera.
+          title_cont: Bilatu %{collection} izenburuaren arabera.
           user_name_or_user_email_cont: Bilatu %{collection} helbide elektroniko edo izenaren arabera.
           user_name_or_user_nickname_or_user_email_cont: Bilatu %{collection} helbide elektroniko, izen edo ezizenaren arabera.
         state_eq:
@@ -686,7 +686,7 @@ eu:
           unblocked: Ez blokeatuta
       moderations:
         index:
-          title: Jakinarazitako edukia
+          title: Eduki erreportatua
         report:
           reasons:
             does_not_belong: Ez du zer ikusirik
