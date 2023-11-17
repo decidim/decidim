@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "faker"
-
 module Decidim
   # Base class to be inherited from the different modules' seeds classes
   class Seeds

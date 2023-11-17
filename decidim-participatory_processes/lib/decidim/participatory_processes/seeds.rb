@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "faker"
+# require "faker"
 require "decidim/seeds"
 
 module Decidim
