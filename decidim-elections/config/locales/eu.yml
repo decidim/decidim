@@ -29,7 +29,9 @@ eu:
         user_id: Parte-hartzailea
       voting:
         banner_image: Bannerra
+        description: Deskribapena
         end_time: Bozketaren amaiera-data
+        introductory_image: Aurkezpenaren irudia
         scope_id: Esparrua
         start_time: Bozketaren hasiera-data
         title: Izenburua
@@ -318,6 +320,7 @@ eu:
             invalid: Arazo bat egon da bermatzailea sortzean.
           delete:
             invalid: Arazo bat egon da bermatzaile hau kentzean.
+            success: Bermatzailea zuzen ezabatua.
           form:
             select_user: Hautatu erabiltzailea
           index:
@@ -343,6 +346,11 @@ eu:
           update: "%{user_name} k eguneratu du %{space_name} ko %{resource_name} hautaketa"
         trustee:
           create: "%{user_name} k %{trustee_user} erabiltzailea esleitu du bermatzaile gisa"
+      connection:
+        failed:
+          modal:
+            close: Itxi
+            title: Zerbait gaizki joan da
       election_m:
         badge_name:
           finished: Amaituta
@@ -366,7 +374,7 @@ eu:
           chained_hash: Mezu honen Hash kateatua
           complete: Osatu
           creation_description:
-            complete: Aukeraketa sortu, eta zuzen konfiguratu zen Iragarki Taulan.
+            complete: Aukeraketa sortu, eta zuzen konfiguratu da Iragarki Taulan.
             not_created: Oraindik ez da sortu aukeraketa.
           creation_title: Aukeraketa sortuta
           description: Hau aukeraketaren erregistroa da, bertan urrats bakoitzaren egoera ikus dezakezu, adibidez, noiz sortu den, ea zenbaketa-prozesua osatu den eta noiz itxi den aukeraketa.
@@ -392,9 +400,11 @@ eu:
             started: Zenbatzeko prozesua hasi da.
           tally_title: Zenbatzeko prozesua
           title: Aukeraketaren erregistroa
+          unpublished: Argitaratu gabea
           verifiable_results:
             checksum: 'Artxiboaren SHA256 egiaztapenaren batuketa:'
             description:
+              not_ready: Hautapenaren artxibo egiaztagarria eta SHA256 egiaztatze-batura oraindik ez daude eskuragarri. Emaitzak argitaratu bezain laster, aukera hori egiaztatu ahal izango duzu.
               ready: 'Hemen duzu aukera egiaztatzeko aukera. Lehenik eta behin, fitxategia deskargatu behar duzu eta ziurtatu ez dela hondatu. Horretarako, exekutatu ondorengo komandoa eta egiaztatu irteera egiaztatze-baturarekin bat datorrela:'
             how_to_verify: 'Fitxategia deskargatu eta ondo dagoela ziurtatu ondoren, egiaztatzaile unibertsala exekuta dezakezu. Klona ezazu biltegi hau <a href=''https://github.com/decidim/decidim-bulletin-board''>este repositorio</a> eta, erro-karpetatik, exekuta ezazu ondoko komandoa:'
             title: Egiaztatu aukeraketaren emaitzak
@@ -408,6 +418,7 @@ eu:
         filters:
           active: Aktibo
           all: Guztiak
+          date: Data
           finished: Amaituta
           upcoming: Hurrengoak
         preview:
@@ -525,6 +536,8 @@ eu:
               pending: Zain
               processing: Prozesatzen
             title: Zenbaketa %{election} aukerarako
+          update:
+            success: 'Aukeraketaren egoera hauxe da: %{status}.'
         menu:
           trustee_zone: Bermatzailearen gunea
         no_bulletin_board:
@@ -565,6 +578,8 @@ eu:
           audit: Boto-orria ikuskatu
           back: Hasi berriro bozkatzeko prozesua
           ballot_hash: 'Boto-paperaren identifikatzailea hau da:'
+          cast: Eman boto-papera zure bozketa amaitzeko
+          description: Hemen dituzu zure boto-papera emateko aukerak, behar bezala zenbatua izateko edo, bestela, auditatu dezakezu zure boto-papera behar bezala zifratu zela. Segurtasun-arrazoiak direla eta, boto-txartela auditatzea balio gabe utziko da, eta horrek esan nahi du zure botoa emateko prozesua berriz hasi beharko duzula.
           header: 'Boto-papera zifratu da: bidali edo ikuskatu'
         casting:
           header: Botoa ematen ari da...
@@ -631,6 +646,7 @@ eu:
             back: Itzuli plataformara
             submit: Egiaztatu
             vote_identifier: 'Kode identifikatzailea:'
+            vote_identifier_help: Hau da eman zizuten identifikatzailea botoa eman ondoren (ez da bozkatzeko kutxan sartzeko kodea).
           header:
             title: Egiaztatu zure botoa
           success:
@@ -682,6 +698,9 @@ eu:
           title: Zer dira bozketak?
     menu:
       votings: Bozketak
+    participatory_spaces:
+      related_elections:
+        see_all: Ikusi aukera guztiak
     statistics:
       elections_count: Bozketak
       votings_count: Bozketak
@@ -741,6 +760,7 @@ eu:
             name: Bozketaren egutegia
         index:
           published: Argitaratua
+          unpublished: Argitaratu gabea
         menu:
           votings: Bozketak
           votings_submenu:
@@ -838,6 +858,7 @@ eu:
           edit:
             change_polling_station: Itzuli bozketa-guneetara
             monitoring_committee_notes: Oharrak
+            monitoring_committee_notes_placeholder: Eman edozein intzidentziaren berri hemen
             title: Emaitzak <i>%{election_title}</i> aukerarako <i>%{polling_station_title}</i> bozketa-gunean
           elections:
             title: Hautatu aukera bat baliozkotzeko
@@ -918,6 +939,8 @@ eu:
             update: Eguneratu
           form:
             banner_image: Banner-irudia
+            introductory_image: Aurkezpenaren irudia
+            promoted: Nabarmendua
             select_a_voting_type: Mesedez, hautatu bozketa mota bat
             slug: Slug
             slug_help_html: 'URLetako testu laburrak erabiltzen dira bozketa honi aurre egiteko URLak sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
@@ -965,6 +988,7 @@ eu:
               button: Ezabatu erroldako datu guztiak
             destroy:
               error: Arazo bai izan da errolda ezabatzean, mesedez, saiatu berriro geroago.
+              success: Erroldako datua ezabatuta.
             export_access_codes:
               button: Esportatu bozketaren Sartzeko Kodeak
               callout: Orain sartzeko kodeak esportatu ahal dituzu. Hori behin baino ezin da egin. Behin esportazioa hasita, posta elektroniko bat jasoko duzu, bertan jarraibideak <strong>%{email}</strong>
@@ -1020,6 +1044,11 @@ eu:
           destroy: Ezabatu
           new: Beste kide bat
           title: Ekintzak
+      pages:
+        home:
+          highlighted_votings:
+            active_spaces: Bozketa aktiboak
+            see_all_spaces: Ikusi bozketa guztiak
       polling_officer_zone:
         closures:
           back_to_polling_stations: Itzuli bozketa-guneetara
@@ -1173,6 +1202,7 @@ eu:
           form_title: 'Bete ondoko galdetegia zure erroldako datuak egiaztatzeko:'
           invalid: Arazo bat egon da errolda egiaztatzean.
           success:
+            access_link: emailez.
             access_link_with_sms: sMSz edo posta elektronikoz.
             title: Zure erroldako datuak zuzenak dira!
           title: Botoa eman dezaket?
@@ -1182,6 +1212,7 @@ eu:
           day_placeholder: EE
           document_number: Dokumentuaren zenbakia
           document_number_placeholder: ID zenbakia
+          document_type: Dokumentu mota
           month: Hilabetea
           month_placeholder: HH
           postal_code: Posta-kodea
@@ -1199,6 +1230,7 @@ eu:
         filters:
           active: Aktibo
           all: Guztiak
+          date: Data
           finished: Amaituta
           search: Bilatu
           upcoming: Hurrengoak
@@ -1219,6 +1251,8 @@ eu:
           recent: Azkenak
         send_access_code:
           invalid: Arazo bat egon da sarbide-kodea bidaltzean.
+        show:
+          title: Bozketa honi buruz
       votings_m:
         badge_name:
           finished: Amaituta
