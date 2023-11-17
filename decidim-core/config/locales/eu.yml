@@ -1738,19 +1738,27 @@ eu:
           accept_all: Onartu dena
           description: Cookie-ak erabiltzen ditugu gure webgunean, haien errendimendua eta edukia hobetzeko. Cookieei esker, erabiltzaile-esperientzia eta eduki pertsonalizatuagoak eskain ditzakegu sare sozialetako gure kanaletatik.
           settings: Ezarpenak
+          title: Webgunean erabiltzen diren cookiei buruzko informazioa.
         modal:
           accept_all: Onartu dena
+          analytics:
+            description: Cookie hauek erabiltzen dira webguneko ikusleak neurtzeko eta analizatzeko, webgunea hobetzen laguntzeko helburuaz.
+          description: Cookieak erabiltzen ditugu webgunearen oinarrizko funtzioak bermatzeko eta zure online esperientzia hobetzeko. Cookien erabilera konfiguratu eta onartu ahal duzu eta nahi duzunean aldatu haiek onesteko aukerak.
           essential:
             description: Cookie horiek webgunearen funtsezko funtzionaltasuna ahalbidetzen dute eta erabiltzaileak seguru mantentzen laguntzen dute. Automatikoki gordetzen dira nabigatzailean eta ezin dira desaktibatu.
           preferences:
             description: Cookie horiei esker, webguneak gogora ditzake iraganean webgune honetan hautatu diren aukerak, erabiltzaileei esperientzia pertsonalizatuagoa emateko.
             title: Hobespenak
+          title: Cookien konfigurazioa
         warning:
+          all_categories: cookie guztiak
+          change_settings: Aldatu cookien konfigurazioa
           consent_required: '%{categories} gaitu behar d(it) uzu eduki hau ikusi ahal izateko.'
       edit_link:
         edit: Editatu
       footer:
         cc_by_license: Creative Commons lizentziaduna
+        data_consent_settings: Cookien konfigurazioa
         decidim_logo: Decidimen logoa
         download_open_data: Deskargatu Open Data fitxategiak
         log_in:
