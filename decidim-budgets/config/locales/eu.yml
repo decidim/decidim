@@ -11,7 +11,7 @@ eu:
         budget_amount: Aurrekontuaren zenbatekoa
         decidim_category_id: Kategoria
         decidim_scope_id: Esparrua
-        description: Descripción
+        description: Deskribapena
         proposal_ids: Honekin lotutako proposamenak
         proposals: Proposamenak
         selected: Ezarpenerako hautatuak
@@ -173,8 +173,10 @@ eu:
           title: Baieztatu botoa
         budget_excess:
           budget_excess:
+            description: Proiektu honek gehieneko aurrekontua gainditzen du eta ezin da erantsi. Nahi baduzu, jada hautatua duzun proiektu bat ezabatu dezakezu zure lehentasunen arabera emateko botoa.
             title: Aurrekontua gainditu da
           close: Itxi
+          description: Proiektu honek gehieneko aurrekontua gainditzen du eta ezin da erantsi. Nahi baduzu, jada hautatua duzun proiektu bat ezabatu dezakezu zure lehentasunen arabera emateko botoa.
           ok: Ados
           projects_excess:
             description: Proiektu honek gehieneko aurrekontua gainditzen du, eta ezin da gehitu. Nahi baduzu, jada hautatua duzun proiektu bat ezaba dezakezu, zure lehenespenen arabera emateko botoa.
@@ -184,7 +186,7 @@ eu:
           assigned: 'Esleituta:'
           cancel_order: ezabatu ezazu botoa eta hasi berriro
           checked_out:
-            description: 'Jada bozkatu duzu aurrekonturako. Iritziz aldatu baduzu, ezeztatu hemen: %{cancel_link}.'
+            description: 'Jada bozkatu duzu aurrekonturako. Iritzia aldatu baduzu, ezeztatu hemen: %{cancel_link}.'
             title: Botoa zuzen bidali da
           minimum_projects_rule:
             description: Zure aburuz, proiektuetako zeinei esleitu behar diegu aurrekontua? Hautatu gutxienez %{minimum_number} eta bozkatu zure lehentasunen arabera proiektua zehazteko.
