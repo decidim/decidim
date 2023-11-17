@@ -149,7 +149,7 @@ en:
             no_components: There are no other proposal components in this participatory space to import the proposals into projects.
             origin_component_id: Origin component
             select_component: Please select a component
-            title: Import proposals
+            title: Import proposals to projects
         reminders:
           orders:
             description: Users will receive an email with links to the budgets where they have pending order.
