@@ -6,7 +6,7 @@ eu:
         area_id: Arloa
         decidim_scope_id: Esparrua
         decidim_user_group_id: Egilea
-        description: deskribapena
+        description: Deskribapena
         offline_votes: Aurrez aurreko sinadurak
         offline_votes_for_scope: Aurrez aurreko sinadurak %{scope_name} rentzat
         scope_id: Esparrua
@@ -63,6 +63,9 @@ eu:
               title: Izenburua ezin da hutsik egon
   activerecord:
     models:
+      decidim/initiative:
+        one: Ekimena
+        other: Ekimenak
       decidim/initiative_comittee:
         one: Batzordea
         other: Comittees
@@ -180,8 +183,8 @@ eu:
             - Joan zaitez Intiatives-ko partaidetza eremura
             - Jarraitu urrats berriak beste ekimen bat sortzeko
           description: Garaikur hau ekimen berriak martxan jartzean ematen da, beste batzuekin partekatuz horiek lortzeko.
-          description_another: Erabiltzaile honek argitaratutako %{score} ekimen lortu ditu.
-          description_own: Argitaratutako %{score} ekimen dituzu.
+          description_another: Parte-hartzaile honek %{score} ekimen argitaratzea lortu du.
+          description_own: '%{score} ekimen dituzu argitaratuta.'
           name: Argitaratutako ekimenak
           next_level_in: Talde %{score} ekimen gehiago argitaratu hurrengo mailara iristeko!
           unearned_another: Erabiltzaile honek oraindik ez du argitaratutako ekimenik lortu.
@@ -202,7 +205,7 @@ eu:
             title: '%{title}erantzun'
           info_initiative:
             created_at: Sortutako at
-            description: deskribapena
+            description: Deskribapena
             initiative_votes_count: Botoien zenbaketa
             initiatives: Ekimenak
             state: Estatu
@@ -367,7 +370,7 @@ eu:
         previous_form:
           back: Back
           continue: Jarraitu
-          help: Zer ekimena osatzen dute? Idatzi izenburua eta deskribapena. Titulu labur eta zehatza eta proposatutako irtenbidean oinarritutako azalpena gomendatzen dugu.
+          help: Zertan datza ekimena? Idatzi izenburua eta deskribapena. Titulu labur eta zehatza eta proposatutako irtenbidean oinarritutako azalpena gomendatzen dugu.
           more_information: "(Informazio gehiago)"
         promotal_committee:
           back: Back
@@ -537,7 +540,7 @@ eu:
           any_vote_method: Ekimen honek lineako eta aurrez aurreko sinadurak biltzen ditu.
           confirm: Ekimena bidaliko duzu administratzaile batek berrikus eta argitara dezan. Argitaratu ondoren, ezin izango duzu editatu. Ziur zaude?
           edit: Editatu
-          follow_description: Jakinarazpen bat jasotzen denean ekimen honetako berriak daude
+          follow_description: Jaso jakinarazpena ekimen honetan berriak daudenean
           offline_method: Ekimen honek aurrez aurreko sinadurak baino ez ditu biltzen.
           print: Inprimatu ekimena
           send_to_technical_validation: Bidali baliozkotze teknikora
@@ -580,7 +583,7 @@ eu:
       signature_interval:
         title: Sinadurak biltzeko epea
       states:
-        accepted: Onartu
+        accepted: Onartua
         expired: iraungi
       unavailable_scope: Esparrua ez dago erabilgarri
       update:
@@ -610,7 +613,7 @@ eu:
         select_initiative_type: Aukeratu
         show_similar_initiatives: konparatu
         step: Step %{current} of %{total}
-        title: Sortu ekimen berria
+        title: Sortu beste ekimen bat
       initiative_header:
         initiative_menu_item: Initiative
       initiative_signature_creation_header:
