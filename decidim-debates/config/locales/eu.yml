@@ -204,9 +204,9 @@ eu:
         commented_debates:
           conditions:
             - Aukeratu eztabaida irekia parte hartzeko
-          description: Txartel hau debekuei parte hartzeko modu aktiboan parte hartuz ematen da, zure iruzkinak utziz.
-          description_another: Erabiltzaile honek %{score} eztabaidatan parte hartu du.
-          description_own: '%{score} eztabaidetan parte hartu duzu.'
+          description: Garaikur hau eztabaidetan modu aktiboan, zure iruzkinak utziz, parte hartzen duzunean ematen da.
+          description_another: Parte-hartzaile honek %{score} eztabaidatan hartu du parte.
+          description_own: '%{score} eztabaidatan hartu duzu parte.'
           name: Eztabaidak
           next_level_in: Parte hartu %{score} eztabaidagai gehiago hurrengo mailara iristeko!
           unearned_another: Erabiltzaile honek eztabaida batean parte hartu du oraindik.
