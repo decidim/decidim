@@ -472,6 +472,7 @@ eu:
             no_active: Ez dago prozesu aktiborik
             no_active_nor_upcoming: Prozesu aktibo ez etorkizunik ez
             no_active_nor_upcoming_callout: Prozesu aktibo eta ez datoz bat. Hona hemen iraganekoen zerrenda.
+          filter_by: Erakutsi
           names:
             active: Aktiboa
             all: guztiak
@@ -480,13 +481,15 @@ eu:
           see: Ikusi
         index:
           loading: Emaitzak kargatzen...
+        show:
+          title: Prozesu honi buruz
       show:
         area: Arloa
         belongs_to_group: Prozesu hau honi dagokio
         dates: Datak
         developer_group: Talde sustatzailea
         end_date: Bukaera-data
-        local_area: Erakundeko arloa
+        local_area: Erakundeko Arloa
         participatory_scope: Zer erabakitzen da
         participatory_structure: Nola erabakitzen da?
         private_space: Prozesu pribatua da
