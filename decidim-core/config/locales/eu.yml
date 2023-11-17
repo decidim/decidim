@@ -199,8 +199,8 @@ eu:
       dismiss: Baztertu jakinarazpena
     amendments:
       accepted:
-        error: Errore bat gertatu da aldaketa onartuz.
-        success: Aldaketa ongi onartu da.
+        error: Errore bat gertatu da aldaketa onartzean.
+        success: Zuzenketa ondo onartu da.
       amendable:
         amended_by: Aldatua
         button: Aldatu %{model_name}
@@ -232,8 +232,8 @@ eu:
           help_text: Berrikusi aldaketak eta onartu edo ukatu zuzenketa hau. Jakinarazpen bat bidaliko zaio/e bere egileari/ei.
         announcement:
           accepted: |-
-            For the Aldaketa hori %{amendable_type} %{amendable_link} izan da
-            onartu <strong>%{announcement_date}</strong>.
+            %{amendable_type}%{proposal_link} rako zuzenketa onartua izan da <strong>%{date}</strong>
+
           evaluating: |-
             For the Aldaketa hori %{amendable_type} %{amendable_link}
             ebaluatu dago.
@@ -566,12 +566,12 @@ eu:
           affected_user:
             email_intro: 'Zuzenketa bat onartu da honako: %{amendable_title}. Orrialde honetatik ikusi dezakezu:'
             email_outro: 'Jakinarazpen hau jaso duzu honen egilea zarelako: %{amendable_title}.'
-            email_subject: Aldaketa onartuta %{amendable_title} %{emendation_author_nickname}
+            email_subject: Onartuta %{emendation_author_nickname} ren %{amendable_title} zuzenketa
             notification_title: '<a href="%{emendation_author_path}">%{emendation_author_nickname} egileak sortutako </a><a href="% emendation_path}">zuzenketa onartu da honetarako: <a href="%{amendable_path}">%{amendable_title}</a>.'
           follower:
-            email_intro: 'Zuzenketa bat bertan bera onartu %{amendable_title}. Orrialde hau ikusi dezakezu:'
+            email_intro: 'Zuzenketa bat onartu honetarako %{amendable_title}. Orrialde honetatik ikus dezakezu:'
             email_outro: Jakinarazpen hau jaso duzu %{amendable_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-            email_subject: Aldaketa onartuta %{amendable_title} %{emendation_author_nickname}
+            email_subject: '%{emendation_author_nickname} ren %{amendable_title} zuzenketa onartuta '
             notification_title: The <a href="%{emendation_path}">zuzenketa</a> sortutako <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> izan da onartu <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
@@ -771,9 +771,9 @@ eu:
         followers:
           conditions:
             - Beste pertsona batzuei aktibo eta jarraitzen zaien ziurgabetasuna beste pertsona batzuek segituko dute.
-          description: Idazmahaia jarraitzaile kopuru jakin batera iristen zarenean ematen da. %{organization_name} sare sozial eta politikoa da, zure weba plataforman beste pertsona batzuekin komunikatzeko ehundu.
+          description: Bereizgarria jarraitzaile kopuru jakin batera iristen zarenean ematen da. %{organization_name} sare soziala eta politikoa da, zure web-orria plataforman beste pertsona batzuekin komunikatzeko ehuna egiten du.
           description_another: Erabiltzaile honek %{score} jarraitzaile ditu.
-          description_own: "%{score} erabiltzaile jarraitzen zaituzte."
+          description_own: "%{score} erabiltzailek jarraitzen zaituzte."
           name: Jarraitzaileak
           next_level_in: Lortu %{score} erabiltzaile gehiago jarraitzeko hurrengo mailara iristeko!
           unearned_another: Erabiltzaile honek oraindik ez du jarraitzailerik.
@@ -850,7 +850,7 @@ eu:
         phone_help: Ez erabili marratuak eta ez espazioak
       join:
         error: Arazo bat egon da taldera lotzean
-        success: Erregistratu eskaera behar bezala sortu da. Administratzaileak zure eskaera berrikusiko du taldera onartu aurretik.
+        success: Lotzeko eskaera zuzen sortu da. Administratzaile batek zure eskaera berrikusiko du taldera onartu aurretik.
       leave:
         error: Arazo bat egon da taldea uztean
         success: Taldea zuzen utzi duzu.
@@ -875,7 +875,7 @@ eu:
         default_page:
           content: "<p> %{organization} gai desberdinetan parte hartu eta erabaki dezakezu, menu nagusian ikusten dituzun espazioen bidez: Prozesuak, Biltzarrak, Ekimenak, Kontsultak.</p> <p>Parte bakoitzean parte hartzeko aukera desberdinak aurkituko dituzu: proposamenak egitea, banaka edo beste pertsona batzuekin, eztabaidetan parte hartzea, proiektuak gauzatzeko aurreikusitako aurrekontuak, aurrez aurreko topaketak eta bestelako ekintzak biltzea.</p>\n"
           title: Zer egin dezaket %{organization}?
-        description: Irakurri buruz gehiago %{organization}
+        description: 'Irakurri gehiago honi buruz: %{organization}'
         title: Laguntza orokorra
     last_activities:
       activities:
@@ -1008,7 +1008,7 @@ eu:
       download:
         csv: Deskargatu datuak (CSV)
       followers:
-        description: Parte hartze espazio hau jarraitzen duten erabiltzaile kopurua
+        description: Parte hartzeko espazio hau jarraitzen duten erabiltzaile kopurua
         object: jarraitzaile
         title: Jarraitzaileak
       participants:
@@ -1016,7 +1016,7 @@ eu:
         object: parte-hartzaileak
         title: Parte-hartzaileak
       users:
-        description: Parte-hartzaile kopurua erakundean
+        description: Erakundeko parte-hartzaile kopurua
         object: parte-hartzaileak
         title: Parte-hartzaileak
     newsletter_mailer:
@@ -1714,6 +1714,7 @@ eu:
     dropdown:
       choose_diff_view_html: 'HTML ikusteko modua:'
       choose_diff_view_mode: 'Alderatu bistaratzeko modua:'
+      choose_diff_view_mode_menu: Hautatu konparaketa-modua
       option_escaped: Ihes eginda
       option_split: Paraleloan
       option_unescaped: Ez ihes eginda
