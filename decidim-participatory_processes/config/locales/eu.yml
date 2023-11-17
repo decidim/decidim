@@ -100,9 +100,9 @@ eu:
           all_processes: Erakutsi prozesu guztiak
           process_groups: Prozesu taldeak
         import_process: Inportatu
-        new_process: Prozesu berria
-        new_process_group: Prozesu talde berria
-        new_process_step: Urrats berria
+        new_process: Beste prozesu bat
+        new_process_group: Beste prozesu-talde bat
+        new_process_step: Beste urrats bat
         new_process_user_role: Prozesuaren beste administratzaile bat
         preview: Aurreikusi
         publish: Argitaratu
@@ -220,7 +220,7 @@ eu:
           steps_title: Prozesuaren faseak
         new:
           create: Sortu
-          title: Prozesu partizipatiboaren fase berria
+          title: Prozesu parte-hartzailearen beste fase bat
         ordering:
           error: Arazo bat egon da prozesu partehartzaile honen faseak berrantolatzean.
         update:
@@ -361,6 +361,9 @@ eu:
         new_import:
           accepted_types:
             json: JSON
+        participatory_process_copies:
+          form:
+            slug_help: 'URL testu laburrak erabiltzen dira prozesu honi aurre egiteko URLan sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadatuak
@@ -369,8 +372,10 @@ eu:
         participatory_process_imports:
           form:
             document_legend: Gehitu dokumentu bat
+            slug_help: 'URL testu laburrak erabiltzen dira prozesu honi aurre egiteko URLan sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
         participatory_process_steps:
           form:
+            cta_path_help: 'Erabili ibilbide partzialak, ez dira URL osoak hemen. Letrak, zenbakiak, gidoiak eta barrak onartzen ditu, eta letra batez hasi behar du. Bestela, ez da erakutsiko botoia. Adibidea: %{url}'
             cta_text_help: Ezartzen bada, botoia ez da agertuko.
         participatory_processes:
           form:
@@ -384,6 +389,7 @@ eu:
             scope_type_max_depth_help: Murriztu esparru-iragazkiaren sakonera; iragazkia esparru orokorretik hautatutakora erakutsiko da.
             select_an_area: Hautatu eremu bat
             select_process_group: Hautatu prozesu talde bat
+            slug_help: 'URL testu laburrak erabiltzen dira prozesu honi aurre egiteko URLan sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
             title: Informazio orokorra
             visbility: ikusgarritasuna
       content_blocks:
@@ -392,7 +398,7 @@ eu:
       index:
         title: Prozesu partizipatiboak
       last_activity:
-        new_participatory_process: Partaidetza prozesu berria
+        new_participatory_process: Beste prozesu parte-hartzaile bat
       pages:
         home:
           highlighted_processes:
