@@ -47,6 +47,10 @@ eu:
         grant_id_documents_offline_verification: "%{user_name} k egiaztatu zuen %{resource_name} nortasun agirien baimen bat erabiliz"
     authorization_handlers:
       admin:
+        csv_census:
+          help:
+            - Administratzaileek onartutako parte-hartzaileen posta elektronikoak dituen CSV igotzen dute. 
+            - 
         id_documents:
           help:
             - Erabiltzaileek beren identifikazio informazioa bete, eta dokumentuaren kopia bat kargatzen dute.
