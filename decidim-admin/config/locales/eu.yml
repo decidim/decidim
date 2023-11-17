@@ -373,7 +373,7 @@ eu:
           label: Kategoria
         filter_label: Iragazkia
         invitation_accepted_at_present:
-          label: Gonbidapena onartu da
+          label: Gonbidapena onartua
           values:
             'false': 'Ez'
             'true': 'Bai'
@@ -794,7 +794,7 @@ eu:
             colors_warning_html: "\nKontuz! Kolore horiek aldatzeak irisgarritasun-kontrasteak hautsi ditzake. Zure aukeraren kontrastea egiazta dezakezu <a href=\"%{link}\">WebAIM Contrast Checker</a> edo antzeko tresnekin."
             header_snippets_help: Erabili eremu hau HTML goiburuari gauzak gehitzeko. Erabilerarik ohikoena da JavaScript edo CSS gehigarriak behar dituzten hirugarrenen zerbitzuak txertatzea. Gainera, HTMLari meta-etiketa gehigarriak gehitzeko erabil dezakezu. Kontuan hartu orri publikoetan baino ez dela erakutsiko, ez administrazio atalean.
           cta_button_path_help: 'Hasierako orriko ekintzara deitzeko botoia nora estekatzen den gainidatz dezakezu. Erabili hemen ibilbide partzialak, ez URL osoak. Letrak, zenbakiak, gidoiak eta barrak onartzen ditu, eta letra batetik hasi behar du. Ekintzara deitzeko botoia hasierako orrian agertuko da, ongietorri-testuaren eta deskribapenaren artean. Adibidez:%{url}'
-          cta_button_text_help: Hasierako pantailako Call To Action botoian testua gainidatz dezakezu zure erakundeko hizkuntza bakoitzarentzat. Ezartzen bada, balio lehenetsia erabiliko da. The Call To Action botoian hasierako orrian erakusten da ongietorri testua eta azalpena.
+          cta_button_text_help: Hasierako pantailako Call To Action botoian testua gainidatz dezakezu zure erakundean eskuragarri dagoen hizkuntza bakoitzarentzat. Ezarrita ez badago, balio lehenetsia erabiliko da. The Call To Action botoia hasierako orrian erakusten da ongietorri testua eta azalpenaren artean.
           homepage_appearance_title: Editatu hasierako orriaren itxura
           homepage_highlighted_content_banner_title: Edukien bannerra nabarmendua
           images:
