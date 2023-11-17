@@ -66,7 +66,7 @@ module Decidim
         end
 
         def description_with_link
-          link = "\n\n#{I18n.t(".read_more", scope: "decidim.meetings.calendar.meeting_to_event")} #{url_for(meeting)}"
+          link = "\n\n#{I18n.t("read_more", scope: "decidim.meetings.calendar.meeting_to_event")} #{url_for(meeting)}"
           strip_tags(CGI.unescapeHTML(present(meeting).description)) + link
         end
       end
