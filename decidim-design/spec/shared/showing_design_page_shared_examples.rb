@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 shared_examples "showing the design page" do |title, content|
   it "shows the page" do
     within ".design__navigation" do
