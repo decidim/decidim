@@ -17,6 +17,7 @@ module Decidim
     include Decidim::AttachmentsHelper
     include Cell::ViewModel::Partial
     include ActiveSupport::NumberHelper
+    include ERB::Util
 
     alias resource model
 

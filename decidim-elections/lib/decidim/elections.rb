@@ -36,8 +36,14 @@ module Decidim
       6
     end
 
+    # Public Setting that defines how many minutes will pass until the token of the voter expires
     config_accessor :voter_token_expiration_minutes do
       120
+    end
+
+    # Public Setting that defines which kind of documents a participant can have
+    config_accessor :document_types do
+      %w(identification_number passport)
     end
   end
 end

@@ -1,0 +1,96 @@
+= Controllers
+
+Decidim controllers are plain Rails controllers, that usually implement the other concepts that we have described in this section.
+
+Controller classes are located in the `app/controllers/decidim/<my_module>` directory, and named: `<my_resource>_controller.rb`.
+
+```ruby
+# frozen_string_literal: true
+
+# app/controllers/decidim/my_module/resource_controller.rb
+module Decidim
+  module MyModule
+    class MyResourceController < Decidim::MyModule::ApplicationController
+
+    end
+  end
+end
+```
+
+The admin controllers are following the `Decidim` conventions:
+In the below example, you will be able to see how the forms (`ResourceForm`), commands (`CreateMyResource`, `UpdateMyResource`), queries (`Decidim::MyModule::MyResourceQuery`) and permissions (`enforce_permission_to`) can be used.
+
+```ruby
+# frozen_string_literal: true
+
+# app/controllers/decidim/my_module/admin/resources_controller.rb
+module Decidim
+  module MyModule
+    module Admin
+      class ResourcesController < Decidim::MyModule::Admin::ApplicationController
+        def index
+          enforce_permission_to :read, :resource
+          @resources = paginate(resources)
+        end
+
+        def new
+          enforce_permission_to :create, :resource
+          @form = form(ResourceForm).from_params(params)
+        end
+
+        def create
+          enforce_permission_to :create, :resource
+          @form = form(ResourceForm).from_params(params)
+
+          CreateMyResource.call(@form) do
+            on(:ok) do
+              flash[:notice] = I18n.t("resource.create.success", scope: "decidim.my_module.admin")
+              redirect_to action: :index
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("resource.create.invalid", scope: "decidim.my_module.admin")
+              render action: :new
+            end
+          end
+        end
+
+        def edit
+          enforce_permission_to :update, :resource, resource: resource
+          @form = form(ResourceForm).from_model(resource)
+        end
+
+        def update
+          enforce_permission_to :update, :resource, resource: resource
+          @form = form(ResourceForm).from_params(params)
+
+          UpdateMyResource.call(@form) do
+            on(:ok) do
+              flash[:notice] = I18n.t("resource.update.success", scope: "decidim.my_module.admin")
+              redirect_to action: :index
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("resource.update.invalid", scope: "decidim.my_module.admin")
+              render action: :edit
+            end
+          end
+        end
+
+        private
+        def resources
+          @resources ||= Decidim::MyModule::MyQuery.for([current_component])
+        end
+
+        def resource
+          resources.find(params[:id])
+        end
+      end
+    end
+  end
+end
+```
+
+== More information
+
+- https://edgeguides.rubyonrails.org/action_controller_overview.html[Action Controller documentation]

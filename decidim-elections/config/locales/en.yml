@@ -1129,8 +1129,7 @@ en:
               csv_header_after: Do not include the last field ("%{ballot_style_code_header}") if you do not need ballot styles/conditional questions
               csv_header_before: 'The census file must be a CSV file with the following header:'
         document_types:
-          dni: DNI
-          nie: NIE
+          identification_number: Identification number
           passport: Passport
         export_mailer:
           access_codes_export:
