@@ -919,7 +919,7 @@ eu:
         phone_help: Ez erabili marratuak eta ez espazioak
       join:
         error: Arazo bat egon da taldera lotzean
-        success: Erregistratu eskaera behar bezala sortu da. Administratzaileak zure eskaera berrikusiko du taldera onartu aurretik.
+        success: Lotzeko eskaera behar bezala sortu da. Administratzaile batek zure eskaera berrikusiko du taldera onartu aurretik.
       leave:
         error: Arazo bat egon da taldea uztean
         success: Taldea zuzen utzi duzu.
@@ -1708,16 +1708,20 @@ eu:
             local_storage: Memoria lokala
         dialog:
           accept_all: Onartu dena
+          accept_only_essential: Funtsezkoak soiik onartu.
           description: Cookie-ak erabiltzen ditugu gure webgunean, haien errendimendua eta edukia hobetzeko. Cookieei esker, erabiltzaile-esperientzia eta eduki pertsonalizatuagoak eskain ditzakegu sare sozialetako gure kanaletatik.
           settings: Ezarpenak
           title: Webgunean erabiltzen diren cookiei buruzko informazioa.
         modal:
           accept_all: Onartu dena
+          accept_only_essential: Funtsezkoak soiik onartu.
           analytics:
             description: Cookie hauek erabiltzen dira webguneko ikusleak neurtzeko eta analizatzeko, webgunea hobetzen laguntzeko helburuaz.
           description: Cookieak erabiltzen ditugu webgunearen oinarrizko funtzioak bermatzeko eta zure online esperientzia hobetzeko. Cookien erabilera konfiguratu eta onartu ahal duzu eta nahi duzunean aldatu haiek onesteko aukerak.
           essential:
             description: Cookie horiek webgunearen funtsezko funtzionaltasuna ahalbidetzen dute eta erabiltzaileak seguru mantentzen laguntzen dute. Automatikoki gordetzen dira nabigatzailean eta ezin dira desaktibatu.
+          marketing:
+            description: Cookie hauek web orria erabiltzeko moduari buruzko informazioa biltzen dute eta erabil daitezke zuri zerbitzu pertsonalizatuagoa emateko parte hartzen duzun gune desberdinetan.
           preferences:
             description: Cookie horiei esker, webguneak gogora ditzake iraganean webgune honetan hautatu diren aukerak, erabiltzaileei esperientzia pertsonalizatuagoa emateko.
             title: Hobespenak
