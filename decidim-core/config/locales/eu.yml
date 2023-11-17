@@ -1068,9 +1068,12 @@ eu:
       event_received:
         no_translation_available: 'Sentitzen dugu, itzulpen automatizatua ezin izan da berreskuratu posta elektronikoa bidali denean. Jatorrizko testuaren itzulpena ikus dezakezu esteka honetan: %{link}.'
         original_text: 'Jatorrizko testua:'
+        same_language: Edukia zure hizkuntza gogokoenean %{language} argitaratu da, horregatik ez da itzulpen automatikorik agertzen posta elektroniko honetan.
         translated_text: 'Automatikoki itzulitako testua:'
     notifications:
       no_notifications: Oraindik ez dago jakinarazpenik.
+      show:
+        missing_event: Aiba, jakinarazpen hhau dagoeneko eskuragarri ez dagoen item batena da. Baztertu dezakezu.
     notifications_settings:
       show:
         administrators: Administratzaileak
