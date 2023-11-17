@@ -458,8 +458,8 @@ eu:
           make_conference_registration: Eman izena hitzaldian
           manage_registration: Erregistroa kudeatu
           register: Eman izena
-          sign_in_description: Hasi saioa jardunaldian erregistratzeko
-          sign_up_description: Sortu kontu bat konferentzian erregistratzeko
+          sign_in_description: Hasi saioa hitzaldian erregistratzeko
+          sign_up_description: Sortu kontu bat hitzaldian erregistratzeko
       content_blocks:
         highlighted_conferences:
           name: Nabarmendutako konferentziak
