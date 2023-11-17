@@ -48,7 +48,7 @@ eu:
       admin:
         csv_census:
           help:
-            - Onartzen diren onartutako parte-hartzaileen mezu elektronikoak igortzen dituzte CSVak
+            - Administratzaileek onartutako parte-hartzaileen mezu elektronikoak dituen CSV bat kargatzen dute
             - CSV fitxategi horretan mezu elektroniko bat duten parte-hartzaileek soilik egiaztatu ahal izango dute
         id_documents:
           help:
@@ -114,7 +114,7 @@ eu:
           authorize: Bidali
           authorize_with: Egiaztatu %{authorizer} rekin
         renew_modal:
-          cancel: Utzi
+          cancel: Ezeztatu
           close: itxi
           continue: Jarraitu
           info_renew: Datuak eguneratu nahi badituzu, jarraitu berriztatzen
@@ -142,12 +142,12 @@ eu:
           new:
             file: ".csv fitxategia helbide elektronikoen datuekin"
             info: 'CSV formatudun artxiboa izan behar da eta zutabe batean posta elektronikoaren helbidea:'
-            submit: Kargatu fitxategia
-            title: Kargatu zentsu berri bat
+            submit: Igo fitxategia
+            title: Igo beste errolda bat
         authorizations:
           new:
-            error: Ezin izan dugu zure kontua egiaztatu edo ez duzu erakundearen zentsuan.
-            success: Zure kontua ondo egiaztatu da.
+            error: Ezin izan dugu zure kontua egiaztatu edo ez zaude erakundearen erroldan.
+            success: Zure kontua zuzen egiaztatu da.
       dummy_authorization:
         extra_explanation:
           postal_codes:
@@ -177,7 +177,7 @@ eu:
               error: Egiaztapena ez dator bat. Saiatu berriro edo esan erabiltzaileak hura aldatzeko
               success: Erabiltzaileak behar bezala egiaztatu du
             new:
-              cancel: Utzi
+              cancel: Ezeztatu
               introduce_user_data: Sartu erabiltzailearen helbide elektronikoa eta dokumentuaren datuak
               verify: Ziurtatu
           pending_authorizations:
@@ -207,8 +207,8 @@ eu:
             rejection_notice: Arazo bat egon da zure egiaztapenarekin. Mesedez, saiatu berriro
             send: Eskatu egiaztapena berriro
           new:
-            send: Eska ezazu egiaztapena
-            title: Kargatu zure identifikazio dokumentua
+            send: Eskatu egiaztapena
+            title: Igo zure identifikazio agiria
           update:
             error: Arazo bat egon da zure dokumentua berriro igotzean
             success: Dokumentua berriro kargatu da
@@ -239,7 +239,7 @@ eu:
             title: Jasotako egiaztapen-kodea sartu
             waiting_for_letter: Zure helbidera gutun bat bidaliko dizugu egiaztapen-kodearekin laster
           new:
-            send: Bidali gutun bat
+            send: Bidali iezadazu gutun bat
             title: Eskatu egiaztapen-kodea
           update:
             error: Zure egiaztapen-kodea ez dator bat gurekin. Begiratu bi aldiz bidalitako mezua
@@ -259,7 +259,7 @@ eu:
             title: Jasotako egiaztapen-kodea sartu
           new:
             send: Bidal iezadazu SMS bat
-            title: Eskatu egiaztapen-kodea
+            title: Eskatu zure egiaztapen-kodea
           update:
             error: Zure egiaztapen-kodea ez dator bat gurekin. Begiratu bi aldiz bidalitako SMSa.
             success: Zorionak. Ongi egiaztatu duzu.
