@@ -328,8 +328,8 @@ eu:
           conditions:
             - Aukeratu zure intereseko partaidetza espazioa proposamenak bidaltzeko
             - Saiatu proposamenak egiten. Horrela onartuak izango dira.
-          description: Idazmahaia hau proposamen berriekin aktiboki parte hartzen duzunean ematen da eta hauek onartzen dira.
-          description_another: Parte-hartzaile honek %{score} proposamen onartu zituen.
+          description: Garaikur hau proposamen berriekin aktiboki parte hartzen duzunean eta horiek onartzen direnean ematen da 
+          description_another: Parte-hartzaile honek %{score} proposamen onartu ditu.
           description_own: '%{score} proposamen onartu dituzu.'
           name: Onartutako proposamenak
           next_level_in: Lortu %{score} proposamen gehiago onartuak hurrengo mailara iristeko!
@@ -339,9 +339,9 @@ eu:
           conditions:
             - Nabigatu eta irakurri besteen proposamenak
             - Gustatzen zaizkizun edo interesgarriak iruditzen zaizkizun proposamenei babesa eman
-          description: Bereizgarri hori beste pertsona batzuen proposamenak boskatzen dituzunean ematen da.
-          description_another: Erabiltzaile honek %{score} proposamen onartzen ditu.
-          description_own: '%{score} proposamenei man diezu zure babesa.'
+          description: Garaikur hori beste pertsona batzuen proposamenak bozkatzen dituzunean ematen da.
+          description_another: Erabiltzaile honek %{score} proposamen onartu ditu.
+          description_own: '%{score} proposameni man diezu babesa.'
           name: Proposamenaren aldeko botoak
           next_level_in: Eman babesa % {score} proposamen gehiagori hurrengo mailara iristeko!
           unearned_own: Oraindik ez duzu proposamenik egin.
@@ -349,7 +349,7 @@ eu:
           conditions:
             - Aukeratu zure interesekoa den parte hartzeko gunea, gaitutako proposamenak aurkeztuta
             - Proposamen berri bat sortu
-          description: Txartela hau proposamen berriekin aktiboki parte hartzen duzunean ematen da.
+          description: Garaikur hau proposamen berriekin modu aktiboan parte hartzen duzunean ematen da.
           description_another: Erabiltzaile honek %{score} proposamen sortu ditu.
           description_own: '%{score} proposamen sortu dituzu.'
           name: proposamenak
@@ -357,19 +357,19 @@ eu:
           unearned_own: Oraindik ez duzu proposamenik sortu.
     metrics:
       accepted_proposals:
-        description: Erabiltzaileek onartutako proposamenen kopurua
+        description: Onartutako proposamen kopurua
         object: proposamenak
         title: Onartutako proposamenak
       endorsements:
-        description: Proposamenekiko abalen kopurua
+        description: Proposamenen atxikimendu kopurua
         object: oniritziak
         title: Oniritziak
       proposals:
-        description: Sortutako proposamen kopurua
+        description: Proposamen kopurua
         object: proposamenak
         title: Proposamenak
       votes:
-        description: Erabiltzaileek proposatutako sortutako boto kopurua
+        description: Proposamenen babes kopurua
         object: botoak
         title: Botoak
     participatory_spaces:
@@ -787,6 +787,9 @@ eu:
           random: Ausazko ordena
           recent: Berrienak
           with_more_authors: Egile gehiagorekin
+        participatory_texts:
+          view_index:
+            document_index: Dokumentuaren aurkibidea
         placeholder:
           address: 37 Homewood Drive Brownsburg, hemen 46112
         preview:
@@ -833,16 +836,18 @@ eu:
             other: Babesak
         voting_rules:
           can_accumulate_supports_beyond_threshold:
-            description: Proposamen bakoitzak %{limit} babes baino gehiagotan jaso dezake
+            description: Proposamen bakoitzak %{limit} babes baino gehiago jaso dezake
           minimum_votes_per_user:
-            description: Gutxienez %{votes} bozka eman behar dituzu proposamen desberdinen artean.
+            description: Gutxienez %{votes} babes banatu behar dituzu proposamen desberdinen artean.
             given_enough_votes: Nahiko babes eman dituzu.
             supports_remaining: '%{remaining_votes} boto gehiago proposatu behar dituzu zure botoak kontuan hartzeko.'
           proposal_limit:
             description: '%{limit} proposamen sortu ditzakezu.'
+          threshold_per_proposal:
+            description: Proposamenak baliozkotu ahal izateko, %{limit} babesetara iritsi behar da.
           title: 'Bozkek arau hauek bete behar dituzte:'
           vote_limit:
-            description: '%{limit} proposamenari bozkatu ahal zaizkio.'
+            description: '%{limit} proposameni eman ahal diozu babesa.'
             votes: Babesak
         wizard_aside:
           back: Atzera
