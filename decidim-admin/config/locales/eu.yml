@@ -407,7 +407,7 @@ eu:
           label: Kategoria
         filter_label: Iragazkia
         invitation_accepted_at_present:
-          label: Gonbidapena onartu da
+          label: Gonbidapena onartua
           values:
             'false': 'Ez'
             'true': 'Bai'
