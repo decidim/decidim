@@ -1000,6 +1000,7 @@ eu:
             banner_image: Banner-irudia
             select_a_voting_type: Mesedez, hautatu bozketa mota bat
             slug: Slug
+            slug_help: 'URLetako testu laburrak erabiltzen dira bozketa honi aurre egiteko URLak sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
             title: Izenburua
             voting_type:
               hybrid: Hibridoa
