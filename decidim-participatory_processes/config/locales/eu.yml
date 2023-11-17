@@ -391,6 +391,9 @@ eu:
         new_import:
           accepted_types:
             json: JSON
+        participatory_process_copies:
+          form:
+            slug_help_html: 'URL testu laburrak erabiltzen dira prozesu honi aurre egiteko URLan sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadatuak
@@ -399,8 +402,10 @@ eu:
         participatory_process_imports:
           form:
             document_legend: Gehitu dokumentu bat
+            slug_help_html: 'URLetako testu laburrak erabiltzen dira prozesu honi aurre egiteko URLak sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
         participatory_process_steps:
           form:
+            cta_path_help_html: 'Erabili ibilbide partzialak, ez dira URL osoak hemen. Letrak, zenbakiak, gidoiak eta barrak onartzen ditu, eta letra batez hasi behar du. Bestela, ez da erakutsiko botoia. Adibidea: %{url}'
             cta_text_help: Ezartzen bada, botoia ez da agertuko.
         participatory_processes:
           form:
@@ -415,6 +420,7 @@ eu:
             select_an_area: Hautatu eremu bat
             select_participatory_process_type: Aukeratu prozesu-mota bat
             select_process_group: Hautatu prozesu talde bat
+            slug_help_html: 'URLetako testu laburrak erabiltzen dira prozesu honi aurre egiteko URLak sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
             title: Informazio orokorra
             visbility: ikusgarritasuna
       content_blocks:
