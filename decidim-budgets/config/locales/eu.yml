@@ -11,7 +11,7 @@ eu:
         budget_amount: Aurrekontuaren zenbatekoa
         decidim_category_id: Kategoria
         decidim_scope_id: Esparrua
-        description: Descripción
+        description: Deskribapena
         proposal_ids: Honekin lotutako proposamenak
         proposals: Proposamenak
         selected: Ezarpenerako hautatuak
