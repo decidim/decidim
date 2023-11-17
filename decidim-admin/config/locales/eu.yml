@@ -665,7 +665,7 @@ eu:
             report_details: Arrazoiaren xehetasunak
             report_language: Txostenaren hizkuntza
             report_reason: Arrazoia
-            title: Txostenaren xehetasunak
+            title: Erreportatu xehetasunak
       newsletter_templates:
         index:
           preview_template: Aurreikusi
@@ -702,7 +702,7 @@ eu:
           title: Buletinak
         new:
           save: Gorde
-          title: Buletin berria
+          title: Beste buletin bat
         select_recipients_to_deliver:
           all_spaces: Denak
           all_users_help: Albisteen buletina baieztatu duten erabiltzaile guztiei bidaltzen die.
@@ -798,7 +798,7 @@ eu:
           homepage_appearance_title: Editatu hasierako orriaren itxura
           homepage_highlighted_content_banner_title: Edukien bannerra nabarmendua
           images:
-            layout_appearance_title: Editatu itxura globalaren diseinua
+            layout_appearance_title: Editatu itxura globalaren itxura
             preview: Aurrebistaratu
           omnipresent_banner_appearance_title: Editatu banner nonahikoa
       organization_external_domain_whitelist:
@@ -932,7 +932,7 @@ eu:
           last_notable_change: Azken aldaketa nabaria
         new:
           create: Sortu orrialdea
-          title: Orri berria
+          title: Beste orri bat
         topic:
           destroy: Kendu gaia
           edit: Editatu gaia
@@ -954,7 +954,7 @@ eu:
         metrics: Metrikak
         pages: Orriak
         panel: Administratzailea
-        participants: erabiltzaileak
+        participants: Parte-hartzaileak
         scope_types: Esparru motak
         scopes: Esparruak
         static_pages: Orriak
@@ -1019,7 +1019,7 @@ eu:
         title: Erabiltzaile erreportatuak
       user_reports:
         object: erabiltzailearen erreporteak
-        title: Erabiltzailearen erreporteak
+        title: Erabiltzaileak erreportatzen du
     moderations:
       actions:
         expand: Zabaldu
