@@ -50,7 +50,6 @@ module Decidim
         end
       end
 
-
       initializer "decidim_assemblies.menu" do
         Decidim::Assemblies::Menu.register_menu!
         Decidim::Assemblies::Menu.register_home_content_block_menu!
