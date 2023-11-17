@@ -29,6 +29,7 @@ eu:
         user_id: Parte-hartzailea
       voting:
         end_time: Bozketaren amaiera-data
+        introductory_image: Aurkezpenaren irudia
         scope_id: Esparrua
         start_time: Bozketaren hasiera-data
     errors:
@@ -367,6 +368,11 @@ eu:
           update: "%{user_name} k eguneratu du %{space_name} ko %{resource_name} hautaketa"
         trustee:
           create: "%{user_name} k %{trustee_user} erabiltzailea esleitu du bermatzaile gisa"
+      connection:
+        failed:
+          modal:
+            close: Itxi
+            title: Zerbait gaizki joan da
       election_m:
         badge_name:
           finished: Amaituta
@@ -394,7 +400,7 @@ eu:
           chained_hash: Mezu honen Hash kateatua
           complete: Osatu
           creation_description:
-            complete: Aukeraketa sortu, eta zuzen konfiguratu zen Iragarki Taulan.
+            complete: Aukeraketa sortu, eta zuzen konfiguratu da Iragarki Taulan.
             not_created: Oraindik ez da sortu aukeraketa.
           creation_title: Aukeraketa sortuta
           description: Hau aukeraketaren erregistroa da, bertan urrats bakoitzaren egoera ikus dezakezu, adibidez, noiz sortu den, ea zenbaketa-prozesua osatu den eta noiz itxi den aukeraketa.
@@ -618,6 +624,7 @@ eu:
           audit: "( Ikuskatu boto-papera )"
           back: Hasi berriro bozkatzeko prozesua
           ballot_hash: 'Boto-paperaren identifikatzailea hau da:'
+          cast: Eman boto-papera zure bozketa amaitzeko
           description: Hemen dituzu zure boto-papera emateko aukerak, behar bezala zenbatzeko edo, bestela, zure boto-papera behar bezala zifratu zela auditatu dezakezu. Segurtasun-arrazoiak direla eta, boto-txartelaren ikuskaritzak hondatu egingo du, eta horrek esan nahi du bozketa-prozesua berriz hasi beharko duzula botoa emateko.
           header: 'Boto-papera zifratu da: bidali edo ikuskatu'
         casting:
@@ -650,6 +657,7 @@ eu:
           lead: Ez duzu eman botoa!
           modal:
             close: Itxi
+            title: Zerbait gaizki joan da
           text: Zerbait txarto irten da, mesedez, saiatu berriro.
           try_again: Saiatu berriro
         header:
@@ -807,6 +815,7 @@ eu:
             timeline:
               name: Bozketaren egutegia
         index:
+          not_published: Argitaratu gabea
           published: Argitaratua
         landing_page:
           content_blocks:
@@ -919,6 +928,7 @@ eu:
           edit:
             change_polling_station: Itzuli bozketa-guneetara
             monitoring_committee_notes: Oharrak
+            monitoring_committee_notes_placeholder: Eman edozein intzidentziaren berri hemen
             title: Emaitzak <i>%{election_title}</i> aukerarako <i>%{polling_station_title}</i> bozketa-gunean
           elections:
             title: Hautatu aukera bat baliozkotzeko
@@ -1004,6 +1014,8 @@ eu:
             update: Eguneratu
           form:
             banner_image: Banner-irudia
+            introductory_image: Aurkezpenaren irudia
+            promoted: Nabarmendua
             select_a_voting_type: Mesedez, hautatu bozketa mota bat
             slug: Slug
             slug_help: 'URLetako testu laburrak erabiltzen dira bozketa honi aurre egiteko URLak sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
@@ -1112,6 +1124,8 @@ eu:
         highlighted_votings:
           name: Bozketa nabarmenduak
         landing_page:
+          description:
+            title: Bozketa honi buruz
           metrics:
             heading: Metrikak
           polling_stations:
@@ -1128,6 +1142,8 @@ eu:
       pages:
         home:
           highlighted_votings:
+            active_votings: Bozketa aktiboak
+            see_all_votings: Ikusi bozketa guztiak
             votings_button_title: Lotura guztiak erakusten dituen Bozketen orrialdera
       polling_officer_zone:
         closures:
@@ -1291,6 +1307,7 @@ eu:
           form_title: 'Bete ondoko galdetegia zure erroldako datuak egiaztatzeko:'
           invalid: Arazo bat egon da errolda egiaztatzean.
           success:
+            access_link: emailez.
             access_link_with_sms: sMSz edo posta elektronikoz.
             info: Zure sarbide-kodea postaz jasota izan beharko zenuke. Ez baduzu, hemen eska dezakezu
             title: Zure erroldako datuak zuzenak dira!
@@ -1301,6 +1318,7 @@ eu:
           day_placeholder: EE
           document_number: Dokumentuaren zenbakia
           document_number_placeholder: ID zenbakia
+          document_type: Dokumentu mota
           month: Hilabetea
           month_placeholder: HH
           postal_code: Posta-kodea
