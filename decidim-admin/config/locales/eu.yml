@@ -61,7 +61,7 @@ eu:
         highlight_alternative_color: Nabarmendua, aukerakoa
         highlight_color: Nabarmendua
         highlighted_content_banner_action_subtitle: Ekintza-botoiaren azpititulua
-        highlighted_content_banner_action_title: Ekintza-botoiaren titulua
+        highlighted_content_banner_action_title: Ekintza-botoiaren izenburua
         highlighted_content_banner_action_url: Ekintza-botoiaren URLa
         highlighted_content_banner_enabled: Erakutsi nabarmendutako edukien bannera
         highlighted_content_banner_image: Irudia
@@ -264,10 +264,10 @@ eu:
           title: Editatu fitxategi erantsia
           update: Eguneratu
         index:
-          attachments_title: Eranskinak
+          attachments_title: Fitxategi erantsia
         new:
           create: Sortu fitxategi erantsia
-          title: Fitxategi erantsi berria
+          title: Beste fitxategi erantsi bat
         update:
           error: Arazo bat egon da eranskin hau eguneratzean.
           success: Fitxategi erantsia zuzen eguneratu da.
@@ -295,7 +295,7 @@ eu:
           category_used: Kategoria hau ezin da ezabatu erabiltzen ari delako.
         new:
           create: Sortu kategoria
-          title: Kategoria berria
+          title: Beste kategoria bat
         update:
           error: Arazo bat egon da kategoria hau eguneratzean.
           success: Kategoria zuzen eguneratu da.
@@ -425,7 +425,7 @@ eu:
           name_or_nickname_or_email_cont: Bilatu %{collection} helbide elektroniko, izen edo ezizenaren arabera.
           report_count_eq: Salaketa kopurua
           reported_id_string_or_reported_content_cont: Bilatu %{collection} eduki edo Id erreportablearen arabera.
-          title_cont: Bilatu %{collection} tituluaren arabera.
+          title_cont: Bilatu %{collection} izenburuaren arabera.
           user_name_or_user_email_cont: Bilatu %{collection} helbide elektroniko edo izenaren arabera.
           user_name_or_user_nickname_or_user_email_cont: Bilatu %{collection} helbide elektroniko, izen edo ezizenaren arabera.
         state_eq:
@@ -645,7 +645,7 @@ eu:
           unblocked: Ez blokeatuta
       moderations:
         index:
-          title: Jakinarazitako edukia
+          title: Eduki erreportatua
         report:
           reasons:
             does_not_belong: Ez du zer ikusirik
@@ -793,7 +793,7 @@ eu:
             colors_title: Erakundearen koloreak
             colors_warning_html: "\nKontuz! Kolore horiek aldatzeak irisgarritasun-kontrasteak hautsi ditzake. Zure aukeraren kontrastea egiazta dezakezu <a href=\"%{link}\">WebAIM Contrast Checker</a> edo antzeko tresnekin."
             header_snippets_help: Erabili eremu hau HTML goiburuari gauzak gehitzeko. Erabilerarik ohikoena da JavaScript edo CSS gehigarriak behar dituzten hirugarrenen zerbitzuak txertatzea. Gainera, HTMLari meta-etiketa gehigarriak gehitzeko erabil dezakezu. Kontuan hartu orri publikoetan baino ez dela erakutsiko, ez administrazio atalean.
-          cta_button_path_help: 'Hasierako orriko ekintzara deitzeko botoia nora estekatzen den gainidatz dezakezu. Erabili hemen ibilbide partzialak, ez URL osoak. Letrak, zenbakiak, gidoiak eta barrak onartzen ditu, eta letra batetik hasi behar du. Ekintzara deitzeko botoia hasierako orrian agertuko da, ongietorri-testuaren eta deskribapenaren artean. Adibidez:%{url}'
+          cta_button_path_help: 'Hasierako orriko ekintzara deitzeko botoia nora estekatzen den gainidatz dezakezu. Erabili hemen ibilbide partzialak, ez URL osoak. Letrak, zenbakiak, gidoiak eta barrak onartzen ditu, eta letra batez hasi behar du. Ekintzara deitzeko botoia hasierako orrian agertuko da, ongietorri-testuaren eta deskribapenaren artean. Adibidez:%{url}'
           cta_button_text_help: Hasierako pantailako Call To Action botoian testua gainidatz dezakezu zure erakundean eskuragarri dagoen hizkuntza bakoitzarentzat. Ezarrita ez badago, balio lehenetsia erabiliko da. The Call To Action botoia hasierako orrian erakusten da ongietorri testua eta azalpenaren artean.
           homepage_appearance_title: Editatu hasierako orriaren itxura
           homepage_highlighted_content_banner_title: Edukien bannerra nabarmendua
@@ -872,11 +872,11 @@ eu:
         destroy:
           success: Esparrua ongi ezabatu da
         edit:
-          title: Editatu helmena
+          title: Editatu esparrua
           update: Eguneratu
         new:
           create: Sortu esparrua
-          title: Esparru berria
+          title: Beste esparru bat
         no_scopes: Maila honetan ez dago esparrurik.
         update:
           error: Arazo bat egon da esparru hau eguneratzean.
