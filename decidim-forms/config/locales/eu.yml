@@ -81,7 +81,7 @@ eu:
           form:
             add_question: Gehitu galdera
             add_separator: Gehitu banatzailea
-            add_title_and_description: Editatu izenburua eta deskribapena
+            add_title_and_description: Gehitu izenburua eta deskribapena
             already_answered_warning: Formularioa erabiltzaile batzuek erantzuten dute, beraz, ezin dira galderak aldatu.
             collapse: Bildu galdera guztiak
             expand: Zabaldu galdera guztiak
@@ -112,7 +112,7 @@ eu:
             separator: Bereizlea
             up: Gora
           title_and_description:
-            collapse: Tolestu
+            collapse: Kolapsoa
             description: Deskribapena
             down: Behera
             expand: Zabaldu
@@ -157,8 +157,8 @@ eu:
           answer_questionnaire:
             already_have_an_account?: Baduzu kontu bat?
             are_you_new?: Erabiltzaile berria?
-            sign_in_description: Sartu inkesta egiteko
-            sign_up_description: Parte-hartzaileen kontua sortu inkesta egiteko
+            sign_in_description: Hasi saioa inkesta egiteko
+            sign_up_description: Sortu parte-hartzaileen kontua inkesta egiteko
             title: Erantzun formularioari
           current_step: '%{step} urratsa'
           of_total_steps: '%{total_steps} etik'
