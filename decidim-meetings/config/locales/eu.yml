@@ -43,6 +43,7 @@ eu:
         visible: Ikusgai
       meeting_agenda_items:
         description: Deskribapena
+        duration: Iraupena
         title: Izenburua
       meeting_registration_invite:
         email: Helbide elektronikoa
@@ -201,9 +202,9 @@ eu:
         attended_meetings:
           conditions:
             - Parte hartu nahi duzun topaketan izena eman
-          description: Idazmahaia hau aurrez aurreko topaketa batzuetara joaten zarenean ematen da.
-          description_another: Erabiltzaile honek %{score} topeketetan parte hartu du.
-          description_own: '%{score} topaketetan parte hartu duzu.'
+          description: Garaikur hau aurrez aurre egiten diren bileretara joaten zarenean ematen da.
+          description_another: Parte-hartzaile honek %{score} topeketatan hartu du parte.
+          description_own: '%{score} topaketatan hartu duzu parte.'
           name: Parte hartu den topkaetak
           next_level_in: '%{score} topaketa gehiago hurrengo mailara iristeko!'
           unearned_another: Erabiltzaile honek oraindik ez du topaketarik izan.
@@ -331,7 +332,7 @@ eu:
             invalid: Arazo bat izan da topaketa hau argitaratzean
             success: Topaketa zuzen argitaratu da
           service:
-            description: deskribapena
+            description: Deskribapena
             down: Behera
             remove: Kendu
             service: Zerbitzua
@@ -640,7 +641,7 @@ eu:
         success: Topaketa da bertan behera
     metrics:
       meetings:
-        description: Topaketa kopurua sortu da
+        description: Sortutako topaketa kopurua
         object: topaketak
         title: Topaketak
     participatory_spaces:
