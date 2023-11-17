@@ -449,11 +449,11 @@ eu:
           area_name: Arloa
           data: Prozesuaren datuak
           developer_group: Talde sustatzailea
-          local_area: Erakundeko arloa
+          local_area: Erakundeko Arloa
           meta_scope: Esparrua
-          participatory_scope: Erabakitzen dena
-          participatory_structure: Erabakitzeko era
-          target: Parte-hartzaileak
+          participatory_scope: Zer erabakitzen da?
+          participatory_structure: Nola erabakitzen da?
+          target: Nork hartzen du parte?
           title: Prozesuari buruz
         filters:
           all_types: Mota guztiak
@@ -473,6 +473,7 @@ eu:
           date: Data
           explanations:
             no_active_nor_upcoming_callout: Prozesu aktibo eta ez datoz bat. Hona hemen iraganekoen zerrenda.
+          filter_by: Erakutsi
           names:
             active: Aktiboa
             all: guztiak
@@ -480,6 +481,8 @@ eu:
             upcoming: Hurrengoak
           see: Ikusi
           type: Mota
+        show:
+          title: Prozesu honi buruz
       show:
         belongs_to_group: Prozesu hau honi dagokio
         private_space: Prozesu pribatua da
