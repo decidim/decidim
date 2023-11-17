@@ -151,6 +151,22 @@ eu:
           connect_src_hint: |
             Connect-src zuzentarauak murriztu egiten ditu < script> elementuen bidez karga daitezkeen URLak.
             Plataformak 'self' gehituko du, baina gehiago gehitzeko aukera emango dizu.
+          default_src_hint: |
+            Default-src kanpoko eduki osorako konbentzio lehenetsia da, hala nola, JavaScript, irudiak, CSS, iturriak, dei asinkronikoak, markoak eta multimedia fitxategiak HTML5.
+            Plataformak "'self' 'unsafe-inline'" erantsiko du, baina gehiago gehitzeko aukera duzu. Utzi zuriz, ziur ez bazaude.
+
+          font_src_hint: |
+            font-src ereduko direktibak using @font-face erabiliz kargatu daitezkeen URLak murrizten ditu.
+            Plataformak "'self' erantsiko du, baina gehiago gehitzeko aukera duzu. Utzi zuriz, ziur ez bazaude.
+          frame_src_hint: |
+            frame-src ereduko direktibak <frame>, <iframe> eta <object> elementuetan kargatu daitezkeen URLak murrizten ditu.
+            Plataformak "'self' erantsiko du, baina gehiago gehitzeko aukera duzu. Utzi zuriz, ziur ez bazaude.
+          img_src_hint: |
+            img-src direktibak <img>, <image>, <picture> amd <svg> elementuetan kargatu daitezkeen URLak murrizten ditu.
+            Plataformak "'self' 'erantsiko du, baina gehiago gehitzeko aukera duzu. Utzi zuriz, ziur ez bazaude.
+          media_src_hint: |
+            media-src ereduko helbideek <video>, <audio> eta <source> elementuetan kargatu daitezkeen URLak murrizten dituzte.
+            Plataformak "'self' 'erantsiko du, baina gehiago gehitzeko aukera duzu. Utzi zuriz, ziur ez bazaude.
           script_src_hint: |
             (style-src) ereduko helbideek <script> elementuetan kargatu daitezkeen URLak murrizten dituzte.
             Plataformak "'self' 'unsafe-inline' 'unsafe-eval'" erantsiko du, baina gehiago gehitzeko aukera duzu. Utzi zuriz, ziur ez bazaude.
