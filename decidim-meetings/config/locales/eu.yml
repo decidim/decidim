@@ -200,9 +200,9 @@ eu:
         attended_meetings:
           conditions:
             - Parte hartu nahi duzun topaketan izena eman
-          description: Idazmahaia hau aurrez aurreko topaketa batzuetara joaten zarenean ematen da.
-          description_another: Erabiltzaile honek %{score} topeketetan parte hartu du.
-          description_own: '%{score} topaketetan parte hartu duzu.'
+          description: Garaikur hau aurrez aurre egiten diren bileretara joaten zarenean ematen da.
+          description_another: Parte-hartzaile honek %{score} topeketatan hartu du parte.
+          description_own: '%{score} topaketatan hartu duzu parte.'
           name: Parte hartu den topkaetak
           next_level_in: '%{score} topaketa gehiago hurrengo mailara iristeko!'
     meetings:
@@ -316,7 +316,7 @@ eu:
           publish:
             invalid: Arazo bat egon da topaketa hau argitaratzean.
           service:
-            description: deskribapena
+            description: Deskribapena
             down: Behera
             remove: Kendu
             service: Zerbitzua
@@ -382,7 +382,7 @@ eu:
         copy_calendar_url: Kopiatu
         copy_calendar_url_clarification: Kopiatu URL egutegia arbelera
         copy_calendar_url_copied: Kopiatuta!
-        copy_calendar_url_description: Argitaratutako batzar guztiak zure egutegi-aplikazioan edo hornitzailean ikus ditzakezu. Kopiatu eta itsatsi URL hau "Egutegi berria gehitu URL batetik" aukera erabiliz
+        copy_calendar_url_description: Argitaratutako batzar guztiak zure egutegi-aplikazioan edo hornitzailean ikus ditzakezu. Kopiatu eta itsatsi URL hau "Gehitu egutegi berria URL batetik" aukera erabiliz.
         copy_calendar_url_explanation: Mesedez, kontuan izan aukeratutako topaketa multzo bat esportatzen ari zarela eta iragazkiak aktibatuta daudela. Denak esportatu nahi badituzu, lehenengo kendu irakazkiak.
         copy_calendar_url_message: URL hau zuzen kopiatu da zure arbelean.
         export_calendar: Esportatu egutegia
@@ -611,7 +611,7 @@ eu:
         error: Errore bat egon da topaketa bertan behera uztean.
     metrics:
       meetings:
-        description: Topaketa kopurua sortu da
+        description: Sortutako topaketa kopurua
         object: topaketak
         title: Topaketak
     participatory_spaces:
