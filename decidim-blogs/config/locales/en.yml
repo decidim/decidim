@@ -64,10 +64,10 @@ en:
             title: Title
       posts:
         index:
-          empty: There are no posts yet.
           count:
             one: "%{count} post"
             other: "%{count} posts"
+          empty: There are no posts yet.
     components:
       blogs:
         actions:
