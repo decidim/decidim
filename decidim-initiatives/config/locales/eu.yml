@@ -533,7 +533,7 @@ eu:
           rejected: Beharrezko sinadurarik gabe
           validating: Baliozkotze teknikoa
       states:
-        accepted: Onartu
+        accepted: Onartua
         expired: iraungi
       unavailable_scope: Esparrua ez dago erabilgarri
       update:
