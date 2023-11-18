@@ -80,7 +80,7 @@ eu:
           form:
             add_question: Gehitu galdera
             add_separator: Gehitu banatzailea
-            add_title_and_description: Editatu izenburua eta deskribapena
+            add_title_and_description: Gehitu izenburua eta deskribapena
             already_answered_warning: Formularioa erabiltzaile batzuek erantzuten dute, beraz, ezin dira galderak aldatu.
             collapse: Bildu galdera guztiak
             expand: Zabaldu galdera guztiak
@@ -111,7 +111,7 @@ eu:
             separator: Bereizlea
             up: Gora
           title_and_description:
-            collapse: Tolestu
+            collapse: Kolapsoa
             description: Deskribapena
             down: Behera
             expand: Zabaldu
