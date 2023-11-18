@@ -20,6 +20,9 @@ es-PY:
         scope_id: Ámbito
   activerecord:
     models:
+      decidim/budgets/budget:
+        one: Presupuesto
+        other: Presupuestos
       decidim/budgets/project:
         one: Proyecto
         other: Proyectos
@@ -92,6 +95,7 @@ es-PY:
           index:
             actions: Acciones
             cancel: Cancelar
+            change_budget: Cambiar presupuesto
             change_category: Cambiar categoría
             change_scope: Cambiar ámbito
             change_selected: Cambiar estado seleccionado
@@ -102,6 +106,7 @@ es-PY:
             selected: Seleccionado
             title: Proyectos
             update: Actualizar
+            update_budget_button: Actualizar el presupuesto del proyecto
             update_scope_button: Actualizar ámbito
           new:
             create: Crear
@@ -109,6 +114,10 @@ es-PY:
           update:
             invalid: Se ha producido un error al actualizar este proyecto.
             success: Proyecto actualizado correctamente.
+          update_budget:
+            invalid: 'Estos proyectos ya están en el mismo presupuesto o sus presupuestos son superiores al máximo permitido: %{projects}.'
+            select_a_project: Por favor, selecciona un proyecto.
+            success: 'Proyectos actualizados correctamente para el presupuesto %{subject_name}: %{projects}.'
           update_category:
             invalid: 'Estas propuestas ya tenían la categoría %{subject_name}: %{projects}.'
             select_a_category: Por favor, selecciona una categoría.
@@ -283,6 +292,7 @@ es-PY:
         select_projects: Selecciona proyectos
         show:
           budget: Presupuesto
+      prompt: Seleccionar presupuesto
       vote_reminder_mailer:
         vote_reminder:
           email_budgets: 'Áreas donde tienes una votación inacabada:'
