@@ -1130,6 +1130,7 @@ fi-pl:
           proposals: Ehdotukset
           proposals_explanation: Tee ehdotuksia, tue muiden tekemiä ehdotuksia ja edistä muutoksia, joita haluat nähdä.
         footer_sub_hero:
+          footer_sub_hero_body: Rakennetaan entistä avoimempi, läpinäkyvämpi ja yhteistyökykyisempi yhteiskunta.<br /> Liity, osallistu ja päätä.
           footer_sub_hero_headline: Tervetuloa yhteisölliseen osallisuuspalveluun %{organization}.
           register: Rekisteröidy
         hero:
