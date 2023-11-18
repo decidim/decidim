@@ -69,5 +69,11 @@ module Decidim
         participatory_space:
       )
     end
+
+    def seed_components_manifests!(participatory_space:)
+      Decidim.component_manifests.each do |manifest|
+        manifest.seed!(participatory_space.reload)
+      end
+    end
   end
 end

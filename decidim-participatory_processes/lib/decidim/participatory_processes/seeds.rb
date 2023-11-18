@@ -38,9 +38,7 @@ module Decidim
             create_category!(participatory_space: process)
           end
 
-          Decidim.component_manifests.each do |manifest|
-            manifest.seed!(process.reload)
-          end
+          seed_components_manifests!(participatory_space: process)
         end
       end
 
