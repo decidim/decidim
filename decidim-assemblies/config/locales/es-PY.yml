@@ -158,11 +158,13 @@ es-PY:
         destroy:
           success: Miembro eliminado con éxito en esta asamblea.
         edit:
+          title: Actualizar miembro de la asamblea
           update: Actualizar
         index:
           assembly_members_title: Miembros de la asamblea
         new:
           create: Crear
+          title: Nuevo miembro de la asamblea
         update:
           error: Se produjo un error al actualizar el miembro para esta asamblea.
           success: Miembro actualizado con éxito para esta asamblea.
@@ -180,17 +182,26 @@ es-PY:
         destroy:
           success: Usuario eliminado con éxito de esta asamblea.
         edit:
+          title: Actualizar administradora de la asamblea
           update: Actualizar
         index:
           assembly_admins_title: Usuarios de la Asamblea
         new:
           create: Crear
+          title: Añadir administradora
         update:
           error: Ha habido un error al actualizar un usuario para esta asamblea.
           success: Usuario actualizado con éxito para esta asamblea.
       filters:
+        ceased_date_not_null:
+          label: Cesada
+          values:
+            'false': No cesada
+            'true': Cesada
         decidim_assemblies_type_id_eq:
           label: Tipo de asamblea
+        search_placeholder:
+          full_name_or_user_name_or_user_nickname_cont: Buscar por nombre o alias
       menu:
         assemblies: Asambleas
         assemblies_settings: Configuración
