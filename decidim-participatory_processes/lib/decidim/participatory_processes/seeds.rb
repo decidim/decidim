@@ -7,8 +7,6 @@ module Decidim
   module ParticipatoryProcesses
     class Seeds < Decidim::Seeds
       def call
-        organization = Decidim::Organization.first
-
         Decidim::ContentBlock.create(
           organization:,
           weight: 31,

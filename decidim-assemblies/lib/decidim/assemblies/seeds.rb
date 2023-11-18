@@ -35,8 +35,6 @@ module Decidim
         end
       end
 
-      def organization = Decidim::Organization.first
-
       def create_content_block!
         Decidim::ContentBlock.create(
           organization:,

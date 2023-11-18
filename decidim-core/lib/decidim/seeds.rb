@@ -9,6 +9,10 @@ module Decidim
   class Seeds
     protected
 
+    def organization
+      @organization ||= Decidim::Organization.first
+    end
+
     def seeds_root = File.join(__dir__, "..", "..", "db", "seeds")
 
     def hero_image = create_blob!(seeds_file: "city.jpeg", filename: "hero_image.jpeg", content_type: "image/jpeg")
