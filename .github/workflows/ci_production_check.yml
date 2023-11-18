@@ -68,6 +68,3 @@ jobs:
             npm-
       - run: bundle exec decidim-generators/exe/decidim test-application
         name: Create app
-      - run: bundle exec rails assets:precompile
-        name: Precompile assets
-        working-directory: ./test-application/
