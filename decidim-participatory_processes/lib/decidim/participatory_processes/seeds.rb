@@ -28,29 +28,9 @@ module Decidim
 
           create_process_step!(process:)
 
-          # Create users with specific roles
-          Decidim::ParticipatoryProcessUserRole::ROLES.each do |role|
-            email = "participatory_process_#{process.id}_#{role}@example.org"
+          create_process_user_roles!(process:)
 
-            user = Decidim::User.find_or_initialize_by(email:)
-            user.update!(
-              name: ::Faker::Name.name,
-              nickname: ::Faker::Twitter.unique.screen_name,
-              password: "decidim123456789",
-              organization:,
-              confirmed_at: Time.current,
-              locale: I18n.default_locale,
-              tos_agreement: true
-            )
-
-            Decidim::ParticipatoryProcessUserRole.find_or_create_by!(
-              user:,
-              participatory_process: process,
-              role:
-            )
-
-            Decidim::ContentBlocksCreator.new(process).create_default!
-          end
+          Decidim::ContentBlocksCreator.new(process).create_default!
 
           attachment_collection = create_attachment_collection(collection_for: process)
           create_attachment(attached_to: process, filename: "Exampledocument.pdf", attachment_collection:)
@@ -165,6 +145,30 @@ module Decidim
           start_date: 1.month.ago,
           end_date: 2.months.from_now
         )
+      end
+
+      def create_process_user_roles!(process:)
+        # Create users with specific roles
+        Decidim::ParticipatoryProcessUserRole::ROLES.each do |role|
+          email = "participatory_process_#{process.id}_#{role}@example.org"
+
+          user = Decidim::User.find_or_initialize_by(email:)
+          user.update!(
+            name: ::Faker::Name.name,
+            nickname: ::Faker::Twitter.unique.screen_name,
+            password: "decidim123456789",
+            organization:,
+            confirmed_at: Time.current,
+            locale: I18n.default_locale,
+            tos_agreement: true
+          )
+
+          Decidim::ParticipatoryProcessUserRole.find_or_create_by!(
+            user:,
+            participatory_process: process,
+            role:
+          )
+        end
       end
     end
   end
