@@ -26,17 +26,7 @@ module Decidim
         2.times do |_n|
           process = create_process!(process_group: process_groups.sample, process_type: process_types.sample)
 
-          Decidim::ParticipatoryProcessStep.find_or_initialize_by(
-            participatory_process: process,
-            active: true
-          ).update!(
-            title: Decidim::Faker::Localized.sentence(word_count: 1, supplemental: false, random_words_to_add: 2),
-            description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-              Decidim::Faker::Localized.paragraph(sentence_count: 3)
-            end,
-            start_date: 1.month.ago,
-            end_date: 2.months.from_now
-          )
+          create_process_step!(process:)
 
           # Create users with specific roles
           Decidim::ParticipatoryProcessUserRole::ROLES.each do |role|
@@ -161,6 +151,20 @@ module Decidim
         process.add_to_index_as_search_resource
 
         process
+      end
+
+      def create_process_step!(process:)
+        Decidim::ParticipatoryProcessStep.find_or_initialize_by(
+          participatory_process: process,
+          active: true
+        ).update!(
+          title: Decidim::Faker::Localized.sentence(word_count: 1, supplemental: false, random_words_to_add: 2),
+          description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+            Decidim::Faker::Localized.paragraph(sentence_count: 3)
+          end,
+          start_date: 1.month.ago,
+          end_date: 2.months.from_now
+        )
       end
     end
   end
