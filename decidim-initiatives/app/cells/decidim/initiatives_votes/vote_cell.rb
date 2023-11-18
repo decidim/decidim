@@ -3,6 +3,8 @@
 module Decidim
   module InitiativesVotes
     class VoteCell < Decidim::ViewModel
+      include Decidim::SanitizeHelper
+
       delegate :timestamp, :hash_id, to: :model
 
       def show
@@ -14,7 +16,7 @@ module Decidim
       end
 
       def initiative_title
-        translated_attribute(model.initiative.title)
+        decidim_sanitize(translated_attribute(model.initiative.title))
       end
 
       def name_and_surname

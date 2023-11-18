@@ -6,6 +6,7 @@ require "decidim/core"
 require "wicked_pdf"
 
 require "decidim/conferences/query_extensions"
+require "decidim/conferences/menu"
 
 module Decidim
   module Conferences
@@ -61,29 +62,19 @@ module Decidim
       end
 
       initializer "decidim_conferences.menu" do
-        Decidim.menu :menu do |menu|
-          menu.add_item :conferences,
-                        I18n.t("menu.conferences", scope: "decidim"),
-                        decidim_conferences.conferences_path,
-                        position: 2.8,
-                        if: Decidim::Conference.where(organization: current_organization).published.any?,
-                        active: :inclusive
-        end
-
-        Decidim.menu :home_content_block_menu do |menu|
-          menu.add_item :conferences,
-                        I18n.t("menu.conferences", scope: "decidim"),
-                        decidim_conferences.conferences_path,
-                        position: 50,
-                        if: Decidim::Conference.where(organization: current_organization).published.any?,
-                        active: :inclusive
-        end
+        Decidim::Conferences::Menu.register_menu!
+        Decidim::Conferences::Menu.register_home_content_block_menu!
       end
 
       initializer "decidim_conferences.content_blocks" do
         Decidim.content_blocks.register(:homepage, :highlighted_conferences) do |content_block|
           content_block.cell = "decidim/conferences/content_blocks/highlighted_conferences"
           content_block.public_name_key = "decidim.conferences.content_blocks.highlighted_conferences.name"
+          content_block.settings_form_cell = "decidim/conferences/content_blocks/highlighted_conferences_settings_form"
+
+          content_block.settings do |settings|
+            settings.attribute :max_results, type: :integer, default: 6
+          end
         end
       end
 
