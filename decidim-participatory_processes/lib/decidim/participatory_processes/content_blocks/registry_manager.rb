@@ -118,12 +118,6 @@ module Decidim
             content_block.public_name_key = "decidim.content_blocks.participatory_space_metrics.name"
           end
 
-          register_highlighted_results
-
-          register_highlighted_meetings
-
-          register_highlighted_proposals
-
           Decidim.content_blocks.register(:participatory_process_homepage, :related_processes) do |content_block|
             content_block.cell = "decidim/participatory_processes/content_blocks/related_processes"
             content_block.settings_form_cell = "decidim/participatory_processes/content_blocks/highlighted_processes_settings_form"
@@ -134,8 +128,6 @@ module Decidim
             end
           end
 
-          register_related_assemblies
-
           Decidim.content_blocks.register(:participatory_process_homepage, :related_documents) do |content_block|
             content_block.cell = "decidim/content_blocks/participatory_space_documents"
             content_block.public_name_key = "decidim.application.documents.related_documents"
@@ -145,8 +137,6 @@ module Decidim
             content_block.cell = "decidim/content_blocks/participatory_space_images"
             content_block.public_name_key = "decidim.application.photos.related_photos"
           end
-
-          register_highlighted_posts
 
           Decidim.content_blocks.register(:participatory_process_group_homepage, :stats) do |content_block|
             content_block.cell = "decidim/participatory_process_groups/content_blocks/statistics"
@@ -163,6 +153,12 @@ module Decidim
               settings.attribute :default_filter, type: :enum, default: "active", choices: %w(active all)
             end
           end
+
+          register_highlighted_meetings
+          register_highlighted_posts
+          register_highlighted_proposals
+          register_highlighted_results
+          register_related_assemblies
         end
 
         def self.register_highlighted_posts
