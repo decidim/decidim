@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "decidim/seeds"
-
 module Decidim
   module Meetings
     module ContentBlocks
