@@ -4,6 +4,7 @@ require "rails"
 require "active_support/all"
 
 require "decidim/core"
+require "decidim/participatory_processes/menu"
 require "decidim/participatory_processes/query_extensions"
 
 module Decidim
@@ -54,23 +55,8 @@ module Decidim
       end
 
       initializer "decidim_participatory_processes.menu" do
-        Decidim.menu :menu do |menu|
-          menu.add_item :participatory_processes,
-                        I18n.t("menu.processes", scope: "decidim"),
-                        decidim_participatory_processes.participatory_processes_path,
-                        position: 2,
-                        if: Decidim::ParticipatoryProcess.where(organization: current_organization).published.any?,
-                        active: %r{^/process(es|_groups)}
-        end
-
-        Decidim.menu :home_content_block_menu do |menu|
-          menu.add_item :participatory_processes,
-                        I18n.t("menu.processes", scope: "decidim"),
-                        decidim_participatory_processes.participatory_processes_path,
-                        position: 10,
-                        if: Decidim::ParticipatoryProcess.where(organization: current_organization).published.any?,
-                        active: %r{^/process(es|_groups)}
-        end
+        Decidim::ParticipatoryProcesses::Menu.register_menu!
+        Decidim::ParticipatoryProcesses::Menu.register_home_content_block_menu!
       end
 
       initializer "decidim_participatory_processes.content_blocks" do
