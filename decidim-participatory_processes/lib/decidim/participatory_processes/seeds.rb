@@ -7,13 +7,7 @@ module Decidim
   module ParticipatoryProcesses
     class Seeds < Decidim::Seeds
       def call
-        Decidim::ContentBlock.create(
-          organization:,
-          weight: 31,
-          scope_name: :homepage,
-          manifest_name: :highlighted_processes,
-          published_at: Time.current
-        )
+        create_content_block!
 
         process_groups = []
         2.times do
@@ -142,6 +136,16 @@ module Decidim
             manifest.seed!(process.reload)
           end
         end
+      end
+
+      def create_content_block!
+        Decidim::ContentBlock.create(
+          organization:,
+          weight: 31,
+          scope_name: :homepage,
+          manifest_name: :highlighted_processes,
+          published_at: Time.current
+        )
       end
     end
   end
