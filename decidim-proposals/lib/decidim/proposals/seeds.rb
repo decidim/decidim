@@ -40,7 +40,9 @@ module Decidim
         @organization ||= participatory_space.organization
       end
 
-      def admin_user = Decidim::User.find_by(organization:, email: "admin@example.org")
+      def admin_user
+        @admin_user ||= Decidim::User.find_by(organization:, email: "admin@example.org")
+      end 
 
       def create_component!
         step_settings = if participatory_space.allows_steps?
