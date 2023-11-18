@@ -400,65 +400,7 @@ module Decidim
       end
 
       initializer "decidim_core.newsletter_templates" do
-        Decidim.content_blocks.register(:newsletter_template, :basic_only_text) do |content_block|
-          content_block.cell = "decidim/newsletter_templates/basic_only_text"
-          content_block.settings_form_cell = "decidim/newsletter_templates/basic_only_text_settings_form"
-          content_block.public_name_key = "decidim.newsletter_templates.basic_only_text.name"
-
-          content_block.settings do |settings|
-            settings.attribute(
-              :body,
-              type: :text,
-              translated: true,
-              preview: -> { I18n.t("decidim.newsletter_templates.basic_only_text.body_preview") }
-            )
-          end
-
-          content_block.default!
-        end
-
-        Decidim.content_blocks.register(:newsletter_template, :image_text_cta) do |content_block|
-          content_block.cell = "decidim/newsletter_templates/image_text_cta"
-          content_block.settings_form_cell = "decidim/newsletter_templates/image_text_cta_settings_form"
-          content_block.public_name_key = "decidim.newsletter_templates.image_text_cta.name"
-
-          content_block.images = [
-            {
-              name: :main_image,
-              uploader: "Decidim::NewsletterTemplateImageUploader",
-              preview: -> { ActionController::Base.helpers.asset_pack_path("media/images/placeholder.jpg") }
-            }
-          ]
-
-          content_block.settings do |settings|
-            settings.attribute(
-              :introduction,
-              type: :text,
-              translated: true,
-              preview: -> { I18n.t("decidim.newsletter_templates.image_text_cta.introduction_preview") }
-            )
-            settings.attribute(
-              :body,
-              type: :text,
-              translated: true,
-              preview: -> { I18n.t("decidim.newsletter_templates.image_text_cta.body_preview") }
-            )
-            settings.attribute(
-              :cta_text,
-              type: :text,
-              translated: true,
-              preview: -> { I18n.t("decidim.newsletter_templates.image_text_cta.cta_text_preview") }
-            )
-            settings.attribute(
-              :cta_url,
-              type: :text,
-              translated: true,
-              preview: -> { "http://decidim.org" }
-            )
-          end
-
-          content_block.default!
-        end
+        Decidim::Core::ContentBlocks::RegistryManager.register_newsletter_templates!
       end
 
       initializer "decidim_core.add_badges" do
