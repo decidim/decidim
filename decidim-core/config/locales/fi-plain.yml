@@ -1293,6 +1293,7 @@ fi-pl:
           proposals: Ehdotukset
           proposals_explanation: Tee ehdotuksia, tue muiden tekemiä ehdotuksia ja edistä muutoksia, joita haluat nähdä.
         footer_sub_hero:
+          footer_sub_hero_body_html: Rakennetaan entistä avoimempi, läpinäkyvämpi ja yhteistyökykyisempi yhteiskunta.<br /> Liity, osallistu ja päätä.
           footer_sub_hero_headline: Tervetuloa yhteisölliseen osallisuuspalveluun %{organization}.
           register: Rekisteröidy
         hero:
@@ -1568,6 +1569,12 @@ fi-pl:
     user_update_mailer:
       notify:
         body_1: Tämä viesti on lähetetty sinulle ilmoittamaan käyttäjätiliäsi koskevista muutoksista.
+        body_2: Jos et ole päivittänyt tietojasi itse, kirjaudu sisään tilillsesi ja vaihda salasanasi. Jos et voi kirjautua sisään, ota yhteyttä alustan tukeen.
+        greetings: Terveisin,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hei %{user}
+        main_body: 'Seuraavia tietoja on muutettu: %{updates}.'
+        update_fields: "%{updates} ja %{last_update}"
+      subject: Käyttäjätilisi tietoja on päivitetty
     version:
       show:
         back_to_resource: Siirry takaisin
@@ -1680,6 +1687,9 @@ fi-pl:
         change_my_password: Vaihda salasanani
         confirm_new_password: Vahvista uusi salasana
         new_password: Uusi salasana
+        old_password_help: Vahvistaaksesi muutokset käyttäjätiliisi, anna nykyinen salasanasi.
+        password_help: "Tulee sisältää vähintään %{minimum_characters} merkkiä, ei voi olla yleisesti käytetty salasana (esim. 123456), eikä voi vastata nimimerkkiäsi tai sähköpostiosoitettasi."
+        password_help_admin: "Tulee sisältää vähintään %{minimum_characters} merkkiä, ei voi olla yleisesti käytetty salasana (esim. 123456), eikä voi vastata nimimerkkiäsi tai sähköpostiosoitettasi. On myös oltava eri salasana kuin edelliset salasanasi."
         title: Salasanan vaihto
       new:
         forgot_your_password: Unohditko salasanasi?
