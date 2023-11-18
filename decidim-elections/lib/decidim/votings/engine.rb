@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "decidim/votings/menu"
 require "decidim/votings/query_extensions"
 
 module Decidim
@@ -53,23 +54,8 @@ module Decidim
       end
 
       initializer "decidim_votings.menu" do
-        Decidim.menu :menu do |menu|
-          menu.add_item :votings,
-                        I18n.t("menu.votings", scope: "decidim"),
-                        decidim_votings.votings_path,
-                        position: 2.6,
-                        if: Decidim::Votings::Voting.where(organization: current_organization).published.any?,
-                        active: :inclusive
-        end
-
-        Decidim.menu :home_content_block_menu do |menu|
-          menu.add_item :votings,
-                        I18n.t("menu.votings", scope: "decidim"),
-                        decidim_votings.votings_path,
-                        position: 40,
-                        if: Decidim::Votings::Voting.where(organization: current_organization).published.any?,
-                        active: :inclusive
-        end
+        Decidim::Votings::Menu.register_menu!
+        Decidim::Votings::Menu.register_home_content_block_menu!
       end
 
       initializer "decidim_votings.content_blocks" do

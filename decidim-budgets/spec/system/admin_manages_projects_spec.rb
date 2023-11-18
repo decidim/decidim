@@ -23,6 +23,7 @@ describe "Admin manages projects" do
 
   it_behaves_like "manage projects"
   it_behaves_like "import proposals to projects"
+  it_behaves_like "export projects"
 
   describe "bulk actions" do
     let!(:project2) { create(:project, budget:) }
