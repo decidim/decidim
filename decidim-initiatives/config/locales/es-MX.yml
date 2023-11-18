@@ -285,6 +285,7 @@ es-MX:
           form:
             authorizations: Ajustes de autorización
             child_scope_threshold_enabled_help: 'Este ajuste de configuración no permite los votos en persona, habilita los sub-ámbitos y funciona con un manejador de autorizaciones que relaciona un ámbito a un usuario, asegúrate que seleccionas la autorización debajo de las configuraciones de autorización. Para que funcione, los ámbitos necesitan ser configurados de manera jerárquica: 1 Padre - N Hijo. Para más información sobre cómo funciona esta configuración, visita esta <a href="https://docs.decidim.org/en/admin/spaces/initiatives">liga</a>.'
+            only_global_scope_enabled_help: Marca esta casilla si habilitaste "Activar firmas por subámbito" y configuraste el ámbito global como el ámbito principal. Al habilitar esta casilla, la selección del tipo de iniciativa se omitirá en el asistente de creación de iniciativas. Para más información sobre cómo funciona esta configuración, consulta la<a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">documentación sobre la administración de iniciativas</a>.
             options: Opciones
             title: Información general
           initiative_type_scopes:
