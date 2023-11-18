@@ -35,13 +35,7 @@ module Decidim
           create_attachments!(attached_to: process)
 
           2.times do
-            Decidim::Category.create!(
-              name: Decidim::Faker::Localized.sentence(word_count: 5),
-              description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-                Decidim::Faker::Localized.paragraph(sentence_count: 3)
-              end,
-              participatory_space: process
-            )
+            create_category!(participatory_space: process)
           end
 
           Decidim.component_manifests.each do |manifest|
