@@ -20,10 +20,7 @@ module Decidim
 
         process_types = []
         2.times do
-          process_types << Decidim::ParticipatoryProcessType.create!(
-            title: Decidim::Faker::Localized.word,
-            organization:
-          )
+          process_types << create_process_type!
         end
 
         2.times do |n|
@@ -149,6 +146,13 @@ module Decidim
           target: Decidim::Faker::Localized.sentence(word_count: 3),
           participatory_scope: Decidim::Faker::Localized.sentence(word_count: 1),
           participatory_structure: Decidim::Faker::Localized.sentence(word_count: 2)
+        )
+      end
+
+      def create_process_type!
+        Decidim::ParticipatoryProcessType.create!(
+          title: Decidim::Faker::Localized.word,
+          organization:
         )
       end
     end
