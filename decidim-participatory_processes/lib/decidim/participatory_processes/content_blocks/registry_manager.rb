@@ -134,17 +134,7 @@ module Decidim
             end
           end
 
-          if Decidim.module_installed?(:assemblies)
-            Decidim.content_blocks.register(:participatory_process_homepage, :related_assemblies) do |content_block|
-              content_block.cell = "decidim/assemblies/content_blocks/related_assemblies"
-              content_block.settings_form_cell = "decidim/assemblies/content_blocks/highlighted_assemblies_settings_form"
-              content_block.public_name_key = "decidim.assemblies.content_blocks.related_assemblies.name"
-
-              content_block.settings do |settings|
-                settings.attribute :max_results, type: :integer, default: 6
-              end
-            end
-          end
+          register_related_assemblies
 
           Decidim.content_blocks.register(:participatory_process_homepage, :related_documents) do |content_block|
             content_block.cell = "decidim/content_blocks/participatory_space_documents"
@@ -182,6 +172,20 @@ module Decidim
 
             content_block.settings do |settings|
               settings.attribute :default_filter, type: :enum, default: "active", choices: %w(active all)
+            end
+          end
+        end
+
+        def self.register_related_assemblies
+          return unless Decidim.module_installed?(:assemblies)
+
+          Decidim.content_blocks.register(:participatory_process_homepage, :related_assemblies) do |content_block|
+            content_block.cell = "decidim/assemblies/content_blocks/related_assemblies"
+            content_block.settings_form_cell = "decidim/assemblies/content_blocks/highlighted_assemblies_settings_form"
+            content_block.public_name_key = "decidim.assemblies.content_blocks.related_assemblies.name"
+
+            content_block.settings do |settings|
+              settings.attribute :max_results, type: :integer, default: 6
             end
           end
         end
