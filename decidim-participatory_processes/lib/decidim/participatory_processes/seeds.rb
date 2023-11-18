@@ -23,45 +23,8 @@ module Decidim
           process_types << create_process_type!
         end
 
-        2.times do |n|
-          params = {
-            title: Decidim::Faker::Localized.sentence(word_count: 5),
-            slug: Decidim::Faker::Internet.unique.slug(words: nil, glue: "-"),
-            subtitle: Decidim::Faker::Localized.sentence(word_count: 2),
-            hashtag: "##{::Faker::Lorem.word}",
-            short_description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-              Decidim::Faker::Localized.sentence(word_count: 3)
-            end,
-            description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-              Decidim::Faker::Localized.paragraph(sentence_count: 3)
-            end,
-            organization:,
-            hero_image: ::Faker::Boolean.boolean(true_ratio: 0.5) ? hero_image : nil, # Keep after organization
-            banner_image: ::Faker::Boolean.boolean(true_ratio: 0.5) ? banner_image : nil, # Keep after organization
-            promoted: true,
-            published_at: 2.weeks.ago,
-            meta_scope: Decidim::Faker::Localized.word,
-            developer_group: Decidim::Faker::Localized.sentence(word_count: 1),
-            local_area: Decidim::Faker::Localized.sentence(word_count: 2),
-            target: Decidim::Faker::Localized.sentence(word_count: 3),
-            participatory_scope: Decidim::Faker::Localized.sentence(word_count: 1),
-            participatory_structure: Decidim::Faker::Localized.sentence(word_count: 2),
-            start_date: Date.current,
-            end_date: 2.months.from_now,
-            participatory_process_group: process_groups.sample,
-            participatory_process_type: process_types.sample,
-            scope: n.positive? ? nil : Decidim::Scope.reorder(Arel.sql("RANDOM()")).first
-          }
-
-          process = Decidim.traceability.perform_action!(
-            "publish",
-            Decidim::ParticipatoryProcess,
-            organization.users.first,
-            visibility: "all"
-          ) do
-            Decidim::ParticipatoryProcess.create!(params)
-          end
-          process.add_to_index_as_search_resource
+        2.times do |_n|
+          process = create_process!(process_group: process_groups.sample, process_type: process_types.sample)
 
           Decidim::ParticipatoryProcessStep.find_or_initialize_by(
             participatory_process: process,
@@ -154,6 +117,50 @@ module Decidim
           title: Decidim::Faker::Localized.word,
           organization:
         )
+      end
+
+      def create_process!(process_group: nil, process_type: nil)
+        n = rand(2)
+        params = {
+          title: Decidim::Faker::Localized.sentence(word_count: 5),
+          slug: Decidim::Faker::Internet.unique.slug(words: nil, glue: "-"),
+          subtitle: Decidim::Faker::Localized.sentence(word_count: 2),
+          hashtag: "##{::Faker::Lorem.word}",
+          short_description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+            Decidim::Faker::Localized.sentence(word_count: 3)
+          end,
+          description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+            Decidim::Faker::Localized.paragraph(sentence_count: 3)
+          end,
+          organization:,
+          hero_image: ::Faker::Boolean.boolean(true_ratio: 0.5) ? hero_image : nil, # Keep after organization
+          banner_image: ::Faker::Boolean.boolean(true_ratio: 0.5) ? banner_image : nil, # Keep after organization
+          promoted: true,
+          published_at: 2.weeks.ago,
+          meta_scope: Decidim::Faker::Localized.word,
+          developer_group: Decidim::Faker::Localized.sentence(word_count: 1),
+          local_area: Decidim::Faker::Localized.sentence(word_count: 2),
+          target: Decidim::Faker::Localized.sentence(word_count: 3),
+          participatory_scope: Decidim::Faker::Localized.sentence(word_count: 1),
+          participatory_structure: Decidim::Faker::Localized.sentence(word_count: 2),
+          start_date: Date.current,
+          end_date: 2.months.from_now,
+          participatory_process_group: process_group,
+          participatory_process_type: process_type,
+          scope: n.positive? ? nil : Decidim::Scope.reorder(Arel.sql("RANDOM()")).first
+        }
+
+        process = Decidim.traceability.perform_action!(
+          "publish",
+          Decidim::ParticipatoryProcess,
+          organization.users.first,
+          visibility: "all"
+        ) do
+          Decidim::ParticipatoryProcess.create!(params)
+        end
+        process.add_to_index_as_search_resource
+
+        process
       end
     end
   end
