@@ -41,7 +41,7 @@ eu:
         test:
           conditions:
             - Erabili probako ingurunea erabakitzeko.
-          description: Erabiltzaileek plaka hau lortzen dute probak sortzeko.
+          description: Parte-hartzaileek garaikur hau lortzen dute probak sortzeagatik.
           description_another: Erabiltzaile honek %{score} proba egin ditu.
           description_own: '%{score} proba sortu dituzu.'
           name: probak
