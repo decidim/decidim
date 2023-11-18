@@ -100,6 +100,7 @@ fi-pl:
         edit: Muokkaa
         filter:
           all_processes: Näytä kaikki prosessit
+          process_groups: Suodata ryhmiteltyjä prosesseja
         import_process: Tuo
         moderate: Moderoi
         new_process: Uusi prosessi
@@ -110,6 +111,7 @@ fi-pl:
         preview: Esikatsele
         publish: Julkaise
         resend_invitation: Lähetä kutsu uudelleen
+        see_process: Näytä prosessi
         unpublish: Lopeta julkaisu
       menu:
         participatory_process_groups: Prosessiryhmät
@@ -124,6 +126,7 @@ fi-pl:
           attachments: Liitteet
           categories: Aihepiirit
           components: Komponentit
+          info: Tietoa tästä prosessista
           landing_page: Laskeutumissivu
           moderations: Moderoinnit
           private_users: Yksityiset käyttäjät
@@ -132,6 +135,7 @@ fi-pl:
       models:
         participatory_process:
           fields:
+            actions: Toiminnot
             created_at: Luonnin ajankohta
             private: Yksityinen
             published: Julkaistu
@@ -269,6 +273,7 @@ fi-pl:
           private: Yksityinen
           public: Julkinen
           published: Julkaistu
+          unpublished: Julkaisematon
         new:
           create: Luo
           title: Uusi osallisuusprosessi
@@ -400,6 +405,7 @@ fi-pl:
         participatory_process_groups:
           form:
             metadata: Metatiedot
+            title: Tietoa tästä prosessista
             visibility: Näkyvyys
         participatory_process_imports:
           form:
