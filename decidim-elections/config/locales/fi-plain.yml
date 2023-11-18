@@ -1118,6 +1118,7 @@ fi-pl:
               csv_header_after: Älä lisää viimeistä saraketta ("%{ballot_style_code_header}"), jos et tarvitse äänestystyylejä tai ehdollisia kysymyksiä
               csv_header_before: 'Henkilötietorekisterin tiedot tulee antaa CSV-tiedostossa seuraavien otsakekenttien kanssa:'
         document_types:
+          identification_number: Henkilötunnus
           passport: Passi
         export_mailer:
           access_codes_export:
