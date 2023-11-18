@@ -321,6 +321,8 @@ es-MX:
           index:
             filter:
               all: Todas
+              ceased: Cesada
+              not_ceased: No cesada
             filter_by: Filtrado por
             search: Buscar
         content_blocks:
