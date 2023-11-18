@@ -161,6 +161,34 @@ module Decidim
           register_related_assemblies
         end
 
+        def self.register_highlighted_meetings
+          return unless Decidim.module_installed?(:meetings)
+
+          Decidim.content_blocks.register(:participatory_process_homepage, :highlighted_meetings) do |content_block|
+            content_block.cell = "decidim/meetings/content_blocks/highlighted_meetings"
+            content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_for_component_settings_form"
+            content_block.public_name_key = "decidim.meetings.content_blocks.upcoming_meetings.name"
+            content_block.component_manifest_name = "meetings"
+
+            content_block.settings do |settings|
+              settings.attribute :component_id, type: :select, default: nil
+            end
+          end
+
+          Decidim.content_blocks.register(:participatory_process_group_homepage, :highlighted_meetings) do |content_block|
+            content_block.cell = "decidim/meetings/content_blocks/highlighted_meetings"
+            content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_settings_form"
+            content_block.public_name_key = "decidim.meetings.content_blocks.upcoming_meetings.name"
+            content_block.component_manifest_name = "meetings"
+            content_block.default!
+
+            content_block.settings do |settings|
+              settings.attribute :order, type: :enum, default: "random", choices: %w(random recent)
+              settings.attribute :show_space, type: :boolean, default: true
+            end
+          end
+        end
+
         def self.register_highlighted_posts
           return unless Decidim.module_installed?(:blogs)
 
@@ -172,20 +200,6 @@ module Decidim
 
             content_block.settings do |settings|
               settings.attribute :component_id, type: :select, default: nil
-            end
-          end
-        end
-
-        def self.register_related_assemblies
-          return unless Decidim.module_installed?(:assemblies)
-
-          Decidim.content_blocks.register(:participatory_process_homepage, :related_assemblies) do |content_block|
-            content_block.cell = "decidim/assemblies/content_blocks/related_assemblies"
-            content_block.settings_form_cell = "decidim/assemblies/content_blocks/highlighted_assemblies_settings_form"
-            content_block.public_name_key = "decidim.assemblies.content_blocks.related_assemblies.name"
-
-            content_block.settings do |settings|
-              settings.attribute :max_results, type: :integer, default: 6
             end
           end
         end
@@ -210,34 +224,6 @@ module Decidim
             content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_settings_form"
             content_block.public_name_key = "decidim.proposals.content_blocks.highlighted_proposals.name"
             content_block.component_manifest_name = "proposals"
-
-            content_block.settings do |settings|
-              settings.attribute :order, type: :enum, default: "random", choices: %w(random recent)
-              settings.attribute :show_space, type: :boolean, default: true
-            end
-          end
-        end
-
-        def self.register_highlighted_meetings
-          return unless Decidim.module_installed?(:meetings)
-
-          Decidim.content_blocks.register(:participatory_process_homepage, :highlighted_meetings) do |content_block|
-            content_block.cell = "decidim/meetings/content_blocks/highlighted_meetings"
-            content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_for_component_settings_form"
-            content_block.public_name_key = "decidim.meetings.content_blocks.upcoming_meetings.name"
-            content_block.component_manifest_name = "meetings"
-
-            content_block.settings do |settings|
-              settings.attribute :component_id, type: :select, default: nil
-            end
-          end
-
-          Decidim.content_blocks.register(:participatory_process_group_homepage, :highlighted_meetings) do |content_block|
-            content_block.cell = "decidim/meetings/content_blocks/highlighted_meetings"
-            content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_settings_form"
-            content_block.public_name_key = "decidim.meetings.content_blocks.upcoming_meetings.name"
-            content_block.component_manifest_name = "meetings"
-            content_block.default!
 
             content_block.settings do |settings|
               settings.attribute :order, type: :enum, default: "random", choices: %w(random recent)
@@ -271,6 +257,20 @@ module Decidim
             content_block.settings do |settings|
               settings.attribute :order, type: :enum, default: "random", choices: %w(random recent)
               settings.attribute :show_space, type: :boolean, default: true
+            end
+          end
+        end
+
+        def self.register_related_assemblies
+          return unless Decidim.module_installed?(:assemblies)
+
+          Decidim.content_blocks.register(:participatory_process_homepage, :related_assemblies) do |content_block|
+            content_block.cell = "decidim/assemblies/content_blocks/related_assemblies"
+            content_block.settings_form_cell = "decidim/assemblies/content_blocks/highlighted_assemblies_settings_form"
+            content_block.public_name_key = "decidim.assemblies.content_blocks.related_assemblies.name"
+
+            content_block.settings do |settings|
+              settings.attribute :max_results, type: :integer, default: 6
             end
           end
         end
