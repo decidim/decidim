@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "decidim/pages/seeds"
-
 Decidim.register_component(:pages) do |component|
   component.engine = Decidim::Pages::Engine
   component.admin_engine = Decidim::Pages::AdminEngine
@@ -52,6 +50,8 @@ Decidim.register_component(:pages) do |component|
   end
 
   component.seeds do |participatory_space|
+    require "decidim/pages/seeds"
+
     Decidim::Pages::Seeds.new(participatory_space:).call
   end
 end
