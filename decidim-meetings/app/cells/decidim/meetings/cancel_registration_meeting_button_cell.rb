@@ -16,8 +16,6 @@ module Decidim
 
       private
 
-      delegate :current_user, to: :controller, prefix: false
-
       def current_component
         model.component
       end
