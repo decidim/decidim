@@ -146,18 +146,7 @@ module Decidim
             content_block.public_name_key = "decidim.application.photos.related_photos"
           end
 
-          if Decidim.module_installed?(:blogs)
-            Decidim.content_blocks.register(:participatory_process_homepage, :highlighted_posts) do |content_block|
-              content_block.cell = "decidim/blogs/content_blocks/highlighted_posts"
-              content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_for_component_settings_form"
-              content_block.public_name_key = "decidim.blogs.content_blocks.highlighted_posts.name"
-              content_block.component_manifest_name = "blogs"
-
-              content_block.settings do |settings|
-                settings.attribute :component_id, type: :select, default: nil
-              end
-            end
-          end
+          register_highlighted_posts
 
           Decidim.content_blocks.register(:participatory_process_group_homepage, :stats) do |content_block|
             content_block.cell = "decidim/participatory_process_groups/content_blocks/statistics"
@@ -172,6 +161,21 @@ module Decidim
 
             content_block.settings do |settings|
               settings.attribute :default_filter, type: :enum, default: "active", choices: %w(active all)
+            end
+          end
+        end
+
+        def self.register_highlighted_posts
+          return unless Decidim.module_installed?(:blogs)
+
+          Decidim.content_blocks.register(:participatory_process_homepage, :highlighted_posts) do |content_block|
+            content_block.cell = "decidim/blogs/content_blocks/highlighted_posts"
+            content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_for_component_settings_form"
+            content_block.public_name_key = "decidim.blogs.content_blocks.highlighted_posts.name"
+            content_block.component_manifest_name = "blogs"
+
+            content_block.settings do |settings|
+              settings.attribute :component_id, type: :select, default: nil
             end
           end
         end
