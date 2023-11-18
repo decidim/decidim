@@ -321,6 +321,7 @@ fi-pl:
             select_a_meeting_type: Valitse tapaamisen tyyppi
             select_a_registration_type: Valitse ilmoittautumisten tyyppi
             select_an_iframe_access_level: Valitse iframe-upotusten käyttöoikeustaso
+            show_embedded_iframe_help: 'Vain jotkin ulkoiset palvelut näistä osoitteista sallivat tapaamisen upottamisen reaaliaikaisesti tapaamisen sivulle: %{domains}'
           index:
             title: Tapahtumat
           new:
@@ -519,6 +520,7 @@ fi-pl:
           select_a_meeting_type: Valitse tapaamisen tyyppi
           select_a_registration_type: Valitse ilmoittautumisten tyyppi
           select_an_iframe_access_level: Valitse iframe-upotusten käyttöoikeustaso
+          show_embedded_iframe_help: 'Vain jotkin ulkoiset palvelut näistä osoitteista sallivat tapaamisen upottamisen reaaliaikaisesti tapaamisen sivulle: %{domains}'
         index:
           click_here: Näytä kaikki tapahtumat
           new_meeting: Uusi tapahtuma
