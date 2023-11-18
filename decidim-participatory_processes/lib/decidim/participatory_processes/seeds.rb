@@ -11,22 +11,7 @@ module Decidim
 
         process_groups = []
         2.times do
-          process_groups << Decidim::ParticipatoryProcessGroup.create!(
-            title: Decidim::Faker::Localized.sentence(word_count: 3),
-            description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-              Decidim::Faker::Localized.paragraph(sentence_count: 3)
-            end,
-            hashtag: ::Faker::Internet.slug,
-            group_url: ::Faker::Internet.url,
-            organization:,
-            hero_image: ::Faker::Boolean.boolean(true_ratio: 0.5) ? hero_image : nil, # Keep after organization
-            developer_group: Decidim::Faker::Localized.sentence(word_count: 1),
-            local_area: Decidim::Faker::Localized.sentence(word_count: 2),
-            meta_scope: Decidim::Faker::Localized.word,
-            target: Decidim::Faker::Localized.sentence(word_count: 3),
-            participatory_scope: Decidim::Faker::Localized.sentence(word_count: 1),
-            participatory_structure: Decidim::Faker::Localized.sentence(word_count: 2)
-          )
+          process_groups << create_process_group!
         end
 
         process_groups.each do |process_group|
@@ -145,6 +130,25 @@ module Decidim
           scope_name: :homepage,
           manifest_name: :highlighted_processes,
           published_at: Time.current
+        )
+      end
+
+      def create_process_group!
+        Decidim::ParticipatoryProcessGroup.create!(
+          title: Decidim::Faker::Localized.sentence(word_count: 3),
+          description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+            Decidim::Faker::Localized.paragraph(sentence_count: 3)
+          end,
+          hashtag: ::Faker::Internet.slug,
+          group_url: ::Faker::Internet.url,
+          organization:,
+          hero_image: ::Faker::Boolean.boolean(true_ratio: 0.5) ? hero_image : nil, # Keep after organization
+          developer_group: Decidim::Faker::Localized.sentence(word_count: 1),
+          local_area: Decidim::Faker::Localized.sentence(word_count: 2),
+          meta_scope: Decidim::Faker::Localized.word,
+          target: Decidim::Faker::Localized.sentence(word_count: 3),
+          participatory_scope: Decidim::Faker::Localized.sentence(word_count: 1),
+          participatory_structure: Decidim::Faker::Localized.sentence(word_count: 2)
         )
       end
     end
