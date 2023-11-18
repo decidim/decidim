@@ -396,42 +396,7 @@ module Decidim
       end
 
       initializer "decidim_core.static_page_blocks" do
-        Decidim.content_blocks.register(:static_page, :summary) do |content_block|
-          content_block.cell = "decidim/content_blocks/static_page/summary"
-          content_block.settings_form_cell = "decidim/content_blocks/static_page/summary_settings_form"
-          content_block.public_name_key = "decidim.content_blocks.static_page.summary.name"
-
-          content_block.settings do |settings|
-            settings.attribute :summary, type: :text, translated: true
-          end
-
-          content_block.default!
-        end
-
-        Decidim.content_blocks.register(:static_page, :section) do |content_block|
-          content_block.cell = "decidim/content_blocks/static_page/section"
-          content_block.settings_form_cell = "decidim/content_blocks/static_page/section_settings_form"
-          content_block.public_name_key = "decidim.content_blocks.static_page.section.name"
-
-          content_block.settings do |settings|
-            settings.attribute :content, type: :text, translated: true
-          end
-
-          content_block.default!
-        end
-
-        Decidim.content_blocks.register(:static_page, :two_pane_section) do |content_block|
-          content_block.cell = "decidim/content_blocks/static_page/two_pane_section"
-          content_block.settings_form_cell = "decidim/content_blocks/static_page/two_pane_section_settings_form"
-          content_block.public_name_key = "decidim.content_blocks.static_page.two_pane_section.name"
-
-          content_block.settings do |settings|
-            settings.attribute :left_column, type: :text, translated: true
-            settings.attribute :right_column, type: :text, translated: true
-          end
-
-          content_block.default!
-        end
+        Decidim::Core::ContentBlocks::RegistryManager.register_static_page_blocks!
       end
 
       initializer "decidim_core.newsletter_templates" do
