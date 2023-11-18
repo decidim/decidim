@@ -32,10 +32,7 @@ module Decidim
 
           Decidim::ContentBlocksCreator.new(process).create_default!
 
-          attachment_collection = create_attachment_collection(collection_for: process)
-          create_attachment(attached_to: process, filename: "Exampledocument.pdf", attachment_collection:)
-          create_attachment(attached_to: process, filename: "city.jpeg")
-          create_attachment(attached_to: process, filename: "Exampledocument.pdf")
+          create_attachments!(attached_to: process)
 
           2.times do
             Decidim::Category.create!(
