@@ -11,6 +11,13 @@ module Decidim
 
     def banner_image = create_blob!(seeds_file: "city2.jpeg", filename: "banner_image.jpeg", content_type: "image/jpeg")
 
+    def create_attachments!(attached_to:)
+      attachment_collection = create_attachment_collection(collection_for: attached_to)
+      create_attachment(attached_to:, filename: "Exampledocument.pdf", attachment_collection:)
+      create_attachment(attached_to:, filename: "city.jpeg")
+      create_attachment(attached_to:, filename: "Exampledocument.pdf")
+    end
+
     def create_attachment(attached_to:, filename:, attachment_collection: nil)
       content_type = {
         jpg: "image/jpeg",
@@ -42,6 +49,16 @@ module Decidim
         filename:,
         content_type:,
         metadata: nil
+      )
+    end
+
+    def create_category!(participatory_space:)
+      Decidim::Category.create!(
+        name: Decidim::Faker::Localized.sentence(word_count: 5),
+        description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+          Decidim::Faker::Localized.paragraph(sentence_count: 3)
+        end,
+        participatory_space:
       )
     end
   end
