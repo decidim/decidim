@@ -22,6 +22,7 @@ fi-pl:
         id: ID
         iframe_access_level: Iframe-käyttöoikeustaso
         iframe_embed_type: Iframe-upotuksen tyyppi
+        iframe_embed_type_html: Vain jotkin ulkoiset palvelut tukevat asetuksia "Upota tapaamisen sivulle" tai "Avaa reaaliaikaisen tapahtuman sivu". Huomioi, että "Upota tapaamisen sivulle" -asetus toimii mobiililaitteilla kuten "Avaa reaaliaikaisen tapahtuman sivu" ruudun kokorajoituksista johtuen.
         location: Paikka
         location_hints: Paikan tarkemmat tiedot
         online_meeting_url: Verkkotapaamisen osoite (URL)
@@ -223,6 +224,7 @@ fi-pl:
             one: 'Tapahtumaa ei voi poistaa, koska siihen on liitetty %{count} ehdotus:'
             other: 'Tapahtumaa ei voi poistaa, koska siihen on liitetty %{count} ehdotusta:'
         manage_poll: Hallitse mielipidetiedustelua
+        new_meeting: Uusi tapaaminen
         preview: Esikatsele
         registrations: Ilmoittautumiset
         title: Toiminnot
@@ -311,6 +313,7 @@ fi-pl:
           form:
             address_help: 'Osoite: käytetään sijainnin löytämiseksi geokoodaukseen'
             disclaimer: 'Vastuuvapauslauseke: Käyttämällä ulkoista ilmoittautumisjärjestelmää olet tietoinen siitä, että palvelu %{organization} ei ole vastuussa tiedoista, jotka käyttäjät ovat antaneet ulkoiselle palvelulle.'
+            iframe_embed_type_html: 'Vain jotkin ulkoiset palvelut näistä osoitteista sallivat tapaamisen upottamisen reaaliaikaisesti tapaamisen sivulle: %{domains}'
             location_help: 'Sijainti: viesti osallistujille tapaamispaikan sijainnin löytämiseksi'
             location_hints_help: 'Vihjeet sijainnille: sijainnin lisätieto. Esimerkiksi rakennuksen kerros fyysisissä tapaamisissa tai tapaamisen salasana rajatussa verkkotapaamisessa.'
             online_meeting_url_help: 'Linkki: salli osallistujien yhdistäminen tapaamiseen suoraan'
@@ -493,6 +496,7 @@ fi-pl:
           available_slots_help: Määritä tähän kenttään arvo 0, jos tapahtuman paikkamäärää ei ole rajoitettu
           create_as: Luo tapahtuma käyttäjänä
           disclaimer: 'Vastuuvapauslauseke: Käyttämällä ulkoista ilmoittautumisjärjestelmää olet tietoinen siitä, että palvelu %{organization} ei ole vastuussa tiedoista, jotka käyttäjät ovat antaneet ulkoiselle palvelulle.'
+          iframe_embed_type_html: 'Vain jotkin ulkoiset palvelut näistä osoitteista sallivat tapaamisen upottamisen reaaliaikaisesti tapaamisen sivulle: %{domains}'
           location_help: 'Paikka: kuvaus tapahtumapaikan tarkemmasta sijainnista osallistujille'
           location_hints_help: 'Vihjeet sijainnille: sijainnin lisätieto. Esimerkiksi rakennuksen kerros fyysisissä tapaamisissa tai tapaamisen salasana rajatussa verkkotapaamisessa.'
           online_meeting_url_help: 'Linkki: salli osallistujien yhdistäminen tapaamiseen suoraan'
