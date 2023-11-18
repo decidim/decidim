@@ -103,6 +103,7 @@ edit_link(
 
     <%= resource_reference(meeting) %>
     <%= resource_version(meeting, versions_path: meeting_versions_path(meeting)) %>
+    <%= cell "decidim/meetings/cancel_registration_meeting_button", meeting %>
     <%= render partial: "decidim/shared/share_modal" %>
     <%= embed_modal_for meeting_widget_url(meeting, format: :js) %>
     <%= render partial: "calendar_modal", locals: { ics_url: calendar_meeting_url(meeting), google_url: google_calendar_event_url(meeting) } %>
