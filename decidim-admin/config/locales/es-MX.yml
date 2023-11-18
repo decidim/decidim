@@ -821,6 +821,10 @@ es-MX:
         form:
           add: Añadir a la lista blanca
           title: Lista blanca de dominios externos
+      organization_homepage:
+        edit:
+          active_content_blocks: Bloques de contenido activos
+          inactive_content_blocks: Bloques de contenido inactivos
       organization_homepage_content_blocks:
         edit:
           update: Actualizar
