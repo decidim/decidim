@@ -237,6 +237,7 @@ en:
           projects_count:
             one: 1 project
             other: "%{count} projects"
+        empty: There are no projects yet
         exit_modal:
           cancel: Return to voting
           exit: Exit voting
