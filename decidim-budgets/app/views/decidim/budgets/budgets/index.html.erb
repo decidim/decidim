@@ -9,6 +9,10 @@
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
   <%= render partial: "decidim/shared/component_announcement" %>
 
+  <% if current_workflow.budgets.empty? %>
+    <%= cell("decidim/announcement", t("empty", scope: "decidim.budgets.budgets_list")) %>
+  <% end %>
+
   <section class="layout-main__section">
     <%= cell("decidim/budgets/budgets_header", current_workflow) %>
   </section>

@@ -15,6 +15,14 @@ describe "Explore Budgets", :slow do
            participatory_space: participatory_process)
   end
 
+  context "with no budgets" do
+    it "shows an empty page with a message" do
+      visit_component
+
+      expect(page).to have_content("There are no budgets yet")
+    end
+  end
+
   context "with only one budget" do
     let!(:budgets) { create_list(:budget, 1, component:) }
 

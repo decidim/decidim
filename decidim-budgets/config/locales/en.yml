@@ -178,6 +178,7 @@ en:
         count:
           one: "%{count} budget"
           other: "%{count} budgets"
+        empty: There are no budgets yet
         finished_message: You have finished the voting process. Thanks for participating!
         highlighted_cta: Vote on %{name}
         if_change_opinion: If you have changed your mind, you can
