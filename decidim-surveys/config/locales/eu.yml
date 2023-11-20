@@ -53,6 +53,9 @@ eu:
       answers_count: Erantzunak
     surveys:
       admin:
+        component:
+          actions:
+            answers_alert: Osagaia argitaratuz gero, emaitza guztiak kenduko dira.
         exports:
           survey_user_answers: Inkestako parte-hartzaileen erantzunak
         surveys:
