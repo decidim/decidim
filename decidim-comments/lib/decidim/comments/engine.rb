@@ -38,7 +38,7 @@ module Decidim
       end
 
       initializer "decidim_comments.register_icons" do
-        common_parameters = { category: "actions", engine: :comments }
+        common_parameters = { category: "action", engine: :comments }
 
         Decidim.icons.register(name: "Decidim::Comments::Comment", icon: "chat-1-line", description: "Comment", category: "activity", engine: :comments)
         Decidim.icons.register(name: "comments_count", icon: "wechat-line", description: "Comments Count", category: "activity", engine: :comments)
