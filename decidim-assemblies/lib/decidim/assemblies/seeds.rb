@@ -26,16 +26,12 @@ module Decidim
 
             create_assembly_members!(assembly: current_assembly)
 
-            Decidim.component_manifests.each do |manifest|
-              manifest.seed!(current_assembly.reload)
-            end
+            seed_components_manifests!(participatory_space: current_assembly)
 
             Decidim::ContentBlocksCreator.new(current_assembly).create_default!
           end
         end
       end
-
-      def organization = Decidim::Organization.first
 
       def create_content_block!
         Decidim::ContentBlock.create(
