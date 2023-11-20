@@ -15,6 +15,7 @@ eu:
       dummy:
         settings:
           global:
+            guided_help: Laguntza-testua
             readonly_attribute: Soilik irakurtzeko atributua
             test: Test bat
             test_choices:
