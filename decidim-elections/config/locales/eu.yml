@@ -69,6 +69,8 @@ eu:
       models:
         decidim/votings/polling_officer:
           attributes:
+            presided_polling_station:
+              president_and_manager: Mahaiko kudeatzailea dagoeneko bozketa-puntuaren presidentea/kudeatzailea da.
             voting:
               different_organization: Bozketa parte-hartzailearen erakunde berean egon behar da.
     models:
@@ -288,6 +290,7 @@ eu:
           created:
             invalid: Arazo bat egon da gakoen zeremonia hastean.
             submit: Hasi gakoen zeremonia
+            success: 'Gakoen zeremonia hasteko eskaera zuzen bidali da hona: Iragarki taula.'
             title: Bozketa sortuta
             trustees: Bermatzaileak
           key_ceremony:
@@ -300,6 +303,7 @@ eu:
             requirements:
               time_before: Bozketa laster hasiko da. Eskuz hasi ahal duzu bozketaldia, edo automatikoki hasiko da hasierako ordua izan baino lehen, ordu honetan %{start_time}.
             submit: Hasi bozketaldia
+            success: 'Bozketaldiaren eskaera zuzen bidali da hona: Iragarki Taula.'
             title: Hasteko prest
           processing: Prozesatzen...
           results_published:
@@ -335,6 +339,7 @@ eu:
             requirements:
               time_after: Bozketa amaitu da. Bozketaldia eskuz amaitu ahal duzu, edo minutu batzuk barru automatikoki amaituko da.
             submit: Amaitu bozketaldia
+            success: 'Bozketaldia amaitzeko eskaera zuzen bidali da hona: Iragarki Taula.'
             title: Bozketa-aldia
           vote_ended:
             invalid: Arazo bat egon da zenbaketa hastean.
@@ -695,6 +700,7 @@ eu:
             title: Egiaztatu zure botoa
           success:
             header: Botoa aurkituta!
+            info: Zure boto zifratua %{link} hautestontzian dago.
         voting_step:
           back: Atzera
           continue: Hurrengoa
@@ -1035,6 +1041,7 @@ eu:
           census:
             create:
               invalid: Arazo bai izan da errolda igotzean, mesedez, saiatu berriro geroago.
+              invalid_csv_header: CSV goiburuak galdu dira edo ez dira zuzenak - mesedez, irakurri arretaz jarraibideak.
             delete:
               button: Ezabatu erroldako datu guztiak
             destroy:
@@ -1060,6 +1067,8 @@ eu:
               info_message_warn: Mesedez, egiaztatu daturik ez dela falta, %{data_count} erregistro sortu baitira, baina igo den (%{file}) fitxategiak %{raw_count} ilara zituen.
               launch_error: Arazoa sarbide-kodeak sortzen hastean
               launch_success: Kodeak sortzen hasi da.
+            generating_access_codes:
+              info_message: "<strong>Mesedez, itxaron</strong>, bozketan sartzeko kodeak sortzen ari dira (honek minutu batzuk beharko ditu)..."
             new:
               file_help:
                 explanation: 'Jarraibideak artxiborako:'
@@ -1124,6 +1133,7 @@ eu:
             info_text: Mesedez, sartu erantzun kopurua galdera bakoitzerako.
             modal_ballots_results_count_error:
               close_modal: Itxi
+              info_text: Boto-paperen kopuru osoa ez dator bat gutun-azalen kopuru osoarekin. Mesedez, berrikusi boto-paper guztiak.
               title: Boto-paperen kopuru osoa ez dator bat
             save_recount: Gorde zenbaketa
             total_ballots: Boto-paperak, guztira
@@ -1169,6 +1179,8 @@ eu:
             census_verified_with_online_vote: Parte-hartzaile honek botoa eman du online. Aurrez aurre bozkatzen badu, aurreko botoak baliogabetuko dira eta hau izango da bere behin betiko botoa.
             complete_voting: Osatu bozketa
             identify_another: Identifikatu beste parte-hartzaile bat
+            questions_title: 'Botoa emateko eskubidea dute ondoko galdera hauetan:'
+            questions_title_voted: 'Parte-hartzaile honek dagoeneko lineako botoa eman du eta botoa emateko eskubidea du ondoko galdera hauetan:'
             voted: Parte-hartzaileak botoa eman du
           create:
             error: Botoa ez da erregistratu. Mesedez, saiatu berriro.
@@ -1257,11 +1269,14 @@ eu:
         check_census:
           check_status: Egiaztatu egoera
           description: Hemen, zure erroldako datuak egiaztatzeko aukera duzu, bozketan parte hartzeko eskubidea duzun jakiteko. Sarbide-kode bat izan beharko zenuke, baina galdu baduzu, berriro eska dezakezu, zure datuak zuzenak badira.
+          error:
+            info: 'Mesedez, saiatu berriro. Sistemaren datuak okerrak direla uste baduzu, hemen eman ahal dituzu: %{census_contact_information}.'
           form_title: 'Bete ondoko galdetegia zure erroldako datuak egiaztatzeko:'
           invalid: Arazo bat egon da errolda egiaztatzean.
           success:
             access_link: emailez.
             access_link_with_sms: sMSz edo posta elektronikoz.
+            info: Zure sarbide-kodea postaz jasota izan beharko zenuke. Ez baduzu, hemen eska dezakezu
             title: Zure erroldako datuak zuzenak dira!
           title: Botoa eman dezaket?
         check_fields:
