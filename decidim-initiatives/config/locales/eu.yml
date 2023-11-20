@@ -180,7 +180,7 @@ eu:
             notification_title: Zure <a href="%{resource_path}">%{resource_title}</a> ekimenak sinaduren %{percentage} lortu ditu.
           follower:
             email_intro: '%{resource_title} ekimenak %{percentage}% sinadura lortu ditu!'
-            email_outro: Jakinarazpen hau jaso duzu %{resource_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+            email_outro: Jakinarazpen hau jaso duzu %{resource_title} jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
             email_subject: Beste maila bat osatua!
             notification_title: <a href="%{resource_path}">%{resource_title}</a> ekimenek sinadurak% %{percentage}lortu dituzte.
         support_threshold_reached:
@@ -226,12 +226,12 @@ eu:
             confirm_revoke: Ziur zaude?
             no_members_yet: Ez dago kiderik batzorde bultzatzailean.
             revoke: Baliogabetu
-            title: Batzorde kideak
+            title: Batzarkideak
         content_blocks:
           highlighted_initiatives:
             max_results: Erakusteko elementu gehienen kopurua
             order:
-              default: Lehenespenez (zaharragoak)
+              default: Lehenetsita (zaharragoak)
               label: 'Ordenatu elementua honen arabera:'
               most_recent: Azkenak
         exports:
@@ -278,7 +278,7 @@ eu:
           destroy:
             success: Esparrua behar bezala kendu da.
           edit:
-            title: Editatu ekimen motako esparrua
+            title: Editatu ekimen motaren esparrua
             update: Eguneratu
           new:
             create: Sortu
@@ -297,7 +297,7 @@ eu:
             only_global_scope_enabled_help_html: 'Markatu lauki hau "Aktibatu sinadurak azpiesparruaren arabera" gaitu baduzu eta esparru globala esparru nagusi gisa eratu baduzu. Lauki hori gaitzean, ekimenak sortzeko laguntzaileak ez du ekimen-motaren hautaketarik egingo. Konfigurazio horrek nola funtzionatzen duen jakiteko, kontsultatu esteka hau: <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.'
             options: Aukerak
           initiative_type_scopes:
-            title: Ekimen motako esparruak
+            title: Ekimen motaren esparruak
           new:
             create: Sortu
             title: Beste ekimen mota bat
@@ -455,7 +455,7 @@ eu:
           link: Lotura
           no_members_yet: Ez dago kiderik batzorde bultzatzailean.
           revoke: Baliogabetu
-          title: Batzorde-kideak
+          title: Batzarkideak
         count:
           title:
             one: "%{count} ekimena"
@@ -507,6 +507,7 @@ eu:
           section: 'Antolakuntzak eskatzen badu, mesedez, inprimatu eta bete formulario hau, adierazten den tokira bidaltzeko:'
           signature: Sinadura
         result:
+          answer_title: Ekimen hau erantzun egin da.
           initiative_rejected_reason: Ekimen hau ukatu egin da sinadura faltagatik.
         show:
           area: Arloa
@@ -532,16 +533,16 @@ eu:
             one: SIGNATURE
             other: sinadurak
       initiatives_mailer:
-        creation_subject: Zure herritarren ekimena '%{title}' sortu da
+        creation_subject: Zure '%{title}'ekimena sortu egin da
         initiative_link:
           check_initiative_details: Ekimenaren xehetasunak ikus ditzakezu
           here: hemen
         more_information: Hemen ekimenaren sorrera prozesuari buruzko informazio gehiago duzu.
-        progress_report_body_for: '%{title} ekimena %{percentage}eskatutako euskarrien% gainditu du.'
-        progress_report_for: 'Berrekin ekimenari buruz: %{title}'
+        progress_report_body_for: '%{title} ekimenak eskatutako euskarrien%{percentage}% gainditu du.'
+        progress_report_for: 'Laburpena %{title} ekimenari buruz'
         promotal_committee_help: Gogoan izan gutxienez %{member_count} pertsona gonbidatu behar dituzula sustatzaile batzordera. Birbidali hurrengo estekara gonbidatzeko jendea sustatzaile batzordera
-        status_change_body_for: '%{title} ekimena bere egoera aldatu du: %{state}'
-        status_change_for: '%{title} ekimena bere egoera aldatu du'
+        status_change_body_for: '%{title} ekimenak bere egoera aldatu du: %{state}'
+        status_change_for: '%{title} ekimenak bere egoera aldatu du'
       last_activity:
         new_initiative: 'Beste ekimen bat:'
       modal:
