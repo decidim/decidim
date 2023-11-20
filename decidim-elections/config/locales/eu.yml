@@ -1106,6 +1106,8 @@ eu:
               info_message_warn: Mesedez, egiaztatu daturik ez dela falta, %{data_count} erregistro sortu baitira, baina igo den (%{file}) fitxategiak %{raw_count} ilara zituen.
               launch_error: Arazoa sarbide-kodeak sortzen hastean
               launch_success: Kodeak sortzen hasi da.
+            generating_access_codes:
+              info_message: "<strong>Mesedez, itxaron</strong>, bozketan sartzeko kodeak sortzen ari dira (honek minutu batzuk beharko ditu)..."
             new:
               file_help:
                 explanation: 'Jarraibideak artxiborako:'
@@ -1228,6 +1230,7 @@ eu:
             complete_voting: Osatu bozketa
             identify_another: Identifikatu beste parte-hartzaile bat
             questions_title: 'Botoa emateko eskubidea du ondoko galdera hauetan:'
+            questions_title_voted: 'Parte-hartzaile honek dagoeneko lineako botoa eman du eta botoa emateko eskubidea du ondoko galdera hauetan:'
             voted: Parte-hartzaileak botoa eman du
           create:
             error: Botoa ez da erregistratu. Mesedez, saiatu berriro.
