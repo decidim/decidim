@@ -137,7 +137,7 @@ eu:
           census:
             create:
               error: Errore bat egon da errolda inportatzean.
-              success: Arrakastaz inportatutako %{count} elementu (%{errors} errore)
+              success: Zuzen inportatutako %{count} itemak (%{errors} errors)
             destroy_all:
               success: Erroldatze-datu guztiak ezabatu egin dira
           destroy:
