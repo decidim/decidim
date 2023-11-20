@@ -990,6 +990,7 @@ eu:
           next: Hurrengoa
           no_conversations: Oraindik ez duzu elkarrizketarik
           title: Elkarrizketak
+          to: Nori/Nora
         reply:
           placeholder: Zure erantzuna...
           send: Bidali
@@ -1074,7 +1075,7 @@ eu:
     notifications:
       no_notifications: Oraindik ez dago jakinarazpenik.
       show:
-        missing_event: Aiba, jakinarazpen hhau dagoeneko eskuragarri ez dagoen item batena da. Baztertu dezakezu.
+        missing_event: Aiba, jakinarazpen hau dagoeneko eskuragarri ez dagoen item batena da. Baztertu dezakezu.
     notifications_settings:
       show:
         administrators: Administratzaileak
@@ -1701,6 +1702,7 @@ eu:
       day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
       ddmm: "%d.%m"
+      ddmmyyyy: "%d.%m.%Y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       default: "%a, %d %b %Y %H:%M:%S %z"
