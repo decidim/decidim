@@ -337,13 +337,13 @@ eu:
         expired:
           authorize: Errebokatu "%{authorization}" rekin
           explanation: Zure baimena iraungi da. Ekintza hau burutzeko, "%{authorization}" berrantolatu behar duzu.
-          title: Baimena iraungi da
+          title: Baimena iraungi egin da
         incomplete:
           cancel: Utzi
           explanation: 'Nahiz eta orain baimenduta zauden honako "%{authorization}” honen bidez, behar dugu zuk berriz baimena eskuratzea, ez baititugu honako datu hauek:'
           invalid_field: "%{field}"
           reauthorize: Berriz eskuratu baimena
-          title: Mesedez, eskura ezazu berriz baimena
+          title: Mesedez, eman berriro baimena
         missing:
           authorize: 'Baimena eskuratu honen bidez: "%{authorization}"'
           explanation: 'Ekintza hau egiteko, baimen hau behar duzu: "%{authorization}".'
@@ -449,7 +449,7 @@ eu:
         name: HTML blokea
       last_activity:
         name: Azken jarduerak
-        title: Azken jarduerak
+        title: Azken jarduera
         view_all: Ikusi dena
       metrics:
         name: Erakundearen metrika
@@ -493,7 +493,7 @@ eu:
           sign_up: Erregistratu
           sign_up_as:
             legend: Izena eman honako hau gisa
-          subtitle: Sortu kontu bat eztabaidetan parte hartzeko eta proposamenen alde egiteko
+          subtitle: Sortu kontu bat eztabaida eta laguntza proposamenetan parte hartzeko.
           terms: erabilera-baldintzak
           tos_agreement: 'Erregistratzean hau onartzen duzu: %{link}.'
           tos_title: Zerbitzuaren baldintzak
@@ -554,7 +554,7 @@ eu:
         select_identity: Hautatu identitatea
     errors:
       internal_server_error:
-        title: Arazo bat izan da gure zerbitzariarekin
+        title: Arazo bat egon da gure serbidorearekin
         try_later: Mesedez beranduago saiatu.
       not_found:
         back_home: Itzuli hasierara
@@ -572,7 +572,7 @@ eu:
             email_intro: 'Zuzenketa bat onartu honetarako %{amendable_title}. Orrialde honetatik ikus dezakezu:'
             email_outro: Jakinarazpen hau jaso duzu %{amendable_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
             email_subject: '%{emendation_author_nickname} ren %{amendable_title} zuzenketa onartuta '
-            notification_title: The <a href="%{emendation_path}">zuzenketa</a> sortutako <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> izan da onartu <a href="%{amendable_path}">%{amendable_title}</a>.
+            notification_title: '<a href="%{emendation_author_path}">%{emendation_author_nickname}</a> k sortutako <a href="%{emendation_path}"></a> zuzenketa onartu da honetarako: <a href="%{amendable_path}">%{amendable_title}</a>.'
         amendment_created:
           affected_user:
             email_intro: 'Beste zuzenketa bat sortu da honetarako: %{amendable_title}. Orrialde honetatik ikusi dezakezu:'
@@ -604,23 +604,23 @@ eu:
           follower:
             email_intro: 'Aldaketa ukatu egin da %{amendable_title}. Orrialde honetatik ikus dezakezu:'
             email_outro: Jakinarazpen hau jaso duzu %{amendable_title} jarraitzen duzulako. Aurreko estekan jakinarazpenak jasotzeari utzi ahal diozu.
-            email_subject: Aldaketa baztertua %{amendable_title} %{emendation_author_nickname}
+            email_subject: '%{emendation_author_nickname} k baztertu du %{amendable_title} aldaketa'
             notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> k sortutako <a href="%{emendation_path}">zuzenketa </a> <a href="%{amendable_path}">%{amendable_title}</a> k ukatu du.
       attachments:
         attachment_created:
           email_intro: 'Dokumentu berri bat gehitu zaio %{resource_title}-ri. Orrialde hau ikusi dezakezu:'
           email_outro: Jakinarazpen hau jaso duzu %{resource_title} jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari utzi ahal diozu.
           email_subject: '%{resource_title} eguneratzea'
-          notification_title: <a href="%{resource_path}"> dokumentu berri bat</a> gehitu zaio <a href="%{attached_to_url}">%{resource_title}-ri</a>
+          notification_title: '<a href="%{resource_path}"> dokumentu berri bat</a> gehitu zaio honi: <a href="%{attached_to_url}">%{resource_title}</a>'
       components:
         component_published:
           email_intro: '%{resource_title} osagaia %{participatory_space_title}da aktibo dagoenean. Orrialde hau ikusi dezakezu:'
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: '%{participatory_space_title} eguneratze bat'
-          notification_title: '%{resource_title} osagaia aktibo dago <a href="%{resource_path}">%{participatory_space_title}</a>'
+          notification_title: '%{resource_title} osagaia aktibo dago honetarako: <a href="%{resource_path}">%{participatory_space_title}</a>'
       email_event:
         email_greeting: Kaixo, %{user_name},
-        email_intro: 'Eguneratze da "%{resource_title}". Orri honetan ikus daiteke:'
+        email_intro: '"%{resource_title}"eguneratu da. Orri honetan ikus dezakezu:'
         email_outro: Jakinarazpen hau jaso duzu "%{resource_title}” jarraitzen duzulako. Jarraitzeari utzi diezaiokezu aurreko estekan.
         email_subject: '%{resource_title} eguneratzea'
       gamification:
@@ -681,7 +681,7 @@ eu:
           email_subject: Talde batek bere profila eguneratu du
           notification_title: '%{user_group_name} taldeak bere profila eguneratu du egiaztapena galduz. Berriro egiaztatu ahal duzu honen bidez <a href="%{groups_admin_path}">panel de administración</a>.'
       notification_event:
-        notification_title: 'Gertaera bat gertatu da hemen: <a href="%{resource_path}">%{resource_title}</a>.'
+        notification_title: 'Gertaera bat jazo da hemen: <a href="%{resource_path}">%{resource_title}</a>.'
       reports:
         resource_hidden:
           email_intro: Administratzaile batek bere %{resource_type} ezabatu du erreportatua izan delako arrazoi honengatik %{report_reasons}.
@@ -705,7 +705,7 @@ eu:
           email_intro: Parte-hartzailea %{name} (%{nickname}) ofizializatu da.
           email_outro: Jakinarazpen hau jaso duzu erakundearen administratzailea zarelako.
           email_subject: "%{name} ofizializatu egin da"
-          notification_title: Parte-hartzailea %{name} (%{nickname}) ofizializatu da.
+          notification_title: '%{name} (%{nickname}) parte-hartzailea ofizializatu egin da.'
     export_mailer:
       data_portability_export:
         click_button: 'Egin klik hurrengo loturan zure datuak deskargatzeko. <br/>Artxiboa eskuragai egongo da data honetara arte %{date}.<br/>Irekitzeko beharko duzu <a href="https://www.7-zip.org/">7-Zip</a> (Windowserako), <a href="https://www.keka.io/en/">Keka</a> (para MacOS) o <a href="https://peazip.github.io">PeaZip</a> (Linuxerako). Pasahitza: %{password}'
@@ -728,7 +728,7 @@ eu:
       online_calculator_name: MD5 kalkulagailua linean
       replicate_help: Hatz-marka hori SHA256 hashing algoritmo baten bidez kalkulatzen da. Zeure buruari errepikatu ahal izateko, %{online_calculator_link} erabil dezakezu eta kopiatu iturriaren datuak itsatsi.
       source: Iturria
-      title: Hatz
+      title: Hatz-marka
       value: Balioa
     followers:
       no_followers: Ez da jarraitzailerik oraindik.
@@ -779,10 +779,10 @@ eu:
           unearned_another: Erabiltzaile honek oraindik ez du jarraitzailerik.
           unearned_own: Oraindik ez duzu jarraitzaileik.
         index:
-          badge_title: "%{name} txapela"
+          badge_title: "%{name} garaikurra"
           how: Nola irabaz dezakezu?
           page_description: Garaikurrak parte-hartzaileen ekintzetan eta plataforma aurrerapenean aitortzen dira. Plataforma ezagutu, bertan parte hartu eta elkarreraginean hasten zarenean, garaikurrak irabazten dituzu. Hona hemen garaikurren zerrenda eta irabaztzeko dituzun modu batzuk.
-          title: Intsigniak
+          title: Garaikurrak
       description: Garaikurrak parte-hartzaileen ekintzetan eta plataforma aurrerapenean aitortzen dira. Plataforma ezagutu, bertan parte hartu eta elkarreraginean hasten zarenean, garaikurrak irabazten dituzu. Hona hemen garaikurren zerrenda eta irabaztzeko dituzun modu batzuk.
       level: '%{level}maila'
       reached_top: Idatzi honen goialdean iritsi zara.
@@ -968,7 +968,7 @@ eu:
         add_conversation_users:
           add_max_users: 'Gehitu erabiltzaileak elkarrizketara: gehienez 9 erabiltzaile'
           add_users_placeholder: Bilatu...
-          modal_title: Elkarrizketa berria
+          modal_title: Beste elkarrizketa bat
           no_results: Emaitzarik ez
           participant_with_disabled_message_reception: Erabiltzaile honek mezuak jasotzea desaktibatu du
         conversation:
@@ -997,6 +997,7 @@ eu:
         show:
           back: Itzuli elkarrizketa guztietara
           chat_with: Elkarrizketa honekin
+          deleted_accounts: Ezin duzu elkarrizketarik egin ezabatutako kontuekin.
           not_allowed: Parte-hartzaile honek ez du mezu zuzenik onartzen.
           title: Elkarrizketa honekin %{usernames}
         start:
@@ -1018,7 +1019,7 @@ eu:
       users:
         description: Erakundeko parte-hartzaile kopurua
         object: parte-hartzaileak
-        title: Parte-hartzaileak
+        title: erabiltzaileak
     newsletter_mailer:
       newsletter:
         note: 'Mezu hau jaso duzu albiste-buletinean harpidetuta zaudelako hemen: %{organization_name}. Ezarpenak aldatu ditzakezu zure <a href="%{link}">jakinarazpen-orrian</a>.'
@@ -1177,7 +1178,7 @@ eu:
       sidebar:
         badges:
           info: Plataforman jarduera espezifikoak burutzeko doikuntzak lortzen dira.
-          title: Intsigniak
+          title: Garaikurrak
       user:
         confirmation_instructions_sent: Berresteko instrukzioak korreo elektronikoz bidalita
         create_user_group: Sortu taldea
@@ -1280,7 +1281,7 @@ eu:
         reason: Arrazoia
         report: Txostena
         spam: Bertan badago clickbait-ik, publizitaterik edo iruzurrik.
-        title: Salatu arazo bat
+        title: Salatu eduki desegokia
       flag_user_modal:
         already_reported: Eduki hau jada salatuta dago, eta administratzaile batek berrikusiko du.
         close: Itxi
@@ -1289,7 +1290,7 @@ eu:
         offensive: Bertan badago arrazakeriarik, sexismorik, irainik, eraso pertsonalik, heriotza-mehatxurik, suizidio-eskaerarik edo beste edozein eratako gorroto-diskurtsorik.
         report: Jakinarazi
         spam: Bertan badago clickbait-ik, publizitaterik edo gidoi-robotik.
-        title: Jakinarazi erabiltzaile desegokia
+        title: Salatu erabiltzaile desegokia
       floating_help:
         close: Itxi laguntza
         help: Laguntza
@@ -1353,8 +1354,8 @@ eu:
         conversations_info: Elkarrizketak pribatuak dira. Beste inork ezin ditu ikusi. Elkarrizketa has daiteke plataforman erregistratutako edozein parte-hartzaile edo talderekin.
         from: Nork
         last_message: Azken mezua
-        modal_title: Elkarrizketa berria
-        new_conversation: Elkarrizketa berria
+        modal_title: Beste elkarrizketa bat
+        new_conversation: Beste elkarrizketa bat
         next: Hurrengoa
         no_conversations_warning: Oraindik ez dago elkarrizketarik.
         no_results: Emaitzarik ez
@@ -1448,7 +1449,7 @@ eu:
         header: Amaitu zure kontua sortzea
         nickname_help: Zure identifikadore bakarra %{organization} zenbakian.
         submit_button: Gorde
-        subtitle: Gonbidapena onartzen baduzu, ezarri zure ezizena eta pasahitza.
+        subtitle: Gonbidapena onartzen baduzu, mesedez, ezarri zure ezizena eta pasahitza.
       invitation_removed: Zure gonbidapena kendu egin da.
       invitation_token_invalid: Gonbidapen token hori ez da baliozkoa!
       new:
