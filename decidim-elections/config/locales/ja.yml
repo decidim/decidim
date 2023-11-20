@@ -1105,6 +1105,7 @@ ja:
               csv_header_after: 投票スタイル/条件付き質問が必要ない場合は、最後のフィールド ("%{ballot_style_code_header}") を含めないでください
               csv_header_before: 'センサスファイルは次のヘッダを持つCSVファイルでなければなりません:'
         document_types:
+          identification_number: 識別番号
           passport: パスポート
         export_mailer:
           access_codes_export:
