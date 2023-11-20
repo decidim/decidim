@@ -828,6 +828,10 @@ ja:
         form:
           add: ホワイトリストに追加
           title: 外部ドメインのホワイトリスト
+      organization_homepage:
+        edit:
+          active_content_blocks: アクティブなコンテンツブロック
+          inactive_content_blocks: 非アクティブコンテンツブロック
       organization_homepage_content_blocks:
         edit:
           update: 更新
