@@ -6,6 +6,8 @@ eu:
         image: Irudia
         proposals: Lotutako proposamenak
         title: Izenburua
+      ballot_style:
+        code: Kodea
       election:
         description: Deskribapena
         end_time: Bozketaren amaiera-data
@@ -20,6 +22,9 @@ eu:
       polling_station:
         address: Helbidea
         location: Kokapena
+        location_hints: Kokapen-argibideak
+        polling_station_managers: KudeatzaileaK
+        polling_station_president_id: Presidentea
         title: Izenburua
       question:
         max_selections: Gehieneko aukera kopurua
@@ -30,7 +35,9 @@ eu:
       voting:
         end_time: Bozketaren amaiera-data
         introductory_image: Aurkezpenaren irudia
+        promoted: Nabarmendua
         scope_id: Esparrua
+        show_check_census: Erakutsi "Egiaztatu errolda" orria
         start_time: Bozketaren hasiera-data
     errors:
       models:
@@ -113,6 +120,7 @@ eu:
           label: Baliozkotuta
           values:
             'false': Baliozkotuta
+            'true': Baliozkotu gabe
     components:
       elections:
         actions:
@@ -198,6 +206,7 @@ eu:
           trustee_mailer:
             body: "< p>Kaixo %{user_name}, </p><p> %{resource_name}-an sartu zaituzte, konfiantzazko gisa.< p>"
             subject: Gehitu zaituzte %{resource_name} -ren bermatzaile gisa
+            trustee_zone: Eraman bermatzaileen gunera
         menu:
           trustees: Bermatzaileak
         models:
@@ -239,9 +248,11 @@ eu:
             success: Galdera zuzen eguneratu da
         steps:
           create_election:
+            census: Errolda
             errors:
               census_codes_generated: Erroldarako sarbide kodeak ez dira sortu.
               census_frozen: Erroldarako sarbide kodeak ez dira esportatu.
+              census_uploaded: Ez da igo erroldarik aukeraketa honetarako.
               max_selections: Galderek ez dute <strong>balio zuzenik </strong> erantzun kopururako
               minimum_answers: Galderek gutxienez eduki behar dituzte <strong> bi erantzun </strong>.
               minimum_questions: <strong>aukerak gutxienez </strong> galdera bat eduki behar du.
@@ -256,6 +267,7 @@ eu:
             requirements:
               census_codes_generated: Sortu dira erroldarako sarbide kodeak.
               census_frozen: Erroldarako sarbide kodeak esportatu dira eta errolda izoztu da.
+              census_uploaded: Errolda igota dago.
               max_selections: Erantzun guztiek balio zuzena dute honetarako <strong>erantzun gehien</strong>.
               minimum_answers: Galdera bakoitzak badu <strong>gutxienez 2 erantzun</strong>.
               minimum_questions: Aukerak badu <strong>gutxienez galdera 1</strong>.
@@ -1014,6 +1026,7 @@ eu:
             update: Eguneratu
           form:
             banner_image: Banner-irudia
+            census_contact_information: Erroldako kontaktoen informazioa
             introductory_image: Aurkezpenaren irudia
             promoted: Nabarmendua
             select_a_voting_type: Mesedez, hautatu bozketa mota bat
