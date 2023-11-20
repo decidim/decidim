@@ -3,10 +3,13 @@ eu:
   activemodel:
     attributes:
       initiative:
+        answer: Erantzuna
+        answer_url: URL erantzuna
         area_id: Arloa
         decidim_scope_id: Esparrua
         decidim_user_group_id: Egilea
         description: Deskribapena
+        hashtag: Traola
         offline_votes: Aurrez aurreko sinadurak
         offline_votes_for_scope: Aurrez aurreko sinadurak %{scope_name} rentzat
         scope_id: Esparrua
@@ -22,6 +25,8 @@ eu:
         type_id: Mota
       initiatives_committee_member:
         user: Batzordeko kidea
+      initiatives_settings:
+        initiatives_order: Ordena
       initiatives_type:
         area_enabled: Gaitu egileak beren ekimenerako eremua aukeratzeko
         attachments_enabled: Gaitu eranskinak
@@ -103,6 +108,7 @@ eu:
         components: Osagaiak
         information: informazioa
         initiatives: Ekimenak
+        initiatives_settings: Ezarpenak
         initiatives_types: Ekimen motak
         moderations: Moderazioak
       models:
@@ -255,9 +261,15 @@ eu:
             error: akats bat gertatu da
             success: Herritarren ekimena ondo eguneratu da
         initiatives_settings:
+          edit:
+            update: Eguneratu
           form:
             comments: Iruzkin gehien dituztenak
+            date: Azkenak
+            publication_date: Azken argitaratutakoak
+            random: Ausaz
             signatures: Sinadura gehiago
+            title: Ekimenen ezarpenak
         initiatives_type_scopes:
           create:
             error: Errore bat egon da
@@ -572,6 +584,11 @@ eu:
         status_change_for: '%{title} ekimena bere egoera aldatu du'
       last_activity:
         new_initiative: Beste ekimen bat
+      pages:
+        home:
+          highlighted_initiatives:
+            active_initiatives: Ekimen aktiboak
+            see_all_initiatives: Ikusi ekimen guztiak
       show:
         badge_name:
           accepted: Beharrezko sinadurekin
