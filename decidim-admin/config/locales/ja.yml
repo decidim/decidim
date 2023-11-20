@@ -987,6 +987,7 @@ ja:
           success: ページを削除しました
         edit:
           changed_notably_help: チェックした場合、参加者に新しい利用規約に同意するよう通知されます。
+          last_notable_change: '直近の注目すべき変更: %{tos_version_formatted}'
           title: ページを編集
           update: 更新
         form:
@@ -1015,6 +1016,7 @@ ja:
         impersonatable_users: 管理可能な参加者
         impersonations: 参加者管理
         metrics: 指標
+        page_topics: トピック
         pages: ページ
         panel: 管理者
         participants: 参加者
