@@ -6,7 +6,7 @@ eu:
         body: Testua
         decidim_author_id: Egilea
         published_at: Argitaratze data
-        title: Izena
+        title: Izenburua
     models:
       decidim/blogs/create_post_event: Blogeko post berria
   activerecord:
