@@ -1032,6 +1032,7 @@ eu:
             introductory_image: Aurkezpenaren irudia
             promoted: Nabarmendua
             select_a_voting_type: Mesedez, hautatu bozketa mota bat
+            show_check_census_help: '"Bozka dezaket?" lotura erakusteko bozketa publikoen menuan'
             slug: Slug
             slug_help: 'URLetako testu laburrak erabiltzen dira bozketa honi aurre egiteko URLak sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
             title: Izenburua
