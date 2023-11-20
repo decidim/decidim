@@ -16,6 +16,8 @@ eu:
         document_type: Zure dokumentuaren mota
         user: Erabiltzaileak
         verification_attachment: Zure dokumentuaren eskaneatutako kopia
+      mobile_phone:
+        mobile_phone_number: Telefono mugikorraren zenbakia
       offline_confirmation:
         email: Erabiltzailearen helbide elektronikoa
       postal_letter_address:
@@ -40,6 +42,7 @@ eu:
           button_before: Ezeztatu data honen aurrekoak
           destroy_ok: Bat datozen baimen guztiak zuzen ezeztatu dira.
           info: Guztira %{count} parte-hartzaile egiaztatuta daude.
+          no_data: Ez dago parte-hartzaile egiaztaturik.
           title: Baimenak ezeztatzea
         authorization_workflows: Baimenak
     admin_log:
@@ -70,6 +73,7 @@ eu:
       direct: Zuzeneko
       help: Laguntza
       id_documents:
+        explanation: Igo zure nortasun-agiriak, zure nortasuna egiaztatzeko.
         name: Nortasun agiriak
       multistep: Multi-Step
       name: izena
@@ -111,6 +115,7 @@ eu:
           pending_verification: Egiaztatzeke
           show_renew_info: Egin klik hemen egiaztapena berritzeko
           subscribe: Harpidetu
+          unauthorized_methods: Egiaztapen-metodoak
         new:
           authorize: Bidali
           authorize_with: Egiaztatu %{authorizer} rekin
@@ -192,6 +197,7 @@ eu:
             title: Egiaztatu zure identifikazio dokumentua
           create:
             error: Arazo bat egon da zure dokumentua igotzean.
+            success: Dokumentua ondo igota.
           edit:
             offline: Erabili lineaz kanpoko egiaztapena
             online: Erabili lineako egiaztapena
@@ -204,6 +210,7 @@ eu:
             title: Igo zure identifikazio agiria
           update:
             error: Arazo bat egon da zure dokumentua berriro igotzean.
+            success: Dokumentua ondo igota berriro.
         dni: DNI
         nie: NIE
         passport: pasaportea
@@ -238,11 +245,14 @@ eu:
           edit:
             confirm_destroy: Ziur egiaztapen-kodea berrezarri nahi duzula?
             destroy: Berrezarri egiaztapen-kodea
+            resend: Ez duzu jaso egiaztapen-kodea?
             send: Berretsi
             title: Jasotako egiaztapen-kodea sartu
           new:
             send: Bidal iezadazu SMS bat
             title: Eskatu zure egiaztapen-kodea
+          update:
+            success: Zorionak! Zuzen egiaztatu zara.
   errors:
     messages:
       uppercase_only_letters_numbers: guztiak maiuskulaz eta letrak eta / edo zenbakiak bakarrik izan behar ditu
