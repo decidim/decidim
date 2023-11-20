@@ -2,8 +2,6 @@
 en:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: Enable organization chart
       assemblies_type:
         title: Title
       assembly:
