@@ -123,7 +123,7 @@ eu:
           success: Bildutako topaketa bikoiztua behar bezala egin da.
         new:
           copy: Kopiatu
-          title: Topaketa bikoiztua
+          title: Bikoiztu topaketa
     components:
       meetings:
         actions:
@@ -153,48 +153,48 @@ eu:
       meetings:
         meeting_closed:
           affected_user:
-            email_intro: 'Zure topaketa "%{resource_title}" itxi egin da. Bere orriko ondorioak irakur ditzakezu:'
-            email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" topaketa antolatu duzulako.
-            email_subject: '"%{resource_title}" topaketa itxi da'
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa itxi da.
+            email_intro: 'Zure topaketa "%{resource_title}" itxi egin da. Ondorioak irakur ditzakezu bere orrian:'
+            email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" topaketa antolatu duzulako.
+            email_subject: '"%{resource_title}" topaketa itxi egin da'
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa itxi egin da.
           follower:
-            email_intro: '"%{resource_title}" topaketa itxi da. Bere orriko ondorioak irakur ditzakezu:'
+            email_intro: '"%{resource_title}" topaketa itxi egin da. Ondorioak irakur ditzakezu bere orrian:'
             email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" topaketa jarraitzen ari zarelako. Aurreko estekan jarrai dezakezu.
-            email_subject: '"%{resource_title}" topaketa itxi da'
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa itxi da.
+            email_subject: '"%{resource_title}" topaketa itxi egin da'
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa itxi egin da.
         meeting_created:
           button_text: Eman izena topaketan
-          email_intro: Topaketa "%{resource_title}" jarraitzen duzun "%{participatory_space_title}" espazioan gehitu da.
-          email_outro: Jakinarazpena jaso duzu "%{participatory_space_title}" prozesua jarraitzen ari zarelako. Ez jarraitu aurreko loturatik.
-          email_subject: Topaketa berria %{participatory_space_title}-an
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa gehitu da %{participatory_space_title}
+          email_intro: '"%{resource_title}" topaketa jarraitzen duzun "%{participatory_space_title}" espazioan gehitu da.'
+          email_outro: Jakinarazpen hau jaso duzu "%{participatory_space_title}" prozesua jarraitzen ari zarelako. Aureko estekan utzi ahal diozu jarraitzeari.
+          email_subject: 'Beste topaketa bat gehituta honi: %{participatory_space_title}'
+          notification_title: '<a href="%{resource_path}">%{resource_title}</a> topaketa hona gehitu da: %{participatory_space_title}'
         meeting_registration_confirmed:
           notification_title: <a href="%{resource_url}">%{resource_title}</a> topaketarako izen-ematea baieztatu da. Zure izena emateko kodea %{registration_code} da.
         meeting_registrations_over_percentage:
-          email_intro: '"%{resource_title}" bilera okupatutako zirrikituak %{percentage} baino gehiagokoak dira.'
+          email_intro: '"%{resource_title}" topaketarako hartutako ordu-tarteak % %{percentage}% baino gehiago dira.'
           email_outro: Topaketako espazio parte-hartzailearen administratzaile zarelako jaso duzu jakinarazpen hau.
           email_subject: '"%{resource_title}" topaketarako hartutako ordu-tarteak % %{percentage}% baino gehiago dira'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketarako hartutako ordu-tarteak % %{percentage}% baino gehiago dira.
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketarako hartutako ordu-tarteak %{percentage}% baino gehiago dira.
         meeting_updated:
           email_intro: '"%{resource_title}" topaketa eguneratu da. Bertsio berria irakur dezakezu bere orrian:'
-          email_outro: Jakinarazpen hau "%{resource_title}" topaketa jarraitzen ari zarelako. Aurreko estekan baja eman daiteke.
-          email_subject: '"%{resource_title}" topaketa eguneratu da'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa eguneratu da.
+          email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" topaketa jarraitzen ari zarelako. Aurreko estekan uzti ahal diozu jarraitzeari.
+          email_subject: '"%{resource_title}" topaketa eguneratu egin da'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa eguneratu egin da.
         registration_code_validated:
-          email_intro: Zure erregistro-kodea " "%{registration_code}" "%{resource_title}" topakerarako baliozkotu da.
+          email_intro: Zure "%{registration_code}" erregistro-kodea "%{resource_title}" topakerarako baliozkotu da.
           email_outro: Jakinarazpen hau jaso duzu zure erregistro-kodea baliozkotu delako "%{resource_title}" topaketarako.
-          email_subject: Zure izen-emate kodea "%{registration_code}" "%{resource_title}" topaketarako baliozkotu egin da
+          email_subject: Zure "%{registration_code}" izen-emate kodea "%{resource_title}" topaketarako baliozkotu egin da
           notification_title: Zure erregistro-kodea "%{registration_code}" <a href="%{resource_path}">%{resource_title}</a> topaketarako balioztatu da.
         registrations_enabled:
           email_intro: '"%{resource_title}" topaketak erregistroak gaitu ditu. Zeure izena eman dezakezu bere orrialdean:'
-          email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko esteka estekan jarrai dezakezu.
+          email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko estekan jarraitzeari utzi ahal diozu.
           email_subject: '"%{resource_title}" topaketak erregistroak gaitu ditu.'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketaren izen-emateak zabalik.
         upcoming_meeting:
           email_intro: '"%{resource_title}" topaketa 48 ordu baino lehen hasiko da.'
-          email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" topaketa jarraitzen duzulako. Aurreko estekan baja eman daiteke.
+          email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" topaketa jarraitzen duzulako. Aurreko estekan jarraitzeari utzi ahal diozu.
           email_subject: '"%{resource_title}" topaketa 48 ordu baino lehen hasiko da.'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa 48 ordu baino gutxiagoan hasiko da.
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa 48 ordu baino lehen hasiko da.
     gamification:
       badges:
         attended_meetings:
@@ -226,14 +226,14 @@ eu:
       admin:
         agenda:
           agenda_item:
-            add_agenda_item_child: Gehitu agenda eremua
-            agenda_item: Agenda eremua
-            agenda_item_children: Agenda item Childs
+            add_agenda_item_child: Gehitu agendan azpi-item bat
+            agenda_item: Agenda-itema
+            agenda_item_children: Agendako azpi-itemak
             down: Behera
             remove: Kendu
             up: Gora
           agenda_item_child:
-            agenda_item_child: Agenda Elementu umea
+            agenda_item_child: Agendako azpi-itema
             down: Behera
             remove: Kendu
             up: Gora
@@ -244,13 +244,13 @@ eu:
             title: Editatu agenda
             update: Gorde
           form:
-            add_agenda_item: Gehitu agenda datu-eremua
-            agenda_items: Agenda eremuak
+            add_agenda_item: Gehitu agendako itema
+            agenda_items: Agenda-itemak
             end_date: Amaiera data
             start_date: Hasiera data
           new:
             create: Sortu
-            title: Agenda berria
+            title: Beste agenda bat
           update:
             invalid: Arazo bat egon da agenda hau eguneratzean.
             success: Agenda ondo eguneratua.
@@ -263,7 +263,7 @@ eu:
           invite:
             decline: Deuseztatu gonbidapena
             invited_you_to_join_a_meeting: "%{invited_by}-k gonbidatu zaitu %{application} topaketan. Beheko estekan onartu dezakezu."
-            join: Erregistratu topaketa'%{meeting_title}'
+            join: Erregistratu '%{meeting_title}' topaketa
         invites:
           create:
             error: Arazo bat zegoen parte-hartzailea topaketara gonbidatzeko.
@@ -303,7 +303,7 @@ eu:
                 other: Topaketa ezin da suntsitu, berari lotutako %{count} proposamen dituelako.
             success: Topaketa zuzen ezabatu da.
           edit:
-            title: Editatu bilera
+            title: Editatu topaketa
             update: Eguneratu
           form:
             address_help: 'Helbidea: Geocoderrek erabiltzen du kokapena aurkitzeko'
@@ -464,7 +464,7 @@ eu:
           success: Topaketa zuzen sortu duzu.
         edit:
           back: Atzera
-          title: Editatu topaketa
+          title: Editatu zure topaketa
           update: Eguneratu
         filters:
           activity: Nire jarduera
