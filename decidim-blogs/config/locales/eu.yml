@@ -66,6 +66,7 @@ eu:
           count:
             one: "Edukin 1"
             other: "%{count} edukin"
+          empty: Oraindik ez dago argitalpenik.
     components:
       blogs:
         actions:
