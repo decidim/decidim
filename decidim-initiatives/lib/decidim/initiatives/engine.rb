@@ -3,8 +3,10 @@
 require "rails"
 require "active_support/all"
 require "decidim/core"
+require "decidim/initiatives/content_blocks/registry_manager"
 require "decidim/initiatives/current_locale"
 require "decidim/initiatives/initiative_slug"
+require "decidim/initiatives/menu"
 require "decidim/initiatives/query_extensions"
 
 module Decidim
@@ -94,16 +96,7 @@ module Decidim
       end
 
       initializer "decidim_initiatives.content_blocks" do
-        Decidim.content_blocks.register(:homepage, :highlighted_initiatives) do |content_block|
-          content_block.cell = "decidim/initiatives/content_blocks/highlighted_initiatives"
-          content_block.public_name_key = "decidim.initiatives.content_blocks.highlighted_initiatives.name"
-          content_block.settings_form_cell = "decidim/initiatives/content_blocks/highlighted_initiatives_settings_form"
-
-          content_block.settings do |settings|
-            settings.attribute :max_results, type: :integer, default: 4
-            settings.attribute :order, type: :string, default: "default"
-          end
-        end
+        Decidim::Initiatives::ContentBlocks::RegistryManager.register!
       end
 
       initializer "decidim_initiatives.add_cells_view_paths" do
@@ -112,23 +105,8 @@ module Decidim
       end
 
       initializer "decidim_initiatives.menu" do
-        Decidim.menu :menu do |menu|
-          menu.add_item :initiatives,
-                        I18n.t("menu.initiatives", scope: "decidim"),
-                        decidim_initiatives.initiatives_path,
-                        position: 2.4,
-                        active: %r{^/(initiatives|create_initiative)},
-                        if: !Decidim::InitiativesType.joins(:scopes).where(organization: current_organization).all.empty?
-        end
-
-        Decidim.menu :home_content_block_menu do |menu|
-          menu.add_item :initiatives,
-                        I18n.t("menu.initiatives", scope: "decidim"),
-                        decidim_initiatives.initiatives_path,
-                        position: 30,
-                        active: :inclusive,
-                        if: !Decidim::InitiativesType.joins(:scopes).where(organization: current_organization).all.empty?
-        end
+        Decidim::Initiatives::Menu.register_menu!
+        Decidim::Initiatives::Menu.register_home_content_block_menu!
       end
 
       initializer "decidim_initiatives.badges" do
