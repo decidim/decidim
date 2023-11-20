@@ -7,6 +7,8 @@ eu:
         image: Irudia
         proposals: Lotutako proposamenak
         title: Izenburua
+      ballot_style:
+        code: Kodea
       election:
         description: Deskribapena
         end_time: Bozketaren amaiera-data
@@ -21,6 +23,9 @@ eu:
       polling_station:
         address: Helbidea
         location: Kokapena
+        location_hints: Kokapen-argibideak
+        polling_station_managers: KudeatzaileaK
+        polling_station_president_id: Presidentea
         title: Izenburua
       question:
         max_selections: Gehieneko aukera kopurua
@@ -30,10 +35,13 @@ eu:
         user_id: Parte-hartzailea
       voting:
         banner_image: Bannerra
+        census_contact_information: Erroldako kontaktoen informazioa
         description: Deskribapena
         end_time: Bozketaren amaiera-data
         introductory_image: Aurkezpenaren irudia
+        promoted: Nabarmendua
         scope_id: Esparrua
+        show_check_census: Erakutsi "Egiaztatu errolda" orria
         start_time: Bozketaren hasiera-data
         title: Izenburua
         voting_type: Bozketa mota
@@ -53,6 +61,10 @@ eu:
               cant_be_changed: ezin da aldatu
             public_key:
               cant_be_changed: ezin da aldatu
+        voting:
+          attributes:
+            voting_type:
+              inclusion: "%{value} ez da bozketa mota baliozkoa"
   activerecord:
     errors:
       models:
@@ -118,6 +130,7 @@ eu:
           label: Baliozkotuta
           values:
             'false': Baliozkotuta
+            'true': Baliozkotu gabe
     components:
       elections:
         actions:
@@ -203,6 +216,7 @@ eu:
           trustee_mailer:
             body: "< p>Kaixo %{user_name}, </p><p> %{resource_name}-an sartu zaituzte, konfiantzazko gisa.< p>"
             subject: Gehitu zaituzte %{resource_name} -ren bermatzaile gisa
+            trustee_zone: Eraman bermatzaileen gunera
         menu:
           trustees: Bermatzaileak
         models:
@@ -244,9 +258,11 @@ eu:
             success: Galdera zuzen eguneratu da
         steps:
           create_election:
+            census: Errolda
             errors:
               census_codes_generated: Erroldarako sarbide kodeak ez dira sortu.
               census_frozen: Erroldarako sarbide kodeak ez dira esportatu.
+              census_uploaded: Ez da igo erroldarik aukeraketa honetarako.
               max_selections: Galderek ez dute <strong>balio zuzenik </strong> erantzun kopururako
               minimum_answers: Galderek gutxienez eduki behar dituzte <strong> bi erantzun </strong>.
               minimum_questions: <strong>aukerak gutxienez </strong> galdera bat eduki behar du.
@@ -261,6 +277,7 @@ eu:
             requirements:
               census_codes_generated: Sortu dira erroldarako sarbide kodeak.
               census_frozen: Erroldarako sarbide kodeak esportatu dira eta errolda izoztu da.
+              census_uploaded: Errolda igota dago.
               max_selections: Erantzun guztiek balio zuzena dute honetarako <strong>erantzun gehien</strong>.
               minimum_answers: Galdera bakoitzak badu <strong>gutxienez 2 erantzun</strong>.
               minimum_questions: Aukerak badu <strong>gutxienez galdera 1</strong>.
@@ -612,6 +629,7 @@ eu:
                 invalid_format: Igotako artxiboak ez du identifikazio-gakorik.
                 invalid_key: Ezin dira kargatu identifikazio-gakoak igotako artxiboan.
                 invalid_public_key: Igotako artxiboko identifikazio-giltzak ez datoz bat gordetako identifikazio-gako publikoarekin.
+              upload_legend: Serbidoreak zure identifikazio-gako publikoak ditu, baina zure nabigatzaileak oraindik ez ditu. Zure identifikazio-gakoak dituen fitxategia inportatu behar duzu zure ordenagailura, haiek sortu ondoren egin zenuen segurtasun-kopiatik.
             not_supported_browser_description: Dirudienez, bermatzaile gisa erabili ezin den nabigatzaile bat erabiltzen ari zara. Ziurtatu nabigatzailearen bertsio berriena erabiltzen ari zarela, edo saiatu nabigatzaile ezagunenetako edozein erabiltzen, zure zereginak bermatzaile gisa bete ahal izateko.
             not_supported_browser_title: Eguneratu nabigatzailea bermatzaile gisa aritzeko
             trustee_role_description: Plataforma honetan egindako bozketa batzuen bermatzaile gisa izendatu zaituzte.
@@ -1010,6 +1028,7 @@ eu:
             update: Eguneratu
           form:
             banner_image: Banner-irudia
+            census_contact_information: Erroldako kontaktoen informazioa
             introductory_image: Aurkezpenaren irudia
             promoted: Nabarmendua
             select_a_voting_type: Mesedez, hautatu bozketa mota bat
@@ -1074,6 +1093,10 @@ eu:
               launch_success: 'Sartzeko kodeen esportazioa hasi egin da. Laster posta elektroniko bat jasoko duzu hemen: %{email}'
             freeze:
               callout: Errolda itxita dago eta ezin da aldatu.
+              help_html: |
+                Erroldako datuak igo egin dira, kodeak sortu eta esportatu, zuzen.<br>
+                <strong> Orain prest zaude aukeraketa hasteko.</strong>
+                Erabili CSV esportatua, kode indibidualak dituena, zure erroldan zehar banatzeko, zure baliabideak erabiliz, edo aktibatu "Eman dezaket botoa?", kode hau edonork berreskuratzeko, bere erroldako datuak erabiliz.
             generate_access_codes:
               button: Sortu bozketaren Sartzeko Kodeak
               callout: Sartzeko kodeak orain sortu ahal dituzu. Kontuan hartu sortu ondoren, errolda ezin izango duzula berriro aldatu.
@@ -1199,6 +1222,8 @@ eu:
         in_person_votes:
           complete_voting:
             available_answers: 'Erantzun eskuragarriak:'
+            census_verified: Parte-hartzaileak oraindik ez du aurrez aurre botoa eman.
+            census_verified_with_online_vote: Parte-hartzaile honek botoa eman du online. Aurrez aurre bozkatzen badu, aurreko botoak baliogabetuko dira eta hau izango da bere behin betiko botoa.
             complete_voting: Osatu bozketa
             identify_another: Identifikatu beste parte-hartzaile bat
             questions_title: 'Botoa emateko eskubidea du ondoko galdera hauetan:'
