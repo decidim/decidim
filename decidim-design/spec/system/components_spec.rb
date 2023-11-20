@@ -63,6 +63,6 @@ describe "Components" do
   end
 
   context "when on tab panels page" do
-    it_behaves_like "showing the design page", "Tab panels", "layout_item"
+    it_behaves_like "showing the design page", "Tab Panels", "layout_item"
   end
 end
