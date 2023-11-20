@@ -40,6 +40,10 @@ eu:
           before_date_info: Erabilgarria da prozesua hasita badago eta aurreko prozesuko baimenak ezeztatu nahi badituzu.
           button: Ezeztatu guztiak
           button_before: Ezeztatu data honen aurrekoak
+          destroy:
+            confirm: Data horren aurreko baimenak baliogabetzea ezin da desegin. Ziur zaude jarraitu nahi duzula?
+            confirm_all: Baimen guztiak baliogabetzea ezin da desegin. Ziur zaude jarraitu nahi duzula?
+          destroy_nok: Arazo bat izan da baimen guztiak baliogabetzean.
           destroy_ok: Bat datozen baimen guztiak zuzen ezeztatu dira.
           info: Guztira %{count} parte-hartzaile egiaztatuta daude.
           no_data: Ez dago parte-hartzaile egiaztaturik.
@@ -55,7 +59,7 @@ eu:
         csv_census:
           help:
             - Administratzaileek onartutako parte-hartzaileen posta elektronikoak dituen CSV igotzen dute. 
-            - 
+            - CSV fitxategian posta elektroniko bat duten parte-hartzaileak soilik egiaztatu ahal dira.
         id_documents:
           help:
             - Erabiltzaileek beren identifikazio informazioa bete, eta dokumentuaren kopia bat kargatzen dute.
@@ -69,6 +73,7 @@ eu:
             - Bidalitako mezua markatzen du.
             - Behin bidalitako mezua markatzen duzunean, erabiltzaileak kodea sartu eta egiaztatu egingo du.
       csv_census:
+        explanation: Egiaztatu erakundearen errolda erabiliz.
         name: Erakundearen zentsua
       direct: Zuzeneko
       help: Laguntza
@@ -78,6 +83,7 @@ eu:
       multistep: Multi-Step
       name: izena
       postal_letter:
+        explanation: Kode bat duen gutun bat bidaliko dizugu, eta kode hori sartu beharko duzu zure helbidea egiaztatu ahal izateko.
         name: Kodea posta bidez
     events:
       verifications:
@@ -93,10 +99,12 @@ eu:
           no_data_stored: Ez dago datu gorderik.
         create:
           error: Arazo bat egon da baimena sortzean.
+          success: Zuzen baimendua izan zara.
           transferred: 'Zure baimenetan oinarrituta, honako datu hauek berreskuratu ditugu:'
           unconfirmed: Zure posta elektronikoa baieztatzeko, baimena eman behar duzu.
         destroy:
           error: Arazo bat egon da baimena ezabatzean.
+          success: Baimena zuzen ezabatu duzu.
         first_login:
           actions:
             another_dummy_authorization_handler: Egiaztatu baimenen kudeatzailearen beste adibide baten aurka
@@ -132,7 +140,10 @@ eu:
             create:
               error: Errore bat egon da errolda inportatzean.
               success: Zuzen inportatutako %{count} itemak (%{errors} errors).
+            destroy_all:
+              success: Erroldako datu guztiak ezabatu dira.
           destroy:
+            confirm: Errolda osoa ezabatzea ezin da desegin. Ziur zaude jarraitu nahi duzula?
             title: Zentsu-datu guztiak ezabatu
           index:
             data: Guztira, badaude %{count} erregistro kargatuta. Azken karga-data izan zen %{due_date}.
@@ -168,14 +179,19 @@ eu:
               update: eguneratzearen
             update:
               error: Arazo bat egon da konfigurazioa eguneratzean.
+              success: Ezarpena zuzen eguneratua.
           confirmations:
             create:
               error: Egiaztapena ez dator bat. Mesedez, saiatu berriro edo ukatu egiaztapena, parte-hartzaileak aldatu dezan.
+              success: Parte-hartzailea zuzen egiaztatua.
             new:
               introduce_user_data: Idatzi datuak irudian
               reject: Ukatu
               verify: Ziurtatu
           offline_confirmations:
+            create:
+              error: Egiaztapena ez dator bat. Saiatu berriro edo esan parte-hartzaileari hura aldatzeko.
+              success: Parte-hartzailea zuzen egiaztatua.
             new:
               cancel: Ezeztatu
               introduce_user_data: Sartu erabiltzailearen helbide elektronikoa eta dokumentuaren datuak
@@ -199,6 +215,7 @@ eu:
             error: Arazo bat egon da zure dokumentua igotzean.
             success: Dokumentua ondo igota.
           edit:
+            being_reviewed: Zure dokumentuak berrikusten ari gara. Laster egiaztatuko zaituzte.
             offline: Erabili lineaz kanpoko egiaztapena
             online: Erabili lineako egiaztapena
             rejection_clarity: Ziurtatu informazioa argi eta garbi ageri dela kargatutako irudian.
@@ -228,18 +245,25 @@ eu:
           postages:
             create:
               error: Errorea gutuna bidalita bezala markatzean.
+              success: Eskutitza ondo markatua, bidalia bezala.
         authorizations:
           create:
             error: Arazo bat egon da zure eskaerarekin.
+            success: Mila esker! Egiaztapen-kode bat bidaliko dugu zure helbidera.
           edit:
             send: Berretsi
+            title: Sartu jaso duzun egiaztapen-kodea.
           new:
             send: Bidali iezadazu gutun bat
             title: Eskatu egiaztapen-kodea
+          update:
+            error: Zure egiaztapen-kodea ez dator bat gurearekin. Mesedez, begiratu berriro bidali dizugun gutuna.
+            success: Zorionak! Zuzen egiaztatu zara.
       sms:
         authorizations:
           create:
             error: Arazo bat egon da zure eskaerarekin.
+            success: Mila esker! SMS bat bidali dugu zure telefonora.
           destroy:
             success: Egiaztapen kodea behar bezala berrezarri da. Sartu berriro zure telefono zenbakia.
           edit:
@@ -252,6 +276,7 @@ eu:
             send: Bidal iezadazu SMS bat
             title: Eskatu zure egiaztapen-kodea
           update:
+            error: Zure egiaztapen-kodea ez dator bat gurearekin. Mesedez, begiratu berriro bidali dizugun SMSa.
             success: Zorionak! Zuzen egiaztatu zara.
   errors:
     messages:
