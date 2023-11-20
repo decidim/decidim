@@ -106,7 +106,7 @@ module Decidim
           end_date: 2.months.from_now,
           participatory_process_group: process_group,
           participatory_process_type: process_type,
-          scope: n.positive? ? nil : Decidim::Scope.reorder(Arel.sql("RANDOM()")).first
+          scope: n.positive? ? nil : Decidim::Scope.all.sample
         }
 
         process = Decidim.traceability.perform_action!(
