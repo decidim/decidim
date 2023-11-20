@@ -407,6 +407,9 @@ cs:
           all: Vše
         filter_meeting_space_values:
           all: Vše
+      calendar:
+        meeting_to_event:
+          read_more: Přečtěte si více o této schůzce
       calendar_modal:
         calendar_url: Adresa URL kalendáře
         copy_calendar_url: Kopírovat
