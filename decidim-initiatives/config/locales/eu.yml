@@ -173,7 +173,7 @@ eu:
             email_subject: Beste maila bat osatua!
             notification_title: Zure <a href="%{resource_path}">%{resource_title}</a> ekimenak sinaduren %{percentage} lortu ditu.
           follower:
-            email_intro: '%{resource_title} ekimena sinadurak% %{percentage}lortu ditu!'
+            email_intro: '%{resource_title} ekimenak %{percentage}% sinadura lortu ditu!'
             email_outro: Jakinarazpen hau jaso duzu %{resource_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
             email_subject: Beste maila bat osatua!
             notification_title: <a href="%{resource_path}">%{resource_title}</a> ekimenek sinadurak% %{percentage}lortu dituzte.
@@ -443,6 +443,7 @@ eu:
         delete_attachment: Ezabatu
       index:
         title: Ekimenak
+        uninitialized: Administratzaile batek oraindik ez ditu ekimenak konfiguratu
       initiative_signatures:
         fill_personal_data:
           continue: Jarraitu
@@ -643,7 +644,7 @@ eu:
         sms_code: SMS kodea egiaztatzea
         sms_phone_number: Telefono mugikorraren zenbakia
         step: Step %{current} of %{total}
-        title: Saioa hasi %{initiative_title}
+        title: Sinatu %{initiative_title}
       initiatives:
         initiative:
           check: Begiratu
