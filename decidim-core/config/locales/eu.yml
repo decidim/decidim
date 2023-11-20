@@ -399,16 +399,18 @@ eu:
         expired:
           authorize: Errebokatu "%{authorization}" rekin
           explanation: Zure baimena iraungi da. Ekintza hau burutzeko, "%{authorization}" berrantolatu behar duzu.
-          title: Baimena iraungi da
+          title: Baimena iraungi egin da
         incomplete:
           cancel: Utzi
           invalid_field: "%{field}"
           reauthorize: Berriz eskuratu baimena
-          title: Mesedez, eskura ezazu berriz baimena
+          title: Mesedez, eman berriro baimena
         missing:
           authorize: 'Baimena eskuratu honen bidez: "%{authorization}"'
           explanation: 'Ekintza hau egiteko, baimen hau behar duzu: "%{authorization}".'
           title: Baimena behar da
+        ok:
+          title: Orri honetan baimena izan duzu. Mesedez, kargatu orria zure ekintza burutzeko.
         pending:
           title: Baimena oraindik ere egiten ari da
         unauthorized:
@@ -507,7 +509,7 @@ eu:
         name: HTML blokea
       last_activity:
         name: Azken jarduerak
-        title: Azken jarduerak
+        title: Azken jarduera
         view_all: Ikusi dena
       last_activity_settings_form:
         max_last_activity_users: Abatar parte-hartzaileen gehieneko kopurua oraintsuko jarduera erakusteko
@@ -561,7 +563,7 @@ eu:
           newsletter: Jaso nahi dut noizbehinka informazio garrantzitsua duen buletina
           newsletter_title: Harremanetarako baimena
           sign_up: Erregistratu
-          subtitle: Sortu kontu bat eztabaidetan parte hartzeko eta proposamenen alde egiteko
+          subtitle: Sortu kontu bat eztabaida eta laguntza proposamenetan parte hartzeko.
           terms: zerbitzuaren baldintzak
           tos_agreement: 'Erregistratzean hau onartzen duzu: %{link}.'
           tos_title: Zerbitzuaren baldintzak
@@ -642,7 +644,7 @@ eu:
         date_and_time: Data eta ordua
         reference: Erreferentzia
         request_method: Eskaera-metodoa
-        title: Arazo bat izan da gure zerbitzariarekin
+        title: Arazo bat egon da gure serbidorearekin
         try_later: Mesedez, saiatu berriro geroago. Erroreak jarraitzen badu, mesedez, kopiatu ondoko informazio hau eta bidali plataformaren mantentzaileei partekatu nahi duzun bestelako informazioarekin batera.
         unknown: Ezezaguna
         url: URL-a
@@ -657,13 +659,13 @@ eu:
           affected_user:
             email_intro: 'Zuzenketa bat onartu da honako: %{amendable_title}. Orrialde honetatik ikusi dezakezu:'
             email_outro: 'Jakinarazpen hau jaso duzu honen egilea zarelako: %{amendable_title}.'
-            email_subject: Aldaketa onartuta %{amendable_title} %{emendation_author_nickname}
+            email_subject: Onartu da %{emendation_author_nickname} ren %{amendable_title} zuzenketa
             notification_title: '<a href="%{emendation_author_path}">%{emendation_author_nickname} egileak sortutako </a><a href="% emendation_path}">zuzenketa onartu da honetarako: <a href="%{amendable_path}">%{amendable_title}</a>.'
           follower:
             email_intro: 'Zuzenketa bat bertan bera onartu %{amendable_title}. Orrialde hau ikusi dezakezu:'
             email_outro: Jakinarazpen hau jaso duzu %{amendable_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-            email_subject: Aldaketa onartuta %{amendable_title} %{emendation_author_nickname}
-            notification_title: The <a href="%{emendation_path}">zuzenketa</a> sortutako <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> izan da onartu <a href="%{amendable_path}">%{amendable_title}</a>.
+            email_subject: '%{emendation_author_nickname} ren aldaketa onartuta honetarako: %{amendable_title}'
+            notification_title: '<a href="%{emendation_author_path}">%{emendation_author_nickname}</a> k sortutako <a href="%{emendation_path}"></a> zuzenketa onartu da honetarako: <a href="%{amendable_path}">%{amendable_title}</a>.'
         amendment_created:
           affected_user:
             email_intro: 'Beste zuzenketa bat sortu da honetarako: %{amendable_title}. Orrialde honetatik ikusi dezakezu:'
@@ -695,23 +697,23 @@ eu:
           follower:
             email_intro: 'Aldaketa ukatu egin da %{amendable_title}. Orrialde honetatik ikus dezakezu:'
             email_outro: Jakinarazpen hau jaso duzu %{amendable_title} jarraitzen duzulako. Aurreko estekan jakinarazpenak jasotzeari utzi ahal diozu.
-            email_subject: Aldaketa baztertua %{amendable_title} %{emendation_author_nickname}
+            email_subject: '%{emendation_author_nickname} k baztertu du %{amendable_title} aldaketa'
             notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> k sortutako <a href="%{emendation_path}">zuzenketa </a> <a href="%{amendable_path}">%{amendable_title}</a> k ukatu du.
       attachments:
         attachment_created:
           email_intro: 'Dokumentu berri bat gehitu zaio %{resource_title}-ri. Orrialde hau ikusi dezakezu:'
           email_outro: Jakinarazpen hau jaso duzu %{resource_title} jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari utzi ahal diozu.
           email_subject: '%{resource_title} eguneratzea'
-          notification_title: <a href="%{resource_path}"> dokumentu berri bat</a> gehitu zaio <a href="%{attached_to_url}">%{resource_title}-ri</a>
+          notification_title: '<a href="%{resource_path}"> dokumentu berri bat</a> gehitu zaio honi: <a href="%{attached_to_url}">%{resource_title}</a>'
       components:
         component_published:
           email_intro: '%{resource_title} osagaia %{participatory_space_title}da aktibo dagoenean. Orrialde hau ikusi dezakezu:'
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: '%{participatory_space_title} eguneratze bat'
-          notification_title: '%{resource_title} osagaia aktibo dago <a href="%{resource_path}">%{participatory_space_title}</a>'
+          notification_title: '%{resource_title} osagaia aktibo dago honetarako: <a href="%{resource_path}">%{participatory_space_title}</a>'
       email_event:
         email_greeting: Kaixo, %{user_name},
-        email_intro: 'Eguneratze da "%{resource_title}". Orri honetan ikus daiteke:'
+        email_intro: '"%{resource_title}"eguneratu da. Orri honetan ikus dezakezu:'
         email_outro: Jakinarazpen hau jaso duzu "%{resource_title}” jarraitzen duzulako. Jarraitzeari utzi diezaiokezu aurreko estekan.
         email_subject: '%{resource_title} eguneratzea'
       gamification:
@@ -774,7 +776,7 @@ eu:
       nickname_event:
         notification_body: Zuzendu dugu nola erabiltzen diren ezizenak bikoizketarik egon ez dadin, eta hori egiteko jada ez dira bereizten letra larriak eta xeheak. < br/>Tu alias beste berdin baten ondoren sortu zen, beraz, automatikoki berrizendatu dugu. < a href = " % {link_to_account_settings}" >zure kontuaren konfiguraziotik alda dezakezu.
       notification_event:
-        notification_title: 'Gertaera bat gertatu da hemen: <a href="%{resource_path}">%{resource_title}</a>.'
+        notification_title: 'Gertaera bat jazo da hemen: <a href="%{resource_path}">%{resource_title}</a>.'
       reports:
         resource_hidden:
           email_intro: Administratzaile batek bere %{resource_type} ezabatu du erreportatua izan delako arrazoi honengatik %{report_reasons}.
@@ -798,7 +800,7 @@ eu:
           email_intro: Parte-hartzailea %{name} (%{nickname}) ofizializatu da.
           email_outro: Jakinarazpen hau jaso duzu erakundearen administratzailea zarelako.
           email_subject: "%{name} ofizializatu egin da"
-          notification_title: Parte-hartzailea %{name} (%{nickname}) ofizializatu da.
+          notification_title: '%{name} (%{nickname}) parte-hartzailea ofizializatu egin da.'
     export_mailer:
       download_your_data_export:
         click_button: 'Egin klik hurrengo loturan zure datuak deskargatzeko. <br/>Artxiboa eskuragai egongo da data honetara arte %{date}.<br/>Irekitzeko beharko duzu <a href="https://www.7-zip.org/">7-Zip</a> (Windowserako), <a href="https://www.keka.io/en/">Keka</a> (para MacOS) o <a href="https://peazip.github.io">PeaZip</a> (Linuxerako). Pasahitza: %{password}'
@@ -822,7 +824,7 @@ eu:
       online_calculator_name: MD5 kalkulagailua linean
       replicate_help: Hatz-marka hori SHA256 hashing algoritmo baten bidez kalkulatzen da. Zeure buruari errepikatu ahal izateko, %{online_calculator_link} erabil dezakezu eta kopiatu iturriaren datuak itsatsi.
       source: Iturria
-      title: Hatz
+      title: Hatz-marka
       value: Balioa
     followers:
       no_followers: Ez da jarraitzailerik oraindik.
@@ -896,13 +898,13 @@ eu:
           unearned_another: Erabiltzaile honek oraindik ez du jarraitzailerik.
           unearned_own: Oraindik ez duzu jarraitzailerik.
         index:
-          badge_title: "%{name} txapela"
+          badge_title: "%{name} garaikurra"
           how: Nola irabaz dezakezu?
           page_description: Garaikurrak parte-hartzaileen ekintzetan eta plataforma aurrerapenean aitortzen dira. Plataforma ezagutu, bertan parte hartu eta elkarreraginean hasten zarenean, garaikurrak irabazten dituzu. Hona hemen garaikurren zerrenda eta irabaztzeko dituzun modu batzuk.
-          title: Intsigniak
+          title: Garaikurrak
       description: Garaikurrak parte-hartzaileen ekintzetan eta plataforma aurrerapenean aitortzen dira. Plataforma ezagutu, bertan parte hartu eta elkarreraginean hasten zarenean, garaikurrak irabazten dituzu. Hona hemen garaikurren zerrenda eta irabaztzeko dituzun modu batzuk.
       level: '%{level}maila'
-      title: Zer da intsignia bat?
+      title: Zer dira garaikurrak?
     group_admins:
       actions:
         are_you_sure: Ziur zaude? Honek ez du partaidea taldetik aterako.
@@ -1082,7 +1084,7 @@ eu:
         add_conversation_users:
           add_max_users: 'Gehitu erabiltzaileak elkarrizketara: gehienez 9 erabiltzaile'
           add_users_placeholder: Bilatu...
-          modal_title: Elkarrizketa berria
+          modal_title: Beste elkarrizketa bat
           no_results: Emaitzarik ez
           participant_with_disabled_message_reception: Parte-hartzaile honek ez du mezu pribaturik jaso nahi.
         create:
@@ -1131,7 +1133,7 @@ eu:
       users:
         description: Parte-hartzaile kopurua erakundean
         object: parte-hartzaileak
-        title: Parte-hartzaileak
+        title: erabiltzaileak
     newsletter_mailer:
       newsletter:
         no_reply_notice: Posta elektroniko hori jakinarazpen-helbide batetik bidali zen, eta ezin du posta elektronikorik sartu. Mesedez, ez erantzun mezu honi.
@@ -1299,7 +1301,7 @@ eu:
       sidebar:
         badges:
           info: Plataforman jarduera espezifikoak burutzeko doikuntzak lortzen dira.
-          title: Intsigniak
+          title: Garaikurrak
       user:
         actions:
           create_user_group: Sortu taldea
@@ -1408,7 +1410,7 @@ eu:
         reason: Arrazoia
         report: Txostena
         spam: Bertan badago clickbait-ik, publizitaterik edo iruzurrik.
-        title: Salatu arazo bat
+        title: Salatu eduki desegokia
       flag_user_modal:
         already_reported: Eduki hau jada salatuta dago, eta administratzaile batek berrikusiko du.
         block: Blokeatu parte-hartzaile hau
@@ -1419,7 +1421,7 @@ eu:
         offensive: Bertan badago arrazakeriarik, sexismorik, irainik, eraso pertsonalik, heriotza-mehatxurik, suizidio-eskaerarik edo beste edozein eratako gorroto-diskurtsorik.
         report: Jakinarazi
         spam: Bertan badago clickbait-ik, publizitaterik edo gidoi-robotik.
-        title: Jakinarazi erabiltzaile desegokia
+        title: Salatu erabiltzaile desegokia
       floating_help:
         help: Laguntza
       follow_button:
@@ -1556,7 +1558,7 @@ eu:
         header: Amaitu zure kontua sortzea
         nickname_help: Zure ezizena %{organization}-an. Letrak, zenbakiak, '-' eta '_' soilik eduki ditzake.
         submit_button: Gorde
-        subtitle: Gonbidapena onartzen baduzu, ezarri zure ezizena eta pasahitza.
+        subtitle: Gonbidapena onartzen baduzu, mesedez, ezarri zure ezizena eta pasahitza.
       invitation_removed: Zure gonbidapena kendu egin da.
       invitation_token_invalid: Gonbidapen token hori ez da baliozkoa!
       new:
@@ -1617,7 +1619,7 @@ eu:
         old_password_help: Zure kontuaren aldaketak baieztatzeko, mesedez eman zure egungo pasahitza.
         password_help: "%{minimum_characters} gutxieneko karaktereek, ez dute arruntegiak izan behar (adibidez, 123456), zure ezizenaren eta posta elektronikoaren desberdinak izan behar dute."
         password_help_admin: "%{minimum_characters} gutxieneko karaktereek, ez dute arruntegiak izan behar (adibidez, 123456), zure ezizenaren eta posta elektronikoaren desberdinak izan behar dute, baita zure pasahitz zaharren desberdina ere."
-        title: Pasahitza aldatu da
+        title: Pasahitza aldatu egin da
       new:
         forgot_your_password: Pasahitza ahaztu duzu?
         send_me_reset_password_instructions: Bidali pasahitza berrezartzeko argibideak
@@ -1775,20 +1777,23 @@ eu:
           accept_only_essential: Funtsezkoak soiik onartu.
           description: Cookie-ak erabiltzen ditugu gure webgunean, haien errendimendua eta edukia hobetzeko. Cookieei esker, erabiltzaile-esperientzia eta eduki pertsonalizatuagoak eskain ditzakegu sare sozialetako gure kanaletatik.
           settings: Ezarpenak
-          title: Webgunean erabiltzen diren cookiei buruzko informazioa.
+          title: Informazioa webgunean erabiltzen diren cookiei buruz
         modal:
           accept_all: Onartu dena
           accept_only_essential: Funtsezkoak soiik onartu.
           analytics:
             description: Cookie hauek erabiltzen dira webguneko ikusleak neurtzeko eta analizatzeko, webgunea hobetzen laguntzeko helburuaz.
+            title: Analitikak eta estatistikak
           description: Cookieak erabiltzen ditugu webgunearen oinarrizko funtzioak bermatzeko eta zure online esperientzia hobetzeko. Cookien erabilera konfiguratu eta onartu ahal duzu eta nahi duzunean aldatu haiek onesteko aukerak.
           essential:
             description: Cookie horiek webgunearen funtsezko funtzionaltasuna ahalbidetzen dute eta erabiltzaileak seguru mantentzen laguntzen dute. Automatikoki gordetzen dira nabigatzailean eta ezin dira desaktibatu.
+            title: Funtsezkoak
           marketing:
             description: Cookie hauek web orria erabiltzeko moduari buruzko informazioa biltzen dute eta erabil daitezke zuri zerbitzu pertsonalizatuagoa emateko parte hartzen duzun gune desberdinetan.
+            title: Marketina
           preferences:
             description: Cookie horiei esker, webguneak gogora ditzake iraganean webgune honetan hautatu diren aukerak, erabiltzaileei esperientzia pertsonalizatuagoa emateko.
-            title: Hobespenak
+            title: Lehentasunak
           title: Cookien konfigurazioa
         warning:
           all_categories: cookie guztiak
@@ -1800,6 +1805,7 @@ eu:
         cc_by_license: Creative Commons lizentziaduna
         data_consent_settings: Cookien konfigurazioa
         decidim_logo: Decidimen logoa
+        decidim_title: Decidim
         download_open_data: Deskargatu Open Data fitxategiak
         log_in:
         made_with_open_source: Gune hau egiteko, <a target="_blank" href="https://github.com/decidim/decidim">software libre</a> erabili da.
