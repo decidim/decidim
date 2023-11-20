@@ -377,6 +377,9 @@ eu:
               one: Izen-emate 1 egon da.
               other: Dena den, %{count} matrikulazioak.
             slug_help_html: 'URL slugak erabiltzen dira hitzaldi honetako URLak sortzeko. Soilik onartzen ditu gutunak, zenbakiak eta gidoiak, eta letra batez hasi behar du. Adibidea: % {url}'
+        content_blocks:
+          highlighted_conferences:
+            max_results: Erakusteko gehieneko elementu kopurua
         diplomas:
           edit:
             save: Gorde
