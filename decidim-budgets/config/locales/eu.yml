@@ -163,8 +163,8 @@ eu:
         continue: Jarraitu
         more_information: Informazio gehiago
       budget_list_item:
-        voting_finished: Eman duzu botoa proiektu honetan
-        voting_started: Hasi zara botoa ematen proiektu honetan
+        voting_finished: Eman duzu botoa aurrekontu honetan
+        voting_started: Hasi zara botoa ematen aurrekontu honetan
       budgets_list:
         cancel_order:
           more_than_one: ezabatu zure botoa hemen %{name} eta hasi berriro
