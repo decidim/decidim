@@ -393,6 +393,9 @@ fr-CA:
           all: Tous
         filter_meeting_space_values:
           all: Tous
+      calendar:
+        meeting_to_event:
+          read_more: En savoir plus sur cette réunion
       calendar_modal:
         calendar_url: URL du calendrier
         copy_calendar_url: Copier
