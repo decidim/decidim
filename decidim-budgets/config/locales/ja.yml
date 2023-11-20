@@ -20,6 +20,8 @@ ja:
         scope_id: スコープ
   activerecord:
     models:
+      decidim/budgets/budget:
+        other: 予算
       decidim/budgets/project:
         other: プロジェクト
   decidim:
@@ -91,6 +93,7 @@ ja:
           index:
             actions: アクション
             cancel: キャンセル
+            change_budget:
             change_category: カテゴリの変更
             change_scope: スコープの変更
             change_selected: 選択した状態を変更
@@ -101,6 +104,7 @@ ja:
             selected: 選択済
             title: プロジェクト
             update: 更新
+            update_budget_button: プロジェクトの予算を更新
             update_scope_button: スコープを更新
           new:
             create: 作成
@@ -108,6 +112,10 @@ ja:
           update:
             invalid: プロジェクトの更新中に問題が発生しました。
             success: プロジェクトを更新しました。
+          update_budget:
+            invalid: 'これらのプロジェクトは既に同じ予算に含まれているか、予算が最大許容額を超えています: %{projects}。'
+            select_a_project: プロジェクトを選択してください。
+            success: 'プロジェクトが %{subject_name} 予算に更新されました: %{projects}。'
           update_category:
             invalid: 'これらのプロジェクトは既に %{subject_name} カテゴリを持っています: %{projects}'
             select_a_category: カテゴリを選択してください。
@@ -278,6 +286,7 @@ ja:
         select_projects: プロジェクトを選択
         show:
           budget: 予算
+      prompt: 予算を選択
       vote_reminder_mailer:
         vote_reminder:
           email_budgets: '未完了の投票場所:'
