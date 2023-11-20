@@ -48,7 +48,7 @@ eu:
         cta_button_path: Deitu Ekintza-botoiaren bidera
         cta_button_text: Deitu Ekintza-botoiaren testura
         customize_welcome_notification: Pertsonalizatu ongietorri-jakinarazpena
-        default_locale: Eskualdeko ezarpen lehenetsiak
+        default_locale: Kokapen lehenetsia
         description: Deskribapena
         enable_omnipresent_banner: Erakutsi banner nonahikoa
         enable_participatory_space_filters: Gaitu iragazkiak parte hartzeko gunean
