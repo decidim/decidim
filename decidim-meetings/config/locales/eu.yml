@@ -239,6 +239,7 @@ eu:
             up: Gora
           create:
             invalid: Arazo bat egon da agenda hau sortzean.
+            success: Agenda ondo sortua.
           edit:
             title: Editatu agenda
             update: Gorde
@@ -335,13 +336,16 @@ eu:
             services: Zerbitzuak
           unpublish:
             invalid: Arazo bat egon da topaketa hau desargitaratzean.
+            success: Topaketa zuzen desargitaratua.
           update:
             invalid: Arazo bat egon da topaketa hau eguneratzean.
+            success: Topaketa zuzen eguneratua.
         meetings_poll:
           form:
             title: Editatu %{questionnaire_for} inkestaren galdetekgia
           update:
             invalid: Arazo bat egon da topaketa-inkesta hau eguneratzean.
+            success: Topaketaren inkesta zuzen eguneratua.
         registrations:
           edit:
             save: Gorde
@@ -356,6 +360,7 @@ eu:
             registrations_count:
               one: Izen-emate %{count} izan da.
               other: Dena den, %{count} matrikulazioak.
+            reserved_slots_help: Utzi 0, ez baduzu erreserbatutako espaziorik.
             reserved_slots_less_than: '%{count} baino gutxiago izan behar du'
             title: Izen-emateak
           update:
@@ -385,6 +390,9 @@ eu:
           all: Guztiak
         filter_meeting_space_values:
           all: Guztiak
+      calendar:
+        meeting_to_event:
+          read_more: Irakurri gehiago topaketa honetaz
       calendar_modal:
         calendar_url: Egutegiaren URLa
         copy_calendar_url: Kopiatu
@@ -433,6 +441,8 @@ eu:
         registration_mailer:
           confirmation:
             subject: Zure topaketarako izen-ematea baieztatua izan da
+      meeting:
+        not_allowed: Ezin duzu topaketa hau ikusi.
       meeting_closes:
         edit:
           back: Atzera
@@ -617,6 +627,7 @@ eu:
         withdraw: Kenduta
       withdraw:
         error: Errore bat egon da topaketa bertan behera uztean.
+        success: Zuzenketa zuzen kendu da.
     metrics:
       meetings:
         description: Sortutako topaketa kopurua
