@@ -21,6 +21,8 @@ ja:
         scope_id: スコープ
   activerecord:
     models:
+      decidim/budgets/budget:
+        other: 予算
       decidim/budgets/project:
         other: プロジェクト
   decidim:
