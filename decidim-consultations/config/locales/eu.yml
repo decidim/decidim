@@ -11,7 +11,7 @@ eu:
         questions: Galderak
         slug: URL slug
         start_voting_date: Botoa hasten da
-        subtitle: azpititulua
+        subtitle: Azpititulua
         title: Izenburua
       question:
         banner_image: Banner irudia
@@ -23,7 +23,7 @@ eu:
         max_votes: Gehieneko boto kopurua
         min_votes: Gutxieneko boto kopurua
         origin_scope: Esparrua
-        origin_title: Origin
+        origin_title: Jatorria
         origin_url: Jatorria URLa
         participatory_scope: Esparru parte-hartzailea
         promoter_group: Sustatzailearen taldea
@@ -31,7 +31,7 @@ eu:
         reference: Erreferentzia
         scope: Udal Arloa
         slug: URL slug
-        subtitle: azpititulua
+        subtitle: Azpititulua
         vote: Kanpoko boto sistema
         what_is_decided: Zer erabaki
       response:
@@ -334,10 +334,10 @@ eu:
       show:
         read_more: Irakurri gehiago
       statistics:
-        assistants_count_title: laguntzaileak
-        comments_count_title: Oharrak
+        assistants_count_title: Laguntzaileak
+        comments_count_title: Iruzkinak
         meetings_count_title: Bilerak
-        supports_count_title: euskarri
+        supports_count_title: Botoak
       technical_info:
         technical_data: Datu teknikoak
       vote_button:
@@ -355,7 +355,7 @@ eu:
         close_modal: Itxi leihoa
         confirm: Berretsi
         contextual_help: Berretsi hautatutako aukera.
-        title: 'Kontsulta: berretsi laguntza'
+        title: 'Kontsulta: berretsi botoa'
     resources:
       consultations:
         actions:
