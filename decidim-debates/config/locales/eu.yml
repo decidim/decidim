@@ -203,7 +203,7 @@ eu:
           email_intro: 'Debate sortzea ez dago aktibo %{participatory_space_title}. Oraindik eztabaidak ireki ditzakezu orri honetatik:'
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: Debate sortzea desgaituta %{participatory_space_title}
-          notification_title: Debateen sorrera desaktibatuta dago orain <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Eztabaiden sorrera orain desaktibatuta dago <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         creation_enabled:
           email_intro: 'Oraineztabaida berriak hasi ditzakezu hemen: %{participatory_space_title}! Hasi parte-hartzea orri honetan:'
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
