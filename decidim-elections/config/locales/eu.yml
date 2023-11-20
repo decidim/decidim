@@ -881,8 +881,10 @@ eu:
         monitoring_committee_members:
           create:
             invalid: Arazo bat egon da jarraipen-batzordekide hau sortzean.
+            success: Jarraipen-batzordeko kidea zuzen sortua.
           destroy:
             invalid: Arazo bat egon da jarraipen-batzordekide hau ezabatzean.
+            success: Jarraipen-batzordeko kidea zuzen ezabatua.
           form:
             existing_user: Parte-hartzailea badago
             non_user: Gonbidatu beste parte-hartzaile bat
