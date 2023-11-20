@@ -109,6 +109,7 @@ eu:
             values:
               accepted: Onartuta
               evaluating: Ebaluatzen
+              not_answered: Erantzun gabe
               published: Argitaratua
               rejected: Ukatua
               validating: Baliozkotze teknikoa
@@ -117,6 +118,9 @@ eu:
             label: Esleituta ebaluatzaileari
           with_any_state:
             label: Erantzunda
+            values:
+              state_not_published: Erantzun gabe
+              state_published: Erantzunda
         search_placeholder:
           id_string_or_title_cont: Bilatu %{collection} edo ID edo izenburuaren arabera.
     components:
@@ -548,6 +552,7 @@ eu:
         proposals_imports:
           create:
             invalid: Arazo bat egon da proposamenak inportatzean.
+            success: "%{number} proposamen ondo inportatuta."
           new:
             create: Proposamenak inportatu
             no_components: Espazio honetan ez dago beste proposamenik proposamenak inportatzeko.
