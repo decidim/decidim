@@ -476,6 +476,8 @@ ja:
           subtitle: ユーザ登録を完了するには、次のフォームに記入してください
           username_help: 投稿に表示される公表名。匿名性を保証する目的で、任意の名前にすることができます。
       registrations:
+        create:
+          error: アカウント作成中に問題が発生しました。
         new:
           already_have_an_account?: 既にアカウントをお持ちですか？
           newsletter: 関連するお知らせを受け取る
