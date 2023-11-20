@@ -51,7 +51,7 @@ module Decidim
 
         Decidim.icons.register(name: "scan-line", icon: "scan-line", category: "system", description: "", engine: :proposals)
         Decidim.icons.register(name: "edit-2-line", icon: "edit-2-line",
-                               category: "actions", description: "Edit icon for Collaborative Drafts", engine: :proposals)
+                               category: "action", description: "Edit icon for Collaborative Drafts", engine: :proposals)
 
         Decidim.icons.register(name: "bookmark-line", icon: "bookmark-line", category: "system", description: "", engine: :proposals)
         Decidim.icons.register(name: "arrow-right-s-fill", icon: "arrow-right-s-fill", category: "system", description: "", engine: :proposals)
