@@ -15,7 +15,12 @@ eu:
       dummy:
         settings:
           global:
+            guided: Input gidatua
             guided_help: Laguntza-testua
+            guided_readonly: Input desgaitua
+            guided_rich: Input gidatu aberastua
+            guided_rich_help_html: HTML<strong>ayuda</strong> testua
+            guided_rich_readonly_html: HTML<strong>laguntza</strong>testua input desgaiturako
             readonly_attribute: Soilik irakurtzeko atributua
             test: Test bat
             test_choices:
