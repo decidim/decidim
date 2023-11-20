@@ -42,6 +42,8 @@ module Decidim
 
         return permission_action unless process
 
+        view_private_users_menu?
+
         moderator_action?
         collaborator_action?
         valuator_action?
@@ -51,6 +53,16 @@ module Decidim
       end
 
       private
+
+      def view_private_users_menu?
+        return unless permission_action.action == :read &&
+                      permission_action.subject == :space_private_user
+
+        return unless process.private_space?
+        return unless can_manage_process?(role: :collaborator)
+
+        allow!
+      end
 
       # It is an admin user if it is an organization admin or is a space admin
       # for the current `process`.
@@ -195,6 +207,7 @@ module Decidim
       # Collaborators can only preview their own processes.
       def collaborator_action?
         return unless can_manage_process?(role: :collaborator)
+        return if permission_action.subject == :space_private_user
 
         allow! if permission_action.action == :preview
       end
@@ -226,7 +239,6 @@ module Decidim
           :process,
           :process_step,
           :process_user_role,
-          :space_private_user,
           :export_space,
           :import
         ].include?(permission_action.subject)
@@ -246,7 +258,6 @@ module Decidim
           :process,
           :process_step,
           :process_user_role,
-          :space_private_user,
           :export_space,
           :import
         ].include?(permission_action.subject)
