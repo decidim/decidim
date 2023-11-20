@@ -15,7 +15,7 @@ eu:
         proposal_ids: Honekin lotutako proposamenak
         proposals: Proposamenak
         selected: Ezarpenerako hautatuak
-        title: Titulua
+        title: Izenburua
       proposals_import:
         scope_id: Eremua
   activerecord:
@@ -72,7 +72,7 @@ eu:
             users_with_pending_orders: Erabiltzaile hauek botoak emateke
           new:
             create: Sortu aurrekontua
-            title: Aurrekontu berri bat
+            title: Beste aurrekontu bat
           update:
             invalid: Arazo bat egon da aurrekontu hau eguneratzean.
             success: Aurrekontua zuzen eguneratua.
@@ -110,7 +110,7 @@ eu:
             update_scope_button: Eguneratu eremua
           new:
             create: Sortu
-            title: Proiektu berria
+            title: Beste proiektu bat
           update:
             invalid: Arazo bat egon da proiektu hau eguneratzean.
             success: Proiektua zuzen eguneratua.
@@ -195,7 +195,7 @@ eu:
           fields:
             category: Kategoria
             id: ID
-            title: Titulua
+            title: Izenburua
       order_summary_mailer:
         order_summary:
           selected_projects: 'Hautatu dituzun proiektuak hauek dira:'
@@ -212,7 +212,7 @@ eu:
         budget_excess:
           budget_excess:
             description: Proiektu honek gehieneko aurrekontua gainditzen du, eta ezin da gehitu. Nahi baduzu, jada hautatua duzun proiektu bat ezaba dezakezu, zure lehenespenen arabera emateko botoa.
-            title: Aurrekontua gainditu da
+            title: Gehieneko aurrekontua gainditu egin da
           description: Proiektu honek gehieneko aurrekontua gainditzen du, eta ezin da gehitu. Nahi baduzu, jada hautatua duzun proiektu bat ezaba dezakezu, zure lehenespenen arabera emateko botoa.
           ok: Ados
           projects_excess:
@@ -223,7 +223,7 @@ eu:
           cancel_order: ezabatu ezazu botoa
           checked_out:
             description: Jada bozkatu duzu aurrekonturako. Iritzia aldatu baduzu, ezabatu ahal duzu zure botoa.
-            title: Botoa zuzen bidali da
+            title: Aurrekontuen bozketa amaituta
           vote: Bozkatu aurrekontua
         count:
           projects_count:
