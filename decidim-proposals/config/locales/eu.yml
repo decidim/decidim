@@ -451,6 +451,7 @@ eu:
             upload_document: Kargatu dokumentua
           publish:
             invalid: Arazo bat egon da proposamenak argitaratzean.
+            success: Proposamen guztiak argitaratu dira.
           sections:
             article: "<em>Artikulua</em>"
             section: "<em>Atala:</em> <strong>%{title}</strong>"
@@ -468,12 +469,18 @@ eu:
         proposal_notes:
           create:
             error: Arazo bat egon da proposamen-ohar hau sortzean.
+            success: Proposamenaren oharra zuzen sortua.
           form:
             note: Oharra
             submit: Bidali
           leave_your_note: Utzi zure oharra
           title: Ohar pribatuak
         proposals:
+          answer:
+            invalid: Arazo bat izan da proposamen honi erantzutean.
+            success: Proposamena ondo erantzuna.
+          create:
+            success: Proposamena zuzen sortua.
           edit:
             title: Eguneratu proposamena
             update: Eguneratu
@@ -508,6 +515,7 @@ eu:
             title: Sortu proposamena
           publish_answers:
             number_of_proposals: '%{number} proposamenetarako erantzunak argitaratuko dira?'
+            select_a_proposal: Mesedez, hautatu proposamen bat.
           show:
             amendments_count: Zuzenketa kopurua
             assigned_valuators: Ebaluatzaileak esleituta
@@ -529,6 +537,8 @@ eu:
             votes_count: Botoen zenbaketa
           update_category:
             invalid: 'Proposamen hauek bazuten %{subject_name}: %{proposals} kategoria.'
+            select_a_category: Mesedez, hautatu kategoria bat.
+            select_a_proposal: Mesedez, hautatu proposamen bat.
             success: 'Proposamenak zuzen eguneratuta %{subject_name}: %{proposals} kategoriara.'
           update_scope:
             invalid: 'Proposamen hauek bazuten %{subject_name}: %{proposals} eremua.'
@@ -801,6 +811,8 @@ eu:
             other: Proposamen hau argitaratu ondorengo lehen %{count} minutuetan editatu ahal izango duzu. Behin leiho hau pasatzen denean, ezingo duzu proposamena editatu.
           publish: Argitaratu
           title: Argitaratu zure proposamena
+        proposals:
+          empty: Oraindik ez dago proposamenik.
         show:
           answer: Erantzuna
           changes_at_title: Zuzenketa honi "%{title}"
