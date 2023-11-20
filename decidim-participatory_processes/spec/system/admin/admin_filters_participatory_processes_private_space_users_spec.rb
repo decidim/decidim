@@ -7,7 +7,7 @@ describe "Admin filters participatory processes private space users" do
 
   let(:organization) { create(:organization) }
   let!(:user) { create(:user, :admin, :confirmed, organization:) }
-  let(:participatory_process) { create(:participatory_process, organization:) }
+  let(:participatory_process) { create(:participatory_process, organization:, private_space: true) }
 
   let!(:invited_user1) { create(:user, name:, organization:) }
   let!(:invited_private_user1) { create(:participatory_space_private_user, user: invited_user1, privatable_to: participatory_process) }
