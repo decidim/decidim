@@ -286,12 +286,12 @@ eu:
           update: eguneratzearen
         new:
           create: Sortu
-          title: Izena emateko mota berria
+          title: Beste erregistro mota bat
         update:
           error: Arazo bat egon da hitzaldi honetarako izen-emate mota hau eguneratzean.
           success: Izen-emate mota arrakastaz eguneratu da konferentzia honetarako.
       titles:
-        conferences: Jardunaldiak
+        conferences: Hitzaldiak
     admin_log:
       conference:
         create: "%{user_name} k sortu du %{resource_name} hitzaldia"
@@ -424,7 +424,7 @@ eu:
         pending_validation:
           confirmation_pending: Berrespena jasoko duzu laster
           details: 'To You erregistratu %{registration_type} motako kostua batekin %{price} eta ondorengo gertaerak joateko daiteke:'
-          pending_html: Zure hitzaldirako izena emateko <a href="%{url}">%{title}</a> zain dago berresteko.
+          pending_html: <a href="%{url}">%{title}</a> hitzaldirako zure izen-ematea zain dago berresteko.
       conference_registrations:
         create:
           invalid: Arazo bat egon da hitzaldi honetara lotzean.
@@ -464,7 +464,7 @@ eu:
         highlighted_conferences:
           name: Nabarmendutako konferentziak
       index:
-        title: Jardunaldiak
+        title: Hitzaldiak
       mailer:
         conference_registration_mailer:
           confirmation:
@@ -518,33 +518,33 @@ eu:
     events:
       conferences:
         conference_registration_confirmed:
-          notification_title: Zure hitzaldirako izena emateko <a href="%{resource_url}">%{resource_title}</a> baieztatu da.
+          notification_title: <a href="%{resource_url}">%{resource_title}</a> hitzaldirako zure izen-ematea berretsi egin da.
         conference_registration_validation_pending:
-          notification_title: Zure hitzaldirako izena emateko <a href="%{resource_url}">%{resource_title}</a> zain dago berresteko.
+          notification_title: <a href="%{resource_url}">%{resource_title}</a> hitzaldirako zure izen-ematea zain dago berresteko.
         conference_registrations_over_percentage:
-          email_intro: Biltzarra "%{resource_title}" okupatutako slotak% %{percentage}baino gehiago dira.
+          email_intro: '"%{resource_title}" hitzaldiak okupatutako slotak %{percentage}% baino gehiago dira.'
           email_outro: Jakinarazpen hau jaso duzu, hitzaldiko parte hartzaileen gunea delako.
-          email_subject: Biltzarrak "%{resource_title}" okupatutako slotak% %{percentage}baino gehiago dira.
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> konferentzia okupatutako slot-ak %{percentage}% baino gehiago dira.
+          email_subject: '"%{resource_title}" hitzaldiak okupatutako slotak %{percentage}% baino gehiago dira'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> hitzaldiak okupatutako slot-ak %{percentage}% baino gehiago dira.
         conference_updated:
           email_intro: '"%{resource_title}" hitzaldia eguneratu da. Bertsio berria irakur dezakezu bere orritik:'
           email_outro: Jakinarazpen hau jaso duzu delako "%{resource_title}" konferentzia jarraituz. Aurreko esteka estekan jarrai dezakezu.
-          email_subject: '"%{resource_title}" konferentzia eguneratu da'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> konferentzia eguneratu da.
+          email_subject: '"%{resource_title}" hitzaldia eguneratu da'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> hitzaldia eguneratu da.
         registrations_enabled:
           email_intro: '"%{resource_title}" hitzaldiak erregistroak gaitu ditu. Zeure burua erregistratu dezakezu bere orrialdean:'
           email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" hitzaldia jarraitzen duzulako. Jarraitzeari utzi ahal diozu aurreko estekan.
           email_subject: '"%{resource_title}" hitzaldiak erregistroak gaitu ditu.'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> hitzaldiak erregistroak gaitu ditu.
         role_assigned:
-          email_intro: '%{role} rola esleitu zaizu <a href="%{resource_title}"> batzarrean.'
-          email_outro: Jakinarazpen hau jaso duzu %{role} rola esleitu dizutelako "%{resource_title}" batzarrean.
+          email_intro: '%{role} rola esleitu zaizu <a href="%{resource_title}"> hitzaldian.'
+          email_outro: Jakinarazpen hau jaso duzu %{role} rola esleitu dizutelako "%{resource_title}" hitzaldian.
           email_subject: '%{role} rola esleitu zaizu <a href="%{resource_title}"> batzarrean.'
           notification_title: '%{role} rola esleitu zaizu <a href="%{resource_url}">%{resource_title}</a> batzarrean.'
         upcoming_conference:
           email_intro: '"%{resource_title}" hitzaldia egiten ari da 2 egunetan. Deskribapena bere orrialdetik irakur dezakezu:'
-          email_outro: Jakinarazpen hau jaso duzu delako "%{resource_title}" konferentzia jarraituz. Aurreko esteka estekan jarrai dezakezu.
-          email_subject: Biltzarra "%{resource_title}" dator!
+          email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" hitzaldia jarraitzen ari zarelako. Aurreko esteka estekan jarrai dezakezu.
+          email_subject: '"%{resource_title}" hitzaldia dator!'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> konferentzia 2 egunetan egongo da.
     help:
       participatory_spaces:
