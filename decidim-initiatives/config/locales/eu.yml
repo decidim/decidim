@@ -167,7 +167,7 @@ eu:
             notification_title: Zure <a href="%{resource_path}">%{resource_title}</a> ekimenak sinaduren %{percentage} lortu ditu.
           follower:
             email_intro: '%{resource_title} ekimenak %{percentage}% sinadura lortu ditu!'
-            email_outro: Jakinarazpen hau jaso duzu %{resource_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+            email_outro: Jakinarazpen hau jaso duzu %{resource_title} jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
             email_subject: Beste maila bat osatua!
             notification_title: <a href="%{resource_path}">%{resource_title}</a> ekimenek sinadurak% %{percentage}lortu dituzte.
         support_threshold_reached:
@@ -215,12 +215,12 @@ eu:
             invite_to_committee_help: Partekatu esteka hau beste erabiltzaileei sustapen batzordera gonbidatzeko
             no_members_yet: Ez dago bazkide promoziorako batzordean
             revoke: Baliogabetu
-            title: Batzorde kideak
+            title: Batzarkideak
         content_blocks:
           highlighted_initiatives:
             max_results: Erakusteko elementu gehienen kopurua
             order:
-              default: Lehenespenez (zaharragoak)
+              default: Lehenetsita (zaharragoak)
               label: 'Ordenatu elementua honen arabera:'
               most_recent: Azkenak
         exports:
@@ -263,7 +263,7 @@ eu:
             back: Back
             confirm_destroy: Ziur zaude?
             destroy: Ezabatu
-            title: Editatu ekimen motako esparrua
+            title: Editatu ekimen motaren esparrua
             update: Eguneratu
           new:
             back: Back
@@ -289,7 +289,7 @@ eu:
             options: Aukerak
             title: Informazio orokorra
           initiative_type_scopes:
-            title: Ekimen motako esparruak
+            title: Ekimen motaren esparruak
           new:
             create: Sortu
             title: Beste ekimen mota bat
@@ -462,7 +462,7 @@ eu:
           invite_to_committee_help: Partekatu lotura hau beste parte-hartzaile batzuk batzorde bultzatzailera gonbidatzeko
           no_members_yet: Ez dago kiderik batzorde bultzatzailean
           revoke: Baliogabetu
-          title: Batzorde-kideak
+          title: Batzarkideak
         count:
           title:
             one: "%{count} ekimena"
@@ -551,16 +551,16 @@ eu:
           most_popular_initiative: Ekimen ezagunena
           need_more_votes: Sinadura gehiago behar duzu
       initiatives_mailer:
-        creation_subject: Zure herritarren ekimena '%{title}' sortu da
+        creation_subject: Zure '%{title}'ekimena sortu egin da
         initiative_link:
           check_initiative_details: Ekimenaren xehetasunak ikus ditzakezu
           here: hemen
         more_information: Hemen ekimenaren sorrera prozesuari buruzko informazio gehiago duzu.
-        progress_report_body_for: '%{title} ekimena %{percentage}eskatutako euskarrien% gainditu du.'
-        progress_report_for: 'Berrekin ekimenari buruz: %{title}'
+        progress_report_body_for: '%{title} ekimenak eskatutako euskarrien%{percentage}% gainditu du.'
+        progress_report_for: 'Laburpena %{title} ekimenari buruz'
         promotal_committee_help: Gogoan izan gutxienez %{member_count} pertsona gonbidatu behar dituzula sustatzaile batzordera. Birbidali hurrengo estekara gonbidatzeko jendea sustatzaile batzordera
-        status_change_body_for: '%{title} ekimena bere egoera aldatu du: %{state}'
-        status_change_for: '%{title} ekimena bere egoera aldatu du'
+        status_change_body_for: '%{title} ekimenak bere egoera aldatu du: %{state}'
+        status_change_for: '%{title} ekimenak bere egoera aldatu du'
       last_activity:
         new_initiative: Beste ekimen bat
       pages:
