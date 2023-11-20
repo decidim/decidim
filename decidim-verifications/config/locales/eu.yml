@@ -16,6 +16,8 @@ eu:
         document_type: Zure dokumentuaren mota
         user: Erabiltzaileak
         verification_attachment: Zure dokumentuaren eskaneatutako kopia
+      mobile_phone:
+        mobile_phone_number: Telefono mugikorraren zenbakia
       offline_confirmation:
         email: Erabiltzailearen helbide elektronikoa
       postal_letter_address:
