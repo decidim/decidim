@@ -58,6 +58,8 @@ cs:
           template_chooser:
             select_template: Vyberte šablonu odpovědi
         proposal_answer_templates:
+          edit:
+            title: Upravit šablonu odpovědi návrhu
           form:
             save: Uložit
           index:
