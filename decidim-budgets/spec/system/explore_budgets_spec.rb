@@ -29,7 +29,7 @@ describe "Explore Budgets", :slow do
     it "redirects to the only budget details" do
       visit_component
 
-      expect(page).to have_content("More information")
+      expect(page).to have_content("Projects for #{translated(budgets.first.title)}")
     end
   end
 
