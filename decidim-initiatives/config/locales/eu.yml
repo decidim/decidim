@@ -179,7 +179,7 @@ eu:
             email_subject: Beste maila bat osatua!
             notification_title: Zure <a href="%{resource_path}">%{resource_title}</a> ekimenak sinaduren %{percentage} lortu ditu.
           follower:
-            email_intro: '%{resource_title} ekimena sinadurak% %{percentage}lortu ditu!'
+            email_intro: '%{resource_title} ekimenak %{percentage}% sinadura lortu ditu!'
             email_outro: Jakinarazpen hau jaso duzu %{resource_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
             email_subject: Beste maila bat osatua!
             notification_title: <a href="%{resource_path}">%{resource_title}</a> ekimenek sinadurak% %{percentage}lortu dituzte.
@@ -416,7 +416,10 @@ eu:
           email_subject: "%{applicant_nickname} k zure ekimenarekin bat egin nahi du"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> k eskatu du <a href="%{resource_url}">%{resource_title}</a> zure ekimenaren batzorde bultzatzailearekin bat egitea. Eskaera onartzeko edo ukatzeko, egin klik hemen <a href="%{resource_url}/edit">aquí</a>.
       form:
+        add_documents: Gehitu dokumentuak
+        add_image: Gehitu irudia
         attachment_legend: "(Aukerakoa) Gehitu eranskina"
+        edit_documents: Editatu dokumentuak
         edit_image: Editatu irudia
         image_legend: "(Aukerakoa) Erantsi irudi bat"
       initiative_signatures:
@@ -509,6 +512,7 @@ eu:
           area: Arloa
           confirm: Ekimena bidaliko duzu administratzaile batek berrikus eta argitara dezan. Argitaratu ondoren, ezin izango duzu editatu. Ziur zaude?
           edit: Editatu
+          initiative_data: Ekimenaren datuak
           scope: Esparrua
           send_to_technical_validation: Bidali baliozkotze teknikora
           signature_collection: Bildutako sinadurak
@@ -587,7 +591,7 @@ eu:
         finish: Amaitu
         sms_code: SMS kodea egiaztatzea
         sms_phone_number: Telefono mugikorraren zenbakia
-        title: Saioa hasi %{initiative_title}
+        title: Sinatu %{initiative_title}
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Ez dago ekimenik oraindik!
