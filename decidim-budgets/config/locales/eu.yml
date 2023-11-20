@@ -16,7 +16,7 @@ eu:
         proposal_ids: Honekin lotutako proposamenak
         proposals: Proposamenak
         selected: Ezarpenerako hautatuak
-        title: Titulua
+        title: Izenburua
       proposals_import:
         scope_id: Eremua
   activerecord:
@@ -72,7 +72,7 @@ eu:
             users_with_pending_orders: Erabiltzaile hauek botoak emateke
           new:
             create: Sortu aurrekontua
-            title: Aurrekontu berri bat
+            title: Beste aurrekontu bat
           update:
             invalid: Arazoa gertatu da aurrekontu hau eguneratzean
             success: Aurrekontua zuzen eguneratu da
@@ -108,7 +108,7 @@ eu:
             update_scope_button: Eguneratu eremua
           new:
             create: Sortu
-            title: Proiektu berria
+            title: Beste proiektu bat
           update:
             invalid: Arazo bat izan da proiektu hau eguneratzean
             success: Proiektua zuzen eguneratu da
@@ -193,7 +193,7 @@ eu:
             category: Kategoria
             id: ID
             scope: Esparrua
-            title: Titulua
+            title: Izenburua
       order_summary_mailer:
         order_summary:
           selected_projects: 'Hautatu dituzun proiektuak hauek dira:'
@@ -210,7 +210,7 @@ eu:
         budget_excess:
           budget_excess:
             description: Proiektu honek gehieneko aurrekontua gainditzen du eta ezin da erantsi. Nahi baduzu, jada hautatua duzun proiektu bat ezabatu dezakezu zure lehentasunen arabera emateko botoa.
-            title: Aurrekontua gainditu da
+            title: Gehieneko aurrekontua gainditu egin da
           close: Itxi
           description: Proiektu honek gehieneko aurrekontua gainditzen du eta ezin da erantsi. Nahi baduzu, jada hautatua duzun proiektu bat ezabatu dezakezu zure lehentasunen arabera emateko botoa.
           ok: Ados
@@ -223,7 +223,7 @@ eu:
           cancel_order: ezabatu ezazu botoa eta hasi berriro
           checked_out:
             description: 'Jada bozkatu duzu aurrekonturako. Iritzia aldatu baduzu, ezeztatu hemen: %{cancel_link}.'
-            title: Botoa zuzen bidali da
+            title: Aurrekontuen bozketa amaituta
           minimum_projects_rule:
             description: Zure aburuz, proiektuetako zeinei esleitu behar diegu aurrekontua? Hautatu gutxienez %{minimum_number} eta bozkatu zure lehentasunen arabera proiektua zehazteko.
             instruction: "<li>Hautatu gutxienez nahi dituzun %{minimum_number} proiektu eta bozkatu zure lehentasunen arabera </li> proiektua zehazteko"
