@@ -165,7 +165,6 @@ module Decidim
         Decidim.icons.register(name: "folder-open-line", icon: "folder-open-line", category: "system", description: "", engine: :core)
 
         Decidim.icons.register(name: "dislike-line", icon: "dislike-line", category: "system", description: "", engine: :core)
-        Decidim.icons.register(name: "heart-add-line", icon: "heart-add-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "chat-poll-line", icon: "chat-poll-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "git-branch-line", icon: "git-branch-line", category: "system", description: "", engine: :core)
 
