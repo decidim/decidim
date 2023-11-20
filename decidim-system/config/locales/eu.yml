@@ -158,7 +158,7 @@ eu:
           connect_src_hint: |
             Connect-src zuzentarauak murriztu egiten ditu < script> elementuen bidez karga daitezkeen URLak.
             Plataformak 'self' gehituko du, baina gehiago gehitzeko aukera emango dizu.
-          default_src: Default src
+          default_src: src lehenetsita
           default_src_hint: |
             Default-src kanpoko eduki osorako konbentzio lehenetsia da, hala nola, JavaScript, irudiak, CSS, iturriak, dei asinkronikoak, markoak eta multimedia fitxategiak HTML5.
             Plataformak "'self' 'unsafe-inline'" erantsiko du, baina gehiago gehitzeko aukera duzu. Utzi zuriz, ziur ez bazaude.
