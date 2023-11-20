@@ -205,6 +205,8 @@ eu:
           description_own: '%{score} topaketatan hartu duzu parte.'
           name: Parte hartu den topkaetak
           next_level_in: '%{score} topaketa gehiago hurrengo mailara iristeko!'
+          unearned_another: Parte-hartzaile honek oraindik ez du topaketa batean ere parte hartu.
+          unearned_own: Oraindik ez zara topaketa batere ere joan.
     meetings:
       actions:
         agenda: Agenda
