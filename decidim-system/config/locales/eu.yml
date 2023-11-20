@@ -240,6 +240,7 @@ eu:
             api_key: API giltza
             api_secret: API sekretua
         resend_invitation:
+          error: Arazo bat egon da gonbidapena bidaltzean.
           success: Gonbidapena zuzen bidalia.
         smtp_settings:
           fieldsets:
