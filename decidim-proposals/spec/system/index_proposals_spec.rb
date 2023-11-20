@@ -18,7 +18,7 @@ describe "Index proposals" do
 
   context "when checking withdrawn proposals" do
     context "when there are no withrawn proposals" do
-      let!(:proposals) { create_list(:proposal, 20, component:) }
+      let!(:proposals) { create_list(:proposal, 3, component:) }
 
       before do
         visit_component
