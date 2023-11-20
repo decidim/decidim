@@ -110,6 +110,9 @@ en:
           success: Debate successfully created.
         debate:
           participate: Participate
+        debates:
+          empty: There are no debates yet.
+          empty_filters: There are no debates with this criteria.
         edit:
           back: Back
           save: Save changes
