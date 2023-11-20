@@ -114,7 +114,7 @@ eu:
           unpublished: Ez argitaratua
         new:
           create: Sortu
-          title: Batzar berria
+          title: Beste batzar bat
         update:
           error: Arazo bat egon da batzar hau eguneratzean.
           success: Batzarra zuzen eguneratua.
@@ -134,7 +134,7 @@ eu:
           success: Batzar mota behar bezala ezabatua.
         new:
           create: Sortu
-          title: Batzar mota berria
+          title: Beste batzar mota bat
         update:
           error: Arazo bat egon da batzar mota hau eguneratzean.
           success: Batzar mota zuzen eguneratua.
@@ -142,7 +142,7 @@ eu:
         new:
           copy: Kopiatu
           select: Aukeratu itzazu kopiatu nahi dituzun datuak
-          title: Kopiatu batzarra
+          title: Bikoiztu batzarra
       assembly_imports:
         create:
           error: Arazo bat egon da batzar hau inportatzean.
@@ -161,7 +161,7 @@ eu:
           title: Eguneratu batzarkidea
           update: Eguneratu
         index:
-          assembly_members_title: Batzarraen kideak
+          assembly_members_title: Batzarkideak
         new:
           create: Sortu
           title: Beste batzarkide bat
@@ -223,7 +223,7 @@ eu:
         assemblies_types:
           fields:
             created_at: Sortze-data
-            title: Prozesu partizipatiboen multzoak
+            title: Izenburua
         assembly:
           fields:
             actions: Ekintzak
@@ -231,7 +231,7 @@ eu:
             private: Pribatua
             promoted: Nabarmendua
             published: Argitaratua
-            title: Prozesu partizipatiboen multzoak
+            title: Izenburua
           name: Batzarra
         assembly_member:
           fields:
@@ -257,8 +257,8 @@ eu:
             moderator: Moderatzailea
             valuator: Ebaluatzailea
       titles:
-        assemblies: Biltzarrak
-        assemblies_types: Batzar mota
+        assemblies: Batzarrak
+        assemblies_types: Batzar motak
     admin_log:
       assembly:
         create: "%{user_name} k %{resource_name} batzarra sortu zuen"
@@ -311,7 +311,7 @@ eu:
             title: Batzarren konfigurazioa
         assemblies_types:
           form:
-            title: Batzar mota berria
+            title: Editatu batzar mota
         assembly_copies:
           form:
             slug_help_html: 'URL-ren testu laburrak batzar honetara daramaten URL-ak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: % {url}'
@@ -394,7 +394,7 @@ eu:
         participatory: Parte-hartzailea
         working_group: Lan-taldea
       index:
-        title: Biltzarrak
+        title: Batzarrak
       last_activity:
         new_assembly: 'Beste batzar bat:'
       pages:
