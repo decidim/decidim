@@ -379,9 +379,9 @@ eu:
         stats:
           name: Jarduera
         title:
-          meta_scope: Eremua
+          meta_scope: Esparrua
       show:
-        title: Parte-hartze prozesuko taldeak
+        title: Prozesu parte-hartzailerako taldeak
     participatory_process_steps:
       index:
         process_steps: Prozesuaren faseak
@@ -438,7 +438,7 @@ eu:
         related_processes:
           name: Elkarrekin lotutako prozesuak
       index:
-        title: Prozesu partizipatiboak
+        title: Prozesu parte-hartzaileak
       last_activity:
         new_participatory_process: Beste prozesu parte-hartzaile bat
       pages:
@@ -459,7 +459,7 @@ eu:
           participatory_scope: Zer erabakitzen da?
           participatory_structure: Nola erabakitzen da?
           target: Nork hartzen du parte?
-          title: Prozesuari buruz
+          title: Prozesu honi buruz
         filters:
           all_types: Mota guztiak
           counters:
