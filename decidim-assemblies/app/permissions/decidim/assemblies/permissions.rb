@@ -307,11 +307,9 @@ module Decidim
         assembly_user_role.present? ? assembly_user_role.role : :any
       end
 
+      # We are trying to see if the user can manage the current assembly or its children or not.
       def assembly_admin_allowed_assemblies
-        assemblies = AssembliesWithUserRole.for(user, :admin)
-        child_assemblies = assemblies.flat_map { |assembly| [assembly.id] + assembly.children.pluck(:id) }
-
-        Decidim::Assembly.where(id: assemblies + child_assemblies)
+        AssembliesWithUserRole.for(user, :admin).where(id: [assembly.id] + assembly.children.pluck(:id))
       end
     end
   end
