@@ -217,6 +217,8 @@ ja:
           all: すべて
         home:
           categories_label: カテゴリ
+          empty: まだ結果はありません。
+          empty_filters: この条件の結果はありません。
           subcategories_label: サブカテゴリ
         home_header:
           global_status: グローバル実行状況
