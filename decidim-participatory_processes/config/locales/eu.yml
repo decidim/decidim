@@ -102,6 +102,7 @@ eu:
           all_processes: Erakutsi prozesu guztiak
           process_groups: Iragazki prozesuak taldeetan
         import_process: Inportatu
+        moderate: Moderatu
         new_process: Beste prozesu bat
         new_process_group: Beste prozesu-talde bat
         new_process_step: Beste urrats bat
@@ -343,6 +344,10 @@ eu:
           contextual: "<p>A <strong>partaidetzazko prozesu</strong> parte hartze-jardueren sekuentzia bat da (adibidez inkesta bat bete aurretik, proposamenak egin, eztabaidatu aurrez aurre edo topaketa birtualetan eta, azkenik, lehentasuna emanez) erabakiak definitzeko eta erabakiak hartzeko helburuarekin gai zehatz batean.</p> <p>Prozesu parte-hartzaileen adibideak hauek dira: hautagaitza batzordeak aukeratzeko prozesua (hautagaitzak aurkezten direnean, ondoren eztabaidatu eta azkenik hautagaitza hautatzen denean), partaidetzako aurrekontuak (proposamenak egiten direnean, ekonomikoki baloratuak eta dirua eskuragarri duten botoa) plangintza estrategikoko prozesua, araudi edo arau baten lankidetza-proiektua, hiri-espazio bat diseinatzea edo politika publikoko plan bat egitea.</p>\n"
           page: "<p>A <strong>partaidetzazko prozesu</strong> parte hartze-jardueren sekuentzia bat da (adibidez inkesta bat bete aurretik, proposamenak egin, eztabaidatu aurrez aurre edo topaketa birtualetan eta, azkenik, lehentasuna emanez) erabakiak definitzeko eta erabakiak hartzeko helburuarekin gai zehatz batean.</p> <p>Prozesu parte-hartzaileen adibideak hauek dira: hautagaitza batzordeak aukeratzeko prozesua (hautagaitzak aurkezten direnean, ondoren eztabaidatu eta azkenik hautagaitza hautatzen denean), partaidetzako aurrekontuak (proposamenak egiten direnean, ekonomikoki baloratuak eta dirua eskuragarri duten botoa) plangintza estrategikoko prozesua, araudi edo arau baten lankidetza-proiektua, hiri-espazio bat diseinatzea edo politika publikoko plan bat egitea.</p>\n"
           title: Zer da partaidetza prozesu bat?
+    log:
+      value_types:
+        participatory_process_type_presenter:
+          not_found: 'Prozesu mota ez da (ID: %{id}) datu-basean aurkitu.'
     menu:
       processes: Prozesuak
     metrics:
@@ -472,6 +477,8 @@ eu:
               other: "%{count} hurrengo prozesuetan"
           date: Data
           explanations:
+            no_active: Ez dago prozesu aktiborik.
+            no_active_nor_upcoming: Ez dago prozesu aktiborik ez etorkizunekorik.
             no_active_nor_upcoming_callout: Prozesu aktibo eta ez datoz bat. Hona hemen iraganekoen zerrenda.
           filter_by: Erakutsi
           names:
