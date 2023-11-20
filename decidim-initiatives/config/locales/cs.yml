@@ -472,9 +472,11 @@ cs:
         committee_members:
           approve: Schválit
           confirm_approve: Opravdu chcete schválit tohoto člena?
+          confirm_revoke: Opravdu chcete tohoto člena odvolat?
           invite_to_committee_help: Sdílejte tento odkaz pro pozvání ostatních účastníků do propagačního výboru.
           link: Odkaz
           no_members_yet: V předkladatelském výboru nejsou žádní členové.
+          revoke: Odvolat
           title: Členové výboru
         count:
           title:
