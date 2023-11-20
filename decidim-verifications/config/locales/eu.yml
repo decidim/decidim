@@ -6,6 +6,8 @@ eu:
         offline: Offline
         offline_explanation: Lineaz kanpoko egiaztapenaren jarraibideak
         online: Online
+      confirmation:
+        verification_code: Egiaztapen kodea
       id_document_information:
         document_number: Dokumentu zenbakia
         document_type: Dokumentu mota
