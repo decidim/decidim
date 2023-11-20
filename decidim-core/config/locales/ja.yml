@@ -22,9 +22,11 @@ ja:
       user:
         about: 私について
         email: あなたのメールアドレス
+        encrypted_password: パスワード
         locale: 地域
         name: 表示名
         nickname: アカウントID
+        old_password: 現在のパスワード
         password: パスワード
         password_confirmation: パスワードの確認
         personal_url: 個人用URL
@@ -569,6 +571,8 @@ ja:
           subtitle: ユーザ登録を完了するには、次のフォームに記入してください
           username_help: 投稿に表示される公表名。匿名性を保証する目的で、任意の名前にすることができます。
       registrations:
+        create:
+          error: アカウント作成中に問題が発生しました。
         new:
           already_have_an_account?: 既にアカウントをお持ちですか？
           log_in: ログイン
@@ -1543,6 +1547,9 @@ ja:
         greetings: ようこそ、<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: こんにちは、 %{admin} さん。
         subject: '%{organization_name} で新しいユーザーが報告されました'
+    user_update_mailer:
+      notify:
+        hello: こんにちは、 %{user} さん
     version:
       show:
         back_to_resource: 戻る
