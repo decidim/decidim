@@ -47,7 +47,7 @@ module Decidim
     #
     # Returns a String.
     def icon(name, options = {})
-      name = Decidim.icons.find(name)["icon"]
+      name = Decidim.icons.find(name)["icon"] unless options[:ignore_missing]
 
       default_html_properties = {
         "width" => "1em",

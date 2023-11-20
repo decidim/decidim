@@ -214,9 +214,6 @@ module Decidim
         Decidim.icons.register(name: "youtube-line", icon: "youtube-line", category: "social icon", description: "", engine: :core)
         Decidim.icons.register(name: "github-fill", icon: "github-fill", category: "social icon", description: "", engine: :core)
         Decidim.icons.register(name: "facebook-circle-line", icon: "facebook-circle-line", category: "social icon", description: "", engine: :core)
-        Decidim.social_share_services_registry.manifests.each do |manifest|
-          Decidim.icons.register(name: manifest.icon, icon: manifest.icon, description: "Social share ", category: "social icon", engine: :core)
-        end
       end
 
       initializer "decidim_core.patch_webpacker", before: "shakapacker.version_checker" do
