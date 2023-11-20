@@ -155,11 +155,13 @@ ja:
         destroy:
           success: メンバーはこの参加スペースの削除に成功しました。
         edit:
+          title: 参加スペースメンバーを更新
           update: 更新
         index:
           assembly_members_title: 参加スペースメンバー
         new:
           create: 作成
+          title: 新しい参加スペースメンバー
         update:
           error: この参加スペースのメンバーの更新に問題がありました。
           success: メンバーがこの参加スペースの更新に成功しました。
@@ -177,17 +179,21 @@ ja:
         destroy:
           success: 管理者がこの参加スペースから削除されました。
         edit:
+          title: 参加スペース管理者を更新
           update: 更新
         index:
           assembly_admins_title: 参加スペース管理者
         new:
           create: 作成
+          title: 新しい参加スペース管理者
         update:
           error: この参加スペースの管理者を更新中に問題が発生しました。
           success: 管理者はこの参加スペースの更新に成功しました。
       filters:
         decidim_assemblies_type_id_eq:
           label: 参加スペース種別
+        search_placeholder:
+          full_name_or_user_name_or_user_nickname_cont: 名前またはニックネームで検索
       menu:
         assemblies: 参加スペース
         assemblies_settings: 設定
