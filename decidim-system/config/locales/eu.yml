@@ -45,6 +45,9 @@ eu:
       admins:
         create:
           error: Errorea gertatu da administratzaile berri bat sortzean.
+          success: Administratzailea zuzen sortua.
+        destroy:
+          success: Administratzailea zuzen ezabatua.
         edit:
           title: Editatu administratzailea
           update: Eguneratu
@@ -55,6 +58,7 @@ eu:
           title: Administratzaile berria
         update:
           error: Errorea gertatu da administratzaile hau eguneratzean.
+          success: Administratzailea zuzen eguneratua.
       dashboard:
         show:
           admins: Administratzaileak
@@ -62,6 +66,7 @@ eu:
       default_pages:
         placeholders:
           content: Gehitu eduki adierazgarria %{page} (a)ren orri estatikoaren administrazio-panelean.
+          summary: Mesedez, gehitu laburpen esanguratsua %{page} orri estatikoari administrazio-panelean.
           title: 'Izenburu lehenetsia orri honetarako: %{page}'
         terms-of-service: Zerbitzu-baldintzak
       devise:
@@ -100,6 +105,7 @@ eu:
           actions:
             save_and_invite: Sortu erakundea eta gonbit egin administratzaileari
           fields:
+            content_security_policy: Edukien segurtasun-politika
             created_at: Tan sortua
             file_upload_settings: Fitxategiak igotzearen doikuntzak
             name: Izena
@@ -148,28 +154,36 @@ eu:
              </li>
             </ol>
         csp_settings:
+          connect_src: Connect src
           connect_src_hint: |
             Connect-src zuzentarauak murriztu egiten ditu < script> elementuen bidez karga daitezkeen URLak.
             Plataformak 'self' gehituko du, baina gehiago gehitzeko aukera emango dizu.
+          default_src: Default src
           default_src_hint: |
             Default-src kanpoko eduki osorako konbentzio lehenetsia da, hala nola, JavaScript, irudiak, CSS, iturriak, dei asinkronikoak, markoak eta multimedia fitxategiak HTML5.
             Plataformak "'self' 'unsafe-inline'" erantsiko du, baina gehiago gehitzeko aukera duzu. Utzi zuriz, ziur ez bazaude.
 
+          font_src: Font src
           font_src_hint: |
             font-src ereduko direktibak using @font-face erabiliz kargatu daitezkeen URLak murrizten ditu.
             Plataformak "'self' erantsiko du, baina gehiago gehitzeko aukera duzu. Utzi zuriz, ziur ez bazaude.
+          frame_src: Frame src
           frame_src_hint: |
             frame-src ereduko direktibak <frame>, <iframe> eta <object> elementuetan kargatu daitezkeen URLak murrizten ditu.
             Plataformak "'self' erantsiko du, baina gehiago gehitzeko aukera duzu. Utzi zuriz, ziur ez bazaude.
+          img_src: Img src
           img_src_hint: |
             img-src direktibak <img>, <image>, <picture> amd <svg> elementuetan kargatu daitezkeen URLak murrizten ditu.
             Plataformak "'self' 'erantsiko du, baina gehiago gehitzeko aukera duzu. Utzi zuriz, ziur ez bazaude.
+          media_src: Media src
           media_src_hint: |
             media-src ereduko helbideek <video>, <audio> eta <source> elementuetan kargatu daitezkeen URLak murrizten dituzte.
             Plataformak "'self' 'erantsiko du, baina gehiago gehitzeko aukera duzu. Utzi zuriz, ziur ez bazaude.
+          script_src: Script-src
           script_src_hint: |
             (style-src) ereduko helbideek <script> elementuetan kargatu daitezkeen URLak murrizten dituzte.
             Plataformak "'self' 'unsafe-inline' 'unsafe-eval'" erantsiko du, baina gehiago gehitzeko aukera duzu. Utzi zuriz, ziur ez bazaude.
+          style_src: Style src
           style_src_hint: |
             (style-src) ereduko helbideek <style> elementuetan kargatu daitezkeen URLak murrizten dituzte.
             Plataformak "'self' 'unsafe-inline'" erantsiko du, baina gehiago gehitzeko aukera duzu. Utzi zuriz, ziur ez bazaude.
