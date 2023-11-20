@@ -7,7 +7,7 @@ describe "Index proposals" do
   let(:manifest_name) { "proposals" }
 
   context "when there are proposals" do
-    let!(:proposals) { create_list(:proposal, 20, component:) }
+    let!(:proposals) { create_list(:proposal, 3, component:) }
 
     it "does not display empty message" do
       visit_component
