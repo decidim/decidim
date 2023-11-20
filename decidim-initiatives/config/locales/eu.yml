@@ -2,10 +2,13 @@ eu:
   activemodel:
     attributes:
       initiative:
+        answer: Erantzuna
+        answer_url: URL erantzuna
         area_id: Arloa
         decidim_scope_id: Esparrua
         decidim_user_group_id: Egilea
         description: Deskribapena
+        hashtag: Traola
         offline_votes: Aurrez aurreko sinadurak
         offline_votes_for_scope: Aurrez aurreko sinadurak %{scope_name} rentzat
         scope_id: Esparrua
@@ -21,6 +24,8 @@ eu:
         type_id: Mota
       initiatives_committee_member:
         user: Batzordeko kidea
+      initiatives_settings:
+        initiatives_order: Ordena
       initiatives_type:
         area_enabled: Gaitu egileak beren ekimenerako eremua aukeratzeko
         attachments_enabled: Gaitu eranskinak
@@ -97,6 +102,7 @@ eu:
       initiatives_settings:
         update:
           error: Errore bat egon da.
+          success: Ekimenen ezarpenak zuzen eguneratu dira.
       menu:
         attachments: Eranskinak
         committee_members: Batzorde-kideak
@@ -106,6 +112,7 @@ eu:
         initiatives: Ekimenak
         initiatives_menu:
           see_initiative: Ikusi ekimena 
+        initiatives_settings: Ezarpenak
         initiatives_submenu:
           info: Ekimen honi buruz
         initiatives_types: Ekimen motak
@@ -255,9 +262,15 @@ eu:
           update:
             error: Errore bat egon da.
         initiatives_settings:
+          edit:
+            update: Eguneratu
           form:
             comments: Iruzkin gehien dituztenak
+            date: Azkenak
+            publication_date: Azken argitaratutakoak
+            random: Ausaz
             signatures: Sinadura gehiago
+            title: Ekimenen ezarpenak
         initiatives_type_scopes:
           create:
             error: Errore bat egon da.
@@ -404,6 +417,8 @@ eu:
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> k eskatu du <a href="%{resource_url}">%{resource_title}</a> zure ekimenaren batzorde bultzatzailearekin bat egitea. Eskaera onartzeko edo ukatzeko, egin klik hemen <a href="%{resource_url}/edit">aquí</a>.
       form:
         attachment_legend: "(Aukerakoa) Gehitu eranskina"
+        edit_image: Editatu irudia
+        image_legend: "(Aukerakoa) Erantsi irudi bat"
       initiative_signatures:
         fill_personal_data:
           continue: Jarraitu
@@ -434,6 +449,7 @@ eu:
           approve: Onartu
           confirm_approve: Ziur zaude kide hau onartu nahi duzula?
           confirm_revoke: Ziur zaude kide hau baliogabetu nahi duzula?
+          link: Lotura
           no_members_yet: Ez dago kiderik batzorde bultzatzailean.
           revoke: Baliogabetu
           title: Batzorde-kideak
@@ -496,6 +512,7 @@ eu:
           scope: Esparrua
           send_to_technical_validation: Bidali baliozkotze teknikora
           signature_collection: Bildutako sinadurak
+          state: Egoera
           type: Mota
         signatures_count:
           one: " sinadura"
@@ -528,6 +545,11 @@ eu:
           authorizations_page: Ikusi baimenak
           explanation: Egiaztatuta egon behar zara ekimen berri bat sortzeko.
           title: Baimena behar da
+      pages:
+        home:
+          highlighted_initiatives:
+            active_spaces: Ekimen aktiboak
+            see_all_spaces: Ikusi ekimen guztiak
       show:
         badge_name:
           accepted: Beharrezko sinadurekin
