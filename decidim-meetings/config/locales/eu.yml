@@ -252,6 +252,7 @@ eu:
             title: Agenda berria
           update:
             invalid: Arazo bat egon da agenda hau eguneratzean.
+            success: Agenda ondo eguneratua.
         exports:
           answers: Erantzunak
           meeting_comments: Iruzkinak
@@ -281,6 +282,7 @@ eu:
               sent: Bidalita
             invite_attendee: Gonbidatu
             invites: Gonbidapenak
+            registrations_disabled: Ezin duzu inor gonbidatu izen-emateak desgaituta daudelako.
             search: Bilatu
         meeting_closes:
           edit:
@@ -289,10 +291,15 @@ eu:
         meetings:
           close:
             invalid: Arazo bat egon da topaketa hau ixtean.
+            success: Topaketa ongo itxia.
           create:
             invalid: Arazo bat egon da topaketa hau sortzean.
             success: Topaketa zuzen sortu da. Kontuan hartu oraindik ez dela argitaratu, eskuz argitaratu beharko duzu.
           destroy:
+            invalid:
+              proposals_count:
+                one: Topaketa ezin da suntsitu, berari lotutako %{count} proposamen duelako.
+                other: Topaketa ezin da suntsitu, berari lotutako %{count} proposamen dituelako.
             success: Topaketa zuzen ezabatu da.
           edit:
             title: Editatu bilera
@@ -315,6 +322,7 @@ eu:
             title: Sortu topaketa
           publish:
             invalid: Arazo bat egon da topaketa hau argitaratzean.
+            success: Topaketa zuzen argitaratua.
           service:
             description: Deskribapena
             down: Behera
