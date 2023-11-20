@@ -406,7 +406,13 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       it_behaves_like "allows any action on subject", :process
       it_behaves_like "allows any action on subject", :process_step
       it_behaves_like "allows any action on subject", :process_user_role
-      it_behaves_like "allows any action on subject", :space_private_user
+
+      context "when private assembly" do
+        let(:process) { create(:participatory_process, organization:, private_space: true) }
+        let!(:context) { { current_participatory_space: process } }
+
+        it_behaves_like "allows any action on subject", :space_private_user
+      end
     end
 
     context "when user is an org admin" do
@@ -426,7 +432,12 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       it_behaves_like "allows any action on subject", :process
       it_behaves_like "allows any action on subject", :process_step
       it_behaves_like "allows any action on subject", :process_user_role
-      it_behaves_like "allows any action on subject", :space_private_user
+      context "when private assembly" do
+        let(:process) { create(:participatory_process, organization:, private_space: true) }
+        let!(:context) { { current_participatory_space: process } }
+
+        it_behaves_like "allows any action on subject", :space_private_user
+      end
     end
 
     context "when user is a valuator" do

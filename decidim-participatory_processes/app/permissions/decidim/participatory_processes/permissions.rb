@@ -55,13 +55,11 @@ module Decidim
       private
 
       def view_private_users_menu?
-        return unless permission_action.action == :read &&
-                      permission_action.subject == :space_private_user
+        return unless permission_action.subject == :space_private_user
 
         return unless process.private_space?
-        return unless can_manage_process?(role: :collaborator)
 
-        allow!
+        toggle_allow(user.admin? || can_manage_process?(role: :admin) || can_manage_process?(role: :collaborator))
       end
 
       # It is an admin user if it is an organization admin or is a space admin
