@@ -133,6 +133,7 @@ eu:
         cancel_error: Ezin izan da ezeztatu korreo elektronikoaren aldaketa.
         cancel_successfully: Posta elektronikoaren aldaketa zuzen ezeztatua.
         resend_error: Ezin izan da birbidali berresteko korreoa.
+        resend_successfully: 'Berresteko posta elektronikoa zuzen birbidalia hona: %{unconfirmed_email}'
         send_again: Bidali berriro
         title: Posta elektronikoaren aldaketak egiaztatzea
       show:
@@ -926,6 +927,7 @@ eu:
         success: Lotzeko eskaera behar bezala sortu da. Administratzaile batek zure eskaera berrikusiko du taldera onartu aurretik.
       leave:
         error: Arazo bat egon da taldea uztean
+        last_admin: Ezin zara talde honetatik atera azken administratzailea zarelako. Izendatu beste kide bat administratzaile, taldea utzi ahal izateko.
         success: Taldea zuzen utzi duzu.
       members:
         accept_or_reject_join_requests: 'Hurrengo parte-hartzaileek taldean sartzea eskatu dute. Onartu edo ukatu bere eskariak:'
@@ -1064,6 +1066,7 @@ eu:
           next: Hurrengoa
           no_conversations: Oraindik ez duzu elkarrizketarik
           title: Elkarrizketak
+          to: Nori/Nora
         reply:
           placeholder: Zure erantzuna...
           send: Bidali
@@ -1148,12 +1151,15 @@ eu:
     notifications:
       no_notifications: Oraindik ez dago jakinarazpenik.
       show:
-        missing_event: Aiba, jakinarazpen hhau dagoeneko eskuragarri ez dagoen item batena da. Baztertu dezakezu.
+        missing_event: Aiba, jakinarazpen hau dagoeneko eskuragarri ez dagoen item batena da. Baztertu dezakezu.
     notifications_digest_mailer:
       header:
         daily: Jakinarazpenen eguneroko laburpena
         weekly: Jakinarazpenen asteko laburpena
       hello: Kaixo %{name},
+      intro:
+        daily: 'Hauek dira azken eguneko jakinarazpenak, jarraitzen ari zaren jardueran oinarrituta:'
+        weekly: 'Hauek dira azken asteko jakinarazpenak, jarraitzen ari zaren jardueran oinarrituta:'
       see_more: Ikusi jakinarazpen gehiago
       subject: Hau da zure laburpen-posta
     notifications_settings:
@@ -1739,7 +1745,9 @@ eu:
           preferences:
             description: Cookie horiei esker, webguneak gogora ditzake iraganean webgune honetan hautatu diren aukerak, erabiltzaileei esperientzia pertsonalizatuagoa emateko.
             title: Lehentasunak
+          save_settings: Gorde ezarpenak
           title: Cookien konfigurazioa
+          toggle: Toggle %{consent_category}
         warning:
           all_categories: cookie guztiak
           change_settings: Aldatu cookien konfigurazioa
@@ -1774,6 +1782,7 @@ eu:
         facebook: "%{organization} Facebooken"
         github: "%{organization} GitHuben"
         instagram: "%{organization} Instagramen"
+        x: "%{organization} Xen"
         youtube: "%{organization} YouTuben"
       timeout_modal:
         body: Jarduerarik gabe egon zara %{minutes} minututan. Aktibatu gabe jarraitzen baduzu, deskonektatuko zaitugu zure segurtasunerako.
@@ -1849,6 +1858,7 @@ eu:
       day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
       ddmm: "%d.%m"
+      ddmmyyyy: "%d.%m.%Y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       default: "%a, %d %b %Y %H:%M:%S %z"
