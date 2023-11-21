@@ -31,7 +31,7 @@ eu:
         sortition_created:
           email_intro: '"%{resource_title}" zozketa jarraitzen ari zaren "%{participatory_space_title}" espazioan gehitu da.'
           email_outro: Jakinarazpen hau jaso duzu "%{participatory_space_title}" jarraitzen ari zarelako. Aurreko estekan sartu jarraitzeari uzteko.
-          email_subject: Zozketa berria gehitu da %{participatory_space_title} espaziora
+          email_subject: Beste zozketa bat gehitu da %{participatory_space_title} espaziora
           notification_title: <a href="%{resource_path}">%{resource_title}</a> zozketa %{participatory_space_title} espaziora gehitu da
     sortitions:
       admin:
@@ -56,7 +56,7 @@ eu:
           confirm_destroy:
             confirm_destroy: Ziur al zaude zozketa hau bertan behera utzi nahi duzula?
             destroy: Zozketa bertan behera utzi
-            title: Zozketa bertan behera utzi
+            title: Zozketa bertan behera uztea
           create:
             error: Arazo bat gertatu da zozketa berri bat sortzean.
             success: Zozketa ondo sortu da.
@@ -74,7 +74,7 @@ eu:
           new:
             confirm: Botoia sakatzean plataformak egun eta ordua (segundu gutxi batzuk gora behera) eta dadoak botatzean ateratako zenbakia gorde egingo ditu ausazko hautaketa bat egiteko. Botoia sakatu ondoren ez dago atzera egiterik eta zozketaren emaitzak zein txantiloi honetan sartutako datuak argitaratuko dira eta ezin izango dira aldatu. Beraz, mesedez, arretaz jarraitu.
             create: Sortu
-            title: Zozketa berria
+            title: Beste zozketa bat
           show:
             selected_proposals: Zozketatzeko aukeratutako proposamenak
           update:
