@@ -1,8 +1,6 @@
 es-MX:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: Habilitar organigrama
       assemblies_type:
         title: Título
       assembly:
@@ -122,10 +120,6 @@ es-MX:
         create:
           error: Se produjo un error al duplicar esta asamblea.
           success: Asamblea duplicada correctamente.
-      assemblies_settings:
-        update:
-          error: Ha habido un problema actualizando la configuración.
-          success: Configuración actualizada con éxito.
       assemblies_types:
         create:
           error: Se ha producido un error al crear un nuevo tipo de asamblea.
@@ -204,7 +198,6 @@ es-MX:
           full_name_or_user_name_or_user_nickname_cont: Buscar por nombre o alias
       menu:
         assemblies: Asambleas
-        assemblies_settings: Configuración
         assemblies_submenu:
           assembly_admins: Usuarios de la asamblea
           assembly_members: Miembros
@@ -304,11 +297,6 @@ es-MX:
             social_handlers: Social
             title: Información general
             visbility: Visibilidad
-        assemblies_settings:
-          edit:
-            update: Actualizar
-          form:
-            title: Configuración de las asambleas
         assemblies_types:
           form:
             title: Título
