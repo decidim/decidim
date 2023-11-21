@@ -37,7 +37,6 @@ gl:
         confirm_destroy: Estás seguro de que queres eliminar este %{name}?
         destroy: Eliminar
         edit: Editar
-        import_csv: Importar CSV
         preview: Vista previa
         timeline_entries: Evolución do proxecto
         title: Accións
@@ -48,7 +47,6 @@ gl:
         import_results:
           new:
             import: Importar
-            title: Importar resultados dun CSV
         models:
           result:
             name: Resultado
