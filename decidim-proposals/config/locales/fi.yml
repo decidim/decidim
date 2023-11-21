@@ -429,9 +429,6 @@ fi:
             proposals:
               one: ehdotus
               other: ehdotusta
-          title:
-            answers: Tuo ehdotusten vastaukset
-            proposals: Tuo ehdotuksia
         models:
           proposal:
             name: Ehdotus
@@ -565,7 +562,6 @@ fi:
             no_components: Tässä osallistumistilassa ei ole muita ehdotuskomponentteja ehdotusten tuomiseksi.
             select_component: Valitse komponentti
             select_states: Tarkista tuotavien ehdotusten tilat
-            title: Tuo ehdotuksia
         proposals_merges:
           create:
             invalid: 'Valittujen ehdotusten yhdistäminen epäonnistui, koska:'
