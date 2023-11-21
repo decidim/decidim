@@ -97,10 +97,6 @@ lv:
         create:
           error: Šīs asamblejas dublēšanas laikā radās problēma.
           success: Asamblejas dublēšana ir veiksmīgi pabeigta.
-      assemblies_settings:
-        update:
-          error: Iestatījumu atjaunināšanas laikā radās problēma.
-          success: Iestatījumi ir veiksmīgi atjaunināti.
       assemblies_types:
         create:
           error: Jaunas asamblejas veida izveides laikā radās problēma.
@@ -157,7 +153,6 @@ lv:
           success: Šīs asamblejas administrators ir veiksmīgi atjaunināts.
       menu:
         assemblies: Asambleja
-        assemblies_settings: Iestatījumi
         assemblies_submenu:
           assembly_admins: Asamblejas administratori
           assembly_members: Dalībnieki
@@ -246,11 +241,6 @@ lv:
             social_handlers: Sociālie plašsaziņas līdzekļi
             title: Vispārēja informācija
             visbility: Redzamība
-        assemblies_settings:
-          edit:
-            update: Atjaunināt
-          form:
-            title: Asamblejas iestatījumi
         assemblies_types:
           form:
             title: Nosaukums
