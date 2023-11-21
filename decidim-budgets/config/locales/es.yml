@@ -148,7 +148,6 @@ es:
             no_components: No hay otros componentes de la propuesta en este espacio participativo para importar las propuestas en los proyectos.
             origin_component_id: Componente de origen
             select_component: Por favor seleccione un componente
-            title: Importar propuestas
         reminders:
           orders:
             description: Las usuarias recibirán un correo electrónico con enlaces a los presupuestos en los que tienen un pedido pendiente.
