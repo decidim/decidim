@@ -135,14 +135,14 @@ eu:
               success: Erroldatze-datu guztiak ezabatu egin dira
           destroy:
             confirm: Ezabatu errolda guztia ezin da desegin. Ziur zaude jarraitu nahi duzula?
-            title: Zentsu-datu guztiak ezabatu
+            title: Ezabatu erroldako datu guztiak
           index:
             data: Guztira, %{count} karga daude. Azken kargatze-data %{due_date}
             empty: Ez dago zentsu-datuik. Erabili beheko formularioa CSV fitxategiaren bidez inportatzeko.
-            title: Uneko erroldako datuak
+            title: Erroldako oraingo datuak
           instructions:
             body: Horretarako, sistemaren administrazioa sartu behar duzu eta gehitu csv_census baimenak erakundeari
-            title: CSVa aktibatu behar duzu antolaketa honetarako
+            title: CSV errolda aktibatu behar duzu erakunde honetarako
           new:
             file: ".csv fitxategia helbide elektronikoen datuekin"
             info: 'CSV formatudun artxiboa izan behar da eta zutabe batean posta elektronikoaren helbidea:'
@@ -158,6 +158,9 @@ eu:
             one: Partehartzea mugatua da %{postal_codes} kode postalarekin duten erabiltzaileentzat.
             other: 'Parte-hartzea honako posta-kode hauetakoren bat duten erabiltzaileentzat mugatuta dago: %{postal_codes}.'
           scope: Partehartzea mugatua da %{scope_name} eremuan egiaztatutako erabiltzaileentzat.
+          user_postal_codes:
+            one: Parte-hartzea mugatuta dago %{postal_codes} posta-kodea duten parte-hartzaileentzat eta zure posta-kodea hau da %{user_postal_code}.
+            other: 'Parte-hartzea mugatuta dago %{postal_codes} posta-kodea duten parte-hartzaileentzat eta zure posta-kodea hau da %{user_postal_code}.'
           user_scope: Parte hartzea mugatuta dago %{scope_name} esparrua duten parte-hartzaileentzat eta zure esparrua hau da %{user_scope_name}.
       id_documents:
         admin:
@@ -188,7 +191,7 @@ eu:
             index:
               config: config
               offline_verification: Lineaz kanpoko egiaztapena
-              title: Zain dauden egiaztapenak
+              title: Onlineko egiaztapenak zain
               verification_number: 'Egiaztapena # %{n}'
           rejections:
             create:
@@ -198,7 +201,7 @@ eu:
             choose_a_type: 'Hautatu nola egiaztatu nahi duzun:'
             offline: Offline
             online: Online
-            title: Egiaztatu zure identifikazio dokumentua
+            title: Egiaztatu zure identifikazio dokumentua erabiliz
           create:
             error: Arazo bat egon da zure dokumentua igotzean
             success: Dokumentua behar bezala kargatu da
@@ -227,7 +230,7 @@ eu:
               letter_sent_at: Gutuna bidali
               mark_as_sent: Markatu bidali gisa
               not_yet_sent: Ez da bidali oraindik
-              title: Etengabeko egiaztapenak
+              title: Egiaztapenak martxan
               username: Ezizena
               verification_code: Egiaztapen kodea
           postages:
@@ -240,7 +243,7 @@ eu:
             success: Eskerrik asko! Zure helbidean egiaztapen-kodea bidaliko dugu
           edit:
             send: Berretsi
-            title: Jasotako egiaztapen-kodea sartu
+            title: Sartu jasotako egiaztapen-kodea
             waiting_for_letter: Zure helbidera gutun bat bidaliko dizugu egiaztapen-kodearekin laster
           new:
             send: Bidali iezadazu gutun bat
@@ -260,7 +263,7 @@ eu:
             destroy: Berrezarri egiaztapen-kodea
             resend: Ez al duzu egiaztapen-kodea jaso?
             send: Berretsi
-            title: Jasotako egiaztapen-kodea sartu
+            title: Sartu jasotako egiaztapen-kodea
           new:
             send: Bidal iezadazu SMS bat
             title: Eskatu zure egiaztapen-kodea
