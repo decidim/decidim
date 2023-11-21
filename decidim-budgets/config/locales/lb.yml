@@ -64,7 +64,6 @@ lb:
             create: Importieren Sie Vorschläge in Projekte
             no_components: Es gibt keine weiteren Vorschlagskomponenten in diesem partizipativen Raum, um die Vorschläge in Projekte zu importieren.
             select_component: Bitte wählen Sie eine Komponente aus
-            title: Vorschläge importieren
       admin_log:
         budget:
           create: "%{user_name} hat das Budget %{resource_name} in %{space_name} erstellt"
