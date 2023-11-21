@@ -39,8 +39,6 @@ eu:
         confirm_destroy: Ziur zaude emaitza hau ezabatu nahi duzula?
         destroy: Ezabatu
         edit: Editatu
-        import: Inportatu proiektuak emaitzetara
-        import_csv: Inportatu CSV fichategia
         new_result: Beste emaitza bat
         new_status: Beste egoera bat
         new_timeline_entry: Beste denbora-sarrera bat
@@ -76,7 +74,6 @@ eu:
                 </ul>
               </li>
               </ol>
-            title: Inportatu emaitzak CSVtik
         imports:
           create:
             invalid: Arazoren bat sortu da emaitzak inportatzean.
@@ -101,7 +98,6 @@ eu:
             success:
               one: Proiektu 1 ilaran dago inportazioaren zain. Eginda dagoenean posta elektronikoz jakinaraziko zaizu.
               other: "%{count} proiektu inportazioaren zain. Eginda dagoenean posta elektronikoz jakinaraziko zaizu."
-            title: Inportatu proiektuak jarraipenera
         results:
           create:
             invalid: Arazo bat izan da emaitza hau sortzean.
