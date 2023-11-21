@@ -37,7 +37,7 @@ eu:
       import:
         user_group_id: Inportatu hau bezala
       newsletter:
-        body: Testua
+        body: Gorputza
         subject: Gaia
       organization:
         admin_terms_of_use_body: Administratzailearen erabilera-terminoetarako testu-atala
@@ -46,7 +46,7 @@ eu:
         badges_enabled: Intsigniak gaitu
         comments_max_length: Iruzkinen gehieneko luzera (utzi 0 defektuz konfigurazioa mantendu nahi baduzu)
         cta_button_path: Deitu Ekintza-botoiaren bidera
-        cta_button_text: Deitu Ekintza-botoiaren testura
+        cta_button_text: Ekintza-botoiaren testua
         customize_welcome_notification: Pertsonalizatu ongietorri-jakinarazpena
         default_locale: Kokapen lehenetsia
         description: Deskribapena
@@ -570,7 +570,7 @@ eu:
             collection: Karpeta
             content_type: Mota
             file_size: Tamaina
-            title: Titulua
+            title: Izenburua
           name: Fitxategi erantsia
         attachment_collection:
           name: Karpeta
@@ -613,7 +613,7 @@ eu:
         static_page:
           fields:
             created_at: Tan sortua
-            title: Titulua
+            title: Izenburua
         user:
           fields:
             created_at: Sortze-data
