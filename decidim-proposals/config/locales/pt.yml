@@ -472,7 +472,6 @@ pt:
             no_components: Não há outros componentes da proposta neste espaço participativo de onde importar as propostas.
             select_component: Selecione um componente
             select_states: Verifique os estados das propostas a importar
-            title: Importar propostas
         proposals_merges:
           create:
             invalid: 'Houve um problema ao fundir as propostas seleccionadas porque algumas delas:'
