@@ -213,7 +213,7 @@ module Decidim
           about: ::Faker::Lorem.paragraph(sentence_count: 2)
         )
 
-        Decidim::Proposals::ProposalVote.create!(proposal:, author:) unless proposal.published_state? && proposal.rejected?
+        Decidim::Proposals::ProposalVote.create!(proposal:, author:) unless proposal.published_state? && proposal.customized_proposal_rejected?
         Decidim::Proposals::ProposalVote.create!(proposal: emendation, author:) if emendation
       end
 

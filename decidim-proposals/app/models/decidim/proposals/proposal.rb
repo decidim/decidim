@@ -285,7 +285,6 @@ module Decidim
         customized_proposal_state == "accepted"
       end
 
-
       # Public: Checks if the organization has rejected a proposal.
       #
       # Returns Boolean.

@@ -3,7 +3,6 @@
 require "spec_helper"
 
 describe Decidim::Proposals::ProposalStateChangedEvent do
-
   context "when the proposal is evaluated" do
     let(:resource) { create(:proposal, title: "My super proposal") }
     let(:event_name) { "decidim.events.proposals.proposal_evaluating" }
@@ -40,7 +39,6 @@ describe Decidim::Proposals::ProposalStateChangedEvent do
   end
 
   context "when the proposal is rejected" do
-
     let(:resource) { create(:proposal, :with_answer, title: "It is my super proposal") }
     let(:resource_title) { translated(resource.title) }
     let(:event_name) { "decidim.events.proposals.proposal_rejected" }
@@ -80,10 +78,9 @@ describe Decidim::Proposals::ProposalStateChangedEvent do
         expect(subject.resource_text).to eq translated(resource.answer)
       end
     end
-
   end
-  context "when the proposal is accepted" do
 
+  context "when the proposal is accepted" do
     let(:resource) { create(:proposal, :with_answer, title: "My super proposal") }
     let(:resource_title) { translated(resource.title) }
     let(:event_name) { "decidim.events.proposals.proposal_accepted" }
@@ -123,6 +120,5 @@ describe Decidim::Proposals::ProposalStateChangedEvent do
         expect(subject.resource_text).to eq translated(resource.answer)
       end
     end
-
   end
 end

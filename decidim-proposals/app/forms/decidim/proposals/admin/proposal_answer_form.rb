@@ -35,7 +35,6 @@ module Decidim
 
         # TODO: This method should not be added to main repository
         def self.from_model(model)
-
           form_attributes = {
             id: model.id,
             internal_state: model.customized_proposal_internal_state,
