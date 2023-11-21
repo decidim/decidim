@@ -321,6 +321,8 @@ fr-CA:
           index:
             filter:
               all: Tout
+              ceased: Terminé
+              not_ceased: En cours
             filter_by: Filtrer par
             search: Rechercher
         content_blocks:
