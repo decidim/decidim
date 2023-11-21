@@ -429,9 +429,6 @@ eu:
             proposals:
               one: proposamena
               other: proposamenak
-          title:
-            answers: Inportatu erantzunak proposamen gisa
-            proposals: Inportatu proposamenak
         models:
           proposal:
             name: Proposamena
@@ -565,7 +562,6 @@ eu:
             no_components: Espazio honetan ez dago beste proposamenik proposamenak inportatzeko.
             select_component: Hautatu osagaia
             select_states: Egiaztatu inportatzeko proposamenen egoera
-            title: Inportatu proposamenak
         proposals_merges:
           create:
             invalid: 'Arazo bat izan da aukeratutako proposamenak bateratzeko, horietako batzuk:'
