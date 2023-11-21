@@ -263,7 +263,7 @@ eu:
       highlighted_questions:
         title: '%{scope_name} ren galderak'
       index:
-        title: kontsultak
+        title: Kontsultak
       last_activity:
         new_consultation: Beste kontsulta bat
         new_question_at_html: "<span>Galdera berria hemen: %{link}</span>"
