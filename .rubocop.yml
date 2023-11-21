@@ -85,7 +85,4 @@ RSpec/NoExpectationExample:
 Capybara/SpecificFinders:
   Enabled: false
 
-Rails/HelperInstanceVariable:
-  Enabled: false
-
 # EOF fix these rules later
