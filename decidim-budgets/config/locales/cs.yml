@@ -152,6 +152,7 @@ cs:
             no_components: V tomto participativním prostoru neexistují jiné komponenty návrhu, které by mohly importovat návrhy do projektů.
             origin_component_id: Původ komponenty
             select_component: Vyberte součást
+            title: Importovat návrhy do projektů
         reminders:
           orders:
             description: Uživatelé obdrží e-mail s odkazy na rozpočty, kde se čeká na vyjádření.
@@ -184,6 +185,7 @@ cs:
           few: "%{count} rozpočty"
           many: "%{count} rozpočtů"
           other: "%{count} rozpočtů"
+        empty: Zatím neexistují žádné rozpočty
         finished_message: Dokončili jste hlasovací proces. Děkujeme za účast!
         highlighted_cta: Hlasovat na %{name}
         if_change_opinion: Pokud jste změnili názor, můžete
@@ -244,6 +246,7 @@ cs:
             few: "%{count} projektů"
             many: "%{count} projektů"
             other: "%{count} projektů"
+        empty: Zatím neexistují žádné projekty
         exit_modal:
           cancel: Návrat k hlasování
           exit: Ukončit hlasování
