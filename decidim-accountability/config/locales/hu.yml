@@ -39,8 +39,6 @@ hu:
         confirm_destroy: 'Biztosan törölni szeretnéd ezt: %{name}?'
         destroy: Törlés
         edit: Szerkesztés
-        import: Projektek importálása az eredményekhez
-        import_csv: CSV importálása
         preview: Előnézet
         timeline_entries: Projekt alakulása
         title: Műveletek
@@ -73,7 +71,6 @@ hu:
                 </ul>
               </li>
               </ol>
-            title: Eredmények betöltése CSV-ből
         imports:
           create:
             success: A fájl importálása megkezdődött. A következő néhány percben kapni fog egy e-mailt az importálás eredményéről.
@@ -97,7 +94,6 @@ hu:
             success:
               one: 1 projekt várakozik importálásra. A befejezés után e-mailben értesítjük Önt.
               other: "%{count} importálásra váró projektek. A befejezés után e-mailben értesítjük Önt."
-            title: Projektek importálása az elszámoltathatóságba
         results:
           create:
             invalid: Volt egy probléma az eredmény létrehozásával.
