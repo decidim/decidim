@@ -91,7 +91,6 @@ sv:
             default_budget: Förvald budget
             no_components: Det finns inga andra förslagskomponenter med förslag i deltagarutrymmet som kan importeras till projekt.
             select_component: Välj en komponent
-            title: Importera förslag
         reminders:
           orders:
             description: Användarna kommer få ett e-post med länkar till budgetar de har börjat rösta i.
