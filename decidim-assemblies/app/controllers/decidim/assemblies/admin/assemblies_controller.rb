@@ -72,7 +72,7 @@ module Decidim
         private
 
         def collection
-          @collection ||= AssembliesWithUserRole.new(current_user).query.includes(:children)
+          @collection ||= OrganizationAssemblies.new(current_user.organization).query
         end
 
         def current_assembly

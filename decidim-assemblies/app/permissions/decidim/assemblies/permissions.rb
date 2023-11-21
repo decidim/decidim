@@ -309,7 +309,7 @@ module Decidim
 
       def assembly_admin_allowed_assemblies
         @assembly_admin_allowed ||= begin
-          assemblies = AssembliesWithUserRole.for(user, :admin).where(id:[ assembly.id, assembly.parent_id])
+          assemblies = AssembliesWithUserRole.for(user, :admin).where(id: [assembly.id, assembly.parent_id])
           child_assemblies = assemblies.flat_map { |assembly| [assembly.id] + assembly.children.pluck(:id) }
 
           Decidim::Assembly.where(id: assemblies + child_assemblies)
