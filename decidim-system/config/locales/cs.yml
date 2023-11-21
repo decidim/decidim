@@ -138,6 +138,22 @@ cs:
           show: Zobrazit pokročilá nastavení
         create:
           error: Při vytváření nové organizace došlo k chybě.
+          success_html: |
+            <p>
+              Organizace byla úspěšně vytvořena.
+            </p>
+            <ol>
+              <li>Možná budete muset aktualizovat kód aplikace, pokud chcete povolit žádosti pro %{host}, musíte přidat následující informace do konfigurace prostředí
+              (tj.. <code>config/environment/production.rb</code>) nebo vaše <code>config/application.rb</code>:
+                <p> config. osts << "%{host}" </p>
+              </li>
+              <li>
+                Po dokončení budete mít přístup k vaší platformě prostřednictvím <a href="http://%{host}">http://%{host}</a>
+              </li>
+              <li>
+                Poslali jsme e-mail na <b>%{email}</b>, který musíte potvrdit.
+              </li>
+            </ol>
         csp_settings:
           connect_src: Připojit src
           connect_src_hint: |
