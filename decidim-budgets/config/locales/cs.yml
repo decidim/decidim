@@ -152,7 +152,6 @@ cs:
             no_components: V tomto participativním prostoru neexistují jiné komponenty návrhu, které by mohly importovat návrhy do projektů.
             origin_component_id: Původ komponenty
             select_component: Vyberte součást
-            title: Importovat návrhy
         reminders:
           orders:
             description: Uživatelé obdrží e-mail s odkazy na rozpočty, kde se čeká na vyjádření.
