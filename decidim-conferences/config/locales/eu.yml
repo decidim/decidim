@@ -550,7 +550,7 @@ eu:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> hitzaldiak okupatutako slot-ak %{percentage}% baino gehiago dira.
         conference_updated:
           email_intro: '"%{resource_title}" hitzaldia eguneratu da. Bertsio berria irakur dezakezu bere orritik:'
-          email_outro: Jakinarazpen hau jaso duzu delako "%{resource_title}" konferentzia jarraituz. Aurreko esteka estekan jarrai dezakezu.
+          email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" hitzaldia jarraitzen ari zarelako. Jarraitzeari uzti ahal diozu aurreko estekan.
           email_subject: '"%{resource_title}" hitzaldia eguneratu da'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> hitzaldia eguneratu da.
         registrations_enabled:
