@@ -395,6 +395,9 @@ ca:
           all: Totes
         filter_meeting_space_values:
           all: Totes
+      calendar:
+        meeting_to_event:
+          read_more: Llegir més sobre aquesta trobada
       calendar_modal:
         calendar_url: URL del calendari
         copy_calendar_url: Copiar
