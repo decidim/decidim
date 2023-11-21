@@ -82,7 +82,6 @@
             create: Importer forslag til prosjekter
             no_components: Det er ingen andre forslag komponenter i dette deltaker området å importere forslagene inn i prosjekter.
             select_component: Velg en komponent
-            title: Importer forslag
         reminders:
           orders:
             description: Brukere vil motta en e-post med lenker til de budsjettene som de har ventende.
