@@ -40,8 +40,6 @@ pl:
         confirm_destroy: Czy na pewno chcesz usunąć %{name}?
         destroy: Usuń
         edit: Edytuj
-        import: Importuj projekty do wyników
-        import_csv: Importuj CSV
         preview: Podgląd
         timeline_entries: Rozwój projektu
         title: Działania
@@ -53,7 +51,6 @@ pl:
           new:
             download_export: Pobierz Eksport w formacie CSV
             import: Importuj
-            title: Importuj wyniki z CSV
         models:
           result:
             name: Wynik
@@ -72,7 +69,6 @@ pl:
               other: "%{count} wybranych projektów zostanie zaimportowanych"
             origin_component_id: Oryginalny komponent
             select_component: Wybierz komponent
-            title: Importuj projekty do Rozliczeń
         results:
           edit:
             title: Edytuj wynik
