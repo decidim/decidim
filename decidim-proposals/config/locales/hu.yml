@@ -364,9 +364,6 @@ hu:
             proposals:
               one: javaslat
               other: javaslatok
-          title:
-            answers: A javaslatok válaszainak importálása
-            proposals: Javaslatok importálása
         models:
           proposal:
             name: Javaslat
@@ -490,7 +487,6 @@ hu:
             no_components: Ebben a részvételi térben nincs több javaslati elem az importálásához.
             select_component: Válassz ki egy elemet
             select_states: Ellenőrizd az importálandó javaslatok állapotát
-            title: Javaslatok importálása
         proposals_merges:
           create:
             success: A javaslatokat sikeresen egy újba egyesítettük.
