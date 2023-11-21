@@ -299,7 +299,7 @@ lt:
             visbility: Matomumas
         assemblies_settings:
           edit:
-            update: Atnaujinimas
+            update: Atnaujinti
           form:
             title: Asamblėjų nuostatos
         assemblies_types:
