@@ -1,8 +1,6 @@
 cs:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: Povolit schéma organizace
       assemblies_type:
         title: Název
       assembly:
@@ -128,10 +126,6 @@ cs:
         create:
           error: Při kopírování tohoto shromáždění došlo k chybě.
           success: Shromáždění úspěšně duplikováno.
-      assemblies_settings:
-        update:
-          error: Při aktualizaci nastavení došlo k chybě.
-          success: Nastavení bylo úspěšně aktualizováno.
       assemblies_types:
         create:
           error: Při vytváření nového typu shromáždění došlo k chybě.
@@ -210,7 +204,6 @@ cs:
           full_name_or_user_name_or_user_nickname_cont: Hledat podle jména nebo přezdívky
       menu:
         assemblies: Shromáždění
-        assemblies_settings: Nastavení
         assemblies_submenu:
           assembly_admins: Administrátoři shromáždění
           assembly_members: Členové
@@ -310,11 +303,6 @@ cs:
             social_handlers: Sociální
             title: Obecná informace
             visbility: Viditelnost
-        assemblies_settings:
-          edit:
-            update: Aktualizovat
-          form:
-            title: Nastavení pro Shromáždění
         assemblies_types:
           form:
             title: Titul
