@@ -1,8 +1,6 @@
 pt:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: Activar o diagrama da organização
       assembly:
         area_id: Área
         assembly_type: Tipo de reunião
@@ -104,10 +102,6 @@ pt:
         create:
           error: Ocorreu um problema ao duplicar esta reunião.
           success: Reunião duplicada corretamente.
-      assemblies_settings:
-        update:
-          error: Ocorreu um problema ao atualizar as definições.
-          success: Definições atualizadas com sucesso.
       assemblies_types:
         create:
           error: Ocorreu um problema ao criar um novo tipo de reunião.
@@ -175,7 +169,6 @@ pt:
           label: Tipo de assembleia
       menu:
         assemblies: Reuniões
-        assemblies_settings: Definições
         assemblies_submenu:
           assembly_admins: Administradores da Reunião
           assembly_members: Membros
@@ -266,11 +259,6 @@ pt:
             social_handlers: Social
             title: Informação geral
             visbility: Visibilidade
-        assemblies_settings:
-          edit:
-            update: Atualizar
-          form:
-            title: Definições para as reuniões
         assemblies_types:
           form:
             title: Título
