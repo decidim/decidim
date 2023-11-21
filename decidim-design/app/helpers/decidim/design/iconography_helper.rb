@@ -15,7 +15,7 @@ module Decidim
         table_rows.map do |table_cell|
           row = []
 
-          row << icon(table_cell[:icon], **options)
+          row << icon(table_cell[:name], **options)
           row << content_tag(:code, table_cell[:icon])
           row << table_cell[:category]
           row << table_cell[:description]
