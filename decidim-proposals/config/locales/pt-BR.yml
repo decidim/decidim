@@ -440,7 +440,6 @@ pt-BR:
             no_components: Não há outros componentes da proposta neste espaço participativo para importar as propostas.
             select_component: Selecione um componente
             select_states: Verifique os estados das propostas para importar
-            title: Importar propostas
         proposals_merges:
           create:
             success: Fundiu com sucesso as propostas em uma nova.
