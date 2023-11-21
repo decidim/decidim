@@ -430,9 +430,6 @@ de:
             proposals:
               one: Vorschlag
               other: Vorschläge
-          title:
-            answers: Vorschlagsantworten importieren
-            proposals: Vorschläge importieren
         models:
           proposal:
             name: Vorschlag
@@ -564,7 +561,6 @@ de:
             no_components: In diesem partizipatorischen Bereich gibt es keine weiteren Vorschlagskomponenten, aus denen die Vorschläge importiert werden könnten.
             select_component: Bitte wählen Sie eine Komponente aus
             select_states: Überprüfen Sie die Status der zu importierenden Vorschläge
-            title: Vorschläge importieren
         proposals_merges:
           create:
             invalid: 'Es gab ein Problem beim Zusammenführen der ausgewählten Vorschläge, weil ein paar von ihnen:'
