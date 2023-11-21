@@ -39,8 +39,6 @@ tr:
         confirm_destroy: Bu %{name}silmek istediğinize emin misiniz?
         destroy: silmek
         edit: Düzenle
-        import: Projeleri sonuçlara aktar 
-        import_csv: CSV'yi içe aktar
         new_result: Yeni sonuç
         new_status: Yeni Durum
         new_timeline_entry: Yeni Zaman çizelgesi Kaydı
@@ -55,7 +53,6 @@ tr:
           new:
             download_export: '  İhracat i CSV formatında indirin '
             import: İçe aktar
-            title: Sonuçları CSV'den içe aktar
         models:
           result:
             name: Sonuç
