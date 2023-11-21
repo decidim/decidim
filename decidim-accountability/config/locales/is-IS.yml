@@ -36,7 +36,6 @@ is-IS:
         confirm_destroy: Ertu viss um að þú viljir eyða þessu %{name}?
         destroy: Eyða
         edit: Breyta
-        import_csv: Flytja inn CSV
         preview: Preview
         timeline_entries: Verkefnisþróun
         title: Aðgerðir
@@ -47,7 +46,6 @@ is-IS:
         import_results:
           new:
             import: Flytja inn
-            title: Flytja inn niðurstöður frá CSV
         models:
           result:
             name: Niðurstaða
