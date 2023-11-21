@@ -135,7 +135,6 @@ hu:
             no_components: Ebben a részvételi térben nincs más javaslat-összetevő a javaslatok projektekbe való importálásához.
             origin_component_id: A komponens származása
             select_component: Válassz ki egy elemet
-            title: Javaslatok importálása
         reminders:
           orders:
             description: A felhasználók egy e-mailt kapnak, amely linkeket tartalmaz a költségvetésekre, ahol függőben lévő sorrendjük van.
