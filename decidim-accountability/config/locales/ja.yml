@@ -38,8 +38,6 @@ ja:
         confirm_destroy: この %{name} を削除してもよろしいですか？
         destroy: 削除
         edit: 編集
-        import: プロジェクトを結果にインポート
-        import_csv: CSVをインポート
         new_result: 新しい結果
         new_status: 新しいステータス
         new_timeline_entry: 新しいタイムラインのエントリ
@@ -75,7 +73,6 @@ ja:
                 </ul>
               </li>
               </ol>
-            title: CSVから結果をインポート
         imports:
           create:
             invalid: 結果のインポート中に問題が発生しました。
@@ -98,7 +95,6 @@ ja:
             select_component: コンポーネントを選択
             success:
               other: "%{count} 件のプロジェクトがインポートする準備を行いました。完了次第、メールで通知します。"
-            title: アカウンタビリティコンポーネントにプロジェクトをインポート
         results:
           create:
             invalid: 結果の作成中に問題がありました。
