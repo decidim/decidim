@@ -142,7 +142,7 @@ eu:
               success: Erroldatze-datu guztiak ezabatu egin dira
           destroy:
             confirm: Ezabatu errolda guztia ezin da desegin. Ziur zaude jarraitu nahi duzula?
-            title: Zentsu-datu guztiak ezabatu
+            title: Ezabatu erroldako datu guztiak
           index:
             data: Guztira, %{count} karga daude. Azken kargatze-data %{due_date}
             empty: Ez dago zentsu-datuik. Erabili beheko formularioa CSV fitxategiaren bidez inportatzeko.
