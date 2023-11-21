@@ -227,6 +227,9 @@ ru:
             select_an_assembly_type: Выберите вид собрания
             social_handlers: Социальные сети
             title: Общие сведения
+        assemblies_settings:
+          edit:
+            update: Обновить
         assemblies_types:
           form:
             title: Название
