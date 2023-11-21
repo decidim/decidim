@@ -39,8 +39,6 @@ de:
         confirm_destroy: Sind Sie sicher, dass Sie diese %{name}löschen möchten?
         destroy: Löschen
         edit: Bearbeiten
-        import: Projekte zu Ergebnissen importieren
-        import_csv: CSV importieren
         new_result: Neues Ergebnis
         new_status: Neuer Status
         new_timeline_entry: Neuer Zeitachseneintrag
@@ -76,7 +74,6 @@ de:
               </ul>
               </li>
               </ol>
-            title: Ergebnisse von CSV importieren
         imports:
           create:
             invalid: Beim Importieren der Ergebnisse ist ein Fehler aufgetreten.
@@ -101,7 +98,6 @@ de:
             success:
               one: Ein Projekt wird importiert. Sie werden per E-Mail benachrichtigt, sobald der Import abgeschlossen ist.
               other: "%{count} Projekte werden in der Warteschlange importiert. Sie werden per E-Mail benachrichtigt, sobald sie abgeschlossen sind."
-            title: Projekte in Rechenschaftspflicht importieren
         results:
           create:
             invalid: Beim Erstellen dieses Ergebnisses ist ein Problem aufgetreten.
