@@ -39,8 +39,6 @@ pt-BR:
         confirm_destroy: Deseja mesmo excluir %{name}?
         destroy: Excluir
         edit: Editar
-        import: Importar projetos para resultados
-        import_csv: Importar CSV
         preview: Pré-visualização
         timeline_entries: Evolução do projeto
         title: Ações
@@ -73,7 +71,6 @@ pt-BR:
                 </ul>
               </li>
               </ol>
-            title: Importar resultados de CSV
         imports:
           create:
             success: O arquivo começou a importar. Você receberá um e-mail nos próximos minutos com o resultado da importação.
@@ -97,7 +94,6 @@ pt-BR:
             success:
               one: Projetos na fila para ser importado. Você será notificado no seu endereço eletrônico quando estiver completo.
               other: "Projetos na fila para importar. Você sera notificado em seu endereço eletrônico quando estiver completo."
-            title: Importar Projetos para Responsabilidade
         results:
           create:
             invalid: Houve um problema criando esse resultado.
