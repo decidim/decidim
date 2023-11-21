@@ -37,7 +37,6 @@ lb:
         confirm_destroy: Sidd Dir sécher datt Dir dësen %{name} läsche wëllt?
         destroy: Läschen
         edit: Editéieren
-        import_csv: CSV importéieren
         preview: Preview
         timeline_entries: Projektentwécklung
         title: Aktiounen
@@ -48,7 +47,6 @@ lb:
         import_results:
           new:
             import: Import
-            title: Resultater aus engem CSV-Fichier importéieren
         models:
           result:
             name: Resultat
