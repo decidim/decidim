@@ -1,8 +1,6 @@
 hu:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: Szervezeti ábra engedélyezése
       assemblies_type:
         title: Cím
       assembly:
@@ -118,10 +116,6 @@ hu:
         create:
           error: Hiba történt a gyűlés duplikációja során.
           success: Gyűlés duplikációja sikeres.
-      assemblies_settings:
-        update:
-          error: Probléma történt a beállítások frissítése során.
-          success: Beállítások sikeresen frissítve.
       assemblies_types:
         create:
           error: Hiba történt az új gyűlés létrehozása során.
@@ -189,7 +183,6 @@ hu:
           label: Gyűlés típusa
       menu:
         assemblies: Gyűlések
-        assemblies_settings: Beállítások
         assemblies_submenu:
           assembly_admins: Gyűlés adminjai
           assembly_members: Tagok
@@ -285,11 +278,6 @@ hu:
             social_handlers: Social
             title: Általános információ
             visbility: Láthatóság
-        assemblies_settings:
-          edit:
-            update: Frissítés
-          form:
-            title: Gyűlések beállításai
         assemblies_types:
           form:
             title: Cím
