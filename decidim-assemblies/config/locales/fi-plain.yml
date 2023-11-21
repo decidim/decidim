@@ -1,8 +1,6 @@
 fi-pl:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: Ota organisaatiokaavio käyttöön
       assemblies_type:
         title: Otsikko
       assembly:
@@ -122,10 +120,6 @@ fi-pl:
         create:
           error: Virhe kopioitaessa ryhmää.
           success: Ryhmä kopioitu onnistuneesti.
-      assemblies_settings:
-        update:
-          error: Asetusten päivittäminen epäonnistui.
-          success: Asetusten päivittäminen onnistui.
       assemblies_types:
         create:
           error: Uuden ryhmätyypin luonti epäonnistui.
@@ -204,7 +198,6 @@ fi-pl:
           full_name_or_user_name_or_user_nickname_cont: Etsi nimellä tai käyttäjänimellä
       menu:
         assemblies: Ryhmät
-        assemblies_settings: Asetukset
         assemblies_submenu:
           assembly_admins: Ryhmän käyttäjät
           assembly_members: Jäsenet
@@ -304,11 +297,6 @@ fi-pl:
             social_handlers: Sosiaalinen media
             title: Yleiset tiedot
             visbility: näkyvyys
-        assemblies_settings:
-          edit:
-            update: Päivitä
-          form:
-            title: Ryhmien asetukset
         assemblies_types:
           form:
             title: Otsikko
