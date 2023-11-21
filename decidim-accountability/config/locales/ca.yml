@@ -222,6 +222,8 @@ ca:
           all: Tots
         home:
           categories_label: Categories
+          empty: Encara no hi ha cap resultat.
+          empty_filters: No hi ha cap resultat amb aquest criteri.
           subcategories_label: Subcategories
         home_header:
           global_status: Estat d'execució global
