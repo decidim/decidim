@@ -16,7 +16,7 @@
 
   <div class="documents__container">
     <% documents.each do |document| %>
-      <%= render partial: "decidim/application/document", locals: { document: } %>
+      <%= render partial: "decidim/application/document", formats: [:html], locals: { document: } %>
     <% end %>
   </div>
 </div>
