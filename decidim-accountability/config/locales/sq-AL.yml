@@ -39,8 +39,6 @@ sq:
         confirm_destroy: Je i sigurt që dëshiron ta fshish këtë %{name}?
         destroy: Fshij
         edit: Përpuno
-        import: Importo projektet tek rezultatet
-        import_csv: Importo CSV
         new_result: Rezultat i ri
         new_status: Status i ri
         new_timeline_entry: Afat kohor i ri
@@ -76,7 +74,6 @@ sq:
                 </ul>
               </li>
               </ol>
-            title: Importo rezultatet nga CSV
         imports:
           create:
             invalid: Ndodhi një gabim gjatë importimit të rezultateve.
@@ -101,7 +98,6 @@ sq:
             success:
               one: 1 projekt në rradhë për t'u importuar. Do të njoftohesh me email, kur të përfundojë.
               other: "%{count} projekte në rradhë për t'u importuar. Do të njoftohesh me email, kur të përfundojnë."
-            title: Importo Projektet tek Përgjegjësitë
         results:
           create:
             invalid: Ndodhi një gabim gjatë krijimit të këtij rezultati.
