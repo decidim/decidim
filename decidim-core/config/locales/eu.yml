@@ -156,6 +156,7 @@ eu:
         cancel_error: Ezin izan da ezeztatu korreo elektronikoaren aldaketa.
         cancel_successfully: Posta elektronikoaren aldaketa zuzen ezeztatua.
         resend_error: Ezin izan da birbidali berresteko korreoa.
+        resend_successfully: 'Berresteko posta elektronikoa zuzen birbidalia hona: %{unconfirmed_email}.'
         send_again: Bidali berriro
         title: Posta elektronikoaren aldaketak egiaztatzea
       show:
@@ -366,11 +367,13 @@ eu:
       official_author: Ofiziala
     authorization_handlers:
       another_dummy_authorization_handler:
+        explanation: Egiaztatu pasaporte zenbaki bat aurkeztuz, "A" letraz hasita.
         fields:
           passport_number: Pasaporte zenbakia
           postal_code: Posta kodea
         name: Beste adibide bat baimena
       dummy_authorization_handler:
+        explanation: Egiaztatu pasaporte zenbaki bat aurkeztuz, "X" letraz amaituta.
         fields:
           allowed_postal_codes: Onartutako posta-kodeak (komaz bereizita)
           allowed_scope_id: Onartutako eremua
@@ -402,6 +405,7 @@ eu:
           title: Baimena iraungi egin da
         incomplete:
           cancel: Utzi
+          explanation: 'Nahiz eta orain baimenduta zauden honako "%{authorization}” honen bidez, behar dugu zuk berriz baimena eskuratzea, ez baititugu honako datu hauek:'
           invalid_field: "%{field}"
           reauthorize: Berriz eskuratu baimena
           title: Mesedez, eman berriro baimena
@@ -412,12 +416,16 @@ eu:
         ok:
           title: Orri honetan baimena izan duzu. Mesedez, kargatu orria zure ekintza burutzeko.
         pending:
+          explanation: Ekintza hau burutzeko, "%{authorization}" baimena eduki behar duzu, baina zure baimena oraindik garatzen ari da.
+          resume: Egiaztatu zure %{authorization} baimenaren garapena.
           title: Baimena oraindik ere egiten ari da
         unauthorized:
+          explanation: Sentitzen dugu, baina ezin diozu heldu ekintza honi, zure baimen-datuetako batzuk ez datozelako bat.
           invalid_field: "%{field} en balioa %{value} ez da baliozkoa."
           ok: Ados
           title: Ez dago baimenduta
         unconfirmed:
+          confirmation_instructions: 'Berrespen-argibideak jaso ez badituzu, berriro eska ditzakezu:'
           explanation_html: Ekintza hau burutzeko baimena behar da, egiten zure email berretsi behar duzula aurretik behar duzu <strong>%{email}</strong>.
           request_confirmation_instructions: Eska ezazu berrespen-argibideak
           title: Berretsi zure posta elektronikoa
@@ -435,6 +443,7 @@ eu:
       see_less: "(ikusi gutxiago)"
     components:
       component_order_selector:
+        no_content: Ezin izan dugu aurkitu irizpide hau duen edukirik.
         order:
           all_types: Mota guztiak
           collaborative_draft: Zirriborro kolaboratiboa
@@ -543,6 +552,7 @@ eu:
         name: Sub heroi banner
     core:
       actions:
+        login_before_access: Mesedez, sartu baino lehen hasi saioa zure kontuarekin.
         unauthorized: Ez duzu baimenik ekintza hau egiteko.
       application_helper:
         filter_area_values:
@@ -553,6 +563,8 @@ eu:
           all: Guztiak
     devise:
       omniauth_registrations:
+        create:
+          email_already_exists: Beste kontu bat helbide elektroniko bera erabiltzen ari da.
         new:
           complete_profile: Osatu profila
           nickname_help: Zure ezizena %{organization}-an. Letrak, zenbakiak, '-' eta '_' soilik eduki ditzake.
