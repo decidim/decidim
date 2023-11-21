@@ -38,8 +38,6 @@ zh-TW:
         confirm_destroy: 確定要刪除 %{name} ？
         destroy: 刪除
         edit: 編輯
-        import: 匯入專案到結果
-        import_csv: 匯入CSV
         preview: 預覽
         timeline_entries: 專案評估
         title: 操作
@@ -72,7 +70,6 @@ zh-TW:
                 </ul>
               </li>
               </ol>
-            title: 從 CSV 匯入結果
         imports:
           create:
             success: 檔案開始匯入，執行完成後會寄發 email 說明匯入結果.
@@ -94,7 +91,6 @@ zh-TW:
             select_component: 選擇一個元件
             success:
               other: "%{count} 個專案已經排程匯入，完成後會寄送 email 通知."
-            title: 匯入專案到問責
         results:
           create:
             invalid: 建立結果時發生錯誤.
