@@ -441,7 +441,7 @@ cs:
               other: návrhy
           title:
             answers: Importovat odpovědi návrhu
-            proposals: Importovat návrhy
+            proposals: Návrhy na dovoz
         models:
           proposal:
             name: Návrh
@@ -585,7 +585,7 @@ cs:
             no_components: V tomto účastnickém prostoru neexistují žádné jiné komponenty návrhu, které by mohly importovat návrhy.
             select_component: Vyberte součást
             select_states: Zkontrolujte stav návrhů, které chcete importovat
-            title: Importovat návrhy
+            title: Návrhy na dovoz
         proposals_merges:
           create:
             invalid: 'Při slučování vybraných návrhů došlo k chybě, protože některé z nich:'
