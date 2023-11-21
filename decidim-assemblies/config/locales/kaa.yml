@@ -32,7 +32,6 @@ kaa:
         edit:
           update: Jańalaw
       menu:
-        assemblies_settings: Sazlawlar
         assemblies_submenu:
           attachment_collections: Papkalar
           attachment_files: Fayllar
@@ -47,9 +46,6 @@ kaa:
           form:
             images: Súwretler
             other: Basqa
-        assemblies_settings:
-          edit:
-            update: Jańalaw
         new_import:
           accepted_types:
             json: JSON
