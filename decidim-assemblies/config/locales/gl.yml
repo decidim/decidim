@@ -1,8 +1,6 @@
 gl:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: Habilitar organigrama
       assembly:
         area_id: Área
         assembly_type: Tipo de montaxe
@@ -104,10 +102,6 @@ gl:
         create:
           error: Produciuse un erro ao duplicar este conxunto.
           success: Asemblea duplicouse con éxito.
-      assemblies_settings:
-        update:
-          error: Produciuse un problema ao actualizar os axustes.
-          success: Axustes actualizados con éxito.
       assemblies_types:
         create:
           error: Produciuse un problema ao crear un novo tipo de xuntanza.
@@ -175,7 +169,6 @@ gl:
           label: Tipo de xuntanza
       menu:
         assemblies: Asembleas
-        assemblies_settings: Axustes
         assemblies_submenu:
           assembly_admins: Usuarios da asemblea
           assembly_members: Membros
@@ -267,11 +260,6 @@ gl:
             social_handlers: Social
             title: Información xeral
             visbility: Visibilidade
-        assemblies_settings:
-          edit:
-            update: Actualizar
-          form:
-            title: Axustes das xuntanzas
         assemblies_types:
           form:
             title: Título
