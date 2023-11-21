@@ -1,8 +1,6 @@
 lt:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: Įgalinti organizacijos modelį
       assemblies_type:
         title: Pavadinimas
       assembly:
@@ -124,10 +122,6 @@ lt:
         create:
           error: Dubliuojant šią asamblėją iškilo problema.
           success: Asamblėja dubliuota.
-      assemblies_settings:
-        update:
-          error: Atnaujinant nustatymus iškilo problema.
-          success: Nustatymai sėkmingai atnaujinti.
       assemblies_types:
         create:
           error: Kuriant naujos asamblėjos tipą iškilo problema.
@@ -195,7 +189,6 @@ lt:
           label: Asamblėjos tipas
       menu:
         assemblies: Asamblėjos
-        assemblies_settings: Nustatymai
         assemblies_submenu:
           assembly_admins: Asamblėjos administratoriai
           assembly_members: Nariai
@@ -291,11 +284,6 @@ lt:
             social_handlers: Socialiniai
             title: Bendroji informacija
             visbility: Matomumas
-        assemblies_settings:
-          edit:
-            update: Atnaujinimas
-          form:
-            title: Asamblėjų nuostatos
         assemblies_types:
           form:
             title: Pavadinimas
