@@ -371,6 +371,8 @@ pl:
               few: odpowiedzi na propozycję
               many: odpowiedzi na propozycję
               other: odpowiedzi na propozycję
+          title:
+            proposals: Importuj propozycje
         models:
           proposal:
             name: Propozycja
