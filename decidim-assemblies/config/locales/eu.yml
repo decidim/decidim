@@ -287,7 +287,7 @@ eu:
             select_parent_assembly: Hautatu batzar nagusia
             slug_help: 'URL-ren testu laburrak batzar honetara daramaten URL-ak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: % {url}'
             social_handlers: Gizarte
-            title: Informazio orokorra
+            title: Informazio Orokorra
             visbility: ikusgarritasuna
         assemblies_settings:
           edit:
