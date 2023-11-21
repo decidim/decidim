@@ -1,8 +1,6 @@
 ja:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: 組織図を有効化
       assemblies_type:
         title: タイトル
       assembly:
@@ -119,10 +117,6 @@ ja:
         create:
           error: この参加スペースの複製中に問題が発生しました。
           success: 参加スペースを複製しました。
-      assemblies_settings:
-        update:
-          error: 設定の更新中に問題が発生しました。
-          success: 設定が更新されました。
       assemblies_types:
         create:
           error: 新しい参加スペース種別の作成に問題がありました。
@@ -196,7 +190,6 @@ ja:
           full_name_or_user_name_or_user_nickname_cont: 名前またはニックネームで検索
       menu:
         assemblies: 参加スペース
-        assemblies_settings: 設定
         assemblies_submenu:
           assembly_admins: 参加スペース管理者
           assembly_members: メンバー
@@ -296,11 +289,6 @@ ja:
             social_handlers: ソーシャル
             title: 一般情報
             visbility: 公開範囲
-        assemblies_settings:
-          edit:
-            update: 更新
-          form:
-            title: 参加スペースの設定
         assemblies_types:
           form:
             title: タイトル
