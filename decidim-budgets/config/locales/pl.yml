@@ -73,7 +73,6 @@ pl:
             create: Importuj propozycje do projektów
             no_components: W tej przestrzeni partycypacyjnej nie ma innych komponentów do zaimportowania propozycji jako projektów.
             select_component: Wybierz komponent
-            title: Importuj propozycje
       admin_log:
         budget:
           create: "%{user_name} utworzył(a) budżet %{resource_name} w przestrzeni %{space_name}"
