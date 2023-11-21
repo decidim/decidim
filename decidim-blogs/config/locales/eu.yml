@@ -40,7 +40,7 @@ eu:
             title: Argitalpenak
           new:
             create: Sortu
-            title: Sortu argitalpena
+            title: Sortu mezua
           update:
             invalid: Akatsen bat gertatu da mezua gordetzean.
             success: Sarrera ondo gorde da
