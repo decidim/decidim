@@ -1,8 +1,6 @@
 it:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: Abilita il grafico dell'organizzazione
       assembly:
         area_id: Area
         assembly_type: Tipo di assemblea
@@ -105,10 +103,6 @@ it:
         create:
           error: Si è verificato un errore durante la duplicazione di questa assemblea.
           success: L'assemblea è stata duplicata con successo.
-      assemblies_settings:
-        update:
-          error: Si è verificato un errore durante l'aggiornamento delle impostazioni.
-          success: Impostazioni aggiornate con successo.
       assemblies_types:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo tipo di assemblea.
@@ -176,7 +170,6 @@ it:
           label: Tipo di assemblea
       menu:
         assemblies: Assemblee
-        assemblies_settings: Impostazioni
         assemblies_submenu:
           assembly_admins: Amministratori dell'assemblea
           assembly_members: Membri
@@ -267,11 +260,6 @@ it:
             social_handlers: Social networks
             title: Informazioni generali
             visbility: Visibilità
-        assemblies_settings:
-          edit:
-            update: Aggiorna
-          form:
-            title: Impostazioni per le assemblee
         assemblies_types:
           form:
             title: Titolo
