@@ -144,14 +144,14 @@ eu:
               success: Erroldako datu guztiak ezabatu dira.
           destroy:
             confirm: Errolda osoa ezabatzea ezin da desegin. Ziur zaude jarraitu nahi duzula?
-            title: Zentsu-datu guztiak ezabatu
+            title: Ezabatu erroldako datu guztiak
           index:
             data: Guztira, badaude %{count} erregistro kargatuta. Azken karga-data izan zen %{due_date}.
             empty: Ez dago zentsu-datuik. Erabili beheko formularioa CSV fitxategiaren bidez inportatzeko.
-            title: Uneko erroldako datuak
+            title: Erroldako oraingo datuak
           instructions:
             body: Horretarako, sistemaren administrazioa sartu behar duzu eta gehitu csv_census baimenak erakundeari
-            title: CSVa aktibatu behar duzu antolaketa honetarako
+            title: CSV errolda aktibatu behar duzu erakunde honetarako
           new:
             example: |
               john.doe@example.org
@@ -200,7 +200,7 @@ eu:
             index:
               config: config
               offline_verification: Lineaz kanpoko egiaztapena
-              title: Zain dauden egiaztapenak
+              title: Onlineko egiaztapenak zain
               verification_number: 'Egiaztapena # %{n}'
           rejections:
             create:
@@ -210,7 +210,7 @@ eu:
             choose_a_type: 'Hautatu nola egiaztatu nahi duzun:'
             offline: Offline
             online: Online
-            title: Egiaztatu zure identifikazio dokumentua
+            title: Egiaztatu zure identifikazio dokumentua erabiliz
           create:
             error: Arazo bat egon da zure dokumentua igotzean.
             success: Dokumentua ondo igota.
@@ -239,7 +239,7 @@ eu:
               letter_sent_at: Gutuna bidali
               mark_as_sent: Markatu bidali gisa
               not_yet_sent: Ez da bidali oraindik
-              title: Etengabeko egiaztapenak
+              title: Egiaztapenak martxan
               username: Ezizena
               verification_code: Egiaztapen kodea
           postages:
@@ -271,7 +271,7 @@ eu:
             destroy: Berrezarri egiaztapen-kodea
             resend: Ez duzu jaso egiaztapen-kodea?
             send: Berretsi
-            title: Jasotako egiaztapen-kodea sartu
+            title: Sartu jasotako egiaztapen-kodea
           new:
             send: Bidal iezadazu SMS bat
             title: Eskatu zure egiaztapen-kodea
