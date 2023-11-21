@@ -301,7 +301,7 @@ cs:
             visbility: Viditelnost
         assemblies_settings:
           edit:
-            update: Aktualizovat
+            update: Aktualizace
           form:
             title: Nastavení pro Shromáždění
         assemblies_types:
