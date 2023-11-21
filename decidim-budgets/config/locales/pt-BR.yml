@@ -105,7 +105,6 @@ pt-BR:
             create: Importar propostas para projetos
             no_components: Não há outros componentes da proposta neste espaço participativo para importar as propostas para projetos.
             select_component: Selecione um componente
-            title: Importar propostas
       admin_log:
         budget:
           create: "%{user_name} criou o orçamento %{resource_name} no espaço %{space_name}"
