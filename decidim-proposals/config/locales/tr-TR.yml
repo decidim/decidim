@@ -432,7 +432,6 @@ tr:
             no_components: Teklifleri içe aktarmak için bu katılımcı alanda başka hiçbir teklif bileşeni bulunmamaktadır.
             select_component: Lütfen bir bileşen seçiniz
             select_states: İçe aktarılacak tekliflerin durumlarını kontrol et
-            title: Teklifleri içe aktar
         proposals_merges:
           create:
             success: Teklifler, yeni bir taneyle başarılı bir şekilde birleştirildi.
