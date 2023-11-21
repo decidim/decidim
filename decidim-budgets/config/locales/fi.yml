@@ -148,7 +148,6 @@ fi:
             no_components: Tässä osallistumistilassa ei ole ole muita ehdotuskomponentteja, joista voitaisiin tuoda ehdotuksia hankkeiksi.
             origin_component_id: Lähdekomponentti
             select_component: Valitse komponentti
-            title: Tuo ehdotuksia
         reminders:
           orders:
             description: Käyttäjät saavat sähköpostiviestin, jossa on linkit budjetteihin, joissa heillä on odottavia ääniä.
