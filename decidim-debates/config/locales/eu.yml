@@ -72,7 +72,7 @@ eu:
             finite: Amaiera (hasiera- eta amaiera-ordua)
             open: Zabalik (ez dago hasiera- edo amaiera-ordurik)
           index:
-            title: eztabaidak
+            title: Eztabaidak
           new:
             create: Sortu eztabaida
             title: Beste eztabaida bat
@@ -236,6 +236,6 @@ eu:
       debates:
         description: Sortutako eztabaida kopurua
         object: eztabaidak
-        title: eztabaidak
+        title: Eztabaidak
     statistics:
       debates_count: Eztabaidak
