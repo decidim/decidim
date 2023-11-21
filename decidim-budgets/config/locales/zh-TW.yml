@@ -136,7 +136,6 @@ zh-TW:
             no_components: 在此參與空間中沒有其他提案元件可以將提案匯入到專案中。
             origin_component_id: 原始元件
             select_component: 請選擇一個組件
-            title: 導入提案
         reminders:
           orders:
             description: 使用者將會收到一封電子郵件，內含連結至他們有待處理訂單的預算。
