@@ -56,7 +56,7 @@ eu:
           form:
             save: Gorde
             template_title: Txantiloiaren informazioa
-            title: '%{questionnaire_for} galdetegiaren txantiloia'
+            title: '%{questionnaire_for}% galdetegiaren txantiloia'
           index:
             confirm_delete: Ziur zaude txantiloi hau ezabatu nahi duzula?
             title: Galdetegi-txantiloiak
