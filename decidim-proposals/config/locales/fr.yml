@@ -535,6 +535,7 @@ fr:
             documents: Documents
             endorsements_count: Nombre de soutiens
             endorsers: Soutiens
+            link: Voir la proposition
             n_more_endorsers:
               one: et 1 de plus
               other: et %{count} autres
