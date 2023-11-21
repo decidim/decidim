@@ -1,8 +1,6 @@
 el:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: Ενεργοποίηση οργανογράμματος
       assemblies_type:
         title: Τίτλος
       assembly:
@@ -118,10 +116,6 @@ el:
         create:
           error: Υπήρξε ένα πρόβλημα κατά την αντιγραφή αυτής της συνέλευσης.
           success: Η συνέλευση αντιγράφτηκε με επιτυχία.
-      assemblies_settings:
-        update:
-          error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση των ρυθμίσεων.
-          success: Οι ρυθμίσεις ενημερώθηκαν με επιτυχία.
       assemblies_types:
         create:
           error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία ενός νέου τύπου συνέλευσης.
@@ -189,7 +183,6 @@ el:
           label: Τύπος συνέλευσης
       menu:
         assemblies: Συνελεύσεις
-        assemblies_settings: Ρυθμίσεις
         assemblies_submenu:
           assembly_admins: Διαχειριστές συνέλευσης
           assembly_members: Μέλη
@@ -284,11 +277,6 @@ el:
             social_handlers: Μέσα κοινωνικής δικτύωσης
             title: Γενικές πληροφορίες
             visbility: Ορατότητα
-        assemblies_settings:
-          edit:
-            update: Ενημέρωση
-          form:
-            title: Ρυθμίσεις για συνελεύσεις
         assemblies_types:
           form:
             title: Τίτλος
