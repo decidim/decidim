@@ -61,8 +61,16 @@ cs:
           edit:
             title: Upravit šablonu odpovědi návrhu
           form:
+            component_constraint_help: Všimněte si, že budou uvedeny pouze participativní prostory, které mají složky typu „návrhy“.
+            hint1_html: "<strong>%{organization}</strong> bude nahrazeno názvem organizace"
+            hint2_html: "<strong>%{name}</strong> bude nahrazeno jménem autora"
+            hint3_html: "<strong>%{admin}</strong> bude nahrazeno jménem administrátora (jediným odpovídajícím na návrh)"
+            hint_html: "<strong>Tip:</strong> Můžete použít tyto proměnné kdekoli na šabloně odpovědi, která bude nahrazena při použití šablony"
             save: Uložit
           index:
+            component_constraint: Přidat omezení
+            confirm_delete: Opravdu chcete tuto šablonu odstranit?
+            global_scope: Globální (k dispozici všude)
             internal_state: Vnitřní stav
             title: Odpovědi na návrh
           new:
