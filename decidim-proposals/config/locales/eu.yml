@@ -16,7 +16,7 @@ eu:
         answer: Erantzuna
         answered_at: '-k erantzuna'
         automatic_hashtags: Traola automatikoki gehitu da
-        body: Testua
+        body: Gorputza
         category_id: Kategoria
         decidim_scope_id: Eremua
         has_address: Helbidea du
@@ -157,19 +157,19 @@ eu:
               with_more_authors: Egile gehiagorekin
             geocoding_enabled: Geokodifikazioa gaituta dago
             minimum_votes_per_user: Erabiltzaile bakoitzeko gutxieneko botoak
-            new_proposal_body_template: Plantilla proposamen berriaren testurako
+            new_proposal_body_template: Proposamenaren gorputzerako txantilioi berria
             new_proposal_body_template_help: Proposamen berriek izango duten testu aurredefinitua zehaztu ahal duzu
-            new_proposal_help_text: Proposamen berriaren laguntza testu
+            new_proposal_help_text: Proposamen berriaren laguntza-testua
             official_proposals_enabled: Proposamen ofizialak gaituta
-            participatory_texts_enabled: Parte hartzaileen testuak gaituta
-            participatory_texts_enabled_readonly: Proposamenak badaude, ezin du doikuntza horrekin elkarreragin. Mesedez, sor ezazu proposamen berri bat, funtzio hori aktibatu nahi baduzu edo `Testu parte hartzaileak` menuan inportatutako proposamen guztiak baztertu nahi badituzu, desaktibatu nahi baduzu.
+            participatory_texts_enabled: Testu parte-hartzaileak gaituta
+            participatory_texts_enabled_readonly: Proposamenak badaude, ezin da ezarpen honekin elkarreragin. Mesedez, sor ezazu proposamen-osagai berria, ezaugarri hau aktibatu nahi baduzu edo baztertu `Testu parte hartzaileak` menuan inportatutako proposamen guztiak, desaktibatu nahi baduzu.
             proposal_answering_enabled: Proposamena erantzutea gaituta dago
             proposal_edit_before_minutes: Proposamenak egileek editatu ahal izango dituzte minutu asko igaro aurretik
             proposal_edit_time: Proposamenen edizioa
             proposal_edit_time_choices:
               infinite: Utzi proposamenak editatzen epe mugagabe batean
               limited: Utzi proposamenak editatzen epe zehatz baten barruan
-            proposal_length: Proposamen maximoa testuaren luzera
+            proposal_length: Proposamenaren gorputzaren luzera maximoa
             proposal_limit: Proposamenaren muga erabiltzaile bakoitzeko
             proposal_wizard_step_1_help_text: Proposamen laguntzailea "Sortu" urrats laguntza testua
             proposal_wizard_step_2_help_text: Proposamen laguntzailea "Konparatu" urrats laguntza testua
@@ -260,12 +260,12 @@ eu:
           email_intro: 'Orain %{participatory_space_title} proposamen berriak sor ditzakezu! Hasi parte hartzen orri honetan:'
           email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Jakinarazpenak jasotzeari utzi ahal diozu aurreko estekan.
           email_subject: 'Proposamenak orain eskuragarri hemen: %{participatory_space_title}'
-          notification_title: <a href="%{resource_path}">proposamen berriak</a>proposamen berriak <a href="%{participatory_space_url}">%{participatory_space_title}</a> parte hartze espazioan
+          notification_title: 'Orain egin ditzakezu <a href="%{resource_path}"></a> proposamen berriak hemen: <a href="%{participatory_space_url}">%{participatory_space_title}</a>'
         endorsing_enabled:
           email_intro: 'Proposamenak egin ditzakezu %{participatory_space_title} parte hartze espazioan! Hasi orri honetan parte hartzen:'
           email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen duzulako. Jakinarazpenak jasotzeari utz diezaiokezu aurreko estekan.
           email_subject: Onarpen proposamenak %{participatory_space_title}-an hasi dira
-          notification_title: Orain has zaitezke <a href="%{resource_path}">proposamenak onartze</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>-ean
+          notification_title: 'Orain has zaitezke <a href="%{resource_path}">proposamenak onartzen hemen: </a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>'
         proposal_accepted:
           affected_user:
             email_intro: 'Zure proposamena "%{resource_title}" onartu da. Orri honetan erantzun dezakezu:'
@@ -302,8 +302,8 @@ eu:
           email_intro: '"%{resource_title}" proposamena jarraizten ari zaren ondorengo "%{participatory_space_title}" espazioan erantsi zaizu.'
           email_outro: Jakinarazpen hau jaso duzu "%{participatory_space_title}" jarraitzen ari zarelako. Jarraitzeari uzti ahal diozu aurreko estekan.
           email_subject: '"%{resource_title}" proposamen berria hona %{participatory_space_title} gehitu da'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena %{participatory_space_title}-era gehitu da %{author}-ren bidez
-          notification_title_official: "Proposamen ofizialari <a href=\"%{resource_path}\">%{resource_title}</a> gehitu zaio \n-ŕi"
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena %{participatory_space_title}-era gehitu du %{author}-k
+          notification_title_official: '<a href="%{resource_path}">%{resource_title}</a> proposamen ofiziala gehitu zaio honi: %{participatory_space_title}'
         proposal_rejected:
           affected_user:
             email_intro: 'Zure proposamena "%{resource_title}" baztertu egin da. Orri honetan erantzuna irakur dezakezu:'
@@ -391,7 +391,7 @@ eu:
         edit_proposal: Editatu proposamena
         import: Inportatu proposamenak beste osagai batetik
         new: Proposamen berria
-        participatory_texts: Testu partehartzaileak
+        participatory_texts: Testu parte-hartzaileak
         show: Ikusi proposamena
         title: Ekintzak
       admin:
@@ -530,7 +530,7 @@ eu:
             amendments_count: Zuzenketa kopurua
             assigned_valuators: Ebaluatzaileak esleituta
             authors: Egileak
-            body: Testua
+            body: Gorputza
             comments_count: Iruzkin kopurua
             comments_negative_count: Aurka
             comments_neutral_count: Neutrala
