@@ -172,6 +172,7 @@ fr:
         count:
           one: "%{count} budget"
           other: "%{count} budgets"
+        empty: Il n'y a aucun budget pour l'instant
         finished_message: Vous avez terminé le processus de vote. Merci de votre participation !
         highlighted_cta: Voter pour %{name}
         if_change_opinion: Si vous avez changé d’avis, vous pouvez
@@ -230,6 +231,7 @@ fr:
           projects_count:
             one: 1 projet
             other: "%{count} projets"
+        empty: Il n'y a aucun projet pour l'instant
         exit_modal:
           cancel: Revenir au vote
           exit: Quitter le vote
