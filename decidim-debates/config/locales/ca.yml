@@ -103,6 +103,9 @@ ca:
         create:
           invalid: S'ha produït un error en crear el debat.
           success: Debat creat correctament.
+        debates:
+          empty: Encara no hi ha cap debat.
+          empty_filters: No hi ha cap debat amb aquest criteri.
         edit:
           back: Enrere
           save: Guardar canvis
