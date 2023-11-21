@@ -76,6 +76,7 @@ fr:
                 </ul>
               </li>
               </ol>
+            title: Importer les résultats depuis un fichier CSV
         imports:
           create:
             invalid: Un problème est survenu lors de l’importation des résultats.
@@ -100,6 +101,7 @@ fr:
             success:
               one: Projet en attente d'importation. Vous serez notifié par courriel, une fois l'import terminé.
               other: "%{count} projets en attente d'importation. Vous serez notifié par email une fois l'import terminé."
+            title: Importer des projets depuis un autre composant
         results:
           create:
             invalid: Un problème est survenu lors de la création de ce résultat.
