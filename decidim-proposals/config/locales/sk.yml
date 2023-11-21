@@ -315,6 +315,9 @@ sk:
           preview: Náhľad
         exports:
           proposals: Návrhy
+        imports:
+          title:
+            proposals: Importovať návrhy
         models:
           proposal:
             name: Návrh
@@ -454,6 +457,7 @@ sk:
             no_components: V tomto účastníckom priestore neexistujú žiadne iné komponenty návrhu, ktoré by mohli importovať návrhy.
             select_component: Vyberte súčasť
             select_states: Skontrolujte stav návrhov, ktoré chcete importovať
+            title: Importovať návrhy
         proposals_merges:
           create:
             success: Projekty boli úspešne zlúčené do novej.
