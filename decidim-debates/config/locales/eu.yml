@@ -103,6 +103,9 @@ eu:
         create:
           invalid: Arazo bat egon da eztabaida sortzean.
           success: Debate sortu da behar bezala.
+        debates:
+          empty: Oraindik ez dago eztabaidarik.
+          empty_filters: Ez dago irizpide hau duen eztabaidarik.
         edit:
           back: Atzera
           save: Gorde aldaketak
