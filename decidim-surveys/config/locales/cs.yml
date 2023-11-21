@@ -71,6 +71,7 @@ cs:
       survey_confirmation_mailer:
         confirmation:
           body: Úspěšně jste odpověděli na anketu %{questionnaire_title} v rámci %{participatory_space}
+          subject: Potvrzení odpovědi na dotazník %{questionnaire_title}
         export_name: Odpovědi na dotazník
       surveys:
         answer:
