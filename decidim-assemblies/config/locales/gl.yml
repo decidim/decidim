@@ -282,7 +282,7 @@ gl:
             visbility: Visibilidade
         assemblies_settings:
           edit:
-            update: Actualizar
+            update: Actualización
           form:
             title: Axustes das xuntanzas
         assemblies_types:
