@@ -41,8 +41,6 @@ lt:
         confirm_destroy: Ar tikrai norite pašalinti šį %{name}?
         destroy: Ištrinti
         edit: Redaguoti
-        import: Importuoti projektus į rezultatus
-        import_csv: Importuoti CSV
         preview: Peržiūra
         timeline_entries: Projekto raida
         title: Veiksmai
@@ -75,7 +73,6 @@ lt:
                 </ul>
               </li>
               </ol>
-            title: Importuoti rezultatus iš CSV
         imports:
           create:
             success: Failas pradėtas importuoti. Po kelių minučių gausite e. laišką su importo rezultatu.
@@ -103,7 +100,6 @@ lt:
               few: "%{count} projektai įtraukti į importavimo eilę. Pasibaigus procesui, būsite informuoti el. paštu."
               many: "%{count} projektų buvo įtraukti į importavimo eilę. Pasibaigus procesui, būsite informuoti el. paštu."
               other: "%{count} projektai buvo įtraukti į importavimo eilę. Pasibaigus procesui, būsite informuoti el. paštu."
-            title: Importuoti projektus į „Atskaitomybę“
         results:
           create:
             invalid: Kuriant šį rezultatą iškilo problema.
