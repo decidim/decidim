@@ -26,16 +26,12 @@ module Decidim
 
             create_assembly_members!(assembly: current_assembly)
 
-            Decidim.component_manifests.each do |manifest|
-              manifest.seed!(current_assembly.reload)
-            end
+            seed_components_manifests!(participatory_space: current_assembly)
 
             Decidim::ContentBlocksCreator.new(current_assembly).create_default!
           end
         end
       end
-
-      def organization = Decidim::Organization.first
 
       def create_content_block!
         Decidim::ContentBlock.create(
@@ -71,7 +67,7 @@ module Decidim
           target: Decidim::Faker::Localized.sentence(word_count: 3),
           participatory_scope: Decidim::Faker::Localized.sentence(word_count: 1),
           participatory_structure: Decidim::Faker::Localized.sentence(word_count: 2),
-          scope: n.positive? ? Decidim::Scope.reorder(Arel.sql("RANDOM()")).first : nil,
+          scope: n.positive? ? Decidim::Scope.all.sample : nil,
           purpose_of_action: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.paragraph(sentence_count: 3)
           end,

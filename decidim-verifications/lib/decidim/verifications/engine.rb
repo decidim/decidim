@@ -30,6 +30,10 @@ module Decidim
         end
       end
 
+      initializer "decidim_verifications.register_icons" do
+        Decidim.icons.register(name: "login-circle-line", icon: "login-circle-line", category: "system", description: "", engine: :verifications)
+      end
+
       # Initializer to include cells views paths
       initializer "decidim_verifications.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Verifications::Engine.root}/app/cells")

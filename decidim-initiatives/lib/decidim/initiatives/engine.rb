@@ -3,6 +3,7 @@
 require "rails"
 require "active_support/all"
 require "decidim/core"
+require "decidim/initiatives/content_blocks/registry_manager"
 require "decidim/initiatives/current_locale"
 require "decidim/initiatives/initiative_slug"
 require "decidim/initiatives/menu"
@@ -85,17 +86,17 @@ module Decidim
         end
       end
 
-      initializer "decidim_initiatives.content_blocks" do
-        Decidim.content_blocks.register(:homepage, :highlighted_initiatives) do |content_block|
-          content_block.cell = "decidim/initiatives/content_blocks/highlighted_initiatives"
-          content_block.public_name_key = "decidim.initiatives.content_blocks.highlighted_initiatives.name"
-          content_block.settings_form_cell = "decidim/initiatives/content_blocks/highlighted_initiatives_settings_form"
+      initializer "decidim_initiatives.register_icons" do
+        Decidim.icons.register(name: "Decidim::Initiative", icon: "lightbulb-flash-line", description: "Initiative", category: "activity", engine: :initiatives)
+        Decidim.icons.register(name: "apps-line", icon: "apps-line", category: "system", description: "", engine: :initiatives)
+        Decidim.icons.register(name: "add-fill", icon: "add-fill", category: "system", description: "", engine: :initiatives)
+        Decidim.icons.register(name: "printer-line", icon: "printer-line", category: "system", description: "", engine: :initiatives)
+        Decidim.icons.register(name: "forbid-line", icon: "forbid-line", category: "system", description: "", engine: :initiatives)
+        Decidim.icons.register(name: "clipboard-line", icon: "clipboard-line", category: "system", description: "", engine: :initiatives)
+      end
 
-          content_block.settings do |settings|
-            settings.attribute :max_results, type: :integer, default: 4
-            settings.attribute :order, type: :string, default: "default"
-          end
-        end
+      initializer "decidim_initiatives.content_blocks" do
+        Decidim::Initiatives::ContentBlocks::RegistryManager.register!
       end
 
       initializer "decidim_initiatives.add_cells_view_paths" do

@@ -17,7 +17,7 @@ module Decidim
             description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
               Decidim::Faker::Localized.paragraph(sentence_count: 3)
             end,
-            scope: n.positive? ? nil : Decidim::Scope.reorder(Arel.sql("RANDOM()")).first,
+            scope: n.positive? ? nil : Decidim::Scope.all.sample,
             banner_image: ::Faker::Boolean.boolean(true_ratio: 0.5) ? banner_image : nil, # Keep after organization
             published_at: 2.weeks.ago,
             start_time: n.weeks.from_now,

@@ -9,6 +9,10 @@ module Decidim
   class Seeds
     protected
 
+    def organization
+      @organization ||= Decidim::Organization.first
+    end
+
     def seeds_root = File.join(__dir__, "..", "..", "db", "seeds")
 
     def hero_image = create_blob!(seeds_file: "city.jpeg", filename: "hero_image.jpeg", content_type: "image/jpeg")
@@ -64,6 +68,12 @@ module Decidim
         end,
         participatory_space:
       )
+    end
+
+    def seed_components_manifests!(participatory_space:)
+      Decidim.component_manifests.each do |manifest|
+        manifest.seed!(participatory_space.reload)
+      end
     end
   end
 end
