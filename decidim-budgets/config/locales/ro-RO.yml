@@ -95,7 +95,6 @@ ro:
             create: Importă propuneri în proiecte
             no_components: Nu există alte componente de propuneri în acest spațiu participativ pentru a importa propunerile în proiecte.
             select_component: Te rugăm selectează o componentă
-            title: Importă propuneri
       admin_log:
         budget:
           create: "%{user_name} a creat bugetul %{resource_name} în spațiul %{space_name}"
