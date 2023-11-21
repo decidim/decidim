@@ -401,6 +401,9 @@ en:
           all: All
         filter_scope_values:
           all: All
+      calendar:
+        meeting_to_event:
+          read_more: Read more about this meeting
       calendar_modal:
         calendar_url: Calendar URL
         close_window: Close window
