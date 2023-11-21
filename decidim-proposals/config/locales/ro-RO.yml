@@ -382,9 +382,6 @@ ro:
               one: propunere
               few: propuneri
               other: propuneri
-          title:
-            answers: Importă răspunsuri la propunere
-            proposals: Importă propuneri
         models:
           proposal:
             name: Propunere
@@ -494,7 +491,6 @@ ro:
             no_components: Nu există alte componente de propunere în acest spațiu participativ din care să se importe propunerile.
             select_component: Te rugăm selectează o componentă
             select_states: Verifică stadiul propunerilor de importat
-            title: Importă propuneri
         proposals_merges:
           create:
             invalid: 'A apărut o problemă la combinarea propunerilor selectate, deoarece unele dintre ele:'
