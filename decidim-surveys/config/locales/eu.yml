@@ -42,7 +42,7 @@ eu:
         survey_opened:
           email_intro: '%{resource_title} inkesta ireki da %{participatory_space_title} espazioan. Orri honetan parte har dezakezu:'
           email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Aurreko estekan sartuz jakinarazpenak jasotzeari utzi ahal diozu.
-          email_subject: Inkesta berri bat %{participatory_space_title} izeneko espazioan
+          email_subject: Beste inkesta bat %{participatory_space_title} izeneko espazioan
           notification_title: <a href="%{resource_path}">%{resource_title}</a> inkesta <a href="%{participatory_space_url}">%{participatory_space_title}</a> espazioan irekita dago.
     metrics:
       survey_answers:
@@ -66,6 +66,7 @@ eu:
         new_survey: 'Inkesta berria:'
       survey_confirmation_mailer:
         confirmation:
+          body: Zuzen erantzun duzu %{participatory_space} espazioko %{questionnaire_title} inkesta
           subject: '%{questionnaire_title} galdetegiaren erantzun-baieztapena'
         export_name: Inkestaren erantzunak
       surveys:
