@@ -430,9 +430,6 @@ fr:
             proposals:
               one: proposition
               other: propositions
-          title:
-            answers: Importer des réponses aux propositions
-            proposals: Importer des propositions
         models:
           proposal:
             name: Proposition
@@ -565,7 +562,6 @@ fr:
             no_components: Il n'y a pas d'autre fonctionnalité de proposition dans cet espace participatif dans laquelle importer les propositions.
             select_component: Veuillez sélectionner une fonctionnalité
             select_states: Vérifiez l'état des propositions à importer
-            title: Importer des propositions
         proposals_merges:
           create:
             invalid: 'Une erreur est survenue lors de la fusion des propositions à cause de certaines d''entre elles:'
