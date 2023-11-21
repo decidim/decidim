@@ -88,14 +88,14 @@ eu:
             edit: Editatu
             empty: Oraindik ez dago galderarik.
             questionnaire: Galdetegia
-            title: Galdetegiaren txantiloia editatzea
+            title: Editatu galdetegiaren txantiloia
           form:
-            title: '%{questionnaire_for} galdetegiaren txantiloia'
+            title: '%{questionnaire_for}% galdetegiaren txantiloia'
           index:
             confirm_delete: Ziur zaude txantiloi hau ezabatu nahi duzula?
             title: Galdetegi-txantiloiak
           new:
-            title: Galdera-sortaren txantiloia editatzea
+            title: Beste galdetegi-txantiloi bat
           preview:
             current_step: '%{step} urratsa'
             of_total_steps: '%{total_steps} etik'
