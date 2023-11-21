@@ -67,7 +67,6 @@ tr:
             create: Teklifleri projelere aktarın
             no_components: Bu katılımcı alanda teklifleri projelere aktarmak için başka bir teklif bileşeni yoktur.
             select_component: Lütfen bir bileşen seçin
-            title: Teklifleri içe aktar
       admin_log:
         budget:
           create: "%{user_name}, %{space_name} alanında %{resource_name} bütçesini oluşturdu"
