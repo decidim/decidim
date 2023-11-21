@@ -211,9 +211,9 @@ module Decidim
       end
 
       def allowed_list_of_assemblies?
-        parent_assemblies = assembly_admin_allowed_assemblies.flat_map { |assembly| [assembly.id] + assembly.ancestors.pluck(:id) }
+        parent_assemblies = assembly.ancestors.flat_map { |assembly| [assembly.id] + assembly.ancestors.pluck(:id) }
 
-        allowed_list_of_assemblies = Decidim::Assembly.where(id: assembly_admin_allowed_assemblies + parent_assemblies)
+        allowed_list_of_assemblies = Decidim::Assembly.where(id: [assembly.id] + parent_assemblies)
         allowed_list_of_assemblies.uniq.member?(assembly)
       end
 
@@ -307,9 +307,13 @@ module Decidim
         assembly_user_role.present? ? assembly_user_role.role : :any
       end
 
-      # We are trying to see if the user can manage the current assembly or its children or not.
       def assembly_admin_allowed_assemblies
-        AssembliesWithUserRole.for(user, :admin).where(id: [assembly.id] + assembly.children.pluck(:id))
+        @assembly_admin_allowed ||= begin
+          assemblies = AssembliesWithUserRole.for(user, :admin).where(id:[ assembly.id, assembly.parent_id])
+          child_assemblies = assemblies.flat_map { |assembly| [assembly.id] + assembly.children.pluck(:id) }
+
+          Decidim::Assembly.where(id: assemblies + child_assemblies)
+        end
       end
     end
   end
