@@ -45,7 +45,7 @@ eu:
         badges_enabled: Intsigniak gaitu
         comments_max_length: Iruzkinen gehieneko luzera (utzi 0 defektuz konfigurazioa mantendu nahi baduzu)
         cta_button_path: Deitu Ekintza-botoiaren bidera
-        cta_button_text: Deitu Ekintza-botoiaren testura
+        cta_button_text: Ekintza-botoiaren testua
         customize_welcome_notification: Pertsonalizatu ongietorri-jakinarazpena
         default_locale: Kokapen lehenetsia
         description: Deskribapena
@@ -122,7 +122,7 @@ eu:
         organization: Erakundea
         show_in_footer: Erakutsi orri-oinean
         slug: URL laburra
-        title: Titulua
+        title: Izenburua
         topic_id: Gaia
         weight: Kokapenaren hurrenkera
       static_page_topic:
@@ -154,7 +154,7 @@ eu:
       decidim/static_page:
         content: Contenido
         slug: URL laburra
-        title: Titulua
+        title: Izenburua
       doorkeeper/application:
         authorize_url: Baimendu URLa
         client_id: Bezeroaren IDa
@@ -559,7 +559,7 @@ eu:
             collection: Karpeta
             content_type: Mota
             file_size: Tamaina
-            title: Titulua
+            title: Izenburua
           name: Fitxategi erantsia
         attachment_collection:
           name: Karpeta
@@ -602,7 +602,7 @@ eu:
         static_page:
           fields:
             created_at: Tan sortua
-            title: Titulua
+            title: Izenburua
         user:
           fields:
             created_at: Sortze-data
@@ -954,7 +954,7 @@ eu:
         metrics: Metrikak
         pages: Orriak
         panel: Administratzailea
-        participants: erabiltzaileak
+        participants: Parte-hartzaileak
         scope_types: Esparru motak
         scopes: Esparruak
         static_pages: Orriak
@@ -996,7 +996,7 @@ eu:
           role: Rola
         new:
           create: Gonbit egin
-          title: Gonbit egin erabiltzaile bati administratzaile gisa
+          title: Gonbidatu parte-hartzailea administratzaile gisa
       users_statistics:
         users_count:
           admins: Administratzaileak
