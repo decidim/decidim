@@ -171,6 +171,7 @@ eu:
         cancel_order:
           more_than_one: ezabatu zure botoa hemen %{name} eta hasi berriro
           only_one: ezabatu zure botoa eta hasi berriro.
+        empty: Oraindik ez dago aurrekonturik
         finished_message: Amaitu duzu bozkatzeko prozesua. Eskerrik asko parte hartzeagatik!
         highlighted_cta: Botoa eman hemen %{name}
         if_change_opinion: Iritzia aldatu baduzu, ahal duzu
@@ -229,6 +230,7 @@ eu:
           projects_count:
             one: Proiektu bat
             other: "%{count} proiektu"
+        empty: Oraindik ez dago proiekturik
         exit_modal:
           cancel: Berriro bozkatu
           exit: Bozketatik irten
