@@ -277,6 +277,7 @@ eu:
               census_codes_generated: Sortu dira erroldarako sarbide kodeak.
               census_frozen: Erroldarako sarbide kodeak esportatu dira eta errolda izoztu da.
               census_uploaded: Errolda igota dago.
+              component_published: Aukeraketaren osagaia <strong>argitaratuta</strong>.
               max_selections: Erantzun guztiek balio zuzena dute honetarako <strong>erantzun gehien</strong>.
               minimum_answers: Galdera bakoitzak badu <strong>gutxienez 2 erantzun</strong>.
               minimum_questions: Aukerak badu <strong>gutxienez galdera 1</strong>.
@@ -393,6 +394,8 @@ eu:
         failed:
           modal:
             close: Itxi
+            communication_lost: Zoritxarrez, badirudi (Iragarki-taula) boto-zerbitzariarekin komunikazioa galdu egin dela.<br>Baliteke Interneterako konexioa hautsita egotea edo zerbitzaria lanpetuta egotea.<br>Saiatu geroago, edo jarri kontaktuan, arazo honek irauten badu.
+            generic_error: Zoritxarrez, errore ezezagun bat izan da. Ziur aski, zure nabigatzaileak ez du pairatzen edo modu "ezkutuan" edo "pribatuan" erabiltzen ari zara, bateragarria ez izanik.
             title: Zerbait gaizki joan da
       election_m:
         badge_name:
@@ -884,6 +887,7 @@ eu:
           update:
             invalid: Arazo bat egon da emaitzak argitaratzean.
             rejected: Iragarki Taulak baztertu egin du emaitzak argitaratzea. Saiatu berriro edo jarri harremanetan sistema-administratzailearekin.
+            success: Emaitzak zuzen argitaratu dira.
         monitoring_committee_members:
           create:
             invalid: Arazo bat egon da jarraipen-batzordekide hau sortzean.
@@ -1271,6 +1275,7 @@ eu:
           description: Hemen, zure erroldako datuak egiaztatzeko aukera duzu, bozketan parte hartzeko eskubidea duzun jakiteko. Sarbide-kode bat izan beharko zenuke, baina galdu baduzu, berriro eska dezakezu, zure datuak zuzenak badira.
           error:
             info: 'Mesedez, saiatu berriro. Sistemaren datuak okerrak direla uste baduzu, hemen eman ahal dituzu: %{census_contact_information}.'
+            title: Sartu dituzun datuak ez daude bozketa honen erroldan
           form_title: 'Bete ondoko galdetegia zure erroldako datuak egiaztatzeko:'
           invalid: Arazo bat egon da errolda egiaztatzean.
           success:
