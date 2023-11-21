@@ -383,9 +383,6 @@ sv:
             proposals:
               one: förslag
               other: förslag
-          title:
-            answers: Importera svar till förslag
-            proposals: Importera förslag
         models:
           proposal:
             name: Förslag
@@ -495,7 +492,6 @@ sv:
             no_components: Det finns inga andra förslagskomponenter i detta deltagarutrymme att importera förslagen från.
             select_component: Välj en komponent
             select_states: Kontrollera status för förslagen som ska importeras
-            title: Importera förslag
         proposals_merges:
           create:
             invalid: 'Det gick inte att slå samman de valda förslagen på grund av vissa av dem:'
