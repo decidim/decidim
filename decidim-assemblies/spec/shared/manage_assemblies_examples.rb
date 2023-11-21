@@ -5,7 +5,7 @@ shared_examples "manage assemblies" do
     let(:image3_filename) { "city3.jpeg" }
     let(:image3_path) { Decidim::Dev.asset(image3_filename) }
 
-    let(:assembly_parent_id_options) { page.find("#assembly_parent_id").find_all("option").map(&:value) }
+    let(:assembly_parent_id_options) { page.find_by_id("assembly_parent_id").find_all("option").map(&:value) }
 
     before do
       click_link "Configure"

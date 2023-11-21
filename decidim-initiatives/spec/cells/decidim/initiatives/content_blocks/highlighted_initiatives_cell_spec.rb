@@ -11,7 +11,7 @@ describe Decidim::Initiatives::ContentBlocks::HighlightedInitiativesCell, type: 
   let!(:most_recent_initiative) { create(:initiative, published_at: 1.day.from_now, organization:) }
   let(:settings) { {} }
 
-  let(:highlighted_initiatives) { subject.call.find("#highlighted-initiatives") }
+  let(:highlighted_initiatives) { subject.call.find_by(id: "highlighted-initiatives") }
 
   controller Decidim::PagesController
 

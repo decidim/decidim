@@ -10,7 +10,7 @@ describe Decidim::Conferences::ContentBlocks::HighlightedConferencesCell, type: 
   let!(:conferences) { create_list(:conference, 8, :published, organization:) }
   let(:settings) { {} }
 
-  let(:highlighted_conferences) { subject.find("#highlighted-conferences") }
+  let(:highlighted_conferences) { subject.find_by(id: "highlighted-conferences") }
 
   controller Decidim::PagesController
 

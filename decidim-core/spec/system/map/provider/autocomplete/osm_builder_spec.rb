@@ -81,7 +81,7 @@ module Decidim
             end
 
             it "calls the geocoding API correctly" do
-              find("#test_address").set("city")
+              find_by_id("test_address").set("city")
               expect(page).to have_selector(
                 ".autoComplete_wrapper",
                 text: [

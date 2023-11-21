@@ -10,7 +10,7 @@ describe Decidim::Assemblies::ContentBlocks::HighlightedAssembliesCell, type: :c
   let!(:assemblies) { create_list(:assembly, 8, organization:) }
   let(:settings) { {} }
 
-  let(:highlighted_assemblies) { subject.find("#highlighted-assemblies") }
+  let(:highlighted_assemblies) { subject.find_by(id: "highlighted-assemblies") }
 
   controller Decidim::PagesController
 

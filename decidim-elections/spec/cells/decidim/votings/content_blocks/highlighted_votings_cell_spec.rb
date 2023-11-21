@@ -10,7 +10,7 @@ describe Decidim::Votings::ContentBlocks::HighlightedVotingsCell, type: :cell do
   let!(:votings) { create_list(:voting, 5, :ongoing, organization:) }
   let(:settings) { {} }
 
-  let(:highlighted_votings) { subject.find("#highlighted-votings") }
+  let(:highlighted_votings) { subject.find_by(id: "highlighted-votings") }
 
   controller Decidim::PagesController
 

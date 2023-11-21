@@ -61,7 +61,7 @@ describe Decidim::DiffCell, type: :cell, versioning: true do
     end
 
     context "with diff_view_unified_unescaped" do
-      let(:html) { subject.find("#diff-for-body") }
+      let(:html) { subject.find_by(id: "diff-for-body") }
 
       it "renders potentially safe HTML tags unescaped" do
         expect(html).to have_selector("em", text: "em")
@@ -77,7 +77,7 @@ describe Decidim::DiffCell, type: :cell, versioning: true do
 
     context "with diff_view_unified_escaped" do
       let(:diff_html_value) { "escaped" }
-      let(:html) { subject.find("#diff-for-body") }
+      let(:html) { subject.find_by(id: "diff-for-body") }
 
       it "sanitizes potentially safe HTML tags" do
         expect(html).not_to have_selector("em")
@@ -96,7 +96,7 @@ describe Decidim::DiffCell, type: :cell, versioning: true do
 
     context "with diff_view_split_unescaped" do
       let(:diff_mode_value) { "split" }
-      let(:html) { subject.find("#diff-for-body") }
+      let(:html) { subject.find_by(id: "diff-for-body") }
 
       it "renders potentially safe HTML tags unescaped" do
         expect(html).to have_selector("em", text: "em")
@@ -113,7 +113,7 @@ describe Decidim::DiffCell, type: :cell, versioning: true do
     context "with diff_view_split_escaped" do
       let(:diff_mode_value) { "split" }
       let(:diff_html_value) { "escaped" }
-      let(:html) { subject.find("#diff-for-body") }
+      let(:html) { subject.find_by(id: "diff-for-body") }
 
       it "sanitizes potentially safe HTML tags" do
         expect(html).not_to have_selector("em")
