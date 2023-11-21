@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "decidim/components/namer"
 require "decidim/seeds"
 
 module Decidim
@@ -40,13 +41,13 @@ module Decidim
           params = {
             title: Decidim::Faker::Localized.sentence(word_count: 3),
             description: Decidim::Faker::Localized.sentence(word_count: 25),
-            scoped_type: Decidim::InitiativesTypeScope.reorder(Arel.sql("RANDOM()")).first,
+            scoped_type: Decidim::InitiativesTypeScope.all.sample,
             state:,
             signature_type: "online",
             signature_start_date: Date.current - 7.days,
             signature_end_date: Date.current + 7.days,
             published_at: 7.days.ago,
-            author: Decidim::User.reorder(Arel.sql("RANDOM()")).first,
+            author: Decidim::User.all.sample,
             organization:
           }
 
@@ -59,6 +60,15 @@ module Decidim
             Decidim::Initiative.create!(params)
           end
           initiative.add_to_index_as_search_resource
+
+          if %w(published rejected accepted).include? state
+            users = []
+            rand(50).times do
+              author = (Decidim::User.all - users).sample
+              initiative.votes.create!(author:, scope: initiative.scope, hash_id: SecureRandom.hex)
+              users << author
+            end
+          end
 
           Decidim::Comments::Seed.comments_for(initiative)
 

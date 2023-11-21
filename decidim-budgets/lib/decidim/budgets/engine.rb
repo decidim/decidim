@@ -26,6 +26,15 @@ module Decidim
         get "/", to: redirect("budgets", status: 301)
       end
 
+      initializer "decidim_budgets.register_icons" do
+        Decidim.icons.register(name: "Decidim::Budgets::Budget", icon: "coin-line", description: "Budget", category: "activity", engine: :budgets)
+        Decidim.icons.register(name: "Decidim::Budgets::Project", icon: "coin-line", description: "Project (Budgets)", category: "activity", engine: :budgets)
+        Decidim.icons.register(name: "Decidim::Budgets::Order", icon: "check-double-fill", description: "Budget voting", category: "activity", engine: :budgets)
+
+        Decidim.icons.register(name: "git-pull-request-line", icon: "git-pull-request-line", category: "system", description: "", engine: :budgets)
+        Decidim.icons.register(name: "list-check", icon: "list-check", category: "system", description: "", engine: :budgets)
+      end
+
       initializer "decidim_budgets.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Budgets::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Budgets::Engine.root}/app/views") # for partials

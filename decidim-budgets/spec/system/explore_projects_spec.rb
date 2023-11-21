@@ -26,6 +26,17 @@ describe "Explore projects", :slow do
   end
 
   describe "index" do
+    context "when there are no projects" do
+      let!(:projects) { nil }
+      let(:project) { nil }
+
+      it "shows an empty page with a message" do
+        visit_budget
+
+        expect(page).to have_content("There are no projects yet")
+      end
+    end
+
     it "shows all resources for the given component" do
       visit_budget
       within "#projects" do
