@@ -1,8 +1,6 @@
 ca:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: Habilitar organigrama
       assemblies_type:
         title: Títol
       assembly:
@@ -122,10 +120,6 @@ ca:
         create:
           error: S'ha produït un error en duplicar aquesta assemblea.
           success: L'assemblea s'ha duplicat correctament.
-      assemblies_settings:
-        update:
-          error: Hi ha hagut un problema actualitzant la configuració.
-          success: Configuració actualitzada amb èxit.
       assemblies_types:
         create:
           error: S'ha produït un error en crear una nova assemblea.
@@ -204,7 +198,6 @@ ca:
           full_name_or_user_name_or_user_nickname_cont: Cerca per nom o àlies
       menu:
         assemblies: Assemblees
-        assemblies_settings: Configuració
         assemblies_submenu:
           assembly_admins: Administradores de l'assemblea
           assembly_members: Membres
@@ -304,11 +297,6 @@ ca:
             social_handlers: Social
             title: Informació general
             visbility: Visibilitat
-        assemblies_settings:
-          edit:
-            update: Actualitzar
-          form:
-            title: Configuració de les assemblees
         assemblies_types:
           form:
             title: Títol
