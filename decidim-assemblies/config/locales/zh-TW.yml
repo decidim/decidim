@@ -1,8 +1,6 @@
 zh-TW:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: 啟用組織圖
       assemblies_type:
         title: 標題
       assembly:
@@ -115,10 +113,6 @@ zh-TW:
         create:
           error: 複製此大會時出現問題
           success: 大會已成功複製
-      assemblies_settings:
-        update:
-          error: 更新設置時出現問題
-          success: 設置更新成功
       assemblies_types:
         create:
           error: 創建新大會類型時出現問題
@@ -186,7 +180,6 @@ zh-TW:
           label: 大會類型
       menu:
         assemblies: 大會
-        assemblies_settings: 設定
         assemblies_submenu:
           assembly_admins: 大會管理員
           assembly_members: 成員
@@ -281,11 +274,6 @@ zh-TW:
             social_handlers: 社群
             title: 基本資訊
             visbility: 可見度
-        assemblies_settings:
-          edit:
-            update: 更新
-          form:
-            title: 大會的設置
         assemblies_types:
           form:
             title: 標題
