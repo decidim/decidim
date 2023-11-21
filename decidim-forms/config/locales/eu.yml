@@ -48,13 +48,13 @@ eu:
             empty: Oraindik ez dago erantzunik
             export:
               answer:
-                title: '#%{number} erantzuna'
+                title: '#%{number} erantzun'
             export_response:
               title: survey_user_answers_%{token}
             index:
               title: "Guztira %{total} erantzun"
             show:
-              title: '#%{number} erantzuna'
+              title: '#%{number} erantzun'
           display_condition:
             answer_option: Erantzuteko aukera
             condition_question: Galdera
