@@ -139,7 +139,6 @@ lt:
             no_components: Nėra kitų pasiūlymų komponentų šioje dalyvaujamojoje erdvėje, kuriuos būtų galima importuoti į projektus.
             origin_component_id: Originalusis komponentas
             select_component: Pasirinkite komponentą
-            title: Importuoti pasiūlymus
         reminders:
           orders:
             description: Naudotojai gaus el. laišką su nuorodomis į biudžetus, kuriuose laukiami jų balsai.
