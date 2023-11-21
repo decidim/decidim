@@ -24,7 +24,7 @@ eu:
         scope_id: Eremua
         state: Estatu
         suggested_hashtags: Iradokitako traolak
-        title: Titulua
+        title: Izenburua
         user_group_id: 'Sortu proposamen bat honako hau gisa:'
       proposal_answer:
         answer: Erantzuna
@@ -57,7 +57,7 @@ eu:
               cant_be_equal_to_template: ezin da plantillaren berdina izan
               identical: ETA izenburua ezin da berdina izan
             title:
-              identical: ETA testua ezin du berdinak izan
+              identical: ETA gorputza ezin da berdina izan
         proposals_merge:
           attributes:
             base:
@@ -374,7 +374,7 @@ eu:
       endorsements:
         description: Proposamenen atxikimendu kopurua
         object: oniritziak
-        title: Oniritziak
+        title: Atxikimenduak
       proposals:
         description: Proposamen kopurua
         object: proposamenak
@@ -382,7 +382,7 @@ eu:
       votes:
         description: Proposamenen babes kopurua
         object: botoak
-        title: Botoak
+        title: Babesak
     participatory_spaces:
       highlighted_proposals:
         see_all: Ikusi (%{count}) proposamenak
@@ -450,14 +450,14 @@ eu:
             info_1: Hurrengo atalak proposamen bihurtu dira. Orain berrikusi eta doitu ditzakezu argitaratu aurretik.
             publish_document: Argitaratu dokumentua
             save_draft: Zirriborroa gorde
-            title: Parte hartzeko testua aurreikustea
+            title: Aurreikusi testu parte-hartzailea
           new_import:
             accepted_mime_types:
               md: Markdown
               odt: ODT
             bottom_hint: "(Podrá previsualizar y ordenar las secciones del documento)"
             document_legend: 'Gehitu 2MB baino gutxiagoko dokumentu bat. Atal bakoitza 3 sakontasun-mailaraino, proposamenetan aztertuko da.. Formatu suportatuak hauek dira: %{valid_mime_types}'
-            title: ADD DOCUMENT
+            title: Gehitu Dokumentua
             upload_document: Kargatu dokumentua
           publish:
             invalid: Ezin izan dira proposamenik argitaratu
@@ -757,14 +757,14 @@ eu:
             published_at: Argitaratze-data
             scope: Esparrua
             state: Egoera
-            title: Titulua
+            title: Izenburua
             valuator: Ebaluatzailea
             valuators: Ebaluatzaileak
             votes: Botoak
       new:
         limit_reached: Ezin duzu proposamen berririk egin muga gainditu duzulako.
       participatory_text_proposal:
-        alternative_title: Une honetan ez dago partaidetzazko testurik
+        alternative_title: Une honetan ez dago testu parte-hartzailerik
         buttons:
           amend: Zuzendu
           comment: Iruzkina
@@ -776,7 +776,7 @@ eu:
         compare:
           continue: Jarraitu
           no_similars_found: Ongi egina! Ez da antzeko proposamenik aurkitu
-          title: Proposamen antzekoak
+          title: Antzeko proposamenak
         complete:
           send: Bidali
           title: Osatu zue proposamena
@@ -922,11 +922,11 @@ eu:
             description: '%{limit} proposamen sortu ditzakezu.'
           threshold_per_proposal:
             description: Proposamenak baliozkotu ahal izateko, %{limit} babes lortu behar da
-          title: 'Bozkek arau hauek bete behar dituzte:'
+          title: 'Babesek arau hauek bete behar dituzte:'
           vote_limit:
             description: '%{limit} proposameni eman ahal diozu babesa.'
             left: Gainerako botoak
-            votes: Botoak
+            votes: Babesak
         wizard_aside:
           back: Atzera
           back_from_step_1: Itzuli proposamenetara
