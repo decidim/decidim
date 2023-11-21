@@ -1,8 +1,6 @@
 "no":
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: Aktiver organisasjonskart
       assembly:
         area_id: Område
         assembly_type: Forsamlingstype
@@ -104,10 +102,6 @@
         create:
           error: Det oppstod et problem med å publisere denne forsamlingen.
           success: Forsamlingen ble duplisert.
-      assemblies_settings:
-        update:
-          error: Det oppstod et problem under oppdatering av innstillingene.
-          success: Oppdatering av innstillinger vellykket.
       assemblies_types:
         create:
           error: Det oppstod et problem med å lage en ny forsamlingstype.
@@ -175,7 +169,6 @@
           label: Forsamlingstype
       menu:
         assemblies: Forsamlinger
-        assemblies_settings: Innstillinger
         assemblies_submenu:
           assembly_admins: Forsamlings adminer
           assembly_members: Medlemmer
@@ -266,11 +259,6 @@
             social_handlers: Sosial
             title: Generell Informasjon
             visbility: Synlighet
-        assemblies_settings:
-          edit:
-            update: Oppdater
-          form:
-            title: Innstillinger for forsamlinger
         assemblies_types:
           form:
             title: Tittel
