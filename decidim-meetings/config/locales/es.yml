@@ -395,6 +395,9 @@ es:
           all: Todas
         filter_meeting_space_values:
           all: Todos
+      calendar:
+        meeting_to_event:
+          read_more: Leer más sobre este encuentro
       calendar_modal:
         calendar_url: URL del calendario
         copy_calendar_url: Copiar
