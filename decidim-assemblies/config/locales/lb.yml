@@ -221,6 +221,9 @@ lb:
             name: Name
     assemblies:
       admin:
+        assemblies_settings:
+          edit:
+            update: Aktualisieren
         assemblies_types:
           form:
             title: Titel
