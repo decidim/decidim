@@ -1,8 +1,6 @@
 sv:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: Aktivera organisationskarta
       assemblies_type:
         title: Titel
       assembly:
@@ -110,10 +108,6 @@ sv:
         create:
           error: Det gick inte att duplicera gruppen.
           success: Gruppen har duplicerats.
-      assemblies_settings:
-        update:
-          error: Det gick inte att uppdatera inställningarna.
-          success: Inställningarna har uppdaterats.
       assemblies_types:
         create:
           error: Det gick inte att skapa en ny typ av grupp.
@@ -181,7 +175,6 @@ sv:
           label: Typ av grupp
       menu:
         assemblies: Grupper
-        assemblies_settings: Inställningar
         assemblies_submenu:
           assembly_admins: Administratörer för gruppen
           assembly_members: Medlemmar
@@ -273,11 +266,6 @@ sv:
             social_handlers: Socialt
             title: Allmän information
             visbility: Synlighet
-        assemblies_settings:
-          edit:
-            update: Uppdatera
-          form:
-            title: Inställningar för församlingar
         assemblies_types:
           form:
             title: Titel
