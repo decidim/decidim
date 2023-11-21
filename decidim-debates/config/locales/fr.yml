@@ -103,6 +103,9 @@ fr:
         create:
           invalid: Il y a eu un problème lors de la création de ce débat.
           success: Débat créé avec succès.
+        debates:
+          empty: Il n'y a aucun débat pour l'instant.
+          empty_filters: Il n'y a aucun débat avec ces critères.
         edit:
           back: Retour
           save: Enregistrer les modifications
