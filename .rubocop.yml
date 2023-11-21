@@ -85,9 +85,6 @@ RSpec/NoExpectationExample:
 Capybara/SpecificFinders:
   Enabled: false
 
-RSpec/IndexedLet:
-  Enabled: false
-
 Rails/HelperInstanceVariable:
   Enabled: false
 
