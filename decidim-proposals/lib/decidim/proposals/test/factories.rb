@@ -255,8 +255,9 @@ FactoryBot.define do
     token { :not_answered }
     title { generate_state_title(:not_answered) }
     description { Decidim::Faker::Localized.localized { Faker::Lorem.sentences(number: 3).join("\n") } }
-    component { create(:proposal_component) }
+    component { build(:proposal_component) }
     default { false }
+    gamified { false }
     system { true }
     css_class { "" }
 
@@ -272,6 +273,7 @@ FactoryBot.define do
       title { generate_state_title(:accepted) }
       token { :accepted }
       system { true }
+      gamified { true }
       notifiable { true }
       answerable { true }
     end

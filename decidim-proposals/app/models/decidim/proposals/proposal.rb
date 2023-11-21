@@ -79,7 +79,7 @@ module Decidim
       scope :not_status, ->(status) { joins(:proposal_state).where.not(decidim_proposals_proposal_states: { token: status }) }
       scope :only_status, ->(status) { joins(:proposal_state).where(decidim_proposals_proposal_states: { token: status }) }
 
-      scope :gamified, -> { state_published.only_status(:accepted) }
+      scope :gamified, -> { state_published.only_status(:accepted).where(decidim_proposals_proposal_states: { gamified: true }) }
 
       scope :accepted, -> { state_published.only_status(:accepted) }
       scope :rejected, -> { state_published.only_status(:rejected) }
@@ -224,10 +224,6 @@ module Decidim
       # Returns Boolean.
       def state
         raise "Method deprecated use customized_proposal_#{__method__}"
-        return amendment.state if emendation?
-        return nil unless published_state? || withdrawn?
-
-        proposal_state&.token
       end
 
       # This is only used to define the setter, as the getter will be overriden below.
@@ -244,9 +240,6 @@ module Decidim
       # Returns Boolean.
       def internal_state
         raise "Method deprecated use customized_proposal_#{__method__}"
-        return amendment.state if emendation?
-
-        proposal_state&.token
       end
 
       # Public: Checks if the organization has published the state for the proposal.
