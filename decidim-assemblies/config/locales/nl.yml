@@ -1,8 +1,6 @@
 nl:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: Organigram tonen
       assembly:
         area_id: Onderwerp
         assembly_type: Groepstype
@@ -104,10 +102,6 @@ nl:
         create:
           error: Er was een fout bij het dupliceren van deze groep.
           success: Groep succesvol gedupliceerd.
-      assemblies_settings:
-        update:
-          error: Er is een fout opgetreden bij het bijwerken van de instellingen.
-          success: Instellingen succesvol bijgewerkt.
       assemblies_types:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuw groepstype.
@@ -175,7 +169,6 @@ nl:
           label: Groepstype
       menu:
         assemblies: Groepen
-        assemblies_settings: Instellingen
         assemblies_submenu:
           assembly_admins: Groep-admins
           assembly_members: Leden
@@ -270,11 +263,6 @@ nl:
             social_handlers: sociaal
             title: Algemene informatie
             visbility: Zichtbaarheid
-        assemblies_settings:
-          edit:
-            update: Bijwerken
-          form:
-            title: Instellingen voor groepen
         assemblies_types:
           form:
             title: Titel
