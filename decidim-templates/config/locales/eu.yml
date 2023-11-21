@@ -61,9 +61,11 @@ eu:
           edit:
             title: Editatu proposamenaren erantzun-txantilioia
           form:
+            component_constraint_help: Kontuan izan soilik zerrendatuko direla "proposamenak" motako osagaiak dituzten parte hartzeko espazioak.
             hint1_html: "\n<strong>%{organization}</strong>  erakundearen izenak ordezkatuko du."
             hint2_html: "<strong>%{name}</strong> egilearen izenak ordezkatuko du."
             hint3_html: "<strong>%{admin}</strong> administratzailearen izenak ordezkatuko du (proposamenari erantzuten diona)."
+            hint_html: "<strong>Iradokizuna</strong> Aldagarri hauek erantzunaren txantiloiaren edozein lekutan erabil ditzakezu, txantiloia erabiltzean ordezkatuko baitira"
             save: Gorde
           index:
             component_constraint: Gehitu hertsapena.
