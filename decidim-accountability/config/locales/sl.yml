@@ -30,7 +30,6 @@ sl:
         confirm_destroy: Ali ste prepričani, da želite izbrisati to %{name}?
         destroy: Izbriši
         edit: Uredi
-        import_csv: Uvozi CSV
         preview: Predogled
         timeline_entries: Razvoj projekta
         title: Dejanja
@@ -40,7 +39,6 @@ sl:
         import_results:
           new:
             import: Uvozi
-            title: Uvozi postavke iz CSV datoteke
         models:
           result:
             name: Rezultat
