@@ -377,6 +377,7 @@ fr-CA:
           destroy_confirmation: Êtes-vous sûr(e) de vouloir supprimer ce bloc de contenu ?
           inactive_content_blocks: Blocs de contenu inactifs
           title: Contenus de la page
+          update: Mettre à jour
       dashboard:
         pending_moderations:
           anouncement:
@@ -849,6 +850,9 @@ fr-CA:
             update_suggested_colors: Mettre à jour les couleurs suggérées
           cta_button_path_help_html: 'Vous pouvez remplacer le lien du bouton d''appel à l''action de la page d''accueil. Utilisez des chemins partiels, pas des URL complètes ici. Accepte les lettres, chiffres, tirets et barres obliques, et doit commencer par une lettre. Le bouton d''appel à l''action est affiché sur la page d''accueil entre le texte de bienvenue et la description. Exemple : %{url}'
           cta_button_text_help: Vous pouvez remplacer le texte du bouton dans la page d'accueil pour chaque langue disponible dans votre organisation. Si elle n'est pas définie, la valeur par défaut sera utilisée. Le bouton apparaît sur la page d'accueil entre le texte de bienvenue et la description.
+          header_snippets:
+            header_snippets_help_html: Utilisez ce champ pour ajouter des éléments à l'en-tête "head" HTML. L’utilisation la plus courante est d’intégrer des services tiers qui nécessitent du JavaScript ou du CSS supplémentaires. De plus, vous pouvez l'utiliser pour ajouter des balises méta supplémentaires au HTML. Notez que cela ne sera rendu que dans les pages publiques, pas dans la section admin. Si le code interagit avec des API externes ou ne respecte pas les directives de sécurité de l'application, il sera nécessaire de modifier la politique de sécurité du contenu. En savoir plus <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">sur le site de documentation</a>.
+            title: Éléments à ajouter à l'en-tête "head" HTML
           homepage_appearance_title: Modifier l'apparence de la page d'accueil
           homepage_highlighted_content_banner_title: Bannière de contenu mis en valeur
           images:
@@ -884,6 +888,8 @@ fr-CA:
           invalid: Un problème est survenu lors de la lecture du fichier CSV. Veuillez vous assurer que vous avez suivi les instructions.
           success: Le fichier CSV a été téléchargé avec succès. Une invitation par courriel sera envoyée sous peu à chaque participant. Cela peut prendre quelques instants.
         new:
+          csv_upload:
+            title: Téléchargez votre fichier CSV
           destroy:
             button: Supprimer tous les utilisateurs privés
             confirm: Êtes-vous sûr de vouloir supprimer tous les utilisateurs privés ? Cette action est irréversible, vous ne pourrez pas les récupérer.
@@ -895,6 +901,7 @@ fr-CA:
           explanation_example: |
             john.doe@example.org%{csv_col_sep}Jean Doe
             jane.doe@example.org%{csv_col_sep}Jane Doe
+          title: Importer des participants privés via CSV
           upload: Télécharger
       reminders:
         create:
