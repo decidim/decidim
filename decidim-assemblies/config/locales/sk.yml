@@ -133,6 +133,9 @@ sk:
         update: "%{user_name} aktualizoval typ zhromaždenia %{resource_name}"
     assemblies:
       admin:
+        assemblies_settings:
+          edit:
+            update: Aktualizovať
         assemblies_types:
           form:
             title: Názov
