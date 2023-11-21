@@ -201,7 +201,7 @@ eu:
         answers:
           edit:
             answer: Erantzuna
-            title: '%{title}erantzun'
+            title: '%{title} erantzun'
           info_initiative:
             created_at: Sortutako at
             description: Deskribapena
