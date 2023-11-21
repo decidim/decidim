@@ -112,7 +112,9 @@ fr-CA:
             invalid: Il y a eu un problème lors de la mise à jour de ce projet.
             success: Projet mis à jour avec succès.
           update_budget:
-            select_a_project: Veuillez selectionner un projet.
+            invalid: 'Ces projets sont déjà dans le même budget ou leur budget est supérieur au montant maximum autorisé : %{projects}.'
+            select_a_project: Veuillez sélectionner un projet.
+            success: 'Les projets ont été mis à jour avec succès pour le budget %{subject_name} : %{projects}.'
           update_category:
             invalid: 'Ces projets avaient déjà la catégorie %{subject_name} : %{projects}.'
             select_a_category: Veuillez sélectionner une catégorie.
@@ -172,6 +174,7 @@ fr-CA:
         count:
           one: "%{count} budget"
           other: "%{count} budgets"
+        empty: Il n'y a aucun budget pour l'instant
         finished_message: Vous avez terminé le processus de vote. Merci de votre participation !
         highlighted_cta: Voter pour %{name}
         if_change_opinion: Si vous avez changé d’avis, vous pouvez
@@ -230,6 +233,7 @@ fr-CA:
           projects_count:
             one: 1 projet
             other: "%{count} projets"
+        empty: Il n'y a aucun projet pour l'instant
         exit_modal:
           cancel: Revenir au vote
           exit: Quitter le vote
