@@ -466,7 +466,6 @@ pl:
             no_components: W tej przestrzeni partycypacyjnej nie ma innych komponentów propozycji do zaimportowania propozycji.
             select_component: Wybierz komponent
             select_states: Sprawdź statusy propozycji do zaimportowania
-            title: Importuj propozycje
         proposals_merges:
           create:
             success: Pomyślnie połączono propozycje.
