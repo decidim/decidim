@@ -96,10 +96,6 @@ zh-CN:
         create:
           error: 复制这个组件时出现问题。
           success: 已成功复制组合。
-      assemblies_settings:
-        update:
-          error: 更新设置时出现问题。
-          success: 设置已成功更新。
       assemblies_types:
         create:
           error: 创建新组装类型时出现问题。
@@ -164,7 +160,6 @@ zh-CN:
           success: 管理员已成功更新此程序集。
       menu:
         assemblies: 程序集
-        assemblies_settings: 设置
         assemblies_submenu:
           assembly_admins: 集合管理员
           assembly_members: 成员
@@ -253,11 +248,6 @@ zh-CN:
             social_handlers: 社交活动
             title: 一般信息
             visbility: 可见性
-        assemblies_settings:
-          edit:
-            update: 更新
-          form:
-            title: 程序集设置
         assemblies_types:
           form:
             title: 标题
