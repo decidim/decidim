@@ -131,7 +131,7 @@ describe "Admin views proposal details from admin", type: :system do
         go_to_admin_proposal_page(proposal)
 
         expect(page).to have_content "Endorsers"
-        expect(page).to have_css("[data-endorsements] [data-count]", text: "2")
+        expect(page).to have_content("Endorsements count: 2")
       end
 
       it "shows the ranking by endorsements" do
@@ -139,7 +139,7 @@ describe "Admin views proposal details from admin", type: :system do
         create(:endorsement, resource: another_proposal, author: build(:user, organization: organization))
         go_to_admin_proposal_page(proposal)
 
-        expect(page).to have_css("[data-endorsements] [data-ranking]", text: "1 of ")
+        expect(page).to have_content("Ranking by endorsements: 1 of")
       end
 
       it "has a link to each endorser profile" do
