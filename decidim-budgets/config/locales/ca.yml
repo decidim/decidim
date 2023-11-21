@@ -177,6 +177,7 @@ ca:
         count:
           one: "%{count} pressupost"
           other: "%{count} pressupostos"
+        empty: Encara no hi ha cap pressupost
         finished_message: Has finalitzat el procés de votació. Gràcies per participar-hi!
         highlighted_cta: Votar a %{name}
         if_change_opinion: Si has canviat d'opinió, pots %{cancel_link}.
@@ -235,6 +236,7 @@ ca:
           projects_count:
             one: 1 projecte
             other: "%{count} projectes"
+        empty: Encara no hi ha cap projecte
         exit_modal:
           cancel: Tornar a la votació
           exit: Sortir de la votació
