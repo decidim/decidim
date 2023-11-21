@@ -53,7 +53,7 @@ eu:
           title: Administratzaileak
         new:
           create: Sortu
-          title: Administratzaile berria
+          title: Beste administratzaile bat
         show:
           destroy: Suntsitu
           edit: Editatu
@@ -120,15 +120,15 @@ eu:
           success: Aplikazioa ondo ezabatu da.
         edit:
           save: Gorde
-          title: Aplikazioa editatu
+          title: Editatu aplikazioa
         form:
           select_organization: Aukeratu antolatzaile bat
         index:
           confirm_delete: Ziur zaude aplikazio hau ezabatu nahi duzula?
-          title: OAuth Aplikazioak
+          title: OAuth aplikazioak
         new:
           save: Gorde
-          title: Aplikazio berria
+          title: Beste aplikazio bat
         update:
           error: Errorea izan da aplikazio hau eguneratzean.
           success: Aplikazioa ondo eguneratu da.
@@ -169,7 +169,7 @@ eu:
           locale: Tokikoa
           reference_prefix_hint: Erreferentzia-aurrizkia erakunde guztietan baliabideak identifikatzeko erabiltzen da.
           secondary_hosts_hint: Sartu haietako bakoitza beste lerro batean.
-          title: Erakunde berria
+          title: Beste erakunde bat
         omniauth_settings:
           decidim:
             client_id: Bezeroaren IDa
