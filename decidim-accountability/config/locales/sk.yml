@@ -37,7 +37,6 @@ sk:
         confirm_destroy: Naozaj chcete odstrániť toto %{name}?
         destroy: Odstrániť
         edit: Upraviť
-        import_csv: Importovať súbor CSV
         preview: Ukážka
         timeline_entries: Vývoj projektu
         title: Akcie
@@ -47,7 +46,6 @@ sk:
         import_results:
           new:
             import: Importovať
-            title: Importovať výsledky zo súboru CSV
         models:
           result:
             name: Výsledok
