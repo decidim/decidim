@@ -1,8 +1,6 @@
 pl:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: Włącz wykres dla organizacji
       assembly:
         announcement: Powiadomienie
         area_id: Kategoria
@@ -111,10 +109,6 @@ pl:
         create:
           error: Podczas duplikowania tego zespołu wystąpił błąd.
           success: Zespół został zduplikowany.
-      assemblies_settings:
-        update:
-          error: Podczas aktualizowania ustawień wystąpił błąd.
-          success: Pomyślnie zaktualizowano ustawienia.
       assemblies_types:
         create:
           error: Podczas tworzenia nowego typu zespołu wystąpił błąd.
@@ -182,7 +176,6 @@ pl:
           label: Typ zespołu
       menu:
         assemblies: Zespoły
-        assemblies_settings: Ustawienia
         assemblies_submenu:
           assembly_admins: Administratorzy zespołu
           assembly_members: Członkowie
@@ -276,11 +269,6 @@ pl:
             social_handlers: Profile społecznościowe
             title: Informacje ogólne
             visbility: Widoczność
-        assemblies_settings:
-          edit:
-            update: Aktualizuj
-          form:
-            title: Ustawienia zespołów
         assemblies_types:
           form:
             title: Tytuł
