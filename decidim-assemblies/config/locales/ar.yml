@@ -1,8 +1,6 @@
 ar:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: تمكين الخريطة التنظيمية
       assemblies_type:
         title: العنوان
       assembly:
@@ -124,10 +122,6 @@ ar:
         create:
           error: حدثت مشكلة في تكرار هذا التجميع.
           success: الجمعية مكررة بنجاح.
-      assemblies_settings:
-        update:
-          error: طرأت مشكلة أثناء تحديث الإعدادات.
-          success: تم تحديث الإعدادات بنجاح.
       assemblies_types:
         create:
           error: حدثت مشكلة أثناء إنشاء جمعية جديدة.
@@ -195,7 +189,6 @@ ar:
           label: نوع الجمعية
       menu:
         assemblies: الجمعيات
-        assemblies_settings: الإعدادات
         assemblies_submenu:
           assembly_admins: مدراء الجمعية
           assembly_members: الأعضاء
@@ -290,11 +283,6 @@ ar:
             social_handlers: التواصل الاجتماعي
             title: معلومات عامة
             visbility: الرؤية
-        assemblies_settings:
-          edit:
-            update: تحديث
-          form:
-            title: إعدادات الجمعية
         assemblies_types:
           form:
             title: العنوان
