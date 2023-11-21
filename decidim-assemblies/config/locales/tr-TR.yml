@@ -1,8 +1,6 @@
 tr:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: Organizasyon şemasını etkinleştir
       assemblies_type:
         title: Başlik / Unvani 
       assembly:
@@ -114,10 +112,6 @@ tr:
         create:
           error: Bu kurul çoğaltırken bir hata oluştu.
           success: Kurul başarıyla kopyalandı.
-      assemblies_settings:
-        update:
-          error: Ayarı değiştirirken bir hata oluştu.
-          success: Ayarlar başarıyla güncellendi.
       assemblies_types:
         create:
           error: Yeni bir kurul türü oluşturulurken bir sorun meydana geldi.
@@ -185,7 +179,6 @@ tr:
           label: Montaj tipi
       menu:
         assemblies: Kurullar
-        assemblies_settings: Ayarlar
         assemblies_submenu:
           assembly_admins: Kurul yöneticileri
           assembly_members: Üyeler
@@ -276,11 +269,6 @@ tr:
             social_handlers: Sosyal
             title: Genel bilgi
             visbility: görünürlük
-        assemblies_settings:
-          edit:
-            update: Güncelle
-          form:
-            title: Kurul ayarları
         assemblies_types:
           form:
             title: Başlık
