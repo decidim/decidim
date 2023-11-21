@@ -148,7 +148,6 @@ eu:
             no_components: Ez dago proposamen osagairik parte hartzeko espazio honetan proposamenak proiektuetara inportatzeko.
             origin_component_id: Jatorrizko osagaia
             select_component: Meesedez, hautatu osagaia
-            title: Inportatu proposamenak
         reminders:
           orders:
             description: Erabiltzaileek mezu elektroniko bat jasoko dute, eskaera bat egiteke duten aurrekontuetarako estekekin.
