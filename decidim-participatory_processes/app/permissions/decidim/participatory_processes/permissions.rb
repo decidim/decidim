@@ -42,7 +42,7 @@ module Decidim
 
         return permission_action unless process
 
-        view_private_users_menu?
+        user_can_read_private_users?
 
         moderator_action?
         collaborator_action?
@@ -54,9 +54,8 @@ module Decidim
 
       private
 
-      def view_private_users_menu?
+      def user_can_read_private_users?
         return unless permission_action.subject == :space_private_user
-
         return unless process.private_space?
 
         toggle_allow(user.admin? || can_manage_process?(role: :admin) || can_manage_process?(role: :collaborator))

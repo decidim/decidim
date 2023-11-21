@@ -42,7 +42,7 @@ module Decidim
 
         return permission_action unless assembly
 
-        view_private_users_menu?
+        user_can_read_private_users?
 
         moderator_action?
         collaborator_action?
@@ -54,9 +54,8 @@ module Decidim
 
       private
 
-      def view_private_users_menu?
+      def user_can_read_private_users?
         return unless permission_action.subject == :space_private_user
-
         return unless assembly.private_space?
 
         toggle_allow(user.admin? || can_manage_assembly?(role: :admin) || can_manage_assembly?(role: :collaborator))
