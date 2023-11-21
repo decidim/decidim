@@ -43,6 +43,11 @@ module Decidim
         end
       end
 
+      initializer "decidim_votings.register_icons" do
+        Decidim.icons.register(name: "Decidim::Votings::Voting", icon: "check-double-fill", description: "Voting", category: "activity", engine: :votings)
+        Decidim.icons.register(name: "lock-unlock-line", icon: "lock-unlock-line", category: "system", description: "", engine: :votings)
+      end
+
       initializer "decidim_votings.stats" do
         Decidim.stats.register :votings_count, priority: StatsRegistry::HIGH_PRIORITY do |organization, _start_at, _end_at|
           Decidim::Votings::Voting.where(organization:).published.count
