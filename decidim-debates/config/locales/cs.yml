@@ -107,6 +107,9 @@ cs:
         create:
           invalid: Při vytváření debaty došlo k chybě.
           success: Debata byla úspěšně vytvořena.
+        debates:
+          empty: Zatím nejsou žádné diskuse.
+          empty_filters: S těmito kritérii nejsou žádné diskuse.
         edit:
           back: Zpět
           save: Uložit změny
