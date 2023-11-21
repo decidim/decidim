@@ -39,8 +39,6 @@ fi-pl:
         confirm_destroy: Oletko varma, että haluat poistaa tämän tuloksen?
         destroy: Poista
         edit: Muokkaa
-        import: Tuo hankkeita tuloksiin
-        import_csv: Tuo CSV
         new_result: Uusi tulos
         new_status: Uusi tila
         new_timeline_entry: Uusi aikajanan merkintä
@@ -76,7 +74,6 @@ fi-pl:
                 </ul>
               </li>
               </ol>
-            title: Tuo tulokset CSV-tiedostosta
         imports:
           create:
             invalid: Tulosten tuonti epäonnistui.
@@ -101,7 +98,6 @@ fi-pl:
             success:
               one: 1 hanke on lisätty jonoon tuotavaksi. Sinulle ilmoitetaan sähköpostitse, kun tuonti valmistuu.
               other: "%{count} hanketta on lisätty jonoon tuotavaksi. Sinulle ilmoitetaan sähköpostitse, kun tuonti valmistuu."
-            title: Tuo hankkeita vastuullisuuskomponenttiin
         results:
           create:
             invalid: Tuloksen luonti epäonnistui.
