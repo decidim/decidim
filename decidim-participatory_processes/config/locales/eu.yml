@@ -58,7 +58,7 @@ eu:
         title: Izenburua
       participatory_process_step:
         cta_path: Deitu ekintza bideari
-        cta_text: Deitu ekintza testuari
+        cta_text: Ekintza-botoiaren testua
         description: Deskribapena
         end_date: Bukaera-data
         short_description: Deskribapen laburra
@@ -391,7 +391,7 @@ eu:
     participatory_process_steps:
       index:
         process_steps: Prozesuaren faseak
-        title: Prozesu partizipatiboaren faseak
+        title: Prozesu parte-hartzailearen faseak
     participatory_processes:
       admin:
         content_blocks:
