@@ -41,8 +41,6 @@ cs:
         confirm_destroy: Opravdu chcete smazat tento %{name}?
         destroy: Odstranit
         edit: Upravit
-        import: Importovat projekty do výsledků
-        import_csv: Importovat CSV
         new_result: Nový výsledek
         new_status: Nový status
         new_timeline_entry: Nový záznam v časové ose
@@ -78,7 +76,6 @@ cs:
                 </ul>
               </li>
               </ol>
-            title: Importovat výsledky z CSV
         imports:
           create:
             invalid: Při importu výsledků došlo k chybě.
@@ -107,7 +104,6 @@ cs:
               few: "%{count} projekty, které mají být importovány. Po dokončení budete upozorněni e-mailem."
               many: "%{count} projektů, které mají být importovány. Po dokončení budete upozorněni e-mailem."
               other: "%{count} projektů, které mají být importovány. Po dokončení budete upozorněni e-mailem."
-            title: Importovat projekty k odpovědnosti
         results:
           create:
             invalid: Při vytváření tohoto výsledku nastal problém.
