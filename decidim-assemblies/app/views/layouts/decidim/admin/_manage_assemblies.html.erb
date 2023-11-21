@@ -31,14 +31,6 @@
                       class: "text-secondary" %>
         </li>
       <% end %>
-      <% if allowed_to? :read, :assemblies_setting %>
-        <li class="dropdown__item">
-          <%= icon "tools-line" %>
-          <%= link_to t("menu.assemblies_settings", scope: "decidim.admin"),
-                      decidim_admin_assemblies.edit_assemblies_settings_path,
-                      class: "text-secondary" %>
-        </li>
-      <% end %>
     </ul>
   </div>
 </div>

@@ -8,7 +8,6 @@ describe Decidim::Assemblies::Permissions do
   let(:user) { create(:user, :admin, organization:) }
   let(:organization) { create(:organization) }
   let(:assembly_type) { create(:assemblies_type, organization:) }
-  let(:assemblies_setting) { create(:assemblies_setting, organization:) }
   let(:assembly) { create(:assembly, organization:, assembly_type:) }
   let(:context) { {} }
   let(:permission_action) { Decidim::PermissionAction.new(**action) }
@@ -326,21 +325,6 @@ describe Decidim::Assemblies::Permissions do
     )
   end
 
-  context "when reading an assemblies settings" do
-    let(:action) do
-      { scope: :admin, action: :read, subject: :assemblies_setting }
-    end
-
-    it_behaves_like(
-      "access for roles",
-      org_admin: true,
-      admin: false,
-      collaborator: false,
-      moderator: false,
-      valuator: false
-    )
-  end
-
   context "with an assembly" do
     let(:context) { { assembly: } }
 
@@ -462,7 +446,6 @@ describe Decidim::Assemblies::Permissions do
       it_behaves_like "allows any action on subject", :assembly_member
       it_behaves_like "allows any action on subject", :assembly_user_role
       it_behaves_like "allows any action on subject", :space_private_user
-      it_behaves_like "allows any action on subject", :assemblies_setting
     end
   end
 
