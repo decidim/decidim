@@ -20,7 +20,7 @@ eu:
       admin:
         models:
           components:
-            body: Testua
+            body: Gorputza
         pages:
           edit:
             save: Eguneratu
