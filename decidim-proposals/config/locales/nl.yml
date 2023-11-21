@@ -379,7 +379,7 @@ nl:
               other: voorstellen
           title:
             answers: Importeer antwoorden op voorstellen
-            proposals: Importeer voorstellen
+            proposals: Voorstellen importeren
         models:
           proposal:
             name: Voorstel
@@ -520,6 +520,7 @@ nl:
             no_components: Er zijn geen andere componenten van het voorstel in deze participatieruimte om de voorstellen in te voeren.
             select_component: Selecteer een onderdeel
             select_states: Controleer de status van de voorstellen om te importeren
+            title: Voorstellen importeren
         proposals_merges:
           create:
             invalid: 'Er is een probleem opgetreden bij het samenvoegen van de geselecteerde voorstellen omdat:'
