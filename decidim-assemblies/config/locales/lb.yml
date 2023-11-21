@@ -1,8 +1,6 @@
 lb:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: Organisationsdiagramm aktivieren
       assembly:
         area_id: Bereich
         assembly_type: Versammlungstyp
@@ -104,10 +102,6 @@ lb:
         create:
           error: Beim Duplizieren dieses Gremiums ist ein Fehler aufgetreten.
           success: Das Gremium wurde erfolgreich dupliziert.
-      assemblies_settings:
-        update:
-          error: Beim Aktualisieren der Einstellungen ist ein Fehler aufgetreten.
-          success: Einstellungen wurden erfolgreich aktualisiert.
       assemblies_types:
         create:
           error: Beim Erstellen eines neuen Gremiumtyps ist ein Fehler aufgetreten.
@@ -172,7 +166,6 @@ lb:
           success: Der Benutzer wurde für diese Assembly erfolgreich aktualisiert.
       menu:
         assemblies: Gremien
-        assemblies_settings: Einstellungen
         assemblies_submenu:
           assembly_admins: Assembly Benutzer
           assembly_members: Mitglieder
