@@ -222,6 +222,8 @@ es:
           all: Todos
         home:
           categories_label: Categorías
+          empty: Aún no hay ningún resultado.
+          empty_filters: No hay ningún resultado con este criterio.
           subcategories_label: Subcategorías
         home_header:
           global_status: Estado de ejecución global
