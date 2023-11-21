@@ -227,6 +227,9 @@ uk:
             select_an_assembly_type: Оберіть різновид зборів
             social_handlers: Соціальні мережі
             title: Загальні відомості
+        assemblies_settings:
+          edit:
+            update: Оновити
         assemblies_types:
           form:
             title: Назва
