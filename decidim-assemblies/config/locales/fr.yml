@@ -1,8 +1,6 @@
 fr:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: Activer le schéma d'assemblée
       assemblies_type:
         title: Titre
       assembly:
@@ -122,10 +120,6 @@ fr:
         create:
           error: Une erreur s'est produite lors de la duplication de cette assemblée.
           success: L'assemblée a été dupliquée avec succès.
-      assemblies_settings:
-        update:
-          error: Il y a eu un problème lors de la mise à jour des paramètres.
-          success: Paramètres mis à jour avec succès.
       assemblies_types:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau type d'assemblée.
@@ -198,7 +192,6 @@ fr:
           full_name_or_user_name_or_user_nickname_cont: Rechercher par nom ou par pseudonyme
       menu:
         assemblies: Assemblées
-        assemblies_settings: Paramètres
         assemblies_submenu:
           assembly_admins: Administrateurs de l'assemblée
           assembly_members: Membres
@@ -298,11 +291,6 @@ fr:
             social_handlers: Réseaux sociaux
             title: Informations générales
             visbility: Visibilité
-        assemblies_settings:
-          edit:
-            update: Mettre à jour
-          form:
-            title: Paramètres pour les assemblées
         assemblies_types:
           form:
             title: Modifier le type d'assemblée
