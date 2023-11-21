@@ -401,6 +401,9 @@ es-MX:
           all: Todos
         filter_scope_values:
           all: Todas
+      calendar:
+        meeting_to_event:
+          read_more: Leer más sobre este encuentro
       calendar_modal:
         calendar_url: URL del calendario
         close_window: Cerrar ventana
