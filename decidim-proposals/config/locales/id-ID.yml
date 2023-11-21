@@ -271,6 +271,9 @@ id:
           preview: Preview
         exports:
           proposals: Proposal
+        imports:
+          title:
+            proposals: Impor proposal
         models:
           proposal:
             name: Usul
@@ -373,6 +376,7 @@ id:
             no_components: Tidak ada komponen proposal lain dalam ruang partisipatif ini untuk mengimpor proposal dari.
             select_component: Silakan pilih komponen
             select_states: Periksa status proposal untuk diimpor
+            title: Impor proposal
         proposals_merges:
           create:
             success: Berhasil menggabungkan proposal menjadi proposal baru.
