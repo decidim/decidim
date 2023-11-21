@@ -424,9 +424,6 @@ ja:
               other: 提案の回答
             proposals:
               other: 提案
-          title:
-            answers: 提案の回答をインポート
-            proposals: 提案をインポート
         models:
           proposal:
             name: 提案
@@ -557,7 +554,6 @@ ja:
             no_components: この参加スペースには他の提案コンポーネントはありません。
             select_component: コンポーネントを選択してください
             select_states: インポートする提案のステータスを確認してください
-            title: 提案をインポート
         proposals_merges:
           create:
             invalid: '選択した提案をマージする際に問題が発生しました:'
