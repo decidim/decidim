@@ -180,6 +180,9 @@ is-IS:
             select_an_assembly_type: Veldu gerð samsetningar
             social_handlers: Félagsleg
             title: Almennar upplýsingar
+        assemblies_settings:
+          edit:
+            update: Uppfæra
         assemblies_types:
           form:
             title: Titill
