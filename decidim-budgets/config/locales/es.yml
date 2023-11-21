@@ -177,6 +177,7 @@ es:
         count:
           one: "%{count} presupuesto"
           other: "%{count} presupuestos"
+        empty: Aún no hay ningún presupuesto
         finished_message: Has terminado el proceso de votación. ¡Gracias por participar!
         highlighted_cta: Votar en %{name}
         if_change_opinion: Si has cambiado de opinión, puedes %{cancel_link}.
@@ -235,6 +236,7 @@ es:
           projects_count:
             one: 1 proyecto
             other: "%{count} proyectos"
+        empty: Aun no hay ningún proyecto
         exit_modal:
           cancel: Volver a la votación
           exit: Salir de la votación
