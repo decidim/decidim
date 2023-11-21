@@ -40,7 +40,6 @@ ro:
         confirm_destroy: Sunteți sigur că doriți să ștergeți %{name}?
         destroy: Ștergere
         edit: Editare
-        import_csv: Importă CSV
         preview: Previzualizare
         timeline_entries: Evoluția proiectului
         title: Acțiuni
@@ -52,7 +51,6 @@ ro:
           new:
             download_export: Descarcați Export cu format CSV
             import: Importă
-            title: Importați rezultate de la CSV
         models:
           result:
             name: Rezultat
