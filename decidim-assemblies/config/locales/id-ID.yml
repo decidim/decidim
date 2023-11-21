@@ -226,6 +226,9 @@ id:
             social_handlers: Sosial
             title: Informasi Umum
             visbility: Visibilitas
+        assemblies_settings:
+          edit:
+            update: Memperbarui
         assemblies_types:
           form:
             title: Judul
