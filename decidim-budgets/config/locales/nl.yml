@@ -100,7 +100,6 @@ nl:
             no_components: Er zijn geen andere voorstelonderdelen in deze participatieruimte om voorstellen in projecten te kunnen importeren.
             origin_component_id: Oorsprong component
             select_component: Selecteer een component
-            title: Voorstellen importeren
         reminders:
           orders:
             description: Gebruikers ontvangen een e-mail met links naar de budgetten die ze nog moeten behandelen.
