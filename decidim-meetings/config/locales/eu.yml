@@ -401,6 +401,9 @@ eu:
           all: Guztiak
         filter_scope_values:
           all: Guztiak
+      calendar:
+        meeting_to_event:
+          read_more: Irakurri gehiago topaketa honetaz
       calendar_modal:
         calendar_url: Egutegiaren URLa
         close_window: Itxi leihoa
