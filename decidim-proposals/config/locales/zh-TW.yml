@@ -419,9 +419,6 @@ zh-TW:
               other: 提案回應
             proposals:
               other: 提案
-          title:
-            answers: 匯入提案回應
-            proposals: 導入提案
         models:
           proposal:
             name: 提案
@@ -551,7 +548,6 @@ zh-TW:
             no_components: 這個參與空間中沒有其他的提案元件可以匯入提案。
             select_component: 請選擇一個組件
             select_states: 檢查要匯入的提案狀態。
-            title: 匯入提案
         proposals_merges:
           create:
             invalid: '由於其中一些提案存在問題，因此無法合併所選提案：'
