@@ -400,6 +400,9 @@ fr-CA:
           all: Tous
         filter_scope_values:
           all: Tout
+      calendar:
+        meeting_to_event:
+          read_more: En savoir plus sur cette réunion
       calendar_modal:
         calendar_url: URL du calendrier
         close_window: Fermer la fenêtre
