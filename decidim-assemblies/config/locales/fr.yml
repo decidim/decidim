@@ -182,10 +182,16 @@ fr:
           assembly_admins_title: Administrateurs de l'assemblée
         new:
           create: Créer
+          title: Nouvel administrateur de l'assemblée
         update:
           error: Une erreur s'est produite lors de la mise à jour d'un utilisateur pour cette assemblée.
           success: Utilisateur mis à jour avec succès pour cette assemblée.
       filters:
+        ceased_date_not_null:
+          label: Terminé
+          values:
+            'false': En cours
+            'true': Terminé
         decidim_assemblies_type_id_eq:
           label: Type d'assemblée
         search_placeholder:
