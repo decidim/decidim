@@ -1,8 +1,6 @@
 eu:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: Gaitu erakundearen grafikoa
       assemblies_type:
         title: Izenburua
       assembly:
@@ -122,10 +120,6 @@ eu:
         create:
           error: Arazo bat egon da batzar hau bikoiztean.
           success: Batzarra zuzen bikoiztua.
-      assemblies_settings:
-        update:
-          error: Arazo bat egon da konfigurazioa eguneratzean.
-          success: Konfigurazioa zuzen eguneratua.
       assemblies_types:
         create:
           error: Arazo bat egon da beste batzar mota bat sortzean.
@@ -204,7 +198,6 @@ eu:
           full_name_or_user_name_or_user_nickname_cont: Bilatu izen edo ezizenaren arabera
       menu:
         assemblies: Biltzarrak
-        assemblies_settings: Ezarpenak
         assemblies_submenu:
           assembly_admins: Batzarraren administratzaileak
           assembly_members: Kideak
@@ -304,11 +297,6 @@ eu:
             social_handlers: Gizarte
             title: Informazio orokorra
             visbility: ikusgarritasuna
-        assemblies_settings:
-          edit:
-            update: Eguneratu
-          form:
-            title: Batzarren konfigurazioa
         assemblies_types:
           form:
             title: Editatu batzar mota
