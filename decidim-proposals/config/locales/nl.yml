@@ -358,9 +358,6 @@ nl:
             proposals:
               one: voorstel
               other: voorstellen
-          title:
-            answers: Importeer antwoorden op voorstellen
-            proposals: Importeer voorstellen
         models:
           proposal:
             name: Voorstel
