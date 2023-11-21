@@ -139,7 +139,6 @@ de:
             no_components: Es gibt keine weiteren Vorschlagskomponenten in diesem partizipativen Raum, um die Vorschläge in Projekte zu importieren.
             origin_component_id: Ursprungskomponente
             select_component: Bitte wählen Sie eine Komponente aus
-            title: Vorschläge importieren
         reminders:
           orders:
             description: Benutzer erhalten eine E-Mail mit Links zu den Budgets, in denen sie ausstehende Stimmen haben.
