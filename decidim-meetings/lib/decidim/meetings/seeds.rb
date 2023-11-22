@@ -24,26 +24,8 @@ module Decidim
 
           create_questionnaire_for!(meeting:)
 
-          2.times do |n|
-            email = "meeting-registered-user-#{meeting.id}-#{n}@example.org"
-            name = "#{::Faker::Name.name} #{meeting.id} #{n}"
-            user = Decidim::User.find_or_initialize_by(email:)
-
-            user.update!(
-              password: "decidim123456789",
-              name:,
-              nickname: ::Faker::Twitter.unique.screen_name,
-              organization: component.organization,
-              tos_agreement: "1",
-              confirmed_at: Time.current,
-              personal_url: ::Faker::Internet.url,
-              about: ::Faker::Lorem.paragraph(sentence_count: 2)
-            )
-
-            Decidim::Meetings::Registration.create!(
-              meeting:,
-              user:
-            )
+          2.times do |_n|
+            create_meeting_registration!(meeting:)
           end
 
           attachment_collection = create_attachment_collection(collection_for: meeting)
@@ -189,6 +171,29 @@ module Decidim
             Decidim::Faker::Localized.paragraph(sentence_count: 2)
           end,
           questionnaire_for: meeting
+        )
+      end
+
+      def create_meeting_registration!(meeting:)
+        n = rand(2)
+        email = "meeting-registered-user-#{meeting.id}-#{n}@example.org"
+        name = "#{::Faker::Name.name} #{meeting.id} #{n}"
+        user = Decidim::User.find_or_initialize_by(email:)
+
+        user.update!(
+          password: "decidim123456789",
+          name:,
+          nickname: ::Faker::Twitter.unique.screen_name,
+          organization:,
+          tos_agreement: "1",
+          confirmed_at: Time.current,
+          personal_url: ::Faker::Internet.url,
+          about: ::Faker::Lorem.paragraph(sentence_count: 2)
+        )
+
+        Decidim::Meetings::Registration.create!(
+          meeting:,
+          user:
         )
       end
     end
