@@ -36,7 +36,7 @@ eu:
         registrations_enabled: Izen-emateak gaituta
         reserved_slots: Topaketa honetarako toki erabilgarriak
         start_time: Hasiera ordua
-        title: Titulua
+        title: Izenburua
         transparent: Gardena
         type_of_meeting: Mota
       meeting_agenda:
@@ -597,7 +597,7 @@ eu:
             map: Mapa
             official_meeting: Topaketa ofiziala
             start_time: Hasiera-data
-            title: Titulua
+            title: Izenburua
       polls:
         questions:
           closed_question:
