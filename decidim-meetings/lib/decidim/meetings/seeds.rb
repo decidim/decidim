@@ -33,8 +33,8 @@ module Decidim
           create_attachments!(attached_to: meeting)
         end
 
-        create_user_group_meeting!(component:)
-        create_user_meeting!(component:)
+        create_meeting!(component:, author_type: :user)
+        create_meeting!(component:, author_type: :user_group)
       end
 
       def create_component!
@@ -55,7 +55,7 @@ module Decidim
         end
       end
 
-      def meeting_params(component:, type: :in_person)
+      def meeting_params(component:, type:, author_type:)
         start_time = ::Faker::Date.between(from: 20.weeks.ago, to: 20.weeks.from_now)
         end_time = start_time + [rand(1..4).hours, rand(1..20).days].sample
 
@@ -83,65 +83,52 @@ module Decidim
           published_at: ::Faker::Boolean.boolean(true_ratio: 0.8) ? Time.current : nil
         }
 
-        case type
-        when :hybrid
+        params = case type
+                 when :hybrid
+                   params.merge(
+                     title: Decidim::Faker::Localized.sentence(word_count: 2),
+                     type_of_meeting: :hybrid,
+                     online_meeting_url: "http://example.org"
+                   )
+                 when :online
+                   params.merge(
+                     location: nil,
+                     location_hints: nil,
+                     latitude: nil,
+                     longitude: nil,
+                     title: Decidim::Faker::Localized.sentence(word_count: 2),
+                     type_of_meeting: :online,
+                     online_meeting_url: "http://example.org"
+                   )
+                 else
+                   params # :in_person
+                 end
+
+        case author_type
+        when :user
           params.merge(
-            title: Decidim::Faker::Localized.sentence(word_count: 2),
-            type_of_meeting: :hybrid,
-            online_meeting_url: "http://example.org"
+            author: Decidim::User.where(decidim_organization_id: participatory_space.decidim_organization_id).all.sample
           )
-        when :online
+        when :user_group
+          user_group = Decidim::UserGroup.where(decidim_organization_id: participatory_space.decidim_organization_id).verified.sample
+          author = user_group.users.sample
+
           params.merge(
-            location: nil,
-            location_hints: nil,
-            latitude: nil,
-            longitude: nil,
-            title: Decidim::Faker::Localized.sentence(word_count: 2),
-            type_of_meeting: :online,
-            online_meeting_url: "http://example.org"
+            author:,
+            user_group:
           )
         else
-          params # :in_person
+          params # oficial
         end
       end
 
-      def create_meeting!(component:, type: :in_person)
-        params = meeting_params(component:, type:)
+      def create_meeting!(component:, type: :in_person, author_type: :official)
+        params = meeting_params(component:, type:, author_type:)
 
         Decidim.traceability.create!(
           Decidim::Meetings::Meeting,
           admin_user,
           params,
-          visibility: "all"
-        )
-      end
-
-      def create_user_group_meeting!(component:)
-        params = meeting_params(component:)
-        user_group = Decidim::UserGroup.where(decidim_organization_id: participatory_space.decidim_organization_id).verified.sample
-        author = user_group.users.sample
-
-        Decidim.traceability.create!(
-          Decidim::Meetings::Meeting,
-          author,
-          params.merge(
-            author:,
-            user_group:
-          ),
-          visibility: "all"
-        )
-      end
-
-      def create_user_meeting!(component:)
-        params = meeting_params(component:)
-        author = Decidim::User.where(decidim_organization_id: participatory_space.decidim_organization_id).all.sample
-
-        Decidim.traceability.create!(
-          Decidim::Meetings::Meeting,
-          author,
-          params.merge(
-            author:
-          ),
           visibility: "all"
         )
       end
