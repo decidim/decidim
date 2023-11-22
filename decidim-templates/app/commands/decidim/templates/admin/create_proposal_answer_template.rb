@@ -12,6 +12,7 @@ module Decidim
         end
 
         def call
+          return broadcast(:component_selected) if @form.select_component
           return broadcast(:invalid) unless @form.valid?
 
           @template = Decidim.traceability.create!(
@@ -20,7 +21,7 @@ module Decidim
             name: @form.name,
             description: @form.description,
             organization: @form.current_organization,
-            field_values: { internal_state: @form.internal_state },
+            field_values: { proposal_state_id: @form.proposal_state_id },
             target: :proposal_answer
           )
 

@@ -1,38 +1,50 @@
 <div class="form__wrapper">
   <div class="card pt-4">
     <div class="card-section">
-      <div class="row column">
-        <%= form.translated :text_field, :name, aria: { label: :name } %>
-      </div>
 
-      <div class="row column">
-        <%= form.translated :editor, :description, rows: 3, aria: { label: :description } %>
-        <%= t(".hint_html") %>
-        <ul>
-          <li><%= t(".hint1_html") %></li>
-          <li><%= t(".hint2_html") %></li>
-          <li><%= t(".hint3_html") %></li>
-        </ul>
-      </div>
-
-      <div class="row column">
-        <%= form.label :internal_state %>
-        <div class="flex items-center gap-x-4 my-2">
-          <%= form.collection_radio_buttons :internal_state,
-                                            Decidim::Proposals::Proposal::STATES.keys - [:withdrawn],
-                                            :to_s,
-                                            ->(mode) { t(mode, scope: "decidim.proposals.admin.proposal_answers.form") },
-                                            prompt: true do |builder|
-            builder.label { builder.radio_button + builder.text }
-          end %>
+      <% if form.object.component_constraint %>
+        <%= form.hidden_field(:component_constraint, value: form.object.component_constraint) %>
+        <div class="row column">
+          <%= form.translated :text_field, :name, aria: { label: :name } %>
         </div>
-      </div>
 
-      <div class="row column">
-        <%= form.select :component_constraint, availability_options_for_select,
-                        sselected: form.object.component_constraint,
-                        help_text: t(".component_constraint_help") %>
-      </div>
+        <div class="row column">
+          <%= form.translated :editor, :description, rows: 3, aria: { label: :description } %>
+          <%= t(".hint_html") %>
+          <ul>
+            <li><%= t(".hint1_html") %></li>
+            <li><%= t(".hint2_html") %></li>
+            <li><%= t(".hint3_html") %></li>
+          </ul>
+        </div>
+        <div class="row column">
+          <%= form.label :proposal_state_id %>
+          <div class="flex items-center gap-x-4 my-2">
+            <%= form.collection_radio_buttons :proposal_state_id,
+                                              available_states( form.object.component_constraint),
+                                             :id,
+                                             ->(a) {
+                                               translated_attribute(a.title)
+                                             }, prompt: true do |builder|
+              builder.label { builder.radio_button + builder.text } end %>
+          </div>
+        </div>
+        <% else %>
+
+        <div class="row column">
+          <%= form.select :component_constraint,
+                          availability_options_for_select,
+                          {
+                            selected: form.object.component_constraint,
+                            help_text: t(".component_constraint_help"),
+                            include_blank: true
+                          },
+                          onchange: "this.form.submit()",
+                          disabled: form.object.component_constraint.present?
+          %>
+        </div>
+      <%= form.hidden_field(:select_component, value: true) %>
+      <% end %>
     </div>
   </div>
 </div>

@@ -69,10 +69,10 @@ en:
             hint_html: "<strong>Hint:</strong> You can use these variables anywhere on the answer template that will be replaced when using the template"
             save: Save
           index:
+            missing_state: "Missing state"
             component_constraint: Add constraint
             confirm_delete: Are you sure you want to delete this template?
-            global_scope: Global (available everywhere)
-            internal_state: Internal state
+            proposal_state_id: Internal state
             title: Proposal answers
           new:
             title: New proposal answer template

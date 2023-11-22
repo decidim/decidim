@@ -24,7 +24,7 @@ module Decidim
             @user,
             name: @form.name,
             description: @form.description,
-            field_values: { internal_state: @form.internal_state },
+            field_values: { proposal_state_id: @form.proposal_state_id },
             target: :proposal_answer
           )
 

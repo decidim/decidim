@@ -1,7 +1,10 @@
 <% templates = Decidim::Templates::Template.where(
   target: :proposal_answer,
-  templatable: [current_organization, current_component]
+  templatable: current_component
 ).order(:templatable_id) %>
+<%= templates.inspect %>
+<%= current_component.id.inspect %>
+
 <% if templates.any? %>
   <div class="row column">
     <%= append_javascript_pack_tag "decidim_templates_admin" %>
