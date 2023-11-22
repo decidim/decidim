@@ -6,7 +6,7 @@ describe "Admin checks pagination on participatory space private users" do
   let(:organization) { create(:organization) }
 
   let!(:user) { create(:user, :admin, :confirmed, organization:) }
-  let(:assembly) { create(:assembly, organization:) }
+  let(:assembly) { create(:assembly, organization:, private_space: true) }
 
   before do
     21.times do |_i|
