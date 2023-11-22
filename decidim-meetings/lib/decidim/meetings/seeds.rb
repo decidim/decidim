@@ -33,8 +33,8 @@ module Decidim
           create_attachments!(attached_to: meeting)
         end
 
-        create_meeting!(component:, author_type: :user)
-        create_meeting!(component:, author_type: :user_group)
+        create_meeting!(component:, type: [:in_person, :online, :hybrid].sample, author_type: :user)
+        create_meeting!(component:, type: [:in_person, :online, :hybrid].sample, author_type: :user_group)
       end
 
       def create_component!
