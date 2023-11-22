@@ -16,9 +16,9 @@ module Decidim
         component = create_component!
 
         2.times do
-          create_meeting!(component:, type: :in_person)
+          create_meeting!(component:, type: :online)
           create_meeting!(component:, type: :hybrid)
-          meeting = create_meeting!(component:)
+          meeting = create_meeting!(component:, type: :in_person)
 
           2.times do
             create_service!(meeting:)
@@ -55,11 +55,11 @@ module Decidim
         end
       end
 
-      def meeting_params(component:)
+      def meeting_params(component:, type: :in_person)
         start_time = ::Faker::Date.between(from: 20.weeks.ago, to: 20.weeks.from_now)
         end_time = start_time + [rand(1..4).hours, rand(1..20).days].sample
 
-        {
+        params = {
           component:,
           scope: random_scope(participatory_space:),
           category: participatory_space.categories.sample,
@@ -82,31 +82,31 @@ module Decidim
           end,
           published_at: ::Faker::Boolean.boolean(true_ratio: 0.8) ? Time.current : nil
         }
+
+        case type
+        when :hybrid
+          params.merge(
+            title: Decidim::Faker::Localized.sentence(word_count: 2),
+            type_of_meeting: :hybrid,
+            online_meeting_url: "http://example.org"
+          )
+        when :online
+          params.merge(
+            location: nil,
+            location_hints: nil,
+            latitude: nil,
+            longitude: nil,
+            title: Decidim::Faker::Localized.sentence(word_count: 2),
+            type_of_meeting: :online,
+            online_meeting_url: "http://example.org"
+          )
+        else
+          params # :in_person
+        end
       end
 
       def create_meeting!(component:, type: :in_person)
-        params = meeting_params(component:)
-
-        params = case type
-                 when :hybrid
-                   params.merge(
-                     title: Decidim::Faker::Localized.sentence(word_count: 2),
-                     type_of_meeting: :hybrid,
-                     online_meeting_url: "http://example.org"
-                   )
-                 when :online
-                   params.merge(
-                     location: nil,
-                     location_hints: nil,
-                     latitude: nil,
-                     longitude: nil,
-                     title: Decidim::Faker::Localized.sentence(word_count: 2),
-                     type_of_meeting: :online,
-                     online_meeting_url: "http://example.org"
-                   )
-                 else
-                   params
-                 end
+        params = meeting_params(component:, type:)
 
         Decidim.traceability.create!(
           Decidim::Meetings::Meeting,
