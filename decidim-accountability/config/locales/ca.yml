@@ -39,6 +39,8 @@ ca:
         confirm_destroy: Segur que vols suprimir aquest %{name}?
         destroy: Esborrar
         edit: Editar
+        import: Importar projectes des d'un altre component
+        import_csv: Importar resultats des d'un fitxer CSV
         new_result: Afegir resultat
         new_status: Afegir estat
         new_timeline_entry: Afegir entrada de la cronologia
@@ -74,6 +76,7 @@ ca:
               </ul>
               </li>
               </ol>
+            title: Importar resultats des d'un fitxer CSV
         imports:
           create:
             invalid: Hi ha hagut un problema important els resultats.
@@ -98,6 +101,7 @@ ca:
             success:
               one: Hi ha 1 projecte a la cua per ser importat. Es notificarà per correu electrònic, quan es completi la importació.
               other: "Hi ha %{count} a la cua per ser importats. Es notificarà per correu electrònic, quan es completi la importació."
+            title: Importar projectes des d'un altre component
         results:
           create:
             invalid: S'ha produït un error en crear aquest resultat.
