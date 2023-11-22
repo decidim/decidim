@@ -28,10 +28,7 @@ module Decidim
             create_meeting_registration!(meeting:)
           end
 
-          attachment_collection = create_attachment_collection(collection_for: meeting)
-          create_attachment(attached_to: meeting, filename: "Exampledocument.pdf", attachment_collection:)
-          create_attachment(attached_to: meeting, filename: "city.jpeg")
-          create_attachment(attached_to: meeting, filename: "Exampledocument.pdf")
+          create_attachments!(attached_to: meeting)
         end
 
         authors = [
