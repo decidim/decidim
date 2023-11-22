@@ -47,32 +47,15 @@ module Decidim
             author = user_group.users.sample
           end
 
-          start_time = ::Faker::Date.between(from: 20.weeks.ago, to: 20.weeks.from_now)
-          params = {
-            component:,
-            scope: random_scope(participatory_space:),
-            category: participatory_space.categories.sample,
-            title: Decidim::Faker::Localized.sentence(word_count: 2),
-            description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-              Decidim::Faker::Localized.paragraph(sentence_count: 3)
-            end,
-            location: Decidim::Faker::Localized.sentence,
-            location_hints: Decidim::Faker::Localized.sentence,
-            start_time:,
-            end_time: start_time + rand(1..4).hours,
-            address: "#{::Faker::Address.street_address} #{::Faker::Address.zip} #{::Faker::Address.city}",
-            latitude: ::Faker::Address.latitude,
-            longitude: ::Faker::Address.longitude,
-            registrations_enabled: [true, false].sample,
-            available_slots: (10..50).step(10).to_a.sample,
-            author:,
-            user_group:
-          }
+          params = meeting_params(component:)
 
           Decidim.traceability.create!(
             Decidim::Meetings::Meeting,
             authors[0],
-            params,
+            params.merge(
+              author:,
+              user_group:
+            ),
             visibility: "all"
           )
         end
@@ -96,10 +79,11 @@ module Decidim
         end
       end
 
-      def create_meeting!(component:)
+      def meeting_params(component:)
         start_time = ::Faker::Date.between(from: 20.weeks.ago, to: 20.weeks.from_now)
         end_time = start_time + [rand(1..4).hours, rand(1..20).days].sample
-        params = {
+
+        {
           component:,
           scope: random_scope(participatory_space:),
           category: participatory_space.categories.sample,
@@ -122,6 +106,10 @@ module Decidim
           end,
           published_at: ::Faker::Boolean.boolean(true_ratio: 0.8) ? Time.current : nil
         }
+      end
+
+      def create_meeting!(component:)
+        params = meeting_params(component:)
 
         _hybrid_meeting = Decidim.traceability.create!(
           Decidim::Meetings::Meeting,
