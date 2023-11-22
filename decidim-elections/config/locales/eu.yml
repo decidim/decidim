@@ -1032,6 +1032,7 @@ eu:
           form:
             banner_image: Banner-irudia
             census_contact_information: Erroldako kontaktoen informazioa
+            census_contact_information_help: Kontakturako informazio hau erroldarekin arazoak jakinarazi nahi dituen parte-hartzaile batentzat da. Helbide elektroniko bat izan daiteke, harremanetarako formulario bat beste leku batean, bisitarientzako inkesta bat, etab.
             introductory_image: Aurkezpenaren irudia
             promoted: Nabarmendua
             select_a_voting_type: Mesedez, hautatu bozketa mota bat
@@ -1347,10 +1348,6 @@ eu:
           select: Hautatu dokumentu mota
           year: Urtea
           year_placeholder: UUUU
-        count:
-          title:
-            one: "Boto %{count}"
-            other: "%{count} boto"
         elections_log:
           bb_status: Aukeraren egoera
           description: Aukeraren erregistroak bozketa bakoitzari buruzko informazio garrantzitsu guztia erakutsiko dizu. Adibidez, gako-zeremoniaren edo zenbaketaren egoera edo emaitzak argitaratuta dauden. Egin klik erregistroari buruzko informazioa nahi duzun aukeran.
