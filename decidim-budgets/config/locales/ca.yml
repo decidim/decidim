@@ -148,6 +148,7 @@ ca:
             no_components: No hi ha cap component de propostes en aquest espai participatiu per importar les propostes a projectes.
             origin_component_id: Component d'origen
             select_component: Selecciona un component
+            title: Importa propostes a projectes
         reminders:
           orders:
             description: Les usuàries rebran un correu amb els enllaços als pressupostos on tenen "comandes" pendents.
