@@ -173,7 +173,7 @@ eu:
         new:
           copy: Kopiatu
           select: Aukeratu itzazu kopiatu nahi dituzun datuak
-          title: Bikoiztu parte-hartze prozesua
+          title: Bikoiztu prozesu parte-hartzailea
       participatory_process_group_landing_page:
         edit:
           active_content_blocks: Eduki-blokeak aktibatuta
@@ -224,7 +224,7 @@ eu:
             last_step: Ezin da ezabatu prozesuaren azken fasea.
           success: Parte-hartze prozesuaren pausoa arrakastaz ezabatu da.
         edit:
-          title: Editatu parte-hartze prozesuaren fasea
+          title: Editatu prozesu parte-hartzailearen fasea
           update: Eguneratu
         index:
           steps_title: Prozesuaren faseak
