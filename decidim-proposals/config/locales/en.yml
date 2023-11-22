@@ -320,6 +320,12 @@ en:
             email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
             email_subject: A proposal you are following has been rejected
             notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been rejected.
+        proposal_state_changed:
+          affected_user:
+            email_intro: 'The proposal "%{resource_title}" has changed its state to "%{state}". You can read the answer in this page:'
+            email_outro: You have received this notification because you are an author of "%{resource_title}".
+            email_subject: Your proposal has changed its state (%{state})
+            notification_title: Your proposal <a href="%{resource_path}">%{resource_title}</a> has changed its state to "%{state}".
         proposal_update_category:
           email_intro: 'An admin has updated the category of your proposal "%{resource_title}", check it out in this page:'
           email_outro: You have received this notification because you are the author of the proposal.
@@ -478,11 +484,7 @@ en:
             success: Participatory text successfully updated.
         proposal_answers:
           form:
-            accepted: Accepted
             answer_proposal: Answer
-            evaluating: Evaluating
-            not_answered: Not answered
-            rejected: Rejected
             title: Answer for proposal %{title}
         proposal_notes:
           create:

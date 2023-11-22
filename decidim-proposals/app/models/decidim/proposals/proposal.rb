@@ -59,7 +59,8 @@ module Decidim
                  class_name: "Decidim::Proposals::ProposalState",
                  foreign_key: "decidim_proposals_proposal_state_id",
                  inverse_of: :proposals,
-                 optional: true
+                 optional: true,
+                 counter_cache: :proposals_count
 
       has_many :votes,
                -> { final },

@@ -15,6 +15,8 @@ module Decidim
       def call
         component = create_component!
 
+        Decidim::Proposals.create_default_states!(component, admin_user)
+
         5.times do |n|
           proposal = create_proposal!(component:)
 
@@ -75,20 +77,20 @@ module Decidim
 
       def create_proposal!(component:)
         n = rand(5)
-        default_states = Decidim::Proposals.create_default_states!(component, admin_user)
 
         proposal_state, answer, state_published_at = if n > 3
-                                                       [default_states.dig(:accepted, :object), Decidim::Faker::Localized.sentence(word_count: 10), Time.current]
+                                                       [:accepted, Decidim::Faker::Localized.sentence(word_count: 10), Time.current]
                                                      elsif n > 2
-                                                       [default_states.dig(:rejected, :object), nil, Time.current]
+                                                       [:rejected, nil, Time.current]
                                                      elsif n > 1
-                                                       [default_states.dig(:evaluating, :object), nil, Time.current]
+                                                       [:evaluating, nil, Time.current]
                                                      elsif n.positive?
-                                                       [default_states.dig(:accepted, :object), Decidim::Faker::Localized.sentence(word_count: 10), nil]
+                                                       [:accepted, Decidim::Faker::Localized.sentence(word_count: 10), nil]
                                                      else
-                                                       [default_states.dig(:not_answered, :object), nil, nil]
+                                                       [:not_answered, nil, nil]
                                                      end
 
+        proposal_state = Decidim::Proposals::ProposalState.where(component:, token: proposal_state).first!
         params = {
           component:,
           category: participatory_space.categories.sample,
