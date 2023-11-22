@@ -13,6 +13,10 @@ module Decidim
       @organization ||= Decidim::Organization.first
     end
 
+    def admin_user
+      @admin_user ||= Decidim::User.find_by(organization:, email: "admin@example.org")
+    end
+
     def seeds_root = File.join(__dir__, "..", "..", "db", "seeds")
 
     def hero_image = create_blob!(seeds_file: "city.jpeg", filename: "hero_image.jpeg", content_type: "image/jpeg")

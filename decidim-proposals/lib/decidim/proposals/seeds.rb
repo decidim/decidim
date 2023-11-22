@@ -5,7 +5,7 @@ require "decidim/faker/localized"
 
 module Decidim
   module Proposals
-    class Seeds
+    class Seeds < Decidim::Seeds
       attr_reader :participatory_space
 
       def initialize(participatory_space:)
@@ -38,10 +38,6 @@ module Decidim
 
       def organization
         @organization ||= participatory_space.organization
-      end
-
-      def admin_user
-        @admin_user ||= Decidim::User.find_by(organization:, email: "admin@example.org")
       end
 
       def create_component!

@@ -13,11 +13,6 @@ module Decidim
       end
 
       def call
-        admin_user = Decidim::User.find_by(
-          organization: participatory_space.organization,
-          email: "admin@example.org"
-        )
-
         params = {
           name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :meetings).i18n_name,
           published_at: Time.current,
