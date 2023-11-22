@@ -283,7 +283,7 @@ describe Decidim::Search do
 
       context "when scope is setted" do
         it "only return resources in the given scope" do
-          described_class.call(term, current_organization, "decidim_scope_id_eq" => scope.id.to_s) do
+          described_class.call(term, current_organization, "decidim_scope_id_in" => [scope.id.to_s]) do
             on(:ok) do |results_by_type|
               results = results_by_type["Decidim::DummyResources::DummyResource"]
               expect(results[:count]).to eq 1
@@ -296,7 +296,7 @@ describe Decidim::Search do
 
       context "when scope is blank" do
         it "does not apply scope filter" do
-          described_class.call(term, current_organization, "decidim_scope_id_eq" => "") do
+          described_class.call(term, current_organization, "decidim_scope_id_in" => nil) do
             on(:ok) do |results_by_type|
               results = results_by_type["Decidim::DummyResources::DummyResource"]
               expect(results[:results]).not_to be_empty

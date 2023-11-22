@@ -12,8 +12,10 @@
 <%= render partial: "resources_filter_block", locals: { sections: @sections, types: Decidim::Searchable.searchable_resources_of_type_comment } %>
 <div class="card card--secondary">
   <%= filter_form_for filter do |form| %>
-    <%= scopes_picker_filter form, :decidim_scope_id_eq %>
+    <%= scopes_picker_filter form, :decidim_scope_id_in %>
     <%= form.hidden_field :term %>
+    <%= form.hidden_field :with_space_state %>
+    <%= form.hidden_field :with_resource_type %>
   <% end %>
 </div>
 <div class="row collapse order-by">
