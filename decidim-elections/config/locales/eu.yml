@@ -201,6 +201,8 @@ eu:
           edit:
             title: Editatu aukera
             update: Eguneratu aukera
+          form:
+            organization_time_zone: Egiaztatu ordutegi-eremua egokia dela antolamenduaren konfigurazioan. Egungo konfigurazioa da %{time_zone} (%{time}).
           index:
             no_bulletin_board: Ez dago <a href = "https://github.com/decidim/decidim-bulletin-board" >Iragarki Taula </a> zerbitzari konfiguraturik, modulu hau erabiltzeko beharrezkoa dena. Ataza hori sistemaren administratzaileak egin behar du.
             title: Aukerak
@@ -1000,9 +1002,11 @@ eu:
           form:
             banner_image: Banner-irudia
             census_contact_information: Erroldako kontaktoen informazioa
+            census_contact_information_help: Kontakturako informazio hau erroldarekin arazoak jakinarazi nahi dituen parte-hartzaile batentzat da. Helbide elektroniko bat izan daiteke, harremanetarako formulario bat beste leku batean, bisitarientzako inkesta bat, etab.
             introductory_image: Aurkezpenaren irudia
             promoted: Nabarmendua
             select_a_voting_type: Mesedez, hautatu bozketa mota bat
+            show_check_census_help: Zehaztu botazioen menu publikoan "Bozka dezaket?" esteka erakutsi ala ez.
             slug: Slug
             slug_help_html: 'URLetako testu laburrak erabiltzen dira bozketa honi aurre egiteko URLak sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
             title: Izenburua
