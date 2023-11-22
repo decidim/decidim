@@ -50,13 +50,13 @@ eu:
             empty: Oraindik ez dago erantzunik
             export:
               answer:
-                title: '#%{number} erantzuna'
+                title: '#%{number} erantzun'
             export_response:
               title: survey_user_answers_%{token}
             index:
               title: "Guztira %{total} erantzun"
             show:
-              title: '#%{number} erantzuna'
+              title: '#%{number} erantzun'
           display_condition:
             answer_option: Erantzuteko aukera
             condition_question: Galdera
@@ -82,7 +82,7 @@ eu:
             add_question: Gehitu galdera
             add_separator: Gehitu banatzailea
             add_title_and_description: Gehitu izenburua eta deskribapena
-            already_answered_warning: Formularioa erabiltzaile batzuek erantzuten dute, beraz, ezin dira galderak aldatu.
+            already_answered_warning: Formularioa erabiltzaile batzuek erantzuten dute; beraz, ezin dira galderak aldatu.
             collapse: Bildu galdera guztiak
             expand: Zabaldu galdera guztiak
             preview: Aurreikusi
@@ -121,7 +121,7 @@ eu:
             title_and_description: Izenburua eta deskribapena
             up: Gora
           update:
-            invalid: Akatsik egon da galdeketa gordetzean.
+            invalid: Arazo bat egon da inprimakia gordetzean.
             success: Galdetegia zuzen gorde da.
       admin_log:
         questionnaire:
@@ -148,9 +148,9 @@ eu:
         download_attachment: Deskargatu eranskina
       questionnaires:
         answer:
-          invalid: Akatsen bat gertatu da galdeketa erantzutean.
+          invalid: Akats bat gertatu da galdeketa erantzutean.
           max_choices_alert: Aukera gehiegi daude hautatuta
-          success: Formularioak ondo erantzun du.
+          success: Formularioa zuzen erantzunda.
         question:
           max_choices: 'Gehienezko aukerak: %{n}'
         show:
@@ -159,11 +159,11 @@ eu:
             are_you_new?: Erabiltzaile berria?
             sign_in_description: Hasi saioa inkesta egiteko
             sign_up_description: Sortu parte-hartzaileen kontua inkesta egiteko
-            title: Erantzun formularioari
+            title: Erantzun formularioa
           current_step: '%{step} urratsa'
           of_total_steps: '%{total_steps} etik'
           questionnaire_answered:
-            body: Galdeketa honi erantzun dio.
+            body: Dagoeneko inkesta hau erantzun duzu.
             title: Dagoeneko erantzunda
           questionnaire_closed:
             body: Galdetegia itxita dago eta ezin da erantzun.
