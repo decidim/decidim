@@ -71,7 +71,8 @@ module Decidim::Meetings
       events = Icalendar::Event.parse(attachment.read)
       event = events.first
       expect(event.summary).to eq(translated(meeting.title))
-      expect(event.description).to eq(strip_tags(translated(meeting.description)))
+      expect(event.description).to include(strip_tags(translated(meeting.description)))
+      expect(event.description).to include(Decidim::ResourceLocatorPresenter.new(meeting).url)
       expect(event.dtstart.value.to_i).to eq(Icalendar::Values::DateTime.new(meeting.start_time).value.to_i)
       expect(event.dtend.value.to_i).to eq(Icalendar::Values::DateTime.new(meeting.end_time).value.to_i)
       expect(event.geo).to eq([meeting.latitude, meeting.longitude])

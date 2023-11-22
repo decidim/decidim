@@ -270,42 +270,6 @@ describe Decidim::Search do
       end
     end
 
-    context "with scope" do
-      let!(:scoped_resource) do
-        create(:searchable_resource, organization: current_organization, scope:, content_a: "Where is your crown king nothing?")
-      end
-
-      before do
-        create(:searchable_resource, organization: current_organization, content_a: "Where is your crown king nothing?")
-      end
-
-      context "when scope is setted" do
-        it "only return resources in the given scope" do
-          described_class.call(term, current_organization, "decidim_scope_id_eq" => scope.id.to_s) do
-            on(:ok) do |results_by_type|
-              results = results_by_type["Decidim::DummyResources::DummyResource"]
-              expect(results[:count]).to eq 1
-              expect(results[:results]).to eq [scoped_resource.resource]
-            end
-            on(:invalid) { raise("Should not happen") }
-          end
-        end
-      end
-
-      context "when scope is blank" do
-        it "does not apply scope filter" do
-          described_class.call(term, current_organization, "decidim_scope_id_eq" => "") do
-            on(:ok) do |results_by_type|
-              results = results_by_type["Decidim::DummyResources::DummyResource"]
-              expect(results[:results]).not_to be_empty
-              expect(results[:count]).to eq 2
-            end
-            on(:invalid) { raise("Should not happen") }
-          end
-        end
-      end
-    end
-
     describe "with space state" do
       let!(:active) do
         create(

@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "decidim/elections/menu"
+
 module Decidim
   module Elections
     # This is the engine that runs on the public interface of `Elections`.
@@ -51,25 +53,7 @@ module Decidim
       end
 
       initializer "decidim_elections_admin.menu_entry" do
-        Decidim.participatory_space_registry.manifests.each do |participatory_space|
-          menu_id = :"admin_#{participatory_space.name.to_s.singularize}_menu"
-          Decidim.menu menu_id do |menu|
-            component = current_participatory_space.try(:components)&.find_by(manifest_name: :elections)
-            next unless component
-
-            link = Decidim::EngineRouter.admin_proxy(component).trustees_path(locale: I18n.locale)
-
-            has_election_components = current_participatory_space.components.select { |c| c.manifest_name == "elections" }.any?
-
-            menu.add_item :trustees,
-                          I18n.t("trustees", scope: "decidim.elections.admin.menu"),
-                          link,
-                          if: has_election_components && (allowed_to?(:manage, :trustees) || current_user.admin?),
-                          icon_name: "safe-line",
-                          position: 100,
-                          active: is_active_link?(link)
-          end
-        end
+        Decidim::Elections::Menu.register_participatory_space_registry_manifests!
       end
 
       def load_seed

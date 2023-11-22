@@ -49,11 +49,11 @@ module Decidim
         conversation_path = current_or_new_conversation_path_with(user)
         if conversation_path
           link_to(conversation_path, title:) do
-            icon "envelope-closed", aria_label: title, class: "icon--small"
+            icon "mail-send-line", aria_label: title, class: "icon--small"
           end
         else
           content_tag :span, title: t("decidim.user_contact_disabled"), data: { tooltip: true } do
-            icon "envelope-closed", aria_label: title, class: "icon--small muted"
+            icon "mail-send-line", aria_label: title, class: "icon--small muted"
           end
         end
       end
