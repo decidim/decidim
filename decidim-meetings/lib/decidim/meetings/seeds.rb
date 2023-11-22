@@ -13,21 +13,7 @@ module Decidim
       end
 
       def call
-        params = {
-          name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :meetings).i18n_name,
-          published_at: Time.current,
-          manifest_name: :meetings,
-          participatory_space:
-        }
-
-        component = Decidim.traceability.perform_action!(
-          "publish",
-          Decidim::Component,
-          admin_user,
-          visibility: "all"
-        ) do
-          Decidim::Component.create!(params)
-        end
+        component = create_component!
 
         if participatory_space.scope
           scopes = participatory_space.scope.descendants
@@ -181,6 +167,24 @@ module Decidim
             params,
             visibility: "all"
           )
+        end
+      end
+
+      def create_component!
+        params = {
+          name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :meetings).i18n_name,
+          published_at: Time.current,
+          manifest_name: :meetings,
+          participatory_space:
+        }
+
+        Decidim.traceability.perform_action!(
+          "publish",
+          Decidim::Component,
+          admin_user,
+          visibility: "all"
+        ) do
+          Decidim::Component.create!(params)
         end
       end
     end
