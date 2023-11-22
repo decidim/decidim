@@ -28,7 +28,7 @@ eu:
         organizer_id: Antolatzailea
         private_meeting: Topaketa pribatua
         registration_email_custom_content: Helbide elektroniko pertsonalizatua
-        registration_form_enabled: Izena emateko galdetegia
+        registration_form_enabled: Izena emateko galdetegia gaituta
         registration_terms: Izena emateko baldintzak
         registration_type: Erregistro mota
         registration_url: Izena ematearen URLa
@@ -250,8 +250,8 @@ eu:
           form:
             add_agenda_item: Gehitu agendako itema
             agenda_items: Agenda-itemak
-            end_date: Amaiera data
-            start_date: Hasiera data
+            end_date: Amaiera-data
+            start_date: Hasiera-data
           new:
             create: Sortu
             title: Beste agenda bat
@@ -275,10 +275,10 @@ eu:
           form:
             attendee_type: Parte-hartzaile mota
             existing_user: Parte-hartzailea badago
-            invite: Gonbit egin
-            invite_explanation: Erabiltzailea bilera eta erakundean sartzeko gonbidatuko zaie.
+            invite: Gonbidatu
+            invite_explanation: Erabiltzailea topaketaan eta erakundean sartzeko gonbidatuko da.
             non_user: Erabiltzailea ez dago
-            select_user: Aukeratu erabiltzailea
+            select_user: Hautatu parte-hartzailea
           index:
             filter:
               accepted: Onartuta
@@ -321,7 +321,7 @@ eu:
             registration_url_help: 'Esteka: parte-hartzaileei aukera ematea izena emateko erabiltzen ari zaren kanpoko zerbitzura joateko'
             select_a_meeting_type: Mesedez, hautatu topaketa mota bat
             select_a_registration_type: Mesedez, aukeratu erregistro mota bat
-            select_an_iframe_access_level: Mesedez, aukeratu iframe maila bat
+            select_an_iframe_access_level: Mesedez, hautatu iframe maila bat
             show_embedded_iframe_help: Zerbitzu gutxi batzuek soilik txertatu daitezke topaketetan edo zuzeneko ekitaldietan (YouTube, Twitch and Jitsi)
           index:
             title: Topaketa-zerrenda
@@ -367,7 +367,7 @@ eu:
             recommendation_message: Pribatutasuna dela eta, izena emateko formulario hau kentzea gomendatzen dizugu, behar ez duzunean. Besterik adierazi ezean, hau da, topaketa amaitu eta 3 hilabetera.
             registration_form: Izena emateko formularioa
             registrations_count:
-              one: Izen-emate %{count} izan da.
+              one: '%{count} izen-emate izan da.'
               other: Dena den, %{count} matrikulazioak.
             reserved_slots_help: Utzi 0 aukerarik ez baduzu erreserbatutako slotarik
             reserved_slots_less_than: '%{count} baino gutxiago izan behar du'
