@@ -129,15 +129,17 @@ module Decidim
         "#{::Faker::Twitter.unique.screen_name}-#{SecureRandom.hex(4)}"[0, 20]
       end
 
-      def create_emendation!(proposal:)
-        n = rand(5)
-        email = "amendment-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{n}-amend#{n}@example.org"
-        name = "#{::Faker::Name.name} #{participatory_space.id} #{n} amend#{n}"
+      def random_email(suffix:)
+        r = SecureRandom.hex(4)
 
-        author = Decidim::User.find_or_initialize_by(email:)
+        "#{suffix}-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{r}@example.org"
+      end
+
+      def create_emendation!(proposal:)
+        author = Decidim::User.find_or_initialize_by(email: random_email(suffix: "amendment"))
         author.update!(
           password: "decidim123456789",
-          name:,
+          name: "#{::Faker::Name.name} #{participatory_space.id}",
           nickname: random_nickname,
           organization:,
           tos_agreement: "1",
@@ -198,15 +200,10 @@ module Decidim
       end
 
       def create_proposal_votes!(proposal:, emendation: nil)
-        n = rand(5)
-        m = rand(5)
-        email = "vote-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{n}-#{m}@example.org"
-        name = "#{::Faker::Name.name} #{participatory_space.id} #{n} #{m}"
-
-        author = Decidim::User.find_or_initialize_by(email:)
+        author = Decidim::User.find_or_initialize_by(email: random_email(suffix: "vote"))
         author.update!(
           password: "decidim123456789",
-          name:,
+          name: "#{::Faker::Name.name} #{participatory_space.id}",
           nickname: random_nickname,
           organization:,
           tos_agreement: "1",
