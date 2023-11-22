@@ -16,6 +16,8 @@ module Decidim
         component = create_component!
 
         2.times do
+          create_meeting!(component:, type: :in_person)
+          create_meeting!(component:, type: :hybrid)
           meeting = create_meeting!(component:)
 
           2.times do
@@ -105,30 +107,29 @@ module Decidim
         }
       end
 
-      def create_meeting!(component:)
+      def create_meeting!(component:, type: :in_person)
         params = meeting_params(component:)
 
-        _hybrid_meeting = Decidim.traceability.create!(
-          Decidim::Meetings::Meeting,
-          admin_user,
-          params.merge(
-            title: Decidim::Faker::Localized.sentence(word_count: 2),
-            type_of_meeting: :hybrid,
-            online_meeting_url: "http://example.org"
-          ),
-          visibility: "all"
-        )
-
-        _online_meeting = Decidim.traceability.create!(
-          Decidim::Meetings::Meeting,
-          admin_user,
-          params.merge(
-            title: Decidim::Faker::Localized.sentence(word_count: 2),
-            type_of_meeting: :online,
-            online_meeting_url: "http://example.org"
-          ),
-          visibility: "all"
-        )
+        params = case type
+                 when :hybrid
+                   params.merge(
+                     title: Decidim::Faker::Localized.sentence(word_count: 2),
+                     type_of_meeting: :hybrid,
+                     online_meeting_url: "http://example.org"
+                   )
+                 when :online
+                   params.merge(
+                     location: nil,
+                     location_hints: nil,
+                     latitude: nil,
+                     longitude: nil,
+                     title: Decidim::Faker::Localized.sentence(word_count: 2),
+                     type_of_meeting: :online,
+                     online_meeting_url: "http://example.org"
+                   )
+                 else
+                   params
+                 end
 
         Decidim.traceability.create!(
           Decidim::Meetings::Meeting,
