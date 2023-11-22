@@ -122,6 +122,13 @@ module Decidim
         end
       end
 
+      # Create a meeting
+      #
+      # @param component [Decidim::Component] The component where this class will be created
+      # @param type [:in_person, :hybrid, :online] The meeting type
+      # @param author_type [:official, :user, :user_group] Which type the author of the meeting will be
+      #
+      # @return [Decidim::Meeting]
       def create_meeting!(component:, type: :in_person, author_type: :official)
         params = meeting_params(component:, type:, author_type:)
 
