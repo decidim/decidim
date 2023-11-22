@@ -19,11 +19,7 @@ module Decidim
           meeting = create_meeting!(component:)
 
           2.times do
-            Decidim::Meetings::Service.create!(
-              meeting:,
-              title: Decidim::Faker::Localized.sentence(word_count: 2),
-              description: Decidim::Faker::Localized.sentence(word_count: 5)
-            )
+            create_service!(meeting:)
           end
 
           Decidim::Forms::Questionnaire.create!(
@@ -181,6 +177,14 @@ module Decidim
           admin_user,
           params,
           visibility: "all"
+        )
+      end
+
+      def create_service!(meeting:)
+        Decidim::Meetings::Service.create!(
+          meeting:,
+          title: Decidim::Faker::Localized.sentence(word_count: 2),
+          description: Decidim::Faker::Localized.sentence(word_count: 5)
         )
       end
     end
