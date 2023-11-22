@@ -5,7 +5,7 @@
     <%= cell("decidim/announcement", t("decidim.user_conversations.index.no_conversations_warning")) %>
   <% else %>
     <% conversations.each do |conversation| %>
-      <%= render partial: "decidim/messaging/conversations/conversation", locals: { conversation:, nickname: } %>
+      <%= render partial: "decidim/messaging/conversations/conversation", formats: [:html], locals: { conversation:, nickname: } %>
     <% end %>
 
     <%= decidim_paginate conversations %>
