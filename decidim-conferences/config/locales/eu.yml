@@ -343,7 +343,7 @@ eu:
           form:
             attendee_type: Parte-hartzaile mota
             existing_user: Parte-hartzailea badago
-            invite_explanation: Erabiltzaileak konferentzia eta erakundera joateko gonbidatuko zaitu.
+            invite_explanation: Parte-hartzailea hitzaldira eta erakundera lotzera gonbidatuko dute.
             non_user: Parte-hartzailea ez dago
             select_user: Aukeratu erabiltzailea
           index:
@@ -365,7 +365,7 @@ eu:
         conference_speakers:
           form:
             existing_user: Parte-hartzailea badago
-            non_user: Erabiltzaile ez
+            non_user: Parte-hartzailerik ez
             select_user: Aukeratu erabiltzailea
             user_type: Erabiltzaile mota
           index:
@@ -395,7 +395,7 @@ eu:
             title: Kideak
         registration_types:
           form:
-            select_conference_meetings: Aukeratu konferentzia bilerak
+            select_conference_meetings: Hautatu hitzaldiaren topaketak
           index:
             title: Izen-emate motak
         send_conference_diploma_mailer:
