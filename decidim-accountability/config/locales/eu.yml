@@ -5,10 +5,10 @@ eu:
       result:
         decidim_accountability_status_id: Egoera
         decidim_category_id: Kategoria
-        decidim_scope_id: Eremua
+        decidim_scope_id: Esparrua
         description: Deskribapena
         end_date: Bukaera-data
-        progress: Aurreratzea
+        progress: Aurrerapena
         project_ids: Barne dauden proiektuak
         proposals: Barne dauden proposamenak
         start_date: Hasiera-data
