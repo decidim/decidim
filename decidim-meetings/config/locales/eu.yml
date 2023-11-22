@@ -30,7 +30,7 @@ eu:
         organizer_id: Antolatzailea
         private_meeting: Topaketa pribatua
         registration_email_custom_content: Helbide elektroniko pertsonalizatua
-        registration_form_enabled: Izena emateko galdetegia
+        registration_form_enabled: Izena emateko galdetegia gaituta
         registration_terms: Izena emateko baldintzak
         registration_type: Erregistro mota
         registration_url: Izena ematearen URLa
@@ -195,6 +195,9 @@ eu:
           email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" topaketa jarraitzen duzulako. Aurreko estekan jarraitzeari utzi ahal diozu.
           email_subject: '"%{resource_title}" topaketa 48 ordu baino lehen hasiko da.'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa 48 ordu baino lehen hasiko da.
+    forms:
+      meetings:
+        attendees_count_help_text: Ez ahaztu tokapetara bertaratutakoen kopuru osoa sartzea, aurrez aurre, online edo hibridoan.
     gamification:
       badges:
         attended_meetings:
@@ -248,8 +251,8 @@ eu:
           form:
             add_agenda_item: Gehitu agendako itema
             agenda_items: Agenda-itemak
-            end_date: Amaiera data
-            start_date: Hasiera data
+            end_date: Amaiera-data
+            start_date: Hasiera-data
           new:
             create: Sortu
             title: Beste agenda bat
@@ -273,10 +276,10 @@ eu:
           form:
             attendee_type: Parte-hartzaile mota
             existing_user: Parte-hartzailea badago
-            invite: Gonbit egin
-            invite_explanation: Erabiltzailea bilera eta erakundean sartzeko gonbidatuko zaie.
+            invite: Gonbidatu
+            invite_explanation: Erabiltzailea topaketaan eta erakundean sartzeko gonbidatuko da.
             non_user: Erabiltzailea ez dago
-            select_user: Aukeratu erabiltzailea
+            select_user: Hautatu parte-hartzailea
           index:
             filter:
               accepted: Onartuta
@@ -317,7 +320,7 @@ eu:
             registration_url_help: 'Esteka: parte-hartzaileei aukera ematea izena emateko erabiltzen ari zaren kanpoko zerbitzura joateko'
             select_a_meeting_type: Mesedez, hautatu topaketa mota bat
             select_a_registration_type: Mesedez, aukeratu erregistro mota bat
-            select_an_iframe_access_level: Mesedez, aukeratu iframe maila bat
+            select_an_iframe_access_level: Mesedez, hautatu iframe maila bat
           index:
             title: Topaketa-zerrenda
           new:
@@ -360,7 +363,7 @@ eu:
             registration_email_help: Testu hau erregistroa berresteko posta elektronikoaren erdian agertuko da. Erregistro-kodearen ondoren.
             registration_form: Izena emateko formularioa
             registrations_count:
-              one: Izen-emate %{count} izan da.
+              one: '%{count} izen-emate izan da.'
               other: Dena den, %{count} matrikulazioak.
             reserved_slots_help: Utzi 0, ez baduzu erreserbatutako espaziorik.
             reserved_slots_less_than: '%{count} baino gutxiago izan behar du'
