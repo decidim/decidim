@@ -133,7 +133,7 @@ describe "Valuator manages proposals" do
             system: false
           }
         end
-        let!(:custom_state) { create(:proposal_state, **state_params, component: current_component) }
+        let!(:custom_state) { create(:proposal_state, **state_params, answerable: true, component: current_component) }
 
         before do
           visit current_path

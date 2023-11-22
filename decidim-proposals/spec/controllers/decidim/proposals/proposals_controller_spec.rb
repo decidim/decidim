@@ -243,7 +243,7 @@ module Decidim
             expect(flash[:notice]).to eq("Proposal successfully updated.")
             expect(response).to have_http_status(:found)
             proposal.reload
-            expect(proposal.withdrawn?).to be true
+            expect(proposal).to be_customized_proposal_withdrawn
           end
 
           context "and the proposal already has supports" do
@@ -255,7 +255,7 @@ module Decidim
               expect(flash[:alert]).to eq("This proposal cannot be withdrawn because it already has supports.")
               expect(response).to have_http_status(:found)
               proposal.reload
-              expect(proposal.withdrawn?).to be false
+              expect(proposal).not_to be_customized_proposal_withdrawn
             end
           end
         end
@@ -273,7 +273,7 @@ module Decidim
               expect(flash[:alert]).to eq("You are not authorized to perform this action.")
               expect(response).to have_http_status(:found)
               proposal.reload
-              expect(proposal.withdrawn?).to be false
+              expect(proposal).not_to be_customized_proposal_withdrawn
             end
           end
         end

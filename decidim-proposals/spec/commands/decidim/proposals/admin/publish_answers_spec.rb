@@ -23,7 +23,7 @@ module Decidim
         end
 
         it "changes the proposals published state" do
-          expect { subject }.to change { proposals.map { |proposal| proposal.reload.state }.uniq }.from([nil]).to(["accepted"])
+          expect { subject }.to change { proposals.map { |proposal| proposal.reload.customized_proposal_state }.uniq }.from([nil]).to(["accepted"])
         end
 
         it "traces the action", versioning: true do

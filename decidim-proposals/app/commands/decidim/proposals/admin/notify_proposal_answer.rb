@@ -54,11 +54,13 @@ module Decidim
         end
 
         def increment_score
-          if !initial_state.gamified? && proposal.proposal_state.gamified?
+          previously_gamified = initial_state.present? && initial_state.gamified?
+
+          if !previously_gamified && proposal.proposal_state.gamified?
             proposal.coauthorships.find_each do |coauthorship|
               Decidim::Gamification.increment_score(coauthorship.user_group || coauthorship.author, :accepted_proposals)
             end
-          elsif initial_state.gamified? && !proposal.proposal_state.gamified?
+          elsif previously_gamified && !proposal.proposal_state.gamified?
             proposal.coauthorships.find_each do |coauthorship|
               Decidim::Gamification.decrement_score(coauthorship.user_group || coauthorship.author, :accepted_proposals)
             end
