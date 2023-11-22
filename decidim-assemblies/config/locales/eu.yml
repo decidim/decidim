@@ -6,12 +6,12 @@ eu:
       assemblies_type:
         title: Izenburua
       assembly:
-        announcement: Jakinaraztea
+        announcement: Jakinarazpena
         area_id: Arloa
         assembly_type: Batzar mota
         assembly_type_other: Beste batzar mota bat
-        banner_image: Bannerra
-        closing_date: Amaiera data
+        banner_image: Banner irudia
+        closing_date: Amaiera-data
         closing_date_reason: Amaiera-dataren arrazoia
         composition: Osaera
         copy_categories: Kopiatu kategoriak
@@ -31,16 +31,16 @@ eu:
         facebook: Facebook
         github: GitHub
         hashtag: Traola
-        hero_image: Orri nagusiko irudia
-        import_attachments: Eranskinak inportatu
-        import_categories: Kategoriak inportatu
-        import_components: Osagaiak inportatu
+        hero_image: Hasierako orriko irudia
+        import_attachments: Inportatu erantsitako artxiboak
+        import_categories: Inportatu kategoriak
+        import_components: Inportatu osagaiak
         included_at: 'Honen barne:'
         instagram: Instagram
         internal_organisation: Barneko antolaketa
         is_transparent: Gardena da
         local_area: Antolakuntza Arloa
-        meta_scope: 'Metadatuak: esparrua'
+        meta_scope: Esparruko metadatuak
         parent_id: Batzar nagusia
         participatory_processes_ids: Erlazionatutako prozesu parte-hartzaileak
         participatory_scope: Zer erabakitzen da?
@@ -139,7 +139,7 @@ eu:
       assembly_copies:
         new:
           copy: Kopiatu
-          select: Aukeratu itzazu kopiatu nahi dituzun datuak
+          select: Hautatu bikoiztu nahi dituzun datuak
           title: Bikoiztu batzarra
       assembly_imports:
         create:
@@ -215,7 +215,7 @@ eu:
             title: Izenburua
         assembly:
           fields:
-            created_at: Sortze-data
+            created_at: Noiz sortua
             private: Pribatua
             promoted: Nabarmendua
             published: Argitaratua
@@ -375,7 +375,7 @@ eu:
         area: Arloa
         assembly_type: Batzar mota
         children: Biltzarrak
-        closing_date: Amaiera data
+        closing_date: Amaiera-data
         composition: Osaera
         created_by: Nork sortua
         creation_date: Sortze-data
