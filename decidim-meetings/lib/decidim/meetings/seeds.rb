@@ -33,31 +33,8 @@ module Decidim
           create_attachments!(attached_to: meeting)
         end
 
-        authors = [
-          Decidim::UserGroup.where(decidim_organization_id: participatory_space.decidim_organization_id).verified.sample,
-          Decidim::User.where(decidim_organization_id: participatory_space.decidim_organization_id).all.sample
-        ]
-
-        authors.each do |author|
-          user_group = nil
-
-          if author.is_a?(Decidim::UserGroup)
-            user_group = author
-            author = user_group.users.sample
-          end
-
-          params = meeting_params(component:)
-
-          Decidim.traceability.create!(
-            Decidim::Meetings::Meeting,
-            authors[0],
-            params.merge(
-              author:,
-              user_group:
-            ),
-            visibility: "all"
-          )
-        end
+        create_user_group_meeting!(component:)
+        create_user_meeting!(component:)
       end
 
       def create_component!
@@ -135,6 +112,36 @@ module Decidim
           Decidim::Meetings::Meeting,
           admin_user,
           params,
+          visibility: "all"
+        )
+      end
+
+      def create_user_group_meeting!(component:)
+        params = meeting_params(component:)
+        user_group = Decidim::UserGroup.where(decidim_organization_id: participatory_space.decidim_organization_id).verified.sample
+        author = user_group.users.sample
+
+        Decidim.traceability.create!(
+          Decidim::Meetings::Meeting,
+          author,
+          params.merge(
+            author:,
+            user_group:
+          ),
+          visibility: "all"
+        )
+      end
+
+      def create_user_meeting!(component:)
+        params = meeting_params(component:)
+        author = Decidim::User.where(decidim_organization_id: participatory_space.decidim_organization_id).all.sample
+
+        Decidim.traceability.create!(
+          Decidim::Meetings::Meeting,
+          author,
+          params.merge(
+            author:
+          ),
           visibility: "all"
         )
       end
