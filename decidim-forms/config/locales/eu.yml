@@ -150,7 +150,7 @@ eu:
           max_choices_alert: Aukera gehiegi daude hautatuta
           success: Formularioa zuzen erantzunda.
         question:
-          max_choices: 'Gehienezko aukerak: %{n}'
+          max_choices: 'Gehieneko aukerak: %{n}'
         show:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Hasi saioa zure kontuarekin</a> edo <a href="%{sign_up_link}">saioa hasi</a> galdetegiari erantzuteko.
