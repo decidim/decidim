@@ -489,7 +489,7 @@ eu:
               other: Bikoiztu %{columns} zutabea.
           invalid_indexes:
             lines:
-              detail: "\nEgiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela."
+              detail: Mesedez, egiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela.
             records:
               detail: "\nEgiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela."
           missing_headers:
