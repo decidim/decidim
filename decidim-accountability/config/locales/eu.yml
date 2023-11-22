@@ -36,9 +36,11 @@ eu:
       actions:
         attachment_collections: Karpetak
         attachments: Erantsitako artxiboak
-        confirm_destroy: Ziur zaude %{name} ezabatu nahi duzula?
+        confirm_destroy: Ziur zaude emaitza hau ezabatu nahi duzula?
         destroy: Ezabatu
         edit: Editatu
+        import: Inportatu proposamenak beste osagai batetik
+        import_csv: Inportatu emaitzak CSV fitxategitik
         new_result: Beste emaitza bat
         new_status: Beste egoera bat
         new_timeline_entry: Beste denbora-sarrera bat
@@ -74,9 +76,10 @@ eu:
                 </ul>
               </li>
               </ol>
+            title: Inportatu emaitzak CSV fitxategitik
         imports:
           create:
-            invalid: Arazoren bat sortu da emaitzak inportatzean.
+            invalid: Arazo bat egon da emaitzak inportatzean.
             success: Espedientea inportatzen hasi da. Datozen minutuetan posta elektroniko bat jasoko duzu inportazioaren emaitzarekin.
         models:
           result:
@@ -85,7 +88,7 @@ eu:
             name: Egoera
         projects_import:
           create:
-            invalid: Arazo bat gertatu da proiektuak emaitzetara inportatzean, mesedez, jarraitu arretaz argibideak eta ziurtatu proiektuak inplementatzeko aukeratu dituzula.
+            invalid: Arazo bat egon da proiektuak emaitzetara inportatzean, mesedez, jarraitu arretaz argibideak eta ziurtatu proiektuak inplementatzeko aukeratu dituzula.
           new:
             create: Inportatu
             import_all_selected_projects: Inportatu inplementatzeko aukeratu dituzun proiektu guztiak
@@ -94,16 +97,17 @@ eu:
               other: "Hautatutako %{count} proiektu inportatuko dira"
             no_components: Ez dago aurrekontuen osagairik parte-hartze espazio honetan proiektuak emaitzetara inportatzeko.
             origin_component_id: Jatorrizko osagaia
-            select_component: Aukeratu osagaia
+            select_component: Hautatu osagaia
             success:
               one: Proiektu 1 ilaran dago inportazioaren zain. Eginda dagoenean posta elektronikoz jakinaraziko zaizu.
               other: "%{count} proiektu inportazioaren zain. Eginda dagoenean posta elektronikoz jakinaraziko zaizu."
+            title: Inportatu proiektuak beste osagai batetik
         results:
           create:
-            invalid: Arazo bat izan da emaitza hau sortzean.
-            success: Emaitza ondo sortu da.
+            invalid: Arazo bat egon da emaitza hau sortzean.
+            success: Emaitza zuzen sortua.
           destroy:
-            success: Emaitza ondo ezabatu da.
+            success: Emaitza zuzen ezabatua.
           edit:
             title: Editatu emaitza
             update: Eguneratu emaitza
@@ -113,45 +117,45 @@ eu:
             create: Sortu emaitza
             title: Beste emaitza bat
           update:
-            invalid: Arazo bat izan da emaitza hau eguneratzean.
-            success: Emaitza zuzen eguneratu da.
+            invalid: Arazo bat egon da emaitza hau eguneratzean.
+            success: Emaitza zuzen eguneratua.
         shared:
           subnav:
             statuses: Egoerak
         statuses:
           create:
-            invalid: Arazo bat izan da egoera hori eguneratzean.
-            success: Eztabaida zuzen sortu da.
+            invalid: Arazo bat egon da egoera hau sortzean.
+            success: Egoera zuzen sortua.
           destroy:
-            success: Egoera ondo ezabatu da.
+            success: Egoera behar bezala ezabatua.
           edit:
             title: Editatu egoera
-            update: Egoera eguneratu
+            update: Eguneratu egoera
           index:
             title: Egoerak
           new:
             create: Egoera sortu
             title: Beste egoera bat
           update:
-            invalid: Arazoren bat gertatu da egoera hau sortzean.
-            success: Egoera ondo eguneratu da.
+            invalid: Arazo bat egon da egoera hau eguneratzean.
+            success: Egoera zuzen eguneratua.
         timeline_entries:
           create:
-            invalid: Arazoen bat gertatu da sarrera hau sortzean.
-            success: Sarrera ondo sortu da.
+            invalid: Arazo bat egon da sarrera hau sortzean.
+            success: Sarrera zuzen sortua.
           destroy:
-            success: Sarrera ondo ezabatu da.
+            success: Sarrera behar bezala ezabatua.
           edit:
             title: Editatu sarrera
             update: Eguneratu sarrera
           index:
             title: Proiektuaren bilakaera
           new:
-            create: Sortu sarrera
+            create: Sortu sarrerak
             title: Beste sarrera bat
           update:
-            invalid: Arazoren bat gertatu da sarrera hau eguneratzean.
-            success: Sarrera ondo sortu da.
+            invalid: Arazo bat egon da sarrera hau eguneratzean.
+            success: Sarrera zuzen eguneratua.
       admin_log:
         result:
           create: "%{user_name} k emaitza sortu du %{resource_name} %{space_name} espazioan"
@@ -173,8 +177,8 @@ eu:
           results: Emaitzak
       import_mailer:
         import:
-          errors: Akatsak
-          errors_present: Arazoren bat gertatu da emaitzak inportatzean.
+          errors: Erroreak
+          errors_present: Arazo bat egon da emaitzak inportatzean.
           row_number: Errenkada
           subject: Emaitzak zuzen inportatu dira
           success: Emaitzak zuzen inportatu dira. Emaitzak administrazioaren panelaren bidez berrikusi ahal dituzu.
@@ -186,7 +190,7 @@ eu:
           subject: Proiektuak zuzen inportatu dira
           success: Zuzen inportatu dira proiektuak emaitzetara %{component_name} osagaian. Emaitza administrazio-interfacean ikus dezakezu.
       last_activity:
-        new_result: '<span> %{link}</span>emaitza berria:'
+        new_result: 'Beste emaitza bat:'
       models:
         result:
           fields:
@@ -227,7 +231,7 @@ eu:
           global: Gauzatze osoa
         no_results: Ez dago proiekturik
         search:
-          search: Ekintzak bilatu
+          search: Bilatu ekintzak
         show:
           stats:
             attendees: Bertaratuak
@@ -288,11 +292,11 @@ eu:
         title: Emaitzak
     participatory_spaces:
       highlighted_results:
-        see_all: Ikusi emaitza guztiak
+        see_all: Ikusi emaitza guztiak (%{count})
     resource_links:
       included_projects:
         result_project: Emaitza honetan sartutako proiektuak
       included_proposals:
-        result_proposal: Emaitza honetan jasotako proposamenak
+        result_proposal: Emaitza honetan sartutako proiektuak
     statistics:
       results_count: Emaitzak
