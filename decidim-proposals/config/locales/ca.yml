@@ -430,6 +430,9 @@ ca:
             proposals:
               one: proposta
               other: propostes
+          title:
+            answers: Importar respostes a propostes des d'un fitxer
+            proposals: Importar propostes des d'un fitxer
         models:
           proposal:
             name: Proposta
@@ -563,6 +566,7 @@ ca:
             no_components: No hi ha cap altre component de propostes en aquest espai participatiu des d'on importar-les.
             select_component: Escull un component
             select_states: Consulta els estats de les propostes a importar
+            title: Importar projectes des d'un altre component
         proposals_merges:
           create:
             invalid: 'S''ha produït un error en fusionar les propostes seleccionades doncs alguna d''elles:'
