@@ -4,11 +4,11 @@ eu:
       result:
         decidim_accountability_status_id: Egoera
         decidim_category_id: Kategoria
-        decidim_scope_id: Eremua
+        decidim_scope_id: Esparrua
         description: Deskribapena
         end_date: Bukaera-data
         meetings_ids: Honekin lotutako topaketak
-        progress: Aurreratzea
+        progress: Aurrerapena
         project_ids: Barne dauden proiektuak
         proposals: Barne dauden proposamenak
         start_date: Hasiera-data
@@ -36,7 +36,7 @@ eu:
       actions:
         attachment_collections: Karpetak
         attachments: Erantsitako artxiboak
-        confirm_destroy: Ziur zaude emaitza hau ezabatu nahi duzula?
+        confirm_destroy: Ziur zaude %{name} ezabatu nahi duzula?
         destroy: Ezabatu
         edit: Editatu
         new_result: Beste emaitza bat
