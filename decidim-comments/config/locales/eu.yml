@@ -44,8 +44,8 @@ eu:
             label: Iruzkina
             placeholder: Zer deritzozu honi?
           form_error: Testua behar da, eta ezin du izan %{length} karaktere baino gehiago.
-          submit_reply: Erantzuna argitaratu
-          submit_root_comment: Iruzkina argitaratu
+          submit_reply: Argitaratu erantzuna
+          submit_root_comment: Argitaratu iruzkina
           user_group_id:
             label: 'Egin iruzkina honako honen gisa:'
         opinion:
