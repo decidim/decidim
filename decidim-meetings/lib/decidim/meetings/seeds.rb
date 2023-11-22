@@ -22,16 +22,7 @@ module Decidim
             create_service!(meeting:)
           end
 
-          Decidim::Forms::Questionnaire.create!(
-            title: Decidim::Faker::Localized.paragraph,
-            description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-              Decidim::Faker::Localized.paragraph(sentence_count: 3)
-            end,
-            tos: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-              Decidim::Faker::Localized.paragraph(sentence_count: 2)
-            end,
-            questionnaire_for: meeting
-          )
+          create_questionnaire_for!(meeting:)
 
           2.times do |n|
             email = "meeting-registered-user-#{meeting.id}-#{n}@example.org"
@@ -185,6 +176,19 @@ module Decidim
           meeting:,
           title: Decidim::Faker::Localized.sentence(word_count: 2),
           description: Decidim::Faker::Localized.sentence(word_count: 5)
+        )
+      end
+
+      def create_questionnaire_for!(meeting:)
+        Decidim::Forms::Questionnaire.create!(
+          title: Decidim::Faker::Localized.paragraph,
+          description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+            Decidim::Faker::Localized.paragraph(sentence_count: 3)
+          end,
+          tos: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+            Decidim::Faker::Localized.paragraph(sentence_count: 2)
+          end,
+          questionnaire_for: meeting
         )
       end
     end
