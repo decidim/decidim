@@ -235,7 +235,7 @@ eu:
         collaborative_draft_access_rejected:
           email_intro: '%{requester_name} baztertu egin da <a href="%{resource_url}">%{resource_title}</a>-an laguntzaile gisa sartzeko.'
           email_outro: Jakinarazpen hau jaso duzu<a href="%{resource_url}">%{resource_title}</a>-ko kolaboratzailea zarelako.
-          email_subject: "%{requester_name} ez da onartu du kolaboratzaile gisa sartzeko %{resource_title} ziriborro kolaboratiboan."
+          email_subject: "%{requester_name} ez da onartu kolaboratzaile gisa sartzeko %{resource_title} ziriborro kolaboratiboan."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a>baztertu egin da < <a href="%{resource_path}">%{resource_title}</a> ziriborro kolaboratiboan.
         collaborative_draft_access_requested:
           email_intro: '%{requester_name} -k eskatu du laguntzaile gisa sartzeko. <strong>onartu edo baztertu egin dezakezu </strong> <a href="%{resource_url}">%{resource_title}</a> testu kolaboratibo ziriborroan.'
@@ -499,8 +499,8 @@ eu:
             attachment_legend: "(Aukerakoa) Gehitu eranskin bat"
             created_in_meeting: Proposamen hau bilera batetik dator
             delete_attachment: Ezabatu eranskina
-            select_a_category: Aukeratu kategoria bat
-            select_a_meeting: Aukeratu bilera bat
+            select_a_category: Hautatu kategoria bat
+            select_a_meeting: Hautatu topaketa bat
           index:
             actions: Ekintzak
             assign_to_valuator: Esleitu ebaluatzaileari
@@ -599,7 +599,7 @@ eu:
           create: "%{user_name} k %{resource_name} proposamenari buruzko ohar pribatu bat utzi du %{space_name} espazioan"
         valuation_assignment:
           create: "%{user_name} k esleitu zion %{resource_name} proposamena ebaluatzaile bati"
-          delete: "%{user_name} k desesleitu zuen ebaluatzaile bat %{proposal_title} proposamenetik"
+          delete: "%{user_name} k desesleitu du ebaluatzaile bat %{proposal_title} proposamenetik"
       answers:
         accepted: Onartuta
         evaluating: Ebaluatzen
