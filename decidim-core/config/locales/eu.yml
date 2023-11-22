@@ -799,7 +799,7 @@ eu:
         decidim/user:
           password: Pasahitza laburregia da.
           password_confirmation: Pasahitzaren egiaztapena zure pasahitzarekin bat etorri behar da.
-        error: Errorea bat dago eremu honetan.
+        error: Errore bat dago eremu honetan.
       file_help:
         file:
           explanation: 'Jarraibideak artxiborako:'
@@ -1248,7 +1248,7 @@ eu:
           modal_title: Benetan ez dituzu onartzen baldintza eguneratuak?
         required_review:
           alert: Zerbitzu-baldintzak eguneratu ditugu, mesedez, berrikusi.
-          body: Jarri une bat gure Zerbitzu Baldintzak eguneratzeak berrikusteko. Bestela, ezin izango duzu plataforma erabili.
+          body: Mesedez, hartu tarte bat gure Zerbitzu Baldintzen eguneraketak berrikusteko. Bestela, ezin izango duzu plataforma erabili.
           title: 'Eskatuta: berrikusi eguneraketak gure zerbitzuaren baldintzetan'
     participatory_space_private_users:
       not_allowed: Ez duzu baimenik eduki hau ikusteko
