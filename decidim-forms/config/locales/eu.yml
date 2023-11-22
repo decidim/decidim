@@ -132,8 +132,8 @@ eu:
       images:
         dimensions: "%{width} x %{height} px"
         processors:
-          resize_and_pad: Irudi hau bigunduko eta birdimentsionatuko da %{dimensions} nehurrira.
-          resize_to_fit: Irudi hau bigunduko eta birdimentsionatuko da %{dimensions} nehurrira.
+          resize_and_pad: Irudi hau bigunduko eta birdimentsionatuko da %{dimensions} neurrira.
+          resize_to_fit: Irudi hau bigunduko eta birdimentsionatuko da %{dimensions} neurrira.
       question_types:
         files: Fitxategiak
         long_answer: Erantzun luzea
@@ -152,7 +152,7 @@ eu:
           max_choices_alert: Aukera gehiegi daude hautatuta
           success: Formularioa zuzen erantzunda.
         question:
-          max_choices: 'Gehienezko aukerak: %{n}'
+          max_choices: 'Gehieneko aukerak: %{n}'
         show:
           answer_questionnaire:
             already_have_an_account?: Baduzu kontu bat?
