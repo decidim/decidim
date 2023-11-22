@@ -112,7 +112,7 @@ eu:
             success: Egoera behar bezala ezabatu da
           edit:
             title: Editatu egoera
-            update: Egoera eguneratu
+            update: Eguneratu egoera
           index:
             title: Egoerak
           new:
@@ -133,7 +133,7 @@ eu:
           index:
             title: Proiektuaren bilakaera
           new:
-            create: Sortu sarrera
+            create: Sortu sarrerak
             title: Beste sarrera bat
           update:
             invalid: Arazo bat egon da sarrera hau eguneratzean
@@ -161,7 +161,7 @@ eu:
           unspecified: Zehaztu gabe
       import_mailer:
         import:
-          errors: Akatsak
+          errors: Erroreak
           errors_present: Arazo bat egon da emaitzak inportatzean
           row_number: Errenkada
           subject: Emaitzak zuzen inportatu dira
@@ -209,7 +209,7 @@ eu:
         nav_breadcrumb:
           global: Gauzatze osoa
         search:
-          search: Ekintzak bilatu
+          search: Bilatu ekintzak
         show:
           stats:
             attendees: Bertaratuak
@@ -275,6 +275,6 @@ eu:
       included_projects:
         result_project: Emaitza honetan sartutako proiektuak
       included_proposals:
-        result_proposal: Emaitza honetan jasotako proposamenak
+        result_proposal: Emaitza honetan sartutako proiektuak
     statistics:
       results_count: Emaitzak
