@@ -498,8 +498,8 @@ eu:
             attachment_legend: "(Aukerakoa) Gehitu eranskin bat"
             created_in_meeting: Proposamen hau bilera batetik dator
             delete_attachment: Ezabatu eranskina
-            select_a_category: Aukeratu kategoria bat
-            select_a_meeting: Aukeratu bilera bat
+            select_a_category: Hautatu kategoria bat
+            select_a_meeting: Hautatu topaketa bat
           index:
             actions: Ekintzak
             assign_to_valuator: Esleitu ebaluatzaileari
