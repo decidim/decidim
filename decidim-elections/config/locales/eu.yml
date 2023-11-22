@@ -1031,6 +1031,7 @@ eu:
           form:
             banner_image: Banner-irudia
             census_contact_information: Erroldako kontaktoen informazioa
+            census_contact_information_help: Kontakturako informazio hau erroldarekin arazoak jakinarazi nahi dituen parte-hartzaile batentzat da. Helbide elektroniko bat izan daiteke, harremanetarako formulario bat beste leku batean, bisitarientzako inkesta bat, etab.
             introductory_image: Aurkezpenaren irudia
             promoted: Nabarmendua
             select_a_voting_type: Mesedez, hautatu bozketa mota bat
