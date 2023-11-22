@@ -4,7 +4,7 @@ module Decidim
   module Assemblies
     module Admin
       class AssemblyImportsController < Decidim::Assemblies::Admin::ApplicationController
-        layout "decidim/admin/assemblies_settings"
+        layout "decidim/admin/assemblies_imports"
 
         def new
           enforce_permission_to :import, :assembly
