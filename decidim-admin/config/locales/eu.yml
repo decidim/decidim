@@ -3,7 +3,7 @@ eu:
   activemodel:
     attributes:
       area:
-        area_type: Eremu mota
+        area_type: Arlo mota
         name: Izena
         organization: Erakundea
       area_type:
@@ -12,7 +12,7 @@ eu:
         plural: Plurala
       attachment:
         attachment_collection_id: Karpeta
-        description: Deskribapena
+        description: Descripción
         file: Fitxategia
         title: Erantsitakoaren edo irudiaren izena
         weight: Kokapenaren hurrenkera
@@ -21,7 +21,7 @@ eu:
         name: Izena
         weight: Kokapenaren hurrenkera
       category:
-        description: Deskribapena
+        description: Descripción
         name: Izena
         parent_id: Nagusia
         weight: Kokapenaren hurrenkera
@@ -33,7 +33,7 @@ eu:
         value: Balioa
       help_section:
         content: Edukia
-      id: NAN
+      id: ID
       import:
         user_group_id: Inportatu hau bezala
       newsletter:
@@ -43,7 +43,7 @@ eu:
         admin_terms_of_use_body: Administratzailearen erabilera-terminoetarako testu-atala
         alert_color: Alerta
         available_authorizations: Baimen erabilgarriak
-        badges_enabled: Intsigniak gaitu
+        badges_enabled: Gaitu garaikurrak
         comments_max_length: Iruzkinen gehieneko luzera (utzi 0 defektuz konfigurazioa mantendu nahi baduzu)
         cta_button_path: Deitu Ekintza-botoiaren bidera
         cta_button_text: Ekintza-botoiaren testua
@@ -97,7 +97,7 @@ eu:
         user_groups_enabled: Gaitu erabiltzaileen taldeak
         users_registration_mode: Erabiltzaileak erregistratzeko modua
         warning_color: Abisua
-        welcome_notification_body: Ongietorri-jakinarazpenaren mezuaren atala
+        welcome_notification_body: Ongietorri-jakinarazpenaren gorputza
         welcome_notification_subject: Ongietorri-jakinarazpenaren mezuaren gaia
         youtube_handler: YouTubeko kudeatzailea
       participatory_space_private_user:
@@ -113,7 +113,7 @@ eu:
       scope_type:
         name: Izena
         organization: Erakundea
-        plural: Anitza
+        plural: Plurala
       settings:
         scope_id: Esparrua
       static_page:
@@ -177,12 +177,12 @@ eu:
       actions:
         add: Gehitu
         attachment:
-          new: Beste artxibo bat
+          new: Beste eranskin bat
         attachment_collection:
           new: Beste eranskin-blduma bat
         browse: Arakatu
         category:
-          new: Kategoria berria
+          new: Beste kategoria bat
         export: Esportatu dena
         export-selection: Esportatu hautaketa
         import: Inportatu
@@ -221,7 +221,7 @@ eu:
           success: Area mota behar bezala suntsitu da
         edit:
           title: Editatu arlo mota
-          update: Onartu
+          update: Eguneratu
         new:
           create: Sortu arlo mota
           title: Beste arlo mota bat
@@ -266,9 +266,9 @@ eu:
       attachments:
         create:
           error: Arazo bat egon da beste eranskin bat sortzean.
-          success: Fitxategi erantsia zuzen sortu da.
+          success: Fitxategi erantsia zuzen sortua.
         destroy:
-          success: Fitxategi erantsia zuzen ezabatu da.
+          success: Fitxategi erantsia behar bezala ezabatua.
         edit:
           title: Editatu fitxategi erantsia
           update: Eguneratu
@@ -279,7 +279,7 @@ eu:
           title: Beste fitxategi erantsi bat
         update:
           error: Arazo bat egon da eranskin hau eguneratzean.
-          success: Fitxategi erantsia zuzen eguneratu da.
+          success: Fitxategi erantsia zuzen eguneratua.
       attachments_privacy_warning:
         message: Kontuz ibili eranskinekin espazio pribatu batean lan egiten duzunean. Edozein parte-hartzailek parteka dezake dokumentu hau beste pertsona batzuekin.
       autocomplete:
@@ -294,10 +294,10 @@ eu:
       categories:
         create:
           error: Arazo bat egon da kategoria hau sortzean.
-          success: Kategoria zuzen sortu da.
+          success: Kategoria zuzen sortua.
         destroy:
           error: Arazo bat egon da kategoria hau ezabatzean. Mesedez, lehenik eta behin ezabatu azpikategoriak, ziurtatu beste entitaterik ez dagoela kategoria honetan eta saiatu berriro.
-          success: Kategoria zuzen ezabatu da.
+          success: Kategoria behar bezala ezabatua.
         edit:
           title: Editatu kategoria
           update: Eguneratu
@@ -309,7 +309,7 @@ eu:
           title: Beste kategoria bat
         update:
           error: Arazo bat egon da kategoria hau eguneratzean.
-          success: Kategoria zuzen eguneratu da.
+          success: Kategoria zuzen eguneratua.
       component_permissions:
         update:
           error: Arazo bat egon da osagai honen baimenak eguneratzean.
@@ -323,7 +323,7 @@ eu:
           success: Osagaia behar bezala ezabatua.
         edit:
           title: Editatu osagaia
-          update: Onartu
+          update: Eguneratu
         form:
           default_step_settings: Faseen ezarpen lehenetsiak
           global_settings: Ezarpen globalak
@@ -357,7 +357,7 @@ eu:
           error: Arazo bat egon da oraingo parte-hartzailea kudeatutako parte-hartzaile batera.
           name: Izena
           reason: Arrazoia
-          success: Egungo transferentzia zuzen egin da.
+          success: Egungo transferentzia zuzen egina.
           title: Transferentzia
         'true': 'Bai'
         user_name: Erabiltzailea
@@ -412,22 +412,22 @@ eu:
           user_invitation_accepted_at_not_null:
             label: Gonbidapena onartua
             values:
-              'false': Ez da onartu
+              'false': Ez onartuta
               'true': Onartuta
           user_invitation_sent_at_not_null:
             label: Gonbidapena bidali da
             values:
               'false': Ez da bidali
-              'true': Bidali da
+              'true': Bidalia
         private_space_eq:
           label: Pribatua
           values:
             'false': Publikoa
             'true': Pribatua
         published_at_null:
-          label: Argitaratu da
+          label: Argitaratua
           values:
-            'false': Argitaratu da
+            'false': Argitaratua
             'true': Ez da argitaratu
         scope_id_eq:
           label: Esparrua
@@ -445,7 +445,7 @@ eu:
             all: Guztiak
             pending: Zain
             rejected: Ukatua
-            verified: Egiaztatuta
+            verified: Egiaztatua
       forms:
         file_help:
           import:
@@ -468,7 +468,7 @@ eu:
           impersonate_new_managed_user: Kudeatu beste parte-hartzaile bat
           managed: Kudeatua
           name: Izena
-          needs_authorization_warning: Gutxienez baimen gaitu bat behar duzu erakunde honendako.
+          needs_authorization_warning: Gutxienez baimen gaitu bat behar duzu erakunde honetarako.
           not_managed: Ez kudeatua
           promote: Sustatu
           search: Bilatu
@@ -477,7 +477,7 @@ eu:
       impersonations:
         close_session:
           error: Arazo bat egon da parte-hartzaileen kudeaketaren oraingo saioa ixtean.
-          success: Uneko sinplifikazioa saioa amaitu da.
+          success: Uneko sinplifikazioa saioa zuzen amaitu da.
         create:
           error: Arazo bat egon da erabiltzailea kudeatzean.
           success: Erabiltzaile kudeatua zuzen sortua.
@@ -496,7 +496,7 @@ eu:
           duplicate_headers:
             detail: Mesedez, egiaztatu fitxategiak behin bakarrik eskatzen diren zutabeak edo goiburuak dituela.
             message:
-              one: Bikoiztu zutabeak %{columns}.
+              one: Bikoiztu %{columns} zutabeak.
               other: Bikoiztu %{columns} zutabea.
           invalid_indexes:
             lines:
@@ -530,7 +530,7 @@ eu:
           new:
             explanation: Kudeatutako erabiltzaileak erabiltzaile estandar mailara igo daitezke. Horrek esan nahi du aplikaziora gonbidatuak izanen direla eta ezingo direla berriro ere ordeztu. Erabiltzaile gonbidatuak mezu elektroniko bat jasoko du gonbita onartzeko.
             new_managed_user_promotion: Kudeatutako erabiltzaileen beste maila-igoera bat
-            promote: Goratu
+            promote: Sustatu
       menu:
         admin_log: Admin jarduera-erregistroa
         admins: Administratzaileak
@@ -571,7 +571,7 @@ eu:
             content_type: Mota
             file_size: Tamaina
             title: Izenburua
-          name: Fitxategi erantsia
+          name: Eranskina
         attachment_collection:
           name: Karpeta
         category:
@@ -579,16 +579,16 @@ eu:
         impersonation_log:
           fields:
             admin: Administratzailea
-            ended_at: 'Bukaera-data:'
+            ended_at: 'Amaiera-data:'
             expired_at: 'Iraungitze-data:'
             reason: Arrazoia
             started_at: 'Hasiera-ordua:'
             user: Parte-hartzailea
         newsletter:
           fields:
-            created_at: Sortze-data
+            created_at: Noiz sortua
             progress: ' Aurrerapena '
-            sent_at: ' Bidalketa-data: '
+            sent_at: ' Bidaltze-data:'
             sent_to: Hona bidalia
             subject: Gaia
           name: Buletina
@@ -601,7 +601,7 @@ eu:
         scope_type:
           fields:
             name: Izena
-            plural: Anitza
+            plural: Plurala
         share_token:
           fields:
             created_at: Noiz sortua
@@ -612,7 +612,7 @@ eu:
             user: Nork sortua
         static_page:
           fields:
-            created_at: Tan sortua
+            created_at: Noiz sortua
             title: Izenburua
         user:
           fields:
@@ -628,7 +628,7 @@ eu:
         user_group:
           fields:
             actions: Ekintzak
-            created_at: Tan sortua
+            created_at: Noiz sortua
             document_number: Agiri-zenbakia
             name: Izena
             phone: Telefonoa
@@ -659,7 +659,7 @@ eu:
           title: Eduki erreportatua
         report:
           reasons:
-            does_not_belong: Ez du zer ikusirik
+            does_not_belong: Ez dagokio
             offensive: Iraingarria
             spam: Spam
         reports:
@@ -829,7 +829,7 @@ eu:
           inactive_content_blocks: Eduki-bloke inaktiboak
       organization_homepage_content_blocks:
         edit:
-          update: Onartu
+          update: Eguneratu
       participatory_space_private_users:
         create:
           error: Arazo bat egon da parte-hartzaile pribatu bat gehitzean parte hartzeko espazio honetarako.
