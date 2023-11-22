@@ -722,18 +722,18 @@ eu:
           success: Buletina zuzen sortua. Mesedez, berrikusi bidali baino lehen.
         deliver:
           error: Arazo bat egon da buletin hau entregatzean.
-          success: Buletina ongi bidali da.
+          success: Buletina ongi entregatua.
         destroy:
           error_already_sent: 'Albiste-buletina ezin da deuseztatu: Bidalita dago jada.'
-          success: Buletina ongi deuseztatu da.
+          success: Buletina behar bezala deuseztatua.
         edit:
           save_and_preview: Gorde eta aurreikusi
           title: Editatu buletina
         index:
           all: guztiak
           all_users: 'Erabiltzaile guztiak '
-          and: 'eta '
-          confirm_delete: Ziur zaude buletin hau deuseztatu nahi duzula?
+          and: 'eta'
+          confirm_delete: Ziur zaude buletin hau ezabatu nahi duzula?
           followers: 'jarraitzaileak '
           has_been_sent_to: 'Honi bidalia: '
           no_scopes: Esparrurik gabe
@@ -746,7 +746,7 @@ eu:
           save: Gorde
           title: Beste buletin bat
         select_recipients_to_deliver:
-          all_spaces: Denak
+          all_spaces: Guztiak
           all_users_help: Albisteen buletina baieztatu duten erabiltzaile guztiei bidaltzen die.
           confirm_deliver: Ziur zaude buletin hau bidali nahi duzula? Ekintza hau ezin da desegin.
           deliver: Bidali buletina
@@ -809,7 +809,7 @@ eu:
           title: Erakutsi parte-hartzailearen helbide elektronikoa
         unblock:
           error: Errore bat egon da parte-hartzailea desblokeatzean.
-          success: Parte-hartzailea zuzen desblokeatu da.
+          success: Parte-hartzailea zuzen desblokeatua.
       organization:
         edit:
           title: Editatu erakundea
@@ -825,7 +825,7 @@ eu:
           youtube: YouTube
         update:
           error: Arazo bat egon da erakunde hau eguneratzean.
-          success: Erakundea zuzen eguneratu da.
+          success: Erakundea zuzen eguneratua.
       organization_appearance:
         edit:
           update: Eguneratu
@@ -876,7 +876,7 @@ eu:
           title: Parte-hartze pribatuko espazioko parte-hartzaile berria.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: Arazo bat sortu da CSV fitxategia irakurtzean. Mesedez, ziurtatu jarraibideei kasu egin diezula.
+          invalid: Arazo bat egon da CSV fitxategia irakurtzean. Mesedez, ziurtatu jarraibideei kasu egin diezula.
           success: CSV fitxategia zuzen igo da, eta parte-hartzaileei gonbidapen-mezu elektroniko bat bidaltzen ari gara. Prozesu horrek denbora behar du.
         new:
           csv_upload:
@@ -888,7 +888,7 @@ eu:
             explanation: '%{count} parte-hartzaile pribatu dituzu.'
             title: Ezabatu parte-hartzaile pribatuak
           example_file: 'Fitxategi eredua:'
-          explanation: 'Igo zure CSV fitxategia. Bizutabe izan behar ditu. Lehenengo zutabean posta elektronikoa jarri behar da, eta azken zutabean parte-hartze prozesura gehitu nahi dutuzun erabiltzaileen izena, goibururik gabe. Ez erabili holako karaktererik erabiltzaileen izenetan: `<>?%&^*#@()[]=+:;"{}\|`.'
+          explanation: 'Igo zure CSV fitxategia. Bi zutabe izan behar ditu. Lehenengo zutabean posta elektronikoa jarri behar da, eta azken zutabean parte-hartze prozesura gehitu nahi dituzun erabiltzaileen izena, goibururik gabe. Ez erabili holako karaktererik erabiltzaileen izenetan: `<>?%&^*#@()[]=+:;"{}\|`.'
           explanation_example: |
             john.doe@example.org%{csv_col_sep}John Doe
             jane.doe@example.org%{csv_col_sep}Jane Doe
@@ -914,7 +914,7 @@ eu:
           error: Arazo bat egon da beste esparru mota bat sortzean.
           success: Esparru mota arrakastaz sortu da.
         destroy:
-          success: Esparru mota arrakastaz suntsitu da
+          success: Esparru mota behar bezala suntsitua
         edit:
           title: Editatu esparru mota
           update: Eguneratu
@@ -923,11 +923,11 @@ eu:
           title: Beste esparru mota bat
         update:
           error: Arazo bat egon da esparru mota hau eguneratzean.
-          success: Esparru mota arrakastaz eguneratu da
+          success: Esparru mota zuzen eguneratua
       scopes:
         create:
           error: Arazo bat egon da beste esparru bat sortzean.
-          success: Esparrua zuzen sortu da.
+          success: Esparrua zuzen sortua.
         destroy:
           success: Esparrua behar bezala suntsitua.
         edit:
@@ -939,7 +939,7 @@ eu:
         no_scopes: Maila honetan ez dago esparrurik.
         update:
           error: Arazo bat egon da esparru hau eguneratzean.
-          success: Esparrua zuzen eguneratu da
+          success: Esparrua zuzen eguneratua
       share_tokens:
         actions:
           confirm_destroy: Ziur zaude identifikatzaile-ikur hau ezabatu nahi duzula?
@@ -954,8 +954,8 @@ eu:
           title: Partekatu identifikatzaile-ikurrak
       shared:
         gallery:
-          add_images: Gehiru irudiak
-          edit_images: Editatu irudia
+          add_images: Gehitu irudiak
+          edit_images: Editatu irudiak
           gallery_legend: Gehitu irudi-galeria bat (aukerakoa)
       static_page_topics:
         create:
@@ -977,9 +977,9 @@ eu:
           view: Ikusi orri publikoa
         create:
           error: Arazo bat egon da beste orri bat sortzean.
-          success: Orria zuzen eguneratu da. Orain, jarrai ezazu faseak konfiguratzen.
+          success: Orria zuzen eguneratua.
         destroy:
-          success: Orria zuzen ezabatu da.
+          success: Orria behar bezala ezabatua
         edit:
           changed_notably_help: Egiaztatuz gero, parte-hartzaileei jakinaraziko zaie zerbitzuaren baldintza berriak onartzeko.
           last_notable_change: 'Azken aldaketa nabarmena: %{tos_version_formatted}'
@@ -1010,6 +1010,7 @@ eu:
         edit_organization_appearance: Editatu hasierako orriaren itxura
         impersonatable_users: Erabiltzaile erabilgarriak
         impersonations: Erabiltzaileen kudeaketa
+        menu: Menua
         metrics: Metrikak
         page_topics: Gaiak
         pages: Orriak
@@ -1058,7 +1059,7 @@ eu:
           name: Izena
           role: Rola
         new:
-          create: Gonbit egin
+          create: Gonbidatu
           title: Gonbidatu beste administratzaile bat
       users_statistics:
         users_count:
@@ -1090,18 +1091,18 @@ eu:
         not_hidden: Ezkutatu gabe
         title: Ekintzak
         unhide: Erakutsi berriro
-        unreport: Ezeztatu salaketa
+        unreport: Ez erreportatu
       admin:
         reportable:
           hide:
             invalid: Arazo bat egon da baliabidea ezkutatzean.
-            success: Edukia zuzen ezkutatu da.
+            success: Edukia zuzen ezkutatua.
           unhide:
             invalid: Arazo bat egon da baliabidea erakustean.
             success: Edukia zuzen desezkutatua.
           unreport:
             invalid: Arazo bat egon da salaketa bertan behera uztean.
-            success: Salaketa zuzen ezeztatu da.
+            success: Salaketa behar bezala ezeztatua.
       models:
         moderation:
           fields:
