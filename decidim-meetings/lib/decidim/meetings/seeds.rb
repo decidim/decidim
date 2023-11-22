@@ -15,20 +15,12 @@ module Decidim
       def call
         component = create_component!
 
-        if participatory_space.scope
-          scopes = participatory_space.scope.descendants
-          global = participatory_space.scope
-        else
-          scopes = participatory_space.organization.scopes
-          global = nil
-        end
-
         2.times do
           start_time = ::Faker::Date.between(from: 20.weeks.ago, to: 20.weeks.from_now)
           end_time = start_time + [rand(1..4).hours, rand(1..20).days].sample
           params = {
             component:,
-            scope: ::Faker::Boolean.boolean(true_ratio: 0.5) ? global : scopes.sample,
+            scope: random_scope(participatory_space:),
             category: participatory_space.categories.sample,
             title: Decidim::Faker::Localized.sentence(word_count: 2),
             description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
@@ -142,7 +134,7 @@ module Decidim
           start_time = ::Faker::Date.between(from: 20.weeks.ago, to: 20.weeks.from_now)
           params = {
             component:,
-            scope: ::Faker::Boolean.boolean(true_ratio: 0.5) ? global : scopes.sample,
+            scope: random_scope(participatory_space:),
             category: participatory_space.categories.sample,
             title: Decidim::Faker::Localized.sentence(word_count: 2),
             description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do

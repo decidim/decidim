@@ -17,6 +17,18 @@ module Decidim
       @admin_user ||= Decidim::User.find_by(organization:, email: "admin@example.org")
     end
 
+    def random_scope(participatory_space:)
+      if participatory_space.scope
+        scopes = participatory_space.scope.descendants
+        global = participatory_space.scope
+      else
+        scopes = participatory_space.organization.scopes
+        global = nil
+      end
+
+      ::Faker::Boolean.boolean(true_ratio: 0.5) ? global : scopes.sample
+    end
+
     def seeds_root = File.join(__dir__, "..", "..", "db", "seeds")
 
     def hero_image = create_blob!(seeds_file: "city.jpeg", filename: "hero_image.jpeg", content_type: "image/jpeg")
