@@ -284,7 +284,7 @@ eu:
             announcement_help: Hemen sartzen duzun testua batzarreko informazioaren azpian agertuko zaio parte-hartzaileari.
             duration: Iraupena
             duration_help: Batzar honen iraupena mugatua bada, hautatu amaiera-data. Bestela, mugagabea izango da.
-            filters: iragazkiak
+            filters: Iragazkiak
             images: Irudiak
             included_at_help: Hautatu zein egunetan gehitu zen batzar hori plataformara. Ez du zertan sortze-data bera izan.
             metadata: Metadata
@@ -294,7 +294,7 @@ eu:
             select_an_assembly_type: Hautatu batzar mota bat
             select_parent_assembly: Hautatu batzar nagusia
             slug_help_html: 'URL-ren testu laburrak batzar honetara daramaten URL-ak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: % {url}'
-            social_handlers: Gizarte
+            social_handlers: Soziala
             title: Informazio orokorra
             visbility: ikusgarritasuna
         assemblies_types:
