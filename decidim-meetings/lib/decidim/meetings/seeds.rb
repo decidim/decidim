@@ -16,60 +16,7 @@ module Decidim
         component = create_component!
 
         2.times do
-          start_time = ::Faker::Date.between(from: 20.weeks.ago, to: 20.weeks.from_now)
-          end_time = start_time + [rand(1..4).hours, rand(1..20).days].sample
-          params = {
-            component:,
-            scope: random_scope(participatory_space:),
-            category: participatory_space.categories.sample,
-            title: Decidim::Faker::Localized.sentence(word_count: 2),
-            description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-              Decidim::Faker::Localized.paragraph(sentence_count: 3)
-            end,
-            location: Decidim::Faker::Localized.sentence,
-            location_hints: Decidim::Faker::Localized.sentence,
-            start_time:,
-            end_time:,
-            address: "#{::Faker::Address.street_address} #{::Faker::Address.zip} #{::Faker::Address.city}",
-            latitude: ::Faker::Address.latitude,
-            longitude: ::Faker::Address.longitude,
-            registrations_enabled: [true, false].sample,
-            available_slots: (10..50).step(10).to_a.sample,
-            author: participatory_space.organization,
-            registration_terms: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-              Decidim::Faker::Localized.paragraph(sentence_count: 3)
-            end,
-            published_at: ::Faker::Boolean.boolean(true_ratio: 0.8) ? Time.current : nil
-          }
-
-          _hybrid_meeting = Decidim.traceability.create!(
-            Decidim::Meetings::Meeting,
-            admin_user,
-            params.merge(
-              title: Decidim::Faker::Localized.sentence(word_count: 2),
-              type_of_meeting: :hybrid,
-              online_meeting_url: "http://example.org"
-            ),
-            visibility: "all"
-          )
-
-          _online_meeting = Decidim.traceability.create!(
-            Decidim::Meetings::Meeting,
-            admin_user,
-            params.merge(
-              title: Decidim::Faker::Localized.sentence(word_count: 2),
-              type_of_meeting: :online,
-              online_meeting_url: "http://example.org"
-            ),
-            visibility: "all"
-          )
-
-          meeting = Decidim.traceability.create!(
-            Decidim::Meetings::Meeting,
-            admin_user,
-            params,
-            visibility: "all"
-          )
+          meeting = create_meeting!(component:)
 
           2.times do
             Decidim::Meetings::Service.create!(
@@ -178,6 +125,63 @@ module Decidim
         ) do
           Decidim::Component.create!(params)
         end
+      end
+
+      def create_meeting!(component:)
+        start_time = ::Faker::Date.between(from: 20.weeks.ago, to: 20.weeks.from_now)
+        end_time = start_time + [rand(1..4).hours, rand(1..20).days].sample
+        params = {
+          component:,
+          scope: random_scope(participatory_space:),
+          category: participatory_space.categories.sample,
+          title: Decidim::Faker::Localized.sentence(word_count: 2),
+          description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+            Decidim::Faker::Localized.paragraph(sentence_count: 3)
+          end,
+          location: Decidim::Faker::Localized.sentence,
+          location_hints: Decidim::Faker::Localized.sentence,
+          start_time:,
+          end_time:,
+          address: "#{::Faker::Address.street_address} #{::Faker::Address.zip} #{::Faker::Address.city}",
+          latitude: ::Faker::Address.latitude,
+          longitude: ::Faker::Address.longitude,
+          registrations_enabled: [true, false].sample,
+          available_slots: (10..50).step(10).to_a.sample,
+          author: participatory_space.organization,
+          registration_terms: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+            Decidim::Faker::Localized.paragraph(sentence_count: 3)
+          end,
+          published_at: ::Faker::Boolean.boolean(true_ratio: 0.8) ? Time.current : nil
+        }
+
+        _hybrid_meeting = Decidim.traceability.create!(
+          Decidim::Meetings::Meeting,
+          admin_user,
+          params.merge(
+            title: Decidim::Faker::Localized.sentence(word_count: 2),
+            type_of_meeting: :hybrid,
+            online_meeting_url: "http://example.org"
+          ),
+          visibility: "all"
+        )
+
+        _online_meeting = Decidim.traceability.create!(
+          Decidim::Meetings::Meeting,
+          admin_user,
+          params.merge(
+            title: Decidim::Faker::Localized.sentence(word_count: 2),
+            type_of_meeting: :online,
+            online_meeting_url: "http://example.org"
+          ),
+          visibility: "all"
+        )
+
+        Decidim.traceability.create!(
+          Decidim::Meetings::Meeting,
+          admin_user,
+          params,
+          visibility: "all"
+        )
       end
     end
   end
