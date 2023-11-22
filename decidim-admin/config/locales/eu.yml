@@ -152,11 +152,11 @@ eu:
         participatory_space_private_user_csv_import:
           attributes:
             file:
-              malformed: Fitxategia akastuna da. Irakurri arretaz jarraibideak eta ziurtatu fitxategia UTF-8an kodifikatuta dagoela.
+              malformed: Inportazio-fitxategia akastuna da. Irakurri arretaz jarraibideak eta ziurtatu fitxategia UTF-8an kodifikatuta dagoela.
         user_group_csv_verification:
           attributes:
             file:
-              malformed: Fitxategia akastuna da. Irakurri arretaz jarraibideak eta ziurtatu fitxategia UTF-8an kodifikatuta dagoela.
+              malformed: Inportazio-fitxategia akastuna da. Irakurri arretaz jarraibideak eta ziurtatu fitxategia UTF-8an kodifikatuta dagoela.
       new_import:
         attributes:
           file:
