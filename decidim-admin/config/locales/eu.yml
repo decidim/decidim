@@ -680,18 +680,18 @@ eu:
           success: Buletina zuzen sortua. Mesedez, berrikusi bidali baino lehen.
         deliver:
           error: Arazo bat egon da buletin hau entregatzean.
-          success: Buletina ongi bidali da.
+          success: Buletina ongi entregatua.
         destroy:
           error_already_sent: 'Albiste-buletina ezin da deuseztatu: Bidalita dago jada.'
-          success: Buletina ongi deuseztatu da.
+          success: Buletina behar bezala deuseztatua.
         edit:
           save_and_preview: Gorde eta aurreikusi
           title: Editatu buletina
         index:
           all: guztiak
           all_users: 'Erabiltzaile guztiak '
-          and: 'eta '
-          confirm_delete: Ziur zaude buletin hau deuseztatu nahi duzula?
+          and: 'eta'
+          confirm_delete: Ziur zaude buletin hau ezabatu nahi duzula?
           followers: 'jarraitzaileak '
           has_been_sent_to: 'Honi bidalia: '
           no_scopes: Esparrurik gabe
@@ -704,7 +704,7 @@ eu:
           save: Gorde
           title: Beste buletin bat
         select_recipients_to_deliver:
-          all_spaces: Denak
+          all_spaces: Guztiak
           all_users_help: Albisteen buletina baieztatu duten erabiltzaile guztiei bidaltzen die.
           confirm_deliver: Ziur zaude buletin hau bidali nahi duzula? Ekintza hau ezin da desegin.
           deliver: Bidali buletina
@@ -784,7 +784,7 @@ eu:
           youtube: YouTube
         update:
           error: Arazo bat egon da erakunde hau eguneratzean.
-          success: Erakundea zuzen eguneratu da.
+          success: Erakundea zuzen eguneratua.
       organization_appearance:
         edit:
           update: Eguneratu
@@ -855,7 +855,7 @@ eu:
           error: Arazo bat egon da beste esparru mota bat sortzean.
           success: Esparru mota arrakastaz sortu da.
         destroy:
-          success: Esparru mota arrakastaz suntsitu da
+          success: Esparru mota behar bezala suntsitua
         edit:
           title: Editatu esparru mota
           update: Eguneratu
@@ -864,11 +864,11 @@ eu:
           title: Beste esparru mota bat
         update:
           error: Arazo bat egon da esparru mota hau eguneratzean.
-          success: Esparru mota arrakastaz eguneratu da
+          success: Esparru mota zuzen eguneratua
       scopes:
         create:
           error: Arazo bat egon da beste esparru bat sortzean.
-          success: Esparrua zuzen sortu da.
+          success: Esparrua zuzen sortua.
         destroy:
           success: Esparrua ongi ezabatu da
         edit:
@@ -880,7 +880,7 @@ eu:
         no_scopes: Maila honetan ez dago esparrurik.
         update:
           error: Arazo bat egon da esparru hau eguneratzean.
-          success: Esparrua zuzen eguneratu da
+          success: Esparrua zuzen eguneratua
       share_tokens:
         actions:
           confirm_destroy: Ziur zaude identifikatzaile-ikur hau ezabatu nahi duzula?
@@ -895,7 +895,7 @@ eu:
           title: Partekatu identifikatzaile-ikurrak
       shared:
         gallery:
-          add_images: Gehiru irudiak
+          add_images: Gehitu irudiak
           delete_image: Ezabatu irudia
           gallery_legend: Gehitu irudi-galeria bat (aukerakoa)
       static_page_topics:
@@ -918,9 +918,9 @@ eu:
           view: Ikusi orri publikoa
         create:
           error: Arazo bat egon da beste orri bat sortzean.
-          success: Orria zuzen eguneratu da. Orain, jarrai ezazu faseak konfiguratzen.
+          success: Orria zuzen eguneratua.
         destroy:
-          success: Orria zuzen ezabatu da.
+          success: Orria behar bezala ezabatua
         edit:
           changed_notably_help: Egiaztatuz gero, parte-hartzaileei jakinaraziko zaie baldintza eta termino berriak onartzeko.
           title: Editatu orria
@@ -995,7 +995,7 @@ eu:
           name: Izena
           role: Rola
         new:
-          create: Gonbit egin
+          create: Gonbidatu
           title: Gonbidatu parte-hartzailea administratzaile gisa
       users_statistics:
         users_count:
@@ -1028,18 +1028,18 @@ eu:
         not_hidden: Ezkutatu gabe
         title: Ekintzak
         unhide: Erakutsi berriro
-        unreport: Ezeztatu salaketa
+        unreport: Ez erreportatu
       admin:
         reportable:
           hide:
             invalid: Arazo bat egon da baliabidea ezkutatzean.
-            success: Edukia zuzen ezkutatu da.
+            success: Edukia zuzen ezkutatua.
           unhide:
             invalid: Arazo bat egon da baliabidea erakustean.
             success: Edukia zuzen desezkutatua.
           unreport:
             invalid: Arazo bat egon da salaketa bertan behera uztean.
-            success: Salaketa zuzen ezeztatu da.
+            success: Salaketa behar bezala ezeztatua.
       models:
         moderation:
           fields:
