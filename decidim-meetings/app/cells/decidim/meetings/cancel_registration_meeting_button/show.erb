@@ -1,10 +1,13 @@
-<%= render :cancelation_modal %>
-<%= action_authorized_button_to(
-  :join,
-  "#",
-  class: button_classes,
-  data: { "dialog-open": "meeting-cancelation-confirm-#{model.id}" }
-) do %>
-  <%= t("leave", scope: "decidim.meetings.meetings.show") %>
-  <%= icon icon_name %>
-<% end %>
+<div class="text-center">
+  <%= action_authorized_link_to(
+    :join,
+    meeting_registration_path(model),
+    resource: model,
+    method: :delete,
+    class: button_classes,
+    data: { disable: true, confirm: t("leave_confirmation", scope: "decidim.meetings.meetings.show") }
+  ) do %>
+    <%= t("leave", scope: "decidim.meetings.meetings.show") %>
+    <%= icon icon_name %>
+  <% end %>
+</div>

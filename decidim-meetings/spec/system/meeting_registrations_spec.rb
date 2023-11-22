@@ -190,8 +190,8 @@ describe "Meeting registrations", type: :system do
               expect(page).to have_content("successfully")
             end
 
-            expect(page).to have_text("You have signed up for this meeting")
-            expect(page).to have_css(".button", text: "CANCEL YOUR REGISTRATION")
+            expect(page).to have_text("You have joined the meeting")
+            expect(page).to have_css("a", text: "Cancel your registration")
             expect(page).to have_text("19 slots remaining")
             expect(page).to have_text("Stop following")
             expect(page).to have_no_text("ATTENDING PARTICIPANTS")
@@ -214,7 +214,7 @@ describe "Meeting registrations", type: :system do
 
             expect(page).to have_content("successfully")
 
-            expect(page).to have_text("You have signed up for this meeting")
+            expect(page).to have_text("You have joined the meeting")
             expect(page).to have_text("19 slots remaining")
             expect(page).to have_text("Stop following")
             expect(page).to have_text("ATTENDING PARTICIPANTS")
@@ -275,8 +275,8 @@ describe "Meeting registrations", type: :system do
               expect(page).to have_content("successfully")
             end
 
-            expect(page).to have_text("You have signed up for this meeting")
-            expect(page).to have_css(".button", text: "CANCEL YOUR REGISTRATION")
+            expect(page).to have_text("You have joined the meeting")
+            expect(page).to have_css("a", text: "Cancel your registration")
             expect(page).to have_text("19 slots remaining")
 
             expect(page).to have_text("ATTENDING ORGANIZATIONS")
@@ -376,7 +376,7 @@ describe "Meeting registrations", type: :system do
       it "shows the confirmation modal when leaving the meeting" do
         visit_meeting
 
-        click_button "Cancel your registration"
+        click_link "Cancel your registration"
 
         within ".confirm-modal-content" do
           expect(page).to have_content("Are you sure you want to cancel your registration for this meeting?")
@@ -386,7 +386,7 @@ describe "Meeting registrations", type: :system do
       it "they can leave the meeting" do
         visit_meeting
 
-        accept_confirm { click_button "Cancel your registration" }
+        accept_confirm { click_link "Cancel your registration" }
 
         within_flash_messages do
           expect(page).to have_content("successfully")

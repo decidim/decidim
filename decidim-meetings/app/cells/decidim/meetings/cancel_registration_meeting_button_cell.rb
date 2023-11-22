@@ -21,11 +21,11 @@ module Decidim
       end
 
       def button_classes
-        "button button__sm button__text-secondary"
+        ""
       end
 
       def icon_name
-        "calendar-close-line"
+        "circle-x"
       end
 
       def registration_form
