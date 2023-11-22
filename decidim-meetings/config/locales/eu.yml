@@ -572,7 +572,7 @@ eu:
             map: Mapa
             official_meeting: Topaketa ofiziala
             start_time: Hasiera-data
-            title: Titulua
+            title: Izenburua
       polls:
         questions:
           closed_question:
