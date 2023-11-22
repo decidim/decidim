@@ -125,6 +125,10 @@ module Decidim
         end
       end
 
+      def random_nickname
+        "#{::Faker::Twitter.unique.screen_name}-#{SecureRandom.hex(4)}"[0, 20]
+      end
+
       def create_emendation!(proposal:)
         n = rand(5)
         email = "amendment-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{n}-amend#{n}@example.org"
@@ -134,7 +138,7 @@ module Decidim
         author.update!(
           password: "decidim123456789",
           name:,
-          nickname: ::Faker::Twitter.unique.screen_name,
+          nickname: random_nickname,
           organization:,
           tos_agreement: "1",
           confirmed_at: Time.current
@@ -142,7 +146,7 @@ module Decidim
 
         group = Decidim::UserGroup.create!(
           name: ::Faker::Name.name,
-          nickname: ::Faker::Twitter.unique.screen_name,
+          nickname: random_nickname,
           email: ::Faker::Internet.email,
           extended_data: {
             document_number: ::Faker::Code.isbn,
@@ -203,7 +207,7 @@ module Decidim
         author.update!(
           password: "decidim123456789",
           name:,
-          nickname: ::Faker::Twitter.unique.screen_name,
+          nickname: random_nickname,
           organization:,
           tos_agreement: "1",
           confirmed_at: Time.current,
