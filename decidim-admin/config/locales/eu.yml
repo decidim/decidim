@@ -522,9 +522,9 @@ eu:
               other: Bikoiztu %{columns} zutabea.
           invalid_indexes:
             lines:
-              detail: "\nEgiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela."
+              detail: Mesedez, egiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela.
             records:
-              detail: "\nEgiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela."
+              detail: Mesedez, egiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela.
           missing_headers:
             detail: Mesedez, egiaztatu fitxategiak eskatutako zutabeak dituela.
         error: Arazo bat egon da inportatzean.
@@ -819,7 +819,7 @@ eu:
           github: GitHub
           instagram: Instagram
           rich_text_editor_in_public_views_help: Testu-eremu batzuetan, parte-hartzaileek HTML etiketa batzuk txertatu ahal izango dituzte testu-editore aberastua erabiliz.
-          social_handlers: Gizarte
+          social_handlers: Soziala
           twitter: X
           url: URL
           youtube: YouTube
@@ -833,12 +833,12 @@ eu:
           colors:
             choose_color: Aukeratu kolore nagusia
             colors_title: Erakundearen koloreak
-            colors_warning_html: Oharra! Kolore horiek aldatzeak urratu egin ditzake irisgarritasun-kontrasteak. Zure hautaketaren kontrastea <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker </a> edo antzeko tresnekin egiazta dezakezu.
-            explanation: Tresna honek kolore-eskema bat aukeratzen laguntzen dizu, era berean kolore-gurpilaren inguruan banatutako huez osatua, erakundearen webgunean erabiliko dena.
+            colors_warning_html: "\nKontuz! Kolore horiek aldatzeak irisgarritasun-kontrasteak hautsi ditzake. Zure aukeraren kontrastea egiazta dezakezu <a href=\"%{link}\">WebAIM Contrast Checker</a> edo antzeko tresnekin."
+            explanation: Tresna honek kolore-eskema bat aukeratzen laguntzen dizu, kolore bolantearen inguruan barreiatutako huez osatua, erakundearen webgunean erabiliko dena.
             legend_html: <a href="https://www.color-meanings.com/triadic-colors/">Triadic algoritmoa.</a> <i>bigarren mailako </i> kolorea zuk aukeratutako kolore primariotik eta asetasunetik abiatuta kalkulatzen da.
             saturation: Saturazioa
             title: Kolore-hautatzailea
-            update_suggested_colors: Kolore iradokitzaileak eguneratu
+            update_suggested_colors: Eguneratu iradokitako koloreak
           cta_button_path_help_html: 'Hasierako orriko ekintzara deitzeko botoia nora estekatzen den gainidatz dezakezu. Erabili hemen ibilbide partzialak, ez URL osoak. Letrak, zenbakiak, gidoiak eta barrak onartzen ditu, eta letra batez hasi behar du. Ekintzara deitzeko botoia hasierako orrian agertuko da, ongietorri-testuaren eta deskribapenaren artean. Adibidez:%{url}'
           cta_button_text_help: Hasierako pantailako Call To Action botoian testua gainidatz dezakezu zure erakundean eskuragarri dagoen hizkuntza bakoitzarentzat. Ezarrita ez badago, balio lehenetsia erabiliko da. The Call To Action botoia hasierako orrian erakusten da ongietorri testua eta azalpenaren artean.
           header_snippets:
