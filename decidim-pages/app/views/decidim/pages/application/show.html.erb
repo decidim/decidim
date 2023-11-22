@@ -14,7 +14,11 @@
     <%= render partial: "decidim/shared/component_announcement" %>
 
     <div class="editor-content">
-      <%= decidim_sanitize_editor_admin translated_attribute(@page.body) %>
+      <% if translated_attribute(@page.body).empty? || translated_attribute(@page.body) == "<p></p>" %>
+        <%= cell("decidim/announcement", t("empty", scope: "decidim.pages.show")) %>
+      <% else %>
+        <%= decidim_sanitize_editor_admin translated_attribute(@page.body) %>
+      <% end %>
     </div>
   </div>
 <% end %>
