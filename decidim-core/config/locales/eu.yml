@@ -318,7 +318,7 @@ eu:
         success: Zuzenketa zuzen kendu da
       wizard_step_form:
         steps:
-          '1': Sortu zure aldaketa
+          '1': Sortu zure zuzenketa
           '2': Alderatu zure zuzenketa
           '3': Osatu zure zuzenketa
           '4': Argitaratu zure zuzenketa
@@ -821,11 +821,11 @@ eu:
         extension_allowlist: 'Onartutako formatuak: %{extensions}'
       upload:
         labels:
-          add_attachment: Erantsi fitxategia
-          add_file: Gehitu fitxategiak
-          add_image: Argazki bat atxikutu
+          add_attachment: Erantsi eranskina
+          add_file: Erantsi fitxategiak
+          add_image: Erantsi irudia
           cancel: Utzi
-          edit_image: Irudia editatu
+          edit_image: Editatu irudia
           error: Akatsa!
           file_size_too_large: 'Fitxategiaren tamaina handiegia da! Maximun fitxategiaren tamaina: %{megabytes}} MB'
           remove: Kendu
@@ -1371,7 +1371,7 @@ eu:
         unfold: Zabaldu
       filter_form_help:
         help: Bilaketa-baldintzak aldatzen direnean, hurrengo formularioak dinamikoki iragazten ditu bilaketa-emaitzak.
-        skip: Joan emaitzetara
+        skip: Saltatu emaitzetara
       flag_modal:
         already_reported: Eduki hau jada salatuta dago, eta administratzaile batek berrikusiko du.
         close: Itxi
