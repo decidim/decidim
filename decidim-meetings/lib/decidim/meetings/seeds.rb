@@ -160,9 +160,9 @@ module Decidim
       end
 
       def create_meeting_registration!(meeting:)
-        n = rand(2)
-        email = "meeting-registered-user-#{meeting.id}-#{n}@example.org"
-        name = "#{::Faker::Name.name} #{meeting.id} #{n}"
+        r = SecureRandom.hex(4)
+        email = "meeting-registered-user-#{meeting.id}-#{r}@example.org"
+        name = "#{::Faker::Name.name} #{meeting.id} #{r}"
         user = Decidim::User.find_or_initialize_by(email:)
 
         user.update!(
