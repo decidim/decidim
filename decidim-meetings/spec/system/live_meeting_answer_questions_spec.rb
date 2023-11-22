@@ -78,6 +78,19 @@ describe "Meeting live event poll answer" do
 
       expect(page).to have_content("Question replied")
     end
+
+    it "does not allow selecting two single options" do
+      click_button "Questions (2)"
+      find("details[data-question='#{question_single_option.id}']").click
+
+      choose question_single_option.answer_options.first.body["en"]
+      choose question_single_option.answer_options.second.body["en"]
+      answers = all("details[data-question='#{question_single_option.id}'] input[type='radio']")
+
+      expect(answers[0]["checked"]).to be_falsy
+      expect(answers[1]["checked"]).to be_truthy
+      expect(answers[2]["checked"]).to be_falsy
+    end
   end
 
   context "when questions are closed" do
