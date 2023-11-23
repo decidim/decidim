@@ -41,5 +41,14 @@ module Decidim
         end
       end
     end
+
+    context "when there is not any URL" do
+      let(:menu_item) { MenuItem.new("Foo", "#", :foo) }
+
+      it "adds a span instead of a link" do
+        expect(subject.render).not_to have_link("Foo", href: "#")
+        expect(subject.render).to have_css("span.sidebar-menu__item-disabled")
+      end
+    end
   end
 end
