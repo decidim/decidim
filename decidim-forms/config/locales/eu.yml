@@ -7,7 +7,7 @@ eu:
         choices: Aukerak
         selected_choices: Hautatutako aukerak
       question:
-        max_choices: Gehienezko aukera kopurua
+        max_choices: Gehieneko aukera kopurua
         question_type: Mota
       questionnaire_question:
         mandatory: Derrigorrezkoa
