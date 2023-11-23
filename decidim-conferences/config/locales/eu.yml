@@ -84,14 +84,14 @@ eu:
         one: Jardunaldiko hizlaria
         other: Jardunaldiko hizlariak
       decidim/conference_user_role:
-        one: Jardunaldiko hizlari rola
+        one: Hitzaldiko erabiltzaile rola
         other: Jardunaldiko hizlari rolak
   decidim:
     admin:
       actions:
         confirm: Berretsi
         new_conference: Jardunaldi berria
-        send_diplomas: Bertaratze-ziurtagiriak bidali
+        send_diplomas: Bidali bertaratze-ziurtagiriak
       conference_copies:
         new:
           copy: Kopiatu
