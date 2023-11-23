@@ -30,7 +30,7 @@ module Decidim
           }
         end
 
-        let(:internal_state) { :accepted }
+        let(:proposal_state_id) { rand(5) }
 
         let(:name_english) { "Name" }
 
@@ -38,12 +38,19 @@ module Decidim
           {
             "name" => name,
             "description" => description,
-            "internal_state" => internal_state
+            "proposal_state_id" => proposal_state_id
           }
         end
 
         context "when everything is OK" do
-          it { is_expected.to be_valid }
+          it do
+            allow(subject).to receive(:proposal_state_id_is_valid).and_return(nil)
+            expect(subject).to be_valid
+          end
+        end
+
+        context "when proposal_state_id is not valid" do
+          it { is_expected.not_to be_valid }
         end
 
         context "when name is not valid" do

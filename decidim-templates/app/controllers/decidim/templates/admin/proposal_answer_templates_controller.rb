@@ -118,7 +118,6 @@ module Decidim
           end
         end
 
-
         private
 
         def fetch_proposal_state(template)

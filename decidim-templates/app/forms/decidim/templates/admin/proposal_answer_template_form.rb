@@ -17,15 +17,18 @@ module Decidim
         end
 
         def skip_name_validation
-          self.select_component
+          select_component
         end
 
         def proposal_state_id_is_valid
-          errors.add(:proposal_state_id, :blank) if Decidim::Proposals::ProposalState.answerable.where(decidim_component_id: component_constraint).find_by(id: proposal_state_id).blank?
+          if Decidim::Proposals::ProposalState.answerable.where(decidim_component_id: component_constraint).find_by(id: proposal_state_id).blank?
+            errors.add(:proposal_state_id,
+                       :blank)
+          end
         end
 
         def component_has_been_selected
-          errors.add(:select_component, :blank) if self.select_component
+          errors.add(:select_component, :blank) if select_component
         end
       end
     end
