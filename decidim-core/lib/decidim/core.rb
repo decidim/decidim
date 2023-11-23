@@ -121,6 +121,7 @@ module Decidim
   autoload :ParticipatorySpaceUser, "decidim/participatory_space_user"
   autoload :ModerationTools, "decidim/moderation_tools"
   autoload :ContentSecurityPolicy, "decidim/content_security_policy"
+  autoload :IconRegistry, "decidim/icon_registry"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
@@ -744,6 +745,10 @@ module Decidim
   #
   def self.menu(name, &)
     MenuRegistry.register(name.to_sym, &)
+  end
+
+  def self.icons
+    @icons ||= Decidim::IconRegistry.new
   end
 
   # Public: Stores an instance of ViewHooks

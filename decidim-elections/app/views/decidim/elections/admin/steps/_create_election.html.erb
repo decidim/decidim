@@ -41,7 +41,7 @@
                .sort_by { |_trustee, used| used ? 0 : 1 }
                .each do |trustee, used| %>
           <li <%= "class=text-muted" if !used %>>
-            <%= icon trustee.public_key ? "check" : "x", class: "text-#{trustee.public_key ? "success" : "alert"}", role: "img", "aria-hidden": true %>
+            <%= icon trustee.public_key ? "check-line" : "close-line", class: "text-#{trustee.public_key ? "success" : "alert"}", role: "img", "aria-hidden": true %>
             <%= trustee.user.name || trustee.name %> <%= t(".public_key.#{used}").html_safe %>
             <% if used %>
               <%= f.hidden_field :trustee_ids, multiple: true, value: trustee.id %>

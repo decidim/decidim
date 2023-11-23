@@ -1,6 +1,6 @@
 <% unless elections.one? %>
   <%= link_to voting_monitoring_committee_polling_station_closures_path(current_voting) do %>
-    <%= icon "caret-left", class: "icon--small", role: "img" %> <%= t(".change_election") %>
+    <%= icon "arrow-left-s-fill", class: "icon--small", role: "img" %> <%= t(".change_election") %>
   <% end %>
 <% end %>
 
@@ -28,8 +28,8 @@
         <% filtered_polling_stations.each do |polling_station| %>
           <%
             closure = polling_station.closure_for(election)
-            sign_icon_name, sign_icon_style = closure&.signed? ? ["check", "polling_station__closure--present"] : ["x", "polling_station__closure--not_present"]
-            validated_icon_name, validated_icon_style = closure&.validated? ? ["check", "polling_station__closure--validated"] : ["x", "polling_station__closure--not_validated"]
+            sign_icon_name, sign_icon_style = closure&.signed? ? ["check-line", "polling_station__closure--present"] : ["close-line", "polling_station__closure--not_present"]
+            validated_icon_name, validated_icon_style = closure&.validated? ? ["check-line", "polling_station__closure--validated"] : ["close-line", "polling_station__closure--not_validated"]
           %>
           <tr <%= "data-id=#{closure.id}" if closure.present? %>>
             <td>

@@ -74,7 +74,11 @@ module Decidim
           secondary: "information-line",
           alert: "alert-line",
           warning: "alert-line",
-          success: "checkbox-circle-line"
+          success: "checkbox-circle-line",
+          info: "information-line",
+          notice: "checkbox-circle-line",
+          primary: "checkbox-circle-line",
+          error: "alert-line"
         }
 
         content_tag(:div, class: "flash__icon") do
