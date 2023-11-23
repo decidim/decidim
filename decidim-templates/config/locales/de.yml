@@ -61,6 +61,11 @@ de:
           edit:
             title: Vorlage für Vorschlagsantworten bearbeiten
           form:
+            component_constraint_help: Beachten Sie, dass nur partizipative Räume mit Komponenten des Typs "Vorschlag" aufgelistet werden.
+            hint1_html: "<strong>%{organization}</strong> wird durch den Namen der Organisation ersetzt"
+            hint2_html: "<strong>%{name}</strong> wird durch den Namen des Autors ersetzt"
+            hint3_html: "<strong>%{admin}</strong> wird durch den Namen des Admins ersetzt, der den Vorschlag beantwortet"
+            hint_html: "<strong>Tipp:</strong> Sie können diese Variablen überall in der Antwortvorlage verwenden. Sie werden bei der Verwendung der Vorlage ersetzt"
             save: Speichern
           index:
             component_constraint: Einschränkung hinzufügen
