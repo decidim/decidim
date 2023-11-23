@@ -48,7 +48,7 @@
               <% else %>
                 <span class="action-space icon"></span>
               <% end %>
-              <% if allowed_to?(:destroy, :proposal_state, proposal_state: state)  %>
+              <% if allowed_to?(:destroy, :proposal_state, proposal_state: state) %>
                 <%= icon_link_to "delete-bin-line", proposal_state_path(state), t("actions.destroy", scope: "decidim.proposals"), method: :delete, data: { confirm: t("actions.delete_proposal_state_confirm", scope: "decidim.proposals") }, class: "action-icon--delete-proposal" %>
               <% end %>
             </td>
