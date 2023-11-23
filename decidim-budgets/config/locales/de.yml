@@ -20,6 +20,9 @@ de:
         scope_id: Themenbereich
   activerecord:
     models:
+      decidim/budgets/budget:
+        one: Budget
+        other: Budgets
       decidim/budgets/project:
         one: Projekt
         other: Projekte
