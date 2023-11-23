@@ -3,12 +3,12 @@ eu:
   activemodel:
     attributes:
       post:
-        body: Testua
+        body: Gorputza
         decidim_author_id: Egilea
-        published_at: Argitaratze data
+        published_at: Argitaratze-data
         title: Izenburua
     models:
-      decidim/blogs/create_post_event: Blogeko post berria
+      decidim/blogs/create_post_event: Blogeko beste argitalpen bat
   activerecord:
     models:
       decidim/blogs/post:
@@ -21,7 +21,7 @@ eu:
         confirm_destroy: Ziur zaude post hau argitalpen ezabatu nahi duzula?
         destroy: Ezabatu
         edit: Editatu
-        new: Post berria
+        new: Beste argitalpen bat
         title: Ekintzak
       admin:
         models:
@@ -42,7 +42,7 @@ eu:
             create: Sortu
             title: Sortu mezua
           update:
-            invalid: Akatsen bat gertatu da mezua gordetzean.
+            invalid: Arazo bat egon da argitalpena gordetzean.
             success: Sarrera ondo gorde da
       admin_log:
         post:
@@ -55,9 +55,9 @@ eu:
         post:
           fields:
             author: Egilea
-            body: Testua
+            body: Gorputza
             created_at: Sortze-data
-            official_blog_post: Blogeko argitalpen ofiziala
+            official_blog_post: Argitalpen ofiziala
             title: Izenburua
       posts:
         show:
