@@ -253,7 +253,7 @@ de:
         destroy:
           success: Der Benutzer wurde erfolgreich aus diesem partizipativen Prozess entfernt.
         edit:
-          title: Administrator des Beteiligungsprozesses aktualisieren
+          title: Admin des Beteiligungsprozesses aktualisieren
           update: Aktualisieren
         index:
           process_admins_title: Partizipative Prozessbenutzer
