@@ -626,7 +626,7 @@ Rake::Task["decidim:upgrade:migrate_wysiwyg_content"].enhance ["decidim_yourmodu
 
 Note that the component settings are already automatically handled by the core as long as you have defined `editor: true` on the component attribute. This marks those attributes to be editable through the rich text editor. There is nothing you need to do regarding the components to get their content migrated to the new format.
 
-### 5.4 Ability to hide content of a user from the public interface
+### 5.4. Ability to hide content of a user from the public interface
 
 As of [\#10111](https://github.com/decidim/decidim/pull/10111), the administrators have the ability of blocking the user from the public interface.
 In order to do so, the administrator needs to go to the user's profile and click on the "Report user" button. If the reporting user is a system wide admin, a new "Block this participant" checkbox will appear. If the checkbox is checked, then the reporting user will have the ability as well to check "Hide all their contents". The first checkbox will force the reporting user to admin area where he can add a justification for blocking the offending Participant. The second checkbox will hide all the content of the user from the public interface.
@@ -703,7 +703,7 @@ You can read more about this change at PRs:
 - [\#10111](https://github.com/decidim/decidim/pull/10111)
 - [\#11064](https://github.com/decidim/decidim/pull/11064)
 
-### 5.4. Extra context argument added to SMS gateway implementations
+### 5.5. Extra context argument added to SMS gateway implementations
 
 If you have integrated any [SMS gateways](https://docs.decidim.org/en/develop/services/sms), there is a small change in the API that needs to be reflected to the SMS integrations. An extra `context` attribute is passed to the SMS gateway's initializer which can be used to pass e.g. the correct organization for the gateway to utilize.
 
@@ -736,7 +736,7 @@ end
 
 You can read more about this change at PR [\#10760](https://github.com/decidim/decidim/pull/10760).
 
-### 5.5. Configuration parameter change
+### 5.6. Configuration parameter change
 
 Prior to 0.28, there was the possibility of configuring a list of disallowed passwords using the configuration parameter `Decidim.password_blacklist` or the environment variable `DECIDIM_PASSWORD_BLACKLIST`. These methods have been renamed as follows:
 
@@ -745,7 +745,7 @@ Prior to 0.28, there was the possibility of configuring a list of disallowed pas
 
 You can read more about this change on PR [\#10288](https://github.com/decidim/decidim/pull/10288).
 
-### 5.6. Change in Initiatives configuration
+### 5.7. Change in Initiatives configuration
 
 Initiatives configuration has a setting to enable a form to be printed for the creation of Initiatives.
 
