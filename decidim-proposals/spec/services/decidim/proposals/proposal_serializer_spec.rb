@@ -108,7 +108,7 @@ module Decidim
         end
 
         it "serializes the state" do
-          expect(serialized).to include(state: proposal.customized_proposal_state)
+          expect(serialized).to include(state: proposal.state)
         end
 
         it "serializes the reference" do

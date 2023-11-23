@@ -43,7 +43,7 @@ module Decidim
       def proposal_not_rejected
         return unless proposal
 
-        errors.add(:proposal, :invalid) if proposal.customized_proposal_rejected?
+        errors.add(:proposal, :invalid) if proposal.rejected?
       end
     end
   end

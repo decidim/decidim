@@ -20,7 +20,7 @@ module Decidim
         5.times do |n|
           proposal = create_proposal!(component:)
 
-          emendation = create_emendation!(proposal:) if proposal.customized_proposal_state.nil?
+          emendation = create_emendation!(proposal:) if proposal.state.nil?
 
           (n % 3).times do |_m|
             create_proposal_votes!(proposal:, emendation:)
@@ -215,7 +215,7 @@ module Decidim
           about: ::Faker::Lorem.paragraph(sentence_count: 2)
         )
 
-        Decidim::Proposals::ProposalVote.create!(proposal:, author:) unless proposal.published_state? && proposal.customized_proposal_rejected?
+        Decidim::Proposals::ProposalVote.create!(proposal:, author:) unless proposal.published_state? && proposal.rejected?
         Decidim::Proposals::ProposalVote.create!(proposal: emendation, author:) if emendation
       end
 

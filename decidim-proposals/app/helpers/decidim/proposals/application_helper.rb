@@ -36,7 +36,7 @@ module Decidim
       def proposal_state_css_class(proposal)
         return proposal.proposal_state&.css_class unless proposal.emendation?
 
-        case proposal.customized_proposal_state
+        case proposal.state
         when "accepted"
           "success"
         when "rejected", "withdrawn"

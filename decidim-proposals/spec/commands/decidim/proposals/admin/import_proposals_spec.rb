@@ -121,7 +121,7 @@ module Decidim
               expect(new_proposal.creator_author).to eq(organization)
               expect(new_proposal.category).to eq(proposal.category)
 
-              expect(new_proposal.customized_proposal_state).to be_nil
+              expect(new_proposal.state).to be_nil
               expect(new_proposal.answer).to be_nil
               expect(new_proposal.answered_at).to be_nil
               expect(new_proposal.reference).not_to eq(proposal.reference)
@@ -154,7 +154,7 @@ module Decidim
                 new_proposal = Proposal.where(component: current_component).last
                 expect(new_proposal.answer).to eq(proposal.answer)
                 expect(new_proposal.answered_at).to be_within(1.second).of(proposal.answered_at)
-                expect(new_proposal.customized_proposal_state).to eq(proposal.customized_proposal_state)
+                expect(new_proposal.state).to eq(proposal.state)
                 expect(new_proposal.state_published_at).to be_within(1.second).of(proposal.state_published_at)
               end
             end

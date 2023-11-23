@@ -60,7 +60,7 @@ describe "Decidim::Api::QueryType" do
       "publishedAt" => proposal.published_at.iso8601.to_s.gsub("Z", "+00:00"),
       "reference" => proposal.reference,
       "scope" => proposal.scope,
-      "state" => proposal.customized_proposal_state,
+      "state" => proposal.state,
       "title" => { "translation" => proposal.title[locale] },
       "totalCommentsCount" => proposal.comments_count,
       "type" => "Decidim::Proposals::Proposal",

@@ -8,7 +8,7 @@ shared_examples "withdraw amendment" do
       it "withdraws the amendment" do
         expect { command.call }.to broadcast(:ok)
         expect(amendment.state).to eq("withdrawn")
-        expect(emendation.customized_proposal_state).to eq("withdrawn")
+        expect(emendation.state).to eq("withdrawn")
       end
     end
 
@@ -20,7 +20,7 @@ shared_examples "withdraw amendment" do
       it "is not able to withdraw the amendment" do
         expect { command.call }.to broadcast(:invalid)
         expect(amendment.state).not_to eq("withdrawn")
-        expect(emendation.customized_proposal_state).not_to eq("withdrawn")
+        expect(emendation.state).not_to eq("withdrawn")
       end
     end
   end
@@ -31,7 +31,7 @@ shared_examples "withdraw amendment" do
     it "is not able to withdraw the amendment" do
       expect { command.call }.to broadcast(:invalid)
       expect(amendment.state).not_to eq("withdrawn")
-      expect(emendation.customized_proposal_state).not_to eq("withdrawn")
+      expect(emendation.state).not_to eq("withdrawn")
     end
   end
 end

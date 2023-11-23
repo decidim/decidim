@@ -51,10 +51,6 @@ module Decidim
         current_component = object.component
         object.proposal_votes_count unless current_component.current_settings.votes_hidden?
       end
-
-      def state
-        object.customized_proposal_state
-      end
     end
   end
 end

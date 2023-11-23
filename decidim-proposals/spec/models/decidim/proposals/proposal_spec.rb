@@ -57,7 +57,7 @@ module Decidim
 
         it { is_expected.to be_answered }
         it { is_expected.to be_published_state }
-        it { is_expected.to be_customized_proposal_accepted }
+        it { is_expected.to be_accepted }
       end
 
       context "when it has been rejected" do
@@ -65,7 +65,7 @@ module Decidim
 
         it { is_expected.to be_answered }
         it { is_expected.to be_published_state }
-        it { is_expected.to be_customized_proposal_rejected }
+        it { is_expected.to be_rejected }
       end
 
       describe "#users_to_notify_on_comment_created" do
@@ -186,13 +186,13 @@ module Decidim
         context "when proposal is withdrawn" do
           let(:proposal) { build(:proposal, :withdrawn) }
 
-          it { is_expected.to be_customized_proposal_withdrawn }
+          it { is_expected.to be_withdrawn }
         end
 
         context "when proposal is not withdrawn" do
           let(:proposal) { build(:proposal) }
 
-          it { is_expected.not_to be_customized_proposal_withdrawn }
+          it { is_expected.not_to be_withdrawn }
         end
       end
 
@@ -244,14 +244,14 @@ module Decidim
         let(:proposal) { create(:proposal, :accepted_not_published, component:) }
 
         it "has accepted as the internal state" do
-          expect(proposal.customized_proposal_internal_state).to eq("accepted")
+          expect(proposal.internal_state).to eq("accepted")
         end
 
         it "has not_answered as public state" do
-          expect(proposal.customized_proposal_state).to be_nil
+          expect(proposal.state).to be_nil
         end
 
-        it { is_expected.not_to be_customized_proposal_accepted }
+        it { is_expected.not_to be_accepted }
         it { is_expected.to be_answered }
         it { is_expected.not_to be_published_state }
       end

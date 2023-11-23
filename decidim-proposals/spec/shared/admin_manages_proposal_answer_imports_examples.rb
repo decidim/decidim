@@ -26,7 +26,7 @@ shared_examples "admin manages proposal answer imports" do
       expect(page).to have_content("#{amount} proposal #{amount == 1 ? "answer" : "answers"} successfully imported")
       answers.each do |answer|
         proposal = Decidim::Proposals::Proposal.find(answer[:id])
-        expect(proposal.customized_proposal_state).to eq(answer[:state])
+        expect(proposal.state).to eq(answer[:state])
         expect(proposal.answer["en"]).to eq(answer[:"answer/en"])
         expect(proposal.answer["ca"]).to eq(answer[:"answer/ca"])
         expect(proposal.answer["es"]).to eq(answer[:"answer/es"])
@@ -65,7 +65,7 @@ shared_examples "admin manages proposal answer imports" do
         expect(page).to have_content("#{amount} proposal #{amount == 1 ? "answer" : "answers"} successfully imported")
         answers.each do |answer|
           proposal = Decidim::Proposals::Proposal.find(answer[:id])
-          expect(proposal.customized_proposal_state).to eq(answer[:state])
+          expect(proposal.state).to eq(answer[:state])
           expect(proposal.answer["en"]).to eq(answer[:answer][:en])
           expect(proposal.answer["ca"]).to eq(answer[:answer][:ca])
           expect(proposal.answer["es"]).to eq(answer[:answer][:es])

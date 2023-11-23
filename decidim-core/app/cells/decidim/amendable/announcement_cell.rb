@@ -16,7 +16,7 @@ module Decidim::Amendable
     end
 
     def emendation_message
-      message(model.customized_proposal_state, amendable_type, proposal_link, announcement_date)
+      message(model.state, amendable_type, proposal_link, announcement_date)
     end
 
     def promoted_message

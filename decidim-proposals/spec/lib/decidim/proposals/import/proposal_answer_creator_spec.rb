@@ -51,7 +51,7 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
       expect(record).to be_a(Decidim::Proposals::Proposal)
       expect(record.id).to eq(data[:id])
       expect(record.answer["en"]).to eq(data[:"answer/en"])
-      expect(record.customized_proposal_state).to eq(data[:state])
+      expect(record.state).to eq(data[:state])
       expect(record.answered_at).to be >= (moment)
     end
 

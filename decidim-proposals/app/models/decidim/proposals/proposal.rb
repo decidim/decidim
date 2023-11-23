@@ -44,8 +44,6 @@ module Decidim
 
       translatable_fields :title, :body
 
-      # STATES = { not_answered: 0, evaluating: 10, accepted: 20, rejected: -10, withdrawn: -20 }.freeze
-
       fingerprint fields: [:title, :body]
 
       amendable(
@@ -74,8 +72,6 @@ module Decidim
       validates :title, :body, presence: true
 
       geocoded_by :address
-
-      # enum state: STATES, _default: "not_answered"
 
       scope :not_status, ->(status) { joins(:proposal_state).where.not(decidim_proposals_proposal_states: { token: status }) }
       scope :only_status, ->(status) { joins(:proposal_state).where(decidim_proposals_proposal_states: { token: status }) }
@@ -213,34 +209,26 @@ module Decidim
         published_at.present?
       end
 
-      def customized_proposal_state
-        return amendment.state if emendation?
-        return nil unless published_state? || customized_proposal_withdrawn?
-
-        proposal_state&.token
-      end
-
       # Public: Returns the published state of the proposal.
       #
       # Returns Boolean.
       def state
-        raise "Method deprecated use customized_proposal_#{__method__}"
+        return amendment.state if emendation?
+        return nil unless published_state? || withdrawn?
+
+        proposal_state&.token
       end
 
       # This is only used to define the setter, as the getter will be overriden below.
       alias_attribute :internal_state, :state
 
-      def customized_proposal_internal_state
-        return amendment.state if emendation?
-
-        proposal_state&.token
-      end
-
       # Public: Returns the internal state of the proposal.
       #
       # Returns Boolean.
       def internal_state
-        raise "Method deprecated use customized_proposal_#{__method__}"
+        return amendment.state if emendation?
+
+        proposal_state&.token
       end
 
       # Public: Checks if the organization has published the state for the proposal.
@@ -264,19 +252,11 @@ module Decidim
         internal_state == "withdrawn"
       end
 
-      def customized_proposal_withdrawn?
-        customized_proposal_internal_state == "withdrawn"
-      end
-
       # Public: Checks if the organization has accepted a proposal.
       #
       # Returns Boolean.
       def accepted?
         state == "accepted"
-      end
-
-      def customized_proposal_accepted?
-        customized_proposal_state == "accepted"
       end
 
       # Public: Checks if the organization has rejected a proposal.
@@ -286,19 +266,11 @@ module Decidim
         state == "rejected"
       end
 
-      def customized_proposal_rejected?
-        customized_proposal_state == "rejected"
-      end
-
       # Public: Checks if the organization has marked the proposal as evaluating it.
       #
       # Returns Boolean.
       def evaluating?
         state == "evaluating"
-      end
-
-      def customized_proposal_evaluating?
-        customized_proposal_state == "evaluating"
       end
 
       # Public: Overrides the `reported_content_url` Reportable concern method.
@@ -372,7 +344,7 @@ module Decidim
       #
       # user - the user to check for withdrawability.
       def withdrawable_by?(user)
-        user && !customized_proposal_withdrawn? && authored_by?(user) && !copied_from_other_component?
+        user && !withdrawn? && authored_by?(user) && !copied_from_other_component?
       end
 
       # Public: Whether the proposal is a draft or not.

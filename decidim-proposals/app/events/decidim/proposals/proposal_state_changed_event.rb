@@ -23,7 +23,7 @@ module Decidim
 
       def state
         if resource.emendation?
-          humanize_proposal_state(model.customized_proposal_state)
+          humanize_proposal_state(model.state)
         else
           translated_attribute(resource.proposal_state&.title)
         end

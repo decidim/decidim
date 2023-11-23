@@ -78,7 +78,7 @@ module Decidim
         let(:query) { "{ state }" }
 
         it "returns the proposal's state" do
-          expect(response["state"]).to eq(model.customized_proposal_state)
+          expect(response["state"]).to eq(model.state)
         end
       end
 

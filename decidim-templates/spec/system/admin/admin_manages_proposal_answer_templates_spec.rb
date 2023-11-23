@@ -170,7 +170,7 @@ describe "Admin manages proposal answer templates" do
     end
 
     it "uses the template" do
-      expect(proposal.reload.customized_proposal_internal_state).to eq("not_answered")
+      expect(proposal.reload.internal_state).to eq("not_answered")
       within ".edit_proposal_answer" do
         select template.name["en"], from: :proposal_answer_template_chooser
         expect(page).to have_content(description)
@@ -182,7 +182,7 @@ describe "Admin manages proposal answer templates" do
       within find("tr", text: proposal.title["en"]) do
         expect(page).to have_content("Rejected")
       end
-      expect(proposal.reload.customized_proposal_internal_state).to eq("rejected")
+      expect(proposal.reload.internal_state).to eq("rejected")
     end
 
     context "when there are no templates" do
@@ -211,7 +211,7 @@ describe "Admin manages proposal answer templates" do
       end
 
       it "hides templates scoped for other components" do
-        expect(proposal.reload.customized_proposal_internal_state).to eq("not_answered")
+        expect(proposal.reload.internal_state).to eq("not_answered")
         expect(page).not_to have_select(:proposal_answer_template_chooser, with_options: [translated(other_component_template.name)])
       end
     end
