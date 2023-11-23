@@ -1642,7 +1642,7 @@ eu:
         account: '%{name} erabiltzailearen kontua'
         admin_dashboard: Administrazioko aginte-mahaia
         conversations: Elkarrizketak
-        notifications: jakinarazpenak
+        notifications: Jakinarazpenak
         profile: Nire kontua
         public_profile: Nire profil publikoa
         sign_out: Irten
@@ -1659,7 +1659,7 @@ eu:
       widget:
         see_more: Ikusi gehiago
   locale:
-    name: Euskera
+    name: Ingelesa
     name_with_error: Euskera (akatsa!)
   password_validator:
     blacklisted: Zerrenda beltzean
@@ -1672,7 +1672,7 @@ eu:
     password_not_allowed: ez da onartzen
     password_too_common: oso ohikoa da
     password_too_long: luzeegia da
-    password_too_short: oso laburra da
+    password_too_short: laburregia da
   social_share_button:
     delicious: Delicious
     douban: Douban
