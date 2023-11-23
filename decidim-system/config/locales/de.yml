@@ -13,7 +13,7 @@ de:
         from_label: Beschreibung
         password: Passwort
         port: Datenbank Port
-        user_name: Benutzername
+        user_name: Kontoname
       organization_file_uploads:
         allowed_content_types:
           admin: Admin MIME-Typen
@@ -61,6 +61,7 @@ de:
           success: Admin erfolgreich aktualisiert.
       dashboard:
         show:
+          admins: Admins
           current_organizations: Aktuelle Organisationen
       default_pages:
         placeholders:
@@ -137,6 +138,21 @@ de:
           show: Zeige erweiterte Einstellungen
         create:
           error: Beim Erstellen einer neuen Organisation ist ein Fehler aufgetreten.
+          success_html: |
+            <p>
+              Organisation erfolgreich erstellt.
+            </p>
+            <ol>
+              <li>Eventuell müssen Sie Ihren Anwendungscode aktualisieren um Anfragen an %{host} zu erlauben. Fügen Sie folgendes zu Ihrer Umgebungskonfiguration (z.B. <code>config/environment/production.rb</code>) oder <code>config/application.rb</code> hinzu:
+                <p> config.hosts << "%{host}" </p>
+              </li>
+              <li>
+                Danach können Sie auf die Plattform über <a href="http://%{host}">http://%{host}</a> zugreifen
+              </li>
+              <li>
+                Wir haben eine E-Mail an <b>%{email}</b> gesendet, die Sie bestätigen müssen.
+              </li>
+            </ol>
         csp_settings:
           connect_src: Verbindungsvorschriften (connect-src)
           connect_src_hint: |
@@ -164,7 +180,10 @@ de:
           style_src_hint: |
             Die style-src Anweisung schränkt URLs ein, die mittels <style> Elementen geladen werden können. Die Plattform fügt "'self' 'unsafe-inline'" hinzu, erlaubt aber zusätzliche Quellen. Lassen Sie das Feld leer, wenn Sie unsicher sind.
         edit:
+          confirm_resend_invitation: Sind Sie sicher, das Sie die Einladung erneut senden möchten?
+          resend_invitation: Einladung erneut senden
           secondary_hosts_hint: Geben Sie jede von ihnen in einer neuen Zeile ein
+          title: Organisation bearbeiten
         file_upload_settings:
           content_types:
             admin_hint: Diese MIME-Typen sind für das Hochladen im Admin-Panel erlaubt. Admin-Benutzer sollten sich der Risiken des Hochladens einiger Dokumentformate bewusst sein, so dass man von ihnen erwarten kann dass sie vorsichtiger mit Datei-Uploads sind.
@@ -210,6 +229,9 @@ de:
           twitter:
             api_key: API-Schlüssel
             api_secret: API-Geheimnis
+        resend_invitation:
+          error: Beim Versand der Einladung ist ein Fehler aufgetreten.
+          success: Einladung erfolgreich gesendet.
         smtp_settings:
           fieldsets:
             sender: Absender
@@ -229,6 +251,14 @@ de:
         notices:
           no_organization_warning_html: Sie müssen eine Organisation erstellen, um zu beginnen. Stellen Sie sicher, dass Sie %{guide} lesen, bevor Sie fortfahren.
           our_getting_started_guide: unser Leitfaden für Anfänger
+        organizations_list:
+          confirm_resend_invitation: Sind Sie sicher, das Sie die Einladung erneut senden möchten?
+          resend_invitation: Einladung erneut senden
       titles:
         dashboard: Instrumententafel
         decidim: Decidim
+  layouts:
+    decidim:
+      system:
+        login_items:
+          logout: Abmelden
