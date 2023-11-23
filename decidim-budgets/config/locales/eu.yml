@@ -2,7 +2,7 @@ eu:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Eremua
+        decidim_scope_id: Esparrua
         description: Deskribapena
         title: Izenburua
         total_budget: Aurrekontua guztira
@@ -11,13 +11,13 @@ eu:
         budget_amount: Aurrekontuaren zenbatekoa
         decidim_category_id: Kategoria
         decidim_scope_id: Esparrua
-        description: Deskribapena
+        description: Descripción
         proposal_ids: Honekin lotutako proposamenak
         proposals: Proposamenak
         selected: Ezarpenerako hautatuak
         title: Izenburua
       proposals_import:
-        scope_id: Eremua
+        scope_id: Esparrua
   activerecord:
     models:
       decidim/budgets/budget:
@@ -33,7 +33,7 @@ eu:
           category_id_eq:
             label: Kategoria
           scope_id_eq:
-            label: Eremua
+            label: Esparrua
           selected_at_null:
             label: Hautatua
             values:
@@ -51,7 +51,7 @@ eu:
         new_budget: Beste aurrekontu bat
         new_project: Beste proiektu bat
         preview: Aurreikusi
-        send_voting_reminders: Botoa gogorarazi
+        send_voting_reminders: Bidali bozketa gogorarazteko
         title: Ekintzak
       admin:
         budgets:
@@ -96,18 +96,18 @@ eu:
             actions: Ekintzak
             cancel: Ezeztatu
             change_budget: Aldatu aurrekontua
-            change_category: Kategoria aldatu
-            change_scope: Aldatu eremua
-            change_selected: Aldatu hautatutako eremua
-            deselect_implementation: Gauzatzekoetatik kendu
-            finished_orders: Bukatutako botoak
-            pending_orders: Zain dauden botoei
-            select_for_implementation: Gauzatzeko hautatua
+            change_category: Aldatu kategoria
+            change_scope: Aldatu esparrua
+            change_selected: Aldatu hautatutako egoera
+            deselect_implementation: Kendu gauzatzekoetatik
+            finished_orders: Amaitutako botoak
+            pending_orders: Zain dauden botoak
+            select_for_implementation: Hautatu gauzatzeko
             selected: Hautatua
             title: Proiektuak
             update: Eguneratu
             update_budget_button: Eguneratu proiektuaren aurrekontua
-            update_scope_button: Eguneratu eremua
+            update_scope_button: Eguneratu esparrua
           new:
             create: Sortu
             title: Beste proiektu bat
@@ -148,14 +148,15 @@ eu:
             no_components: Ez dago proposamen osagairik parte hartzeko espazio honetan proposamenak proiektuetara inportatzeko.
             origin_component_id: Jatorrizko osagaia
             select_component: Meesedez, hautatu osagaia
+            title: Inportatu proposamenak proiektuetarako
         reminders:
           orders:
             description: Erabiltzaileek mezu elektroniko bat jasoko dute, eskaera bat egiteke duten aurrekontuetarako estekekin.
       admin_log:
         budget:
-          create: "%{user_name} k sortu zuen %{resource_name} aurrekontua %{space_name} esparruan"
-          delete: "%{user_name} k ezabatu zuen %{resource_name} aurrekontua %{space_name} esparruan"
-          update: "%{user_name} k eguneratu zuen %{resource_name} aurrekontua %{space_name} esparruan"
+          create: "%{user_name} k sortu du %{resource_name} aurrekontua %{space_name} esparruan"
+          delete: "%{user_name} k ezabatu du %{resource_name} aurrekontua %{space_name} esparruan"
+          update: "%{user_name} k eguneratu du %{resource_name} aurrekontua %{space_name} esparruan"
         project:
           create: "%{user_name} k %{resource_name} proiektua %{space_name} espazioan sortu zen"
           delete: "%{user_name} k %{resource_name} proiektua %{space_name} espazioan ezabatu da"
@@ -195,7 +196,7 @@ eu:
           fields:
             category: Kategoria
             id: ID
-            title: Izenburua
+            title: Titulua
       order_summary_mailer:
         order_summary:
           selected_projects: 'Hautatu dituzun proiektuak hauek dira:'
@@ -205,7 +206,7 @@ eu:
       projects:
         budget_confirm:
           are_you_sure: Iritzia aldatzen baduzu, zure botoa alda dezakezu geroago.
-          cancel: Utzi
+          cancel: Ezeztatu
           confirm: Baieztatu
           description: Proiektu hauek hautatu dituzu aurrekontuan sartzeko.
           title: Baieztatu botoa
@@ -231,8 +232,8 @@ eu:
             other: "%{count} proiektu"
         empty: Oraindik ez dago proiekturik
         exit_modal:
-          cancel: Berriro bozkatu
-          exit: Bozketatik irten
+          cancel: Itzuli bozketara
+          exit: Irten bozketatik
           message: Zure botoa ez da erregistratu, oraindik ez duzulako osatu bozketa-prozesua. Ziur zaude bozketatik irten nahi duzula?
           title: Oraindik ez duzu bozkatu
         filters:
@@ -272,7 +273,7 @@ eu:
           remove: Kendu %{resource_name} proiektua zure bototik.
           selected: Hautatua
           votes:
-            one: Botoa
+            one: botoa
             other: botoak
           you_voted: Honen aldeko botoa eman duzu
         project_budget_button:
@@ -283,7 +284,7 @@ eu:
         project_filter:
           added: Gehituta
           all: Guztiak
-        projects_for: '%{name} ren prozesuak'
+        projects_for: '%{name} ren proiektuak'
         select_projects: Hautatu proiektuak 
         show:
           budget: Aurrekontua
@@ -314,7 +315,7 @@ eu:
             more_information_modal: '"Informazio gehiago"ren modala'
             projects_per_page: Orrialde bakoitzeko proiektuak
             resources_permissions_enabled: Ekintza-baimenak ezarri ahal dira proiektu bakoitzerako
-            scope_id: Eremua
+            scope_id: Esparrua
             scopes_enabled: Eremuak gaituta
             title: Izenburua
             total_budget: Aurrekontu osoa
