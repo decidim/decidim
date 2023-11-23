@@ -1116,6 +1116,7 @@ eu:
           proposals: proposamenak
           proposals_explanation: Egin proposamenak, lehendik dauden laguntza eta ikusi nahi dituzun aldaketak sustatu.
         footer_sub_hero:
+          footer_sub_hero_body: Eraiki dezagun gizarte irekiago, gardenago eta kolaboratiboagoa <br /> Lotu, parte hartu eta erabaki.
           footer_sub_hero_headline: Ongi etorri %{organization} erakundearen plataforma partizipatibora.
           register: Erregistroa
         hero:
