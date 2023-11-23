@@ -39,6 +39,8 @@ de:
         confirm_destroy: Sind Sie sicher, dass Sie diese %{name}löschen möchten?
         destroy: Löschen
         edit: Bearbeiten
+        import: Projekte aus einer anderen Komponente importieren
+        import_csv: Ergebnisse aus CSV importieren
         new_result: Neues Ergebnis
         new_status: Neuer Status
         new_timeline_entry: Neuer Zeitachseneintrag
@@ -74,6 +76,7 @@ de:
               </ul>
               </li>
               </ol>
+            title: Ergebnisse aus CSV importieren
         imports:
           create:
             invalid: Beim Importieren der Ergebnisse ist ein Fehler aufgetreten.
@@ -98,6 +101,7 @@ de:
             success:
               one: Ein Projekt wird importiert. Sie werden per E-Mail benachrichtigt, sobald der Import abgeschlossen ist.
               other: "%{count} Projekte werden in der Warteschlange importiert. Sie werden per E-Mail benachrichtigt, sobald sie abgeschlossen sind."
+            title: Projekte aus einer anderen Komponente importieren
         results:
           create:
             invalid: Beim Erstellen dieses Ergebnisses ist ein Problem aufgetreten.
@@ -218,6 +222,8 @@ de:
           all: Alle
         home:
           categories_label: Kategorien
+          empty: Es liegen noch keine Ergebnisse vor.
+          empty_filters: Es liegen noch keine Ergebnisse mit diesen Kriterien vor.
           subcategories_label: Unterkategorien
         home_header:
           global_status: Globaler Umsetzungsstatus
