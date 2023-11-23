@@ -83,7 +83,7 @@ eu:
         one: Jardunaldiko hizlaria
         other: Jardunaldiko hizlariak
       decidim/conference_user_role:
-        one: Jardunaldiko hizlari rola
+        one: Hitzaldiko erabiltzaile rola
         other: Jardunaldiko hizlari rolak
   decidim:
     admin:
@@ -95,7 +95,7 @@ eu:
         new_partner: Beste kide bat
         new_registration_type: Beste erregistro mota bat
         new_speaker: Beste hizlari bat
-        send_diplomas: Bertaratze-ziurtagiriak bidali
+        send_diplomas: Bidali bertaratze-ziurtagiriak
       conference_copies:
         new:
           copy: Kopiatu
@@ -459,7 +459,7 @@ eu:
           are_you_new?: Beste parte-hartzaile bat?
           login_as: '%{name} <%{email}> gisa erregistratuta zaude'
           make_conference_registration: Eman izena hitzaldian
-          manage_registration: Erregistroa kudeatu
+          manage_registration: Kudeatu erregistroa
           register: Eman izena
           sign_in_description: Hasi saioa hitzaldian erregistratzeko
           sign_up_description: Sortu kontu bat hitzaldian erregistratzeko
@@ -574,7 +574,7 @@ eu:
   layouts:
     decidim:
       conference_hero:
-        manage_registration: Erregistroa kudeatu
+        manage_registration: Kudeatu erregistroak
         register: Eman izena
       conferences:
         conference:
