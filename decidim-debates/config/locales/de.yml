@@ -103,6 +103,9 @@ de:
         create:
           invalid: Es gab ein Problem beim Erstellen der Debatte.
           success: Diskussion erfolgreich erstellt
+        debates:
+          empty: Es gibt noch keine Debatten.
+          empty_filters: Es liegen noch keine Debatten mit diesen Kriterien vor.
         edit:
           back: Zurück
           save: Änderungen speichern
