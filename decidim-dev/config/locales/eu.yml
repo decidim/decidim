@@ -42,7 +42,7 @@ eu:
     dummy:
       admin:
         exports:
-          dummies: Manikiak
+          dummies: Probak
     gamification:
       badges:
         test:
