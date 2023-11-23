@@ -3,7 +3,7 @@ eu:
     models:
       decidim/comments/comment_by_followed_user_event: Iruzkina
       decidim/comments/comment_created_event: Iruzkina
-      decidim/comments/comment_upvoted_event: Iruzkina bozkatu da
+      decidim/comments/comment_upvoted_event: Iruzkina positiboki baloratua
       decidim/comments/reply_created_event: Iruzkinaren erantzuna
       decidim/comments/user_group_mentioned_event: Aipamena
       decidim/comments/user_mentioned_event: Aipamena
@@ -25,17 +25,17 @@ eu:
             start_time: Iruzkinak noiztik aktibatuta
       comments:
         create:
-          error: Arazoa gertatu da iruzkina sortzean.
+          error: Arazo bat egon da iruzkina sortzean.
         delete:
           error: Iruzkina ezin izan da ezabatu.
         update:
-          error: Arazoa gertatu da iruzkina eguneratzean.
+          error: Arazo bat ego da iruzkina eguneratzean.
       comments_title: Iruzkina
       last_activity:
-        new_comment: 'Iruzkin berria:'
+        new_comment: 'Beste iruzkin bat:'
       votes:
         create:
-          error: Arazo bat dago iruzkina bozkatzeko.
+          error: Arazo bat egon da iruzkina bozkatzean.
     components:
       add_comment_form:
         account_message: <a href="%{sign_in_url}">Sartu zure kontuarekin</a> edo <a href="%{sign_up_url}">erregistratu</a> zure iruzkina gehitzeko.
@@ -63,11 +63,11 @@ eu:
         alignment:
           against: Aurka
           in_favor: Alde
-        cancel_reply: Erantzuna ezabatu
+        cancel_reply: Ezeztatu erantzuna
         confirm_destroy: Ziur zaude iruzkin hau ezabatu nahi duzula?
         delete: Ezabatu
         deleted_at: Iruzkina ezabatu da data honetan %{date}
-        deleted_user: Parte hartzaile ezabatua
+        deleted_user: Parte-hartzailea ezabatua
         edit: Editatu
         edited: Editatuta
         hide_replies: Ezkutatu erantzunak
@@ -90,7 +90,7 @@ eu:
         single_comment_link_title: Lortu esteka
       comment_order_selector:
         order:
-          best_rated: Balorazio hoberenak
+          best_rated: Balorazio onenak
           most_discussed: Eztabaidatuenak
           older: Zaharrenak
           recent: Berrienak
