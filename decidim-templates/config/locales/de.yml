@@ -26,6 +26,7 @@ de:
         destroy:
           success: Vorlage erfolgreich gelöscht.
         empty: Es gibt noch keine Vorlagen.
+        missing_resource: "(fehlende Ressource)"
         update:
           error: Bei der Aktualisierung dieser Vorlage ist ein Problem aufgetreten.
           success: Vorlage erfolgreich aktualisiert.
@@ -57,8 +58,20 @@ de:
           template_chooser:
             select_template: Wählen Sie eine Antwortvorlage aus
         proposal_answer_templates:
+          edit:
+            title: Vorlage für Vorschlagsantworten bearbeiten
           form:
             save: Speichern
+          index:
+            component_constraint: Einschränkung hinzufügen
+            confirm_delete: Möchten Sie diese Vorlage wirklich löschen?
+            global_scope: Global (überall verfügbar)
+            internal_state: Interner Status
+            title: Vorschlagsantworten
+          new:
+            title: Neue Vorlage für Vorschlagsantworten
+          template_chooser:
+            select_template: Antwortvorlage auswählen
         questionnaire_templates:
           choose:
             create_from_template: Aus Vorlage erstellen
@@ -90,4 +103,5 @@ de:
           update: "%{user_name} hat die Umfragevorlage %{resource_name} aktualisiert"
       template_types:
         block_user: Nachrichten blockieren
+        proposal_answer_templates: Vorschlagsantworten
         questionnaires: Fragebögen
