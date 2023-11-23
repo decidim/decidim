@@ -13,7 +13,7 @@ de:
         from_label: Beschreibung
         password: Passwort
         port: Datenbank Port
-        user_name: Benutzername
+        user_name: Kontoname
       organization_file_uploads:
         allowed_content_types:
           admin: Admin MIME-Typen
@@ -141,6 +141,7 @@ de:
           success: Organisation erfolgreich erstellt
         edit:
           secondary_hosts_hint: Geben Sie jede von ihnen in einer neuen Zeile ein
+          title: Organisation bearbeiten
         file_upload_settings:
           content_types:
             admin_hint: Diese MIME-Typen sind für das Hochladen im Admin-Panel erlaubt. Admin-Benutzer sollten sich der Risiken des Hochladens einiger Dokumentformate bewusst sein, so dass man von ihnen erwarten kann dass sie vorsichtiger mit Datei-Uploads sind.
@@ -208,3 +209,8 @@ de:
       titles:
         dashboard: Instrumententafel
         decidim: Decidim
+  layouts:
+    decidim:
+      system:
+        login_items:
+          logout: Abmelden
