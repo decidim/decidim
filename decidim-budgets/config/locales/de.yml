@@ -77,7 +77,7 @@ de:
           projects: Projekte
         models:
           budget:
-            name: Bugdet
+            name: Budget
           project:
             name: Projekt
         projects:
@@ -92,6 +92,7 @@ de:
           index:
             actions: Aktionen
             cancel: Abbrechen
+            change_budget: Budget ändern
             change_category: Kategorie ändern
             change_scope: Themenbereich ändern
             change_selected: Ausgewählten Status ändern
@@ -102,6 +103,7 @@ de:
             selected: Ausgewählt
             title: Projekte
             update: Aktualisieren
+            update_budget_button: Projektbudget aktualisieren
             update_scope_button: Themenbereich aktualisieren
           new:
             create: Erstellen
@@ -109,6 +111,10 @@ de:
           update:
             invalid: Beim Aktualisieren dieses Projekts ist ein Problem aufgetreten.
             success: Projekt erfolgreich aktualisiert.
+          update_budget:
+            invalid: 'Diese Projekte befinden sich bereits im selben Budget oder ihr Budget liegt über dem maximal zulässigen Betrag: %{projects}.'
+            select_a_project: Bitte wählen Sie ein Projekt.
+            success: 'Die folgenden Projekte wurden erfolgreich zum Budget %{subject_name} hinzugefügt: %{projects}.'
           update_category:
             invalid: 'Diese Projekte gehörten bereits zur Kategorie %{subject_name}: %{projects}.'
             select_a_category: Bitte wählen Sie eine Kategorie aus.
@@ -139,6 +145,7 @@ de:
             no_components: Es gibt keine weiteren Vorschlagskomponenten in diesem partizipativen Raum, um die Vorschläge in Projekte zu importieren.
             origin_component_id: Ursprungskomponente
             select_component: Bitte wählen Sie eine Komponente aus
+            title: Vorschläge bei Projekten importieren
         reminders:
           orders:
             description: Benutzer erhalten eine E-Mail mit Links zu den Budgets, in denen sie ausstehende Stimmen haben.
@@ -167,6 +174,7 @@ de:
         count:
           one: "%{count} Budget"
           other: "%{count} Budgets"
+        empty: Es gibt noch keine Budgets
         finished_message: Sie haben den Abstimmungsprozess beendet. Vielen Dank für Ihre Teilnahme!
         highlighted_cta: Über %{name} abstimmen
         if_change_opinion: Wenn Sie ihr Meinung geändert haben, können Sie
@@ -225,6 +233,7 @@ de:
           projects_count:
             one: 1 Projekt
             other: "%{count} Projekte"
+        empty: Es gibt noch keine Projekte
         exit_modal:
           cancel: Zurück zur Abstimmung
           exit: Abstimmung verlassen
@@ -241,7 +250,7 @@ de:
             selected: Ausgewählt
         order_progress:
           assigned: Zugewiesen
-          budget: Bugdet
+          budget: Budget
           dynamic_help:
             keep_adding_projects: Weitere Projekte hinzufügen
             minimum_reached: Sie haben das Minimum erreicht, um abstimmen zu können
@@ -282,6 +291,7 @@ de:
         select_projects: Projekte auswählen
         show:
           budget: Budget
+      prompt: Budget auswählen
       vote_reminder_mailer:
         vote_reminder:
           email_budgets: 'Bereiche, in denen Sie eine unvollendete Abstimmung haben:'
