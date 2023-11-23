@@ -170,6 +170,24 @@ en:
         create:
           error: There was a problem duplicating this conference.
           success: Conference successfully duplicated.
+      filters:
+        accepted_at_not_null:
+          label: Accepted
+          values:
+            'false': Not accepted
+            'true': Accepted
+        rejected_at_not_null:
+          label: Rejected
+          values:
+            'false': Not rejected
+            'true': Rejected
+        search_placeholder:
+          user_name_or_user_email_cont: Search by name or email
+        sent_at_not_null:
+          label: Sent
+          values:
+            'false': Not sent
+            'true': Sent
       media_links:
         create:
           error: There was a problem creating a new media link.
@@ -348,14 +366,8 @@ en:
             non_user: Non existing participant
             select_user: Select participant
           index:
-            filter:
-              accepted: Accepted
-              all: All
-              rejected: Rejected
-              sent: Sent
             invite_attendee: Invite participant
             invites: Invites
-            search: Search
           new:
             explanation: The participant will be invited to join a conference. If their email is not registered, they will be invited to the organization as well.
             invite: Invite
