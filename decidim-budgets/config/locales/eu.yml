@@ -2,7 +2,7 @@ eu:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Eremua
+        decidim_scope_id: Esparrua
         description: Deskribapena
         title: Izenburua
         total_budget: Aurrekontua guztira
@@ -17,7 +17,7 @@ eu:
         selected: Ezarpenerako hautatuak
         title: Izenburua
       proposals_import:
-        scope_id: Eremua
+        scope_id: Esparrua
   activerecord:
     models:
       decidim/budgets/budget:
@@ -33,7 +33,7 @@ eu:
           category_id_eq:
             label: Kategoria
           scope_id_eq:
-            label: Eremua
+            label: Esparrua
           selected_at_null:
             label: Hautatua
             values:
@@ -91,8 +91,8 @@ eu:
             title: Editatu proiektua
             update: Eguneratu
           index:
-            finished_orders: Bukatutako botoak
-            pending_orders: Zain dauden botoei
+            finished_orders: Amaitutako botoak
+            pending_orders: Zain dauden botoak
             selected: Hautatua
             title: Proiektuak
           new:
@@ -115,9 +115,9 @@ eu:
             title: Inportatu proposamenak
       admin_log:
         budget:
-          create: "%{user_name} k sortu zuen %{resource_name} aurrekontua %{space_name} esparruan"
-          delete: "%{user_name} k ezabatu zuen %{resource_name} aurrekontua %{space_name} esparruan"
-          update: "%{user_name} k eguneratu zuen %{resource_name} aurrekontua %{space_name} esparruan"
+          create: "%{user_name} k sortu du %{resource_name} aurrekontua %{space_name} esparruan"
+          delete: "%{user_name} k ezabatu du %{resource_name} aurrekontua %{space_name} esparruan"
+          update: "%{user_name} k eguneratu du %{resource_name} aurrekontua %{space_name} esparruan"
         project:
           create: "%{user_name} k %{resource_name} proiektua %{space_name} espazioan sortu zen"
           delete: "%{user_name} k %{resource_name} proiektua %{space_name} espazioan ezabatu da"
@@ -157,7 +157,7 @@ eu:
           fields:
             category: Kategoria
             id: ID
-            title: Izenburua
+            title: Titulua
       order_summary_mailer:
         order_summary:
           selected_projects: 'Hautatu dituzun proiektuak hauek dira:'
@@ -167,7 +167,7 @@ eu:
       projects:
         budget_confirm:
           are_you_sure: Iritzia aldatzen baduzu, zure botoa alda dezakezu geroago.
-          cancel: Utzi
+          cancel: Ezeztatu
           confirm: Baieztatu
           description: Proiektu hauek hautatu dituzu aurrekontuan sartzeko.
           title: Baieztatu botoa
@@ -210,9 +210,9 @@ eu:
             one: Proiektu bat
             other: "%{count} proiektu"
         exit_modal:
-          cancel: Berriro bozkatu
+          cancel: Itzuli bozketara
           close_modal: Itxi modala
-          exit: Bozketatik irten
+          exit: Irten bozketatik
           message: Zure botoa ez da erregistratu, oraindik ez duzulako osatu bozketa-prozesua. Ziur zaude bozketatik irten nahi duzula?
           title: Oraindik ez duzu bozkatu
         filters:
@@ -250,7 +250,7 @@ eu:
           selected: Hautatua
           view: Ikusi
           votes:
-            one: Botoa
+            one: botoa
             other: botoak
           you_voted: Honen aldeko botoa eman duzu
         project_budget_button:
@@ -258,7 +258,7 @@ eu:
           add_descriptive: Gehitu %{resource_name} proiektua zure botoari
           added: Gehituta zure botoari
           added_descriptive: '%{resource_name} proiektua zure botoari gehitu zaio'
-        projects_for: '%{name} ren prozesuak'
+        projects_for: '%{name} ren proiektuak'
         show:
           budget: Aurrekontua
           view_all_projects: Ikusi proiektu guztiak
@@ -281,7 +281,7 @@ eu:
             more_information_modal: '"Informazio gehiago"ren modala'
             projects_per_page: Orrialde bakoitzeko proiektuak
             resources_permissions_enabled: Ekintza-baimenak ezarri ahal dira proiektu bakoitzerako
-            scope_id: Eremua
+            scope_id: Esparrua
             scopes_enabled: Eremuak gaituta
             title: Izenburua
             total_budget: Aurrekontu osoa
