@@ -49,6 +49,7 @@ module Decidim
       end
 
       def state_class
+        return "muted" if state.blank?
         return model.proposal_state.css_class unless model.emendation?
 
         case state

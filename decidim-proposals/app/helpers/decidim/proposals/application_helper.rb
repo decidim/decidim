@@ -34,6 +34,7 @@ module Decidim
       #
       # Returns a String.
       def proposal_state_css_class(proposal)
+        return if proposal.state.blank?
         return proposal.proposal_state&.css_class unless proposal.emendation?
 
         case proposal.state
@@ -194,7 +195,10 @@ module Decidim
             Decidim::CheckBoxesTreeHelper::TreePoint.new("evaluating", t("decidim.proposals.application_helper.filter_state_values.evaluating")),
             Decidim::CheckBoxesTreeHelper::TreePoint.new("state_not_published", t("decidim.proposals.application_helper.filter_state_values.not_answered")),
             Decidim::CheckBoxesTreeHelper::TreePoint.new("rejected", t("decidim.proposals.application_helper.filter_state_values.rejected"))
-          ]
+          ] +
+            Decidim::Proposals::ProposalState.not_system.where(component: current_component).map do |state|
+              Decidim::CheckBoxesTreeHelper::TreePoint.new(state.token, translated_attribute(state.title))
+            end
         )
       end
 

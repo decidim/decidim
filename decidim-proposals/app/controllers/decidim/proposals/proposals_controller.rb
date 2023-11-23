@@ -228,11 +228,18 @@ module Decidim
           with_any_origin: nil,
           activity: "all",
           with_any_category: nil,
-          with_any_state: %w(accepted evaluating state_not_published),
+          with_any_state: default_states,
           with_any_scope: nil,
           related_to: "",
           type: "all"
         }
+      end
+
+      def default_states
+        [
+          Decidim::Proposals::ProposalState.not_system.where(component: current_component).pluck(:token).map(&:to_s),
+          %w(accepted evaluating state_not_published)
+        ].flatten
       end
 
       def proposal_draft

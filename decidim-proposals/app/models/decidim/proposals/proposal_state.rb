@@ -16,6 +16,7 @@ module Decidim
 
       scope :answerable, -> { where(answerable: true) }
       scope :system, -> { where(system: true) }
+      scope :not_system, -> { where(system: false) }
       scope :default, -> { where(default: true) }
       scope :notifiable, -> { where(notifiable: true) }
 

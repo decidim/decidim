@@ -73,14 +73,27 @@ module Decidim
 
       geocoded_by :address
 
-      scope :not_status, ->(status) { joins(:proposal_state).where.not(decidim_proposals_proposal_states: { token: status }) }
-      scope :only_status, ->(status) { joins(:proposal_state).where(decidim_proposals_proposal_states: { token: status }) }
+      scope :not_status, lambda { |status|
+        joins(:proposal_state).where.not(decidim_proposals_proposal_states: { token: status })
+                              .where(%(
+                   ("decidim_proposals_proposals"."state_published_at" IS NULL AND  "decidim_proposals_proposal_states"."answerable" = TRUE) OR
+                   ("decidim_proposals_proposals"."state_published_at" IS NOT NULL AND  "decidim_proposals_proposal_states"."answerable" = FALSE)
+          ))
+      }
 
-      scope :gamified, -> { state_published.only_status(:accepted).where(decidim_proposals_proposal_states: { gamified: true }) }
+      scope :only_status, lambda { |status|
+        joins(:proposal_state).where(decidim_proposals_proposal_states: { token: status })
+                              .where(%(
+                      ("decidim_proposals_proposals"."state_published_at" IS NOT NULL AND  "decidim_proposals_proposal_states"."answerable" = TRUE) OR
+                      ("decidim_proposals_proposals"."state_published_at" IS NULL AND  "decidim_proposals_proposal_states"."answerable" = FALSE)
+          ))
+      }
 
       scope :accepted, -> { state_published.only_status(:accepted) }
       scope :rejected, -> { state_published.only_status(:rejected) }
       scope :evaluating, -> { state_published.only_status(:evaluating) }
+
+      scope :gamified, -> { state_published.only_status(:accepted).where(decidim_proposals_proposal_states: { gamified: true }) }
 
       scope :answered, -> { where.not(answered_at: nil) }
       scope :not_answered, -> { where(answered_at: nil) }
@@ -88,7 +101,8 @@ module Decidim
       scope :state_not_published, -> { where(state_published_at: nil) }
       scope :state_published, -> { where.not(state_published_at: nil) }
       scope :except_rejected, -> { not_status(:rejected).or(state_not_published) }
-      scope :except_withdrawn, -> { not_status(:withdrawn) }
+      scope :withdrawn, -> { joins(:proposal_state).where(decidim_proposals_proposal_states: { token: :withdrawn }) }
+      scope :except_withdrawn, -> { joins(:proposal_state).where.not(decidim_proposals_proposal_states: { token: :withdrawn }) }
 
       scope :drafts, -> { where(published_at: nil) }
       scope :published, -> { where.not(published_at: nil) }
@@ -97,9 +111,9 @@ module Decidim
       scope :with_availability, lambda { |state_key|
         case state_key
         when "withdrawn"
-          only_status(:withdrawn)
+          withdrawn
         else
-          not_status(:withdrawn)
+          except_withdrawn
         end
       }
 
@@ -126,7 +140,30 @@ module Decidim
         order(Arel.sql("#{sort_by_valuation_assignments_count_nulls_last_query} DESC NULLS LAST").to_s)
       }
 
-      scope_search_multi :with_any_state, [:accepted, :rejected, :evaluating, :state_not_published, :state_published]
+      scope :with_any_state, lambda { |*value_keys|
+        possible_scopes = [:state_not_published, :state_published]
+        custom_states = Decidim::Proposals::ProposalState.distinct.pluck(:token)
+
+        search_values = value_keys.compact.compact_blank
+
+        conditions = possible_scopes.map do |scope|
+          search_values.member?(scope.to_s) ? try(scope) : nil
+        end.compact
+
+        additional_conditions = search_values & custom_states
+        conditions.push(only_status(additional_conditions)) if additional_conditions.any?
+
+        return self unless conditions.any?
+
+        scoped_query = where(id: conditions.shift)
+        conditions.each do |condition|
+          scoped_query = scoped_query.or(where(id: condition))
+        end
+
+        scoped_query
+      }
+
+      # scope_search_multi :with_any_state, [:accepted, :rejected, :evaluating, :state_not_published, :state_published]
 
       def self.with_valuation_assigned_to(user, space)
         valuator_roles = space.user_roles(:valuator).where(user:)
