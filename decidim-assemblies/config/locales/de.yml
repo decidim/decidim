@@ -115,7 +115,7 @@ de:
           title: Neues Gremium
         update:
           error: Beim Aktualisieren dieses Gremiums ist ein Fehler aufgetreten.
-          success: Das Gremium wurde erfolgreich aktualisiert.
+          success: Die Versammlung wurde erfolgreich aktualisiert.
       assemblies_copies:
         create:
           error: Beim Duplizieren dieses Gremiums ist ein Fehler aufgetreten.
@@ -152,11 +152,13 @@ de:
         destroy:
           success: Mitglied wurde erfolgreich aus diesem Gremium entfernt.
         edit:
+          title: Versammlungsmitglieder aktualisieren
           update: Aktualisieren
         index:
           assembly_members_title: Gremienmitglieder
         new:
           create: Erstellen
+          title: Neues Gremienmitglied
         update:
           error: Beim Aktualisieren des Mitglieds dieses Gremiums ist ein Fehler aufgetreten.
           success: Mitglied dieses Gremiums erfolgreich aktualisiert.
@@ -174,17 +176,26 @@ de:
         destroy:
           success: Benutzer wurde erfolgreich von dieser Assembly entfernt.
         edit:
+          title: Gremienadmin aktualisieren
           update: Aktualisieren
         index:
           assembly_admins_title: Assembly Benutzer
         new:
           create: Erstellen
+          title: Neuer Gremienadmin
         update:
           error: Bei einem Fehler ist ein Benutzer für diese Assembly aktualisiert worden.
           success: Der Benutzer wurde für diese Assembly erfolgreich aktualisiert.
       filters:
+        ceased_date_not_null:
+          label: Eingestellt
+          values:
+            'false': Nicht eingestellt
+            'true': Eingestellt
         decidim_assemblies_type_id_eq:
           label: Versammlungstyp
+        search_placeholder:
+          full_name_or_user_name_or_user_nickname_cont: Name oder Benutzername suchen
       menu:
         assemblies: Gremien
         assemblies_submenu:
@@ -281,7 +292,7 @@ de:
             select_a_created_by: Wählen Sie eine erstellt von aus
             select_an_area: Wählen Sie einen Bereich
             select_an_assembly_type: Wählen Sie einen Gremiumstyp
-            select_parent_assembly: Wählen Sie die übergeordnete Baugruppe aus
+            select_parent_assembly: Übergeordnetes Gremium auswählen
             slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf dieses Gremium verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
             social_handlers: Sozial
             title: Allgemeine Information
