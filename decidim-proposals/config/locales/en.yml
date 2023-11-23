@@ -543,6 +543,7 @@ en:
             selected: selected
             split: Split proposals
             split_button: Split
+            statuses: States
             title: Proposals
             unassign_from_valuator: Unassign from valuator
             unassign_from_valuator_button: Unassign
