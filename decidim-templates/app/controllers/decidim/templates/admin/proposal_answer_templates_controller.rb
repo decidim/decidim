@@ -154,9 +154,8 @@ module Decidim
 
         def availability_option_as_text(template)
           return unless template.templatable_type
-          return t("global_scope", scope: "decidim.templates.admin.proposal_answer_templates.index") if template.templatable == current_organization
 
-          avaliablity_options.select { |a| a.last == template.templatable_id }&.flatten&.first || t("templates.missing_resource", scope: "decidim.admin")
+          avaliablity_options.select { |a| a.last == template.templatable_id }.flatten.first || t("templates.missing_resource", scope: "decidim.admin")
         end
 
         def availability_options_for_select
