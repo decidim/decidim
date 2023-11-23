@@ -13,30 +13,10 @@ shared_examples "amendment promoted event" do
   let(:emendation_author_path) { Decidim::UserPresenter.new(emendation.creator_author).profile_path }
   let(:amendable_path) { Decidim::ResourceLocatorPresenter.new(amendable).path }
 
-  describe "email_subject" do
-    it "is generated correctly" do
-      expect(subject.email_subject).to eq("An amendment from #{emendation_author_nickname} has been published as a new proposal")
-    end
-  end
-
-  describe "email_intro" do
-    it "is generated correctly" do
-      expect(subject.email_intro)
-        .to eq("A rejected amendment for #{amendable_title} has been published as a new #{amendable_type}. You can see it from this page:")
-    end
-  end
-
-  describe "email_outro" do
-    it "is generated correctly" do
-      expect(subject.email_outro)
-        .to eq("You have received this notification because you are following #{amendable_title}. You can stop receiving notifications following the previous link.")
-    end
-  end
-
-  describe "notification_title" do
-    it "is generated correctly" do
-      expect(subject.notification_title)
-        .to eq("A <a href=\"#{emendation_path}\">rejected amendment</a> for <a href=\"#{amendable_path}\">#{amendable_title}</a> has been published as a new #{amendable_type} by <a href=\"#{emendation_author_path}\">#{emendation_author_nickname}</a>.") # rubocop:disable Layout/LineLength
-    end
-  end
+  let(:email_subject) { "An amendment from #{emendation_author_nickname} has been published as a new proposal" }
+  let(:email_intro) { "A rejected amendment for #{amendable_title} has been published as a new #{amendable_type}. You can see it from this page:" }
+  alet(:email_outro) { "You have received this notification because you are following #{amendable_title}. You can stop receiving notifications following the previous link." }
+  # rubocop:disable Layout/LineLength
+  let(:notificaiton_title) { "A <a href=\"#{emendation_path}\">rejected amendment</a> for <a href=\"#{amendable_path}\">#{amendable_title}</a> has been published as a new #{amendable_type} by <a href=\"#{emendation_author_path}\">#{emendation_author_nickname}</a>." }
+  # rubocop:enable Layout/LineLength
 end
