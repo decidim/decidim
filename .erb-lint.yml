@@ -31,7 +31,7 @@ linters:
     rule_set:
       - deprecated: ['process-content']
         suggestion: "This class is deprecated. Please remove the surrounding element"
-      - deprecated: ['xlarge-[\w]*']
+      - deprecated: ['xlarge-[\w]*', 'mediumlarge-[\w]']
         suggestion: "Foundation classes are deprecated."
 
   Rubocop:
