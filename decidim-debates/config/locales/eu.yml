@@ -11,7 +11,7 @@ eu:
         end_time: Bukaera-data
         information_updates: Informazioaren eguneratzeak
         instructions: Parte hartzeko argibideak
-        scope_id: Eremua
+        scope_id: Esparrua
         start_time: Hasi da
         title: Izenburua
         user_group_id: Sortu eztabaida honela
@@ -190,24 +190,24 @@ eu:
             email_intro: |-
               Kaixo,
               "%{resource_title}" beste eztabaida bat sortu da %{space_title} parte hartzeko espazioan, begiratu eta lagundu:
-            email_outro: Jakinarazpen hori jaso duzu %{space_title} partaidetzazko espazioa jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+            email_outro: Jakinarazpen hori jaso duzu %{space_title} partaidetzazko espazioa jarraitzen ari zarelako. Aurreko estekan jakinarazpenak jasotzeari utzi ahal diozu.
             email_subject: Beste eztabaida bat "%{resource_title}" hemen %{space_title}
             notification_title: <a href="%{resource_path}">%{resource_title}</a> eztabaida sortu zen <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
               Kaixo,
               %{author_name} %{author_nickname} k, jarraitzen ari zarenak, "%{resource_title}" eztabaida berri bat sortu du. Begiratu eta lagundu:
-            email_outro: Jakinarazpena jaso duzu %{author_nickname} jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+            email_outro: Jakinarazpena jaso duzu %{author_nickname} jarraitzen ari zarelako. Aurreko estekan jakinarazpenak jasotzeari utzi ahal diozu.
             email_subject: '%{author_nickname} k "%{resource_title}" beste eztabaida bat sortu du'
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> k sortu du <a href="%{resource_path}">%{resource_title}</a> eztabaida.
         creation_disabled:
           email_intro: 'Debate sortzea ez dago aktibo %{participatory_space_title}. Oraindik eztabaidak ireki ditzakezu orri honetatik:'
-          email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+          email_outro: Jakinarazpena jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Aurreko estekan jakinarazpenak jasotzeari utzi ahal diozu.
           email_subject: Debate sortzea desgaituta %{participatory_space_title}
           notification_title: Eztabaiden sorrera orain desaktibatuta dago <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         creation_enabled:
           email_intro: 'Oraineztabaida berriak hasi ditzakezu hemen: %{participatory_space_title}! Hasi parte-hartzea orri honetan:'
-          email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+          email_outro: Jakinarazpena jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Aurreko estekan jakinarazpenak jasotzeari utzi ahal diozu.
           email_subject: 'Eztabaidak orain eskuragarri hemen: %{participatory_space_title}'
           notification_title: Orain <a href="%{resource_path}">eztabaida berriak hasi ditzakezu</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         debate_closed:
