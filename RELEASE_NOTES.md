@@ -760,3 +760,18 @@ Decidim::Initiatives.configure do |config|
   config.print_enabled = true
 end
 ```
+
+### 5.8 Migration of Proposal states in own table
+
+As of [\#12052](https://github.com/decidim/decidim/pull/12052) all the proposals states are kept in a separate database table, enabling end users to customize the states of the proposals. By default we will create for any proposal component that is being installed in the project 5 default states that cannot be disabled nor deleted. These states are:
+- Not Answered ( default state for any new created proposal )
+- Evaluating
+- Accepted
+- Rejected
+- Withdrawn ( special states for proposals that have been withdrawn by the author )
+
+For any of the above states you can customize the name, description, css class used by labels. You can also decide which states the user can receive a notification or an answer.
+
+You do not need to run any task to migrate the existing states, as we will automatically migrate the existing states to the new table.
+
+You can see more details about this change on PR [\#12052](https://github.com/decidim/decidim/pull/12052)
