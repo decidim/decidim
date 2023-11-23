@@ -915,7 +915,7 @@ de:
           form:
             existing_user: Existierender Benutzer
             non_user: Neuen Benutzer einladen
-            select_user: Suchen nach Name, E-Mail oder Benutzername
+            select_user: Suchen nach Name, E-Mail oder Kontoname
             user_type: Benutzertyp
           index:
             title: Überwachungskomitee
@@ -964,7 +964,7 @@ de:
           form:
             existing_user: Existierender Benutzer
             non_user: Neuen Benutzer einladen
-            select_user: Suchen nach Name, E-Mail oder Benutzername
+            select_user: Suchen nach Name, E-Mail oder Kontoname
             user_type: Benutzertyp
           index:
             role_manager: Manager
@@ -1118,6 +1118,7 @@ de:
               csv_header_after: Lassen Sie das letzte Feld ("%{ballot_style_code_header}") weg, wenn Sie keine Wahlkategorien / variablen Fragen benötigen
               csv_header_before: 'Die Erhebungsdatei muss eine CSV-Datei mit folgender Kopfzeile sein:'
         document_types:
+          identification_number: Identifikationsnummer
           passport: Reisepass
         export_mailer:
           access_codes_export:
