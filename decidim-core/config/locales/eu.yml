@@ -1938,7 +1938,7 @@ eu:
         configuration: Ezarpena
         conversations: Elkarrizketak
         log_out: Amaitu saioa
-        notifications: jakinarazpenak
+        notifications: Jakinarazpenak
         profile: Nire kontua
         public_profile: Nire profil publikoa
         title: Profilaren loturak
@@ -1953,7 +1953,7 @@ eu:
         title: Parte-hartzailearen ezarpenak
         user_groups: Taldeak
   locale:
-    name: Euskera
+    name: Ingelesa
     name_with_error: Euskera (akatsa!)
   password_validator:
     denied: ukatu egin da
@@ -1967,7 +1967,7 @@ eu:
     password_repeated: Ezin da erabili pasahitz zaharra
     password_too_common: oso ohikoa da
     password_too_long: luzeegia da
-    password_too_short: oso laburra da
+    password_too_short: laburregia da
   ransack:
     predicates:
       dtgt: ondoren
