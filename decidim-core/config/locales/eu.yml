@@ -121,19 +121,19 @@ eu:
           title: Ezabatu nire kontua
         explanation: Mesedez, azaldu arrazoia zure kontua ezabatu nahi izateko (aukerakoa).
       destroy:
-        error: Akats bat gertatu da zure kontua ezabatzean.
+        error: Arazo bat egon da zure kontua ezabatzean.
         success: Zure kontua ezabatu egin da.
       show:
         available_locales_helper: Aukeratu zein hizkuntza erabili nahi duzun Decidimen nabigatzeko eta jakinarazpenak jasotzeko
         change_password: Aldatu pasahitza
         update_account: Eguneratu kontua
       update:
-        error: Akats bat gertatu da zure kontua eguneratzean.
+        error: Arazo bat egon da zure kontua eguneratzean.
         success: Zure kontua zuzen eguneratu da.
         success_with_email_confirmation: Zure kontua zuzen eguneratu da. Mezu elektroniko bat jasoko duzu zure helbide elektroniko berria baieztatzeko.
     admin:
       actions:
-        cancel: Utzi
+        cancel: Ezeztatu
     admin_log:
       area:
         create: "%{user_name} k %{resource_name} arloa sortu du"
@@ -189,10 +189,10 @@ eu:
         block: "%{user_name} k %{resource_name} erabiltzaile-taldea blokeatu du"
         reject: "%{user_name} k ukatu du %{resource_name} taldearen egiaztapena"
         unblock: "%{user_name} k %{resource_name} erabiltzaile-taldea desblokeatu du"
-        verify: "%{user_name} egiaztatu du %{resource_name} taldea"
+        verify: "%{user_name} k egiaztatu du %{resource_name} taldea"
         verify_via_csv: "%{user_name} k egiaztatu du %{resource_name} erabiltzaile-taldea CSV fitxategi baten bidez"
       user_moderation:
-        unreport: "%{user_name} desegin du %{resource_type} - %{unreported_user_name} erreportea"
+        unreport: "%{user_name} k desegin du %{resource_type} - %{unreported_user_name} erreportea"
     admin_terms_of_use:
       default_body: "<h2>TERABILTZEKO ADMINISTRAZIOAREN BALDINTZAK</h2><p>Sistemaren tokiko administratzailearen ohiko azalpena jaso duzulakoan gaude. Oro har, hiru gauza hauetara mugatzen da:</p><ol><li>Besteen pribatutasuna errespetatzea.</li><li>Klikatu aurretik pentsatu.</li><li>Botere handiak erantzukizun handia dakar.</li></ol>"
     alert:
@@ -203,7 +203,7 @@ eu:
         success: Zuzenketa ondo onartu da.
       amendable:
         amended_by: Aldatua
-        button: Aldatu %{model_name}
+        button: Zuzendu %{model_name}
         error: Errore bat egon da baliabide hau aldatzean.
         help_text: Hobetu %{model_name} hau bere %{amendable_fields}aldatuz
         promote_button: '%{model_name}suspertzea'
@@ -215,15 +215,15 @@ eu:
         no_similars_found: Ez da aurkitu antzeko zuzenketarik.
         title: Antzeko zuzenketak
       created:
-        error: Arazoa gertatu da zuzenketa-zirriborroa sortzean.
+        error: Errorea egon da zuzenketa-zirriborroa sortzean.
         success: Zuzenketa-zirriborroa zuzen sortu da.
       destroy_draft:
-        error: Arazoa gertatu da zuzenketa-zirriborroa ezabatzean.
+        error: Arazo bat egon da zuzenketa-zirriborroa ezabatzean.
         success: Zuzenketa-zirriborroa zuzen ezabatu da.
       edit_draft:
         discard: Baztertu zirriborro hau
         discard_confirmation: Ziur zaude zuzenketa-zirriborro hau baztertu nahi duzula?
-        send: Aurrebista
+        send: Aurreikusi
         title: Editatu zuzenketa-zirriborroa
       emendation:
         actions:
@@ -294,7 +294,7 @@ eu:
       avatar: 'Avatarra: %{name}'
       avatar_multiuser: Avatarra erabiltzaile batzuentzat
       comments:
-        one: iruzkin
+        one: iruzkina
         other: iruzkinak
       endorsements:
         one: atxikimendua
@@ -305,12 +305,12 @@ eu:
         fields:
           passport_number: Pasaporte zenbakia
           postal_code: Posta kodea
-        name: Beste adibide bat baimena
+        name: Beste baimen-adibide bat
       dummy_authorization_handler:
         explanation: Egiaztatu "X" ren bukaerako dokumentu-zenbaki batekin sartuz.
         fields:
           allowed_postal_codes: Onartutako posta-kodeak (komaz bereizita)
-          allowed_scope_id: Onartutako eremua
+          allowed_scope_id: Onartutako esparrua
           document_number: Dokumentuaren zenbakia
           postal_code: Posta kodea
           scope_id: Eremua
