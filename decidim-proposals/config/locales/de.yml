@@ -430,6 +430,9 @@ de:
             proposals:
               one: Vorschlag
               other: Vorschläge
+          title:
+            answers: Vorschlagsantworten aus einer Datei importieren
+            proposals: Vorschläge aus einer Datei importieren
         models:
           proposal:
             name: Vorschlag
@@ -523,6 +526,7 @@ de:
             create: Erstellen
             title: Vorschlag erstellen
           publish_answers:
+            number_of_proposals: Antworten für %{number} Vorschläge werden veröffentlicht.
             select_a_proposal: Bitte wählen Sie einen Vorschlag.
           show:
             amendments_count: Anzahl der Ergänzungen
@@ -532,6 +536,7 @@ de:
             documents: Unterlagen
             endorsements_count: Anzahl der Befürwortungen
             endorsers: Befürworter
+            link: Vorschlag anzeigen
             n_more_endorsers:
               one: und 1 mehr
               other: und %{count} mehr
@@ -561,6 +566,7 @@ de:
             no_components: In diesem partizipatorischen Bereich gibt es keine weiteren Vorschlagskomponenten, aus denen die Vorschläge importiert werden könnten.
             select_component: Bitte wählen Sie eine Komponente aus
             select_states: Überprüfen Sie die Status der zu importierenden Vorschläge
+            title: Vorschläge aus einer anderen Komponente importieren
         proposals_merges:
           create:
             invalid: 'Es gab ein Problem beim Zusammenführen der ausgewählten Vorschläge, weil ein paar von ihnen:'
