@@ -22,10 +22,10 @@
           <div class="flex items-center gap-x-4 my-2">
             <%= form.collection_radio_buttons :proposal_state_id,
                                               available_states( form.object.component_constraint),
-                                             :id,
-                                             ->(a) {
-                                               translated_attribute(a.title)
-                                             }, prompt: true do |builder|
+                                              :id,
+                                              lambda { |a|
+                                                translated_attribute(a.title)
+                                              }, prompt: true do |builder|
               builder.label { builder.radio_button + builder.text } end %>
           </div>
         </div>
@@ -40,8 +40,7 @@
                             include_blank: true
                           },
                           onchange: "this.form.submit()",
-                          disabled: form.object.component_constraint.present?
-          %>
+                          disabled: form.object.component_constraint.present? %>
         </div>
       <%= form.hidden_field(:select_component, value: true) %>
       <% end %>
