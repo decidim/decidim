@@ -343,7 +343,7 @@ eu:
           decidim_user_group_id_help: Ezin da aldatu ekimenaren egilea sotu ondoren
           fill_data_help: "<ul> <li>Berrikusi zure ekimenaren edukia. Zure izenburua ulertzen erraza da? Zure ekimenaren helburua argi dago?</li> <li>Sinadura mota aukeratu behar duzu.</li> <li>aurrez aurre, linean edo biak konbinatuta. Zein da ekimenaren eremu geografikoa? </li> </ul>"
           more_information: "(Informazio gehiago)"
-          select_area: Hautatu eremu bat
+          select_area: Hautatu arlo bat
           select_scope: Hautatu esparrua
         finish:
           back: Atzera
@@ -364,6 +364,7 @@ eu:
           more_information: "(Informazio gehiago)"
         promotal_committee:
           back: Back
+          individual_help_text: Herritarren ekimen mota horrek batzorde sustatzaile bat eskatzen du, gutxienez % {committee_size} kidez osatua (ziurtatzaileak). Ekimen honetan parte hartzen duten gainerako pertsonekin partekatu behar duzu esteka hau. Zure kontaktuek esteka hau jasotzen dutenean, adierazten zaizkien urratsak jarraitu beharko dituzte.
           more_information: "(Informazio gehiago)"
         select_initiative_type:
           back: Back
@@ -517,6 +518,7 @@ eu:
             title: 'Izenburua:'
             type: Ekimen mota
           legal_text: Bildutako datu pertsonalak isilpean sartu eta tratatuko ditu erakundeak, indarrean dagoen legeriaren arabera.
+          members_header: Ekimenaren batzarkide sustatzaileak
           phone_number: Telefono zenbakia
           place_date: Lekua, data
           postal_code: Posta-kodea/ZIP
