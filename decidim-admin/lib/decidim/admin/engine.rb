@@ -25,6 +25,33 @@ module Decidim
         end
       end
 
+      initializer "decidim_admin.register_icons" do |_app|
+        Decidim.icons.register(name: "layout-masonry-line", icon: "layout-masonry-line", category: "system", description: "", engine: :admin)
+        Decidim.icons.register(name: "service-line", icon: "service-line", category: "system", description: "", engine: :admin)
+        Decidim.icons.register(name: "fullscreen-line", icon: "fullscreen-line", category: "system", description: "", engine: :admin)
+        Decidim.icons.register(name: "lock-line", icon: "lock-line", category: "system", description: "", engine: :admin)
+        Decidim.icons.register(name: "download-line", icon: "download-line", category: "system", description: "", engine: :admin)
+        Decidim.icons.register(name: "mail-open-line", icon: "mail-open-line", category: "system", description: "", engine: :admin)
+        Decidim.icons.register(name: "forbid-2-line", icon: "forbid-2-line", category: "system", description: "", engine: :admin)
+        Decidim.icons.register(name: "key-2-line", icon: "key-2-line", category: "system", description: "", engine: :admin)
+        Decidim.icons.register(name: "arrow-go-back-line", icon: "arrow-go-back-line", category: "system", description: "", engine: :admin)
+        Decidim.icons.register(name: "computer-line", icon: "computer-line", category: "system", description: "", engine: :admin)
+        Decidim.icons.register(name: "arrow-right-s-line", icon: "arrow-right-s-line", category: "system", description: "", engine: :admin)
+        Decidim.icons.register(name: "arrow-up-line", icon: "arrow-up-line", category: "system", description: "", engine: :admin)
+        Decidim.icons.register(name: "arrow-down-line", icon: "arrow-down-line", category: "system", description: "", engine: :admin)
+
+        Decidim.icons.register(name: "attachment-2", icon: "attachment-2", category: "system", description: "", engine: :admin)
+        Decidim.icons.register(name: "spy-line", icon: "spy-line", category: "system", description: "", engine: :admin)
+        Decidim.icons.register(name: "refresh-line", icon: "refresh-line", category: "system", description: "", engine: :admin)
+        Decidim.icons.register(name: "zoom-in-line", icon: "zoom-in-line", category: "system", description: "", engine: :admin)
+        Decidim.icons.register(name: "add-line", icon: "add-line", category: "system", description: "", engine: :admin)
+        Decidim.icons.register(name: "upload-line", icon: "upload-line", category: "system", description: "", engine: :admin)
+        Decidim.icons.register(name: "settings-4-line", icon: "settings-4-line", category: "system", description: "", engine: :admin)
+
+        Decidim.icons.register(name: "folder-line", icon: "folder-line", category: "system", description: "", engine: :admin)
+        Decidim.icons.register(name: "attachment-line", icon: "attachment-line", category: "system", description: "", engine: :admin)
+      end
+
       initializer "decidim_admin.mime_types" do |_app|
         # Required for importer example downloads
         Mime::Type.register Decidim::Admin::Import::Readers::XLSX::MIME_TYPE, :xlsx
