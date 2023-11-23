@@ -136,7 +136,7 @@ de:
         destroy:
           success: Benutzer wurde erfolgreich von dieser Konferenz entfernt.
         edit:
-          title: Aktualisieren Sie den Konferenzbenutzer.
+          title: Konferenzadmin aktualisieren.
           update: Aktualisieren
         index:
           conference_admins_title: Konferenzadmins
@@ -377,6 +377,9 @@ de:
               one: Es gab 1 Registrierung.
               other: Es gab %{count} Registrierungen.
             slug_help_html: 'URL-Slugs werden verwendet, um URLs zu generieren, die auf diese Konferenz verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+        content_blocks:
+          highlighted_conferences:
+            max_results: Maximale Anzahl angezeigter Elemente
         diplomas:
           edit:
             save: Speichern
