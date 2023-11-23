@@ -2,12 +2,12 @@ eu:
   activemodel:
     attributes:
       post:
-        body: Testua
+        body: Gorputza
         decidim_author_id: Egilea
-        published_at: Argitaratze data
+        published_at: Argitaratze-data
         title: Izenburua
     models:
-      decidim/blogs/create_post_event: Blogeko post berria
+      decidim/blogs/create_post_event: Blogeko beste argitalpen bat
   activerecord:
     models:
       decidim/blogs/post:
@@ -20,15 +20,15 @@ eu:
         confirm_destroy: Ziur zaude post hau argitalpen ezabatu nahi duzula?
         destroy: Ezabatu
         edit: Editatu
-        new: Post berria
+        new: Beste argitalpen bat
         title: Ekintzak
       admin:
         posts:
           create:
-            invalid: Arazo bat sortu da post hau sortzean.
-            success: Posta ondo sortu da.
+            invalid: Arazo bat egon da argitalpen hau sortzean.
+            success: Argitalpena zuzen sortua.
           destroy:
-            success: Posta zuzen ezabatu da.
+            success: Argitalpena behar bezala ezabatua.
           edit:
             save: Eguneratu
             title: Editatu argitalpena
@@ -39,8 +39,8 @@ eu:
             create: Sortu
             title: Sortu argitalpena
           update:
-            invalid: Akatsen bat gertatu da mezua gordetzean.
-            success: Posta zuzen gorde da.
+            invalid: Arazo bat egon da argitalpena gordetzean.
+            success: Argitalpena zuzen gordea.
       admin_log:
         post:
           create: "%{user_name} k %{resource_name} blogeko argitalpena sortu du %{space_name} espazioan"
@@ -50,21 +50,21 @@ eu:
         highlighted_posts:
           last_published: Azken argitarapena
           name: Argitalpenak
-          see_all: Ikusi edukin guztiak
+          see_all: Ikusi argitalpen guztiak
       last_activity:
-        new_post: 'Argitalpen berria blogean:'
+        new_post: 'Beste argitalpen bat blogean:'
       models:
         post:
           fields:
             author: Egilea
-            body: Testua
-            official_blog_post: Blogeko argitalpen ofiziala
-            published_at: Argitaratze data
+            body: Gorputza
+            official_blog_post: Argitalpen ofiziala
+            published_at: Argitaratze-data
             title: Izenburua
       posts:
         index:
           count:
-            one: "Edukin 1"
+            one: "%{count} argitalpen"
             other: "%{count} edukin"
           empty: Oraindik ez dago argitalpenik.
     components:
