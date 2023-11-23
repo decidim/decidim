@@ -144,7 +144,7 @@ eu:
         explanation: Mesedez, azaldu arrazoia zure kontua ezabatu nahi izateko (aukerakoa).
         leaving_authorizations_behind: Egiaztatze-prozesu honetako hainbat datu gorde egingo dira segurtasunagatik. Beste kontu bat sortu eta, berriz ere, egiaztatzeko prozesuari ekin nahi badiozu, datu horiek berreskuratu egingo dira.
       destroy:
-        error: Akats bat gertatu da zure kontua ezabatzean.
+        error: Arazo bat egon da zure kontua ezabatzean.
         success: Zure kontua ezabatu egin da.
       download_your_data_export:
         file_no_exists: Fitxategia ez dago
@@ -152,7 +152,7 @@ eu:
       email_change:
         body1: Mezu elektroniko bat bidali dugu %{unconfirmed_email} postara zure helbide elektroniko berria egiaztatzeko.
         body2: Birbidali behar dizugu egiaztatzeko korreoa? %{resend_link} edo %{cancel_link}.
-        cancel: utzi
+        cancel: ezeztatu
         cancel_error: Ezin izan da ezeztatu korreo elektronikoaren aldaketa.
         cancel_successfully: Posta elektronikoaren aldaketa zuzen ezeztatua.
         resend_error: Ezin izan da birbidali berresteko korreoa.
@@ -164,14 +164,14 @@ eu:
         change_password: Aldatu pasahitza
         update_account: Eguneratu kontua
       update:
-        error: Akats bat gertatu da zure kontua eguneratzean.
+        error: Arazo bat egon da zure kontua eguneratzean.
         success: Zure kontua zuzen eguneratu da.
         success_with_email_confirmation: Zure kontua zuzen eguneratu da. Mezu elektroniko bat jasoko duzu zure helbide elektroniko berria baieztatzeko.
     activity:
       time_ago: "duela %{time}"
     admin:
       actions:
-        cancel: Utzi
+        cancel: Ezeztatu
       password_change:
         alert: Pasahitza aldatu behar duzu aurrera jarraitu ahal izateko.
         notification: Administratzaile rola duten erabiltzaileek pasahitza aldatu behar dute %{days} egunik behin.
@@ -260,10 +260,10 @@ eu:
         block: "%{user_name} k %{resource_name} erabiltzaile-taldea blokeatu du"
         reject: "%{user_name} k ukatu du %{resource_name} taldearen egiaztapena"
         unblock: "%{user_name} k %{resource_name} erabiltzaile-taldea desblokeatu du"
-        verify: "%{user_name} egiaztatu du %{resource_name} taldea"
+        verify: "%{user_name} k egiaztatu du %{resource_name} taldea"
         verify_via_csv: "%{user_name} k egiaztatu du %{resource_name} erabiltzaile-taldea CSV fitxategi baten bidez"
       user_moderation:
-        unreport: "%{user_name} desegin du %{resource_type} - %{unreported_user_name} erreportea"
+        unreport: "%{user_name} k desegin du %{resource_type} - %{unreported_user_name} erreportea"
     admin_terms_of_service:
       default_body: "<h2>ZERBITZUAREN ADMINISTRAZIO BALDINTZAK</h2><p>Sistemaren tokiko administratzailearen ohiko azalpena jaso duzulakoan gaude. Oro har, hiru gauza hauetara mugatzen da:</p><ol><li>Errespetatu besteen pribatutasuna.</li><li>Klikatu aurretik pentsatu.</li><li>Botere handiak erantzukizun handia dakar.</li></ol>"
     alert:
@@ -273,7 +273,7 @@ eu:
         error: Errore bat gertatu da aldaketa onartuz.
         success: Aldaketa ongi onartu da.
       amendable:
-        button: Aldatu %{model_name}
+        button: Zuzendu %{model_name}
         error: Errore bat egon da baliabide hau aldatzean.
         promote_button: '%{model_name}suspertzea'
         promote_confirm_text: Ziur al zaude zuzenketa hau sustatu nahi duzula?
@@ -283,14 +283,14 @@ eu:
         no_similars_found: Ez da aurkitu antzeko zuzenketarik.
         title: Antzeko zuzenketak
       created:
-        error: Arazoa gertatu da zuzenketa-zirriborroa sortzean.
+        error: Errorea egon da zuzenketa-zirriborroa sortzean.
         success: Zuzenketa-zirriborroa zuzen sortu da.
       destroy_draft:
-        error: Arazoa gertatu da zuzenketa-zirriborroa ezabatzean.
+        error: Arazo bat egon da zuzenketa-zirriborroa ezabatzean.
         success: Zuzenketa-zirriborroa zuzen ezabatu da.
       edit_draft:
         discard: Baztertu zirriborro hau
-        send: Aurrebista
+        send: Aurreikusi
         title: Editatu zuzenketa-zirriborroa
       emendation:
         actions:
@@ -359,7 +359,7 @@ eu:
     author:
       avatar: 'Avatarra: %{name}'
       comments:
-        one: iruzkin
+        one: iruzkina
         other: iruzkinak
       endorsements:
         one: atxikimendua
@@ -371,12 +371,12 @@ eu:
         fields:
           passport_number: Pasaporte zenbakia
           postal_code: Posta kodea
-        name: Beste adibide bat baimena
+        name: Beste baimen-adibide bat
       dummy_authorization_handler:
         explanation: Egiaztatu pasaporte zenbaki bat aurkeztuz, "X" letraz amaituta.
         fields:
           allowed_postal_codes: Onartutako posta-kodeak (komaz bereizita)
-          allowed_scope_id: Onartutako eremua
+          allowed_scope_id: Onartutako esparrua
           document_number: Dokumentuaren zenbakia
           postal_code: Posta kodea
           scope_id: Eremua
