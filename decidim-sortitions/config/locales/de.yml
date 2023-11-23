@@ -64,7 +64,7 @@ de:
             error: Die Sortierung kann nicht abgebrochen werden.
             success: Die Sortierung wurde erfolgreich abgebrochen.
           edit:
-            title: Aktualisieren Sie die Informationen zur Sortierung
+            title: Informationen zur Sortierung aktualisieren
             update: Aktualisieren
           form:
             all_categories: Alle Kategorien
