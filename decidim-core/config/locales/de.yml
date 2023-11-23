@@ -534,6 +534,8 @@ de:
           subtitle: Bitte füllen Sie das folgende Formular aus, um die Anmeldung abzuschließen
           username_help: Öffentlich sichtbarer Name, der in Ihren Beiträgen angezeigt wird. Um Anonymität zu gewährleisten, kann es sich um einen beliebigen Namen handeln.
       registrations:
+        create:
+          error: Es gab ein Problem bei der Erstellung Ihres Kontos.
         new:
           already_have_an_account?: Haben Sie bereits ein Konto?
           newsletter: Gelegentlich einen Newsletter mit relevanten Informationen erhalten
@@ -1229,6 +1231,7 @@ de:
           proposals: Vorschläge
           proposals_explanation: Machen Sie Vorschläge, unterstützen Sie bestehende und fördern Sie die Änderungen, die Sie sehen möchten.
         footer_sub_hero:
+          footer_sub_hero_body: Lasst uns eine offenere, transparentere und kollaborativere Gesellschaft aufbauen.<br /> Beitreten, teilnehmen und entscheiden.
           footer_sub_hero_headline: Willkommen auf der Beteiligungsplattform %{organization}.
           register: Registrieren
         hero:
@@ -1499,7 +1502,7 @@ de:
         my_interests: Meine Interessen
         no_scopes: Diese Organisation hat noch keinen Spielraum!
         select_your_interests: Wählen Sie die Themen aus, an denen Sie interessiert sind, um Ereignisse, die sich auf sie beziehen, auf der Registerkarte "Zeitleiste" Ihres Profils zu erhalten.
-        update_my_interests: Aktualisieren Sie meine Interessen
+        update_my_interests: Meine Interessen aktualisieren
       update:
         error: Beim Aktualisieren Ihrer Interessen ist ein Fehler aufgetreten.
         success: Ihre Interessen wurden erfolgreich aktualisiert.
