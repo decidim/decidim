@@ -110,6 +110,8 @@ de:
         information: Information
         initiative_type_scopes: Initiativentyp
         initiatives: Initiativen
+        initiatives_menu:
+          see_initiative: Initiative ansehen
         initiatives_settings: Einstellungen
         initiatives_submenu:
           info: Über diese Initiative
@@ -298,6 +300,8 @@ de:
             update: Aktualisieren
           form:
             authorizations: Autorisierungseinstellungen
+            child_scope_threshold_enabled_help_html: 'Diese Einstellung unterstützt keine Offline-Abstimmungen. Es aktiviert Unter-Themenbereiche und arbeitet mit einem Autorisierungs-Handler zusammen, der dem Teilnehmenden einen Themenbereich zuordnet. Stellen Sie sicher, dass Sie diese Autorisierung unten in den Autorisierungseinstellungen auswählen. Hierfür müssen die Themenbereiche auf hierarchische Weise konfiguriert werden: 1 Überthema - N Unterthemen. Weitere Informationen zur Konfiguration finden Sie auf der <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">Dokumentationsseite für Admins von Initiativen.</a>.'
+            only_global_scope_enabled_help_html: Aktivieren Sie diese Einstellung, wenn Sie "Unterthemen-Signaturen" aktiviert haben und den globalen Themenbereich als Ihren Elternbereich konfiguriert haben. Dadurch wird die Auswahl des Initialtyps im Assistenten zur Erstellung der Initiative übersprungen. Weitere Informationen darüber, wie diese Konfiguration funktioniert, finden Sie <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">hier</a>.
             options: Optionen
           initiative_type_scopes:
             title: Bereiche für den Typ der Initiative
@@ -459,9 +463,12 @@ de:
             other: und %{count} weitere Leute
         committee_members:
           approve: Genehmigen
+          confirm_approve: Sind Sie sicher, dass dieses Mitglied entfernt werden soll?
+          confirm_revoke: Sind Sie sicher, dass dieses Mitglied zurückgezogen werden soll?
           invite_to_committee_help: Teilen Sie diesen Link, um andere Teilnehmer zum Unterstützungskomitee einzuladen.
           link: Link
           no_members_yet: Es gibt keine Mitglieder im Unterstützungskomitee.
+          revoke: Widerrufen
           title: Ausschussmitglieder
         count:
           title:
