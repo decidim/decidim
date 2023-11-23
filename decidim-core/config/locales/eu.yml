@@ -313,7 +313,7 @@ eu:
           allowed_scope_id: Onartutako esparrua
           document_number: Dokumentuaren zenbakia
           postal_code: Posta kodea
-          scope_id: Eremua
+          scope_id: Esparrua
         name: Baimen-adibidea
       dummy_authorization_workflow:
         name: Balizko baimenaren lan-fluxua
@@ -339,7 +339,7 @@ eu:
           explanation: Zure baimena iraungi da. Ekintza hau burutzeko, "%{authorization}" berrantolatu behar duzu.
           title: Baimena iraungi egin da
         incomplete:
-          cancel: Utzi
+          cancel: Ezeztatu
           explanation: 'Nahiz eta orain baimenduta zauden honako "%{authorization}” honen bidez, behar dugu zuk berriz baimena eskuratzea, ez baititugu honako datu hauek:'
           invalid_field: "%{field}"
           reauthorize: Berriz eskuratu baimena
@@ -408,8 +408,8 @@ eu:
             dummy_global_translatable_text: Itzul daitekeen balizko testua
             enable_pads_creation: Gaitu ohar-blokeak sortzea
             resources_permissions_enabled: Baliabideen baimenak gaituta
-            scope_id: Eremua
-            scopes_enabled: Eremuak gaituta
+            scope_id: Esparrua
+            scopes_enabled: Esparruak gaituta
           step:
             amendment_creation_enabled: Zuzenketa sortzea aktibatuta
             amendment_promotion_enabled: Zuzenketa sustatzea aktibatuta
@@ -489,7 +489,7 @@ eu:
           newsletter_title: Harremanetarako baimena
           nickname_help: Zure ezizena %{organization}-an. Letrak, zenbakiak, '-' eta '_' soilik eduki ditzake.
           password_help: "%{minimun_characters} karaktere minimo, ez da oso arrunta izan behar (adibidez, 123456) eta zure ezizena eta posta elektronikoa desberdinak izan behar dira."
-          sign_in:
+          sign_in: Hasi saioa
           sign_up: Erregistratu
           sign_up_as:
             legend: Izena eman honako hau gisa
@@ -527,7 +527,7 @@ eu:
         new:
           authorize: Aplikazioa baimentzen du
           by_organization_link_html: <small class="heading-small"> %{link}</small>
-          cancel: Utzi
+          cancel: Ezeztatu
           connect_your_account_html: Konektatu kontua <strong>%{organization}</strong>-n sartzean
           publish_content: Argitaratu edukia zuretzat
           see_email: Ikusi zure helbide elektronikoa
@@ -699,10 +699,10 @@ eu:
         profile_updated:
           email_intro: </a> de %{name} (%{nickname}) profilaren <a href="%{resource_url}"> orria, jarraitzen ari zarena, eguneratu egin da.
           email_outro: Jakinarazpen hau jaso duzu %{nickname} jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari utzi ahal diozu.
-          email_subject: "%{nickname} profilean eguneratu dute"
+          email_subject: "%{nickname} k bere profila eguneratu du"
           notification_title: </a> de %{name} (%{nickname}) profilaren <a href="%{resource_path}"> orria, jarraitzen ari zarena, eguneratu egin da.
         user_officialized:
-          email_intro: Parte-hartzailea %{name} (%{nickname}) ofizializatu da.
+          email_intro: '%{name} (%{nickname}) parte-hartzailea ofizializatu egin da.'
           email_outro: Jakinarazpen hau jaso duzu erakundearen administratzailea zarelako.
           email_subject: "%{name} ofizializatu egin da"
           notification_title: '%{name} (%{nickname}) parte-hartzailea ofizializatu egin da.'
@@ -711,7 +711,7 @@ eu:
         click_button: 'Egin klik hurrengo loturan zure datuak deskargatzeko. <br/>Artxiboa eskuragai egongo da data honetara arte %{date}.<br/>Irekitzeko beharko duzu <a href="https://www.7-zip.org/">7-Zip</a> (Windowserako), <a href="https://www.keka.io/en/">Keka</a> (para MacOS) o <a href="https://peazip.github.io">PeaZip</a> (Linuxerako). Pasahitza: %{password}'
         download: Deskarga
       export:
-        ready: Atxikita aurkituko duzu zure esportazioaren bertsio trinkotua.
+        ready: Mesedez, atxikita aurkituko duzu zure esportazioaren bertsio trinkotua.
       subject: Prest duzu "%{name}" izeneko esportazioa
     filters:
       linked_classes:
@@ -720,14 +720,14 @@ eu:
         dummy_resource: Balizko baliabideak
         meeting: Topaketa-zerrenda
         project: Proiektuak
-        proposal: Proposamenak
+        proposal: Proposamen
         result: Emaitzak
     fingerprint:
       check: Egiaztatu hatz-marka
       explanation: Beheko testu zatiak eduki honen ordezkaritza laburtu bat du. Oso erabilgarria da edukia ez dela manipulatu, aldaketa bakar bat balioa erabat desberdina izango delako.
       online_calculator_name: MD5 kalkulagailua linean
       replicate_help: Hatz-marka hori SHA256 hashing algoritmo baten bidez kalkulatzen da. Zeure buruari errepikatu ahal izateko, %{online_calculator_link} erabil dezakezu eta kopiatu iturriaren datuak itsatsi.
-      source: Iturria
+      source: Jatorria
       title: Hatz-marka
       value: Balioa
     followers:
@@ -741,7 +741,7 @@ eu:
         error: Arazo bat egon da baliabide hau jarraitzean.
         participatory_space: Jarraitzen <span class="show-for-sr">%{resource_name}</span>
       destroy:
-        button: Jarraitzeari utzi
+        button: Utzi jarraitzeari
         error: Arazo bat egon da baliabide hau jarraitzeari uztean.
     forms:
       current_file: Oraingo fitxategia
@@ -803,7 +803,7 @@ eu:
       accept_invitation: Onartu
       accept_or_reject_group_invitations: 'Talde hauek gonbidatu zaituzte. Eskaerak onartu edo ukatu:'
       index:
-        invite: Gonbit egin
+        invite: Gonbidatu
         invite_user: Gonbidatu parte-hartzaile bat
       invite:
         error: Arazo bat egon da parte-hartzaile hau gonbidatzean
@@ -889,7 +889,7 @@ eu:
       warning:
         body_1: Kanpoko lesteka bat bisitatuko duzu eta eskatzen dizugu zuhurra izatea kanpoko orrialdeen edukiarekin.
         body_2: Mesedez, jarraitu aurretik, egiaztatu bisitatuko duzun lotura leku seguru batena dela.
-        cancel: Utzi
+        cancel: Ezeztatu
         close_modal: Itxi leihoa
         proceed: Jarraitu
         title: Ireki kanpoko lotura
@@ -903,13 +903,13 @@ eu:
         unknown_action: "%{user_name} Ekintza batzuk egin %{resource_name}"
         unknown_action_with_space: "%{user_name} Ekintza batzuk egin %{resource_name} en %{space_name}"
         unpublish_with_space: "%{user_name} k %{resource_name} despublikatu du %{space_name} espaziotik"
-        update: "%{user_name} eguneratu zuen %{resource_name}"
-        update_with_space: "%{user_name} eguneratu zuen %{resource_name} hemen %{space_name}"
+        update: "%{user_name} k %{resource_name} eguneratu du"
+        update_with_space: "%{user_name} k eguneratu du %{resource_name} hemen %{space_name}"
       value_types:
         area_presenter:
-          not_found: 'Eremua ez zen datu-basean aurkitu (ID: %{id})'
+          not_found: 'Arloa ez da (ID: %{id}) datu-basean aurkitu'
         area_type_presenter:
-          not_found: 'Eremu mota ez da datu basean aurkitu (ID: %{id})'
+          not_found: 'Arlo mota ez da (ID: %{id}) datu basean aurkitu'
         scope_presenter:
           not_found: 'Esparrua ez da aurkitu (ID: %{id}) datu-basean'
         scope_type_presenter:
@@ -986,7 +986,7 @@ eu:
           from: Nork
           groups: Nire taldeak
           last_message: Azken mezua
-          new_conversation: Elkarrizketa berria
+          new_conversation: Beste elkarrizketa bat
           next: Hurrengoa
           no_conversations: Oraindik ez duzu elkarrizketarik
           title: Elkarrizketak
@@ -1011,7 +1011,7 @@ eu:
         csv: Deskargatu datuak (CSV)
       followers:
         description: Parte hartzeko espazio hau jarraitzen duten erabiltzaile kopurua
-        object: jarraitzaile
+        object: jarraitzaileak
         title: Jarraitzaileak
       participants:
         description: Erakundeko erabiltzaile aktiboen kopurua
@@ -1080,7 +1080,7 @@ eu:
       show:
         administrators: Administratzaileak
         allow_public_contact: Baimentzea edonork bidali diezadala mezu zuzena, nahiz eta nik jarraitu ez.
-        direct_messages: Edonoren mezu zuzenak jasotzea
+        direct_messages: Jaso edonoren mezu zuzenak
         email_on_moderations: Mezu elektroniko bat jaso nahi dut zerbait neurriz erreportatzen den bakoitzean.
         email_on_notification: Mezu elektroniko bat jaso nahi dut jakinarazpen bat jasotzen dudan bakoitzean.
         everything_followed: Jarraitzen dudan guztia
@@ -1094,7 +1094,7 @@ eu:
         error: Arazo bat egon da zure jakinarazpenen konfigurazioa eguneratzean.
         success: Jakinarazpenen konfigurazioa zuzen eguneratu da.
     open_data:
-      not_available_yet: Open Data fitxategiak oraindik ez daude erabilgarri, saiatu berriro minutu gutxian.
+      not_available_yet: Open Data fitxategiak oraindik ez daude erabilgarri, saiatu berriro minutu gutxi barru.
     own_user_groups:
       index:
         pending: Zain
@@ -1167,7 +1167,7 @@ eu:
       default_officialization_text_for_users: Parte-hartzaile hau publikoki egiaztatua dago, bere izena edo rol egiaztatua dago bere benetako izena eta rolarekin bat etorriz
       show:
         activity: Jarduera
-        badges: Intsigniak
+        badges: Garaikurrak
         conversations: Elkarrizketak
         followers: Jarraitzaileak
         following: Jarraitu
@@ -1214,7 +1214,7 @@ eu:
         subject: Eduki bat salatua izan da
     reports:
       create:
-        error: Errorea gertatu da edukia salatzean. Mesedez, saiatu berriro.
+        error: Errore bat egon da edukia salatzean. Mesedez, saiatu berriro.
         success: Salaketa zuzen sortu da, eta administratzaile batek aztertuko du.
     resource_endorsements:
       create:
@@ -1222,9 +1222,9 @@ eu:
     scopes:
       global: Esparru orokorra
       picker:
-        cancel: Utzi
+        cancel: Ezeztatu
         change: Aldatu hautatutako esparrua
-        choose: Aukeratu
+        choose: Hautatu
         currently_selected: Esparrua zuzen hautatu da
         title: Hautatu %{field}
       prompt: Hautatu esparrua
@@ -1232,7 +1232,7 @@ eu:
       scopes_picker_input:
         select_scope: 'Hautatu esparru bat (gaur egun: %{current})'
     search:
-      results: Bilaketaren emaitzak
+      results: Bilatu emaitzak
       results_found_for_term: '%{count} Bilaketaren emaitzak: "%{term}"'
       term_input_placeholder: Bilatu
     searches:
@@ -1260,7 +1260,7 @@ eu:
         title: Gelditu!
     shared:
       confirm_modal:
-        cancel: Utzi
+        cancel: Ezeztatu
         close_modal: Itxi leihoa
         ok: Ados
         title: Baieztatu
@@ -1273,7 +1273,7 @@ eu:
         unfold: Zabaldu
       filter_form_help:
         help: Bilaketa-baldintzak aldatzen direnean, hurrengo formularioak dinamikoki iragazten ditu bilaketa-emaitzak.
-        skip: Saltatu emaitzetara
+        skip: Joan emaitzetara
       flag_modal:
         already_reported: Eduki hau jada salatuta dago, eta administratzaile batek berrikusiko du.
         close: Itxi
@@ -1332,7 +1332,7 @@ eu:
       no_stats: Oraindik ez dago estatistikarik.
       pages_count: Orrialdeak
       participants_count: Erabiltzaileak
-      users_count: Erabiltzaileak
+      users_count: Parte-hartzaileak
     tags:
       filter_results_for_category: 'Emaitzak kategoriaren arabera iragaztean: %{resource}'
       filter_results_for_scope: 'Emaitzak %{resource} esparruaren arabera iragaztean'
@@ -1378,7 +1378,7 @@ eu:
         error: Mezua ez da bidali. Saiatu berriro geroago
     user_interests:
       show:
-        my_interests: Nire interesak
+        my_interests: Nire interesekoak
         no_scopes: Erakunde honek oraindik ez du esparrurik!
         select_your_interests: Aukeratu interesatzen zaizkizun gaiak zure profileko denbora lerroan.
         update_my_interests: Eguneratu nire interesak
@@ -1473,7 +1473,7 @@ eu:
         subject: Helnbide elektronikoa aldatu da
       invitation_instructions:
         accept: Onartu gonbita
-        accept_until: 'Gonbit hau data honetan iraungiko da: %{due_date}.'
+        accept_until: 'Gonbidapen hau data honetan iraungiko da: %{due_date}.'
         decline: Deuseztatu gonbita
         hello: Kaixo, %{email},
         ignore: |-
@@ -1494,7 +1494,7 @@ eu:
       organization_admin_invitation_instructions:
         subject: 'Gonbita jaso duzu erakunde hau kudeatzeko: %{organization}'
       password_change:
-        greeting: Kaixo %{recipient}!
+        greeting: Kaixo, %{recipient}!
         message: Zuregana jotzen dugu jakinarazteko zure pasahitza zuzen aldatu dela.
         subject: Pasahitza aldatu da
       reset_password_instructions:
@@ -1518,14 +1518,14 @@ eu:
         change_my_password: Aldatu nire pasahitza
         change_your_password: Aldatu zure pasahitza
         confirm_new_password: Berretsi pasahitz berria
-        new_password: Pasahitz berria
+        new_password: Pasahitza
         password_help: "%{minimun_characters} karaktere minimo, ez da oso arrunta izan behar (adibidez, 123456) eta zure ezizena eta posta elektronikoa desberdinak izan behar dira."
       new:
         forgot_your_password: Pasahitza ahaztu duzu?
         send_me_reset_password_instructions: Bidali pasahitza berrezartzeko argibideak
       no_token: Ezin zara orrialde honetara sartu pasahitza berrezartzeko posta elektronikotik ez bazatoz. Pasahitza berrezartzeko mezu elektroniko batetik bazatoz, ziurtatu emandako URL osoa erabili duzula.
       send_instructions: Mezu elektroniko bat jasoko duzu pasahitza berrezartzeko argibideekin minutu gutxian.
-      send_paranoid_instructions: Zure helbide elektronikoa gure datu-basean badago, pasahitza berreskuratzeko esteka jasoko duzu helbide elektronikoan minutu gutxitan.
+      send_paranoid_instructions: Datu-basean zure helbide elektronikoa badugu, minutu gutxi barru pasahitza berreskuratzeko esteka bat jasoko duzu.
       updated: Pasahitza ondo aldatu da. Saioa hasi duzu.
       updated_not_active: Pasahitza ondo aldatu da.
     registrations:
@@ -1541,7 +1541,7 @@ eu:
     sessions:
       already_signed_out: Sinatu arrakastaz.
       new:
-        sign_in:
+        sign_in: Hasi saioa
       signed_in: Saioa hasi da behar bezala.
       signed_out: Sinatu arrakastaz.
     shared:
@@ -1550,7 +1550,7 @@ eu:
         didn_t_receive_confirmation_instructions: Ez dituzu jaso berresteko jarraibideak?
         didn_t_receive_unlock_instructions: Ez dituzu jaso desblokeatzeko jarraibideak?
         forgot_your_password: Zure pasahitza ahaztu duzu?
-        sign_in:
+        sign_in: Hasi saioa
         sign_in_with_provider: Hasi saioa %{provider}
         sign_up: Eman izena
       minimum_password_length:
@@ -1584,7 +1584,7 @@ eu:
         other: 'Errore batzuk egon dira zure eskaera prozesatzean:'
       password_confirmation_message: '"Baieztatu zure pasahitza" ez dator bat Pasahitzarekin'
       too_many_marks: puntuazio markako jarraipen gehiegi erabiltzen ari da (adib. eta?)
-      too_much_caps: maiuskulaz gehiegi erabiltzen ditu (testuaren% 25 baino gehiago)
+      too_much_caps: letra larri gehiegi erabiltzen ari da (testuaren% 25 baino gehiago)
       too_short: laburregia da (gutxienez %{count} karaktere behar dira)
       url_format: URL hau formato okerrean dago.
   forms:
@@ -1597,7 +1597,7 @@ eu:
     required_explanation: "Derrigorrezko eremuak * batez daude markatuta"
   invisible_captcha:
     sentence_for_humans: Gizaki bat bazara, ez egin kasu eremu honi
-    timestamp_error_message: Barkatu, baina azkarregi aritu zara! Mesedez, bidali.
+    timestamp_error_message: Barkatu, baina azkarregi aritu zara! Mesedez, birbidali.
   layouts:
     decidim:
       cookie_warning:
@@ -1608,7 +1608,7 @@ eu:
         edit: Editatu
       footer:
         cc_by_license: Creative Commons lizentziaduna
-        decidim_logo: Decidimen logoa
+        decidim_logo: Decidim-en logoa
         download_open_data: Deskargatu Open Data fitxategiak
         made_with_open_source: Gune hau egiteko, <a target="_blank" href="https://github.com/decidim/decidim">software libre</a> erabili da.
       header:
