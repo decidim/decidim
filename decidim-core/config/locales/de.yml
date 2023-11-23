@@ -22,9 +22,11 @@ de:
       user:
         about: Über
         email: Ihre E-Mail
+        encrypted_password: Passwort
         locale: Spracheinstellung
         name: Ihr Name
         nickname: Spitzname
+        old_password: Aktuelles Passwort
         password: Passwort
         password_confirmation: Bestätigen Sie Ihr Passwort
         personal_url: Persönliche URL
@@ -586,6 +588,8 @@ de:
           subtitle: Bitte füllen Sie das folgende Formular aus, um die Anmeldung abzuschließen
           username_help: Öffentlich sichtbarer Name, der in Ihren Beiträgen angezeigt wird. Um Anonymität zu gewährleisten, kann es sich um einen beliebigen Namen handeln.
       registrations:
+        create:
+          error: Es gab ein Problem bei der Erstellung Ihres Kontos.
         new:
           already_have_an_account?: Haben Sie bereits ein Konto?
           log_in: Anmelden
@@ -1294,6 +1298,7 @@ de:
           proposals: Vorschläge
           proposals_explanation: Machen Sie Vorschläge, unterstützen Sie bestehende und fördern Sie die Änderungen, die Sie sehen möchten.
         footer_sub_hero:
+          footer_sub_hero_body_html: Lasst uns eine offenere, transparentere und kollaborativere Gesellschaft aufbauen.<br /> Beitreten, teilnehmen und entscheiden.
           footer_sub_hero_headline: Willkommen auf der Beteiligungsplattform %{organization}.
           register: Registrieren
         hero:
@@ -1554,7 +1559,7 @@ de:
         my_interests: Meine Interessen
         no_scopes: Dieser Organisation ist noch kein Thema zugewiesen!
         select_your_interests: Wählen Sie die Themen aus, an denen Sie interessiert sind, um dazu Benachrichtigungen auf der Registerkarte "Zeitleiste" Ihres Profils zu erhalten.
-        update_my_interests: Aktualisieren Sie meine Interessen
+        update_my_interests: Meine Interessen aktualisieren
       update:
         error: Beim Aktualisieren Ihrer Interessen ist ein Fehler aufgetreten.
         success: Ihre Interessen wurden erfolgreich aktualisiert.
@@ -1566,6 +1571,11 @@ de:
         greetings: Grüße,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hallo %{admin},
         subject: Ein neuer Benutzer wurde in %{organization_name} gemeldet
+    user_update_mailer:
+      notify:
+        body_1: Wir senden Ihnen diese Nachricht, um Sie über eine Aktualisierung Ihres Kontos zu informieren.
+        body_2: Falls Sie selbst keine solche Aktualisierung durchgeführt haben, melden Sie sich bitte bei Ihrem Konto an, um Ihr Passwort zu ändern. Falls Sie sich nicht einloggen können, wenden Sie sich bitte an den Plattform-Support.
+        greetings: Freundliche Grüße,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
     version:
       show:
         back_to_resource: Zurück
