@@ -29,7 +29,7 @@ eu:
         password: Pasahitza
         password_confirmation: Berretsi pasahitza
         personal_url: URL pertsonala
-        remove_avatar: Kendu avatar-a
+        remove_avatar: Kendu abatarra
         tos_agreement: Erabilera-baldintzak eta -baldintzak
     models:
       decidim/attachment_created_event: eranskina
@@ -40,14 +40,14 @@ eu:
       decidim/invited_to_group_event: Taldera gonbidatuta
       decidim/join_request_accepted_event: Erregistratu eskaera onartua
       decidim/join_request_rejected_event: Lotzeko eskaera ukatua
-      decidim/profile_updated_event: Profila eguneratu da
+      decidim/profile_updated_event: Profila eguneratua
       decidim/promote_to_admin: Taldeko administratzaile mailara igota
       decidim/promoted_to_admin_event: Taldeko administratzaile mailara igota
       decidim/removed_from_group: Taldetik kenduta
       decidim/resource_endorsed_event: Baliabideari atxiki zaio
       decidim/resource_hidden_event: Ezkutuko baliabidea
-      decidim/user_group_created_event: Erabiltzaile-taldea sortuta
-      decidim/welcome_notification_event: Ongi etorri mezua
+      decidim/user_group_created_event: Erabiltzaile-taldea sortua
+      decidim/welcome_notification_event: Ongietorri-mezua
   activerecord:
     attributes:
       decidim/user:
@@ -59,23 +59,23 @@ eu:
         remember_me: Gogoratu
     models:
       decidim/amendment:
-        one: zuzenketa
+        one: Zuzenketa
         other: Zuzenketak
       decidim/endorsement:
         one: Atxikimendua
         other: Atxikimenduak
       decidim/user:
-        one: Ez dago erabiltzailerik
+        one: Parte-hartzailea
         other: Erabiltzaileak
       decidim/user_group:
-        one: Erabiltzaile taldea
+        one: Erabiltzaile-taldea
         other: Erabiltzaile taldeak
   booleans:
     'false': 'Ez'
     'true': 'Bai'
   carrierwave:
     errors:
-      file_cannot_be_processed: Fitxategia ezina prozesatu
+      file_cannot_be_processed: Fitxategia ezin izan da prozesatu
       file_resolution_too_large: Fitxategiaren erresoluzioa handiegia da
       file_size_too_large: Fitxategiaren taimaina handiegia da
       not_inside_organization: Artxiboa ez dago antolatzaile batekin erlazionatuta
@@ -96,13 +96,13 @@ eu:
         other: '%{count} hilabete inguru'
       half_a_minute: minutu erdia
       x_days:
-        one: Egun bat
+        one: Egun 1
         other: "Egun bat"
       x_hours:
-        one: ordu bat %{count}
+        one: Ordu 1
         other: "%{count} ordu"
       x_minutes:
-        one: '%{count} minutu'
+        one: Minutu 1
         other: "Minutu %{count}"
   decidim:
     accessibility:
@@ -119,7 +119,7 @@ eu:
           ok: Bai, nire kontua ezabatu nahi dut
           question: Ziur zure kontua ezabatu nahi duzula?
           title: Ezabatu nire kontua
-        explanation: Mesedez, zure kontu ezabatu nahi izateko arrazoia azaldu (aukerakoa).
+        explanation: Mesedez, azaldu arrazoia zure kontua ezabatu nahi izateko (aukerakoa).
       destroy:
         error: Akats bat gertatu da zure kontua ezabatzean.
         success: Zure kontua ezabatu egin da.
