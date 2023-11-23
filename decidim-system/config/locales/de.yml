@@ -208,6 +208,7 @@ de:
           default: Standard?
           enabled: Aktiviert
           locale: Spracheinstellung
+          organization_admin_email_hint: Wir senden Ihnen eine E-Mail an diese Adresse, die Sie bestätigen müssen um Ihr Passwort einrichten zu können.
           reference_prefix_hint: Das Referenzpräfix wird zur eindeutigen Identifizierung von Ressourcen in allen Organisationen verwendet.
           secondary_hosts_hint: Geben Sie jede von ihnen in einer neuen Zeile ein.
           title: Neue Organisation
