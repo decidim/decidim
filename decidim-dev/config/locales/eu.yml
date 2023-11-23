@@ -41,7 +41,7 @@ eu:
     dummy:
       admin:
         exports:
-          dummies: Manikiak
+          dummies: Probak
     gamification:
       badges:
         test:
@@ -56,7 +56,7 @@ eu:
           unearned_own: Oraindik ez duzu probarik sortu.
     resource_links:
       test_link:
-        dummy_resource_dummy: ' Honi buruzko adibidea '
+        dummy_resource_dummy: ' Honekin lotutako proba'
     statistics:
       bar: Bar
       dummies_count_high: Dummies altua
