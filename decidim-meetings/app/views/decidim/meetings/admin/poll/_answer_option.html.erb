@@ -5,7 +5,8 @@
     <h2 class="card-title">
     <span><%= t("answer_option", scope: "decidim.forms.admin.questionnaires.answer_option") %></span>
     <% if editable %>
-      <button class="button button__sm button__secondary small alert hollow remove-answer-option button--title">
+      <button class="button button__sm button__transparent button__transparent-secondary small alert hollow remove-answer-option button--title mb-2">
+        <%= icon("delete-bin-line") %>
         <%= t("remove", scope: "decidim.forms.admin.questionnaires.answer_option") %>
       </button>
     <% end %>
