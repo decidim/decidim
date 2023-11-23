@@ -37,15 +37,6 @@
 
         <div class="preview">
           <%= form.upload(
-                :official_img_header,
-                dimensions_info: current_organization.attached_uploader(:official_img_header).dimensions_info,
-                extension_allowlist: current_organization.attached_uploader(:official_img_header).extension_allowlist,
-                button_class: "button button__sm button__transparent-secondary"
-              ) %>
-        </div>
-
-        <div class="preview">
-          <%= form.upload(
                 :official_img_footer,
                 dimensions_info: current_organization.attached_uploader(:official_img_footer).dimensions_info,
                 extension_allowlist: current_organization.attached_uploader(:official_img_footer).extension_allowlist,

@@ -46,9 +46,6 @@ module Decidim
     validates :time_zone, presence: true, time_zone: true
     validates :default_locale, inclusion: { in: :available_locales }
 
-    has_one_attached :official_img_header
-    validates_upload :official_img_header, uploader: Decidim::OfficialImageHeaderUploader
-
     has_one_attached :official_img_footer
     validates_upload :official_img_footer, uploader: Decidim::OfficialImageFooterUploader
 
