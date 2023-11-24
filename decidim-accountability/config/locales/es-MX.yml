@@ -39,6 +39,8 @@ es-MX:
         confirm_destroy: '¿Está seguro de que quiere eliminar este %{name}?'
         destroy: Borrar
         edit: Editar
+        import: Importar proyectos desde otro componente
+        import_csv: Importar resultados desde un archivo CSV
         new_result: Añadir resultado
         new_status: Añadir estado
         new_timeline_entry: Añadir entrada de la cronología
@@ -74,6 +76,7 @@ es-MX:
                 </ul>
               </li>
               </ol>
+            title: Importar resultados desde un archivo CSV
         imports:
           create:
             invalid: Ha habido un problema importando los resultados.
@@ -98,6 +101,7 @@ es-MX:
             success:
               one: Hay un proyecto para ser importado. Se notificará por correo electrónico, cuando se complete la importación.
               other: "Hay %{count} proyectos para ser importados. Se notificará por correo electrónico, cuando se complete la importación."
+            title: Importar proyectos desde otro componente
         results:
           create:
             invalid: Se ha producido un error al crear este resultado.
