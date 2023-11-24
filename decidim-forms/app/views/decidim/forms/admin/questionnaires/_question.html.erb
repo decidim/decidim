@@ -134,7 +134,7 @@
 
         <% if editable %>
           <div class="row column">
-            <button type="button" class="button button__sm button__secondary add-answer-option"><%= t(".add_answer_option") %></button>
+            <button type="button" class="button button__sm button__secondary mt-4 add-answer-option"><%= t(".add_answer_option") %></button>
           </div>
         <% end %>
       </div>
@@ -162,7 +162,7 @@
         <% if editable %>
           <% disabled = !question.persisted? %>
           <div class="row column">
-            <button <%= "disabled" if disabled %> title="<%= disabled ? t(".add_display_condition_info") : t(".add_display_condition_info") %>" class="button button__sm button__secondary add-display-condition"><%= t(".add_display_condition") %></button>
+            <button <%= "disabled" if disabled %> title="<%= disabled ? t(".add_display_condition_info") : t(".add_display_condition_info") %>" class="button button__sm button__secondary mt-4 add-display-condition"><%= t(".add_display_condition") %></button>
           </div>
         <% end %>
       </div>
