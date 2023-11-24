@@ -75,7 +75,6 @@ el:
         machine_translation_display_priority_translation: Μεταφρασμένο κείμενο πρώτα
         name: Όνομα
         official_img_footer: Επίσημο υποσέλιδο λογότυπου
-        official_img_header: Επίσημη κεφαλίδα λογότυπου
         official_url: Επίσημη διεύθυνση URL οργανισμού
         omnipresent_banner_short_description: Σύντομη περιγραφή
         omnipresent_banner_title: Τίτλος
@@ -141,8 +140,6 @@ el:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Μη έγκυρο αρχείο εικόνας
-            official_img_header:
               allowed_file_content_types: Μη έγκυρο αρχείο εικόνας
         participatory_space_private_user_csv_import:
           attributes:
