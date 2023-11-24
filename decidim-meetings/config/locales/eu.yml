@@ -224,7 +224,7 @@ eu:
             one: 'Topaketa ezin da ezabatu lotutako proposamen bat dituelako:'
             other: 'Topaketa ezin da ezabatu lotutako %{count} proposamen dituelako:'
         manage_poll: Konfiguratu inkesta
-        new: Topaketa berria
+        new: Beste topaketa bat
         preview: Aurreikusi
         registrations: Izen-emateak
         title: Ekintzak
@@ -438,7 +438,7 @@ eu:
       iframe_embed_type:
         embed_in_meeting_page: Topaketa-orrian txertatuta
         none: Bat ere ez
-        open_in_live_event_page: Zabalik ekitaldi orrian (hautazko inkestekin)
+        open_in_live_event_page: Ireki zuzeneko ekitaldi-orrian (inkesta aukeratuekin)
         open_in_new_tab: Ireki URL fitxa berri batean
       last_activity:
         meeting_updated_at_html: "<span>eztabaida ordu honetan %{link}</span> eguneratuta"
@@ -526,7 +526,7 @@ eu:
           show_embedded_iframe_help: 'Zerbitzu gutxi batzuek baino ez dute uzten topaketan edo zuzeneko gertakarietan txertatzen honako domeinu hauetatik:%{domains}'
         index:
           click_here: Ikusi topaketa guztiak
-          new_meeting: Topaketa berria
+          new_meeting: Beste topaketa bat
           see_all: Ikusi topaketa guztiak
           see_all_withdrawn: Ikusi bertan behera utzitako topaketa guztiak
           text_banner: Ikusten ari zara egileek bertan behera utzitako topaketak %{go_back_link}.
@@ -534,14 +534,14 @@ eu:
           related_information: Lotutako informazioa
         meetings:
           no_meetings_warning: Ez dago bilaketa-irizpidearekin bat datorren topaketarik, edo ez dago ezein topaketarik programaturik.
-          upcoming_meetings_warning: Orain ez dago topaketarik programaturik, baina aurreko topaketak ikus ditzakezu.
+          upcoming_meetings_warning: Orain ez dago topaketa programaturik, baina aurreko topaketak ikus ditzakezu.
         new:
           back: Atzera
           create: Sortu
           title: Sortu zure topaketa
         registration_confirm:
           cancel: Ezeztatu
-          confirm: Baieztatu
+          confirm: Berretsi
         show:
           attendees: Bertaratuen kopurua
           back: Itzuli zerrendara
@@ -570,7 +570,7 @@ eu:
             other: "%{count} slot geratzen dira"
           view: ikusi
           visit_finished: Ikusi egindako topaketa
-          withdraw_btn_hint: Topaketa bertan behera utz dezakezu iritziz aldatzen baduzu. Bilera ez da ezabatu. Erretiratuen zerrendan agertuko da.
+          withdraw_btn_hint: Topaketa bertan behera utz dezakezu iritzia aldatzen baduzu. Topaketa ez da ezabatu. Erretiratutakoen zerrendan agertuko da.
           withdraw_confirmation_html: Ziur zaude proposamen hau kendu nahi duzula? <br><br><strong>Ekintza hau ezin da desegin!</strong>
           withdraw_meeting: Bertan behera utzi topaketa
         update:
@@ -582,13 +582,13 @@ eu:
         invite:
           fields:
             email: Helbide elektronikoa
-            name: izena
+            name: Izena
             sent_at: ' Bidalketa-data: '
             status: Egoera
           status:
             accepted: (%{at})-an onartura
             rejected: (%{at})-an baztertuta
-            sent: bidalia
+            sent: Bidalia
         meeting:
           fields:
             closed: Itxita
@@ -638,8 +638,8 @@ eu:
           invalid: Arazo bat izan da topaketa honekin bat egitean.
           success: Topaketan izena ongi eman duzu.
         decline_invitation:
-          invalid: Arazo bat egon da gonbidapenari uko egiten.
-          success: Arrakastaz uko egin diozu gonbidapenari.
+          invalid: Arazo bat egon da gonbidapenari uko egitean.
+          success: Zuzen uko egin diozu gonbidapenari.
         destroy:
           invalid: Arazo bat izan da topaketa honetatik ateratzean.
           success: Topaketatik ongi atera zara.
