@@ -70,7 +70,6 @@ ar:
         machine_translation_display_priority_translation: النص المترجم أولاً
         name: اسم
         official_img_footer: تذييل الشعار الرسمي
-        official_img_header: رأس الشعار الرسمي
         official_url: عنوان URL الرسمي للمنظمة
         omnipresent_banner_short_description: وصف قصير
         omnipresent_banner_title: العنوان
@@ -126,8 +125,6 @@ ar:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: ملف صورة غير صالح
-            official_img_header:
               allowed_file_content_types: ملف صورة غير صالح
   activerecord:
     attributes:
