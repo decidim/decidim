@@ -4,6 +4,7 @@ require "spec_helper"
 
 describe "Components" do
   let!(:organization) { create(:organization) }
+  let!(:user) { create(:user, organization:) }
 
   before do
     switch_to_host(organization.host)
