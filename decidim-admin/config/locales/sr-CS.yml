@@ -51,7 +51,6 @@ sr:
         logo: Logo
         name: Ime
         official_img_footer: Zvanično podnožje logoa
-        official_img_header: Zvanično zaglavlje logoa
         official_url: Zvaničan link organizacije
         omnipresent_banner_short_description: Kratak opis
         omnipresent_banner_title: Naslov
@@ -98,8 +97,6 @@ sr:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Neodgovarajuć fajl slike
-            official_img_header:
               allowed_file_content_types: Neodgovarajuć fajl slike
   activerecord:
     attributes:
