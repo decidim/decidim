@@ -67,7 +67,6 @@ pt:
         machine_translation_display_priority_translation: Texto traduzido primeiro
         name: Nome
         official_img_footer: Logótipo oficial do rodapé
-        official_img_header: Logótipo oficial do cabeçalho
         official_url: URL da organização oficial
         omnipresent_banner_short_description: Pequena descrição
         omnipresent_banner_title: Título
@@ -124,8 +123,6 @@ pt:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Ficheiro de imagem inválido
-            official_img_header:
               allowed_file_content_types: Ficheiro de imagem inválido
   activerecord:
     attributes:
