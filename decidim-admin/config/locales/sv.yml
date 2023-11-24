@@ -74,7 +74,6 @@ sv:
         machine_translation_display_priority_translation: Översatt texten först
         name: Namn
         official_img_footer: Officiell logo sidfot
-        official_img_header: Officiell logoyp till sidhuvud
         official_url: Officiell URL
         omnipresent_banner_short_description: Kort beskrivning
         omnipresent_banner_title: Titel
@@ -135,8 +134,6 @@ sv:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Ogiltig bildfil
-            official_img_header:
               allowed_file_content_types: Ogiltig bildfil
         participatory_space_private_user_csv_import:
           attributes:
