@@ -78,7 +78,6 @@ ca:
         machine_translation_display_priority_translation: Text traduït primer
         name: Nom
         official_img_footer: Logotip oficial al peu de pàgina
-        official_img_header: Logotip oficial a la capçalera
         official_url: Pàgina web oficial de l'organització
         omnipresent_banner_short_description: Breu descripció
         omnipresent_banner_title: Títol
@@ -146,8 +145,6 @@ ca:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Fitxer d'imatge no vàlid
-            official_img_header:
               allowed_file_content_types: Fitxer d'imatge no vàlid
         participatory_space_private_user_csv_import:
           attributes:
