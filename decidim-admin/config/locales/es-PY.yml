@@ -78,7 +78,6 @@ es-PY:
         machine_translation_display_priority_translation: Texto traducido primero
         name: Nombre
         official_img_footer: Logotipo oficial de pie de página
-        official_img_header: Logotipo oficial de cabecera
         official_url: URL oficial de la organización
         omnipresent_banner_short_description: Descripción breve
         omnipresent_banner_title: Título
@@ -146,8 +145,6 @@ es-PY:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Archivo de imagen no válido
-            official_img_header:
               allowed_file_content_types: Archivo de imagen no válido
         participatory_space_private_user_csv_import:
           attributes:
@@ -1022,6 +1019,7 @@ es-PY:
         edit_organization_appearance: Editar apariencia de página de inicio
         impersonatable_users: Usuarios manejables
         impersonations: Gestion de usuarios
+        menu: Menú
         metrics: Métricas
         page_topics: Temas
         pages: Páginas
