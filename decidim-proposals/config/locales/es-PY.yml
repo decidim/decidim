@@ -430,6 +430,9 @@ es-PY:
             proposals:
               one: propuesta
               other: propuestas
+          title:
+            answers: Importar respuestas a propuestas desde un archivo
+            proposals: Importar propuestas desde un archivo
         models:
           proposal:
             name: Propuesta
@@ -563,6 +566,7 @@ es-PY:
             no_components: No hay otros componentes propuesta en este espacio participativo desde el que importar.
             select_component: Por favor selecciona un componente
             select_states: Verifique los estados de las propuestas para importar
+            title: Importar proyectos desde otro componente
         proposals_merges:
           create:
             invalid: 'Ha habido un problema al fusionar las propuestas seleccionadas porque algunas de ellas:'
