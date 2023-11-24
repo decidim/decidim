@@ -2,12 +2,17 @@
   @apply p-8 flex-none w-full md:w-fit max-w-full md:max-w-xs;
 
   &__item {
-    a {
-      @apply gap-x-2 p-2 flex items-center text-secondary text-sm truncate border border-gray-5 rounded;
+    a,
+    &-disabled {
+      @apply gap-x-2 p-2 flex items-center text-sm truncate border border-gray-5 rounded;
 
       > svg {
         @apply w-4 h-4 flex-none text-gray fill-current;
       }
+    }
+
+    a {
+      @apply text-secondary;
     }
 
     &.is-active > a,

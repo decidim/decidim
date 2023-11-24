@@ -71,7 +71,6 @@ describe "Admin manages organization" do
       dynamically_attach_file(:organization_favicon, Decidim::Dev.asset("logo.png"), remove_before: true) do
         expect(page).to have_content("Has to be a square image")
       end
-      dynamically_attach_file(:organization_official_img_header, Decidim::Dev.asset("city2.jpeg"), remove_before: true)
       dynamically_attach_file(:organization_official_img_footer, Decidim::Dev.asset("city3.jpeg"), remove_before: true)
 
       click_button "Update"
