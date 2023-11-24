@@ -78,7 +78,6 @@ ja:
         machine_translation_display_priority_translation: 翻訳テキストを最初にする
         name: 名前
         official_img_footer: 公式ロゴフッター
-        official_img_header: 公式ロゴヘッダー
         official_url: 公式組織URL
         omnipresent_banner_short_description: 短い説明
         omnipresent_banner_title: タイトル
@@ -146,8 +145,6 @@ ja:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: 無効な画像ファイル
-            official_img_header:
               allowed_file_content_types: 無効な画像ファイル
         participatory_space_private_user_csv_import:
           attributes:
