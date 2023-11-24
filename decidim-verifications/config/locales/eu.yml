@@ -12,7 +12,7 @@ eu:
         document_number: Dokumentu zenbakia
         document_type: Dokumentu mota
       id_document_upload:
-        document_number: Dokumentu zenbakia
+        document_number: Dokumentuaren zenbakia (letraz)
         document_type: Zure dokumentuaren mota
         user: Erabiltzaileak
         verification_attachment: Zure dokumentuaren eskaneatutako kopia
@@ -70,7 +70,7 @@ eu:
           help:
             - Erabiltzaileek egiaztapen-kodea eskatu behar dute euren helbidea bidaltzeko.
             - Posta-helbidea bere helbidean bidaltzen du egiaztapen-kodearekin.
-            - Bidalitako mezua markatzen du.
+            - Markatu mezua bidalita bezala.
             - Behin bidalitako mezua markatzen duzunean, erabiltzaileak kodea sartu eta egiaztatu egingo du.
       csv_census:
         explanation: Egiaztatu erakundearen errolda erabiliz.
@@ -81,7 +81,7 @@ eu:
         explanation: Igo zure nortasun-agiriak, zure nortasuna egiaztatzeko.
         name: Nortasun agiriak
       multistep: Multi-Step
-      name: izena
+      name: Izena
       postal_letter:
         explanation: Kode bat duen gutun bat bidaliko dizugu, eta kode hori sartu beharko duzu zure helbidea egiaztatu ahal izateko.
         name: Kodea posta bidez
@@ -256,6 +256,7 @@ eu:
           edit:
             send: Berretsi
             title: Sartu jaso duzun egiaztapen-kodea.
+            waiting_for_letter: Laster gutun bat bidaliko dugu zure helbidera zure egiaztapen-kodearekin.
           new:
             send: Bidali iezadazu gutun bat
             title: Eskatu egiaztapen-kodea
