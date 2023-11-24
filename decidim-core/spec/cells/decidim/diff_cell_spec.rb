@@ -61,43 +61,38 @@ describe Decidim::DiffCell, type: :cell, versioning: true do
     end
 
     context "with diff_view_unified_unescaped" do
-      let(:html) { subject.find_by_id("diff-for-body") }
-
-      it "renders potentially safe HTML tags unescaped" do
-        expect(html).to have_selector("em", text: "em")
-        expect(html).to have_selector("u", text: "u")
-        expect(html).to have_selector("strong", text: "strong")
+      it "renders potentially safe subject tags unescaped" do
+        within "#diff-for-body" do
+          expect(subject).to have_selector("em", text: "em")
+          expect(subject).to have_selector("u", text: "u")
+          expect(subject).to have_selector("strong", text: "strong")
+        end
       end
 
       it "sanitizes potentially malicious HTML tags" do
-        expect(html).not_to have_selector("script", visible: :all)
-        expect(html).to have_content("alert('SCRIPT')")
+        within "#diff-for-body" do
+          expect(subject).not_to have_selector("script", visible: :all)
+          expect(subject).to have_content("alert('SCRIPT')")
+        end
       end
     end
 
     context "with diff_view_unified_escaped" do
-      let(:diff_html_value) { "escaped" }
-      let(:html) { subject.find_by_id("diff-for-body") }
-
       it "sanitizes potentially safe HTML tags" do
-        expect(html).not_to have_selector("em")
-        expect(html).to have_content("em")
-        expect(html).not_to have_selector("u")
-        expect(html).to have_content("u")
-        expect(html).not_to have_selector("strong")
-        expect(html).to have_content("strong")
-      end
+          expect(subject).to have_selector("em", text: "em")
+          expect(subject).to have_selector("u", text: "u")
+          expect(subject).to have_selector("strong", text: "strong")
+        end
 
       it "sanitizes potentially malicious HTML tags" do
-        expect(html).not_to have_selector("script", visible: :all)
-        expect(html).to have_content("alert('SCRIPT')")
+        within "#diff-for-body" do
+          expect(subject).not_to have_selector("script", visible: :all)
+          expect(subject).to have_content("alert('SCRIPT')")
+        end
       end
     end
 
     context "with diff_view_split_unescaped" do
-      let(:diff_mode_value) { "split" }
-      let(:html) { subject.find_by_id("diff-for-body") }
-
       it "renders potentially safe HTML tags unescaped" do
         expect(html).to have_selector("em", text: "em")
         expect(html).to have_selector("u", text: "u")
@@ -105,28 +100,25 @@ describe Decidim::DiffCell, type: :cell, versioning: true do
       end
 
       it "sanitizes potentially malicious HTML tags" do
-        expect(html).not_to have_selector("script", visible: :all)
-        expect(html).to have_content("alert('SCRIPT')")
+        within "#diff-for-body" do
+          expect(subject).not_to have_selector("script", visible: :all)
+          expect(subject).to have_content("alert('SCRIPT')")
+        end
       end
     end
 
     context "with diff_view_split_escaped" do
-      let(:diff_mode_value) { "split" }
-      let(:diff_html_value) { "escaped" }
-      let(:html) { subject.find_by_id("diff-for-body") }
-
       it "sanitizes potentially safe HTML tags" do
-        expect(html).not_to have_selector("em")
-        expect(html).to have_content("em")
-        expect(html).not_to have_selector("u")
-        expect(html).to have_content("u")
-        expect(html).not_to have_selector("strong")
-        expect(html).to have_content("strong")
+        expect(html).to have_selector("em", text: "em")
+        expect(html).to have_selector("u", text: "u")
+        expect(html).to have_selector("strong", text: "strong")
       end
 
       it "sanitizes potentially malicious HTML tags" do
-        expect(html).not_to have_selector("script", visible: :all)
-        expect(html).to have_content("alert('SCRIPT')")
+        within "#diff-for-body" do
+          expect(subject).not_to have_selector("script", visible: :all)
+          expect(subject).to have_content("alert('SCRIPT')")
+        end
       end
     end
   end
