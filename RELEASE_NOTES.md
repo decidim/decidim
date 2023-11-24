@@ -764,6 +764,7 @@ end
 ### 5.8 Migration of Proposal states in own table
 
 As of [\#12052](https://github.com/decidim/decidim/pull/12052) all the proposals states are kept in a separate database table, enabling end users to customize the states of the proposals. By default we will create for any proposal component that is being installed in the project 5 default states that cannot be disabled nor deleted. These states are:
+
 - Not Answered ( default state for any new created proposal )
 - Evaluating
 - Accepted
