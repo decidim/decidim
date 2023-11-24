@@ -401,6 +401,9 @@ fi-pl:
           all: Kaikki
         filter_scope_values:
           all: Kaikki
+      calendar:
+        meeting_to_event:
+          read_more: Lue lisää tästä tapaamisesta
       calendar_modal:
         calendar_url: Kalenterin URL
         close_window: Sulje ikkuna
