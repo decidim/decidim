@@ -67,7 +67,6 @@ nl:
         machine_translation_display_priority_translation: Vertaalde tekst eerst
         name: Naam
         official_img_footer: Officieel logo voettekst
-        official_img_header: Officieel logo header
         official_url: Officiële URL van de organisatie
         omnipresent_banner_short_description: Korte beschrijving
         omnipresent_banner_title: Titel
@@ -124,8 +123,6 @@ nl:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Ongeldig afbeeldingsbestand
-            official_img_header:
               allowed_file_content_types: Ongeldig afbeeldingsbestand
   activerecord:
     attributes:
