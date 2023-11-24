@@ -21,7 +21,7 @@ eu:
       sortitions:
         actions:
           comment: Egin iruzkina
-        name: Sortitions
+        name: Zozketak
         settings:
           global:
             comments_enabled: Iruzkinak gaituta
@@ -123,7 +123,7 @@ eu:
         sortition:
           random_seed: Ausazkotasun hazia
           selected_proposals:
-            one: Aukeratutako 1 proposamena
+            one: aukeratutako proposamena
             other: aukeratutako proposamenak
         sortition_author:
           deleted: Ezabatutako parte-hartailea
