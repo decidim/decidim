@@ -9,23 +9,29 @@ describe Decidim::Verifications::ManagedUserErrorEvent do
   let(:resource) { create(:conflict) }
   let(:organization_host) { "#{resource.current_user.organization.host}:#{Capybara.server_port}" }
 
-  describe "resource_title" do
-    it "is generated correctly" do
-      expect(subject.resource_title).to eq(resource.current_user.name)
-    end
-  end
+  # describe "resource_title" do
+  #   it "is generated correctly" do
+  #     expect(subject.resource_title).to eq(resource.current_user.name)
+  #   end
+  # end
 
-  describe "resource_path" do
-    it "is generated correctly" do
-      expect(subject.resource_path).to eq("/profiles/#{resource.current_user.nickname}")
-    end
-  end
+  let(:resource_title) { resource.current_user.name }
 
-  describe "resource_url" do
-    it "is generated correctly" do
-      expect(subject.resource_url).to eq("http://#{organization_host}/profiles/#{resource.current_user.nickname}")
-    end
-  end
+  # describe "resource_path" do
+  #   it "is generated correctly" do
+  #     expect(subject.resource_path).to eq("/profiles/#{resource.current_user.nickname}")
+  #   end
+  # end
+
+  let(:resource_path) { "/profiles/#{resource.current_user.nickname}" }
+
+  # describe "resource_url" do
+  #   it "is generated correctly" do
+  #     expect(subject.resource_url).to eq("http://#{organization_host}/profiles/#{resource.current_user.nickname}")
+  #   end
+  # end
+
+  let(:resource_url) { "http://#{organization_host}/profiles/#{resource.current_user.nickname}" }
 
   describe "default_i18n_options" do
     it "includes managed_user_name" do
