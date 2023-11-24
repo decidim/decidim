@@ -67,7 +67,6 @@
         machine_translation_display_priority_translation: Oversatt tekst først
         name: Navn
         official_img_footer: Offisiell logo footer
-        official_img_header: Offisiell logo header
         official_url: Offisiell organisasjons URL
         omnipresent_banner_short_description: Kort beskrivelse
         omnipresent_banner_title: Tittel
@@ -124,8 +123,6 @@
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Ugyldig bildefil
-            official_img_header:
               allowed_file_content_types: Ugyldig bildefil
   activerecord:
     attributes:
