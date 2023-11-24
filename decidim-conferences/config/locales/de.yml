@@ -132,7 +132,7 @@ de:
         destroy:
           success: Benutzer wurde erfolgreich von dieser Konferenz entfernt.
         edit:
-          title: Aktualisieren Sie den Konferenzbenutzer.
+          title: Konferenzadmin aktualisieren.
           update: Aktualisieren
         index:
           conference_admins_title: Konferenzadmins
