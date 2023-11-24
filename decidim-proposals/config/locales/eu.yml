@@ -3,14 +3,14 @@ eu:
     attributes:
       collaborative_draft:
         address: Helbidea
-        body: Gorputza
+        body: Testua
         category_id: Kategoria
-        decidim_scope_id: esparrua
+        decidim_scope_id: Esparrua
         has_address: Helbidea du
-        scope_id: Eremua
+        scope_id: Esparrua
         state: Egoera
         title: Izenburua
-        user_group_id: Lankidetza zirriborroa sortu
+        user_group_id: Sortu zirriborro kolaboratiboa
       proposal:
         address: Helbidea
         answer: Erantzuna
@@ -18,12 +18,12 @@ eu:
         automatic_hashtags: Traola automatikoki gehitu da
         body: Gorputza
         category_id: Kategoria
-        decidim_scope_id: Eremua
+        decidim_scope_id: Esparrua
         has_address: Helbidea du
-        scope_id: Eremua
-        state: Estatu
+        scope_id: Esparrua
+        state: Egoera
         suggested_hashtags: Iradokitako traolak
-        title: Izenburua
+        title: Titulua
         user_group_id: 'Sortu proposamen bat honako hau gisa:'
       proposal_answer:
         answer: Erantzuna
@@ -31,6 +31,7 @@ eu:
         cost_report: Kostuaren txostena
         execution_period: Gauzatzeko epea
       proposals_copy:
+        copy_proposals: Ulertzen dut honek hautetsiaren proposamen guztiak orainaldiari egotziko dizkiola eta ezin dela ekintza hori atzera bota.
         origin_component_id: Proposamenak kopiatzeko osagaia
       proposals_import:
         import_proposals: Inportatu proposamenak
@@ -83,7 +84,7 @@ eu:
         one: Zirriborro kolaboratzailea
         other: Zirriborro kolaboratzaileak
       decidim/proposals/proposal:
-        one: Proposamen
+        one: Proposamena
         other: Proposamenak
       decidim/proposals/proposal_note:
         one: Ohar
@@ -103,7 +104,7 @@ eu:
               'false': Proposamenak
               'true': Zuzenketak
           scope_id_eq:
-            label: Eremua
+            label: Esparrua
           state_eq:
             label: Egoera
             values:
@@ -132,14 +133,14 @@ eu:
           endorse: Atxikitu
           vote: Bozkatu
           vote_comment: Bozkatu iruzkina
-          withdraw: Erretiratuko
-        name: proposamenak
+          withdraw: Kendu
+        name: Proposamenak
         settings:
           global:
             amendments_enabled: Zuzenketak baimenduta
             amendments_enabled_help: Aktibo badago, konfiguratu zuzenketen aukerak urrats bakoitzerako.
             amendments_wizard_help_text: Zuzenketen testu-laguntzailea
-            announcement: Iragarpena
+            announcement: Jakinarazpena
             attachments_allowed: Onartu eranskinak
             can_accumulate_supports_beyond_threshold: Babesak metatu ditzake atalasetik haratago
             collaborative_drafts_enabled: Lankidetza zirriborroak gaituta
@@ -170,15 +171,15 @@ eu:
             proposal_edit_time_choices:
               infinite: Utzi proposamenak editatzen epe mugagabe batean
               limited: Utzi proposamenak editatzen epe zehatz baten barruan
-            proposal_length: Proposamen maximoa testuaren luzera
-            proposal_limit: Proposamenaren muga erabiltzaile bakoitzeko
+            proposal_length: Proposamen-testuaren gehieneko luzera
+            proposal_limit: Proposamen-muga erabiltzaile bakoitzeko
             proposal_wizard_step_1_help_text: Proposamen laguntzailea "Sortu" urrats laguntza testua
             proposal_wizard_step_2_help_text: Proposamen laguntzailea "Konparatu" urrats laguntza testua
             proposal_wizard_step_3_help_text: Proposamen laguntzailea "Bete" urrats laguntza testua
             proposal_wizard_step_4_help_text: Proposamen laguntzailea "Argitaratu" urrats laguntza testua
             resources_permissions_enabled: Ekintza-baimenak proposamen bakoitzerako ezarri daitezke
-            scope_id: Eremua
-            scopes_enabled: Eremuak gaituta
+            scope_id: Esparrua
+            scopes_enabled: Esparruak gaituta
             threshold_per_proposal: Proposamen bakoitzeko atalasea
             vote_limit: Partaide bakoitzeko botoen muga
           step:
@@ -287,6 +288,7 @@ eu:
           follower:
             email_intro: '"%{resource_title}" proposamena ebaluatzen ari da. Orri honetan erantzun dezakezu:'
             email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" jarraitzen ari zarelako. Jarraitzeari utzi ahal diozu aurreko estekan.
+            email_subject: Jarraitzen ari zaren proposamena ebaluatzen ari da
             notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena ebaluatzen ari da.
         proposal_mentioned:
           email_intro: Zure proposamen hau "%{mentioned_proposal_title}" aipatu da <a href="%{resource_url}"> iruzkinen</a> espazioan.
@@ -295,7 +297,7 @@ eu:
           notification_title: Zure"%{mentioned_proposal_title}" proposamena espazio honetako <a href="%{resource_path}"></a> iruzkinetan apiatu da.
         proposal_published:
           email_intro: 'Jarraitzen ari zaren %{author_name} %{author_nickname} k beste proposamen bat argitaratu du, "%{resource_title}" izenekoa. Begiratu eta ekarri:'
-          email_outro: Jakinarazpen hau jaso duzu %{author_nickname} jarraitzen duzulako. Jakinarazpenak jasotzeari utz diezaiokezu, aurreko estekaren arabera.
+          email_outro: Jakinarazpen hau jaso duzu %{author_nickname} jarraitzen duzulako. Jakinarazpenak jasotzeari utz diezaiokezu, aurreko estekan.
           email_subject: '%{author_nickname}-ek egindako beste proposamen bat: "%{resource_title}"'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena <a href="%{author_path}">%{author_name} %{author_nickname}</a> kargitaratu du.
         proposal_published_for_space:
@@ -335,33 +337,33 @@ eu:
         accepted_proposals:
           conditions:
             - Aukeratu zure intereseko partaidetza espazioa proposamenak bidaltzeko
-            - Saiatu proposamenak egiten. Horrela onartuak izango dira.
+            - Saiatu gauzatu daitezkeen proposamenak egiten. Horrela errazagoa da onartuak izatea.
           description: Garaikur hau proposamen berriekin aktiboki parte hartzen duzunean eta horiek onartzen direnean ematen da 
           description_another: Parte-hartzaile honek %{score} proposamen onartu ditu.
-          description_own: '%{score} proposamen onartu dituzu.'
-          name: Onartutako proposamenak
-          next_level_in: Lortu %{score} proposamen gehiago onartuak hurrengo mailara iristeko!
-          unearned_another: Parte-hartzaile honek ez du oraindik proposamen onarturik izan.
+          description_own: Zure %{score} proposamen onartu dira.
+          name: Proposamen onartuak
+          next_level_in: Lortu %{score} proposamen gehiago onartuak izatea, hurrengo mailara iristeko!
+          unearned_another: Parte-hartzaile honek ez du oraindik lortu bere proposamen bat ere onartua izatea.
           unearned_own: Oraindik ez duzu onartutako proposamenik.
         proposal_votes:
           conditions:
             - Nabigatu eta irakurri besteen proposamenak
-            - Gustatzen zaizkizun edo interesgarriak iruditzen zaizkizun proposamenei babesa eman
+            - Eman babesa gustatzen zaizkizun edo interesgarriak iruditzen zaizkizun proposamenei
           description: Garaikur hori beste pertsona batzuen proposamenak bozkatzen dituzunean ematen da.
           description_another: Erabiltzaile honek %{score} proposamen onartu ditu.
           description_own: '%{score} proposameni man diezu babesa.'
           name: Proposamenaren aldeko botoak
           next_level_in: Eman babesa % {score} proposamen gehiagori hurrengo mailara iristeko!
           unearned_another: Parte-hartzaile honek oraindik ez dio babesik eman proposamen bati ere.
-          unearned_own: Oraindik ez duzu proposamenik egin.
+          unearned_own: Oraindik ez duzu proposamen bat ere babestu.
         proposals:
           conditions:
             - Aukeratu zure interesekoa den parte hartzeko gunea, gaitutako proposamenak aurkeztuta
-            - Proposamen berri bat sortu
+            - Sortu beste proposamen bat
           description: Garaikur hau proposamen berriekin modu aktiboan parte hartzen duzunean ematen da.
-          description_another: Erabiltzaile honek %{score} proposamen sortu ditu.
+          description_another: Parte-hartzaile honek %{score} proposamen sortu ditu.
           description_own: '%{score} proposamen sortu dituzu.'
-          name: proposamenak
+          name: Proposamenak
           next_level_in: Sortu %{score} proposamen gehiago hurrengo mailara iristeko!
           unearned_another: Parte-hartzaile honek oraindik ez du proposamenik sortu.
           unearned_own: Oraindik ez duzu proposamenik sortu.
@@ -372,7 +374,7 @@ eu:
         title: Onartutako proposamenak
       endorsements:
         description: Proposamenen atxikimendu kopurua
-        object: oniritziak
+        object: atxikimenduak
         title: Atxikimenduak
       proposals:
         description: Proposamen kopurua
