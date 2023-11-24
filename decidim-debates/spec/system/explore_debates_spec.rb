@@ -42,20 +42,23 @@ describe "Explore debates", type: :system do
       it "shows an empty page with a message" do
         visit_component
 
-        within "main.layout-2col__main" do
+        within "#debates" do
           expect(page).to have_content "There are no debates yet"
         end
       end
 
       context "when filtering by scope" do
+        let!(:category2) { create(:category, participatory_space: participatory_space) }
+
         it "shows an empty page with a message" do
           visit_component
 
-          within "#panel-dropdown-menu-category" do
-            check category.name[I18n.locale.to_s]
+          within ".with_any_category_check_boxes_tree_filter" do
+            uncheck "All"
+            check category2.name[I18n.locale.to_s]
           end
 
-          within "main.layout-2col__main" do
+          within "#debates" do
             expect(page).to have_content("There are no debates with this criteria")
           end
         end
