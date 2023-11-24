@@ -148,6 +148,7 @@ fi-pl:
             no_components: Tässä osallisuustilassa ei ole ole muita ehdotuskomponentteja, joista voitaisiin tuoda ehdotuksia suunnitelmiin.
             origin_component_id: Lähdekomponentti
             select_component: Valitse komponentti
+            title: Tuo ehdotuksia hankkeiksi
         reminders:
           orders:
             description: Käyttäjät saavat sähköpostiviestin, jossa on linkit budjetteihin, joissa heillä on odottavia ääniä.
@@ -176,6 +177,7 @@ fi-pl:
         count:
           one: "%{count} budjetti"
           other: "%{count} budjettia"
+        empty: Ei yhtään budjettia
         finished_message: Olet äänestänyt. Kiitos osallistumisestasi!
         highlighted_cta: Äänestä budjetista %{name}
         if_change_opinion: Jos olet muuttanut mieltäsi, voit
@@ -234,6 +236,7 @@ fi-pl:
           projects_count:
             one: 1 suunnitelma
             other: "%{count} suunnitelmaa"
+        empty: Ei yhtään hanketta
         exit_modal:
           cancel: Palaa äänestykseen
           exit: Poistu äänestyksestä
