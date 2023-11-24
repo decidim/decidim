@@ -75,7 +75,6 @@ pt-BR:
         machine_translation_display_priority_translation: Texto traduzido primeiro
         name: Nome
         official_img_footer: Símbolo oficial do rodapé
-        official_img_header: Cabeçalho do logotipo oficial
         official_url: URL da organização oficial
         omnipresent_banner_short_description: Descrição curta
         omnipresent_banner_title: Título
@@ -141,8 +140,6 @@ pt-BR:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Arquivo de imagem inválido
-            official_img_header:
               allowed_file_content_types: Arquivo de imagem inválido
         participatory_space_private_user_csv_import:
           attributes:
