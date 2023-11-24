@@ -75,7 +75,6 @@ zh-TW:
         machine_translation_display_priority_translation: 翻譯文字優先
         name: 名稱
         official_img_footer: 官方標誌頁尾
-        official_img_header: 官方標誌頁首
         official_url: 官方組織網址
         omnipresent_banner_short_description: 簡介
         omnipresent_banner_title: 標題
@@ -140,8 +139,6 @@ zh-TW:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: 圖片有誤
-            official_img_header:
               allowed_file_content_types: 圖片有誤
         participatory_space_private_user_csv_import:
           attributes:
