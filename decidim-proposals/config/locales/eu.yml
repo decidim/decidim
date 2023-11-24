@@ -841,7 +841,7 @@ eu:
           most_commented: Iruzkin gehien dituztenak
           most_endorsed: Aldeko boto gehien dituztenak
           most_followed: Jarraitzaile gehien dituztenak
-          most_voted: Bozkatuenak
+          most_voted: Aldeko boto gehien dituztenak
           random: Ausazko ordena
           recent: Berrienak
           with_more_authors: Egile gehiagorekin
@@ -868,7 +868,7 @@ eu:
           empty: Oraindik ez dago proposamenik
           empty_filters: Ez dago irizpide hori duen proposamenik
         show:
-          answer: Erantzuna
+          answer: Erantzun
           back_to: Itzuli
           back_to_list: Itzuli zerrendara
           changes_at_title: Zuzenketa honi "%{title}"
@@ -907,7 +907,7 @@ eu:
           votes_blocked: Bozketa desaktibatu da
         votes_count:
           count:
-            one: SOSTENGU
+            one: Eman babesa
             other: Babesak
           most_popular_proposal: Proposamenrik ezagunena
           need_more_votes: Boto gehiago behar da
@@ -935,11 +935,11 @@ eu:
           back_from_step_4: Editatu berriro zirriborroa
           info: A <strong>proposal</strong>. proposamen sortzen ari zara.
         wizard_steps:
-          current_step: Oraingo urratsa
+          current_step: Oraingo fasea
           see_steps: ikusi urratsak
           step_1: Sortu zure proposamena
           step_2: Alderatu
-          step_3: Osatuta
+          step_3: Osatu
           step_4: Argitaratu zure proposamena
           step_of: '%{total_steps} urratsetik %{current_step_num} eginda'
           title: Proposamen bat sortzeko urratsak
