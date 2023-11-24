@@ -51,7 +51,6 @@ sk:
         logo: Logo
         name: Meno
         official_img_footer: Oficiálne logo v päte
-        official_img_header: Oficiálne logo v záhlaví
         official_url: Oficiálna stránka organizácie
         omnipresent_banner_short_description: Krátky popis
         omnipresent_banner_title: Názov
@@ -98,8 +97,6 @@ sk:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Nefunkčný obrázkový súbor
-            official_img_header:
               allowed_file_content_types: Nefunkčný obrázkový súbor
   activerecord:
     attributes:
