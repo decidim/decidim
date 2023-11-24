@@ -58,7 +58,6 @@ zh-CN:
         machine_translation_display_priority_translation: 先翻译文本
         name: 名称
         official_img_footer: 官方标志页脚
-        official_img_header: 官方标志标题
         official_url: 官方组织 URL
         omnipresent_banner_short_description: 简短描述
         omnipresent_banner_title: 标题
@@ -105,8 +104,6 @@ zh-CN:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: 无效的图像文件
-            official_img_header:
               allowed_file_content_types: 无效的图像文件
   activerecord:
     attributes:
