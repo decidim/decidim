@@ -78,7 +78,6 @@ cs:
         machine_translation_display_priority_translation: Přeložený text přednostně
         name: Název
         official_img_footer: Oficiální logo zápatí
-        official_img_header: Oficiální logo záhlaví
         official_url: Oficiální URL organizace
         omnipresent_banner_short_description: Stručný popis
         omnipresent_banner_title: Název
@@ -146,8 +145,6 @@ cs:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Neplatný soubor s obrázkem
-            official_img_header:
               allowed_file_content_types: Neplatný soubor s obrázkem
         participatory_space_private_user_csv_import:
           attributes:
