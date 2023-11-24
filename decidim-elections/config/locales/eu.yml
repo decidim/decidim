@@ -253,10 +253,12 @@ eu:
               census_codes_generated: Erroldarako sarbide kodeak ez dira sortu.
               census_frozen: Erroldarako sarbide kodeak ez dira esportatu.
               census_uploaded: Ez da igo erroldarik aukeraketa honetarako.
+              component_published: <strong> aukera ez dago argitaratuta</strong>.
               max_selections: Galderek ez dute <strong>balio zuzenik </strong> erantzun kopururako
               minimum_answers: Galderek gutxienez eduki behar dituzte <strong> bi erantzun </strong>.
               minimum_questions: <strong>aukerak gutxienez </strong> galdera bat eduki behar du.
               published: <strong>aukera ez dago argitaratuta </strong>.
+              time_before: Hasiera-ordua <strong>%tik {hours} ordu baino gutxiagotan konfiguratu da, aukeraketa hasi aurretik.
               trustees_number: <strong> espazio parte-hartzaileak gutxienez eduki behar du %{number} bermatzaile gako publikoarekin </strong>.
             invalid: Arazo bat egon da aukera hau konfiguratzean
             no_trustees: Ez dago bermatzaile konfiguraturik espazio parte-hartzaile honetarako
@@ -1086,6 +1088,7 @@ eu:
               info_message: "<strong>Mesedez itxaron</strong>, %{processed_count} prozesatuak %{raw_count} tik %{file} fitxeroko ilara."
             delete:
               button: Ezabatu erroldako datu guztiak
+              confirm: Errolda osoa ezabatzea ezin da desegin. Ziur zaude jarraitu nahi duzula?
             destroy:
               error: Arazo bai izan da errolda ezabatzean, mesedez, saiatu berriro geroago.
               success: Erroldako datuak ezabatuta
