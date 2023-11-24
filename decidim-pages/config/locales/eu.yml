@@ -7,7 +7,7 @@ eu:
   decidim:
     admin_log:
       page:
-        update: "%{user_name} %{resource_name} orrialdea %{space_name} eguneratu du"
+        update: "%{user_name} k %{resource_name} orrialdea hemen %{space_name} eguneratu du"
     components:
       pages:
         name: Orria
@@ -26,7 +26,7 @@ eu:
             save: Eguneratu
             title: Editatu orria
           update:
-            invalid: Erroreak gertatu dira orria gordetzean.
+            invalid: Arazo bat egon da argitalpena gordetzean.
             success: Orria zuzen gorde da.
       home:
         hero:
