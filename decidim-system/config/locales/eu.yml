@@ -13,7 +13,7 @@ eu:
         from_email: Korreo elektronikoaren helbidea
         from_label: Etiketa
         password: Pasahitza
-        port: Ataka
+        port: Portua
         user_name: Erabiltzaile-izena
       organization_file_uploads:
         allowed_content_types:
@@ -35,7 +35,7 @@ eu:
   decidim:
     system:
       actions:
-        confirm_destroy: '‘Ziur zaude ezabatu nahi duzula?’'
+        confirm_destroy: Ziur zaude hau ezabatu nahi duzula?
         destroy: Ezabatu
         edit: Editatu
         new: Berria
@@ -43,7 +43,7 @@ eu:
         title: Ekintzak
       admins:
         create:
-          error: Errorea gertatu da administratzaile berri bat sortzean.
+          error: Arazo bat egon da administratzaile berri bat sortzean.
           success: Administratzailea zuzen sortu da
         destroy:
           success: Admin ezabatu da
@@ -59,14 +59,14 @@ eu:
           destroy: Suntsitu
           edit: Editatu
         update:
-          error: Errorea gertatu da administratzaile hau eguneratzean.
+          error: Arazo bat da administratzaile hau eguneratzean.
           success: Administratzailea zuzen eguneratu da
       dashboard:
         show:
           current_organizations: Uneko antolatzaileak
       default_pages:
         placeholders:
-          content: Gehitu eduki adierazgarria %{page} (a)ren orri estatikoaren administrazio-panelean.
+          content: Mesedez, gehitu eduki adierazgarria %{page} (a) ren orri estatikoaren administrazio-panelean.
           title: 'Izenburu lehenetsia orri honetarako: %{page}'
       devise:
         passwords:
@@ -91,7 +91,7 @@ eu:
       models:
         admin:
           fields:
-            created_at: Sortze-data
+            created_at: Tan sortua
             email: Helbide elektronikoa
           name: Administratzailea
           validations:
@@ -104,7 +104,7 @@ eu:
           name: OAuth Aplikazioa
         organization:
           actions:
-            save_and_invite: Sortu erakundea eta gonbit egin administratzaileari
+            save_and_invite: Sortu antolatzailea eta gonbidatu administratzailea
           fields:
             created_at: Tan sortua
             file_upload_settings: Fitxategiak igotzearen doikuntzak
@@ -141,7 +141,7 @@ eu:
           error: Errorea izan da antolatzaile berri bat sortzean.
           success: Antolatzailea zuzen sortu da.
         edit:
-          secondary_hosts_hint: Sartu haietako bakoitza lerro batean
+          secondary_hosts_hint: Sartu haietako bakoitza lerro berri batean
           title: Editatu erakundea
         file_upload_settings:
           content_types:
@@ -198,7 +198,7 @@ eu:
             from_email: zure-erakundea@example.org
             from_label: erakundearen izena
         update:
-          error: Errorea gertatu da erakunde hau eguneratzean.
+          error: Arazo bat egon da erakunde hau eguneratzean.
           success: Erakundea zuzen eguneratu da.
         users_registration_mode:
           disabled: Sarbidea soilik kanpoko kontuekin egin daiteke
@@ -207,7 +207,7 @@ eu:
       shared:
         notices:
           no_organization_warning_html: Hasteko erakunde bat sortu behar duzu. Jarraitu aurretik ziurta zaitez %{guide} irakurri duzula.
-          our_getting_started_guide: gure ongi etorri gida
+          our_getting_started_guide: gure ongietorri gida
       titles:
         dashboard: Kontrol-panela
         decidim: Decidim
