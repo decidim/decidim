@@ -377,6 +377,9 @@ fi-pl:
               one: Ilmoittautumisia on 1 kpl.
               other: Ilmoittautumisia on %{count} kpl.
             slug_help_html: 'URL-tunnisteita käytetään luomaan URL-osoitteet, jotka osoittavat tähän konferenssiin. Hyväksyy vain kirjaimet, numerot ja viivat. Kirjaimen on oltava ensimmäinen merkki tunnisteessa. Esimerkki: %{url}'
+        content_blocks:
+          highlighted_conferences:
+            max_results: Näytettävien elementtien enimmäismäärä
         diplomas:
           edit:
             save: Tallenna
