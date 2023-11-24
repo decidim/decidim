@@ -4,7 +4,7 @@ eu:
       participatory_process:
         announcement: Oharra
         area_id: Arloa
-        banner_image: Bannerra
+        banner_image: Banner-irudia
         copy_categories: Kopiatu kategoriak
         copy_components: Kopiatu osagaiak
         copy_steps: Kopiatu faseak
@@ -16,11 +16,11 @@ eu:
         end_date: Bukaera-data
         hashtag: Traola
         hero_image: Orri nagusiko irudia
-        import_attachments: Eranskinak inportatu
-        import_categories: Kategoriak inportatu
-        import_components: Osagaiak inportatu
-        import_steps: Faseak inportatu
-        local_area: Antolakuntza eremua
+        import_attachments: Inportatu eranskinak
+        import_categories: Inportatu kategoriak
+        import_components: Inportatu osagaiak
+        import_steps: Inportatu faseak
+        local_area: Antolakuntza Arloa
         meta_scope: 'Metadatuak: esparrua'
         participatory_process_group_id: Prozesu-multzoa
         participatory_process_type_id: Prozesu mota
@@ -31,7 +31,7 @@ eu:
         published_at: Argitaratze-data
         related_process_ids: Elkarrekin lotutako prozesuak
         scope_id: Esparrua
-        scope_type_max_depth_id: Eremuaren iragazkiaren sakonera
+        scope_type_max_depth_id: Esparruaren iragazkiaren sakonera
         scopes_enabled: Esparru gaituak
         short_description: Deskribapen laburra
         show_metrics: Erakutsi metrikak
@@ -39,7 +39,7 @@ eu:
         slug: URL laburra
         start_date: Hasiera-data
         subtitle: Azpititulua
-        target: Nork parte hartzen duen
+        target: Nork hartzen du parte
         title: Izenburua
         weight: Ordena
       participatory_process_group:
@@ -48,12 +48,12 @@ eu:
         group_url: Web gunea
         hashtag: Traola
         hero_image: Irudia
-        local_area: Antolatzailearen gunea
-        meta_scope: Eremuaren metadatuak
+        local_area: Antolakuntza Arloa
+        meta_scope: Esparruaren metadatuak
         participatory_process_ids: Elkarrekin lotutako prozesuak
-        participatory_scope: Zer erabakitzen den
-        participatory_structure: Nola erabakitzen den
-        target: Nork hartzen due parte
+        participatory_scope: Zer erabakitzen da
+        participatory_structure: Nola erabakitzen da
+        target: Nork hartzen du parte
         title: Izenburua
       participatory_process_step:
         cta_path: Deitu ekintza bideari
@@ -94,7 +94,7 @@ eu:
         configure: Konfiguratu
         confirm_destroy: Berretsi ezabatu
         destroy: ezabatu
-        duplicate: Kopiatu
+        duplicate: Bikoiztu
         edit: Editatu
         filter:
           all_processes: Erakutsi prozesu guztiak
@@ -107,7 +107,7 @@ eu:
         preview: Aurreikusi
         publish: Argitaratu
         resend_invitation: Birbidali gonbita
-        unpublish: Desargitaratu
+        unpublish: Despublikatu
       menu:
         participatory_process_groups: Prozesu-multzoak
         participatory_process_groups_submenu:
@@ -133,7 +133,7 @@ eu:
             promoted: Nabarmendua
             published: Argitaratua
             title: Izenburua
-          name: Prozesu partizipatiboa
+          name: Prozesu parte-hartzaileak
         participatory_process_group:
           fields:
             title: Izenburua
@@ -157,8 +157,8 @@ eu:
             valuator: Ebaluatzailea
         user:
           fields:
-            invitation_accepted_at: 'Gonbita egun honetan onartu zen:'
-            invitation_sent_at: 'Gonbita egun honetan bidali zen:'
+            invitation_accepted_at: Gonbidapena egun honetan onartu zen
+            invitation_sent_at: Gonbidapena egun honetan bidali zen
       participatory_process_copies:
         new:
           copy: Kopiatu
@@ -339,7 +339,7 @@ eu:
           name: Metadata
           participatory_scope: Zer erabakitzen da
           participatory_structure: Nola erabakitzen da?
-          target: Nork parte hartzen duen
+          target: Nork hartzen du parte
         participatory_processes:
           name: Prozesu parte-hartzaileak
         stats:
@@ -454,7 +454,7 @@ eu:
         related_processes: Elkarrekin lotutako prozesuak
         scope: Esparrua
         start_date: Hasiera-data
-        target: Nork parte hartzen duen
+        target: Nork hartzen du parte
         unspecified: Zehaztu gabea
     statistics:
       processes_count: Prozesuak
