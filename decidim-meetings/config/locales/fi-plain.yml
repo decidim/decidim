@@ -395,6 +395,9 @@ fi-pl:
           all: Kaikki
         filter_meeting_space_values:
           all: Kaikki
+      calendar:
+        meeting_to_event:
+          read_more: Lue lisää tästä tapaamisesta
       calendar_modal:
         calendar_url: Kalenterin URL
         copy_calendar_url: Kopio
