@@ -10,7 +10,6 @@ describe Decidim::ParticipatoryProcesses::ContentBlocks::HighlightedProcessesCel
   let!(:processes) { create_list(:participatory_process, 8, organization:) }
   let(:settings) { {} }
 
-
   controller Decidim::PagesController
 
   before do
