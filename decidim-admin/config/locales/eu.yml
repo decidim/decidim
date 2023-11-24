@@ -78,7 +78,6 @@ eu:
         machine_translation_display_priority_translation: Lehen itzulitako testua
         name: Izena
         official_img_footer: Orri-oinaren logotipo ofiziala
-        official_img_header: Goiburuaren logotipo ofiziala
         official_url: Erakundearen URL ofiziala
         omnipresent_banner_short_description: Deskribapen laburra
         omnipresent_banner_title: Izenburua
@@ -146,8 +145,6 @@ eu:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Irudi-fitxategi baliogabea
-            official_img_header:
               allowed_file_content_types: Irudi-fitxategi baliogabea
         participatory_space_private_user_csv_import:
           attributes:
