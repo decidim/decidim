@@ -7,6 +7,10 @@
     }
   }
 
+  &__title {
+    @apply font-semibold text-2xl;
+  }
+
   &__message {
     @apply gap-2 text-black font-semibold text-lg;
 
