@@ -103,6 +103,9 @@ fi-pl:
         create:
           invalid: Luotaessa keskustelua tapahtui virhe.
           success: Keskustelu luotu onnistuneesti.
+        debates:
+          empty: Ei yhtään keskustelua.
+          empty_filters: Keskusteluja ei löytynyt annetuilla hakuehdoilla.
         edit:
           back: Takaisin
           save: Tallenna muutokset
