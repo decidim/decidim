@@ -67,7 +67,6 @@ it:
         machine_translation_display_priority_translation: Prima il testo tradotto
         name: Nome
         official_img_footer: Logo ufficiale nel footer
-        official_img_header: Intestazione logo ufficiale
         official_url: URL ufficiale dell'organizzazione
         omnipresent_banner_short_description: Breve descrizione
         omnipresent_banner_title: Titolo
@@ -124,8 +123,6 @@ it:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: File immagine non valido
-            official_img_header:
               allowed_file_content_types: File immagine non valido
   activerecord:
     attributes:
