@@ -75,7 +75,6 @@ ro:
         machine_translation_display_priority_translation: Mai întâi textul tradus
         name: Nume
         official_img_footer: Logo oficial pentru subsol
-        official_img_header: Logo oficial pentru antet
         official_url: URL oficial al organizației
         omnipresent_banner_short_description: Descriere scurtă
         omnipresent_banner_title: Titlu
@@ -140,8 +139,6 @@ ro:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Fișier invalid
-            official_img_header:
               allowed_file_content_types: Fișier invalid
         participatory_space_private_user_csv_import:
           attributes:
