@@ -75,7 +75,6 @@ hu:
         machine_translation_display_priority_translation: Először a lefordított szöveg
         name: Név
         official_img_footer: Hivatalos logó lábléc
-        official_img_header: Hivatalos logó fejléc
         official_url: Szervezet hivatalos URL-je
         omnipresent_banner_short_description: Rövid leírás
         omnipresent_banner_title: Cím
@@ -141,8 +140,6 @@ hu:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Érvénytelen képfájl
-            official_img_header:
               allowed_file_content_types: Érvénytelen képfájl
         participatory_space_private_user_csv_import:
           attributes:
