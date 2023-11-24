@@ -78,7 +78,6 @@ de:
         machine_translation_display_priority_translation: Übersetzter Text zuerst
         name: Name
         official_img_footer: Offizielles Logo Fußzeile
-        official_img_header: Offizieller Logo-Header
         official_url: Offizielle Organisations-URL
         omnipresent_banner_short_description: Kurze Beschreibung
         omnipresent_banner_title: Titel
@@ -146,8 +145,6 @@ de:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Ungültige Bilddatei
-            official_img_header:
               allowed_file_content_types: Ungültige Bilddatei
         participatory_space_private_user_csv_import:
           attributes:
