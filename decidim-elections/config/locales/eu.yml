@@ -128,7 +128,7 @@ eu:
             'true': Baliozkotua
       voting_publications:
         create:
-          error: Arazo bat sortu da bozketa hau argitaratzean.
+          error: Arazo bat egon da bozketa hau argitaratzean.
           success: Bozketa zuzen argitaratu da.
         destroy:
           error: Arazo bat sortu da bozketa honen argitalpena kentzean.
@@ -264,10 +264,12 @@ eu:
               census_codes_generated: Erroldarako sarbide kodeak ez dira sortu.
               census_frozen: Erroldarako sarbide kodeak ez dira esportatu.
               census_uploaded: Ez da igo erroldarik aukeraketa honetarako.
+              component_published: <strong> aukera ez dago argitaratuta</strong>.
               max_selections: Galderek ez dute <strong>balio zuzenik </strong> erantzun kopururako
               minimum_answers: Galderek gutxienez eduki behar dituzte <strong> bi erantzun </strong>.
               minimum_questions: <strong>aukerak gutxienez </strong> galdera bat eduki behar du.
               published: <strong>aukera ez dago argitaratuta </strong>.
+              time_before: Hasiera-ordua <strong>%tik {hours} ordu baino gutxiagotan konfiguratu da, aukeraketa hasi aurretik.
               trustees_number: <strong> espazio parte-hartzaileak gutxienez eduki behar du %{number} bermatzaile gako publikoarekin </strong>.
             invalid: Arazo bat egon da aukera hau konfiguratzean
             no_trustees: Ez dago bermatzaile konfiguraturik espazio parte-hartzaile honetarako
@@ -612,8 +614,10 @@ eu:
               generate_legend: Bozketan bermatzaile gisa parte hartzeko, identifikatzeko gako pare bat sortu behar duzu.
               generate_legend_1: Botoia sakatu ondoren sortutako identifikatzeko gakoak dituen artxiboa deskargatu behar duzu.
               generate_legend_2: Kopiatu deskargatutako artxiboa USB gailu garbi batean
+              generate_legend_3: Ziurtatu zure ekipoak ez duela fitxategiaren kopiarik (adibidez, egiaztatu Deskargak eta Mahaigaina karpetak).
               generate_legend_4: Egin beste kopia bat kanpoko beste gailu batean, eta gorde oso leku seguruan.
               submit: Bidali
+              submit_legend: Aurretik azaldutako urrats guztiak jarraitu ondoren, osatu prozesua identifikazio publikoaren gakoa bidaliz Decidimen zerbitzarian.
               submit_title: Bidali identifikatzeko gako publikoa
               title: Bermatzailearen identifikazio-gakoak
               upload: Igo zure identifikazio-gakoak
@@ -629,7 +633,7 @@ eu:
             success: Zure identifikazio-gako publikoa zuzen gorde da.
       votes:
         ballot_decision:
-          audit: Boto-orria ikuskatu
+          audit: ( Ikuskatu boto-papera )
           back: Hasi berriro bozkatzeko prozesua
           ballot_hash: 'Boto-paperaren identifikatzailea hau da:'
           cast: Eman boto-papera zure bozketa amaitzeko
@@ -651,7 +655,7 @@ eu:
           feedback: Emaguzu zure iritzia
           header: Baieztatutako botoa
           lead: Zure botoa eman da!
-          text: 'Ondorengo identifikatzaileari esker zure botoa hautestontzian zuzen sartu dela egiaztatu ahal duzu: '
+          text: 'Egiaztatu ahal duzu zure botoa zuzen sartu dela hautesontzian honako identifikatzailearekin: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: 'Egiaztatzeko, kopiatu identifikatzailea eta itsatsi hemen: <a href="%{link}">página de verificación de voto</a>'
         create:
           error: Arazo bat egon da botoa ematean. Mesedez, saiatu berriro.
@@ -665,7 +669,7 @@ eu:
           try_again: Saiatu berriro
         header:
           ballot_decision: Eman edo ikuskatu zure botoa
-          confirm: Berretsi
+          confirm: Baieztatu botoa
           election: Hautaketa
           register: Erregistroa
           vote_for: Bozkatu %{title} (r) en alde
@@ -710,6 +714,7 @@ eu:
           back: Atzera
           continue: Hurrengoa
       warnings:
+        no_elections_warning: Ez dago beren bilaketa-irizpideekin bat datorren hauteskunderik, edo ez dago hauteskunde programaturik.
         no_scheduled_elections_warning: Orain ez dago bozketa programaturik, baina aurrekoak ikus ditzakezu.
     events:
       elections:
@@ -997,6 +1002,7 @@ eu:
             invalid: Arazo bat egon da bozketa hau sortzean.
             success: Bozketa zuzen sortua.
           edit:
+            add_election_component: Ez duzu bozketa honetarako hautaketarik konfiguratuta. Mesedez, gehitu osagaien atalean.
             assign_missing_officers: Presidenterik eta/edo administratzailerik gabeko bozketa-guneak daude. Esleitu itzazu bozketa-guneen ataletik.
             update: Eguneratu
           form:
@@ -1050,8 +1056,11 @@ eu:
             create:
               invalid: Arazo bai izan da errolda igotzean, mesedez, saiatu berriro geroago.
               invalid_csv_header: CSV goiburuak galdu dira edo ez dira zuzenak - mesedez, irakurri arretaz jarraibideak.
+            creating_data:
+              info_message: "<strong>Mesedez itxaron</strong>, %{processed_count} prozesatuak %{raw_count} tik %{file} fitxeroko ilara)."
             delete:
               button: Ezabatu erroldako datu guztiak
+              confirm: Errolda osoa ezabatzea ezin da desegin. Ziur zaude jarraitu nahi duzula?
             destroy:
               error: Arazo bai izan da errolda ezabatzean, mesedez, saiatu berriro geroago.
               success: Erroldako datua ezabatuta.
@@ -1061,6 +1070,9 @@ eu:
               confirm: Sartzeko kodeak behin baino ezin dituzu esportatu. Ziurtatu <strong>%{email}</strong> posta elektronikoan sarbidea duzula.
               file_not_exist: Fitxategi hau ez da existitzen.
               launch_error: Arazoa sarbide-kodeak esportatzen hastean
+              launch_success: 'Sartzeko kodeen esportazioa hasi egin da. Laster posta elektroniko bat jasoko duzu hemen: %{email}.'
+            exporting_access_codes:
+              info_message: "<strong>Mesedez, itxaron</strong>, esportazioa prestatzen ari da, laster jasoko duzu hemen %{email})."
             freeze:
               callout: Errolda itxita dago eta ezin da aldatu.
               help_html: |
