@@ -67,7 +67,6 @@ pl:
         machine_translation_display_priority_translation: Tekst przetłumaczony najpierw
         name: Nazwa
         official_img_footer: Oficjalne logo dla stopki
-        official_img_header: Oficjalne logo dla nagłówka
         official_url: Oficjalny URL organizacji
         omnipresent_banner_short_description: Krótki opis
         omnipresent_banner_title: Tytuł
@@ -124,8 +123,6 @@ pl:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Nieprawidłowy plik obrazu
-            official_img_header:
               allowed_file_content_types: Nieprawidłowy plik obrazu
   activerecord:
     attributes:
