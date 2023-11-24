@@ -75,7 +75,6 @@ lt:
         machine_translation_display_priority_translation: Pirma - išverstas tekstas
         name: Pavadinimas
         official_img_footer: Oficialaus logotipo poraštė
-        official_img_header: Oficialaus logotipo antraštė
         official_url: Oficialus organizacijos URL
         omnipresent_banner_short_description: Trumpas aprašymas
         omnipresent_banner_title: Pavadinimas
@@ -141,8 +140,6 @@ lt:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Netinkama vaizdo rinkmena
-            official_img_header:
               allowed_file_content_types: Netinkama vaizdo rinkmena
         participatory_space_private_user_csv_import:
           attributes:
