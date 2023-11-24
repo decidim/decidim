@@ -12,7 +12,7 @@ In order to develop on decidim, you'll need:
 
 We're starting with an Ubuntu 22.04.1 LTS. This is an opinionated guide, so you're free to use the technology that you are most comfortable. If you have any doubts and you're blocked you can go and ask on https://matrix.to/#/#decidimdevs:matrix.org[our Matrix.org chat room for developers].
 
-We recommend to have at least some basic proficiency in Ruby on Rails (a good starting point is http://guides.rubyonrails.org/getting_started.html[Getting Started with Ruby on Rails]) and have some knowledge on how gems work.
+We recommend to have at least some basic proficiency in GNU/Linux (i.e. how to use the command-line, packages, etc), networking knowledge, server administration, development in general, and some basic knowledge about software package managers. It would be great to have Ruby on Rails development basics (a good starting point is http://guides.rubyonrails.org/getting_started.html[Getting Started with Ruby on Rails]) and have some knowledge on how package libraries are working (we use `bundler` for handling ruby packages, and `npm`/`yarn` for handling javascript).
 
 In this guide, we'll see how to install rbenv, PostgreSQL, Node.js and, Decidim, and how to configure everything together for a development environment. Mind that if you want to make a production deployment with real users this guide isn't enough, you should configure a web server (like nginx), backups, monitoring, etc. This is out of the scope of this guide, but you can follow the https://platoniq.github.io/decidim-install/[Platoniq guide].
 
