@@ -58,7 +58,6 @@ tr:
         machine_translation_display_priority_translation: Önce çevrilen metin
         name: isim
         official_img_footer: Resmi logo altbilgisi
-        official_img_header: Resmi logo başlığı
         official_url: Resmi kuruluş URL'si
         omnipresent_banner_short_description: Kısa Açıklama
         omnipresent_banner_title: Başlık
@@ -111,8 +110,6 @@ tr:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Geçersiz resim dosyası
-            official_img_header:
               allowed_file_content_types: Geçersiz resim dosyası
   activerecord:
     attributes:
