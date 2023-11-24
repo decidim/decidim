@@ -33,13 +33,25 @@
 
   &.success {
     @apply border-success bg-success/5;
+
+    svg {
+      @apply text-success;
+    }
   }
 
   &.alert {
     @apply border-alert bg-alert/5;
+
+    svg {
+      @apply text-alert;
+    }
   }
 
   &.warning {
     @apply border-warning bg-warning/5;
+
+    svg {
+      @apply text-warning;
+    }
   }
 }
