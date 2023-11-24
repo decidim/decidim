@@ -67,7 +67,6 @@ lb:
         machine_translation_display_priority_translation: Übersetzter Text zuerst
         name: Name
         official_img_footer: Offizielles Logo Fußzeile
-        official_img_header: Offizieller Logo-Header
         official_url: Offizielle Organisations-URL
         omnipresent_banner_short_description: Kurze Beschreibung
         omnipresent_banner_title: Titel
@@ -124,8 +123,6 @@ lb:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Ungültige Bilddatei
-            official_img_header:
               allowed_file_content_types: Ungültige Bilddatei
   activerecord:
     attributes:
