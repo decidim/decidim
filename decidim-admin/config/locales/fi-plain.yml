@@ -78,7 +78,6 @@ fi-pl:
         machine_translation_display_priority_translation: Käännetty teksti ensin
         name: Nimi
         official_img_footer: Virallinen logo alapalkissa
-        official_img_header: Virallinen logo yläpalkissa
         official_url: Organisaation virallinen URL-osoite
         omnipresent_banner_short_description: Lyhyt kuvaus
         omnipresent_banner_title: Otsikko
@@ -146,8 +145,6 @@ fi-pl:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Virheellinen kuvatiedosto
-            official_img_header:
               allowed_file_content_types: Virheellinen kuvatiedosto
         participatory_space_private_user_csv_import:
           attributes:
@@ -1022,6 +1019,7 @@ fi-pl:
         edit_organization_appearance: Muokkaa kotisivun ulkoasua
         impersonatable_users: Hallittavat käyttäjät
         impersonations: Käyttäjien hallinta
+        menu: Valikko
         metrics: Tilastomittarit
         page_topics: Aiheet
         pages: Sivut
