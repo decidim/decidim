@@ -138,8 +138,8 @@ module Decidim
         describe "#lookup" do
           subject { resolver.lookup(gem) }
 
-          it "returns Bundler::LazySpecification" do
-            expect(subject).to be_instance_of(Bundler::LazySpecification)
+          it "returns Gem::Specification" do
+            expect(subject).to be_instance_of(Gem::Specification)
             expect(subject.name).to eq(gem)
           end
         end
