@@ -114,6 +114,9 @@ cs:
           success: Debata byla úspěšně vytvořena.
         debate:
           participate: Účastnit se
+        debates:
+          empty: Zatím nejsou žádné diskuse.
+          empty_filters: S těmito kritérii nejsou žádné diskuse.
         edit:
           back: Zpět
           save: Uložit změny
