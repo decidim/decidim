@@ -60,6 +60,8 @@ de:
             official_blog_post: Offizieller Post
             title: Titel
       posts:
+        index:
+          empty: Es sind noch keine Beiträge vorhanden.
         show:
           back: Zurück zur Liste
           comments: Kommentare
