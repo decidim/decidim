@@ -33,5 +33,59 @@ describe "Show a page" do
         expect(page).to have_content("Content")
       end
     end
+
+    context "when there is no content in the page" do
+      let(:body) { nil }
+
+      before do
+        visit_component
+      end
+
+      it "shows an empty page with a message" do
+        within "main" do
+          expect(page).to have_content("There are no contents in this page yet.")
+        end
+      end
+    end
+
+    context "when the content is an empty paragraph" do
+      let(:body) do
+        {
+          "en" => "<p></p>",
+          "ca" => "<p></p>",
+          "es" => "<p></p>"
+        }
+      end
+
+      before do
+        visit_component
+      end
+
+      it "shows an empty page with a message" do
+        within "main" do
+          expect(page).to have_content("There are no contents in this page yet.")
+        end
+      end
+    end
+
+    context "when there is no content in the current locale" do
+      let(:body) do
+        {
+          "en" => "<p>Content</p>",
+          "ca" => "<p></p>",
+          "es" => "<p></p>"
+        }
+      end
+
+      it "shows the default locale content" do
+        I18n.with_locale :ca do
+          visit_component
+
+          within "main" do
+            expect(page).to have_content("Content")
+          end
+        end
+      end
+    end
   end
 end
