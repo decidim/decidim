@@ -110,6 +110,9 @@ fr:
           success: Débat créé avec succès.
         debate:
           participate: Participer
+        debates:
+          empty: Il n'y a aucun débat pour l'instant.
+          empty_filters: Il n'y a aucun débat avec ces critères.
         edit:
           back: Retour
           save: Enregistrer les modifications
