@@ -60,6 +60,8 @@ en:
             official_blog_post: Official post
             title: Title
       posts:
+        index:
+          empty: There are no posts yet.
         show:
           back: Back to list
           comments: Comments
