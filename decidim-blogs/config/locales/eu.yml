@@ -60,6 +60,8 @@ eu:
             official_blog_post: Argitalpen ofiziala
             title: Izenburua
       posts:
+        index:
+          empty: Oraindik ez dago argitalpenik.
         show:
           back: Itzuli zerrendara
           comments: Iruzkinak
