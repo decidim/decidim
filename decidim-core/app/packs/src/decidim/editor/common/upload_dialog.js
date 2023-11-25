@@ -23,7 +23,6 @@ export default class UploadDialog {
   constructor(element, { i18n, onOpen, onClose }) {
     this.element = element;
     this.i18n = i18n;
-    this.legacyDesign = Boolean(element.dataset.reveal);
     this.onOpen = onOpen;
     this.onClose = onClose;
 
@@ -35,32 +34,18 @@ export default class UploadDialog {
     this.messageSection = document.createElement("div");
     this.currentFileSection = document.createElement("div");
     this.inputSection = document.createElement("div");
-    if (this.legacyDesign) {
-      this.saveButton = this.element.querySelector("button.add-file-file");
-      this.cancelButton = this.element.querySelector("button.cancel-attachment");
-      this.dropZone = this.element.querySelector(".dropzone");
+    this.saveButton = this.element.querySelector("button[data-dropzone-save]");
+    this.cancelButton = this.element.querySelector("button[data-dropzone-cancel]");
+    this.dropZone = this.element.querySelector("[data-dropzone]");
 
-      const dc = this.element.querySelector(".dropzone-container");
-      extra = document.createElement("div");
-      dc.parentNode.insertBefore(extra, dc.nextSibling);
-    } else {
-      this.saveButton = this.element.querySelector("button[data-dropzone-save]");
-      this.cancelButton = this.element.querySelector("button[data-dropzone-cancel]");
-      this.dropZone = this.element.querySelector("[data-dropzone]");
-
-      extra = document.createElement("div");
-      this.dropZone.parentNode.insertBefore(extra, this.dropZone.nextSibling);
-    }
+    extra = document.createElement("div");
+    this.dropZone.parentNode.insertBefore(extra, this.dropZone.nextSibling);
 
     extra.append(this.messageSection);
     extra.append(this.currentFileSection);
 
-    if (this.legacyDesign) {
-      extra.append(this.inputSection);
-    } else {
-      this.dropZone.parentNode.querySelector(".upload-modal__text").classList.add("mb-0");
-      this.dropZone.parentNode.append(this.inputSection);
-    }
+    this.dropZone.parentNode.querySelector(".upload-modal__text").classList.add("mb-0");
+    this.dropZone.parentNode.append(this.inputSection);
 
     this.saveButton.addEventListener("click", () => {
       this.exitMode = "save";
@@ -124,11 +109,7 @@ export default class UploadDialog {
         this.callback = null;
       }
     };
-    if (this.legacyDesign) {
-      $(this.element).on("closed.zf.reveal", handleClose);
-    } else {
-      this.element.addEventListener("close.dialog", () => setTimeout(handleClose, 0));
-    }
+    this.element.addEventListener("close.dialog", () => setTimeout(handleClose, 0));
   }
 
   getValue(key) {
@@ -144,12 +125,7 @@ export default class UploadDialog {
 
       this.updateCurrentFile();
 
-      let titleEl = null;
-      if (this.legacyDesign) {
-        titleEl = this.element.querySelector(".reveal__title");
-      } else {
-        titleEl = this.element.querySelector("[data-dialog-title]");
-      }
+      let titleEl = this.element.querySelector("[data-dialog-title]");
 
       if (values.src && values.src.length > 0) {
         titleEl.textContent = titleEl.dataset.editlabel;
@@ -165,27 +141,19 @@ export default class UploadDialog {
       `;
 
       let titleSection = null;
-      if (this.legacyDesign) {
-        titleSection = createElement(`<div class="row">${titleInputHtml}</div>`);
-      } else {
-        titleSection = createElement(`<div class="form__wrapper">${titleInputHtml}</div>`);
-      }
+      titleSection = createElement(`<div class="form__wrapper">${titleInputHtml}</div>`);
       titleSection.querySelector(".attachment-title").value = values.alt || "";
       this.inputSection.innerHTML = "";
       this.inputSection.append(titleSection);
 
       this.uploadHandler = options.uploadHandler;
 
-      if (this.legacyDesign) {
-        $(this.element).foundation("open");
+      const dialogId = this.element.dataset.dialog;
+      const dialog = window.Decidim.currentDialogs[dialogId];
+      if (dialog) {
+        dialog.open();
       } else {
-        const dialogId = this.element.dataset.dialog;
-        const dialog = window.Decidim.currentDialogs[dialogId];
-        if (dialog) {
-          dialog.open();
-        } else {
-          console.error(`Upload dialog not initialized for: ${dialogId}`);
-        }
+        console.error(`Upload dialog not initialized for: ${dialogId}`);
       }
 
       this.callback = resolve;
@@ -200,21 +168,13 @@ export default class UploadDialog {
     const items = this.dropZone.querySelector("[data-dropzone-items]");
 
     if (!this.values.src || this.values.src.length < 1) {
-      if (this.legacyDesign) {
-        this.currentFileSection.innerHTML = "";
-      } else {
-        items.setAttribute("hidden", "hidden");
-        items.innerHTML = "";
-      }
+      items.setAttribute("hidden", "hidden");
+      items.innerHTML = "";
       return;
     }
 
     this.saveButton.disabled = false;
-    if (this.legacyDesign) {
-      this.currentFileSection.innerHTML = `
-        <img src="${this.values.src}" alt="${this.i18n.uploadedFile}" style="max-width:100px">
-      `;
-    } else if (file) {
+    if (file) {
       items.removeAttribute("hidden");
       items.innerHTML = `
         <li data-filename="${file.name}" data-state="validated">
@@ -234,25 +194,21 @@ export default class UploadDialog {
 
     const response = await this.uploadHandler(file);
     if (!response.url) {
-      if (this.legacyDesign) {
-        this.messageSection.innerHTML = `<div class="form-error is-visible">${response.message}</div>`;
-      } else {
-        const items = this.dropZone.querySelector("[data-dropzone-items]");
-        const locales = JSON.parse(items.dataset.locales);
-        items.removeAttribute("hidden");
-        items.innerHTML = `
-          <li data-filename="${file.name}" data-state="validated">
-            <div data-template="error">
-              <div>${icon("error-warning-line")}</div>
-              <div>
-                <span>${file.name}</span>
-                <span>${locales.validation_error}</span>
-                <ul><li>${response.message}</li></ul>
-              </div>
+      const items = this.dropZone.querySelector("[data-dropzone-items]");
+      const locales = JSON.parse(items.dataset.locales);
+      items.removeAttribute("hidden");
+      items.innerHTML = `
+        <li data-filename="${file.name}" data-state="validated">
+          <div data-template="error">
+            <div>${icon("error-warning-line")}</div>
+            <div>
+              <span>${file.name}</span>
+              <span>${locales.validation_error}</span>
+              <ul><li>${response.message}</li></ul>
             </div>
-          </li>
-        `;
-      }
+          </div>
+        </li>
+      `;
       return;
     }
     this.values.src = response.url;

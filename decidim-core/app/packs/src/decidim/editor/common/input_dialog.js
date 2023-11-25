@@ -6,17 +6,9 @@ import { uniqueId } from "src/decidim/editor/common/helpers";
 export default class InputDialog {
   constructor(editor, { inputs }) {
     this.editor = editor;
-    // The legacy design should not have any elements on the page with the
-    // `data-dialog` attribute.
-    this.legacyDesign = !document.querySelector("[data-dialog]");
     const inputId = uniqueId("inputdialog");
     this.element = document.createElement("div");
-    if (this.legacyDesign) {
-      this.element.classList.add("reveal");
-      this.element.setAttribute("data-reveal", "");
-    } else {
-      this.element.dataset.dialog = `${Math.random().toString(36).slice(2)}`;
-    }
+    this.element.dataset.dialog = `${Math.random().toString(36).slice(2)}`;
 
     let inputsHTML = "";
     Object.keys(inputs).forEach((name) => {
@@ -41,66 +33,39 @@ export default class InputDialog {
 
     const i18n = getDictionary("editor.inputDialog");
 
-    if (this.legacyDesign) {
-      this.element.innerHTML = `
-        <div>
+    const uniq = this.element.dataset.dialog;
+    this.element.innerHTML = `
+      <div id="${uniq}-content">
+        <button type="button" data-dialog-close="${uniq}" data-dialog-closable="" aria-label="${i18n.close}">&times</button>
+        <div data-dialog-container>
           <form>
-            ${inputsHTML}
+            <div class="form__wrapper">
+              ${inputsHTML}
+            </div>
             <input type="submit" hidden>
           </form>
         </div>
-        <div class="row columns">
-          <div class="text-center">
-            <button type="button" class="button mr-xs mb-none" data-action="save">${i18n["buttons.save"]}</button>
-            <button type="button" class="button clear mb-none" data-action="cancel">${i18n["buttons.cancel"]}</button>
-          </div>
+        <div data-dialog-actions>
+          <button type="button" class="button button__sm md:button__lg button__transparent-secondary" data-action="cancel">${i18n["buttons.cancel"]}</button>
+          <button type="button" class="button button__sm md:button__lg button__secondary" data-action="save">${i18n["buttons.save"]}</button>
         </div>
-      `;
+      </div>
+    `;
+    document.body.appendChild(this.element);
 
-      document.body.appendChild(this.element);
-      $(this.element).foundation();
-
-      // Foundation needs jQuery
-      $(this.element).on("open.zf.reveal", () => {
+    this.dialog = new Dialog(`[data-dialog="${uniq}"]`, {
+      // openingSelector: `[data-dialog-open="${uniq}"]`,
+      closingSelector: `[data-dialog-close="${uniq}"]`,
+      backdropSelector: `[data-dialog="${uniq}"]`,
+      enableAutoFocus: false,
+      onOpen: () => {
         setTimeout(() => this.focusFirstInput(), 0);
-      });
-      $(this.element).on("closed.zf.reveal", () => {
+      },
+      onClose: () => {
         setTimeout(() => this.handleClose(), 0);
-      });
-    } else {
-      const uniq = this.element.dataset.dialog;
-      this.element.innerHTML = `
-        <div id="${uniq}-content">
-          <button type="button" data-dialog-close="${uniq}" data-dialog-closable="" aria-label="${i18n.close}">&times</button>
-          <div data-dialog-container>
-            <form>
-              <div class="form__wrapper">
-                ${inputsHTML}
-              </div>
-              <input type="submit" hidden>
-            </form>
-          </div>
-          <div data-dialog-actions>
-            <button type="button" class="button button__sm md:button__lg button__transparent-secondary" data-action="cancel">${i18n["buttons.cancel"]}</button>
-            <button type="button" class="button button__sm md:button__lg button__secondary" data-action="save">${i18n["buttons.save"]}</button>
-          </div>
-        </div>
-      `;
-      document.body.appendChild(this.element);
+      }
+    });
 
-      this.dialog = new Dialog(`[data-dialog="${uniq}"]`, {
-        // openingSelector: `[data-dialog-open="${uniq}"]`,
-        closingSelector: `[data-dialog-close="${uniq}"]`,
-        backdropSelector: `[data-dialog="${uniq}"]`,
-        enableAutoFocus: false,
-        onOpen: () => {
-          setTimeout(() => this.focusFirstInput(), 0);
-        },
-        onClose: () => {
-          setTimeout(() => this.handleClose(), 0);
-        }
-      });
-    }
 
     this.element.querySelector("form").addEventListener("submit", (ev) => {
       ev.preventDefault();
@@ -134,34 +99,18 @@ export default class InputDialog {
 
       this.editor.commands.toggleDialog(true);
 
-      if (this.legacyDesign) {
-        // Foundation needs jQuery
-        $(this.element).foundation("open");
-      } else {
-        this.dialog.open();
-      }
+      this.dialog.open();
     })
   }
 
   close() {
-    if (this.legacyDesign) {
-      // Foundation needs jQuery
-      $(this.element).foundation("close");
-    } else {
-      this.dialog.close();
-    }
+    this.dialog.close();
   }
 
   destroy() {
-    if (this.legacyDesign) {
-      // Foundation needs jQuery
-      $(this.element).foundation("_destroy");
-      this.element.remove();
-    } else {
-      this.dialog.destroy();
-      this.element.remove();
-      Reflect.deleteProperty(this, "dialog");
-    }
+    this.dialog.destroy();
+    this.element.remove();
+    Reflect.deleteProperty(this, "dialog");
   }
 
   /**
