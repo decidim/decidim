@@ -110,6 +110,9 @@ ca:
           success: Debat creat correctament.
         debate:
           participate: Participa
+        debates:
+          empty: Encara no hi ha cap debat.
+          empty_filters: No hi ha cap debat amb aquest criteri.
         edit:
           back: Enrere
           save: Guardar canvis
