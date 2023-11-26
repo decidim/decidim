@@ -48,9 +48,9 @@ describe Decidim::ContentBlocks::HeroComponent, type: :component do
     end
 
     it "uses that image's big version as background" do
-      result = render_inline(subject)
+      result = render_inline(subject).to_s
 
-      expect(result.to_s).to include(content_block.images_container.attached_uploader(:background_image).path(variant: :big))
+      expect(result).to include(content_block.images_container.attached_uploader(:background_image).path(variant: :big))
     end
   end
 end
