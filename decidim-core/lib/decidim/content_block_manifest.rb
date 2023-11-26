@@ -29,6 +29,7 @@ module Decidim
     attribute :component_manifest_name, String
     attribute :images, Array[Hash]
     attribute :default, Boolean, default: false
+    attribute :component, Boolean, default: false
 
     validates :name, :cell, :public_name_key, presence: true
     validates :settings_form_cell, presence: true, if: :has_settings?

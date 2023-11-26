@@ -6,6 +6,7 @@ module Decidim
       class RegistryManager
         def self.register_homepage_content_blocks!
           Decidim.content_blocks.register(:homepage, :hero) do |content_block|
+            content_block.component = true
             content_block.cell = "decidim/content_blocks/hero"
             content_block.settings_form_cell = "decidim/content_blocks/hero_settings_form"
             content_block.public_name_key = "decidim.content_blocks.hero.name"
