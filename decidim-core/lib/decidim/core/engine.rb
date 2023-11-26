@@ -40,6 +40,7 @@ require "ransack"
 require "wisper"
 require "shakapacker"
 
+require "view_component"
 # Needed for the assets:precompile task, for configuring webpacker instance
 require "decidim/webpacker"
 
@@ -229,6 +230,10 @@ module Decidim
 
       initializer "decidim_core.action_mailer" do |app|
         app.config.action_mailer.deliver_later_queue_name = :mailers
+      end
+
+      initializer "decidim_core.action_view" do |app|
+        app.config.view_component.instrumentation_enabled = true
       end
 
       initializer "decidim_core.middleware" do |app|
