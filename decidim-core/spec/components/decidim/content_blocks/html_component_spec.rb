@@ -21,7 +21,7 @@ describe Decidim::ContentBlocks::HtmlComponent, type: :component do
       content = render_inline(subject).to_s
 
       expect(content).to include('<p class="text-center">This is my welcome text</p>')
-      expect(content).to include('<h2>Test</h2>')
+      expect(content).to include("<h2>Test</h2>")
     end
   end
 end

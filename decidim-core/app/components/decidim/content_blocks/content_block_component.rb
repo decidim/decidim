@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 module Decidim
   module ContentBlocks
     class ContentBlockComponent < Decidim::BaseComponent
-
       def initialize(content_block)
         @model = content_block
       end
 
       private
+
       attr_reader :model
 
       delegate :settings, :images_container, to: :model

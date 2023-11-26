@@ -3,7 +3,6 @@
 module Decidim
   module ContentBlocks
     class HeroComponent < ContentBlockComponent
-
       class CtaButtonComponent < Decidim::BaseComponent
         include Decidim::CtaButtonHelper
 
