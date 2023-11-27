@@ -1120,6 +1120,7 @@ eu:
                 message_2: Zutabeen arteko banatzailea puntu eta koma (";") izan behar da.
               has_ballot_styles_message: Boto-paper motak konfiguratu dituzu. Mesedez, ziurtatu CSVren "%{ballot_style_code_header}" eremua eta nahi duzun boto-paper motaren kodea bat datozela.
               info_message: "<strong>Oraindik ez dago erroldarik.</strong> Mesedez, erabili hurrengo galdetegia sortzeko CSV batetik inportatuz."
+              missing_ballot_styles_message: 'Oraindik ez dago boto-paperik bozketa honetarako. Galdera baldintzatuak egin nahi badituzu (adibidez, boto-emailea aurkeztu galdera ezberdinen arabera, adibidez, egoitza-barrutiaren/eskualdearen arabera), ezarri behar duzu <a href=%{\displaystyle href = {ballot.estilles_admin_way}} Ballot Styles-Styles-i buruzko informazioa, errolda inportatu aurretik. Boto-emaile guztiak galdera berberekin aurkeztu nahi badituzu, erroldako inportazio-prozedurarekin jarraitu dezakezu.'
               submit: Bidali CSV
               title: Sortu errolda
             show:
