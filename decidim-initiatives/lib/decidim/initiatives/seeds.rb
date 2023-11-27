@@ -9,15 +9,11 @@ module Decidim
       def call
         create_content_block!
 
-        3.times do |n|
+        3.times do |_n|
           type = create_initiative_type!
 
           organization.top_scopes.each do |scope|
-            Decidim::InitiativesTypeScope.create(
-              type:,
-              scope:,
-              supports_required: (n + 1) * 1000
-            )
+            create_initiative_type_scope!(scope:, type:)
           end
         end
 
@@ -94,6 +90,15 @@ module Decidim
           description: Decidim::Faker::Localized.sentence(word_count: 25),
           organization:,
           banner_image: ::Faker::Boolean.boolean(true_ratio: 0.5) ? banner_image : nil # Keep after organization
+        )
+      end
+
+      def create_initiative_type_scope!(scope:, type:)
+        n = rand(3)
+        Decidim::InitiativesTypeScope.create(
+          type:,
+          scope:,
+          supports_required: (n + 1) * 1000
         )
       end
     end
