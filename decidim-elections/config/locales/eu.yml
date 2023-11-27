@@ -214,7 +214,7 @@ eu:
           feedback_form_answers: Erantzunen feedbacka
         mailers:
           trustee_mailer:
-            body: "< p>Kaixo %{user_name}, </p><p> %{resource_name}-an sartu zaituzte, konfiantzazko gisa.< p>"
+            body: "< p>Kaixo %{user_name}, </p><p> -an sartu zaituzte, %{resource_name}< p> bermatzaile gisa"
             subject: Gehitu zaituzte %{resource_name} -ren bermatzaile gisa
             trustee_zone: Eraman bermatzaileen gunera
         menu:
