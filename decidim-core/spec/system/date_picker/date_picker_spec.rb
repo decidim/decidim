@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Datepicker", type: :system do
+describe "Datepicker" do
   let(:organization) { create(:organization) }
   let(:datepicker_content) { "" }
   let(:record) { OpenStruct.new(body: datepicker_content) }
