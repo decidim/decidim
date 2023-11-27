@@ -1584,8 +1584,7 @@ eu:
         decline: Deuseztatu gonbita
         hello: Kaixo, %{email},
         ignore: |-
-          Gonbidapena ez baduzu onartu nahi, ez ezazu mezu elektroniko hau kontuan hartu.<br />
-          Zure kontua ez da sortuko aurreko estekara sartu eta zure ezizena eta pasahitza ezarri arte.
+          Gonbidapena onartu nahi ez baduzu, mesedez, ez egin kasurik mezu elektroniko honi. < br/> Zure kontua ez da sortuko, goiko estekara sartu eta zure erabiltzaile-izena eta pasahitza ezarri arte.
         invited_you_as_admin: "%{invited_by} %{application} administratzaile gisa gonbidatu zaitu. Beheko estekan onartu dezakezu."
         invited_you_as_private_user: "%{invited_by} k egonbidatu zaitu %{application} ko erabiltzaile pribatu gisa. Beheko estekan onartu dezakezu."
         someone_invited_you: Norbaitek %{application} gonbidatu zaitu. Beheko estekan onartu dezakezu.
@@ -1593,9 +1592,9 @@ eu:
         someone_invited_you_as_private_user: Norbaitek %{application} ko parte-hartzaile pribatu gisa gonbidatu zaitu, beheko estekan onar dezakezu.
         subject: Gonbidapenaren argibideak
       invite_admin:
-        subject: 'Gonbita jaso duzu erakunde hau kudeatzeko: %{organization}'
+        subject: 'Gonbidapena jaso duzu erakunde hau kudeatzeko: %{organization}'
       invite_collaborator:
-        subject: 'Gonbita jaso duzu erakunde honekin lankidetzan aritzeko: %{organization}'
+        subject: 'Gonbidapena jaso duzu erakunde honekin lankidetzan aritzeko: %{organization}'
       invite_private_user:
         subject: Prozesu parte-hartzaile batera gonbidatu zaituzte %{organization} helbidean
       organization_admin_invitation_instructions:
@@ -1625,7 +1624,7 @@ eu:
         change_my_password: Aldatu nire pasahitza
         confirm_new_password: Berretsi pasahitz berria
         new_password: Pasahitza
-        password_help: "%{minimun_characters} karaktere minimo, ez da oso arrunta izan behar (adibidez, 123456) eta zure ezizena eta posta elektronikoa desberdinak izan behar dira."
+        password_help: "%{minimum_characters} karaktere gutxienez, ez dira oso ohikoak izan behar (adibidez, 123456) eta zure goitizenetik eta zure helbide elektronikoarekin desberdinak izan behar dira."
         password_help_admin: "%{minimun_characters} karaktere minimo, ez da oso arrunta izan behar (adibidez, 123456), zure ezizena eta posta elektronikoa desberdinak izan behar dira eta zure pasahitz zaharrak ez bezalakoak izan behar dute."
         title: Pasahitza aldatu egin da
       new:
@@ -1679,7 +1678,7 @@ eu:
       already_confirmed: dagoeneko baieztatu da. Saiatu saioa hasi
       confirmation_period_expired: '%{period} barruan baieztatu behar da, mesedez, eskatu beste bat'
       content_type_allowlist_error: fitxategiaren mota ez da baliozkoa
-      cycle_detected: Esparruko guraso bat ezin da bere ondorengoetako bat izan
+      cycle_detected: esparruko nagusi bat ezin da bere ondorengoetako bat izan
       expired: iraungi egin da; mesedez, eskatu beste bat
       file_size_is_less_than_or_equal_to: fitxategiaren pisuak %{count} izan behar du, edo gutxiago
       invalid_time_zone: ordu-zona ez da baliozkoa
