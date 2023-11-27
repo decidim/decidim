@@ -10,12 +10,7 @@ module Decidim
         create_content_block!
 
         3.times do |n|
-          type = Decidim::InitiativesType.create!(
-            title: Decidim::Faker::Localized.sentence(word_count: 5),
-            description: Decidim::Faker::Localized.sentence(word_count: 25),
-            organization:,
-            banner_image: ::Faker::Boolean.boolean(true_ratio: 0.5) ? banner_image : nil # Keep after organization
-          )
+          type = create_initiative_type!
 
           organization.top_scopes.each do |scope|
             Decidim::InitiativesTypeScope.create(
@@ -90,6 +85,15 @@ module Decidim
           scope_name: :homepage,
           manifest_name: :highlighted_initiatives,
           published_at: Time.current
+        )
+      end
+
+      def create_initiative_type!
+        Decidim::InitiativesType.create!(
+          title: Decidim::Faker::Localized.sentence(word_count: 5),
+          description: Decidim::Faker::Localized.sentence(word_count: 25),
+          organization:,
+          banner_image: ::Faker::Boolean.boolean(true_ratio: 0.5) ? banner_image : nil # Keep after organization
         )
       end
     end
