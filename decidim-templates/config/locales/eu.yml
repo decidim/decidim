@@ -25,7 +25,7 @@ eu:
           success: Txantiloia zuzen ezabatu da
         empty: Oraindik ez dago txantiloirik.
         update:
-          error: Arazo bat izan da txantiloi hau eguneratzean.
+          error: Arazo bat egon da eztabaida hau eguneratzean.
           success: Txantiloia zuzen eguneratu da
       titles:
         template_types:
@@ -66,9 +66,9 @@ eu:
             tos_agreement: Parte hartzean erabilera-irizpideak eta baldintzak onartzen dituzu
       admin_log:
         template:
-          create: "%{user_name} -k%{resource_name} galdetegia eguneratu du"
-          delete: "%{user_name} -k%{resource_name} galdetegia eguneratu du"
-          duplicate: "%{user_name} -k%{resource_name} galdetegia bikoiztu du"
-          update: "%{user_name} -k%{resource_name} galdetegia eguneratu du"
+          create: "%{user_name} -k %{resource_name} galdetegia eguneratu du"
+          delete: "%{user_name} -k %{resource_name} galdetegia eguneratu du"
+          duplicate: "%{user_name} -k %{resource_name} galdetegia bikoiztu du"
+          update: "%{user_name} -k %{resource_name} galdetegia eguneratu du"
       template_types:
         questionnaires: Galdetegiak
