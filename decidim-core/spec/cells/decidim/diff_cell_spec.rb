@@ -79,9 +79,11 @@ describe Decidim::DiffCell, type: :cell, versioning: true do
 
     context "with diff_view_unified_escaped" do
       it "sanitizes potentially safe HTML tags" do
-        expect(subject).to have_selector("em", text: "em")
-        expect(subject).to have_selector("u", text: "u")
-        expect(subject).to have_selector("strong", text: "strong")
+        within "#diff-for-body" do
+          expect(subject).to have_selector("em", text: "em")
+          expect(subject).to have_selector("u", text: "u")
+          expect(subject).to have_selector("strong", text: "strong")
+        end
       end
 
       it "sanitizes potentially malicious HTML tags" do
@@ -94,9 +96,11 @@ describe Decidim::DiffCell, type: :cell, versioning: true do
 
     context "with diff_view_split_unescaped" do
       it "renders potentially safe HTML tags unescaped" do
-        expect(html).to have_selector("em", text: "em")
-        expect(html).to have_selector("u", text: "u")
-        expect(html).to have_selector("strong", text: "strong")
+        within "#diff-for-body" do
+          expect(subject).to have_selector("em", text: "em")
+          expect(subject).to have_selector("u", text: "u")
+          expect(subject).to have_selector("strong", text: "strong")
+        end
       end
 
       it "sanitizes potentially malicious HTML tags" do
@@ -109,9 +113,11 @@ describe Decidim::DiffCell, type: :cell, versioning: true do
 
     context "with diff_view_split_escaped" do
       it "sanitizes potentially safe HTML tags" do
-        expect(html).to have_selector("em", text: "em")
-        expect(html).to have_selector("u", text: "u")
-        expect(html).to have_selector("strong", text: "strong")
+        within "#diff-for-body" do
+          expect(subject).to have_selector("em", text: "em")
+          expect(subject).to have_selector("u", text: "u")
+          expect(subject).to have_selector("strong", text: "strong")
+        end
       end
 
       it "sanitizes potentially malicious HTML tags" do
