@@ -27,7 +27,7 @@ module Decidim
       end
 
       def show
-        check_current_user_can_visit_space
+        enforce_permission_to :read, :process, process: current_participatory_space
       end
 
       def user_diploma
