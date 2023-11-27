@@ -30,7 +30,7 @@ eu:
         password_confirmation: Berretsi pasahitza
         personal_url: URL pertsonala
         remove_avatar: Kendu abatarra
-        tos_agreement: Erabilera-baldintzak eta -baldintzak
+        tos_agreement: Erabilera-terminoen eta -baldintzen adostasuna
     models:
       decidim/attachment_created_event: eranskina
       decidim/component_published_event: Osagai erabilgarria
@@ -1625,7 +1625,7 @@ eu:
         confirm_new_password: Berretsi pasahitz berria
         new_password: Pasahitza
         password_help: "%{minimum_characters} karaktere gutxienez, ez dira oso ohikoak izan behar (adibidez, 123456) eta zure goitizenetik eta zure helbide elektronikoarekin desberdinak izan behar dira."
-        password_help_admin: "%{minimun_characters} karaktere minimo, ez da oso arrunta izan behar (adibidez, 123456), zure ezizena eta posta elektronikoa desberdinak izan behar dira eta zure pasahitz zaharrak ez bezalakoak izan behar dute."
+        password_help_admin: "%{minimum_characters} karaktere gutxienez, ez dira oso ohikoak izan behar (adibidez, 123456) eta zure goitizenetik eta zure helbide elektronikoarekin desberdinak izan behar dira."
         title: Pasahitza aldatu egin da
       new:
         forgot_your_password: Pasahitza ahaztu duzu?
