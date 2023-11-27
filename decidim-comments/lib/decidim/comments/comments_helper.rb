@@ -26,14 +26,12 @@ module Decidim
       def inline_comments_for(resource, options = {})
         return unless resource.commentable?
 
-        cell(
-          "decidim/comments/comments",
-          resource,
+        Decidim::Comments::CommentList::Component.new(resource, {
           machine_translations: machine_translations_toggled?,
           single_comment: params.fetch("commentId", nil),
           order: options[:order],
           polymorphic: options[:polymorphic]
-        ).to_s
+        })
       end
     end
   end
