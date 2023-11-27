@@ -207,8 +207,8 @@ eu:
           description_own: '%{score} topaketatan hartu duzu parte.'
           name: Parte hartu den topkaetak
           next_level_in: '%{score} topaketa gehiago hurrengo mailara iristeko!'
-          unearned_another: Erabiltzaile honek oraindik ez du topaketarik izan.
-          unearned_own: Oraindik ez zara topaketara joan.
+          unearned_another: Erabiltzaile hau oraindik ez da topaketa batera ere joan.
+          unearned_own: Oraindik ez zara topaketa batera ere joan.
     meetings:
       actions:
         agenda: Agenda
@@ -242,8 +242,8 @@ eu:
             remove: Kendu
             up: Gora
           create:
-            invalid: Arazo bat izan da agenda hau sortzeko
-            success: Egutegia modu egokian sortu da
+            invalid: Arazo bat egon da agenda hau sortzean
+            success: Egutegia zuzen sortu da
           edit:
             title: Editatu agenda
             update: Eguneratu
@@ -285,7 +285,7 @@ eu:
               all: Guztiak
               rejected: Baztertuta
               sent: Bidalita
-            filter_by: Iragazi arabera
+            filter_by: Iragazi honen arabera
             invite_attendee: Gonbidatu
             invites: Gonbidapenak
             registrations_disabled: Ezin duzu inor gonbidatu izne-emateak desgaituta daudelako.
