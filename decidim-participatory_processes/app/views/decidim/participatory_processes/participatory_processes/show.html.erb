@@ -14,6 +14,8 @@
   )
 %>
 
+<%= render partial: "layouts/decidim/header/follow_space_menu_bar_button", locals: { participatory_space: current_participatory_space } %>
+
 <%# NOTE: this elements goes outside of the .participatory-space__container block %>
 <% if current_participatory_space.private_space? %>
   <section class="participatory-space__block-reference alert">

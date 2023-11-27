@@ -9,6 +9,8 @@ edit_link(
 )
 %>
 
+<%= render partial: "layouts/decidim/header/follow_space_menu_bar_button", locals: { participatory_space: current_participatory_space } %>
+
 <div class="participatory-space__container">
 
   <% landing_content_blocks.each do |content_block| %>

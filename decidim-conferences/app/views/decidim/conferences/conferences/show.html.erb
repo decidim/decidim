@@ -14,6 +14,8 @@ edit_link(
 )
 %>
 
+<%= render partial: "layouts/decidim/header/follow_space_menu_bar_button", locals: { participatory_space: current_participatory_space } %>
+
 <%# NOTE: This page is wrapped within a main tag, in order to
     include the hero inside the two-column layout.
     Therefore is mandatory to pass the "main_enabled: false" flag
