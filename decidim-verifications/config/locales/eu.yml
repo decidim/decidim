@@ -195,7 +195,7 @@ eu:
               verification_number: 'Egiaztapena # %{n}'
           rejections:
             create:
-              success: Egiaztapena atzera bota da. Erabiltzailea bere dokumentuak aldatzeko eskatuko zaio
+              success: Egiaztapena atzera bota da. Erabiltzaileari bere dokumentuak aldatzeko eskatuko zaio
         authorizations:
           choose:
             choose_a_type: 'Hautatu nola egiaztatu nahi duzun:'
