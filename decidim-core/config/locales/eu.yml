@@ -29,7 +29,7 @@ eu:
         password_confirmation: Berretsi pasahitza
         personal_url: URL pertsonala
         remove_avatar: Kendu abatarra
-        tos_agreement: Erabilera-baldintzak eta -baldintzak
+        tos_agreement: Erabilera-terminoen eta -baldintzen adostasuna
     models:
       decidim/attachment_created_event: eranskina
       decidim/component_published_event: Osagai erabilgarria
