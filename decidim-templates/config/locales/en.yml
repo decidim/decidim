@@ -27,6 +27,7 @@ en:
         destroy:
           success: Template deleted successfully.
         empty: There are no templates yet.
+        missing_resource: "(missing resource)"
         update:
           error: There was a problem updating this template.
           success: Template updated successfully.
@@ -55,6 +56,26 @@ en:
             title: Block user messages
           new:
             title: New block user message template
+          template_chooser:
+            select_template: Select a template answer
+        proposal_answer_templates:
+          edit:
+            title: Edit proposal answer template
+          form:
+            component_constraint_help: Note that only participatory spaces having components of the type "proposals" will be listed.
+            hint1_html: "<strong>%{organization}</strong> will be replaced by the organization's name"
+            hint2_html: "<strong>%{name}</strong> will be replaced by the author's name"
+            hint3_html: "<strong>%{admin}</strong> will be replaced by the admin's name (the one answering the proposal)"
+            hint_html: "<strong>Hint:</strong> You can use these variables anywhere on the answer template that will be replaced when using the template"
+            save: Save
+          index:
+            component_constraint: Add constraint
+            confirm_delete: Are you sure you want to delete this template?
+            global_scope: Global (available everywhere)
+            internal_state: Internal state
+            title: Proposal answers
+          new:
+            title: New proposal answer template
           template_chooser:
             select_template: Select a template answer
         questionnaire_templates:
@@ -88,4 +109,5 @@ en:
           update: "%{user_name} updated the %{resource_name} questionnaire template"
       template_types:
         block_user: Block user messages
+        proposal_answer_templates: Proposal answers
         questionnaires: Questionnaires

@@ -28,7 +28,7 @@
           class: "column button light button--sc success",
           id: "vote_button-#{proposal.id}"
         ) do %>
-          <%= icon("check", class: "icon--small", role: "img", "aria-hidden": true) %>
+          <%= icon("check-line", class: "icon--small", role: "img", "aria-hidden": true) %>
           <%= t("decidim.proposals.proposals.vote_button.already_voted") %>
           <span class="show-for-sr"><%= decidim_html_escape(present(proposal).title) %></span>
         <% end %>

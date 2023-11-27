@@ -7,7 +7,7 @@ describe Decidim::Votings::Census::CheckForm do
 
   let(:current_participatory_space) { create(:voting) }
   let(:document_number) { "123456789Y" }
-  let(:document_type) { "DNI" }
+  let(:document_type) { "passport" }
   let(:day) { 14 }
   let(:month) { 8 }
   let(:year) { 1982 }
@@ -61,6 +61,6 @@ describe Decidim::Votings::Census::CheckForm do
   end
 
   describe "generate hash for data" do
-    it { expect(subject.hashed_check_data).to eql("81c540096460067c2f795349480c38786a1308a22d1434cd5b9799326676e15d") }
+    it { expect(subject.hashed_check_data).to eql("dc97180b483fbe65d9df598323ded13a72b846b87b5648a6db5f92a14c4532b9") }
   end
 end

@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
+require "decidim/components/namer"
+require "decidim/seeds"
+
 module Decidim
   module Initiatives
-    class Seeds
+    class Seeds < Decidim::Seeds
       def call
-        seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
         organization = Decidim::Organization.first
 
         Decidim::ContentBlock.create(
@@ -13,13 +15,6 @@ module Decidim
           scope_name: :homepage,
           manifest_name: :highlighted_initiatives,
           published_at: Time.current
-        )
-
-        banner_image = ActiveStorage::Blob.create_and_upload!(
-          io: File.open(File.join(seeds_root, "city2.jpeg")),
-          filename: "banner_image.jpeg",
-          content_type: "image/jpeg",
-          metadata: nil
         )
 
         3.times do |n|
@@ -46,13 +41,13 @@ module Decidim
           params = {
             title: Decidim::Faker::Localized.sentence(word_count: 3),
             description: Decidim::Faker::Localized.sentence(word_count: 25),
-            scoped_type: Decidim::InitiativesTypeScope.reorder(Arel.sql("RANDOM()")).first,
+            scoped_type: Decidim::InitiativesTypeScope.all.sample,
             state:,
             signature_type: "online",
             signature_start_date: Date.current - 7.days,
             signature_end_date: Date.current + 7.days,
             published_at: 7.days.ago,
-            author: Decidim::User.reorder(Arel.sql("RANDOM()")).first,
+            author: Decidim::User.all.sample,
             organization:
           }
 
@@ -66,20 +61,18 @@ module Decidim
           end
           initiative.add_to_index_as_search_resource
 
+          if %w(published rejected accepted).include? state
+            users = []
+            rand(50).times do
+              author = (Decidim::User.all - users).sample
+              initiative.votes.create!(author:, scope: initiative.scope, hash_id: SecureRandom.hex)
+              users << author
+            end
+          end
+
           Decidim::Comments::Seed.comments_for(initiative)
 
-          Decidim::Attachment.create!(
-            title: Decidim::Faker::Localized.sentence(word_count: 2),
-            description: Decidim::Faker::Localized.sentence(word_count: 5),
-            attached_to: initiative,
-            content_type: "image/jpeg",
-            file: ActiveStorage::Blob.create_and_upload!(
-              io: File.open(File.join(seeds_root, "city.jpeg")),
-              filename: "city.jpeg",
-              content_type: "image/jpeg",
-              metadata: nil
-            )
-          )
+          create_attachment(attached_to: initiative, filename: "city.jpeg")
 
           Decidim::Initiatives.default_components.each do |component_name|
             component = Decidim::Component.create!(

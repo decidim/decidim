@@ -41,6 +41,8 @@ module Decidim
 
         return permission_action unless assembly
 
+        user_can_read_private_users?
+
         moderator_action?
         collaborator_action?
         valuator_action?
@@ -50,6 +52,13 @@ module Decidim
       end
 
       private
+
+      def user_can_read_private_users?
+        return unless permission_action.subject == :space_private_user
+        return unless assembly.private_space?
+
+        toggle_allow(user.admin? || can_manage_assembly?(role: :admin) || can_manage_assembly?(role: :collaborator))
+      end
 
       def assemblies_type_action?
         return unless [:assembly_type, :assemblies_type].include? permission_action.subject
@@ -203,9 +212,9 @@ module Decidim
       end
 
       def allowed_list_of_assemblies?
-        parent_assemblies = assembly_admin_allowed_assemblies.flat_map { |assembly| [assembly.id] + assembly.ancestors.pluck(:id) }
+        parent_assemblies = assembly.ancestors.flat_map { |assembly| [assembly.id] + assembly.ancestors.pluck(:id) }
 
-        allowed_list_of_assemblies = Decidim::Assembly.where(id: assembly_admin_allowed_assemblies + parent_assemblies)
+        allowed_list_of_assemblies = Decidim::Assembly.where(id: [assembly.id] + parent_assemblies)
         allowed_list_of_assemblies.uniq.member?(assembly)
       end
 
@@ -227,6 +236,7 @@ module Decidim
       # Collaborators can read/preview everything inside their assembly.
       def collaborator_action?
         return unless can_manage_assembly?(role: :collaborator)
+        return if permission_action.subject == :space_private_user
 
         allow! if permission_action.action == :read || permission_action.action == :preview
       end
@@ -255,7 +265,6 @@ module Decidim
           :assembly,
           :assembly_user_role,
           :assembly_member,
-          :space_private_user,
           :export_space,
           :import
         ].include?(permission_action.subject)
@@ -275,7 +284,6 @@ module Decidim
           :assembly,
           :assembly_user_role,
           :assembly_member,
-          :space_private_user,
           :export_space,
           :import
         ].include?(permission_action.subject)
@@ -299,10 +307,12 @@ module Decidim
       end
 
       def assembly_admin_allowed_assemblies
-        assemblies = AssembliesWithUserRole.for(user, :admin)
-        child_assemblies = assemblies.flat_map { |assembly| [assembly.id] + assembly.children.pluck(:id) }
+        @assembly_admin_allowed ||= begin
+          assemblies = AssembliesWithUserRole.for(user, :admin).where(id: [assembly.id, assembly.parent_id])
+          child_assemblies = assemblies.flat_map { |assembly| [assembly.id] + assembly.children.pluck(:id) }
 
-        Decidim::Assembly.where(id: assemblies + child_assemblies)
+          Decidim::Assembly.where(id: assemblies + child_assemblies)
+        end
       end
     end
   end

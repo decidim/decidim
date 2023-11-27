@@ -3,7 +3,6 @@
 module Decidim
   # A command that will act as a search service, with all the business logic for performing searches.
   class Search < Decidim::Command
-    ACCEPTED_FILTERS = [:decidim_scope_id_eq].freeze
     HIGHLIGHTED_RESULTS_COUNT = 4
 
     # Public: Initializes the command.
@@ -56,12 +55,6 @@ module Decidim
       collection.page(page_params[:page]).per(page_params[:per_page])
     end
 
-    def clean_filters
-      @clean_filters ||= filters.select do |attribute_name, value|
-        ACCEPTED_FILTERS.include?(attribute_name.to_sym) && value.present?
-      end.compact
-    end
-
     def spaces_to_filter
       return nil if filters[:with_space_state].blank?
 
@@ -91,7 +84,6 @@ module Decidim
       if (spaces = spaces_to_filter)
         query = query.where(decidim_participatory_space: spaces)
       end
-      query = query.ransack(clean_filters).result if clean_filters.any?
 
       query = query.order("datetime DESC")
       query = query.global_search(I18n.transliterate(term)) if term.present?

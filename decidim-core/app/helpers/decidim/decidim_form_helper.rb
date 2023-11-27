@@ -210,7 +210,7 @@ module Decidim
       return unless record.respond_to?(:errors)
       return unless record.errors[:base].any?
 
-      alert_box(record.errors.full_messages_for(:base).join(","), "alert", false)
+      alert_box(record.errors.full_messages_for(:base).join(","), :alert, false)
     end
 
     # Handle which collection to pass to Decidim::FilterFormBuilder.areas_select

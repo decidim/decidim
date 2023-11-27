@@ -7,7 +7,7 @@
       <% end %>
       <%= t(".title") %>
 
-      <%= export_dropdown %>
+      <%= export_dropdowns(query) %>
       <%= import_dropdown do %>
         <li class="imports--component imports--results">
           <%= link_to t("actions.import", scope: "decidim.accountability", name: t("models.result.name", scope: "decidim.accountability.admin")), new_projects_import_path if allowed_to?(:create, :result) && parent_result.nil? %>
