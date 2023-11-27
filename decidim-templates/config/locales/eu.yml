@@ -104,9 +104,9 @@ eu:
         template:
           create: "%{user_name} -k %{resource_name} galdetegia eguneratu du"
           delete: "%{user_name} -k %{resource_name} galdetegia eguneratu du"
-          duplicate: "%{user_name} -k%{resource_name} galdetegia bikoiztu du"
-          update: "%{user_name} -k%{resource_name} galdetegia eguneratu du"
+          duplicate: "%{user_name} -k %{resource_name} galdetegia bikoiztu du"
+          update: "%{user_name} -k %{resource_name} galdetegia eguneratu du"
       template_types:
-        block_user: Blokeatutako mezuak
+        block_user: Blokeatu erabiltzailearen mezuak
         proposal_answer_templates: Proposamenen erantzunak
         questionnaires: Galdetegiak
