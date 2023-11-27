@@ -89,7 +89,7 @@ eu:
     admin:
       actions:
         confirm: Berretsi
-        new_conference: Jardunaldi berria
+        new_conference: Beste hitzaldi bat
         send_diplomas: Bidali bertaratze-ziurtagiriak
       conference_copies:
         new:
