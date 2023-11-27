@@ -29,7 +29,11 @@
   <% active_content_blocks.each do |content_block| %>
     <% next unless content_block.manifest %>
 
-    <%= cell content_block.manifest.cell, content_block %>
+    <% if content_block.manifest.component %>
+      <%= render("#{content_block.manifest.cell}_component".classify.constantize.new(content_block)) %>
+    <% else %>
+      <%= cell content_block.manifest.cell, content_block %>
+    <% end %>
   <% end %>
 
 </div>

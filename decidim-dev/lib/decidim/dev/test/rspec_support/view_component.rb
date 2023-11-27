@@ -24,7 +24,7 @@ RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :component
   config.include Decidim::CapybaraTestHelpers, type: :component
   config.include Decidim::ViewComponentTestHelpers, type: :component
-  
+
   config.before :each, type: :component do
     @request = vc_test_controller.request
 
