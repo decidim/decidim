@@ -104,10 +104,6 @@
 
 .card-section {
   @apply pb-4 bg-white;
-
-  svg {
-    @apply w-4 h-4 inline-block fill-secondary;
-  }
 }
 
 .fcell .label {
