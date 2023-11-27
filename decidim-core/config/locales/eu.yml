@@ -202,7 +202,7 @@ eu:
         error: Errore bat gertatu da aldaketa onartzean.
         success: Zuzenketa ondo onartu da.
       amendable:
-        amended_by: Aldatua
+        amended_by: Nork zuzendua
         button: Zuzendu %{model_name}
         error: Errore bat egon da baliabide hau aldatzean.
         help_text: Hobetu %{model_name} hau bere %{amendable_fields}aldatuz
@@ -463,7 +463,7 @@ eu:
         unauthorized: Ez duzu baimenik ekintza honi heltzeko.
     data_portability:
       export:
-        ready: prest
+        ready: Prest
       show:
         download_data: Deskargatu datuak
         download_data_description: "Artxibo bat bidaliko da zure kontura lotutako informazio guztiarekin hona: <strong>%{user_email}</strong>.\nKorreo honek .zip artxibo bat izango du eta pasahitz bat zabaldu ahal izateko.<br/><br/>Artxiboa deskonprimitzeko, beharko duzu: <a href=\"https://www.7-zip.org/\">7-Zip</a> (Windows) edo <a href=\"https://www.keka.io/\">Keka</a> (MacOS). Linux erabiltzen baduzu, gehienetan instalatuta izango duzu defektuz. \nBestela, erabil dezakezu: <a href=\"https://gitlab.gnome.org/GNOME/file-roller\">File Roller</a> o <a href=\"https://peazip.github.io\">PeaZip</a>)."
@@ -473,7 +473,7 @@ eu:
     devise:
       omniauth_registrations:
         create:
-          email_already_exists: Beste kontu batek erabiltzen du helbide elektroniko bera.
+          email_already_exists: Beste kontu bat helbide elektroniko bera erabiltzen ari da
         new:
           complete_profile: Osatu profila
           nickname_help: Zure ezizena %{organization}-an. Letrak, zenbakiak, '-' eta '_' soilik eduki ditzake.
@@ -488,13 +488,13 @@ eu:
           newsletter: Jaso nahi dut noizbehinka informazio garrantzitsua duen buletina
           newsletter_title: Harremanetarako baimena
           nickname_help: Zure ezizena %{organization}-an. Letrak, zenbakiak, '-' eta '_' soilik eduki ditzake.
-          password_help: "%{minimun_characters} karaktere minimo, ez da oso arrunta izan behar (adibidez, 123456) eta zure ezizena eta posta elektronikoa desberdinak izan behar dira."
+          password_help: "%{minimum_characters} karaktere gutxienez, ez dira oso ohikoak izan behar (adibidez, 123456) eta zure goitizenetik eta zure helbide elektronikoarekin desberdinak izan behar dira."
           sign_in: Hasi saioa
           sign_up: Erregistratu
           sign_up_as:
             legend: Izena eman honako hau gisa
           subtitle: Sortu kontu bat eztabaida eta laguntza proposamenetan parte hartzeko.
-          terms: erabilera-baldintzak
+          terms: erabilera-baldintzak eta terminoak
           tos_agreement: 'Erregistratzean hau onartzen duzu: %{link}.'
           tos_title: Zerbitzuaren baldintzak
           username_help: Zure mezuetan agertuko den izen publikoa. Anonimatua bermatze aldera, edozein izen izan daiteke.
@@ -505,7 +505,7 @@ eu:
           sign_in_disabled: Kanpoko kontu batez sar zaitezke
           sign_up_disabled: Erregistroa desgaituta dago, lehendik dagoen erabiltzaile bat erabil dezakezu sartzeko
         user:
-          timed_out: Denbora gehiegi egon zara lanik egin gabe, eta automatikoki bidali zaituzte zerbitzutik. Zerbitzua erabiltzen jarraitu nahi baduzu, sinatu berriro.
+          timed_out: Denbora gehiegi egon zara jarduerarik gabe, eta automatikoki bidali zaituzte zerbitzutik kanpora. Zerbitzua erabiltzen jarraitu nahi baduzu, sinatu berriro.
       shared:
         newsletter_modal:
           buttons:
@@ -555,7 +555,7 @@ eu:
     errors:
       internal_server_error:
         title: Arazo bat egon da gure serbidorearekin
-        try_later: Mesedez beranduago saiatu.
+        try_later: Mesedez, saiatu berriro geroago.
       not_found:
         back_home: Itzuli hasierara
         content_doesnt_exist: Helbide hau okerra da edo ezabatua izan da.
@@ -934,13 +934,13 @@ eu:
           admin_in_group: Jakinarazpen hau jaso duzu %{group} taldearen administratzailea zarelako.
           greeting: Kaixo, %{recipient}!
           intro: "%{manager} k elkarrizketa berri bat hasi du %{group} taldearekin. Egin klik hemen ikusteko:"
-          outro: Disfrutatu Decidimez!
+          outro: Gozatu Decidim!
           subject: "%{manager} k elkarrizketa berri bat hasi du %{group} taldearekin"
         comanagers_new_message:
           admin_in_group: Jakinarazpen hau jaso duzu %{group} taldearen administratzailea zarelako.
           greeting: Kaixo, %{recipient}!
           intro: "%{manager} k mezu berriak argitaratu ditu %{group} taldearen elkarrizketa batean. Egin klik hemen ikusteko:"
-          outro: Disfrutatu Decidimez!
+          outro: Gozatu Decidim!
           subject: "%{manager} k mezu berriak bidali ditu %{group} gisa"
         new_conversation:
           greeting: Kaixo, %{recipient}!
@@ -951,18 +951,18 @@ eu:
           admin_in_group: Jakinarazpen hau jaso duzu %{group} taldearen administratzailea zarelako.
           greeting: Kaixo, %{recipient}!
           intro: "%{sender} k elkarrizketa berri bat hasi du %{group} taldearekin. Egin klik hemen ikusteko:"
-          outro: Disfrutatu Decidimez!
+          outro: Gozatu Decidim!
           subject: "%{sender} k elkarrizketa berri bat hasi du %{group} taldearekin"
         new_group_message:
           admin_in_group: Jakinarazpen hau jaso duzu %{group} taldearen administratzailea zarelako.
           greeting: Kaixo, %{recipient}!
           intro: "%{sender} k elkarrizketa berri bat hasi du %{group} taldearekin. Egin klik hemen ikusteko:"
-          outro: Disfrutatu Decidimez!
+          outro: Gozatu Decidim!
           subject: "%{group} k %{sender} ren mezu berriak ditu"
         new_message:
           greeting: Kaixo, %{recipient}!
           intro: "%{sender} k elkarrizketan mezu berriak argitaratu ditu. Egin klik hemen ikusteko:"
-          outro: Disfrutatu Decidim-ekin!
+          outro: Gozatu Decidim!
           subject: '%{sender} ren mezu berriak dituzu'
       conversations:
         add_conversation_users:
