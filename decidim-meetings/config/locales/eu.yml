@@ -456,7 +456,7 @@ eu:
           confirmation:
             subject: Zure topaketarako izen-ematea baieztatua izan da
       meeting:
-        not_allowed: Ez zaude topaketa hau ikusteko baimenik
+        not_allowed: Ez zaude topaketa hau ikusteko baimenduta
       meeting_closes:
         edit:
           back: Atzera
@@ -508,7 +508,7 @@ eu:
         filters_small_view:
           close_modal: Itxi leihoa
           filter: Iragazi
-          filter_by: Iragazi arabera
+          filter_by: Iragazi honen arabera
           unfold: Zabaldu
         form:
           address_help: 'Helbidea: Geocoderrek erabilia kokapena aurkitzeko'
@@ -577,7 +577,7 @@ eu:
           invalid: Arazo bat izan da topaketa hau eguneratzean.
           success: Topaketa zuzen eguneratu duzu.
       meetings_map:
-        view_meeting: Topaketa ikusi
+        view_meeting: Ikusi topaketa
       models:
         invite:
           fields:
@@ -636,7 +636,7 @@ eu:
       registrations:
         create:
           invalid: Arazo bat izan da topaketa honekin bat egitean.
-          success: Topaketan izena ongi eman duzu.
+          success: Topaketan izena ongi eman duzu. Bilera honetarako izena eman duzulako, jakinarazi egingo dizute eguneraketak badaude.
         decline_invitation:
           invalid: Arazo bat egon da gonbidapenari uko egitean.
           success: Zuzen uko egin diozu gonbidapenari.
@@ -664,7 +664,7 @@ eu:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Azken topaketak
-        see_all: Ikusi dena (%{count})
+        see_all: Ikusi topaketa guztiak (%{count})
         upcoming_meetings: Hurrengo topaketak
       upcoming_meeting_for_card:
         upcoming_meeting: Hurrengo topaketa
