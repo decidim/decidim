@@ -631,7 +631,7 @@ eu:
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> k zure kontua erabili nahi du"
     download_your_data:
       export:
-        ready: prest
+        ready: Prest
       show:
         download_data: Deskargatu datuak
         download_data_description_html: |-
