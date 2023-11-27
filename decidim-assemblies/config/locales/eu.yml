@@ -197,7 +197,7 @@ eu:
         search_placeholder:
           full_name_or_user_name_or_user_nickname_cont: Bilatu izen edo ezizenaren arabera
       menu:
-        assemblies: Biltzarrak
+        assemblies: Batzarrak
         assemblies_submenu:
           assembly_admins: Batzarraren administratzaileak
           assembly_members: Kideak
