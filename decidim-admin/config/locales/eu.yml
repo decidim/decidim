@@ -521,7 +521,7 @@ eu:
         notice: "%{number} %{resource_name} zuzen inportatu da"
       logs:
         logs_list:
-          no_logs_yet: Ez dago oraindik erregistroik
+          no_logs_yet: Oraindik ez dago erregistrorik
       managed_users:
         promotion:
           error: Arazo bat egon da kudeatutako parte-hartzailea mailaz igotzean.
@@ -892,7 +892,7 @@ eu:
           error: Arazo bat egon da beste esparru bat sortzean.
           success: Esparrua zuzen sortua.
         destroy:
-          success: Esparrua ongi ezabatu da
+          success: Esparrua behar bezala suntsitua
         edit:
           title: Editatu esparrua
           update: Eguneratu
