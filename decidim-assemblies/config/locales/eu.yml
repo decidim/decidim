@@ -194,7 +194,7 @@ eu:
         decidim_assemblies_type_id_eq:
           label: Batzar mota
       menu:
-        assemblies: Biltzarrak
+        assemblies: Batzarrak
         assemblies_settings: Ezarpenak
         assemblies_submenu:
           assembly_admins: Batzarraren administratzaileak
@@ -374,7 +374,7 @@ eu:
       show:
         area: Arloa
         assembly_type: Batzar mota
-        children: Biltzarrak
+        children: Batzarrak
         closing_date: Amaiera-data
         composition: Osaera
         created_by: Nork sortua
