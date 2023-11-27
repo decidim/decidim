@@ -8,6 +8,7 @@ module Decidim
     end
 
     private
+
     attr_reader :announcement, :options
 
     def render?

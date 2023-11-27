@@ -27,11 +27,11 @@ module Decidim
         return unless resource.commentable?
 
         Decidim::Comments::CommentList::Component.new(resource, {
-          machine_translations: machine_translations_toggled?,
-          single_comment: params.fetch("commentId", nil),
-          order: options[:order],
-          polymorphic: options[:polymorphic]
-        })
+                                                        machine_translations: machine_translations_toggled?,
+                                                        single_comment: params.fetch("commentId", nil),
+                                                        order: options[:order],
+                                                        polymorphic: options[:polymorphic]
+                                                      })
       end
     end
   end

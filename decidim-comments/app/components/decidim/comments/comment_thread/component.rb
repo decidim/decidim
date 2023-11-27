@@ -5,7 +5,7 @@ module Decidim
     module CommentThread
       class Component < Decidim::BaseComponent
         with_collection_parameter :commentable
-        def initialize(commentable, options = {})
+        def initialize(commentable:, **options)
           @commentable = commentable
           @options = options.with_defaults(order: "older")
         end

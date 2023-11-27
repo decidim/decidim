@@ -1,3 +1,3 @@
 <div class="comment-thread">
-  <%= cell("decidim/comments/comment", commentable, root_depth: commentable.depth, order:) %>
+  <%= render Decidim::Comments::SingleComment::Component.new(comment: commentable, root_depth: commentable.depth, order: ) %>
 </div>

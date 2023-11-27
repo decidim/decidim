@@ -1,6 +1,6 @@
 <div class="comment__actions">
   <% if depth.zero? && has_replies_in_children? %>
-    <button class="button button__sm button__text-secondary comment__hide" data-controls="comment-<%= model.id %>-replies">
+    <button class="button button__sm button__text-secondary comment__hide" data-controls="comment-<%= comment.id %>-replies">
       <%= icon "arrow-up-s-line" %>
       <span class="hide-comment-replies font-normal"><%= t("decidim.components.comment.hide_replies") %></span>
       <%= icon "arrow-down-s-line" %>

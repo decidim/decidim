@@ -12,6 +12,7 @@ module Decidim
         end
 
         private
+
         attr_reader :commentable, :options
 
         def order

@@ -206,6 +206,10 @@ module Decidim
         Decidim::ActionLog.where(resource: self).exists?(["extra @> ?", Arel.sql("{\"edit\":true}")])
       end
 
+      def has_replies_in_children?
+        @has_replies_in_children ||= descendants.where(decidim_commentable_type: "Decidim::Comments::Comment").not_hidden.not_deleted.exists?
+      end
+
       private
 
       def body_length

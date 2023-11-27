@@ -1,8 +1,8 @@
-<%= content_tag :div, id: "comment_#{model.id}", class: "comment relative", data: { comment_id: model.id } do %>
-  <% if model.hidden? %>
-    <%= render :moderation_data %>
-  <% elsif model.deleted? %>
-    <%= render :deletion_data %>
+<%= content_tag :div, id: "comment_#{comment.id}", class: "comment relative", data: { comment_id: comment.id } do %>
+  <% if comment.hidden? %>
+    <%= render partial: "decidim/comments/comments/moderated", formats: [:html], locals: { comment: } %>
+  <% elsif comment.deleted? %>
+    <%= render DeletedCommentComponent.new(comment) %>
   <% else %>
     <div class="comment__header">
       <span class="font-bold">
@@ -26,18 +26,18 @@
           <ul class="dropdown dropdown__bottom divide-y divide-gray-3 px-4">
             <% unless reloaded? %>
               <li>
-                <%= cell("decidim/report_button", model, only_button: true, button_classes: "dropdown__item flex-row-reverse", modal_id: "flagModalComment#{model.id}") %>
+                <%= cell("decidim/report_button", comment, only_button: true, button_classes: "dropdown__item flex-row-reverse", modal_id: "flagModalComment#{comment.id}") %>
               </li>
             <% end %>
             <li>
-              <%= link_to "#{commentable_path("commentId" => model.id)}#comment_#{model.id}", target: "_blank", data: { "external-link": "false" }, class: "dropdown__item", title: t("decidim.components.comment.single_comment_link_title") do %>
+              <%= link_to "#{commentable_path("commentId" => comment.id)}#comment_#{comment.id}", target: "_blank", data: { "external-link": "false" }, class: "dropdown__item", title: t("decidim.components.comment.single_comment_link_title") do %>
                 <%= icon "share-line" %>
                 <span><%= t("decidim.components.comment.single_comment_link_title") %></span>
               <% end %>
             </li>
-            <% if model.authored_by?(current_user) %>
+            <% if comment.authored_by?(current_user) %>
               <li>
-                <button type="button" class="dropdown__item" data-dialog-open="<%= "editCommentModal#{model.id}" %>" title="<%= t("decidim.components.comment.edit") %>" aria-controls="<%= "editCommentModal#{model.id}" %>" aria-haspopup="dialog" tabindex="2">
+                <button type="button" class="dropdown__item" data-dialog-open="<%= "editCommentModal#{comment.id}" %>" title="<%= t("decidim.components.comment.edit") %>" aria-controls="<%= "editCommentModal#{comment.id}" %>" aria-haspopup="dialog" tabindex="2">
                   <%= icon "edit-line" %>
                   <span><%= t("decidim.components.comment.edit") %></span>
                 </button>
@@ -55,34 +55,32 @@
     </div>
 
     <div class="comment__content">
-      <%= alignment_badge %>
+      <%= render AlignmentBadgeComponent.new(alignment) %>
       <div class="editor-content">
-        <%= comment_body %>
+        <%= formatted_body %>
       </div>
     </div>
 
-    <div class="comment__footer" data-component="accordion" id="accordion-<%= model.id %>">
+    <div class="comment__footer" data-component="accordion" id="accordion-<%= comment.id %>">
       <div class="comment__footer-grid">
-        <%= render :actions %>
-        <%= votes %>
+        <%= render ActionsComponent.new(comment) %>
+        <%= render VotesComponent.new(comment) %>
       </div>
       <% if can_reply? %>
         <div id="panel-<%= reply_id %>" class="add-comment comment__additionalreply">
-          <%== cell("decidim/comments/comment_form", model, root_depth:, order:) %>
+          <%== cell("decidim/comments/comment_form", comment, root_depth:, order:) %>
         </div>
       <% end %>
-      <div id="comment-<%= model.id %>-replies" class="<%= "comment-reply" if has_replies_in_children? %>">
-        <% if has_replies_in_children? %>
-          <%= render :replies %>
-        <% end %>
+      <div id="comment-<%= comment.id %>-replies" class="<%= "comment-reply" if has_replies_in_children? %>">
+        <%= render Decidim::Comments::SingleComment::Component.with_collection(replies, root_depth: , order: , reloaded: reloaded?) if has_replies_in_children? %>
       </div>
     </div>
   <% end %>
   <% if current_user.present? %>
-    <%= cell("decidim/report_button", model, modal_id: "flagModalComment#{model.id}").flag_modal %>
+    <%= cell("decidim/report_button", comment, modal_id: "flagModalComment#{comment.id}").flag_modal.html_safe %>
   <% end %>
 
-  <% if model.authored_by?(current_user) %>
-    <%= cell("decidim/comments/edit_comment_modal_form", model) %>
+  <% if comment.authored_by?(current_user) %>
+    <%= cell("decidim/comments/edit_comment_modal_form", comment) %>
   <% end %>
 <% end %>

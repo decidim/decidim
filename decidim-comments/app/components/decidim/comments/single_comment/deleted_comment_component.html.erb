@@ -1,0 +1,7 @@
+<%= render partial: "decidim/comments/comments/delete", formats: [:html], locals: { comment: } %>
+
+<div class="comment__footer" data-component="accordion" id="accordion-<%= comment.id %>">
+  <div id="comment-<%= comment.id %>-replies" class="<%= "comment-reply" if has_replies_in_children? %>">
+    <%= render Decidim::Comments::SingleComment::Component.with_collection(replies, root_depth: , order: , reloaded: reloaded?) if has_replies_in_children? %>
+  </div>
+</div>

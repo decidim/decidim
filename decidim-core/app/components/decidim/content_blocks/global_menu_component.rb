@@ -27,8 +27,6 @@ module Decidim
 
         manifest.context(:public).engine
       end
-
-
     end
   end
 end

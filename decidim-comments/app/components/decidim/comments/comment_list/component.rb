@@ -10,8 +10,10 @@ module Decidim
         end
 
         private
+
         include Decidim::ResourceHelper
         attr_reader :commentable, :options
+
         delegate :commentable_type, :comments_count, to: :commentable
         delegate :decidim_comments, :user_signed_in?, to: :helpers
 
@@ -31,13 +33,12 @@ module Decidim
         def single_comment_warning
           return unless single_comment?
 
-          announcement( {
-                          title: t("decidim.components.comments.single_comment_warning_title"),
-                          body: t("decidim.components.comments.single_comment_warning_html", url: "#{commentable_path}##{node_id}")
-                        },
-                        callout_class: "secondary",
-                        raw: true
-          )
+          announcement({
+                         title: t("decidim.components.comments.single_comment_warning_title"),
+                         body: t("decidim.components.comments.single_comment_warning_html", url: "#{commentable_path}##{node_id}")
+                       },
+                       callout_class: "secondary",
+                       raw: true)
         end
 
         def comments_loading
@@ -57,8 +58,9 @@ module Decidim
           return if comments_blocked? # Shows already the general warning
           return unless user_comments_blocked?
 
-          announcement(comment_permissions? ? blocked_comments_for_unauthorized_user_warning_link : t("decidim.components.comments.blocked_comments_for_user_warning"), raw: true )
+          announcement(comment_permissions? ? blocked_comments_for_unauthorized_user_warning_link : t("decidim.components.comments.blocked_comments_for_user_warning"), raw: true)
         end
+
         #
         # private
         #
@@ -97,6 +99,7 @@ module Decidim
         def order
           options[:order] || "older"
         end
+
         #
         # def decidim
         #   Decidim::Core::Engine.routes.url_helpers
@@ -105,6 +108,7 @@ module Decidim
         def node_id
           "comments-for-#{commentable_type.demodulize}-#{commentable.id}"
         end
+
         #
         # def commentable_type
         #   model.commentable_type
@@ -138,7 +142,7 @@ module Decidim
         def comments_blocked?
           !commentable.accepts_new_comments?
         end
-        #
+
         def user_comments_blocked?
           return false unless user_signed_in?
 
