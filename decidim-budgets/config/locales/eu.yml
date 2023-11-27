@@ -56,10 +56,10 @@ eu:
       admin:
         budgets:
           create:
-            invalid: Errorea gertatu da proiektu hau sortzean
+            invalid: Arazo bat egon da proiektu hau sortzean
             success: Aurrekontua zuzen sortu da
           destroy:
-            invalid: Errorea gertatu da aurrekontu hau ezabatzean
+            invalid: Arazo bat egon da aurrekontu hau ezabatzean
             success: Aurrekontua zuzen ezabatu da
           edit:
             title: Editatu aurrekontua
@@ -74,7 +74,7 @@ eu:
             create: Sortu aurrekontua
             title: Beste aurrekontu bat
           update:
-            invalid: Arazoa gertatu da aurrekontu hau eguneratzean
+            invalid: Arazo bat egon da aurrekontu hau eguneratzean
             success: Aurrekontua zuzen eguneratu da
         exports:
           projects: Proiektuak
@@ -86,7 +86,7 @@ eu:
         projects:
           create:
             invalid: Arazo bat izan da proiektu hau sortzean
-            success: Proiektua ongi sortu da
+            success: Proiektua zuzen sortua
           destroy:
             success: Proiektua behar bezala ezabatu da
           edit:
@@ -110,7 +110,7 @@ eu:
             create: Sortu
             title: Beste proiektu bat
           update:
-            invalid: Arazo bat izan da proiektu hau eguneratzean
+            invalid: Arazo bat egon da proiektu hau eguneratzean
             success: Proiektua zuzen eguneratu da
           update_category:
             invalid: 'Proiektu hauek bazuten %{subject_name}: %{projects} kategoria.'
@@ -133,8 +133,8 @@ eu:
               unselected: 'Honako proiektu hauek dagoeneko gauzatzekoetatik kendu dira: %{projects}.'
         proposals_imports:
           create:
-            invalid: Arazo bat izan da proiektuen proposamenak inportatzea
-            success: "%{number} proposamen arrakastaz proiektuak inportatu"
+            invalid: Arazo bat egon da proposamenak proiektuetara inportatzean
+            success: "%{number} proposamen zuzen inportatu dira proiektuetara"
           new:
             create: Inportatu proposamenak proiektuetarako
             default_budget: Aurrekontu lehenetsia
