@@ -127,7 +127,7 @@ eu:
               selected: 'Honako proiektu hauek dagoeneko gauzatzeko hautatu dira: %{projects}.'
               unselected: 'Honako proiektu hauek dagoeneko gauzatzekoetatik kendu dira: %{projects}.'
             select_a_project: Mesedez, hautatu proiektu bat
-            select_a_selection: Hautatu gauzatzearen egoera
+            select_a_selection: Mesedez, hautatu gauzatzearen egoera
             success:
               selected: 'Honako proiektu hauek dagoeneko gauzatzeko hautatu dira: %{projects}.'
               unselected: 'Honako proiektu hauek dagoeneko gauzatzekoetatik kendu dira: %{projects}.'
