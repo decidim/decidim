@@ -78,7 +78,7 @@ describe Decidim::DiffCell, type: :cell, versioning: true do
     end
 
     context "with diff_view_unified_escaped" do
-      it "sanitizes potentially safe HTML tags" do
+      it "cleans up potentially safe HTML tags" do
         within "#diff-for-body" do
           expect(subject).to have_selector("em", text: "em")
           expect(subject).to have_selector("u", text: "u")
