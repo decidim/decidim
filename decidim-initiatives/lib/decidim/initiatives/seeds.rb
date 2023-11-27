@@ -7,13 +7,7 @@ module Decidim
   module Initiatives
     class Seeds < Decidim::Seeds
       def call
-        Decidim::ContentBlock.create(
-          organization:,
-          weight: 33,
-          scope_name: :homepage,
-          manifest_name: :highlighted_initiatives,
-          published_at: Time.current
-        )
+        create_content_block!
 
         3.times do |n|
           type = Decidim::InitiativesType.create!(
@@ -87,6 +81,16 @@ module Decidim
             end
           end
         end
+      end
+
+      def create_content_block!
+        Decidim::ContentBlock.create(
+          organization:,
+          weight: 33,
+          scope_name: :homepage,
+          manifest_name: :highlighted_initiatives,
+          published_at: Time.current
+        )
       end
     end
   end
