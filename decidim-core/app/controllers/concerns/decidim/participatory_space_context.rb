@@ -85,13 +85,6 @@ module Decidim
       current_user.admin || current_participatory_space.users.include?(current_user)
     end
 
-    def check_current_user_can_visit_space
-      return if current_user_can_visit_space?
-
-      flash[:alert] = I18n.t("participatory_space_private_users.not_allowed", scope: "decidim")
-      redirect_to action: "index"
-    end
-
     def help_section
       @help_section ||= Decidim::ContextualHelpSection.find_content(
         current_organization,
