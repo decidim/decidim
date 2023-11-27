@@ -28,10 +28,10 @@ eu:
             name: Argitalpena
         posts:
           create:
-            invalid: Arazo bat izan da sarrera hau sortzeko
-            success: Argitalpena ondo sortu da
+            invalid: Arazo bat egon da argitalpen hau sortzean
+            success: Argitalpena zuzen sortua
           destroy:
-            success: Mezua ondo ezabatu da
+            success: Argitalpena behar bezala ezabatua
           edit:
             save: Eguneratu
             title: Editatu argitalpena
@@ -42,9 +42,9 @@ eu:
             title: Sortu argitalpena
           update:
             invalid: Arazo bat egon da argitalpena gordetzean.
-            success: Sarrera ondo gorde da
+            success: Argitalpena zuzen gordea
       last_activity:
-        new_post_at_html: "<span>Post berria %{link}-ean</span>"
+        new_post_at_html: "<span> %{link}</span>-ean emaitza berria"
       models:
         post:
           fields:
