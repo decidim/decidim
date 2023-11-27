@@ -21,28 +21,7 @@ module Decidim
           Decidim::Initiative.skip_callback(:save, :after, :notify_state_change, raise: false)
           Decidim::Initiative.skip_callback(:create, :after, :notify_creation, raise: false)
 
-          params = {
-            title: Decidim::Faker::Localized.sentence(word_count: 3),
-            description: Decidim::Faker::Localized.sentence(word_count: 25),
-            scoped_type: Decidim::InitiativesTypeScope.all.sample,
-            state:,
-            signature_type: "online",
-            signature_start_date: Date.current - 7.days,
-            signature_end_date: Date.current + 7.days,
-            published_at: 7.days.ago,
-            author: Decidim::User.all.sample,
-            organization:
-          }
-
-          initiative = Decidim.traceability.perform_action!(
-            "publish",
-            Decidim::Initiative,
-            organization.users.first,
-            visibility: "all"
-          ) do
-            Decidim::Initiative.create!(params)
-          end
-          initiative.add_to_index_as_search_resource
+          initiative = create_initiative!(state:)
 
           if %w(published rejected accepted).include? state
             users = []
@@ -100,6 +79,33 @@ module Decidim
           scope:,
           supports_required: (n + 1) * 1000
         )
+      end
+
+      def create_initiative!(state:)
+        params = {
+          title: Decidim::Faker::Localized.sentence(word_count: 3),
+          description: Decidim::Faker::Localized.sentence(word_count: 25),
+          scoped_type: Decidim::InitiativesTypeScope.all.sample,
+          state:,
+          signature_type: "online",
+          signature_start_date: Date.current - 7.days,
+          signature_end_date: Date.current + 7.days,
+          published_at: 7.days.ago,
+          author: Decidim::User.all.sample,
+          organization:
+        }
+
+        initiative = Decidim.traceability.perform_action!(
+          "publish",
+          Decidim::Initiative,
+          organization.users.first,
+          visibility: "all"
+        ) do
+          Decidim::Initiative.create!(params)
+        end
+        initiative.add_to_index_as_search_resource
+
+        initiative
       end
     end
   end
