@@ -2,7 +2,10 @@
 
 module Decidim
   module Assemblies
-    # The main admin application controller for assemblies
+    # The main application controller for assemblies
+    #
+    # This controller is the abstract class from which all other controllers of
+    # this engine inherit.
     class ApplicationController < Decidim::ApplicationController
       helper Decidim::ApplicationHelper
       helper Decidim::Assemblies::AssembliesHelper

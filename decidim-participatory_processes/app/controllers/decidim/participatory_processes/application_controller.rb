@@ -2,11 +2,14 @@
 
 module Decidim
   module ParticipatoryProcesses
+    # The main application controller for participatory processes
+    #
     # This controller is the abstract class from which all other controllers of
     # this engine inherit.
     class ApplicationController < Decidim::ApplicationController
       helper Decidim::ParticipatoryProcesses::ApplicationHelper
       helper ParticipatoryProcessHelper
+
       include NeedsPermission
 
       register_permissions(Decidim::ParticipatoryProcesses::ApplicationController,
