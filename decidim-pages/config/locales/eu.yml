@@ -28,3 +28,5 @@ eu:
           update:
             invalid: Arazo bat egon da argitalpena gordetzean.
             success: Orria zuzen gorde da.
+      show:
+        empty: Oraindik ez dago edukirik webgune honetan.
