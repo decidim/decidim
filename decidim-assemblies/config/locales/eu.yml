@@ -163,7 +163,7 @@ eu:
           assembly_members_title: Batzarkideak
         new:
           create: Sortu
-          title: Batzarkide berria.
+          title: Beste batzarkide bat.
         update:
           error: Arazo bat egon da kidea eguneratzean batzar honetarako.
           success: Batzar honetarako kidea zuzen eguneratua.
@@ -468,7 +468,7 @@ eu:
           take_part: Parte hartu
       assembly_navigation:
         assembly_member_menu_item: Kideak
-        assembly_menu_item: Biltzarra
+        assembly_menu_item: Batzarra
       assembly_widgets:
         show:
           take_part: Parte hartu
