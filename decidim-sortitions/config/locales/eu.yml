@@ -96,6 +96,8 @@ eu:
           cancelled: Bertan behera
           category: Kategoria
           state: Egoera
+        index:
+          empty: Oraindik ez dago sailkapenik.
         linked_sortitions:
           selected_proposals: Aukeratutako proposamenak
         orders:
