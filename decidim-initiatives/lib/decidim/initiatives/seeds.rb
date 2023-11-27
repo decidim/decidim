@@ -30,18 +30,7 @@ module Decidim
           create_attachment(attached_to: initiative, filename: "city.jpeg")
 
           Decidim::Initiatives.default_components.each do |component_name|
-            component = Decidim::Component.create!(
-              name: Decidim::Components::Namer.new(initiative.organization.available_locales, component_name).i18n_name,
-              manifest_name: component_name,
-              published_at: Time.current,
-              participatory_space: initiative
-            )
-
-            next unless component_name.in? ["pages", :pages]
-
-            Decidim::Pages::CreatePage.call(component) do
-              on(:invalid) { raise "Cannot create page" }
-            end
+            create_component!(initiative:, component_name:)
           end
         end
       end
@@ -107,6 +96,21 @@ module Decidim
           author = (Decidim::User.all - users).sample
           initiative.votes.create!(author:, scope: initiative.scope, hash_id: SecureRandom.hex)
           users << author
+        end
+      end
+
+      def create_component!(initiative:, component_name:)
+        component = Decidim::Component.create!(
+          name: Decidim::Components::Namer.new(initiative.organization.available_locales, component_name).i18n_name,
+          manifest_name: component_name,
+          published_at: Time.current,
+          participatory_space: initiative
+        )
+
+        return unless component_name.in? ["pages", :pages]
+
+        Decidim::Pages::CreatePage.call(component) do
+          on(:invalid) { raise "Cannot create page" }
         end
       end
     end
