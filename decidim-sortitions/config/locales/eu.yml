@@ -103,9 +103,9 @@ eu:
           search: Bilatu
           state: Egoera
         filters_small_view:
-          close_modal: Modala itxi
-          filter: Filtroa
-          filter_by: Honen arabera iragazi
+          close_modal: Itxi leihoa
+          filter: Iragazkia
+          filter_by: Iragazi honen arabera
           unfold: Zabaldu
         linked_sortitions:
           selected_proposals: Aukeratutako proposamenak
