@@ -222,7 +222,7 @@ eu:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: Norbaitek ohar bat uzti du "%{resource_title}" proposamenean. Berrikusi orain honen bidez <a href="%{admin_proposal_info_url}">panel de administración</a>
+            email_intro: Norbaitek ohar bat utzi du "%{resource_title}"proposamenean. Berrikusi orain honen bidez <a href="%{admin_proposal_info_url}">panel de administración</a>
             email_outro: Jakinarazpen hau jaso duzu proposamena ebaluatu ahal duzulako.
             email_subject: Norbaitek ohar bat utzi du %{resource_title} proposamenean.
             notification_title: Norbaitek ohar bat utzi du <a href="%{resource_path}">%{resource_title}</a> proposamenean. Berrikusi orain honen bidez <a href="%{admin_proposal_info_path}">panel de administración</a>
@@ -352,7 +352,7 @@ eu:
           description_own: '%{score} proposameni eman diezu babesa.'
           name: Proposamenaren aldeko botoak
           next_level_in: Eman babesa % {score} proposamen gehiagori hurrengo mailara iristeko!
-          unearned_another: Erabiltzaile honek oraindik ez du proposamenik onartzen.
+          unearned_another: Erabiltzaile honek oraindik ez du proposamen bat ere babestu.
           unearned_own: Oraindik ez duzu proposamen bat ere babestu.
         proposals:
           conditions:
@@ -384,7 +384,7 @@ eu:
         title: Babesak
     participatory_spaces:
       highlighted_proposals:
-        see_all: Ikusi (%{count}) proposamenak
+        see_all: Ikusi emaitza guztiak (%{count})
     proposals:
       actions:
         answer_proposal: Erantzun proposamenari
@@ -459,7 +459,7 @@ eu:
             title: Gehitu Dokumentua
             upload_document: Kargatu dokumentua
           publish:
-            invalid: Ezin izan dira proposamenik argitaratu
+            invalid: Ezin izan dira proposamenak argitaratu
             success: Proposamen guztiak argitaratu dira
           sections:
             article: "<em>Artikulua</em>"
@@ -477,7 +477,7 @@ eu:
             title: 'Erantzun proposamen honi: %{title}'
         proposal_notes:
           create:
-            error: Arazo bat izan da proposamen ohar hau sortzeko
+            error: Arazo bat egon da proposamen-ohar hau sortzean
             success: Proposatutako oharra zuzen sortu da
           form:
             note: Oharra
@@ -525,7 +525,7 @@ eu:
             title: Sortu proposamena
           publish_answers:
             number_of_proposals: '%{number} proposamenetarako erantzunak argitaratuko dira.'
-            select_a_proposal: Aukeratu proposamen bat
+            select_a_proposal: Mesedez, hautatu proposamen bat
           show:
             amendments_count: Zuzenketa kopurua
             assigned_valuators: Ebaluatzaileak esleituta
@@ -535,7 +535,7 @@ eu:
             comments_negative_count: Aurka
             comments_neutral_count: Neutrala
             comments_positive_count: Alde
-            created_at: Sortze data
+            created_at: Sortze-data
             documents: Dokumentuak
             endorsements_count: Atxikimendu kopurua
             endorsements_ranking: Sailkapena atxikimenduen arabera
@@ -556,17 +556,17 @@ eu:
           update_category:
             invalid: 'Proposamen hauek bazuten %{subject_name}: %{proposals} kategoria.'
             select_a_category: Mesedez, hautatu kategoria bat
-            select_a_proposal: Aukeratu proposamen bat
+            select_a_proposal: Mesedez, hautatu proposamen bat
             success: 'Proposamenak zuzen eguneratuta %{subject_name}: %{proposals} kategoriara.'
           update_scope:
             invalid: 'Proposamen hauek bazuten %{subject_name}: %{proposals} eremua.'
-            select_a_proposal: Aukeratu proposamen bat
-            select_a_scope: Mesedez, hautatu eremu bat
+            select_a_proposal: Mesedez, hautatu proposamen bat
+            select_a_scope: Mesedez, hautatu esparru bat
             success: 'Proposamenak zuzen eguneratuta %{subject_name}: %{proposals} eremuan.'
         proposals_imports:
           create:
             invalid: Arazo bat izan da proposamenak inportatzean
-            success: "%{number} proposamenak behar bezala inportatu dira"
+            success: "%{number} proposamen behar bezala inportatu da"
           new:
             create: Inportatu proposamenak
             no_components: Espazio honetan ez dago beste proposamenik proposamenak inportatzeko.
@@ -611,7 +611,7 @@ eu:
         filter_origin_values:
           all: guztiak
           citizens: Hiritarrak
-          meetings: Bilerak
+          meetings: Topaketak
           official: Ofiziala
           user_groups: Erabiltzaile taldeak
         filter_scope_values:
@@ -859,7 +859,7 @@ eu:
           publish: Argitaratu
           title: Argitaratu zure proposamena
         proposal:
-          creation_date: 'Sortze data'
+          creation_date: 'Sortze-data: %{date}'
           view_proposal: Ikusi proposamena
         proposals:
           empty: Oraindik ez dago proposamenik
@@ -871,7 +871,7 @@ eu:
           changes_at_title: Zuzenketa honi "%{title}"
           comments: Iruzkinak
           edit_proposal: Editatu proposamena
-          endorsements_list: Onarpenen zerrenda
+          endorsements_list: Atxikimenduen zerrenda
           estimated_cost: Gutxi gorabeherako kostua
           hidden_endorsers_count:
             one: eta pertsona %{count} gehiago
@@ -930,7 +930,7 @@ eu:
           back_from_step_2: Itzuli proposamenetara
           back_from_step_3: Alderatu berriro proposamenak
           back_from_step_4: Editatu berriro zirriborroa
-          info: A <strong>proposal</strong>. proposamen sortzen ari zara.
+          info: A <strong>proposal</strong> proposamen sortzen ari zara.
         wizard_steps:
           current_step: Oraingo fasea
           see_steps: ikusi urratsak
