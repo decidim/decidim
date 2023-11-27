@@ -19,9 +19,7 @@
       <div class="comment-threads">
         <%= comments_loading %>
 
-        <% comments.each do |comment| %>
-          <%= cell("decidim/comments/comment_thread", comment, order:) %>
-        <% end %>
+        <%= render Decidim::Comments::CommentThread::Component.with_collection(comments, order: ) %>
       </div>
       <%= add_comment %>
       <%= user_comments_blocked_warning %>

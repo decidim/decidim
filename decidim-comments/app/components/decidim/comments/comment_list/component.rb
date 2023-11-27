@@ -29,7 +29,7 @@ module Decidim
         end
 
         def single_comment_warning
-          # return unless single_comment?
+          return unless single_comment?
 
           announcement( {
                           title: t("decidim.components.comments.single_comment_warning_title"),
