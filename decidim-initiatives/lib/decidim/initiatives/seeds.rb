@@ -23,14 +23,7 @@ module Decidim
 
           initiative = create_initiative!(state:)
 
-          if %w(published rejected accepted).include? state
-            users = []
-            rand(50).times do
-              author = (Decidim::User.all - users).sample
-              initiative.votes.create!(author:, scope: initiative.scope, hash_id: SecureRandom.hex)
-              users << author
-            end
-          end
+          create_initiative_votes!(initiative:) if %w(published rejected accepted).include? state
 
           Decidim::Comments::Seed.comments_for(initiative)
 
@@ -106,6 +99,15 @@ module Decidim
         initiative.add_to_index_as_search_resource
 
         initiative
+      end
+
+      def create_initiative_votes!(initiative:)
+        users = []
+        rand(50).times do
+          author = (Decidim::User.all - users).sample
+          initiative.votes.create!(author:, scope: initiative.scope, hash_id: SecureRandom.hex)
+          users << author
+        end
       end
     end
   end
