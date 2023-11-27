@@ -1087,6 +1087,7 @@ eu:
               info_message_warn: Mesedez, egiaztatu daturik ez dela falta, %{data_count} erregistro sortu baitira, baina igo den (%{file}) fitxategiak %{raw_count} ilara zituen.
               launch_error: Arazoa sarbide-kodeak sortzen hastean
               launch_success: Kodeak sortzen hasi da.
+              start_over: Mesedez, ezabatu egungo errolda eta hasi berriro CSV fitxategi egoki batekin baliozko errenkadak.
             generating_access_codes:
               info_message: "<strong>Mesedez, itxaron</strong>, bozketan sartzeko kodeak sortzen ari dira (honek minutu batzuk beharko ditu)..."
             new:
@@ -1096,6 +1097,7 @@ eu:
                 message_2: Zutabeen arteko banatzailea puntu eta koma (";") izan behar da.
               has_ballot_styles_message: Boto-paper motak konfiguratu dituzu. Mesedez, ziurtatu CSVren "%{ballot_style_code_header}" eremua eta nahi duzun boto-paper motaren kodea bat datozela.
               info_message: "<strong>Oraindik ez dago erroldarik.</strong> Mesedez, erabili hurrengo galdetegia sortzeko CSV batetik inportatuz."
+              missing_ballot_styles_message: 'Oraindik ez dago boto-paperik bozketa honetarako. Galdera baldintzatuak egin nahi badituzu (adibidez, boto-emailea aurkeztu galdera ezberdinen arabera, adibidez, egoitza-barrutiaren/eskualdearen arabera), ezarri behar duzu <a href=%{\displaystyle href = {ballot.estilles_admin_way}} Ballot Styles-Styles-i buruzko informazioa, errolda inportatu aurretik. Boto-emaile guztiak galdera berberekin aurkeztu nahi badituzu, erroldako inportazio-prozedurarekin jarraitu dezakezu.'
               submit: Bidali CSV
               title: Sortu errolda
             show:
