@@ -44,6 +44,8 @@ require "shakapacker"
 require "decidim/webpacker"
 
 require "decidim/api"
+require "decidim/core/content_blocks/registry_manager"
+require "decidim/core/menu"
 require "decidim/middleware/strip_x_forwarded_host"
 require "decidim/middleware/static_dispatcher"
 require "decidim/middleware/current_organization"
@@ -54,6 +56,164 @@ module Decidim
     class Engine < ::Rails::Engine
       isolate_namespace Decidim
       engine_name "decidim"
+
+      initializer "decidim_core.register_icons", after: "decidim_core.add_social_share_services" do
+        Decidim.icons.register(name: "phone-line", icon: "phone-line", category: "system", description: "", engine: :core)
+
+        Decidim.icons.register(name: "upload-cloud-2-line", icon: "upload-cloud-2-line", category: "system",
+                               description: "Upload cloud 2 line used in attachments form", engine: :core)
+        Decidim.icons.register(name: "arrow-right-line", icon: "arrow-right-line", category: "system",
+                               description: "Arrow right line icon used in attachments form", engine: :core)
+        Decidim.icons.register(name: "arrow-left-s-fill", icon: "arrow-left-s-fill", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "flag-line", icon: "flag-line", category: "system", description: "Flag line icon", engine: :core)
+        Decidim.icons.register(name: "check-line", icon: "check-line", category: "system", description: "Check icon", engine: :core)
+        Decidim.icons.register(name: "question-line", icon: "question-line", category: "system", description: "Question icon", engine: :core)
+        Decidim.icons.register(name: "close-line", icon: "close-line", category: "system", description: "Close icon", engine: :core)
+        Decidim.icons.register(name: "save-line", icon: "save-line", category: "system", description: "Save icon", engine: :core)
+        Decidim.icons.register(name: "search-line", icon: "search-line", category: "system", description: "Search icon", engine: :core)
+        Decidim.icons.register(name: "timer-line", icon: "timer-line", category: "system", description: "Timer icon", engine: :core)
+        Decidim.icons.register(name: "arrow-down-s-line", icon: "arrow-down-s-line", category: "system", description: "Arrow down icon", engine: :core)
+        Decidim.icons.register(name: "arrow-up-s-line", icon: "arrow-up-s-line", category: "system", description: "Arrow up icon", engine: :core)
+        Decidim.icons.register(name: "road-map-line", icon: "road-map-line", category: "system", description: "Road map icon", engine: :core)
+        Decidim.icons.register(name: "bubble-chart-line", icon: "bubble-chart-line", category: "system", description: "Road map icon", engine: :core)
+        Decidim.icons.register(name: "user-smile-line", icon: "user-smile-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "account-circle-line", icon: "account-circle-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "notification-3-line", icon: "notification-3-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "mail-send-line", icon: "mail-send-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "logout-box-r-line", icon: "logout-box-r-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "menu-line", icon: "menu-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "home-2-line", icon: "home-2-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "global-line", icon: "global-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "creative-commons-line", icon: "creative-commons-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "creative-commons-by-line", icon: "creative-commons-by-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "creative-commons-sa-line", icon: "creative-commons-sa-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "delete-bin-line", icon: "delete-bin-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "loader-3-line", icon: "loader-3-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "share-line", icon: "share-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "file-copy-line", icon: "file-copy-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "check-double-line", icon: "check-double-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "arrow-drop-down-line", icon: "arrow-drop-down-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "login-box-line", icon: "login-box-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "direction-line", icon: "direction-line", category: "system", description: "", engine: :core)
+
+        Decidim.icons.register(name: "newspaper-line", icon: "newspaper-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "alert-line", icon: "alert-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "checkbox-circle-line", icon: "checkbox-circle-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "equalizer-line", icon: "equalizer-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "dashboard-line", icon: "dashboard-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "information-line", icon: "information-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "question-answer-line", icon: "question-answer-line", category: "system", description: "", engine: :core)
+
+        Decidim.icons.register(name: "account-pin-circle-line", icon: "account-pin-circle-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "link", icon: "link", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "award-line", icon: "award-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "eye-2-line", icon: "eye-2-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "group-line", icon: "group-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "team-line", icon: "team-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "apps-2-line", icon: "apps-2-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "chat-1-line", icon: "chat-1-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "discuss-line", icon: "discuss-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "lightbulb-flash-line", icon: "lightbulb-flash-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "map-pin-line", icon: "map-pin-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "pen-nib-line", icon: "pen-nib-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "pencil-line", icon: "pencil-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "close-circle-line", icon: "close-circle-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "contacts-line", icon: "contacts-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "user-settings-line", icon: "user-settings-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "user-star-line", icon: "user-star-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "user-add-line", icon: "user-add-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "share-forward-line", icon: "share-forward-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "star-s-fill", icon: "star-s-fill", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "arrow-left-line", icon: "arrow-left-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "file-3-line", icon: "file-3-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "play-fill", icon: "play-fill", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "fingerprint-line", icon: "fingerprint-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "list-check-2", icon: "list-check-2", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "notification-3-fill", icon: "notification-3-fill", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "pages-line", icon: "pages-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "mail-add-line", icon: "mail-add-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "tools-line", icon: "tools-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "eye-line", icon: "eye-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "government-line", icon: "government-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "mail-line", icon: "mail-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "live-line", icon: "live-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "home-gear-line", icon: "home-gear-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "check-double-fill", icon: "check-double-fill", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "file-list-3-line", icon: "file-list-3-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "price-tag-3-line", icon: "price-tag-3-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "time-line", icon: "time-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "calendar-line", icon: "calendar-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "question-mark", icon: "question-mark", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "arrow-left-s-line", icon: "arrow-left-s-line", category: "system", description: "", engine: :core)
+
+        Decidim.icons.register(name: "user-line", icon: "user-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "mic-line", icon: "mic-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "coin-line", icon: "coin-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "external-link-line", icon: "external-link-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "arrow-down-s-fill", icon: "arrow-down-s-fill", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "arrow-up-s-fill", icon: "arrow-up-s-fill", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "treasure-map-line", icon: "treasure-map-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "chat-new-line", icon: "chat-new-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "draft-line", icon: "draft-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "user-voice-line", icon: "user-voice-line", category: "system", description: "", engine: :core)
+
+        # Attachments
+        Decidim.icons.register(name: "file-text-line", icon: "file-text-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "scales-2-line", icon: "scales-2-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "image-line", icon: "image-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "error-warning-line", icon: "error-warning-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "folder-open-line", icon: "folder-open-line", category: "system", description: "", engine: :core)
+
+        Decidim.icons.register(name: "dislike-line", icon: "dislike-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "chat-poll-line", icon: "chat-poll-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "git-branch-line", icon: "git-branch-line", category: "system", description: "", engine: :core)
+
+        Decidim.icons.register(name: "calendar-todo-line", icon: "calendar-todo-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "home-8-line", icon: "home-8-line", category: "system", description: "", engine: :core)
+
+        Decidim.icons.register(name: "like", icon: "heart-add-line", description: "Like", category: "action", engine: :core)
+        Decidim.icons.register(name: "dislike", icon: "dislike-line", description: "Dislike", category: "action", engine: :core)
+
+        # Refactor later: Some of the icons here are duplicated, and it would be a greater refactor to remove the duplicates
+        Decidim.icons.register(name: "Decidim::Amendment", icon: "git-branch-line", category: "activity", description: "Amendment", engine: :core)
+        Decidim.icons.register(name: "Decidim::Category", icon: "price-tag-3-line", description: "Category", category: "activity", engine: :core)
+        Decidim.icons.register(name: "Decidim::Scope", icon: "scan-line", description: "Scope", category: "activity", engine: :core)
+        Decidim.icons.register(name: "Decidim::User", icon: "user-line", description: "User", category: "activity", engine: :core)
+        Decidim.icons.register(name: "Decidim::UserGroup", icon: "group-line", description: "User Group", category: "activity", engine: :core)
+        Decidim.icons.register(name: "follow", icon: "notification-3-line", description: "Follow", category: "action", engine: :core)
+        Decidim.icons.register(name: "unfollow", icon: "notification-3-fill", description: "Unfollow", category: "action", engine: :core)
+        Decidim.icons.register(name: "share", icon: "share-line", description: "Share", category: "action", engine: :core)
+        Decidim.icons.register(name: "nickname", icon: "account-pin-circle-line", description: "Nickname", category: "profile", engine: :core)
+        Decidim.icons.register(name: "badges", icon: "award-line", description: "Badges", category: "profile", engine: :core)
+        Decidim.icons.register(name: "profile", icon: "team-line", description: "Groups", category: "profile", engine: :core)
+        Decidim.icons.register(name: "user_group", icon: "team-line", description: "Groups", category: "profile", engine: :core)
+        Decidim.icons.register(name: "link", icon: "link", description: "web / URL", category: "profile", engine: :core)
+        Decidim.icons.register(name: "following", icon: "eye-2-line", description: "Following", category: "profile", engine: :core)
+        Decidim.icons.register(name: "activity", icon: "bubble-chart-line", description: "Activity", category: "profile", engine: :core)
+        Decidim.icons.register(name: "followers", icon: "group-line", description: "Followers", category: "profile", engine: :core)
+        Decidim.icons.register(name: "documents", icon: "file-text-line", description: "Document", category: "documents", engine: :core)
+        Decidim.icons.register(name: "folder_open", icon: "folder-open-line", description: "Folder open", category: "documents", engine: :core)
+        Decidim.icons.register(name: "folder_close", icon: "folder-line", description: "Folder close", category: "documents", engine: :core)
+        Decidim.icons.register(name: "document_weight", icon: "scales-2-line", description: "Doc. weight (kb/mb)", category: "documents", engine: :core)
+        Decidim.icons.register(name: "document_download", icon: "download-line", description: "Download", category: "documents", engine: :core)
+        Decidim.icons.register(name: "images", icon: "image-line", description: "Images", category: "documents", engine: :core)
+        Decidim.icons.register(name: "all", icon: "apps-2-line", description: "All", category: "other", engine: :core)
+        Decidim.icons.register(name: "other", icon: "question-line", description: "Other", category: "other", engine: :core)
+
+        # social icons
+        Decidim.icons.register(name: "wechat-line", icon: "wechat-line", category: "social icon", description: "", engine: :core)
+        Decidim.icons.register(name: "linkedin-box-fill", icon: "linkedin-box-fill", category: "social icon", description: "", engine: :core)
+        Decidim.icons.register(name: "twitter-x-line", icon: "twitter-x-line", category: "social icon", description: "", engine: :core)
+        Decidim.icons.register(name: "whatsapp-line", icon: "whatsapp-line", category: "social icon", description: "", engine: :core)
+        Decidim.icons.register(name: "telegram-line", icon: "telegram-line", category: "social icon", description: "", engine: :core)
+        Decidim.icons.register(name: "twitter-x-fill", icon: "twitter-x-fill", category: "social icon", description: "", engine: :core)
+        Decidim.icons.register(name: "google-fill", icon: "google-fill", category: "social icon", description: "", engine: :core)
+        Decidim.icons.register(name: "facebook-fill", icon: "facebook-fill", category: "social icon", description: "", engine: :core)
+        Decidim.icons.register(name: "instagram-line", icon: "instagram-line", category: "social icon", description: "", engine: :core)
+        Decidim.icons.register(name: "youtube-line", icon: "youtube-line", category: "social icon", description: "", engine: :core)
+        Decidim.icons.register(name: "github-fill", icon: "github-fill", category: "social icon", description: "", engine: :core)
+        Decidim.icons.register(name: "facebook-circle-line", icon: "facebook-circle-line", category: "social icon", description: "", engine: :core)
+      end
 
       initializer "decidim_core.patch_webpacker", before: "shakapacker.version_checker" do
         ENV["SHAKAPACKER_CONFIG"] = Decidim::Webpacker.configuration.configuration_file
@@ -212,64 +372,11 @@ module Decidim
       end
 
       initializer "decidim_core.menu" do
-        Decidim.menu :menu do |menu|
-          menu.add_item :root,
-                        I18n.t("menu.home", scope: "decidim"),
-                        decidim.root_path,
-                        position: 1,
-                        active: :exclusive
-
-          menu.add_item :pages,
-                        I18n.t("menu.help", scope: "decidim"),
-                        decidim.pages_path,
-                        position: 7,
-                        active: :inclusive
-        end
+        Decidim::Core::Menu.register_menu!
       end
 
       initializer "decidim_core.user_menu" do
-        Decidim.menu :user_menu do |menu|
-          menu.add_item :account,
-                        t("account", scope: "layouts.decidim.user_profile"),
-                        decidim.account_path,
-                        position: 1.0,
-                        active: :exact
-
-          menu.add_item :notifications_settings,
-                        t("notifications_settings", scope: "layouts.decidim.user_profile"),
-                        decidim.notifications_settings_path,
-                        position: 1.1
-
-          if available_verification_workflows.any?
-            menu.add_item :authorizations,
-                          t("authorizations", scope: "layouts.decidim.user_profile"),
-                          decidim_verifications.authorizations_path,
-                          position: 1.2
-          end
-
-          if current_organization.user_groups_enabled? && user_groups.any?
-            menu.add_item :own_user_groups,
-                          t("user_groups", scope: "layouts.decidim.user_profile"),
-                          decidim.own_user_groups_path,
-                          position: 1.3
-          end
-
-          menu.add_item :user_interests,
-                        t("my_interests", scope: "layouts.decidim.user_profile"),
-                        decidim.user_interests_path,
-                        position: 1.4
-
-          menu.add_item :download_your_data,
-                        t("my_data", scope: "layouts.decidim.user_profile"),
-                        decidim.download_your_data_path,
-                        position: 1.5
-
-          menu.add_item :delete_account,
-                        t("delete_my_account", scope: "layouts.decidim.user_profile"),
-                        decidim.delete_account_path,
-                        position: 999,
-                        active: :exact
-        end
+        Decidim::Core::Menu.register_user_menu!
       end
 
       initializer "decidim_core.notifications" do
@@ -443,182 +550,15 @@ module Decidim
       end
 
       initializer "decidim_core.homepage_content_blocks" do
-        Decidim.content_blocks.register(:homepage, :hero) do |content_block|
-          content_block.cell = "decidim/content_blocks/hero"
-          content_block.settings_form_cell = "decidim/content_blocks/hero_settings_form"
-          content_block.public_name_key = "decidim.content_blocks.hero.name"
-
-          content_block.images = [
-            {
-              name: :background_image,
-              uploader: "Decidim::HomepageImageUploader"
-            }
-          ]
-
-          content_block.settings do |settings|
-            settings.attribute :welcome_text, type: :text, translated: true
-          end
-
-          content_block.default!
-        end
-
-        Decidim.content_blocks.register(:homepage, :global_menu) do |content_block|
-          content_block.cell = "decidim/content_blocks/global_menu"
-          content_block.public_name_key = "decidim.content_blocks.global_menu.name"
-          content_block.default!
-        end
-
-        Decidim.content_blocks.register(:homepage, :sub_hero) do |content_block|
-          content_block.cell = "decidim/content_blocks/sub_hero"
-          content_block.public_name_key = "decidim.content_blocks.sub_hero.name"
-          content_block.default!
-        end
-
-        Decidim.content_blocks.register(:homepage, :highlighted_content_banner) do |content_block|
-          content_block.cell = "decidim/content_blocks/highlighted_content_banner"
-          content_block.public_name_key = "decidim.content_blocks.highlighted_content_banner.name"
-          content_block.default!
-        end
-
-        Decidim.content_blocks.register(:homepage, :how_to_participate) do |content_block|
-          content_block.cell = "decidim/content_blocks/how_to_participate"
-          content_block.public_name_key = "decidim.content_blocks.how_to_participate.name"
-          content_block.default!
-        end
-
-        Decidim.content_blocks.register(:homepage, :last_activity) do |content_block|
-          content_block.cell = "decidim/content_blocks/last_activity"
-          content_block.public_name_key = "decidim.content_blocks.last_activity.name"
-          content_block.default!
-        end
-
-        Decidim.content_blocks.register(:homepage, :stats) do |content_block|
-          content_block.cell = "decidim/content_blocks/stats"
-          content_block.public_name_key = "decidim.content_blocks.stats.name"
-          content_block.default!
-        end
-
-        Decidim.content_blocks.register(:homepage, :metrics) do |content_block|
-          content_block.cell = "decidim/content_blocks/organization_metrics"
-          content_block.public_name_key = "decidim.content_blocks.metrics.name"
-        end
-
-        Decidim.content_blocks.register(:homepage, :footer_sub_hero) do |content_block|
-          content_block.cell = "decidim/content_blocks/footer_sub_hero"
-          content_block.public_name_key = "decidim.content_blocks.footer_sub_hero.name"
-          content_block.default!
-        end
-
-        Decidim.content_blocks.register(:homepage, :html) do |content_block|
-          content_block.cell = "decidim/content_blocks/html"
-          content_block.public_name_key = "decidim.content_blocks.html.name"
-          content_block.settings_form_cell = "decidim/content_blocks/html_settings_form"
-
-          content_block.settings do |settings|
-            settings.attribute :html_content, type: :text, translated: true
-          end
-        end
+        Decidim::Core::ContentBlocks::RegistryManager.register_homepage_content_blocks!
       end
 
       initializer "decidim_core.static_page_blocks" do
-        Decidim.content_blocks.register(:static_page, :summary) do |content_block|
-          content_block.cell = "decidim/content_blocks/static_page/summary"
-          content_block.settings_form_cell = "decidim/content_blocks/static_page/summary_settings_form"
-          content_block.public_name_key = "decidim.content_blocks.static_page.summary.name"
-
-          content_block.settings do |settings|
-            settings.attribute :summary, type: :text, translated: true
-          end
-
-          content_block.default!
-        end
-
-        Decidim.content_blocks.register(:static_page, :section) do |content_block|
-          content_block.cell = "decidim/content_blocks/static_page/section"
-          content_block.settings_form_cell = "decidim/content_blocks/static_page/section_settings_form"
-          content_block.public_name_key = "decidim.content_blocks.static_page.section.name"
-
-          content_block.settings do |settings|
-            settings.attribute :content, type: :text, translated: true
-          end
-
-          content_block.default!
-        end
-
-        Decidim.content_blocks.register(:static_page, :two_pane_section) do |content_block|
-          content_block.cell = "decidim/content_blocks/static_page/two_pane_section"
-          content_block.settings_form_cell = "decidim/content_blocks/static_page/two_pane_section_settings_form"
-          content_block.public_name_key = "decidim.content_blocks.static_page.two_pane_section.name"
-
-          content_block.settings do |settings|
-            settings.attribute :left_column, type: :text, translated: true
-            settings.attribute :right_column, type: :text, translated: true
-          end
-
-          content_block.default!
-        end
+        Decidim::Core::ContentBlocks::RegistryManager.register_static_page_blocks!
       end
 
       initializer "decidim_core.newsletter_templates" do
-        Decidim.content_blocks.register(:newsletter_template, :basic_only_text) do |content_block|
-          content_block.cell = "decidim/newsletter_templates/basic_only_text"
-          content_block.settings_form_cell = "decidim/newsletter_templates/basic_only_text_settings_form"
-          content_block.public_name_key = "decidim.newsletter_templates.basic_only_text.name"
-
-          content_block.settings do |settings|
-            settings.attribute(
-              :body,
-              type: :text,
-              translated: true,
-              preview: -> { I18n.t("decidim.newsletter_templates.basic_only_text.body_preview") }
-            )
-          end
-
-          content_block.default!
-        end
-
-        Decidim.content_blocks.register(:newsletter_template, :image_text_cta) do |content_block|
-          content_block.cell = "decidim/newsletter_templates/image_text_cta"
-          content_block.settings_form_cell = "decidim/newsletter_templates/image_text_cta_settings_form"
-          content_block.public_name_key = "decidim.newsletter_templates.image_text_cta.name"
-
-          content_block.images = [
-            {
-              name: :main_image,
-              uploader: "Decidim::NewsletterTemplateImageUploader",
-              preview: -> { ActionController::Base.helpers.asset_pack_path("media/images/placeholder.jpg") }
-            }
-          ]
-
-          content_block.settings do |settings|
-            settings.attribute(
-              :introduction,
-              type: :text,
-              translated: true,
-              preview: -> { I18n.t("decidim.newsletter_templates.image_text_cta.introduction_preview") }
-            )
-            settings.attribute(
-              :body,
-              type: :text,
-              translated: true,
-              preview: -> { I18n.t("decidim.newsletter_templates.image_text_cta.body_preview") }
-            )
-            settings.attribute(
-              :cta_text,
-              type: :text,
-              translated: true,
-              preview: -> { I18n.t("decidim.newsletter_templates.image_text_cta.cta_text_preview") }
-            )
-            settings.attribute(
-              :cta_url,
-              type: :text,
-              translated: true,
-              preview: -> { "http://decidim.org" }
-            )
-          end
-
-          content_block.default!
-        end
+        Decidim::Core::ContentBlocks::RegistryManager.register_newsletter_templates!
       end
 
       initializer "decidim_core.add_badges" do

@@ -7,7 +7,7 @@ describe Decidim::Conferences::ContentBlocks::HighlightedConferencesCell, type: 
 
   let(:organization) { create(:organization) }
   let(:content_block) { create(:content_block, organization:, manifest_name: :highlighted_conferences, scope_name: :homepage, settings:) }
-  let!(:conferences) { create_list(:conference, 5, :published, organization:) }
+  let!(:conferences) { create_list(:conference, 8, :published, organization:) }
   let(:settings) { {} }
 
   let(:highlighted_conferences) { subject.find("#highlighted-conferences") }
@@ -18,15 +18,13 @@ describe Decidim::Conferences::ContentBlocks::HighlightedConferencesCell, type: 
     allow(controller).to receive(:current_organization).and_return(organization)
   end
 
-  # Conferences do not have a max_results settings number selector yet, we might want this back when they do
-  # context "when the content block has no settings" do
-  #   it "shows 4 processes" do
-  #     expect(highlighted_conferences).to have_selector("a.card__grid", count: 4)
-  #   end
-  # end
+  context "when the content block has no settings" do
+    it "shows 6 conferences" do
+      expect(highlighted_conferences).to have_css("a.card__grid", count: 6)
+    end
+  end
 
   context "when the content block has customized the max results setting value" do
-    # note that settings is doing nothing here, just left it for when conferences block is improved
     let(:settings) do
       {
         "max_results" => "8"
@@ -34,7 +32,7 @@ describe Decidim::Conferences::ContentBlocks::HighlightedConferencesCell, type: 
     end
 
     it "shows up to 8 conferences" do
-      expect(highlighted_conferences).to have_selector("a.card__grid", count: 5)
+      expect(highlighted_conferences).to have_css("a.card__grid", count: 8)
     end
   end
 end

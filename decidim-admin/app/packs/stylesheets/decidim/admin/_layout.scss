@@ -23,7 +23,7 @@ body {
 }
 
 .layout-content {
-  @apply flex-grow max-w-full min-h-max bg-gray-5;
+  @apply flex-grow min-h-max bg-gray-5;
 
   table svg {
     @apply fill-current inline-block;

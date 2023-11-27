@@ -37,6 +37,19 @@ module Decidim
         end
       end
 
+      initializer "decidim_comments.register_icons" do
+        common_parameters = { category: "action", engine: :comments }
+
+        Decidim.icons.register(name: "Decidim::Comments::Comment", icon: "chat-1-line", description: "Comment", category: "activity", engine: :comments)
+        Decidim.icons.register(name: "comments_count", icon: "wechat-line", description: "Comments Count", category: "activity", engine: :comments)
+
+        Decidim.icons.register(name: "thumb-up-line", icon: "thumb-up-line", description: "Upvote comment button", **common_parameters)
+        Decidim.icons.register(name: "thumb-up-fill", icon: "thumb-up-fill", description: "User upvoted comment", **common_parameters)
+        Decidim.icons.register(name: "thumb-down-line", icon: "thumb-down-line", description: "Downvote comment button", **common_parameters)
+        Decidim.icons.register(name: "thumb-down-fill", icon: "thumb-down-fill", description: "User downvoted comment", **common_parameters)
+        Decidim.icons.register(name: "edit-line", icon: "edit-line", description: "Edit comment button", **common_parameters)
+      end
+
       initializer "decidim_comments.register_metrics" do
         Decidim.metrics_registry.register(:comments) do |metric_registry|
           metric_registry.manager_class = "Decidim::Comments::Metrics::CommentsMetricManage"

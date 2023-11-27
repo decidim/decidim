@@ -177,6 +177,7 @@ module Decidim
             format.pdf do
               send_data(output, filename: "votes_#{current_initiative.id}.pdf", type: "application/pdf")
             end
+            format.html
           end
         end
 

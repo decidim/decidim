@@ -21,7 +21,7 @@ describe "Admin imports projects to accountability" do
   context "when there are no budgets components to import" do
     before do
       find("span", text: "Import").click
-      click_on "Import projects to results"
+      click_on "Import projects from another component"
     end
 
     it "shows no component to select" do
@@ -38,7 +38,7 @@ describe "Admin imports projects to accountability" do
     end
 
     it "link exists only in main list" do
-      expect(page).to have_content("Import projects to results")
+      expect(page).to have_content("Import projects from another component")
       page.find(".table-list tr:nth-child(1) td:nth-child(2)").click
       expect(page).not_to have_content(t("decidim.accountability.actions.import"))
     end
@@ -50,7 +50,7 @@ describe "Admin imports projects to accountability" do
 
     before do
       find("span", text: "Import").click
-      click_on "Import projects to results"
+      click_on "Import projects from another component"
     end
 
     context "when there are no projects" do
