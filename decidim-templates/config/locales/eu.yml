@@ -28,7 +28,7 @@ eu:
         empty: Oraindik ez dago txantiloirik.
         missing_resource: "(baliabide galdua)"
         update:
-          error: Arazo bat izan da txantiloi hau eguneratzean.
+          error: Arazo bat egon da eztabaida hau eguneratzean.
           success: Txantiloia zuzen eguneratua.
       titles:
         template_types:
@@ -47,14 +47,14 @@ eu:
       admin:
         block_user_templates:
           edit:
-            title: Blokearen erabiltzaile-mezuaren txantiloia editatzea
+            title: Editatu erabiltzailearen kontua blokeatzeko mezuaren txantiloia
           form:
             save: Gorde
           index:
             confirm_delete: Ziur zaude txantiloi hau ezabatu nahi duzula?
-            title: Blokeatutako mezuak
+            title: Blokeatu erabiltzailearen mezuak
           new:
-            title: Blokeko erabiltzaile-mezuaren txantiloi berria
+            title: Txantiloi berria erabiltzaile-kontua blokeatzeko mezurako
           template_chooser:
             select_template: Hautatu txantiloi-fitxategi bat
         proposal_answer_templates:
@@ -102,8 +102,8 @@ eu:
             tos_agreement: Parte hartzean erabilera-irizpideak eta baldintzak onartzen dituzu
       admin_log:
         template:
-          create: "%{user_name} -k%{resource_name} galdetegia eguneratu du"
-          delete: "%{user_name} -k%{resource_name} galdetegia eguneratu du"
+          create: "%{user_name} -k %{resource_name} galdetegia eguneratu du"
+          delete: "%{user_name} -k %{resource_name} galdetegia eguneratu du"
           duplicate: "%{user_name} -k%{resource_name} galdetegia bikoiztu du"
           update: "%{user_name} -k%{resource_name} galdetegia eguneratu du"
       template_types:
