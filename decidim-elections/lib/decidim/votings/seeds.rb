@@ -5,7 +5,6 @@ require "decidim/seeds"
 module Decidim
   module Votings
     class Seeds < Decidim::Seeds
-      # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
       def call
         3.times do |_n|
           voting = create_voting!
@@ -30,74 +29,7 @@ module Decidim
 
           unless voting.online_voting?
             voting.reload.published_elections.finished.each do |election|
-              polling_officer = voting.polling_officers.sample
-              ps_closure = Decidim::Votings::PollingStationClosure.create!(
-                election:,
-                polling_officer:,
-                polling_station: polling_officer.polling_station,
-                signed_at: Time.current,
-                phase: :complete
-              )
-
-              valid_ballots = ::Faker::Number.number(digits: 3)
-              Decidim::Elections::Result.create!(
-                value: valid_ballots,
-                closurable: ps_closure,
-                question: nil,
-                answer: nil,
-                result_type: :valid_ballots
-              )
-
-              null_ballots = ::Faker::Number.number(digits: 1)
-              Decidim::Elections::Result.create!(
-                value: null_ballots,
-                closurable: ps_closure,
-                question: nil,
-                answer: nil,
-                result_type: :null_ballots
-              )
-
-              blank_ballots = ::Faker::Number.number(digits: 2)
-              Decidim::Elections::Result.create!(
-                value: blank_ballots,
-                closurable: ps_closure,
-                question: nil,
-                answer: nil,
-                result_type: :blank_ballots
-              )
-
-              Decidim::Elections::Result.create!(
-                value: valid_ballots + null_ballots + blank_ballots,
-                closurable: ps_closure,
-                question: nil,
-                answer: nil,
-                result_type: :total_ballots
-              )
-
-              election.questions.each do |question|
-                question_pending = valid_ballots
-                question.answers.shuffle.each do |answer|
-                  answer_value = ::Faker::Number.between(from: 0, to: question_pending)
-                  Decidim::Elections::Result.create!(
-                    value: answer_value,
-                    closurable: ps_closure,
-                    question:,
-                    answer:,
-                    result_type: :valid_answers
-                  )
-                  question_pending -= answer_value
-                end
-
-                next unless question.nota_option?
-
-                Decidim::Elections::Result.create!(
-                  value: question_pending,
-                  closurable: ps_closure,
-                  question:,
-                  answer: nil,
-                  result_type: :blank_answers
-                )
-              end
+              create_results!(election:, voting:)
             end
           end
 
@@ -111,7 +43,6 @@ module Decidim
           end
         end
       end
-      # rubocop:enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
 
       def create_voting!
         n = rand(3)
@@ -200,6 +131,77 @@ module Decidim
             weight: index,
             scoped_resource_id: voting.id,
             published_at: Time.current
+          )
+        end
+      end
+
+      def create_results!(election:, voting:)
+        polling_officer = voting.polling_officers.sample
+        ps_closure = Decidim::Votings::PollingStationClosure.create!(
+          election:,
+          polling_officer:,
+          polling_station: polling_officer.polling_station,
+          signed_at: Time.current,
+          phase: :complete
+        )
+
+        valid_ballots = ::Faker::Number.number(digits: 3)
+        Decidim::Elections::Result.create!(
+          value: valid_ballots,
+          closurable: ps_closure,
+          question: nil,
+          answer: nil,
+          result_type: :valid_ballots
+        )
+
+        null_ballots = ::Faker::Number.number(digits: 1)
+        Decidim::Elections::Result.create!(
+          value: null_ballots,
+          closurable: ps_closure,
+          question: nil,
+          answer: nil,
+          result_type: :null_ballots
+        )
+
+        blank_ballots = ::Faker::Number.number(digits: 2)
+        Decidim::Elections::Result.create!(
+          value: blank_ballots,
+          closurable: ps_closure,
+          question: nil,
+          answer: nil,
+          result_type: :blank_ballots
+        )
+
+        Decidim::Elections::Result.create!(
+          value: valid_ballots + null_ballots + blank_ballots,
+          closurable: ps_closure,
+          question: nil,
+          answer: nil,
+          result_type: :total_ballots
+        )
+
+        election.questions.each do |question|
+          question_pending = valid_ballots
+          question.answers.shuffle.each do |answer|
+            answer_value = ::Faker::Number.between(from: 0, to: question_pending)
+            Decidim::Elections::Result.create!(
+              value: answer_value,
+              closurable: ps_closure,
+              question:,
+              answer:,
+              result_type: :valid_answers
+            )
+            question_pending -= answer_value
+          end
+
+          next unless question.nota_option?
+
+          Decidim::Elections::Result.create!(
+            value: question_pending,
+            closurable: ps_closure,
+            question:,
+            answer: nil,
+            result_type: :blank_answers
           )
         end
       end
