@@ -7,8 +7,6 @@ module Decidim
     class Seeds < Decidim::Seeds
       # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
       def call
-        organization = Decidim::Organization.first
-
         3.times do |n|
           params = {
             organization:,
