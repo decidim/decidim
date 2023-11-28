@@ -94,7 +94,7 @@ edit_link(
       </section>
     <% end %>
     <% content_for :item_footer do %>
-      <%= comments_for project, polymorphic: [project.budget] %>
+      <%= render comments_for project, polymorphic: [project.budget] %>
       <ul class="metadata__container layout-main__section" data-metadata-footer>
         <%= content_tag :li, resource_reference(project), class: "metadata__item" %>
       </ul>

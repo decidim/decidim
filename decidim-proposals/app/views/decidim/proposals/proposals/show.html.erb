@@ -91,7 +91,7 @@ extra_admin_link(
   <%= render partial: "actions" %>
 
   <% content_for :item_footer do %>
-    <%= comments_for @proposal %>
+    <%= render comments_for @proposal %>
 
      <ul class="metadata__container layout-main__section" data-metadata-footer>
        <%= content_tag :li, resource_reference(@proposal), class: "metadata__item" %>

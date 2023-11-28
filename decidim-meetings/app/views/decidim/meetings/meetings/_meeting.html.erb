@@ -62,7 +62,7 @@
   <% end %>
 
   <% content_for :item_footer do %>
-    <%= comments_for meeting %>
+    <%= render comments_for meeting %>
     <ul class="metadata__container layout-main__section" data-metadata-footer>
       <%= content_tag :li, resource_reference(meeting), class: "metadata__item" %>
       <%= content_tag :li, resource_version(meeting, versions_path: meeting_version_path(meeting, meeting.versions.count)), class: "metadata__item" %>
