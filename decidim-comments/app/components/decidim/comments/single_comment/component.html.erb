@@ -80,7 +80,5 @@
     <%= cell("decidim/report_button", comment, modal_id: "flagModalComment#{comment.id}").flag_modal.html_safe %>
   <% end %>
 
-  <% if comment.authored_by?(current_user) %>
-    <%= cell("decidim/comments/edit_comment_modal_form", comment) %>
-  <% end %>
+  <%= render Decidim::Comments::EditComment::Component.new(commentable: comment) %>
 <% end %>

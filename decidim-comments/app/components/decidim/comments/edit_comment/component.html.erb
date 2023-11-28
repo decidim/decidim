@@ -1,0 +1,34 @@
+<%= decidim_modal id: "editCommentModal#{commentable.id}" do %>
+  <%= form_for(form_object, url: decidim_comments.comment_path(commentable), method: :put, remote: true, html: { id: nil }) do |form| %>
+    <div data-dialog-container>
+      <%= icon "edit-line" %>
+      <h2 class="h2" id="dialog-title-budget-confirm" data-dialog-title>
+        <%= t("decidim.components.edit_comment_modal_form.title") %>
+      </h2>
+
+      <div class="form__wrapper gap-2">
+        <label class="text-gray-2" for="<%= form_id %>">
+          <%= t("decidim.components.edit_comment_modal_form.form.body.label") %>
+        </label>
+        <%= form.text_area(
+              :body,
+              id: form_id,
+              rows: 4,
+              maxlength: comments_max_length,
+              required: true,
+              placeholder: t("decidim.components.edit_comment_modal_form.form.body.placeholder"),
+              label: false,
+              class: "w-full rounded border min-h-[160px] border-text-gray-2",
+              data: { remaining_characters: "##{form_id}-remaining-characters", input_emoji: true }
+            ) %>
+      </div>
+    </div>
+    <div data-dialog-actions>
+      <button type="submit" data-dialog-close="editCommentModal<%= commentable.id %>" class="button button__sm md:button__lg button__secondary">
+        <%= t("decidim.components.edit_comment_modal_form.form.submit") %>
+      </button>
+
+      <span id="<%= form_id %>-remaining-characters" class="remaining-character-count"></span>
+    </div>
+  <% end %>
+<% end %>
