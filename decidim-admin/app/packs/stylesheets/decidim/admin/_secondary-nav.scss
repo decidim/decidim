@@ -41,7 +41,7 @@
       }
 
       &-container-left {
-        @apply flex items-center gap-x-4;
+        @apply block sm:flex items-center gap-x-4;
       }
 
       &-container-right {
