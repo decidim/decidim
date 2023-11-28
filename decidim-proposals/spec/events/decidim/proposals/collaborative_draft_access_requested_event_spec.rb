@@ -26,31 +26,9 @@ describe Decidim::Proposals::CollaborativeDraftAccessRequestedEvent do
   context "when the notification is for coauthor users" do
     it_behaves_like "a simple event"
 
-    describe "email_subject" do
-      it "is generated correctly" do
-        expect(subject.email_subject).to eq("#{requester_name} requested access to contribute to #{resource_title}.")
-      end
-    end
-
-    describe "email_intro" do
-      it "is generated correctly" do
-        expect(subject.email_intro)
-          .to eq(%(#{requester_name} requested access as a contributor. You can <strong>accept or reject the request</strong> from the <a href="#{resource_url}">#{decidim_html_escape(resource_title)}</a> collaborative draft page.))
-      end
-    end
-
-    describe "email_outro" do
-      it "is generated correctly" do
-        expect(subject.email_outro)
-          .to eq(%(You have received this notification because you are a collaborator of <a href="#{resource_url}">#{decidim_html_escape(resource_title)}</a>.))
-      end
-    end
-
-    describe "notification_title" do
-      it "is generated correctly" do
-        expect(subject.notification_title)
-          .to include(%(<a href="#{requester_path}">#{requester_name} #{requester_nickname}</a> requested access to contribute to the <a href="#{resource_path}">#{decidim_html_escape(resource_title)}</a> collaborative draft. Please <strong>accept or reject the request</strong>.))
-      end
-    end
+    let(:email_subject) { "#{requester_name} requested access to contribute to #{resource_title}." }
+    let(:email_intro) { %(#{requester_name} requested access as a contributor. You can <strong>accept or reject the request</strong> from the <a href="#{resource_url}">#{decidim_html_escape(resource_title)}</a> collaborative draft page.) }
+    let(:email_outro) { %(You have received this notification because you are a collaborator of <a href="#{resource_url}">#{decidim_html_escape(resource_title)}</a>.) }
+    let(:notification_title) { %(<a href="#{requester_path}">#{requester_name} #{requester_nickname}</a> requested access to contribute to the <a href="#{resource_path}">#{decidim_html_escape(resource_title)}</a> collaborative draft. Please <strong>accept or reject the request</strong>.) }
   end
 end
