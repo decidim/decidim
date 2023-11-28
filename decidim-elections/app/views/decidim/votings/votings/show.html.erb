@@ -2,8 +2,7 @@
                            title: translated_attribute(current_participatory_space.title),
                            image_url: current_participatory_space.attached_uploader(:banner_image).path,
                            description: translated_attribute(current_participatory_space.description),
-                           url: voting_url(current_participatory_space),
-                           twitter_handler: current_organization.twitter_handler
+                           url: voting_url(current_participatory_space)
                          }) %>
 
 <%
