@@ -23,7 +23,7 @@
     </section>
   <% end %>
   <% content_for :item_footer do %>
-    <%= render comments_for result %>
+    <%= render comments_for(result) %>
     <%= cell "decidim/accountability/result_metadata", result, template: :show_footer %>
   <% end %>
 <% end %>
