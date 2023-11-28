@@ -9,7 +9,6 @@ describe Decidim::Verifications::ManagedUserErrorEvent do
   let(:resource) { create(:conflict) }
   let(:organization_host) { "#{resource.current_user.organization.host}:#{Capybara.server_port}" }
 
-
   let(:resource_title) { resource.current_user.name }
   let(:resource_path) { "/profiles/#{resource.current_user.nickname}" }
   let(:resource_url) { "http://#{organization_host}/profiles/#{resource.current_user.nickname}" }
