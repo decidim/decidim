@@ -16,7 +16,7 @@ module Decidim
     #
     # @return [EngineRouter] The new engine router
     def self.main_proxy(target)
-      new(target.mounted_engine, target.mounted_params)
+      new(target.mounted_engine, filter_spaces_slug_on_mounted_params(target))
     end
 
     # Instantiates a router to the backend engine for an object.
@@ -25,7 +25,7 @@ module Decidim
     #
     # @return [EngineRouter] The new engine router
     def self.admin_proxy(target)
-      new(target.mounted_admin_engine, target.mounted_params)
+      new(target.mounted_admin_engine, filter_spaces_slug_on_mounted_params(target))
     end
 
     def initialize(engine, default_url_options)
@@ -46,6 +46,15 @@ module Decidim
 
       send(@engine).send(method_name, *args)
     end
+
+    # Prevent adding two times the slug in the URL
+    def self.filter_spaces_slug_on_mounted_params(target)
+      return target.mounted_params unless target.class.include?(Decidim::Participable)
+
+      target.mounted_params.reject { |key, _val| key.ends_with?("_slug") }
+    end
+
+    private_class_method :filter_spaces_slug_on_mounted_params
 
     private
 

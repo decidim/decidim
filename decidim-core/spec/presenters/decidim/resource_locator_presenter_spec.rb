@@ -44,13 +44,13 @@ module Decidim
       describe "#show" do
         subject { described_class.new(participatory_process).show }
 
-        it { is_expected.to start_with("/admin/participatory_processes/my-process") }
+        it { is_expected.to eq("/admin/participatory_processes/my-process") }
       end
 
       describe "#edit" do
         subject { described_class.new(participatory_process).edit }
 
-        it { is_expected.to start_with("/admin/participatory_processes/my-process/edit") }
+        it { is_expected.to eq("/admin/participatory_processes/my-process/edit") }
       end
     end
 
