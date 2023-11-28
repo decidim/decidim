@@ -18,18 +18,7 @@ module Decidim
             end
           end
 
-          landing_page_content_blocks = [:hero, :title, :related_elections, :polling_stations, :related_documents, :related_images, :stats, :metrics]
-
-          landing_page_content_blocks.each.with_index(1) do |manifest_name, index|
-            Decidim::ContentBlock.create(
-              organization:,
-              scope_name: :voting_landing_page,
-              manifest_name:,
-              weight: index,
-              scoped_resource_id: voting.id,
-              published_at: Time.current
-            )
-          end
+          create_landing_page!(voting:)
 
           2.times do
             Decidim::Category.create!(
@@ -204,6 +193,21 @@ module Decidim
           },
           visibility: "all"
         )
+      end
+
+      def create_landing_page!(voting:)
+        landing_page_content_blocks = [:hero, :title, :related_elections, :polling_stations, :related_documents, :related_images, :stats, :metrics]
+
+        landing_page_content_blocks.each.with_index(1) do |manifest_name, index|
+          Decidim::ContentBlock.create(
+            organization:,
+            scope_name: :voting_landing_page,
+            manifest_name:,
+            weight: index,
+            scoped_resource_id: voting.id,
+            published_at: Time.current
+          )
+        end
       end
     end
   end
