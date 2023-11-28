@@ -14,29 +14,7 @@ module Decidim
             3.times do
               polling_station = create_polling_station!(voting:)
 
-              email = "voting_#{voting.id}_president_#{polling_station.id}@example.org"
-
-              user = Decidim::User.find_or_initialize_by(email:)
-              user.update!(
-                name: ::Faker::Name.name,
-                nickname: ::Faker::Twitter.unique.screen_name,
-                password: "decidim123456789",
-                organization:,
-                confirmed_at: Time.current,
-                locale: I18n.default_locale,
-                tos_agreement: true
-              )
-
-              Decidim.traceability.create!(
-                Decidim::Votings::PollingOfficer,
-                organization.users.first,
-                {
-                  voting:,
-                  user:,
-                  presided_polling_station: polling_station
-                },
-                visibility: "all"
-              )
+              create_polling_officer!(voting:, polling_station:)
             end
           end
 
@@ -198,6 +176,32 @@ module Decidim
           Decidim::Votings::PollingStation,
           organization.users.first,
           params,
+          visibility: "all"
+        )
+      end
+
+      def create_polling_officer!(voting:, polling_station:)
+        email = "voting_#{voting.id}_president_#{polling_station.id}@example.org"
+
+        user = Decidim::User.find_or_initialize_by(email:)
+        user.update!(
+          name: ::Faker::Name.name,
+          nickname: ::Faker::Twitter.unique.screen_name,
+          password: "decidim123456789",
+          organization:,
+          confirmed_at: Time.current,
+          locale: I18n.default_locale,
+          tos_agreement: true
+        )
+
+        Decidim.traceability.create!(
+          Decidim::Votings::PollingOfficer,
+          organization.users.first,
+          {
+            voting:,
+            user:,
+            presided_polling_station: polling_station
+          },
           visibility: "all"
         )
       end
