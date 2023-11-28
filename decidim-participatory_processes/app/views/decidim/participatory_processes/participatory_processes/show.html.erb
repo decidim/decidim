@@ -16,26 +16,28 @@
 
 <%= render partial: "layouts/decidim/header/follow_space_menu_bar_button", locals: { participatory_space: current_participatory_space } %>
 
-<%# NOTE: this elements goes outside of the .participatory-space__container block %>
-<% if current_participatory_space.private_space? %>
-  <section class="participatory-space__block-reference alert">
-    <%= t("private_space", scope: "decidim.participatory_processes.show") %>
-  </section>
-<% end %>
-
-<main class="participatory-space__container">
-
-  <%= participatory_space_floating_help %>
-  <%= cell "decidim/participatory_processes/process_step", current_participatory_space, display_steps: params[:display_steps] %>
-
-  <% active_content_blocks.each do |content_block| %>
-    <% next unless content_block.manifest %>
-
-    <%= cell content_block.manifest.cell, content_block %>
+<main>
+  <%# NOTE: this elements goes outside of the .participatory-space__container block %>
+  <% if current_participatory_space.private_space? %>
+    <section class="participatory-space__block-reference alert">
+      <%= t("private_space", scope: "decidim.participatory_processes.show") %>
+    </section>
   <% end %>
 
-</main>
+  <div class="participatory-space__container">
 
-<section class="participatory-space__block-reference">
-  <%= resource_reference(current_participatory_space) %>
-</section>
+    <%= participatory_space_floating_help %>
+    <%= cell "decidim/participatory_processes/process_step", current_participatory_space, display_steps: params[:display_steps] %>
+
+    <% active_content_blocks.each do |content_block| %>
+      <% next unless content_block.manifest %>
+
+      <%= cell content_block.manifest.cell, content_block %>
+    <% end %>
+
+  </div>
+
+  <section class="participatory-space__block-reference">
+    <%= resource_reference(current_participatory_space) %>
+  </section>
+</main>

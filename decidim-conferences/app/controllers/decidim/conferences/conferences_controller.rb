@@ -27,7 +27,7 @@ module Decidim
       end
 
       def show
-        enforce_permission_to :read, :process, process: current_participatory_space
+        enforce_permission_to :read, :conference, conference: current_participatory_space
       end
 
       def user_diploma
