@@ -24,11 +24,11 @@ describe Decidim::Proposals::CollaborativeDraftAccessRequestedEvent do
   let(:extra) { { requester_id: } }
 
   context "when the notification is for coauthor users" do
-    it_behaves_like "a simple event"
-
-    let(:email_subject) { "#{requester_name} requested access to contribute to #{resource_title}." }
-    let(:email_intro) { %(#{requester_name} requested access as a contributor. You can <strong>accept or reject the request</strong> from the <a href="#{resource_url}">#{decidim_html_escape(resource_title)}</a> collaborative draft page.) }
-    let(:email_outro) { %(You have received this notification because you are a collaborator of <a href="#{resource_url}">#{decidim_html_escape(resource_title)}</a>.) }
     let(:notification_title) { %(<a href="#{requester_path}">#{requester_name} #{requester_nickname}</a> requested access to contribute to the <a href="#{resource_path}">#{decidim_html_escape(resource_title)}</a> collaborative draft. Please <strong>accept or reject the request</strong>.) }
+    let(:email_outro) { %(You have received this notification because you are a collaborator of <a href="#{resource_url}">#{decidim_html_escape(resource_title)}</a>.) }
+    let(:email_intro) { %(#{requester_name} requested access as a contributor. You can <strong>accept or reject the request</strong> from the <a href="#{resource_url}">#{decidim_html_escape(resource_title)}</a> collaborative draft page.) }
+    let(:email_subject) { "#{requester_name} requested access to contribute to #{resource_title}." }
+
+    it_behaves_like "a simple event"
   end
 end
