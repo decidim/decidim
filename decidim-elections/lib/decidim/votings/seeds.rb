@@ -12,22 +12,7 @@ module Decidim
 
           unless voting.online_voting?
             3.times do
-              params = {
-                voting:,
-                title: Decidim::Faker::Localized.sentence(word_count: 5),
-                address: ::Faker::Address.full_address,
-                latitude: ::Faker::Address.latitude,
-                longitude: ::Faker::Address.longitude,
-                location: Decidim::Faker::Localized.sentence,
-                location_hints: Decidim::Faker::Localized.sentence
-              }
-
-              polling_station = Decidim.traceability.create!(
-                Decidim::Votings::PollingStation,
-                organization.users.first,
-                params,
-                visibility: "all"
-              )
+              polling_station = create_polling_station!(voting:)
 
               email = "voting_#{voting.id}_president_#{polling_station.id}@example.org"
 
@@ -196,6 +181,25 @@ module Decidim
         voting.add_to_index_as_search_resource
 
         voting
+      end
+
+      def create_polling_station!(voting:)
+        params = {
+          voting:,
+          title: Decidim::Faker::Localized.sentence(word_count: 5),
+          address: ::Faker::Address.full_address,
+          latitude: ::Faker::Address.latitude,
+          longitude: ::Faker::Address.longitude,
+          location: Decidim::Faker::Localized.sentence,
+          location_hints: Decidim::Faker::Localized.sentence
+        }
+
+        Decidim.traceability.create!(
+          Decidim::Votings::PollingStation,
+          organization.users.first,
+          params,
+          visibility: "all"
+        )
       end
     end
   end
