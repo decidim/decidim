@@ -12,10 +12,12 @@ module Decidim
         private
 
         include Decidim::ResourceHelper
+        include Decidim::ActionAuthorizationHelper
+
         attr_reader :commentable, :options
 
         delegate :commentable_type, :comments_count, to: :commentable
-        delegate :decidim_comments, to: :helpers
+        delegate :action_authorized_to, :decidim_comments, to: :helpers
 
         # private
         def add_comment
@@ -57,20 +59,9 @@ module Decidim
           announcement(comment_permissions? ? blocked_comments_for_unauthorized_user_warning_link : t("decidim.components.comments.blocked_comments_for_user_warning"), raw: true)
         end
 
-        #
-        # private
-        #
-        # def decidim_comments
-        #   Decidim::Comments::Engine.routes.url_helpers
-        # end
-        #
         def comments
           single_comment? ? [single_comment] : []
         end
-        #
-        # def comments_count
-        #   model.comments_count
-        # end
 
         def root_depth
           return 0 unless single_comment?
@@ -83,33 +74,15 @@ module Decidim
 
           resource_locator(commentable).path(params)
         end
-        #
-        # def alignment_enabled?
-        #   model.comments_have_alignment?
-        # end
-        #
-        # def available_orders
-        #   %w(best_rated recent older most_discussed)
-        # end
 
         def order
           options[:order] || "older"
         end
 
-        #
-        # def decidim
-        #   Decidim::Core::Engine.routes.url_helpers
-        # end
-        #
         def node_id
           "comments-for-#{commentable_type.demodulize}-#{commentable.id}"
         end
 
-        #
-        # def commentable_type
-        #   model.commentable_type
-        # end
-        #
         def comments_data
           {
             singleComment: single_comment?,
