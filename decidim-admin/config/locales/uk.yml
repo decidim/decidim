@@ -48,7 +48,6 @@ uk:
         logo: Логотип
         name: Назва
         official_img_footer: Нижній колонтитул офіційного логотипу
-        official_img_header: Заголовок офіційного логотипу
         official_url: Офіційна веб-адреса організації
         omnipresent_banner_short_description: Стислий опис
         omnipresent_banner_title: Заголовок
@@ -423,10 +422,6 @@ uk:
           images:
             layout_appearance_title: Редагувати зовнішній вигляд шаблону
           omnipresent_banner_appearance_title: Редагувати всюдисущий банер
-      organization_homepage:
-        edit:
-          active_content_blocks: Блоки діючого вмісту
-          inactive_content_blocks: Блоки недіючого вмісту
       participatory_space_private_users:
         create:
           error: При спробі додати приватного учасника до цього простору співучасті сталася помилка.
@@ -481,6 +476,8 @@ uk:
         edit:
           title: Редагувати сторінку
           update: Оновити
+        index:
+          last_notable_change: Остання помітна зміна
         new:
           title: Створити сторінку
         update:

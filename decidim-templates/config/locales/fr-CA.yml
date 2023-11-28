@@ -56,6 +56,13 @@ fr-CA:
             title: Nouveau modèle de message de blocage utilisateur
           template_chooser:
             select_template: Sélectionnez un modèle de réponse
+        proposal_answer_templates:
+          form:
+            save: Sauvegarder
+          new:
+            title: Nouveau modèle de réponse à proposition
+          template_chooser:
+            select_template: Sélectionnez un modèle de réponse
         questionnaire_templates:
           choose:
             create_from_template: Créer depuis un modèle
@@ -87,4 +94,5 @@ fr-CA:
           update: "%{user_name} a modifié le modèle de questionnaire %{resource_name}"
       template_types:
         block_user: Bloquer les messages de l'utilisateur
+        proposal_answer_templates: Réponses à la proposition
         questionnaires: Questionnaires

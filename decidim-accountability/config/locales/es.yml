@@ -39,8 +39,8 @@ es:
         confirm_destroy: '¿Seguro que quieres eliminar este %{name}?'
         destroy: Borrar
         edit: Editar
-        import: Importar proyectos a resultados
-        import_csv: Importar CSV
+        import: Importar proyectos desde otro componente
+        import_csv: Importar resultados desde un archivo CSV
         new_result: Añadir resultado
         new_status: Añadir estado
         new_timeline_entry: Añadir entrada de la cronología
@@ -76,7 +76,7 @@ es:
                 </ul>
               </li>
               </ol>
-            title: Importar resultados vía CSV
+            title: Importar resultados desde un archivo CSV
         imports:
           create:
             invalid: Ha habido un problema importando los resultados.
@@ -101,7 +101,7 @@ es:
             success:
               one: Hay un proyecto para ser importado. Se notificará por correo electrónico, cuando se complete la importación.
               other: "Hay %{count} proyectos para ser importados. Se notificará por correo electrónico, cuando se complete la importación."
-            title: Importar Proyectos a Seguimiento
+            title: Importar proyectos desde otro componente
         results:
           create:
             invalid: Se ha producido un error al crear este resultado.
@@ -174,9 +174,7 @@ es:
             not_found: 'El padre no se encontró en la base de datos (ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Fechas
           results: Resultados
-          unspecified: No especificado
       import_mailer:
         import:
           errors: Errores
@@ -215,9 +213,6 @@ es:
           fields:
             entry_date: Fecha
             title: Título
-      result_m:
-        executed: Ejecutado
-        view: Ver
       results:
         count:
           results_count:
@@ -227,6 +222,8 @@ es:
           all: Todos
         home:
           categories_label: Categorías
+          empty: Aún no hay ningún resultado.
+          empty_filters: No hay ningún resultado con este criterio.
           subcategories_label: Subcategorías
         home_header:
           global_status: Estado de ejecución global

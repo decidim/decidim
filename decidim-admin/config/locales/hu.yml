@@ -75,7 +75,6 @@ hu:
         machine_translation_display_priority_translation: Először a lefordított szöveg
         name: Név
         official_img_footer: Hivatalos logó lábléc
-        official_img_header: Hivatalos logó fejléc
         official_url: Szervezet hivatalos URL-je
         omnipresent_banner_short_description: Rövid leírás
         omnipresent_banner_title: Cím
@@ -141,8 +140,6 @@ hu:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Érvénytelen képfájl
-            official_img_header:
               allowed_file_content_types: Érvénytelen képfájl
         participatory_space_private_user_csv_import:
           attributes:
@@ -843,22 +840,6 @@ hu:
         form:
           add: Hozzáadás a kivétellistához
           title: Külső domain kivétellista
-      organization_homepage:
-        content_blocks:
-          create:
-            error: Probléma merült fel a tartalmi blokk létrehozásakor.
-            success: A tartalmi blokk sikeresen létrehozva.
-          destroy:
-            error: Probléma merült fel a tartalmi blokk törlésével kapcsolatban.
-            success: A tartalomblokk sikeresen törlődött.
-          edit:
-            update: Frissítés
-        edit:
-          active_content_blocks: Aktív tartalomblokkok
-          add: Tartalmi blokk hozzáadása
-          destroy_confirmation: Biztos, hogy törölni szeretné ezt a tartalmi blokkot?
-          inactive_content_blocks: Inaktív tartalomblokkok
-          title: Az oldal tartalma
       participatory_space_private_users:
         create:
           error: Hiba történt egy privát felhasználó hozzáadása során a részvételi helyhez.
@@ -888,7 +869,6 @@ hu:
           explanation_example: |
             ohn.doe@example.org%{csv_col_sep}John Doe
             jane.doe@example.org%{csv_col_sep}Jane Doe
-          title: Töltse fel a CSV fájlod
           upload: Feltölt
       reminders:
         create:
@@ -954,7 +934,6 @@ hu:
       shared:
         gallery:
           add_images: Képek hozzáadása
-          delete_image: Kép törlése
           edit_images: Kép szerkesztése
           gallery_legend: Képgaléria hozzáadása (opcionális)
       static_page_topics:
@@ -975,20 +954,6 @@ hu:
       static_pages:
         actions:
           view: Nyilvános oldal megtekintése
-        content_blocks:
-          active_content_blocks: Aktív tartalmi blokkok
-          add: Tartalmi blokk hozzáadása
-          create:
-            error: Probléma merült fel a tartalmi blokk létrehozásakor.
-            success: A tartalmi blokk sikeresen létrehozva.
-          destroy:
-            error: Probléma merült fel a tartalmi blokk törlésével kapcsolatban.
-            success: A tartalomblokk sikeresen törlődött.
-          destroy_confirmation: Biztos, hogy törölni szeretné ezt a tartalmi blokkot?
-          edit:
-            update: Frissítés
-          inactive_content_blocks: Inaktív tartalmi blokkok
-          title: Az oldal tartalma
         create:
           error: Hiba történt az új oldal létrehozásakor.
           success: Oldal létrehozása sikeres.
@@ -1000,12 +965,12 @@ hu:
           update: Frissítés
         form:
           none: Egyik sem
+        index:
+          last_notable_change: Utolsó jelentős változás
         new:
           create: Oldal létrehozása
           title: Új oldal
         topic:
-          destroy: Téma eltávolítása
-          edit: Téma szerkesztése
           empty: Ebben a témakörben nincsenek oldalak.
           without_topic: Téma nélküli oldalak
         update:

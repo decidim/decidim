@@ -49,6 +49,9 @@ lt:
             title: Blokuoti naudotojų žinutes
           template_chooser:
             select_template: Pasirinkite šablono atsakymą
+        proposal_answer_templates:
+          form:
+            save: Išsaugoti
         questionnaire_templates:
           choose:
             create_from_template: Kurti iš šablono

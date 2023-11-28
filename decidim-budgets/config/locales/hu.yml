@@ -135,7 +135,6 @@ hu:
             no_components: Ebben a részvételi térben nincs más javaslat-összetevő a javaslatok projektekbe való importálásához.
             origin_component_id: A komponens származása
             select_component: Válassz ki egy elemet
-            title: Javaslatok importálása
         reminders:
           orders:
             description: A felhasználók egy e-mailt kapnak, amely linkeket tartalmaz a költségvetésekre, ahol függőben lévő sorrendjük van.
@@ -151,8 +150,6 @@ hu:
           create: "%{user_name} létrehozta a(z) %{resource_name} nevű projektet itt: %{space_name}"
           delete: "%{user_name} eltávolította a(z) %{resource_name} nevű projektet itt: %{space_name}"
           update: "%{user_name} frissítette a(z) %{resource_name} nevű projektet itt: %{space_name}"
-      budget:
-        view: Az összes költségvetés-projekt megtekintése
       budget_information_modal:
         back_to: Vissza a(z) %{component_name} komponenshez
         close_modal: Ablak bezárás
@@ -187,7 +184,6 @@ hu:
           fields:
             category: Kategória
             id: Azonosító
-            scope: Hatókör
             title: Cím
       order_summary_mailer:
         order_summary:
@@ -236,8 +232,6 @@ hu:
             all: Összes
             not_selected: Nincs kiválasztva
             selected: Kiválasztva
-        index:
-          back_to_budgets: vissza a költségvetésekhez
         order_progress:
           assigned: Hozzárendelt
           budget: Költségvetés
@@ -265,7 +259,6 @@ hu:
           add: Adja hozzá a(z) %{resource_name} projektet a szavazáshoz.
           remove: Távolítsa el a(z) %{resource_name} projektet a szavazásból.
           selected: Kiválasztva
-          view: Nézet
           you_voted: Erre szavazott
         project_budget_button:
           add: Adja hozzá a szavazatához

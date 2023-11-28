@@ -44,7 +44,6 @@ id:
       organizations:
         create:
           error: Terjadi masalah saat membuat organisasi baru.
-          success: Organisasi berhasil dibuat.
         edit:
           secondary_hosts_hint: Masukkan masing-masing dari mereka di baris baru
         index:

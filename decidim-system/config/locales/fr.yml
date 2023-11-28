@@ -56,9 +56,6 @@ fr:
         new:
           create: Créer
           title: Nouvel administrateur
-        show:
-          destroy: Détruire
-          edit: Modifier
         update:
           error: Une erreur s'est produite lors de la mise à jour de cet administrateur.
           success: Administrateur mis à jour avec succès.
@@ -140,7 +137,6 @@ fr:
           show: Afficher les paramètres avancés
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle organisation.
-          success: Organisation créée avec succès.
         csp_settings:
           connect_src: Connecter src
           connect_src_hint: |

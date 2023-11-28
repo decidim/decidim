@@ -254,11 +254,9 @@ zh-TW:
       amendable:
         button: 修正 %{model_name}
         error: 在修改此資源時發生錯誤。
-        help_text: 透過修改 %{amendable_fields}，來改善這個 %{model_name}.
         promote_button: 晉升為 %{model_name}
         promote_confirm_text: 您確定要晉升此修正嗎？
         promote_help_text: 您可以提升此修正，並將其發布為獨立的 %{model_name}.
-        section_heading: 修正案（%{count}）
       compare_draft:
         continue: 繼續
         no_similars_found: 找不到相似的修正案。
@@ -413,7 +411,6 @@ zh-TW:
       hidden_elements_count:
         other: "one\n和 %{count} 個\n\nOther\n和 %{count} 個"
       see_less: "(查看較少)"
-      see_more: "(查看更多)"
     components:
       component_order_selector:
         no_content: 我們找不到符合這個條件的任何內容.
@@ -820,14 +817,12 @@ zh-TW:
           add_attachment: 新增附件
           add_file: 添加檔案
           add_image: 新增圖片
-          cancel: 取消
           edit_image: 編輯圖片
           error: 錯誤！
           file_size_too_large: '檔案大小過大！最大檔案大小：%{megabytes}MB'
           filename: 檔案名稱
           remove: 移除
           replace: 替換
-          save: 儲存
           title: 標題
           title_required: 標題為必填欄位！
           uploaded: 已上傳
@@ -1192,7 +1187,6 @@ zh-TW:
           proposals: 提案
           proposals_explanation: 提出建議、支持現有建議並推動您希望看到的變化。
         footer_sub_hero:
-          footer_sub_hero_body: 一起建立更加開放、透明和協作的社會。<br /> 加入、參與和做出決策。
           footer_sub_hero_headline: 歡迎來到 %{organization} 的參與平台。
           register: 註冊
         hero:
@@ -1556,8 +1550,6 @@ zh-TW:
         change_my_password: 變更我的密碼
         confirm_new_password: 確認新密碼
         new_password: 新密碼
-        password_help: "最少 %{minimun_characters} 個字符，不能太常見（例如 123456），且必須與您的暱稱和電子郵件不同。"
-        password_help_admin: "最少 %{minimun_characters} 個字符，不能太常見（例如 123456），必須與您的暱稱和電子郵件不同，並且必須與您的舊密碼不同。"
         title: 密碼變更
       new:
         forgot_your_password: 忘記密碼了嗎？
@@ -1735,8 +1727,6 @@ zh-TW:
         body: 您已經閒置了 %{minutes} 分鐘。如果您繼續閒置，為了您的安全，您將被自動登出。
         continue_session: 繼續會話
         title: 您是否想要繼續進行本次對話？
-      upload_modal:
-        close_modal: 關閉視窗
       user_menu:
         account: '使用者帳戶： %{name}'
         admin_dashboard: 管理員儀表板

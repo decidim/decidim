@@ -98,7 +98,6 @@ cs:
           cancel: Zrušit
           description: Jaké je shrnutí nebo závěr této debaty?
           send: Ukončit debatu
-        closed: Uzavřeno
         count:
           debates_count:
             one: "%{count} debata"
@@ -108,8 +107,9 @@ cs:
         create:
           invalid: Při vytváření debaty došlo k chybě.
           success: Debata byla úspěšně vytvořena.
-        debate:
-          participate: Účastnit se
+        debates:
+          empty: Zatím nejsou žádné diskuse.
+          empty_filters: S těmito kritérii nejsou žádné diskuse.
         edit:
           back: Zpět
           save: Uložit změny
@@ -146,7 +146,6 @@ cs:
           updated: Naposledy aktualizované
         show:
           close_debate: Ukončit debatu
-          date: Datum
           debate_closed: Uzavřeno
           debate_conclusions_are: 'Debata byla uzavřena dne %{date} těmito závěry:'
           edit_conclusions: Upravit závěry

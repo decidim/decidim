@@ -477,7 +477,6 @@ ro:
         show:
           attendees: Numărul participanților
           contributions: Număr de contribuții
-          date: Data
           join: Participă la întâlnire
           leave: Anulează înregistrarea
           leave_confirmation: Sigur dorești să anulezi înregistrarea la această întâlnire?
@@ -496,7 +495,6 @@ ro:
             one: "%{count} slot rămas"
             few: "%{count} sloturi rămase"
             other: "%{count} sloturi rămase"
-          view: Vizualizare
           visit_finished: Arată întâlniri deja desfășurate
           withdraw_btn_hint: Poți să anulezi întâlnirea dacă te răzgândești. Întâlnirea nu va fi ștearsă, ci va apărea în lista de întâlniri anulate.
           withdraw_confirmation_html: Sigur dorești să retragi această întâlnire?<br><br><strong>Această acțiune nu poate fi anulată!</strong>

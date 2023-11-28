@@ -399,7 +399,6 @@ pt:
         show:
           attendees: Contagem de participantes
           contributions: Contagem de contribuições
-          date: Data
           join: Adira à reunião
           leave: Cancele o seu registo
           leave_confirmation: Tem a certeza que quer cancelar o seu registo para esta reunião?
@@ -417,7 +416,6 @@ pt:
           remaining_slots:
             one: "%{count} intervalo de tempo restante"
             other: "%{count} intervalos de tempo restantes"
-          view: Ver
           visit_finished: Ver reunião passada
         update:
           invalid: Ocorreu um problema ao atualizar a reunião.

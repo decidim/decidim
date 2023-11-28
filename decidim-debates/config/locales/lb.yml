@@ -70,7 +70,6 @@ lb:
           updated: Kürzlich aktualisiert
         show:
           close_debate: Debatte schließen
-          date: Datum
           debate_closed: Geschlossen
           debate_conclusions_are: 'Die Debatte wurde am %{date} mit diesen Ergebnissen geschlossen:'
           edit_conclusions: Schlussfolgerungen bearbeiten
