@@ -534,6 +534,8 @@ fr:
           subtitle: Remplissez le formulaire suivant pour créer votre compte
           username_help: Le nom est public et apparaît dans votre profil et sur vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
       registrations:
+        create:
+          error: Il y a eu un problème pour créer votre compte.
         new:
           already_have_an_account?: Vous avez déjà un compte ?
           newsletter: Recevoir une newsletter sur l'actualité de la plateforme
@@ -1795,7 +1797,7 @@ fr:
         facebook: "%{organization} sur Facebook"
         github: "%{organization} sur GitHub"
         instagram: "%{organization} sur Instagram"
-        twitter: "%{organization} sur Twitter"
+        x: "%{organization} sur X"
         youtube: "%{organization} sur YouTube"
       timeout_modal:
         body: Vous avez été inactif pendant %{minutes} minutes. Si vous continuez à être inactif, vous serez automatiquement déconnecté de la plateforme pour des raisons de sécurité.
@@ -1803,7 +1805,7 @@ fr:
         sign_out: Se déconnecter
         title: Voulez-vous poursuivre votre session ?
       upload_modal:
-        close_modal: Fermer la fenêtre
+        close_modal: Fermer la fenêtre de dialogue
       user_menu:
         account: 'Compte utilisateur: %{name}'
         admin_dashboard: Tableau de bord des administrateurs
@@ -1862,6 +1864,7 @@ fr:
     weibo: Sina Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
+    x: X
     xing: Xing
   time:
     formats:

@@ -93,7 +93,7 @@ ja:
         success_color: 成功
         time_zone: タイムゾーン
         tos_version: 利用規約のバージョン
-        twitter_handler: Twitter ハンドラー
+        twitter_handler: X ハンドラー
         user_groups_enabled: グループを有効にする
         users_registration_mode: ユーザー登録モード
         warning_color: 警告
@@ -795,7 +795,7 @@ ja:
           instagram: Instagram
           rich_text_editor_in_public_views_help: 一部のテキストエリアでは、参加者はリッチテキストエディタを使用してHTMLタグを挿入することができます。
           social_handlers: ソーシャル
-          twitter: Twitter
+          twitter: X
           url: URL
           youtube: YouTube
         update:

@@ -714,6 +714,10 @@ nl:
       file_validation:
         allowed_file_extensions: 'Toegestane bestandsextensies: %{extensions}'
         max_file_size: 'Maximale bestandsgrootte: %{megabytes}MB'
+      upload:
+        labels:
+          cancel: annuleren
+          save: Opslaan
     gamification:
       all_badges_link: Zie alle beschikbare badges.
       badges:
@@ -1059,7 +1063,6 @@ nl:
           proposals: voorstellen
           proposals_explanation: Maak voorstellen, ondersteun de bestaande en bevorder de veranderingen die u wilt zien.
         footer_sub_hero:
-          footer_sub_hero_body: Laten we een meer open, transparante en samenwerkende samenleving bouwen.<br /> Doe mee, neem deel en beslis.
           footer_sub_hero_headline: Welkom bij %{organization} participatief platform.
           register: Registreren
         hero:
@@ -1549,8 +1552,9 @@ nl:
         facebook: "%{organization} op Facebook"
         github: "%{organization} op GitHub"
         instagram: "%{organization} op Instagram"
-        twitter: "%{organization} op Twitter"
         youtube: "%{organization} op YouTube"
+      upload_modal:
+        close_modal: Sluit venster
       user_menu:
         account: 'Gebruikersaccount: %{name}'
         admin_dashboard: Admin

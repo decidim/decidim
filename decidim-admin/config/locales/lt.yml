@@ -93,7 +93,6 @@ lt:
         success_color: Atlikta
         time_zone: Laiko zona
         tos_version: Paslaugų teikimo sąlygų versija
-        twitter_handler: '„Twitter“ tvarkyklė'
         user_groups_enabled: Įjungti grupes
         users_registration_mode: Vartotojo registracijos tipas
         warning_color: Perspėjimas
@@ -804,7 +803,6 @@ lt:
           instagram: Instagram
           rich_text_editor_in_public_views_help: Kai kuriose teksto laukuose dalyviai, naudodami raiškiojo teksto redaktoriaus funkciją, galės įterpti HTML žymes.
           social_handlers: Socialinis
-          twitter: Twitter
           url: Nuoroda
           youtube: YouTube
         update:
@@ -836,10 +834,6 @@ lt:
         form:
           add: Pridėti prie baltojo sąrašo
           title: Išorinių domenų baltasis sąrašas
-      organization_homepage:
-        edit:
-          active_content_blocks: Aktyvūs turinio blokai
-          inactive_content_blocks: Neaktyvūs turinio blokai
       organization_homepage_content_blocks:
         edit:
           update: Atnaujinti
@@ -868,7 +862,7 @@ lt:
             explanation: Turite %{count} privačių dalyvių.
             title: Ištrinti privačius dalyvius
           explanation: 'Įkelkite CSV dokumentą. Jis turi turėti du stulpelius su naudotojų el. paštu pirmajame ir vardu paskutiniąjame. Dokumente neturėtų būti laukų pavadinimų ir šių simbolių naudotojų varduose "<>?%&^*#@()[]=+:;"{}\|".'
-          title: Įkelkite CSV dokumentą
+          title: Įkelkite savo CSV rinkmeną
           upload: Įkelti
       reminders:
         create:

@@ -55,6 +55,8 @@
         new:
           create: Opprett
           title: Ny administrator
+        show:
+          edit: Rediger
         update:
           error: Det oppsto et problem med å oppdatere administratoren.
           success: Admin ble oppdatert
@@ -145,8 +147,6 @@
         index:
           title: Organisasjoner
         new:
-          reference_prefix_hint: Referanse prefikset brukes til å identifisere ressurser på tvers av alle organisasjoner
-          secondary_hosts_hint: Skriv inn hver enkelt av dem på en ny linje
           title: Ny organisasjon
         omniauth_settings:
           decidim:

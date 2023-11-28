@@ -65,6 +65,7 @@ uk:
       models:
         project:
           fields:
+            scope: Обсяг
             title: Назва
       projects:
         budget_confirm:

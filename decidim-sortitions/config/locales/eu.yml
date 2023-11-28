@@ -51,7 +51,7 @@ eu:
               reference: Erreferentzia
               request_timestamp: Zozketa-denbora
               seed: Hazia
-              target_items: Aukeratutako elementuak
+              target_items: Aukeratzeko itemak
               title: Izenburua
             name:
               one: Zozketa
@@ -73,13 +73,13 @@ eu:
           form:
             all_categories: Kategoria guztiak
             select_proposal_component: Aukeratu proposamenen multzoa
-            title: Proposamenen zozketa berria
+            title: Proposamenen beste zozketa bat
           index:
             title: Zozketak
           new:
             confirm: Botoia sakatzean plataformak egun eta ordua (segundu gutxi batzuk gora behera) eta dadoak botatzean ateratako zenbakia gorde egingo ditu ausazko hautaketa bat egiteko. Botoia sakatu ondoren ez dago atzera egiterik eta zozketaren emaitzak zein txantiloi honetan sartutako datuak argitaratu eta ezin izango dira aldatu. Beraz, mesedez, arretaz jarraitu
             create: Sortu
-            title: Zozketa berria
+            title: Beste zozketa bat
           show:
             selected_proposals: Aukeratutako proposamenak
           update:
@@ -100,9 +100,9 @@ eu:
           search: Bilatu
           state: Egoera
         filters_small_view:
-          close_modal: Modala itxi
-          filter: Filtroa
-          filter_by: Honen arabera iragazi
+          close_modal: Itxi leihoa
+          filter: Iragazkia
+          filter_by: Iragazi honen arabera
           unfold: Zabaldu
         linked_sortitions:
           selected_proposals: Aukeratutako proposamenak

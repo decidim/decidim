@@ -1188,7 +1188,6 @@ hu:
           proposals: Javaslatok
           proposals_explanation: Tegyél javaslatot, támogasd a már meglévőket, legyél Te a változás motorja.
         footer_sub_hero:
-          footer_sub_hero_body: Egy nyitottabb, átláthatóbb és együttműködőbb társadalomért.<br /> Csatlakozz, szervezz és dönts.
           footer_sub_hero_headline: Üdvözöljük a %{organization} részvételi platformján.
           register: Regisztráció
         hero:
@@ -1739,7 +1738,6 @@ hu:
         facebook: "%{organization} a Facebookon"
         github: "%{organization} a GitHubon"
         instagram: "%{organization} az Instagramon"
-        twitter: "%{organization} a Twitteren"
         youtube: "%{organization} a YouTube-on"
       timeout_modal:
         body: Ön %{minutes} percig inaktív volt. Ha továbbra is inaktív marad, a saját biztonsága érdekében automatikusan kijelentkeztetjük.
@@ -1747,7 +1745,7 @@ hu:
         sign_out: Kijelentkezés
         title: Folytatod a munkameneted?
       upload_modal:
-        close_modal: Ablak bezárás
+        close_modal: Felugró ablak bezárása
       user_menu:
         account: 'Felhasználói fiók: %{name}'
         admin_dashboard: Admin vezérlőpult

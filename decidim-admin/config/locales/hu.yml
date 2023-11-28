@@ -93,7 +93,6 @@ hu:
         success_color: Siker
         time_zone: Időzóna
         tos_version: Használati feltételek
-        twitter_handler: Twitter kezelő
         user_groups_enabled: Csoportok engedélyezése
         users_registration_mode: Felhasználói regisztrációs mód
         warning_color: Figyelmeztetés
@@ -796,7 +795,6 @@ hu:
           instagram: Instagram
           rich_text_editor_in_public_views_help: Néhány szövegmezőbe, a résztvevők HTML tag-eket tudnak majd beilleszteni a szövegszerkesztő segítségével.
           social_handlers: Social
-          twitter: Twitter
           url: URL
           youtube: Youtube
         update:
@@ -828,10 +826,6 @@ hu:
         form:
           add: Hozzáadás a kivétellistához
           title: Külső domain kivétellista
-      organization_homepage:
-        edit:
-          active_content_blocks: Aktív tartalomblokkok
-          inactive_content_blocks: Inaktív tartalomblokkok
       organization_homepage_content_blocks:
         edit:
           update: Frissítés
@@ -860,7 +854,7 @@ hu:
             explanation: '%{count} privát résztvevője van.'
             title: Privát felhasználók törlése
           explanation: 'Töltse fel a CSV-fájlt. Két oszlopnak kell lennie, e-mail címmel a fájl első oszlopában, és a fájl utolsó oszlopában (e-mail, név) azoknak a felhasználóknak az adataival, akiket fel akar venni a részvételi térbe, fejlécek nélkül. Kerülje az olyan érvénytelen karakterek használatát, mint a `<>?%&^*#@()[]=+:;"{}\|` a felhasználónévben.'
-          title: Töltse fel a CSV fájlod
+          title: Töltse fel a CSV fájlját
           upload: Feltölt
       reminders:
         create:

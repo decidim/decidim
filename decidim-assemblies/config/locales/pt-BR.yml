@@ -59,7 +59,6 @@ pt-BR:
         subtitle: Subtítulo
         target: Quem participa
         title: Título
-        twitter: Twitter
         weight: Posição do pedido
         youtube: YouTube
       assembly_member:
@@ -303,8 +302,6 @@ pt-BR:
           index:
             filter:
               all: Todos
-              ceased: Cessou
-              not_ceased: Não cessou
             filter_by: Filtrar por
             search: Procurar
         content_blocks:

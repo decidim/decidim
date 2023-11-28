@@ -59,7 +59,7 @@ fr:
         subtitle: Sous-titre
         target: Participants
         title: Titre
-        twitter: Twitter
+        twitter: X
         weight: Rang d'affichage
         youtube: Youtube
       assembly_member:
@@ -204,7 +204,7 @@ fr:
           attachment_files: Fichiers
           attachments: Documents liés
           categories: Catégories
-          components: Composants
+          components: Fonctionnalités
           info: Information
           moderations: Modérations
           private_users: Utilisateurs privés
@@ -321,8 +321,8 @@ fr:
           index:
             filter:
               all: Tout
-              ceased: Validité terminée
-              not_ceased: Validité en cours
+              ceased: Terminé
+              not_ceased: En cours
             filter_by: Filtrer par
             search: Rechercher
         content_blocks:

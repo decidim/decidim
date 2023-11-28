@@ -379,7 +379,7 @@ lb:
             other: und %{count} weitere Leute
         committee_members:
           approve: Genehmigen
-          confirm_revoke: Bist du dir sicher?
+          confirm_revoke: Bist du sicher?
           invite_to_committee_help: Teilen Sie diesen Link, um andere Benutzer zum Promotionskomitee einzuladen
           no_members_yet: Es gibt keine Mitglieder im Promoter-Ausschuss
           title: Ausschussmitglieder

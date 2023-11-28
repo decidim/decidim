@@ -93,7 +93,6 @@ sv:
         success_color: Färdigt
         time_zone: Tidszon
         tos_version: Version på användarvillkor
-        twitter_handler: Twitter-hanterare
         user_groups_enabled: Aktivera grupper
         users_registration_mode: Registreringsmode
         warning_color: Varning
@@ -790,7 +789,6 @@ sv:
           instagram: Instagram
           rich_text_editor_in_public_views_help: I vissa textfält kan deltagare använda vissa HTML-taggar med hjälp av den rika textredigeraren.
           social_handlers: Sociala
-          twitter: Twitter
           url: URL
           youtube: Youtube
         update:
@@ -822,10 +820,6 @@ sv:
         form:
           add: Lägg till i vitlistan
           title: Vitlista för externa domäner
-      organization_homepage:
-        edit:
-          active_content_blocks: Block med aktivt innehåll
-          inactive_content_blocks: Block med inaktivt innehåll
       organization_homepage_content_blocks:
         edit:
           update: Uppdatera

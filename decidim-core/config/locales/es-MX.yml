@@ -534,6 +534,8 @@ es-MX:
           subtitle: Por favor, rellena el siguiente formulario con el fin de completar la inscripción
           username_help: Nombre público que aparece en tus mensajes. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
       registrations:
+        create:
+          error: Hubo un problema al crear tu cuenta.
         new:
           already_have_an_account?: '¿Ya tienes una cuenta?'
           newsletter: Quiero recibir un boletín ocasional con información relevante
@@ -1704,6 +1706,7 @@ es-MX:
       not_saved:
         one: 'Se ha producido un error procesando tu solicitud:'
         other: 'Hubo varios errores al procesar tu solicitud:'
+      password_confirmation_message: '"Confirma tu contraseña" no coincide con la Contraseña'
       too_many_marks: Estás usando demasiados signos de puntuación consecutivos (por ejemplo,! y?)
       too_much_caps: Está usando demasiadas letras mayúsculas (más del 25% del texto)
       too_short: es demasiado corto (menos %{count} caracteres)
@@ -1800,7 +1803,7 @@ es-MX:
         facebook: "%{organization} en Facebook"
         github: "%{organization} en GitHub"
         instagram: "%{organization} en Instagram"
-        twitter: "%{organization} en Twitter"
+        x: "%{organization} en X"
         youtube: "%{organization} en YouTube"
       timeout_modal:
         body: Has estado sin actividad durante %{minutes} minutos. Si sigues estando inactivo, serás desconectado automáticamente por tu propia seguridad.
@@ -1808,7 +1811,7 @@ es-MX:
         sign_out: Cerrar sesión
         title: '¿Quieres continuar con la sesión?'
       upload_modal:
-        close_modal: Cerrar ventana
+        close_modal: Cerrar el modal
       user_menu:
         account: 'Cuenta de usuario: %{name}'
         admin_dashboard: Tablero de administración
@@ -1867,6 +1870,7 @@ es-MX:
     weibo: Sina Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
+    x:
     xing: Xing
   time:
     formats:

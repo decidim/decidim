@@ -56,7 +56,6 @@ uk:
         omnipresent_banner_url: Веб-адреса
         reference_prefix: Довідковий префікс
         tos_version: Версія умов участі
-        twitter_handler: Адреса Twitter
         youtube_handler: Адреса YouTube
       scope:
         code: Код
@@ -433,7 +432,6 @@ uk:
           github: ГітХаб
           instagram: Інстаграм
           social_handlers: Соціальні мережі
-          twitter: Твіттер
           youtube: ЮТуб
         update:
           error: При спробі оновити цю організацію сталася помилка.
@@ -450,10 +448,6 @@ uk:
           images:
             layout_appearance_title: Редагувати зовнішній вигляд шаблону
           omnipresent_banner_appearance_title: Редагувати всюдисущий банер
-      organization_homepage:
-        edit:
-          active_content_blocks: Блоки діючого вмісту
-          inactive_content_blocks: Блоки недіючого вмісту
       organization_homepage_content_blocks:
         edit:
           update: Оновити

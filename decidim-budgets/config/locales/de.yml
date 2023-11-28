@@ -21,6 +21,9 @@ de:
         scope_id: Themenbereich
   activerecord:
     models:
+      decidim/budgets/budget:
+        one: Budget
+        other: Budgets
       decidim/budgets/project:
         one: Projekt
         other: Projekte
@@ -77,7 +80,7 @@ de:
           projects: Projekte
         models:
           budget:
-            name: Bugdet
+            name: Budget
           project:
             name: Projekt
         projects:
@@ -192,7 +195,7 @@ de:
           fields:
             category: Kategorie
             id: ID
-            scope: Themenbereich
+            scope: Umfang
             title: Titel
       order_summary_mailer:
         order_summary:

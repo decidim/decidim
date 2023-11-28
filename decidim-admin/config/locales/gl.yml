@@ -85,7 +85,6 @@ gl:
         success_color: Éxito
         time_zone: Fuso horario
         tos_version: Versión de condicións de servizo
-        twitter_handler: Xestor de Twitter
         user_groups_enabled: Activar grupos de usuarios
         users_registration_mode: Modo rexistro de usuarios/as
         warning_color: Aviso
@@ -754,7 +753,6 @@ gl:
           instagram: Instagram
           rich_text_editor_in_public_views_help: Nalgúns cadros de texto, os participantes poderán inserir algunhas etiquetas HTML empregando o editor de texto avanzado.
           social_handlers: Social
-          twitter: Twitter
           url: URL
           youtube: YouTube
         update:
@@ -781,10 +779,6 @@ gl:
         external_domain:
           external_domain: Dominio externo
           remove: Eliminar
-      organization_homepage:
-        edit:
-          active_content_blocks: Bloques de contido activo
-          inactive_content_blocks: Bloques de contido inactivo
       organization_homepage_content_blocks:
         edit:
           update: Actualización
@@ -807,7 +801,7 @@ gl:
           success: Ficheiro CSV subido con éxito, estamos a enviar un correo de invitación aos participantes. Isto pode levar un pouco de tempo.
         new:
           explanation: 'Sube o teu ficheiro CSV. Ten de ter dúas columnas co correo electrónico na primeira e o nome na última (correo, nome) dos usuarios que desexes engadir ao espazo de participación, sen cabeceiras. Evita empregar os seguintes caracteres `<>?%&^*#@()[]=+:;"{}\|` no nome de usuario.'
-          title: Sube o teu ficheiro CSV
+          title: Carga o teu ficheiro CSV
           upload: Subir
       reminders:
         create:

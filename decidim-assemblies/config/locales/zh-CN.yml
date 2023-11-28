@@ -50,7 +50,6 @@ zh-CN:
         subtitle: 字幕
         target: 谁参与
         title: 标题
-        twitter: 推特
         youtube: YouTube
       assembly_member:
         birthday: 生日
@@ -282,8 +281,6 @@ zh-CN:
           index:
             filter:
               all: 所有的
-              ceased: 缓存器
-              not_ceased: 未停止
             filter_by: 筛选方式
             search: 搜索
         content_blocks:

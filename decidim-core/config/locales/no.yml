@@ -737,6 +737,10 @@
       file_validation:
         allowed_file_extensions: 'Tillatte filetternavn: %{extensions}'
         max_file_size: 'Maksimal filstørrelse: %{megabytes}MB'
+      upload:
+        labels:
+          cancel: Avbryt
+          save: Lagre
     gamification:
       all_badges_link: Se alle tilgjengelige merker.
       badges:
@@ -1083,7 +1087,6 @@
           proposals: Forslag
           proposals_explanation: Lag forslag, støtt eksisterende og promoter endringene du ønsker å se.
         footer_sub_hero:
-          footer_sub_hero_body: La oss sammen utvikle et mer bærekraftig samfunn.<br /> Bli med og påvirk utviklingen gjennom å si din mening.
           footer_sub_hero_headline: Velkommen til %{organization} deltaker plattform.
           register: Registrer deg
         hero:
@@ -1584,13 +1587,14 @@
         facebook: "%{organization} på Facebook"
         github: "%{organization} på GitHub"
         instagram: "%{organization} på Instagram"
-        twitter: "%{organization} på Twitter"
         youtube: "%{organization} på YouTube"
       timeout_modal:
         body: Du har vært inaktiv i %{minutes} minutter. Hvis du fortsetter å være inaktiv, vil du automatisk bli logget ut for din egen sikkerhet.
         continue_session: Fortsett økten
         sign_out: Logg ut
         title: Ønsker du å fortsette økten?
+      upload_modal:
+        close_modal: Lukk modal
       user_menu:
         account: 'Brukerkonto: %{name}'
         admin_dashboard: Admin hovedpanel

@@ -89,7 +89,6 @@ ar:
         success_color: نجاح
         time_zone: المنطقة الزمنية
         tos_version: شروط وأحكام الخدمة
-        twitter_handler: مُعرّف حساب تويتر
         user_groups_enabled: تمكين المجموعات
         warning_color: تحذير
         welcome_notification_body: محتوى إشعار الترحيب
@@ -697,7 +696,7 @@ ar:
           github: غِت‌ هَب
           instagram: إينستاجرام
           social_handlers: التواصل الاجتماعي
-          twitter: تويتر
+          twitter: X
           url: عنوان الرابط
           youtube: يوتيوب
         update:
@@ -722,12 +721,11 @@ ar:
           update: تحديث
         external_domain:
           down: أسفل
+          external_domain: نطاق خارجي
           remove: إزالة
           up: أعلى
-      organization_homepage:
-        edit:
-          active_content_blocks: كتل المحتوى النشط
-          inactive_content_blocks: كتل المحتوى غير النشطة
+        form:
+          add: إضافة إلى القائمة البيضاء
       organization_homepage_content_blocks:
         edit:
           update: تحديث
@@ -753,7 +751,7 @@ ar:
             empty: ليس لديك أي مشاركين خاصين.
             explanation: لديك %{count} مشاركين خاصين.
             title: حذف جميع المشاركين الخاصين
-          title: حمّل ملف CSV الخاص بك
+          title: قم بتحميل ملف CSV الخاص بك
           upload: حمّل
       reminders:
         new:
@@ -858,6 +856,7 @@ ar:
         dashboard: لوحة القيادة
         impersonatable_users: المشاركون في الإدارة
         impersonations: إدارة المشاركين
+        pages: الصفحات
         panel: مدير
         participants: المشاركين
         scope_types: أنواع النطاق

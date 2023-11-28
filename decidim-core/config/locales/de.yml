@@ -534,6 +534,8 @@ de:
           subtitle: Bitte füllen Sie das folgende Formular aus, um die Anmeldung abzuschließen
           username_help: Öffentlich sichtbarer Name, der in Ihren Beiträgen angezeigt wird. Um Anonymität zu gewährleisten, kann es sich um einen beliebigen Namen handeln.
       registrations:
+        create:
+          error: Es gab ein Problem bei der Erstellung Ihres Kontos.
         new:
           already_have_an_account?: Haben Sie bereits ein Konto?
           newsletter: Gelegentlich einen Newsletter mit relevanten Informationen erhalten
@@ -582,7 +584,7 @@ de:
           publish_content: Inhalte für Sie veröffentlichen
           see_email: Ihre E-Mail anzeigen
           see_name: Ihren Namen anzeigen
-          see_username: Ihren Benutzernamen anzeigen
+          see_username: Kontonamen anzeigen
           this_application_will_be_able_to: 'Diese Anwendung wird in der Lage sein:'
           this_application_will_not_be_able_to: 'Diese Anwendung kann nicht:'
           update_profile: Profil aktualisieren
@@ -933,7 +935,7 @@ de:
         email_help: E-Mail Ihrer Organisation, Ihrer Vereinigung, Ihres Kollektivs, Ihrer Gruppe usw.
         fill_in_for_verification: 'Füllen Sie diese Felder aus, wenn Ihre Gruppe überprüft werden soll:'
         name_help: Name Ihrer Organisation, Ihrer Vereinigung, Ihres Kollektivs, Ihrer Gruppe usw.
-        nickname_help: Benutzername Ihrer Organisation, Ihrer Vereinigung, Ihres Kollektivs, Ihrer Gruppe usw. Verwenden Sie keine Leerzeichen oder Akzente.
+        nickname_help: Kontonamen Ihrer Organisation, Ihrer Vereinigung, Ihres Kollektivs, Ihrer Gruppe usw. Verwenden Sie keine Leerzeichen oder Akzente.
         phone_help: Verwenden Sie keine Bindestriche oder Leerzeichen
       join:
         error: Es ist ein Problem aufgetreten, der Gruppe beizutreten
@@ -1500,7 +1502,7 @@ de:
         my_interests: Meine Interessen
         no_scopes: Diese Organisation hat noch keinen Spielraum!
         select_your_interests: Wählen Sie die Themen aus, an denen Sie interessiert sind, um Ereignisse, die sich auf sie beziehen, auf der Registerkarte "Zeitleiste" Ihres Profils zu erhalten.
-        update_my_interests: Aktualisieren Sie meine Interessen
+        update_my_interests: Meine Interessen aktualisieren
       update:
         error: Beim Aktualisieren Ihrer Interessen ist ein Fehler aufgetreten.
         success: Ihre Interessen wurden erfolgreich aktualisiert.
@@ -1571,7 +1573,7 @@ de:
         header: Beenden Sie die Erstellung Ihres Kontos
         nickname_help: Ihr Pseudonym auf %{organization}. Kann nur Buchstaben, Zahlen, '-' und '_' enthalten.
         submit_button: Speichern
-        subtitle: Wenn Sie die Einladung annehmen, geben Sie bitte Ihren Benutzernamen und Ihr Passwort ein.
+        subtitle: Wenn Sie die Einladung annehmen, geben Sie bitte Ihren Kontonamen und Ihr Passwort ein.
       invitation_removed: Ihre Einladung wurde entfernt.
       invitation_token_invalid: Das angegebene Einladungstoken ist nicht gültig!
       new:
@@ -1598,7 +1600,7 @@ de:
         hello: Hallo %{email},
         ignore: |-
           Wenn Sie die Einladung nicht annehmen möchten, ignorieren Sie diese E-Mail.<br />
-          Ihr Konto wird erst erstellt, wenn Sie auf den obigen Link zugreifen und Ihren Benutzernamen und Ihr Passwort festlegen.
+          Ihr Konto wird erst erstellt, wenn Sie auf den obigen Link zugreifen und Ihren Kontonamen und Ihr Passwort festlegen.
         invited_you_as_admin: "%{invited_by} hat dich als Admin von %{application}eingeladen. Sie können es über den folgenden Link akzeptieren."
         invited_you_as_private_user: "%{invited_by} hat dich als privaten Benutzer von %{application}eingeladen. Sie können es über den folgenden Link akzeptieren."
         someone_invited_you: Jemand hat dich zu %{application}eingeladen. Sie können es über den folgenden Link akzeptieren.
@@ -1638,7 +1640,7 @@ de:
         change_my_password: Ändere mein Passwort
         confirm_new_password: Bestätige neues Passwort
         new_password: Neues Passwort
-        password_help: "Mindestens %{minimun_characters} Zeichen, nicht zu gewöhnlich (z. B. 123456) und darf nicht Ihr Benutzername oder Ihre E-Mail-Adresse sein."
+        password_help: "Mindestens %{minimun_characters} Zeichen, nicht zu gewöhnlich (z. B. 123456) und darf nicht Ihren Kontonamen oder Ihre E-Mail-Adresse sein."
         password_help_admin: "Das Passwort muss mindestens aus %{minimun_characters} Zeichen bestehen, nicht zu gewöhnlich (z. B. 123456) sein und es darf nicht Ihr Pseudonym oder Ihre E-Mail-Adresse enthalten."
         title: Passwort ändern
       new:
@@ -1704,6 +1706,7 @@ de:
       not_saved:
         one: 'Bei der Bearbeitung Ihrer Anfrage ist ein Fehler aufgetreten:'
         other: 'Bei der Bearbeitung Ihrer Anfrage sind mehrere Fehler aufgetreten:'
+      password_confirmation_message: '"Passwort bestätigen" stimmt nicht mit Passwort überein'
       too_many_marks: benutzt zu viele aufeinanderfolgende Satzzeichen (zB! und?)
       too_much_caps: verwendet zu viele Großbuchstaben (über 25% des Textes)
       too_short: ist zu kurz (mindestens %{count} Zeichen)
@@ -1800,7 +1803,7 @@ de:
         facebook: "%{organization} auf Facebook"
         github: "%{organization} auf GitHub"
         instagram: "%{organization} auf Instagram"
-        twitter: "%{organization} bei Twitter"
+        x: "%{organization} auf X"
         youtube: "%{organization} auf YouTube"
       timeout_modal:
         body: Sie sind seit %{minutes} Minuten inaktiv. Wenn Sie weiterhin inaktiv sind, werden Sie aus Sicherheitsgründen automatisch abgemeldet.
@@ -1867,6 +1870,7 @@ de:
     weibo: Sina Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
+    x: X
     xing: Xing
   time:
     formats:

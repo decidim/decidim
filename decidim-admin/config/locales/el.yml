@@ -93,7 +93,6 @@ el:
         success_color: Επιτυχία
         time_zone: Ζώνη ώρας
         tos_version: Έκδοση όρων χρήσης υπηρεσίας
-        twitter_handler: Πρόγραμμα χειρισμού Twitter
         user_groups_enabled: Ενεργοποίηση ομάδων
         users_registration_mode: Λειτουργία εγγραφής χρηστών
         warning_color: Προειδοποίηση
@@ -790,7 +789,6 @@ el:
           instagram: Instagram
           rich_text_editor_in_public_views_help: Σε ορισμένες περιοχές κειμένου, οι συμμετέχοντες θα μπορούν να εισαγάγουν μερικές ετικέτες HTML χρησιμοποιώντας το πρόγραμμα επεξεργασίας εμπλουτισμένου κειμένου.
           social_handlers: Μέσα κοινωνικής δικτύωσης
-          twitter: Twitter
           url: Διεύθυνση URL
           youtube: YouTube
         update:
@@ -821,10 +819,6 @@ el:
         form:
           add: Προσθήκη στη λευκή λίστα
           title: Εξωτερική λευκή λίστα τομέων
-      organization_homepage:
-        edit:
-          active_content_blocks: Ενεργά μπλοκ περιεχομένου
-          inactive_content_blocks: Ανενεργά μπλοκ περιεχομένου
       organization_homepage_content_blocks:
         edit:
           update: Ενημέρωση
@@ -847,7 +841,7 @@ el:
           success: Η αποστολή του αρχείου CSV ήταν επιτυχής, στέλνουμε email πρόσκλησης στους συμμετέχοντες. Αυτό μπορεί να διαρκέσει μερικά λεπτά.
         new:
           explanation: 'Ανεβάστε το αρχείο CSV. Πρέπει να έχει δύο στήλες με το email στην πρώτη στήλη του αρχείου και το όνομα στην τελευταία στήλη του αρχείου (email, όνομα) των χρηστών που θέλετε να προσθέσετε στον συμμετοχικό χώρο, χωρίς επικεφαλίδες. Αποφύγετε τη χρήση άκυρων χαρακτήρων όπως `<>?%&^*#@()[]=+:;"{}\|` στο όνομα χρήστη.'
-          title: Αποστολή του CSV αρχείου σας
+          title: Αποστολή του αρχείου σας CSV
           upload: Αποστολή
       reminders:
         new:

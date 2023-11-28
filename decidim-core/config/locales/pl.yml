@@ -802,6 +802,10 @@ pl:
       file_validation:
         allowed_file_extensions: 'Dozwolone rozszerzenia plików: %{extensions}'
         max_file_size: 'Maksymalny rozmiar pliku: %{megabytes}MB'
+      upload:
+        labels:
+          cancel: Anuluj
+          save: Zapisz
     gamification:
       all_badges_link: Zobacz wszystkie dostępne odznaki.
       badges:
@@ -1139,7 +1143,6 @@ pl:
           proposals: Propozycje
           proposals_explanation: Zgłaszaj nowe propozycje, wspieraj te już zgłoszone oraz wspieraj te zmiany, które chcesz zobaczyć.
         footer_sub_hero:
-          footer_sub_hero_body: Zbudujmy społeczeństwo bardziej otwarte, przejrzyste i współpracujące.<br /> Dołącz, uczestnicz i decyduj.
           footer_sub_hero_headline: Witamy na %{organization} platformie partycypacyjnej.
           register: Zarejestruj się
         hero:
@@ -1645,13 +1648,14 @@ pl:
         facebook: "%{organization} na Facebooku"
         github: "%{organization} na GitHubie"
         instagram: "%{organization} na Instagramie"
-        twitter: "%{organization} na Twitterze"
         youtube: "%{organization} na YouTube"
       timeout_modal:
         body: Byłeś nieaktywny przez %{minutes} min. Jeśli pozostaniesz nieaktywny, zostaniesz automatycznie wylogowany ze względów bezpieczeństwa.
         continue_session: Kontynuuj sesję
         sign_out: Wyloguj się
         title: Czy chcesz kontynuować sesję?
+      upload_modal:
+        close_modal: Zamknij okno
       user_menu:
         account: 'Konto użytkownika: %{name}'
         admin_dashboard: Panel administracyjny

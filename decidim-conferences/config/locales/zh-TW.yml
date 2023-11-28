@@ -63,7 +63,6 @@ zh-TW:
         personal_url: 個人 URL
         position: 職位
         short_bio: 簡介
-        twitter_handle: Twitter 處理
         user_id: 使用者
       conference_user_role:
         email: 電子郵件
@@ -434,7 +433,6 @@ zh-TW:
           invalid: 離開此會議時發生問題。
           success: 您已成功離開此會議。
       conference_speaker:
-        go_to_twitter: 轉到Twitter
         more_info: 更多資訊
         personal_website: 個人網址
         show:

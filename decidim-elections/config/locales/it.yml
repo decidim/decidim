@@ -888,7 +888,7 @@ it:
             title: Titolo
           polling_officers_picker:
             choose_polling_officers: Crea responsabile sondaggio
-            close: Chiudi
+            close: Chiuso
             more_polling_officers: Ci sono altre %{number} proposte. Affina la tua ricerca per localizzarle.
             no_polling_officers: Nessun funzionario di sondaggio corrisponde ai tuoi criteri di ricerca o non c'è alcun funzionario di sondaggio.
         polling_stations:

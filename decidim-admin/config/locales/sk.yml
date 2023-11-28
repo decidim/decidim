@@ -65,7 +65,6 @@ sk:
         success_color: Úspech
         time_zone: Časové pásmo
         tos_version: Verzia podmienok použitia
-        twitter_handler: Twitter handler
         user_groups_enabled: Povoliť skupiny
         warning_color: Varovanie
         welcome_notification_body: Telo textu úvodného privítania
@@ -536,7 +535,6 @@ sk:
           instagram: Instagram
           rich_text_editor_in_public_views_help: V niektorých textových oknách budú účastníci môcť vkladať niektoré HTML tagy pomocou pokročilého textového editoru.
           social_handlers: Sociálne
-          twitter: Twitter
           youtube: YouTube
         update:
           error: Pri aktualizácii organizácie došlo k chybe.
@@ -554,10 +552,6 @@ sk:
           images:
             layout_appearance_title: Upraviť vzhľad 
           omnipresent_banner_appearance_title: Upraviť všadeprítomný banner
-      organization_homepage:
-        edit:
-          active_content_blocks: Bloky aktívneho obsahu
-          inactive_content_blocks: Bloky neaktívneho obsahu
       organization_homepage_content_blocks:
         edit:
           update: Aktualizovať

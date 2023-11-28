@@ -350,7 +350,6 @@ lb:
           invalid: Beim Verlassen dieser Konferenz ist ein Problem aufgetreten.
           success: Sie haben die Konferenz erfolgreich verlassen.
       conference_speaker:
-        go_to_twitter: Gehe zu Twitter
         more_info: Mehr Informationen
         personal_website: Persönliche Webseite
         show:

@@ -321,7 +321,6 @@ fr:
             select_a_meeting_type: Veuillez sélectionner un type de rencontre
             select_a_registration_type: Veuillez sélectionner un type d'inscription
             select_an_iframe_access_level: Veuillez sélectionner un niveau d'accès iframe
-            show_embedded_iframe_help: 'Seuls quelques services permettent d''intégrer des réunions ou des événements en direct depuis les domaines suivants : %{domains}'
           index:
             title: Rencontres
           new:
@@ -401,6 +400,9 @@ fr:
           all: Tout
         filter_scope_values:
           all: Tout
+      calendar:
+        meeting_to_event:
+          read_more: En savoir plus sur cette réunion
       calendar_modal:
         calendar_url: URL du calendrier
         close_window: Fermer la fenêtre
@@ -520,7 +522,6 @@ fr:
           select_a_meeting_type: Veuillez sélectionner un type de rencontre
           select_a_registration_type: Veuillez sélectionner un type d'inscription
           select_an_iframe_access_level: Veuillez sélectionner un niveau d'accès iframe
-          show_embedded_iframe_help: 'Seuls quelques services permettent d''intégrer des réunions ou des événements en direct depuis les domaines suivants : %{domains}'
         index:
           click_here: Voir toutes les rencontres
           new_meeting: Nouvelle rencontre

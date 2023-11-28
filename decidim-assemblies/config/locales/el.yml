@@ -59,7 +59,6 @@ el:
         subtitle: Υπότιτλος
         target: Ποιος συμμετέχει
         title: Τίτλος
-        twitter: Twitter
         weight: Θέση κατάταξης
         youtube: YouTube
       assembly_member:
@@ -310,8 +309,6 @@ el:
           index:
             filter:
               all: Όλα
-              ceased: Τέθηκε σε παύση
-              not_ceased: Δεν τέθηκε σε παύση
             filter_by: Φιλτράρισμα κατά
             search: Αναζήτηση
         content_blocks:

@@ -59,7 +59,6 @@ ar:
         subtitle: العنوان الفرعي
         target: من يشارك
         title: العنوان
-        twitter: تويتر
         weight: موضع الطلب
         youtube: يوتيوب
       assembly_member:
@@ -328,8 +327,6 @@ ar:
           index:
             filter:
               all: الكل
-              ceased: توقف
-              not_ceased: لم تتوقف
             filter_by: مصنف بواسطة
             search: البحث
         content_blocks:

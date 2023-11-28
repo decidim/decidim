@@ -63,7 +63,6 @@ el:
         personal_url: Προσωπικό URL
         position: Θέση
         short_bio: Σύντομο βιογραφικό
-        twitter_handle: Ψευδώνυμο Twitter
         user_id: Χρήστης
       conference_user_role:
         email: Email
@@ -438,7 +437,6 @@ el:
           invalid: Υπήρξε ένα πρόβλημα κατά την αποχώρηση από αυτήν τη διάσκεψη.
           success: Αποχωρήσατε από τη διάσκεψη με επιτυχία.
       conference_speaker:
-        go_to_twitter: Μετάβαση στο Twitter
         more_info: περισσότερες πληροφορίες
         personal_website: Προσωπικός ιστότοπος
         show:

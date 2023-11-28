@@ -401,6 +401,9 @@ ca:
           all: Totes
         filter_scope_values:
           all: Totes
+      calendar:
+        meeting_to_event:
+          read_more: Llegir més sobre aquesta trobada
       calendar_modal:
         calendar_url: URL del calendari
         close_window: Tanca la finestra

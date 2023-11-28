@@ -53,7 +53,6 @@ pl:
         subtitle: Podtytuł
         target: Do kogo kierowane
         title: Tytuł
-        twitter: Twitter
         weight: Kolejność na stronie
         youtube: YouTube
       assembly_member:
@@ -312,8 +311,6 @@ pl:
           index:
             filter:
               all: Wszystko
-              ceased: Byli
-              not_ceased: Aktualni
             filter_by: Filtruj według
             search: Szukaj
         content_blocks:

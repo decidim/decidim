@@ -302,7 +302,6 @@ nl:
             select_a_meeting_type: Selecteer een vergaderingstype
             select_a_registration_type: Selecteer een registratietype
             select_an_iframe_access_level: Selecteer een iframe toegangsniveau
-            show_embedded_iframe_help: 'Slechts enkele diensten staan embedden in vergadering of live evenement toe op de volgende domeinen: %{domains}'
           index:
             title: Events
           new:
@@ -500,7 +499,6 @@ nl:
           select_a_meeting_type: Selecteer een vergaderingstype
           select_a_registration_type: Selecteer een registratietype
           select_an_iframe_access_level: Selecteer een iframe toegangsniveau
-          show_embedded_iframe_help: 'Slechts enkele diensten staan inbedden in vergadering of live evenement toe op de volgende domeinen: %{domains}'
         index:
           click_here: Alle vergaderingen bekijken
           new_meeting: Nieuwe vergadering

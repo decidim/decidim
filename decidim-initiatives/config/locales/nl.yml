@@ -395,6 +395,7 @@ nl:
             one: en nog 1 persoon
             other: en nog %{count} mensen
         committee_members:
+          confirm_revoke: Weet je het zeker?
           revoke: Intrekken
         count:
           title:

@@ -59,7 +59,7 @@ fi-pl:
         subtitle: Alaotsikko
         target: Kuka osallistuu
         title: Otsikko
-        twitter: Twitter
+        twitter: X
         weight: Järjestysnumero
         youtube: YouTube
       assembly_member:
@@ -321,8 +321,8 @@ fi-pl:
           index:
             filter:
               all: Kaikki
-              ceased: Lakkautettu
-              not_ceased: Ei lakkautettu
+              ceased: Lopetettu
+              not_ceased: Ei lopetettu
             filter_by: Suodata
             search: Hae
         content_blocks:

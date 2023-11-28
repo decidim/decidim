@@ -568,6 +568,8 @@ cs:
           subtitle: Pro dokončení registrace vyplňte prosím následující formulář
           username_help: Veřejné jméno, které se zobrazí ve vašich příspěvcích. S cílem zaručit anonymitu může být jakékoliv jméno.
       registrations:
+        create:
+          error: Vyskytl se problém při vytváření účtu.
         new:
           already_have_an_account?: Máte již účet?
           newsletter: Chci dostávat příležitostný zpravodaj s relevantními informacemi
@@ -1269,7 +1271,7 @@ cs:
           proposals: Návrhy
           proposals_explanation: Vytvářejte návrhy, podporujte stávající návrhy a prosazujte změny, které chcete vidět.
         footer_sub_hero:
-          footer_sub_hero_body: Vybudujme otevřenější, transparentnější a spolupracující společnost.<br /> Přihlaste se, zúčastněte se a rozhodněte se.
+          footer_sub_hero_body: Vytvořme otevřenější, transparentnější a více spolupracující společnost.<br /> Připojte se, účastněte se a rozhodujte.
           footer_sub_hero_headline: Vítejte na %{organization} participační platformě.
           register: Registrovat
         hero:
@@ -1750,6 +1752,7 @@ cs:
         few: 'Při zpracování vašeho požadavku došlo k několika chybám:'
         many: 'Při zpracování vašeho požadavku došlo k mnoha chybám:'
         other: 'Při zpracování vašeho požadavku došlo k nějakým chybám:'
+      password_confirmation_message: '"Potvrzení hesla" neodpovídá heslu'
       too_many_marks: používá příliš mnoho po sobě jdoucích interpunkčních znamének (např.! a?)
       too_much_caps: používá příliš mnoho velkých písmen (více než 25% textu)
       too_short: je příliš krátká (pod %{count} znaků)
@@ -1848,7 +1851,7 @@ cs:
         facebook: "%{organization} na Facebooku"
         github: "%{organization} na GitHubu"
         instagram: "%{organization} na Instagramu"
-        twitter: "%{organization} na Twitteru"
+        x: "%{organization} v X"
         youtube: "%{organization} na YouTube"
       timeout_modal:
         body: '%{minutes} minut jste byli neaktivní. Pokud budete i nadále neaktivní, budete automaticky odhlášeni z důvodu své vlastní bezpečnosti.'
@@ -1856,7 +1859,7 @@ cs:
         sign_out: Odhlásit se
         title: Chcete pokračovat v relaci?
       upload_modal:
-        close_modal: Zavřít modal
+        close_modal: Zavřít okno
       user_menu:
         account: 'Uživatelský účet: %{name}'
         admin_dashboard: Ovládací panel
@@ -1915,6 +1918,7 @@ cs:
     weibo: Sina Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
+    x: X
     xing: Xing
   time:
     formats:

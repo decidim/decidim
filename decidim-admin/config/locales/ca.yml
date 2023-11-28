@@ -93,7 +93,7 @@ ca:
         success_color: Èxit
         time_zone: Zona horària
         tos_version: Versió dels Termes de Servei
-        twitter_handler: Nom d'usuària de Twitter
+        twitter_handler: Nom d'usuària a X
         user_groups_enabled: Habilitar grups
         users_registration_mode: Mode registre d'usuàries
         warning_color: Avís
@@ -799,7 +799,7 @@ ca:
           instagram: Instagram
           rich_text_editor_in_public_views_help: En algunes àrees de text, les participants podran inserir algunes etiquetes HTML amb l'editor de text enriquit.
           social_handlers: Social
-          twitter: Twitter
+          twitter: X
           url: URL
           youtube: YouTube
         update:
@@ -834,8 +834,8 @@ ca:
           title: Llista blanca de dominis externs
       organization_homepage:
         edit:
-          active_content_blocks: Blocs de contingut actiu
-          inactive_content_blocks: Blocs de contingut inactiu
+          active_content_blocks: Blocs de contingut actius
+          inactive_content_blocks: Blocs de contingut inactius
       organization_homepage_content_blocks:
         edit:
           update: Actualitzar

@@ -86,7 +86,6 @@ nl:
         success_color: Succes
         time_zone: Tijdszone
         tos_version: Servicevoorwaarden versie
-        twitter_handler: Twitter gebruikersnaam
         user_groups_enabled: Groepen inschakelen
         users_registration_mode: Gebruikers registratiemodus
         warning_color: Waarschuwing
@@ -771,7 +770,6 @@ nl:
           instagram: Instagram
           rich_text_editor_in_public_views_help: In bepaalde teksten kunnen deelnemers enkele HTML-tags toevoegen door gebruik te maken van de rich text-editor.
           social_handlers: Sociaal
-          twitter: Twitter
           url: URL
           youtube: YouTube
         update:
@@ -803,10 +801,6 @@ nl:
         form:
           add: Toevoegen aan whitelist
           title: Externe domein whitelist
-      organization_homepage:
-        edit:
-          active_content_blocks: Actieve inhoudsblokken
-          inactive_content_blocks: Inactieve inhoudsblokken
       organization_homepage_content_blocks:
         edit:
           update: Bijwerken
@@ -835,7 +829,7 @@ nl:
             explanation: Je hebt %{count} privédeelnemers.
             title: Verwijder privé deelnemer
           explanation: 'Upload het CSV-bestand zonder headers. Het moet uit twee kolommen bestaan, met het e-mailadres in de eerste kolom en de naam in de laatste kolom van de gebruikers die je wil toevoegen aan de participatieve ruimte (e-mail, naam). Vermijd tekens als `<>?%&^*#@()[]=+:;"{}\|` in de namen.'
-          title: Upload het CSV-bestand
+          title: Upload uw CSV-bestand
           upload: Upload
       reminders:
         create:

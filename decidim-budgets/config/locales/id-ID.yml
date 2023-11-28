@@ -62,6 +62,7 @@ id:
       models:
         project:
           fields:
+            scope: Cakupan
             title: Judul
       projects:
         budget_confirm:

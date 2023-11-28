@@ -63,7 +63,6 @@ lt:
         personal_url: Asmeninis URL
         position: Pozicija
         short_bio: Trumpas gyvenimo aprašymas
-        twitter_handle: Twitter tvarkyklė
         user_id: Naudotojas
       conference_user_role:
         email: El. paštas
@@ -446,7 +445,6 @@ lt:
           invalid: Paliekant šią konferenciją iškilo problema.
           success: Jūs sėkmingai palikote konferenciją.
       conference_speaker:
-        go_to_twitter: Eiti į Twitter
         more_info: daugiau informacijos
         personal_website: Asmeninė interneto svetainė
         show:

@@ -621,6 +621,10 @@ bg:
           password: Паролата е твърде къса.
           password_confirmation: Паролата и потвърждението на паролата трябва да съвпадат.
         error: В това поле има грешка.
+      upload:
+        labels:
+          cancel: Отказ
+          save: Запази
     gamification:
       all_badges_link: Виж всички достъпни значки.
       badges:
@@ -924,7 +928,6 @@ bg:
           proposals: Предложения
           proposals_explanation: Правете предложения, подкрепяйте съществуващите и обявете промените, които искате да видите.
         footer_sub_hero:
-          footer_sub_hero_body: Нека изградим по-отворено, прозрачно и задружно общество.<br /> Присъединете се, участвайте и решавайте.
           footer_sub_hero_headline: Добре дошли в платформата за сътрудничество %{organization}!
           register: Регистрация
         hero:

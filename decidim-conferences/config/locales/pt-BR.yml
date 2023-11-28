@@ -57,7 +57,6 @@ pt-BR:
         conference_meeting_ids: Reuniões relacionadas
         full_name: Nome completo
         position: Posição
-        twitter_handle: Manipulador do Twitter
         user_id: Usuário
       conference_user_role:
         email: O email
@@ -426,7 +425,6 @@ pt-BR:
           invalid: Houve um problema ao sair desta conferência.
           success: Você saiu da conferência com sucesso.
       conference_speaker:
-        go_to_twitter: Vá para o Twitter
         more_info: mais informações
         personal_website: Site pessoal
         show:

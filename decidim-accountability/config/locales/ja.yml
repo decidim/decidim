@@ -133,7 +133,7 @@ ja:
             title: プロジェクトのタイムライン項目
           new:
             create: エントリを作成
-            title: 新しい項目
+            title: 新しいエントリ
           update:
             invalid: このエントリの更新中に問題が発生しました
             success: エントリが正常に更新されました。

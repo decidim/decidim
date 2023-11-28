@@ -93,7 +93,6 @@ zh-TW:
         success_color: 成功
         time_zone: 時區
         tos_version: 服務條款版本
-        twitter_handler: Twitter 處理器
         user_groups_enabled: 啟用群組功能
         users_registration_mode: 使用者註冊模式
         warning_color: 警告
@@ -792,7 +791,6 @@ zh-TW:
           instagram: Instagram
           rich_text_editor_in_public_views_help: 在某些文字區域中，參與者可以使用所提供的富文本編輯器插入一些 HTML 標籤。
           social_handlers: 社群
-          twitter: Twitter
           url: 網址
           youtube: YouTube
         update:
@@ -824,10 +822,6 @@ zh-TW:
         form:
           add: 新增到白名單
           title: 外部域名白名單
-      organization_homepage:
-        edit:
-          active_content_blocks: 啟用的內容區塊
-          inactive_content_blocks: 停用的內容區塊
       organization_homepage_content_blocks:
         edit:
           update: 更新

@@ -45,7 +45,6 @@ is:
         subtitle: Texti
         target: Hver tekur þátt
         title: Titill
-        twitter: Twitter
         youtube: Youtube
       assembly_member:
         birthday: Afmælisdagur
@@ -181,6 +180,9 @@ is:
             select_an_assembly_type: Veldu gerð samsetningar
             social_handlers: Félagsleg
             title: Almennar upplýsingar
+        assemblies_settings:
+          edit:
+            update: Uppfæra
         assemblies_types:
           form:
             title: Titill
@@ -190,8 +192,6 @@ is:
           index:
             filter:
               all: Allt
-              ceased: Hætt
-              not_ceased: Ekki hætt
             filter_by: Sía eftir
             search: Leita
       assembly_members:

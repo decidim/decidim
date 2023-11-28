@@ -379,6 +379,9 @@ pt:
         exports:
           proposal_comments: Comentários
           proposals: Propostas
+        imports:
+          title:
+            proposals: Importar propostas
         models:
           proposal:
             name: Proposta

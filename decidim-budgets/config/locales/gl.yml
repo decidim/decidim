@@ -136,6 +136,7 @@ gl:
           fields:
             category: Categoría
             id: ID
+            scope: Alcance
             title: Título
       order_summary_mailer:
         order_summary:

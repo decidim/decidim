@@ -4,7 +4,7 @@ eu:
     models:
       decidim/comments/comment_by_followed_user_event: Iruzkina
       decidim/comments/comment_created_event: Iruzkina
-      decidim/comments/comment_upvoted_event: Iruzkina bozkatu da
+      decidim/comments/comment_upvoted_event: Iruzkina positiboki baloratua
       decidim/comments/reply_created_event: Iruzkinaren erantzuna
       decidim/comments/user_group_mentioned_event: Aipamena
       decidim/comments/user_mentioned_event: Aipamena
@@ -26,19 +26,19 @@ eu:
             start_time: Iruzkinak noiztik aktibatuta
       comments:
         create:
-          error: Arazoa gertatu da iruzkina sortzean.
+          error: Arazo bat egon da iruzkina sortzean.
         delete:
           error: Iruzkina ezin izan da ezabatu.
         update:
-          error: Arazoa gertatu da iruzkina eguneratzean.
+          error: Arazo bat ego da iruzkina eguneratzean.
       comments_count: Iruzkin kopurua
-      comments_title: Oharrak
+      comments_title: Iruzkinak
       last_activity:
         new_comment_at_html: "<span>Iruzkin berria %{link}</span>"
       view: Bistaratu
       votes:
         create:
-          error: Arazo bat dago iruzkina bozkatzeko.
+          error: Arazo bat egon da iruzkina bozkatzean.
     components:
       add_comment_form:
         account_message: <a href="%{sign_in_url}">Hasi saioa zure kontuarekin</a> o <a href="%{sign_up_url}">erregistratu</a> zure iruzkina txertatzeko.
@@ -60,7 +60,7 @@ eu:
           positive_selected: Zure iritzia gai honi buruz positiboa da
         remaining_characters: "%{count} karaktere geratzen dira"
         remaining_characters_1: "karaktere %{count} geratzen da"
-        title: Egin hemen zure iruzkina
+        title: Gehitu zure iruzkina
       comment:
         alignment:
           against: Aurka
@@ -68,7 +68,7 @@ eu:
         confirm_destroy: Ziur zaude iruzkin hau ezabatu nahi duzula?
         delete: Ezabatu
         deleted_at: Iruzkina ezabatu da data honetan %{date}
-        deleted_user: Parte hartzaile ezabatua
+        deleted_user: Parte-hartzailea ezabatua
         edit: Editatu
         edited: Editatuta
         hide_replies: Ezkutatu erantzunak
@@ -91,7 +91,7 @@ eu:
         single_comment_link_title: Lortu esteka
       comment_order_selector:
         order:
-          best_rated: Balorazio hoberenak
+          best_rated: Balorazio onenak
           most_discussed: Eztabaidatuenak
           older: Zaharrenak
           recent: Berrienak
@@ -126,18 +126,18 @@ eu:
         comment_by_followed_user:
           email_intro: "%{author_name} egileak iruzkin bat utzi du %{resource_title} helbidean. Orri honetan irakur dezakezu:"
           email_outro: Jakinarazpen hau jaso duzu %{author_name} erabiltzailea jarraitzen duzulako. Nahi izatekotan erabiltzaile hori bere profil-orritik jarraitzeari utz diezaiokezu.
-          email_subject: '%{author_name} %{resource_title} iruzkin berri bat dago'
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a>-en iruzkin berri bat dagon <a href="%{resource_path}">%{resource_title}</a>-an.
+          email_subject: '%{author_name} k beste iruzkin bat egin du hemen: %{resource_title}'
+          notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a> k iruzkin berri bat egin du hemen: <a href="%{resource_path}">%{resource_title}</a>-an.'
         comment_by_followed_user_group:
           email_intro: '%{author_name} k iruzkin bat utzi du hemen %{resource_title}. Orrialde honetan irakur dezakezu:'
           email_outro: Jakinarazpena jaso duzu "%{author_name}" jarraitzen ari zarelako. Jarraitzeari utzi ahal diozu bere perfileko orrialdetik.
-          email_subject: '%{author_name} egileak iruzkin berri bat utzi du %{resource_title}-an'
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a>egileak iruzkin berri bat utzi du <a href="%{resource_path}">%{resource_title}</a>-an.
+          email_subject: '%{author_name} egileak iruzkin berri bat utzi du hemen: %{resource_title}'
+          notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a>egileak iruzkin berri bat utzi du hemen: <a href="%{resource_path}">%{resource_title}</a>-an.'
         comment_created:
-          email_intro: "%{resource_title} iruzkindu da. Orri honetan iruzkina irakur dezakezu:"
+          email_intro: "%{resource_title} iruzkindu da. Orri honetan irakur dezakezu iruzkina:"
           email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" edo bere egilea jarraitzen duzulako. Aurreko estekan jarrai dezakezu.
-          email_subject: '%{author_name} ren %{resource_title} iruzkin berri bat dago'
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a> </a> iruzkin berri bat dago
+          email_subject: '%{author_name} k beste iruzkin berri bat egin du hemen: %{resource_title}'
+          notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a> k iruzkin berri bat egin du hemen: <a href="%{resource_path}">%{resource_title}</a></a>'
         comment_downvoted:
           email_intro: Zure iruzkina hemen "%{resource_title}" negatiboki bozkatu da. Orain %{upvotes} boto positibo eta %{downvotes} boto negatibo dituzu guztira.
           email_outro: Jakinarazpen hau jaso duzu iruzkin honen egilea zarelako.
@@ -149,9 +149,9 @@ eu:
           email_subject: Zure iruzkina hemen "%{resource_title}" positiboki bozkatu da.
           notification_title: Zure <a href="%{resource_path}">iruzkina </a> "%{resource_title}"-an positiboki bozkatu da. Orain guztira %{upvotes} botos positibo eta %{downvotes} boto negatibo dituzu.
         reply_created:
-          email_intro: "%{author_name} zure iruzkina erantzun du %{resource_title}zenbakian. Orri honetan irakur dezakezu:"
+          email_intro: "%{author_name} k zure iruzkina erantzun du hemen: %{resource_title}. Orri honetan irakur dezakezu:"
           email_outro: Jakinarazpen hau jaso duzu zure iruzkina erantzun delako.
-          email_subject: "%{author_name}-k zure iruzkina erantzun du %{resource_title} zenbakian"
+          email_subject: "%{author_name}-k zure iruzkina erantzun du hemen: %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> -k zure iruzkinari erantzun dio <a href="%{resource_path}">%{resource_title}</a>
         user_group_mentioned:
           email_intro: Zure talde bat aipatu dute
@@ -160,14 +160,14 @@ eu:
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> k aipatu zaitu hemen <a href="%{resource_path}">%{resource_title}</a> <a href="%{group_path}">%{group_name} %{group_nickname}</a> taldearen kide gisa
         user_mentioned:
           email_intro: Aipatu zaituzte
-          email_outro: Jakinarazpena jaso duzu %{resource_title} delakoan aipatu zaituztelako.
-          email_subject: '%{resource_title} delakoan aipatu zaituzte'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> <a href="%{author_path}">%{author_name} %{author_nickname}</a> bidez aipatu zaituzte.
+          email_outro: 'Jakinarazpen hau jaso duzu hemen: %{resource_title} aipatu zaituztelako.'
+          email_subject: 'Hemen: %{resource_title} aipatu zaituzte'
+          notification_title: 'Hemen: <a href="%{group_path}">%{group_name} %{group_nickname}</a> egile honek: <a href="%{author_path}">%{author_name} %{author_nickname}</a> aipatu zaitu'
     metrics:
       comments:
         description: Erabiltzaileek sortutako iruzkin kopurua
         object: iruzkinak
-        title: Oharrak
+        title: Iruzkinak
   errors:
     messages:
       cannot_have_comments: ezin zaio iruzkinik egin

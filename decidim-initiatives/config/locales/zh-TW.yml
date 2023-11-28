@@ -298,8 +298,6 @@ zh-TW:
             update: 更新
           form:
             authorizations: 權限設置
-            child_scope_threshold_enabled_help: '此配置標誌不支援離線投票。它啟用子範圍並並且需要一個授權處理程序配合使用，將範圍與使用者相關聯起來。請確認您在授權設置下方選擇了該授權。為使其正常運作，必須以階層方式配置範圍：1 父級 - N 子級。如需有關此配置的更多信息，請參閱<a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">倡議的管理員文件頁面</a>。'
-            only_global_scope_enabled_help: 若您已啟用「子範圍籤章」並將全域範圍配置為父範圍，請勾選此標誌。啟用後，建立倡議的精靈中將跳過倡議類型選擇。如需有關此配置如何運作的詳細信息，請參閱此<a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">鏈接</a>。
             options: 選項
             title: 一般資訊
           initiative_type_scopes:

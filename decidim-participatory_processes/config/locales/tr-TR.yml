@@ -157,7 +157,7 @@ tr:
           inactive_content_blocks: Aktif olmayan içerik blokları
       participatory_process_group_landing_page_content_blocks:
         edit:
-          update: Güncelle
+          update: Güncelleştirme
       participatory_process_groups:
         destroy:
           error: Katılımcı süreç grubu yok edilirken bir hata oluştu.

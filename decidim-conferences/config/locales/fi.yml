@@ -63,7 +63,7 @@ fi:
         personal_url: Henkilökohtainen URL-osoite
         position: Asema
         short_bio: Lyhyt henkilökuvaus
-        twitter_handle: Twitter-käyttäjänimi
+        twitter_handle: X käsittelijä
         user_id: Käyttäjä
       conference_user_role:
         email: Sähköposti
@@ -442,7 +442,7 @@ fi:
           invalid: Konferenssista poistuminen epäonnistui.
           success: Konferenssista poistuminen onnistui.
       conference_speaker:
-        go_to_twitter: Siirry Twitteriin
+        go_to_twitter: Siirry X-palveluun
         more_info: lisätietoja
         personal_website: Henkilökohtainen verkkosivusto
         show:

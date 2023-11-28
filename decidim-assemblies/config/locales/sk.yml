@@ -50,7 +50,6 @@ sk:
         subtitle: Podnadpis
         target: Kto sa zúčastňuje
         title: Názov
-        twitter: Twitter
         youtube: YouTube
       assembly_member:
         birthday: Dátum narodenia
@@ -134,6 +133,9 @@ sk:
         update: "%{user_name} aktualizoval typ zhromaždenia %{resource_name}"
     assemblies:
       admin:
+        assemblies_settings:
+          edit:
+            update: Aktualizovať
         assemblies_types:
           form:
             title: Názov
