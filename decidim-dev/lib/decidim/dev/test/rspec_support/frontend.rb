@@ -17,4 +17,14 @@ end
 
 RSpec.configure do |config|
   config.include FrontendHelpers, type: :system
+
+  config.after(:each, type: :system) do
+    errors = page.driver.browser.logs.get(:browser)
+
+    aggregate_failures "javascript errors" do
+      errors.each do |error|
+        expect(error.level).not_to include("static_map"), error.message
+      end
+    end
+  end
 end
