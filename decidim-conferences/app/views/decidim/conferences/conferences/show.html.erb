@@ -1,4 +1,5 @@
 <% add_decidim_meta_tags({
+                           title: translated_attribute(current_participatory_space.title),
                            image_url: current_participatory_space.attached_uploader(:hero_image).path,
                            description: translated_attribute(current_participatory_space.short_description),
                            url: conference_url(current_participatory_space),
