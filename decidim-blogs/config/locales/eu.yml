@@ -2,12 +2,12 @@ eu:
   activemodel:
     attributes:
       post:
-        body: Testua
+        body: Gorputza
         decidim_author_id: Egilea
-        published_at: Argitaratze data
-        title: Izena
+        published_at: Argitaratze-data
+        title: Izenburua
     models:
-      decidim/blogs/create_post_event: Blogeko post berria
+      decidim/blogs/create_post_event: Blogeko beste argitalpen bat
   activerecord:
     models:
       decidim/blogs/post:
@@ -28,10 +28,10 @@ eu:
             name: Argitalpena
         posts:
           create:
-            invalid: Arazo bat izan da sarrera hau sortzeko
-            success: Argitalpena ondo sortu da
+            invalid: Arazo bat egon da argitalpen hau sortzean
+            success: Argitalpena zuzen sortua
           destroy:
-            success: Mezua ondo ezabatu da
+            success: Argitalpena behar bezala ezabatua
           edit:
             save: Eguneratu
             title: Editatu argitalpena
@@ -41,15 +41,15 @@ eu:
             create: Sortu
             title: Sortu argitalpena
           update:
-            invalid: Akatsen bat gertatu da mezua gordetzean.
-            success: Sarrera ondo gorde da
+            invalid: Arazo bat egon da argitalpena gordetzean.
+            success: Argitalpena zuzen gordea
       last_activity:
-        new_post_at_html: "<span>Post berria %{link}-ean</span>"
+        new_post_at_html: "<span> %{link}</span>-ean emaitza berria"
       models:
         post:
           fields:
             author: Egilea
-            body: Testua
+            body: Gorputza
             created_at: Sortze-data
             title: Izenburua
       posts:
@@ -60,7 +60,7 @@ eu:
         sidebar_blog:
           comments: iruzkinak
           most_commented_posts: Gehien iruzkinatutako mezu
-      read_more: Geihago irakurri
+      read_more: Gehiago irakurri
     components:
       blogs:
         actions:

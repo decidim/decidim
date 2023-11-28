@@ -800,10 +800,6 @@
         form:
           add: Legg til i hviteliste
           title: Hviteliste for eksterne domener
-      organization_homepage:
-        edit:
-          active_content_blocks: Aktive innholdsblokkerer
-          inactive_content_blocks: Inaktivt innholdsblokkerer
       organization_homepage_content_blocks:
         edit:
           update: Oppdater

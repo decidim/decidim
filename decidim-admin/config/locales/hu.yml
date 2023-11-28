@@ -817,10 +817,6 @@ hu:
         form:
           add: Hozzáadás a kivétellistához
           title: Külső domain kivétellista
-      organization_homepage:
-        edit:
-          active_content_blocks: Aktív tartalomblokkok
-          inactive_content_blocks: Inaktív tartalomblokkok
       organization_homepage_content_blocks:
         edit:
           update: Frissítés
@@ -843,7 +839,7 @@ hu:
           success: A CSV-fájl sikeresen feltöltődött, meghívó e-mailt küldünk a résztvevőknek. Ez eltarthat egy ideig.
         new:
           explanation: 'Töltse fel a CSV-fájlt. Két oszlopnak kell lennie, e-mail címmel a fájl első oszlopában, és a fájl utolsó oszlopában (e-mail, név) azoknak a felhasználóknak az adataival, akiket fel akar venni a részvételi térbe, fejlécek nélkül. Kerülje az olyan érvénytelen karakterek használatát, mint a `<>?%&^*#@()[]=+:;"{}\|` a felhasználónévben.'
-          title: Töltse fel a CSV fájlod
+          title: Töltse fel a CSV fájlját
           upload: Feltölt
       resource_permissions:
         edit:

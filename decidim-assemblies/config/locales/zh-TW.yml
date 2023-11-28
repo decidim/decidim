@@ -309,8 +309,6 @@ zh-TW:
           index:
             filter:
               all: 全部
-              ceased: 已停止
-              not_ceased: 沒有停止
             filter_by: 篩選條件
             search: 搜尋
         content_blocks:

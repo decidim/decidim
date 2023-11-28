@@ -1106,7 +1106,6 @@ sv:
           proposals: Förslag
           proposals_explanation: Lämna förslag, stötta befintliga förslag och stöd de förändringar som du vill se.
         footer_sub_hero:
-          footer_sub_hero_body: Låt oss bygga ett öppet, transparent och samarbetande samhälle.<br /> Gå med, delta och fatta beslut.
           footer_sub_hero_headline: Välkommen till %{organization} deltagarplattform.
           register: Registrera dig
         hero:

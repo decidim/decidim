@@ -800,10 +800,6 @@ nl:
         form:
           add: Toevoegen aan whitelist
           title: Externe domein whitelist
-      organization_homepage:
-        edit:
-          active_content_blocks: Actieve inhoudsblokken
-          inactive_content_blocks: Inactieve inhoudsblokken
       organization_homepage_content_blocks:
         edit:
           update: Bijwerken
@@ -826,7 +822,7 @@ nl:
           success: Het CSV-bestand is succesvol geüploaded. We sturen een uitnodigingsmail naar de deelnemers. Dit kan even duren.
         new:
           explanation: 'Upload het CSV-bestand zonder headers. Het moet uit twee kolommen bestaan, met het e-mailadres in de eerste kolom en de naam in de laatste kolom van de gebruikers die je wil toevoegen aan de participatieve ruimte (e-mail, naam). Vermijd tekens als `<>?%&^*#@()[]=+:;"{}\|` in de namen.'
-          title: Upload het CSV-bestand
+          title: Upload uw CSV-bestand
           upload: Upload
       resource_permissions:
         edit:

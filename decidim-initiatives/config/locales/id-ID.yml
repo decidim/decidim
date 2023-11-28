@@ -313,6 +313,7 @@ id:
           hidden_authors_count:
             other: dan %{count} lebih banyak orang
         committee_members:
+          confirm_revoke: Apakah kamu yakin?
           revoke: Mencabut
         count:
           title:

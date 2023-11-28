@@ -20,6 +20,9 @@ ca:
         scope_id: Àmbit
   activerecord:
     models:
+      decidim/budgets/budget:
+        one: Pressupost
+        other: Pressupostos
       decidim/budgets/project:
         one: Projecte
         other: Projectes

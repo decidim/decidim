@@ -813,10 +813,6 @@ zh-TW:
         form:
           add: 新增到白名單
           title: 外部域名白名單
-      organization_homepage:
-        edit:
-          active_content_blocks: 啟用的內容區塊
-          inactive_content_blocks: 停用的內容區塊
       organization_homepage_content_blocks:
         edit:
           update: 更新

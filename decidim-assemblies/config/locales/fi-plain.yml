@@ -317,8 +317,8 @@ fi-pl:
           index:
             filter:
               all: Kaikki
-              ceased: Lakkautettu
-              not_ceased: Ei lakkautettu
+              ceased: Lopetettu
+              not_ceased: Ei lopetettu
             filter_by: Suodata
             search: Hae
         content_blocks:

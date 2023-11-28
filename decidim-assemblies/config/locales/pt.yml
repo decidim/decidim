@@ -304,8 +304,6 @@ pt:
           index:
             filter:
               all: Todos
-              ceased: Cessado
-              not_ceased: Não cessado
             filter_by: Filtrar por
             search: Pesquisar
         content_blocks:

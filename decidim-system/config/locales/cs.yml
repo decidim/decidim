@@ -54,6 +54,9 @@ cs:
         new:
           create: Vytvořit
           title: Nový admin
+        show:
+          destroy: Vymazat
+          edit: Upravit
         update:
           error: Při aktualizaci tohoto administrátora došlo k chybě.
           success: Správce byl úspěšně aktualizován
@@ -64,6 +67,21 @@ cs:
         placeholders:
           content: Přidejte smysluplný obsah na statickou stránku %{page} na ovládacím panelu administrátora.
           title: Výchozí název pro %{page}
+      devise:
+        passwords:
+          edit:
+            change_your_password: Změnit heslo
+            minimum_characters: "(minimum znaků%{minimum})"
+          new:
+            forgot_your_password: Zapomenuté heslo
+            send_me_reset_password_instructions: Poslat mi pokyny pro obnovení hesla
+        shared:
+          links:
+            did_not_receive_confirmation_instructions?: Neobdrželi jste potvrzovací instrukce?
+            did_not_receive_unlock_instructions?: Neobdrželi jste instrukce pro odemknutí?
+            forgot_your_password?: Zapomněli jste heslo?
+            log_in: Přihlásit se
+            sign_up: Zaregistrovat se
       menu:
         admins: Správci
         dashboard: Ovládací panel
@@ -123,6 +141,7 @@ cs:
           success: Organizace byla úspěšně vytvořena.
         edit:
           secondary_hosts_hint: Zadejte každý z nich do nového řádku
+          title: Upravit organizaci
         file_upload_settings:
           content_types:
             admin_hint: Tyto typy MIME jsou povoleny pro nahrávání sekcí administrace. Administrátoři by si měli být vědomi rizik spojených s nahráváním některých formátů dokumentů, takže můžete očekávat, že budou opatrnější při nahrávání souborů.
@@ -144,8 +163,11 @@ cs:
         index:
           title: Organizace
         new:
-          reference_prefix_hint: Předpona reference se používá k jednoznačné identifikaci zdrojů ve všech organizacích
-          secondary_hosts_hint: Zadejte každý z nich do nového řádku
+          default: Výchozí?
+          enabled: Povoleno
+          locale: Jazyk
+          reference_prefix_hint: Předpona reference se používá k jednoznačné identifikaci zdrojů ve všech organizacích.
+          secondary_hosts_hint: Každou vložte do nového řádku.
           title: Nová organizace
         omniauth_settings:
           decidim:
@@ -186,3 +208,9 @@ cs:
           our_getting_started_guide: náš průvodce začínáme
       titles:
         dashboard: Ovládací panel
+        decidim: Decidim
+  layouts:
+    decidim:
+      system:
+        login_items:
+          logout: Odhlásit

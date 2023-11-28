@@ -770,7 +770,6 @@ id:
           proposals: Proposal
           proposals_explanation: Buat proposal, dukung yang sudah ada dan promosikan perubahan yang ingin Anda lihat.
         footer_sub_hero:
-          footer_sub_hero_body: Mari membangun masyarakat yang lebih terbuka, transparan, dan kolaboratif.<br /> Gabung, berpartisipasi, dan putuskan.
           footer_sub_hero_headline: Selamat datang di %{organization} platform partisipatif.
           register: Daftar
         hero:

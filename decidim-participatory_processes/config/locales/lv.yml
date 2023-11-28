@@ -144,6 +144,9 @@ lv:
           copy: Kopēt
           select: Atlasiet, kurus datus vēlaties dublēt
           title: Dublēt līdzdalības procesu
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Atjaunināt
       participatory_process_groups:
         destroy:
           error: Līdzdalības procesa grupas dzēšanas laikā radās kļūda.

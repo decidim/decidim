@@ -1088,7 +1088,6 @@
           proposals: Forslag
           proposals_explanation: Lag forslag, støtt eksisterende og promoter endringene du ønsker å se.
         footer_sub_hero:
-          footer_sub_hero_body: La oss sammen utvikle et mer bærekraftig samfunn.<br /> Bli med og påvirk utviklingen gjennom å si din mening.
           footer_sub_hero_headline: Velkommen til %{organization} deltaker plattform.
           register: Registrer deg
         hero:

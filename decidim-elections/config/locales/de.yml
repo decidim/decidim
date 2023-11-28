@@ -836,6 +836,7 @@ de:
             timeline:
               name: Abstimmungszeitfolge
         index:
+          not_published: Nicht veröffentlicht
           published: Veröffentlicht
         landing_page:
           content_blocks:
@@ -928,7 +929,7 @@ de:
           form:
             existing_user: Existierender Benutzer
             non_user: Neuen Benutzer einladen
-            select_user: Suchen nach Name, E-Mail oder Benutzername
+            select_user: Suchen nach Name, E-Mail oder Kontoname
             user_type: Benutzertyp
           index:
             title: Überwachungskomitee
@@ -977,7 +978,7 @@ de:
           form:
             existing_user: Existierender Benutzer
             non_user: Neuen Benutzer einladen
-            select_user: Suchen nach Name, E-Mail oder Benutzername
+            select_user: Suchen nach Name, E-Mail oder Kontoname
             user_type: Benutzertyp
           index:
             role_manager: Manager

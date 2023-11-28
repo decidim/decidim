@@ -24,7 +24,7 @@ eu:
           success: Txantiloia zuzen ezabatu da
         empty: Oraindik ez dago txantiloirik.
         update:
-          error: Arazo bat izan da txantiloi hau eguneratzean.
+          error: Arazo bat egon da eztabaida hau eguneratzean.
           success: Txantiloia zuzen eguneratu da
       titles:
         template_types:
@@ -55,7 +55,7 @@ eu:
           form:
             save: Gorde
             template_title: Txantiloiaren informazioa
-            title: '%{questionnaire_for} galdetegiaren txantiloia'
+            title: '%{questionnaire_for}% galdetegiaren txantiloia'
           index:
             confirm_delete: Ziur zaude txantiloi hau ezabatu nahi duzula?
             title: Galdetegi-txantiloiak

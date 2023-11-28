@@ -128,6 +128,9 @@ id:
           copy: Salinan
           select: Pilih data mana yang ingin Anda gandakan
           title: Proses partisipatif duplikat
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Memperbarui
       participatory_process_groups:
         destroy:
           success: Kelompok proses partisipatif berhasil dihapus.

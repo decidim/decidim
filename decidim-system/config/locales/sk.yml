@@ -22,6 +22,8 @@ sk:
         new:
           create: Vytvoriť
           title: Nový správca
+        show:
+          edit: Upraviť
         update:
           error: Pri aktualizácii správcu nastala chyba.
           success: Správca úspešne aktualizovaný
@@ -58,8 +60,6 @@ sk:
         index:
           title: Organizácie
         new:
-          reference_prefix_hint: Referenčná predpona je použitá pre unikátne identifikovanie zdrojov naprieč všetkými organizáciami
-          secondary_hosts_hint: Zadajte každý host na nový riadok
           title: Nová organizácia
         omniauth_settings:
           decidim:

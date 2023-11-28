@@ -512,6 +512,7 @@
             no_components: Det er ingen andre forslags komponetner i dette deltaker området å importere forslagene fra.
             select_component: Velg en komponent
             select_states: Sjekk statusen til forslagene som skal importeres
+            title: Importer forslag
         proposals_merges:
           create:
             success: Slo sammen forslagene til et nytt ett.

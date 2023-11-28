@@ -318,8 +318,6 @@ ar:
           index:
             filter:
               all: الكل
-              ceased: توقف
-              not_ceased: لم تتوقف
             filter_by: مصنف بواسطة
             search: البحث
         content_blocks:

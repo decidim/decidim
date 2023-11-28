@@ -54,6 +54,8 @@ gl:
         new:
           create: Crear
           title: Novo administrador
+        show:
+          edit: Editar
         update:
           error: Produciuse un problema ao actualizar este administrador.
           success: Administrador actualizado con éxito
@@ -144,8 +146,6 @@ gl:
         index:
           title: Organizacións
         new:
-          reference_prefix_hint: O prefixo de referencia utilízase para identificar de forma exclusiva recursos en todas as organizacións
-          secondary_hosts_hint: Entre cada unha delas nunha nova liña
           title: Nova organización
         omniauth_settings:
           decidim:

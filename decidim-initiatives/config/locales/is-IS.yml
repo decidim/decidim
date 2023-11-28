@@ -171,6 +171,7 @@ is-IS:
         author:
           deleted: Eytt
         committee_members:
+          confirm_revoke: Ertu viss?
           revoke: Afturkalla
         count:
           title:

@@ -317,8 +317,8 @@ es-PY:
           index:
             filter:
               all: Todas
-              ceased: Cesado
-              not_ceased: No cesado
+              ceased: Cesada
+              not_ceased: No cesada
             filter_by: Filtrado por
             search: Buscar
         content_blocks:

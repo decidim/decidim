@@ -490,6 +490,8 @@ es:
           subtitle: Por favor, rellena el siguiente formulario para completar la inscripción
           username_help: Nombre público que aparece en tus aportaciones. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
       registrations:
+        create:
+          error: Hubo un problema al crear tu cuenta.
         new:
           already_have_an_account?: '¿Ya tienes una cuenta?'
           newsletter: Quiero recibir un boletín ocasional con información relevante
@@ -1591,6 +1593,7 @@ es:
       not_saved:
         one: 'Se ha producido un error procesando tu solicitud:'
         other: 'Hubo varios errores al procesar tu solicitud:'
+      password_confirmation_message: '"Confirma tu contraseña" no coincide con la Contraseña'
       too_many_marks: Estás usando demasiados signos de puntuación consecutivos (por ejemplo,! y?)
       too_much_caps: Está usando demasiadas letras mayúsculas (más del 25% del texto)
       too_short: es demasiado corto (menos %{count} caracteres)

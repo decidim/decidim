@@ -337,6 +337,7 @@ lv:
           back: Atpakaļ uz sarakstu
           close_meeting: Slēgt sanāksmi
           contributions: Papildinājumu skaits
+          date: Datums
           meeting_minutes: Sanāksmes protokols
           no_slots_available: Nav pieejama laika runāšanai
           organizations: Apmeklējošās organizācijas

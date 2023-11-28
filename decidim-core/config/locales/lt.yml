@@ -1160,7 +1160,6 @@ lt:
           proposals: Pasiūlymai
           proposals_explanation: Teikite pasiūlymus, remkite esamus ir skatinkite pakeitimus, kuriuos norite matyti.
         footer_sub_hero:
-          footer_sub_hero_body: Sukurkime atviresnę, skaidresnę ir bendradarbiavimu grindžiamą visuomenę. <br /> Prisijunkite, dalyvaukite ir priimkite sprendimus.
           footer_sub_hero_headline: Sveiki atvykę į %{organization} dalyvavimo platformą.
           register: Registruotis
         hero:

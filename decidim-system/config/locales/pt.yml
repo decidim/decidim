@@ -54,6 +54,8 @@ pt:
         new:
           create: Criar
           title: Novo administrador
+        show:
+          edit: Editar
         update:
           error: Ocorreu um problema ao atualizar este administrador.
           success: Administrador atualizado corretamente
@@ -143,8 +145,6 @@ pt:
         index:
           title: Organizações
         new:
-          reference_prefix_hint: O prefixo de referência é usado para identificar recursos únicos em todas as organizações
-          secondary_hosts_hint: Insira cada um deles em uma nova linha
           title: Nova organização
         omniauth_settings:
           decidim:

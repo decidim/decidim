@@ -759,10 +759,6 @@ pt:
         form:
           add: Adicionar à lista branca
           title: Lista branca de domínio externo
-      organization_homepage:
-        edit:
-          active_content_blocks: Blocos de conteúdo activos
-          inactive_content_blocks: Blocos de conteúdo inactivos
       organization_homepage_content_blocks:
         edit:
           update: Atualizar
@@ -785,7 +781,7 @@ pt:
           success: Ficheiro CSV carregado com sucesso, estamos a enviar um e-mail de convite aos participantes. Isto poderá demorar algum tempo.
         new:
           explanation: 'Carrege o seu ficheiro CSV. Deve ter duas colunas com o e-mail na primeira coluna do ficheiro e  o nome na última coluna do ficheiro (e-mail, nome) dos utilizadores que quer adicionar ao espaço participativo, sem cabeçalhos. Evite utilizar charactéres inválidos como “<>?%&^*#@=+:"{}\|” no nome de utente.'
-          title: Carregar o seu ficheiro CSV
+          title: Envie o seu ficheiro CSV
           upload: Carregar
       resource_permissions:
         edit:

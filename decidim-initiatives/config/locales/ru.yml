@@ -232,6 +232,7 @@ ru:
             many: и еще %{count} человек
             other: и еще %{count} человек
         committee_members:
+          confirm_revoke: Вы уверены?
           revoke: Отозвать
         count:
           title:

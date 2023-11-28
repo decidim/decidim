@@ -816,7 +816,6 @@ gl:
           proposals: Propostas
           proposals_explanation: Fai propostas, apoia as existentes e promove os cambios que queres ver.
         footer_sub_hero:
-          footer_sub_hero_body: Construamos unha sociedade máis aberta, transparente e de colaboración.<br /> Unirse, participar e decidir.
           footer_sub_hero_headline: Benvido a %{organization} plataforma participativa.
           register: Rexistrarse
         hero:

@@ -307,8 +307,6 @@ tr:
           index:
             filter:
               all: Tümü
-              ceased: Durduruldu
-              not_ceased: Durdurulmadı
             filter_by: Şuna göre filtrele
             search: Arama
         content_blocks:

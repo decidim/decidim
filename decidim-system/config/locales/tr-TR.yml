@@ -54,6 +54,8 @@ tr:
         new:
           create: Oluştur
           title: Yeni yönetici
+        show:
+          edit: Düzenle
         update:
           error: Bu yönetici güncellenirken bir sorun oluştu.
           success: Yönetici başarıyla güncellendi
@@ -138,8 +140,6 @@ tr:
         index:
           title: Organizasyonlar
         new:
-          reference_prefix_hint: Başvuru öneki, tüm kuruluştaki kaynakları benzersiz şekilde tanımlamak için kullanılır
-          secondary_hosts_hint: Her birini yeni bir satıra girin
           title: Yeni organizasyon
         omniauth_settings:
           decidim:

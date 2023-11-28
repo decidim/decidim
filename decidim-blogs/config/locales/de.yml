@@ -50,7 +50,7 @@ de:
           fields:
             author: Autor
             body: Haupttext
-            created_at: Hergestellt in
+            created_at: Erstellt am
             title: Titel
       posts:
         show:

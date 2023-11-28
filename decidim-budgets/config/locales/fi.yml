@@ -20,6 +20,9 @@ fi:
         scope_id: Teema
   activerecord:
     models:
+      decidim/budgets/budget:
+        one: Budjetti
+        other: Budjetit
       decidim/budgets/project:
         one: Hanke
         other: Hankkeet

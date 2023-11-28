@@ -296,7 +296,7 @@ lt:
             visbility: Matomumas
         assemblies_settings:
           edit:
-            update: Atnaujinimas
+            update: Atnaujinti
           form:
             title: Asamblėjų nuostatos
         assemblies_types:
@@ -318,8 +318,6 @@ lt:
           index:
             filter:
               all: Visi
-              ceased: Nutraukta
-              not_ceased: Nenutraukta
             filter_by: Filtruoti pagal
             search: Ieškoti
         content_blocks:

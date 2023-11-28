@@ -228,6 +228,9 @@ ru:
             select_an_assembly_type: Выберите вид собрания
             social_handlers: Социальные сети
             title: Общие сведения
+        assemblies_settings:
+          edit:
+            update: Обновить
         assemblies_types:
           form:
             title: Название
@@ -241,8 +244,6 @@ ru:
           index:
             filter:
               all: Все
-              ceased: Срок полномочий истек
-              not_ceased: Срок полномочий не истек
             filter_by: 'Отобрать по признаку:'
             search: Поиск
       assembly_members:

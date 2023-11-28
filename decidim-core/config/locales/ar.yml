@@ -1142,7 +1142,6 @@ ar:
           proposals: اقتراحات
           proposals_explanation: تقديم مقترحات ، ودعم المقترحات الحالية وتعزيز التغييرات التي تريد رؤيتها.
         footer_sub_hero:
-          footer_sub_hero_body: دعونا نبني مجتمعًا أكثر انفتاحًا وشفافية وتعاونًا.<br /> انضموا وشاركوا وقرّروا.
           footer_sub_hero_headline: مرحبًا بكم على المنصة التشاركية لـ %{organization}.
           register: تسجيل
         hero:

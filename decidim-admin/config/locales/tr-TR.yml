@@ -648,10 +648,6 @@ tr:
             layout_appearance_title: Düzen görünümünü düzenle
             preview: Önizleme
           omnipresent_banner_appearance_title: Her yerde bulunan banner'ı düzenle
-      organization_homepage:
-        edit:
-          active_content_blocks: Aktif içerik blokları
-          inactive_content_blocks: Etkin olmayan içerik blokları
       organization_homepage_content_blocks:
         edit:
           update: Güncelleştirme
@@ -674,7 +670,7 @@ tr:
           success: CSV dosyası başarıyla yüklendi, katılımcılara bir davetiye e-postası gönderiyoruz. Bu biraz zaman alabilir.
         new:
           explanation: 'CSV dosyanızı yükleyin. Başlıksız, katılımcı alanına eklemek istediğiniz kullanıcıların dosyanın ilk sütununda e-posta ve dosyanın son sütununda (e-posta, ad) bulunan iki sütunu olmalıdır. Kullanıcı adında "<>?% & ^ * # @ () [] = +:;" {} \ | "gibi geçersiz karakterler kullanmaktan kaçının.'
-          title: CSV dosyası yükle
+          title: CSV dosyanızı yükleyin
           upload: Yükle
       resource_permissions:
         edit:

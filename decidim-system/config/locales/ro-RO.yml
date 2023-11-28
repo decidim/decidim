@@ -54,6 +54,8 @@ ro:
         new:
           create: Creează
           title: Administrator nou
+        show:
+          edit: Editare
         update:
           error: A apărut o eroare la actualizarea administratorului.
           success: Administrator actualizat cu succes
@@ -144,8 +146,6 @@ ro:
         index:
           title: Organizații
         new:
-          reference_prefix_hint: Prefixul de referință este utilizat pentru a identifica în mod unic resursele din toate organizațiile
-          secondary_hosts_hint: Introduceți fiecare dintre ele într-o linie nouă
           title: Organizație nouă
         omniauth_settings:
           decidim:

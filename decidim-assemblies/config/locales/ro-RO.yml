@@ -315,8 +315,6 @@ ro:
           index:
             filter:
               all: Toți
-              ceased: Sistat
-              not_ceased: Nesistat
             filter_by: Filtrează după
             search: Caută
         content_blocks:

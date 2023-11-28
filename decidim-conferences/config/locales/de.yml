@@ -19,7 +19,7 @@ de:
         objectives: Ziele
         participatory_processes_ids: Ähnliche Beteiligungsprozesse
         promoted: Gefördert
-        published_at: Veröffentlicht unter
+        published_at: Veröffentlicht am
         registration_terms: Registrierungsbedingungen
         registrations_enabled: Registrierungen aktiviert
         scope_id: Umfang
@@ -131,7 +131,7 @@ de:
         destroy:
           success: Benutzer wurde erfolgreich von dieser Konferenz entfernt.
         edit:
-          title: Aktualisieren Sie den Konferenzbenutzer.
+          title: Konferenzadmin aktualisieren.
           update: Aktualisieren
         index:
           conference_admins_title: Konferenzadmins
@@ -203,7 +203,7 @@ de:
       models:
         conference:
           fields:
-            created_at: Hergestellt in
+            created_at: Erstellt am
             promoted: Gefördert
             published: Veröffentlicht
             title: Titel

@@ -360,7 +360,7 @@ gl:
               other: propostas
           title:
             answers: Importar as respostas ás propostas
-            proposals: Importar propostas
+            proposals: Propostas de importación
         models:
           proposal:
             name: Proposta
@@ -477,7 +477,7 @@ gl:
             no_components: Non existen outros compoñentes de proposta neste espazo participativo para importar as propostas.
             select_component: Selecciona un compoñente
             select_states: Comprobe os estados das propostas para importar
-            title: Importar propostas
+            title: Propostas de importación
         proposals_merges:
           create:
             invalid: 'Produciuse un problema ao agrupar as propostas xa que algunhas delas:'

@@ -4,34 +4,34 @@ eu:
       consultation:
         banner_image: Banner irudia
         decidim_highlighted_scope_id: Nabarmendutako esparrua
-        description: deskribapena
+        description: Deskribapena
         end_voting_date: Botoaren bukaerak
         introductory_image: Sarrera-irudia
         introductory_video_url: Sarrera bideoaren URLa
         questions: Galderak
         slug: URL slug
         start_voting_date: Botoa hasten da
-        subtitle: azpititulua
+        subtitle: Azpititulua
         title: Izenburua
       question:
         banner_image: Banner irudia
-        decidim_scope_id: Udal aretoa
+        decidim_scope_id: Udal Arloa
         hashtag: hashtag
         hero_image: Hasiera irudia
         i_frame_url: Kanpoko boto-sistemaren URLa
         instructions: Jarraibide osagarriak botoa emateko
         max_votes: Gehieneko boto kopurua
         min_votes: Gutxieneko boto kopurua
-        origin_scope: esparrua
-        origin_title: Origin
+        origin_scope: Esparrua
+        origin_title: Jatorria
         origin_url: Jatorria URLa
-        participatory_scope: Parte hartzailearen esparrua
+        participatory_scope: Esparru parte-hartzailea
         promoter_group: Sustatzailearen taldea
         question_context: Testuingurua
         reference: Erreferentzia
-        scope: Udal aretoa
+        scope: Udal Arloa
         slug: URL slug
-        subtitle: azpititulua
+        subtitle: Azpititulua
         vote: Kanpoko boto sistema
         what_is_decided: Zer erabaki
       response:
@@ -69,30 +69,30 @@ eu:
     admin:
       actions:
         back_to_responses: Itzuli erantzunetara
-        new_consultation: Kontsulta berria
-        new_question: Galdera berria
-        new_response: Erantzun berria
+        new_consultation: Beste kontsulta bat
+        new_question: Beste galdera bat
+        new_response: Beste erantzun bat
         new_response_group: Talde berri bat
         publish_results: Argitaratu emaitzak
         response_groups: Kudeatu erantzun-multzoak
         unpublish_results: Argitaratu emaitzak
       consultation_publications:
         create:
-          error: Errore bat gertatu da kontsulta hau argitaratzean.
+          error: Arazo bat egon da kontsulta hau argitaratzean.
           success: Kontsulta argitaratua.
         destroy:
-          error: Errore bat gertatu da kontsulta hau argitaratzea.
+          error: Arazo bat egon da kontsulta hau desargitaratzean.
           success: Kontsulta argitaratu gabe.
       consultation_results_publications:
         create:
-          error: Errore bat gertatu da kontsultaren emaitzak argitaratzean.
+          error: Arazo bat egon da kontsultaren emaitzak argitaratzean.
           success: Kontsulta emaitzak argitaratu dira.
         destroy:
-          error: Errore bat gertatu da kontsultarako emaitzak argitaratzea.
+          error: Arazo bat egon da kontsultaren emaitzak desargitaratzean.
           success: Kontsulta emaitzak argitaratu gabe.
       consultations:
         create:
-          error: Errore bat gertatu da kontsulta berri bat sortzean.
+          error: Arazo bat egon da beste kontsulta bat sortzean.
           success: Kontsulta sortu da.
         deprecation_warning: Kontsulten modulua laster zaharkituta egongo da. Lantzen ari gara kriptografikoki segurua izango den hurrengo bertsioa, Bozketak izenekoa.
         edit:
@@ -105,13 +105,13 @@ eu:
           published: Argitaratutako
         new:
           create: Sortu
-          title: Kontsulta berria
+          title: Beste kontsulta bat
         results:
           not_visible: Emaitzak eskuragai egongo dira inkesta ixten denean
           participants: "%{count} parte-hartzaile"
           total_votes: 'Guztira: %{count} boto'
         update:
-          error: Errore bat gertatu da kontsulta hau eguneratzean.
+          error: Arazo bat egon da kontsulta hau eguneratzean.
           success: Kontsultak eguneratu egin du.
       menu:
         consultations: kontsultak
@@ -120,7 +120,7 @@ eu:
           questions: Galderak
           results: Emaitzak
         questions_submenu:
-          attachments: eranskinak
+          attachments: Eranskinak
           categories: Kategoriak
           components: Osagaiak
           configuration: Konfigurazioa
@@ -159,14 +159,14 @@ eu:
           title: Konfigurazio aurreratua
       question_publications:
         create:
-          error: Errore bat gertatu da galdera hau argitaratzean.
+          error: Arazo bat egon da galdera hau argitaratzean.
           success: Galdera argitaratu da.
         destroy:
-          error: Errore bat gertatu da galdera hau argitaratzea.
+          error: Arazo bat egon da galdera hau desargitaratzean.
           success: Galdera argitaratu gabe.
       questions:
         create:
-          error: Errore bat gertatu da galdera berri bat sortzean.
+          error: Arazo bat egon da beste galdera bat sortzean.
           success: Galdera zuzen sortu da.
         destroy:
           success: Galdera ezabatu da.
@@ -179,16 +179,16 @@ eu:
           published: Argitaratutako
         new:
           create: Sortu
-          title: Galdera berria
+          title: Beste galdera bat
         update:
-          error: Errore bat gertatu da galdera hau eguneratzean.
+          error: Arazo bat egon da galdera hau eguneratzean.
           success: Galdera ondo eguneratu da.
       response_groups:
         create:
-          error: Errore bat gertatu da erantzun-multzo berri bat sortzean.
+          error: Arazo bat egon da beste erantzun-multzo bat sortzean.
           success: Erantzun-multzoa zuzen sortu da.
         destroy:
-          error: Arazo bat gertatu da erantzun-multzoa ezabatzean. Egiaztatu ez dagoela erantzunik horren menpe.
+          error: Arazo bat egon da erantzun-multzoa ezabatzean. Egiaztatu ez dagoela erantzunik horren menpe.
           success: Erantzun-multzoa zuzen ezabatu da.
         edit:
           update: Eguneratu
@@ -197,16 +197,16 @@ eu:
         help: Erabili multzoak aukera anitzeko galderak paketetan antolatzeko.
         new:
           create: Sortu
-          title: Erantzun-multzo berria
+          title: Beste erantzun-multzo bat
         update:
-          error: Arazoa gertatu da erantzun hau eguneratzean.
+          error: Arazo bat egon da erantzun hau eguneratzean.
           success: Erantzuna zuzen eguneratu da.
       responses:
         create:
-          error: Errore bat gertatu da erantzun berri bat sortzean.
+          error: Arazo bat egon da beste erantzun bat sortzean.
           success: Erantzun arrakastaz sortu da.
         destroy:
-          error: Errore bat gertatu da erantzuna kentzean.
+          error: Arazo bat egon da erantzuna kentzean.
           success: Erantzun ezabatu da.
         edit:
           update: eguneratzearen
@@ -214,9 +214,9 @@ eu:
           title: Informazio orokorra
         new:
           create: Sortu
-          title: Erantzun berria
+          title: Beste erantzun bat
         update:
-          error: Errore bat gertatu da erantzun hau eguneratzean.
+          error: Arazo bat egon da erantzun hau eguneratzean.
           success: Erantzun arrakastaz eguneratu da.
       titles:
         consultations: kontsultak
@@ -261,12 +261,12 @@ eu:
         filter_by: Iragazi arabera
         unfold: Zabaldu
       highlighted_questions:
-        title: '%{scope_name}galdera'
+        title: '%{scope_name} ren galderak'
       index:
-        title: kontsultak
+        title: Kontsultak
       last_activity:
-        new_consultation: Kontsulta berria
-        new_question_at_html: "<span>Galdera berria %{link}</span>"
+        new_consultation: Beste kontsulta bat
+        new_question_at_html: "<span>Galdera berria hemen: %{link}</span>"
       pages:
         home:
           highlighted_consultations:
@@ -300,7 +300,7 @@ eu:
             votes: Botoak
       question_votes:
         create:
-          error: Arazoak izan dira galdera hautapenean
+          error: Arazo abt egon da galdera bozkatzean
           success: Kontsultaren amaiera arte alda dezakezu. Azken botoa baino ez da onartuko.
           title_error: Boto-akatsa!
           title_success: Botoa zuzen erregistratu da
@@ -334,10 +334,10 @@ eu:
       show:
         read_more: Irakurri gehiago
       statistics:
-        assistants_count_title: laguntzaileak
-        comments_count_title: Oharrak
+        assistants_count_title: Laguntzaileak
+        comments_count_title: Iruzkinak
         meetings_count_title: Bilerak
-        supports_count_title: euskarri
+        supports_count_title: Botoak
       technical_info:
         technical_data: Datu teknikoak
       vote_button:
@@ -355,12 +355,16 @@ eu:
         close_modal: Itxi leihoa
         confirm: Berretsi
         contextual_help: Berretsi hautatutako aukera.
-        title: 'Kontsulta: berretsi laguntza'
+        title: 'Kontsulta: berretsi botoa'
     resources:
       consultations:
         actions:
           comment: Iruzkina
           vote: Eman botoa
+      question:
+        actions:
+          comment: Iruzkina
+          vote: Bozkatu
     statistics:
       consultations_count: Kontsultak
       votes_count: Botoak

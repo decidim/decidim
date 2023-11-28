@@ -28,7 +28,7 @@ de:
         participatory_structure: Wie wird es entschieden?
         private_space: Privater Prozess
         promoted: Hervorgehoben
-        published_at: Veröffentlicht unter
+        published_at: Veröffentlicht am
         related_process_ids: Ähnliche Beteiligungsprozesse
         scope_id: Themenbereich
         scope_type_max_depth_id: Umfang-Filtertiefe
@@ -128,7 +128,7 @@ de:
       models:
         participatory_process:
           fields:
-            created_at: Hergestellt in
+            created_at: Erstellt am
             private: Privat
             promoted: Hervorgehoben
             published: Veröffentlicht
@@ -233,7 +233,7 @@ de:
         destroy:
           success: Der Benutzer wurde erfolgreich aus diesem partizipativen Prozess entfernt.
         edit:
-          title: Administrator des Beteiligungsprozesses aktualisieren
+          title: Admin des Beteiligungsprozesses aktualisieren
           update: Aktualisieren
         index:
           process_admins_title: Partizipative Prozessbenutzer

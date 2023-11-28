@@ -554,10 +554,6 @@ sk:
           images:
             layout_appearance_title: Upraviť vzhľad 
           omnipresent_banner_appearance_title: Upraviť všadeprítomný banner
-      organization_homepage:
-        edit:
-          active_content_blocks: Bloky aktívneho obsahu
-          inactive_content_blocks: Bloky neaktívneho obsahu
       organization_homepage_content_blocks:
         edit:
           update: Aktualizovať

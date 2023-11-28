@@ -2,7 +2,7 @@ de:
   activemodel:
     attributes:
       dummy_resource:
-        created_at: Hergestellt in
+        created_at: Erstellt am
         decidim_scope_id: Umfang
         field: Mein Feld
         start_date: Startdatum

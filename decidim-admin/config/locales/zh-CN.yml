@@ -580,10 +580,6 @@ zh-CN:
             layout_appearance_title: 编辑布局外观
             preview: 预览
           omnipresent_banner_appearance_title: Edit omnipresent banner
-      organization_homepage:
-        edit:
-          active_content_blocks: 活动内容块
-          inactive_content_blocks: 非活动内容块
       organization_homepage_content_blocks:
         edit:
           update: 更新

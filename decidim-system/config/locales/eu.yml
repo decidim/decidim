@@ -12,7 +12,7 @@ eu:
         from_email: Korreo elektronikoaren helbidea
         from_label: Etiketa
         password: Pasahitza
-        port: Ataka
+        port: Portua
         user_name: Erabiltzaile-izena
       organization_file_uploads:
         allowed_content_types:
@@ -34,7 +34,7 @@ eu:
   decidim:
     system:
       actions:
-        confirm_destroy: '‘Ziur zaude ezabatu nahi duzula?’'
+        confirm_destroy: Ziur zaude hau ezabatu nahi duzula?
         destroy: Ezabatu
         edit: Editatu
         new: Berria
@@ -42,10 +42,10 @@ eu:
         title: Ekintzak
       admins:
         create:
-          error: Errorea gertatu da administratzaile berri bat sortzean.
+          error: Arazo bat egon da administratzaile berri bat sortzean.
           success: Administratzailea zuzen sortu da
         destroy:
-          success: Admin ezabatu da
+          success: Administratzailea zuzen ezabatua
         edit:
           title: Editatu administratzailea
           update: Eguneratu
@@ -53,17 +53,35 @@ eu:
           title: Administratzaileak
         new:
           create: Sortu
-          title: Administratzaile berria
+          title: Beste administratzaile bat
+        show:
+          destroy: Suntsitu
+          edit: Editatu
         update:
-          error: Errorea gertatu da administratzaile hau eguneratzean.
+          error: Arazo bat da administratzaile hau eguneratzean.
           success: Administratzailea zuzen eguneratu da
       dashboard:
         show:
           current_organizations: Uneko antolatzaileak
       default_pages:
         placeholders:
-          content: Gehitu eduki adierazgarria %{page} (a)ren orri estatikoaren administrazio-panelean.
+          content: Mesedez, gehitu eduki adierazgarria %{page} (a) ren orri estatikoaren administrazio-panelean.
           title: 'Izenburu lehenetsia orri honetarako: %{page}'
+      devise:
+        passwords:
+          edit:
+            change_your_password: Aldatu pasahitza
+            minimum_characters: "(%{minimum} karaktere gutxienez)"
+          new:
+            forgot_your_password: Pasahitza ahaztu duzu
+            send_me_reset_password_instructions: Bidali jarraibideak pasahitza berrezartzeko
+        shared:
+          links:
+            did_not_receive_confirmation_instructions?: Ez duzu baieztatzeko instrukziorik jaso?
+            did_not_receive_unlock_instructions?: Ez duzu desblokeatzeko instrukziorik jaso?
+            forgot_your_password?: Pasahitza ahaztu duzu?
+            log_in: Hasi saioa
+            sign_up: Erregistratu
       menu:
         admins: Administratzaileak
         dashboard: Kontrol-panela
@@ -72,7 +90,7 @@ eu:
       models:
         admin:
           fields:
-            created_at: Sortze-data
+            created_at: Tan sortua
             email: Helbide elektronikoa
           name: Administratzailea
           validations:
@@ -85,7 +103,7 @@ eu:
           name: OAuth Aplikazioa
         organization:
           actions:
-            save_and_invite: Sortu erakundea eta gonbit egin administratzaileari
+            save_and_invite: Sortu antolatzailea eta gonbidatu administratzailea
           fields:
             created_at: Tan sortua
             file_upload_settings: Fitxategiak igotzearen doikuntzak
@@ -102,15 +120,15 @@ eu:
           success: Aplikazioa ondo ezabatu da.
         edit:
           save: Gorde
-          title: Aplikazioa editatu
+          title: Editatu aplikazioa
         form:
           select_organization: Aukeratu antolatzaile bat
         index:
           confirm_delete: Ziur zaude aplikazio hau ezabatu nahi duzula?
-          title: OAuth Aplikazioak
+          title: OAuth aplikazioak
         new:
           save: Gorde
-          title: Aplikazio berria
+          title: Beste aplikazio bat
         update:
           error: Errorea izan da aplikazio hau eguneratzean.
           success: Aplikazioa ondo eguneratu da.
@@ -122,7 +140,8 @@ eu:
           error: Errorea izan da antolatzaile berri bat sortzean.
           success: Antolatzailea zuzen sortu da.
         edit:
-          secondary_hosts_hint: Sartu haietako bakoitza lerro batean
+          secondary_hosts_hint: Sartu haietako bakoitza lerro berri batean
+          title: Editatu erakundea
         file_upload_settings:
           content_types:
             admin_hint: MIME mota horiek baimenduta daude administrazio-paneletik igotzeko. Administratzaileek dokumentuen formatu batzuk igotzean dauden arriskuez jabetu behar dute, eta, beraz, artxiboen igoeretan zuhurragoak izatea espero daiteke.
@@ -145,9 +164,12 @@ eu:
         index:
           title: Erakundeak
         new:
-          reference_prefix_hint: Erreferentzia-aurrizkia erabiltzen da erakunde guztien baliabideak modu bakarrean identifikatzeko
-          secondary_hosts_hint: Sartu haietako bakoitza lerro batean
-          title: Erakunde berria
+          default: Lehenetsita?
+          enabled: Gaituta
+          locale: Tokikoa
+          reference_prefix_hint: Erreferentzia-aurrizkia erakunde guztietan baliabideak identifikatzeko erabiltzen da.
+          secondary_hosts_hint: Sartu haietako bakoitza beste lerro batean.
+          title: Beste erakunde bat
         omniauth_settings:
           decidim:
             client_id: Bezeroaren IDa
@@ -175,15 +197,21 @@ eu:
             from_email: zure-erakundea@example.org
             from_label: erakundearen izena
         update:
-          error: Errorea gertatu da erakunde hau eguneratzean.
+          error: Arazo bat egon da erakunde hau eguneratzean.
           success: Erakundea zuzen eguneratu da.
         users_registration_mode:
           disabled: Sarbidea soilik kanpoko kontuekin egin daiteke
           enabled: Baimendu erabiltzaileei erregistratzea eta saioa hasteko
-          existing: Ez utzi erabiltzaileek erregistratu, baizik eta existitzen diren erabiltzaileei saioa hasteko
+          existing: Ez utzi parte-hartzaile gehiagori erregistratzen, baina utzi existitzen diren parte-hartzaileei saioa hasten
       shared:
         notices:
           no_organization_warning_html: Hasteko erakunde bat sortu behar duzu. Jarraitu aurretik ziurta zaitez %{guide} irakurri duzula.
-          our_getting_started_guide: gure ongi etorri gida
+          our_getting_started_guide: gure ongietorri gida
       titles:
         dashboard: Kontrol-panela
+        decidim: Decidim
+  layouts:
+    decidim:
+      system:
+        login_items:
+          logout: Logout
