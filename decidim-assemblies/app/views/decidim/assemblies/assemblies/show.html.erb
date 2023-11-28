@@ -1,4 +1,5 @@
 <% add_decidim_meta_tags({
+                           title: translated_attribute(current_participatory_space.title),
                            image_url: current_participatory_space.attached_uploader(:hero_image).path,
                            description: translated_attribute(current_participatory_space.short_description),
                            url: assembly_url(current_participatory_space),
@@ -22,7 +23,7 @@ edit_link(
   </section>
 <% end %>
 
-<div class="participatory-space__container">
+<main class="participatory-space__container">
 
   <%= participatory_space_floating_help %>
 
@@ -31,7 +32,7 @@ edit_link(
     <%= cell content_block.manifest.cell, content_block %>
   <% end %>
 
-</div>
+</main>
 
 <section class="participatory-space__block-reference">
   <%= resource_reference(current_participatory_space) %>
