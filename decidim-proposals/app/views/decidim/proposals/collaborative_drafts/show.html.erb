@@ -47,7 +47,7 @@
   <%= render partial: "actions" %>
 
   <% content_for :item_footer do %>
-    <%= comments_for @collaborative_draft %>
+    <%= render comments_for(@collaborative_draft) %>
 
     <ul class="metadata__container layout-main__section" data-metadata-footer>
       <%= content_tag :li, resource_reference(@collaborative_draft), class: "metadata__item" %>

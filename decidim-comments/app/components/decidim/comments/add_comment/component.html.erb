@@ -1,15 +1,15 @@
 <div class="add-comment">
   <% if user_signed_in? %>
-    <%== cell("decidim/comments/comment_form", commentable, root_depth:) %>
+    <%= render Decidim::Comments::AddCommentForm::Component.new(commentable: , root_depth: ) %>
   <% else %>
     <p>
-            <span>
-            <%= t(
-                  "decidim.components.add_comment_form.account_message_html",
-                  sign_in_url: decidim.new_user_session_path,
-                  sign_up_url: decidim.new_user_registration_path
-                ) %>
-            </span>
+      <span>
+      <%= t(
+            "decidim.components.add_comment_form.account_message_html",
+            sign_in_url: decidim.new_user_session_path,
+            sign_up_url: decidim.new_user_registration_path
+          ) %>
+      </span>
     </p>
   <% end %>
 </div>

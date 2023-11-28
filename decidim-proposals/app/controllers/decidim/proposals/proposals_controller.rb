@@ -217,6 +217,7 @@ module Decidim
       end
 
       private
+
       def search_collection
         Proposal.where(component: current_component).published.not_hidden.with_availability(params[:filter].try(:[], :with_availability))
       end

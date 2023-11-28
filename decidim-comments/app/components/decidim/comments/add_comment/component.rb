@@ -4,7 +4,6 @@ module Decidim
   module Comments
     module AddComment
       class Component < Decidim::BaseComponent
-
         attr_reader :commentable, :root_depth
 
         def initialize(commentable, root_depth)

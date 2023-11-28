@@ -68,7 +68,7 @@
       </div>
       <% if can_reply? %>
         <div id="panel-<%= reply_id %>" class="add-comment comment__additionalreply">
-          <%== cell("decidim/comments/comment_form", comment, root_depth:, order:) %>
+          <%= render Decidim::Comments::AddCommentForm::Component.new(commentable: comment, root_depth:, order:) %>
         </div>
       <% end %>
       <div id="comment-<%= comment.id %>-replies" class="<%= "comment-reply" if has_replies_in_children? %>">
