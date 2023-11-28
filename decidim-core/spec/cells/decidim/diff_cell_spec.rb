@@ -50,93 +50,84 @@ describe Decidim::DiffCell, type: :cell, versioning: true do
       before { organization.update(rich_text_editor_in_public_views: true) }
 
       it "shows the HTML view dropdown menu" do
-        within "#diff-for-body" do
-          expect(subject).to have_css("#diff-html")
-        end
+        expect(subject).to have_css("#diff-html")
       end
     end
 
     context "when rich text editor is NOT enabled on the frontend" do
       it "does NOT show the HTML view dropdown menu" do
-
         expect(subject).not_to have_css("#diff-html")
       end
     end
 
     context "with diff_view_unified_unescaped" do
-        it "renders potentially safe HTML tags unescaped" do
-          within "#diff-for-body" do
-            expect(subject).to have_selector("em", text: "em")
-            expect(subject).to have_selector("u", text: "u")
-            expect(subject).to have_selector("strong", text: "strong")
-          end
-        end
+      let(:html) { subject.find("#diff-for-body") }
 
-        it "sanitizes potentially malicious HTML tags" do
-          within "#diff-for-body" do
-            expect(subject).not_to have_selector("script", visible: :all)
-            expect(subject).to have_content("alert('SCRIPT')")
-          end
-        end
+      it "renders potentially safe HTML tags unescaped" do
+        expect(html).to have_selector("em", text: "em")
+        expect(html).to have_selector("u", text: "u")
+        expect(html).to have_selector("strong", text: "strong")
+      end
+
+      it "sanitizes potentially malicious HTML tags" do
+        expect(html).not_to have_selector("script", visible: :all)
+        expect(html).to have_content("alert('SCRIPT')")
       end
     end
 
     context "with diff_view_unified_escaped" do
-      within "#diff-for-body" do
-        it "sanitizes potentially safe HTML tags" do
-          expect(subject).not_to have_selector("em")
-          expect(subject).to have_content("em")
-          expect(subject).not_to have_selector("u")
-          expect(subject).to have_content("u")
-          expect(subject).not_to have_selector("strong")
-          expect(subject).to have_content("strong")
-        end
+      let(:diff_html_value) { "escaped" }
+      let(:html) { subject.find("#diff-for-body") }
+
+      it "sanitizes potentially safe HTML tags" do
+        expect(html).not_to have_selector("em")
+        expect(html).to have_content("em")
+        expect(html).not_to have_selector("u")
+        expect(html).to have_content("u")
+        expect(html).not_to have_selector("strong")
+        expect(html).to have_content("strong")
       end
 
-        it "sanitizes potentially malicious HTML tags" do
-          within "#diff-for-body" do
-            expect(subject).not_to have_selector("script", visible: :all)
-            expect(subject).to have_content("alert('SCRIPT')")
-          end
-        end
+      it "sanitizes potentially malicious HTML tags" do
+        expect(html).not_to have_selector("script", visible: :all)
+        expect(html).to have_content("alert('SCRIPT')")
       end
     end
 
     context "with diff_view_split_unescaped" do
-      within "#diff-for-body" do
-        it "renders potentially safe HTML tags unescaped" do
-            expect(subject).to have_selector("em", text: "em")
-            expect(subject).to have_selector("u", text: "u")
-            expect(subject).to have_selector("strong", text: "strong")
-        end
+      let(:diff_mode_value) { "split" }
+      let(:html) { subject.find("#diff-for-body") }
+
+      it "renders potentially safe HTML tags unescaped" do
+        expect(html).to have_selector("em", text: "em")
+        expect(html).to have_selector("u", text: "u")
+        expect(html).to have_selector("strong", text: "strong")
       end
 
       it "sanitizes potentially malicious HTML tags" do
-        within "#diff-for-body" do
-          expect(subject).not_to have_selector("script", visible: :all)
-          expect(subject).to have_content("alert('SCRIPT')")
-        end
+        expect(html).not_to have_selector("script", visible: :all)
+        expect(html).to have_content("alert('SCRIPT')")
       end
     end
 
     context "with diff_view_split_escaped" do
-      within "#diff-for-body" do
-        it "sanitizes potentially safe HTML tags" do
-          expect(html).not_to have_selector("em")
-          expect(html).to have_content("em")
-          expect(html).not_to have_selector("u")
-          expect(html).to have_content("u")
-          expect(html).not_to have_selector("strong")
-          expect(html).to have_content("strong")
-        end
+      let(:diff_mode_value) { "split" }
+      let(:diff_html_value) { "escaped" }
+      let(:html) { subject.find("#diff-for-body") }
+
+      it "sanitizes potentially safe HTML tags" do
+        expect(html).not_to have_selector("em")
+        expect(html).to have_content("em")
+        expect(html).not_to have_selector("u")
+        expect(html).to have_content("u")
+        expect(html).not_to have_selector("strong")
+        expect(html).to have_content("strong")
       end
 
-        it "sanitizes potentially malicious HTML tags" do
-          within "#diff-for-body" do
-            expect(subject).not_to have_selector("script", visible: :all)
-            expect(subject).to have_content("alert('SCRIPT')")
-          end
-        end
+      it "sanitizes potentially malicious HTML tags" do
+        expect(html).not_to have_selector("script", visible: :all)
+        expect(html).to have_content("alert('SCRIPT')")
+      end
     end
   end
 end
