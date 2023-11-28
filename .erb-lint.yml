@@ -313,7 +313,6 @@ linters:
           - check-radio-collection
           - check-radio-group
           - checkboxes
-          - choose-template-preview
           - cite-block
           - class_
           - clear
