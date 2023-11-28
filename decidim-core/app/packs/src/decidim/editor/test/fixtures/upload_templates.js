@@ -14,34 +14,6 @@ const dropzoneLocales = {
 };
 
 export default {
-  legacy: `
-    <div class="reveal upload-modal" id="upload_dialog" data-reveal="test">
-      <div class="reveal__header">
-        <h3 class="reveal__title" data-addlabel="Add image" data-editlabel="Edit image">Add image</h3>
-        <button class="close-button" data-close aria-label="Close modal" type="button">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-
-      <div class="help">
-        <p>Here is where the upload help would normally be.</p>
-      </div>
-      <div class="row dropzone-container" data-name="file">
-        <div class="upload-items"></div>
-        <label class="dropzone">
-          <input class="hide" multiple="multiple" type="file" name="editor_image[file][]" />
-          <span>Drop files here or click the button to upload</span>
-        </label>
-      </div>
-
-      <div class="row columns reveal__content">
-        <div class="text-center">
-          <button class="button add-file-file" data-close>Save</button>
-          <button class="link cancel-attachment margin-left-1" data-close>Cancel</button>
-        </div>
-      </div>
-    </div>
-  `,
   redesign: `
     <div id="upload_dialog" data-dialog="upload_dialog">
       <div id="upload_dialog-content" class="upload-modal">

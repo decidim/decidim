@@ -11,7 +11,8 @@ module Decidim
         let!(:organization) { create(:organization) }
         let!(:admin) { create(:user, :admin, :confirmed, organization:) }
         let!(:user) { create(:user, organization:) }
-        let!(:private_user) { create(:participatory_space_private_user, user:) }
+        let!(:privatable_to) { create(:participatory_process, organization: user.organization, private_space: true) }
+        let!(:private_user) { create(:participatory_space_private_user, user:, privatable_to:) }
 
         before do
           request.env["decidim.current_organization"] = organization

@@ -51,7 +51,6 @@ module Decidim::Admin
         before do
           allow(form).to receive(:invalid?).and_return(false)
           expect(organization).to receive(:valid?).at_least(:once).and_return(false)
-          organization.errors.add(:official_img_header, "File resolution is too large")
           organization.errors.add(:official_img_footer, "File resolution is too large")
         end
 
@@ -62,7 +61,6 @@ module Decidim::Admin
         it "adds errors to the form" do
           command.call
 
-          expect(form.errors[:official_img_header]).not_to be_empty
           expect(form.errors[:official_img_footer]).not_to be_empty
         end
       end
