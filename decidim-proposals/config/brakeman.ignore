@@ -58,6 +58,40 @@
       "note": ""
     },
     {
+      "warning_type": "Dynamic Render Path",
+      "warning_code": 15,
+      "fingerprint": "9393407d3db104edbe0a692b6b280f2cb23dba317c140061d741f147654b16f0",
+      "check_name": "Render",
+      "message": "Render path contains parameter value",
+      "file": "app/views/decidim/proposals/collaborative_drafts/show.html.erb",
+      "line": 50,
+      "link": "https://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
+      "code": "render(action => comments_for(CollaborativeDraft.not_hidden.where(:component => current_component).find_by(:id => params[:id])), {})",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "Decidim::Proposals::CollaborativeDraftsController",
+          "method": "show",
+          "line": 43,
+          "file": "app/controllers/decidim/proposals/collaborative_drafts_controller.rb",
+          "rendered": {
+            "name": "decidim/proposals/collaborative_drafts/show",
+            "file": "app/views/decidim/proposals/collaborative_drafts/show.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "decidim/proposals/collaborative_drafts/show"
+      },
+      "user_input": "params[:id]",
+      "confidence": "Weak",
+      "cwe_id": [
+        22
+      ],
+      "note": ""
+    },
+    {
       "warning_type": "Cross-Site Scripting",
       "warning_code": 2,
       "fingerprint": "ee8cfc06595219681fe264fb8977fb9b0bab6750e694ec9dea82324c02fbc5f4",
@@ -92,6 +126,6 @@
       "note": ""
     }
   ],
-  "updated": "2023-11-28 15:19:53 +0200",
+  "updated": "2023-11-28 20:33:16 +0200",
   "brakeman_version": "5.4.1"
 }

@@ -10,12 +10,15 @@ module Decidim
         end
 
         private
+
         attr_reader :commentable, :options
+
         delegate :decidim_comments, to: :helpers
 
         include Decidim::ModalHelper
 
         def render? = commentable.authored_by?(current_user)
+
         def form_id = "edit_comment_#{commentable.id}"
 
         def form_object
