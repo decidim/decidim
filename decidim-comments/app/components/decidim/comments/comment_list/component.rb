@@ -133,7 +133,7 @@ module Decidim
           options = if current_component.present?
                       { resource: commentable }
                     else
-                      { resource: commentable, permissions_holder: model }
+                      { resource: commentable, permissions_holder: commentable }
                     end
           action_authorized_link_to(:comment, commentable_path, options) do
             t("decidim.components.comments.blocked_comments_for_unauthorized_user_warning")
