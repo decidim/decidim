@@ -96,6 +96,8 @@ de:
           cancelled: Abgebrochen
           category: Kategorie
           state: Zustand
+        index:
+          empty: Es gibt noch keine Sortierungen.
         linked_sortitions:
           selected_proposals: Ausgewählte Vorschläge
         orders:
