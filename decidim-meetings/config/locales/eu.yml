@@ -266,7 +266,7 @@ eu:
         invite_join_meeting_mailer:
           invite:
             decline: Deuseztatu gonbidapena
-            invited_you_to_join_a_meeting: "%{invited_by}-k gonbidatu zaitu %{application} topaketan. Beheko estekan onartu dezakezu."
+            invited_you_to_join_a_meeting: "%{invited_by}-k gonbidatu zaitu %{application} topaketan parte hartzera. Beheko estekan onartu dezakezu."
             join: Erregistratu '%{meeting_title}' topaketa
         invites:
           create:
