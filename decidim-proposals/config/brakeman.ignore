@@ -22,42 +22,8 @@
         915
       ],
       "note": ""
-    },
-    {
-      "warning_type": "Cross-Site Scripting",
-      "warning_code": 2,
-      "fingerprint": "ee8cfc06595219681fe264fb8977fb9b0bab6750e694ec9dea82324c02fbc5f4",
-      "check_name": "CrossSiteScripting",
-      "message": "Unescaped parameter value",
-      "file": "app/views/decidim/proposals/proposals/show.html.erb",
-      "line": 53,
-      "link": "https://brakemanscanner.org/docs/warning_types/cross_site_scripting",
-      "code": "cell(\"decidim/proposals/proposal_metadata\", Proposal.published.not_hidden.where(:component => current_component).find_by(:id => params[:id])).state_item.dig(:text).html_safe",
-      "render_path": [
-        {
-          "type": "controller",
-          "class": "Decidim::Proposals::ProposalsController",
-          "method": "show",
-          "line": 69,
-          "file": "app/controllers/decidim/proposals/proposals_controller.rb",
-          "rendered": {
-            "name": "decidim/proposals/proposals/show",
-            "file": "app/views/decidim/proposals/proposals/show.html.erb"
-          }
-        }
-      ],
-      "location": {
-        "type": "template",
-        "template": "decidim/proposals/proposals/show"
-      },
-      "user_input": "params[:id]",
-      "confidence": "Weak",
-      "cwe_id": [
-        79
-      ],
-      "note": ""
     }
   ],
-  "updated": "2023-07-27 19:05:49 +0200",
+  "updated": "2023-11-28 13:03:08 +0200",
   "brakeman_version": "5.4.1"
 }

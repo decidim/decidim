@@ -218,6 +218,8 @@ module Decidim
 
       private
 
+      attr_reader :proposal
+
       def search_collection
         Proposal.where(component: current_component).published.not_hidden.with_availability(params[:filter].try(:[], :with_availability))
       end
