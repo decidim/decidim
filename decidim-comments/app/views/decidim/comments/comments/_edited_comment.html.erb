@@ -1,1 +1,1 @@
-<%= cell("decidim/comments/comment", comment, reloaded: true) %>
+<%= render Decidim::Comments::SingleComment::Component.new(comment: comment, reloaded: true) %>

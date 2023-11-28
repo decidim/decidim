@@ -21,6 +21,7 @@ module Decidim
         Decidim.icons.register(name: "Decidim::Accountability::Result", icon: "briefcase-2-line", description: "Result / project (Accountability)", category: "activity",
                                engine: :accountability)
 
+        Decidim.icons.register(name: "route-line", icon: "route-line", category: "system", description: "", engine: :accountability)
         Decidim.icons.register(name: "focus-2-line", icon: "focus-2-line", category: "system", description: "", engine: :accountability)
         Decidim.icons.register(name: "briefcase-2-line", icon: "briefcase-2-line", category: "system", description: "", engine: :accountability)
       end

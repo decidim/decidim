@@ -20,12 +20,20 @@ module Decidim
 
         include Decidim::ResourceHelper
 
-        def comment_path
-          decidim_comments.comment_path(comment)
-        end
+        def comment_path = decidim_comments.comment_path(comment)
 
-        def reloaded?
-          options[:reloaded]
+        def reloaded? = options[:reloaded]
+
+        def reply_id = "comment#{comment.id}-reply"
+
+        def context_menu_id = "toggle-context-menu-#{comment.id}"
+
+        def root_depth = options[:root_depth]
+
+        def order = options[:order]
+
+        def replies
+          SortedComments.for(comment, order_by: options[:order])
         end
 
         def commentable_path(params = {})
@@ -34,14 +42,6 @@ module Decidim
           else
             resource_locator(root_commentable).path(params)
           end
-        end
-
-        def reply_id
-          "comment#{comment.id}-reply"
-        end
-
-        def context_menu_id
-          "toggle-context-menu-#{comment.id}"
         end
 
         def author_presenter
@@ -57,7 +57,7 @@ module Decidim
         class DeletedCommentComponent < Decidim::BaseComponent
           def initialize(comment, options = {})
             @comment = comment
-            @options = options
+            @options = options.with_defaults(root_depth: 0, reloaded: false, order: "older")
           end
 
           private
@@ -65,8 +65,16 @@ module Decidim
           attr_reader :comment, :options
 
           delegate :has_replies_in_children?, to: :comment
-          def render?
-            comment.deleted?
+          def render? = comment.deleted?
+
+          def reloaded? = options[:reloaded]
+
+          def root_depth = options[:root_depth]
+
+          def order = options[:order]
+
+          def replies
+            SortedComments.for(comment, order_by: options[:order])
           end
         end
 
@@ -79,9 +87,7 @@ module Decidim
 
           attr_reader :alignment
 
-          def render?
-            [-1, 1].include?(alignment)
-          end
+          def render? = [-1, 1].include?(alignment)
 
           def alignment_badge_classes
             classes = %w(label alignment)
@@ -113,17 +119,11 @@ module Decidim
 
           delegate :has_replies_in_children?, :accepts_new_comments?, :root_commentable, to: :comment
 
-          def root_depth
-            options[:root_depth]
-          end
+          def root_depth = options[:root_depth]
 
-          def depth
-            comment.depth - root_depth
-          end
+          def depth = comment.depth - root_depth
 
-          def reply_id
-            "comment#{comment.id}-reply"
-          end
+          def reply_id = "comment#{comment.id}-reply"
 
           def replies
             SortedComments.for(comment, order_by: options[:order])
@@ -152,6 +152,27 @@ module Decidim
           delegate :root_commentable, to: :comment
           delegate :user_signed_in?, :current_user, :action_authorized_to, :decidim_comments, to: :helpers
 
+          def render? = root_commentable.comments_have_votes?
+
+          def up_votes_count = comment.up_votes.count
+
+          def down_votes_count = comment.down_votes.count
+
+          def voted_up? = comment.up_voted_by?(current_user)
+
+          def voted_down? = comment.down_voted_by?(current_user)
+
+          # action_authorization_button expects current_component to be available
+          def current_component = root_commentable.try(:component)
+
+          def vote_button_to(path, params, &)
+            # actions are linked to objects belonging to a component
+            # To apply :comment permission, the modal authorizer should be refactored to allow participatory spaces-level comments
+            return button_to(path, params, &) unless current_component
+
+            action_authorized_button_to(:vote_comment, path, params.merge(resource: root_commentable), &)
+          end
+
           def votes_up_classes
             classes = ["button button__sm button__text-secondary js-comment__votes--up"]
             classes << "is-vote-selected" if voted_up?
@@ -165,39 +186,6 @@ module Decidim
             classes << "is-vote-notselected" if voted_up?
             classes.join(" ")
           end
-
-          def up_votes_count
-            comment.up_votes.count
-          end
-
-          def down_votes_count
-            comment.down_votes.count
-          end
-
-          def voted_up?
-            comment.up_voted_by?(current_user)
-          end
-
-          def voted_down?
-            comment.down_voted_by?(current_user)
-          end
-
-          # action_authorization_button expects current_component to be available
-          def current_component
-            root_commentable.try(:component)
-          end
-
-          def vote_button_to(path, params, &)
-            # actions are linked to objects belonging to a component
-            # To apply :comment permission, the modal authorizer should be refactored to allow participatory spaces-level comments
-            return button_to(path, params, &) unless current_component
-
-            action_authorized_button_to(:vote_comment, path, params.merge(resource: root_commentable), &)
-          end
-
-          def render?
-            root_commentable.comments_have_votes?
-          end
         end
 
         delegate :accepts_new_comments?, to: :comment
@@ -205,18 +193,6 @@ module Decidim
         def can_reply?
           user_signed_in? && accepts_new_comments? &&
             root_commentable.user_allowed_to_comment?(current_user)
-        end
-
-        def root_depth
-          options[:root_depth]
-        end
-
-        def order
-          options[:order]
-        end
-
-        def replies
-          SortedComments.for(comment, order_by: options[:order])
         end
       end
     end
