@@ -19,7 +19,9 @@ describe Decidim::Initiatives::ContentBlocks::HighlightedInitiativesCell, type: 
 
   context "when the content block has no settings" do
     it "shows 4 initiatives" do
-      expect(subject).to have_selector("a.card__grid", count: 4)
+      within "#diff-for-body" do
+        expect(subject).to have_selector("a.card__grid", count: 4)
+      end
     end
 
     it "shows up initiatives ordered by default" do
@@ -35,7 +37,9 @@ describe Decidim::Initiatives::ContentBlocks::HighlightedInitiativesCell, type: 
     end
 
     it "shows up to 8 initiatives" do
-      expect(subject).to have_selector("a.card__grid", count: 6)
+      within "#diff-for-body" do
+        expect(subject).to have_selector("a.card__grid", count: 6)
+      end
     end
   end
 
@@ -48,7 +52,9 @@ describe Decidim::Initiatives::ContentBlocks::HighlightedInitiativesCell, type: 
       end
 
       it "shows up initiatives ordered by published_at" do
-        expect(subject).to eq(most_recent_initiative)
+        within "#diff-for-body" do
+          expect(subject).to eq(most_recent_initiative)
+        end
       end
     end
 
