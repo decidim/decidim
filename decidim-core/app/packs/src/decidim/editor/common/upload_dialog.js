@@ -134,10 +134,12 @@ export default class UploadDialog {
       }
 
       const titleInputHtml = `
-        <label>
-          ${options.inputLabel}
-          <input class="attachment-title" type="text" name="alt">
-        </label>
+        <form class="form-defaults form">
+          <label>
+            ${options.inputLabel}
+            <input class="attachment-title" type="text" name="alt">
+          </label>
+        </form>
       `;
 
       let titleSection = null;
