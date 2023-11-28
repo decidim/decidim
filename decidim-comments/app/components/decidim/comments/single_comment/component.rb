@@ -129,8 +129,6 @@ module Decidim
             SortedComments.for(comment, order_by: options[:order])
           end
 
-          delegate :user_signed_in?, to: :helpers
-
           def can_reply?
             user_signed_in? && accepts_new_comments? &&
               root_commentable.user_allowed_to_comment?(current_user)
@@ -150,7 +148,7 @@ module Decidim
           attr_reader :comment, :options
 
           delegate :root_commentable, to: :comment
-          delegate :user_signed_in?, :current_user, :action_authorized_to, :decidim_comments, to: :helpers
+          delegate :current_user, :action_authorized_to, :decidim_comments, to: :helpers
 
           def render? = root_commentable.comments_have_votes?
 
@@ -189,7 +187,6 @@ module Decidim
         end
 
         delegate :accepts_new_comments?, to: :comment
-        delegate :user_signed_in?, to: :helpers
         def can_reply?
           user_signed_in? && accepts_new_comments? &&
             root_commentable.user_allowed_to_comment?(current_user)

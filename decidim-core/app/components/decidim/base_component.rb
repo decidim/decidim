@@ -10,6 +10,7 @@ module Decidim
              :icon,
              :decidim_sanitize_admin,
              :decidim,
+             :user_signed_in?,
              to: :helpers
   end
 end

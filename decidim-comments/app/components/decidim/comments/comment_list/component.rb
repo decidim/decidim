@@ -15,13 +15,9 @@ module Decidim
         attr_reader :commentable, :options
 
         delegate :commentable_type, :comments_count, to: :commentable
-        delegate :decidim_comments, :user_signed_in?, to: :helpers
+        delegate :decidim_comments, to: :helpers
 
         # private
-        # include Decidim::IconHelper
-        #
-        # delegate :user_signed_in?, to: :controller
-        #
         def add_comment
           return if single_comment?
           return if comments_blocked?
@@ -148,28 +144,28 @@ module Decidim
 
           !commentable.user_allowed_to_comment?(current_user)
         end
-        #
-        # def comment_permissions?
-        #   [model, current_component].any? do |resource|
-        #     resource.try(:permissions).try(:[], "comment")
-        #   end
-        # end
-        #
-        # # action_authorization_link expects current_component to be available
-        # def current_component
-        #   model.try(:component)
-        # end
-        #
-        # def blocked_comments_for_unauthorized_user_warning_link
-        #   options = if current_component.present?
-        #               { resource: model }
-        #             else
-        #               { resource: model, permissions_holder: model }
-        #             end
-        #   action_authorized_link_to(:comment, commentable_path, options) do
-        #     t("decidim.components.comments.blocked_comments_for_unauthorized_user_warning")
-        #   end
-        # end
+
+        def comment_permissions?
+          [commentable, current_component].any? do |resource|
+            resource.try(:permissions).try(:[], "comment")
+          end
+        end
+
+        # action_authorization_link expects current_component to be available
+        def current_component
+          commentable.try(:component)
+        end
+
+        def blocked_comments_for_unauthorized_user_warning_link
+          options = if current_component.present?
+                      { resource: commentable }
+                    else
+                      { resource: commentable, permissions_holder: model }
+                    end
+          action_authorized_link_to(:comment, commentable_path, options) do
+            t("decidim.components.comments.blocked_comments_for_unauthorized_user_warning")
+          end
+        end
 
         def comments_are_loading_warning
           announcement(t("decidim.components.comments.loading"), callout_class: "primary loading-comments hidden")
