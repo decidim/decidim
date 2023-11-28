@@ -50,7 +50,7 @@ extra_admin_link(
         <%= cell "decidim/coauthorships", @proposal %>
 
         <% if not ["section","subsection"].include? @proposal.participatory_text_level %>
-          <%== cell("decidim/proposals/proposal_metadata", proposal).state_item&.dig(:text)&.html_safe %>
+          <%== cell("decidim/proposals/proposal_metadata", @proposal).state_item&.dig(:text)&.html_safe %>
         <% end %>
       </div>
     <% end %>
@@ -91,7 +91,7 @@ extra_admin_link(
   <%= render partial: "actions" %>
 
   <% content_for :item_footer do %>
-    <%= render comments_for proposal %>
+    <%= render comments_for(@proposal) %>
 
      <ul class="metadata__container layout-main__section" data-metadata-footer>
        <%= content_tag :li, resource_reference(@proposal), class: "metadata__item" %>
