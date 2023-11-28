@@ -1,7 +1,10 @@
+<% add_decidim_page_title(t("decidim.pages.participatory_space.metrics.headline")) %>
+<% add_decidim_page_title(translated_attribute(current_participatory_space.title)) %>
+
 <%= render layout:"layouts/decidim/shared/layout_center", locals: { columns: 8 } do %>
   <div class="text-center py-10">
     <h2 class="title-decorator inline-block text-left">
-      <%= t("decidim.pages.participatory_space.metrics.headline", name: translated_attribute(current_participatory_space.title)) %>
+      <%= t("decidim.pages.participatory_space.metrics.headline") %>
     </h2>
   </div>
 
