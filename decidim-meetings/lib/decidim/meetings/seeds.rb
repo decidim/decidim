@@ -86,19 +86,23 @@ module Decidim
         params = case type
                  when :hybrid
                    params.merge(
-                     title: Decidim::Faker::Localized.sentence(word_count: 2),
+                     end_time: Time.zone.now + [rand(1..4).hours, rand(1..20).days].sample,
                      type_of_meeting: :hybrid,
-                     online_meeting_url: "https://www.youtube.com/watch?v=f6JMgJAQ2tc"
+                     online_meeting_url: "https://www.youtube.com/watch?v=f6JMgJAQ2tc",
+                     iframe_access_level: :all,
+                     iframe_embed_type: [:embed_in_meeting_page, :open_in_live_event_page, :open_in_new_tab].sample
                    )
                  when :online
                    params.merge(
+                     end_time: Time.zone.now + [rand(1..4).hours, rand(1..20).days].sample,
                      location: nil,
                      location_hints: nil,
                      latitude: nil,
                      longitude: nil,
-                     title: Decidim::Faker::Localized.sentence(word_count: 2),
                      type_of_meeting: :online,
-                     online_meeting_url: "https://www.youtube.com/watch?v=f6JMgJAQ2tc"
+                     online_meeting_url: "https://www.youtube.com/watch?v=f6JMgJAQ2tc",
+                     iframe_access_level: :all,
+                     iframe_embed_type: [:embed_in_meeting_page, :open_in_live_event_page, :open_in_new_tab].sample
                    )
                  else
                    params # :in_person
