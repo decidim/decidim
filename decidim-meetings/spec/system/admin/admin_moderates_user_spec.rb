@@ -7,6 +7,7 @@ describe "Admin reports user" do
     # Make static map requests not to fail with HTTP 500 (causes JS error)
     stub_request(:get, Regexp.new(Decidim.maps.fetch(:static).fetch(:url))).to_return(body: "")
   end
+
   it_behaves_like "hideable resource during block" do
     let(:reportable) { content.author }
 

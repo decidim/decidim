@@ -17,7 +17,7 @@ describe "Admin manages meetings polls" do
       es: "Esta es la primera pregunta"
     }
   end
-  
+
   before do
     # Make static map requests not to fail with HTTP 500 (causes JS error)
     stub_request(:get, Regexp.new(Decidim.maps.fetch(:static).fetch(:url))).to_return(body: "")

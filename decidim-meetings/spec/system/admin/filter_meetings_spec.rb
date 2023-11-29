@@ -2,12 +2,11 @@
 
 require "spec_helper"
 describe "Admin filters meetings" do
-
   before do
     # Make static map requests not to fail with HTTP 500 (causes JS error)
     stub_request(:get, Regexp.new(Decidim.maps.fetch(:static).fetch(:url))).to_return(body: "")
   end
-  
+
   include_context "with filterable context"
 
   let(:manifest_name) { "meetings" }
