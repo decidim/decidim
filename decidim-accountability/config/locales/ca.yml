@@ -39,8 +39,8 @@ ca:
         confirm_destroy: Segur que vols suprimir aquest %{name}?
         destroy: Esborrar
         edit: Editar
-        import: Importar projectes a resultats
-        import_csv: Importar CSV
+        import: Importar projectes des d'un altre component
+        import_csv: Importar resultats des d'un fitxer CSV
         new_result: Afegir resultat
         new_status: Afegir estat
         new_timeline_entry: Afegir entrada de la cronologia
@@ -76,7 +76,7 @@ ca:
               </ul>
               </li>
               </ol>
-            title: Importar resultats via CSV
+            title: Importar resultats des d'un fitxer CSV
         imports:
           create:
             invalid: Hi ha hagut un problema important els resultats.
@@ -101,7 +101,7 @@ ca:
             success:
               one: Hi ha 1 projecte a la cua per ser importat. Es notificarà per correu electrònic, quan es completi la importació.
               other: "Hi ha %{count} a la cua per ser importats. Es notificarà per correu electrònic, quan es completi la importació."
-            title: Importar Projectes a Seguiment
+            title: Importar projectes des d'un altre component
         results:
           create:
             invalid: S'ha produït un error en crear aquest resultat.
@@ -174,9 +174,7 @@ ca:
             not_found: 'No s''ha trobat el pare a la base de dades (ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Dates
           results: Resultats
-          unspecified: Sense especificar
       import_mailer:
         import:
           errors: Errors
@@ -215,9 +213,6 @@ ca:
           fields:
             entry_date: Data
             title: Títol
-      result_m:
-        executed: Executat
-        view: Veure
       results:
         count:
           results_count:
@@ -227,6 +222,8 @@ ca:
           all: Tots
         home:
           categories_label: Categories
+          empty: Encara no hi ha cap resultat.
+          empty_filters: No hi ha cap resultat amb aquest criteri.
           subcategories_label: Subcategories
         home_header:
           global_status: Estat d'execució global

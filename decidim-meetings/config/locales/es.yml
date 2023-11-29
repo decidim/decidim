@@ -22,6 +22,7 @@ es:
         id: ID
         iframe_access_level: Visualización de la sala videoconferencia
         iframe_embed_type: Visualización de la sala de videoconferencia
+        iframe_embed_type_html: Sólo unos pocos servicios permiten "Incrustar en la página de reunión" o "Abrir en la página del evento en directo". Tenga en cuenta que con la opción "Incrustar en la página de reunión" en teléfonos móviles, ya que la pantalla hereda diferentes dimensiones, en realidad funcionará como una "Abrir en la página del evento en directo".
         location: Ubicación
         location_hints: Detalles de ubicación
         online_meeting_url: URL del encuentro online
@@ -312,6 +313,7 @@ es:
           form:
             address_help: 'Dirección: usada por Geocoder para encontrar la ubicación'
             disclaimer: 'Descargo de responsabilidad: Mediante el uso de un sistema de inscripción externo, aceptas que las organizadoras de %{organization} no son responsables de los datos proporcionados por las usuarias en el servicio externo.'
+            iframe_embed_type_html: 'Solo unos pocos servicios permiten ser incrustados en encuentros o eventos en directo desde los siguientes dominios: %{domains}'
             location_help: 'Ubicación: mensaje dirigido a las participantes indicando el lugar donde reunirse'
             location_hints_help: 'Consejos de ubicación: información adicional. Ejemplo: la planta del edificio si se trata de un encuentro presencial, o la contraseña de la sala si se trata de un encuentro online con acceso restringido.'
             online_meeting_url_help: 'Enlace: permitir a las participantes conectarse directamente a tu encuentro'
@@ -319,7 +321,6 @@ es:
             select_a_meeting_type: Por favor, selecciona un tipo de encuentro
             select_a_registration_type: Por favor, seleccione un tipo de inscripción
             select_an_iframe_access_level: Por favor, seleccione un nivel de acceso iframe
-            show_embedded_iframe_help: 'Solo unos pocos servicios permiten ser incrustados en encuentros o eventos en vivo desde los siguientes dominios: %{domains}'
           index:
             title: Encuentros
           new:
@@ -394,6 +395,9 @@ es:
           all: Todas
         filter_meeting_space_values:
           all: Todos
+      calendar:
+        meeting_to_event:
+          read_more: Leer más sobre este encuentro
       calendar_modal:
         calendar_url: URL del calendario
         copy_calendar_url: Copiar
@@ -416,7 +420,6 @@ es:
       directory:
         meetings:
           index:
-            go_to_list: Ver el listado de encuentros
             meetings: Encuentros
             space_type: Espacio participativo
       iframe_access_level:
@@ -496,6 +499,7 @@ es:
           available_slots_help: Déjalo a 0 si tienes espacio ilimitado disponible
           create_as: Crear encuentro como
           disclaimer: 'Descargo de responsabilidad: Mediante el uso de un sistema de inscripción externo, aceptas que las organizadoras de %{organization} no son responsables de los datos proporcionados por las usuarias en el servicio externo.'
+          iframe_embed_type_html: 'Solo unos pocos servicios permiten ser incrustados en encuentros o eventos en directo desde los siguientes dominios: %{domains}'
           location_help: 'Ubicación: mensaje dirigido a las participantes indicando el lugar donde reunirse'
           location_hints_help: 'Consejos de ubicación: información adicional. Ejemplo: la planta del edificio si se trata de un encuentro presencial, o la contraseña de la sala si se trata de un encuentro online con acceso restringido.'
           online_meeting_url_help: 'Enlace: permitir a las participantes conectarse directamente a tu encuentro'
@@ -504,7 +508,6 @@ es:
           select_a_meeting_type: Por favor, selecciona un tipo de encuentro
           select_a_registration_type: Por favor, selecciona un tipo de inscripción
           select_an_iframe_access_level: Por favor, selecciona un nivel de acceso iframe
-          show_embedded_iframe_help: 'Solo unos pocos servicios permiten ser incrustados en encuentros o eventos en vivo desde los siguientes dominios: %{domains}'
         index:
           click_here: Ver todos los encuentros
           new_meeting: Nuevo encuentro
@@ -529,7 +532,6 @@ es:
         show:
           attendees: Número de asistentes
           contributions: Número de aportaciones
-          date: Fecha
           join: Unirse al encuentro
           leave: Cancela tu inscripción
           leave_confirmation: '¿Seguro que quieres cancelar tu inscripción para este encuentro?'
@@ -547,7 +549,6 @@ es:
           remaining_slots:
             one: "Queda %{count} plaza"
             other: "%{count} plazas restantes"
-          view: Ver
           visit_finished: Ver encuentro pasado
           withdraw_btn_hint: Puedes retirar tu encuentro si cambias de opinión. El encuentro no será eliminado, aparecerá en la lista de encuentros retirados.
           withdraw_confirmation_html: '¿Seguro que quieres retirar este encuentro?<br><br><strong>¡Esta acción no se puede cancelar!</strong>'

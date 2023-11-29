@@ -312,7 +312,6 @@ zh-CN:
         show:
           attendees: 参与者数量
           contributions: 捐款计数
-          date: 日期
           join: 加入会议
           meeting_minutes: 会议分钟
           no_slots_available: 无可用槽位
@@ -323,7 +322,6 @@ zh-CN:
             validation_pending: VALIDATED
           remaining_slots:
             other: "剩余 %{count} 个槽位"
-          view: 查看
         update:
           invalid: 更新会议时出现问题。
           success: 您已成功更新会议。

@@ -20,6 +20,9 @@ es:
         scope_id: Ámbito
   activerecord:
     models:
+      decidim/budgets/budget:
+        one: Presupuesto
+        other: Presupuestos
       decidim/budgets/project:
         one: Proyecto
         other: Proyectos
@@ -92,6 +95,7 @@ es:
           index:
             actions: Acciones
             cancel: Cancelar
+            change_budget: Cambiar presupuesto
             change_category: Cambiar categoría
             change_scope: Cambiar ámbito
             change_selected: Cambiar estado seleccionado
@@ -102,6 +106,7 @@ es:
             selected: Seleccionado
             title: Proyectos
             update: Actualizar
+            update_budget_button: Actualizar el presupuesto del proyecto
             update_scope_button: Actualizar ámbito
           new:
             create: Crear
@@ -109,6 +114,10 @@ es:
           update:
             invalid: Se ha producido un error al actualizar este proyecto.
             success: Proyecto actualizado correctamente.
+          update_budget:
+            invalid: 'Estos proyectos ya están en el mismo presupuesto o sus presupuestos son superiores al máximo permitido: %{projects}.'
+            select_a_project: Por favor, selecciona un proyecto.
+            success: 'Proyectos actualizados correctamente para el presupuesto %{subject_name}: %{projects}.'
           update_category:
             invalid: 'Estas propuestas ya tenían la categoría %{subject_name}: %{projects}.'
             select_a_category: Por favor, selecciona una categoría.
@@ -139,7 +148,7 @@ es:
             no_components: No hay otros componentes de la propuesta en este espacio participativo para importar las propuestas en los proyectos.
             origin_component_id: Componente de origen
             select_component: Por favor seleccione un componente
-            title: Importar propuestas
+            title: Importar propuestas a proyectos
         reminders:
           orders:
             description: Las usuarias recibirán un correo electrónico con enlaces a los presupuestos en los que tienen un pedido pendiente.
@@ -155,8 +164,6 @@ es:
           create: "%{user_name} creó el proyecto %{resource_name} en el espacio %{space_name}"
           delete: "%{user_name} borró el proyecto %{resource_name} en el espacio %{space_name}"
           update: "%{user_name} actualizó el proyecto %{resource_name} en el espacio %{space_name}"
-      budget:
-        view: Ver todos los proyectos de presupuesto
       budget_information_modal:
         back_to: Volver a %{component_name}
         close_modal: Cierra el modal
@@ -170,6 +177,7 @@ es:
         count:
           one: "%{count} presupuesto"
           other: "%{count} presupuestos"
+        empty: Aún no hay ningún presupuesto
         finished_message: Has terminado el proceso de votación. ¡Gracias por participar!
         highlighted_cta: Votar en %{name}
         if_change_opinion: Si has cambiado de opinión, puedes %{cancel_link}.
@@ -194,7 +202,6 @@ es:
           fields:
             category: Categoría
             id: ID
-            scope: Ámbito
             title: Título
       order_summary_mailer:
         order_summary:
@@ -229,6 +236,7 @@ es:
           projects_count:
             one: 1 proyecto
             other: "%{count} proyectos"
+        empty: Aun no hay ningún proyecto
         exit_modal:
           cancel: Volver a la votación
           exit: Salir de la votación
@@ -243,8 +251,6 @@ es:
             all: Todos
             not_selected: No seleccionado
             selected: Seleccionado
-        index:
-          back_to_budgets: volver a los presupuestos
         order_progress:
           assigned: Asignado
           budget: Presupuesto
@@ -272,7 +278,6 @@ es:
           add: Añadir proyecto %{resource_name} a tu voto.
           remove: Eliminar el proyecto %{resource_name} de tu voto.
           selected: Seleccionado
-          view: Ver
           votes:
             one: voto
             other: votos
@@ -289,6 +294,7 @@ es:
         select_projects: Selecciona proyectos
         show:
           budget: Presupuesto
+      prompt: Seleccionar presupuesto
       vote_reminder_mailer:
         vote_reminder:
           email_budgets: 'Áreas donde tienes una votación inacabada:'

@@ -27,7 +27,6 @@
           error: Et problem oppstod med å opprette kommentaren.
         update:
           error: Et problem oppstod med å oppdatere kommentaren.
-      comments_count: Antall kommentarer
       votes:
         create:
           error: Det oppstod et problem med å stemme kommentaren.

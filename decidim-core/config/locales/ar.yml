@@ -259,7 +259,6 @@ ar:
         error: طرأ خطأ خلال تصليح هذا المورد.
         promote_button: ترقية إلى صفة %{model_name}
         promote_confirm_text: هل أنت متأكد من رغبتك في الترويج لهذا الإصدار؟
-        section_heading: التعديلات (%{count})
       compare_draft:
         continue: متابعة
         no_similars_found: لم يتم العثور على أي تعديل مماثل.
@@ -413,7 +412,6 @@ ar:
         many: و %{count} أخرى
         other: و %{count} أخرى
       see_less: "(انظر أقل)"
-      see_more: "(شاهد المزيد)"
     components:
       component_order_selector:
         order:
@@ -796,14 +794,12 @@ ar:
           add_attachment: إضافة مرفق
           add_file: إضافة ملف
           add_image: إضافة صورة
-          cancel: إلغاء
           edit_image: تعديل الصورة
           error: خطأ!
           file_size_too_large: 'حجم الملف كبير أكثر من اللازم! حجم الملف الأقصى: %{megabytes}ميغابايت'
           filename: اسم الملف
           remove: حذف
           replace: إستبدال
-          save: حفظ
           title: العنوان
           title_required: العنوان مطلوب!
           uploaded: تم التحميل
@@ -1104,7 +1100,6 @@ ar:
           proposals: اقتراحات
           proposals_explanation: تقديم مقترحات ، ودعم المقترحات الحالية وتعزيز التغييرات التي تريد رؤيتها.
         footer_sub_hero:
-          footer_sub_hero_body: دعونا نبني مجتمعًا أكثر انفتاحًا وشفافية وتعاونًا.<br /> انضموا وشاركوا وقرّروا.
           footer_sub_hero_headline: مرحبًا بكم على المنصة التشاركية لـ %{organization}.
           register: تسجيل
         hero:
@@ -1417,8 +1412,6 @@ ar:
         change_my_password: تغيير كلمة المرور الخاصة بي
         confirm_new_password: تأكيد كلمة المرور الجديدة
         new_password: كلمة السر الجديدة
-        password_help: "%{minimun_characters} أحرف كحد أدنى، يجب أن لا تكون شائعة جدا (مثل 123456) ويجب أن تكون مختلفة عن اسمك المستعار وعن بريدك الإلكتروني."
-        password_help_admin: "%{minimun_characters} أحرف كحد أدنى، يجب أن لا تكون شائعة جدا (مثل 123456) ويجب أن تكون مختلفة عن اسمك المستعار وعن بريدك الإلكتروني."
         title: تغيير كلمة المرور
       new:
         forgot_your_password: نسيت رقمك السري؟
@@ -1599,8 +1592,6 @@ ar:
         body: لقد كنت غير نشط لمدة %{minutes} دقائق. إذا استمريت في كونك غير نشط، سيتم تسجيل خروجك تلقائيًا من أجل الأمان الخاص بك.
         continue_session: متابعة الجلسة
         title: هل ترغب في متابعة جلستك؟
-      upload_modal:
-        close_modal: اغلاق النموذج
       user_menu:
         account: 'حساب المستخدم: %{name}'
         admin_dashboard: لوحة القيادة الادارية

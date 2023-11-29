@@ -28,7 +28,6 @@ sv:
           error: Det gick inte att skapa kommentaren.
         update:
           error: Det gick inte att uppdatera kommentaren.
-      comments_count: Antal kommentarer
       comments_title: Kommentar
       votes:
         create:

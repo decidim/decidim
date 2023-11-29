@@ -171,10 +171,6 @@ ga:
               title: Gníomhartha
           new:
             create: Cruthaigh
-        landing_page:
-          content_blocks:
-            edit:
-              update: Nuashonraigh
         menu:
           votings: Vótála
           votings_submenu:
@@ -227,8 +223,6 @@ ga:
             role_manager: bainisteoir
           new:
             create: Cruthaigh
-          polling_officers_picker:
-            close: Dún
         polling_stations:
           new:
             create: Cruthaigh
@@ -247,9 +241,6 @@ ga:
           new:
             create: Cruthaigh
       census:
-        document_types:
-          dni: Cárta ID
-          nie: Cárta ID Eachtrannaigh
         export_mailer:
           access_codes_export:
             download: Íoslódáil
@@ -326,8 +317,6 @@ ga:
           online: Ar líne
   layouts:
     decidim:
-      election_votes_header:
-        exit: Imigh
       votings:
         promoted_voting:
           vote: Vótáil

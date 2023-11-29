@@ -409,7 +409,6 @@
         show:
           attendees: Antall deltakere
           contributions: Bidrag teller
-          date: Dato
           join: Bli med på møte
           meeting_minutes: Møte referater
           no_slots_available: Ingen plasser tilgjengelig
@@ -421,7 +420,6 @@
           remaining_slots:
             one: "%{count} plass igjen"
             other: "%{count} plasser igjen"
-          view: Vis
         update:
           invalid: Det oppstod et problem med å oppdatere dette møtet.
           success: Du har nå oppdatert møtet.

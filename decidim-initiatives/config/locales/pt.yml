@@ -374,7 +374,6 @@ pt:
             other: e mais %{count} pessoas
         committee_members:
           approve: Aprovar
-          confirm_revoke: Tem a certeza?
           title: Membros do Comité
         count:
           title:
@@ -386,7 +385,6 @@ pt:
           author: Autor
           myself: As minhas iniciativas
           scope: Âmbito
-          search: Pesquisar
           state: Estado
           type: Tipo
         index_header:
@@ -498,8 +496,5 @@ pt:
         sms_phone_number: Número de telemóvel
         title: Assinar %{initiative_title}
       initiatives:
-        initiative:
-          check: Confira
-          check_and_support: Confira e assine
         no_initiatives_yet:
           no_initiatives_yet: Nenhuma iniciativa ainda!

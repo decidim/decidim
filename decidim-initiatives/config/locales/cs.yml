@@ -116,6 +116,8 @@ cs:
         information: Informace
         initiative_type_scopes: Typy oblasti působnosti iniciativy
         initiatives: Iniciativy
+        initiatives_menu:
+          see_initiative: Zobrazit iniciativu
         initiatives_settings: Nastavení
         initiatives_submenu:
           info: O této iniciativě
@@ -304,8 +306,8 @@ cs:
             update: Aktualizovat
           form:
             authorizations: Nastavení autorizace
-            child_scope_threshold_enabled_help: 'Tento konfigurační příznak nepodporuje offline hlasování. Umožňuje podrozsahy a pracuje s obslužnou rutinou autorizace, která uživateli přiřazuje rozsah. Ujistěte se, že jste vybrali toto oprávnění níže v nastavení oprávnění. Aby to fungovalo, musí být rozsahy nakonfigurovány hierarchickým způsobem: 1 nadřazený – N podřízený. Další informace o tom, jak tato konfigurace funguje, najdete na <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">stránce dokumentace pro administraci iniciativ</a>.'
-            only_global_scope_enabled_help: Zaškrtněte tuto poznámku, pokud jste povolili "Podřazená oblast působnosti" a nakonfigurovali globální rozsah jako vaši nadřazenou oblast působnosti. Povolením této možnosti bude výběr typu iniciativy přeskočeno v průvodci vytvořením iniciativy. Více informací o tom, jak tato konfigurace funguje, naleznete na tomto <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">odkazu</a>.
+            child_scope_threshold_enabled_help_html: 'Tento příznak konfigurace nepodporuje offline hlasování. Umožňuje podřazené rozsahy a pracuje s autorizačním handlerem, který přiřazuje rozsah k uživateli. Ujistěte se, že jste zvolili toto autorizaci, níže v nastavení autorizace. Aby fungoval, je třeba nastavit rozsahy hierarchickým způsobem: 1 nadřazený - N podřazených. Více informací o tom, jak tato konfigurace funguje, naleznete v <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">administrátorské dokumentaci</a>.'
+            only_global_scope_enabled_help_html: Zaškrtněte tento příznak, pokud jste povolili "Podřazený rozsah" a nakonfigurovali globální rozsah jako váš nadřazený rozsah. Povolením této možnosti bude výběr typu iniciativy přeskočeno v průvodci vytvořením iniciativy. Více informací o tom, jak funguje tato konfigurace, naleznete v tomto <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">odkazu</a>.
             options: Možnosti
           initiative_type_scopes:
             title: Oblasti působnosti pro tento druh iniciativ
@@ -362,7 +364,6 @@ cs:
           back: Zpět
           continue: Pokračovat
           fill_data_help: "<ul> <li>Přečtěte si obsah vaší iniciativy. Je váš název snadno srozumitelný? Je cíl vaší iniciativy jasný?</li> <li>Musíte zvolit typ podpisu. Osobní, on-line nebo kombinace obou</li> <li>Jaká je geografická oblast působnosti?</li> </ul>"
-          initiative_type: Typ iniciativy
           more_information: "(Více informací)"
           select_area: Vybrat oblast
           select_scope: Zvolte rozsah
@@ -470,10 +471,12 @@ cs:
             other: a %{count} dalších lidí
         committee_members:
           approve: Schválit
-          confirm_revoke: Jste si jist?
+          confirm_approve: Opravdu chcete schválit tohoto člena?
+          confirm_revoke: Opravdu chcete tohoto člena odvolat?
           invite_to_committee_help: Sdílejte tento odkaz pro pozvání ostatních účastníků do propagačního výboru.
           link: Odkaz
           no_members_yet: V předkladatelském výboru nejsou žádní členové.
+          revoke: Odvolat
           title: Členové výboru
         count:
           title:
@@ -487,7 +490,6 @@ cs:
           author: Autor
           myself: Moje iniciativy
           scope: Oblast působnosti
-          search: Vyhledávání
           state: Stav
           type: Typ
         index_header:
@@ -626,8 +628,5 @@ cs:
         sms_phone_number: Číslo mobilního telefonu
         title: Podepsat %{initiative_title}
       initiatives:
-        initiative:
-          check: Koukni na to
-          check_and_support: Podívat se na to a podepsat
         no_initiatives_yet:
           no_initiatives_yet: Zatím žádné iniciativy!

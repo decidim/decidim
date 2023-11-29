@@ -66,6 +66,7 @@ ca:
           count:
             one: "%{count} publicació"
             other: "%{count} publicacions"
+          empty: Encara no hi ha cap publicació.
     components:
       blogs:
         actions:
