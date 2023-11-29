@@ -37,9 +37,6 @@ describe "Meeting registrations" do
       available_slots:,
       registration_terms:
     )
-
-    # Make static map requests not to fail with HTTP 500 (causes JS error)
-    stub_request(:get, Regexp.new(Decidim.maps.fetch(:static).fetch(:url))).to_return(body: "")
   end
 
   context "when meeting registrations are not enabled" do
