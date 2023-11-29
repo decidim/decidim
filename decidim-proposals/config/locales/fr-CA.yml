@@ -431,8 +431,8 @@ fr-CA:
               one: proposition
               other: propositions
           title:
-            answers: Importer des réponses aux propositions
-            proposals: Importer des propositions
+            answers: Importer des réponses à proposition depuis un fichier
+            proposals: Importer des propositions depuis un fichier
         models:
           proposal:
             name: Proposition
@@ -526,7 +526,6 @@ fr-CA:
             create: Créer
             title: Créer une proposition
           publish_answers:
-            number_of_proposals: Les réponses pour %{number} propositions seront publiées.
             select_a_proposal: Veuillez sélectionner une proposition.
           show:
             amendments_count: Nombre d'amendements
@@ -536,7 +535,7 @@ fr-CA:
             documents: Documents
             endorsements_count: Nombre de soutiens
             endorsers: Soutiens
-            link: Lien
+            link: Voir la proposition
             n_more_endorsers:
               one: et 1 de plus
               other: et %{count} autres
@@ -566,7 +565,7 @@ fr-CA:
             no_components: Il n'y a pas d'autre fonctionnalité de proposition dans cet espace participatif dans laquelle importer les propositions.
             select_component: Veuillez sélectionner une fonctionnalité
             select_states: Vérifiez l'état des propositions à importer
-            title: Importer des propositions
+            title: Importer des propositions depuis un autre composant
         proposals_merges:
           create:
             invalid: 'Une erreur est survenue lors de la fusion des propositions à cause de certaines d''entre elles:'

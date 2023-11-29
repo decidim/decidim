@@ -105,7 +105,6 @@ module Decidim
         Decidim.icons.register(name: "question-answer-line", icon: "question-answer-line", category: "system", description: "", engine: :core)
 
         Decidim.icons.register(name: "account-pin-circle-line", icon: "account-pin-circle-line", category: "system", description: "", engine: :core)
-        Decidim.icons.register(name: "link", icon: "link", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "award-line", icon: "award-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "eye-2-line", icon: "eye-2-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "group-line", icon: "group-line", category: "system", description: "", engine: :core)
@@ -173,6 +172,12 @@ module Decidim
 
         Decidim.icons.register(name: "like", icon: "heart-add-line", description: "Like", category: "action", engine: :core)
         Decidim.icons.register(name: "dislike", icon: "dislike-line", description: "Dislike", category: "action", engine: :core)
+        Decidim.icons.register(name: "drag-move-2-line", icon: "drag-move-2-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "drag-move-2-fill", icon: "drag-move-2-fill", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "login-circle-line", icon: "login-circle-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "list-check", icon: "list-check", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "add-fill", icon: "add-fill", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "clipboard-line", icon: "clipboard-line", category: "system", description: "", engine: :initiatives)
 
         # Refactor later: Some of the icons here are duplicated, and it would be a greater refactor to remove the duplicates
         Decidim.icons.register(name: "Decidim::Amendment", icon: "git-branch-line", category: "activity", description: "Amendment", engine: :core)

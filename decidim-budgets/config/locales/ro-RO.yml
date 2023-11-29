@@ -95,7 +95,6 @@ ro:
             create: Importă propuneri în proiecte
             no_components: Nu există alte componente de propuneri în acest spațiu participativ pentru a importa propunerile în proiecte.
             select_component: Te rugăm selectează o componentă
-            title: Importă propuneri
       admin_log:
         budget:
           create: "%{user_name} a creat bugetul %{resource_name} în spațiul %{space_name}"
@@ -105,8 +104,6 @@ ro:
           create: "%{user_name} a creat proiectul %{resource_name} în spațiul %{space_name}"
           delete: "%{user_name} a șters proiectul %{resource_name} din spațiul %{space_name}"
           update: "%{user_name} a actualizat proiectul %{resource_name} din spațiul %{space_name}"
-      budget:
-        view: Vezi toate proiectele
       budget_information_modal:
         back_to: Înapoi la %{component_name}
         close_modal: Închide fereastra
@@ -132,7 +129,6 @@ ro:
           fields:
             category: Categorie
             id: ID
-            scope: Domeniu de interes
             title: Titlu
       order_summary_mailer:
         order_summary:
@@ -186,7 +182,6 @@ ro:
           selected: Selectate
         project:
           selected: Selectate
-          view: Vizualizează
           votes:
             one: vot
             few: voturi

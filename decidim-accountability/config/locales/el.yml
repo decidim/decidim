@@ -39,8 +39,6 @@ el:
         confirm_destroy: Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το όνομα %{name};
         destroy: Διαγραφή
         edit: Επεξεργασία
-        import: Εισαγωγή έργων στα αποτελέσματα
-        import_csv: Εισαγωγή αρχείου CSV
         preview: Προεπισκόπηση
         timeline_entries: Εξέλιξη έργου
         title: Ενέργειες
@@ -73,7 +71,6 @@ el:
                 </ul>
               </li>
               </ol>
-            title: Εισαγωγή αποτελεσμάτων από αρχείο CSV
         imports:
           create:
             success: Η εισαγωγή του αρχείου ξεκίνησε. Μέσα στα επόμενα λεπτά θα λάβετε ένα email με το αποτέλεσμα της εισαγωγής.
@@ -97,7 +94,6 @@ el:
             success:
               one: 1 έργο στην ουρά για εισαγωγή. Θα ειδοποιηθείτε μέσω email μόλις ολοκληρωθεί.
               other: "%{count} έργα στην ουρά για εισαγωγή. Θα ειδοποιηθείτε μέσω email μόλις ολοκληρωθεί."
-            title: Εισαγωγή Έργων στην Υπευθυνότητα
         results:
           create:
             invalid: Υπήρξε ένα πρόβλημα κατά τη δημιουργία αυτού του αποτελέσματος.
@@ -170,9 +166,7 @@ el:
             not_found: 'H γονική διαδικασία δεν βρέθηκε στη βάση δεδομένων (αναγνωριστικό: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Ημερομηνίες
           results: Αποτελέσματα
-          unspecified: Δεν έχει καθοριστεί
       import_mailer:
         import:
           errors: Σφάλματα
@@ -211,9 +205,6 @@ el:
           fields:
             entry_date: Ημερομηνία
             title: Τίτλος
-      result_m:
-        executed: Εκτελέσθηκε
-        view: Προβολή
       results:
         count:
           results_count:

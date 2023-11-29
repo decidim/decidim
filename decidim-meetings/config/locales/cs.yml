@@ -22,6 +22,7 @@ cs:
         id: ID
         iframe_access_level: Úroveň přístupu do iframe
         iframe_embed_type: Typ vloženého rámu
+        iframe_embed_type_html: Jen pár služeb umožňuje "Vložit na stránku schůzky" nebo "Otevřít v živé události". Všimněte si, že s možností "Vložit na stránku schůzky" na mobilní zařízení, jako obrazovka dědí různé rozměry, bude fungovat jako "Otevřít v živé události".
         location: Umístění
         location_hints: Nápověda k poloze
         online_meeting_url: URL online schůzky
@@ -322,6 +323,7 @@ cs:
           form:
             address_help: 'Adresa: použita Geocoderem k nalezení polohy'
             disclaimer: 'Prohlášení o zřeknutí: Použitím externího registračního systému jste si vědomi toho, že organizátoři %{organization} nejsou odpovědní za data poskytovaná uživateli externí službě.'
+            iframe_embed_type_html: 'Pouze pár služeb umožňuje vložení do schůzky nebo živé události z následujících domén: %{domains}'
             location_help: 'Poloha: zpráva určená uživatelům, kteří předávají místo, aby se setkali'
             location_hints_help: 'Upřesnění k místu: dodatečné informace. Příklad: patro budovy, pokud se jedná o osobní schůzku, nebo vstupní heslo pro schůzku, pokud se jedná o schůzku s omezeným přístupem.'
             online_meeting_url_help: 'Odkaz: Umožnit účastníkům připojení přímo k vaší schůzce'
@@ -329,7 +331,6 @@ cs:
             select_a_meeting_type: Vyberte prosím typ schůzky
             select_a_registration_type: Vyberte prosím typ registrace
             select_an_iframe_access_level: Vyberte prosím úroveň přístupu iframe
-            show_embedded_iframe_help: 'Pouze pár služeb umožňuje vložení do schůzky nebo živé události z následujících domén: %{domains}'
           index:
             title: Setkání
           new:
@@ -406,6 +407,9 @@ cs:
           all: Vše
         filter_meeting_space_values:
           all: Vše
+      calendar:
+        meeting_to_event:
+          read_more: Přečtěte si více o této schůzce
       calendar_modal:
         calendar_url: Adresa URL kalendáře
         copy_calendar_url: Kopírovat
@@ -428,7 +432,6 @@ cs:
       directory:
         meetings:
           index:
-            go_to_list: Zobrazit seznam událostí
             meetings: Setkání
             space_type: Účastní prostor
       iframe_access_level:
@@ -510,6 +513,7 @@ cs:
           available_slots_help: Ponechte 0, pokud máte k dispozici neomezený počet slotů
           create_as: Vytvořit schůzku jako
           disclaimer: 'Prohlášení o zřeknutí: použitím externího registračního systému, jste si vědomi toho, že organizátoři %{organization} nejsou odpovědní za data poskytovaná uživateli externí službě.'
+          iframe_embed_type_html: 'Pouze pár služeb umožňuje vložení do schůzky nebo živé události z následujících domén: %{domains}'
           location_help: 'Poloha: zpráva určená uživatelům, kteří navrhují místo ke schůzce na'
           location_hints_help: 'Upřesnění k místu: dodatečné informace. Příklad: patro budovy, pokud se jedná o osobní schůzku, nebo vstupní heslo pro schůzku, pokud se jedná o schůzku s omezeným přístupem.'
           online_meeting_url_help: 'Odkaz: Umožnit účastníkům připojení přímo k vaší schůzce'
@@ -518,7 +522,6 @@ cs:
           select_a_meeting_type: Vyberte prosím typ schůzky
           select_a_registration_type: Vyberte prosím typ registrace
           select_an_iframe_access_level: Vyberte prosím úroveň přístupu iframe
-          show_embedded_iframe_help: 'Pouze pár služeb umožňuje vložení do schůzky nebo živé události z následujících domén: %{domains}'
         index:
           click_here: Zobrazit všechny schůzky
           new_meeting: Nová schůzka
@@ -543,7 +546,6 @@ cs:
         show:
           attendees: Počet účastníků
           contributions: Počet příspěvků
-          date: Datum
           join: Připojte se k setkání
           leave: Zrušit registraci
           leave_confirmation: Opravdu chcete zrušit registraci na tuto schůzku?
@@ -563,7 +565,6 @@ cs:
             few: "%{count} zbývajících bloků"
             many: "%{count} zbývajících bloků"
             other: "%{count} zbývajících bloků"
-          view: Zobrazit
           visit_finished: Zobrazit minulou schůzku
           withdraw_btn_hint: Schůzku můžete stáhnout, pokud změníte názor. Schůzka není smazána, objeví se v seznamu stažených schůzek.
           withdraw_confirmation_html: Opravdu chcete tuto schůzku stáhnout?<br><br><strong>Tuto akci nelze zrušit!</strong>

@@ -28,3 +28,5 @@ de:
           update:
             invalid: Beim Speichern der Seite sind Fehler aufgetreten.
             success: Seite erfolgreich gespeichert
+      show:
+        empty: Es gibt noch keine Inhalte auf dieser Seite.

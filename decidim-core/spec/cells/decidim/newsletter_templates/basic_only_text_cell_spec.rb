@@ -45,25 +45,8 @@ describe Decidim::NewsletterTemplates::BasicOnlyTextCell, type: :cell do
       expect(subject.to_s).to include(logo_url)
     end
 
-    it "renders an anchor URL with the logo before the newsletter is sent" do
-      expect(subject).to have_css(".decidim-bar a[href='#'] img[class='float-right']")
-    end
-
-    context "when the newsletter is sent" do
-      let(:newsletter) { create(:newsletter, :sent, organization:) }
-
-      it "renders the organization's official URL" do
-        expect(subject).to have_css(".decidim-bar a[href='#{organization.official_url}'] img[class='float-right']")
-      end
-
-      context "when the organization does not have an official URL" do
-        let(:organization) { create(:organization, official_url: nil) }
-        let(:newsletter) { create(:newsletter, :sent, organization:) }
-
-        it "renders the URL to Decidim instead" do
-          expect(subject).to have_css(".decidim-bar a[href='http://#{organization.host}:#{Capybara.server_port}/'] img[class='float-right']")
-        end
-      end
+    it "renders the URL to to the application" do
+      expect(subject).to have_css(".decidim-bar a[href='http://#{organization.host}:#{Capybara.server_port}/'] img")
     end
   end
 end

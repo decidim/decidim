@@ -859,22 +859,6 @@ cs:
         index:
           published: Zveřejněno
           unpublished: Nezveřejněno
-        landing_page:
-          content_blocks:
-            create:
-              error: Při pokusu o vytvoření tohoto bloku obsahu došlo k chybě.
-              success: Blok obsahu byl úspěšně vytvořen.
-            destroy:
-              error: Při pokusu o odstranění tohoto bloku obsahu došlo k chybě.
-              success: Blok obsahu byl úspěšně odstraněn.
-            edit:
-              update: Aktualizovat
-          edit:
-            active_content_blocks: Aktivní bloky obsahu
-            add: Přidat blok obsahu
-            destroy_confirmation: Opravdu chcete smazat tento blok obsahu?
-            inactive_content_blocks: Neaktivní bloky obsahu
-            title: Obsah stránky
         menu:
           votings: Hlasování
           votings_submenu:
@@ -1015,8 +999,6 @@ cs:
             title: Vytvořit volebního komisaře
           polling_officers_picker:
             choose_polling_officers: Vybrat volební komisaře
-            close: Zavřít
-            more_polling_officers: Existuje ještě %{number} volebních komisařů. Upřesněte vyhledávání a najděte je.
             no_polling_officers: Žádní volební komisaři neodpovídají vašim kritériím vyhledávání, nebo zde není žádný volební komisař.
         polling_stations:
           create:
@@ -1160,8 +1142,7 @@ cs:
               csv_header_after: Nezahrnujte poslední pole ("%{ballot_style_code_header}"), pokud nepotřebujete styly hlasování / podmíněné otázky
               csv_header_before: 'Soubor seznamu osob musí být soubor CSV s následujícím záhlavím:'
         document_types:
-          dni: Občanský průkaz
-          nie: Daňové identifikační číslo
+          identification_number: Identifikační číslo
           passport: Cestovní pas
         export_mailer:
           access_codes_export:
@@ -1419,8 +1400,6 @@ cs:
           online: Online
   layouts:
     decidim:
-      election_votes_header:
-        exit: Ukončit
       voting_navigation:
         check_census: Mohu hlasovat?
         election_log: Volební protokol

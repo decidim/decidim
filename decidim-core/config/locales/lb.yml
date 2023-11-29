@@ -169,7 +169,6 @@ lb:
         error: Beim Änneren vun dëser Ressource ass e Feeler opgetrueden.
         promote_button: Zu engem %{model_name} befërderen
         promote_confirm_text: Möchten Sie diese Erweiterung wirklich fördern?
-        section_heading: Ännerungen (%{count})
       compare_draft:
         continue: Weider
         no_similars_found: Keine ähnlichen Entwürfe gefunden.
@@ -307,7 +306,6 @@ lb:
         one: und %{count} mehr
         other: und %{count} mehr
       see_less: "(Weniger anzeigen)"
-      see_more: "(Mehr anzeigen)"
     components:
       component_order_selector:
         order:
@@ -877,7 +875,6 @@ lb:
           proposals: Virschléi
           proposals_explanation: Maach Virschléi, ënnerstëtz Virschléi an fërder Verännerungen déi dir wichteg sinn.
         footer_sub_hero:
-          footer_sub_hero_body: Looss eis un enger méi oppener, transparenter an kollaborativer Gesellschaft schaffen. <br /> Komm mat, maach mat an entscheet mat.
           footer_sub_hero_headline: Wëllkomm %{organization} op der Participatiouns-Plattform.
           register: Registréieren
         hero:
@@ -1174,7 +1171,6 @@ lb:
         change_my_password: Mäin Passwuert änneren
         confirm_new_password: Neit Passwuert bestätegen
         new_password: Neit Passwuert
-        password_help: "Muss op mannst aus %{minimun_characters} Zeechen bestoen, keng ze banal Zeechen (z.B. 123456) an et dierf weder däin Pseudonym nach deng Email-Adress enthalen."
       new:
         forgot_your_password: Passwuert vergiess?
         send_me_reset_password_instructions: Schéckt mir d'Instruktiounen fir d'Passwuert ze ersetzen

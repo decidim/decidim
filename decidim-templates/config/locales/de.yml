@@ -12,6 +12,8 @@ de:
         manage: Verwalten
         templates: Vorlagen
       templates:
+        actions:
+          new_template: Neue Vorlage
         apply:
           error: Es gab ein Problem beim Anwenden dieser Vorlage.
           success: Vorlage erfolgreich angewendet.
@@ -24,6 +26,7 @@ de:
         destroy:
           success: Vorlage erfolgreich gelöscht.
         empty: Es gibt noch keine Vorlagen.
+        missing_resource: "(fehlende Ressource)"
         update:
           error: Bei der Aktualisierung dieser Vorlage ist ein Problem aufgetreten.
           success: Vorlage erfolgreich aktualisiert.
@@ -54,6 +57,26 @@ de:
             title: Neue Vorlage für Nachricht an zu blockierende Nutzende
           template_chooser:
             select_template: Wählen Sie eine Antwortvorlage aus
+        proposal_answer_templates:
+          edit:
+            title: Vorlage für Vorschlagsantworten bearbeiten
+          form:
+            component_constraint_help: Beachten Sie, dass nur partizipative Räume mit Komponenten des Typs "Vorschlag" aufgelistet werden.
+            hint1_html: "<strong>%{organization}</strong> wird durch den Namen der Organisation ersetzt"
+            hint2_html: "<strong>%{name}</strong> wird durch den Namen des Autors ersetzt"
+            hint3_html: "<strong>%{admin}</strong> wird durch den Namen des Admins ersetzt, der den Vorschlag beantwortet"
+            hint_html: "<strong>Tipp:</strong> Sie können diese Variablen überall in der Antwortvorlage verwenden. Sie werden bei der Verwendung der Vorlage ersetzt"
+            save: Speichern
+          index:
+            component_constraint: Einschränkung hinzufügen
+            confirm_delete: Möchten Sie diese Vorlage wirklich löschen?
+            global_scope: Global (überall verfügbar)
+            internal_state: Interner Status
+            title: Vorschlagsantworten
+          new:
+            title: Neue Vorlage für Vorschlagsantworten
+          template_chooser:
+            select_template: Antwortvorlage auswählen
         questionnaire_templates:
           choose:
             create_from_template: Aus Vorlage erstellen
@@ -85,4 +108,5 @@ de:
           update: "%{user_name} hat die Umfragevorlage %{resource_name} aktualisiert"
       template_types:
         block_user: Nachrichten blockieren
+        proposal_answer_templates: Vorschlagsantworten
         questionnaires: Fragebögen

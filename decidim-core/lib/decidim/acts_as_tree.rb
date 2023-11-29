@@ -15,8 +15,20 @@ module Decidim
         @parent_item_foreign_key = name
       end
 
+      def parent_item_polymorphic_type_key(name = nil)
+        return @parent_item_polymorphic_type_key unless name
+
+        @parent_item_polymorphic_type_key = name
+      end
+
       def tree_for(item)
         where(Arel.sql("#{table_name}.id IN (#{tree_sql_for(item)})")).order("#{table_name}.id")
+      end
+
+      def polymorphic_condition(item)
+        return "" if parent_item_polymorphic_type_key.blank?
+
+        "AND #{table_name}.#{parent_item_polymorphic_type_key} = '#{item.class.name}'"
       end
 
       def tree_sql_for(item)
@@ -28,7 +40,7 @@ module Decidim
             UNION ALL
           SELECT #{table_name}.id, path || #{table_name}.id
             FROM search_tree
-          JOIN #{table_name} ON #{table_name}.#{parent_item_foreign_key} = search_tree.id
+          JOIN #{table_name} ON #{table_name}.#{parent_item_foreign_key} = search_tree.id #{polymorphic_condition(item)}
             WHERE NOT #{table_name}.id = ANY(path)
         )
         SELECT id FROM search_tree ORDER BY path

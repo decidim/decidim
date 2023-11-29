@@ -78,7 +78,6 @@ ja:
         machine_translation_display_priority_translation: 翻訳テキストを最初にする
         name: 名前
         official_img_footer: 公式ロゴフッター
-        official_img_header: 公式ロゴヘッダー
         official_url: 公式組織URL
         omnipresent_banner_short_description: 短い説明
         omnipresent_banner_title: タイトル
@@ -131,6 +130,7 @@ ja:
         weight: 順番の位置
       static_page_topic:
         description: 説明
+        name: トピック名
         show_in_footer: フッターに表示
         title: タイトル
         weight: 順番の位置
@@ -145,8 +145,6 @@ ja:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: 無効な画像ファイル
-            official_img_header:
               allowed_file_content_types: 無効な画像ファイル
         participatory_space_private_user_csv_import:
           attributes:
@@ -363,6 +361,20 @@ ja:
           title: 移行
         'true': 'はい'
         user_name: ユーザー
+      content_blocks:
+        create:
+          error: コンテンツブロックの作成中にエラーが発生しました。
+          success: コンテンツブロックを作成しました。
+        destroy:
+          error: コンテンツブロックの削除中に問題が発生しました。
+          success: コンテンツブロックを削除しました。
+        edit:
+          active_content_blocks: アクティブなコンテンツブロック
+          add: コンテンツブロックを追加
+          destroy_confirmation: このコンテンツブロックを削除してもよろしいですか？
+          inactive_content_blocks: 非アクティブコンテンツブロック
+          title: ページの内容
+          update: 更新
       dashboard:
         pending_moderations:
           anouncement:
@@ -567,6 +579,7 @@ ja:
         scopes: スコープ
         see_site: サイトを見る
         settings: 設定
+        static_page_topics: トピック
         static_pages: ページ
         user_groups: グループ
         users: 参加者
@@ -823,13 +836,14 @@ ja:
             colors_title: 組織の色
             colors_warning_html: '警告: これらの色を変更すると、アクセシビリティのコントラストが壊れる可能性があります。 <a href="%{link}">WebAIM Contrast Checker</a> または他の同様のツールで、選択したコントラストを確認できます。'
             explanation: このツールは、カラーホイールの周りに均等に間隔を置いた色相で構成された配色を選択するのに役立ちます。 これは組織のウェブサイトに掲載されています
-            header_snippets_help_html: HTMLヘッダ部分に追加するには、このフィールドを使用します。 最も一般的な用途は、追加の JavaScript や CSS を必要とするサードパーティのサービスとの統合です。 また、HTML に追加のメタタグを追加するためにも使用できます。 これは一般向けの公開ページでのみ表示され、管理者向けセクションでは表示されないことに注意してください。 コードが外部 API と相互作用する場合や、アプリケーション・セキュリティ・ガイドラインに準拠していない場合、コンテンツセキュリティポリシーを変更する必要があります。 詳細は <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">ドキュメント サイト</a> をご覧ください。
             legend_html: <a href="https://www.color-meanings.com/triadic-colors/">三角法に基づく</a>に基づくメインのアプリケーションカラーです. 選択されたプライマリカラーと彩度に基づいて、<i>セカンダリ</i> カラーはは自動的に計算されます.
             saturation: 彩度
             title: 色の選択
             update_suggested_colors: 提案色を更新
           cta_button_path_help_html: 'ホームページにあるCall to Actionボタンのリンク先を上書きすることができます。完全なURLではなく、相対パスを使用してください。 英字、数字、ハイフン、スラッシュを使用でき、英字で始まる必要があります。 Call To Actionボタンは、ホームページ内のウェルカムテキストと説明の間に表示されます。例: %{url}'
           cta_button_text_help: 組織の利用可能な言語ごとにホームページの [Call To Action] ボタンのテキストを上書きできます。 設定されていない場合は、デフォルト値が使用されます。 Call To Actionボタンは、ウェルカムテキストと説明の間のホームページに表示されます。
+          header_snippets:
+            title: HTML ヘッダーのスニペット
           homepage_appearance_title: ホームページの外観を編集
           homepage_highlighted_content_banner_title: ハイライトされたコンテンツバナー
           images:
@@ -847,22 +861,6 @@ ja:
         form:
           add: ホワイトリストに追加
           title: 外部ドメインのホワイトリスト
-      organization_homepage:
-        content_blocks:
-          create:
-            error: コンテンツブロックの作成中に問題が発生しました。
-            success: コンテンツブロックを作成しました。
-          destroy:
-            error: コンテンツブロックの削除中に問題が発生しました。
-            success: コンテンツブロックを削除しました。
-          edit:
-            update: 更新
-        edit:
-          active_content_blocks: アクティブなコンテンツブロック
-          add: コンテンツブロックを追加
-          destroy_confirmation: このコンテンツブロックを削除してもよろしいですか？
-          inactive_content_blocks: 非アクティブコンテンツブロック
-          title: ページ内容
       participatory_space_private_users:
         create:
           error: この参加型スペースにプライベート参加者を追加する際に問題が発生しました。
@@ -881,6 +879,8 @@ ja:
           invalid: CSVファイルの読み込み中に問題が発生しました。手順を確認してください。
           success: CSVファイルは正常にアップロードされました。参加者に招待メールを送信しています。しばらくお待ちください。
         new:
+          csv_upload:
+            title: CSVファイルをアップロード
           destroy:
             button: すべてのプライベート参加者を削除
             confirm: すべてのプライベート参加者を削除してもよろしいですか？この操作は元に戻せず、削除された方を復元することはできません。
@@ -892,7 +892,7 @@ ja:
           explanation_example: |
             john.doe@example.org%{csv_col_sep}John Doe
             jane.doe@example.org%{csv_col_sep}Jane Doe
-          title: CSVファイルをアップロード
+          title: プライベート参加者をCSV形式でインポート
           upload: アップロード
       reminders:
         create:
@@ -957,7 +957,6 @@ ja:
       shared:
         gallery:
           add_images: 画像を追加
-          delete_image: 画像を削除
           edit_images: 画像を編集
           gallery_legend: 画像ギャラリーを追加 (オプション)
       static_page_topics:
@@ -978,20 +977,6 @@ ja:
       static_pages:
         actions:
           view: 公開ページを表示
-        content_blocks:
-          active_content_blocks: アクティブコンテンツブロック
-          add: コンテンツブロックを追加
-          create:
-            error: コンテンツブロックの作成中に問題が発生しました。
-            success: コンテンツブロックを作成しました。
-          destroy:
-            error: コンテンツブロックの削除中に問題が発生しました。
-            success: コンテンツブロックを削除しました。
-          destroy_confirmation: このコンテンツブロックを削除してもよろしいですか？
-          edit:
-            update: 更新
-          inactive_content_blocks: 非アクティブコンテンツブロック
-          title: ページ内容
         create:
           error: 新しいページの作成中に問題が発生しました。
           success: ページの作成に成功しました。
@@ -999,17 +984,18 @@ ja:
           success: ページを削除しました
         edit:
           changed_notably_help: チェックした場合、参加者に新しい利用規約に同意するよう通知されます。
+          last_notable_change: '直近の注目すべき変更: %{tos_version_formatted}'
           title: ページを編集
           update: 更新
         form:
           none: なし
           slug_help_html: 'ここでは完全な URL ではなく、相対パスを使用してください。英字、数字、ハイフン、スラッシュを受け入れ、英字で始まる必要があります。例: %{url}'
+        index:
+          last_notable_change: 前回の注目すべき変更
         new:
           create: ページを作成
           title: 新しいページ
         topic:
-          destroy: トピックを削除
-          edit: トピックを編集
           empty: このトピックのページはありません。
           without_topic: トピックがないページ
         update:
@@ -1027,6 +1013,7 @@ ja:
         impersonatable_users: 管理可能な参加者
         impersonations: 参加者管理
         metrics: 指標
+        page_topics: トピック
         pages: ページ
         panel: 管理者
         participants: 参加者

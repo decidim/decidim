@@ -20,6 +20,9 @@ ca:
         scope_id: Àmbit
   activerecord:
     models:
+      decidim/budgets/budget:
+        one: Pressupost
+        other: Pressupostos
       decidim/budgets/project:
         one: Projecte
         other: Projectes
@@ -92,6 +95,7 @@ ca:
           index:
             actions: Accions
             cancel: Cancel·lar
+            change_budget: Canviar pressupost
             change_category: Canviar categoria
             change_scope: Canviar àmbit
             change_selected: Canviar l'estat seleccionat
@@ -102,6 +106,7 @@ ca:
             selected: Seleccionat
             title: Projectes
             update: Actualitzar
+            update_budget_button: Actualitzar el pressupost del projecte
             update_scope_button: Actualitzar àmbit
           new:
             create: Crear
@@ -109,6 +114,10 @@ ca:
           update:
             invalid: S'ha produït un error en actualitzar aquest projecte.
             success: Projecte actualitzat correctament.
+          update_budget:
+            invalid: 'Aquests projectes ja estan al mateix pressupost o els seus pressupostos són superiors al màxim permès: %{projects}.'
+            select_a_project: Si us plau, selecciona un projecte.
+            success: 'Projectes actualitzats correctament pel pressupost de %{subject_name}: %{projects}.'
           update_category:
             invalid: 'Aquestes propostes ja tenien la categoria %{subject_name}: %{projects}.'
             select_a_category: Si us plau, selecciona una categoria.
@@ -139,7 +148,7 @@ ca:
             no_components: No hi ha cap component de propostes en aquest espai participatiu per importar les propostes a projectes.
             origin_component_id: Component d'origen
             select_component: Selecciona un component
-            title: Importar propostes
+            title: Importa propostes a projectes
         reminders:
           orders:
             description: Les usuàries rebran un correu amb els enllaços als pressupostos on tenen "comandes" pendents.
@@ -155,8 +164,6 @@ ca:
           create: "%{user_name} ha creat el projecte %{resource_name} a l'espai %{space_name}"
           delete: "%{user_name} ha eliminat el projecte %{resource_name} de l'espai %{space_name}"
           update: "%{user_name} ha actualitzat el projecte %{resource_name} de l'espai %{space_name}"
-      budget:
-        view: Veure tots els projectes de pressupost
       budget_information_modal:
         back_to: Tornar a %{component_name}
         close_modal: Tancar el modal
@@ -170,6 +177,7 @@ ca:
         count:
           one: "%{count} pressupost"
           other: "%{count} pressupostos"
+        empty: Encara no hi ha cap pressupost
         finished_message: Has finalitzat el procés de votació. Gràcies per participar-hi!
         highlighted_cta: Votar a %{name}
         if_change_opinion: Si has canviat d'opinió, pots %{cancel_link}.
@@ -194,7 +202,6 @@ ca:
           fields:
             category: Categoria
             id: ID
-            scope: Àmbit
             title: Títol
       order_summary_mailer:
         order_summary:
@@ -229,6 +236,7 @@ ca:
           projects_count:
             one: 1 projecte
             other: "%{count} projectes"
+        empty: Encara no hi ha cap projecte
         exit_modal:
           cancel: Tornar a la votació
           exit: Sortir de la votació
@@ -243,8 +251,6 @@ ca:
             all: Tots
             not_selected: No seleccionat
             selected: Seleccionat
-        index:
-          back_to_budgets: tornar als pressupostos
         order_progress:
           assigned: Assignat
           budget: Pressupost
@@ -272,7 +278,6 @@ ca:
           add: Afegir el projecte %{resource_name} al teu vot.
           remove: Esborrar el projecte %{resource_name} del teu vot.
           selected: Seleccionat
-          view: Veure
           votes:
             one: vot
             other: vots
@@ -289,6 +294,7 @@ ca:
         select_projects: Selecciona projectes
         show:
           budget: Pressupost
+      prompt: Seleccionar pressupost
       vote_reminder_mailer:
         vote_reminder:
           email_budgets: 'Àrees a les quals no has finalitzat el vot:'
