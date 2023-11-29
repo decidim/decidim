@@ -29,6 +29,7 @@ module Decidim
       translatable_fields :body
 
       parent_item_foreign_key :decidim_commentable_id
+      parent_item_polymorphic_type_key :decidim_commentable_type
 
       belongs_to :commentable, foreign_key: "decidim_commentable_id", foreign_type: "decidim_commentable_type", polymorphic: true
       belongs_to :root_commentable, foreign_key: "decidim_root_commentable_id", foreign_type: "decidim_root_commentable_type", polymorphic: true, touch: true
