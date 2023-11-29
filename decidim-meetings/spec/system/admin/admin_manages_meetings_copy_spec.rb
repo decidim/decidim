@@ -13,6 +13,10 @@ describe "Admin copies meetings" do
   include Decidim::SanitizeHelper
   include_context "when managing a component as an admin"
 
+  before do
+    visit current_path
+  end
+
   context "when online" do
     let(:type_of_meeting) { :online }
 
