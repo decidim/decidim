@@ -88,7 +88,7 @@ module Decidim
                    params.merge(
                      title: Decidim::Faker::Localized.sentence(word_count: 2),
                      type_of_meeting: :hybrid,
-                     online_meeting_url: "http://example.org"
+                     online_meeting_url: "https://www.youtube.com/watch?v=f6JMgJAQ2tc"
                    )
                  when :online
                    params.merge(
@@ -98,7 +98,7 @@ module Decidim
                      longitude: nil,
                      title: Decidim::Faker::Localized.sentence(word_count: 2),
                      type_of_meeting: :online,
-                     online_meeting_url: "http://example.org"
+                     online_meeting_url: "https://www.youtube.com/watch?v=f6JMgJAQ2tc"
                    )
                  else
                    params # :in_person
