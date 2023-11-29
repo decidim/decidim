@@ -1,5 +1,8 @@
 /* eslint id-length: ["error", { "exceptions": ["$"] }] */
 
+import createOptionAttachedInputs from "src/decidim/forms/option_attached_inputs.component"
+import createMaxChoicesAlertComponent from "src/decidim/forms/max_choices_alert.component"
+
 /**
  * A plain Javascript component that handles questions from polls in meetings:
  *   - fetches them via Ajax
@@ -75,6 +78,7 @@ export default class PollComponent {
       this._updateCounter();
       this._setQuestionsState(this.$element);
       this._pollQuestions();
+      this._addValidations();
     });
   }
 
@@ -162,5 +166,30 @@ export default class PollComponent {
       const questionsCount = this.$element.find("details").length;
       this.$counter.html(`(${questionsCount})`);
     }
+  }
+
+  _addValidations() {
+    console.log("KEEP ME ASFSL")
+    $(".js-radio-button-collection, .js-check-box-collection").each((idx, el) => {
+      createOptionAttachedInputs({
+        wrapperField: $(el),
+        controllerFieldSelector: "input[type=radio], input[type=checkbox]",
+        dependentInputSelector: "input[type=text], input[type=hidden]"
+      });
+    });
+
+    $.unique($(".js-check-box-collection").parents(".answer")).each((idx, el) => {
+      console.log("CHECKIE")
+      const maxChoices = $(el).data("max-choices");
+      if (maxChoices) {
+        createMaxChoicesAlertComponent({
+          wrapperField: $(el),
+          controllerFieldSelector: "input[type=checkbox]",
+          controllerCollectionSelector: ".js-check-box-collection",
+          alertElement: $(el).find(".max-choices-alert"),
+          maxChoices: maxChoices
+        });
+      }
+    });
   }
 }
