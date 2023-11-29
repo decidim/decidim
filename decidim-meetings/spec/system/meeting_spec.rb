@@ -9,11 +9,6 @@ describe "Meeting", download: true do
   let(:meeting) { create(:meeting, :published, :with_services, component:) }
   let!(:user) { create(:user, :confirmed, organization:) }
 
-  before do
-    # Make static map requests not to fail with HTTP 500 (causes JS error)
-    stub_request(:get, Regexp.new(Decidim.maps.fetch(:static).fetch(:url))).to_return(body: "")
-  end
-
   def visit_meeting
     visit resource_locator(meeting).path
   end
