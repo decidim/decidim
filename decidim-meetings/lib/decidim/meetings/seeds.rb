@@ -17,6 +17,7 @@ module Decidim
 
         2.times do
           create_meeting!(component:, type: :online)
+          create_meeting!(component:, type: :online_live_event)
           create_meeting!(component:, type: :hybrid)
           meeting = create_meeting!(component:, type: :in_person)
 
@@ -104,6 +105,18 @@ module Decidim
                      iframe_access_level: :all,
                      iframe_embed_type: [:embed_in_meeting_page, :open_in_live_event_page, :open_in_new_tab].sample
                    )
+                 when :online_live_event
+                   params.merge(
+                     end_time: Time.zone.now + [rand(1..4).hours, rand(1..20).days].sample,
+                     location: nil,
+                     location_hints: nil,
+                     latitude: nil,
+                     longitude: nil,
+                     type_of_meeting: :online,
+                     online_meeting_url: "https://www.youtube.com/watch?v=f6JMgJAQ2tc",
+                     iframe_access_level: :all,
+                     iframe_embed_type: :open_in_live_event_page
+                   )
                  else
                    params # :in_person
                  end
@@ -129,7 +142,7 @@ module Decidim
       # Create a meeting
       #
       # @param component [Decidim::Component] The component where this class will be created
-      # @param type [:in_person, :hybrid, :online] The meeting type
+      # @param type [:in_person, :hybrid, :online, :online_live_event] The meeting type
       # @param author_type [:official, :user, :user_group] Which type the author of the meeting will be
       #
       # @return [Decidim::Meeting]
