@@ -16,8 +16,6 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
   include Decidim::SanitizeHelper
 
   before do
-    # Make static map requests not to fail with HTTP 500 (causes JS error)
-    stub_request(:get, Regexp.new(Decidim.maps.fetch(:static).fetch(:url))).to_return(body: "")
     stub_geocoding(address, [latitude, longitude])
   end
 

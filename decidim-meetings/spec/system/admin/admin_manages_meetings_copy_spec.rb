@@ -13,12 +13,6 @@ describe "Admin copies meetings" do
   include Decidim::SanitizeHelper
   include_context "when managing a component as an admin"
 
-  before do
-    # Make static map requests not to fail with HTTP 500 (causes JS error)
-    stub_request(:get, Regexp.new(Decidim.maps.fetch(:static).fetch(:url))).to_return(body: "")
-    visit current_path
-  end
-
   context "when online" do
     let(:type_of_meeting) { :online }
 
