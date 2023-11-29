@@ -91,5 +91,11 @@ module Decidim
         manifest.seed!(participatory_space.reload)
       end
     end
+
+    def random_avatar
+      file_number = format("%03d", rand(1...100))
+
+      create_blob!(seeds_file: "avatars/#{file_number}.jpg", filename: "#{file_number}.jpg", content_type: "image/jpeg")
+    end
   end
 end

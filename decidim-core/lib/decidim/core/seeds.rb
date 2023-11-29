@@ -148,6 +148,7 @@ module Decidim
           tos_agreement: true,
           personal_url: ::Faker::Internet.url,
           about: ::Faker::Lorem.paragraph(sentence_count: 2),
+          avatar: random_avatar,
           accepted_tos_version: organization.tos_version + 1.hour,
           newsletter_notifications_at: Time.current,
           password_updated_at: Time.current,
@@ -167,6 +168,7 @@ module Decidim
             tos_agreement: true,
             personal_url: ::Faker::Internet.url,
             about: ::Faker::Lorem.paragraph(sentence_count: 2),
+            avatar: random_avatar,
             accepted_tos_version: organization.tos_version + 1.hour,
             newsletter_notifications_at: Time.current
           )
@@ -186,6 +188,7 @@ module Decidim
           tos_agreement: true,
           personal_url: ::Faker::Internet.url,
           about: ::Faker::Lorem.paragraph(sentence_count: 2),
+          avatar: random_avatar,
           accepted_tos_version: organization.tos_version + 1.hour
         )
 
