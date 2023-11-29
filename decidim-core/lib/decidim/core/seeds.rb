@@ -137,60 +137,19 @@ module Decidim
           )
         end
 
-        admin = Decidim::User.find_or_initialize_by(email: "admin@example.org")
-        admin_hash = {
-          name: ::Faker::Name.name,
-          nickname: ::Faker::Twitter.unique.screen_name,
-          organization:,
-          confirmed_at: Time.current,
-          locale: I18n.default_locale,
+        admin = find_or_initialize_user_by(email: "admin@example.org")
+        admin.update!(
           admin: true,
-          tos_agreement: true,
-          personal_url: ::Faker::Internet.url,
-          about: ::Faker::Lorem.paragraph(sentence_count: 2),
-          avatar: random_avatar,
-          accepted_tos_version: organization.tos_version + 1.hour,
-          newsletter_notifications_at: Time.current,
-          password_updated_at: Time.current,
           admin_terms_accepted_at: Time.current
-        }
-        admin_hash.merge!(password: "decidim123456789") if admin.encrypted_password.blank?
-        admin.update!(admin_hash)
+        )
 
         ["user@example.org", "user2@example.org"].each do |email|
-          Decidim::User.find_or_initialize_by(email:).update!(
-            name: ::Faker::Name.name,
-            nickname: ::Faker::Twitter.unique.screen_name,
-            password: "decidim123456789",
-            confirmed_at: Time.current,
-            locale: I18n.default_locale,
-            organization:,
-            tos_agreement: true,
-            personal_url: ::Faker::Internet.url,
-            about: ::Faker::Lorem.paragraph(sentence_count: 2),
-            avatar: random_avatar,
-            accepted_tos_version: organization.tos_version + 1.hour,
-            newsletter_notifications_at: Time.current
-          )
+          find_or_initialize_user_by(email:)
         end
 
         regular_user = Decidim::User.find_or_initialize_by(email: "user@example.org")
 
-        locked_user = Decidim::User.find_or_initialize_by(email: "locked_user@example.org")
-
-        locked_user.update!(
-          name: ::Faker::Name.name,
-          nickname: ::Faker::Twitter.unique.screen_name,
-          password: "decidim123456789",
-          confirmed_at: Time.current,
-          locale: I18n.default_locale,
-          organization:,
-          tos_agreement: true,
-          personal_url: ::Faker::Internet.url,
-          about: ::Faker::Lorem.paragraph(sentence_count: 2),
-          avatar: random_avatar,
-          accepted_tos_version: organization.tos_version + 1.hour
-        )
+        locked_user = find_or_initialize_user_by(email: "locked_user@example.org")
 
         locked_user.lock_access!
 

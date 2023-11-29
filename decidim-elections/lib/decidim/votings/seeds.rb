@@ -56,17 +56,7 @@ module Decidim
               )
 
               email = "voting_#{voting.id}_president_#{polling_station.id}@example.org"
-
-              user = Decidim::User.find_or_initialize_by(email:)
-              user.update!(
-                name: ::Faker::Name.name,
-                nickname: ::Faker::Twitter.unique.screen_name,
-                password: "decidim123456789",
-                organization:,
-                confirmed_at: Time.current,
-                locale: I18n.default_locale,
-                tos_agreement: true
-              )
+              user = find_or_initialize_user_by(email:)
 
               Decidim.traceability.create!(
                 Decidim::Votings::PollingOfficer,

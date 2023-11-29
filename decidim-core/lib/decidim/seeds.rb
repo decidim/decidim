@@ -17,6 +17,26 @@ module Decidim
       @admin_user ||= Decidim::User.find_by(organization:, email: "admin@example.org")
     end
 
+    def find_or_initialize_user_by(email:)
+      user = Decidim::User.find_or_initialize_by(email:)
+      user.update!(
+        name: ::Faker::Name.name,
+        nickname: ::Faker::Twitter.unique.screen_name,
+        password: "decidim123456789",
+        organization:,
+        confirmed_at: Time.current,
+        locale: I18n.default_locale,
+        personal_url: ::Faker::Internet.url,
+        about: ::Faker::Lorem.paragraph(sentence_count: 2),
+        avatar: random_avatar,
+        accepted_tos_version: organization.tos_version + 1.hour,
+        newsletter_notifications_at: Time.current,
+        tos_agreement: true
+      )
+
+      user
+    end
+
     def random_scope(participatory_space:)
       if participatory_space.scope
         scopes = participatory_space.scope.descendants

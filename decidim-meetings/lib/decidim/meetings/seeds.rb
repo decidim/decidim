@@ -165,18 +165,7 @@ module Decidim
         r = SecureRandom.hex(4)
         email = "meeting-registered-user-#{meeting.id}-#{r}@example.org"
         name = "#{::Faker::Name.name} #{meeting.id} #{r}"
-        user = Decidim::User.find_or_initialize_by(email:)
-
-        user.update!(
-          password: "decidim123456789",
-          name:,
-          nickname: ::Faker::Twitter.unique.screen_name,
-          organization:,
-          tos_agreement: "1",
-          confirmed_at: Time.current,
-          personal_url: ::Faker::Internet.url,
-          about: ::Faker::Lorem.paragraph(sentence_count: 2)
-        )
+        user = find_or_initialize_user_by(email:)
 
         Decidim::Meetings::Registration.create!(
           meeting:,

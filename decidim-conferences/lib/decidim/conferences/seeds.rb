@@ -49,17 +49,7 @@ module Decidim
           # Create users with specific roles
           Decidim::ConferenceUserRole::ROLES.each do |role|
             email = "conference_#{conference.id}_#{role}@example.org"
-
-            user = Decidim::User.find_or_initialize_by(email:)
-            user.update!(
-              name: ::Faker::Name.name,
-              nickname: ::Faker::Twitter.unique.screen_name,
-              password: "decidim123456789",
-              organization:,
-              confirmed_at: Time.current,
-              locale: I18n.default_locale,
-              tos_agreement: true
-            )
+            user = find_or_initialize_user_by(email:)
 
             Decidim::ConferenceUserRole.find_or_create_by!(
               user:,
