@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -741,7 +742,6 @@ hu:
           email_outro: Azért kapta ezt az értesítést, mert Ön a szervezet adminisztrátora.
     export_mailer:
       download_your_data_export:
-        click_button: 'Kattintson a következő linkre az adatainak letöltéséhez. <br/> A fájl elérhető marad eddig %{date}<br/> Szüksége lesz egy a zip fájlt kicsomagoló programra. <a href="https://www.7-zip.org/"> 7-Zip</a>Windowson,<a href="https://www.keka.io/en/">Keka</a> (Mac-en) vagy <a href="https://peazip.github.io">PeaZip</a> (Linuxon). Jelszó: %{password}'
         download: Letöltés
       export:
         ready: Mellékelve találod az exportálás tömörített változatát.
@@ -1325,9 +1325,6 @@ hu:
       help_text: "<strong>Figyelem:</strong> A tartalmat automatikusan fordíthatták, és nem 100% -ban pontos."
       show_original: Eredeti szöveg mutatása
       show_translated: Automatikusan lefordított szöveg mutatása
-    user_activity:
-      index:
-        no_activities_warning: Ez a résztvevő még nem végzett tevékenységet.
     user_contact_disabled: Ez a résztvevő nem fogad el közvetlen üzeneteket.
     user_conversations:
       create:
@@ -1520,7 +1517,7 @@ hu:
             description: Leírás
             name: Név
             service: Szolgáltatás
-            type: Típus
+            type: típus
           items:
             _session_id:
               description: Lehetővé teszi a weboldalak számára, hogy emlékezzenek a felhasználóra a weboldalon belül, amikor az a weboldalak között mozog.
