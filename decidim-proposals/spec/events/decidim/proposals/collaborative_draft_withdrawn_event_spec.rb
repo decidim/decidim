@@ -19,11 +19,13 @@ describe Decidim::Proposals::CollaborativeDraftWithdrawnEvent do
   let(:extra) { { author_id: } }
 
   context "when the notification is for coauthor users" do
-    let(:notificaiton_title) { %(<a href="#{author_path}">#{author_name} #{author_nickname}</a> <strong>withdrawn</strong> the <a href="#{resource_path}">#{resource_title}</a> collaborative draft.) }
+    let(:notification_title) { %(<a href="#{author_path}">#{author_name} #{author_nickname}</a> <strong>withdrawn</strong> the <a href="#{resource_path}">#{resource_title}</a> collaborative draft.) }
     let(:email_outro) { %(You have received this notification because you are a collaborator of <a href="#{resource_url}">#{resource_title}</a>.) }
     let(:email_intro) { %(<a href="#{author_url}">#{author_name} #{author_nickname}</a> withdrawn the <a href="#{resource_url}">#{resource_title}</a> collaborative draft.) }
     let(:email_subject) { "#{author_name} #{author_nickname} withdrawn the #{decidim_sanitize(resource_title)} collaborative draft." }
 
     it_behaves_like "a simple event"
+    it_behaves_like "a simple event email"
+    it_behaves_like "a simple event notification"
   end
 end
