@@ -27,7 +27,16 @@ bin/rails db:migrate
 
 ## 2.1. Redesign
 
-TBD
+The design of the application has changed radically. The most relevant things to notice are:
+
+* Improvements in the general user interface and experience, both for participants and administrators
+* New module decidim-design, available by default in the development_app and optionally in other appllications. Avaialable at /design. I.e.: http://yourdomain.example.org/design
+* Replacement of [Foundation CSS](https://get.foundation/) by [Tailwind CSS](https://tailwindcss.com/). You can read more about this change in the section "3.1. Tailwind CSS introduction" and also in "5.1. Tailwind CSS instead of Foundation".
+* Introduction of Content Blocks for the Participatory Processes and Assemblies' landing pages. You can read more about this change in the section "3.6. Initialize content blocks on spaces or resources with landing page".
+* Introduction of the mega-menu on desktop: improvements of the navigation based on breadcrumbs with extra information while hovering at the element.
+* Simplification of the login form.
+
+You can read more about this change by searching the PRs and issues with the label contract: redesign. At the moment we have more than [300 merged Pull Requests with this label](https://github.com/decidim/decidim/pulls?q=is%3Apr+sort%3Aupdated-desc+label%3A%22contract%3A+redesign%22+is%3Amerged).
 
 ## 2.2. Consultation
 
@@ -43,7 +52,9 @@ If you're maintaining a version of this module, please share the URL of the git 
 
 There's an error with the migrations after you've removed this module, you'd need to change them like this:
 
-### db/migrate/*_add_commentable_counter_cache_to_consultations.decidim_consultations.rb
+### 2.2.1. AddCommentableCounterCacheToConsultations
+
+It's in the file `db/migrate/*_add_commentable_counter_cache_to_consultations.decidim_consultations.rb`
 
 ```ruby
 # frozen_string_literal: true
@@ -62,7 +73,9 @@ class AddCommentableCounterCacheToConsultations < ActiveRecord::Migration[5.2]
 end
 ```
 
-### db/migrate/*_add_followable_counter_cache_to_consultations.decidim_consultations.rb
+### 2.2.2. AddFollowableCounterCacheToConsultations
+
+It's in the file `db/migrate/*_add_followable_counter_cache_to_consultations.decidim_consultations.rb`
 
 ```ruby
 # frozen_string_literal: true
