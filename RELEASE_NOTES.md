@@ -24,15 +24,49 @@ gem "decidim", "0.28.0.rc1"
 gem "decidim-dev", "0.28.0.rc1"
 ```
 
-### 1.3. Run these commands
+### 1.3. Run these commands in your development environment application
 
 ```console
 bundle update decidim
+rm config/initializers/social_share_button.rb # for "4.2. Social Share Button change"
 bin/rails decidim:upgrade
 bin/rails db:migrate
+bin/rails decidim:robots:replace # for "3.11. Anti-spam measures in the robots.txt"
 ```
 
-### 1.4. Follow the steps and commands detailed in these notes
+Then there are some actions that needs to be done that depend in your customizations and configurations:
+
+* Do you have any custom design in your application or a custom module? If yes, then you'll need to adapt your design to the new framework, Tailwind CSS. Check out "5.1. Tailwind CSS instead of Foundation"
+* Do you have the decidim-consultations module installed in your application? If yes, you need to remove it and change some migrations. Check out "2.3. Consultation module removal"
+* Do you have any custom module or external javascript/font/stylesheet/assets? If yes, you need to configure it. Check out "3.10. Add Content Security Policy (CSP) support"
+
+* Have you integrated the SMS gateway? Then you may be interested in "5.5. Extra context argument added to SMS gateway implementations"
+* Have you customized the `Decidim.password_blacklist` configuration or `DECIDIM_PASSWORD_BLACKLIST`. Then you need to adapt it, check out "5.6. Configuration parameter change"
+* Are you using the print feature in Initaitives? Then you need to enable it manually, check out "5.7. Change in Initiatives configuration"
+
+* Do you have any custom module or component that uses Decidim permissions? If yes, we recommend checking out the "5.2. Automated authorization conflict handling for deleted users" so it's consistent with the rest of the modules.
+* Do you have any custom configuration/code with the WYSIWYG editor used until now (Quill.js)? If yes, then you'll need to adapt it to the new library (TipTap). Check out "5.3. Tiptap rich text editor"
+* Do you have any custom module that implements the Report functionality? If yes, we recommend checking out "5.4. Ability to hide content of a user from the public interface" so it's consistent with the rest of the modules.
+
+In the production environment there are some data migrations that need to be done:
+
+```console
+bin/rails decidim:upgrade:migrate_wysiwyg_content  # for "3.2. Content migration for rich text editor"
+bin/rails decidim:upgrade:moderation:fix_blocked_user_panel # for "3.4. User moderation panel changes"
+bin/rails decidim:content_blocks:initialize_default_content_blocks # for "3.6. Initialize content blocks on spaces or resources with landing page"
+bin/rails decidim:proposals:upgrade:remove_valuator_orphan_records # for "3.8. Orphans valuator assignments cleanup"
+bin/rails decidim:initiatives:upgrade:fix_broken_pages # for "3.9. Initiatives pages exception fix"
+bin/rails decidim:upgrade:fix_duplicate_endorsements # for "3.12. Deduplicating endorsements"
+bin/rails decidim:upgrade:fix_short_urls # for "3.13. Fix component short links"
+```
+
+In the production server, add the following scheduling task if you want to have participatory processes steps changing automatically
+
+```crontab
+*/15 * * * * cd /home/user/decidim_application && RAILS_ENV=production bin/rails decidim_participatory_processes:change_active_step # for "4.1. Automatically change active step in participatory processes"
+```
+
+This is just a summary of all the most relevant changes done in this version. Keep reading to know the details of the relevant changes for your environmnet.
 
 ## 2. General notes
 
