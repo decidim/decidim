@@ -143,13 +143,6 @@ gl:
           copy: Copiar
           select: Seleccione os datos que desexa duplicar
           title: Duplicar o proceso participativo
-      participatory_process_group_landing_page:
-        edit:
-          active_content_blocks: Bloques de contido activos
-          inactive_content_blocks: Bloques de contido inactivos
-      participatory_process_group_landing_page_content_blocks:
-        edit:
-          update: Actualizar
       participatory_process_groups:
         destroy:
           success: Grupo de proceso participativo eliminado con éxito.

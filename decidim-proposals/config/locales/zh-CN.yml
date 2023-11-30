@@ -387,8 +387,6 @@ zh-CN:
           new:
             create: 创建
             title: 创建提案
-          publish_answers:
-            number_of_proposals: '%{number} 建议的答案将被发布。'
           show:
             amendments_count: 修改计数
             assigned_valuators: 分配给值者
@@ -397,7 +395,6 @@ zh-CN:
             documents: www.un.org/webcast
             endorsements_count: 批准次数
             endorsers: 核可者
-            link: 链接
             n_more_endorsers:
               other: 和 %{count} 更多
             photos: 照片

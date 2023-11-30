@@ -34,7 +34,6 @@ zh-CN:
         confirm_destroy: 您确定要删除此 %{name} 吗？
         destroy: 删除
         edit: 编辑
-        import_csv: 导入 CSV
         preview: 预览
         timeline_entries: 项目进化
         title: 行动
@@ -44,7 +43,6 @@ zh-CN:
         import_results:
           new:
             import: 导入
-            title: 从 CSV 导入结果
         models:
           result:
             name: 结果

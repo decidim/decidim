@@ -219,6 +219,7 @@ ja:
           proposals_count:
             other: '%{count} 件の提案が関連付けられているため、ミーティングを削除できません:'
         manage_poll: アンケートの管理
+        new_meeting: 新しいミーティング
         preview: プレビュー
         registrations: 登録
         title: アクション
@@ -313,7 +314,6 @@ ja:
             select_a_meeting_type: ミーティング種別を選択してください
             select_a_registration_type: 登録種別を選択してください
             select_an_iframe_access_level: Iframeアクセスレベルを選択してください
-            show_embedded_iframe_help: 'ミーティングまたはライブイベントに埋め込めるサービスは以下のドメインに限定されています: %{domains}'
           index:
             title: ミーティング
           new:
@@ -409,7 +409,6 @@ ja:
       directory:
         meetings:
           index:
-            go_to_list: イベント一覧を見る
             meetings: ミーティング
             space_type: 参加型スペース
       iframe_access_level:
@@ -496,7 +495,6 @@ ja:
           select_a_meeting_type: ミーティング種別を選択してください
           select_a_registration_type: 登録種別を選択してください
           select_an_iframe_access_level: iframeアクセスレベルを選択してください
-          show_embedded_iframe_help: 'ミーティングまたはライブイベントに埋め込めるサービスは以下のドメインに限定されています: %{domains}'
         index:
           click_here: すべてのミーティングを見る
           new_meeting: 新しいミーティング
@@ -521,7 +519,6 @@ ja:
         show:
           attendees: 出席者数
           contributions: コントリビューション数
-          date: 日付
           join: ミーティングに参加
           leave: 登録をキャンセルする
           leave_confirmation: このミーティングの登録をキャンセルしてもよろしいですか？
@@ -538,7 +535,6 @@ ja:
             validation_pending: 保留中
           remaining_slots:
             other: "残り%{count} スロット"
-          view: 表示
           visit_finished: 過去のミーティングを表示
           withdraw_btn_hint: 気が変わった場合はミーティングを取り消せます．ミーティングは削除されません．取り消されたミーティングのリストに表示されます．
           withdraw_confirmation_html: このミーティングを取り消してもよろしいですか?<br><br><strong>この操作はキャンセルできません!</strong>

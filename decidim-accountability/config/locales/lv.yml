@@ -34,7 +34,6 @@ lv:
         confirm_destroy: Vai tiešām vēlaties dzēst šo %{name}?
         destroy: Dzēst
         edit: Labot
-        import_csv: Importēt CSV
         preview: Priekšskatīt
         timeline_entries: Projekta attīstība
         title: Darbības
@@ -44,7 +43,6 @@ lv:
         import_results:
           new:
             import: Importēt
-            title: Importēt rezultātus no CSV
         models:
           result:
             name: Rezultāts

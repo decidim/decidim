@@ -34,7 +34,6 @@ pl:
           error: Komentarz nie może zostać usunięty.
         update:
           error: Wystąpił błąd podczas aktualizowania komentarza.
-      comments_count: Liczba komentarzy
       comments_title: Komentarz
       last_activity:
         new_comment: 'Nowy komentarz:'

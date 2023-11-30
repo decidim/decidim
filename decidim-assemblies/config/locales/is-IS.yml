@@ -98,13 +98,11 @@ is-IS:
           title: Flytja inn þing
       assembly_members:
         edit:
-          title: Uppfæra samningsaðila.
           update: Uppfæra
         index:
           assembly_members_title: Þingmenn
         new:
           create: Búa til
-          title: Ný þingmaður.
       assembly_user_roles:
         edit:
           update: Uppfæra
@@ -183,12 +181,10 @@ is-IS:
         assembly_members:
           form:
             select_a_position: Veldu stöðu
-          index:
-            filter:
-              all: Allt
-              ceased: Hætt
-              not_ceased: Ekki hætt
-            search: Leita
+      assemblies:
+        filters:
+          names:
+            all: Allt
       assembly_members:
         index:
           members: Meðlimir

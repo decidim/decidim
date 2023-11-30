@@ -70,7 +70,6 @@ pt:
             create: Importar propostas em projetos
             no_components: Não há outros componentes da proposta neste espaço participativo para importar as propostas em projetos.
             select_component: Por favor selecione um componente
-            title: Importar propostas
       admin_log:
         budget:
           create: "%{user_name} criou o orçamento %{resource_name} no espaço %{space_name}"
@@ -80,8 +79,6 @@ pt:
           create: "%{user_name} criou o projeto %{resource_name} no espaço %{space_name}"
           delete: "%{user_name} eliminou o projeto %{resource_name} no espaço %{space_name}"
           update: "%{user_name} atualizou o projeto %{resource_name} no espaço %{space_name}"
-      budget:
-        view: Ver todos os projectos do orçamento
       budget_information_modal:
         back_to: Voltar para %{component_name}
         close_modal: Fechar o modal
@@ -152,7 +149,6 @@ pt:
           selected: Seleccionado
         project:
           selected: Seleccionado
-          view: Visualização
           votes:
             one: Votações
             other: Votações

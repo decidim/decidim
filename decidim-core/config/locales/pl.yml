@@ -236,7 +236,6 @@ pl:
         error: Wystąpił błąd podczas wnoszenia poprawki do tego zasobu.
         promote_button: '%{model_name} - promuj'
         promote_confirm_text: Czy na pewno chcesz promować tę wersję?
-        section_heading: Poprawki (%{count})
       compare_draft:
         continue: Dalej
         no_similars_found: Nie znaleziono podobnych wersji.
@@ -378,7 +377,6 @@ pl:
         many: i %{count} więcej
         other: i %{count} więcej
       see_less: "(pokaż mniej)"
-      see_more: "(pokaż więcej)"
     components:
       component_order_selector:
         order:
@@ -955,7 +953,6 @@ pl:
           proposals: Propozycje
           proposals_explanation: Zgłaszaj nowe propozycje, wspieraj te już zgłoszone oraz wspieraj te zmiany, które chcesz zobaczyć.
         footer_sub_hero:
-          footer_sub_hero_body: Zbudujmy społeczeństwo bardziej otwarte, przejrzyste i współpracujące.<br /> Dołącz, uczestnicz i decyduj.
           footer_sub_hero_headline: Witamy na %{organization} platformie partycypacyjnej.
           register: Zarejestruj się
         hero:
@@ -1251,7 +1248,6 @@ pl:
         change_my_password: Zmień moje hasło
         confirm_new_password: Potwierdź nowe hasło
         new_password: Nowe hasło
-        password_help: "Minimalna liczba znaków: %{minimun_characters}; nie może być zbyt powszechne (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail."
       new:
         forgot_your_password: Zapomniałeś hasła?
         send_me_reset_password_instructions: Wyślij mi instrukcje resetowania hasła

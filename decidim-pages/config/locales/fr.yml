@@ -28,3 +28,5 @@ fr:
           update:
             invalid: Erreurs lors de la sauvegarde de la page.
             success: Page enregistrée avec succès.
+      show:
+        empty: Il n'y a pas encore de contenu dans cette page.

@@ -1,8 +1,6 @@
 ja:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: 組織図を有効化
       assemblies_type:
         title: タイトル
       assembly:
@@ -95,7 +93,9 @@ ja:
       actions:
         import_assembly: インポート
         new_assembly: 新しい参加スペース
+        new_assembly_member: 新しい参加スペースメンバー
         new_assembly_type: 新しい参加スペース種別
+        new_assembly_user_role: 新しい参加スペース管理者
       assemblies:
         create:
           error: 新しい参加スペースの作成中に問題が発生しました。
@@ -106,6 +106,7 @@ ja:
           private: プライベート
           public: 公開
           published: 公開済み
+          unpublished: 未公開
         new:
           create: 作成
           title: 新しい参加スペース
@@ -116,10 +117,6 @@ ja:
         create:
           error: この参加スペースの複製中に問題が発生しました。
           success: 参加スペースを複製しました。
-      assemblies_settings:
-        update:
-          error: 設定の更新中に問題が発生しました。
-          success: 設定が更新されました。
       assemblies_types:
         create:
           error: 新しい参加スペース種別の作成に問題がありました。
@@ -152,13 +149,13 @@ ja:
         destroy:
           success: メンバーはこの参加スペースの削除に成功しました。
         edit:
-          title: 参加スペースメンバーを更新します。
+          title: 参加スペースメンバーを更新
           update: 更新
         index:
           assembly_members_title: 参加スペースメンバー
         new:
           create: 作成
-          title: 新しい参加スペースメンバー。
+          title: 新しい参加スペースメンバー
         update:
           error: この参加スペースのメンバーの更新に問題がありました。
           success: メンバーがこの参加スペースの更新に成功しました。
@@ -176,22 +173,23 @@ ja:
         destroy:
           success: 管理者がこの参加スペースから削除されました。
         edit:
-          title: 参加スペース管理者を更新する
+          title: 参加スペース管理者を更新
           update: 更新
         index:
           assembly_admins_title: 参加スペース管理者
         new:
           create: 作成
-          title: 新しい参加スペース管理者です。
+          title: 新しい参加スペース管理者
         update:
           error: この参加スペースの管理者を更新中に問題が発生しました。
           success: 管理者はこの参加スペースの更新に成功しました。
       filters:
         decidim_assemblies_type_id_eq:
           label: 参加スペース種別
+        search_placeholder:
+          full_name_or_user_name_or_user_nickname_cont: 名前またはニックネームで検索
       menu:
         assemblies: 参加スペース
-        assemblies_settings: 設定
         assemblies_submenu:
           assembly_admins: 参加スペース管理者
           assembly_members: メンバー
@@ -291,11 +289,6 @@ ja:
             social_handlers: ソーシャル
             title: 一般情報
             visbility: 公開範囲
-        assemblies_settings:
-          edit:
-            update: 更新
-          form:
-            title: 参加スペースの設定
         assemblies_types:
           form:
             title: タイトル
@@ -315,12 +308,6 @@ ja:
             select_a_position: ポジションを選択
             select_user: 参加者を選択
             user_type: 参加者の種類
-          index:
-            filter:
-              all: すべて
-              ceased: 終了済み
-              not_ceased: 終了していません
-            search: 検索
         content_blocks:
           highlighted_assemblies:
             max_results: 表示する要素の最大量
