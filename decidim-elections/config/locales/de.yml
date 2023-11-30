@@ -1,3 +1,4 @@
+---
 de:
   activemodel:
     attributes:
@@ -43,7 +44,7 @@ de:
         show_check_census: '"Überprüfe Erhebung"-Seite anzeigen'
         start_time: Abstimmung beginnt
         title: Titel
-        voting_type: Art der Abstimmung
+        voting_type: Abstimmungsart
     errors:
       models:
         answer:
