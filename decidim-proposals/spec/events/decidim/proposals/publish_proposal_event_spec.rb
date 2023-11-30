@@ -74,19 +74,16 @@ module Decidim
       context "when the target are the participatory space followers" do
         let(:event_name) { "decidim.events.proposals.proposal_published_for_space" }
         let(:notification_title) { "The proposal <a href=\"#{resource_path}\">A nice proposal</a> has been added to #{participatory_space_title} by #{author.name} <a href=\"/profiles/#{author.nickname}\">@#{author.nickname}</a>." }
-        let(:email_outro) { "You have received this notification because you are following \"#{participatory_space_title}\"" }
+        let(:email_outro) { "You have received this notification because you are following \"#{participatory_space_title}\". You can stop receiving notifications following the previous link."}
         let(:email_intro) { "The proposal \"A nice proposal\" has been added to \"#{participatory_space_title}\" that you are following." }
         let(:email_subject) { "New proposal \"#{resource_title}\" added to #{participatory_space_title}" }
-        let(:email_subject) { "New proposal \"#{resource_title}\" added to #{participatory_space_title}" }
-        let(:email_intro) { "The proposal \"A nice proposal\" has been added to \"#{participatory_space_title}\" that you are following." }
-        let(:email_outro) { "You have received this notification because you are following \"#{participatory_space_title}\"" }
-        let(:notification_title) { "The proposal <a href=\"#{resource_path}\">A nice proposal</a> has been added to #{participatory_space_title} by #{author.name} <a href=\"/profiles/#{author.nickname}\">@#{author.nickname}</a>." }
         let(:extra) { { participatory_space: true } }
 
         include_context "when a simple event"
-
         it_behaves_like "a simple event"
-      end
+        it_behaves_like "a simple event email"
+        it_behaves_like "a simple event notification"
+      endg
 
       describe "translated notifications" do
         let(:en_body) { "A nice proposal" }
