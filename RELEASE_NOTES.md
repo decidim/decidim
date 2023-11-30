@@ -113,22 +113,22 @@ The redesign has introduced Tailwind CSS framework to compile CSS. It integrates
 
 There are some actions that you will need to do in your existing application that's already done in new applications:
 
-- Add `tailwind.config.js` to your app's `.gitignore`.
+* Add `tailwind.config.js` to your app's `.gitignore`.
 
 ```console
 echo tailwind.config.js >> .gitignore
 ```
 
-- Migrate your settings from your applications's `_decidim-settings.scss` file, available at `app/packs/stylesheets/decidim/_decidim-settings.scss`.
+* Migrate your settings from your applications's `_decidim-settings.scss` file, available at `app/packs/stylesheets/decidim/_decidim-settings.scss`.
 If you want to define the colors and other Tailwind related configurations, you can do it following the instructions on the documentation on how to [customize Tailwind](https://docs.decidim.org/en/develop/customize/styles.html#_tailwind_css).
 
-- After that's done, remove your `_decidim-settings.scss` file.
+* After that's done, remove your `_decidim-settings.scss` file.
 
 ```console
 rm app/packs/stylesheets/decidim/_decidim-settings.scss
 ```
 
-- Remove this comment from your `decidim-application.scss` file, available at `app/packs/stylesheets/decidim/decidim_application.scss`.
+* Remove this comment from your `decidim-application.scss` file, available at `app/packs/stylesheets/decidim/decidim_application.scss`.
 
 ```javascript
 // To override CSS variables or Foundation settings use _decidim-settings.scss
@@ -208,8 +208,8 @@ Also, by migrating to Shakapacker, we no longer use `config/webpacker.yml`. All 
 
 You can read more about this change on PR
 
-- [\#10389](https://github.com/decidim/decidim/pull/10389)
-- [\#11728](https://github.com/decidim/decidim/pull/11728)
+* [\#10389](https://github.com/decidim/decidim/pull/10389)
+* [\#11728](https://github.com/decidim/decidim/pull/11728)
 
 ### 3.6. Initialize content blocks on spaces or resources with landing page
 
@@ -221,9 +221,9 @@ bundle exec rake decidim:content_blocks:initialize_default_content_blocks
 
 The task has some optional arguments:
 
-- The first to specify the manifest name and generate the default content blocks only on the spaces or resources with the manifest name (`participatory_processes`, `participatory_process_group` or `assemblies`).
-- The second can be the id of a resource o space to apply only on the space or resource with the id. This argument is considered only if the manifest name argument is present.
-- The last argument only works on participatory spaces (assemblies and participatory processes) and when set as true the task also creates a content block for each published component on the space unless a block already exists for that component or the block exists for the component type and configured to display resources from all components of the same type.
+* The first to specify the manifest name and generate the default content blocks only on the spaces or resources with the manifest name (`participatory_processes`, `participatory_process_group` or `assemblies`).
+* The second can be the id of a resource o space to apply only on the space or resource with the id. This argument is considered only if the manifest name argument is present.
+* The last argument only works on participatory spaces (assemblies and participatory processes) and when set as true the task also creates a content block for each published component on the space unless a block already exists for that component or the block exists for the component type and configured to display resources from all components of the same type.
 
 For example, to generate the default content blocks and also the components blocks on participatory spaces run the command with arguments:
 
@@ -283,8 +283,8 @@ In order to customize the CSP we are providing, have 2 options, either by using 
 
 Please read more in the docs:
 
-- [Customize Content Security Policy](https://docs.decidim.org/en/develop/customize/content_security_policy)
-- [Using Content Security Policy initializer](https://docs.decidim.org/en/develop/configure/initializer#_content_security_policy)
+* [Customize Content Security Policy](https://docs.decidim.org/en/develop/customize/content_security_policy)
+* [Using Content Security Policy initializer](https://docs.decidim.org/en/develop/configure/initializer#_content_security_policy)
 
 You can check more about the implementation in the [\#10700](https://github.com/decidim/decidim/pull/10700) pull request.
 
@@ -414,43 +414,43 @@ This means that some participation data bound to the previous deleted user accou
 
 The transferred data can differ between the different modules but the official modules handle the following data automatically:
 
-- **decidim-core**
-  - Amendments (meaning any amendments for amendable records in different modules, such as proposals at `decidim-proposals`)
-  - Coauthorships (meaning any coauthorable records in different modules, such as proposals and collaborative drafts at `decidim-proposals`)
-  - Endorsements (for any records, e.g. blog posts at `decidim-blogs`, debates at `decidim-debates` and proposals at `decidim-proposals`)
-- **decidim-blogs**
-  - Blog posts
-  - Endorsements for blog posts (through endorsement transfers at `decidim-core`)
-- **decidim-budgets**
-  - Budgeting votes (or orders as we call them in the code)
-- **decidim-comments**
-  - Comments
-  - Comment votes
-- **decidim-debates**
-  - Debates
-  - Endorsements for debates (through endorsement transfers at `decidim-core`)
-- **decidim-elections**
-  - Election votes
-  - Election form answers (through form answer transfers at `decidim-forms`)
-  - Feedback form answers (through form answer transfers at `decidim-forms`)
-- **decidim-forms**
-  - Form answers (for different forms, such as survey form answers at `decidim-surveys` or registration form answers at `decidim-meetings`)
-- **decidim-initiatives**
-  - Initiatives
-  - Initiative votes/signatures
-- **decidim-meetings**
-  - Meetings
-  - Meeting registrations
-  - Meeting poll answers
-  - Meeting registration form answers (through form answer transfers at `decidim-forms`)
-- **decidim-proposals**
-  - Proposal votes/supports
-  - Proposals (through coauthorship transfers at `decidim-core`)
-  - Collaborative drafts (through coauthorship transfers at `decidim-core`)
-  - Proposal amendments (through amendment transfers at `decidim-core`)
-  - Endorsements for proposals (through endorsement transfers at `decidim-core`)
-- **decidim-surveys**
-  - Survey form answers (through form answer transfers at `decidim-forms`)
+* **decidim-core**
+  * Amendments (meaning any amendments for amendable records in different modules, such as proposals at `decidim-proposals`)
+  * Coauthorships (meaning any coauthorable records in different modules, such as proposals and collaborative drafts at `decidim-proposals`)
+  * Endorsements (for any records, e.g. blog posts at `decidim-blogs`, debates at `decidim-debates` and proposals at `decidim-proposals`)
+* **decidim-blogs**
+  * Blog posts
+  * Endorsements for blog posts (through endorsement transfers at `decidim-core`)
+* **decidim-budgets**
+  * Budgeting votes (or orders as we call them in the code)
+* **decidim-comments**
+  * Comments
+  * Comment votes
+* **decidim-debates**
+  * Debates
+  * Endorsements for debates (through endorsement transfers at `decidim-core`)
+* **decidim-elections**
+  * Election votes
+  * Election form answers (through form answer transfers at `decidim-forms`)
+  * Feedback form answers (through form answer transfers at `decidim-forms`)
+* **decidim-forms**
+  * Form answers (for different forms, such as survey form answers at `decidim-surveys` or registration form answers at `decidim-meetings`)
+* **decidim-initiatives**
+  * Initiatives
+  * Initiative votes/signatures
+* **decidim-meetings**
+  * Meetings
+  * Meeting registrations
+  * Meeting poll answers
+  * Meeting registration form answers (through form answer transfers at `decidim-forms`)
+* **decidim-proposals**
+  * Proposal votes/supports
+  * Proposals (through coauthorship transfers at `decidim-core`)
+  * Collaborative drafts (through coauthorship transfers at `decidim-core`)
+  * Proposal amendments (through amendment transfers at `decidim-core`)
+  * Endorsements for proposals (through endorsement transfers at `decidim-core`)
+* **decidim-surveys**
+  * Survey form answers (through form answer transfers at `decidim-forms`)
 
 If external modules need to transfer records between accounts during the authorization transfers, module developers can define the following initializer at their modules (note that coauthorable records are automatically already handled):
 
@@ -713,8 +713,8 @@ end
 
 You can read more about this change at PRs:
 
-- [\#10111](https://github.com/decidim/decidim/pull/10111)
-- [\#11064](https://github.com/decidim/decidim/pull/11064)
+* [\#10111](https://github.com/decidim/decidim/pull/10111)
+* [\#11064](https://github.com/decidim/decidim/pull/11064)
 
 ### 5.5. Extra context argument added to SMS gateway implementations
 
@@ -753,8 +753,8 @@ You can read more about this change at PR [\#10760](https://github.com/decidim/d
 
 Prior to 0.28, there was the possibility of configuring a list of disallowed passwords using the configuration parameter `Decidim.password_blacklist` or the environment variable `DECIDIM_PASSWORD_BLACKLIST`. These methods have been renamed as follows:
 
-- `Decidim.password_blacklist` becomes `Decidim.denied_passwords`
-- `DECIDIM_PASSWORD_BLACKLIST` becomes `DECIDIM_DENIED_PASSWORDS`
+* `Decidim.password_blacklist` becomes `Decidim.denied_passwords`
+* `DECIDIM_PASSWORD_BLACKLIST` becomes `DECIDIM_DENIED_PASSWORDS`
 
 You can read more about this change on PR [\#10288](https://github.com/decidim/decidim/pull/10288).
 

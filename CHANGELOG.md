@@ -43,7 +43,7 @@
 - **decidim-admin**, **decidim-core**: Multi content blocks with the same manifest for the same page and section content block for ToS [\#10166](https://github.com/decidim/decidim/pull/10166)
 - **decidim-generators**: Enhance module generator [\#9655](https://github.com/decidim/decidim/pull/9655)
 - **decidim-generators**: Use decidim's default .ruby-version and .node-version [\#10574](https://github.com/decidim/decidim/pull/10574)
--  Add direct action to block this participant [\#10111](https://github.com/decidim/decidim/pull/10111)
+- Add direct action to block this participant [\#10111](https://github.com/decidim/decidim/pull/10111)
 - **decidim-admin**, **decidim-conferences**, **decidim-core**, **decidim-debates**, **decidim-forms**, **decidim-initiatives**, **decidim-meetings**, **decidim-proposals**, **decidim-system**: Replace the WYSIWYG editor with TipTap [\#10196](https://github.com/decidim/decidim/pull/10196)
 - **decidim-admin**: Triadic color calculator for organization colors [\#10977](https://github.com/decidim/decidim/pull/10977)
 - **decidim-generators**: Add ESLint and Stylelint to component template [\#10965](https://github.com/decidim/decidim/pull/10965)
@@ -1003,7 +1003,6 @@
 - Update numbering in RELEASE_NOTES.md [\#12066](https://github.com/decidim/decidim/pull/12066)
 - Remove legacy design support from WYSIWYG editor (TipTap) [\#12015](https://github.com/decidim/decidim/pull/12015)
 - Remove the duplicate reference of icons [\#12083](https://github.com/decidim/decidim/pull/12083)
-
 
 ## Previous versions
 
