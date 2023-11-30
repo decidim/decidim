@@ -6,15 +6,13 @@ These images where extracted from the [inter-faces repository](https://github.co
 
 This download contains 100 images of people that can be applied as avatars for UI and the web, App Store screenshots, marketing graphics, etc. Use them for whatever you like, free.
 
-
-### <a href="https://github.com/cjdowner/interfaces/archive/master.zip">⬇️ Download All Images</a>
-
+## <a href="https://github.com/cjdowner/interfaces/archive/master.zip">⬇️ Download All Images</a>
 
 All images have been sourced from various community-powered stock photo websites, and have been cropped and resized to three different sizes.
 
 A credits file has been included with links to the original images. There you will find the ability to support the photographer with a donation.
 
-### License
+## License
 
 >All avatars are licensed under the **Creative Commons Zero (CC0) license**. This means the pictures are completely free to be used for any legal purpose.
 >
