@@ -1,3 +1,4 @@
+---
 ar:
   activemodel:
     attributes:
@@ -718,7 +719,6 @@ ar:
           notification_title: تم إضفاء الطابع الرسمي على المشارك %{name} (%{nickname}).
     export_mailer:
       download_your_data_export:
-        click_button: 'انقر فوق الرابط التالي لتحميل بياناتك.<br/>الملف سيكون متاحا حتى %{date}.<br/>ستحتاج إلى <a href="https://www.7-zip.org/">7-Zip</a> (للويندوز)، <a href="https://www.keka.io/en/">Keka</a> (لماكوس) أو <a href="https://peazip.github.io">PeaZip</a> (للينوكس) لفتحه. كلمة المرور: %{password}'
         download: تحميل
       export:
         ready: يرجى الاطلاع على نسخة مضغوطة من التصدير.
@@ -773,7 +773,6 @@ ar:
       file_help:
         file:
           explanation: 'إرشادات الملف:'
-          message_1: يجب أن تكون صورة أو وثيقة.
           message_2: بالنسبة للصور، يُفضل استخدام صور بالوضع العرضي، تقوم الخدمة باقتصاص الصورة.
         icon:
           explanation: 'إرشادات للأيقونة:'
@@ -1519,7 +1518,7 @@ ar:
             description: وصف
             name: اسم
             service: الخدمة
-            type: النوع
+            type: نوع
           items:
             _session_id:
               description: يسمح للمواقع بتذكر المستخدم داخل الموقع عندما ينتقل بين صفحات الويب.
