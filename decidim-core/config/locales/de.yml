@@ -1,3 +1,4 @@
+---
 de:
   activemodel:
     attributes:
@@ -1343,7 +1344,7 @@ de:
         error: Es gab ein Problem bei der Aktualisierung des Passwortes.
         success: Passwort erfolgreich aktualisiert.
     profile:
-      deleted: Gelöschter Teilnehmer
+      deleted: Gelöschter Benutzer
       inaccessible_message: Dieses Profil ist wegen Verletzung der Nutzungsbedingungen nicht zugänglich!
     profiles:
       default_officialization_text_for_user_groups: Diese Benutzergruppe wurde öffentlich überprüft. Der Gruppenname entspricht ihrem tatsächlichen Namen.
@@ -1871,7 +1872,7 @@ de:
             description: Beschreibung
             name: Name
             service: Service
-            type: Typ
+            type: Art
           items:
             _session_id:
               description: Ermöglicht es Websites, sich an Benutzer zu erinnern, wenn diese verschiedene Seiten aufrufen.
