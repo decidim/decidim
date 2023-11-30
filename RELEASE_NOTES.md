@@ -44,7 +44,7 @@ The design of the application has changed radically. The most relevant things to
 
 You can read more about this change by searching the PRs and issues with the label contract: redesign. At the moment we have more than [300 merged Pull Requests with this label](https://github.com/decidim/decidim/pulls?q=is%3Apr+sort%3Aupdated-desc+label%3A%22contract%3A+redesign%22+is%3Amerged).
 
-## 2.3. Consultation
+## 2.3. Consultation module removal
 
 The consultations module has been fully removed from this version, so if you're using it in your application you need to remove it from your Gemfile:
 
@@ -56,7 +56,7 @@ If you're not using it, then you don't need to do anything.
 
 If you're maintaining a version of this module, please share the URL of the git repository by [creating an issue on the decidim.org website repository](https://github.com/decidim/decidim.org) so that we can update the [Modules page](https://decidim.org/modules).
 
-There's an error with the migrations after you've removed this module, you'd need to change them like this:
+There's an error with the migrations after you've removed this module. Note that this only happens when creating a new database. You'd need to change them like this:
 
 ### 2.2.1. AddCommentableCounterCacheToConsultations
 
