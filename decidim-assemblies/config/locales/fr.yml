@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -341,7 +342,7 @@ fr:
           title: À propos de cette assemblée
         filters:
           names:
-            all: Toutes
+            all: Tout
           type: Type
         show:
           title: À propos de cette assemblée
