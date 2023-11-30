@@ -1,3 +1,4 @@
+---
 zh-TW:
   activemodel:
     attributes:
@@ -1652,7 +1653,7 @@ zh-TW:
             description: 說明
             name: 名稱
             service: 服務
-            type: 種類
+            type: 類別
           items:
             _session_id:
               description: 允許網站在使用者在網頁之間移動時記住使用者。
