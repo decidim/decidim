@@ -155,7 +155,7 @@ You can read more about this change on PR [\#10196](https://github.com/decidim/d
 We have added Procfile support to ease up the development of Decidim instances. In order to install `foreman` and the `Procfile.dev`, you need to run the following command:
 
 ```console
-bundle exec rake decidim:procfile:install
+bin/rails decidim:procfile:install
 ```
 
 After this command has been ran, a new command will be available in your `bin/`, so in order to boot up your application you will just need to run
@@ -177,7 +177,7 @@ You can read more about this change on PR [\#10519](https://github.com/decidim/d
 In older Decidim installations, when blocking an user directly from the participants menu, without being previously reported, it will hide that user, making it unavailable in the Reported Participants section. You will need to run this command once to make sure there are no users or entities that got blocked but are not visible in the participants listing.
 
 ```console
-bundle exec rake decidim:upgrade:moderation:fix_blocked_user_panel
+bin/rails decidim:upgrade:moderation:fix_blocked_user_panel
 ```
 
 You can read more about this change on PR [\#10521](https://github.com/decidim/decidim/pull/10521).
@@ -216,7 +216,7 @@ You can read more about this change on PR
 The processes and assemblies participatory spaces have changed the show page and now is composed using content blocks. For the new spaces created in this version a callback is executed creating the content blocks marked as `default!` in the engine for the corresponding homepage scope. To have the same initialization in the existing spaces there is a task to generate those blocks if not present already. Run the below command to generate default content blocks when not present for all spaces and resources with content blocks homepage (participatory processes, participatory process groups and assemblies):
 
 ```console
-bundle exec rake decidim:content_blocks:initialize_default_content_blocks
+bin/rails decidim:content_blocks:initialize_default_content_blocks
 ```
 
 The task has some optional arguments:
@@ -228,7 +228,7 @@ The task has some optional arguments:
 For example, to generate the default content blocks and also the components blocks on participatory spaces run the command with arguments:
 
 ```console
-bundle exec rake decidim:content_blocks:initialize_default_content_blocks[,,true]
+bin/rails decidim:content_blocks:initialize_default_content_blocks[,,true]
 ```
 
 ### 3.7. Graphql upgrade
@@ -244,7 +244,7 @@ We have added a new task that helps you clean the valuator assignements records 
 You can run the task with the following command:
 
 ```console
-bundle exec rake decidim:proposals:upgrade:remove_valuator_orphan_records
+bin/rails decidim:proposals:upgrade:remove_valuator_orphan_records
 ```
 
 You can see more details about this change on PR [\#10607](https://github.com/decidim/decidim/pull/10607)
@@ -256,7 +256,7 @@ We have added a new tasks to fix a bug related to the pages component inside of 
 You can run the task with the following command:
 
 ```console
-bundle exec rake decidim:initiatives:upgrade:fix_broken_pages
+bin/rails decidim:initiatives:upgrade:fix_broken_pages
 ```
 
 You can see more details about this change on PR [\#10928](https://github.com/decidim/decidim/pull/10928)
@@ -293,7 +293,7 @@ You can check more about the implementation in the [\#10700](https://github.com/
 In order to improve the fight against spam attacks in Decidim applications, we have added a new task that helps you replace yours. Take into account that this will override your robots.txt, so if you have done any change you need to make a backup before running this task.
 
 ```bash
-bundle exec rails decidim:robots:replace
+bin/rails decidim:robots:replace
 ```
 
 You can see more details about this change on PR [\#11693](https://github.com/decidim/decidim/pull/11693)
@@ -303,7 +303,7 @@ You can see more details about this change on PR [\#11693](https://github.com/de
 We have identified a case when the same user can endorse the same resource multiple times. This is a bug that we have fixed in this release, but we need to clean up the existing duplicated endorsements. We have added a new task that helps you clean the duplicated endorsements.
 
 ```bash
-bundle exec rails decidim:upgrade:fix_duplicate_endorsements
+bin/rails decidim:upgrade:fix_duplicate_endorsements
 ```
 
 You can see more details about this change on PR [\#11853](https://github.com/decidim/decidim/pull/11853)
@@ -313,7 +313,7 @@ You can see more details about this change on PR [\#11853](https://github.com/de
 We have identified that some of the short links for components are not working properly. We have added a new task that helps you fix the short links for components.
 
 ```bash
-bundle exec rails decidim:upgrade:fix_short_urls
+bin/rails decidim:upgrade:fix_short_urls
 ```
 
 You can see more details about this change on PR [\#12004](https://github.com/decidim/decidim/pull/12004)
@@ -328,7 +328,7 @@ with `crontab`, although alternatively you could use `whenever` gem or the sched
 We have added the ability to automatically change the active step of participatory processess. This is an optional behavior that system admins can enable by configuring a cron job. The frequency of the cron task should be decided by the system admin and depends on each platform's use cases. A precision of 15min is enough for most cases. An example of a crontab job may be:
 
 ```bash
-*/15 * * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim_participatory_processes:change_active_step
+*/15 * * * * cd /home/user/decidim_application && RAILS_ENV=production bin/rails decidim_participatory_processes:change_active_step
 ```
 
 Each time the job executes it checks all currently active and published participatory processes and for each, it checks the steps with the date range in the current date. If a change should be made, it deactivates the previous step and activates the next step.
