@@ -38,6 +38,7 @@ fi:
         actions:
           destroy: Peruuta satunnaistaminen
           edit: Muokkaa
+          new_sortition: Uusi satunnaisvalinta
           show: Satunnaistamisen yksityiskohdat
         models:
           sortition:

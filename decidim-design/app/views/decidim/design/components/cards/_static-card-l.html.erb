@@ -5,11 +5,12 @@
     </div>
     <div class="card__list-metadata">
       <span>
+        <!-- linthtml-disable -->
         <div class="author" data-author="">
           <div class="author__container has-tip" data-tooltip="<div class=&quot;author__tooltip bottom&quot; role=&quot;tooltip&quot;>
             <div class=&quot;author__container&quot;>
             <span class=&quot;author__avatar-container&quot;>
-            <img alt=&quot;Avatar: Tammy Lesch VM&quot; class=&quot;author__avatar&quot; src=&quot;//localhost:3000/decidim-packs/media/images/default-avatar-aaa9e55bac5d7159b847.svg&quot; />
+            <img alt=&quot;Avatar: Tammy Lesch VM&quot; class=&quot;author__avatar&quot; src=&quot;<%= asset_pack_path("media/images/default-avatar.svg") %>&quot; />
             </span>
             <div>
             <span class=&quot;author__name&quot;>Tammy Lesch VM</span>
@@ -23,40 +24,35 @@
             </div>
             <a class=&quot;button button__sm button__transparent&quot; href=&quot;/users/sign_in&quot;>
             <span>Send private message</span>
-            <svg width=&quot;1em&quot; height=&quot;1em&quot; role=&quot;img&quot; aria-hidden=&quot;true&quot;><use href=&quot;/decidim-packs/media/images/remixicon.symbol-e643e553623ffcd49f94.svg#ri-mail-send-line&quot; tabindex=&quot;-1&quot;></use></svg>
+            <svg width=&quot;1em&quot; height=&quot;1em&quot; role=&quot;img&quot; aria-hidden=&quot;true&quot;><use href=&quot;<%= "#{asset_pack_path("media/images/remixicon.symbol.svg")}#ri-mail-send-line" %>&quot; tabindex=&quot;-1&quot;></use></svg>
             </a>
             <form class=&quot;button_to&quot; method=&quot;post&quot; action=&quot;#&quot;><button class=&quot;button button__sm button__transparent&quot; title=&quot;Please log in before performing this action&quot; aria-haspopup=&quot;true&quot; id=&quot;follow_user_group_24&quot; data-dialog-open=&quot;loginModal&quot; type=&quot;submit&quot;>
             <span class=&quot;&quot;>Follow</span>
-            <svg width=&quot;1em&quot; height=&quot;1em&quot; role=&quot;img&quot; aria-hidden=&quot;true&quot;><use href=&quot;/decidim-packs/media/images/remixicon.symbol-e643e553623ffcd49f94.svg#ri-notification-3-line&quot; tabindex=&quot;-1&quot;></use></svg>
+            <svg width=&quot;1em&quot; height=&quot;1em&quot; role=&quot;img&quot; aria-hidden=&quot;true&quot;><use href=&quot;<%= "#{asset_pack_path("media/images/remixicon.symbol.svg")}#ri-notification-3-line" %>&quot; tabindex=&quot;-1&quot;></use></svg>
             </button><input type=&quot;hidden&quot; name=&quot;authenticity_token&quot; value=&quot;lS3Qr0rPEGR-g40UKR1aXFG0ekPAg3vX75katkSHYSttywRbOAj5EvsNAWZ91bMhwstNuRYPuhbLQE-AvlAs6w&quot; autocomplete=&quot;off&quot; /><input type=&quot;hidden&quot; name=&quot;follow[button_classes]&quot; value=&quot;button button__sm button__transparent&quot; autocomplete=&quot;off&quot; /><input type=&quot;hidden&quot; name=&quot;follow[followable_gid]&quot; value=&quot;BAh7CEkiCGdpZAY6BkVUSSI4Z2lkOi8vZGVjaWRpbS1kZXZlbG9wbWVudC1hcHAvRGVjaWRpbTo6VXNlckdyb3VwLzI0BjsAVEkiDHB1cnBvc2UGOwBUSSIMZGVmYXVsdAY7AFRJIg9leHBpcmVzX2F0BjsAVEkiHTIwMjMtMTEtMTlUMDc6MDg6NDAuNDU3WgY7AFQ=--a0875a4b535cbc4218f1e0707cc6ea2148e213f3&quot; autocomplete=&quot;off&quot; /></form>
             </div>
             " aria-describedby="t17dfd-tooltip" data-yeti-box="t17dfd-tooltip" data-toggle="t17dfd-tooltip" data-resize="t17dfd-tooltip" id="toggle-2k3n55" aria-controls="t17dfd-tooltip">
             <span class="author__avatar-container">
-            <img alt="Avatar: Tammy Lesch VM" class="author__avatar" src="//localhost:3000/decidim-packs/media/images/default-avatar-aaa9e55bac5d7159b847.svg">
+            <img alt="Avatar: Tammy Lesch VM" class="author__avatar" src="<%= asset_pack_path("media/images/default-avatar.svg") %>">
             </span>
             <span class="author__name">Tammy Lesch VM</span>
           </div>
         </div>
+        <!-- linthtml-enable -->
       </span>
       <span data-comments-count="">
-        <svg width="1em" height="1em" role="img" aria-hidden="true">
-          <use href="/decidim-packs/media/images/remixicon.symbol-e643e553623ffcd49f94.svg#ri-wechat-line" tabindex="-1"></use>
-        </svg>
+        <%= icon("wechat-line") %>
         0
       </span>
       <span data-endorsements-count="">
-        <svg width="1em" height="1em" role="img" aria-hidden="true">
-          <use href="/decidim-packs/media/images/remixicon.symbol-e643e553623ffcd49f94.svg#ri-heart-add-line" tabindex="-1"></use>
-        </svg>
+        <%= icon("like") %>
         0
       </span>
       <span>
       <span class="label warning">Evaluating</span>
       </span>
       <span>
-        <svg width="1em" height="1em" role="img" aria-hidden="true">
-          <use href="/decidim-packs/media/images/remixicon.symbol-e643e553623ffcd49f94.svg#ri-question-line" tabindex="-1"></use>
-        </svg>
+        <%= icon("question-line") %>
         Amendment
       </span>
     </div>

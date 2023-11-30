@@ -66,6 +66,7 @@ fr:
           count:
             one: "%{count} article"
             other: "%{count} articles"
+          empty: Il n'y a pas encore d'articles.
     components:
       blogs:
         actions:

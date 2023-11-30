@@ -49,11 +49,6 @@ module Decidim
       initializer "decidim_participatory_processes.register_icons" do
         Decidim.icons.register(name: "Decidim::ParticipatoryProcess", icon: "treasure-map-line", description: "Participatory Process", category: "activity",
                                engine: :participatory_process)
-        Decidim.icons.register(name: "Decidim::ParticipatoryProcess", icon: "treasure-map-line", category: "activity",
-                               description: "Participatory Process", engine: :participatory_process)
-
-        Decidim.icons.register(name: "drag-move-2-line", icon: "drag-move-2-line", category: "system", description: "",
-                               engine: :participatory_process)
         Decidim.icons.register(name: "archive-line", icon: "archive-line", category: "system", description: "", engine: :participatory_process)
         Decidim.icons.register(name: "grid-line", icon: "grid-line", category: "system", description: "", engine: :participatory_process)
         Decidim.icons.register(name: "globe-line", icon: "globe-line", category: "system", description: "", engine: :participatory_process)

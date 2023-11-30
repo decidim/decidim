@@ -30,7 +30,6 @@ de:
           error: Der Kommentar konnte nicht gelöscht werden.
         update:
           error: Beim Erstellen des Kommentars ist ein Fehler aufgetreten.
-      comments_count: Kommentaranzahl
       comments_title: Kommentar
       last_activity:
         new_comment: 'Neuer Kommentar:'

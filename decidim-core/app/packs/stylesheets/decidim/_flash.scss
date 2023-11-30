@@ -1,5 +1,5 @@
 .flash {
-  @apply flex flex-col justify-start items-center gap-4 rounded border-2 border-secondary my-4 p-4 bg-secondary/5;
+  @apply flex justify-start items-center gap-4 rounded border-2 border-secondary my-4 p-4 bg-secondary/5;
 
   &__icon {
     svg {
@@ -33,13 +33,25 @@
 
   &.success {
     @apply border-success bg-success/5;
+
+    svg {
+      @apply text-success;
+    }
   }
 
   &.alert {
     @apply border-alert bg-alert/5;
+
+    svg {
+      @apply text-alert;
+    }
   }
 
   &.warning {
     @apply border-warning bg-warning/5;
+
+    svg {
+      @apply text-warning;
+    }
   }
 }

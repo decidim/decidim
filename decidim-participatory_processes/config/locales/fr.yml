@@ -176,22 +176,6 @@ fr:
           copy: Copier
           select: Sélectionnez les données que vous souhaitez dupliquer
           title: Dupliquer la concertation
-      participatory_process_group_landing_page:
-        edit:
-          active_content_blocks: Blocs de contenu actifs
-          add: Ajouter un bloc de contenu
-          destroy_confirmation: Êtes-vous sûr(e) de vouloir supprimer ce bloc de contenu ?
-          inactive_content_blocks: Blocs de contenu inactifs
-          title: Contenus de la page
-      participatory_process_group_landing_page_content_blocks:
-        create:
-          error: Un problème est survenu lors de la création de ce bloc de contenu.
-          success: Le bloc de contenu a été créé avec succès.
-        destroy:
-          error: Un problème est survenu lors de la suppression de ce bloc de contenu.
-          success: Bloc de contenu supprimé avec succès.
-        edit:
-          update: Mettre à jour
       participatory_process_groups:
         destroy:
           error: Une erreur s'est produite lors de la suppression du groupe de concertations.

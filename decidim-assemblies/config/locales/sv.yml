@@ -1,8 +1,6 @@
 sv:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: Aktivera organisationskarta
       assemblies_type:
         title: Titel
       assembly:
@@ -110,10 +108,6 @@ sv:
         create:
           error: Det gick inte att duplicera gruppen.
           success: Gruppen har duplicerats.
-      assemblies_settings:
-        update:
-          error: Det gick inte att uppdatera inställningarna.
-          success: Inställningarna har uppdaterats.
       assemblies_types:
         create:
           error: Det gick inte att skapa en ny typ av grupp.
@@ -146,13 +140,11 @@ sv:
         destroy:
           success: Medlemmen har raderats från gruppen.
         edit:
-          title: Uppdatera medlem i gruppen.
           update: Uppdatera
         index:
           assembly_members_title: Medlemmar i gruppen
         new:
           create: Skapa
-          title: Ny gruppsmedlem.
         update:
           error: Det gick inte att uppdatera medlemmen i gruppen.
           success: Medlemmen i gruppen har uppdaterats.
@@ -170,13 +162,11 @@ sv:
         destroy:
           success: Administratören har tagits bort från gruppen.
         edit:
-          title: Uppdatera gruppsadministratör.
           update: Uppdatera
         index:
           assembly_admins_title: Gruppsadministratörer
         new:
           create: Skapa
-          title: Ny gruppsadministratör.
         update:
           error: Det gick inte att uppdatera en administratör för gruppen.
           success: Administratören för gruppen har uppdaterats.
@@ -185,7 +175,6 @@ sv:
           label: Typ av grupp
       menu:
         assemblies: Grupper
-        assemblies_settings: Inställningar
         assemblies_submenu:
           assembly_admins: Administratörer för gruppen
           assembly_members: Medlemmar
@@ -277,11 +266,6 @@ sv:
             social_handlers: Socialt
             title: Allmän information
             visbility: Synlighet
-        assemblies_settings:
-          edit:
-            update: Uppdatera
-          form:
-            title: Inställningar för församlingar
         assemblies_types:
           form:
             title: Titel
@@ -295,12 +279,6 @@ sv:
             select_a_position: Välj en position
             select_user: Välj en deltagare
             user_type: Typ av deltagare
-          index:
-            filter:
-              all: Allt
-              ceased: Upphört
-              not_ceased: Inte upphört
-            search: Sök
         content_blocks:
           highlighted_assemblies:
             max_results: Maximalt antal element att visa

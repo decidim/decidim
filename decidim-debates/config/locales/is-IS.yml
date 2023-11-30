@@ -49,8 +49,6 @@ is-IS:
           debates_count:
             one: "%{count} umræða"
             other: "%{count} umræður"
-        debate:
-          participate: Taka þátt
         filters:
           all: Allt
           category: Flokkur

@@ -46,7 +46,6 @@ sk:
       organizations:
         create:
           error: Pri vytváraní novej organizácie došlo k chybe.
-          success: Organizácia úspešne vytvorená.
         edit:
           secondary_hosts_hint: Zadajte každý host na nový riadok
         index:

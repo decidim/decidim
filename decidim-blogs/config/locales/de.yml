@@ -66,6 +66,7 @@ de:
           count:
             one: "%{count} Beitrag"
             other: "%{count} Beiträge"
+          empty: Es sind noch keine Beiträge vorhanden.
     components:
       blogs:
         actions:
