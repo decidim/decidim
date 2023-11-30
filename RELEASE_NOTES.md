@@ -25,7 +25,13 @@ bin/rails db:migrate
 
 ## 2. General notes
 
-## 2.1. Redesign
+## 2.1. Ruby update to 3.1
+
+We have updated the Ruby version to 3.1.1. Upgrading to this version will require either to install the Ruby Version on your host, or change the decidim docker image to use ruby:3.1.1.
+
+You can read more about this change on PR #9449.
+
+## 2.2. Redesign
 
 The design of the application has changed radically. The most relevant things to notice are:
 
@@ -38,7 +44,7 @@ The design of the application has changed radically. The most relevant things to
 
 You can read more about this change by searching the PRs and issues with the label contract: redesign. At the moment we have more than [300 merged Pull Requests with this label](https://github.com/decidim/decidim/pulls?q=is%3Apr+sort%3Aupdated-desc+label%3A%22contract%3A+redesign%22+is%3Amerged).
 
-## 2.2. Consultation
+## 2.3. Consultation
 
 The consultations module has been fully removed from this version, so if you're using it in your application you need to remove it from your Gemfile:
 
