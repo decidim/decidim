@@ -311,7 +311,7 @@ describe "Meeting registrations" do
           dynamically_attach_file("questionnaire_responses_0_add_documents", Decidim::Dev.asset("verify_user_groups.csv"))
 
           expect(page).to have_field("public_participation", checked: false)
-          find("#questionnaire_tos_agreement").set(true)
+          find_by_id("questionnaire_tos_agreement").set(true)
           accept_confirm { click_button "Submit" }
 
           expect(page).to have_content("Needs to be reattached")

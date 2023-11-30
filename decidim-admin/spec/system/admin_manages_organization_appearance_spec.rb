@@ -42,17 +42,17 @@ describe "Admin manages organization" do
 
         expect(page).to have_css(".color-picker")
         find(".color-picker summary").click
-        selector = find("#primary-selector")
+        selector = find_by_id("primary-selector")
 
         selector.find("div[data-value='#40a8bf']").click
-        expect(find("#preview-primary", visible: :all).value).to eq "#40a8bf"
-        expect(find("#preview-secondary", visible: :all).value).to eq "#bf40a8"
-        expect(find("#preview-tertiary", visible: :all).value).to eq "#a8bf40"
+        expect(find_by_id("preview-primary", visible: :all).value).to eq "#40a8bf"
+        expect(find_by_id("preview-secondary", visible: :all).value).to eq "#bf40a8"
+        expect(find_by_id("preview-tertiary", visible: :all).value).to eq "#a8bf40"
 
         selector.find("div[data-value='#bf408c']").click
-        expect(find("#preview-primary", visible: :all).value).to eq "#bf408c"
-        expect(find("#preview-secondary", visible: :all).value).to eq "#8cbf40"
-        expect(find("#preview-tertiary", visible: :all).value).to eq "#408cbf"
+        expect(find_by_id("preview-primary", visible: :all).value).to eq "#bf408c"
+        expect(find_by_id("preview-secondary", visible: :all).value).to eq "#8cbf40"
+        expect(find_by_id("preview-tertiary", visible: :all).value).to eq "#408cbf"
       end
     end
 
