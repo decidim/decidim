@@ -1,3 +1,4 @@
+---
 ca:
   activemodel:
     attributes:
@@ -839,7 +840,7 @@ ca:
           colors:
             choose_color: Triar un color primari
             colors_title: Colors de l'organització
-            colors_warning_html: Advertència! Canviant aquests colors pot trencar l'accessibilitat dels contrasts. Pots comprovar el contrast de la teva selecció a <a href="%{link}">WebAIM Contrast Checker</a> o amb altres eines similars.
+            colors_warning_html: Advertència! Canviant aquests colors pot trencar l'accessibilitat dels contrasts. Pots comprovar el contrast de la teva selecció a <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> o amb altres eines similars.
             explanation: Aquesta eina t'ajuda a triar un esquema de color, compost per diferents tonalitats seleccionades de forma harmoniosa per utilitzar-se al lloc web de l'organització.
             legend_html: Colors principals de l'aplicació, basats en l'<a href="https://www.color-meanings.com/triadic-colors/">algoritme Triadic</a>. El color <i>secundari</i> es calcula automàticament a partir del color primari i de la saturació que has triat.
             saturation: Saturació

@@ -1,3 +1,4 @@
+---
 es-MX:
   activerecord:
     models:
@@ -28,3 +29,5 @@ es-MX:
           update:
             invalid: Ha habido errores al guardar la página.
             success: Página guardada correctamente.
+      show:
+        empty: Todavía no hay ningún contenido en esta página.

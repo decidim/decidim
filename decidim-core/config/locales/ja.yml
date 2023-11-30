@@ -1,3 +1,4 @@
+---
 ja:
   activemodel:
     attributes:
@@ -1319,7 +1320,7 @@ ja:
         error: パスワードの更新中に問題が発生しました。
         success: パスワードを更新しました。
     profile:
-      deleted: 参加者を削除しました
+      deleted: 削除された参加者
       inaccessible_message: このプロファイルは利用規約違反のためアクセスできません！
     profiles:
       default_officialization_text_for_user_groups: このグループは公的に検証されており、その名前が実際の名前に対応していることが検証されています。
@@ -1834,7 +1835,7 @@ ja:
             description: 説明
             name: 名前
             service: サービス
-            type: 種別
+            type: タイプ
           items:
             _session_id:
               description: ウェブページ間を移動したときにウェブサイト内のユーザーをウェブサイトが記憶できるようにします。

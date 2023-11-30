@@ -1,3 +1,4 @@
+---
 pt-BR:
   activemodel:
     attributes:
@@ -1276,7 +1277,7 @@ pt-BR:
         download_open_data: Baixar arquivos Open Data
         made_with_open_source: Site criado com <a target="_blank" href="https://github.com/decidim/decidim"> software livre</a>.
         resources: Recursos
-        sign_up: Cadastre-se
+        sign_up: Inscrever-se
         terms_and_conditions: Termos e Condições
       header:
         main_menu: Menu principal

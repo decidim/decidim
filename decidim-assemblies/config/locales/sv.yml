@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -298,7 +299,7 @@ sv:
           participatory_scope: Vad som bestäms
         filters:
           names:
-            all: Alla
+            all: Allt
           type: Typ
         show:
           title: Om den här gruppen

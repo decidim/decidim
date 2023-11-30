@@ -1,3 +1,4 @@
+---
 ja:
   activemodel:
     attributes:
@@ -43,7 +44,7 @@ ja:
         show_check_census: '「センサスの確認」ページを表示'
         start_time: 投票開始
         title: タイトル
-        voting_type: 投票タイプ
+        voting_type: 投票方式
     errors:
       models:
         answer:

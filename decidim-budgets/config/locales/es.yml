@@ -1,3 +1,4 @@
+---
 es:
   activemodel:
     attributes:
@@ -180,7 +181,7 @@ es:
         empty: Aún no hay ningún presupuesto
         finished_message: Has terminado el proceso de votación. ¡Gracias por participar!
         highlighted_cta: Votar en %{name}
-        if_change_opinion: Si has cambiado de opinión, puedes %{cancel_link}.
+        if_change_opinion: Si has cambiado de opinión, puedes
         progress: Finalizar votación
         remove_vote: Eliminar el voto
         show: Ver proyectos
@@ -229,7 +230,7 @@ es:
           are_you_sure: '¿Seguro que deseas cancelar tu voto?'
           cancel_order: eliminar tu voto y empezar de nuevo
           checked_out:
-            description: Ya has votado para el presupuesto. Si has cambiado de idea, puedes %{cancel_link}.
+            description: Ya has votado para el presupuesto. Si has cambiado de idea, puedes borrar tu voto.
             title: Voto para los presupuestos completado
           vote: Votar presupuesto
         count:

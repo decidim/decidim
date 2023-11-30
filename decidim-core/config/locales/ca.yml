@@ -1,3 +1,4 @@
+---
 ca:
   activemodel:
     attributes:
@@ -1588,7 +1589,7 @@ ca:
         version: Versió %{number}
     versions_list_item:
       show:
-        version_index: Versió %{index}
+        version_index: Versió %{index} de %{total}
     welcome_notification:
       default_body: <p>Hola {{name}}, gràcies per unir-te a {{organization}} et donem la benvinguda!</p><ul><li>Si vole fer-te una idea ràpida de que pots fer-hi, fes una ullada a la <a href="{{help_url}}">Secció d'ajuda</a>.</li><li>Una vegada l'hagis llegit rebràs la teva primera ensenya. Aquí trobaràs un <a href="{{badges_url}}">llistat de totes les ensenyes</a>que pots aconsegui participant a {{organization}}</li><li>. Per acabar, però no per això menys important, uneix-te a d'altres persones, comparteix amb elles d'estar compromesa i de participar a {{organization}}. Fes propostes, comentaris, debat, pensa en com contribuir a un bé comú, aporta arguments per mirar de convèncer, escolta i llegeix per convèncer-te, expressa les teves idees de manera concreta i directa, respon amb paciència i decisió, defensa les teves idees i resta oberta de ment per a col·laborar i unir-te a les idees d'altra gent.</li></ul>
       default_subject: Gràcies per unir-te a {{organization}}!

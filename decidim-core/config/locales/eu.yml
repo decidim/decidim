@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -1900,7 +1901,7 @@ eu:
         log_in:
         made_with_open_source: Gune hau egiteko, <a target="_blank" href="https://github.com/decidim/decidim">software libre</a> erabili da.
         resources: Baliabideak
-        sign_up: Eman izena
+        sign_up: Erregistratu
         terms_and_conditions: Terminoak eta baldintzak
       header:
         log_in: Sartu
