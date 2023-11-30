@@ -83,7 +83,7 @@ module Decidim
         it_behaves_like "a simple event"
         it_behaves_like "a simple event email"
         it_behaves_like "a simple event notification"
-      endg
+      end
 
       describe "translated notifications" do
         let(:en_body) { "A nice proposal" }

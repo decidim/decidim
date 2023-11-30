@@ -30,5 +30,7 @@ describe Decidim::Proposals::CollaborativeDraftAccessRequestedEvent do
     let(:email_subject) { "#{requester_name} requested access to contribute to #{resource_title}." }
 
     it_behaves_like "a simple event"
+    it_behaves_like "a simple event email"
+    it_behaves_like "a simple event notification"
   end
 end
