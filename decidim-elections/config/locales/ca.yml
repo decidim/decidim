@@ -666,7 +666,7 @@ ca:
           feedback: Dona'ns la teva opinió
           header: Vot confirmat
           lead: El teu vot ha estat emès!
-          text: 'Pots comprovar que el teu vot s''ha afegit correctament a l''urna amb el següent identificador: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          text: 'Pots comprovar que el teu vot s''ha afegit correctament a l''urna amb el següent identificador: '
           verify_link: Per comprovar-ho, copia l'identificador i enganxa'l a la <a href="%{link}">pàgina de verificació de vot</a>
         create:
           error: Hi ha hagut un problema en emetre el vot. Prova-ho de nou.
