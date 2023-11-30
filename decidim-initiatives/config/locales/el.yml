@@ -306,7 +306,6 @@ el:
           author: Συντάκτης
           myself: Οι πρωτοβουλίες μου
           scope: Πεδίο εφαρμογής
-          search: Αναζήτηση
           state: Κατάσταση
           type: Τύπος
         index_header:
@@ -384,8 +383,5 @@ el:
         sms_phone_number: Αριθμός κινητού τηλεφώνου
         title: Υπογραφή πρωτοβουλίας %{initiative_title}
       initiatives:
-        initiative:
-          check: Δείτε την
-          check_and_support: Δείτε και υπογράψτε την
         no_initiatives_yet:
           no_initiatives_yet: Δεν υπάρχουν ακόμη πρωτοβουλίες!

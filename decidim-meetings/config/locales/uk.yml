@@ -248,7 +248,6 @@ uk:
           meeting_minutes: Протокол зустрічі
           no_slots_available: Не залишилось місць
           organizations: Організації, що приймають участь
-          view: Переглянути
       models:
         invite:
           fields:

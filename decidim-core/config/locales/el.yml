@@ -235,7 +235,6 @@ el:
         error: Υπήρξε σφάλμα κατά την τροποποίηση αυτού του στοιχείου.
         promote_button: Αναβάθμιση σε %{model_name}
         promote_confirm_text: Είστε βέβαιοι ότι θέλετε να αναβαθμίσετε αυτήν τη διόρθωση;
-        section_heading: Τροποποιήσεις (%{count})
       compare_draft:
         continue: Συνέχεια
         no_similars_found: Δεν βρέθηκαν παρόμοιες διορθώσεις.
@@ -374,7 +373,6 @@ el:
         one: και %{count} ακόμη
         other: και %{count} ακόμη
       see_less: "(προβολή λιγότερων)"
-      see_more: "(προβολή περισσότερων)"
     components:
       component_order_selector:
         no_content: Δεν ήταν δυνατή η εύρεση περιεχομένου με αυτά τα κριτήρια.
@@ -1026,7 +1024,6 @@ el:
           proposals: Προτάσεις
           proposals_explanation: Διατυπώστε προτάσεις, υποστηρίξτε υπάρχουσες και αναβαθμίστε τις αλλαγές που θέλετε να δείτε.
         footer_sub_hero:
-          footer_sub_hero_body: Ας οικοδομήσουμε μια πιο ανοιχτή, διαφανή και συνεργατική κοινωνία.<br /> Εγγραφείτε, συμμετάσχετε και αποφασίστε.
           footer_sub_hero_headline: Καλώς ορίσατε στην πλατφόρμα συμμετοχής του οργανισμού %{organization}.
           register: Εγγραφή
         hero:
@@ -1326,7 +1323,6 @@ el:
         change_my_password: Αλλαγή του κωδικού πρόσβασής μου
         confirm_new_password: Επιβεβαιώστε τον νέο κωδικό πρόσβασης
         new_password: Νέος κωδικός πρόσβασης
-        password_help: "Τουλάχιστον %{minimun_characters} χαρακτήρες, δεν πρέπει να είναι πολύ συνηθισμένο (π.χ. 123456) και πρέπει να διαφέρει από το ψευδώνυμο και το email σας."
       new:
         forgot_your_password: Ξεχάσατε τον κωδικό πρόσβασής σας;
         send_me_reset_password_instructions: Στείλτε μου οδηγίες επαναφοράς κωδικού πρόσβασης

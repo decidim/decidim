@@ -86,6 +86,12 @@ ja:
     admin:
       actions:
         confirm: 確認する
+        new_conference: 新しいカンファレンス
+        new_conference_user_role: 新しいカンファレンス管理者
+        new_media_link: 新しいメディア リンク
+        new_partner: 新しいパートナー
+        new_registration_type: 新規登録種別
+        new_speaker: 新しいスピーカー
         send_diplomas: 出席証明書を送信
       conference_copies:
         new:
@@ -149,6 +155,7 @@ ja:
           title: 一般情報
         index:
           published: 公開済み
+          unpublished: 未公開
         new:
           create: 作成
           title: カンファレンス
@@ -366,6 +373,9 @@ ja:
             registrations_count:
               other: '%{count} 件の登録がありました。'
             slug_help_html: 'URLスラグは、このカンファレンスを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
+        content_blocks:
+          highlighted_conferences:
+            max_results: 表示する要素の最大数
         diplomas:
           edit:
             save: 保存

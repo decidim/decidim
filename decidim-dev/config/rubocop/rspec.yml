@@ -67,3 +67,6 @@ RSpec/LeakyConstantDeclaration:
 
 RSpec/DescribedClass:
   Enabled: false
+
+RSpec/IndexedLet:
+  Enabled: false

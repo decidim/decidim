@@ -604,13 +604,6 @@ it:
         index:
           published: Pubblicato
           unpublished: Non pubblicato
-        landing_page:
-          content_blocks:
-            edit:
-              update: Aggiorna
-          edit:
-            active_content_blocks: Blocchi di contenuti attivi
-            inactive_content_blocks: Blocchi di contenuti inattivi
         menu:
           votings: Votazioni
           votings_submenu:
@@ -731,8 +724,6 @@ it:
             title: Titolo
           polling_officers_picker:
             choose_polling_officers: Crea responsabile sondaggio
-            close: Chiudi
-            more_polling_officers: Ci sono altre %{number} proposte. Affina la tua ricerca per localizzarle.
         polling_stations:
           edit:
             title: Modifica la stazione di sondaggio
@@ -830,8 +821,6 @@ it:
               csv_header_after: Non includere l'ultimo campo ("%{ballot_style_code_header}") se non hai bisogno di modalità di voto/domande condizionali
               csv_header_before: 'Il file del censimento deve essere un file CSV con la seguente intestazione:'
         document_types:
-          dni: Documento di identità
-          nie: Numero del Permesso di Soggiorno
           passport: Passaporto
         export_mailer:
           access_codes_export:
@@ -1055,8 +1044,6 @@ it:
           online: Online
   layouts:
     decidim:
-      election_votes_header:
-        exit: Esci
       voting_navigation:
         check_census: Posso votare?
         election_log: Registro elettorale

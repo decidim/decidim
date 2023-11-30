@@ -12,6 +12,8 @@ ja:
         manage: 管理
         templates: テンプレート
       templates:
+        actions:
+          new_template: 新規テンプレート
         apply:
           error: テンプレートの適用に失敗しました。
           success: テンプレートが適用されました。
@@ -54,6 +56,9 @@ ja:
             title: 新しいブロックユーザーメッセージテンプレート
           template_chooser:
             select_template: テンプレート回答を選択
+        proposal_answer_templates:
+          form:
+            save: 保存
         questionnaire_templates:
           choose:
             create_from_template: テンプレートから作る

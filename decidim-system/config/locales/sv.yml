@@ -112,7 +112,6 @@ sv:
           show: Visa avancerade inställningar
         create:
           error: Det gick inte att skapa en ny organisation.
-          success: Organisationen har skapats.
         edit:
           secondary_hosts_hint: Ange var och en av dem på en ny rad
         file_upload_settings:

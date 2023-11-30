@@ -32,7 +32,6 @@ module Decidim
         Decidim.icons.register(name: "Decidim::Budgets::Order", icon: "check-double-fill", description: "Budget voting", category: "activity", engine: :budgets)
 
         Decidim.icons.register(name: "git-pull-request-line", icon: "git-pull-request-line", category: "system", description: "", engine: :budgets)
-        Decidim.icons.register(name: "list-check", icon: "list-check", category: "system", description: "", engine: :budgets)
       end
 
       initializer "decidim_budgets.add_cells_view_paths" do

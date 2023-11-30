@@ -587,13 +587,6 @@ pt-BR:
             max_results: Quantidade máxima de elementos para mostrar
         index:
           published: Publicado
-        landing_page:
-          content_blocks:
-            edit:
-              update: Atualizar
-          edit:
-            active_content_blocks: Blocos de conteúdo ativo
-            inactive_content_blocks: Blocos de conteúdo inativo
         menu:
           votings: Votações
           votings_submenu:
@@ -714,8 +707,6 @@ pt-BR:
             title: Criar agente de enquete
           polling_officers_picker:
             choose_polling_officers: Escolher agentes de enquete
-            close: Fechado
-            more_polling_officers: Existem mais %{number} agentes de enquete. Refine sua pesquisa para localizá-los.
         polling_stations:
           edit:
             title: Editar estação de voto
@@ -795,8 +786,6 @@ pt-BR:
               csv_header_after: Não incluir o último campo ("%{ballot_style_code_header}") se você não precisa de estilos de voto/questões condicionais
               csv_header_before: 'O arquivo do censo deve ser um arquivo CSV com o seguinte cabeçalho:'
         document_types:
-          dni: Documento de identidade
-          nie: CPF
           passport: Passaporte
         export_mailer:
           access_codes_export:
@@ -1020,8 +1009,6 @@ pt-BR:
           online: On-line
   layouts:
     decidim:
-      election_votes_header:
-        exit: Sair
       voting_navigation:
         check_census: Posso votar?
         election_log: Log de eleições

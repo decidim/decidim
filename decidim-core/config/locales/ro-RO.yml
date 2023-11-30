@@ -240,7 +240,6 @@ ro:
         error: A apărut o eroare la trimiterea unui amendament pentru această resursă.
         promote_button: Promovează la %{model_name}
         promote_confirm_text: Sigur dorești să promovezi acest amendament?
-        section_heading: Amendamente (%{count})
       compare_draft:
         continue: Continuă
         no_similars_found: Nu există amendamente similare.
@@ -385,7 +384,6 @@ ro:
         few: și încă %{count}
         other: și încă %{count}
       see_less: "(vezi mai puţin)"
-      see_more: "(vezi mai mult)"
     components:
       component_order_selector:
         order:
@@ -744,7 +742,6 @@ ro:
           filename: Nume fișier
           remove: Șterge
           replace: Înlocuiește
-          save: Salvează
           title: Titlu
           title_required: Titlul este obligatoriu!
         select_file: Selectaţi fişierul
@@ -1029,7 +1026,6 @@ ro:
           proposals: Propuneri
           proposals_explanation: Formulează propuneri, votează propunerile existente și promovează schimbările pe care dorești să le vezi implementate.
         footer_sub_hero:
-          footer_sub_hero_body: Haideți să construim o societate mai deschisă, mai transparentă și mai colaborativă.<br /> Alăturați-vă, participați și decideți.
           footer_sub_hero_headline: Bun venit pe platforma participativă %{organization}.
           register: Inregistrare
         hero:
@@ -1336,7 +1332,6 @@ ro:
         change_my_password: Schimbă-mi parola
         confirm_new_password: Confirmare parolă nouă
         new_password: Parola nouă
-        password_help: "minim %{minimun_characters} caractere, nu trebuie să fie prea comune (ex. 123456) și trebuie să fie diferite de porecla și adresa dvs. de e-mail."
       new:
         forgot_your_password: Ți-ai uitat parola?
         send_me_reset_password_instructions: Trimite-mi instrucțiunile de resetare a parolei

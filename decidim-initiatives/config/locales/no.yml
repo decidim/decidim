@@ -382,7 +382,6 @@
             other: og %{count} flere personer
         committee_members:
           approve: Godkjenn
-          confirm_revoke: Er du sikker?
           title: Utvalgets medlemmer
         count:
           title:
@@ -394,7 +393,6 @@
           author: Forfatter
           myself: Initiativene mine
           scope: Tema
-          search: Søk
           state: Status
           type: Type
         index_header:
@@ -506,8 +504,5 @@
         sms_phone_number: Mobiltelefon number
         title: Signer %{initiative_title}
       initiatives:
-        initiative:
-          check: Sjekk det ut
-          check_and_support: Sjekk det ut og signer
         no_initiatives_yet:
           no_initiatives_yet: Ingen intiativer ennå!

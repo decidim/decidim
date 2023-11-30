@@ -339,7 +339,6 @@ nl:
           author: Auteur
           myself: Mijn initiatieven
           scope: Bereik
-          search: Zoeken
           state: Staat
           type: Type
         index_header:
@@ -427,8 +426,5 @@ nl:
         sms_phone_number: Mobiele telefoonnummer
         title: Teken %{initiative_title}
       initiatives:
-        initiative:
-          check: Bekijken
-          check_and_support: Bekijk het en onderteken
         no_initiatives_yet:
           no_initiatives_yet: Nog geen initiatieven!

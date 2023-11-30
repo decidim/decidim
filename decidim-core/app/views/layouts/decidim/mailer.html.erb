@@ -44,17 +44,6 @@
                         </table>
                       </th>
                       <th class="small-3 large-3 last columns decidim-bar">
-                        <table>
-                          <tr>
-                            <th>
-                              <% if @organization.official_img_header.attached? %>
-                                <%= link_to @organization.official_url do %>
-                                  <%= image_tag @organization.attached_uploader(:official_img_header).url(host: @organization.host), alt: "", style: "max-height: 50px", class: "float-right" %>
-                                <% end %>
-                              <% end %>
-                            </th>
-                          </tr>
-                        </table>
                       </th>
                       <th class="expander"></th>
                     </tr>

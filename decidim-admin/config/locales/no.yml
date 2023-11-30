@@ -67,7 +67,6 @@
         machine_translation_display_priority_translation: Oversatt tekst først
         name: Navn
         official_img_footer: Offisiell logo footer
-        official_img_header: Offisiell logo header
         official_url: Offisiell organisasjons URL
         omnipresent_banner_short_description: Kort beskrivelse
         omnipresent_banner_title: Tittel
@@ -124,8 +123,6 @@
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Ugyldig bildefil
-            official_img_header:
               allowed_file_content_types: Ugyldig bildefil
   activerecord:
     attributes:
@@ -736,10 +733,6 @@
         form:
           add: Legg til i hviteliste
           title: Hviteliste for eksterne domener
-      organization_homepage:
-        edit:
-          active_content_blocks: Aktive innholdsblokkerer
-          inactive_content_blocks: Inaktivt innholdsblokkerer
       participatory_space_private_users:
         create:
           error: Det oppstod et problem med å legge til en privat deltaker for dette deltakerområdet.
@@ -760,7 +753,6 @@
             empty: Du har ingen private deltakere.
             explanation: Du har %{count} private deltakere.
             title: Slett private deltakere
-          title: Last opp din CSV fil
           upload: Last opp
       reminders:
         create:
@@ -823,7 +815,6 @@
       shared:
         gallery:
           add_images: Legg til bilder
-          delete_image: Slett bilde
           edit_images: Rediger bilder
           gallery_legend: Legg til et bildegalleri (valgfritt)
       static_page_topics:
@@ -852,12 +843,12 @@
           update: Oppdater
         form:
           none: Ingen
+        index:
+          last_notable_change: Siste merkbare endring
         new:
           create: Opprett side
           title: Ny side
         topic:
-          destroy: Fjern emne
-          edit: Rediger emne
           without_topic: Sider uten emne
         update:
           error: Det oppstod et problem med å oppdatere denne siden.
