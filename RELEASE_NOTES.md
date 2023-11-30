@@ -9,8 +9,8 @@ To update, follow these steps:
 ### 1.1. Update your Gemfile
 
 ```ruby
-gem "decidim", github: "decidim/decidim"
-gem "decidim-dev", github: "decidim/decidim"
+gem "decidim", "0.28.0.rc1"
+gem "decidim-dev", "0.28.0.rc1"
 ```
 
 ### 1.2. Run these commands
