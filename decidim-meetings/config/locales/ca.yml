@@ -642,7 +642,7 @@ ca:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Trobades anteriors
-        see_all: Veure tots (%{count})
+        see_all: Veure totes les trobades
         upcoming_meetings: Properes trobades
     resource_links:
       meetings_through_proposals:
