@@ -6,14 +6,25 @@ As usual, we recommend that you have a full backup, of the database, application
 
 To update, follow these steps:
 
-### 1.1. Update your Gemfile
+### 1.1. Update your Ruby version
+
+If you're using rbenv, this is done with the following commands:
+
+```console
+rbenv install 3.1.1
+rbenv local 3.1.1
+```
+
+If not, you need to adapt it to your environment. See "2.1. Ruby update to 3.1"
+
+### 1.2. Update your Gemfile
 
 ```ruby
 gem "decidim", "0.28.0.rc1"
 gem "decidim-dev", "0.28.0.rc1"
 ```
 
-### 1.2. Run these commands
+### 1.3. Run these commands
 
 ```console
 bundle update decidim
@@ -21,7 +32,7 @@ bin/rails decidim:upgrade
 bin/rails db:migrate
 ```
 
-### 1.3. Follow the steps and commands detailed in these notes
+### 1.4. Follow the steps and commands detailed in these notes
 
 ## 2. General notes
 
