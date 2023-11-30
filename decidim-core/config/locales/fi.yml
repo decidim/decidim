@@ -1,3 +1,4 @@
+---
 fi:
   activemodel:
     attributes:
@@ -1338,7 +1339,7 @@ fi:
         error: Salasanan päivitys epäonnistui.
         success: Salasanan päivitys onnistui.
     profile:
-      deleted: Poistettu osallistuja
+      deleted: Käyttäjä poistettu
       inaccessible_message: Tämä käyttäjäprofiili ei ole käytettävissä, koska käyttäjä on rikkonut käyttöehtoja!
     profiles:
       default_officialization_text_for_user_groups: Tämä ryhmä on julkisesti varmennettu, ja sen nimen on varmennettu vastaavan todellista nimeä.
@@ -1920,7 +1921,7 @@ fi:
         log_in: Kirjaudu sisään
         made_with_open_source: Verkkosivusto luotu <a target="_blank" href="https://github.com/decidim/decidim">vapaan ohjelmiston</a> avulla.
         resources: Resurssit
-        sign_up: Luo oma käyttäjätili
+        sign_up: Rekisteröidy
         terms_and_conditions: Käyttöehdot
       header:
         log_in: Kirjaudu sisään
