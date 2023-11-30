@@ -181,7 +181,7 @@ ca:
         empty: Encara no hi ha cap pressupost
         finished_message: Has finalitzat el procés de votació. Gràcies per participar-hi!
         highlighted_cta: Votar a %{name}
-        if_change_opinion: Si has canviat d'opinió, pots %{cancel_link}.
+        if_change_opinion: Si has canviat d'opinió, pots
         progress: Acaba la votació
         remove_vote: Eliminar el vot
         show: Mostra els projectes
@@ -230,7 +230,7 @@ ca:
           are_you_sure: Segur que vols cancel·lar el teu vot?
           cancel_order: eliminar el teu vot i començar de nou
           checked_out:
-            description: Ja has votat pel pressupost. Si has canviat d'idea, pots %{cancel_link}.
+            description: Ja has votat pel pressupost. Si has canviat d'idea, pots esborrar el teu vot.
             title: Vot pels pressupostos completat
           vote: Votar pressupost
         count:
