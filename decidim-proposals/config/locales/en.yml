@@ -400,13 +400,13 @@ en:
     proposals:
       actions:
         answer_proposal: Answer proposal
-        delete_proposal_state_confirm: Are you sure you want to delete this proposal state?
-        destroy: Delete proposal state
+        delete_proposal_state_confirm: Are you sure you want to delete this state?
+        destroy: Delete state
         edit_proposal: Edit proposal
-        edit_proposal_state: Edit proposal state
+        edit_proposal_state: Edit state
         import: Import proposals from another component
         new: New proposal
-        new_proposal_state: New proposal state
+        new_proposal_state: New state
         participatory_texts: Participatory texts
         show: Show proposal
         title: Actions
@@ -497,28 +497,28 @@ en:
           title: Private notes
         proposal_states:
           create:
-            error: Error creating proposal state
-            success: Proposal state created successfully
+            error: Error creating state
+            success: State created successfully
           destroy:
-            success: Proposal state deleted successfully
+            success: State deleted successfully
           edit:
-            title: Edit proposal state
+            title: Edit state
             update: Update
           index:
-            title: Proposal states
+            title: States
           new:
             create: Create
-            title: New proposal state
+            title: New state
           update:
-            error: Error updating proposal state
-            success: Proposal state updated successfully
+            error: Error updating state
+            success: State updated successfully
         proposals:
           answer:
             invalid: There has been a problem answering this proposal.
-            success: Proposal successfully answered.
+            success: Successfully answered.
           create:
             invalid: There has been a problem creating this proposal.
-            success: Proposal successfully created.
+            success: Successfully created.
           edit:
             title: Update proposal
             update: Update
@@ -775,7 +775,7 @@ en:
           css_class: CSS class
           default: Default
           system: System
-          title: Proposal state
+          title: State
           token: Token
       new:
         limit_reached: You cannot create new proposals since you have exceeded the limit.
