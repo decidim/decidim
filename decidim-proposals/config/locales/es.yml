@@ -388,7 +388,7 @@ es:
     participatory_spaces:
       highlighted_proposals:
         last: Propuestas más recientes
-        see_all: Ver todas las propuestas (%{count})
+        see_all: Ver todas las propuestas
     proposals:
       actions:
         answer_proposal: Responder a la propuesta
@@ -878,7 +878,7 @@ es:
           title: 'La recogida de apoyos se rige por las siguientes normas:'
           vote_limit:
             description: Puedes apoyar hasta %{limit} propuestas.
-            votes: Apoyos
+            votes: Queda/n %{number} apoyo/s
         wizard_aside:
           back: Volver
           back_from_step_1: Volver a propuestas
