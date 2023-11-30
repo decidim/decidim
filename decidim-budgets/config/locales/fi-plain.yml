@@ -20,6 +20,9 @@ fi-pl:
         scope_id: Teema
   activerecord:
     models:
+      decidim/budgets/budget:
+        one: Budjetti
+        other: Budjetit
       decidim/budgets/project:
         one: Suunnitelma
         other: Suunnitelmat
@@ -45,6 +48,8 @@ fi-pl:
         edit: Muokkaa
         edit_projects: Hallinnoi projekteja
         import: Tuo ehdotuksia suunnitelmiin
+        new_budget: Uusi budjetti
+        new_project: Uusi hanke
         preview: Esikatsele
         send_voting_reminders: Lähetä äänestysmuistutukset
         title: Toiminnot
@@ -90,6 +95,7 @@ fi-pl:
           index:
             actions: Toiminnot
             cancel: Peruuta
+            change_budget: Muuta budjettia
             change_category: Vaihda aihepiiri
             change_scope: Vaihda teema
             change_selected: Muuta tilaa
@@ -100,6 +106,7 @@ fi-pl:
             selected: Valittu
             title: Suunnitelmat
             update: Päivitä
+            update_budget_button: Päivitä hankkeen budjetti
             update_scope_button: Muuta teema
           new:
             create: Luo
@@ -107,6 +114,10 @@ fi-pl:
           update:
             invalid: Hankkeen poisto epäonnistui.
             success: Hankkeen päivitys onnistui.
+          update_budget:
+            invalid: 'Nämä hankkeet ovat jo samassa budjetissa tai niiden budjetit ovat enemmän kuin suurin sallittu määrä: %{projects}.'
+            select_a_project: Valitse hanke.
+            success: 'Seuraavat hankkeet päivitettiin onnistuneesti budjettiin %{subject_name}: %{projects}.'
           update_category:
             invalid: 'Näillä projekteilla oli jo aihepiiri %{subject_name}: %{projects}.'
             select_a_category: Valitse aihepiiri.
@@ -137,7 +148,7 @@ fi-pl:
             no_components: Tässä osallisuustilassa ei ole ole muita ehdotuskomponentteja, joista voitaisiin tuoda ehdotuksia suunnitelmiin.
             origin_component_id: Lähdekomponentti
             select_component: Valitse komponentti
-            title: Tuo ehdotuksia
+            title: Tuo ehdotuksia hankkeiksi
         reminders:
           orders:
             description: Käyttäjät saavat sähköpostiviestin, jossa on linkit budjetteihin, joissa heillä on odottavia ääniä.
@@ -153,8 +164,6 @@ fi-pl:
           create: "%{user_name} loi %{resource_name} -suunnitelman %{space_name} -tilassa"
           delete: "%{user_name} poisti %{resource_name} -suunnitelman %{space_name} -tilassa"
           update: "%{user_name} päivitti %{resource_name} -suunnitelman %{space_name} -tilassa"
-      budget:
-        view: Näytä kaikki budjetin projektit
       budget_information_modal:
         back_to: Takaisin %{component_name}
         close_modal: Sulje ikkuna
@@ -168,6 +177,7 @@ fi-pl:
         count:
           one: "%{count} budjetti"
           other: "%{count} budjettia"
+        empty: Ei yhtään budjettia
         finished_message: Olet äänestänyt. Kiitos osallistumisestasi!
         highlighted_cta: Äänestä budjetista %{name}
         if_change_opinion: Jos olet muuttanut mieltäsi, voit
@@ -192,7 +202,6 @@ fi-pl:
           fields:
             category: Aihepiiri
             id: ID
-            scope: Teema
             title: Otsikko
       order_summary_mailer:
         order_summary:
@@ -227,6 +236,7 @@ fi-pl:
           projects_count:
             one: 1 suunnitelma
             other: "%{count} suunnitelmaa"
+        empty: Ei yhtään hanketta
         exit_modal:
           cancel: Palaa äänestykseen
           exit: Poistu äänestyksestä
@@ -241,8 +251,6 @@ fi-pl:
             all: Kaikki
             not_selected: Ei valittu
             selected: Valittu
-        index:
-          back_to_budgets: takaisin kaikkiin budjetteihin
         order_progress:
           assigned: Varattu
           budget: Budjetti
@@ -270,7 +278,6 @@ fi-pl:
           add: Lisää hanke %{resource_name} ääneesi.
           remove: Poista hanke %{resource_name} äänestäsi.
           selected: Valitut
-          view: Näytä
           votes:
             one: ääni
             other: ääntä
@@ -287,6 +294,7 @@ fi-pl:
         select_projects: Valitse hankkeita
         show:
           budget: Budjetti
+      prompt: Valitse budjetti
       vote_reminder_mailer:
         vote_reminder:
           email_budgets: 'Alueet, joissa sinulla on keskeneräinen ääni:'

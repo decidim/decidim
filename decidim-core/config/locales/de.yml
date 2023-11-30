@@ -22,9 +22,11 @@ de:
       user:
         about: Über
         email: Ihre E-Mail
+        encrypted_password: Passwort
         locale: Spracheinstellung
         name: Ihr Name
         nickname: Spitzname
+        old_password: Aktuelles Passwort
         password: Passwort
         password_confirmation: Bestätigen Sie Ihr Passwort
         personal_url: Persönliche URL
@@ -285,11 +287,9 @@ de:
       amendable:
         button: '%{model_name} ändern'
         error: Bei der Änderung dieser Ressource ist ein Fehler aufgetreten.
-        help_text: Verbessern Sie diese %{model_name} indem Sie ihre %{amendable_fields} ändern.
         promote_button: Zu %{model_name} befördern
         promote_confirm_text: Möchten Sie diese Erweiterung wirklich fördern?
         promote_help_text: Sie können diese Änderung fördern und als unabhängige %{model_name} veröffentlichen.
-        section_heading: Änderungen (%{count})
       amendments:
         title:
           one: "%{count} Anpassung"
@@ -457,7 +457,6 @@ de:
         one: und %{count} mehr
         other: und %{count} mehr
       see_less: "(Weniger anzeigen)"
-      see_more: "(Mehr anzeigen)"
     components:
       component_order_selector:
         no_content: Wir konnten keine Inhalte mit diesen Kriterien finden.
@@ -589,6 +588,8 @@ de:
           subtitle: Bitte füllen Sie das folgende Formular aus, um die Anmeldung abzuschließen
           username_help: Öffentlich sichtbarer Name, der in Ihren Beiträgen angezeigt wird. Um Anonymität zu gewährleisten, kann es sich um einen beliebigen Namen handeln.
       registrations:
+        create:
+          error: Es gab ein Problem bei der Erstellung Ihres Kontos.
         new:
           already_have_an_account?: Haben Sie bereits ein Konto?
           log_in: Anmelden
@@ -643,7 +644,7 @@ de:
           publish_content: Inhalte für Sie veröffentlichen
           see_email: Ihre E-Mail anzeigen
           see_name: Ihren Namen anzeigen
-          see_username: Ihren Benutzernamen anzeigen
+          see_username: Kontonamen anzeigen
           this_application_will_be_able_to: 'Diese Anwendung wird in der Lage sein:'
           this_application_will_not_be_able_to: 'Diese Anwendung kann nicht:'
           update_profile: Profil aktualisieren
@@ -909,14 +910,12 @@ de:
           add_attachment: Anhang hinzufügen
           add_file: Datei hinzufügen
           add_image: Bild hinzufügen
-          cancel: Abbrechen
           edit_image: Bild bearbeiten
           error: Fehler!
           file_size_too_large: 'Datei ist zu groß! Maximale Dateigröße: %{megabytes}MB'
           filename: Dateiname
           remove: Entfernen
           replace: Ersetzen
-          save: Speichern
           title: Titel
           title_required: Titel ist erforderlich!
           uploaded: Hochgeladen
@@ -1009,7 +1008,7 @@ de:
         email_help: E-Mail Ihrer Organisation, Ihrer Vereinigung, Ihres Kollektivs, Ihrer Gruppe usw.
         fill_in_for_verification: 'Füllen Sie diese Felder aus, wenn Ihre Gruppe überprüft werden soll:'
         name_help: Name Ihrer Organisation, Ihrer Vereinigung, Ihres Kollektivs, Ihrer Gruppe usw.
-        nickname_help: Benutzername Ihrer Organisation, Ihrer Vereinigung, Ihres Kollektivs, Ihrer Gruppe usw. Verwenden Sie keine Leerzeichen oder Akzente.
+        nickname_help: Kontonamen Ihrer Organisation, Ihrer Vereinigung, Ihres Kollektivs, Ihrer Gruppe usw. Verwenden Sie keine Leerzeichen oder Akzente.
         phone_help: Verwenden Sie keine Bindestriche oder Leerzeichen.
       join:
         error: Beim Beitritt zur Gruppe ist ein Problem aufgetreten.
@@ -1299,7 +1298,7 @@ de:
           proposals: Vorschläge
           proposals_explanation: Machen Sie Vorschläge, unterstützen Sie bestehende und fördern Sie die Änderungen, die Sie sehen möchten.
         footer_sub_hero:
-          footer_sub_hero_body: Lasst uns eine offenere, transparentere und kollaborativere Gesellschaft aufbauen.<br /> Beitreten, teilnehmen und entscheiden.
+          footer_sub_hero_body_html: Lasst uns eine offenere, transparentere und kollaborativere Gesellschaft aufbauen.<br /> Beitreten, teilnehmen und entscheiden.
           footer_sub_hero_headline: Willkommen auf der Beteiligungsplattform %{organization}.
           register: Registrieren
         hero:
@@ -1355,6 +1354,8 @@ de:
         conversations: Unterhaltungen
         followers: Follower
         following: Folgt
+        group_admins: Admins verwalten
+        group_members: Mitglieder verwalten
         groups: Gruppen
         members: Mitglieder
         officialized: Offizieller Teilnehmer
@@ -1558,7 +1559,7 @@ de:
         my_interests: Meine Interessen
         no_scopes: Dieser Organisation ist noch kein Thema zugewiesen!
         select_your_interests: Wählen Sie die Themen aus, an denen Sie interessiert sind, um dazu Benachrichtigungen auf der Registerkarte "Zeitleiste" Ihres Profils zu erhalten.
-        update_my_interests: Aktualisieren Sie meine Interessen
+        update_my_interests: Meine Interessen aktualisieren
       update:
         error: Beim Aktualisieren Ihrer Interessen ist ein Fehler aufgetreten.
         success: Ihre Interessen wurden erfolgreich aktualisiert.
@@ -1570,6 +1571,15 @@ de:
         greetings: Grüße,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hallo %{admin},
         subject: Ein neuer Benutzer wurde in %{organization_name} gemeldet
+    user_update_mailer:
+      notify:
+        body_1: Wir senden Ihnen diese Nachricht, um Sie über eine Aktualisierung Ihres Kontos zu informieren.
+        body_2: Falls Sie selbst keine solche Aktualisierung durchgeführt haben, melden Sie sich bitte bei Ihrem Konto an, um Ihr Passwort zu ändern. Falls Sie sich nicht einloggen können, wenden Sie sich bitte an den Plattform-Support.
+        greetings: Freundliche Grüße,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hallo %{user}
+        main_body: 'Die folgenden Details wurden geändert: %{updates}.'
+        update_fields: "%{updates} und %{last_update}"
+      subject: Ihr Konto wurde aktualisiert
     version:
       show:
         back_to_resource: Zurück
@@ -1615,7 +1625,7 @@ de:
         header: Beenden Sie die Erstellung Ihres Kontos
         nickname_help: Ihr Pseudonym auf %{organization}. Kann nur Buchstaben, Zahlen, '-' und '_' enthalten.
         submit_button: Speichern
-        subtitle: Wenn Sie die Einladung annehmen, geben Sie bitte Ihren Benutzernamen und Ihr Passwort ein.
+        subtitle: Wenn Sie die Einladung annehmen, geben Sie bitte Ihren Kontonamen und Ihr Passwort ein.
       invitation_removed: Ihre Einladung wurde entfernt.
       invitation_token_invalid: Das angegebene Einladungstoken ist nicht gültig!
       new:
@@ -1642,7 +1652,7 @@ de:
         hello: Hallo %{email},
         ignore: |-
           Wenn Sie die Einladung nicht annehmen möchten, ignorieren Sie diese E-Mail.<br />
-          Ihr Konto wird erst erstellt, wenn Sie auf den obigen Link zugreifen und Ihren Benutzernamen und Ihr Passwort festlegen.
+          Ihr Konto wird erst erstellt, wenn Sie auf den obigen Link zugreifen und Ihren Kontonamen und Ihr Passwort festlegen.
         invited_you_as_admin: "%{invited_by} hat dich als Admin von %{application}eingeladen. Sie können es über den folgenden Link akzeptieren."
         invited_you_as_private_user: "%{invited_by} hat dich als privaten Benutzer von %{application}eingeladen. Sie können es über den folgenden Link akzeptieren."
         someone_invited_you: Jemand hat dich zu %{application}eingeladen. Sie können es über den folgenden Link akzeptieren.
@@ -1682,8 +1692,9 @@ de:
         change_my_password: Ändere mein Passwort
         confirm_new_password: Bestätige neues Passwort
         new_password: Neues Passwort
-        password_help: "Mindestens %{minimun_characters} Zeichen, nicht zu gewöhnlich (z. B. 123456) und darf nicht Ihr Benutzername oder Ihre E-Mail-Adresse sein."
-        password_help_admin: "Das Passwort muss mindestens aus %{minimun_characters} Zeichen bestehen, nicht zu gewöhnlich (z. B. 123456) sein und es darf nicht Ihr Pseudonym oder Ihre E-Mail-Adresse enthalten."
+        old_password_help: Um die Änderungen an Ihrem Konto zu bestätigen, geben Sie bitte Ihr aktuelles Passwort ein.
+        password_help: "Das Passwort muss aus mindestens %{minimum_characters} Zeichen bestehen, darf nicht zu gewöhnlich sein (z. B. 123456) oder Ihren Kontonamen bzw. Ihre E-Mail-Adresse enthalten."
+        password_help_admin: "Das Passwort muss aus mindestens %{minimum_characters} Zeichen bestehen, darf nicht zu gewöhnlich sein (z. B. 123456) oder Ihren Kontonamen oder Ihre E-Mail-Adresse enthalten und muss sich von Ihren alten Passwörtern unterscheiden."
         title: Passwort ändern
       new:
         forgot_your_password: Haben Sie Ihr Passwort vergessen?
@@ -1946,8 +1957,6 @@ de:
         continue_session: Sitzung fortsetzen
         log_out: Abmelden
         title: Möchten Sie ihre Sitzung fortsetzen?
-      upload_modal:
-        close_modal: Fenster schließen
       user_menu:
         account: 'Benutzerkonto: %{name}'
         admin_dashboard: Admin-Dashboard

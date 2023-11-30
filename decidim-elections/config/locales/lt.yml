@@ -845,22 +845,6 @@ lt:
             name: Balsavimo laiko juosta
         index:
           published: Paskelbta
-        landing_page:
-          content_blocks:
-            create:
-              error: Bandant sukurti šią turinio sekciją kilo problema.
-              success: Turinio blokas sėkmingai sukurtas.
-            destroy:
-              error: Bandant sukurti šį turinio bloką kilo problema.
-              success: Turinio blokas sėkmingai pašalintas.
-            edit:
-              update: Atnaujinti
-          edit:
-            active_content_blocks: Aktyvūs turinio blokai
-            add: Pridėti turinio bloką
-            destroy_confirmation: Ar tikrai norite ištrinti šį turinio bloką?
-            inactive_content_blocks: Neaktyvūs turinio blokai
-            title: Puslapio turinys
         menu:
           votings: Balsavimai
           votings_submenu:
@@ -999,8 +983,6 @@ lt:
             title: Sukurti balsavimo prižiūrėtoją
           polling_officers_picker:
             choose_polling_officers: Pasirinkti balsavimo prižiūrėtojus
-            close: Uždaryti
-            more_polling_officers: Yra dar %{number} daugiau balsavimo prižiūrėtojų. Kad nustatytumėte jų vietą, patikslinkite savo paiešką.
             no_polling_officers: Jūsų paieškos kriterijus atitinkančių balsavimo prižiūrėtojų nerasta arba nėra balsavimo prižiūrėtojų.
         polling_stations:
           create:
@@ -1141,8 +1123,6 @@ lt:
               csv_header_after: Neįtraukite paskutinio lauko (%{ballot_style_code_header}) jei Jums nereikia bliutelenio stilių ir sąlyginių klausimų
               csv_header_before: 'Surašymo failas privalo būti CSV su šia antrašte:'
         document_types:
-          dni: Asmens tapatybės dokumentas
-          nie: Asmens tapatybės dokumentas
           passport: Pasas
         export_mailer:
           access_codes_export:
@@ -1398,8 +1378,6 @@ lt:
           online: Virtualus
   layouts:
     decidim:
-      election_votes_header:
-        exit: Baigti
       voting_navigation:
         check_census: Ar galiu balsuoti?
         election_log: Rinkimų ataskaita

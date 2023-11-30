@@ -29,6 +29,9 @@ zh-CN:
         block_user_templates:
           form:
             save: 保存
+        proposal_answer_templates:
+          form:
+            save: 保存
         questionnaire_templates:
           choose:
             create_from_template: 从模板创建

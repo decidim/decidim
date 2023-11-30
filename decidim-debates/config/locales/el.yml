@@ -94,7 +94,6 @@ el:
         close_debate_modal:
           description: Ποια είναι η περίληψη ή το συμπέρασμα αυτής της συζήτησης;
           send: Κλείσιμο συζήτησης
-        closed: Κλειστό
         count:
           debates_count:
             one: "%{count} συζήτηση"
@@ -102,8 +101,6 @@ el:
         create:
           invalid: Υπήρξε ένα πρόβλημα κατά τη δημιουργία της συζήτησης.
           success: Η συζήτηση δημιουργήθηκε με επιτυχία.
-        debate:
-          participate: Συμμετοχή
         edit:
           back: Πίσω
           save: Αποθήκευση αλλαγών
@@ -139,7 +136,6 @@ el:
           updated: Πρόσφατα ενημερωμένες
         show:
           close_debate: Κλείσιμο συζήτησης
-          date: Ημερομηνία
           debate_closed: Κλειστό
           debate_conclusions_are: 'Η συζήτηση έκλεισε στις %{date} με αυτά τα συμπεράσματα:'
           edit_conclusions: Επεξεργασία συμπερασμάτων

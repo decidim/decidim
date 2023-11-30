@@ -74,7 +74,6 @@ sv:
         machine_translation_display_priority_translation: Översatt texten först
         name: Namn
         official_img_footer: Officiell logo sidfot
-        official_img_header: Officiell logoyp till sidhuvud
         official_url: Officiell URL
         omnipresent_banner_short_description: Kort beskrivning
         omnipresent_banner_title: Titel
@@ -135,8 +134,6 @@ sv:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Ogiltig bildfil
-            official_img_header:
               allowed_file_content_types: Ogiltig bildfil
         participatory_space_private_user_csv_import:
           attributes:
@@ -765,14 +762,6 @@ sv:
         form:
           add: Lägg till i vitlistan
           title: Vitlista för externa domäner
-      organization_homepage:
-        content_blocks:
-          edit:
-            update: Uppdatera
-        edit:
-          active_content_blocks: Block med aktivt innehåll
-          inactive_content_blocks: Block med inaktivt innehåll
-          title: Sidans innehåll
       participatory_space_private_users:
         create:
           error: Det gick inte att lägga till en privat deltagare i deltagarutrymmet.
@@ -800,7 +789,6 @@ sv:
           explanation_example: |
             jon.andersson@example.org%{csv_col_sep}Jon Andersson
             jenny.andersson@example.org%{csv_col_sep}Jenny Andersson
-          title: Skicka CSV-fil
           upload: Skicka
       reminders:
         create:
@@ -863,7 +851,6 @@ sv:
       shared:
         gallery:
           add_images: Lägg till bilder
-          delete_image: Ta bort bild
           edit_images: Redigera bilder
           gallery_legend: Lägg till ett bildgalleri (Frivilligt)
       static_page_topics:
@@ -882,12 +869,6 @@ sv:
       static_pages:
         actions:
           view: Visa offentlig sida
-        content_blocks:
-          active_content_blocks: Aktiva innehållsblock
-          edit:
-            update: Uppdatera
-          inactive_content_blocks: Inactiva innehållsblock
-          title: Sidans innehåll
         create:
           error: Det gick inte att skapa en ny sida.
           success: Sidan har skapats.
@@ -898,12 +879,12 @@ sv:
           update: Uppdatera
         form:
           none: Ingen
+        index:
+          last_notable_change: Senast märkbara förändring
         new:
           create: Skapa sida
           title: Ny sida
         topic:
-          destroy: Ta bort ämne
-          edit: Redigera ämne
           without_topic: Sidor utan ämne
         update:
           error: Det gick inte att uppdatera sidan.

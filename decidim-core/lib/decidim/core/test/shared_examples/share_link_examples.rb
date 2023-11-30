@@ -29,7 +29,7 @@ shared_examples "share link" do
       expect(page).to have_content("Share")
       expect(page).to have_content("Copy")
 
-      input = find("#urlShareLink")
+      input = find_by_id("urlShareLink")
 
       find("[data-clipboard-copy]").click
 

@@ -28,3 +28,5 @@ ca:
           update:
             invalid: S'ha produït un error en desar la pàgina.
             success: Pàgina desada correctament.
+      show:
+        empty: No hi ha contingut encara en aquesta pàgina.

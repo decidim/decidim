@@ -310,7 +310,7 @@ describe "ProfileConversations" do
           visit_profile_inbox
           expect(page).to have_content("New conversation")
           click_button "New conversation"
-          find("#add_conversation_users").fill_in with: "@#{interlocutor2.nickname}"
+          find_by_id("add_conversation_users").fill_in with: "@#{interlocutor2.nickname}"
           expect(page).to have_selector("#autoComplete_list_1 li.disabled", wait: 2)
         end
       end
@@ -326,8 +326,8 @@ describe "ProfileConversations" do
         end
 
         it "enables submit button after selecting interlocutor" do
-          find("#add_conversation_users").fill_in with: "@#{interlocutor.nickname}"
-          find("#autoComplete_result_0").click
+          find_by_id("add_conversation_users").fill_in with: "@#{interlocutor.nickname}"
+          find_by_id("autoComplete_result_0").click
           expect(page).to have_button("Next", disabled: false)
         end
       end
@@ -350,7 +350,7 @@ describe "ProfileConversations" do
   def visit_inbox
     visit decidim.root_path
 
-    find("#trigger-dropdown-account").click
+    find_by_id("trigger-dropdown-account").click
     within "#dropdown-menu-account" do
       click_link("Conversations")
     end

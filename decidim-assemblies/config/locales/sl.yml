@@ -101,10 +101,6 @@ sl:
         create:
           error: Pojavila se je težava pri podvajanju združbe.
           success: Združba uspešno podvojena.
-      assemblies_settings:
-        update:
-          error: Pojavila se je težava pri urejanju nastavitev.
-          success: Nastavitve uspešno posodobljene.
       assemblies_types:
         create:
           error: Pojavila se je težava pri kreiranju nove združbe.
@@ -138,7 +134,6 @@ sl:
           success: Član uspešno izbrisan v tej združbi.
       menu:
         assemblies: Združbe
-        assemblies_settings: Nastavitve
         assemblies_submenu:
           assembly_admins: Skrbniki združbe
           assembly_members: Člani
@@ -170,19 +165,13 @@ sl:
             select_an_assembly_type: Izberi vrsto združbe
             select_parent_assembly: Izberi matično združbo
             visbility: Vidljivost
-        assemblies_settings:
-          edit:
-            update: Posodobi
-          form:
-            title: Nastavitve za združbe
         assemblies_types:
           form:
             title: Naziv
-        assembly_members:
-          index:
-            filter:
-              all: Vsi
-            search: Išči
+      assemblies:
+        filters:
+          names:
+            all: Vsi
       assembly_members:
         index:
           members: Člani

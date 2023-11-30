@@ -87,8 +87,6 @@ lv:
           lowest_cost: Mazākās izmaksas
           most_voted: Visvairāk balsu
           random: Nejauša secība
-        project:
-          view: Apskatīt
         show:
           budget: Budžets
     components:

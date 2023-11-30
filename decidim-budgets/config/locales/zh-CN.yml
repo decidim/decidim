@@ -70,8 +70,6 @@ zh-CN:
           create: "%{user_name} 在 %{space_name} 空间中创建了 %{resource_name} 项目"
           delete: "%{user_name} 在 %{space_name} 空间中删除了 %{resource_name} 项目"
           update: "%{user_name} 在 %{resource_name} 空间更新 %{space_name} 项目"
-      budget:
-        view: 查看所有预算项目
       budget_information_modal:
         back_to: 返回 %{component_name}
         close_modal: 关闭模式
@@ -135,7 +133,6 @@ zh-CN:
           selected: 已选择
         project:
           selected: 已选择
-          view: 查看
           votes:
             other: 投票
         project_budget_button:

@@ -5,7 +5,7 @@ require "decidim/faker/localized"
 
 module Decidim
   module Proposals
-    class Seeds
+    class Seeds < Decidim::Seeds
       attr_reader :participatory_space
 
       def initialize(participatory_space:)
@@ -38,10 +38,6 @@ module Decidim
 
       def organization
         @organization ||= participatory_space.organization
-      end
-
-      def admin_user
-        @admin_user ||= Decidim::User.find_by(organization:, email: "admin@example.org")
       end
 
       def create_component!
@@ -90,7 +86,7 @@ module Decidim
         params = {
           component:,
           category: participatory_space.categories.sample,
-          scope: random_scope,
+          scope: random_scope(participatory_space:),
           title: { en: ::Faker::Lorem.sentence(word_count: 2) },
           body: { en: ::Faker::Lorem.paragraphs(number: 2).join("\n") },
           state:,
@@ -125,16 +121,22 @@ module Decidim
         end
       end
 
-      def create_emendation!(proposal:)
-        n = rand(5)
-        email = "amendment-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{n}-amend#{n}@example.org"
-        name = "#{::Faker::Name.name} #{participatory_space.id} #{n} amend#{n}"
+      def random_nickname
+        "#{::Faker::Twitter.unique.screen_name}-#{SecureRandom.hex(4)}"[0, 20]
+      end
 
-        author = Decidim::User.find_or_initialize_by(email:)
+      def random_email(suffix:)
+        r = SecureRandom.hex(4)
+
+        "#{suffix}-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{r}@example.org"
+      end
+
+      def create_emendation!(proposal:)
+        author = Decidim::User.find_or_initialize_by(email: random_email(suffix: "amendment"))
         author.update!(
           password: "decidim123456789",
-          name:,
-          nickname: ::Faker::Twitter.unique.screen_name,
+          name: "#{::Faker::Name.name} #{participatory_space.id}",
+          nickname: random_nickname,
           organization:,
           tos_agreement: "1",
           confirmed_at: Time.current
@@ -142,7 +144,7 @@ module Decidim
 
         group = Decidim::UserGroup.create!(
           name: ::Faker::Name.name,
-          nickname: ::Faker::Twitter.unique.screen_name,
+          nickname: random_nickname,
           email: ::Faker::Internet.email,
           extended_data: {
             document_number: ::Faker::Code.isbn,
@@ -162,7 +164,7 @@ module Decidim
         params = {
           component: proposal.component,
           category: participatory_space.categories.sample,
-          scope: random_scope,
+          scope: random_scope(participatory_space:),
           title: { en: "#{proposal.title["en"]} #{::Faker::Lorem.sentence(word_count: 1)}" },
           body: { en: "#{proposal.body["en"]} #{::Faker::Lorem.sentence(word_count: 3)}" },
           state: "evaluating",
@@ -194,16 +196,11 @@ module Decidim
       end
 
       def create_proposal_votes!(proposal:, emendation: nil)
-        n = rand(5)
-        m = rand(5)
-        email = "vote-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{n}-#{m}@example.org"
-        name = "#{::Faker::Name.name} #{participatory_space.id} #{n} #{m}"
-
-        author = Decidim::User.find_or_initialize_by(email:)
+        author = Decidim::User.find_or_initialize_by(email: random_email(suffix: "vote"))
         author.update!(
           password: "decidim123456789",
-          name:,
-          nickname: ::Faker::Twitter.unique.screen_name,
+          name: "#{::Faker::Name.name} #{participatory_space.id}",
+          nickname: random_nickname,
           organization:,
           tos_agreement: "1",
           confirmed_at: Time.current,
@@ -240,7 +237,7 @@ module Decidim
           draft = Decidim::Proposals::CollaborativeDraft.new(
             component:,
             category: participatory_space.categories.sample,
-            scope: random_scope,
+            scope: random_scope(participatory_space:),
             title: ::Faker::Lorem.sentence(word_count: 2),
             body: ::Faker::Lorem.paragraphs(number: 2).join("\n"),
             state:,
@@ -271,22 +268,10 @@ module Decidim
           Decidim::User.where(organization:).all.sample,
           component:,
           category: participatory_space.categories.sample,
-          scope: random_scope,
+          scope: random_scope(participatory_space:),
           title: ::Faker::Lorem.sentence(word_count: 2),
           body: ::Faker::Lorem.paragraphs(number: 2).join("\n")
         )
-      end
-
-      def random_scope
-        if participatory_space.scope
-          scopes = participatory_space.scope.descendants
-          global = participatory_space.scope
-        else
-          scopes = participatory_space.organization.scopes
-          global = nil
-        end
-
-        ::Faker::Boolean.boolean(true_ratio: 0.5) ? global : scopes.sample
       end
     end
   end

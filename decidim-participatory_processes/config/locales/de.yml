@@ -28,7 +28,7 @@ de:
         participatory_structure: Wie wird es entschieden?
         private_space: Privater Prozess
         promoted: Hervorgehoben
-        published_at: Veröffentlicht unter
+        published_at: Veröffentlicht am
         related_process_ids: Ähnliche Beteiligungsprozesse
         scope_id: Themenbereich
         scope_type_max_depth_id: Umfang-Filtertiefe
@@ -100,6 +100,7 @@ de:
         edit: Bearbeiten
         filter:
           all_processes: Alle Beteiligungsprozesse anzeigen
+          process_groups: Prozesse in Gruppen filtern
         import_process: Importieren
         moderate: Moderieren
         new_process: Neuer Beteiligungsprozess
@@ -110,6 +111,7 @@ de:
         preview: Vorschau
         publish: Veröffentlichen
         resend_invitation: Einladung erneut senden
+        see_process: Prozess ansehen
         unpublish: Veröffentlichung rückgängig machen
       menu:
         participatory_process_groups: Prozessgruppen
@@ -124,6 +126,7 @@ de:
           attachments: Anlagen
           categories: Kategorien
           components: Komponenten
+          info: Über diesen Prozess
           landing_page: Startseite
           moderations: Moderationen
           private_users: Private Benutzer
@@ -132,7 +135,8 @@ de:
       models:
         participatory_process:
           fields:
-            created_at: Hergestellt in
+            actions: Aktionen
+            created_at: Erstellt am
             private: Privat
             published: Veröffentlicht
             title: Titel
@@ -172,22 +176,6 @@ de:
           copy: Kopieren
           select: Wählen Sie aus, welche Daten Sie duplizieren möchten
           title: Beteiligungsprozess duplizieren
-      participatory_process_group_landing_page:
-        edit:
-          active_content_blocks: Aktive Inhaltsblöcke
-          add: Inhaltsblock hinzufügen
-          destroy_confirmation: Sind Sie sicher, dass Sie diesen Inhaltsblock löschen möchten?
-          inactive_content_blocks: Inaktive Inhaltsblöcke
-          title: Seiteninhalt
-      participatory_process_group_landing_page_content_blocks:
-        create:
-          error: Es gab ein Problem beim Erstellen dieses Inhaltsblocks.
-          success: Inhaltsblock erfolgreich erstellt.
-        destroy:
-          error: Es gab ein Problem beim Löschen dieses Inhaltsblocks.
-          success: Inhaltsblock erfolgreich gelöscht.
-        edit:
-          update: Aktualisieren
       participatory_process_groups:
         destroy:
           error: Beim Löschen der Beteiligungsprozessgruppe ist ein Fehler aufgetreten.
@@ -265,7 +253,7 @@ de:
         destroy:
           success: Der Benutzer wurde erfolgreich aus diesem partizipativen Prozess entfernt.
         edit:
-          title: Administrator des Beteiligungsprozesses aktualisieren
+          title: Admin des Beteiligungsprozesses aktualisieren
           update: Aktualisieren
         index:
           process_admins_title: Partizipative Prozessbenutzer
@@ -285,6 +273,7 @@ de:
           private: Privat
           public: Öffentlich
           published: Veröffentlicht
+          unpublished: Nicht veröffentlicht
         new:
           create: Erstellen
           title: Neuer partizipativer Prozess
@@ -416,6 +405,7 @@ de:
         participatory_process_groups:
           form:
             metadata: Metadaten
+            title: Über diesen Prozess
             visibility: Sichtbarkeit
         participatory_process_imports:
           form:

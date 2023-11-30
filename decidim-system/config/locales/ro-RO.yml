@@ -116,7 +116,6 @@ ro:
           show: Arată setările avansate
         create:
           error: A apărut o problemă la crearea unei noi organizații.
-          success: Organizație creată cu succes.
         edit:
           secondary_hosts_hint: Introduceți fiecare dintre ele într-o linie nouă
         file_upload_settings:
