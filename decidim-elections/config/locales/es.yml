@@ -666,7 +666,7 @@ es:
           feedback: Danos tu opinión
           header: Voto confirmado
           lead: '¡Tu voto se ha emitido!'
-          text: 'Puedes comprobar que tu voto se ha añadido correctamente a la urna con el siguiente identificador: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          text: 'Puedes comprobar que tu voto se ha añadido correctamente a la urna con el siguiente identificador: '
           verify_link: Para comprobarlo, copia el identificador y pégalo en la <a href="%{link}">página de verificación de voto</a>
         create:
           error: Hubo un problema al emitir el voto. Por favor, inténtalo de nuevo.
