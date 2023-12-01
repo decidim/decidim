@@ -331,7 +331,6 @@ linters:
           - collapsible-list__see-less
           - collapsible-list__see-more
           - collection-input
-          - collection-sort-controls
           - color-box
           - column-block
           - comment--nested
