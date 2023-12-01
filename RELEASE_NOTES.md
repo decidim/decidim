@@ -38,6 +38,7 @@ bash consultations_removal.bash # For "2.3. Consultation module removal"
 bin/rails db:migrate
 bin/rails decidim:procfile:install # For "3.3. Added Procfile support"
 bin/rails decidim:robots:replace # for "3.11. Anti-spam measures in the robots.txt"
+sed -i -e "/rackup      DefaultRackup/d" config/puma.rb # for "3.14. Puma syntax change"
 ```
 
 Then there are some actions that needs to be done that depend in your customizations and configurations:
@@ -330,6 +331,17 @@ bin/rails decidim:upgrade:fix_short_urls
 ```
 
 You can see more details about this change on PR [\#12004](https://github.com/decidim/decidim/pull/12004)
+
+### 3.14. Puma syntax change
+
+There's a change in the puma syntax, and you need to remove a line in the configuration (`rackup      DefaultRackup`)
+
+```console
+sed -i -e "/rackup      DefaultRackup/d" config/puma.rb
+```
+
+You can see more details about this change in issue [puma/puma#2989](https://github.com/puma/puma/issues/2989#issuecomment-1279331520)
+
 
 ## 4. Scheduled tasks
 
