@@ -35,6 +35,7 @@ bin/rails decidim:upgrade
 wget https://docs.decidim.org/en/develop/develop/consultations_removal.bash -O consultations_removal.bash  # For "2.3. Consultation module removal"
 bash consultations_removal.bash # For "2.3. Consultation module removal"
 bin/rails db:migrate
+bin/rails decidim:procfile:install # For "3.3. Added Procfile support"
 bin/rails decidim:robots:replace # for "3.11. Anti-spam measures in the robots.txt"
 ```
 
