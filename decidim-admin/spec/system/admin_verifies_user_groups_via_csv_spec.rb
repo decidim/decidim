@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin verifies user groups via CSV", type: :system do
+describe "Admin verifies user groups via CSV" do
   let(:organization) { create(:organization) }
 
   let!(:user) { create(:user, :admin, :confirmed, organization:) }

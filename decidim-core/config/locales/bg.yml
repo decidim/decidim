@@ -147,7 +147,6 @@ bg:
         error: Възникна грешка при промяната на ресурса.
         promote_button: Обяви като %{model_name}
         promote_confirm_text: Сигурни ли сте, че искате да обявите тази поправка?
-        section_heading: Поправки (%{count})
       compare_draft:
         continue: Продължи
         no_similars_found: Не са намерени подобни поправки.
@@ -271,7 +270,6 @@ bg:
         one: и още %{count}
         other: и още %{count}
       see_less: "(скрий)"
-      see_more: "(покажи)"
     components:
       component_order_selector:
         order:
@@ -779,7 +777,6 @@ bg:
           proposals: Предложения
           proposals_explanation: Правете предложения, подкрепяйте съществуващите и обявете промените, които искате да видите.
         footer_sub_hero:
-          footer_sub_hero_body: Нека изградим по-отворено, прозрачно и задружно общество.<br /> Присъединете се, участвайте и решавайте.
           footer_sub_hero_headline: Добре дошли в платформата за сътрудничество %{organization}!
           register: Регистрация
         hero:
@@ -1011,7 +1008,6 @@ bg:
         change_my_password: Промяна на паролата ми
         confirm_new_password: Потвърди нова парола
         new_password: Нова парола
-        password_help: "Минимум %{minimun_characters} символа, не трябва да са разпространени (например, 123456) и трябва да са различни от вашите име и ел. поща."
       new:
         forgot_your_password: Забравили сте паролата си?
         send_me_reset_password_instructions: Изпрати ми инструкции за възстановяване на паролата

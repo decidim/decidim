@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Meeting registrations", type: :system do
+describe "Meeting registrations" do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 
@@ -37,9 +37,6 @@ describe "Meeting registrations", type: :system do
       available_slots:,
       registration_terms:
     )
-
-    # Make static map requests not to fail with HTTP 500 (causes JS error)
-    stub_request(:get, Regexp.new(Decidim.maps.fetch(:static).fetch(:url))).to_return(body: "")
   end
 
   context "when meeting registrations are not enabled" do
@@ -314,7 +311,7 @@ describe "Meeting registrations", type: :system do
           dynamically_attach_file("questionnaire_responses_0_add_documents", Decidim::Dev.asset("verify_user_groups.csv"))
 
           expect(page).to have_field("public_participation", checked: false)
-          find("#questionnaire_tos_agreement").set(true)
+          find_by_id("questionnaire_tos_agreement").set(true)
           accept_confirm { click_button "Submit" }
 
           expect(page).to have_content("Needs to be reattached")

@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Headers
-    describe "ContentSecurityPolicy", type: :controller do
+    describe "ContentSecurityPolicy" do
       let!(:organization) { create(:organization) }
       let!(:user) { create(:user, :confirmed, organization:) }
       let!(:additional_content_security_policies) do

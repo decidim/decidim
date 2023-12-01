@@ -35,7 +35,6 @@ ga:
         exports:
           comments: Tráchtanna
       debates:
-        closed: Dúnta
         edit:
           back: Ar Ais
         filters:
@@ -55,7 +54,6 @@ ga:
           back: Ar Ais
           create: Cruthaigh
         show:
-          date: Dáta
           debate_closed: Dúnta
           groups_count: Grúpaí
       models:

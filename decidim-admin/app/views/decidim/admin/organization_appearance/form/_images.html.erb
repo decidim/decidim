@@ -15,7 +15,7 @@
         <%= render "decidim/admin/organization_appearance/form/minimap" %>
       </div>
 
-      <div class="organization-images grid grid-cols-1 md:grid-cols-2 gap-y-4">
+      <div class="organization-images mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
         <div class="preview">
           <%= form.upload(
                 :favicon,
@@ -31,15 +31,6 @@
                 :logo,
                 dimensions_info: current_organization.attached_uploader(:logo).dimensions_info,
                 extension_allowlist: current_organization.attached_uploader(:logo).extension_allowlist,
-                button_class: "button button__sm button__transparent-secondary"
-              ) %>
-        </div>
-
-        <div class="preview">
-          <%= form.upload(
-                :official_img_header,
-                dimensions_info: current_organization.attached_uploader(:official_img_header).dimensions_info,
-                extension_allowlist: current_organization.attached_uploader(:official_img_header).extension_allowlist,
                 button_class: "button button__sm button__transparent-secondary"
               ) %>
         </div>

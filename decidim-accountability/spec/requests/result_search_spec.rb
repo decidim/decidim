@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe "Result search", type: :request do
+RSpec.describe "Result search" do
   include Decidim::ComponentPathHelper
 
   let(:component) { create(:accountability_component) }
@@ -60,12 +60,9 @@ RSpec.describe "Result search", type: :request do
 
     it "displays all categories that have top-level results" do
       expect(subject).to include(translated(result1.category.name))
+      expect(subject).to include(translated(result2.category.name))
+      expect(subject).to include(translated(result3.category.name))
       expect(subject).to include(translated(result4.category.name))
-    end
-
-    it "does not display the categories that only have sub-results" do
-      expect(subject).not_to include(translated(result2.category.name))
-      expect(subject).not_to include(translated(result3.category.name))
     end
   end
 

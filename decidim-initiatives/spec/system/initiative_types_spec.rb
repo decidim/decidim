@@ -3,7 +3,7 @@
 require "spec_helper"
 require "decidim/core/test/shared_examples/has_contextual_help"
 
-describe "Initiatives", type: :system do
+describe "Initiatives" do
   let(:organization) { create(:organization) }
   let(:base_initiative) do
     create(:initiative, organization:)
@@ -53,6 +53,10 @@ describe "Initiatives", type: :system do
         create(:initiative, :created, organization:)
       end
 
+      before do
+        allow(Decidim::Initiatives).to receive(:print_enabled).and_return(true)
+      end
+
       it_behaves_like "shows contextual help" do
         let(:index_path) { decidim_initiatives.initiatives_path }
         let(:manifest_name) { :initiatives }
@@ -71,7 +75,7 @@ describe "Initiatives", type: :system do
           it "the menu link is shown" do
             visit decidim_initiatives.initiatives_path
 
-            find("#main-dropdown-summary").hover
+            find_by_id("main-dropdown-summary").hover
             within ".menu-bar__main-dropdown__menu" do
               expect(page).to have_content("Initiatives")
               click_link "Initiatives"

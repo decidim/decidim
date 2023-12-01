@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Account", type: :system do
+describe "Account" do
   let(:user) { create(:user, :confirmed, password:) }
   let(:password) { "dqCFgjfDbC7dPbrv" }
   let(:organization) { user.organization }
@@ -43,7 +43,7 @@ describe "Account", type: :system do
       end
 
       it "shows error when image is too big" do
-        find("#user_avatar_button").click
+        find_by_id("user_avatar_button").click
 
         within ".upload-modal" do
           click_button "Remove"
@@ -143,7 +143,7 @@ describe "Account", type: :system do
 
         it "toggles the current password" do
           expect(page).to have_content("In order to confirm the changes to your account, please provide your current password.")
-          expect(find("#user_old_password")).to be_visible
+          expect(find_by_id("user_old_password")).to be_visible
           expect(page).to have_content "Current password"
           expect(page).not_to have_content "Password"
         end
@@ -196,7 +196,8 @@ describe "Account", type: :system do
           perform_enqueued_jobs
           perform_enqueued_jobs
 
-          expect(emails.count).to eq(2)
+          # the emails also include the update email notification
+          expect(emails.count).to eq(3)
           visit last_email_link
           expect(page).to have_content("Your email address has been successfully confirmed")
         end

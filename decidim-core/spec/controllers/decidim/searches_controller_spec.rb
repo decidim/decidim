@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe SearchesController, type: :controller do
+  describe SearchesController do
     routes { Decidim::Core::Engine.routes }
 
     let(:organization) { create(:organization) }
@@ -51,19 +51,6 @@ module Decidim
         expect(Decidim::Search).to receive(:call).with(any_args, hash_including(with_resource_type: resource_type), a_kind_of(Hash))
 
         get :index, params: { term: "Blues", "filter[with_resource_type]" => resource_type }
-      end
-    end
-
-    context "when applying scope filter" do
-      let(:search) { instance_dobule(Decidim::Search) }
-      let(:scope_id) { "SomeScopeId" }
-
-      before { allow(Decidim::Search).to receive(:call) }
-
-      it "takes the scope filter into account" do
-        expect(Decidim::Search).to receive(:call).with(any_args, hash_including(decidim_scope_id_eq: scope_id), a_kind_of(Hash))
-
-        get :index, params: { term: "Blues", "filter[decidim_scope_id_eq]" => scope_id }
       end
     end
 

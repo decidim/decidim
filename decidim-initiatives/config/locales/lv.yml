@@ -308,7 +308,6 @@ lv:
           author: Autors
           myself: Manas iniciatīvas
           scope: Darbības tvērums
-          search: Meklēt
           state: Statuss
           type: Veids
         index_header:
@@ -384,8 +383,5 @@ lv:
         sms_phone_number: Mobilā tālruņa numurs
         title: Parakstīt %{initiative_title}
       initiatives:
-        initiative:
-          check: Aplūkojiet šo
-          check_and_support: Aplūkojiet un parakstiet
         no_initiatives_yet:
           no_initiatives_yet: Pagaidām nav iniciatīvu!

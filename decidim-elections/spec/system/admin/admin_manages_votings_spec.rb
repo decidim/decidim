@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages votings", type: :system do
+describe "Admin manages votings" do
   include_context "when admin managing a voting"
 
   before do
@@ -178,7 +178,7 @@ describe "Admin manages votings", type: :system do
     end
 
     it "shows an error inside the upload modal" do
-      find("#voting_banner_image_button").click
+      find_by_id("voting_banner_image_button").click
 
       within ".upload-modal" do
         click_button "Remove"

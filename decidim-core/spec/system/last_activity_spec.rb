@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Last activity", type: :system do
+describe "Last activity" do
   let(:organization) { create(:organization) }
   let(:commentable) { create(:dummy_resource, component:) }
   let(:comment) { create(:comment, commentable:) }
@@ -95,7 +95,7 @@ describe "Last activity", type: :system do
       end
 
       it "shows the activities in correct order" do
-        result = page.find("#activities").text
+        result = page.find_by_id("activities").text
         expect(result.index(translated(resource.title))).to be < result.index(translated(comment.commentable.title))
         expect(result.index(translated(comment.commentable.title))).to be < result.index(translated(another_comment.commentable.title))
       end

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Endorse debates", type: :system do
+describe "Endorse debates" do
   include_context "with resources to be endorsed or not"
 
   let(:manifest_name) { "debates" }

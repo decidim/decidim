@@ -286,7 +286,6 @@ pt-BR:
           back: Costas
           continue: Continuar
           fill_data_help: "<ul> <li>Revise o conteúdo de sua iniciativa. Seu título é fácil de entender? O objetivo da sua iniciativa é claro?</li> <li>Você tem que escolher o tipo de assinatura. Pessoalmente, online ou uma combinação de ambos</li> <li>Qual é o âmbito geográfico da iniciativa?</li> </ul>"
-          initiative_type: Tipo de iniciativa
           more_information: "(Mais Informações)"
           select_area: Selecione uma área
           select_scope: Selecione um âmbito
@@ -382,7 +381,6 @@ pt-BR:
             other: e mais %{count} pessoas
         committee_members:
           approve: Aprovar
-          confirm_revoke: Você tem certeza?
           link: Link
           title: Membros do Comitê
         count:
@@ -395,7 +393,6 @@ pt-BR:
           author: Autor
           myself: Minhas iniciativas
           scope: Escopo
-          search: Pesquisa
           state: Estado
           type: Tipo
         index_header:
@@ -515,8 +512,5 @@ pt-BR:
         sms_phone_number: número de celular
         title: Assinar %{initiative_title}
       initiatives:
-        initiative:
-          check: Confira
-          check_and_support: Confira e assine
         no_initiatives_yet:
           no_initiatives_yet: Nenhuma iniciativa ainda!

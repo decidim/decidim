@@ -362,7 +362,6 @@ sv:
             other: och %{count} till personer
         committee_members:
           approve: Godkänn
-          confirm_revoke: Är du säker?
           link: Länk
           title: Kommittémedlemmar
         count:
@@ -375,7 +374,6 @@ sv:
           author: Författare
           myself: Mina initiativ
           scope: Omfattning
-          search: Sök
           state: Status
           type: Typ
         index_header:
@@ -488,8 +486,5 @@ sv:
         sms_phone_number: Mobiltelefonnummer
         title: Skriv under %{initiative_title}
       initiatives:
-        initiative:
-          check: Ta en titt
-          check_and_support: Ta en titt och skriv under
         no_initiatives_yet:
           no_initiatives_yet: Inga initiativ ännu!

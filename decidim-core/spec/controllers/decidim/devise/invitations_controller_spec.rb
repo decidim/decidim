@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Devise
-  describe InvitationsController, type: :controller do
+  describe InvitationsController do
     routes { Decidim::Core::Engine.routes }
 
     let(:organization) { create(:organization) }

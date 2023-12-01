@@ -64,7 +64,6 @@ lb:
             create: Importieren Sie Vorschläge in Projekte
             no_components: Es gibt keine weiteren Vorschlagskomponenten in diesem partizipativen Raum, um die Vorschläge in Projekte zu importieren.
             select_component: Bitte wählen Sie eine Komponente aus
-            title: Vorschläge importieren
       admin_log:
         budget:
           create: "%{user_name} hat das Budget %{resource_name} in %{space_name} erstellt"
@@ -74,8 +73,6 @@ lb:
           create: "%{user_name} hat das Projekt %{resource_name} in %{space_name} erstellt"
           delete: "%{user_name} hat das Projekt %{resource_name} in %{space_name} gelöscht"
           update: "%{user_name} hat das Projekt %{resource_name} in %{space_name} aktualisiert"
-      budget:
-        view: Alle Budgetprojekte anzeigen
       budget_information_modal:
         back_to: Zurück zu %{component_name}
         close_modal: Dialog schließen
@@ -141,7 +138,6 @@ lb:
           selected: Ausgewählt
         project:
           selected: Ausgewählt
-          view: Anzeigen
           votes:
             one: Abstimmung
             other: Abstimmungen

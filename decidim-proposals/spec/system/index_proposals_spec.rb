@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Index proposals", type: :system do
+describe "Index proposals" do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 
@@ -13,6 +13,22 @@ describe "Index proposals", type: :system do
       visit_component
 
       expect(page).not_to have_content("There is no proposal yet")
+    end
+  end
+
+  context "when there are more proposals than the pagination" do
+    let!(:proposals) { create_list(:proposal, 50, component:) }
+
+    it "views them all" do
+      visit_component
+
+      within "main" do
+        expect(page).to have_content("50 proposals")
+      end
+
+      within "main nav" do
+        expect(page).to have_content("Next")
+      end
     end
   end
 

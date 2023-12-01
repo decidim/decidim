@@ -378,8 +378,6 @@ sk:
           new:
             create: Vytvoriť
             title: Vytvorte návrh
-          publish_answers:
-            number_of_proposals: Odpovede pre %{number} návrhov budú zverejnené.
           show:
             amendments_count: Počet zmien
             assigned_valuators: Priradení hodnotitelia
@@ -388,7 +386,6 @@ sk:
             documents: Dokumenty
             endorsements_count: Počet podporení
             endorsers: Podporovatelia
-            link: Odkaz
             n_more_endorsers:
               one: a 1 ďalší
               few: + %{count} ďalších

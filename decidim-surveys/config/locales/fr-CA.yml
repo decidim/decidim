@@ -53,6 +53,9 @@ fr-CA:
       answers_count: Réponses
     surveys:
       admin:
+        component:
+          actions:
+            answers_alert: Si vous publiez la fonctionnalité, toutes les réponses existantes seront supprimées.
         exports:
           survey_user_answers: Réponses des participants à l'enquête
         surveys:
@@ -61,6 +64,9 @@ fr-CA:
             success: Enquête enregistrée avec succès.
       last_activity:
         new_survey: 'Nouvelle enquête :'
+      survey_confirmation_mailer:
+        confirmation:
+          body: Vous avez répondu avec succès à l'enquête %{questionnaire_title} dans %{participatory_space}
       surveys:
         answer:
           invalid: Votre réponse à l'enquête comporte des erreurs.

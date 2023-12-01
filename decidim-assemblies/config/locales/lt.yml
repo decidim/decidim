@@ -1,8 +1,6 @@
 lt:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: Įgalinti organizacijos modelį
       assemblies_type:
         title: Pavadinimas
       assembly:
@@ -124,10 +122,6 @@ lt:
         create:
           error: Dubliuojant šią asamblėją iškilo problema.
           success: Asamblėja dubliuota.
-      assemblies_settings:
-        update:
-          error: Atnaujinant nustatymus iškilo problema.
-          success: Nustatymai sėkmingai atnaujinti.
       assemblies_types:
         create:
           error: Kuriant naujos asamblėjos tipą iškilo problema.
@@ -160,13 +154,11 @@ lt:
         destroy:
           success: Šios asamblėjos narys pašalintas sėkmingai.
         edit:
-          title: Atnaujinti asamblėjos narį.
           update: Atnaujinti
         index:
           assembly_members_title: Asamblėjos nariai
         new:
           create: Sukurti
-          title: Naujas asamblėjos narys.
         update:
           error: Atnaujinant šios asamblėjos narį iškilo problema.
           success: Šios asamblėjos narys atnaujintas sėkmingai.
@@ -184,13 +176,11 @@ lt:
         destroy:
           success: Administratorius sėkmingai panaikintas iš šios asamblėjos.
         edit:
-          title: Atnaujinti asamblėjos administratorių.
           update: Atnaujinti
         index:
           assembly_admins_title: Asamblėjos administratoriai
         new:
           create: Sukurti
-          title: Naujas asamblėjos administratorius.
         update:
           error: Atnaujinant asamblėjos administratorių kilo problema.
           success: Šios asamblėjos administratorius sėkmingai atnaujintas.
@@ -199,7 +189,6 @@ lt:
           label: Asamblėjos tipas
       menu:
         assemblies: Asamblėjos
-        assemblies_settings: Nustatymai
         assemblies_submenu:
           assembly_admins: Asamblėjos administratoriai
           assembly_members: Nariai
@@ -295,11 +284,6 @@ lt:
             social_handlers: Socialiniai
             title: Bendroji informacija
             visbility: Matomumas
-        assemblies_settings:
-          edit:
-            update: Atnaujinimas
-          form:
-            title: Asamblėjų nuostatos
         assemblies_types:
           form:
             title: Pavadinimas
@@ -313,12 +297,6 @@ lt:
             select_a_position: Pasirinkti poziciją
             select_user: Pasirinkti dalyvį
             user_type: Dalyvio tipas
-          index:
-            filter:
-              all: Visi
-              ceased: Nutraukta
-              not_ceased: Nenutraukta
-            search: Ieškoti
         content_blocks:
           highlighted_assemblies:
             max_results: Didžiausias rodomų elementų skaičius

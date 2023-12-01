@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe ManifestsController, type: :controller do
+  describe ManifestsController do
     routes { Decidim::Core::Engine.routes }
 
     let(:organization) { create(:organization, name: "Organization's name") }

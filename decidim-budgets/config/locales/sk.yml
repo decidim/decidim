@@ -89,8 +89,6 @@ sk:
           lowest_cost: Najnižšie náklady
           most_voted: Najviac hlasov
           random: Náhodné poradie
-        project:
-          view: Zobraziť
         show:
           budget: Rozpočet
     components:

@@ -2,11 +2,23 @@
 <div class="sidebar-menu__container">
   <div class="sidebar-menu">
     <div id="admin-sidebar-menu-settings">
-      <%= sidebar_menu(secondary_root_menu).render %>
+      <div class="hidden md:block">
+        <%= sidebar_menu(secondary_root_menu).render %>
+      </div>
+      <button data-component="dropdown" data-target="dropdown-menu-sidebar" data-auto-close="true" data-disabled-md="true" data-scroll-to-menu="true">
+        <span><%= t("menu", scope: "decidim.admin.titles") %></span>
+        <%= icon "arrow-down-s-line" %>
+        <%= icon "arrow-up-s-line" %>
+      </button>
+
+      <ul id="dropdown-menu-sidebar" class="md:hidden">
+        <%= sidebar_menu(secondary_root_menu).render %>
+      </ul>
     </div>
   </div>
 
   <div class="item_show__wrapper">
+    <%= admin_tabs(tab_menu_name).render if defined?(has_tab_menu?) && has_tab_menu? %>
     <%= yield %>
   </div>
 </div>

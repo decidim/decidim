@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages participatory processes", type: :system, versioning: true do
+describe "Admin manages participatory processes", versioning: true do
   include_context "when admin administrating a participatory process"
 
   let!(:participatory_process_groups) do
@@ -13,6 +13,37 @@ describe "Admin manages participatory processes", type: :system, versioning: tru
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_participatory_processes.participatory_processes_path
+  end
+
+  context "when conditionally displaying private user menu entry" do
+    let!(:my_space) { create(:participatory_process, organization:, private_space:) }
+
+    before do
+      switch_to_host(organization.host)
+      login_as user, scope: :user
+      visit decidim_admin_participatory_processes.participatory_processes_path
+      click_link translated(my_space.title)
+    end
+
+    context "when the participatory process is private" do
+      let(:private_space) { true }
+
+      it "hides the private user menu entry" do
+        within_admin_sidebar_menu do
+          expect(page).to have_content("Private participants")
+        end
+      end
+    end
+
+    context "when the participatory process is public" do
+      let(:private_space) { false }
+
+      it "shows the private user menu entry" do
+        within_admin_sidebar_menu do
+          expect(page).not_to have_content("Private participants")
+        end
+      end
+    end
   end
 
   it_behaves_like "manage processes examples"

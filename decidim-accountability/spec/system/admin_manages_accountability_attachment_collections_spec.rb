@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages accountability attachment collections", type: :system do
+describe "Admin manages accountability attachment collections" do
   include_context "with a component"
   let(:manifest_name) { "accountability" }
   let!(:result) { create(:result, component: current_component) }

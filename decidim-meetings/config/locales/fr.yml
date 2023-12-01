@@ -319,7 +319,6 @@ fr:
             select_a_meeting_type: Veuillez sélectionner un type de rencontre
             select_a_registration_type: Veuillez sélectionner un type d'inscription
             select_an_iframe_access_level: Veuillez sélectionner un niveau d'accès iframe
-            show_embedded_iframe_help: 'Seuls quelques services permettent d''intégrer des réunions ou des événements en direct depuis les domaines suivants : %{domains}'
           index:
             title: Rencontres
           new:
@@ -394,6 +393,9 @@ fr:
           all: Tout
         filter_meeting_space_values:
           all: Tout
+      calendar:
+        meeting_to_event:
+          read_more: En savoir plus sur cette réunion
       calendar_modal:
         calendar_url: URL du calendrier
         copy_calendar_url: Copier
@@ -416,7 +418,6 @@ fr:
       directory:
         meetings:
           index:
-            go_to_list: Voir la liste des événements
             meetings: Rencontres
             space_type: Espace participatif
       iframe_access_level:
@@ -504,7 +505,6 @@ fr:
           select_a_meeting_type: Veuillez sélectionner un type de rencontre
           select_a_registration_type: Veuillez sélectionner un type d'inscription
           select_an_iframe_access_level: Veuillez sélectionner un niveau d'accès iframe
-          show_embedded_iframe_help: 'Seuls quelques services permettent d''intégrer des réunions ou des événements en direct depuis les domaines suivants : %{domains}'
         index:
           click_here: Voir toutes les rencontres
           new_meeting: Nouvelle rencontre
@@ -529,7 +529,6 @@ fr:
         show:
           attendees: Nombre de participants
           contributions: Décompte des contributions
-          date: Date
           join: Participer à la rencontre
           leave: Annuler votre inscription
           leave_confirmation: Êtes-vous sûr de vouloir annuler votre inscription à cette rencontre ?
@@ -547,7 +546,6 @@ fr:
           remaining_slots:
             one: "Il reste %{count} place"
             other: "Il reste %{count} places"
-          view: Voir
           visit_finished: Consulter l’historique des rencontres
           withdraw_btn_hint: Vous pouvez annuler votre rencontre si vous changez d'avis. La rencontre n'est pas supprimée, elle apparaîtra dans la liste des rencontres retirées.
           withdraw_confirmation_html: Êtes-vous sûr de vouloir annuler cette rencontre ?<br><br><strong>Cette action ne peut pas être annulée !</strong>

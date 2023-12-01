@@ -327,7 +327,3 @@ tr:
       votings:
         show:
           title: Bu Oylama Hakkında
-  layouts:
-    decidim:
-      election_votes_header:
-        exit: Çıkış

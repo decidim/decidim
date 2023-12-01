@@ -1,8 +1,6 @@
 pt-BR:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: Habilitar gráfico de organização
       assemblies_type:
         title: Título
       assembly:
@@ -112,10 +110,6 @@ pt-BR:
         create:
           error: Ocorreu um erro ao duplicar esta assembleia.
           success: Assembleia duplicada com sucesso.
-      assemblies_settings:
-        update:
-          error: Houve um problema ao atualizar as configurações.
-          success: Configurações atualizadas com sucesso.
       assemblies_types:
         create:
           error: Ocorreu um erro ao criar um novo tipo de assembleia.
@@ -148,13 +142,11 @@ pt-BR:
         destroy:
           success: Membro excluído com êxito para este assembly.
         edit:
-          title: Atualize o membro do assembly.
           update: Atualizar
         index:
           assembly_members_title: Membros da assembleia
         new:
           create: Criar
-          title: Novo membro da assembleia.
         update:
           error: Houve um erro ao atualizar o membro para este assembly.
           success: Membro atualizado com êxito para este assembly.
@@ -172,13 +164,11 @@ pt-BR:
         destroy:
           success: Usuário removido com sucesso deste assembly.
         edit:
-          title: Atualize o usuário da montagem.
           update: Atualizar
         index:
           assembly_admins_title: Usuários da assembleia
         new:
           create: Criar
-          title: Novo usuário da assembleia.
         update:
           error: Ocorreu um erro ao atualizar um usuário para esta montagem.
           success: Usuário atualizado com sucesso para esta montagem.
@@ -187,7 +177,6 @@ pt-BR:
           label: Tipo de assembleia
       menu:
         assemblies: Assembleias
-        assemblies_settings: Configurações
         assemblies_submenu:
           assembly_admins: Usuários da assembleia
           assembly_members: Membros
@@ -279,11 +268,6 @@ pt-BR:
             social_handlers: Social
             title: Informação geral
             visbility: Visibilidade
-        assemblies_settings:
-          edit:
-            update: Atualizar
-          form:
-            title: Configurações para assembleias
         assemblies_types:
           form:
             title: Título
@@ -294,12 +278,6 @@ pt-BR:
             select_a_position: Selecione uma posição
             select_user: Selecione um usuário
             user_type: Tipo de usuário
-          index:
-            filter:
-              all: Todos
-              ceased: Cessou
-              not_ceased: Não cessou
-            search: Procurar
         content_blocks:
           highlighted_assemblies:
             max_results: Quantidade máxima de elementos para mostrar

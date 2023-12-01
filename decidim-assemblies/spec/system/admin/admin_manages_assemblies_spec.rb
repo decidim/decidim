@@ -2,11 +2,42 @@
 
 require "spec_helper"
 
-describe "Admin manages assemblies", type: :system do
+describe "Admin manages assemblies" do
   include_context "when admin administrating an assembly"
 
-  let(:model_name) { assembly.class.model_name }
   let(:resource_controller) { Decidim::Assemblies::Admin::AssembliesController }
+  let(:model_name) { assembly.class.model_name }
+
+  context "when conditionally displaying private user menu entry" do
+    let!(:my_space) { create(:assembly, organization:, private_space:) }
+
+    before do
+      switch_to_host(organization.host)
+      login_as user, scope: :user
+      visit decidim_admin_assemblies.assemblies_path
+      click_link translated(my_space.title)
+    end
+
+    context "when the participatory space is private" do
+      let(:private_space) { true }
+
+      it "hides the private user menu entry" do
+        within_admin_sidebar_menu do
+          expect(page).to have_content("Private users")
+        end
+      end
+    end
+
+    context "when the participatory space is public" do
+      let(:private_space) { false }
+
+      it "shows the private user menu entry" do
+        within_admin_sidebar_menu do
+          expect(page).not_to have_content("Private users")
+        end
+      end
+    end
+  end
 
   shared_examples "creating an assembly" do
     let(:image1_filename) { "city.jpeg" }

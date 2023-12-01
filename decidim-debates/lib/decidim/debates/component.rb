@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "decidim/components/namer"
-
 Decidim.register_component(:debates) do |component|
   component.engine = Decidim::Debates::Engine
   component.admin_engine = Decidim::Debates::AdminEngine
@@ -69,91 +67,8 @@ Decidim.register_component(:debates) do |component|
   end
 
   component.seeds do |participatory_space|
-    admin_user = Decidim::User.find_by(
-      organization: participatory_space.organization,
-      email: "admin@example.org"
-    )
+    require "decidim/debates/seeds"
 
-    user = Decidim::User.find_by(
-      organization: participatory_space.organization,
-      email: "user@example.org"
-    )
-
-    params = {
-      name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :debates).i18n_name,
-      manifest_name: :debates,
-      published_at: Time.current,
-      participatory_space:
-    }
-
-    component = Decidim.traceability.perform_action!(
-      "publish",
-      Decidim::Component,
-      admin_user,
-      visibility: "all"
-    ) do
-      Decidim::Component.create!(params)
-    end
-
-    5.times do |x|
-      finite = x != 2
-      if finite
-        start_time = [rand(1..20).weeks.from_now, rand(1..20).weeks.ago].sample
-        end_time = start_time + [rand(1..4).hours, rand(1..20).days].sample
-      else
-        start_time = nil
-        end_time = nil
-      end
-      params = {
-        component:,
-        category: participatory_space.categories.sample,
-        title: Decidim::Faker::Localized.sentence(word_count: 2),
-        description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-          Decidim::Faker::Localized.paragraph(sentence_count: 3)
-        end,
-        instructions: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-          Decidim::Faker::Localized.paragraph(sentence_count: 3)
-        end,
-        start_time:,
-        end_time:,
-        author: component.organization
-      }
-
-      debate = Decidim.traceability.create!(
-        Decidim::Debates::Debate,
-        admin_user,
-        params,
-        visibility: "all"
-      )
-
-      Decidim::Comments::Seed.comments_for(debate)
-    end
-
-    closed_debate = Decidim::Debates::Debate.last
-    closed_debate.conclusions = Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-      Decidim::Faker::Localized.paragraph(sentence_count: 3)
-    end
-    closed_debate.closed_at = Time.current
-    closed_debate.save!
-
-    params = {
-      component:,
-      category: participatory_space.categories.sample,
-      title: Decidim::Faker::Localized.sentence(word_count: 2),
-      description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-        Decidim::Faker::Localized.paragraph(sentence_count: 3)
-      end,
-      instructions: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-        Decidim::Faker::Localized.paragraph(sentence_count: 3)
-      end,
-      author: user
-    }
-
-    Decidim.traceability.create!(
-      Decidim::Debates::Debate,
-      user,
-      params,
-      visibility: "all"
-    )
+    Decidim::Debates::Seeds.new(participatory_space:).call
   end
 end

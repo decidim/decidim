@@ -2,13 +2,13 @@
 
 require "spec_helper"
 
-describe "Polling Officer zone", type: :system do
+describe "Polling Officer zone" do
   let(:manifest_name) { "elections" }
   let(:user) { create(:user, :confirmed, organization:) }
   let!(:election) { create(:election, :complete, :bb_test, :vote, component:) }
   let(:polling_station) { create(:polling_station, id: 1, voting:) }
   let!(:polling_officer) { create(:polling_officer, voting:, user:, presided_polling_station: polling_station) }
-  let!(:datum) { create(:datum, dataset:, full_name: "Jon Doe", document_type: "DNI", document_number: "12345678X", birthdate: Date.civil(1980, 5, 11)) }
+  let!(:datum) { create(:datum, dataset:, full_name: "Jon Doe", document_type: "passport", document_number: "12345678X", birthdate: Date.civil(1980, 5, 11)) }
   let(:dataset) { create(:dataset, voting:) }
 
   include_context "with a component" do
@@ -75,7 +75,7 @@ describe "Polling Officer zone", type: :system do
     let(:voter_id) { vote_flow.voter_id }
     let(:vote_flow) do
       ret = Decidim::Votings::CensusVoteFlow.new(election)
-      ret.voter_in_person(document_type: "DNI", document_number: "12345678X", day: "11", month: "5", year: "1980")
+      ret.voter_in_person(document_type: "passport", document_number: "12345678X", day: "11", month: "5", year: "1980")
       ret
     end
 
@@ -90,7 +90,7 @@ describe "Polling Officer zone", type: :system do
     let(:voter_id) { vote_flow.voter_id }
     let(:vote_flow) do
       ret = Decidim::Votings::CensusVoteFlow.new(election)
-      ret.voter_in_person(document_type: "DNI", document_number: "12345678X", day: "11", month: "5", year: "1980")
+      ret.voter_in_person(document_type: "passport", document_number: "12345678X", day: "11", month: "5", year: "1980")
       ret
     end
 
@@ -134,7 +134,7 @@ describe "Polling Officer zone", type: :system do
 
   def fill_person_data(correct: true)
     within "[data-content]" do
-      select("DNI", from: "Document type")
+      select("Passport", from: "Document type")
       fill_in "Document number", with: "12345678X"
       fill_in "Day", with: correct ? "11" : "1"
       fill_in "Month", with: "5"

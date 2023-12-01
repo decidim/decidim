@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Homepage", type: :system do
+describe "Homepage" do
   context "when there is no organization" do
     before do
       visit decidim.root_path
@@ -486,6 +486,27 @@ describe "Homepage", type: :system do
             expect(zipfile.glob("*open-data-meetings.csv").length).to eq(1)
             expect(zipfile.glob("*open-data-elections.csv").length).to eq(1)
             expect(zipfile.glob("*open-data-votings.csv").length).to eq(1)
+          end
+        end
+      end
+
+      describe "footer message" do
+        context "when the organization does not have a description" do
+          let(:organization) { create(:organization, description: { en: nil }) }
+
+          it "shows the default message" do
+            within "footer" do
+              expect(page).to have_text("Let's build a more open, transparent and collaborative society.")
+            end
+          end
+        end
+
+        context "when the organization has a description" do
+          it "shows the organization description" do
+            within "footer" do
+              expect(page).not_to have_text("Let's build a more open, transparent and collaborative society.")
+              expect(page).to have_text(strip_tags(translated(organization.description)))
+            end
           end
         end
       end

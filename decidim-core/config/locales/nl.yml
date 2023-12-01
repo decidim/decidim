@@ -169,7 +169,6 @@ nl:
         error: Er is een fout opgetreden bij het wijzigen van deze bron.
         promote_button: Promoot naar %{model_name}
         promote_confirm_text: Weet je zeker dat je deze eervolle vermelding wilt promoten?
-        section_heading: Wijzigingen (%{count})
       compare_draft:
         continue: Volgende
         no_similars_found: Geen gelijkaardige amendementen gevonden.
@@ -304,7 +303,6 @@ nl:
         one: en %{count} meer
         other: en %{count} meer
       see_less: "(bekijk minder)"
-      see_more: "(Bekijk meer)"
     components:
       component_order_selector:
         order:
@@ -886,7 +884,6 @@ nl:
           proposals: voorstellen
           proposals_explanation: Maak voorstellen, ondersteun de bestaande en bevorder de veranderingen die u wilt zien.
         footer_sub_hero:
-          footer_sub_hero_body: Laten we een meer open, transparante en samenwerkende samenleving bouwen.<br /> Doe mee, neem deel en beslis.
           footer_sub_hero_headline: Welkom bij %{organization} participatief platform.
           register: Registreren
         hero:
@@ -1162,7 +1159,6 @@ nl:
         change_my_password: Verander mijn wachtwoord
         confirm_new_password: Bevestig nieuw wachtwoord
         new_password: Nieuw wachtwoord
-        password_help: "gebruik minimaal %{minimun_characters} tekens, deze mogen niet te algemeen zijn (bijv. 123456) en moeten anders zijn dan je alias en je e-mail."
       new:
         forgot_your_password: Je wachtwoord vergeten?
         send_me_reset_password_instructions: Stuur mij opnieuw wachtwoordinstructies

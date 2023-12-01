@@ -75,7 +75,6 @@ ro:
         machine_translation_display_priority_translation: Mai întâi textul tradus
         name: Nume
         official_img_footer: Logo oficial pentru subsol
-        official_img_header: Logo oficial pentru antet
         official_url: URL oficial al organizației
         omnipresent_banner_short_description: Descriere scurtă
         omnipresent_banner_title: Titlu
@@ -140,8 +139,6 @@ ro:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Fișier invalid
-            official_img_header:
               allowed_file_content_types: Fișier invalid
         participatory_space_private_user_csv_import:
           attributes:
@@ -835,22 +832,6 @@ ro:
         form:
           add: Adaugă la lista albă
           title: Lista albă pentru domenii externe
-      organization_homepage:
-        content_blocks:
-          create:
-            error: A apărut o problemă la crearea acestui bloc de conținut.
-            success: Blocul de conținut creat cu succes.
-          destroy:
-            error: A apărut o eroare la ștergerea acestui bloc de conținut.
-            success: Bloc de conținut șters cu succes.
-          edit:
-            update: Actualizare
-        edit:
-          active_content_blocks: Blocuri de conținut active
-          add: Adaugă bloc de conținut
-          destroy_confirmation: Sunteţi sigur că doriţi să ştergeţi acest bloc de conţinut?
-          inactive_content_blocks: Blocuri de conținut inactive
-          title: Conţinutul paginii
       participatory_space_private_users:
         create:
           error: A apărut o problemă la adăugarea unui participant privat pentru acest spațiu participativ.
@@ -880,7 +861,6 @@ ro:
           explanation_example: |
             ion.popescu@example.org%{csv_col_sep}Ion Popescu
             maria.popescu@example.org%{csv_col_sep}Maria Popescu
-          title: Încarcă fișierul tău CSV
           upload: Încarcă
       reminders:
         create:
@@ -947,7 +927,6 @@ ro:
       shared:
         gallery:
           add_images: Adaugă imagini
-          delete_image: Șterge imaginea
           edit_images: Editare imagini
           gallery_legend: Adaugă o galerie de imagini (opțional)
       static_page_topics:
@@ -968,20 +947,6 @@ ro:
       static_pages:
         actions:
           view: Vezi pagina publică
-        content_blocks:
-          active_content_blocks: Blocuri de conținut active
-          add: Adaugă conținut de bloc
-          create:
-            error: A apărut o problemă la crearea acestui bloc de conținut.
-            success: Blocul de conținut creat cu succes.
-          destroy:
-            error: A apărut o eroare la ștergerea acestui bloc de conținut.
-            success: Bloc de conținut șters cu succes.
-          destroy_confirmation: Sunteţi sigur că doriţi să ştergeţi acest bloc de conţinut?
-          edit:
-            update: Actualizare
-          inactive_content_blocks: Blocuri de conținut inactive
-          title: Conţinutul paginii
         create:
           error: A apărut o eroare la crearea unei pagini noi.
           success: Pagina a fost creată cu succes.
@@ -993,12 +958,12 @@ ro:
           update: Actualizează
         form:
           none: Niciunul
+        index:
+          last_notable_change: Ultima modificare importantă
         new:
           create: Creează o pagină
           title: Pagină nouă
         topic:
-          destroy: Elimină subiectul
-          edit: Editează subiectul
           empty: Nu sunt pagini sub acest subiect.
           without_topic: Pagini fără subiect
         update:

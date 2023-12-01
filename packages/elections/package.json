@@ -1,7 +1,7 @@
 {
   "name": "@decidim/elections",
   "description": "The elections and votings dependencies for Decidim",
-  "version": "0.28.0-dev",
+  "version": "0.29.0-dev",
   "repository": {
     "url": "git@github.com:decidim/decidim.git",
     "type": "git",
@@ -10,8 +10,8 @@
   "author": "Decidim Contributors",
   "license": "AGPL-3.0",
   "dependencies": {
-    "@decidim/decidim-bulletin_board": "0.24.1",
-    "@decidim/voting_schemes-dummy": "0.24.1",
-    "@decidim/voting_schemes-electionguard": "0.24.1"
+    "@decidim/decidim-bulletin_board": "0.24.4",
+    "@decidim/voting_schemes-dummy": "0.24.4",
+    "@decidim/voting_schemes-electionguard": "0.24.4"
   }
 }

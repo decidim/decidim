@@ -66,6 +66,7 @@ fi:
           count:
             one: "%{count} artikkeli"
             other: "%{count} artikkelia"
+          empty: Ei yhtään artikkelia.
     components:
       blogs:
         actions:

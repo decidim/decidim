@@ -143,7 +143,6 @@ gl:
         error: Produciuse un erro ao modificar este recurso.
         promote_button: Promoción a %{model_name}
         promote_confirm_text: '¿Está seguro de que quere promocionar esta enmienda?'
-        section_heading: Enmendas (%{count})
       emendation:
         actions:
           button_accept: Aceptar
@@ -234,7 +233,6 @@ gl:
         one: e %{count} máis
         other: e %{count} máis
       see_less: "(ver menos)"
-      see_more: "(Ver máis)"
     components:
       dummy:
         actions:
@@ -488,12 +486,10 @@ gl:
           add_attachment: Engadir ficheiro anexo
           add_file: Engadir ficheiro
           add_image: Engadir imaxe
-          cancel: Cancelar
           edit_image: Editar imaxe
           error: Erro!
           remove: Eliminar
           replace: Substituír
-          save: Gardar
           title: Título
           title_required: O título é obrigatorio!
           uploaded: Cargado
@@ -694,7 +690,6 @@ gl:
           proposals: Propostas
           proposals_explanation: Fai propostas, apoia as existentes e promove os cambios que queres ver.
         footer_sub_hero:
-          footer_sub_hero_body: Construamos unha sociedade máis aberta, transparente e de colaboración.<br /> Unirse, participar e decidir.
           footer_sub_hero_headline: Benvido a %{organization} plataforma participativa.
           register: Rexistrarse
         hero:
@@ -984,8 +979,6 @@ gl:
         expire_time_html: A túa sesión caducará en <b><span class="minutes">%{minutes}</span> minutos</b>.
       notifications_dashboard:
         mark_all_as_read: Marca todo como lido
-      upload_modal:
-        close_modal: Pechar modal
       user_menu:
         admin_dashboard: Taboleiro de administración
         conversations: Conversas

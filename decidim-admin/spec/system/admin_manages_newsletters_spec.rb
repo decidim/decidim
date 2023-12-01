@@ -5,7 +5,7 @@ require "spec_helper"
   require "decidim/#{space}/test/factories.rb"
 end
 
-describe "Admin manages newsletters", type: :system do
+describe "Admin manages newsletters" do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, name: "Sarah Kerrigan", organization:) }
   let!(:deliverable_users) { create_list(:user, 5, :confirmed, newsletter_notifications_at: Time.current, organization:) }

@@ -5,47 +5,6 @@ module Decidim
   module IconHelper
     include Decidim::LayoutHelper
 
-    DEFAULT_RESOURCE_TYPE_ICONS = {
-      "all" => "apps-2-line",
-      "Decidim::Proposals::CollaborativeDraft" => "draft-line",
-      "Decidim::Comments::Comment" => "chat-1-line",
-      "Decidim::Debates::Debate" => "discuss-line",
-      "Decidim::Initiative" => "lightbulb-flash-line",
-      "Decidim::Meetings::Meeting" => "map-pin-line",
-      "Decidim::Blogs::Post" => "pen-nib-line",
-      "Decidim::Proposals::Proposal" => "chat-new-line",
-      "Decidim::Budgets::Order" => "check-double-line",
-      "Decidim::Budgets::Budget" => "coin-line",
-      "Decidim::Budgets::Project" => "coin-line",
-      "Decidim::Assembly" => "government-line",
-      "Decidim::Amendment" => "git-branch-line",
-      "Decidim::ParticipatoryProcess" => "treasure-map-line",
-      "Decidim::Category" => "price-tag-3-line",
-      "Decidim::Scope" => "scan-line",
-      "Decidim::Conference" => "mic-line",
-      "Decidim::Votings::Voting" => "check-double-fill",
-      "Decidim::User" => "user-line",
-      "Decidim::UserGroup" => "group-line",
-      "comments_count" => "wechat-line",
-      "upcoming" => "calendar-2-line",
-      "past" => "calendar-check-line",
-      "in_person" => "community-line",
-      "online" => "webcam-line",
-      "hybrid" => "home-wifi-line",
-      "official" => "star-line",
-      "participants" => "open-arm-line",
-      "user_group" => "team-line",
-      "user_groups" => "team-line",
-      "images" => "image-line",
-      "documents" => "file-text-line",
-      "like" => "heart-add-line",
-      "dislike" => "dislike-line",
-      "follow" => "notification-3-line",
-      "unfollow" => "notification-3-fill",
-      "share" => "share-line",
-      "other" => "question-line"
-    }.freeze
-
     # Public: Returns an icon given an instance of a Component. It defaults to
     # a question mark when no icon is found.
     #
@@ -82,15 +41,15 @@ module Decidim
     # Returns an HTML tag with the icon.
     def resource_icon(resource, options = {})
       if resource.instance_of?(Decidim::Comments::Comment)
-        icon "comment-square", options
+        icon "chat-1-line", options
       elsif resource.respond_to?(:component) && resource.component.present?
         component_icon(resource.component, options)
       elsif resource.respond_to?(:manifest) && resource.manifest.present?
         manifest_icon(resource.manifest, options)
       elsif resource.is_a?(Decidim::User)
-        icon "person", options
+        icon "user-line", options
       else
-        icon "bell", options
+        icon "notification-3-line", options
       end
     end
 
@@ -99,7 +58,9 @@ module Decidim
     end
 
     def resource_type_icon_key(resource_type)
-      DEFAULT_RESOURCE_TYPE_ICONS[resource_type.to_s] || DEFAULT_RESOURCE_TYPE_ICONS["other"]
+      return resource_type.to_s if Decidim.icons.all[resource_type.to_s]
+
+      "other"
     end
 
     def text_with_resource_icon(resource_name, text)

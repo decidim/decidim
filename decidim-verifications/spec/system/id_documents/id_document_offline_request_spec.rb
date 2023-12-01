@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Identity document offline request", type: :system do
+describe "Identity document offline request" do
   let!(:organization) do
     create(
       :organization,

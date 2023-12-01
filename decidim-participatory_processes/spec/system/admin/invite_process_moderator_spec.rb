@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Invite process moderator", type: :system do
+describe "Invite process moderator" do
   include_context "when inviting process users"
 
   before do

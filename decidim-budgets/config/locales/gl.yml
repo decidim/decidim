@@ -159,7 +159,6 @@ gl:
           selected: Seleccionado
         project:
           selected: Seleccionado
-          view: Ver
           votes:
             one: voto
             other: votos
