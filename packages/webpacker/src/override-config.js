@@ -36,7 +36,8 @@ const overrideSassRule = (modifyConfig) => {
           }
         },
         {
-          loader: "postcss-loader"
+          loader: "postcss-loader",
+          options: { sourceMap: true }
         },
         {
           loader: sassLoaderPath
