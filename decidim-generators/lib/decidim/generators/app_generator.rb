@@ -128,15 +128,15 @@ module Decidim
       end
 
       def rubocop
-        copy_file "rubocop.yml", ".rubocop.yml"
+        copy_file ".rubocop.yml", ".rubocop.yml"
       end
 
       def ruby_version
-        copy_file "ruby-version", ".ruby-version", force: true
+        copy_file ".ruby-version", ".ruby-version", force: true
       end
 
       def node_version
-        copy_file "node-version", ".node-version"
+        copy_file ".node-version", ".node-version"
       end
 
       def gemfile
