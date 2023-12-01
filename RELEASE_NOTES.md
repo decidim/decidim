@@ -73,6 +73,12 @@ In the production server, add the following scheduling task if you want to have 
 */15 * * * * cd /home/user/decidim_application && RAILS_ENV=production bin/rails decidim_participatory_processes:change_active_step # for "4.1. Automatically change active step in participatory processes"
 ```
 
+For running the application in the development application you now have the command:
+
+```console
+./bin/dev
+```
+
 This is just a summary of all the most relevant changes done in this version. Keep reading to know the details of the relevant changes for your environmnet.
 
 ## 2. General notes
