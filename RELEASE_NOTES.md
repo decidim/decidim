@@ -1,5 +1,7 @@
 # Release Notes
 
+⚠️  Mind that our last stable version (v0.27.0) is more than one year old. Lots of things have happened in Decidim, so we recommend that you follow all the steps in this guide for updating your application. Enjoy the new design and features!
+
 ## 1. Upgrade notes
 
 As usual, we recommend that you have a full backup, of the database, application code and static files.
