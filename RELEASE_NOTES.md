@@ -8,9 +8,9 @@ As usual, we recommend that you have a full backup, of the database, application
 
 To update, follow these steps:
 
-### 1.1. Update your Ruby version
+### 1.1. Update your ruby and node versions
 
-If you're using rbenv, this is done with the following commands:
+For ruby, if you're using rbenv, this is done with the following commands:
 
 ```console
 rbenv install 3.1.1
@@ -18,6 +18,15 @@ rbenv local 3.1.1
 ```
 
 If not, you need to adapt it to your environment. See "2.1. Ruby update to 3.1"
+
+For node, if you're using nvm, this is done with the following commands:
+
+```console
+nvm install 18.17.1
+nvm use 18.17.1
+```
+
+If not, you need to adapt it to your environment. See "2.2. Node update to 18.17"
 
 ### 1.2. Update your Gemfile
 
@@ -33,8 +42,8 @@ bundle update decidim
 rm config/initializers/social_share_button.rb # for "4.2. Social Share Button change"
 bin/rails decidim:upgrade
 npm install
-wget https://docs.decidim.org/en/develop/develop/consultations_removal.bash -O consultations_removal.bash  # For "2.3. Consultation module removal"
-bash consultations_removal.bash # For "2.3. Consultation module removal"
+wget https://docs.decidim.org/en/develop/develop/consultations_removal.bash -O consultations_removal.bash  # For "2.4. Consultation module removal"
+bash consultations_removal.bash # For "2.4. Consultation module removal"
 bin/rails db:migrate
 bin/rails decidim:procfile:install # For "3.3. Added Procfile support"
 bin/rails decidim:robots:replace # for "3.11. Anti-spam measures in the robots.txt"
@@ -44,7 +53,7 @@ sed -i -e "/rackup      DefaultRackup/d" config/puma.rb # for "3.14. Puma syntax
 Then there are some actions that needs to be done that depend in your customizations and configurations:
 
 * Do you have any custom design in your application or a custom module? If yes, then you'll need to adapt your design to the new framework, Tailwind CSS. Check out "5.1. Tailwind CSS instead of Foundation"
-* Do you have the decidim-consultations module installed in your application? If yes, you need to remove it and change some migrations. Check out "2.3. Consultation module removal"
+* Do you have the decidim-consultations module installed in your application? If yes, you need to remove it and change some migrations. Check out "2.4. Consultation module removal"
 * Do you have any custom module or external javascript/font/stylesheet/assets? If yes, you need to configure it. Check out "3.10. Add Content Security Policy (CSP) support"
 
 * Have you integrated the SMS gateway? Then you may be interested in "5.5. Extra context argument added to SMS gateway implementations"
@@ -85,11 +94,17 @@ This is just a summary of all the most relevant changes done in this version. Ke
 
 ## 2.1. Ruby update to 3.1
 
-We have updated the Ruby version to 3.1.1. Upgrading to this version will require either to install the Ruby Version on your host, or change the decidim docker image to use ruby:3.1.1.
+We have updated the Ruby version to 3.1.1. Upgrading to this version will require either to install this Ruby version on your host, or change the decidim docker image to use ruby:3.1.1.
 
-You can read more about this change on PR #9449.
+You can read more about this change on PR [#9449](https://github.com/decidim/decidim/pull/9449).
 
-## 2.2. Redesign
+## 2.2. Node update to 18.17
+
+We have updated the Node version to 18.17.1 Upgrading to this version will require either to install this Node version on your host, or adapt your decidim docker image.
+
+You can read more about this change on PR [#11564](https://github.com/decidim/decidim/pull/11564).
+
+## 2.3. Redesign
 
 The design of the application has changed radically. The most relevant things to notice are:
 
@@ -102,7 +117,7 @@ The design of the application has changed radically. The most relevant things to
 
 You can read more about this change by searching the PRs and issues with the label contract: redesign. At the moment we have more than [300 merged Pull Requests with this label](https://github.com/decidim/decidim/pulls?q=is%3Apr+sort%3Aupdated-desc+label%3A%22contract%3A+redesign%22+is%3Amerged).
 
-## 2.3. Consultation module removal
+## 2.4. Consultation module removal
 
 The consultations module has been fully removed from this version, so if you're using it in your application you need to remove it from your Gemfile:
 
