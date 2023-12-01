@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 #
 # Script to adapt migrations after consultations removal
-# We didn't use any of the solutions described at the "Data migrations consistency" [0] discussion,
+# We did not use any of the solutions described at the "Data migrations consistency" [0] discussion,
 # so when we try to run a migration in a non-existing table, it blows-up.
 #
-# This script fixes those migrations so they don't need the model in your application.
+# This script fixes those migrations so they do not need the model in your application.
 #
 # [0] https://github.com/decidim/decidim/discussions/8068
 #
