@@ -32,6 +32,8 @@ gem "decidim-dev", "0.28.0.rc1"
 bundle update decidim
 rm config/initializers/social_share_button.rb # for "4.2. Social Share Button change"
 bin/rails decidim:upgrade
+wget https://docs.decidim.org/en/develop/develop/consultations_removal.bash -O consultations_removal.bash  # For "2.3. Consultation module removal"
+bash consultations_removal.bash # For "2.3. Consultation module removal"
 bin/rails db:migrate
 bin/rails decidim:robots:replace # for "3.11. Anti-spam measures in the robots.txt"
 ```
@@ -105,53 +107,9 @@ If you're maintaining a version of this module, please share the URL of the git 
 
 There's an error with the migrations after you've removed this module. Note that this only happens when creating a new database. You'd need to change them like this:
 
-### 2.2.1. AddCommentableCounterCacheToConsultations
-
-It's in the file `db/migrate/*_add_commentable_counter_cache_to_consultations.decidim_consultations.rb`
-
-```ruby
-# frozen_string_literal: true
-# This migration comes from decidim_consultations (originally 20200827154143)
-
-class AddCommentableCounterCacheToConsultations < ActiveRecord::Migration[5.2]
-  class Question < ApplicationRecord
-    self.table_name = :decidim_consultations_questions
-  end
-
-  def change
-    add_column :decidim_consultations_questions, :comments_count, :integer, null: false, default: 0, index: true
-    Question.reset_column_information
-    Question.find_each(&:update_comments_count)
-  end
-end
-```
-
-### 2.2.2. AddFollowableCounterCacheToConsultations
-
-It's in the file `db/migrate/*_add_followable_counter_cache_to_consultations.decidim_consultations.rb`
-
-```ruby
-# frozen_string_literal: true
-# This migration comes from decidim_consultations (originally 20210310120626)
-
-class AddFollowableCounterCacheToConsultations < ActiveRecord::Migration[5.2]
-  class Question < ApplicationRecord
-    self.table_name = :decidim_consultations_questions
-  end
-
-  def change
-    add_column :decidim_consultations_questions, :follows_count, :integer, null: false, default: 0, index: true
-
-    reversible do |dir|
-      dir.up do
-        Question.reset_column_information
-        Question.find_each do |record|
-          record.class.reset_counters(record.id, :follows)
-        end
-      end
-    end
-  end
-end
+```console
+wget https://docs.decidim.org/en/develop/develop/consultations_removal.bash -O consultations_removal.bash
+bash consultations_removal.bash
 ```
 
 You can read more about this change on PR [#11171](https://github.com/decidim/decidim/pull/11171).
