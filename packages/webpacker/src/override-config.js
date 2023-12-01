@@ -24,6 +24,13 @@ const overrideSassRule = (modifyConfig) => {
       baseLoader = miniCssExtractPlugin.loader;
     }
 
+    // eslint-disable-next-line no-undef
+    let postCssConfig = path.resolve(__dirname, "../../../postcss.config.js");
+    if (postCssConfig.includes("node_modules")) {
+      // eslint-disable-next-line no-undef
+      postCssConfig = path.resolve(__dirname, "../../../../postcss.config.js");
+    }
+
     modifyConfig.module.rules.push({
       test: /\.(scss|sass)(\.erb)?$/i,
       use: [
@@ -37,7 +44,12 @@ const overrideSassRule = (modifyConfig) => {
         },
         {
           loader: "postcss-loader",
-          options: { sourceMap: true }
+          options: {
+            sourceMap: true,
+            postcssOptions: {
+              config: postCssConfig
+            }
+          }
         },
         {
           loader: sassLoaderPath
