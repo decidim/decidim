@@ -515,10 +515,10 @@ en:
         proposals:
           answer:
             invalid: There has been a problem answering this proposal.
-            success: Successfully answered.
+            success: Proposal successfully answered.
           create:
             invalid: There has been a problem creating this proposal.
-            success: Successfully created.
+            success: Proposal successfully created.
           edit:
             title: Update proposal
             update: Update
