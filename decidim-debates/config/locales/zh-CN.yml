@@ -83,15 +83,12 @@ zh-CN:
         close_debate_modal:
           description: 这次辩论的总结或结束是什么？
           send: 结束辩论
-        closed: 已关闭
         count:
           debates_count:
             other: "%{count} 次辩论"
         create:
           invalid: 有一个问题是如何建立辩论。
           success: 辩论成功创建。
-        debate:
-          participate: 参与
         edit:
           back: 后退
           save: 保存更改
@@ -124,7 +121,6 @@ zh-CN:
           updated: 最近更新
         show:
           close_debate: 结束辩论
-          date: 日期
           debate_closed: 已关闭
           debate_conclusions_are: '辩论在 %{date} 结束后得出以下结论：'
           edit_conclusions: 编辑结论

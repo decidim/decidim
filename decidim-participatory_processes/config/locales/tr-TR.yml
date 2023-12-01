@@ -151,16 +151,6 @@ tr:
           copy: kopya
           select: Çoğaltmak istediğiniz verileri seçin
           title: Yinelenen katılımcı süreç
-      participatory_process_group_landing_page:
-        edit:
-          active_content_blocks: Aktif içerik blokları
-          add: İçerik bloğu ekle 
-          destroy_confirmation: Bu içerik bloğunu silmek istediğnizden emin misniz 
-          inactive_content_blocks: Aktif olmayan içerik blokları
-          title: Sayfa içeriği
-      participatory_process_group_landing_page_content_blocks:
-        edit:
-          update: Güncelle
       participatory_process_groups:
         destroy:
           error: Katılımcı süreç grubu yok edilirken bir hata oluştu.

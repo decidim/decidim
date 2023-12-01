@@ -195,7 +195,6 @@ uk:
           any: Будь-які
           author: Автор
           myself: Мої почини
-          search: Шукати
           state: Стан
           type: Різновид
         index_header:
@@ -250,8 +249,5 @@ uk:
         promotal_committee: Робочий гурт з просування
         select_initiative_type: Обрати
       initiatives:
-        initiative:
-          check: Перевірте ще раз
-          check_and_support: Перевірте ще раз і підпишіться
         no_initiatives_yet:
           no_initiatives_yet: Ще нема жодного почину!

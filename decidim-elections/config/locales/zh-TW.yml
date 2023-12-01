@@ -779,22 +779,6 @@ zh-TW:
             max_results: 顯示的最大元素數量
         index:
           published: 已發佈
-        landing_page:
-          content_blocks:
-            create:
-              error: 建立此內容區塊時出現問題。
-              success: 內容區塊建立成功。
-            destroy:
-              error: 刪除此內容區塊時出現問題。
-              success: 內容區塊已成功刪除。
-            edit:
-              update: 更新
-          edit:
-            active_content_blocks: 啟用的內容區塊
-            add: 添加內容塊
-            destroy_confirmation: 您確定要刪除此內容區塊嗎？
-            inactive_content_blocks: 停用的內容區塊
-            title: 頁面內容
         menu:
           votings: 投票
           votings_submenu:
@@ -933,8 +917,6 @@ zh-TW:
             title: 建立投票站工作人員
           polling_officers_picker:
             choose_polling_officers: 選擇投票站工作人員
-            close: 關閉
-            more_polling_officers: 還有 %{number} 位投票站工作人員。請進一步優化您的搜尋以找到他們。
             no_polling_officers: 沒有符合您搜尋條件的投票站工作人員或是沒有任何投票站工作人員。
         polling_stations:
           create:
@@ -1075,8 +1057,6 @@ zh-TW:
               csv_header_after: 如果您不需要投票樣式/條件問題，請不要包括最後一個欄位 ("%{ballot_style_code_header}")。
               csv_header_before: '選民名冊檔案必須是一個帶有以下表頭的CSV檔案：'
         document_types:
-          dni: DNI
-          nie: NIE
           passport: 護照
         export_mailer:
           access_codes_export:
@@ -1322,8 +1302,6 @@ zh-TW:
           online: 線上
   layouts:
     decidim:
-      election_votes_header:
-        exit: 退出
       voting_navigation:
         check_census: 我可以投票嗎？
         election_log: 選舉紀錄

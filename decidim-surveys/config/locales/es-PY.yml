@@ -53,6 +53,9 @@ es-PY:
       answers_count: Respuestas
     surveys:
       admin:
+        component:
+          actions:
+            answers_alert: Si publicas el componente, se eliminaran todos los resultados.
         exports:
           survey_user_answers: Respuestas de los usuarios de la encuesta
         surveys:
@@ -61,6 +64,11 @@ es-PY:
             success: Encuesta guardada correctamente.
       last_activity:
         new_survey: 'Nueva encuesta:'
+      survey_confirmation_mailer:
+        confirmation:
+          body: Has respondido con éxito a la encuesta %{questionnaire_title} dentro de %{participatory_space}
+          subject: Confirmación de respuesta al cuestionario %{questionnaire_title}
+        export_name: Respuestas a la encuesta
       surveys:
         answer:
           invalid: Se han producido errores al responder a la encuesta.

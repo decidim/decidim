@@ -182,22 +182,6 @@ cs:
           copy: Kopírovat
           select: Vyberte, která data chcete duplikovat
           title: Duplicitní participační proces
-      participatory_process_group_landing_page:
-        edit:
-          active_content_blocks: Aktivní bloky obsahu
-          add: Přidat blok obsahu
-          destroy_confirmation: Opravdu chcete smazat tento blok obsahu?
-          inactive_content_blocks: Neaktivní bloky obsahu
-          title: Obsah stránky
-      participatory_process_group_landing_page_content_blocks:
-        create:
-          error: Při pokusu o vytvoření tohoto obsahu došlo k chybě.
-          success: Blok obsahu byl úspěšně vytvořen.
-        destroy:
-          error: Při pokusu o odstranění tohoto obsahu došlo k chybě.
-          success: Blok obsahu byl úspěšně odstraněn.
-        edit:
-          update: Aktualizovat
       participatory_process_groups:
         destroy:
           error: Došlo k chybě při zrušení skupiny účastnických procesů.

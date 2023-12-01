@@ -279,7 +279,6 @@ ru:
           registration_state:
             validated: ПОДТВЕРЖДЕНО
             validation_pending: ОЖИДАНИЕ ПОДТВЕРЖДЕНИЯ
-          view: Посмотреть
       models:
         invite:
           fields:

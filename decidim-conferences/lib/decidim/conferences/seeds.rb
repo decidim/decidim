@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
+require "decidim/seeds"
+
 module Decidim
   module Conferences
-    class Seeds
+    class Seeds < Decidim::Seeds
       def call
         organization = Decidim::Organization.first
-        seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
 
         Decidim::ContentBlock.create(
           organization:,
@@ -13,19 +14,6 @@ module Decidim
           scope_name: :homepage,
           manifest_name: :highlighted_conferences,
           published_at: Time.current
-        )
-
-        hero_image = ActiveStorage::Blob.create_and_upload!(
-          io: File.open(File.join(seeds_root, "city.jpeg")),
-          filename: "hero_image.jpeg",
-          content_type: "image/jpeg",
-          metadata: nil
-        )
-        banner_image = ActiveStorage::Blob.create_and_upload!(
-          io: File.open(File.join(seeds_root, "city2.jpeg")),
-          filename: "banner_image.jpeg",
-          content_type: "image/jpeg",
-          metadata: nil
         )
 
         2.times do |_n|
@@ -80,51 +68,10 @@ module Decidim
             )
           end
 
-          attachment_collection = Decidim::AttachmentCollection.create!(
-            name: Decidim::Faker::Localized.word,
-            description: Decidim::Faker::Localized.sentence(word_count: 5),
-            collection_for: conference
-          )
-
-          Decidim::Attachment.create!(
-            title: Decidim::Faker::Localized.sentence(word_count: 2),
-            description: Decidim::Faker::Localized.sentence(word_count: 5),
-            attachment_collection:,
-            attached_to: conference,
-            content_type: "application/pdf",
-            file: ActiveStorage::Blob.create_and_upload!(
-              io: File.open(File.join(seeds_root, "Exampledocument.pdf")),
-              filename: "Exampledocument.pdf",
-              content_type: "application/pdf",
-              metadata: nil
-            ) # Keep after attached_to
-          )
-
-          Decidim::Attachment.create!(
-            title: Decidim::Faker::Localized.sentence(word_count: 2),
-            description: Decidim::Faker::Localized.sentence(word_count: 5),
-            attached_to: conference,
-            content_type: "image/jpeg",
-            file: ActiveStorage::Blob.create_and_upload!(
-              io: File.open(File.join(seeds_root, "city.jpeg")),
-              filename: "city.jpeg",
-              content_type: "image/jpeg",
-              metadata: nil
-            ) # Keep after attached_to
-          )
-
-          Decidim::Attachment.create!(
-            title: Decidim::Faker::Localized.sentence(word_count: 2),
-            description: Decidim::Faker::Localized.sentence(word_count: 5),
-            attached_to: conference,
-            content_type: "application/pdf",
-            file: ActiveStorage::Blob.create_and_upload!(
-              io: File.open(File.join(seeds_root, "Exampledocument.pdf")),
-              filename: "Exampledocument.pdf",
-              content_type: "application/pdf",
-              metadata: nil
-            ) # Keep after attached_to
-          )
+          attachment_collection = create_attachment_collection(collection_for: conference)
+          create_attachment(attached_to: conference, filename: "Exampledocument.pdf", attachment_collection:)
+          create_attachment(attached_to: conference, filename: "city.jpeg")
+          create_attachment(attached_to: conference, filename: "Exampledocument.pdf")
 
           2.times do
             Decidim::Category.create!(
@@ -159,12 +106,7 @@ module Decidim
                 link: ::Faker::Internet.url,
                 partner_type: type,
                 conference:,
-                logo: ActiveStorage::Blob.create_and_upload!(
-                  io: File.open(File.join(seeds_root, "logo.png")),
-                  filename: "logo.png",
-                  content_type: "image/png",
-                  metadata: nil
-                ) # Keep after conference
+                logo: create_blob!(seeds_file: "logo.png", filename: "logo.png", content_type: "image/png")
               )
             end
           end

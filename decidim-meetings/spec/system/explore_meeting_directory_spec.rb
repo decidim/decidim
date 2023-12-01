@@ -90,7 +90,6 @@ describe "Explore meeting directory" do
         visit directory
 
         within "#panel-dropdown-menu-category" do
-          click_filter_item "All"
           click_filter_item translated(participatory_process.title)
         end
 
@@ -113,7 +112,6 @@ describe "Explore meeting directory" do
       visit directory
 
       within "#panel-dropdown-menu-scope" do
-        click_filter_item "All"
         click_filter_item translated(meeting.scope.name)
       end
 
@@ -129,7 +127,6 @@ describe "Explore meeting directory" do
         visit directory
 
         within "#panel-dropdown-menu-origin" do
-          click_filter_item "All"
           click_filter_item "Official"
         end
 
@@ -148,7 +145,6 @@ describe "Explore meeting directory" do
         visit directory
 
         within "#panel-dropdown-menu-origin" do
-          click_filter_item "All"
           click_filter_item "Groups"
         end
 
@@ -161,7 +157,6 @@ describe "Explore meeting directory" do
         visit directory
 
         within "#panel-dropdown-menu-origin" do
-          click_filter_item "All"
           click_filter_item "Participants"
         end
 
@@ -234,7 +229,6 @@ describe "Explore meeting directory" do
 
       it "allows filtering by type 'both'" do
         within "#panel-dropdown-menu-type" do
-          click_filter_item "All"
           click_filter_item "Hybrid"
         end
       end
@@ -317,7 +311,6 @@ describe "Explore meeting directory" do
 
       expect(page).not_to have_css(meetings_selector)
       within("#panel-dropdown-menu-space_type") do
-        click_filter_item "All"
         click_filter_item "Assemblies"
       end
 

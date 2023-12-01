@@ -434,8 +434,6 @@ pl:
           new:
             create: Utwórz
             title: Utwórz propozycję
-          publish_answers:
-            number_of_proposals: Odpowiedzi dla %{number} propozycji zostaną opublikowane.
           show:
             amendments_count: Liczba poprawek
             assigned_valuators: Przypisani weryfikatorzy
@@ -444,7 +442,6 @@ pl:
             documents: Dokumenty
             endorsements_count: Liczba rekomendacji
             endorsers: Rekomendujący
-            link: Link
             n_more_endorsers:
               one: i jeszcze 1
               few: i jeszcze %{count}
@@ -469,7 +466,6 @@ pl:
             no_components: W tej przestrzeni partycypacyjnej nie ma innych komponentów propozycji do zaimportowania propozycji.
             select_component: Wybierz komponent
             select_states: Sprawdź statusy propozycji do zaimportowania
-            title: Importuj propozycje
         proposals_merges:
           create:
             success: Pomyślnie połączono propozycje.

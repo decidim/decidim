@@ -374,7 +374,6 @@ pt-BR:
         show:
           attendees: Contagem de participantes
           contributions: Contagem de Contribuições
-          date: Encontro
           join: Participe da reunião
           leave: Cancelar registro
           leave_confirmation: Tem certeza de que deseja cancelar seu cadastro para esta reunião?
@@ -388,7 +387,6 @@ pt-BR:
           remaining_slots:
             one: "%{count} slot restante"
             other: "%{count} slots restantes"
-          view: Visualizar
           visit_finished: Ver reunião anterior
         update:
           invalid: Houve um problema ao atualizar a reunião.

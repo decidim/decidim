@@ -12,3 +12,10 @@ require "decidim/forms/test"
 require "decidim/comments/test"
 require "decidim/meetings/test/translated_event"
 require "decidim/meetings/test/notifications_handling"
+
+RSpec.configure do |config|
+  config.before(:each, type: :system) do
+    # Make static map requests not to fail with HTTP 500 (causes JS error)
+    stub_request(:get, Regexp.new(Decidim.maps.fetch(:static).fetch(:url))).to_return(body: "")
+  end
+end

@@ -776,22 +776,6 @@ el:
             max_results: Μέγιστος αριθμός στοιχείων προς εμφάνιση
         index:
           published: Δημοσιεύθηκε
-        landing_page:
-          content_blocks:
-            create:
-              error: Παρουσιάστηκε ένα πρόβλημα κατά την δημιουργία αυτού του μπλοκ περιεχομένου.
-              success: Το μπλοκ περιεχομένου δημιουργήθηκε επιτυχώς.
-            destroy:
-              error: Παρουσιάστηκε ένα πρόβλημα κατά την διαγραφή αυτού του μπλοκ περιεχομένου.
-              success: Το μπλοκ περιεχομένου διαγράφτηκε επιτυχώς.
-            edit:
-              update: Ενημέρωση
-          edit:
-            active_content_blocks: Ενεργά μπλοκ περιεχομένου
-            add: Προσθήκη μπλοκ περιεχομένου
-            destroy_confirmation: Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το μπλοκ περιεχομένου;
-            inactive_content_blocks: Ανενεργά μπλοκ περιεχομένου
-            title: Περιεχόμενα σελίδας
         menu:
           votings: Ψηφοφορίες
           votings_submenu:
@@ -930,8 +914,6 @@ el:
             title: Δημιουργία αξιωματούχου εκλογών
           polling_officers_picker:
             choose_polling_officers: Επιλέξτε αξιωματούχους εκλογών
-            close: Κλείσιμο
-            more_polling_officers: Υπάρχουν %{number} ακόμα αξιωματούχοι εκλογών. Περιορίστε την αναζήτησή σας για να τους εντοπίσετε.
             no_polling_officers: Κανένας αξιωματούχος εκλογών δεν ταιριάζει με τα κριτήρια αναζήτησής σας ή δεν υπάρχει κάποιος αξιωματούχος εκλογών.
         polling_stations:
           create:
@@ -1074,8 +1056,6 @@ el:
               csv_header_after: Μην συμπεριλάβετε το τελευταίο πεδίο ("%{ballot_style_code_header}") αν δεν χρειάζεστε στυλ ψηφοφορίας/ερωτήσεις υπό όρους
               csv_header_before: 'Το αρχείο απογραφής πρέπει να είναι αρχείο CSV με την ακόλουθη κεφαλίδα:'
         document_types:
-          dni: DNI
-          nie: NIE
           passport: Διαβατήριο
         export_mailer:
           access_codes_export:
@@ -1322,8 +1302,6 @@ el:
           online: Ηλεκτρονικά
   layouts:
     decidim:
-      election_votes_header:
-        exit: Έξοδος
       voting_navigation:
         check_census: Μπορώ να ψηφίσω;
         election_log: Αρχείο καταγραφής εκλογών

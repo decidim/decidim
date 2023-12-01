@@ -26,6 +26,17 @@ describe "Explore projects", :slow do
   end
 
   describe "index" do
+    context "when there are no projects" do
+      let!(:projects) { nil }
+      let(:project) { nil }
+
+      it "shows an empty page with a message" do
+        visit_budget
+
+        expect(page).to have_content("There are no projects yet")
+      end
+    end
+
     it "shows all resources for the given component" do
       visit_budget
       within "#projects" do
@@ -81,7 +92,6 @@ describe "Explore projects", :slow do
         visit_budget
 
         within "#panel-dropdown-menu-scope" do
-          click_filter_item "All"
           click_filter_item translated(scope.name)
         end
 
@@ -99,7 +109,6 @@ describe "Explore projects", :slow do
         visit_budget
 
         within "#panel-dropdown-menu-category" do
-          click_filter_item "All"
           click_filter_item translated(category.name)
         end
 

@@ -327,7 +327,6 @@ lt:
             select_a_meeting_type: Prašome pasirinkti susirinkimo tipą
             select_a_registration_type: Prašome pasirinkti registracijos tipą
             select_an_iframe_access_level: Pasirinkite iframe prieigos lygį
-            show_embedded_iframe_help: 'Tik kelios paslaugos leidžia integruotis susitikimuose iš šių domenų: %{domains}'
           index:
             title: Susirinkimai
           new:
@@ -426,7 +425,6 @@ lt:
       directory:
         meetings:
           index:
-            go_to_list: Žiūrėti susirinkimų sąrašą
             meetings: Susirinkimai
             space_type: Dalyvaujamoji erdvė
       iframe_access_level:
@@ -516,7 +514,6 @@ lt:
           select_a_meeting_type: Pasirinkite susitikimo tipą
           select_a_registration_type: Pasirinkite registracijos tipą
           select_an_iframe_access_level: Pasirinkite iframe prieigos lygį
-          show_embedded_iframe_help: 'Tik kelios paslaugos leidžia įterpti susitikimą ar tiesioginį įvykį iš šių domenų: %{domains}'
         index:
           click_here: Žiūrėti visus susitikimus
           new_meeting: Naujas susitikimas
@@ -541,7 +538,6 @@ lt:
         show:
           attendees: Dalyvių skaičius
           contributions: Nuomonių skaičius
-          date: Data
           join: Prisijunkite prie susitikimo
           leave: Atšaukti registraciją
           leave_confirmation: Ar tikrai norite atšaukti savo registraciją į šį susirinkimą?
@@ -561,7 +557,6 @@ lt:
             few: "Liko %{count} vietos"
             many: "Liko %{count} vietos"
             other: "Liko %{count} vietos"
-          view: Peržiūrėti
           visit_finished: Peržiūrėti susirinkimą
           withdraw_btn_hint: Galite išimti susirinkimą jei apsigalvojoje. Susirinkimas nebus ištrintas - jis atsidurs išimtų susirinkimų sąraše.
           withdraw_confirmation_html: Ar tikrai norite išimti šį susirinkimą? <br><br><strong>Šio veiksmo atšaukti negalima!</strong>

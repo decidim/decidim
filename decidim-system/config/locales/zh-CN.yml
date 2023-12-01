@@ -99,7 +99,6 @@ zh-CN:
       organizations:
         create:
           error: 创建一个新组织时出现问题。
-          success: 组织成功创建。
         edit:
           secondary_hosts_hint: 在新行中输入其中每一个
         file_upload_settings:

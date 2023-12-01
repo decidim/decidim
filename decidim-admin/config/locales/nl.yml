@@ -67,7 +67,6 @@ nl:
         machine_translation_display_priority_translation: Vertaalde tekst eerst
         name: Naam
         official_img_footer: Officieel logo voettekst
-        official_img_header: Officieel logo header
         official_url: Officiële URL van de organisatie
         omnipresent_banner_short_description: Korte beschrijving
         omnipresent_banner_title: Titel
@@ -124,8 +123,6 @@ nl:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Ongeldig afbeeldingsbestand
-            official_img_header:
               allowed_file_content_types: Ongeldig afbeeldingsbestand
   activerecord:
     attributes:
@@ -744,10 +741,6 @@ nl:
         form:
           add: Toevoegen aan whitelist
           title: Externe domein whitelist
-      organization_homepage:
-        edit:
-          active_content_blocks: Actieve inhoudsblokken
-          inactive_content_blocks: Inactieve inhoudsblokken
       participatory_space_private_users:
         create:
           error: Er is een probleem opgetreden bij het toevoegen van een privédeelnemer aan deze deelruimte.
@@ -768,7 +761,6 @@ nl:
             empty: Je hebt geen privé deelnemers.
             explanation: Je hebt %{count} privédeelnemers.
             title: Verwijder privé deelnemer
-          title: Upload het CSV-bestand
           upload: Upload
       reminders:
         create:
@@ -831,7 +823,6 @@ nl:
       shared:
         gallery:
           add_images: Afbeeldingen toevoegen
-          delete_image: Afbeelding verwijderen
           edit_images: Bewerk afbeeldingen
           gallery_legend: Voeg een afbeeldingsgalerij toe (optioneel)
       static_page_topics:
@@ -860,12 +851,12 @@ nl:
           update: Bijwerken
         form:
           none: Geen
+        index:
+          last_notable_change: Laatste opvallende verandering
         new:
           create: Creëer pagina
           title: Nieuwe pagina
         topic:
-          destroy: Verwijder onderwerp
-          edit: Onderwerp bewerken
           without_topic: Pagina's zonder onderwerp
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze pagina.

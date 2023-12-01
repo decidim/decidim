@@ -49,6 +49,9 @@ ro:
             title: Blochează mesajele utilizatorilor
           template_chooser:
             select_template: Selectați un răspuns șablon
+        proposal_answer_templates:
+          form:
+            save: Salvează
         questionnaire_templates:
           choose:
             create_from_template: Creează după model

@@ -299,8 +299,6 @@ lt:
             update: Atnaujinti
           form:
             authorizations: Autorizacijos nustatymai
-            child_scope_threshold_enabled_help: 'Šis konfigūracijos variantas neleidžia turėti fizinių alsų. Jis leidžia turėti posrites ir dirba su autorizacijų tvarkykle kuri priskiria sritį naudotojai. Įsitikinkite, kad pasirenkate teisingą autorizaciją autorizacijų nustatymuose esančiuose žemiau. Tam, kad tai veiktų, sritys turi būti sukonfigūruotos hierarchiškai: 1. Motininis - N Jaunesnysis. Daugiau informacijų galite rasti <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank"> iniciatyvų administratorių dokumentacijos puslapyje</a>.'
-            only_global_scope_enabled_help: Pažymėkite šį laukelį, jei įjungėte "Įgalinti parašus pagal poskyrį" ir nustatėte visuotinę apimtį kaip motininę apimtį. Įjungus šį laukelį iniciatyvos tipo pasirinkimas bus praleistas iniciatyvos kūrimo vedlyje. Jei reikia daugiau informacijos apie tai, kaip veikia ši sąranka, žr. šią <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">nuorodą</a>.
             options: Variantai
           initiative_type_scopes:
             title: Iniciatyvos rūšies sritys
@@ -357,7 +355,6 @@ lt:
           back: Atgal
           continue: Tęsti
           fill_data_help: "<ul> <li>Peržiūrėkite savo iniciatyvos turinį. Ar jūsų pavadinimas lengvai suprantamas? Ar jūsų iniciatyvos tikslas aiškus?</li> <li>Turite pasirinkti parašo rūšį. Asmeniškai, internetu, derinti abu būdus</li> <li>Kokia iniciatyvos geografinė taikymo sritis?</li> </ul>"
-          initiative_type: Iniciatyvos tipas
           more_information: "(Daugiau informacijos)"
           select_area: Pasirinkti erdvę
           select_scope: Pasirinkti apimtį
@@ -465,7 +462,6 @@ lt:
             other: ir dar %{count} žmonės (-ių)
         committee_members:
           approve: Patvirtinti
-          confirm_revoke: Ar esate tikri?
           invite_to_committee_help: Pasidalinkite šia nuoroda norėdami pakvieti kitus į remėjų komitetą.
           link: Nuoroda
           no_members_yet: Rėmėjų komitete nėra narių.
@@ -482,7 +478,6 @@ lt:
           author: Autorė(-ius)
           myself: Mano iniciatyvos
           scope: Apimtis
-          search: Ieškoti
           state: Būsena
           type: Tipas
         index_header:
@@ -619,8 +614,5 @@ lt:
         sms_phone_number: Mobilaus telefono numeris
         title: Pasirašyti %{initiative_title}
       initiatives:
-        initiative:
-          check: Peržiūrėti
-          check_and_support: Peržiūrėti ir pasirašyti
         no_initiatives_yet:
           no_initiatives_yet: Dar nėra iniciatyvų!

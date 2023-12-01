@@ -431,8 +431,8 @@ es:
               one: propuesta
               other: propuestas
           title:
-            answers: Importar respuestas de propuestas
-            proposals: Importar propuestas
+            answers: Importar respuestas a propuestas desde un archivo
+            proposals: Importar propuestas desde un archivo
         models:
           proposal:
             name: Propuesta
@@ -526,7 +526,7 @@ es:
             create: Crear
             title: Crear propuesta
           publish_answers:
-            number_of_proposals: Se publicarán las respuestas para %{number} propuestas.
+            number_of_proposals: Se publicarán las respuestas a %{number} propuestas
             select_a_proposal: Por favor, selecciona una propuesta.
           show:
             amendments_count: Número de enmiendas
@@ -536,7 +536,7 @@ es:
             documents: Documentos
             endorsements_count: Número de adhesiones
             endorsers: Se han adherido
-            link: Enlace
+            link: Ver la propuesta
             n_more_endorsers:
               one: y 1 más
               other: y %{count} más
@@ -566,7 +566,7 @@ es:
             no_components: No hay otros componentes de propuestas en este espacio participativo desde donde importarlas.
             select_component: Selecciona un componente
             select_states: Comprueba los estados de las propuestas a importar
-            title: Importar propuestas
+            title: Importar proyectos desde otro componente
         proposals_merges:
           create:
             invalid: 'Ha habido un problema al fusionar las propuestas seleccionadas porque algunas de ellas:'

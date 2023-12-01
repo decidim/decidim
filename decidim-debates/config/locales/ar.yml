@@ -77,9 +77,8 @@ ar:
         create:
           invalid: كانت هناك مشكلة في خلق النقاش.
           success: تم إنشاء النقاش بنجاح.
-        debate:
-          participate: مشاركة
         filters:
+          activity: نشاطي
           all: الكل
           category: الفئة
           category_prompt: اختر تصنيف
@@ -97,7 +96,6 @@ ar:
           create: إنشاء
           title: نقاش جديد
         show:
-          date: التاريخ
           groups_count: الفِرَق
           participants_count: المشاركون
       models:

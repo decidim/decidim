@@ -492,10 +492,6 @@ ro:
             title: Creează stil de vot
         index:
           published: Publicate
-        landing_page:
-          edit:
-            active_content_blocks: Blocuri de conținut active
-            inactive_content_blocks: Blocuri de conținut inactive
         menu:
           votings_submenu:
             attachment_collections: Dosare
@@ -567,8 +563,6 @@ ro:
               csv_header_after: Nu include ultimul câmp ("%{ballot_style_code_header}") dacă nu aveţi nevoie de stiluri de vot/întrebări condiţionale
               csv_header_before: 'Fișierul de recensământ trebuie să fie un fișier CSV cu următorul antet:'
         document_types:
-          dni: CI
-          nie: BI
           passport: Pașaport
       monitoring_committee_members:
         actions:
@@ -629,7 +623,3 @@ ro:
           form_title: 'Completați următorul formular pentru a accesa votul:'
           start_voting: Începe să votezi
           title: Mă identifică cu datele mele de recensământ de vot
-  layouts:
-    decidim:
-      election_votes_header:
-        exit: Ieșire
