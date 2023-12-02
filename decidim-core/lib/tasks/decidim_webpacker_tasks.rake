@@ -76,7 +76,7 @@ namespace :decidim do
       copy_folder_to_application "decidim-core/lib/decidim/webpacker/webpack", "config"
 
       system!("bin/rails shakapacker:binstubs") unless File.exist?(rails_app_path.join("bin/shakapacker"))
-      
+
       # Modify the webpack binstubs
       add_binstub_load_path "bin/shakapacker"
       add_binstub_load_path "bin/shakapacker-dev-server"
