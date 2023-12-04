@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
 
   s.files = Dir[
     "lib/**/*",
+    "lib/decidim/generators/{app,component}_templates/{*,.*}",
     "Gemfile",
     "Gemfile.lock",
     "Rakefile",

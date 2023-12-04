@@ -11,11 +11,12 @@
     </div>
     <div class="card__list-metadata">
       <span>
+        <!-- linthtml-disable -->
         <div class="author" data-author="">
           <div class="author__container has-tip" data-tooltip="<div class=&quot;author__tooltip bottom&quot; role=&quot;tooltip&quot;>
             <div class=&quot;author__container&quot;>
             <span class=&quot;author__avatar-container&quot;>
-            <img alt=&quot;Avatar: Terica MacGyver Sr.&quot; class=&quot;author__avatar&quot; src=&quot;//localhost:3000/decidim-packs/media/images/default-avatar-aaa9e55bac5d7159b847.svg&quot; />
+            <img alt=&quot;Avatar: Terica MacGyver Sr.&quot; class=&quot;author__avatar&quot; src=&quot;<%= asset_pack_path("media/images/default-avatar.svg") %>&quot; />
             </span>
             <div>
             <span class=&quot;author__name&quot;>Terica MacGyver Sr.</span>
@@ -32,37 +33,32 @@
             </div>
             <a class=&quot;button button__sm button__transparent&quot; href=&quot;/conversations/new?recipient_id=16&quot;>
             <span>Send private message</span>
-            <svg width=&quot;1em&quot; height=&quot;1em&quot; role=&quot;img&quot; aria-hidden=&quot;true&quot;><use href=&quot;/decidim-packs/media/images/remixicon.symbol-e643e553623ffcd49f94.svg#ri-mail-send-line&quot; tabindex=&quot;-1&quot;></use></svg>
+            <svg width=&quot;1em&quot; height=&quot;1em&quot; role=&quot;img&quot; aria-hidden=&quot;true&quot;><use href=&quot;<%= "#{asset_pack_path("media/images/remixicon.symbol.svg")}#ri-mail-send-line" %>&quot; tabindex=&quot;-1&quot;></use></svg>
             </a>
             <a class=&quot;button button__sm button__transparent&quot; title=&quot;Follow&quot; id=&quot;follow_user_16&quot; data-remote=&quot;true&quot; rel=&quot;nofollow&quot; data-method=&quot;post&quot; href=&quot;/follow?follow%5Bbutton_classes%5D=button+button__sm+button__transparent&amp;follow%5Bfollowable_gid%5D=BAh7CEkiCGdpZAY6BkVUSSIzZ2lkOi8vZGVjaWRpbS1kZXZlbG9wbWVudC1hcHAvRGVjaWRpbTo6VXNlci8xNgY7AFRJIgxwdXJwb3NlBjsAVEkiDGRlZmF1bHQGOwBUSSIPZXhwaXJlc19hdAY7AFRJIh0yMDIzLTExLTE5VDE0OjMzOjEzLjIwMFoGOwBU--7f5a417635cb6014539ff6341140054f59ef9773&quot;>
             <span class=&quot;&quot;>Follow</span>
-            <svg width=&quot;1em&quot; height=&quot;1em&quot; role=&quot;img&quot; aria-hidden=&quot;true&quot;><use href=&quot;/decidim-packs/media/images/remixicon.symbol-e643e553623ffcd49f94.svg#ri-notification-3-line&quot; tabindex=&quot;-1&quot;></use></svg>
+            <svg width=&quot;1em&quot; height=&quot;1em&quot; role=&quot;img&quot; aria-hidden=&quot;true&quot;><use href=&quot;<%= "#{asset_pack_path("media/images/remixicon.symbol.svg")}#ri-notification-3-line" %>&quot; tabindex=&quot;-1&quot;></use></svg>
             </a>
             </div>
             " aria-describedby="5filn3-tooltip" data-yeti-box="5filn3-tooltip" data-toggle="5filn3-tooltip" data-resize="5filn3-tooltip" id="toggle-0rsefa" aria-controls="5filn3-tooltip">
             <span class="author__avatar-container">
-            <img alt="Avatar: Terica MacGyver Sr." class="author__avatar" src="//localhost:3000/decidim-packs/media/images/default-avatar-aaa9e55bac5d7159b847.svg">
+            <img alt="Avatar: Terica MacGyver Sr." class="author__avatar" src="<%= asset_pack_path("media/images/default-avatar.svg") %>">
             </span>
             <span class="author__name">Terica MacGyver Sr.</span>
           </div>
         </div>
+        <!-- linthtml-enable -->
       </span>
       <span>
-        <svg width="1em" height="1em" role="img" aria-hidden="true">
-          <use href="/decidim-packs/media/images/remixicon.symbol-e643e553623ffcd49f94.svg#ri-calendar-todo-line" tabindex="-1"></use>
-        </svg>
+        <%= icon("calendar-todo-line") %>
         05 Oct 2023
       </span>
       <span data-comments-count="">
-        <svg width="1em" height="1em" role="img" aria-hidden="true">
-          <use href="/decidim-packs/media/images/remixicon.symbol-e643e553623ffcd49f94.svg#ri-wechat-line" tabindex="-1"></use>
-        </svg>
+        <%= icon("wechat-line") %>
         2
       </span>
       <span data-endorsements-count="">
-        <svg width="1em" height="1em" role="img" aria-hidden="true">
-          <use href="/decidim-packs/media/images/remixicon.symbol-e643e553623ffcd49f94.svg#ri-heart-add-line" tabindex="-1"></use>
-        </svg>
+        <%= icon("like") %>
         0
       </span>
     </div>

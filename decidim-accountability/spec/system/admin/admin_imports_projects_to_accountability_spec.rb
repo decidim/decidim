@@ -56,8 +56,8 @@ describe "Admin imports projects to accountability" do
     context "when there are no projects" do
       before do
         visit current_path
-        find("#result_import_projects_origin_component_id").find("option[value='#{budget_component.id}']").select_option
-        find("#result_import_projects_import_all_selected_projects").set(true)
+        find_by_id("result_import_projects_origin_component_id").find("option[value='#{budget_component.id}']").select_option
+        find_by_id("result_import_projects_import_all_selected_projects").set(true)
       end
 
       it "shows error message" do
@@ -72,8 +72,8 @@ describe "Admin imports projects to accountability" do
 
       before do
         visit current_path
-        find("#result_import_projects_origin_component_id").find("option[value='#{budget_component.id}']").select_option
-        find("#result_import_projects_import_all_selected_projects").set(true)
+        find_by_id("result_import_projects_origin_component_id").find("option[value='#{budget_component.id}']").select_option
+        find_by_id("result_import_projects_import_all_selected_projects").set(true)
       end
 
       it "imports the projects into results" do
