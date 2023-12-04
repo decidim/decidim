@@ -39,7 +39,7 @@ describe Decidim::Proposals::CollaborativeDraftAccessRejectedEvent do
     let(:email_subject) { "You have been rejected as a contributor of #{translated(resource.title)}." }
     let(:email_intro) { %(You have been rejected to access as a contributor of the <a href="#{resource_url}">#{resource_title}</a> collaborative draft.) }
     let(:email_outro) { %(You have received this notification because you requested to become a collaborator of <a href="#{resource_url}">#{resource_title}</a>.) }
-    let(:notification_title) { %(You have been <strong>rejected to access as a contributor</strong> of the <a href="#{resource_path}">#{resource_title}</a> collaborative draft.)}
+    let(:notification_title) { %(You have been <strong>rejected to access as a contributor</strong> of the <a href="#{resource_path}">#{resource_title}</a> collaborative draft.) }
 
     it_behaves_like "a simple event"
     it_behaves_like "a simple event email"
