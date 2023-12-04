@@ -44,7 +44,7 @@ module Decidim
 
         def edit
           enforce_permission_to(:update, :project, project:)
-          @form = form(ProjectForm).from_model(project, budget: budget)
+          @form = form(ProjectForm).from_model(project, budget:)
           @form.attachment = form(AttachmentForm).instance
         end
 
