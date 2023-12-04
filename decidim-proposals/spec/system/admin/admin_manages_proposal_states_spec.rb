@@ -19,11 +19,11 @@ describe "Admin manages proposals states" do
     end
 
     it "lists the default proposal states" do
-      expect(page).to have_content("Proposal states")
-      expect(page).to have_link("New proposal state")
+      expect(page).to have_content("States")
+      expect(page).to have_link("New state")
 
       within "table" do
-        expect(page).to have_content("Proposal state")
+        expect(page).to have_content("State")
         expect(page).to have_content("Withdrawn")
         expect(page).to have_content("Accepted")
         expect(page).to have_content("Rejected")
@@ -36,7 +36,7 @@ describe "Admin manages proposals states" do
   context "when creating a proposal state" do
     before do
       click_link "States"
-      click_link "New proposal state"
+      click_link "New state"
     end
 
     it "creates a new proposal state" do

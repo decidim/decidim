@@ -23,6 +23,8 @@ class CreateDefaultProposalStates < ActiveRecord::Migration[6.1]
         proposal.update!(proposal_state: default_states.dig(proposal.old_state.to_sym, :object))
       end
     end
+    change_column_null :decidim_proposals_proposals, :decidim_proposals_proposal_state_id, false
+
   end
 
   def down; end
