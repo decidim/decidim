@@ -74,6 +74,10 @@ eu:
               president_and_manager: Mahaiko kudeatzailea dagoeneko bozketa-puntuaren presidentea/kudeatzailea da.
             voting:
               different_organization: Bozketa parte-hartzailearen erakunde berean egon behar da.
+        decidim/votings/polling_station:
+          attributes:
+            polling_station_president:
+              different_voting: Mahaiko kudeatzaileak bozketa-puntuaren bozketa berean egon behar du.
     models:
       decidim/elections/answer:
         one: Erantzuna
