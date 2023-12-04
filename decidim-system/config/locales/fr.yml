@@ -61,6 +61,7 @@ fr:
           success: Administrateur mis à jour avec succès.
       dashboard:
         show:
+          admins: Administrateurs
           current_organizations: Organisations actuelles
       default_pages:
         placeholders:
@@ -171,7 +172,10 @@ fr:
             La directive style-src limite les URL qui peuvent être chargées en utilisant les éléments <style> .
             La plateforme ajoutera « self» « unsafe-inline», mais vous permet d’en ajouter plus. Laissez vide si vous n’êtes pas sûr.
         edit:
+          confirm_resend_invitation: Êtes-vous sûr de vouloir renvoyer l'invitation ?
+          resend_invitation: Renvoyer l'invitation
           secondary_hosts_hint: Entrez chacun d'eux dans une nouvelle ligne
+          title: Modifier l'organisation
         file_upload_settings:
           content_types:
             admin_hint: Ces types MIME sont autorisés pour les téléchargements dans la section admin. Les administrateurs doivent être conscients des risques liés au téléchargement de certains formats de document, il faut donc vous attendre à qu'ils soient plus prudents avec les téléchargements de fichiers.
@@ -196,6 +200,7 @@ fr:
           default: Par défaut ?
           enabled: Activé
           locale: Langue
+          organization_admin_email_hint: Nous enverrons un e-mail à cette adresse afin que vous puissiez la confirmer et configurer votre mot de passe.
           reference_prefix_hint: Le préfixe de référence est utilisé pour identifier de manière unique les ressources à travers toutes les organisations.
           secondary_hosts_hint: Entrez chacun d'eux dans une nouvelle ligne.
           title: Nouvelle organisation
@@ -217,6 +222,9 @@ fr:
           twitter:
             api_key: Clé API
             api_secret: Secret de l'API
+        resend_invitation:
+          error: Une erreur s'est produite lors de l'envoi de l’invitation.
+          success: Invitation envoyée avec succès.
         smtp_settings:
           fieldsets:
             sender: Expéditeur
@@ -236,6 +244,14 @@ fr:
         notices:
           no_organization_warning_html: Vous devez créer une organisation pour démarrer. Assurez-vous de lire %{guide} avant de continuer.
           our_getting_started_guide: Notre guide de démarrage
+        organizations_list:
+          confirm_resend_invitation: Êtes-vous sûr de vouloir renvoyer l'invitation ?
+          resend_invitation: Renvoyer l'invitation
       titles:
         dashboard: Tableau de bord
         decidim: Decidim
+  layouts:
+    decidim:
+      system:
+        login_items:
+          logout: Déconnexion
