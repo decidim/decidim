@@ -96,6 +96,8 @@ fr:
           cancelled: Annulé
           category: Catégorie
           state: État
+        index:
+          empty: Il n'y a pas encore de tirage au sort.
         linked_sortitions:
           selected_proposals: Propositions sélectionnées
         orders:
