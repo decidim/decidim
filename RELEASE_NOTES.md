@@ -1,31 +1,182 @@
 # Release Notes
 
+⚠️  Mind that our last stable version (v0.27.0) is more than one year old. Lots of things have happened in Decidim, so we recommend that you follow all the steps in this guide for updating your application. Enjoy the new design and features!
+
 ## 1. Upgrade notes
 
 As usual, we recommend that you have a full backup, of the database, application code and static files.
 
 To update, follow these steps:
 
-### 1.1. Update your Gemfile
+### 1.1. Update your ruby and node versions
 
-```ruby
-gem "decidim", github: "decidim/decidim"
-gem "decidim-dev", github: "decidim/decidim"
+For ruby, if you're using rbenv, this is done with the following commands:
+
+```console
+rbenv install 3.1.1
+rbenv local 3.1.1
 ```
 
-### 1.2. Run these commands
+If not, you need to adapt it to your environment. See "2.1. Ruby update to 3.1"
+
+For node, if you're using nvm, this is done with the following commands:
+
+```console
+nvm install 18.17.1
+nvm use 18.17.1
+```
+
+If not, you need to adapt it to your environment. See "2.2. Node update to 18.17"
+
+### 1.2. Update your Gemfile
+
+```ruby
+gem "decidim", "0.28.0.rc1"
+gem "decidim-dev", "0.28.0.rc1"
+```
+
+Comment out any of the 3rd party decidim modules that you're using in your Gemfile. You can uncomment them later after you've updated them.
+Before upgrading to decidim 0.28.0.rc1, you need to manually comment out the `decidim-consulations` if you have it installed. This gem has been removed from the core and you need to remove it from your Gemfile as well.
+
+Please note that sometimes you may get some errors, so please make sure you fully understand the output of the commands before continuing.
+
+When running `bundle update decidim`, you may get some errors like the one below:
+
+```console
+Bundler could not find compatible versions for gem "faker":
+  In snapshot (Gemfile.lock):
+    faker (= 2.23.0)  # <<< This is the name of the name of the gem that you need to add to bundle update command
+
+  In Gemfile:
+    faker
+
+    decidim-dev (= 0.28.0.rc1) was resolved to 0.28.0.rc1, which depends on
+      faker (~> 3.2)
+```
+
+Please repeat the bundle command adding gems to the list until there the above error type disappears.
+
+```console
+bundle update decidim faker
+```
+
+### 1.3. Manual changes
+
+In order to successfully run decidim 0.28.0.rc1, you will need to manually edit the following files:
+
+#### 1.3.1. package.json
+
+Edit the engines key to :
+
+```json
+  "engines": {
+    "node": "18.17.1",
+    "npm": ">=9.6.7"
+  }
+```
+
+#### 1.3.2. babel.config.json
+
+Edit the file, and remove, if present, the following lines:
+
+```json
+    [ "@babel/plugin-proposal-private-property-in-object", { "loose": true }],
+    ["@babel/plugin-proposal-private-methods", { "loose": true }],
+    ["@babel/plugin-proposal-class-properties", { "loose": true }]
+```
+
+##### 1.3.3. postcss.config.js
+
+Replace the file content with:
+
+```javascript
+module.exports = {
+  syntax: 'postcss-scss',
+  plugins: [
+    // postcss-import must be the very first plugin https://tailwindcss.com/docs/using-with-preprocessors#build-time-imports
+    require('postcss-import'),
+    require('tailwindcss'),
+    require('postcss-flexbugs-fixes'),
+    require('postcss-preset-env')({
+      autoprefixer: {
+        flexbox: 'no-2009'
+      },
+      stage: 3
+    }),
+    require('autoprefixer')
+  ]
+}
+```
+
+### 1.4. Commands to run
 
 ```console
 bundle update decidim
+rm config/initializers/social_share_button.rb # for "4.2. Social Share Button change"
 bin/rails decidim:upgrade
+wget https://docs.decidim.org/en/develop/develop/consultations_removal.bash -O consultations_removal.bash  # For "2.4. Consultation module removal"
+bash consultations_removal.bash # For "2.4. Consultation module removal"
 bin/rails db:migrate
+bin/rails decidim:procfile:install # For "3.3. Added Procfile support"
+bin/rails decidim:robots:replace # for "3.11. Anti-spam measures in the robots.txt"
+sed -i -e "/rackup      DefaultRackup/d" config/puma.rb # for "3.14. Puma syntax change"
 ```
 
-### 1.3. Follow the steps and commands detailed in these notes
+Then there are some actions that needs to be done that depend in your customizations and configurations:
+
+* Do you have any custom design in your application or a custom module? If yes, then you'll need to adapt your design to the new framework, Tailwind CSS. Check out "5.1. Tailwind CSS instead of Foundation"
+* Do you have the decidim-consultations module installed in your application? If yes, you need to remove it and change some migrations. Check out "2.4. Consultation module removal"
+* Do you have any custom module or external javascript/font/stylesheet/assets? If yes, you need to configure it. Check out "3.10. Add Content Security Policy (CSP) support"
+
+* Have you integrated the SMS gateway? Then you may be interested in "5.5. Extra context argument added to SMS gateway implementations"
+* Have you customized the `Decidim.password_blacklist` configuration or `DECIDIM_PASSWORD_BLACKLIST`. Then you need to adapt it, check out "5.6. Configuration parameter change"
+* Are you using the print feature in Initaitives? Then you need to enable it manually, check out "5.7. Change in Initiatives configuration"
+
+* Do you have any custom module or component that uses Decidim permissions? If yes, we recommend checking out the "5.2. Automated authorization conflict handling for deleted users" so it's consistent with the rest of the modules.
+* Do you have any custom configuration/code with the WYSIWYG editor used until now (Quill.js)? If yes, then you'll need to adapt it to the new library (TipTap). Check out "5.3. Tiptap rich text editor"
+* Do you have any custom module that implements the Report functionality? If yes, we recommend checking out "5.4. Ability to hide content of a user from the public interface" so it's consistent with the rest of the modules.
+
+In the production environment there are some data migrations that need to be done:
+
+```console
+bin/rails decidim:upgrade:migrate_wysiwyg_content  # for "3.2. Content migration for rich text editor"
+bin/rails decidim:upgrade:moderation:fix_blocked_user_panel # for "3.4. User moderation panel changes"
+bin/rails decidim:content_blocks:initialize_default_content_blocks # for "3.6. Initialize content blocks on spaces or resources with landing page"
+bin/rails decidim:proposals:upgrade:remove_valuator_orphan_records # for "3.8. Orphans valuator assignments cleanup"
+bin/rails decidim:initiatives:upgrade:fix_broken_pages # for "3.9. Initiatives pages exception fix"
+bin/rails decidim:upgrade:fix_duplicate_endorsements # for "3.12. Deduplicating endorsements"
+bin/rails decidim:upgrade:fix_short_urls # for "3.13. Fix component short links"
+```
+
+In the production server, add the following scheduling task if you want to have participatory processes steps changing automatically
+
+```crontab
+*/15 * * * * cd /home/user/decidim_application && RAILS_ENV=production bin/rails decidim_participatory_processes:change_active_step # for "4.1. Automatically change active step in participatory processes"
+```
+
+For running the application in the development application you now have the command:
+
+```console
+./bin/dev
+```
+
+This is just a summary of all the most relevant changes done in this version. Keep reading to know the details of the relevant changes for your environmnet.
 
 ## 2. General notes
 
-## 2.1. Redesign
+## 2.1. Ruby update to 3.1
+
+We have updated the Ruby version to 3.1.1. Upgrading to this version will require either to install this Ruby version on your host, or change the decidim docker image to use ruby:3.1.1.
+
+You can read more about this change on PR [#9449](https://github.com/decidim/decidim/pull/9449).
+
+## 2.2. Node update to 18.17
+
+We have updated the Node version to 18.17.1 Upgrading to this version will require either to install this Node version on your host, or adapt your decidim docker image.
+
+You can read more about this change on PR [#11564](https://github.com/decidim/decidim/pull/11564).
+
+## 2.3. Redesign
 
 The design of the application has changed radically. The most relevant things to notice are:
 
@@ -38,7 +189,7 @@ The design of the application has changed radically. The most relevant things to
 
 You can read more about this change by searching the PRs and issues with the label contract: redesign. At the moment we have more than [300 merged Pull Requests with this label](https://github.com/decidim/decidim/pulls?q=is%3Apr+sort%3Aupdated-desc+label%3A%22contract%3A+redesign%22+is%3Amerged).
 
-## 2.2. Consultation
+## 2.4. Consultation module removal
 
 The consultations module has been fully removed from this version, so if you're using it in your application you need to remove it from your Gemfile:
 
@@ -50,55 +201,11 @@ If you're not using it, then you don't need to do anything.
 
 If you're maintaining a version of this module, please share the URL of the git repository by [creating an issue on the decidim.org website repository](https://github.com/decidim/decidim.org) so that we can update the [Modules page](https://decidim.org/modules).
 
-There's an error with the migrations after you've removed this module, you'd need to change them like this:
+There's an error with the migrations after you've removed this module. Note that this only happens when creating a new database. You'd need to change them like this:
 
-### 2.2.1. AddCommentableCounterCacheToConsultations
-
-It's in the file `db/migrate/*_add_commentable_counter_cache_to_consultations.decidim_consultations.rb`
-
-```ruby
-# frozen_string_literal: true
-# This migration comes from decidim_consultations (originally 20200827154143)
-
-class AddCommentableCounterCacheToConsultations < ActiveRecord::Migration[5.2]
-  class Question < ApplicationRecord
-    self.table_name = :decidim_consultations_questions
-  end
-
-  def change
-    add_column :decidim_consultations_questions, :comments_count, :integer, null: false, default: 0, index: true
-    Question.reset_column_information
-    Question.find_each(&:update_comments_count)
-  end
-end
-```
-
-### 2.2.2. AddFollowableCounterCacheToConsultations
-
-It's in the file `db/migrate/*_add_followable_counter_cache_to_consultations.decidim_consultations.rb`
-
-```ruby
-# frozen_string_literal: true
-# This migration comes from decidim_consultations (originally 20210310120626)
-
-class AddFollowableCounterCacheToConsultations < ActiveRecord::Migration[5.2]
-  class Question < ApplicationRecord
-    self.table_name = :decidim_consultations_questions
-  end
-
-  def change
-    add_column :decidim_consultations_questions, :follows_count, :integer, null: false, default: 0, index: true
-
-    reversible do |dir|
-      dir.up do
-        Question.reset_column_information
-        Question.find_each do |record|
-          record.class.reset_counters(record.id, :follows)
-        end
-      end
-    end
-  end
-end
+```console
+wget https://docs.decidim.org/en/develop/develop/consultations_removal.bash -O consultations_removal.bash
+bash consultations_removal.bash
 ```
 
 You can read more about this change on PR [#11171](https://github.com/decidim/decidim/pull/11171).
@@ -155,7 +262,7 @@ You can read more about this change on PR [\#10196](https://github.com/decidim/d
 We have added Procfile support to ease up the development of Decidim instances. In order to install `foreman` and the `Procfile.dev`, you need to run the following command:
 
 ```console
-bundle exec rake decidim:procfile:install
+bin/rails decidim:procfile:install
 ```
 
 After this command has been ran, a new command will be available in your `bin/`, so in order to boot up your application you will just need to run
@@ -177,7 +284,7 @@ You can read more about this change on PR [\#10519](https://github.com/decidim/d
 In older Decidim installations, when blocking an user directly from the participants menu, without being previously reported, it will hide that user, making it unavailable in the Reported Participants section. You will need to run this command once to make sure there are no users or entities that got blocked but are not visible in the participants listing.
 
 ```console
-bundle exec rake decidim:upgrade:moderation:fix_blocked_user_panel
+bin/rails decidim:upgrade:moderation:fix_blocked_user_panel
 ```
 
 You can read more about this change on PR [\#10521](https://github.com/decidim/decidim/pull/10521).
@@ -216,7 +323,7 @@ You can read more about this change on PR
 The processes and assemblies participatory spaces have changed the show page and now is composed using content blocks. For the new spaces created in this version a callback is executed creating the content blocks marked as `default!` in the engine for the corresponding homepage scope. To have the same initialization in the existing spaces there is a task to generate those blocks if not present already. Run the below command to generate default content blocks when not present for all spaces and resources with content blocks homepage (participatory processes, participatory process groups and assemblies):
 
 ```console
-bundle exec rake decidim:content_blocks:initialize_default_content_blocks
+bin/rails decidim:content_blocks:initialize_default_content_blocks
 ```
 
 The task has some optional arguments:
@@ -228,7 +335,7 @@ The task has some optional arguments:
 For example, to generate the default content blocks and also the components blocks on participatory spaces run the command with arguments:
 
 ```console
-bundle exec rake decidim:content_blocks:initialize_default_content_blocks[,,true]
+bin/rails decidim:content_blocks:initialize_default_content_blocks[,,true]
 ```
 
 ### 3.7. Graphql upgrade
@@ -244,7 +351,7 @@ We have added a new task that helps you clean the valuator assignements records 
 You can run the task with the following command:
 
 ```console
-bundle exec rake decidim:proposals:upgrade:remove_valuator_orphan_records
+bin/rails decidim:proposals:upgrade:remove_valuator_orphan_records
 ```
 
 You can see more details about this change on PR [\#10607](https://github.com/decidim/decidim/pull/10607)
@@ -256,7 +363,7 @@ We have added a new tasks to fix a bug related to the pages component inside of 
 You can run the task with the following command:
 
 ```console
-bundle exec rake decidim:initiatives:upgrade:fix_broken_pages
+bin/rails decidim:initiatives:upgrade:fix_broken_pages
 ```
 
 You can see more details about this change on PR [\#10928](https://github.com/decidim/decidim/pull/10928)
@@ -293,7 +400,7 @@ You can check more about the implementation in the [\#10700](https://github.com/
 In order to improve the fight against spam attacks in Decidim applications, we have added a new task that helps you replace yours. Take into account that this will override your robots.txt, so if you have done any change you need to make a backup before running this task.
 
 ```bash
-bundle exec rails decidim:robots:replace
+bin/rails decidim:robots:replace
 ```
 
 You can see more details about this change on PR [\#11693](https://github.com/decidim/decidim/pull/11693)
@@ -303,7 +410,7 @@ You can see more details about this change on PR [\#11693](https://github.com/de
 We have identified a case when the same user can endorse the same resource multiple times. This is a bug that we have fixed in this release, but we need to clean up the existing duplicated endorsements. We have added a new task that helps you clean the duplicated endorsements.
 
 ```bash
-bundle exec rails decidim:upgrade:fix_duplicate_endorsements
+bin/rails decidim:upgrade:fix_duplicate_endorsements
 ```
 
 You can see more details about this change on PR [\#11853](https://github.com/decidim/decidim/pull/11853)
@@ -313,10 +420,20 @@ You can see more details about this change on PR [\#11853](https://github.com/de
 We have identified that some of the short links for components are not working properly. We have added a new task that helps you fix the short links for components.
 
 ```bash
-bundle exec rails decidim:upgrade:fix_short_urls
+bin/rails decidim:upgrade:fix_short_urls
 ```
 
 You can see more details about this change on PR [\#12004](https://github.com/decidim/decidim/pull/12004)
+
+### 3.14. Puma syntax change
+
+There's a change in the puma syntax, and you need to remove a line in the configuration (`rackup      DefaultRackup`)
+
+```console
+sed -i -e "/rackup      DefaultRackup/d" config/puma.rb
+```
+
+You can see more details about this change in issue [puma/puma#2989](https://github.com/puma/puma/issues/2989#issuecomment-1279331520)
 
 ## 4. Scheduled tasks
 
@@ -328,7 +445,7 @@ with `crontab`, although alternatively you could use `whenever` gem or the sched
 We have added the ability to automatically change the active step of participatory processess. This is an optional behavior that system admins can enable by configuring a cron job. The frequency of the cron task should be decided by the system admin and depends on each platform's use cases. A precision of 15min is enough for most cases. An example of a crontab job may be:
 
 ```bash
-*/15 * * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim_participatory_processes:change_active_step
+*/15 * * * * cd /home/user/decidim_application && RAILS_ENV=production bin/rails decidim_participatory_processes:change_active_step
 ```
 
 Each time the job executes it checks all currently active and published participatory processes and for each, it checks the steps with the date range in the current date. If a change should be made, it deactivates the previous step and activates the next step.
