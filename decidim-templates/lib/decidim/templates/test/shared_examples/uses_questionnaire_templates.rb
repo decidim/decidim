@@ -101,7 +101,7 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
     it "copies the template data to the questionnaire on submit" do
       within "form.edit_questionnaire" do
         click_button "Expand all"
-        expect(page.find("#questionnaire_title_en").value).to eq(template.templatable.title["en"])
+        expect(page.find_by_id("questionnaire_title_en").value).to eq(template.templatable.title["en"])
         expect(page.find("#questionnaire_questions_#{questionnaire_question.id}_body_en").value).to eq(question.body["en"])
       end
     end
