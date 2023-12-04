@@ -35,7 +35,80 @@ gem "decidim", "0.28.0.rc1"
 gem "decidim-dev", "0.28.0.rc1"
 ```
 
-### 1.3. Run these commands in your development environment application
+Comment out any of the 3rd party decidim modules that you're using in your Gemfile. You can uncomment them later after you've updated them.
+Before upgrading to decidim 0.28.0.rc1, you need to manually comment out the `decidim-consulations` if you have it installed. This gem has been removed from the core and you need to remove it from your Gemfile as well.
+
+Please note that sometimes you may get some errors, so please make sure you fully understand the output of the commands before continuing.
+
+When running `bundle update decidim`, you may get some errors like the one below:
+
+```console
+Bundler could not find compatible versions for gem "faker":
+  In snapshot (Gemfile.lock):
+    faker (= 2.23.0)  # <<< This is the name of the name of the gem that you need to add to bundle update command
+
+  In Gemfile:
+    faker
+
+    decidim-dev (= 0.28.0.rc1) was resolved to 0.28.0.rc1, which depends on
+      faker (~> 3.2)
+```
+
+Please repeat the bundle command adding gems to the list until there the above error type disappears.
+
+```console
+bundle update decidim faker
+```
+
+### 1.3. Manual changes
+
+In order to successfully run decidim 0.28.0.rc1, you will need to manually edit the following files:
+
+#### 1.3.1. package.json
+
+Edit the engines key to :
+
+```json
+  "engines": {
+    "node": "18.17.1",
+    "npm": ">=9.6.7"
+  }
+```
+
+#### 1.3.2. babel.config.json
+
+Edit the file, and remove, if present, the following lines:
+
+```json
+    [ "@babel/plugin-proposal-private-property-in-object", { "loose": true }],
+    ["@babel/plugin-proposal-private-methods", { "loose": true }],
+    ["@babel/plugin-proposal-class-properties", { "loose": true }]
+```
+
+##### 1.3.3. postcss.config.js
+
+Replace the file content with:
+
+```javascript
+module.exports = {
+  syntax: 'postcss-scss',
+  plugins: [
+    // postcss-import must be the very first plugin https://tailwindcss.com/docs/using-with-preprocessors#build-time-imports
+    require('postcss-import'),
+    require('tailwindcss'),
+    require('postcss-flexbugs-fixes'),
+    require('postcss-preset-env')({
+      autoprefixer: {
+        flexbox: 'no-2009'
+      },
+      stage: 3
+    }),
+    require('autoprefixer')
+  ]
+}
+```
+
+### 1.4. Commands to run
 
 ```console
 bundle update decidim
