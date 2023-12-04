@@ -537,8 +537,8 @@ eu:
           join: Izena eman
           leave: Baliogabetu zure izen-ematea
           leave_confirmation: Ziur zaude topaketa honetarako zure izen-ematea indargabetu nahi duzula?
-          link_available_soon: Esteka hau laster erabilgarria izango da
-          link_closed: Sartzeko lotura topaketa hasi baino minutu batzuk lehenago egongo da erabilgarri
+          link_available_soon: Esteka hau laster izango da eusukagarri
+          link_closed: Bideokonferentziarako esteka hasi baino minutu batzuk lehenago egongo da eskuragarri
           live_event: Topaketa hau oraintxe gertatzen ari da
           meeting_minutes: Topaketaren akta
           micro_camera_permissions_warning: Beheko botoia sakatzen duzunean, mikrofono eta/edo kamerarako baimena eskatuko zaizu eta bideohitzaldian sartuko zara
