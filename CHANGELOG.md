@@ -1,6 +1,37 @@
 # Changelog
 
+## [0.28.0.rc2](https://github.com/decidim/decidim/tree/0.28.0.rc2)
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- Backport 'Remove image resolver from decidim-verifications' to v0.28 [\#12106](https://github.com/decidim/decidim/pull/12106)
+- Backport 'Fix failure when generating an application (`Could not find ".rubocop.yml"`) ' to v0.28 [\#12105](https://github.com/decidim/decidim/pull/12105)
+- Backport 'Fix for upgrade taks not installing node packages' to v0.28 [\#12111](https://github.com/decidim/decidim/pull/12111)
+- Backport 'Remove postcss-loader config loader customization' to v0.28 [\#12112](https://github.com/decidim/decidim/pull/12112)
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+- Improve the releases notes: ruby version, summary and `consulations_removal.bash` script  [\#12100](https://github.com/decidim/decidim/pull/12100)
+
+### Internal
+
+- Improve the releases notes: ruby version, summary and `consulations_removal.bash` script  [\#12100](https://github.com/decidim/decidim/pull/12100)
+
 ## [0.28.0.rc1](https://github.com/decidim/decidim/tree/0.28.0.rc1)
+
+⛔ This version is broken and can't be used because there were some issues when updating the application. If you want to try v0.28.0 then you'll need to use at least the v0.28.0.rc1.
 
 ### Added
 
