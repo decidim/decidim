@@ -24,7 +24,6 @@ class CreateDefaultProposalStates < ActiveRecord::Migration[6.1]
       end
     end
     change_column_null :decidim_proposals_proposals, :decidim_proposals_proposal_state_id, false
-
   end
 
   def down; end
