@@ -12,10 +12,19 @@ pt-BR:
         end_time: A votação termina às
         start_time: Votação começa às
         title: Título
+      polling_station:
+        address: Endereço
+        location: Localização
+        location_hints: Dicas de localização
+        polling_station_managers: Gerentes
+        polling_station_president_id: Presidente
+        title: Título
       question:
         max_selections: Número máximo de seleções
         min_selections: Nenhuma das opções acima
         title: Título
+      trustees_participatory_space:
+        user_id: Participante
       voting:
         end_time: Votação termina
         scope_id: Escopo
