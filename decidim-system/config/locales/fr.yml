@@ -140,6 +140,7 @@ fr:
           success: Organisation créée avec succès.
         edit:
           secondary_hosts_hint: Entrez chacun d'eux dans une nouvelle ligne
+          title: Modifier l'organisation
         file_upload_settings:
           content_types:
             admin_hint: Ces types MIME sont autorisés pour les téléchargements dans la section admin. Les administrateurs doivent être conscients des risques liés au téléchargement de certains formats de document, il faut donc vous attendre à qu'ils soient plus prudents avec les téléchargements de fichiers.
@@ -207,3 +208,8 @@ fr:
       titles:
         dashboard: Tableau de bord
         decidim: Decidim
+  layouts:
+    decidim:
+      system:
+        login_items:
+          logout: Déconnexion

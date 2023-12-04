@@ -1592,6 +1592,7 @@ fr:
       not_saved:
         one: 'Une erreur est survenue pendant le traitement de votre requête.'
         other: 'Plusieurs erreurs sont survenues pendant le traitement de votre requête.'
+      password_confirmation_message: '"Confirmer votre mot de passe" ne correspond pas au mot de passe'
       too_many_marks: utilise trop de signes de ponctuation consécutifs (par exemple! et?)
       too_much_caps: utilise trop de lettres majuscules (plus de 25% du texte)
       too_short: est trop court (le minimum est de %{count} caractères)
