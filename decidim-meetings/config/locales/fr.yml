@@ -23,6 +23,7 @@ fr:
         id: ID
         iframe_access_level: Niveau d'accès Iframe
         iframe_embed_type: Type d'Iframe encapsulée
+        iframe_embed_type_html: Seuls quelques services permettent d'intégrer la page "Intégrer à la page de réunion" ou "Ouvrir dans la page des événements en direct". Notez que avec l'option "Intégrer à la page de réunion" sur les mobiles, comme l'écran hérite de différentes dimensions, il fonctionnera en fait comme une "Ouvrir dans la page des événements en direct".
         location: Lieu
         location_hints: Indicateurs d’emplacement
         online_meeting_url: URL de la rencontre
@@ -313,6 +314,7 @@ fr:
           form:
             address_help: 'L''adresse entrée est utilisée par le géocodage pour trouver l''emplacement et afficher la réunion sur la carte. Format accepté : [rue] [code postal] [ville]'
             disclaimer: 'Avertissement : En utilisant un système d''enregistrement externe, sachez que les organisateurs de %{organization} ne sont pas responsables des données fournies par les utilisateurs au service externe.'
+            iframe_embed_type_html: 'Seuls quelques services permettent d''intégrer des réunions ou des événements en direct depuis les domaines suivants : %{domains}'
             location_help: 'Le lieu indique le nom de l''endroit qui accueille la réunion (ex : Maison de la citoyenneté)'
             location_hints_help: 'Indices de localisation : informations complémentaires. Exemple: l''étage du bâtiment s''il s''agit d''une réunion en personne, ou le mot de passe de la réunion s''il s''agit d''une réunion en ligne avec accès restreint.'
             online_meeting_url_help: 'Lien : permet aux participants de se connecter directement à votre réunion'
@@ -498,6 +500,7 @@ fr:
           available_slots_help: Laisser à 0 si le nombre de places disponibles est illimité
           create_as: Créer une rencontre en tant que
           disclaimer: 'Avertissement : En utilisant un système d''enregistrement externe, sachez que les organisateurs de %{organization} ne sont pas responsables des données fournies par les utilisateurs au service externe.'
+          iframe_embed_type_html: 'Seuls quelques services permettent d''intégrer des réunions ou des événements en direct depuis les domaines suivants : %{domains}'
           location_help: 'Emplacement: message adressé aux utilisateurs impliquant le point de rencontre'
           location_hints_help: 'Indices de localisation : informations complémentaires. Exemple: l''étage du bâtiment s''il s''agit d''une réunion en personne, ou le mot de passe de la réunion s''il s''agit d''une réunion en ligne avec accès restreint.'
           online_meeting_url_help: 'Lien : permettre aux participants de se connecter directement à votre rencontre'
