@@ -19,7 +19,8 @@ module Decidim
         def new
           enforce_permission_to :create, :project
           @form = form(ProjectForm).from_params(
-            attachment: form(AttachmentForm).instance
+            { attachment: form(AttachmentForm).instance },
+            budget: budget
           )
         end
 
@@ -43,7 +44,7 @@ module Decidim
 
         def edit
           enforce_permission_to(:update, :project, project:)
-          @form = form(ProjectForm).from_model(project)
+          @form = form(ProjectForm).from_model(project, budget: budget)
           @form.attachment = form(AttachmentForm).instance
         end
 
