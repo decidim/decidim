@@ -363,7 +363,6 @@ sed -i -e "/rackup      DefaultRackup/d" config/puma.rb
 
 You can see more details about this change in issue [puma/puma#2989](https://github.com/puma/puma/issues/2989#issuecomment-1279331520)
 
-
 ## 4. Scheduled tasks
 
 Implementers need to configure these changes it in your scheduler task system in the production server. We give the examples
