@@ -41,7 +41,6 @@ gem "decidim-dev", "0.28.0.rc1"
 bundle update decidim
 rm config/initializers/social_share_button.rb # for "4.2. Social Share Button change"
 bin/rails decidim:upgrade
-npm install
 wget https://docs.decidim.org/en/develop/develop/consultations_removal.bash -O consultations_removal.bash  # For "2.4. Consultation module removal"
 bash consultations_removal.bash # For "2.4. Consultation module removal"
 bin/rails db:migrate
