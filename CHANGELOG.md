@@ -1,3 +1,5 @@
+<!-- markdownlint-disable-file no-duplicate-header -->
+
 # Changelog
 
 ## [0.28.0.rc2](https://github.com/decidim/decidim/tree/0.28.0.rc2)
