@@ -44,32 +44,5 @@ describe Decidim::Proposals::CollaborativeDraftAccessAcceptedEvent do
     it_behaves_like "a simple event"
     it_behaves_like "a simple event email"
     it_behaves_like "a simple event notification"
-
-    # describe "email_subject" do
-    #   it "is generated correctly" do
-    #     expect(subject.email_subject).to eq("You have been accepted as a contributor of #{resource_title}.")
-    #   end
-    # end
-
-    # describe "email_intro" do
-    #   it "is generated correctly" do
-    #     expect(subject.email_intro)
-    #       .to eq(%(You have been accepted to access as a contributor of the <a href="#{resource_url}">#{decidim_html_escape(resource_title)}</a> collaborative draft.))
-    #   end
-    # end
-
-    # describe "email_outro" do
-    #   it "is generated correctly" do
-    #     expect(subject.email_outro)
-    #       .to eq(%(You have received this notification because you requested to become a collaborator of <a href="#{resource_url}">#{decidim_html_escape(resource_title)}</a>.))
-    #   end
-    # end
-
-    # describe "notification_title" do
-    #   it "is generated correctly" do
-    #     expect(subject.notification_title)
-    #       .to eq(%(You have been <strong>accepted to access as a contributor</strong> of the <a href="#{resource_path}">#{decidim_html_escape(resource_title)}</a> collaborative draft.))
-    #   end
-    # end
   end
 end
