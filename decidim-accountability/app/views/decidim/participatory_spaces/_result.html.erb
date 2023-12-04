@@ -6,7 +6,7 @@
         <%= translated_attribute(result.title) %>
       </h4>
 
-      <div class="card--meta">
+      <div>
         <% if result.start_date %>
             <strong><%= t("models.result.fields.start_date", scope: "decidim.accountability") %></strong>
             <span><%= l result.start_date, format: :short %></span>
@@ -25,8 +25,8 @@
   <% end %>
 
   <% if result.progress.present? %>
-      <div class="card--list__data">
-        <span class="card--list__data__number"><%= display_percentage result.progress %></span>
+      <div>
+        <span><%= display_percentage result.progress %></span>
       </div>
   <% end %>
 </div>
