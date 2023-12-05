@@ -40,7 +40,7 @@ fr:
         confirm_destroy: Êtes-vous sûr de vouloir supprimer ce %{name}?
         destroy: Supprimer
         edit: Modifier
-        import: Importer des projets depuis un autre composant
+        import: Importer des projets depuis une autre fonctionnalité
         import_csv: Importer les résultats depuis un fichier CSV
         new_result: Nouvelle réalisation
         new_status: Nouveau statut
@@ -102,7 +102,7 @@ fr:
             success:
               one: Projet en attente d'importation. Vous serez notifié par courriel, une fois l'import terminé.
               other: "%{count} projets en attente d'importation. Vous serez notifié par email une fois l'import terminé."
-            title: Importer des projets depuis un autre composant
+            title: Importer des projets depuis une autre fonctionnalité
         results:
           create:
             invalid: Un problème est survenu lors de la création de ce résultat.
