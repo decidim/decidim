@@ -43,6 +43,10 @@ pt-BR:
           valuator_role_id: Nome do Avaliador
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              allowed_file_content_types: 'Tipo de documento inválido. Apenas arquivos com as seguintes extensões são permitidos: %{types}'
         proposal:
           attributes:
             add_documents:
