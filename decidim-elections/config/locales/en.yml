@@ -1214,7 +1214,7 @@ en:
           show:
             edit_count_votes: Wrong numbers? You can still edit them.
             heading: Vote recount
-            info_text: Polling station electoral closure.
+            info_text: This recount has been certified and cannot longer be edited.
             sub_heading: The recount needs to be closed by uploading a certificate. Once this is done, the recount will be sealed and can no longer be edited.
           sign:
             cancel: Cancel
