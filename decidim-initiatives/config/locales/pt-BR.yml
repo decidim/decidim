@@ -35,6 +35,8 @@ pt-BR:
         title: Título
         undo_online_signatures_enabled: Permitir que os usuários desfizessem suas assinaturas on-line
         validate_sms_code_on_votes: Adicionar etapa de validação do código SMS ao processo de assinatura
+      initiatives_type_scope:
+        supports_required: Apoios requeridos
       initiatives_vote:
         date_of_birth: Data de nascimento
         document_number: Número do documento
