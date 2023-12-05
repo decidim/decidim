@@ -187,7 +187,7 @@ module Decidim
       run("bin/changelog_generator #{@token} #{sha_version}")
       temporary_changelog = File.read("./temporary_changelog.md")
       legacy_changelog = File.read("./CHANGELOG.md")
-      version_changelog = "##[#{version_number}](https://github.com/decidim/decidim/tree/#{version_number})\n\n#{temporary_changelog}\n"
+      version_changelog = "## [#{version_number}](https://github.com/decidim/decidim/tree/#{version_number})\n\n#{temporary_changelog}\n"
       changelog = legacy_changelog.gsub("# Changelog\n\n", "# Changelog\n\n#{version_changelog}")
       File.write("./CHANGELOG.md", changelog)
     end
