@@ -431,7 +431,7 @@ fr:
               one: proposition
               other: propositions
           title:
-            answers: Importer des réponses à proposition depuis un fichier
+            answers: Importer des réponses à des propositions depuis un fichier
             proposals: Importer des propositions depuis un fichier
         models:
           proposal:
@@ -526,6 +526,7 @@ fr:
             create: Créer
             title: Créer une proposition
           publish_answers:
+            number_of_proposals: Les réponses à la proposition %{number} seront publiées ?
             select_a_proposal: Veuillez sélectionner une proposition.
           show:
             amendments_count: Nombre d'amendements
