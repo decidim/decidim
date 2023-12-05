@@ -11,6 +11,9 @@ class ReleaserCLI < Thor
     Required. Github Personal Access Token (PAT). It can be obtained from https://github.com/settings/tokens/new. You will need to create one with `public_repo` access.
     Alternatively, you can use the `gh` CLI tool to authenticate with `gh auth token` (i.e. --github-token=$(gh auth token))
   HELP
+  option :version_type, enum: %w(rc minor patch), required: true, desc: <<~HELP
+    Required. The kind of release that you want to prepare.
+  HELP
   option :exit_with_unstaged_changes, type: :boolean, default: true, desc: <<~HELP
     Optional. Whether the script should exit with an error if there are unstaged changes in the current project.
   HELP
@@ -19,6 +22,7 @@ class ReleaserCLI < Thor
   def releaser
     Decidim::Releaser.new(
       token: options[:github_token],
+      version_type: options[:version_type],
       exit_with_unstaged_changes: options[:exit_with_unstaged_changes]
     ).call
   rescue Decidim::Releaser::InvalidMetadataError

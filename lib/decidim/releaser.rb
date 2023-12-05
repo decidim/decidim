@@ -9,13 +9,17 @@ module Decidim
 
     class InvalidBranchError < StandardError; end
 
+    class InvalidVersionTypeError < StandardError; end
+
     DECIDIM_VERSION_FILE = ".decidim-version"
 
     # @param token [String] token for GitHub authentication
+    # @param version_type [String] The kind of release that you want to prepare. Supported values: rc, minor, patch
     # @param working_dir [String] current working directory. Useful for testing purposes
     # @param exit_with_unstaged_changes [Boolean] wheter we should exit cowardly if there is any unstaged change
-    def initialize(token:, working_dir: Dir.pwd, exit_with_unstaged_changes: false)
+    def initialize(token:, version_type:, working_dir: Dir.pwd, exit_with_unstaged_changes: false)
       @token = token
+      @version_type = version_type
       @working_dir = working_dir
       @exit_with_unstaged_changes = exit_with_unstaged_changes
     end
@@ -58,7 +62,7 @@ module Decidim
     # Raise an error if the branch does not start with the preffix "release/"
     # or returns the branch name
     #
-    # @raise [Exception]
+    # @raise [InvalidBranchError]
     #
     # @return [String]
     def release_branch
@@ -76,30 +80,83 @@ module Decidim
 
     # The version number for the release that we are preparing
     #
+    # @todo support the "minor" type version
+    #
     # @return [String] the version number
     def version_number
-      @version_number ||= if old_version_number.include? "rc"
+      @version_number ||= case @version_type
+                          when "rc"
                             next_version_number_for_release_candidate(old_version_number)
-                          else
+                          when "patch"
                             next_version_number_for_patch_release(old_version_number)
+                          else
+                            raise InvalidVersionTypeError, "This is not a supported version type"
                           end
+    end
+
+    def parsed_version_number(version_number)
+      /(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)/ =~ version_number
+
+      { major: major.to_i, minor: minor.to_i, patch: patch.to_i }
     end
 
     # Given a version number, returns the next release candidate
     #
-    # @return [String]
-    def next_version_number_for_release_candidate(version_number)
-      new_rc_number = version_number.match(/rc(\d)/)[1].to_i + 1
-      version_number.gsub(/rc\d/, "rc#{new_rc_number}")
+    # If the current version number is `dev`, then we return the `rc1` version
+    # If the current version number is `rc`, then we return the next `rc` version
+    # Else, it means is a `minor` or `patch` version. On those cases we raise an Exception, as releases candidates should
+    # be only done from a `dev` or a `rc` version.
+    #
+    # @raise [InvalidVersionTypeError]
+    #
+    # @param current_version_number [String] - The version number of the current version
+    #
+    # @return [String] - the new version number
+    def next_version_number_for_release_candidate(current_version_number)
+      if current_version_number.include? "dev"
+        parsed_version_number(current_version_number) => { major:, minor:, patch: }
+        new_version_number = "#{major}.#{minor}.#{patch}.rc1"
+      elsif current_version_number.include? "rc"
+        new_rc_number = current_version_number.match(/rc(\d)/)[1].to_i + 1
+        new_version_number = current_version_number.gsub(/rc\d/, "rc#{new_rc_number}")
+      else
+        error_message = <<-EOMESSAGE
+          Trying to do a release candidate version from patch release. Bailing out.
+          You need to do a release candidate from a `dev` or from another `rc` version
+        EOMESSAGE
+        raise InvalidVersionTypeError, error_message
+      end
+
+      new_version_number
     end
 
     # Given a version number, returns the next patch release
     #
-    # @return [String]
-    def next_version_number_for_patch_release(version_number)
-      /(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)/ =~ version_number
+    # If the current version number is `dev`, then we raise an Exception, as you need to first do a release candidate.
+    # If the current version number is `rc`, then we return the `0` patch version
+    # Else, it means is a `patch` version, so we return the next patch version
+    #
+    # @raise [InvalidVersionTypeError]
+    #
+    # @param current_version_number [String] - The version number of the current version
+    #
+    # @return [String] - the new version number
+    def next_version_number_for_patch_release(current_version_number)
+      parsed_version_number(current_version_number) => { major:, minor:, patch: }
 
-      "#{major}.#{minor}.#{patch.to_i + 1}"
+      if current_version_number.include? "dev"
+        error_message = <<-EOMESSAGE
+          Trying to do a patch version from dev release. Bailing out.
+          You need to do first a release candidate.
+        EOMESSAGE
+        raise InvalidVersionTypeError, error_message
+      elsif current_version_number.include? "rc"
+        new_version_number = "#{major}.#{minor}.0"
+      else
+        new_version_number = "#{major}.#{minor}.#{patch.to_i + 1}"
+      end
+
+      new_version_number
     end
 
     # The version number from the file

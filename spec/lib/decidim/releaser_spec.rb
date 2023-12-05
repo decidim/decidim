@@ -3,9 +3,10 @@
 require "decidim/releaser"
 
 describe Decidim::Releaser do
-  subject { described_class.new(token:, exit_with_unstaged_changes:, working_dir: tmp_repository_dir) }
+  subject { described_class.new(token:, version_type:, exit_with_unstaged_changes:, working_dir: tmp_repository_dir) }
 
   let(:token) { "1234" }
+  let(:version_type) { "patch" }
   let(:release_branch) { "release/0.99-stable" }
   let(:tmp_repository_dir) { "/tmp/decidim-releaser-test-#{rand(1_000)}" }
   let(:working_dir) { File.expand_path("../../..", __dir__) }
@@ -56,10 +57,14 @@ describe Decidim::Releaser do
   describe "#bump_decidim_version" do
     context "when it is a release candidate" do
       let(:decidim_version) { "0.99.0.rc1" }
+      let(:version_type) { "rc" }
 
       it "changes the version number in the decidim version file" do
+        version_number = File.read(".decidim-version").strip
+        expect(version_number).to eq("0.99.0.rc1")
+
         subject.send(:bump_decidim_version)
-        new_version_number = File.read(".decidim-version")
+        new_version_number = File.read(".decidim-version").strip
 
         expect(new_version_number).to eq("0.99.0.rc2")
       end
@@ -67,29 +72,92 @@ describe Decidim::Releaser do
 
     context "when it is a patch release" do
       let(:decidim_version) { "0.99.0" }
+      let(:version_type) { "patch" }
 
       it "changes the version number in the decidim version file" do
         subject.send(:bump_decidim_version)
-        new_version_number = File.read(".decidim-version")
+        new_version_number = File.read(".decidim-version").strip
 
         expect(new_version_number).to eq("0.99.1")
       end
     end
   end
 
-  describe "#next_version_number_for_release_candidate" do
-    let(:version_number) { "0.1.0.rc1" }
+  describe "#parsed_version_number" do
+    context "when it is a dev version" do
+      let(:version_number) { "1.2.3.dev" }
 
-    it "returns the correct next version number" do
-      expect(subject.send(:next_version_number_for_release_candidate, version_number)).to eq "0.1.0.rc2"
+      it "parses the version number" do
+        expect(subject.send(:parsed_version_number, version_number)).to eq({ major: 1, minor: 2, patch: 3 })
+      end
+    end
+
+    context "when it is a release candidate version" do
+      let(:version_number) { "1.2.3.rc1" }
+
+      it "parses the version number" do
+        expect(subject.send(:parsed_version_number, version_number)).to eq({ major: 1, minor: 2, patch: 3 })
+      end
+    end
+
+    context "when it is a patch version" do
+      let(:version_number) { "1.2.3" }
+
+      it "parses the version number" do
+        expect(subject.send(:parsed_version_number, version_number)).to eq({ major: 1, minor: 2, patch: 3 })
+      end
+    end
+  end
+
+  describe "#next_version_number_for_release_candidate" do
+    context "when it is a dev version" do
+      let(:version_number) { "0.1.0.dev" }
+
+      it "returns the first release candidate" do
+        expect(subject.send(:next_version_number_for_release_candidate, version_number)).to eq "0.1.0.rc1"
+      end
+    end
+
+    context "when it is a release candidate version" do
+      let(:version_number) { "0.1.0.rc1" }
+
+      it "returns the correct next version number" do
+        expect(subject.send(:next_version_number_for_release_candidate, version_number)).to eq "0.1.0.rc2"
+      end
+    end
+
+    context "when it is a patch version" do
+      let(:version_number) { "0.1.0" }
+
+      it "raises an error" do
+        expect { subject.send(:next_version_number_for_release_candidate, version_number) }.to raise_error(Decidim::Releaser::InvalidVersionTypeError)
+      end
     end
   end
 
   describe "#next_version_number_for_patch_release" do
-    let(:version_number) { "0.1.0" }
+    context "when it is a dev version" do
+      let(:version_number) { "0.1.0.dev" }
 
-    it "returns the correct next version number" do
-      expect(subject.send(:next_version_number_for_patch_release, version_number)).to eq "0.1.1"
+      it "returns the correct next version number" do
+        expect { subject.send(:next_version_number_for_patch_release, version_number) }.to raise_error(Decidim::Releaser::InvalidVersionTypeError)
+      end
+    end
+
+    context "when it is a release candidate version" do
+      let(:version_number) { "0.1.0.rc1" }
+
+      it "returns first patch number" do
+        expect(subject.send(:next_version_number_for_patch_release, version_number)).to eq "0.1.0"
+      end
+    end
+
+    context "when it is a patch version" do
+      let(:version_number) { "0.1.0" }
+
+      it "raises an error" do
+        expect(subject.send(:next_version_number_for_patch_release, version_number)).to eq "0.1.1"
+      end
     end
   end
 
