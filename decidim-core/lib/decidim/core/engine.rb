@@ -144,6 +144,7 @@ module Decidim
         Decidim.icons.register(name: "calendar-line", icon: "calendar-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "question-mark", icon: "question-mark", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "arrow-left-s-line", icon: "arrow-left-s-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "phone", icon: "phone", category: "system", description: "", engine: :core)
 
         Decidim.icons.register(name: "user-line", icon: "user-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "mic-line", icon: "mic-line", category: "system", description: "", engine: :core)
