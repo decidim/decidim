@@ -377,6 +377,9 @@ ca:
               one: Hi ha hagut 1 inscripció.
               other: Hi ha hagut %{count} inscripcions.
             slug_help_html: 'Les URL amigables s''utilitzen per generar els URL que apunten a aquesta jornada. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+        content_blocks:
+          highlighted_conferences:
+            max_results: Quantitat màxima d'elements a mostrar
         diplomas:
           edit:
             save: Desa

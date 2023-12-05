@@ -38,8 +38,9 @@ ja:
         confirm_destroy: この %{name} を削除してもよろしいですか？
         destroy: 削除
         edit: 編集
-        import: プロジェクトを結果にインポート
-        import_csv: CSVをインポート
+        new_result: 新しい結果
+        new_status: 新しいステータス
+        new_timeline_entry: 新しいタイムラインのエントリ
         preview: プレビュー
         timeline_entries: プロジェクトの進化
         title: アクション
@@ -72,7 +73,6 @@ ja:
                 </ul>
               </li>
               </ol>
-            title: CSVから結果をインポート
         imports:
           create:
             invalid: 結果のインポート中に問題が発生しました。
@@ -95,7 +95,6 @@ ja:
             select_component: コンポーネントを選択
             success:
               other: "%{count} 件のプロジェクトがインポートする準備を行いました。完了次第、メールで通知します。"
-            title: アカウンタビリティコンポーネントにプロジェクトをインポート
         results:
           create:
             invalid: 結果の作成中に問題がありました。
@@ -146,7 +145,7 @@ ja:
             title: プロジェクトのタイムライン項目
           new:
             create: エントリを作成
-            title: 新しい項目
+            title: 新しいエントリ
           update:
             invalid: エントリの更新中に問題が発生しました。
             success: エントリを更新しました。
@@ -168,9 +167,7 @@ ja:
             not_found: '親がデータベース上に見つかりませんでした (ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: 日付
           results: 結果
-          unspecified: 指定なし
       import_mailer:
         import:
           errors: エラー
@@ -208,9 +205,6 @@ ja:
           fields:
             entry_date: 日付
             title: タイトル
-      result_m:
-        executed: 実行日時
-        view: 表示
       results:
         count:
           results_count:
@@ -219,6 +213,8 @@ ja:
           all: すべて
         home:
           categories_label: カテゴリ
+          empty: まだ結果はありません。
+          empty_filters: この条件の結果はありません。
           subcategories_label: サブカテゴリ
         home_header:
           global_status: グローバル実行状況

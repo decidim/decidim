@@ -230,7 +230,6 @@ sv:
         error: Det gick inte att ändra resursen.
         promote_button: Gör till %{model_name}
         promote_confirm_text: Vill du stötta detta ändringsförslag?
-        section_heading: Ändringar (%{count})
       compare_draft:
         continue: Fortsätt
         no_similars_found: Hittade inga liknande ändringsförslag.
@@ -374,7 +373,6 @@ sv:
         one: och %{count} fler
         other: och %{count} fler
       see_less: "(se mindre)"
-      see_more: "(se mer)"
     components:
       component_order_selector:
         order:
@@ -756,13 +754,11 @@ sv:
           add_attachment: Lägg till bilaga
           add_file: Lägg till fil
           add_image: Lägg till bild
-          cancel: Avbryta
           edit_image: Redigera bild
           error: Fel!
           filename: Filnamn
           remove: Ta bort
           replace: Ersätt
-          save: Spara
           title: Titel
           title_required: Titel krävs!
           uploaded: Uppladdad
@@ -1045,7 +1041,6 @@ sv:
           proposals: Förslag
           proposals_explanation: Lämna förslag, stötta befintliga förslag och stöd de förändringar som du vill se.
         footer_sub_hero:
-          footer_sub_hero_body: Låt oss bygga ett öppet, transparent och samarbetande samhälle.<br /> Gå med, delta och fatta beslut.
           footer_sub_hero_headline: Välkommen till %{organization} deltagarplattform.
           register: Registrera dig
         hero:
@@ -1358,7 +1353,6 @@ sv:
         change_my_password: Ändra mitt lösenord
         confirm_new_password: Bekräfta nytt lösenord
         new_password: Nytt lösenord
-        password_help: "Minst %{minimun_characters} tecken, får inte vara för vanligt (som 123456) och måste vara skilt från ditt användarnamn och din e-postadress."
         title: Lösenordsändring
       new:
         forgot_your_password: Glömt ditt lösenord?
@@ -1535,8 +1529,6 @@ sv:
         body: Du har varit inaktiv i %{minutes} minuter. Om du fortsätter att vara inaktiv kommer du automatiskt att loggas ut för din egen säkerhet.
         continue_session: Förtsätt med din session
         title: Vill du fortsätta med din session?
-      upload_modal:
-        close_modal: Stäng fönstret
       user_menu:
         account: 'Användarkonto: %{name}'
         admin_dashboard: Adminpanel

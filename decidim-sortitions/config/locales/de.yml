@@ -38,6 +38,7 @@ de:
         actions:
           destroy: Brechen Sie die Sortierung ab
           edit: Bearbeiten
+          new_sortition: Neue Sortierung
           show: Sortierdetails
         models:
           sortition:
@@ -63,7 +64,7 @@ de:
             error: Die Sortierung kann nicht abgebrochen werden.
             success: Die Sortierung wurde erfolgreich abgebrochen.
           edit:
-            title: Aktualisieren Sie die Informationen zur Sortierung
+            title: Informationen zur Sortierung aktualisieren
             update: Aktualisieren
           form:
             all_categories: Alle Kategorien
@@ -95,6 +96,8 @@ de:
           cancelled: Abgebrochen
           category: Kategorie
           state: Zustand
+        index:
+          empty: Es gibt noch keine Sortierungen.
         linked_sortitions:
           selected_proposals: Ausgewählte Vorschläge
         orders:

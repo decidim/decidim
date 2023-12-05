@@ -324,7 +324,6 @@ zh-CN:
           author: 作者
           myself: 我的倡议
           scope: 范围
-          search: 搜索
           state: 状态
           type: 类型
         index_header:
@@ -407,8 +406,5 @@ zh-CN:
         sms_phone_number: 手机号码
         title: 签名 %{initiative_title}
       initiatives:
-        initiative:
-          check: 看看它
-          check_and_support: 查看并签名
         no_initiatives_yet:
           no_initiatives_yet: 还没有倡议！

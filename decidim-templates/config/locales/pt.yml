@@ -36,6 +36,9 @@ pt:
         block_user_templates:
           form:
             save: Guardar
+        proposal_answer_templates:
+          form:
+            save: Guardar
         questionnaire_templates:
           choose:
             create_from_template: Criar a partir do modelo

@@ -270,7 +270,6 @@ gl:
           any: Calquera
           author: Autor
           myself: As miñas iniciativas
-          search: Busca
           state: Estado
           type: Tipo
         index_header:
@@ -339,8 +338,5 @@ gl:
         sms_phone_number: Número de teléfono
         title: Rexistrar %{initiative_title}
       initiatives:
-        initiative:
-          check: Bótalle unha ollada
-          check_and_support: Comproba e asina
         no_initiatives_yet:
           no_initiatives_yet: Non hai iniciativas aínda.

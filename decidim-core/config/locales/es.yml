@@ -22,9 +22,11 @@ es:
       user:
         about: Acerca de
         email: Tu correo electrónico
+        encrypted_password: Contraseña
         locale: Configuración regional
         name: Tu nombre
         nickname: Alias
+        old_password: Contraseña actual
         password: Contraseña
         password_confirmation: Confirma tu contraseña
         personal_url: URL personal
@@ -285,11 +287,9 @@ es:
       amendable:
         button: Enmendar %{model_name}
         error: Se ha producido un error al modificar este recurso.
-        help_text: Mejora este %{model_name} modificando su %{amendable_fields}.
         promote_button: Promocionar a %{model_name}
         promote_confirm_text: '¿Seguro que quieres promocionar esta enmienda?'
         promote_help_text: Puedes promocionar esta enmienda y publicarla como una %{model_name} independiente.
-        section_heading: Enmiendas (%{count})
       amendments:
         title:
           one: "%{count} enmienda"
@@ -454,7 +454,6 @@ es:
         one: y %{count} más
         other: y %{count} más
       see_less: "(ver menos)"
-      see_more: "(ver más)"
     components:
       component_order_selector:
         no_content: No hemos podido encontrar ningún contenido con este criterio.
@@ -586,6 +585,8 @@ es:
           subtitle: Por favor, rellena el siguiente formulario para completar la inscripción
           username_help: Nombre público que aparece en tus aportaciones. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
       registrations:
+        create:
+          error: Hubo un problema al crear tu cuenta.
         new:
           already_have_an_account?: '¿Ya tienes una cuenta?'
           log_in: Entra
@@ -904,14 +905,12 @@ es:
           add_attachment: Añadir adjunto
           add_file: Añadir archivo
           add_image: Añadir imagen
-          cancel: Cancelar
           edit_image: Editar imagen
           error: '¡Error!'
           file_size_too_large: '¡El archivo es demasiado grande! Peso de archivo máximo: %{megabytes}MB'
           filename: Nombre del archivo
           remove: Eliminar
           replace: Reemplazar
-          save: Guardar
           title: Título
           title_required: '¡Se requiere un título!'
           uploaded: Subido
@@ -1294,7 +1293,7 @@ es:
           proposals: Propuestas
           proposals_explanation: Haz propuestas, apoya las existentes y promueve los cambios que deseas ver.
         footer_sub_hero:
-          footer_sub_hero_body: Construyamos una sociedad más abierta, transparente y colaborativa. <br /> Únete, participa y decide.
+          footer_sub_hero_body_html: Construyamos una sociedad más abierta, transparente y colaborativa. <br /> Únete, participa y decide.
           footer_sub_hero_headline: Bienvenida a la plataforma participativa %{organization}.
           register: Regístrate
         hero:
@@ -1567,6 +1566,15 @@ es:
         greetings: Saludos,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hola %{admin},
         subject: Una nueva usuaria ha sido reportada en %{organization_name}
+    user_update_mailer:
+      notify:
+        body_1: Recibes este mensaje para informarte de una actualización de tu cuenta.
+        body_2: En caso de que no hayas sido tú quien ha realizado esta actualización, por favor, inicia tu sesión y modifica la contraseña. Si no pudieras iniciar tu sesión, ponte en contacto con el servicio de soporte de la plataforma.
+        greetings: Hola,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hola %{user}
+        main_body: 'Se han modificado los siguientes detalles: %{updates}.'
+        update_fields: "%{updates} y %{last_update}"
+      subject: Se ha actualizado tu cuenta
     version:
       show:
         back_to_resource: Volver atrás
@@ -1580,7 +1588,7 @@ es:
         version: Versión %{number}
     versions_list_item:
       show:
-        version_index: Versión %{index}
+        version_index: Versión %{index} de %{total}
     welcome_notification:
       default_body: <p>¡Hola {{name}}, gracias por unirte a {{organization}} te damos la bienvenida!</p><ul><li>Si quieres hacerte una idea rápida de que puedes hacer, echa un vistazo a la <a href="{{help_url}}">Sección de ayuda</a>.</li><li>Una vez la hayas leído recibirás tu primera insignia. Aquí encontrarás un <a href="{{badges_url}}">listado de todas las insignias</a>que puedes conseguir participando en {{organization}}</li><li>. Para terminar, pero no por ello menos importante, únete a otras personas, comparte con ellas de estar comprometida y de participar en {{organization}}. Haz propuestas, comentarios, debate, piensa en cómo contribuir a un bien común, aporta argumentos para tratar de convencer, escucha y lee para convencerte, expresa tus ideas de manera concreta y directa, responde con paciencia y decisión, defiende tus ideas y permanece abierta de mente para colaborar y unirte a las ideas de otra gente.</li></ul>
       default_subject: Gracias por unirte a {{organization}}!
@@ -1678,8 +1686,9 @@ es:
         change_my_password: Cambiar mi contraseña
         confirm_new_password: Confirmar la nueva contraseña
         new_password: Nueva contraseña
-        password_help: "%{minimum_characters} caracteres mínimos, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu apodo y tu correo electrónico."
-        password_help_admin: "%{minimum_characters} caracteres como mínimo, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu alias, correo electrónico y antiguas contraseñas."
+        old_password_help: Para confirmar los cambios en tu cuenta, por favor proporciónanos tu contraseña actual.
+        password_help: "%{minimum_characters} caracteres mínimos, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu alias y tu correo electrónico."
+        password_help_admin: "%{minimum_characters} caracteres como mínimo, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu alias, tu correo electrónico y de tus antiguas contraseñas."
         title: Cambio de contraseña
       new:
         forgot_your_password: '¿Olvidaste tu contraseña?'
@@ -1942,8 +1951,6 @@ es:
         continue_session: Continuar sesión
         log_out: Salir
         title: '¿Quieres continuar con la sesión?'
-      upload_modal:
-        close_modal: Cerrar ventana
       user_menu:
         account: 'Cuenta de usuario: %{name}'
         admin_dashboard: Tablero de administración
@@ -2008,7 +2015,7 @@ es:
     weibo: Sina Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
-    x:
+    x: X
     xing: Xing
   time:
     formats:

@@ -17,6 +17,14 @@ module Decidim
         root to: "results#home"
       end
 
+      initializer "decidim_accountability.register_icons" do
+        Decidim.icons.register(name: "Decidim::Accountability::Result", icon: "briefcase-2-line", description: "Result / project (Accountability)", category: "activity",
+                               engine: :accountability)
+
+        Decidim.icons.register(name: "focus-2-line", icon: "focus-2-line", category: "system", description: "", engine: :accountability)
+        Decidim.icons.register(name: "briefcase-2-line", icon: "briefcase-2-line", category: "system", description: "", engine: :accountability)
+      end
+
       initializer "decidim_accountability.view_hooks" do
         Decidim.view_hooks.register(:participatory_space_highlighted_elements, priority: Decidim::ViewHooks::LOW_PRIORITY) do |view_context|
           view_context.cell("decidim/accountability/highlighted_results", view_context.current_participatory_space)

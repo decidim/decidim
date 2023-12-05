@@ -387,7 +387,7 @@ ca:
     participatory_spaces:
       highlighted_proposals:
         last: Propostes més recents
-        see_all: Veure tots (%{count})
+        see_all: Veure totes les propostes
     proposals:
       actions:
         answer_proposal: Respondre a la proposta
@@ -431,8 +431,8 @@ ca:
               one: proposta
               other: propostes
           title:
-            answers: Importar respostes a les propostes
-            proposals: Importar propostes
+            answers: Importar respostes a propostes des d'un fitxer
+            proposals: Importar propostes des d'un fitxer
         models:
           proposal:
             name: Proposta
@@ -526,7 +526,7 @@ ca:
             create: Crea
             title: Crea proposta
           publish_answers:
-            number_of_proposals: Es publicaran les respostes per a %{number} propostes.
+            number_of_proposals: Es publicaran les respostes a %{number} propostes
             select_a_proposal: Si us plau, selecciona una proposta.
           show:
             amendments_count: Número d'esmenes
@@ -536,7 +536,7 @@ ca:
             documents: Documents
             endorsements_count: Número d'esmenes
             endorsers: Adherides
-            link: Enllaç
+            link: Veure la proposta
             n_more_endorsers:
               one: i 1 més
               other: i %{count} més
@@ -566,7 +566,7 @@ ca:
             no_components: No hi ha cap altre component de propostes en aquest espai participatiu des d'on importar-les.
             select_component: Escull un component
             select_states: Consulta els estats de les propostes a importar
-            title: Importar propostes
+            title: Importar projectes des d'un altre component
         proposals_merges:
           create:
             invalid: 'S''ha produït un error en fusionar les propostes seleccionades doncs alguna d''elles:'
@@ -877,7 +877,7 @@ ca:
           title: 'La selecció de propostes es regeix per les següents normes:'
           vote_limit:
             description: Pots donar suport a %{limit} propostes.
-            votes: Suports
+            votes: Queda/en %{number} suport/s
         wizard_aside:
           back: Torna
           back_from_step_1: Tornar a propostes

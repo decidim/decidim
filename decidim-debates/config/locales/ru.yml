@@ -72,8 +72,6 @@ ru:
         create:
           invalid: При попытке создать это обсуждение произошла ошибка.
           success: Обсуждение успешно создано.
-        debate:
-          participate: Принять участие
         filters:
           all: Все
           category: Категория

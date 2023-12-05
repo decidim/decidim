@@ -665,7 +665,7 @@ es:
           feedback: Danos tu opinión
           header: Voto confirmado
           lead: '¡Tu voto se ha emitido!'
-          text: 'Puedes comprobar que tu voto se ha añadido correctamente a la urna con el siguiente identificador: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          text: 'Puedes comprobar que tu voto se ha añadido correctamente a la urna con el siguiente identificador: '
           verify_link: Para comprobarlo, copia el identificador y pégalo en la <a href="%{link}">página de verificación de voto</a>
         create:
           error: Hubo un problema al emitir el voto. Por favor, inténtalo de nuevo.
@@ -835,22 +835,6 @@ es:
         index:
           published: Publicada
           unpublished: Despublicada
-        landing_page:
-          content_blocks:
-            create:
-              error: Se ha producido un error al intentar crear este bloque de contenido.
-              success: El bloque de contenido se ha creado correctamente.
-            destroy:
-              error: Se ha producido un error al intentar eliminar este bloque de contenido.
-              success: Bloque de contenido eliminado correctamente.
-            edit:
-              update: Actualizar
-          edit:
-            active_content_blocks: Bloques de contenido activos
-            add: Añadir bloque de contenido
-            destroy_confirmation: '¿Seguro que quieres borrar este bloque de contenido?'
-            inactive_content_blocks: Bloques de contenido inactivos
-            title: Contenidos de la página
         menu:
           votings: Votaciones
           votings_submenu:
@@ -991,8 +975,6 @@ es:
             title: Crear gestor de mesa
           polling_officers_picker:
             choose_polling_officers: Elegir gestores de mesa
-            close: Cerrar
-            more_polling_officers: Hay %{number} gestores de mesa más. Refina tu búsqueda para localizarlos.
             no_polling_officers: Ninguna gestora de mesa coincide con tus criterios de búsqueda o no hay ninguna.
         polling_stations:
           create:
@@ -1135,8 +1117,7 @@ es:
               csv_header_after: No incluyas el último campo ("%{ballot_style_code_header}") si no necesitas preguntas condicionales/estilos de papeleta
               csv_header_before: 'El censo debe ser un archivo CSV con la siguiente cabecera:'
         document_types:
-          dni: DNI
-          nie: NIE
+          identification_number: Número de identificación
           passport: Pasaporte
         export_mailer:
           access_codes_export:
@@ -1392,8 +1373,6 @@ es:
           online: En línea
   layouts:
     decidim:
-      election_votes_header:
-        exit: Salir
       voting_navigation:
         check_census: '¿Puedo votar?'
         election_log: Registro de la elección

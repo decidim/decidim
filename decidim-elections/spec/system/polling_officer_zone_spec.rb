@@ -66,7 +66,7 @@ describe "Polling Officer zone" do
         expect(page).to have_content("Vote recount")
         within ".form.new_closure" do
           fill_in "envelopes_result_total_ballots_count", with: 0
-          find("#envelopes_result_total_ballots_count").native.send_keys(:tab)
+          find_by_id("envelopes_result_total_ballots_count").native.send_keys(:tab)
           find("*[type=submit]").click
         end
 
@@ -88,7 +88,7 @@ describe "Polling Officer zone" do
         visit decidim_votings_polling_officer_zone.new_polling_officer_election_closure_path(assigned_polling_officer, election)
         within ".form.new_closure" do
           fill_in "envelopes_result_total_ballots_count", with: 20
-          find("#envelopes_result_total_ballots_count").native.send_keys(:tab)
+          find_by_id("envelopes_result_total_ballots_count").native.send_keys(:tab)
           click_button "Verify total number"
         end
         within "#modal-closure-count-error-content" do
@@ -104,7 +104,7 @@ describe "Polling Officer zone" do
           fill_in "closure_result__ballot_results__valid_ballots_count", with: 5
           fill_in "closure_result__ballot_results__blank_ballots_count", with: 4
           fill_in "closure_result__ballot_results__null_ballots_count", with: 5
-          find("#closure_result__ballot_results__null_ballots_count").native.send_keys(:tab)
+          find_by_id("closure_result__ballot_results__null_ballots_count").native.send_keys(:tab)
 
           questions.each do |question|
             question.answers.each do |answer|

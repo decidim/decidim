@@ -16,6 +16,22 @@ describe "Index proposals" do
     end
   end
 
+  context "when there are more proposals than the pagination" do
+    let!(:proposals) { create_list(:proposal, 50, component:) }
+
+    it "views them all" do
+      visit_component
+
+      within "main" do
+        expect(page).to have_content("50 proposals")
+      end
+
+      within "main nav" do
+        expect(page).to have_content("Next")
+      end
+    end
+  end
+
   context "when checking withdrawn proposals" do
     context "when there are no withrawn proposals" do
       let!(:proposals) { create_list(:proposal, 3, component:) }

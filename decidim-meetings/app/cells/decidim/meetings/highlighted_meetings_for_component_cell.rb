@@ -8,7 +8,7 @@ module Decidim
     # It is intended to be used in the `participatory_space_highlighted_elements`
     # view hook.
     class HighlightedMeetingsForComponentCell < Decidim::ViewModel
-      include ApplicationHelper
+      include Decidim::Meetings::ApplicationHelper
       include Decidim::ComponentPathHelper
       include Decidim::CardHelper
       include Decidim::LayoutHelper

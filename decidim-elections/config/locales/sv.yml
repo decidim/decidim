@@ -460,12 +460,6 @@ sv:
             name: Omröstningsmetrik
         index:
           published: Publicerad
-        landing_page:
-          content_blocks:
-            edit:
-              update: Uppdatera
-          edit:
-            title: Sidans innehåll
         menu:
           votings: Omröstningar
           votings_submenu:
@@ -550,8 +544,6 @@ sv:
             title: Röstmottagare
           new:
             create: Skapa
-          polling_officers_picker:
-            close: Stäng
         polling_stations:
           index:
             title: Vallokaler
@@ -585,8 +577,6 @@ sv:
               submit: Skicka in CSV
               title: Skapa census
         document_types:
-          dni: ID-kort
-          nie: Personnummer
           passport: Pass
         export_mailer:
           access_codes_export:
@@ -728,8 +718,6 @@ sv:
           online: Online
   layouts:
     decidim:
-      election_votes_header:
-        exit: Avsluta
       voting_navigation:
         check_census: Kan jag rösta?
         election_log: Omröstningslogg

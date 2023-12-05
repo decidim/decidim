@@ -22,9 +22,11 @@ ja:
       user:
         about: 私について
         email: あなたのメールアドレス
+        encrypted_password: パスワード
         locale: 地域
         name: 表示名
         nickname: アカウントID
+        old_password: 現在のパスワード
         password: パスワード
         password_confirmation: パスワードの確認
         personal_url: 個人用URL
@@ -272,11 +274,9 @@ ja:
       amendable:
         button: '%{model_name} を修正'
         error: リソースの修正中にエラーが発生しました。
-        help_text: '%{model_name} を変更することで、この %{amendable_fields} を改善します。'
         promote_button: '%{model_name} に昇格'
         promote_confirm_text: この修正を承認してもよろしいですか？
         promote_help_text: この修正を促進し、独立した%{model_name} として公開できます。
-        section_heading: 修正履歴 (%{count})
       amendments:
         title:
           other: "%{count} 件の修正"
@@ -440,7 +440,6 @@ ja:
       hidden_elements_count:
         other: 他 %{count} 名
       see_less: "(以下を参照)"
-      see_more: "(続きを参照)"
     components:
       component_order_selector:
         no_content: この基準では何も見つかりませんでした。
@@ -481,7 +480,7 @@ ja:
             comments_blocked: コメントをブロック
             dummy_step_attribute1: ダミーステップ属性１
             dummy_step_attribute2: ダミーステップ属性2
-            dummy_step_translatable_text: ダミーステップ翻訳可能なテキスト
+            dummy_step_translatable_text: ダミーフェーズ翻訳可能なテキスト
     contact: お問い合わせ
     content_blocks:
       announcement:
@@ -572,6 +571,8 @@ ja:
           subtitle: ユーザ登録を完了するには、次のフォームに記入してください
           username_help: 投稿に表示される公表名。匿名性を保証する目的で、任意の名前にすることができます。
       registrations:
+        create:
+          error: アカウント作成中に問題が発生しました。
         new:
           already_have_an_account?: 既にアカウントをお持ちですか？
           log_in: ログイン
@@ -886,14 +887,12 @@ ja:
           add_attachment: 添付ファイルを追加
           add_file: ファイルを追加
           add_image: 画像を追加
-          cancel: キャンセル
           edit_image: 画像を編集
           error: エラー
           file_size_too_large: 'ファイルサイズが大きすぎます！最大ファイルサイズ: %{megabytes}MB'
           filename: ファイル名
           remove: 削除
           replace: 置換
-          save: 保存
           title: タイトル
           title_required: タイトルが必要です
           uploaded: アップロード済
@@ -1276,7 +1275,6 @@ ja:
           proposals: 提案
           proposals_explanation: 提案を行い、既存のものをサポートし、見たい変更を促進します。
         footer_sub_hero:
-          footer_sub_hero_body: より開かれた透明で協働的な社会を作りましょう。<br /> 参加し、決定しましょう。
           footer_sub_hero_headline: '%{organization} 参加型プラットフォームへようこそ。'
           register: 登録
         hero:
@@ -1332,6 +1330,8 @@ ja:
         conversations: 会話
         followers: フォロワー
         following: フォロー
+        group_admins: 管理者の管理
+        group_members: メンバーの管理
         groups: グループ
         members: メンバー
         officialized: 正規参加者
@@ -1547,6 +1547,9 @@ ja:
         greetings: ようこそ、<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: こんにちは、 %{admin} さん。
         subject: '%{organization_name} で新しいユーザーが報告されました'
+    user_update_mailer:
+      notify:
+        hello: こんにちは、 %{user} さん
     version:
       show:
         back_to_resource: 戻る
@@ -1658,8 +1661,6 @@ ja:
         change_my_password: パスワードを変更する
         confirm_new_password: 新しいパスワードを確認
         new_password: 新しいパスワード
-        password_help: "半角英数字%{minimun_characters}文字以上で入力してください。単純すぎてはいけません（例：123456）。アカウントIDやメールアドレスと異なる必要があります。"
-        password_help_admin: "%{minimun_characters} 文字以上であり、過度に一般的ではない文字列 (例: 123456)ではなく, あなたのニックネームやあなたの電子メール、そしてあなたの古いパスワードと異なる文字列を指定してください。"
         title: パスワードの変更
       new:
         forgot_your_password: パスワードをお忘れですか？
@@ -1919,8 +1920,6 @@ ja:
         continue_session: セッションを続ける
         log_out: ログアウト
         title: セッションを続行しますか？
-      upload_modal:
-        close_modal: モーダルを閉じる
       user_menu:
         account: 'ユーザーアカウント: %{name}'
         admin_dashboard: 管理ダッシュボード

@@ -443,9 +443,6 @@ lt:
               few: pasiūlymai
               many: pasiūlymų
               other: pasiūlymai
-          title:
-            answers: Importuoti atsakymus į pasiūlymus
-            proposals: Importuoti pasiūlymus
         models:
           proposal:
             name: Pasiūlymas
@@ -538,7 +535,6 @@ lt:
             create: Sukurti
             title: Sukurti pasiūlymą
           publish_answers:
-            number_of_proposals: Bus paskelbti atsakymai į %{number} pasiūlymus (-ų).
             select_a_proposal: Pasirinkite pasiūlymą.
           show:
             amendments_count: Pakeitimų skaičius
@@ -548,7 +544,6 @@ lt:
             documents: Dokumentai
             endorsements_count: Palaikymų skaičius
             endorsers: Pritariantieji
-            link: Nuoroda
             n_more_endorsers:
               one: ir dar vienas
               few: ir dar %{count}
@@ -580,7 +575,6 @@ lt:
             no_components: Šioje dalyvaujamojo proceso erdvėje nėra kitų pasiūlymų komponentų, iš kurių būtų galima importuoti pasiūlymus.
             select_component: Pasirinkite komponentą
             select_states: Patikrinti importuoti skirtų pasiūlymų būseną
-            title: Importuoti pasiūlymus
         proposals_merges:
           create:
             invalid: 'Suliejant pasirinktus pasiūlymus iškilo problema, nes kai kurie iš jų:'

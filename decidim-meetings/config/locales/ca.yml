@@ -22,6 +22,7 @@ ca:
         id: ID
         iframe_access_level: Visualització de la sala de videoconferència
         iframe_embed_type: Visualització de la sala de videoconferència
+        iframe_embed_type_html: Tan sols alguns serveis permeten "Incrustar a la pàgina de la trobada" o "Obrir a la pàgina de l'esdevenimet en directe". Tingues en compte que amb l'opció de "Inscrustar a la pàgina de la trobada" als telèfons mòbils, com la pantalla hereta diferents dimensions, en realitat funcionarà com "Obrir a la pàgina de l'esdevenimet en directe".
         location: Ubicació
         location_hints: Detalls d'ubicació
         online_meeting_url: URL de trobada en línia
@@ -312,6 +313,7 @@ ca:
           form:
             address_help: 'Adreça: que farà servir per Geocoder per a trobar la localització'
             disclaimer: 'Descàrrec de responsabilitat: en utilitzar un sistema d''inscripcions extern, ets conscient que les organitzadores de %{organization} no són responsables de les dades proporcionades per les usuàries al servei extern.'
+            iframe_embed_type_html: 'Només uns quants serveis es poden incrustar a una trobada o esdeveniment en directe des dels següents dominis: %{domains}'
             location_help: 'Localització: missatge dirigit a les participants indicant el lloc on trobar-se'
             location_hints_help: 'Detalls d''ubicació: informació addicional. Exemple: la planta de l''edifici si es tracta d''una reunió presencial, o la contrasenya de la reunió si es tracta d''una reunió en línia amb accés restringit.'
             online_meeting_url_help: 'Enllaç: permetre que les participants es connectin directament a la teva trobada'
@@ -319,7 +321,6 @@ ca:
             select_a_meeting_type: Si us plau selecciona un tipus de trobada
             select_a_registration_type: Si us plau selecciona un tipus d'inscripció
             select_an_iframe_access_level: Si us plau, selecciona el nivell d'accés a l'iframe
-            show_embedded_iframe_help: 'Només uns quants serveis es poden incrustar a una trobada o esdeveniment en directe des dels següents dominis: %{domains}'
           index:
             title: Trobades
           new:
@@ -394,6 +395,9 @@ ca:
           all: Totes
         filter_meeting_space_values:
           all: Totes
+      calendar:
+        meeting_to_event:
+          read_more: Llegir més sobre aquesta trobada
       calendar_modal:
         calendar_url: URL del calendari
         copy_calendar_url: Copiar
@@ -416,7 +420,6 @@ ca:
       directory:
         meetings:
           index:
-            go_to_list: Veure el llistat de trobades
             meetings: Trobades
             space_type: Espai participatiu
       iframe_access_level:
@@ -496,6 +499,7 @@ ca:
           available_slots_help: Deixa-ho a 0 si les places disponibles són il·limitades
           create_as: Crear trobada com a
           disclaimer: 'Descàrrec de responsabilitat: en utilitzar un sistema d''inscripcions extern, ets conscient que les organitzadores de %{organization} no són responsables de les dades proporcionades per les usuàries al servei extern.'
+          iframe_embed_type_html: 'Només uns quants serveis es poden incrustar a una trobada o esdeveniment en directe des dels següents dominis: %{domains}'
           location_help: 'Localització: missatge dirigit a les participants indicant el lloc on trobar-se'
           location_hints_help: 'Detalls d''ubicació: informació addicional. Exemple: la planta de l''edifici si es tracta d''una reunió presencial, o la contrasenya de la reunió si es tracta d''una reunió en línia amb accés restringit.'
           online_meeting_url_help: 'Enllaç: permetre que les participants es connectin directament a la teva trobada'
@@ -504,7 +508,6 @@ ca:
           select_a_meeting_type: Si us plau selecciona un tipus de trobada
           select_a_registration_type: Si us plau selecciona un tipus d'inscripció
           select_an_iframe_access_level: Si us plau, selecciona el nivell d'accés a l'iframe
-          show_embedded_iframe_help: 'Només uns quants serveis es poden incrustar a una trobada o esdeveniment en directe des dels següents dominis: %{domains}'
         index:
           click_here: Veure totes les trobades
           new_meeting: Nova trobada
@@ -529,7 +532,6 @@ ca:
         show:
           attendees: Nombre d'assistents
           contributions: Nombre d'aportacions
-          date: Data
           join: Unir-se a la trobada
           leave: Cancel·la la teva inscripció
           leave_confirmation: Segur que vols cancel·lar la teva inscripció a aquesta trobada?
@@ -547,7 +549,6 @@ ca:
           remaining_slots:
             one: "%{count} plaça restant"
             other: "%{count} places restants"
-          view: Veure
           visit_finished: Veure trobada passada
           withdraw_btn_hint: Pots cancel·lar la teva trobada si canvies de parer. La trobada no s'elimina, apareixerà al llistat de trobades cancel·lades.
           withdraw_confirmation_html: Segur que vols cancel·lar aquesta trobada?<br><br><strong>Aquesta acció no es pot desfer!</strong>
@@ -640,7 +641,7 @@ ca:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Trobades anteriors
-        see_all: Veure tots (%{count})
+        see_all: Veure totes les trobades
         upcoming_meetings: Properes trobades
     resource_links:
       meetings_through_proposals:

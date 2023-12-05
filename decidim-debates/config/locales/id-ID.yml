@@ -66,8 +66,6 @@ id:
         create:
           invalid: Terjadi masalah saat membuat debat.
           success: Debat berhasil dibuat.
-        debate:
-          participate: Ikut
         filters:
           all: Semua
           category: Kategori

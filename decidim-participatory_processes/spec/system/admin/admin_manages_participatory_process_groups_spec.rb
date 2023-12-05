@@ -158,7 +158,7 @@ describe "Admin manages participatory process groups" do
       end
 
       within ".upload-container-for-hero_image" do
-        find("#participatory_process_group_hero_image_button").click
+        find_by_id("participatory_process_group_hero_image_button").click
       end
 
       click_button "Remove"
