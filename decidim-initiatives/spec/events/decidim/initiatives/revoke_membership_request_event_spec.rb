@@ -22,6 +22,13 @@ describe Decidim::Initiatives::RevokeMembershipRequestEvent do
   let(:membership_request) { create(:initiatives_committee_member, initiative:, state: "requested") }
   let(:resource_url) { resource_locator(initiative).url }
   let(:resource_title) { translated(initiative.title) }
+  let(:email_subject) { "#{author_nickname} rejected your application to the promoter committee" }
+  let(:email_intro) { "#{author_nickname} rejected your application to be part of the promoter committee for the following initiative #{resource_title}." }
+  let(:email_outro) { "You received this notification because you applied to this initiative: #{resource_title}." }
+  let(:notification_title) { "<a href=\"#{author_profile_url}\">#{author_nickname}</a> rejected your application to be part of the promoter committee for the following initiative <a href=\"#{resource_url}\">#{resource_title}</a>." }
+
+  it_behaves_like "a simple event email"
+  it_behaves_like "a simple event notification"
 
   describe "types" do
     subject { described_class }
@@ -32,32 +39,6 @@ describe Decidim::Initiatives::RevokeMembershipRequestEvent do
 
     it "supports emails" do
       expect(subject.types).to include :email
-    end
-  end
-
-  describe "email_subject" do
-    it "is generated correctly" do
-      expect(subject.email_subject).to eq("#{author_nickname} rejected your application to the promoter committee")
-    end
-  end
-
-  describe "email_intro" do
-    it "is generated correctly" do
-      expect(subject.email_intro).to eq("#{author_nickname} rejected your application to be part of the promoter committee for the following initiative #{resource_title}.")
-    end
-  end
-
-  describe "email_outro" do
-    it "is generated correctly" do
-      expect(subject.email_outro)
-        .to eq("You received this notification because you applied to this initiative: #{resource_title}.")
-    end
-  end
-
-  describe "notification_title" do
-    it "is generated correctly" do
-      expect(subject.notification_title)
-        .to eq("<a href=\"#{author_profile_url}\">#{author_nickname}</a> rejected your application to be part of the promoter committee for the following initiative <a href=\"#{resource_url}\">#{resource_title}</a>.")
     end
   end
 end
