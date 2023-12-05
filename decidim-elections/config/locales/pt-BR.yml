@@ -26,8 +26,12 @@ pt-BR:
       trustees_participatory_space:
         user_id: Participante
       voting:
+        banner_image: Imagem de banner
+        census_contact_information: Informação de contato do censo
         end_time: Votação termina
+        introductory_image: Imagem introdutória
         scope_id: Escopo
+        show_check_census: Mostrar página "checar censo"
         start_time: A votação começa
         voting_type: Tipo de votação
     errors:
@@ -46,6 +50,10 @@ pt-BR:
               cant_be_changed: não pode ser alterado
             public_key:
               cant_be_changed: não pode ser alterado
+        voting:
+          attributes:
+            voting_type:
+              inclusion: "%{value} não é um tipo de votação válido"
   activerecord:
     errors:
       models:
@@ -928,6 +936,9 @@ pt-BR:
             assign_missing_officers: Existem estações de votação sem Presidente e/ou gerentes. Por favor atribua-as a partir da seção estações de enquete
             update: Atualizar
           form:
+            banner_image: Imagem de banner
+            census_contact_information: Informação de contato do censo
+            introductory_image: Imagem introdutória
             select_a_voting_type: Por favor, selecione um tipo de votação
             show_check_census_help: Mostrar ou não o link "Posso votar?" no menu de votações públicas
             title: Título
