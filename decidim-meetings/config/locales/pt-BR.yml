@@ -61,6 +61,12 @@ pt-BR:
         other: Registros
   decidim:
     admin:
+      filters:
+        meetings:
+          with_any_type:
+            values:
+              hybrid: Híbrido
+              online: Virtual
       meeting_copies:
         create:
           error: Ocorreu um erro ao duplicar esta reunião.
@@ -356,6 +362,7 @@ pt-BR:
           type: Tipo
           type_values:
             all: Tudo
+            hybrid: Híbrido
             in_person: Pessoalmente
             online: On-line
         form:
@@ -463,6 +470,7 @@ pt-BR:
           invalid: Tem havido um problema ao sair desta reunião.
           success: Você saiu da reunião com sucesso.
       type_of_meeting:
+        hybrid: Híbrido
         in_person: Pessoalmente
         online: On-line
       types:
