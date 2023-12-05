@@ -77,6 +77,7 @@ pt-BR:
               official: Oficial
           type_eq:
             values:
+              hybrid: Híbrido
               online: On-line
       meeting_copies:
         create:
@@ -427,6 +428,7 @@ pt-BR:
           type: Tipo
           type_values:
             all: Tudo
+            hybrid: Híbrido
             in_person: Pessoalmente
             online: On-line
         filters_small_view:
@@ -551,6 +553,7 @@ pt-BR:
           invalid: Tem havido um problema ao sair desta reunião.
           success: Você saiu da reunião com sucesso.
       type_of_meeting:
+        hybrid: Híbrido
         in_person: Pessoalmente
         online: On-line
       types:
