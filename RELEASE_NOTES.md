@@ -75,6 +75,16 @@ Edit the engines key to :
   }
 ```
 
+Also remove, if present, the following lines:
+
+```json
+   "babel": {
+     "presets": [
+       "./node_modules/@rails/webpacker/package/babel/preset.js"
+     ]
+   },
+```
+
 #### 1.3.2. babel.config.json
 
 Edit the file, and remove, if present, the following lines:
