@@ -20,7 +20,7 @@ module Decidim
           enforce_permission_to :create, :project
           @form = form(ProjectForm).from_params(
             { attachment: form(AttachmentForm).instance },
-            budget: budget
+            budget:
           )
         end
 
