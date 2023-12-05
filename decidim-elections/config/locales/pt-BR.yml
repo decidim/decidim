@@ -26,7 +26,9 @@ pt-BR:
         user_id: Participante
       voting:
         end_time: Votação termina
+        introductory_image: Imagem introdutória
         scope_id: Escopo
+        show_check_census: Mostrar página "checar censo"
         start_time: A votação começa
     errors:
       models:
@@ -943,6 +945,9 @@ pt-BR:
             assign_missing_officers: Existem estações de votação sem Presidente e/ou gerentes. Por favor atribua-as a partir da seção estações de enquete
             update: Atualizar
           form:
+            banner_image: Imagem de banner
+            census_contact_information: Informação de contato do censo
+            introductory_image: Imagem introdutória
             select_a_voting_type: Por favor, selecione um tipo de votação
             title: Título
             voting_type:
