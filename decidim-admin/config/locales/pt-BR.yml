@@ -810,7 +810,7 @@ pt-BR:
           up: Para Cima
         form:
           add: Adicionar à lista branca
-          title: Domínio externo na lista branca
+          title: Lista branca de domínios externos
       organization_homepage_content_blocks:
         edit:
           update: Atualizar
@@ -941,6 +941,8 @@ pt-BR:
         areas: Áreas
         authorization_workflows: Métodos de verificação
         dashboard: painel de controle
+        edit_external_domains: Lista branca de domínios externos
+        edit_organization_appearance: Editar aparência da página inicial
         impersonatable_users: Usuários gerenciáveis
         impersonations: Gerenciamento de usuários
         metrics: Métricas
