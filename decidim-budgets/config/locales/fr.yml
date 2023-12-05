@@ -20,6 +20,9 @@ fr:
         scope_id: Secteur
   activerecord:
     models:
+      decidim/budgets/budget:
+        one: Budget
+        other: Budgets
       decidim/budgets/project:
         one: Projet
         other: Projets
