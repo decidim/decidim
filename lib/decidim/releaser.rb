@@ -40,7 +40,7 @@ module Decidim
         run("git commit -a -m 'Prepare #{version_number} release'")
         run("git push origin chore/prepare/#{version_number}")
 
-        # create_pull_request
+        create_pull_request
       end
     end
 
@@ -180,11 +180,8 @@ module Decidim
       base_branch = release_branch
       head_branch = "chore/prepare/#{version_number}"
 
-      run("git branch #{head_branch}")
-      run("git swtich --quiet #{head_branch}")
-
       params = {
-        title: "Bump to #{version_number} version",
+        title: "Bump to v#{version_number} version",
         body: "#### :tophat: What? Why?
 
 This PR changes the version of the #{release_branch} branch, so we can publish the release once this is approved and merged.
@@ -199,7 +196,7 @@ Everything should be green.
         head: head_branch,
         base: base_branch
       }
-      Decidim::GitHubManager::Poster.new(token: @token, params:)
+      Decidim::GithubManager::Poster.new(token: @token, params:).call
     end
 
     # Captures to output of a command
