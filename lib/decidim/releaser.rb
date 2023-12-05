@@ -207,7 +207,9 @@ This PR changes the version of the #{release_branch} branch, so we can publish t
 
 #### Testing
 
-Everything should be green.
+All the tests should pass, except for some generators tests, that will fail because the gems and NPM packages have not
+been actually published yet (as in sent to rubygems/npm).
+You will see errors such as `No matching version found for @decidim/browserslist-config@~0.xx.y` in the CI logs.
 
 :hearts: Thank you!
         ",
