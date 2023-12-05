@@ -2,7 +2,7 @@
 
 # Changelog
 
-##[0.28.0.rc3](https://github.com/decidim/decidim/tree/0.28.0.rc3)
+## [0.28.0.rc3](https://github.com/decidim/decidim/tree/0.28.0.rc3)
 
 ### Added
 
