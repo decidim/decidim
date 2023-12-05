@@ -36,12 +36,6 @@ module Decidim
         run("npm install")
         generate_changelog
 
-        # rubocop:disable Rails/Output
-        puts "Check all the changes before making the PR"
-        puts "After you finish leave the change staged and exit the shell with the `exit` command"
-        system ENV.fetch("SHELL")
-        # rubocop:enable Rails/Output
-
         run("git checkout -b chore/prepare/#{version_number}")
         run("git commit -a -m 'Prepare #{version_number} release'")
         run("git push origin chore/prepare/#{version_number}")
@@ -174,7 +168,8 @@ module Decidim
       run("bin/changelog_generator #{@token} #{sha_version}")
       temporary_changelog = File.read("./temporary_changelog.md")
       legacy_changelog = File.read("./CHANGELOG.md")
-      changelog = legacy_changelog.gsub("# Changelog\r", "# Changelog\r #{temporary_changelog}")
+      version_changelog = "##[#{version_number}](https://github.com/decidim/decidim/tree/#{version_number})\n\n#{temporary_changelog}\n"
+      changelog = legacy_changelog.gsub("# Changelog\n\n", "# Changelog\n\n#{version_changelog}")
       File.write("./CHANGELOG.md", changelog)
     end
 
