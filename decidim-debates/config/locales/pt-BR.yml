@@ -18,6 +18,7 @@ pt-BR:
       decidim/debates/close_debate_event: Debate encerrado
       decidim/debates/create_debate_event: Debate
       decidim/debates/creation_disabled_event: Debates desativados
+      decidim/debates/creation_enabled_event: Criação de debates ativada
   activerecord:
     models:
       decidim/debates/debate:
