@@ -26,13 +26,21 @@ pl:
         name: Nazwa
         published_at: Opublikowano
         weight: Kolejność na stronie
+      external_domain:
+        value: Wartość
+      help_section:
+        content: Zawartość
       id: ID
       import:
         user_group_id: Utwórz import jako
       newsletter:
         body: Treść
+        send_to_all_users: Wyślij do wszystkich użytkowników
+        send_to_followers: Wyślij do obserwujących
+        send_to_participants: Wyślij do uczestników
         subject: Temat
       organization:
+        admin_terms_of_service_body: Treść regulaminu administratora
         alert_color: Powiadomienie
         available_authorizations: Dostępne formy uwierzytelniania
         badges_enabled: Włącz odznaki
@@ -82,6 +90,7 @@ pl:
         secondary_hosts: Dodatkowy host
         send_welcome_notification: Wyślij komunikat powitalny
         success_color: Powodzenie
+        tertiary_color: Trzeciorzędny
         time_zone: Strefa czasowa
         tos_version: Warunki korzystania z Platformy
         user_groups_enabled: Włącz grupy użytkowników
@@ -90,6 +99,8 @@ pl:
         welcome_notification_body: Treść komunikatu powitalnego
         welcome_notification_subject: Tytuł komunikatu powitalnego
         youtube_handler: Handler YouTube
+      participatory_space_private_user:
+        email: E-mail
       scope:
         code: Kod
         name: Nazwa
@@ -111,9 +122,11 @@ pl:
         show_in_footer: Pokaż w stopce
         slug: URL slug
         title: Tytuł
+        topic_id: Temat
         weight: Kolejność na stronie
       static_page_topic:
         description: Opis
+        name: Nazwa tematu
         show_in_footer: Pokaż w stopce
         title: Tytuł
         weight: Kolejność na stronie
@@ -121,10 +134,27 @@ pl:
         file: Plik
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Wybierz co najmniej jedną przestrzeń partycypacyjną.
         organization:
           attributes:
             official_img_footer:
               allowed_file_content_types: Nieprawidłowy plik obrazu
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: Nieprawidłowy plik importu, przeczytaj uważnie instrukcję i upewnij się, że plik jest kodowany w UTF-8.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: Nieprawidłowy plik importu, przeczytaj uważnie instrukcję i upewnij się, że plik jest kodowany w UTF-8.
+      new_import:
+        attributes:
+          file:
+            invalid_file: Podano nieprawidłowy plik, sprawdź, czy plik jest poprawnie sformatowany.
+            invalid_mime_type: Nieprawidłowy typ MIME.
   activerecord:
     attributes:
       decidim/static_page:
@@ -145,6 +175,8 @@ pl:
         add: Dodaj
         attachment:
           new: Nowy załącznik
+        attachment_collection:
+          new: Nowy folder załącznika
         browse: Przeglądaj
         category:
           new: Nowa kategoria
@@ -158,10 +190,24 @@ pl:
         per_page: Na stronę
         permissions: Uprawnienia
         reject: Odrzuć
+        send_me_a_test_email: Wyślij mi testowego e-maila
         share: Udostępnij
         user:
           new: Nowy administrator
         verify: Zweryfikuj
+      admin_terms_of_service:
+        accept:
+          error: Wystąpił błąd podczas akceptacji warunków użytkowania administratora.
+          success: Świetnie! Zaakceptowano warunki użytkowania administratora.
+        actions:
+          accept: Zgadzam się z warunkami
+          are_you_sure: Czy na pewno nie wyrażasz zgody na warunki użytkowania administratora?
+          refuse: Odrzuć warunki użytkowania administratora
+          title: Wyraź zgodę na warunki usługi
+        required_review:
+          alert: 'Wymagane: Przejrzyj nasze warunki obsługi od administratora'
+          callout: Poświęć chwilę, aby zapoznać się z warunkami użytkowania dla administratorów. W przeciwnym razie nie uzyskasz dostępu do administrowania platformą.
+          cta: Zapoznaj się z nimi teraz.
       area_types:
         create:
           error: Wystąpił błąd podczas tworzenia nowego typu kategorii.
