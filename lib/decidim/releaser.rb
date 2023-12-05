@@ -34,6 +34,9 @@ module Decidim
         run("bin/rake update_versions")
         run("bin/rake bundle")
         run("npm install")
+
+        check_tests
+
         generate_changelog
 
         run("git checkout -b chore/prepare/#{version_number}")
@@ -158,6 +161,22 @@ module Decidim
     # @return [String] the version number
     def old_version_number
       File.read(DECIDIM_VERSION_FILE).strip
+    end
+
+    # Run the tests and if fails restore the changes using git and exit with an error
+    #
+    # @return [void]
+    def check_tests
+      # rubocop:disable Rails/Output
+      puts "Running specs"
+      output, status = capture("bin/rspec")
+
+      unless status.sucess?
+        run("git restore .")
+        puts output
+        exit_with_errors("Tests execution failed. Fix the errors and run again.")
+      end
+      # rubocop:enable Rails/Output
     end
 
     # Generates the changelog taking into account the last time the version changed
