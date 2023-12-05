@@ -34,12 +34,17 @@ pt-BR:
       decidim/demoted_membership: Não é mais um administrador de grupo
       decidim/gamification/badge_earned_event: Distintivo ganho
       decidim/gamification/level_up_event: Você subiu de nível
+      decidim/invited_to_group_event: Convidado para o grupo
       decidim/join_request_accepted_event: Solicitação de junção aceita
       decidim/join_request_rejected_event: Solicitação de junção aceita
       decidim/profile_updated_event: Perfil atualizado
       decidim/promote_to_admin: Promovido a administrador de grupo
+      decidim/promoted_to_admin_event: Promovido a administrador do grupo
       decidim/removed_from_group: Removido do grupo
       decidim/resource_endorsed_event: Recurso endossado
+      decidim/resource_hidden_event: Conteúdo ocultado
+      decidim/user_group_created_event: Grupo de usuários foi criado
+      decidim/welcome_notification_event: Mensagem de boas-vindas
   activerecord:
     attributes:
       decidim/user:
@@ -1519,6 +1524,7 @@ pt-BR:
         other: 'Houve erros múltiplos ao processar sua solicitação:'
       too_many_marks: está usando muitos sinais de pontuação consecutivos (por exemplo,! e?)
       too_much_caps: está usando muitas letras maiúsculas (mais de 25% do texto)
+      url_format: Esta URL está em formato incorreto
   forms:
     correct_errors: Há erros no formulário, por favor corrija-os para continuar.
     length_validator:
