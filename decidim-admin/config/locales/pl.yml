@@ -204,9 +204,10 @@ pl:
           refuse: Odrzuć warunki użytkowania administratora
           title: Wyraź zgodę na warunki usługi
         required_review:
-          alert: 'Wymagane: Przejrzyj nasze warunki obsługi od administratora'
+          alert: 'Wymagane: Przejrzyj nasze warunki użytkowania dla administratora'
           callout: Poświęć chwilę, aby zapoznać się z warunkami użytkowania dla administratorów. W przeciwnym razie nie uzyskasz dostępu do administrowania platformą.
           cta: Zapoznaj się z nimi teraz.
+        title: Regulamin administratora
       area_types:
         create:
           error: Wystąpił błąd podczas tworzenia nowego typu kategorii.
