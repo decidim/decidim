@@ -114,6 +114,9 @@ pt-BR:
     admin:
       actions:
         cancel: Cancelar
+      password_change:
+        alert: Você precisa alterar sua senha para prosseguir.
+        notification: Os usuários administradores precisam alterar sua senha a cada %{days} dias.
     admin_log:
       area:
         create: "%{user_name} criou a área %{resource_name}"
@@ -927,6 +930,9 @@ pt-BR:
         metrics:
           headline: Participação em números
           link: Mostrar todas as estatísticas
+      terms_of_service:
+        form:
+          agreement: Concordo com estes termos
     participatory_space_private_users:
       not_allowed: Você não tem permissão para visualizar este conteúdo
     profile:
