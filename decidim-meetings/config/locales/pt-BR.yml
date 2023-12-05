@@ -33,6 +33,14 @@ pt-BR:
         title: Título
         transparent: Transparente
         type_of_meeting: Tipo
+    errors:
+      models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: Esta URL não pode ser incorporada na página de eventos de reunião ou ao vivo.
+            online_meeting_url:
+              url_format: Precisa ser uma URL válida
     models:
       decidim/meetings/close_meeting_event: Reunião fechada
       decidim/meetings/create_meeting_event: Encontro
