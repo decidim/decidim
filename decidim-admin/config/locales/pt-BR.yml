@@ -134,6 +134,10 @@ pt-BR:
         file: Arquivo
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Selecione pelo menos um espaço participativo
         organization:
           attributes:
             official_img_footer:
@@ -143,6 +147,7 @@ pt-BR:
       new_import:
         attributes:
           file:
+            invalid_file: Arquivo inválido fornecido, por favor, verifique se o arquivo está formatado corretamente
             invalid_mime_type: Tipo mime inválido
   activerecord:
     attributes:
