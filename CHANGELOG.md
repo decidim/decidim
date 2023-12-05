@@ -2,6 +2,33 @@
 
 # Changelog
 
+##[0.28.0.rc3](https://github.com/decidim/decidim/tree/0.28.0.rc3)
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- Backport 'Fix Decidim::DummyResources autoload path' to v0.28 [\#12127](https://github.com/decidim/decidim/pull/12127)
+- Backport 'Fix missing namespaces and icon' to v0.28 [\#12128](https://github.com/decidim/decidim/pull/12128)
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+Nothing.
+
+### Internal
+
+- Add instruction to delete a babel directive from package.json [\#12117](https://github.com/decidim/decidim/pull/12117)
+
 ## [0.28.0.rc2](https://github.com/decidim/decidim/tree/0.28.0.rc2)
 
 ### Added
