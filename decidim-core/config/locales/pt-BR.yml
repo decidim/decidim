@@ -112,6 +112,9 @@ pt-BR:
     admin:
       actions:
         cancel: Cancelar
+      password_change:
+        alert: Você precisa alterar sua senha para prosseguir
+        notification: Os usuários administradores precisam alterar sua senha a cada %{days} dias.
     admin_log:
       area:
         create: "%{user_name} criou a área %{resource_name}"
@@ -1090,6 +1093,7 @@ pt-BR:
           error: Houve um erro ao aceitar os termos e condições.
           success: Ótimo! Você aceitou os termos e condições.
         form:
+          agreement: Concordo com estes termos
           legend: Concorde com os termos e condições de uso
         refuse:
           modal_btn_exit: Vou revisá-lo mais tarde
