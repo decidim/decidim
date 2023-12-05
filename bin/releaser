@@ -1,0 +1,37 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "thor"
+
+require "./lib/decidim/releaser"
+
+class ReleaserCLI < Thor
+  desc "", "Make the branch for preparing a release"
+  option :github_token, required: true, desc: <<~HELP
+    Required. Github Personal Access Token (PAT). It can be obtained from https://github.com/settings/tokens/new. You will need to create one with `public_repo` access.
+    Alternatively, you can use the `gh` CLI tool to authenticate with `gh auth token` (i.e. --github-token=$(gh auth token))
+  HELP
+  option :exit_with_unstaged_changes, type: :boolean, default: true, desc: <<~HELP
+    Optional. Whether the script should exit with an error if there are unstaged changes in the current project.
+  HELP
+  default_task :releaser
+
+  def releaser
+    Decidim::Releaser.new(
+      token: options[:github_token],
+      exit_with_unstaged_changes: options[:exit_with_unstaged_changes]
+    ).call
+  rescue Decidim::Releaser::InvalidMetadataError
+    puts "Metadata was not returned from the server. Please check that the GitHub token is correct."
+  end
+
+  def help
+    super("releaser")
+  end
+
+  def self.exit_on_failure?
+    true
+  end
+end
+
+ReleaserCLI.start(ARGV)
