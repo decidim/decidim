@@ -125,7 +125,7 @@ describe "Polling Officer zone" do
           fill_in "closure_result__ballot_results__blank_ballots_count", with: 0
           fill_in "closure_result__ballot_results__valid_ballots_count", with: 6
           fill_in "closure_result__ballot_results__null_ballots_count", with: 14
-          find("#closure_result__ballot_results__null_ballots_count").native.send_keys(:tab)
+          find_by_id("closure_result__ballot_results__null_ballots_count").native.send_keys(:tab)
         end
 
         click_button "Save recount"
