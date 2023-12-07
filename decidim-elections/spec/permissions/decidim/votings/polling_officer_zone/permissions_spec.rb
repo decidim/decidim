@@ -133,6 +133,32 @@ module Decidim
 
           it_behaves_like "not allowed when a polling officer is not attached to the current user"
         end
+
+        describe "create in person votes" do
+          let(:action) do
+            { scope: :polling_officer_zone, action: :create, subject: :in_person_vote }
+          end
+          let(:context) do
+            {
+              polling_officer:,
+              polling_officers:,
+              closure:
+            }
+          end
+
+          it { is_expected.to be false }
+
+          context "when no closure is present" do
+            let(:context) do
+              {
+                polling_officer:,
+                polling_officers:
+              }
+            end
+
+            it { is_expected.to be true }
+          end
+        end
       end
     end
   end
