@@ -93,7 +93,7 @@ eu:
         time_zone: Ordu-zona
         tos_version: Zerbitzu-baldintzen bertsioa
         twitter_handler: Twitter kudeatzailea
-        user_groups_enabled: Gaitu erabiltzaileen taldeak
+        user_groups_enabled: Gaitu taldeak
         users_registration_mode: Erabiltzaileak erregistratzeko modua
         warning_color: Abisua
         welcome_notification_body: Ongietorri-jakinarazpenaren gorputza
@@ -540,7 +540,7 @@ eu:
         scopes: Esparruak
         settings: Ezarpenak
         static_pages: Orriak
-        user_groups: Erabiltzaile-taldeak
+        user_groups: Taldeak
         users: Parte-hartzaileak 
       metrics:
         metrics:
@@ -828,10 +828,10 @@ eu:
           success: Behar bezala ezabatua parte-hartzailearen sarbidea parte hartzeko espazio pribaturako.
         index:
           import_via_csv: Inportatu CSV bidetik
-          title: Parte-hartze pribatuko espazioko parte-hartzailea
+          title: Parte hartzeko espazio pribatuko parte-hartzailea 
         new:
           create: Sortu
-          title: Parte-hartze pribatuko espazioko parte-hartzaile berria.
+          title: Parte hartzeko espazio pribatuko parte-hartzaile berria.
       participatory_space_private_users_csv_imports:
         create:
           invalid: Arazo bat egon da CSV fitxategia irakurtzean.
@@ -959,7 +959,7 @@ eu:
         scopes: Esparruak
         static_pages: Orriak
         statistics: Jarduera
-        user_groups: Erabiltzaile-taldeak
+        user_groups: Taldeak
         users: Parte-hartzaileak
       user_group:
         csv_verify:
