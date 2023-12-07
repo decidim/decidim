@@ -18,8 +18,7 @@
               </li>
             <% end %>
           <% else %>
-            <li class="mb-2"><%= icon "check-line", class: "text-success", role: "img", "aria-hidden": true %>&nbsp;<%=
-              value[:message].html_safe %></li>
+            <li class="mb-2"><%= icon "check-line", class: "text-success", role: "img", "aria-hidden": true %>&nbsp;<%= value[:message].html_safe %></li>
           <% end %>
         <% end %>
       </ul>
