@@ -36,15 +36,13 @@ module Decidim
 
         def validations
           @validations ||= [
-            [:minimum_questions, {}, election.questions.any?],
-            [:minimum_answers, {}, election.minimum_answers?],
-            [:max_selections, {}, election.valid_questions?],
-            [:published, {}, election.published_at.present?],
-            [:component_published, {}, election.component.published?],
-            [:time_before, { hours: I18n.t("datetime.distance_in_words.x_hours", count: Decidim::Elections.setup_minimum_hours_before_start) },
-             election.minimum_hours_before_start?],
-            [:trustees_number, { number: bulletin_board.number_of_trustees }, participatory_space_trustees_with_public_key.size >= bulletin_board.number_of_trustees]
-          ].freeze
+            [:minimum_questions, { link: router.election_questions_path(election) }, election.questions.any?],
+            [:minimum_answers, { link: router.election_questions_path(election) }, election.minimum_answers?],
+            [:max_selections, { link: router.election_questions_path(election) }, election.valid_questions?],
+            [:published, { link: router.publish_election_path(election) }, election.published_at.present?],
+            [:component_published, { link: EngineRouter.admin_proxy(election.participatory_space).components_path(election.participatory_space) }, election.component.published?],
+            [:time_before, { link: router.edit_election_path(election), hours: I18n.t("datetime.distance_in_words.x_hours", count: Decidim::Elections.setup_minimum_hours_before_start) }, election.minimum_hours_before_start?],
+            [:trustees_number, { link: router.trustees_path, number: bulletin_board.number_of_trustees }, participatory_space_trustees_with_public_key.size >= bulletin_board.number_of_trustees]].freeze
         end
 
         def census_validations
@@ -59,7 +57,7 @@ module Decidim
 
         def messages
           @messages ||= validations.to_h do |message, t_args, _valid|
-            [message, I18n.t("steps.create_election.requirements.#{message}", **t_args, scope: "decidim.elections.admin")]
+            [message, { message: I18n.t("steps.create_election.requirements.#{message}", **t_args, scope: "decidim.elections.admin"), link: t_args[:link] }]
           end
         end
 
@@ -120,6 +118,10 @@ module Decidim
 
         def participatory_space_trustees_with_public_key
           @participatory_space_trustees_with_public_key ||= participatory_space_trustees.filter { |trustee| trustee.public_key.present? }
+        end
+
+        def router
+          @router ||= EngineRouter.admin_proxy(election.component)
         end
       end
     end

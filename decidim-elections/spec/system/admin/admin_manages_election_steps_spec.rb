@@ -37,6 +37,35 @@ describe "Admin manages election steps", :slow do
       end
     end
 
+    context "when election is not ready for setup" do
+      let(:election) { create(:election, component: current_component, start_time: 5.minutes.ago) }
+      let(:router) { Decidim::EngineRouter.admin_proxy(component) }
+      let(:errors_and_links) do
+        {
+          "The election must have at least one question.": router.election_questions_path(election),
+          "Questions must have at least two answers.": router.election_questions_path(election),
+          "The questions do not have a correct value for amount of answers": router.election_questions_path(election),
+          "The election is not published.": router.publish_election_path(election),
+          "The start time is in less than 1 hour before the election starts.": router.edit_election_path(election),
+          "The participatory space must have at least 3 trustees with public key.": router.trustees_path
+        }
+      end
+
+      before do
+        visit_steps_page
+      end
+
+      it "shows all the error texts and links to fix them" do
+        within("form.create_election") do
+          errors_and_links.each do |error_text, link|
+            expect(page).to have_content(error_text)
+            li = find("li", text: error_text)
+            expect(li).to have_link("Fix it", href: link)
+          end
+        end
+      end
+    end
+
     context "when census is required" do
       let!(:voting) { create(:voting, organization:) }
       let(:participatory_space) { voting }
@@ -56,6 +85,7 @@ describe "Admin manages election steps", :slow do
           expect(page).to have_content("There is no census uploaded for this election.")
           expect(page).to have_content("Access codes for the census are not generated.")
           expect(page).to have_content("Access codes for the census are not exported.")
+          expect(page).not_to have_content("Fix it")
         end
       end
 

@@ -61,6 +61,19 @@ module Decidim
             }
           end
         end
+
+        describe "#fix_it_button_with_icon" do
+          subject { helper.fix_it_button_with_icon(link, icon_name, method) }
+
+          let(:link) { "/path/to/fix" }
+          let(:icon_name) { "pencil-line" }
+          let(:method) { :get }
+
+          it "generates the fix it link with icon" do
+            expect(subject).to have_link("Fix it", href: link)
+            expect(subject).to have_selector("svg.fix-icon")
+          end
+        end
       end
     end
   end

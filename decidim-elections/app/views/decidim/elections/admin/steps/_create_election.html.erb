@@ -10,9 +10,15 @@
       <ul>
         <% form.messages.each do |key, value| %>
           <% if form.errors.include?(key) %>
-            <li><%= icon "close-line", class: "text-alert", role: "img", "aria-hidden": true %>&nbsp;<%= form.errors.messages[key][0].html_safe %></li>
+            <% Array(form.errors[key]).each do |error| %>
+              <li class="flex justify-between">
+                <span><%= icon "close-line", class: "text-alert", role: "img", "aria-hidden": true %>&nbsp;<%= error.html_safe %></span>
+                <% method = key == :published ? :put : :get %>
+                <span><%= fix_it_button_with_icon(value[:link], "pencil-line", method) %></span>
+              </li>
+            <% end %>
           <% else %>
-            <li><%= icon "check-line", class: "text-success", role: "img", "aria-hidden": true %>&nbsp;<%= value.html_safe %></li>
+            <li><%= icon "check-line", class: "text-success", role: "img", "aria-hidden": true %>&nbsp;<%= value[:message].html_safe %></li>
           <% end %>
         <% end %>
       </ul>

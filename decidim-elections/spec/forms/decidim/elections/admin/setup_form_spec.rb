@@ -24,18 +24,19 @@ describe Decidim::Elections::Admin::SetupForm do
   end
   let!(:trustees) { create_list(:trustee, 5, :with_public_key, election:) }
   let(:trustee_ids) { trustees.pluck(:id) }
+  let(:router) { Decidim::EngineRouter.admin_proxy(component) }
 
   it { is_expected.to be_valid }
 
   it "shows messages" do
     expect(subject.messages).to match(
       hash_including({
-                       max_selections: "All the questions have a correct value for <strong>maximum of answers</strong>.",
-                       minimum_answers: "Each question has <strong>at least 2 answers</strong>.",
-                       minimum_questions: "The election has <strong>at least 1 question</strong>.",
-                       published: "The election is <strong>published</strong>.",
-                       time_before: "The setup is being done <strong>at least 1 hour</strong> before the election starts.",
-                       trustees_number: "The participatory space has <strong>at least 3 trustees with public key</strong>."
+                       max_selections: { link: router.election_questions_path(election), message: "All the questions have a correct value for <strong>maximum of answers</strong>." },
+                       minimum_answers: { link: router.election_questions_path(election), message: "Each question has <strong>at least 2 answers</strong>." },
+                       minimum_questions: { link: router.election_questions_path(election), message: "The election has <strong>at least 1 question</strong>." },
+                       published: { link: router.publish_election_path(election), message: "The election is <strong>published</strong>." },
+                       time_before: { link: router.edit_election_path(election), message: "The setup is being done <strong>at least 1 hour</strong> before the election starts." },
+                       trustees_number: { link: router.trustees_path, message: "The participatory space has <strong>at least 2 trustees with public key</strong>." }
                      })
     )
   end

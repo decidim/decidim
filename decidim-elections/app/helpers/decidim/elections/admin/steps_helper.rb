@@ -17,6 +17,12 @@ module Decidim
             end
           end
         end
+
+        def fix_it_button_with_icon(link, icon_name, method = :get)
+          link_to(link, class: "button tiny button__secondary px-2 py-0", method:) do
+            "#{icon(icon_name, class: "fix-icon")} #{I18n.t("decidim.elections.admin.steps.create_election.errors.fix_it_text")}".html_safe
+          end
+        end
       end
     end
   end
