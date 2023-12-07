@@ -72,8 +72,8 @@ eu:
         one: Parte-hartzailea
         other: Erabiltzaileak
       decidim/user_group:
-        one: Erabiltzaile-taldea
-        other: Erabiltzaile taldeak
+        one: Taldea
+        other: Taldeak
   booleans:
     'false': 'Ez'
     'true': 'Bai'
@@ -956,8 +956,8 @@ eu:
         success: Lotzeko eskaera zuzen onartua.
       actions:
         are_you_sure: Ziur zaude?
-        promote_to_admin: Egin admin
-        remove_from_group: Kendu erabiltzailea
+        promote_to_admin: Egin administratzailea
+        remove_from_group: Kendu parte-hartzailea
       index:
         current_members_without_admins: 'Uneko kideak (administratzaile gabe):'
         manage_members: Kudeatu kideak
