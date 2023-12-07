@@ -23,6 +23,14 @@ module Decidim
             "#{icon(icon_name, class: "fix-icon")} #{I18n.t("decidim.elections.admin.steps.create_election.errors.fix_it_text")}".html_safe
           end
         end
+
+        def technical_configuration_items
+          [
+            { key: ".technical_configuration.bulletin_board_server", value: Rails.application.secrets.elections[:bulletin_board_server] },
+            { key: ".technical_configuration.authority_name", value: Decidim::BulletinBoard.config[:authority_name] },
+            { key: ".technical_configuration.scheme_name", value: Decidim::BulletinBoard.config[:scheme_name] }
+          ]
+        end
       end
     end
   end

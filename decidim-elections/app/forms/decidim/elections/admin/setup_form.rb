@@ -41,8 +41,12 @@ module Decidim
             [:max_selections, { link: router.election_questions_path(election) }, election.valid_questions?],
             [:published, { link: router.publish_election_path(election) }, election.published_at.present?],
             [:component_published, { link: EngineRouter.admin_proxy(election.participatory_space).components_path(election.participatory_space) }, election.component.published?],
-            [:time_before, { link: router.edit_election_path(election), hours: I18n.t("datetime.distance_in_words.x_hours", count: Decidim::Elections.setup_minimum_hours_before_start) }, election.minimum_hours_before_start?],
-            [:trustees_number, { link: router.trustees_path, number: bulletin_board.number_of_trustees }, participatory_space_trustees_with_public_key.size >= bulletin_board.number_of_trustees]].freeze
+            [:time_before,
+             { link: router.edit_election_path(election), hours: I18n.t("datetime.distance_in_words.x_hours",
+                                                                        count: Decidim::Elections.setup_minimum_hours_before_start) }, election.minimum_hours_before_start?],
+            [:trustees_number, { link: router.trustees_path, number: bulletin_board.number_of_trustees },
+             participatory_space_trustees_with_public_key.size >= bulletin_board.number_of_trustees]
+          ].freeze
         end
 
         def census_validations

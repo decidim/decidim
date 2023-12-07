@@ -11,14 +11,15 @@
         <% form.messages.each do |key, value| %>
           <% if form.errors.include?(key) %>
             <% Array(form.errors[key]).each do |error| %>
-              <li class="flex justify-between">
+              <li class="flex justify-between mb-2">
                 <span><%= icon "close-line", class: "text-alert", role: "img", "aria-hidden": true %>&nbsp;<%= error.html_safe %></span>
                 <% method = key == :published ? :put : :get %>
                 <span><%= fix_it_button_with_icon(value[:link], "pencil-line", method) %></span>
               </li>
             <% end %>
           <% else %>
-            <li><%= icon "check-line", class: "text-success", role: "img", "aria-hidden": true %>&nbsp;<%= value[:message].html_safe %></li>
+            <li class="mb-2"><%= icon "check-line", class: "text-success", role: "img", "aria-hidden": true %>&nbsp;<%=
+              value[:message].html_safe %></li>
           <% end %>
         <% end %>
       </ul>
@@ -28,15 +29,15 @@
         <ul>
           <% form.census_messages.each do |key, value| %>
             <% if form.errors.include?(key) %>
-              <li><%= icon "close-line", class: "text-alert", role: "img", "aria-hidden": true %>&nbsp;<%= form.errors.messages[key][0].html_safe %></li>
+              <li class="mb-2"><%= icon "close-line", class: "text-alert", role: "img", "aria-hidden": true %>&nbsp;<%= form.errors.messages[key][0].html_safe %></li>
             <% else %>
-              <li><%= icon "check-line", class: "text-success", role: "img", "aria-hidden": true %>&nbsp;<%= value.html_safe %></li>
+              <li class="mb-2"><%= icon "check-line", class: "text-success", role: "img", "aria-hidden": true %>&nbsp;<%= value.html_safe %></li>
             <% end %>
           <% end %>
         </ul>
       <% end %>
 
-      <h4><%= t(".trustees") %></h4>
+      <h4 class="mb-2"><%= t(".trustees") %></h4>
       <ul>
         <% if form.participatory_space_trustees.none? %>
           <li><%= icon "close-line", class: "text-alert", role: "img", "aria-hidden": true %>&nbsp;<%= t(".no_trustees") %></li>
@@ -57,6 +58,26 @@
           </li>
         <% end %>
       </ul>
+    </div>
+  </div>
+
+  <div>
+    <div class="row column">
+      <div class="accordion technical-configuration" data-accordion data-allow-all-closed="true">
+        <div class="accordion-item" data-accordion-item>
+          <a href="#" class="accordion-title flex">
+            <%= icon "arrow-down-s-fill", class: "icon-arrow-down w-5 h-5" %>
+            <h2 class="card-title tabs-title ml-1 mb-2"><%= t(".technical_configuration.title") %></h2>
+          </a>
+          <div class="accordion-content" data-tab-content style="display: none;">
+            <ul>
+              <% technical_configuration_items.each do |config_item| %>
+                <li class="mb-2"><%= t(config_item[:key], value: config_item[:value]).html_safe %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

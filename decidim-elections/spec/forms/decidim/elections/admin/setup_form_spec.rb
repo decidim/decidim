@@ -36,7 +36,7 @@ describe Decidim::Elections::Admin::SetupForm do
                        minimum_questions: { link: router.election_questions_path(election), message: "The election has <strong>at least 1 question</strong>." },
                        published: { link: router.publish_election_path(election), message: "The election is <strong>published</strong>." },
                        time_before: { link: router.edit_election_path(election), message: "The setup is being done <strong>at least 1 hour</strong> before the election starts." },
-                       trustees_number: { link: router.trustees_path, message: "The participatory space has <strong>at least 2 trustees with public key</strong>." }
+                       trustees_number: { link: router.trustees_path, message: "The participatory space has <strong>at least 3 trustees with public key</strong>." }
                      })
     )
   end

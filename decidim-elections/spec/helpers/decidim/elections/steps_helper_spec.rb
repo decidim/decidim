@@ -74,6 +74,22 @@ module Decidim
             expect(subject).to have_selector("svg.fix-icon")
           end
         end
+
+        describe "#technical_configuration_items" do
+          subject { helper.technical_configuration_items }
+
+          let(:expected_items) do
+            [
+              { key: ".technical_configuration.bulletin_board_server", value: Rails.application.secrets.elections[:bulletin_board_server] },
+              { key: ".technical_configuration.authority_name", value: Decidim::BulletinBoard.config[:authority_name] },
+              { key: ".technical_configuration.scheme_name", value: Decidim::BulletinBoard.config[:scheme_name] }
+            ]
+          end
+
+          it "returns the technical configuration items" do
+            expect(subject).to eq(expected_items)
+          end
+        end
       end
     end
   end
