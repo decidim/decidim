@@ -303,7 +303,7 @@ en:
               bulletin_board_server: "<strong>Bulletin Board server: </strong> <a href='%{value}'>%{value}</a>"
               authority_name: "<strong>Authority name: </strong> %{value}"
               scheme_name: "<strong>Scheme name: </strong> %{value}"
-              title: Technical configuration
+              title: View technical information
             title: Setup election
             trustees: Election Trustees
           created:
