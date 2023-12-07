@@ -81,8 +81,8 @@ eu:
   activerecord:
     models:
       decidim/participatory_process:
-        one: Parte hartze prozesua
-        other: Parte hartze prozesuak
+        one: Prozesu parte-hartzailea
+        other: Prozesu parte-hartzaileak
       decidim/participatory_process_group:
         one: Parte-hartze prozesuaren taldea
         other: Parte-hartze prozesuko taldeak
