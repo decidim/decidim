@@ -53,7 +53,7 @@ eu:
         meta_scope: Esparruaren metadatuak
         participatory_process_ids: Elkarrekin lotutako prozesuak
         participatory_scope: Zer erabakitzen da
-        participatory_structure: Nola erabakitzen da
+        participatory_structure: Nola erabakitzen den
         target: Nork hartzen du parte
         title: Izenburua
       participatory_process_step:
@@ -82,11 +82,11 @@ eu:
   activerecord:
     models:
       decidim/participatory_process:
-        one: Parte hartze prozesua
-        other: Parte hartze prozesuak
+        one: Prozesu parte-hartzailea
+        other: Prozesu parte-hartzaileak
       decidim/participatory_process_group:
-        one: Parte-hartze prozesuaren taldea
-        other: Parte-hartze prozesuko taldeak
+        one: Prozesu parte-hartzailearen taldea
+        other: Prozesu parte-hartzaileen taldeak
       decidim/participatory_process_step:
         one: Step
         other: Urratsak
@@ -101,7 +101,7 @@ eu:
         edit: Editatu
         filter:
           all_processes: Erakutsi prozesu guztiak
-          process_groups: Prozesu taldeak
+          process_groups: Prozesu-taldeak
         import_process: Inportatu
         new_process: Beste prozesu bat
         new_process_group: Beste prozesu-talde bat
@@ -113,7 +113,7 @@ eu:
         resend_invitation: Birbidali gonbita
         unpublish: Despublikatu
       menu:
-        participatory_process_groups: Prozesu-multzoak
+        participatory_process_groups: Prozesu-taldeak
         participatory_process_groups_submenu:
           info: Informazioa
           landing_page: Hasierako orrialdea
@@ -138,17 +138,17 @@ eu:
             promoted: Nabarmendua
             published: Argitaratua
             title: Izenburua
-          name: Prozesu parte-hartzaileak
+          name: Prozesu parte-hartzailea
         participatory_process_group:
           fields:
             title: Izenburua
-          name: Prozesu-multzoak
+          name: Prozesu-taldea
         participatory_process_step:
           fields:
             end_date: Bukaera-data
             start_date: Hasiera-data
             title: Izenburua
-          name: Prozesu partizipatiboaren fasea
+          name: Prozesu parte-hartzailearen fasea
         participatory_process_type:
           fields:
             created_at: Noiz sortua
@@ -159,7 +159,7 @@ eu:
             email: Helbide elektronikoa
             name: Izena
             role: Rola
-          name: Prozesu parte-hartzailearen administratzaileak
+          name: Prozesu parte-hartzailearen administratzailea
           roles:
             admin: Administratzailea
             collaborator: Kolaboratzailea
@@ -176,24 +176,24 @@ eu:
           title: Bikoiztu prozesu parte-hartzailea
       participatory_process_group_landing_page:
         edit:
-          active_content_blocks: Eduki-blokeak aktibatuta
-          inactive_content_blocks: Eduki-blokeak desaktibatuta
+          active_content_blocks: Aktibatu eduki-blokeak
+          inactive_content_blocks: Desaktibatu eduki-blokeak
       participatory_process_group_landing_page_content_blocks:
         edit:
           update: Eguneratu
       participatory_process_groups:
         destroy:
           error: Arazo bat izan da prozesu parte-hartzaile multzoa ezabatzean.
-          success: Parte-hartze prozesuen taldea zuzen ezabatu da.
+          success: Prozesu parte-hartzaileen taldea zuzen ezabatua.
         edit:
-          title: Editatu prozesu-multzoak
+          title: Editatu prozesu-taldea
           update: Eguneratu
         new:
           create: Sortu
-          title: Beste prozesu-multzo bat
+          title: Beste prozesu-talde bat
         update:
-          error: Arazo bat egon da prozesu partehartzaileen multzo hau eguneratzean.
-          success: Multzoa zuzen eguneratu da.
+          error: Arazo bat egon da prozesu parte-hartzaileen talde hau eguneratzean.
+          success: Prozesu parte-hartzailearen taldea zuzen eguneratua.
       participatory_process_imports:
         create:
           error: Arazo bat izan da prozesu parte-hartzaile hau inportatzean.
@@ -205,24 +205,24 @@ eu:
       participatory_process_publications:
         create:
           error: Arazo bat egon da prozesu partehartzaile hau argitaratzean.
-          success: Prozesu partizipatiboa zuzen argitaratu da.
+          success: Prozesu parte-hartzailea zuzen argitaratua.
         destroy:
-          error: Arazo bat egon da prozesu partehartzaile hau desargitaratzean.
-          success: Prozesu partizipatiboa zuzen desargitaratu da.
+          error: Arazo bat egon da prozesu parte-hartzaile hau desargitaratzean.
+          success: Prozesu parte-hartzailea zuzen desargitaratua.
       participatory_process_step_activations:
         create:
-          error: Arazo bat egon da prozesu partehartzailearen fase hau aktibatzean.
-          success: Prozesu partizipatiboaren fasea zuzen aktibatu da.
+          error: Arazo bat egon da prozesu parte-hartzailearen fase hau aktibatzean.
+          success: Prozesu parte-hartzailearen fasea zuzen aktibatua.
       participatory_process_steps:
         create:
-          error: Arazo bat egon da prozesu partizipatiboaren beste fase bat sortzean.
-          success: Prozesu partizipatiboaren fasea zuzen sortu da.
+          error: Arazo bat egon da prozesu parte-hartzailearen beste fase bat sortzean.
+          success: Prozesu parte-hartzailearen fasea zuzen sortua.
         default_title: Sarrera
         destroy:
           error:
             active_step: Ezin da ezabatu fase aktiboa.
             last_step: Ezin da ezabatu prozesuaren azken fasea.
-          success: Parte-hartze prozesuaren pausoa arrakastaz ezabatu da.
+          success: Prozesu parte-hartzailearen fasea ondo ezabatua.
         edit:
           title: Editatu prozesu parte-hartzailearen fasea
           update: Eguneratu
@@ -232,10 +232,10 @@ eu:
           create: Sortu
           title: Prozesu parte-hartzailearen beste fase bat
         ordering:
-          error: Arazo bat egon da prozesu partehartzaile honen faseak berrantolatzean.
+          error: Arazo bat egon da prozesu parte-hartzaile honen faseak berrantolatzean.
         update:
-          error: Arazo bat egon da prozesu partehartzaile honan fase hau eguneratzean.
-          success: Prozesu partizipatiboaren fasea zuzen eguneratu da.
+          error: Arazo bat egon da prozesu parte-hartzaile honan fase hau eguneratzean.
+          success: Parte hartzeko fasea zuzen eguneratua.
       participatory_process_types:
         create:
           error: Arazo bat egon da beste prozesu mota bat sortzean.
@@ -255,7 +255,7 @@ eu:
           success: Prozesu mota zuzen eguneratua.
       participatory_process_user_roles:
         create:
-          error: Arazo bat egon da prozesu partehartzaile honetarako partehartzailea gehitzean.
+          error: Arazo bat egon da prozesu parte-hartzaile honetarako parte-hartzailea gehitzean.
           success: Administratzailea zuzen gehitu da prozesu parte-hartzailera.
         destroy:
           success: Administratzailea behar bezala kendu da prozesu parte-hartzailetik.
@@ -263,7 +263,7 @@ eu:
           title: Eguneratu prozesu parte-hartzailearen administratzailea
           update: Eguneratu
         index:
-          process_admins_title: Prozesu parte-hartzailearen administratzailea
+          process_admins_title: Prozesu parte-hartzailearen administratzaileak
         new:
           create: Sortu
           title: Prozesu parte-hartzailearen beste administratzaile bat
@@ -285,18 +285,18 @@ eu:
           create: Sortu
           title: Beste prozesu parte-hartzaile bat
         update:
-          error: Arazo bat egon da prozesu partehartzaile hau eguneratzean.
-          success: Prozesu partizipatiboa zuzen eguneratu da.
+          error: Arazo bat egon da prozesu parte-hartzaile hau eguneratzean.
+          success: Prozesu parte-hartzailea zuzen eguneratua.
       participatory_processes_copies:
         create:
-          error: Arazo bat egon da prozesu partehartzaile hau bikoiztean.
-          success: Prozesu partizipatiboa zuzen kopiatu da.
+          error: Arazo bat egon da prozesu parte-hartzaile hau bikoiztean.
+          success: Prozesu parte-hartzailea zuzen kopiatua.
       participatory_processes_group:
         create:
           error: Arazo bat egon da beste prozesu partehartzaileen multzo bat sortzean.
-          success: Multzoa zuzen eguneratu da.
+          success: Prozesu parte-hartzaileen taldea zuzen eguneratua.
       titles:
-        participatory_process_groups: Prozesu partizipatiboen multzoak
+        participatory_process_groups: Prozesu parte-hartzaileen taldeak
         participatory_process_types: Prozesu parte-hartzaile motak
         participatory_processes: Prozesu pare-hartzaileak
       users:
@@ -387,7 +387,7 @@ eu:
           meta_scope: Esparrua
           name: Izenburua, deskribapena eta traola
       show:
-        title: Prozesu parte-hartzailerako taldeak
+        title: Prozesu parte-hartzaileen taldeak
     participatory_process_steps:
       index:
         process_steps: Prozesuaren faseak
@@ -428,7 +428,7 @@ eu:
             scope_type_max_depth_help: Murriztu esparru-iragazkiaren sakonera; iragazkia esparru orokorretik hautatutakora erakutsiko da.
             select_an_area: Hautatu eremu bat
             select_participatory_process_type: Aukeratu prozesu-mota bat
-            select_process_group: Hautatu prozesu talde bat
+            select_process_group: Hautatu prozesu-talde bat
             slug_help: 'URL testu laburrak erabiltzen dira prozesu honi aurre egiteko URLan sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
             title: Informazio orokorra
             visbility: ikusgarritasuna
