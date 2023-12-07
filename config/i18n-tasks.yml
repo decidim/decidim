@@ -138,6 +138,7 @@ ignore_unused:
   - decidim.admin.models.assembly_member.positions.*
   - decidim.statistics.*
   - decidim.components.*
+  - decidim.elections.admin.steps.create_election.technical_configuration.*
   - decidim.filters.linked_classes.*
   - decidim.shared.participatory_space_filters.filters.*
   - decidim.follows.create.participatory_space

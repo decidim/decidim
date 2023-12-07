@@ -300,8 +300,8 @@ en:
             submit: Setup election
             success: Election successfully sent to the Bulletin Board.
             technical_configuration:
-              bulletin_board_server: "<strong>Bulletin Board server: </strong> <a href='%{value}'>%{value}</a>"
               authority_name: "<strong>Authority name: </strong> %{value}"
+              bulletin_board_server: "<strong>Bulletin Board server: </strong> <a href='%{value}'>%{value}</a>"
               scheme_name: "<strong>Scheme name: </strong> %{value}"
               title: View technical information
             title: Setup election
