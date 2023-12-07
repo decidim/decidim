@@ -51,7 +51,10 @@ module Decidim::Amendable
     end
 
     def state_classes
-      model.proposal_state&.answerable? ? model.proposal_state&.css_class : "muted"
+      return "muted" if model.state.blank?
+      return "alert" if model.withdrawn?
+
+      model.proposal_state&.css_class
     end
   end
 end
