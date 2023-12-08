@@ -232,7 +232,7 @@ en:
             body:
               help_html: |-
                 <p>Hi %{user_name},</p><br>
-                <p>You've been added to act as a trustee in some elections that will take place in %{organization}.</p><br>
+                <p>You have been added to act as a trustee in some elections that will take place in %{organization}.</p><br>
                 <p>A new section named "Trustee Zone" has been activated in your account. From there, you will perform tasks as needed. For now, please generate your identification keys.</p><br>
             subject: You have been added as a trustee to %{resource_name}
             trustee_zone: Take me to the trustee zone
@@ -622,7 +622,7 @@ en:
                 bb_status: Status
                 election: Election
                 voting_period: Voting period
-              no_elections: Currently, you are not assigned to take any action as a trustee. You will receive a notification when it's time to act during different phases.
+              no_elections: Currently, you are not assigned to take any action as a trustee. You will receive a notification when it is time to act during different phases.
               title: Elections
             identification_keys:
               cancel: Cancel
@@ -747,12 +747,12 @@ en:
             email_intro: You got added as a trustee for the %{resource_title} election.
             email_outro: You have received this notification because you have been added as trustee for the %{resource_title} election.
             email_subject: You are a trustee for the %{resource_title} election..
-            notification_title: You’ve been selected as a Trustee in Election <a href="%{resource_path}">%{resource_title}.</a> Please, do the key ceremony to set up the election.
+            notification_title: You have been selected as a Trustee in Election <a href="%{resource_path}">%{resource_title}.</a> Please, do the key ceremony to set up the election.
           new_trustee:
             email_intro: An admin has added you as trustee for %{resource_name}. You should create your public key <a href='%{trustee_zone_url}'>in your trustee zone</a>
             email_outro: You have received this notification because you have been added as trustee for %{resource_name}.
             email_subject: You are a trustee for %{resource_name}.
-            notification_title: You've been added to act as a trustee in %{resource_name} for some elections that will take place in this platform.<br> You will perform tasks as needed. For now, please <a href='%{trustee_zone_url}'>generate your identification keys</a>.
+            notification_title: You have been added to act as a trustee in %{resource_name} for some elections that will take place in this platform.<br> You will perform tasks as needed. For now, please <a href='%{trustee_zone_url}'>generate your identification keys</a>.
           start_tally:
             email_intro: The voting period for the %{resource_title} election has finished. Now, please, perform the tally of the election to publish the final results.
             email_outro: You have received this notification because you are a trustee for the %{resource_title} election.
