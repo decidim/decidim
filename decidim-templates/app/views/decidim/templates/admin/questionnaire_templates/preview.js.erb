@@ -7,7 +7,7 @@
   $templateName.html("<%= translated_attribute @template.name %>");
   $templateDescription.html("<%= translated_attribute @template.description %>");
 
-  $preview.html("<%= j(render partial: "preview", locals: { questionnaire: @questionnaire }) %>");
+  $preview.html("<%= j(render partial: "preview", locals: { skip_authenticity_token: true, questionnaire: @questionnaire }) %>");
 
   var $container = $(".questionnaire-template-preview");
   $container.removeClass("hide");
