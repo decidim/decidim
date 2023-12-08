@@ -26,7 +26,7 @@ module Decidim
 
         def technical_configuration_items
           [
-            { key: ".technical_configuration.bulletin_board_server", value: Rails.application.secrets.elections[:bulletin_board_server] },
+            { key: ".technical_configuration.bulletin_board_server", value: Decidim::BulletinBoard.config[:bulletin_board_server] },
             { key: ".technical_configuration.authority_name", value: Decidim::BulletinBoard.config[:authority_name] },
             { key: ".technical_configuration.scheme_name", value: Decidim::BulletinBoard.config[:scheme_name] }
           ]

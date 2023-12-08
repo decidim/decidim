@@ -9,6 +9,23 @@ describe "Admin manages election steps", :slow do
 
   describe "setup an election" do
     let(:election) { create(:election, :ready_for_setup, component: current_component, title: { en: "English title", es: "" }) }
+    let(:bulletin_board_server) { Decidim::BulletinBoard.config[:bulletin_board_server] }
+    let(:authority_name) { Decidim::BulletinBoard.config[:authority_name] }
+    let(:scheme_name) { Decidim::BulletinBoard.config[:scheme_name] }
+
+    it "shows the election technical information" do
+      visit_steps_page
+      click_link "View technical information"
+
+      within ".form.step.create_election" do
+        expect(page).to have_content("Bulletin Board server")
+        expect(page).to have_content(bulletin_board_server)
+        expect(page).to have_content("Authority name")
+        expect(page).to have_content(authority_name)
+        expect(page).to have_content("Scheme name")
+        expect(page).to have_content(scheme_name)
+      end
+    end
 
     it "performs the action successfully" do
       visit_steps_page
