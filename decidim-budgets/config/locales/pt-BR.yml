@@ -125,6 +125,8 @@ pt-BR:
           more_than_one: exclua seu voto em %{name} e comece de novo
           only_one: exclua seu voto e comece novamente.
         highlighted_cta: Votar em %{name}
+      last_activity:
+        new_vote_at: Nova votação sobre orçamentação em
       limit_announcement:
         limit_reached: Você tem votos ativos em %{links}. Para votar neste orçamento você deve <a href="%{landing_path}">excluir seu voto e começar do zero</a>.
       models:
@@ -191,9 +193,13 @@ pt-BR:
         projects_for: Projetos para %{name}
         show:
           budget: Orçamento
+      vote_reminder_mailer:
+        vote_reminder:
+          email_intro: Você iniciou a votação sobre o orçamento participativo, mas não a concluíu.
     components:
       budgets:
         actions:
+          comment: Comentar
           vote: Voto
         name: Orçamentos
         settings:
@@ -201,6 +207,7 @@ pt-BR:
             announcement: Anúncio
             comments_enabled: Comentários ativados
             comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
+            geocoding_enabled: Geocoding habilitado
             landing_page_content: Página inicial dos orçamentos
             more_information_modal: Modal de mais informação
             projects_per_page: Projetos por página
@@ -211,6 +218,7 @@ pt-BR:
             total_budget: Orçamento total
             vote_minimum_budget_projects_number: Número mínimo de projetos para votar
             vote_rule_minimum_budget_projects_enabled: 'Habilitar regra: Número mínimo de projetos a serem votados em'
+            vote_rule_selected_projects_enabled: 'Habilitar regra: Número mínimo e máximo de projetos a serem votados'
             vote_rule_threshold_percent_enabled: 'Ativar regra: Porcentagem mínima do orçamento'
             vote_selected_projects_maximum: Quantidade máxima de projetos a serem selecionados
             vote_selected_projects_minimum: Quantidade mínima de projetos a serem selecionados
