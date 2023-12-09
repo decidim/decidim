@@ -66,7 +66,7 @@ module Decidim
 
           it "sets the component" do
             subject.call
-            expect(post.component).to eq current_component
+            expect(post.component).to eq component
           end
 
           it "broadcasts ok" do
@@ -120,6 +120,7 @@ module Decidim
                 published_at: publish_time,
                 body: { en: body },
                 component:,
+                current_user:,
                 author: group
               )
             end
