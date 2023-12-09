@@ -368,6 +368,7 @@ pt-BR:
           debate: Debate
           initiative: Iniciativa
           meeting: Reunião
+          order: Votação orçamental
           post: Postagem
           proposal: Proposta
           question: Questão
@@ -650,6 +651,8 @@ pt-BR:
           email_outro: Você recebeu esta notificação porque é um administrador da plataforma.
           email_subject: Um grupo de usuários atualizou seu perfil
           notification_title: O grupo de usuários %{user_group_name} atualizou seu perfil, deixando-o não verificado. Você pode verificá-lo no painel de administração <a href="%{groups_admin_path}"></a>.
+      nickname_event:
+        notification_body: Temos corrigido a forma que os nomes de usuário são utilizados para que não haja duplicados, e por isso excluimos a regra de sensibilidade de maiúsculas e minúsculas. <br/> Seu nome de usuário foi criado depois de um usuário com o mesmo nome, portanto renomeamos automaticamente. Pode mudar seu nome de usuário em <a href="%{link_to_account_settings}">suas configurações de conta</a>.
       notification_event:
         notification_title: Ocorreu um evento em <a href="%{resource_path}">%{resource_title}</a>.
       reports:
@@ -671,6 +674,11 @@ pt-BR:
           email_outro: Você recebeu esta notificação porque está seguindo %{nickname}. Você pode parar de receber notificações após o link anterior.
           email_subject: "%{nickname} atualizaram seu perfil"
           notification_title: O <a href="%{resource_path}">profile page</a> de %{name} (%{nickname}), quem você está seguindo, foi atualizado.
+        user_officialized:
+          email_intro: O participante %{name} (%{nickname}) foi oficializado.
+          email_outro: Você recebeu esta notificação porque é um administrador da organização.
+          email_subject: "%{name} foi oficializada"
+          notification_title: O participante %{name} (%{nickname}) foi oficializado.
     export_mailer:
       download_your_data_export:
         click_button: 'Clique no próximo link para baixar seus dados.<br/>O arquivo estará disponível até %{date}.<br/>Você vai precisar de <a href="https://www.7-zip.org/">7-Zip</a> (para Windows), <a href="https://www.keka.io/en/">Keka</a> (para MacOS) ou <a href="https://peazip.github.io">PeaZip</a> (para Linux) para abri-lo. Senha: %{password}'
