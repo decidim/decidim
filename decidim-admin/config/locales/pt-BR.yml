@@ -37,6 +37,9 @@ pt-BR:
         user_group_id: Criar importações como
       newsletter:
         body: Corpo
+        send_to_all_users: Enviar para todos os usuários
+        send_to_followers: Enviar para seguidores
+        send_to_participants: Enviar para participantes
         subject: Assunto
       organization:
         admin_terms_of_service_body: Estrutura para os termos de uso do administrador
@@ -355,6 +358,10 @@ pt-BR:
           title: Transferência
         'true': 'Sim'
         user_name: Usuário
+      content_blocks:
+        edit:
+          active_content_blocks: Blocos de conteúdo ativo
+          inactive_content_blocks: Blocos de conteúdo inativos
       dashboard:
         pending_moderations:
           anouncement:
@@ -817,6 +824,7 @@ pt-BR:
             saturation: Saturação
             title: Seletor de cores
             update_suggested_colors: Atualizar cores sugeridas
+          cta_button_path_help_html: 'Você pode substituir onde o botão Chamar para Ação na página inicial liga. Use caminhos parciais, não URLs completas aqui. Aceita letras, números, traços e barras e deve começar com uma letra. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição. Exemplo: %{url}'
           cta_button_text_help: Você pode substituir o texto do botão Chamar para Ação na página inicial para cada idioma disponível em sua organização. Se não for definido, o valor padrão será usado. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição.
           homepage_appearance_title: Editar a aparência da página inicial
           homepage_highlighted_content_banner_title: Banner de conteúdo elevado
@@ -1024,6 +1032,7 @@ pt-BR:
           role: Cargo
         new:
           create: Convite
+          title: Convidar novo administrador
       users_statistics:
         users_count:
           admins: Admins
