@@ -730,12 +730,18 @@ pt-BR:
         file:
           explanation: 'Orientação para o arquivo:'
           message_1: Tem que ser uma imagem ou um documento.
+          message_2: Para imagens, use a orientação de tipo paisagem, o serviço recorta a imagem.
+        icon:
+          explanation: 'Orientação para o ícone:'
+          message_1: Deve ser uma imagem quadrada.
+          message_2: O tamanho recomendado para esta imagem é 512x512.
         image:
           explanation: 'Orientação da imagem:'
           message_1: Preferencialmente, uma imagem de paisagem que não tem nenhum texto.
           message_2: O serviço cultiva a imagem.
       file_validation:
         allowed_file_extensions: 'Extensões de arquivo permitidas: %{extensions}'
+        max_file_dimension: 'Dimensões máximas de arquivo: %{resolution} pixels'
         max_file_size: 'Tamanho máximo de arquivo: %{megabytes}MB'
       upload:
         labels:
