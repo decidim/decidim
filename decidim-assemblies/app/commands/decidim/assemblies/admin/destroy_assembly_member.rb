@@ -11,10 +11,10 @@ module Decidim
         def extra_params
           {
             resource: {
-              title: assembly_member.full_name
+              title: resource.full_name
             },
             participatory_space: {
-              title: assembly_member.assembly.title
+              title: resource.assembly.title
             }
           }
         end

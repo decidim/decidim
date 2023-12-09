@@ -99,7 +99,7 @@ module Decidim
                 title: { en: title },
                 body: { en: body },
                 published_at: publish_time,
-                component:,
+                component: current_component,
                 current_user:,
                 author: group
               )
