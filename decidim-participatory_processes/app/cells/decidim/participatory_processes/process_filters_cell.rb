@@ -100,7 +100,7 @@ module Decidim
         content_tag(
           :span,
           I18n.t(explanation_text, scope: "decidim.participatory_processes.participatory_processes.filters.explanations"),
-          class: "muted mr-s ml-s"
+          class: "mr-s"
         )
       end
 
