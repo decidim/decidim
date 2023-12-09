@@ -97,6 +97,7 @@ pt-BR:
         new_process: Novo processo
         new_process_group: Novo grupo de processos
         new_process_step: Novo passo
+        new_process_type: Novo tipo de processo
         new_process_user_role: Novo usuário do processo
         preview: Visualização
         publish: Publicar
@@ -209,6 +210,18 @@ pt-BR:
         update:
           error: Ocorreu um erro ao atualizar esta etapa do processo participativo.
           success: Passo do processo participativo atualizado com sucesso.
+      participatory_process_types:
+        create:
+          error: Ocorreu um erro ao criar um novo tipo de processo participativo.
+          success: Tipo de processo criado com sucesso.
+        destroy:
+          success: Tipo de processo excluído com sucesso.
+        edit:
+          title: Editar tipo de processo
+          update: Atualizar
+        update:
+          error: Ocorreu um erro ao atualizar este tipo de processo.
+          success: Tipo de processo atualizado com sucesso.
       participatory_process_user_roles:
         create:
           error: Ocorreu um erro ao adicionar um usuário para esse processo participativo.
@@ -314,6 +327,7 @@ pt-BR:
         html_3:
           name: Terceiro bloco HTML
         participatory_processes:
+          active: Processos participativos ativos
           name: Processos participativos
         stats:
           name: Atividade
@@ -331,6 +345,7 @@ pt-BR:
       admin:
         content_blocks:
           highlighted_processes:
+            active: Ativo
             max_results: Quantidade máxima de elementos para mostrar
         new_import:
           accepted_types:
