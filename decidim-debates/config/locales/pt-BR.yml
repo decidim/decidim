@@ -40,6 +40,7 @@ pt-BR:
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
+            creation_enabled: Os participantes podem criar debates
             endorsements_blocked: Endossos bloqueados
             endorsements_enabled: Endossos habilitados
     debates:
