@@ -135,7 +135,7 @@ pt-BR:
             collaborative_drafts_enabled: Rascunhos colaborativos ativados
             comments_enabled: Comentários ativados
             comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
-            geocoding_enabled: Geocoding habilitado
+            geocoding_enabled: Geocodificação habilitada
             minimum_votes_per_user: Mínimo de votos por usuário
             new_proposal_body_template: Novo modelo de corpo da proposta
             new_proposal_body_template_help: Você pode definir o texto pré-preenchido que as novas propostas terão
@@ -176,10 +176,13 @@ pt-BR:
             answers_with_costs: Ativar custos na resposta da proposta
             automatic_hashtags: Hashtags adicionados a todas as propostas
             comments_blocked: Comentários bloqueados
+            creation_enabled: Os participantes podem criar propostas
+            creation_enabled_readonly: Essa configuração é desativada quando você ativa a funcionalidade de textos participativos. Para enviar propostas como texto participativo, clique no botão de textos participativos e siga as instruções.
             endorsements_blocked: Endossos bloqueados
             endorsements_enabled: Endossos habilitados
             proposal_answering_enabled: Resposta de proposta ativada
             publish_answers_immediately: Publicar respostas da proposta imediatamente
+            publish_answers_immediately_help_html: 'Lembre-se de que, se você responder qualquer proposta sem isto habilitado, será necessário publicá-las manualmente, selecionando-as e usando a ação para publicação. Para obter mais informações sobre como isso funciona, consulte a página de documentação de respostas de <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">proposta</a>.'
             suggested_hashtags: Hashtags sugeridos aos usuários para novas propostas
             votes_blocked: Votação desativada
             votes_enabled: Votação habilitada
