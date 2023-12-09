@@ -28,7 +28,6 @@ ja:
           error: コメントを削除できませんでした。
         update:
           error: コメントの更新中に問題が発生しました。
-      comments_count: コメント数
       comments_title: コメント
       last_activity:
         new_comment: '新規コメント:'

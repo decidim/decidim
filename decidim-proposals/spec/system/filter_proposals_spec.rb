@@ -114,9 +114,13 @@ describe "Filter Proposals", :slow do
 
   context "when filtering proposals by SCOPE" do
     let!(:scope2) { create(:scope, organization: participatory_process.organization) }
+    let!(:proposals) { create_list(:proposal, 2, component:, scope:) }
+    let(:first_proposal) { proposals.first }
+    let(:last_proposal) { proposals.last }
+    let!(:proposal_comment) { create(:comment, commentable: first_proposal) }
+    let!(:proposal_follow) { create(:follow, followable: last_proposal) }
 
     before do
-      create_list(:proposal, 2, component:, scope:)
       create(:proposal, component:, scope: scope2)
       create(:proposal, component:, scope: nil)
       visit_component
@@ -147,6 +151,27 @@ describe "Filter Proposals", :slow do
         end
 
         expect(page).to have_css("[id^='proposals__proposal']", count: 2)
+      end
+
+      it "can be ordered by most commented and most followed after filtering" do
+        within "#dropdown-menu-filters div.filter-container", text: "Scope" do
+          uncheck "All"
+          check scope.name[I18n.locale.to_s]
+        end
+
+        within "#dropdown-menu-order" do
+          click_link "Most commented"
+        end
+
+        expect(page).to have_css("[id^='proposals__proposal']", count: 2)
+        expect(page).to have_selector("[id^='proposals__proposal']:first-child", text: translated(first_proposal.title))
+
+        within "#dropdown-menu-order" do
+          click_link "Most followed"
+        end
+
+        expect(page).to have_css("[id^='proposals__proposal']", count: 2)
+        expect(page).to have_selector("[id^='proposals__proposal']:first-child", text: translated(last_proposal.title))
       end
     end
 

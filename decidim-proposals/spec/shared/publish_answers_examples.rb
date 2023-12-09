@@ -9,7 +9,7 @@ shared_examples "publish answers" do
     end
 
     it "publishes some answers" do
-      page.find("#proposals_bulk.js-check-all").set(true)
+      page.find_by_id("proposals_bulk", class: "js-check-all").set(true)
       page.first("[data-published-state=false] .js-proposal-list-check").set(false)
 
       click_button "Actions"
@@ -36,7 +36,7 @@ shared_examples "publish answers" do
     end
 
     it "cannot publish answers for non answered proposals" do
-      page.find("#proposals_bulk.js-check-all").set(true)
+      page.find_by_id("proposals_bulk", class: "js-check-all").set(true)
       page.all("[data-published-state=false] .js-proposal-list-check").each { |c| c.set(false) }
 
       click_button "Actions"

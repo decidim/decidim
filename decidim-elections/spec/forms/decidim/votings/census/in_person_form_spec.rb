@@ -7,7 +7,7 @@ describe Decidim::Votings::Census::InPersonForm do
 
   let(:current_participatory_space) { create(:voting) }
   let(:document_number) { "123456789Y" }
-  let(:document_type) { "DNI" }
+  let(:document_type) { "passport" }
   let(:day) { 14 }
   let(:month) { 8 }
   let(:year) { 1982 }
@@ -59,6 +59,6 @@ describe Decidim::Votings::Census::InPersonForm do
   end
 
   describe "generate hash for data" do
-    it { expect(subject.hashed_in_person_data).to eql("9f7afe479fef6eed220e090b48867aad58a83ba6ff37c641865a652bc39241fe") }
+    it { expect(subject.hashed_in_person_data).to eql("7da41362d26ed32dc57a16cffaf600c17a895dabf3b878fd8d2da1b293001116") }
   end
 end

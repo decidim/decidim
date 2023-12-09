@@ -349,7 +349,6 @@ tr:
         show:
           attendees: Katılımcı sayısı
           contributions: Katkı sayımı
-          date: Tarih
           join: Toplantıya katıl
           meeting_minutes: Görüşme süreleri
           no_slots_available: Kullanılabilir yer yok
@@ -361,7 +360,6 @@ tr:
           remaining_slots:
             one: "%{count} alan kaldı"
             other: "%{count} alan kaldı"
-          view: Görünüm
         update:
           invalid: Bu toplantı güncellenirken bir sorun oluştu.
           success: Toplantıyı başarıyla oluşturdunuz.

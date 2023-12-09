@@ -13,7 +13,6 @@ sl:
           edit:
             close: Zapri
       debates:
-        closed: Zaprto
         form:
           select_a_category: Prosim izberi kategorijo
         show:

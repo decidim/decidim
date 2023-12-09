@@ -18,7 +18,7 @@ shared_examples "when managing proposals category as an admin" do
 
     context "when selecting proposals" do
       before do
-        page.find("#proposals_bulk.js-check-all").set(true)
+        page.find_by_id("proposals_bulk", class: "js-check-all").set(true)
       end
 
       it "shows the number of selected proposals" do

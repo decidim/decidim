@@ -8,6 +8,16 @@ describe "sortitions" do
   let(:manifest_name) { "sortitions" }
   let!(:user) { create(:user, :confirmed, organization: participatory_process.organization) }
 
+  context "when there are no sortitions" do
+    it "shows an empty page with a message" do
+      visit_component
+
+      within "main" do
+        expect(page).to have_content("There are no sortitions yet.")
+      end
+    end
+  end
+
   context "when listing sortitions in a participatory process" do
     it "lists all the sortitions" do
       create_list(:sortition, 3, component:)

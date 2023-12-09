@@ -39,7 +39,7 @@ module Decidim
       private
 
       def image_fields
-        [:logo, :highlighted_content_banner_image, :favicon, :official_img_header, :official_img_footer]
+        [:logo, :highlighted_content_banner_image, :favicon, :official_img_footer]
       end
 
       attr_reader :form, :organization

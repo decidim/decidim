@@ -67,7 +67,6 @@ module Decidim
           logo: :string,
           header_snippets: :string,
           favicon: :string,
-          official_img_header: :string,
           official_img_footer: :string,
           official_url: :string
         }

@@ -158,7 +158,7 @@ FactoryBot.define do
 
     transient do
       document_number { Faker::IDNumber.spanish_citizen_number }
-      document_type { %w(DNI NIE PASSPORT).sample }
+      document_type { %w(identification_number passport).sample }
       birthdate { Faker::Date.birthday(min_age: 18, max_age: 65) }
     end
 

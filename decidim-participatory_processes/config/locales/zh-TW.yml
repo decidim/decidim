@@ -168,22 +168,6 @@ zh-TW:
           copy: 複製
           select: 請選擇您想要複製的資料
           title: 重複的參與性流程
-      participatory_process_group_landing_page:
-        edit:
-          active_content_blocks: 啟用的內容區塊
-          add: 添加內容塊
-          destroy_confirmation: 您確定要刪除此內容區塊嗎？
-          inactive_content_blocks: 停用的內容區塊
-          title: 頁面內容
-      participatory_process_group_landing_page_content_blocks:
-        create:
-          error: 建立此內容區塊時出現問題。
-          success: 內容區塊建立成功。
-        destroy:
-          error: 刪除此內容區塊時出現問題。
-          success: 內容區塊已成功刪除。
-        edit:
-          update: 更新
       participatory_process_groups:
         destroy:
           error: 刪除參與性流程群組時發生錯誤。

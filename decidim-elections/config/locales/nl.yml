@@ -520,13 +520,6 @@ nl:
             max_results: Maximum aantal elementen dat kan worden weergegeven
         index:
           published: Gepubliceerd
-        landing_page:
-          content_blocks:
-            edit:
-              update: Bijwerken
-          edit:
-            active_content_blocks: Actieve inhoudsblokken
-            inactive_content_blocks: Inactieve inhoudsblokken
         menu:
           votings: Stemrondes
           votings_submenu:
@@ -634,8 +627,6 @@ nl:
             role_president: voorzitter
           polling_officers_picker:
             choose_polling_officers: Kies de stembeambtes
-            close: Sluit
-            more_polling_officers: Er zijn nog %{number} meer stembeambtes. Verfijn uw zoekopdracht om ze te vinden.
         polling_stations:
           edit:
             title: Bewerk stembureau
@@ -733,8 +724,6 @@ nl:
               csv_header_after: Voeg het laatste veld ("%{ballot_style_code_header}") niet toe als je geen stembriefstijl of voorwaardelijke vragen nodig hebt
               csv_header_before: 'De kiezerslijst moet een CSV-bestand zijn met de volgende header:'
         document_types:
-          dni: DNI
-          nie: NIE
           passport: Paspoort
         export_mailer:
           access_codes_export:
@@ -940,8 +929,6 @@ nl:
           online: Online
   layouts:
     decidim:
-      election_votes_header:
-        exit: Afsluiten
       voting_navigation:
         check_census: Kan ik stemmen?
         election_log: Verkiezingslogboek

@@ -411,7 +411,6 @@ ro:
             other: și încă %{count} persoane
         committee_members:
           approve: Aprobă
-          confirm_revoke: Sigur dorești asta?
           title: Membrii comitetului
         count:
           title:
@@ -424,7 +423,6 @@ ro:
           author: Autor
           myself: Inițiativele mele
           scope: Domeniu de interes
-          search: Caută
           state: Status
           type: Tip
         index_header:
@@ -539,8 +537,5 @@ ro:
         sms_phone_number: Număr de telefon mobil
         title: Semnează %{initiative_title}
       initiatives:
-        initiative:
-          check: Verifică
-          check_and_support: Verifică și semnează
         no_initiatives_yet:
           no_initiatives_yet: Nicio inițiativă încă!

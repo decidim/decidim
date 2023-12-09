@@ -51,7 +51,7 @@
 }
 
 .layout-item {
-  @apply container grid grid-cols-1 md:grid-cols-12 py-4 md:py-24 gap-12 md:gap-0;
+  @apply container grid grid-cols-1 md:grid-cols-12 py-4 md:py-24 gap-12 md:gap-x-0;
 
   &__main {
     @apply lg:col-start-2 md:col-span-8 lg:col-span-7 relative;
@@ -84,7 +84,6 @@
 
 .layout-main__section + .layout-main__section,
 .layout-aside__section + .layout-aside__section,
-.layout-item__main ~ .layout-item__main,
 .layout-item__aside--footer > * + * {
   --vertical-spacing: 2.5rem;
 

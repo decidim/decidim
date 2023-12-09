@@ -78,7 +78,6 @@ cs:
         machine_translation_display_priority_translation: Přeložený text přednostně
         name: Název
         official_img_footer: Oficiální logo zápatí
-        official_img_header: Oficiální logo záhlaví
         official_url: Oficiální URL organizace
         omnipresent_banner_short_description: Stručný popis
         omnipresent_banner_title: Název
@@ -131,6 +130,7 @@ cs:
         weight: Pozice v řazení
       static_page_topic:
         description: Popis
+        name: Název tématu
         show_in_footer: Zobrazit v zápatí
         title: Titul
         weight: Pozice v řazení
@@ -145,8 +145,6 @@ cs:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Neplatný soubor s obrázkem
-            official_img_header:
               allowed_file_content_types: Neplatný soubor s obrázkem
         participatory_space_private_user_csv_import:
           attributes:
@@ -363,6 +361,20 @@ cs:
           title: Převod
         'true': 'Ano'
         user_name: Uživatel
+      content_blocks:
+        create:
+          error: Při vytváření bloku obsahu došlo k chybě.
+          success: Blok obsahu byl úspěšně vytvořen.
+        destroy:
+          error: Při pokusu o odstranění tohoto bloku obsahu došlo k chybě.
+          success: Blok obsahu byl úspěšně odstraněn.
+        edit:
+          active_content_blocks: Aktivní bloky obsahu
+          add: Přidat blok obsahu
+          destroy_confirmation: Opravdu chcete smazat tento blok obsahu?
+          inactive_content_blocks: Neaktivní bloky obsahu
+          title: Obsah stránky
+          update: Aktualizovat
       dashboard:
         pending_moderations:
           anouncement:
@@ -582,6 +594,7 @@ cs:
         scopes: Oblasti působnosti
         see_site: Zobrazit web
         settings: Nastavení
+        static_page_topics: Témata
         static_pages: Stránky
         user_groups: Skupiny
         users: Účastníci
@@ -838,13 +851,15 @@ cs:
             colors_title: Organizační barvy
             colors_warning_html: Varování! Změna těchto barev může narušit kontrasty přístupnosti. Můžete zkontrolovat kontrast výběru s <a href="%{link}">kontrolou kontrastu WebAIM Contrast Checker</a> nebo jinými podobnými nástroji.
             explanation: Tento nástroj vám pomůže vybrat barevné schéma skládající se z odstínů rovnoměrně rozložených kolem barevného kruhového spektra, který bude použit na internetových stránkách organizace.
-            header_snippets_help_html: Toto pole použijte k přidání věcí do HTML záhlaví. Nejběžnějším použitím je integrace služeb třetích stran, které vyžadují nějaký další JavaScript nebo CSS. Můžete jej také použít k přidání dalších metaznaček do HTML. Všimněte si, že to bude vykresleno pouze na veřejných stránkách, nikoli v sekci pro správu. Pokud kód interaguje s externími rozhraními API nebo nesplňuje zásady zabezpečení aplikace, bude nutné změnit Zásady zabezpečení obsahu. Další informace o <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">na webu dokumentace</a>.
             legend_html: Hlavní barvy aplikace, založené na <a href="https://www.color-meanings.com/triadic-colors/">Triadic algoritmu</a>. <i>sekundární</i> barva je automaticky vypočítána z primární barvy a sytosti, kterou vyberete.
             saturation: Sytost
             title: Výběr barev
             update_suggested_colors: Aktualizovat navrhované barvy
           cta_button_path_help_html: 'Místo, kam tlačítko Výzva k akci na domovské stránce vede, lze přepsat. V tomto případě použijte částečnou cestu, nikoliv kompletní URL. Lze použít písmena, číslice, pomlčky a lomítka a musí se začínat písmenem. Tlačítko Výzva k akci je na domovské stránce umístěno mezi uvítacím textem a popisem. Příklad: %{url}'
           cta_button_text_help: Text tlačítka výzvy k akci můžete na domovské stránce přepsat pro každý dostupný jazyk ve vaší organizaci. Pokud není nastaveno, bude použita výchozí hodnota. Tlačítko Výzvy k akci se na domovské stránce zobrazí mezi uvítacím textem a popisem.
+          header_snippets:
+            header_snippets_help_html: Toto pole použijte k přidání věcí do HTML záhlaví. Nejběžnějším použitím je integrace služeb třetích stran, které vyžadují nějaký další JavaScript nebo CSS. Můžete jej také použít k přidání dalších metaznaček do HTML. Všimněte si, že to bude vykresleno pouze na veřejných stránkách, nikoli v sekci pro správu. Pokud kód interaguje s externími rozhraními API nebo nesplňuje zásady zabezpečení aplikace, bude nutné změnit Zásady zabezpečení obsahu. Další informace o <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">na webu dokumentace</a>.
+            title: HTML snippety záhlaví
           homepage_appearance_title: Upravit vzhled stránky
           homepage_highlighted_content_banner_title: Zvýrazněný obsahový banner
           images:
@@ -862,22 +877,6 @@ cs:
         form:
           add: Přidat do seznamu povolených
           title: Seznam externích povolených domén
-      organization_homepage:
-        content_blocks:
-          create:
-            error: Při pokusu o vytvoření tohoto bloku obsahu se vyskytl problém.
-            success: Blok obsahu byl úspěšně vytvořen.
-          destroy:
-            error: Při pokusu o odstranění tohoto bloku obsahu došlo k chybě.
-            success: Blok obsahu byl úspěšně odstraněn.
-          edit:
-            update: Aktualizovat
-        edit:
-          active_content_blocks: Bloky aktivního obsahu
-          add: Přidat blok obsahu
-          destroy_confirmation: Opravdu chcete smazat tento blok obsahu?
-          inactive_content_blocks: Neaktivní bloky obsahu
-          title: Obsah stránky
       participatory_space_private_users:
         create:
           error: Při přidávání soukromého uživatele pro tento participační prostor došlo k chybě.
@@ -896,6 +895,8 @@ cs:
           invalid: Při čtení souboru CSV se vyskytl problém. Ujistěte se, že jste dodrželi pokyny.
           success: CSV soubor byl úspěšně nahrán, posíláme účastníkům e-mail s pozvánkou. To může chvíli trvat.
         new:
+          csv_upload:
+            title: Nahrát soubor CSV
           destroy:
             button: Odstranit všechny soukromé účastníky
             confirm: Jste si jisti, že chcete odstranit všechny soukromé účastníky? Tuto akci nelze vrátit zpět, nebudete je moci obnovit.
@@ -907,7 +908,7 @@ cs:
           explanation_example: |
             john.doe@example.org%{csv_col_sep}John Doe
             jane.doe@example.org%{csv_col_sep}Jane Doe
-          title: Nahrajte Váš CSV soubor
+          title: Importovat soukromé účastníky přes CSV
           upload: Nahrát
       reminders:
         create:
@@ -975,7 +976,6 @@ cs:
       shared:
         gallery:
           add_images: Přidat obrázky
-          delete_image: Odstranit obrázek
           edit_images: Upravit obrázky
           gallery_legend: Přidat galerii obrázků (volitelné)
       static_page_topics:
@@ -996,20 +996,6 @@ cs:
       static_pages:
         actions:
           view: Zobrazit veřejnou stránku
-        content_blocks:
-          active_content_blocks: Aktivní bloky obsahu
-          add: Přidat blok obsahu
-          create:
-            error: Při pokusu o vytvoření tohoto bloku obsahu se vyskytl problém.
-            success: Blok obsahu byl úspěšně vytvořen.
-          destroy:
-            error: Při pokusu o odstranění tohoto bloku obsahu došlo k chybě.
-            success: Blok obsahu byl úspěšně odstraněn.
-          destroy_confirmation: Opravdu chcete smazat tento blok obsahu?
-          edit:
-            update: Aktualizovat
-          inactive_content_blocks: Neaktivní bloky obsahu
-          title: Obsah stránky
         create:
           error: Při vytváření nové stránky došlo k chybě.
           success: Stránka úspěšně vytvořena.
@@ -1017,19 +1003,18 @@ cs:
           success: Stránka byla úspěšně zničena
         edit:
           changed_notably_help: Pokud je zaškrtnuto, účastníci budou upozorněni, aby přijali nové smluvní podmínky.
+          last_notable_change: 'Poslední významná změna: %{tos_version_formatted}'
           title: Upravit stránku
           update: Aktualizace
         form:
           none: Žádný
           slug_help_html: 'Použijte v tomto případě částečnou cestu, nikoliv kompletní URL. Lze použít písmena, číslice, pomlčky a lomítka a musí se začínat písmenem. Příklad: %{url}'
         index:
-          last_notable_change: 'Poslední významná změna: %{tos_version_formatted}'
+          last_notable_change: Poslední významná změna
         new:
           create: Vytvořit stránku
           title: Nová stránka
         topic:
-          destroy: Odebrat téma
-          edit: Upravit téma
           empty: V tomto tématu nejsou žádné stránky.
           without_topic: Stránky bez tématu
         update:
@@ -1046,7 +1031,9 @@ cs:
         edit_organization_appearance: Upravit vzhled domovské stránky
         impersonatable_users: Spravovatelní účastníci
         impersonations: Správa účastníků
+        menu: Nabídka
         metrics: Metriky
+        page_topics: Témata
         pages: Stránky
         panel: Admin
         participants: Uživatelé

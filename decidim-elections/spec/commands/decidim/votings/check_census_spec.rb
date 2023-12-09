@@ -22,7 +22,7 @@ module Decidim::Votings
     end
     let(:birthdate) { Date.civil(year, month, day) }
     let(:document_number) { "123456789Y" }
-    let(:document_type) { "DNI" }
+    let(:document_type) { "passport" }
     let(:year) { 1985 }
     let(:month) { 3 }
     let(:day) { 1 }

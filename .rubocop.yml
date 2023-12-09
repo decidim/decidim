@@ -1,3 +1,5 @@
+inherit_from: .rubocop_todo.yml
+
 inherit_gem:
   decidim-dev: rubocop-decidim.yml
 
@@ -80,15 +82,3 @@ RSpec/NoExpectationExample:
     - decidim-proposals/spec/system/admin/admin_manages_participatory_texts_spec.rb
     - decidim-proposals/spec/system/participatory_texts_spec.rb
     - decidim-participatory_processes/spec/system/participatory_processes_spec.rb
-
-# fix these rules later
-Capybara/SpecificFinders:
-  Enabled: false
-
-RSpec/IndexedLet:
-  Enabled: false
-
-Rails/HelperInstanceVariable:
-  Enabled: false
-
-# EOF fix these rules later

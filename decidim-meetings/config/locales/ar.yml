@@ -295,7 +295,6 @@ ar:
             select_a_meeting_type: الرجاء تحديد نوع الاجتماع
             select_a_registration_type: الرجاء تحديد نوع التسجيل
             select_an_iframe_access_level: الرجاء تحديد مستوى الوصول إلى iframe
-            show_embedded_iframe_help: 'يسمح عدد قليل فقط من الخدمات بتضمين الاجتماع أو الحدث المباشر من المجالات التالية: %{domains}'
           index:
             title: اجتماعات
           new:
@@ -469,7 +468,6 @@ ar:
           select_a_meeting_type: الرجاء تحديد نوع الاجتماع
           select_a_registration_type: الرجاء تحديد نوع التسجيل
           select_an_iframe_access_level: الرجاء تحديد مستوى الوصول إلى iframe
-          show_embedded_iframe_help: 'يسمح عدد قليل فقط من الخدمات بتضمين الاجتماع أو الحدث المباشر من المجالات التالية: %{domains}'
         index:
           click_here: عرض كافة الاجتماعات
           new_meeting: اجتماع جديد
@@ -488,7 +486,6 @@ ar:
         show:
           attendees: الحضور الحضور
           contributions: عدد المساهمات
-          date: تاريخ
           join: أنضم إلى الأجتماع
           leave: إلغاء التسجيل الخاص بك
           leave_confirmation: هل أنت متأكد من أنك تريد إلغاء تسجيلك لهذا الاجتماع؟
@@ -510,7 +507,6 @@ ar:
             few: "%{count} فتحات المتبقية"
             many: "%{count} فتحات المتبقية"
             other: "%{count} فتحات المتبقية"
-          view: رأي
           visit_finished: عرض الاجتماع السابق
           withdraw_btn_hint: يمكن أن تسحب اجتماعك اذا غيرت رأيك. لا يتم إلغاء الاجتماع بل سيظهر في قائمة الاجتماعات المسحوبة.
           withdraw_confirmation_html: هل أنت متأكد من أنك تريد سحب هذا الاجتماع؟<br><br><strong>لا يمكن إلغاء هذا الإجراء!</strong>

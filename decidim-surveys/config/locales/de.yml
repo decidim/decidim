@@ -53,6 +53,9 @@ de:
       answers_count: Antworten
     surveys:
       admin:
+        component:
+          actions:
+            answers_alert: Wenn Sie die Komponente veröffentlichen, werden alle Ergebnisse entfernt.
         exports:
           survey_user_answers: Umfrage Benutzer Antworten
         surveys:
@@ -61,6 +64,11 @@ de:
             success: Umfrage wurde erfolgreich gespeichert.
       last_activity:
         new_survey: 'Neue Umfrage:'
+      survey_confirmation_mailer:
+        confirmation:
+          body: Sie haben die Umfrage %{questionnaire_title} auf %{participatory_space} erfolgreich beantwortet
+          subject: 'Umfrage "%{questionnaire_title}": Bestätigung Ihrer Antwort'
+        export_name: Umfrageantworten
       surveys:
         answer:
           invalid: Bei der Beantwortung der Umfrage sind Fehler aufgetreten.

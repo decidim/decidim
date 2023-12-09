@@ -28,6 +28,18 @@ module Decidim
         get "/", to: redirect("elections", status: 301)
       end
 
+      initializer "decidim_elections.register_icons" do
+        Decidim.icons.register(name: "Decidim::Elections::Election", icon: "chat-poll-line", description: "Election", category: "activity", engine: :elections)
+        Decidim.icons.register(name: "safe-line", icon: "safe-line", category: "system", description: "", engine: :elections)
+        Decidim.icons.register(name: "guide-line", icon: "guide-line", category: "system", description: "", engine: :elections)
+        Decidim.icons.register(name: "loader-4-line", icon: "loader-4-line", category: "system", description: "", engine: :elections)
+        Decidim.icons.register(name: "checkbox-multiple-line", icon: "checkbox-multiple-line", category: "system", description: "", engine: :elections)
+        Decidim.icons.register(name: "book-2-line", icon: "book-2-line", category: "system", description: "", engine: :elections)
+        Decidim.icons.register(name: "shut-down-line", icon: "shut-down-line", category: "system", description: "", engine: :elections)
+        Decidim.icons.register(name: "article-line", icon: "article-line", category: "system", description: "", engine: :elections)
+        Decidim.icons.register(name: "bar-chart-box-line", icon: "bar-chart-box-line", category: "system", description: "", engine: :elections)
+      end
+
       initializer "decidim_elections.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Elections::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Elections::Engine.root}/app/views") # for partials

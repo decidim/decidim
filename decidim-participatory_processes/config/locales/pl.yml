@@ -155,13 +155,6 @@ pl:
           copy: Kopiuj
           select: Wybierz dane, które chcesz zduplikować
           title: Duplikuj proces partycypacyjny
-      participatory_process_group_landing_page:
-        edit:
-          active_content_blocks: Aktywne bloki treści
-          inactive_content_blocks: Nieaktywne bloki treści
-      participatory_process_group_landing_page_content_blocks:
-        edit:
-          update: Aktualizuj
       participatory_process_groups:
         destroy:
           error: Wystąpił błąd podczas usuwania grupy procesu partycypacyjnego.

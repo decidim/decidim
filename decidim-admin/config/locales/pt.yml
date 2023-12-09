@@ -67,7 +67,6 @@ pt:
         machine_translation_display_priority_translation: Texto traduzido primeiro
         name: Nome
         official_img_footer: Logótipo oficial do rodapé
-        official_img_header: Logótipo oficial do cabeçalho
         official_url: URL da organização oficial
         omnipresent_banner_short_description: Pequena descrição
         omnipresent_banner_title: Título
@@ -124,8 +123,6 @@ pt:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Ficheiro de imagem inválido
-            official_img_header:
               allowed_file_content_types: Ficheiro de imagem inválido
   activerecord:
     attributes:
@@ -697,10 +694,6 @@ pt:
         form:
           add: Adicionar à lista branca
           title: Lista branca de domínio externo
-      organization_homepage:
-        edit:
-          active_content_blocks: Blocos de conteúdo activos
-          inactive_content_blocks: Blocos de conteúdo inactivos
       participatory_space_private_users:
         create:
           error: Ocorreu um problema ao adicionar um participante privado neste espaço participativo.
@@ -716,7 +709,6 @@ pt:
           title: Novo participante privado do Espaço Participativo.
       participatory_space_private_users_csv_imports:
         new:
-          title: Carregar o seu ficheiro CSV
           upload: Carregar
       resource_permissions:
         edit:
@@ -771,7 +763,6 @@ pt:
       shared:
         gallery:
           add_images: Adicionar imagens
-          delete_image: Eliminar Imagem
           gallery_legend: Adicionar uma galeria de imagens (Opcional)
       static_page_topics:
         create:
@@ -799,12 +790,12 @@ pt:
           update: Atualizar
         form:
           none: Nenhum
+        index:
+          last_notable_change: Última alteração notável
         new:
           create: Criar página
           title: Nova página
         topic:
-          destroy: Remover tópico
-          edit: Editar tópico
           without_topic: Páginas sem tópico
         update:
           error: Ocorreu um problema ao atualizar esta página.

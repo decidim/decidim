@@ -10,8 +10,6 @@ module Decidim
         extend ActiveSupport::Concern
 
         included do
-          DOCUMENT_TYPES = %w(DNI NIE PASSPORT).freeze
-
           attribute :document_number, String
           attribute :document_type, String
           attribute :birthdate, String
@@ -21,7 +19,7 @@ module Decidim
                     :birthdate,
                     presence: true
 
-          validates :document_type, inclusion: { in: DOCUMENT_TYPES }
+          validates :document_type, inclusion: { in: :document_types }
         end
 
         # hash of birth, document type and number
@@ -35,12 +33,18 @@ module Decidim
         end
 
         def options_for_document_type_select
-          DOCUMENT_TYPES.map do |document_type|
+          document_types.map do |document_type|
             [
               I18n.t(document_type.downcase, scope: "decidim.votings.census.document_types"),
               document_type
             ]
           end
+        end
+
+        private
+
+        def document_types
+          Decidim::Elections.document_types
         end
       end
     end

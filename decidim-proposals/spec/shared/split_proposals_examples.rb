@@ -8,7 +8,7 @@ shared_examples "split proposals" do
   context "when selecting proposals" do
     before do
       visit current_path
-      page.find("#proposals_bulk.js-check-all").set(true)
+      page.find_by_id("proposals_bulk", class: "js-check-all").set(true)
     end
 
     context "when click the bulk action button" do
@@ -23,7 +23,7 @@ shared_examples "split proposals" do
 
     context "when split into a new one is selected from the actions dropdown" do
       before do
-        page.find("#proposals_bulk.js-check-all").set(false)
+        page.find_by_id("proposals_bulk", class: "js-check-all").set(false)
         page.find(".js-proposal-id-#{proposals.first.id}").set(true)
 
         click_button "Actions"

@@ -432,8 +432,8 @@ en:
               one: proposal
               other: proposals
           title:
-            answers: Import proposal answers
-            proposals: Import proposals
+            answers: Import proposal answers from a file
+            proposals: Import proposals from a file
         models:
           proposal:
             name: Proposal
@@ -567,7 +567,7 @@ en:
             no_components: There are no other proposal components in this participatory space to import the proposals from.
             select_component: Please select a component
             select_states: Check the status of the proposals to import
-            title: Import proposals
+            title: Import proposals from another component
         proposals_merges:
           create:
             invalid: 'There has been a problem merging the selected proposals because some of them:'

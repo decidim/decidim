@@ -79,8 +79,6 @@ uk:
           category: Категорія
           scope: Обсяг
           search: Шукати
-        project:
-          view: Переглянути
         show:
           budget: Бюджет
     components:

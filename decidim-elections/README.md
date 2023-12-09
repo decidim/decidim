@@ -60,6 +60,29 @@ bundle
 
 ## Configuration
 
+### Identification numbers
+
+For the verification of the participants' data in the Voting's census, you can configure which type of documents a participant can have. By default these documents are `identification_number` and `passport`, but in some countries you may need to adapt these to your specifics needs. For instance, in Spain there are `dni`, `nie` and `passport`.
+
+For configuring these you can do so with the Environment Variable `ELECTIONS_DOCUMENT_TYPES`.
+
+```env
+ELECTIONS_DOCUMENT_TYPES="dni,nie,passport"
+```
+
+You need to also add the following keys in your i18n files (i.e. `config/locales/en.yml`).
+
+```yaml
+en:
+  decidim:
+    votings:
+      census:
+        document_types:
+          dni: DNI
+          nie: NIE
+          passport: Passport
+```
+
 ### Scheduled tasks
 
 For the Elections module to function as expected, there are some background tasks that should be scheduled to be executed regularly. Alternatively you could use `whenever` gem or the scheduled jobs of your hosting provider.

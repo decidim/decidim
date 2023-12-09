@@ -195,7 +195,6 @@ ru:
           any: Любые
           author: Автор
           myself: Мои почины
-          search: Поиск
           state: Cостояние
           type: Вид
         index_header:
@@ -250,8 +249,5 @@ ru:
         promotal_committee: Рабочая группа по продвижению
         select_initiative_type: Выбрать
       initiatives:
-        initiative:
-          check: Проверьте это
-          check_and_support: Проверьте это и подпишите
         no_initiatives_yet:
           no_initiatives_yet: Еще нет ни одного почина!

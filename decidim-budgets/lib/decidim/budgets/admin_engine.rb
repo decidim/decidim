@@ -18,6 +18,7 @@ module Decidim
               post :update_category
               post :update_scope
               post :update_selected
+              post :update_budget
               resource :proposals_import, only: [:new, :create]
             end
           end

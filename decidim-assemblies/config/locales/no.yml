@@ -1,8 +1,6 @@
 "no":
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: Aktiver organisasjonskart
       assembly:
         area_id: Område
         assembly_type: Forsamlingstype
@@ -104,10 +102,6 @@
         create:
           error: Det oppstod et problem med å publisere denne forsamlingen.
           success: Forsamlingen ble duplisert.
-      assemblies_settings:
-        update:
-          error: Det oppstod et problem under oppdatering av innstillingene.
-          success: Oppdatering av innstillinger vellykket.
       assemblies_types:
         create:
           error: Det oppstod et problem med å lage en ny forsamlingstype.
@@ -140,13 +134,11 @@
         destroy:
           success: Medlem ble slettet for denne forsamlingen.
         edit:
-          title: Oppdater forsamlings medlem.
           update: Oppdater
         index:
           assembly_members_title: Forsamlings medlemmer
         new:
           create: Opprett
-          title: Nytt forsamlingsmedlem.
         update:
           error: Det oppstod et problem med å oppdatere medlemmet for denne forsamlingen.
           success: Medlem ble oppdatert for denne forsamlingen.
@@ -164,13 +156,11 @@
         destroy:
           success: Admin slettet fra denne forsamlingen.
         edit:
-          title: Oppdater forsamling administrator.
           update: Oppdater
         index:
           assembly_admins_title: Forsamlings adminer
         new:
           create: Opprett
-          title: Ny forsamlings administrator.
         update:
           error: Det oppstod et problem med å oppdatere en administrator for denne forsamlingen.
           success: Admin ble oppdatert for denne forsamlingen.
@@ -179,7 +169,6 @@
           label: Forsamlingstype
       menu:
         assemblies: Forsamlinger
-        assemblies_settings: Innstillinger
         assemblies_submenu:
           assembly_admins: Forsamlings adminer
           assembly_members: Medlemmer
@@ -270,11 +259,6 @@
             social_handlers: Sosial
             title: Generell Informasjon
             visbility: Synlighet
-        assemblies_settings:
-          edit:
-            update: Oppdater
-          form:
-            title: Innstillinger for forsamlinger
         assemblies_types:
           form:
             title: Tittel
@@ -288,18 +272,16 @@
             select_a_position: Velg en posisjon
             select_user: Velg en deltaker
             user_type: Deltakertype
-          index:
-            filter:
-              all: Alle
-              ceased: Opphørt
-              not_ceased: Ikke opphørt
-            search: Søk
         content_blocks:
           highlighted_assemblies:
             max_results: Maksimal mengde elementer som skal vises
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        filters:
+          names:
+            all: Alle
       assembly_members:
         index:
           members: Medlemmer

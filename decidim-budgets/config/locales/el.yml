@@ -137,7 +137,6 @@ el:
             no_components: Δεν υπάρχουν άλλα στοιχεία προτάσεων σε αυτόν τον χώρο συμμετοχής για εισαγωγή των προτάσεων σε έργα.
             origin_component_id: Στοιχείο καταγωγής
             select_component: Επιλέξτε ένα στοιχείο
-            title: Προτάσεις εισαγωγής
         reminders:
           orders:
             description: Οι χρήστες θα λάβουν ένα email με συνδέσμους στους προϋπολογισμούς όπου έχουν εκκρεμή παραγγελία.
@@ -153,8 +152,6 @@ el:
           create: "Ο χρήστης %{user_name} δημιούργησε το έργο %{resource_name} στον χώρο %{space_name}"
           delete: "Ο χρήστης %{user_name} διέγραψε το έργο %{resource_name} στον χώρο %{space_name}"
           update: "Ο χρήστης %{user_name} ενημέρωσε το έργο %{resource_name} στον χώρο %{space_name}"
-      budget:
-        view: Προβολή όλων των σχεδίων προϋπολογισμού
       budget_information_modal:
         back_to: Πίσω στο %{component_name}
         close_modal: Κλείσιμο παραθύρου
@@ -186,7 +183,6 @@ el:
           fields:
             category: Κατηγορία
             id: ID
-            scope: Πεδίο εφαρμογής
             title: Τίτλος
       order_summary_mailer:
         order_summary:
@@ -244,7 +240,6 @@ el:
           add: Προσθήκη του έργου %{resource_name} στην ψήφο σας.
           remove: Αφαίρεση του έργου %{resource_name} από την ψήφο σας.
           selected: Επιλεγμένο
-          view: Προβολή
           votes:
             one: ψήφος
             other: ψήφοι

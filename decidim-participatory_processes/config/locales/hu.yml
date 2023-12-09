@@ -171,22 +171,6 @@ hu:
           copy: Másolás
           select: Válaszd ki, mely adatokat szeretnéd duplikálni
           title: Részvételi folyamat duplikálása
-      participatory_process_group_landing_page:
-        edit:
-          active_content_blocks: Aktív tartalom blokkok
-          add: Tartalmi blokk hozzáadása
-          destroy_confirmation: Biztos, hogy törölni szeretné ezt a tartalmi blokkot?
-          inactive_content_blocks: Inaktív tartalomblokkok
-          title: Az oldal tartalma
-      participatory_process_group_landing_page_content_blocks:
-        create:
-          error: Probléma merült fel a tartalmi blokk létrehozásakor.
-          success: A tartalmi blokk sikeresen létrehozva.
-        destroy:
-          error: Probléma merült fel a tartalmi blokk törlésével kapcsolatban.
-          success: A tartalomblokk sikeresen törlődött.
-        edit:
-          update: Frissítés
       participatory_process_groups:
         destroy:
           error: Hiba történt a részvételi folyamatcsoport törlése során.

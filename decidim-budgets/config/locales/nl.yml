@@ -100,7 +100,6 @@ nl:
             no_components: Er zijn geen andere voorstelonderdelen in deze participatieruimte om voorstellen in projecten te kunnen importeren.
             origin_component_id: Oorsprong component
             select_component: Selecteer een component
-            title: Voorstellen importeren
         reminders:
           orders:
             description: Gebruikers ontvangen een e-mail met links naar de budgetten die ze nog moeten behandelen.
@@ -116,8 +115,6 @@ nl:
           create: "%{user_name} heeft het project %{resource_name} in de ruimte %{space_name} gemaakt"
           delete: "%{user_name} verwijderde het %{resource_name} project in de %{space_name} ruimte"
           update: "%{user_name} heeft het project %{resource_name} bijgewerkt in de ruimte %{space_name}"
-      budget:
-        view: Bekijk alle budgetprojecten
       budget_information_modal:
         back_to: Terug naar %{component_name}
         close_modal: Sluit venster
@@ -143,7 +140,6 @@ nl:
           fields:
             category: Categorie
             id: ID
-            scope: Scope
             title: Titel
       order_summary_mailer:
         order_summary:
@@ -197,7 +193,6 @@ nl:
           selected: Geselecteerd
         project:
           selected: Geselecteerd
-          view: Bekijk
           votes:
             one: stem
             other: stemmen

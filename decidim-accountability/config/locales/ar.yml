@@ -43,8 +43,6 @@ ar:
         confirm_destroy: هل أنت متأكد أنك تريد حذف هذا %{name}؟
         destroy: حذف
         edit: تعديل
-        import: استيراد المشاريع للنتائج
-        import_csv: استيراد CSV
         preview: معاينة
         timeline_entries: تطور المشروع
         title: الإجراءات
@@ -56,7 +54,6 @@ ar:
           new:
             download_export: تحميل التصدير بصيغه CSV
             import: استيراد
-            title: استيراد النتائج من ملف CSV
         models:
           result:
             name: نتيجة
@@ -78,7 +75,6 @@ ar:
             no_components: لا توجد أى مقومات فى الميزانيه فى هذا الحيز لتوريد المشاريع إلى نتائج.
             origin_component_id: عنصر أساسى
             select_component: اختيار المكون
-            title: استيراد المشاريع إلى المساءلة
         results:
           edit:
             title: تحرير النتيجة
@@ -127,9 +123,7 @@ ar:
             not_found: 'لم يتم العثور على الأصل في قاعدة البيانات (الرقم-المُعرف: %{id})'
       content_blocks:
         highlighted_results:
-          dates: التواريخ
           results: النتائج
-          unspecified: غير محدد
       import_mailer:
         import:
           errors: أخطاء
@@ -164,9 +158,6 @@ ar:
           fields:
             entry_date: تاريخ
             title: العنوان
-      result_m:
-        executed: تم التنفيذ
-        view: عرض
       results:
         count:
           results_count:

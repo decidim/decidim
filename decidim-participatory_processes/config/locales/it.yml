@@ -148,13 +148,6 @@ it:
           copy: Copia
           select: Scegli quale dato vuoi duplicare
           title: Duplica il processo partecipativo
-      participatory_process_group_landing_page:
-        edit:
-          active_content_blocks: Blocchi di contenuti attivi
-          inactive_content_blocks: Blocchi di contenuti inattivi
-      participatory_process_group_landing_page_content_blocks:
-        edit:
-          update: Aggiorna
       participatory_process_groups:
         destroy:
           error: Si è verificato un errore durante la cancellazione del gruppo di processi partecipativi.

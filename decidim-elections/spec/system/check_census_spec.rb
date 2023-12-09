@@ -9,7 +9,7 @@ describe "Check Census" do
   let!(:voting) { create(:voting, :published, organization:, census_contact_information: "census_help@example.com") }
   let!(:dataset) { create(:dataset, :data_created, voting:) }
   let!(:datum) do
-    create(:datum, document_type: "DNI", document_number: "12345678X", birthdate: Date.civil(1980, 5, 11), postal_code: "04001", dataset:, mobile_phone_number:, email:)
+    create(:datum, document_type: "passport", document_number: "12345678X", birthdate: Date.civil(1980, 5, 11), postal_code: "04001", dataset:, mobile_phone_number:, email:)
   end
   let!(:user) { create(:user, :confirmed, organization:) }
   let(:mobile_phone_number) { "123456789" }
@@ -52,7 +52,7 @@ describe "Check Census" do
     before do
       visit decidim_votings.voting_check_census_path(voting)
       within "[data-content]" do
-        select("DNI", from: "Document type")
+        select("Passport", from: "Document type")
         fill_in "Document number", with: "12345678X"
         fill_in "Postal code", with: "04001"
         fill_in "Day", with: "11"
@@ -82,7 +82,7 @@ describe "Check Census" do
 
       visit decidim_votings.voting_check_census_path(voting)
       within "[data-content]" do
-        select("DNI", from: "Document type")
+        select("Passport", from: "Document type")
         fill_in "Document number", with: "12345678X"
         fill_in "Postal code", with: "04001"
         fill_in "Day", with: "11"
@@ -107,7 +107,7 @@ describe "Check Census" do
     before do
       visit decidim_votings.voting_check_census_path(voting)
       within "[data-content]" do
-        select("DNI", from: "Document type")
+        select("Passport", from: "Document type")
         fill_in "Document number", with: "12345678X"
         fill_in "Postal code", with: "04001"
         fill_in "Day", with: "11"
@@ -162,7 +162,7 @@ describe "Check Census" do
     before do
       visit decidim_votings.voting_check_census_path(voting)
       within "[data-content]" do
-        select("DNI", from: "Document type")
+        select("Passport", from: "Document type")
         fill_in "Document number", with: "987654321X"
         fill_in "Postal code", with: "04004"
         fill_in "Day", with: "01"
@@ -191,7 +191,7 @@ describe "Check Census" do
       visit decidim_votings.voting_check_census_path(voting)
       6.times do
         within "[data-content]" do
-          select("DNI", from: "Document type")
+          select("Passport", from: "Document type")
           fill_in "Document number", with: "987654321X"
           fill_in "Postal code", with: "04004"
           fill_in "Day", with: "01"

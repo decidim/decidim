@@ -10,8 +10,6 @@ describe Decidim::Votings::ContentBlocks::HighlightedVotingsCell, type: :cell do
   let!(:votings) { create_list(:voting, 5, :ongoing, organization:) }
   let(:settings) { {} }
 
-  let(:highlighted_votings) { subject.find("#highlighted-votings") }
-
   controller Decidim::PagesController
 
   before do
@@ -20,7 +18,7 @@ describe Decidim::Votings::ContentBlocks::HighlightedVotingsCell, type: :cell do
 
   context "when the content block has no settings" do
     it "shows 4 processes" do
-      expect(highlighted_votings).to have_selector("[id^='votings__voting']", count: 4)
+      expect(subject).to have_selector("[id^='votings__voting']", count: 4)
     end
   end
 
@@ -32,7 +30,7 @@ describe Decidim::Votings::ContentBlocks::HighlightedVotingsCell, type: :cell do
     end
 
     it "shows up to 8 votings" do
-      expect(highlighted_votings).to have_selector("[id^='votings__voting']", count: 5)
+      expect(subject).to have_selector("[id^='votings__voting']", count: 5)
     end
   end
 end

@@ -39,8 +39,6 @@ sv:
         confirm_destroy: Vill du radera detta %{name}?
         destroy: Radera
         edit: Redigera
-        import: Importera projekt till resultat
-        import_csv: Importera CSV
         preview: Förhandsvisa
         timeline_entries: Projektutveckling
         title: Åtgärder
@@ -73,7 +71,6 @@ sv:
               </ul>
               </li>
               </ol>
-            title: Importera resultat från CSV
         imports:
           create:
             success: Importen av filen har påbörjats. Inom några minuter kommer du att få ett e-postmeddelande med importresultatet.
@@ -94,7 +91,6 @@ sv:
             no_components: Det finns inga budgetkomponenter i detta deltagande utrymme för att exportera projekt till resultat.
             origin_component_id: Ursprungskomponent
             select_component: Välj en komponent
-            title: Importera projekt till resultat
         results:
           edit:
             title: Redigera resultat
@@ -143,9 +139,7 @@ sv:
             not_found: 'Föräldraposten hittades inte i databasen (ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Datum
           results: Resultat
-          unspecified: Ej angivet
       import_mailer:
         import:
           errors: Fel
@@ -183,9 +177,6 @@ sv:
           fields:
             entry_date: Datum
             title: Titel
-      result_m:
-        executed: Utfört
-        view: Visa
       results:
         count:
           results_count:

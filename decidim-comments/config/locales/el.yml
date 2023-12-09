@@ -30,7 +30,6 @@ el:
           error: Το σχόλιο δεν μπόρεσε να διαγραφεί.
         update:
           error: Υπήρξε ένα πρόβλημα στην ενημέρωση του σχολίου.
-      comments_count: Αριθμός σχολίων
       comments_title: Σχόλιο
       votes:
         create:

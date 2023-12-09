@@ -79,7 +79,9 @@ de:
   decidim:
     admin:
       actions:
+        manage: Verwalten
         new_initiative_type: Neuer Initiativentyp
+        new_initiative_type_scope: Neuer Initiativentyp
       filters:
         initiatives:
           decidim_area_id_eq:
@@ -106,14 +108,19 @@ de:
         committee_members: Ausschussmitglieder
         components: Komponenten
         information: Information
+        initiative_type_scopes: Initiativentyp
         initiatives: Initiativen
+        initiatives_menu:
+          see_initiative: Initiative ansehen
         initiatives_settings: Einstellungen
+        initiatives_submenu:
+          info: Über diese Initiative
         initiatives_types: Arten von Initiativen
         moderations: Moderationen
       models:
         initiatives:
           fields:
-            created_at: Hergestellt in
+            created_at: Erstellt am
             id: ID
             published_at: Veröffentlicht am
             state: Zustand
@@ -126,7 +133,7 @@ de:
           name: Typ der Initiative
         initiatives_types:
           fields:
-            created_at: Hergestellt in
+            created_at: Erstellt am
             title: Arten von Initiativen
           name: Art der Initiative
         initiatives_votes:
@@ -209,7 +216,7 @@ de:
             answer: Antworten
             title: Antwort für %{title}
           info_initiative:
-            created_at: Hergestellt in
+            created_at: Erstellt am
             description: Beschreibung
             initiative_votes_count: Stimmen zählen
             initiatives: Initiativen
@@ -293,8 +300,8 @@ de:
             update: Aktualisieren
           form:
             authorizations: Autorisierungseinstellungen
-            child_scope_threshold_enabled_help: 'Diese Einstellung unterstützt keine Offline-Abstimmungen. Es aktiviert Unter-Themenbereiche und arbeitet mit einem Autorisierungs-Handler zusammen, der dem Teilnehmenden einen Themenbereich zuordnet. Stellen Sie sicher, dass Sie diese Autorisierung unten in den Autorisierungseinstellungen auswählen. Hierfür müssen die Themenbereiche auf hierarchische Weise konfiguriert werden: 1 Überthema - N Unterthemen. Weitere Informationen wie diese Konfiguration funktioniert, finden Sie unter diesem <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">Link</a>.'
-            only_global_scope_enabled_help: Aktivieren Sie diese Einstellung, wenn Sie "Unterthemen-Signaturen" aktiviert haben und den globalen Themenbereich als Ihren Elternbereich konfiguriert haben. Dadurch wird die Auswahl des Initialtyps im Assistenten zur Erstellung der Initiative übersprungen. Weitere Informationen darüber, wie diese Konfiguration funktioniert, finden Sie <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">hier</a>.
+            child_scope_threshold_enabled_help_html: 'Diese Einstellung unterstützt keine Offline-Abstimmungen. Es aktiviert Unter-Themenbereiche und arbeitet mit einem Autorisierungs-Handler zusammen, der dem Teilnehmenden einen Themenbereich zuordnet. Stellen Sie sicher, dass Sie diese Autorisierung unten in den Autorisierungseinstellungen auswählen. Hierfür müssen die Themenbereiche auf hierarchische Weise konfiguriert werden: 1 Überthema - N Unterthemen. Weitere Informationen zur Konfiguration finden Sie auf der <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">Dokumentationsseite für Admins von Initiativen.</a>.'
+            only_global_scope_enabled_help_html: Aktivieren Sie diese Einstellung, wenn Sie "Unterthemen-Signaturen" aktiviert haben und den globalen Themenbereich als Ihren Elternbereich konfiguriert haben. Dadurch wird die Auswahl des Initialtyps im Assistenten zur Erstellung der Initiative übersprungen. Weitere Informationen darüber, wie diese Konfiguration funktioniert, finden Sie <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">hier</a>.
             options: Optionen
           initiative_type_scopes:
             title: Bereiche für den Typ der Initiative
@@ -351,7 +358,6 @@ de:
           back: Zurück
           continue: Fortsetzen
           fill_data_help: "<ul> <li>Inhalt Ihrer Initiative überprüfen. Ist Ihr Titel leicht verständlich? Ist das Ziel Ihrer Initiative klar?</li> <li>Sie müssen die Art der Unterschrift wählen. Persönlich, online oder eine Kombination aus beidem</li> <li>Was ist die geografische Reichweite der Initiative? Stadt, Bezirk?</li> </ul>"
-          initiative_type: Initiativentyp
           more_information: "(Weitere Informationen)"
           select_area: Wählen Sie einen Bereich aus
           select_scope: Wählen Sie einen Bereich aus
@@ -457,10 +463,12 @@ de:
             other: und %{count} weitere Leute
         committee_members:
           approve: Genehmigen
-          confirm_revoke: Bist du dir sicher?
+          confirm_approve: Sind Sie sicher, dass dieses Mitglied entfernt werden soll?
+          confirm_revoke: Sind Sie sicher, dass dieses Mitglied zurückgezogen werden soll?
           invite_to_committee_help: Teilen Sie diesen Link, um andere Teilnehmer zum Unterstützungskomitee einzuladen.
           link: Link
           no_members_yet: Es gibt keine Mitglieder im Unterstützungskomitee.
+          revoke: Widerrufen
           title: Ausschussmitglieder
         count:
           title:
@@ -472,7 +480,6 @@ de:
           author: Autor
           myself: Meine Initiativen
           scope: Umfang
-          search: Suche
           state: Zustand
           type: Art
         index_header:
@@ -605,8 +612,5 @@ de:
         sms_phone_number: Handynummer
         title: Zeichen %{initiative_title}
       initiatives:
-        initiative:
-          check: Mehr erfahren
-          check_and_support: Überprüfe es und unterschreibe es
         no_initiatives_yet:
           no_initiatives_yet: Keine Initiativen bisher!

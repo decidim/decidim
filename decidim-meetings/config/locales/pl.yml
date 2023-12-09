@@ -401,7 +401,6 @@ pl:
         show:
           attendees: Liczba osób biorących udział
           contributions: Liczba wsparć
-          date: Data
           join: Dołącz do spotkania
           leave: Anuluj swoją rejestrację
           meeting_minutes: Protokół ze spotkania
@@ -416,7 +415,6 @@ pl:
             few: "Pozostało %{count} miejsc"
             many: "Pozostało %{count} miejsc"
             other: "Pozostało %{count} miejsc"
-          view: Zobacz
         update:
           invalid: Wystąpił błąd podczas aktualizowania spotkania.
           success: Spotkanie zostało zaktualizowane.

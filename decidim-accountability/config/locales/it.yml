@@ -37,7 +37,6 @@ it:
         confirm_destroy: Sei sicuro di voler eliminare questo %{name}?
         destroy: Cancella
         edit: Modifica
-        import_csv: Importa da file CSV
         preview: Anteprima
         timeline_entries: Evoluzione del progetto
         title: Azioni
@@ -48,7 +47,6 @@ it:
         import_results:
           new:
             import: Importa
-            title: Importa risultati da CSV
         models:
           result:
             name: Risultato
@@ -94,9 +92,7 @@ it:
             not_found: 'Il genitore non è stato trovato sul database (ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Date
           results: Risultati
-          unspecified: Non specificato
       import_mailer:
         import:
           errors: Errori
@@ -124,9 +120,6 @@ it:
         timeline_entry:
           fields:
             entry_date: Data
-      result_m:
-        executed: Eseguito
-        view: Visualizza
       results:
         count:
           results_count:

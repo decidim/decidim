@@ -36,6 +36,9 @@ gl:
         block_user_templates:
           form:
             save: Gardar
+        proposal_answer_templates:
+          form:
+            save: Gardar
         questionnaire_templates:
           choose:
             create_from_template: Crear a partir dun padrón

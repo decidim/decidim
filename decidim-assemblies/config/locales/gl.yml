@@ -1,8 +1,6 @@
 gl:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: Habilitar organigrama
       assembly:
         area_id: Área
         assembly_type: Tipo de montaxe
@@ -104,10 +102,6 @@ gl:
         create:
           error: Produciuse un erro ao duplicar este conxunto.
           success: Asemblea duplicouse con éxito.
-      assemblies_settings:
-        update:
-          error: Produciuse un problema ao actualizar os axustes.
-          success: Axustes actualizados con éxito.
       assemblies_types:
         create:
           error: Produciuse un problema ao crear un novo tipo de xuntanza.
@@ -140,13 +134,11 @@ gl:
         destroy:
           success: O membro eliminouse con éxito por este conxunto.
         edit:
-          title: Actualiza o membro da montaxe.
           update: Actualización
         index:
           assembly_members_title: Membros da asemblea
         new:
           create: Crear
-          title: Novo membro da montaxe.
         update:
           error: Produciuse un erro ao actualizar o membro para este conxunto.
           success: Membro actualizado correctamente para este conxunto.
@@ -164,13 +156,11 @@ gl:
         destroy:
           success: O usuario eliminouse con éxito deste conxunto.
         edit:
-          title: Actualiza o usuario de montaxe.
           update: Actualización
         index:
           assembly_admins_title: Usuarios da asemblea
         new:
           create: Crear
-          title: Novo usuario de montaxe.
         update:
           error: Houbo un erro actualizado por un usuario para este conxunto.
           success: O usuario actualizouse con éxito para este conxunto.
@@ -179,7 +169,6 @@ gl:
           label: Tipo de xuntanza
       menu:
         assemblies: Asembleas
-        assemblies_settings: Axustes
         assemblies_submenu:
           assembly_admins: Usuarios da asemblea
           assembly_members: Membros
@@ -271,11 +260,6 @@ gl:
             social_handlers: Social
             title: Información xeral
             visbility: Visibilidade
-        assemblies_settings:
-          edit:
-            update: Actualizar
-          form:
-            title: Axustes das xuntanzas
         assemblies_types:
           form:
             title: Título
@@ -289,12 +273,6 @@ gl:
             select_a_position: Seleccione unha posición
             select_user: Selecciona un usuario
             user_type: Tipo de usuario
-          index:
-            filter:
-              all: Todo
-              ceased: Cesado
-              not_ceased: Non cesou
-            search: Busca
         content_blocks:
           highlighted_assemblies:
             max_results: Cantidade máxima de elementos para mostrar
@@ -302,6 +280,9 @@ gl:
           accepted_types:
             json: JSON
       assemblies:
+        filters:
+          names:
+            all: Todo
         show:
           title: Sobre esta xuntanza
       assembly_members:

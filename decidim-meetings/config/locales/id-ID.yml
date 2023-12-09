@@ -277,7 +277,6 @@ id:
             validation_pending: MENUNGGU VALIDASI
           remaining_slots:
             other: "%{count} slot tersisa"
-          view: Melihat
       models:
         invite:
           fields:

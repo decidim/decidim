@@ -55,7 +55,6 @@ is-IS:
         logo: Merki
         name: Nafn
         official_img_footer: Opinber merki fótbolta
-        official_img_header: Opinber heiti merki
         official_url: Opinber vefslóð stofnunarinnar
         omnipresent_banner_short_description: Stutt lýsing
         omnipresent_banner_title: Titill
@@ -98,8 +97,6 @@ is-IS:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Vitlaus myndskrá
-            official_img_header:
               allowed_file_content_types: Vitlaus myndskrá
   activerecord:
     attributes:

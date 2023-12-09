@@ -110,6 +110,8 @@ es-MX:
         information: Información
         initiative_type_scopes: Ámbitos del tipo de iniciativa
         initiatives: Iniciativas
+        initiatives_menu:
+          see_initiative: Ver la iniciativa
         initiatives_settings: Configuración
         initiatives_submenu:
           info: Acerca de esta iniciativa
@@ -298,8 +300,8 @@ es-MX:
             update: Actualizar
           form:
             authorizations: Ajustes de autorización
-            child_scope_threshold_enabled_help: 'Este ajuste de configuración no admite las votaciones sin conexión. Habilita los subámbitos y funciona con un gestor de autorizaciones que asocia un ámbito al usuario. Asegúrate de seleccionar esa autorización, más abajo en la configuración de autorizaciones. Para que funcione, los ámbitos deben configurarse de forma jerárquica: 1 Padre - N hijos. Para más información sobre cómo funciona esta configuración, <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">ver la documentación sobre l''administraciónb de iniciativas</a>.'
-            only_global_scope_enabled_help: Marca esta casilla si habilitaste "Activar firmas por subámbito" y configuraste el ámbito global como el ámbito principal. Al habilitar esta casilla, la selección del tipo de iniciativa se omitirá en el asistente de creación de iniciativas. Para más información sobre cómo funciona esta configuración, consulta este <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">enlace</a>.
+            child_scope_threshold_enabled_help_html: 'Este ajuste de configuración no admite las votaciones sin conexión. Este habilita los subámbitos y funciona con un gestor de autorizaciones que asocia un ámbito al usuario. Asegúrate de seleccionar esa autorización, más abajo en la configuración de autorizaciones. Para que funcione, los ámbitos deben configurarse de forma jerárquica: 1 Padre - N hijos. Para más información sobre cómo funciona esta configuración, <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">ver la documentación sobre la administración de iniciativas</a>.'
+            only_global_scope_enabled_help_html: Marca esta casilla si habilitaste "Activar firmas por subámbito" y configuraste el ámbito global como el ámbito principal. Al habilitar esta casilla, la selección del tipo de iniciativa se omitirá en el asistente de creación de iniciativas. Para más información sobre cómo funciona esta configuración, consulta la<a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">documentación sobre la administración de iniciativas</a>.
             options: Opciones
           initiative_type_scopes:
             title: Ámbitos de aplicación para el tipo de iniciativa
@@ -356,7 +358,6 @@ es-MX:
           back: Volver
           continue: Continuar
           fill_data_help: "<ul> <li>Revisa el contenido de tu iniciativa. ¿Tu título es fácil de entender? ¿Está claro el objetivo de tu iniciativa?</li> <li>Tienes que elegir el tipo de firma. En persona, en línea o una combinación de ambos</li> <li>¿Cuál es el alcance geográfico de la iniciativa?</li> </ul>"
-          initiative_type: Tipo de iniciativa
           more_information: "(Más información)"
           select_area: Selecciona una área
           select_scope: Seleccione un alcance
@@ -462,10 +463,12 @@ es-MX:
             other: y %{count} personas más
         committee_members:
           approve: Aprobar
-          confirm_revoke: '¿Estás seguro/a?'
+          confirm_approve: '¿Seguro que quieres añadir este miembro?'
+          confirm_revoke: '¿Seguro que quieres revocar este miembro?'
           invite_to_committee_help: Comparte este enlace para invitar a otras participantes a la comisión promotora.
           link: Enlace
           no_members_yet: La comisión promotora no tiene miembros.
+          revoke: Revocar
           title: Miembros del comité
         count:
           title:
@@ -477,7 +480,6 @@ es-MX:
           author: Autor
           myself: Mis iniciativas
           scope: Ámbito
-          search: Buscar
           state: Estado
           type: Tipo
         index_header:
@@ -610,8 +612,5 @@ es-MX:
         sms_phone_number: Número de teléfono móvil
         title: Signo %{initiative_title}
       initiatives:
-        initiative:
-          check: Échale un vistazo
-          check_and_support: Compruébalo y firma
         no_initiatives_yet:
           no_initiatives_yet: '¡No hay iniciativas todavía!'

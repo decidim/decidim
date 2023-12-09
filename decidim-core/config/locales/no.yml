@@ -178,7 +178,6 @@
         error: Det oppsto feil under endringen av denne resurssen.
         promote_button: Promoter til %{model_name}
         promote_confirm_text: Er du sikker på at du vil forfremme denne emendasjonen?
-        section_heading: Endringer (%{count})
       compare_draft:
         continue: Fortsett
         no_similars_found: Ingen like emendasjoner funnet.
@@ -313,7 +312,6 @@
         one: å %{count} mer
         other: å %{count} mere
       see_less: "(Se mindre)"
-      see_more: "(se mer)"
     components:
       component_order_selector:
         order:
@@ -900,7 +898,6 @@
           proposals: Forslag
           proposals_explanation: Lag forslag, støtt eksisterende og promoter endringene du ønsker å se.
         footer_sub_hero:
-          footer_sub_hero_body: La oss sammen utvikle et mer bærekraftig samfunn.<br /> Bli med og påvirk utviklingen gjennom å si din mening.
           footer_sub_hero_headline: Velkommen til %{organization} deltaker plattform.
           register: Registrer deg
         hero:
@@ -1197,7 +1194,6 @@
         change_my_password: Endre passordet mitt
         confirm_new_password: Bekreft nytt passord
         new_password: New password
-        password_help: "%{minimun_characters} tegn minimum, må ikke være for vanlig (f.eks. 123456) og må være forskjellig fra kallenavnet og e-postadressen din."
       new:
         forgot_your_password: Glemt ditt passord?
         send_me_reset_password_instructions: Send meg instruksjoner for tilbakestilling av passord

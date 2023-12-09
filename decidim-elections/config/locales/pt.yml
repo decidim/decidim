@@ -606,13 +606,6 @@ pt:
             max_results: Montante máximo dos projectos a mostrar
         index:
           published: Publicado
-        landing_page:
-          content_blocks:
-            edit:
-              update: Actualizar
-          edit:
-            active_content_blocks: Blocos de conteúdo activos
-            inactive_content_blocks: Blocos de conteúdo inactivos
         menu:
           votings: Votações
           votings_submenu:
@@ -733,8 +726,6 @@ pt:
             title: Criar oficial de votação
           polling_officers_picker:
             choose_polling_officers: Escolher oficiais de votação
-            close: Fechar
-            more_polling_officers: Existem mais %{number} oficiais de votação. Refine a sua procura para localizá-los.
         polling_stations:
           edit:
             title: Editar secção de voto
@@ -832,8 +823,6 @@ pt:
               csv_header_after: Não inclua o último campo ("%{ballot_style_code_header}") se não precisar de estilos de boletim de voto/questões condicionais
               csv_header_before: 'O recenseamento deve ser um ficheiro CSV com o seguinte cabeçalho:'
         document_types:
-          dni: DNI
-          nie: NIE
           passport: Passaporte
         export_mailer:
           access_codes_export:
@@ -1057,8 +1046,6 @@ pt:
           online: On-line
   layouts:
     decidim:
-      election_votes_header:
-        exit: Sair
       voting_navigation:
         check_census: Posso votar?
         election_log: Registo de eleições

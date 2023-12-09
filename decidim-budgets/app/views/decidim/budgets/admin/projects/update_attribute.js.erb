@@ -11,6 +11,10 @@
 <% if flash.now[:notice].present? %>
   $("<%= escape_javascript(render partial: %q(decidim/admin/shared/js-callout), locals: { css: %q(success), text: flash.now[:notice] }) %>").appendTo(".callout-wrapper");
 
+   <% @moved_items&.each do |id| %>
+    $(".table-list [data-id='<%= id %>']").remove()
+  <% end %>
+
   <% project_ids.each do |id| %>
     $(".table-list [data-id='<%= id %>']")
       .replaceWith("<%= escape_javascript(render partial: %q(project-tr), locals: { project: Decidim::Budgets::Project.find(id) }) %>");

@@ -1,8 +1,6 @@
 ro:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: Activează graficul organizatiei
       assemblies_type:
         title: Titlu
       assembly:
@@ -121,10 +119,6 @@ ro:
         create:
           error: A apărut o problemă la duplicarea acestui grup de lucru.
           success: Grupul de lucru a fost duplicat cu succes.
-      assemblies_settings:
-        update:
-          error: A apărut o eroare la actualizarea setărilor.
-          success: Setările au fost actualizate cu succes.
       assemblies_types:
         create:
           error: A apărut o problemă la crearea unui nou tip de grup de lucru.
@@ -157,13 +151,11 @@ ro:
         destroy:
           success: Membru şters cu succes pentru acest grup de lucru.
         edit:
-          title: Actualizează membrul grupului de lucru.
           update: Actualizează
         index:
           assembly_members_title: Membrii grupului de lucru
         new:
           create: Creează
-          title: Membru nou al grupului de lucru.
         update:
           error: A apărut o problemă la adăugarea unui membru pentru acest grup de lucru.
           success: Membrul a fost actualizat cu succes pentru acest grup de lucru.
@@ -181,13 +173,11 @@ ro:
         destroy:
           success: Administratorul a fost șters cu succes de la acest grup de lucru.
         edit:
-          title: Actualizează administratorul grupului de lucru.
           update: Actualizează
         index:
           assembly_admins_title: Administratori ai grupului de lucru
         new:
           create: Creează
-          title: Nou administrator al grupului de lucru.
         update:
           error: A apărut o eroare la actualizarea unui administrator pentru acest grup de lucru.
           success: Administratorul a fost actualizat cu succes pentru acest grup de lucru.
@@ -196,7 +186,6 @@ ro:
           label: Tipul grupului de lucru
       menu:
         assemblies: Grupuri de lucru
-        assemblies_settings: Setări
         assemblies_submenu:
           assembly_admins: Administratorii grupului de lucru
           assembly_members: Membri
@@ -292,11 +281,6 @@ ro:
             social_handlers: Rețele de socializare
             title: Informaţii generale
             visbility: Vizibilitate
-        assemblies_settings:
-          edit:
-            update: Actualizează
-          form:
-            title: Setări pentru grupuri de lucru
         assemblies_types:
           form:
             title: Titlu
@@ -310,12 +294,6 @@ ro:
             select_a_position: Selectaţi o poziţie
             select_user: Selectați un participant
             user_type: Tipul participantului
-          index:
-            filter:
-              all: Toți
-              ceased: Sistat
-              not_ceased: Nesistat
-            search: Caută
         content_blocks:
           highlighted_assemblies:
             max_results: Număr maxim de elemente care vor fi afișate

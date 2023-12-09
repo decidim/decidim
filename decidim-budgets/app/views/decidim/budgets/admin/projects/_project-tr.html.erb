@@ -25,7 +25,7 @@
     <% if project.selected? %>
       <%= content_tag :strong, t("projects.index.selected", scope: "decidim.budgets.admin"), class: "text-success" %>
     <% else %>
-      <%= content_tag :span, "x", class: "text-muted" %>
+      <%= content_tag :span, "close-line", class: "text-muted" %>
     <% end %>
   </td>
   <td class="table-list__actions">

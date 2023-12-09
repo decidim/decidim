@@ -109,7 +109,6 @@ tr:
       organizations:
         create:
           error: Yeni bir organizasyon oluştururken bir sorun oluştu.
-          success: Kuruluş başarıyla oluşturuldu.
         edit:
           secondary_hosts_hint: Her birini yeni bir satıra girin
         file_upload_settings:
