@@ -64,7 +64,7 @@ module Decidim
       def destroy
         enforce_permission_to(:destroy, :area, area:)
 
-        Decidim::Commands::DestroyResource.call(area) do
+        DestroyArea.call(area, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("areas.destroy.success", scope: "decidim.admin")
             redirect_to areas_path

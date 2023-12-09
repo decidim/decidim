@@ -11,9 +11,9 @@ module Decidim
       # form    - The form from which the data in this component comes from.
       # component - The component to update.
       def initialize(form, component)
-        @manifest = component.manifest
-        @form = form
+        super(form, component)
         @component = component
+        @manifest = component.manifest
       end
 
       # Public: Creates the Component.

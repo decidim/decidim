@@ -4,7 +4,7 @@ module Decidim
   module Admin
     # Creates a newsletter and assigns the right author and
     # organization.
-    class CreateComponent < Decidim::Commands::CreateResource
+    class CreateNewsletter < Decidim::Commands::CreateResource
       fetch_form_attributes :subject, :organization
       # Initializes the command.
       #

@@ -3,16 +3,16 @@
 require "spec_helper"
 
 module Decidim::Admin
-  describe DestroyScope do
-    subject { described_class.new(scope, user) }
+  describe DestroyArea do
+    subject { described_class.new(area, user) }
 
     let(:organization) { create(:organization) }
     let(:user) { create(:user, :admin, :confirmed, organization:) }
-    let(:scope) { create(:scope, organization:) }
+    let(:area) { create(:area, organization:) }
 
-    it "destroys the scope" do
+    it "destroys the area" do
       subject.call
-      expect { scope.reload }.to raise_error(ActiveRecord::RecordNotFound)
+      expect { area.reload }.to raise_error(ActiveRecord::RecordNotFound)
     end
 
     it "broadcasts ok" do
@@ -24,12 +24,7 @@ module Decidim::Admin
     it "traces the action", versioning: true do
       expect(Decidim.traceability)
         .to receive(:perform_action!)
-        .with(
-          :delete,
-          scope,
-          user,
-          extra: hash_including(:parent_name, :scope_type_name)
-        )
+        .with(:delete, area, user)
         .and_call_original
 
       expect { subject.call }.to change(Decidim::ActionLog, :count)

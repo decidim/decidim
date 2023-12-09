@@ -6,14 +6,6 @@ module Decidim
     class CreateScopeType < Decidim::Commands::CreateResource
       fetch_form_attributes :name, :organization, :plural
 
-      # Public: Initializes the command.
-      #
-      # form - A form object with the params.
-      def initialize(form)
-        super(form)
-        @user = user
-      end
-
       private
 
       def resource_class = Decidim::ScopeType

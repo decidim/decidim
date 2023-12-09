@@ -21,6 +21,7 @@ module Decidim::Admin
         weight: 3,
         invalid?: !valid,
         valid?: valid,
+        current_user: user,
         settings: {
           dummy_global_attribute1: true,
           dummy_global_attribute2: false,
@@ -70,7 +71,7 @@ module Decidim::Admin
           results[:component] = component
         end
 
-        described_class.call(form, component, user)
+        described_class.call(form, component)
 
         component = results[:component]
         expect(component.name["en"]).to eq("My component")

@@ -18,7 +18,7 @@ module Decidim::Admin
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:perform_action!)
-          .with("delete", component, current_user)
+          .with(:delete, component, current_user)
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)
