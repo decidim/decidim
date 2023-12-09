@@ -6,11 +6,11 @@ module Decidim
   module Blogs
     module Admin
       describe CreatePost do
-        subject { described_class.new(form, current_user) }
+        subject { described_class.new(form) }
 
         let(:organization) { create(:organization) }
         let(:participatory_process) { create(:participatory_process, organization:) }
-        let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "blogs") }
+        let(:component) { create(:component, participatory_space: participatory_process, manifest_name: "blogs") }
         let(:current_user) { create(:user, organization:) }
         let(:title) { "Post title" }
         let(:body) { "Lorem Ipsum dolor sit amet" }
@@ -23,8 +23,9 @@ module Decidim
             title: { en: title },
             body: { en: body },
             published_at: publish_time,
-            current_component:,
-            author: current_user
+            component:,
+            author: current_user,
+            current_user:
           )
         end
 
@@ -118,7 +119,7 @@ module Decidim
                 title: { en: title },
                 published_at: publish_time,
                 body: { en: body },
-                current_component:,
+                component:,
                 author: group
               )
             end
