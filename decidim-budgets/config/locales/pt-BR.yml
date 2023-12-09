@@ -246,6 +246,7 @@ pt-BR:
     components:
       budgets:
         actions:
+          comment: Comentar
           vote: Voto
         name: Orçamentos
         settings:
@@ -267,6 +268,7 @@ pt-BR:
             total_budget: Orçamento total
             vote_minimum_budget_projects_number: Número mínimo de projetos para votar
             vote_rule_minimum_budget_projects_enabled: 'Habilitar regra: Número mínimo de projetos a serem votados em'
+            vote_rule_selected_projects_enabled: 'Habilitar regra: Número mínimo e máximo de projetos a serem votados'
             vote_rule_threshold_percent_enabled: 'Ativar regra: Porcentagem mínima do orçamento'
             vote_selected_projects_maximum: Quantidade máxima de projetos a serem selecionados
             vote_selected_projects_minimum: Quantidade mínima de projetos a serem selecionados
