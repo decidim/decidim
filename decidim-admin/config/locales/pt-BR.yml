@@ -351,7 +351,7 @@ pt-BR:
       dashboard:
         show:
           view_more_logs: Ver mais registros
-          welcome: Bem-vindo ao Decidim Admin Panel.
+          welcome: Bem-vindo ao painel de administração.
       domain_whitelist:
         form:
           domain_too_short: Domínio muito curto
@@ -494,11 +494,12 @@ pt-BR:
             records:
               detail: Por favor, verifique se essas linhas estão formatadas corretamente e contém registros válidos.
               message:
-                one: Encontrado um erro no arquivo de importação para registros com os números de ordem %{indexes}.
-                other: Erros encontrados no arquivo de importação para registros com ordem número %{indexes}.
+                one: Erros encontrados no arquivo de importação para registros com ordem número %{indexes}.
+                other: Encontrado um erro no arquivo de importação para registros com os números de ordem %{indexes}.
           missing_headers:
             detail: Por favor, verifique se o arquivo contém colunas obrigatórias.
         error: Houve um problema durante a importação
+        example_error: Não foi possível criar um exemplo para o tipo fornecido
         new:
           accepted_mime_types:
             csv: csv
