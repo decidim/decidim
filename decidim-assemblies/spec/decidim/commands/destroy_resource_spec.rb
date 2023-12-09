@@ -2,8 +2,8 @@
 
 require "spec_helper"
 
-module Decidim::Assemblies
-  describe Admin::DestroyAssembliesType do
+describe Decidim::Commands::DestroyResource do
+  context "when the resource is an assembly type" do
     subject { described_class.new(assembly_type, user) }
 
     let(:organization) { create(:organization) }
@@ -20,7 +20,7 @@ module Decidim::Assemblies
         expect(Decidim.traceability)
           .to receive(:perform_action!)
           .with(
-            "delete",
+            :delete,
             assembly_type,
             user
           )
@@ -29,6 +29,23 @@ module Decidim::Assemblies
         expect { subject.call }.to change(Decidim::ActionLog, :count)
         action_log = Decidim::ActionLog.last
         expect(action_log.version).to be_present
+      end
+    end
+
+    context "when the resource is an assembly" do
+      subject { described_class.new(area, user) }
+
+      let(:organization) { create(:organization) }
+      let(:user) { create(:user, :admin, :confirmed, organization:) }
+      let(:area) { create(:area, organization:) }
+
+      context "when an assembly associated to a given area exist" do
+        let!(:assembly) { create(:assembly, organization:, area:) }
+
+        it "cannot be deleted" do
+          expect { subject.call }.to broadcast(:has_spaces)
+          expect(area.reload.destroyed?).to be false
+        end
       end
     end
   end

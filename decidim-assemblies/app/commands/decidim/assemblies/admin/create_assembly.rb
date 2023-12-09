@@ -5,13 +5,15 @@ module Decidim
     module Admin
       # A command with all the business logic when creating a new participatory
       # assembly in the system.
-      class CreateAssembly < Decidim::Command
-        # Public: Initializes the command.
-        #
-        # form - A form object with the params.
-        def initialize(form)
-          @form = form
-        end
+      class CreateAssembly < Decidim::Commands::CreateResource
+        fetch_form_attributes :title, :subtitle, :weight, :slug, :hashtag, :description, :short_description,
+                              :hero_image, :banner_image, :promoted, :scopes_enabled, :scope, :area, :parent,
+                              :private_space, :developer_group, :local_area, :target, :participatory_scope,
+                              :participatory_structure, :meta_scope, :show_statistics, :purpose_of_action,
+                              :composition, :assembly_type, :creation_date, :created_by, :created_by_other,
+                              :duration, :included_at, :closing_date, :closing_date_reason, :internal_organisation,
+                              :is_transparent, :special_features, :twitter_handler, :facebook_handler,
+                              :instagram_handler, :youtube_handler, :github_handler, :announcement, :organization
 
         # Executes the command. Broadcasts these events:
         #
@@ -37,55 +39,10 @@ module Decidim
 
         private
 
-        attr_reader :form
+        def resource_class = Decidim::Assembly
 
         def assembly
-          @assembly ||= Decidim.traceability.create(
-            Assembly,
-            form.current_user,
-            organization: form.current_organization,
-            title: form.title,
-            subtitle: form.subtitle,
-            weight: form.weight,
-            slug: form.slug,
-            hashtag: form.hashtag,
-            description: form.description,
-            short_description: form.short_description,
-            hero_image: form.hero_image,
-            banner_image: form.banner_image,
-            promoted: form.promoted,
-            scopes_enabled: form.scopes_enabled,
-            scope: form.scope,
-            area: form.area,
-            parent: form.parent,
-            private_space: form.private_space,
-            developer_group: form.developer_group,
-            local_area: form.local_area,
-            target: form.target,
-            participatory_scope: form.participatory_scope,
-            participatory_structure: form.participatory_structure,
-            meta_scope: form.meta_scope,
-            show_statistics: form.show_statistics,
-            purpose_of_action: form.purpose_of_action,
-            composition: form.composition,
-            assembly_type: form.assembly_type,
-            creation_date: form.creation_date,
-            created_by: form.created_by,
-            created_by_other: form.created_by_other,
-            duration: form.duration,
-            included_at: form.included_at,
-            closing_date: form.closing_date,
-            closing_date_reason: form.closing_date_reason,
-            internal_organisation: form.internal_organisation,
-            is_transparent: form.is_transparent,
-            special_features: form.special_features,
-            twitter_handler: form.twitter_handler,
-            facebook_handler: form.facebook_handler,
-            instagram_handler: form.instagram_handler,
-            youtube_handler: form.youtube_handler,
-            github_handler: form.github_handler,
-            announcement: form.announcement
-          )
+          @assembly ||= create_resource(soft: true)
         end
 
         def add_admins_as_followers(assembly)
