@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:icalendar-ruby
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+DTSTAMP:20231128T215924Z
+UID:11200f21-8bdf-4a62-8699-61bbbc96c8d2
+DTSTART:20231127T215923Z
+DTEND:20231127T235923Z
+DESCRIPTION: Eveniet tempora deleniti. 12364\n\nRead more about this meetin
+ g http://223.lvh.me:6259/processes/glow-brown-194/f/3427/meetings/1221
+GEO:61.9874948151946;-53.7428608572517
+LOCATION:Minus rem consequatur.
+SUMMARY:<script>alert("Meetings TITLE")</script> Consequatur ad vitae. 1236
+ 1
+URL:http://223.lvh.me:6259/processes/glow-brown-194/f/3427/meetings/1221
+END:VEVENT
+END:VCALENDAR
