@@ -18,7 +18,7 @@ module Decidim::Admin
       end
 
       it "broadcasts :already_sent" do
-        expect { subject.call }.to broadcast(:already_sent)
+        expect { subject.call }.to broadcast(:invalid)
       end
     end
 

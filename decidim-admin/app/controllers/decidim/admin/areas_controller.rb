@@ -48,7 +48,7 @@ module Decidim
         enforce_permission_to(:update, :area, area:)
         @form = form(AreaForm).from_params(params)
 
-        UpdateArea.call(area, @form) do
+        UpdateArea.call(@form, area) do
           on(:ok) do
             flash[:notice] = I18n.t("areas.update.success", scope: "decidim.admin")
             redirect_to areas_path
@@ -69,7 +69,7 @@ module Decidim
             flash[:notice] = I18n.t("areas.destroy.success", scope: "decidim.admin")
             redirect_to areas_path
           end
-          on(:invalid) do
+          on(:has_spaces) do
             flash[:alert] = I18n.t("areas.destroy.has_spaces", scope: "decidim.admin")
             redirect_to areas_path
           end

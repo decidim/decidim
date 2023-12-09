@@ -89,7 +89,7 @@ module Decidim
         enforce_permission_to(:destroy, :newsletter, newsletter:)
 
         DestroyNewsletter.call(newsletter, current_user) do
-          on(:already_sent) do
+          on(:invalid) do
             flash.now[:error] = I18n.t("newsletters.destroy.error_already_sent", scope: "decidim.admin")
             redirect_to :back
           end
