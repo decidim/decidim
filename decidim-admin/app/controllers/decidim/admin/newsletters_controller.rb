@@ -47,7 +47,7 @@ module Decidim
         @form = form(NewsletterForm).from_params(params)
         @form.images = images_block_context unless has_images_block_context?
 
-        CreateNewsletter.call(@form, content_block, current_user) do
+        CreateNewsletter.call(@form, content_block) do
           on(:ok) do |newsletter|
             flash.now[:notice] = I18n.t("newsletters.create.success", scope: "decidim.admin")
             redirect_to action: :show, id: newsletter.id
@@ -88,7 +88,7 @@ module Decidim
       def destroy
         enforce_permission_to(:destroy, :newsletter, newsletter:)
 
-        DestroyNewsletter.call(newsletter, current_user) do
+        Decidim::Commands::DestroyResource.call(newsletter, current_user) do
           on(:already_sent) do
             flash.now[:error] = I18n.t("newsletters.destroy.error_already_sent", scope: "decidim.admin")
             redirect_to :back

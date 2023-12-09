@@ -64,12 +64,12 @@ module Decidim
       def destroy
         enforce_permission_to(:destroy, :area, area:)
 
-        DestroyArea.call(area, current_user) do
+        Decidim::Commands::DestroyResource.call(area) do
           on(:ok) do
             flash[:notice] = I18n.t("areas.destroy.success", scope: "decidim.admin")
             redirect_to areas_path
           end
-          on(:has_spaces) do
+          on(:invalid) do
             flash[:alert] = I18n.t("areas.destroy.has_spaces", scope: "decidim.admin")
             redirect_to areas_path
           end

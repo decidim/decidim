@@ -42,7 +42,7 @@ module Decidim
         enforce_permission_to :update, :static_page_topic, static_page_topic: topic
         @form = form(StaticPageTopicForm).from_params(params["static_page_topic"])
 
-        UpdateStaticPageTopic.call(topic, @form) do
+        UpdateStaticPageTopic.call(@form, topic) do
           on(:ok) do
             flash[:notice] = I18n.t("static_page_topics.update.success", scope: "decidim.admin")
             redirect_to static_page_topics_path
@@ -58,7 +58,7 @@ module Decidim
       def destroy
         enforce_permission_to :destroy, :static_page_topic, static_page_topic: topic
 
-        DestroyStaticPageTopic.call(topic, current_user) do
+        Decidim::Commands::DestroyResource.call(topic, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("static_page_topics.destroy.success", scope: "decidim.admin")
             redirect_to static_page_topics_path

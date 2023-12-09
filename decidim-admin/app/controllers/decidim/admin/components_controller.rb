@@ -63,7 +63,7 @@ module Decidim
         @form = form(@component.form_class).from_params(component_params)
         enforce_permission_to :update, :component, component: @component
 
-        UpdateComponent.call(@form, @component, current_user) do
+        UpdateComponent.call(@form, @component) do
           on(:ok) do |settings_changed, previous_settings, current_settings|
             handle_component_settings_change(previous_settings, current_settings) if settings_changed
 

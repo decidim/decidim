@@ -26,7 +26,7 @@ module Decidim
         enforce_permission_to :create, :scope_type
         @form = form(ScopeTypeForm).from_params(params)
 
-        CreateScopeType.call(@form, current_user) do
+        CreateScopeType.call(@form) do
           on(:ok) do
             flash[:notice] = I18n.t("scope_types.create.success", scope: "decidim.admin")
             redirect_to scope_types_path
@@ -48,7 +48,7 @@ module Decidim
         enforce_permission_to(:update, :scope_type, scope_type:)
         @form = form(ScopeTypeForm).from_params(params)
 
-        UpdateScopeType.call(scope_type, @form, current_user) do
+        UpdateScopeType.call(@form, scope_type) do
           on(:ok) do
             flash[:notice] = I18n.t("scope_types.update.success", scope: "decidim.admin")
             redirect_to scope_types_path

@@ -3,18 +3,17 @@
 module Decidim
   module Admin
     # This command gets called when a component is created from the admin panel.
-    class UpdateComponent < Decidim::Command
+    class UpdateComponent < Decidim::Commands::UpdateResource
       attr_reader :form, :component, :previous_settings
 
       # Public: Initializes the command.
       #
       # form    - The form from which the data in this component comes from.
       # component - The component to update.
-      def initialize(form, component, user)
+      def initialize(form, component)
         @manifest = component.manifest
         @form = form
         @component = component
-        @user = user
       end
 
       # Public: Creates the Component.
@@ -23,7 +22,7 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        Decidim.traceability.perform_action!("update", @component, @user) do
+        Decidim.traceability.perform_action!("update", @component, form.current_user) do
           transaction do
             update_component
             run_hooks

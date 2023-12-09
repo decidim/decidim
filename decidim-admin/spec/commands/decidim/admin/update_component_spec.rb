@@ -48,7 +48,7 @@ module Decidim::Admin
 
       it "broadcasts :ok and updates the component (except the readonly attribute)" do
         expect do
-          described_class.call(form, component, user)
+          described_class.call(form, component)
         end.to broadcast(:ok)
 
         expect(component["name"]["en"]).to eq("My component")
@@ -79,7 +79,7 @@ module Decidim::Admin
 
       it "broadcasts the previous and current settings" do
         expect do
-          described_class.call(form, component, user)
+          described_class.call(form, component)
         end.to broadcast(
           :ok,
           true,
@@ -101,7 +101,7 @@ module Decidim::Admin
           .with("update", Decidim::Component, user)
           .and_call_original
 
-        expect { described_class.call(form, component, user) }.to change(Decidim::ActionLog, :count)
+        expect { described_class.call(form, component) }.to change(Decidim::ActionLog, :count)
         action_log = Decidim::ActionLog.last
         expect(action_log.action).to eq("update")
         expect(action_log.version).to be_present
@@ -113,7 +113,7 @@ module Decidim::Admin
 
       it "does not update the component" do
         expect do
-          described_class.call(form, component, user)
+          described_class.call(form, component)
         end.to broadcast(:invalid)
 
         component.reload

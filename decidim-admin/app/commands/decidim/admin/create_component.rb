@@ -3,50 +3,26 @@
 module Decidim
   module Admin
     # This command gets called when a component is created from the admin panel.
-    class CreateComponent < Decidim::Command
-      attr_reader :form, :manifest, :participatory_space
+    class CreateComponent < Decidim::Commands::CreateResource
+      attr_reader :manifest, :participatory_space
+
+      fetch_form_attributes :name, :participatory_space, :weight, :settings, :default_step_settings, :step_settings
 
       # Public: Initializes the command.
       #
       # form - The form from which the data in this component comes from.
       def initialize(form)
-        @form = form
+        super(form)
         @manifest = form.manifest
       end
 
-      # Public: Creates the Component.
-      #
-      # Broadcasts :ok if created, :invalid otherwise.
-      def call
-        return broadcast(:invalid) if form.invalid?
+      protected
 
-        transaction do
-          create_component
-          run_hooks
-        end
+      def resource_class = Decidim::Component
 
-        broadcast(:ok)
-      end
+      def attributes = super.merge({ manifest_name: manifest.name })
 
-      private
-
-      def create_component
-        @component = Decidim.traceability.create!(
-          Component,
-          form.current_user,
-          manifest_name: manifest.name,
-          name: form.name,
-          participatory_space: form.participatory_space,
-          weight: form.weight,
-          settings: form.settings,
-          default_step_settings: form.default_step_settings,
-          step_settings: form.step_settings
-        )
-      end
-
-      def run_hooks
-        manifest.run_hooks(:create, @component)
-      end
+      def run_after_hooks = manifest.run_hooks(:create, component)
     end
   end
 end
