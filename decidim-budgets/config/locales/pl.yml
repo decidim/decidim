@@ -56,23 +56,74 @@ pl:
           project:
             name: Projekt
         projects:
+          create:
+            invalid: Podczas tworzenia tego projektu wystąpił błąd.
+            success: Projekt został utworzony.
+          destroy:
+            success: Projekt został usunięty.
           edit:
             title: Edytuj projekt
             update: Aktualizuj
           index:
+            actions: Działania
+            cancel: Anuluj
+            change_budget: Zmień budżet
+            change_category: Zmień kategorię
+            change_scope: Zmień zakres
             change_selected: Zmień wybrany status
+            deselect_implementation: Odznacz ze wdrożenia
             finished_orders: Ukończone głosowania
             pending_orders: Głosowania oczekujące
+            select_for_implementation: Zaznacz do wdrożenia
             selected: Wybrano
             title: Projekty
+            update: Aktualizuj
+            update_budget_button: Aktualizuj budżet projektu
+            update_scope_button: Aktualizuj zakres
           new:
             create: Utwórz
             title: Nowy projekt
+          update:
+            invalid: Podczas aktualizacji tego projektu wystąpił błąd.
+            success: Zaktualizowano projekt.
+          update_budget:
+            invalid: 'Te projekty są już w tym samym budżecie lub ich budżety są większe niż maksymalny dozwolony: %{projects}.'
+            select_a_project: Proszę wybrać projekt.
+            success: 'Projekty zaktualizowane do budżetu o nazwie %{subject_name}: %{projects}.'
+          update_category:
+            invalid: 'Te projekty już miały kategorię %{subject_name}: %{projects}.'
+            select_a_category: Proszę wybrać kategorię.
+            select_a_project: Proszę wybrać projekt.
+            success: 'Projekty zostały zaktualizowane do kategorii %{subject_name}: %{projects}.'
+          update_scope:
+            invalid: 'Te projekty już miały zakres %{subject_name}: %{projects}.'
+            select_a_project: Proszę wybrać projekt.
+            select_a_scope: Proszę wybrać zakres.
+            success: 'Projekty zostały zaktualizowane do zakresu o nazwie %{subject_name}: %{projects}.'
+          update_selected:
+            invalid:
+              selected: 'Te projekty zostały już wybrane do wdrożenia: %{projects}.'
+              unselected: 'Te projekty zostały już odznaczone od wdrożenia: %{projects}.'
+            select_a_project: Proszę wybrać projekt.
+            select_a_selection: Proszę wybrać stan wdrożenia.
+            success:
+              selected: 'Te projekty zostały pomyślnie wybrane do wdrożenia: %{projects}.'
+              unselected: 'Te projekty zostały pomyślnie odznaczone od wdrożenia: %{projects}.'
         proposals_imports:
+          create:
+            invalid: Wystąpił błąd podczas importowania propozycji do projektów.
+            success: "%{number} propozycji pomyślnie zaimportowano do projektów."
           new:
             create: Importuj propozycje do projektów
+            default_budget: Domyślny budżet
+            import_all_accepted_proposals: Importuj wszystkie zaakceptowane propozycje
             no_components: W tej przestrzeni partycypacyjnej nie ma innych komponentów do zaimportowania propozycji jako projektów.
+            origin_component_id: Źródłowy komponent
             select_component: Wybierz komponent
+            title: Importuj propozycje do projektów
+        reminders:
+          orders:
+            description: Użytkownicy otrzymają e-mail z linkami do budżetów tam, gdzie mają oczekujące zlecenie.
       admin_log:
         budget:
           create: "%{user_name} utworzył(a) budżet %{resource_name} w przestrzeni %{space_name}"
@@ -88,12 +139,22 @@ pl:
         continue: Dalej
         more_information: Więcej informacji
       budgets_list:
+        budgets: Budżety
         cancel_order:
           more_than_one: usuń swój głos na %{name} i zacznij od nowa
           only_one: usuń głos i zacznij od nowa.
+        empty: Nie ma jeszcze żadnych budżetów
+        finished_message: Zakończyłeś proces głosowania. Dziękujemy za udział!
         highlighted_cta: Głosuj na %{name}
+        if_change_opinion: W przypadku zmiany zdania można
         progress: Zakończ głosowanie
+        remove_vote: Usuń głos
         show: Zobacz projekty
+        vote: Głos
+        voted_budgets: Budżety poddane pod głosowanie
+        voted_on: Zagłosowano na %{links}.
+      last_activity:
+        new_vote_at: Głosowanie w budżecie na
       limit_announcement:
         limit_reached: 'Masz aktywne głosy: %{links}. Aby zagłosować na ten budżet, musisz <a href="%{landing_path}">usunąć swój głos i zacząć od nowa</a>.'
       models:
