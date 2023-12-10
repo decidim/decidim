@@ -101,6 +101,7 @@ pl:
         youtube_handler: Handler YouTube
       participatory_space_private_user:
         email: E-mail
+        name: Nazwa
       scope:
         code: Kod
         name: Nazwa
@@ -223,6 +224,7 @@ pl:
           error: Wystąpił błąd podczas tworzenia nowej ketegorii.
           success: Kategoria została utworzona.
         destroy:
+          has_spaces: Ten obszar ma przestrzenie zależne. Upewnij się przed jego usunięciem, że żadna przestrzeń partycypacji nie odnosi się do tego obszaru.
           success: Kategoria została usunięta
         edit:
           title: Edytuj kategorię
@@ -649,6 +651,7 @@ pl:
           nickname: Pseudonim
           reason: Powód
           reports: Liczba zgłoszeń
+          title: Zgłoszeni uczestnicy
         report:
           reasons:
             does_not_belong: Nie należy
@@ -658,6 +661,8 @@ pl:
           blocked: Zablokowany
           unblocked: Niezablokowany
       moderations:
+        index:
+          title: Zgłoszona zawartość
         report:
           reasons:
             does_not_belong: Nie należy
@@ -823,6 +828,10 @@ pl:
         form:
           add: Dodaj do białej listy
           title: Biała lista domen zewnętrznych
+      organization_homepage:
+        edit:
+          active_content_blocks: Aktywne bloki treści
+          inactive_content_blocks: Nieaktywne bloki treści
       organization_homepage_content_blocks:
         edit:
           update: Aktualizuj
