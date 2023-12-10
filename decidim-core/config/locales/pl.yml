@@ -22,18 +22,22 @@ pl:
       user:
         about: O użytkowniku
         email: Twój email
+        encrypted_password: Hasło
         locale: Język
         name: Twoje imię
         nickname: Pseudonim
+        old_password: Bieżące hasło
         password: Hasło
         password_confirmation: Potwierdź swoje hasło
         personal_url: Prywatny adres URL
         remove_avatar: Usuń awatar
+        tos_agreement: Warunki korzystania z Platformy
     models:
       decidim/attachment_created_event: Załącznik
       decidim/component_published_event: Aktywny komponent
       decidim/demoted_membership: Nie jest już administratorem grupy
       decidim/gamification/badge_earned_event: Zdobyta odznaka
+      decidim/gamification/level_up_event: Zdobyto kolejny poziom
       decidim/invited_to_group_event: Zaproszono do grupy
       decidim/join_request_accepted_event: Zaakceptowano prośbę o dołączenie
       decidim/join_request_rejected_event: Odrzucono prośbę o dołączenie
@@ -47,6 +51,9 @@ pl:
       decidim/welcome_notification_event: Wiadomość powitalna
   activerecord:
     attributes:
+      decidim/action_log:
+        created_at: Czas
+        with_participatory_space: Przestrzeń partycypacji
       decidim/user:
         current_password: Obecne hasło
         email: Adres e-mail
@@ -80,12 +87,14 @@ pl:
     'true': 'Tak'
   carrierwave:
     errors:
+      file_cannot_be_processed: Plik nie może być przetworzony
       file_resolution_too_large: Rozdzielczość pliku jest zbyt duża
       file_size_too_large: Rozmiar pliku jest zbyt duży
       not_inside_organization: Plik nie jest dołączony do żadnej organizacji
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_short_dashed: "%d.%m.%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
@@ -103,6 +112,9 @@ pl:
         many: około %{count} mies.
         other: około %{count} mies.
       half_a_minute: pół minuty
+      short:
+        about_x_days: "%{count}d"
+        about_x_hours: "%{count}g"
   decidim:
     accessibility:
       external_link: Link zewnętrzny
