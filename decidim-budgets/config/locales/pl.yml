@@ -76,28 +76,54 @@ pl:
             title: Edytuj projekt
             update: Aktualizuj
           index:
+            actions: Działania
+            cancel: Anuluj
+            change_category: Zmień kategorię
+            change_scope: Zmień zakres
             change_selected: Zmień wybrany status
+            deselect_implementation: Odznacz ze wdrożenia
             finished_orders: Ukończone głosowania
             pending_orders: Głosowania oczekujące
+            select_for_implementation: Zaznacz do wdrożenia
             selected: Wybrano
             title: Projekty
+            update: Aktualizuj
+            update_scope_button: Aktualizuj zakres
           new:
             create: Utwórz
             title: Nowy projekt
           update:
             invalid: Wystąpił błąd podczas aktualizowania tego projektu
             success: Zaktualizowano projekt
+          update_category:
+            invalid: 'Te projekty już miały kategorię %{subject_name}: %{projects}.'
+            success: 'Projekty zostały zaktualizowane do kategorii %{subject_name}: %{projects}.'
+          update_scope:
+            invalid: 'Te projekty już miały zakres %{subject_name}: %{projects}.'
+            success: 'Projekty zostały zaktualizowane do zakresu o nazwie %{subject_name}: %{projects}.'
           update_selected:
+            invalid:
+              selected: 'Te projekty zostały już wybrane do wdrożenia: %{projects}.'
+              unselected: 'Te projekty zostały już odznaczone od wdrożenia: %{projects}.'
             select_a_selection: Wybierz status implementacji
+            success:
+              selected: 'Te projekty zostały pomyślnie wybrane do wdrożenia: %{projects}.'
+              unselected: 'Te projekty zostały pomyślnie odznaczone od wdrożenia: %{projects}.'
         proposals_imports:
           create:
             invalid: Wystąpił błąd podczas importowania propozycji do projektów
             success: "%{number} propozycji pomyślnie zaimportowano do projektów"
           new:
             create: Importuj propozycje do projektów
+            default_budget: Domyślny budżet
+            import_all_accepted_proposals: Importuj wszystkie zaakceptowane propozycje
             no_components: W tej przestrzeni partycypacyjnej nie ma innych komponentów do zaimportowania propozycji jako projektów.
+            origin_component_id: Źródłowy komponent
             select_component: Wybierz komponent
             title: Importuj propozycje
+        reminders:
+          orders:
+            description: Użytkownicy otrzymają e-mail z linkami do budżetów tam, gdzie mają oczekujące zlecenie.
       admin_log:
         budget:
           create: "%{user_name} utworzył(a) budżet %{resource_name} w przestrzeni %{space_name}"
@@ -127,6 +153,7 @@ pl:
         my_budgets: Moje budżety
         progress: Zakończ głosowanie
         show: Zobacz projekty
+        vote: Głos
         voted_on: Zagłosowałeś na %{links}
       limit_announcement:
         cant_vote: Nie możesz głosować na ten budżet. <a href="%{landing_path}">Spróbuj zagłosować na inny</a>.
