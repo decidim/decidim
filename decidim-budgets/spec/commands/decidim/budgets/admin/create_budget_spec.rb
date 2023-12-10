@@ -7,7 +7,7 @@ describe Decidim::Budgets::Admin::CreateBudget do
 
   let(:organization) { create(:organization, available_locales: [:en, :ca, :es], default_locale: :en) }
   let(:participatory_process) { create(:participatory_process, organization:) }
-  let!(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "budgets") }
+  let!(:component) { create(:component, participatory_space: participatory_process, manifest_name: "budgets") }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:scope) { create(:scope, organization:) }
 
@@ -20,7 +20,7 @@ describe Decidim::Budgets::Admin::CreateBudget do
       total_budget: 100_000_000,
       scope:,
       current_user: user,
-      current_component:,
+      component:,
       current_organization: organization
     )
   end
@@ -44,7 +44,7 @@ describe Decidim::Budgets::Admin::CreateBudget do
 
   it "sets the component" do
     subject.call
-    expect(budget.component).to eq current_component
+    expect(budget.component).to eq component
   end
 
   it "traces the action", versioning: true do
