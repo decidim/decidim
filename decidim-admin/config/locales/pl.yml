@@ -14,13 +14,16 @@ pl:
         description: Opis
         file: Plik
         title: Nazwa załącznika lub obrazu
+        weight: Kolejność
       attachment_collection:
         description: Opis
         name: Nazwa
+        weight: Kolejność
       category:
         description: Opis
         name: Nazwa
         parent_id: Element nadrzędny
+        weight: Kolejność
       component:
         name: Nazwa
         published_at: Opublikowano
