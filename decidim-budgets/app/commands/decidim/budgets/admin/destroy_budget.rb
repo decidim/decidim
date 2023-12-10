@@ -10,7 +10,7 @@ module Decidim
 
         def invalid? = resource.projects.present?
 
-        def extra_params = { "visibility" => "all" }
+        def extra_params = { visibility: "all" }
       end
     end
   end
