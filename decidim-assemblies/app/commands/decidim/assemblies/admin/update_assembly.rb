@@ -22,21 +22,29 @@ module Decidim
         # - :invalid if the form was not valid and we could not proceed.
         #
         # Returns nothing.
-        def call
-          return broadcast(:invalid) if form.invalid?
 
-          update_resource
-          link_participatory_processes(resource)
-          update_children_count
+        def call
+          return broadcast(:invalid) if invalid?
+
+          transaction do
+            run_before_hooks
+            update_resource
+            run_after_hooks
+          end
 
           broadcast(:ok, resource)
-        rescue ActiveRecord::RecordInvalid
+        rescue Decidim::Commands::HookError, ActiveRecord::RecordInvalid
           form.errors.add(:hero_image, resource.errors[:hero_image]) if resource.errors.include? :hero_image
           form.errors.add(:banner_image, resource.errors[:banner_image]) if resource.errors.include? :banner_image
           broadcast(:invalid)
         end
 
         private
+
+        def run_after_hooks
+          link_participatory_processes(resource)
+          update_children_count
+        end
 
         def parent
           @parent ||= Assembly.find_by(id: resource.parent)
