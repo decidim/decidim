@@ -36,11 +36,13 @@ pl:
         date: Data
         link: Link
         title: Tytuł
+        weight: Kolejność
       conference_partner:
         link: Link
         logo: Logo
         name: Imię
         partner_type: Typ partnera
+        weight: Kolejność
       conference_registration_invite:
         email: Adres e-mail
         name: Imię
@@ -50,12 +52,15 @@ pl:
         description: Opis
         price: Cena
         title: Tytuł
+        weight: Kolejność
       conference_speaker:
         affiliation: Przynależność
         avatar: Awatar
         conference_meeting_ids: Powiązane spotkania
         full_name: Pełne imię i nazwisko
+        personal_url: Prywatny adres URL
         position: Pozycja
+        short_bio: Notka biograficzna
         twitter_handle: Nazwa użytkownika na Twitterze
         user_id: Użytkownik
       conference_user_role:
@@ -133,6 +138,8 @@ pl:
         edit:
           title: Zaktualizuj administratora konferencji.
           update: Aktualizuj
+        index:
+          conference_admins_title: Administratorzy konferencji
         new:
           create: Utwórz
           title: Nowy administrator konferencji.
@@ -310,6 +317,7 @@ pl:
           update: "%{user_name} zaktualizował(a) partnera %{resource_name} w konferencji %{space_name}"
         registration_type:
           create: "%{user_name} utworzył(a) typ rejestracji %{resource_name} w konferencji %{space_name}"
+          delete: "Użytkownik %{user_name} usunął typ rejestracji %{resource_name} z konferencji %{space_name}"
           publish: "%{user_name} opublikował(a) typ rejestracji %{resource_name} w konferencji %{space_name}"
           unpublish: "%{user_name} cofnął/cofnęła publikację typu rejestracji %{resource_name} w konferencji %{space_name}"
           update: "%{user_name} zaktualizował(a) typ rejestracji %{resource_name} w konferencji %{space_name}"
@@ -325,6 +333,9 @@ pl:
         title: Prelegenci
     conferences:
       admin:
+        conference_copies:
+          form:
+            slug_help: 'Slugi URL wykorzystuje się do generowania adresów URL odsyłających do tej konferencji. Można używać jedynie liter, cyfr i łączników, przy czym należy rozpocząć od litery. Przykład: %{url}'
         conference_invites:
           create:
             error: Podczas zapraszania użytkownika do udziału w konferencji wystąpił błąd.
@@ -368,6 +379,7 @@ pl:
               few: Było %{count} rejestracji.
               many: Było %{count} rejestracji.
               other: Było %{count} rejestracji.
+            slug_help: 'Slugi URL wykorzystuje się do generowania adresów URL odsyłających do tej konferencji. Można używać jedynie liter, cyfr i łączników, przy czym należy rozpocząć od litery. Przykład: %{url}'
         diplomas:
           edit:
             save: Zapisz
@@ -376,6 +388,7 @@ pl:
           invite:
             decline: Odrzuć zaproszenie "%{conference_title}"
             invited_existing_user_to_join_a_conference: "%{invited_by} zaprosił(a) Cię do udziału w konferencji %{application}. Możesz odrzucić lub zaakceptować zaproszenie korzystając z poniższych linków."
+            invited_user_to_join_a_conference: "Użytkownik %{invited_by} zaprosił Cię do udziału w konferencji w %{application}. Możesz to zaakceptować za pomocą poniższego linku."
             registration: Rejestracja na "%{conference_title}"
         partners:
           index:
@@ -498,6 +511,7 @@ pl:
           highlighted_conferences:
             active_conferences: Aktualne konferencje
             conferences_button_title: Link do strony Konferencji wyświetlającej wszystkie konferencje
+            see_all_conferences: Zobacz wszystkie konferencje
       photo:
         image:
           attributes:
