@@ -2,6 +2,32 @@
 
 # Changelog
 
+## [0.28.0.rc4](https://github.com/decidim/decidim/tree/0.28.0.rc4)
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+Nothing.
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+Nothing.
+
+### Internal
+
+Nothing.
+
 ## [0.28.0.rc3](https://github.com/decidim/decidim/tree/0.28.0.rc3)
 
 ### Added
