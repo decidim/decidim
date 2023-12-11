@@ -1,4 +1,4 @@
-<%= decidim_modal id: "budget-confirm", class:"verification-modal" do %>
+<%= decidim_modal id: "budget-confirm", class: "verification-modal" do %>
   <div data-dialog-container>
     <%= icon "check-double-line" %>
     <h3 class="h3" id="dialog-title-budget-confirm" data-dialog-title>
@@ -8,7 +8,7 @@
       <% if current_order.present? %>
         <h4 class="h4 mb-4"><%= translated_attribute(budget.title) %></h4>
         <p class="mb-4"><%= t(".description") %></p>
-        <div class="card card--secondary">
+        <div class="card">
           <% current_order.projects.each do |project| %>
             <div class="card__list card__list__project-voted">
               <div class="card__list__content">
@@ -17,7 +17,7 @@
                 </div>
               </div>
               <div class="budget__card__list-project">
-                <span class="budget-list__data__number budget-list__number-show-for-medium">
+                <span class="budget-list__number-show-for-medium">
                   <%= budget_to_currency project.budget_amount %>
                 </span>
               </div>
