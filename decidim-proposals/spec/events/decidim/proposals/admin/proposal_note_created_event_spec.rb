@@ -9,7 +9,6 @@ describe Decidim::Proposals::Admin::ProposalNoteCreatedEvent do
   let(:component) { resource.component }
   let(:admin_proposal_info_path) { "/admin/participatory_processes/#{participatory_space.slug}/components/#{component.id}/manage/proposals/#{resource.id}" }
   let(:admin_proposal_info_url) { "http://#{organization.host}/admin/participatory_processes/#{participatory_space.slug}/components/#{component.id}/manage/proposals/#{resource.id}" }
-  let(:resource) { create(:proposal, title: { en: "It is my proposal" }) }
   let(:email_subject) { "Someone left a note on proposal #{resource_title}." }
   let(:email_intro) { %(Someone has left a note on the proposal "#{resource_title}". Check it out at <a href="#{admin_proposal_info_url}">the admin panel</a>.) }
   let(:email_outro) { "You have received this notification because you can valuate the proposal." }
