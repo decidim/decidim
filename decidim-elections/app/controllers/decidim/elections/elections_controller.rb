@@ -64,8 +64,7 @@ module Decidim
       end
 
       def paginated_elections
-        @paginated_elections ||= reorder(search.result.published)
-        @paginated_elections = paginate(@paginated_elections)
+        @paginated_elections ||= paginate(reorder(search.result.published))
       end
 
       def scheduled_elections
