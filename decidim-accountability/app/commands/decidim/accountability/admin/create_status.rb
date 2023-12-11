@@ -8,7 +8,7 @@ module Decidim
       class CreateStatus < Decidim::Commands::CreateResource
         fetch_form_attributes :key, :name, :description, :progress, :component
 
-        protected
+        private
 
         def resource_class = Decidim::Accountability::Status
       end

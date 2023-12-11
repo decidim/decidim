@@ -27,7 +27,7 @@ module Decidim
         broadcast(:invalid)
       end
 
-      private
+      protected
 
       attr_reader :resource, :current_user
 

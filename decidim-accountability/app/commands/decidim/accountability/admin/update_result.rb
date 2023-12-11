@@ -11,7 +11,7 @@ module Decidim
         fetch_form_attributes :scope, :category, :parent_id, :title, :description, :start_date, :end_date,
                               :progress, :decidim_accountability_status_id, :external_id, :weight
 
-        protected
+        private
 
         alias result resource
 

@@ -8,7 +8,7 @@ module Decidim
       class CreateTimelineEntry < Decidim::Commands::CreateResource
         fetch_form_attributes :decidim_accountability_result_id, :entry_date, :title, :description
 
-        protected
+        private
 
         def resource_class = Decidim::Accountability::TimelineEntry
       end

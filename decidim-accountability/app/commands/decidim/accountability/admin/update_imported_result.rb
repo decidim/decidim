@@ -20,7 +20,7 @@ module Decidim
           @parent_id = parent_id
         end
 
-        protected
+        private
 
         alias result resource
 
