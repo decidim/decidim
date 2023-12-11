@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# Adapted from https://hashrocket.com/blog/posts/recursive-sql-in-activerecord
+
 module Decidim
   module ActsAsTree
     extend ActiveSupport::Concern
