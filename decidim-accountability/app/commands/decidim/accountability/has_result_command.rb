@@ -2,7 +2,7 @@
 
 module Decidim
   module Accountability
-    module ResultCommandHelper
+    module HasResultCommand
       def proposals
         @proposals ||= resource.sibling_scope(:proposals).where(id: form.proposal_ids)
       end

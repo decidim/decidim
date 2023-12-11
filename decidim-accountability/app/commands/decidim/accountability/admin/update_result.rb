@@ -6,7 +6,8 @@ module Decidim
       # This command is executed when the user changes a Result from the admin
       # panel.
       class UpdateResult < Decidim::Commands::UpdateResource
-        include Decidim::Accountability::ResultCommandHelper
+        include Decidim::Accountability::HasResultCommand
+
         fetch_form_attributes :scope, :category, :parent_id, :title, :description, :start_date, :end_date,
                               :progress, :decidim_accountability_status_id, :external_id, :weight
 
