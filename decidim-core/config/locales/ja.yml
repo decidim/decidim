@@ -1213,6 +1213,7 @@ ja:
           proposals: 提案
           proposals_explanation: 提案を行い、既存のものをサポートし、見たい変更を促進します。
         footer_sub_hero:
+          footer_sub_hero_body: より開かれた透明性のあるコラボレーティブな社会を構築しましょう。<br /> 一緒に参加し、決定しましょう。
           footer_sub_hero_headline: '%{organization} 参加型プラットフォームへようこそ。'
           register: 登録
         hero:
