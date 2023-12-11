@@ -40,19 +40,9 @@ module Decidim
       # Ruby 3.0 endless method syntax
       def resource_class = Decidim::MyModule::MyResource
 
-      # Prior to Ruby 3.0, still works
-      def resource_class
-        Decidim::MyModule::MyResource
-      end
-
       # This method allows you to customize the log visbility
       # Ruby 3.o endless method syntax
       def extra_params = { visibility: "all" }
-
-      # Prior to Ruby 3.0, still works
-      def extra_params
-        { visibility: "all" }
-      end
 
       # The command has a before hook that you can use:
       def run_before_hooks
@@ -116,16 +106,6 @@ module Decidim
       # Ruby 3.o endless method syntax
       def extra_params = { visibility: "all" }
 
-      # Prior to Ruby 3.0, still works
-      def extra_params
-        { visibility: "all" }
-      end
-
-      # Prior to Ruby 3.0, still works
-      def resource_class
-        Decidim::MyModule::MyResource
-      end
-
       # The command has a before hook that you can use:
       def run_before_hooks
         # do something
@@ -180,11 +160,6 @@ module Decidim
       # Ruby 3.o endless method syntax
       def extra_params = { visibility: "all" }
 
-      # Prior to Ruby 3.0, still works
-      def extra_params
-        { visibility: "all" }
-      end
-
       # The command has a before hook that you can use:
       def run_before_hooks
         # do something
@@ -198,11 +173,6 @@ module Decidim
       # You can also provide a custom validation by overriding the `invalid?` method
       # Ruby 3.0 endless method syntax
       def invalid? = false
-
-      # Prior to Ruby 3.0, still works
-      def invalid?
-        false
-      end
     end
   end
 end
@@ -228,23 +198,23 @@ module Decidim
       end
 
       def call
-      return broadcast(:invalid) if form.invalid?
+        return broadcast(:invalid) if form.invalid?
 
-      transation do
-         create_resource
-         dispatch_event
-         process_jobs
+        transation do
+          create_resource
+          dispatch_event
+          process_jobs
+        end
+        broadcast(:ok)
       end
-      broadcast(:ok)
-    end
 
       private
 
       attr_reader :form, :resource
 
       def process_jobs
-      Decidim::MyModule::MyCustomJob.perform_later(resource)
-    end
+        Decidim::MyModule::MyCustomJob.perform_later(resource)
+      end
 
       def dispatch_event
         Decidim::EventsManager.publish(
@@ -252,26 +222,26 @@ module Decidim
           event_class: Decidim::MyModule::MyResourceEvent,
           resource:
         )
-    end
+      end
 
       def create_resource
-      @resource = Decidim.traceability.create!(
-        resource,
-        form.current_user,
-        **attributes,
-        visibility: "public-only"
-      )
-    end
+        @resource = Decidim.traceability.create!(
+          resource,
+          form.current_user,
+          **attributes,
+          visibility: "public-only"
+        )
+      end
 
       # this is mapping of
       # ActiveRecord::attribute => form.attribute
       def attributes
-      {
-        title: form.title,
-        description: form.description,
-        resource: form.resource
-      }
-    end
+        {
+          title: form.title,
+          description: form.description,
+          resource: form.resource
+        }
+      end
     end
   end
 end
