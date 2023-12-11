@@ -185,6 +185,11 @@ ja:
           error: この参加スペースの管理者を更新中に問題が発生しました。
           success: 管理者はこの参加スペースの更新に成功しました。
       filters:
+        ceased_date_not_null:
+          label: 終了済み
+          values:
+            'false': 未完了
+            'true': 終了済み
         decidim_assemblies_type_id_eq:
           label: 参加スペース種別
         search_placeholder:
