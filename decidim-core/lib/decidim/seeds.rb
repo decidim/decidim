@@ -31,7 +31,8 @@ module Decidim
         avatar: random_avatar,
         accepted_tos_version: organization.tos_version + 1.hour,
         newsletter_notifications_at: Time.current,
-        tos_agreement: true
+        tos_agreement: true,
+        password_updated_at: Time.current
       )
 
       user
