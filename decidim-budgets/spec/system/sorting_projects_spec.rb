@@ -37,7 +37,7 @@ describe "Sorting projects" do
     end
 
     it "lists the projects ordered by selected option" do
-      within "#projects div.collection-sort-controls" do
+      within "#projects [data-collection-sort-controls]" do
         expect(page).not_to have_selector("a.underline.font-bold", text: "Random order")
         expect(page).to have_selector("a.underline.font-bold", text: selected_option)
       end
@@ -85,7 +85,7 @@ describe "Sorting projects" do
       it "automatically sorts by votes" do
         visit_budget
 
-        within "#projects div.collection-sort-controls" do
+        within "#projects [data-collection-sort-controls]" do
           expect(page).to have_selector("a.underline.font-bold", text: "Most voted")
         end
 
