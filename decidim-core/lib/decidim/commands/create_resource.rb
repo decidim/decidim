@@ -28,6 +28,8 @@ module Decidim
         broadcast(:invalid)
       end
 
+      protected
+
       # @param soft [Boolean] whether to soft-create the resource or not.
       # @usage
       #  create_resource(soft: true) - Will soft-create the resource, returning any validation errors.
@@ -39,8 +41,6 @@ module Decidim
                                               attributes,
                                               **extra_params)
       end
-
-      private
 
       attr_reader :form, :resource
 
