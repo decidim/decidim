@@ -5,3 +5,20 @@
     }
   }
 }
+
+.accordion {
+  &.technical-configuration {
+    .accordion-title {
+      &::before {
+        content: "\25B6";
+        font-size: 0.7em;
+        display: inline-block;
+        vertical-align: text-bottom;
+      }
+    }
+
+    .is-active > .accordion-title::before {
+      content: "\25BC";
+    }
+  }
+}
