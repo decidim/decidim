@@ -1,6 +1,6 @@
 <div id="js-merge-proposals-actions" class="js-bulk-action-form">
   <%= form_tag(proposals_merge_path, method: :post, id: "js-form-merge-proposals", class: "form form-defaults flex items-center gap-x-2") do %>
-    <div class="checkboxes hide">
+    <div class="hide">
       <% proposals.each do |proposal| %>
         <%= check_box_tag "proposal_ids[]", proposal.id, false, class: "js-check-all-proposal js-proposal-id-#{proposal.id}" %>
       <% end %>
@@ -10,6 +10,6 @@
 
     <%= submit_tag(t("decidim.proposals.admin.proposals.index.merge_button"), id: "js-submit-merge-proposals", class: "button button__sm button__secondary small button--simple float-left") %>
 
-    <button id="js-cancel-merge-proposals" class="button button__sm button__secondary clear compact js-cancel-bulk-action" type="button"><%= t("decidim.proposals.admin.proposals.index.cancel") %></button>
+    <button id="js-cancel-merge-proposals" class="button button__sm button__secondary js-cancel-bulk-action" type="button"><%= t("decidim.proposals.admin.proposals.index.cancel") %></button>
   <% end %>
 </div>
