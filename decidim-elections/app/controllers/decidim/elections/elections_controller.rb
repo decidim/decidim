@@ -16,6 +16,8 @@ module Decidim
 
       def index
         redirect_to election_path(single, single: true) if single?
+
+        @forced_past_elections = true if elections.any? && scheduled_elections.none?
       end
 
       def show

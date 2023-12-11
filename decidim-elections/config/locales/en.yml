@@ -727,6 +727,7 @@ en:
           back: Back
           continue: Next
       warnings:
+        empty_filters: There are no elections with this criteria.
         no_elections_warning: No elections match your search criteria or there is not any election scheduled.
         no_scheduled_elections_warning: Currently, there are no scheduled elections, but here you can find all the past elections listed.
     events:
