@@ -6,7 +6,7 @@ Usually, a command is used to handle the interaction between the controller and 
 
 Commands are located in the `app/commands/decidim/<my_module>` directory, and named: `<action>_<my_resource>.rb`.
 
-Because most of the time, a command is used to create, update a resource, we are shipping 3 commands by default, which you can inherit by default in your own commands:
+Because most of the time, a command is used to create, update a resource, we are shipping 3 commands by default, which you can inherit in your own commands:
 
 - xref:_decidimcommandscreateresource[`Decidim::Commands::CreateResource`] - for creating resources
 - xref:_decidimcommandsupdateresource[`Decidim::Commands::UpdateResource`] - for updating resources
@@ -209,7 +209,9 @@ end
 ```
 
 == Advanced usage
+
 In the below example, you will be able to see an advanced example on how you can write your custom command (`CreateMyResource`), events (`Decidim::MyModule::MyResourceEvent`) and jobs (`Decidim::MyModule::MyCustomJob`) can be used.
+
 ```ruby
 # frozen_string_literal: true
 
@@ -276,6 +278,7 @@ end
 ```
 
 == Overriding Decidim commands
+
 Sometimes you may need to extend a `Decidim` supplied command, then you can either override the `attributes` method, either extend it with a `super` call.
 
 ```ruby
