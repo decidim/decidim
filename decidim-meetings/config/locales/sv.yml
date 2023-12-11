@@ -449,7 +449,6 @@ sv:
         show:
           attendees: Antal deltagare
           contributions: Antal bidrag
-          date: Datum
           join: Gå med i mötet
           leave: Avbryt din registrering
           leave_confirmation: Är du säker på att du vill avboka från detta möte?
@@ -467,7 +466,6 @@ sv:
           remaining_slots:
             one: "%{count} plats kvar"
             other: "%{count} platser kvar"
-          view: Visa
           visit_finished: Visa tidigare möten
           withdraw_btn_hint: Du kan dra tillbaka ditt möte om du ändrar dig. Mötet raderas inte utan kommer att synas i listan över möten som dragits tillbaka.
           withdraw_confirmation_html: Är du säker på att du vill dra tillbaka det här mötet?<br><br><strong>Den här åtgärden kan inte ångras!</strong>

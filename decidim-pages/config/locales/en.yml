@@ -29,3 +29,5 @@ en:
           update:
             invalid: There was a problem saving the page.
             success: Page successfully saved.
+      show:
+        empty: There are no contents in this page yet.

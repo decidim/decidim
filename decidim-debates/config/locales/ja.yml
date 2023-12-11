@@ -50,6 +50,7 @@ ja:
         confirm_destroy: よろしいですか？
         destroy: 削除
         edit: 編集
+        new: 新しいディベート
         title: アクション
       admin:
         debate_closes:
@@ -94,15 +95,12 @@ ja:
           cancel: キャンセル
           description: このディベートの要約または結論は何ですか?
           send: ディベートを閉じる
-        closed: 終了
         count:
           debates_count:
             other: "%{count} 個のディベート数"
         create:
           invalid: ディベートの作成で不具合が発生しました。
           success: ディベートが正常に作成されました。
-        debate:
-          participate: 参加
         edit:
           back: 戻る
           save: 変更を保存
@@ -139,7 +137,6 @@ ja:
           updated: 更新が新しい順
         show:
           close_debate: ディベートを終了する
-          date: 日付
           debate_closed: 終了
           debate_conclusions_are: 'ディベートは %{date} に、以下の結論を持って終了しました。'
           edit_conclusions: 結論を編集

@@ -178,22 +178,6 @@ lt:
           copy: Kopijuoti
           select: Pasirinkite, kuriuos duomenis norėtumėte dubliuoti
           title: Dubliuoti dalyvaujamąjį procesą
-      participatory_process_group_landing_page:
-        edit:
-          active_content_blocks: Aktyvūs turinio blokai
-          add: Pridėti turinio bloką
-          destroy_confirmation: Ar tikrai norite ištrinti šį turinio bloką?
-          inactive_content_blocks: Neaktyvūs turinio blokai
-          title: Puslapio turinys
-      participatory_process_group_landing_page_content_blocks:
-        create:
-          error: Bandant sukurti šį turinio bloką kilo problema.
-          success: Turinio blokas sėkmingai sukurtas.
-        destroy:
-          error: Bandant pašalinti šį turinio bloką kilo problema.
-          success: Turinio blokas sėkmingai pašalintas.
-        edit:
-          update: Atnaujinti
       participatory_process_groups:
         destroy:
           error: Naikinant Dalyvaujamojo proceso grupę įvyko klaida.

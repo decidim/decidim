@@ -1,0 +1,8 @@
+<%# This page is for PDF signatures, but we have the HTML version so it is possible to
+    test without adding new dependencies just for this.
+    If there is a new API or method to test the PDF format then this HTML version can be deleted. %>
+<%= render partial: "signatures", locals: {
+      collect_user_extra_fields: current_initiative.type.collect_user_extra_fields,
+      votes: @votes,
+      initiative: current_initiative
+    } %>

@@ -385,6 +385,9 @@ cs:
               many: Bylo zde %{count} registrací.
               other: Bylo zde %{count} registrací.
             slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na tuto konferenci. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
+        content_blocks:
+          highlighted_conferences:
+            max_results: Maximální počet zobrazených prvků
         diplomas:
           edit:
             save: Uložit

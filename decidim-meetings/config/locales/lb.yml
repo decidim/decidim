@@ -293,7 +293,6 @@ lb:
         show:
           attendees: Teilnehmer zählen
           contributions: Beiträge zählen
-          date: Datum
           join: Tritt dem Treffen bei
           leave: Registrierung stornieren
           leave_confirmation: Sind Sie sicher dass Sie Ihre Registrierung für diese Sitzung stornieren möchten?
@@ -304,7 +303,6 @@ lb:
           registration_state:
             validated: GÜLTIG
             validation_pending: Validierung ausstehend
-          view: Uweisen
         update:
           invalid: Beim Aktualisieren der Besprechung ist ein Fehler aufgetreten.
           success: Sie haben die Sitzung erfolgreich aktualisiert.

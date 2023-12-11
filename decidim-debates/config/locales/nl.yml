@@ -86,8 +86,6 @@ nl:
         create:
           invalid: Er is een probleem opgetreden tijdens het aanmaken van het debat.
           success: Debat succesvol aangemaakt.
-        debate:
-          participate: Deelnemen
         edit:
           back: Achterzijde
           save: Wijzigingen opslaan
@@ -122,7 +120,6 @@ nl:
           recent: Meest recent
           updated: Onlangs bijgewerkt
         show:
-          date: 'Datum:'
           edit_debate: Bewerk debat
           open: Debat openen
         update:

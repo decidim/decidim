@@ -112,7 +112,6 @@ pt:
           show: Mostrar definições avançadas
         create:
           error: Ocorreu um problema ao criar uma nova organização.
-          success: Organização criada corretamente.
         edit:
           secondary_hosts_hint: Insira cada um deles em uma nova linha
         file_upload_settings:

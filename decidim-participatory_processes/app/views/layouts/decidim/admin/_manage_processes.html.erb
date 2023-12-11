@@ -1,11 +1,11 @@
 <div class="inline-block relative">
-  <%= button_tag id: "processes-menu-trigger", data: { component: "dropdown", target: "processes-dropdown-menu-settings" }, class: "dropdown__trigger button button__transparent" do %>
+  <%= button_tag data: { component: "dropdown", target: "processes-dropdown-menu-settings" }, class: "dropdown__trigger button button__transparent" do %>
     <span>
       <%= t("menu.manage", scope: "decidim.admin") %>
     </span>
     <%= icon "arrow-down-s-line" %>
   <% end %>
-  <div id="processes-dropdown-menu-settings">
+  <div id="processes-dropdown-menu-settings" aria-hidden="true">
     <ul class="dropdown dropdown__bottom">
       <% if allowed_to? :read, :process_list %>
         <li class="dropdown__item">

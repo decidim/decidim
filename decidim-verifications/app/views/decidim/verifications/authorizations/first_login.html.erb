@@ -2,14 +2,20 @@
   <h1 class="title-decorator inline-block text-left mb-12">
     <%= t("decidim.verifications.authorizations.first_login.title") %>
   </h1>
-  <p class="text-lg text-gray-2">
+  <p class="text-lg text-gray-2 text-left">
     <%= t("decidim.verifications.authorizations.first_login.verify_with_these_options") %>
   </p>
 </div>
 
 <div class="space-y-4">
-  <% unauthorized_methods.each do |unauthorized_method| %>
-    <%= link_to t("decidim.verifications.authorizations.first_login.actions.#{unauthorized_method.key}"), unauthorized_method.root_path, class: "block text-secondary" %>
-  <% end %>
+  <ul class="space-y-4">
+    <% unauthorized_methods.each do |unauthorized_method| %>
+      <li>
+        <%= link_to t("decidim.verifications.authorizations.first_login.actions.#{unauthorized_method.key}"),
+                    unauthorized_method.root_path,
+                    class: "button button__sm button__transparent-secondary" %>
+      </li>
+    <% end %>
+  </ul>
   <p class="prose prose-a:text-secondary"><%= t("decidim.verifications.authorizations.skip_verification", link: link_to(t("decidim.verifications.authorizations.start_exploring"), cta_button_path).html_safe).html_safe %>.</p>
 </div>

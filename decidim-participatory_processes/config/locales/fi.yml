@@ -100,6 +100,7 @@ fi:
         edit: Muokkaa
         filter:
           all_processes: Näytä kaikki prosessit
+          process_groups: Suodata ryhmiteltyjä prosesseja
         import_process: Tuo
         moderate: Moderoi
         new_process: Uusi prosessi
@@ -110,6 +111,7 @@ fi:
         preview: Esikatsele
         publish: Julkaise
         resend_invitation: Lähetä kutsu uudelleen
+        see_process: Näytä prosessi
         unpublish: Lopeta julkaisu
       menu:
         participatory_process_groups: Prosessiryhmät
@@ -124,6 +126,7 @@ fi:
           attachments: Liitteet
           categories: Aihepiirit
           components: Komponentit
+          info: Tietoa tästä prosessista
           landing_page: Laskeutumissivu
           moderations: Moderoinnit
           private_users: Yksityiset käyttäjät
@@ -132,6 +135,7 @@ fi:
       models:
         participatory_process:
           fields:
+            actions: Toiminnot
             created_at: Luonnin ajankohta
             private: Yksityinen
             published: Julkaistu
@@ -172,22 +176,6 @@ fi:
           copy: Kopio
           select: Valitse, mitkä tiedot haluat kopioida
           title: Kopioi osallistumisprosessi
-      participatory_process_group_landing_page:
-        edit:
-          active_content_blocks: Aktiiviset sisältölohkot
-          add: Lisää sisältölohko
-          destroy_confirmation: Haluatko varmasti poistaa tämän sisältölohkon?
-          inactive_content_blocks: Käytöstä poistetut sisältölohkot
-          title: Sivun sisältö
-      participatory_process_group_landing_page_content_blocks:
-        create:
-          error: Sisältölohkon luonti epäonnistui.
-          success: Sisältölohkon luonti onnistui.
-        destroy:
-          error: Sisältölohkon poisto epäonnistui.
-          success: Sisältölohkon poisto onnistui.
-        edit:
-          update: Päivitä
       participatory_process_groups:
         destroy:
           error: Osallistumisprosessien ryhmän poisto epäonnistui.
@@ -285,6 +273,7 @@ fi:
           private: Yksityinen
           public: Julkinen
           published: Julkaistu
+          unpublished: Julkaisematon
         new:
           create: Luo
           title: Uusi osallistumisprosessi
@@ -416,6 +405,7 @@ fi:
         participatory_process_groups:
           form:
             metadata: Metatiedot
+            title: Tietoa tästä prosessista
             visibility: Näkyvyys
         participatory_process_imports:
           form:

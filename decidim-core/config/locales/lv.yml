@@ -150,7 +150,6 @@ lv:
         error: Vienuma grozījumu veikšanas laikā radusies kļūda.
         promote_button: Paaugstināt līdz %{model_name}
         promote_confirm_text: Vai tiešām vēlaties atbalstīt šo labojumu?
-        section_heading: Grozījumi (%{count})
       compare_draft:
         continue: Turpināt
         no_similars_found: Netika atrasts neviens līdzīgs labojums.
@@ -271,7 +270,6 @@ lv:
         one: un %{count} vēl
         other: un %{count} vēl
       see_less: "(skatīt mazāk)"
-      see_more: "(skatīt vairāk)"
     components:
       component_order_selector:
         order:
@@ -773,7 +771,6 @@ lv:
           proposals: Priekšlikumi
           proposals_explanation: Iesniedziet jaunus priekšlikumus, atbalstiet esošos un veiciniet vēlamās izmaiņas.
         footer_sub_hero:
-          footer_sub_hero_body: Veidosim atvērtāku, caurskatāmāku un uz sadarbību tendētu sabiedrību. <br /> Pievienojieties, piedalieties un izlemiet!
           footer_sub_hero_headline: Laipni lūdzam %{organization} līdzdalības platformā.
           register: Reģistrēties
         hero:
@@ -1003,7 +1000,6 @@ lv:
         change_my_password: Nomainīt manu paroli
         confirm_new_password: Apstiprināt jauno paroli
         new_password: Jaunā parole
-        password_help: "Vismaz %{minimun_characters} rakstzīmes, nedrīkst būt pārlieku izplatītas (piem., 123456), un tām jāatšķiras no jūsu segvārda un e-pasta adreses."
       new:
         forgot_your_password: Aizmirsāt paroli?
         send_me_reset_password_instructions: Nosūtīt man paroles atiestatīšanas norādījumus

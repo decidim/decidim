@@ -142,7 +142,7 @@ fr:
             amendments_wizard_help_text: Texte d'aide de l'assistant
             announcement: Annonce
             attachments_allowed: Autoriser les pièces jointes
-            can_accumulate_supports_beyond_threshold: Peut accumuler des supports au-delà du seuil
+            can_accumulate_supports_beyond_threshold: Peut accumuler des votes au-delà du seuil
             collaborative_drafts_enabled: Brouillons collaboratifs activés
             comments_enabled: Activer le module de commentaire
             comments_max_length: Longueur maximum (en caractères) des commentaires (laisser 0 pour la valeur par défaut)
@@ -328,7 +328,7 @@ fr:
           email_subject: La portée de la proposition %{resource_title} a été mise à jour
           notification_title: La portée de la proposition <a href="%{resource_path}">%{resource_title}</a> a été mise à jour par un administrateur.
         voting_enabled:
-          email_intro: 'Vous pouvez soutenir les propositions de %{participatory_space_title} ! Participez ici :'
+          email_intro: 'Vous pouvez voter pour les propositions de %{participatory_space_title} ! Participez ici :'
           email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Vous pouvez désormais voter les propositions dans %{participatory_space_title}
           notification_title: Vous pouvez maintenant commencer <a href="%{resource_path}">à voter pour les propositions</a> de <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -348,14 +348,14 @@ fr:
         proposal_votes:
           conditions:
             - Parcourir et passer du temps à lire les propositions d'autres personnes
-            - Soutenez les propositions que vous aimez ou trouvez intéressantes
-          description: Ce badge est attribué lorsque vous soutenez les propositions d'autres personnes.
-          description_another: Cet utilisateur a soutenu %{score} propositions.
-          description_own: Vous avez soutenu %{score} propositions.
-          name: Soutiens de proposition
-          next_level_in: Soutenir %{score} propositions supplémentaires pour atteindre le niveau supérieur!
+            - Votez pour les propositions que vous aimez ou trouvez intéressantes
+          description: Ce badge est attribué lorsque vous votez pour les propositions d'autres personnes.
+          description_another: Cet utilisateur a voté pour %{score} propositions.
+          description_own: Vous avez voté pour %{score} propositions.
+          name: Votes de proposition
+          next_level_in: Votez pour %{score} proposition(s) supplémentaire(s) pour atteindre le niveau supérieur !
           unearned_another: Cet utilisateur n'a voté pour aucune proposition pour le moment.
-          unearned_own: Vous n'avez soutenu aucune proposition pour le moment.
+          unearned_own: Vous n'avez voté pour aucune proposition pour le moment.
         proposals:
           conditions:
             - Choisissez l'espace de participation qui vous intéresse avec la soumission des propositions activée
@@ -431,8 +431,8 @@ fr:
               one: proposition
               other: propositions
           title:
-            answers: Importer des réponses aux propositions
-            proposals: Importer des propositions
+            answers: Importer des réponses à proposition depuis un fichier
+            proposals: Importer des propositions depuis un fichier
         models:
           proposal:
             name: Proposition
@@ -526,7 +526,6 @@ fr:
             create: Créer
             title: Créer une proposition
           publish_answers:
-            number_of_proposals: Les réponses pour %{number} propositions seront publiées.
             select_a_proposal: Veuillez sélectionner une proposition.
           show:
             amendments_count: Nombre d'amendements
@@ -536,7 +535,7 @@ fr:
             documents: Documents
             endorsements_count: Nombre de soutiens
             endorsers: Soutiens
-            link: Lien
+            link: Voir la proposition
             n_more_endorsers:
               one: et 1 de plus
               other: et %{count} autres
@@ -566,7 +565,7 @@ fr:
             no_components: Il n'y a pas d'autre fonctionnalité de proposition dans cet espace participatif dans laquelle importer les propositions.
             select_component: Veuillez sélectionner une fonctionnalité
             select_states: Vérifiez l'état des propositions à importer
-            title: Importer des propositions
+            title: Importer des propositions depuis un autre composant
         proposals_merges:
           create:
             invalid: 'Une erreur est survenue lors de la fusion des propositions à cause de certaines d''entre elles:'
@@ -753,7 +752,7 @@ fr:
           comment: Commentaire
       proposal_votes:
         create:
-          error: Des erreurs se sont produites lors du soutien de la proposition.
+          error: Des erreurs se sont produites lors du vote pour la proposition.
       proposals:
         compare:
           continue: Continuer
@@ -869,12 +868,12 @@ fr:
           minimum_votes_per_user:
             description: Vous devez répartir un minimum de %{votes} voix entre différentes propositions.
             given_enough_votes: Vous avez attribué suffisamment de votes.
-            supports_remaining: Vous devez voter %{remaining_votes} proposition supplémentaire pour que vos votes soient pris en compte.
+            supports_remaining: Vous devez voter pour %{remaining_votes} proposition(s) supplémentaire(s) pour que vos votes soient pris en compte.
           proposal_limit:
             description: Vous pouvez créer jusqu'à %{limit} propositions.
           threshold_per_proposal:
             description: Pour être acceptées, les propositions doivent atteindre %{limit} votes.
-          title: 'Les soutiens sont soumis aux règles suivantes :'
+          title: 'La participation est soumise aux règles suivantes :'
           vote_limit:
             description: Vous pouvez voter pour %{limit} propositions au maximum.
             votes: '%{number} votes restants'

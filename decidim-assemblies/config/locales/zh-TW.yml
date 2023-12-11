@@ -1,8 +1,6 @@
 zh-TW:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: 啟用組織圖
       assemblies_type:
         title: 標題
       assembly:
@@ -115,10 +113,6 @@ zh-TW:
         create:
           error: 複製此大會時出現問題
           success: 大會已成功複製
-      assemblies_settings:
-        update:
-          error: 更新設置時出現問題
-          success: 設置更新成功
       assemblies_types:
         create:
           error: 創建新大會類型時出現問題
@@ -151,13 +145,11 @@ zh-TW:
         destroy:
           success: 該大會的成員已成功刪除
         edit:
-          title: 更新大會成員
           update: 更新
         index:
           assembly_members_title: 大會成員
         new:
           create: 建立
-          title: 新大會成員
         update:
           error: 更新此大會的成員時出現問題。
           success: 此大會的成員已成功更新。
@@ -175,13 +167,11 @@ zh-TW:
         destroy:
           success: 管理員已成功從此大會中刪除
         edit:
-          title: 更新大會管理員
           update: 更新
         index:
           assembly_admins_title: 大會管理員
         new:
           create: 建立
-          title: 新大會管理員
         update:
           error: 更新此大會的管理員時出現問題
           success: 此大會的管理員已成功更新。
@@ -190,7 +180,6 @@ zh-TW:
           label: 大會類型
       menu:
         assemblies: 大會
-        assemblies_settings: 設定
         assemblies_submenu:
           assembly_admins: 大會管理員
           assembly_members: 成員
@@ -285,11 +274,6 @@ zh-TW:
             social_handlers: 社群
             title: 基本資訊
             visbility: 可見度
-        assemblies_settings:
-          edit:
-            update: 更新
-          form:
-            title: 大會的設置
         assemblies_types:
           form:
             title: 標題
@@ -303,12 +287,6 @@ zh-TW:
             select_a_position: 選擇一個位置
             select_user: 選擇與會者：
             user_type: 參與者類型
-          index:
-            filter:
-              all: 全部
-              ceased: 已停止
-              not_ceased: 沒有停止
-            search: 搜尋
         content_blocks:
           highlighted_assemblies:
             max_results: 顯示的最大元素數量
@@ -316,6 +294,9 @@ zh-TW:
           accepted_types:
             json: JSON
       assemblies:
+        filters:
+          names:
+            all: 全部
         show:
           title: 關於這個大會
       assembly_members:

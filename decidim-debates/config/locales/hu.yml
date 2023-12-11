@@ -94,7 +94,6 @@ hu:
         close_debate_modal:
           description: Mi a vita összefoglalása vagy az abból levont következtetés?
           send: Vita lezárása
-        closed: Lezárva
         count:
           debates_count:
             one: "%{count} vita"
@@ -102,8 +101,6 @@ hu:
         create:
           invalid: Probléma merült fel a vita létrehozása során.
           success: Vita létrehozása sikeres.
-        debate:
-          participate: Részvétel
         edit:
           back: Vissza
           save: Változások mentése
@@ -139,7 +136,6 @@ hu:
           updated: Nemrégiben frissítve
         show:
           close_debate: Vita lezárása
-          date: Dátum
           debate_closed: Lezárva
           debate_conclusions_are: 'A vitát %{date} -n zárult le az alábbi következtetésekkel:'
           edit_conclusions: Következtetések szerkesztése

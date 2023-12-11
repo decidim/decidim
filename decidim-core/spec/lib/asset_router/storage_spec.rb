@@ -7,7 +7,7 @@ module Decidim::AssetRouter
     subject { router }
 
     let(:router) { described_class.new(asset) }
-    let(:asset) { organization.official_img_header }
+    let(:asset) { organization.official_img_footer }
     let(:organization) { create(:organization) }
 
     describe "#url" do
@@ -31,7 +31,7 @@ module Decidim::AssetRouter
       end
 
       context "with a variant" do
-        let(:asset) { organization.official_img_header.variant(resize_to_fit: [160, 160]) }
+        let(:asset) { organization.official_img_footer.variant(resize_to_fit: [160, 160]) }
 
         it "creates the route to the variant" do
           expect(subject).to match(%r{^http://localhost:#{default_port}/rails/active_storage/representations/redirect/.*/avatar.jpg$})

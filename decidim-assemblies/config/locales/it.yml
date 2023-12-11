@@ -1,8 +1,6 @@
 it:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: Abilita il grafico dell'organizzazione
       assembly:
         area_id: Area
         assembly_type: Tipo di assemblea
@@ -105,10 +103,6 @@ it:
         create:
           error: Si è verificato un errore durante la duplicazione di questa assemblea.
           success: L'assemblea è stata duplicata con successo.
-      assemblies_settings:
-        update:
-          error: Si è verificato un errore durante l'aggiornamento delle impostazioni.
-          success: Impostazioni aggiornate con successo.
       assemblies_types:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo tipo di assemblea.
@@ -141,13 +135,11 @@ it:
         destroy:
           success: Membro cancellato con successo per questa assemblea.
         edit:
-          title: Aggiorna membro dell'assemblea.
           update: Aggiorna
         index:
           assembly_members_title: Membri dell'Assemblea
         new:
           create: Crea
-          title: Nuovo membro dell'assemblea.
         update:
           error: Si è verificato un errore durante l'aggiornamento del membro per questa assemblea.
           success: Membro aggiornato correttamente per questa assemblea.
@@ -165,13 +157,11 @@ it:
         destroy:
           success: Utente rimosso con successo da questa assemblea.
         edit:
-          title: Aggiorna amministratore dell'assemblea.
           update: Aggiorna
         index:
           assembly_admins_title: Amministratori dell'assemblea
         new:
           create: Crea
-          title: Nuovo amministratore dell'assemblea.
         update:
           error: Si è verificato un errore durante l'aggiornamento di un amministratore per questa assemblea.
           success: Admin aggiornato correttamente per questa assemblea.
@@ -180,7 +170,6 @@ it:
           label: Tipo di assemblea
       menu:
         assemblies: Assemblee
-        assemblies_settings: Impostazioni
         assemblies_submenu:
           assembly_admins: Amministratori dell'assemblea
           assembly_members: Membri
@@ -271,11 +260,6 @@ it:
             social_handlers: Social networks
             title: Informazioni generali
             visbility: Visibilità
-        assemblies_settings:
-          edit:
-            update: Aggiorna
-          form:
-            title: Impostazioni per le assemblee
         assemblies_types:
           form:
             title: Titolo
@@ -289,12 +273,6 @@ it:
             select_a_position: Seleziona una posizione
             select_user: Seleziona un utente
             user_type: Tipologia di utente
-          index:
-            filter:
-              all: Tutti
-              ceased: Cessato
-              not_ceased: Non è cessato
-            search: Ricerca
         content_blocks:
           highlighted_assemblies:
             max_results: Quantità massima di elementi da mostrare
@@ -302,6 +280,9 @@ it:
           accepted_types:
             json: JSON
       assemblies:
+        filters:
+          names:
+            all: Tutti
         show:
           title: Su questa assemblea
       assembly_members:

@@ -402,8 +402,6 @@ tr:
           new:
             create: Oluştur
             title: Teklif oluştur
-          publish_answers:
-            number_of_proposals: '%{number} teklifleri için cevaplar yayınlanacak.'
           show:
             amendments_count: Değişikliklerin sayısı
             assigned_valuators: Atanan bilirkişiler
@@ -412,7 +410,6 @@ tr:
             documents: Dokümanlar
             endorsements_count: Onay sayısı
             endorsers: Onaycılar
-            link: Bağlantı
             n_more_endorsers:
               one: ve 1 tane daha
               other: ve %{count} tane daha
@@ -435,7 +432,6 @@ tr:
             no_components: Teklifleri içe aktarmak için bu katılımcı alanda başka hiçbir teklif bileşeni bulunmamaktadır.
             select_component: Lütfen bir bileşen seçiniz
             select_states: İçe aktarılacak tekliflerin durumlarını kontrol et
-            title: Teklifleri içe aktar
         proposals_merges:
           create:
             success: Teklifler, yeni bir taneyle başarılı bir şekilde birleştirildi.

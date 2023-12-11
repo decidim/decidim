@@ -20,6 +20,8 @@ ja:
         scope_id: スコープ
   activerecord:
     models:
+      decidim/budgets/budget:
+        other: 予算
       decidim/budgets/project:
         other: プロジェクト
   decidim:
@@ -44,6 +46,8 @@ ja:
         edit: 編集
         edit_projects: プロジェクトの管理...
         import: プロジェクトへの提案をインポート
+        new_budget: 新しい予算
+        new_project: 新規プロジェクト
         preview: プレビュー
         send_voting_reminders: 投票リマインダーを送信
         title: アクション
@@ -89,6 +93,7 @@ ja:
           index:
             actions: アクション
             cancel: キャンセル
+            change_budget:
             change_category: カテゴリの変更
             change_scope: スコープの変更
             change_selected: 選択した状態を変更
@@ -99,6 +104,7 @@ ja:
             selected: 選択済
             title: プロジェクト
             update: 更新
+            update_budget_button: プロジェクトの予算を更新
             update_scope_button: スコープを更新
           new:
             create: 作成
@@ -106,6 +112,10 @@ ja:
           update:
             invalid: プロジェクトの更新中に問題が発生しました。
             success: プロジェクトを更新しました。
+          update_budget:
+            invalid: 'これらのプロジェクトは既に同じ予算に含まれているか、予算が最大許容額を超えています: %{projects}。'
+            select_a_project: プロジェクトを選択してください。
+            success: 'プロジェクトが %{subject_name} 予算に更新されました: %{projects}。'
           update_category:
             invalid: 'これらのプロジェクトは既に %{subject_name} カテゴリを持っています: %{projects}'
             select_a_category: カテゴリを選択してください。
@@ -136,7 +146,6 @@ ja:
             no_components: この参加型スペースには、プロジェクトにインポートするための他の提案コンポーネントはありません。
             origin_component_id: 元のコンポーネント
             select_component: コンポーネントを選択してください
-            title: 提案のインポート
         reminders:
           orders:
             description: ユーザーは、保留中の指定がある予算へのリンクを含む電子メールを受け取ります。
@@ -151,8 +160,6 @@ ja:
           create: "%{user_name} が %{resource_name} スペースで %{space_name} プロジェクトを作成しました"
           delete: "%{user_name} が %{resource_name} スペースの %{space_name} プロジェクトを削除しました"
           update: "%{user_name} が %{resource_name} スペースの %{space_name} プロジェクトを更新しました"
-      budget:
-        view: 全ての予算プロジェクトを表示
       budget_information_modal:
         back_to: '%{component_name} に戻る'
         close_modal: ウィンドウを閉じる
@@ -189,7 +196,6 @@ ja:
           fields:
             category: カテゴリ
             id: ID
-            scope: スコープ
             title: タイトル
       order_summary_mailer:
         order_summary:
@@ -237,8 +243,6 @@ ja:
             all: 全て
             not_selected: 未選択
             selected: 選択済
-        index:
-          back_to_budgets: 予算に戻る
         order_progress:
           assigned: 割り当て済み
           budget: 予算
@@ -266,7 +270,6 @@ ja:
           add: プロジェクト %{resource_name} を投票に追加します。
           remove: プロジェクト %{resource_name} を投票から削除します。
           selected: 選択済
-          view: 表示
           votes:
             other: 投票
           you_voted: あなたの投票
@@ -282,6 +285,7 @@ ja:
         select_projects: プロジェクトを選択
         show:
           budget: 予算
+      prompt: 予算を選択
       vote_reminder_mailer:
         vote_reminder:
           email_budgets: '未完了の投票場所:'

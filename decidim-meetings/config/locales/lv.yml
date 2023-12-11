@@ -292,7 +292,6 @@ lv:
             zero: "Atlicis %{count} laiks runāšanai"
             one: "Atlicis %{count} laiks runāšanai"
             other: "Atlicis %{count} laiks runāšanai"
-          view: Apskatīt
       models:
         invite:
           fields:

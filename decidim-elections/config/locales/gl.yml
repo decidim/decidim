@@ -388,8 +388,6 @@ gl:
             show:
               heading: Espazo de votación do censo
         document_types:
-          dni: DNI
-          nie: NIE
           passport: Pasaporte
         export_mailer:
           access_codes_export:

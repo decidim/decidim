@@ -40,7 +40,6 @@ ro:
         confirm_destroy: Sunteți sigur că doriți să ștergeți %{name}?
         destroy: Ștergere
         edit: Editare
-        import_csv: Importă CSV
         preview: Previzualizare
         timeline_entries: Evoluția proiectului
         title: Acțiuni
@@ -52,7 +51,6 @@ ro:
           new:
             download_export: Descarcați Export cu format CSV
             import: Importă
-            title: Importați rezultate de la CSV
         models:
           result:
             name: Rezultat
@@ -113,9 +111,7 @@ ro:
             not_found: 'Elementul-părinte nu a fost găsit în baza de date (ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Date
           results: Rezultate
-          unspecified: Nespecificat
       import_mailer:
         import:
           errors: Erori
@@ -150,9 +146,6 @@ ro:
           fields:
             entry_date: Dată
             title: Titlu
-      result_m:
-        executed: Executat
-        view: Vizualizare
       results:
         count:
           results_count:

@@ -6,7 +6,7 @@ describe "Admin manages participatory space private users via csv import" do
   let(:organization) { create(:organization) }
 
   let!(:user) { create(:user, :admin, :confirmed, organization:) }
-  let(:assembly) { create(:assembly, organization:) }
+  let(:assembly) { create(:assembly, organization:, private_space: true) }
 
   before do
     switch_to_host(organization.host)

@@ -67,7 +67,6 @@ lb:
         machine_translation_display_priority_translation: Übersetzter Text zuerst
         name: Name
         official_img_footer: Offizielles Logo Fußzeile
-        official_img_header: Offizieller Logo-Header
         official_url: Offizielle Organisations-URL
         omnipresent_banner_short_description: Kurze Beschreibung
         omnipresent_banner_title: Titel
@@ -124,8 +123,6 @@ lb:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Ungültige Bilddatei
-            official_img_header:
               allowed_file_content_types: Ungültige Bilddatei
   activerecord:
     attributes:
@@ -695,10 +692,6 @@ lb:
         form:
           add: Zur Whitelist hinzufügen
           title: Whitelist für externe Domains
-      organization_homepage:
-        edit:
-          active_content_blocks: Aktive Inhaltsblöcke
-          inactive_content_blocks: Inaktive Inhaltsblöcke
       participatory_space_private_users:
         create:
           error: Beim Hinzufügen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
@@ -714,7 +707,6 @@ lb:
           title: Neuer privater Benutzer des Participatory Space.
       participatory_space_private_users_csv_imports:
         new:
-          title: CSV-Datei hochladen
           upload: Hochladen
       resource_permissions:
         edit:
@@ -769,7 +761,6 @@ lb:
       shared:
         gallery:
           add_images: Bilder hinzufügen
-          delete_image: Bild löschen
           gallery_legend: Bildergalerie hinzufügen (Optional)
       static_page_topics:
         create:
@@ -797,12 +788,12 @@ lb:
           update: Aktualisieren
         form:
           none: Keiner
+        index:
+          last_notable_change: Letzte bemerkenswerte Änderung
         new:
           create: Seite erstellen
           title: Neue Seite
         topic:
-          destroy: Thema entfernen
-          edit: Thema bearbeiten
           without_topic: Seiten ohne Thema
         update:
           error: Beim Aktualisieren dieser Seite ist ein Fehler aufgetreten.

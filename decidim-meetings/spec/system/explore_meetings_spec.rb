@@ -32,6 +32,31 @@ describe "Explore meetings", :slow do
       end
     end
 
+    context "when displaying calendar" do
+      let(:component) { create(:meeting_component, participatory_space:) }
+      let(:link) { Decidim::ShortLink.find_by(target_type: "Decidim::Component", target_id: component.id) }
+
+      before do
+        visit_component
+      end
+
+      context "when meetings mounted under paraticipatory process" do
+        let(:participatory_space) { create(:participatory_process, organization:) }
+
+        it "properly saves the shortened link" do
+          expect(link.mounted_engine_name).to eq("decidim_participatory_process_meetings")
+        end
+      end
+
+      context "when meetings mounted under assemblies" do
+        let(:participatory_space) { create(:assembly, organization:) }
+
+        it "properly saves the shortened link" do
+          expect(link.mounted_engine_name).to eq("decidim_assembly_meetings")
+        end
+      end
+    end
+
     context "with default filter" do
       let!(:past_meeting) { create(:meeting, :published, start_time: 2.weeks.ago, component:) }
       let!(:upcoming_meeting) { create(:meeting, :published, :not_official, component:) }

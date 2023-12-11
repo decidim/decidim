@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "ruby-progressbar"
+
 require_relative "github_manager/querier/by_label"
 require_relative "github_manager/querier/related_issues"
 require_relative "backports_reporter/csv_report"
@@ -20,12 +22,19 @@ module Decidim
     end
 
     def call
-      @report = by_label(
+      pull_requests_with_labels = by_label(
         label: "type: fix",
         exclude_labels: ["backport", "no-backport"],
         days_to_check_from: @days_to_check_from
-      ).map do |pull_request|
-        {
+      )
+
+      progress_bar = ProgressBar.create(title: "PRs", total: pull_requests_with_labels.count)
+      @report = []
+
+      pull_requests_with_labels.each do |pull_request|
+        progress_bar.increment
+
+        @report << {
           id: pull_request[:id],
           title: pull_request[:title],
           related_issues: related_issues(pull_request[:id])

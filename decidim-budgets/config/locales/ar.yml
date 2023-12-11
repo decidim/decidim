@@ -112,8 +112,6 @@ ar:
           category: الفئة
           scope: نطاق
           search: بحث
-        project:
-          view: رأي
         show:
           budget: ميزانية
       vote_reminder_mailer:

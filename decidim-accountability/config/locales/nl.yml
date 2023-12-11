@@ -38,7 +38,6 @@ nl:
         confirm_destroy: Weet u zeker dat u deze %{name} wilt verwijderen?
         destroy: Verwijder
         edit: Bewerk
-        import_csv: Importeer CSV
         preview: Voorbeeld
         timeline_entries: Project evolutie
         title: acties
@@ -49,7 +48,6 @@ nl:
         import_results:
           new:
             import: Importeren
-            title: Importeer resultaten van CSV
         models:
           result:
             name: Resultaat
@@ -103,9 +101,7 @@ nl:
             not_found: 'Het bovenliggende element is niet gevonden in de database (ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Datums
           results: Resultaten
-          unspecified: Niet gespecificeerd
       import_mailer:
         import:
           errors: Foutmeldingen
@@ -134,9 +130,6 @@ nl:
           fields:
             entry_date: Datum
             title: Titel
-      result_m:
-        executed: Uitgevoerd
-        view: Bekijk
       results:
         count:
           results_count:

@@ -396,6 +396,9 @@ en:
           all: All
         filter_meeting_space_values:
           all: All
+      calendar:
+        meeting_to_event:
+          read_more: Read more about this meeting
       calendar_modal:
         calendar_url: Calendar URL
         copy_calendar_url: Copy

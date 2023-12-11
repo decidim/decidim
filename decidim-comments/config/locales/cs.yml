@@ -34,7 +34,6 @@ cs:
           error: Komentář nemohl být odstraněn.
         update:
           error: Při aktualizaci komentáře došlo k chybě.
-      comments_count: Počet komentářů
       comments_title: Komentář
       last_activity:
         new_comment: 'Nový komentář:'

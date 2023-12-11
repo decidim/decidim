@@ -31,6 +31,9 @@ tr:
         block_user_templates:
           form:
             save: Kaydet
+        proposal_answer_templates:
+          form:
+            save: Kaydet
         questionnaire_templates:
           choose:
             create_from_template: Şablondan Oluştur

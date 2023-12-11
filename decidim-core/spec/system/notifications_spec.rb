@@ -20,7 +20,7 @@ describe "Notifications" do
     end
 
     it "has a button on the topbar nav that links to the notifications page" do
-      find("#trigger-dropdown-account").click
+      find_by_id("trigger-dropdown-account").click
       within "#dropdown-menu-account" do
         click_link("Notifications")
       end
@@ -37,7 +37,7 @@ describe "Notifications" do
       end
 
       it "displays nothing" do
-        find("#trigger-dropdown-account").click
+        find_by_id("trigger-dropdown-account").click
         within "#dropdown-menu-account" do
           click_link("Notifications")
         end

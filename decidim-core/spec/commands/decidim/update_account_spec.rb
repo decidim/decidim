@@ -241,7 +241,7 @@ module Decidim
           it "sends email with notification about updates" do
             perform_enqueued_jobs { command.call }
             expect(last_email.to).to include(user.email)
-            expect(last_email_body).to include("The following details have been changed:")
+            expect(last_email_body).to include("Se han modificado los siguientes detalles:")
           end
         end
       end

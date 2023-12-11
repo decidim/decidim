@@ -119,7 +119,6 @@ lt:
           show: Rodyti išplėstinius nustatymus
         create:
           error: Kuriant naują organizaciją iškilo problema.
-          success: Organizacija sėkmingai sukurta.
         csp_settings:
           connect_src: Prijungti src
           default_src: Numatytasis src

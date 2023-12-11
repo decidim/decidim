@@ -21,7 +21,7 @@ module Decidim
       target ||= respond_to?(:current_organization) && current_organization
       target ||= Rails.application
 
-      mounted_engine = EngineResolver.new(_routes).mounted_name
+      mounted_engine = target.try(:mounted_engine) || EngineResolver.new(_routes).mounted_name
       ShortLink.to(target, mounted_engine, **kwargs).short_url
     end
   end

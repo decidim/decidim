@@ -5,7 +5,7 @@
 
 <%= decidim_modal id: "conversation", class: "conversation__modal" do %>
   <%= decidim_form_for(form_ob, url: conversations_check_multiple_url(nickname:), html: { class: "form", id: nil }) do |f| %>
-    <%= render partial: "decidim/messaging/conversations/add_conversation_users.html" %>
+    <%= render partial: "decidim/messaging/conversations/add_conversation_users", formats: [:html] %>
 
     <div data-dialog-actions>
       <button type="button" class="button button__sm md:button__lg button__transparent-secondary" data-dialog-close="conversation">

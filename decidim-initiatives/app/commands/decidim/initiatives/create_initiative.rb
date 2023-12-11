@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "decidim/components/namer"
+
 module Decidim
   module Initiatives
     # A command with all the business logic that creates a new initiative.

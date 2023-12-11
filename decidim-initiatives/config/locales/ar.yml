@@ -285,7 +285,6 @@ ar:
           any: أي
           author: مؤلف
           myself: مبادراتي
-          search: بحث
           state: الحالة
           type: نوع
         index_header:
@@ -373,8 +372,5 @@ ar:
         sms_phone_number: رقم الهاتف الجوال
         title: تسجيل %{initiative_title}
       initiatives:
-        initiative:
-          check: تحقق من ذلك
-          check_and_support: التحقق من ذلك وتوقيع
         no_initiatives_yet:
           no_initiatives_yet: لا توجد مبادرات حتى الآن!

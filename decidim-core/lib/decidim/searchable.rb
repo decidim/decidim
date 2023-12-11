@@ -35,7 +35,11 @@ module Decidim
     end
 
     def self.searchable_resources_of_type_component
-      searchable_resources.select { |r| r.constantize.ancestors.include?(Decidim::Searchable) }
+      searchable_resources
+        .select { |r| r.constantize.ancestors.include?(Decidim::Searchable) }
+        .reject { |r| searchable_resources_of_type_comment.keys.include?(r) }
+        .reject { |r| searchable_resources_of_type_participant.keys.include?(r) }
+        .reject { |r| searchable_resources_of_type_participatory_space.keys.include?(r) }
     end
 
     def self.searchable_resources_of_type_comment

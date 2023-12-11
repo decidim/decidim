@@ -29,6 +29,9 @@ pl:
         block_user_templates:
           form:
             save: Zapisz
+        proposal_answer_templates:
+          form:
+            save: Zapisz
         questionnaire_templates:
           choose:
             create_from_template: Utwórz z szablonu

@@ -10,11 +10,21 @@ describe "Assembly admin accesses admin sections" do
     login_as user, scope: :user
   end
 
-  context "when is a mother assembly" do
+  shared_examples "sees public space menu" do
     it "can access all sections" do
-      visit decidim_admin_assemblies.assemblies_path
-      click_link "Configure"
+      expect(page).to have_content("Info")
+      expect(page).to have_content("Components")
+      expect(page).to have_content("Categories")
+      expect(page).to have_content("Attachments")
+      expect(page).to have_content("Members")
+      expect(page).to have_content("Assembly admins")
+      expect(page).not_to have_content("Private users")
+      expect(page).to have_content("Moderations")
+    end
+  end
 
+  shared_examples "sees private space menu" do
+    it "can access all sections" do
       expect(page).to have_content("Info")
       expect(page).to have_content("Components")
       expect(page).to have_content("Categories")
@@ -23,6 +33,23 @@ describe "Assembly admin accesses admin sections" do
       expect(page).to have_content("Assembly admins")
       expect(page).to have_content("Private users")
       expect(page).to have_content("Moderations")
+    end
+  end
+
+  context "when is a mother assembly" do
+    before do
+      visit decidim_admin_assemblies.assemblies_path
+      click_link "Configure"
+    end
+
+    context "when is a public assembly" do
+      it_behaves_like "sees public space menu"
+    end
+
+    context "when is a private assembly" do
+      let(:assembly) { create(:assembly, organization:, private_space: true) }
+
+      it_behaves_like "sees private space menu"
     end
   end
 
@@ -38,15 +65,14 @@ describe "Assembly admin accesses admin sections" do
       click_link "Configure"
     end
 
-    it "can access all sections" do
-      expect(page).to have_content("Info")
-      expect(page).to have_content("Components")
-      expect(page).to have_content("Categories")
-      expect(page).to have_content("Attachments")
-      expect(page).to have_content("Members")
-      expect(page).to have_content("Assembly admins")
-      expect(page).to have_content("Private users")
-      expect(page).to have_content("Moderations")
+    context "when is a public assembly" do
+      it_behaves_like "sees public space menu"
+    end
+
+    context "when is a private assembly" do
+      let(:child_assembly) { create(:assembly, parent: assembly, organization:, private_space: true) }
+
+      it_behaves_like "sees private space menu"
     end
 
     it_behaves_like "assembly admin manage assembly components"

@@ -92,6 +92,7 @@ fr-CA:
           index:
             actions: Actions
             cancel: Annuler
+            change_budget: Modifier le budget
             change_category: Modifier la catégorie
             change_scope: Changer le secteur
             change_selected: Changer l'état sélectionné
@@ -102,6 +103,7 @@ fr-CA:
             selected: Sélectionné
             title: Projets
             update: Mettre à jour
+            update_budget_button: Mettre à jour le budget du projet
             update_scope_button: Mettre à jour le secteur
           new:
             create: Créer
@@ -109,6 +111,10 @@ fr-CA:
           update:
             invalid: Il y a eu un problème lors de la mise à jour de ce projet.
             success: Projet mis à jour avec succès.
+          update_budget:
+            invalid: 'Ces projets sont déjà dans le même budget ou leur budget est supérieur au montant maximum autorisé : %{projects}.'
+            select_a_project: Veuillez sélectionner un projet.
+            success: 'Les projets ont été mis à jour avec succès pour le budget %{subject_name} : %{projects}.'
           update_category:
             invalid: 'Ces projets avaient déjà la catégorie %{subject_name} : %{projects}.'
             select_a_category: Veuillez sélectionner une catégorie.
@@ -139,7 +145,7 @@ fr-CA:
             no_components: Il n'y a pas d'autres modules de proposition dans cet espace participatif pour importer les propositions dans des projets.
             origin_component_id: Composant d'origine
             select_component: Veuillez sélectionner un module
-            title: Importer des propositions
+            title: Importer des propositions dans des projets
         reminders:
           orders:
             description: Les utilisateurs recevront un e-mail avec des liens vers les budgets où ils ont un vote en attente.
@@ -155,8 +161,6 @@ fr-CA:
           create: "%{user_name} a créé le projet %{resource_name} dans l'espace %{space_name}"
           delete: "%{user_name} a supprimé le projet %{resource_name} dans l'espace %{space_name}"
           update: "%{user_name} a mis à jour le projet %{resource_name} dans l'espace %{space_name}"
-      budget:
-        view: Voir tous les projets
       budget_information_modal:
         back_to: Retour à %{component_name}
         close_modal: Fermer la fenêtre de dialogue
@@ -170,6 +174,7 @@ fr-CA:
         count:
           one: "%{count} budget"
           other: "%{count} budgets"
+        empty: Il n'y a aucun budget pour l'instant
         finished_message: Vous avez terminé le processus de vote. Merci de votre participation !
         highlighted_cta: Voter pour %{name}
         if_change_opinion: Si vous avez changé d’avis, vous pouvez
@@ -194,7 +199,6 @@ fr-CA:
           fields:
             category: Catégorie
             id: ID
-            scope: Secteur
             title: Titre
       order_summary_mailer:
         order_summary:
@@ -229,6 +233,7 @@ fr-CA:
           projects_count:
             one: 1 projet
             other: "%{count} projets"
+        empty: Il n'y a aucun projet pour l'instant
         exit_modal:
           cancel: Revenir au vote
           exit: Quitter le vote
@@ -243,8 +248,6 @@ fr-CA:
             all: Tous
             not_selected: Non sélectionné
             selected: Sélectionné
-        index:
-          back_to_budgets: Retour aux budgets
         order_progress:
           assigned: Assigné
           budget: Budget
@@ -272,7 +275,6 @@ fr-CA:
           add: Ajouter le projet %{resource_name} à votre vote.
           remove: Retirer le projet %{resource_name} de votre vote.
           selected: Sélectionné
-          view: Voir
           votes:
             one: vote
             other: votes
@@ -289,6 +291,7 @@ fr-CA:
         select_projects: Sélectionner des projets
         show:
           budget: Budget
+      prompt: Sélectionnez le budget
       vote_reminder_mailer:
         vote_reminder:
           email_budgets: 'Budgets où vous avez un vote encore en cours :'

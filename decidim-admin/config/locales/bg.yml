@@ -58,7 +58,6 @@ bg:
         machine_translation_display_priority_translation: Първо преведеният текст
         name: Име
         official_img_footer: Долен колонтитул на официалното лого
-        official_img_header: Заглавка на официалното лого
         official_url: Официален URL адрес на организацията
         omnipresent_banner_short_description: Кратко описание
         omnipresent_banner_title: Заглавие
@@ -105,8 +104,6 @@ bg:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Невалиден файл на изображението
-            official_img_header:
               allowed_file_content_types: Невалиден файл на изображението
   activerecord:
     attributes:

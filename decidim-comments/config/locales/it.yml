@@ -27,7 +27,6 @@ it:
           error: Ci sono stati problemi durante la creazione del commento.
         update:
           error: Si è verificato un errore durante l'aggiornamento del commento.
-      comments_count: Conteggio dei Commenti
       votes:
         create:
           error: Ci sono stati errori durante la votazione del commento.

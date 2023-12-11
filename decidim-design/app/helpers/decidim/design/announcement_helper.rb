@@ -37,10 +37,17 @@ module Decidim
               },
               {
                 type: :table,
-                options: { headings: %w(Announcement Argument) },
+                options: { headings: ["Announcement", "Callout class", "Argument"] },
                 items: announcement_table(
-                  { text: "I am just plain text", argument: '"I am just plain text"' },
-                  { text: { title: "This is the title", body: "This is the body" }, argument: '{ title: "This is the title", body: "This is the body" }' }
+                  { text: "I am just plain text", callout_class: "secondary", argument: '"I am just plain text"' },
+                  { text: { title: "This is the title", body: "This is the body" }, callout_class: "secondary",
+                    argument: '{ title: "This is the title", body: "This is the body" }' },
+                  { text: { title: "This is the title", body: "This is the body" }, callout_class: "warning",
+                    argument: '{ text: { title: "This is the title", body: "This is the body" }, callout_class: "warning" }' },
+                  { text: { title: "This is the title", body: "This is the body" }, callout_class: "alert",
+                    argument: '{ text: { title: "This is the title", body: "This is the body" }, callout_class: "alert" }' },
+                  { text: { title: "This is the title", body: "This is the body" }, callout_class: "success",
+                    argument: '{ text: { title: "This is the title", body: "This is the body" }, callout_class: "success" }' }
                 ),
                 cell_snippet: {
                   cell: "decidim/announcement",
