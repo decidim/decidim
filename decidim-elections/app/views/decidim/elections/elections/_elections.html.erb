@@ -1,5 +1,5 @@
 <% if elections.none? %>
-  <%= cell("decidim/announcement", t("decidim.elections.warnings.no_elections_warning"), callout_class: "warning") %>
+  <%= cell("decidim/announcement", t("decidim.elections.warnings.no_elections_warning")) %>
 <% elsif scheduled_elections.none? %>
   <%= cell("decidim/announcement", t("decidim.elections.warnings.no_scheduled_elections_warning")) %>
 <% else %>
