@@ -37,12 +37,14 @@ module Decidim
       def create_resource(soft: false)
         @resource = Decidim.traceability.send(soft ? :create : :create!,
                                               resource_class,
-                                              form.current_user,
+                                              current_user,
                                               attributes,
                                               **extra_params)
       end
 
       attr_reader :form, :resource
+
+      delegate :current_user, to: :form
 
       # Runs any before hooks. That you may want to execute before creating the resource.
       def run_before_hooks; end

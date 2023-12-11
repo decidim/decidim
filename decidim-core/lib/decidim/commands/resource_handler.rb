@@ -29,7 +29,16 @@ module Decidim
         #  def extra_params = { "visibility" => "all"}
         #  def extra_params = { "visibility" => "public-only" }
         #  def extra_params = { "visibility" => "admin-only" }
-        #
+        #  def extra_params
+        #    {
+        #      resource: {
+        #        title: resource.title
+        #      },
+        #      participatory_space: {
+        #        title: resource.participatory_space.title
+        #      }
+        #    }
+        #  end
         # @return [Hash] a hash with the extra params.
         def extra_params = {}
 

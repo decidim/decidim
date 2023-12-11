@@ -3,15 +3,15 @@
 module Decidim
   module Accountability
     module Admin
-      # This command is executed when the user changes a Result from the admin
-      # panel.
+      # This command is executed when the user imports a Result from the admin
+      # panel using the "Import results from CSV file" feature
       class UpdateImportedResult < Decidim::Commands::UpdateResource
         include Decidim::Accountability::Admin::HasResultCommand
 
         fetch_form_attributes :scope, :category, :title, :description, :start_date, :end_date, :progress,
                               :decidim_accountability_status_id, :external_id, :weight
 
-        # Initializes an UpdateResult Command.
+        # Initializes an UpdateImportedResult Command.
         #
         # form - The form from which to get the data.
         # result - The current instance of the result to be updated.

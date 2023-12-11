@@ -37,11 +37,9 @@ module Decidim
 
       private
       # Tell the parent what is the AcitveRecord class needed
-      # Ruby 3.0 endless method syntax
       def resource_class = Decidim::MyModule::MyResource
 
       # This method allows you to customize the log visbility
-      # Ruby 3.o endless method syntax
       def extra_params = { visibility: "all" }
 
       # The command has a before hook that you can use:
@@ -99,11 +97,9 @@ module Decidim
 
       private
       # Tell the parent what is the AcitveRecord class needed
-      # Ruby 3.0 endless method syntax
       def resource_class = Decidim::MyModule::MyResource
 
       # This method allows you to customize the log visbility
-      # Ruby 3.o endless method syntax
       def extra_params = { visibility: "all" }
 
       # The command has a before hook that you can use:
@@ -157,7 +153,6 @@ module Decidim
       private
 
       # This method allows you to customize the log visbility
-      # Ruby 3.o endless method syntax
       def extra_params = { visibility: "all" }
 
       # The command has a before hook that you can use:
@@ -171,7 +166,6 @@ module Decidim
       end
 
       # You can also provide a custom validation by overriding the `invalid?` method
-      # Ruby 3.0 endless method syntax
       def invalid? = false
     end
   end

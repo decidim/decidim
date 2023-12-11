@@ -3,7 +3,7 @@
 module Decidim
   module Accountability
     module Admin
-      # This command is executed when the user changes a Result from the admin
+      # This command is executed when the user changes a Status from the admin
       # panel.
       class UpdateStatus < Decidim::Commands::UpdateResource
         fetch_form_attributes :key, :name, :description, :progress
