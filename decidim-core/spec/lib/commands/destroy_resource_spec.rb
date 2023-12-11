@@ -4,9 +4,9 @@ require "spec_helper"
 
 module Decidim
   describe Commands::DestroyResource do
-    subject { described_class.new(result, user) }
+    subject { described_class.new(resource, user) }
 
-    let(:result) { create(:dummy_resource) }
+    let(:resource) { create(:dummy_resource) }
     let(:organization) { result.component.organization }
     let(:user) { create(:user, organization:) }
 
