@@ -29,7 +29,17 @@ bin/rails db:migrate
 
 These are one time actions that need to be done after the code is updated in the production database.
 
-### 3.1. [[TITLE OF THE ACTION]]
+### 3.1. Remove orphan categorizations
+
+In order to ensure that the database is consistent, we have removed the orphan categorizations. This is a one time action that needs to be done after the code is updated in the production database.
+
+```console
+bin/rails decidim:upgrade:remobe_orphan_categorizations
+```
+
+You can read more about this change on PR [\#12143](https://github.com/decidim/decidim/pull/12143).
+
+### 3.2. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [\#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
