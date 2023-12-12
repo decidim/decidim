@@ -1174,9 +1174,7 @@ cs:
         closures:
           back_to_polling_stations: Zpět do volební místnosti
           certify:
-            add_images: Přidat obrázky
             error: Došlo k chybě při připojování certifikátu, zkuste to prosím znovu.
-            form_legend: Nahrajte prosím fotografii volebního certifikátu o uzavření
             heading: Přepočet hlasů - Nahrát certifikát
             info_text: Nahrajte prosím fotografii volebního certifikátu o uzavření.
             submit: Nahrát certifikát
@@ -1186,7 +1184,6 @@ cs:
             success: Uzavření bylo úspěšně vytvořeno.
           edit:
             heading: Přepočet hlasů - přepočet odpovědí
-            info_text: Uveďte celkový počet odpovědí na každou otázku.
             modal_ballots_results_count_error:
               close_modal: Zavřít
               info_text: Celkový počet hlasovacích lístků neodpovídá celkovému počtu obálek. Zkontrolujte prosím celkový počet hlasovacích lístků.
@@ -1215,7 +1212,6 @@ cs:
             total_ballots_count: Počet hlasovacích lístků
           show:
             heading: Počet hlasů
-            info_text: Uzavření hlasovací stanice voleb.
           sign:
             cancel: Zrušit
             check_box: Přezkoumal jsem to a je to stejné jako fyzický certifikát o ukončení voleb
