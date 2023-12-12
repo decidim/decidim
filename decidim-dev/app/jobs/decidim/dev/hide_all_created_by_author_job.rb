@@ -6,7 +6,7 @@ module Decidim
       protected
 
       def base_query
-        Decidim::DummyResources::DummyResource.not_hidden.where(author:)
+        Decidim::Dev::DummyResource.not_hidden.where(author:)
       end
     end
   end

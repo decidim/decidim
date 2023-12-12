@@ -7,7 +7,7 @@ module Decidim
       include Decidim::TranslatableAttributes
 
       def show
-        @commentable = DummyResources::DummyResource.find(params[:id])
+        @commentable = Dev::DummyResource.find(params[:id])
       end
     end
   end

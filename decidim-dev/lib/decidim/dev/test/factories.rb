@@ -8,7 +8,7 @@ FactoryBot.define do
     manifest_name { :dummy }
   end
 
-  factory :dummy_resource, class: "Decidim::DummyResources::DummyResource" do
+  factory :dummy_resource, class: "Decidim::Dev::DummyResource" do
     transient do
       users { nil }
       # user_groups correspondence to users is by sorting order
@@ -32,12 +32,12 @@ FactoryBot.define do
     end
   end
 
-  factory :nested_dummy_resource, class: "Decidim::DummyResources::NestedDummyResource" do
+  factory :nested_dummy_resource, class: "Decidim::Dev::NestedDummyResource" do
     title { generate(:name) }
     dummy_resource { create(:dummy_resource) }
   end
 
-  factory :coauthorable_dummy_resource, class: "Decidim::DummyResources::CoauthorableDummyResource" do
+  factory :coauthorable_dummy_resource, class: "Decidim::Dev::CoauthorableDummyResource" do
     title { generate(:name) }
     component { create(:component, manifest_name: "dummy") }
 

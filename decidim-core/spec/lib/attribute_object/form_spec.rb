@@ -106,7 +106,7 @@ module Decidim
       end
 
       context "with a constant" do
-        let(:mimicked_name) { Decidim::DummyResources::DummyResource }
+        let(:mimicked_name) { Decidim::Dev::DummyResource }
 
         it "converts the mimicked model name correctly" do
           expect(subject.mimicked_model_name).to be(:"decidim/dummy_resources/dummy_resource")

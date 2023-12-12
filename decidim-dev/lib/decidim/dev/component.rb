@@ -7,7 +7,7 @@ Decidim.register_component(:dummy) do |component|
 
   component.actions = %w(foo bar)
 
-  component.newsletter_participant_entities = ["Decidim::DummyResources::DummyResource"]
+  component.newsletter_participant_entities = ["Decidim::Dev::DummyResource"]
 
   component.settings(:global) do |settings|
     settings.attribute :scopes_enabled, type: :boolean, default: false
@@ -39,7 +39,7 @@ Decidim.register_component(:dummy) do |component|
 
   component.register_resource(:dummy_resource) do |resource|
     resource.name = :dummy
-    resource.model_class_name = "Decidim::DummyResources::DummyResource"
+    resource.model_class_name = "Decidim::Dev::DummyResource"
     resource.template = "decidim/dummy_resource/linked_dummys"
     resource.actions = %w(foo)
     resource.searchable = true
@@ -47,12 +47,12 @@ Decidim.register_component(:dummy) do |component|
 
   component.register_resource(:nested_dummy_resource) do |resource|
     resource.name = :nested_dummy
-    resource.model_class_name = "Decidim::DummyResources::NestedDummyResource"
+    resource.model_class_name = "Decidim::Dev::NestedDummyResource"
   end
 
   component.register_resource(:coauthorable_dummy_resource) do |resource|
     resource.name = :coauthorable_dummy
-    resource.model_class_name = "Decidim::DummyResources::CoauthorableDummyResource"
+    resource.model_class_name = "Decidim::Dev::CoauthorableDummyResource"
     resource.template = "decidim/coauthorabledummy_resource/linked_dummys"
     resource.actions = %w(foo-coauthorable)
     resource.searchable = false
