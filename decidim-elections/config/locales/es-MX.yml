@@ -1149,9 +1149,7 @@ es-MX:
         closures:
           back_to_polling_stations: Volver a los puntos de votación
           certify:
-            add_images: Añadir imágenes
             error: Se ha producido un error al adjuntar el certificado, por favor inténtalo de nuevo.
-            form_legend: Sube una foto del certificado de cierre electoral
             heading: Recuento de votos - Subir certificado
             info_text: Por favor, sube una foto del certificado de cierre electoral.
             submit: Subir el certificado
@@ -1161,7 +1159,6 @@ es-MX:
             success: Cierre creado correctamente.
           edit:
             heading: Recuento de votos - recuento de respuestas
-            info_text: Por favor, introduce el número total de respuestas para cada pregunta.
             modal_ballots_results_count_error:
               close_modal: Cerrar
               info_text: El número total de papeletas no coincide con el número total de sobres. Por favor, revisa el total de papeletas.
@@ -1190,7 +1187,6 @@ es-MX:
             total_ballots_count: Número de papeletas
           show:
             heading: Recuento de votos
-            info_text: Cierre electoral del punto de votación.
           sign:
             cancel: Cancelar
             check_box: Lo he revisado y es idéntico al certificado físico de cierre electoral
