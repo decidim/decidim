@@ -969,7 +969,6 @@ nl:
           certify:
             add_images: Afbeeldingen toevoegen
             error: Er is een fout opgetreden tijdens het toevoegen van het certificaat, probeer het opnieuw.
-            form_legend: Upload een foto van het Stemmensluitingscertificaat
             heading: Stem hertelling - Upload certificaat
             info_text: Upload een foto van het Stemmensluitingscertificaat.
             submit: Certificaat uploaden
