@@ -73,8 +73,8 @@ eu:
         one: Parte-hartzailea
         other: Erabiltzaileak
       decidim/user_group:
-        one: Erabiltzaile-taldea
-        other: Erabiltzaile taldeak
+        one: Taldea
+        other: Taldeak
   booleans:
     'false': 'Ez'
     'true': 'Bai'
@@ -957,8 +957,8 @@ eu:
         success: Lotzeko eskaera zuzen onartua.
       actions:
         are_you_sure: Ziur zaude?
-        promote_to_admin: Egin admin
-        remove_from_group: Kendu erabiltzailea
+        promote_to_admin: Egin administratzailea
+        remove_from_group: Kendu parte-hartzailea
       index:
         current_members_without_admins: 'Uneko kideak (administratzaile gabe):'
         manage_members: Kudeatu kideak
@@ -1294,8 +1294,8 @@ eu:
         topics: Gaiak
       participatory_space:
         metrics:
-          headline: Zifretan parte hartzea
-          link: Erakutsi estatistiken guztiak
+          headline: Metrikak
+          link: Erakutsi guztia
       terms_of_service:
         accept:
           error: Arazo bat egon da zerbitzuaren baldintzak onartzean.
@@ -1477,7 +1477,7 @@ eu:
           area: Arloa
           areas: Arloak
           scope: Esparrua
-          select_an_area: Hautatu eremu bat
+          select_an_area: Hautatu arlo bat
       progress: Aurrerapena 
       public_participation:
         public_participation: Erakutsi nire asistentzia publikoki
