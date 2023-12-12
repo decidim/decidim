@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  module DummyResources
+  module Dev
     class DummyResource < ApplicationRecord
       self.table_name = "decidim_dummy_resources_dummy_resources"
 
