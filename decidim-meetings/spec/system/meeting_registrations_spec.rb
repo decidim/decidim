@@ -243,8 +243,8 @@ describe "Meeting registrations", type: :system do
               expect(page).to have_content("successfully")
             end
 
-            expect(page).to have_text("You have signed up for this meeting")
-            expect(page).to have_css(".button", text: "CANCEL YOUR REGISTRATION")
+            expect(page).to have_text("You have joined the meeting successfully")
+            expect(page).to have_css("a", text: "Cancel your registration")
             expect(page).to have_text("19 slots remaining")
             expect(page).to have_text("Stop following")
           end
