@@ -1153,7 +1153,6 @@ de:
           certify:
             add_images: Bilder hinzufügen
             error: Beim Anhängen des Zertifikats ist ein Fehler aufgetreten, bitte versuchen Sie es erneut.
-            form_legend: Ein Bild des Wahlabschlusszertifikats hochladen
             heading: Stimmen-Neuzählung - Zertifikat hochladen
             info_text: Bitte laden Sie ein Bild des Wahlabschlusszertifikats hoch.
             submit: Zertifikat hochladen
