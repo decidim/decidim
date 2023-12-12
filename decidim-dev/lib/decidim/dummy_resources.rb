@@ -7,14 +7,5 @@ require "decidim/dummy_resources/component"
 
 module Decidim
   module DummyResources
-    include ActiveSupport::Configurable
-
-    # Settings needed to compare emendations in Decidim::SimilarEmendations
-    config_accessor :similarity_threshold do
-      0.25
-    end
-    config_accessor :similarity_limit do
-      10
-    end
   end
 end

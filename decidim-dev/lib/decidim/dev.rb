@@ -2,21 +2,22 @@
 
 require "decidim/dev/railtie"
 
-# The next 4 uncommented lines are used to register the Decidim::DummyResources namespace to the autoloader
-# We cannot rely on Rails autoloading because some of the classes that are required within that namespace
-# are needed before Rails is being available (e.g. FactoryBot)
-# After 1 day of various attempts, this is the only way I found to make it work.
-app_paths = %w(commands controllers events forms jobs mailers models presenters serializers)
-app_paths.each do |path|
-  ActiveSupport::Dependencies.autoload_paths += [File.absolute_path("#{__dir__}/../../app/#{path}")]
-end
-
 module Decidim
   # Decidim::Dev holds all the convenience logic and libraries to be able to
   # create external libraries that create test apps and test themselves against
   # them.
   module Dev
+    include ActiveSupport::Configurable
     autoload :DummyTranslator, "decidim/dev/dummy_translator"
+
+    # Settings needed to compare emendations in Decidim::SimilarEmendations
+    config_accessor :similarity_threshold do
+      0.25
+    end
+
+    config_accessor :similarity_limit do
+      10
+    end
 
     # Public: Finds an asset.
     #

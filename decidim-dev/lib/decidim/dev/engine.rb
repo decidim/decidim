@@ -17,6 +17,14 @@ module Decidim
       initializer "decidim_dev.webpacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
+
+      initializer "decidim_dev.moderation_content" do
+        config.to_prepare do
+          ActiveSupport::Notifications.subscribe("decidim.admin.block_user:after") do |_event_name, data|
+            Decidim::DummyResources::HideAllCreatedByAuthorJob.perform_later(**data)
+          end
+        end
+      end
     end
   end
 end

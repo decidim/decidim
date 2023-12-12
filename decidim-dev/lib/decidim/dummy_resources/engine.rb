@@ -16,13 +16,6 @@ module Decidim
         end
       end
 
-      initializer "dummy.moderation_content" do
-        config.to_prepare do
-          ActiveSupport::Notifications.subscribe("decidim.admin.block_user:after") do |_event_name, data|
-            Decidim::DummyResources::HideAllCreatedByAuthorJob.perform_later(**data)
-          end
-        end
-      end
     end
   end
 end
