@@ -15,7 +15,7 @@ module Decidim
           get :foo, on: :member
         end
       end
-      
+
       initializer "decidim_dev.tools" do
         # Disable if the boost performance mode is enabled
         next if Rails.application.config.try(:boost_performance)
