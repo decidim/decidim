@@ -613,7 +613,7 @@ eu:
           citizens: Hiritarrak
           meetings: Topaketak
           official: Ofiziala
-          user_groups: Erabiltzaile taldeak
+          user_groups: Taldeak
         filter_scope_values:
           all: guztiak
         filter_state_values:
