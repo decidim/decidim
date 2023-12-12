@@ -846,9 +846,7 @@ it:
         closures:
           back_to_polling_stations: Torna ai seggi elettorali
           certify:
-            add_images: Aggiungi immagini
             error: Si è verificato un errore nell'allegare il certificato, per favore riprova.
-            form_legend: Carica una foto del certificato di chiusura elettorale
             heading: Resoconto del voto - Certificato di caricamento
             info_text: Carica una foto del certificato di chiusura elettorale.
             submit: Carica il certificato
@@ -858,7 +856,6 @@ it:
             success: Chiusura creata con successo.
           edit:
             heading: Resoconto dei voti - Risposte
-            info_text: Si prega di introdurre il numero totale di risposte per ogni domanda.
             modal_ballots_results_count_error:
               close_modal: Chiudi
               title: Il totale delle urne non si sommano
@@ -884,7 +881,6 @@ it:
             total_ballots_count: Numero di schede
           show:
             heading: Resoconto del voto
-            info_text: Chiusura elettorale del sondaggio.
           sign:
             cancel: Annulla
             confirm: Ok, continua
