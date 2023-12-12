@@ -1157,7 +1157,6 @@ lt:
           certify:
             add_images: Pridėti paveikslėlių
             error: Prisegant sertifikatą įvyko klaida. Pabandykite dar kartą.
-            form_legend: Įkelkite rinkiminės baigties sertifikato nuotrauką
             heading: Balsų perksaičiavimas - įkelkite sertifikatą
             info_text: Įkelkite rinkiminės baigties sertifikato nuotrauką.
             submit: Įkelkite sertifikatą
