@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  module DummyResources
+  module Dev
     class OfficialAuthorPresenter
       def name
         self.class.name

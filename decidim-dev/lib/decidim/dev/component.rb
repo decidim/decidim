@@ -71,7 +71,7 @@ Decidim.register_component(:dummy) do |component|
       [1, 2, 3]
     end
 
-    exports.serializer Decidim::DummyResources::DummySerializer
+    exports.serializer Decidim::Dev::DummySerializer
   end
 
   component.imports :dummies do |imports|

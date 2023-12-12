@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  module DummyResources
+  module Dev
     class DummySerializer
       def initialize(id)
         @id = id
