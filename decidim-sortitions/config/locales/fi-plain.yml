@@ -97,6 +97,8 @@ fi-pl:
           cancelled: Peruttu
           category: Aihepiiri
           state: Tila
+        index:
+          empty: Satunnaisvalintoja ei vielä ole.
         linked_sortitions:
           selected_proposals: Valitut ehdotukset
         orders:
