@@ -171,7 +171,7 @@ module Decidim
       puts "Running specs"
       output, status = capture("bin/rspec")
 
-      unless status.sucess?
+      unless status.success?
         run("git restore .")
         puts output
         exit_with_errors("Tests execution failed. Fix the errors and run again.")
