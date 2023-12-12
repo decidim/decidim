@@ -51,10 +51,18 @@ en:
           attributes:
             attachment:
               needs_to_be_reattached: Needs to be reattached
+        ballot_result:
+          attributes:
+            base:
+              total_count_invalid: The total number of answers does not match the valid/blank/null breakdown.
         election:
           attributes:
             attachment:
               needs_to_be_reattached: Needs to be reattached
+        question_result:
+          attributes:
+            base:
+              blank_count_invalid: The total number of blank answers cannot be greater than the total of blank ballots.
         trustee:
           attributes:
             name:
@@ -1153,24 +1161,35 @@ en:
         closures:
           back_to_polling_stations: Back to polling stations
           certify:
-            add_images: Add images
+            add_photos: Add photos
+            edit_photos: Edit photos
             error: An error occurred attaching the certificate, please try again.
-            form_legend: Upload a picture of the Electoral Closure Certificate
             heading: Vote recount - Upload certificate
             info_text: Please upload a picture of the Electoral Closure Certificate.
             submit: Upload the certificate
             success: Certificate uploaded successfully.
+            upload_photos: Upload a picture of the Electoral Closure Certificate
+          completed:
+            sub_heading: This recount has been certified and cannot longer be edited.
           create:
             error: An error occurred creating the closure, please try again later.
             success: Closure successfully created.
+          destroy:
+            error: An error occurred removing the closure.
+            success: Closure successfully deleted.
           edit:
+            confirm_start_over: This will remove the total number of votes and the notes attached. Are you sure?
             heading: Vote recount - Answers recount
-            info_text: Please introduce the total number of answers for each question.
+            info_text: Please detail the total number of answers for each question. This must match the total number of answers introduced in the previous step (%{total} answers total).
             modal_ballots_results_count_error:
+              blank: Expected total of blank votes is %{expected} but the sum of the blank questions is %{current}.
               close_modal: Close
               info_text: The total number of ballots does not match the total number of envelopes. Please review the total of ballots.
               title: Total of ballots do not add up
+              total: Expected total is %{expected} but the sum of the valid, blank and null ballots is %{current}.
+              valid: Expected total of valid votes is %{expected} but the sum of the valid questions is %{current}.
             save_recount: Save recount
+            start_over: If there is an error in the total number, you can delete everything and start over.
             total_ballots: Total ballots
             total_blank_ballots: Total blank ballots
             total_null_ballots: Total null ballots
@@ -1193,8 +1212,9 @@ en:
             submit: Verify total number
             total_ballots_count: Number of ballots
           show:
+            edit_count_votes: Wrong numbers? You can still edit them.
             heading: Vote recount
-            info_text: Polling station electoral closure.
+            sub_heading: The recount needs to be closed by uploading a certificate. Once this is done, the recount will be sealed and can no longer be edited.
           sign:
             cancel: Cancel
             check_box: I have reviewed this and is the same as the physical electoral closure certificate
@@ -1276,6 +1296,8 @@ en:
           manager: Manager
           president: President
           unassigned: Unassigned
+      polling_station_closure_certificate:
+        current_certificate: 'Current certificate:'
       polling_station_closure_recount:
         nota_option: Blank/ None of the above
         polling_officer_notes: 'Polling officer notes:'

@@ -3,6 +3,8 @@ $(() => {
   const $modalBtn = $("#btn-modal-closure-count-error");
   const $totalBallotsInput = $("#envelopes_result_total_ballots_count");
   const $electionVotesInput = $("#envelopes_result_election_votes_count");
+  const $formNotes = $("#envelopes_result_polling_officer_notes");
+  const $modalNotes = $("#modal-polling-officer-notes");
 
   const checkValues = () => {
     const totalBallotsInputValue = parseInt($totalBallotsInput.val(), 10);
@@ -15,19 +17,23 @@ $(() => {
     } else {
       $submitBtn.attr("hidden", true);
       $modalBtn.attr("hidden", false);
+      $("#modal-total-ballots-value").html(parseInt($totalBallotsInput.val(), 10));
     }
   };
+  checkValues();
 
   $totalBallotsInput.on("blur", checkValues);
 
-  $totalBallotsInput.on("keyup", function() {
-    $("#modal-total-ballots-value").html(parseInt($totalBallotsInput.val(), 10));
-    $("#envelopes_result_polling_officer_notes").val("")
+  $totalBallotsInput.on("keyup", () => {
+    $formNotes.val("");
+    $modalNotes.val("");
   });
 
-  $("#envelopes_result_polling_officer_notes").on("keyup", function() {
-    let modalPollingOfficerNotes = $("#envelopes_result_polling_officer_notes").val()
+  $modalNotes.on("keyup", () => {
+    $("#btn-submit-from-modal").attr("disabled", !$modalNotes.val().trim());
+  });
 
-    $("#btn-submit-from-modal").attr("disabled", !modalPollingOfficerNotes.trim());
+  $modalNotes.on("change", () => {
+    $formNotes.val($modalNotes.val());
   });
 });
