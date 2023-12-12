@@ -1150,6 +1150,8 @@ fr-CA:
         closures:
           back_to_polling_stations: Retourner aux bureaux de vote
           certify:
+            add_photos: Ajouter des photos
+            edit_photos: Modifier les photos
             error: Une erreur est survenue lors de la mise en place du certificat, veuillez réessayer.
             heading: Recomptage des votes - Télécharger un certificat
             info_text: Veuillez télécharger une photo du certificat de fermeture électorale.
