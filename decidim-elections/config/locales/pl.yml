@@ -845,9 +845,7 @@ pl:
         closures:
           back_to_polling_stations: Wróć do lokali wyborczych
           certify:
-            add_images: Dodaj obrazy
             error: Wystąpił błąd podczas dołączania certyfikatu, spróbuj ponownie.
-            form_legend: Prześlij zdjęcie certyfikatu zamknięcia wyborów
             heading: Przeliczanie głosów - Prześlij certyfikat
             info_text: Prześlij zdjęcie certyfikatu zamknięcia wyborów.
             submit: Prześlij certyfikat
@@ -857,7 +855,6 @@ pl:
             success: Zamknięto pomyślnie.
           edit:
             heading: Przeliczanie głosów - Przeliczanie odpowiedzi
-            info_text: Proszę wprowadzić całkowitą liczbę odpowiedzi na każde pytanie.
             modal_ballots_results_count_error:
               close_modal: Zamknij
               title: Suma kart wyborczych nie zgadza się
@@ -883,7 +880,6 @@ pl:
             total_ballots_count: Liczba kart wyborczych
           show:
             heading: Przeliczenie głosów
-            info_text: Zamknięcie lokalu wyborczego.
           sign:
             cancel: Anuluj
             confirm: Ok, kontynuuj
