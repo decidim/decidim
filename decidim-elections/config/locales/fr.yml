@@ -1150,9 +1150,7 @@ fr:
         closures:
           back_to_polling_stations: Retourner aux bureaux de vote
           certify:
-            add_images: Ajouter des images
             error: Une erreur est survenue lors de la mise en place du certificat, veuillez réessayer.
-            form_legend: Télécharger une photo du certificat de clôture électoral
             heading: Recomptage des votes - Télécharger un certificat
             info_text: Veuillez télécharger une photo du certificat de fermeture électorale.
             submit: Télécharger le certificat
@@ -1162,7 +1160,6 @@ fr:
             success: Fermeture créée avec succès.
           edit:
             heading: Recomptage des votes - Comptage des réponses
-            info_text: Veuillez introduire le nombre total de réponses pour chaque question.
             modal_ballots_results_count_error:
               close_modal: Fermer
               info_text: Le nombre total de bulletins ne correspond pas au nombre total d'enveloppes. Veuillez vérifier le nombre total de bulletins.
@@ -1191,7 +1188,6 @@ fr:
             total_ballots_count: Nombre de bulletins
           show:
             heading: Recomptage des votes
-            info_text: Fermeture électorale du bureau de vote.
           sign:
             cancel: Annuler
             check_box: Après vérification, ce certificat est identique au certificat physique de clôture des élections
