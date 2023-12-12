@@ -50,10 +50,18 @@ fr-CA:
           attributes:
             attachment:
               needs_to_be_reattached: Doit être téléchargé de nouveau
+        ballot_result:
+          attributes:
+            base:
+              total_count_invalid: Le nombre total de réponses ne correspond pas à la répartition valide/blanc/nul.
         election:
           attributes:
             attachment:
               needs_to_be_reattached: Doit être téléchargé de nouveau
+        question_result:
+          attributes:
+            base:
+              blank_count_invalid: Le nombre total de réponses vides ne peut pas être supérieur au nombre total de bulletins blancs.
         trustee:
           attributes:
             name:
@@ -1157,16 +1165,28 @@ fr-CA:
             info_text: Veuillez télécharger une photo du certificat de fermeture électorale.
             submit: Télécharger le certificat
             success: Le certificat à été téléchargé avec succès.
+            upload_photos: Télécharger une photo du certificat de clôture électoral
+          completed:
+            sub_heading: Ce recomptage a été certifié et ne peut plus être modifié.
           create:
             error: Une erreur s'est produite lors de la création de la fermeture, veuillez réessayer plus tard.
             success: Fermeture créée avec succès.
+          destroy:
+            error: Une erreur s'est produite lors de la suppression de la clôture.
+            success: Clôture supprimée avec succès.
           edit:
+            confirm_start_over: Cela supprimera le nombre total de votes et les notes jointes. Êtes-vous sûr(e) ?
             heading: Recomptage des votes - Comptage des réponses
+            info_text: Veuillez détailler le nombre total de réponses pour chaque question. Ce nombre doit correspondre au total de réponses fourni lors de l'étape précédente (%{total} réponses totales).
             modal_ballots_results_count_error:
+              blank: Le total attendu des votes blancs est %{expected} mais la somme des questions vides est %{current}.
               close_modal: Fermer
               info_text: Le nombre total de bulletins ne correspond pas au nombre total d'enveloppes. Veuillez vérifier le nombre total de bulletins.
               title: Le total des bulletins ne correspond pas
+              total: Le total attendu est %{expected} mais la somme des bulletins valides, blancs et nuls est %{current}.
+              valid: Le total attendu des votes blancs est %{expected} mais la somme des questions vides est %{current}.
             save_recount: Enregistrer le comptage
+            start_over: S'il y a une erreur dans le nombre total, vous pouvez tout supprimer et recommencer.
             total_ballots: Total des votes
             total_blank_ballots: Nombre total de bulletins blanc
             total_null_ballots: Nombre total de bulletins nuls
@@ -1189,7 +1209,9 @@ fr-CA:
             submit: Vérifier le nombre total
             total_ballots_count: Nombre de bulletins
           show:
+            edit_count_votes: Mauvais nombres ? Vous pouvez toujours les modifier.
             heading: Recomptage des votes
+            sub_heading: Le recomptage doit être fermé en téléchargeant un certificat. Une fois cela fait, le recomptage sera scellé et ne pourra plus être modifié.
           sign:
             cancel: Annuler
             check_box: Après vérification, ce certificat est identique au certificat physique de clôture des élections
@@ -1271,6 +1293,8 @@ fr-CA:
           manager: Directeur
           president: Président
           unassigned: Non assigné
+      polling_station_closure_certificate:
+        current_certificate: 'Certificat actuel :'
       polling_station_closure_recount:
         nota_option: Vide / Aucune des options ci-dessus
         polling_officer_notes: 'Notes de l''accesseur :'
