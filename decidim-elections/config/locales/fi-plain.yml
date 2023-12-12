@@ -1153,7 +1153,6 @@ fi-pl:
           certify:
             add_images: Lisää kuvia
             error: Varmenteen liittäminen epäonnistui, yritä uudestaan.
-            form_legend: Lataa kuva äänestyksen päättämisen varmenteesta
             heading: Äänten uudelleenlaskenta - Lataa varmenne
             info_text: Lataa kuva äänestyksen päättämisen varmenteesta.
             submit: Lataa varmenne
