@@ -44,8 +44,8 @@ eu:
         meta_scope: Esparruko metadatuak
         parent_id: Batzar nagusia
         participatory_processes_ids: Erlazionatutako prozesu parte-hartzaileak
-        participatory_scope: Zer erabakitzen da?
-        participatory_structure: Nola erabakitzen da?
+        participatory_scope: Zer erabakitzen den
+        participatory_structure: Nola erabakitzen den
         private_space: Espazio pribatua
         promoted: Nabarmendua
         published_at: Noiz argitaratua
@@ -392,13 +392,13 @@ eu:
           'false': opakua
           'true': gardena
         local_area: Antolakuntza Arloa
-        participatory_scope: Zer erabakitzen da?
-        participatory_structure: Nola erabakitzen da?
+        participatory_scope: Zer erabakitzen den
+        participatory_structure: Nola erabakitzen den
         private_space: Hau batzar pribatua da
         purpose_of_action: Ekintzaren xedea
         read_less: Irakurri gutxiago
         read_more: Irakurri gehiago
-        related_participatory_processes: Erlazionatutako parte hartze prozesuak
+        related_participatory_processes: Erlazionatutako prozesu parte-hartzaileak
         scope: Esparrua
         social_networks: Sare sozialak
         social_networks_title: 'Bisitatu batzarra:'
