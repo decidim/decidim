@@ -50,10 +50,18 @@ de:
           attributes:
             attachment:
               needs_to_be_reattached: Der Anhang muss erneut angehängt werden
+        ballot_result:
+          attributes:
+            base:
+              total_count_invalid: Die Gesamtzahl der Antworten stimmt nicht mit der gültig/leer/null Aufschlüsselung überein.
         election:
           attributes:
             attachment:
               needs_to_be_reattached: Der Anhang muss erneut angehängt werden
+        question_result:
+          attributes:
+            base:
+              blank_count_invalid: Die Gesamtzahl der leeren Antworten kann nicht größer sein als die Gesamtzahl der leeren Stimmzettel.
         trustee:
           attributes:
             name:
@@ -1150,21 +1158,35 @@ de:
         closures:
           back_to_polling_stations: Zurück zu den Wahllokalen
           certify:
+            add_photos: Fotos hinzufügen
+            edit_photos: Fotos bearbeiten
             error: Beim Anhängen des Zertifikats ist ein Fehler aufgetreten, bitte versuchen Sie es erneut.
             heading: Stimmen-Neuzählung - Zertifikat hochladen
             info_text: Bitte laden Sie ein Bild des Wahlabschlusszertifikats hoch.
             submit: Zertifikat hochladen
             success: Zertifikat erfolgreich hochgeladen.
+            upload_photos: Ein Bild des Wahlabschlusszertifikats hochladen
+          completed:
+            sub_heading: Diese Neuauszählung wurde zertifiziert und kann nicht mehr bearbeitet werden.
           create:
             error: Beim Abschließen ist ein Fehler aufgetreten, bitte versuchen Sie es später erneut.
             success: Erfolgreich abgeschlossen.
+          destroy:
+            error: Ein Fehler trat auf beim Entfernen der Schließung.
+            success: Schließung wurde erfolgreich gelöscht.
           edit:
+            confirm_start_over: Dadurch werden die Gesamtzahl der Stimmen und die angehängten Notizen entfernt. Sind Sie sicher?
             heading: Nachzählung der Stimmen - Nachzählung der Antworten
+            info_text: Bitte beschreiben Sie die Gesamtzahl der Antworten für jede Frage. Dies muss mit der Gesamtzahl der im vorherigen Schritt eingeführten Antworten übereinstimmen (%{total} Antworten insgesamt).
             modal_ballots_results_count_error:
+              blank: Erwartete insgesamt leere Bewertungen sind %{expected}, aber die Summe der leeren Fragen ist %{current}.
               close_modal: Schließen
               info_text: Die Gesamtzahl der Stimmzettel stimmt nicht mit der Gesamtzahl der Umschläge überein. Bitte überprüfen Sie die Anzahl der Stimmzettel.
               title: Gesamtzahl der Stimmzettel stimmt nicht
+              total: Erwartete Gesamtsumme ist %{expected}, aber die Summe der gültigen, leeren und null Stimmzettel ist %{current}.
+              valid: Erwartete insgesamt leere Bewertungen ist %{expected}, aber die Summe der leeren Fragen ist %{current}.
             save_recount: Neuzählung speichern
+            start_over: Wenn es einen Fehler in der Gesamtzahl gibt, können Sie alles löschen und neu starten.
             total_ballots: Gesamtzahl der Stimmen
             total_blank_ballots: Anzahl leere Stimmzettel
             total_null_ballots: Anzahl ungültige Stimmzettel
@@ -1187,7 +1209,9 @@ de:
             submit: Gesamtzahl überprüfen
             total_ballots_count: Anzahl Stimmen
           show:
+            edit_count_votes: Falsche Zahlen? Sie können sie trotzdem bearbeiten.
             heading: Neuzählung
+            sub_heading: Die Neuauszählung muss durch das Hochladen eines Zertifikats geschlossen werden. Sobald dies erledigt ist, wird die Neuzählung versiegelt und kann nicht mehr bearbeitet werden.
           sign:
             cancel: Abbrechen
             check_box: Ich habe dies geprüft und es ist dasselbe wie das physische Abschlusszertifikat
@@ -1269,6 +1293,8 @@ de:
           manager: Manager
           president: Präsident
           unassigned: Nicht zugewiesen
+      polling_station_closure_certificate:
+        current_certificate: 'Aktuelles Zertifikat:'
       polling_station_closure_recount:
         nota_option: Leer / Keine der oben genannten
         polling_officer_notes: 'Notizen der Wahllokal-Mitarbeitenden:'
