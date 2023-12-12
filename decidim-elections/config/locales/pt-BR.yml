@@ -1056,7 +1056,6 @@ pt-BR:
           certify:
             add_images: Adicionar imagens
             error: Ocorreu um erro ao anexar o certificado, por favor tente novamente.
-            form_legend: Envie uma foto do Certificado de Encerramento Eleitoral
             heading: Recontagem de voto - Upload de certificado
             info_text: Por favor envie uma foto do Certificado de Encerramento Eleitoral.
             submit: Carregar o certificado
