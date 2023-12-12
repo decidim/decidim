@@ -50,10 +50,18 @@ ca:
           attributes:
             attachment:
               needs_to_be_reattached: És necessari tornar a adjuntar l'arxiu
+        ballot_result:
+          attributes:
+            base:
+              total_count_invalid: El número total de respostes no coincideix amb el desglossament vàlid/blanc/nul.
         election:
           attributes:
             attachment:
               needs_to_be_reattached: És necessari tornar a adjuntar l'arxiu
+        question_result:
+          attributes:
+            base:
+              blank_count_invalid: El nombre total de respostes en blanc no pot ser superior al total de paperetes en blanc.
         trustee:
           attributes:
             name:
@@ -1149,21 +1157,35 @@ ca:
         closures:
           back_to_polling_stations: Tornar als punts de votació
           certify:
+            add_photos: Afegir foto
+            edit_photos: Editar fotos
             error: S'ha produït un error en adjuntar el certificat. Si us plau, prova de nou.
             heading: Recompte de vots - Pujar certificat
             info_text: Si us plau, puja una imatge del certificat de tancament electoral.
             submit: Pujar el certificat
             success: El certificat s'ha pujat correctament.
+            upload_photos: Puja una imatge del Certificat de Tancament Electoral
+          completed:
+            sub_heading: Aquest recompte s'ha certificat i ja no es pot editar.
           create:
             error: S'ha produït un error en crear el tancament. Si us plau, intenta-ho més tard.
             success: Tancament creat correctament.
+          destroy:
+            error: S'ha produït un erro en eliminar el tancament.
+            success: Tancament eliminat correctament.
           edit:
+            confirm_start_over: Això eliminarà el nombre total de vots i les notes adjuntes. Segur que ho vols eliminar?
             heading: Recompte de vots - recompte de respostes
+            info_text: Si us plau, detalla el número total de respostes per a cada pregunta. Aquest ha de coincidir amb el número de respostes introduïdes al pas anterior (%{total} respostes en total).
             modal_ballots_results_count_error:
+              blank: El número de vots en blanc esperat és %{expected}, però la suma de les preguntes en blanc és %{current}.
               close_modal: Tancar
               info_text: El nombre total de paperetes no coincideix amb el nombre total de sobres. Si us plau, revisa el total de paperetes.
               title: El total de paperetes no coincideix
+              total: El total esperat és %{expected}, però la suma de les paperetes vàlides, en blanc i nul·les és %{current}.
+              valid: El número de vots vàlids esperat és %{expected}, però la suma de les preguntes vàlides és %{current}.
             save_recount: Desar recompte
+            start_over: Si hi ha un error al número total, pots esborrar-ho tot i tornar a començar.
             total_ballots: Total de paperetes
             total_blank_ballots: Total de paperetes en blanc
             total_null_ballots: Total de paperetes nul·les
@@ -1186,7 +1208,9 @@ ca:
             submit: Verificar nombre total
             total_ballots_count: Nombre de paperetes
           show:
+            edit_count_votes: '¿Números incorrectes? Encara els pots editar.'
             heading: Recompte de vots
+            sub_heading: Per tancar el recompte cal carregar un certificat. Un cop fet, el recompte se segellarà i ja no es podrà editar més.
           sign:
             cancel: Cancel·lar
             check_box: Ho he revisat i és idèntic al certificat físic de tancament electoral
@@ -1268,6 +1292,8 @@ ca:
           manager: Administrador
           president: President
           unassigned: Sense assignar
+      polling_station_closure_certificate:
+        current_certificate: 'Certificat actual:'
       polling_station_closure_recount:
         nota_option: En blanc / Cap de les anteriors
         polling_officer_notes: 'Anotacions del gestor de mesa:'
