@@ -749,9 +749,7 @@ nl:
         closures:
           back_to_polling_stations: Terug naar stembureaus
           certify:
-            add_images: Afbeeldingen toevoegen
             error: Er is een fout opgetreden tijdens het toevoegen van het certificaat, probeer het opnieuw.
-            form_legend: Upload een foto van het Stemmensluitingscertificaat
             heading: Stem hertelling - Upload certificaat
             info_text: Upload een foto van het Stemmensluitingscertificaat.
             submit: Certificaat uploaden
@@ -761,7 +759,6 @@ nl:
             success: Sluiting succesvol aangemaakt.
           edit:
             heading: Stem hertelling - Hertelling van antwoorden
-            info_text: Voer voor elke vraag het totale aantal antwoorden in.
             modal_ballots_results_count_error:
               close_modal: Sluit
               title: Totaal stemmen stemt niet overeen
@@ -787,7 +784,6 @@ nl:
             total_ballots_count: Aantal stemmen
           show:
             heading: Hertelling van de stemmen
-            info_text: Stembureau sluiting van de verkiezing.
           sign:
             cancel: Annuleer
             confirm: Ok, verdergaan
