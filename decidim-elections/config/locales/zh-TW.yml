@@ -1086,7 +1086,6 @@ zh-TW:
           certify:
             add_images: 添加圖案
             error: 附加憑證時發生錯誤，請稍後再試。
-            form_legend: 上傳選舉結束憑證的照片
             heading: 投票重新點算 - 上傳憑證
             info_text: 請上傳選舉結束憑證的照片。
             submit: 上傳憑證
