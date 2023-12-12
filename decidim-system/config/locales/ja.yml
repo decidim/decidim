@@ -55,6 +55,7 @@ ja:
           create: 作成
           title: 新しい管理者
         show:
+          destroy: 削除
           edit: 編集
         update:
           error: 管理者の更新中に問題が発生しました。
