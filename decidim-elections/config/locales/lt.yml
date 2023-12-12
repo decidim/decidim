@@ -1154,9 +1154,7 @@ lt:
         closures:
           back_to_polling_stations: Atgal į balsavimo punktus
           certify:
-            add_images: Pridėti paveikslėlių
             error: Prisegant sertifikatą įvyko klaida. Pabandykite dar kartą.
-            form_legend: Įkelkite rinkiminės baigties sertifikato nuotrauką
             heading: Balsų perksaičiavimas - įkelkite sertifikatą
             info_text: Įkelkite rinkiminės baigties sertifikato nuotrauką.
             submit: Įkelkite sertifikatą
@@ -1166,7 +1164,6 @@ lt:
             success: Uždarymas sėkmingai sukurtas.
           edit:
             heading: Balsų perskaičiviamas - atsakymų perskaičiviamas
-            info_text: Prašau įveskite pilną skaičių atsakymų kiekvienam klausimui.
             modal_ballots_results_count_error:
               close_modal: Uždaryti
               info_text: Biuletenių skaičius nesutampa su vokų skaičium. Patikrinkite biuletenių skaičių.
@@ -1195,7 +1192,6 @@ lt:
             total_ballots_count: Balsavimo biuletenių kiekis
           show:
             heading: Balsų perskaičiviamas
-            info_text: Balsavimo punkto rinkimų užbaigimas.
           sign:
             cancel: Atšaukti
             check_box: Peržiūrėjau, ir tai yra tas pats, kaip ir fizinis rinkimų užbaigimo sertifikatas
