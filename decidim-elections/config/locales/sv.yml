@@ -597,8 +597,6 @@ sv:
             active_spaces: Activa omröstningar
       polling_officer_zone:
         closures:
-          certify:
-            add_images: Lägg till bilder
           edit:
             modal_ballots_results_count_error:
               close_modal: Stäng
