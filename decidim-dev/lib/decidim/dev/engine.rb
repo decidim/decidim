@@ -11,7 +11,7 @@ module Decidim
         # Disable if the boost performance mode is enabled
         next if Rails.application.config.try(:boost_performance)
 
-        ActiveSupport.on_load(:action_controller) { include Decidim::Dev::NeedsDevelopmentTools }
+        ActiveSupport.on_load(:action_controller) { include Decidim::Dev::NeedsDevelopmentTools } if Rails.env.development? || ENV.fetch("DECIDIM_DEV_ENGINE", nil)
       end
 
       initializer "decidim_dev.webpacker.assets_path" do
