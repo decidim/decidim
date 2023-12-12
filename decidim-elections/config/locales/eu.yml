@@ -1144,9 +1144,7 @@ eu:
         closures:
           back_to_polling_stations: Itzuli bozketa-guneetara
           certify:
-            add_images: Gehiru irudiak
             error: Arazo bat izan da ziurtagiria eranstean, mesedez, saiatu berriro.
-            form_legend: Igo bozketa-itxieraren ziurtagiriaren argazki bat
             heading: Botoen zenbaketa - Igo ziurtagiria
             info_text: Mesedez, igo bozketa-itxieraren ziurtagiriaren argazki bat.
             submit: Igo ziurtagiria
@@ -1156,7 +1154,6 @@ eu:
             success: Itxiera zuzen egin da.
           edit:
             heading: Botoen zenbaketa - erantzunen zenbaketa
-            info_text: Mesedez, sartu erantzun kopurua galdera bakoitzerako.
             modal_ballots_results_count_error:
               close_modal: Itxi
               info_text: Boto-paperen kopuru osoa ez dator bat gutun-azalen kopuru osoarekin. Mesedez, berrikusi boto-paper guztiak.
@@ -1185,7 +1182,6 @@ eu:
             total_ballots_count: Boto-paper kopurua
           show:
             heading: Botoen zenbaketa
-            info_text: Bozketa-guneko bozketaren itxiera.
           sign:
             cancel: Utzi
             check_box: Berrikusi dut eta bozketaren itxieraren ziurtagiri fisikoaren berdina da
