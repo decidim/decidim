@@ -1150,9 +1150,7 @@ fi-pl:
         closures:
           back_to_polling_stations: Takaisin äänestyspaikkoihin
           certify:
-            add_images: Lisää kuvia
             error: Varmenteen liittäminen epäonnistui, yritä uudestaan.
-            form_legend: Lataa kuva äänestyksen päättämisen varmenteesta
             heading: Äänten uudelleenlaskenta - Lataa varmenne
             info_text: Lataa kuva äänestyksen päättämisen varmenteesta.
             submit: Lataa varmenne
@@ -1162,7 +1160,6 @@ fi-pl:
             success: Äänestyksen päättämisen luonti onnistui.
           edit:
             heading: Äänten uudelleenlaskenta - Vastausten uudelleenlaskenta
-            info_text: Syötä jokaisen kysymyksen kaikkien vastausten lukumäärä.
             modal_ballots_results_count_error:
               close_modal: Sulje
               info_text: Äänten kokonaismäärä ei vastaa kirjeiden kokonaismäärää. Tarkasta äänten kokonaismäärä.
@@ -1191,7 +1188,6 @@ fi-pl:
             total_ballots_count: Äänten kokonaismäärä
           show:
             heading: Äänten uudelleenlaskenta
-            info_text: Äänestyspaikan äänestyksen päättäminen.
           sign:
             cancel: Peruuta
             check_box: Olen tarkastanut tämän ja se on sama kuin fyysisen äänestyksen päättämisen todistus
