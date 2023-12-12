@@ -848,9 +848,7 @@ pt:
         closures:
           back_to_polling_stations: Retroceder para as secções de voto
           certify:
-            add_images: Adicionar imagens
             error: Ocorreu um erro ao anexar o certificado, por favor tente de novo.
-            form_legend: Envie a fotografia do Certificado de Encerramento Eleitoral
             heading: Recontagem de votos - Envie o certificado
             info_text: Por favor envie uma fotografia do Certificado de Encerramento Eleitoral.
             submit: Envie o certificado
@@ -860,7 +858,6 @@ pt:
             success: Encerramento criado com êxito.
           edit:
             heading: Recontagem de votos - Recontagem de respostas
-            info_text: Por favor introduza o número toral de respostas para cada questão.
             modal_ballots_results_count_error:
               close_modal: Fechar
               title: A contagem de boletins de voto não está correcta
@@ -886,7 +883,6 @@ pt:
             total_ballots_count: Número de boletins de voto
           show:
             heading: Recontagem de votos
-            info_text: Encerramento eleitoral da secção de voto
           sign:
             cancel: Cancelar
             confirm: Ok, continuar
