@@ -1179,12 +1179,12 @@ fr:
             heading: Recomptage des votes - Comptage des réponses
             info_text: Veuillez détailler le nombre total de réponses pour chaque question. Ce nombre doit correspondre au total de réponses fourni lors de l'étape précédente (%{total} réponses totales).
             modal_ballots_results_count_error:
-              blank: Le total attendu des votes vides est %{expected} mais la somme des questions vides est %{current}.
+              blank: Le total attendu des votes blancs est %{expected} mais la somme des questions vides est %{current}.
               close_modal: Fermer
               info_text: Le nombre total de bulletins ne correspond pas au nombre total d'enveloppes. Veuillez vérifier le nombre total de bulletins.
               title: Le total des bulletins ne correspond pas
-              total: Le total attendu est %{expected} mais la somme des bulletins valides, vides et nuls est %{current}.
-              valid: Le total attendu des votes vides est %{expected} mais la somme des questions vides est %{current}.
+              total: Le total attendu est %{expected} mais la somme des bulletins valides, blancs et nuls est %{current}.
+              valid: Le total attendu des votes blancs est %{expected} mais la somme des questions vides est %{current}.
             save_recount: Enregistrer le comptage
             start_over: S'il y a une erreur dans le nombre total, vous pouvez tout supprimer et recommencer.
             total_ballots: Total des votes
