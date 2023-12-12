@@ -37,7 +37,7 @@ module Decidim
 
       amendable(
         fields: [:title],
-        form: "Decidim::DummyResources::DummyResourceForm"
+        form: "Decidim::Dev::DummyResourceForm"
       )
 
       component_manifest_name "dummy"

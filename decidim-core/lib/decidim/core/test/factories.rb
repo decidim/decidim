@@ -597,7 +597,7 @@ FactoryBot.define do
     end
     resource { build(:dummy_resource) }
     event_name { resource.class.name.underscore.tr("/", ".") }
-    event_class { "Decidim::DummyResources::DummyResourceEvent" }
+    event_class { "Decidim::Dev::DummyResourceEvent" }
     extra do
       {
         some_extra_data: "1"

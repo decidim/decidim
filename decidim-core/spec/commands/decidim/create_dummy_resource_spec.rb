@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe DummyResources::CreateDummyResource do
+  describe Dev::CreateDummyResource do
     subject { described_class.new(form) }
 
     let(:current_component) { create(:component) }
