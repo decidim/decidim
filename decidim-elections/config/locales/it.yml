@@ -849,7 +849,6 @@ it:
           certify:
             add_images: Aggiungi immagini
             error: Si è verificato un errore nell'allegare il certificato, per favore riprova.
-            form_legend: Carica una foto del certificato di chiusura elettorale
             heading: Resoconto del voto - Certificato di caricamento
             info_text: Carica una foto del certificato di chiusura elettorale.
             submit: Carica il certificato
