@@ -50,10 +50,18 @@ es:
           attributes:
             attachment:
               needs_to_be_reattached: Es necesario volver a adjuntar el archivo
+        ballot_result:
+          attributes:
+            base:
+              total_count_invalid: El número total de respuestas no coincide con el desglose válido/blanco/nulo.
         election:
           attributes:
             attachment:
               needs_to_be_reattached: Es necesario volver a adjuntar el archivo
+        question_result:
+          attributes:
+            base:
+              blank_count_invalid: El número total de respuestas en blanco no puede ser mayor que el total de papeletas en blanco.
         trustee:
           attributes:
             name:
@@ -1149,21 +1157,35 @@ es:
         closures:
           back_to_polling_stations: Volver a los puntos de votación
           certify:
+            add_photos: Añadir fotos
+            edit_photos: Editar fotos
             error: Se ha producido un error al adjuntar el certificado, por favor inténtalo de nuevo.
             heading: Recuento de votos - Subir certificado
             info_text: Por favor, sube una foto del certificado de cierre electoral.
             submit: Subir el certificado
             success: Certificado subido correctamente.
+            upload_photos: Sube una foto del Certificado de Cierre Electoral
+          completed:
+            sub_heading: Este recuento ha sido certificado y ya no puede ser editado.
           create:
             error: Se ha producido un error al crear el cierre, por favor inténtalo de nuevo más tarde.
             success: Cierre creado correctamente.
+          destroy:
+            error: Ocurrió un error eliminando el cierre.
+            success: Cierre eliminado correctamente.
           edit:
+            confirm_start_over: Esto eliminará el número total de votos y las notas adjuntas. ¿Seguro que lo quieres eliminar?
             heading: Recuento de votos - recuento de respuestas
+            info_text: Por favor detalla el número total de respuestas para cada pregunta. Este debe coincidir con el número total de respuestas introducidas en el paso anterior (%{total} respuestas en total).
             modal_ballots_results_count_error:
+              blank: El total esperado de votos en blanco es %{expected}, pero la suma de las preguntas en blanco es %{current}.
               close_modal: Cerrar
               info_text: El número total de papeletas no coincide con el número total de sobres. Por favor, revisa el total de papeletas.
               title: El total de papeletas no coincide
+              total: El total esperado es %{expected}, pero la suma de las papeletas válidas, en blanco y nulas es %{current}.
+              valid: El total esperado de votos válidos es %{expected}, pero la suma de las preguntas válidas es %{current}.
             save_recount: Guardar recuento
+            start_over: Si hay un error en el número total, puedes borrar todo y empezar de nuevo.
             total_ballots: Total de papeletas
             total_blank_ballots: Total de papeletas en blanco
             total_null_ballots: Total de papeletas nulas
@@ -1186,7 +1208,9 @@ es:
             submit: Verificar número total
             total_ballots_count: Número de papeletas
           show:
+            edit_count_votes: '¿Número incorrecto? Aún puedes editarlos.'
             heading: Recuento de votos
+            sub_heading: El recuento debe cerrarse mediante la carga de un certificado. Una vez hecho, el recuento se sellará y ya no se podrá editar más.
           sign:
             cancel: Cancelar
             check_box: Lo he revisado y es idéntico al certificado físico de cierre electoral
@@ -1268,6 +1292,8 @@ es:
           manager: Administrador
           president: Presidente
           unassigned: No Asignado
+      polling_station_closure_certificate:
+        current_certificate: 'Certificado actual:'
       polling_station_closure_recount:
         nota_option: En blanco / Ninguna de las anteriores
         polling_officer_notes: 'Notas del gestor de mesa:'
