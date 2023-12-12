@@ -1153,6 +1153,7 @@ fr:
           certify:
             add_images: Ajouter des images
             error: Une erreur est survenue lors de la mise en place du certificat, veuillez réessayer.
+            form_legend: Télécharger une photo du certificat de clôture électoral
             heading: Recomptage des votes - Télécharger un certificat
             info_text: Veuillez télécharger une photo du certificat de fermeture électorale.
             submit: Télécharger le certificat
