@@ -1186,7 +1186,6 @@ es:
           certify:
             add_images: Añadir imágenes
             error: Se ha producido un error al adjuntar el certificado, por favor inténtalo de nuevo.
-            form_legend: Sube una foto del certificado de cierre electoral
             heading: Recuento de votos - Subir certificado
             info_text: Por favor, sube una foto del certificado de cierre electoral.
             submit: Subir el certificado
