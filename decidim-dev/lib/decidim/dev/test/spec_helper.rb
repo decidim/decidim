@@ -14,6 +14,7 @@ require "decidim/dev/test/w3c_rspec_validators_overrides"
 Dir["#{__dir__}/rspec_support/**/*.rb"].each { |f| require f }
 
 require "decidim/dev/test/factories"
+require "decidim/dev/component"
 
 RSpec.configure do |config|
   config.color = true
