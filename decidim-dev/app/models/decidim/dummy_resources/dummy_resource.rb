@@ -3,6 +3,8 @@
 module Decidim
   module DummyResources
     class DummyResource < ApplicationRecord
+      self.table_name = "decidim_dummy_resources_dummy_resources"
+
       include HasComponent
       include HasReference
       include Resourceable
