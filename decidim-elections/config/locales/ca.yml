@@ -1176,6 +1176,7 @@ ca:
           certify:
             add_images: Afegir imatges
             error: S'ha produït un error en adjuntar el certificat. Si us plau, prova de nou.
+            form_legend: Puja una imatge del Certificat de Tancament Electoral
             heading: Recompte de vots - Pujar certificat
             info_text: Si us plau, puja una imatge del certificat de tancament electoral.
             submit: Pujar el certificat
