@@ -222,7 +222,7 @@ module Decidim
       end
 
       context "when Active Record Relation is provided as nested attribute value for a non-array type attribute" do
-        let(:attachables) { Decidim::DummyResources::DummyResource.where(id: dummy_resources.map(&:id)) }
+        let(:attachables) { Decidim::Dev::DummyResource.where(id: dummy_resources.map(&:id)) }
         let(:component) { create(:component) }
         let(:dummy_resources) { create_list(:dummy_resource, 4, component:) }
 

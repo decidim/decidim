@@ -300,7 +300,7 @@ describe Decidim::Search do
         it "returns data from active spaces" do
           described_class.call(term, current_organization, "with_space_state" => "active") do
             on(:ok) do |results_by_type|
-              results = results_by_type["Decidim::DummyResources::DummyResource"]
+              results = results_by_type["Decidim::Dev::DummyResource"]
               expect(results[:count]).to eq 1
               expect(results[:results]).to eq [active.resource]
             end
@@ -313,7 +313,7 @@ describe Decidim::Search do
         it "returns data from future spaces" do
           described_class.call(term, current_organization, "with_space_state" => "future") do
             on(:ok) do |results_by_type|
-              results = results_by_type["Decidim::DummyResources::DummyResource"]
+              results = results_by_type["Decidim::Dev::DummyResource"]
               expect(results[:count]).to eq 1
               expect(results[:results]).to eq [future.resource]
             end
@@ -326,7 +326,7 @@ describe Decidim::Search do
         it "returns data from past spaces" do
           described_class.call(term, current_organization, "with_space_state" => "past") do
             on(:ok) do |results_by_type|
-              results = results_by_type["Decidim::DummyResources::DummyResource"]
+              results = results_by_type["Decidim::Dev::DummyResource"]
               expect(results[:count]).to eq 1
               expect(results[:results]).to eq [past.resource]
             end
@@ -339,7 +339,7 @@ describe Decidim::Search do
         it "returns data from all spaces" do
           described_class.call(term, current_organization, "with_space_state" => "") do
             on(:ok) do |results_by_type|
-              results = results_by_type["Decidim::DummyResources::DummyResource"]
+              results = results_by_type["Decidim::Dev::DummyResource"]
               expect(results[:count]).to eq 3
               expect(results[:results]).to contain_exactly(active.resource, past.resource, future.resource)
             end

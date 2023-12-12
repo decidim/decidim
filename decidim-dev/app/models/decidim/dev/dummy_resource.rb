@@ -83,10 +83,10 @@ module Decidim
 
       def self.newsletter_participant_ids(component)
         authors_ids = Decidim::Dev::DummyResource.where(component:)
-                                                            .where(decidim_author_type: Decidim::UserBaseEntity.name)
-                                                            .where.not(author: nil)
-                                                            .group(:decidim_author_id)
-                                                            .pluck(:decidim_author_id)
+                                                 .where(decidim_author_type: Decidim::UserBaseEntity.name)
+                                                 .where.not(author: nil)
+                                                 .group(:decidim_author_id)
+                                                 .pluck(:decidim_author_id)
         commentators_ids = Decidim::Comments::Comment.user_commentators_ids_in(Decidim::Dev::DummyResource.where(component:))
         (authors_ids + commentators_ids).flatten.compact.uniq
       end
