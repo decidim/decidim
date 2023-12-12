@@ -1083,9 +1083,7 @@ zh-TW:
         closures:
           back_to_polling_stations: 返回投票站
           certify:
-            add_images: 添加圖案
             error: 附加憑證時發生錯誤，請稍後再試。
-            form_legend: 上傳選舉結束憑證的照片
             heading: 投票重新點算 - 上傳憑證
             info_text: 請上傳選舉結束憑證的照片。
             submit: 上傳憑證
@@ -1095,7 +1093,6 @@ zh-TW:
             success: 關閉成功創建。
           edit:
             heading: 選舉重新點票 - 答案重新點票
-            info_text: 請輸入每個問題的總票數。
             modal_ballots_results_count_error:
               close_modal: 關閉
               info_text: 選票總數與信封總數不符。請檢查選票總數。
@@ -1124,7 +1121,6 @@ zh-TW:
             total_ballots_count: 投票數量
           show:
             heading: 重新計票
-            info_text: 投票站選舉結束。
           sign:
             cancel: 取消
             check_box: 我已經檢查過了，與實體選舉結束憑證相同。
