@@ -186,10 +186,10 @@ eu:
       response_groups:
         create:
           error: Arazo bat egon da beste erantzun-multzo bat sortzean.
-          success: Erantzun-multzoa zuzen sortu da.
+          success: Erantzun-multzoa zuzen sortua.
         destroy:
           error: Arazo bat egon da erantzun-multzoa ezabatzean. Egiaztatu ez dagoela erantzunik horren menpe.
-          success: Erantzun-multzoa zuzen ezabatu da.
+          success: Erantzun-multzoa zuzen ezabatua.
         edit:
           update: Eguneratu
         form:
@@ -200,7 +200,7 @@ eu:
           title: Beste erantzun-multzo bat
         update:
           error: Arazo bat egon da erantzun hau eguneratzean.
-          success: Erantzuna zuzen eguneratu da.
+          success: Erantzuna zuzen eguneratua.
       responses:
         create:
           error: Arazo bat egon da beste erantzun bat sortzean.
