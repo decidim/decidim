@@ -1149,9 +1149,7 @@ ca:
         closures:
           back_to_polling_stations: Tornar als punts de votació
           certify:
-            add_images: Afegir imatges
             error: S'ha produït un error en adjuntar el certificat. Si us plau, prova de nou.
-            form_legend: Puja una imatge del certificat de tancament electoral
             heading: Recompte de vots - Pujar certificat
             info_text: Si us plau, puja una imatge del certificat de tancament electoral.
             submit: Pujar el certificat
@@ -1161,7 +1159,6 @@ ca:
             success: Tancament creat correctament.
           edit:
             heading: Recompte de vots - recompte de respostes
-            info_text: Si us plau, introdueix el nombre total de respostes per a cada pregunta.
             modal_ballots_results_count_error:
               close_modal: Tancar
               info_text: El nombre total de paperetes no coincideix amb el nombre total de sobres. Si us plau, revisa el total de paperetes.
@@ -1190,7 +1187,6 @@ ca:
             total_ballots_count: Nombre de paperetes
           show:
             heading: Recompte de vots
-            info_text: Tancament electoral del punt de votació.
           sign:
             cancel: Cancel·lar
             check_box: Ho he revisat i és idèntic al certificat físic de tancament electoral
