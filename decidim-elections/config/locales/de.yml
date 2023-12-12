@@ -1150,9 +1150,7 @@ de:
         closures:
           back_to_polling_stations: Zurück zu den Wahllokalen
           certify:
-            add_images: Bilder hinzufügen
             error: Beim Anhängen des Zertifikats ist ein Fehler aufgetreten, bitte versuchen Sie es erneut.
-            form_legend: Ein Bild des Wahlabschlusszertifikats hochladen
             heading: Stimmen-Neuzählung - Zertifikat hochladen
             info_text: Bitte laden Sie ein Bild des Wahlabschlusszertifikats hoch.
             submit: Zertifikat hochladen
@@ -1162,7 +1160,6 @@ de:
             success: Erfolgreich abgeschlossen.
           edit:
             heading: Nachzählung der Stimmen - Nachzählung der Antworten
-            info_text: Bitte geben Sie die Gesamtzahl der Antworten für jede Frage ein.
             modal_ballots_results_count_error:
               close_modal: Schließen
               info_text: Die Gesamtzahl der Stimmzettel stimmt nicht mit der Gesamtzahl der Umschläge überein. Bitte überprüfen Sie die Anzahl der Stimmzettel.
@@ -1191,7 +1188,6 @@ de:
             total_ballots_count: Anzahl Stimmen
           show:
             heading: Neuzählung
-            info_text: Wahlabschluss des Wahlbüros.
           sign:
             cancel: Abbrechen
             check_box: Ich habe dies geprüft und es ist dasselbe wie das physische Abschlusszertifikat
