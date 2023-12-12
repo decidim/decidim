@@ -2,6 +2,11 @@
 
 require "decidim/dev/railtie"
 
+require "decidim/dev/admin"
+require "decidim/dev/engine"
+require "decidim/dev/admin_engine"
+# require "decidim/dev/component"
+
 module Decidim
   # Decidim::Dev holds all the convenience logic and libraries to be able to
   # create external libraries that create test apps and test themselves against

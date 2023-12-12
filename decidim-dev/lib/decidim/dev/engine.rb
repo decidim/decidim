@@ -7,6 +7,15 @@ module Decidim
       isolate_namespace Decidim::Dev
       engine_name "decidim_dev"
 
+      routes do
+        root to: proc { [200, {}, ["DUMMY ENGINE"]] }
+
+        resources :dummy_resources do
+          resources :nested_dummy_resources
+          get :foo, on: :member
+        end
+      end
+      
       initializer "decidim_dev.tools" do
         # Disable if the boost performance mode is enabled
         next if Rails.application.config.try(:boost_performance)

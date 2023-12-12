@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 require "decidim/dev"
 
 ENV["ENGINE_ROOT"] = File.dirname(__dir__)

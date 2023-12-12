@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 Decidim.register_component(:dummy) do |component|
-  component.engine = Decidim::DummyResources::DummyEngine
-  component.admin_engine = Decidim::DummyResources::AdminEngine
+  component.engine = Decidim::Dev::Engine
+  component.admin_engine = Decidim::Dev::AdminEngine
   component.icon = "media/images/decidim_dev_dummy.svg"
 
   component.actions = %w(foo bar)

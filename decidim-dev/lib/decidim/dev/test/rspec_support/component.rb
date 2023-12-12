@@ -2,7 +2,7 @@
 
 require "decidim/component_validator"
 require "decidim/comments"
-require "decidim/dummy_resources"
+require "decidim/dev"
 
 RSpec.configure do |config|
   config.before(:suite) do
@@ -66,6 +66,6 @@ RSpec.configure do |config|
   end
 
   config.before do
-    Decidim.find_component_manifest(:dummy).reset_hooks!
+    # Decidim.find_component_manifest(:dummy).reset_hooks!
   end
 end
