@@ -841,9 +841,7 @@ pt-BR:
         closures:
           back_to_polling_stations: Voltar para estações de votação
           certify:
-            add_images: Adicionar imagens
             error: Ocorreu um erro ao anexar o certificado, por favor tente novamente.
-            form_legend: Envie uma foto do Certificado de Encerramento Eleitoral
             heading: Recontagem de voto - Upload de certificado
             info_text: Por favor envie uma foto do Certificado de Encerramento Eleitoral.
             submit: Carregar o certificado
@@ -853,7 +851,6 @@ pt-BR:
             success: Encerramento criado com sucesso.
           edit:
             heading: Recontagem de votos - Recontagem de respostas
-            info_text: Por favor, introduza o número total de respostas para cada questão.
             modal_ballots_results_count_error:
               close_modal: Fechar
               title: Total de cédulas não somados
@@ -879,7 +876,6 @@ pt-BR:
             total_ballots_count: Número de cédulas
           show:
             heading: Recontagem de votos
-            info_text: Encerramento eleitoral da estação de voto.
           sign:
             cancel: Cancelar
             confirm: Ok, continuar
