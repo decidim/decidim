@@ -1222,7 +1222,9 @@ cs:
             submit: Ověřit celkové číslo
             total_ballots_count: Počet hlasovacích lístků
           show:
+            edit_count_votes: Špatná čísla? Můžete je stále upravovat.
             heading: Počet hlasů
+            sub_heading: Přepočet musí být uzavřen nahráním certifikátu. Jakmile je to hotovo, bude přepočet zapečetěn a již ho nelze upravovat.
           sign:
             cancel: Zrušit
             check_box: Přezkoumal jsem to a je to stejné jako fyzický certifikát o ukončení voleb
