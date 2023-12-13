@@ -54,6 +54,10 @@ cs:
           attributes:
             attachment:
               needs_to_be_reattached: Potřebuje být znovu připojen
+        question_result:
+          attributes:
+            base:
+              blank_count_invalid: Celkový počet prázdných odpovědí nemůže být větší než celkový počet prázdných hlasovacích lístků.
         trustee:
           attributes:
             name:
@@ -1174,21 +1178,28 @@ cs:
         closures:
           back_to_polling_stations: Zpět do volební místnosti
           certify:
+            add_photos: Přidat fotografie
+            edit_photos: Upravit fotografie
             error: Došlo k chybě při připojování certifikátu, zkuste to prosím znovu.
             heading: Přepočet hlasů - Nahrát certifikát
             info_text: Nahrajte prosím fotografii volebního certifikátu o uzavření.
             submit: Nahrát certifikát
             success: Certifikát byl úspěšně nahrán.
+          completed:
+            sub_heading: Tento přepočet byl certifikován a nelze jej dále upravovat.
           create:
             error: Při vytváření uzavření došlo k chybě, opakujte akci později.
             success: Uzavření bylo úspěšně vytvořeno.
           edit:
+            confirm_start_over: Tímto odstraníte celkový počet hlasů a připojených poznámek. Jste si jisti?
             heading: Přepočet hlasů - přepočet odpovědí
+            info_text: Uveďte prosím celkový počet odpovědí pro každou otázku. Toto musí odpovídat celkovému počtu odpovědí vložených v předchozím kroku (celkem %{total} odpovědí).
             modal_ballots_results_count_error:
               close_modal: Zavřít
               info_text: Celkový počet hlasovacích lístků neodpovídá celkovému počtu obálek. Zkontrolujte prosím celkový počet hlasovacích lístků.
               title: Součet hlasovacích lístků se nesčítá
             save_recount: Uložit přepočet
+            start_over: Pokud je chyba v celkovém počtu, můžete vše smazat a začít znovu.
             total_ballots: Celkový počet hlasovacích lístků
             total_blank_ballots: Celkový počet prázdných hlasovacích lístků
             total_null_ballots: Celkový počet prázdných hlasovacích lístků
@@ -1293,6 +1304,8 @@ cs:
           manager: Manažer
           president: Předseda
           unassigned: Nepřiřazen
+      polling_station_closure_certificate:
+        current_certificate: 'Aktuální certifikát:'
       polling_station_closure_recount:
         nota_option: Prázdná/Nic z výše uvedených
         polling_officer_notes: 'Poznámky volebního komisaře:'
