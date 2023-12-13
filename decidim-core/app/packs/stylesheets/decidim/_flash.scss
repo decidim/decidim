@@ -1,5 +1,5 @@
 .flash {
-  @apply flex justify-start items-center gap-4 rounded border-2 border-secondary my-4 p-4 bg-secondary/5;
+  @apply flex justify-start gap-4 border-l-4 border-secondary my-4 p-4 bg-secondary/5;
 
   &__icon {
     svg {
@@ -8,14 +8,18 @@
   }
 
   &__title {
-    @apply font-semibold text-2xl;
+    @apply font-semibold text-xl;
   }
 
   &__message {
-    @apply gap-2 text-black font-semibold text-lg;
+    @apply text-black font-semibold text-lg;
 
     a {
-      @apply underline;
+      @apply underline text-secondary;
+    }
+
+    p {
+      @apply font-normal text-md;
     }
 
     &-body {
@@ -28,6 +32,19 @@
 
     svg {
       @apply w-5 h-5 fill-current;
+    }
+  }
+
+  &.primary {
+    svg {
+      @apply text-secondary;
+    }
+  }
+
+  &.secondary,
+  &.info {
+    svg {
+      @apply text-secondary;
     }
   }
 
