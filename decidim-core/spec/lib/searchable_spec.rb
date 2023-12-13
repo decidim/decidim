@@ -15,7 +15,7 @@ module Decidim
       let(:component2) { create(:component, organization: organization2) }
 
       let!(:dummy_resource1) do
-        Decidim::DummyResources::DummyResource.create!(
+        Decidim::Dev::DummyResource.create!(
           id: COMMON_ID,
           component: component1,
           published_at: Time.current,
@@ -23,7 +23,7 @@ module Decidim
         )
       end
       let!(:dummy_resource2) do
-        Decidim::DummyResources::DummyResource.create!(
+        Decidim::Dev::DummyResource.create!(
           id: COMMON_ID + 1,
           component: component2,
           published_at: Time.current,
@@ -36,13 +36,13 @@ module Decidim
       it "each searchable should link to its own searchable_resources" do
         org = user1.organization
         num_locales = org.available_locales.size
-        expect(dummy_resource1.searchable_resources.by_organization(org.id).pluck(:resource_id, :resource_type)).to eq([[COMMON_ID, "Decidim::DummyResources::DummyResource"]] * num_locales)
+        expect(dummy_resource1.searchable_resources.by_organization(org.id).pluck(:resource_id, :resource_type)).to eq([[COMMON_ID, "Decidim::Dev::DummyResource"]] * num_locales)
         expect(user1.searchable_resources.by_organization(org.id).pluck(:resource_id, :resource_type)).to eq([[COMMON_ID, "Decidim::User"]] * num_locales)
       end
     end
 
     describe ".order_by_id_list" do
-      subject { Decidim::DummyResources::DummyResource.order_by_id_list(ids) }
+      subject { Decidim::Dev::DummyResource.order_by_id_list(ids) }
 
       context "when no ids is nil" do
         let(:ids) { nil }

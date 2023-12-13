@@ -10,6 +10,7 @@ engine_spec_dir = File.join(Dir.pwd, "spec")
 require "simplecov" if ENV["SIMPLECOV"]
 
 require "decidim/core"
+require "decidim/dev/component"
 require "decidim/core/test"
 require "decidim/admin/test"
 require "decidim/api/test"
