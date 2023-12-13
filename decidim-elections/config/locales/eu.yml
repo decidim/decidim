@@ -1159,16 +1159,28 @@ eu:
             info_text: Mesedez, igo bozketa-itxieraren ziurtagiriaren argazki bat.
             submit: Igo ziurtagiria
             success: Ziurtagiria zuzen igo da.
+            upload_photos: Hauteskundearen itxieraren egiaztagiriaren agazkia igo
+          completed:
+            sub_heading: Zenbaketa hau egiaztatu egin da eta ezin da editatu.
           create:
             error: Arazo bat izan da itxiera sortzean, mesedez, saiatu berriro geroago.
             success: Itxiera zuzen egin da.
+          destroy:
+            error: Itxiera ezabatzerakoan errorea sortu da.
+            success: Itxiera zuzen ezabatu da.
           edit:
+            confirm_start_over: Hau egiten baduzu ezabatu egingo dira boto guztiak eta erantsitako oharrak. Ziur zaude ezabatu nahi dituzula?
             heading: Botoen zenbaketa - erantzunen zenbaketa
+            info_text: Mesedez, ezarri galdera bakoitzerako erantzun kopurua. Kopuru hau bat etorri behar da aurreko urratsean ezarritako guztizko erantzun kopuruarekin. (%{total} erantzun guztira).
             modal_ballots_results_count_error:
+              blank: Espero zen boto zurien kopurua %{expected} da, baina erantzun zurien batuketa %{current} da.
               close_modal: Itxi
               info_text: Boto-paperen kopuru osoa ez dator bat gutun-azalen kopuru osoarekin. Mesedez, berrikusi boto-paper guztiak.
               title: Boto-paperen kopuru osoa ez dator bat
+              total: Espero zen guztizkoa %{expected} da, baina boto-paper baliodun, zuri eta baliogabeen batuketa %{current} da.
+              valid: Espero zen boto baliodunen guztizkoa %{expected} da, baina erantzun baliodunen batuketa %{current} da.
             save_recount: Gorde zenbaketa
+            start_over: Guztizkoan errorea badago dena ezabatu eta berriro has zaitezke.
             total_ballots: Boto-paperak, guztira
             total_blank_ballots: Boto-paper zuriak, guztira
             total_null_ballots: Boto-paper okerrak, guztira
@@ -1191,7 +1203,9 @@ eu:
             submit: Egiaztatu guztizko zenbakia
             total_ballots_count: Boto-paper kopurua
           show:
+            edit_count_votes: Okerreko zenbakiak? oraindik editatu ahal dituzu.
             heading: Botoen zenbaketa
+            sub_heading: Zenbaketa ixteko egiaztagiria igo behar da. Behin eginez gero, zenbaketa zigilatu eta ezin izango da berriro editatu.
           sign:
             cancel: Utzi
             check_box: Berrikusi dut eta bozketaren itxieraren ziurtagiri fisikoaren berdina da
@@ -1273,6 +1287,8 @@ eu:
           manager: Administratzailea
           president: Presidentea
           unassigned: Esleitu gabe
+      polling_station_closure_certificate:
+        current_certificate: 'Egungo egiaztagiria:'
       polling_station_closure_recount:
         nota_option: Zuriz / Aurreko bat ere ez
         polling_officer_notes: 'Mahaiko kudeatzailearen oharrak:'
