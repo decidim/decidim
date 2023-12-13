@@ -23,7 +23,7 @@
     }
 
     p {
-      @apply font-normal text-md;
+      @apply font-normal text-md leading-6;
     }
 
     &-body {
@@ -73,6 +73,16 @@
 
     .flash__icon {
       @apply text-warning;
+    }
+  }
+
+  .rich-text-display {
+    ul {
+      @apply ml-4;
+
+      li {
+        @apply list-disc;
+      }
     }
   }
 }
