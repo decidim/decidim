@@ -4,7 +4,7 @@ module Decidim
   module Accountability
     module Admin
       # This command is executed when the user creates a Result from the admin
-      # panel.
+      # panel using the "Import results from CSV file" feature
       class CreateImportedResult < Decidim::Commands::CreateResource
         include Decidim::Accountability::Admin::HasResultCommand
 

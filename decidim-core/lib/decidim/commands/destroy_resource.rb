@@ -64,10 +64,10 @@ module Decidim
       # @return [Hash] a hash with the extra params.
       def extra_params = {}
 
-      # Useful for running any code that you may want to execute before updating the resource.
+      # Useful for running any code that you may want to execute before deleting the resource.
       def run_before_hooks; end
 
-      # Useful for running any code that you may want to execute after updating the resource.
+      # Useful for running any code that you may want to execute after deleting the resource.
       def run_after_hooks; end
     end
   end

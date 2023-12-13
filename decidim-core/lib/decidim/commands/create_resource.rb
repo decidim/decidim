@@ -46,10 +46,10 @@ module Decidim
 
       delegate :current_user, to: :form
 
-      # Useful for running any code that you may want to execute before updating the resource.
+      # Useful for running any code that you may want to execute before creating the resource.
       def run_before_hooks; end
 
-      # Useful for running any code that you may want to execute after updating the resource.
+      # Useful for running any code that you may want to execute after creating the resource.
       def run_after_hooks; end
     end
   end
