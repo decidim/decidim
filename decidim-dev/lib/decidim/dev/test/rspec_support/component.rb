@@ -7,8 +7,8 @@ require "decidim/dev"
 RSpec.configure do |config|
   config.before(:suite) do
     ActiveRecord::Migration.suppress_messages do
-      unless ActiveRecord::Base.connection.data_source_exists?("decidim_dummy_resources_dummy_resources")
-        ActiveRecord::Migration.create_table :decidim_dummy_resources_dummy_resources do |t|
+      unless ActiveRecord::Base.connection.data_source_exists?("decidim_dev_dummy_resources")
+        ActiveRecord::Migration.create_table :decidim_dev_dummy_resources do |t|
           t.jsonb :translatable_text
           t.jsonb :title
           t.string :body
@@ -32,8 +32,8 @@ RSpec.configure do |config|
           t.timestamps
         end
       end
-      unless ActiveRecord::Base.connection.data_source_exists?("decidim_dummy_resources_nested_dummy_resources")
-        ActiveRecord::Migration.create_table :decidim_dummy_resources_nested_dummy_resources do |t|
+      unless ActiveRecord::Base.connection.data_source_exists?("decidim_dev_nested_dummy_resources")
+        ActiveRecord::Migration.create_table :decidim_dev_nested_dummy_resources do |t|
           t.jsonb :translatable_text
           t.string :title
 
@@ -41,8 +41,8 @@ RSpec.configure do |config|
           t.timestamps
         end
       end
-      unless ActiveRecord::Base.connection.data_source_exists?("decidim_dummy_resources_coauthorable_dummy_resources")
-        ActiveRecord::Migration.create_table :decidim_dummy_resources_coauthorable_dummy_resources do |t|
+      unless ActiveRecord::Base.connection.data_source_exists?("decidim_dev_coauthorable_dummy_resources")
+        ActiveRecord::Migration.create_table :decidim_dev_coauthorable_dummy_resources do |t|
           t.jsonb :translatable_text
           t.string :title
           t.string :body
@@ -66,6 +66,6 @@ RSpec.configure do |config|
   end
 
   config.before do
-    # Decidim.find_component_manifest(:dummy).reset_hooks!
+    Decidim.find_component_manifest(:dummy).reset_hooks!
   end
 end
