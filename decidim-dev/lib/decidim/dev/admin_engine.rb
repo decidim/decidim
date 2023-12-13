@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  module DummyResources
+  module Dev
     class AdminEngine < Rails::Engine
       engine_name "dummy_admin"
 
@@ -16,7 +16,7 @@ module Decidim
       initializer "dummy_admin.imports" do
         class ::DummyCreator < Decidim::Admin::Import::Creator
           def self.resource_klass
-            Decidim::DummyResources::DummyResource
+            Decidim::Dev::DummyResource
           end
 
           def produce
@@ -26,7 +26,7 @@ module Decidim
           private
 
           def resource
-            @resource ||= Decidim::DummyResources::DummyResource.new(
+            @resource ||= Decidim::Dev::DummyResource.new(
               title: { en: "Dummy" },
               author: context[:current_user],
               component:
