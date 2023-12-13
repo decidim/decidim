@@ -31,6 +31,9 @@ runs:
       with:
         ruby-version: ${{ inputs.ruby_version }}
         bundler-cache: true
+    - uses: nanasess/setup-chromedriver@v2
+        with:
+          chromedriver-version: 119.0.6045.105
     - uses: actions/setup-node@v3
       with:
         node-version: ${{ inputs.node_version }}
