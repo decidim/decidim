@@ -50,10 +50,18 @@ eu:
           attributes:
             attachment:
               needs_to_be_reattached: Berriro erantsi behar da
+        ballot_result:
+          attributes:
+            base:
+              total_count_invalid: Guztizko erantzun kopurua ez dator bat baliozko/zuri/baliogabe banaketarekin.
         election:
           attributes:
             attachment:
               needs_to_be_reattached: Berriro erantsi behar da
+        question_result:
+          attributes:
+            base:
+              blank_count_invalid: Erantzun zurien kopurua ezin da izan boto-paper zurien kopurua baino handiagoa.
         trustee:
           attributes:
             name:
@@ -1144,6 +1152,8 @@ eu:
         closures:
           back_to_polling_stations: Itzuli bozketa-guneetara
           certify:
+            add_photos: Erantsi argazkiak
+            edit_photos: Editatu argazkiak
             error: Arazo bat izan da ziurtagiria eranstean, mesedez, saiatu berriro.
             heading: Botoen zenbaketa - Igo ziurtagiria
             info_text: Mesedez, igo bozketa-itxieraren ziurtagiriaren argazki bat.
