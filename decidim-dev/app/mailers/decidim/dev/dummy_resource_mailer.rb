@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  module DummyResources
+  module Dev
     class DummyResourceMailer < ApplicationMailer
       def send_email(user, organization, subject, reply_to)
         @user = user

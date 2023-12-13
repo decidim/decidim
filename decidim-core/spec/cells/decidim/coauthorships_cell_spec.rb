@@ -34,7 +34,7 @@ describe Decidim::CoauthorshipsCell, type: :cell do
     let(:coauthors) { [organization] }
 
     it "renders the Official author" do
-      expect(subject).to have_content(Decidim::DummyResources::OfficialAuthorPresenter.new.name)
+      expect(subject).to have_content(Decidim::Dev::OfficialAuthorPresenter.new.name)
     end
   end
 
