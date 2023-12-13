@@ -20,7 +20,7 @@ describe PassthruValidator do
     Class.new(ApplicationRecord) do
       include Decidim::HasUploadValidations
 
-      self.table_name = "decidim_dummy_resources_dummy_resources"
+      self.table_name = "decidim_dev_dummy_resources"
 
       def self.model_name
         ActiveModel::Name.new(self, nil, "Passthrough")

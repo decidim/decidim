@@ -203,7 +203,7 @@ module Decidim
       context "when Active Record objects are provided as nested attribute values" do
         let(:drink_class) do
           Class.new(ApplicationRecord) do
-            self.table_name = :decidim_dummy_resources_dummy_resources
+            self.table_name = :decidim_dev_dummy_resources
 
             def custom_sauce
               "foobar"
