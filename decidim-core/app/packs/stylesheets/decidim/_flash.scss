@@ -16,6 +16,10 @@
 
     a {
       @apply underline text-secondary;
+
+      svg {
+        @apply text-secondary;
+      }
     }
 
     p {
@@ -43,7 +47,7 @@
 
   &.secondary,
   &.info {
-    svg {
+    .flash__icon {
       @apply text-secondary;
     }
   }
@@ -51,7 +55,7 @@
   &.success {
     @apply border-success bg-success/5;
 
-    svg {
+    .flash__icon {
       @apply text-success;
     }
   }
@@ -59,7 +63,7 @@
   &.alert {
     @apply border-alert bg-alert/5;
 
-    svg {
+    .flash__icon {
       @apply text-alert;
     }
   }
@@ -67,7 +71,7 @@
   &.warning {
     @apply border-warning bg-warning/5;
 
-    svg {
+    .flash__icon {
       @apply text-warning;
     }
   }
