@@ -4,7 +4,7 @@
     <h2 class="item_show__header-title">
       <div>
         <%= t(".title") %>
-        <span id="js-selected-proposals-count" class="component-counter component-counter--inline" title="<%= t("decidim.proposals.admin.proposals.index.selected") %>"></span>
+        <span id="js-selected-proposals-count" class="component-counter " title="<%= t("decidim.proposals.admin.proposals.index.selected") %>"></span>
       </div>
         <%= render partial: "bulk-actions" %>
         <%= render partial: "decidim/admin/components/resource_action" %>
@@ -55,7 +55,7 @@
             <%= sort_link(query, :state, [:state, :is_emendation], t("models.proposal.fields.state", scope: "decidim.proposals") ) %>
           </th>
 
-          <th class="actions"><%= t("actions.title", scope: "decidim.proposals") %></th>
+          <th><%= t("actions.title", scope: "decidim.proposals") %></th>
         </tr>
       </thead>
       <tbody>
