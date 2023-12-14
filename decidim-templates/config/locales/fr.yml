@@ -26,6 +26,7 @@ fr:
         destroy:
           success: Modèle supprimé avec succès.
         empty: Il n'y a pas de modèle pour l'instant.
+        missing_resource: "(ressource manquante)"
         update:
           error: Un problème est survenu lors de la mise à jour de ce modèle.
           success: Modèle mis à jour avec succès.
@@ -57,8 +58,21 @@ fr:
           template_chooser:
             select_template: Sélectionnez un modèle de réponse
         proposal_answer_templates:
+          edit:
+            title: Modifier le modèle de réponse à la proposition
           form:
+            component_constraint_help: Notez que seuls les espaces participatifs ayant des composantes de type "propositions" seront listés.
+            hint1_html: "<strong>%{organization}</strong> sera remplacé par le nom de l'organisation"
+            hint2_html: "<strong>%{name}</strong> sera remplacé par le nom de l'auteur"
+            hint3_html: "<strong>%{admin}</strong> sera remplacé par le nom de l'administrateur (celui qui répond à la proposition)"
+            hint_html: "<strong>Conseil:</strong> Vous pouvez utilisez ces variables n'importe où sur le modèle de réponse qui seront remplacés lors de l'utilisation du modèle"
             save: Sauvegarder
+          index:
+            component_constraint: Ajouter une contrainte
+            confirm_delete: Êtes-vous sûr de vouloir supprimer ce modèle ?
+            global_scope: Global (disponible partout)
+            internal_state: État interne
+            title: Réponses à la proposition
           new:
             title: Nouveau modèle de réponse à proposition
           template_chooser:

@@ -11,14 +11,14 @@ module Decidim
           enforce_permission_to(:manage, :polling_station_results, polling_officer:)
 
           @form = if closure.certificate_phase?
-                    form(ClosureCertifyForm).instance.with_context(closure:)
+                    form(ClosureCertifyForm).from_model(closure)
                   elsif closure.signature_phase?
                     form(ClosureSignForm).instance
                   end
         end
 
         def new
-          enforce_permission_to(:manage, :polling_station_results, polling_officer:)
+          enforce_permission_to(:create, :polling_station_results, polling_officer:, closure:)
 
           @form = EnvelopesResultForm.new(
             polling_station_id: polling_station.id,
@@ -28,7 +28,7 @@ module Decidim
         end
 
         def create
-          enforce_permission_to(:manage, :polling_station_results, polling_officer:)
+          enforce_permission_to(:create, :polling_station_results, polling_officer:, closure:)
           @form = form(EnvelopesResultForm).from_params(params).with_context(polling_officer:)
 
           CreatePollingStationClosure.call(@form) do
@@ -46,30 +46,45 @@ module Decidim
         end
 
         def edit
-          enforce_permission_to(:manage, :polling_station_results, polling_officer:)
-
+          enforce_permission_to(:edit, :polling_station_results, polling_officer:, closure:)
           @form = form(ClosureResultForm).from_model(closure)
         end
 
         def update
-          enforce_permission_to(:manage, :polling_station_results, polling_officer:)
+          enforce_permission_to(:edit, :polling_station_results, polling_officer:, closure:)
           @form = form(ClosureResultForm).from_params(params)
-
           CreatePollingStationResults.call(@form, closure) do
+            on(:ok) do
+              flash[:notice] = t(".success")
+              redirect_to polling_officer_election_closure_path(polling_officer, election)
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = t(".error")
+
+              render :edit
+            end
+          end
+        end
+
+        def destroy
+          enforce_permission_to(:edit, :polling_station_results, polling_officer:, closure:)
+
+          DestroyPollingStationClosure.call(closure, current_user) do
             on(:ok) do
               flash[:notice] = t(".success")
             end
 
             on(:invalid) do
-              flash[:alert] = t(".error")
+              flash.now[:alert] = t(".error")
             end
           end
 
-          redirect_to polling_officer_election_closure_path(polling_officer, election)
+          redirect_to polling_officers_path
         end
 
         def certify
-          enforce_permission_to(:manage, :polling_station_results, polling_officer:)
+          enforce_permission_to(:edit, :polling_station_results, polling_officer:, closure:)
 
           @form = form(ClosureCertifyForm).from_params(params).with_context(closure:)
 
@@ -87,7 +102,7 @@ module Decidim
         end
 
         def sign
-          enforce_permission_to(:manage, :polling_station_results, polling_officer:)
+          enforce_permission_to(:edit, :polling_station_results, polling_officer:, closure:)
 
           @form = form(ClosureSignForm).from_params(params)
 

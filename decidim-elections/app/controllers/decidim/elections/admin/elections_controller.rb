@@ -77,7 +77,7 @@ module Decidim
           PublishElection.call(election, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("admin.elections.publish.success", scope: "decidim.elections")
-              redirect_to elections_path
+              redirect_back(fallback_location: root_path)
             end
           end
         end

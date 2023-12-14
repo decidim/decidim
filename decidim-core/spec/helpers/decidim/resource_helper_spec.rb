@@ -8,11 +8,11 @@ module Decidim
     let(:resource) { create(:dummy_resource, component:) }
 
     describe "linked_classes_for" do
-      subject { helper.linked_classes_for(DummyResources::DummyResource) }
+      subject { helper.linked_classes_for(Dev::DummyResource) }
 
       context "when it is not resourceable" do
         before do
-          allow(DummyResources::DummyResource)
+          allow(Dev::DummyResource)
             .to receive(:respond_to?)
             .with(:linked_classes_for)
             .and_return(false)
@@ -26,7 +26,7 @@ module Decidim
           allow(helper)
             .to receive(:current_component)
             .and_return(component)
-          allow(DummyResources::DummyResource)
+          allow(Dev::DummyResource)
             .to receive(:linked_classes_for)
             .and_return(["Decidim::Meetings::Meeting"])
         end
@@ -38,7 +38,7 @@ module Decidim
     end
 
     describe "linked_classes_filter_values_for" do
-      subject { helper.linked_classes_filter_values_for(DummyResources::DummyResource) }
+      subject { helper.linked_classes_filter_values_for(Dev::DummyResource) }
 
       before do
         allow(helper)
