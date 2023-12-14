@@ -8,11 +8,11 @@
   }
 
   &__title {
-    @apply font-semibold text-xl;
+    @apply font-semibold text-lg;
   }
 
   &__message {
-    @apply text-black font-semibold text-lg;
+    @apply text-black font-semibold text-md;
 
     a {
       @apply underline text-secondary;
@@ -24,6 +24,14 @@
 
     p {
       @apply font-normal text-md leading-6;
+    }
+
+    ul {
+      @apply ml-4;
+
+      li {
+        @apply list-disc;
+      }
     }
 
     &-body {
@@ -73,18 +81,6 @@
 
     .flash__icon {
       @apply text-warning;
-    }
-  }
-
-  .rich-text-display {
-    @apply font-normal;
-
-    ul {
-      @apply ml-4;
-
-      li {
-        @apply list-disc;
-      }
     }
   }
 }
