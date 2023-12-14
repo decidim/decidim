@@ -455,7 +455,6 @@ pt-BR:
                 bb_status: Status
                 election: Eleição
                 voting_period: Período de votação
-              no_elections: Não há eleições em que você esteja como um curador.
               title: Eleições
             identification_keys:
               cancel: Cancelar
@@ -470,7 +469,6 @@ pt-BR:
               title: Chaves de identificação de curadores
               upload: Envie suas chaves de identificação
             not_supported_browser_title: Atualize o navegador para agir como um curador
-            trustee_role_description: Você foi designado para agir como um curador em algumas das eleições realizadas nesta plataforma.
           update:
             success: Sua chave pública de identificação foi armazenada com sucesso.
       votes:
@@ -558,11 +556,9 @@ pt-BR:
           new_election:
             email_intro: Você foi adicionado como curador para a eleição %{resource_title}.
             email_subject: Você é um curador às eleições %{resource_title}..
-            notification_title: Você é um curador pela eleição de <a href="%{resource_path}">%{resource_title}</a>.
           new_trustee:
             email_intro: Um administrador adicionou você como curador em %{resource_name}. Você deve criar sua chave pública <a href='%{trustee_zone_url}'>na sua zona de curador</a>
             email_subject: Você é um curador por %{resource_name}.
-            notification_title: Você é um curador de <a href="%{participatory_space_url}">%{resource_name}</a>.
         votes:
           accepted_votes:
             email_intro: 'Seu voto foi aceito! Usando o seu token de voto: %{encrypted_vote_hash}, você pode verificar seu voto <a href="%{verify_url}">aqui</a>.'
