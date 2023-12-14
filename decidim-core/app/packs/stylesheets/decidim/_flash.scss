@@ -77,6 +77,8 @@
   }
 
   .rich-text-display {
+    @apply font-normal;
+
     ul {
       @apply ml-4;
 
