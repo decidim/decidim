@@ -236,7 +236,6 @@ de:
           feedback_form_answers: Antworten auf Feedback-Formular
         mailers:
           trustee_mailer:
-            body: "<p>Hallo %{user_name},</p><p>Sie wurden als Wahlhelfer zu %{resource_name} hinzugefügt.</p>"
             subject: Sie wurden als Wahlhelfer zu %{resource_name} hinzugefügt
             trustee_zone: Bring mich zum Wahlhelferbereich
         menu:
@@ -280,6 +279,7 @@ de:
               census_frozen: Zugangscodes für die Erhebung wurden nicht exportiert.
               census_uploaded: Es wurde keine Erhebung für diese Wahl hochgeladen.
               component_published: Die Wahlkomponente ist <strong>nicht veröffentlicht</strong>.
+              fix_it_text: Beheben
               max_selections: Die <strong>maximale Anzahl Antworten</strong> für die Fragen ist inkorrekt
               minimum_answers: Fragen müssen <strong>mindestens zwei Antworten</strong> haben.
               minimum_questions: Die Wahl <strong>muss mindestens eine Frage</strong> haben.
@@ -305,6 +305,11 @@ de:
               trustees_number: <strong>Mindestens %{number} Wahlhelfer mit Public Key</strong> sind vorhanden.
             submit: Wahl einrichten
             success: Wahl erfolgreich an das Bulletin Board gesendet.
+            technical_configuration:
+              authority_name: "<strong>Behördenname:</strong> %{value}"
+              bulletin_board_server: "<strong>Bulletin Board Server:</strong> <a href='%{value}'>%{value}</a>"
+              scheme_name: "<strong>Schemaname:</strong> %{value}"
+              title: Technische Informationen anzeigen
             title: Wahl einrichten
             trustees: Wahlhelfer
           created:
@@ -623,7 +628,6 @@ de:
                 bb_status: Status
                 election: Wahl
                 voting_period: Abstimmungsperiode
-              no_elections: Es gibt keine Wahlen, bei denen Sie als Wahlhelfer agieren.
               title: Wahlen
             identification_keys:
               cancel: Abbrechen
@@ -646,7 +650,6 @@ de:
               upload_legend: Der Server hat Ihren öffentlichen Identifikationsschlüssel, aber Ihr Browser hat ihn immer noch nicht. Sie müssen die Datei mit Ihren Identifikationsschlüssel aus dem Backup auf Ihren Computer importieren, den Sie nach der Generierung der Schlüssel gespeichert haben.
             not_supported_browser_description: Es sieht so aus, als ob Sie einen Webbrowser verwenden, der als Wahlhelfer nicht verwendet werden kann. Stellen Sie sicher, dass Sie die neueste Version Ihres Browsers verwenden, oder versuchen Sie, einen der üblichen Browser zu verwenden, um Ihre Wahlhelfer-Aufgaben zu erfüllen.
             not_supported_browser_title: Browser aktualisieren, um als Wahlhelfer zu agieren
-            trustee_role_description: Sie wurden beauftragt, bei einigen der auf dieser Plattform gehaltenen Wahlen als Wahlhelfer zu agieren.
           update:
             success: Ihr öffentlicher Identifikationsschlüssel wurde erfolgreich gespeichert.
       votes:
@@ -746,12 +749,10 @@ de:
             email_intro: Sie sind Wahlhelfer für die %{resource_title} -Wahl.
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie als Wahlhelfer bei der Wahl %{resource_title} hinzugefügt wurden.
             email_subject: Sie sind Wahlhelfer für die %{resource_title} -Wahl..
-            notification_title: Sie sind Wahlhelfer für die Wahl <a href="%{resource_path}">%{resource_title}</a>.
           new_trustee:
             email_intro: Ein Administrator hat Sie als Wahlhelfer für %{resource_name} hinzugefügt. Sie sollten Ihren öffentlichen Schlüssel <a href='%{trustee_zone_url}'> in Ihrer Wahlhelfer Zone anlegen</a>
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie als Wahlhelfer für %{resource_name} hinzugefügt wurden.
             email_subject: Sie sind Wahlhelfer für %{resource_name}.
-            notification_title: Sie sind Wahlhelfer für <a href="%{participatory_space_url}">%{resource_name}</a>.
         votes:
           accepted_votes:
             email_intro: 'Deine Stimme wurde angenommen! Benutze deinen Stimm-Token: %{encrypted_vote_hash}, du kannst deine Stimme <a href="%{verify_url}">hier verifizieren</a>.'
