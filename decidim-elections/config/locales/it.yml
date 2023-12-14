@@ -460,7 +460,6 @@ it:
               title: Codici di identificazione del Garante
               upload: Carica i tuoi codici di identificazione
             not_supported_browser_title: Aggiorna il browser per fungere da Garante
-            trustee_role_description: Ti è stato assegnato di ruolo di Garante in alcune delle elezioni che si svolgeranno su questa piattaforma.
           update:
             success: I tuoi codici di identificazione pubblici sono stati salvati con successo.
       votes:
