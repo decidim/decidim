@@ -236,7 +236,6 @@ ca:
           feedback_form_answers: Feedback de les respostes
         mailers:
           trustee_mailer:
-            body: "<p>Hola %{user_name},</p><p>Se t'ha afegit com a garant de %{resource_name}.</p>"
             subject: Se t'ha afegit com a garant de %{resource_name}
             trustee_zone: Portant a l'espai de garants
         menu:
@@ -623,7 +622,6 @@ ca:
                 bb_status: Estat
                 election: Elecció
                 voting_period: Període de votació
-              no_elections: No hi ha eleccions en les que actuïs com a garant.
               title: Eleccions
             identification_keys:
               cancel: Cancel·lar
@@ -646,7 +644,6 @@ ca:
               upload_legend: Al servidor hi consten les teves claus d'identificació públiques, però el teu navegador encara no les té. Cal que importis l'arxiu amb les teves claus d'identificació al teu ordinador des de la còpia de seguretat que has creat després de generar-les.
             not_supported_browser_description: Sembla que estàs usant un navegador web que no pot ser utilitzat per a actuar com a garant. Assegura't que estàs usant la versió més recent del teu navegador, o intenta fer servir qualsevol altre dels navegadors més populars per a poder completar les teves tasques com a garant.
             not_supported_browser_title: Actualitza el navegador per a actuar com a garant
-            trustee_role_description: Se t'ha assignat com a garant en algunes de les eleccions celebrades en aquesta plataforma.
           update:
             success: La teva clau pública d'identificació va ser guardada amb èxit.
       votes:
@@ -746,12 +743,10 @@ ca:
             email_intro: Has estat afegit com a garant de l'elecció %{resource_title}.
             email_outro: Has rebut aquesta notificació perquè t'han afegit com a garant de l'elecció %{resource_title}.
             email_subject: Ets un garant de l'elecció %{resource_title}..
-            notification_title: Ets un garant de l'elecció <a href="%{resource_path}">%{resource_title}</a>.
           new_trustee:
             email_intro: Una administradora t'ha afegit com a garant de %{resource_name}. Hauries de crear la teva clau pública a la teva <a href='%{trustee_zone_url}'>zona de garants</a>
             email_outro: Has rebut aquesta notificació perquè t'han afegit com a garant de %{resource_name}.
             email_subject: Ets garant de %{resource_name}.
-            notification_title: Ets garant de <a href="%{participatory_space_url}">%{resource_name}</a>.
         votes:
           accepted_votes:
             email_intro: 'El teu vot s''ha acceptat! Utilitzant el comprovant de vot: %{encrypted_vote_hash}, pots verificar-lo <a href="%{verify_url}">aquí</a>.'
