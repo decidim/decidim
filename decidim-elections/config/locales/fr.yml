@@ -236,7 +236,6 @@ fr:
           feedback_form_answers: Feedbacks des répondants
         mailers:
           trustee_mailer:
-            body: "<p>Bonjour %{user_name},</p><p>Vous avez été ajouté(e) en tant qu'administrateur à %{resource_name}.</p>"
             subject: Vous avez été ajouté(e) comme garant pour %{resource_name}
             trustee_zone: Emmenez-moi dans la zone des garants
         menu:
@@ -623,7 +622,6 @@ fr:
                 bb_status: Statut
                 election: Élection
                 voting_period: Période de vote
-              no_elections: Il n'y a pas d'élections dans lesquelles vous êtes garant.
               title: Élections
             identification_keys:
               cancel: Annuler
@@ -646,7 +644,6 @@ fr:
               upload_legend: Le serveur dispose de vos clés d'identification publiques, mais pas votre navigateur. Vous devez importer le fichier contenant vos clés d'identification sur votre ordinateur à partir de la sauvegarde que vous avez créée après les avoir générées.
             not_supported_browser_description: Il semblerait que votre navigateur web ne peut pas être utilisé pour agir en tant qu'administrateur. Assurez-vous d'utiliser la dernière version de votre navigateur ou essayez d'utiliser l'un des navigateurs les plus populaires afin de réaliser vos tâches.
             not_supported_browser_title: Mettre à niveau le navigateur pour agir en tant que garant
-            trustee_role_description: Vous avez été assigné à agir en tant que garant lors de certaines des élections mises en place sur cette plateforme.
           update:
             success: Votre clé d'identification publique a bien été stockée.
       votes:
@@ -746,12 +743,10 @@ fr:
             email_intro: Vous avez été ajouté en tant que garant pour l'élection %{resource_title}.
             email_outro: Vous avez reçu cette notification parce que vous avez été ajouté(e) comme garant de l'élection "%{resource_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
             email_subject: Vous avez été ajouté en tant que garant pour l'élection %{resource_title}.
-            notification_title: Vous êtes garant de l'élection <a href="%{resource_path}">%{resource_title}</a>.
           new_trustee:
             email_intro: Un administrateur vous a ajouté en tant que garant de %{resource_name}. Vous devriez créer votre clé publique <a href='%{trustee_zone_url}'>dans votre espace de garant</a>
             email_outro: Vous avez reçu cette notification parce que vous avez été ajouté(s) en tant que garant pour %{resource_name}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
             email_subject: Vous avez été ajouté en tant que garant pour l'élection %{resource_name}.
-            notification_title: Vous êtes garant de <a href="%{participatory_space_url}">%{resource_name}</a>.
         votes:
           accepted_votes:
             email_intro: 'Votre vote a été accepté ! En utilisant votre jeton de vote : %{encrypted_vote_hash}, vous pouvez vérifier votre vote <a href="%{verify_url}">ici</a>.'
