@@ -639,7 +639,6 @@ es-PY:
               upload_legend: En el servidor constan tus claves públicas de identificación, pero tu navegador todavía no las tiene. Necesitas importar el archivo con tus claves de identificación a tu ordenador desde la copia de seguridad que creaste después de generarlas.
             not_supported_browser_description: Parece que estás usando un navegador que no puede ser utilizado para actuar como garante. Asegúrate de que estás usando la versión más reciente de tu navegador, o intenta utilizar cualquier otro de los navegadores más populares para poder completar tus tareas como garante.
             not_supported_browser_title: Actualiza el navegador para actuar como garante
-            trustee_role_description: Se le ha asignado como garante en algunas de las elecciones celebradas en esta plataforma.
           update:
             success: Tu clave pública de identificación fue guardada con éxito.
       votes:
