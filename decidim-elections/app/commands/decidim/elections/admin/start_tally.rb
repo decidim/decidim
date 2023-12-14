@@ -65,7 +65,7 @@ module Decidim
             event: "decidim.events.elections.trustees.start_tally",
             event_class: Decidim::Elections::Trustees::NotifyTrusteeTallyProcessEvent,
             resource: election,
-            affected_users: trustee
+            affected_users: trustees
           }
 
           Decidim::EventsManager.publish(**data)
