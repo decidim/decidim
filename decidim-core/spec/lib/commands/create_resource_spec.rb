@@ -8,7 +8,7 @@ module Decidim
       klass = Class.new(Decidim::Commands::CreateResource) do
         fetch_form_attributes :title, :body, :component
 
-        def resource_class = Decidim::DummyResources::DummyResource
+        def resource_class = Decidim::Dev::DummyResource
 
         def attributes = super.merge(author: form.current_user)
       end
@@ -45,7 +45,7 @@ module Decidim
             klass = Class.new(described_class) do
               fetch_form_attributes :title, :body, :component
 
-              def resource_class = Decidim::DummyResources::DummyResource
+              def resource_class = Decidim::Dev::DummyResource
 
               def attributes = super.merge(author: form.current_user)
 
@@ -64,7 +64,7 @@ module Decidim
             klass = Class.new(described_class) do
               fetch_form_attributes :title, :body, :component
 
-              def resource_class = Decidim::DummyResources::DummyResource
+              def resource_class = Decidim::Dev::DummyResource
 
               def attributes = super.merge(author: form.current_user)
 
@@ -82,7 +82,7 @@ module Decidim
 
     context "when everything is ok" do
       it "creates the status" do
-        expect { subject.call }.to change(Decidim::DummyResources::DummyResource, :count).by(1)
+        expect { subject.call }.to change(Decidim::Dev::DummyResource, :count).by(1)
       end
 
       context "when invalid data" do
@@ -97,7 +97,7 @@ module Decidim
         it "traces the action" do
           expect(Decidim.traceability)
             .to receive(:perform_action!)
-            .with(:create, Decidim::DummyResources::DummyResource, user, {})
+            .with(:create, Decidim::Dev::DummyResource, user, {})
             .and_call_original
 
           expect { subject.call }.to change(Decidim::ActionLog, :count)
@@ -111,7 +111,7 @@ module Decidim
             klass = Class.new(Decidim::Commands::CreateResource) do
               fetch_form_attributes :title, :body, :component
 
-              def resource_class = Decidim::DummyResources::DummyResource
+              def resource_class = Decidim::Dev::DummyResource
 
               def attributes = super.merge(author: form.current_user)
 
@@ -123,7 +123,7 @@ module Decidim
           it "traces the action" do
             expect(Decidim.traceability)
               .to receive(:perform_action!)
-              .with(:create, Decidim::DummyResources::DummyResource, user, { visibility: "all" })
+              .with(:create, Decidim::Dev::DummyResource, user, { visibility: "all" })
               .and_call_original
 
             expect { subject.call }.to change(Decidim::ActionLog, :count)

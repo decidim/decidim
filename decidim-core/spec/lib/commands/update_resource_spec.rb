@@ -8,7 +8,7 @@ module Decidim
       klass = Class.new(Decidim::Commands::UpdateResource) do
         fetch_form_attributes :title, :body, :component
 
-        def resource_class = Decidim::DummyResources::DummyResource
+        def resource_class = Decidim::Dev::DummyResource
 
         def attributes = super.merge(author: form.current_user)
       end
@@ -85,7 +85,7 @@ module Decidim
         it "traces the action" do
           expect(Decidim.traceability)
             .to receive(:perform_action!)
-            .with(:update, Decidim::DummyResources::DummyResource, user, {})
+            .with(:update, Decidim::Dev::DummyResource, user, {})
             .and_call_original
 
           expect { subject.call }.to change(Decidim::ActionLog, :count)
@@ -99,7 +99,7 @@ module Decidim
             klass = Class.new(described_class) do
               fetch_form_attributes :title, :body, :component
 
-              def resource_class = Decidim::DummyResources::DummyResource
+              def resource_class = Decidim::Dev::DummyResource
 
               def attributes = super.merge(author: form.current_user)
 
@@ -111,7 +111,7 @@ module Decidim
           it "traces the action" do
             expect(Decidim.traceability)
               .to receive(:perform_action!)
-              .with(:update, Decidim::DummyResources::DummyResource, user, { visibility: "all" })
+              .with(:update, Decidim::Dev::DummyResource, user, { visibility: "all" })
               .and_call_original
 
             expect { subject.call }.to change(Decidim::ActionLog, :count)
