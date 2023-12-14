@@ -384,7 +384,6 @@
                 bb_status: Status
                 election: Valg
                 voting_period: Stemmeperiode
-              no_elections: Det er ingen valg hvor du opptrer som en tillitsmann.
               title: Valg
             identification_keys:
               cancel: Avbryt
