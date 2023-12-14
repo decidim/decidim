@@ -633,7 +633,6 @@ eu:
               upload_legend: Decidimek zure identifikazio-gako publikoak ditu, baina zure nabigatzaileak oraindik ez ditu. Sortu ondoren egin zenuen segurtasun-kopiatik ordenagailura inportatu behar duzu zure identifikazio-gakoen fitxategia.
             not_supported_browser_description: Dirudienez, bermatzaile gisa erabili ezin den nabigatzaile bat erabiltzen ari zara. Ziurtatu nabigatzailearen bertsio berriena erabiltzen ari zarela, edo saiatu nabigatzaile ezagunenetako edozein erabiltzen, zure zereginak bermatzaile gisa bete ahal izateko.
             not_supported_browser_title: Eguneratu nabigatzailea bermatzaile gisa aritzeko
-            trustee_role_description: Plataforma honetan egindako bozketa batzuen bermatzaile gisa izendatu zaituzte.
           update:
             success: Zure identifikazio-gako publikoa zuzen gorde da.
       votes:
