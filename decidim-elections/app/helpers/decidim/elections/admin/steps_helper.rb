@@ -24,7 +24,9 @@ module Decidim
           end
         end
 
-        # i18n-tasks-use decidim.elections.admin.steps.create_election.technical_configuration.*
+        # i18n-tasks-use t("decidim.elections.admin.steps.create_election.technical_configuration.bulletin_board_server")
+        # i18n-tasks-use t("decidim.elections.admin.steps.create_election.technical_configuration.authority_name")
+        # i18n-tasks-use t("decidim.elections.admin.steps.create_election.technical_configuration.scheme_name")
         def technical_configuration_items
           [
             { key: ".technical_configuration.bulletin_board_server", value: Decidim::BulletinBoard.config[:bulletin_board_server] },
