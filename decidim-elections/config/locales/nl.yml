@@ -502,7 +502,6 @@ nl:
               upload_legend: Decidim heeft jouw publieke identificatiesleutels, maar je browser heeft deze nog niet. Je moet het bestand met jouw identificatiesleutels importeren naar je computer, vanuit de back-up die je hebt gemaakt na het genereren ervan.
             not_supported_browser_description: Het lijkt erop dat je een webbrowser gebruikt die niet kan gebruikt worden als Trustee. Zorg ervoor dat je de meest recente versie van je browser gebruikt, of probeer een van de populairste browsers te gebruiken om je Trustee taken te voltooien.
             not_supported_browser_title: Upgrade de browser om als Trustee te fungeren
-            trustee_role_description: Je bent aangeduid om als Trustee te fungeren in enkele verkiezingen op dit platform.
           update:
             success: Jouw publieke identificatiesleutel werd succesvol opgeslagen.
       votes:
