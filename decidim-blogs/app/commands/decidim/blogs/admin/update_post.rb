@@ -3,7 +3,7 @@
 module Decidim
   module Blogs
     module Admin
-      # This command is executed when the user changes a Blog from the admin
+      # This command is executed when the user changes a Post from the admin
       # panel.
       class UpdatePost < Decidim::Commands::UpdateResource
         fetch_form_attributes :title, :body, :author
