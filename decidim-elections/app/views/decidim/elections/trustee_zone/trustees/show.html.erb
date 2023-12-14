@@ -8,6 +8,10 @@
              body: t("not_supported_browser_description", scope: "decidim.elections.trustee_zone.trustees.show")
            }, callout_class: "alert", id: "not_supported_browser", hidden: true ) %>
 
+  <%
+    # i18n-tasks-use t('decidim.elections.trustee_zone.trustees.show.trustee_role_description.without_keys')
+    # i18n-tasks-use t('decidim.elections.trustee_zone.trustees.show.trustee_role_description.with_keys')
+  %>
   <%= cell("decidim/announcement", t(trustee.public_key.blank? ? "without_keys" : "with_keys", scope: "decidim.elections.trustee_zone.trustees.show.trustee_role_description"), callout_class: "success" ) %>
 
   <div id="trustee_zone" class="election-trustee__container">
