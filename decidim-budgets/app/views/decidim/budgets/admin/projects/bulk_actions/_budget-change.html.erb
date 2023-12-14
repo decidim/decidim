@@ -1,7 +1,7 @@
 <div id="js-budget-change-projects-actions" class="hide js-bulk-action-form">
   <%= form_tag(update_budget_budget_projects_path, method: :post, remote: true, id: "js-form-budget-change-projects", class: "form form-defaults flex items-center gap-x-2") do %>
 
-    <div class="checkboxes hide">
+    <div class="hide">
       <% projects.each do |project| %>
         <%= check_box_tag "project_ids[]", project.id, false, class: "js-check-all-resources js-resource-id-#{project.id}" %>
       <% end %>
@@ -15,7 +15,7 @@
           class: "button button__sm button__secondary small button--simple float-left"
         ) %>
 
-    <button id="js-cancel-budget-change-projects" class="button button__sm button__secondary clear compact js-cancel-bulk-action" type="button">
+    <button id="js-cancel-budget-change-projects" class="button button__sm button__secondary js-cancel-bulk-action" type="button">
       <%= t("decidim.budgets.admin.projects.index.cancel") %>
     </button>
   <% end %>

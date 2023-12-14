@@ -14,7 +14,7 @@
           <div class="card">
             <div class="row column">
               <p class="mt-3"><%= t(".info_1") %></p>
-              <ul id="participatory-text" class="draggable-list js-connect js-list-actives accordion  mb-m mt-2.5 ml-2.5 mr-2.5"
+              <ul id="participatory-text" class="draggable-list js-connect js-list-actives mt-2.5 ml-2.5 mr-2.5"
                   data-accordion
                   data-sort-url="#"
                   data-multi-expand="true"
@@ -23,10 +23,10 @@
                   <% proposal = @drafts[prop_form.index] %>
 
                   <li class="py-4 draggable-content <%= proposal.article? ? "is-active" : nil %>" data-accordion-item draggable="true">
-                    <a href="#" class="accordion-title font-bold mt-5"><%= preview_participatory_text_section_title(proposal) %>
-                      <span class="mr-m"><%= icon "menu-line", class: "fill-black" %></span>
+                    <a href="#" class="font-bold mt-5"><%= preview_participatory_text_section_title(proposal) %>
+                      <span><%= icon "menu-line", class: "fill-black" %></span>
                     </a>
-                    <div class="accordion-content" data-tab-content>
+                    <div data-tab-content>
                       <%= render "article-preview", { form: prop_form, proposal: } %>
                     </div>
                   </li>
