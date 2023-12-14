@@ -444,7 +444,6 @@ it:
                 bb_status: Stato
                 election: Elezione
                 voting_period: Periodo di votazione
-              no_elections: Non ci sono elezioni di cui tu sia Garante.
               title: Elezioni
             identification_keys:
               cancel: Annulla
@@ -459,7 +458,6 @@ it:
               title: Codici di identificazione del Garante
               upload: Carica i tuoi codici di identificazione
             not_supported_browser_title: Aggiorna il browser per fungere da Garante
-            trustee_role_description: Ti è stato assegnato di ruolo di Garante in alcune delle elezioni che si svolgeranno su questa piattaforma.
           update:
             success: I tuoi codici di identificazione pubblici sono stati salvati con successo.
       votes:
@@ -547,11 +545,9 @@ it:
           new_election:
             email_intro: Sei stato aggiunto come Garante per le elezioni %{resource_title}.
             email_subject: Sei Garante delle elezioni %{resource_title}..
-            notification_title: Sei Garante delle elezioni <a href="%{resource_path}">%{resource_title}</a>.
           new_trustee:
             email_intro: Un amministratore ti ha aggiunto come Garante di %{resource_name}. Dovresti creare la tua chiave pubblica <a href='%{trustee_zone_url}'>nella tua zona garanti </a>
             email_subject: Sei Garante di %{resource_name}.
-            notification_title: Sei Garante di <a href="%{participatory_space_url}">%{resource_name}</a>.
         votes:
           accepted_votes:
             email_intro: 'Il tuo voto è stato accettato! Usando il tuo token di voto: %{encrypted_vote_hash}, puoi verificare il tuo voto <a href="%{verify_url}">qui</a>.'
