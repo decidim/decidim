@@ -70,10 +70,6 @@ module Decidim
 
           Decidim::EventsManager.publish(**data)
         end
-
-        def trustees
-          @trustees ||= election.trustees
-        end
       end
     end
   end
