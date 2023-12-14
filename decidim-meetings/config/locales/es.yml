@@ -641,7 +641,7 @@ es:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Encuentros pasados
-        see_all: Ver todos los encuentros (%{count})
+        see_all: Ver todos los encuentros
         upcoming_meetings: Próximos encuentros
     resource_links:
       meetings_through_proposals:

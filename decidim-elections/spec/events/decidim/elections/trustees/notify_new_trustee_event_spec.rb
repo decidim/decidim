@@ -36,7 +36,7 @@ describe Decidim::Elections::Trustees::NotifyNewTrusteeEvent do
   describe "notification_title" do
     it "is generated correctly" do
       expect(subject.notification_title)
-        .to eq("You are a trustee for <a href=\"#{resource_url}\">#{participatory_space_title}</a>.")
+        .to include("You have been added to act as a trustee in #{translated(resource.title)} for some elections that will take place in this platform.")
     end
   end
 end

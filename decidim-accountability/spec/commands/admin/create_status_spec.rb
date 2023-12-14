@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Accountability
   describe Admin::CreateStatus do
-    subject { described_class.new(form, user) }
+    subject { described_class.new(form) }
 
     let(:organization) { create(:organization, available_locales: [:en]) }
     let(:user) { create(:user, organization:) }
@@ -19,7 +19,8 @@ module Decidim::Accountability
     let(:form) do
       double(
         invalid?: invalid,
-        current_component:,
+        current_user: user,
+        component: current_component,
         key:,
         name: { en: name },
         description: { en: description },

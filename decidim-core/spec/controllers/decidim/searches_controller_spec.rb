@@ -32,8 +32,8 @@ module Decidim
         it "returns results with 'Great' in their content" do
           get :index, params: { term: "Great" }
 
-          expect(assigns(:sections)).to have_key("Decidim::DummyResources::DummyResource")
-          dummy_section = assigns(:sections)["Decidim::DummyResources::DummyResource"]
+          expect(assigns(:sections)).to have_key("Decidim::Dev::DummyResource")
+          dummy_section = assigns(:sections)["Decidim::Dev::DummyResource"]
           expect(dummy_section[:count]).to eq 2
           expect(dummy_section[:results]).to match_array(results.map(&:resource))
           expect(assigns(:results_count)).to eq 2
