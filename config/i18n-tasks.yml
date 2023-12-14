@@ -145,7 +145,6 @@ ignore_unused:
   - decidim.forms.file_help.*
   - decidim.forms.user_answers_serializer.*
   - decidim.forms.admin_log.questionnaire.update
-  - decidim.elections.trustee_zone.trustees.show.trustee_role_description.*
   - decidim.proposals.answers.*
   - decidim.proposals.collaborative_drafts.show.see_other_versions
   - decidim.proposals.collaborative_drafts.wizard_aside.back
