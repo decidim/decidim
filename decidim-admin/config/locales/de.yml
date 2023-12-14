@@ -424,7 +424,7 @@ de:
           reportable_type_string_eq:
             label: Art
         officialized_at_null:
-          label: Zustand
+          label: Status
           values:
             'false': Offizialisiert
             'true': Nicht offiziell
@@ -668,7 +668,7 @@ de:
             name: Name
             nickname: Spitzname
             phone: Telefon
-            state: Zustand
+            state: Status
             users_count: Benutzer zählen
       moderated_users:
         index:
