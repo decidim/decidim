@@ -190,7 +190,7 @@ de:
             - Befolgen Sie die Schritte, um eine neue Initiative zu erstellen
           description: Dieses Abzeichen wird gewährt, wenn Sie neue Initiativen starten und mit anderen zusammenarbeiten, um sie durchzuführen.
           description_another: Dieser Benutzer hat %{score} Initiativen veröffentlicht.
-          description_own: Du hast %{score} Initiativen veröffentlicht.
+          description_own: Sie haben %{score} Initiativen veröffentlicht.
           name: Veröffentlichte Initiativen
           next_level_in: Holen Sie sich %{score} weitere Initiativen veröffentlicht, um das nächste Level zu erreichen!
           unearned_another: Dieser Benutzer hat noch keine Initiativen veröffentlicht.
@@ -218,7 +218,7 @@ de:
         committee_requests:
           index:
             approve: Genehmigen
-            confirm_revoke: Bist du sicher?
+            confirm_revoke: Sind Sie sicher?
             invite_to_committee_help: Teilen Sie diesen Link, um andere Benutzer zum Promotionskomitee einzuladen
             no_members_yet: Es gibt keine Mitglieder im Promoter-Ausschuss
             revoke: Widerrufen
@@ -235,8 +235,8 @@ de:
         initiatives:
           edit:
             accept: Initiative akzeptieren
-            confirm: Bist du sicher?
-            confirm_send_to_technical_validation: Sind Sie sicher?
+            confirm: Sind Sie sich sicher?
+            confirm_send_to_technical_validation: Sind Sie sich sicher?
             discard: Verwerfen Sie die Initiative
             export_pdf_signatures: Exportieren von PDF-Signaturen
             export_votes: Export unterstützt
@@ -278,7 +278,7 @@ de:
             success: Der Bereich wurde erfolgreich entfernt
           edit:
             back: Zurück
-            confirm_destroy: Bist du sicher?
+            confirm_destroy: Sind Sie sicher?
             destroy: Löschen
             title: Initiativentyp bearbeiten
             update: Aktualisieren
@@ -296,7 +296,7 @@ de:
           destroy:
             success: Der Initiativentyp wurde erfolgreich entfernt
           edit:
-            confirm_destroy: Bist du sicher?
+            confirm_destroy: Sind Sie sicher?
             destroy: Löschen
             update: Aktualisieren
           form:
@@ -406,7 +406,7 @@ de:
       edit:
         accept: Initiative akzeptieren
         back: Zurück
-        confirm: Bist du dir sicher?
+        confirm: Sind Sie sich sicher?
         discard: Initiative verwerfen
         export_pdf_signatures: PDF der Unterschriften exportieren
         export_votes: Unterschriften exportieren
@@ -482,7 +482,7 @@ de:
             other: und %{count} weitere Leute
         committee_members:
           approve: Genehmigen
-          confirm_revoke: Bist du sicher?
+          confirm_revoke: Sind Sie sicher?
           invite_to_committee_help: Teilen Sie diesen Link, um andere Benutzer zum Promotionskomitee einzuladen
           no_members_yet: Es gibt keine Mitglieder im Promoter-Ausschuss
           revoke: Widerrufen
