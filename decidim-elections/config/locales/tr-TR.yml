@@ -284,7 +284,6 @@ tr:
               upload_legend: Decidim'de sizin genel kimlik anahtarlarınız var, ancak tarayıcınızda hala bu anahtarlar yok. Kimlik anahtarlarınızın olduğu dosyayı, oluşturduktan sonra oluşturduğunuz yedekten bilgisayarınıza aktarmanız gerekir.
             not_supported_browser_description: Vekil olarak hareket etmek için kullanılamayan bir web tarayıcısı kullanıyorsunuz gibi görünüyor. Vekil görevlerinizi tamamlayabilmek için tarayıcınızın en son sürümünü kullandığınızdan emin olun veya en popüler tarayıcılardan herhangi birini kullanmayı deneyin.
             not_supported_browser_title: Vekil kişi olarak hareket etmek için tarayıcıyı yükseltin
-            trustee_role_description: Bu platformda kutlanan bazı seçimlerde Vekil olarak görev yapmakla görevlendirildiniz.
           update:
             success: Tanımlama genel anahtarınız başarıyla saklandı.
       votes:
