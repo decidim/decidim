@@ -3,8 +3,8 @@
 module Decidim
   module Assemblies
     module Admin
-      # A command with all the business logic when creating a new participatory
-      # assembly in the system.
+      # A command with all the business logic when creating a new assembly
+      # in the system.
       class CreateAssembly < Decidim::Commands::CreateResource
         fetch_form_attributes :title, :subtitle, :weight, :slug, :hashtag, :description, :short_description,
                               :hero_image, :banner_image, :promoted, :scopes_enabled, :scope, :area, :parent,

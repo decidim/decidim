@@ -3,8 +3,8 @@
 module Decidim
   module Assemblies
     module Admin
-      # A command with all the business logic when creating a new participatory
-      # assembly in the system.
+      # A command with all the business logic when updating a new assembly
+      # in the system.
       class UpdateAssembly < Decidim::Commands::UpdateResource
         include ::Decidim::AttachmentAttributesMethods
 
