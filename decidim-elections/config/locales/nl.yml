@@ -389,7 +389,6 @@ nl:
               title: Trustee identificatiesleutels
               upload: Upload jouw identificatiesleutels
             not_supported_browser_title: Upgrade de browser om als Trustee te fungeren
-            trustee_role_description: Je bent aangeduid om als Trustee te fungeren in enkele verkiezingen op dit platform.
           update:
             success: Jouw publieke identificatiesleutel werd succesvol opgeslagen.
       votes:
