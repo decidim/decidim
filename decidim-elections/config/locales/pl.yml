@@ -476,7 +476,6 @@ pl:
               title: Klucze identyfikacyjne męża (osoby) zaufania
               upload: Prześlij swoje klucze identyfikacyjne
             not_supported_browser_title: Aktualizuj przeglądarkę by działać jako mąż (osoba) zaufania
-            trustee_role_description: Zostałeś powołany do pełnienia funkcji męża (osoby) zaufania w niektórych głosowaniach na tej platformie.
           update:
             success: Twój publiczny klucz identyfikacyjny został zapisany.
       votes:
