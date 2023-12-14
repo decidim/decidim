@@ -281,6 +281,7 @@ en:
               census_frozen: Access codes for the census are not exported.
               census_uploaded: There is no census uploaded for this election.
               component_published: The election component is <strong>not published</strong>.
+              fix_it_text: Fix it
               max_selections: The questions do not have a <strong>correct value for amount of answers</strong>
               minimum_answers: Questions must have <strong>at least two answers</strong>.
               minimum_questions: The election <strong>must have at least one question</strong>.
@@ -306,6 +307,11 @@ en:
               trustees_number: The participatory space has <strong>at least %{number} trustees with public key</strong>.
             submit: Setup election
             success: Election successfully sent to the Bulletin Board.
+            technical_configuration:
+              authority_name: "<strong>Authority name:</strong> %{value}"
+              bulletin_board_server: "<strong>Bulletin Board server:</strong> <a href='%{value}'>%{value}</a>"
+              scheme_name: "<strong>Scheme name:</strong> %{value}"
+              title: View technical information
             title: Setup election
             trustees: Election Trustees
           created:
