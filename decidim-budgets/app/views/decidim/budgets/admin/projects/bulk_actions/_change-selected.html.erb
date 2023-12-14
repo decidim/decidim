@@ -1,6 +1,6 @@
 <div id="js-change-selected-projects-actions" class="hide js-bulk-action-form">
   <%= form_tag(update_selected_budget_projects_path, method: :post, remote: true, id: "js-form-change-selected-projects", class: "form form-defaults flex items-center gap-x-2") do %>
-    <div class="checkboxes hide">
+    <div class="hide">
       <% projects.each do |project| %>
         <%= check_box_tag "project_ids[]", project.id, false, class: "js-check-all-resources js-resource-id-#{project.id}" %>
       <% end %>
@@ -10,6 +10,6 @@
 
     <%= submit_tag(t("decidim.budgets.admin.projects.index.update"), id: "js-submit-edit-selected", class: "button button__sm button__secondary small button--simple float-left") %>
 
-    <button id="js-cancel-edit-selected" class="button button__sm button__secondary clear compact js-cancel-bulk-action" type="button"><%= t("decidim.budgets.admin.projects.index.cancel") %></button>
+    <button id="js-cancel-edit-selected" class="button button__sm button__secondary js-cancel-bulk-action" type="button"><%= t("decidim.budgets.admin.projects.index.cancel") %></button>
   <% end %>
 </div>
