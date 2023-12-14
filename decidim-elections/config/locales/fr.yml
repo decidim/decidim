@@ -636,6 +636,7 @@ fr:
               upload_legend: Decidim a vos clés d'identification publiques, mais votre navigateur ne l'a toujours pas. Vous devez importer le fichier avec vos clés d'identification sur votre ordinateur à partir de la sauvegarde que vous avez créée après leur génération.
             not_supported_browser_description: On dirait que vous utilisez un navigateur Web qui ne peut pas être utilisé pour agir en tant que garant. Assurez-vous d'utiliser la version la plus récente de votre navigateur, ou essayez d'utiliser l'un des navigateurs les plus populaires pour accomplir vos tâches de garant.
             not_supported_browser_title: Mettre à niveau le navigateur pour agir en tant que garant
+            trustee_role_description: Vous avez été assigné à agir en tant que garant lors de certaines élections mises en place sur cette plateforme.
           update:
             success: Votre clé d'identification publique a bien été stockée.
       votes:
