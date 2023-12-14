@@ -60,7 +60,7 @@ module Decidim
         end
 
         def notify_trustee_about_tally
-          trustee = trustees.collect(&:user)
+          trustees = election.trustees.collect(&:user)
           data = {
             event: "decidim.events.elections.trustees.start_tally",
             event_class: Decidim::Elections::Trustees::NotifyTrusteeTallyProcessEvent,
