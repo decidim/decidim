@@ -636,6 +636,7 @@ de:
               upload_legend: Decidim hat Ihren öffentlichen Identifikationsschlüssel, aber Ihr Browser hat ihn immer noch nicht. Sie müssen die Datei mit Ihren Identifikationsschlüssel aus dem Backup auf Ihren Computer importieren, das Sie nach der Generierung erstellt haben.
             not_supported_browser_description: Es sieht so aus, als ob Sie einen Webbrowser verwenden, der als Wahlhelfer nicht verwendet werden kann. Stellen Sie sicher, dass Sie die neueste Version Ihres Browsers verwenden, oder versuchen Sie, einen der üblichen Browser zu verwenden, um Ihre Wahlhelfer-Aufgaben zu erfüllen.
             not_supported_browser_title: Browser aktualisieren, um als Wahlhelfer zu agieren
+            trustee_role_description: Sie wurden als Wahlhelfer für einige Wahlen auf dieser Plattform bestimmt.
           update:
             success: Ihr öffentlicher Identifikationsschlüssel wurde erfolgreich gespeichert.
       votes:
