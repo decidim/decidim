@@ -219,7 +219,6 @@ ja:
           feedback_form_answers: フィードバックフォームの回答
         mailers:
           trustee_mailer:
-            body: "<p>%{user_name} さん、こんにちは。</p><p>あなたは%{resource_name} の受託者として追加されました。</p>"
             subject: あなたは %{resource_name} に受託者として追加されました
             trustee_zone: 私を受託者ゾーンに連れて行ってください
         menu:
@@ -603,7 +602,6 @@ ja:
                 bb_status: ステータス
                 election: 選挙
                 voting_period: 投票期間
-              no_elections: あなたが受託者として行動する選挙はありません。
               title: 選挙
             identification_keys:
               cancel: キャンセル
@@ -626,7 +624,6 @@ ja:
               upload_legend: サーバーには公開識別キーがありますが、ブラウザにはまだ公開識別キーがありません。 生成後に作成したバックアップから、識別キーのあるファイルをコンピュータにインポートする必要があります。
             not_supported_browser_description: お使いのWebブラウザでは受託者の業務を行うことができません。ブラウザの最新バージョンを使用していることを確認するか、もっと一般的なブラウザのいずれかを使用して、受託者タスクを完了できるようにしてください。
             not_supported_browser_title: ブラウザをアップグレードして受託者として行動する
-            trustee_role_description: あなたは、このプラットフォームで行われる選挙のいくつかで受託者を務めることになっています。
           update:
             success: 公開識別キーを保存しました。
       votes:
@@ -726,12 +723,10 @@ ja:
             email_intro: '%{resource_title} 選挙の受託者として追加されました。'
             email_outro: '%{resource_title} 選挙の受託者に追加されたため、この通知を受け取りました。'
             email_subject: あなたは %{resource_title} 選挙の受託者です..
-            notification_title: あなたは <a href="%{resource_path}">%{resource_title}</a> 選挙の受託者です。
           new_trustee:
             email_intro: 管理者が %{resource_name} の受託者としてあなたを追加しました。受託者ゾーンで <a href='%{trustee_zone_url}'>公開鍵を作成する必要があります。</a>
             email_outro: '%{resource_name} の受託者に追加されたため、この通知を受信しました。'
             email_subject: あなたは %{resource_name} の受託者です。
-            notification_title: あなたは <a href="%{participatory_space_url}">%{resource_name}</a> の受託者です。
         votes:
           accepted_votes:
             email_intro: '投票が承認されました！投票トークン: %{encrypted_vote_hash} を使用して、投票を <a href="%{verify_url}">ここ</a> で確認できます。'
