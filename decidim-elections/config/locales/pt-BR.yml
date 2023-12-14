@@ -568,7 +568,6 @@ pt-BR:
               upload_legend: O servidor possui suas chaves de identificação pública, mas seu navegador ainda não as têm. Você precisa importar o arquivo com as suas chaves de identificação para o seu computador, a partir do "backup" que você criou após gerá-las.
             not_supported_browser_description: Parece que você está usando um navegador da web que não pode ser usado para atuar como um curador. Certifique-se de estar usando a versão mais recente do seu navegador, ou tente usar qualquer um dos navegadores mais populares para conseguir completar suas tarefas de confiança.
             not_supported_browser_title: Atualize o navegador para agir como um curador
-            trustee_role_description: Você foi designado para agir como um curador em algumas das eleições realizadas nesta plataforma.
           update:
             success: Sua chave pública de identificação foi armazenada com sucesso.
       votes:
