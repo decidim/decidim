@@ -6,8 +6,7 @@ module Decidim
   module Votings
     class Seeds < Decidim::Seeds
       def call
-        3.times do |n|
-          voting_type = :hybrid if n == 1
+        Decidim::Votings::Voting.voting_types.values.each do |voting_type|
           voting = create_voting!(voting_type:)
 
           unless voting.online_voting?
