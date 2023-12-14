@@ -416,7 +416,6 @@ ro:
               title: Chei de identificare împuternicit
               upload: Încărcați-vă cheile de identificare
             not_supported_browser_title: Actualizează browser-ul pentru a acționa ca împuternicit
-            trustee_role_description: Ai fost desemnat drept împuternicit în unele dintre alegerile celebrate în această platformă.
           update:
             success: Cheia publică de identificare a fost stocată cu succes.
       votes:
