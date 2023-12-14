@@ -497,7 +497,7 @@ de:
             email: Email
             name: Name
             registration_type: Registrierungstyp
-            state: Zustand
+            state: Status
             states:
               confirmed: Bestätigt
               pending: steht aus
