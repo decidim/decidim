@@ -463,7 +463,6 @@ pt:
               title: Chaves de identificação de curador
               upload: Enviar as suas chaves de identificação
             not_supported_browser_title: Actualize o seu navegador para poder agir como Curador
-            trustee_role_description: Foi designado para agir como Curador em algumas eleições celebradas nesta plataforma.
           update:
             success: A sua chave de identificação pública foi guardada com êxito.
       votes:
