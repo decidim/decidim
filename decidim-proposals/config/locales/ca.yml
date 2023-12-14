@@ -387,7 +387,7 @@ ca:
     participatory_spaces:
       highlighted_proposals:
         last: Propostes més recents
-        see_all: Veure tots (%{count})
+        see_all: Veure totes les propostes
     proposals:
       actions:
         answer_proposal: Respondre a la proposta
@@ -877,7 +877,7 @@ ca:
           title: 'La selecció de propostes es regeix per les següents normes:'
           vote_limit:
             description: Pots donar suport a %{limit} propostes.
-            votes: Suports
+            votes: Queda/en %{number} suport/s
         wizard_aside:
           back: Torna
           back_from_step_1: Tornar a propostes

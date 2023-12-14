@@ -67,6 +67,8 @@ fr:
       survey_confirmation_mailer:
         confirmation:
           body: Vous avez répondu avec succès à l'enquête %{questionnaire_title} dans %{participatory_space}
+          subject: Questionnaire %{questionnaire_title} répondant à la confirmation
+        export_name: Réponses au questionnaire
       surveys:
         answer:
           invalid: Votre réponse à l'enquête comporte des erreurs.

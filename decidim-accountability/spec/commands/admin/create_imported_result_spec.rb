@@ -52,7 +52,7 @@ module Decidim::Accountability
     let(:form) do
       double(
         invalid?: invalid,
-        current_component:,
+        component: current_component,
         title: { en: "title" },
         description: { en: "description" },
         proposal_ids: proposals.map(&:id),

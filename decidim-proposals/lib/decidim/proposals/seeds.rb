@@ -132,15 +132,7 @@ module Decidim
       end
 
       def create_emendation!(proposal:)
-        author = Decidim::User.find_or_initialize_by(email: random_email(suffix: "amendment"))
-        author.update!(
-          password: "decidim123456789",
-          name: "#{::Faker::Name.name} #{participatory_space.id}",
-          nickname: random_nickname,
-          organization:,
-          tos_agreement: "1",
-          confirmed_at: Time.current
-        )
+        author = find_or_initialize_user_by(email: random_email(suffix: "amendment"))
 
         group = Decidim::UserGroup.create!(
           name: ::Faker::Name.name,
@@ -196,17 +188,7 @@ module Decidim
       end
 
       def create_proposal_votes!(proposal:, emendation: nil)
-        author = Decidim::User.find_or_initialize_by(email: random_email(suffix: "vote"))
-        author.update!(
-          password: "decidim123456789",
-          name: "#{::Faker::Name.name} #{participatory_space.id}",
-          nickname: random_nickname,
-          organization:,
-          tos_agreement: "1",
-          confirmed_at: Time.current,
-          personal_url: ::Faker::Internet.url,
-          about: ::Faker::Lorem.paragraph(sentence_count: 2)
-        )
+        author = find_or_initialize_user_by(email: random_email(suffix: "vote"))
 
         Decidim::Proposals::ProposalVote.create!(proposal:, author:) unless proposal.published_state? && proposal.rejected?
         Decidim::Proposals::ProposalVote.create!(proposal: emendation, author:) if emendation

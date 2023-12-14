@@ -43,11 +43,11 @@ describe "Last activity" do
     allow(Decidim::ActionLog).to receive(:public_resource_types).and_return(
       %w(
         Decidim::Comments::Comment
-        Decidim::DummyResources::DummyResource
+        Decidim::Dev::DummyResource
       )
     )
     allow(Decidim::ActionLog).to receive(:publicable_public_resource_types).and_return(
-      %w(Decidim::DummyResources::DummyResource)
+      %w(Decidim::Dev::DummyResource)
     )
 
     create(:content_block, organization:, scope_name: :homepage, manifest_name: :last_activity)
