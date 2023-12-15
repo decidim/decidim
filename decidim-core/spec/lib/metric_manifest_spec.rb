@@ -16,7 +16,7 @@ module Decidim
     end
 
     let(:manager_class) do
-      "DummyResources::DummyResource"
+      "Dev::DummyResource"
     end
 
     context "when no metric_name is set" do

@@ -19,6 +19,8 @@ module Decidim
         let(:other_voting) { create(:voting, organization: voting.organization) }
         let(:polling_officer) { create(:polling_officer, user:, voting:) }
         let(:polling_officers) { [polling_officer, create(:polling_officer, user:, voting: other_voting)] }
+        let(:polling_station) { create(:polling_station, voting:) }
+        let(:closure) { create(:ps_closure, polling_officer:, polling_station:) }
         let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
         shared_examples "not allowed when a polling officer is not attached to the current user" do
@@ -73,6 +75,55 @@ module Decidim
           it_behaves_like "not allowed when a polling officer is not attached to the current user"
         end
 
+        describe "create polling station results" do
+          let(:election) { create(:voting_election, voting:) }
+          let!(:another_closure) { create(:ps_closure, polling_station:, election:) }
+          let(:action) do
+            { scope: :polling_officer_zone, action: :create, subject: :polling_station_results }
+          end
+
+          it { is_expected.to be true }
+
+          it_behaves_like "not allowed when a polling officer is not attached to the current user"
+
+          context "when a closure already exists" do
+            let!(:closure) { create(:ps_closure, polling_station:, polling_officer:) }
+            let(:context) do
+              { polling_officer:, closure: }
+            end
+
+            it { is_expected.to be_falsey }
+          end
+        end
+
+        describe "edit polling station results" do
+          let(:action) do
+            { scope: :polling_officer_zone, action: :edit, subject: :polling_station_results }
+          end
+          let(:context) do
+            { polling_officer:, closure: }
+          end
+          let(:polling_officer) { create(:polling_officer, :president, user:, voting:) }
+
+          it { is_expected.to be true }
+
+          it_behaves_like "not allowed when a polling officer is not attached to the current user"
+
+          context "when there is no closure" do
+            let(:context) do
+              { polling_officer: }
+            end
+
+            it { is_expected.to be false }
+          end
+
+          context "and closure is sealed" do
+            let(:closure) { create(:ps_closure, :completed, polling_officer:, polling_station:) }
+
+            it { is_expected.to be false }
+          end
+        end
+
         describe "manage in person votes" do
           let(:action) do
             { scope: :polling_officer_zone, action: :manage, subject: :in_person_vote }
@@ -81,6 +132,32 @@ module Decidim
           it { is_expected.to be true }
 
           it_behaves_like "not allowed when a polling officer is not attached to the current user"
+        end
+
+        describe "create in person votes" do
+          let(:action) do
+            { scope: :polling_officer_zone, action: :create, subject: :in_person_vote }
+          end
+          let(:context) do
+            {
+              polling_officer:,
+              polling_officers:,
+              closure:
+            }
+          end
+
+          it { is_expected.to be false }
+
+          context "when no closure is present" do
+            let(:context) do
+              {
+                polling_officer:,
+                polling_officers:
+              }
+            end
+
+            it { is_expected.to be true }
+          end
         end
       end
     end

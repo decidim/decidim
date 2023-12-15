@@ -23,10 +23,10 @@ shared_examples_for "participatory space dropdown metadata cell" do
 
     before do
       allow(Decidim::ActionLog).to receive(:public_resource_types).and_return(
-        %w(Decidim::DummyResources::DummyResource)
+        %w(Decidim::Dev::DummyResource)
       )
       allow(Decidim::ActionLog).to receive(:publicable_public_resource_types).and_return(
-        %w(Decidim::DummyResources::DummyResource)
+        %w(Decidim::Dev::DummyResource)
       )
     end
 

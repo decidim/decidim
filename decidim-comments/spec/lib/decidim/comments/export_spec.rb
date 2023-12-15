@@ -15,7 +15,7 @@ module Decidim
       let!(:moderation) { create(:moderation, hidden_at: 6.hours.ago, reportable: hidden_comment) }
 
       describe "#comments_for_resource" do
-        let(:collection) { subject.comments_for_resource(Decidim::DummyResources::DummyResource, component) }
+        let(:collection) { subject.comments_for_resource(Decidim::Dev::DummyResource, component) }
 
         it "returns a collection of comments" do
           expect(collection).to include(*comments)
