@@ -13,7 +13,7 @@ module Decidim
 
       context "when resource is inside a participatory space" do
         let!(:resource) do
-          Decidim::DummyResources::DummyResource.new(
+          Decidim::Dev::DummyResource.new(
             scope:,
             component:,
             title: { en: "The resource title" },

@@ -68,6 +68,20 @@ describe Decidim::Elections::Admin::StartTally do
       subject.call
       expect(bulletin_board).to have_received(method_name).with(election.id)
     end
+
+    it "notifies the trustee about the tally" do
+      allow(Decidim::EventsManager).to receive(:publish)
+
+      subject.call
+      expect(Decidim::EventsManager)
+        .to have_received(:publish)
+        .with(
+          event: "decidim.events.elections.trustees.start_tally",
+          event_class: Decidim::Elections::Trustees::NotifyTrusteeTallyProcessEvent,
+          resource: election,
+          affected_users: election.trustees.collect(&:user)
+        )
+    end
   end
 
   context "when the form is not valid" do

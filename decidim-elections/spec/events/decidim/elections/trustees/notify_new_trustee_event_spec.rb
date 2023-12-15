@@ -13,7 +13,7 @@ describe Decidim::Elections::Trustees::NotifyNewTrusteeEvent do
   let(:email_subject) { "You are a trustee for #{participatory_space_title}." }
   let(:email_intro) { "An admin has added you as trustee for #{participatory_space_title}. You should create your public key <a href='#{trustee_zone_url}'>in your trustee zone</a>" }
   let(:email_outro) { "You have received this notification because you have been added as trustee for #{participatory_space_title}." }
-  let(:notification_title) { "You are a trustee for <a href=\"#{resource_url}\">#{participatory_space_title}</a>." }
+  let(:notification_title) { "You have been added to act as a trustee in #{translated(resource.title)} for some elections that will take place in this platform." }
 
   it_behaves_like "a simple event"
   it_behaves_like "a simple event email"
