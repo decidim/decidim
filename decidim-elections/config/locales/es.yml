@@ -763,6 +763,12 @@ es:
             email_intro: Un administrador te ha añadido como garante para %{resource_name}. Debes crear tu clave pública <a href='%{trustee_zone_url}'>en tu zona de garantes</a>
             email_outro: Has recibido esta notificación porque has sido añadido como garante para %{resource_name}.
             email_subject: Eres garante de %{resource_name}.
+            notification_title: Te han añadido para actuar como garante en %{resource_name} para algunas elecciones que tendrán lugar en esta plataforma.<br> Se te requerirá para llevar a cabo algunas tareas. De momento, por favor <a href='%{trustee_zone_url}'>genera tus claves de identificación</a>.
+          start_tally:
+            email_intro: El período de votación para la elección %{resource_title} ha finalizado. Ahora, por favor, realiza el recuento de las elecciones para publicar los resultados definitivos.
+            email_outro: Has recibido esta notificación porque has eres una de las garantes en la elección %{resource_title}.
+            email_subject: El proceso de recuento para las elecciones %{resource_title} ha comenzado.
+            notification_title: El período de votación para las elecciones %{resource_title} ha finalizado. Ahora, por favor, realiza el recuento de las elecciones para publicar el resultado final.
         votes:
           accepted_votes:
             email_intro: '¡Tu voto ha sido aceptado! Utilizando tu token de voto: %{encrypted_vote_hash}, puedes verificar tu voto <a href="%{verify_url}">aquí</a>.'
