@@ -58,6 +58,7 @@ module Decidim
       def meeting_params(component:, type:, author_type:)
         start_time = ::Faker::Date.between(from: 20.weeks.ago, to: 20.weeks.from_now)
         end_time = start_time + [rand(1..4).hours, rand(1..20).days].sample
+        registration_type = Decidim::Meetings::Meeting::REGISTRATION_TYPES.keys.sample
 
         params = {
           component:,
@@ -77,6 +78,7 @@ module Decidim
           registrations_enabled: [true, false].sample,
           available_slots: (10..50).step(10).to_a.sample,
           author: participatory_space.organization,
+          registration_type:,
           registration_terms: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.paragraph(sentence_count: 3)
           end,
@@ -102,6 +104,15 @@ module Decidim
                    )
                  else
                    params # :in_person
+                 end
+
+        params = case registration_type
+                 when :on_different_platform
+                   params.merge(registration_url: Faker::Internet.url)
+                 when :on_this_platform
+                   params.merge(registrations_enabled: true)
+                 else
+                   params # registration_disabled
                  end
 
         case author_type
