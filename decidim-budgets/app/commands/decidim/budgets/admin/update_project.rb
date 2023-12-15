@@ -7,7 +7,6 @@ module Decidim
       # panel.
       class UpdateProject < Decidim::Commands::UpdateResource
         include ::Decidim::GalleryMethods
-
         fetch_form_attributes :scope, :category, :title, :description, :budget_amount, :address, :latitude, :longitude
 
         def initialize(form, project)

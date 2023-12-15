@@ -3,7 +3,7 @@
 module Decidim
   module Budgets
     module Admin
-      # This command is executed when admin sends vote reminders.
+      # This command is executed when an admin sends vote reminders.
       class CreateOrderReminders < Decidim::Command
         delegate :current_component, :voting_enabled?, :voting_ends_soon?, :minimum_interval_between_reminders, to: :form
 
