@@ -763,6 +763,12 @@ ca:
             email_intro: Una administradora t'ha afegit com a garant de %{resource_name}. Hauries de crear la teva clau pública a la teva <a href='%{trustee_zone_url}'>zona de garants</a>
             email_outro: Has rebut aquesta notificació perquè t'han afegit com a garant de %{resource_name}.
             email_subject: Ets garant de %{resource_name}.
+            notification_title: T'han afegit per actuar com a garant a %{resource_name} per algunes eleccions que tindran lloc a aquesta plataforma.<br> Caldrà que duguis a terme les tasques requerides. De moment, si us plau <a href='%{trustee_zone_url}'>genera les teves claus d'identificació</a>.
+          start_tally:
+            email_intro: El període de votació per a les eleccions %{resource_title} ha finalitzat. Ara, si us plau, realitza el recompte de les eleccions per publicar els resultats definitius.
+            email_outro: Has rebut aquesta notificació perquè ets una de les garants a l'elecció %{resource_title}.
+            email_subject: El procés de recompte per a les eleccions %{resource_title} ha començat.
+            notification_title: El període de votació per a les eleccions %{resource_title} ha finalitzat. Ara, si us plau, realitza el recompte de les eleccions per publicar el resultat final.
         votes:
           accepted_votes:
             email_intro: 'El teu vot s''ha acceptat! Utilitzant el comprovant de vot: %{encrypted_vote_hash}, pots verificar-lo <a href="%{verify_url}">aquí</a>.'
