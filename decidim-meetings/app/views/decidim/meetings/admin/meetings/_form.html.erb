@@ -1,11 +1,11 @@
 <div class="form__wrapper">
   <div class="card pt-4">
     <div class="card-section">
-      <div class="row column hashtags__container">
+      <div class="row column">
         <%= form.translated :text_field, :title, autofocus: true, class: "js-hashtags", hashtaggable: true, aria: { label: :title } %>
       </div>
 
-      <div class="row column hashtags__container">
+      <div class="row column">
         <%= form.translated :editor, :description, hashtaggable: true, aria: { label: :description } %>
       </div>
 
@@ -16,11 +16,11 @@
                         { multiple: false } %>
       </div>
 
-      <div class="row column field" data-meeting-type="in_person">
+      <div class="row column" data-meeting-type="in_person">
         <%= form.geocoding_field :address, help_text: t(".address_help") %>
       </div>
 
-      <div class="row column field" data-meeting-type="in_person">
+      <div class="row column" data-meeting-type="in_person">
         <%= form.translated :text_area, :location, help_text: t(".location_help") %>
       </div>
 
@@ -28,12 +28,12 @@
         <%= form.translated :text_area, :location_hints, help_text: t(".location_hints_help") %>
       </div>
 
-      <div class="row column field" data-meeting-type="online">
+      <div class="row column" data-meeting-type="online">
         <%= form.text_field :online_meeting_url, help_text: t(".online_meeting_url_help") %>
       </div>
 
       <div class="iframe-fields">
-        <div class="row column field iframe-fields--embed-type" id="meeting_iframe_embed_type" data-meeting-type="online">
+        <div class="row column iframe-fields--embed-type" id="meeting_iframe_embed_type" data-meeting-type="online">
           <%= form.select :iframe_embed_type,
                           @form.iframe_embed_type_select,
                           {
@@ -42,7 +42,7 @@
                           } %>
         </div>
 
-        <div class="row column field iframe-fields--access-level" data-meeting-type="online-access-level">
+        <div class="row column iframe-fields--access-level" data-meeting-type="online-access-level">
           <%= form.select :iframe_access_level,
                           @form.iframe_access_level_select,
                           { include_blank: t(".select_an_iframe_access_level") },
