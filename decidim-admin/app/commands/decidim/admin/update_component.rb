@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     # This command gets called when a component is created from the admin panel.
-    class UpdateComponent < Decidim::Command
+    class UpdateComponent < Decidim::Commands::UpdateResource
       attr_reader :form, :component, :previous_settings
 
       # Public: Initializes the command.
@@ -11,7 +11,7 @@ module Decidim
       # form    - The form from which the data in this component comes from.
       # component - The component to update.
       def initialize(form, component)
-        super(form, component)
+        @form = form
         @component = component
         @manifest = component.manifest
       end
