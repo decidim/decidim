@@ -2,6 +2,7 @@
 
 module Decidim
   module Admin
+    # This command deals with destroying a newsletter from the admin panel.
     class DestroyNewsletter < Decidim::Commands::DestroyResource
       private
 
