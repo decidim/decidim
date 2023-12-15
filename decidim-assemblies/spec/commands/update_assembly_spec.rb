@@ -87,7 +87,7 @@ module Decidim::Assemblies
       let(:form) do
         Admin::AssemblyForm.from_params(params).with_context(context)
       end
-      let(:command) { described_class.new(my_assembly, form) }
+      let(:command) { described_class.new(form, my_assembly) }
 
       describe "when the form is not valid" do
         before do
@@ -159,7 +159,7 @@ module Decidim::Assemblies
         it "traces the action", versioning: true do
           expect(Decidim.traceability)
             .to receive(:perform_action!)
-            .with(:update, my_assembly, user)
+            .with(:update, my_assembly, user, {})
             .and_call_original
 
           expect { command.call }.to change(Decidim::ActionLog, :count)

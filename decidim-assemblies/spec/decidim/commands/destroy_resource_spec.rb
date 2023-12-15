@@ -2,8 +2,8 @@
 
 require "spec_helper"
 
-module Decidim::Assemblies
-  describe Admin::DestroyAssembliesType do
+describe Decidim::Commands::DestroyResource do
+  context "when the resource is an assembly type" do
     subject { described_class.new(assembly_type, user) }
 
     let(:organization) { create(:organization) }
@@ -20,7 +20,7 @@ module Decidim::Assemblies
         expect(Decidim.traceability)
           .to receive(:perform_action!)
           .with(
-            "delete",
+            :delete,
             assembly_type,
             user
           )
