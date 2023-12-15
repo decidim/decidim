@@ -515,7 +515,7 @@ en:
       global_menu:
         name: Global menu
       hero:
-        name: Hero image
+        name: Hero image and CTA
       hero_settings_form:
         background_image: Background image
         welcome_text: Welcome text

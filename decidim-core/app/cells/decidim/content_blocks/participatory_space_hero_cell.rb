@@ -7,9 +7,19 @@ module Decidim
       include Decidim::TranslationsHelper
       include Decidim::TwitterSearchHelper
 
-      attr_reader :cta_text, :cta_path
+      delegate :title, :subtitle, :hashtag, to: :resource
 
-      delegate :title, :subtitle, :attached_uploader, :hashtag, to: :resource
+      def cta_text
+        return unless model
+
+        @cta_text ||= translated_attribute(model.settings.button_text).presence
+      end
+
+      def cta_path
+        return unless model
+
+        @cta_path ||= translated_attribute(model.settings.button_url).presence
+      end
 
       def title_text
         translated_attribute(title)
@@ -20,7 +30,7 @@ module Decidim
       end
 
       def image_path
-        attached_uploader(:banner_image).path
+        model.images_container.attached_uploader(:background_image).path
       end
 
       def has_hashtag?

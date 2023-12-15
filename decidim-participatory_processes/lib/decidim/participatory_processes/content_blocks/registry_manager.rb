@@ -70,9 +70,24 @@ module Decidim
             end
           end
 
-          Decidim.content_blocks.register(:participatory_process_homepage, :process_hero) do |content_block|
-            content_block.cell = "decidim/participatory_processes/content_blocks/hero"
+          Decidim.content_blocks.register(:participatory_process_homepage, :hero) do |content_block|
+            content_block.cell = "decidim/content_blocks/participatory_space_hero"
+            content_block.settings_form_cell = "decidim/content_blocks/participatory_space_hero_settings_form"
             content_block.public_name_key = "decidim.participatory_processes.content_blocks.hero.name"
+
+            content_block.images = [
+              {
+                name: :background_image,
+                uploader: "Decidim::BackgroundImageUploader"
+              }
+            ]
+
+            content_block.settings do |settings|
+              settings.attribute :button_text, type: :text, translated: true
+              settings.attribute :button_url, type: :text, translated: true
+            end
+
+            content_block.default!
           end
 
           Decidim.content_blocks.register(:participatory_process_homepage, :announcement) do |content_block|
