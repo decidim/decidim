@@ -6,8 +6,8 @@ describe Decidim::Commands::DestroyResource do
   subject { described_class.new(project, user) }
 
   let(:organization) { create(:organization) }
-  let(:component) { create(:budgets_component, organization: )}
-  let(:budget) { create(:budget, component: )}
+  let(:component) { create(:budgets_component, organization:) }
+  let(:budget) { create(:budget, component:) }
   let(:project) { create(:project, budget:) }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
 
