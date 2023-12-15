@@ -109,13 +109,11 @@ id:
         destroy:
           success: Anggota berhasil dihapus untuk perakitan ini.
         edit:
-          title: Perbarui anggota majelis.
           update: Memperbarui
         index:
           assembly_members_title: Anggota dewan
         new:
           create: Membuat
-          title: Anggota majelis baru.
         update:
           error: Terjadi kesalahan saat memperbarui anggota untuk perakitan ini.
           success: Anggota berhasil diperbarui untuk perakitan ini.
@@ -133,13 +131,11 @@ id:
         destroy:
           success: Pengguna berhasil dihapus dari rakitan ini.
         edit:
-          title: Perbarui pengguna perakitan.
           update: Memperbarui
         index:
           assembly_admins_title: Pengguna majelis
         new:
           create: Membuat
-          title: Pengguna perakitan baru.
         update:
           error: Terjadi kesalahan saat memperbarui pengguna untuk perakitan ini.
           success: Pengguna berhasil diperbarui untuk perakitan ini.
@@ -233,15 +229,13 @@ id:
             select_a_position: Pilih posisi
             select_user: Pilih seorang pengguna
             user_type: Tipe Pengguna
-          index:
-            filter:
-              all: Semua
-              ceased: Hentikan
-              not_ceased: Tidak berhenti
-            search: Pencarian
         content_blocks:
           highlighted_assemblies:
             max_results: Jumlah maksimum elemen untuk ditampilkan
+      assemblies:
+        filters:
+          names:
+            all: Semua
       assembly_members:
         index:
           members: Anggota

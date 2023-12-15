@@ -311,11 +311,9 @@ lt:
       amendable:
         button: Pakeisti %{model_name}
         error: Keičiant šį išteklių įvyko klaida.
-        help_text: Patobulinkite šį %{model_name} pakeisdami jo %{amendable_fields}.
         promote_button: Pakelti iki %{model_name}
         promote_confirm_text: Ar tikrai norite palaikyti šią pataisą?
         promote_help_text: Galite paremti šią pataisą ir ją paskelbti kaip nepriklausomą %{model_name}.
-        section_heading: Pakeitimai (%{count})
       amendments:
         title:
           one: "%{count} pataisa"
@@ -488,7 +486,6 @@ lt:
         many: ir %{count} daugiau
         other: ir %{count} daugiau
       see_less: "(žr. mažiau)"
-      see_more: "(žr. daugiau)"
     components:
       component_order_selector:
         no_content: Mes negalėjome rasti jokio turinio pagal šiuos kriterijus.
@@ -933,14 +930,12 @@ lt:
           add_attachment: Prisegti priedą
           add_file: Pridėti failą
           add_image: Pridėti paveikslėlį
-          cancel: Atšaukti
           edit_image: Redaguoti atvaizdą
           error: Klaida!
           file_size_too_large: 'Per didelė rinkemena! Didžiausias leistinas rinkemos dydis: %{megabytes} MB'
           filename: Rinkmenos pavadinimas
           remove: Pašalinti
           replace: Pakeisti
-          save: Išsaugoti
           title: Pavadinimas
           title_required: Reikalingas pavadinimas!
           uploaded: Įkelta
@@ -1317,7 +1312,6 @@ lt:
           proposals: Pasiūlymai
           proposals_explanation: Teikite pasiūlymus, remkite esamus ir skatinkite pakeitimus, kuriuos norite matyti.
         footer_sub_hero:
-          footer_sub_hero_body: Sukurkime atviresnę, skaidresnę ir bendradarbiavimu grindžiamą visuomenę. <br /> Prisijunkite, dalyvaukite ir priimkite sprendimus.
           footer_sub_hero_headline: Sveiki atvykę į %{organization} dalyvavimo platformą.
           register: Registruotis
         hero:
@@ -1694,8 +1688,6 @@ lt:
         change_my_password: Keisti slaptažodį
         confirm_new_password: Patvirtinkite naują slaptažodį
         new_password: Naujas slaptažodis
-        password_help: "%{minimun_characters} minimalus rašmenų skaičius, rašmenys neturi būti pernelyg įprasti (pvz., 123456) ir turi skirtis nuo jūsų naudotojo vardo ir e. pašto adreso."
-        password_help_admin: "%{minimun_characters} minimalus rašmenų skaičius, rašmenys neturi būti pernelyg įprasti (pvz., 123456) ir turi skirtis nuo jūsų naudotojo vardo ir el. pašto adreso bei turi skirtis nuo senųjų slaptažodžių."
         title: Slaptažodžio keitimas
       new:
         forgot_your_password: Pamiršote savo slaptažodį?
@@ -1945,8 +1937,6 @@ lt:
         body: Nebuvote aktyvus(-i) %{minutes} minučių. Jei nenorite grįžti į platformą, dėl Jūsų saugumo paprašysime Jūsų prisijungti iš naujo.
         continue_session: Tęsti seansą
         title: Ar norite tęsti seansą?
-      upload_modal:
-        close_modal: Uždaryti modalinį langą
       user_menu:
         account: 'Naudotojo paskyra: %{name}'
         admin_dashboard: Administratoriaus skydelis

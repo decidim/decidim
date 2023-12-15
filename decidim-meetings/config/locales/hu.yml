@@ -266,7 +266,6 @@ hu:
             select_a_meeting_type: Válassza ki a találkozó típusát
             select_a_registration_type: Kérjük, válassza ki a regisztráció típusát
             select_an_iframe_access_level: Kérjük, válassz iframe hozzáférési szintet
-            show_embedded_iframe_help: 'Csak néhány szolgáltatás engedélyezi a beágyazást megbeszélésekbe vagy élő eseményekbe a következő domainekről: %{domains}'
           index:
             title: Találkozók
           new:
@@ -435,7 +434,6 @@ hu:
           remaining_slots:
             one: "%{count} hely marad"
             other: "%{count} hely marad"
-          view: Nézet
       models:
         invite:
           fields:

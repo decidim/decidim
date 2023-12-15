@@ -71,7 +71,6 @@ kaa:
       content_blocks:
         highlighted_results:
           results: Nátiyjeler
-          unspecified: Kórsetilmegen
       import_mailer:
         import:
           errors: Qátelikler

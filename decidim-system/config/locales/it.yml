@@ -112,7 +112,6 @@ it:
           show: Mostra impostazioni avanzate
         create:
           error: C'è stato un errore durante la creazione di una nuova organizzazione.
-          success: OK, è stata aggiunta la nuova organizzazione.
         edit:
           secondary_hosts_hint: Inserisci ciascun elemento in una nuova linea
         file_upload_settings:

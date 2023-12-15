@@ -13,6 +13,43 @@ module Decidim
       @organization ||= Decidim::Organization.first
     end
 
+    def admin_user
+      @admin_user ||= Decidim::User.find_by(organization:, email: "admin@example.org")
+    end
+
+    def find_or_initialize_user_by(email:)
+      user = Decidim::User.find_or_initialize_by(email:)
+      user.update!(
+        name: ::Faker::Name.name,
+        nickname: ::Faker::Twitter.unique.screen_name,
+        password: "decidim123456789",
+        organization:,
+        confirmed_at: Time.current,
+        locale: I18n.default_locale,
+        personal_url: ::Faker::Internet.url,
+        about: ::Faker::Lorem.paragraph(sentence_count: 2),
+        avatar: random_avatar,
+        accepted_tos_version: organization.tos_version + 1.hour,
+        newsletter_notifications_at: Time.current,
+        tos_agreement: true,
+        password_updated_at: Time.current
+      )
+
+      user
+    end
+
+    def random_scope(participatory_space:)
+      if participatory_space.scope
+        scopes = participatory_space.scope.descendants
+        global = participatory_space.scope
+      else
+        scopes = participatory_space.organization.scopes
+        global = nil
+      end
+
+      ::Faker::Boolean.boolean(true_ratio: 0.5) ? global : scopes.sample
+    end
+
     def seeds_root = File.join(__dir__, "..", "..", "db", "seeds")
 
     def hero_image = create_blob!(seeds_file: "city.jpeg", filename: "hero_image.jpeg", content_type: "image/jpeg")
@@ -74,6 +111,12 @@ module Decidim
       Decidim.component_manifests.each do |manifest|
         manifest.seed!(participatory_space.reload)
       end
+    end
+
+    def random_avatar
+      file_number = format("%03d", rand(1...100))
+
+      create_blob!(seeds_file: "avatars/#{file_number}.jpg", filename: "#{file_number}.jpg", content_type: "image/jpeg")
     end
   end
 end

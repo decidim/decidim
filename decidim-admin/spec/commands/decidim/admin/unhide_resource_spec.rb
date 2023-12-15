@@ -23,7 +23,7 @@ module Decidim::Admin
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:perform_action!)
-          .with("unhide", moderation, current_user, extra: { reportable_type: "Decidim::DummyResources::DummyResource" })
+          .with("unhide", moderation, current_user, extra: { reportable_type: "Decidim::Dev::DummyResource" })
           .and_call_original
 
         expect { command.call }.to change(Decidim::ActionLog, :count)

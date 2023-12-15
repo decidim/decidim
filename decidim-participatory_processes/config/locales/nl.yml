@@ -148,13 +148,6 @@ nl:
           copy: Kopiëren
           select: Selecteer welke gegevens u wilt dupliceren
           title: Inspraakproces dupliceren
-      participatory_process_group_landing_page:
-        edit:
-          active_content_blocks: Actieve inhoudsblokken
-          inactive_content_blocks: Inactieve inhoudsblokken
-      participatory_process_group_landing_page_content_blocks:
-        edit:
-          update: Bijwerken
       participatory_process_groups:
         destroy:
           error: Er is een fout opgetreden tijdens het vernietigen van de Participatory procesgroep.

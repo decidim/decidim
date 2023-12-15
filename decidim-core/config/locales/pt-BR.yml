@@ -176,7 +176,6 @@ pt-BR:
         error: Houve um erro ao alterar este recurso.
         promote_button: Promover para %{model_name}
         promote_confirm_text: Tem certeza de que deseja promover essa emenda?
-        section_heading: Alterações (%{count})
       amendments:
         title:
           one: "%{count} comentário"
@@ -321,7 +320,6 @@ pt-BR:
         one: e mais %{count}
         other: e mais %{count}
       see_less: "(ver menos)"
-      see_more: "(ver mais)"
     components:
       component_order_selector:
         order:
@@ -905,7 +903,6 @@ pt-BR:
           proposals: Propostas
           proposals_explanation: Faça propostas, suporte as existentes e promova as mudanças que deseja ver.
         footer_sub_hero:
-          footer_sub_hero_body: Vamos construir uma sociedade mais aberta, transparente e colaborativa.<br /> Participe, participe e decida.
           footer_sub_hero_headline: Bem-vindo à plataforma participativa %{organization}.
           register: Registrar-se
         hero:
@@ -1202,7 +1199,6 @@ pt-BR:
         change_my_password: Mudar minha senha
         confirm_new_password: Confirme a nova senha
         new_password: Nova senha
-        password_help: "O mínimo de %{minimun_characters} caracteres, não deve ser muito comum (por exemplo, 123456) e deve ser diferente do seu apelido e do seu email."
       new:
         forgot_your_password: Esqueceu sua senha?
         send_me_reset_password_instructions: Envie-me as instruções de redefinição de senha

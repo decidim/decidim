@@ -30,7 +30,6 @@ es-PY:
           error: El comentario no se ha podido eliminar.
         update:
           error: Se ha producido un error al actualizar el comentario.
-      comments_count: Número de comentarios
       comments_title: Comentario
       last_activity:
         new_comment: 'Nuevo comentario:'

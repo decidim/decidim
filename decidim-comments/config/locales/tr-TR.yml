@@ -19,7 +19,6 @@ tr:
       comments:
         create:
           error: Yorum oluşturulurken bir sorunla karşılaşıldı.
-      comments_count: Yorum sayısı
       votes:
         create:
           error: Yorum oylanırken bir sorun oluştu.

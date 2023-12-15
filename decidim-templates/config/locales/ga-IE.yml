@@ -11,6 +11,9 @@ ga:
         block_user_templates:
           form:
             save: Sábháil
+        proposal_answer_templates:
+          form:
+            save: Sábháil
         questionnaire_templates:
           choose:
             skip_template: Scipeáil

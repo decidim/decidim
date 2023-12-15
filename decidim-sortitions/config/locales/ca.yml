@@ -96,6 +96,8 @@ ca:
           cancelled: Cancel·lat
           category: Categoria
           state: Estat
+        index:
+          empty: Encara no hi ha cap sorteig.
         linked_sortitions:
           selected_proposals: Propostes seleccionades
         orders:

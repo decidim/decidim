@@ -10,8 +10,7 @@
 </div>
 <% if process_count_by_filter["active"] == 0 && process_count_by_filter["upcoming"] == 0 %>
   <div class="row column">
-    <div class="callout warning mb-sm">
-      <p><%= t("decidim.participatory_processes.participatory_processes.filters.explanations.no_active_nor_upcoming_callout") %></p>
+    <%= cell("decidim/announcement", t("decidim.participatory_processes.participatory_processes.filters.explanations.no_active_nor_upcoming_callout"), callout_class: "warning") %>
     </div>
   </div>
 <% end %>

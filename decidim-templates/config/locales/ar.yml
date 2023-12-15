@@ -21,6 +21,9 @@ ar:
         block_user_templates:
           form:
             save: حفظ
+        proposal_answer_templates:
+          form:
+            save: حفظ
         questionnaire_templates:
           choose:
             label: اختيار نموذج

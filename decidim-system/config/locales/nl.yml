@@ -61,7 +61,6 @@ nl:
           show: Geavanceerde instellingen tonen
         create:
           error: Er is een fout opgetreden bij het aanmaken van een nieuwe organisatie.
-          success: Organisatie is succesvol aangemaakt.
         edit:
           secondary_hosts_hint: Voer elk van hen op een nieuwe regel in
         index:

@@ -50,7 +50,6 @@ sl:
         logo: Logotip
         name: Ime
         official_img_footer: Uradni logo - noga
-        official_img_header: Uradni logo - glava
         official_url: Domača stran organizacije
         omnipresent_banner_short_description: Kratek opis
         omnipresent_banner_title: Naziv
@@ -95,8 +94,6 @@ sl:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Neveljavna slikovna datoteka
-            official_img_header:
               allowed_file_content_types: Neveljavna slikovna datoteka
   activerecord:
     attributes:

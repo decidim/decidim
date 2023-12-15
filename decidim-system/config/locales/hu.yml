@@ -18,9 +18,6 @@ hu:
         new:
           create: Létrehozás
           title: Új admin
-        show:
-          destroy: Töröl
-          edit: Szerkesztés
         update:
           error: Hiba történt az admin frissítése során.
       default_pages:
@@ -64,7 +61,6 @@ hu:
       organizations:
         create:
           error: Hiba történt az új szervezet létrehozása során.
-          success: Szervezet sikeresen létrehozva.
         edit:
           secondary_hosts_hint: Mindegyiket új sorba írd be
         index:

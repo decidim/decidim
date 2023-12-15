@@ -166,10 +166,6 @@ kaa:
       organization_external_domain_whitelist:
         edit:
           update: Jańalaw
-      organization_homepage:
-        content_blocks:
-          edit:
-            update: Jańalaw
       participatory_space_private_users:
         new:
           create: Jaratıw
@@ -195,12 +191,8 @@ kaa:
       shared:
         gallery:
           add_images: Súwretlerdi qosıw
-          delete_image: Súwretti óshiriw
           edit_images: Súwretlerdi ózgertiw
       static_pages:
-        content_blocks:
-          edit:
-            update: Jańalaw
         edit:
           update: Jańalaw
       users_statistics:

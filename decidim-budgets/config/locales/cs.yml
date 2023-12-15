@@ -20,6 +20,11 @@ cs:
         scope_id: Oblast působnosti
   activerecord:
     models:
+      decidim/budgets/budget:
+        one: Rozpočet
+        few: Rozpočty
+        many: Rozpočtů
+        other: Rozpočtů
       decidim/budgets/project:
         one: Projekt
         few: Projekty
@@ -94,6 +99,7 @@ cs:
           index:
             actions: Akce
             cancel: Zrušit
+            change_budget: Změnit rozpočet
             change_category: Změnit kategorii
             change_scope: Změnit rozsah
             change_selected: Změnit vybraný stav
@@ -104,6 +110,7 @@ cs:
             selected: Vybrané
             title: Projekty
             update: Aktualizovat
+            update_budget_button: Aktualizovat rozpočet projektu
             update_scope_button: Aktualizovat rozsah
           new:
             create: Vytvořit
@@ -111,6 +118,10 @@ cs:
           update:
             invalid: Při aktualizaci tohoto projektu došlo k chybě.
             success: Projekt byl úspěšně aktualizován.
+          update_budget:
+            invalid: 'Tyto projekty jsou již ve stejném rozpočtu nebo jejich rozpočty jsou vyšší než povolené maximum: %{projects}.'
+            select_a_project: Vyberte projekt.
+            success: 'Projekty byly úspěšně aktualizovány do %{subject_name} rozpočtu: %{projects}.'
           update_category:
             invalid: 'Tyto projekty již mají kategorii %{subject_name}: %{projects}.'
             select_a_category: Vyberte prosím kategorii.
@@ -141,7 +152,7 @@ cs:
             no_components: V tomto participativním prostoru neexistují jiné komponenty návrhu, které by mohly importovat návrhy do projektů.
             origin_component_id: Původ komponenty
             select_component: Vyberte součást
-            title: Importovat návrhy
+            title: Importovat návrhy do projektů
         reminders:
           orders:
             description: Uživatelé obdrží e-mail s odkazy na rozpočty, kde se čeká na vyjádření.
@@ -159,8 +170,6 @@ cs:
           create: "%{user_name} vytvořil %{resource_name} projekt ve %{space_name} prostoru"
           delete: "%{user_name} odstranil %{resource_name} projekt v prostoru %{space_name}"
           update: "%{user_name} aktualizoval %{resource_name} projekt v prostoru %{space_name}"
-      budget:
-        view: Zobrazit všechny rozpočtové projekty
       budget_information_modal:
         back_to: Zpět na %{component_name}
         close_modal: Zavřít okno
@@ -176,6 +185,7 @@ cs:
           few: "%{count} rozpočty"
           many: "%{count} rozpočtů"
           other: "%{count} rozpočtů"
+        empty: Zatím neexistují žádné rozpočty
         finished_message: Dokončili jste hlasovací proces. Děkujeme za účast!
         highlighted_cta: Hlasovat na %{name}
         if_change_opinion: Pokud jste změnili názor, můžete
@@ -200,7 +210,6 @@ cs:
           fields:
             category: Kategorie
             id: ID
-            scope: Rozsah
             title: Titul
       order_summary_mailer:
         order_summary:
@@ -237,6 +246,7 @@ cs:
             few: "%{count} projektů"
             many: "%{count} projektů"
             other: "%{count} projektů"
+        empty: Zatím neexistují žádné projekty
         exit_modal:
           cancel: Návrat k hlasování
           exit: Ukončit hlasování
@@ -251,8 +261,6 @@ cs:
             all: Vše
             not_selected: Nevybráno
             selected: Vybrané
-        index:
-          back_to_budgets: zpět do rozpočtů
         order_progress:
           assigned: Přiřazeno
           budget: Rozpočet
@@ -280,7 +288,6 @@ cs:
           add: Přidat k hlasování projekt %{resource_name}.
           remove: Odebrat projekt %{resource_name} z vašeho hlasování.
           selected: Vybrané
-          view: Zobrazit
           votes:
             one: hlas
             few: hlasy
@@ -299,6 +306,7 @@ cs:
         select_projects: Vybrat projekty
         show:
           budget: Rozpočet
+      prompt: Vybrat rozpočet
       vote_reminder_mailer:
         vote_reminder:
           email_budgets: 'Oblasti, kde máte nedokončené hlasování:'

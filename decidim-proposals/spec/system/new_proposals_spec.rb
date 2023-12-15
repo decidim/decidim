@@ -67,11 +67,11 @@ describe "Proposals" do
 
       it "does not displays HTML tags in the body template" do
         within "form.new_proposal" do
-          expect(find("#proposal_body").value).not_to include("<p>")
-          expect(find("#proposal_body").value).not_to include("</p>")
-          expect(find("#proposal_body").value).not_to include("<strong>")
-          expect(find("#proposal_body").value).not_to include("</strong>")
-          expect(find("#proposal_body").value).to have_content("This test has many characters")
+          expect(find_by_id("proposal_body").value).not_to include("<p>")
+          expect(find_by_id("proposal_body").value).not_to include("</p>")
+          expect(find_by_id("proposal_body").value).not_to include("<strong>")
+          expect(find_by_id("proposal_body").value).not_to include("</strong>")
+          expect(find_by_id("proposal_body").value).to have_content("This test has many characters")
         end
       end
     end

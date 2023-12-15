@@ -13,7 +13,7 @@ module Decidim
       main_bar_selector = ".main-bar"
 
       within main_bar_selector do
-        find("#trigger-dropdown-account").click
+        find_by_id("trigger-dropdown-account").click
 
         yield
       end

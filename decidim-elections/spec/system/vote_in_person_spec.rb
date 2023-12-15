@@ -132,6 +132,18 @@ describe "Polling Officer zone" do
     end
   end
 
+  context "when a closure already exists" do
+    let!(:closure) { create(:ps_closure, :complete, election:, polling_station:, polling_officer:) }
+
+    it "does not allow to identify a person" do
+      within "#dropdown-menu-profile" do
+        click_link "Polling Officer zone"
+      end
+
+      expect(page).not_to have_link("Identify a person")
+    end
+  end
+
   def fill_person_data(correct: true)
     within "[data-content]" do
       select("Passport", from: "Document type")

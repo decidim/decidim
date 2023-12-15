@@ -620,13 +620,6 @@ pl:
             max_results: Maksymalna ilość elementów do wyświetlenia
         index:
           published: Opublikowano
-        landing_page:
-          content_blocks:
-            edit:
-              update: Aktualizuj
-          edit:
-            active_content_blocks: Aktywne bloki treści
-            inactive_content_blocks: Nieaktywne bloki treści
         menu:
           votings: Głosowania
           votings_submenu:
@@ -747,8 +740,6 @@ pl:
             title: Utwórz oficera wyborczego
           polling_officers_picker:
             choose_polling_officers: Wybierz oficerów wyborczych
-            close: Zamknij
-            more_polling_officers: Jest jeszcze %{number} więcej oficerów wyborczych. Doprecyzuj kryteria wyszukiwania, aby ich zlokalizować.
         polling_stations:
           edit:
             title: Edytuj lokal wyborczy
@@ -829,8 +820,6 @@ pl:
               csv_header_after: Pozostaw ostatnie pole puste ("%{ballot_style_code_header}") jeśli nie potrzebujesz ustawiać rodzajów kart wyborczych/pytań warunkowych
               csv_header_before: 'Plik listy wyborców musi być plikiem CSV z następującym nagłówkiem:'
         document_types:
-          dni: Numer dokumentu tożsamości
-          nie: PESEL
           passport: Paszport
         export_mailer:
           access_codes_export:
@@ -1056,8 +1045,6 @@ pl:
           online: Online
   layouts:
     decidim:
-      election_votes_header:
-        exit: Zakończ
       voting_navigation:
         check_census: Mogę głosować?
         election_log: Dziennik zdarzeń wyborczych

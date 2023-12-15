@@ -37,6 +37,9 @@ ja:
         confirm_destroy: 削除してもよろしいですか？
         destroy: 削除
         edit: 編集
+        new_admin: 新しい管理者
+        new_oauth_application: 新しいOAUTHアプリケーション
+        new_organization: 新しい組織
         save: 保存
         title: アクション
       admins:
@@ -53,9 +56,6 @@ ja:
         new:
           create: 作成
           title: 新しい管理者
-        show:
-          destroy: 破棄
-          edit: 編集
         update:
           error: 管理者の更新中に問題が発生しました。
           success: 管理者が正常に更新されました。
@@ -137,7 +137,6 @@ ja:
           show: 詳細設定を表示
         create:
           error: 新しい組織を作成する際に問題が発生しました。
-          success: 組織が正常に作成されました。
         csp_settings:
           connect_src: Connect src
           connect_src_hint: |

@@ -145,13 +145,6 @@ lb:
           copy: Kopieren
           select: Wählen Sie aus, welche Daten Sie duplizieren möchten
           title: Beteiligungsprozess duplizieren
-      participatory_process_group_landing_page:
-        edit:
-          active_content_blocks: Aktive Inhaltsblöcke
-          inactive_content_blocks: Inaktive Inhaltsblöcke
-      participatory_process_group_landing_page_content_blocks:
-        edit:
-          update: Aktualisieren
       participatory_process_groups:
         destroy:
           error: Beim Löschen der Beteiligungsprozessgruppe ist ein Fehler aufgetreten.

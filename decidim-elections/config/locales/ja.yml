@@ -151,6 +151,10 @@ ja:
         manage_answers: 回答の管理
         manage_questions: 質問の管理
         manage_steps: ステップの管理
+        new_answer: 新しい回答
+        new_election: 新しい選挙
+        new_question: 新しい質問
+        new_trustee: 新しい受託者
         preview: プレビュー
         publish: 公開
         title: アクション
@@ -445,6 +449,7 @@ ja:
             started: 集計処理が始まりました。
           tally_title: 集計処理
           title: 選挙ログ
+          unpublished: 未公開
           verifiable_results:
             checksum: 'ファイルのSHA256 チェックサム:'
             description:
@@ -779,6 +784,7 @@ ja:
               confirm_destroy: 本当に削除してよろしいですか？
               destroy: 削除
               edit: 編集
+              new: 新しい投票スタイル
               title: アクション
             associated_census_data: 関連センサス項目
             explanation_callout: 投票者にどのような質問がブースで提示されるかは、投票スタイルで指定します。 投票スタイルでは、投票の構成要素からどの質問が投票に属するかを選択できます。 投票コードは、センサスの投票者とブースで提示される投票用紙を一致させるために使用されます。 すべての質問を常に提示する場合は、投票スタイルを作成しないでください。
@@ -816,22 +822,7 @@ ja:
             name: 投票のタイムライン
         index:
           published: 公開済み
-        landing_page:
-          content_blocks:
-            create:
-              error: コンテンツブロックの作成中に問題が発生しました。
-              success: コンテンツブロックを作成しました。
-            destroy:
-              error: コンテンツブロックの削除中に問題が発生しました。
-              success: コンテンツブロックを削除しました。
-            edit:
-              update: 更新
-          edit:
-            active_content_blocks: アクティブコンテンツブロック
-            add: コンテンツブロックを追加
-            destroy_confirmation: このコンテンツブロックを削除してもよろしいですか？
-            inactive_content_blocks: 非アクティブコンテンツブロック
-            title: ページコンテンツ
+          unpublished: 未公開
         menu:
           votings: 投票
           votings_submenu:
@@ -972,8 +963,6 @@ ja:
             title: 投票委員を作成
           polling_officers_picker:
             choose_polling_officers: 投票委員を選択してください
-            close: 閉じる
-            more_polling_officers: あと %{number} 人の投票委員がいます。検索を絞り込んで探しましょう。
             no_polling_officers: 検索条件に一致する投票委員がいないか、または投票委員が存在しません。
         polling_stations:
           create:
@@ -1116,8 +1105,7 @@ ja:
               csv_header_after: 投票スタイル/条件付き質問が必要ない場合は、最後のフィールド ("%{ballot_style_code_header}") を含めないでください
               csv_header_before: 'センサスファイルは次のヘッダを持つCSVファイルでなければなりません:'
         document_types:
-          dni: DNI
-          nie: NIE
+          identification_number: 識別番号
           passport: パスポート
         export_mailer:
           access_codes_export:
@@ -1266,6 +1254,7 @@ ja:
         actions:
           confirm_destroy: 本当に削除してよろしいですか？
           destroy: 削除
+          new: 新しい投票委員
           title: アクション
         roles:
           manager: マネージャー
@@ -1286,6 +1275,7 @@ ja:
           confirm_destroy: 本当に削除してよろしいですか？
           destroy: 削除
           edit: 編集
+          new: 新しい投票所
           title: アクション
       votings:
         access_code_modal:
@@ -1370,8 +1360,6 @@ ja:
           online: オンライン
   layouts:
     decidim:
-      election_votes_header:
-        exit: 終了
       voting_navigation:
         check_census: 投票できますか？
         election_log: 選挙ログ

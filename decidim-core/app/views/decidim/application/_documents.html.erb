@@ -2,12 +2,12 @@
   <% if (documents_without_collection = documents.reject(&:attachment_collection_id?)).any? %>
   <div class="documents__container">
     <% documents_without_collection.each do |document| %>
-      <%= render partial: "decidim/application/document.html", locals: { document: } %>
+      <%= render partial: "decidim/application/document", formats: [:html], locals: { document: } %>
     <% end %>
   </div>
   <% end %>
 
   <% documents.select(&:attachment_collection_id?).group_by(&:attachment_collection).sort_by { |c, _d| c.weight }.each do |collection, documents| %>
-    <%= render partial: "decidim/application/collection.html", locals: { attachment_collection: collection, documents: } %>
+    <%= render partial: "decidim/application/collection", formats: [:html], locals: { attachment_collection: collection, documents: } %>
   <% end %>
 <% end %>

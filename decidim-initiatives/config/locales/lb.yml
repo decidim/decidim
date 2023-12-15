@@ -330,7 +330,6 @@ lb:
             other: und %{count} weitere Leute
         committee_members:
           approve: Genehmigen
-          confirm_revoke: Bist du dir sicher?
           title: Ausschussmitglieder
         count:
           title:
@@ -342,7 +341,6 @@ lb:
           author: Autor
           myself: Meine Initiativen
           scope: Umfang
-          search: Suche
           state: Zustand
           type: Art
         index_header:
@@ -400,8 +398,5 @@ lb:
         sms_phone_number: Handynummer
         title: Zeichen %{initiative_title}
       initiatives:
-        initiative:
-          check: Hör zu
-          check_and_support: Überprüfe es und unterschreibe es
         no_initiatives_yet:
           no_initiatives_yet: Keine Initiativen bisher!

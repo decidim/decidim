@@ -835,22 +835,6 @@ fr:
         index:
           published: Publié
           unpublished: Non publié
-        landing_page:
-          content_blocks:
-            create:
-              error: Un problème est survenu lors de la création de ce bloc de contenu.
-              success: Le bloc de contenu a été créé avec succès.
-            destroy:
-              error: Un problème est survenu lors de la suppression de ce bloc de contenu.
-              success: Le bloc de contenu a été supprimé avec succès.
-            edit:
-              update: Mettre à jour
-          edit:
-            active_content_blocks: Blocs de contenu actifs
-            add: Ajouter un bloc de contenu
-            destroy_confirmation: Êtes-vous sûr(e) de vouloir supprimer ce bloc de contenu ?
-            inactive_content_blocks: Blocs de contenu inactifs
-            title: Contenus de la page
         menu:
           votings: Élections
           votings_submenu:
@@ -991,8 +975,6 @@ fr:
             title: Créer un responsable du scrutin
           polling_officers_picker:
             choose_polling_officers: Choisir les responsables du scrutin
-            close: Fermer
-            more_polling_officers: Il y a %{number} responsables du scrutin supplémentaires. Affinez votre recherche pour les localiser.
             no_polling_officers: Aucun responsable du scrutin ne correspond à vos critères de recherche ou il n'y a pas de responsable du scrutin.
         polling_stations:
           create:
@@ -1136,8 +1118,7 @@ fr:
               csv_header_after: Ne pas inclure le dernier champ ("%{ballot_style_code_header}") si vous n'avez pas besoin de styles de bulletin/questions conditionnelles
               csv_header_before: 'Le fichier de recensement doit être un fichier CSV avec l''en-tête suivante :'
         document_types:
-          dni: Carte nationale d'identité
-          nie: Carte de séjour ou de résident
+          identification_number: Numéro d'identification
           passport: Passeport
         export_mailer:
           access_codes_export:
@@ -1393,8 +1374,6 @@ fr:
           online: En ligne
   layouts:
     decidim:
-      election_votes_header:
-        exit: Quitter
       voting_navigation:
         check_census: Puis-je voter ?
         election_log: Journal de l'élection

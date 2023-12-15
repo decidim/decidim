@@ -216,7 +216,7 @@ module Decidim
         Class.new(ApplicationRecord) do
           include mod
 
-          self.table_name = "decidim_dummy_resources_dummy_resources"
+          self.table_name = "decidim_dev_dummy_resources"
 
           encrypt_attribute :title, type: :hash
           encrypt_attribute :reference, type: :string

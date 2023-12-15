@@ -1,5 +1,5 @@
 .flash {
-  @apply flex justify-start items-center gap-4 rounded border-2 border-secondary text-secondary my-4 p-4 bg-secondary/5;
+  @apply flex justify-start gap-4 border-l-4 border-secondary my-4 p-4 bg-secondary/5;
 
   &__icon {
     svg {
@@ -7,11 +7,31 @@
     }
   }
 
+  &__title {
+    @apply font-semibold text-lg;
+  }
+
   &__message {
-    @apply gap-2 text-black font-semibold text-lg;
+    @apply text-black font-semibold text-md;
 
     a {
-      @apply underline;
+      @apply underline text-secondary;
+
+      svg {
+        @apply text-secondary;
+      }
+    }
+
+    p {
+      @apply font-normal text-md leading-6;
+    }
+
+    ul {
+      @apply ml-4;
+
+      li {
+        @apply list-disc;
+      }
     }
 
     &-body {
@@ -27,15 +47,40 @@
     }
   }
 
+  &.primary {
+    svg {
+      @apply text-secondary;
+    }
+  }
+
+  &.secondary,
+  &.info {
+    .flash__icon {
+      @apply text-secondary;
+    }
+  }
+
   &.success {
-    @apply border-success text-success bg-success/5;
+    @apply border-success bg-success/5;
+
+    .flash__icon {
+      @apply text-success;
+    }
   }
 
   &.alert {
-    @apply border-alert text-alert bg-alert/5;
+    @apply border-alert bg-alert/5;
+
+    .flash__icon {
+      @apply text-alert;
+    }
   }
 
   &.warning {
-    @apply border-warning text-warning bg-warning/5;
+    @apply border-warning bg-warning/5;
+
+    .flash__icon {
+      @apply text-warning;
+    }
   }
 }

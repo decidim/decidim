@@ -16,7 +16,6 @@ module Decidim
       end
 
       initializer "decidim_templates.register_icons" do
-        Decidim.icons.register(name: "clipboard-line", icon: "clipboard-line", category: "system", description: "", engine: :templates)
         Decidim.icons.register(name: "user-forbid-line", icon: "user-forbid-line", category: "system", description: "", engine: :templates)
       end
 

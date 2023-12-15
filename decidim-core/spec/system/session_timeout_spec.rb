@@ -30,13 +30,13 @@ describe "Session timeout" do
       visit decidim.root_path
       2.times.each do
         expect(page).to have_content("If you continue being inactive", wait: 4)
-        find("#continueSession").click
+        find_by_id("continueSession").click
         travel 20.seconds
       end
 
       switch_to_window(win1)
       expect(page).to have_content("If you continue being inactive", wait: 4)
-      find("#continueSession").click
+      find_by_id("continueSession").click
       expect(page).not_to have_content("You were inactive for too long")
     end
 

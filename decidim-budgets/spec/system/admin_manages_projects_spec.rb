@@ -36,7 +36,7 @@ describe "Admin manages projects" do
 
     it "changes projects category" do
       find(".js-resource-id-#{project.id}").set(true)
-      find("#js-bulk-actions-button").click
+      find_by_id("js-bulk-actions-button").click
       click_button "Change category"
       select translated(category.name), from: "category_id"
       click_button "Update"
@@ -51,7 +51,7 @@ describe "Admin manages projects" do
 
     it "changes projects scope" do
       find(".js-resource-id-#{project.id}").set(true)
-      find("#js-bulk-actions-button").click
+      find_by_id("js-bulk-actions-button").click
       click_button "Change scope"
       select translated(scope.name), from: :scope_id
       click_button "Update"
@@ -65,8 +65,8 @@ describe "Admin manages projects" do
     end
 
     it "selects projects to implementation" do
-      find("#projects_bulk").set(true)
-      find("#js-bulk-actions-button").click
+      find_by_id("projects_bulk").set(true)
+      find_by_id("js-bulk-actions-button").click
       click_button "Change selected"
       select "Select", from: "selected_value"
       click_button "Update"
@@ -88,16 +88,16 @@ describe "Admin manages projects" do
 
       it "shows all of the budgets within the participatory_space" do
         visit current_path
-        find("#projects_bulk").set(true)
-        find("#js-bulk-actions-button").click
+        find_by_id("projects_bulk").set(true)
+        find_by_id("js-bulk-actions-button").click
         click_button "Change budget"
         options = ["Select budget", format_title(destination_budget), format_title(budget), format_title(another_budget)]
         expect(page).to have_select("reference_id", options:)
       end
 
       it "changes project budget" do
-        find("#projects_bulk").set(true)
-        find("#js-bulk-actions-button").click
+        find_by_id("projects_bulk").set(true)
+        find_by_id("js-bulk-actions-button").click
         click_button "Change budget"
         select translated(destination_budget.title), from: "reference_id"
         click_button "Update project's budget"

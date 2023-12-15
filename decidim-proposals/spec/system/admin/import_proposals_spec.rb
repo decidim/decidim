@@ -52,12 +52,12 @@ describe "Import proposals" do
     end
 
     it "has create import as dropdown" do
-      page.find("#proposals_file_import_user_group_id").click
+      page.find_by_id("proposals_file_import_user_group_id").click
       expect(page).to have_content(user_group.name)
     end
 
     it "links proposal to user group during the import" do
-      page.find("#proposals_file_import_user_group_id").click
+      page.find_by_id("proposals_file_import_user_group_id").click
       select user_group.name, from: "proposals_file_import_user_group_id"
       dynamically_attach_file(:proposals_file_import_file, Decidim::Dev.asset("import_proposals.csv"))
       click_button "Import"

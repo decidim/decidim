@@ -129,7 +129,7 @@ module Decidim
                         I18n.t("private_users", scope: "decidim.admin.menu.assemblies_submenu"),
                         decidim_admin_assemblies.participatory_space_private_users_path(current_participatory_space),
                         icon_name: "spy-line",
-                        if: allowed_to?(:read, :space_private_user, assembly: current_participatory_space)
+                        if: allowed_to?(:read, :space_private_user, current_participatory_space:)
 
           menu.add_item :moderations,
                         I18n.t("moderations", scope: "decidim.admin.menu.assemblies_submenu"),
