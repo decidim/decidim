@@ -64,13 +64,12 @@ module Decidim
       def destroy
         enforce_permission_to(:destroy, :scope_type, scope_type:)
 
-        Decidim.traceability.perform_action!("delete", scope_type, current_user) do
-          scope_type.destroy!
+        Decidim::Commands::DestroyResource.call(scope_type, current_user) do
+          on(:ok) do
+            flash[:notice] = I18n.t("scope_types.destroy.success", scope: "decidim.admin")
+            redirect_to scope_types_path
+          end
         end
-
-        flash[:notice] = I18n.t("scope_types.destroy.success", scope: "decidim.admin")
-
-        redirect_to scope_types_path
       end
 
       private
