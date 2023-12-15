@@ -4,6 +4,8 @@ module Decidim
   module Debates
     # A command with all the business logic when a user updates a debate.
     class UpdateDebate < Decidim::Commands::UpdateResource
+      fetch_form_attributes :category, :scope
+
       private
 
       def update_resource
@@ -23,8 +25,6 @@ module Decidim
       end
 
       def extra_params = { visibility: "public-only" }
-
-      fetch_form_attributes :category, :scope
 
       def attributes
         parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
