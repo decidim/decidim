@@ -236,6 +236,11 @@ es:
           feedback_form_answers: Retorno de las respuestas
         mailers:
           trustee_mailer:
+            body:
+              help_html: |-
+                <p>Hola %{user_name},</p><br>
+                <p>Te han añadido para actuar como garante en algunes elecciones que tendran lugar en %{organization}.</p><br>
+                <p>Se ha creado en tu cuenta una nueva sessión llamada "Zona de garantes". Desde esta, podrá realitzar las tareas requeridas. De momento, por favor, genera tus claves de identificación.</p><br>
             subject: Se te ha añadido como garante de %{resource_name}
             trustee_zone: Llévame al espacio de garantes
         menu:
@@ -279,6 +284,7 @@ es:
               census_frozen: Los códigos de acceso al censo no se han podido exportar.
               census_uploaded: No se ha subido ningún censo para esta elección.
               component_published: La elección <strong>no está publicada</strong>.
+              fix_it_text: Arreglarlo
               max_selections: Las preguntas no tienen un valor <strong>correcto para la cantidad de respuestas</strong>
               minimum_answers: Las preguntas deben tener <strong>al menos dos respuestas</strong>.
               minimum_questions: La elección <strong>debe tener al menos una pregunta</strong>.
@@ -304,6 +310,11 @@ es:
               trustees_number: El espacio participativo tiene <strong>al menos %{number} garantes con clave pública</strong>.
             submit: Configurar elección
             success: La elección se ha enviado con éxito al "Bulletin Board".
+            technical_configuration:
+              authority_name: "<strong>Nombre de la autoridad:</strong> %{value}"
+              bulletin_board_server: "<strong>Servidor del boletín:</strong> <a href='%{value}'>%{value}</a>"
+              scheme_name: "<strong>Nombre del esquema:</strong> %{value}"
+              title: Ver la información técnica
             title: Configurar elección
             trustees: Garantes de la elección
           created:
@@ -622,6 +633,7 @@ es:
                 bb_status: Estado
                 election: Elección
                 voting_period: Período de votación
+              no_elections: Actualmente no se te ha asignado ninguna acción como garante. Recibirás una notificación cuando sea el momento de actuar en las diferentes fases.
               title: Elecciones
             identification_keys:
               cancel: Cancelar
@@ -644,6 +656,9 @@ es:
               upload_legend: En el servidor constan tus claves públicas de identificación, pero tu navegador todavía no las tiene. Necesitas importar el archivo con tus claves de identificación a tu ordenador desde la copia de seguridad que creaste después de generarlas.
             not_supported_browser_description: Parece que estás usando un navegador que no puede ser utilizado para actuar como garante. Asegúrate de que estás usando la versión más reciente de tu navegador, o intenta utilizar cualquier otro de los navegadores más populares para poder completar tus tareas como garante.
             not_supported_browser_title: Actualiza el navegador para actuar como garante
+            trustee_role_description:
+              with_keys: Has sido asignada como garante en algunas de las elecciones celebradas en esta plataforma.
+              without_keys: Has sido asignada para actuar como Garante. Por favor, genera y sube tus claves de identificación.
           update:
             success: Tu clave pública de identificación fue guardada con éxito.
       votes:
@@ -743,6 +758,7 @@ es:
             email_intro: Has sido añadido como garante para la elección de %{resource_title}.
             email_outro: Has recibido esta notificación porque has sido añadido como garante para la elección %{resource_title}.
             email_subject: Eres garante para la elección de %{resource_title}..
+            notification_title: 'Has sido asignada para actuar como Garante en la Elección: <a href="%{resource_path}">%{resource_title}</a>. Por favor, realiza la ceremonia de claves para poner en marcha la elección.'
           new_trustee:
             email_intro: Un administrador te ha añadido como garante para %{resource_name}. Debes crear tu clave pública <a href='%{trustee_zone_url}'>en tu zona de garantes</a>
             email_outro: Has recibido esta notificación porque has sido añadido como garante para %{resource_name}.
