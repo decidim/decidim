@@ -53,7 +53,7 @@
   }
 
   &__grid {
-    @apply grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-x-6 gap-y-10;
+    @apply grid grid-cols-2 md:grid-cols-4 auto-rows-fr gap-3 md:gap-x-6 gap-y-10;
 
     &-item {
       @apply space-y-4;
