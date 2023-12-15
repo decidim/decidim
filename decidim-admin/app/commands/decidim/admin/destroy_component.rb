@@ -2,7 +2,7 @@
 
 module Decidim
   module Admin
-    # This command deals with destroying a Component from the admin panel.
+    # This command deals with destroying a component from the admin panel.
     class DestroyComponent < Decidim::Commands::DestroyResource
       private
 

@@ -11,7 +11,6 @@ module Decidim
       # form - The source fo data for this newsletter.
       # content_block - An instance of `Decidim::ContentBlock` that holds the
       #     newsletter attributes.
-      # user - The User that authored this newsletter.
       def initialize(form, content_block)
         super(form)
         @content_block = content_block
