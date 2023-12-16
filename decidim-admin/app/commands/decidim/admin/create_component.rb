@@ -8,6 +8,7 @@ module Decidim
 
       private
 
+      # Use `reverse_merge` instead of `merge` as we need the `manifest_name` first
       def attributes = super.reverse_merge({ manifest_name: form.manifest.name })
 
       def resource_class = Decidim::Component
