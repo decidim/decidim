@@ -16,7 +16,6 @@ describe Decidim::ComponentPublishedEvent do
   let(:email_outro) { "You have received this notification because you are following #{participatory_space.title["en"]}. You can stop receiving notifications following the previous link." }
   let(:notification_title) { "The #{resource.name["en"]} component is now active for <a href=\"#{resource_path}\">#{participatory_space.title["en"]}</a>" }
 
-
   it_behaves_like "a simple event"
   it_behaves_like "a simple event email"
   it_behaves_like "a simple event notification"
