@@ -639,6 +639,7 @@ fr-CA:
               upload_legend: Le serveur dispose de vos clés d'identification publiques, mais pas votre navigateur. Vous devez importer le fichier contenant vos clés d'identification sur votre ordinateur à partir de la sauvegarde que vous avez créée après les avoir générées.
             not_supported_browser_description: Il semblerait que votre navigateur web ne peut pas être utilisé pour agir en tant qu'administrateur. Assurez-vous d'utiliser la dernière version de votre navigateur ou essayez d'utiliser l'un des navigateurs les plus populaires afin de réaliser vos tâches.
             not_supported_browser_title: Mettre à niveau le navigateur pour agir en tant que garant
+            trustee_role_description: Vous avez été assigné à agir en tant que garant lors de certaines élections mises en place sur cette plateforme.
           update:
             success: Votre clé d'identification publique a bien été stockée.
       votes:
