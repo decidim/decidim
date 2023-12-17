@@ -282,10 +282,8 @@ es:
             select_user: Seleccionar participante
           index:
             filter:
-              accepted: Aceptado
-              all: Todas
-              rejected: Rechazadas
-              sent: Enviades
+              all: Todos
+              sent: Enviado
             filter_by: Filtrar por
             invite_attendee: Invitar asistente
             invites: Invitaciones
@@ -400,7 +398,7 @@ es:
         filter_meeting_space_values:
           all: Todos
         filter_scope_values:
-          all: Todas
+          all: Todos
       calendar:
         meeting_to_event:
           read_more: Leer más sobre este encuentro
