@@ -343,9 +343,7 @@ eu:
             select_user: Aukeratu erabiltzailea
           index:
             filter:
-              accepted: Onartu
               all: guztiak
-              rejected: Ukatua
               sent: bidalia
             filter_by: Iragazi arabera
             invite_attendee: Gonbidatu parte-hartzailea
