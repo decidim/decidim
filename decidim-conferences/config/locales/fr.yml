@@ -349,9 +349,7 @@ fr:
             select_user: Sélectionnez l'utilisateur
           index:
             filter:
-              accepted: Accepté
               all: Tout
-              rejected: Rejeté
               sent: Envoyé
             invite_attendee: Inviter un participant
             invites: Invite
