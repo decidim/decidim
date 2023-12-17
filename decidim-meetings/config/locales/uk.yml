@@ -165,10 +165,7 @@ uk:
             select_user: Оберіть учасника
           index:
             filter:
-              accepted: Прийняті
-              all: Усі
-              rejected: Відхилені
-              sent: Надіслані
+              sent: Надіслано
             invite_attendee: Запросити учасника
             invites: Запрошення
             search: Шукати
