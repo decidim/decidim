@@ -545,8 +545,6 @@ pt-BR:
         voting_step:
           back: Voltar
           continue: Próxima
-      warnings:
-        no_scheduled_elections_warning: Atualmente, não há eleições agendadas, mas aqui podem encontrar uma lista de todas as últimas eleições.
     events:
       elections:
         election_published:
