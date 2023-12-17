@@ -349,6 +349,7 @@ de:
             select_user: Nutzer wählen
           index:
             filter:
+              accepted: Angenommen
               all: Alle
               sent: Geschickt
             invite_attendee: Teilnehmer einladen
