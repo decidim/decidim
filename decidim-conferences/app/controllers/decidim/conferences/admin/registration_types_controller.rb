@@ -25,7 +25,7 @@ module Decidim
           enforce_permission_to :create, :registration_type
           @form = form(Decidim::Conferences::Admin::RegistrationTypeForm).from_params(params)
 
-          CreateRegistrationType.call(@form, current_user, current_conference) do
+          CreateRegistrationType.call(@form) do
             on(:ok) do
               flash[:notice] = I18n.t("registration_types.create.success", scope: "decidim.admin")
               redirect_to conference_registration_types_path(current_conference)

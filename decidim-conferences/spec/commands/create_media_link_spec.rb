@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Conferences
   describe Admin::CreateMediaLink do
-    subject { described_class.new(form, current_user, conference) }
+    subject { described_class.new(form) }
 
     let(:conference) { create(:conference) }
     let!(:current_user) { create(:user, :confirmed, organization: conference.organization) }
