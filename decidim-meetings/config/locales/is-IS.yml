@@ -90,6 +90,9 @@ is:
         invite_join_meeting_mailer:
           invite:
             join: Taka þátt í fundi '%{meeting_title}'
+        invites:
+          index:
+            search: Leita
         meeting_closes:
           edit:
             close: Loka
