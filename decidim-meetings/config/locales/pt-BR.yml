@@ -241,15 +241,13 @@ pt-BR:
             select_user: Selecionar usuário
           index:
             filter:
-              accepted: Aceitos
               all: Tudo
-              rejected: Rejeitados
               sent: Enviado
             filter_by: Filtrar por
             invite_attendee: Convidar participante
             invites: Convites
             registrations_disabled: Você não pode convidar um participante porque os registros estão desativados.
-            search: Pesquisar
+            search: Pesquisa
         meeting_closes:
           edit:
             close: Fechar
