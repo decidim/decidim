@@ -337,9 +337,7 @@ zh-TW:
             select_user: 選擇參與者
           index:
             filter:
-              accepted: 已接受
               all: 全部
-              rejected: 已拒絕
               sent: 傳送
             filter_by: 篩選條件
             invite_attendee: 邀請參與者
