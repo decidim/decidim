@@ -333,9 +333,7 @@ ar:
             select_user: اختر المشارك
           index:
             filter:
-              accepted: وافقت
               all: الكل
-              rejected: مرفوض
               sent: أرسلت
             invite_attendee: دعوة مشارك
             invites: تدعو
