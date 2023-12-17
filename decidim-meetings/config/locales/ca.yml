@@ -281,15 +281,9 @@ ca:
             non_user: Participant no existent
             select_user: Selecciona la participant
           index:
-            filter:
-              accepted: Acceptat
-              all: Totes
-              rejected: Rebutjades
-              sent: Enviades
             invite_attendee: Convidar assistent
             invites: Invitacions
             registrations_disabled: No pots convidar a cap persona perquè les inscripcions estan inhabilitades.
-            search: Cerca
         meeting_closes:
           edit:
             close: Tancar
