@@ -743,6 +743,10 @@ de:
         voting_step:
           back: Zurück
           continue: Weiter
+      warnings:
+        empty_filters: Es liegen noch keine Wahlen mit diesen Kriterien vor.
+        no_elections: Es gibt keine geplante Wahlen.
+        no_scheduled_elections: Derzeit sind keine Wahlen geplant. Sie finden hier alle vergangenen Wahlen aufgelistet.
     events:
       elections:
         election_published:
