@@ -318,14 +318,8 @@ pt-BR:
             non_user: Usuário não existente
             select_user: Selecione o usuário
           index:
-            filter:
-              accepted: Aceitaram
-              all: Todos
-              rejected: Rejeitado
-              sent: Enviei
             invite_attendee: Convidar participante
             invites: Convites
-            search: Pesquisa
           new:
             invite: Convite
             new_invite: Convidar Usuário
