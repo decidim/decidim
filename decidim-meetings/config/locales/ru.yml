@@ -183,10 +183,7 @@ ru:
             select_user: Выберите участника
           index:
             filter:
-              accepted: Принятые
-              all: Все
-              rejected: Отклоненные
-              sent: Отправленные
+              sent: Отправлено
             invite_attendee: Пригласить участника
             invites: Приглашения
             search: Поиск
