@@ -277,9 +277,7 @@ ja:
             select_user: 参加者を選択
           index:
             filter:
-              accepted: 承認済み
               all: すべて
-              rejected: 拒否
               sent: 送信済み
             filter_by: フィルター
             invite_attendee: 参加者を招待
