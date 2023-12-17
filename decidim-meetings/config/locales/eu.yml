@@ -281,15 +281,9 @@ eu:
             non_user: Erabiltzailea ez dago
             select_user: Hautatu parte-hartzailea
           index:
-            filter:
-              accepted: Onartuta
-              all: Guztiak
-              rejected: Baztertuta
-              sent: Bidalita
             invite_attendee: Gonbidatu
             invites: Gonbidapenak
             registrations_disabled: Ezin duzu inor gonbidatu izen-emateak desgaituta daudelako.
-            search: Bilatu
         meeting_closes:
           edit:
             close: Itxi
