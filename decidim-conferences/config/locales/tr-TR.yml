@@ -288,9 +288,7 @@ tr:
             select_user: Kullanıcı seç
           index:
             filter:
-              accepted: Kabul edilmiş
               all: Herşey
-              rejected: Reddedilen
               sent: Gönderilen
             invite_attendee: Katılımcı Davet Et
             invites: Davetler
