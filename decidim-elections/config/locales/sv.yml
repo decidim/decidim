@@ -416,8 +416,6 @@ sv:
         voting_step:
           back: Tillbaka
           continue: Nästa
-      warnings:
-        no_scheduled_elections_warning: För närvarande finns det inga planerade omröstningar, men här hittar du alla tidigare omröstningar listade.
     events:
       elections:
         election_published:
