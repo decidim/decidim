@@ -722,7 +722,6 @@ ja:
           continue: 次へ
       warnings:
         no_elections_warning: 検索条件に一致する選挙がないか、または予定されている選挙がありません。
-        no_scheduled_elections_warning: 現在、予定された選挙はありませんが、ここでは記載されているすべての過去の選挙を見つけることができます。
     events:
       elections:
         election_published:
