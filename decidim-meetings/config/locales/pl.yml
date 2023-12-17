@@ -485,7 +485,6 @@ pl:
           contributions: Liczba wsparć
           date: Data
           edit_meeting: Edytuj spotkanie
-          going: Zarejestrowano się na to spotkanie
           leave: Anuluj swoją rejestrację
           meeting_minutes: Protokół ze spotkania
           no_slots_available: Brak dostępnych miejsc
