@@ -8,39 +8,7 @@
     </h2>
   </div>
 
-  <%# NOTE: this old filters section should be refactorized in order to use the shared admin_filter_selector method
-  it would require the definition of concerns similar to decidim-conferences/app/controllers/concerns/decidim/conferences/admin/filterable.rb %>
-  <div class="filters__section">
-    <div class="fcell">
-      <ul class="dropdown menu" data-dropdown-menu data-close-on-click-inside="false">
-        <li class="is-dropdown-submenu-parent">
-          <a href="#" class="dropdown button">
-            <%= t("filter_label", scope: "decidim.admin.filters") %>
-            <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
-          </a>
-          <ul class="menu is-dropdown-submenu">
-            <li><%= link_to t(".filter.sent"), url_for(status: "sent", q: @query) %></li>
-            <li><%= link_to t(".filter.accepted"), url_for(status: "accepted", q: @query) %></li>
-            <li><%= link_to t(".filter.rejected"), url_for(status: "rejected", q: @query) %></li>
-            <li><%= link_to t(".filter.all"), url_for(q: @query) %></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-    <div class="fcell search">
-      <%= form_tag "", method: :get do %>
-        <div class="input-group">
-          <%= search_field_tag :q, @query,label: false, class: "input-group-field", placeholder: t(".search") %>
-          <%= hidden_field_tag :state, @state %>
-          <div class="input-group-button">
-            <button type="submit" class="text-secondary" aria-label="<%= t("decidim.search.term_input_placeholder") %>">
-              <%= icon "search-line", class: "fill-secondary w-4 h-4" %>
-            </button>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
+  <%= admin_filter_selector %>
 
   <div class="table-scroll">
     <table class="table-list">
