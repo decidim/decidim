@@ -266,9 +266,7 @@ ro:
             select_user: Selecteză un participant
           index:
             filter:
-              accepted: Acceptat
               all: Toate
-              rejected: Respins
               sent: Trimis
             invite_attendee: Invită participantul
             invites: Invitații
