@@ -657,8 +657,6 @@ el:
         voting_step:
           back: Πίσω
           continue: Επόμενο
-      warnings:
-        no_scheduled_elections_warning: Προς το παρόν, δεν υπάρχουν προγραμματισμένες εκλογές, αλλά εδώ μπορείτε να βρείτε όλες τις προηγούμενες εκλογές.
     events:
       elections:
         election_published:
