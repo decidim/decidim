@@ -272,9 +272,7 @@ sv:
             select_user: Välj deltagare
           index:
             filter:
-              accepted: Accepterad
-              all: Allt
-              rejected: Avvisad
+              all: Alla
               sent: Skickat
             filter_by: Filtrera efter
             invite_attendee: Bjud in deltagare
@@ -389,7 +387,7 @@ sv:
         filter_meeting_space_values:
           all: Alla
         filter_scope_values:
-          all: Allt
+          all: Alla
       calendar_modal:
         calendar_url: Kalender-URL
         close_window: Stäng fönster
