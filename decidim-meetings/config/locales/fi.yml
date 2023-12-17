@@ -282,9 +282,7 @@ fi:
             select_user: Valitse käyttäjä
           index:
             filter:
-              accepted: Hyväksytyt
               all: Kaikki
-              rejected: Hylätyt
               sent: Lähetetyt
             filter_by: Rajaa hakua
             invite_attendee: Kutsu osallistuja
