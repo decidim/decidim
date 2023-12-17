@@ -691,9 +691,6 @@ zh-TW:
         voting_step:
           back: 返回
           continue: 下一個
-      warnings:
-        no_elections_warning: 沒有符合您的搜尋條件的選舉，或者目前沒有已安排的選舉。
-        no_scheduled_elections_warning: 目前沒有即將舉行的選舉，但在這裡您可以找到所有過去的選舉列表。
     events:
       elections:
         election_published:
