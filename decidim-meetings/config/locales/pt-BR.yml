@@ -219,13 +219,11 @@ pt-BR:
             select_user: Selecionar usuário
           index:
             filter:
-              accepted: Aceitos
               all: Tudo
-              rejected: Rejeitados
               sent: Enviado
             invite_attendee: Convidar participante
             invites: Convites
-            search: Pesquisar
+            search: Pesquisa
         meeting_closes:
           edit:
             close: Fechar
