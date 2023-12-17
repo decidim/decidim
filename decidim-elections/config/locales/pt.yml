@@ -673,7 +673,6 @@ pt:
           continue: Seguinte
       warnings:
         no_elections_warning: Nenhuma eleição corresponde aos seus critérios de pesquisa ou não há nenhuma eleição agendada.
-        no_scheduled_elections_warning: Actualmente, não há eleições agendadas, mas aqui pode encontrar listadas todas as eleições passadas.
     events:
       elections:
         election_published:
