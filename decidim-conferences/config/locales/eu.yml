@@ -347,14 +347,8 @@ eu:
             non_user: Parte-hartzailea ez dago
             select_user: Aukeratu erabiltzailea
           index:
-            filter:
-              accepted: Onartu
-              all: guztiak
-              rejected: Ukatua
-              sent: bidalia
             invite_attendee: Gonbidatu parte-hartzailea
             invites: Gonbidapenak
-            search: Bilatu
           new:
             explanation: Parte-hartzailea gonbidatuko da hitzaldi batera lotzera. Bere posta elektronikoa erregistratuta ez badago, erakundera ere gonbidatuko dute.
             invite: gonbidatu
