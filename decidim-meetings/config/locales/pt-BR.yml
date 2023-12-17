@@ -217,14 +217,8 @@ pt-BR:
             non_user: Usuário inexistente
             select_user: Selecionar usuário
           index:
-            filter:
-              accepted: Aceitos
-              all: Tudo
-              rejected: Rejeitados
-              sent: Enviado
             invite_attendee: Convidar participante
             invites: Convites
-            search: Pesquisar
         meeting_closes:
           edit:
             close: Fechar
