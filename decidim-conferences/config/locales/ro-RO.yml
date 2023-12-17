@@ -339,9 +339,7 @@ ro:
             select_user: Selectați un participant
           index:
             filter:
-              accepted: Acceptat
               all: Toate
-              rejected: Respins
               sent: Trimis
             invite_attendee: Invite participant
             invites: Invitații
