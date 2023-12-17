@@ -182,10 +182,7 @@ uk:
             select_user: Оберіть учасника
           index:
             filter:
-              accepted: Прийняті
-              all: Усі
-              rejected: Відхилені
-              sent: Надіслані
+              sent: Надіслано
             filter_by: 'Відібрати за ознакою:'
             invite_attendee: Запросити учасника
             invites: Запрошення
@@ -256,9 +253,6 @@ uk:
           value_types:
             organizer_presenter:
               not_found: 'Цього організатора не знайдено в базі даних (ID: %{id})'
-      application_helper:
-        filter_scope_values:
-          all: Усі
       content_blocks:
         upcoming_meetings:
           upcoming_meetings: Прийдешні зустрічі
