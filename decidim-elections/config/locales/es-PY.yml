@@ -730,7 +730,6 @@ es-PY:
           continue: Siguiente
       warnings:
         no_elections_warning: No hay ninguna votación que coincida con tu búsqueda o no hay ninguna programada.
-        no_scheduled_elections_warning: Actualmente no hay votaciones programadas, pero puedes ver las anteriores.
     events:
       elections:
         election_published:
