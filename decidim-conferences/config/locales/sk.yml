@@ -288,9 +288,7 @@ sk:
             select_user: Vybrať účastníka
           index:
             filter:
-              accepted: Potvrdené
               all: Všetko
-              rejected: Odmietnuté
               sent: Odoslané
             invite_attendee: Pozvať účastníka
             invites: Pozvánky
