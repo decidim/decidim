@@ -288,9 +288,7 @@ id:
             select_user: Pilih pengguna
           index:
             filter:
-              accepted: Diterima
               all: Semua
-              rejected: Ditolak
               sent: Terkirim
             filter_by: Filter berdasarkan
             invite_attendee: Undang Peserta
