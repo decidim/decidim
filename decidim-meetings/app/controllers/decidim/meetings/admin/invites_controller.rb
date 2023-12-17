@@ -6,14 +6,14 @@ module Decidim
       # Controller that allows inviting users to join a meeting.
       #
       class InvitesController < Admin::ApplicationController
-        helper_method :invites
+        helper_method :collection
+
+        include Decidim::Meetings::Admin::Invites::Filterable
 
         def index
           enforce_permission_to(:read_invites, :meeting, meeting:)
 
-          @query = params[:q]
-          @status = params[:status]
-
+          @invites = filtered_collection
           @form = form(MeetingRegistrationInviteForm).instance
         end
 
@@ -41,8 +41,8 @@ module Decidim
           @meeting ||= Meeting.where(component: current_component).find(params[:meeting_id])
         end
 
-        def invites
-          @invites ||= Decidim::Admin::Invites.for(meeting.invites, @query, @status).page(params[:page]).per(15)
+        def collection
+          meeting.invites
         end
       end
     end
