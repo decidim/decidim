@@ -281,15 +281,13 @@ fr-CA:
             select_user: Sélectionner un utilisateur
           index:
             filter:
-              accepted: Acceptée
-              all: Tout
-              rejected: Rejeté
+              all: Toutes
               sent: Envoyé
             filter_by: Filtrer par
             invite_attendee: Inviter un participant
             invites: Invitations
             registrations_disabled: Vous ne pouvez pas inviter un participant car les invitations sont désactivées.
-            search: Chercher
+            search: Rechercher
         meeting_closes:
           edit:
             close: Clore
@@ -398,7 +396,7 @@ fr-CA:
         filter_meeting_space_values:
           all: Tous
         filter_scope_values:
-          all: Tout
+          all: Toutes
       calendar_modal:
         calendar_url: URL du calendrier
         close_window: Fermer la fenêtre
