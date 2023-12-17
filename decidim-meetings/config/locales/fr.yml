@@ -282,15 +282,13 @@ fr:
             select_user: Sélectionner un utilisateur
           index:
             filter:
-              accepted: Acceptée
-              all: Tout
-              rejected: Rejeté
+              all: Toutes
               sent: Envoyé
             filter_by: Filtrer par
             invite_attendee: Inviter un participant
             invites: Invitations
             registrations_disabled: Vous ne pouvez pas inviter un participant car les invitations sont désactivées.
-            search: Chercher
+            search: Rechercher
         meeting_closes:
           edit:
             close: Clore
@@ -400,7 +398,7 @@ fr:
         filter_meeting_space_values:
           all: Tout
         filter_scope_values:
-          all: Tout
+          all: Toutes
       calendar:
         meeting_to_event:
           read_more: En savoir plus sur cette réunion
