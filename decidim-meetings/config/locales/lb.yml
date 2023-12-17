@@ -350,7 +350,6 @@ lb:
           close_meeting: Sitzung beenden
           contributions: Beiträge zählen
           edit_meeting: Meeting bearbeiten
-          going: Sie haben sich für diese Sitzung angemeldet
           leave: Registrierung stornieren
           leave_confirmation: Sind Sie sicher dass Sie Ihre Registrierung für diese Sitzung stornieren möchten?
           meeting_minutes: Sitzungsprotokolle
