@@ -230,10 +230,8 @@ pl:
             select_user: Wybierz użytkownika
           index:
             filter:
-              accepted: Zaakceptowano
-              all: Wszystko
-              rejected: Odrzucono
-              sent: Wysłane
+              all: Wszystkie
+              sent: Wysłano
             invite_attendee: Zaproś uczestnika
             invites: Zaproszeni
             search: Szukaj
