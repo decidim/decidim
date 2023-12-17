@@ -737,7 +737,6 @@ lt:
           continue: Kita
       warnings:
         no_elections_warning: Jūsų paieškos kriterijus atitinkančių rinkimų nerasta arba neplanuojama.
-        no_scheduled_elections_warning: Dabar neplanuojama rinkimų, tačiau čia galite rasti visų įvykusių rinkimų sąrašą.
     events:
       elections:
         election_published:
