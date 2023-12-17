@@ -281,15 +281,9 @@ fr-CA:
             non_user: Utilisateur non existant
             select_user: Sélectionner un utilisateur
           index:
-            filter:
-              accepted: Acceptée
-              all: Tout
-              rejected: Rejeté
-              sent: Envoyé
             invite_attendee: Inviter un participant
             invites: Invitations
             registrations_disabled: Vous ne pouvez pas inviter un participant car les inscriptions sont désactivées.
-            search: Chercher
         meeting_closes:
           edit:
             close: Clore
