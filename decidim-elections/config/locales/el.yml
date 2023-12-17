@@ -693,7 +693,6 @@ el:
           continue: Επόμενο
       warnings:
         no_elections_warning: Δεν υπάρχουν εκλογές σύμφωνα με τα κριτήρια αναζήτησης ή δεν έχουν προγραμματιστεί εκλογές.
-        no_scheduled_elections_warning: Προς το παρόν, δεν υπάρχουν προγραμματισμένες εκλογές, αλλά εδώ μπορείτε να βρείτε όλες τις προηγούμενες εκλογές.
     events:
       elections:
         election_published:
