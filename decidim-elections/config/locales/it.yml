@@ -532,8 +532,6 @@ it:
         voting_step:
           back: Indietro
           continue: Successivo
-      warnings:
-        no_scheduled_elections_warning: Al momento non sono previste elezioni, ma qui puoi trovare un elenco di tutte quelle passate.
     events:
       elections:
         election_published:
