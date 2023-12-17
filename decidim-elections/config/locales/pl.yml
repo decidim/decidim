@@ -674,7 +674,6 @@ pl:
           continue: Dalej
       warnings:
         no_elections_warning: Brak wyborów spełniających kryteria wyszukiwania lub nie ma żadnych zaplanowanych wyborów.
-        no_scheduled_elections_warning: Obecnie nie ma żadnych zaplanowanych wyborów, ale możesz zobaczyć wszystkie zakończone już wybory.
     events:
       elections:
         election_published:
