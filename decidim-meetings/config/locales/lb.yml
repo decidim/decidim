@@ -192,15 +192,11 @@ lb:
             select_user: Nutzer wählen
           index:
             filter:
-              accepted: Akzeptiert
-              all: Alle
-              rejected: Abgelehnt
-              sent: Geschickt
+              sent: Geschéckt
             filter_by: Filtern nach
             invite_attendee: Teilnehmer einladen
             invites: Lädt ein
             registrations_disabled: Sie können keinen Teilnehmer einladen, da die Registrierungen deaktiviert sind.
-            search: Suche
         meeting_closes:
           edit:
             close: Schließen
@@ -291,9 +287,6 @@ lb:
           delete: "%{user_name} hat die Sitzung %{resource_name} aus %{space_name} gelöscht"
           export_registrations: "%{user_name} hat die Anmeldungen der Sitzung %{resource_name} in %{space_name} exportiert"
           update: "%{user_name} hat die Sitzung %{resource_name} in %{space_name} aktualisiert"
-      application_helper:
-        filter_scope_values:
-          all: Alle
       calendar_modal:
         calendar_url: Kalender-URL
         close_window: Fenster schließen
