@@ -351,6 +351,7 @@ de:
             filter:
               accepted: Angenommen
               all: Alle
+              rejected: Abgelehnt
               sent: Geschickt
             invite_attendee: Teilnehmer einladen
             invites: Lädt ein
