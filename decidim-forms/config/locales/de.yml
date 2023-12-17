@@ -161,6 +161,7 @@ de:
             sign_up_description: Erstellen Sie ein Nutzendenkonto, um an der Umfrage teilzunehmen
             title: Beantworten Sie den Fragebogen
           current_step: Schritt %{step}
+          empty: Für dieses Formular wurden noch keine Fragen eingestellt.
           of_total_steps: von %{total_steps}
           questionnaire_answered:
             body: Sie haben diesen Fragebogen bereits beantwortet.
