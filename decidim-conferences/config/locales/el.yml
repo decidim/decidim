@@ -340,9 +340,7 @@ el:
             select_user: Επιλέξτε συμμετέχοντα
           index:
             filter:
-              accepted: Έγινε αποδοχή
               all: Όλα
-              rejected: Απορρίφθηκε
               sent: Στάλθηκε
             filter_by: Φιλτράρισμα κατά
             invite_attendee: Πρόσκληση συμμετέχοντα
