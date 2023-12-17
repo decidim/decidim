@@ -169,6 +169,24 @@ de:
         create:
           error: Beim Duplizieren dieser Konferenz ist ein Fehler aufgetreten.
           success: Konferenz wurde erfolgreich dupliziert.
+      filters:
+        accepted_at_not_null:
+          label: Angenommen
+          values:
+            'false': Nicht angenommen
+            'true': Angenommen
+        rejected_at_not_null:
+          label: Abgelehnt
+          values:
+            'false': Nicht abgelehnt
+            'true': Abgelehnt
+        search_placeholder:
+          user_name_or_user_email_cont: Nach Namen oder E-Mail suchen
+        sent_at_not_null:
+          label: Gesendet
+          values:
+            'false': Nicht gesendet
+            'true': Gesendet
       media_links:
         create:
           error: Beim Erstellen einer neuen Medienverknüpfung ist ein Fehler aufgetreten.
