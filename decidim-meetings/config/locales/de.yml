@@ -281,15 +281,9 @@ de:
             non_user: Nicht existierender Benutzer
             select_user: Nutzer wählen
           index:
-            filter:
-              accepted: Akzeptiert
-              all: Alle
-              rejected: Abgelehnt
-              sent: Geschickt
             invite_attendee: Teilnehmer einladen
             invites: Lädt ein
             registrations_disabled: Sie können keine Teilnehmende einladen, weil Registrierungen deaktiviert sind.
-            search: Suche
         meeting_closes:
           edit:
             close: Schließen
