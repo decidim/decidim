@@ -260,9 +260,7 @@ hu:
             select_user: Felhasználó kiválasztása
           index:
             filter:
-              accepted: Elfogadva
               all: Összes
-              rejected: Elutasítva
               sent: Elküldve
             filter_by: 'Szűrés ez alapján:'
             invite_attendee: Résztvevő meghívása
