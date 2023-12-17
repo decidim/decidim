@@ -743,9 +743,6 @@ de:
         voting_step:
           back: Zurück
           continue: Weiter
-      warnings:
-        no_elections_warning: Keine Wahlen entsprechen Ihren Suchkriterien oder es ist keine Wahl geplant.
-        no_scheduled_elections_warning: Derzeit sind keine Wahlen geplant, aber hier finden Sie alle vergangenen Wahlen aufgelistet.
     events:
       elections:
         election_published:
