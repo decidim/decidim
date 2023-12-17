@@ -726,7 +726,6 @@ fr-CA:
           continue: Suivant
       warnings:
         no_elections_warning: Aucune élection ne correspond à vos critères de recherche ou aucune élection n'est programmée.
-        no_scheduled_elections_warning: À l'heure actuelle, il n'y a pas d'élections programmées, mais vous trouverez ici toutes les élections passées.
     events:
       elections:
         election_published:
