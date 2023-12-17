@@ -182,9 +182,6 @@ lv:
             select_user: Izvēlieties dalībnieku
           index:
             filter:
-              accepted: Pieņemts
-              all: Visi
-              rejected: Noraidīts
               sent: Nosūtīts
             invite_attendee: Uzaicināt apmeklētāju
             invites: Ielūgumi
