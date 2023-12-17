@@ -729,7 +729,6 @@ fi:
           continue: Seuraava
       warnings:
         no_elections_warning: Yksikään vaali ei vastaa hakukriteerejäsi tai yhtään vaalia ei ole suunniteltu.
-        no_scheduled_elections_warning: Tällä hetkellä ei ole suuniteltuja vaaleja, mutta täältä löydät kaikki aikaisemmat vaalit.
     events:
       elections:
         election_published:
