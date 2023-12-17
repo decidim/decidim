@@ -295,9 +295,7 @@ ar:
             select_user: اختر المشارك
           index:
             filter:
-              accepted: وافقت
               all: الكل
-              rejected: مرفوض
               sent: أرسلت
             filter_by: مصنف بواسطة
             invite_attendee: دعوة الحضور
