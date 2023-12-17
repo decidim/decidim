@@ -88,9 +88,7 @@ ga:
             invite: Tabhair Cuireadh
           index:
             filter:
-              accepted: Glactha
               all: Uile
-              rejected: Diúltaithe
               sent: Seolta
             invites: Cuirí
             search: Cuardaigh
