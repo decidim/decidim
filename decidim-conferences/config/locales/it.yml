@@ -319,14 +319,8 @@ it:
             non_user: Utente non esistente
             select_user: Seleziona utente
           index:
-            filter:
-              accepted: Accettato
-              all: Tutti
-              rejected: Respinto
-              sent: Inviato
             invite_attendee: Invita il partecipante
             invites: Inviti
-            search: Ricerca
           new:
             invite: Invita
             new_invite: Invita partecipante
