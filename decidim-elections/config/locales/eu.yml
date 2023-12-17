@@ -722,9 +722,6 @@ eu:
         voting_step:
           back: Atzera
           continue: Hurrengoa
-      warnings:
-        no_elections_warning: Ez dago beren bilaketa-irizpideekin bat datorren hauteskunderik, edo ez dago hauteskunde programaturik.
-        no_scheduled_elections_warning: Orain ez dago bozketa programaturik, baina aurrekoak ikus ditzakezu.
     events:
       elections:
         election_published:
