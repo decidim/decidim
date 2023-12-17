@@ -202,10 +202,7 @@ ru:
             select_user: Выберите участника
           index:
             filter:
-              accepted: Принятые
-              all: Все
-              rejected: Отклоненные
-              sent: Отправленные
+              sent: Отправлено
             filter_by: 'Отобрать по признаку:'
             invite_attendee: Пригласить участника
             invites: Приглашения
@@ -278,9 +275,6 @@ ru:
           value_types:
             organizer_presenter:
               not_found: 'Организатор не найден в базе данных (ID: %{id})'
-      application_helper:
-        filter_scope_values:
-          all: Все
       calendar_modal:
         calendar_url: Ссылка на календарь
         close_window: Закрыть окно
