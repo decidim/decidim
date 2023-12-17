@@ -749,7 +749,6 @@ cs:
           continue: Další
       warnings:
         no_elections_warning: Žádné volby neodpovídají vašim kritériím vyhledávání nebo nejsou naplánovány žádné volby.
-        no_scheduled_elections_warning: V současné době nejsou žádné plánované volby, ale zde najdete všechny minulé volby na seznamu.
     events:
       elections:
         election_published:
