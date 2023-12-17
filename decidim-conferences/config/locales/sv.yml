@@ -337,10 +337,8 @@ sv:
             select_user: Välj deltagare
           index:
             filter:
-              accepted: Accepterad
               all: Alla
-              rejected: Avvisad
-              sent: Skickade
+              sent: Skickad
             filter_by: Filtrera efter
             invite_attendee: Bjud in deltagare
             invites: Inbjudningar
