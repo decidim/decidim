@@ -454,7 +454,6 @@ pl:
           report_count_eq: Licznik raportów
           reported_id_string_or_reported_content_cont: Przeszukaj %{collection} według identyfikatora lub treści zgłoszenia.
           title_cont: Przeszukaj %{collection} według tytułu.
-          user_name_or_user_email_cont: Przeszukaj %{collection} według nazwy lub e-maila.
           user_name_or_user_nickname_or_user_email_cont: Szukaj %{collection} według adresu e-mail, nazwy lub pseudonimu.
         state_eq:
           label: Stan
