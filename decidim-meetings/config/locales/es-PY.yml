@@ -283,9 +283,7 @@ es-PY:
             select_user: Selecciona un usuario
           index:
             filter:
-              accepted: Aceptada
               all: Todas
-              rejected: Rechazada
               sent: Enviadas
             invite_attendee: Invitar asistente
             invites: Invitaciones
