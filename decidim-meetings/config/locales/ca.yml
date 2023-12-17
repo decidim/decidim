@@ -283,10 +283,8 @@ ca:
             select_user: Selecciona la participant
           index:
             filter:
-              accepted: Acceptat
               all: Totes
-              rejected: Rebutjades
-              sent: Enviades
+              sent: Enviat
             invite_attendee: Convidar assistent
             invites: Invitacions
             registrations_disabled: No pots convidar a cap persona perquè les inscripcions estan inhabilitades.
