@@ -549,8 +549,6 @@ pl:
         voting_step:
           back: Wróć
           continue: Dalej
-      warnings:
-        no_scheduled_elections_warning: Obecnie nie ma żadnych zaplanowanych wyborów, ale możesz zobaczyć wszystkie zakończone już wybory.
     events:
       elections:
         election_published:
