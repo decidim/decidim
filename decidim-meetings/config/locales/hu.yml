@@ -235,9 +235,7 @@ hu:
             select_user: Felhasználó kiválasztása
           index:
             filter:
-              accepted: Elfogadva
               all: Összes
-              rejected: Elutasítva
               sent: Elküldve
             invite_attendee: Résztvevő meghívása
             invites: Meghívottak
