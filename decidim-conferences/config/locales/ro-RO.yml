@@ -343,9 +343,7 @@ ro:
             select_user: Selectați un participant
           index:
             filter:
-              accepted: Acceptat
               all: Toate
-              rejected: Respins
               sent: Trimis
             filter_by: Filtrare după
             invite_attendee: Invite participant
