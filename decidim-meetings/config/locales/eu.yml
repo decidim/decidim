@@ -283,7 +283,9 @@ eu:
             select_user: Hautatu parte-hartzailea
           index:
             filter:
+              accepted: Onartua
               all: Denak
+              rejected: Baztertua
               sent: Bidalia
             invite_attendee: Gonbidatu
             invites: Gonbidapenak
