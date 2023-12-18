@@ -62,7 +62,7 @@ describe "Meeting live event poll answer" do
   end
 
   context "when questions are published" do
-    let!(:question_multiple_option) { create(:meetings_poll_question, :published, questionnaire:, body: body_multiple_option_question, question_type: "multiple_option") }
+    let!(:question_multiple_option) { create(:meetings_poll_question, :published, questionnaire:, body: body_multiple_option_question, question_type: "multiple_option", max_choices: 2) }
     let!(:question_single_option) { create(:meetings_poll_question, :published, questionnaire:, body: body_single_option_question, question_type: "single_option") }
 
     before do
@@ -77,6 +77,30 @@ describe "Meeting live event poll answer" do
       click_button "Reply question"
 
       expect(page).to have_content("Question replied")
+    end
+
+    it "does not allow selecting two single options" do
+      click_button "Questions (2)"
+      find("details[data-question='#{question_single_option.id}']").click
+
+      choose question_single_option.answer_options.first.body["en"]
+      choose question_single_option.answer_options.second.body["en"]
+      answers = all("details[data-question='#{question_single_option.id}'] input[type='radio']")
+
+      expect(answers[0]["checked"]).to be_falsy
+      expect(answers[1]["checked"]).to be_truthy
+      expect(answers[2]["checked"]).to be_falsy
+    end
+
+    it "does not allow selecting more than the maximum choices for multiple options" do
+      click_button "Questions (2)"
+      open_first_question
+
+      check question_multiple_option.answer_options.first.body["en"]
+      check question_multiple_option.answer_options.second.body["en"]
+      check question_multiple_option.answer_options.third.body["en"]
+
+      expect(page).to have_content("There are too many choices selected")
     end
   end
 
