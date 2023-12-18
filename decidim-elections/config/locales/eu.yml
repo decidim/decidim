@@ -233,6 +233,11 @@ eu:
           feedback_form_answers: Erantzunen feedbacka
         mailers:
           trustee_mailer:
+            body:
+              help_html: |-
+                <p>Kaixo, %{user_name}</p><br>
+                <p> Aukeratu zaituzte bermatzaile gisa aritzeko hemen: %{organization} egingo diren bozketa batzuetan.</p><br>
+                <p>"Bermatzaileen gunea" izeneko arlo berri bat aktibatu da zure kontuan. Hortik, eskatutako lanak egin ahal izango dituzu. Momentuz, mesedez, sortu identifikatzeko gakoak.</p><br>
             subject: Gehitu zaituzte %{resource_name} -ren bermatzaile gisa.
             trustee_zone: Eraman bermatzaileen gunera
         menu:
@@ -276,6 +281,7 @@ eu:
               census_frozen: Erroldarako sarbide kodeak ez dira esportatu.
               census_uploaded: Ez da igo erroldarik aukeraketa honetarako.
               component_published: <strong> aukera ez dago argitaratuta</strong>.
+              fix_it_text: Zuzendu
               max_selections: Galderek ez dute <strong>balio zuzenik </strong> erantzun kopururako
               minimum_answers: Galderek gutxienez eduki behar dituzte <strong> bi erantzun </strong>.
               minimum_questions: <strong>aukerak gutxienez </strong> galdera bat eduki behar du.
@@ -301,6 +307,11 @@ eu:
               trustees_number: Espazio parte-hartzaileak badu <strong>gutxienez %{number} bermatzaile gako publikoarekin</strong>.
             submit: Konfiguratu bozketa
             success: 'Aukeraketa zuzen bidali da hona: Iragarki Taula.'
+            technical_configuration:
+              authority_name: "<strong>Agintaritzaren izena:</strong> %{value}"
+              bulletin_board_server: "<strong>Buletinaren serbidorea:</strong> <a href='%{value}'>%{value}</a>"
+              scheme_name: "<strong>Eskemaren izena:</strong> %{value}"
+              title: Ikusi informazio teknikoa
             title: Konfiguratu bozketa
             trustees: Hautaketaren bermatzaileak
           created:
@@ -616,6 +627,7 @@ eu:
                 bb_status: Egoera
                 election: Aukera
                 voting_period: Bozketa-aldia
+              no_elections: Gaur egun, ez duzu esleituta ekintzarik bermatzaile gisa. Jakinarazpen bat jasoko duzu fase desberdinetan jarduteko unea denean.
               title: Bozketak
             identification_keys:
               cancel: Utzi
@@ -638,6 +650,9 @@ eu:
               upload_legend: Serbidoreak zure identifikazio-gako publikoak ditu, baina zure nabigatzaileak oraindik ez ditu. Zure identifikazio-gakoak dituen fitxategia inportatu behar duzu zure ordenagailura, haiek sortu ondoren egin zenuen segurtasun-kopiatik.
             not_supported_browser_description: Dirudienez, bermatzaile gisa erabili ezin den nabigatzaile bat erabiltzen ari zara. Ziurtatu nabigatzailearen bertsio berriena erabiltzen ari zarela, edo saiatu nabigatzaile ezagunenetako edozein erabiltzen, zure zereginak bermatzaile gisa bete ahal izateko.
             not_supported_browser_title: Eguneratu nabigatzailea bermatzaile gisa aritzeko
+            trustee_role_description:
+              with_keys: Plataforma honetan egindako bozketa batzuen bermatzaile gisa izendatu zaituzte.
+              without_keys: Esleitu zaituzte bermatzaile gisa aritzeko. Mesedez, sortu eta igo zure identifikazio gakoak.
           update:
             success: Zure identifikazio-gako publikoa zuzen gorde da.
       votes:
@@ -722,6 +737,10 @@ eu:
         voting_step:
           back: Atzera
           continue: Hurrengoa
+      warnings:
+        empty_filters: Ez dago irizpide hori betetzen duen hauteskunderik.
+        no_elections: Ez dago programatutako hauteskunderik.
+        no_scheduled_elections: Egun, ez dago programatutako hauteskunderik, baina hemen aurreko hauteskundeen zerrenda ikus dezakezu.
     events:
       elections:
         election_published:
