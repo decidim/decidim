@@ -6,7 +6,9 @@ module Decidim
       # This command is executed when the user destroys a Meeting from the admin
       # panel.
       class DestroyMeeting < Decidim::Commands::DestroyResource
-        private
+        protected
+
+        def invalid? = proposals.any?
 
         def proposals
           return [] unless Decidim::Meetings.enable_proposal_linking
