@@ -93,7 +93,7 @@ eu:
         accepted_at_not_null:
           label: Onartua
           values:
-            'false': Ez onartuta
+            'false': Ez onartua
             'true': Onartua
         meetings:
           category_id_eq:
