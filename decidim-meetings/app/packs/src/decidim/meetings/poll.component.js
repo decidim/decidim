@@ -169,7 +169,6 @@ export default class PollComponent {
   }
 
   _addValidations() {
-    console.log("KEEP ME ASFSL")
     $(".js-radio-button-collection, .js-check-box-collection").each((idx, el) => {
       createOptionAttachedInputs({
         wrapperField: $(el),
@@ -179,7 +178,6 @@ export default class PollComponent {
     });
 
     $.unique($(".js-check-box-collection").parents(".answer")).each((idx, el) => {
-      console.log("CHECKIE")
       const maxChoices = $(el).data("max-choices");
       if (maxChoices) {
         createMaxChoicesAlertComponent({
