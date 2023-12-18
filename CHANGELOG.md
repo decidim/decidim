@@ -2,6 +2,42 @@
 
 # Changelog
 
+## [0.28.0.rc5](https://github.com/decidim/decidim/tree/0.28.0.rc5)
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- Backport 'Lock ChromeDriver to 119.0.6045.105' to v0.28 [\#12161](https://github.com/decidim/decidim/pull/12161)
+- **decidim-comments**: Backport 'Restrict comments replies tree including polymorphism' to v0.28 [\#12165](https://github.com/decidim/decidim/pull/12165)
+- **decidim-admin**, **decidim-forms**, **decidim-surveys**: Backport 'Change the buttons UI for removing answers in forms' to v0.28 [\#12166](https://github.com/decidim/decidim/pull/12166)
+- Backport 'Bump stringio and carrierwave' to v0.28 [\#12164](https://github.com/decidim/decidim/pull/12164)
+- Backport 'Merge DummyResource and Dev namespaces' to v0.28 [\#12163](https://github.com/decidim/decidim/pull/12163)
+- Backport 'Fix missing icon error in production environment' to v0.28 [\#12158](https://github.com/decidim/decidim/pull/12158)
+- **decidim-comments**: Backport 'Make the comments deleted and moderated less prominent' to v0.28 [\#12174](https://github.com/decidim/decidim/pull/12174)
+- Backport 'Fix documentation format in models.adoc' to v0.28 [\#12176](https://github.com/decidim/decidim/pull/12176)
+- Backport 'Fix styles in Announcements' to v0.28 [\#12175](https://github.com/decidim/decidim/pull/12175)
+- **decidim-core**: Backport 'Redesign: fix `layout-2col` height on Safari' to v0.28 [\#12180](https://github.com/decidim/decidim/pull/12180)
+- **decidim-conferences**: Backport 'Redesign: fix grid in the partners section of the conferences' to v0.28 [\#12179](https://github.com/decidim/decidim/pull/12179)
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+Nothing.
+
+### Internal
+
+Nothing.
+
 ## [0.28.0.rc4](https://github.com/decidim/decidim/tree/0.28.0.rc4)
 
 ### Added
