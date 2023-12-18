@@ -27,6 +27,7 @@ ja:
         destroy:
           success: テンプレートを削除しました。
         empty: テンプレートはまだありません。
+        missing_resource: "(リソースが見つかりません)"
         update:
           error: テンプレートの更新中に問題が発生しました。
           success: テンプレートが更新されました。
@@ -58,6 +59,8 @@ ja:
           template_chooser:
             select_template: テンプレート回答を選択
         proposal_answer_templates:
+          edit:
+            title: 提案回答テンプレートを編集
           form:
             save: 保存
         questionnaire_templates:
