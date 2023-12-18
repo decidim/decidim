@@ -33,38 +33,6 @@ describe Decidim::Comments::UserGroupMentionedEvent do
   it_behaves_like "a simple event email"
   it_behaves_like "a simple event notification"
 
-  # describe "email_subject" do
-  #   it "is generated correctly" do
-  #     expect(subject.email_subject).to eq("You have been mentioned in #{html_escape(translated(resource.title))} as a member of #{html_escape(group.name)}")
-  #   end
-  # end
-
-  # describe "email_intro" do
-  #   it "is generated correctly" do
-  #     expect(subject.email_intro).to eq("A group you belong to has been mentioned")
-  #   end
-  # end
-
-  # describe "email_outro" do
-  #   it "is generated correctly" do
-  #     expect(subject.email_outro)
-  #       .to eq("You have received this notification because you are a member of the group #{html_escape(group.name)} that has been mentioned in #{html_escape(translated(resource.title))}.")
-  #   end
-  # end
-
-  # describe "notification_title" do
-  #   it "is generated correctly" do
-  #     expect(subject.notification_title)
-  #       .to include("You have been mentioned in <a href=\"#{resource_path}?commentId=#{comment.id}#comment_#{comment.id}\">#{html_escape(translated(resource.title))}</a>")
-
-  #     expect(subject.notification_title)
-  #       .to include(" as a member of <a href=\"/profiles/#{group.nickname}\">#{html_escape(group.name)} @#{group.nickname}</a>")
-
-  #     expect(subject
-  #       .to include(" by <a href=\"/profiles/#{comment_author.nickname}\">#{html_escape(comment_author.name)} @#{comment_author.nickname}</a>")
-  #   end
-  # end
-
   describe "resource_text" do
     let(:participatory_process) { create(:participatory_process, organization:) }
     let(:component) { create(:component, participatory_space: participatory_process) }
