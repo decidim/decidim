@@ -743,6 +743,10 @@ ca:
         voting_step:
           back: Enrere
           continue: Següent
+      warnings:
+        empty_filters: No hi ha cap elecció amb aquest criteri.
+        no_elections: No hi ha cap elecció programada.
+        no_scheduled_elections: Actualment no hi ha votacions programades, però pots veure un llistat de les anteriors.
     events:
       elections:
         election_published:
