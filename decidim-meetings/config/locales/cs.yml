@@ -96,6 +96,11 @@ cs:
   decidim:
     admin:
       filters:
+        accepted_at_not_null:
+          label: Přijato
+          values:
+            'false': Nepřijato
+            'true': Přijato
         meetings:
           category_id_eq:
             label: Kategorie
@@ -123,6 +128,18 @@ cs:
               hybrid: Hybridní
               in_person: Osobně
               online: Online
+        rejected_at_not_null:
+          label: Odmítnuto
+          values:
+            'false': Neodmítnuto
+            'true': Odmítnuto
+        search_placeholder:
+          user_name_or_user_email_cont: Hledat podle jména nebo e-mailu
+        sent_at_not_null:
+          label: Odesláno
+          values:
+            'false': Neodesláno
+            'true': Odesláno
       meeting_copies:
         create:
           error: Bylo zde chyba, že se tato schůzka zdvojnásobila.
