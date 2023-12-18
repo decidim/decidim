@@ -124,7 +124,9 @@ ga:
         conference_invites:
           index:
             filter:
+              accepted: Glactha
               all: Uile
+              rejected: Diúltaithe
               sent: Seolta
             invites: Cuirí
             search: Cuardaigh
