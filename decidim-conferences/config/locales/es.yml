@@ -349,7 +349,9 @@ es:
             select_user: Seleccionar participante
           index:
             filter:
+              accepted: Aceptada
               all: Todas
+              rejected: Rechazada
               sent: Enviado
             invite_attendee: Invitar participante
             invites: Invita
