@@ -743,6 +743,10 @@ fr:
         voting_step:
           back: Retour
           continue: Suivant
+      warnings:
+        empty_filters: Il n'y a pas d'élections correspondant à ces critères.
+        no_elections: Il n'y a aucune élection programmée.
+        no_scheduled_elections: À l'heure actuelle, il n'y a pas d'élections programmées, mais vous trouverez ici toutes les élections passées.
     events:
       elections:
         election_published:
