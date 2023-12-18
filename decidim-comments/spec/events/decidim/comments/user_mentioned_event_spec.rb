@@ -31,25 +31,6 @@ describe Decidim::Comments::UserMentionedEvent do
   it_behaves_like "a simple event email"
   it_behaves_like "a simple event notification"
 
-  # describe "email_subject" do
-  #   it "is generated correctly" do
-  #     expect(subject.email_subject).to eq("You have been mentioned in #{translated resource.title}")
-  #   end
-  # end
-
-  # describe "email_intro" do
-  #   it "is generated correctly" do
-  #     expect(subject.email_intro).to eq("You have been mentioned")
-  #   end
-  # end
-
-  # describe "email_outro" do
-  #   it "is generated correctly" do
-  #     expect(subject.email_outro)
-  #       .to eq("You have received this notification because you have been mentioned in #{translated resource.title}.")
-  #   end
-  # end
-
   describe "resource_text" do
     it "correctly renders comments with mentions" do
       expect(subject.resource_text).not_to include("gid://")
