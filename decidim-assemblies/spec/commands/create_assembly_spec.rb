@@ -82,35 +82,6 @@ module Decidim::Assemblies
       end
     end
 
-    context "when the assembly is not persisted" do
-      let(:invalid_assembly) do
-        instance_double(
-          Decidim::Assembly,
-          persisted?: false,
-          valid?: false,
-          errors: {
-            hero_image: "File resolution is too large",
-            banner_image: "File resolution is too large"
-          }
-        ).as_null_object
-      end
-
-      before do
-        allow(Decidim::ActionLogger).to receive(:log).and_return(true)
-        allow(Decidim::Assembly).to receive(:create).and_return(invalid_assembly)
-      end
-
-      it "broadcasts invalid" do
-        expect { subject.call }.to broadcast(:invalid)
-      end
-
-      it "adds errors to the form" do
-        expect(errors).to receive(:add).with(:hero_image, "File resolution is too large")
-        expect(errors).to receive(:add).with(:banner_image, "File resolution is too large")
-        subject.call
-      end
-    end
-
     context "when the uploaded hero image has too large dimensions" do
       let(:hero_image) do
         ActiveStorage::Blob.create_and_upload!(
@@ -161,7 +132,7 @@ module Decidim::Assemblies
 
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
-          .to receive(:create)
+          .to receive(:create!)
           .with(Decidim::Assembly, current_user, kind_of(Hash))
           .and_call_original
 

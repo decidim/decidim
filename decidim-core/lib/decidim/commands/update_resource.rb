@@ -27,7 +27,11 @@ module Decidim
         end
 
         broadcast(:ok, resource)
-      rescue Decidim::Commands::HookError
+      rescue Decidim::Commands::HookError, ActiveRecord::RecordInvalid
+        file_field_names.each do |field|
+          form.errors.add(field, resource.errors[field]) if resource.errors.include? field
+        end
+
         broadcast(:invalid)
       end
 

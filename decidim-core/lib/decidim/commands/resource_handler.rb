@@ -4,6 +4,7 @@ module Decidim
   module Commands
     module ResourceHandler
       extend ActiveSupport::Concern
+      include Decidim::AttachmentAttributesMethods
 
       included do
         protected
@@ -16,11 +17,19 @@ module Decidim
         #
         # @return [Hash] a hash with the attributes.
         def attributes
+          field_attributes.merge(file_attributes)
+        end
+
+        def field_attributes
           raise "You need to define the list of attributes to be fetched from form object fetch_form_attributes" unless defined?(:form_attributes)
 
           @attributes ||= form_attributes.index_with do |field|
             form.send(field)
           end
+        end
+
+        def file_attributes
+          @file_attributes ||= attachment_attributes(*file_field_names)
         end
 
         # Any extra params that you want to pass to the traceability service.
@@ -49,6 +58,13 @@ module Decidim
 
         def self.fetch_form_attributes(*fields)
           self.form_attributes += Array(fields)
+        end
+
+        class_attribute :file_field_names
+        self.file_field_names = []
+
+        def self.file_fields(*fields)
+          self.file_field_names += Array(fields)
         end
       end
     end

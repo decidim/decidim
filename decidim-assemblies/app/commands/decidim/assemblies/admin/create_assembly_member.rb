@@ -8,53 +8,15 @@ module Decidim
       class CreateAssemblyMember < Decidim::Commands::CreateResource
         include ::Decidim::AttachmentAttributesMethods
 
+        file_fields :non_user_avatar
+
         fetch_form_attributes :full_name, :gender, :birthday, :birthplace, :ceased_date, :designation_date,
                               :position, :position_other, :user
 
-        # Public: Initializes the command.
-        #
-        # form - A form object with the params.
-        # assembly - The Assembly that will hold the member
-        def initialize(form, assembly)
-          super(form)
-          @assembly = assembly
-        end
-
-        # Executes the command. Broadcasts these events:
-        #
-        # - :ok when everything is valid.
-        # - :invalid if the form was not valid and we could not proceed.
-        #
-        # Returns nothing.
-        def call
-          return broadcast(:invalid) if form.invalid?
-
-          if assembly_member_with_attributes.valid?
-            create_resource
-            notify_assembly_member_about_new_membership
-
-            broadcast(:ok)
-          else
-            if assembly_member_with_attributes.errors.include? :non_user_avatar
-              form.errors.add(
-                :non_user_avatar,
-                assembly_member_with_attributes.errors[:non_user_avatar]
-              )
-            end
-            broadcast(:invalid)
-          end
-        end
-
         private
 
-        attr_reader :assembly
-
         def attributes
-          super.merge(assembly:).merge(attachment_attributes(:non_user_avatar))
-        end
-
-        def assembly_member_with_attributes
-          @assembly_member_with_attributes ||= Decidim::AssemblyMember.new(**attributes)
+          super.merge(assembly: form.current_participatory_space)
         end
 
         def resource_class = Decidim::AssemblyMember
@@ -65,7 +27,7 @@ module Decidim
               title: form.full_name
             },
             participatory_space: {
-              title: assembly.title
+              title: form.current_participatory_space.title
             }
           }
         end
@@ -74,11 +36,11 @@ module Decidim
           form.user.is_a?(Decidim::UserGroup) ? form.user.users : [form.user]
         end
 
-        def notify_assembly_member_about_new_membership
+        def run_after_hooks
           data = {
             event: "decidim.events.assemblies.create_assembly_member",
             event_class: Decidim::Assemblies::CreateAssemblyMemberEvent,
-            resource: assembly,
+            resource: form.current_participatory_space,
             followers:
           }
           Decidim::EventsManager.publish(**data)

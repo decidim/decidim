@@ -23,10 +23,11 @@ module Decidim
             current_participatory_space: participatory_space
           ).with_context(
             current_organization: organization,
+            current_participatory_space: participatory_space,
             current_user: user
           )
         end
-        let(:command) { described_class.new(form, participatory_space) }
+        let(:command) { described_class.new(form) }
 
         describe "when the form is not valid" do
           before do

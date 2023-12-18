@@ -8,6 +8,7 @@ module Decidim
       class UpdateAssembly < Decidim::Commands::UpdateResource
         include ::Decidim::AttachmentAttributesMethods
 
+        file_fields :hero_image, :banner_image
         fetch_form_attributes :title, :subtitle, :slug, :hashtag, :promoted, :description, :short_description,
                               :scopes_enabled, :scope, :area, :parent, :private_space, :developer_group, :local_area,
                               :target, :participatory_scope, :participatory_structure, :meta_scope, :show_statistics,
@@ -15,29 +16,6 @@ module Decidim
                               :created_by_other, :duration, :included_at, :closing_date, :closing_date_reason,
                               :internal_organisation, :is_transparent, :special_features, :twitter_handler, :announcement,
                               :facebook_handler, :instagram_handler, :youtube_handler, :github_handler, :weight
-
-        # Executes the command. Broadcasts these events:
-        #
-        # - :ok when everything is valid.
-        # - :invalid if the form was not valid and we could not proceed.
-        #
-        # Returns nothing.
-
-        def call
-          return broadcast(:invalid) if invalid?
-
-          transaction do
-            run_before_hooks
-            update_resource
-            run_after_hooks
-          end
-
-          broadcast(:ok, resource)
-        rescue Decidim::Commands::HookError, ActiveRecord::RecordInvalid
-          form.errors.add(:hero_image, resource.errors[:hero_image]) if resource.errors.include? :hero_image
-          form.errors.add(:banner_image, resource.errors[:banner_image]) if resource.errors.include? :banner_image
-          broadcast(:invalid)
-        end
 
         private
 

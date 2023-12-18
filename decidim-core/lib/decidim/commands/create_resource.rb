@@ -24,7 +24,11 @@ module Decidim
         end
 
         broadcast(:ok, resource)
-      rescue Decidim::Commands::HookError
+      rescue Decidim::Commands::HookError, ActiveRecord::RecordInvalid
+        file_field_names.each do |field|
+          form.errors.add(field, resource.errors[field]) if resource.errors.include? field
+        end
+
         broadcast(:invalid)
       end
 
@@ -35,11 +39,9 @@ module Decidim
       #  create_resource(soft: true) - Will soft-create the resource, returning any validation errors.
       #  create_resource - Will create the resource, raising any validation errors.
       def create_resource(soft: false)
-        @resource = Decidim.traceability.send(soft ? :create : :create!,
-                                              resource_class,
-                                              current_user,
-                                              attributes,
-                                              **extra_params)
+        raise "Removing soft" if soft
+
+        @resource = Decidim.traceability.create!(resource_class, current_user, attributes, **extra_params)
       end
 
       attr_reader :form, :resource
