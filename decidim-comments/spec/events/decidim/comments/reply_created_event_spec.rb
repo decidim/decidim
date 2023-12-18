@@ -19,14 +19,4 @@ describe Decidim::Comments::ReplyCreatedEvent do
   it_behaves_like "a translated comment event" do
     let(:translatable) { true }
   end
-
-  # describe "notification_title" do
-  #   it "is generated correctly" do
-  #     expect(subject.notification_title)
-  #       .to start_with("<a href=\"/profiles/#{comment_author.nickname}\">#{comment_author_name} @#{comment_author.nickname}</a> has replied your comment in")
-
-  #     expect(subject.notification_title)
-  #       .to end_with("your comment in <a href=\"#{resource_path}?commentId=#{comment.id}#comment_#{comment.id}\">#{translated resource.title}</a>")
-  #   end
-  # end
 end
