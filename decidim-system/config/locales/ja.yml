@@ -141,6 +141,7 @@ ja:
           success: 組織が正常に作成されました。
         edit:
           secondary_hosts_hint: 新しい行にそれぞれ入力してください
+          title: 組織の編集
         file_upload_settings:
           content_types:
             admin_hint: これらの MIME タイプは、管理者セクションのアップロードで許可されています。 管理者ユーザーは、ドキュメント形式をアップロードする際のリスクを認識している必要があります。 ファイルのアップロードに注意を払う必要があります
