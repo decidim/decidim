@@ -283,7 +283,9 @@ es-MX:
             select_user: Seleccionar usuario
           index:
             filter:
+              accepted: Aceptada
               all: Todas
+              rejected: Rechazada
               sent: Expedida
             invite_attendee: Invitar a un asistente
             invites: Invitaciones
