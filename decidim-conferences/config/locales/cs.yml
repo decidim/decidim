@@ -175,6 +175,16 @@ cs:
         create:
           error: Při kopírování této konference došlo k chybě.
           success: Konference byla úspěšně duplikována.
+      filters:
+        accepted_at_not_null:
+          label: Přijato
+          values:
+            'false': Nepřijato
+            'true': Přijato
+        rejected_at_not_null:
+          label: Odmítnuto
+          values:
+            'false': Neodmítnuto
       media_links:
         create:
           error: Při vytváření nového odkazu na média došlo k chybě.
