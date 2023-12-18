@@ -289,7 +289,9 @@ cs:
             select_user: Vyberte uživatele
           index:
             filter:
+              accepted: Přijato
               all: Vše
+              rejected: Odmítnuto
               sent: Odeslaná
             filter_by: Filtrovat podle
             invite_attendee: Pozvat účastníka
