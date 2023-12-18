@@ -293,6 +293,7 @@ cs:
               census_frozen: Přístupové kódy pro rejstřík osob nejsou exportovány.
               census_uploaded: Pro tyto volby není nahrán žádný rejstřík obyvatel.
               component_published: Volební složka <strong>není publikována</strong>.
+              fix_it_text: Opravit
               max_selections: Otázky nemají <strong>správnou hodnotu pro množství odpovědí</strong>
               minimum_answers: Otázky musí mít <strong>alespoň dvě odpovědi</strong>.
               minimum_questions: Volby <strong>musí mít alespoň jednu otázku</strong>.
@@ -318,6 +319,9 @@ cs:
               trustees_number: Participační prostor má <strong>alespoň %{number} důvěrníků s veřejným klíčem</strong>.
             submit: Nastavení voleb
             success: Volby byly úspěšně odeslány do Vývěsky.
+            technical_configuration:
+              bulletin_board_server: "<strong>Bulletin Board server:</strong> <a href='%{value}'>%{value}</a>"
+              title: Zobrazit technické informace
             title: Nastavení voleb
             trustees: Volební důvěrníci
           created:
@@ -748,6 +752,8 @@ cs:
         voting_step:
           back: Zpět
           continue: Další
+      warnings:
+        no_elections: Nejsou naplánovány žádné volby.
     events:
       elections:
         election_published:
