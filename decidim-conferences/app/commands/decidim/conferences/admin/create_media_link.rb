@@ -10,6 +10,8 @@ module Decidim
 
         protected
 
+        def resource_class = Decidim::Conferences::MediaLink
+
         def extra_params
           {
             resource: {

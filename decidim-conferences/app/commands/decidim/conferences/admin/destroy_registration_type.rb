@@ -11,10 +11,10 @@ module Decidim
         def extra_params
           {
             resource: {
-              title: registration_type.title
+              title: resource.title
             },
             participatory_space: {
-              title: registration_type.conference.title
+              title: resource.conference.title
             }
           }
         end

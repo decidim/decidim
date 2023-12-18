@@ -60,7 +60,8 @@ module Decidim::Conferences
         form_params
       ).with_context(
         current_user:,
-        current_organization: conference.organization
+        current_organization: conference.organization,
+        current_participatory_space: conference
       )
     end
 

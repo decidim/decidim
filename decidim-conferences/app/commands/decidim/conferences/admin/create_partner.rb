@@ -6,7 +6,7 @@ module Decidim
       # A command with all the business logic when creating a new partner
       # in the system.
       class CreatePartner < Decidim::Commands::CreateResource
-        fetch_form_attributes :name, :weight, :link, :partner_type, :logo, :remove_avatar
+        fetch_form_attributes :name, :weight, :link, :partner_type, :logo
 
         protected
 
@@ -17,6 +17,8 @@ module Decidim
 
           raise Decidim::Commands::HookError, e
         end
+
+        def resource_class = Decidim::Conferences::Partner
 
         def extra_params
           {

@@ -26,14 +26,13 @@ module Decidim::Conferences
       double(
         Admin::RegistrationTypeForm,
         invalid?: invalid,
+        current_participatory_space: conference,
         current_user:,
         title: { en: "title" },
-        attributes: {
-          "title" => { en: "title" },
-          "weight" => 1,
-          "price" => 300,
-          "description" => { en: "registration type description" }
-        }
+        weight: 1,
+        price: 300,
+        description: { en: "registration type description" },
+        attributes: {}
       )
     end
 

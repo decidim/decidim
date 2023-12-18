@@ -17,10 +17,10 @@ module Decidim
         def extra_params
           {
             resource: {
-              title: conference_partner.name
+              title: resource.name
             },
             participatory_space: {
-              title: conference_partner.conference.title
+              title: resource.conference.title
             }
           }
         end

@@ -21,6 +21,8 @@ module Decidim
           raise Decidim::Commands::HookError, e
         end
 
+        def resource_class = Decidim::ConferenceSpeaker
+
         def extra_params
           {
             resource: {

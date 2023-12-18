@@ -6,7 +6,11 @@ module Decidim
       # A command with all the business logic when creating a new registration type
       # in the system.
       class CreateRegistrationType < Decidim::Commands::CreateResource
+        fetch_form_attributes :title, :description, :price, :weight
+
         protected
+
+        def resource_class = Decidim::Conferences::RegistrationType
 
         def extra_params
           {
@@ -14,15 +18,13 @@ module Decidim
               title: form.title
             },
             participatory_space: {
-              title: form.participatory_space.title
+              title: form.current_participatory_space.title
             }
           }
         end
 
-        fetch_form_attributes :title, :description, :price, :weight
-
         def attributes
-          super.merge({ conference: form.participatory_space })
+          super.merge({ conference: form.current_participatory_space })
         end
 
         def conference_meetings(registration_type)
