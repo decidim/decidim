@@ -94,7 +94,7 @@ eu:
         time_zone: Ordu-zona
         tos_version: Zerbitzu-baldintzen bertsioa
         twitter_handler: kudeatzailea
-        user_groups_enabled: Gaitu taldeak
+        user_groups_enabled: Gaitu erabiltzaileen taldeak
         users_registration_mode: Erabiltzaileak erregistratzeko modua
         warning_color: Abisua
         welcome_notification_body: Ongietorri-jakinarazpenaren gorputza
@@ -551,7 +551,7 @@ eu:
         scopes: Esparruak
         settings: Ezarpenak
         static_pages: Orriak
-        user_groups: Taldeak
+        user_groups: Erabiltzaile-taldeak
         users: Parte-hartzaileak 
       metrics:
         metrics:
@@ -982,7 +982,7 @@ eu:
         scopes: Esparruak
         static_pages: Orriak
         statistics: Jarduera
-        user_groups: Taldeak
+        user_groups: Erabiltzaile-taldeak
         users: Administratzaileak
       user_group:
         csv_verify:
