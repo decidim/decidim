@@ -344,7 +344,9 @@ es-PY:
             select_user: Seleccionar usuario
           index:
             filter:
+              accepted: Aceptado
               all: Todas
+              rejected: Rechazado
               sent: Expedido
             filter_by: Filtrado por
             invite_attendee: Invitar a un asistente
