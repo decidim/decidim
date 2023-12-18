@@ -5,17 +5,12 @@ module Decidim
     module Admin
       # A command with all the business logic when creating a new participatory
       # conference in the system.
-      class UpdateConference < Decidim::Command
+      class UpdateConference < Decidim::Commands::UpdateResource
         include ::Decidim::AttachmentAttributesMethods
 
-        # Public: Initializes the command.
-        #
-        # conference - the Conference to update
-        # form - A form object with the params.
-        def initialize(conference, form)
-          @conference = conference
-          @form = form
-        end
+        fetch_form_attributes :title, :slogan, :slug, :weight, :hashtag, :description, :short_description,
+                              :objectives, :location, :start_date, :end_date, :promoted, :show_statistics,
+                              :scopes_enabled, :scope, :registrations_enabled
 
         # Executes the command. Broadcasts these events:
         #
@@ -30,95 +25,73 @@ module Decidim
           link_participatory_processes
           link_assemblies
 
-          if @conference.valid?
-            broadcast(:ok, @conference)
+          if resource.valid?
+            broadcast(:ok, resource)
           else
-            form.errors.add(:hero_image, @conference.errors[:hero_image]) if @conference.errors.include? :hero_image
-            form.errors.add(:banner_image, @conference.errors[:banner_image]) if @conference.errors.include? :banner_image
+            form.errors.add(:hero_image, resource.errors[:hero_image]) if resource.errors.include? :hero_image
+            form.errors.add(:banner_image, resource.errors[:banner_image]) if resource.errors.include? :banner_image
             broadcast(:invalid)
           end
         end
 
         private
 
-        attr_reader :form, :conference
-
         def update_conference
-          @conference.assign_attributes(attributes)
-          save_conference if @conference.valid?
+          resource.assign_attributes(attributes)
+          save_conference if resource.valid?
         end
 
         def save_conference
           transaction do
             update_conference_registrations
-            @conference.save!
+            resource.save!
             send_notification_registrations_enabled if should_notify_followers_registrations_enabled?
             send_notification_update_conference if should_notify_followers_update_conference?
             schedule_upcoming_conference_notification if start_date_changed?
-            Decidim.traceability.perform_action!(:update, @conference, form.current_user) do
-              @conference
+            Decidim.traceability.perform_action!(:update, resource, form.current_user) do
+              resource
             end
           end
         end
 
-        def update_conference_registrations
-          @conference.registrations_enabled = form.registrations_enabled
+        def registration_attributes
+          return {} unless form.registrations_enabled
 
-          if form.registrations_enabled
-            @conference.available_slots = form.available_slots
-            @conference.registration_terms = form.registration_terms
-          end
-        end
-
-        def attributes
           {
-            title: form.title,
-            slogan: form.slogan,
-            slug: form.slug,
-            weight: form.weight,
-            hashtag: form.hashtag,
-            description: form.description,
-            short_description: form.short_description,
-            objectives: form.objectives,
-            location: form.location,
-            start_date: form.start_date,
-            end_date: form.end_date,
-            promoted: form.promoted,
-            scopes_enabled: form.scopes_enabled,
-            scope: form.scope,
-            show_statistics: form.show_statistics
-          }.merge(
-            attachment_attributes(:hero_image, :banner_image)
-          )
+            available_slots: form.available_slots,
+            registration_terms: form.registration_terms
+          }
         end
+
+        def attributes = super.merge(registration_attributes).merge(attachment_attributes(:hero_image, :banner_image))
 
         def send_notification_registrations_enabled
           Decidim::EventsManager.publish(
             event: "decidim.events.conferences.registrations_enabled",
             event_class: Decidim::Conferences::ConferenceRegistrationsEnabledEvent,
-            resource: @conference,
-            followers: @conference.followers
+            resource:,
+            followers: resource.followers
           )
         end
 
         def should_notify_followers_registrations_enabled?
-          @conference.previous_changes["registrations_enabled"].present? &&
-            @conference.registrations_enabled? &&
-            @conference.published?
+          resource.previous_changes["registrations_enabled"].present? &&
+            resource.registrations_enabled? &&
+            resource.published?
         end
 
         def send_notification_update_conference
           Decidim::EventsManager.publish(
             event: "decidim.events.conferences.conference_updated",
             event_class: Decidim::Conferences::UpdateConferenceEvent,
-            resource: @conference,
-            followers: @conference.followers
+            resource:,
+            followers: resource.followers
           )
         end
 
         def should_notify_followers_update_conference?
-          important_attributes.any? { |attr| @conference.previous_changes[attr].present? } &&
-            @conference.published?
+          important_attributes.any? { |attr| resource.previous_changes[attr].present? } &&
+            resource.published?
         end
 
         def important_attributes
@@ -126,31 +99,31 @@ module Decidim
         end
 
         def start_date_changed?
-          @conference.previous_changes["start_date"].present?
+          resource.previous_changes["start_date"].present?
         end
 
         def schedule_upcoming_conference_notification
-          checksum = Decidim::Conferences::UpcomingConferenceNotificationJob.generate_checksum(@conference)
+          checksum = Decidim::Conferences::UpcomingConferenceNotificationJob.generate_checksum(resource)
 
           Decidim::Conferences::UpcomingConferenceNotificationJob
-            .set(wait_until: (@conference.start_date - 2.days).to_s)
-            .perform_later(@conference.id, checksum)
+            .set(wait_until: (resource.start_date - 2.days).to_s)
+            .perform_later(resource.id, checksum)
         end
 
         def participatory_processes
-          @participatory_processes ||= @conference.participatory_space_sibling_scope(:participatory_processes).where(id: @form.participatory_processes_ids)
+          @participatory_processes ||= resource.participatory_space_sibling_scope(:participatory_processes).where(id: @form.participatory_processes_ids)
         end
 
         def link_participatory_processes
-          @conference.link_participatory_space_resources(participatory_processes, "included_participatory_processes")
+          resource.link_participatory_space_resources(participatory_processes, "included_participatory_processes")
         end
 
         def assemblies
-          @assemblies ||= @conference.participatory_space_sibling_scope(:assemblies).where(id: @form.assemblies_ids)
+          @assemblies ||= resource.participatory_space_sibling_scope(:assemblies).where(id: @form.assemblies_ids)
         end
 
         def link_assemblies
-          @conference.link_participatory_space_resources(assemblies, "included_assemblies")
+          resource.link_participatory_space_resources(assemblies, "included_assemblies")
         end
       end
     end
