@@ -19,7 +19,7 @@ describe "Explore versions", versioning: true do
       initiative:
     )
   end
-  let(:command) { Decidim::Initiatives::Admin::UpdateInitiative.new(initiative, form, user) }
+  let(:command) { Decidim::Initiatives::Admin::UpdateInitiative.new(form, initiative) }
   let(:initiative_path) { decidim_initiatives.initiative_path(initiative) }
 
   before do
