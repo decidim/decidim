@@ -320,7 +320,9 @@
             select_user: Velg deltaker
           index:
             filter:
+              accepted: Aksepterte
               all: Alle
+              rejected: Avvist
               sent: Sendt
             invite_attendee: Inviter deltaker
             invites: Invitasjoner
