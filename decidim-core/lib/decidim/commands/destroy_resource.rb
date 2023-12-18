@@ -23,7 +23,7 @@ module Decidim
         run_after_hooks
 
         broadcast(:ok, resource)
-      rescue Decidim::Commands::HookError
+      rescue Decidim::Commands::HookError, StandardError
         broadcast(:invalid)
       end
 

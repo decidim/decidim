@@ -3,16 +3,7 @@
 module Decidim
   module Admin
     # A command with all the business logic to destroy an area.
-    class DestroyArea < Decidim::Command
-      # Public: Initializes the command.
-      #
-      # area - The area to destroy
-      # current_user - the user performing the action
-      def initialize(area, current_user)
-        @area = area
-        @current_user = current_user
-      end
-
+    class DestroyArea < Decidim::Commands::DestroyResource
       # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid.
@@ -20,24 +11,10 @@ module Decidim
       #
       # Returns nothing.
       def call
-        destroy_area
+        destroy_resource
         broadcast(:ok)
       rescue ActiveRecord::RecordNotDestroyed
         broadcast(:has_spaces)
-      end
-
-      private
-
-      attr_reader :current_user
-
-      def destroy_area
-        Decidim.traceability.perform_action!(
-          "delete",
-          @area,
-          current_user
-        ) do
-          @area.destroy!
-        end
       end
     end
   end
