@@ -743,6 +743,10 @@ es-MX:
         voting_step:
           back: Atrás
           continue: Siguiente
+      warnings:
+        empty_filters: No hay ninguna elección con este criterio.
+        no_elections: No hay ninguna elección programada.
+        no_scheduled_elections: Actualmente no hay elecciones programadas, pero puedes ver un listado de las anteriores.
     events:
       elections:
         election_published:
