@@ -95,6 +95,8 @@ ja:
           cancelled: キャンセルしました
           category: カテゴリ
           state: ステータス
+        index:
+          empty: まだ並べ替えがありません。
         linked_sortitions:
           selected_proposals: 選択された提案
         orders:
