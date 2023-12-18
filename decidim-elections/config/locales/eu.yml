@@ -34,7 +34,7 @@ eu:
       trustees_participatory_space:
         user_id: Parte-hartzailea
       voting:
-        banner_image: Bannerra
+        banner_image: Banner-irudia
         census_contact_information: Erroldako kontaktoen informazioa
         description: Deskribapena
         end_time: Bozketaren amaiera-data
@@ -1147,7 +1147,7 @@ eu:
           certify:
             add_images: Gehiru irudiak
             error: Arazo bat izan da ziurtagiria eranstean, mesedez, saiatu berriro.
-            form_legend: Hauteskundearen itxieraren egiaztagiriaren agazkia igo
+            form_legend: Igo Hauteskundearen Itxieraren Egiaztagiriaren agazkia
             heading: Botoen zenbaketa - Igo ziurtagiria
             info_text: Mesedez, igo bozketa-itxieraren ziurtagiriaren argazki bat.
             submit: Igo ziurtagiria
