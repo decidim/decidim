@@ -255,7 +255,9 @@ lb:
             select_user: Nutzer wählen
           index:
             filter:
+              accepted: Akzeptiert
               all: Alle
+              rejected: Abgelehnt
               sent: Geschickt
             filter_by: Filtern nach
             invite_attendee: Teilnehmer einladen
