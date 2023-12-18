@@ -349,7 +349,9 @@ pl:
             select_user: Wybierz użytkownika
           index:
             filter:
+              accepted: Przyjęto
               all: Wszystko
+              rejected: Odrzucono
               sent: Wysłano
             filter_by: Filtruj według
             invite_attendee: Zaproś użytkownika
