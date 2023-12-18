@@ -25,6 +25,10 @@ This is a custom implementation for demonstration purposes:
 module Decidim
   module MyModule
     class CreateMyResource < Decidim::Commands::CreateResource
+      # Specify image fields independently, so that command be able to handle
+      # file validations, remove_attachment button
+      file_fields :my_logo
+
       # Tell the parent class which fields are going to be
       # copied from the form
       fetch_form_attributes :title, :description, :component
@@ -84,6 +88,10 @@ This is a custom implementation for demonstration purposes:
 module Decidim
   module MyModule
     class UpdateMyResource < Decidim::Commands::UpdateResource
+      # Specify image fields independently, so that command be able to handle
+      # file validations, remove_attachment button
+      file_fields :my_logo
+
       # Tell the parent class which fields are going to be
       # copied from the form
       fetch_form_attributes :title, :description, :component

@@ -15,31 +15,6 @@ module Decidim
                               :duration, :included_at, :closing_date, :closing_date_reason, :internal_organisation,
                               :is_transparent, :special_features, :twitter_handler, :facebook_handler,
                               :instagram_handler, :youtube_handler, :github_handler, :announcement, :organization
-
-        # # Executes the command. Broadcasts these events:
-        # #
-        # # - :ok when everything is valid.
-        # # - :invalid if the form was not valid and we could not proceed.
-        # #
-        # # Returns nothing.
-        # def call
-        #   return broadcast(:invalid) if form.invalid?
-        #
-        #   create_resource(soft: true)
-        #
-        #   pp resource.valid?
-        #
-        #   if resource.persisted?
-
-        #
-        #     broadcast(:ok, resource)
-        #   else
-        #
-        #     form.errors.add(:banner_image, resource.errors[:banner_image]) if resource.errors.include? :banner_image
-        #     broadcast(:invalid)
-        #   end
-        # end
-
         protected
 
         def run_after_hooks
