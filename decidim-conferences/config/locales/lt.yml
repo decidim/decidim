@@ -346,7 +346,9 @@ lt:
             select_user: Pasirinkti dalyvį
           index:
             filter:
+              accepted: Priimtas
               all: Visi
+              rejected: Atmestas
               sent: Išsiųsta
             filter_by: Filtruoti pagal
             invite_attendee: Kviesti dalyvį
