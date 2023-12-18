@@ -43,7 +43,6 @@ module Decidim
 
         def save_conference
           transaction do
-            update_conference_registrations
             resource.save!
             send_notification_registrations_enabled if should_notify_followers_registrations_enabled?
             send_notification_update_conference if should_notify_followers_update_conference?
