@@ -753,10 +753,17 @@ eu:
             email_intro: Bazaude gehituta bermatzaile gisa %{resource_title} aukerarako.
             email_outro: Jakinarazpen hau jaso duzu bermatzaile gisa gehitu zaituztelako %{resource_title} aukerarako.
             email_subject: Bermatzailea zara %{resource_title} aukerarako..
+            notification_title: 'Esleitu zaituzte bermatzaile gisa aritzeko Aukera honetan: <a href="%{resource_path}">%{resource_title}.</a> Mesedez, egin gakoen zeremonia hautaketa martxan jartzeko.'
           new_trustee:
             email_intro: 'Administratzaile batek gehitu zaitu bermatzaile gisa honetarako: %{resource_name}. Zure gako publikoa sortu behar duzu =<''%{trustee_zone_url}''>bermatzaileen zure gunean</a>'
             email_outro: Jakinarazpen hau jaso duzu bermatzaile gisa gehitu zaituztelako %{resource_name} aukerarako.
             email_subject: '%{resource_name} ren bermatzailea zara.'
+            notification_title: "Gehitu zaituzte plataforma honetan egingo diren hauteskunde batzuetan %{baliabide_name} ko bermatzaile gisa jarduteko.\nLan batzuk egiteko eskatuko zaizu. Oraingoz, mesedez, sortu zure identifikazio-gakoak <a href='%{trustee_zone_url}'></a>."
+          start_tally:
+            email_intro: '%{resource_title} aukeraketarako bozketaldia amaitu egin da. Orain, mesedez, zenbatu aukeraketak behin betiko emaitzak argitaratzeko.'
+            email_outro: Jakinarazpen hau jaso duzu %{resource_title} aukeran bermatzailea zarelako.
+            email_subject: '%{resource_title} aukeraketarako zenbaketa-prozesua hasi egin da.'
+            notification_title: '%{resource_title} aukeraketarako bozketaldia amaitu egin da. Orain, mesedez, zenbatu aukeraketak behin betiko emaitzak argitaratzeko.'
         votes:
           accepted_votes:
             email_intro: 'Zure botoa onartu egin da! Zure botoaren tokena erabiliz: %{encrypted_vote_hash}, zure botoa egiaztatu ahal duzu<a href="%{verify_url}">hemen</a>.'
