@@ -66,6 +66,14 @@ ro:
         placeholders:
           content: Vă rugăm să adăugaţi conţinut semnificativ paginii statice %{page} de pe tabloul de bord al administratorului.
           title: Titlul implicit pentru %{page}
+      devise:
+        passwords:
+          edit:
+            change_your_password: Schimbați parola
+            minimum_characters: "(%{minimum} caractere minim)"
+          new:
+            forgot_your_password: Ați uitat parola
+            send_me_reset_password_instructions: Trimiteți-mi Instrucțiuni de resetare a parolei
       menu:
         admins: Administratori
         dashboard: Panou
