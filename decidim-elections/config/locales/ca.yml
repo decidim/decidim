@@ -735,6 +735,7 @@ ca:
           continue: Següent
       warnings:
         no_elections_warning: No hi ha cap votació que coincideixi amb la teva cerca o no n'hi ha cap programada.
+        no_scheduled_elections_warning: Actualment no hi ha votacions programades, però pots veure un llistat de les anteriors.
     events:
       elections:
         election_published:
