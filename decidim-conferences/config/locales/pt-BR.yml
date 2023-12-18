@@ -320,7 +320,9 @@ pt-BR:
             select_user: Selecione o usuário
           index:
             filter:
+              accepted: Aceitaram
               all: Todos
+              rejected: Rejeitado
               sent: Enviei
             invite_attendee: Convidar participante
             invites: Convites
