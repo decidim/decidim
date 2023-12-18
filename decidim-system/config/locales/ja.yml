@@ -61,6 +61,7 @@ ja:
           success: 管理者が正常に更新されました。
       dashboard:
         show:
+          admins: 管理者
           current_organizations: 現在の組織
       default_pages:
         placeholders:
