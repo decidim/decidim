@@ -172,16 +172,14 @@ module Decidim
     #
     # @return [void]
     def check_tests
-      # rubocop:disable Rails/Output
-      puts "Running specs"
+      puts "Running specs" # rubocop:disable Rails/Output
       output, status = capture("bin/rspec")
 
       unless status.success?
         run("git restore .")
-        puts output
+        puts output # rubocop:disable Rails/Output
         exit_with_errors("Tests execution failed. Fix the errors and run again.")
       end
-      # rubocop:enable Rails/Output
     end
 
     # Generates the changelog taking into account the last time the version changed
@@ -278,10 +276,8 @@ You will see errors such as `No matching version found for @decidim/browserslist
     #
     # @return [void]
     def exit_with_errors(message)
-      # rubocop:disable Rails/Output, Rails/Exit
-      puts message
-      exit 1
-      # rubocop:enable Rails/Output, Rails/Exit
+      puts message # rubocop:disable Rails/Output
+      exit 1 # rubocop:disable Rails/Exit
     end
   end
 end
