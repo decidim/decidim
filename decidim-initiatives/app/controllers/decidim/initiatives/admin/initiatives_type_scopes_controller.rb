@@ -51,7 +51,7 @@ module Decidim
           UpdateInitiativeTypeScope.call(@form, current_initiative_type_scope) do
             on(:ok) do
               flash[:notice] = I18n.t("decidim.initiatives.admin.initiatives_type_scopes.update.success")
-              redirect_to edit_initiatives_type_path(initiative_type_scope.type)
+              redirect_to edit_initiatives_type_path(resource.type)
             end
 
             on(:invalid) do

@@ -16,6 +16,7 @@ describe "Explore versions", versioning: true do
     ).with_context(
       current_organization: organization,
       current_component: nil,
+      current_user: user,
       initiative:
     )
   end
