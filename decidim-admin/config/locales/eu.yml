@@ -244,7 +244,7 @@ eu:
         no_areas: Arlorik ez
         update:
           error: Arazo bat egon da arlo hau eguneratzean.
-          success: Area ondo eguneratu da
+          success: Arloa zuzen eguneratu da
       attachment_collections:
         create:
           error: Arazo bat egon da beste karpeta bat sortzean.
