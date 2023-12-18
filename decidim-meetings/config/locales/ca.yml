@@ -90,6 +90,11 @@ ca:
   decidim:
     admin:
       filters:
+        accepted_at_not_null:
+          label: Acceptada
+          values:
+            'false': No acceptada
+            'true': Acceptada
         meetings:
           category_id_eq:
             label: Categoria
@@ -117,6 +122,18 @@ ca:
               hybrid: Híbrida
               in_person: Presencial
               online: En línia
+        rejected_at_not_null:
+          label: Rebutjada
+          values:
+            'false': No rebutjada
+            'true': Rebutjada
+        search_placeholder:
+          user_name_or_user_email_cont: Cercar per nom o correu electrònic
+        sent_at_not_null:
+          label: Enviada
+          values:
+            'false': No enviada
+            'true': Enviada
       meeting_copies:
         create:
           error: S'ha produït un error en duplicar aquesta trobada.
