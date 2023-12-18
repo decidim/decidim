@@ -185,6 +185,14 @@ cs:
           label: Odmítnuto
           values:
             'false': Neodmítnuto
+            'true': Odmítnuto
+        search_placeholder:
+          user_name_or_user_email_cont: Hledat podle jména nebo e-mailu
+        sent_at_not_null:
+          label: Odesláno
+          values:
+            'false': Neodesláno
+            'true': Odesláno
       media_links:
         create:
           error: Při vytváření nového odkazu na média došlo k chybě.
