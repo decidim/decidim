@@ -349,7 +349,9 @@ fi-pl:
             select_user: Valitse käyttäjä
           index:
             filter:
+              accepted: Hyväksytyt
               all: Kaikki
+              rejected: Hylätyt
               sent: Lähetetty
             invite_attendee: Kutsu osallistuja
             invites: Kutsut
