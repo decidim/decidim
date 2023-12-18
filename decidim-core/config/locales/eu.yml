@@ -1598,7 +1598,7 @@ eu:
       invite_private_user:
         subject: Prozesu parte-hartzaile batera gonbidatu zaituzte %{organization} helbidean
       organization_admin_invitation_instructions:
-        subject: 'Gonbita jaso duzu erakunde hau kudeatzeko: %{organization}'
+        subject: 'Gonbidapena jaso duzu erakunde hau kudeatzeko: %{organization}'
       password_change:
         greeting: Kaixo, %{recipient}!
         message: Zuregana jotzen dugu jakinarazteko zure pasahitza zuzen aldatu dela.
