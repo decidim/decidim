@@ -73,6 +73,7 @@ pt-BR:
     'true': 'Sim'
   carrierwave:
     errors:
+      file_size_too_large: O tamanho do arquivo é grande demais
       not_inside_organization: O arquivo não está anexado a nenhuma organização
   date:
     formats:
@@ -84,6 +85,7 @@ pt-BR:
   decidim:
     accessibility:
       external_link: Link externo
+      front_page_link: Ir para a página inicial
       logo: "Logotipo oficial de %{organization}"
       skip_button: Pular para o conteúdo principal
     account:
@@ -102,7 +104,17 @@ pt-BR:
       download_your_data_export:
         file_no_exists: O arquivo não existe
         notice: Seus dados estão atualmente em andamento. Você receberá um e-mail quando estiver concluído.
+      email_change:
+        body1: Enviamos um e-mail para %{unconfirmed_email} para verificar seu novo endereço de e-mail.
+        body2: Precisa que enviemos o e-mail de verificação novamente? %{resend_link} ou %{cancel_link}.
+        cancel: cancelar
+        cancel_error: Não foi possível cancelar a alteração do email.
+        cancel_successfully: Alteração de e-mail cancelada com sucesso.
+        resend_error: Não foi possível reenviar o e-mail de confirmação.
+        send_again: Enviar novamente
+        title: Verificação de mudança de e-mail
       show:
+        available_locales_helper: Escolha o idioma que você deseja usar para navegar e receber notificações na plataforma
         change_password: Mudar senha
         update_account: Atualizar conta
       update:
@@ -120,6 +132,13 @@ pt-BR:
         create: "%{user_name} criou a área %{resource_name}"
         delete: "%{user_name} excluiu a área %{resource_name}"
         update: "%{user_name} atualizou a área %{resource_name}"
+      area_type:
+        create: "%{user_name} criou o tipo de área %{resource_name}"
+        delete: "%{user_name} excluiu o tipo de área %{resource_name}"
+        update: "%{user_name} atualizou o tipo de área %{resource_name}"
+      attachment:
+        create: "%{user_name} criou o anexo %{resource_name}"
+        delete: "%{user_name} excluiu o anexo %{resource_name}"
       component:
         create: "%{user_name} adicionou o componente %{resource_name} ao espaço %{space_name}"
         delete: "%{user_name} removeu o componente %{resource_name} do espaço %{space_name}"
@@ -745,8 +764,22 @@ pt-BR:
         max_file_size: 'Tamanho máximo de arquivo: %{megabytes}MB'
       upload:
         labels:
+          add_attachment: Adicionar anexo
+          add_file: Adicionar arquivo
+          add_image: Adicionar imagem
           cancel: Cancelar
+          edit_image: Editar imagem
+          error: Erro!
+          file_size_too_large: 'O tamanho do arquivo é grande demais! Tamanho maximo de arquivo: %{megabytes}MB'
+          replace: Substituir
           save: Salvar
+          title_required: Título é obrigatório!
+          uploaded: Carregado
+          validating: Validando...
+          validation_error: Erro de validação!
+      upload_help:
+        dropzone: Solte os arquivos aqui ou clique para carregar
+        explanation: Orientação para %{attribute}
     gamification:
       all_badges_link: Veja todos os emblemas disponíveis.
       badges:
@@ -1052,6 +1085,10 @@ pt-BR:
         everything_followed: Tudo que eu sigo
         newsletter_notifications: Quero receber boletins informativos
         newsletters: boletins informativos
+        notification_settings:
+          close_meeting_reminder: Quero receber lembretes por e-mail de reuniões fechadas de relatórios não publicados
+        notifications_sending_frequencies:
+          none: Nenhum
         own_activity: Minha atividade, como quando alguém comenta minha proposta ou me menciona
         receive_notifications_about: Quero receber notificações sobre
         update_notifications_settings: Guardar alterações
@@ -1553,6 +1590,7 @@ pt-BR:
       data_consent:
         details:
           columns:
+            description: Descrição
             type: Tipo
       edit_link:
         edit: Editar
