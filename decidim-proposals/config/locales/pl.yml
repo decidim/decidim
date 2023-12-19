@@ -727,8 +727,10 @@ pl:
             many: "%{count} propozycji"
             other: "%{count} propozycji"
         edit:
+          add_image: Dodaj obraz
           attachment_legend: "(Opcjonalnie) Dodaj załącznik"
           back: Wróć
+          edit_image: Edytuj obraz
           gallery_legend: "(Opcjonalnie) Dodaj obraz do karty propozycji"
           select_a_category: Wybierz kategorię
           send: Wyślij
