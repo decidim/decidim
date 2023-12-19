@@ -5,43 +5,14 @@ module Decidim
     module Admin
       # This command is executed when the user creates an Budget
       # from the admin panel.
-      class CreateBudget < Decidim::Command
-        def initialize(form)
-          @form = form
-        end
-
-        # Creates the budget if valid.
-        #
-        # Broadcasts :ok if successful, :invalid otherwise.
-        def call
-          return broadcast(:invalid) if form.invalid?
-
-          create_budget!
-
-          broadcast(:ok, budget)
-        end
+      class CreateBudget < Decidim::Commands::CreateResource
+        fetch_form_attributes :component, :scope, :title, :weight, :description, :total_budget
 
         private
 
-        attr_reader :form, :budget
+        def extra_params = { visibility: "all" }
 
-        def create_budget!
-          attributes = {
-            component: form.current_component,
-            scope: form.scope,
-            title: form.title,
-            weight: form.weight,
-            description: form.description,
-            total_budget: form.total_budget
-          }
-
-          @budget = Decidim.traceability.create!(
-            Budget,
-            form.current_user,
-            attributes,
-            visibility: "all"
-          )
-        end
+        def resource_class = Decidim::Budgets::Budget
       end
     end
   end

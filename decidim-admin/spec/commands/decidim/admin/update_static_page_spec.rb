@@ -16,7 +16,7 @@ module Decidim::Admin
           current_user: user
         )
       end
-      let(:command) { described_class.new(page, form) }
+      let(:command) { described_class.new(form, page) }
 
       describe "when the form is not valid" do
         before do
