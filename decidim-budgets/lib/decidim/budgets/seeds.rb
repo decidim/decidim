@@ -13,23 +13,7 @@ module Decidim
       end
 
       def call
-        landing_page_content = Decidim::Faker::Localized.localized do
-          "<h2>#{::Faker::Lorem.sentence}</h2>" \
-            "<p>#{::Faker::Lorem.paragraph}</p>" \
-            "<p>#{::Faker::Lorem.paragraph}</p>"
-        end
-
-        component = Decidim::Component.create!(
-          name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :budgets).i18n_name,
-          manifest_name: :budgets,
-          published_at: Time.current,
-          participatory_space:,
-          settings: {
-            landing_page_content:,
-            more_information_modal: Decidim::Faker::Localized.paragraph(sentence_count: 4),
-            workflow: Decidim::Budgets.workflows.keys.sample
-          }
-        )
+        component = create_component!
 
         rand(1...3).times do
           Decidim::Budgets::Budget.create!(
@@ -63,6 +47,26 @@ module Decidim
             Decidim::Comments::Seed.comments_for(project)
           end
         end
+      end
+
+      def create_component!
+        landing_page_content = Decidim::Faker::Localized.localized do
+          "<h2>#{::Faker::Lorem.sentence}</h2>" \
+            "<p>#{::Faker::Lorem.paragraph}</p>" \
+            "<p>#{::Faker::Lorem.paragraph}</p>"
+        end
+
+        Decidim::Component.create!(
+          name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :budgets).i18n_name,
+          manifest_name: :budgets,
+          published_at: Time.current,
+          participatory_space:,
+          settings: {
+            landing_page_content:,
+            more_information_modal: Decidim::Faker::Localized.paragraph(sentence_count: 4),
+            workflow: Decidim::Budgets.workflows.keys.sample
+          }
+        )
       end
     end
   end
