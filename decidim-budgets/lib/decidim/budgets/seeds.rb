@@ -21,16 +21,7 @@ module Decidim
 
         Decidim::Budgets::Budget.where(component:).each do |budget|
           rand(2...4).times do
-            project = Decidim::Budgets::Project.create!(
-              budget:,
-              scope: participatory_space.organization.scopes.sample,
-              category: participatory_space.categories.sample,
-              title: Decidim::Faker::Localized.sentence(word_count: 2),
-              description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-                Decidim::Faker::Localized.paragraph(sentence_count: 3)
-              end,
-              budget_amount: ::Faker::Number.between(from: Integer(budget.total_budget * 0.7), to: budget.total_budget)
-            )
+            project = create_project!(budget:)
 
             attachment_collection = create_attachment_collection(collection_for: project)
             create_attachment(attached_to: project, filename: "Exampledocument.pdf", attachment_collection:)
@@ -70,6 +61,19 @@ module Decidim
             Decidim::Faker::Localized.paragraph(sentence_count: 3)
           end,
           total_budget: ::Faker::Number.number(digits: 8)
+        )
+      end
+
+      def create_project!(budget:)
+        Decidim::Budgets::Project.create!(
+          budget:,
+          scope: participatory_space.organization.scopes.sample,
+          category: participatory_space.categories.sample,
+          title: Decidim::Faker::Localized.sentence(word_count: 2),
+          description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+            Decidim::Faker::Localized.paragraph(sentence_count: 3)
+          end,
+          budget_amount: ::Faker::Number.between(from: Integer(budget.total_budget * 0.7), to: budget.total_budget)
         )
       end
     end
