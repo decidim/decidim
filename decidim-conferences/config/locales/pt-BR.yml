@@ -293,6 +293,7 @@ pt-BR:
           update: "%{user_name} atualizou o parceiro %{resource_name} na conferência %{space_name}"
         registration_type:
           create: "%{user_name} criou o tipo de registro %{resource_name} na conferência de %{space_name}"
+          delete: "%{user_name} removeu o tipo de registro %{resource_name} da conferência %{space_name}"
           publish: "%{user_name} publicou o tipo de registro %{resource_name} na conferência %{space_name}"
           unpublish: "%{user_name} não publicado o tipo de registro %{resource_name} na conferência %{space_name}"
           update: "%{user_name} atualizou o tipo de registro %{resource_name} na conferência %{space_name}"
