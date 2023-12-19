@@ -25,14 +25,12 @@ Gem::Specification.new do |s|
   s.summary = "Citizen participation framework for Ruby on Rails."
   s.description = "A generator and multiple gems made with Ruby on Rails."
 
-  s.files = Dir[
-    "lib/**/*",
-    "lib/decidim/generators/{app,component}_templates/{*,.*}",
-    "Gemfile",
-    "Gemfile.lock",
-    "Rakefile",
-    "README.md"
-  ]
+  s.files = Dir.chdir(__dir__) do
+    `git ls-files -z`.split("\x0").select do |f|
+      (File.expand_path(f) == __FILE__) ||
+        f.start_with?(*%w(lib/ Gemfile Gemfile.lock Rakefile README.md))
+    end
+  end
 
   s.bindir = "exe"
   s.executables = ["decidim"]
