@@ -16,14 +16,7 @@ module Decidim
         component = create_component!
 
         rand(1...3).times do
-          Decidim::Budgets::Budget.create!(
-            component:,
-            title: Decidim::Faker::Localized.sentence(word_count: 2),
-            description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-              Decidim::Faker::Localized.paragraph(sentence_count: 3)
-            end,
-            total_budget: ::Faker::Number.number(digits: 8)
-          )
+          create_budget!(component:)
         end
 
         Decidim::Budgets::Budget.where(component:).each do |budget|
@@ -66,6 +59,17 @@ module Decidim
             more_information_modal: Decidim::Faker::Localized.paragraph(sentence_count: 4),
             workflow: Decidim::Budgets.workflows.keys.sample
           }
+        )
+      end
+
+      def create_budget!(component:)
+        Decidim::Budgets::Budget.create!(
+          component:,
+          title: Decidim::Faker::Localized.sentence(word_count: 2),
+          description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+            Decidim::Faker::Localized.paragraph(sentence_count: 3)
+          end,
+          total_budget: ::Faker::Number.number(digits: 8)
         )
       end
     end
