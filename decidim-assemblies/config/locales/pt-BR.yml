@@ -238,6 +238,9 @@ pt-BR:
     admin_log:
       assembly:
         create: "%{user_name} criou o conjunto %{resource_name}"
+        duplicate: "%{user_name} duplicou a assambleia %{resource_name}"
+        export: "%{user_name} exportou a assambleia %{resource_name}"
+        import: "%{user_name} importou a assambleia %{resource_name}"
         publish: "%{user_name} publicou o conjunto %{resource_name}"
         unpublish: "%{user_name} não publicado o conjunto %{resource_name}"
         update: "%{user_name} atualizou a montagem %{resource_name}"
