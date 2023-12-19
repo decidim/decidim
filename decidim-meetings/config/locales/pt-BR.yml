@@ -233,12 +233,14 @@ pt-BR:
             update: Atualizar
           form:
             address_help: 'Endereço: usado pelo Geocodificador para encontrar a localização'
+            iframe_embed_type_html: 'Apenas alguns serviços permitem incorporar na reunião ou evento ao vivo dos seguintes domínios: %{domains}'
             location_help: 'Localização: mensagem direcionada aos usuários que imprimem o local para'
             location_hints_help: 'Dicas de localização: informações adicionais Exemplo: o piso do edifício se é uma reunião presencial, ou a senha da reunião, se é uma reunião online com acesso restrito.'
             online_meeting_url_help: 'Link: permitir que os participantes se conectem diretamente à sua reunião'
             registration_url_help: 'Link: permitir que os participantes possam acessar o serviço externo que você está usando para inscrições'
             select_a_meeting_type: Por favor, selecione um tipo de reunião
             select_a_registration_type: Por favor, selecione um tipo de registro
+            select_an_iframe_access_level: Por favor, selecione um nível de acesso iframe
           index:
             title: Reuniões
           new:
@@ -293,6 +295,14 @@ pt-BR:
           value_types:
             organizer_presenter:
               not_found: 'O organizador não foi encontrado no banco de dados (ID: %{id})'
+        questionnaire:
+          update: "%{user_name} atualizou o questionário para a reunião %{meeting_name}"
+      application_helper:
+        filter_category_values:
+          all: Todos
+      calendar:
+        meeting_to_event:
+          read_more: Leia mais sobre esta reunião
       calendar_modal:
         calendar_url: URL do calendário
         export_calendar: Calendário de exportação
@@ -362,6 +372,7 @@ pt-BR:
           address_help: 'Endereço: usado pelo Geocodificador para encontrar a localização'
           available_slots_help: Deixe-o em 0 se você tiver slots ilimitados disponíveis
           create_as: Criar reunião como
+          iframe_embed_type_html: 'Apenas alguns serviços permitem incorporar na reunião ou evento ao vivo dos seguintes domínios: %{domains}'
           location_help: 'Localização: mensagem direcionada aos usuários que imprimem o local para'
           location_hints_help: 'Dicas de localização: informações adicionais Exemplo: o piso do edifício se é uma reunião presencial, ou a senha da reunião, se é uma reunião online com acesso restrito.'
           online_meeting_url_help: 'Link: permitir que os participantes se conectem diretamente à sua reunião'
@@ -369,6 +380,7 @@ pt-BR:
           select_a_category: Por favor, selecione uma categoria
           select_a_meeting_type: Por favor, selecione um tipo de reunião
           select_a_registration_type: Por favor, selecione um tipo de registro
+          select_an_iframe_access_level: Por favor, selecione um nível de acesso iframe
         index:
           new_meeting: Nova reunião
         meetings:
