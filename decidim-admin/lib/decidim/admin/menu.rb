@@ -8,7 +8,7 @@ module Decidim
           moderations_count = Decidim::Admin::ModerationStats.new(current_user).count_content_moderations
 
           caption = I18n.t("menu.content", scope: "decidim.admin")
-          caption += content_tag(:span, moderations_count, class: moderations_count.zero? ? "component-counter component-counter--off" : "component-counter")
+          caption += content_tag(:span, moderations_count, class: "component-counter")
 
           menu.add_item :moderations,
                         caption.html_safe,
@@ -20,7 +20,7 @@ module Decidim
           user_reports = Decidim::Admin::ModerationStats.new(current_user).count_user_pending_reports
 
           caption = I18n.t("menu.reported_users", scope: "decidim.admin")
-          caption += content_tag(:span, user_reports, class: user_reports.zero? ? "component-counter component-counter--off" : "component-counter")
+          caption += content_tag(:span, user_reports, class: "component-counter")
 
           menu.add_item :moderated_users,
                         caption.html_safe,

@@ -30,7 +30,7 @@ module Decidim
           current_participatory_space.components.each do |component|
             caption = translated_attribute(component.name)
             if component.primary_stat.present?
-              caption += content_tag(:span, component.primary_stat, class: component.primary_stat.zero? ? "component-counter component-counter--off" : "component-counter")
+              caption += content_tag(:span, component.primary_stat, class: "component-counter")
             end
 
             menu.add_item [component.manifest_name, component.id].join("_"),
