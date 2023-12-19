@@ -154,6 +154,9 @@ pl:
         exports:
           elections: Wybory
           feedback_form_answers: Odpowiedzi zebrane z formularza
+        mailers:
+          trustee_mailer:
+            body: "<p>Cześć %{user_name},</p><p>Dodano cię jako osobę zaufaną do %{resource_name}.</p>"
         menu:
           trustees: Mężowie (osoby) zaufania
         models:
@@ -551,6 +554,8 @@ pl:
         voting_step:
           back: Wróć
           continue: Dalej
+      warnings:
+        no_elections_warning: Żadne wybory nie pasują do twoich kryteriów wyszukiwania lub żadne wybory nie zostały zaplanowane.
     events:
       elections:
         election_published:
