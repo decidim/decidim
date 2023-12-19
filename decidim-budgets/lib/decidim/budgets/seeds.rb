@@ -23,10 +23,7 @@ module Decidim
           rand(2...4).times do
             project = create_project!(budget:)
 
-            attachment_collection = create_attachment_collection(collection_for: project)
-            create_attachment(attached_to: project, filename: "Exampledocument.pdf", attachment_collection:)
-            create_attachment(attached_to: project, filename: "city.jpeg")
-            create_attachment(attached_to: project, filename: "Exampledocument.pdf")
+            create_attachments!(attached_to: project)
 
             Decidim::Comments::Seed.comments_for(project)
           end
