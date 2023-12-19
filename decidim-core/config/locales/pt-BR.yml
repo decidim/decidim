@@ -73,6 +73,7 @@ pt-BR:
     'true': 'Sim'
   carrierwave:
     errors:
+      file_size_too_large: O tamanho do arquivo é grande demais
       not_inside_organization: O arquivo não está anexado a nenhuma organização
   date:
     formats:
@@ -415,6 +416,10 @@ pt-BR:
         name: Estatísticas da organização
       sub_hero:
         name: Banner de sub-herói
+    core:
+      application_helper:
+        filter_category_values:
+          all: Todos
     devise:
       omniauth_registrations:
         new:
@@ -674,6 +679,22 @@ pt-BR:
         allowed_file_extensions: 'Extensões de arquivo permitidas: %{extensions}'
         max_file_dimension: 'Dimensões máximas de arquivo: %{resolution} pixels'
         max_file_size: 'Tamanho máximo de arquivo: %{megabytes}MB'
+      upload:
+        labels:
+          add_attachment: Adicionar anexo
+          add_file: Adicionar arquivo
+          add_image: Adicionar imagem
+          edit_image: Editar imagem
+          error: Erro!
+          file_size_too_large: 'O tamanho do arquivo é grande demais! Tamanho maximo de arquivo: %{megabytes}MB'
+          replace: Substituir
+          title_required: Título é obrigatório!
+          uploaded: Carregado
+          validating: Validando...
+          validation_error: Erro de validação!
+      upload_help:
+        dropzone: Solte os arquivos aqui ou clique no botão para carregar
+        explanation: Orientação para %{attribute}
     gamification:
       all_badges_link: Veja todos os emblemas disponíveis.
       badges:
@@ -1255,6 +1276,9 @@ pt-BR:
   doorkeeper:
     scopes:
       public: Sua informação pública.
+  editor:
+    upload:
+      uploadedFile: Arquivo carregado
   errors:
     messages:
       allowed_file_content_types: 'apenas arquivos com as seguintes extensões são permitidos: %{types}'
@@ -1291,6 +1315,7 @@ pt-BR:
       data_consent:
         details:
           columns:
+            description: Descrição
             type: Tipo
       edit_link:
         edit: Editar
