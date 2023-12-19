@@ -550,6 +550,7 @@ pt-BR:
           all: Todos
           meetings: Reuniões
           official: Oficial
+          participants: Participantes
           user_groups: Grupos de usuários
         filter_scope_values:
           all: Todos
@@ -611,6 +612,7 @@ pt-BR:
           filter_by: Filtrar por
           unfold: Desdobrar
         new:
+          add_file: Adicionar arquivo
           send: Continuar
         new_collaborative_draft_button:
           new_collaborative_draft: Novo rascunho colaborativo
