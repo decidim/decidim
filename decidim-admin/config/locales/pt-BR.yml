@@ -820,7 +820,7 @@ pt-BR:
         external_domain:
           down: Para Baixo
           external_domain: Domínio externo
-          remove: Remover
+          remove: Excluir
           up: Para Cima
         form:
           add: Adicionar à lista branca
