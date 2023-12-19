@@ -545,6 +545,7 @@ pt-BR:
             one: "%{count} rascunho colaborativo"
             other: "%{count} rascunho colaborativo"
         new:
+          add_file: Adicionar arquivo
           send: Continuar
         new_collaborative_draft_button:
           new_collaborative_draft: Novo rascunho colaborativo
