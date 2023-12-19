@@ -79,6 +79,7 @@ pt-BR:
           form:
             add_question: Adicionar pergunta
             add_separator: Adicionar separador
+            add_title_and_description: Adicionar título e descrição
             already_answered_warning: O questionário já foi respondido por alguns usuários então você não pode modificar suas perguntas.
             collapse: Recolher todas as questões
             expand: Expandir todas as questões
@@ -108,6 +109,15 @@ pt-BR:
             remove: Remover
             separator: Separador
             up: Para Cima
+          title_and_description:
+            collapse: Recolher
+            description: Descrição
+            down: Abaixo
+            expand: Expandir
+            remove: Excluir
+            title: Título
+            title_and_description: Título e descrição
+            up: Acima
           update:
             invalid: Houve erros ao salvar o questionário.
             success: Formulário salvo com sucesso.
@@ -131,6 +141,9 @@ pt-BR:
         short_answer: Resposta curta
         single_option: Opção única
         sorting: Classificação
+        title_and_description: Título e descrição
+      questionnaire_answer_presenter:
+        download_attachment: Baixar anexo
       questionnaires:
         answer:
           invalid: Houve erros ao responder a pesquisa.
