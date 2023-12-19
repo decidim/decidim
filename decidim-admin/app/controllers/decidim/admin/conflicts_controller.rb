@@ -5,6 +5,8 @@ module Decidim
     class ConflictsController < Decidim::Admin::ApplicationController
       layout "decidim/admin/users"
 
+      add_breadcrumb_item_from_menu :impersonate_menu
+
       def index
         @conflicts = Decidim::Verifications::Conflict.joins(:current_user).where(
           decidim_users: { decidim_organization_id: current_organization.id }
