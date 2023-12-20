@@ -139,11 +139,29 @@ pt-BR:
       attachment:
         create: "%{user_name} criou o anexo %{resource_name}"
         delete: "%{user_name} excluiu o anexo %{resource_name}"
+        update: "%{user_name} atualizou o anexo %{resource_name}"
+      attachment_collection:
+        create: "%{user_name} criou a coleção %{resource_name} de anexos"
+        delete: "%{user_name} excluiu a coleção %{resource_name} de anexos"
+        update: "%{user_name} atualizou a coleção %{resource_name} de anexos"
+      category:
+        create: "%{user_name} adicionou a categoria %{resource_name} ao espaço %{space_name}"
+        delete: "%{user_name} excluiu a categoria %{resource_name} do espaço %{space_name}"
+        update: "%{user_name} atualizou a categoria %{resource_name} no espaço %{space_name}"
       component:
         create: "%{user_name} adicionou o componente %{resource_name} ao espaço %{space_name}"
         delete: "%{user_name} removeu o componente %{resource_name} do espaço %{space_name}"
+        export_component: "%{user_name} exportou %{resource_name} %{component_name} em %{space_name} como %{format_name}"
         publish: "%{user_name} publicou o componente %{resource_name} no espaço %{space_name}"
-        unpublish: "%{user_name} não publicado o componente %{resource_name} do espaço %{space_name}"
+        unpublish: "%{user_name} despublicou o componente %{resource_name} do espaço %{space_name}"
+        update_permissions_with_space: "%{user_name} atualizou as permissões de %{resource_name} no %{space_name}"
+      contextual_help_section:
+        update: "%{user_name} atualizou a seção de ajuda %{resource_name}"
+      helpers:
+        answers: respostas
+        comments: comentários
+        projects: projetos
+        results: resultados
       impersonation_log:
         manage: "%{user_name} gerenciou %{resource_name} porque %{reason}"
       moderation:
@@ -160,6 +178,7 @@ pt-BR:
         update: "%{user_name} atualizou o aplicativo %{resource_name} OAuth"
       organization:
         update: "%{user_name} atualizou as configurações da organização"
+        update_external_domain: "%{user_name} atualizou os domínios externos da organização"
       participatory_space_private_user:
         create: "%{user_name} Convidado %{resource_name} ser um usuário privado"
         create_via_csv: "%{user_name} convidou %{resource_name} via CSV para ser um usuário privado"
@@ -171,6 +190,10 @@ pt-BR:
         delete_with_parent: "%{user_name} excluiu o âmbito %{resource_name} dentro do âmbito %{parent_scope}"
         update: "%{user_name} atualizou o âmbito %{resource_name}"
         update_with_parent: "%{user_name} atualizou o âmbito %{resource_name} dentro do âmbito %{parent_scope}"
+      scope_type:
+        create: "%{user_name} criou o tipo de escopo %{resource_name}"
+        delete: "%{user_name} excluiu o tipo de escopo %{resource_name}"
+        update: "%{user_name} atualizou o tipo de escopo %{resource_name}"
       static_page:
         create: "%{user_name} criou o %{resource_name} página estática"
         delete: "%{user_name} apagou o %{resource_name} página estática"
@@ -186,7 +209,9 @@ pt-BR:
         unblock: "%{user_name} desbloqueou o usuário %{resource_name}"
         unofficialize: "%{user_name} não oficializado o usuário %{resource_name}"
       user_group:
+        block: "%{user_name} bloqueou o grupo de usuários %{resource_name}"
         reject: "%{user_name} rejeitou o %{resource_name} verificação do grupo de usuários"
+        unblock: "%{user_name} desbloqueou o grupo de usuários %{resource_name}"
         verify: "%{user_name} verificado o %{resource_name} grupo de usuários"
         verify_via_csv: "%{user_name} verificou o %{resource_name} grupo de usuários por meio de um arquivo CSV"
       user_moderation:
@@ -297,6 +322,7 @@ pt-BR:
       endorsements:
         one: endosso
         other: endossos
+      official_author: Oficial
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Seja verificado introduzindo um número de passaporte começando com "A"
@@ -473,11 +499,14 @@ pt-BR:
           subtitle: Por favor, preencha o seguinte formulário para completar a inscrição
           username_help: Nome público que aparece em suas postagens. Com o objetivo de garantir o anonimato, pode ser qualquer nome.
       registrations:
+        create:
+          error: Houve um erro ao criar sua conta.
         new:
           already_have_an_account?: Você já tem uma conta?
           newsletter: Receba um boletim informativo ocasional com informações relevantes
           newsletter_title: Permissão de contato
           nickname_help: Seu alias em %{organization}. Só pode conter letras, números, '-' e '_'.
+          sign_in: Iniciar Sessão
           sign_up: Inscreva-se
           sign_up_as:
             legend: Inscreva-se como
@@ -532,6 +561,11 @@ pt-BR:
         download_data: Baixe os dados
         download_data_description: Um arquivo contendo todas as informações associadas à sua conta será enviado para <strong>%{user_email}</strong>. Este e-mail conterá um arquivo .zip e uma senha para abri-lo.<br/><br/>Para descompactar o arquivo, você precisará de <a href="https://www.7-zip.org/">7-Zip</a> (para Windows) ou <a href="https://www.keka.io/">Keka</a> (para MacOS). Se você usar Linux, a maior parte do tempo você o terá instalado por padrão. Se não, você pode usar <a href="https://gitlab.gnome.org/GNOME/file-roller">Rolagem de Arquivos</a> ou <a href="https://peazip.github.io">PeaZip</a>. ).
         request_data: Solicitar dados
+    editor_images:
+      create:
+        error: Erro ao carregar a imagem
+        success: Imagem carregada com sucesso
+      drag_and_drop_help: Adicione imagens arrastando e soltando ou colando-as.
     endorsable:
       endorsements: Endossos
       endorsements_count: Contagem de endossos
@@ -729,6 +763,7 @@ pt-BR:
       no_followers: Nenhum seguidor.
     following:
       no_followings: Não segue ninguém ou nada ainda.
+      non_public_followings: Alguns dos recursos seguidos não são públicos.
     follows:
       create:
         button: Seguir
@@ -868,6 +903,7 @@ pt-BR:
         success: Solicitação de junção criada com êxito. Um administrador irá rever o seu pedido antes de aceitá-lo para o grupo.
       leave:
         error: Houve um problema ao sair do grupo
+        last_admin: Você não pode se remover deste grupo pois é o último administrador. Faça de outro membro um administrador para sair do grupo.
         success: Saiu do grupo com sucesso.
       members:
         accept_or_reject_join_requests: 'Os seguintes grupos convidaram você para se juntar a eles. Aceite ou rejeite seus pedidos:'
@@ -880,6 +916,7 @@ pt-BR:
       no_user_groups: Não pertence a nenhum grupo ainda.
       roles:
         admin: Administrador
+        creator: Administrador
         member: Membro
       update:
         error: Houve um problema ao atualizar o grupo
@@ -913,9 +950,12 @@ pt-BR:
         create_with_space: "%{user_name} criado %{resource_name} em %{space_name}"
         delete: "%{user_name} excluído %{resource_name}"
         delete_with_space: "%{user_name} excluído %{resource_name} em %{space_name}"
+        publish_with_space: "%{user_name} publicou %{resource_name} em %{space_name}"
         unknown_action: "%{user_name} executou alguma ação em %{resource_name}"
         unknown_action_with_space: "%{user_name} executou alguma ação em %{resource_name} em %{space_name}"
+        unpublish_with_space: "%{user_name} despublicou %{resource_name} de %{space_name}"
         update: "%{user_name} atualizado %{resource_name}"
+        update_permissions_with_space: "%{user_name} atualizou as permissões de %{resource_name} no %{space_name}"
         update_with_space: "%{user_name} atualizado %{resource_name} em %{space_name}"
       value_types:
         area_presenter:
@@ -1002,6 +1042,7 @@ pt-BR:
           next: Próxima
           no_conversations: Ainda não há conversas
           title: Conversas
+          to: Para
         reply:
           placeholder: Sua resposta...
           send: Enviar
@@ -1009,6 +1050,7 @@ pt-BR:
         show:
           back: Voltar para todas as conversas
           chat_with: Conversa com
+          deleted_accounts: Você não pode ter uma conversa com contas excluídas.
           not_allowed: Este usuário não aceita mensagens diretas.
           title: Conversa com %{usernames}
         start:
@@ -1034,6 +1076,7 @@ pt-BR:
     newsletter_mailer:
       newsletter:
         note: Você recebeu este e-mail porque está inscrito em boletins informativos em %{organization_name}. Você pode alterar suas configurações em suas <a href="%{link}">notifications page</a>.
+        see_on_website: Não consegue ver este e-mail corretamente? Visualize-o no <a href="%{link}" target="_blank" class="see-on-website">site</a>.
         unsubscribe: Para optar por não receber esse tipo de email, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
     newsletter_templates:
       basic_only_text:
@@ -1075,26 +1118,54 @@ pt-BR:
         greetings: Saudações,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Olá,
         subject: Você deseja continuar recebendo informações relevantes sobre %{organization_name}?
+    notification_mailer:
+      event_received:
+        original_text: 'Texto original:'
+        same_language: O conteúdo foi publicado em seu idioma preferido (%{language}), e é por isso que nenhuma tradução automática é exibida neste e-mail.
+        translated_text: 'Texto traduzido automaticamente:'
     notifications:
       no_notifications: Não há notificações.
+      show:
+        missing_event: Ops, esta notificação pertence a um item que não está mais disponível. Você pode descartá-lo.
+    notifications_digest_mailer:
+      header:
+        daily: Resumo de Notificação Diário
+        weekly: Resumo de Notificação Semanal
+      hello: Olá %{name},
+      intro:
+        daily: 'Estas são as notificações do último dia com base na atividade que você está seguindo:'
+        weekly: 'Estas são as notificações da última semana com base na atividade que você está seguindo:'
+      outro: Você recebeu essas notificações porque está seguindo este conteúdo ou seus autores. Você pode deixar de segui-las em suas respectivas páginas.
+      see_more: Ver mais notificações
+      subject: Este é o resumo do e-mail
     notifications_settings:
       show:
         administrators: Administradores
         allow_public_contact: Permita que qualquer pessoa me envie uma mensagem direta, mesmo que eu não as siga.
+        allow_push_notifications: Receba notificações para descobrir o que está acontecendo quando você não estiver na plataforma. Você pode desativá-las a qualquer momento.
         direct_messages: Receber mensagens diretas de qualquer pessoa
+        email_on_moderations: Quero receber um e-mail toda vez que algo ou alguém for denunciado por moderação.
         everything_followed: Tudo que eu sigo
         newsletter_notifications: Quero receber boletins informativos
         newsletters: boletins informativos
         notification_settings:
           close_meeting_reminder: Quero receber lembretes por e-mail de reuniões fechadas de relatórios não publicados
         notifications_sending_frequencies:
+          daily: Diariamente
           none: Nenhum
+          real_time: Tempo real
+          weekly: Semanalmente
+        notifications_sending_frequency: Com que frequência deseja receber o e-mail de notificações?
         own_activity: Minha atividade, como quando alguém comenta minha proposta ou me menciona
         receive_notifications_about: Quero receber notificações sobre
         update_notifications_settings: Guardar alterações
       update:
         error: Ocorreu um erro ao atualizar suas configurações de notificações.
         success: Suas configurações de notificações foram atualizadas com sucesso.
+    offline:
+      show:
+        message: Parece que você está offline no momento. Por favor, tente novamente mais tarde.
+        retry: Tentar de novo
     open_data:
       not_available_yet: Os arquivos Open Data ainda não estão disponíveis. Tente novamente em alguns minutos.
     own_user_groups:
@@ -1118,6 +1189,7 @@ pt-BR:
           proposals: Propostas
           proposals_explanation: Faça propostas, suporte as existentes e promova as mudanças que deseja ver.
         footer_sub_hero:
+          footer_sub_hero_body: Vamos construir uma sociedade mais aberta, transparente e colaborativa.<br /> Participe, participe e decida.
           footer_sub_hero_headline: Bem-vindo à plataforma participativa %{organization}.
           register: Registrar-se
         hero:
@@ -1147,14 +1219,22 @@ pt-BR:
           agreement: Concordo com estes termos
           legend: Concorde com os termos e condições de uso
         refuse:
+          modal_body: Se recusar, você não poderá usar a plataforma, você pode <a href="%{download_your_data_path}">baixar seus dados</a> e / ou <a href="%{delete_path}">excluir sua conta</a>.
+          modal_btn_continue: Aceite os termos e continue
           modal_btn_exit: Vou revisá-lo mais tarde
+          modal_button: Recuse os termos
           modal_close: Fechar modal
           modal_title: Você realmente recusa os Termos e Condições atualizados?
         required_review:
           alert: Atualizamos nossos Termos de Serviço, revise-os.
           body: Por favor, dedique um momento para rever as atualizações dos nossos Termos de Serviço. Caso contrário, você não poderá usar a plataforma.
+          title: 'Obrigatório: Revise as atualizações dos nossos termos de serviço'
     participatory_space_private_users:
       not_allowed: Você não tem permissão para visualizar este conteúdo
+    passwords:
+      update:
+        error: Houve um problema ao atualizar a senha
+        success: Senha atualizada com sucesso
     profile:
       deleted: Usuário excluído
       inaccessible_message: Este perfil está inacessível devido a violação de Termos e Condições!
@@ -1299,6 +1379,8 @@ pt-BR:
         close_modal: Fechar modal
         please_sign_in: Por favor, inicie a sessão
         sign_up: Inscrever-se
+      mentions_modal:
+        remove_recipient: Remover destinatário %{name}
       participatory_space_filters:
         filters:
           areas: Áreas
@@ -1337,6 +1419,9 @@ pt-BR:
       help_text: "<strong>Aviso:</strong> O conteúdo pode ser traduzido automaticamente e não está 100% correto."
       show_original: Exibir texto original
       show_translated: Mostrar texto traduzido automaticamente
+    user_activity:
+      index:
+        no_activities_warning: Este participante não possui nenhuma atividade ainda.
     user_contact_disabled: Este usuário não aceita mensagens diretas.
     user_conversations:
       create:
@@ -1365,6 +1450,7 @@ pt-BR:
         title_reply: Resposta
       show:
         back: Mostrar todas as conversas
+        deleted_accounts: Você não pode ter uma conversa com contas excluídas.
         not_allowed: Este usuário não aceita mais mensagens diretas.
         title: Conversa com %{usernames}
       update:
@@ -1382,6 +1468,7 @@ pt-BR:
       notify:
         body_1: O usuário %{user} foi denunciado por %{token}
         body_2: 'Motivo: %{reason}'
+        details: Detalhes fornecidos pelo usuário
         greetings: Saudações,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Olá %{admin},
         subject: Um novo usuário foi denunciado em %{organization_name}
@@ -1531,6 +1618,8 @@ pt-BR:
       updated: Sua conta foi atualizada com sucesso.
     sessions:
       already_signed_out: Saiu com sucesso.
+      new:
+        sign_in: Iniciar Sessão
       signed_in: Conectado com sucesso.
       signed_out: Saiu com sucesso.
     shared:
@@ -1539,6 +1628,7 @@ pt-BR:
         didn_t_receive_confirmation_instructions: Não recebeu instruções de confirmação?
         didn_t_receive_unlock_instructions: Não recebeu instruções de desbloqueio?
         forgot_your_password: Esqueceu sua senha?
+        sign_in: Iniciar Sessão
         sign_in_with_provider: Entrar com %{provider}
         sign_up: inscrever-se
       minimum_password_length:
