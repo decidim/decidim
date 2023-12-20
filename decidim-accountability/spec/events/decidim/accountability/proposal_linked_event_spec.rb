@@ -15,12 +15,16 @@ describe Decidim::Accountability::ProposalLinkedEvent do
   let(:proposal_path) { resource_locator(proposal).path }
   let(:proposal_title) { translated(proposal.title) }
   let(:notification_title) { "The proposal <a href=\"#{proposal_path}\">#{proposal_title}</a> has been included in the <a href=\"#{resource_path}\">#{resource_title}</a> result." }
+  let(:email_subject) { "An update to #{proposal_title}" }
+  let(:email_outro) { "You have received this notification because you are following \"#{proposal_title}\". You can stop receiving notifications following the previous link." }
+  let(:email_intro) { "The proposal \"#{proposal_title}\" has been included in a result. You can see it from this page:" }
 
   before do
     resource.link_resources([proposal], "included_proposals")
   end
 
   it_behaves_like "a simple event"
+  it_behaves_like "a simple event email"
   it_behaves_like "a simple event notification"
 
   describe "proposal" do
@@ -43,21 +47,18 @@ describe Decidim::Accountability::ProposalLinkedEvent do
 
   describe "email_subject" do
     it "is generated correctly" do
-      expect(subject.email_subject).to eq("An update to #{proposal_title}")
       expect(subject.email_subject).not_to include(proposal.title.to_s)
     end
   end
 
   describe "email_outro" do
     it "is generated correctly" do
-      expect(subject.email_outro).to eq("You have received this notification because you are following \"#{proposal_title}\". You can stop receiving notifications following the previous link.")
       expect(subject.email_outro).not_to include(proposal.title.to_s)
     end
   end
 
   describe "email_intro" do
     it "is generated correctly" do
-      expect(subject.email_intro).to eq("The proposal \"#{proposal_title}\" has been included in a result. You can see it from this page:")
       expect(subject.email_intro).not_to include(proposal.title.to_s)
     end
   end
