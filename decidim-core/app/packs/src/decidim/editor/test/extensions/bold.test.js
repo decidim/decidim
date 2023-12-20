@@ -7,7 +7,6 @@ import ListItem from "@tiptap/extension-list-item";
 import Text from "@tiptap/extension-text";
 
 import Bold from "src/decidim/editor/extensions/bold";
-// import OrderedList from "../../extensions/ordered_list";
 
 import { updateContent } from "src/decidim/editor/test/helpers";
 

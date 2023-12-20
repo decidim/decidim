@@ -1,6 +1,5 @@
 /* global jest */
 
-// import { createBasicEditor } from "../helpers";
 import { Editor } from "@tiptap/core";
 
 import DecidimKit from "src/decidim/editor/extensions/decidim_kit";
