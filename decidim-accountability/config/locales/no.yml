@@ -73,25 +73,25 @@
           index:
             title: Statuser
           new:
-            create: Lag ny status
+            create: Opprett status
             title: Ny status
         timeline_entries:
           edit:
-            title: Rediger oppføringen
+            title: Rediger oppføring
             update: Oppdater oppføringen
           index:
-            title: Prosjekt tidslinje oppføringer
+            title: Oppføringer på prosjekttidslinje
           new:
-            create: Lag en ny oppføring
+            create: Opprett oppføring
             title: Ny oppføring
       admin_log:
         result:
           create: "%{user_name} opprettet resultat %{resource_name} i %{space_name}"
-          delete: "%{user_name} slettet %{resource_name} resultatet i %{space_name}"
-          update: "%{user_name} oppdaterte rusultat%{resource_name} i %{space_name}"
+          delete: "%{user_name} slettet %{resource_name}-resultatet i %{space_name}"
+          update: "%{user_name} oppdaterte %{resource_name}-resultatet i %{space_name}"
         status:
-          create: "%{user_name} har opprettet statusen %{resource_name}"
-          delete: "%{user_name} slettet statusen %{resource_name}"
+          create: "%{user_name} har opprettet %{resource_name}-statusen"
+          delete: "%{user_name} slettet %{resource_name}-statusen"
           update: "%{user_name} oppdaterte statusen %{resource_name}"
         timeline_entry:
           create: "%{user_name} opprettet %{resource_name} i tidslinjen"
