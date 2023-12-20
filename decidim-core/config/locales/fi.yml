@@ -1331,8 +1331,6 @@ fi:
           alert: Olemme päivittäneet käyttöehtojamme. Ole hyvä ja tutustu päivitettyihin ehtoihin.
           body: Ole hyvä ja tutustu päivitetyihin käyttöehtoihimme. Jatkaaksesi palvelun käyttöä sinun on tutustuttava päivitettyihin ehtoihin.
           title: 'Pakollinen: Tarkista päivitetyt käyttöehtomme'
-    participatory_space_private_users:
-      not_allowed: Et voi katsoa tätä sisältöä
     passwords:
       update:
         error: Salasanan päivitys epäonnistui.
