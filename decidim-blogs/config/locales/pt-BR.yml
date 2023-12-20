@@ -44,6 +44,11 @@ pt-BR:
           update:
             invalid: Falha ao salvar o post.
             success: Post salvo com sucesso
+      admin_log:
+        post:
+          create: "%{user_name} criou a publicação no blog %{resource_name} do %{space_name}"
+          delete: "O %{user_name} excluiu a publicação no blog %{resource_name} do %{space_name}"
+          update: "%{user_name} atualizou a publicação no blog %{resource_name} do %{space_name}"
       last_activity:
         new_post_at_html: "<span>Nova postagem em %{link}</span>"
       models:
@@ -55,6 +60,8 @@ pt-BR:
             official_blog_post: Publicação oficial
             title: Título
       posts:
+        index:
+          empty: Não existem publicações ainda.
         show:
           back: Voltar para a lista
           comments: Comentários
