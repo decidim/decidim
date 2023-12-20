@@ -1312,8 +1312,6 @@ eu:
           alert: "Gure zerbitzu baldintzak eguneratu ditugu., berrikusi, mesedez.\n"
           body: Mesedez, hartu tarte bat erabilerarako gure baldintzak eta irizpideak berrikusteko. Bestela, ezin izango duzu plataforman parte hartu.
           title: 'Eskatuta: berrikusi eguneraketak gure zerbitzuaren baldintzetan'
-    participatory_space_private_users:
-      not_allowed: Ez duzu baimenik eduki hau ikusteko
     passwords:
       update:
         error: Arazo bat egon da pasahitza eguneratzean.
