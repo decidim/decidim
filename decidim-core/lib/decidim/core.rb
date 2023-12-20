@@ -178,7 +178,7 @@ module Decidim
 
   def self.seed_gamification_badges!
     Gamification.badges.each do |badge|
-      puts "Setting random values for the \"#{badge.name}\" badge..."
+      puts "Setting random values for the \"#{badge.name}\" badge..." # rubocop:disable Rails/Output
       User.all.find_each do |user|
         Gamification::BadgeScore.find_or_create_by!(
           user:,
