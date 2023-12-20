@@ -1033,10 +1033,12 @@ pt-BR:
           proposals: Propostas
           proposals_explanation: Faça propostas, suporte as existentes e promova as mudanças que deseja ver.
         footer_sub_hero:
+          footer_sub_hero_body_html: Vamos construir uma sociedade mais aberta, transparente e colaborativa.<br /> Participe, participe e decida.
           footer_sub_hero_headline: Bem-vindo à plataforma participativa %{organization}.
           register: Registrar-se
         hero:
           participate: Participar
+          participate_title: Participe dos processos da plataforma
           welcome: Bem-vindo ao %{organization}!
         statistics:
           headline: Estado atual de %{organization}
@@ -1054,8 +1056,17 @@ pt-BR:
       terms_of_service:
         form:
           agreement: Concordo com estes termos
+        refuse:
+          modal_btn_continue: Aceite os termos e continue
+          modal_button: Recuse os termos
+        required_review:
+          title: 'Obrigatório: Revise as atualizações dos nossos termos de serviço'
     participatory_space_private_users:
       not_allowed: Você não tem permissão para visualizar este conteúdo
+    passwords:
+      update:
+        error: Houve um problema ao atualizar a senha.
+        success: Senha atualizada com sucesso.
     profile:
       deleted: Usuário excluído
     profiles:
@@ -1175,6 +1186,8 @@ pt-BR:
         help: Socorro
       login_modal:
         sign_up: Inscrever-se
+      mentions_modal:
+        remove_recipient: Remover destinatário %{name}
       participatory_space_filters:
         filters:
           areas: Áreas
@@ -1212,6 +1225,9 @@ pt-BR:
       help_text: "<strong>Aviso:</strong> O conteúdo pode ser traduzido automaticamente e não está 100% correto."
       show_original: Exibir texto original
       show_translated: Mostrar texto traduzido automaticamente
+    user_activity:
+      index:
+        no_activities_warning: Este participante não possui nenhuma atividade ainda.
     user_contact_disabled: Este usuário não aceita mensagens diretas.
     user_conversations:
       create:
@@ -1237,6 +1253,7 @@ pt-BR:
       notify:
         body_1: O usuário %{user} foi denunciado por %{token}
         body_2: 'Motivo: %{reason}'
+        details: Detalhes fornecidos pelo usuário
         greetings: Saudações,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Olá %{admin},
         subject: Um novo usuário foi denunciado em %{organization_name}
@@ -1373,6 +1390,8 @@ pt-BR:
   editor:
     upload:
       uploadedFile: Arquivo carregado
+  emojis:
+    retry: Tente novamente
   errors:
     messages:
       allowed_file_content_types: 'apenas arquivos com as seguintes extensões são permitidos: %{types}'
