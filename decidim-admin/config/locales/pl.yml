@@ -772,14 +772,24 @@ pl:
           warning: "<strong>Uwaga:</strong> Ten newsletter zostanie wysyłany tylko do użytkowników, którzy w ustawieniach powiadomień aktywowali opcję <em>Chcę otrzymywać newsletter</em>."
         send:
           no_recipients: Brak odbiorców dla tego wyboru.
+        send_to_user:
+          sent_successfully: Newsletter został pomyślnie wysłany do %{email}
         show:
           preview: Podgląd
           select_recipients_to_deliver: Wybierz odbiorców
+          send_me_a_test_email: Wyślij mi testowego e-maila
           subject: Temat
         update:
           error: Podczas aktualizowania tego newslettera wystąpił błąd.
           success: Newsletter został zaktualizowany. Przeczytaj go przed wysłaniem.
       officializations:
+        block:
+          error: Wystąpił błąd podczas blokowania uczestnika.
+          success: Uczestnik został zablokowany.
+        create:
+          success: Potwierdzenie autentyczności uczestnika powiodło się.
+        destroy:
+          success: Wycofanie potwierdzenia autentyczności uczestnika powiodło się.
         index:
           actions: Działania
           badge: Odznaka
@@ -807,6 +817,9 @@ pl:
           hidden: ukryty
           show: Pokaż
           title: Pokaż adres e-mail uczestnika
+        unblock:
+          error: Wystąpił błąd podczas odblokowywania użytkownika.
+          success: Odblokowanie uczestnika powiodło się.
       organization:
         edit:
           title: Edytuj organizację
@@ -817,6 +830,7 @@ pl:
           instagram: Instagram
           rich_text_editor_in_public_views_help: W niektórych polach tekstowych uczestnicy będą mogli wstawiać znaczniki HTML za pomocą edytora.
           social_handlers: Profile społecznościowe
+          twitter: X
           url: Adres URL
           youtube: YouTube
         update:
@@ -827,8 +841,14 @@ pl:
           update: Aktualizuj
         form:
           colors:
+            choose_color: Wybierz kolor podstawowy
             colors_title: Kolory organizacji
             colors_warning_html: Uwaga! Zmiana tych kolorów może ograniczyć czytelność. Możesz sprawdzić kontrast wybranych kolorów korzystając z <a href="%{link}">WebAIM Contrast Checker</a> albo innych podobnych narzędzi.
+            explanation: To narzędzie pomaga ci wybrać zestaw kolorów złożony z odcieni równomiernie rozmieszczonych na kole barw, który będzie używany na stronie internetowej organizacji.
+            legend_html: Główne kolory aplikacji, oparte na algorytmie <a href="https://www.color-meanings.com/triadic-colors/">Algorytm trójkowy</a>. <i>drugorzędowy</i> kolor jest obliczany automatycznie na podstawie koloru podstawowego i wybranej przez ciebie saturacji.
+            saturation: Saturacja
+            title: Wybór koloru
+            update_suggested_colors: Zaktualizuj sugerowane kolory
           cta_button_text_help: Można nadpisać tekst przycisku CTA na stronie głównej dla każdego dostępnego języka organizacji. Jeśli to pole nie zostanie wypełnione, zostanie użyta wartość domyślna. Przycisk CTA zostanie wyświetlony na stronie głównej między tekstem powitalnym a opisem.
           homepage_appearance_title: Edytuj wygląd strony głównej
           homepage_highlighted_content_banner_title: Wyróżniony baner tekstowy
