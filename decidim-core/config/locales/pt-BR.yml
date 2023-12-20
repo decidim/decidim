@@ -90,6 +90,7 @@ pt-BR:
   decidim:
     accessibility:
       external_link: Link externo
+      front_page_link: Ir para a página inicial
       logo: "Logotipo oficial de %{organization}"
       skip_button: Pular para o conteúdo principal
     account:
@@ -105,7 +106,18 @@ pt-BR:
         success: Sua conta foi excluída.
       download_your_data_export:
         file_no_exists: O arquivo não existe
+      email_change:
+        body1: Enviamos um e-mail para %{unconfirmed_email} para verificar seu novo endereço de e-mail.
+        body2: Precisa que enviemos o e-mail de verificação novamente? %{resend_link} ou %{cancel_link}.
+        cancel: cancelar
+        cancel_error: Não foi possível cancelar a alteração do email.
+        cancel_successfully: Alteração de e-mail cancelada com sucesso.
+        resend_error: Não foi possível reenviar o e-mail de confirmação.
+        resend_successfully: E-mail de confirmação reenviado com sucesso para %{unconfirmed_email}.
+        send_again: Enviar novamente
+        title: Verificação de mudança de e-mail
       show:
+        available_locales_helper: Escolha o idioma que você deseja usar para navegar e receber notificações na plataforma.
         change_password: Mudar senha
         update_account: Atualizar conta
       update:
@@ -122,11 +134,36 @@ pt-BR:
         create: "%{user_name} criou a área %{resource_name}"
         delete: "%{user_name} excluiu a área %{resource_name}"
         update: "%{user_name} atualizou a área %{resource_name}"
+      area_type:
+        create: "%{user_name} criou o tipo de área %{resource_name}"
+        delete: "%{user_name} excluiu o tipo de área %{resource_name}"
+        update: "%{user_name} atualizou o tipo de área %{resource_name}"
+      attachment:
+        create: "%{user_name} criou o anexo %{resource_name}"
+        delete: "%{user_name} excluiu o anexo %{resource_name}"
+        update: "%{user_name} atualizou o anexo %{resource_name}"
+      attachment_collection:
+        create: "%{user_name} criou a coleção %{resource_name} de anexos"
+        delete: "%{user_name} excluiu a coleção %{resource_name} de anexos"
+        update: "%{user_name} atualizou a coleção %{resource_name} de anexos"
+      category:
+        create: "%{user_name} adicionou a categoria %{resource_name} ao espaço %{space_name}"
+        delete: "%{user_name} excluiu a categoria %{resource_name} do espaço %{space_name}"
+        update: "%{user_name} atualizou a categoria %{resource_name} no espaço %{space_name}"
       component:
         create: "%{user_name} adicionou o componente %{resource_name} ao espaço %{space_name}"
         delete: "%{user_name} removeu o componente %{resource_name} do espaço %{space_name}"
+        export_component: "%{user_name} exportou %{resource_name} %{component_name} em %{space_name} como %{format_name}"
         publish: "%{user_name} publicou o componente %{resource_name} no espaço %{space_name}"
-        unpublish: "%{user_name} não publicado o componente %{resource_name} do espaço %{space_name}"
+        unpublish: "%{user_name} despublicou o componente %{resource_name} do espaço %{space_name}"
+        update_permissions_with_space: "%{user_name} atualizou as permissões de %{resource_name} no %{space_name}"
+      contextual_help_section:
+        update: "%{user_name} atualizou a seção de ajuda %{resource_name}"
+      helpers:
+        answers: respostas
+        comments: comentários
+        projects: projetos
+        results: resultados
       impersonation_log:
         manage: "%{user_name} gerenciou %{resource_name} porque %{reason}"
       moderation:
@@ -143,6 +180,7 @@ pt-BR:
         update: "%{user_name} atualizou o aplicativo %{resource_name} OAuth"
       organization:
         update: "%{user_name} atualizou as configurações da organização"
+        update_external_domain: "%{user_name} atualizou os domínios externos da organização"
       participatory_space_private_user:
         create: "%{user_name} Convidado %{resource_name} ser um usuário privado"
         create_via_csv: "%{user_name} convidou %{resource_name} via CSV para ser um usuário privado"
@@ -154,6 +192,10 @@ pt-BR:
         delete_with_parent: "%{user_name} excluiu o âmbito %{resource_name} dentro do âmbito %{parent_scope}"
         update: "%{user_name} atualizou o âmbito %{resource_name}"
         update_with_parent: "%{user_name} atualizou o âmbito %{resource_name} dentro do âmbito %{parent_scope}"
+      scope_type:
+        create: "%{user_name} criou o tipo de escopo %{resource_name}"
+        delete: "%{user_name} excluiu o tipo de escopo %{resource_name}"
+        update: "%{user_name} atualizou o tipo de escopo %{resource_name}"
       static_page:
         create: "%{user_name} criou o %{resource_name} página estática"
         delete: "%{user_name} apagou o %{resource_name} página estática"
@@ -169,7 +211,9 @@ pt-BR:
         unblock: "%{user_name} desbloqueou o usuário %{resource_name}"
         unofficialize: "%{user_name} não oficializado o usuário %{resource_name}"
       user_group:
+        block: "%{user_name} bloqueou o grupo de usuários %{resource_name}"
         reject: "%{user_name} rejeitou o %{resource_name} verificação do grupo de usuários"
+        unblock: "%{user_name} desbloqueou o grupo de usuários %{resource_name}"
         verify: "%{user_name} verificado o %{resource_name} grupo de usuários"
         verify_via_csv: "%{user_name} verificou o %{resource_name} grupo de usuários por meio de um arquivo CSV"
       user_moderation:
@@ -263,6 +307,7 @@ pt-BR:
       endorsements:
         one: endosso
         other: endossos
+      official_author: Oficial
     authorization_handlers:
       another_dummy_authorization_handler:
         fields:
@@ -429,8 +474,11 @@ pt-BR:
           subtitle: Por favor, preencha o seguinte formulário para completar a inscrição
           username_help: Nome público que aparece em suas postagens. Com o objetivo de garantir o anonimato, pode ser qualquer nome.
       registrations:
+        create:
+          error: Houve um erro ao criar sua conta.
         new:
           already_have_an_account?: Você já tem uma conta?
+          log_in: Iniciar Sessão
           newsletter: Receba um boletim informativo ocasional com informações relevantes
           newsletter_title: Permissão de contato
           sign_up: Inscreva-se
@@ -470,6 +518,11 @@ pt-BR:
       show:
         download_data: Baixe os dados
         request_data: Solicitar dados
+    editor_images:
+      create:
+        error: Erro ao carregar a imagem.
+        success: Imagem carregada com sucesso.
+      drag_and_drop_help: Adicione imagens arrastando e soltando ou colando-as.
     endorsements:
       identities:
         done: Concluído
@@ -649,6 +702,8 @@ pt-BR:
         one: "%{count} seguidor"
         other: "%{count} seguidores"
       no_followers: Nenhum seguidor.
+    following:
+      non_public_followings: Alguns dos recursos seguidos não são públicos.
     follows:
       create:
         button: Seguir
@@ -759,6 +814,7 @@ pt-BR:
         subtitle: Crie um grupo e convide outros usuários a participar para participar de um nível coletivo.
       roles:
         admin: Administrador
+        creator: Administrador
         member: Membro
     help:
       main_topic:
@@ -784,9 +840,12 @@ pt-BR:
         create_with_space: "%{user_name} criado %{resource_name} em %{space_name}"
         delete: "%{user_name} excluído %{resource_name}"
         delete_with_space: "%{user_name} excluído %{resource_name} em %{space_name}"
+        publish_with_space: "%{user_name} publicou %{resource_name} em %{space_name}"
         unknown_action: "%{user_name} executou alguma ação em %{resource_name}"
         unknown_action_with_space: "%{user_name} executou alguma ação em %{resource_name} em %{space_name}"
+        unpublish_with_space: "%{user_name} despublicou %{resource_name} de %{space_name}"
         update: "%{user_name} atualizado %{resource_name}"
+        update_permissions_with_space: "%{user_name} atualizou as permissões de %{resource_name} no %{space_name}"
         update_with_space: "%{user_name} atualizado %{resource_name} em %{space_name}"
       value_types:
         area_presenter:
@@ -912,21 +971,51 @@ pt-BR:
         greetings: Saudações,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Olá,
         subject: Você deseja continuar recebendo informações relevantes sobre %{organization_name}?
+    notification_mailer:
+      event_received:
+        original_text: 'Texto original:'
+        same_language: O conteúdo foi publicado em seu idioma preferido (%{language}), e é por isso que nenhuma tradução automática é exibida neste e-mail.
+        translated_text: 'Texto traduzido automaticamente:'
     notifications:
       no_notifications: Não há notificações.
+      show:
+        missing_event: Ops, esta notificação pertence a um item que não está mais disponível. Você pode descartá-lo.
+    notifications_digest_mailer:
+      header:
+        daily: Resumo de Notificação Diário
+        weekly: Resumo de Notificação Semanal
+      hello: Olá %{name},
+      intro:
+        daily: 'Estas são as notificações do último dia com base na atividade que você está seguindo:'
+        weekly: 'Estas são as notificações da última semana com base na atividade que você está seguindo:'
+      outro: Você recebeu essas notificações porque está seguindo este conteúdo ou seus autores. Você pode deixar de segui-las em suas respectivas páginas.
+      see_more: Ver mais notificações
+      subject: Este é o resumo do e-mail
     notifications_settings:
       show:
         administrators: Administradores
         direct_messages: Receber mensagens diretas de qualquer pessoa
+        email_on_moderations: Quero receber um e-mail toda vez que algo ou alguém for denunciado por moderação.
         everything_followed: Tudo que eu sigo
         newsletter_notifications: Quero receber boletins informativos
         newsletters: boletins informativos
+        notification_settings:
+          close_meeting_reminder: Quero receber lembretes por e-mail de reuniões fechadas de relatórios não publicados
+        notifications_sending_frequencies:
+          daily: Diariamente
+          none: Nenhum
+          real_time: Tempo real
+          weekly: Semanalmente
+        notifications_sending_frequency: Com que frequência deseja receber o e-mail de notificações?
         own_activity: Minha atividade, como quando alguém comenta minha proposta ou me menciona
         receive_notifications_about: Quero receber notificações sobre
         update_notifications_settings: Guardar alterações
       update:
         error: Ocorreu um erro ao atualizar suas configurações de notificações.
         success: Suas configurações de notificações foram atualizadas com sucesso.
+    offline:
+      show:
+        retry: Tentar de novo
     open_data:
       not_available_yet: Os arquivos Open Data ainda não estão disponíveis. Tente novamente em alguns minutos.
     pad_iframe:
@@ -1260,10 +1349,15 @@ pt-BR:
       signed_up_but_unconfirmed: Uma mensagem com um link de confirmação foi enviada para o seu endereço de e-mail. Por favor, siga o link para ativar sua conta.
       update_needs_confirmation: Você atualizou sua conta com sucesso, mas precisamos confirmar seu novo endereço de e-mail. Por favor, verifique seu e-mail e siga o link de confirmação para confirmar seu novo endereço de e-mail.
       updated: Sua conta foi atualizada com sucesso.
+    sessions:
+      new:
+        log_in: Iniciar sessão
     shared:
       links:
         back: Costas
         forgot_your_password: Esqueceu sua senha?
+        log_in: Iniciar sessão
+        log_in_with_provider: Iniciar sessão com %{provider}
         sign_up: inscrever-se
       minimum_password_length:
         one: "(Mínimo de%{count} caracteres)"
@@ -1324,11 +1418,13 @@ pt-BR:
         decidim_logo: Logo Decidim
         decidim_title: Decidim
         download_open_data: Baixar arquivos Open Data
+        log_in: Iniciar sessão
         made_with_open_source: Site criado com <a target="_blank" href="https://github.com/decidim/decidim"> software livre</a>.
         resources: Recursos
         sign_up: Cadastre-se
         terms_and_conditions: Termos e Condições
       header:
+        log_in: Iniciar sessão
         main_menu: Menu principal
         user_menu: Menu de usuários
       impersonation_warning:
