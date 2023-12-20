@@ -983,8 +983,6 @@ pl:
         metrics:
           headline: Partycypacja w liczbach
           link: Pokaż wszystkie statystyki
-    participatory_space_private_users:
-      not_allowed: Nie możesz wyświetlać tych treści
     profile:
       deleted: Usunięty użytkownik
     profiles:
