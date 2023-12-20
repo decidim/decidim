@@ -433,7 +433,6 @@ zh-TW:
           report_count_eq: 報告數量等於
           reported_id_string_or_reported_content_cont: 按報告 Id 或內容搜索%{collection}。
           title_cont: 按標題搜索%{collection}。
-          user_name_or_user_email_cont: 按名稱或電子郵件搜索%{collection}。
           user_name_or_user_nickname_or_user_email_cont: 按電子郵件、姓名或暱稱搜索%{collection}。
         state_eq:
           label: 狀態

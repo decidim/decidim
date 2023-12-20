@@ -281,15 +281,9 @@ fi:
             non_user: Käyttäjää ei ole olemassa
             select_user: Valitse käyttäjä
           index:
-            filter:
-              accepted: Hyväksytyt
-              all: Kaikki
-              rejected: Hylätyt
-              sent: Lähetetyt
             invite_attendee: Kutsu osallistuja
             invites: Kutsut
             registrations_disabled: Et voi kutsua osallistujaa, koska ilmoittautumiset on poistettu käytöstä.
-            search: Hae
         meeting_closes:
           edit:
             close: Sulje

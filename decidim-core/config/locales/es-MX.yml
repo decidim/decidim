@@ -1334,8 +1334,6 @@ es-MX:
           alert: Hemos actualizado nuestros Términos y Condiciones, por favor, revísalos.
           body: Por favor, dedica un momento a revisar la actualización de nuestros Términos y Condiciones de uso. De lo contrario, no podrás participar en la plataforma.
           title: 'Requerido: Revisa las actualizaciones en nuestros términos y condiciones de uso'
-    participatory_space_private_users:
-      not_allowed: No puedes ver este contenido
     passwords:
       update:
         error: Ha habido un problema al actualizar la contraseña.

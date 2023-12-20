@@ -902,8 +902,6 @@ nl:
         metrics:
           headline: Deelname in cijfers
           link: Toon alle statistieken
-    participatory_space_private_users:
-      not_allowed: Je hebt geen toestemming om deze inhoud te bekijken
     profile:
       deleted: Verwijderde deelnemer
     profiles:

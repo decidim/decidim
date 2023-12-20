@@ -1331,8 +1331,6 @@ ca:
           alert: Hem actualitzat els nostres Termes i Condicions d'ús, si us plau, revisa'ls.
           body: Si us plau, dedica un moment a revisar l'actualització dels nostres Termes i Condicions d'ús. En cas contrari, no podràs participar en la plataforma.
           title: 'Obligatori: revisa les actualitzacions als nostres termes i condicions d''ús'
-    participatory_space_private_users:
-      not_allowed: No tens permís per visualitzar aquest contingut
     passwords:
       update:
         error: Hi ha hagut un problema en actualitzar la contrasenya.
