@@ -1,8 +1,8 @@
 <% add_decidim_meta_tags({
+                           title: translated_attribute(current_participatory_space.title),
                            image_url: current_participatory_space.attached_uploader(:hero_image).path,
                            description: translated_attribute(current_participatory_space.short_description),
-                           url: assembly_url(current_participatory_space),
-                           twitter_handler: current_organization.twitter_handler
+                           url: assembly_url(current_participatory_space)
                          }) %>
 
 <%
@@ -14,23 +14,27 @@ edit_link(
 )
 %>
 
-<% if current_participatory_space.private_space? %>
-  <section class="participatory-space__block-reference alert">
-    <%= t("private_space", scope: "decidim.assemblies.show") %>
-  </section>
-<% end %>
+<%= render partial: "layouts/decidim/header/follow_space_menu_bar_button", locals: { participatory_space: current_participatory_space } %>
 
-<div class="participatory-space__container">
-
-  <%= participatory_space_floating_help %>
-
-  <% active_content_blocks.each do |content_block| %>
-    <% next unless content_block.manifest %>
-    <%= cell content_block.manifest.cell, content_block %>
+<main>
+  <% if current_participatory_space.private_space? %>
+    <section class="participatory-space__block-reference alert">
+      <%= t("private_space", scope: "decidim.assemblies.show") %>
+    </section>
   <% end %>
 
-</div>
+  <div class="participatory-space__container">
 
-<section class="participatory-space__block-reference">
-  <%= resource_reference(current_participatory_space) %>
-</section>
+    <%= participatory_space_floating_help %>
+
+    <% active_content_blocks.each do |content_block| %>
+      <% next unless content_block.manifest %>
+      <%= cell content_block.manifest.cell, content_block %>
+    <% end %>
+
+  </div>
+
+  <section class="participatory-space__block-reference">
+    <%= resource_reference(current_participatory_space) %>
+  </section>
+</main>
