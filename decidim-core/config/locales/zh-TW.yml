@@ -1222,8 +1222,6 @@ zh-TW:
           alert: 我們已更新我們的服務條款，請您查閱。
           body: 請花一點時間檢閱我們的服務條款更新，否則您將無法使用平台。
           title: '必須：檢閱我們的服務條款更新'
-    participatory_space_private_users:
-      not_allowed: 您無權查看此內容
     passwords:
       update:
         error: 密碼更新時發生問題.
