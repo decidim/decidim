@@ -32,7 +32,6 @@ ro:
           error: Comentariul nu a putut fi șters.
         update:
           error: A apărut o eroare la actualizarea comentariului.
-      comments_count: Număr de comentarii
       comments_title: Comentariu
       votes:
         create:

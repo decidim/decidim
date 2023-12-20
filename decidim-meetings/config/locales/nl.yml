@@ -262,7 +262,6 @@ nl:
             select_a_meeting_type: Selecteer een vergaderingstype
             select_a_registration_type: Selecteer een registratietype
             select_an_iframe_access_level: Selecteer een iframe toegangsniveau
-            show_embedded_iframe_help: 'Slechts enkele diensten staan embedden in vergadering of live evenement toe op de volgende domeinen: %{domains}'
           index:
             title: Events
           new:
@@ -425,7 +424,6 @@ nl:
           select_a_meeting_type: Selecteer een vergaderingstype
           select_a_registration_type: Selecteer een registratietype
           select_an_iframe_access_level: Selecteer een iframe toegangsniveau
-          show_embedded_iframe_help: 'Slechts enkele diensten staan inbedden in vergadering of live evenement toe op de volgende domeinen: %{domains}'
         index:
           click_here: Alle vergaderingen bekijken
           new_meeting: Nieuwe vergadering
@@ -444,7 +442,6 @@ nl:
         show:
           attendees: Aantal deelnemers
           contributions: Aantal bijdragen
-          date: Datum
           join: Deelnemen aan bijeenkomst
           leave: Inschrijving annuleren
           leave_confirmation: Weet je zeker dat je je inschrijving voor deze vergadering wil annuleren?
@@ -462,7 +459,6 @@ nl:
           remaining_slots:
             one: "%{count} resterende plaats"
             other: "%{count} resterende plaatsen"
-          view: Bekijk
           visit_finished: Bekijk voorbije vergadering
           withdraw_btn_hint: Je kunt je vergadering afgelasten indien nodig. De vergadering wordt niet verwijderd, deze verschijnt in de lijst met afgelaste vergaderingen.
           withdraw_confirmation_html: Weet je zeker dat je deze vergadering wil afgelasten? <br><br><strong>Deze actie kan niet worden ongedaan gemaakt</strong>

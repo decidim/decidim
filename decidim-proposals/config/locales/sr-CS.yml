@@ -59,8 +59,6 @@ sr:
             unassign_from_valuator: Oduzmi od procenjivača
             unassign_from_valuator_button: Od dodeli
             update_scope_button: Ažuriraj opseg
-          publish_answers:
-            number_of_proposals: Odgovor na %{number} predloga će biti objavljeni.
           show:
             amendments_count: Broj izmena
             assigned_valuators: Dodeljeni procenjivači
@@ -68,7 +66,6 @@ sr:
             documents: Dokumenti
             endorsements_count: Broj podržavanja
             endorsers: Podržavaoci
-            link: Veza
             n_more_endorsers:
               one: i još 1
               few: i još %{count}

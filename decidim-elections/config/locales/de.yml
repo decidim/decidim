@@ -160,6 +160,10 @@ de:
         manage_answers: Antworten verwalten
         manage_questions: Fragen verwalten
         manage_steps: Schritte verwalten
+        new_answer: Neue Antwort
+        new_election: Neue Wahl
+        new_question: Neue Frage
+        new_trustee: Neuer Wahlhelfer
         preview: Vorschau
         publish: Veröffentlichen
         title: Aktionen
@@ -456,6 +460,7 @@ de:
             started: Die Stimmenzählung hat begonnen.
           tally_title: Stimmenzählung
           title: Wahl-Protokoll
+          unpublished: Nicht veröffentlicht
           verifiable_results:
             checksum: 'SHA256-Prüfsumme der Datei:'
             description:
@@ -791,6 +796,7 @@ de:
               confirm_destroy: Sind Sie sicher?
               destroy: Löschen
               edit: Bearbeiten
+              new: Neue Wahlkategorie
               title: Aktionen
             associated_census_data: Zugehörige Erhebungseinträge
             explanation_callout: Eine Wahlkategorie legt fest, welche Fragen einem Wähler bei der Abstimmung gestellt werden. In einer Wahlkategorie können Sie auswählen, welche Fragen aus den Wahlkomponenten dieser Wahl zu einer Wahlurne gehören. Anhand dem Wahlkategorie-Code aus den Erhebungsdaten des Wählers wird die Wahlkategorie ausgewählt, die einem Wähler angezeigt wird. Wenn Sie immer alle Fragen anzeigen wollen, erstellen Sie keine Wahlkategorien.
@@ -828,22 +834,7 @@ de:
             name: Abstimmungszeitfolge
         index:
           published: Veröffentlicht
-        landing_page:
-          content_blocks:
-            create:
-              error: Es gab ein Problem beim Erstellen dieses Inhaltsblocks.
-              success: Inhaltsblock erfolgreich erstellt.
-            destroy:
-              error: Es gab ein Problem beim Löschen dieses Inhaltsblocks.
-              success: Inhaltsblock erfolgreich gelöscht.
-            edit:
-              update: Aktualisieren
-          edit:
-            active_content_blocks: Aktive Inhaltsblöcke
-            add: Inhaltsblock hinzufügen
-            destroy_confirmation: Sind Sie sicher, dass Sie diesen Inhaltsblock löschen möchten?
-            inactive_content_blocks: Inaktive Inhaltsblöcke
-            title: Seiteninhalte
+          unpublished: Nicht veröffentlicht
         menu:
           votings: Abstimmungen
           votings_submenu:
@@ -853,6 +844,7 @@ de:
             ballot_styles: Wahlkategorien
             census: Erhebung
             components: Komponenten
+            info: Über diese Abstimmung
             landing_page: Landing-Page
             monitoring_committee: Überwachungskomitee
             monitoring_committee_election_results: Ergebnisse überprüfen
@@ -861,6 +853,7 @@ de:
             monitoring_committee_verify_elections: Wahlen überprüfen
             polling_officers: Wahllokal-Mitarbeitende
             polling_stations: Wahllokale
+            see_voting: Abstimmung ansehen
         models:
           ballot_style:
             fields:
@@ -922,7 +915,7 @@ de:
           form:
             existing_user: Existierender Benutzer
             non_user: Neuen Benutzer einladen
-            select_user: Suchen nach Name, E-Mail oder Benutzername
+            select_user: Suchen nach Name, E-Mail oder Kontoname
             user_type: Benutzertyp
           index:
             title: Überwachungskomitee
@@ -971,7 +964,7 @@ de:
           form:
             existing_user: Existierender Benutzer
             non_user: Neuen Benutzer einladen
-            select_user: Suchen nach Name, E-Mail oder Benutzername
+            select_user: Suchen nach Name, E-Mail oder Kontoname
             user_type: Benutzertyp
           index:
             role_manager: Manager
@@ -982,8 +975,6 @@ de:
             title: Wahllokal-Mitarbeiter erfassen
           polling_officers_picker:
             choose_polling_officers: Wahllokal-Mitarbeitende auswählen
-            close: Schließen
-            more_polling_officers: Es gibt %{number} weitere Wahllokal-Mitarbeitende. Verfeinern Sie Ihre Suche um sie zu finden.
             no_polling_officers: Keine Stimmenzähler passen zu Ihren Suchkriterien, oder es gibt keine Stimmenzähler.
         polling_stations:
           create:
@@ -1127,8 +1118,7 @@ de:
               csv_header_after: Lassen Sie das letzte Feld ("%{ballot_style_code_header}") weg, wenn Sie keine Wahlkategorien / variablen Fragen benötigen
               csv_header_before: 'Die Erhebungsdatei muss eine CSV-Datei mit folgender Kopfzeile sein:'
         document_types:
-          dni: Pass-/ID-Nummer
-          nie: Nummer Ausländerausweis
+          identification_number: Identifikationsnummer
           passport: Reisepass
         export_mailer:
           access_codes_export:
@@ -1277,6 +1267,7 @@ de:
         actions:
           confirm_destroy: Sind Sie sicher?
           destroy: Entfernen
+          new: Neuer Wahlhelfer
           title: Aktionen
         roles:
           manager: Manager
@@ -1297,6 +1288,7 @@ de:
           confirm_destroy: Sind Sie sicher?
           destroy: Löschen
           edit: Bearbeiten
+          new: Neues Wahllokal
           title: Aktionen
       votings:
         access_code_modal:
@@ -1382,8 +1374,6 @@ de:
           online: Online
   layouts:
     decidim:
-      election_votes_header:
-        exit: Beenden
       voting_navigation:
         check_census: Kann ich abstimmen?
         election_log: Wahl-Protokoll

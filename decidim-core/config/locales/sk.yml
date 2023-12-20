@@ -155,7 +155,6 @@ sk:
         error: Pri zmene tohto zdroja sa vyskytla chyba.
         promote_button: Propagujte na %{model_name}
         promote_confirm_text: Naozaj chcete túto emisiu podporiť?
-        section_heading: Zmeny (%{count})
       compare_draft:
         continue: Pokračovať
         no_similars_found: Neboli nájdené žiadne podobné vylepšenie.
@@ -283,7 +282,6 @@ sk:
         many: a %{count} ďalších
         other: a %{count} ďalších
       see_less: "(pozri nižšie)"
-      see_more: "(pozri ďalšie)"
     components:
       component_order_selector:
         order:
@@ -763,7 +761,6 @@ sk:
           proposals: Návrhy
           proposals_explanation: Urobiť návrhy, podporiť existujúce a podporovať zmeny, ktoré chcete vidieť.
         footer_sub_hero:
-          footer_sub_hero_body: vybudujte otvorenejšia, transparentnejšia a spolupracujúca spoločnosť. <br /> Prihláste sa, zúčastnite sa a rozhodnite sa.
           footer_sub_hero_headline: Vitajte na%{organization} participatívnej platforme.
           register: Registrovať
         hero:
@@ -971,7 +968,6 @@ sk:
         change_my_password: Zmeňte heslo
         confirm_new_password: Potvrďte nové heslo
         new_password: Nové heslo
-        password_help: "%{minimun_characters} je minimum znakov, nesmie byť príliš bežné (napr. 123456) a musí byť iné ako vaše prezývka a váš e-mail."
       new:
         forgot_your_password: Zabudli ste heslo?
         send_me_reset_password_instructions: Pošlite mi pokyny na resetovanie hesla

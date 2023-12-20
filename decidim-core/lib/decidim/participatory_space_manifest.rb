@@ -98,7 +98,7 @@ module Decidim
     #
     # Returns nothing.
     def seed!
-      print "Creating seeds for the #{name} space...\n" unless Rails.env.test?
+      print "Creating seeds for the #{name} space...\n" unless Rails.env.test? # rubocop:disable Rails/Output
       @seeds&.call
     end
 

@@ -1,8 +1,6 @@
 pt:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: Activar o diagrama da organização
       assembly:
         area_id: Área
         assembly_type: Tipo de reunião
@@ -104,10 +102,6 @@ pt:
         create:
           error: Ocorreu um problema ao duplicar esta reunião.
           success: Reunião duplicada corretamente.
-      assemblies_settings:
-        update:
-          error: Ocorreu um problema ao atualizar as definições.
-          success: Definições atualizadas com sucesso.
       assemblies_types:
         create:
           error: Ocorreu um problema ao criar um novo tipo de reunião.
@@ -140,13 +134,11 @@ pt:
         destroy:
           success: Membro eliminado corretamente nesta reunião.
         edit:
-          title: Atualizar membro da reunião.
           update: Atualizar
         index:
           assembly_members_title: Membros da reunião
         new:
           create: Criar
-          title: Novo membro da reunião.
         update:
           error: Ocorreu um problema ao atualizar o membro nesta reunião.
           success: Membro atualizado corretamente nesta reunião.
@@ -164,13 +156,11 @@ pt:
         destroy:
           success: Administrador removido corretamente desta reunião.
         edit:
-          title: Atualizar o administrador da reunião.
           update: Atualizar
         index:
           assembly_admins_title: Administradores da reunião
         new:
           create: Criar
-          title: Novo administrador da reunião.
         update:
           error: Ocorreu um problema ao atualizar um administrador para esta reunião.
           success: Administrador atualizador corretamente para esta reunião.
@@ -179,7 +169,6 @@ pt:
           label: Tipo de assembleia
       menu:
         assemblies: Reuniões
-        assemblies_settings: Definições
         assemblies_submenu:
           assembly_admins: Administradores da Reunião
           assembly_members: Membros
@@ -270,11 +259,6 @@ pt:
             social_handlers: Social
             title: Informação geral
             visbility: Visibilidade
-        assemblies_settings:
-          edit:
-            update: Atualizar
-          form:
-            title: Definições para as reuniões
         assemblies_types:
           form:
             title: Título
@@ -288,18 +272,16 @@ pt:
             select_a_position: Selecione uma posição
             select_user: Selecione um participante
             user_type: Tipo de participante
-          index:
-            filter:
-              all: Todos
-              ceased: Cessado
-              not_ceased: Não cessado
-            search: Pesquisar
         content_blocks:
           highlighted_assemblies:
             max_results: Quantidade máxima de elementos a mostrar
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        filters:
+          names:
+            all: Todos
       assembly_members:
         index:
           members: Membros

@@ -6,6 +6,7 @@
     <%= answer_form.hidden_field :id %>
     <%= answer_form.number_field(:value,
                                  label: translated_attribute(answer.title),
+                                 class: "answer-value",
                                  min: 0) %>
   <% end %>
 <% end %>

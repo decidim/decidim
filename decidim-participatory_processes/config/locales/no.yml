@@ -157,13 +157,6 @@
           copy: Kopier
           select: Velg hvilke data du vil kopiere
           title: Kopier deltakende prosess
-      participatory_process_group_landing_page:
-        edit:
-          active_content_blocks: Aktive innholdsbokser
-          inactive_content_blocks: Inaktive innholdsbokser
-      participatory_process_group_landing_page_content_blocks:
-        edit:
-          update: Oppdater
       participatory_process_groups:
         destroy:
           error: Det oppstod en feil under slettingen av prosessgruppen.

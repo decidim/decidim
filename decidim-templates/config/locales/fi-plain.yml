@@ -12,6 +12,8 @@ fi-pl:
         manage: Hallinnoi
         templates: Mallipohjat
       templates:
+        actions:
+          new_template: Uusi mallipohja
         apply:
           error: Mallipohjan käyttöönotto epäonnistui.
           success: Mallipohjan käyttöönotto onnistui.
@@ -24,6 +26,7 @@ fi-pl:
         destroy:
           success: Mallipohjan poisto onnistui.
         empty: Mallipohjia ei ole vielä lisätty.
+        missing_resource: "(puuttuva resurssi)"
         update:
           error: Mallipohjan päivitys epäonnistui.
           success: Mallipohjan päivitys onnistui.
@@ -52,6 +55,26 @@ fi-pl:
             title: Käyttäjien eston viestit
           new:
             title: Uusi käyttäjän poistoviestin mallipohja
+          template_chooser:
+            select_template: Valitse mallivastaus
+        proposal_answer_templates:
+          edit:
+            title: Muokkaa ehdotusten mallivastausta
+          form:
+            component_constraint_help: Listassa näytetään ainoastaan sellaiset osallistumistilat, joissa on "ehdotukset" komponentti.
+            hint1_html: "<strong>%{organization}</strong> korvataan organisaation nimellä"
+            hint2_html: "<strong>%{name}</strong> korvataan laatijan nimellä"
+            hint3_html: "<strong>%{admin}</strong> korvataan hallintakäyttäjän nimellä (henkilö, joka vastaa ehdotukseen)"
+            hint_html: "<strong>Vinkki:</strong> Voit käyttää näitä muuttujia missä tahansa mallipohjan kohdassa ja ne korvataan automaattisesti käytettäessä tätä mallipohjaa"
+            save: Tallenna
+          index:
+            component_constraint: Lisää rajaussääntö
+            confirm_delete: Haluatko varmasti poistaa tämän mallipohjan?
+            global_scope: Yleinen (saatavilla kaikkialla)
+            internal_state: Sisäinen tila
+            title: Ehdotusten vastaukset
+          new:
+            title: Uusi ehdotusten vastausten mallipohja
           template_chooser:
             select_template: Valitse mallivastaus
         questionnaire_templates:
@@ -85,4 +108,5 @@ fi-pl:
           update: "%{user_name} päivitti kyselymallia %{resource_name}"
       template_types:
         block_user: Käyttäjien eston viestit
+        proposal_answer_templates: Ehdotusten vastaukset
         questionnaires: Kyselyt

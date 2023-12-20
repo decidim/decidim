@@ -166,11 +166,13 @@ shared_examples "manage invites" do
     end
 
     context "when filtering" do
+      include_context "with filterable context"
+
       it "allows searching by text" do
         visit_meeting_invites_page
 
         within ".filters__section" do
-          fill_in :q, with: invites.first.user.email
+          fill_in :q_user_name_or_user_email_cont, with: invites.first.user.email
           click_button(type: "submit")
         end
 
@@ -184,12 +186,10 @@ shared_examples "manage invites" do
       it "allows filtering by status" do
         accepted_invite = create(:invite, :accepted, meeting:)
         rejected_invite = create(:invite, :rejected, meeting:)
+
         visit_meeting_invites_page
 
-        within ".filters__section" do
-          find("ul.dropdown > li > a").click # Open the dropdown-menu
-          find_link("Accepted", visible: false).click
-        end
+        apply_filter("Accepted", "Accepted")
 
         within "#meeting-invites table tbody" do
           expect(page).to have_css("tr", count: 1)
@@ -197,10 +197,8 @@ shared_examples "manage invites" do
           expect(page).not_to have_content(rejected_invite.user.name)
         end
 
-        within ".filters__section" do
-          find("ul.dropdown > li > a").click # Open the dropdown-menu
-          find_link("Rejected", visible: false).click
-        end
+        remove_applied_filter("Accepted")
+        apply_filter("Rejected", "Rejected")
 
         within "#meeting-invites table tbody" do
           expect(page).to have_css("tr", count: 1)

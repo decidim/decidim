@@ -91,6 +91,11 @@ en:
   decidim:
     admin:
       filters:
+        accepted_at_not_null:
+          label: Accepted
+          values:
+            'false': Not accepted
+            'true': Accepted
         meetings:
           category_id_eq:
             label: Category
@@ -118,6 +123,18 @@ en:
               hybrid: Hybrid
               in_person: In Person
               online: Online
+        rejected_at_not_null:
+          label: Rejected
+          values:
+            'false': Not rejected
+            'true': Rejected
+        search_placeholder:
+          user_name_or_user_email_cont: Search by name or email
+        sent_at_not_null:
+          label: Sent
+          values:
+            'false': Not sent
+            'true': Sent
       meeting_copies:
         create:
           error: There was a problem duplicating this meeting.
@@ -282,15 +299,9 @@ en:
             non_user: Non existing participant
             select_user: Select participant
           index:
-            filter:
-              accepted: Accepted
-              all: All
-              rejected: Rejected
-              sent: Sent
             invite_attendee: Invite attendee
             invites: Invites
             registrations_disabled: You cannot invite an attendee because the registrations are disabled.
-            search: Search
         meeting_closes:
           edit:
             close: Close

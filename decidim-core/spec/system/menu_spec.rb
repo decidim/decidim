@@ -58,7 +58,7 @@ describe "Menu" do
 
     before do
       visit proposal_path
-      find("#main-dropdown-summary").hover
+      find_by_id("main-dropdown-summary").hover
     end
 
     context "when the organization does not have a description" do

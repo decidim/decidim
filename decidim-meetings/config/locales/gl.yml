@@ -334,7 +334,6 @@ gl:
           remaining_slots:
             one: "%{count} slot restante"
             other: "%{count} slots restantes"
-          view: Ver
           withdraw_btn_hint: Podes anular a túa xuntanza se mudas de parecer. A xuntanza non está anulada, aparecerá na listaxe de xuntanzas anuladas.
           withdraw_confirmation_html: Estás certo/a de querer anular esta xuntanza?<br><br><strong>Esta acción non pode ser cancelada!</strong>
           withdraw_meeting: Anular xuntanza

@@ -10,8 +10,6 @@ describe Decidim::Conferences::ContentBlocks::HighlightedConferencesCell, type: 
   let!(:conferences) { create_list(:conference, 8, :published, organization:) }
   let(:settings) { {} }
 
-  let(:highlighted_conferences) { subject.find("#highlighted-conferences") }
-
   controller Decidim::PagesController
 
   before do
@@ -20,7 +18,7 @@ describe Decidim::Conferences::ContentBlocks::HighlightedConferencesCell, type: 
 
   context "when the content block has no settings" do
     it "shows 6 conferences" do
-      expect(highlighted_conferences).to have_css("a.card__grid", count: 6)
+      expect(subject).to have_css("a.card__grid", count: 6)
     end
   end
 
@@ -32,7 +30,7 @@ describe Decidim::Conferences::ContentBlocks::HighlightedConferencesCell, type: 
     end
 
     it "shows up to 8 conferences" do
-      expect(highlighted_conferences).to have_css("a.card__grid", count: 8)
+      expect(subject).to have_css("a.card__grid", count: 8)
     end
   end
 end

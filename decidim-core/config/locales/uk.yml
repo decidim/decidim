@@ -157,7 +157,6 @@ uk:
           title: Недостатньо прав через відсутність підтвердження особи
     collapsible_list:
       see_less: "(читати менше)"
-      see_more: "(читати далі)"
     components:
       dummy:
         actions:
@@ -372,7 +371,6 @@ uk:
           proposals: Пропозиції
           proposals_explanation: Вносьте нові пропозиції, підтримуйте існуючі та сприяйте змінам, які ви хочете бачити.
         footer_sub_hero:
-          footer_sub_hero_body: Створімо більш відкрите, прозоре та співпрацююче суспільство.<br /> Долучайтесь, беріть участь та приймайте рішення.
           footer_sub_hero_headline: Ласкаво просимо до майданчику співучасті %{organization}!
           register: Зареєструватися
         hero:

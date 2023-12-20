@@ -3,8 +3,10 @@
 module Decidim
   module Budgets
     module Admin
-      # This command is executed when admin sends vote reminders.
+      # This command is executed when an admin sends vote reminders.
       class CreateOrderReminders < Decidim::Command
+        delegate :current_component, :voting_enabled?, :voting_ends_soon?, :minimum_interval_between_reminders, to: :form
+
         def initialize(form)
           @form = form
         end
@@ -29,8 +31,8 @@ module Decidim
               next if %w(active pending).exclude? record.state
 
               record.state = begin
-                if record.remindable.created_at > minimum_time_between_reminders ||
-                   (reminder.deliveries.present? && reminder.deliveries.last.created_at > minimum_time_between_reminders)
+                if record.remindable.created_at > minimum_interval_between_reminders.ago ||
+                   (reminder.deliveries.present? && reminder.deliveries.last.created_at > minimum_interval_between_reminders.ago)
                   "pending"
                 else
                   "active"
@@ -41,24 +43,8 @@ module Decidim
           end
         end
 
-        def minimum_time_between_reminders
-          form.minimum_interval_between_reminders.ago
-        end
-
         def generator
           @generator ||= Decidim::Budgets::OrderReminderGenerator.new
-        end
-
-        def current_component
-          form.current_component
-        end
-
-        def voting_enabled?
-          form.voting_enabled?
-        end
-
-        def voting_ends_soon?
-          form.voting_ends_soon?
         end
       end
     end

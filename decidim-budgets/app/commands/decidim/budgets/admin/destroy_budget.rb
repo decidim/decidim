@@ -5,37 +5,12 @@ module Decidim
     module Admin
       # This command is executed when the user destroys a Budget
       # from the admin panel.
-      class DestroyBudget < Decidim::Command
-        def initialize(budget, current_user)
-          @budget = budget
-          @current_user = current_user
-        end
-
-        # Destroys the budget if valid.
-        #
-        # Broadcasts :ok if successful, :invalid otherwise.
-        def call
-          return broadcast(:invalid) if budget.projects.present?
-
-          destroy_budget!
-
-          broadcast(:ok, budget)
-        end
-
+      class DestroyBudget < Decidim::Commands::DestroyResource
         private
 
-        attr_reader :budget, :current_user
+        def invalid? = resource.projects.present?
 
-        def destroy_budget!
-          Decidim.traceability.perform_action!(
-            :delete,
-            budget,
-            current_user,
-            visibility: "all"
-          ) do
-            budget.destroy!
-          end
-        end
+        def extra_params = { visibility: "all" }
       end
     end
   end

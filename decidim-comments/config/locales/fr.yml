@@ -30,7 +30,6 @@ fr:
           error: Le commentaire n'a pas pu être supprimé.
         update:
           error: Une erreur s'est produite lors de la mise à jour du commentaire.
-      comments_count: Nombre de commentaires
       comments_title: Commentaire
       last_activity:
         new_comment: 'Nouveau commentaire :'

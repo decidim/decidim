@@ -39,6 +39,5 @@ sl:
       organizations:
         create:
           error: Pojavila se je težava pri kreiranju organizacije.
-          success: Organizacija uspešno kreirana.
         index:
           title: Organizacije

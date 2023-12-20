@@ -53,7 +53,7 @@ module Decidim
 
         @form = form(DebateForm).from_params(params)
 
-        UpdateDebate.call(@form) do
+        UpdateDebate.call(@form, debate) do
           on(:ok) do |debate|
             flash[:notice] = I18n.t("debates.update.success", scope: "decidim.debates")
             redirect_to Decidim::ResourceLocatorPresenter.new(debate).path

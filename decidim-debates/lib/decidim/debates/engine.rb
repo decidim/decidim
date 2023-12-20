@@ -23,7 +23,6 @@ module Decidim
 
       initializer "decidim_debates.register_icons" do
         Decidim.icons.register(name: "Decidim::Debates::Debate", icon: "discuss-line", description: "Debate", category: "activity", engine: :debates)
-        Decidim.icons.register(name: "add-fill", icon: "add-fill", category: "system", description: "", engine: :debates)
       end
 
       initializer "decidim_debates.settings_changes" do

@@ -364,9 +364,6 @@ hu:
             proposals:
               one: javaslat
               other: javaslatok
-          title:
-            answers: A javaslatok válaszainak importálása
-            proposals: Javaslatok importálása
         models:
           proposal:
             name: Javaslat
@@ -457,7 +454,6 @@ hu:
             create: Létrehozás
             title: Javaslat létrehozása
           publish_answers:
-            number_of_proposals: A %{number} -s számú javaslatra adott válaszokat közzétesszük.
             select_a_proposal: Kérjük, válasszon egy javaslatot.
           show:
             amendments_count: Módosítás száma (%{count}
@@ -467,7 +463,6 @@ hu:
             documents: Dokumentumok
             endorsements_count: Jóváhagyások száma
             endorsers: Támogatók
-            link: Link
             n_more_endorsers:
               one: és még egy
               other: és még %{count}
@@ -492,7 +487,6 @@ hu:
             no_components: Ebben a részvételi térben nincs több javaslati elem az importálásához.
             select_component: Válassz ki egy elemet
             select_states: Ellenőrizd az importálandó javaslatok állapotát
-            title: Javaslatok importálása
         proposals_merges:
           create:
             success: A javaslatokat sikeresen egy újba egyesítettük.

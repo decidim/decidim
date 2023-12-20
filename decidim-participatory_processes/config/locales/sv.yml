@@ -161,14 +161,6 @@ sv:
           copy: Kopiera
           select: Välj vilka data som du vill duplicera
           title: Duplicera dialog
-      participatory_process_group_landing_page:
-        edit:
-          active_content_blocks: Aktiva innehållsblock
-          inactive_content_blocks: Inactiva innehållsblock
-          title: Sidans innehåll
-      participatory_process_group_landing_page_content_blocks:
-        edit:
-          update: Uppdatera
       participatory_process_groups:
         destroy:
           error: Det gick inte att radera dialoggruppen.

@@ -51,10 +51,18 @@ en:
           attributes:
             attachment:
               needs_to_be_reattached: Needs to be reattached
+        ballot_result:
+          attributes:
+            base:
+              total_count_invalid: The total number of answers does not match the valid/blank/null breakdown.
         election:
           attributes:
             attachment:
               needs_to_be_reattached: Needs to be reattached
+        question_result:
+          attributes:
+            base:
+              blank_count_invalid: The total number of blank answers cannot be greater than the total of blank ballots.
         trustee:
           attributes:
             name:
@@ -229,7 +237,11 @@ en:
           feedback_form_answers: Feedback form answers
         mailers:
           trustee_mailer:
-            body: "<p>Hi %{user_name},</p><p>You have been added as a trustee to %{resource_name}.</p>"
+            body:
+              help_html: |-
+                <p>Hi %{user_name},</p><br>
+                <p>You have been added to act as a trustee in some elections that will take place in %{organization}.</p><br>
+                <p>A new section named "Trustee Zone" has been activated in your account. From there, you will perform tasks as needed. For now, please generate your identification keys.</p><br>
             subject: You have been added as a trustee to %{resource_name}
             trustee_zone: Take me to the trustee zone
         menu:
@@ -273,6 +285,7 @@ en:
               census_frozen: Access codes for the census are not exported.
               census_uploaded: There is no census uploaded for this election.
               component_published: The election component is <strong>not published</strong>.
+              fix_it_text: Fix it
               max_selections: The questions do not have a <strong>correct value for amount of answers</strong>
               minimum_answers: Questions must have <strong>at least two answers</strong>.
               minimum_questions: The election <strong>must have at least one question</strong>.
@@ -298,6 +311,11 @@ en:
               trustees_number: The participatory space has <strong>at least %{number} trustees with public key</strong>.
             submit: Setup election
             success: Election successfully sent to the Bulletin Board.
+            technical_configuration:
+              authority_name: "<strong>Authority name:</strong> %{value}"
+              bulletin_board_server: "<strong>Bulletin Board server:</strong> <a href='%{value}'>%{value}</a>"
+              scheme_name: "<strong>Scheme name:</strong> %{value}"
+              title: View technical information
             title: Setup election
             trustees: Election Trustees
           created:
@@ -618,7 +636,7 @@ en:
                 bb_status: Status
                 election: Election
                 voting_period: Voting period
-              no_elections: There are no elections where you act as a Trustee.
+              no_elections: Currently, you are not assigned to take any action as a trustee. You will receive a notification when it is time to act during different phases.
               title: Elections
             identification_keys:
               cancel: Cancel
@@ -641,7 +659,9 @@ en:
               upload_legend: The server has your public identification keys, but your browser still does not have it. You need to import the file with your identification keys to your computer from the backup you created after generating them.
             not_supported_browser_description: It looks like you are using a web browser that cannot be used to act as a Trustee. Make sure you are using the most recent version of your browser, or try using any of the most popular browsers to be able to complete your Trustee tasks.
             not_supported_browser_title: Upgrade browser to act as a Trustee
-            trustee_role_description: You have been assigned to act as a Trustee in some of the elections celebrated in this platform.
+            trustee_role_description:
+              with_keys: You have been assigned to act as a Trustee in some of the elections celebrated in this platform.
+              without_keys: You have been assigned to act as a Trustee. Please, generate and upload your identification keys.
           update:
             success: Your identification public key was successfully stored.
       votes:
@@ -727,8 +747,9 @@ en:
           back: Back
           continue: Next
       warnings:
-        no_elections_warning: No elections match your search criteria or there is not any election scheduled.
-        no_scheduled_elections_warning: Currently, there are no scheduled elections, but here you can find all the past elections listed.
+        empty_filters: There are no elections with this criteria.
+        no_elections: There is not any election scheduled.
+        no_scheduled_elections: Currently, there are no scheduled elections, but here you can find all the past elections listed.
     events:
       elections:
         election_published:
@@ -741,12 +762,17 @@ en:
             email_intro: You got added as a trustee for the %{resource_title} election.
             email_outro: You have received this notification because you have been added as trustee for the %{resource_title} election.
             email_subject: You are a trustee for the %{resource_title} election..
-            notification_title: You are a trustee for <a href="%{resource_path}">%{resource_title}</a> election.
+            notification_title: You have been selected as a Trustee in Election <a href="%{resource_path}">%{resource_title}.</a> Please, do the key ceremony to set up the election.
           new_trustee:
             email_intro: An admin has added you as trustee for %{resource_name}. You should create your public key <a href='%{trustee_zone_url}'>in your trustee zone</a>
             email_outro: You have received this notification because you have been added as trustee for %{resource_name}.
             email_subject: You are a trustee for %{resource_name}.
-            notification_title: You are a trustee for <a href="%{participatory_space_url}">%{resource_name}</a>.
+            notification_title: You have been added to act as a trustee in %{resource_name} for some elections that will take place in this platform.<br> You will perform tasks as needed. For now, please <a href='%{trustee_zone_url}'>generate your identification keys</a>.
+          start_tally:
+            email_intro: The voting period for the %{resource_title} election has finished. Now, please, perform the tally of the election to publish the final results.
+            email_outro: You have received this notification because you are a trustee for the %{resource_title} election.
+            email_subject: The tally process for the %{resource_title} election has started.
+            notification_title: The voting period for the %{resource_title} election has finished. Now, please, perform the tally of the election to publish the final results.
         votes:
           accepted_votes:
             email_intro: 'Your vote was accepted! Using your voting token: %{encrypted_vote_hash}, you can verify your vote <a href="%{verify_url}">here</a>.'
@@ -1153,24 +1179,35 @@ en:
         closures:
           back_to_polling_stations: Back to polling stations
           certify:
-            add_images: Add images
+            add_photos: Add photos
+            edit_photos: Edit photos
             error: An error occurred attaching the certificate, please try again.
-            form_legend: Upload a picture of the Electoral Closure Certificate
             heading: Vote recount - Upload certificate
             info_text: Please upload a picture of the Electoral Closure Certificate.
             submit: Upload the certificate
             success: Certificate uploaded successfully.
+            upload_photos: Upload a picture of the Electoral Closure Certificate
+          completed:
+            sub_heading: This recount has been certified and cannot longer be edited.
           create:
             error: An error occurred creating the closure, please try again later.
             success: Closure successfully created.
+          destroy:
+            error: An error occurred removing the closure.
+            success: Closure successfully deleted.
           edit:
+            confirm_start_over: This will remove the total number of votes and the notes attached. Are you sure?
             heading: Vote recount - Answers recount
-            info_text: Please introduce the total number of answers for each question.
+            info_text: Please detail the total number of answers for each question. This must match the total number of answers introduced in the previous step (%{total} answers total).
             modal_ballots_results_count_error:
+              blank: Expected total of blank votes is %{expected} but the sum of the blank questions is %{current}.
               close_modal: Close
               info_text: The total number of ballots does not match the total number of envelopes. Please review the total of ballots.
               title: Total of ballots do not add up
+              total: Expected total is %{expected} but the sum of the valid, blank and null ballots is %{current}.
+              valid: Expected total of valid votes is %{expected} but the sum of the valid questions is %{current}.
             save_recount: Save recount
+            start_over: If there is an error in the total number, you can delete everything and start over.
             total_ballots: Total ballots
             total_blank_ballots: Total blank ballots
             total_null_ballots: Total null ballots
@@ -1193,8 +1230,9 @@ en:
             submit: Verify total number
             total_ballots_count: Number of ballots
           show:
+            edit_count_votes: Wrong numbers? You can still edit them.
             heading: Vote recount
-            info_text: Polling station electoral closure.
+            sub_heading: The recount needs to be closed by uploading a certificate. Once this is done, the recount will be sealed and can no longer be edited.
           sign:
             cancel: Cancel
             check_box: I have reviewed this and is the same as the physical electoral closure certificate
@@ -1276,6 +1314,8 @@ en:
           manager: Manager
           president: President
           unassigned: Unassigned
+      polling_station_closure_certificate:
+        current_certificate: 'Current certificate:'
       polling_station_closure_recount:
         nota_option: Blank/ None of the above
         polling_officer_notes: 'Polling officer notes:'

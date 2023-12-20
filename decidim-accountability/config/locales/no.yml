@@ -38,7 +38,6 @@
         confirm_destroy: Er du sikker på at du vil slette dette %{name}?
         destroy: Slett
         edit: Redigere
-        import_csv: Importere CSV
         preview: Forhåndsvisning
         timeline_entries: Prosjektutvikling
         title: Handlinger
@@ -49,7 +48,6 @@
         import_results:
           new:
             import: Importer
-            title: Importere resultater fra CSV
         models:
           result:
             name: Resultat
@@ -103,9 +101,7 @@
             not_found: 'Overordnede ble ikke funnet i databasen (ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Datoer
           results: Resultater
-          unspecified: Ikke spesifisert
       import_mailer:
         import:
           errors: Feil
@@ -134,9 +130,6 @@
           fields:
             entry_date: Dato
             title: Tittel
-      result_m:
-        executed: Utført
-        view: Vis
       results:
         count:
           results_count:

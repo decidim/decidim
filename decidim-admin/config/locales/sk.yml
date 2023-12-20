@@ -51,7 +51,6 @@ sk:
         logo: Logo
         name: Meno
         official_img_footer: Oficiálne logo v päte
-        official_img_header: Oficiálne logo v záhlaví
         official_url: Oficiálna stránka organizácie
         omnipresent_banner_short_description: Krátky popis
         omnipresent_banner_title: Názov
@@ -98,8 +97,6 @@ sk:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Nefunkčný obrázkový súbor
-            official_img_header:
               allowed_file_content_types: Nefunkčný obrázkový súbor
   activerecord:
     attributes:
@@ -515,10 +512,6 @@ sk:
           images:
             layout_appearance_title: Upraviť vzhľad 
           omnipresent_banner_appearance_title: Upraviť všadeprítomný banner
-      organization_homepage:
-        edit:
-          active_content_blocks: Bloky aktívneho obsahu
-          inactive_content_blocks: Bloky neaktívneho obsahu
       participatory_space_private_users:
         create:
           error: Pri pridávaní súkromného používateľa pre tento participačný priestor došlo k chybe.
@@ -533,7 +526,6 @@ sk:
           title: Nový súkromný účastník participatívneho priestoru.
       participatory_space_private_users_csv_imports:
         new:
-          title: Nahrať súbor CSV
           upload: Nahrať
       resource_permissions:
         edit:
@@ -573,7 +565,6 @@ sk:
       shared:
         gallery:
           add_images: Pridať obrázky
-          delete_image: Zmazať obrázok
           gallery_legend: Pridať galériu (voliteľné)
       static_page_topics:
         create:
@@ -601,12 +592,12 @@ sk:
           update: Aktualizovať
         form:
           none: Žiadne
+        index:
+          last_notable_change: Posledná výrazná úprava
         new:
           create: Vytvoriť stránku
           title: Nová stránka
         topic:
-          destroy: Odstrániť tému
-          edit: Upraviť tému
           without_topic: Stránky bez témy
         update:
           error: Pri aktualizácii stránky nastala chyba.

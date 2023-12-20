@@ -56,8 +56,6 @@ lv:
         create:
           invalid: Debašu izveides laikā radās problēma.
           success: Debates ir veiksmīgi izveidotas.
-        debate:
-          participate: Piedalīties
         filters:
           all: Visi
           category: Kategorija

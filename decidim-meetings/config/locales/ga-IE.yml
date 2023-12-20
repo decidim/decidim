@@ -149,9 +149,6 @@ ga:
         registration_confirm:
           cancel: Cealaigh
           confirm: Deimhnigh
-        show:
-          date: Dáta
-          view: Amharc
       models:
         invite:
           fields:

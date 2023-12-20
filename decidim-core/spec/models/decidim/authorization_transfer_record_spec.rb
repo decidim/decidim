@@ -39,7 +39,7 @@ module Decidim
       subject { record.type }
 
       it "returns the resource type class as string" do
-        expect(subject).to eq("Decidim::DummyResources::DummyResource")
+        expect(subject).to eq("Decidim::Dev::DummyResource")
       end
 
       context "when the resource responds to mapped_resource_type" do
@@ -47,7 +47,7 @@ module Decidim
         let(:coauthorship) { build(:coauthorship) }
 
         it "returns the resource type reported by the record" do
-          expect(subject).to eq("Decidim::DummyResources::DummyResource")
+          expect(subject).to eq("Decidim::Dev::DummyResource")
         end
       end
     end

@@ -136,7 +136,9 @@ module Decidim
     #
     # Returns nothing.
     def seed!(participatory_space)
+      # rubocop:disable Rails/Output
       print "-- Creating #{name} component seeds for the participatory space with ID: #{participatory_space.id}...\n" unless Rails.env.test?
+      # rubocop:enable Rails/Output
       @seeds&.call(participatory_space)
     end
 

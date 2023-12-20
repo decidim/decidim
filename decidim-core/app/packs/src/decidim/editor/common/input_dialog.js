@@ -38,7 +38,7 @@ export default class InputDialog {
       <div id="${uniq}-content">
         <button type="button" data-dialog-close="${uniq}" data-dialog-closable="" aria-label="${i18n.close}">&times</button>
         <div data-dialog-container>
-          <form>
+          <form class="form-defaults form">
             <div class="form__wrapper">
               ${inputsHTML}
             </div>

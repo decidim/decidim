@@ -46,7 +46,6 @@ ga:
             title: Stádas
       content_blocks:
         highlighted_results:
-          dates: Dátaí
           results: Torthaí
       import_mailer:
         import:
@@ -71,8 +70,6 @@ ga:
         timeline_entry:
           fields:
             entry_date: Dáta
-      result_m:
-        view: Amharc
       results:
         filters:
           all: Uile

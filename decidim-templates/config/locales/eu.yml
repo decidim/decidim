@@ -16,13 +16,20 @@ eu:
           new_template: Beste txantiloi bat
         apply:
           error: Arazo bat izan da txantiloi hau aplikatzean.
+          success: Txantiloia zuzen aplikatua.
         copy:
           error: Arazo bat izan da txantiloi hau kopiatzean.
+          success: Txantiloia zuzen kopiatua.
         create:
           error: Arazo bat izan da txantiloi hau sortzean.
+          success: Txantiloia zuzen sortua.
+        destroy:
+          success: Txantiloia zuzen ezabatua.
         empty: Oraindik ez dago txantiloirik.
+        missing_resource: "(baliabide galdua)"
         update:
-          error: Arazo bat izan da txantiloi hau eguneratzean.
+          error: Arazo bat egon da eztabaida hau eguneratzean.
+          success: Txantiloia zuzen eguneratua.
       titles:
         template_types:
           questionnaires: Galdeketa-txantiloiak
@@ -40,16 +47,36 @@ eu:
       admin:
         block_user_templates:
           edit:
-            title: Blokearen erabiltzaile-mezuaren txantiloia editatzea
+            title: Editatu erabiltzailearen kontua blokeatzeko mezuaren txantiloia
           form:
             save: Gorde
           index:
             confirm_delete: Ziur zaude txantiloi hau ezabatu nahi duzula?
-            title: Blokeatutako mezuak
+            title: Blokeatu erabiltzailearen mezuak
           new:
-            title: Blokeko erabiltzaile-mezuaren txantiloi berria
+            title: Txantiloi berria erabiltzaile-kontua blokeatzeko mezurako
           template_chooser:
             select_template: Hautatu txantiloi-fitxategi bat
+        proposal_answer_templates:
+          edit:
+            title: Editatu proposamenaren erantzun-txantilioia
+          form:
+            component_constraint_help: Kontuan izan soilik zerrendatuko direla "proposamenak" motako osagaiak dituzten parte hartzeko espazioak.
+            hint1_html: "\n<strong>%{organization}</strong>  erakundearen izenak ordezkatuko du."
+            hint2_html: "<strong>%{name}</strong> egilearen izenak ordezkatuko du."
+            hint3_html: "<strong>%{admin}</strong> administratzailearen izenak ordezkatuko du (proposamenari erantzuten diona)."
+            hint_html: "<strong>Iradokizuna</strong> Aldagarri hauek erantzunaren txantiloiaren edozein lekutan erabil ditzakezu, txantiloia erabiltzean ordezkatuko baitira"
+            save: Gorde
+          index:
+            component_constraint: Gehitu hertsapena.
+            confirm_delete: Ziur zaude txantiloi hau ezabatu nahi duzula?
+            global_scope: Globala (nonahi eskuragarri)
+            internal_state: Barne egoera
+            title: Proposamenen erantzunak
+          new:
+            title: Proposamenaren erantzun-txantilioi berria
+          template_chooser:
+            select_template: Aukeratu erantzun-txantiloi bat.
         questionnaire_templates:
           choose:
             create_from_template: Sortu txantiloitik
@@ -59,25 +86,27 @@ eu:
             skip_template: Saltatu
           edit:
             edit: Editatu
+            empty: Oraindik ez dago galderarik.
             questionnaire: Galdetegia
-            title: Galdetegiaren txantiloia editatzea
+            title: Editatu galdetegiaren txantiloia
           form:
-            title: '%{questionnaire_for} galdetegiaren txantiloia'
+            title: '%{questionnaire_for}% galdetegiaren txantiloia'
           index:
             confirm_delete: Ziur zaude txantiloi hau ezabatu nahi duzula?
             title: Galdetegi-txantiloiak
           new:
-            title: Galdera-sortaren txantiloia editatzea
+            title: Beste galdetegi-txantiloi bat
           preview:
             current_step: '%{step} urratsa'
             of_total_steps: '%{total_steps} etik'
             tos_agreement: Parte hartzean erabilera-irizpideak eta baldintzak onartzen dituzu
       admin_log:
         template:
-          create: "%{user_name} -k%{resource_name} galdetegia eguneratu du"
-          delete: "%{user_name} -k%{resource_name} galdetegia eguneratu du"
-          duplicate: "%{user_name} -k%{resource_name} galdetegia bikoiztu du"
-          update: "%{user_name} -k%{resource_name} galdetegia eguneratu du"
+          create: "%{user_name} -k %{resource_name} galdetegia eguneratu du"
+          delete: "%{user_name} -k %{resource_name} galdetegia eguneratu du"
+          duplicate: "%{user_name} -k %{resource_name} galdetegia bikoiztu du"
+          update: "%{user_name} -k %{resource_name} galdetegia eguneratu du"
       template_types:
-        block_user: Blokeatutako mezuak
+        block_user: Blokeatu erabiltzailearen mezuak
+        proposal_answer_templates: Proposamenen erantzunak
         questionnaires: Galdetegiak

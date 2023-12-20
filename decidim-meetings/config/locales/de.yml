@@ -22,6 +22,7 @@ de:
         id: ID
         iframe_access_level: iFrame-Zugriffsebene
         iframe_embed_type: iFrame-Einbettungstyp
+        iframe_embed_type_html: Nur wenige Dienste erlauben Einbettungen in der Veranstaltungsseite oder ein Wiedergabe in einem sepraten Fenster. Beachten Sie, dass bei Einbettungen für Mobiltelefone aufgrund unterschiedlicher Dimensionen Probleme auftreten können. In diesem Fall empfehlen wir die Wiedergabe in einem separatem Fenster.
         location: Ort
         location_hints: Standorthinweise
         online_meeting_url: Online Meeting URL
@@ -223,6 +224,7 @@ de:
             one: 'Die Besprechung kann nicht gelöscht werden, da %{count} Vorschlag mit dieser verbunden ist:'
             other: 'Die Besprechung kann nicht gelöscht werden, da %{count} Vorschläge mit dieser verbunden sind:'
         manage_poll: Umfrage verwalten
+        new_meeting: Neue Veranstaltung
         preview: Vorschau
         registrations: Anmeldungen
         title: Aktionen
@@ -311,6 +313,7 @@ de:
           form:
             address_help: 'Adresse: wird von Geocoder zur Lokalisierung verwendet'
             disclaimer: 'Haftungsausschluss: Durch Verwendung eines externen Registrierungssystems ist Ihnen bewusst, dass die Organisatoren von %{organization} nicht für die Daten verantwortlich sind, welche die Benutzenden dem externen Dienst zur Verfügung stellen.'
+            iframe_embed_type_html: 'Folgende Dienste erlauben das Einbetten einer Veranstaltung oder eines Livestreams: %{domains}'
             location_help: 'Ort: an die Benutzer gerichtete Nachricht mit dem Treffpunkt'
             location_hints_help: 'Hinweise zum Standort: Zusätzliche Informationen. Beispiel: das Stockwerk im Gebäude wenn es eine Sitzung vor Ort ist, oder das Passwort wenn es eine Online-Sitzung mit eingeschränktem Zugriff ist.'
             online_meeting_url_help: 'Link: Erlaubt Teilnehmern, sich direkt mit Ihrem Meeting zu verbinden'
@@ -318,7 +321,6 @@ de:
             select_a_meeting_type: Bitte eine Meeting-Typ auswählen
             select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
             select_an_iframe_access_level: Bitte wählen Sie eine iFrame-Zugriffsebene aus
-            show_embedded_iframe_help: 'Nur wenige Dienste erlauben das Einbetten einer Veranstaltung oder eines Livestreams: %{domains}'
           index:
             title: Meetings
           new:
@@ -393,6 +395,9 @@ de:
           all: Alle
         filter_meeting_space_values:
           all: Alle
+      calendar:
+        meeting_to_event:
+          read_more: Mehr über diese Veranstaltung erfahren
       calendar_modal:
         calendar_url: Kalender-URL
         copy_calendar_url: Kopieren
@@ -415,7 +420,6 @@ de:
       directory:
         meetings:
           index:
-            go_to_list: Veranstaltungsliste ansehen
             meetings: Meetings
             space_type: Partizipativer Raum
       iframe_access_level:
@@ -495,6 +499,7 @@ de:
           available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben
           create_as: Besprechung erstellen als
           disclaimer: 'Haftungsausschluss: Durch Verwendung eines externen Registrierungsdienstes ist Ihnen bewusst, dass die Organisatoren von %{organization} nicht für die Daten verantwortlich sind, welche die Benutzenden dem externen Dienst zur Verfügung stellen.'
+          iframe_embed_type_html: 'Folgende Dienste erlauben das Einbetten einer Veranstaltung oder eines Livestreams: %{domains}'
           location_help: 'Ort: an die Benutzer gerichtete Nachricht mit dem Treffpunkt'
           location_hints_help: 'Standorthinweise: Zusätzliche Informationen. Beispiel: die Etage des Gebäudes, wenn es sich um eine persönliche Sitzung oder das Sitzungspasswort, wenn es sich um ein Online-Meeting mit eingeschränktem Zugriff handelt.'
           online_meeting_url_help: 'Link: Erlaubt Teilnehmern, sich direkt mit Ihrem Meeting zu verbinden'
@@ -503,7 +508,6 @@ de:
           select_a_meeting_type: Bitte eine Meeting-Art auswählen
           select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
           select_an_iframe_access_level: Bitte wählen Sie eine iFrame-Zugriffsebene aus
-          show_embedded_iframe_help: 'Nur wenige Dienste erlauben das Einbetten einer Veranstaltung oder eines Livestreams: %{domains}'
         index:
           click_here: Alle Treffen anzeigen
           new_meeting: Neue Besprechung
@@ -528,7 +532,6 @@ de:
         show:
           attendees: Teilnehmer zählen
           contributions: Beiträge zählen
-          date: Datum
           join: Tritt dem Treffen bei
           leave: Registrierung stornieren
           leave_confirmation: Sind Sie sicher dass Sie Ihre Registrierung für diese Sitzung stornieren möchten?
@@ -546,7 +549,6 @@ de:
           remaining_slots:
             one: "%{count} Slot bleibt übrig"
             other: "Noch %{count} Slots"
-          view: Anzeigen
           visit_finished: Vergangene Treffen anzeigen
           withdraw_btn_hint: Sie können Ihr Treffen zurückziehen, wenn Sie Ihre Meinung ändern. Das Meeting wird nicht gelöscht, es wird in der Liste der zurückgezogenen Meetings angezeigt.
           withdraw_confirmation_html: Sind Sie sicher, dass Sie diese Veranstaltung zurückziehen möchten?<br><br><strong> Diese Aktion kann nicht rückgängig gemacht werden!</strong>

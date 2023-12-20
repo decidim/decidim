@@ -297,7 +297,6 @@ sk:
             few: "%{count} zostávajúcich blokov"
             many: "%{count} zostávajúcich blokov"
             other: "%{count} zostávajúcich blokov"
-          view: Zobrazenie
       models:
         invite:
           fields:

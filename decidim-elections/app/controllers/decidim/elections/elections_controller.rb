@@ -16,6 +16,8 @@ module Decidim
 
       def index
         redirect_to election_path(single, single: true) if single?
+
+        @forced_past_elections = true if elections.any? && scheduled_elections.none?
       end
 
       def show
@@ -62,8 +64,7 @@ module Decidim
       end
 
       def paginated_elections
-        @paginated_elections ||= reorder(search.result.published)
-        @paginated_elections = paginate(@paginated_elections)
+        @paginated_elections ||= paginate(reorder(search.result.published))
       end
 
       def scheduled_elections

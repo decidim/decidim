@@ -93,15 +93,12 @@ zh-TW:
         close_debate_modal:
           description: 這場辯論的總結或結論是什麼？
           send: 關閉辯論
-        closed: 關閉
         count:
           debates_count:
             other: "%{count} 場辯論"
         create:
           invalid: 建立辯論時出現問題。
           success: 辯論建立成功。
-        debate:
-          participate: 參與
         edit:
           back: 返回
           save: 保存更改
@@ -137,7 +134,6 @@ zh-TW:
           updated: 最近更新
         show:
           close_debate: 關閉辯論
-          date: 日期
           debate_closed: 關閉
           debate_conclusions_are: '此辯論已於 %{date} 結束，以下是總結結論：'
           edit_conclusions: 修改結論

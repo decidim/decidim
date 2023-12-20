@@ -36,6 +36,9 @@ nl:
         block_user_templates:
           form:
             save: Opslaan
+        proposal_answer_templates:
+          form:
+            save: Opslaan
         questionnaire_templates:
           choose:
             create_from_template: Met template aanmaken

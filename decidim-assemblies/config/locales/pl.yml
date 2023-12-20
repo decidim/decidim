@@ -1,8 +1,6 @@
 pl:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: Włącz wykres dla organizacji
       assembly:
         announcement: Powiadomienie
         area_id: Kategoria
@@ -111,10 +109,6 @@ pl:
         create:
           error: Podczas duplikowania tego zespołu wystąpił błąd.
           success: Zespół został zduplikowany.
-      assemblies_settings:
-        update:
-          error: Podczas aktualizowania ustawień wystąpił błąd.
-          success: Pomyślnie zaktualizowano ustawienia.
       assemblies_types:
         create:
           error: Podczas tworzenia nowego typu zespołu wystąpił błąd.
@@ -147,13 +141,11 @@ pl:
         destroy:
           success: Członek usunięty pomyślnie z tego zespołu.
         edit:
-          title: Aktualizuj członka zespołu.
           update: Aktualizuj
         index:
           assembly_members_title: Członkowie zespołu
         new:
           create: Utwórz
-          title: Nowy członek zespołu.
         update:
           error: Wystąpił błąd podczas aktualizowania członka tego zespołu.
           success: Członek zespołu zaktualizowany pomyślnie.
@@ -171,13 +163,11 @@ pl:
         destroy:
           success: Administrator został usunięty pomyślnie z tego zespołu.
         edit:
-          title: Zaktualizuj administratora zespołu.
           update: Aktualizuj
         index:
           assembly_admins_title: Administratorzy zespołu
         new:
           create: Utwórz
-          title: Nowy administrator zespołu.
         update:
           error: Wystąpił błąd podczas aktualizacji administratora tego zespołu.
           success: Administrator zespołu został zaktualizowany pomyślnie.
@@ -186,7 +176,6 @@ pl:
           label: Typ zespołu
       menu:
         assemblies: Zespoły
-        assemblies_settings: Ustawienia
         assemblies_submenu:
           assembly_admins: Administratorzy zespołu
           assembly_members: Członkowie
@@ -280,11 +269,6 @@ pl:
             social_handlers: Profile społecznościowe
             title: Informacje ogólne
             visbility: Widoczność
-        assemblies_settings:
-          edit:
-            update: Aktualizuj
-          form:
-            title: Ustawienia zespołów
         assemblies_types:
           form:
             title: Tytuł
@@ -296,18 +280,16 @@ pl:
             select_a_position: Wybierz pozycję
             select_user: Wybierz użytkownika
             user_type: Rodzaj użytkownika
-          index:
-            filter:
-              all: Wszystko
-              ceased: Byli
-              not_ceased: Aktualni
-            search: Szukaj
         content_blocks:
           highlighted_assemblies:
             max_results: Maksymalna ilość elementów do pokazania
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        filters:
+          names:
+            all: Wszystko
       assembly_members:
         index:
           members: Członkowie

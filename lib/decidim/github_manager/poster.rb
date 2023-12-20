@@ -8,6 +8,7 @@ module Decidim
   module GithubManager
     # Allows to make POST requests to GitHub Rest API about Pull Requests
     # @see https://docs.github.com/en/rest
+    # rubocop:disable Rails/Output
     class Poster
       # @param token [String] token for GitHub authentication
       # @param params [Hash] Parameters accepted by the GitHub API
@@ -66,5 +67,6 @@ module Decidim
         post!("issues/#{issue_id}/labels", params.slice(:labels))
       end
     end
+    # rubocop:enable Rails/Output
   end
 end

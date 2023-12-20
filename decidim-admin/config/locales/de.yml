@@ -10,7 +10,7 @@ de:
         organization: Organisation
         plural: Plural
       attachment:
-        attachment_collection_id: Verzeichnis
+        attachment_collection_id: Ordner
         description: Beschreibung
         file: Datei
         title: Anhang oder Bildname
@@ -26,7 +26,7 @@ de:
         weight: Reihenfolge
       component:
         name: Name
-        published_at: Veröffentlicht unter
+        published_at: Veröffentlicht am
         weight: Reihenfolge
       external_domain:
         value: Wert
@@ -78,7 +78,6 @@ de:
         machine_translation_display_priority_translation: Übersetzter Text zuerst
         name: Name
         official_img_footer: Offizielles Logo Fußzeile
-        official_img_header: Offizieller Logo-Header
         official_url: Offizielle Organisations-URL
         omnipresent_banner_short_description: Kurze Beschreibung
         omnipresent_banner_title: Titel
@@ -131,6 +130,7 @@ de:
         weight: Reihenfolge
       static_page_topic:
         description: Beschreibung
+        name: Name des Themas
         show_in_footer: In der Fußzeile anzeigen
         title: Titel
         weight: Reihenfolge
@@ -145,8 +145,6 @@ de:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Ungültige Bilddatei
-            official_img_header:
               allowed_file_content_types: Ungültige Bilddatei
         participatory_space_private_user_csv_import:
           attributes:
@@ -363,6 +361,20 @@ de:
           title: Übertragung
         'true': 'Ja'
         user_name: Nutzer
+      content_blocks:
+        create:
+          error: Beim Erstellen des Inhaltsblocks ist ein Fehler aufgetreten.
+          success: Inhaltsblock erfolgreich erstellt.
+        destroy:
+          error: Es gab ein Problem beim Löschen dieses Inhaltsblocks.
+          success: Inhaltsblock erfolgreich gelöscht.
+        edit:
+          active_content_blocks: Aktive Inhaltsblöcke
+          add: Inhaltsblock hinzufügen
+          destroy_confirmation: Sind Sie sicher, dass Sie diesen Inhaltsblock löschen möchten?
+          inactive_content_blocks: Inaktive Inhaltsblöcke
+          title: Seiteninhalte
+          update: Aktualisieren
       dashboard:
         pending_moderations:
           anouncement:
@@ -441,12 +453,12 @@ de:
           label: Themenbereich
         search_label: Suche
         search_placeholder:
-          name_or_nickname_or_email_cont: Suche in %{collection} nach E-Mail, Name oder Benutzername.
+          name_or_nickname_or_email_cont: Suche in %{collection} nach E-Mail, Name oder Kontoname.
           report_count_eq: Anzahl Meldungen
           reported_id_string_or_reported_content_cont: Suche %{collection} nach meldbarer Id oder Inhalt.
           title_cont: In %{collection} nach Titel suchen.
           user_name_or_user_email_cont: In %{collection} nach Name oder E-Mail suchen.
-          user_name_or_user_nickname_or_user_email_cont: '%{collection} nach E-Mail, Name oder Benutzername durchsuchen.'
+          user_name_or_user_nickname_or_user_email_cont: '%{collection} nach E-Mail, Name oder Kontoname durchsuchen.'
         state_eq:
           label: Bundesland
           values:
@@ -571,7 +583,8 @@ de:
         scope_types: Bereichstypen
         scopes: Bereiche
         see_site: Seite ansehen
-        settings: die Einstellungen
+        settings: Einstellungen
+        static_page_topics: Themen
         static_pages: Seiten
         user_groups: Benutzergruppen
         users: Benutzer
@@ -589,13 +602,13 @@ de:
             plural: Plural
         attachment:
           fields:
-            collection: Mappe
+            collection: Ordner
             content_type: Art
             file_size: Größe
             title: Titel
           name: Befestigung
         attachment_collection:
-          name: Mappe
+          name: Ordner
         category:
           name: Kategorie
         impersonation_log:
@@ -608,7 +621,7 @@ de:
             user: Benutzer
         newsletter:
           fields:
-            created_at: Hergestellt in
+            created_at: Erstellt am
             progress: Fortschritt
             sent_at: Gesendet um
             sent_to: Gesendet an
@@ -634,7 +647,7 @@ de:
             user: Erstellt von
         static_page:
           fields:
-            created_at: Hergestellt in
+            created_at: Erstellt am
             title: Titel
         user:
           fields:
@@ -650,7 +663,7 @@ de:
         user_group:
           fields:
             actions: Aktionen
-            created_at: Hergestellt in
+            created_at: Erstellt am
             document_number: Dokumentnummer
             name: Name
             nickname: Spitzname
@@ -777,7 +790,7 @@ de:
           actions: Aktionen
           badge: Abzeichen
           block: Benutzer blockieren
-          created_at: Hergestellt in
+          created_at: Erstellt am
           name: Name
           nickname: Spitzname
           not_officialized: Nicht offiziell
@@ -828,13 +841,15 @@ de:
             colors_title: Organisationsfarben
             colors_warning_html: Warnung! Das Ändern dieser Farben kann die für Barrierefreiheit notwendigen Kontraste brechen. Sie können den Kontrast Ihrer Wahl mit <a href="%{link}">WebAIM Contrast Checker</a> oder ähnlichen Tools überprüfen.
             explanation: Dieses Tool hilft Ihnen, ein Farbschema mit Farbtönen auszuwählen, die gleichmäßig um das Farbrad verteilt sind und die auf der Website der Organisation verwendet werden.
-            header_snippets_help_html: Benutzen Sie dieses Feld, um dem HTML-Head Inhalte hinzuzufügen. Die häufigste Verwendung ist die Integration von Drittanbieter-Diensten, die ein zusätzliches JavaScript oder CSS erfordern. Außerdem können Sie dem HTML-Code zusätzliche Meta-Tags hinzuzufügen. Beachten Sie, dass dies nur auf den öffentlichen Seiten dargestellt wird und nicht im Admin-Bereich. Wenn der Code mit externen APIs interagiert oder nicht mit den Sicherheitsrichtlinien der Anwendung übereinstimmt, ist es notwendig, die Sicherheitsrichtlinien der Inhalte (Content Security Policy) zu ändern. Weitere Informationen finden Sie <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">auf der Dokumentationsseite</a>.
             legend_html: Hauptfarben der Anwendung, basierend auf dem <a href="https://www.color-meanings.com/triadic-colors/">triadischen Algorithmus</a>. Die <i>sekundäre</i> Farbe wird automatisch von der Primärfarbe und der Sättigung, die Sie gewählt haben, berechnet.
             saturation: Sättigung
             title: Farbauswahl
             update_suggested_colors: Vorgeschlagene Farben aktualisieren
           cta_button_path_help_html: 'Sie können überschreiben, womit die Call To Action-Schaltfläche auf der Homepage verlinkt ist. Verwenden Sie hier Teilpfade, nicht die vollständige URL. Buchstaben, Zahlen, Bindestriche und Schrägstriche sind erlaubt; an der ersten Stelle ist ein Buchstabe erforderlich. Die Call To Action-Schaltfläche wird auf der Startseite zwischen Begrüßungstext und Beschreibung angezeigt. Beispiel: %{url}'
           cta_button_text_help: Sie können den Text der Call To Action-Schaltfläche auf der Startseite für jede verfügbare Sprache in Ihrer Organisation überschreiben. Wenn nicht festgelegt, wird der Standardwert verwendet. Die Call To Action-Schaltfläche wird auf der Startseite zwischen Begrüßungstext und Beschreibung angezeigt.
+          header_snippets:
+            header_snippets_help_html: Benutzen Sie dieses Feld, um dem HTML-Head Inhalte hinzuzufügen. Die häufigste Verwendung ist die Integration von Drittanbieter-Diensten, die ein zusätzliches JavaScript oder CSS erfordern. Außerdem können Sie dem HTML-Code zusätzliche Meta-Tags hinzuzufügen. Beachten Sie, dass dies nur auf den öffentlichen Seiten dargestellt wird und nicht im Admin-Bereich. Wenn der Code mit externen APIs interagiert oder nicht mit den Sicherheitsrichtlinien der Anwendung übereinstimmt, ist es notwendig, die Sicherheitsrichtlinien der Inhalte (Content Security Policy) zu ändern. Weitere Informationen finden Sie <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">auf der Dokumentationsseite</a>.
+            title: HTML-Header-Snippets
           homepage_appearance_title: Homepage-Erscheinungsbild bearbeiten
           homepage_highlighted_content_banner_title: Highlighted Inhaltsbanner
           images:
@@ -852,22 +867,6 @@ de:
         form:
           add: Zur Whitelist hinzufügen
           title: Externe Domain-Whitelist
-      organization_homepage:
-        content_blocks:
-          create:
-            error: Es gab ein Problem beim Versuch, diesen Inhaltsblock zu erstellen.
-            success: Inhaltsblock erfolgreich erstellt.
-          destroy:
-            error: Es gab ein Problem beim Löschen dieses Inhaltsblocks.
-            success: Inhaltsblock erfolgreich gelöscht.
-          edit:
-            update: Aktualisieren
-        edit:
-          active_content_blocks: Aktive Inhaltsblöcke
-          add: Inhaltsblock hinzufügen
-          destroy_confirmation: Sind Sie sicher, dass Sie diesen Inhaltsblock löschen möchten?
-          inactive_content_blocks: Inaktive Inhaltsblöcke
-          title: Seiteninhalt
       participatory_space_private_users:
         create:
           error: Beim Hinzufügen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
@@ -886,6 +885,8 @@ de:
           invalid: Beim Lesen der CSV-Datei ist ein Problem aufgetreten. Bitte stellen Sie sicher, dass Sie den Anweisungen korrekt gefolgt sind.
           success: CSV-Datei wurde erfolgreich hochgeladen, wir senden eine Einladungs-E-Mail an die Teilnehmenden. Dies kann eine Weile dauern.
         new:
+          csv_upload:
+            title: CSV-Datei hochladen
           destroy:
             button: Alle private Teilnehmende auswählen
             confirm: Sind Sie sicher, dass Sie alle private Teilnehmende entfernen möchten? Diese Aktion kann nicht rückgängig gemacht werden. Sie werden sie nicht wiederherstellen können.
@@ -897,7 +898,7 @@ de:
           explanation_example: |
             john.doe@example.org%{csv_col_sep}John Doe
             jane.doe@example.org%{csv_col_sep}Jane Doe
-          title: CSV-Datei hochladen
+          title: Private Teilnehmende via CSV importieren
           upload: Hochladen
       reminders:
         create:
@@ -963,7 +964,6 @@ de:
       shared:
         gallery:
           add_images: Bilder hinzufügen
-          delete_image: Bild löschen
           edit_images: Bilder bearbeiten
           gallery_legend: Bildergalerie hinzufügen (Optional)
       static_page_topics:
@@ -984,20 +984,6 @@ de:
       static_pages:
         actions:
           view: Öffentliche Seite anzeigen
-        content_blocks:
-          active_content_blocks: Aktive Inhaltsblöcke
-          add: Inhaltsblock hinzufügen
-          create:
-            error: Es gab ein Problem beim Versuch, diesen Inhaltsblock zu erstellen.
-            success: Inhaltsblock erfolgreich erstellt.
-          destroy:
-            error: Es gab ein Problem beim Löschen dieses Inhaltsblocks.
-            success: Inhaltsblock erfolgreich gelöscht.
-          destroy_confirmation: Sind Sie sicher, dass Sie diesen Inhaltsblock löschen möchten?
-          edit:
-            update: Aktualisieren
-          inactive_content_blocks: Inaktive Inhaltsblöcke
-          title: Seiteninhalt
         create:
           error: Beim Erstellen einer neuen Seite ist ein Fehler aufgetreten.
           success: Seite erfolgreich erstellt
@@ -1005,17 +991,18 @@ de:
           success: Seite erfolgreich zerstört
         edit:
           changed_notably_help: Wenn diese Option aktiviert ist, werden Nutzende benachrichtigt, um die neuen Nutzungsbedingungen zu akzeptieren.
+          last_notable_change: 'Letzte signifikante Änderung: %{tos_version_formatted}'
           title: Seite bearbeiten
           update: Aktualisieren
         form:
           none: Keiner
           slug_help_html: 'Verwenden Sie hier Teilpfade, nicht die vollständige URL. Buchstaben, Zahlen, Bindestriche und Schrägstriche sind erlaubt; an der ersten Stelle ist ein Buchstabe erforderlich. Beispiel: %{url}'
+        index:
+          last_notable_change: Letzte signifikante Änderung
         new:
           create: Seite erstellen
           title: Neue Seite
         topic:
-          destroy: Thema entfernen
-          edit: Thema bearbeiten
           empty: Es gibt keine Seite zu diesem Thema.
           without_topic: Seiten ohne Thema
         update:
@@ -1032,7 +1019,9 @@ de:
         edit_organization_appearance: Homepage-Erscheinungsbild bearbeiten
         impersonatable_users: Überschaubare Benutzer
         impersonations: Benutzerverwaltung
+        menu: Menü
         metrics: Kriterien
+        page_topics: Themen
         pages: Seiten
         panel: Admin
         participants: Benutzer
