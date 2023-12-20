@@ -43,6 +43,7 @@ module Decidim
           published_at: Time.current,
           participatory_space:,
           settings: {
+            geocoding_enabled: [true, false].sample,
             landing_page_content:,
             more_information_modal: Decidim::Faker::Localized.paragraph(sentence_count: 4),
             workflow: Decidim::Budgets.workflows.keys.sample
@@ -62,7 +63,7 @@ module Decidim
       end
 
       def create_project!(budget:)
-        Decidim::Budgets::Project.create!(
+        params = {
           budget:,
           scope: participatory_space.organization.scopes.sample,
           category: participatory_space.categories.sample,
@@ -71,7 +72,17 @@ module Decidim
             Decidim::Faker::Localized.paragraph(sentence_count: 3)
           end,
           budget_amount: ::Faker::Number.between(from: Integer(budget.total_budget * 0.7), to: budget.total_budget)
-        )
+        }
+
+        if budget.component.settings.geocoding_enabled?
+          params = params.merge(
+            address: "#{::Faker::Address.street_address} #{::Faker::Address.zip} #{::Faker::Address.city}",
+            latitude: ::Faker::Address.latitude,
+            longitude: ::Faker::Address.longitude
+          )
+        end
+
+        Decidim::Budgets::Project.create!(params)
       end
     end
   end
