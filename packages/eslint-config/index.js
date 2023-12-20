@@ -178,7 +178,7 @@ module.exports = { // eslint-disable-line
     "no-prototype-builtins": "error",
     "no-relative-import-paths/no-relative-import-paths": [
       "warn",
-      { "allowSameFolder": false }
+      { "allowSameFolder": false, "rootDir": "decidim-core/app/packs/" }
     ],
     "no-restricted-globals": "error",
     "no-restricted-imports": "error",
