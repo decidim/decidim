@@ -508,6 +508,9 @@ pt-BR:
             other: "%{count} slots restantes"
           view: Visualizar
           visit_finished: Ver reunião anterior
+          withdraw_btn_hint: Você pode retirar sua reunião se mudar de ideia. A reunião não é excluída, ela aparecerá na lista de reuniões retiradas.
+          withdraw_confirmation_html: Tem certeza de que deseja retirar esta reunião?<br><br><strong>esta ação não pode ser cancelada!</strong>
+          withdraw_meeting: Retirar reunião
         update:
           invalid: Houve um problema ao atualizar a reunião.
           success: Você atualizou a reunião com sucesso.
@@ -540,6 +543,7 @@ pt-BR:
             empty_questions: Durante esta reunião, algumas perguntas serão enviadas e você poderá respondê-las. Elas serão exibidas aqui.
           index_admin:
             admin_dashboard: Painel de administração
+            edit: Editar no painel de administração
             question: Pergunta
             received_answer: resposta recebida
             received_answers: respostas recebidas
@@ -583,8 +587,12 @@ pt-BR:
       types:
         private_meeting: Reunião privada
         transparent: Transparente
+        withdraw: Retirado
       versions:
         back_to_resource: Voltar à reunião
+      withdraw:
+        error: Ocorreu um erro ao retirar a reunião
+        success: A reunião foi retirada com sucesso
     metrics:
       meetings:
         description: Número de reuniões criadas
