@@ -2,127 +2,7 @@
 
 # Changelog
 
-## [0.28.0.rc5](https://github.com/decidim/decidim/tree/0.28.0.rc5)
-
-### Added
-
-Nothing.
-
-### Changed
-
-Nothing.
-
-### Fixed
-
-- Backport 'Lock ChromeDriver to 119.0.6045.105' to v0.28 [\#12161](https://github.com/decidim/decidim/pull/12161)
-- **decidim-comments**: Backport 'Restrict comments replies tree including polymorphism' to v0.28 [\#12165](https://github.com/decidim/decidim/pull/12165)
-- **decidim-admin**, **decidim-forms**, **decidim-surveys**: Backport 'Change the buttons UI for removing answers in forms' to v0.28 [\#12166](https://github.com/decidim/decidim/pull/12166)
-- Backport 'Bump stringio and carrierwave' to v0.28 [\#12164](https://github.com/decidim/decidim/pull/12164)
-- Backport 'Merge DummyResource and Dev namespaces' to v0.28 [\#12163](https://github.com/decidim/decidim/pull/12163)
-- Backport 'Fix missing icon error in production environment' to v0.28 [\#12158](https://github.com/decidim/decidim/pull/12158)
-- **decidim-comments**: Backport 'Make the comments deleted and moderated less prominent' to v0.28 [\#12174](https://github.com/decidim/decidim/pull/12174)
-- Backport 'Fix documentation format in models.adoc' to v0.28 [\#12176](https://github.com/decidim/decidim/pull/12176)
-- Backport 'Fix styles in Announcements' to v0.28 [\#12175](https://github.com/decidim/decidim/pull/12175)
-- **decidim-core**: Backport 'Redesign: fix `layout-2col` height on Safari' to v0.28 [\#12180](https://github.com/decidim/decidim/pull/12180)
-- **decidim-conferences**: Backport 'Redesign: fix grid in the partners section of the conferences' to v0.28 [\#12179](https://github.com/decidim/decidim/pull/12179)
-
-### Removed
-
-Nothing.
-
-### Developer improvements
-
-Nothing.
-
-### Internal
-
-Nothing.
-
-## [0.28.0.rc4](https://github.com/decidim/decidim/tree/0.28.0.rc4)
-
-### Added
-
-Nothing.
-
-### Changed
-
-Nothing.
-
-### Fixed
-
-Nothing.
-
-### Removed
-
-Nothing.
-
-### Developer improvements
-
-Nothing.
-
-### Internal
-
-Nothing.
-
-## [0.28.0.rc3](https://github.com/decidim/decidim/tree/0.28.0.rc3)
-
-### Added
-
-Nothing.
-
-### Changed
-
-Nothing.
-
-### Fixed
-
-- Backport 'Fix Decidim::DummyResources autoload path' to v0.28 [\#12127](https://github.com/decidim/decidim/pull/12127)
-- Backport 'Fix missing namespaces and icon' to v0.28 [\#12128](https://github.com/decidim/decidim/pull/12128)
-
-### Removed
-
-Nothing.
-
-### Developer improvements
-
-Nothing.
-
-### Internal
-
-- Add instruction to delete a babel directive from package.json [\#12117](https://github.com/decidim/decidim/pull/12117)
-
-## [0.28.0.rc2](https://github.com/decidim/decidim/tree/0.28.0.rc2)
-
-### Added
-
-Nothing.
-
-### Changed
-
-Nothing.
-
-### Fixed
-
-- Backport 'Remove image resolver from decidim-verifications' to v0.28 [\#12106](https://github.com/decidim/decidim/pull/12106)
-- Backport 'Fix failure when generating an application (`Could not find ".rubocop.yml"`) ' to v0.28 [\#12105](https://github.com/decidim/decidim/pull/12105)
-- Backport 'Fix for upgrade taks not installing node packages' to v0.28 [\#12111](https://github.com/decidim/decidim/pull/12111)
-- Backport 'Remove postcss-loader config loader customization' to v0.28 [\#12112](https://github.com/decidim/decidim/pull/12112)
-
-### Removed
-
-Nothing.
-
-### Developer improvements
-
-- Improve the releases notes: ruby version, summary and `consulations_removal.bash` script  [\#12100](https://github.com/decidim/decidim/pull/12100)
-
-### Internal
-
-- Improve the releases notes: ruby version, summary and `consulations_removal.bash` script  [\#12100](https://github.com/decidim/decidim/pull/12100)
-
-## [0.28.0.rc1](https://github.com/decidim/decidim/tree/0.28.0.rc1)
-
-⛔ This version is broken and can't be used because there were some issues when updating the application. If you want to try v0.28.0 then you'll need to use at least the v0.28.0.rc1.
+## [0.28.0](https://github.com/decidim/decidim/tree/0.28.0)
 
 ### Added
 
@@ -833,6 +713,26 @@ Nothing.
 - Fix modal forms for editor [\#12077](https://github.com/decidim/decidim/pull/12077)
 - Fix pipeline after translations were updated [\#12084](https://github.com/decidim/decidim/pull/12084)
 - Fix design app color and tests [\#12073](https://github.com/decidim/decidim/pull/12073)
+- Backport 'Remove image resolver from decidim-verifications' to v0.28 [\#12106](https://github.com/decidim/decidim/pull/12106)
+- Backport 'Fix failure when generating an application (`Could not find ".rubocop.yml"`) ' to v0.28 [\#12105](https://github.com/decidim/decidim/pull/12105)
+- Backport 'Fix for upgrade taks not installing node packages' to v0.28 [\#12111](https://github.com/decidim/decidim/pull/12111)
+- Backport 'Remove postcss-loader config loader customization' to v0.28 [\#12112](https://github.com/decidim/decidim/pull/12112)
+- Backport 'Fix Decidim::DummyResources autoload path' to v0.28 [\#12127](https://github.com/decidim/decidim/pull/12127)
+- Backport 'Fix missing namespaces and icon' to v0.28 [\#12128](https://github.com/decidim/decidim/pull/12128)
+- Backport 'Lock ChromeDriver to 119.0.6045.105' to v0.28 [\#12161](https://github.com/decidim/decidim/pull/12161)
+- **decidim-comments**: Backport 'Restrict comments replies tree including polymorphism' to v0.28 [\#12165](https://github.com/decidim/decidim/pull/12165)
+- **decidim-admin**, **decidim-forms**, **decidim-surveys**: Backport 'Change the buttons UI for removing answers in forms' to v0.28 [\#12166](https://github.com/decidim/decidim/pull/12166)
+- Backport 'Bump stringio and carrierwave' to v0.28 [\#12164](https://github.com/decidim/decidim/pull/12164)
+- Backport 'Merge DummyResource and Dev namespaces' to v0.28 [\#12163](https://github.com/decidim/decidim/pull/12163)
+- Backport 'Fix missing icon error in production environment' to v0.28 [\#12158](https://github.com/decidim/decidim/pull/12158)
+- **decidim-comments**: Backport 'Make the comments deleted and moderated less prominent' to v0.28 [\#12174](https://github.com/decidim/decidim/pull/12174)
+- Backport 'Fix documentation format in models.adoc' to v0.28 [\#12176](https://github.com/decidim/decidim/pull/12176)
+- Backport 'Fix styles in Announcements' to v0.28 [\#12175](https://github.com/decidim/decidim/pull/12175)
+- **decidim-core**: Backport 'Redesign: fix `layout-2col` height on Safari' to v0.28 [\#12180](https://github.com/decidim/decidim/pull/12180)
+- **decidim-conferences**: Backport 'Redesign: fix grid in the partners section of the conferences' to v0.28 [\#12179](https://github.com/decidim/decidim/pull/12179)
+- **decidim-surveys**: Backport 'Show message when there are no questions in survey' to v0.28 [\#12209](https://github.com/decidim/decidim/pull/12209)
+- **decidim-meetings**: Backport 'Fix selection of polls with two answers and single options questions' to v0.28 [\#12207](https://github.com/decidim/decidim/pull/12207)
+- Backport 'Fix details in CSS from redesign' to v0.28 [\#12208](https://github.com/decidim/decidim/pull/12208)
 
 ### Removed
 
@@ -924,6 +824,7 @@ Nothing.
 - Fix render partial deprecation warning on proposals [\#12035](https://github.com/decidim/decidim/pull/12035)
 - Fix randomness on nickname and emails for seeded users [\#12058](https://github.com/decidim/decidim/pull/12058)
 - Extract methods from meetings seeds [\#12053](https://github.com/decidim/decidim/pull/12053)
+- Improve the releases notes: ruby version, summary and `consulations_removal.bash` script  [\#12100](https://github.com/decidim/decidim/pull/12100)
 
 ### Internal
 
@@ -1125,6 +1026,13 @@ Nothing.
 - Update numbering in RELEASE_NOTES.md [\#12066](https://github.com/decidim/decidim/pull/12066)
 - Remove legacy design support from WYSIWYG editor (TipTap) [\#12015](https://github.com/decidim/decidim/pull/12015)
 - Remove the duplicate reference of icons [\#12083](https://github.com/decidim/decidim/pull/12083)
+- Bump to v0.28.0.rc1 version  [\#12094](https://github.com/decidim/decidim/pull/12094)
+- Improve the releases notes: ruby version, summary and `consulations_removal.bash` script  [\#12100](https://github.com/decidim/decidim/pull/12100)
+- Bump to v0.28.0.rc2 version [\#12114](https://github.com/decidim/decidim/pull/12114)
+- Add instruction to delete a babel directive from package.json [\#12117](https://github.com/decidim/decidim/pull/12117)
+- Bump to v0.28.0.rc3 version [\#12129](https://github.com/decidim/decidim/pull/12129)
+- Bump to v0.28.0.rc4 version [\#12148](https://github.com/decidim/decidim/pull/12148)
+- Bump to v0.28.0.rc5 version [\#12187](https://github.com/decidim/decidim/pull/12187)
 
 ## Previous versions
 
