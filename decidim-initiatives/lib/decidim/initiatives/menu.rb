@@ -47,9 +47,7 @@ module Decidim
         Decidim.menu :admin_initiatives_components_menu do |menu|
           current_participatory_space.components.each do |component|
             caption = translated_attribute(component.name)
-            if component.primary_stat.present?
-              caption += content_tag(:span, component.primary_stat, class: "component-counter")
-            end
+            caption += content_tag(:span, component.primary_stat, class: "component-counter") if component.primary_stat.present?
 
             menu.add_item [component.manifest_name, component.id].join("_"),
                           caption.html_safe,
