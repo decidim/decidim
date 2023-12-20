@@ -636,7 +636,7 @@ ca:
               upload_legend: Decidim té les teves claus públiques d'identificació, però el teu navegador encara no les té. Necessites importar l'arxiu amb les teves claus d'identificació al teu ordinador des de la còpia de seguretat que vas crear després de generar-les.
             not_supported_browser_description: Sembla que estàs usant un navegador que no pot ser utilitzat per a actuar com a garant. Assegura't que estàs usant la versió més recent del teu navegador, o intenta usar qualsevol dels navegadors més populars per a poder completar les teves tasques com a garant.
             not_supported_browser_title: Actualitza el navegador per a actuar com a garant
-            trustee_role_description: Se t'ha assignat com a garant en algunes de les eleccions celebrades en aquesta plataforma.
+            trustee_role_description: Has estat assignada com a garant en algunes de les eleccions celebrades en aquesta plataforma.
           update:
             success: La teva clau pública d'identificació va ser guardada amb èxit.
       votes:
@@ -730,7 +730,7 @@ ca:
           continue: Següent
       warnings:
         no_elections_warning: No hi ha cap votació que coincideixi amb la teva cerca o no n'hi ha cap programada.
-        no_scheduled_elections_warning: Actualment no hi ha votacions programades, però pots veure les anteriors.
+        no_scheduled_elections_warning: Actualment no hi ha votacions programades, però pots veure un llistat de les anteriors.
     events:
       elections:
         election_published:
@@ -1176,7 +1176,7 @@ ca:
           certify:
             add_images: Afegir imatges
             error: S'ha produït un error en adjuntar el certificat. Si us plau, prova de nou.
-            form_legend: Puja una imatge del certificat de tancament electoral
+            form_legend: Puja una imatge del Certificat de Tancament Electoral
             heading: Recompte de vots - Pujar certificat
             info_text: Si us plau, puja una imatge del certificat de tancament electoral.
             submit: Pujar el certificat

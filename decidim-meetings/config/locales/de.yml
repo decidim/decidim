@@ -8,7 +8,7 @@ de:
         closing_report: Protokoll
         closing_visible: Ist sichtbar
         contributions_count: Anzahl der Beiträge
-        proposal_ids: An der Sitzung entstandene Vorschläge
+        proposal_ids: Vorschläge aus der Veranstaltung
         video_url: Video-URL
       meeting:
         address: Adresse
@@ -281,7 +281,7 @@ de:
             select_user: Nutzer wählen
           index:
             filter:
-              accepted: Akzeptiert
+              accepted: Angenommen
               all: Alle
               rejected: Abgelehnt
               sent: Geschickt

@@ -195,9 +195,6 @@ id:
             select_user: Pilih pengguna
           index:
             filter:
-              accepted: Diterima
-              all: Semua
-              rejected: Ditolak
               sent: Terkirim
             filter_by: Filter berdasarkan
             invite_attendee: Undang hadirin
@@ -272,9 +269,6 @@ id:
           value_types:
             organizer_presenter:
               not_found: 'Organiser tidak ditemukan di database (ID: %{id})'
-      application_helper:
-        filter_scope_values:
-          all: Semua
       calendar_modal:
         calendar_url: URL Kalender
         close_window: Tutup jendela

@@ -18,6 +18,7 @@ pt-BR:
         decidim_scope_id: Âmbito
         decidim_user_group_id: Grupo de usuários
         description: Descrição
+        iframe_embed_type: Tipo de incorporação iframe
         location: Localização
         location_hints: Dicas de localização
         online_meeting_url: URL da reunião on-line
@@ -34,6 +35,12 @@ pt-BR:
         type_of_meeting: Tipo
     errors:
       models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: Esta URL não pode ser incorporada na página de eventos de reunião ou ao vivo
+            online_meeting_url:
+              url_format: Precisa ser uma URL válida
         meeting_agenda:
           attributes:
             base:
@@ -71,6 +78,7 @@ pt-BR:
               official: Oficial
           type_eq:
             values:
+              hybrid: Híbrido
               online: On-line
       meeting_copies:
         create:
@@ -150,6 +158,9 @@ pt-BR:
           email_outro: Você recebeu esta notificação porque está seguindo a reunião "%{resource_title}". Você pode ignorá-lo do link anterior.
           email_subject: A reunião "%{resource_title}" começará em menos de 48h.
           notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> começará em menos de 48h.
+    forms:
+      meetings:
+        attendees_count_help_text: Não se esqueça de incluir o número total de participantes na sua reunião, seja em pessoa, on-line ou híbrido.
     gamification:
       badges:
         attended_meetings:
@@ -234,15 +245,13 @@ pt-BR:
             select_user: Selecionar usuário
           index:
             filter:
-              accepted: Aceitos
               all: Tudo
-              rejected: Rejeitados
               sent: Enviado
             filter_by: Filtrar por
             invite_attendee: Convidar participante
             invites: Convites
             registrations_disabled: Você não pode convidar um participante porque os registros estão desativados.
-            search: Pesquisar
+            search: Pesquisa
         meeting_closes:
           edit:
             close: Fechar
@@ -274,6 +283,8 @@ pt-BR:
             registration_url_help: 'Link: permitir que os participantes possam acessar o serviço externo que você está usando para inscrições'
             select_a_meeting_type: Por favor, selecione um tipo de reunião
             select_a_registration_type: Por favor, selecione um tipo de registro
+            select_an_iframe_access_level: Por favor, selecione um nível de acesso iframe
+            show_embedded_iframe_help: Apenas alguns serviços permitem incorporar na reunião ou evento ao vivo (YouTube, Twitch e Jitsi)
           index:
             title: Reuniões
           new:
@@ -344,6 +355,8 @@ pt-BR:
             organizer_presenter:
               not_found: 'O organizador não foi encontrado no banco de dados (ID: %{id})'
       application_helper:
+        filter_category_values:
+          all: Todos
         filter_scope_values:
           all: Tudo
       calendar_modal:
@@ -353,6 +366,7 @@ pt-BR:
       conference_venues: Locais de conferência
       content_blocks:
         upcoming_meetings:
+          name: Próximos encontros
           upcoming_meetings: Próximas reuniões
           view_all_meetings: Ver tudo
       directory:
@@ -360,6 +374,15 @@ pt-BR:
           index:
             meetings: Reuniões
             space_type: Espaço participativo
+      iframe_access_level:
+        all: Todos os visitantes
+        registered: Participantes registrados nesta reunião
+        signed_in: Apenas participantes registrados
+      iframe_embed_type:
+        embed_in_meeting_page: Incorporar na página da reunião
+        none: Nenhum
+        open_in_live_event_page: Abrir na página de eventos ao vivo (com enquetes opcionais)
+        open_in_new_tab: Abrir URL em uma nova aba
       last_activity:
         meeting_updated_at_html: "<span>Novo debate em %{link}</span>"
         new_meeting_at_html: "<span>Nova reunião em %{link}</span>"
@@ -416,11 +439,13 @@ pt-BR:
             all: Tudo
             citizens: Cidadãos
             official: Oficial
+            user_groups: Grupos
           scope: Âmbito
           search: Pesquisa
           type: Tipo
           type_values:
             all: Tudo
+            hybrid: Híbrido
             in_person: Pessoalmente
             online: On-line
         filters_small_view:
@@ -440,8 +465,13 @@ pt-BR:
           select_a_category: Por favor, selecione uma categoria
           select_a_meeting_type: Por favor, selecione um tipo de reunião
           select_a_registration_type: Por favor, selecione um tipo de registro
+          select_an_iframe_access_level: Por favor, selecione um nível de acesso iframe
+          show_embedded_iframe_help: Apenas alguns serviços permitem incorporar na reunião ou evento ao vivo (YouTube, Twitch e Jitsi)
         index:
           new_meeting: Nova reunião
+          see_all: Veja todas as reuniões
+          see_all_withdrawn: Veja todas as reuniões retiradas
+          text_banner: Você está vendo a lista de reuniões retiradas por seus autores. %{go_back_link}.
         meeting_minutes:
           related_information: Informação relacionada
         meetings:
@@ -460,8 +490,10 @@ pt-BR:
           close_meeting: Reunião próxima
           contributions: Contagem de Contribuições
           date: Data
+          edit_close_meeting: Editar relatório da reunião
           edit_meeting: Editar reuniões
           going: Você se inscreveu para esta reunião
+          join: Participe da reunião
           leave: Cancelar registro
           leave_confirmation: Tem certeza de que deseja cancelar seu cadastro para esta reunião?
           meeting_minutes: Atas de Reunião
@@ -476,6 +508,9 @@ pt-BR:
             other: "%{count} slots restantes"
           view: Visualizar
           visit_finished: Ver reunião anterior
+          withdraw_btn_hint: Você pode retirar sua reunião se mudar de ideia. A reunião não é excluída, ela aparecerá na lista de reuniões retiradas.
+          withdraw_confirmation_html: Tem certeza de que deseja retirar esta reunião?<br><br><strong>esta ação não pode ser cancelada!</strong>
+          withdraw_meeting: Retirar reunião
         update:
           invalid: Houve um problema ao atualizar a reunião.
           success: Você atualizou a reunião com sucesso.
@@ -508,6 +543,7 @@ pt-BR:
             empty_questions: Durante esta reunião, algumas perguntas serão enviadas e você poderá respondê-las. Elas serão exibidas aqui.
           index_admin:
             admin_dashboard: Painel de administração
+            edit: Editar no painel de administração
             question: Pergunta
             received_answer: resposta recebida
             received_answers: respostas recebidas
@@ -545,13 +581,18 @@ pt-BR:
           invalid: Tem havido um problema ao sair desta reunião.
           success: Você saiu da reunião com sucesso.
       type_of_meeting:
+        hybrid: Híbrido
         in_person: Pessoalmente
         online: On-line
       types:
         private_meeting: Reunião privada
         transparent: Transparente
+        withdraw: Retirado
       versions:
         back_to_resource: Voltar à reunião
+      withdraw:
+        error: Ocorreu um erro ao retirar a reunião
+        success: A reunião foi retirada com sucesso
     metrics:
       meetings:
         description: Número de reuniões criadas

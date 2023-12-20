@@ -67,6 +67,7 @@ pt-BR:
           comment: Comentário
           create: Criar
           destroy: Excluir
+          endorse: Endossar
         name: Blog
         settings:
           global:

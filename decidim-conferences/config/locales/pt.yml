@@ -334,7 +334,7 @@ pt:
               accepted: Aceite
               all: Todos
               rejected: Rejeitado
-              sent: Enviei
+              sent: Enviado
             filter_by: Filtrar por
             invite_attendee: Convidar participante
             invites: Convites

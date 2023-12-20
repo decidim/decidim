@@ -13,8 +13,11 @@ pl:
         decidim_scope_id: Zakres
         description: Opis
         proposal_ids: Powiązane propozycje
+        proposals: Propozycje
         selected: Wybrane do implementacji
         title: Tytuł
+      proposals_import:
+        scope_id: Zakres
   activerecord:
     models:
       decidim/budgets/project:
@@ -23,6 +26,17 @@ pl:
         many: Projektów
         other: Projektów
   decidim:
+    admin:
+      filters:
+        projects:
+          category_id_eq:
+            label: Kategoria
+          scope_id_eq:
+            label: Zakres
+          selected_at_null:
+            label: Wybrane
+            values:
+              'false': Wybrane do wykonania
     budgets:
       actions:
         attachment_collections: Foldery
@@ -91,7 +105,10 @@ pl:
             success: "%{number} propozycji pomyślnie zaimportowano do projektów"
           new:
             create: Importuj propozycje do projektów
+            default_budget: Domyślny budżet
+            import_all_accepted_proposals: Importuj wszystkie zaakceptowane propozycje
             no_components: W tej przestrzeni partycypacyjnej nie ma innych komponentów do zaimportowania propozycji jako projektów.
+            origin_component_id: Źródłowy komponent
             select_component: Wybierz komponent
             title: Importuj propozycje
       admin_log:
@@ -123,6 +140,7 @@ pl:
         my_budgets: Moje budżety
         progress: Zakończ głosowanie
         show: Zobacz projekty
+        vote: Głos
         voted_on: Zagłosowałeś na %{links}
       limit_announcement:
         cant_vote: Nie możesz głosować na ten budżet. <a href="%{landing_path}">Spróbuj zagłosować na inny</a>.

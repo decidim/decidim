@@ -340,7 +340,7 @@ sv:
               accepted: Accepterad
               all: Alla
               rejected: Avvisad
-              sent: Skickade
+              sent: Skickad
             filter_by: Filtrera efter
             invite_attendee: Bjud in deltagare
             invites: Inbjudningar

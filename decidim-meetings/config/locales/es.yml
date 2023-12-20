@@ -281,10 +281,10 @@ es:
             select_user: Seleccionar participante
           index:
             filter:
-              accepted: Aceptado
-              all: Todas
-              rejected: Rechazadas
-              sent: Enviades
+              accepted: Aceptada
+              all: Todos
+              rejected: Rechazada
+              sent: Enviado
             filter_by: Filtrar por
             invite_attendee: Invitar asistente
             invites: Invitaciones
@@ -398,7 +398,7 @@ es:
         filter_meeting_space_values:
           all: Todos
         filter_scope_values:
-          all: Todas
+          all: Todos
       calendar_modal:
         calendar_url: URL del calendario
         close_window: Cerrar ventana

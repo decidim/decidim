@@ -281,10 +281,10 @@ ca:
             select_user: Selecciona la participant
           index:
             filter:
-              accepted: Acceptat
+              accepted: Acceptada
               all: Totes
-              rejected: Rebutjades
-              sent: Enviades
+              rejected: Rebutjada
+              sent: Enviat
             filter_by: Filtra per
             invite_attendee: Convidar assistent
             invites: Invitacions

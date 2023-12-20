@@ -20,6 +20,9 @@ fr-CA:
         scope_id: Périmètre d'application
   activerecord:
     models:
+      decidim/budgets/budget:
+        one: Budget
+        other: Budgets
       decidim/budgets/project:
         one: Projet
         other: Projets

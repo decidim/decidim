@@ -40,8 +40,8 @@ eu:
       decidim/join_request_accepted_event: Erregistratu eskaera onartua
       decidim/join_request_rejected_event: Lotzeko eskaera ukatua
       decidim/profile_updated_event: Profila eguneratua
-      decidim/promote_to_admin: Taldeko administratzaile mailara igota
-      decidim/promoted_to_admin_event: Taldeko administratzaile mailara igota
+      decidim/promote_to_admin: Taldeko administratzailera igota
+      decidim/promoted_to_admin_event: Taldeko administratzailera igota
       decidim/removed_from_group: Taldetik kenduta
       decidim/resource_endorsed_event: Baliabideari atxiki zaio
       decidim/resource_hidden_event: Ezkutuko baliabidea
@@ -67,8 +67,8 @@ eu:
         one: Parte-hartzailea
         other: Erabiltzaileak
       decidim/user_group:
-        one: Erabiltzaile-taldea
-        other: Erabiltzaile taldeak
+        one: Taldea
+        other: Taldeak
   booleans:
     'false': 'Ez'
     'true': 'Bai'
@@ -799,7 +799,7 @@ eu:
     group_invites:
       accept:
         error: Arazo bat egon da gonbidapen hau onartzean
-        success: Gonbidapena arrakastaz onartu da
+        success: Gonbidapena zuzen onartua
       accept_invitation: Onartu
       accept_or_reject_group_invitations: 'Talde hauek gonbidatu zaituzte. Eskaerak onartu edo ukatu:'
       index:
@@ -807,25 +807,25 @@ eu:
         invite_user: Gonbidatu parte-hartzaile bat
       invite:
         error: Arazo bat egon da parte-hartzaile hau gonbidatzean
-        success: Erabiltzailea behar bezala gonbidatu da
+        success: Parte-hartzailea zuzen gonbidatua
       reject:
         error: Arazo bat egon da gonbidapen hau ukatzean
         success: Gonbidapena behar bezala ukatua
       reject_invitation: Ukatu
     group_members:
       accept:
-        error: Errore bat gertatu da eskaera bat onartzeko
-        success: Erregistratu eskaera arrakastaz onartu da
+        error: Errore bat gertatu da eskaera hau onartzeko
+        success: Eskaera zuzen onartua
       actions:
         are_you_sure: Ziur zaude?
-        promote_to_admin: Egin admin
-        remove_from_group: Kendu erabiltzailea
+        promote_to_admin: Egin administratzailea
+        remove_from_group: Kendu parte-hartzailea
       index:
         current_members_without_admins: 'Uneko kideak (administratzaile gabe):'
         manage_members: Kudeatu kideak
       promote:
-        error: Errore bat gertatu da erabiltzaile hau sustatzeko
-        success: Erabiltzailea arrakastaz sustatu da
+        error: Errore bat gertatu da parte-hartzaile hau sustatzean
+        success: Parte-hartzailea zuzen sustatua
       reject:
         error: Arazo bat egon da lotzeko eskaera hau ukatzean
         success: Lotzeko eskaera behar bezala ukatua
@@ -837,7 +837,7 @@ eu:
         are_you_sure: Ziur zaude?
       create:
         error: Arazo bat egon da taldea sortzean
-        success: Taldeak arrakastaz sortu du
+        success: Taldea zuzen sortua
       edit:
         edit_user_group: Editatu taldea
         update_user_group: Eguneratu taldea
@@ -847,7 +847,7 @@ eu:
         fill_in_for_verification: 'Eremu hauek bete behar dituzu zure taldea egiaztatu nahi baduzu:'
         name_help: Zure erakundearen izena, elkartea, kolektiboa, taldea, eta abar.
         nickname_help: Zure erakunde, elkarte, kolektibo, talde eta abarren ezizena. Ez erabili ez espaziorik ez azenturik.
-        phone_help: Ez erabili marratuak eta ez espazioak
+        phone_help: Ez erabili ez gidoirik eta ez espaziorik
       join:
         error: Arazo bat egon da taldera lotzean
         success: Lotzeko eskaera zuzen sortu da. Administratzaile batek zure eskaera berrikusiko du taldera onartu aurretik.
@@ -924,7 +924,7 @@ eu:
         latlng_text: 'latitudea: %{latitude}, longitudea: %{longitude}'
         map_service_brand: OpenStreetMap
     members:
-      no_members: Erabiltzaile talde honek ez du kideik oraindik.
+      no_members: Talde honek ez du kiderik oraindik.
     menu:
       help: Laguntza
       home: Hasiera
@@ -1123,7 +1123,7 @@ eu:
           participate: Parte hartu
           welcome: Ongi etorri %{organization} erakundera!
         metrics:
-          headline: Zifretan parte hartzea
+          headline: Metrikak
         statistics:
           headline: '%{organization} erakundearen egungo egoera'
         sub_hero:
@@ -1136,7 +1136,7 @@ eu:
         topics: Gaiak
       participatory_space:
         metrics:
-          headline: Zifretan parte hartzea
+          headline: Metrikak
           link: Erakutsi estatistiken guztiak
       terms_and_conditions:
         accept:
@@ -1305,7 +1305,7 @@ eu:
       participatory_space_filters:
         filters:
           areas: Arloak
-          select_an_area: Hautatu eremu bat
+          select_an_area: Hautatu arlo bat
       public_participation:
         public_participation: Erakutsi nire asistentzia publikoki
       reference:
@@ -1491,7 +1491,7 @@ eu:
       invite_private_user:
         subject: Prozesu parte-hartzaile batera gonbidatu zaituzte %{organization} helbidean
       organization_admin_invitation_instructions:
-        subject: 'Gonbita jaso duzu erakunde hau kudeatzeko: %{organization}'
+        subject: 'Gonbidapena jaso duzu erakunde hau kudeatzeko: %{organization}'
       password_change:
         greeting: Kaixo, %{recipient}!
         message: Zuregana jotzen dugu jakinarazteko zure pasahitza zuzen aldatu dela.

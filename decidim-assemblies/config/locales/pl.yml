@@ -3,6 +3,8 @@ pl:
     attributes:
       assemblies_setting:
         enable_organization_chart: Włącz wykres dla organizacji
+      assemblies_type:
+        title: Tytuł
       assembly:
         announcement: Powiadomienie
         area_id: Kategoria
@@ -23,12 +25,16 @@ pl:
         decidim_scope_id: Zakres
         description: Opis
         developer_group: Grupa inicjatorów
+        document: Dokument
         domain: Domena
         duration: Czas trwania
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
         hero_image: Obraz główny
+        import_attachments: Importuj załączniki
+        import_categories: Importuj kategorie
+        import_components: Importuj komponenty
         included_at: Dołączono
         instagram: Instagram
         internal_organisation: Organizacja wewnętrzna
@@ -65,6 +71,7 @@ pl:
         non_user_avatar: Awatar
         position: Pozycja
         user_id: Użytkownik
+        weight: Kolejność
       assembly_user_role:
         email: E-mail
         name: Imię
@@ -284,6 +291,7 @@ pl:
             select_an_area: Wybierz kategorię
             select_an_assembly_type: Wybierz typ zespołu
             select_parent_assembly: Wybierz zespół nadrzędny
+            slug_help: 'Slugi URL służą do generowania adresów URL kierujących bezpośrednio do tego zgromadzenia. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
             social_handlers: Profile społecznościowe
             title: Informacje ogólne
             visbility: Widoczność
@@ -295,12 +303,18 @@ pl:
         assemblies_types:
           form:
             title: Tytuł
+        assembly_copies:
+          form:
+            slug_help: 'Slugi URL służą do generowania adresów URL kierujących bezpośrednio do tego zgromadzenia. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
         assembly_imports:
           form:
             document_legend: Dodaj dokument
+            slug_help: 'Slugi URL służą do generowania adresów URL kierujących bezpośrednio do tego zgromadzenia. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
         assembly_members:
           form:
             existing_user: Istniejący użytkownik
+            explanation: 'Wskazówka dotycząca obrazu:'
+            image_guide: Najlepiej obraz pionowy (portretowy), który nie ma żadnego tekstu.
             non_user: Brak użytkownika
             non_user_avatar_help: Powinieneś uzyskać zgodę osób przed opublikowaniem ich jako członka.
             select_a_position: Wybierz pozycję
@@ -309,6 +323,8 @@ pl:
           index:
             filter:
               all: Wszystko
+              ceased: Zaprzestane
+              not_ceased: Niezaprzestane
             filter_by: Filtruj według
             search: Szukaj
         content_blocks:
@@ -317,6 +333,9 @@ pl:
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        show:
+          title: O tym zgromadzeniu
       assembly_members:
         index:
           members: Członkowie
@@ -367,6 +386,7 @@ pl:
         developer_group: Grupa inicjatorów
         duration: Czas trwania
         included_at: Dołączono
+        indefinite_duration: Nieokreślony
         internal_organisation: Organizacja wewnętrzna
         is_transparent:
           'false': nietransparentny

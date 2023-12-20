@@ -64,7 +64,7 @@ de:
         alignment:
           against: Gegen
           in_favor: Zugunsten
-        confirm_destroy: Bist du sicher, dass du diesen Kommentar löschen willst?
+        confirm_destroy: Sind Sie sich sicher, dass Sie diesen Kommentar löschen möchten?
         delete: Löschen
         deleted_at: Kommentar gelöscht am %{date}
         deleted_user: Gelöschter Benutzer
