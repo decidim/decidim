@@ -84,6 +84,7 @@ pt-BR:
   decidim:
     accessibility:
       external_link: Link externo
+      front_page_link: Ir para a página inicial
       logo: "Logotipo oficial de %{organization}"
       skip_button: Pular para o conteúdo principal
     account:
@@ -103,6 +104,7 @@ pt-BR:
         error: Ocorreu um erro ao cancelar a sua conta.
         success: Sua conta foi excluída.
       show:
+        available_locales_helper: Escolha o idioma que você deseja usar para navegar e receber notificações em Decidim
         change_password: Mudar senha
         update_account: Atualizar conta
       update:
@@ -121,7 +123,7 @@ pt-BR:
         create: "%{user_name} adicionou o componente %{resource_name} ao espaço %{space_name}"
         delete: "%{user_name} removeu o componente %{resource_name} do espaço %{space_name}"
         publish: "%{user_name} publicou o componente %{resource_name} no espaço %{space_name}"
-        unpublish: "%{user_name} não publicado o componente %{resource_name} do espaço %{space_name}"
+        unpublish: "%{user_name} despublicou o componente %{resource_name} do espaço %{space_name}"
       impersonation_log:
         manage: "%{user_name} gerenciou %{resource_name} porque %{reason}"
       moderation:
@@ -164,7 +166,9 @@ pt-BR:
         unblock: "%{user_name} desbloqueou o usuário %{resource_name}"
         unofficialize: "%{user_name} não oficializado o usuário %{resource_name}"
       user_group:
+        block: "%{user_name} bloqueou o grupo de usuários %{resource_name}"
         reject: "%{user_name} rejeitou o %{resource_name} verificação do grupo de usuários"
+        unblock: "%{user_name} desbloqueou o grupo de usuários %{resource_name}"
         verify: "%{user_name} verificado o %{resource_name} grupo de usuários"
         verify_via_csv: "%{user_name} verificou o %{resource_name} grupo de usuários por meio de um arquivo CSV"
       user_moderation:
@@ -457,12 +461,15 @@ pt-BR:
           subtitle: Por favor, preencha o seguinte formulário para completar a inscrição
           username_help: Nome público que aparece em suas postagens. Com o objetivo de garantir o anonimato, pode ser qualquer nome.
       registrations:
+        create:
+          error: Houve um erro ao criar sua conta.
         new:
           already_have_an_account?: Você já tem uma conta?
           newsletter: Receba um boletim informativo ocasional com informações relevantes
           newsletter_title: Permissão de contato
           nickname_help: Seu alias em %{organization}. Só pode conter letras, números, '-' e '_'.
           password_help: "O mínimo de %{minimun_characters} caracteres, não deve ser muito comum (por exemplo, 123456) e deve ser diferente do seu apelido e do seu email."
+          sign_in: Iniciar Sessão
           sign_up: Inscreva-se
           sign_up_as:
             legend: Inscreva-se como
@@ -510,6 +517,11 @@ pt-BR:
           this_application_will_not_be_able_to: 'Esta aplicação não poderá:'
           update_profile: atualize seu perfil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> quer usar sua conta"
+    editor_images:
+      create:
+        error: Erro ao carregar a imagem
+        success: Imagem carregada com sucesso
+      drag_and_drop_help: Adicione imagens arrastando e soltando ou colando-as.
     endorsable:
       endorsements: Endossos
       endorsements_count: Contagem de endossos
@@ -705,6 +717,7 @@ pt-BR:
       no_followers: Nenhum seguidor.
     following:
       no_followings: Não segue ninguém ou nada ainda.
+      non_public_followings: Alguns dos recursos seguidos não são públicos.
     follows:
       create:
         button: Seguir
@@ -869,8 +882,10 @@ pt-BR:
         create_with_space: "%{user_name} criado %{resource_name} em %{space_name}"
         delete: "%{user_name} excluído %{resource_name}"
         delete_with_space: "%{user_name} excluído %{resource_name} em %{space_name}"
+        publish_with_space: "%{user_name} publicou %{resource_name} em %{space_name}"
         unknown_action: "%{user_name} executou alguma ação em %{resource_name}"
         unknown_action_with_space: "%{user_name} executou alguma ação em %{resource_name} em %{space_name}"
+        unpublish_with_space: "%{user_name} despublicou %{resource_name} de %{space_name}"
         update: "%{user_name} atualizado %{resource_name}"
         update_with_space: "%{user_name} atualizado %{resource_name} em %{space_name}"
       value_types:
@@ -958,6 +973,7 @@ pt-BR:
           next: Próxima
           no_conversations: Ainda não há conversas
           title: Conversas
+          to: Para
         reply:
           placeholder: Sua resposta...
           send: Enviar
@@ -965,6 +981,7 @@ pt-BR:
         show:
           back: Voltar para todas as conversas
           chat_with: Conversa com
+          deleted_accounts: Você não pode ter uma conversa com contas excluídas.
           not_allowed: Este usuário não aceita mensagens diretas.
           title: Conversa com %{usernames}
         start:
@@ -990,6 +1007,7 @@ pt-BR:
     newsletter_mailer:
       newsletter:
         note: Você recebeu este e-mail porque está inscrito em boletins informativos em %{organization_name}. Você pode alterar suas configurações em suas <a href="%{link}">notifications page</a>.
+        see_on_website: Não consegue ver este e-mail corretamente? Visualize-o no <a href="%{link}" target="_blank" class="see-on-website">site</a>.
         unsubscribe: Para optar por não receber esse tipo de email, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
     newsletter_templates:
       basic_only_text:
@@ -1031,8 +1049,15 @@ pt-BR:
         greetings: Saudações,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Olá,
         subject: Você deseja continuar recebendo informações relevantes sobre %{organization_name}?
+    notification_mailer:
+      event_received:
+        original_text: 'Texto original:'
+        same_language: O conteúdo foi publicado em seu idioma preferido (%{language}), e é por isso que nenhuma tradução automática é exibida neste e-mail.
+        translated_text: 'Texto traduzido automaticamente:'
     notifications:
       no_notifications: Não há notificações.
+      show:
+        missing_event: Ops, esta notificação pertence a um item que não está mais disponível. Você pode descartá-lo.
     notifications_settings:
       show:
         administrators: Administradores
@@ -1073,6 +1098,7 @@ pt-BR:
           proposals: Propostas
           proposals_explanation: Faça propostas, suporte as existentes e promova as mudanças que deseja ver.
         footer_sub_hero:
+          footer_sub_hero_body: Vamos construir uma sociedade mais aberta, transparente e colaborativa.<br /> Participe, participe e decida.
           footer_sub_hero_headline: Bem-vindo à plataforma participativa %{organization}.
           register: Registrar-se
         hero:
@@ -1103,12 +1129,15 @@ pt-BR:
           legend: Concorde com os termos e condições de uso
         refuse:
           modal_body: Se recusar, você não será capaz de usar a plataforma, você pode <a href="%{data_portability_path}">baixar seus dados</a> e / ou <a href="%{delete_path}">excluir sua conta</a>.
+          modal_btn_continue: Aceite os termos e continue
           modal_btn_exit: Vou revisá-lo mais tarde
+          modal_button: Recuse os termos
           modal_close: Fechar modal
           modal_title: Você realmente recusa os Termos e Condições atualizados?
         required_review:
           alert: Atualizamos nossos Termos de Serviço, revise-os.
           body: Por favor, dedique um momento para rever as atualizações dos nossos Termos de Serviço. Caso contrário, você não poderá usar a plataforma.
+          title: 'Obrigatório: Revise as atualizações dos nossos termos de serviço'
     participatory_space_private_users:
       not_allowed: Você não tem permissão para visualizar este conteúdo
     profile:
@@ -1321,6 +1350,7 @@ pt-BR:
         title_reply: Resposta
       show:
         back: Mostrar todas as conversas
+        deleted_accounts: Você não pode ter uma conversa com contas excluídas.
         not_allowed: Este usuário não aceita mais mensagens diretas.
         title: Conversa com %{usernames}
       update:
@@ -1489,6 +1519,8 @@ pt-BR:
       updated: Sua conta foi atualizada com sucesso.
     sessions:
       already_signed_out: Saiu com sucesso.
+      new:
+        sign_in: Iniciar Sessão
       signed_in: Conectado com sucesso.
       signed_out: Saiu com sucesso.
     shared:
@@ -1497,6 +1529,7 @@ pt-BR:
         didn_t_receive_confirmation_instructions: Não recebeu instruções de confirmação?
         didn_t_receive_unlock_instructions: Não recebeu instruções de desbloqueio?
         forgot_your_password: Esqueceu sua senha?
+        sign_in: Iniciar Sessão
         sign_in_with_provider: Entrar com %{provider}
         sign_up: inscrever-se
       minimum_password_length:
