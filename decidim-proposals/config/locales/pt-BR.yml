@@ -489,6 +489,7 @@ pt-BR:
           all: Todos
           meetings: Reuniões
           official: Oficial
+          participants: Participantes
           user_groups: Grupos de usuários
         filter_state_values:
           accepted: Aceitaram
