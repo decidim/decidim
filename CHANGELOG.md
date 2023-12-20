@@ -4,6 +4,34 @@
 
 ### Upgrade notes
 
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+Nothing.
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+Nothing.
+
+### Internal
+
+Nothing.
+
+## [0.27.5](https://github.com/decidim/decidim/tree/0.27.5)
+
+### Upgrade notes
+
 #### Deduplicating endorsements
 
 We have identified a case when the same user can endorse the same resource multiple times. This is a bug that we have fixed in this release, but we need to clean up the existing duplicated endorsements. We have added a new task that helps you clean the duplicated endorsements.
@@ -34,7 +62,61 @@ Nothing.
 
 ### Fixed
 
-Nothing.
+- **decidim-accountability**, **decidim-blogs**, **decidim-budgets**, **decidim-debates**, **decidim-meetings**, **decidim-sortitions**: Backport 'Nullable component setting generates error :comments_max_length' to v0.27 [\#11239](https://github.com/decidim/decidim/pull/11239)
+- **decidim-core**: Raise exception in `UserTimelineController` if no user with the nickname provided [\#11465](https://github.com/decidim/decidim/pull/11465)
+- **decidim-budgets**: Backport 'Fix ambiguous id column on projects query' to v0.27 [\#11482](https://github.com/decidim/decidim/pull/11482)
+- **decidim-core**:  Backport 'Encode non-ASCII characters on external links' to v0.27  [\#11499](https://github.com/decidim/decidim/pull/11499)
+- Backport 'Revert "Lock ChromeDriver to the latest working version"' to 0.27 [\#11619](https://github.com/decidim/decidim/pull/11619)
+- **decidim-core**: Backport 'Use left outer join instead of include in with_any_category scope' to v0.27 [\#11614](https://github.com/decidim/decidim/pull/11614)
+- **decidim-admin**, **decidim-assemblies**, **decidim-conferences**, **decidim-core**, **decidim-generators**, **decidim-participatory processes**: Backport 'Update the Twitter icons and brand name to X' to v0.27 [\#11616](https://github.com/decidim/decidim/pull/11616)
+- **decidim-assemblies**, **decidim-participatory processes**: Use `with_any_scope` instead of `with_scope` for assemblies and processes [\#11438](https://github.com/decidim/decidim/pull/11438)
+- **decidim-core**: Fix password confirm validation error message [\#11625](https://github.com/decidim/decidim/pull/11625)
+- **decidim-core**: Backport 'Fix PWA availability for organizations with forced sign in' to v0.27 [\#11805](https://github.com/decidim/decidim/pull/11805)
+- **decidim-surveys**: Backport 'Add alert when publish a survey with answers' to v0.27 [\#11895](https://github.com/decidim/decidim/pull/11895)
+- Backport 'Add "Tile usage" notice at the top of doc page for OSM maps and geocoding' to v0.27 [\#11890](https://github.com/decidim/decidim/pull/11890)
+- **decidim-core**: Backport 'Update HERE API autocomplete' to v0.27 [\#11908](https://github.com/decidim/decidim/pull/11908)
+- **decidim-generators**: Backport 'Fix Bootsnap configuration' to v0.27 [\#11896](https://github.com/decidim/decidim/pull/11896)
+- **decidim-conferences**, **decidim-meetings**: Backport 'Fix conference venues meetings visibility' to v0.27 [\#11914](https://github.com/decidim/decidim/pull/11914)
+- Backport 'Add 127.0.0.1 and 0.0.0.0 as secondary hosts in the Organization's seeds' to v0.27 [\#11911](https://github.com/decidim/decidim/pull/11911)
+- **decidim-budgets**, **decidim-comments**: Backport 'Fix 'download your data' when there are comments on budgets' to v0.27 [\#11903](https://github.com/decidim/decidim/pull/11903)
+- **decidim-core**: Backport 'Deletion of leftovers ZIP files in tmp directory' to v0.27 [\#11899](https://github.com/decidim/decidim/pull/11899)
+- **decidim-admin**: Backport 'Sort components in "Add component" alphabetically' to v0.27 [\#11923](https://github.com/decidim/decidim/pull/11923)
+- **decidim-core**: Backport 'Fix autocomplete result list duplicates' to v0.27 [\#11892](https://github.com/decidim/decidim/pull/11892)
+- **decidim-system**: Backport 'Add admin's password confirmation validation in system' to v0.27 [\#11929](https://github.com/decidim/decidim/pull/11929)
+- **decidim-core**: Backport 'Deletion of ZIP file in tmp folder OpenData export job' to v0.27 [\#11900](https://github.com/decidim/decidim/pull/11900)
+- **decidim-core**: Backport 'Return the coordinates from Photon geocoding in correct order' to v0.27 [\#11915](https://github.com/decidim/decidim/pull/11915)
+- **decidim-core**: Backport 'Raise an error if the export format is unknown' to v0.27 [\#11920](https://github.com/decidim/decidim/pull/11920)
+- **decidim-elections**, **decidim-forms**, **decidim-meetings**: Backport 'Use UTC in the serializers for the date fields' to v0.27 [\#11925](https://github.com/decidim/decidim/pull/11925)
+- **decidim-templates**: Backport 'Simplify the code related to questionnaire templates previews' to v0.27 [\#11930](https://github.com/decidim/decidim/pull/11930)
+- Backport 'Add missing activerecord budget locales for search' to v0.27 [\#11941](https://github.com/decidim/decidim/pull/11941)
+- **decidim-meetings**: Backport 'Display meeting button for unauthenticated users' to v0.27 [\#11945](https://github.com/decidim/decidim/pull/11945)
+- **decidim-core**: Backport 'Fix possible JavaScript console error with geocoding inputs' to v0.27 [\#11942](https://github.com/decidim/decidim/pull/11942)
+- **decidim-system**: Backport 'Extraction of i18n strings in system panel' to v0.27 [\#11951](https://github.com/decidim/decidim/pull/11951)
+- **decidim-core**: Backport 'Fix missing results on Geocoded when search without diacritics' to v0.27 [\#11949](https://github.com/decidim/decidim/pull/11949)
+- Backport 'Bump devise_invitable from v2.0.8 to v2.0.9' to v0.27 [\#11937](https://github.com/decidim/decidim/pull/11937)
+- **decidim-budgets**: Backport 'Fix Permissions screen on budgets throw errors' to v0.27 [\#11904](https://github.com/decidim/decidim/pull/11904)
+- **decidim-initiatives**: Backport 'Hide omnipresent in media print of initiatives' to v0.27 [\#11948](https://github.com/decidim/decidim/pull/11948)
+- **decidim-core**: Backport 'Fix search when moderations are hidden' to v0.27 [\#11919](https://github.com/decidim/decidim/pull/11919)
+- **decidim-conferences**, **decidim-meetings**: Backport 'Fix empty address in conference's venues ' to v0.27 [\#11910](https://github.com/decidim/decidim/pull/11910)
+- **decidim-system**: Backport 'Add titles in system pages' to v0.27 [\#11953](https://github.com/decidim/decidim/pull/11953)
+- **decidim-meetings**: Backport 'Don't show map with only online meetings in Content Block' to v0.27 [\#11961](https://github.com/decidim/decidim/pull/11961)
+- Backport 'Support deploy to a subdirectory - direct_uploads' to v0.27 [\#11931](https://github.com/decidim/decidim/pull/11931)
+- **decidim-admin**: Backport 'Redirect non-admin users to core's root_path' to v0.27 [\#11935](https://github.com/decidim/decidim/pull/11935)
+- Backport 'Fix duplicated endorsements' to v0.27 [\#11974](https://github.com/decidim/decidim/pull/11974)
+- **decidim-initiatives**: Backport 'Fix order initiatives by comments using the column instead of a subquery' to v0.27 [\#11983](https://github.com/decidim/decidim/pull/11983)
+- **decidim-proposals**: Backport 'Fix order proposals by comments and follows using the column instead of a query' to v0.27 [\#11993](https://github.com/decidim/decidim/pull/11993)
+- **decidim-core**: Backport 'Fix issues with the file uploader input display' to v0.27 [\#11731](https://github.com/decidim/decidim/pull/11731)
+- **decidim-core**: Backport 'Fix shortlink references' to v0.27 [\#12007](https://github.com/decidim/decidim/pull/12007)
+- **decidim-assemblies**: Backport 'Fix n+1 query on assemblies permissions' to v0.27  [\#12042](https://github.com/decidim/decidim/pull/12042)
+- **decidim-meetings**: Backport 'Add link explicitly in the meetings' icalendar event' to v0.27 [\#12047](https://github.com/decidim/decidim/pull/12047)
+- **decidim-core**: Fix filter by scope on search page [\#12036](https://github.com/decidim/decidim/pull/12036)
+- Backport 'Add prerequirements to the manual installation tutorial' to v0.27 [\#12070](https://github.com/decidim/decidim/pull/12070)
+- **decidim-proposals**: Backport 'Do not show the titles in the admin proposals page if there isn't any' to v0.27 [\#12046](https://github.com/decidim/decidim/pull/12046)
+- **decidim-debates**: Backport 'Show message when there are no debates' to v0.27 [\#12071](https://github.com/decidim/decidim/pull/12071)
+- **decidim-blogs**: Backport 'Show error message when there are no posts in blogs' to v0.27 [\#12054](https://github.com/decidim/decidim/pull/12054)
+- Backport 'Lock ChromeDriver to 119.0.6045.105' to v0.27 [\#12162](https://github.com/decidim/decidim/pull/12162)
+- **decidim-meetings**: Backport 'Don't use a CTA for canceling a registration in a meeting' to v0.27 [\#12050](https://github.com/decidim/decidim/pull/12050)
+- Remove duplicated chromedriver setting in v0.27 [\#12182](https://github.com/decidim/decidim/pull/12182)
 
 ### Removed
 
@@ -42,11 +124,13 @@ Nothing.
 
 ### Developer improvements
 
-Nothing.
+- Backport 'Revert "Lock ChromeDriver to the latest working version"' to 0.27 [\#11619](https://github.com/decidim/decidim/pull/11619)
+- Backport 'Add 127.0.0.1 and 0.0.0.0 as secondary hosts in the Organization's seeds' to v0.27 [\#11911](https://github.com/decidim/decidim/pull/11911)
 
 ### Internal
 
-Nothing.
+- Backport "Lock ChromeDriver to the latest working version" to v0.27 [\#11392](https://github.com/decidim/decidim/pull/11392)
+- Backport 'Revert "Lock ChromeDriver to the latest working version"' to 0.27 [\#11619](https://github.com/decidim/decidim/pull/11619)
 
 ## [0.27.4](https://github.com/decidim/decidim/tree/0.27.4)
 
