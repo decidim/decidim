@@ -34,7 +34,7 @@ eu:
       comments_count: Iruzkin kopurua
       comments_title: Iruzkinak
       last_activity:
-        new_comment_at_html: "<span>Iruzkin berria %{link}</span>"
+        new_comment_at_html: "<span>Beste iruzkin bat hemen: %{link}</span>"
       view: Bistaratu
       votes:
         create:

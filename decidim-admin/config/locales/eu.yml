@@ -244,7 +244,7 @@ eu:
         no_areas: Arlorik ez
         update:
           error: Arazo bat egon da arlo hau eguneratzean.
-          success: Area ondo eguneratu da
+          success: Arloa zuzen eguneratu da
       attachment_collections:
         create:
           error: Arazo bat egon da beste karpeta bat sortzean.
@@ -839,10 +839,10 @@ eu:
           success: Behar bezala ezabatua parte-hartzailearen sarbidea parte hartzeko espazio pribaturako.
         index:
           import_via_csv: Inportatu CSV bidetik
-          title: Parte-hartze pribatuko espazioko parte-hartzailea
+          title: Parte hartzeko espazio pribatuko parte-hartzailea 
         new:
           create: Sortu
-          title: Parte-hartze pribatuko espazioko parte-hartzaile berria.
+          title: Parte hartzeko espazio pribatuko parte-hartzaile berria.
       participatory_space_private_users_csv_imports:
         create:
           invalid: Arazo bat egon da CSV fitxategia irakurtzean.

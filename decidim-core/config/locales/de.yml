@@ -874,10 +874,10 @@ de:
           title: Abzeichen
       description: Badges sind Anerkennungen für Aktionen der Teilnehmer und Fortschritt in der Plattform. Wenn Sie auf der Plattform entdecken, teilnehmen und interagieren, verdienen Sie verschiedene Abzeichen.
       level: Level %{level}
-      reached_top: Du hast die höchste Stufe für dieses Abzeichen erreicht.
+      reached_top: Sie haben die höchste Stufe für dieses Abzeichen erreicht.
     group_admins:
       actions:
-        are_you_sure: Bist du sicher? Dies wird den Benutzer nicht aus der Gruppe entfernen.
+        are_you_sure: Sind Sie sich sicher? Dies wird den Benutzer nicht aus der Gruppe entfernen.
         demote_admin: Entferne Admin
       demote:
         error: Beim Entfernen dieses Benutzers aus der Administratorliste ist ein Fehler aufgetreten
@@ -906,8 +906,8 @@ de:
         error: Bei der Annahme dieser Verknüpfungsanfrage ist ein Fehler aufgetreten
         success: Beitrittsanfrage wurde erfolgreich angenommen
       actions:
-        are_you_sure: Sind Sie sicher?
-        promote_to_admin: Machen Admin
+        are_you_sure: Sind Sie sich sicher?
+        promote_to_admin: Zum Admin ernennen
         remove_from_group: Benutzer entfernen
       index:
         current_members_without_admins: 'Aktuelle Mitglieder (ohne Admins):'
@@ -923,7 +923,7 @@ de:
         success: Der Benutzer wurde erfolgreich aus der Gruppe entfernt
     groups:
       actions:
-        are_you_sure: Sind Sie sicher?
+        are_you_sure: Sind Sie sich sicher?
       create:
         error: Beim Erstellen der Gruppe ist ein Problem aufgetreten
         success: Gruppe wurde erfolgreich erstellt
@@ -1079,7 +1079,7 @@ de:
           last_message: Letzte Nachricht
           new_conversation: Neue Unterhaltung
           next: Weiter
-          no_conversations: Du hast noch keine Unterhaltungen
+          no_conversations: Sie haben noch keine Unterhaltungen
           title: Nachrichten
           to: An
         reply:
@@ -1601,11 +1601,11 @@ de:
         ignore: |-
           Wenn Sie die Einladung nicht annehmen möchten, ignorieren Sie diese E-Mail.<br />
           Ihr Konto wird erst erstellt, wenn Sie auf den obigen Link zugreifen und Ihren Kontonamen und Ihr Passwort festlegen.
-        invited_you_as_admin: "%{invited_by} hat dich als Admin von %{application}eingeladen. Sie können es über den folgenden Link akzeptieren."
-        invited_you_as_private_user: "%{invited_by} hat dich als privaten Benutzer von %{application}eingeladen. Sie können es über den folgenden Link akzeptieren."
-        someone_invited_you: Jemand hat dich zu %{application}eingeladen. Sie können es über den folgenden Link akzeptieren.
-        someone_invited_you_as_admin: Jemand hat dich als Admin von %{application}eingeladen, du kannst es über den untenstehenden Link akzeptieren.
-        someone_invited_you_as_private_user: Jemand hat dich als private_user von %{application}eingeladen, du kannst es über den folgenden Link akzeptieren.
+        invited_you_as_admin: "%{invited_by} hat Sie als Admin von %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren."
+        invited_you_as_private_user: "%{invited_by} hat Sie als privaten Nutzenden zu %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren."
+        someone_invited_you: Jemand hat Sie zu %{application} eingeladen. Sie können die EInladung über den folgenden Link akzeptieren.
+        someone_invited_you_as_admin: Jemand hat Sie als Admin zu %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren.
+        someone_invited_you_as_private_user: Jemand hat Sie als privater Teilnehmende zu %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren.
         subject: Anweisungen zur Einladung
       invite_admin:
         subject: Du wurdest eingeladen, %{organization} zu verwalten

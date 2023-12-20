@@ -91,6 +91,10 @@ pl:
             label: Typ
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Wyszukaj %{collection} według tytułu, opisu, ID lub nazwy autora.
+      initiatives_settings:
+        update:
+          error: Wystąpił błąd
+          success: Ustawienia bazy danych zostały zaktualizowane
       menu:
         attachments: Załączniki
         committee_members: Członkowie Komitetu
@@ -574,6 +578,8 @@ pl:
           published: Opublikowane
           rejected: Niewystarczająca liczba podpisów
           validating: Walidacja techniczna
+      signature_interval:
+        title: Okres zbierania podpisów
       states:
         accepted: Przyjęto
         expired: Przedawnione

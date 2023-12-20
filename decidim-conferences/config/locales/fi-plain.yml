@@ -347,7 +347,7 @@ fi-pl:
               accepted: Hyväksytyt
               all: Kaikki
               rejected: Hylätyt
-              sent: Lähetetyt
+              sent: Lähetetty
             filter_by: Suodata
             invite_attendee: Kutsu osallistuja
             invites: Kutsut

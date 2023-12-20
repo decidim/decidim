@@ -632,7 +632,6 @@ zh-TW:
               upload_legend: 伺服器上有您的公開識別金鑰，但您的瀏覽器仍然沒有。您需要從生成金鑰後創建的備份中，將識別金鑰檔案匯入您的電腦中。
             not_supported_browser_description: 看起來您使用的網頁瀏覽器無法用作受託人的身份。請確保您使用的是最新版本的瀏覽器，或嘗試使用任何最流行的瀏覽器，以便能夠完成您的受託人任務。
             not_supported_browser_title: 升級瀏覽器以作為受託人
-            trustee_role_description: 您已被指派在此平台上的某些選舉中擔任受託人。
           update:
             success: 您的識別公鑰已成功存儲。
       votes:
@@ -723,7 +722,6 @@ zh-TW:
           continue: 下一個
       warnings:
         no_elections_warning: 沒有符合您的搜尋條件的選舉，或者目前沒有已安排的選舉。
-        no_scheduled_elections_warning: 目前沒有即將舉行的選舉，但在這裡您可以找到所有過去的選舉列表。
     events:
       elections:
         election_published:
@@ -1147,7 +1145,6 @@ zh-TW:
           certify:
             add_images: 添加圖案
             error: 附加憑證時發生錯誤，請稍後再試。
-            form_legend: 上傳選舉結束憑證的照片
             heading: 投票重新點算 - 上傳憑證
             info_text: 請上傳選舉結束憑證的照片。
             submit: 上傳憑證

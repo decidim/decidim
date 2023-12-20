@@ -258,10 +258,8 @@ pl:
             select_user: Wybierz użytkownika
           index:
             filter:
-              accepted: Zaakceptowano
-              all: Wszystko
-              rejected: Odrzucono
-              sent: Wysłane
+              all: Wszystkie
+              sent: Wysłano
             filter_by: Filtruj według
             invite_attendee: Zaproś uczestnika
             invites: Zaproszeni
@@ -372,11 +370,12 @@ pl:
               not_found: 'Nie znaleziono organizatora w bazie danych (ID: %{id})'
       application_helper:
         filter_scope_values:
-          all: Wszystko
+          all: Wszystkie
       calendar_modal:
         calendar_url: Adres URL kalendarza
         close_window: Zamknij okno
         copy_calendar_url_description: Możesz zobaczyć wszystkie opublikowane spotkania w swojej aplikacji kalendarza. Skopiuj i wklej ten adres URL w swoim kalendarzu, używając opcji "Dodaj nowy kalendarz z URL".
+        copy_calendar_url_explanation: Pamiętaj, że eksportujesz wybrane spotkania, ponieważ filtry są włączone. Jeśli chcesz je wyeksportować, najpierw zresetuj wszystkie filtry.
         export_calendar: Eksportuj kalendarz
       close_meeting_reminder_mailer:
         close_meeting_reminder:
@@ -487,7 +486,6 @@ pl:
           contributions: Liczba wsparć
           date: Data
           edit_meeting: Edytuj spotkanie
-          going: Zarejestrowano się na to spotkanie
           leave: Anuluj swoją rejestrację
           meeting_minutes: Protokół ze spotkania
           no_slots_available: Brak dostępnych miejsc

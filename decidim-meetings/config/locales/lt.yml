@@ -290,9 +290,7 @@ lt:
             select_user: Pasirinkti dalyvį
           index:
             filter:
-              accepted: Priimtas
               all: Visi
-              rejected: Atmestas
               sent: Išsiųstas
             filter_by: Filtruoti pagal
             invite_attendee: Kviesti dalyvį
@@ -559,7 +557,6 @@ lt:
           date: Data
           edit_close_meeting: Redaguoti susitikimo ataskaitą
           edit_meeting: Redaguoti susirinkimą
-          going: Jūs užsiregistravote šiame susitikime
           join: Prisijunkite prie susitikimo
           leave: Atšaukti registraciją
           leave_confirmation: Ar tikrai norite atšaukti savo registraciją į šį susirinkimą?

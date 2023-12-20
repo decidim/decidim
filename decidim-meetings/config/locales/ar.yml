@@ -296,9 +296,7 @@ ar:
             select_user: اختر المشارك
           index:
             filter:
-              accepted: وافقت
               all: الكل
-              rejected: مرفوض
               sent: أرسلت
             filter_by: مصنف بواسطة
             invite_attendee: دعوة الحضور
@@ -568,7 +566,6 @@ ar:
           contributions: عدد المساهمات
           date: تاريخ
           edit_meeting: تعديل الاجتماعات
-          going: لقد قمت بالتسجيل لهذا الاجتماع
           leave: إلغاء التسجيل الخاص بك
           leave_confirmation: هل أنت متأكد من أنك تريد إلغاء تسجيلك لهذا الاجتماع؟
           link_available_soon: سيكون الرابط متوفر قريباً

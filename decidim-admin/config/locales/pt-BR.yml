@@ -134,6 +134,10 @@ pt-BR:
         file: Arquivo
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Selecione pelo menos um espaço participativo
         organization:
           attributes:
             official_img_footer:
@@ -151,6 +155,7 @@ pt-BR:
       new_import:
         attributes:
           file:
+            invalid_file: Arquivo inválido fornecido, por favor, verifique se o arquivo está formatado corretamente
             invalid_mime_type: Tipo mime inválido
   activerecord:
     attributes:
@@ -499,11 +504,12 @@ pt-BR:
             records:
               detail: Por favor, verifique se essas linhas estão formatadas corretamente e contém registros válidos.
               message:
-                one: Encontrado um erro no arquivo de importação para registros com os números de ordem %{indexes}.
-                other: Erros encontrados no arquivo de importação para registros com ordem número %{indexes}.
+                one: Erros encontrados no arquivo de importação para registros com ordem número %{indexes}.
+                other: Encontrado um erro no arquivo de importação para registros com os números de ordem %{indexes}.
           missing_headers:
             detail: Por favor, verifique se o arquivo contém colunas obrigatórias.
         error: Houve um problema durante a importação
+        example_error: Não foi possível criar um exemplo para o tipo fornecido
         new:
           accepted_mime_types:
             csv: csv
@@ -724,6 +730,9 @@ pt-BR:
           select_scopes: Filtrar por usuários que ativaram qualquer escopo selecionado nas configurações de meus interesses em sua conta.
           select_spaces: Selecionar espaços para segmentar a newsletter
           select_users: Selecione quais usuários você deseja enviar a newsletter
+          send_to_all_users: Enviar para todos os usuários
+          send_to_followers: Enviar para seguidores
+          send_to_participants: Enviar para participantes
           title: Selecionar destinatários para entregar
           warning: "<strong>Atenção:</strong> Esta newsletter será enviada apenas para usuários que ativaram <em>quero receber newsletters</em> nas configurações de notificação."
         send:
@@ -797,6 +806,7 @@ pt-BR:
             colors_title: Cores da organização
             colors_warning_html: Aviso! Mudando essas cores pode quebrar os contrastes de acessibilidade. Você pode verificar o contraste de sua escolha com o <a href="%{link}">Verificador de Contrastes WebAIM</a> ou outras ferramentas similares.
             header_snippets_help: Use este campo para adicionar coisas ao cabeçalho HTML. O uso mais comum é integrar serviços de terceiros que exigem algum JavaScript ou CSS extra. Além disso, você pode usá-lo para adicionar meta tags adicionais ao HTML. Observe que isso só será exibido em páginas públicas, não na seção de administração.
+          cta_button_path_help: 'Você pode substituir onde o botão Chamar para Ação na página inicial liga. Use caminhos parciais, não URLs completas aqui. Aceita letras, números, traços e barras e deve começar com uma letra. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição. Exemplo: %{url}'
           cta_button_text_help: Você pode substituir o texto do botão Chamar para Ação na página inicial para cada idioma disponível em sua organização. Se não for definido, o valor padrão será usado. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição.
           homepage_appearance_title: Editar a aparência da página inicial
           homepage_highlighted_content_banner_title: Banner de conteúdo elevado
@@ -810,11 +820,15 @@ pt-BR:
         external_domain:
           down: Para Baixo
           external_domain: Domínio externo
-          remove: Remover
+          remove: Excluir
           up: Para Cima
         form:
           add: Adicionar à lista branca
-          title: Domínio externo na lista branca
+          title: Lista branca de domínios externos
+      organization_homepage:
+        edit:
+          active_content_blocks: Blocos de conteúdo ativo
+          inactive_content_blocks: Blocos de conteúdo inativos
       organization_homepage_content_blocks:
         edit:
           update: Atualizar
@@ -838,6 +852,7 @@ pt-BR:
         new:
           destroy:
             button: Excluir todos os participantes privados
+            confirm: Tem certeza que deseja excluir todos os participantes privados? Esta ação não pode ser desfeita, não será possível recuperá-los.
             empty: Você não tem participantes privados.
             explanation: Você tem %{count} participantes privados.
             title: Excluir participantes privados
@@ -959,6 +974,8 @@ pt-BR:
         areas: Áreas
         authorization_workflows: Métodos de verificação
         dashboard: painel de controle
+        edit_external_domains: Lista branca de domínios externos
+        edit_organization_appearance: Editar aparência da página inicial
         impersonatable_users: Usuários gerenciáveis
         impersonations: Gerenciamento de usuários
         metrics: Métricas
@@ -1005,6 +1022,7 @@ pt-BR:
           role: Cargo
         new:
           create: Convite
+          title: Convidar novo administrador
       users_statistics:
         users_count:
           admins: Admins

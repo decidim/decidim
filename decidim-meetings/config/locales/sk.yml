@@ -205,9 +205,6 @@ sk:
             select_user: Vyberte používateľa
           index:
             filter:
-              accepted: Prijal
-              all: Všetko
-              rejected: Odmietnuté
               sent: Odoslaná
             filter_by: Filtrovať podľa
             invite_attendee: Pozvať účastníka
@@ -290,9 +287,6 @@ sk:
           value_types:
             organizer_presenter:
               not_found: 'Organizátor nebol nájdený v databáze (ID:%{id})'
-      application_helper:
-        filter_scope_values:
-          all: Všetko
       calendar_modal:
         calendar_url: URL kalendára
         close_window: Zatvorte okno

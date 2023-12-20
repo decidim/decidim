@@ -550,7 +550,6 @@ es-PY:
           date: Fecha
           edit_close_meeting: Editar el informe del encuentro
           edit_meeting: Editar encuentro
-          going: Te has inscrito en este encuentro
           join: Unirse al encuentro
           leave: Cancela tu inscripción
           leave_confirmation: '¿Seguro que quieres cancelar tu inscripción para este encuentro?'

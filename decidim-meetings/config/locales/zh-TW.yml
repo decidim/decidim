@@ -276,9 +276,7 @@ zh-TW:
             select_user: 選擇參與者
           index:
             filter:
-              accepted: 已接受
               all: 全部
-              rejected: 已拒絕
               sent: 傳送
             filter_by: 篩選條件
             invite_attendee: 邀請的與會者
@@ -534,7 +532,6 @@ zh-TW:
           contributions: 貢獻次數
           date: 日期
           edit_meeting: 編輯會議
-          going: 您已經註冊參加此會議
           leave: 取消您的註冊
           leave_confirmation: 您確定要取消此次會議的註冊嗎？
           link_available_soon: 連結即將推出

@@ -331,9 +331,7 @@ it:
             select_user: Seleziona utente
           index:
             filter:
-              accepted: Accettato
               all: Tutti
-              rejected: Respinto
               sent: Inviato
             filter_by: Filtra per
             invite_attendee: Invita il partecipante

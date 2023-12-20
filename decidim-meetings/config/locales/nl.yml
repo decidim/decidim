@@ -263,9 +263,7 @@ nl:
             select_user: Selecteer gebruiker
           index:
             filter:
-              accepted: Aanvaard
               all: Alle
-              rejected: Afgewezen
               sent: Verzonden
             filter_by: Filteren op
             invite_attendee: Nodig een deelnemer uit
@@ -524,7 +522,6 @@ nl:
           contributions: Aantal bijdragen
           date: Datum
           edit_meeting: Vergadering bewerken
-          going: Je hebt je ingeschreven voor deze vergadering
           leave: Inschrijving annuleren
           leave_confirmation: Weet je zeker dat je je inschrijving voor deze vergadering wil annuleren?
           link_available_soon: Link binnenkort beschikbaar

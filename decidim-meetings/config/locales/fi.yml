@@ -282,9 +282,7 @@ fi:
             select_user: Valitse käyttäjä
           index:
             filter:
-              accepted: Hyväksytyt
               all: Kaikki
-              rejected: Hylätyt
               sent: Lähetetyt
             filter_by: Rajaa hakua
             invite_attendee: Kutsu osallistuja
@@ -550,7 +548,6 @@ fi:
           date: Päivämäärä
           edit_close_meeting: Muokkaa tapaamisraporttia
           edit_meeting: Muokkaa tapaamista
-          going: Olet ilmoittautunut tähän tapaamiseen
           join: Ilmoittaudu tapaamiseen
           leave: Peruuta ilmoittautumisesi
           leave_confirmation: Haluatko varmasti peruuttaa ilmoittautumisesi tähän tapaamiseen?

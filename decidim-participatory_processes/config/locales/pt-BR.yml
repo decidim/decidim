@@ -16,6 +16,8 @@ pt-BR:
         end_date: Data final
         hashtag: Hashtag
         hero_image: Imagem inicial
+        import_categories: Importar categorias
+        import_steps: Importar etapas
         local_area: Área da organização
         meta_scope: Metadados do âmbito
         participatory_process_group_id: Grupo de processos
@@ -61,6 +63,12 @@ pt-BR:
         email: O email
         name: Nome
         role: Cargo
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              allowed_file_content_types: 'Tipo de documento inválido. Apenas arquivos com as seguintes extensões são permitidos: %{types}'
     models:
       decidim/participatory_process_step_activated_event: Passo ativado
       decidim/participatory_process_step_changed_event: Passo alterado
@@ -91,6 +99,7 @@ pt-BR:
         new_process: Novo processo
         new_process_group: Novo grupo de processos
         new_process_step: Novo passo
+        new_process_type: Novo tipo de processo
         new_process_user_role: Novo usuário do processo
         preview: Visualização
         publish: Publicar
@@ -101,6 +110,7 @@ pt-BR:
         participatory_process_groups_submenu:
           info: Informações
           landing_page: Página principal
+        participatory_process_types: Tipo de processo
         participatory_processes: Processos
         participatory_processes_submenu:
           attachment_collections: Pastas
@@ -215,8 +225,19 @@ pt-BR:
           error: Ocorreu um erro ao atualizar esta etapa do processo participativo.
           success: Passo do processo participativo atualizado com sucesso.
       participatory_process_types:
+        create:
+          error: Ocorreu um erro ao criar um novo tipo de processo participativo.
+          success: Tipo de processo criado com sucesso.
+        destroy:
+          success: Tipo de processo excluído com sucesso.
+        edit:
+          title: Editar tipo de processo
+          update: Atualizar
         form:
           title: Título
+        update:
+          error: Ocorreu um erro ao atualizar este tipo de processo.
+          success: Tipo de processo atualizado com sucesso.
       participatory_process_user_roles:
         create:
           error: Ocorreu um erro ao adicionar um usuário para esse processo participativo.
@@ -269,6 +290,9 @@ pt-BR:
     admin_log:
       participatory_process:
         create: "%{user_name} criou o %{resource_name} processo participativo"
+        duplicate: "%{user_name} duplicou o processo participativo %{resource_name}"
+        export: "%{user_name} exportou o processo participativo %{resource_name}"
+        import: "%{user_name} importou o processo participativo %{resource_name}"
         publish: "%{user_name} publicou o %{resource_name} processo participativo"
         unpublish: "%{user_name} não publicado o %{resource_name} processo participativo"
         update: "%{user_name} atualizou o processo participativo %{resource_name}"
@@ -280,6 +304,10 @@ pt-BR:
         create: "%{user_name} criou o passo %{resource_name} no processo participativo %{space_name}"
         delete: "%{user_name} excluiu o passo %{resource_name} no processo participativo %{space_name}"
         update: "%{user_name} atualizou o passo %{resource_name} no processo participativo %{space_name}"
+      participatory_process_type:
+        create: "%{user_name} criou o tipo de processo participativo %{resource_name}"
+        delete: "%{user_name} criou o tipo de processo participativo %{resource_name}"
+        update: "%{user_name} atualizou o tipo de processo participativo %{resource_name}"
       participatory_process_user_role:
         create: "%{user_name} convidou o usuário %{resource_name} para o %{space_name} processo participativo"
         delete: "%{user_name} removeu o usuário %{resource_name} do %{space_name} processo participativo"

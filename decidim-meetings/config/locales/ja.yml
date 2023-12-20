@@ -278,9 +278,7 @@ ja:
             select_user: 参加者を選択
           index:
             filter:
-              accepted: 承認済み
               all: すべて
-              rejected: 拒否
               sent: 送信済み
             filter_by: フィルター
             invite_attendee: 参加者を招待
@@ -538,7 +536,6 @@ ja:
           date: 日付
           edit_close_meeting: ミーティングレポートを編集
           edit_meeting: ミーティングを編集
-          going: このミーティングにログインしました
           join: ミーティングに参加
           leave: 登録をキャンセルする
           leave_confirmation: このミーティングの登録をキャンセルしてもよろしいですか？

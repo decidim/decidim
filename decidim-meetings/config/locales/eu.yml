@@ -282,10 +282,10 @@ eu:
             select_user: Hautatu parte-hartzailea
           index:
             filter:
-              accepted: Onartuta
-              all: Guztiak
-              rejected: Baztertuta
-              sent: Bidalita
+              accepted: Onartua
+              all: Denak
+              rejected: Baztertua
+              sent: Bidalia
             filter_by: Iragazi honen arabera
             invite_attendee: Gonbidatu
             invites: Gonbidapenak
@@ -400,7 +400,7 @@ eu:
         filter_meeting_space_values:
           all: Guztiak
         filter_scope_values:
-          all: Guztiak
+          all: Denak
       calendar:
         meeting_to_event:
           read_more: Irakurri gehiago topaketa honetaz
@@ -550,7 +550,6 @@ eu:
           date: Data
           edit_close_meeting: Editatu topaketaren txostena
           edit_meeting: Editatu bilera
-          going: Topaketa honetan eman duzu izena
           join: Izena eman
           leave: Baliogabetu zure izen-ematea
           leave_confirmation: Ziur zaude topaketa honetarako zure izen-ematea indargabetu nahi duzula?
