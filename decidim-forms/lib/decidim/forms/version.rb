@@ -4,7 +4,7 @@ module Decidim
   # This holds the decidim-forms version.
   module Forms
     def self.version
-      "0.26.8"
+      "0.26.9"
     end
   end
 end
