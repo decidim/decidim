@@ -108,6 +108,9 @@ pt-BR:
           success: Debate criado com sucesso.
         debate:
           participate: Participar
+        debates:
+          empty: Não há debates ainda.
+          empty_filters: Não há debates com estes critérios.
         edit:
           back: Voltar
           save: Salvar alterações
