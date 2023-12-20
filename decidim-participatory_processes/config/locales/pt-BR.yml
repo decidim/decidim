@@ -273,6 +273,9 @@ pt-BR:
     admin_log:
       participatory_process:
         create: "%{user_name} criou o %{resource_name} processo participativo"
+        duplicate: "%{user_name} duplicou o processo participativo %{resource_name}"
+        export: "%{user_name} exportou o processo participativo %{resource_name}"
+        import: "%{user_name} importou o processo participativo %{resource_name}"
         publish: "%{user_name} publicou o %{resource_name} processo participativo"
         unpublish: "%{user_name} não publicado o %{resource_name} processo participativo"
         update: "%{user_name} atualizou o processo participativo %{resource_name}"
@@ -284,6 +287,10 @@ pt-BR:
         create: "%{user_name} criou o passo %{resource_name} no processo participativo %{space_name}"
         delete: "%{user_name} excluiu o passo %{resource_name} no processo participativo %{space_name}"
         update: "%{user_name} atualizou o passo %{resource_name} no processo participativo %{space_name}"
+      participatory_process_type:
+        create: "%{user_name} criou o tipo de processo participativo %{resource_name}"
+        delete: "%{user_name} criou o tipo de processo participativo %{resource_name}"
+        update: "%{user_name} atualizou o tipo de processo participativo %{resource_name}"
       participatory_process_user_role:
         create: "%{user_name} convidou o usuário %{resource_name} para o %{space_name} processo participativo"
         delete: "%{user_name} removeu o usuário %{resource_name} do %{space_name} processo participativo"
@@ -311,6 +318,10 @@ pt-BR:
           contextual: "<p>A <strong>processo de participação</strong> é uma sequência de actividades de participação (por exemplo, primeiro o preenchimento de uma pesquisa, em seguida, fazendo propostas, discutindo-los em face-a-face ou virtuais reuniões, e, finalmente, privilegiando-los) com o objectivo de definir e de tomar uma decisão em um tópico específico.</p> <p>Os exemplos de processos de participação são: um processo de eleição membros da comissão (onde candidaturas são apresentados pela primeira vez, em seguida, discutida e, finalmente, uma candidatura é escolhido), orçamentos de participação (por serem apresentadas propostas, valorizado economicamente e considerados com o dinheiro disponível), um processo de planejamento estratégico, a elaboração colaborativa de um regulamento ou norma, a concepção de um espaço urbano ou a produção de um plano de políticas públicas.</p>\n"
           page: "<p>A <strong>processo de participação</strong> é uma sequência de actividades de participação (por exemplo, primeiro o preenchimento de uma pesquisa, em seguida, fazendo propostas, discutindo-los em face-a-face ou virtuais reuniões, e, finalmente, privilegiando-los) com o objectivo de definir e de tomar uma decisão em um tópico específico.</p> <p>Os exemplos de processos de participação são: um processo de eleição membros da comissão (onde candidaturas são apresentados pela primeira vez, em seguida, discutida e, finalmente, uma candidatura é escolhido), orçamentos de participação (por serem apresentadas propostas, valorizado economicamente e considerados com o dinheiro disponível), um processo de planejamento estratégico, a elaboração colaborativa de um regulamento ou norma, a concepção de um espaço urbano ou a produção de um plano de políticas públicas.</p>\n"
           title: O que é um processo participativo?
+    log:
+      value_types:
+        participatory_process_type_presenter:
+          not_found: 'O tipo de processo não foi encontrado no banco de dados (ID: %{id}).'
     menu:
       processes: Processos
     metrics:
