@@ -1061,8 +1061,6 @@ pt-BR:
           modal_button: Recuse os termos
         required_review:
           title: 'Obrigatório: Revise as atualizações dos nossos termos de serviço'
-    participatory_space_private_users:
-      not_allowed: Você não tem permissão para visualizar este conteúdo
     passwords:
       update:
         error: Houve um problema ao atualizar a senha.
