@@ -17,7 +17,7 @@
           <th>
             <%= sort_link(query, :id, t("models.meeting.fields.id", scope: "decidim.meetings"), default_order: :desc ) %>
           </th>
-          <th>
+          <th class="!text-left">
             <%= sort_link(query, :translated_title, t("models.meeting.fields.title", scope: "decidim.meetings"), default_order: :desc ) %>
           </th>
           <th>
@@ -46,7 +46,7 @@
             <td>
               <%= meeting.id %><br>
             </td>
-            <td>
+            <td class="!text-left">
               <% if allowed_to? :update, :meeting, meeting: meeting %>
                 <%= link_to present(meeting).title(html_escape: true), edit_meeting_path(meeting) %>
               <% else %>
