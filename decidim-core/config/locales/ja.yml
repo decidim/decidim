@@ -1313,8 +1313,6 @@ ja:
           alert: 利用規約を更新しました。ご確認ください。
           body: 利用規約の更新内容を確認してください。確認しない場合、プラットフォームを使用することはできません。
           title: '必須: 利用規約の更新を確認する'
-    participatory_space_private_users:
-      not_allowed: このコンテンツを表示する権限がありません
     passwords:
       update:
         error: パスワードの更新中に問題が発生しました。
