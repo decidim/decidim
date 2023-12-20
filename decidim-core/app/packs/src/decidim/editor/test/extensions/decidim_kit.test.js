@@ -3,9 +3,9 @@
 // import { createBasicEditor } from "../helpers";
 import { Editor } from "@tiptap/core";
 
-import DecidimKit from "../../extensions/decidim_kit";
+import DecidimKit from "src/decidim/editor/extensions/decidim_kit";
 
-import { createEditorContainer } from "../helpers";
+import { createEditorContainer } from "src/decidim/editor/test/helpers";
 
 // Mock picmo as it is distributed as an ES6 module that is not fully compatible
 // with Jest without configuration changes.

@@ -1,4 +1,4 @@
-import contextHelpers from "./context";
+import contextHelpers from "src/decidim/editor/test/toolbar/shared/context";
 
 export default (ctx) => {
   const { getControl, setContent } = contextHelpers(ctx);
