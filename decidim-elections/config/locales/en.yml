@@ -672,7 +672,7 @@ en:
           back: Start voting process again
           ballot_hash: 'Your ballot identifier is:'
           cast: Cast ballot to finish your vote
-          description: Here, you have the options to cast your ballot so that it is properly counted or, alternatively, you can audit that your ballot was correctly encrypted. For security reasons, auditing your ballot will spoil it. That means, to cast your vote, you will need to restart the voting process.
+          description_html: Here, you have the options to cast your ballot so that it is properly counted or, you can audit that your ballot was correctly encrypted. If you want to audit the vote, please read the instructions on <a href="https://github.com/decidim/decidim-bulletin-board/blob/develop/verifier/README.md">how to proceed</a>.
           header: 'Ballot is encrypted: cast it or audit it'
         casting:
           header: Casting the vote...
