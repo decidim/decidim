@@ -460,7 +460,6 @@ it:
               title: Codici di identificazione del Garante
               upload: Carica i tuoi codici di identificazione
             not_supported_browser_title: Aggiorna il browser per fungere da Garante
-            trustee_role_description: Ti è stato assegnato di ruolo di Garante in alcune delle elezioni che si svolgeranno su questa piattaforma.
           update:
             success: I tuoi codici di identificazione pubblici sono stati salvati con successo.
       votes:
@@ -535,8 +534,6 @@ it:
         voting_step:
           back: Indietro
           continue: Successivo
-      warnings:
-        no_scheduled_elections_warning: Al momento non sono previste elezioni, ma qui puoi trovare un elenco di tutte quelle passate.
     events:
       elections:
         election_published:
@@ -849,7 +846,6 @@ it:
           certify:
             add_images: Aggiungi immagini
             error: Si è verificato un errore nell'allegare il certificato, per favore riprova.
-            form_legend: Carica una foto del certificato di chiusura elettorale
             heading: Resoconto del voto - Certificato di caricamento
             info_text: Carica una foto del certificato di chiusura elettorale.
             submit: Carica il certificato

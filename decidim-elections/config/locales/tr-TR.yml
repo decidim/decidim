@@ -224,7 +224,6 @@ tr:
               title: Vekil kimlik anahtarları
               upload: Kimlik anahtarlarınızı yükleyin
             not_supported_browser_title: Vekil kişi olarak hareket etmek için tarayıcıyı yükseltin
-            trustee_role_description: Bu platformda kutlanan bazı seçimlerde Vekil olarak görev yapmakla görevlendirildiniz.
           update:
             success: Tanımlama genel anahtarınız başarıyla saklandı.
       votes:
@@ -264,8 +263,6 @@ tr:
         voting_step:
           back: Geri
           continue: Sonraki
-      warnings:
-        no_scheduled_elections_warning: Şu anda planlanmış bir seçim yok, ancak burada listelenen tüm geçmiş seçimleri bulabilirsiniz.
     events:
       elections:
         election_published:

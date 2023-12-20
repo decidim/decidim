@@ -12,13 +12,26 @@ pt-BR:
         end_time: A votação termina às
         start_time: Votação começa às
         title: Título
+      polling_station:
+        address: Endereço
+        location: Localização
+        location_hints: Dicas de localização
+        polling_station_managers: Gerentes
+        polling_station_president_id: Presidente
+        title: Título
       question:
         max_selections: Número máximo de seleções
         min_selections: Nenhuma das opções acima
         title: Título
+      trustees_participatory_space:
+        user_id: Participante
       voting:
+        banner_image: Imagem de banner
+        census_contact_information: Informação de contato do censo
         end_time: Votação termina
+        introductory_image: Imagem introdutória
         scope_id: Escopo
+        show_check_census: Mostrar página "checar censo"
         start_time: A votação começa
         voting_type: Tipo de votação
     errors:
@@ -31,6 +44,10 @@ pt-BR:
           attributes:
             attachment:
               needs_to_be_reattached: Precisa ser reanexado
+        voting:
+          attributes:
+            voting_type:
+              inclusion: "%{value} não é um tipo de votação válido"
   activerecord:
     models:
       decidim/elections/answer:
@@ -232,6 +249,13 @@ pt-BR:
           actions:
             disable: Desabilitado
             enable: Considere
+          create:
+            exists: Curador existente para este espaço participativo.
+            invalid: Houve um problema ao criar um curador.
+            success: Curador criado com sucesso.
+          delete:
+            invalid: Houve um problema ao remover o curador.
+            success: Curador removido com sucesso.
           form:
             select_user: Selecionar usuário
           index:
@@ -239,6 +263,9 @@ pt-BR:
           new:
             create: Criar curador
             title: Novo curador
+          update:
+            invalid: Houve um problema ao remover o curador %{trustee}.
+            success: Curador %{trustee} atualizado com sucesso.
       election_m:
         badge_name:
           finished: Finalizado
@@ -444,7 +471,6 @@ pt-BR:
               title: Chaves de identificação de curadores
               upload: Envie suas chaves de identificação
             not_supported_browser_title: Atualize o navegador para agir como um curador
-            trustee_role_description: Você foi designado para agir como um curador em algumas das eleições realizadas nesta plataforma.
           update:
             success: Sua chave pública de identificação foi armazenada com sucesso.
       votes:
@@ -519,8 +545,6 @@ pt-BR:
         voting_step:
           back: Voltar
           continue: Próxima
-      warnings:
-        no_scheduled_elections_warning: Atualmente, não há eleições agendadas, mas aqui podem encontrar uma lista de todas as últimas eleições.
     events:
       elections:
         election_published:
@@ -733,6 +757,9 @@ pt-BR:
           edit:
             update: Atualizar
           form:
+            banner_image: Imagem de banner
+            census_contact_information: Informação de contato do censo
+            introductory_image: Imagem introdutória
             select_a_voting_type: Por favor, selecione um tipo de votação
             title: Título
             voting_type:
@@ -814,7 +841,6 @@ pt-BR:
           certify:
             add_images: Adicionar imagens
             error: Ocorreu um erro ao anexar o certificado, por favor tente novamente.
-            form_legend: Envie uma foto do Certificado de Encerramento Eleitoral
             heading: Recontagem de voto - Upload de certificado
             info_text: Por favor envie uma foto do Certificado de Encerramento Eleitoral.
             submit: Carregar o certificado

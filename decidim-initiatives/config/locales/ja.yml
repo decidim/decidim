@@ -108,6 +108,8 @@ ja:
         information: 情報
         initiative_type_scopes: イニシアチブ種別のスコープ
         initiatives: イニシアチブ
+        initiatives_menu:
+          see_initiative: イニシアチブを見る
         initiatives_settings: 設定
         initiatives_submenu:
           info: このイニシアチブについて
@@ -456,9 +458,12 @@ ja:
             other: '%{count} 人以上'
         committee_members:
           approve: 承認
+          confirm_approve: このメンバーを承認してもよろしいですか？
+          confirm_revoke: このメンバーを取り消してもよろしいですか？
           invite_to_committee_help: 他の参加者を推進委員会に招待するために、このリンクを共有してください。
           link: リンク
           no_members_yet: 推進委員会にはメンバーがいません。
+          revoke: 取り消し
           title: 委員会メンバー
         count:
           title:

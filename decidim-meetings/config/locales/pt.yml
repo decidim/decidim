@@ -230,10 +230,8 @@ pt:
             select_user: Selecione o participante
           index:
             filter:
-              accepted: Aceite
               all: Todos
-              rejected: Rejeitados
-              sent: Enviados
+              sent: Enviado
             invite_attendee: Convidar participante
             invites: Convites
             search: Pesquisar

@@ -18,6 +18,7 @@ pt-BR:
       decidim/debates/close_debate_event: Debate encerrado
       decidim/debates/create_debate_event: Debate
       decidim/debates/creation_disabled_event: Debates desativados
+      decidim/debates/creation_enabled_event: Criação de debates ativada
   activerecord:
     models:
       decidim/debates/debate:
@@ -40,6 +41,7 @@ pt-BR:
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
+            creation_enabled: Os participantes podem criar debates
             endorsements_blocked: Endossos bloqueados
             endorsements_enabled: Endossos habilitados
     debates:
@@ -98,6 +100,9 @@ pt-BR:
         create:
           invalid: Houve um problema ao criar o debate.
           success: Debate criado com sucesso.
+        debates:
+          empty: Não há debates ainda.
+          empty_filters: Não há debates com estes critérios.
         edit:
           back: Voltar
           save: Salvar alterações

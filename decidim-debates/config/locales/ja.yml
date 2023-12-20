@@ -102,6 +102,9 @@ ja:
         create:
           invalid: ディベートの作成で不具合が発生しました。
           success: ディベートが正常に作成されました。
+        debates:
+          empty: ディベートはまだありません。
+          empty_filters: この条件のディベートはありません。
         edit:
           back: 戻る
           save: 変更を保存

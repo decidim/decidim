@@ -463,7 +463,6 @@ pt:
               title: Chaves de identificação de curador
               upload: Enviar as suas chaves de identificação
             not_supported_browser_title: Actualize o seu navegador para poder agir como Curador
-            trustee_role_description: Foi designado para agir como Curador em algumas eleições celebradas nesta plataforma.
           update:
             success: A sua chave de identificação pública foi guardada com êxito.
       votes:
@@ -538,8 +537,6 @@ pt:
         voting_step:
           back: Retroceder
           continue: Seguinte
-      warnings:
-        no_scheduled_elections_warning: Actualmente, não há eleições agendadas, mas aqui pode encontrar listadas todas as eleições passadas.
     events:
       elections:
         election_published:
@@ -851,7 +848,6 @@ pt:
           certify:
             add_images: Adicionar imagens
             error: Ocorreu um erro ao anexar o certificado, por favor tente de novo.
-            form_legend: Envie a fotografia do Certificado de Encerramento Eleitoral
             heading: Recontagem de votos - Envie o certificado
             info_text: Por favor envie uma fotografia do Certificado de Encerramento Eleitoral.
             submit: Envie o certificado

@@ -39,6 +39,7 @@ ro:
           error: A apărut o problemă la votarea comentariului.
     components:
       add_comment_form:
+        account_message: <a href="%{sign_in_url}">Conectați-vă cu contul dumneavoastră</a> sau <a href="%{sign_up_url}">înregistrați-vă</a> pentru a adăuga un comentariu.
         form:
           body:
             label: Comentariu
@@ -61,6 +62,7 @@ ro:
         alignment:
           against: Împotrivă
           in_favor: Pentru
+        cancel_reply: Anulează răspunsul
         confirm_destroy: Sigur dorești să ştergi acest comentariu?
         delete: Șterge
         deleted_at: Comentariu șters la %{date}

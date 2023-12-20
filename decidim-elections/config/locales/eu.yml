@@ -34,7 +34,7 @@ eu:
       trustees_participatory_space:
         user_id: Parte-hartzailea
       voting:
-        banner_image: Bannerra
+        banner_image: Banner-irudia
         census_contact_information: Erroldako kontaktoen informazioa
         description: Deskribapena
         end_time: Bozketaren amaiera-data
@@ -74,6 +74,10 @@ eu:
               president_and_manager: Mahaiko kudeatzailea dagoeneko bozketa-puntuaren presidentea/kudeatzailea da.
             voting:
               different_organization: Bozketa parte-hartzailearen erakunde berean egon behar da.
+        decidim/votings/polling_station:
+          attributes:
+            polling_station_president:
+              different_voting: Mahaiko kudeatzaileak bozketa-puntuaren bozketa berean egon behar du.
     models:
       decidim/elections/answer:
         one: Erantzuna
@@ -716,7 +720,7 @@ eu:
           continue: Hurrengoa
       warnings:
         no_elections_warning: Ez dago beren bilaketa-irizpideekin bat datorren hauteskunderik, edo ez dago hauteskunde programaturik.
-        no_scheduled_elections_warning: Orain ez dago bozketa programaturik, baina aurrekoak ikus ditzakezu.
+        no_scheduled_elections_warning: Egun, ez dago programatutako hauteskunderik, baina hemen aurreko hauteskundeen zerrenda ikus dezakezu.
     events:
       elections:
         election_published:
@@ -1143,7 +1147,7 @@ eu:
           certify:
             add_images: Gehiru irudiak
             error: Arazo bat izan da ziurtagiria eranstean, mesedez, saiatu berriro.
-            form_legend: Igo bozketa-itxieraren ziurtagiriaren argazki bat
+            form_legend: Igo Hauteskundearen Itxieraren Egiaztagiriaren agazkia
             heading: Botoen zenbaketa - Igo ziurtagiria
             info_text: Mesedez, igo bozketa-itxieraren ziurtagiriaren argazki bat.
             submit: Igo ziurtagiria

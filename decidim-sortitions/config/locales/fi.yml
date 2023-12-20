@@ -3,26 +3,26 @@ fi:
   activemodel:
     attributes:
       sortition:
-        additional_info: Satunnaistamistiedot
-        decidim_category_id: Ehdotettujen ehdotusten luokat, joissa haluat tehdä satunnaisvalinnan
-        decidim_proposals_component_id: Ehdotukset asetettu
+        additional_info: Satunnaisvalinnan tiedot
+        decidim_category_id: Ehdotusten aihepiirit, joiden perusteella haluat tehdä satunnaisvalinnan
+        decidim_proposals_component_id: Ehdotusten joukko
         dice: Noppaheiton tulos. Heitä kuusisivuista noppaa tai etsi toinen tapa luoda satunnaisesti numero 1-6, ja kirjoita tähän tuloksena saatu luku muutamien todistajien edessä. Tämä auttaa takamaan tuloksen satunnaisuuden
-        target_items: Valittavien ehdotusten määrä (ilmoittaa niiden ehdotusten lukumäärän, jotka haluat valita arpomalla kustakin aiemmin valitsemastasi ehdotusryhmästä)
+        target_items: Valittavien ehdotusten määrä (ilmoittaa niiden ehdotusten lukumäärän, jotka haluat valita arpomalla kustakin aiemmin valitsemastasi ehdotusjoukosta)
         title: Otsikko
         witnesses: Todistajat
     models:
-      decidim/sortitions/create_sortition_event: Satunnaistaminen
+      decidim/sortitions/create_sortition_event: Satunnaisvalinta
   activerecord:
     models:
       decidim/sortitions/sortition:
-        one: Satunnaistaminen
-        other: Satunnaistamiset
+        one: Satunnaisvalinta
+        other: Satunnaisvalinnat
   decidim:
     components:
       sortitions:
         actions:
           comment: Kommentoi
-        name: Satunnaistamiset
+        name: Satunnaisvalinnat
         settings:
           global:
             comments_enabled: Kommentointi sallittu
@@ -32,15 +32,15 @@ fi:
         sortition_created:
           email_intro: Satunnaisvalinta "%{resource_title}" on lisätty kohteeseen "%{participatory_space_title}" jota sinä seuraat.
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta "%{participatory_space_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
-          email_subject: Uusi satunnaistaminen lisättiin kohteeseen %{participatory_space_title}
-          notification_title: Satunnaistaminen <a href="%{resource_path}">%{resource_title}</a> on lisätty kohteeseen %{participatory_space_title}
+          email_subject: Uusi satunnaisvalinta lisättiin kohteeseen %{participatory_space_title}
+          notification_title: Satunnaisvalinta <a href="%{resource_path}">%{resource_title}</a> on lisätty kohteeseen %{participatory_space_title}
     sortitions:
       admin:
         actions:
-          destroy: Peruuta satunnaistaminen
+          destroy: Peruuta satunnaisvalinta
           edit: Muokkaa
           new_sortition: Uusi satunnaisvalinta
-          show: Satunnaistamisen yksityiskohdat
+          show: Satunnaisvalinnan tarkemmat tiedot
         models:
           sortition:
             fields:
@@ -55,9 +55,9 @@ fi:
               title: Otsikko
         sortitions:
           confirm_destroy:
-            confirm_destroy: Haluatko varmasti peruuttaa tämän satunnaistamisen?
-            destroy: Peruuta satunnaistaminen
-            title: Satunnaistamisen peruuttaminen
+            confirm_destroy: Haluatko varmasti peruuttaa tämän satunnaisvalinnan?
+            destroy: Peruuta satunnaisvalinta
+            title: Satunnaisvalinnan peruuttaminen
           create:
             error: Uuden satunnaisvalinnan luonti epäonnistui.
             success: Satunnaisvalinnan luonti onnistui.
@@ -97,6 +97,8 @@ fi:
           cancelled: Peruttu
           category: Aihepiiri
           state: Tila
+        index:
+          empty: Satunnaisvalintoja ei vielä ole.
         linked_sortitions:
           selected_proposals: Valitut ehdotukset
         orders:
@@ -111,7 +113,7 @@ fi:
           algorithm: Satunnaisvalinnan algoritmikoodi
           any_category: kaikista aihepiireistä
           cancelled: Peruttu satunnaisvalinta
-          candidate_proposal_ids: Satunnaisvalintaehdotusten järjestys ja tunnukset
+          candidate_proposal_ids: Satunnaisvalinnan ehdotusten järjestys ja tunnukset
           candidate_proposals_info: 'Satunnaisvalinta tehtiin seuraavien ehdotusten (%{category_label}) välillä, seuraavilla tunnuksilla (lihavoituna valitut ehdotukset)  '
           category: aihepiiristä %{category}
           dice_result: Nopanheiton tulos
@@ -135,4 +137,4 @@ fi:
             one: 1 satunnaisvalinta
             other: "%{count} satunnaisvalintaa"
     statistics:
-      sortitions_count: Satunnaistamista
+      sortitions_count: Satunnaisvalintaa

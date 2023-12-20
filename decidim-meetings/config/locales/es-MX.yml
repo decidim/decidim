@@ -283,10 +283,10 @@ es-MX:
             select_user: Seleccionar usuario
           index:
             filter:
-              accepted: Aceptado
+              accepted: Aceptada
               all: Todas
-              rejected: Rechazadas
-              sent: Expedidas
+              rejected: Rechazada
+              sent: Expedida
             invite_attendee: Invitar a un asistente
             invites: Invitaciones
             registrations_disabled: No puedes invitar a nadie porque las inscripciones están deshabilitadas.

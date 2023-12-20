@@ -187,9 +187,7 @@ zh-CN:
             select_user: 选择参与者
           index:
             filter:
-              accepted: 已接受
               all: 所有的
-              rejected: 已拒绝
               sent: 已发送
             invite_attendee: 邀请参与者
             invites: 邀请

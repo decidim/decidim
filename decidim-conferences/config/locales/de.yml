@@ -349,7 +349,7 @@ de:
             select_user: Nutzer wählen
           index:
             filter:
-              accepted: Akzeptiert
+              accepted: Angenommen
               all: Alle
               rejected: Abgelehnt
               sent: Geschickt
@@ -503,7 +503,7 @@ de:
             email: Email
             name: Name
             registration_type: Registrierungstyp
-            state: Zustand
+            state: Status
             states:
               confirmed: Bestätigt
               pending: steht aus

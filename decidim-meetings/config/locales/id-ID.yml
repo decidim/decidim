@@ -176,9 +176,6 @@ id:
             select_user: Pilih pengguna
           index:
             filter:
-              accepted: Diterima
-              all: Semua
-              rejected: Ditolak
               sent: Terkirim
             invite_attendee: Undang hadirin
             invites: Undangan

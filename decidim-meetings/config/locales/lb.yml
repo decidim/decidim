@@ -175,13 +175,9 @@ lb:
             select_user: Nutzer wählen
           index:
             filter:
-              accepted: Akzeptiert
-              all: Alle
-              rejected: Abgelehnt
-              sent: Geschickt
+              sent: Geschéckt
             invite_attendee: Teilnehmer einladen
             invites: Lädt ein
-            search: Suche
         meeting_closes:
           edit:
             close: Schließen

@@ -316,9 +316,7 @@ gl:
             select_user: Seleccionar usuario
           index:
             filter:
-              accepted: Aceptada
               all: Todo
-              rejected: Rexeitado
               sent: Enviado
             invite_attendee: Invitar asistente
             invites: Invitacións

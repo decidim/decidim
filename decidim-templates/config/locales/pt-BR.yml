@@ -59,5 +59,8 @@ pt-BR:
             current_step: Passo %{step}
             of_total_steps: de %{total_steps}
             tos_agreement: Ao participar você aceita os Termos de Serviço
+      admin_log:
+        template:
+          update: "%{user_name} atualizou o modelo de questionário %{resource_name}"
       template_types:
         questionnaires: Questionários

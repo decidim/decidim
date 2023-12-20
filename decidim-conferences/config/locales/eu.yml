@@ -349,9 +349,9 @@ eu:
             select_user: Aukeratu erabiltzailea
           index:
             filter:
-              accepted: Onartu
+              accepted: Onartua
               all: guztiak
-              rejected: Ukatua
+              rejected: Baztertua
               sent: bidalia
             invite_attendee: Gonbidatu parte-hartzailea
             invites: Gonbidapenak
@@ -518,7 +518,7 @@ eu:
         introduction: Sarrera
         objectives: Helburuak
         related_assemblies: Lotutako Batzarrak
-        related_participatory_processes: Parte hartze prozesu erlazionatuak
+        related_participatory_processes: Lotutako parte-hartze prozesuak
     events:
       conferences:
         conference_registration_confirmed:

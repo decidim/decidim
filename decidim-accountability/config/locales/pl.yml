@@ -8,6 +8,7 @@ pl:
         decidim_scope_id: Zakres
         description: Opis
         end_date: Data zakończenia
+        meetings_ids: Powiązane spotkania
         progress: Postęp
         project_ids: Uwzględnione projekty
         proposals: Uwzględnione propozycje
@@ -41,6 +42,11 @@ pl:
         confirm_destroy: Czy na pewno chcesz usunąć %{name}?
         destroy: Usuń
         edit: Edytuj
+        import: Importuj projekty z innego komponentu
+        import_csv: Importuj wyniki z pliku CSV
+        new_result: Nowy wynik
+        new_status: Nowy status
+        new_timeline_entry: Nowy wpis na osi czasu
         preview: Podgląd
         timeline_entries: Rozwój projektu
         title: Działania
@@ -52,6 +58,32 @@ pl:
           new:
             download_export: Pobierz Eksport w formacie CSV
             import: Importuj
+            info: |
+              <p>Rekomendujemy podjęcie następujących kroków:</p>
+              <ol>
+              <li><a href='%{link_new_status}' target='_blank'>Utwórz statusy dla wyników</a>, które chcesz dodać</li>
+              <li><a href='%{link_new_result}' target='_blank'>Utwórz przynajmniej jeden wynik ręcznie</a> przez portal administratora przed użyciem importu w celu lepszego zrozumienia formatu i tego, co będzie trzeba uzupełnić.</li>
+              <li>%{link_export_csv}</li>
+              <li>Dokonaj zmian lokalnie. Możesz tylko zmienić następujące kolumny pliku CSV::
+                <ul>
+                <li><b>category/id:</b> ID kategorii</li>
+                <li><b>scope/id:</b> ID zakresu</li>
+                <li><b>parent/id:</b> ID rodzica (dla powiązanych wyników). Opcjonalne</li>
+                <li><b>title/en:</b> Tytuł po angielsku. Będzie zależał od wyboru języka platformy w konfiguracji.</li>
+                <li><b>description/en:</b> Opis po angielsku. Będzie zależał od wyboru języka platformy w konfiguracji.</li>
+                <li><b>start_date:</b> data rozpoczęcia wykonania wyniku (format YYYY-MM-DD)</li>
+                <li><b>end_date:</b> data zakończenia wykonania wyniku (format YYYY-MM-DD)</li>
+                <li><b>status/id:</b> ID statusu dla tego wyniku</li>
+                <li><b>progress:</b> Postęp wykonania w procentach (od 0 do 100)</li>
+                <li><b>proposals_ids:</b> wewnętrzne ID powiązanych propozycji (oddzielone przecinkiem). Jest automatycznie konwertowane do <span class='attribute-name'>proposal_url</span></li>
+                </ul>
+              </li>
+              </ol>
+            title: Importuj wyniki z pliku CSV
+        imports:
+          create:
+            invalid: Podczas importowania wyników wystąpił błąd.
+            success: Rozpoczęto importowanie pliku. W ciągu kilku minut otrzymasz e-mail z wynikiem importu.
         models:
           result:
             name: Wynik
@@ -68,9 +100,16 @@ pl:
               few: "%{count} wybrane projekty zostaną zaimportowane"
               many: "%{count} wybranych projektów zostanie zaimportowanych"
               other: "%{count} wybranych projektów zostanie zaimportowanych"
+            no_components: W tej przestrzeni partycypacyjnej nie ma komponentów budżetu, aby zaimportować projekty do wyników.
             origin_component_id: Oryginalny komponent
             select_component: Wybierz komponent
+            title: Importuj projekty z innego komponentu
         results:
+          create:
+            invalid: Podczas tworzenia tego wyniku wystąpił błąd.
+            success: Wynik został pomyślnie utworzony.
+          destroy:
+            success: Wynik został pomyślnie usunięty.
           edit:
             title: Edytuj wynik
             update: Zaktualizuj wynik
@@ -79,10 +118,18 @@ pl:
           new:
             create: Utwórz wynik
             title: Nowy wynik
+          update:
+            invalid: Przy aktualizacji tego wyniku pojawił się problem.
+            success: Aktualizacja wyniku się powiodła.
         shared:
           subnav:
             statuses: Statusy
         statuses:
+          create:
+            invalid: Podczas tworzenia tego statusu wystąpił problem.
+            success: Utworzenie statusu się powiodło.
+          destroy:
+            success: Usunięcie statusu się powiodło.
           edit:
             title: Edytuj status
             update: Aktualizuj status
@@ -91,7 +138,15 @@ pl:
           new:
             create: Utwórz status
             title: Nowy status
+          update:
+            invalid: Wystąpił problem podczas aktualizacji tego statusu.
+            success: Status został zaktualizowany.
         timeline_entries:
+          create:
+            invalid: Podczas tworzenia tego wpisu wystąpił problem.
+            success: Wpis został utworzony.
+          destroy:
+            success: Wpis został usunięty.
           edit:
             title: Edytuj wpis
             update: Aktualizuj wpis
@@ -100,6 +155,9 @@ pl:
           new:
             create: Utwórz wpis
             title: Nowy wpis
+          update:
+            invalid: Podczas aktualizowania tego wpisu wystąpił błąd.
+            success: Wpis został zaktualizowany.
       admin_log:
         result:
           create: "%{user_name} utworzył(a) wynik %{resource_name} w %{space_name}"
@@ -122,12 +180,14 @@ pl:
       import_mailer:
         import:
           errors: Błędy
+          errors_present: Podczas importowania wyników wystąpił błąd.
           row_number: Wiersz
           subject: Importowanie wyników zakończyło się pomyślnie
           success: Importowanie wyników zakończyło się pomyślnie. Możesz przejrzeć wyniki w panelu administracyjnym.
       import_projects_mailer:
         import:
           subject: Zaimportowano wyniki
+          success: Pomyślnie zaimportowano projekty do wyników w komponencie %{component_name}. Możesz przejrzeć wyniki w interfejsie administracji.
       last_activity:
         new_result: 'Nowy wynik:'
       models:
@@ -163,11 +223,14 @@ pl:
           all: Wszystkie
         home:
           categories_label: Kategorie
+          empty: Nie ma jeszcze żadnych wyników.
+          empty_filters: Brak wyników z tymi kryteriami.
           subcategories_label: Podkategorie
         home_header:
           global_status: Globalny status realizacji
         nav_breadcrumb:
           global: Globalna realizacja
+        no_results: Nie ma żadnych projektów
         search:
           search: Szukaj działań
         show:

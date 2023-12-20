@@ -607,7 +607,7 @@ eu:
           meetings: Bilerak
           official: Ofiziala
           participants: Parte-hartzaileak
-          user_groups: Erabiltzaile taldeak
+          user_groups: Taldeak
         filter_state_values:
           accepted: Onartuta
           all: Guztiak

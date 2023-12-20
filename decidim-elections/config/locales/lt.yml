@@ -651,7 +651,6 @@ lt:
               upload_legend: Serveris turi atpažinimo raktus, tačiau naršyklė jų neturi. Turite importuoti atpažinimo raktų rinkimeną į kompiuterį iš atsarginės saugyklos kurią sukūrėte sugeneravę raktus.
             not_supported_browser_description: Regis naudojate patikėtinio rolei netinkamą naršyklę. Įsitikinkite, kad naršyklė atnaujinta arba pabandykite naudoti kitas naršykles.
             not_supported_browser_title: Atnaujinkite naršyklę
-            trustee_role_description: Buvote priskirtas kaip patikėtinis šioje platformoje vyksiantiems rinkimams.
           update:
             success: Jūsų viešas atpažinimo raktas sėkmingai išsaugotas.
       votes:
@@ -738,7 +737,6 @@ lt:
           continue: Kita
       warnings:
         no_elections_warning: Jūsų paieškos kriterijus atitinkančių rinkimų nerasta arba neplanuojama.
-        no_scheduled_elections_warning: Dabar neplanuojama rinkimų, tačiau čia galite rasti visų įvykusių rinkimų sąrašą.
     events:
       elections:
         election_published:
@@ -1157,7 +1155,6 @@ lt:
           certify:
             add_images: Pridėti paveikslėlių
             error: Prisegant sertifikatą įvyko klaida. Pabandykite dar kartą.
-            form_legend: Įkelkite rinkiminės baigties sertifikato nuotrauką
             heading: Balsų perksaičiavimas - įkelkite sertifikatą
             info_text: Įkelkite rinkiminės baigties sertifikato nuotrauką.
             submit: Įkelkite sertifikatą

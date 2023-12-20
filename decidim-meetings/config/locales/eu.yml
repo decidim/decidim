@@ -283,10 +283,10 @@ eu:
             select_user: Hautatu parte-hartzailea
           index:
             filter:
-              accepted: Onartuta
-              all: Guztiak
-              rejected: Baztertuta
-              sent: Bidalita
+              accepted: Onartua
+              all: Denak
+              rejected: Baztertua
+              sent: Bidalia
             invite_attendee: Gonbidatu
             invites: Gonbidapenak
             registrations_disabled: Ezin duzu inor gonbidatu izen-emateak desgaituta daudelako.
