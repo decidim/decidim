@@ -99,6 +99,9 @@ pt-BR:
         create:
           invalid: Houve um problema ao criar o debate.
           success: Debate criado com sucesso.
+        debates:
+          empty: Não há debates ainda.
+          empty_filters: Não há debates com estes critérios.
         edit:
           back: Voltar
           save: Salvar alterações
