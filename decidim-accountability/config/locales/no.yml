@@ -92,7 +92,7 @@
           index:
             title: Statuser
           new:
-            create: Lag ny status
+            create: Opprett status
             title: Ny status
           update:
             invalid: Det oppsto et problem med å oppdatere statusen din
@@ -104,12 +104,12 @@
           destroy:
             success: Oppføringen ble slettet
           edit:
-            title: Rediger oppføringen
+            title: Rediger oppføring
             update: Oppdater oppføringen
           index:
-            title: Prosjekt tidslinje oppføringer
+            title: Oppføringer på prosjekttidslinje
           new:
-            create: Lag en ny oppføring
+            create: Opprett oppføring
             title: Ny oppføring
           update:
             invalid: Det oppsto et problem med å oppdatere oppføringen
@@ -117,8 +117,8 @@
       admin_log:
         result:
           create: "%{user_name} opprettet resultat %{resource_name} i %{space_name}"
-          delete: "%{user_name} slettet %{resource_name} resultatet i %{space_name}"
-          update: "%{user_name} oppdaterte rusultat%{resource_name} i %{space_name}"
+          delete: "%{user_name} slettet %{resource_name}-resultatet i %{space_name}"
+          update: "%{user_name} oppdaterte %{resource_name}-resultatet i %{space_name}"
         value_types:
           parent_presenter:
             not_found: 'Overordnede ble ikke funnet i databasen (ID: %{id})'
