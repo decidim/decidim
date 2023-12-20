@@ -287,17 +287,10 @@ describe "Meeting registrations" do
           login_as user, scope: :user
         end
 
-        it "shows the registration form without questions" do
+        it "shows an empty page with a message" do
           visit questionnaire_public_path
 
-          expect(page).to have_i18n_content(questionnaire.title)
-          expect(page).to have_i18n_content(questionnaire.description)
-          expect(page).to have_content "Show my attendance publicly"
-          expect(page).to have_field("public_participation", checked: false)
-
-          expect(page).to have_no_i18n_content(question.body)
-
-          expect(page).to have_button("Submit")
+          expect(page).to have_content("No questions configured for this form yet.")
         end
       end
 
