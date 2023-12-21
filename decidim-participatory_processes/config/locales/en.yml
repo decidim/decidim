@@ -114,6 +114,9 @@ en:
         resend_invitation: Resend invitation
         see_process: See process
         unpublish: Unpublish
+      filters:
+        decidim_participatory_process_group_id_eq:
+          label: By process group
       menu:
         participatory_process_groups: Process groups
         participatory_process_groups_submenu:
