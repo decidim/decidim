@@ -770,6 +770,9 @@ cs:
             email_intro: Administrátor vás přidal jako důvěrníka pro %{resource_name}. Měli byste vytvořit váš veřejný klíč <a href='%{trustee_zone_url}'>ve vaší zóně důvěrníka</a>
             email_outro: Obdrželi jste toto oznámení, protože jste byli přidáni jako správce pro %{resource_name}.
             email_subject: Jste správcem %{resource_name}.
+          start_tally:
+            email_subject: Byl zahájen proces sčítání voleb %{resource_title}.
+            notification_title: Hlasovací období pro volby %{resource_title} skončilo. Nyní prosím proveďte sčítání voleb, abyste zveřejnili konečné výsledky.
         votes:
           accepted_votes:
             email_intro: 'Váš hlas byl přijat! Pomocí vašeho hlasovacího tokenu: %{encrypted_vote_hash}, můžete ověřit svůj hlas <a href="%{verify_url}">zde</a>.'
