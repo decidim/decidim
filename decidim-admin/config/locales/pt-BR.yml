@@ -363,6 +363,7 @@ pt-BR:
         edit:
           active_content_blocks: Blocos de conteúdo ativo
           inactive_content_blocks: Blocos de conteúdo inativos
+          update: Atualizar
       dashboard:
         pending_moderations:
           anouncement:
