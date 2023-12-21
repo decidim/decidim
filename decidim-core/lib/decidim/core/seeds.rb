@@ -29,17 +29,8 @@ module Decidim
           end
         end
 
-        territorial = Decidim::AreaType.create!(
-          name: Decidim::Faker::Localized.literal("territorial"),
-          plural: Decidim::Faker::Localized.literal("territorials"),
-          organization:
-        )
-
-        sectorial = Decidim::AreaType.create!(
-          name: Decidim::Faker::Localized.literal("sectorials"),
-          plural: Decidim::Faker::Localized.literal("sectorials"),
-          organization:
-        )
+        territorial = create_area_type!(name: "territorial", plural: "territorials")
+        sectorial = create_area_type!(name: "sectorials", plural: "sectorials")
 
         3.times do
           Decidim::Area.create!(
@@ -212,6 +203,14 @@ module Decidim
           scope_type:,
           organization:,
           parent:
+        )
+      end
+
+      def create_area_type!(name:, plural:)
+        Decidim::AreaType.create!(
+          name: Decidim::Faker::Localized.literal(name),
+          plural: Decidim::Faker::Localized.literal(plural),
+          organization:
         )
       end
     end
