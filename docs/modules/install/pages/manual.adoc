@@ -140,7 +140,7 @@ You can now start your server!
 
 [source,bash]
 ----
-bin/rails s
+bin/dev
 ----
 
 Visit http://localhost:3000 to see your app running. 🎉 🎉
