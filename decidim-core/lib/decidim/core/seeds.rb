@@ -64,24 +64,7 @@ module Decidim
 
         Decidim::User.find_each do |user|
           [nil, Time.current].each do |verified_at|
-            user_group = Decidim::UserGroup.create!(
-              name: ::Faker::Company.unique.name,
-              nickname: ::Faker::Twitter.unique.screen_name,
-              email: ::Faker::Internet.email,
-              confirmed_at: Time.current,
-              extended_data: {
-                document_number: ::Faker::Number.number(digits: 10).to_s,
-                phone: ::Faker::PhoneNumber.phone_number,
-                verified_at:
-              },
-              decidim_organization_id: user.organization.id
-            )
-
-            Decidim::UserGroupMembership.create!(
-              user:,
-              role: "creator",
-              user_group:
-            )
+            create_user_group!(user:, verified_at:)
           end
         end
 
@@ -211,6 +194,27 @@ module Decidim
           name: Decidim::Faker::Localized.word,
           area_type:,
           organization:
+        )
+      end
+
+      def create_user_group!(user:, verified_at:)
+        user_group = Decidim::UserGroup.create!(
+          name: ::Faker::Company.unique.name,
+          nickname: ::Faker::Twitter.unique.screen_name,
+          email: ::Faker::Internet.email,
+          confirmed_at: Time.current,
+          extended_data: {
+            document_number: ::Faker::Number.number(digits: 10).to_s,
+            phone: ::Faker::PhoneNumber.phone_number,
+            verified_at:
+          },
+          decidim_organization_id: user.organization.id
+        )
+
+        Decidim::UserGroupMembership.create!(
+          user:,
+          role: "creator",
+          user_group:
         )
       end
     end
