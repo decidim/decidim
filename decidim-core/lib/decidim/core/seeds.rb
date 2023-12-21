@@ -17,17 +17,8 @@ module Decidim
         organization = create_organization!
 
         if organization.top_scopes.none?
-          province = Decidim::ScopeType.create!(
-            name: Decidim::Faker::Localized.literal("province"),
-            plural: Decidim::Faker::Localized.literal("provinces"),
-            organization:
-          )
-
-          municipality = Decidim::ScopeType.create!(
-            name: Decidim::Faker::Localized.literal("municipality"),
-            plural: Decidim::Faker::Localized.literal("municipalities"),
-            organization:
-          )
+          province = create_scope_type!(name: "province", plural: "provinces")
+          municipality = create_scope_type!(name: "municipality", plural: "municipalities")
 
           3.times do |time|
             parent = Decidim::Scope.create!(
@@ -211,6 +202,14 @@ module Decidim
           send_welcome_notification: true,
           file_upload_settings: Decidim::OrganizationSettings.default(:upload),
           colors:
+        )
+      end
+
+      def create_scope_type!(name:, plural:)
+        Decidim::ScopeType.create!(
+          name: Decidim::Faker::Localized.literal(name),
+          plural: Decidim::Faker::Localized.literal(plural),
+          organization:
         )
       end
     end
