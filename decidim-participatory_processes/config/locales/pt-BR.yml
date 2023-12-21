@@ -116,6 +116,7 @@ pt-BR:
           attachments: Anexos
           categories: Categorias
           components: Componentes
+          info: Sobre este processo
           moderations: Moderação
           private_users: Usuários privados
           process_admins: Processar usuários
@@ -331,6 +332,8 @@ pt-BR:
         title: Processos participativos
     participatory_process_groups:
       content_blocks:
+        extra_data:
+          developer_group: Promovido por
         html_1:
           name: Primeiro bloco HTML
         html_2:
@@ -361,15 +364,21 @@ pt-BR:
         new_import:
           accepted_types:
             json: JSON
+        participatory_process_copies:
+          form:
+            slug_help_html: 'Os slugs de URL são usados para gerar os URLs que apontam para este processo. Aceita apenas letras, números e traços e deve começar com uma letra. Exemplo: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadados
+            title: Sobre este processo
             visibility: Visibilidade
         participatory_process_imports:
           form:
             document_legend: Adicionar um documento
+            slug_help_html: 'Os slugs de URL são usados para gerar os URLs que apontam para este processo. Aceita apenas letras, números e traços e deve começar com uma letra. Exemplo: %{url}'
         participatory_process_steps:
           form:
+            cta_path_help_html: 'Use caminhos parciais, não URLs completas aqui. Aceita letras, números, traços e barras e deve começar com uma letra. Se não for definido, o botão não será mostrado. Exemplo: %{url}'
             cta_text_help: Se não estiver definido, o botão não será mostrado.
         participatory_processes:
           form:
@@ -382,7 +391,9 @@ pt-BR:
             related_processes: Processos relacionados
             scope_type_max_depth_help: Restringir a profundidade do filtro de escopo; O filtro será mostrado de modo geral ao tipo de escopo selecionado.
             select_an_area: Selecione uma área
+            select_participatory_process_type: Selecione um tipo de processo
             select_process_group: Selecione um grupo de processos
+            slug_help_html: 'Os slugs de URL são usados para gerar os URLs que apontam para este processo. Aceita apenas letras, números e traços e deve começar com uma letra. Exemplo: %{url}'
             title: Informação geral
             visbility: Visibilidade
       content_blocks:
@@ -392,11 +403,19 @@ pt-BR:
         title: Processos participativos
       last_activity:
         new_participatory_process: Novo processo participativo
+      pages:
+        home:
+          highlighted_processes:
+            active_spaces: Processos ativos
+            see_all_spaces: Ver todos os processos
       participatory_process_steps:
         index:
           back_to_process: Voltar à página do processo
       participatory_processes:
+        description:
+          title: Sobre este processo
         filters:
+          all_types: Todos os tipos
           counters:
             active:
               one: 1 processo ativo
@@ -418,6 +437,8 @@ pt-BR:
             past: Passado
             upcoming: próximos
           see: Ver
+        show:
+          title: Sobre este processo
       show:
         belongs_to_group: Este processo pertence a
         private_space: Este é um processo privado
