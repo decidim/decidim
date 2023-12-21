@@ -98,9 +98,6 @@ fr-CA:
         destroy: Supprimer
         duplicate: Dupliquer
         edit: Modifier
-        filter:
-          all_processes: Afficher tous les processus
-          process_groups: Filtrer les concertations par groupe
         import_process: Importer
         moderate: Modérer
         new_process: Nouvelle concertation
