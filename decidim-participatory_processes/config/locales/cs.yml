@@ -104,9 +104,6 @@ cs:
         destroy: Odstranit
         duplicate: Duplikát
         edit: Upravit
-        filter:
-          all_processes: Zobrazit všechny procesy
-          process_groups: Filtrovat procesy ve skupinách
         import_process: Importovat
         moderate: Moderovat
         new_process: Nový proces
