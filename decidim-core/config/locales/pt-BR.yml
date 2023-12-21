@@ -74,6 +74,8 @@ pt-BR:
     'true': 'Sim'
   carrierwave:
     errors:
+      file_cannot_be_processed: O arquivo não pode ser processado
+      file_resolution_too_large: A resolução do arquivo é muito grande
       file_size_too_large: O tamanho do arquivo é grande demais
       not_inside_organization: O arquivo não está anexado a nenhuma organização
   date:
@@ -83,10 +85,40 @@ pt-BR:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: aproximadamente 1 hora
+        other: aproximadamente %{count} horas
+      about_x_months:
+        one: aproximadamente 1 mês
+        other: aproximadamente %{count} meses
+      half_a_minute: meio minuto
+      less_than_x_minutes:
+        one: menos de um minuto
+        other: menos de %{count} minutos
+      less_than_x_seconds:
+        one: menos de 1 segundo
+        other: menos de %{count} segundos
+      x_days:
+        one: 1 dia
+        other: "%{count} dias"
+      x_hours:
+        one: 1 hora
+        other: "%{count} horas"
+      x_minutes:
+        one: 1 minuto
+        other: "%{count} minutos"
+      x_months:
+        one: 1 mês
+        other: "%{count} meses"
+      x_seconds:
+        one: 1 segundo
+        other: "%{count} segundos"
   decidim:
     accessibility:
       external_link: Link externo
-      front_page_link: Ir para a página inicial
+      front_page_link: Ir à página inicial
       logo: "Logotipo oficial de %{organization}"
       skip_button: Pular para o conteúdo principal
     account:
@@ -1599,6 +1631,7 @@ pt-BR:
         confirm_new_password: Confirme a nova senha
         new_password: Nova senha
         password_help: "O mínimo de %{minimun_characters} caracteres, não deve ser muito comum (por exemplo, 123456) e deve ser diferente do seu apelido e do seu email."
+        password_help_admin: "Mínimo de caracteres %{minimun_characters}, não deve ser muito comum (por exemplo, 123456) deve ser diferente do seu nome de usuário e seu e-mail e deve ser diferente das senhas antigas."
       new:
         forgot_your_password: Esqueceu sua senha?
         send_me_reset_password_instructions: Envie-me as instruções de redefinição de senha
@@ -1662,8 +1695,10 @@ pt-BR:
       not_saved:
         one: 'Houve um erro ao processar seu pedido:'
         other: 'Houve erros múltiplos ao processar sua solicitação:'
+      password_confirmation_message: '"Confirme sua senha" não coincide com a senha'
       too_many_marks: está usando muitos sinais de pontuação consecutivos (por exemplo,! e?)
       too_much_caps: está usando muitas letras maiúsculas (mais de 25% do texto)
+      too_short: é muito curto (menos de 15 caracteres)
       url_format: Esta URL está em formato incorreto
   forms:
     correct_errors: Há erros no formulário, por favor corrija-os para continuar.
@@ -1683,10 +1718,52 @@ pt-BR:
           columns:
             description: Descrição
             type: Tipo
+          items:
+            _session_id:
+              description: Permite que os sites lembrem o usuário dentro de um site quando se movem entre as páginas da web.
+              service: Este site
+            decidim-consent:
+              description: Armazena informações sobre os cookies permitidos pelo usuário neste site.
+              service: Este site
+            pwaInstallPromptSeen:
+              description: Armazena o status se a notificação de instalação progressiva do aplicativo web (PWA) já foi vista pelo usuário.
+              service: Este site
+          types:
+            cookie: Cookie
+            local_storage: Armazenamento local
+        dialog:
+          accept_all: Aceitar todas
+          accept_only_essential: Aceitar apenas o essencial
+          description: Utilizamos cookies neste site para amelhorar o desempenho da página. As cookies nos permitem oferecer uma experiência mais personalizada ao usuário e aos canais de redes sociais.
+          title: Informações sobre as cookies utilizadas no site
+        modal:
+          accept_all:
+          accept_only_essential: Aceitar apenas o essencial
+          analytics:
+            description: Esses cookies são usados para medir e analisar o público do site para ajudar a melhorar o site.
+            title: Análises e estatísticas
+          description: Usamos cookies para garantir as funcionalidades básicas do site e melhorar a sua experiência on-line. Você pode configurar e aceitar o uso dos cookies e modificar suas opções de consentimento, a qualquer momento.
+          essential:
+            description: Esses cookies ativam a funcionalidade chave do site e ajudam a manter seus usuários protegidos. Eles são salvos automaticamente no navegador e não podem ser desativados.
+            title: Essencial
+          marketing:
+            description: Esses cookies coletam informações sobre como você usa o site e eles podem ser utilizados para fornecer a você marketing mais personalizado em diferentes sites que você usa.
+            title: Marketing
+          preferences:
+            description: Esses cookies permitem que o site lembre as escolhas que você fez no passado neste site para fornecer uma experiência mais personalizada para os usuários do site.
+            title: Preferências
+          save_settings: Salvar configurações
+          title: Configurações de cookies
+          toggle: Alternar %{consent_category}
+        warning:
+          all_categories: todas as cookies
+          change_settings: Mudar configurações de cookies
+          consent_required: Você precisa habilitar %{categories} para ver este conteúdo.
       edit_link:
         edit: Editar
       footer:
         cc_by_license: Licença Creative Commons
+        data_consent_settings: Configurações de cookies
         decidim_logo: Logo Decidim
         download_open_data: Baixar arquivos Open Data
         made_with_open_source: Site criado com <a target="_blank" href="https://github.com/decidim/decidim"> software livre</a>.
@@ -1706,10 +1783,13 @@ pt-BR:
       notifications_dashboard:
         mark_all_as_read: Marcar tudo como lido
         mark_as_read: Marcar como lida
+      offline_banner:
+        cache_version_page: Oooops! Sua rede está fora de linha. Esta é uma versão armazenada em cache da página que você está visitando, pode ser que o conteúdo não esteja atualizado.
       social_media_links:
         facebook: "%{organization} no Facebook"
         github: "%{organization} no GitHub"
         instagram: "%{organization} no Instagram"
+        x: "%{organization} em X"
         youtube: "%{organization} no YouTube"
       timeout_modal:
         body: Você está inativo por %{minutes} minutos. Se você continuar inativo, será automaticamente desconectado para sua própria segurança.
@@ -1742,12 +1822,15 @@ pt-BR:
     name: Português brasileiro
     name_with_error: Português brasileiro (erro!)
   password_validator:
+    blacklisted: está na lista negra
     domain_included_in_password: é muito semelhante a este nome de domínio
     email_included_in_password: é muito parecido com o seu email
     fallback: não é válido
     name_included_in_password: é muito parecido com o seu nome
+    nickname_included_in_password: é muito parecido com o seu nome de usuário
     not_enough_unique_characters: não tem caracteres únicos suficientes
     password_not_allowed: não é permitido
+    password_repeated: não é possível reutilizar a senha antiga
     password_too_common: é muito comum
     password_too_long: é muito longo
     password_too_short: é muito curto
@@ -1798,6 +1881,7 @@ pt-BR:
     dropdown:
       choose_diff_view_html: 'Modo de visualização HTML:'
       choose_diff_view_mode: 'Modo de visualização comparado:'
+      choose_diff_view_mode_menu: Escolher modo de comparação
       option_escaped: Escapou
       option_split: Lado-por lado
       option_unescaped: Abandonado
