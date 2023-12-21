@@ -9,8 +9,6 @@ describe Decidim::Blogs::CreatePostEvent do
   let(:email_outro) { "You have received this notification because you are following \"#{participatory_space_title}\". You can unfollow it from the previous link." }
   let(:notification_title) { "The post <a href=\"#{resource_path}\">#{resource_title}</a> has been published in #{participatory_space_title}" }
   let(:email_subject) { "New post published in #{participatory_space_title}" }
-  let(:assembly) { create(:assembly, organization:, title: { en: "It is a test" }) }
-  let(:blogs_component) { create(:component, :published, name: { en: "Blogs" }, participatory_space: assembly, manifest_name: :blogs) }
 
   include_context "when a simple event"
   it_behaves_like "a simple event"
