@@ -24,6 +24,7 @@ describe Decidim::Accountability::ResultProgressUpdatedEvent do
   end
 
   it_behaves_like "a simple event", proposal_text: true
+  it_behaves_like "a simple event email"
   it_behaves_like "a simple event notification"
 
   describe "proposal" do
