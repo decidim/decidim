@@ -133,6 +133,8 @@ pt-BR:
             collaborative_drafts_enabled: Rascunhos colaborativos ativados
             comments_enabled: Comentários ativados
             comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
+            default_sort_order_options:
+              most_commented: Mais comentado
             geocoding_enabled: Geocodificação habilitada
             minimum_votes_per_user: Mínimo de votos por usuário
             new_proposal_body_template: Novo modelo de corpo da proposta
@@ -176,6 +178,8 @@ pt-BR:
             comments_blocked: Comentários bloqueados
             creation_enabled: Os participantes podem criar propostas
             creation_enabled_readonly: Essa configuração é desativada quando você ativa a funcionalidade de textos participativos. Para enviar propostas como texto participativo, clique no botão de textos participativos e siga as instruções.
+            default_sort_order_options:
+              most_commented: Mais comentado
             endorsements_blocked: Endossos bloqueados
             endorsements_enabled: Endossos habilitados
             proposal_answering_enabled: Resposta de proposta ativada
