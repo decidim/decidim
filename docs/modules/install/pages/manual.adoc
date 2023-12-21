@@ -113,6 +113,11 @@ EOF
 
 Be careful where you put the `.rbenv-vars` file, as if you put it in the same folder of your decidim generated application, and if you use a version control system (like `git`, which we strongly recommend), then you should ignore this file (ie with the `.gitignore` file).
 
+[source,bash]
+----
+echo -e "\n\n# Ignore environment variables\n.rbenv-vars" >> .gitignore
+----
+
 == 6. Initializing your app for local development
 
 [NOTE]
