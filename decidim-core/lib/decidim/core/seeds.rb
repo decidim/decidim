@@ -33,19 +33,11 @@ module Decidim
         sectorial = create_area_type!(name: "sectorials", plural: "sectorials")
 
         3.times do
-          Decidim::Area.create!(
-            name: Decidim::Faker::Localized.word,
-            area_type: territorial,
-            organization:
-          )
+          create_area!(area_type: territorial)
         end
 
         5.times do
-          Decidim::Area.create!(
-            name: Decidim::Faker::Localized.word,
-            area_type: sectorial,
-            organization:
-          )
+          create_area!(area_type: sectorial)
         end
 
         admin = find_or_initialize_user_by(email: "admin@example.org")
@@ -210,6 +202,14 @@ module Decidim
         Decidim::AreaType.create!(
           name: Decidim::Faker::Localized.literal(name),
           plural: Decidim::Faker::Localized.literal(plural),
+          organization:
+        )
+      end
+
+      def create_area!(area_type:)
+        Decidim::Area.create!(
+          name: Decidim::Faker::Localized.word,
+          area_type:,
           organization:
         )
       end
