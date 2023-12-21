@@ -550,6 +550,7 @@ pt-BR:
               title: A ação a seguir é irreversível
             success: Esboço colaborativo retirado com sucesso.
         create:
+          error: Houve um problema ao criar este rascunho colaborativo.
           success: Rascunho colaborativo criado com sucesso.
         edit:
           attachment_legend: "(Opcional) Adicione um anexo"
@@ -667,8 +668,10 @@ pt-BR:
           description: As coordenadas serão atualizadas quando clicar no botão 'visualizar'. No entanto, o endereço não muda.
           instructions: Você pode mover o ponto no mapa.
         edit:
+          add_documents: Adicionar documentos
           attachment_legend: "(Opcional) Adicione um anexo"
           back: Voltar
+          edit_documents: Editar documentos
           select_a_category: Selecione uma categoria
           send: Enviar
           title: Editar proposta
@@ -699,6 +702,7 @@ pt-BR:
           see_all_withdrawn: Veja todas as propostas retiradas
         new:
           send: Continuar
+          title: Crie sua proposta
         orders:
           label: 'Ordene propostas por:'
           most_commented: Mais comentados
@@ -710,7 +714,7 @@ pt-BR:
           with_more_authors: Com mais autores
         participatory_texts:
           view_index:
-            document_index: Índice de Documentos
+            document_index: Índice de documentos
         placeholder:
           address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
