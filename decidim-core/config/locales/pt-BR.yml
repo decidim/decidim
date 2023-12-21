@@ -22,6 +22,7 @@ pt-BR:
       user:
         about: Sobre
         email: O seu email
+        locale: Local
         name: Seu nome
         nickname: Apelido
         password: Senha
@@ -478,7 +479,7 @@ pt-BR:
           error: Houve um erro ao criar sua conta.
         new:
           already_have_an_account?: Você já tem uma conta?
-          log_in: Iniciar Sessão
+          log_in: Iniciar sessão
           newsletter: Receba um boletim informativo ocasional com informações relevantes
           newsletter_title: Permissão de contato
           sign_up: Inscreva-se
@@ -1370,6 +1371,8 @@ pt-BR:
     shared:
       links:
         back: Costas
+        didn_t_receive_confirmation_instructions: Não recebeu instruções de confirmação?
+        didn_t_receive_unlock_instructions: Não recebeu instruções de desbloqueio?
         forgot_your_password: Esqueceu sua senha?
         log_in: Iniciar sessão
         log_in_with_provider: Iniciar sessão com %{provider}
@@ -1386,6 +1389,8 @@ pt-BR:
     scopes:
       public: Sua informação pública.
   editor:
+    inputDialog:
+      close: Fechar modal
     upload:
       uploadedFile: Arquivo carregado
   emojis:
