@@ -823,7 +823,7 @@ es-MX:
             description:
               name: Descripción de la votación
             elections:
-              name: Elecciones
+              name: Votaciones electorales
             header:
               name: Cabecera de la votación
             html_block_1:
