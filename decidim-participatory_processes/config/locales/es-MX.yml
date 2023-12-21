@@ -98,9 +98,6 @@ es-MX:
         destroy: Borrar
         duplicate: Duplicar
         edit: Editar
-        filter:
-          all_processes: Mostrar todos los procesos
-          process_groups: Grupos de procesos
         import_process: Importar
         moderate: Moderar
         new_process: Nuevo proceso
