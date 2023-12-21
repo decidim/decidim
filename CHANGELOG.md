@@ -4,16 +4,6 @@
 
 ### Upgrade notes
 
-#### Deduplicating endorsements
-
-We have identified a case when the same user can endorse the same resource multiple times. This is a bug that we have fixed in this release, but we need to clean up the existing duplicated endorsements. We have added a new task that helps you clean the duplicated endorsements.
-
-```bash
-bundle exec rails decidim:upgrade:fix_duplicate_endorsements
-```
-
-You can see more details about this change on PR [\#11853](https://github.com/decidim/decidim/pull/11853)
-
 ### Added
 
 Nothing.
@@ -37,6 +27,82 @@ Nothing.
 ### Internal
 
 Nothing.
+
+## [0.26.9](https://github.com/decidim/decidim/tree/v0.26.9)
+
+### Upgrade notes
+
+#### Deduplicating endorsements
+
+We have identified a case when the same user can endorse the same resource multiple times. This is a bug that we have fixed in this release, but we need to clean up the existing duplicated endorsements. We have added a new task that helps you clean the duplicated endorsements.
+
+```bash
+bundle exec rails decidim:upgrade:fix_duplicate_endorsements
+```
+
+You can see more details about this change on PR [\#11853](https://github.com/decidim/decidim/pull/11853)
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- **decidim-core**: Backport 'Raise exception in UserTimelineController if no user with the nickname provided' to v0.26 [\#11470](https://github.com/decidim/decidim/pull/11470)
+- **decidim-core**: Backport 'Encode non-ASCII characters on external links' to v0.26 [\#11500](https://github.com/decidim/decidim/pull/11500)
+- Backport 'Revert "Lock ChromeDriver to the latest working version"' to 0.26 [\#11620](https://github.com/decidim/decidim/pull/11620)
+- Backport 'Add "Tile usage" notice at the top of doc page for OSM maps and geocoding' to v0.26 [\#11891](https://github.com/decidim/decidim/pull/11891)
+- **decidim-generators**: Backport 'Fix Bootsnap configuration' to v0.26 [\#11897](https://github.com/decidim/decidim/pull/11897)
+- **decidim-core**: Backport 'Update HERE API autocomplete' to v0.26 [\#11907](https://github.com/decidim/decidim/pull/11907)
+- **decidim-core**: Backport 'Return the coordinates from Photon geocoding in correct order' to v0.26 [\#11916](https://github.com/decidim/decidim/pull/11916)
+- Backport 'Add 127.0.0.1 and 0.0.0.0 as secondary hosts in the Organization's seeds' to v0.26 [\#11912](https://github.com/decidim/decidim/pull/11912)
+- **decidim-budgets**, **decidim-comments**: Backport 'Fix 'download your data' when there are comments on budgets' to v0.26 [\#11902](https://github.com/decidim/decidim/pull/11902)
+- **decidim-surveys**: Backport 'Add alert when publish a survey with answers' to v0.26 [\#11894](https://github.com/decidim/decidim/pull/11894)
+- **decidim-admin**: Backport 'Sort components in "Add component" alphabetically' to v0.26 [\#11922](https://github.com/decidim/decidim/pull/11922)
+- **decidim-core**: Backport 'Fix autocomplete result list duplicates' to v0.26 [\#11893](https://github.com/decidim/decidim/pull/11893)
+- **decidim-core**: Backport 'Deletion of ZIP file in tmp folder OpenData export job' to v0.26 [\#11901](https://github.com/decidim/decidim/pull/11901)
+- **decidim-core**: Backport 'Raise an error if the export format is unknown' to v0.26 [\#11921](https://github.com/decidim/decidim/pull/11921)
+- **decidim-conferences**, **decidim-meetings**: Backport 'Fix conference venues meetings visibility' to v0.26 [\#11913](https://github.com/decidim/decidim/pull/11913)
+- **decidim-system**: Backport 'Add admin's password confirmation validation in system' to v0.26 [\#11928](https://github.com/decidim/decidim/pull/11928)
+- **decidim-core**: Backport 'Deletion of leftovers ZIP files in tmp directory' to v0.26 [\#11898](https://github.com/decidim/decidim/pull/11898)
+- **decidim-elections**, **decidim-forms**, **decidim-meetings**: Backport 'Use UTC in the serializers for the date fields' to v0.26 [\#11926](https://github.com/decidim/decidim/pull/11926)
+- **decidim-core**: Backport 'Fix password confirm validation error message' to v0.26 [\#11934](https://github.com/decidim/decidim/pull/11934)
+- Backport 'Add missing activerecord budget locales for search' to v0.26 [\#11939](https://github.com/decidim/decidim/pull/11939)
+- **decidim-meetings**: Backport 'Display meeting button for unauthenticated users' to v0.26 [\#11946](https://github.com/decidim/decidim/pull/11946)
+- **decidim-core**: Backport 'Fix possible JavaScript console error with geocoding inputs' to v0.26 [\#11943](https://github.com/decidim/decidim/pull/11943)
+- **decidim-system**: Backport 'Extraction of i18n strings in system panel' to v0.26 [\#11952](https://github.com/decidim/decidim/pull/11952)
+- **decidim-core**: Backport 'Fix search when moderations are hidden' to v0.26 [\#11918](https://github.com/decidim/decidim/pull/11918)
+- **decidim-budgets**: Backport 'Fix Permissions screen on budgets throw errors' to v0.26 [\#11905](https://github.com/decidim/decidim/pull/11905)
+- **decidim-initiatives**: Backport 'Hide omnipresent in media print of initiatives' to v0.26 [\#11947](https://github.com/decidim/decidim/pull/11947)
+- **decidim-admin**: Backport 'Redirect non-admin users to core's root_path' to v0.26 [\#11936](https://github.com/decidim/decidim/pull/11936)
+- **decidim-conferences**, **decidim-meetings**: Backport 'Fix empty address in conference's venues ' to v0.26 [\#11909](https://github.com/decidim/decidim/pull/11909)
+- **decidim-system**: Backport 'Add titles in system pages' to v0.26 [\#11954](https://github.com/decidim/decidim/pull/11954)
+- Backport 'Bump devise_invitable from v2.0.8 to v2.0.9' to v0.26 [\#11938](https://github.com/decidim/decidim/pull/11938)
+- **decidim-templates**: Backport 'Simplify the code related to questionnaire templates previews' to v0.26 [\#11927](https://github.com/decidim/decidim/pull/11927)
+- **decidim-meetings**: Backport 'Don't show map with only online meetings in Content Block' to v0.26 [\#11958](https://github.com/decidim/decidim/pull/11958)
+- Backport 'Fix duplicated endorsements' to v0.26 [\#11973](https://github.com/decidim/decidim/pull/11973)
+- **decidim-core**: Backport 'Fix dependency resolver trying to fetch gem paths from lazy specifications' to v0.26 [\#12061](https://github.com/decidim/decidim/pull/12061)
+- Backport 'Lock ChromeDriver to 119.0.6045.105' to v0.26 [\#12167](https://github.com/decidim/decidim/pull/12167)
+- Remove duplicated chromedriver setting in v0.26 [\#12186](https://github.com/decidim/decidim/pull/12186)
+
+### Removed
+
+Nothing.
+
+### Internal
+
+- Backport "Lock ChromeDriver to the latest working version" to v0.26 [\#11393](https://github.com/decidim/decidim/pull/11393)
+- Backport 'Revert "Lock ChromeDriver to the latest working version"' to 0.26 [\#11620](https://github.com/decidim/decidim/pull/11620)
+- Fix spec for i18n change in Crowdin in release/0.26-stable [\#11906](https://github.com/decidim/decidim/pull/11906)
+
+### Developer improvements
+
+- Backport 'Revert "Lock ChromeDriver to the latest working version"' to 0.26 [\#11620](https://github.com/decidim/decidim/pull/11620)
+- Backport 'Add 127.0.0.1 and 0.0.0.0 as secondary hosts in the Organization's seeds' to v0.26 [\#11912](https://github.com/decidim/decidim/pull/11912)
 
 ## [0.26.8](https://github.com/decidim/decidim/tree/v0.26.8)
 
