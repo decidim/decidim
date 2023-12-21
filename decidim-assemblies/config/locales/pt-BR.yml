@@ -285,6 +285,7 @@ pt-BR:
             select_an_area: Selecione uma área
             select_an_assembly_type: Selecione um tipo de assembleia
             select_parent_assembly: Selecione a montagem pai
+            slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembleia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
             social_handlers: Social
             title: Informação geral
             visbility: Visibilidade
@@ -296,9 +297,13 @@ pt-BR:
         assemblies_types:
           form:
             title: Título
+        assembly_copies:
+          form:
+            slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembleia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
         assembly_imports:
           form:
             document_legend: Adicionar um documento
+            slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembleia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
         assembly_members:
           form:
             existing_user: Usuário existente
@@ -309,6 +314,8 @@ pt-BR:
           index:
             filter:
               all: Todos
+              ceased: Cessado
+              not_ceased: Não cessado
             filter_by: Filtrar por
             search: Procurar
         content_blocks:
@@ -319,7 +326,7 @@ pt-BR:
             json: JSON
       assemblies:
         show:
-          title: Sobre este assembly
+          title: Sobre essa assambleia
       assembly_members:
         index:
           members: Membros
@@ -372,6 +379,7 @@ pt-BR:
         developer_group: Grupo promotor
         duration: Duração
         included_at: Incluído em
+        indefinite_duration: Indefinido
         internal_organisation: Organização interna
         is_transparent:
           'false': opaco
