@@ -13,5 +13,6 @@ describe Decidim::Elections::Trustees::NotifyTrusteeNewElectionEvent do
   let(:notification_title) { "You have been selected as a Trustee in Election <a href=\"#{resource_path}\">#{resource_title}.</a> Please, do the key ceremony to set up the election." }
 
   it_behaves_like "a simple event"
+  it_behaves_like "a simple event email"
   it_behaves_like "a simple event notification"
 end
