@@ -246,6 +246,14 @@ pt-BR:
           update:
             error: ocorreu um erro
             success: A iniciativa do cidadão foi atualizada com sucesso
+        initiatives_settings:
+          form:
+            comments: Mais comentado
+            date: Mais recente
+            publication_date: Mais recentemente publicado
+            random: Aleatório
+            signatures: Mais assinadas
+            title: Configurações de iniciativas
         initiatives_type_scopes:
           create:
             error: ocorreu um erro
@@ -277,6 +285,7 @@ pt-BR:
             update: Atualizar
           form:
             authorizations: Opções de autorização
+            child_scope_threshold_enabled_help: 'Esse parâmetro de configuração não suporta votos off-line, permite subescopos e funciona com um manipulador de autorização que associa o escopo ao usuário, certifique-se de selecionar a autorização, nas configurações de autorização. Para que funcione, os escopos precisam ser configurados de forma hierárquica: 1 Pai - N Filhos. Para mais informações sobre como essa configuração funciona, consulte este <a href="https://docs.decidim.org/en/admin/spaces/initiatives" target="_blank">link</a>.'
             options: Opções
             title: Informação geral
           initiative_type_scopes:
