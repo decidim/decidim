@@ -15,5 +15,6 @@ describe Decidim::Initiatives::Admin::InitiativeSentToTechnicalValidationEvent d
 
   include_context "when a simple event"
   it_behaves_like "a simple event"
+  it_behaves_like "a simple event email"
   it_behaves_like "a simple event notification"
 end
