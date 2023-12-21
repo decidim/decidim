@@ -206,3 +206,8 @@ pt-BR:
           our_getting_started_guide: nosso guia inicial
       titles:
         dashboard: painel de controle
+  layouts:
+    decidim:
+      system:
+        login_items:
+          logout: Sair
