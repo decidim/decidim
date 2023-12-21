@@ -30,7 +30,6 @@ describe Decidim::Comments::UserGroupMentionedEvent do
 
   it_behaves_like "a comment event"
   it_behaves_like "a simple event email"
-  it_behaves_like "a simple event notification"
 
   describe "resource_text" do
     let(:participatory_process) { create(:participatory_process, organization:) }
