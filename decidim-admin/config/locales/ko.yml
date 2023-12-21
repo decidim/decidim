@@ -1,1 +1,9 @@
+---
 ko:
+  activemodel:
+    attributes:
+      area:
+        name: 이름
+        organization: 조직
+      area_type:
+        name: 이름
