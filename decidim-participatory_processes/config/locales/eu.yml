@@ -98,9 +98,6 @@ eu:
         destroy: ezabatu
         duplicate: Bikoiztu
         edit: Editatu
-        filter:
-          all_processes: Erakutsi prozesu guztiak
-          process_groups: Iragazki prozesuak taldeetan
         import_process: Inportatu
         moderate: Moderatu
         new_process: Beste prozesu bat
