@@ -122,6 +122,7 @@ PATH
       decidim-comments (= 0.26.9)
       decidim-core (= 0.26.9)
     decidim-dev (0.26.9)
+      axe-core-api (~> 4.7.0)
       axe-core-rspec (~> 4.1.0)
       byebug (~> 11.0)
       capybara (~> 3.24)
@@ -273,7 +274,7 @@ GEM
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.2)
-    axe-core-api (4.8.0)
+    axe-core-api (4.7.0)
       dumb_delegator
       virtus
     axe-core-rspec (4.1.0)
