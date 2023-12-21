@@ -20,22 +20,11 @@ module Decidim
           province = create_scope_type!(name: "province", plural: "provinces")
           municipality = create_scope_type!(name: "municipality", plural: "municipalities")
 
-          3.times do |time|
-            parent = Decidim::Scope.create!(
-              name: Decidim::Faker::Localized.literal(::Faker::Address.unique.state),
-              code: "#{::Faker::Address.country_code}_#{time}",
-              scope_type: province,
-              organization:
-            )
+          3.times do
+            parent = create_scope!(scope_type: province, parent: nil)
 
             5.times do
-              Decidim::Scope.create!(
-                name: Decidim::Faker::Localized.literal(::Faker::Address.unique.city),
-                code: "#{parent.code}-#{::Faker::Address.unique.state_abbr}",
-                scope_type: municipality,
-                organization:,
-                parent:
-              )
+              create_scope!(scope_type: municipality, parent:)
             end
           end
         end
@@ -210,6 +199,19 @@ module Decidim
           name: Decidim::Faker::Localized.literal(name),
           plural: Decidim::Faker::Localized.literal(plural),
           organization:
+        )
+      end
+
+      def create_scope!(scope_type:, parent:)
+        n = rand(3)
+        code = parent.nil? ? "#{::Faker::Address.country_code}_#{n}" : "#{parent.code}-#{::Faker::Address.unique.state_abbr}"
+
+        Decidim::Scope.create!(
+          name: Decidim::Faker::Localized.literal(::Faker::Address.unique.state),
+          code:,
+          scope_type:,
+          organization:,
+          parent:
         )
       end
     end
