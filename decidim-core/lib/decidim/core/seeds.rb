@@ -8,9 +8,8 @@ require "decidim/faker/internet"
 module Decidim
   module Core
     class Seeds < Decidim::Seeds
-      # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Rails/Output
       def call
-        print "Creating seeds for decidim-core...\n" unless Rails.env.test?
+        print "Creating seeds for decidim-core...\n" unless Rails.env.test? # rubocop:disable Rails/Output
 
         reset_column_information
 
@@ -89,8 +88,6 @@ module Decidim
         hero_content_block.settings = settings
         hero_content_block.save!
       end
-      # rubocop:enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Rails/Output
-      #
 
       def reset_column_information
         # Since we usually migrate and seed in the same process, make sure
