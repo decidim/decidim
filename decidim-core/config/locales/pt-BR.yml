@@ -1478,10 +1478,10 @@ pt-BR:
             cookie: Cookie
             local_storage: Armazenamento local
         dialog:
-          accept_all: Aceitar todos
+          accept_all: Aceitar todas
           accept_only_essential: Aceitar apenas o essencial
-          description: Usamos cookies em nosso site para melhorar o desempenho e o conteúdo do site. Os cookies nos permitem fornecer mais canais de experiência individual de usuário e mídias sociais.
-          title: Informações sobre os cookies usados no site
+          description: Utilizamos cookies neste site para amelhorar o desempenho da página. As cookies nos permitem oferecer uma experiência mais personalizada ao usuário e aos canais de redes sociais.
+          title: Informações sobre as cookies utilizadas no site
         modal:
           accept_all:
           accept_only_essential: Aceitar apenas o essencial
@@ -1502,8 +1502,8 @@ pt-BR:
           title: Configurações de cookies
           toggle: Alternar %{consent_category}
         warning:
-          all_categories: todos os cookies
-          change_settings: Alterar configurações de cookies
+          all_categories: todas as cookies
+          change_settings: Mudar configurações de cookies
           consent_required: Você precisa habilitar %{categories} para ver este conteúdo.
       edit_link:
         edit: Editar
@@ -1531,6 +1531,8 @@ pt-BR:
       notifications_dashboard:
         mark_all_as_read: Marcar tudo como lido
         mark_as_read: Marcar como lida
+      offline_banner:
+        cache_version_page: Oooops! Sua rede está fora de linha. Esta é uma versão armazenada em cache da página que você está visitando, pode ser que o conteúdo não esteja atualizado.
       social_media_links:
         facebook: "%{organization} no Facebook"
         github: "%{organization} no GitHub"
