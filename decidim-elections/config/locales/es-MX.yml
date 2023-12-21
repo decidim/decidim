@@ -853,7 +853,7 @@ es-MX:
           polling_stations:
             name: Puntos de votación
           related_elections:
-            name: Elecciones
+            name: Votaciones electorales
           stats:
             name: Estadísticas de la votación
           timeline:
