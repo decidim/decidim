@@ -770,7 +770,9 @@ cs:
             email_intro: Administrátor vás přidal jako důvěrníka pro %{resource_name}. Měli byste vytvořit váš veřejný klíč <a href='%{trustee_zone_url}'>ve vaší zóně důvěrníka</a>
             email_outro: Obdrželi jste toto oznámení, protože jste byli přidáni jako správce pro %{resource_name}.
             email_subject: Jste správcem %{resource_name}.
+            notification_title: Byli jste přidáni, abyste jednali jako důvěrník %{resource_name} pro některé volby, které se budou konat na této platformě.<br> Budete provádět úkoly podle potřeby. Zatím prosím <a href='%{trustee_zone_url}'>vygenerujte své identifikační klíče</a>.
           start_tally:
+            email_intro: Hlasovací období pro volby %{resource_title} skončilo. Nyní prosím proveďte sčítání voleb, abyste zveřejnili konečné výsledky.
             email_subject: Byl zahájen proces sčítání voleb %{resource_title}.
             notification_title: Hlasovací období pro volby %{resource_title} skončilo. Nyní prosím proveďte sčítání voleb, abyste zveřejnili konečné výsledky.
         votes:
