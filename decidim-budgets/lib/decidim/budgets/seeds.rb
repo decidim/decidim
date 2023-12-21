@@ -37,7 +37,7 @@ module Decidim
             "<p>#{::Faker::Lorem.paragraph}</p>"
         end
 
-        Decidim::Component.create!(
+        params = {
           name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :budgets).i18n_name,
           manifest_name: :budgets,
           published_at: Time.current,
@@ -48,18 +48,33 @@ module Decidim
             more_information_modal: Decidim::Faker::Localized.paragraph(sentence_count: 4),
             workflow: Decidim::Budgets.workflows.keys.sample
           }
-        )
+        }
+
+        Decidim.traceability.perform_action!(
+          "publish",
+          Decidim::Component,
+          admin_user,
+          visibility: "all"
+        ) do
+          Decidim::Component.create!(params)
+        end
       end
 
       def create_budget!(component:)
-        Decidim::Budgets::Budget.create!(
-          component:,
-          title: Decidim::Faker::Localized.sentence(word_count: 2),
-          description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-            Decidim::Faker::Localized.paragraph(sentence_count: 3)
-          end,
-          total_budget: ::Faker::Number.number(digits: 8)
-        )
+        Decidim.traceability.perform_action!(
+          "create",
+          Decidim::Budgets::Budget,
+          admin_user
+        ) do
+          Decidim::Budgets::Budget.create!(
+            component:,
+            title: Decidim::Faker::Localized.sentence(word_count: 2),
+            description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+              Decidim::Faker::Localized.paragraph(sentence_count: 3)
+            end,
+            total_budget: ::Faker::Number.number(digits: 8)
+          )
+        end
       end
 
       def create_project!(budget:)
@@ -82,7 +97,13 @@ module Decidim
           )
         end
 
-        Decidim::Budgets::Project.create!(params)
+        Decidim.traceability.perform_action!(
+          "create",
+          Decidim::Budgets::Project,
+          admin_user
+        ) do
+          Decidim::Budgets::Project.create!(params)
+        end
       end
     end
   end
