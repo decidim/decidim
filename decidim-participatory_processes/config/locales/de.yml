@@ -98,9 +98,6 @@ de:
         destroy: Löschen
         duplicate: Duplizieren
         edit: Bearbeiten
-        filter:
-          all_processes: Alle Beteiligungsprozesse anzeigen
-          process_groups: Prozesse in Gruppen filtern
         import_process: Importieren
         moderate: Moderieren
         new_process: Neuer Beteiligungsprozess
