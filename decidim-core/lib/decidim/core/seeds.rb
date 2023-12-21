@@ -14,60 +14,7 @@ module Decidim
 
         reset_column_information
 
-        smtp_label = ENV.fetch("SMTP_FROM_LABEL", ::Faker::Twitter.unique.screen_name)
-        smtp_email = ENV.fetch("SMTP_FROM_EMAIL", ::Faker::Internet.email)
-
-        primary_color, secondary_color, tertiary_color = [
-          ["#e02d2d", "#155abf", "#ebc34b"],
-          ["#4caf50", "#a0309e", "#a8753e"],
-          ["#e91e63", "#1ee9a5", "#e9b61e"],
-          ["#009688", "#d12c26", "#b4a110"],
-          ["#ff9800", "#00bcd4", "#ea0094"]
-        ].sample
-
-        colors = {
-          alert: "#e7131a",
-          primary: primary_color,
-          secondary: secondary_color,
-          tertiary: tertiary_color,
-          success: "#28a745",
-          warning: "#ffb703"
-        }
-
-        organization = Decidim::Organization.first || Decidim::Organization.create!(
-          name: ::Faker::Company.name,
-          twitter_handler: ::Faker::Hipster.word,
-          facebook_handler: ::Faker::Hipster.word,
-          instagram_handler: ::Faker::Hipster.word,
-          youtube_handler: ::Faker::Hipster.word,
-          github_handler: ::Faker::Hipster.word,
-          smtp_settings: {
-            from: "#{smtp_label} <#{smtp_email}>",
-            from_email: smtp_email,
-            from_label: smtp_label,
-            user_name: ENV.fetch("SMTP_USERNAME", ::Faker::Twitter.unique.screen_name),
-            encrypted_password: Decidim::AttributeEncryptor.encrypt(ENV.fetch("SMTP_PASSWORD", ::Faker::Internet.password(min_length: 8))),
-            address: ENV.fetch("SMTP_ADDRESS", nil) || ENV.fetch("DECIDIM_HOST", "localhost"),
-            port: ENV.fetch("SMTP_PORT", nil) || ENV.fetch("DECIDIM_SMTP_PORT", "25")
-          },
-          host: ENV.fetch("DECIDIM_HOST", "localhost"),
-          secondary_hosts: ENV.fetch("DECIDIM_HOST", "localhost") == "localhost" ? ["0.0.0.0", "127.0.0.1"] : nil,
-          external_domain_whitelist: ["decidim.org", "github.com"],
-          description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-            Decidim::Faker::Localized.sentence(word_count: 15)
-          end,
-          default_locale: Decidim.default_locale,
-          available_locales: Decidim.available_locales,
-          reference_prefix: ::Faker::Name.suffix,
-          available_authorizations: Decidim.authorization_workflows.map(&:name),
-          users_registration_mode: :enabled,
-          tos_version: Time.current,
-          badges_enabled: true,
-          user_groups_enabled: true,
-          send_welcome_notification: true,
-          file_upload_settings: Decidim::OrganizationSettings.default(:upload),
-          colors:
-        )
+        organization = create_organization!
 
         if organization.top_scopes.none?
           province = Decidim::ScopeType.create!(
@@ -208,6 +155,63 @@ module Decidim
         decidim_tables.map do |table|
           table.tr("_", "/").classify.safe_constantize
         end.compact.each(&:reset_column_information)
+      end
+
+      def create_organization!
+        smtp_label = ENV.fetch("SMTP_FROM_LABEL", ::Faker::Twitter.unique.screen_name)
+        smtp_email = ENV.fetch("SMTP_FROM_EMAIL", ::Faker::Internet.email)
+
+        primary_color, secondary_color, tertiary_color = [
+          ["#e02d2d", "#155abf", "#ebc34b"],
+          ["#4caf50", "#a0309e", "#a8753e"],
+          ["#e91e63", "#1ee9a5", "#e9b61e"],
+          ["#009688", "#d12c26", "#b4a110"],
+          ["#ff9800", "#00bcd4", "#ea0094"]
+        ].sample
+
+        colors = {
+          alert: "#e7131a",
+          primary: primary_color,
+          secondary: secondary_color,
+          tertiary: tertiary_color,
+          success: "#28a745",
+          warning: "#ffb703"
+        }
+
+        Decidim::Organization.first || Decidim::Organization.create!(
+          name: ::Faker::Company.name,
+          twitter_handler: ::Faker::Hipster.word,
+          facebook_handler: ::Faker::Hipster.word,
+          instagram_handler: ::Faker::Hipster.word,
+          youtube_handler: ::Faker::Hipster.word,
+          github_handler: ::Faker::Hipster.word,
+          smtp_settings: {
+            from: "#{smtp_label} <#{smtp_email}>",
+            from_email: smtp_email,
+            from_label: smtp_label,
+            user_name: ENV.fetch("SMTP_USERNAME", ::Faker::Twitter.unique.screen_name),
+            encrypted_password: Decidim::AttributeEncryptor.encrypt(ENV.fetch("SMTP_PASSWORD", ::Faker::Internet.password(min_length: 8))),
+            address: ENV.fetch("SMTP_ADDRESS", nil) || ENV.fetch("DECIDIM_HOST", "localhost"),
+            port: ENV.fetch("SMTP_PORT", nil) || ENV.fetch("DECIDIM_SMTP_PORT", "25")
+          },
+          host: ENV.fetch("DECIDIM_HOST", "localhost"),
+          secondary_hosts: ENV.fetch("DECIDIM_HOST", "localhost") == "localhost" ? ["0.0.0.0", "127.0.0.1"] : nil,
+          external_domain_whitelist: ["decidim.org", "github.com"],
+          description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+            Decidim::Faker::Localized.sentence(word_count: 15)
+          end,
+          default_locale: Decidim.default_locale,
+          available_locales: Decidim.available_locales,
+          reference_prefix: ::Faker::Name.suffix,
+          available_authorizations: Decidim.authorization_workflows.map(&:name),
+          users_registration_mode: :enabled,
+          tos_version: Time.current,
+          badges_enabled: true,
+          user_groups_enabled: true,
+          send_welcome_notification: true,
+          file_upload_settings: Decidim::OrganizationSettings.default(:upload),
+          colors:
+        )
       end
     end
   end
