@@ -98,9 +98,6 @@ ca:
         destroy: Suprimeix
         duplicate: Duplicar
         edit: Editar
-        filter:
-          all_processes: Mostra tots els processos
-          process_groups: Grups de processos
         import_process: Importar
         moderate: Moderar
         new_process: Nou procés
