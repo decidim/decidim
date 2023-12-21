@@ -22,6 +22,7 @@ pt-BR:
       user:
         about: Sobre
         email: O seu email
+        locale: Local
         name: Seu nome
         nickname: Apelido
         password: Senha
@@ -469,7 +470,7 @@ pt-BR:
           newsletter_title: Permissão de contato
           nickname_help: Seu alias em %{organization}. Só pode conter letras, números, '-' e '_'.
           password_help: "O mínimo de %{minimun_characters} caracteres, não deve ser muito comum (por exemplo, 123456) e deve ser diferente do seu apelido e do seu email."
-          sign_in: Iniciar Sessão
+          sign_in: Iniciar sessão
           sign_up: Inscreva-se
           sign_up_as:
             legend: Inscreva-se como
@@ -1523,7 +1524,7 @@ pt-BR:
     sessions:
       already_signed_out: Saiu com sucesso.
       new:
-        sign_in: Iniciar Sessão
+        sign_in: Iniciar sessão
       signed_in: Conectado com sucesso.
       signed_out: Saiu com sucesso.
     shared:
@@ -1532,7 +1533,7 @@ pt-BR:
         didn_t_receive_confirmation_instructions: Não recebeu instruções de confirmação?
         didn_t_receive_unlock_instructions: Não recebeu instruções de desbloqueio?
         forgot_your_password: Esqueceu sua senha?
-        sign_in: Iniciar Sessão
+        sign_in: Iniciar sessão
         sign_in_with_provider: Entrar com %{provider}
         sign_up: inscrever-se
       minimum_password_length:
