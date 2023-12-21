@@ -98,9 +98,6 @@ fi-pl:
         destroy: Poista
         duplicate: Kopioi
         edit: Muokkaa
-        filter:
-          all_processes: Näytä kaikki prosessit
-          process_groups: Suodata ryhmiteltyjä prosesseja
         import_process: Tuo
         moderate: Moderoi
         new_process: Uusi prosessi
