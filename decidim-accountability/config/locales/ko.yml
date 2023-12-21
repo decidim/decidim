@@ -93,3 +93,14 @@ ko:
             categories_label: '"카테고리" 이름'
             comments_enabled: 댓글 활성화됨
             comments_max_length: 댓글 최대 길이(기본값은 0으로 남김)
+            display_progress_enabled: 진행사항 보기
+            heading_leaf_level_results: '"프로젝트" 이름'
+    metrics:
+      results:
+        object: 결과
+        title: 결과
+    participatory_spaces:
+      highlighted_results:
+        see_all: 모든 결과 보기
+    statistics:
+      results_count: 결과
