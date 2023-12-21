@@ -82,10 +82,40 @@ pt-BR:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: aproximadamente 1 hora
+        other: aproximadamente %{count} horas
+      about_x_months:
+        one: aproximadamente 1 mês
+        other: aproximadamente %{count} meses
+      half_a_minute: meio minuto
+      less_than_x_minutes:
+        one: menos de um minuto
+        other: menos de %{count} minutos
+      less_than_x_seconds:
+        one: menos de 1 segundo
+        other: menos de %{count} segundos
+      x_days:
+        one: 1 dia
+        other: "%{count} dias"
+      x_hours:
+        one: 1 hora
+        other: "%{count} horas"
+      x_minutes:
+        one: 1 minuto
+        other: "%{count} minutos"
+      x_months:
+        one: 1 mês
+        other: "%{count} meses"
+      x_seconds:
+        one: 1 segundo
+        other: "%{count} segundos"
   decidim:
     accessibility:
       external_link: Link externo
-      front_page_link: Ir para a página inicial
+      front_page_link: Ir à página inicial
       logo: "Logotipo oficial de %{organization}"
       skip_button: Pular para o conteúdo principal
     account:
@@ -1432,7 +1462,7 @@ pt-BR:
     invitations:
       edit:
         header: Termine de criar sua conta
-        nickname_help: Seu identificador exclusivo em %{organization}.
+        nickname_help: Seu nome de usuário em %{organization}.
         submit_button: Salvar
         subtitle: Se você aceitar o convite, defina seu apelido e senha.
       invitation_removed: Seu convite foi removido.
@@ -1565,8 +1595,10 @@ pt-BR:
       not_saved:
         one: 'Houve um erro ao processar seu pedido:'
         other: 'Houve erros múltiplos ao processar sua solicitação:'
+      password_confirmation_message: '"Confirme sua senha" não coincide com a senha'
       too_many_marks: está usando muitos sinais de pontuação consecutivos (por exemplo,! e?)
       too_much_caps: está usando muitas letras maiúsculas (mais de 25% do texto)
+      too_short: é muito curto (menos de 15 caracteres)
       url_format: Esta URL está em formato incorreto
   forms:
     correct_errors: Há erros no formulário, por favor corrija-os para continuar.
@@ -1643,10 +1675,12 @@ pt-BR:
     name: Português brasileiro
     name_with_error: Português brasileiro (erro!)
   password_validator:
+    blacklisted: está na lista negra
     domain_included_in_password: é muito semelhante a este nome de domínio
     email_included_in_password: é muito parecido com o seu email
     fallback: não é válido
     name_included_in_password: é muito parecido com o seu nome
+    nickname_included_in_password: é muito parecido com o seu nome de usuário
     not_enough_unique_characters: não tem caracteres únicos suficientes
     password_not_allowed: não é permitido
     password_too_common: é muito comum
@@ -1699,6 +1733,7 @@ pt-BR:
     dropdown:
       choose_diff_view_html: 'Modo de visualização HTML:'
       choose_diff_view_mode: 'Modo de visualização comparado:'
+      choose_diff_view_mode_menu: Escolher modo de comparação
       option_escaped: Escapou
       option_split: Lado-por lado
       option_unescaped: Abandonado
