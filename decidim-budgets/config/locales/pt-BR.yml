@@ -104,7 +104,9 @@ pt-BR:
             success: "%{number} propostas importadas para projetos"
           new:
             create: Importar propostas para projetos
+            default_budget: Orçamento padrão
             no_components: Não há outros componentes da proposta neste espaço participativo para importar as propostas para projetos.
+            origin_component_id: Componente de origem
             select_component: Selecione um componente
             title: Importar propostas
       admin_log:
@@ -134,6 +136,7 @@ pt-BR:
         highlighted_cta: Votar em %{name}
         if_change_opinion: Se você mudou de ideia, você pode
         my_budgets: Meus orçamentos
+        vote: Voto
         voted_on: Você votou em %{links}
       limit_announcement:
         cant_vote: Você não pode votar neste orçamento. <a href="%{landing_path}">Tente outro orçamento</a>.
@@ -162,10 +165,13 @@ pt-BR:
           title: Confirmar votação
         budget_excess:
           budget_excess:
+            description: Este projecto excede o orçamento máximo e não pode ser adicionado. Se você quiser, você pode excluir um projeto que você já selecionou, a fim de poder votar novamente de acordo com suas preferências.
             title: O orçamento máximo excedeu
           close: Fechar
+          description: Este projecto excede o orçamento máximo e não pode ser adicionado. Se você quiser, você pode excluir um projeto que você já selecionou, a fim de poder votar novamente de acordo com suas preferências.
           ok: OK
           projects_excess:
+            description: Este projeto excede o número máximo de projetos e não pode ser adicionado. Se você quiser, você pode excluir um projeto que você já selecionou, a fim de poder votar novamente de acordo com suas preferências.
             title: Máximo de projetos excedido
         budget_summary:
           are_you_sure: Deseja mesmo cancelar o seu voto?
@@ -196,7 +202,10 @@ pt-BR:
             one: 1 projeto
             other: "%{count} projetos"
         exit_modal:
+          cancel: Voltar à votação
           close_modal: Fechar modal
+          message: Seu voto não foi registrado porque você ainda não concluiu o processo de votação. Tem certeza que deseja sair da votação?
+          title: Você ainda não votou
         filters:
           category: Categoria
           scope: Âmbito
@@ -234,6 +243,7 @@ pt-BR:
           votes:
             one: voto
             other: votos
+          you_voted: Você votou nisto
         project_budget_button:
           add: Adicione ao seu voto
           add_descriptive: Adicione o projeto %{resource_name} ao seu voto
