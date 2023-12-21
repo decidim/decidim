@@ -12,14 +12,7 @@ module Decidim
       def call
         print "Creating seeds for decidim-core...\n" unless Rails.env.test?
 
-        # Since we usually migrate and seed in the same process, make sure
-        # that we do not have invalid or cached information after a migration.
-        decidim_tables = ActiveRecord::Base.connection.tables.select do |table|
-          table.starts_with?("decidim_")
-        end
-        decidim_tables.map do |table|
-          table.tr("_", "/").classify.safe_constantize
-        end.compact.each(&:reset_column_information)
+        reset_column_information
 
         smtp_label = ENV.fetch("SMTP_FROM_LABEL", ::Faker::Twitter.unique.screen_name)
         smtp_email = ENV.fetch("SMTP_FROM_EMAIL", ::Faker::Internet.email)
@@ -204,6 +197,18 @@ module Decidim
         hero_content_block.save!
       end
       # rubocop:enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Rails/Output
+      #
+
+      def reset_column_information
+        # Since we usually migrate and seed in the same process, make sure
+        # that we do not have invalid or cached information after a migration.
+        decidim_tables = ActiveRecord::Base.connection.tables.select do |table|
+          table.starts_with?("decidim_")
+        end
+        decidim_tables.map do |table|
+          table.tr("_", "/").classify.safe_constantize
+        end.compact.each(&:reset_column_information)
+      end
     end
   end
 end
