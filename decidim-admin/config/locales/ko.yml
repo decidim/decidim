@@ -2,7 +2,32 @@ ko:
   activemodel:
     attributes:
       area:
+        area_type: 영역 유형
         name: 이름
         organization: 조직
       area_type:
+        name: 이름
+        organization: 조직
+        plural: 복수
+      attachment:
+        attachment_collection_id: 폴더
+        description: 상세정보
+        file: 파일
+      attachment_collection:
+        description: 상세정보
+        name: 이름
+      category:
+        description: 상세정보
+        name: 이름
+      organization:
+        from: 보낸사람의 이메일 주소
+        highlight_color: 하이라이트
+        highlighted_content_banner_enabled: 하이라이트된 컨텐츠 배너 보기
+        highlighted_content_banner_image: 이미지
+        highlighted_content_banner_short_description: 요약
+        highlighted_content_banner_title: 제목
+        host: 호스트
+        logo: 로고
+        machine_translation_display_priority_original: 원문 우선
+        machine_translation_display_priority_translation: 번역문 우선
         name: 이름
