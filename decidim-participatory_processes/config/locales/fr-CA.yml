@@ -110,6 +110,9 @@ fr-CA:
         resend_invitation: Renvoyer l'invitation
         see_process: Voir la concertation
         unpublish: Dépublier
+      filters:
+        decidim_participatory_process_group_id_eq:
+          label: Par groupe de processus
       menu:
         participatory_process_groups: Groupes de concertations
         participatory_process_groups_submenu:
