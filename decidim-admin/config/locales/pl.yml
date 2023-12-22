@@ -900,6 +900,11 @@ pl:
             explanation: Masz %{count} uczestników prywatnych.
             title: Usuń prywatnych uczestników
           example_file: 'Przykładowy plik:'
+          explanation: 'Załaduj swój plik CSV. Plik musi składać się z dwóch kolumn: w pierwszej kolumnie adresy e-mail, a w ostatniej nazwy użytkowników, których chcesz dodać do przestrzeni dla uczestników. Nie dodawaj nagłówków. Unikaj niepoprawnych znaków, takich jak `<>?%&^*#@()[]=+:;"{}\|` w nazwie użytkownika.'
+          explanation_example: |
+            jan.kowalski@przyklad.org%{csv_col_sep}Jan Kowalski
+            anna.kowalska@przyklad.org%{csv_col_sep}Anna Kowalska
+          title: Importuj uczestników prywatnych przez CSV
           upload: Prześlij
       reminders:
         create:
@@ -940,6 +945,8 @@ pl:
         create:
           error: Podczas tworzenia nowego zakresu wystąpił błąd.
           success: Zakres został utworzony.
+        destroy:
+          success: Zakres został usunięty.
         edit:
           title: Edytuj zakres
           update: Aktualizuj
@@ -959,6 +966,7 @@ pl:
           error: Wystąpił błąd podczas usuwania tokenu.
           success: Token został usunięty.
         share_tokens:
+          empty: Brak aktywnych tokenów.
           help: Te tokeny są używane do publicznego udostępniania nieopublikowanego zasobu każdemu użytkownikowi. Zostaną one ukryte, gdy zasób zostanie opublikowany. Kliknij na ikonę udostępniania tokenu aby odwiedzić udostępniany adres URL.
           title: Udostępnij tokeny
       shared:
@@ -970,6 +978,8 @@ pl:
         create:
           error: Wystąpił błąd podczas tworzenia nowego tematu.
           success: Temat został utworzony.
+        destroy:
+          success: Temat został usunięty.
         edit:
           title: Edytuj temat
           update: Zaktualizuj temat
@@ -988,28 +998,39 @@ pl:
         destroy:
           success: Strona została usunięta
         edit:
+          changed_notably_help: W przypadku zaznaczenia tej opcji uczestnicy zostaną powiadomieni o konieczności zaakceptowania nowych warunków świadczenia usług.
+          last_notable_change: 'Ostatnia widoczna zmiana: %{tos_version_formatted}'
           title: Edytuj stronę
           update: Aktualizuj
         form:
           none: Bez tematu
+          slug_help_html: 'Użyj ścieżek częściowych, a nie pełnych adresów URL. Można używać liter, cyfr, myślników i ukośników. Musi zaczynać się od litery. Przykład: %{url}'
         index:
           last_notable_change: Ostatnia istotna zmiana
         new:
           create: Utwórz stronę
           title: Nowa strona
         topic:
+          empty: Nie ma żadnych stron w tym wątku.
           without_topic: Strony bez tematu
         update:
           error: Podczas aktualizowania tej strony wystąpił błąd.
+          success: Strona została zaktualizowana.
       titles:
         admin_log: Logi administratora
         area_types: Typy kategorii
         areas: Kategorie
         authorization_workflows: Metody weryfikacji
         dashboard: Panel
+        edit_external_domains: Biała lista domen zewnętrznych
+        edit_landing_page: Zawartość strony
+        edit_organization_appearance: Edytuj wygląd strony głównej
         impersonatable_users: Zarządzaj użytkownikami
         impersonations: Zarządzanie użytkownikami
+        menu: Menu
         metrics: Partycypacja w liczbach
+        page_topics: Wątki
+        pages: Strony
         panel: Administrator
         participants: Użytkownicy
         scope_types: Typy zakresów
@@ -1020,10 +1041,13 @@ pl:
       user_group:
         csv_verify:
           invalid: Wystąpił błąd podczas odczytu pliku CSV.
+          success: Plik CSV został załadowany pomyślnie. Weryfikujemy grupy odpowiadające kryteriom. To może chwilę potrwać.
         reject:
           invalid: Podczas odrzucania tej grupy użytkowników wystąpił błąd.
+          success: Grupa użytkowników została odrzucona.
         verify:
           invalid: Podczas weryfikacji tej grupy użytkowników wystąpił błąd.
+          success: Grupa użytkowników została zweryfikowana.
       user_groups:
         index:
           state:
@@ -1035,6 +1059,9 @@ pl:
         new:
           example_file: 'Przykładowy plik:'
           explanation: 'Prześlij swój plik CSV. Plik musi zawierać: w pierwszej kolumnie oficjalne adresy e-mail grup w organizacji, bez nagłówków. Tylko grupy, które potwierdziły swój adres e-mail i których adres e-mail znajduje się w pliku CSV, zostaną zweryfikowane.'
+          explanation_example: |
+            acme@przyklad.org
+            bubba.gump@przyklad.org
           title: Prześlij swój plik CSV
           upload: Prześlij
       users:
@@ -1057,7 +1084,12 @@ pl:
           last_day: Poprzedni dzień
           last_month: Poprzedni miesiąc
           last_week: Poprzedni tydzień
+          no_users_count_statistics_yet: Nie ma jeszcze statystyk dotyczących liczby użytkowników.
           participants: Użytkownicy
+    forms:
+      errors:
+        impersonate_user:
+          reason: Aby zarządzać uczestnikiem niezarządzanym, należy podać przyczynę.
     metrics:
       blocked_users:
         object: zablokowani użytkownicy
@@ -1091,12 +1123,15 @@ pl:
       models:
         moderation:
           fields:
+            created_at: Zgłoszone w
             deleted_resource: Usunięty zasób
             hidden_at: Ukryto
             participatory_space: Przestrzeń partycypacyjna
+            report_count: Liczba zgłoszeń
             reportable_id: ID
             reportable_type: Typ
             reported_content_url: URL zgłoszonej treści
+            reports: Przyczyna
             visit_url: Odwiedź adres URL
         report:
           fields:
