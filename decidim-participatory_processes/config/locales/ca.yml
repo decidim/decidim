@@ -110,6 +110,9 @@ ca:
         resend_invitation: Reenviar la invitació
         see_process: Veure el procés
         unpublish: Despublicar
+      filters:
+        decidim_participatory_process_group_id_eq:
+          label: Per grup de processos
       menu:
         participatory_process_groups: Grups de processos
         participatory_process_groups_submenu:
