@@ -124,6 +124,8 @@ module Decidim
     end
 
     def commentable?
+      return if options.dig(:skip, :comments)
+
       from_context && from_context.class.include?(Decidim::Comments::Commentable)
     end
 
@@ -132,6 +134,8 @@ module Decidim
     end
 
     def endorsable?
+      return if options.dig(:skip, :endorsements)
+
       from_context && from_context.class.include?(Decidim::Endorsable)
     end
 
