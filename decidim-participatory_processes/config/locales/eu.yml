@@ -110,6 +110,9 @@ eu:
         resend_invitation: Birbidali gonbita
         see_process: Ikusi prozesuak
         unpublish: Despublikatu
+      filters:
+        decidim_participatory_process_group_id_eq:
+          label: Prozesu-taldeen arabera
       menu:
         participatory_process_groups: Prozesu-taldeak
         participatory_process_groups_submenu:
