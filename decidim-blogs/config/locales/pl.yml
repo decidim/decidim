@@ -1,5 +1,11 @@
 pl:
   activemodel:
+    attributes:
+      post:
+        body: Treść posta
+        decidim_author_id: Autor
+        published_at: Czas publikacji posta
+        title: Tytuł posta
     models:
       decidim/blogs/create_post_event: Nowy wpis na blogu
   activerecord:
