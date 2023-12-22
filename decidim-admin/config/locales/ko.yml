@@ -31,3 +31,123 @@ ko:
         machine_translation_display_priority_original: 원문 우선
         machine_translation_display_priority_translation: 번역문 우선
         name: 이름
+        official_url: 공식 조직 URL
+        omnipresent_banner_short_description: 요약
+        omnipresent_banner_title: 제목
+        omnipresent_banner_url: URL
+        send_welcome_notification: 환영 알림 보내기
+        success_color: 성공
+        time_zone: 시간대
+        tos_version: 서비스 버전 용어
+        user_groups_enabled: 그룹 활성화
+        warning_color: 경고
+      participatory_space_private_user:
+        email: 이메일
+        name: 이름
+      scope:
+        code: 코드
+        name: 이름
+        organization: 조직
+    errors:
+      new_import:
+        attributes:
+          file:
+            invalid_mime_type: 유효하지 않은 MIME 유형
+  activerecord:
+    attributes:
+      decidim/static_page:
+        content: 내용
+        slug: URL 슬러그
+        title: 제목
+      doorkeeper/application:
+        authorize_url: 인증된 URL
+        organization_name: 조직 이름
+        organization_url: 조직 URL
+        redirect_uri: URL 리디렉션
+        site: 웹 사이트
+  decidim:
+    admin:
+      actions:
+        add: 추가
+        attachment:
+          new: 새 첨부 파일
+        browse: 찾아보기
+        category:
+          new: 새 분류
+        export: 모두 내보내기
+        export-selection: 선택한 항목 내보내기
+        import: 가져오기
+        newsletter:
+          new: 새 뉴스레터
+        per_page: 페이지 당
+        permissions: 권한
+        reject: 거절
+        send_me_a_test_email: 나에게 테스트 메일 보내기
+        share: 공유
+        verify: 인증
+      admin_terms_of_service:
+        actions:
+          accept: 약관에 동의합니다
+          title: 서비스 약관에 동의
+        required_review:
+          cta: 지금 다시보기
+      area_types:
+        create:
+          error: 새 영역 타입을 생성하는 도중 문제가 생겼습니다.
+          success: 영역 타입이 성공적으로 생성되었습니다.
+        edit:
+          title: 영역 타입 수정
+          update: 업데이트
+        new:
+          create: 영역 타입 생성하기
+          title: 새 영역 타입
+        update:
+          error: 이 영역 타입을 업데이트 하는 도중 문제가 생겼습니다.
+          success: 영역 타입이 성공덕으로 생성되었습니다.
+      areas:
+        create:
+          error: 새 영역을 생성하는 도중 문제가 생겼습니다.
+          success: 영역이 성공적으로 생성되었습니다.
+      categories:
+        create:
+          error: 이 카테고리를 생성하는 도중 문제가 생겼습니다.
+          success: 카테고리가 생성되었습니다.
+        destroy:
+          error: 이 카테고리를 삭제하는 도중 문제가 발생했습니다. 하위 카테고리를 먼저 삭제하고, 이 카테고리에 속한 항목이 없게 한 후 다시 시도해보세요
+          success: 카테고리가 성공적으로 삭제되었습니다.
+        edit:
+          title: 카테고리 수정
+          update: 업데이트
+        index:
+          categories_title: 카테고리
+        new:
+          create: 카테고리 생성
+          title: 새 카테고리
+        update:
+          error: 이 카테고리를 업데이트하는 도중 문제가 생겼습니다.
+          success: 카테고리가 성공덕으로 업데이트되었습니다.
+      component_permissions:
+        update:
+          success: 사용 권한을 성공적으로 업데이트했습니다.
+      components:
+        create:
+          error: 이 구성요소를 생성하는 도중 문제가 생겼습니다.
+          success: 구성요소가 성공적으로 생성되었습니다.
+        destroy:
+          error: 이 구성요소를 삭제하는 도중 문제가 생겼습니다.
+          success: 구성요소가 성공적으로 삭제되었습니다.
+        edit:
+          update: 업데이트
+        form:
+          global_settings: 전역 설정
+        index:
+          add: 구성 요소 추가
+          headers:
+            actions: 작업
+            name: 구성 요소 이름
+            scope: 구성 요소 범위
+            type: 구성 요소 유형
+        new:
+          add: 구성 요소 추가
+          title: '구성요소 추가: %{name}'
+        title: 구성요소
