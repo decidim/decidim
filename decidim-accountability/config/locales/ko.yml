@@ -4,17 +4,34 @@ ko:
       result:
         decidim_accountability_status_id: 상태
         decidim_category_id: 분류
+        decidim_scope_id: 범위
+        description: 상세정보
+        end_date: 종료 날짜
+        progress: 진행 상황
+        start_date: 시작 날짜
         title: 제목
       status:
+        description: 상세정보
+        key: 키
         name: 이름
+        progress: 진행 상황
+      timeline_entry:
+        description: 상세정보
+        entry_date: 날짜
+  activerecord:
+    models:
+      decidim/accountability/result:
+        other: 결과
   decidim:
     accountability:
       actions:
+        attachment_collections: 폴더
         attachments: 첨부 파일
         confirm_destroy: 정말로 %{name} 를 삭제하시겠습니까?
         destroy: 삭제
         edit: 편집
         preview: 미리보기
+        title: 작업
       admin:
         exports:
           result_comments: 댓글
@@ -27,8 +44,21 @@ ko:
             name: 결과
           status:
             name: 상태
+        results:
+          edit:
+            title: 결과 수정
+            update: 결과 업데이트
+          index:
+            title: 결과
+          new:
+            create: 결과 생성
+            title: 새 결과
+        shared:
+          subnav:
+            statuses: 상태
         statuses:
           edit:
+            title: 상태 수정하기
             update: 상태 업데이트
           index:
             title: 상태
@@ -55,11 +85,27 @@ ko:
             progress: 진행 상황
         timeline_entry:
           fields:
+            description: 상세정보
             entry_date: 날짜
       results:
+        count:
+          results_count:
+            other: "%{count} 개의 결과"
+        filters:
+          all: 전체
+        home:
+          categories_label: 분류
+          subcategories_label: '하위 분류:'
         show:
           stats:
+            attendees: 참여자
+            back_to_resource: 결과로 돌아가기
+            comments: 댓글
+            contributions: 기여
+            last_edited_by: 최근 편집자
+            meetings: 회의
             proposals: 제안
+            votes: 지원
     admin:
       filters:
         results:
@@ -81,6 +127,15 @@ ko:
             comments_max_length: 댓글 최대 길이(기본값은 0으로 남김)
             display_progress_enabled: 진행사항 보기
             heading_leaf_level_results: '"프로젝트" 이름'
+            intro: 소개
+            scope_id: 범위
+            scopes_enabled: 범위 활성화됨
+            subcategories_label: '"카테고리" 이름'
+    events:
+      accountability:
+        result_progress_updated:
+          email_outro: '%{proposal_title} 을(를) 팔로우중이어서 이 알림을 받게되었고, %{resource_title} 에 이 의도가 포함되어 있습니다. 이전 링크를 팔로우해서 알림을 받지 않으실 수 있습니다.'
+          email_subject: '%{resource_title} 과정에 업데이트 발생'
     metrics:
       results:
         object: 결과
