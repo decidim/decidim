@@ -810,6 +810,7 @@ pl:
             colors_title: Kolory organizacji
             colors_warning_html: Uwaga! Zmiana tych kolorów może ograniczyć czytelność. Możesz sprawdzić kontrast wybranych kolorów korzystając z <a href="%{link}">WebAIM Contrast Checker</a> albo innych podobnych narzędzi.
             header_snippets_help: Użyj tego pola, aby dodać elementy do nagłówka kodu HTML. Najczęstszym zastosowaniem jest zintegrowanie usług innych firm, które wymagają dodatkowego kodu JavaScript lub CSS. Można również użyć go do dodawania dodatkowych meta tagów do HTML. Zauważ, że będzie to widoczne tylko na stronach publicznych, a nie w sekcji administracyjnej.
+          cta_button_path_help: 'Możesz nadpisać lokalizację, do której prowadzi przycisk CTA na stronie głównej. Użyj częściowych ścieżek adresu, a nie pełnych adresów URL. Można używać liter, cyfr, myślników i ukośników. Należy zacząć od litery. Przycisk CTA znajduje się na stronie głównej pomiędzy tekstem powitalnym a opisem. Przykład: %{url}'
           cta_button_text_help: Można nadpisać tekst przycisku CTA na stronie głównej dla każdego dostępnego języka organizacji. Jeśli to pole nie zostanie wypełnione, zostanie użyta wartość domyślna. Przycisk CTA zostanie wyświetlony na stronie głównej między tekstem powitalnym a opisem.
           homepage_appearance_title: Edytuj wygląd strony głównej
           homepage_highlighted_content_banner_title: Wyróżniony baner tekstowy
@@ -943,6 +944,7 @@ pl:
           update: Aktualizuj
         form:
           none: Bez tematu
+          slug_help: 'Użyj ścieżek częściowych, a nie pełnych adresów URL. Można używać liter, cyfr, myślników i ukośników. Musi zaczynać się od litery. Przykład: %{url}'
         index:
           last_notable_change: Ostatnia istotna zmiana
         new:
@@ -962,9 +964,12 @@ pl:
         areas: Kategorie
         authorization_workflows: Metody weryfikacji
         dashboard: Panel
+        edit_external_domains: Biała lista domen zewnętrznych
+        edit_organization_appearance: Edytuj wygląd strony głównej
         impersonatable_users: Zarządzaj użytkownikami
         impersonations: Zarządzanie użytkownikami
         metrics: Partycypacja w liczbach
+        pages: Strony
         panel: Administrator
         participants: Użytkownicy
         scope_types: Typy zakresów
