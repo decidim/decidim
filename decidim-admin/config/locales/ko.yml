@@ -13,14 +13,35 @@ ko:
         attachment_collection_id: 폴더
         description: 상세정보
         file: 파일
+        title: 첨부파일 or 이미지 이름
       attachment_collection:
         description: 상세정보
         name: 이름
       category:
         description: 상세정보
         name: 이름
+      component:
+        name: 이름
+      external_domain:
+        value: 값
+      help_section:
+        content: 내용
+      id: 아이디
+      newsletter:
+        send_to_all_users: 모든 유저에게 보내기
+        send_to_followers: 팔로워들에게 보내기
+        send_to_participants: 참여자들에게 보내기
       organization:
+        alert_color: 알림
+        badges_enabled: 뱃지 활성화
+        comments_max_length: 댓글 최대 길이(기본값은 0으로 남김)
+        customize_welcome_notification: 환영 알림 커스터마이징
+        default_locale: 기본 위치
+        description: 상세정보
+        facebook_handler: Facebook handler
+        favicon: 아이콘
         from: 보낸사람의 이메일 주소
+        github_handler: Github handler
         highlight_color: 하이라이트
         highlighted_content_banner_enabled: 하이라이트된 컨텐츠 배너 보기
         highlighted_content_banner_image: 이미지
@@ -39,6 +60,7 @@ ko:
         success_color: 성공
         time_zone: 시간대
         tos_version: 서비스 버전 용어
+        twitter_handler: X handler
         user_groups_enabled: 그룹 활성화
         warning_color: 경고
       participatory_space_private_user:
@@ -48,6 +70,8 @@ ko:
         code: 코드
         name: 이름
         organization: 조직
+      static_page:
+        topic_id: 주제
     errors:
       new_import:
         attributes:
