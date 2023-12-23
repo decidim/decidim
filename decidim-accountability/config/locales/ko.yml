@@ -32,6 +32,7 @@ ko:
         confirm_destroy: 정말로 %{name} 를 삭제하시겠습니까?
         destroy: 삭제
         edit: 편집
+        import: 다른 구성요소에서 프로젝트 불러오기
         import_csv: CSV 파일에서 사용자 가져오기
         new_result: 새 결과
         new_status: 새 상태
@@ -43,6 +44,7 @@ ko:
           results: 결과
         import_results:
           new:
+            download_export: CSV 포맷으로 다운로드
             import: 가져오기
             title: CSV 파일에서 결과 가져오기
         imports:
@@ -57,6 +59,7 @@ ko:
           new:
             create: 가져오기
             select_component: 구성 요소 선택
+            title: 다른 구성요소에서 프로젝트 불러오기
         results:
           create:
             invalid: 결과를 가져오는 도중 문제가 생겼습니다.
@@ -91,6 +94,28 @@ ko:
           new:
             create: 상태 생성하기
             title: 새 상태
+          update:
+            invalid: 이 상태를 업데이트하는 도중 문제가 생겼습니다.
+            success: 상태가 성공적으로 업데이트되었습니다.
+      admin_log:
+        result:
+          create: "%{user_name} 이(가) %{space_name} 에서 %{resource_name} 결과를 생성했습니다"
+          delete: "%{user_name} 이(가) %{space_name} 에서 %{resource_name} 결과를 삭제했습니다"
+          update: "%{user_name} 이(가) %{space_name} 에서 %{resource_name} 결과를 업데이트했습니다"
+        status:
+          create: "%{user_name} 이(가) %{resource_name} 상태를 생성했습니다"
+          delete: "%{user_name} 이(가) %{resource_name} 상태를 삭제했습니다"
+          update: "%{user_name} 이(가) %{resource_name} 상태를 업데이트했습니다"
+      content_blocks:
+        highlighted_results:
+          results: 결과
+      import_mailer:
+        import:
+          errors: 오류
+          errors_present: 결과를 가져오는 도중 문제가 생겼습니다.
+          row_number: 열
+          subject: 결과 가져오기 성공
+          success: 결과 가져오기 성공. 관리자 화면에서 결과를 볼 수 있습니다.
       last_activity:
         new_result: '새 결과'
       models:
@@ -173,5 +198,10 @@ ko:
     participatory_spaces:
       highlighted_results:
         see_all: 모든 결과 보기
+    resource_links:
+      included_projects:
+        result_project: 본 결과에 포함된 프로젝트
+      included_proposals:
+        result_proposal: 본 결과에 포함된 제안
     statistics:
       results_count: 결과
