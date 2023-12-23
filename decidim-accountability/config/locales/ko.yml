@@ -9,8 +9,11 @@ ko:
         description: 상세정보
         end_date: 종료 날짜
         progress: 진행 상황
+        project_ids: 포함된 프로젝트
+        proposals: 포함된 제안
         start_date: 시작 날짜
         title: 제목
+        updated_at: 수정일
       status:
         description: 상세정보
         key: 키
@@ -20,6 +23,8 @@ ko:
         description: 상세정보
         entry_date: 날짜
         title: 제목
+    models:
+      decidim/accountability/proposal_linked_event: 결과에 포함된 제안
   activerecord:
     models:
       decidim/accountability/result:
@@ -117,6 +122,8 @@ ko:
         home:
           categories_label: 분류
           subcategories_label: '하위 분류:'
+        search:
+          search: 작업 검색
         show:
           stats:
             attendees: 참여자
@@ -124,6 +131,7 @@ ko:
             comments: 댓글
             contributions: 기여
             last_edited_by: 최근 편집자
+            last_updated_at: 마지막 업데이트
             meetings: 회의
             proposals: 제안
             votes: 지원
@@ -148,10 +156,13 @@ ko:
             comments_max_length: 댓글 최대 길이(기본값은 0으로 남김)
             display_progress_enabled: 진행사항 보기
             heading_leaf_level_results: '"프로젝트" 이름'
+            heading_parent_level_results: '"결과" 이름'
             intro: 소개
             scope_id: 범위
             scopes_enabled: 범위 활성화됨
             subcategories_label: '"카테고리" 이름'
+          step:
+            comments_blocked: 댓글 차단됨
     events:
       accountability:
         result_progress_updated:
