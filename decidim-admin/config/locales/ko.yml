@@ -632,6 +632,7 @@ ko:
             empty: 비공개 참가자가 없습니다.
             explanation: '%{count} 개의 비공개 참가자가 있습니다.'
             title: 비공개 참가자 삭제
+          example_file: '예제 파일:'
       reminders:
         create:
           error: 리마인더를 만드는 중 문제가 발생했습니다.
@@ -658,6 +659,24 @@ ko:
           update: 업데이트
         new:
           create: 영역 타입 생성하기
+      scopes:
+        edit:
+          update: 업데이트
+      share_tokens:
+        actions:
+          destroy: 삭제
+          share: 공유
+        destroy:
+          error: 토큰 삭제에 문제가 발생했습니다.
+          success: 토큰 삭제 성공
+        share_tokens:
+          empty: 활성 토큰이 없습니다.
+          title: 토큰 공유하기
+      shared:
+        gallery:
+          add_images: 이미지 추가
+          edit_images: 이미지 편집
+          gallery_legend: 이미지 갤러리 추가하기 (선택사항)
       static_page_topics:
         update:
           success: 주제가 성공적으로 업데이트되었습니다
@@ -721,3 +740,41 @@ ko:
           state:
             rejected: 거부됨
             verified: 확인됨
+      users:
+        form:
+          email: 이메일
+          name: 이름
+          role: 역할
+        new:
+          create: 초대하기
+      users_statistics:
+        users_count:
+          admins: 운영자
+          last_day: 어제
+          last_month: 지난 달
+          last_week: 지난 주
+          participants: 참가자
+    metrics:
+      blocked_users:
+        object: 차단된 사용자
+        title: 차단된 사용자
+      reported_users:
+        object: 신고된 사용자
+        title: 신고된 사용자
+      user_reports:
+        object: 사용자 신고
+        title: 사용자 신고
+    moderations:
+      actions:
+        expand: 확장
+        hidden: 숨겨짐
+        hide: 숨기기
+        not_hidden: 숨기지 않음
+      models:
+        moderation:
+          fields:
+            reportable_id: 아이디
+            reportable_type: 유형
+            reported_content_url: 신고된 콘텐츠 URL
+            reports: 이유
+            visit_url: URL 방문하기
