@@ -1,1 +1,48 @@
 ko:
+  activemodel:
+    attributes:
+      post:
+        decidim_author_id: 작성자
+        title: 제목
+  decidim:
+    blogs:
+      actions:
+        destroy: 삭제
+        edit: 수정
+        new: 새 게시물
+        title: 작업
+      admin:
+        posts:
+          create:
+            invalid: 게시물을 생성하는 도중 문제가 생겼습니다.
+            success: 게시물이 성공적으로 생성되었습니다.
+          destroy:
+            success: 게시물이 성공적으로 삭제되었습니다.
+          edit:
+            save: 업데이트
+      content_blocks:
+        highlighted_posts:
+          see_all: 게시물 모두 보기
+      last_activity:
+        new_post: '새 게시물:'
+      models:
+        post:
+          fields:
+            author: 작성자
+            official_blog_post: 공식 게시물
+            title: 제목
+    components:
+      blogs:
+        actions:
+          update: 업데이트
+        name: 블로그
+        settings:
+          global:
+            announcement: 공지 사항
+            comments_enabled: 댓글 활성화됨
+            comments_max_length: 댓글 최대 길이(기본값은 0으로 남김)
+          step:
+            announcement: 공지 사항
+            comments_blocked: 댓글 차단됨
+    statistics:
+      posts_count: 게시물
