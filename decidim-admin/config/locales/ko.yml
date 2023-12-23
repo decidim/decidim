@@ -28,23 +28,30 @@ ko:
       help_section:
         content: 내용
       id: 아이디
+      newsletter:
+        subject: 주제
       organization:
         alert_color: 알림
         badges_enabled: 뱃지 활성화
         comments_max_length: 댓글 최대 길이(기본값은 0으로 남김)
+        cta_button_path: 수행에 대한 호출 단추 경로
+        cta_button_text: 수행에 대한 호출 단추 텍스트
         customize_welcome_notification: 환영 알림 커스터마이징
         default_locale: 기본 위치
         description: 상세정보
         facebook_handler: Facebook handler
         favicon: 아이콘
+        force_users_to_authenticate_before_access_organization: 사용자가 액세스 구성 전에 인증하도록 강제
         from: 보낸사람의 이메일 주소
         github_handler: Github handler
         highlight_color: 하이라이트
+        highlighted_content_banner_action_url: 실행버튼 URL
         highlighted_content_banner_enabled: 하이라이트된 컨텐츠 배너 보기
         highlighted_content_banner_image: 이미지
         highlighted_content_banner_short_description: 요약
         highlighted_content_banner_title: 제목
         host: 호스트
+        instagram_handler: Instagram handler
         logo: 로고
         machine_translation_display_priority_original: 원문 우선
         machine_translation_display_priority_translation: 번역문 우선
@@ -68,17 +75,44 @@ ko:
         code: 코드
         name: 이름
         organization: 조직
+        scope_type: 범위 종류
+        scope_type_id: 범위 종류
       scope_type:
         name: 이름
         organization: 조직
+      settings:
+        scope_id: 범위
       static_page:
+        allow_public_access: 인증 없이 액세스 허용
+        changed_notably: 눈에 띄는 변화가 있었습니다.
         content: 내용
         organization: 조직
+        show_in_footer: 바닥글에 표시
+        slug: URL 슬러그
+        title: 제목
         topic_id: 주제
       static_page_topic:
+        description: 상세정보
+        show_in_footer: 바닥글에 표시
         title: 제목
       user_group_csv_verification:
         file: 파일
+    errors:
+      models:
+        organization:
+          attributes:
+            official_img_footer:
+              allowed_file_content_types: 잘못된 이미지 파일
+            official_img_header:
+              allowed_file_content_types: 잘못된 이미지 파일
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: 잘못된 형식의 가져오기 파일입니다. 설명서를 잘 읽고 UTF-8이 인코딩되었는지 확인하십시오.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: 잘못된 형식의 가져오기 파일입니다. 설명서를 잘 읽고 UTF-8이 인코딩되었는지 확인하십시오.
   activerecord:
     attributes:
       decidim/static_page:
@@ -106,14 +140,19 @@ ko:
         import: 가져오기
         newsletter:
           new: 새 뉴스레터
+        participatory_space_private_user:
+          new: 새 참여 공간 비공개 사용자
         per_page: 페이지 당
         permissions: 권한
         reject: 거절
         share: 공유
+        user:
+          new: 새 관리자
         verify: 인증
       admin_terms_of_use:
         actions:
           accept: 약관에 동의합니다
+          refuse: 관리자 약관 거부
         required_review:
           cta: 지금 다시보기
       area_types:
@@ -309,6 +348,7 @@ ko:
       imports:
         and: 그리고
       menu:
+        dashboard: 대시보드
         scope_types: 범위 종류
         scopes: 범위
         settings: 설정
@@ -426,11 +466,133 @@ ko:
           send_to_all_users: 모든 유저에게 보내기
           send_to_followers: 팔로워들에게 보내기
           send_to_participants: 참여자들에게 보내기
+          title: 전송 받는 사람 선택
+          warning: "<strong>주의:/strong>이 뉴스레터는 알림 설정에서 <em>I want to received newsletter</em>을 활성화한 사용자에게만 발송됩니다."
+        show:
+          preview: 미리보기
+          select_recipients_to_deliver: 전송 받는 사람 선택
+          subject: 주제
+        update:
+          error: 이 뉴스레터를 업데이트 하는데 문제가 있었습니다.
+          success: 뉴스레터가 성공적으로 업데이트되었습니다. 검토 후 보내주시기 바랍니다.
+      organization_appearance:
+        form:
+          cta_button_path_help: '홈페이지에서 수행 호출 단추가 링크되는 위치를 덮어쓸 수 있습니다. 여기서는 전체 URL이 아닌 일부 경로를 사용하십시오. 문자, 숫자, 대시 및 슬래시를 사용할 수 있으며 문자로 시작해야 합니다. 시작 텍스트와 설명 사이에 홈페이지에서 수행 호출 단추가 표시됩니다. 예: %{url}'
+          cta_button_text_help: You can overwrite the Call To Action button text in the homepage for each available language in your organization. If not set, the default value will be used. The Call To Action button is shown in the homepage between the welcome text and the description.
+          homepage_appearance_title: 홈페이지 외관 편집
+          homepage_highlighted_content_banner_title: 강조 표시된 내용 배너
+          images:
+            layout_appearance_title: 레이아웃 모양 편집
+            preview: 미리보기
+      organization_external_domain_whitelist:
+        edit:
+          update: 업데이트
+        external_domain:
+          down: 아래
+          external_domain: 외부 도메인
+          remove: 제거
+          up: 위
+        form:
+          add: 화이트 리스트에 추가
+      organization_homepage:
+        edit:
+          active_content_blocks: 콘텐츠 블록 활성화
       organization_homepage_content_blocks:
         edit:
           update: 업데이트
+      participatory_space_private_users:
+        new:
+          create: 생성
+      participatory_space_private_users_csv_imports:
+        create:
+          invalid: CSV 파일을 읽는 데 문제가 발생했습니다.
+        new:
+          destroy:
+            button: 모든 비공개 참가자 삭제
+            empty: 비공개 참가자가 없습니다.
+            explanation: '%{count} 개의 비공개 참가자가 있습니다.'
+            title: 비공개 참가자 삭제
+      reminders:
+        create:
+          error: 리마인더를 만드는 중 문제가 발생했습니다.
+        new:
+          submit: 보내기
+      resource_permissions:
+        edit:
+          submit: 제출
+          title: 권한 수정
+        update:
+          success: 권한을 성공적으로 업데이트했습니다.
+      resources:
+        index:
+          headers:
+            scope: 범위
+      scope_types:
+        create:
+          error: 새 영역 타입을 생성하는 도중 문제가 생겼습니다.
+          success: 영역 타입이 성공적으로 생성되었습니다.
+        destroy:
+          success: 영역 타입이 성공적으로 제거되었습니다.
+        edit:
+          title: 영역 타입 수정
+          update: 업데이트
+        new:
+          create: 영역 타입 생성하기
+      static_page_topics:
+        update:
+          success: 주제가 성공적으로 업데이트되었습니다
+      static_pages:
+        actions:
+          view: 공개 페이지 보기
+        create:
+          error: 새 페이지를 생성하는 도중 문제가 생겼습니다.
+          success: 페이지가 성공적으로 생성되었습니다.
+        destroy:
+          success: 페이지가 성공적으로 삭제되었습니다
+        edit:
+          title: 페이지 편집
+          update: 업데이트
+        form:
+          none: 없음
+          slug_help: '전체 URL이 아닌 일부 경로를 사용하십시오. 문자, 숫자, 대시 및 슬래시를 사용할 수 있으며 문자로 시작해야 합니다. 예: %{url}'
+        new:
+          create: 페이지 생성
+          title: 새 페이지
+        topic:
+          without_topic: 페이지 없는 주제
+        update:
+          error: 이 페이지를 업데이트하는 동안 문제가 발생했습니다.
       titles:
+        admin_log: 관리자 로그
+        area_types: 영역 유형
+        areas: 영역
+        authorization_workflows: 인증 방식
+        dashboard: 대시보드
+        edit_organization_appearance: 홈페이지 외관 편집
+        impersonatable_users: 관리 가능한 참가자
+        impersonations: 참가자 관리
+        pages: 페이지
+        panel: 관리자
+        participants: 참가자
+        scope_types: 범위 종류
+        scopes: 범위
         static_pages: 페이지
+        statistics: 활동
+        user_groups: 그룹
+        users: 관리자
+      user_group:
+        csv_verify:
+          invalid: CSV 파일을 읽는 데 문제가 발생했습니다.
+        reject:
+          invalid: 이 그룹을 거부하는 동안 문제가 발생했습니다.
+        verify:
+          invalid: 이 그룹을 인증하는 동안 문제가 발생했습니다.
+      user_groups:
+        index:
+          state:
+            rejected: 거부됨
+            verified: 확인됨
+      view_public_page: 공개 페이지 보기
     moderations:
       models:
         moderation:
