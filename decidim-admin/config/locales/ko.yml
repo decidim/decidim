@@ -58,6 +58,7 @@ ko:
         tos_version: 서비스 버전 용어
         user_groups_enabled: 그룹 활성화
         warning_color: 경고
+        youtube_handler: YouTube handler
       participatory_space_private_user:
         email: 이메일
         name: 이름
@@ -65,8 +66,17 @@ ko:
         code: 코드
         name: 이름
         organization: 조직
+      scope_type:
+        name: 이름
+        organization: 조직
       static_page:
+        content: 내용
+        organization: 조직
         topic_id: 주제
+      static_page_topic:
+        title: 제목
+      user_group_csv_verification:
+        file: 파일
   activerecord:
     attributes:
       decidim/static_page:
@@ -75,6 +85,7 @@ ko:
         title: 제목
       doorkeeper/application:
         authorize_url: 인증된 URL
+        client_id: 고객 ID
         organization_name: 조직 이름
         organization_url: 조직 URL
         redirect_uri: URL 리디렉션
@@ -119,6 +130,43 @@ ko:
         create:
           error: 새 영역을 생성하는 도중 문제가 생겼습니다.
           success: 영역이 성공적으로 생성되었습니다.
+        edit:
+          update: 업데이트
+      attachment_collections:
+        edit:
+          title: 폴더 편집
+          update: 업데이트
+        new:
+          create: 생성
+          title: 새 폴더
+        update:
+          error: 이 폴더를 업데이트하는 동안 문제가 발생했습니다.
+          success: 폴더가 업데이트되었습니다.
+      attachments:
+        create:
+          error: 새 첨부 파일을 만드는 중 문제가 발생했습니다.
+          success: 첨부 파일이 성공적으로 생성되었습니다.
+        destroy:
+          success: 첨부 파일이 삭제되었습니다.
+        edit:
+          title: 첨부파일 편집
+          update: 업데이트
+        index:
+          attachments_title: 첨부 파일
+        new:
+          create: 첨부파일 생성
+          title: 새 첨부 파일
+        update:
+          error: 이 첨부 파일을 업데이트하는 동안 문제가 발생했습니다.
+          success: 첨부 파일이 업데이트되었습니다.
+      autocomplete:
+        no_results: 검색 결과가 없습니다.
+      block_user:
+        new:
+          action: 계정 차단 및 사유 보내기
+          description: 사용자를 차단하면 계정을 사용할 수 없게 됩니다. 차단을 해제하려는 사용자에 대한 지침을 사유로 제공할 수 있습니다.
+          justification: 사유
+          title: 사용자%{name} 차단
       categories:
         create:
           error: 이 카테고리를 생성하는 도중 문제가 생겼습니다.
@@ -139,6 +187,7 @@ ko:
           success: 카테고리가 성공덕으로 업데이트되었습니다.
       component_permissions:
         update:
+          error: 이 구성 요소의 권한을 업데이트하는 동안 문제가 발생했습니다.
           success: 사용 권한을 성공적으로 업데이트했습니다.
       components:
         create:
@@ -148,9 +197,12 @@ ko:
           error: 이 구성요소를 삭제하는 도중 문제가 생겼습니다.
           success: 구성요소가 성공적으로 삭제되었습니다.
         edit:
+          title: 구성 요소 편집
           update: 업데이트
         form:
+          default_step_settings: 기본 단계 설정
           global_settings: 전역 설정
+          step_settings: 단계 설정
         index:
           add: 구성 요소 추가
           headers:
@@ -161,7 +213,29 @@ ko:
         new:
           add: 구성 요소 추가
           title: '구성요소 추가: %{name}'
+        publish:
+          success: 구성 요소가 성공적으로 게시되었습니다.
         title: 구성요소
+        unpublish:
+          success: 구성 요소가 성공적으로 게시되지 않았습니다.
+        update:
+          error: 이 구성요소를 업데이트하는 도중 문제가 발생했습니다.
+          success: 구성요소가 성공적으로 업데이트 되었습니다.
+      conflicts:
+        attempts: 시도
+        'false': '아니오'
+        managed_user_name: 관리된 사용자
+        solved: 해결됨
+        title: 인증 충돌 발생
+        transfer:
+          email: 이메일
+          error: 현재 참여자를 관리된 참여자로 옮기는 중 문제가 발생했습니다.
+          name: 이름
+          reason: 이유
+          success: 현재 전송이 성공적으로 완료되었습니다.
+          title: 전송
+        'true': '예'
+        user_name: 사용자
       newsletters:
         select_recipients_to_deliver:
           send_to_all_users: 모든 유저에게 보내기
