@@ -27,23 +27,30 @@ ko:
       help_section:
         content: 내용
       id: 아이디
+      newsletter:
+        subject: 주제
       organization:
         alert_color: 알림
         badges_enabled: 뱃지 활성화
         comments_max_length: 댓글 최대 길이(기본값은 0으로 남김)
+        cta_button_path: 수행에 대한 호출 단추 경로
+        cta_button_text: 수행에 대한 호출 단추 텍스트
         customize_welcome_notification: 환영 알림 커스터마이징
         default_locale: 기본 위치
         description: 상세정보
         facebook_handler: Facebook handler
         favicon: 아이콘
+        force_users_to_authenticate_before_access_organization: 사용자가 액세스 구성 전에 인증하도록 강제
         from: 보낸사람의 이메일 주소
         github_handler: Github handler
         highlight_color: 하이라이트
+        highlighted_content_banner_action_url: 실행버튼 URL
         highlighted_content_banner_enabled: 하이라이트된 컨텐츠 배너 보기
         highlighted_content_banner_image: 이미지
         highlighted_content_banner_short_description: 요약
         highlighted_content_banner_title: 제목
         host: 호스트
+        instagram_handler: Instagram handler
         logo: 로고
         machine_translation_display_priority_original: 원문 우선
         machine_translation_display_priority_translation: 번역문 우선
@@ -66,17 +73,36 @@ ko:
         code: 코드
         name: 이름
         organization: 조직
+        scope_type: 범위 종류
+        scope_type_id: 범위 종류
       scope_type:
         name: 이름
         organization: 조직
+      settings:
+        scope_id: 범위
       static_page:
+        allow_public_access: 인증 없이 액세스 허용
+        changed_notably: 눈에 띄는 변화가 있었습니다.
         content: 내용
         organization: 조직
+        show_in_footer: 바닥글에 표시
+        slug: URL 슬러그
+        title: 제목
         topic_id: 주제
       static_page_topic:
+        description: 상세정보
+        show_in_footer: 바닥글에 표시
         title: 제목
       user_group_csv_verification:
         file: 파일
+    errors:
+      models:
+        organization:
+          attributes:
+            official_img_footer:
+              allowed_file_content_types: 잘못된 이미지 파일
+            official_img_header:
+              allowed_file_content_types: 잘못된 이미지 파일
   activerecord:
     attributes:
       decidim/static_page:
@@ -104,6 +130,8 @@ ko:
         import: 가져오기
         newsletter:
           new: 새 뉴스레터
+        participatory_space_private_user:
+          new: 새 참여 공간 비공개 사용자
         per_page: 페이지 당
         permissions: 권한
         reject: 거절
@@ -112,6 +140,7 @@ ko:
       admin_terms_of_use:
         actions:
           accept: 약관에 동의합니다
+          refuse: 관리자 약관 거부
         required_review:
           cta: 지금 다시보기
       area_types:
@@ -236,11 +265,315 @@ ko:
           title: 전송
         'true': '예'
         user_name: 사용자
+      filters:
+        participatory_space_private_users:
+          user_invitation_sent_at_not_null:
+            values:
+              'true': 전송됨
+        private_space_eq:
+          label: 비공개
+          values:
+            'false': 공개
+            'true': 비공개
+        published_at_null:
+          label: 게시됨
+          values:
+            'false': 게시됨
+            'true': 게시되지 않음
+        scope_id_eq:
+          label: 범위
+        search_label: 검색
+        search_placeholder:
+          name_or_nickname_or_email_cont: 이메일, 이름 또는 닉네임으로 %{collection} 을(를) 검색합니다.
+          reported_id_string_or_reported_content_cont: 보고 가능한 Id 또는 내용을 기준으로 %{collection} 을(를) 검색합니다.
+          title_cont: 제목별로 %{collection} 을(를) 검색합니다.
+          user_name_or_user_nickname_or_user_email_cont: 이메일, 이름 또는 닉네임으로 %{collection} 을(를) 검색합니다.
+        state_eq:
+          label: 상태
+          values:
+            all: 전체
+            rejected: 거부됨
+            verified: 확인됨
+      forms:
+        file_help:
+          import:
+            explanation: '파일 안내:'
+            message_1: CSV, JSON 및 Excel(.xlsx) 파일이 지원됩니다
+            message_2: CSV 파일의 경우 열 사이의 구분자는 세미콜론(";") 이어야 합니다
+      help_sections:
+        form:
+          save: 저장
+      impersonatable_users:
+        index:
+          filter:
+            all: 전체
+            managed: 관리됨
+            not_managed: 관리되지 않음
+          impersonate_new_managed_user: 새로운 참여자 관리
+          managed: 관리됨
+          name: 이름
+          needs_authorization_warning: 이 조직에 사용 가능한 하나 이상의 권한이 필요합니다.
+          not_managed: 관리되지 않음
+          search: 검색
+          status: 상태
+          view_logs: 로그 보기
+      impersonations:
+        close_session:
+          error: 현재 참가자 관리 세션을 닫는 중에 문제가 발생했습니다.
+        create:
+          error: 참가자를 관리하는 데 문제가 있었습니다.
+          success: 관리되는 참가자가 성공적으로 작성되었습니다.
+        form:
+          authorization_method: 관리 방법
+          name: 이름
+          reason: 이유
+        new:
+          impersonate_existing_managed_user: 참가자 "% {name}" 관리
+          impersonate_existing_user: 참가자 "% {name}" 관리
+          impersonate_new_managed_user: 새로운 참여자 관리
+      imports:
+        and: 그리고
+      menu:
+        dashboard: 대시보드
+        scope_types: 범위 종류
+        scopes: 범위
+        settings: 설정
+        static_pages: 페이지
+        user_groups: 그룹
+        users: 참여자
+      models:
+        area:
+          fields:
+            area_type: 영역 유형
+            name: 이름
+        area_type:
+          fields:
+            name: 이름
+        attachment:
+          fields:
+            collection: 폴더
+            content_type: 유형
+            file_size: 크기
+            title: 제목
+          name: 첨부 파일
+        attachment_collection:
+          name: 폴더
+        category:
+          name: 카테고리
+        impersonation_log:
+          fields:
+            admin: 관리자
+            ended_at: 종료 시점
+            expired_at: 만료일
+            reason: 이유
+            started_at: 시작 시점
+            user: 참여자
+        newsletter:
+          fields:
+            created_at: 생성 위치
+            progress: 진행 상황
+            sent_at: 보냄
+            sent_to: 다음에 전송하였습니다
+          name: 뉴스 레터
+        participatory_space_private_user:
+          name: 참여공간 비공개참여
+        scope:
+          fields:
+            name: 이름
+            scope_type: 범위 종류
+        scope_type:
+          fields:
+            name: 이름
+        share_token:
+          fields:
+            created_at: 생성일
+            expires_at: 만료일
+            last_used_at: 마지막으로 사용한 시간
+            times_used: 사용 시간
+            token: 토큰
+            user: 작성자
+        static_page:
+          fields:
+            created_at: 생성 위치
+            title: 제목
+        user:
+          fields:
+            created_at: 생성일
+            email: 이메일
+            name: 이름
+            role: 역할
+      newsletter_templates:
+        index:
+          use_template: 이 템플릿 사용하기
+        show:
+          preview: '미리보기 템플릿: %{template_name}'
+          use_template: 이 템플릿 사용하기
       newsletters:
+        create:
+          error: 이 뉴스레터를 만드는 데 문제가 있었습니다.
+          success: 뉴스레터가 성공적으로 작성되었습니다. 검토 후 보내주시기 바랍니다.
+        deliver:
+          error: 이 뉴스레터를 전달하는 데 문제가 있었습니다.
+          success: 뉴스레터 전달 성공
+        destroy:
+          error_already_sent: '뉴스레터를 삭제할 수 없습니다: 이미 보내짐'
+          success: 뉴스레터 삭제 성공
+        edit:
+          save_and_preview: 저장하고 미리보기
+          title: 뉴스레터 수정하기
+        index:
+          all: 전체
+          all_users: '모든 사용자 '
+          and: '그리고 '
+          confirm_delete: 이 뉴스레터를 삭제하시겠습니까?
+          followers: '팔로워 '
+          has_been_sent_to: '다음에게 전송됨: '
+          no_scopes: 범위가 없습니다.
+          not_sent: 전송되지 않음
+          participants: '참여자 '
+          subscribed_count: '구독중:'
+          title: 뉴스 레터
+        new:
+          save: 저장
+          title: 새 뉴스레터
         select_recipients_to_deliver:
+          all_spaces: 전체
+          all_users_help: 확인된 모든 사용자에게 뉴스레터를 보냅니다.
+          confirm_deliver: 이 뉴스레터를 전송하시겠습니까? 이 작업은 취소할 수 없습니다.
+          deliver: 뉴스레터 전송
+          followers_help: 목록에서 선택한 참여 공간을 따르는 것이 확인된 모든 사용자에게 뉴스레터를 보냅니다.
+          none: 없음
+          participants_help: 목록에서 선택한 참여 공간을 따르는 것이 확인된 모든 사용자에게 뉴스레터를 보냅니다.
+          recipients_count: 이 뉴스레터는 <strong id='receiveners_count'>% {count}/strong> 사용자에게 발송됩니다.
+          scopes_help: 계정의 "내 관심사" 설정에서 선택한 범위 중 하나라도 활성화된 사용자에게 뉴스레터를 보냅니다.
+          select_scopes: 계정의 내 관심사 설정에서 선택한 범위를 활성화한 사용자를 위해 필터링합니다.
+          select_spaces: 뉴스레터를 분할할 공간 선택
+          select_users: 뉴스레터를 보낼 사용자 선택
           send_to_all_users: 모든 유저에게 보내기
           send_to_followers: 팔로워들에게 보내기
           send_to_participants: 참여자들에게 보내기
+          title: 전송 받는 사람 선택
+          warning: "<strong>주의:/strong>이 뉴스레터는 알림 설정에서 <em>I want to received newsletter</em>을 활성화한 사용자에게만 발송됩니다."
+        show:
+          preview: 미리보기
+          select_recipients_to_deliver: 전송 받는 사람 선택
+          subject: 주제
+        update:
+          error: 이 뉴스레터를 업데이트 하는데 문제가 있었습니다.
+          success: 뉴스레터가 성공적으로 업데이트되었습니다. 검토 후 보내주시기 바랍니다.
+      organization_appearance:
+        form:
+          cta_button_path_help: '홈페이지에서 수행 호출 단추가 링크되는 위치를 덮어쓸 수 있습니다. 여기서는 전체 URL이 아닌 일부 경로를 사용하십시오. 문자, 숫자, 대시 및 슬래시를 사용할 수 있으며 문자로 시작해야 합니다. 시작 텍스트와 설명 사이에 홈페이지에서 수행 호출 단추가 표시됩니다. 예: %{url}'
+          cta_button_text_help: You can overwrite the Call To Action button text in the homepage for each available language in your organization. If not set, the default value will be used. The Call To Action button is shown in the homepage between the welcome text and the description.
+          homepage_appearance_title: 홈페이지 외관 편집
+          homepage_highlighted_content_banner_title: 강조 표시된 내용 배너
+          images:
+            layout_appearance_title: 레이아웃 모양 편집
+            preview: 미리보기
+      organization_external_domain_whitelist:
+        edit:
+          update: 업데이트
+        external_domain:
+          down: 아래
+          external_domain: 외부 도메인
+          remove: 제거
+          up: 위
+        form:
+          add: 화이트 리스트에 추가
+      organization_homepage:
+        edit:
+          active_content_blocks: 콘텐츠 블록 활성화
       organization_homepage_content_blocks:
         edit:
           update: 업데이트
+      participatory_space_private_users:
+        new:
+          create: 생성
+      participatory_space_private_users_csv_imports:
+        create:
+          invalid: CSV 파일을 읽는 데 문제가 발생했습니다.
+      resource_permissions:
+        edit:
+          submit: 제출
+          title: 권한 수정
+        update:
+          success: 권한을 성공적으로 업데이트했습니다.
+      resources:
+        index:
+          headers:
+            scope: 범위
+      scope_types:
+        create:
+          error: 새 영역 타입을 생성하는 도중 문제가 생겼습니다.
+          success: 영역 타입이 성공적으로 생성되었습니다.
+        destroy:
+          success: 영역 타입이 성공적으로 제거되었습니다.
+        edit:
+          title: 영역 타입 수정
+          update: 업데이트
+        new:
+          create: 영역 타입 생성하기
+      static_page_topics:
+        update:
+          success: 주제가 성공적으로 업데이트되었습니다
+      static_pages:
+        actions:
+          view: 공개 페이지 보기
+        create:
+          error: 새 페이지를 생성하는 도중 문제가 생겼습니다.
+          success: 페이지가 성공적으로 생성되었습니다.
+        destroy:
+          success: 페이지가 성공적으로 삭제되었습니다
+        edit:
+          title: 페이지 편집
+          update: 업데이트
+        form:
+          none: 없음
+          slug_help: '전체 URL이 아닌 일부 경로를 사용하십시오. 문자, 숫자, 대시 및 슬래시를 사용할 수 있으며 문자로 시작해야 합니다. 예: %{url}'
+        new:
+          create: 페이지 생성
+          title: 새 페이지
+        topic:
+          without_topic: 페이지 없는 주제
+        update:
+          error: 이 페이지를 업데이트하는 동안 문제가 발생했습니다.
+      titles:
+        admin_log: 관리자 로그
+        area_types: 영역 유형
+        areas: 영역
+        authorization_workflows: 인증 방식
+        dashboard: 대시보드
+        edit_organization_appearance: 홈페이지 외관 편집
+        impersonatable_users: 관리 가능한 참가자
+        impersonations: 참가자 관리
+        pages: 페이지
+        panel: 관리자
+        participants: 참가자
+        scope_types: 범위 종류
+        scopes: 범위
+        static_pages: 페이지
+        statistics: 활동
+        user_groups: 그룹
+      user_group:
+        csv_verify:
+          invalid: CSV 파일을 읽는 데 문제가 발생했습니다.
+        reject:
+          invalid: 이 그룹을 거부하는 동안 문제가 발생했습니다.
+        verify:
+          invalid: 이 그룹을 인증하는 동안 문제가 발생했습니다.
+      user_groups:
+        index:
+          state:
+            rejected: 거부됨
+            verified: 확인됨
+      view_public_page: 공개 페이지 보기
+    moderations:
+      models:
+        moderation:
+          fields:
+            created_at: 생성일
+  layouts:
+    decidim:
+      admin:
+        settings:
+          title: 설정
