@@ -45,6 +45,7 @@ ko:
         from: 보낸사람의 이메일 주소
         github_handler: Github handler
         highlight_color: 하이라이트
+        highlighted_content_banner_action_title: 실행버튼 URL
         highlighted_content_banner_action_url: 실행버튼 URL
         highlighted_content_banner_enabled: 하이라이트된 컨텐츠 배너 보기
         highlighted_content_banner_image: 이미지
@@ -53,13 +54,18 @@ ko:
         host: 호스트
         instagram_handler: Instagram handler
         logo: 로고
+        machine_translation_display_priority: 기계 번역 우선 표시
         machine_translation_display_priority_original: 원문 우선
         machine_translation_display_priority_translation: 번역문 우선
         name: 이름
+        official_img_footer: 공식 로고 바닥글
         official_url: 공식 조직 URL
         omnipresent_banner_short_description: 요약
         omnipresent_banner_title: 제목
         omnipresent_banner_url: URL
+        organization_admin_email: 조직 관리자 이메일
+        organization_admin_name: 조직 관리자 이름
+        organization_locales: 조직 지역
         send_welcome_notification: 환영 알림 보내기
         success_color: 성공
         time_zone: 시간대
@@ -173,6 +179,8 @@ ko:
           success: 영역이 성공적으로 생성되었습니다.
         edit:
           update: 업데이트
+        update:
+          error: 이 영역을 업데이트하는 동안 문제가 발생했습니다.
       attachment_collections:
         edit:
           title: 폴더 편집
@@ -279,7 +287,34 @@ ko:
           title: 전송
         'true': '예'
         user_name: 사용자
+      exports:
+        formats:
+          CSV: CSV
+          Excel: 엑셀
+          FormPDF: PDF
+          JSON: JSON
       filters:
+        category_id_eq:
+          label: 카테고리
+        filter_label: 필터
+        invitation_accepted_at_present:
+          label: 초대 수락됨
+          values:
+            'false': '아니오'
+            'true': '예'
+        last_sign_in_at_present:
+          values:
+            'false': '아니오'
+            'true': '예'
+        moderated_users:
+          reports_reason_eq:
+            values:
+              spam: 스팸
+        moderations:
+          reportable_type_string_eq:
+            label: 유형
+        officialized_at_null:
+          label: 상태
         participatory_space_private_users:
           user_invitation_sent_at_not_null:
             values:
@@ -347,7 +382,19 @@ ko:
           impersonate_new_managed_user: 새로운 참여자 관리
       imports:
         and: 그리고
+        new:
+          accepted_mime_types:
+            csv: CSV
+            json: JSON
+            xlsx: 엑셀 (.xlsx)
+          actions:
+            back: 뒤로가기
+          download_example: 예시 다운로드
+          import: 가져오기
       menu:
+        area_types: 영역 유형
+        areas: 영역
+        configuration: 환경설정
         dashboard: 대시보드
         scope_types: 범위 종류
         scopes: 범위
@@ -388,6 +435,7 @@ ko:
             progress: 진행 상황
             sent_at: 보냄
             sent_to: 다음에 전송하였습니다
+            subject: 주제
           name: 뉴스 레터
         participatory_space_private_user:
           name: 참여공간 비공개참여
@@ -416,6 +464,14 @@ ko:
             email: 이메일
             name: 이름
             role: 역할
+            roles:
+              admin: 관리자
+              user_manager: 참가자 관리자
+          name: 참가자
+      moderations:
+        report:
+          reasons:
+            spam: 스팸
       newsletter_templates:
         index:
           use_template: 이 템플릿 사용하기
@@ -475,6 +531,21 @@ ko:
         update:
           error: 이 뉴스레터를 업데이트 하는데 문제가 있었습니다.
           success: 뉴스레터가 성공적으로 업데이트되었습니다. 검토 후 보내주시기 바랍니다.
+      officializations:
+        index:
+          badge: 뱃지
+          block: 사용자 차단
+          name: 이름
+          nickname: 닉네임
+          show_email: 이메일 주소 보기
+          status: 상태
+          unblock: 사용자 차단 해제
+        show_email_modal:
+          email_address: 이메일 주소
+          full_name: 전체 이름
+          hidden: 숨겨짐
+          show: 표시
+          title: 참가자의 이메일 주소 보기
       organization_appearance:
         form:
           cta_button_path_help: '홈페이지에서 수행 호출 단추가 링크되는 위치를 덮어쓸 수 있습니다. 여기서는 전체 URL이 아닌 일부 경로를 사용하십시오. 문자, 숫자, 대시 및 슬래시를 사용할 수 있으며 문자로 시작해야 합니다. 시작 텍스트와 설명 사이에 홈페이지에서 수행 호출 단추가 표시됩니다. 예: %{url}'
@@ -538,6 +609,23 @@ ko:
           update: 업데이트
         new:
           create: 영역 타입 생성하기
+      scopes:
+        edit:
+          update: 업데이트
+      share_tokens:
+        actions:
+          destroy: 삭제
+          share: 공유
+        destroy:
+          error: 토큰 삭제에 문제가 발생했습니다.
+          success: 토큰 삭제 성공
+        share_tokens:
+          title: 토큰 공유하기
+      shared:
+        gallery:
+          add_images: 이미지 추가
+          edit_images: 이미지 편집
+          gallery_legend: 이미지 갤러리 추가하기 (선택사항)
       static_page_topics:
         update:
           success: 주제가 성공적으로 업데이트되었습니다
@@ -592,12 +680,45 @@ ko:
           state:
             rejected: 거부됨
             verified: 확인됨
+      users:
+        form:
+          email: 이메일
+          name: 이름
+          role: 역할
+        new:
+          create: 초대하기
+      users_statistics:
+        users_count:
+          admins: 운영자
+          last_day: 어제
+          last_month: 지난 달
+          last_week: 지난 주
+          participants: 참가자
       view_public_page: 공개 페이지 보기
+    metrics:
+      blocked_users:
+        object: 차단된 사용자
+        title: 차단된 사용자
+      reported_users:
+        object: 신고된 사용자
+        title: 신고된 사용자
+      user_reports:
+        object: 사용자 신고
+        title: 사용자 신고
     moderations:
+      actions:
+        expand: 확장
+        hidden: 숨겨짐
+        hide: 숨기기
+        not_hidden: 숨기지 않음
       models:
         moderation:
           fields:
             created_at: 생성일
+            reportable_id: 아이디
+            reportable_type: 유형
+            reported_content_url: 신고된 콘텐츠 URL
+            visit_url: URL 방문하기
   layouts:
     decidim:
       admin:
