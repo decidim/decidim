@@ -25,6 +25,7 @@ ko:
         title: 제목
     models:
       decidim/accountability/proposal_linked_event: 결과에 포함된 제안
+      decidim/accountability/result_progress_updated_event: 결과 진행이 업데이트되었습니다
   activerecord:
     models:
       decidim/accountability/result:
@@ -165,9 +166,16 @@ ko:
             comments_blocked: 댓글 차단됨
     events:
       accountability:
+        proposal_linked:
+          email_intro: '%{proposal_title} 제안이 결과에 포함되었습니다. 이 페이지에서 확인할 수 있습니다:'
+          email_outro: '%{proposal_title} 을(를) 팔로우하고 있으므로 이 알림을 받았습니다. 이전 링크를 클릭해 알림 수신을 중지할 수 있습니다.'
+          email_subject: '%{proposal_title} 업데이트'
+          notification_title: <a href="% {proposal_path}">% {proposal_title}/a> 제안이 <a href="% {resource_path}">% {resource_title}/a> 결과에 포함되었습니다.
         result_progress_updated:
+          email_intro: '%{proposal_title} 제안을 포함하는 %{resource_title} 결과가 %{progress}% 완료되었습니다. 이 페이지에서 확인할 수 있습니다:'
           email_outro: '%{proposal_title} 을(를) 팔로우중이어서 이 알림을 받게되었고, %{resource_title} 에 이 의도가 포함되어 있습니다. 이전 링크를 팔로우해서 알림을 받지 않으실 수 있습니다.'
           email_subject: '%{resource_title} 과정에 업데이트 발생'
+          notification_title: 제안 <a href="% {resource_path}">% {resource_path}">% {proposal_title}/a>를 포함하는 <a href="% {resource_title}/a> 결과는 이제 %{progress}% 완료되었습니다.
     metrics:
       results:
         object: 결과
