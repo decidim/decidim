@@ -156,6 +156,8 @@ ko:
         object: 결과
         title: 결과
     resource_links:
+      included_projects:
+        result_project: 본 결과에 포함된 프로젝트
       included_proposals:
         result_proposal: 본 결과에 포함된 제안
     statistics:
