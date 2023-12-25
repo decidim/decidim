@@ -320,7 +320,9 @@ cs:
             submit: Nastavení voleb
             success: Volby byly úspěšně odeslány do Vývěsky.
             technical_configuration:
+              authority_name: "<strong>Název orgánu:</strong> %{value}"
               bulletin_board_server: "<strong>Bulletin Board server:</strong> <a href='%{value}'>%{value}</a>"
+              scheme_name: "<strong>název schématu:</strong> %{value}"
               title: Zobrazit technické informace
             title: Nastavení voleb
             trustees: Volební důvěrníci
@@ -646,6 +648,7 @@ cs:
                 bb_status: Stav
                 election: Volby
                 voting_period: Hlasovací období
+              no_elections: Momentálně nejste přiřazeni k žádné akci jako důvěrník. Obdržíte upozornění, když je čas jednat v různých fázích.
               title: Volby
             identification_keys:
               cancel: Zrušit
@@ -753,6 +756,7 @@ cs:
           back: Zpět
           continue: Další
       warnings:
+        empty_filters: S těmito kritérii se nekonají volby.
         no_elections: Nejsou naplánovány žádné volby.
     events:
       elections:
