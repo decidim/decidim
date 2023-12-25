@@ -13,7 +13,7 @@ namespace :decidim do
       remove_file_from_application "yarn.lock"
       remove_file_from_application "node_modules/.yarn-integrity"
       # Babel config
-      copy_file_to_application "babel.config.json"
+      # copy_file_to_application "babel.config.json"
       # PostCSS configuration
       copy_file_to_application "decidim-core/lib/decidim/webpacker/postcss.config.js", "postcss.config.js"
 

@@ -1,7 +1,7 @@
 /* eslint-disable */
 const { config } = require("shakapacker");
 const { InjectManifest } = require("workbox-webpack-plugin");
-const TerserPlugin = require('terser-webpack-plugin')
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
   module: {
@@ -16,7 +16,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules\/(?!tributejs)/,
-        loader: "babel-loader"
+        loader: "esbuild-loader"
       },
       {
         test: /\.(graphql|gql)$/,
@@ -37,14 +37,11 @@ module.exports = {
         }
       },
       {
-        test: [
-          /\.md$/,
-          /\.odt$/,
-        ],
+        test: [/\.md$/, /\.odt$/],
         exclude: [/\.(js|mjs|jsx|ts|tsx)$/],
-        type: 'asset/resource',
+        type: "asset/resource",
         generator: {
-          filename: 'media/documents/[hash][ext][query]'
+          filename: "media/documents/[hash][ext][query]"
         }
       },
       // Overwrite webpacker files rule to amend the filename output
@@ -68,9 +65,9 @@ module.exports = {
           /\.svg$/
         ],
         exclude: [/\.(js|mjs|jsx|ts|tsx)$/],
-        type: 'asset/resource',
+        type: "asset/resource",
         generator: {
-          filename: 'media/images/[name]-[hash][ext][query]'
+          filename: "media/images/[name]-[hash][ext][query]"
         }
       }
     ]
@@ -122,4 +119,4 @@ module.exports = {
       swDest: "../sw.js"
     })
   ]
-}
+};
