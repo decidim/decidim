@@ -41,6 +41,7 @@ ro:
         confirm_destroy: Sunteți sigur că doriți să ștergeți %{name}?
         destroy: Ștergere
         edit: Editare
+        import_csv: Importă rezultate dintr-un fișier CSV
         preview: Previzualizare
         timeline_entries: Evoluția proiectului
         title: Acțiuni
@@ -60,8 +61,11 @@ ro:
         projects_import:
           new:
             create: Importă
+            origin_component_id: Componenta de origine
             select_component: Selectați componenta
         results:
+          create:
+            success: Rezultatul a fost creat.
           edit:
             title: Editare rezultat
             update: Actualizare rezultat
@@ -74,6 +78,8 @@ ro:
           subnav:
             statuses: Stadii
         statuses:
+          create:
+            success: Statutul a fost creat.
           edit:
             title: Editare stadiu
             update: Actualizare stadiu
