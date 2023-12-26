@@ -52,7 +52,7 @@ ro:
         import_results:
           new:
             download_export: Descarcați Export cu format CSV
-            import: Importă
+            import: Importați
             title: Importați rezultate de la CSV
         imports:
           create:
@@ -61,7 +61,7 @@ ro:
           result:
             name: Rezultat
           status:
-            name: Stadiu
+            name: Stare
           timeline_entry:
             name: Intrare cronologie
         results:
@@ -83,7 +83,7 @@ ro:
             success: Rezultatul a fost actualizat
         shared:
           subnav:
-            statuses: Stadii
+            statuses: Stări
         statuses:
           create:
             invalid: A apărut o eroare la crearea acestui stadiu
@@ -97,7 +97,7 @@ ro:
             title: Stadii
           new:
             create: Creează stadiu
-            title: Stadiu nou
+            title: Stare nouă
           update:
             invalid: A apărut o eroare la crearea acestui stadiu
             success: Stadiu actualizat cu succes
@@ -108,22 +108,24 @@ ro:
           destroy:
             success: Intrare ștearsă cu succes
           edit:
-            title: Editare înregistrare
-            update: Actualizare înregistrare
+            title: Editați înregistrarea
+            update: Actualizați înregistrarea
           index:
             title: Înregistrări în calendarul proiectului
           new:
-            create: Creează înregistrare
+            create: Creați înregistrare
             title: Înregistrare nouă
           update:
             invalid: A apărut o eroare la actualizarea acestei înregistrări
             success: Înregistrare actualizată cu succes
       admin_log:
         result:
-          create: "%{user_name} a creat %{resource_name} în %{space_name}"
-          delete: "%{user_name} a șters %{resource_name} în %{space_name}"
-          update: "%{user_name} a actualizat %{resource_name} în %{space_name}"
+          create: "%{user_name} a creat rezultatul %{resource_name} în %{space_name}"
+          delete: "%{user_name} a șters rezultatul %{resource_name} din %{space_name}"
+          update: "%{user_name} a actualizat rezultatul %{resource_name} din %{space_name}"
         status:
+          create: "%{user_name} a creat starea resursei %{resource_name}"
+          delete: "%{user_name} a șters starea resursei %{resource_name}"
           update: "%{user_name} a actualizat starea %{resource_name}"
         timeline_entry:
           create: "%{user_name} a creat intrarea de cronologie pentru %{resource_name}"
