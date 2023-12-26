@@ -1576,6 +1576,7 @@ ja:
       not_locked: ロックされていません
       not_saved:
         other: 'リクエストの処理中に複数のエラーが発生しました:'
+      password_confirmation_message: '「確認用パスワード」がパスワードと一致しません'
       too_many_marks: '連続する句読点が多すぎます (例: !, ?)'
       too_much_caps: 大文字が多すぎます(テキストの25%以上)
       too_short: は短すぎます( %{count} 文字以下)
