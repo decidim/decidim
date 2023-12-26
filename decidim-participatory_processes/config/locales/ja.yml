@@ -107,6 +107,9 @@ ja:
         resend_invitation: 招待を再送信する
         see_process: プロセスを見る
         unpublish: 公開しない
+      filters:
+        decidim_participatory_process_group_id_eq:
+          label: プロセスグループ別
       menu:
         participatory_process_groups: 参加型プロセスグループ
         participatory_process_groups_submenu:
