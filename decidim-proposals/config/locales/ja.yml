@@ -425,6 +425,9 @@ ja:
               other: 提案の回答
             proposals:
               other: 提案
+          title:
+            answers: ファイルから提案の回答をインポート
+            proposals: ファイルから提案をインポート
         models:
           proposal:
             name: 提案
@@ -518,6 +521,7 @@ ja:
             create: 作成
             title: 提案を作成
           publish_answers:
+            number_of_proposals: '%{number} 件の提案に対する回答が公開されますか？'
             select_a_proposal: 提案を選択してください。
           show:
             amendments_count: 修正数
@@ -527,6 +531,7 @@ ja:
             documents: ドキュメント
             endorsements_count: オススメ数
             endorsers: オススメしている人
+            link: 提案を見る
             n_more_endorsers:
               other: 他 %{count} 名
             photos: 写真
@@ -555,6 +560,7 @@ ja:
             no_components: この参加スペースには他の提案コンポーネントはありません。
             select_component: コンポーネントを選択してください
             select_states: インポートする提案のステータスを確認してください
+            title: 別のコンポーネントから提案をインポート
         proposals_merges:
           create:
             invalid: '選択した提案をマージする際に問題が発生しました:'
