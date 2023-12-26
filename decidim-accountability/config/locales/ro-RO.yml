@@ -109,12 +109,12 @@ ro:
           destroy:
             success: Starea a fost ștearsă.
           edit:
-            title: Editare stadiu
-            update: Actualizare stadiu
+            title: Actualizare stare
+            update: Actualizare stare
           index:
-            title: Stadii
+            title: Stări
           new:
-            create: Creează stadiu
+            create: Creează stare
             title: Stare nouă
           update:
             invalid: A apărut o eroare la actualizarea acestei stări.
