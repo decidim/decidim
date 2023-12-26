@@ -61,6 +61,11 @@ ja:
           edit:
             title: 提案回答テンプレートを編集
           form:
+            component_constraint_help: '「提案」型のコンポーネントを持つ参加型スペースのみが表示されることに注意してください。'
+            hint1_html: "<strong>%{organization}</strong> は組織名に置き換えられます"
+            hint2_html: "<strong>%{name}</strong> は作成者の名前に置き換えられます"
+            hint3_html: "<strong>%{admin}</strong> は管理者の名前（提案に回答した者）に置き換えられます"
+            hint_html: "<strong>ヒント:</strong> テンプレート使用時に置き換えられる回答テンプレート上の任意の場所でこれらの変数を使用できます"
             save: 保存
         questionnaire_templates:
           choose:
