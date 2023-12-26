@@ -739,6 +739,11 @@ ja:
             email_intro: 管理者が %{resource_name} の受託者としてあなたを追加しました。受託者ゾーンで <a href='%{trustee_zone_url}'>公開鍵を作成する必要があります。</a>
             email_outro: '%{resource_name} の受託者に追加されたため、この通知を受信しました。'
             email_subject: あなたは %{resource_name} の受託者です。
+          start_tally:
+            email_intro: '%{resource_title} 選挙の投票期間が終了しました。最終結果を公開するために、選挙の合計を行ってください。'
+            email_outro: あなたは %{resource_title} 選挙の受託者であるため、この通知を受け取りました。
+            email_subject: '%{resource_title} 選挙の集計プロセスが開始されました。'
+            notification_title: '%{resource_title} 選挙の投票期間が終了しました。最終結果を公開するために、選挙の合計を行ってください。'
         votes:
           accepted_votes:
             email_intro: '投票が承認されました！投票トークン: %{encrypted_vote_hash} を使用して、投票を <a href="%{verify_url}">ここ</a> で確認できます。'
@@ -1144,21 +1149,35 @@ ja:
         closures:
           back_to_polling_stations: 投票所に戻る
           certify:
+            add_photos: 写真を追加
+            edit_photos: 写真を編集
             error: 証明書の添付中にエラーが発生しました。もう一度やり直してください。
             heading: 投票の再集計 - 証明書をアップロード
             info_text: 選挙閉鎖証明の写真をアップロードしてください
             submit: 証明書をアップロードする
             success: 証明書をアップロードしました。
+            upload_photos: 選挙閉鎖証明書の写真をアップロードする
+          completed:
+            sub_heading: この再集計は認証されており、編集できません。
           create:
             error: 閉鎖の作成中にエラーが発生しました。後でもう一度お試しください。
             success: 閉鎖を作成しました。
+          destroy:
+            error: 閉鎖の削除中にエラーが発生しました。
+            success: 閉鎖を削除しました。
           edit:
+            confirm_start_over: 合計票数と添付されたメモを削除します。よろしいですか？
             heading: 投票の再集計 - 回答の再集計
+            info_text: 各質問の回答総数を詳しく説明してください。 これは、前のステップで導入された回答の合計数と一致する必要があります(%{total} 回答合計)。
             modal_ballots_results_count_error:
+              blank: 空白票の合計は %{expected} ですが、空白の質問の合計は %{current} です。
               close_modal: 閉じる
               info_text: 投票数が封筒の合計数と一致しません。投票数の合計を確認してください。
               title: 投票数の合計が足りません
+              total: 期待される合計は %{expected} ですが、有効票と空白票と無効票の合計は %{current} です。
+              valid: 有効な投票数の合計は %{expected} ですが、有効な質問の合計は %{current} です。
             save_recount: 再集計を保存
+            start_over: 合計数にエラーがある場合は、すべてを削除してやり直すことができます。
             total_ballots: 総投票数
             total_blank_ballots: 白票の総数
             total_null_ballots: 空の投票の総数
@@ -1181,6 +1200,7 @@ ja:
             submit: 合計数を確認する
             total_ballots_count: 投票数
           show:
+            edit_count_votes: 間違った数字ですか？　まだ編集できます。
             heading: 投票再集計
           sign:
             cancel: キャンセル
@@ -1263,6 +1283,8 @@ ja:
           manager: マネージャー
           president: 投票責任者
           unassigned: 未割り当て
+      polling_station_closure_certificate:
+        current_certificate: '現在の証明書:'
       polling_station_closure_recount:
         nota_option: 空欄 / 上記のどれでもない
         polling_officer_notes: '投票委員のメモ:'
