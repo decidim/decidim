@@ -626,6 +626,7 @@ ja:
               upload_legend: Decidimはあなたの公開識別キーを持っていますが、お使いのブラウザにはまだありません。識別キーを生成した後に作成したバックアップから、識別キーの入ったファイルをコンピュータにインポートする必要があります。
             not_supported_browser_description: 受託者としての活動に使用できないWebブラウザを使用しているようです。最新バージョンのブラウザを使用するか、または一般的なブラウザを使用して、受託者のタスクを完了できるようにしてください。
             not_supported_browser_title: ブラウザをアップグレードして受託者として行動する
+            trustee_role_description: あなたは、このプラットフォームで行われる選挙のいくつかで受託者として行動するようにアサインされています。
           update:
             success: 公開識別キーを保存しました。
       votes:
@@ -719,6 +720,7 @@ ja:
           continue: 次へ
       warnings:
         no_elections_warning: 検索条件に一致する選挙がないか、または予定されている選挙がありません。
+        no_scheduled_elections_warning: 現在、予定された選挙はありませんが、過去のすべての選挙を検索できます。
     events:
       elections:
         election_published:
@@ -1164,6 +1166,7 @@ ja:
           certify:
             add_images: 画像を追加
             error: 証明書の添付中にエラーが発生しました。もう一度やり直してください。
+            form_legend: 選挙閉鎖証明書の写真をアップロードする
             heading: 投票の再集計 - 証明書をアップロード
             info_text: 選挙閉鎖証明の写真をアップロードしてください
             submit: 証明書をアップロードする
