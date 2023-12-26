@@ -25,7 +25,7 @@ ro:
         title: Titlu
     models:
       decidim/accountability/proposal_linked_event: Propunere inclusă în rezultat
-      decidim/accountability/result_progress_updated_event: Progresul rezultatului actualizat
+      decidim/accountability/result_progress_updated_event: Progresul rezultatului a fost actualizat
   activerecord:
     models:
       decidim/accountability/result:
@@ -39,7 +39,7 @@ ro:
         attachments: Atașamente
         confirm_destroy: Sunteți sigur că doriți să ștergeți %{name}?
         destroy: Ștergere
-        edit: Editare
+        edit: Actualizare
         import_csv: Importă CSV
         new: '%{name} nou'
         preview: Previzualizare
@@ -51,7 +51,7 @@ ro:
           results: Rezultate
         import_results:
           new:
-            download_export: Descarcați Export cu format CSV
+            download_export: Descărcați Exportul în format CSV
             import: Importați
             title: Importați rezultate de la CSV
         imports:
@@ -71,12 +71,12 @@ ro:
           destroy:
             success: Rezultatul a fost șters
           edit:
-            title: Editare rezultat
+            title: Actualizare rezultat
             update: Actualizare rezultat
           index:
             title: Rezultate
           new:
-            create: Creează rezultat
+            create: Creați un rezultat nou
             title: Rezultat nou
           update:
             invalid: A apărut o eroare la actualizarea acestui rezultat
@@ -91,12 +91,12 @@ ro:
           destroy:
             success: Stadiu şters cu succes
           edit:
-            title: Editare stadiu
-            update: Actualizare stadiu
+            title: Actualizare stare
+            update: Actualizare stare
           index:
-            title: Stadii
+            title: Stări
           new:
-            create: Creează stadiu
+            create: Creează stare
             title: Stare nouă
           update:
             invalid: A apărut o eroare la crearea acestui stadiu
@@ -158,7 +158,7 @@ ro:
             progress: Progres
             scope: Domeniu de interes
             start_date: Dată de începere
-            status: Stadiu
+            status: Stare
             title: Titlu
         status:
           fields:
@@ -197,7 +197,7 @@ ro:
             back_to_resource: Înapoi la rezultat
             comments: Comentarii
             contributions: Contribuții
-            last_edited_by: Ultima editare de
+            last_edited_by: Ultima actualizare realizată de
             last_updated_at: Ultima actualizare la
             meetings: Întâlniri
             proposals: Propuneri
