@@ -75,7 +75,7 @@ describe "Admin manages proposals states" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_content("There's an error in this field.")
+      expect(page).to have_content("error in this field.")
 
       expect(Decidim::CustomProposalStates::ProposalState.count).to eq(5)
     end
