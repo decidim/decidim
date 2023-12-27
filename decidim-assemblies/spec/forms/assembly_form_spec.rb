@@ -337,6 +337,7 @@ module Decidim
           it { is_expected.not_to be_valid }
         end
 
+        # rubocop:disable RSpec/MultipleMemoizedHelpers
         context "when the parent is also a grandchild" do
           let(:assembly) { create(:assembly, organization:) }
           let(:attributes) do
@@ -397,6 +398,7 @@ module Decidim
 
           it { is_expected.not_to be_valid }
         end
+        # rubocop:enable RSpec/MultipleMemoizedHelpers
       end
     end
   end

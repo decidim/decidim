@@ -325,14 +325,8 @@ sv:
             non_user: Icke befintlig deltagare
             select_user: Välj deltagare
           index:
-            filter:
-              accepted: Accepterad
-              all: Alla
-              rejected: Avvisad
-              sent: Skickade
             invite_attendee: Bjud in deltagare
             invites: Inbjudningar
-            search: Sök
           new:
             invite: Inbjudan
             new_invite: Bjud in deltagare

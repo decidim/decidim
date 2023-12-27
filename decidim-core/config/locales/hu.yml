@@ -1153,8 +1153,6 @@ hu:
       terms_of_service:
         refuse:
           modal_btn_continue: Feltételek elfogadása és folytatás
-    participatory_space_private_users:
-      not_allowed: Nincs jogosultságod a tartalom megtekintésére
     profile:
       deleted: Törölt résztvevő
     profiles:

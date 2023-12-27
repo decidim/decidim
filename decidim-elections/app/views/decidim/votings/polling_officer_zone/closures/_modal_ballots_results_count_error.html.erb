@@ -6,9 +6,24 @@
     </h3>
 
     <div>
-      <%= content_tag :p,
-                      t("info_text", scope: "decidim.votings.polling_officer_zone.closures.edit.modal_ballots_results_count_error"),
-                      id: "dialog-desc-modal-closure-results-count-error" %>
+      <p id="dialog-desc-modal-closure-results-count-error">
+        <%= t("info_text", scope: "decidim.votings.polling_officer_zone.closures.edit.modal_ballots_results_count_error") %>
+      </p>
+      <p id="dialog-total-modal-closure-results-count-error" class="mt-4">
+        <%= t("total", scope: "decidim.votings.polling_officer_zone.closures.edit.modal_ballots_results_count_error",
+                       expected: closure.results.total_ballots&.first&.value,
+                       current: '<span class="current">0</span>').html_safe %>
+      </p>
+      <p id="dialog-valid-modal-closure-results-count-error" class="mt-4">
+        <%= t("valid", scope: "decidim.votings.polling_officer_zone.closures.edit.modal_ballots_results_count_error",
+                       expected: '<span class="expected">0</span>',
+                       current: '<span class="current">0</span>').html_safe %>
+      </p>
+      <p id="dialog-blank-modal-closure-results-count-error" class="mt-4">
+        <%= t("blank", scope: "decidim.votings.polling_officer_zone.closures.edit.modal_ballots_results_count_error",
+                       expected: '<span class="expected">0</span>',
+                       current: '<span class="current">0</span>').html_safe %>
+      </p>
     </div>
   </div>
   <div data-dialog-actions>

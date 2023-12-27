@@ -47,14 +47,14 @@ describe "User activity" do
     allow(Decidim::ActionLog).to receive(:public_resource_types).and_return(
       %w(
         Decidim::Comments::Comment
-        Decidim::DummyResources::DummyResource
+        Decidim::Dev::DummyResource
       )
     )
     allow(Decidim::ActionLog).to receive(:private_resource_types).and_return(
-      %w(Decidim::DummyResources::CoauthorableDummyResource)
+      %w(Decidim::Dev::CoauthorableDummyResource)
     )
     allow(Decidim::ActionLog).to receive(:publicable_public_resource_types).and_return(
-      %w(Decidim::DummyResources::DummyResource)
+      %w(Decidim::Dev::DummyResource)
     )
 
     switch_to_host organization.host

@@ -37,6 +37,9 @@ pt-BR:
         user_group_id: Criar importações como
       newsletter:
         body: Corpo
+        send_to_all_users: Enviar para todos os usuários
+        send_to_followers: Enviar para seguidores
+        send_to_participants: Enviar para participantes
         subject: Assunto
       organization:
         admin_terms_of_service_body: Estrutura para os termos de uso do administrador
@@ -355,6 +358,10 @@ pt-BR:
           title: Transferência
         'true': 'Sim'
         user_name: Usuário
+      content_blocks:
+        edit:
+          active_content_blocks: Blocos de conteúdo ativo
+          inactive_content_blocks: Blocos de conteúdo inativos
       dashboard:
         pending_moderations:
           anouncement:
@@ -436,7 +443,6 @@ pt-BR:
           report_count_eq: Número de denúncias
           reported_id_string_or_reported_content_cont: Pesquisar %{collection} por id ou conteúdo reportável.
           title_cont: Pesquisar %{collection} por título.
-          user_name_or_user_email_cont: Pesquise %{collection} por nome ou e-mail.
           user_name_or_user_nickname_or_user_email_cont: Pesquise %{collection} por e-mail, nome ou apelido.
         state_eq:
           label: Estado
@@ -505,8 +511,8 @@ pt-BR:
             records:
               detail: Por favor, verifique se essas linhas estão formatadas corretamente e contém registros válidos.
               message:
-                one: Encontrado um erro no arquivo de importação para registros com os números de ordem %{indexes}.
-                other: Erros encontrados no arquivo de importação para registros com ordem número %{indexes}.
+                one: Erros encontrados no arquivo de importação para registros com ordem número %{indexes}.
+                other: Encontrado um erro no arquivo de importação para registros com os números de ordem %{indexes}.
           missing_headers:
             detail: Por favor, verifique se o arquivo contém colunas obrigatórias.
         error: Houve um problema durante a importação.
@@ -817,6 +823,7 @@ pt-BR:
             saturation: Saturação
             title: Seletor de cores
             update_suggested_colors: Atualizar cores sugeridas
+          cta_button_path_help_html: 'Você pode substituir onde o botão Chamar para Ação na página inicial liga. Use caminhos parciais, não URLs completas aqui. Aceita letras, números, traços e barras e deve começar com uma letra. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição. Exemplo: %{url}'
           cta_button_text_help: Você pode substituir o texto do botão Chamar para Ação na página inicial para cada idioma disponível em sua organização. Se não for definido, o valor padrão será usado. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição.
           homepage_appearance_title: Editar a aparência da página inicial
           homepage_highlighted_content_banner_title: Banner de conteúdo elevado
@@ -830,11 +837,11 @@ pt-BR:
         external_domain:
           down: Para Baixo
           external_domain: Domínio externo
-          remove: Remover
+          remove: Excluir
           up: Para Cima
         form:
           add: Adicionar à lista branca
-          title: Domínio externo na lista branca
+          title: Lista branca de domínios externos
       participatory_space_private_users:
         create:
           error: Ocorreu um erro ao adicionar um usuário privado para este espaço participativo.
@@ -973,6 +980,8 @@ pt-BR:
         areas: Áreas
         authorization_workflows: Métodos de verificação
         dashboard: painel de controle
+        edit_external_domains: Lista branca de domínios externos
+        edit_organization_appearance: Editar aparência da página inicial
         impersonatable_users: Usuários gerenciáveis
         impersonations: Gerenciamento de usuários
         metrics: Métricas
@@ -1022,6 +1031,7 @@ pt-BR:
           role: Cargo
         new:
           create: Convite
+          title: Convidar novo administrador
       users_statistics:
         users_count:
           admins: Admins

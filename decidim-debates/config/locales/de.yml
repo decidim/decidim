@@ -48,7 +48,7 @@ de:
     debates:
       actions:
         close: Schließen
-        confirm_destroy: Sind Sie sicher?
+        confirm_destroy: Sind Sie sich sicher?
         destroy: Löschen
         edit: Bearbeiten
         new: Neue Debatte

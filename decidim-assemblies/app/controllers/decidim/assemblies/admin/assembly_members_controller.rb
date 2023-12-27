@@ -23,7 +23,7 @@ module Decidim
           enforce_permission_to :create, :assembly_member
           @form = form(AssemblyMemberForm).from_params(params)
 
-          CreateAssemblyMember.call(@form, current_user, current_assembly) do
+          CreateAssemblyMember.call(@form, current_assembly) do
             on(:ok) do
               flash[:notice] = I18n.t("assembly_members.create.success", scope: "decidim.admin")
               redirect_to assembly_members_path(current_assembly)

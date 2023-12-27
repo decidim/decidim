@@ -23,6 +23,18 @@ shared_examples_for "has questionnaire" do
       login_as user, scope: :user
     end
 
+    context "and there are no questions" do
+      before do
+        questionnaire.questions.delete_all
+      end
+
+      it "shows an empty page with a message" do
+        visit questionnaire_public_path
+
+        expect(page).to have_content("No questions configured for this form yet.")
+      end
+    end
+
     it "allows answering the questionnaire" do
       visit questionnaire_public_path
 
