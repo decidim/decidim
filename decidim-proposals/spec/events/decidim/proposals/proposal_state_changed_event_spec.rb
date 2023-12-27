@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Proposals::ProposalStateChangedEvent do
   context "when the proposal is evaluated" do
     let(:resource) { create(:proposal, :with_answer, title: "My super proposal") }
-    let(:notification_title) { "The <a href=\"#{resource_path}\">#{resource_title}</a> proposal is being evaluated" }
+    let(:notification_title) { "The <a href=\"#{resource_path}\">#{resource_title}</a> proposal is being evaluated." }
 
     let(:email_outro) { "You have received this notification because you are following \"#{resource_title}\". You can unfollow it from the previous link." }
     let(:email_intro) { "The proposal \"#{resource_title}\" is currently being evaluated. You can check for an answer in this page:" }
@@ -27,7 +27,7 @@ describe Decidim::Proposals::ProposalStateChangedEvent do
     let(:email_intro) { "The proposal \"#{decidim_html_escape(resource_title)}\" has been rejected. You can read the answer in this page:" }
     let(:email_outro) { "You have received this notification because you are following \"#{decidim_html_escape(resource_title)}\". You can unfollow it from the previous link." }
 
-    let(:notification_title) { "The <a href=\"#{resource_path}\">#{decidim_html_escape(resource_title)}</a> proposal has been rejected" }
+    let(:notification_title) { "The <a href=\"#{resource_path}\">#{decidim_html_escape(resource_title)}</a> proposal has been rejected." }
 
     include_context "when a simple event"
     it_behaves_like "a simple event"
@@ -48,7 +48,7 @@ describe Decidim::Proposals::ProposalStateChangedEvent do
     let(:email_subject) { "A proposal you are following has been accepted" }
     let(:email_intro) { "The proposal \"#{resource_title}\" has been accepted. You can read the answer in this page:" }
     let(:email_outro) { "You have received this notification because you are following \"#{resource_title}\". You can unfollow it from the previous link." }
-    let(:notification_title) { "The <a href=\"#{resource_path}\">#{resource_title}</a> proposal has been accepted" }
+    let(:notification_title) { "The <a href=\"#{resource_path}\">#{resource_title}</a> proposal has been accepted." }
 
     include_context "when a simple event"
     it_behaves_like "a simple event"

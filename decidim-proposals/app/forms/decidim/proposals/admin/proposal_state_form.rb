@@ -26,7 +26,7 @@ module Decidim
         validate :token_uniqueness
 
         def token_uniqueness
-          token = Decidim::CustomProposalStates::ProposalState.where(component: current_component, token: attributes.fetch(:token))
+          token = Decidim::Proposals::ProposalState.where(component: current_component, token: attributes.fetch(:token))
           errors.add(:token, :taken) if token.exists?
         end
       end
