@@ -39,6 +39,47 @@ describe "Admin manages proposals states" do
       click_link "New state"
     end
 
+    it "Validates the token presence" do
+      expect(Decidim::CustomProposalStates::ProposalState.count).to eq(5)
+      within ".new_proposal_state" do
+        fill_in_i18n(
+          :proposal_state_title,
+          "#proposal_state-title-tabs",
+          en: "Custom state",
+          es: "Estado personalizado",
+          ca: "Estat personalitzat"
+        )
+
+        fill_in_i18n(
+          :proposal_state_description,
+          "#proposal_state-description-tabs",
+          en: "A longer description",
+          es: "Descripción más larga",
+          ca: "Descripció més llarga"
+        )
+
+        fill_in_i18n(
+          :proposal_state_announcement_title,
+          "#proposal_state-announcement_title-tabs",
+          en: "A longer anouncement",
+          es: "Anuncio más larga",
+          ca: "Anunci més llarga"
+        )
+
+        fill_in :proposal_state_css_class, with: "csscustom"
+        check "Default"
+        check "Answerable"
+        check "Notifiable"
+        check "Gamified"
+
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_content("There's an error in this field.")
+
+      expect(Decidim::CustomProposalStates::ProposalState.count).to eq(5)
+    end
+
     it "creates a new proposal state" do
       expect(Decidim::Proposals::ProposalState.find_by(token: "custom")).to be_nil
       within ".new_proposal_state" do
