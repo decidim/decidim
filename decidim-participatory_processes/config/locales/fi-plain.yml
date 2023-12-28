@@ -110,6 +110,9 @@ fi-pl:
         resend_invitation: Lähetä kutsu uudelleen
         see_process: Näytä prosessi
         unpublish: Lopeta julkaisu
+      filters:
+        decidim_participatory_process_group_id_eq:
+          label: Prosessiryhmä
       menu:
         participatory_process_groups: Prosessiryhmät
         participatory_process_groups_submenu:
