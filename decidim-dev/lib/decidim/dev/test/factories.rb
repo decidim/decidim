@@ -15,7 +15,7 @@ FactoryBot.define do
       user_groups { [] }
     end
     title { Decidim::Faker::Localized.localized { generate(:name) } }
-    component { create(:component, manifest_name: "dummy") }
+    component { create(:dummy_component) }
     author { create(:user, :confirmed, organization: component.organization) }
     scope { create(:scope, organization: component.organization) }
 
