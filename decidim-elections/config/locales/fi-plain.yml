@@ -636,6 +636,7 @@ fi-pl:
               upload_legend: Julkiset tunnistusavaimet ovat Decidimissä, mutta eivät selaimessasi. Sinun tulee tuoda tunnistusavainten tiedosto omalle tietokoneellesi varmuuskopiosta, jonka tallensit avaimia luotaessa.
             not_supported_browser_description: Näyttää siltä, että käytät selainta, jota ei voi käyttää luottamushenkilönä toimimiseen. Tarkasta, että käytät selaimesi viimeisintä versiota tai yritä käyttää jotain suosituimmista selaimista luottamushenkilön tehtävien suorittamiseksi.
             not_supported_browser_title: Päivitä selaimesi toimiaksesi luottamushenkilönä
+            trustee_role_description: Sinulle on annettu luottamushenkilön tehtävä joissain vaaleissa tällä alustalla.
           update:
             success: Julkisen tunnistusavaimesi tallentaminen onnistui.
       votes:
@@ -729,6 +730,7 @@ fi-pl:
           continue: Seuraava
       warnings:
         no_elections_warning: Yksikään vaali ei vastaa hakukriteerejäsi tai yhtään vaalia ei ole suunniteltu.
+        no_scheduled_elections_warning: Tällä hetkellä yhtään vaalia ei ole aikataulutettu, mutta löydät täältä kaikki aikaisemmat vaalit.
     events:
       elections:
         election_published:
@@ -1174,6 +1176,7 @@ fi-pl:
           certify:
             add_images: Lisää kuvia
             error: Varmenteen liittäminen epäonnistui, yritä uudestaan.
+            form_legend: Lataa kuva äänestyksen päättämisen todistuksesta
             heading: Äänten uudelleenlaskenta - Lataa varmenne
             info_text: Lataa kuva äänestyksen päättämisen varmenteesta.
             submit: Lataa varmenne
