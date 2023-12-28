@@ -17,6 +17,9 @@ namespace :decidim do
       # PostCSS configuration
       copy_file_to_application "decidim-core/lib/decidim/webpacker/postcss.config.js", "postcss.config.js"
 
+      copy_file_to_application "decidim-core/lib/decidim/webpacker/esbuild.config.js", "config/esbuild.config.js"
+      copy_file_to_application "decidim-core/lib/decidim/webpacker/tsconfig.json", "tsconfig.json"
+
       # Remnove the Webpacker config and deploy shakacpacker
       migrate_shakapacker
 
@@ -55,6 +58,15 @@ namespace :decidim do
       raise "Decidim gem is not installed" if decidim_path.nil?
 
       remove_file_from_application "bin/yarn"
+
+      unless File.exist?(rails_app_path.join("config/esbuild.config.js"))
+        copy_file_to_application "decidim-core/lib/decidim/webpacker/esbuild.config.js",
+                                 "config/esbuild.config.js"
+      end
+      unless File.exist?(rails_app_path.join("tsconfig.json"))
+        copy_file_to_application "decidim-core/lib/decidim/webpacker/tsconfig.json",
+                                 "tsconfig.json"
+      end
 
       # Remnove the Webpacker config and deploy shakacpacker
       migrate_shakapacker
