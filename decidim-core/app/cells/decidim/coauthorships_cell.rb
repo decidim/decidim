@@ -16,7 +16,7 @@ module Decidim
         cell(
           "decidim/collapsible_authors",
           presenters_for_identities(model),
-          options
+          options.merge(from: model)
         )
       end
     end
