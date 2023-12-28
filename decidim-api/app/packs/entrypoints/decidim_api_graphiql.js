@@ -8,7 +8,7 @@ import "graphiql/graphiql.css"
 import React from "react";
 import ReactDOM from "react-dom";
 
-import GraphiQL from "graphiql";
+import GraphiQL from "graphiql/graphiql";
 import Configuration from "src/decidim/configuration"
 
 window.Decidim = window.Decidim || {};
