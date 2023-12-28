@@ -276,15 +276,9 @@ ja:
             non_user: 非参加者
             select_user: 参加者を選択
           index:
-            filter:
-              accepted: 承認済み
-              all: すべて
-              rejected: 拒否
-              sent: 送信済み
             invite_attendee: 参加者を招待
             invites: 招待
             registrations_disabled: 登録が無効になっているため、参加者を招待することはできません。
-            search: 検索
         meeting_closes:
           edit:
             close: 閉じる

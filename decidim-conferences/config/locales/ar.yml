@@ -331,14 +331,8 @@ ar:
             non_user: مشارك غير موجود
             select_user: اختر المشارك
           index:
-            filter:
-              accepted: وافقت
-              all: الكل
-              rejected: مرفوض
-              sent: أرسلت
             invite_attendee: دعوة مشارك
             invites: تدعو
-            search: بحث
           new:
             invite: دعا
             new_invite: دعوة مشارك

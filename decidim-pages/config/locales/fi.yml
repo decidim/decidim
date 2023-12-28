@@ -28,3 +28,5 @@ fi:
           update:
             invalid: Sivun tallennus epäonnistui.
             success: Sivun tallentaminen onnistui.
+      show:
+        empty: Tällä sivulla ei ole vielä sisältöä.

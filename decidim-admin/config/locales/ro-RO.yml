@@ -435,7 +435,6 @@ ro:
           report_count_eq: Număr de raportări
           reported_id_string_or_reported_content_cont: Caută %{collection} după id sau conținut.
           title_cont: Caută %{collection} după titlu.
-          user_name_or_user_email_cont: Caută %{collection} după nume sau e-mail.
           user_name_or_user_nickname_or_user_email_cont: Caută %{collection} după e-mail, nume sau pseudonim.
         state_eq:
           label: Stadiu

@@ -894,8 +894,6 @@ tr:
         metrics:
           headline: Metrikler
           link: Bütün istatistikleri göster
-    participatory_space_private_users:
-      not_allowed: Bu içeriği görüntüleme izniniz bulunmuyor
     profile:
       deleted: Silinmiş kullanıcı
     profiles:

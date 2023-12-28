@@ -33,7 +33,7 @@ eu:
       trustees_participatory_space:
         user_id: Parte-hartzailea
       voting:
-        banner_image: Bannerra
+        banner_image: Banner-irudia
         census_contact_information: Erroldako kontaktoen informazioa
         description: Deskribapena
         end_time: Bozketaren amaiera-data
@@ -50,10 +50,18 @@ eu:
           attributes:
             attachment:
               needs_to_be_reattached: Berriro erantsi behar da
+        ballot_result:
+          attributes:
+            base:
+              total_count_invalid: Guztizko erantzun kopurua ez dator bat baliozko/zuri/baliogabe banaketarekin.
         election:
           attributes:
             attachment:
               needs_to_be_reattached: Berriro erantsi behar da
+        question_result:
+          attributes:
+            base:
+              blank_count_invalid: Erantzun zurien kopurua ezin da izan boto-paper zurien kopurua baino handiagoa.
         trustee:
           attributes:
             name:
@@ -73,6 +81,10 @@ eu:
               president_and_manager: Mahaiko kudeatzailea dagoeneko bozketa-puntuaren presidentea/kudeatzailea da.
             voting:
               different_organization: Bozketa parte-hartzailearen erakunde berean egon behar da.
+        decidim/votings/polling_station:
+          attributes:
+            polling_station_president:
+              different_voting: Mahaiko kudeatzaileak bozketa-puntuaren bozketa berean egon behar du.
     models:
       decidim/elections/answer:
         one: Erantzuna
@@ -221,7 +233,11 @@ eu:
           feedback_form_answers: Erantzunen feedbacka
         mailers:
           trustee_mailer:
-            body: "<p>Kaixo %{user_name}, </p><p> %{resource_name}-an sartu zaituzte, bermatzaile gisa.< p>"
+            body:
+              help_html: |-
+                <p>Kaixo, %{user_name}</p><br>
+                <p> Aukeratu zaituzte bermatzaile gisa aritzeko hemen: %{organization} egingo diren bozketa batzuetan.</p><br>
+                <p>"Bermatzaileen gunea" izeneko arlo berri bat aktibatu da zure kontuan. Hortik, eskatutako lanak egin ahal izango dituzu. Momentuz, mesedez, sortu identifikatzeko gakoak.</p><br>
             subject: Gehitu zaituzte %{resource_name} -ren bermatzaile gisa.
             trustee_zone: Eraman bermatzaileen gunera
         menu:
@@ -265,6 +281,7 @@ eu:
               census_frozen: Erroldarako sarbide kodeak ez dira esportatu.
               census_uploaded: Ez da igo erroldarik aukeraketa honetarako.
               component_published: <strong> aukera ez dago argitaratuta</strong>.
+              fix_it_text: Zuzendu
               max_selections: Galderek ez dute <strong>balio zuzenik </strong> erantzun kopururako
               minimum_answers: Galderek gutxienez eduki behar dituzte <strong> bi erantzun </strong>.
               minimum_questions: <strong>aukerak gutxienez </strong> galdera bat eduki behar du.
@@ -290,6 +307,11 @@ eu:
               trustees_number: Espazio parte-hartzaileak badu <strong>gutxienez %{number} bermatzaile gako publikoarekin</strong>.
             submit: Konfiguratu bozketa
             success: 'Aukeraketa zuzen bidali da hona: Iragarki Taula.'
+            technical_configuration:
+              authority_name: "<strong>Agintaritzaren izena:</strong> %{value}"
+              bulletin_board_server: "<strong>Buletinaren serbidorea:</strong> <a href='%{value}'>%{value}</a>"
+              scheme_name: "<strong>Eskemaren izena:</strong> %{value}"
+              title: Ikusi informazio teknikoa
             title: Konfiguratu bozketa
             trustees: Hautaketaren bermatzaileak
           created:
@@ -605,7 +627,7 @@ eu:
                 bb_status: Egoera
                 election: Aukera
                 voting_period: Bozketa-aldia
-              no_elections: Ez dago aukerarik zuk bermatzaile gisa aritzeko.
+              no_elections: Gaur egun, ez duzu esleituta ekintzarik bermatzaile gisa. Jakinarazpen bat jasoko duzu fase desberdinetan jarduteko unea denean.
               title: Bozketak
             identification_keys:
               cancel: Utzi
@@ -628,7 +650,9 @@ eu:
               upload_legend: Serbidoreak zure identifikazio-gako publikoak ditu, baina zure nabigatzaileak oraindik ez ditu. Zure identifikazio-gakoak dituen fitxategia inportatu behar duzu zure ordenagailura, haiek sortu ondoren egin zenuen segurtasun-kopiatik.
             not_supported_browser_description: Dirudienez, bermatzaile gisa erabili ezin den nabigatzaile bat erabiltzen ari zara. Ziurtatu nabigatzailearen bertsio berriena erabiltzen ari zarela, edo saiatu nabigatzaile ezagunenetako edozein erabiltzen, zure zereginak bermatzaile gisa bete ahal izateko.
             not_supported_browser_title: Eguneratu nabigatzailea bermatzaile gisa aritzeko
-            trustee_role_description: Plataforma honetan egindako bozketa batzuen bermatzaile gisa izendatu zaituzte.
+            trustee_role_description:
+              with_keys: Plataforma honetan egindako bozketa batzuen bermatzaile gisa izendatu zaituzte.
+              without_keys: Esleitu zaituzte bermatzaile gisa aritzeko. Mesedez, sortu eta igo zure identifikazio gakoak.
           update:
             success: Zure identifikazio-gako publikoa zuzen gorde da.
       votes:
@@ -714,8 +738,9 @@ eu:
           back: Atzera
           continue: Hurrengoa
       warnings:
-        no_elections_warning: Ez dago beren bilaketa-irizpideekin bat datorren hauteskunderik, edo ez dago hauteskunde programaturik.
-        no_scheduled_elections_warning: Orain ez dago bozketa programaturik, baina aurrekoak ikus ditzakezu.
+        empty_filters: Ez dago irizpide hori betetzen duen hauteskunderik.
+        no_elections: Ez dago programatutako hauteskunderik.
+        no_scheduled_elections: Egun, ez dago programatutako hauteskunderik, baina hemen aurreko hauteskundeen zerrenda ikus dezakezu.
     events:
       elections:
         election_published:
@@ -728,12 +753,17 @@ eu:
             email_intro: Bazaude gehituta bermatzaile gisa %{resource_title} aukerarako.
             email_outro: Jakinarazpen hau jaso duzu bermatzaile gisa gehitu zaituztelako %{resource_title} aukerarako.
             email_subject: Bermatzailea zara %{resource_title} aukerarako..
-            notification_title: Bermatzailea zara <a href="%{resource_path}">%{resource_title}</a> aukerarako.
+            notification_title: 'Esleitu zaituzte bermatzaile gisa aritzeko Aukera honetan: <a href="%{resource_path}">%{resource_title}.</a> Mesedez, egin gakoen zeremonia hautaketa martxan jartzeko.'
           new_trustee:
             email_intro: 'Administratzaile batek gehitu zaitu bermatzaile gisa honetarako: %{resource_name}. Zure gako publikoa sortu behar duzu =<''%{trustee_zone_url}''>bermatzaileen zure gunean</a>'
             email_outro: Jakinarazpen hau jaso duzu bermatzaile gisa gehitu zaituztelako %{resource_name} aukerarako.
             email_subject: '%{resource_name} ren bermatzailea zara.'
-            notification_title: <a href="%{participatory_space_url}">%{resource_name}</a> ren bermatzailea zara.
+            notification_title: "Gehitu zaituzte plataforma honetan egingo diren hauteskunde batzuetan %{baliabide_name} ko bermatzaile gisa jarduteko.\nLan batzuk egiteko eskatuko zaizu. Oraingoz, mesedez, sortu zure identifikazio-gakoak <a href='%{trustee_zone_url}'></a>."
+          start_tally:
+            email_intro: '%{resource_title} aukeraketarako bozketaldia amaitu egin da. Orain, mesedez, zenbatu aukeraketak behin betiko emaitzak argitaratzeko.'
+            email_outro: Jakinarazpen hau jaso duzu %{resource_title} aukeran bermatzailea zarelako.
+            email_subject: '%{resource_title} aukeraketarako zenbaketa-prozesua hasi egin da.'
+            notification_title: '%{resource_title} aukeraketarako bozketaldia amaitu egin da. Orain, mesedez, zenbatu aukeraketak behin betiko emaitzak argitaratzeko.'
         votes:
           accepted_votes:
             email_intro: 'Zure botoa onartu egin da! Zure botoaren tokena erabiliz: %{encrypted_vote_hash}, zure botoa egiaztatu ahal duzu<a href="%{verify_url}">hemen</a>.'
@@ -1140,24 +1170,35 @@ eu:
         closures:
           back_to_polling_stations: Itzuli bozketa-guneetara
           certify:
-            add_images: Gehiru irudiak
+            add_photos: Erantsi argazkiak
+            edit_photos: Editatu argazkiak
             error: Arazo bat izan da ziurtagiria eranstean, mesedez, saiatu berriro.
-            form_legend: Igo bozketa-itxieraren ziurtagiriaren argazki bat
             heading: Botoen zenbaketa - Igo ziurtagiria
             info_text: Mesedez, igo bozketa-itxieraren ziurtagiriaren argazki bat.
             submit: Igo ziurtagiria
             success: Ziurtagiria zuzen igo da.
+            upload_photos: Igo Hauteskundearen Itxieraren Egiaztagiriaren agazkia
+          completed:
+            sub_heading: Zenbaketa hau egiaztatu egin da eta ezin da editatu.
           create:
             error: Arazo bat izan da itxiera sortzean, mesedez, saiatu berriro geroago.
             success: Itxiera zuzen egin da.
+          destroy:
+            error: Errorea izan da itxiera ezabatzean.
+            success: Itxiera zuzen ezabatua.
           edit:
+            confirm_start_over: Hau egiten baduzu ezabatu egingo dira boto guztiak eta erantsitako oharrak. Ziur zaude ezabatu nahi dituzula?
             heading: Botoen zenbaketa - erantzunen zenbaketa
-            info_text: Mesedez, sartu erantzun kopurua galdera bakoitzerako.
+            info_text: Mesedez, ezarri galdera bakoitzerako erantzun kopurua. Kopuru hau bat etorri behar da aurreko urratsean ezarritako guztizko erantzun kopuruarekin. (%{total} erantzun guztira).
             modal_ballots_results_count_error:
+              blank: Espero zen boto zurien kopurua %{expected} da, baina erantzun zurien batuketa %{current} da.
               close_modal: Itxi
               info_text: Boto-paperen kopuru osoa ez dator bat gutun-azalen kopuru osoarekin. Mesedez, berrikusi boto-paper guztiak.
               title: Boto-paperen kopuru osoa ez dator bat
+              total: Espero zen guztizkoa %{expected} da, baina boto-paper baliodun, zuri eta baliogabeen batuketa %{current} da.
+              valid: Espero zen boto baliodunen guztizkoa %{expected} da, baina erantzun baliodunen batuketa %{current} da.
             save_recount: Gorde zenbaketa
+            start_over: Guztizkoan errorea badago, dena ezabatu eta berriro has zaitezke.
             total_ballots: Boto-paperak, guztira
             total_blank_ballots: Boto-paper zuriak, guztira
             total_null_ballots: Boto-paper okerrak, guztira
@@ -1180,8 +1221,9 @@ eu:
             submit: Egiaztatu guztizko zenbakia
             total_ballots_count: Boto-paper kopurua
           show:
+            edit_count_votes: Okerreko zenbakiak? Oraindik editatu ahal dituzu.
             heading: Botoen zenbaketa
-            info_text: Bozketa-guneko bozketaren itxiera.
+            sub_heading: Zenbaketa ixteko egiaztagiria igo behar da. Behin eginez gero, zenbaketa zigilatu eta ezin izango da berriro editatu.
           sign:
             cancel: Utzi
             check_box: Berrikusi dut eta bozketaren itxieraren ziurtagiri fisikoaren berdina da
@@ -1263,6 +1305,8 @@ eu:
           manager: Administratzailea
           president: Presidentea
           unassigned: Esleitu gabe
+      polling_station_closure_certificate:
+        current_certificate: 'Egungo egiaztagiria:'
       polling_station_closure_recount:
         nota_option: Zuriz / Aurreko bat ere ez
         polling_officer_notes: 'Mahaiko kudeatzailearen oharrak:'
