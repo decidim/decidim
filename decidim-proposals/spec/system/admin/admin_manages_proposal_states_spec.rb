@@ -40,7 +40,7 @@ describe "Admin manages proposals states" do
     end
 
     it "Validates the token presence" do
-      expect(Decidim::CustomProposalStates::ProposalState.count).to eq(5)
+      expect(Decidim::Proposals::ProposalState.count).to eq(5)
       within ".new_proposal_state" do
         fill_in_i18n(
           :proposal_state_title,
@@ -77,7 +77,7 @@ describe "Admin manages proposals states" do
 
       expect(page).to have_content("error in this field.")
 
-      expect(Decidim::CustomProposalStates::ProposalState.count).to eq(5)
+      expect(Decidim::Proposals::ProposalState.count).to eq(5)
     end
 
     it "creates a new proposal state" do
