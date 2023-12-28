@@ -4,6 +4,7 @@ module Decidim
   module Votings
     class ClosureCertifyForm < Decidim::Form
       include Decidim::AttachmentAttributes
+
       attribute :attachment, AttachmentForm
       attachments_attribute :photos
 
@@ -13,7 +14,11 @@ module Decidim
       private
 
       def closure_phase
-        errors.add(:base, :not_in_certificate_phase) unless context.closure.certificate_phase?
+        errors.add(:base, :not_in_certificate_phase) unless closure.certificate_phase?
+      end
+
+      def closure
+        context&.closure || self
       end
     end
   end

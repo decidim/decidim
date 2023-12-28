@@ -1044,8 +1044,6 @@ ro:
         metrics:
           headline: Indicatori
           link: Arată toate măsurătorile
-    participatory_space_private_users:
-      not_allowed: Nu aveţi permisiunea să vizualizaţi acest conţinut
     profile:
       deleted: Participant șters
     profiles:

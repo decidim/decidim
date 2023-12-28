@@ -17,6 +17,7 @@ module Decidim
 
         2.times do
           create_meeting!(component:, type: :online)
+          create_meeting!(component:, type: :online_live_event)
           create_meeting!(component:, type: :hybrid)
           meeting = create_meeting!(component:, type: :in_person)
 
@@ -58,6 +59,7 @@ module Decidim
       def meeting_params(component:, type:, author_type:)
         start_time = ::Faker::Date.between(from: 20.weeks.ago, to: 20.weeks.from_now)
         end_time = start_time + [rand(1..4).hours, rand(1..20).days].sample
+        registration_type = Decidim::Meetings::Meeting::REGISTRATION_TYPES.keys.sample
 
         params = {
           component:,
@@ -77,6 +79,7 @@ module Decidim
           registrations_enabled: [true, false].sample,
           available_slots: (10..50).step(10).to_a.sample,
           author: participatory_space.organization,
+          registration_type:,
           registration_terms: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.paragraph(sentence_count: 3)
           end,
@@ -86,22 +89,47 @@ module Decidim
         params = case type
                  when :hybrid
                    params.merge(
-                     title: Decidim::Faker::Localized.sentence(word_count: 2),
+                     end_time: Time.zone.now + [rand(1..4).hours, rand(1..20).days].sample,
                      type_of_meeting: :hybrid,
-                     online_meeting_url: "http://example.org"
+                     online_meeting_url: "https://www.youtube.com/watch?v=f6JMgJAQ2tc",
+                     iframe_access_level: :all,
+                     iframe_embed_type: [:embed_in_meeting_page, :open_in_live_event_page, :open_in_new_tab].sample
                    )
                  when :online
                    params.merge(
+                     end_time: Time.zone.now + [rand(1..4).hours, rand(1..20).days].sample,
                      location: nil,
                      location_hints: nil,
                      latitude: nil,
                      longitude: nil,
-                     title: Decidim::Faker::Localized.sentence(word_count: 2),
                      type_of_meeting: :online,
-                     online_meeting_url: "http://example.org"
+                     online_meeting_url: "https://www.youtube.com/watch?v=f6JMgJAQ2tc",
+                     iframe_access_level: :all,
+                     iframe_embed_type: [:embed_in_meeting_page, :open_in_live_event_page, :open_in_new_tab].sample
+                   )
+                 when :online_live_event
+                   params.merge(
+                     end_time: Time.zone.now + [rand(1..4).hours, rand(1..20).days].sample,
+                     location: nil,
+                     location_hints: nil,
+                     latitude: nil,
+                     longitude: nil,
+                     type_of_meeting: :online,
+                     online_meeting_url: "https://www.youtube.com/watch?v=f6JMgJAQ2tc",
+                     iframe_access_level: :all,
+                     iframe_embed_type: :open_in_live_event_page
                    )
                  else
                    params # :in_person
+                 end
+
+        params = case registration_type
+                 when :on_different_platform
+                   params.merge(registration_url: Faker::Internet.url)
+                 when :on_this_platform
+                   params.merge(registrations_enabled: true)
+                 else
+                   params # registration_disabled
                  end
 
         case author_type
@@ -125,7 +153,7 @@ module Decidim
       # Create a meeting
       #
       # @param component [Decidim::Component] The component where this class will be created
-      # @param type [:in_person, :hybrid, :online] The meeting type
+      # @param type [:in_person, :hybrid, :online, :online_live_event] The meeting type
       # @param author_type [:official, :user, :user_group] Which type the author of the meeting will be
       #
       # @return [Decidim::Meeting]
@@ -164,19 +192,7 @@ module Decidim
       def create_meeting_registration!(meeting:)
         r = SecureRandom.hex(4)
         email = "meeting-registered-user-#{meeting.id}-#{r}@example.org"
-        name = "#{::Faker::Name.name} #{meeting.id} #{r}"
-        user = Decidim::User.find_or_initialize_by(email:)
-
-        user.update!(
-          password: "decidim123456789",
-          name:,
-          nickname: ::Faker::Twitter.unique.screen_name,
-          organization:,
-          tos_agreement: "1",
-          confirmed_at: Time.current,
-          personal_url: ::Faker::Internet.url,
-          about: ::Faker::Lorem.paragraph(sentence_count: 2)
-        )
+        user = find_or_initialize_user_by(email:)
 
         Decidim::Meetings::Registration.create!(
           meeting:,

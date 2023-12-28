@@ -8,6 +8,7 @@ module Decidim
       class ConferenceInvitesController < Decidim::Conferences::Admin::ApplicationController
         include Concerns::ConferenceAdmin
         include Decidim::Paginable
+        include Decidim::Conferences::Admin::ConferencesInvites::Filterable
 
         helper_method :conference
 
@@ -16,9 +17,7 @@ module Decidim
         def index
           enforce_permission_to(:read_invites, :conference, conference: current_participatory_space)
 
-          @query = params[:q]
-          @status = params[:status]
-          @conference_invites = Decidim::Admin::Invites.for(current_participatory_space.conference_invites, @query, @status).page(params[:page]).per(15)
+          @conference_invites = filtered_collection
         end
 
         def new
@@ -43,6 +42,12 @@ module Decidim
               render :new
             end
           end
+        end
+
+        private
+
+        def collection
+          current_conference.conference_invites
         end
       end
     end

@@ -90,6 +90,11 @@ es-MX:
   decidim:
     admin:
       filters:
+        accepted_at_not_null:
+          label: Aceptada
+          values:
+            'false': No aceptada
+            'true': Aceptada
         meetings:
           category_id_eq:
             label: Categoría
@@ -117,6 +122,18 @@ es-MX:
               hybrid: Híbrido
               in_person: Presencial
               online: Online
+        rejected_at_not_null:
+          label: Rechazada
+          values:
+            'false': No rechazada
+            'true': Rechazada
+        search_placeholder:
+          user_name_or_user_email_cont: Buscar por nombre o correo electrónico
+        sent_at_not_null:
+          label: Enviada
+          values:
+            'false': No enviada
+            'true': Enviada
       meeting_copies:
         create:
           error: Se ha producido un error al duplicar este encuentro.
@@ -281,15 +298,9 @@ es-MX:
             non_user: Usuario no existente
             select_user: Seleccionar usuario
           index:
-            filter:
-              accepted: Aceptado
-              all: Todas
-              rejected: Rechazadas
-              sent: Expedidas
             invite_attendee: Invitar a un asistente
             invites: Invitaciones
             registrations_disabled: No puedes invitar a nadie porque las inscripciones están deshabilitadas.
-            search: Buscar
         meeting_closes:
           edit:
             close: Cerrar

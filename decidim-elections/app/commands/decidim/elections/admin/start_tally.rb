@@ -21,6 +21,7 @@ module Decidim
           transaction do
             log_action
             start_tally
+            notify_trustee_about_tally
           end
 
           broadcast(:ok)
@@ -56,6 +57,18 @@ module Decidim
             message_id:,
             status: :pending
           )
+        end
+
+        def notify_trustee_about_tally
+          trustees = election.trustees.collect(&:user)
+          data = {
+            event: "decidim.events.elections.trustees.start_tally",
+            event_class: Decidim::Elections::Trustees::NotifyTrusteeTallyProcessEvent,
+            resource: election,
+            affected_users: trustees
+          }
+
+          Decidim::EventsManager.publish(**data)
         end
       end
     end

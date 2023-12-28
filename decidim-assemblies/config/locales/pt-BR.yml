@@ -73,6 +73,12 @@ pt-BR:
         email: E-mail
         name: Nome
         role: Cargo
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              allowed_file_content_types: 'Tipo de documento inválido. Apenas arquivos com as seguintes extensões são permitidos: %{types}.'
   activerecord:
     models:
       decidim/assembly:
@@ -231,6 +237,9 @@ pt-BR:
     admin_log:
       assembly:
         create: "%{user_name} criou o conjunto %{resource_name}"
+        duplicate: "%{user_name} duplicou a assambleia %{resource_name}"
+        export: "%{user_name} exportou a assambleia %{resource_name}"
+        import: "%{user_name} importou a assambleia %{resource_name}"
         publish: "%{user_name} publicou o conjunto %{resource_name}"
         unpublish: "%{user_name} não publicado o conjunto %{resource_name}"
         update: "%{user_name} atualizou a montagem %{resource_name}"

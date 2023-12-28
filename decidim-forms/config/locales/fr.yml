@@ -161,6 +161,7 @@ fr:
             sign_up_description: Créez votre compte utilisateur pour répondre à l'enquête
             title: Répondez au questionnaire
           current_step: Étape %{step}
+          empty: Aucune question configurée pour ce formulaire pour le moment.
           of_total_steps: de %{total_steps}
           questionnaire_answered:
             body: Vous avez déjà répondu à ce questionnaire.

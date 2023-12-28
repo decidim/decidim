@@ -5,7 +5,7 @@
   <td>
     <%= project.id %><br>
   </td>
-  <td>
+  <td class="!text-left">
     <% if allowed_to? :update, :project, project: project %>
       <%= link_to translated_attribute(project.title), resource_locator([budget, project]).edit %><br>
     <% else %>

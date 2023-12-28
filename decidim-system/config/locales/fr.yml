@@ -138,6 +138,22 @@ fr:
           show: Afficher les paramètres avancés
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle organisation.
+          success_html: |
+            <p>
+              Organisation créée avec succès. 
+            </p>
+            <ol>
+              <li>Vous devrez peut-être mettre à jour le code de votre application pour autoriser les requêtes à %{host}, vous devez ajouter ce qui suit à la configuration de votre environnement
+              (ex: <code>config/environment/production.rb</code>) ou votre <code>config/application.rb</code>:
+                <p> config.hosts << "%{host}" </p>
+              </li>
+              <li>
+            Une fois cela fait, vous pourrez accéder à votre plateforme via <a href="http://%{host}">http://%{host}</a>
+              </li>
+              <li>
+                Nous vous avons envoyé un e-mail à <b>%{email}</b> que vous devez confirmer.
+              </li>
+            </ol>
         csp_settings:
           connect_src: Connecter src
           connect_src_hint: |

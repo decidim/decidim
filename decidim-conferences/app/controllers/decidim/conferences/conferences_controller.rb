@@ -12,8 +12,6 @@ module Decidim
       include ParticipatorySpaceContext
       include Paginable
 
-      participatory_space_layout only: :show
-
       helper Decidim::AttachmentsHelper
       helper Decidim::IconHelper
       helper Decidim::SanitizeHelper
@@ -29,7 +27,7 @@ module Decidim
       end
 
       def show
-        check_current_user_can_visit_space
+        enforce_permission_to :read, :conference, conference: current_participatory_space
       end
 
       def user_diploma

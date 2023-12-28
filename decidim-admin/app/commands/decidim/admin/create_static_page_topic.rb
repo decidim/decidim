@@ -3,34 +3,12 @@
 module Decidim
   module Admin
     # A command with all the business logic when creating a static page topic.
-    class CreateStaticPageTopic < Decidim::Command
-      # Public: Initializes the command.
-      #
-      # form - A form object with the params.
-      def initialize(form)
-        @form = form
-      end
+    class CreateStaticPageTopic < Decidim::Commands::CreateResource
+      fetch_form_attributes :title, :description, :show_in_footer, :weight, :organization
 
-      # Executes the command. Broadcasts these events:
-      #
-      # - :ok when everything is valid.
-      # - :invalid if the form was not valid and we could not proceed.
-      #
-      # Returns nothing.
-      def call
-        return broadcast(:invalid) if @form.invalid?
+      protected
 
-        @topic = Decidim.traceability.create!(
-          StaticPageTopic,
-          @form.current_user,
-          title: @form.title,
-          description: @form.description,
-          organization: @form.current_organization,
-          show_in_footer: @form.show_in_footer,
-          weight: @form.weight
-        )
-        broadcast(:ok)
-      end
+      def resource_class = Decidim::StaticPageTopic
     end
   end
 end

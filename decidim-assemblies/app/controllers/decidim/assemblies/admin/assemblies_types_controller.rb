@@ -63,7 +63,7 @@ module Decidim
           @form = assembly_type_form
                   .from_params(params, assembly_type: current_assembly_type)
 
-          UpdateAssembliesType.call(current_assembly_type, @form) do
+          UpdateAssembliesType.call(@form, current_assembly_type) do
             on(:ok) do
               flash[:notice] = I18n.t("assemblies_types.update.success", scope: "decidim.admin")
               redirect_to assemblies_types_path
@@ -80,7 +80,7 @@ module Decidim
         def destroy
           enforce_permission_to :destroy, :assembly_type, assembly_type: current_assembly_type
 
-          DestroyAssembliesType.call(current_assembly_type, current_user) do
+          Decidim::Commands::DestroyResource.call(current_assembly_type, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("assemblies_types.destroy.success", scope: "decidim.admin")
               redirect_to assemblies_types_path

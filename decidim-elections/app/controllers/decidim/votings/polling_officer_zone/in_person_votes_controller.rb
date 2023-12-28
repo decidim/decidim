@@ -16,13 +16,13 @@ module Decidim
         helper Decidim::Admin::IconLinkHelper
 
         def new
-          enforce_permission_to(:manage, :in_person_vote, polling_officer:)
+          enforce_permission_to(:create, :in_person_vote, polling_officer:, closure:)
 
           has_pending_in_person_vote?
         end
 
         def create
-          enforce_permission_to(:manage, :in_person_vote, polling_officer:)
+          enforce_permission_to(:create, :in_person_vote, polling_officer:, closure:)
 
           return if has_pending_in_person_vote?
 
@@ -34,11 +34,11 @@ module Decidim
         end
 
         def show
-          enforce_permission_to :manage, :in_person_vote, polling_officer:
+          enforce_permission_to :manage, :in_person_vote, polling_officer:, closure:
         end
 
         def update
-          enforce_permission_to(:manage, :in_person_vote, polling_officer:)
+          enforce_permission_to(:manage, :in_person_vote, polling_officer:, closure:)
 
           Decidim::Votings::Voter::UpdateInPersonVoteStatus.call(in_person_vote) do
             on(:ok) do
@@ -148,6 +148,10 @@ module Decidim
 
         def pending_in_person_vote
           @pending_in_person_vote ||= Decidim::Votings::Votes::PendingInPersonVotes.for.find_by(polling_officer:, election:)
+        end
+
+        def closure
+          @closure ||= polling_station.closures.find_by(election:)
         end
 
         def exit_path
