@@ -10,6 +10,7 @@ module Decidim
 
         def index
           enforce_permission_to :index, :impersonatable_user
+
           @impersonation_logs = Decidim::ImpersonationLog.where(user:).order(started_at: :desc).page(params[:page]).per(15)
         end
 

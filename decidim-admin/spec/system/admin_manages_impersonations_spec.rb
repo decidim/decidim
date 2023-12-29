@@ -23,7 +23,7 @@ describe "Admin manages impersonations" do
     end
 
     context "when accessing impersonation logs" do
-      it "restrict accsss on logs page" do
+      it "restrict access on logs page" do
         impersonatable_user.reload
 
         visit decidim_admin.impersonatable_user_impersonation_logs_path(impersonatable_user_id:)
@@ -31,7 +31,7 @@ describe "Admin manages impersonations" do
         expect(page).to have_content("You are not authorized to perform this action.")
       end
 
-      it "restrict accsss on conflicts page" do
+      it "restrict access on conflicts page" do
         visit decidim_admin.conflicts_path
 
         expect(page).to have_content("You are not authorized to perform this action.")
