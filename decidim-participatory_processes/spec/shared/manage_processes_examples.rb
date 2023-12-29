@@ -8,12 +8,11 @@ shared_examples "manage processes examples" do
     let(:model_name) { participatory_process.class.model_name }
     let(:resource_controller) { Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessesController }
 
+    include_context "with filterable context"
+
     def filter_by_group(group_title)
       visit current_path
-      within("[data-group-filter]") do
-        click_button("Filter processes in groups")
-        click_link(group_title)
-      end
+      apply_filter("By process group", group_title)
     end
 
     it "allows the user to filter processes by process_group" do
@@ -30,12 +29,6 @@ shared_examples "manage processes examples" do
 
     context "when processes are filtered by process_group" do
       before { filter_by_group(translated(process_group.title)) }
-
-      it "allows the user to edit the process_group" do
-        click_link translated(process_group.title)
-
-        expect(page).to have_content("Edit process group")
-      end
 
       describe "listing processes filtered by group" do
         it_behaves_like "filtering collection by published/unpublished" do

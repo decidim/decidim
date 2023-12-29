@@ -274,15 +274,9 @@ el:
             non_user: Ο συμμετέχων δεν υπάρχει
             select_user: Επιλέξτε συμμετέχοντα
           index:
-            filter:
-              accepted: Έγινε αποδοχή
-              all: Όλα
-              rejected: Απορρίφθηκε
-              sent: Στάλθηκε
             invite_attendee: Πρόσκληση συμμετέχοντα
             invites: Προσκλήσεις
             registrations_disabled: Δεν μπορείτε να προσκαλέσετε έναν συμμετέχοντα επειδή οι εγγραφές είναι απενεργοποιημένες.
-            search: Αναζήτηση
         meeting_closes:
           edit:
             close: Κλείσιμο

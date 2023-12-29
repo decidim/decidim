@@ -72,8 +72,8 @@ eu:
         one: Parte-hartzailea
         other: Erabiltzaileak
       decidim/user_group:
-        one: Erabiltzaile-taldea
-        other: Erabiltzaile taldeak
+        one: Taldea
+        other: Taldeak
   booleans:
     'false': 'Ez'
     'true': 'Bai'
@@ -956,8 +956,8 @@ eu:
         success: Lotzeko eskaera zuzen onartua.
       actions:
         are_you_sure: Ziur zaude?
-        promote_to_admin: Egin admin
-        remove_from_group: Kendu erabiltzailea
+        promote_to_admin: Egin administratzailea
+        remove_from_group: Kendu parte-hartzailea
       index:
         current_members_without_admins: 'Uneko kideak (administratzaile gabe):'
         manage_members: Kudeatu kideak
@@ -1293,8 +1293,8 @@ eu:
         topics: Gaiak
       participatory_space:
         metrics:
-          headline: Zifretan parte hartzea
-          link: Erakutsi estatistiken guztiak
+          headline: Metrikak
+          link: Erakutsi guztia
       terms_of_service:
         accept:
           error: Arazo bat egon da zerbitzuaren baldintzak onartzean.
@@ -1312,8 +1312,6 @@ eu:
           alert: "Gure zerbitzu baldintzak eguneratu ditugu., berrikusi, mesedez.\n"
           body: Mesedez, hartu tarte bat erabilerarako gure baldintzak eta irizpideak berrikusteko. Bestela, ezin izango duzu plataforman parte hartu.
           title: 'Eskatuta: berrikusi eguneraketak gure zerbitzuaren baldintzetan'
-    participatory_space_private_users:
-      not_allowed: Ez duzu baimenik eduki hau ikusteko
     passwords:
       update:
         error: Arazo bat egon da pasahitza eguneratzean.
@@ -1476,7 +1474,7 @@ eu:
           area: Arloa
           areas: Arloak
           scope: Esparrua
-          select_an_area: Hautatu eremu bat
+          select_an_area: Hautatu arlo bat
       progress: Aurrerapena 
       public_participation:
         public_participation: Erakutsi nire asistentzia publikoki
@@ -1897,7 +1895,7 @@ eu:
         decidim_logo: Decidim-en logoa
         decidim_title: Decidim
         download_open_data: Deskargatu Open Data fitxategiak
-        log_in:
+        log_in: Sartu
         made_with_open_source: Gune hau egiteko, <a target="_blank" href="https://github.com/decidim/decidim">software libre</a> erabili da.
         resources: Baliabideak
         sign_up: Eman izena

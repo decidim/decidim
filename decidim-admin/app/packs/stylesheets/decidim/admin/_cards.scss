@@ -140,6 +140,10 @@
       @apply cursor-move py-2;
     }
 
+    svg {
+      @apply inline-block fill-secondary;
+    }
+
     .draggable-content {
       @apply flex justify-between items-center font-semibold py-2 px-4 rounded bg-gray-3;
     }

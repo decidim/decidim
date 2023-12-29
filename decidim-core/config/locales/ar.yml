@@ -1118,8 +1118,6 @@ ar:
         metrics:
           headline: المشاركة في الأرقام
           link: عرض جميع الإحصاءات
-    participatory_space_private_users:
-      not_allowed: غير مسموح لك بمشاهدة هذا المحتوى
     profile:
       deleted: مشارك محذوف
     profiles:

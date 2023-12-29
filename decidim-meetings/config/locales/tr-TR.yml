@@ -198,14 +198,8 @@ tr:
             non_user: Mevcut olmayan katılımcı
             select_user: Katılımcı seç
           index:
-            filter:
-              accepted: Kabul edilmiş
-              all: Tümü
-              rejected: Reddedildi
-              sent: Gönderildi
             invite_attendee: Katılımcı davet et
             invites: Davetler
-            search: Arama
         meeting_closes:
           edit:
             close: Kapat

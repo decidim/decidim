@@ -360,7 +360,6 @@ it:
           name_or_nickname_or_email_cont: Cerca %{collection} per email, nome o pseudonimo.
           reported_id_string_or_reported_content_cont: Cerca %{collection} per id o contenuto segnalabile.
           title_cont: Cerca %{collection} per titolo.
-          user_name_or_user_email_cont: Cerca %{collection} per nome o email.
         state_eq:
           label: Stato
           values:
