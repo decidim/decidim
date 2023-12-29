@@ -7,7 +7,7 @@ module Decidim
       include Decidim::TranslationsHelper
       include Decidim::TwitterSearchHelper
 
-      delegate :title, :subtitle, :hashtag, to: :resource
+      delegate :title, :subtitle, :hashtag, :attached_uploader, to: :resource
 
       def cta_text
         return unless model
@@ -29,8 +29,12 @@ module Decidim
         translated_attribute(subtitle)
       end
 
+      # If it is called from the landing page content block, use the background image defined there
+      # Else, use the banner image defined in the space (for assemblies)
       def image_path
-        model.images_container.attached_uploader(:background_image).path
+        return model.images_container.attached_uploader(:background_image).path if model.respond_to?(:images_container)
+
+        attached_uploader(:banner_image).path
       end
 
       def has_hashtag?
