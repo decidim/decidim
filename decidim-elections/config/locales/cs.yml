@@ -1205,6 +1205,7 @@ cs:
               close_modal: Zavřít
               info_text: Celkový počet hlasovacích lístků neodpovídá celkovému počtu obálek. Zkontrolujte prosím celkový počet hlasovacích lístků.
               title: Součet hlasovacích lístků se nesčítá
+              valid: Očekávaný součet platných hlasů je %{expected}, ale součet platných otázek je %{current}.
             save_recount: Uložit přepočet
             start_over: Pokud je chyba v celkovém počtu, můžete vše smazat a začít znovu.
             total_ballots: Celkový počet hlasovacích lístků
