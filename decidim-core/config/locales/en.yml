@@ -1817,7 +1817,7 @@ en:
     pick: Pick an emoji…
     search: Search
     search_no_results_1: Oh no!
-    search_no_results_2: That emoji couldn’t be found
+    search_no_results_2: That emoji could not be found
     skins:
       '1': Default
       '2': Light
