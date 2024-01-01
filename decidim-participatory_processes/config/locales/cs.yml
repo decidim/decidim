@@ -116,6 +116,9 @@ cs:
         resend_invitation: Znovu poslat pozvánku
         see_process: Zobrazit proces
         unpublish: Zrušit publikování
+      filters:
+        decidim_participatory_process_group_id_eq:
+          label: Podle skupiny procesů
       menu:
         participatory_process_groups: Skupiny procesů
         participatory_process_groups_submenu:
