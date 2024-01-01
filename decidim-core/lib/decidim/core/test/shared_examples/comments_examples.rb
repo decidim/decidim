@@ -149,12 +149,18 @@ shared_examples "comments" do
             find(".emoji__trigger .emoji__button").click
           end
 
-          within ".picmo__popupContainer .picmo__picker .picmo__content" do
+          within ".emoji__decidim" do
             expect(page).to have_content(phrase)
-            categories = page.all(".picmo__emojiCategory")
-            within categories[1] do
-              click_button "😀"
-            end
+            # Since emoji Mart is a React component, we need to use JS to click on an emoji icon
+            # as the emoji picker is a shadow DOM element.
+            # The Below script is trying to find the first emoji in the "Smileys & People" category and simulate
+            # a click from the user on it.
+            script = <<~JS
+              var emoji_picker = document.getElementsByTagName("em-emoji-picker")[0];
+              var category = emoji_picker.shadowRoot.querySelectorAll("div.category")[1]
+              category.querySelectorAll("button")[0].click();
+            JS
+            execute_script(script)
           end
 
           within ".add-comment form" do
@@ -165,14 +171,14 @@ shared_examples "comments" do
 
       context "when the locale is supported" do
         let(:locale) { "English" }
-        let(:phrase) { "SMILEYS & EMOTION" }
+        let(:phrase) { I18n.t("emojis.categories.people") }
 
         it_behaves_like "allowing to select emojis"
       end
 
       context "when the locale is not supported" do
         let(:locale) { "Català" }
-        let(:phrase) { "SOMRIURES I EMOCIONS" }
+        let(:phrase) { I18n.with_locale(:ca) { I18n.t("emojis.categories.people") } }
 
         it_behaves_like "allowing to select emojis"
       end
@@ -425,11 +431,11 @@ shared_examples "comments" do
               field.native.send_keys "toto"
             end
 
-            expect(page).not_to have_selector(".picmo__picker.picmo__picker")
+            expect(page).not_to have_selector(".emoji__decidim")
             within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
               find(".emoji__button").click
             end
-            expect(page).to have_selector(".picmo__picker.picmo__picker")
+            expect(page).to have_selector(".emoji__decidim")
           end
         end
 

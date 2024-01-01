@@ -1,15 +1,41 @@
 import data from "@emoji-mart/data"
+import i18nEn from "@emoji-mart/data/i18n/en.json"
 import { Picker } from "emoji-mart"
 
 import * as i18n from "src/decidim/i18n";
 
 class EmojiI18n {
+  static isObject(item) {
+    return (item && typeof item === "object" && !Array.isArray(item));
+  }
+  static deepMerge(target, ...sources) {
+    if (!sources.length) {
+      return target;
+    }
+    const source = sources.shift();
+
+    if (this.isObject(target) && this.isObject(source)) {
+      for (const key in source) {
+        if (this.isObject(source[key])) {
+          if (!target[key]) {
+            Object.assign(target, { [key]: {} });
+          }
+          this.deepMerge(target[key], source[key]);
+        } else {
+          Object.assign(target, { [key]: source[key] });
+        }
+      }
+    }
+
+    return this.deepMerge(target, ...sources);
+  }
+
   static locale() {
     return document.documentElement.getAttribute("lang");
   }
 
   static i18n() {
-    return i18n.getMessages("emojis") || null;
+    return this.deepMerge(i18nEn, i18n.getMessages("emojis"));
   }
 }
 class EmojiPopUp {
