@@ -1276,10 +1276,10 @@ describe "Editor" do
         # The Below script is trying to find the first emoji in the "Smileys & People" category and simulate
         # a click from the user on it.
         script = <<~JS
-              var emoji_picker = document.getElementsByTagName("em-emoji-picker")[0];
-              var category = emoji_picker.shadowRoot.querySelectorAll("div.category")[1]
-              category.querySelectorAll("button")[0].click();
-            JS
+          var emoji_picker = document.getElementsByTagName("em-emoji-picker")[0];
+          var category = emoji_picker.shadowRoot.querySelectorAll("div.category")[1]
+          category.querySelectorAll("button")[0].click();
+        JS
         execute_script(script)
       end
 
