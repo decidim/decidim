@@ -40,19 +40,6 @@ const defaultEditorConfig = {
   uploadDialogSelector: "#upload_dialog"
 };
 
-// Mock picmo as it is distributed as an ES6 module that is not fully compatible
-// with Jest without configuration changes.
-jest.mock("@picmo/popup-picker",
-  () => ({
-    createPopup: () => {
-      return {
-        addEventListener: () => {},
-        closeButton: {}
-      }
-    }
-  })
-);
-
 // Mock the SVG icons import because jest tests are not running through webpack
 jest.mock("images/decidim/remixicon.symbol.svg", () => "test/url.svg");
 
