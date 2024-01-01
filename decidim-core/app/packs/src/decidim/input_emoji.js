@@ -17,6 +17,7 @@ class EmojiPopUp {
   constructor(pickerOptions) {
     this.popUp = this.createContainer();
     this.popUp.appendChild(this.createCloseButton());
+    this.popUp.appendChild(this.addStyles());
 
     let container = document.createElement("div");
 
@@ -25,6 +26,9 @@ class EmojiPopUp {
       i18n: EmojiI18n.i18n(),
       locale: EmojiI18n.locale(),
       data: data,
+      perLine: 8,
+      emojiButtonSize: 41,
+      emojiSize: 30,
       theme: "light",
       ...pickerOptions
     });
@@ -43,6 +47,27 @@ class EmojiPopUp {
       this.close();
     });
     return closeButton;
+  }
+
+  addStyles() {
+    let style = document.createElement("style");
+    style.innerHTML = `
+    em-emoji-picker {
+    --color-border: rgb(204, 204, 204);
+    --rgb-background: 249, 250, 251;
+    --rgb-color: 0,0,0;
+    --rgb-accent: var(--primary-rgb);
+    --shadow: 5px 5px 15px -8px rgba(0,0,0,0.75);
+    --color-border-over: rgba(0, 0, 0, 0.1);
+    --rgb-input: 235, 235, 235;
+    --background-rgb: var(--primary-rgb);
+    --category-icon-size: 24px;
+
+    border: 1px solid var(--color-border);
+  }
+  `;
+
+    return style;
   }
 
   createContainer() {
