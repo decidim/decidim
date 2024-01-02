@@ -32,11 +32,11 @@ export default function generateTimePicker(input, row, formats) {
 
   const hourUp = document.createElement("button");
   hourUp.setAttribute("class", "hourup");
-  hourUp.innerHTML = icon("arrow-drop-up-line", {class: "w-5 h-5"});
+  hourUp.innerHTML = icon("arrow-drop-up-line", {class: "w-10 h-6 pr-1"});
 
   const hourDown = document.createElement("button");
   hourDown.setAttribute("class", "hourdown");
-  hourDown.innerHTML = icon("arrow-drop-down-line", {class: "w-5 h-5"});
+  hourDown.innerHTML = icon("arrow-drop-down-line", {class: "w-10 h-6 pr-1"});
 
   hourColumn.appendChild(hours);
   hourColumn.appendChild(hourUp);
@@ -51,11 +51,11 @@ export default function generateTimePicker(input, row, formats) {
 
   const minuteUp = document.createElement("button");
   minuteUp.setAttribute("class", "minuteup");
-  minuteUp.innerHTML = icon("arrow-drop-up-line", {class: "w-5 h-5"});
+  minuteUp.innerHTML = icon("arrow-drop-up-line", {class: "w-10 h-6 pr-1"});
 
   const minuteDown = document.createElement("button");
   minuteDown.setAttribute("class", "minutedown");
-  minuteDown.innerHTML = icon("arrow-drop-down-line", {class: "w-5 h-5"});
+  minuteDown.innerHTML = icon("arrow-drop-down-line", {class: "w-10 h-6 pr-1"});
 
   minuteColumn.appendChild(minutes);
   minuteColumn.appendChild(minuteUp);

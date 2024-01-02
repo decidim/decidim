@@ -44,7 +44,7 @@
 }
 
 .time_row {
-  @apply flex top-4 absolute w-full;
+  @apply flex top-6 absolute w-full;
 }
 
 .date_column,
@@ -58,7 +58,7 @@
 
 .hour_column,
 .minute_column {
-  @apply border border-solid border-gray flex-1 h-12 relative my-2 mx-1;
+  @apply flex-1 h-20 relative my-2 mx-1 mx-10 rounded border border-solid border-gray ;
 }
 
 .period_column {
@@ -74,7 +74,7 @@
 }
 
 .time_frame {
-  @apply w-60 max-w-lg h-28 bg-white absolute border border-solid border-gray z-20;
+  @apply w-60 max-w-lg h-40 bg-white absolute border border-solid border-[#f2f3f5] z-20;
 }
 
 .timepicker {
@@ -85,7 +85,7 @@
 
 .hourpicker,
 .minutepicker {
-  @apply w-1/2 left-4 h-full text-center text-xl font-bold absolute;
+  @apply w-1/2 left-2.5 h-8 text-center text-sm font-bold absolute top-6;
 
   &:hover {
     @apply cursor-default;
@@ -121,7 +121,7 @@
 }
 
 .hourup {
-  @apply border border-solid border-gray absolute right-0 h-6;
+  @apply absolute w-full h-6;
 
   &:hover {
     @apply bg-gray;
@@ -129,7 +129,7 @@
 }
 
 .hourdown {
-  @apply border border-solid border-gray absolute right-0 bottom-0 h-6;
+  @apply absolute w-full h-6 bottom-0;
 
   &:hover {
     @apply bg-gray;
@@ -137,7 +137,7 @@
 }
 
 .minuteup {
-  @apply border border-solid border-gray absolute right-0 h-6;
+  @apply absolute w-full h-6;
 
   &:hover {
     @apply bg-gray;
@@ -145,7 +145,7 @@
 }
 
 .minutedown {
-  @apply border border-solid border-gray absolute right-0 bottom-0 h-6;
+  @apply absolute w-full h-6 bottom-0;
 
   &:hover {
     @apply bg-gray;
@@ -161,15 +161,15 @@
 }
 
 .label_row {
-  @apply absolute flex top-1 w-full;
+  @apply absolute flex top-1 mb-1 w-full;
 }
 
 .hour_label_container {
-  @apply flex-1 relative pl-2;
+  @apply flex-1 relative text-center;
 }
 
 .minute_label_container {
-  @apply flex-1 relative pl-1.5;
+  @apply flex-1 relative text-center;
 }
 
 .help_text_container {
