@@ -94,6 +94,9 @@ en:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Format: dd.mm.yy'
+    buttons:
+      select: Select
+      close: Close
   datetime:
     distance_in_words:
       about_x_hours:
@@ -2048,6 +2051,10 @@ en:
       long_with_particles: "%B %d, %Y at %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
+    buttons:
+      select: Select
+      close: Close
+      reset: Reset
   versions:
     directions:
       left: Deletions

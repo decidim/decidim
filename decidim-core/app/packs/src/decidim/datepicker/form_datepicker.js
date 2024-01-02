@@ -1,9 +1,9 @@
 /* eslint-disable require-jsdoc */
 import { WcDatepicker } from "wc-datepicker/dist/components/wc-datepicker";
-import generateDatePicker from "./generate_datepicker";
-import generateTimePicker from "./generate_timepicker";
-import { formatInputDate, formatInputTime } from "./datepicker_functions";
-import { getDictionary } from "../i18n";
+import generateDatePicker from "src/decidim/datepicker/generate_datepicker";
+import generateTimePicker from "src/decidim/datepicker/generate_timepicker";
+import { formatInputDate, formatInputTime } from "src/decidim/datepicker/datepicker_functions";
+import { getDictionary } from "src/decidim/i18n";
 
 export default function formDatePicker() {
   const inputs = document.querySelectorAll('input[type="datetime-local"], input[type="date"]');

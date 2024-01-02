@@ -1,9 +1,12 @@
 /* eslint-disable require-jsdoc */
 import icon from "src/decidim/icon"
-import { changeHourDisplay, changeMinuteDisplay, formatDate, hourDisplay, minuteDisplay, formatTime, setHour, setMinute } from "./datepicker_functions"
-import { timeKeyDownListener, timeBeforeInputListener } from "./datepicker_listeners";
+import { changeHourDisplay, changeMinuteDisplay, formatDate, hourDisplay, minuteDisplay, formatTime, setHour, setMinute, updateTimeValue, updateInputValue } from "src/decidim/datepicker/datepicker_functions"
+import { timeKeyDownListener, timeBeforeInputListener } from "src/decidim/datepicker/datepicker_listeners";
+import { getDictionary } from "src/decidim/i18n";
 
 export default function generateTimePicker(input, row, formats) {
+  const i10n = getDictionary("time.buttons");
+
   const timeColumn = document.createElement("div");
   timeColumn.setAttribute("class", "time_column");
 
@@ -135,15 +138,20 @@ export default function generateTimePicker(input, row, formats) {
   timePicker.appendChild(labels);
 
   const closeClock = document.createElement("button");
-  closeClock.innerText = "Done";
+  closeClock.innerText = i10n.close;
   closeClock.setAttribute("class", "close_clock");
 
   const resetClock = document.createElement("button");
-  resetClock.innerText = "Reset";
+  resetClock.innerText = i10n.reset;
   resetClock.setAttribute("class", "button button__sm button__text-secondary reset_clock");
+
+  const selectClock = document.createElement("button");
+  selectClock.innerText = i10n.select;
+  selectClock.setAttribute("class", "select_clock");
 
   timePicker.appendChild(closeClock);
   timePicker.appendChild(resetClock);
+  timePicker.appendChild(selectClock);
 
   time.after(timePicker);
 
@@ -234,10 +242,18 @@ export default function generateTimePicker(input, row, formats) {
     hours.value = hourDisplay(hour);
     minutes.value = minuteDisplay(minute);
     time.value = "";
+    timePicker.style.display = "none";
   });
 
   closeClock.addEventListener("click", (event) => {
     event.preventDefault();
+    timePicker.style.display = "none";
+  });
+
+  selectClock.addEventListener("click", (event) => {
+    event.preventDefault();
+    updateTimeValue(time, hour, minute);
+    updateInputValue(input, formats, time);
     timePicker.style.display = "none";
   });
 
@@ -247,38 +263,29 @@ export default function generateTimePicker(input, row, formats) {
     document.addEventListener("click", timePickerDisplay);
     hours.value = hourDisplay(hour);
     minutes.value = minuteDisplay(minute);
-    time.value = `${hourDisplay(hour)}:${minuteDisplay(minute)}`;
   });
 
   hourUp.addEventListener("click", (event) => {
     event.preventDefault();
     hour = changeHourDisplay("increase", hour, formats.time);
     hours.value = hourDisplay(hour);
-    time.value = `${hourDisplay(hour)}:${minuteDisplay(minute)}`;
-    input.value = `${formatDate(document.querySelector(`#${input.id}_date`).value, formats.date)}T${formatTime(time.value, formats.time, input.id)}`;
   });
 
   hourDown.addEventListener("click", (event) => {
     event.preventDefault();
     hour = changeHourDisplay("decrease", hour, formats.time);
     hours.value = hourDisplay(hour);
-    time.value = `${hourDisplay(hour)}:${minuteDisplay(minute)}`;
-    input.value = `${formatDate(document.querySelector(`#${input.id}_date`).value, formats.date)}T${formatTime(time.value, formats.time, input.id)}`;
   });
 
   minuteUp.addEventListener("click", (event) => {
     event.preventDefault();
     minute = changeMinuteDisplay("increase", minute);
     minutes.value = minuteDisplay(minute);
-    time.value = `${hourDisplay(hour)}:${minuteDisplay(minute)}`;
-    input.value = `${formatDate(document.querySelector(`#${input.id}_date`).value, formats.date)}T${formatTime(time.value, formats.time, input.id)}`;
   });
 
   minuteDown.addEventListener("click", (event) => {
     event.preventDefault();
     minute = changeMinuteDisplay("decrease", minute);
     minutes.value = minuteDisplay(minute);
-    time.value = `${hourDisplay(hour)}:${minuteDisplay(minute)}`;
-    input.value = `${formatDate(document.querySelector(`#${input.id}_date`).value, formats.date)}T${formatTime(time.value, formats.time, input.id)}`;
   });
 };

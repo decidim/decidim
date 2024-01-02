@@ -109,11 +109,15 @@
 }
 
 .close_clock {
-  @apply rounded absolute z-30 bottom-2 right-1 w-14 h-6 bg-secondary text-white;
+  @apply border border-solid border-gray rounded absolute z-30 bottom-2 right-1 w-14 h-6;
 }
 
 .reset_clock {
-  @apply absolute z-30 bottom-2 right-16;
+  @apply absolute z-30 bottom-2 left-4;
+}
+
+.select_clock {
+  @apply rounded absolute z-30 bottom-2 right-16 w-14 h-6 bg-secondary text-white;
 }
 
 .hourup {

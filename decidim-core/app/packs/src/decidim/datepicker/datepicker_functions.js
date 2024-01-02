@@ -116,6 +116,34 @@ export const changeMinuteDisplay = (change, minute) => {
   return value;
 };
 
+let displayMinute = null;
+let displayHour = null;
+const preFix = 0;
+
+export const hourDisplay = (hour) => {
+  if (hour < 10) {
+    displayHour = `${preFix}${hour}`;
+  } else {
+    displayHour = hour;
+  };
+
+  return displayHour;
+};
+
+export const minuteDisplay = (minute) => {
+  if (minute < 10) {
+    displayMinute = `${preFix}${minute}`;
+  } else {
+    displayMinute = minute;
+  };
+
+  return displayMinute;
+};
+
+export const updateTimeValue = (time, hour, minute) => {
+  time.value = `${hourDisplay(hour)}:${minuteDisplay(minute)}`;
+};
+
 export const formatDate = (value, format) => {
   let newValue = value;
 
@@ -140,19 +168,6 @@ export const formatDate = (value, format) => {
   };
 
   return `${year}-${month}-${day}`
-};
-
-export const dateToPicker = (value, format) => {
-  let formatArray = value.split(/[/.]/);
-  let formatValue = null;
-
-  if (format === "%d/%m/%Y") {
-    formatValue = `${formatArray[1]}/${formatArray[0]}/${formatArray[2]}`;
-  } else if (format === "%m/%d/%Y") {
-    formatValue = value;
-  };
-
-  return formatValue;
 };
 
 export const formatTime = (value, format, inputname) => {
@@ -181,6 +196,23 @@ export const formatTime = (value, format, inputname) => {
   return value;
 };
 
+export const updateInputValue = (input, formats, time) => {
+  input.value = `${formatDate(document.querySelector(`#${input.id}_date`).value, formats.date)}T${formatTime(time.value, formats.time, input.id)}`;
+};
+
+export const dateToPicker = (value, format) => {
+  let formatArray = value.split(/[/.]/);
+  let formatValue = null;
+
+  if (format === "%d/%m/%Y") {
+    formatValue = `${formatArray[1]}/${formatArray[0]}/${formatArray[2]}`;
+  } else if (format === "%m/%d/%Y") {
+    formatValue = value;
+  };
+
+  return formatValue;
+};
+
 export const displayDate = (value, format) => {
   let day = value.getDate();
   let month = value.getMonth() + 1;
@@ -198,30 +230,6 @@ export const displayDate = (value, format) => {
   }
 
   return `${day}.${month}.${year}`;
-};
-
-let displayMinute = null;
-let displayHour = null;
-const preFix = 0;
-
-export const hourDisplay = (hour) => {
-  if (hour < 10) {
-    displayHour = `${preFix}${hour}`;
-  } else {
-    displayHour = hour;
-  };
-
-  return displayHour;
-};
-
-export const minuteDisplay = (minute) => {
-  if (minute < 10) {
-    displayMinute = `${preFix}${minute}`;
-  } else {
-    displayMinute = minute;
-  };
-
-  return displayMinute;
 };
 
 export const calculateDatepickerPos = (datePicker) => {

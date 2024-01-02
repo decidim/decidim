@@ -1,9 +1,12 @@
 /* eslint-disable require-jsdoc */
 import icon from "src/decidim/icon"
-import { dateToPicker, formatDate, displayDate, formatTime, calculateDatepickerPos } from "./datepicker_functions"
-import { dateKeyDownListener, dateBeforeInputListener } from "./datepicker_listeners"
+import { dateToPicker, formatDate, displayDate, formatTime, calculateDatepickerPos } from "src/decidim/datepicker/datepicker_functions"
+import { dateKeyDownListener, dateBeforeInputListener } from "src/decidim/datepicker/datepicker_listeners"
+import { getDictionary } from "src/decidim/i18n";
 
 export default function generateDatePicker(input, row, formats) {
+  const i18n = getDictionary("date.buttons");
+
   const dateColumn = document.createElement("div");
   dateColumn.setAttribute("class", "date_column");
 
@@ -25,11 +28,11 @@ export default function generateDatePicker(input, row, formats) {
   datePicker.style.display = "none";
 
   const closeCalendar = document.createElement("button");
-  closeCalendar.innerText = "Close";
+  closeCalendar.innerText = i18n.close;
   closeCalendar.setAttribute("class", "close_calendar");
 
   const pickCalendar = document.createElement("button");
-  pickCalendar.innerText = "Select";
+  pickCalendar.innerText = i18n.select;
   pickCalendar.setAttribute("class", "pick_calendar");
   pickCalendar.setAttribute("disabled", true);
 
