@@ -1,6 +1,6 @@
-import { createBasicEditor } from "../helpers";
+import { createBasicEditor } from "src/decidim/editor/test/helpers";
 
-import Dialog from "../../extensions/dialog";
+import Dialog from "src/decidim/editor/extensions/dialog";
 
 describe("Dialog", () => {
   let editor = null;

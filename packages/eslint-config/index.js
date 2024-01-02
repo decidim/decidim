@@ -14,7 +14,9 @@ module.exports = {
     },
     sourceType: "module"
   },
-  plugins: ["react"],
+  plugins: ["react",
+    "no-relative-import-paths"
+  ],
   globals: {
     $: false,
     jQuery: false,
@@ -160,6 +162,10 @@ module.exports = {
     "no-process-exit": "error",
     "no-proto": "error",
     "no-prototype-builtins": "error",
+    "no-relative-import-paths/no-relative-import-paths": [
+      "warn",
+      { "allowSameFolder": false, "rootDir": "decidim-core/app/packs/" }
+    ],
     "no-restricted-globals": "error",
     "no-restricted-imports": "error",
     "no-restricted-modules": "error",

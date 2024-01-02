@@ -1,7 +1,7 @@
 /* global global, jest */
 
 import Cookies from "js-cookie";
-import ConsentManager from "./consent_manager";
+import ConsentManager from "src/decidim/data_consent/consent_manager";
 
 // Mock js-cookie so that we can store the return values from the "set" method
 // in order to inspect their flags.
