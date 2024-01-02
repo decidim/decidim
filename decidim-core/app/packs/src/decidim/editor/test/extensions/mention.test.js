@@ -1,8 +1,8 @@
 /* global jest, global */
 
-import { createBasicEditor, updateContent } from "../helpers";
+import { createBasicEditor, updateContent } from "src/decidim/editor/test/helpers";
 
-import Mention from "../../extensions/mention";
+import Mention from "src/decidim/editor/extensions/mention";
 
 const mentionsResponse = [
   {
