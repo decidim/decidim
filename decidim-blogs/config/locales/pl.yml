@@ -53,6 +53,7 @@ pl:
             author: Autor
             body: Treść
             created_at: Utworzono
+            title: Tytuł posta
       posts:
         show:
           back: Powrót do listy
