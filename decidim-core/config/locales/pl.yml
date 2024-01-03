@@ -189,6 +189,7 @@ pl:
         unofficialize: "%{user_name} usunął/usunęła oficjalny status użytkownika %{resource_name}"
       user_group:
         reject: "%{user_name} odrzucił(a) weryfikację grupy %{resource_name}"
+        unblock: "%{user_name} odblokował(a) grupę użytkownika %{resource_name}"
         verify: "%{user_name} zweryfikował(a) grupę %{resource_name}"
         verify_via_csv: "%{user_name} zweryfikował(a) grupę %{resource_name} za pomocą pliku CSV"
       user_moderation:
