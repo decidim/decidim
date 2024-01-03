@@ -62,6 +62,8 @@ pl:
             official_blog_post: Oficjalny post
             title: Tytuł posta
       posts:
+        index:
+          empty: Nie ma tu jeszcze żadnych wpisów.
         show:
           back: Powrót do listy
           comments: Komentarze
@@ -72,6 +74,12 @@ pl:
       read_more: Czytaj więcej
     components:
       blogs:
+        actions:
+          comment: Skomentuj
+          create: Utwórz
+          destroy: Usuń
+          endorse: Rekomenduj
+          update: Aktualizuj
         name: Blog
         settings:
           global:
