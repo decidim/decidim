@@ -202,6 +202,7 @@ fr-CA:
           fields:
             category: Catégorie
             id: ID
+            map: Carte
             title: Titre
       order_summary_mailer:
         order_summary:
