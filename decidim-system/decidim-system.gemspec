@@ -25,7 +25,12 @@ Gem::Specification.new do |s|
   s.summary = "Decidim system administration"
   s.description = "System administration to create new organization in an installation."
 
-  s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
+  s.files = Dir.chdir(__dir__) do
+    `git ls-files -z`.split("\x0").select do |f|
+      (File.expand_path(f) == __FILE__) ||
+        f.start_with?(*%w(app/ config/ db/ lib/ Rakefile README.md))
+    end
+  end
 
   s.add_dependency "active_link_to", "~> 1.0"
   s.add_dependency "decidim-core", Decidim::System.version
