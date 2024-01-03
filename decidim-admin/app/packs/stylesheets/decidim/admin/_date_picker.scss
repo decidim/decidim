@@ -37,13 +37,18 @@
   @apply z-[1];
 }
 
+.hourpicker,
+.minutepicker {
+  @apply left-2 ml-px;
+}
+
 .hourdown,
 .hourup,
 .minuteup,
 .minutedown {
-  @apply h-6 w-[22px];
+  @apply h-6 w-full;
 
   > svg {
-    @apply w-6 h-6 pr-1;
+    @apply w-10 h-6 pr-1;
   }
 }

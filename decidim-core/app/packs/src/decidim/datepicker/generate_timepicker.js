@@ -242,7 +242,6 @@ export default function generateTimePicker(input, row, formats) {
     hours.value = hourDisplay(hour);
     minutes.value = minuteDisplay(minute);
     time.value = "";
-    timePicker.style.display = "none";
   });
 
   closeClock.addEventListener("click", (event) => {
