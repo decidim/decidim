@@ -11,39 +11,16 @@ module Decidim
       let(:event_name) { "decidim.events.comments.comment_by_followed_user_group" }
       let!(:user_group_author) { user_group }
       let(:user_group_path) { Decidim::UserGroupPresenter.new(user_group).profile_path }
+      let(:email_subject) { "There is a new comment by #{escaped_html(user_group.name)} in #{resource_title}" }
+      let(:email_intro) { "The group #{escaped_html(user_group.name)} has left a comment in #{resource_title}. You can read it in this page:" }
+      let(:email_outro) { "You have received this notification because you are following #{escaped_html(user_group.name)}. You can unfollow this group from its profile page." }
+      let(:notification_title) { "There is a new comment by <a href=\"#{user_group_path}\">#{escaped_html(user_group.name)} @#{user_group.nickname}</a> in <a href=\"#{resource_path}?commentId=#{comment.id}#comment_#{comment.id}\">#{resource_title}</a>." }
 
+      it_behaves_like "a simple event email"
+      it_behaves_like "a simple event notification"
       it_behaves_like "a comment event"
       it_behaves_like "a translated comment event" do
         let(:translatable) { true }
-      end
-
-      describe "email_subject" do
-        it "is correct" do
-          expect(subject.email_subject).to eq("There is a new comment by #{escaped_html(user_group.name)} in #{resource_title}")
-        end
-      end
-
-      describe "email_intro" do
-        it "is correct" do
-          expect(subject.email_intro)
-            .to eq("The group #{escaped_html(user_group.name)} has left a comment in #{resource_title}. You can read it in this page:")
-        end
-      end
-
-      describe "email_outro" do
-        it "is correct" do
-          expect(subject.email_outro)
-            .to include("You have received this notification because you are following #{escaped_html(user_group.name)}")
-        end
-      end
-
-      describe "notification_title" do
-        it "is correct" do
-          expect(subject.notification_title)
-            .to start_with("There is a new comment by <a href=\"#{user_group_path}\">#{escaped_html(user_group.name)} @#{user_group.nickname}</a> in")
-          expect(subject.notification_title)
-            .to end_with("<a href=\"#{resource_path}?commentId=#{comment.id}#comment_#{comment.id}\">#{resource_title}</a>.")
-        end
       end
     end
   end
