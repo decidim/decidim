@@ -37,6 +37,7 @@ pl:
             label: Wybrane
             values:
               'false': Wybrane do wykonania
+              'true': Nie wybrano do implementacji
     budgets:
       actions:
         attachment_collections: Foldery
@@ -46,10 +47,19 @@ pl:
         edit: Edytuj
         edit_projects: Zarządzaj budżetem
         import: Importuj propozycje do projektów
+        new_budget: Nowy budżet
+        new_project: Nowy projekt
         preview: Podgląd
+        send_voting_reminders: Wyślij przypomnienia o głosowaniu
         title: Działania
       admin:
         budgets:
+          create:
+            invalid: Podczas tworzenia tego budżetu wystąpił błąd.
+            success: Budżet został utworzony.
+          destroy:
+            invalid: Wystąpił błąd podczas usuwania budżetu.
+            success: Budżet został usunięty.
           edit:
             title: Edytuj budżet
             update: Aktualizuj budżet
@@ -62,6 +72,9 @@ pl:
           new:
             create: Utwórz budżet
             title: Nowy budżet
+          update:
+            invalid: Podczas aktualizowania budżetu wystąpił błąd.
+            success: Budżet został zaktualizowany.
         exports:
           projects: Projekty
         models:
@@ -170,6 +183,7 @@ pl:
       last_activity:
         new_vote_at: Głosowanie w budżecie na
       limit_announcement:
+        cant_vote: Nie możesz zagłosować na ten budżet. <a href="%{landing_path}">Spróbuj wybrać inny budżet</a>.
         limit_reached: 'Masz aktywne głosy: %{links}. Aby zagłosować na ten budżet, musisz <a href="%{landing_path}">usunąć swój głos i zacząć od nowa</a>.'
       models:
         budget:
@@ -179,6 +193,9 @@ pl:
             total_budget: Całkowity budżet
         project:
           fields:
+            category: Kategoria
+            id: Identyfikator
+            map: Mapa
             title: Tytuł
       order_summary_mailer:
         order_summary:
@@ -195,21 +212,32 @@ pl:
           title: Potwierdź głosowanie
         budget_excess:
           budget_excess:
+            description: Ten projekt przekracza maksymalny budżet i nie można go dodać. Jeśli chcesz, możesz usunąć wybrany projekt, aby móc zagłosować ponownie zgodnie ze swoimi preferencjami.
             title: Przekroczono maksymalny budżet
+          description: Ten projekt przekracza maksymalny budżet i nie można go dodać. Jeśli chcesz, możesz usunąć wybrany projekt, aby móc zagłosować ponownie zgodnie ze swoimi preferencjami.
           ok: ok
           projects_excess:
+            description: Ten projekt przekracza maksymalną ilość projektów i nie można go dodać. Jeśli chcesz, możesz usunąć wybrany projekt, aby móc zagłosować ponownie zgodnie ze swoimi preferencjami.
             title: Maksymalna liczba projektów została przekroczona
         budget_summary:
           are_you_sure: Czy na pewno chcesz anulować swój głos?
           cancel_order: usuń głos i zacznij od nowa
           checked_out:
+            description: Już głosowałeś/aś na budżet. Jeśli zmieniłeś/aś zdanie, możesz usunąć swój głos.
             title: Ukończono głosowanie dot. budżetu
+          vote: Budżet poddany pod głosowanie
         count:
           projects_count:
             one: 1 projekt
             few: "%{count} projekty"
             many: "%{count} projektów"
             other: "%{count} projektów"
+        empty: Nie ma jeszcze żadnych projektów
+        exit_modal:
+          cancel: Powrót do głosowania
+          exit: Wyjdź z głosowania
+          message: Twój głos nie został zarejestrowany, ponieważ nie ukończyłeś/aś jeszcze procesu głosowania. Czy na pewno chcesz zakończyć głosowanie?
+          title: Jeszcze nie głosowałeś/aś
         filters:
           category: Kategoria
           scope: Zakres
@@ -219,6 +247,22 @@ pl:
             all: Wszystkie
             not_selected: Nie wybrano
             selected: Wybrano
+        order_progress:
+          assigned: Przypisany
+          budget: Budżet
+          dynamic_help:
+            keep_adding_projects: Kontynuuj dodawanie projektów
+            minimum_reached: Osiągnąłeś/aś minimum, aby móc głosować
+            start_adding_projects: Zacznij dodawać projekty
+          minimum: Minimum
+          minimum_projects_rule:
+            description: Wybierz co najmniej %{minimum_number} projektów i zagłosuj zgodnie ze swoimi preferencjami w celu zdefiniowania budżetu.
+          projects_rule:
+            description: Wybierz co najmniej %{minimum_number} i maksymalnie %{maximum_number} projektów i głosuj zgodnie ze swoimi preferencjami w celu zdefiniowania budżetu.
+          projects_rule_maximum_only:
+            description: Wybierz do %{maximum_number} projektów i głosuj zgodnie ze swoimi preferencjami w celu zdefiniowania budżetu.
+          vote_threshold_percent_rule:
+            description: Przypisz co najmniej %{minimum_budget} do projektów i głosuj zgodnie ze swoimi preferencjami w celu zdefiniowania budżetu.
         orders:
           highest_cost: Najwyższy koszt
           label: Uporządkuj projekty według
@@ -227,18 +271,28 @@ pl:
           random: Kolejność losowa
           selected: Wybrano
         project:
+          add: Dodaj projekt %{resource_name} do swojego głosu.
+          remove: Usuń projekt %{resource_name} ze swojego głosu.
           selected: Wybrano
           votes:
             one: głos
             few: głosów
             many: głosów
             other: głosów
+          you_voted: Zagłosowałeś/aś na to
         project_budget_button:
           add: Dodaj do swojego głosu
+          add_descriptive: Dodaj projekt %{resource_name} do swojego głosu.
           added: Dodano do Twojego głosu
+          added_descriptive: Projekt %{resource_name} został dodany do Twojego głosu.
+        project_filter:
+          added: Dodano
+          all: Wszystkie
         projects_for: Projekty dla %{name}
+        select_projects: Wybierz projekty
         show:
           budget: Budżet
+      prompt: Wybierz budżet
     components:
       budgets:
         actions:
