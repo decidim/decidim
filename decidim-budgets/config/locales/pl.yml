@@ -37,6 +37,7 @@ pl:
             label: Wybrane
             values:
               'false': Wybrane do wykonania
+              'true': Nie wybrano do implementacji
     budgets:
       actions:
         attachment_collections: Foldery
@@ -153,6 +154,8 @@ pl:
             total_budget: Całkowity budżet
         project:
           fields:
+            category: Kategoria
+            id: Identyfikator
             title: Tytuł
       order_summary_mailer:
         order_summary:
@@ -175,6 +178,7 @@ pl:
           description: Ten projekt przekracza maksymalny budżet i nie można go dodać. Jeśli chcesz, możesz usunąć wybrany projekt, aby móc zagłosować ponownie zgodnie ze swoimi preferencjami.
           ok: ok
           projects_excess:
+            description: Ten projekt przekracza maksymalną ilość projektów i nie można go dodać. Jeśli chcesz, możesz usunąć wybrany projekt, aby móc zagłosować ponownie zgodnie ze swoimi preferencjami.
             title: Maksymalna liczba projektów została przekroczona
         budget_summary:
           are_you_sure: Czy na pewno chcesz anulować swój głos?
@@ -207,7 +211,11 @@ pl:
             many: "%{count} projektów"
             other: "%{count} projektów"
         exit_modal:
+          cancel: Powrót do głosowania
           close_modal: Zamknij okno
+          exit: Wyjdź z głosowania
+          message: Twój głos nie został zarejestrowany, ponieważ nie ukończyłeś/aś jeszcze procesu głosowania. Czy na pewno chcesz zakończyć głosowanie?
+          title: Jeszcze nie głosowałeś/aś
         filters:
           category: Kategoria
           scope: Zakres
@@ -249,6 +257,7 @@ pl:
             few: głosów
             many: głosów
             other: głosów
+          you_voted: Zagłosowałeś/aś na to
         project_budget_button:
           add: Dodaj do swojego głosu
           add_descriptive: Dodaj projekt %{resource_name} do swojego głosu
