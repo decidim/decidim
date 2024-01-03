@@ -65,6 +65,12 @@ pl:
       read_more: Czytaj więcej
     components:
       blogs:
+        actions:
+          comment: Skomentuj
+          create: Utwórz
+          destroy: Usuń
+          endorse: Rekomenduj
+          update: Aktualizuj
         name: Blog
         settings:
           global:
