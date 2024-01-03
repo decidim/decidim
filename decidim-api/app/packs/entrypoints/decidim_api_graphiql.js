@@ -1,4 +1,4 @@
-/* eslint-disable require-jsdoc */
+/* eslint-disable require-jsdoc, react/no-deprecated */
 
 import "entrypoints/decidim_api_graphiql.scss";
 // Styles from node_modules/graphiql/graphiql.css
@@ -8,7 +8,7 @@ import "graphiql/graphiql.css";
 import React from "react";
 import ReactDOM from "react-dom";
 
-import GraphiQL from "graphiql/graphiql";
+import GraphiQL from "graphiql/graphiql"; // eslint-disable-line no-unused-vars
 import Configuration from "src/decidim/configuration";
 
 window.Decidim = window.Decidim || {};
@@ -18,10 +18,10 @@ let parameters = {};
 
 // Parse the search string to get url parameters.
 const search = window.location.search;
-search
-  .substr(1)
-  .split("&")
-  .forEach(function (entry) {
+search.
+  substr(1).
+  split("&").
+  forEach(function (entry) {
     let eq = entry.indexOf("=");
     if (eq >= 0) {
       parameters[decodeURIComponent(entry.slice(0, eq))] = decodeURIComponent(
@@ -44,13 +44,13 @@ if (parameters.variables) {
 }
 
 const updateURL = function () {
-  const newSearch = Object.keys(parameters)
-    .map(function (key) {
+  const newSearch = Object.keys(parameters).
+    map(function (key) {
       return `${encodeURIComponent(
         key
       )}=${encodeURIComponent(parameters[key])}`;
-    })
-    .join("&");
+    }).
+    join("&");
 
   history.replaceState(null, null, `?${newSearch}`);
 };
