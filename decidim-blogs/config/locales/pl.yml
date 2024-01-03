@@ -63,8 +63,17 @@ pl:
             official_blog_post: Oficjalny post
             published_at: Czas publikacji posta
             title: Tytuł posta
+      posts:
+        index:
+          empty: Nie ma tu jeszcze żadnych wpisów.
     components:
       blogs:
+        actions:
+          comment: Skomentuj
+          create: Utwórz
+          destroy: Usuń
+          endorse: Rekomenduj
+          update: Aktualizuj
         name: Blog
         settings:
           global:
