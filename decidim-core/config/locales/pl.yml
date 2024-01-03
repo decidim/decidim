@@ -234,10 +234,13 @@ pl:
         unofficialize: "%{user_name} usunął/usunęła oficjalny status użytkownika %{resource_name}"
       user_group:
         reject: "%{user_name} odrzucił(a) weryfikację grupy %{resource_name}"
+        unblock: "%{user_name} odblokował(a) grupę użytkownika %{resource_name}"
         verify: "%{user_name} zweryfikował(a) grupę %{resource_name}"
         verify_via_csv: "%{user_name} zweryfikował(a) grupę %{resource_name} za pomocą pliku CSV"
       user_moderation:
         unreport: "%{user_name} cofnął/cofnęła zgłoszenie %{resource_type} - %{unreported_user_name}"
+    admin_terms_of_service:
+      default_body: "<h2>WARUNKI UŻYTKOWANIA DLA ADMINISTRATORÓW</h2><p>Zakładamy, że odbyłeś(aś) typowe szkolenie prowadzone przez lokalnego Administratora Systemu. Zazwyczaj sprowadza się ono do trzech zagadnień:</p><ol><li>Należy szanować prywatność innych.</li><li>Należy myśleć przed kliknięciem.</li><li>Duża władza oznacza dużą odpowiedzialność.</li></ol>"
     alert:
       dismiss: Odrzuć powiadomienie
     amendments:
@@ -249,6 +252,7 @@ pl:
         error: Wystąpił błąd podczas wnoszenia poprawki do tego zasobu.
         promote_button: '%{model_name} - promuj'
         promote_confirm_text: Czy na pewno chcesz promować tę wersję?
+        promote_help_text: Możesz promować tę korektę i opublikować ją jako niezależny %{model_name}.
       compare_draft:
         continue: Dalej
         no_similars_found: Nie znaleziono podobnych wersji.
