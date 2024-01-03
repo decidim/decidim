@@ -283,14 +283,8 @@ lv:
             non_user: Neeksistējošs dalībnieks
             select_user: Izvēlieties dalībnieku
           index:
-            filter:
-              accepted: Pieņemts
-              all: Visi
-              rejected: Noraidīts
-              sent: Nosūtīts
             invite_attendee: Uzaicināt dalībnieku
             invites: Ielūgumi
-            search: Meklēt
           new:
             invite: Uzaicināt
             new_invite: Uzaicināt dalībnieku

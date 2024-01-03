@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 require "open3"
-require "decidim/github_manager/poster"
+require_relative "github_manager/poster"
+require_relative "github_manager/querier/by_title"
 
 module Decidim
   class Releaser
@@ -27,6 +28,10 @@ module Decidim
     def call
       Dir.chdir(@working_dir) do
         exit_if_unstaged_changes if @exit_with_unstaged_changes
+        exit_if_pending_crowdin_pull_request
+
+        puts "Starting the release process for #{version_number} in 10 seconds" # rubocop:disable Rails/Output
+        sleep 10
 
         run("git checkout #{release_branch}")
         run("git pull origin #{release_branch}")
@@ -167,16 +172,14 @@ module Decidim
     #
     # @return [void]
     def check_tests
-      # rubocop:disable Rails/Output
-      puts "Running specs"
+      puts "Running specs" # rubocop:disable Rails/Output
       output, status = capture("bin/rspec")
 
       unless status.success?
         run("git restore .")
-        puts output
+        puts output # rubocop:disable Rails/Output
         exit_with_errors("Tests execution failed. Fix the errors and run again.")
       end
-      # rubocop:enable Rails/Output
     end
 
     # Generates the changelog taking into account the last time the version changed
@@ -234,6 +237,28 @@ You will see errors such as `No matching version found for @decidim/browserslist
       system(cmd, out:)
     end
 
+    # Check if there is any open pull request from Crowdin in GitHub
+    #
+    # @return [Boolean] - true if there is any open PR
+    def pending_crowdin_pull_requests?
+      pull_requests = Decidim::GithubManager::Querier::ByTitle.new(token: @token, title: "New Crowdin updates").call
+      pull_requests.any?
+    end
+
+    # Exit the script execution if there are any pull request from Crowdin open
+    #
+    # @return [void]
+    def exit_if_pending_crowdin_pull_request
+      return unless pending_crowdin_pull_requests?
+
+      error_message = <<-EOERROR
+  There are open pull requests from Crowdin in GitHub
+  Merge them and run again this script.
+      EOERROR
+      exit_with_errors(error_message)
+    end
+
+    # Exit the script execution with a message
     # Exit the script execution if there are any unstaged changes
     #
     # @return [void]
@@ -251,10 +276,8 @@ You will see errors such as `No matching version found for @decidim/browserslist
     #
     # @return [void]
     def exit_with_errors(message)
-      # rubocop:disable Rails/Output, Rails/Exit
-      puts message
-      exit 1
-      # rubocop:enable Rails/Output, Rails/Exit
+      puts message # rubocop:disable Rails/Output
+      exit 1 # rubocop:disable Rails/Exit
     end
   end
 end

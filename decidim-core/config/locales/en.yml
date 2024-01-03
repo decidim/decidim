@@ -1339,8 +1339,6 @@ en:
           alert: We have updated our Terms of Service, please review them.
           body: Please take a moment to review updates to our Terms of Services. Otherwise you will not be able to use the platform.
           title: 'Required: Review updates to our terms of service'
-    participatory_space_private_users:
-      not_allowed: You are not allowed to view this content
     passwords:
       update:
         error: There was a problem updating the password.

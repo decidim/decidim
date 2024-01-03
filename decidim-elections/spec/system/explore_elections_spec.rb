@@ -104,6 +104,21 @@ describe "Explore elections", :slow do
           expect(page).to have_css("[id^=elections]", count: 7)
         end
       end
+
+      context "when there are no elections in a filter" do
+        it "shows the filters empty message" do
+          visit_component
+
+          within "#panel-dropdown-menu-date" do
+            uncheck "Active"
+            check "Upcoming"
+          end
+
+          within ".flash" do
+            expect(page).to have_content("There are no elections with this criteria.")
+          end
+        end
+      end
     end
 
     context "when no active or upcoming elections scheduled" do
@@ -117,8 +132,17 @@ describe "Explore elections", :slow do
 
       it "shows the correct warning" do
         visit_component
+
         within ".flash" do
-          expect(page).to have_content("no scheduled elections")
+          expect(page).to have_content("Currently, there are no scheduled elections, but here you can find all the past elections listed.")
+        end
+      end
+
+      it "does not show the date filter" do
+        visit_component
+
+        within "aside.layout-2col__aside" do
+          expect(page).not_to have_content("Date")
         end
       end
     end
@@ -126,12 +150,19 @@ describe "Explore elections", :slow do
     context "when no elections is given" do
       before do
         Decidim::Elections::Election.destroy_all
+
+        visit_component
       end
 
       it "shows the correct warning" do
-        visit_component
         within ".flash" do
-          expect(page).to have_content("any election scheduled")
+          expect(page).to have_content("There is not any election scheduled")
+        end
+      end
+
+      it "shows the date filter" do
+        within "aside.layout-2col__aside" do
+          expect(page).to have_content("Date")
         end
       end
     end

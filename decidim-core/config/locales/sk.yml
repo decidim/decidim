@@ -779,8 +779,6 @@ sk:
         metrics:
           headline: Metriky
           link: Zobraziť všetky metriky
-    participatory_space_private_users:
-      not_allowed: Nemáte povolenie na zobrazenie tohto obsahu
     profile:
       deleted: Vymazaný účastník
     profiles:

@@ -21,7 +21,7 @@ module Decidim::Admin
           current_user: user
         )
       end
-      let(:command) { described_class.new(page, form) }
+      let(:command) { described_class.new(form, page) }
 
       describe "when the changed_notably is checked" do
         it "broadcasts ok" do

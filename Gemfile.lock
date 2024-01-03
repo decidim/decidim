@@ -277,7 +277,7 @@ GEM
     bindex (0.8.1)
     bootsnap (1.10.3)
       msgpack (~> 1.2)
-    brakeman (5.4.1)
+    brakeman (6.1.0)
     browser (2.7.1)
     builder (3.2.4)
     bullet (7.0.7)
@@ -820,7 +820,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (~> 1.4)
-  brakeman (~> 5.4)
+  brakeman (~> 6.1)
   byebug (~> 11.0)
   decidim!
   decidim-conferences!
@@ -841,7 +841,7 @@ DEPENDENCIES
   web-console (~> 4.2)
 
 RUBY VERSION
-   ruby 3.1.1p18
+   ruby 3.2.2p53
 
 BUNDLED WITH
    2.4.6

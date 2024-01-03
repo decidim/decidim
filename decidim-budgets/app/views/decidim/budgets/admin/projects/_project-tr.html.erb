@@ -5,7 +5,7 @@
   <td>
     <%= project.id %><br>
   </td>
-  <td>
+  <td class="!text-left">
     <% if allowed_to? :update, :project, project: project %>
       <%= link_to translated_attribute(project.title), resource_locator([budget, project]).edit %><br>
     <% else %>
@@ -28,6 +28,11 @@
       <%= content_tag :span, "close-line", class: "text-muted" %>
     <% end %>
   </td>
+  <% if maps_enabled? && Decidim::Map.available?(:static, :geocoding) %>
+    <td>
+      <%= static_map_link(project, {}, { class: "static-map__admin" }) %>
+    </td>
+  <% end %>
   <td class="table-list__actions">
     <% if allowed_to? :update, :project, project: project %>
       <%= icon_link_to "pencil-line", resource_locator([budget, project]).edit, t("actions.edit", scope: "decidim.budgets"), class: "action-icon--edit" %>

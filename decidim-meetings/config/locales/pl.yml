@@ -228,14 +228,8 @@ pl:
             non_user: Nieistniejący użytkownik
             select_user: Wybierz użytkownika
           index:
-            filter:
-              accepted: Zaakceptowano
-              all: Wszystko
-              rejected: Odrzucono
-              sent: Wysłane
             invite_attendee: Zaproś uczestnika
             invites: Zaproszeni
-            search: Szukaj
         meeting_closes:
           edit:
             close: Zamknij

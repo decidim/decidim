@@ -384,7 +384,6 @@
                 bb_status: Status
                 election: Valg
                 voting_period: Stemmeperiode
-              no_elections: Det er ingen valg hvor du opptrer som en tillitsmann.
               title: Valg
             identification_keys:
               cancel: Avbryt
@@ -429,8 +428,6 @@
         voting_step:
           back: Tilbake
           continue: Neste
-      warnings:
-        no_scheduled_elections_warning: Det er foreløpig ingen planlagte valg, men her kan du finne alle tidligere valg.
     events:
       elections:
         election_published:

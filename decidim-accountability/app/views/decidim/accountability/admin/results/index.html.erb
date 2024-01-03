@@ -30,7 +30,7 @@
           <th>
             <%= sort_link(query, :id, t("models.result.fields.id", scope: "decidim.accountability"), default_order: :desc ) %>
           </th>
-          <th>
+          <th class="!text-left">
             <%= sort_link(query, :title, t("models.result.fields.title", scope: "decidim.accountability")) %>
           </th>
           <th>
@@ -59,7 +59,7 @@
             <td>
               <%= result.id %><br>
             </td>
-            <td>
+            <td class="!text-left">
               <% if result.parent_id.nil? %>
                 <%= link_to translated_attribute(result.title), results_path(parent_id: result.id) %><br>
               <% else %>

@@ -340,14 +340,8 @@ lt:
             non_user: Nesamas dalyvis
             select_user: Pasirinkti dalyvį
           index:
-            filter:
-              accepted: Priimtas
-              all: Visi
-              rejected: Atmestas
-              sent: Išsiųstas
             invite_attendee: Kviesti dalyvį
             invites: Pakvietimai
-            search: Ieškoti
           new:
             explanation: Dalyvis bus pakviestas dalyvauti konferencijoje. Jei e. laiškas nebus užregistruotas, dalyvis bus taip pat pakviestas būti organizacijos dalimi.
             invite: Pakviesti

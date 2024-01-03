@@ -34,8 +34,8 @@ module Decidim
       i18n("back_to_resource")
     end
 
-    def i18n(string, **params)
-      t(string, **params, scope: i18n_scope, default: t(string, **params, scope: default_i18n_scope))
+    def i18n(string, **)
+      t(string, **, scope: i18n_scope, default: t(string, **, scope: default_i18n_scope))
     end
 
     def i18n_scope
