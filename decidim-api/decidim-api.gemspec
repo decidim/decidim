@@ -18,7 +18,12 @@ Gem::Specification.new do |s|
   s.summary = "Decidim API module"
   s.description = "API engine for decidim"
 
-  s.files = Dir["{app,config,db,lib,vendor,docs}/**/*", "Rakefile", "README.md"]
+  s.files = Dir.chdir(__dir__) do
+    `git ls-files -z`.split("\x0").select do |f|
+      (File.expand_path(f) == __FILE__) ||
+        f.start_with?(*%w(app/ config/ docs/ lib/ Rakefile README.md))
+    end
+  end
 
   s.add_dependency "graphql", "~> 1.12", "< 1.13"
   s.add_dependency "graphql-docs", "~> 2.1.0"

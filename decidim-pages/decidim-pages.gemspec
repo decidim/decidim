@@ -18,7 +18,12 @@ Gem::Specification.new do |s|
   s.summary = "Decidim pages module"
   s.description = "A pages component for decidim's participatory processes."
 
-  s.files = Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md"]
+  s.files = Dir.chdir(__dir__) do
+    `git ls-files -z`.split("\x0").select do |f|
+      (File.expand_path(f) == __FILE__) ||
+        f.start_with?(*%w(app/ config/ db/ lib/ Rakefile README.md))
+    end
+  end
 
   s.add_dependency "decidim-core", Decidim::Pages.version
 
