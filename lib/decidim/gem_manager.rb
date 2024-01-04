@@ -200,7 +200,7 @@ module Decidim
       end
 
       def patch_component_gemfile_generator
-        content = %Q(# frozen_string_literal: true
+        content = %(# frozen_string_literal: true
 
 source "https://rubygems.org"
 
@@ -219,7 +219,7 @@ group :development, :test do
 end
 
 group :development do
-  gem "faker", "#{Gem.loaded_specs["decidim-dev"].dependencies.select{|a| a.name == "faker"}.first.requirement.to_s}"
+  gem "faker", "#{Gem.loaded_specs["decidim-dev"].dependencies.select { |a| a.name == "faker" }.first.requirement}"
   gem "letter_opener_web", "#{fetch_gemfile_version("letter_opener_web")}"
   gem "listen", "#{fetch_gemfile_version("listen")}"
   gem "spring", "#{fetch_gemfile_version("spring")}"
@@ -235,7 +235,7 @@ end
       private
 
       def fetch_gemfile_version(bundle_name)
-        Bundler.definition.dependencies.select{|a| a.name == bundle_name}.first.requirement.to_s
+        Bundler.definition.dependencies.select { |a| a.name == bundle_name }.first.requirement.to_s
       end
 
       def root
