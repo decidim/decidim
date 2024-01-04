@@ -21,10 +21,10 @@ import OrderedList from "@tiptap/extension-ordered-list";
 import ListItem from "@tiptap/extension-list-item";
 import Text from "@tiptap/extension-text";
 
-import createEditor from "../index";
+import createEditor from "src/decidim/editor/index";
 
-import editorMessages from "./fixtures/editor_messages";
-import uploadTemplates from "./fixtures/upload_templates";
+import editorMessages from "src/decidim/editor/test/fixtures/editor_messages";
+import uploadTemplates from "src/decidim/editor/test/fixtures/upload_templates";
 
 const config = { messages: { editor: editorMessages } };
 window.Decidim = { config: { get: (key) => config[key] } };

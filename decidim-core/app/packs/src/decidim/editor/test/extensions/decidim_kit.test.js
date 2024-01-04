@@ -1,9 +1,8 @@
-// import { createBasicEditor } from "../helpers";
 import { Editor } from "@tiptap/core";
 
-import DecidimKit from "../../extensions/decidim_kit";
+import DecidimKit from "src/decidim/editor/extensions/decidim_kit";
 
-import { createEditorContainer } from "../helpers";
+import { createEditorContainer } from "src/decidim/editor/test/helpers";
 
 describe("DecidimKit", () => {
   const createEditor = (config = {}) => {

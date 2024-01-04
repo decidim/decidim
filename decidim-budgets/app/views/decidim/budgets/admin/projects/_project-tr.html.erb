@@ -25,9 +25,14 @@
     <% if project.selected? %>
       <%= content_tag :strong, t("projects.index.selected", scope: "decidim.budgets.admin"), class: "text-success" %>
     <% else %>
-      <%= content_tag :span, "close-line", class: "text-muted" %>
+      <%= content_tag :span, icon("close-line"), class: "text-muted" %>
     <% end %>
   </td>
+  <% if maps_enabled? && Decidim::Map.available?(:static, :geocoding) %>
+    <td>
+      <%= static_map_link(project, {}, { class: "static-map__admin" }) %>
+    </td>
+  <% end %>
   <td class="table-list__actions">
     <% if allowed_to? :update, :project, project: project %>
       <%= icon_link_to "pencil-line", resource_locator([budget, project]).edit, t("actions.edit", scope: "decidim.budgets"), class: "action-icon--edit" %>

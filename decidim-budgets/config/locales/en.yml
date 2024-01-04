@@ -203,6 +203,7 @@ en:
           fields:
             category: Category
             id: ID
+            map: Map
             title: Title
       order_summary_mailer:
         order_summary:
