@@ -758,7 +758,6 @@ fi-pl:
           new_election:
             email_intro: Sinut on lisätty luottamushenkilöksi vaaliin %{resource_title}.
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska sinulle on myönnettu luottamushenkilön tehtävä kohteessa %{resource_title}.
-            email_subject: Sinut on lisätty luottamushenkilöksi vaaliin %{resource_title}..
             notification_title: Sinulle on annettu luottamushenkilön tehtävä vaalissa <a href="%{resource_path}">%{resource_title}</a>. Suorita avainseremonia aloittaaksesi vaalin.
           new_trustee:
             email_intro: Hallinnointikäyttäjä on myöntänyt sinulle luottamushenkilön tehtävän kohteessa %{resource_name}. Sinun tulee luoda julkinen tunnistusavain <a href='%{trustee_zone_url}'>omalla luottamushenkilöiden alueellasi</a>
