@@ -591,7 +591,6 @@ pt-BR:
         trustees:
           new_election:
             email_intro: Você foi adicionado como curador para a eleição %{resource_title}.
-            email_subject: Você é um curador às eleições %{resource_title}..
           new_trustee:
             email_intro: Um administrador adicionou você como curador em %{resource_name}. Você deve criar sua chave pública <a href='%{trustee_zone_url}'>na sua zona de curador</a>
             email_subject: Você é um curador por %{resource_name}.
