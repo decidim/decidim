@@ -196,6 +196,7 @@ eu:
           fields:
             category: Kategoria
             id: ID
+            map: Mapa
             title: Titulua
       order_summary_mailer:
         order_summary:
