@@ -733,7 +733,6 @@ ja:
           new_election:
             email_intro: '%{resource_title} 選挙の受託者として追加されました。'
             email_outro: '%{resource_title} 選挙の受託者に追加されたため、この通知を受け取りました。'
-            email_subject: あなたは %{resource_title} 選挙の受託者です..
             notification_title: 選挙 <a href="%{resource_path}">%{resource_title}</a>の受託者に選ばれました。選挙を準備するためのキーセレモニーを行ってください。
           new_trustee:
             email_intro: 管理者が %{resource_name} の受託者としてあなたを追加しました。受託者ゾーンで <a href='%{trustee_zone_url}'>公開鍵を作成する必要があります。</a>
