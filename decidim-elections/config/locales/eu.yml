@@ -755,6 +755,7 @@ eu:
           new_election:
             email_intro: Bazaude gehituta bermatzaile gisa %{resource_title} aukerarako.
             email_outro: Jakinarazpen hau jaso duzu bermatzaile gisa gehitu zaituztelako %{resource_title} aukerarako.
+            email_subject: Fede-emailea zara %{resource_title} hauteskunde prozesuan.
             notification_title: 'Esleitu zaituzte bermatzaile gisa aritzeko Aukera honetan: <a href="%{resource_path}">%{resource_title}.</a> Mesedez, egin gakoen zeremonia hautaketa martxan jartzeko.'
           new_trustee:
             email_intro: 'Administratzaile batek gehitu zaitu bermatzaile gisa honetarako: %{resource_name}. Zure gako publikoa sortu behar duzu =<''%{trustee_zone_url}''>bermatzaileen zure gunean</a>'
