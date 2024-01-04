@@ -18,7 +18,11 @@ module Decidim
     # @param description [String] The description of the icon. It will be used to show the purpose of the icon in DDG.
     # @param engine [String] The engine name. It is used internally to identify the module where the icon is being used.
     def register(name:, icon:, description:, category:, engine:)
-      ActiveSupport::Deprecation.warn("#{icon} already registered. #{@icons[icon].inspect}") if @icons[icon]
+     if @icons[icon]
+       message = "#{icon} already registered. #{@icons[icon].inspect}"
+       ActiveSupport::Deprecation.warn(message)
+       raise message if Rails.env.development? || Rails.env.test?
+     end
 
       @icons[name] = { name:, icon:, description:, category:, engine: }
     end
