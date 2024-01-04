@@ -758,7 +758,6 @@ fr:
           new_election:
             email_intro: Vous avez été ajouté en tant que garant pour l'élection %{resource_title}.
             email_outro: Vous avez reçu cette notification parce que vous avez été ajouté(e) comme garant de l'élection "%{resource_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
-            email_subject: Vous avez été ajouté en tant que garant pour l'élection %{resource_title}.
             notification_title: Vous avez été sélectionné en tant que garant de l'élection <a href="%{resource_path}">%{resource_title}.</a> Veuillez entamer la cérémonie des clés pour mettre en place l'élection.
           new_trustee:
             email_intro: Un administrateur vous a ajouté en tant que garant de %{resource_name}. Vous devriez créer votre clé publique <a href='%{trustee_zone_url}'>dans votre espace de garant</a>
