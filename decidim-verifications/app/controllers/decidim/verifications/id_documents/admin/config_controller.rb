@@ -10,6 +10,8 @@ module Decidim
         class ConfigController < Decidim::Admin::ApplicationController
           layout "decidim/admin/users"
 
+          add_breadcrumb_item_from_menu :workflows_menu
+
           def edit
             enforce_permission_to :update, :organization, organization: current_organization
 

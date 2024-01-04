@@ -9,6 +9,8 @@ module Decidim
 
           helper_method :has_offline_method?
 
+          add_breadcrumb_item_from_menu :workflows_menu
+
           def index
             enforce_permission_to :index, :authorization
 

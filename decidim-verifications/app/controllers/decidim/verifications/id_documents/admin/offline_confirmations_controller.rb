@@ -10,6 +10,8 @@ module Decidim
         class OfflineConfirmationsController < Decidim::Admin::ApplicationController
           layout "decidim/admin/users"
 
+          add_breadcrumb_item_from_menu :workflows_menu
+
           def new
             enforce_permission_to :update, :authorization
 

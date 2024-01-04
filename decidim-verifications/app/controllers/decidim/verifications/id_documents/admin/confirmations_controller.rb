@@ -12,6 +12,8 @@ module Decidim
 
           before_action :load_pending_authorization
 
+          add_breadcrumb_item_from_menu :workflows_menu
+
           def new
             enforce_permission_to :update, :authorization, authorization: @pending_authorization
 

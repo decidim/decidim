@@ -10,6 +10,8 @@ module Decidim
           before_action :show_instructions,
                         unless: :csv_census_active?
 
+          add_breadcrumb_item_from_menu :workflows_menu
+
           def index
             enforce_permission_to :index, :authorization
             @form = form(CensusDataForm).instance
