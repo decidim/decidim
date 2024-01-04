@@ -769,7 +769,6 @@ cs:
           new_election:
             email_intro: Přidali jste jako důvěrník pro volby %{resource_title}.
             email_outro: Obdrželi jste toto oznámení, protože jste byli přidáni jako správce pro %{resource_title} volby.
-            email_subject: Jste důvěrníkem pro %{resource_title} volby..
           new_trustee:
             email_intro: Administrátor vás přidal jako důvěrníka pro %{resource_name}. Měli byste vytvořit váš veřejný klíč <a href='%{trustee_zone_url}'>ve vaší zóně důvěrníka</a>
             email_outro: Obdrželi jste toto oznámení, protože jste byli přidáni jako správce pro %{resource_name}.
