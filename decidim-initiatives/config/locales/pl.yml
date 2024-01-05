@@ -279,6 +279,7 @@ pl:
           form:
             authorizations: Ustawienia autoryzacji
             child_scope_threshold_enabled_help: 'Ta konfiguracja nie pozwala na głosowania offline, zezwala na pod-zakresy i działa z procedurą autoryzacji, która łączy zakres z użytkownikiem. Upewnij się, że wybrałeś taką autoryzację w sekcji autoryzacji poniżej. Zakresy muszą być konfigurowane w hierarchii: 1 Rodzic - N element podrzędny. Więcej informacji o działaniu tej konfiguracji znajdziesz pod tym <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">linkiem</a>.'
+            only_global_scope_enabled_help: Zaznacz tę flagę, jeśli włączyłeś(aś) opcję "Podpisy zakresu podrzędnego" i skonfigurowałeś(aś) globalny zakres jako zakres nadrzędny. Umożliwiając to działanie, wybór typu inicjatywy zostanie pominięty w kreatorze tworzenia inicjatyw. Aby uzyskać więcej informacji na temat funkcjonowania tej konfiguracji, zobacz ten <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.
             options: Ustawienia
             title: Informacje ogólne
           initiative_type_scopes:
@@ -411,6 +412,7 @@ pl:
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> złożył wniosek na członka komitetu organizacyjnego Twojej inicjatywy <a href="%{resource_url}">%{resource_title}</a>. Aby zaakceptować lub odrzucić kliknij <a href="%{resource_url}/edit">tutaj</a>.
       form:
         add_attachments: Dokumenty
+        attachment_legend: "(Opcjonalnie) Dodaj załącznik"
         delete_attachment: Usuń
       index:
         title: Inicjatywy
@@ -516,6 +518,7 @@ pl:
             title: 'Tytuł:'
             type: Typ inicjatywy
           legal_text: Zgromadzone dane osobowe zostaną dołączone do zasobów i traktowane w sposób poufny przez organizację zgodnie z obowiązującymi przepisami.
+          members_header: Członkowie komitetu promocyjnego inicjatywy
           phone_number: Numer telefonu
           place_date: Miejsce, data
           postal_code: Kod pocztowy
@@ -566,6 +569,11 @@ pl:
         status_change_for: Inicjatywa %{title} zmieniła swój status
       last_activity:
         new_initiative: Nowa inicjatywa
+      pages:
+        home:
+          highlighted_initiatives:
+            active_initiatives: Aktualne inicjatywy
+            see_all_initiatives: Zobacz wszystkie inicjatywy
       show:
         badge_name:
           accepted: Wystarczająca liczba podpisów
