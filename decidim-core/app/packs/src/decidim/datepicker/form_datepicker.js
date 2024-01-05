@@ -13,7 +13,7 @@ export default function formDatePicker() {
     const i18nHelp = getDictionary("date.formats.help");
     const i10n = getDictionary("time");
     const i10nHelp = getDictionary("time.formats.help");
-    const formats = { date: i18n.decidim_short, time: i10n.clock_format || 24 }
+    const formats = { order: i18n.order, separator: i18n.separator, time: i10n.clock_format || 24 }
 
     if (!customElements.get("wc-datepicker")) {
       customElements.define("wc-datepicker", WcDatepicker);
@@ -69,10 +69,10 @@ export default function formDatePicker() {
           const date = dateTimeValue[0];
           const time = dateTimeValue[1];
 
-          document.getElementById(`${input.id}_date`).value = formatInputDate(date, formats.date, input);
+          document.getElementById(`${input.id}_date`).value = formatInputDate(date, formats, input);
           document.getElementById(`${input.id}_time`).value = formatInputTime(time, formats.time, input);
         } else if (input.type === "date") {
-          document.getElementById(`${input.id}_date`).value = formatInputDate(inputFieldValue, formats.date, input);
+          document.getElementById(`${input.id}_date`).value = formatInputDate(inputFieldValue, formats, input);
         };
       };
     });

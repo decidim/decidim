@@ -23,17 +23,18 @@ export const setMinute = (value) => {
   return Number(minute);
 };
 
-export const formatInputDate = (date, format) => {
+export const formatInputDate = (date, formats) => {
   const dateList = date.split("-");
   const year = dateList[0];
   const month = dateList[1];
   const day = dateList[2];
 
-  if (format === "%m/%d/%Y") {
-    return `${month}/${day}/${year}`;
+  if (formats.order === "d-m-y") {
+    return `${day}${formats.separator}${month}${formats.separator}${year}`;
+  } else if (formats.order === "y-m-d") {
+    return `${year}${formats.separator}${month}${formats.separator}${day}`;
   };
-
-  return `${day}.${month}.${year}`;
+  return `${month}${formats.separator}${day}${formats.separator}${year}`;
 };
 
 export const formatInputTime = (time, format, input) => {
@@ -144,13 +145,14 @@ export const updateTimeValue = (time, hour, minute) => {
   time.value = `${hourDisplay(hour)}:${minuteDisplay(minute)}`;
 };
 
-export const formatDate = (value, format) => {
+export const formatDate = (value, formats) => {
   let newValue = value;
+  const splitValue = value.split(formats.separator);
 
-  if (format === "%d/%m/%Y") {
-    const splitValue = value.split(/[/.]/);
-
+  if (formats.order === "d-m-y") {
     newValue = `${splitValue[1]}/${splitValue[0]}/${splitValue[2]}`;
+  } else if (formats.order === "y-m-d") {
+    newValue = `${splitValue[1]}/${splitValue[2]}/${splitValue[0]}`
   };
 
   const date = new Date(newValue)
@@ -197,23 +199,24 @@ export const formatTime = (value, format, inputname) => {
 };
 
 export const updateInputValue = (input, formats, time) => {
-  input.value = `${formatDate(document.querySelector(`#${input.id}_date`).value, formats.date)}T${formatTime(time.value, formats.time, input.id)}`;
+  input.value = `${formatDate(document.querySelector(`#${input.id}_date`).value, formats)}T${formatTime(time.value, formats.time, input.id)}`;
 };
 
-export const dateToPicker = (value, format) => {
-  let formatArray = value.split(/[/.]/);
-  let formatValue = null;
+export const dateToPicker = (value, formats) => {
+  let formatArray = value.split(formats.separator);
+  let formatValue = value;
 
-  if (format === "%d/%m/%Y") {
+  if (formats.order === "d-m-y") {
     formatValue = `${formatArray[1]}/${formatArray[0]}/${formatArray[2]}`;
-  } else if (format === "%m/%d/%Y") {
-    formatValue = value;
+  } else if (formats.order === "y-m-d") {
+    formatValue = `${formatArray[1]}/${formatArray[2]}/${formatArray[0]}`;
   };
+
 
   return formatValue;
 };
 
-export const displayDate = (value, format) => {
+export const displayDate = (value, formats) => {
   let day = value.getDate();
   let month = value.getMonth() + 1;
   const year = value.getFullYear();
@@ -225,11 +228,13 @@ export const displayDate = (value, format) => {
     month = `0${month}`
   }
 
-  if (format === "%m/%d/%Y") {
-    return `${month}/${day}/${year}`
-  }
+  if (formats.order === "d-m-y") {
+    return `${day}${formats.separator}${month}${formats.separator}${year}`
+  } else if (formats.order === "y-m-d") {
+    return `${year}${formats.separator}${month}${formats.separator}${day}`
+  };
 
-  return `${day}.${month}.${year}`;
+  return `${month}${formats.separator}${day}${formats.separator}${year}`;
 };
 
 export const calculateDatepickerPos = (datePicker) => {

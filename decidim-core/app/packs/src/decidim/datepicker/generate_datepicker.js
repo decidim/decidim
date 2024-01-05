@@ -57,26 +57,13 @@ export default function generateDatePicker(input, row, formats) {
   date.addEventListener("paste", (event) => {
     event.preventDefault();
     const value = event.clipboardData.getData("text/plain");
-    if ((/^([1-9]|[0-2][0-9]|3[0-1])(-|.|\/)([1-9]|[0-2][0-9]|3[0-1])(-|.|\/)([0-9]{4})$/).test(value)) {
-      let separator = ".";
-      if (formats.date === "%m/%d/%Y") {
-        separator = "/";
-      };
-
-      if ((/(^[1-9])(-|.|\/)([1-9])(-|.|\/)([0-9]{4})$/).test(value)) {
-        date.value = `0${value[0]}${separator}0${value[2]}${separator}${value.substring(value.length - 4)}`;
-      } else if ((/(^[1-9])(-|.|\/)([0-2][0-9]|3[0-1])(-|.|\/)([0-9]{4})$/).test(value)) {
-        date.value = `0${value[0]}${separator}${value[2]}${value[3]}${separator}${value.substring(value.length - 4)}`;
-      } else if ((/([0-2][0-9]|3[0-1])(-|.|\/)([1-9])(-|.|\/)([0-9]{4})$/).test(value)) {
-        date.value = `${value[0]}${value[1]}${separator}0${value[3]}${separator}${value.substring(value.length - 4)}`;
-      } else {
-        date.value = value.replace(/[-./]/g, separator)
-      };
+    if ((/^[0-9/.-]+$/).test(value)) {
+      date.value = value.replaceAll(/[/.-]/g, formats.separator);
 
       if (input.type === "date") {
-        input.value = `${formatDate(date.value, formats.date)}`;
+        input.value = `${formatDate(date.value, formats)}`;
       } else if (input.type === "datetime-local") {
-        input.value = `${formatDate(date.value, formats.date)}T${formatTime(document.querySelector(`#${input.id}_time`).value, formats.time, input.id) || defaultTime}`;
+        input.value = `${formatDate(date.value, formats)}T${formatTime(document.querySelector(`#${input.id}_time`).value, formats.time, input.id) || defaultTime}`;
       };
     };
   });
@@ -85,21 +72,14 @@ export default function generateDatePicker(input, row, formats) {
     datePicker.style.display = "none";
   });
 
-  date.addEventListener("focusout", () => {
-    if (formats.date === "%d/%m/%Y") {
-      date.value = date.value.replaceAll("/", ".");
-    } else if (formats.date === "%m/%d/%Y") {
-      date.value = date.value.replaceAll(".", "/");
-    };
-  });
-
   date.addEventListener("keyup", () => {
     if (date.value.length === 10) {
-      prevDate = dateToPicker(date.value, formats.date);
+      date.value = date.value.replaceAll(/[/.-]/g, formats.separator);
+      prevDate = dateToPicker(date.value, formats);
       if (input.type === "date") {
-        input.value = `${formatDate(date.value, formats.date)}`;
+        input.value = `${formatDate(date.value, formats)}`;
       } else if (input.type === "datetime-local") {
-        input.value = `${formatDate(date.value, formats.date)}T${formatTime(document.querySelector(`#${input.id}_time`).value, formats.time, input.id) || defaultTime}`;
+        input.value = `${formatDate(date.value, formats)}T${formatTime(document.querySelector(`#${input.id}_time`).value, formats.time, input.id) || defaultTime}`;
       };
     };
   });
@@ -122,7 +102,7 @@ export default function generateDatePicker(input, row, formats) {
   pickCalendar.addEventListener("click", (event) => {
     event.preventDefault();
 
-    date.value = displayDate(datePicker.value, formats.date);
+    date.value = displayDate(datePicker.value, formats);
     prevDate = pickedDate;
     if (input.type === "date") {
       input.value = `${pickedDate}`;
