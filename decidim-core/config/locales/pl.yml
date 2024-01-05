@@ -1770,8 +1770,10 @@ pl:
       toggle: Przełącz widok
   views:
     pagination:
+      next: Dalej
       next_title: Link do następnej strony
       pagination: Strony
+      previous: Wstecz
       previous_title: Link do poprzedniej strony
       title: 'Numer strony: '
       truncate: "&hellip;"
