@@ -14,6 +14,12 @@ pl:
       dummy:
         settings:
           global:
+            guided: Kierowane wprowadzanie danych
+            guided_help: Tekst pomocy
+            guided_readonly: Zablokowane pole wprowadzania danych
+            guided_rich: Kierowane i rozbudowane wprowadzanie danych
+            guided_rich_help_html: Tekst HTML <strong>pomocy</strong>
+            guided_rich_readonly_html: Treść HTML <strong>pomocy</strong> dla wyłączonego wprowadzania
             readonly_attribute: Atrybut tylko do odczytu
             test: Test A
             test_choices:
