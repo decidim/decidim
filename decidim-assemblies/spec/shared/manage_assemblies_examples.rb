@@ -29,10 +29,10 @@ shared_examples "manage assemblies" do
         fill_in :assembly_included_at_date, with: nil, fill_options: { clear: :backspace }
         fill_in :assembly_duration_date, with: nil, fill_options: { clear: :backspace }
         fill_in :assembly_closing_date_date, with: nil, fill_options: { clear: :backspace }
-        fill_in_datepicker :assembly_creation_date_date, with: Date.yesterday.strftime("%d.%m.%Y")
-        fill_in_datepicker :assembly_included_at_date, with: Date.current.strftime("%d.%m.%Y")
-        fill_in_datepicker :assembly_duration_date, with: Date.tomorrow.strftime("%d.%m.%Y")
-        fill_in_datepicker :assembly_closing_date_date, with: Date.tomorrow.strftime("%d.%m.%Y")
+        fill_in_datepicker :assembly_creation_date_date, with: Date.yesterday.strftime("%d/%m/%Y")
+        fill_in_datepicker :assembly_included_at_date, with: Date.current.strftime("%d/%m/%Y")
+        fill_in_datepicker :assembly_duration_date, with: Date.tomorrow.strftime("%d/%m/%Y")
+        fill_in_datepicker :assembly_closing_date_date, with: Date.tomorrow.strftime("%d/%m/%Y")
         find("*[type=submit]").click
       end
 
@@ -41,10 +41,10 @@ shared_examples "manage assemblies" do
       within "[data-content]" do
         expect(page).to have_selector("input[value='My new title']")
         expect(page).to have_css("img[src*='#{image3_filename}']")
-        expect(page).to have_field(:assembly_creation_date_date, with: Date.yesterday.strftime("%d.%m.%Y").to_s)
-        expect(page).to have_field(:assembly_included_at_date, with: Date.current.strftime("%d.%m.%Y").to_s)
-        expect(page).to have_field(:assembly_duration_date, with: Date.tomorrow.strftime("%d.%m.%Y").to_s)
-        expect(page).to have_field(:assembly_closing_date_date, with: Date.tomorrow.strftime("%d.%m.%Y").to_s)
+        expect(page).to have_field(:assembly_creation_date_date, with: Date.yesterday.strftime("%d/%m/%Y").to_s)
+        expect(page).to have_field(:assembly_included_at_date, with: Date.current.strftime("%d/%m/%Y").to_s)
+        expect(page).to have_field(:assembly_duration_date, with: Date.tomorrow.strftime("%d/%m/%Y").to_s)
+        expect(page).to have_field(:assembly_closing_date_date, with: Date.tomorrow.strftime("%d/%m/%Y").to_s)
       end
     end
   end

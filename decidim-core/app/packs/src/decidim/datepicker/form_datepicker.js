@@ -9,11 +9,11 @@ export default function formDatePicker() {
   const inputs = document.querySelectorAll('input[type="datetime-local"], input[type="date"]');
 
   if (inputs.length > 0) {
-    const i18n = getDictionary("date.formats");
-    const i18nHelp = getDictionary("date.formats.help");
-    const i10n = getDictionary("time");
-    const i10nHelp = getDictionary("time.formats.help");
-    const formats = { order: i18n.order, separator: i18n.separator, time: i10n.clock_format || 24 }
+    const i18nDate = getDictionary("date.formats");
+    const i18nDateHelp = getDictionary("date.formats.help");
+    const i18nTime = getDictionary("time");
+    const i18nTimeHelp = getDictionary("time.formats.help");
+    const formats = { order: i18nDate.order, separator: i18nDate.separator, time: i18nTime.clock_format || 24 }
 
     if (!customElements.get("wc-datepicker")) {
       customElements.define("wc-datepicker", WcDatepicker);
@@ -32,11 +32,11 @@ export default function formDatePicker() {
 
       const helpTextDate = document.createElement("span");
       helpTextDate.setAttribute("class", "help-text help_date");
-      helpTextDate.innerText = i18nHelp.date_format;
+      helpTextDate.innerText = i18nDateHelp.date_format;
 
       const helpTextTime = document.createElement("span");
       helpTextTime.setAttribute("class", "help-text help_time");
-      helpTextTime.innerText = i10nHelp.time_format;
+      helpTextTime.innerText = i18nTimeHelp.time_format;
 
       helpTextContainer.appendChild(helpTextDate);
 
