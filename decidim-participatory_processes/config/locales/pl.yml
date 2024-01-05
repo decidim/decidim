@@ -334,6 +334,7 @@ pl:
         html_3:
           name: Trzeci blok HTML
         metadata:
+          developer_group: Promowany przez
           name: Metadane
           participatory_scope: Zaproponowano
           participatory_structure: Jak decydowano
@@ -364,6 +365,9 @@ pl:
         new_import:
           accepted_types:
             json: JSON
+        participatory_process_copies:
+          form:
+            slug_help: 'Slugi URL wykorzystuje się do generowania adresów URL odsyłających do procesu. Można używać jedynie liter, cyfr i łączników, przy czym należy rozpocząć od litery. Przykład: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadane
@@ -372,8 +376,10 @@ pl:
         participatory_process_imports:
           form:
             document_legend: Dodaj dokument
+            slug_help: 'Slugi URL wykorzystuje się do generowania adresów URL odsyłających do procesu. Można używać jedynie liter, cyfr i łączników, przy czym należy rozpocząć od litery. Przykład: %{url}'
         participatory_process_steps:
           form:
+            cta_path_help: 'Użyj ścieżek częściowych, a nie pełnych adresów URL. Można używać liter, cyfr, łączników i ukośników, przy czym należy rozpocząć od litery. Przycisk nie zostanie wyświetlony, jeżeli nie zostanie to ustawione. Przykład: %{url}'
             cta_text_help: Jeśli nie zostanie ustawione, przycisk nie będzie wyświetlany.
         participatory_processes:
           form:
@@ -387,6 +393,7 @@ pl:
             scope_type_max_depth_help: Ogranicz głębokość filtra zakresu; Filtr pokaże typy zakresu od ogólnego do wybranego.
             select_an_area: Wybierz kategorię
             select_process_group: Wybierz grupę procesów
+            slug_help: 'Slugi URL wykorzystuje się do generowania adresów URL odsyłających do procesu. Można używać jedynie liter, cyfr i łączników, przy czym należy rozpocząć od litery. Przykład: %{url}'
             title: Informacje ogólne
             visbility: Widoczność
       content_blocks:
@@ -399,10 +406,12 @@ pl:
       pages:
         home:
           highlighted_processes:
+            active_processes: Aktywne procesy
             active_step: Aktualny etap
             more_information: Więcej informacji
             participate: Dołącz
             participate_in: Dołącz do procesu %{resource_name}
+            see_all_processes: Zobacz wszystkie procesy
       participatory_process_steps:
         index:
           back_to_process: Powrót do strony procesu
@@ -447,6 +456,7 @@ pl:
         dates: Daty
         developer_group: Grupa inicjatorów
         end_date: Data zakończenia
+        local_area: Obszar organizacji
         participatory_scope: Zaproponowano
         participatory_structure: Jak decydowano
         private_space: To jest prywatny proces
