@@ -15,7 +15,7 @@ import svg4everybody from "svg4everybody"
 import morphdom from "morphdom"
 
 // vendor customizated scripts (bad practice: these ones should be removed eventually)
-import "./vendor/modernizr"
+import "src/decidim/vendor/modernizr"
 
 /**
  * Local dependencies

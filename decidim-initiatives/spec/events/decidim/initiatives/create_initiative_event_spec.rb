@@ -13,6 +13,13 @@ describe Decidim::Initiatives::CreateInitiativeEvent do
   let(:event_name) { "decidim.events.initiatives.initiative_created" }
   let(:user) { create(:user, organization:) }
   let(:resource_path) { resource_locator(initiative).path }
+  let(:email_subject) { "New initiative by @#{initiative_author.nickname}" }
+  let(:email_intro) { "#{initiative_author.name} @#{initiative_author.nickname}, who you are following, has created a new initiative, check it out and contribute:" }
+  let(:email_outro) { "You have received this notification because you are following @#{initiative_author.nickname}. You can stop receiving notifications following the previous link." }
+  let(:notification_title) { "The <a href=\"#{resource_path}\">#{initiative.title["en"]}</a> initiative was created by <a href=\"/profiles/#{initiative_author.nickname}\">#{initiative_author.name} @#{initiative_author.nickname}</a>." }
+
+  it_behaves_like "a simple event email"
+  it_behaves_like "a simple event notification"
 
   describe "types" do
     subject { described_class }
@@ -23,35 +30,6 @@ describe Decidim::Initiatives::CreateInitiativeEvent do
 
     it "supports emails" do
       expect(subject.types).to include :email
-    end
-  end
-
-  describe "email_subject" do
-    it "is generated correctly" do
-      expect(subject.email_subject).to eq("New initiative by @#{initiative_author.nickname}")
-    end
-  end
-
-  describe "email_intro" do
-    it "is generated correctly" do
-      expect(subject.email_intro).to eq("#{initiative_author.name} @#{initiative_author.nickname}, who you are following, has created a new initiative, check it out and contribute:")
-    end
-  end
-
-  describe "email_outro" do
-    it "is generated correctly" do
-      expect(subject.email_outro)
-        .to eq("You have received this notification because you are following @#{initiative_author.nickname}. You can stop receiving notifications following the previous link.")
-    end
-  end
-
-  describe "notification_title" do
-    it "is generated correctly" do
-      expect(subject.notification_title)
-        .to include("The <a href=\"#{resource_path}\">#{initiative.title["en"]}</a> initiative was created by ")
-
-      expect(subject.notification_title)
-        .to include("<a href=\"/profiles/#{initiative_author.nickname}\">#{initiative_author.name} @#{initiative_author.nickname}</a>.")
     end
   end
 end
