@@ -386,6 +386,9 @@ pl:
               few: odpowiedzi na propozycję
               many: odpowiedzi na propozycję
               other: odpowiedzi na propozycję
+          title:
+            answers: Importuj odpowiedzi do propozycji z pliku
+            proposals: Importuj propozycje z pliku
         models:
           proposal:
             name: Propozycja
@@ -410,8 +413,12 @@ pl:
               md: Markdown
               odt: ODT
             bottom_hint: "(Będziesz mógł przeglądać i sortować sekcje dokumentów)"
+            document_legend: 'Dodaj dokument mniejszy niż 2 MB, każda sekcja, aż do 3 poziomu, zostanie przekonwertowana w propozycję. Wspierane formaty to: %{valid_mime_types}'
             title: Dodaj dokument
             upload_document: Prześlij dokument
+          publish:
+            invalid: Przy publikowaniu propozycji pojawił się problem.
+            success: Wszystkie propozycje zostały opublikowane.
           sections:
             article: "<em>Artykuł</em>"
             section: "<em>Sekcja:</em> <strong>%{title}</strong>"
@@ -423,15 +430,25 @@ pl:
             accepted: Zaakceptowano
             answer_proposal: Odpowiedź
             evaluating: Ocena
+            not_answered: Bez odpowiedzi
             rejected: Odrzucono
             title: Odpowiedź na propozycję %{title}
         proposal_notes:
+          create:
+            error: Wystąpił błąd podczas tworzenia tej notatki dotyczącej propozycji.
+            success: Notatka dotycząca propozycji została utworzona.
           form:
             note: Notatka
             submit: Zatwierdź
           leave_your_note: Zostaw swoją notatkę
           title: Prywatne notatki
         proposals:
+          answer:
+            invalid: Wystąpił błąd podczas odpowiadania na tę propozycję.
+            success: Odpowiedziano na propozycję.
+          create:
+            invalid: Podczas tworzenia tej propozycji wystąpił błąd.
+            success: Propozycja została utworzona.
           edit:
             title: Zaktualizuj propozycję
             update: Aktualizuj
@@ -464,6 +481,9 @@ pl:
           new:
             create: Utwórz
             title: Utwórz propozycję
+          publish_answers:
+            number_of_proposals: Odpowiedzi dla %{number} propozycji zostaną opublikowane?
+            select_a_proposal: Wybierz propozycję.
           show:
             amendments_count: Liczba poprawek
             assigned_valuators: Przypisani weryfikatorzy
@@ -472,6 +492,7 @@ pl:
             documents: Dokumenty
             endorsements_count: Liczba rekomendacji
             endorsers: Rekomendujący
+            link: Zobacz propozycję
             n_more_endorsers:
               one: i jeszcze 1
               few: i jeszcze %{count}
@@ -486,21 +507,31 @@ pl:
             votes_count: Liczba wsparć
           update_category:
             invalid: 'Następujące propozycje miały już kategorię %{subject_name}: %{proposals}.'
+            select_a_category: Proszę wybrać kategorię.
+            select_a_proposal: Wybierz propozycję.
             success: 'Zaktualizowano kategorię nad %{subject_name} dla następujących propozycji: %{proposals}.'
           update_scope:
             invalid: 'Następujące propozycje miały już zakres %{subject_name}: %{proposals}.'
+            select_a_proposal: Wybierz propozycję.
+            select_a_scope: Proszę wybrać zakres.
             success: 'Zaktualizowano zakres na %{subject_name} dla następujących propozycji: %{proposals}.'
         proposals_imports:
+          create:
+            invalid: Podczas importowania propozycji wystąpił błąd.
+            success: "Zaimportowano %{number} propozycji."
           new:
             create: Importuj propozycje
             no_components: W tej przestrzeni partycypacyjnej nie ma innych komponentów propozycji do zaimportowania propozycji.
             select_component: Wybierz komponent
             select_states: Sprawdź statusy propozycji do zaimportowania
+            title: Importuj propozycje z innego komponentu
         proposals_merges:
           create:
+            invalid: 'Wystąpił błąd podczas łączenia wybranych propozycji, ponieważ niektóre z nich:'
             success: Pomyślnie połączono propozycje.
         proposals_splits:
           create:
+            invalid: 'Wystąpił błąd podczas dzielenia wybranych propozycji, ponieważ niektóre z nich:'
             success: Pomyślnie podzielono propozycje.
       admin_log:
         proposal:
