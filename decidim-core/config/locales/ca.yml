@@ -252,7 +252,7 @@ ca:
       user_moderation:
         unreport: "%{user_name} ha desfet el report %{resource_type} - %{unreported_user_name}"
     admin_terms_of_use:
-      default_body: "<h2>TERMES D'ÚS PER ADMINS</h2><p>Donem per fet que has rebut l'habitual explicació de l'administrador del sistema local. En general es redueix a aquestes tres coses:</p><ol><li>Respectar la privadesa dels altres.</li><li>Penseu abans de fer clic.</li><li>A un gran poder l'hi correspon gran responsabilitat.</li></ol>"
+      default_body: "<h2>TERMES D'ÚS PER ADMINS</h2><p>Donem per fet que has rebut l'habitual explicació de l'administrador del sistema local. En general es redueix a aquestes tres coses:</p><ol><li>Respectar la privadesa dels altres.</li><li>Penseu abans de fer clic.</li><li>A un gran poder li correspon gran responsabilitat.</li></ol>"
     alert:
       dismiss: Descartar notificació
     amendments:
