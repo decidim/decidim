@@ -888,7 +888,11 @@ pl:
         last_activity: Ostatnia aktywność
         resource_type: Typ
     links:
+      invalid_url: Nieprawidłowy adres URL
       warning:
+        body_1: Zamierzasz odwiedzić link zewnętrzny i chcielibyśmy, byś zachował(a) ostrożność w odniesieniu do treści na stronie zewnętrznej.
+        body_2: Sprawdź link, który chcesz odwiedzić i upewnij się, że rozpoznasz go jako bezpieczną stronę, zanim przejdziesz dalej.
+        cancel: Anuluj
         close_modal: Zamknij okno
         proceed: Dalej
         title: Otwórz zewnętrzny link
@@ -898,8 +902,10 @@ pl:
         create_with_space: "%{user_name} stworzył(a) %{resource_name} w %{space_name}"
         delete: "%{user_name} usunął/usunęła %{resource_name}"
         delete_with_space: "%{user_name} usunął/usunęła %{resource_name} w %{space_name}"
+        publish_with_space: "%{user_name} opublikował(a) %{resource_name} w %{space_name}"
         unknown_action: "%{user_name} wykonał(a) jakąś akcję w %{resource_name}"
         unknown_action_with_space: "%{user_name} wykonał(a) jakąś akcję w %{resource_name} w %{space_name}"
+        unpublish_with_space: "Użytkownik %{user_name} usunął publikację %{resource_name} z %{space_name}"
         update: "%{user_name} zaktualizował(a) %{resource_name}"
         update_with_space: "%{user_name} zaktualizował(a) %{resource_name} w %{space_name}"
       value_types:
@@ -1063,8 +1069,16 @@ pl:
         greetings: Pozdrawiamy,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Cześć,
         subject: Czy chcesz nadal otrzymywać istotne informacje o %{organization_name}?
+    notification_mailer:
+      event_received:
+        no_translation_available: Przepraszamy, nie można pobrać tłumaczenia automatycznego, gdy e-mail został wysłany. Możesz sprawdzić tłumaczenie oryginalnego tekstu pod poniższym linkiem %{link}.
+        original_text: 'Oryginalny tekst:'
+        same_language: Treść została zamieszczona w preferowanym przez Ciebie języku (%{language}), dlatego w tej wiadomości e-mail nie wyświetlono żadnego automatycznego tłumaczenia.
+        translated_text: 'Automatycznie przetłumaczony tekst:'
     notifications:
       no_notifications: Brak powiadomień.
+      show:
+        missing_event: Ups, to powiadomienie należy do elementu, który nie jest już dostępny. Możesz je odrzucić.
     notifications_settings:
       show:
         administrators: Administratorzy
