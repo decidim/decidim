@@ -296,6 +296,12 @@ pl:
         show:
           budget: Budżet
           view_all_projects: Wyświetl wszystkie projekty
+      vote_reminder_mailer:
+        vote_reminder:
+          email_budgets: 'Obszary, w których masz niedokończone głosowanie:'
+          email_intro: Rozpocząłeś(aś) głosowanie w budżecie partycypacyjnym, ale nie ukończyłeś(aś) go.
+          email_link: Przejdź do kontynuowania głosowania
+          email_outro: Pamiętaj, aby zakończyć głosowanie. Aby głosować, musisz najpierw wybrać jedną lub więcej propozycji, nad którymi chcesz głosować, a następnie potwierdzić swój głos za pomocą przycisku "Głosuj".
     components:
       budgets:
         actions:
@@ -311,6 +317,7 @@ pl:
               errors:
                 budget_voting_rule_only_one: Może być włączona tylko jedna reguła głosowania
                 budget_voting_rule_required: Wymagana jest jedna reguła głosowania
+            geocoding_enabled: Włączono geokodowanie
             landing_page_content: Strona główna budżetów
             more_information_modal: Więcej informacji
             projects_per_page: Projektów na stronie
@@ -321,6 +328,7 @@ pl:
             total_budget: Całkowity budżet
             vote_minimum_budget_projects_number: Minimalna liczba projektów, na które można głosować
             vote_rule_minimum_budget_projects_enabled: 'Włącz regułę: minimalna liczba projektów, na które można głosować'
+            vote_rule_selected_projects_enabled: 'Aktywuj zasadę: Minimalna liczba projektów, na które można głosować'
             vote_rule_threshold_percent_enabled: 'Włącz regułę: minimalny procent budżetu'
             vote_selected_projects_maximum: Maksymalna liczba wybranych projektów
             vote_selected_projects_minimum: Minimalna liczba wybranych projektów
