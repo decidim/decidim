@@ -1131,9 +1131,16 @@ pl:
         main_image: Obraz główny
     newsletters:
       unsubscribe:
+        check_subscription: Jeśli chcesz zmienić swoje preferencje, możesz to zrobić na <a href="%{link}" target="_blank">stronie konfiguracji</a>.
+        error: Wystąpił błąd podczas anulowania subskrypcji.
         success: Subskrypcja została anulowana.
         token_error: Link wygasł.
         unsubscribe: Anuluj subskrypcję
+    newsletters_opt_in:
+      unathorized: Przepraszamy, ten link nie jest już dostępny.
+      update:
+        error: Przy zapisywaniu ustawień newslettera pojawił się problem.
+        success: Ustawienia newslettera zostały pomyślnie zaktualizowane.
     newsletters_opt_in_mailer:
       notify:
         body_1: Przetwarzanie danych osobowych i ich ochrona stają się coraz ważniejsze dla nas wszystkich. Wraz z nowym ogólnym rozporządzeniem o ochronie danych (GDPR) z 25 maja 2018 r. Osoby fizyczne mają lepszą kontrolę nad swoimi danymi osobowymi. Z tego powodu potrzebujemy twojego "OK", aby kontynuować wysyłanie odpowiednich informacji o działaniach %{organization_name}.
@@ -1143,12 +1150,24 @@ pl:
         greetings: Pozdrawiamy,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Cześć,
         subject: Czy chcesz nadal otrzymywać istotne informacje o %{organization_name}?
+    notification_mailer:
+      event_received:
+        no_translation_available: Przepraszamy, nie można pobrać tłumaczenia automatycznego, gdy e-mail został wysłany. Możesz sprawdzić tłumaczenie oryginalnego tekstu pod poniższym linkiem %{link}.
+        original_text: 'Oryginalny tekst:'
+        same_language: Treść została zamieszczona w preferowanym przez Ciebie języku (%{language}), dlatego w tej wiadomości e-mail nie wyświetlono żadnego automatycznego tłumaczenia.
+        translated_text: 'Automatycznie przetłumaczony tekst:'
     notifications:
       no_notifications: Brak powiadomień.
+      show:
+        missing_event: Ups, to powiadomienie należy do elementu, który nie jest już dostępny. Możesz je odrzucić.
     notifications_digest_mailer:
       header:
+        daily: Podsumowanie codziennych powiadomień
         weekly: Podsumowanie Cotygodniowych Powiadomień
       hello: Witaj %{name},
+      intro:
+        daily: 'Są to powiadomienia z ostatniego dnia na podstawie aktywności, którą obserwujesz:'
+        weekly: 'Są to powiadomienia z ostatniego tygodnia na podstawie aktywności, którą obserwujesz:'
       see_more: Pokaż więcej powiadomień
       subject: To jest Twoje streszczenie wiadomości
     notifications_settings:
