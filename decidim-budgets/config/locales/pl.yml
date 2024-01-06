@@ -292,6 +292,7 @@ pl:
             total_budget: Całkowity budżet
             vote_minimum_budget_projects_number: Minimalna liczba projektów, na które można głosować
             vote_rule_minimum_budget_projects_enabled: 'Włącz regułę: minimalna liczba projektów, na które można głosować'
+            vote_rule_selected_projects_enabled: 'Aktywuj zasadę: Minimalna liczba projektów, na które można głosować'
             vote_rule_threshold_percent_enabled: 'Włącz regułę: minimalny procent budżetu'
             vote_selected_projects_maximum: Maksymalna liczba wybranych projektów
             vote_selected_projects_minimum: Minimalna liczba wybranych projektów
