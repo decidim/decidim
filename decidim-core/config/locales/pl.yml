@@ -116,6 +116,20 @@ pl:
       short:
         about_x_days: "%{count}d"
         about_x_hours: "%{count}g"
+        about_x_minutes: "%{count}m"
+        about_x_months: "%{count} miesięcy"
+        about_x_years: "%{count} lat"
+        almost_x_years: "%{count} lat"
+        half_a_minute: 1 min.
+        less_than_x_minutes: "%{count} min."
+        less_than_x_seconds: "%{count} s"
+        over_x_years: "%{count} lat"
+        x_days: "%{count} dni"
+        x_hours: "%{count} godzin"
+        x_minutes: "%{count} min."
+        x_months: "%{count} miesięcy"
+        x_seconds: "%{count} s"
+        x_years: "%{count} lat"
   decidim:
     accessibility:
       external_link: Link zewnętrzny
@@ -123,35 +137,48 @@ pl:
       logo: "Oficjalne logo %{organization}"
       skip_button: Przejdź do głównej zawartości
     account:
+      blocked: To konto zostało zablokowane z powodu naruszenia regulaminu
       delete:
+        alert: Tej czynności nie można cofnąć. Jeśli usuniesz swoje konto, nie będziesz mógł zalogować się za pomocą swoich danych. Usunięcie Twojego konta spowoduje, że cała Twoja aktywność w portalu stanie się anonimowa. Nadal będziesz mógł utworzyć nowe konto, ale Twoje dotychczasowe zasoby nie będą już z nim powiązane.
         confirm:
           close: Zamknij okno
           ok: Tak, chcę usunąć moje konto
           question: Czy na pewno chcesz usunąć swoje konto?
           title: Usuń moje konto
         explanation: Proszę podać przyczynę, dla której chcesz usunąć swoje konto (opcjonalne).
+        leaving_authorizations_behind: Niektóre dane związane z Twoją autoryzacją zostaną zapisane dla bezpieczeństwa. Jeśli utworzysz inne konto i autoryzujesz ponownie, dane zostaną odzyskane na nowym koncie.
       destroy:
         error: Podczas usuwania Twojego konta wystąpił błąd.
         success: Twoje konto zostało pomyślnie usunięte.
       download_your_data_export:
         file_no_exists: Plik nie istnieje
+        notice: Trwa pobieranie Twoich danych. Po zakończeniu otrzymasz wiadomość e-mail.
       email_change:
+        body1: Wysłaliśmy wiadomość e-mail do %{unconfirmed_email}, aby zweryfikować Twój nowy adres e-mail.
         body2: Wysłać e-mail weryfikacyjny ponownie? %{resend_link} lub %{cancel_link}.
         cancel: anuluj
         cancel_error: Nie można anulować zmiany adresu e-mail.
         cancel_successfully: Zmiana adresu e-mail została anulowana.
         resend_error: Nie można wysłać ponownie e-maila z potwierdzeniem.
+        resend_successfully: Ponowny e-mail potwierdzający został pomyślnie wysłany do %{unconfirmed_email}.
         send_again: Wyślij ponownie
         title: Weryfikacja zmiany adresu e-mail
       show:
+        available_locales_helper: Wybierz język, którego chcesz używać do przeglądania i odbierania powiadomień na platformie.
         change_password: Zmień hasło
         update_account: Zaktualizuj konto
       update:
         error: Podczas aktualizowania konta wystąpił błąd.
         success: Twoje konto zostało zaktualizowane.
+        success_with_email_confirmation: Aktualizacja konta się powiodła. Otrzymasz e-mail, który pozwoli potwierdzić nowy adres.
+    activity:
+      time_ago: "%{time} temu"
     admin:
       actions:
         cancel: Anuluj
+      password_change:
+        alert: Aby kontynuować, musisz zmienić hasło.
+        notification: Użytkownicy będący administratorami muszą zmieniać swoje hasło co %{days} dni.
     admin_log:
       area:
         create: "%{user_name} utworzył(a) kategorię %{resource_name}"
@@ -218,6 +245,7 @@ pl:
       scope_type:
         create: "%{user_name} utworzył(a) zakres %{resource_name}"
         delete: "%{user_name} usunął(ęła) zakres %{resource_name}"
+        update: "%{user_name} zaktualizował(a) typ zakresu %{resource_name}"
       static_page:
         create: "%{user_name} stworzył(a) stronę statyczną %{resource_name}"
         delete: "%{user_name} usunął/usunęła stronę statyczną %{resource_name}"
@@ -233,6 +261,7 @@ pl:
         unblock: "%{user_name} odblokował(a) użytkownika %{resource_name}"
         unofficialize: "%{user_name} usunął/usunęła oficjalny status użytkownika %{resource_name}"
       user_group:
+        block: "%{user_name} zablokował(a) grupę użytkownika %{resource_name}"
         reject: "%{user_name} odrzucił(a) weryfikację grupy %{resource_name}"
         unblock: "%{user_name} odblokował(a) grupę użytkownika %{resource_name}"
         verify: "%{user_name} zweryfikował(a) grupę %{resource_name}"
@@ -921,19 +950,32 @@ pl:
       no_user_groups: Nie należy jeszcze do żadnej grupy.
       roles:
         admin: Administrator
+        creator: Administrator
         member: Członek
+      update:
+        error: Wystąpił błąd podczas aktualizacji grupy.
+        success: Grupa została zaktualizowana.
     help:
       main_topic:
         default_page:
           content: "<p>W %{organization} możesz brać udział i decydować o różnych tematach, poprzez przestrzenie widoczne w górnym menu: Procesy, Zespoły, Inicjatywy, Konsultacje.</p> <p>W ramach każdego z nich znajdziesz różne opcje uczestnictwa: składanie propozycji - indywidualnie lub wspólnie z innymi osobami - uczestnictwo w debatach, nadawanie priorytetów projektom do realizacji, uczestnictwo w spotkaniach twarzą w twarz i inne działania.</p>\n"
           title: Co mogę zrobić w %{organization}?
+        description: Przeczytaj więcej o %{organization}.
         title: Ogólna pomoc
     last_activities:
       all: Wszystkie typy aktywności
       index:
         last_activity: Ostatnia aktywność
+      name: Ostatnie aktywności
+      no_activities_warning: Brak wpisów do pokazania dla tego typu aktywności.
+    linked_resource_from:
+      included_in: Zawarte w
     links:
+      invalid_url: Nieprawidłowy adres URL
       warning:
+        body_1: Zamierzasz odwiedzić link zewnętrzny i chcielibyśmy, byś zachował(a) ostrożność w odniesieniu do treści na stronie zewnętrznej.
+        body_2: Sprawdź link, który chcesz odwiedzić i upewnij się, że rozpoznasz go jako bezpieczną stronę, zanim przejdziesz dalej.
+        cancel: Anuluj
         proceed: Dalej
         title: Otwórz zewnętrzny link
     log:
@@ -942,9 +984,12 @@ pl:
         create_with_space: "%{user_name} stworzył(a) %{resource_name} w %{space_name}"
         delete: "%{user_name} usunął/usunęła %{resource_name}"
         delete_with_space: "%{user_name} usunął/usunęła %{resource_name} w %{space_name}"
+        publish_with_space: "%{user_name} opublikował(a) %{resource_name} w %{space_name}"
         unknown_action: "%{user_name} wykonał(a) jakąś akcję w %{resource_name}"
         unknown_action_with_space: "%{user_name} wykonał(a) jakąś akcję w %{resource_name} w %{space_name}"
+        unpublish_with_space: "Użytkownik %{user_name} usunął publikację %{resource_name} z %{space_name}"
         update: "%{user_name} zaktualizował(a) %{resource_name}"
+        update_permissions_with_space: "%{user_name} zaktualizował(a) uprawnienia %{resource_name} w %{space_name}"
         update_with_space: "%{user_name} zaktualizował(a) %{resource_name} w %{space_name}"
       value_types:
         area_presenter:
@@ -964,6 +1009,8 @@ pl:
       static:
         latlng_text: 'szerokość geograficzna: %{latitude}, długość geograficzna: %{longitude}'
         map_service_brand: OpenStreetMap
+    members:
+      no_members: Ten grupa nie ma jeszcze żadnych członków.
     menu:
       help: Pomoc
       home: Strona główna
@@ -973,29 +1020,35 @@ pl:
           admin_in_group: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem w %{group}.
           greeting: Cześć, %{recipient}!
           intro: "%{manager} rozpoczął/rozpoczęła nową konwersację w imieniu %{group}. Kliknij tutaj, aby ją zobaczyć:"
+          outro: Ciesz się platformą!
           subject: "%{manager} rozpoczął/rozpoczęła nową konwersację jako %{group}"
         comanagers_new_message:
           admin_in_group: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem w %{group}.
           greeting: Cześć, %{recipient}!
           intro: "%{manager} wysłał(a) nową wiadomość w konwersacji w imieniu %{group}. Kliknij tutaj, aby ją zobaczyć:"
+          outro: Ciesz się platformą!
           subject: "%{manager} wysłał(a) nowe wiadomości jako %{group}"
         new_conversation:
           greeting: Cześć, %{recipient}!
           intro: "%{sender} rozpoczął/rozpoczęła z tobą nową rozmowę. Kliknij tutaj, aby zobaczyć:"
+          outro: Ciesz się platformą!
           subject: "%{sender} rozpoczął/rozpoczęła z Tobą rozmowę"
         new_group_conversation:
           admin_in_group: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem w %{group}.
           greeting: Cześć, %{recipient}!
           intro: "%{sender} rozpoczął/rozpoczęła nową konwersację z grupą %{group}. Kliknij tutaj, aby ją zobaczyć:"
+          outro: Ciesz się platformą!
           subject: "%{sender} rozpoczął/rozpoczęła konwersację z %{group}"
         new_group_message:
           admin_in_group: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem w %{group}.
           greeting: Cześć, %{recipient}!
           intro: "%{sender} wysłał(a) nową wiadomość w konwersacji z grupą %{group}. Kliknij tutaj, aby ją zobaczyć:"
+          outro: Ciesz się platformą!
           subject: "%{group} ma nowe wiadomości od %{sender}"
         new_message:
           greeting: Cześć, %{recipient}!
           intro: "%{sender} wysłał(a) nową wiadomość w konwersacji. Kliknij tutaj, aby ją zobaczyć:"
+          outro: Ciesz się platformą!
           subject: Masz nowe wiadomości od %{sender}
       conversations:
         add_conversation_users:
@@ -1003,6 +1056,9 @@ pl:
           add_users_placeholder: Szukaj...
           modal_title: Nowa konwersacja
           no_results: Brak wyników
+          participant_with_disabled_message_reception: Ten użytkownik nie chce otrzymywać prywatnych wiadomości.
+        create:
+          error: Rozmowa nie została rozpoczęta. Spróbuj ponownie później.
         error_modal:
           close: Zamknij okno
           correct_errors: Popraw daty i spróbuj ponownie.
@@ -1011,14 +1067,28 @@ pl:
         index:
           new_conversation: Nowa konwersacja
           next: Dalej
+          no_conversations: Nie masz jeszcze żadnych konwersacji.
           title: Konwersacje
+        reply_form:
+          placeholder: Twoja odpowiedź...
+          send: Wyślij
         show:
           back: Powrót do wszystkich konwersacji
           chat_with: Konwersacja z
+          deleted_accounts: Nie można prowadzić rozmowy z usuniętymi kontami.
           not_allowed: Ten użytkownik nie przyjmuje wiadomości prywatnych.
           title: Konwersacja z %{usernames}
         start:
+          placeholder: Twoja wiadomość...
           send: Wyślij
+        update:
+          error: Wiadomość nie została wysłana z powodu błędu.
+    metadata:
+      progress:
+        active: Aktywny
+        finished: 'Zakończono: %{end_date}'
+        not_started: Jeszcze nie rozpoczęto
+        remaining: "Pozostało %{time_distance}"
     metrics:
       download:
         csv: Pobierz dane (CSV)
@@ -1036,6 +1106,9 @@ pl:
         title: Użytkownicy
     newsletter_mailer:
       newsletter:
+        no_reply_notice: Ta wiadomość została wysłana z adresu do powiadomień, który nie akceptuje poczty przychodzącej. Prosimy na nią nie odpowiadać.
+        note: Otrzymujesz ten e-mail, ponieważ subskrybujesz newslettery %{organization_name}. Możesz zmienić swoje ustawienia na <a href="%{link}">stronie powiadomień</a>.
+        see_on_website: Nie widzisz tego e-maila poprawnie? Wyświetl go na <a href="%{link}" target="_blank">stronie</a>.
         unsubscribe: Aby zrezygnować z otrzymywania tego typu wiadomości e-mail, <a href="%{link}" target="_blank" class="unsubscribe">cofnij subskrypcję</a>.
     newsletter_templates:
       basic_only_text:
