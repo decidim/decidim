@@ -293,6 +293,12 @@ pl:
         show:
           budget: Budżet
       prompt: Wybierz budżet
+      vote_reminder_mailer:
+        vote_reminder:
+          email_budgets: 'Obszary, w których masz niedokończone głosowanie:'
+          email_intro: Rozpocząłeś(aś) głosowanie w budżecie partycypacyjnym, ale nie ukończyłeś(aś) go.
+          email_link: Przejdź do kontynuowania głosowania
+          email_outro: Pamiętaj, aby zakończyć głosowanie. Aby głosować, musisz najpierw wybrać jedną lub więcej propozycji, nad którymi chcesz głosować, a następnie potwierdzić swój głos za pomocą przycisku "Głosuj".
     components:
       budgets:
         actions:
@@ -304,6 +310,11 @@ pl:
             announcement: Ogłoszenie
             comments_enabled: Komentarze włączone
             comments_max_length: Maksymalna długość komentarzy (Pozostaw 0 dla wartości domyślnej)
+            form:
+              errors:
+                budget_voting_rule_only_one: Może być włączona tylko jedna reguła głosowania.
+                budget_voting_rule_required: Wymagana jest jedna reguła głosowania.
+            geocoding_enabled: Włączono geokodowanie
             landing_page_content: Strona główna budżetów
             more_information_modal: Więcej informacji
             projects_per_page: Projektów na stronie
@@ -314,6 +325,7 @@ pl:
             total_budget: Całkowity budżet
             vote_minimum_budget_projects_number: Minimalna liczba projektów, na które można głosować
             vote_rule_minimum_budget_projects_enabled: 'Włącz regułę: minimalna liczba projektów, na które można głosować'
+            vote_rule_selected_projects_enabled: 'Aktywuj zasadę: Minimalna liczba projektów, na które można głosować'
             vote_rule_threshold_percent_enabled: 'Włącz regułę: minimalny procent budżetu'
             vote_selected_projects_maximum: Maksymalna liczba wybranych projektów
             vote_selected_projects_minimum: Minimalna liczba wybranych projektów
@@ -343,6 +355,14 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
           email_subject: Budżet %{resource_title} jest teraz aktywny w %{participatory_space_title}.
           notification_title: Budżet <a href="%{resource_path}">%{resource_title}</a> jest teraz aktywny w %{participatory_space_title}.
+    orders:
+      checkout:
+        error: Podczas przetwarzania Twojego głosu wystąpił błąd.
+        success_html: <p>Twój głos został zaakceptowany.</p> <p class="text-sm font-normal">Możesz zobaczyć <a class="text-secondary underline" href="%{rest_of_budgets_link}">pozostałe budżety</a>.</p>
+        success_no_left_budgets_html: Twój głos został przyjęty.
+      destroy:
+        error: Podczas anulowania Twojego głosu wystąpił błąd.
+        success: Twój głos został anulowany.
     resource_links:
       included_proposals:
         project_proposal: Propozycje zawarte w tym projekcie
