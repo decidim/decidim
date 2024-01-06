@@ -115,6 +115,20 @@ pl:
       short:
         about_x_days: "%{count}d"
         about_x_hours: "%{count}g"
+        about_x_minutes: "%{count}m"
+        about_x_months: "%{count} miesięcy"
+        about_x_years: "%{count} lat"
+        almost_x_years: "%{count} lat"
+        half_a_minute: 1 min.
+        less_than_x_minutes: "%{count} min."
+        less_than_x_seconds: "%{count} s"
+        over_x_years: "%{count} lat"
+        x_days: "%{count} dni"
+        x_hours: "%{count} godzin"
+        x_minutes: "%{count} min."
+        x_months: "%{count} miesięcy"
+        x_seconds: "%{count} s"
+        x_years: "%{count} lat"
   decidim:
     accessibility:
       external_link: Link zewnętrzny
@@ -122,27 +136,34 @@ pl:
       logo: "Oficjalne logo %{organization}"
       skip_button: Przejdź do głównej zawartości
     account:
+      blocked: To konto zostało zablokowane z powodu naruszenia regulaminu
       delete:
+        alert: Tej czynności nie można cofnąć. Jeśli usuniesz swoje konto, nie będziesz mógł zalogować się za pomocą swoich danych. Usunięcie Twojego konta spowoduje, że cała Twoja aktywność w portalu stanie się anonimowa. Nadal będziesz mógł utworzyć nowe konto, ale Twoje dotychczasowe zasoby nie będą już z nim powiązane.
         confirm:
           close: Zamknij okno
           ok: Tak, chcę usunąć moje konto
           question: Czy na pewno chcesz usunąć swoje konto?
           title: Usuń moje konto
         explanation: Proszę podać przyczynę, dla której chcesz usunąć swoje konto (opcjonalne).
+        leaving_authorizations_behind: Niektóre dane związane z Twoją autoryzacją zostaną zapisane dla bezpieczeństwa. Jeśli utworzysz inne konto i autoryzujesz ponownie, dane zostaną odzyskane na nowym koncie.
       destroy:
         error: Podczas usuwania Twojego konta wystąpił błąd.
         success: Twoje konto zostało pomyślnie usunięte.
       download_your_data_export:
         file_no_exists: Plik nie istnieje
+        notice: Trwa pobieranie Twoich danych. Po zakończeniu otrzymasz wiadomość e-mail.
       email_change:
+        body1: Wysłaliśmy wiadomość e-mail do %{unconfirmed_email}, aby zweryfikować Twój nowy adres e-mail.
         body2: Wysłać e-mail weryfikacyjny ponownie? %{resend_link} lub %{cancel_link}.
         cancel: anuluj
         cancel_error: Nie można anulować zmiany adresu e-mail.
         cancel_successfully: Zmiana adresu e-mail została anulowana.
         resend_error: Nie można wysłać ponownie e-maila z potwierdzeniem.
+        resend_successfully: Ponowny e-mail potwierdzający został pomyślnie wysłany do %{unconfirmed_email}.
         send_again: Wyślij ponownie
         title: Weryfikacja zmiany adresu e-mail
       show:
+        available_locales_helper: Wybierz język, którego chcesz używać do przeglądania i odbierania powiadomień na platformie.
         change_password: Zmień hasło
         update_account: Zaktualizuj konto
       update:
