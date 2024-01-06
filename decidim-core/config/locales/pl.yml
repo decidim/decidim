@@ -169,9 +169,15 @@ pl:
       update:
         error: Podczas aktualizowania konta wystąpił błąd.
         success: Twoje konto zostało zaktualizowane.
+        success_with_email_confirmation: Aktualizacja konta się powiodła. Otrzymasz e-mail, który pozwoli potwierdzić nowy adres.
+    activity:
+      time_ago: "%{time} temu"
     admin:
       actions:
         cancel: Anuluj
+      password_change:
+        alert: Aby kontynuować, musisz zmienić hasło.
+        notification: Użytkownicy będący administratorami muszą zmieniać swoje hasło co %{days} dni.
     admin_log:
       area:
         create: "%{user_name} utworzył(a) kategorię %{resource_name}"
@@ -238,6 +244,7 @@ pl:
       scope_type:
         create: "%{user_name} utworzył(a) zakres %{resource_name}"
         delete: "%{user_name} usunął(ęła) zakres %{resource_name}"
+        update: "%{user_name} zaktualizował(a) typ zakresu %{resource_name}"
       static_page:
         create: "%{user_name} stworzył(a) stronę statyczną %{resource_name}"
         delete: "%{user_name} usunął/usunęła stronę statyczną %{resource_name}"
@@ -253,6 +260,7 @@ pl:
         unblock: "%{user_name} odblokował(a) użytkownika %{resource_name}"
         unofficialize: "%{user_name} usunął/usunęła oficjalny status użytkownika %{resource_name}"
       user_group:
+        block: "%{user_name} zablokował(a) grupę użytkownika %{resource_name}"
         reject: "%{user_name} odrzucił(a) weryfikację grupy %{resource_name}"
         unblock: "%{user_name} odblokował(a) grupę użytkownika %{resource_name}"
         verify: "%{user_name} zweryfikował(a) grupę %{resource_name}"
@@ -941,19 +949,32 @@ pl:
       no_user_groups: Nie należy jeszcze do żadnej grupy.
       roles:
         admin: Administrator
+        creator: Administrator
         member: Członek
+      update:
+        error: Wystąpił błąd podczas aktualizacji grupy.
+        success: Grupa została zaktualizowana.
     help:
       main_topic:
         default_page:
           content: "<p>W %{organization} możesz brać udział i decydować o różnych tematach, poprzez przestrzenie widoczne w górnym menu: Procesy, Zespoły, Inicjatywy, Konsultacje.</p> <p>W ramach każdego z nich znajdziesz różne opcje uczestnictwa: składanie propozycji - indywidualnie lub wspólnie z innymi osobami - uczestnictwo w debatach, nadawanie priorytetów projektom do realizacji, uczestnictwo w spotkaniach twarzą w twarz i inne działania.</p>\n"
           title: Co mogę zrobić w %{organization}?
+        description: Przeczytaj więcej o %{organization}.
         title: Ogólna pomoc
     last_activities:
       all: Wszystkie typy aktywności
       index:
         last_activity: Ostatnia aktywność
+      name: Ostatnie aktywności
+      no_activities_warning: Brak wpisów do pokazania dla tego typu aktywności.
+    linked_resource_from:
+      included_in: Zawarte w
     links:
+      invalid_url: Nieprawidłowy adres URL
       warning:
+        body_1: Zamierzasz odwiedzić link zewnętrzny i chcielibyśmy, byś zachował(a) ostrożność w odniesieniu do treści na stronie zewnętrznej.
+        body_2: Sprawdź link, który chcesz odwiedzić i upewnij się, że rozpoznasz go jako bezpieczną stronę, zanim przejdziesz dalej.
+        cancel: Anuluj
         proceed: Dalej
         title: Otwórz zewnętrzny link
     log:
@@ -962,9 +983,12 @@ pl:
         create_with_space: "%{user_name} stworzył(a) %{resource_name} w %{space_name}"
         delete: "%{user_name} usunął/usunęła %{resource_name}"
         delete_with_space: "%{user_name} usunął/usunęła %{resource_name} w %{space_name}"
+        publish_with_space: "%{user_name} opublikował(a) %{resource_name} w %{space_name}"
         unknown_action: "%{user_name} wykonał(a) jakąś akcję w %{resource_name}"
         unknown_action_with_space: "%{user_name} wykonał(a) jakąś akcję w %{resource_name} w %{space_name}"
+        unpublish_with_space: "Użytkownik %{user_name} usunął publikację %{resource_name} z %{space_name}"
         update: "%{user_name} zaktualizował(a) %{resource_name}"
+        update_permissions_with_space: "%{user_name} zaktualizował(a) uprawnienia %{resource_name} w %{space_name}"
         update_with_space: "%{user_name} zaktualizował(a) %{resource_name} w %{space_name}"
       value_types:
         area_presenter:
@@ -984,6 +1008,8 @@ pl:
       static:
         latlng_text: 'szerokość geograficzna: %{latitude}, długość geograficzna: %{longitude}'
         map_service_brand: OpenStreetMap
+    members:
+      no_members: Ten grupa nie ma jeszcze żadnych członków.
     menu:
       help: Pomoc
       home: Strona główna
@@ -993,29 +1019,35 @@ pl:
           admin_in_group: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem w %{group}.
           greeting: Cześć, %{recipient}!
           intro: "%{manager} rozpoczął/rozpoczęła nową konwersację w imieniu %{group}. Kliknij tutaj, aby ją zobaczyć:"
+          outro: Ciesz się platformą!
           subject: "%{manager} rozpoczął/rozpoczęła nową konwersację jako %{group}"
         comanagers_new_message:
           admin_in_group: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem w %{group}.
           greeting: Cześć, %{recipient}!
           intro: "%{manager} wysłał(a) nową wiadomość w konwersacji w imieniu %{group}. Kliknij tutaj, aby ją zobaczyć:"
+          outro: Ciesz się platformą!
           subject: "%{manager} wysłał(a) nowe wiadomości jako %{group}"
         new_conversation:
           greeting: Cześć, %{recipient}!
           intro: "%{sender} rozpoczął/rozpoczęła z tobą nową rozmowę. Kliknij tutaj, aby zobaczyć:"
+          outro: Ciesz się platformą!
           subject: "%{sender} rozpoczął/rozpoczęła z Tobą rozmowę"
         new_group_conversation:
           admin_in_group: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem w %{group}.
           greeting: Cześć, %{recipient}!
           intro: "%{sender} rozpoczął/rozpoczęła nową konwersację z grupą %{group}. Kliknij tutaj, aby ją zobaczyć:"
+          outro: Ciesz się platformą!
           subject: "%{sender} rozpoczął/rozpoczęła konwersację z %{group}"
         new_group_message:
           admin_in_group: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem w %{group}.
           greeting: Cześć, %{recipient}!
           intro: "%{sender} wysłał(a) nową wiadomość w konwersacji z grupą %{group}. Kliknij tutaj, aby ją zobaczyć:"
+          outro: Ciesz się platformą!
           subject: "%{group} ma nowe wiadomości od %{sender}"
         new_message:
           greeting: Cześć, %{recipient}!
           intro: "%{sender} wysłał(a) nową wiadomość w konwersacji. Kliknij tutaj, aby ją zobaczyć:"
+          outro: Ciesz się platformą!
           subject: Masz nowe wiadomości od %{sender}
       conversations:
         add_conversation_users:
@@ -1023,6 +1055,9 @@ pl:
           add_users_placeholder: Szukaj...
           modal_title: Nowa konwersacja
           no_results: Brak wyników
+          participant_with_disabled_message_reception: Ten użytkownik nie chce otrzymywać prywatnych wiadomości.
+        create:
+          error: Rozmowa nie została rozpoczęta. Spróbuj ponownie później.
         error_modal:
           close: Zamknij okno
           correct_errors: Popraw daty i spróbuj ponownie.
@@ -1031,14 +1066,28 @@ pl:
         index:
           new_conversation: Nowa konwersacja
           next: Dalej
+          no_conversations: Nie masz jeszcze żadnych konwersacji.
           title: Konwersacje
+        reply_form:
+          placeholder: Twoja odpowiedź...
+          send: Wyślij
         show:
           back: Powrót do wszystkich konwersacji
           chat_with: Konwersacja z
+          deleted_accounts: Nie można prowadzić rozmowy z usuniętymi kontami.
           not_allowed: Ten użytkownik nie przyjmuje wiadomości prywatnych.
           title: Konwersacja z %{usernames}
         start:
+          placeholder: Twoja wiadomość...
           send: Wyślij
+        update:
+          error: Wiadomość nie została wysłana z powodu błędu.
+    metadata:
+      progress:
+        active: Aktywny
+        finished: 'Zakończono: %{end_date}'
+        not_started: Jeszcze nie rozpoczęto
+        remaining: "Pozostało %{time_distance}"
     metrics:
       download:
         csv: Pobierz dane (CSV)
@@ -1056,6 +1105,9 @@ pl:
         title: Użytkownicy
     newsletter_mailer:
       newsletter:
+        no_reply_notice: Ta wiadomość została wysłana z adresu do powiadomień, który nie akceptuje poczty przychodzącej. Prosimy na nią nie odpowiadać.
+        note: Otrzymujesz ten e-mail, ponieważ subskrybujesz newslettery %{organization_name}. Możesz zmienić swoje ustawienia na <a href="%{link}">stronie powiadomień</a>.
+        see_on_website: Nie widzisz tego e-maila poprawnie? Wyświetl go na <a href="%{link}" target="_blank">stronie</a>.
         unsubscribe: Aby zrezygnować z otrzymywania tego typu wiadomości e-mail, <a href="%{link}" target="_blank" class="unsubscribe">cofnij subskrypcję</a>.
     newsletter_templates:
       basic_only_text:
@@ -1078,9 +1130,16 @@ pl:
         main_image: Obraz główny
     newsletters:
       unsubscribe:
+        check_subscription: Jeśli chcesz zmienić swoje preferencje, możesz to zrobić na <a href="%{link}" target="_blank">stronie konfiguracji</a>.
+        error: Wystąpił błąd podczas anulowania subskrypcji.
         success: Subskrypcja została anulowana.
         token_error: Link wygasł.
         unsubscribe: Anuluj subskrypcję
+    newsletters_opt_in:
+      unathorized: Przepraszamy, ten link nie jest już dostępny.
+      update:
+        error: Przy zapisywaniu ustawień newslettera pojawił się problem.
+        success: Ustawienia newslettera zostały pomyślnie zaktualizowane.
     newsletters_opt_in_mailer:
       notify:
         body_1: Przetwarzanie danych osobowych i ich ochrona stają się coraz ważniejsze dla nas wszystkich. Wraz z nowym ogólnym rozporządzeniem o ochronie danych (GDPR) z 25 maja 2018 r. Osoby fizyczne mają lepszą kontrolę nad swoimi danymi osobowymi. Z tego powodu potrzebujemy twojego "OK", aby kontynuować wysyłanie odpowiednich informacji o działaniach %{organization_name}.
@@ -1090,12 +1149,24 @@ pl:
         greetings: Pozdrawiamy,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Cześć,
         subject: Czy chcesz nadal otrzymywać istotne informacje o %{organization_name}?
+    notification_mailer:
+      event_received:
+        no_translation_available: Przepraszamy, nie można pobrać tłumaczenia automatycznego, gdy e-mail został wysłany. Możesz sprawdzić tłumaczenie oryginalnego tekstu pod poniższym linkiem %{link}.
+        original_text: 'Oryginalny tekst:'
+        same_language: Treść została zamieszczona w preferowanym przez Ciebie języku (%{language}), dlatego w tej wiadomości e-mail nie wyświetlono żadnego automatycznego tłumaczenia.
+        translated_text: 'Automatycznie przetłumaczony tekst:'
     notifications:
       no_notifications: Brak powiadomień.
+      show:
+        missing_event: Ups, to powiadomienie należy do elementu, który nie jest już dostępny. Możesz je odrzucić.
     notifications_digest_mailer:
       header:
+        daily: Podsumowanie codziennych powiadomień
         weekly: Podsumowanie Cotygodniowych Powiadomień
       hello: Witaj %{name},
+      intro:
+        daily: 'Są to powiadomienia z ostatniego dnia na podstawie aktywności, którą obserwujesz:'
+        weekly: 'Są to powiadomienia z ostatniego tygodnia na podstawie aktywności, którą obserwujesz:'
       see_more: Pokaż więcej powiadomień
       subject: To jest Twoje streszczenie wiadomości
     notifications_settings:
