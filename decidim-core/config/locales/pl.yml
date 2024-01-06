@@ -188,6 +188,7 @@ pl:
         unblock: "%{user_name} odblokował(a) użytkownika %{resource_name}"
         unofficialize: "%{user_name} usunął/usunęła oficjalny status użytkownika %{resource_name}"
       user_group:
+        block: "%{user_name} zablokował(a) grupę użytkownika %{resource_name}"
         reject: "%{user_name} odrzucił(a) weryfikację grupy %{resource_name}"
         unblock: "%{user_name} odblokował(a) grupę użytkownika %{resource_name}"
         verify: "%{user_name} zweryfikował(a) grupę %{resource_name}"
