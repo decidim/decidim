@@ -75,6 +75,7 @@ pl:
         edit: Edytuj
         edited: Edytowany
         hide_replies: Ukryj odpowiedzi
+        moderated_at: Komentarz moderowany dnia %{date}
         reply: Odpowiedz
         report:
           action: Zgłoś
