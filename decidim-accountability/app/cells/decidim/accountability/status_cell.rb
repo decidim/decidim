@@ -8,6 +8,7 @@ module Decidim
     class StatusCell < Decidim::ViewModel
       include ApplicationHelper
       include BreadcrumbHelper
+      include Decidim::SanitizeHelper
       include Decidim::TranslationsHelper
       include ActiveSupport::NumberHelper
 
@@ -39,7 +40,7 @@ module Decidim
 
       def title
         if model.is_a? Decidim::Category
-          translated_attribute(model.name)
+          decidim_html_escape translated_attribute(model.name)
         else
           options[:title]
         end
