@@ -12,7 +12,9 @@ module Decidim
 
         protected
 
-        def invalid? = form.invalid? || !resource
+        def invalid?
+          form.invalid? || !resource
+        end
 
         def extra_params
           {
