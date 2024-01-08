@@ -6,7 +6,7 @@ import "entrypoints/decidim_api_graphiql.scss";
 import "graphiql/graphiql.css"
 
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 
 import GraphiQL from "graphiql";
 import Configuration from "src/decidim/configuration"
@@ -78,8 +78,11 @@ const graphQLFetcher = function(graphQLParams) {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-  // Render <GraphiQL /> into the body.
-  ReactDOM.render(
+  const container = document.getElementById("graphiql-container");
+
+  const root = createRoot(container);
+
+  root.render(
     React.createElement(GraphiQL, {
       fetcher: graphQLFetcher,
       defaultQuery: window.Decidim.config.get("default_query"),
@@ -87,7 +90,6 @@ window.addEventListener("DOMContentLoaded", () => {
       variables: parameters.variables,
       onEditQuery: onEditQuery,
       onEditVariables: onEditVariables
-    }),
-    document.getElementById("graphiql-container")
+    })
   )
 });
