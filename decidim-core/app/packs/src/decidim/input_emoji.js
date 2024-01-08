@@ -132,7 +132,7 @@ class EmojiPopUp {
     console.log(popUpWidth, leftPosition);
 
     if (leftPosition < 0) {
-      leftPosition = parseInt((window.screen.availWidth - popUpWidth) / 2) + 30;
+      leftPosition = parseInt((window.screen.availWidth - popUpWidth) / 2, 10) + 30;
     }
 
     this.popUp.style.top = `${topPosition}px`;
@@ -191,7 +191,7 @@ export class EmojiButton {
       elem.dispatchEvent(event);
     }
 
-    let handlerPicker = (event) => {
+    let handlerPicker = () => {
       let popUp = document.getElementById("picker");
       if (popUp) {
         // We close the picker
