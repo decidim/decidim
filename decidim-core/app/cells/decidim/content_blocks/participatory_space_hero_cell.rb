@@ -7,7 +7,7 @@ module Decidim
       include Decidim::TranslationsHelper
       include Decidim::TwitterSearchHelper
 
-      delegate :title, :subtitle, :hashtag, :attached_uploader, to: :resource
+      delegate :title, :hashtag, :attached_uploader, to: :resource
 
       def cta_text
         return unless model
@@ -26,7 +26,9 @@ module Decidim
       end
 
       def subtitle_text
-        translated_attribute(subtitle)
+        return unless resource.respond_to?(:subtitle)
+
+        translated_attribute(resource.subtitle)
       end
 
       # If it is called from the landing page content block, use the background image defined there
