@@ -1271,9 +1271,9 @@ describe "Editor" do
       end
 
       within ".emoji__decidim" do
-        # Since emoji Mart is a React component, we need to use JS to click on an emoji icon
+        # Since emoji-mart is a React component, we need to use JS to click on an emoji icon
         # as the emoji picker is a shadow DOM element.
-        # The Below script is trying to find the first emoji in the "Smileys & People" category and simulate
+        # The script below is trying to find the first emoji in the "Smileys & People" category and simulate
         # a click from the user on it.
         script = <<~JS
           var emoji_picker = document.getElementsByTagName("em-emoji-picker")[0];
