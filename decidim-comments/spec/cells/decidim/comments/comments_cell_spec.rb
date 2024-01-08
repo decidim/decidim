@@ -89,12 +89,6 @@ module Decidim::Comments
           before do
             allow(commentable).to receive(:comments_have_alignment?).and_return(true)
           end
-
-          it "renders the alignment buttons" do
-            expect(subject).to have_css(".opinion-toggle--ok")
-            expect(subject).to have_css(".opinion-toggle--meh")
-            expect(subject).to have_css(".opinion-toggle--ko")
-          end
         end
 
         context "when comments are blocked" do
