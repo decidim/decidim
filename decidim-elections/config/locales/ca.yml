@@ -758,6 +758,7 @@ ca:
           new_election:
             email_intro: Has estat afegit com a garant de l'elecció %{resource_title}.
             email_outro: Has rebut aquesta notificació perquè t'han afegit com a garant de l'elecció %{resource_title}.
+            email_subject: Ets garant de l'elecció %{resource_title}.
             notification_title: Has estat assignada per actuar com a Garant<a href="%{resource_path}">%{resource_title}</a>. Si us plau, realitza la cerimònia de claus per a posar en marxa l'elecció.
           new_trustee:
             email_intro: Una administradora t'ha afegit com a garant de %{resource_name}. Hauries de crear la teva clau pública a la teva <a href='%{trustee_zone_url}'>zona de garants</a>
