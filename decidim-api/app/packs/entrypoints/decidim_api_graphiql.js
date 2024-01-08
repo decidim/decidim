@@ -8,7 +8,7 @@ import "graphiql/graphiql.css";
 import React from "react";
 import { createRoot } from "react-dom/client";
 
-import GraphiQL from "graphiql/graphiql"; // eslint-disable-line no-unused-vars
+import { GraphiQL } from "graphiql"; // eslint-disable-line no-unused-vars
 import Configuration from "src/decidim/configuration";
 
 window.Decidim = window.Decidim || {};
@@ -95,7 +95,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const root = createRoot(container);
 
   root.render(
-    React.createElement(window.GraphiQL, {
+    React.createElement(GraphiQL, {
       fetcher: graphQLFetcher,
       defaultQuery: window.Decidim.config.get("default_query"),
       query: parameters.query,
