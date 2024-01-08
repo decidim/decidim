@@ -758,6 +758,7 @@ es-PY:
           new_election:
             email_intro: Has sido añadido como garante para la elección de %{resource_title}.
             email_outro: Has recibido esta notificación porque has sido añadido como garante para la elección %{resource_title}.
+            email_subject: Eres garante para la elección %{resource_title}.
             notification_title: 'Has sido asignada para actuar como Garante en la Elección: <a href="%{resource_path}">%{resource_title}</a>. Por favor, realiza la ceremonia de claves para poner en marcha la elección.'
           new_trustee:
             email_intro: Un administrador te ha añadido como garante para %{resource_name}. Debes crear tu clave pública <a href='%{trustee_zone_url}'>en tu zona de garantes</a>
