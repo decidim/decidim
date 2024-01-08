@@ -1073,7 +1073,7 @@ pt-BR:
           last_message: Última mensagem
           new_conversation: Nova conversa
           next: Próxima
-          no_conversations: Ainda não há conversas
+          no_conversations: Ainda não tem conversas
           title: Conversas
           to: Para
         reply:
@@ -1108,7 +1108,7 @@ pt-BR:
         title: Usuários
     newsletter_mailer:
       newsletter:
-        note: Você recebeu este e-mail porque está inscrito em boletins informativos em %{organization_name}. Você pode alterar suas configurações em suas <a href="%{link}">notifications page</a>.
+        note: Você recebeu este e-mail porque se inscreveu nos boletins informativos do %{organization_name}. É possível <a href="%{link}">editar</a> suas configurações de notificações.
         see_on_website: Não consegue ver este e-mail corretamente? Visualize-o no <a href="%{link}" target="_blank" class="see-on-website">site</a>.
         unsubscribe: Para optar por não receber esse tipo de email, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
     newsletter_templates:
