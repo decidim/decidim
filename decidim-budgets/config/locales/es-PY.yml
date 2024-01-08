@@ -202,6 +202,7 @@ es-PY:
           fields:
             category: Categoría
             id: ID
+            map: Mapa
             title: Título
       order_summary_mailer:
         order_summary:
