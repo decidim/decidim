@@ -506,7 +506,7 @@ pt-BR:
             legend: Inscreva-se como
           subtitle: Inscreva-se para participar de discussões e propostas de suporte.
           terms: os termos e condições de uso
-          tos_agreement: Ao se inscrever, aceita %{link}.
+          tos_agreement: Ao cadastrar-se, aceita %{link}.
           tos_title: Termos de serviço
           username_help: Nome público que aparece em suas postagens. Com o objetivo de garantir o anonimato, pode ser qualquer nome.
       sessions:
