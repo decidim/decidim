@@ -55,7 +55,17 @@ FactoryBot.define do
   end
 
   factory :category, class: "Decidim::Category" do
-    name { generate_localized_title }
+    transient do
+      skip_injection { false }
+    end
+
+    name do
+      if skip_injection
+        Decidim::Faker::Localized.localized { generate(:title) }
+      else
+        Decidim::Faker::Localized.localized { "<script>alert(\"category name\");</script> #{generate(:title)}" }
+      end
+    end
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     weight { 0 }
 

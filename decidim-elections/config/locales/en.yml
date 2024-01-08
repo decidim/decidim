@@ -761,7 +761,7 @@ en:
           new_election:
             email_intro: You got added as a trustee for the %{resource_title} election.
             email_outro: You have received this notification because you have been added as trustee for the %{resource_title} election.
-            email_subject: You are a trustee for the %{resource_title} election..
+            email_subject: You are a trustee for the %{resource_title} election.
             notification_title: You have been selected as a Trustee in Election <a href="%{resource_path}">%{resource_title}.</a> Please, do the key ceremony to set up the election.
           new_trustee:
             email_intro: An admin has added you as trustee for %{resource_name}. You should create your public key <a href='%{trustee_zone_url}'>in your trustee zone</a>
