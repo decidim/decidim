@@ -307,6 +307,8 @@ FactoryBot.define do
           user_group = evaluator.user_groups[idx]
           proposal.coauthorships.build(author: user, user_group:)
         end
+
+        proposal.category = proposal.component.participatory_space.categories.first
       end
     end
 
