@@ -104,6 +104,9 @@ es-MX:
             pending_orders: Votos pendientes
             select_for_implementation: Seleccionado para implementar
             selected: Seleccionado
+            selected_options:
+              'no': 'No'
+              'yes': 'Sí'
             title: Proyectos
             update: Actualizar
             update_budget_button: Actualizar el presupuesto del proyecto
