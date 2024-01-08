@@ -5,6 +5,8 @@ module Decidim
     class ConflictsController < Decidim::Admin::ApplicationController
       layout "decidim/admin/users"
 
+      helper_method :context_breadcrumb_items
+
       add_breadcrumb_item_from_menu :impersonate_menu
 
       def index
@@ -44,6 +46,19 @@ module Decidim
             redirect_to decidim.root_path
           end
         end
+      end
+
+      private
+
+      def context_breadcrumb_items
+        @context_breadcrumb_items ||= [impersonations_breadcrumb_item]
+      end
+
+      def impersonations_breadcrumb_item
+        {
+          label: I18n.t("menu.impersonations", scope: "decidim.admin"),
+          url: decidim_admin.impersonatable_users_path
+        }
       end
     end
   end
