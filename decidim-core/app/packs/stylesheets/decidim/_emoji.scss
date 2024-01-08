@@ -1,10 +1,10 @@
-.picmo {
+.emoji-picker {
   &__popupContainer {
     display: flex;
     flex-direction: column;
     position: absolute;
 
-    & .picmo__closeButton {
+    & .emoji-picker__closeButton {
       position: absolute;
       border: none;
       z-index: 1;

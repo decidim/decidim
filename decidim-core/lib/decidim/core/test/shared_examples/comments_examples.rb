@@ -450,7 +450,7 @@ shared_examples "comments" do
               field.native.send_keys("0123456789012345678901234567")
               find(".emoji__button").click
             end
-            expect(page).not_to have_selector(".picmo__picker.picmo__picker")
+            expect(page).not_to have_selector(".emoji-picker__picker.emoji-picker__picker")
           end
         end
       end

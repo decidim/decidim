@@ -3,6 +3,7 @@ import i18nEn from "@emoji-mart/data/i18n/en.json"
 import { Picker } from "emoji-mart"
 
 import * as i18n from "src/decidim/i18n";
+import { screens } from "tailwindcss/defaultTheme"
 
 class EmojiI18n {
   static isObject(item) {
@@ -40,7 +41,7 @@ class EmojiI18n {
 }
 class EmojiPopUp {
 
-  constructor(pickerOptions) {
+  constructor(pickerOptions, handlerElement) {
     this.popUp = this.createContainer();
     this.popUp.appendChild(this.createCloseButton());
     this.popUp.appendChild(this.addStyles());
@@ -53,21 +54,23 @@ class EmojiPopUp {
       locale: EmojiI18n.locale(),
       data: data,
       perLine: 8,
+      theme: "light",
       emojiButtonSize: 41,
       emojiSize: 30,
-      theme: "light",
+      ...(window.matchMedia(`(max-width: ${screens.sm})`).matches && { emojiButtonSize: 36 }),
+      ...(window.matchMedia(`(max-width: ${screens.sm})`).matches && { emojiSize: 30 }),
       ...pickerOptions
     });
 
     this.popUp.appendChild(container);
 
-    this.setCoordinates();
+    this.setCoordinates(handlerElement);
   }
 
   createCloseButton() {
     let closeButton = document.createElement("button");
     closeButton.type = "button";
-    closeButton.classList.add("picmo__closeButton");
+    closeButton.classList.add("emoji-picker__closeButton");
     closeButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>';
     closeButton.addEventListener("click", () => {
       this.close();
@@ -99,7 +102,7 @@ class EmojiPopUp {
   createContainer() {
     const container = document.createElement("div");
 
-    container.classList.add("picmo__popupContainer");
+    container.classList.add("emoji-picker__popupContainer");
     container.classList.add("emoji__decidim");
     container.id = "picker"
 
@@ -111,22 +114,26 @@ class EmojiPopUp {
     return container;
   }
 
-  setCoordinates() {
-    let topPosition = 0;
-    let leftPosition = 0;
-    let hoveredElement = document.querySelectorAll(":hover");
-    // Get the most specific hovered element
-    hoveredElement = hoveredElement[hoveredElement.length - 1];
-    if (hoveredElement !== null) {
-      let rect = hoveredElement.getBoundingClientRect();
-      // Set the values from hovered element's position
-      leftPosition = window.scrollX + rect.x;
-      topPosition = window.scrollY + rect.y;
-    }
+  setCoordinates(handlerElement) {
+    let rect = handlerElement.getBoundingClientRect();
+
+    let leftPosition = window.scrollX + rect.x;
+    let topPosition = window.scrollY + rect.y;
 
     topPosition -= this.popUp.offsetHeight;
+    leftPosition -= this.popUp.offsetWidth;
+
+
+    let popUpWidth = window.matchMedia(`(max-width: ${screens.sm})`).matches
+      ? 41 * 9
+      : 36 * 8;
     // Emoji picker min-width of 352 set in styles.scss in emoji-mart
-    leftPosition -= 352;
+    leftPosition -= popUpWidth;
+    console.log(popUpWidth, leftPosition);
+
+    if (leftPosition < 0) {
+      leftPosition = parseInt((window.screen.availWidth - popUpWidth) / 2) + 30;
+    }
 
     this.popUp.style.top = `${topPosition}px`;
     this.popUp.style.left = `${leftPosition}px`;
@@ -184,7 +191,7 @@ export class EmojiButton {
       elem.dispatchEvent(event);
     }
 
-    let handlerPicker = () => {
+    let handlerPicker = (event) => {
       let popUp = document.getElementById("picker");
       if (popUp) {
         // We close the picker
@@ -203,7 +210,7 @@ export class EmojiButton {
       }
 
       // eslint-disable-next-line no-new
-      new EmojiPopUp(pickerOptions);
+      new EmojiPopUp(pickerOptions, btn);
     }
 
     btn.addEventListener("click", handlerPicker);
