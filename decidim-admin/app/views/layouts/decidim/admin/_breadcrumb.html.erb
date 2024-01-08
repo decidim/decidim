@@ -8,7 +8,7 @@
 
         <% breadcrumb_items(:admin).each_with_index do |item, i| %>
           <span class="text-white">/</span>
-          <% item_label = decidim_html_escape(translated_attribute(item[:label])) %>
+          <% item_label = translated_attribute(item[:label]) %>
           <% if item[:url].present? && !is_active_link?(item[:url], :exclusive) %>
             <%= link_to(item_label, item[:url], class: "process-title-content-breadcrumb", data: { "external-link": false }, "aria-current": (item[:active] ? "page" : nil)) %>
           <% else %>
