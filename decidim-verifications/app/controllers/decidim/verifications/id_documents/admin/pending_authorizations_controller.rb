@@ -9,6 +9,8 @@ module Decidim
 
           helper_method :has_offline_method?
 
+          include Decidim::Admin::WorkflowsBreadcrumb
+
           add_breadcrumb_item_from_menu :workflows_menu
 
           def index
