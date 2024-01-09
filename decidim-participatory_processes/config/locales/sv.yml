@@ -89,8 +89,6 @@ sv:
         destroy: Radera
         duplicate: Duplicera
         edit: Redigera
-        filter:
-          all_processes: Visa alla dialoger
         import_process: Importera
         moderate: Moderera
         new_process: Ny dialog
