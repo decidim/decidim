@@ -123,13 +123,11 @@ class EmojiPopUp {
     topPosition -= this.popUp.offsetHeight;
     leftPosition -= this.popUp.offsetWidth;
 
-
     let popUpWidth = window.matchMedia(`(max-width: ${screens.sm})`).matches
       ? 41 * 9
       : 36 * 8;
-    // Emoji picker min-width of 352 set in styles.scss in emoji-mart
+    // Emoji picker min-width of 352px set in styles.scss in emoji-mart
     leftPosition -= popUpWidth;
-    console.log(popUpWidth, leftPosition);
 
     if (leftPosition < 0) {
       leftPosition = parseInt((window.screen.availWidth - popUpWidth) / 2, 10) + 30;
