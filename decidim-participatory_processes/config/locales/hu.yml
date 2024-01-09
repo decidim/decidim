@@ -99,8 +99,6 @@ hu:
         destroy: Törlés
         duplicate: Duplikálás
         edit: Szerkesztés
-        filter:
-          all_processes: Az összes folyamat megjelenítése
         import_process: Importál
         moderate: Mérsékelt
         new_process: Új folyamat
