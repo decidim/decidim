@@ -31,10 +31,13 @@
 }
 
 .wc-datepicker__date:focus > * {
-  @apply outline-2 outline-secondary;
+  @apply outline-1 outline-gray;
 }
 
-.wc-datepicker__date--selected > *,
+.wc-datepicker__date--selected > * {
+  @apply bg-secondary border-solid border-2 border-gray;
+}
+
 .wc-datepicker__date--selected:hover > * {
   @apply bg-secondary;
 }

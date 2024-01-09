@@ -177,17 +177,7 @@ describe "Datepicker" do
             find(".calendar_button").click
             element = find("td.wc-datepicker__date--selected")
             expect(element).to have_content("20")
-            expect(page).to have_button("Select", disabled: true)
-          end
-        end
-
-        context "when changing month" do
-          it "disables select button even if date was picked" do
-            find(".calendar_button").click
-            find("td > span", text: "20", match: :first).click
             expect(page).to have_button("Select", disabled: false)
-            find(".wc-datepicker__next-month-button").click
-            expect(page).to have_button("Select", disabled: true)
           end
         end
       end
@@ -211,7 +201,7 @@ describe "Datepicker" do
           end
         end
 
-        context "when typing correct date with '/' -separator" do
+        context "when typing correct date with incorrect separator" do
           it "replaces separator with the format's correct separator" do
             fill_in_datepicker :example_input_date, with: "24.11.2012"
             expect(page).to have_field("example_input_date", with: "24/11/2012")
@@ -390,8 +380,8 @@ describe "Datepicker" do
             end
           end
 
-          context "when pasting a correct time to time input field with '.' -separator" do
-            it "changes separator to ':'" do
+          context "when pasting a correct time to time input field with incorrect separator" do
+            it "changes to correct separator" do
               fill_in :example_input_clipboard, with: "15.15"
 
               clipboard = find_by_id("example_input_clipboard")
@@ -569,7 +559,7 @@ describe "Datepicker" do
           end
         end
 
-        context "when typing correct date with '.' -separator" do
+        context "when typing correct date with incorrect separator" do
           it "replaces separator with the format's correct separator" do
             fill_in_datepicker :example_input_date, with: "01.20.1994"
             expect(page).to have_field("example_input_date", with: "01/20/1994")
@@ -798,7 +788,7 @@ describe "Datepicker" do
           end
         end
 
-        context "when typing correct date with '.' -separator" do
+        context "when typing correct date with incorrect separator" do
           it "replaces separator with the format's correct separator" do
             fill_in_datepicker :example_input_date, with: "1994.01.20"
             expect(page).to have_field("example_input_date", with: "1994/01/20")

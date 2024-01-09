@@ -86,14 +86,6 @@ export default function generateDatePicker(input, row, formats) {
 
   let pickedDate = null;
 
-  datePicker.addEventListener("changeMonth", () => {
-    pickCalendar.setAttribute("disabled", true);
-    if (pickedDate !== null) {
-      pickedDate = null;
-      datePicker.value = pickedDate;
-    }
-  })
-
   datePicker.addEventListener("selectDate", (event) => {
     pickCalendar.removeAttribute("disabled");
     pickedDate = event.detail;
@@ -110,7 +102,6 @@ export default function generateDatePicker(input, row, formats) {
       input.value = `${pickedDate}T${formatTime(document.querySelector(`#${input.id}_time`).value, formats.time, input.id) || defaultTime}`;
     };
     datePicker.style.display = "none";
-    pickCalendar.setAttribute("disabled", true);
   });
 
   calendar.addEventListener("click", (event) => {
@@ -128,7 +119,6 @@ export default function generateDatePicker(input, row, formats) {
       datePicker.value = new Date(prevDate);
     };
     pickedDate = null;
-    pickCalendar.setAttribute("disabled", true);
     datePicker.style.display = "block";
 
     document.addEventListener("click", datePickerDisplay);
