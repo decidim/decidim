@@ -796,6 +796,8 @@ pl:
           email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem platformy.
           email_subject: Grupa użytkowników zaktualizowała swój profil
           notification_title: Grupa użytkowników %{user_group_name} zaktualizowała swój profil, pozostawiając go niezweryfikowanym. Możesz go teraz zweryfikować w <a href="%{groups_admin_path}">panelu administratora</a>.
+      nickname_event:
+        notification_body: By uniknąć duplikatów, skorygowaliśmy sposób, w jaki używane są pseudonimy. Dlatego usunęliśmy zasadę uwzględniającą wielkość liter. <br/> Twój pseudonim został utworzony po innym o tej samej nazwie, więc automatycznie zmieniliśmy go. Możesz to zmienić w <a href="%{link_to_account_settings}">ustawieniach konta</a>.
       notification_event:
         notification_title: Zdarzenie miało miejsce w <a href="%{resource_path}">%{resource_title}</a>.
       reports:
@@ -817,6 +819,11 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{nickname}. Możesz przestać otrzymywać powiadomienia klikając w poprzedni link.
           email_subject: "%{nickname} zaktualizował(a) swój profil"
           notification_title: Zaktualizowano <a href="%{resource_path}">stronę profilową</a> użytkownika %{name} (%{nickname}), którego obserwujesz.
+        user_officialized:
+          email_intro: Uczestnik %{name} (%{nickname}) został oficjalnie zarejestrowany.
+          email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem platformy.
+          email_subject: "%{name} zostało oficjalnie zarejestrowane"
+          notification_title: Uczestnik %{name} (%{nickname}) został oficjalnie zarejestrowany.
     export_mailer:
       download_your_data_export:
         click_button: 'Kliknij poniższy przycisk, aby pobrać swoje dane. <br/>Plik będzie dostępny do %{date}. <br/>Będziesz potrzebował <a href=''''https://www.7-zip.org/''''>7-Zip</a> (Windows), <a href="https://www.keka.io/en/">Keka</a> (MacOS) lub <a href="https://peazip.github.io">PeaZip</a> (Linux) do otwarcia pliku. Hasło: %{password}'
@@ -827,6 +834,7 @@ pl:
     filters:
       linked_classes:
         all: Wszystkie
+        answer: Odpowiedź
         collaborative_draft: Wspólny szkic
         dummy_resource: Przykładowe zasoby
         meeting: Spotkania
