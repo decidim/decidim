@@ -105,6 +105,9 @@ en:
             pending_orders: Pending votes
             select_for_implementation: Select for implementation
             selected: Selected
+            selected_options:
+              'no': 'No'
+              'yes': 'Yes'
             title: Projects
             update: Update
             update_budget_button: Update project's budget
