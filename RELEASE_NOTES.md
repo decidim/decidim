@@ -47,6 +47,7 @@ const { EsbuildPlugin } = require("esbuild-loader");
 ```
 
 and also:
+
 ```javascript
 // replace
     minimizer: [
