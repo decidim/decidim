@@ -753,6 +753,11 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{nickname}. Możesz przestać otrzymywać powiadomienia klikając w poprzedni link.
           email_subject: "%{nickname} zaktualizował(a) swój profil"
           notification_title: Zaktualizowano <a href="%{resource_path}">stronę profilową</a> użytkownika %{name} (%{nickname}), którego obserwujesz.
+        user_officialized:
+          email_intro: Uczestnik %{name} (%{nickname}) został oficjalnie zarejestrowany.
+          email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem platformy.
+          email_subject: "%{name} zostało oficjalnie zarejestrowane"
+          notification_title: Uczestnik %{name} (%{nickname}) został oficjalnie zarejestrowany.
     export_mailer:
       download_your_data_export:
         click_button: 'Kliknij poniższy przycisk, aby pobrać swoje dane. <br/>Plik będzie dostępny do %{date}. <br/>Będziesz potrzebował <a href=''''https://www.7-zip.org/''''>7-Zip</a> (Windows), <a href="https://www.keka.io/en/">Keka</a> (MacOS) lub <a href="https://peazip.github.io">PeaZip</a> (Linux) do otwarcia pliku. Hasło: %{password}'
