@@ -1,6 +1,7 @@
 const sassPlugin = require("esbuild-sass-plugin").sassPlugin;
 const { EsbuildPlugin } = require("esbuild-loader");
 
+// eslint-disable-next-line no-undef
 module.exports = {
   options: {
     tsconfigRaw: JSON.stringify({}),
