@@ -583,10 +583,12 @@ pl:
           error: Wystąpił problem podczas tworzenia konta.
         new:
           already_have_an_account?: Posiadasz już konto?
+          log_in: Zaloguj się
           newsletter: Chcę otrzymywać okazjonalne newslettery z istotnymi informacjami
           newsletter_title: Zgoda na subskrybcję
           sign_up: Zarejestruj się
           subtitle: Zarejestruj się, aby brać udział w dyskusjach i wspierać propozycje.
+          terms: warunki świadczenia usług
           tos_agreement: Rejestrując się, zgadzasz się na %{link}.
           tos_title: Warunki korzystania z Platformy
           username_help: Publiczne imię wyświetlane przy Twoich wpisach. W celu zagwarantowania anonimowości może być dowolna nazwa.
@@ -594,20 +596,37 @@ pl:
         new:
           are_you_new?: Nowy na platformie?
           register: Utwórz konto
+          sign_in_disabled: Możesz uzyskać dostęp za pomocą konta zewnętrznego.
+          sign_up_disabled: Rejestracja jest wyłączona, by uzyskać dostęp, możesz użyć istniejącego konta.
+        user:
+          timed_out: Zostałeś automatycznie wylogowany z usługi z powodu zbyt długiej nieaktywności. Jeśli chcesz kontynuować korzystanie z usługi, zaloguj się ponownie.
       shared:
         newsletter_modal:
           buttons:
             check: Sprawdź i kontynuuj
             uncheck: Pozostaw niezaznaczone
+          notice: |-
+            <p>Hej, czy jesteś pewien, że nie chcesz otrzymywać newslettera?
+            Prosimy o ponowne zaznaczenie pola wyboru newslettera poniżej. To dla nas bardzo ważne, abyś mógł otrzymywać sporadyczne e-maile z ważnymi informacjami. Zawsze możesz zmienić to na stronie ustawień o powiadomieniach.</p>
+            <p>Jeśli nie zaznaczysz tego pola, mogą cię ominąć istotne informacje na temat możliwości 
+            uczestnictwa w procesach na platformie.<br>Jeśli mimo wszystko nie chcesz otrzymywać newsletterów, doskonale rozumiemy twoją decyzję.</p>
+            <p>Dziękujemy za uwagę!</p>
           title: Powiadomienia newslettera
         omniauth_buttons:
           or: Lub
+        password_fields:
+          hidden_password: Twoje hasło jest ukryte
+          hide_password: Ukryj hasło
+          show_password: Pokaż hasło
+          shown_password: Twoje hasło jest wyświetlane
+        placeholder_email: hej@przyklad.org
     doorkeeper:
       authorizations:
         new:
           authorize: Autoryzuj aplikację
           by_organization_link_html: '<small class="heading-small">autor: %{link}</small>'
           cancel: Anuluj
+          connect_your_account_html: Połącz swoje konto logując się do %{organization}.
           publish_content: Opublikuj zawartość dla siebie
           see_email: Zobacz swój e-mail
           see_name: Zobacz swoje imię
@@ -621,17 +640,42 @@ pl:
         ready: Gotowy
       show:
         download_data: Pobierz dane
+        download_data_description_html: |-
+          Plik zawierający wszystkie informacje związane z twoim kontem zostanie wysłany na adres <strong>%{user_email}</strong>. 
+          W e-mailu znajdziesz plik .zip i hasło potrzebne do otworzenia go.<br/><br/>Aby rozpakować plik, będziesz potrzebować programu <a href="https://www.7-zip.org/">7-Zip</a> (dla systemu Windows) albo <a href="https://www.keka.io/">Keka</a> (dla systemu MacOS).
+          Jeśli korzystasz z systemu Linux, w większości przypadków program będzie zainstalowany domyślnie. Jeśli nie, możesz użyć programu <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> albo <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Poproś o dane
+    editor_images:
+      create:
+        error: Wystąpił błąd podczas przesyłania obrazu.
+        success: Obraz przesłany pomyślnie.
+      drag_and_drop_help: Dodaj obrazy, przeciągając i upuszczając lub wklejając je.
+    endorsement_buttons_cell:
+      already_endorsed: Nie lubię tego
+      endorse: Lubię to
     endorsements:
       identities:
         done: Gotowe
         select_identity: Wybierz tożsamość
+    endorsers_list:
+      endorsed_by: Polubione przez…
     errors:
       internal_server_error:
+        copied: Tekst skopiowany!
+        copy_error_message_clarification: Skopiuj komunikat o błędzie do schowka
+        copy_to_clipboard: Skopiuj do schowka
+        date_and_time: Data i godzina
+        reference: Odniesienie
+        request_method: Metoda zapytania
         title: Wystąpił problem z naszym serwerem
+        try_later: Spróbuj ponownie później. Jeśli błąd będzie się powtarzał, skopiuj następujące informacje i wyślij je do administratorów platformy wraz z innymi informacjami, które możesz chcieć udostępnić.
+        unknown: Nieznane
+        url: Adres URL
+        user: Identyfikator użytkownika
       not_found:
         back_home: Powrót na stronę główną
         content_doesnt_exist: Ten adres jest nieprawidłowy lub został usunięty.
+        title: Szukana strona nie została znaleziona
     events:
       amendments:
         amendment_accepted:
@@ -697,9 +741,15 @@ pl:
         email_subject: Aktualizacja %{resource_title}
       gamification:
         badge_earned:
+          email_intro: Gratulacje! Zdobyłeś <a href="%{resource_url}">%{badge_name} odznakę</a> (poziom %{current_level}).
           email_outro: Otrzymałeś to powiadomienie, ponieważ byłeś aktywny na naszej stronie.
+          email_subject: 'Zdobyłeś nową odznakę: %{badge_name}!'
+          notification_title: Gratulacje! Zdobyłeś <a href="%{resource_path}">%{badge_name} odznakę</a> (poziom %{current_level}).
         level_up:
+          email_intro: Gratulacje! Osiągnąłeś poziom %{current_level} odznaki <a href="%{resource_url}">%{badge_name} </a>!
           email_outro: Otrzymałeś to powiadomienie, ponieważ byłeś aktywny na naszej stronie.
+          email_subject: Osiągnąłeś poziom %{current_level} odznaki %{badge_name} !
+          notification_title: Gratulacje! Osiągnąłeś poziom %{current_level} odznaki <a href="%{resource_path}">%{badge_name} </a>!
       groups:
         demoted_membership:
           email_intro: Administrator grupy <a href="%{resource_url}">%{user_group_name}</a> cofnął Twoje prawa administratora do tej grupy.
