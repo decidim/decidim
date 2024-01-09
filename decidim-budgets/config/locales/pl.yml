@@ -104,6 +104,9 @@ pl:
             pending_orders: Głosowania oczekujące
             select_for_implementation: Zaznacz do wdrożenia
             selected: Wybrano
+            selected_options:
+              'no': 'Nie'
+              'yes': 'Tak'
             title: Projekty
             update: Aktualizuj
             update_budget_button: Aktualizuj budżet projektu
