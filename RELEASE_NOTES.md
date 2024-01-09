@@ -29,6 +29,62 @@ bin/rails db:migrate
 
 These are one time actions that need to be done after the code is updated in the production database.
 
+### 3.1 Esbuild migration
+
+In order to speed up the asset compilation, we have migrated from babel to esbuild.
+
+There are some small changes that needs to be performed in your application code.
+
+- Replace `babel.config.js`
+- Patch `config/webpack/custom.js`
+
+```javascript
+// Replace
+const TerserPlugin = require("terser-webpack-plugin");
+
+// with
+const { EsbuildPlugin } = require("esbuild-loader");
+```
+
+and also:
+```javascript
+// replace
+    minimizer: [
+      new TerserPlugin({
+        parallel: Number.parseInt(process.env.SHAKAPACKER_PARALLEL, 10) || true,
+        terserOptions: {
+          parse: {
+            // Let terser parse ecma 8 code but always output
+            // ES5 compliant code for older browsers
+            ecma: 8
+          },
+          compress: {
+            ecma: 5,
+            warnings: false,
+            comparisons: false
+          },
+          mangle: {safari10: true},
+          output: {
+            ecma: 5,
+            comments: false,
+            ascii_only: true
+          }
+        }
+      }),
+    ].filter(Boolean)
+
+// With
+
+  minimizer: [
+    new EsbuildPlugin({
+      target: "es2015",
+      css: true
+    })
+  ]
+```
+
+You can read more about this change on PR [\#12238](https://github.com/decidim/decidim/pull/12238).
+
 ### 3.1. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [\#XXXX](https://github.com/decidim/decidim/pull/XXXX).
