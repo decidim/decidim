@@ -99,9 +99,6 @@ fr:
         destroy: Supprimer
         duplicate: Dupliquer
         edit: Modifier
-        filter:
-          all_processes: Afficher tous les processus
-          process_groups: Filtrer les concertations par groupe
         import_process: Importer
         moderate: Modérer
         new_process: Nouvelle concertation
@@ -114,6 +111,9 @@ fr:
         resend_invitation: Renvoyer l'invitation
         see_process: Voir la concertation
         unpublish: Dépublier
+      filters:
+        decidim_participatory_process_group_id_eq:
+          label: Par groupe de processus
       menu:
         participatory_process_groups: Groupes de concertations
         participatory_process_groups_submenu:
