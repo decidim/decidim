@@ -99,9 +99,6 @@ fi:
         destroy: Poista
         duplicate: Kopioi
         edit: Muokkaa
-        filter:
-          all_processes: Näytä kaikki prosessit
-          process_groups: Suodata ryhmiteltyjä prosesseja
         import_process: Tuo
         moderate: Moderoi
         new_process: Uusi prosessi
@@ -114,6 +111,9 @@ fi:
         resend_invitation: Lähetä kutsu uudelleen
         see_process: Näytä prosessi
         unpublish: Lopeta julkaisu
+      filters:
+        decidim_participatory_process_group_id_eq:
+          label: Prosessiryhmä
       menu:
         participatory_process_groups: Prosessiryhmät
         participatory_process_groups_submenu:
