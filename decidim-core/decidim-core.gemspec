@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.summary = "The core of the Decidim framework."
   s.description = "Adds core features so other engines can hook into the framework."
   s.license = "AGPL-3.0"
-  s.required_ruby_version = ">= 3.1"
+  s.required_ruby_version = "~> 3.1.0"
 
   s.files = Dir.chdir(__dir__) do
     `git ls-files -z`.split("\x0").select do |f|
