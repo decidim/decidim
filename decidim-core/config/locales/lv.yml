@@ -1054,11 +1054,16 @@ lv:
     timestamp_error_message: Diemžēl tas bija par ātru! Lūdzu, iesniedziet atkārtoti.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: Veids
       edit_link:
         edit: Labot
       footer:
         download_open_data: Lejupielādējiet atvērto datu failus
         made_with_open_source: Vietne, kas izveidota ar <a target="_blank" href="https://github.com/decidim/decidim"> bezmaksas programmatūru </a>.
+        sign_up: Reģistrēties
       impersonation_warning:
         close_session: Aizvērt sesiju
         description_html: Jūs pārvaldāt dalībnieku <b>%{user_name}</b>.
