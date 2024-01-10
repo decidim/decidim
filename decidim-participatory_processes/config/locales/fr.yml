@@ -113,7 +113,7 @@ fr:
         unpublish: Dépublier
       filters:
         decidim_participatory_process_group_id_eq:
-          label: Par groupe de processus
+          label: Par groupe de concertations
       menu:
         participatory_process_groups: Groupes de concertations
         participatory_process_groups_submenu:
