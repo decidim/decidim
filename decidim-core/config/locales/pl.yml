@@ -1607,9 +1607,11 @@ pl:
       locked: Twoje konto jest zablokowane.
       not_found_in_database: 'Nieprawidłowe dane: %{authentication_keys} lub hasło.'
       timeout: Twoja sesja wygasła. Aby kontynuować, zaloguj się ponownie.
+      unauthenticated: Zaloguj się lub zarejestruj, aby kontynuować.
     invitations:
       edit:
         header: Zakończ tworzenie konta
+        nickname_help: Twój pseudonim w %{organization}. Może zawierać tylko litery, cyfry, '-' i '_'.
         submit_button: Zapisz
         subtitle: Jeśli akceptujesz zaproszenie, ustaw swój pseudonim i hasło.
       invitation_removed: Twoje zaproszenie zostało usunięte.
@@ -1629,18 +1631,26 @@ pl:
         subject: Instrukcje potwierdzenia konta
       email_changed:
         greeting: Witaj, %{recipient}!
+        message: Kontaktujemy się z Tobą, aby potwierdzić zmianę adresu e-mail na %{email}.
         subject: Zmieniono e-mail
       invitation_instructions:
         accept: Przyjmij zaproszenie
         accept_until: To zaproszenie będzie aktywne do %{due_date}.
         decline: Odrzuć zaproszenie
         hello: Witaj %{email},
+        ignore: |-
+          Jeżeli nie chcesz zaakceptować zaproszenia, zignoruj ten e-mail.<br />
+           Twoje konto nie zostanie utworzone, dopóki nie skorzystasz z linku powyżej i nie ustawisz pseudonimu i hasła.
         invited_you_as_admin: "%{invited_by} zaprasza Cię jako administratora %{application}. Możesz zaakceptować zaproszenie za pomocą poniższego linku."
         invited_you_as_private_user: "%{invited_by} zaprasza Cię jako prywatnego użytkownika %{application}. Możesz zaakceptować to zaproszenie za pomocą poniższego linku."
         someone_invited_you: Ktoś zaprosił Cię do %{application}. Możesz zaakceptować zaproszenie za pomocą poniższego linku.
         someone_invited_you_as_admin: Ktoś zaprosił Cię jako administratora %{application}, możesz zaakceptować zaproszenie za pomocą poniższego linku.
         someone_invited_you_as_private_user: Ktoś zaprosił Cię jako prywatnego użytkownika %{application}, możesz zaakceptować zaproszenie za pomocą poniższego linku.
         subject: Instrukcje dotyczące zaproszenia
+      invite_admin:
+        subject: Zaproszono Cię do zarządzania %{organization}
+      invite_collaborator:
+        subject: Zaproszono Cię do współpracy przy %{organization}
       password_change:
         greeting: Witaj %{recipient}!
         subject: Hasło zostało zmienione
@@ -1806,8 +1816,26 @@ pl:
         details:
           columns:
             type: Typ
+          items:
+            decidim-consent:
+              service: Ta strona internetowa
+            pwaInstallPromptSeen:
+              description: Zachowuje status, jeśli powiadomienie o instalacji progresywnej aplikacji internetowej (PWA) zostało już wyświetlone przez użytkownika.
+              service: Ta strona internetowa
+          types:
+            cookie: Plik cookie
+            local_storage: Pamięć lokalna
+        dialog:
+          accept_all: Zaakceptuj wszystkie
+          accept_only_essential: Akceptuj tylko niezbędne
+          description: Używamy plików cookie na naszej stronie internetowej w celu poprawy wydajności i zawartości strony. Pliki cookie umożliwiają nam zapewnienie bardziej spersonalizowanej obsługi użytkowników i kanałów mediów społecznościowych.
+          settings: Ustawienia
+          title: Informacje o plikach cookie używanych na stronie internetowej
         modal:
+          accept_all: Zaakceptuj wszystkie
+          accept_only_essential: Akceptuj tylko niezbędne
           analytics:
+            description: Te pliki cookie są wykorzystywane do monitorowania i analizy użytkowników strony internetowej, aby pomóc w jej ulepszeniu.
             title: Analizy i statystyki
           description: Używamy plików cookie, aby zapewnić podstawowe funkcje strony internetowej i zwiększyć Twoje doświadczenie online. Możesz skonfigurować i zaakceptować użycie plików cookie i zmodyfikować opcje swojej zgody w dowolnym momencie.
           essential:
