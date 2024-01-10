@@ -44,7 +44,7 @@ de:
         show_check_census: '"Überprüfe Erhebung"-Seite anzeigen'
         start_time: Abstimmung beginnt
         title: Titel
-        voting_type: Abstimmungsart
+        voting_type: Art der Abstimmung
     errors:
       models:
         answer:
