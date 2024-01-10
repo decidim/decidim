@@ -1791,10 +1791,13 @@ es:
     upload:
       uploadedFile: Archivo subido
   emojis:
+    add_custom: Agregar emoji personalizado
     button: Añadir emoji
     categories:
+      activity: Actividad
       custom: Personalizado
       flags: Banderas
+      foods: Alimentos y bebidas
       objects: Objetos
       symbols: Símbolos
   errors:
