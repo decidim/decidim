@@ -1453,16 +1453,13 @@ ar:
     button: إضافة Emoji
     categories:
       activities: أنشطة
-      animals-nature: الحيوانات والطبيعة
       custom: طباع
       flags: الأعلام
-      food-drink: الطعام والشراب
       objects: أشياء
       people-body: أشخاص و أجسام
       recents: تم استخدامه مؤخراً
       smileys-emotion: وجوه تعبيرية (Smileys) و عواطف
       symbols: الرموز
-      travel-places: الأماكن والسفر
     error:
       load: فشل تحميل الرموز التعبيرية
     recents:
