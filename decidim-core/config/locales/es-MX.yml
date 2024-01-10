@@ -1339,7 +1339,7 @@ es-MX:
         error: Ha habido un problema al actualizar la contraseña.
         success: La contraseña se ha actualizado correctamente.
     profile:
-      deleted: Usuario eliminado
+      deleted: Participante eliminada
       inaccessible_message: '¡Este perfil es inaccesible debido a la violación de términos y condiciones de uso!'
     profiles:
       default_officialization_text_for_user_groups: Este grupo está verificado públicamente, su nombre se ha verificado para que se corresponda con su nombre real.
@@ -1532,9 +1532,6 @@ es-MX:
       help_text: "<strong>Advertencia:</strong> El contenido puede ser traducido automáticamente y no ser 100% preciso."
       show_original: Mostrar el texto original
       show_translated: Mostrar el texto traducido automáticamente
-    user_activity:
-      index:
-        no_activities_warning: Esta participante no ha tenido ninguna actividad todavía.
     user_contact_disabled: Esta participante no acepta mensajes directos.
     user_conversations:
       create:
@@ -1808,6 +1805,18 @@ es-MX:
       places: Viajes y lugares
       search: Resultados de búsqueda
       symbols: Símbolos
+    pick: Elige un emoji…
+    search: Buscar
+    search_no_results_1: '¡Oh no!'
+    search_no_results_2: No se pudo encontrar ese emoticono
+    skins:
+      '1': Por defecto
+      '2': Clara
+      '3': Medio clara
+      '4': Media
+      '5': Medio oscura
+      '6': Oscura
+      choose: Elige un tono de piel predeterminado
   errors:
     messages:
       allowed_file_content_types: 'solo se permiten archivos con las siguientes extensiones: %{types}'
