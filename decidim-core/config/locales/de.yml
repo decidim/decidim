@@ -1803,16 +1803,13 @@ de:
     button: Emoji hinzufügen
     categories:
       activities: Aktivitäten
-      animals-nature: Tiere & Natur
       custom: Benutzerdefiniert
       flags: Flaggen
-      food-drink: Essen & Trinken
       objects: Objekte
       people-body: Personen & Körper
       recents: Kürzlich verwendet
       smileys-emotion: Smileys & Emotion
       symbols: Symbole
-      travel-places: Reisen & Orte
     error:
       load: Fehler beim Laden von Emojis
     recents:
