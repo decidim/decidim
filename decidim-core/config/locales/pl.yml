@@ -1543,6 +1543,7 @@ pl:
       show:
         my_interests: Moje zainteresowania
         no_scopes: Ta organizacja nie ma jeszcze żadnego zakresu!
+        select_your_interests: Wybierz tematy, które Cię interesują, aby widzieć wydarzenia z nimi związane w zakładce Oś czasu na Twoim profilu.
         update_my_interests: Zaktualizuj moje zainteresowania
       update:
         error: Wystąpił błąd podczas aktualizowania Twoich zainteresowań.
@@ -1551,9 +1552,19 @@ pl:
       notify:
         body_1: Użytkownik %{user} został zgłoszony przez %{token}
         body_2: 'Powód: %{reason}'
+        details: Dane dostarczone przez użytkownika
         greetings: Pozdrawiamy,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Witaj %{admin},
         subject: Zgłoszono użytkownika w %{organization_name}
+    user_update_mailer:
+      notify:
+        body_1: Wysyłamy Ci tę wiadomość, aby poinformować Cię o aktualizacji Twojego konta.
+        body_2: Jeśli nie wykonałeś takiej aktualizacji, zaloguj się na swoje konto, aby zmienić hasło. Jeśli nie możesz się zalogować, skontaktuj się z obsługą techniczną platformy.
+        greetings: Pozdrawiamy,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Witaj %{user}
+        main_body: 'Zmieniono następujące szczegóły: %{updates}.'
+        update_fields: "%{updates} i %{last_update}"
+      subject: Twoje konto zostało zaktualizowane
     version:
       show:
         back_to_resource: Wróć
@@ -1569,6 +1580,7 @@ pl:
       show:
         version_index: Wersja %{index}
     welcome_notification:
+      default_body: <p>Witaj {{name}}, dziękujemy za dołączenie do {{organization}}!</p><ul><li>Jeżeli chcesz szybko dowiedzieć się, co możesz tu robić, zapoznaj się z sekcją <a href="{{help_url}}">Pomoc</a>.</li><li>Po zrobieniu tego otrzymasz pierwszą odznakę. Oto <a href="{{badges_url}}">lista wszystkich odznak</a>, które można otrzymać za uczestnictwo w {{organization}}</li><li>Na koniec, możesz dołączyć do innych i podzielić się z nimi doświadczeniem związanym z zaangażowaniem i przynależnością do {{organization}}. Składaj propozycje, komentuj, debatuj, zastanawiaj się, jak przyczynić się do wspólnego dobra, przedstawiaj argumenty, aby przekonywać innych, słuchaj i czytaj, by to oni przekonali Ciebie, wyrażaj swoje pomysły w konkretny i bezpośredni sposób, odpowiadaj cierpliwie i zdecydowanie, broń swoich pomysłów oraz zachowaj otwartość na współpracę i włączanie się do pomysłów innych.</li></ul>
       default_subject: Dzięki za dołączenie do {{organization}}!
     wizard_step_form:
       wizard_aside:
@@ -1591,9 +1603,12 @@ pl:
       last_attempt: Masz jeszcze jedną próbę, zanim Twoje konto zostanie zablokowane.
       locked: Twoje konto jest zablokowane.
       not_found_in_database: 'Nieprawidłowe dane: %{authentication_keys} lub hasło.'
+      timeout: Twoja sesja wygasła. Aby kontynuować, zaloguj się ponownie.
+      unauthenticated: Zaloguj się lub zarejestruj, aby kontynuować.
     invitations:
       edit:
         header: Zakończ tworzenie konta
+        nickname_help: Twój pseudonim w %{organization}. Może zawierać tylko litery, cyfry, '-' i '_'.
         submit_button: Zapisz
         subtitle: Jeśli akceptujesz zaproszenie, ustaw swój pseudonim i hasło.
       invitation_removed: Twoje zaproszenie zostało usunięte.
@@ -1613,18 +1628,26 @@ pl:
         subject: Instrukcje potwierdzenia konta
       email_changed:
         greeting: Witaj, %{recipient}!
+        message: Kontaktujemy się z Tobą, aby potwierdzić zmianę adresu e-mail na %{email}.
         subject: Zmieniono e-mail
       invitation_instructions:
         accept: Przyjmij zaproszenie
         accept_until: To zaproszenie będzie aktywne do %{due_date}.
         decline: Odrzuć zaproszenie
         hello: Witaj %{email},
+        ignore: |-
+          Jeżeli nie chcesz zaakceptować zaproszenia, zignoruj ten e-mail.<br />
+           Twoje konto nie zostanie utworzone, dopóki nie skorzystasz z linku powyżej i nie ustawisz pseudonimu i hasła.
         invited_you_as_admin: "%{invited_by} zaprasza Cię jako administratora %{application}. Możesz zaakceptować zaproszenie za pomocą poniższego linku."
         invited_you_as_private_user: "%{invited_by} zaprasza Cię jako prywatnego użytkownika %{application}. Możesz zaakceptować to zaproszenie za pomocą poniższego linku."
         someone_invited_you: Ktoś zaprosił Cię do %{application}. Możesz zaakceptować zaproszenie za pomocą poniższego linku.
         someone_invited_you_as_admin: Ktoś zaprosił Cię jako administratora %{application}, możesz zaakceptować zaproszenie za pomocą poniższego linku.
         someone_invited_you_as_private_user: Ktoś zaprosił Cię jako prywatnego użytkownika %{application}, możesz zaakceptować zaproszenie za pomocą poniższego linku.
         subject: Instrukcje dotyczące zaproszenia
+      invite_admin:
+        subject: Zaproszono Cię do zarządzania %{organization}
+      invite_collaborator:
+        subject: Zaproszono Cię do współpracy przy %{organization}
       password_change:
         greeting: Witaj %{recipient}!
         subject: Hasło zostało zmienione
@@ -1790,6 +1813,9 @@ pl:
         details:
           columns:
             type: Typ
+          items:
+            decidim-consent:
+              service: Ta strona internetowa
         modal:
           analytics:
             title: Analizy i statystyki
