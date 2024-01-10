@@ -33,7 +33,7 @@ module Decidim
       private
 
       def change_proposal_state_to_withdrawn
-        @proposal.update(withdrawn: true, withdrawn_at: Time.zone.now)
+        @proposal.withdraw!
       end
 
       def reject_emendations_if_any

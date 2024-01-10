@@ -369,7 +369,7 @@ FactoryBot.define do
     end
 
     trait :withdrawn do
-      witdhdrawn_at { Time.current }
+      withdrawn_at { Time.current }
       withdrawn { true }
     end
 

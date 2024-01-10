@@ -321,6 +321,12 @@ module Decidim
         user && !withdrawn? && authored_by?(user) && !copied_from_other_component?
       end
 
+      def withdraw!
+        self.withdrawn = true
+        self.withdrawn_at = Time.zone.now
+        save
+      end
+
       # Public: Whether the proposal is a draft or not.
       def draft?
         published_at.nil?
@@ -438,7 +444,8 @@ module Decidim
       end
 
       def process_amendment_state_change!
-        return unless %w(accepted rejected evaluating withdrawn).member?(amendment.state)
+        return withdraw! if amendment.withdrawn?
+        return unless %w(accepted rejected evaluating).member?(amendment.state)
 
         PaperTrail.request(enabled: false) do
           update!(
