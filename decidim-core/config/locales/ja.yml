@@ -1778,13 +1778,16 @@ ja:
     button: 絵文字を追加
     categories:
       activities: アクティビティ
+      animals-nature: 動物・自然
       custom: ユーザー定義
       flags: 国旗
+      food-drink: 食べ物・飲み物
       objects: 物
       people-body: 人・体
       recents: 最近使用したもの
       smileys-emotion: スマイリー・エモティコン
       symbols: シンボル
+      travel-places: 旅行・場所
     error:
       load: 絵文字の読み込みに失敗しました
     recents:
