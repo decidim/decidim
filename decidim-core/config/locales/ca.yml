@@ -1797,13 +1797,16 @@ ca:
     button: Afegir emoji
     categories:
       activities: Activitats
+      animals-nature: Animals i natura
       custom: Personalitzat
       flags: Banderes
+      food-drink: Aliments i begudes
       objects: Objectes
       people-body: Persones i cos
       recents: Utilitzats recentment
       smileys-emotion: Somriures i emocions
       symbols: Símbols
+      travel-places: Viatges i llocs
     error:
       load: No s'ha pogut carregar la llista d'emojis
     recents:
