@@ -1495,6 +1495,7 @@ pl:
       notify:
         body_1: Użytkownik %{user} został zgłoszony przez %{token}
         body_2: 'Powód: %{reason}'
+        details: Dane dostarczone przez użytkownika
         greetings: Pozdrawiamy,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Witaj %{admin},
         subject: Zgłoszono użytkownika w %{organization_name}
@@ -1555,6 +1556,7 @@ pl:
     invitations:
       edit:
         header: Zakończ tworzenie konta
+        nickname_help: Twój pseudonim w %{organization}. Może zawierać tylko litery, cyfry, '-' i '_'.
         submit_button: Zapisz
         subtitle: Jeśli akceptujesz zaproszenie, ustaw swój pseudonim i hasło.
       invitation_removed: Twoje zaproszenie zostało usunięte.
@@ -1712,8 +1714,26 @@ pl:
         details:
           columns:
             type: Typ
+          items:
+            decidim-consent:
+              service: Ta strona internetowa
+            pwaInstallPromptSeen:
+              description: Zachowuje status, jeśli powiadomienie o instalacji progresywnej aplikacji internetowej (PWA) zostało już wyświetlone przez użytkownika.
+              service: Ta strona internetowa
+          types:
+            cookie: Plik cookie
+            local_storage: Pamięć lokalna
+        dialog:
+          accept_all: Zaakceptuj wszystkie
+          accept_only_essential: Akceptuj tylko niezbędne
+          description: Używamy plików cookie na naszej stronie internetowej w celu poprawy wydajności i zawartości strony. Pliki cookie umożliwiają nam zapewnienie bardziej spersonalizowanej obsługi użytkowników i kanałów mediów społecznościowych.
+          settings: Ustawienia
+          title: Informacje o plikach cookie używanych na stronie internetowej
         modal:
+          accept_all: Zaakceptuj wszystkie
+          accept_only_essential: Akceptuj tylko niezbędne
           analytics:
+            description: Te pliki cookie są wykorzystywane do monitorowania i analizy użytkowników strony internetowej, aby pomóc w jej ulepszeniu.
             title: Analizy i statystyki
           description: Używamy plików cookie, aby zapewnić podstawowe funkcje strony internetowej i zwiększyć Twoje doświadczenie online. Możesz skonfigurować i zaakceptować użycie plików cookie i zmodyfikować opcje swojej zgody w dowolnym momencie.
           essential:
