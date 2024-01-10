@@ -42,7 +42,7 @@ module Decidim
                                                               ]
                                                             })
                                                      .where("decidim_proposals_proposals.published_at <= ?", end_time)
-                                                     .except_withdrawn
+                                                     .not_withdrawn
 
           return @proposals.where("decidim_proposals_proposals.published_at >= ?", start_time) if from_start
 
