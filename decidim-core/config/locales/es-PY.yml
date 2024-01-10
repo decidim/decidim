@@ -1817,6 +1817,9 @@ es-PY:
       '2': Clara
       '3': Medio clara
       '4': Media
+      '5': Medio oscura
+      '6': Oscura
+      choose: Elige un tono de piel predeterminado
   errors:
     messages:
       allowed_file_content_types: 'solo se permiten archivos con las siguientes extensiones: %{types}'
