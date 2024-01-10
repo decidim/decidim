@@ -67,7 +67,10 @@ module Decidim
       scope :state_not_published, -> { where(state_published_at: nil) }
       scope :state_published, -> { where.not(state_published_at: nil) }
       scope :except_rejected, -> { not_rejected.or(state_not_published) }
-      scope :except_withdrawn, -> { not_withdrawn }
+
+      scope :withdrawn, -> { where(withdrawn: true) }
+      scope :not_withdrawn, -> { where(withdrawn: false) }
+
       scope :drafts, -> { where(published_at: nil) }
       scope :published, -> { where.not(published_at: nil) }
       scope :order_by_most_recent, -> { order(created_at: :desc) }
@@ -77,7 +80,7 @@ module Decidim
         when "withdrawn"
           withdrawn
         else
-          except_withdrawn
+          not_withdrawn
         end
       }
 
@@ -145,7 +148,7 @@ module Decidim
                                     .where(decidim_coauthorships: { decidim_author_type: "Decidim::UserBaseEntity" })
                                     .not_hidden
                                     .published
-                                    .except_withdrawn
+                                    .not_withdrawn
       end
 
       def self.newsletter_participant_ids(component)
@@ -221,13 +224,6 @@ module Decidim
       # Returns Boolean.
       def answered?
         answered_at.present?
-      end
-
-      # Public: Checks if the author has withdrawn the proposal.
-      #
-      # Returns Boolean.
-      def withdrawn?
-        internal_state == "withdrawn"
       end
 
       # Public: Checks if the organization has accepted a proposal.
