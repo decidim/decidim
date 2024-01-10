@@ -66,6 +66,7 @@ fr-CA:
             hint2_html: "<strong>%{name}</strong> sera remplacé par le nom de l'auteur"
             hint3_html: "<strong>%{admin}</strong> sera remplacé par le nom de l'administrateur (celui qui répond à la proposition)"
             hint_html: "<strong>Conseil :</strong> Vous pouvez utilisez ces variables n'importe où dans le modèle de réponse, elles seront remplacées par leur valeur lors de l'utilisation du modèle"
+            save: Sauvegarder
           index:
             component_constraint: Ajouter une contrainte
             confirm_delete: Êtes-vous sûr de vouloir supprimer ce modèle ?
