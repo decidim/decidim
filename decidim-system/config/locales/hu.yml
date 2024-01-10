@@ -24,6 +24,7 @@ hu:
           create: Létrehozás
           title: Új admin
         show:
+          destroy: Töröl
           edit: Szerkesztés
         update:
           error: Hiba történt az admin frissítése során.
