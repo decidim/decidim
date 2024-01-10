@@ -45,6 +45,8 @@ module Decidim
       end
 
       def state_class
+        return "alert" if model.withdrawn?
+
         case state
         when "accepted"
           "success"
