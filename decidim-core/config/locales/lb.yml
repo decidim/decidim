@@ -1231,6 +1231,10 @@ lb:
     timestamp_error_message: Pardon dat wo ze séier! W. e. g. op en Neits areechen.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: Zort
       edit_link:
         edit: Editéieren
       footer:
