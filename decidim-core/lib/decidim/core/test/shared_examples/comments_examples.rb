@@ -91,7 +91,7 @@ shared_examples "comments" do
       expect(page).not_to have_content(translated(deleted_comment.body))
       within "#comment_#{deleted_comment.id}" do
         expect(page).to have_content("Comment deleted on")
-        expect(page).not_to have_selector("[data-comment-footer]")
+        expect(page).not_to have_selector("data-comment-footer")
       end
     end
 
@@ -641,7 +641,7 @@ shared_examples "comments" do
           within "#comment_#{comment.id}" do
             expect(page).to have_content("Comment deleted on")
             expect(page).not_to have_content comment_author.name
-            expect(page).not_to have_selector("[data-comment-footer]")
+            expect(page).not_to have_selector("data-comment-footer")
           end
           expect(page).to have_selector("span.comments-count", text: "3 comments")
 
