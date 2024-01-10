@@ -2,10 +2,10 @@
 
 module Decidim
   module Admin
-    # A class used to filter users by whitelisted scope or searches on their
+    # A class used to filter users by allowlisted scope or searches on their
     # name
     class UserFilter < Decidim::Query
-      WHITELISTED_STATE_SCOPES = %w(
+      ALLOWLISTED_STATE_SCOPES = %w(
         officialized
         not_officialized
         managed
@@ -50,7 +50,7 @@ module Decidim
       end
 
       def filter_by_state(users)
-        return users unless WHITELISTED_STATE_SCOPES.include?(state)
+        return users unless ALLOWLISTED_STATE_SCOPES.include?(state)
 
         users.public_send(state)
       end
