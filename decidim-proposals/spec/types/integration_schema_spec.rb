@@ -69,8 +69,8 @@ describe "Decidim::Api::QueryType" do
       "versions" => [],
       "versionsCount" => 0,
       "voteCount" => proposal.votes.size,
-      "widthdrawn" => proposal.withdrawn?,
-      "withdrawnAt" => proposal.withdrawn_at.iso8601.to_s.gsub("Z", "+00:00")
+      "withdrawn" => proposal.withdrawn?,
+      "withdrawnAt" => proposal.withdrawn_at&.iso8601&.to_s&.gsub("Z", "+00:00")
     }
   end
 
