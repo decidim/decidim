@@ -1270,11 +1270,17 @@ describe "Editor" do
         find(".emoji__trigger .emoji__button").click
       end
 
-      within ".picmo__popupContainer .picmo__picker .picmo__content" do
-        categories = page.all(".picmo__emojiCategory")
-        within categories[1] do
-          click_button "😀"
-        end
+      within ".emoji__decidim" do
+        # Since emoji-mart is a React component, we need to use JS to click on an emoji icon
+        # as the emoji picker is a shadow DOM element.
+        # The script below is trying to find the first emoji in the "Smileys & People" category and simulate
+        # a click from the user on it.
+        script = <<~JS
+          var emoji_picker = document.getElementsByTagName("em-emoji-picker")[0];
+          var category = emoji_picker.shadowRoot.querySelectorAll("div.category")[1]
+          category.querySelectorAll("button")[0].click();
+        JS
+        execute_script(script)
       end
 
       expect_value("<p> 😀 </p>")
