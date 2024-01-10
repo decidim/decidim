@@ -5,11 +5,11 @@
       <span><%= t("decidim.components.comment.alignment.in_favor") %></span>
       <%= icon "thumb-up-line" %>
     </button>
-    <button type="button" aria-pressed="true" class="is-active" opinion-toggle-meh data-selected-label="<%= t("decidim.components.add_comment_form.opinion.neutral_selected") %>">
+    <button type="button" aria-pressed="true" class="is-active" data-opinion-toggle-meh data-selected-label="<%= t("decidim.components.add_comment_form.opinion.neutral_selected") %>">
       <span><%= t("decidim.components.add_comment_form.opinion.neutral") %></span>
       <%= icon "loader-3-line" %>
     </button>
-    <button type="button" aria-pressed="false" opinion-toggle-ko data-selected-label="<%= t("decidim.components.add_comment_form.opinion.negative_selected") %>">
+    <button type="button" aria-pressed="false" data-opinion-toggle-ko data-selected-label="<%= t("decidim.components.add_comment_form.opinion.negative_selected") %>">
       <span><%= t("decidim.components.comment.alignment.against") %></span>
       <%= icon "thumb-down-line" %>
     </button>
