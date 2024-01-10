@@ -3,7 +3,7 @@
 }
 
 .wc-datepicker {
-  @apply w-80 h-96 absolute z-20;
+  @apply w-80 h-96 absolute z-20 text-sm;
 }
 
 .wc-datepicker__header {
@@ -88,7 +88,7 @@
 
 .hourpicker,
 .minutepicker {
-  @apply w-1/2 left-2.5 h-8 text-center text-md absolute top-6;
+  @apply w-1/2 left-2.5 h-8 text-center text-sm absolute top-6;
 
   &:hover {
     @apply cursor-default;
@@ -100,11 +100,11 @@
 }
 
 .close_calendar {
-  @apply border border-solid border-gray rounded absolute z-30 bottom-2 right-1 w-14 h-6;
+  @apply absolute z-30 bottom-2 right-1;
 }
 
 .pick_calendar {
-  @apply rounded absolute z-30 bottom-2 right-16 w-14 h-6 bg-secondary text-white;
+  @apply absolute z-30 bottom-2 right-16 mr-1;
 
   &:disabled {
     @apply bg-gray;
@@ -112,15 +112,15 @@
 }
 
 .close_clock {
-  @apply border border-solid border-gray rounded absolute z-30 bottom-2 right-1 w-14 h-6;
+  @apply absolute z-30 bottom-2 right-1;
 }
 
 .reset_clock {
-  @apply absolute z-30 bottom-2 left-4;
+  @apply absolute z-30 bottom-2 left-2;
 }
 
 .select_clock {
-  @apply rounded absolute z-30 bottom-2 right-16 w-14 h-6 bg-secondary text-white;
+  @apply absolute z-30 bottom-2 right-16 mr-1;
 }
 
 .hourup {
@@ -164,15 +164,15 @@
 }
 
 .label_row {
-  @apply absolute flex top-1 mb-1 w-full;
+  @apply absolute flex top-2 w-full text-sm font-semibold;
 }
 
 .hour_label_container {
-  @apply flex-1 relative text-center;
+  @apply flex-1 text-center;
 }
 
 .minute_label_container {
-  @apply flex-1 relative text-center;
+  @apply flex-1 text-center;
 }
 
 .help_text_container {

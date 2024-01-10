@@ -20,6 +20,10 @@ export default function formDatePicker() {
     };
 
     inputs.forEach((input) => {
+      if (!input.id) {
+        input.id = "demo-datepicker"
+      };
+
       input.style.display = "none";
       const label = input.closest("label");
 

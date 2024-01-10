@@ -15,7 +15,7 @@ export default function generateTimePicker(input, row, formats) {
   time.setAttribute("type", "text");
 
   const clock = document.createElement("button");
-  clock.innerHTML = icon("time-line", {class: "text-secondary fill-current w-6 h-6"})
+  clock.innerHTML = icon("time-line", {class: "w-6 h-6"})
   clock.setAttribute("class", "clock_button");
 
   timeColumn.appendChild(time);
@@ -139,15 +139,15 @@ export default function generateTimePicker(input, row, formats) {
 
   const closeClock = document.createElement("button");
   closeClock.innerText = i18n.close;
-  closeClock.setAttribute("class", "close_clock");
+  closeClock.setAttribute("class", "close_clock button button__transparent-secondary button__xs");
 
   const resetClock = document.createElement("button");
   resetClock.innerText = i18n.reset;
-  resetClock.setAttribute("class", "button button__sm button__text-secondary reset_clock");
+  resetClock.setAttribute("class", "reset_clock button button__xs button__text-secondary");
 
   const selectClock = document.createElement("button");
   selectClock.innerText = i18n.select;
-  selectClock.setAttribute("class", "select_clock");
+  selectClock.setAttribute("class", "select_clock button button__secondary button__xs");
 
   timePicker.appendChild(closeClock);
   timePicker.appendChild(resetClock);

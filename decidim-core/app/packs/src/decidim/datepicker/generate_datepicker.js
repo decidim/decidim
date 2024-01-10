@@ -15,7 +15,7 @@ export default function generateDatePicker(input, row, formats) {
   date.setAttribute("type", "text");
 
   const calendar = document.createElement("button");
-  calendar.innerHTML = icon("calendar-2-fill", {class: "!text-secondary !fill-current !w-6 !h-6"})
+  calendar.innerHTML = icon("calendar-line", {class: "w-6 h-6"})
   calendar.setAttribute("class", "calendar_button");
 
   dateColumn.appendChild(date);
@@ -29,11 +29,11 @@ export default function generateDatePicker(input, row, formats) {
 
   const closeCalendar = document.createElement("button");
   closeCalendar.innerText = i18n.close;
-  closeCalendar.setAttribute("class", "close_calendar");
+  closeCalendar.setAttribute("class", "close_calendar button button__transparent-secondary button__xs");
 
   const pickCalendar = document.createElement("button");
   pickCalendar.innerText = i18n.select;
-  pickCalendar.setAttribute("class", "pick_calendar");
+  pickCalendar.setAttribute("class", "pick_calendar button button__secondary button__xs");
   pickCalendar.setAttribute("disabled", true);
 
   datePicker.appendChild(closeCalendar);
