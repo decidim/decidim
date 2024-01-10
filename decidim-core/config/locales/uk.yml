@@ -380,8 +380,6 @@ uk:
           headline: Поточний стан %{organization}
         sub_hero:
           register: Зареєструватися
-    participatory_space_private_users:
-      not_allowed: У вас нема прав на перегляд цього вмісту
     profile:
       deleted: Видалений учасник
     profiles:

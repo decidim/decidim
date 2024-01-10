@@ -447,7 +447,6 @@ pt:
                 bb_status: Estado
                 election: Eleição
                 voting_period: Período de votação
-              no_elections: Não há eleições onde actue como Curador.
               title: Eleições
             identification_keys:
               cancel: Cancelar
@@ -462,7 +461,6 @@ pt:
               title: Chaves de identificação de curador
               upload: Enviar as suas chaves de identificação
             not_supported_browser_title: Actualize o seu navegador para poder agir como Curador
-            trustee_role_description: Foi designado para agir como Curador em algumas eleições celebradas nesta plataforma.
           update:
             success: A sua chave de identificação pública foi guardada com êxito.
       votes:
@@ -537,8 +535,6 @@ pt:
         voting_step:
           back: Retroceder
           continue: Seguinte
-      warnings:
-        no_scheduled_elections_warning: Actualmente, não há eleições agendadas, mas aqui pode encontrar listadas todas as eleições passadas.
     events:
       elections:
         election_published:
@@ -550,11 +546,9 @@ pt:
           new_election:
             email_intro: Foi adicionado como curador para a eleição %{resource_title}.
             email_subject: É curador para a eleição %{resource_title}..
-            notification_title: É curador para a eleição <a href= “%{resource_path}”>%{resource_title}</a>.
           new_trustee:
             email_intro: Um administrador adicionou-o como curador para%{resource_name}. Deve criar a sua chave pública <a href='%{trustee_zone_url}'> na sua área de curador</a>
             email_subject: É curador para a eleição %{resource_name}.
-            notification_title: É curador para a eleição <a href= “%{participatory_space_url}”>%{resource_name}</a>.
         votes:
           accepted_votes:
             email_intro: 'O seu voto foi aceite! Utilizando o seu identificador: %{encrypted_vote_hash}, pode verificar o seu voto <a href="%{verify_url}">aqui</a>.'
@@ -848,9 +842,7 @@ pt:
         closures:
           back_to_polling_stations: Retroceder para as secções de voto
           certify:
-            add_images: Adicionar imagens
             error: Ocorreu um erro ao anexar o certificado, por favor tente de novo.
-            form_legend: Envie a fotografia do Certificado de Encerramento Eleitoral
             heading: Recontagem de votos - Envie o certificado
             info_text: Por favor envie uma fotografia do Certificado de Encerramento Eleitoral.
             submit: Envie o certificado
@@ -860,7 +852,6 @@ pt:
             success: Encerramento criado com êxito.
           edit:
             heading: Recontagem de votos - Recontagem de respostas
-            info_text: Por favor introduza o número toral de respostas para cada questão.
             modal_ballots_results_count_error:
               close_modal: Fechar
               title: A contagem de boletins de voto não está correcta
@@ -886,7 +877,6 @@ pt:
             total_ballots_count: Número de boletins de voto
           show:
             heading: Recontagem de votos
-            info_text: Encerramento eleitoral da secção de voto
           sign:
             cancel: Cancelar
             confirm: Ok, continuar

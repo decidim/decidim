@@ -42,7 +42,7 @@ module Decidim::Assemblies
         participatory_structure: { en: "participatory structure" },
         description: { en: "description" },
         short_description: { en: "short_description" },
-        current_organization: organization,
+        organization:,
         scopes_enabled: true,
         scope:,
         area:,

@@ -67,7 +67,7 @@ module Decidim
         def destroy
           enforce_permission_to(:destroy, :project, project:)
 
-          DestroyProject.call(project, current_user) do
+          Decidim::Commands::DestroyResource.call(project, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("projects.destroy.success", scope: "decidim.budgets.admin")
               redirect_to budget_projects_path(budget)

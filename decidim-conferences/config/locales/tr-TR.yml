@@ -286,14 +286,8 @@ tr:
             non_user: Mevcut olmayan kullanıcı
             select_user: Kullanıcı seç
           index:
-            filter:
-              accepted: Kabul edilmiş
-              all: Herşey
-              rejected: Reddedilen
-              sent: Gönderilen
             invite_attendee: Katılımcı Davet Et
             invites: Davetler
-            search: Arama
           new:
             invite: Davet et
             new_invite: Kullanıcı davet et

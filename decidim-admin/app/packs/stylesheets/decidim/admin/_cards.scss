@@ -104,10 +104,6 @@
 
 .card-section {
   @apply pb-4 bg-white;
-
-  svg {
-    @apply w-4 h-4 inline-block fill-secondary;
-  }
 }
 
 .fcell .label {
@@ -142,6 +138,10 @@
 
     li {
       @apply cursor-move py-2;
+    }
+
+    svg {
+      @apply inline-block fill-secondary;
     }
 
     .draggable-content {

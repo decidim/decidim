@@ -44,6 +44,38 @@ shared_examples "comments" do
     expect(page).to have_css(".comments > div:nth-child(2)", text: "Most Rated Comment")
   end
 
+  context "when there are comments and replies" do
+    let!(:single_comment) { create(:comment, commentable:) }
+    let!(:reply) { create(:comment, commentable: single_comment, root_commentable: commentable) }
+
+    it "displays the show replies link on comment with reply" do
+      visit resource_path
+      expect(page).not_to have_content("Comments are disabled at this time")
+      expect(page).to have_css(".comment", minimum: 1)
+
+      within("#accordion-#{single_comment.id}") do
+        expect(page).to have_content "Hide replies"
+      end
+    end
+
+    context "when there is a comment with the same parent id but different type with replies" do
+      let!(:other_component) { create(:component, manifest_name: :dummy, organization:) }
+      let!(:other_commentable) { create(:dummy_resource, component: other_component, author: user, id: single_comment.id) }
+      let!(:reply) { create(:comment, commentable: other_commentable, root_commentable: other_commentable) }
+      let!(:other_reply) { create(:comment, commentable: reply, root_commentable: other_commentable) }
+
+      it "displays the show replies link on comment with reply" do
+        visit resource_path
+        expect(page).not_to have_content("Comments are disabled at this time")
+        expect(page).to have_css(".comment", minimum: 1)
+
+        within("#accordion-#{single_comment.id}") do
+          expect(page).not_to have_content "Hide replies"
+        end
+      end
+    end
+  end
+
   context "when there are deleted comments" do
     let(:deleted_comment) { comments[0] }
 
@@ -117,12 +149,18 @@ shared_examples "comments" do
             find(".emoji__trigger .emoji__button").click
           end
 
-          within ".picmo__popupContainer .picmo__picker .picmo__content" do
+          within ".emoji__decidim" do
             expect(page).to have_content(phrase)
-            categories = page.all(".picmo__emojiCategory")
-            within categories[1] do
-              click_button "😀"
-            end
+            # Since emoji-mart is a React component, we need to use JS to click on an emoji icon
+            # as the emoji picker is a shadow DOM element.
+            # The script below is trying to find the first emoji in the "Smileys & People" category and simulate
+            # a click from the user on it.
+            script = <<~JS
+              var emoji_picker = document.getElementsByTagName("em-emoji-picker")[0];
+              var category = emoji_picker.shadowRoot.querySelectorAll("div.category")[1]
+              category.querySelectorAll("button")[0].click();
+            JS
+            execute_script(script)
           end
 
           within ".add-comment form" do
@@ -133,14 +171,14 @@ shared_examples "comments" do
 
       context "when the locale is supported" do
         let(:locale) { "English" }
-        let(:phrase) { "SMILEYS & EMOTION" }
+        let(:phrase) { I18n.t("emojis.categories.people") }
 
         it_behaves_like "allowing to select emojis"
       end
 
       context "when the locale is not supported" do
         let(:locale) { "Català" }
-        let(:phrase) { "SOMRIURES I EMOCIONS" }
+        let(:phrase) { I18n.with_locale(:ca) { I18n.t("emojis.categories.people") } }
 
         it_behaves_like "allowing to select emojis"
       end
@@ -393,11 +431,11 @@ shared_examples "comments" do
               field.native.send_keys "toto"
             end
 
-            expect(page).not_to have_selector(".picmo__picker.picmo__picker")
+            expect(page).not_to have_selector(".emoji__decidim")
             within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
               find(".emoji__button").click
             end
-            expect(page).to have_selector(".picmo__picker.picmo__picker")
+            expect(page).to have_selector(".emoji__decidim")
           end
         end
 
@@ -412,7 +450,7 @@ shared_examples "comments" do
               field.native.send_keys("0123456789012345678901234567")
               find(".emoji__button").click
             end
-            expect(page).not_to have_selector(".picmo__picker.picmo__picker")
+            expect(page).not_to have_selector(".emoji-picker__picker.emoji-picker__picker")
           end
         end
       end

@@ -10,10 +10,10 @@ module Decidim
     include ::Wisper::Publisher
     delegate :locale, to: :I18n
 
-    def self.call(*args, **kwargs, &)
+    def self.call(*, **, &)
       event_recorder = Decidim::EventRecorder.new
 
-      command = new(*args, **kwargs)
+      command = new(*, **)
       command.subscribe(event_recorder)
       command.evaluate(&) if block_given?
       command.call

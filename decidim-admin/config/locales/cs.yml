@@ -459,7 +459,6 @@ cs:
           report_count_eq: Počet nahlášení
           reported_id_string_or_reported_content_cont: Hledat %{collection} podle nahlášeného Id nebo obsahu.
           title_cont: Hledat %{collection} podle názvu.
-          user_name_or_user_email_cont: Hledat %{collection} podle jména nebo e-mailu.
           user_name_or_user_nickname_or_user_email_cont: Hledat %{collection} podle e-mailu, jména nebo přezdívky.
         state_eq:
           label: Stav

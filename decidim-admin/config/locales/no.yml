@@ -372,7 +372,6 @@
           report_count_eq: Antall rapporter
           reported_id_string_or_reported_content_cont: Søk %{collection} av rapporterbar id eller innhold.
           title_cont: Søk %{collection} etter tittel.
-          user_name_or_user_email_cont: Søk %{collection} etter navn eller e-post.
           user_name_or_user_nickname_or_user_email_cont: Søk %{collection} via e-post, navn eller kallenavn.
         state_eq:
           label: Tilstand

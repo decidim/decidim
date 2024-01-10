@@ -8,7 +8,7 @@ on:
         type: string
       ruby_version:
         description: 'Ruby Version'
-        default: "3.1.1"
+        default: "3.2.2"
         required: false
         type: string
       working-directory:
@@ -82,15 +82,18 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ inputs.ruby_version }}
-          bundler-cache: true
       - uses: nanasess/setup-chromedriver@v2
+        with:
+          chromedriver-version: 119.0.6045.105
       - uses: actions/cache@v3
         id: app-cache
         with:
           path: ./spec/decidim_dummy_app/
           key: app-${{ github.sha }}
           restore-keys: app-${{ github.sha }}
-      - run: bundle exec rake parallel:create parallel:load_schema
+      - run: |
+          bundle install
+          bundle exec rake parallel:create parallel:load_schema
         name: Parallel tests
         shell: "bash"
         working-directory: ./spec/decidim_dummy_app/

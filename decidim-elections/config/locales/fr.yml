@@ -50,10 +50,18 @@ fr:
           attributes:
             attachment:
               needs_to_be_reattached: Doit être téléchargé de nouveau
+        ballot_result:
+          attributes:
+            base:
+              total_count_invalid: Le nombre total de réponses ne correspond pas à la répartition valide/blanc/nul.
         election:
           attributes:
             attachment:
               needs_to_be_reattached: Doit être téléchargé de nouveau
+        question_result:
+          attributes:
+            base:
+              blank_count_invalid: Le nombre total de réponses vides ne peut pas être supérieur au nombre total de bulletins blancs.
         trustee:
           attributes:
             name:
@@ -228,7 +236,11 @@ fr:
           feedback_form_answers: Feedbacks des répondants
         mailers:
           trustee_mailer:
-            body: "<p>Bonjour %{user_name},</p><p>Vous avez été ajouté(e) en tant qu'administrateur à %{resource_name}.</p>"
+            body:
+              help_html: |-
+                <p>Bonjour %{user_name},</p><br>
+                <p>Vous avez été invité pour agir en tant que garant d'une élection sur %{organization}.</p><br>
+                <p>Une nouvelle section nommée "Espace de garant" a été activée sur votre compte. Depuis cette section, vous pourrez agir en tant que garant. Pour l'instant, nous vous prions de générer vos clés d'identification. </p><br>
             subject: Vous avez été ajouté(e) comme garant pour %{resource_name}
             trustee_zone: Emmenez-moi dans la zone des garants
         menu:
@@ -272,6 +284,7 @@ fr:
               census_frozen: Les codes d'accès pour le recensement ne sont pas exportés.
               census_uploaded: Il n'y a pas de recensement téléchargé pour cette élection.
               component_published: La fonctionnalité élection n'est <strong>pas publiée</strong>.
+              fix_it_text: Corriger
               max_selections: Les questions n'ont pas de <strong>valeur correcte pour le nombre de réponses</strong>
               minimum_answers: Les questions doivent avoir <strong>au moins deux réponses</strong>.
               minimum_questions: L'élection <strong>doit avoir au moins une question</strong>.
@@ -297,6 +310,11 @@ fr:
               trustees_number: L'espace participatif <strong>doit avoir au moins %{number} garants avec une clé publique</strong>.
             submit: Configurer l'élection
             success: L' élection a été envoyée avec succès au Panneau d'Affichage.
+            technical_configuration:
+              authority_name: "<strong>Nom de l'autorité :</strong> %{value}"
+              bulletin_board_server: "<strong>Serveur du Panneau d'affichage:</strong> <a href='%{value}'>%{value}</a>"
+              scheme_name: "<strong>Nom du schema :</strong> %{value}"
+              title: Voir les informations techniques
             title: Configurer l'élection
             trustees: Garants de l'élection
           created:
@@ -615,7 +633,7 @@ fr:
                 bb_status: Statut
                 election: Élection
                 voting_period: Période de vote
-              no_elections: Il n'y a pas d'élections dans lesquelles vous êtes garant.
+              no_elections: Actuellement, vous n'avez pas été assigné pour prendre des mesures en tant que garant. Vous recevrez une notification quand il sera temps d'agir pendant les différentes phases.
               title: Élections
             identification_keys:
               cancel: Annuler
@@ -638,7 +656,9 @@ fr:
               upload_legend: Le serveur dispose de vos clés d'identification publiques, mais pas votre navigateur. Vous devez importer le fichier contenant vos clés d'identification sur votre ordinateur à partir de la sauvegarde que vous avez créée après les avoir générées.
             not_supported_browser_description: Il semblerait que votre navigateur web ne peut pas être utilisé pour agir en tant qu'administrateur. Assurez-vous d'utiliser la dernière version de votre navigateur ou essayez d'utiliser l'un des navigateurs les plus populaires afin de réaliser vos tâches.
             not_supported_browser_title: Mettre à niveau le navigateur pour agir en tant que garant
-            trustee_role_description: Vous avez été assigné à agir en tant que garant lors de certaines des élections mises en place sur cette plateforme.
+            trustee_role_description:
+              with_keys: Vous avez été assigné à agir en tant que garant lors de certaines élections mises en place sur cette plateforme.
+              without_keys: Vous avez été assigné à agir en tant que garant. Veuillez générer et télécharger vos clés d’identification.
           update:
             success: Votre clé d'identification publique a bien été stockée.
       votes:
@@ -724,8 +744,9 @@ fr:
           back: Retour
           continue: Suivant
       warnings:
-        no_elections_warning: Aucune élection ne correspond à vos critères de recherche ou aucune élection n'est programmée.
-        no_scheduled_elections_warning: À l'heure actuelle, il n'y a pas d'élections programmées, mais vous trouverez ici toutes les élections passées.
+        empty_filters: Il n'y a pas d'élections correspondant à ces critères.
+        no_elections: Il n'y a aucune élection programmée.
+        no_scheduled_elections: À l'heure actuelle, il n'y a pas d'élections programmées, mais vous trouverez ici toutes les élections passées.
     events:
       elections:
         election_published:
@@ -738,12 +759,17 @@ fr:
             email_intro: Vous avez été ajouté en tant que garant pour l'élection %{resource_title}.
             email_outro: Vous avez reçu cette notification parce que vous avez été ajouté(e) comme garant de l'élection "%{resource_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
             email_subject: Vous avez été ajouté en tant que garant pour l'élection %{resource_title}.
-            notification_title: Vous êtes garant de l'élection <a href="%{resource_path}">%{resource_title}</a>.
+            notification_title: Vous avez été sélectionné en tant que garant de l'élection <a href="%{resource_path}">%{resource_title}.</a> Veuillez entamer la cérémonie des clés pour mettre en place l'élection.
           new_trustee:
             email_intro: Un administrateur vous a ajouté en tant que garant de %{resource_name}. Vous devriez créer votre clé publique <a href='%{trustee_zone_url}'>dans votre espace de garant</a>
             email_outro: Vous avez reçu cette notification parce que vous avez été ajouté(s) en tant que garant pour %{resource_name}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
             email_subject: Vous avez été ajouté en tant que garant pour l'élection %{resource_name}.
-            notification_title: Vous êtes garant de <a href="%{participatory_space_url}">%{resource_name}</a>.
+            notification_title: Vous avez été ajouté en tant que garant de %{resource_name} pour des élections qui auront lieu sur cette plateform. <br> Pour l'instant, veuillez <a href='%{trustee_zone_url}'>générer vos clés d'identification</a>.
+          start_tally:
+            email_intro: La période de vote pour l'élection %{resource_title} est terminée. Maintenant, veuillez effectuer le décompte de l'élection pour publier les résultats finaux.
+            email_outro: Vous avez reçu cette notification parce que vous êtes un garant de l'élection %{resource_title}.
+            email_subject: Le processus de décompte pour l'élection %{resource_title} a commencé.
+            notification_title: La période de vote pour l'élection %{resource_title} est terminée. Maintenant, veuillez effectuer le décompte de l'élection pour publier les résultats finaux.
         votes:
           accepted_votes:
             email_intro: 'Votre vote a été accepté ! En utilisant votre jeton de vote : %{encrypted_vote_hash}, vous pouvez vérifier votre vote <a href="%{verify_url}">ici</a>.'
@@ -1150,24 +1176,35 @@ fr:
         closures:
           back_to_polling_stations: Retourner aux bureaux de vote
           certify:
-            add_images: Ajouter des images
+            add_photos: Ajouter des photos
+            edit_photos: Modifier les photos
             error: Une erreur est survenue lors de la mise en place du certificat, veuillez réessayer.
-            form_legend: Télécharger une photo du certificat de clôture électoral
             heading: Recomptage des votes - Télécharger un certificat
             info_text: Veuillez télécharger une photo du certificat de fermeture électorale.
             submit: Télécharger le certificat
             success: Le certificat à été téléchargé avec succès.
+            upload_photos: Télécharger une photo du certificat de clôture électoral
+          completed:
+            sub_heading: Ce recomptage a été certifié et ne peut plus être modifié.
           create:
             error: Une erreur s'est produite lors de la création de la fermeture, veuillez réessayer plus tard.
             success: Fermeture créée avec succès.
+          destroy:
+            error: Une erreur s'est produite lors de la suppression de la clôture.
+            success: Clôture supprimée avec succès.
           edit:
+            confirm_start_over: Cela supprimera le nombre total de votes et les notes jointes. Êtes-vous sûr(e) ?
             heading: Recomptage des votes - Comptage des réponses
-            info_text: Veuillez introduire le nombre total de réponses pour chaque question.
+            info_text: Veuillez détailler le nombre total de réponses pour chaque question. Ce nombre doit correspondre au total de réponses fourni lors de l'étape précédente (%{total} réponses totales).
             modal_ballots_results_count_error:
+              blank: Le total attendu des votes blancs est %{expected} mais la somme des questions vides est %{current}.
               close_modal: Fermer
               info_text: Le nombre total de bulletins ne correspond pas au nombre total d'enveloppes. Veuillez vérifier le nombre total de bulletins.
               title: Le total des bulletins ne correspond pas
+              total: Le total attendu est %{expected} mais la somme des bulletins valides, blancs et nuls est %{current}.
+              valid: Le total attendu des votes blancs est %{expected} mais la somme des questions vides est %{current}.
             save_recount: Enregistrer le comptage
+            start_over: S'il y a une erreur dans le nombre total, vous pouvez tout supprimer et recommencer.
             total_ballots: Total des votes
             total_blank_ballots: Nombre total de bulletins blanc
             total_null_ballots: Nombre total de bulletins nuls
@@ -1190,8 +1227,9 @@ fr:
             submit: Vérifier le nombre total
             total_ballots_count: Nombre de bulletins
           show:
+            edit_count_votes: Mauvais nombres ? Vous pouvez toujours les modifier.
             heading: Recomptage des votes
-            info_text: Fermeture électorale du bureau de vote.
+            sub_heading: Le recomptage doit être fermé en téléchargeant un certificat. Une fois cela fait, le recomptage sera scellé et ne pourra plus être modifié.
           sign:
             cancel: Annuler
             check_box: Après vérification, ce certificat est identique au certificat physique de clôture des élections
@@ -1273,6 +1311,8 @@ fr:
           manager: Directeur
           president: Président
           unassigned: Non assigné
+      polling_station_closure_certificate:
+        current_certificate: 'Certificat actuel :'
       polling_station_closure_recount:
         nota_option: Vide / Aucune des options ci-dessus
         polling_officer_notes: 'Notes de l''accesseur :'

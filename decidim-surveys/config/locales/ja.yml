@@ -51,6 +51,9 @@ ja:
       answers_count: 回答
     surveys:
       admin:
+        component:
+          actions:
+            answers_alert: コンポーネントを公開すると、すべての結果が削除されます。
         exports:
           survey_user_answers: アンケート参加者の回答
         surveys:
@@ -59,6 +62,11 @@ ja:
             success: アンケートを保存しました。
       last_activity:
         new_survey: '新しいアンケート:'
+      survey_confirmation_mailer:
+        confirmation:
+          body: '%{participatory_space} 内のアンケート %{questionnaire_title} に回答しました'
+          subject: アンケート %{questionnaire_title} 回答確認
+        export_name: アンケートの回答
       surveys:
         answer:
           invalid: アンケートの回答に問題がありました。

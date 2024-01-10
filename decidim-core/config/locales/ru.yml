@@ -490,8 +490,6 @@ ru:
           headline: Текущее состояние %{organization}
         sub_hero:
           register: Зарегистрироваться
-    participatory_space_private_users:
-      not_allowed: У вас нет прав на просмотр этого содержимого
     profile:
       deleted: Удаленный участник
     profiles:

@@ -7,21 +7,6 @@ module Decidim
   module ParticipatorySpaceContext
     extend ActiveSupport::Concern
 
-    class_methods do
-      # Public: Called on a controller, it sets up all the surrounding methods to render a
-      # participatory space's template. It expects the method `current_participatory_space` to be
-      # defined, from which it will extract the participatory manifest.
-      #
-      # options - A hash used to modify the behavior of the layout. :only: - An array of actions on
-      #           which the layout will be applied.
-      #
-      # Returns nothing.
-      def participatory_space_layout(options = {})
-        layout :layout, **options
-        before_action :authorize_participatory_space, **options
-      end
-    end
-
     included do
       include Decidim::NeedsOrganization
 
@@ -98,13 +83,6 @@ module Decidim
       return false unless current_user
 
       current_user.admin || current_participatory_space.users.include?(current_user)
-    end
-
-    def check_current_user_can_visit_space
-      return if current_user_can_visit_space?
-
-      flash[:alert] = I18n.t("participatory_space_private_users.not_allowed", scope: "decidim")
-      redirect_to action: "index"
     end
 
     def help_section

@@ -6,8 +6,8 @@ module Decidim
   module Votings
     class Seeds < Decidim::Seeds
       def call
-        3.times do |_n|
-          voting = create_voting!
+        Decidim::Votings::Voting.voting_types.values.each do |voting_type|
+          voting = create_voting!(voting_type:)
 
           unless voting.online_voting?
             3.times do
@@ -44,7 +44,7 @@ module Decidim
         end
       end
 
-      def create_voting!
+      def create_voting!(voting_type: Decidim::Votings::Voting.voting_types.values.sample)
         n = rand(3)
         params = {
           organization:,
@@ -58,7 +58,7 @@ module Decidim
           published_at: 2.weeks.ago,
           start_time: n.weeks.from_now,
           end_time: (n + 1).weeks.from_now + 4.hours,
-          voting_type: Decidim::Votings::Voting.voting_types.values.sample,
+          voting_type:,
           promoted: n.odd?
         }
 
@@ -96,17 +96,7 @@ module Decidim
 
       def create_polling_officer!(voting:, polling_station:)
         email = "voting_#{voting.id}_president_#{polling_station.id}@example.org"
-
-        user = Decidim::User.find_or_initialize_by(email:)
-        user.update!(
-          name: ::Faker::Name.name,
-          nickname: ::Faker::Twitter.unique.screen_name,
-          password: "decidim123456789",
-          organization:,
-          confirmed_at: Time.current,
-          locale: I18n.default_locale,
-          tos_agreement: true
-        )
+        user = find_or_initialize_user_by(email:)
 
         Decidim.traceability.create!(
           Decidim::Votings::PollingOfficer,

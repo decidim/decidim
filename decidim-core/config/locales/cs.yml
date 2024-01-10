@@ -1374,8 +1374,6 @@ cs:
           alert: Aktualizovali jsme Podmínky služeb, přečtěte si je, prosím.
           body: Věnujte prosím chvilku a přečtěte si aktualizace našich smluvních podmínek. V opačném případě nebudete moci platformu používat.
           title: 'Povinné: Přečtěte si aktualizaci našich podmínek poskytování služeb'
-    participatory_space_private_users:
-      not_allowed: Nemáte oprávnění k zobrazení tohoto obsahu
     passwords:
       update:
         error: Došlo k problému s aktualizací hesla.

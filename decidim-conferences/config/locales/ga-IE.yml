@@ -121,13 +121,7 @@ ga:
       admin:
         conference_invites:
           index:
-            filter:
-              accepted: Glactha
-              all: Uile
-              rejected: Diúltaithe
-              sent: Seolta
             invites: Cuirí
-            search: Cuardaigh
           new:
             invite: Tabhair Cuireadh
         conference_speakers:

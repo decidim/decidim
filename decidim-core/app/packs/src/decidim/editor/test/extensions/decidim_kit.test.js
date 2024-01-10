@@ -1,24 +1,8 @@
-/* global jest */
-
-// import { createBasicEditor } from "../helpers";
 import { Editor } from "@tiptap/core";
 
-import DecidimKit from "../../extensions/decidim_kit";
+import DecidimKit from "src/decidim/editor/extensions/decidim_kit";
 
-import { createEditorContainer } from "../helpers";
-
-// Mock picmo as it is distributed as an ES6 module that is not fully compatible
-// with Jest without configuration changes.
-jest.mock("@picmo/popup-picker",
-  () => ({
-    createPopup: () => {
-      return {
-        addEventListener: () => {},
-        closeButton: {}
-      }
-    }
-  })
-);
+import { createEditorContainer } from "src/decidim/editor/test/helpers";
 
 describe("DecidimKit", () => {
   const createEditor = (config = {}) => {

@@ -435,7 +435,6 @@ el:
           report_count_eq: Αναφορά μετρητή eq
           reported_id_string_or_reported_content_cont: Αναζήτηση %{collection} με αναγνωριστικό ή περιεχόμενο προς αναφορά.
           title_cont: Αναζήτηση συλλογής %{collection} με βάση τον τίτλο.
-          user_name_or_user_email_cont: Αναζήτηση %{collection} με βάση το όνομα ή το email.
           user_name_or_user_nickname_or_user_email_cont: Αναζήτηση %{collection} με email, όνομα ή ψευδώνυμο.
         state_eq:
           label: Κατάσταση

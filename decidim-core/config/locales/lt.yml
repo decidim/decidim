@@ -1349,8 +1349,6 @@ lt:
           alert: Mes atnaujinote savo sąlygas, peržiūrėkite jas.
           body: Prašytume peržiūrėti mūsų atnaujintas sąlygas. Priešingu atveju šia platforma naudotis negalėsite.
           title: 'Būtina: Peržiūrėkite naudojimo sąlygų atnaujinimus'
-    participatory_space_private_users:
-      not_allowed: Jūs negalite peržiūrėti šio turinio
     passwords:
       update:
         error: Atnaujinant slaptažodį iškilo problema.

@@ -19,7 +19,7 @@ module Decidim
         @form = form(OrganizationForm).from_params(params)
         @form.id = current_organization.id
 
-        UpdateOrganization.call(current_organization, @form) do
+        UpdateOrganization.call(@form, current_organization) do
           on(:ok) do
             flash[:notice] = I18n.t("organization.update.success", scope: "decidim.admin")
             redirect_to edit_organization_path

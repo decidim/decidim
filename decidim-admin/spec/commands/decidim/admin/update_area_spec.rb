@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Admin
   describe UpdateArea do
-    subject { described_class.new(area, form) }
+    subject { described_class.new(form, area) }
 
     let(:organization) { create(:organization) }
     let(:user) { create(:user, :admin, :confirmed, organization:) }

@@ -24,6 +24,7 @@ pt-BR:
         banner_image: Imagem de banner
         child_scope_threshold_enabled: Ativar assinaturas de escopo filho
         collect_user_extra_fields: Colete dados pessoais do usuário na assinatura
+        comments_enabled: Permitir comentários
         custom_signature_end_date_enabled: Permitir aos autores escolher o fim do período de coleta de assinaturas
         description: Descrição
         document_number_authorization_handler: Autorização para verificar o número do documento nos votos
@@ -35,6 +36,8 @@ pt-BR:
         title: Título
         undo_online_signatures_enabled: Permitir que os usuários desfizessem suas assinaturas on-line
         validate_sms_code_on_votes: Adicionar etapa de validação do código SMS ao processo de assinatura
+      initiatives_type_scope:
+        supports_required: Apoios requeridos
       initiatives_vote:
         date_of_birth: Data de nascimento
         document_number: Número do documento
@@ -80,6 +83,10 @@ pt-BR:
             label: Tipo
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Pesquisar %{collection} por título, descrição, ID ou nome do autor.
+      initiatives_settings:
+        update:
+          error: Ocorreu um erro.
+          success: As configurações de iniciativas foram atualizadas com sucesso.
       menu:
         attachments: Anexos
         committee_members: Membros do Comitê

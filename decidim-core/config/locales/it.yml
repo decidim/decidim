@@ -905,8 +905,6 @@ it:
         metrics:
           headline: Partecipazione in cifre
           link: Mostra tutte le statistiche
-    participatory_space_private_users:
-      not_allowed: Non sei autorizzato a visualizzare questo contenuto
     profile:
       deleted: Utente eliminato
     profiles:

@@ -5,8 +5,8 @@ class WickedPdf
     module Assets
       # Force wicked_pdf styles to have a relative path, to prevent fetching
       # them from a host
-      def wicked_pdf_stylesheet_pack_tag(*sources)
-        stylesheet_pack_tag(*sources)
+      def wicked_pdf_stylesheet_pack_tag(*)
+        stylesheet_pack_tag(*)
       end
 
       # Disables the images in the PDFs as those requests would be jamming under

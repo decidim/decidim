@@ -11,7 +11,7 @@ module Decidim
 
     helper_method :cell
 
-    def newsletter(user, newsletter, preview: false)
+    def newsletter(user, newsletter, preview = nil)
       return if user.email.blank?
 
       @organization = user.organization
