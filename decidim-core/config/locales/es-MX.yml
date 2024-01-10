@@ -1794,11 +1794,19 @@ es-MX:
     upload:
       uploadedFile: Archivo subido
   emojis:
+    add_custom: Agregar emoji personalizado
     button: Añadir emoji
     categories:
+      activity: Actividad
       custom: Personalizado
       flags: Banderas
+      foods: Alimentos y bebidas
+      frequent: Usados frecuentemente
+      nature: Animales y naturaleza
       objects: Objetos
+      people: Caras y Personas
+      places: Viajes y lugares
+      search: Resultados de búsqueda
       symbols: Símbolos
   errors:
     messages:
