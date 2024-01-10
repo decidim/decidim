@@ -1793,28 +1793,10 @@ ca:
   emojis:
     button: Afegir emoji
     categories:
-      activities: Activitats
-      animals-nature: Animals i natura
       custom: Personalitzat
       flags: Banderes
-      food-drink: Aliments i begudes
       objects: Objectes
-      people-body: Persones i cos
-      recents: Utilitzats recentment
-      smileys-emotion: Somriures i emocions
       symbols: Símbols
-      travel-places: Viatges i llocs
-    error:
-      load: No s'ha pogut carregar la llista d'emojis
-    recents:
-      clear: Esborrar els emojis recents
-      none: Encara no has seleccionat cap emoji.
-    retry: Prova-ho de nou
-    search:
-      _: Cercar emojis...
-      clear: Neteja la cerca
-      error: Error en cercar emojis
-      not_found: No s'han trobat resultats
   errors:
     messages:
       allowed_file_content_types: 'només s''accepten arxius amb les següents extensions: %{types}'
