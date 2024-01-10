@@ -1168,6 +1168,7 @@ pt-BR:
     searches:
       filters:
         jump_to: 'Pule para:'
+        search: Pesquisa
         state:
           active: Ativo
           all: Todos
@@ -1423,8 +1424,6 @@ pt-BR:
       close: Fechar modal
     upload:
       uploadedFile: Arquivo carregado
-  emojis:
-    retry: Tente novamente
   errors:
     messages:
       allowed_file_content_types: 'apenas arquivos com as seguintes extensões são permitidos: %{types}'
