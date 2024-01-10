@@ -31,7 +31,7 @@ module Decidim
 
       translatable_fields :title, :body
 
-      STATES = { not_answered: 0, evaluating: 10, accepted: 20, rejected: -10, withdrawn: -20 }.freeze
+      STATES = { not_answered: 0, evaluating: 10, accepted: 20, rejected: -10 }.freeze
 
       fingerprint fields: [:title, :body]
 
