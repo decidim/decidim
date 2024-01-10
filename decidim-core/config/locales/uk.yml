@@ -377,11 +377,14 @@ uk:
         create:
           error: Бесіда не розпочата. Спробуйте ще раз пізніше
         index:
+          from: Від
           no_conversations: У вас ще немає бесід
         reply:
           send: Надіслати
+          title: Відповісти
         start:
           send: Надіслати
+          title: Почати бесіду
     newsletter_mailer:
       newsletter:
         note: Ви отримали цього електронного листа, оскільки ви підписалися на новини щодо %{organization_name}. Ви можете змінити свої налаштування на <a href="%{link}">сторінці сповіщень</a>.
