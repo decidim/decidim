@@ -29,6 +29,7 @@ pl:
               c: Opcja C
             test_options:
               bar: Bar
+              baz: Baz
               foo: Foo
           step:
             endorsements_blocked: Możliwość rekomendacji zablokowana
@@ -36,6 +37,7 @@ pl:
             readonly_step_attribute: Atrybut kroku tylko do odczytu
             test_options:
               bar: Bar
+              baz: Baz
               foo: Foo
     dummy:
       admin:
