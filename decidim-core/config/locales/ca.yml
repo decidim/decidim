@@ -1798,8 +1798,25 @@ ca:
       custom: Personalitzat
       flags: Banderes
       foods: Aliments i begudes
+      frequent: Usats freqüentment
+      nature: Animals i natura
       objects: Objectes
+      people: Cares i Gent
+      places: Viatges i llocs
+      search: Resultats de la cerca
       symbols: Símbols
+    pick: Tria una emoticona…
+    search: Cercar
+    search_no_results_1: Oh, no!
+    search_no_results_2: No s'ha trobat aquesta emoticona
+    skins:
+      '1': Per defecte
+      '2': Clara
+      '3': Mig clara
+      '4': Mitja
+      '5': Mig fosca
+      '6': Fosca
+      choose: Tria un to de pell predeterminat
   errors:
     messages:
       allowed_file_content_types: 'només s''accepten arxius amb les següents extensions: %{types}'
