@@ -1799,6 +1799,8 @@ eu:
       '3': Argi Ertaina
       '4': Ertaina
       '5': Erdi Iluna
+      '6': Ilun
+      choose: Aukeratu azalaren tonu lehenetsia
   errors:
     messages:
       allowed_file_content_types: 'soilik onartuko dira honako hedapenak: %{types}'
