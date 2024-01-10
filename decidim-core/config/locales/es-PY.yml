@@ -1794,12 +1794,29 @@ es-PY:
     upload:
       uploadedFile: Archivo subido
   emojis:
+    add_custom: Agregar emoji personalizado
     button: Añadir emoji
     categories:
+      activity: Actividad
       custom: Personalizado
       flags: Banderas
+      foods: Alimentos y bebidas
+      frequent: Usados frecuentemente
+      nature: Animales y naturaleza
       objects: Objetos
+      people: Caras y Personas
+      places: Viajes y lugares
+      search: Resultados de búsqueda
       symbols: Símbolos
+    pick: Elige un emoji…
+    search: Buscar
+    search_no_results_1: '¡Oh no!'
+    search_no_results_2: No se pudo encontrar ese emoticono
+    skins:
+      '1': Por defecto
+      '2': Clara
+      '3': Medio clara
+      '4': Media
   errors:
     messages:
       allowed_file_content_types: 'solo se permiten archivos con las siguientes extensiones: %{types}'
