@@ -745,6 +745,7 @@ pl:
       no_followers: Brak obserwujących.
     following:
       no_followings: Jeszcze nikogo ani niczego nie obserwuje.
+      non_public_followings: Niektóre z obserwowanych zasobów nie są publiczne.
     follows:
       create:
         button: Obserwuj
@@ -1318,6 +1319,8 @@ pl:
         filters:
           areas: Kategorie
           select_an_area: Wybierz kategorię
+      public_participation:
+        public_participation: Wyświetl publicznie moje uczestnictwo
       reference:
         reference: 'Odniesienie: %{reference}'
       represent_user_group:
@@ -1328,6 +1331,8 @@ pl:
         title: Wybierz liczbę wyników na stronie
       share_modal:
         close_window: Zamknij okno
+        copy_share_link: Kopiuj
+        copy_share_link_clarification: Skopiuj link udostępniania do schowka
         copy_share_link_copied: Skopiowano!
         copy_share_link_message: Link został pomyślnie skopiowany do schowka.
         share: Udostępnij
