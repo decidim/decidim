@@ -2,13 +2,13 @@
 
 require_relative "base"
 
-module Decidim
+module Decidim::MaintainersToolbox
   module GithubManager
     module Querier
       # Makes a GET request for the metadata of an Issue or Pull Request in GitHub
       #
       # @see https://docs.github.com/en/rest/issues/issues#get-an-issue GitHub API documentation
-      class ByIssueId < Decidim::GithubManager::Querier::Base
+      class ByIssueId < Decidim::MaintainersToolbox::GithubManager::Querier::Base
         def initialize(issue_id:, token:)
           @issue_id = issue_id
           @token = token

@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require "decidim/github_manager/querier"
+require "decidim/maintainers_toolbox/github_manager/querier"
 require "webmock/rspec"
 
-describe Decidim::GithubManager::Querier::ByIssueId do
+describe Decidim::MaintainersToolbox::GithubManager::Querier::ByIssueId do
   let(:querier) { described_class.new(token: "abc", issue_id: 12_345) }
 
   before do

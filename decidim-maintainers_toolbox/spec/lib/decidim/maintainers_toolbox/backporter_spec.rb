@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require "decidim/backporter"
+require "decidim/maintainers_toolbox/backporter"
 
-describe Decidim::Backporter do
+describe Decidim::MaintainersToolbox::Backporter do
   subject { described_class.new(token:, pull_request_id:, version_number:, exit_with_unstaged_changes:) }
 
   let(:token) { "1234" }

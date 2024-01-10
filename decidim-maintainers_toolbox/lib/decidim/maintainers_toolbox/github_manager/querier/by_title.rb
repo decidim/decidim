@@ -2,7 +2,7 @@
 
 require_relative "base"
 
-module Decidim
+module Decidim::MaintainersToolbox
   module GithubManager
     module Querier
       # Makes a GET request for the list of Issues or Pull Requests in GitHub.
@@ -12,7 +12,7 @@ module Decidim
       # @param state [String] the state of the issue. By default is "open"
       #
       # @see https://docs.github.com/en/rest/issues/issues#list-repository-issues GitHub API documentation
-      class ByTitle < Decidim::GithubManager::Querier::Base
+      class ByTitle < Decidim::MaintainersToolbox::GithubManager::Querier::Base
         def initialize(title:, token:, state: "open")
           @title = title
           @token = token

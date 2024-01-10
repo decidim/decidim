@@ -2,14 +2,14 @@
 
 require_relative "base"
 
-module Decidim
+module Decidim::MaintainersToolbox
   module GithubManager
     module Querier
       # Makes a GET request for the related issues of an Issue or Pull Request in GitHub
       # Uses the Timeline events API endpoint
       #
       # @see https://docs.github.com/en/rest/issues/timeline?apiVersion=2022-11-28 GitHub API documentation
-      class RelatedIssues < Decidim::GithubManager::Querier::Base
+      class RelatedIssues < Decidim::MaintainersToolbox::GithubManager::Querier::Base
         def initialize(issue_id:, token:)
           @issue_id = issue_id
           @token = token

@@ -3,9 +3,9 @@
 require "active_support/core_ext/string/filters"
 require_relative "report"
 
-module Decidim
+module Decidim::MaintainersToolbox
   module BackportsReporter
-    class CLIReport < Decidim::BackportsReporter::Report
+    class CLIReport < Decidim::MaintainersToolbox::BackportsReporter::Report
       private
 
       def output_head

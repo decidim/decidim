@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require "decidim/backports_reporter/csv_report"
+require "decidim/maintainers_toolbox/backports_reporter/csv_report"
 
-describe Decidim::BackportsReporter::CSVReport do
+describe Decidim::MaintainersToolbox::BackportsReporter::CSVReport do
   subject { described_class.new(report:, last_version_number:).call }
 
   let(:report) do

@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require "decidim/releaser"
+require "decidim/maintainers_toolbox/releaser"
 
-describe Decidim::Releaser do
+describe Decidim::MaintainersToolbox::Releaser do
   subject { described_class.new(token:, version_type:, exit_with_unstaged_changes:, working_dir: tmp_repository_dir) }
 
   let(:token) { "1234" }
@@ -49,7 +49,7 @@ describe Decidim::Releaser do
     context "when we are not in a release branch" do
       it "raises an error" do
         `git switch --quiet develop`
-        expect { subject.send(:release_branch) }.to raise_error(Decidim::Releaser::InvalidBranchError)
+        expect { subject.send(:release_branch) }.to raise_error(Decidim::MaintainersToolbox::Releaser::InvalidBranchError)
       end
     end
   end
@@ -130,7 +130,7 @@ describe Decidim::Releaser do
       let(:version_number) { "0.1.0" }
 
       it "raises an error" do
-        expect { subject.send(:next_version_number_for_release_candidate, version_number) }.to raise_error(Decidim::Releaser::InvalidVersionTypeError)
+        expect { subject.send(:next_version_number_for_release_candidate, version_number) }.to raise_error(Decidim::MaintainersToolbox::Releaser::InvalidVersionTypeError)
       end
     end
   end
@@ -140,7 +140,7 @@ describe Decidim::Releaser do
       let(:version_number) { "0.1.0.dev" }
 
       it "returns the correct next version number" do
-        expect { subject.send(:next_version_number_for_patch_release, version_number) }.to raise_error(Decidim::Releaser::InvalidVersionTypeError)
+        expect { subject.send(:next_version_number_for_patch_release, version_number) }.to raise_error(Decidim::MaintainersToolbox::Releaser::InvalidVersionTypeError)
       end
     end
 

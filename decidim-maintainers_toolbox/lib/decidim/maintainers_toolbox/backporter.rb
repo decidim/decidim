@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Decidim
+module Decidim::MaintainersToolbox
   class Backporter
     class InvalidMetadataError < StandardError; end
 

@@ -3,7 +3,7 @@
 require "shellwords"
 require "English"
 
-module Decidim
+module Decidim::MaintainersToolbox
   # Handles the backport of a given pull request to a branch
   # Uses the git commnad line client
   # rubocop:disable Rails/Output

@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require "decidim/github_manager/poster"
+require "decidim/maintainers_toolbox/github_manager/poster"
 require "webmock/rspec"
 
-describe Decidim::GithubManager::Poster do
+describe Decidim::MaintainersToolbox::GithubManager::Poster do
   let(:poster) { described_class.new(token: "abc", params: { title: "Hello world", body: "This is a test" }) }
 
   before do

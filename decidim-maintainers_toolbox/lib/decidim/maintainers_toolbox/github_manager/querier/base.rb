@@ -4,7 +4,7 @@ require "json"
 require "faraday"
 require "uri"
 
-module Decidim
+module Decidim::MaintainersToolbox
   module GithubManager
     module Querier
       # Base class that allows making GET requests to GitHub Rest API about Issues and Pull Requests

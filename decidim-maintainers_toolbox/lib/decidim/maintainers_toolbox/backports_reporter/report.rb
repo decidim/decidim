@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Decidim
+module Decidim::MaintainersToolbox
   module BackportsReporter
     # Abstract class for the different formats
     class Report

@@ -4,7 +4,7 @@ require "active_support/core_ext/hash/except"
 require "faraday"
 require "json"
 
-module Decidim
+module Decidim::MaintainersToolbox
   module GithubManager
     # Allows to make POST requests to GitHub Rest API about Pull Requests
     # @see https://docs.github.com/en/rest

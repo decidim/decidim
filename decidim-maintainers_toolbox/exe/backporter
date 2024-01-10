@@ -3,10 +3,10 @@
 
 require "thor"
 
-require "./lib/decidim/github_manager/querier"
-require "./lib/decidim/github_manager/poster"
-require "./lib/decidim/git_backport_manager"
-require "./lib/decidim/backporter"
+require "./../lib/decidim/maintainers_toolbox/github_manager/querier"
+require "./../lib/decidim/maintainers_toolbox/github_manager/poster"
+require "./../lib/decidim/maintainers_toolbox/git_backport_manager"
+require "./../lib/decidim/maintainers_toolbox/backporter"
 
 class BackporterCLI < Thor
   desc "", "Backport a pull request to another branch"
@@ -22,13 +22,13 @@ class BackporterCLI < Thor
   default_task :backport
 
   def backport
-    Decidim::Backporter.new(
+    Decidim::MaintainersToolbox::Backporter.new(
       token: options[:github_token],
       pull_request_id: options[:pull_request_id],
       version_number: options[:version_number],
       exit_with_unstaged_changes: options[:exit_with_unstaged_changes]
     ).call
-  rescue Decidim::GithubManager::Querier::Base::InvalidMetadataError
+  rescue Decidim::MaintainersToolbox::GithubManager::Querier::Base::InvalidMetadataError
     puts "Metadata was not returned from the server. Please check that the provided pull request ID and GitHub token are correct."
   end
 

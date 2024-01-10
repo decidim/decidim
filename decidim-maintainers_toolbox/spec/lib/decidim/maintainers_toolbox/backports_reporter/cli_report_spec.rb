@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require "decidim/backports_reporter/cli_report"
+require "decidim/maintainers_toolbox/backports_reporter/cli_report"
 
-describe Decidim::BackportsReporter::CLIReport do
+describe Decidim::MaintainersToolbox::BackportsReporter::CLIReport do
   subject { described_class.new(report:, last_version_number:).call }
 
   let(:report) do

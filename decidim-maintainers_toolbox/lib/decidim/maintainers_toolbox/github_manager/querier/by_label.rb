@@ -3,7 +3,7 @@
 require "active_support/core_ext/time/zones"
 require_relative "base"
 
-module Decidim
+module Decidim::MaintainersToolbox
   module GithubManager
     module Querier
       # Makes a GET request for the list of Issues or Pull Requests in GitHub.
@@ -19,7 +19,7 @@ module Decidim
       # @param exclude_labels [Array] the labels that we want to exclude in the search
       #
       # @see https://docs.github.com/en/rest/issues/issues#list-repository-issues GitHub API documentation
-      class ByLabel < Decidim::GithubManager::Querier::Base
+      class ByLabel < Decidim::MaintainersToolbox::GithubManager::Querier::Base
         def initialize(token:, days_to_check_from: 90, label: "type: fix", exclude_labels: ["backport", "no-backport"])
           @label = label
           @exclude_labels = exclude_labels

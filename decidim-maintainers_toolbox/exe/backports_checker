@@ -3,7 +3,7 @@
 
 require "thor"
 
-require "./lib/decidim/git_backport_checker"
+require "./../lib/decidim/maintainers_toolbox/git_backport_checker"
 
 class BackportsCheckerCLI < Thor
   desc "", <<~HELP

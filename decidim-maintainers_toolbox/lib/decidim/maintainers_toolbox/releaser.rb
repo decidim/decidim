@@ -4,7 +4,7 @@ require "open3"
 require_relative "github_manager/poster"
 require_relative "github_manager/querier/by_title"
 
-module Decidim
+module Decidim::MaintainersToolbox
   class Releaser
     class InvalidMetadataError < StandardError; end
 

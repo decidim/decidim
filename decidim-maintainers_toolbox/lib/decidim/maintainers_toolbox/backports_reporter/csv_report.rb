@@ -2,9 +2,9 @@
 
 require_relative "report"
 
-module Decidim
+module Decidim::MaintainersToolbox
   module BackportsReporter
-    class CSVReport < Decidim::BackportsReporter::Report
+    class CSVReport < Decidim::MaintainersToolbox::BackportsReporter::Report
       private
 
       def output_head
