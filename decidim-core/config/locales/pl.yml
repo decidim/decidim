@@ -844,6 +844,7 @@ pl:
         result: Wyniki
     fingerprint:
       check: Sprawdź odcisk palca
+      explanation: Poniższy fragment tekstu stanowi skróconą i zaszyfrowaną wersję tej treści. Warto upewnić się, czy nie doszło do ingerencji w treść, gdyż nawet pojedyncza modyfikacja spowodowałaby zupełnie inną wartość.
       online_calculator_name: Kalkulator MD5 online
       replicate_help: 'Ten fingerprint jest wyliczony przy użyciu algorytmu szyfrującego SHA256. Aby wykonać replikę samodzielnie, możesz skopiować i wkleić dane źródłowe do tego narzędzia: %{online_calculator_link}.'
       source: Źródło
@@ -856,6 +857,9 @@ pl:
         many: "%{count} obserwujących"
         other: "%{count} obserwujących"
       no_followers: Brak obserwujących.
+    following:
+      no_followings: Nic jeszcze nie obserwuje.
+      non_public_followings: Niektóre z obserwowanych zasobów nie są publiczne.
     follows:
       create:
         button: Obserwuj
@@ -869,11 +873,15 @@ pl:
         decidim/user:
           password: Hasło jest za krótkie.
           password_confirmation: Oba hasła muszą być zgodne.
+        error: W tym polu wystąpił błąd.
       file_help:
         file:
           explanation: 'Wytyczne dotyczące pliku:'
           message_1: Ma być obrazem lub dokumentem.
+          message_2: W przypadku obrazów używaj najlepiej tych o orientacji poziomej, usługa przycina obraz.
         icon:
+          explanation: 'Wytyczne dla ikony:'
+          message_1: Musi być obrazem kwadratowym.
           message_2: Zalecany rozmiar dla tego obrazu to 512x512.
         image:
           explanation: 'Wytyczne dotyczące obrazu:'
@@ -1226,6 +1234,7 @@ pl:
       intro:
         daily: 'Są to powiadomienia z ostatniego dnia na podstawie aktywności, którą obserwujesz:'
         weekly: 'Są to powiadomienia z ostatniego tygodnia na podstawie aktywności, którą obserwujesz:'
+      outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz tę treść lub jej autorów. Możesz przestać ich obserwować na ich stronach.
       see_more: Pokaż więcej powiadomień
       subject: To jest Twoje streszczenie wiadomości
     notifications_settings:
@@ -1356,9 +1365,12 @@ pl:
           manage_user_group_admins: Zarządzaj administratorami
           manage_user_group_users: Zarządzaj członkami
           message: Wiadomość
+          resend_email_confirmation_instructions: Wyślij ponownie instrukcje dotyczące potwierdzenia adresu e-mail
+        confirmation_instructions_sent: Wysłano instrukcje dotyczące potwierdzenia adresu e-mail.
         create_user_group: Utwórz grupę
         edit_profile: Edytuj profil
         edit_user_group: Edytuj profil grupy
+        fill_in_email_to_confirm_it: Podaj adres e-mail grupy, aby go potwierdzić.
         invite_user: Zaproś użytkownika
         join_user_group: Poproś o dołączenie do grupy
         leave_user_group: Opuścić grupę
@@ -1404,12 +1416,14 @@ pl:
       scopes_picker_input:
         select_scope: 'Wybierz zakres (obecny: %{current})'
     search:
+      name: Szukaj
       results: Wyniki wyszukiwania
       results_found_for_term: '%{count} wyników wyszukiwania dla frazy: "%{term}"'
       term_input_placeholder: Szukaj
     searches:
       filters:
         jump_to: 'Skocz do:'
+        search: Szukaj
         state:
           active: Aktualny
           all: Wszystko
@@ -1417,6 +1431,7 @@ pl:
           past: Przeszły
       filters_small_view:
         filter: Filtr
+        filter_and_search: Filtruj i szukaj
         filter_by: Filtruj według
       results:
         view_all: Zobacz wszystko (%{count})
@@ -1440,6 +1455,9 @@ pl:
         already_reported: Ta treść została już zgłoszona i zostanie ona sprawdzona przez administratora.
         close: Zamknij
         description: Czy ta treść jest nieodpowiednia?
+        does_not_belong: Zawiera nielegalną aktywność, groźby samobójstwa, dane o charakterze prywatnym lub inne treści, które według Ciebie nie powinny pojawić się w %{organization_name}.
+        hide: Ukryj
+        hide_content: Ukryj tę treść
         offensive: Promuje rasizm, seksizm, nienawiść, ataki osobiste, groźby śmierci, groźby samobójcze jakąkolwiek formę mowy nienawiści.
         reason: Powód
         report: Zgłoś
@@ -1447,20 +1465,33 @@ pl:
         title: Zgłoś nieodpowiednią zawartość
       flag_user_modal:
         already_reported: Ta treść została już zgłoszona i zostanie sprawdzona przez administratora.
+        block: Zablokuj tego uczestnika
         close: Zamknij
         description: Jaki jest powód zgłoszenia użytkownika?
+        does_not_belong: Zawiera nielegalną aktywność, groźby samobójstwa, dane o charakterze prywatnym lub inne treści, które według Ciebie nie powinny pojawić się w %{organization_name}.
+        hide: Ukryj całą zawartość
         offensive: Promuje rasizm, seksizm, kłamstwa, ataki osobiste, groźby śmierci, prośby samobójcze lub jakąkolwiek formę mowy nienawiści.
         report: Zgłoś
         spam: Zawiera clickbaity, reklamy, oszustwa lub skrypty botów.
         title: Zgłoś użytkownika
       floating_help:
         help: Pomoc
+      follow_button:
+        log_in_before_follow: Przed wykonaniem czynności należy się zalogować
       login_modal:
+        please_log_in: Zaloguj się
         sign_up: Zarejestruj się
+      mentions_modal:
+        remove_recipient: Usuń odbiorcę %{name}
       participatory_space_filters:
         filters:
+          area: Obszar
           areas: Kategorie
+          scope: Zakres
           select_an_area: Wybierz kategorię
+      progress: Postęp
+      public_participation:
+        public_participation: Wyświetl publicznie moje uczestnictwo
       reference:
         reference: 'Odniesienie: %{reference}'
       represent_user_group:
@@ -1470,10 +1501,13 @@ pl:
         label: 'Wyników na stronie:'
         title: Wybierz liczbę wyników na stronie
       share_modal:
+        copy_share_link: Kopiuj
+        copy_share_link_clarification: Skopiuj link udostępniania do schowka
         copy_share_link_copied: Skopiowano!
         copy_share_link_message: Link został pomyślnie skopiowany do schowka.
         share: Udostępnij
         share_link: Udostępnij link
+        share_to: Udostępnij na %{service}
     statistics:
       comments_count: Komentarze
       endorsements_count: Rekomendacje
@@ -1496,6 +1530,7 @@ pl:
     user_contact_disabled: Ten użytkownik nie przyjmuje bezpośrednich wiadomości.
     user_conversations:
       create:
+        error: Nie udało się utworzyć wiadomości. Spróbuj ponownie później.
         existing_error: Nie można utworzyć wiadomości. Konwersacja już istnieje, spróbuj ponownie teraz.
         success: Konwersacja rozpoczęta!
       index:
@@ -1510,6 +1545,8 @@ pl:
     user_interests:
       show:
         my_interests: Moje zainteresowania
+        no_scopes: Ta organizacja nie ma jeszcze żadnego zakresu!
+        select_your_interests: Wybierz tematy, które Cię interesują, aby widzieć wydarzenia z nimi związane w zakładce Oś czasu na Twoim profilu.
         update_my_interests: Zaktualizuj moje zainteresowania
       update:
         error: Wystąpił błąd podczas aktualizowania Twoich zainteresowań.
@@ -1518,9 +1555,19 @@ pl:
       notify:
         body_1: Użytkownik %{user} został zgłoszony przez %{token}
         body_2: 'Powód: %{reason}'
+        details: Dane dostarczone przez użytkownika
         greetings: Pozdrawiamy,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Witaj %{admin},
         subject: Zgłoszono użytkownika w %{organization_name}
+    user_update_mailer:
+      notify:
+        body_1: Wysyłamy Ci tę wiadomość, aby poinformować Cię o aktualizacji Twojego konta.
+        body_2: Jeśli nie wykonałeś takiej aktualizacji, zaloguj się na swoje konto, aby zmienić hasło. Jeśli nie możesz się zalogować, skontaktuj się z obsługą techniczną platformy.
+        greetings: Pozdrawiamy,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Witaj %{user}
+        main_body: 'Zmieniono następujące szczegóły: %{updates}.'
+        update_fields: "%{updates} i %{last_update}"
+      subject: Twoje konto zostało zaktualizowane
     version:
       show:
         back_to_resource: Wróć
@@ -1536,6 +1583,7 @@ pl:
       show:
         version_index: Wersja %{index}
     welcome_notification:
+      default_body: <p>Witaj {{name}}, dziękujemy za dołączenie do {{organization}}!</p><ul><li>Jeżeli chcesz szybko dowiedzieć się, co możesz tu robić, zapoznaj się z sekcją <a href="{{help_url}}">Pomoc</a>.</li><li>Po zrobieniu tego otrzymasz pierwszą odznakę. Oto <a href="{{badges_url}}">lista wszystkich odznak</a>, które można otrzymać za uczestnictwo w {{organization}}</li><li>Na koniec, możesz dołączyć do innych i podzielić się z nimi doświadczeniem związanym z zaangażowaniem i przynależnością do {{organization}}. Składaj propozycje, komentuj, debatuj, zastanawiaj się, jak przyczynić się do wspólnego dobra, przedstawiaj argumenty, aby przekonywać innych, słuchaj i czytaj, by to oni przekonali Ciebie, wyrażaj swoje pomysły w konkretny i bezpośredni sposób, odpowiadaj cierpliwie i zdecydowanie, broń swoich pomysłów oraz zachowaj otwartość na współpracę i włączanie się do pomysłów innych.</li></ul>
       default_subject: Dzięki za dołączenie do {{organization}}!
     wizard_step_form:
       wizard_aside:
@@ -1558,6 +1606,7 @@ pl:
       last_attempt: Masz jeszcze jedną próbę, zanim Twoje konto zostanie zablokowane.
       locked: Twoje konto jest zablokowane.
       not_found_in_database: 'Nieprawidłowe dane: %{authentication_keys} lub hasło.'
+      timeout: Twoja sesja wygasła. Aby kontynuować, zaloguj się ponownie.
     invitations:
       edit:
         header: Zakończ tworzenie konta
