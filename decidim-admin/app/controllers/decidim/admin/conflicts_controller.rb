@@ -10,12 +10,16 @@ module Decidim
       add_breadcrumb_item_from_menu :impersonate_menu
 
       def index
+        enforce_permission_to :index, :impersonatable_user
+
         @conflicts = Decidim::Verifications::Conflict.joins(:current_user).where(
           decidim_users: { decidim_organization_id: current_organization.id }
         )
       end
 
       def edit
+        enforce_permission_to :index, :impersonatable_user
+
         conflict = Decidim::Verifications::Conflict.find(params[:id])
 
         @form = form(TransferUserForm).from_params(
@@ -26,6 +30,8 @@ module Decidim
       end
 
       def update
+        enforce_permission_to :index, :impersonatable_user
+
         conflict = Decidim::Verifications::Conflict.find(params[:id])
 
         @form = form(TransferUserForm).from_params(

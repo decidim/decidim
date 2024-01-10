@@ -373,7 +373,6 @@ nl:
                 bb_status: Status
                 election: Verkiezing
                 voting_period: Stemperiode
-              no_elections: Er zijn geen verkiezingen waar jij als trustee optreedt.
               title: Verkiezingen
             identification_keys:
               cancel: Annuleer
@@ -388,7 +387,6 @@ nl:
               title: Trustee identificatiesleutels
               upload: Upload jouw identificatiesleutels
             not_supported_browser_title: Upgrade de browser om als Trustee te fungeren
-            trustee_role_description: Je bent aangeduid om als Trustee te fungeren in enkele verkiezingen op dit platform.
           update:
             success: Jouw publieke identificatiesleutel werd succesvol opgeslagen.
       votes:
@@ -469,12 +467,9 @@ nl:
         trustees:
           new_election:
             email_intro: Je bent toegevoegd als trustee voor de %{resource_title} stemronde.
-            email_subject: Je bent trustee voor de %{resource_title} stemronde..
-            notification_title: Je bent trustee voor <a href="%{resource_path}">%{resource_title}</a> stemronde.
           new_trustee:
             email_intro: Een beheerder heeft u toegevoegd als Trustee voor %{resource_name}. Je moet jouw openbare sleutel maken <a href='%{trustee_zone_url}'>in je Trustee zone</a>
             email_subject: Je bent een trustee van %{resource_name}.
-            notification_title: Je bent een trustee van <a href="%{participatory_space_url}">%{resource_name}</a>.
         votes:
           accepted_votes:
             email_intro: 'Je stem is geaccepteerd! Met je stem token %{encrypted_vote_hash}, controleer je je stem <a href="%{verify_url}">hier</a>.'
@@ -749,9 +744,7 @@ nl:
         closures:
           back_to_polling_stations: Terug naar stembureaus
           certify:
-            add_images: Afbeeldingen toevoegen
             error: Er is een fout opgetreden tijdens het toevoegen van het certificaat, probeer het opnieuw.
-            form_legend: Upload een foto van het Stemmensluitingscertificaat
             heading: Stem hertelling - Upload certificaat
             info_text: Upload een foto van het Stemmensluitingscertificaat.
             submit: Certificaat uploaden
@@ -761,7 +754,6 @@ nl:
             success: Sluiting succesvol aangemaakt.
           edit:
             heading: Stem hertelling - Hertelling van antwoorden
-            info_text: Voer voor elke vraag het totale aantal antwoorden in.
             modal_ballots_results_count_error:
               close_modal: Sluit
               title: Totaal stemmen stemt niet overeen
@@ -787,7 +779,6 @@ nl:
             total_ballots_count: Aantal stemmen
           show:
             heading: Hertelling van de stemmen
-            info_text: Stembureau sluiting van de verkiezing.
           sign:
             cancel: Annuleer
             confirm: Ok, verdergaan

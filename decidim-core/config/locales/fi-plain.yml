@@ -1331,8 +1331,6 @@ fi-pl:
           alert: Olemme päivittäneet käyttöehtojamme. Ole hyvä ja tutustu päivitettyihin ehtoihin.
           body: Ole hyvä ja tutustu päivitetyihin käyttöehtoihimme. Jatkaaksesi palvelun käyttöä sinun on tutustuttava päivitettyihin ehtoihin.
           title: 'Pakollinen: Tarkista päivitetyt käyttöehtomme'
-    participatory_space_private_users:
-      not_allowed: Et voi katsoa tätä sisältöä
     passwords:
       update:
         error: Salasanan päivitys epäonnistui.
@@ -1796,28 +1794,10 @@ fi-pl:
   emojis:
     button: Lisää emoji
     categories:
-      activities: Toiminta
-      animals-nature: Eläimet ja luonto
       custom: Mukautettu
       flags: Liput
-      food-drink: Ruoka ja juoma
       objects: Esineet
-      people-body: Ihmiset ja keho
-      recents: Viimeksi käytetyt
-      smileys-emotion: Hymiöt ja tunneilmaisut
       symbols: Symbolit
-      travel-places: Matkailu ja paikat
-    error:
-      load: Emojien lataus epäonnistui
-    recents:
-      clear: Tyhjennä viimeksi käytetyt emojit
-      none: Et ole vielä valinnut yhtään emojia.
-    retry: Yritä uudestaan
-    search:
-      _: Etsi emojia...
-      clear: Tyhjennä haku
-      error: Emojien haku epäonnistui
-      not_found: Tuloksia ei löytynyt
   errors:
     messages:
       allowed_file_content_types: 'ainoastaan seuraavat tiedostomuodot on sallittu: %{types}'

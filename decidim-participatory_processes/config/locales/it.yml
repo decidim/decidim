@@ -83,8 +83,6 @@ it:
         destroy: Elimina
         duplicate: Duplica
         edit: Modifica
-        filter:
-          all_processes: Mostra tutti i processi
         import_process: Importa
         new_process: Nuovo processo
         new_process_group: Nuovo gruppo di processi

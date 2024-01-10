@@ -2,7 +2,10 @@
 
 module Decidim
   module Initiatives
-    # The main admin application controller for initiatives
+    # The main application controller for initiatives
+    #
+    # This controller is the abstract class from which all other controllers of
+    # this engine inherit.
     class ApplicationController < Decidim::ApplicationController
       include NeedsPermission
       register_permissions(::Decidim::Initiatives::ApplicationController,

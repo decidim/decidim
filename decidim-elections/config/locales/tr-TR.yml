@@ -208,7 +208,6 @@ tr:
               list:
                 election: Seçim
                 voting_period: Oylama süresi
-              no_elections: Vekil olarak hareket ettiğiniz hiçbir seçim yoktur.
               title: Seçimler
             identification_keys:
               cancel: İptal Et
@@ -223,7 +222,6 @@ tr:
               title: Vekil kimlik anahtarları
               upload: Kimlik anahtarlarınızı yükleyin
             not_supported_browser_title: Vekil kişi olarak hareket etmek için tarayıcıyı yükseltin
-            trustee_role_description: Bu platformda kutlanan bazı seçimlerde Vekil olarak görev yapmakla görevlendirildiniz.
           update:
             success: Tanımlama genel anahtarınız başarıyla saklandı.
       votes:
@@ -263,8 +261,6 @@ tr:
         voting_step:
           back: Geri
           continue: Sonraki
-      warnings:
-        no_scheduled_elections_warning: Şu anda planlanmış bir seçim yok, ancak burada listelenen tüm geçmiş seçimleri bulabilirsiniz.
     events:
       elections:
         election_published:
@@ -275,12 +271,9 @@ tr:
         trustees:
           new_election:
             email_intro: '%{resource_title} seçimi için vekil olarak eklendiniz.'
-            email_subject: '%{resource_title} seçimi için vekil olarak eklendiniz..'
-            notification_title: <a href="%{resource_path}">%{resource_title} </a> seçimi için bir vekilsiniz.
           new_trustee:
             email_intro: Bir yönetici sizi %{resource_name} için güvenilen kişi olarak ekledi. Genel anahtarınızı <a href='%{trustee_zone_url}'> güvenilen bölgenizde </a> oluşturmalısınız
             email_subject: '%{resource_name} için vekil birisiniz.'
-            notification_title: <a href="%{participatory_space_url}">%{resource_name} </a> için vekil birisiniz.
     participatory_spaces:
       related_elections:
         see_all: Tüm seçimleri görünüz

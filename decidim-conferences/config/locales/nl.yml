@@ -318,14 +318,8 @@ nl:
             non_user: Niet bestaande gebruiker
             select_user: Selecteer gebruiker
           index:
-            filter:
-              accepted: Aanvaard
-              all: Alle
-              rejected: Verworpen
-              sent: Verzonden
             invite_attendee: Nodig deelnemer uit
             invites: Uitnodigingen
-            search: Zoeken
           new:
             invite: Nodig uit
             new_invite: Nodig deelnemer uit

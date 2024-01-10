@@ -49,13 +49,13 @@ module Decidim
     end
 
     # produce the path to endorsements from the engine routes as the cell does not have access to routes
-    def endorsements_path(*args)
-      decidim.endorsements_path(*args)
+    def endorsements_path(*)
+      decidim.endorsements_path(*)
     end
 
     # produce the path to an endorsement from the engine routes as the cell does not have access to routes
-    def endorsement_path(*args)
-      decidim.endorsement_path(*args)
+    def endorsement_path(*)
+      decidim.endorsement_path(*)
     end
 
     def button_content

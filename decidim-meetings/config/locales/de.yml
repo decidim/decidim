@@ -8,7 +8,7 @@ de:
         closing_report: Protokoll
         closing_visible: Ist sichtbar
         contributions_count: Anzahl der Beiträge
-        proposal_ids: An der Sitzung entstandene Vorschläge
+        proposal_ids: Vorschläge aus der Veranstaltung
         video_url: Video-URL
       meeting:
         address: Adresse
@@ -90,6 +90,11 @@ de:
   decidim:
     admin:
       filters:
+        accepted_at_not_null:
+          label: Angenommen
+          values:
+            'false': Nicht angenommen
+            'true': Angenommen
         meetings:
           category_id_eq:
             label: Kategorie
@@ -117,6 +122,18 @@ de:
               hybrid: Hybrid
               in_person: Persönlich
               online: Online
+        rejected_at_not_null:
+          label: Abgelehnt
+          values:
+            'false': Nicht abgelehnt
+            'true': Abgelehnt
+        search_placeholder:
+          user_name_or_user_email_cont: Nach Namen oder E-Mail suchen
+        sent_at_not_null:
+          label: Gesendet
+          values:
+            'false': Nicht gesendet
+            'true': Gesendet
       meeting_copies:
         create:
           error: Es gab einen Fehler beim Duplizieren dieses Meetings.
@@ -281,15 +298,9 @@ de:
             non_user: Nicht existierender Benutzer
             select_user: Nutzer wählen
           index:
-            filter:
-              accepted: Akzeptiert
-              all: Alle
-              rejected: Abgelehnt
-              sent: Geschickt
             invite_attendee: Teilnehmer einladen
             invites: Lädt ein
             registrations_disabled: Sie können keine Teilnehmende einladen, weil Registrierungen deaktiviert sind.
-            search: Suche
         meeting_closes:
           edit:
             close: Schließen
