@@ -829,7 +829,7 @@ de:
           message_1: Vorzugsweise ein Querformat ohne Text.
           message_2: Der Dienst schneidet die Datei zu.
       file_validation:
-        allowed_file_extensions: 'Erlaubte Dateiendungen: %{extensions}'
+        allowed_file_extensions: 'Erlaubte Dateiformate: %{extensions}'
         max_file_dimension: 'Maximale Dateigröße: %{resolution} Pixel'
         max_file_size: 'Maximale Dateigröße: %{megabytes}MB'
       files:
@@ -1396,13 +1396,13 @@ de:
       flag_modal:
         already_reported: Dieser Inhalt wurde bereits gemeldet und wird von einem Administrator überprüft.
         close: Schließen
-        description: Ist dieser Inhalt unangemessen?
+        description: Wieso ist dieser Inhalt problematisch / unangemessen?
         does_not_belong: Enthält illegale Aktivitäten, Selbstmorddrohungen, persönliche Informationen oder etwas anderes, von dem Sie denken, dass es nicht auf %{organization_name}.
         offensive: Enthält Rassismus, Sexismus, Verunglimpfungen, persönliche Angriffe, Morddrohungen, Selbstmordanträge oder jede Form von Hassreden.
         reason: Begründung
-        report: Bericht
+        report: Meldung erfassen
         spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
-        title: Ein Problem melden
+        title: Unangemessenen Inhalt melden
       flag_user_modal:
         already_reported: Dieser Inhalt wurde bereits gemeldet und wird von einem Administrator überprüft.
         close: Schließen

@@ -4,13 +4,186 @@ ko:
     attributes:
       result:
         decidim_accountability_status_id: 상태
+        decidim_category_id: 분류
+        decidim_scope_id: 범위
+        description: 상세정보
+        end_date: 종료 날짜
+        progress: 진행 상황
+        project_ids: 포함된 프로젝트
+        proposals: 포함된 제안
+        start_date: 시작 날짜
+        title: 제목
+        updated_at: 수정일
+      status:
+        description: 상세정보
+        key: 키
+        name: 이름
+        progress: 진행 상황
+      timeline_entry:
+        description: 상세정보
+        entry_date: 날짜
+        title: 제목
+    models:
+      decidim/accountability/proposal_linked_event: 결과에 포함된 제안
+      decidim/accountability/result_progress_updated_event: 결과 진행이 업데이트되었습니다
+  activerecord:
+    models:
+      decidim/accountability/result:
+        other: 결과
   decidim:
     accountability:
       actions:
+        attachment_collections: 폴더
+        attachments: 첨부 파일
         confirm_destroy: 정말로 %{name} 를 삭제하시겠습니까?
+        destroy: 삭제
         edit: 편집
         preview: 미리보기
+        title: 작업
+      admin:
+        exports:
+          result_comments: 댓글
+          results: 결과
+        import_results:
+          new:
+            download_export: CSV 포맷으로 다운로드
+            import: 가져오기
+        models:
+          result:
+            name: 결과
+          status:
+            name: 상태
+        results:
+          edit:
+            title: 결과 수정
+            update: 결과 업데이트
+          index:
+            title: 결과
+          new:
+            create: 결과 생성
+            title: 새 결과
+        shared:
+          subnav:
+            statuses: 상태
+        statuses:
+          edit:
+            title: 상태 수정하기
+            update: 상태 업데이트
+          index:
+            title: 상태
+          new:
+            create: 상태 생성하기
+            title: 새 상태
+      admin_log:
+        result:
+          create: "%{user_name} 이(가) %{space_name} 에서 %{resource_name} 결과를 생성했습니다"
+          delete: "%{user_name} 이(가) %{space_name} 에서 %{resource_name} 결과를 삭제했습니다"
+          update: "%{user_name} 이(가) %{space_name} 에서 %{resource_name} 결과를 업데이트했습니다"
+        status:
+          create: "%{user_name} 이(가) %{resource_name} 상태를 생성했습니다"
+          delete: "%{user_name} 이(가) %{resource_name} 상태를 삭제했습니다"
+          update: "%{user_name} 이(가) %{resource_name} 상태를 업데이트했습니다"
+      content_blocks:
+        highlighted_results:
+          results: 결과
+      import_mailer:
+        import:
+          errors: 오류
+          row_number: 열
+          subject: 결과 가져오기 성공
+          success: 결과 가져오기 성공. 관리자 화면에서 결과를 볼 수 있습니다.
+      models:
+        result:
+          fields:
+            category: 분류
+            created_at: 생성됨
+            end_date: 종료 날짜
+            id: 아이디
+            progress: 진행 상황
+            scope: 범위
+            start_date: 시작 날짜
+            status: 상태
+            title: 제목
+        status:
+          fields:
+            description: 상세정보
+            key: 키
+            name: 이름
+            progress: 진행 상황
+        timeline_entry:
+          fields:
+            entry_date: 날짜
+            title: 제목
       results:
+        count:
+          results_count:
+            other: "%{count} 개의 결과"
+        filters:
+          all: 전체
+        home:
+          categories_label: 분류
+          subcategories_label: '하위 분류:'
+        search:
+          search: 작업 검색
         show:
           stats:
+            attendees: 참여자
+            back_to_resource: 결과로 돌아가기
+            comments: 댓글
+            contributions: 기여
+            last_edited_by: 최근 편집자
+            last_updated_at: 마지막 업데이트
+            meetings: 회의
             proposals: 제안
+            votes: 지원
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: 분류
+          scope_id_eq:
+            label: 범위
+          status_id_eq:
+            label: 상태
+    components:
+      accountability:
+        actions:
+          comment: 댓글 달기
+        name: 책임
+        settings:
+          global:
+            categories_label: '"카테고리" 이름'
+            comments_enabled: 댓글 활성화됨
+            comments_max_length: 댓글 최대 길이(기본값은 0으로 남김)
+            display_progress_enabled: 진행사항 보기
+            heading_leaf_level_results: '"프로젝트" 이름'
+            heading_parent_level_results: '"결과" 이름'
+            intro: 소개
+            scope_id: 범위
+            scopes_enabled: 범위 활성화됨
+            subcategories_label: '"카테고리" 이름'
+          step:
+            comments_blocked: 댓글 차단됨
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: '%{proposal_title} 제안이 결과에 포함되었습니다. 이 페이지에서 확인할 수 있습니다:'
+          email_outro: '%{proposal_title} 을(를) 팔로우하고 있으므로 이 알림을 받았습니다. 이전 링크를 클릭해 알림 수신을 중지할 수 있습니다.'
+          email_subject: '%{proposal_title} 업데이트'
+          notification_title: <a href="% {proposal_path}">% {proposal_title}/a> 제안이 <a href="% {resource_path}">% {resource_title}/a> 결과에 포함되었습니다.
+        result_progress_updated:
+          email_intro: '%{proposal_title} 제안을 포함하는 %{resource_title} 결과가 %{progress}% 완료되었습니다. 이 페이지에서 확인할 수 있습니다:'
+          email_outro: '%{proposal_title} 을(를) 팔로우중이어서 이 알림을 받게되었고, %{resource_title} 에 이 의도가 포함되어 있습니다. 이전 링크를 팔로우해서 알림을 받지 않으실 수 있습니다.'
+          email_subject: '%{resource_title} 과정에 업데이트 발생'
+          notification_title: 제안 <a href="% {resource_path}">% {resource_path}">% {proposal_title}/a>를 포함하는 <a href="% {resource_title}/a> 결과는 이제 %{progress}% 완료되었습니다.
+    metrics:
+      results:
+        object: 결과
+        title: 결과
+    resource_links:
+      included_projects:
+        result_project: 본 결과에 포함된 프로젝트
+      included_proposals:
+        result_proposal: 본 결과에 포함된 제안
+    statistics:
+      results_count: 결과

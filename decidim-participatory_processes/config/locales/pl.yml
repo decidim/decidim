@@ -222,11 +222,22 @@ pl:
           error: Podczas aktualizowania etapu procesu partycypacyjnego wystąpił błąd.
           success: Etap procesu partycypacyjnego został zaktualizowany.
       participatory_process_types:
+        create:
+          error: Przy tworzeniu nowego typu procesu pojawił się problem.
+          success: Typ procesu został utworzony.
+        destroy:
+          success: Typ procesu został usunięty.
+        edit:
+          title: Edytuj typ procesu
+          update: Aktualizuj
         form:
           title: Tytuł
         new:
           create: Utwórz
           title: Nowy typ procesu
+        update:
+          error: Przy aktualizacji tego typu procesu pojawił się problem.
+          success: Typ procesu został zaktualizowany.
       participatory_process_user_roles:
         create:
           error: Wystąpił błąd podczas dodawania użytkownika do tego procesu partycypacyjnego.
@@ -271,6 +282,7 @@ pl:
           success: Grupa procesu partycypacyjnego została utworzona.
       titles:
         participatory_process_groups: Grupy procesu partycypacyjnego
+        participatory_process_types: Typy procesów partycypacyjnych
         participatory_processes: Procesy partycypacyjne
       users:
         resend_invitation:
@@ -279,6 +291,9 @@ pl:
     admin_log:
       participatory_process:
         create: "%{user_name} stworzył(a) proces partycypacyjny %{resource_name}"
+        duplicate: "%{user_name} zduplikował(a) proces partycypacyjny %{resource_name}"
+        export: "%{user_name} eksportował(a) proces partycypacyjny %{resource_name}"
+        import: "%{user_name} zaimportował(a) proces partycypacyjny %{resource_name}"
         publish: "%{user_name} opublikował(a) proces partycypacyjny %{resource_name}"
         unpublish: "%{user_name} cofnął/cofnęła publikację procesu partycypacyjnego %{resource_name}"
         update: "%{user_name} zaktualizował(a) proces partycypacyjny %{resource_name}"
@@ -290,6 +305,10 @@ pl:
         create: "%{user_name} utworzył(a) etap %{resource_name} w procesie partycypacyjnym %{space_name}"
         delete: "%{user_name} usunął/usunęła etap %{resource_name} z procesu partycypacyjnego %{space_name}"
         update: "%{user_name} zaktualizował(a) etap %{resource_name} w procesie partycypacyjnym %{space_name}"
+      participatory_process_type:
+        create: "%{user_name} utworzył(a) typ procesu partycypacyjnego %{resource_name}"
+        delete: "Użytkownik %{user_name} usunął typ procesu partycypacyjnego %{resource_name}"
+        update: "%{user_name} zaktualizował(a) typ procesu partycypacyjnego %{resource_name}"
       participatory_process_user_role:
         create: "%{user_name} zaprosił(a) użytkownika %{resource_name} do procesu partycypacyjnego %{space_name}"
         delete: "%{user_name} usunął/usunęła użytkownika %{resource_name} z procesu partycypacyjnego %{space_name}"
@@ -340,6 +359,7 @@ pl:
         html_3:
           name: Trzeci blok HTML
         metadata:
+          developer_group: Promowany przez
           name: Metadane
           participatory_scope: Zaproponowano
           participatory_structure: Jak decydowano
@@ -370,6 +390,9 @@ pl:
         new_import:
           accepted_types:
             json: JSON
+        participatory_process_copies:
+          form:
+            slug_help: 'Slugi URL wykorzystuje się do generowania adresów URL odsyłających do procesu. Można używać jedynie liter, cyfr i łączników, przy czym należy rozpocząć od litery. Przykład: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadane
@@ -378,8 +401,10 @@ pl:
         participatory_process_imports:
           form:
             document_legend: Dodaj dokument
+            slug_help: 'Slugi URL wykorzystuje się do generowania adresów URL odsyłających do procesu. Można używać jedynie liter, cyfr i łączników, przy czym należy rozpocząć od litery. Przykład: %{url}'
         participatory_process_steps:
           form:
+            cta_path_help: 'Użyj ścieżek częściowych, a nie pełnych adresów URL. Można używać liter, cyfr, łączników i ukośników, przy czym należy rozpocząć od litery. Przycisk nie zostanie wyświetlony, jeżeli nie zostanie to ustawione. Przykład: %{url}'
             cta_text_help: Jeśli nie zostanie ustawione, przycisk nie będzie wyświetlany.
         participatory_processes:
           form:
@@ -394,6 +419,7 @@ pl:
             select_an_area: Wybierz kategorię
             select_participatory_process_type: Wybierz typ procesu
             select_process_group: Wybierz grupę procesów
+            slug_help: 'Slugi URL wykorzystuje się do generowania adresów URL odsyłających do procesu. Można używać jedynie liter, cyfr i łączników, przy czym należy rozpocząć od litery. Przykład: %{url}'
             title: Informacje ogólne
             visbility: Widoczność
       content_blocks:
@@ -406,15 +432,18 @@ pl:
       pages:
         home:
           highlighted_processes:
+            active_processes: Aktywne procesy
             active_step: Aktualny etap
             more_information: Więcej informacji
             participate: Dołącz
             participate_in: Dołącz do procesu %{resource_name}
+            see_all_processes: Zobacz wszystkie procesy
       participatory_process_steps:
         index:
           back_to_process: Powrót do strony procesu
       participatory_processes:
         filters:
+          all_types: Wszystkie typy
           counters:
             active:
               one: 1 aktualny proces
@@ -454,6 +483,7 @@ pl:
         dates: Daty
         developer_group: Grupa inicjatorów
         end_date: Data zakończenia
+        local_area: Obszar organizacji
         participatory_scope: Zaproponowano
         participatory_structure: Jak decydowano
         private_space: To jest prywatny proces

@@ -246,6 +246,14 @@ pt-BR:
           update:
             error: ocorreu um erro
             success: A iniciativa do cidadão foi atualizada com sucesso
+        initiatives_settings:
+          form:
+            comments: Mais comentado
+            date: Mais recente
+            publication_date: Mais recentemente publicado
+            random: Aleatório
+            signatures: Mais assinadas
+            title: Configurações de iniciativas
         initiatives_type_scopes:
           create:
             error: ocorreu um erro
@@ -277,6 +285,8 @@ pt-BR:
             update: Atualizar
           form:
             authorizations: Opções de autorização
+            child_scope_threshold_enabled_help: 'Esse parâmetro de configuração não suporta votos off-line, permite subescopos e funciona com um manipulador de autorização que associa o escopo ao usuário, certifique-se de selecionar a autorização, nas configurações de autorização. Para que funcione, os escopos precisam ser configurados de forma hierárquica: 1 Pai - N Filhos. Para mais informações sobre como essa configuração funciona, consulte este <a href="https://docs.decidim.org/en/admin/spaces/initiatives" target="_blank">link</a>.'
+            only_global_scope_enabled_help: Marque este sinalizador se você habilitou "Assinatura de escopo Filho" e configurou o escopo global como seu escopo pai. Habilitando esta possibilidade, a selecção do tipo de iniciativa será ignorada no assistente de criação de iniciativa. Para mais informações sobre como essa configuração funciona, consulte este <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.
             options: Opções
             title: Informação geral
           initiative_type_scopes:
@@ -293,6 +303,12 @@ pt-BR:
           send_to_technical_validation: "%{user_name} enviou a iniciativa %{resource_name} para validação técnica"
           unpublish: "%{user_name} descartou a iniciativa %{resource_name}"
           update: "%{user_name} atualizou a iniciativa %{resource_name}"
+        initiatives_settings:
+          update: "%{user_name} atualizou as configurações das iniciativas"
+        initiatives_type:
+          create: "%{user_name} criou o tipo de iniciativas %{resource_name}"
+          delete: "%{user_name} excluiu o tipo de iniciativas %{resource_name}"
+          update: "%{user_name} atualizou o tipo de iniciativas %{resource_name}"
       admin_states:
         accepted: Assinaturas suficientes
         created: Criada
@@ -331,6 +347,7 @@ pt-BR:
         fill_data:
           back: Costas
           continue: Continuar
+          decidim_user_group_id_help: Não é possível alterar a autoria da iniciativa após a criação
           fill_data_help: "<ul> <li>Revise o conteúdo de sua iniciativa. Seu título é fácil de entender? O objetivo da sua iniciativa é claro?</li> <li>Você tem que escolher o tipo de assinatura. Pessoalmente, online ou uma combinação de ambos</li> <li>Qual é o âmbito geográfico da iniciativa?</li> </ul>"
           more_information: "(Mais Informações)"
           select_area: Selecione uma área
@@ -408,9 +425,11 @@ pt-BR:
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> se candidatou ao comitê de promotores da sua iniciativa <a href="%{resource_url}">%{resource_title}</a>. Para aceitar ou rejeitar, clique <a href="%{resource_url}/edit">aqui</a>.
       form:
         add_attachments: Documentos
+        attachment_legend: "(Opcional) Adicionar um anexo"
         delete_attachment: Excluir
       index:
         title: Iniciativas
+        uninitialized: Iniciativas ainda não estão configuradas por um administrador
       initiative_signatures:
         fill_personal_data:
           continue: Continuar
@@ -506,6 +525,7 @@ pt-BR:
             title: 'Título:'
             type: Tipo de iniciativa
           legal_text: Os dados pessoais recolhidos serão incorporados e tratados confidencialmente pela organização, de acordo com a legislação em vigor.
+          members_header: Membros do comitê de promotor da iniciativa
           phone_number: Número de telefone
           place_date: Local, data
           postal_code: CEP/CEP

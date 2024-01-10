@@ -149,6 +149,8 @@ pl:
     admin:
       actions:
         cancel: Anuluj
+      password_change:
+        notification: Użytkownicy będący administratorami muszą zmieniać swoje hasło co %{days} dni.
     admin_log:
       area:
         create: "%{user_name} utworzył(a) kategorię %{resource_name}"
@@ -215,6 +217,7 @@ pl:
       scope_type:
         create: "%{user_name} utworzył(a) zakres %{resource_name}"
         delete: "%{user_name} usunął(ęła) zakres %{resource_name}"
+        update: "%{user_name} zaktualizował(a) typ zakresu %{resource_name}"
       static_page:
         create: "%{user_name} stworzył(a) stronę statyczną %{resource_name}"
         delete: "%{user_name} usunął/usunęła stronę statyczną %{resource_name}"
@@ -230,7 +233,9 @@ pl:
         unblock: "%{user_name} odblokował(a) użytkownika %{resource_name}"
         unofficialize: "%{user_name} usunął/usunęła oficjalny status użytkownika %{resource_name}"
       user_group:
+        block: "%{user_name} zablokował(a) grupę użytkownika %{resource_name}"
         reject: "%{user_name} odrzucił(a) weryfikację grupy %{resource_name}"
+        unblock: "%{user_name} odblokował(a) grupę użytkownika %{resource_name}"
         verify: "%{user_name} zweryfikował(a) grupę %{resource_name}"
         verify_via_csv: "%{user_name} zweryfikował(a) grupę %{resource_name} za pomocą pliku CSV"
       user_moderation:
@@ -345,6 +350,7 @@ pl:
         few: rekomendacje
         many: rekomendacje
         other: rekomendacje
+      official_author: Oficjalny
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Uzyskaj weryfikację, wprowadzając numer paszportu zaczynający się od litery "A"
@@ -521,11 +527,14 @@ pl:
           subtitle: Proszę wypełnić poniższy formularz, aby dokończyć rejestrację
           username_help: Publiczne imię wyświetlane przy Twoich wpisach. W celu zagwarantowania anonimowości może być dowolna nazwa.
       registrations:
+        create:
+          error: Wystąpił problem podczas tworzenia konta.
         new:
           already_have_an_account?: Posiadasz już konto?
           newsletter: Chcę otrzymywać okazjonalne newslettery z istotnymi informacjami
           newsletter_title: Zgoda na subskrybcję
           nickname_help: Twój pseudonim w %{organization}. Może zawierać tylko litery, cyfry, '-' i '_'.
+          sign_in: Zaloguj się
           sign_up: Zarejestruj się
           sign_up_as:
             legend: Zarejestruj się jako
@@ -584,6 +593,7 @@ pl:
       create:
         error: Błąd podczas przesyłania obrazu
         success: Obraz przesłany pomyślnie
+      drag_and_drop_help: Dodaj obrazy, przeciągając i upuszczając lub wklejając je.
     endorsable:
       endorsements: Rekomendacje
       endorsements_count: Liczba rekomendacji
@@ -743,6 +753,11 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{nickname}. Możesz przestać otrzymywać powiadomienia klikając w poprzedni link.
           email_subject: "%{nickname} zaktualizował(a) swój profil"
           notification_title: Zaktualizowano <a href="%{resource_path}">stronę profilową</a> użytkownika %{name} (%{nickname}), którego obserwujesz.
+        user_officialized:
+          email_intro: Uczestnik %{name} (%{nickname}) został oficjalnie zarejestrowany.
+          email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem platformy.
+          email_subject: "%{name} zostało oficjalnie zarejestrowane"
+          notification_title: Uczestnik %{name} (%{nickname}) został oficjalnie zarejestrowany.
     export_mailer:
       download_your_data_export:
         click_button: 'Kliknij poniższy przycisk, aby pobrać swoje dane. <br/>Plik będzie dostępny do %{date}. <br/>Będziesz potrzebował <a href=''''https://www.7-zip.org/''''>7-Zip</a> (Windows), <a href="https://www.keka.io/en/">Keka</a> (MacOS) lub <a href="https://peazip.github.io">PeaZip</a> (Linux) do otwarcia pliku. Hasło: %{password}'
@@ -776,6 +791,7 @@ pl:
       no_followers: Brak obserwujących.
     following:
       no_followings: Jeszcze nikogo ani niczego nie obserwuje.
+      non_public_followings: Niektóre z obserwowanych zasobów nie są publiczne.
     follows:
       create:
         button: Obserwuj
@@ -796,17 +812,40 @@ pl:
         file:
           explanation: 'Wytyczne dotyczące pliku:'
           message_1: Ma być obrazem lub dokumentem.
+          message_2: W przypadku obrazów używaj najlepiej tych o orientacji poziomej, usługa przycina obraz.
+        icon:
+          explanation: 'Wytyczne dla ikony:'
+          message_1: Musi być obrazem kwadratowym.
+          message_2: Zalecany rozmiar dla tego obrazu to 512x512.
         image:
           explanation: 'Wytyczne dotyczące obrazu:'
           message_1: Preferowany obraz krajobrazu, który nie zawiera żadnego tekstu.
           message_2: Obraz jest docinany automatycznie.
       file_validation:
         allowed_file_extensions: 'Dozwolone rozszerzenia plików: %{extensions}'
+        max_file_dimension: 'Maksymalne wymiary pliku: %{resolution} pikseli'
         max_file_size: 'Maksymalny rozmiar pliku: %{megabytes}MB'
+      files:
+        extension_allowlist: 'Akceptowane formaty: %{extensions}'
       upload:
         labels:
+          add_attachment: Dodaj załącznik
+          add_file: Dodaj plik
+          add_image: Dodaj obraz
           cancel: Anuluj
+          edit_image: Edytuj obraz
+          error: Błąd!
+          file_size_too_large: 'Rozmiar pliku jest zbyt duży! Maksymalny rozmiar pliku: %{megabytes}MB'
+          remove: Usuń
+          replace: Zamień
           save: Zapisz
+          title: Tytuł
+          title_required: Tytul jest obowiazkowy!
+          uploaded: Przesłano
+          validating: Weryfikowanie...
+          validation_error: Błąd walidacji!
+      upload_help:
+        explanation: Wytyczne dla %{attribute}
     gamification:
       all_badges_link: Zobacz wszystkie dostępne odznaki.
       badges:
@@ -907,6 +946,7 @@ pl:
       no_user_groups: Nie należy jeszcze do żadnej grupy.
       roles:
         admin: Administrator
+        creator: Administrator
         member: Członek
       update:
         error: Wystąpił błąd podczas aktualizacji grupy
@@ -926,7 +966,11 @@ pl:
         last_activity: Ostatnia aktywność
         resource_type: Typ
     links:
+      invalid_url: Nieprawidłowy adres URL
       warning:
+        body_1: Zamierzasz odwiedzić link zewnętrzny i chcielibyśmy, byś zachował(a) ostrożność w odniesieniu do treści na stronie zewnętrznej.
+        body_2: Sprawdź link, który chcesz odwiedzić i upewnij się, że rozpoznasz go jako bezpieczną stronę, zanim przejdziesz dalej.
+        cancel: Anuluj
         close_modal: Zamknij okno
         proceed: Dalej
         title: Otwórz zewnętrzny link
@@ -936,9 +980,12 @@ pl:
         create_with_space: "%{user_name} stworzył(a) %{resource_name} w %{space_name}"
         delete: "%{user_name} usunął/usunęła %{resource_name}"
         delete_with_space: "%{user_name} usunął/usunęła %{resource_name} w %{space_name}"
+        publish_with_space: "%{user_name} opublikował(a) %{resource_name} w %{space_name}"
         unknown_action: "%{user_name} wykonał(a) jakąś akcję w %{resource_name}"
         unknown_action_with_space: "%{user_name} wykonał(a) jakąś akcję w %{resource_name} w %{space_name}"
+        unpublish_with_space: "Użytkownik %{user_name} usunął publikację %{resource_name} z %{space_name}"
         update: "%{user_name} zaktualizował(a) %{resource_name}"
+        update_permissions_with_space: "%{user_name} zaktualizował(a) uprawnienia %{resource_name} w %{space_name}"
         update_with_space: "%{user_name} zaktualizował(a) %{resource_name} w %{space_name}"
       value_types:
         area_presenter:
@@ -1101,26 +1148,54 @@ pl:
         greetings: Pozdrawiamy,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Cześć,
         subject: Czy chcesz nadal otrzymywać istotne informacje o %{organization_name}?
+    notification_mailer:
+      event_received:
+        no_translation_available: Przepraszamy, nie można pobrać tłumaczenia automatycznego, gdy e-mail został wysłany. Możesz sprawdzić tłumaczenie oryginalnego tekstu pod poniższym linkiem %{link}.
+        original_text: 'Oryginalny tekst:'
+        same_language: Treść została zamieszczona w preferowanym przez Ciebie języku (%{language}), dlatego w tej wiadomości e-mail nie wyświetlono żadnego automatycznego tłumaczenia.
+        translated_text: 'Automatycznie przetłumaczony tekst:'
     notifications:
       no_notifications: Brak powiadomień.
+      show:
+        missing_event: Ups, to powiadomienie należy do elementu, który nie jest już dostępny. Możesz je odrzucić.
     notifications_digest_mailer:
       header:
+        daily: Podsumowanie codziennych powiadomień
         weekly: Podsumowanie Cotygodniowych Powiadomień
       hello: Witaj %{name},
+      intro:
+        daily: 'Są to powiadomienia z ostatniego dnia na podstawie aktywności, którą obserwujesz:'
+        weekly: 'Są to powiadomienia z ostatniego tygodnia na podstawie aktywności, którą obserwujesz:'
+      outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz tę treść lub jej autorów. Możesz przestać ich obserwować na ich stronach.
+      see_more: Pokaż więcej powiadomień
+      subject: To jest Twoje streszczenie wiadomości
     notifications_settings:
       show:
         administrators: Administratorzy
         allow_public_contact: Każdy może wysłać mi prywatną wiadomość, nawet jeśli go nie obserwuję.
         direct_messages: Przyjmuj prywatne wiadomości od każdego
+        email_on_moderations: Chcę otrzymywać e-mail za każdym razem, gdy ktoś lub coś jest zgłaszane do moderacji.
         everything_followed: Dotyczące wszystkiego, co obserwuję
         newsletter_notifications: Chcę otrzymywać newslettery
         newsletters: Newslettery
+        notification_settings:
+          close_meeting_reminder: Chcę otrzymywać przypomnienia e-mail o nieopublikowanych raportach z zamkniętych spotkań
+        notifications_sending_frequencies:
+          daily: Codziennie
+          none: Brak
+          real_time: Na żywo
+          weekly: Co tydzień
+        notifications_sending_frequency: Jak często chcesz otrzymywać powiadomienia e-mail?
         own_activity: Dotyczące moich własnych działań, np. kiedy ktoś komentuje moją propozycję lub wspomina o mnie
+        push_notifications: Wyskakujące powiadomienia
         receive_notifications_about: Chcę otrzymywać powiadomienia
         update_notifications_settings: Zapisz zmiany
       update:
         error: Podczas aktualizowania ustawień powiadomień wystąpił błąd.
         success: Ustawienia powiadomień zostały zaktualizowane.
+    offline:
+      show:
+        retry: Powtórz
     open_data:
       not_available_yet: Pliki Open Data nie są jeszcze dostępne. Spróbuj ponownie za kilka minut.
     own_user_groups:
@@ -1144,6 +1219,7 @@ pl:
           proposals: Propozycje
           proposals_explanation: Zgłaszaj nowe propozycje, wspieraj te już zgłoszone oraz wspieraj te zmiany, które chcesz zobaczyć.
         footer_sub_hero:
+          footer_sub_hero_body: Zbudujmy społeczeństwo bardziej otwarte, przejrzyste i współpracujące.<br /> Dołącz, uczestnicz i decyduj.
           footer_sub_hero_headline: Witamy na %{organization} platformie partycypacyjnej.
           register: Zarejestruj się
         hero:
@@ -1170,14 +1246,18 @@ pl:
           error: Wystąpił błąd podczas akceptowania warunków.
           success: Wspaniale! Zaakceptowałeś warunki i zasady.
         form:
+          agreement: Wyrażam zgodę na te warunki
           legend: Zgadzam się z warunkami użytkowania
         refuse:
+          modal_btn_continue: Zaakceptuj warunki i kontynuuj
           modal_btn_exit: Sprawdzę to później
+          modal_button: Odrzuć warunki
           modal_close: Zamknij okno
           modal_title: Czy rzeczywiście odmawiasz zaakceptowania zaktualizowanego regulaminu?
         required_review:
           alert: Zaktualizowaliśmy nasze Warunki korzystania z usługi, zapoznaj się z nimi.
           body: Poświęć chwilę, aby przejrzeć aktualizacje naszych Warunków korzystania z Platformy. W przeciwnym razie nie będziesz mógł korzystać z platformy.
+          title: 'Wymagane: sprawdź aktualizacje naszych warunków korzystania z platformy'
     participatory_space_private_users:
       not_allowed: Nie możesz wyświetlać tych treści
     profile:
@@ -1326,10 +1406,14 @@ pl:
         close_modal: Zamknij okno
         please_sign_in: Zaloguj się
         sign_up: Zarejestruj się
+      mentions_modal:
+        remove_recipient: Usuń odbiorcę %{name}
       participatory_space_filters:
         filters:
           areas: Kategorie
           select_an_area: Wybierz kategorię
+      public_participation:
+        public_participation: Wyświetl publicznie moje uczestnictwo
       reference:
         reference: 'Odniesienie: %{reference}'
       represent_user_group:
@@ -1340,6 +1424,8 @@ pl:
         title: Wybierz liczbę wyników na stronie
       share_modal:
         close_window: Zamknij okno
+        copy_share_link: Kopiuj
+        copy_share_link_clarification: Skopiuj link udostępniania do schowka
         copy_share_link_copied: Skopiowano!
         copy_share_link_message: Link został pomyślnie skopiowany do schowka.
         share: Udostępnij
@@ -1409,6 +1495,7 @@ pl:
       notify:
         body_1: Użytkownik %{user} został zgłoszony przez %{token}
         body_2: 'Powód: %{reason}'
+        details: Dane dostarczone przez użytkownika
         greetings: Pozdrawiamy,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Witaj %{admin},
         subject: Zgłoszono użytkownika w %{organization_name}
@@ -1469,6 +1556,7 @@ pl:
     invitations:
       edit:
         header: Zakończ tworzenie konta
+        nickname_help: Twój pseudonim w %{organization}. Może zawierać tylko litery, cyfry, '-' i '_'.
         submit_button: Zapisz
         subtitle: Jeśli akceptujesz zaproszenie, ustaw swój pseudonim i hasło.
       invitation_removed: Twoje zaproszenie zostało usunięte.
@@ -1538,6 +1626,7 @@ pl:
         confirm_new_password: Potwierdź nowe hasło
         new_password: Nowe hasło
         password_help: "Minimalna liczba znaków: %{minimun_characters}; nie może być zbyt powszechne (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail."
+        title: Zmiana hasła
       new:
         forgot_your_password: Zapomniałeś hasła?
         send_me_reset_password_instructions: Wyślij mi instrukcje resetowania hasła
@@ -1558,6 +1647,8 @@ pl:
       updated: Twoje konto zostało pomyślnie zaktualizowane.
     sessions:
       already_signed_out: Wylogowano pomyślnie.
+      new:
+        sign_in: Zaloguj się
       signed_in: Zalogowano pomyślnie.
       signed_out: Wylogowano pomyślnie.
     shared:
@@ -1566,6 +1657,7 @@ pl:
         didn_t_receive_confirmation_instructions: Nie otrzymałeś(aś) instrukcji potwierdzenia?
         didn_t_receive_unlock_instructions: Nie otrzymałeś(aś) instrukcji odblokowania?
         forgot_your_password: Nie pamiętasz hasła?
+        sign_in: Zaloguj się
         sign_in_with_provider: Zaloguj się, używając %{provider}
         sign_up: Zarejestruj się
       minimum_password_length:
@@ -1622,10 +1714,49 @@ pl:
         details:
           columns:
             type: Typ
+          items:
+            decidim-consent:
+              service: Ta strona internetowa
+            pwaInstallPromptSeen:
+              description: Zachowuje status, jeśli powiadomienie o instalacji progresywnej aplikacji internetowej (PWA) zostało już wyświetlone przez użytkownika.
+              service: Ta strona internetowa
+          types:
+            cookie: Plik cookie
+            local_storage: Pamięć lokalna
+        dialog:
+          accept_all: Zaakceptuj wszystkie
+          accept_only_essential: Akceptuj tylko niezbędne
+          description: Używamy plików cookie na naszej stronie internetowej w celu poprawy wydajności i zawartości strony. Pliki cookie umożliwiają nam zapewnienie bardziej spersonalizowanej obsługi użytkowników i kanałów mediów społecznościowych.
+          settings: Ustawienia
+          title: Informacje o plikach cookie używanych na stronie internetowej
+        modal:
+          accept_all: Zaakceptuj wszystkie
+          accept_only_essential: Akceptuj tylko niezbędne
+          analytics:
+            description: Te pliki cookie są wykorzystywane do monitorowania i analizy użytkowników strony internetowej, aby pomóc w jej ulepszeniu.
+            title: Analizy i statystyki
+          description: Używamy plików cookie, aby zapewnić podstawowe funkcje strony internetowej i zwiększyć Twoje doświadczenie online. Możesz skonfigurować i zaakceptować użycie plików cookie i zmodyfikować opcje swojej zgody w dowolnym momencie.
+          essential:
+            description: Te pliki cookie umożliwiają kluczową funkcjonalność strony internetowej i pomagają zachować bezpieczeństwo użytkowników. Są one automatycznie zapisywane w przeglądarce i nie mogą być wyłączone.
+            title: Niezbędne
+          marketing:
+            description: Te pliki cookie zbierają informacje o tym, jak korzystasz z witryny i mogą być wykorzystywane do zapewnienia bardziej spersonalizowanego marketingu na różnych stronach internetowych, z których korzystasz.
+            title: Marketing
+          preferences:
+            description: Te pliki cookie pozwalają witrynie na zapamiętywanie wyborów dokonanych w przeszłości na tej stronie internetowej, aby zapewnić bardziej spersonalizowane doświadczenie dla użytkowników witryny.
+            title: Preferencje
+          save_settings: Zapisz ustawienia
+          title: Ustawienia cookies
+          toggle: Przełącz %{consent_category}
+        warning:
+          all_categories: wszystkie ciasteczka
+          change_settings: Zmień ustawienia ciasteczek
+          consent_required: Musisz włączyć %{categories}, aby zobaczyć tę zawartość.
       edit_link:
         edit: Edytuj
       footer:
         cc_by_license: Licencja Creative Commons
+        data_consent_settings: Ustawienia cookies
         decidim_logo: Logo Decidim
         download_open_data: Pobierz pliki Open Data
         made_with_open_source: Strona internetowa powstała z użyciem <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
@@ -1649,6 +1780,7 @@ pl:
         facebook: "%{organization} na Facebooku"
         github: "%{organization} na GitHubie"
         instagram: "%{organization} na Instagramie"
+        x: "%{organization} w X"
         youtube: "%{organization} na YouTube"
       timeout_modal:
         body: Byłeś nieaktywny przez %{minutes} min. Jeśli pozostaniesz nieaktywny, zostaniesz automatycznie wylogowany ze względów bezpieczeństwa.
@@ -1665,6 +1797,7 @@ pl:
         profile: Moje konto
         public_profile: Mój profil publiczny
         sign_out: Wyloguj się
+        title: Linki do profilu
       user_profile:
         account: Moje konto
         authorizations: Autoryzacje
@@ -1714,6 +1847,7 @@ pl:
     weibo: Sina Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
+    x: X
     xing: Xing
   time:
     formats:
@@ -1721,6 +1855,8 @@ pl:
       day_of_week: "%a"
       day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
+      ddmm: "%d.%m"
+      ddmmyyyy: "%d.%m.%Y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       default: "%a, %d %b %Y %H:%M:%S %z"

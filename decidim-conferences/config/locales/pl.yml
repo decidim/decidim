@@ -29,6 +29,7 @@ pl:
         show_statistics: Pokaż statystyki
         sign_date: Data podpisania
         signature: Podpis
+        signature_name: Nazwa podpisu
         slogan: Slogan
         slug: URL slug
         start_date: Data rozpoczęcia
