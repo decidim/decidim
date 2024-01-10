@@ -235,6 +235,14 @@ pt-BR:
             edit: Editar
             new: Novo
             photos: Fotos
+        initiatives_settings:
+          form:
+            comments: Mais comentado
+            date: Mais recente
+            publication_date: Mais recentemente publicado
+            random: Aleatório
+            signatures: Mais assinadas
+            title: Configurações de iniciativas
         initiatives_type_scopes:
           edit:
             title: Editar o âmbito do tipo de iniciativa
@@ -247,6 +255,8 @@ pt-BR:
             update: Atualizar
           form:
             authorizations: Opções de autorização
+            child_scope_threshold_enabled_help_html: 'Esse parâmetro de configuração não suporta votos off-line, permite subescopos e funciona com um manipulador de autorização que associa o escopo ao usuário, certifique-se de selecionar a autorização, nas configurações de autorização. Para que funcione, os escopos precisam ser configurados de forma hierárquica: 1 Pai - N Filhos. Para mais informações sobre como essa configuração funciona, consulte este <a href="https://docs.decidim.org/en/admin/spaces/initiatives" target="_blank">link</a>.'
+            only_global_scope_enabled_help_html: Marque este sinalizador se você habilitou "Assinatura de escopo Filho" e configurou o escopo global como seu escopo pai. Habilitando esta possibilidade, a selecção do tipo de iniciativa será ignorada no assistente de criação de iniciativa. Para mais informações sobre como essa configuração funciona, consulte este <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.
             options: Opções
           initiative_type_scopes:
             title: Escopos para o tipo de iniciativa
@@ -259,6 +269,12 @@ pt-BR:
           send_to_technical_validation: "%{user_name} enviou a iniciativa %{resource_name} para validação técnica"
           unpublish: "%{user_name} descartou a iniciativa %{resource_name}"
           update: "%{user_name} atualizou a iniciativa %{resource_name}"
+        initiatives_settings:
+          update: "%{user_name} atualizou as configurações das iniciativas"
+        initiatives_type:
+          create: "%{user_name} criou o tipo de iniciativas %{resource_name}"
+          delete: "%{user_name} excluiu o tipo de iniciativas %{resource_name}"
+          update: "%{user_name} atualizou o tipo de iniciativas %{resource_name}"
       admin_states:
         accepted: Assinaturas suficientes
         created: Criada
@@ -361,9 +377,12 @@ pt-BR:
       form:
         add_documents: Adicionar Documentos
         add_image: Adicionar imagem
+        attachment_legend: "(Opcional) Adicionar um anexo"
         edit_documents: Editar documentos
         edit_image: Editar imagem
         image_legend: "(Opcional) Adicionar um anexo"
+      index:
+        uninitialized: As iniciativas ainda não estão configuradas por um administrador.
       initiative_signatures:
         fill_personal_data:
           continue: Continuar
@@ -433,6 +452,7 @@ pt-BR:
             title: 'Título:'
             type: Tipo de iniciativa
           legal_text: Os dados pessoais recolhidos serão incorporados e tratados confidencialmente pela organização, de acordo com a legislação em vigor.
+          members_header: Membros do comitê de promotor da iniciativa
           phone_number: Número de telefone
           place_date: Local, data
           postal_code: CEP/CEP
