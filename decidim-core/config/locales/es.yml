@@ -1797,13 +1797,16 @@ es:
     button: Añadir emoji
     categories:
       activities: Actividades
+      animals-nature: Animales y naturaleza
       custom: Personalizado
       flags: Banderas
+      food-drink: Alimentos y bebidas
       objects: Objetos
       people-body: Personas y cuerpo
       recents: Usados recientemente
       smileys-emotion: Sonrisas y emociones
       symbols: Símbolos
+      travel-places: Viajes y lugares
     error:
       load: No se ha producido un error al cargar la lista de emojis
     recents:
