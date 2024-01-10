@@ -1276,7 +1276,6 @@ it:
           hybrid: Ibrido
           in_person: Di persona
           online: Online
-        voting_types_label: Tipo di votazione
   layouts:
     decidim:
       election_votes_header:
