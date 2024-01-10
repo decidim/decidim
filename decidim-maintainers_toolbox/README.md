@@ -1,24 +1,38 @@
 # Decidim::MaintainersToolbox
 
-TODO: Delete this and the text below, and describe your gem
+Release related tools for the Decidim project.
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/decidim/maintainers_toolbox`. To experiment with that code, run `bin/console` for an interactive prompt.
+Tools for releasing, backporting, changelog generating, and working with GitHub
 
 ## Installation
 
 TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
 
-Install the gem and add to the application's Gemfile by executing:
-
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
-
-If bundler is not being used to manage dependencies, install the gem by executing:
+This gem is meant to be used outside of bundler/Gemfile so we do not need to bump the version every time we release a new one to each of the releases branch.
 
     $ gem install UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
 
 ## Usage
 
-TODO: Write usage instructions here
+This gem allows preparing and working with Decidim releases. Is it meant to be used by maintainers of the project. In the near future most of these tools will be used by `decidim-bot`.
+
+The main scripts are `backporter`, `backports_checker`, `changelog_generator` and `releaser`.
+
+### backporter
+
+See [Backports documentation](https://docs.decidim.org/en/develop/develop/backports)
+
+### backports_checker
+
+See [Backports documentation](https://docs.decidim.org/en/develop/develop/backports)
+
+### changelog_generator
+
+Used for generating the changelog with all the Pull Requests that goes to the current release. To be used automatically by the `releaser` script.
+
+### releaser
+
+See [Releasing new versions documentation](https://docs.decidim.org/en/develop/develop/maintainers/releases)
 
 ## Development
 
@@ -28,4 +42,4 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/decidim-maintainers_toolbox.
+Bug reports and pull requests are welcome on GitHub at https://github.com/decidim/decidim.
