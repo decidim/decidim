@@ -66,7 +66,6 @@ es-MX:
             hint2_html: "<strong>%{name}</strong> será reemplazado por el nombre de la autora"
             hint3_html: "<strong>%{admin}</strong> será reemplazado por el nombre de la administradora (la que responde a la propuesta)"
             hint_html: "<strong>Sugerencia:</strong> Puede utilizar estas variables en cualquier lugar de la plantilla de respuesta que se reemplazarán cuando utilice la plantilla"
-            save: Guardar
           index:
             component_constraint: Añadir restricción
             confirm_delete: '¿Seguro que quieres eliminar esta plantilla?'
