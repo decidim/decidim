@@ -206,7 +206,6 @@ zh-TW:
           feedback_form_answers: 反饋表單回答
         mailers:
           trustee_mailer:
-            body: "<p>嗨 %{user_name}，</p><p>您已被添加為 %{resource_name} 的受託人。</p>"
             subject: 你已被添加為%{resource_name} 的受託人。
             trustee_zone: 帶我到受託人區
         menu:
@@ -589,7 +588,6 @@ zh-TW:
                 bb_status: 狀態
                 election: 選舉
                 voting_period: 投票期間
-              no_elections: 沒有你擔任受託人的選舉。
               title: 選舉
             identification_keys:
               cancel: 取消
@@ -612,7 +610,6 @@ zh-TW:
               upload_legend: 伺服器上有您的公開識別金鑰，但您的瀏覽器仍然沒有。您需要從生成金鑰後創建的備份中，將識別金鑰檔案匯入您的電腦中。
             not_supported_browser_description: 看起來您使用的網頁瀏覽器無法用作受託人的身份。請確保您使用的是最新版本的瀏覽器，或嘗試使用任何最流行的瀏覽器，以便能夠完成您的受託人任務。
             not_supported_browser_title: 升級瀏覽器以作為受託人
-            trustee_role_description: 您已被指派在此平台上的某些選舉中擔任受託人。
           update:
             success: 您的識別公鑰已成功存儲。
       votes:
@@ -694,9 +691,6 @@ zh-TW:
         voting_step:
           back: 返回
           continue: 下一個
-      warnings:
-        no_elections_warning: 沒有符合您的搜尋條件的選舉，或者目前沒有已安排的選舉。
-        no_scheduled_elections_warning: 目前沒有即將舉行的選舉，但在這裡您可以找到所有過去的選舉列表。
     events:
       elections:
         election_published:
@@ -708,13 +702,10 @@ zh-TW:
           new_election:
             email_intro: 您已被新增為 %{resource_title} 選舉的受託人。
             email_outro: 你收到此通知是因為你已被新增為 %{resource_title} 選舉的受託人。
-            email_subject: 您是 %{resource_title} 選舉的受託人。
-            notification_title: 您是<a href="%{resource_path}">%{resource_title}</a>選舉的受託人。
           new_trustee:
             email_intro: 管理員已將您添加為%{resource_name} 的受託人。您應該在<a href='%{trustee_zone_url}'>您的受託人區域</a>中創建您的公鑰。
             email_outro: 你收到了這個通知，因為你已被新增為 %{resource_name} 的受託人。
             email_subject: 您是 %{resource_name} 的受託人。
-            notification_title: 您是<a href="%{participatory_space_url}">%{resource_name}</a>的受託人。
         votes:
           accepted_votes:
             email_intro: '您的投票已經被接受！使用您的投票令牌: %{encrypted_vote_hash}，您可以在<a href="%{verify_url}">此處</a>驗證您的投票。'
@@ -1083,9 +1074,7 @@ zh-TW:
         closures:
           back_to_polling_stations: 返回投票站
           certify:
-            add_images: 添加圖案
             error: 附加憑證時發生錯誤，請稍後再試。
-            form_legend: 上傳選舉結束憑證的照片
             heading: 投票重新點算 - 上傳憑證
             info_text: 請上傳選舉結束憑證的照片。
             submit: 上傳憑證
@@ -1095,7 +1084,6 @@ zh-TW:
             success: 關閉成功創建。
           edit:
             heading: 選舉重新點票 - 答案重新點票
-            info_text: 請輸入每個問題的總票數。
             modal_ballots_results_count_error:
               close_modal: 關閉
               info_text: 選票總數與信封總數不符。請檢查選票總數。
@@ -1124,7 +1112,6 @@ zh-TW:
             total_ballots_count: 投票數量
           show:
             heading: 重新計票
-            info_text: 投票站選舉結束。
           sign:
             cancel: 取消
             check_box: 我已經檢查過了，與實體選舉結束憑證相同。

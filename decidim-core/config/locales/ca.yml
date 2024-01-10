@@ -277,7 +277,7 @@ ca:
       user_moderation:
         unreport: "%{user_name} ha desfet el report %{resource_type} - %{unreported_user_name}"
     admin_terms_of_service:
-      default_body: "<h2>TERMES I CONDICIONS D'ÚS DEL SERVEI D'ADMINISTRACIÓ</h2><p>Donem per fet que has rebut l'habitual explicació per part del Servei d'Administració general de la plataforma. En general es redueix a aquestes tres coses:</p><ol><li>Respecta la privadesa d'altri.</li><li>Pensa abans de fer clic.</li><li>A un gran poder l'hi correspon gran responsabilitat.</li></ol>"
+      default_body: "<h2>TERMES I CONDICIONS D'ÚS DEL SERVEI D'ADMINISTRACIÓ</h2><p>Donem per fet que has rebut l'habitual explicació per part del Servei d'Administració general de la plataforma. En general es redueix a aquestes tres coses:</p><ol><li>Respecta la privadesa d'altri.</li><li>Pensa abans de fer clic.</li><li>A un gran poder li correspon gran responsabilitat.</li></ol>"
     alert:
       dismiss: Descartar notificació
     amendments:
@@ -1331,8 +1331,6 @@ ca:
           alert: Hem actualitzat els nostres Termes i Condicions d'ús, si us plau, revisa'ls.
           body: Si us plau, dedica un moment a revisar l'actualització dels nostres Termes i Condicions d'ús. En cas contrari, no podràs participar en la plataforma.
           title: 'Obligatori: revisa les actualitzacions als nostres termes i condicions d''ús'
-    participatory_space_private_users:
-      not_allowed: No tens permís per visualitzar aquest contingut
     passwords:
       update:
         error: Hi ha hagut un problema en actualitzar la contrasenya.
@@ -1793,30 +1791,15 @@ ca:
     upload:
       uploadedFile: Fitxer carregat
   emojis:
+    add_custom: Afegir emoji personalitzat
     button: Afegir emoji
     categories:
-      activities: Activitats
-      animals-nature: Animals i natura
+      activity: Activitat
       custom: Personalitzat
       flags: Banderes
-      food-drink: Aliments i begudes
+      foods: Aliments i begudes
       objects: Objectes
-      people-body: Persones i cos
-      recents: Utilitzats recentment
-      smileys-emotion: Somriures i emocions
       symbols: Símbols
-      travel-places: Viatges i llocs
-    error:
-      load: No s'ha pogut carregar la llista d'emojis
-    recents:
-      clear: Esborrar els emojis recents
-      none: Encara no has seleccionat cap emoji.
-    retry: Prova-ho de nou
-    search:
-      _: Cercar emojis...
-      clear: Neteja la cerca
-      error: Error en cercar emojis
-      not_found: No s'han trobat resultats
   errors:
     messages:
       allowed_file_content_types: 'només s''accepten arxius amb les següents extensions: %{types}'

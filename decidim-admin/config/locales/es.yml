@@ -457,7 +457,6 @@ es:
           report_count_eq: Número de denuncias
           reported_id_string_or_reported_content_cont: Buscar %{collection} por contenido o id reportable.
           title_cont: Buscar %{collection} por título.
-          user_name_or_user_email_cont: Busca %{collection} por nombre o por correo electrónico.
           user_name_or_user_nickname_or_user_email_cont: Buscar %{collection} por correo electrónico, nombre o alias.
         state_eq:
           label: Estado

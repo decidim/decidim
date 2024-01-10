@@ -2,8 +2,10 @@
 
 module Decidim
   module Votings
-    # A controller that holds the logic to show votings in a
-    # public layout.
+    # The main application controller for votings
+    #
+    # This controller is the abstract class from which all other controllers of
+    # this engine inherit.
     class ApplicationController < Decidim::ApplicationController
       include NeedsPermission
 

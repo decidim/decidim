@@ -347,14 +347,8 @@ ca:
             non_user: Participant no existent
             select_user: Seleccionar participant
           index:
-            filter:
-              accepted: Acceptada
-              all: Totes
-              rejected: Rebutjada
-              sent: Enviada
             invite_attendee: Convidar participant
             invites: Convida
-            search: Cercar
           new:
             explanation: La participant serà convidada a unir-se a una jornada. Si el seu correu electrònic no està registrat, també se la convidarà a unir-se a l'organització.
             invite: Convidar

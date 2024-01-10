@@ -24,11 +24,11 @@ module Decidim
       #   # settings = { "custom_setting" => "demo", "another_setting" => "demo"}
       #
       # Returns nothing.
-      def jsonb_attribute(name, fields, *options)
+      def jsonb_attribute(name, fields, *)
         attribute(name, { String => Object }, default: {})
 
         fields.each do |f, type|
-          attribute f, type, *options
+          attribute(f, type, *)
           define_method f do
             field = public_send(name) || {}
             field[f.to_s] || field[f.to_sym]

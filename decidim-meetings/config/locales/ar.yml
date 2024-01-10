@@ -266,14 +266,8 @@ ar:
             non_user: مشارك غير موجود
             select_user: اختر المشارك
           index:
-            filter:
-              accepted: وافقت
-              all: الكل
-              rejected: مرفوض
-              sent: أرسلت
             invite_attendee: دعوة الحضور
             invites: تدعو
-            search: بحث
         meeting_closes:
           edit:
             close: قريب

@@ -99,9 +99,6 @@ en:
         destroy: Delete
         duplicate: Duplicate
         edit: Edit
-        filter:
-          all_processes: Show all processes
-          process_groups: Filter processes in groups
         import_process: Import
         moderate: Moderate
         new_process: New process
@@ -114,6 +111,9 @@ en:
         resend_invitation: Resend invitation
         see_process: See process
         unpublish: Unpublish
+      filters:
+        decidim_participatory_process_group_id_eq:
+          label: By process group
       menu:
         participatory_process_groups: Process groups
         participatory_process_groups_submenu:

@@ -916,8 +916,6 @@
         metrics:
           headline: Deltakelse i tall
           link: Vis all statistikk
-    participatory_space_private_users:
-      not_allowed: Du er ikke tillatt å se dette innholdet
     profile:
       deleted: Slettet deltaker
     profiles:

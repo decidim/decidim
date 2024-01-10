@@ -50,10 +50,18 @@ ca:
           attributes:
             attachment:
               needs_to_be_reattached: És necessari tornar a adjuntar l'arxiu
+        ballot_result:
+          attributes:
+            base:
+              total_count_invalid: El número total de respostes no coincideix amb el desglossament vàlid/blanc/nul.
         election:
           attributes:
             attachment:
               needs_to_be_reattached: És necessari tornar a adjuntar l'arxiu
+        question_result:
+          attributes:
+            base:
+              blank_count_invalid: El nombre total de respostes en blanc no pot ser superior al total de paperetes en blanc.
         trustee:
           attributes:
             name:
@@ -228,7 +236,11 @@ ca:
           feedback_form_answers: Feedback de les respostes
         mailers:
           trustee_mailer:
-            body: "<p>Hola %{user_name},</p><p>Se t'ha afegit com a garant de %{resource_name}.</p>"
+            body:
+              help_html: |-
+                <p>Hola %{user_name},</p><br>
+                <p>T'han afegit per actuar com a garant a algunes eleccions que tindran lloc a %{organization}.</p><br>
+                <p>S'ha creat al teu compte una nova secció anomenada. Des d'aquesta, podràs realitzar les tasques requerides. De moment, si us plau, genera les teves claus d'identificació.</p><br>
             subject: Se t'ha afegit com a garant de %{resource_name}
             trustee_zone: Portant a l'espai de garants
         menu:
@@ -272,6 +284,7 @@ ca:
               census_frozen: Els codis d'accés al cens no s'han pogut exportar.
               census_uploaded: No s'ha pujat el cens per a aquestes eleccions.
               component_published: L'elecció <strong>no està publicada</strong>.
+              fix_it_text: Arreglar-ho
               max_selections: Les preguntes no tenen un <strong>valor correcte per quantitat de respostes</strong>
               minimum_answers: Les preguntes han de tenir <strong>almenys dues respostes</strong>.
               minimum_questions: L'elecció <strong>ha de tenir almenys una pregunta</strong>.
@@ -297,6 +310,11 @@ ca:
               trustees_number: L'espai de participació té <strong>almenys %{number} garants amb clau pública</strong>.
             submit: Configurar elecció
             success: L'elecció s'ha enviat amb èxit al "Bulletin Board".
+            technical_configuration:
+              authority_name: "<strong>Nom de l'autoritat:</strong> %{value}"
+              bulletin_board_server: "<strong>Servidor del butlletí:</strong> <a href='%{value}'>%{value}</a>"
+              scheme_name: "<strong>Nom de l'esquema:</strong> %{value}"
+              title: Veure la informació tècnica
             title: Configurar elecció
             trustees: Garants de l'elecció
           created:
@@ -615,7 +633,7 @@ ca:
                 bb_status: Estat
                 election: Elecció
                 voting_period: Període de votació
-              no_elections: No hi ha eleccions en les que actuïs com a garant.
+              no_elections: Actualment, no tens assignada cap tasca com a garant. Rebràs una notificació quan sigui el moment d'actuar a les diferents fases.
               title: Eleccions
             identification_keys:
               cancel: Cancel·lar
@@ -638,7 +656,9 @@ ca:
               upload_legend: Al servidor hi consten les teves claus d'identificació públiques, però el teu navegador encara no les té. Cal que importis l'arxiu amb les teves claus d'identificació al teu ordinador des de la còpia de seguretat que has creat després de generar-les.
             not_supported_browser_description: Sembla que estàs usant un navegador web que no pot ser utilitzat per a actuar com a garant. Assegura't que estàs usant la versió més recent del teu navegador, o intenta fer servir qualsevol altre dels navegadors més populars per a poder completar les teves tasques com a garant.
             not_supported_browser_title: Actualitza el navegador per a actuar com a garant
-            trustee_role_description: Se t'ha assignat com a garant en algunes de les eleccions celebrades en aquesta plataforma.
+            trustee_role_description:
+              with_keys: Has estat assignada com a garant en algunes de les eleccions celebrades en aquesta plataforma.
+              without_keys: Has estat assignada per actuar com a Garant. Si us plau, genera i puja les teves claus d'identificació.
           update:
             success: La teva clau pública d'identificació va ser guardada amb èxit.
       votes:
@@ -724,8 +744,9 @@ ca:
           back: Enrere
           continue: Següent
       warnings:
-        no_elections_warning: No hi ha cap votació que coincideixi amb la teva cerca o no n'hi ha cap programada.
-        no_scheduled_elections_warning: Actualment no hi ha votacions programades, però pots veure les anteriors.
+        empty_filters: No hi ha cap elecció amb aquest criteri.
+        no_elections: No hi ha cap elecció programada.
+        no_scheduled_elections: Actualment no hi ha votacions programades, però pots veure un llistat de les anteriors.
     events:
       elections:
         election_published:
@@ -737,13 +758,18 @@ ca:
           new_election:
             email_intro: Has estat afegit com a garant de l'elecció %{resource_title}.
             email_outro: Has rebut aquesta notificació perquè t'han afegit com a garant de l'elecció %{resource_title}.
-            email_subject: Ets un garant de l'elecció %{resource_title}..
-            notification_title: Ets un garant de l'elecció <a href="%{resource_path}">%{resource_title}</a>.
+            email_subject: Ets garant de l'elecció %{resource_title}.
+            notification_title: Has estat assignada per actuar com a Garant<a href="%{resource_path}">%{resource_title}</a>. Si us plau, realitza la cerimònia de claus per a posar en marxa l'elecció.
           new_trustee:
             email_intro: Una administradora t'ha afegit com a garant de %{resource_name}. Hauries de crear la teva clau pública a la teva <a href='%{trustee_zone_url}'>zona de garants</a>
             email_outro: Has rebut aquesta notificació perquè t'han afegit com a garant de %{resource_name}.
             email_subject: Ets garant de %{resource_name}.
-            notification_title: Ets garant de <a href="%{participatory_space_url}">%{resource_name}</a>.
+            notification_title: T'han afegit per actuar com a garant a %{resource_name} per algunes eleccions que tindran lloc a aquesta plataforma.<br> Caldrà que duguis a terme les tasques requerides. De moment, si us plau <a href='%{trustee_zone_url}'>genera les teves claus d'identificació</a>.
+          start_tally:
+            email_intro: El període de votació per a les eleccions %{resource_title} ha finalitzat. Ara, si us plau, realitza el recompte de les eleccions per publicar els resultats definitius.
+            email_outro: Has rebut aquesta notificació perquè ets una de les garants a l'elecció %{resource_title}.
+            email_subject: El procés de recompte per a les eleccions %{resource_title} ha començat.
+            notification_title: El període de votació per a les eleccions %{resource_title} ha finalitzat. Ara, si us plau, realitza el recompte de les eleccions per publicar el resultat final.
         votes:
           accepted_votes:
             email_intro: 'El teu vot s''ha acceptat! Utilitzant el comprovant de vot: %{encrypted_vote_hash}, pots verificar-lo <a href="%{verify_url}">aquí</a>.'
@@ -1149,24 +1175,35 @@ ca:
         closures:
           back_to_polling_stations: Tornar als punts de votació
           certify:
-            add_images: Afegir imatges
+            add_photos: Afegir foto
+            edit_photos: Editar fotos
             error: S'ha produït un error en adjuntar el certificat. Si us plau, prova de nou.
-            form_legend: Puja una imatge del certificat de tancament electoral
             heading: Recompte de vots - Pujar certificat
             info_text: Si us plau, puja una imatge del certificat de tancament electoral.
             submit: Pujar el certificat
             success: El certificat s'ha pujat correctament.
+            upload_photos: Puja una imatge del Certificat de Tancament Electoral
+          completed:
+            sub_heading: Aquest recompte s'ha certificat i ja no es pot editar.
           create:
             error: S'ha produït un error en crear el tancament. Si us plau, intenta-ho més tard.
             success: Tancament creat correctament.
+          destroy:
+            error: S'ha produït un erro en eliminar el tancament.
+            success: Tancament eliminat correctament.
           edit:
+            confirm_start_over: Això eliminarà el nombre total de vots i les notes adjuntes. Segur que ho vols eliminar?
             heading: Recompte de vots - recompte de respostes
-            info_text: Si us plau, introdueix el nombre total de respostes per a cada pregunta.
+            info_text: Si us plau, detalla el número total de respostes per a cada pregunta. Aquest ha de coincidir amb el número de respostes introduïdes al pas anterior (%{total} respostes en total).
             modal_ballots_results_count_error:
+              blank: El número de vots en blanc esperat és %{expected}, però la suma de les preguntes en blanc és %{current}.
               close_modal: Tancar
               info_text: El nombre total de paperetes no coincideix amb el nombre total de sobres. Si us plau, revisa el total de paperetes.
               title: El total de paperetes no coincideix
+              total: El total esperat és %{expected}, però la suma de les paperetes vàlides, en blanc i nul·les és %{current}.
+              valid: El número de vots vàlids esperat és %{expected}, però la suma de les preguntes vàlides és %{current}.
             save_recount: Desar recompte
+            start_over: Si hi ha un error al número total, pots esborrar-ho tot i tornar a començar.
             total_ballots: Total de paperetes
             total_blank_ballots: Total de paperetes en blanc
             total_null_ballots: Total de paperetes nul·les
@@ -1189,8 +1226,9 @@ ca:
             submit: Verificar nombre total
             total_ballots_count: Nombre de paperetes
           show:
+            edit_count_votes: '¿Números incorrectes? Encara els pots editar.'
             heading: Recompte de vots
-            info_text: Tancament electoral del punt de votació.
+            sub_heading: Per tancar el recompte cal carregar un certificat. Un cop fet, el recompte se segellarà i ja no es podrà editar més.
           sign:
             cancel: Cancel·lar
             check_box: Ho he revisat i és idèntic al certificat físic de tancament electoral
@@ -1272,6 +1310,8 @@ ca:
           manager: Administrador
           president: President
           unassigned: Sense assignar
+      polling_station_closure_certificate:
+        current_certificate: 'Certificat actual:'
       polling_station_closure_recount:
         nota_option: En blanc / Cap de les anteriors
         polling_officer_notes: 'Anotacions del gestor de mesa:'

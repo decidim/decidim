@@ -439,7 +439,6 @@ lt:
           report_count_eq: Raportuoti skaičių
           reported_id_string_or_reported_content_cont: Ieškoti %{collection} pagal ID arba turinį.
           title_cont: Ieškoti %{collection} pagal pavadinimą.
-          user_name_or_user_email_cont: Ieškoti %{collection} pagal vardą ar el. paštą.
           user_name_or_user_nickname_or_user_email_cont: Ieškoti %{collection} pagal el. pašto adresą, vardą arba naudotojo vardą.
         state_eq:
           label: Būsena
