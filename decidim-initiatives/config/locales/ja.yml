@@ -107,6 +107,8 @@ ja:
         information: 情報
         initiative_type_scopes: イニシアチブ種別のスコープ
         initiatives: イニシアチブ
+        initiatives_menu:
+          see_initiative: イニシアチブを見る
         initiatives_settings: 設定
         initiatives_submenu:
           info: このイニシアチブについて
@@ -295,6 +297,8 @@ ja:
             update: 更新
           form:
             authorizations: 認証設定
+            child_scope_threshold_enabled_help_html: 'この設定フラグはオフライン投票に対応していません。サブスコープを有効にし、ユーザーにスコープを関連付ける権限ハンドラと連携します。認証設定の下部で、その認証を選択することを確認してください。これを動作させるためには、スコープを階層的に設定する必要があります：1つの親 - N個の子。この設定がどのように機能するかの詳細は、 <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">イニシアチブの管理者向けドキュメントページ</a> を参照してください。'
+            only_global_scope_enabled_help_html: '「子スコープ署名」を有効にし、グローバルスコープを親スコープとして設定した場合、このフラグをチェックします。これを有効にすると、イニシアチブ作成ウィザードでのイニシアチブタイプの選択がスキップされます。この仕組みについての詳細は、こちらの <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">リンク</a> を参照してください。'
             options: オプション
           initiative_type_scopes:
             title: イニシアチブ種別のスコープ
@@ -455,9 +459,12 @@ ja:
             other: '%{count} 人以上'
         committee_members:
           approve: 承認
+          confirm_approve: このメンバーを承認してもよろしいですか？
+          confirm_revoke: このメンバーを取り消してもよろしいですか？
           invite_to_committee_help: 他の参加者を推進委員会に招待するために、このリンクを共有してください。
           link: リンク
           no_members_yet: 推進委員会にはメンバーがいません。
+          revoke: 取り消し
           title: 委員会メンバー
         count:
           title:

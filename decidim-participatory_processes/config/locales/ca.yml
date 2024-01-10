@@ -98,9 +98,6 @@ ca:
         destroy: Suprimeix
         duplicate: Duplicar
         edit: Editar
-        filter:
-          all_processes: Mostra tots els processos
-          process_groups: Grups de processos
         import_process: Importar
         moderate: Moderar
         new_process: Nou procés
@@ -113,6 +110,9 @@ ca:
         resend_invitation: Reenviar la invitació
         see_process: Veure el procés
         unpublish: Despublicar
+      filters:
+        decidim_participatory_process_group_id_eq:
+          label: Per grup de processos
       menu:
         participatory_process_groups: Grups de processos
         participatory_process_groups_submenu:

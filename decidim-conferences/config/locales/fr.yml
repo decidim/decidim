@@ -347,14 +347,8 @@ fr:
             non_user: Utilisateur non existant
             select_user: Sélectionnez l'utilisateur
           index:
-            filter:
-              accepted: Accepté
-              all: Tout
-              rejected: Rejeté
-              sent: Envoyé
             invite_attendee: Inviter un participant
             invites: Invite
-            search: Chercher
           new:
             explanation: Le participant sera invité à se joindre à une conférence. Si son adresse électronique n'est pas enregistrée, il sera également invité à s'inscrire sur la plateforme.
             invite: Inviter

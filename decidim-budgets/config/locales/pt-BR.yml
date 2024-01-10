@@ -93,18 +93,50 @@ pt-BR:
             change_category: Mudar categoria
             change_scope: Mudar escopo
             change_selected: Alterar estado selecionado
+            deselect_implementation: Desselecionar da implementação
             finished_orders: Votos finais
             pending_orders: Votações pendentes
+            select_for_implementation: Selecionado para implementação
             selected: Selecionado
             title: Projetos
+            update_scope_button: Atualizar escopo
           new:
             create: Criar
             title: Novo projeto
+          update_budget:
+            select_a_project: Por favor, selecione um projeto.
+          update_category:
+            invalid: 'Estes projetos já tinham a categoria %{subject_name}: %{projects}.'
+            select_a_category: Por favor, selecione uma categoria.
+            select_a_project: Por favor, selecione um projeto.
+            success: 'Projetos atualizados com sucesso para a categoria %{subject_name}: %{projects}.'
+          update_scope:
+            invalid: 'Estes projetos já tinham o escopo %{subject_name}: %{projects}.'
+            select_a_project: Por favor, selecione um projeto.
+            select_a_scope: Por favor, selecione um escopo.
+            success: 'Projetos atualizados com sucesso no scopo %{subject_name}: %{projects}.'
+          update_selected:
+            invalid:
+              selected: 'Estes projetos já foram selecionados para a implementação: %{projects}.'
+              unselected: 'Estes projetos já foram desselecionados da implementação: %{projects}.'
+            select_a_project: Por favor, selecione um projeto.
+            select_a_selection: Por favor, selecione um estado de implementação.
+            success:
+              selected: 'Estes projetos foram selecionados com sucesso para a implementação: %{projects}.'
+              unselected: 'Estes projetos foram desselecionados da implementação com sucesso: %{projects}.'
         proposals_imports:
           new:
             create: Importar propostas para projetos
+            default_budget: Orçamento padrão
             no_components: Não há outros componentes da proposta neste espaço participativo para importar as propostas para projetos.
+            origin_component_id: Componente de origem
             select_component: Selecione um componente
+        reminders:
+          orders:
+            description: Os usuários receberão um e-mail com links para os orçamentos em que tenham pedido pendente.
+            title:
+              one: Você está prestes a enviar um lembrete por email para o usuário %{count}
+              other: Você está prestes a enviar um lembrete por email para %{count} usuários
       admin_log:
         budget:
           create: "%{user_name} criou o orçamento %{resource_name} no espaço %{space_name}"
@@ -124,6 +156,9 @@ pt-BR:
           more_than_one: exclua seu voto em %{name} e comece de novo
           only_one: exclua seu voto e comece novamente.
         highlighted_cta: Votar em %{name}
+        vote: Voto
+      last_activity:
+        new_vote_at: Nova votação sobre orçamentação em
       limit_announcement:
         limit_reached: Você tem votos ativos em %{links}. Para votar neste orçamento você deve <a href="%{landing_path}">excluir seu voto e começar do zero</a>.
       models:
@@ -150,9 +185,12 @@ pt-BR:
           title: Confirmar votação
         budget_excess:
           budget_excess:
+            description: Este projecto excede o orçamento máximo e não pode ser adicionado. Se você quiser, você pode excluir um projeto que você já selecionou, a fim de poder votar novamente de acordo com suas preferências.
             title: O orçamento máximo excedeu
+          description: Este projecto excede o orçamento máximo e não pode ser adicionado. Se você quiser, você pode excluir um projeto que você já selecionou, a fim de poder votar novamente de acordo com suas preferências.
           ok: OK
           projects_excess:
+            description: Este projeto excede o número máximo de projetos e não pode ser adicionado. Se você quiser, você pode excluir um projeto que você já selecionou, a fim de poder votar novamente de acordo com suas preferências.
             title: Máximo de projetos excedido
         budget_summary:
           are_you_sure: Deseja mesmo cancelar o seu voto?
@@ -163,6 +201,10 @@ pt-BR:
           projects_count:
             one: 1 projeto
             other: "%{count} projetos"
+        exit_modal:
+          cancel: Voltar à votação
+          message: Seu voto não foi registrado porque você ainda não concluiu o processo de votação. Tem certeza que deseja sair da votação?
+          title: Você ainda não votou
         filters:
           category: Categoria
           scope: Âmbito
@@ -184,15 +226,26 @@ pt-BR:
           votes:
             one: voto
             other: votos
+          you_voted: Você votou nisto
         project_budget_button:
           add: Adicione ao seu voto
           added: Adicionado ao seu voto
         projects_for: Projetos para %{name}
         show:
           budget: Orçamento
+      vote_reminder_mailer:
+        vote_reminder:
+          email_budgets: 'Áreas onde você tem uma votação inacabada:'
+          email_intro: Você iniciou a votação sobre o orçamento participativo, mas não a concluíu.
+          email_link: Ir para continuar a votação
+          email_outro: Por favor, lembre-se de concluir a votação. Para votar, primeiro selecione a proposta ou as propostas que deseja votar e, em seguida, confirme o seu voto com o botão "Votar".
+          email_subject:
+            one: Você tem um voto inacabado na votação do orçamento participativo
+            other: Você tem votos inacabados na votação do orçamento participativo
     components:
       budgets:
         actions:
+          comment: Comentar
           vote: Voto
         name: Orçamentos
         settings:
@@ -200,6 +253,7 @@ pt-BR:
             announcement: Anúncio
             comments_enabled: Comentários ativados
             comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
+            geocoding_enabled: Geocoding habilitado
             landing_page_content: Página inicial dos orçamentos
             more_information_modal: Modal de mais informação
             projects_per_page: Projetos por página
@@ -210,6 +264,7 @@ pt-BR:
             total_budget: Orçamento total
             vote_minimum_budget_projects_number: Número mínimo de projetos para votar
             vote_rule_minimum_budget_projects_enabled: 'Habilitar regra: Número mínimo de projetos a serem votados em'
+            vote_rule_selected_projects_enabled: 'Habilitar regra: Número mínimo e máximo de projetos a serem votados'
             vote_rule_threshold_percent_enabled: 'Ativar regra: Porcentagem mínima do orçamento'
             vote_selected_projects_maximum: Quantidade máxima de projetos a serem selecionados
             vote_selected_projects_minimum: Quantidade mínima de projetos a serem selecionados

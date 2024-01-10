@@ -32,6 +32,16 @@ li.opens-left > .is-dropdown-submenu {
   display: none;
 }
 
+.dropdown.menu ul {
+  &[aria-hidden="true"] {
+    display: none;
+  }
+
+  &[aria-hidden="false"] {
+    display: block;
+  }
+}
+
 .dropdown.menu .nested.is-dropdown-submenu {
   margin-right: 0;
   margin-left: 0;

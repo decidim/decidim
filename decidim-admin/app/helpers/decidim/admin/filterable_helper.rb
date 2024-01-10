@@ -53,7 +53,7 @@ module Decidim
       # Produces the html for the dropdown submenu from the options tree.
       # Returns a ActiveSupport::SafeBuffer.
       def dropdown_submenu(options)
-        content_tag(:ul, class: "vertical menu") do
+        content_tag(:ul, class: "vertical menu", "aria-hidden": true) do
           options.map do |key, value|
             if value.nil?
               content_tag(:li, key)

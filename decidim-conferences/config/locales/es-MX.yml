@@ -347,14 +347,8 @@ es-MX:
             non_user: Usuario no existente
             select_user: Seleccionar usuario
           index:
-            filter:
-              accepted: Aceptada
-              all: Todas
-              rejected: Rechazada
-              sent: Enviada
             invite_attendee: Invitar a un asistente
             invites: Invitaciones
-            search: Buscar
           new:
             explanation: La participante será invitada a unirse a la jornada. Si su correo electrónico no está registrado, también será invitada a unirse a la organización.
             invite: Invitar

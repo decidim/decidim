@@ -218,11 +218,11 @@ module Decidim
         @organization ||= context.fetch(:organization, nil) || context.fetch(:current_organization, nil)
       end
 
-      def user_can_enter_space_area?(**args)
+      def user_can_enter_space_area?(**)
         return unless permission_action.action == :enter &&
                       permission_action.subject == :space_area
 
-        space_allows_admin_access_to_current_action?(**args)
+        space_allows_admin_access_to_current_action?(**)
       end
 
       def space_allows_admin_access_to_current_action?(require_admin_terms_accepted: false)

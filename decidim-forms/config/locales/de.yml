@@ -161,6 +161,7 @@ de:
             sign_up_description: Erstellen Sie ein Nutzendenkonto, um an der Umfrage teilzunehmen
             title: Beantworten Sie den Fragebogen
           current_step: Schritt %{step}
+          empty: Für dieses Formular wurden noch keine Fragen eingestellt.
           of_total_steps: von %{total_steps}
           questionnaire_answered:
             body: Sie haben diesen Fragebogen bereits beantwortet.
@@ -179,7 +180,7 @@ de:
           tos_agreement: Mit der Teilnahme stimmen Sie den Nutzungsbedingungen zu
       step_navigation:
         show:
-          are_you_sure: Diese Aktion kann nicht rückgängig gemacht werden und Sie können Ihre Antworten nicht bearbeiten. Sind Sie sicher?
+          are_you_sure: Diese Aktion kann nicht rückgängig gemacht werden und Sie können Ihre Antworten nicht bearbeiten. Sind Sie sich sicher?
           back: Zurück
           continue: Weiter
           submit: einreichen
