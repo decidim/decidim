@@ -386,12 +386,12 @@ en:
         show:
           dropdown: Dropdown
           view_more_logs: View more logs
-      domain_whitelist:
+      domain_allowlist:
         form:
           domain_too_short: Domain too short
         update:
-          error: Failed to update domain whitelist.
-          success: Domain whitelist updated successfully.
+          error: Failed to update domain allowlist.
+          success: Domain allowlist updated successfully.
       exports:
         export_as: "%{name} as %{export_format}"
         formats:
@@ -572,7 +572,7 @@ en:
         areas: Areas
         configuration: Configuration
         content: Reported content
-        external_domain_whitelist: Allowed external domains
+        external_domain_allowlist: Allowed external domains
         help_sections: Help sections
         homepage: Homepage
         impersonations: Impersonations
@@ -856,7 +856,7 @@ en:
             layout_appearance_title: Edit layout appearance
             preview: Preview
           omnipresent_banner_appearance_title: Edit omnipresent banner
-      organization_external_domain_whitelist:
+      organization_external_domain_allowlist:
         edit:
           update: Update
         external_domain:
@@ -865,8 +865,8 @@ en:
           remove: Remove
           up: Up
         form:
-          add: Add to whitelist
-          title: External domain whitelist
+          add: Add to allowlist
+          title: External domain allowlist
       participatory_space_private_users:
         create:
           error: There was a problem adding a private participant for this participatory space.
@@ -1014,7 +1014,7 @@ en:
         areas: Areas
         authorization_workflows: Verification methods
         dashboard: Dashboard
-        edit_external_domains: External domain whitelist
+        edit_external_domains: External domain allowlist
         edit_landing_page: Page contents
         edit_organization_appearance: Edit homepage appearance
         impersonatable_users: Manageable participants
