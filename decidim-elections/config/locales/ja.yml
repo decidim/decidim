@@ -50,10 +50,18 @@ ja:
           attributes:
             attachment:
               needs_to_be_reattached: 再接続が必要
+        ballot_result:
+          attributes:
+            base:
+              total_count_invalid: 回答の合計数は、有効票/白票/空 のブレークダウンと一致しません。
         election:
           attributes:
             attachment:
               needs_to_be_reattached: 再接続が必要
+        question_result:
+          attributes:
+            base:
+              blank_count_invalid: 白票の回答の合計数は、白票の投票の合計数より大きくすることはできません。
         trustee:
           attributes:
             name:
@@ -219,6 +227,11 @@ ja:
           feedback_form_answers: フィードバックフォームの回答
         mailers:
           trustee_mailer:
+            body:
+              help_html: |-
+                <p>こんにちは、%{user_name} さん、</p><br>
+                <p>%{organization} で行われるいくつかの選挙において、あなたが受託者として追加されました。</p><br>
+                <p>あなたのアカウントに「受託者ゾーン」という新しいセクションが追加されました。そこから、必要に応じて任務を遂行してください。まずは、あなたの識別キーを生成してください。</p><br>
             subject: あなたは %{resource_name} に受託者として追加されました
             trustee_zone: 私を受託者ゾーンに連れて行ってください
         menu:
@@ -733,11 +746,13 @@ ja:
           new_election:
             email_intro: '%{resource_title} 選挙の受託者として追加されました。'
             email_outro: '%{resource_title} 選挙の受託者に追加されたため、この通知を受け取りました。'
+            email_subject: あなたは %{resource_title} 選挙の受託者です。
             notification_title: 選挙 <a href="%{resource_path}">%{resource_title}</a>の受託者に選ばれました。選挙を準備するためのキーセレモニーを行ってください。
           new_trustee:
             email_intro: 管理者が %{resource_name} の受託者としてあなたを追加しました。受託者ゾーンで <a href='%{trustee_zone_url}'>公開鍵を作成する必要があります。</a>
             email_outro: '%{resource_name} の受託者に追加されたため、この通知を受信しました。'
             email_subject: あなたは %{resource_name} の受託者です。
+            notification_title: '%{resource_name} におけるいくつかの選挙で、貴方が受託者として追加されました。<br> このプラットフォームで行われる選挙において、必要に応じて任務を遂行していただきます。まずはじめに、<a href=''%{trustee_zone_url}''>あなたの識別キーを生成してください</a>。'
           start_tally:
             email_intro: '%{resource_title} 選挙の投票期間が終了しました。最終結果を公開するために、選挙の合計を行ってください。'
             email_outro: あなたは %{resource_title} 選挙の受託者であるため、この通知を受け取りました。
@@ -1201,6 +1216,7 @@ ja:
           show:
             edit_count_votes: 間違った数字ですか？　まだ編集できます。
             heading: 投票再集計
+            sub_heading: 証明書をアップロードして、再集計を終わらせる必要があります。これを行うと、再集計は確定され、それ以降は編集ができなくなります。
           sign:
             cancel: キャンセル
             check_box: 私はこれを確認し、物理的な選挙閉鎖証明書と同じであることを確認しました。
