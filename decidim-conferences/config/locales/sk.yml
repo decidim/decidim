@@ -456,6 +456,7 @@ sk:
         home:
           highlighted_conferences:
             active_conferences: Aktívne konferencie
+            conferences_button_title: Odkaz na stránku Konferencie, zobrazujúcu všetky konferencie
       photo:
         image:
           attributes:
