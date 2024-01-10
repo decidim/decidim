@@ -1801,16 +1801,16 @@ fr:
     button: Ajouter un émoji
     categories:
       activities: Activités
-      animals-nature: Animaux & nature
+      animals-nature: Animaux & Nature
       custom: Personnalisé
       flags: Drapeaux
-      food-drink: Nourriture et boissons
+      food-drink: Nourriture et Boissons
       objects: Objets
       people-body: Personnes & Corps
       recents: Utilisés récemment
       smileys-emotion: Smileys & Émotion
       symbols: Symboles
-      travel-places: Lieux et voyages
+      travel-places: Voyages et Lieux
     error:
       load: Impossible de charger la liste des émojis
     recents:
