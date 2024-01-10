@@ -86,8 +86,6 @@
         destroy: Slett
         duplicate: Kopier
         edit: Rediger
-        filter:
-          all_processes: Vis alle medvirkningsprosesser
         import_process: Importer
         new_process: Ny prosess
         new_process_group: Ny prosessgruppe

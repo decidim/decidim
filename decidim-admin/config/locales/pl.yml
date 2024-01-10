@@ -774,14 +774,24 @@ pl:
           warning: "<strong>Uwaga:</strong> Ten newsletter zostanie wysyłany tylko do użytkowników, którzy w ustawieniach powiadomień aktywowali opcję <em>Chcę otrzymywać newsletter</em>."
         send:
           no_recipients: Brak odbiorców dla tego wyboru.
+        send_to_user:
+          sent_successfully: Newsletter został pomyślnie wysłany do %{email}
         show:
           preview: Podgląd
           select_recipients_to_deliver: Wybierz odbiorców
+          send_me_a_test_email: Wyślij mi testowego e-maila
           subject: Temat
         update:
           error: Podczas aktualizowania tego newslettera wystąpił błąd.
           success: Newsletter został zaktualizowany. Przeczytaj go przed wysłaniem.
       officializations:
+        block:
+          error: Wystąpił błąd podczas blokowania uczestnika.
+          success: Uczestnik został zablokowany.
+        create:
+          success: Potwierdzenie autentyczności uczestnika powiodło się.
+        destroy:
+          success: Wycofanie potwierdzenia autentyczności uczestnika powiodło się.
         index:
           actions: Działania
           badge: Odznaka
@@ -809,6 +819,9 @@ pl:
           hidden: ukryty
           show: Pokaż
           title: Pokaż adres e-mail uczestnika
+        unblock:
+          error: Wystąpił błąd podczas odblokowywania użytkownika.
+          success: Odblokowanie uczestnika powiodło się.
       organization:
         edit:
           title: Edytuj organizację
@@ -819,6 +832,7 @@ pl:
           instagram: Instagram
           rich_text_editor_in_public_views_help: W niektórych polach tekstowych uczestnicy będą mogli wstawiać znaczniki HTML za pomocą edytora.
           social_handlers: Profile społecznościowe
+          twitter: X
           url: Adres URL
           youtube: YouTube
         update:
@@ -829,9 +843,19 @@ pl:
           update: Aktualizuj
         form:
           colors:
+            choose_color: Wybierz kolor podstawowy
             colors_title: Kolory organizacji
             colors_warning_html: Uwaga! Zmiana tych kolorów może ograniczyć czytelność. Możesz sprawdzić kontrast wybranych kolorów korzystając z <a href="%{link}">WebAIM Contrast Checker</a> albo innych podobnych narzędzi.
+            explanation: To narzędzie pomaga ci wybrać zestaw kolorów złożony z odcieni równomiernie rozmieszczonych na kole barw, który będzie używany na stronie internetowej organizacji.
+            legend_html: Główne kolory aplikacji, oparte na algorytmie <a href="https://www.color-meanings.com/triadic-colors/">Algorytm trójkowy</a>. <i>drugorzędowy</i> kolor jest obliczany automatycznie na podstawie koloru podstawowego i wybranej przez ciebie saturacji.
+            saturation: Saturacja
+            title: Wybór koloru
+            update_suggested_colors: Zaktualizuj sugerowane kolory
+          cta_button_path_help_html: 'Możesz nadpisać lokalizację, do której prowadzi przycisk CTA na stronie głównej. Użyj częściowych ścieżek adresu, a nie pełnych adresów URL. Można używać liter, cyfr, myślników i ukośników. Należy zacząć od litery. Przycisk CTA znajduje się na stronie głównej pomiędzy tekstem powitalnym a opisem. Przykład: %{url}'
           cta_button_text_help: Można nadpisać tekst przycisku CTA na stronie głównej dla każdego dostępnego języka organizacji. Jeśli to pole nie zostanie wypełnione, zostanie użyta wartość domyślna. Przycisk CTA zostanie wyświetlony na stronie głównej między tekstem powitalnym a opisem.
+          header_snippets:
+            header_snippets_help_html: Użyj tego pola, aby dodać rzeczy do nagłówka HTML. Najczęstszym zastosowaniem jest integracja usług innych firm, które wymagają dodatkowych JavaScript lub CSS. Możesz także użyć tego aby dodać dodatkowe meta tagi do HTML. Pamiętaj, że będzie to wyświetlane tylko na publicznych stronach, nie w sekcji administratora. Jeśli kod wchodzi w interakcje z zewnętrznymi API lub nie jest zgodny z wytycznymi bezpieczeństwa aplikacji, konieczna będzie zmiana polityki bezpieczeństwa treści. Dowiedz się więcej o <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">na stronie dokumentacji</a>.
+            title: Fragmenty nagłówków HTML
           homepage_appearance_title: Edytuj wygląd strony głównej
           homepage_highlighted_content_banner_title: Wyróżniony baner tekstowy
           images:
@@ -863,11 +887,24 @@ pl:
           create: Utwórz
           title: Nowy prywatny użytkownik przestrzeni partycypacyjnej.
       participatory_space_private_users_csv_imports:
+        create:
+          invalid: Wystąpił problem podczas odczytu pliku CSV. Upewnij się, że postępowałeś zgodnie z instrukcjami.
+          success: Załadowanie pliku CSV powiodło się, wysyłamy e-mail z zaproszeniem do uczestników. To może chwilę potrwać.
         new:
+          csv_upload:
+            title: Załaduj swój plik CSV
           destroy:
             button: Usuń wszystkich prywatnych uczestników
+            confirm: Czy na pewno chcesz usunąć wszystkich uczestników prywatnych? Tej akcji nie można cofnąć, nie będziesz w stanie odzyskać danych.
+            empty: Nie masz żadnych uczestników prywatnych.
+            explanation: Masz %{count} uczestników prywatnych.
             title: Usuń prywatnych uczestników
           example_file: 'Przykładowy plik:'
+          explanation: 'Załaduj swój plik CSV. Plik musi składać się z dwóch kolumn: w pierwszej kolumnie adresy e-mail, a w ostatniej nazwy użytkowników, których chcesz dodać do przestrzeni dla uczestników. Nie dodawaj nagłówków. Unikaj niepoprawnych znaków, takich jak `<>?%&^*#@()[]=+:;"{}\|` w nazwie użytkownika.'
+          explanation_example: |
+            jan.kowalski@przyklad.org%{csv_col_sep}Jan Kowalski
+            anna.kowalska@przyklad.org%{csv_col_sep}Anna Kowalska
+          title: Importuj uczestników prywatnych przez CSV
           upload: Prześlij
       reminders:
         create:
@@ -908,6 +945,8 @@ pl:
         create:
           error: Podczas tworzenia nowego zakresu wystąpił błąd.
           success: Zakres został utworzony.
+        destroy:
+          success: Zakres został usunięty.
         edit:
           title: Edytuj zakres
           update: Aktualizuj
@@ -927,6 +966,7 @@ pl:
           error: Wystąpił błąd podczas usuwania tokenu.
           success: Token został usunięty.
         share_tokens:
+          empty: Brak aktywnych tokenów.
           help: Te tokeny są używane do publicznego udostępniania nieopublikowanego zasobu każdemu użytkownikowi. Zostaną one ukryte, gdy zasób zostanie opublikowany. Kliknij na ikonę udostępniania tokenu aby odwiedzić udostępniany adres URL.
           title: Udostępnij tokeny
       shared:
@@ -938,6 +978,8 @@ pl:
         create:
           error: Wystąpił błąd podczas tworzenia nowego tematu.
           success: Temat został utworzony.
+        destroy:
+          success: Temat został usunięty.
         edit:
           title: Edytuj temat
           update: Zaktualizuj temat
@@ -956,28 +998,39 @@ pl:
         destroy:
           success: Strona została usunięta
         edit:
+          changed_notably_help: W przypadku zaznaczenia tej opcji uczestnicy zostaną powiadomieni o konieczności zaakceptowania nowych warunków świadczenia usług.
+          last_notable_change: 'Ostatnia widoczna zmiana: %{tos_version_formatted}'
           title: Edytuj stronę
           update: Aktualizuj
         form:
           none: Bez tematu
+          slug_help_html: 'Użyj ścieżek częściowych, a nie pełnych adresów URL. Można używać liter, cyfr, myślników i ukośników. Musi zaczynać się od litery. Przykład: %{url}'
         index:
           last_notable_change: Ostatnia istotna zmiana
         new:
           create: Utwórz stronę
           title: Nowa strona
         topic:
+          empty: Nie ma żadnych stron w tym wątku.
           without_topic: Strony bez tematu
         update:
           error: Podczas aktualizowania tej strony wystąpił błąd.
+          success: Strona została zaktualizowana.
       titles:
         admin_log: Logi administratora
         area_types: Typy kategorii
         areas: Kategorie
         authorization_workflows: Metody weryfikacji
         dashboard: Panel
+        edit_external_domains: Biała lista domen zewnętrznych
+        edit_landing_page: Zawartość strony
+        edit_organization_appearance: Edytuj wygląd strony głównej
         impersonatable_users: Zarządzaj użytkownikami
         impersonations: Zarządzanie użytkownikami
+        menu: Menu
         metrics: Partycypacja w liczbach
+        page_topics: Wątki
+        pages: Strony
         panel: Administrator
         participants: Użytkownicy
         scope_types: Typy zakresów
@@ -988,10 +1041,13 @@ pl:
       user_group:
         csv_verify:
           invalid: Wystąpił błąd podczas odczytu pliku CSV.
+          success: Plik CSV został załadowany pomyślnie. Weryfikujemy grupy odpowiadające kryteriom. To może chwilę potrwać.
         reject:
           invalid: Podczas odrzucania tej grupy użytkowników wystąpił błąd.
+          success: Grupa użytkowników została odrzucona.
         verify:
           invalid: Podczas weryfikacji tej grupy użytkowników wystąpił błąd.
+          success: Grupa użytkowników została zweryfikowana.
       user_groups:
         index:
           state:
@@ -1003,6 +1059,9 @@ pl:
         new:
           example_file: 'Przykładowy plik:'
           explanation: 'Prześlij swój plik CSV. Plik musi zawierać: w pierwszej kolumnie oficjalne adresy e-mail grup w organizacji, bez nagłówków. Tylko grupy, które potwierdziły swój adres e-mail i których adres e-mail znajduje się w pliku CSV, zostaną zweryfikowane.'
+          explanation_example: |
+            acme@przyklad.org
+            bubba.gump@przyklad.org
           title: Prześlij swój plik CSV
           upload: Prześlij
       users:
@@ -1025,7 +1084,12 @@ pl:
           last_day: Poprzedni dzień
           last_month: Poprzedni miesiąc
           last_week: Poprzedni tydzień
+          no_users_count_statistics_yet: Nie ma jeszcze statystyk dotyczących liczby użytkowników.
           participants: Użytkownicy
+    forms:
+      errors:
+        impersonate_user:
+          reason: Aby zarządzać uczestnikiem niezarządzanym, należy podać przyczynę.
     metrics:
       blocked_users:
         object: zablokowani użytkownicy
@@ -1059,12 +1123,15 @@ pl:
       models:
         moderation:
           fields:
+            created_at: Zgłoszone w
             deleted_resource: Usunięty zasób
             hidden_at: Ukryto
             participatory_space: Przestrzeń partycypacyjna
+            report_count: Liczba zgłoszeń
             reportable_id: ID
             reportable_type: Typ
             reported_content_url: URL zgłoszonej treści
+            reports: Przyczyna
             visit_url: Odwiedź adres URL
         report:
           fields:

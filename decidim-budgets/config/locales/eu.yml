@@ -105,6 +105,9 @@ eu:
             pending_orders: Zain dauden botoak
             select_for_implementation: Hautatu gauzatzeko
             selected: Hautatua
+            selected_options:
+              'no': 'Ez'
+              'yes': 'Bai'
             title: Proiektuak
             update: Eguneratu
             update_budget_button: Eguneratu proiektuaren aurrekontua

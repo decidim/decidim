@@ -54,6 +54,7 @@ pl:
         confirm_destroy: Jesteś pewny?
         destroy: Usuń
         edit: Edytuj
+        new: Nowa debata
         title: Działania
       admin:
         debate_closes:
@@ -107,6 +108,9 @@ pl:
         create:
           invalid: Podczas tworzenia debaty wystąpił błąd.
           success: Debatę utworzono pomyślnie.
+        debates:
+          empty: Nie ma jeszcze żadnych debat.
+          empty_filters: Nie ma debat z tymi kryteriami.
         edit:
           back: Wróć
           save: Zapisz zmiany

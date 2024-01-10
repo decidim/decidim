@@ -1843,16 +1843,13 @@ cs:
     button: Přidat emoji
     categories:
       activities: Aktivity
-      animals-nature: Zvířata a příroda
       custom: Vlastní
       flags: Značky
-      food-drink: Jídlo a pití
       objects: Objekty
       people-body: Lidé a tělo
       recents: Naposledy použité
       smileys-emotion: Smajlíky a emoce
       symbols: Symboly
-      travel-places: Cestování a místa
     error:
       load: Nepodařilo se načíst emoje
     recents:

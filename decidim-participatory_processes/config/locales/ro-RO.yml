@@ -102,8 +102,6 @@ ro:
         destroy: Șterge
         duplicate: Duplică
         edit: Editează
-        filter:
-          all_processes: Afișează toate procesele
         import_process: Importă
         moderate: Moderează
         new_process: Proces nou

@@ -283,7 +283,9 @@ fr:
             select_user: Sélectionner un utilisateur
           index:
             filter:
+              accepted: Acceptée
               all: Toutes
+              rejected: Rejeté
               sent: Envoyé
             invite_attendee: Inviter un participant
             invites: Invitations

@@ -1798,16 +1798,13 @@ fi-pl:
     button: Lisää emoji
     categories:
       activities: Toiminta
-      animals-nature: Eläimet ja luonto
       custom: Mukautettu
       flags: Liput
-      food-drink: Ruoka ja juoma
       objects: Esineet
       people-body: Ihmiset ja keho
       recents: Viimeksi käytetyt
       smileys-emotion: Hymiöt ja tunneilmaisut
       symbols: Symbolit
-      travel-places: Matkailu ja paikat
     error:
       load: Emojien lataus epäonnistui
     recents:

@@ -99,9 +99,6 @@ eu:
         destroy: ezabatu
         duplicate: Bikoiztu
         edit: Editatu
-        filter:
-          all_processes: Erakutsi prozesu guztiak
-          process_groups: Iragazki prozesuak taldeetan
         import_process: Inportatu
         moderate: Moderatu
         new_process: Beste prozesu bat
@@ -114,6 +111,9 @@ eu:
         resend_invitation: Birbidali gonbita
         see_process: Ikusi prozesuak
         unpublish: Despublikatu
+      filters:
+        decidim_participatory_process_group_id_eq:
+          label: Prozesu-taldeen arabera
       menu:
         participatory_process_groups: Prozesu-taldeak
         participatory_process_groups_submenu:

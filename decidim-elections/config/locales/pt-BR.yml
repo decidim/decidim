@@ -30,6 +30,7 @@ pt-BR:
         census_contact_information: Informação de contato do censo
         end_time: Votação termina
         introductory_image: Imagem introdutória
+        promoted: Promovido
         scope_id: Escopo
         show_check_census: Mostrar página "checar censo"
         start_time: A votação começa
@@ -155,6 +156,9 @@ pt-BR:
         exports:
           elections: Eleições
           feedback_form_answers: Respostas do formulário de feedback
+        mailers:
+          trustee_mailer:
+            trustee_zone: Leve-me à zona de fiduciários
         menu:
           trustees: Curadores
         models:
@@ -167,6 +171,8 @@ pt-BR:
             select_component: Por favor, selecione um componente
             title: Importar propostas
         questions:
+          create:
+            election_started: A eleição já começou.
           edit:
             title: Editar pergunta
             update: Atualizar pergunta
@@ -178,10 +184,15 @@ pt-BR:
         steps:
           create_election:
             errors:
+              census_codes_generated: Códigos de acesso do censo não foram gerados.
+              census_frozen: Códigos de acesso do censo não foram exportados.
+              census_uploaded: Não há censos carregados para esta eleição.
+              component_published: O componente de eleição <strong>não está publicado</strong>.
               max_selections: As perguntas não têm um <strong>valor correto para a quantidade de respostas</strong>
               minimum_answers: As perguntas devem ter <strong>pelo menos duas respostas</strong>.
               minimum_questions: A eleição <strong>deve ter pelo menos uma questão</strong>.
               published: A eleição <strong>não está publicada</strong>.
+              time_before: O horário de início é em <strong>menos que %{hours}</strong> antes do começo das eleições.
               trustees_number: O espaço participativo <strong>deve ter pelo menos %{number} administradores com chave pública</strong>.
             invalid: Houve um problema ao configurar essa eleição
             no_trustees: Não há Agentes fiduciários configurados para este espaço participativo
@@ -190,6 +201,10 @@ pt-BR:
               'false': não tem uma <strong>chave pública</strong>
               'true': tem uma <strong>chave pública</strong>
             requirements:
+              census_codes_generated: Códigos de acesso do censo são gerados.
+              census_frozen: Os códigos de acesso do censo são exportados e o censo está congelado.
+              census_uploaded: O Censo foi carregado.
+              component_published: O componente de eleição <strong>está publicado</strong>.
               max_selections: Todas as questões têm um valor correto para <strong>o máximo de respostas</strong>.
               minimum_answers: Cada questão tem <strong>pelo menos 2 respostas</strong>.
               minimum_questions: A eleição tem <strong>pelo menos 1 pergunta</strong>.
@@ -229,6 +244,9 @@ pt-BR:
             selected: Selecionado
             submit: Publicar resultados
             title: Resultados calculados
+          tally_started:
+            continue: Continuar
+            title: Processo de registro
           vote:
             errors:
               time_after: A eleição ainda está em curso. Você tem que esperar até o fim do período de votação (%{end_time}).
@@ -266,6 +284,15 @@ pt-BR:
           update:
             invalid: Houve um problema ao remover o curador %{trustee}.
             success: Curador %{trustee} atualizado com sucesso.
+      admin_log:
+        election:
+          report_missing_trustee: "%{user_name} relatou %{trustee_name} como um fiduciário ausente durante o concurso para a eleição %{resource_name} de %{space_name} no Bulletin Board"
+      connection:
+        failed:
+          modal:
+            communication_lost: Infelizmente, parece que a comunicação com o servidor de votação (Bulletin Board) foi perdida.<br>Pode ser que a conexão com a Internet esteja interrompida ou que o servidor de destino esteja muito ocupado.<br>Você pode tentar novamente mais tarde ou entrar em contato com o suporte se esse problema persistir.
+            generic_error: Infelizmente, ocorreu um erro desconhecido. É provável que seu navegador não seja suportado ou que você esteja usando o modo "incognito" ou "privado", que não é suportado.
+            title: Algo deu errado
       election_m:
         badge_name:
           finished: Finalizado
@@ -439,6 +466,11 @@ pt-BR:
               tally:
                 cast: Transmissão de apuração
                 share: Compartilhar apuração
+            process_warning: Depois que o processo for iniciado, você não deverá sair desta página até que o processo termine. Levará vários minutos, pois todos os fiduciários deverão estar conectados para completá-lo.
+            status:
+              completed: Concluído
+              pending: Pendente
+              processing: Processando
             title: Apuração para %{election}
         menu:
           trustee_zone: Zona dos curadores
@@ -467,6 +499,7 @@ pt-BR:
               generate_legend_2: Copie o arquivo baixado para um dispositivo USB limpo
               generate_legend_4: Faça outra cópia do arquivo em um dispositivo externo diferente e armazene-o em um lugar muito seguro.
               submit: Enviar
+              submit_legend: Depois de seguir todos os passos explicados acima, complete o processo enviando a chave de identificação pública para o servidor.
               submit_title: Enviar a chave de identificação pública
               title: Chaves de identificação de curadores
               upload: Envie suas chaves de identificação
@@ -478,6 +511,7 @@ pt-BR:
           audit: ( Auditar cédula )
           back: Iniciar o processo de votação novamente
           ballot_hash: 'Seu identificador de voto é:'
+          cast: Envie sua cédula para depositar seu voto
           header: 'A cédula está criptografada: transmita-a ou auditá-la'
         casting:
           header: Transmitindo a cédula...
@@ -525,7 +559,9 @@ pt-BR:
           selections: "%{selected} de %{max_selections}<br> seleções"
         onboarding_modal:
           create_account: Criar conta
+          description: Você quer criar uma nova conta na plataforma? Você poderá participar dos processos e ser parte ativa da organização.
           no_account: Não, obrigado.
+          title: Novo na plataforma?
         update:
           error: Houve um problema ao atualizar o status do voto. Por favor, vote novamente.
         verify:
@@ -536,8 +572,10 @@ pt-BR:
             header: Voto não encontrado!
             info: O código de voto não foi encontrado na urna %{link}. Tente novamente.
           form:
+            back: Voltar à plataforma
             submit: Check
             vote_identifier: 'Código de identificador:'
+            vote_identifier_help: Este é o identificador que lhe foi dado depois de você transmitir o seu voto (não o código para digitar a cabine de voto).
           header:
             title: Verifique seu voto
           success:
@@ -608,8 +646,28 @@ pt-BR:
             create: Criar
             title: Criar estilo de cédula
         content_blocks:
+          attachments_and_folders:
+            name: Anexos e pastas de votação
+          header:
+            name: Cabeçalho de votação
           highlighted_votings:
             max_results: Quantidade máxima de elementos para mostrar
+          html_block_1:
+            name: Bloco de votação html 1
+          html_block_2:
+            name: Bloco de votação html 2
+          html_block_3:
+            name: Bloco de votação html 3
+          metrics:
+            name: Métricas de votação
+          polling_stations:
+            name: Estações de voto
+          related_elections:
+            name: Votações electorais
+          stats:
+            name: Estatísticas de votação
+          timeline:
+            name: Linha do tempo da votação
         index:
           published: Publicado
         menu:
@@ -621,6 +679,7 @@ pt-BR:
             ballot_styles: Estilo da cédula
             census: Censo
             components: Componentes
+            info: Sobre esta votação
             landing_page: Página inicial
             monitoring_committee: Comitê de Monitoramento
             monitoring_committee_election_results: Validar resultados
@@ -702,6 +761,7 @@ pt-BR:
           edit:
             change_polling_station: Voltar para estações de votação
             monitoring_committee_notes: Observações
+            monitoring_committee_notes_placeholder: Relate qualquer incidente aqui
             title: Resultados para a eleição <i>%{election_title}</i> na estação de voto <i>%{polling_station_title}</i>
           elections:
             title: Escolha uma eleição que deseja validar
@@ -759,13 +819,18 @@ pt-BR:
           form:
             banner_image: Imagem de banner
             census_contact_information: Informação de contato do censo
+            census_contact_information_help: Esta informação de contato é para um participante que deseja relatar problemas com o censo. Pode ser um endereço de e-mail, um formulário de contato em outro site, uma pesquisa para visitantes, etc.
             introductory_image: Imagem introdutória
+            promoted: Promovido
             select_a_voting_type: Por favor, selecione um tipo de votação
+            show_check_census_help: Mostrar ou não o link "Eu voto?" no menu de votações públicas.
+            slug_help_html: 'Os slugs de URL são usados para gerar os URLs que apontam para essa votação. Aceita apenas letras, números e traços e deve começar com uma letra. Exemplo: %{url}'
             title: Título
             voting_type:
               hybrid: Híbrido
               in_person: Pessoalmente
               online: On-line
+            voting_type_label: Tipo de votação
           new:
             create: Criar
             title: Nova votação
@@ -779,16 +844,26 @@ pt-BR:
           census:
             create:
               invalid: Ocorreu um erro ao atualizar o censo, por favor tente novamente mais tarde.
+            creating_data:
+              info_message: "<strong>Aguarde</strong>, processadas %{processed_count} de %{raw_count} linhas do arquivo %{file} (isso pode levar alguns minutos)."
             delete:
               button: Excluir todos os dados do censo
+              confirm: A exclusão de todos os dados do censo não pode ser desfeita. Tem certeza que deseja continuar?
             destroy:
               error: Ocorreu um erro ao deletando o censo, por favor tente novamente mais tarde.
             export_access_codes:
               button: Exportar códigos de acesso a votos
               callout: Agora você pode exportar os códigos de acesso. Isso só pode ser feito uma vez. Ao iniciar a exportação, você receberá um e-mail com as instruções para <strong>%{email}</strong>
               confirm: Você só pode exportar os códigos de acesso uma vez. Certifique-se de que você tem acesso à conta de e-mail <strong>%{email}</strong>.
+              file_not_exist: Este arquivo não existe.
+            exporting_access_codes:
+              info_message: "<strong>Por favor, aguarde</strong>, a exportação está sendo preparada, você o receberá em breve para %{email} (isso pode levar alguns minutos)."
             freeze:
               callout: O censo está congelado e não pode ser modificado.
+              help_html: |
+                Os dados do censo foram carregados, os códigos gerados e exportados com sucesso.<br>
+                <strong>Você está pronto para iniciar a eleição.</strong><br>
+                Use o CSV exportado com códigos individuais para distribuí-lo ao longo do seu censo por meios próprios ou ative a guia "Posso votar" para permitir que qualquer pessoa recupere este código utilizando os seus próprios dados do censo.
             generate_access_codes:
               button: Gerar códigos de acesso a votação
               callout: Agora você pode gerar os códigos de acesso. Lembre-se de que após gerar os códigos de acesso, você não será capaz de modificar mais o censo.
@@ -797,6 +872,9 @@ pt-BR:
               info_message_warn: Por favor, verifique se nenhum dado está faltando, porque %{data_count} registros foram criados e o arquivo enviado %{file} possui %{raw_count} linhas.
               launch_error: Problema ao lançar a geração de códigos de acesso
               launch_success: Geração de códigos iniciada.
+              start_over: Por favor, apague o censo atual e comece novamente com um arquivo CSV adequado com linhas válidas.
+            generating_access_codes:
+              info_message: "<strong>Por favor, aguarde</strong>, os códigos de acesso para votação estão sendo gerados (isso pode levar alguns minutos)..."
             new:
               file_help:
                 explanation: 'Orientação para o arquivo:'
@@ -805,6 +883,7 @@ pt-BR:
               has_ballot_styles_message: Você configurou estilos de cédulas. Por favor, certifique-se de que o campo "%{ballot_style_code_header}" no CSV corresponde ao código de estilo de cédula desejada.
               info_message: "<strong>Ainda não há censo.</strong> Por favor, use o formulário abaixo para criá-lo importando um arquivo CSV."
               missing_ballot_styles_message: 'Não existe estilo de cédula para esta votação ainda.. Se você deseja ter quetões condicionais (ex.: apresentar ao votante diferentes questões dependendo de, por exemplo, o distrito/região da reidência), e precisa ser adicionado no <a href=%{ballot_styles_admin_path}>Estilo de Cédula</a> <strong>antes</strong> importando o censo. Se você gostaria de apresentar a todos os votantes as mesmas questões, você pode prosseguir com o processo de importação do censo.'
+              submit: Enviar CSV
               title: Criar o censo
             show:
               heading: Censo do espaço de votação
@@ -835,6 +914,11 @@ pt-BR:
           destroy: Excluir
           new: Novo membro
           title: Ações
+      pages:
+        home:
+          highlighted_votings:
+            active_spaces: Votações Ativas
+            see_all_spaces: Ver todas as votações
       polling_officer_zone:
         closures:
           back_to_polling_stations: Voltar para estações de votação
@@ -865,6 +949,7 @@ pt-BR:
             info_text: 'Por favor, introduza o número total de votos (envelopes) recontados nesta Estação de Enquete:'
             modal_ballots_count_error:
               btn_validate_total: Validar a recontagem total de votos
+              info_explanation_text: 'Por favor, reveja o número total de votos. Se o número total estiver incorreto, você deve fornecer uma explicação para o Comité de Acompanhamento:'
               message_for_monitoring_committee: Mensagem para o Comitê de Monitoramento
               review_recount: Revisar a recontagem
               text_area_placeholder: Por favor, digite sua mensagem
@@ -890,8 +975,11 @@ pt-BR:
         in_person_votes:
           complete_voting:
             available_answers: 'Respostas disponíveis:'
+            census_verified: Este participante ainda não votou em pessoa.
+            census_verified_with_online_vote: Este usuário já votou online. Se eles votarem em pessoa, os votos anteriores serão invalidados e esta será a votação definitiva.
             complete_voting: Votação concluída
             identify_another: Identificar outro usuário
+            questions_title_voted: 'Este participante já votou online e tem direito a votar nas seguintes perguntas:'
             voted: O usuário votou
           create:
             error: A votação não foi registrada. Por favor, tente novamente.
@@ -977,9 +1065,13 @@ pt-BR:
         check_census:
           check_status: Conferir status
           description: Aqui, você tem a opção de verificar os dados do censo para saber se tem o direito de participar nesta votação. Você já deve ter um código de acesso, mas se você o perdeu, você pode pedi-lo novamente, quando seus dados estiverem corretos.
+          error:
+            info: 'Por favor, tente novamente. Se você acha que os dados no sistema estão incorretos, você pode reportá-los aqui: %{census_contact_information}.'
+            title: Os dados inseridos não estão no censo para esta votação
           form_title: 'Preencha o seguinte formulário para verificar os dados do censo:'
           invalid: Houve um problema ao verificar o censo.
           success:
+            access_link: via e-mail.
             access_link_with_sms: por SMS ou e-mail.
             title: Seus dados do censo estão corretos!
           title: Posso votar?
@@ -989,6 +1081,7 @@ pt-BR:
           day_placeholder: DD
           document_number: Número do documento
           document_number_placeholder: Carteira de identidade (RG)
+          document_type: Tipo de documento
           month: Mês
           month_placeholder: MM
           postal_code: CEP
@@ -1024,6 +1117,8 @@ pt-BR:
           label: 'Classificar votos por:'
           random: Aleatório
           recent: Mais recente
+        show:
+          title: Sobre esta votação
       votings_m:
         badge_name:
           finished: Finalizado

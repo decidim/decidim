@@ -23,6 +23,7 @@ ja:
         id: ID
         iframe_access_level: iframeアクセスレベル：
         iframe_embed_type: Iframe 埋め込みタイプ
+        iframe_embed_type_html: '「ミーティングページに埋め込む」または「配信イベントページで開く」を許可しているサービスはわずかしかありません。 モバイルでの「ミーティングページに埋め込む」オプションに注意してください。画面が異なる寸法を継承するため、実際には「配信イベントで開く」として機能します。'
         location: 場所
         location_hints: 位置情報のヒント
         online_meeting_url: オンラインミーティングURL
@@ -57,7 +58,7 @@ ja:
         meeting:
           attributes:
             iframe_embed_type:
-              not_embeddable: このURLは、ミーティングやライブイベントのページに埋め込むことはできません。
+              not_embeddable: このURLは、ミーティングや配信イベントのページに埋め込むことはできません。
             online_meeting_url:
               url_format: 有効な URL でなければなりません
         meeting_agenda:
@@ -278,7 +279,9 @@ ja:
             select_user: 参加者を選択
           index:
             filter:
+              accepted: 承認済み
               all: すべて
+              rejected: 却下済み
               sent: 送信済み
             invite_attendee: 参加者を招待
             invites: 招待
@@ -306,6 +309,7 @@ ja:
           form:
             address_help: 'アドレス: ジオコーダーが場所を見つけるために使用'
             disclaimer: '免責事項: 外部の登録システムを使用する場合、ユーザーが外部サービスに提供したデータについて%{organization} の主催者が責任を負わないことをあらかじめご了承ください。'
+            iframe_embed_type_html: 'ミーティングまたは配信イベントに埋め込めるサービスは以下のドメインに限定されています: %{domains}'
             location_help: '場所: ユーザーにメッセージが表示されます。'
             location_hints_help: '位置情報のヒント：追加情報。 例: 対面ミーティングでの建物のフロア、またはアクセス制限のあるオンラインミーティングでのミーティングパスワード。'
             online_meeting_url_help: 'リンク: 参加者があなたのミーティングに直接接続できるようにします'
@@ -386,6 +390,9 @@ ja:
           all: すべて
         filter_meeting_space_values:
           all: すべて
+      calendar:
+        meeting_to_event:
+          read_more: このミーティングについてもっと読む
       calendar_modal:
         calendar_url: カレンダー URL
         copy_calendar_url: コピー
@@ -417,7 +424,7 @@ ja:
       iframe_embed_type:
         embed_in_meeting_page: ミーティングページに埋め込む
         none: なし
-        open_in_live_event_page: ライブイベントページで開く (オプションの投票付き)
+        open_in_live_event_page: 配信イベントページで開く (オプションの投票付き)
         open_in_new_tab: URLを新しいタブで開く
       last_activity:
         meeting_updated: '更新されたミーティング:'
@@ -486,6 +493,7 @@ ja:
           available_slots_help: 無制限の場合は0のままにしてください
           create_as: 次のユーザとしてミーティングを作成：
           disclaimer: '免責事項: 外部の登録システムを使用する場合、ユーザーが外部サービスに提供したデータについて%{organization} の主催者が責任を負わないことをあらかじめご了承ください。'
+          iframe_embed_type_html: 'ミーティングまたは配信イベントに埋め込めるサービスは以下のドメインに限定されています: %{domains}'
           location_help: '場所: ユーザーにメッセージが表示されます。'
           location_hints_help: '位置情報のヒント：追加情報。 例: 対面ミーティングでの建物のフロア、またはアクセス制限のあるオンラインミーティングでのミーティングパスワード。'
           online_meeting_url_help: 'リンク: 参加者があなたのミーティングに直接接続できるようにします'

@@ -99,8 +99,6 @@ el:
         destroy: Διαγραφή
         duplicate: Αντιγραφή
         edit: Επεξεργασία
-        filter:
-          all_processes: Εμφάνιση όλων των διαδικασιών
         import_process: Εισαγωγή
         moderate: Συντονισμός
         new_process: Νέα διαδικασία

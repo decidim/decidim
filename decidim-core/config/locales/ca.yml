@@ -278,7 +278,7 @@ ca:
       user_moderation:
         unreport: "%{user_name} ha desfet el report %{resource_type} - %{unreported_user_name}"
     admin_terms_of_service:
-      default_body: "<h2>TERMES I CONDICIONS D'ÚS DEL SERVEI D'ADMINISTRACIÓ</h2><p>Donem per fet que has rebut l'habitual explicació per part del Servei d'Administració general de la plataforma. En general es redueix a aquestes tres coses:</p><ol><li>Respecta la privadesa d'altri.</li><li>Pensa abans de fer clic.</li><li>A un gran poder l'hi correspon gran responsabilitat.</li></ol>"
+      default_body: "<h2>TERMES I CONDICIONS D'ÚS DEL SERVEI D'ADMINISTRACIÓ</h2><p>Donem per fet que has rebut l'habitual explicació per part del Servei d'Administració general de la plataforma. En general es redueix a aquestes tres coses:</p><ol><li>Respecta la privadesa d'altri.</li><li>Pensa abans de fer clic.</li><li>A un gran poder li correspon gran responsabilitat.</li></ol>"
     alert:
       dismiss: Descartar notificació
     amendments:

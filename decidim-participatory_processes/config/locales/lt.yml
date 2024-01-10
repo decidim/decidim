@@ -105,8 +105,6 @@ lt:
         destroy: Ištrinti
         duplicate: Sukurti kopiją
         edit: Redaguoti
-        filter:
-          all_processes: Rodyti visus procesus
         import_process: Importuoti
         moderate: Moderuoti
         new_process: Naujas procesas

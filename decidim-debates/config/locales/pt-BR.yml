@@ -91,6 +91,7 @@ pt-BR:
           invalid: Houve um problema ao encerrar o debate.
           success: Debate encerrado com sucesso.
         close_debate_modal:
+          cancel: Cancelar
           description: Qual é o resumo ou a conclusão deste debate?
           send: Fechar debate
         count:
@@ -152,6 +153,7 @@ pt-BR:
           fields:
             end_time: Data final
             official_debate: Debate oficial
+            start: Iniciar
             start_time: Data de início
             title: Título
     events:
