@@ -44,7 +44,7 @@ de:
         show_check_census: '"Überprüfe Erhebung"-Seite anzeigen'
         start_time: Abstimmung beginnt
         title: Titel
-        voting_type: Abstimmungsart
+        voting_type: Art der Abstimmung
     errors:
       models:
         answer:
@@ -1422,7 +1422,7 @@ de:
           hybrid: Hybrid
           in_person: Persönlich
           online: Online
-        voting_types_label: Abstimmungsart
+        voting_types_label: Art der Abstimmung
   layouts:
     decidim:
       election_votes_header:
