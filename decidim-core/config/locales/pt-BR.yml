@@ -1171,6 +1171,7 @@ pt-BR:
     searches:
       filters:
         jump_to: 'Pule para:'
+        search: Pesquisa
         state:
           active: Ativo
           all: Todos
