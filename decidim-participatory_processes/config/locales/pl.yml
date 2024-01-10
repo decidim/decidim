@@ -437,6 +437,7 @@ pl:
             more_information: Więcej informacji
             participate: Dołącz
             participate_in: Dołącz do procesu %{resource_name}
+            processes_button_title: Link do strony Procesy wyświetlającej wszystkie procesy
             see_all_processes: Zobacz wszystkie procesy
       participatory_process_steps:
         index:
