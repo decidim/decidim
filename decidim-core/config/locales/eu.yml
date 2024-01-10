@@ -1781,16 +1781,16 @@ eu:
     button: Gehitu emojia
     categories:
       activities: Jarduerak
-      animals-nature: Animaliak eta natura
+      animals-nature: Animaliak & Natura
       custom: Pertsonalizatu
       flags: Banderak
-      food-drink: Janaria eta edaria
+      food-drink: Janaria & Edaria
       objects: Objektuak
       people-body: Jendea eta gorputza
       recents: Oraintsu erabilia
       smileys-emotion: Irribarreak eta emozioa
       symbols: Ikurrak
-      travel-places: Bidaiak eta tokiak
+      travel-places: Bidaiak & Lekuak
     error:
       load: Ezin izan dira emojiak kargatu.
     recents:
