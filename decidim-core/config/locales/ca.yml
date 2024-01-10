@@ -1791,10 +1791,13 @@ ca:
     upload:
       uploadedFile: Fitxer carregat
   emojis:
+    add_custom: Afegir emoji personalitzat
     button: Afegir emoji
     categories:
+      activity: Activitat
       custom: Personalitzat
       flags: Banderes
+      foods: Aliments i begudes
       objects: Objectes
       symbols: Símbols
   errors:
