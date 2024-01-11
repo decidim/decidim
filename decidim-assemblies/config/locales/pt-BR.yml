@@ -457,8 +457,8 @@ pt-BR:
           reset_chart: Restabelecer
         order_by_assemblies:
           assemblies:
-            one: "Assembly %{count}"
-            other: "Conjuntos %{count}"
+            one: "%{count} assambleia"
+            other: "%{count} assambleias"
         promoted_assembly:
           more_info: Mais informações
           take_part: Participar
