@@ -77,12 +77,6 @@ fr:
   booleans:
     'false': 'Non'
     'true': 'Oui'
-  carrierwave:
-    errors:
-      file_cannot_be_processed: Le fichier n'a pas pu être traité
-      file_resolution_too_large: La résolution du fichier est trop grande
-      file_size_too_large: Le fichier est trop volumineux
-      not_inside_organization: Le fichier n'est relié à aucune organisation
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -671,6 +665,10 @@ fr:
     endorsers_list:
       endorsed_by: Soutenu par …
     errors:
+      files:
+        file_cannot_be_processed: Le fichier ne peut pas être traité
+        file_resolution_too_large: La résolution du fichier est trop grande
+        not_inside_organization: Le fichier n'est attaché à aucune organisation
       internal_server_error:
         copied: Texte copié !
         copy_error_message_clarification: Copier le message d'erreur dans le presse-papiers
