@@ -457,8 +457,6 @@ zh-TW:
         description: 說明
       footer_sub_hero:
         name: 頁尾子英雄橫幅
-      hero:
-        name: 英雄圖像
       hero_settings_form:
         background_image: 背景圖片
         welcome_text: 歡迎文字
