@@ -65,9 +65,6 @@
   booleans:
     'false': 'Nei'
     'true': 'Ja'
-  carrierwave:
-    errors:
-      not_inside_organization: Filen er ikke tilknyttet noen organisasjon
   date:
     formats:
       decidim_short: "%d.%m-%Y"
