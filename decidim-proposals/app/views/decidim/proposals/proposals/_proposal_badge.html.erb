@@ -1,3 +1,8 @@
-<% if proposal.published_state? || proposal.withdrawn? %>
+<%= raise "foo bar" %>
+
+
+<% if proposal.published_state? %>
   <span class="<%= proposal_state_badge_css_class(proposal.state) %> label proposal-status"><%= humanize_proposal_state proposal.state %></span>
+<% elsif proposal.withdrawn? %>
+  <span class="<%= proposal_state_badge_css_class(proposal.state) %> label proposal-status"><%= I18n.t( "withdrawn", scope: "decidim.proposals.answers") %></span>
 <% end %>
