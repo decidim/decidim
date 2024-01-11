@@ -65,9 +65,6 @@ pt:
   booleans:
     'false': 'Não'
     'true': 'Sim'
-  carrierwave:
-    errors:
-      not_inside_organization: O ficheiro não está anexado a nenhuma organização
   date:
     formats:
       decidim_short: "%d/%m/%Y"
