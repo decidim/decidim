@@ -541,8 +541,6 @@ cs:
         name: Zápatí pod hlavním pruhem
       global_menu:
         name: Globální menu
-      hero:
-        name: Hlavní obrázek
       hero_settings_form:
         background_image: Obrázek pozadí
         welcome_text: Uvítací text
