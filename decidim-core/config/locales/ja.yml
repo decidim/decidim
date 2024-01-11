@@ -76,10 +76,7 @@ ja:
     'true': 'はい'
   carrierwave:
     errors:
-      file_cannot_be_processed: ファイルを処理できません
-      file_resolution_too_large: ファイルの解像度の値が大きすぎます
       file_size_too_large: ファイルサイズが大きすぎます
-      not_inside_organization: ファイルはどの組織にも添付されていません
   date:
     formats:
       decidim_short: "%Y/%m/%d"
