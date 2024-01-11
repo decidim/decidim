@@ -371,6 +371,8 @@ pl:
           name: Typ i czas trwania
         highlighted_assemblies:
           name: Wyróżnione zespoły
+        related_assemblies:
+          name: Powiązane zespoły
       created_by:
         city_council: Rada Miejska
         others: Inni
@@ -387,7 +389,13 @@ pl:
         working_group: Grupa robocza
       index:
         title: Zespoły
+      last_activity:
+        new_assembly: 'Nowy zespół:'
       pages:
+        home:
+          highlighted_assemblies:
+            active_spaces: Aktywne zespoły
+            see_all_spaces: Zobacz wszystkie zespoły
         user_profile:
           member_of:
             member_of: Członek
@@ -399,6 +407,7 @@ pl:
           'true': transparentny
         private_space: To jest prywatny zespół
         related_participatory_processes: Powiązane procesy partycypacyjne
+        social_networks_title: Odwiedź zespół na
     assembly_members:
       assembly_member:
         designated_on: Wyznaczony na
@@ -408,6 +417,7 @@ pl:
       assemblies:
         create_assembly_member:
           email_intro: Administrator zespołu <a href="%{resource_url}">%{resource_name}</a> ustanowił Cię jego członkiem.
+          email_outro: Otrzymujesz to powiadomienie, ponieważ zaproszono Cię do zespołu. Sprawdź <a href="%{resource_url}">stronę zespołu</a>, aby dołączyć!
           email_subject: Zaproszono Cię do grona członków zespołu %{resource_name}!
           notification_title: Zarejestrowano Cię jako członka Zespołu <a href="%{resource_path}">%{resource_name}</a>. Sprawdź <a href="%{resource_path}">stronę zespołu</a>, aby wnieść swój wkład!
       assembly:

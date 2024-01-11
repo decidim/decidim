@@ -1795,30 +1795,32 @@ fr:
     upload:
       uploadedFile: Fichier déposé
   emojis:
+    add_custom: Ajouter un émoji personnalisé
     button: Ajouter un émoji
     categories:
-      activities: Activités
-      animals-nature: Animaux & nature
+      activity: Activité
       custom: Personnalisé
       flags: Drapeaux
-      food-drink: Nourriture et boissons
+      foods: Nourriture et Boissons
+      frequent: Fréquemment utilisés
+      nature: Animaux & Nature
       objects: Objets
-      people-body: Personnes & Corps
-      recents: Utilisés récemment
-      smileys-emotion: Smileys & Émotion
+      people: Smileys et Personnes
+      places: Voyages et Lieux
+      search: Résultats de recherche
       symbols: Symboles
-      travel-places: Lieux et voyages
-    error:
-      load: Impossible de charger la liste des émojis
-    recents:
-      clear: Effacer les émojis récents
-      none: Vous n'avez pas encore sélectionné d'emojis.
-    retry: Réessayez
-    search:
-      _: Rechercher des émojis...
-      clear: Effacer la recherche
-      error: La recherche d'émojis a échoué
-      not_found: Aucun résultat trouvé
+    pick: Choisissez un emoji…
+    search: Rechercher
+    search_no_results_1: Oh non!
+    search_no_results_2: Cet émoji n'a pas pu être trouvé
+    skins:
+      '1': Par défaut
+      '2': Clair
+      '3': Moyennement clair
+      '4': Moyen
+      '5': Moyennement sombre
+      '6': Sombre
+      choose: Choisissez le teint de peau par défaut
   errors:
     messages:
       allowed_file_content_types: 'seuls les fichiers avec les extensions suivantes sont autorisés : %{types}'

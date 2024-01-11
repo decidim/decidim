@@ -1231,6 +1231,7 @@ hu:
     searches:
       filters:
         jump_to: 'Ugorj:'
+        search: Keresés
         state:
           active: Aktív
           all: Minden

@@ -53,6 +53,9 @@ pt-BR:
       answers_count: Respostas
     surveys:
       admin:
+        component:
+          actions:
+            answers_alert: Se você publicar o componente, todos os resultados serão removidos.
         exports:
           survey_user_answers: Avalie as respostas dos usuários
         surveys:
