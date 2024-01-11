@@ -10,7 +10,7 @@ module Decidim
           false
         end
 
-        def subtitle
+        def subtitle_text
           "#{start_text} — #{end_text}"
         end
 
