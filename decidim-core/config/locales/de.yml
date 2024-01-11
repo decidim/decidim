@@ -77,12 +77,6 @@ de:
   booleans:
     'false': 'Nein'
     'true': 'Ja'
-  carrierwave:
-    errors:
-      file_cannot_be_processed: Datei konnte nicht verarbeitet werden
-      file_resolution_too_large: Die Datei-Auflösung ist zu groß
-      file_size_too_large: Datei ist zu groß
-      not_inside_organization: Die Datei ist keiner Organisation hinzugefügt
   date:
     formats:
       decidim_short: "%d/%m/%Y"
