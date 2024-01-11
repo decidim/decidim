@@ -91,9 +91,7 @@ ar:
     'true': 'نعم'
   carrierwave:
     errors:
-      file_resolution_too_large: دقة الملف أكبر من المسموح به
       file_size_too_large: حجم الملف أكبر من المسموح به
-      not_inside_organization: لم يتم إرفاق الملف بأي منظمة
   date:
     formats:
       decidim_short: "%d/%m/%Y"
