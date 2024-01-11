@@ -1,0 +1,4 @@
+inherit_from: ../.rubocop.yml
+
+AllCops:
+  TargetRubyVersion: 2.7.5

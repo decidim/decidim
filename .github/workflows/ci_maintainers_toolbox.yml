@@ -12,7 +12,7 @@ on:
 env:
   CI: "true"
   SIMPLECOV: "true"
-  RUBY_VERSION: 3.2.2
+  RUBY_VERSION: 2.7.5
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
