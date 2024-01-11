@@ -75,10 +75,7 @@ hu:
     'true': 'Igen'
   carrierwave:
     errors:
-      file_cannot_be_processed: A fájl nem nyitható meg
-      file_resolution_too_large: A fájl felbontása túl nagy
       file_size_too_large: Túl nagy a fájl mérete
-      not_inside_organization: A fájl nincs csatolva egyetlen szervezethez sem
   date:
     formats:
       decidim_short: "%Y.%m.%d"
