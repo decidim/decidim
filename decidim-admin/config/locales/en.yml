@@ -865,8 +865,8 @@ en:
           remove: Remove
           up: Up
         form:
-          add: Add to allowlist
-          title: External domain allowlist
+          add: Add to allowed list
+          title: Allowed list of External domains
       participatory_space_private_users:
         create:
           error: There was a problem adding a private participant for this participatory space.
@@ -1014,7 +1014,7 @@ en:
         areas: Areas
         authorization_workflows: Verification methods
         dashboard: Dashboard
-        edit_external_domains: External domain allowlist
+        edit_external_domains: Allowed list of External domains
         edit_landing_page: Page contents
         edit_organization_appearance: Edit homepage appearance
         impersonatable_users: Manageable participants
