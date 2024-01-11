@@ -138,6 +138,21 @@ ja:
           show: 詳細設定を表示
         create:
           error: 新しい組織を作成する際に問題が発生しました。
+          success_html: |
+            <p>
+              組織を作成しました。
+            </p>
+            <ol>
+              <li>アプリケーションのコードを更新する必要があるかもしれません。%{host}へのリクエストを許可するには、環境設定 (例: <code>config/environment/production.rb</code>) または <code>config/application.rb</code> に以下を追加する必要があります：
+                <p> config.hosts << "%{host}" </p>
+              </li>
+              <li>
+                これが完了すると、<a href="http://%{host}">http://%{host}</a> からプラットフォームにアクセスできるようになります。
+              </li>
+              <li>
+                <b>%{email}</b>宛にメールを送信しましたので、ご確認ください。
+              </li>
+            </ol>
         csp_settings:
           connect_src: Connect src
           connect_src_hint: |

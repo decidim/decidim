@@ -743,7 +743,6 @@ lt:
           new_election:
             email_intro: Buvote pridėtas kaip patikėtinis į %{resource_title} rinkimus.
             email_outro: Gavote šį pranešimą nes buvote pridėtas kaip patikėtinis %{resource_title} rinkimams.
-            email_subject: Esate patikėtinis %{resource_title} rinkimuose..
           new_trustee:
             email_intro: Administratorius pridėjo Jus kaip %{resource_name} patikėtinį. Galite sukurti viešą raktą <a href='%{trustee_zone_url}'>patikėtinių zonoje</a>
             email_outro: Gavote šį pranešimą nes buvote pridėtas kaip patikėtinis %{resource_name}.

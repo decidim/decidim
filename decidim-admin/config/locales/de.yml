@@ -459,7 +459,7 @@ de:
           title_cont: In %{collection} nach Titel suchen.
           user_name_or_user_nickname_or_user_email_cont: '%{collection} nach E-Mail, Name oder Kontoname durchsuchen.'
         state_eq:
-          label: Bundesland
+          label: Status
           values:
             all: Alle
             pending: Ausstehend

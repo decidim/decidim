@@ -80,8 +80,6 @@ lb:
         destroy: Läschen
         duplicate: Duplizieren
         edit: Editéieren
-        filter:
-          all_processes: Alle Beteiligungsprozesse anzeigen
         import_process: Import
         new_process: Neuer Beteiligungsprozess
         new_process_group: Neue Prozessgruppe

@@ -95,8 +95,6 @@ zh-TW:
         destroy: 刪除
         duplicate: 重複
         edit: 編輯
-        filter:
-          all_processes: 顯示所有流程
         import_process: 匯入
         moderate: 管理
         new_process: 新的程序
