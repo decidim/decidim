@@ -307,8 +307,6 @@ lv:
     content_blocks:
       footer_sub_hero:
         name: Kājenes apakšējais galvenais reklāmkarogs
-      hero:
-        name: Galvenais attēls
       hero_settings_form:
         background_image: Fona attēls
         welcome_text: Sveiciena teksts
