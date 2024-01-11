@@ -229,7 +229,9 @@ module Decidim
       # Public: Checks if the author has withdrawn the proposal.
       #
       # Returns Boolean.
-      def withdrawn? = withdrawn_at.present?
+      def withdrawn?
+        withdrawn_at.present?
+      end
 
       # Public: Checks if the organization has accepted a proposal.
       #
