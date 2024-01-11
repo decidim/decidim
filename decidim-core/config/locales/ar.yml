@@ -458,8 +458,6 @@ ar:
         description: الوصف
       footer_sub_hero:
         name: تذييل البطل الفرعي راية
-      hero:
-        name: صورة البطل
       hero_settings_form:
         background_image: الصورة الخلفية
         welcome_text: نص الترحيب
