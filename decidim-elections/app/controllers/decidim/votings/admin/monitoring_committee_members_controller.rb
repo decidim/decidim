@@ -7,6 +7,8 @@ module Decidim
       class MonitoringCommitteeMembersController < Admin::ApplicationController
         include VotingAdmin
 
+        before_action :set_monitoring_commiteee_breadcrumb_item
+
         helper_method :current_voting, :monitoring_committee_members, :monitoring_committee_member
 
         def index
@@ -52,6 +54,19 @@ module Decidim
         end
 
         private
+
+        def set_monitoring_commiteee_breadcrumb_item
+          controller_breadcrumb_items << {
+            label: I18n.t("monitoring_committee", scope: "decidim.votings.admin.menu.votings_submenu"),
+            active: false
+          }
+
+          controller_breadcrumb_items << {
+            label: I18n.t("monitoring_committee_members", scope: "decidim.votings.admin.menu.votings_submenu"),
+            url: decidim_admin_votings.voting_monitoring_committee_members_path(current_participatory_space),
+            active: true
+          }
+        end
 
         def monitoring_committee_members
           @monitoring_committee_members ||= current_voting.monitoring_committee_members

@@ -7,6 +7,8 @@ module Decidim
       class DiplomasController < Decidim::Conferences::Admin::ApplicationController
         include Concerns::ConferenceAdmin
 
+        add_breadcrumb_item_from_menu :conferences_admin_registrations_menu
+
         def edit
           enforce_permission_to :update, :conference, conference: current_conference
 
