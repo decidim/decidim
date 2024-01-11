@@ -22,16 +22,16 @@ shared_context "when generating a new application" do
   end
 
   let(:result) do
-    Bundler.with_original_env { Decidim::GemManager.capture(command, env:) }
+    Bundler.with_original_env { Decidim::MaintainersToolbox::GemManager.capture(command, env:) }
   end
 
   # rubocop:disable RSpec/BeforeAfterAll
   before(:all) do
-    Bundler.with_original_env { Decidim::GemManager.install_all(out: File::NULL) }
+    Bundler.with_original_env { Decidim::MaintainersToolbox::GemManager.install_all(out: File::NULL) }
   end
 
   after(:all) do
-    Bundler.with_original_env { Decidim::GemManager.uninstall_all(out: File::NULL) }
+    Bundler.with_original_env { Decidim::MaintainersToolbox::GemManager.uninstall_all(out: File::NULL) }
   end
   # rubocop:enable RSpec/BeforeAfterAll
 end
@@ -62,7 +62,7 @@ shared_examples_for "a new development application" do
     schema = File.read("#{test_app}/db/schema.rb")
     tables = []
     dropped = []
-    Decidim::GemManager.plugins.each do |plugin|
+    Decidim::MaintainersToolbox::GemManager.plugins.each do |plugin|
       Dir.glob("#{plugin}db/migrate/*.rb").each do |migration|
         lines = File.readlines(migration)
         tables.concat(lines.filter { |line| line.match? "create_table" }.map { |line| line.match(/(:)([a-z_0-9]+)/)[2] })
@@ -1101,6 +1101,6 @@ end
 
 def cmd_capture(path, cmd, env: {})
   Bundler.with_unbundled_env do
-    Decidim::GemManager.new(path).capture(cmd, env:, with_stderr: false)[0]
+    Decidim::MaintainersToolbox::GemManager.new(path).capture(cmd, env:, with_stderr: false)[0]
   end
 end
