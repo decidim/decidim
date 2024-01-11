@@ -80,10 +80,7 @@ eu:
     'true': 'Bai'
   carrierwave:
     errors:
-      file_cannot_be_processed: Fitxategia ezin izan da prozesatu
-      file_resolution_too_large: Fitxategiaren erresoluzioa handiegia da
       file_size_too_large: Fitxategiaren taimaina handiegia da
-      not_inside_organization: Artxiboa ez dago antolatzaile batekin erlazionatuta
   date:
     formats:
       decidim_short: "%d/%m/%Y"
