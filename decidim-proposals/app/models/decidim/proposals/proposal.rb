@@ -69,7 +69,7 @@ module Decidim
       scope :except_rejected, -> { not_rejected.or(state_not_published) }
 
       scope :withdrawn, -> { where.not(withdrawn_at: nil) }
-      scope :not_withdrawn, -> { where(withdrawn: nil) }
+      scope :not_withdrawn, -> { where(withdrawn_at: nil) }
 
       scope :drafts, -> { where(published_at: nil) }
       scope :published, -> { where.not(published_at: nil) }
