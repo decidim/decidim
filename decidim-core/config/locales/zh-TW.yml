@@ -71,10 +71,7 @@ zh-TW:
     'true': '是'
   carrierwave:
     errors:
-      file_cannot_be_processed: 無法處理檔案
-      file_resolution_too_large: 檔案解析度過大
       file_size_too_large: 檔案太大。
-      not_inside_organization: 該文件未附加到任何組織
   date:
     formats:
       decidim_short: "%d/%m/%Y"
