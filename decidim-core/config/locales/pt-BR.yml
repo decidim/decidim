@@ -75,10 +75,7 @@ pt-BR:
     'true': 'Sim'
   carrierwave:
     errors:
-      file_cannot_be_processed: O arquivo não pode ser processado
-      file_resolution_too_large: A resolução do arquivo é muito grande
       file_size_too_large: O tamanho do arquivo é grande demais
-      not_inside_organization: O arquivo não está anexado a nenhuma organização
   date:
     formats:
       decidim_short: "%d/%m/%Y"
