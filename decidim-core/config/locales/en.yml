@@ -78,12 +78,6 @@ en:
   booleans:
     'false': 'No'
     'true': 'Yes'
-  carrierwave:
-    errors:
-      file_cannot_be_processed: File cannot be processed
-      file_resolution_too_large: File resolution is too large
-      file_size_too_large: File size is too large
-      not_inside_organization: The file is not attached to any organization
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -515,7 +509,7 @@ en:
       global_menu:
         name: Global menu
       hero:
-        name: Hero image
+        name: Hero image and CTA
       hero_settings_form:
         background_image: Background image
         welcome_text: Welcome text
@@ -675,6 +669,10 @@ en:
     endorsers_list:
       endorsed_by: Liked by…
     errors:
+      files:
+        file_cannot_be_processed: File cannot be processed
+        file_resolution_too_large: File resolution is too large
+        not_inside_organization: The file is not attached to any organization
       internal_server_error:
         copied: Text copied!
         copy_error_message_clarification: Copy error message to clipboard

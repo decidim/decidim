@@ -8,6 +8,8 @@ module Decidim
 
       helper_method :moderations, :allowed_to?, :query, :permission_resource
 
+      before_action :set_moderation_breadcrumb_item
+
       def index
         enforce_permission_to :read, permission_resource
       end
@@ -102,6 +104,14 @@ module Decidim
       # is not overridden.
       def permission_resource
         :moderation
+      end
+
+      def set_moderation_breadcrumb_item
+        controller_breadcrumb_items << {
+          label: I18n.t("menu.content", scope: "decidim.admin"),
+          url: decidim_admin.moderations_path,
+          active: true
+        }
       end
     end
   end
