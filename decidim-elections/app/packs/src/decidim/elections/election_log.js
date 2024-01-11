@@ -5,8 +5,8 @@
 import { Client, MessageParser } from "@decidim/decidim-bulletin_board";
 
 $(async () => {
-  // Check safari browser
-  if ((/^((?!chrome|android).)*safari/i).test(navigator.userAgent)) {
+  const isSafariBrowser = (/^((?!chrome|android).)*safari/i).test(navigator.userAgent); 
+  if (isSafariBrowser) {
     $("#not_supported_safari_browser").removeClass("hidden");
   }
 
