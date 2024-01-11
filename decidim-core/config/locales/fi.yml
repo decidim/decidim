@@ -507,8 +507,6 @@ fi:
         name: Alaosion esialueen banneri
       global_menu:
         name: Päänavigaatio
-      hero:
-        name: Pääkuva
       hero_settings_form:
         background_image: Taustakuva
         welcome_text: Tervetuloa-teksti
