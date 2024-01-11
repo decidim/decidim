@@ -345,8 +345,6 @@ tr:
         description: Açıklama
       footer_sub_hero:
         name: Dipnot alt afişi
-      hero:
-        name: Ana resim
       hero_settings_form:
         background_image: Arka plan resmi
         welcome_text: Hoşgeldin Mesajı
