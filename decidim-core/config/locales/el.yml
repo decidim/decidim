@@ -419,8 +419,6 @@ el:
         description: Περιγραφή
       footer_sub_hero:
         name: Δευτερεύον κύριο διαφημιστικό πλαίσιο υποσέλιδου
-      hero:
-        name: Κύρια εικόνα
       hero_settings_form:
         background_image: Εικόνα φόντου
         welcome_text: Κείμενο καλωσορίσματος
