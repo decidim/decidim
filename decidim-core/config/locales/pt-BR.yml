@@ -1218,7 +1218,7 @@ pt-BR:
       floating_help:
         help: Socorro
       login_modal:
-        sign_up: Inscrever-se
+        sign_up: Cadastrar-se
       mentions_modal:
         remove_recipient: Remover destinatário %{name}
       participatory_space_filters:
@@ -1392,7 +1392,7 @@ pt-BR:
     registrations:
       destroyed: Tchau! Sua conta foi cancelada com sucesso. Esperamos te ver novamente em breve.
       new:
-        sign_up: inscrever-se
+        sign_up: Cadastrar-se
       signed_up: Bem vinda! Você se inscreveu com sucesso.
       signed_up_but_inactive: Você se inscreveu com sucesso. No entanto, não poderíamos fazer o seu login porque sua conta ainda não está ativada.
       signed_up_but_locked: Você se inscreveu com sucesso. No entanto, não poderíamos fazer login porque sua conta está bloqueada.
@@ -1410,7 +1410,7 @@ pt-BR:
         forgot_your_password: Esqueceu sua senha?
         log_in: Iniciar sessão
         log_in_with_provider: Iniciar sessão com %{provider}
-        sign_up: inscrever-se
+        sign_up: Cadastrar-se
       minimum_password_length:
         one: "(Mínimo de%{count} caracteres)"
         other: "(%{count} caracteres no mínimo)"
@@ -1485,7 +1485,7 @@ pt-BR:
           accept_all: Aceitar todas
           accept_only_essential: Aceitar apenas o essencial
           description: Utilizamos cookies neste site para amelhorar o desempenho da página. As cookies nos permitem oferecer uma experiência mais personalizada ao usuário e aos canais de redes sociais.
-          title: Informações sobre as cookies utilizadas no site
+          title: Informações sobre os cookies utilizados no site
         modal:
           accept_all:
           accept_only_essential: Aceitar apenas o essencial
@@ -1520,7 +1520,7 @@ pt-BR:
         log_in: Iniciar sessão
         made_with_open_source: Site criado com <a target="_blank" href="https://github.com/decidim/decidim"> software livre</a>.
         resources: Recursos
-        sign_up: Inscrever-se
+        sign_up: Cadastrar-se
         terms_and_conditions: Termos e Condições
       header:
         log_in: Iniciar sessão
