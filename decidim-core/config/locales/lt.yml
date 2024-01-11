@@ -536,8 +536,6 @@ lt:
         name: Apatinės dalies reklamjuostė
       global_menu:
         name: Globalus meniu
-      hero:
-        name: Pagrindinis vaizdas
       hero_settings_form:
         background_image: Foninis paveikslėlis
         welcome_text: Pasveikinimo tekstas
