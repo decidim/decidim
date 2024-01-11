@@ -68,8 +68,8 @@ module Decidim
       scope :state_published, -> { where.not(state_published_at: nil) }
       scope :except_rejected, -> { not_rejected.or(state_not_published) }
 
-      scope :withdrawn, -> { where(withdrawn: true) }
-      scope :not_withdrawn, -> { where(withdrawn: false) }
+      scope :withdrawn, -> { where.not(withdrawn_at: nil) }
+      scope :not_withdrawn, -> { where(withdrawn: nil) }
 
       scope :drafts, -> { where(published_at: nil) }
       scope :published, -> { where.not(published_at: nil) }
@@ -226,6 +226,11 @@ module Decidim
         answered_at.present?
       end
 
+      # Public: Checks if the author has withdrawn the proposal.
+      #
+      # Returns Boolean.
+      def withdrawn? = withdrawn_at.present?
+
       # Public: Checks if the organization has accepted a proposal.
       #
       # Returns Boolean.
@@ -322,7 +327,6 @@ module Decidim
       end
 
       def withdraw!
-        self.withdrawn = true
         self.withdrawn_at = Time.zone.now
         save
       end

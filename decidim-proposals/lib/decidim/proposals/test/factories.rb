@@ -370,7 +370,6 @@ FactoryBot.define do
 
     trait :withdrawn do
       withdrawn_at { Time.current }
-      withdrawn { true }
     end
 
     trait :accepted_not_published do
