@@ -390,8 +390,8 @@ en:
         form:
           domain_too_short: Domain too short
         update:
-          error: Failed to update domain allowlist.
-          success: Domain allowlist updated successfully.
+          error: Failed to update list of allowed external domains
+          success: The list of allowed external domain successfully updated.
       exports:
         export_as: "%{name} as %{export_format}"
         formats:
@@ -866,7 +866,7 @@ en:
           up: Up
         form:
           add: Add to allowed list
-          title: Allowed list of External domains
+          title: Allowed list of external domains
       participatory_space_private_users:
         create:
           error: There was a problem adding a private participant for this participatory space.
@@ -1014,7 +1014,7 @@ en:
         areas: Areas
         authorization_workflows: Verification methods
         dashboard: Dashboard
-        edit_external_domains: Allowed list of External domains
+        edit_external_domains: Allowed list of external domains
         edit_landing_page: Page contents
         edit_organization_appearance: Edit homepage appearance
         impersonatable_users: Manageable participants
