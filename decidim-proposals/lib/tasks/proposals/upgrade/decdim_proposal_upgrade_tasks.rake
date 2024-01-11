@@ -38,7 +38,7 @@ namespace :decidim do
           enum state: STATES, _default: "not_answered"
         end
 
-        CustomProposal.where.withdrawn.update(withdrawn_at: Time.zone.now, updated_at: Time.zone.now)
+        CustomProposal.withdrawn.update(withdrawn_at: Time.zone.now, updated_at: Time.zone.now)
       end
     end
   end
