@@ -74,7 +74,7 @@ module Decidim::MaintainersToolbox
     end
 
     def short_name
-      name.gsub(/decidim-/, "")
+      name.gsub("decidim-", "")
     end
 
     class << self
@@ -186,11 +186,11 @@ module Decidim::MaintainersToolbox
       # Excludes the decidim-maintainers_toolbox gem as it is an special case.
       # It is not included in the same life cycle of the other gems
       def plugins
-        Dir.glob("#{root}/decidim-*/").reject { |directory| directory.match?(/decidim-maintainers_toolbox/) }
+        Dir.glob("#{root}/decidim-*/").grep_v(/decidim-maintainers_toolbox/)
       end
 
       def semver_friendly_version(a_version)
-        a_version.gsub(/\.pre/, "-pre").gsub(/\.dev/, "-dev").gsub(/.rc(\d*)/, "-rc\\1")
+        a_version.gsub(".pre", "-pre").gsub(".dev", "-dev").gsub(/.rc(\d*)/, "-rc\\1")
       end
 
       def fail_fast?

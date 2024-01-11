@@ -30,7 +30,7 @@ module Decidim::MaintainersToolbox
         exit_if_unstaged_changes if @exit_with_unstaged_changes
         exit_if_pending_crowdin_pull_request
 
-        puts "Starting the release process for #{version_number} in 10 seconds" # rubocop:disable Rails/Output
+        puts "Starting the release process for #{version_number} in 10 seconds"
         sleep 10
 
         run("git checkout #{release_branch}")
@@ -172,12 +172,12 @@ module Decidim::MaintainersToolbox
     #
     # @return [void]
     def check_tests
-      puts "Running specs" # rubocop:disable Rails/Output
+      puts "Running specs"
       output, status = capture("bin/rspec")
 
       unless status.success?
         run("git restore .")
-        puts output # rubocop:disable Rails/Output
+        puts output
         exit_with_errors("Tests execution failed. Fix the errors and run again.")
       end
     end
@@ -276,8 +276,8 @@ You will see errors such as `No matching version found for @decidim/browserslist
     #
     # @return [void]
     def exit_with_errors(message)
-      puts message # rubocop:disable Rails/Output
-      exit 1 # rubocop:disable Rails/Exit
+      puts message
+      exit 1
     end
   end
 end

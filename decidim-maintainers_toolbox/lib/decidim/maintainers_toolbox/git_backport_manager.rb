@@ -174,7 +174,7 @@ module Decidim::MaintainersToolbox
     # @return [void]
     def exit_with_errors(message)
       puts message
-      exit 1 # rubocop:disable Rails/Exit
+      exit 1
     end
   end
   # rubocop:enable Rails/Output
