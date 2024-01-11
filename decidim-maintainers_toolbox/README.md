@@ -16,6 +16,11 @@ This gem is meant to be used outside of bundler/Gemfile so we do not need to bum
 
 This gem allows preparing and working with Decidim releases. Is it meant to be used by maintainers of the project. In the near future most of these tools will be used by `decidim-bot`.
 
+There are a couple differences with the rest of the gems of this repository:
+
+* About the versioning: as it has not decidim nor decidim-core as dependencies, and to keep it easy to work with, we will not have the same versioning as the others gems.
+* About the ruby version: to make it possible to work with older decidim versions, we will support the lowest supported ruby version.
+
 The main scripts are `backporter`, `backports_checker`, `changelog_generator` and `releaser`.
 
 ### backporter
