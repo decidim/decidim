@@ -65,9 +65,6 @@ it:
   booleans:
     'false': 'No'
     'true': 'Si'
-  carrierwave:
-    errors:
-      not_inside_organization: Il file non è collegato a nessuna organizzazione
   date:
     formats:
       decidim_short: "%d/%m/%Y"
