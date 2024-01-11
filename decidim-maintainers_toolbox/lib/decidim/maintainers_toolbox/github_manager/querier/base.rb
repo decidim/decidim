@@ -45,7 +45,7 @@ module Decidim::MaintainersToolbox
         # Supports pagination
         #
         # @param uri {String} - The URL that we want to get the JSON response from
-        # @param old_json {Array} - The Array with the old_json or an empty Array if it's the first time that we're calling this method
+        # @param old_json {Array} - The Array with the old_json or an empty Array if it is the first time that we are calling this method
         def json_response(uri, old_json = [])
           body, headers = request(uri).values_at(:body, :headers)
           json = JSON.parse(body)
