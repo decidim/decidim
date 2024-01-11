@@ -7,7 +7,7 @@ pt-BR:
         announcement: Avisos
         area_id: Área
         assembly_type: Tipo de assembleia
-        assembly_type_other: Tipo de montagem outro
+        assembly_type_other: Outro tipo de assambleia
         banner_image: Imagem da bandeira
         closing_date: Data de encerramento
         closing_date_reason: Razão da data de encerramento
@@ -39,7 +39,7 @@ pt-BR:
         is_transparent: É transparente
         local_area: Área da organização
         meta_scope: Metadados do âmbito
-        parent_id: Montagem dos pais
+        parent_id: Assambleia mãe
         participatory_processes_ids: Processos participativos relacionados
         participatory_scope: O que é decidido
         participatory_structure: Como é decidido
@@ -95,7 +95,9 @@ pt-BR:
       actions:
         import_assembly: Importar
         new_assembly: Nova assembleia
+        new_assembly_member: Novo membro da assembleia
         new_assembly_type: Novo tipo de assembleia
+        new_assembly_user_role: Novo administrador da assambleia
       assemblies:
         create:
           error: Ocorreu um erro ao criar uma nova assembleia.
@@ -165,8 +167,8 @@ pt-BR:
           success: Assembleia não publicada com sucesso.
       assembly_user_roles:
         create:
-          error: Ocorreu um erro ao adicionar um usuário para esta montagem.
-          success: Usuário adicionado com sucesso a esta montagem.
+          error: Ocorreu um erro ao adicionar um usuário para esta assambleia.
+          success: Usuário adicionado com sucesso a esta assambleia.
         destroy:
           success: Usuário removido com sucesso deste assembly.
         edit:
@@ -176,8 +178,8 @@ pt-BR:
         new:
           create: Criar
         update:
-          error: Ocorreu um erro ao atualizar um usuário para esta montagem.
-          success: Usuário atualizado com sucesso para esta montagem.
+          error: Ocorreu um erro ao atualizar um usuário para esta assambleia.
+          success: Usuário atualizado com sucesso para esta assambleia.
       filters:
         ceased_date_not_null:
           label: Cessado
@@ -248,11 +250,11 @@ pt-BR:
         import: "%{user_name} importou a assambleia %{resource_name}"
         publish: "%{user_name} publicou o conjunto %{resource_name}"
         unpublish: "%{user_name} não publicado o conjunto %{resource_name}"
-        update: "%{user_name} atualizou a montagem %{resource_name}"
+        update: "%{user_name} atualizou a assambleia %{resource_name}"
       assembly_member:
-        create: "%{user_name} criou o membro %{resource_name} na montagem %{space_name}"
+        create: "%{user_name} criou o membro %{resource_name} na assambleia %{space_name}"
         delete: "%{user_name} removeu o membro %{resource_name} do conjunto %{space_name}"
-        update: "%{user_name} atualizou o %{resource_name} membro na montagem %{space_name}"
+        update: "%{user_name} atualizou o %{resource_name} membro na assambleia %{space_name}"
       assembly_setting:
         update: "%{user_name} atualizou as configurações da assembleia"
       assembly_type:
@@ -264,7 +266,7 @@ pt-BR:
       assembly_user_role:
         create: "%{user_name} convidou %{resource_name} para o assembly %{space_name}"
         delete: "%{user_name} removeu o usuário %{resource_name} do conjunto %{space_name}"
-        update: "%{user_name} alterou a função de %{resource_name} na montagem %{space_name}"
+        update: "%{user_name} alterou a função de %{resource_name} na assambleia %{space_name}"
     assemblies:
       admin:
         assemblies:
@@ -435,7 +437,7 @@ pt-BR:
             other: "Assembleia %{count}"
         order_by_assemblies:
           assemblies:
-            one: "Assembly %{count}"
-            other: "Conjuntos %{count}"
+            one: "%{count} assambleia"
+            other: "%{count} assambleias"
       assembly_navigation:
         assembly_member_menu_item: Membros
