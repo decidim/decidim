@@ -606,7 +606,7 @@ pt-BR:
             progress: Andamento
             sent_at: Enviado em
             sent_to: Enviado para
-            subject: Sujeito
+            subject: Assunto
           name: Newsletter
         participatory_space_private_user:
           name: Espaço participativo usuário particular
@@ -754,7 +754,7 @@ pt-BR:
           preview: Pré-visualização
           select_recipients_to_deliver: Selecionar destinatários para entregar
           send_me_a_test_email: Me envie um email teste
-          subject: Sujeito
+          subject: Assunto
         update:
           error: Ocorreu um erro ao atualizar este boletim informativo.
           success: Newsletter atualizada com sucesso. Por favor, reveja-o antes de enviar.
@@ -1045,8 +1045,8 @@ pt-BR:
         object: usuários bloqueados
         title: Usuários bloqueados
       reported_users:
-        object: usuários reportados
-        title: Usuários reportados
+        object: usuários denunciados
+        title: Usuários denunciados
       user_reports:
         object: reports do usuário
         title: Reports do usuário
