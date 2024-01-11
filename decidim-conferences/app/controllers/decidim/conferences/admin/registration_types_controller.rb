@@ -10,6 +10,8 @@ module Decidim
         include Decidim::ApplicationHelper
         include Decidim::Paginable
 
+        add_breadcrumb_item_from_menu :conferences_admin_registrations_menu
+
         def index
           enforce_permission_to :index, :registration_type
 

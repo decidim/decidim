@@ -12,6 +12,8 @@ module Decidim
       helper_method :user
       helper Decidim::Messaging::ConversationHelper
 
+      add_breadcrumb_item_from_menu :admin_user_menu
+
       def index
         enforce_permission_to :read, :officialization
         @users = filtered_collection

@@ -19,9 +19,10 @@ module Decidim
 
           included do
             include Decidim::Admin::ParticipatorySpaceAdminContext
-            participatory_space_admin_layout
-
             helper_method :current_conference
+            add_breadcrumb_item_from_menu :conferences_admin_menu
+
+            participatory_space_admin_layout
 
             def current_conference
               @current_conference ||= organization_conferences.find_by!(
