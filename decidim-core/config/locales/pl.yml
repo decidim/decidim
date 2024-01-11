@@ -498,8 +498,6 @@ pl:
         name: Baner podrzędny stopki
       global_menu:
         name: Globalne menu
-      hero:
-        name: Obraz główny
       hero_settings_form:
         background_image: Obraz tła
         welcome_text: Tekst powitalny
