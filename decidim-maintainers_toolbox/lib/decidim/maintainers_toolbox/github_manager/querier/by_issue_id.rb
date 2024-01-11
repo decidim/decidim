@@ -35,7 +35,7 @@ module Decidim::MaintainersToolbox
           {
             id: metadata["number"],
             title: metadata["title"],
-            labels:,
+            labels: labels,
             type: labels.select { |l| l.match(/^type: /) || l == "target: developer-experience" },
             modules: labels.select { |l| l.match(/^module: /) }
           }

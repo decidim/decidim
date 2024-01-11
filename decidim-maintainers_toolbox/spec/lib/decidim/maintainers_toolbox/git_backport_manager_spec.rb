@@ -5,7 +5,7 @@ require "fileutils"
 require "decidim/maintainers_toolbox/git_backport_manager"
 
 describe Decidim::MaintainersToolbox::GitBackportManager do
-  subject { described_class.new(pull_request_id:, release_branch:, backport_branch:, working_dir: tmp_repository_dir) }
+  subject { described_class.new(pull_request_id: pull_request_id, release_branch: release_branch, backport_branch: backport_branch, working_dir: tmp_repository_dir) }
 
   let(:release_branch) { "release/0.99-stable" }
   let(:backport_branch) { "backport/fix-something-9876" }

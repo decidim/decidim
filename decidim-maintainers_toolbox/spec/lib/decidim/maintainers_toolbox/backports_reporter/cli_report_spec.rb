@@ -3,10 +3,10 @@
 require "decidim/maintainers_toolbox/backports_reporter/cli_report"
 
 describe Decidim::MaintainersToolbox::BackportsReporter::CLIReport do
-  subject { described_class.new(report:, last_version_number:).call }
+  subject { described_class.new(report: report, last_version_number: last_version_number).call }
 
   let(:report) do
-    [{ id:, title:, related_issues: }]
+    [{ id: id, title: title, related_issues: related_issues }]
   end
   let(:id) { 10_234 }
   let(:title) { "Fix the world" }

@@ -4,7 +4,7 @@ require "decidim/maintainers_toolbox/github_manager/querier"
 require "webmock/rspec"
 
 describe Decidim::MaintainersToolbox::GithubManager::Querier::ByTitle do
-  let(:querier) { described_class.new(token: "abc", title:, state:) }
+  let(:querier) { described_class.new(token: "abc", title: title, state: state) }
   let(:title) { "Fix whatever" }
   let(:state) { "open" }
 

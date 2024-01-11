@@ -7,7 +7,7 @@ require "active_support/testing/time_helpers"
 describe Decidim::MaintainersToolbox::GithubManager::Querier::ByLabel do
   include ActiveSupport::Testing::TimeHelpers
 
-  let(:querier) { described_class.new(token: "abc", days_to_check_from:) }
+  let(:querier) { described_class.new(token: "abc", days_to_check_from: days_to_check_from) }
   let(:days_to_check_from) { 90 }
   let(:date) { Date.new(2020, 1, 1) }
   let(:stubbed_url) { "https://api.github.com/repos/decidim/decidim/issues?labels=type:%20fix&per_page=100&since=2019-10-03&state=closed" }

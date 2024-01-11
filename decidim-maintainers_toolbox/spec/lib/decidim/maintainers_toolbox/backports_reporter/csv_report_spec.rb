@@ -3,7 +3,7 @@
 require "decidim/maintainers_toolbox/backports_reporter/csv_report"
 
 describe Decidim::MaintainersToolbox::BackportsReporter::CSVReport do
-  subject { described_class.new(report:, last_version_number:).call }
+  subject { described_class.new(report: report, last_version_number: last_version_number).call }
 
   let(:report) do
     [{ id: 1234, title: "Fix the world", related_issues: [] }]

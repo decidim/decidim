@@ -99,7 +99,7 @@ module Decidim::MaintainersToolbox
     def parsed_version_number(version_number)
       /(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)/ =~ version_number
 
-      { major: major.to_i, minor: minor.to_i, patch: patch.to_i }
+      [major.to_i, minor.to_i, patch.to_i]
     end
 
     # Given a version number, returns the next release candidate
@@ -116,7 +116,7 @@ module Decidim::MaintainersToolbox
     # @return [String] - the new version number
     def next_version_number_for_release_candidate(current_version_number)
       if current_version_number.include? "dev"
-        parsed_version_number(current_version_number) => { major:, minor:, patch: }
+        major, minor, patch = parsed_version_number(current_version_number)
         new_version_number = "#{major}.#{minor}.#{patch}.rc1"
       elsif current_version_number.include? "rc"
         new_rc_number = current_version_number.match(/rc(\d)/)[1].to_i + 1
@@ -144,7 +144,7 @@ module Decidim::MaintainersToolbox
     #
     # @return [String] - the new version number
     def next_version_number_for_patch_release(current_version_number)
-      parsed_version_number(current_version_number) => { major:, minor:, patch: }
+      major, minor, patch = parsed_version_number(current_version_number)
 
       if current_version_number.include? "dev"
         error_message = <<-EOMESSAGE
@@ -220,7 +220,7 @@ You will see errors such as `No matching version found for @decidim/browserslist
         head: head_branch,
         base: base_branch
       }
-      Decidim::GithubManager::Poster.new(token: @token, params:).call
+      Decidim::GithubManager::Poster.new(token: @token, params: params).call
     end
 
     # Captures to output of a command
@@ -234,7 +234,7 @@ You will see errors such as `No matching version found for @decidim/browserslist
     #
     # @return [void]
     def run(cmd, out: $stdout)
-      system(cmd, out:)
+      system(cmd, out: out)
     end
 
     # Check if there is any open pull request from Crowdin in GitHub

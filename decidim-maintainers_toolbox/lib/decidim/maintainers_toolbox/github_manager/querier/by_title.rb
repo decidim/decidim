@@ -34,8 +34,8 @@ module Decidim::MaintainersToolbox
 
         def headers
           {
-            title:,
-            state:,
+            title: title,
+            state: state,
             per_page: 100
           }
         end

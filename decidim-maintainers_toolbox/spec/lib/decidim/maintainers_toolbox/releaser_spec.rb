@@ -3,7 +3,7 @@
 require "decidim/maintainers_toolbox/releaser"
 
 describe Decidim::MaintainersToolbox::Releaser do
-  subject { described_class.new(token:, version_type:, exit_with_unstaged_changes:, working_dir: tmp_repository_dir) }
+  subject { described_class.new(token: token, version_type: version_type, exit_with_unstaged_changes: exit_with_unstaged_changes, working_dir: tmp_repository_dir) }
 
   let(:token) { "1234" }
   let(:version_type) { "patch" }
@@ -88,7 +88,7 @@ describe Decidim::MaintainersToolbox::Releaser do
       let(:version_number) { "1.2.3.dev" }
 
       it "parses the version number" do
-        expect(subject.send(:parsed_version_number, version_number)).to eq({ major: 1, minor: 2, patch: 3 })
+        expect(subject.send(:parsed_version_number, version_number)).to eq( [1, 2, 3])
       end
     end
 
@@ -96,7 +96,7 @@ describe Decidim::MaintainersToolbox::Releaser do
       let(:version_number) { "1.2.3.rc1" }
 
       it "parses the version number" do
-        expect(subject.send(:parsed_version_number, version_number)).to eq({ major: 1, minor: 2, patch: 3 })
+        expect(subject.send(:parsed_version_number, version_number)).to eq( [1, 2, 3])
       end
     end
 
@@ -104,7 +104,7 @@ describe Decidim::MaintainersToolbox::Releaser do
       let(:version_number) { "1.2.3" }
 
       it "parses the version number" do
-        expect(subject.send(:parsed_version_number, version_number)).to eq({ major: 1, minor: 2, patch: 3 })
+        expect(subject.send(:parsed_version_number, version_number)).to eq( [1, 2, 3])
       end
     end
   end

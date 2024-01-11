@@ -62,17 +62,17 @@ module Decidim::MaintainersToolbox
 
     def by_label(label:, exclude_labels:, days_to_check_from:)
       Decidim::MaintainersToolbox::GithubManager::Querier::ByLabel.new(
-        token:,
-        label:,
-        exclude_labels:,
-        days_to_check_from:
+        token: token,
+        label: label,
+        exclude_labels: exclude_labels,
+        days_to_check_from: days_to_check_from
       ).call
     end
 
     def related_issues(issue_id)
       Decidim::MaintainersToolbox::GithubManager::Querier::RelatedIssues.new(
-        token:,
-        issue_id:
+        token: token,
+        issue_id: issue_id
       ).call
     end
   end

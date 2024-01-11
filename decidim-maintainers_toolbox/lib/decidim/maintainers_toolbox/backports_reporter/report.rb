@@ -11,7 +11,9 @@ module Decidim::MaintainersToolbox
         @last_version_number = last_version_number
       end
 
-      def call = output_report
+      def call
+        output_report
+      end
 
       private
 
@@ -29,9 +31,13 @@ module Decidim::MaintainersToolbox
         output
       end
 
-      def output_head = raise "Called abstract method: output_head"
+      def output_head
+        raise "Called abstract method: output_head"
+      end
 
-      def output_line(_line) = raise "Called abstract method: output_line"
+      def output_line(_line)
+        raise "Called abstract method: output_line"
+      end
 
       def extract_backport_pull_request_for_version(related_issues, version)
         related_issues = related_issues.select do |pull_request|

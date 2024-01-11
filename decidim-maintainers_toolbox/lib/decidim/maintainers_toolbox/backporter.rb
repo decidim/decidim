@@ -38,7 +38,7 @@ module Decidim::MaintainersToolbox
     # @return [Faraday::Response] An instance that represents an HTTP response from making an HTTP request
     def pull_request_metadata
       Decidim::GithubManager::Querier::ByIssueId.new(
-        token:,
+        token: issue,
         issue_id: pull_request_id
       ).call
     end
@@ -48,10 +48,10 @@ module Decidim::MaintainersToolbox
     # @return [void]
     def make_cherrypick_and_branch(metadata)
       Decidim::GitBackportManager.new(
-        pull_request_id:,
-        release_branch:,
+        pull_request_id: pull_request_id,
+        release_branch: request_branch,
         backport_branch: backport_branch(metadata[:title]),
-        exit_with_unstaged_changes:
+        exit_with_unstaged_changes: exit_with_unstaged_changes
       ).call
     end
 
@@ -68,8 +68,8 @@ module Decidim::MaintainersToolbox
       }
 
       Decidim::GithubManager::Poster.new(
-        token:,
-        params:
+        token: token,
+        params: params
       ).call
     end
 

@@ -43,13 +43,13 @@ module Decidim::MaintainersToolbox
 
     def run(command, out: $stdout)
       interpolated_in_folder(command) do |cmd|
-        self.class.run(cmd, out:)
+        self.class.run(cmd, out: out)
       end
     end
 
     def capture(command, env: {}, with_stderr: true)
       interpolated_in_folder(command) do |cmd|
-        self.class.capture(cmd, env:, with_stderr:)
+        self.class.capture(cmd, env: env, with_stderr: with_stderr)
       end
     end
 
@@ -85,7 +85,7 @@ module Decidim::MaintainersToolbox
       end
 
       def run(cmd, out: $stdout)
-        system(cmd, out:)
+        system(cmd, out: out)
       end
 
       def test_participatory_space
@@ -112,30 +112,30 @@ module Decidim::MaintainersToolbox
         run_all(
           "gem build %name && mv %name-%version.gem ..",
           include_root: false,
-          out:
+          out: out
         )
 
         new(root).run(
           "gem build %name && gem install *.gem",
-          out:
+          out: out
         )
       end
 
       def uninstall_all(out: $stdout)
         run_all(
           "gem uninstall %name -v %version --executables --force",
-          out:
+          out: out
         )
 
         new(root).run(
           "rm decidim-*.gem",
-          out:
+          out: out
         )
       end
 
       def run_all(command, out: $stdout, include_root: true)
-        all_dirs(include_root:) do |dir|
-          status = run_at(dir, command, out:)
+        all_dirs(include_root: include_root) do |dir|
+          status = run_at(dir, command, out: out)
 
           break if !status && fail_fast?
         end
@@ -143,7 +143,7 @@ module Decidim::MaintainersToolbox
 
       def run_packages(command, out: $stdout)
         package_dirs do |dir|
-          status = run_at(dir, command, out:)
+          status = run_at(dir, command, out: out)
 
           break if !status && fail_fast?
         end
@@ -151,7 +151,7 @@ module Decidim::MaintainersToolbox
 
       def run_at(dir, command, out: $stdout)
         attempts = 0
-        until (status = new(dir).run(command, out:))
+        until (status = new(dir).run(command, out: out))
           attempts += 1
 
           break if attempts > Decidim::MaintainersToolbox::GemManager.retry_times
