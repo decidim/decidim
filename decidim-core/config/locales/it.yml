@@ -353,8 +353,6 @@ it:
         description: Descrisione
       footer_sub_hero:
         name: Banner di sub eroe di piè di pagina
-      hero:
-        name: Immagine in evidenza
       hero_settings_form:
         background_image: Immagine di sfondo
         welcome_text: Testo di benvenuto
