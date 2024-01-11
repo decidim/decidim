@@ -55,9 +55,6 @@ zh-CN:
   booleans:
     'false': '否'
     'true': '否'
-  carrierwave:
-    errors:
-      not_inside_organization: 该文件没有附加到任何组织
   date:
     formats:
       decidim_short: "%d/%m/%Y"
