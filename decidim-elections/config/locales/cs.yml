@@ -679,7 +679,6 @@ cs:
           back: Zahájit proces hlasování znovu
           ballot_hash: 'Identifikátor vašeho hlasování:'
           cast: Uložte hlasování, abyste dokončili vaše hlasování
-          description: Zde máte možnost volby, aby bylo hlasování řádně započteno, nebo alternativně můžete kontrolovat, že vaše hlasování bylo správně zašifrováno. Z bezpečnostních důvodů to zkazí audit vašich voleb. To znamená, že abyste mohli hlasovat, budete muset znovu zahájit hlasovací proces.
           header: 'Hlasovací lístek je šifrovaný: zahlasujte s ním nebo jej auditujte'
         casting:
           header: Hlasování...
