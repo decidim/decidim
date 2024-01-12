@@ -131,7 +131,7 @@ module Decidim
         end
 
         def available_states(component_id = nil)
-          Decidim::Proposals::ProposalState.answerable.where(decidim_component_id: component_id)
+          Decidim::Proposals::ProposalState.where(decidim_component_id: component_id)
         end
 
         def populate_template_interpolations(proposal)

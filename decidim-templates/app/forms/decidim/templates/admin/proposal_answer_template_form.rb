@@ -21,7 +21,7 @@ module Decidim
         end
 
         def proposal_state_id_is_valid
-          if Decidim::Proposals::ProposalState.answerable.where(decidim_component_id: component_constraint).find_by(id: proposal_state_id).blank?
+          if Decidim::Proposals::ProposalState.where(decidim_component_id: component_constraint).find_by(id: proposal_state_id).blank?
             errors.add(:proposal_state_id,
                        :blank)
           end

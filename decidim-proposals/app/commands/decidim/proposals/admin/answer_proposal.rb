@@ -50,11 +50,11 @@ module Decidim
               execution_period: form.execution_period
             }
 
-            proposal.assign_state(form.state)
             if form.state == "not_answered"
               attributes[:answered_at] = nil
               attributes[:state_published_at] = nil
             else
+              proposal.assign_state(form.state)
               attributes[:answered_at] = Time.current
               attributes[:state_published_at] = Time.current if !initial_has_state_published && form.publish_answer?
             end
@@ -71,7 +71,7 @@ module Decidim
 
         def store_initial_proposal_state
           @initial_has_state_published = proposal.published_state?
-          @initial_state = proposal.proposal_state
+          @initial_state = proposal.state
         end
       end
     end

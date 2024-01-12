@@ -83,10 +83,6 @@ module Decidim
 
       scope :only_status, lambda { |status|
         joins(:proposal_state).where(decidim_proposals_proposal_states: { token: status })
-                              .where(%(
-                      ("decidim_proposals_proposals"."state_published_at" IS NOT NULL AND  "decidim_proposals_proposal_states"."answerable" = TRUE) OR
-                      ("decidim_proposals_proposals"."state_published_at" IS NULL AND  "decidim_proposals_proposal_states"."answerable" = FALSE)
-          ))
       }
 
       scope :accepted, -> { state_published.only_status(:accepted) }

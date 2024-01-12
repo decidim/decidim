@@ -161,7 +161,7 @@ module Decidim
                              ).select(:coauthorable_id)
                            end
 
-            Decidim::Proposals::Proposal.where(id: proposal_ids).gamified.count
+            Decidim::Proposals::Proposal.where(id: proposal_ids).accepted.count
           }
         end
 

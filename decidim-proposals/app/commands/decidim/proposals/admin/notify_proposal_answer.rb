@@ -42,7 +42,7 @@ module Decidim
         end
 
         def notify_followers
-          return unless proposal.proposal_state.notifiable?
+          return if proposal.proposal_state.blank?
 
           Decidim::EventsManager.publish(
             event: "decidim.events.proposals.proposal_state_changed",
@@ -54,13 +54,11 @@ module Decidim
         end
 
         def increment_score
-          previously_gamified = initial_state.present? && initial_state.gamified?
-
-          if !previously_gamified && proposal.proposal_state.gamified?
+          if proposal.accepted?
             proposal.coauthorships.find_each do |coauthorship|
               Decidim::Gamification.increment_score(coauthorship.user_group || coauthorship.author, :accepted_proposals)
             end
-          elsif previously_gamified && !proposal.proposal_state.gamified?
+          elsif initial_state == "accepted"
             proposal.coauthorships.find_each do |coauthorship|
               Decidim::Gamification.decrement_score(coauthorship.user_group || coauthorship.author, :accepted_proposals)
             end
