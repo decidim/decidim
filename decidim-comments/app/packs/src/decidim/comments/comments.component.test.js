@@ -233,7 +233,7 @@ describe("CommentsComponent", () => {
         <div class="comment__content">
           <div><p>${content}</p></div>
         </div>
-        <div data-comment-footer data-component="accordion" role="presentation">
+        <div class="comment__footer" data-component="accordion" role="presentation">
           <div class="comment__footer-grid">
             <div class="comment__actions">
               <button class="button button__sm button__text-secondary" data-controls="panel-comment${commentId}-reply" role="button" tabindex="0" aria-controls="panel-comment${commentId}-reply" aria-expanded="false" aria-disabled="false">
