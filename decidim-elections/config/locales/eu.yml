@@ -664,7 +664,6 @@ eu:
           back: Hasi berriro bozkatzeko prozesua
           ballot_hash: 'Boto-paperaren identifikatzailea hau da:'
           cast: Eman boto-papera zure bozketa amaitzeko
-          description: Hemen dituzu zure boto-papera emateko aukerak, behar bezala zenbatua izateko edo, bestela, auditatu dezakezu zure boto-papera behar bezala zifratu zela. Segurtasun-arrazoiak direla eta, boto-txartela auditatzea balio gabe utziko da, eta horrek esan nahi du zure botoa emateko prozesua berriz hasi beharko duzula.
           header: 'Boto-papera zifratu da: bidali edo ikuskatu'
         casting:
           header: Botoa ematen ari da...
