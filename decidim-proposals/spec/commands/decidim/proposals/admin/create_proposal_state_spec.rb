@@ -22,7 +22,7 @@ module Decidim
           )
         end
 
-        subject { described_class.new(form, component) }
+        subject { described_class.new(form) }
 
         describe "call" do
           let(:form_params) do
