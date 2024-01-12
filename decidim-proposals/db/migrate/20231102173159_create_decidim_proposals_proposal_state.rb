@@ -4,7 +4,6 @@ class CreateDecidimProposalsProposalState < ActiveRecord::Migration[6.1]
   def change
     create_table :decidim_proposals_proposal_states do |t|
       t.jsonb :title
-      t.jsonb :description
       t.jsonb :announcement_title
       t.string :token, null: false
       t.boolean :system, null: false, default: false

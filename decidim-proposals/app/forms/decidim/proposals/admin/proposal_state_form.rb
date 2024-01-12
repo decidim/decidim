@@ -9,7 +9,6 @@ module Decidim
         mimic :proposal_state
 
         translatable_attribute :title, String
-        translatable_attribute :description, String
         translatable_attribute :announcement_title, String
         attribute :default, Boolean
         attribute :system, Boolean

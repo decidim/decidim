@@ -99,7 +99,7 @@ module Decidim
               expect(action_log.version.event).to eq "update"
             end
 
-            [:title, :announcement_title, :description, :css_class, :default, :answerable, :notifiable, :gamified].each do |field|
+            [:title, :announcement_title, :css_class, :default, :answerable, :notifiable, :gamified].each do |field|
               it "updates the #{field}" do
                 expect { command.call }.to change(state, field)
               end

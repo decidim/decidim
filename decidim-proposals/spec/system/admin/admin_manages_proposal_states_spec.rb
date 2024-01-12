@@ -51,14 +51,6 @@ describe "Admin manages proposals states" do
         )
 
         fill_in_i18n(
-          :proposal_state_description,
-          "#proposal_state-description-tabs",
-          en: "A longer description",
-          es: "Descripción más larga",
-          ca: "Descripció més llarga"
-        )
-
-        fill_in_i18n(
           :proposal_state_announcement_title,
           "#proposal_state-announcement_title-tabs",
           en: "A longer anouncement",
@@ -89,14 +81,6 @@ describe "Admin manages proposals states" do
           en: "Custom state",
           es: "Estado personalizado",
           ca: "Estat personalitzat"
-        )
-
-        fill_in_i18n(
-          :proposal_state_description,
-          "#proposal_state-description-tabs",
-          en: "A longer description",
-          es: "Descripción más larga",
-          ca: "Descripció més llarga"
         )
 
         fill_in_i18n(
@@ -131,7 +115,6 @@ describe "Admin manages proposals states" do
       expect(state).to be_notifiable
       expect(state).to be_gamified
       expect(translated(state.title)).to eq("Custom state")
-      expect(translated(state.description)).to eq("A longer description")
       expect(translated(state.announcement_title)).to eq("A longer anouncement")
       expect(state.css_class).to eq("csscustom")
     end
@@ -141,7 +124,6 @@ describe "Admin manages proposals states" do
     let(:state_params) do
       {
         title: { "en" => "Editable state" },
-        description: { "en" => "Editable description" },
         announcement_title: { "en" => "Editable announcement title" },
         token: "editable",
         css_class: "csseditable",
@@ -176,14 +158,6 @@ describe "Admin manages proposals states" do
         )
 
         fill_in_i18n(
-          :proposal_state_description,
-          "#proposal_state-description-tabs",
-          en: "A longer description",
-          es: "Descripción más larga",
-          ca: "Descripció més llarga"
-        )
-
-        fill_in_i18n(
           :proposal_state_announcement_title,
           "#proposal_state-announcement_title-tabs",
           en: "A longer anouncement",
@@ -212,7 +186,6 @@ describe "Admin manages proposals states" do
       expect(state).to be_notifiable
       expect(state).to be_gamified
       expect(translated(state.title)).to eq("Custom state")
-      expect(translated(state.description)).to eq("A longer description")
       expect(translated(state.announcement_title)).to eq("A longer anouncement")
       expect(state.css_class).to eq("csscustom")
     end
@@ -222,7 +195,6 @@ describe "Admin manages proposals states" do
     let(:state_params) do
       {
         title: { "en" => "Editable state" },
-        description: { "en" => "Editable description" },
         announcement_title: { "en" => "Editable announcement title" },
         token: "editable",
         css_class: "csseditable",

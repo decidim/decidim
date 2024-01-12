@@ -254,7 +254,6 @@ FactoryBot.define do
   factory :proposal_state, class: "Decidim::Proposals::ProposalState" do
     token { :not_answered }
     title { generate_state_title(:not_answered) }
-    description { Decidim::Faker::Localized.localized { Faker::Lorem.sentences(number: 3).join("\n") } }
     component { build(:proposal_component) }
     default { false }
     gamified { false }
