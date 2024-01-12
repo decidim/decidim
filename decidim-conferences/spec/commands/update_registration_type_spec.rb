@@ -25,11 +25,10 @@ module Decidim::Conferences
         invalid?: invalid,
         current_user:,
         title: { en: "New title" },
-        attributes: {
-          "title" => { en: "New title" },
-          "weight" => 2,
-          "description" => { en: "New description" }
-        }
+        weight: 2,
+        price: 10,
+        description: { en: "New description" },
+        attributes: {}
       )
     end
 
