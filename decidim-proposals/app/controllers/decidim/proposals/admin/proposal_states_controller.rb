@@ -21,7 +21,7 @@ module Decidim
 
           @form = form(ProposalStateForm).from_params(params)
 
-          CreateProposalState.call(@form, current_component) do
+          CreateProposalState.call(@form) do
             on(:ok) do
               flash[:notice] = I18n.t("proposal_states.create.success", scope: "decidim.proposals.admin")
               redirect_to proposal_states_path
