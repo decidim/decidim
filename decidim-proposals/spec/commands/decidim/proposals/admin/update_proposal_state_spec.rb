@@ -14,15 +14,9 @@ module Decidim
         let(:state_params) do
           {
             title: { "en" => "Editable state" },
-            description: { "en" => "Editable description" },
             announcement_title: { "en" => "Editable announcement title" },
             token: "editable",
-            css_class: "csseditable",
-            default: false,
-            answerable: false,
-            notifiable: false,
-            gamified: false,
-            system: true
+            css_class: "csseditable"
           }
         end
         let!(:state) { create(:proposal_state, component:, **state_params) }
@@ -40,15 +34,9 @@ module Decidim
         let(:form_params) do
           {
             title: { en: "A reasonable proposal title" },
-            description: { en: "A reasonable proposal body" },
             announcement_title: { en: "A reasonable proposal announcement title" },
             token: "custom",
-            css_class: "fooo",
-            default: true,
-            answerable: true,
-            notifiable: true,
-            system: false,
-            gamified: true
+            css_class: "fooo"
           }
         end
 
@@ -99,16 +87,14 @@ module Decidim
               expect(action_log.version.event).to eq "update"
             end
 
-            [:title, :announcement_title, :css_class, :default, :answerable, :notifiable, :gamified].each do |field|
+            [:title, :announcement_title, :css_class].each do |field|
               it "updates the #{field}" do
                 expect { command.call }.to change(state, field)
               end
             end
 
-            [:token, :system].each do |field|
-              it "does not updates the #{field}" do
-                expect { command.call }.not_to change(state, field)
-              end
+            it "does not updates the token" do
+              expect { command.call }.not_to change(state, :token)
             end
           end
         end

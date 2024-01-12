@@ -29,11 +29,7 @@ module Decidim
             {
               title: { en: "A reasonable proposal title" },
               description: { en: "A reasonable proposal body" },
-              token: "custom",
-              default: false,
-              answerable: false,
-              notifiable: false,
-              gamified: false
+              token: "custom"
             }
           end
 

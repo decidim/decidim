@@ -2,31 +2,13 @@
   <div class="card pt-4">
     <div class="card-section debate-fields">
       <div class="row column">
-        <%= form.text_field :token, readonly: form.object.system %>
+        <%= form.text_field :token, readonly: form.object.persisted? %>
       </div>
       <div class="row column hashtags__container">
         <%= form.translated :text_field, :title, aria: { label: :title } %>
       </div>
       <div class="row column">
         <%= form.translated :text_area, :announcement_title, aria: { label: :announcement_title } %>
-      </div>
-      <div class="row column">
-        <%= form.check_box :system, disabled: true %>
-      </div>
-      <div class="row column">
-        <%= form.check_box :default %>
-      </div>
-      <div class="row column">
-        <%= form.check_box :answerable %>
-      </div>
-      <div class="row column">
-        <%= form.check_box :notifiable %>
-      </div>
-      <div class="row column">
-        <%= form.check_box :gamified %>
-      </div>
-      <div class="row column">
-        <%#= form.check_box :include_in_stats %>
       </div>
       <div class="row column">
         <%= form.text_field :css_class %>

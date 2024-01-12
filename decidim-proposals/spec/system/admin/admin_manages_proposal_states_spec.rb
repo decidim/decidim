@@ -59,10 +59,6 @@ describe "Admin manages proposals states" do
         )
 
         fill_in :proposal_state_css_class, with: "csscustom"
-        check "Default"
-        check "Answerable"
-        check "Notifiable"
-        check "Gamified"
 
         find("*[type=submit]").click
       end
@@ -93,10 +89,6 @@ describe "Admin manages proposals states" do
 
         fill_in :proposal_state_token, with: "custom"
         fill_in :proposal_state_css_class, with: "csscustom"
-        check "Default"
-        check "Answerable"
-        check "Notifiable"
-        check "Gamified"
 
         find("*[type=submit]").click
       end
@@ -110,10 +102,6 @@ describe "Admin manages proposals states" do
 
       state = Decidim::Proposals::ProposalState.find_by(token: "custom")
       expect(state).to be_present
-      expect(state).to be_default
-      expect(state).to be_answerable
-      expect(state).to be_notifiable
-      expect(state).to be_gamified
       expect(translated(state.title)).to eq("Custom state")
       expect(translated(state.announcement_title)).to eq("A longer anouncement")
       expect(state.css_class).to eq("csscustom")
@@ -126,11 +114,7 @@ describe "Admin manages proposals states" do
         title: { "en" => "Editable state" },
         announcement_title: { "en" => "Editable announcement title" },
         token: "editable",
-        css_class: "csseditable",
-        default: false,
-        answerable: false,
-        notifiable: false,
-        gamified: false
+        css_class: "csseditable"
       }
     end
     let!(:state) { create(:proposal_state, component: current_component, **state_params) }
@@ -166,10 +150,6 @@ describe "Admin manages proposals states" do
         )
 
         fill_in :proposal_state_css_class, with: "csscustom"
-        check "Default"
-        check "Answerable"
-        check "Notifiable"
-        check "Gamified"
 
         find("*[type=submit]").click
       end
@@ -181,10 +161,6 @@ describe "Admin manages proposals states" do
 
       state = Decidim::Proposals::ProposalState.find_by(token: "editable")
 
-      expect(state).to be_default
-      expect(state).to be_answerable
-      expect(state).to be_notifiable
-      expect(state).to be_gamified
       expect(translated(state.title)).to eq("Custom state")
       expect(translated(state.announcement_title)).to eq("A longer anouncement")
       expect(state.css_class).to eq("csscustom")
@@ -197,12 +173,7 @@ describe "Admin manages proposals states" do
         title: { "en" => "Editable state" },
         announcement_title: { "en" => "Editable announcement title" },
         token: "editable",
-        css_class: "csseditable",
-        default: false,
-        answerable: false,
-        notifiable: false,
-        gamified: false,
-        system: false
+        css_class: "csseditable"
       }
     end
     let!(:state) { create(:proposal_state, component: current_component, **state_params) }

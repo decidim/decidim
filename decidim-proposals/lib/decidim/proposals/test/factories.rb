@@ -255,40 +255,26 @@ FactoryBot.define do
     token { :not_answered }
     title { generate_state_title(:not_answered) }
     component { build(:proposal_component) }
-    default { false }
-    gamified { false }
-    system { true }
     css_class { "" }
 
     trait :evaluating do
       title { generate_state_title(:evaluating) }
       token { :evaluating }
-      system { true }
-      notifiable { true }
-      answerable { true }
     end
 
     trait :accepted do
       title { generate_state_title(:accepted) }
       token { :accepted }
-      system { true }
-      gamified { true }
-      notifiable { true }
-      answerable { true }
     end
 
     trait :rejected do
       title { generate_state_title(:rejected) }
       token { :rejected }
-      system { true }
-      notifiable { true }
-      answerable { true }
     end
 
     trait :withdrawn do
       title { generate_state_title(:withdrawn) }
       token { :withdrawn }
-      system { true }
     end
   end
 
