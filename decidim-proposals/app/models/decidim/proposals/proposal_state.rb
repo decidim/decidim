@@ -13,14 +13,14 @@ module Decidim
       translatable_fields :title
 
       validates :token, presence: true, uniqueness: { scope: :component }
+      #
+      # scope :answerable, -> { where(answerable: true) }
+      # scope :system, -> { where(system: true) }
+      # scope :not_system, -> { where(system: false) }
+      # scope :default, -> { where(default: true) }
+      # scope :notifiable, -> { where(notifiable: true) }
 
-      scope :answerable, -> { where(answerable: true) }
-      scope :system, -> { where(system: true) }
-      scope :not_system, -> { where(system: false) }
-      scope :default, -> { where(default: true) }
-      scope :notifiable, -> { where(notifiable: true) }
-
-      translatable_fields :title, :description
+      translatable_fields :title
 
       has_many :proposals,
                class_name: "Decidim::Proposals::Proposal",
