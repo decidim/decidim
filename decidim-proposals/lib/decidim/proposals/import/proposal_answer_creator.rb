@@ -60,7 +60,7 @@ module Decidim
 
           proposal_state = Decidim::Proposals::ProposalState.where(component:, token: state).first
 
-          if proposal_state.answerable?
+          if proposal_state.present?
             proposal.proposal_state = proposal_state
             proposal.state_published_at = Time.current if component.current_settings.publish_answers_immediately?
           else
