@@ -193,15 +193,6 @@ describe "Admin manages proposals states" do
       expect(state).to be_nil
     end
 
-    it "does not delete the proposal state if it is a system state" do
-      state.update(system: true)
-      visit current_path
-
-      within find("tr", text: translated(state.title)) do
-        expect(page).not_to have_link("Delete")
-      end
-    end
-
     it "does not delete the proposal state if there are proposals attached" do
       proposal = create(:proposal, component: current_component, state: state.token)
 

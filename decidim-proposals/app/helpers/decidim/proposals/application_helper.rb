@@ -191,12 +191,9 @@ module Decidim
         Decidim::CheckBoxesTreeHelper::TreeNode.new(
           Decidim::CheckBoxesTreeHelper::TreePoint.new("", t("decidim.proposals.application_helper.filter_state_values.all")),
           [
-            Decidim::CheckBoxesTreeHelper::TreePoint.new("accepted", t("decidim.proposals.application_helper.filter_state_values.accepted")),
-            Decidim::CheckBoxesTreeHelper::TreePoint.new("evaluating", t("decidim.proposals.application_helper.filter_state_values.evaluating")),
-            Decidim::CheckBoxesTreeHelper::TreePoint.new("state_not_published", t("decidim.proposals.application_helper.filter_state_values.not_answered")),
-            Decidim::CheckBoxesTreeHelper::TreePoint.new("rejected", t("decidim.proposals.application_helper.filter_state_values.rejected"))
+            Decidim::CheckBoxesTreeHelper::TreePoint.new("state_not_published", t("decidim.proposals.application_helper.filter_state_values.not_answered"))
           ] +
-            Decidim::Proposals::ProposalState.not_system.where(component: current_component).map do |state|
+            Decidim::Proposals::ProposalState.where(component: current_component).map do |state|
               Decidim::CheckBoxesTreeHelper::TreePoint.new(state.token, translated_attribute(state.title))
             end
         )

@@ -237,8 +237,8 @@ module Decidim
 
       def default_states
         [
-          Decidim::Proposals::ProposalState.not_system.where(component: current_component).pluck(:token).map(&:to_s),
-          %w(accepted evaluating state_not_published)
+          Decidim::Proposals::ProposalState.where(component: current_component).pluck(:token).map(&:to_s),
+          %w(state_not_published)
         ].flatten
       end
 

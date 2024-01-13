@@ -53,6 +53,7 @@ module Decidim
             if form.state == "not_answered"
               attributes[:answered_at] = nil
               attributes[:state_published_at] = nil
+              proposal.proposal_state = nil
             else
               proposal.assign_state(form.state)
               attributes[:answered_at] = Time.current

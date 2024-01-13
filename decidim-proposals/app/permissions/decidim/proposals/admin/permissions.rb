@@ -64,7 +64,7 @@ module Decidim
 
           if permission_action.subject == :proposal_state
             if permission_action.action == :destroy
-              toggle_allow([proposal_state.system?, proposal_state.proposals.length.positive?].none?)
+              toggle_allow(proposal_state.proposals.empty?)
             else
               allow!
             end

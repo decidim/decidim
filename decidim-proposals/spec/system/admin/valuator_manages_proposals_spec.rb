@@ -129,11 +129,10 @@ describe "Valuator manages proposals" do
           {
             title: { en: "Custom state" },
             token: "custom_state",
-            css_class: "custom-state",
-            system: false
+            css_class: "custom-state"
           }
         end
-        let!(:custom_state) { create(:proposal_state, **state_params, answerable: true, component: current_component) }
+        let!(:custom_state) { create(:proposal_state, **state_params, component: current_component) }
 
         before do
           visit current_path
