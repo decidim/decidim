@@ -893,8 +893,6 @@ lb:
         metrics:
           headline: Statistiken
           link: All Statistiken uweisen
-    participatory_space_private_users:
-      not_allowed: Dir ass et net erlaabt dësen Inhalt ze gesinn
     profile:
       deleted: Teilnehmer geläscht
     profiles:

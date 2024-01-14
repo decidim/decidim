@@ -79,13 +79,7 @@ ga:
           form:
             invite: Tabhair Cuireadh
           index:
-            filter:
-              accepted: Glactha
-              all: Uile
-              rejected: Diúltaithe
-              sent: Seolta
             invites: Cuirí
-            search: Cuardaigh
         meeting_closes:
           edit:
             close: Dún

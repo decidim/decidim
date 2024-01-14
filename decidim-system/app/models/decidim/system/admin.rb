@@ -13,8 +13,8 @@ module Decidim
       private
 
       # Changes default Devise behaviour to use ActiveJob to send async emails.
-      def send_devise_notification(notification, *args)
-        devise_mailer.send(notification, self, *args).deliver_later
+      def send_devise_notification(notification, *)
+        devise_mailer.send(notification, self, *).deliver_later
       end
     end
   end

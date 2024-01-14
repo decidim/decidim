@@ -78,12 +78,6 @@ en:
   booleans:
     'false': 'No'
     'true': 'Yes'
-  carrierwave:
-    errors:
-      file_cannot_be_processed: File cannot be processed
-      file_resolution_too_large: File resolution is too large
-      file_size_too_large: File size is too large
-      not_inside_organization: The file is not attached to any organization
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -515,7 +509,7 @@ en:
       global_menu:
         name: Global menu
       hero:
-        name: Hero image
+        name: Hero image and CTA
       hero_settings_form:
         background_image: Background image
         welcome_text: Welcome text
@@ -675,6 +669,10 @@ en:
     endorsers_list:
       endorsed_by: Liked by…
     errors:
+      files:
+        file_cannot_be_processed: File cannot be processed
+        file_resolution_too_large: File resolution is too large
+        not_inside_organization: The file is not attached to any organization
       internal_server_error:
         copied: Text copied!
         copy_error_message_clarification: Copy error message to clipboard
@@ -1339,8 +1337,6 @@ en:
           alert: We have updated our Terms of Service, please review them.
           body: Please take a moment to review updates to our Terms of Services. Otherwise you will not be able to use the platform.
           title: 'Required: Review updates to our terms of service'
-    participatory_space_private_users:
-      not_allowed: You are not allowed to view this content
     passwords:
       update:
         error: There was a problem updating the password.
@@ -1802,30 +1798,32 @@ en:
     upload:
       uploadedFile: Uploaded file
   emojis:
+    add_custom: Add custom emoji
     button: Add emoji
     categories:
-      activities: Activities
-      animals-nature: Animals & Nature
+      activity: Activity
       custom: Custom
       flags: Flags
-      food-drink: Food & Drink
+      foods: Food & Drink
+      frequent: Frequently used
+      nature: Animals & Nature
       objects: Objects
-      people-body: People & Body
-      recents: Recently Used
-      smileys-emotion: Smileys & Emotion
+      people: Smileys & People
+      places: Travel & Places
+      search: Search Results
       symbols: Symbols
-      travel-places: Travel & Places
-    error:
-      load: Failed to load emojis
-    recents:
-      clear: Clear recent emojis
-      none: You have not selected any emojis yet.
-    retry: Try again
-    search:
-      _: Search emojis...
-      clear: Clear search
-      error: Failed to search emojis
-      not_found: No results found
+    pick: Pick an emoji…
+    search: Search
+    search_no_results_1: Oh no!
+    search_no_results_2: That emoji could not be found
+    skins:
+      '1': Default
+      '2': Light
+      '3': Medium-Light
+      '4': Medium
+      '5': Medium-Dark
+      '6': Dark
+      choose: Choose default skin tone
   errors:
     messages:
       allowed_file_content_types: 'only files with the following extensions are allowed: %{types}'

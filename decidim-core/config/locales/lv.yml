@@ -789,8 +789,6 @@ lv:
         metrics:
           headline: Rādītāji
           link: Rādīt visus rādītājus
-    participatory_space_private_users:
-      not_allowed: Jums nav atļauts skatīt šo saturu
     profile:
       deleted: Dzēsts dalībnieks
     profiles:

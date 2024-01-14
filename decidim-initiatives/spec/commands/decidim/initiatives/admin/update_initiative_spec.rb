@@ -48,10 +48,10 @@ module Decidim
           let!(:form) do
             form_klass
               .from_model(initiative)
-              .with_context(current_organization: organization, initiative:)
+              .with_context(current_organization: organization, current_user: initiative.author, initiative:)
           end
 
-          let(:command) { described_class.new(initiative, form, initiative.author) }
+          let(:command) { described_class.new(form, initiative) }
 
           it "broadcasts invalid" do
             expect(initiative).to receive(:valid?)

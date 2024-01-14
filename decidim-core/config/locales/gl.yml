@@ -708,8 +708,6 @@ gl:
         metrics:
           headline: Participación en números
           link: Mostrar todas as estatísticas
-    participatory_space_private_users:
-      not_allowed: Non tes permiso para ver este contido
     profile:
       deleted: Usuario eliminado
     profiles:

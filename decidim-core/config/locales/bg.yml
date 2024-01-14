@@ -795,8 +795,6 @@ bg:
         metrics:
           headline: Индикатори
           link: Покажи всички индикатори
-    participatory_space_private_users:
-      not_allowed: Нямате права да преглеждате това съдържание
     profile:
       deleted: Изтрит участник
     profiles:

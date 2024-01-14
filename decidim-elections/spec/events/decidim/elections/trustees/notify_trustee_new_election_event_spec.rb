@@ -8,27 +8,12 @@ describe Decidim::Elections::Trustees::NotifyTrusteeNewElectionEvent do
   let(:event_name) { "decidim.events.elections.trustees.new_election" }
   let(:resource) { create(:election) }
   let(:resource_title) { resource.title["en"] }
+  let(:email_subject) { "You are a trustee for the #{resource_title} election." }
+  let(:email_intro) { "You got added as a trustee for the #{resource_title} election." }
+  let(:email_outro) { "You have received this notification because you have been added as trustee for the #{resource_title} election." }
+  let(:notification_title) { "You have been selected as a Trustee in Election <a href=\"#{resource_path}\">#{resource_title}.</a> Please, do the key ceremony to set up the election." }
 
   it_behaves_like "a simple event"
-
-  describe "email_intro" do
-    it "is generated correctly" do
-      expect(subject.email_intro)
-        .to eq("You got added as a trustee for the #{resource_title} election.")
-    end
-  end
-
-  describe "email_outro" do
-    it "is generated correctly" do
-      expect(subject.email_outro)
-        .to eq("You have received this notification because you have been added as trustee for the #{resource_title} election.")
-    end
-  end
-
-  describe "notification_title" do
-    it "is generated correctly" do
-      expect(subject.notification_title)
-        .to eq("You have been selected as a Trustee in Election <a href=\"#{resource_path}\">#{resource_title}.</a> Please, do the key ceremony to set up the election.")
-    end
-  end
+  it_behaves_like "a simple event email"
+  it_behaves_like "a simple event notification"
 end

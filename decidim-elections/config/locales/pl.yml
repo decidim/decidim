@@ -460,7 +460,6 @@ pl:
                 bb_status: Status
                 election: Wybory
                 voting_period: Czas głosowania
-              no_elections: Nie ma głosowań, w których pełnisz rolę męża (osoby) zaufania.
               title: Wybory
             identification_keys:
               cancel: Anuluj
@@ -475,7 +474,6 @@ pl:
               title: Klucze identyfikacyjne męża (osoby) zaufania
               upload: Prześlij swoje klucze identyfikacyjne
             not_supported_browser_title: Aktualizuj przeglądarkę by działać jako mąż (osoba) zaufania
-            trustee_role_description: Zostałeś powołany do pełnienia funkcji męża (osoby) zaufania w niektórych głosowaniach na tej platformie.
           update:
             success: Twój publiczny klucz identyfikacyjny został zapisany.
       votes:
@@ -551,8 +549,6 @@ pl:
         voting_step:
           back: Wróć
           continue: Dalej
-      warnings:
-        no_scheduled_elections_warning: Obecnie nie ma żadnych zaplanowanych wyborów, ale możesz zobaczyć wszystkie zakończone już wybory.
     events:
       elections:
         election_published:
@@ -563,12 +559,9 @@ pl:
         trustees:
           new_election:
             email_intro: Zostałeś powołany do pełnienia funkcji męża (osoby) zaufania do głosowania %{resource_title}.
-            email_subject: Jesteś mężem (osobą) zaufania w głosowaniu %{resource_title}..
-            notification_title: Jesteś mężem (osobą) zaufania w głosowaniu <a href="%{resource_path}">%{resource_title}</a>.
           new_trustee:
             email_intro: Administrator ustanowił Cię mężem (osobą) zaufania w %{resource_name}. Powinieneś utworzyć klucz publiczny <a href='%{trustee_zone_url}'>w strefie osób zaufania</a>
             email_subject: Jesteś mężem (osobą) zaufania w %{resource_name}.
-            notification_title: Jesteś mężem (osobą) zaufania w <a href="%{participatory_space_url}">%{resource_name}</a>.
         votes:
           accepted_votes:
             email_intro: 'Twój głos został zaakceptowany! Używając tokenu głosowania: %{encrypted_vote_hash}, możesz zweryfikować swój głos <a href="%{verify_url}">tutaj</a>.'
@@ -845,9 +838,7 @@ pl:
         closures:
           back_to_polling_stations: Wróć do lokali wyborczych
           certify:
-            add_images: Dodaj obrazy
             error: Wystąpił błąd podczas dołączania certyfikatu, spróbuj ponownie.
-            form_legend: Prześlij zdjęcie certyfikatu zamknięcia wyborów
             heading: Przeliczanie głosów - Prześlij certyfikat
             info_text: Prześlij zdjęcie certyfikatu zamknięcia wyborów.
             submit: Prześlij certyfikat
@@ -857,7 +848,6 @@ pl:
             success: Zamknięto pomyślnie.
           edit:
             heading: Przeliczanie głosów - Przeliczanie odpowiedzi
-            info_text: Proszę wprowadzić całkowitą liczbę odpowiedzi na każde pytanie.
             modal_ballots_results_count_error:
               close_modal: Zamknij
               title: Suma kart wyborczych nie zgadza się
@@ -883,7 +873,6 @@ pl:
             total_ballots_count: Liczba kart wyborczych
           show:
             heading: Przeliczenie głosów
-            info_text: Zamknięcie lokalu wyborczego.
           sign:
             cancel: Anuluj
             confirm: Ok, kontynuuj

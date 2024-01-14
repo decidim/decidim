@@ -6,9 +6,6 @@ module Decidim
     class AssembliesController < Decidim::Assemblies::ApplicationController
       include ParticipatorySpaceContext
       include AssemblyBreadcrumb
-
-      participatory_space_layout only: :show
-
       include FilterResource
       include Paginable
       include HasParticipatorySpaceContentBlocks

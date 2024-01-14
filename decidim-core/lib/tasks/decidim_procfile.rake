@@ -29,8 +29,8 @@ exec foreman start -f Procfile.dev "$@")
       include Thor::Actions
     end
 
-    def actions(*args)
-      Actions.new.send(*args)
+    def actions(*)
+      Actions.new.send(*)
     end
   end
 end

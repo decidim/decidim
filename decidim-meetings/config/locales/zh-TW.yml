@@ -272,15 +272,9 @@ zh-TW:
             non_user: 不存在的參與者。
             select_user: 選擇參與者
           index:
-            filter:
-              accepted: 已接受
-              all: 全部
-              rejected: 已拒絕
-              sent: 傳送
             invite_attendee: 邀請的與會者
             invites: 邀請
             registrations_disabled: 你無法邀請參加者，因為註冊已被禁用。
-            search: 搜尋
         meeting_closes:
           edit:
             close: 關閉
