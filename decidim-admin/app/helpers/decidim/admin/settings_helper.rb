@@ -33,7 +33,7 @@ module Decidim
       # @option options [nil, Boolean] :readonly True if the input is readonly.
       # @return [ActiveSupport::SafeBuffer] Rendered form field.
       def settings_attribute_input(form, attribute, name, i18n_scope, options = {})
-        form_method = form_method_for_attribute(attribute)
+        form_method = form_method_for_attribute(attribute, options)
 
         container_class = "#{name}_container"
         if options[:readonly]
@@ -134,8 +134,8 @@ module Decidim
       #
       # @param attribute [Decidim::SettingsManifest::Attribute]
       # @return [Symbol] The FormBuilder's method used to render
-      def form_method_for_attribute(attribute)
-        return :editor if attribute.type.to_sym == :text && attribute.editor?
+      def form_method_for_attribute(attribute, options)
+        return :editor if attribute.type.to_sym == :text && options[:editor]
 
         TYPES[attribute.type.to_sym]
       end

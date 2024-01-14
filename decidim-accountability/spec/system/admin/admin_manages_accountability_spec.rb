@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages accountability", type: :system do
+describe "Admin manages accountability" do
   let(:manifest_name) { "accountability" }
 
   include_context "when managing an accountability component as an admin"

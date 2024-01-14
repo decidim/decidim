@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Answer a survey", type: :system do
+describe "Answer a survey" do
   let(:manifest_name) { "surveys" }
 
   let(:title) do

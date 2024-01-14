@@ -173,8 +173,6 @@ zh-CN:
         voting_step:
           back: 后退
           continue: 下一个
-      warnings:
-        no_scheduled_elections_warning: 目前没有预定的选举，但是你们可以在这里看到过去的所有选举都被列入清单。
     events:
       elections:
         election_published:
@@ -182,7 +180,3 @@ zh-CN:
           email_outro: 您收到此通知是因为您正在关注 %{participatory_space_title}。您可以停止收到跟随上一个链接的通知。
           email_subject: '%{resource_title} 的选举现在对 %{participatory_space_title} 生效。'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> 选区现已启用 %{participatory_space_title}。
-  layouts:
-    decidim:
-      election_votes_header:
-        exit: 退出

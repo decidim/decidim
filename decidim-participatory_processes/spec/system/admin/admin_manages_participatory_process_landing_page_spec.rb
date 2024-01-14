@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages participatory process landing page", type: :system do
+describe "Admin manages participatory process landing page" do
   include_context "when admin administrating a participatory process with hero content block registered"
   let!(:resource) { participatory_process }
   let(:scope_name) { :participatory_process_homepage }

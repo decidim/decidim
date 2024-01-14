@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages conference attachments", type: :system do
+describe "Admin manages conference attachments" do
   include_context "when admin administrating a conference"
 
   let(:attached_to) { conference }
@@ -13,7 +13,7 @@ describe "Admin manages conference attachments", type: :system do
     login_as user, scope: :user
     visit decidim_admin_conferences.edit_conference_path(conference)
     within_admin_sidebar_menu do
-      click_link "Files"
+      click_link "Attachments"
     end
   end
 

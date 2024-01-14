@@ -31,8 +31,7 @@ module Decidim
       {
         term: params[:term],
         with_resource_type: nil,
-        with_space_state: nil,
-        decidim_scope_id_eq: nil
+        with_space_state: nil
       }
     end
 

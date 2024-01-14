@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Conference partners", type: :system do
+describe "Conference partners" do
   let(:organization) { create(:organization) }
   let(:conference) { create(:conference, organization:) }
   let(:current_participatory_space) { conference }

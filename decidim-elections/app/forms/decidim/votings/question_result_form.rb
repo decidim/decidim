@@ -14,10 +14,20 @@ module Decidim
       validates :value, numericality: true
 
       def map_model(model)
-        question = model[:question]
+        @question = model[:question]
+        @closure = model[:closure]
         self.id = question.id
         self.title = question.title
         self.nota_option = question.nota_option?
+        self.value = closure&.results&.blank_answers&.find_by(question:)&.value
+      end
+
+      def question
+        @question ||= Decidim::Elections::Question.find_by(id:)
+      end
+
+      def closure
+        @closure ||= context&.closure
       end
     end
   end

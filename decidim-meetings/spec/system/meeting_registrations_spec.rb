@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Meeting registrations", type: :system do
+describe "Meeting registrations" do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 
@@ -37,9 +37,6 @@ describe "Meeting registrations", type: :system do
       available_slots:,
       registration_terms:
     )
-
-    # Make static map requests not to fail with HTTP 500 (causes JS error)
-    stub_request(:get, Regexp.new(Decidim.maps.fetch(:static).fetch(:url))).to_return(body: "")
   end
 
   context "when meeting registrations are not enabled" do
@@ -287,17 +284,10 @@ describe "Meeting registrations", type: :system do
           login_as user, scope: :user
         end
 
-        it "shows the registration form without questions" do
+        it "shows an empty page with a message" do
           visit questionnaire_public_path
 
-          expect(page).to have_i18n_content(questionnaire.title)
-          expect(page).to have_i18n_content(questionnaire.description)
-          expect(page).to have_content "Show my attendance publicly"
-          expect(page).to have_field("public_participation", checked: false)
-
-          expect(page).to have_no_i18n_content(question.body)
-
-          expect(page).to have_button("Submit")
+          expect(page).to have_content("No questions configured for this form yet.")
         end
       end
 
@@ -314,7 +304,7 @@ describe "Meeting registrations", type: :system do
           dynamically_attach_file("questionnaire_responses_0_add_documents", Decidim::Dev.asset("verify_user_groups.csv"))
 
           expect(page).to have_field("public_participation", checked: false)
-          find("#questionnaire_tos_agreement").set(true)
+          find_by_id("questionnaire_tos_agreement").set(true)
           accept_confirm { click_button "Submit" }
 
           expect(page).to have_content("Needs to be reattached")

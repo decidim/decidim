@@ -22,6 +22,7 @@ fr-CA:
         id: ID
         iframe_access_level: Niveau d'accès Iframe
         iframe_embed_type: Type d'Iframe encapsulée
+        iframe_embed_type_html: Seuls quelques services permettent d'intégrer la page "Intégrer à la page de réunion" ou "Ouvrir dans la page des événements en direct". Notez que avec l'option "Intégrer à la page de réunion" sur les mobiles, comme l'écran hérite de différentes dimensions, il fonctionnera en fait comme une "Ouvrir dans la page des événements en direct".
         location: Lieu
         location_hints: Indicateurs d’emplacement
         online_meeting_url: URL de la rencontre
@@ -89,6 +90,11 @@ fr-CA:
   decidim:
     admin:
       filters:
+        accepted_at_not_null:
+          label: Acceptée
+          values:
+            'false': Non acceptée
+            'true': Accepté
         meetings:
           category_id_eq:
             label: Catégorie
@@ -116,6 +122,18 @@ fr-CA:
               hybrid: Hybride
               in_person: En présentiel
               online: En ligne
+        rejected_at_not_null:
+          label: Rejeté
+          values:
+            'false': Non rejeté
+            'true': Rejeté
+        search_placeholder:
+          user_name_or_user_email_cont: Rechercher par nom ou email
+        sent_at_not_null:
+          label: Envoyé
+          values:
+            'false': Non envoyé
+            'true': Envoyé
       meeting_copies:
         create:
           error: Une erreur s'est produite lors de la duplication de cette rencontre.
@@ -280,15 +298,9 @@ fr-CA:
             non_user: Utilisateur non existant
             select_user: Sélectionner un utilisateur
           index:
-            filter:
-              accepted: Acceptée
-              all: Tout
-              rejected: Rejeté
-              sent: Envoyé
             invite_attendee: Inviter un participant
             invites: Invitations
             registrations_disabled: Vous ne pouvez pas inviter un participant car les inscriptions sont désactivées.
-            search: Chercher
         meeting_closes:
           edit:
             close: Clore
@@ -312,6 +324,7 @@ fr-CA:
           form:
             address_help: 'L''adresse entrée est utilisée par le géocodage pour trouver l''emplacement et afficher la réunion sur la carte. Format accepté : [n°] [rue] [code postal] [ville]'
             disclaimer: 'Avertissement : En utilisant un système d''enregistrement externe, sachez que les organisateurs de %{organization} ne sont pas responsables des données fournies par les utilisateurs au service externe.'
+            iframe_embed_type_html: 'Seuls quelques services permettent d''intégrer des réunions ou des événements en direct depuis les domaines suivants : %{domains}'
             location_help: 'Le lieu indique le nom de l''endroit qui accueille la réunion (ex : Maison de la citoyenneté)'
             location_hints_help: 'Indices de localisation : informations complémentaires. Exemple: l''étage du bâtiment s''il s''agit d''une réunion en personne, ou le mot de passe de la réunion s''il s''agit d''une réunion en ligne avec accès restreint.'
             online_meeting_url_help: 'Lien : permet aux participants de se connecter directement à votre réunion'
@@ -319,7 +332,6 @@ fr-CA:
             select_a_meeting_type: Veuillez sélectionner un type de rencontre
             select_a_registration_type: Veuillez sélectionner un type d'inscription
             select_an_iframe_access_level: Veuillez sélectionner un niveau d'accès iframe
-            show_embedded_iframe_help: 'Seuls quelques services permettent d''intégrer des réunions ou des événements en direct depuis les domaines suivants : %{domains}'
           index:
             title: Rencontres
           new:
@@ -394,6 +406,9 @@ fr-CA:
           all: Tous
         filter_meeting_space_values:
           all: Tous
+      calendar:
+        meeting_to_event:
+          read_more: En savoir plus sur cette réunion
       calendar_modal:
         calendar_url: URL du calendrier
         copy_calendar_url: Copier
@@ -416,7 +431,6 @@ fr-CA:
       directory:
         meetings:
           index:
-            go_to_list: Voir la liste des événements
             meetings: Rencontres
             space_type: Espace participatif
       iframe_access_level:
@@ -496,6 +510,7 @@ fr-CA:
           available_slots_help: Laisser à 0 si le nombre de places disponibles est illimité
           create_as: Créer une réunion en tant que
           disclaimer: 'Avertissement : En utilisant un système d''enregistrement externe, sachez que les organisateurs de %{organization} ne sont pas responsables des données fournies par les utilisateurs au service externe.'
+          iframe_embed_type_html: 'Seuls quelques services permettent d''intégrer des réunions ou des événements en direct depuis les domaines suivants : %{domains}'
           location_help: 'Emplacement: message adressé aux utilisateurs impliquant le point de rencontre à'
           location_hints_help: 'Indices de localisation : informations complémentaires. Exemple: l''étage du bâtiment s''il s''agit d''une réunion en personne, ou le mot de passe de la réunion s''il s''agit d''une réunion en ligne avec accès restreint.'
           online_meeting_url_help: 'Lien : permettre aux participants de se connecter directement à votre rencontre'
@@ -504,7 +519,6 @@ fr-CA:
           select_a_meeting_type: Veuillez sélectionner un type de rencontre
           select_a_registration_type: Veuillez sélectionner un type d'inscription
           select_an_iframe_access_level: Veuillez sélectionner un niveau d'accès iframe
-          show_embedded_iframe_help: 'Seuls quelques services permettent d''intégrer des réunions ou des événements en direct depuis les domaines suivants : %{domains}'
         index:
           click_here: Voir toutes les réunions
           new_meeting: Nouvelle réunion
@@ -529,7 +543,6 @@ fr-CA:
         show:
           attendees: Nombre de participants
           contributions: Décompte des contributions
-          date: Date
           join: Participer à la rencontre
           leave: Annuler votre inscription
           leave_confirmation: Êtes-vous sûr de vouloir annuler votre inscription à cette rencontre ?
@@ -547,7 +560,6 @@ fr-CA:
           remaining_slots:
             one: "Il reste %{count} place"
             other: "Il reste %{count} places"
-          view: Voir
           visit_finished: Consulter l’historique des rencontres
           withdraw_btn_hint: Vous pouvez annuler votre réunion si vous changez d'avis. La réunion n'est pas supprimée, elle apparaîtra dans la liste des réunions retirées.
           withdraw_confirmation_html: Êtes-vous sûr de vouloir annuler cette réunion ?<br><br><strong>Cette action ne peut pas être annulée !</strong>

@@ -128,5 +128,31 @@ module Decidim
         end
       end
     end
+
+    describe "#unread_messages_count_for" do
+      subject { user_group.unread_messages_count_for(user) }
+
+      let(:group_member) { create(:user, organization: user_group.organization) }
+      let(:user) { create(:user, organization: user_group.organization) }
+
+      before do
+        user_group.users << group_member
+
+        conversation = Decidim::Messaging::Conversation.create!(
+          participants: [user_group, user]
+        )
+
+        conversation.add_message!(sender: user_group, body: "Hey let's converse!", user: group_member)
+        conversation.add_message!(sender: user_group, body: "How are you?", user: group_member)
+        conversation.add_message!(sender: user, body: "Good! How are you?", user:)
+        conversation.mark_as_read(user)
+        conversation.add_message!(sender: user_group, body: "Do you like Decidim?", user: group_member)
+        conversation.add_message!(sender: user_group, body: "Are you going to DecidimFest?", user: group_member)
+      end
+
+      it "returns the correct count" do
+        expect(subject).to be(2)
+      end
+    end
   end
 end

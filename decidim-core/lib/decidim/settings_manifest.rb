@@ -106,7 +106,7 @@ module Decidim
       attribute :preview
       attribute :default
       attribute :translated, Boolean, default: false
-      attribute :editor, Boolean, default: false
+      attribute :editor
       attribute :required, Boolean, default: false
       attribute :required_for_authorization, Boolean, default: false
       attribute :readonly
@@ -129,6 +129,12 @@ module Decidim
 
       def readonly?(context)
         readonly&.call(context)
+      end
+
+      def editor?(context)
+        return editor.call(context) if editor.respond_to?(:call)
+
+        editor
       end
     end
   end

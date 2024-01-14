@@ -6,7 +6,7 @@ module Decidim
   module Map
     module Provider
       module Autocomplete
-        describe Osm::Builder, type: :system do
+        describe Osm::Builder do
           it_behaves_like "a page with geocoding input" do
             let(:options) { { url: "https://photon.example.org/api/" } }
             let(:html_head) do
@@ -81,7 +81,7 @@ module Decidim
             end
 
             it "calls the geocoding API correctly" do
-              find("#test_address").set("city")
+              find_by_id("test_address").set("city")
               expect(page).to have_selector(
                 ".autoComplete_wrapper",
                 text: [

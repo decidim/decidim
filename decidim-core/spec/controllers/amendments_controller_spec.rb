@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe AmendmentsController, type: :controller do
+  describe AmendmentsController do
     routes { Decidim::Core::Engine.routes }
 
     let!(:participatory_process) { create(:participatory_process, :with_steps) }

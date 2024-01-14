@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::Proposals::Admin::ProposalsController, type: :controller do
+describe Decidim::Proposals::Admin::ProposalsController do
   routes { Decidim::Proposals::AdminEngine.routes }
 
   let(:user) { create(:user, :confirmed, :admin, organization: component.organization) }

@@ -1,8 +1,6 @@
 nl:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: Organigram tonen
       assembly:
         area_id: Onderwerp
         assembly_type: Groepstype
@@ -104,10 +102,6 @@ nl:
         create:
           error: Er was een fout bij het dupliceren van deze groep.
           success: Groep succesvol gedupliceerd.
-      assemblies_settings:
-        update:
-          error: Er is een fout opgetreden bij het bijwerken van de instellingen.
-          success: Instellingen succesvol bijgewerkt.
       assemblies_types:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuw groepstype.
@@ -140,13 +134,11 @@ nl:
         destroy:
           success: Lid is met succes verwijderd uit deze groep.
         edit:
-          title: Groepslid bijwerken.
           update: Bijwerken
         index:
           assembly_members_title: Groepsleden
         new:
           create: Creëren
-          title: Nieuw groepslid.
         update:
           error: Er is een fout opgetreden bij het bijwerken van het lid voor deze groep.
           success: Lid is succesvol bijgewerkt voor deze groep.
@@ -164,13 +156,11 @@ nl:
         destroy:
           success: Gebruiker is met succes uit deze groep verwijderd.
         edit:
-          title: Groepsadmin bijwerken.
           update: Bijwerken
         index:
           assembly_admins_title: Groep-admins
         new:
           create: Aanmaken
-          title: Nieuwe groepsadmin.
         update:
           error: Er is een fout opgetreden bij het bijwerken van een admin voor deze groep.
           success: Admin is succesvol bijgewerkt voor deze groep.
@@ -179,7 +169,6 @@ nl:
           label: Groepstype
       menu:
         assemblies: Groepen
-        assemblies_settings: Instellingen
         assemblies_submenu:
           assembly_admins: Groep-admins
           assembly_members: Leden
@@ -274,11 +263,6 @@ nl:
             social_handlers: sociaal
             title: Algemene informatie
             visbility: Zichtbaarheid
-        assemblies_settings:
-          edit:
-            update: Bijwerken
-          form:
-            title: Instellingen voor groepen
         assemblies_types:
           form:
             title: Titel
@@ -292,12 +276,6 @@ nl:
             select_a_position: Selecteer een positie
             select_user: Selecteer een deelnemer
             user_type: Type deelnemer
-          index:
-            filter:
-              all: Alle
-              ceased: Gestopt
-              not_ceased: Niet gestopt
-            search: Zoeken
         content_blocks:
           highlighted_assemblies:
             max_results: Maximum aantal elementen dat kan worden weergegeven
@@ -305,6 +283,9 @@ nl:
           accepted_types:
             json: JSON
       assemblies:
+        filters:
+          names:
+            all: Alle
         show:
           title: Over deze groep
       assembly_members:

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Translations", type: :system do
+describe "Translations" do
   describe "switching locales" do
     let(:translations_priority) { "original" }
     let(:organization) do

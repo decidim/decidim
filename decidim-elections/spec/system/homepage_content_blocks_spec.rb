@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Homepage votings content blocks", type: :system do
+describe "Homepage votings content blocks" do
   let(:organization) { create(:organization) }
   let(:show_statistics) { true }
   let!(:promoted_voting) { create(:voting, :promoted, :with_content_blocks, organization:, blocks_manifests: [:title]) }

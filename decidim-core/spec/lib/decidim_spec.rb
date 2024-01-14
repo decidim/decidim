@@ -89,6 +89,15 @@ describe Decidim do
     end
   end
 
+  describe ".component_manifests" do
+    subject { described_class.component_manifests }
+
+    it "returns the manifests sorted alphabetically" do
+      components_name = subject.pluck(:name)
+      expect(components_name).to eq(components_name.sort)
+    end
+  end
+
   describe ".module_installed?" do
     subject { described_class.module_installed?(mod) }
 

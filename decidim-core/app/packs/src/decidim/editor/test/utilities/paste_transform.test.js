@@ -1,6 +1,6 @@
-import { transformMsDesktop, transformMsCould } from "../../utilities/paste_transform";
+import { transformMsDesktop, transformMsCould } from "src/decidim/editor/utilities/paste_transform";
 
-import "../helpers";
+import "src/decidim/editor/test/helpers";
 
 const uglifyHtml = (html) => html.replace(/[\r\n]+\s+/g, " ").replace(/>\s+</g, "><").trim();
 

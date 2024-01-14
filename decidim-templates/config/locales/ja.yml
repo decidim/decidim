@@ -12,6 +12,8 @@ ja:
         manage: 管理
         templates: テンプレート
       templates:
+        actions:
+          new_template: 新規テンプレート
         apply:
           error: テンプレートの適用に失敗しました。
           success: テンプレートが適用されました。
@@ -24,6 +26,7 @@ ja:
         destroy:
           success: テンプレートを削除しました。
         empty: テンプレートはまだありません。
+        missing_resource: "(リソースが見つかりません)"
         update:
           error: テンプレートの更新中に問題が発生しました。
           success: テンプレートが更新されました。
@@ -52,6 +55,26 @@ ja:
             title: ユーザーメッセージをブロック
           new:
             title: 新しいブロックユーザーメッセージテンプレート
+          template_chooser:
+            select_template: テンプレート回答を選択
+        proposal_answer_templates:
+          edit:
+            title: 提案回答テンプレートを編集
+          form:
+            component_constraint_help: '「提案」型のコンポーネントを持つ参加型スペースのみが表示されることに注意してください。'
+            hint1_html: "<strong>%{organization}</strong> は組織名に置き換えられます"
+            hint2_html: "<strong>%{name}</strong> は作成者の名前に置き換えられます"
+            hint3_html: "<strong>%{admin}</strong> は管理者の名前（提案に回答した者）に置き換えられます"
+            hint_html: "<strong>ヒント:</strong> テンプレート使用時に置き換えられる回答テンプレート上の任意の場所でこれらの変数を使用できます"
+            save: 保存
+          index:
+            component_constraint: 制約を追加
+            confirm_delete: このテンプレートを削除してもよろしいですか？
+            global_scope: グローバル (どこでも利用可能)
+            internal_state: 内部状態
+            title: 提案の回答
+          new:
+            title: 新しい提案回答テンプレート
           template_chooser:
             select_template: テンプレート回答を選択
         questionnaire_templates:
@@ -85,4 +108,5 @@ ja:
           update: "%{user_name} が %{resource_name} アンケートテンプレートを更新しました"
       template_types:
         block_user: ユーザーメッセージをブロック
+        proposal_answer_templates: 提案の回答
         questionnaires: アンケート

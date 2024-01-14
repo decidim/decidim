@@ -1,7 +1,7 @@
 <div id="<%= dom_id(document) %>">
   <div class="card__list-content">
     <%= link_to document.url, target: "_blank", rel: "noopener noreferrer", class: "card__list-title", title: t("decidim.application.document.download") do %>
-      <%= attachment_title(document) %>
+      <%= h attachment_title(document) %>
     <% end %>
     <% if document.description.present? %>
       <div class="card__list-text"><%= translated_attribute(document.description) %></div>

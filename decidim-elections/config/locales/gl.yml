@@ -388,8 +388,6 @@ gl:
             show:
               heading: Espazo de votación do censo
         document_types:
-          dni: DNI
-          nie: NIE
           passport: Pasaporte
         export_mailer:
           access_codes_export:
@@ -405,7 +403,6 @@ gl:
         closures:
           back_to_polling_stations: Volver aos puntos de votación
           certify:
-            add_images: Engadir imaxes
             error: Produciuse un erro ao anexar o certificado, téntao de novo.
             heading: Reconto de votos - Subir certificado
             success: Certificado subido con éxito.
@@ -414,7 +411,6 @@ gl:
             success: Peche creado con éxito.
           edit:
             heading: Reconto de votos - reconto de respostas
-            info_text: Por favor, insire o número total de respostas por cada pregunta.
             modal_ballots_results_count_error:
               close_modal: Pechar
               title: O total de papeletas non coincide

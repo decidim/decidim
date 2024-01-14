@@ -112,7 +112,6 @@ ar:
           show: إظهار الإعدادات المتقدمة
         create:
           error: كانت هناك مشكلة في إنشاء منظمة جديدة.
-          success: تم إنشاء المنظمة بنجاح.
         edit:
           secondary_hosts_hint: أدخل كل واحد منهم في سطر جديد
         file_upload_settings:

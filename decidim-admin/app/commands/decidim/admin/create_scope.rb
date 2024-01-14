@@ -2,50 +2,33 @@
 
 module Decidim
   module Admin
-    # A command with all the business logic when creating a static scope.
-    class CreateScope < Decidim::Command
+    # A command with all the business logic when creating a scope.
+    class CreateScope < Decidim::Commands::CreateResource
+      fetch_form_attributes :name, :organization, :code, :scope_type
       # Public: Initializes the command.
       #
       # form - A form object with the params.
-      # parent_scope - A parent scope for the scope to be created
-      def initialize(form, parent_scope = nil)
-        @form = form
-        @parent_scope = parent_scope
+      # parent - A parent scope for the scope to be created
+      def initialize(form, parent = nil)
+        super(form)
+        @parent = parent
       end
 
-      # Executes the command. Broadcasts these events:
-      #
-      # - :ok when everything is valid.
-      # - :invalid if the form was not valid and we could not proceed.
-      #
-      # Returns nothing.
-      def call
-        return broadcast(:invalid) if form.invalid?
+      protected
 
-        create_scope
-        broadcast(:ok)
-      end
+      attr_reader :parent
 
-      private
+      def resource_class = Decidim::Scope
 
-      attr_reader :form
+      def attributes = super.merge({ parent: })
 
-      def create_scope
-        Decidim.traceability.create!(
-          Scope,
-          form.current_user,
-          {
-            name: form.name,
-            organization: form.organization,
-            code: form.code,
-            scope_type: form.scope_type,
-            parent: @parent_scope
-          },
+      def extra_params
+        {
           extra: {
-            parent_name: @parent_scope.try(:name),
+            parent_name: parent.try(:name),
             scope_type_name: form.scope_type.try(:name)
           }
-        )
+        }
       end
     end
   end

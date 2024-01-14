@@ -146,6 +146,18 @@
   }
 }
 
+.input-group__password {
+  @apply w-full relative;
+
+  input {
+    @apply w-full;
+  }
+
+  button {
+    @apply absolute right-2 top-8;
+  }
+}
+
 .emoji {
   &__container {
     @apply relative;

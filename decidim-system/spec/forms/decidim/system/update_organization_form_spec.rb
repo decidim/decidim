@@ -90,5 +90,52 @@ module Decidim::System
         end
       end
     end
+
+    describe "#map_model" do
+      subject { described_class.from_model(organization) }
+
+      let(:organization) do
+        create(
+          :organization,
+          secondary_hosts: ["foobar.example.org", "foobaz.example.org"],
+          omniauth_settings: {
+            omniauth_settings_facebook_enabled: Decidim::AttributeEncryptor.encrypt(true),
+            omniauth_settings_facebook_app_id: Decidim::AttributeEncryptor.encrypt("foo")
+          },
+          file_upload_settings: {
+            allowed_file_extensions: {
+              "default" => %w(jpg jpeg),
+              "admin" => %w(jpg jpeg png),
+              "image" => %w(jpg jpeg png)
+            },
+            "allowed_content_types" => {
+              "default" => %w(image/*),
+              "admin" => %w(image/*)
+            },
+            "maximum_file_size" => {
+              "default" => 7.2,
+              "avatar" => 2.4
+            }
+          }
+        )
+      end
+
+      it "maps the organization attributes correctly" do
+        expect(subject.secondary_hosts).to eq(organization.secondary_hosts.join("\n"))
+        expect(subject.omniauth_settings).to eq(
+          {
+            "omniauth_settings_facebook_app_id" => "foo",
+            "omniauth_settings_facebook_enabled" => true
+          }
+        )
+        expect(subject.file_upload_settings.final).to eq(
+          {
+            allowed_content_types: { "admin" => %w(image/*), "default" => %w(image/*) },
+            allowed_file_extensions: { "admin" => %w(jpg jpeg png), "default" => %w(jpg jpeg), "image" => %w(jpg jpeg png) },
+            maximum_file_size: { "avatar" => 2.4, "default" => 7.2 }
+          }
+        )
+      end
+    end
   end
 end

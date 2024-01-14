@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Trustee zone", type: :system do
+describe "Trustee zone" do
   let(:organization) { create(:organization, :secure_context) }
   let(:user) { create(:user, :confirmed, organization:) }
   let(:trustee) { create(:trustee, user:, public_key:, organization:) }
@@ -44,6 +44,7 @@ describe "Trustee zone", type: :system do
     end
 
     expect(page).to have_content("Trustee identification keys")
+    expect(page).to have_content("You have been assigned to act as a Trustee. Please, generate and upload your identification keys.")
   end
 
   it "can generate their identification keys", download: true do
@@ -68,6 +69,7 @@ describe "Trustee zone", type: :system do
 
     expect(page).not_to have_content("Upload your identification keys")
     expect(page).not_to have_content("Trustee identification keys")
+    expect(page).to have_content("You have been assigned to act as a Trustee in some of the elections celebrated in this platform")
   end
 
   context "when the trustee already has a public key" do

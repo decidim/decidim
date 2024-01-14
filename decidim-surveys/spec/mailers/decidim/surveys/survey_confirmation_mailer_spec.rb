@@ -5,7 +5,7 @@ require "zip"
 
 module Decidim
   module Surveys
-    describe SurveyConfirmationMailer, type: :mailer do
+    describe SurveyConfirmationMailer do
       let(:user) { create(:user, name: "Sarah Connor", organization:) }
       let!(:organization) { create(:organization) }
       let(:survey) { create(:survey) }

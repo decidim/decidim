@@ -112,7 +112,6 @@ gl:
           show: Amosar axustes avanzados
         create:
           error: Produciuse un erro ao crear unha nova organización.
-          success: Organización creada con éxito.
         edit:
           secondary_hosts_hint: Entre cada unha delas nunha nova liña
         file_upload_settings:

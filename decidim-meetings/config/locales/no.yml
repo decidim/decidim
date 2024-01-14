@@ -227,14 +227,8 @@
             non_user: Ikke eksisterende deltaker
             select_user: Velg deltaker
           index:
-            filter:
-              accepted: Aksepterte
-              all: Alle
-              rejected: Avvist
-              sent: Sendt
             invite_attendee: Inviter deltaker
             invites: Invitasjoner
-            search: Søk
         meeting_closes:
           edit:
             close: Lukk
@@ -409,7 +403,6 @@
         show:
           attendees: Antall deltakere
           contributions: Bidrag teller
-          date: Dato
           join: Bli med på møte
           meeting_minutes: Møte referater
           no_slots_available: Ingen plasser tilgjengelig
@@ -421,7 +414,6 @@
           remaining_slots:
             one: "%{count} plass igjen"
             other: "%{count} plasser igjen"
-          view: Vis
         update:
           invalid: Det oppstod et problem med å oppdatere dette møtet.
           success: Du har nå oppdatert møtet.

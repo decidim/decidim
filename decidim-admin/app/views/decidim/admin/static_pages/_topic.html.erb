@@ -4,10 +4,6 @@
       <h2 class="card-title">
         <% if topic %>
           <%= translated_attribute(topic.title) %>
-          <div class="ml-auto gap-4 flex items-center">
-            <%= link_to t("static_pages.topic.destroy", scope: "decidim.admin"), [topic], class: "button button__sm button__secondary destroy", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
-            <%= link_to t("static_pages.topic.edit", scope: "decidim.admin"), [:edit, topic], class: "button button__sm button__secondary new" %>
-          </div>
         <% else %>
           <%= t(".without_topic") %>
         <% end %>

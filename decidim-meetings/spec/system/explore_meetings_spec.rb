@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Explore meetings", :slow, type: :system do
+describe "Explore meetings", :slow do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 
@@ -29,6 +29,31 @@ describe "Explore meetings", :slow, type: :system do
 
       meetings.each do |meeting|
         expect(page).to have_content(translated(meeting.title))
+      end
+    end
+
+    context "when displaying calendar" do
+      let(:component) { create(:meeting_component, participatory_space:) }
+      let(:link) { Decidim::ShortLink.find_by(target_type: "Decidim::Component", target_id: component.id) }
+
+      before do
+        visit_component
+      end
+
+      context "when meetings mounted under paraticipatory process" do
+        let(:participatory_space) { create(:participatory_process, organization:) }
+
+        it "properly saves the shortened link" do
+          expect(link.mounted_engine_name).to eq("decidim_participatory_process_meetings")
+        end
+      end
+
+      context "when meetings mounted under assemblies" do
+        let(:participatory_space) { create(:assembly, organization:) }
+
+        it "properly saves the shortened link" do
+          expect(link.mounted_engine_name).to eq("decidim_assembly_meetings")
+        end
       end
     end
 
@@ -158,7 +183,6 @@ describe "Explore meetings", :slow, type: :system do
             visit_component
 
             within "#panel-dropdown-menu-origin" do
-              click_filter_item "All"
               click_filter_item "Official"
             end
 
@@ -175,7 +199,6 @@ describe "Explore meetings", :slow, type: :system do
             visit_component
 
             within "#panel-dropdown-menu-origin" do
-              click_filter_item "All"
               click_filter_item "Groups"
             end
 
@@ -191,7 +214,6 @@ describe "Explore meetings", :slow, type: :system do
             visit_component
 
             within "#panel-dropdown-menu-origin" do
-              click_filter_item "All"
               click_filter_item "Participants"
             end
 
@@ -343,7 +365,6 @@ describe "Explore meetings", :slow, type: :system do
         visit_component
 
         within "#panel-dropdown-menu-scope" do
-          click_filter_item "All"
           click_filter_item translated(scope.name)
         end
 

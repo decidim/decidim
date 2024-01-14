@@ -18,8 +18,8 @@ window.Rails = Rails;
 // Fake timers for testing polling
 jest.useFakeTimers();
 
-import { createCharacterCounter } from "../../../../../../decidim-core/app/packs/src/decidim/input_character_counter";
-import Configuration from "../../../../../../decidim-core/app/packs/src/decidim/configuration";
+import { createCharacterCounter } from "src/decidim/input_character_counter";
+import Configuration from "src/decidim/configuration";
 // Component is loaded with require because using import loads it before $ has been mocked
 // so tests are not able to check the spied behaviours
 const CommentsComponent = require("./comments.component_for_testing.js");
@@ -343,8 +343,10 @@ describe("CommentsComponent", () => {
               </div>
               ${generateCommentForm("Dummy", 123)}
             </div>
-            <div class="callout primary loading-comments hidden">
-              <p>Loading comments ...</p>
+            <div class="flash primary loading-comments hidden">
+              <span class="flash__message">
+                Loading comments ...
+              </span>
             </div>
         </div>
       </div>

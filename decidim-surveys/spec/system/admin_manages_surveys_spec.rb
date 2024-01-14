@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages surveys", type: :system do
+describe "Admin manages surveys" do
   let(:manifest_name) { "surveys" }
   let!(:component) do
     create(:component,

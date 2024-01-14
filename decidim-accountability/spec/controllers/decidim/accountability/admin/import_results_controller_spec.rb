@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Accountability
     module Admin
-      describe ImportResultsController, type: :controller do
+      describe ImportResultsController do
         routes { Decidim::Accountability::AdminEngine.routes }
 
         let(:organization) { create(:organization) }

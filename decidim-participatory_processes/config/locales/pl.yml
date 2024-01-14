@@ -89,8 +89,6 @@ pl:
         destroy: Usuń
         duplicate: Duplikuj
         edit: Edytuj
-        filter:
-          all_processes: Pokaż wszystkie procesy
         import_process: Importuj
         new_process: Nowy proces
         new_process_group: Nowa grupa procesu
@@ -155,13 +153,6 @@ pl:
           copy: Kopiuj
           select: Wybierz dane, które chcesz zduplikować
           title: Duplikuj proces partycypacyjny
-      participatory_process_group_landing_page:
-        edit:
-          active_content_blocks: Aktywne bloki treści
-          inactive_content_blocks: Nieaktywne bloki treści
-      participatory_process_group_landing_page_content_blocks:
-        edit:
-          update: Aktualizuj
       participatory_process_groups:
         destroy:
           error: Wystąpił błąd podczas usuwania grupy procesu partycypacyjnego.
@@ -200,6 +191,9 @@ pl:
           success: Utworzono etap procesu partycypacyjnego.
         default_title: Wprowadzenie
         destroy:
+          error:
+            active_step: Nie można usunąć aktywnego etapu.
+            last_step: Nie można usunąć ostatniego etapu procesu.
           success: Etap procesu partycypacyjnego został usunięty.
         edit:
           title: Edytuj etap procesu partycypacyjnego
@@ -215,9 +209,20 @@ pl:
           error: Podczas aktualizowania etapu procesu partycypacyjnego wystąpił błąd.
           success: Etap procesu partycypacyjnego został zaktualizowany.
       participatory_process_types:
+        create:
+          error: Przy tworzeniu nowego typu procesu pojawił się problem.
+          success: Typ procesu został utworzony.
+        destroy:
+          success: Typ procesu został usunięty.
+        edit:
+          title: Edytuj typ procesu
+          update: Aktualizuj
         new:
           create: Utwórz
           title: Nowy typ procesu
+        update:
+          error: Przy aktualizacji tego typu procesu pojawił się problem.
+          success: Typ procesu został zaktualizowany.
       participatory_process_user_roles:
         create:
           error: Wystąpił błąd podczas dodawania użytkownika do tego procesu partycypacyjnego.
@@ -245,6 +250,7 @@ pl:
           private: Prywatny
           public: Publiczny
           published: Opublikowany
+          unpublished: Nieopublikowany
         new:
           create: Utwórz
           title: Nowy proces partycypacyjny
@@ -261,6 +267,7 @@ pl:
           success: Grupa procesu partycypacyjnego została utworzona.
       titles:
         participatory_process_groups: Grupy procesu partycypacyjnego
+        participatory_process_types: Typy procesów partycypacyjnych
         participatory_processes: Procesy partycypacyjne
       users:
         resend_invitation:
@@ -269,6 +276,9 @@ pl:
     admin_log:
       participatory_process:
         create: "%{user_name} stworzył(a) proces partycypacyjny %{resource_name}"
+        duplicate: "%{user_name} zduplikował(a) proces partycypacyjny %{resource_name}"
+        export: "%{user_name} eksportował(a) proces partycypacyjny %{resource_name}"
+        import: "%{user_name} zaimportował(a) proces partycypacyjny %{resource_name}"
         publish: "%{user_name} opublikował(a) proces partycypacyjny %{resource_name}"
         unpublish: "%{user_name} cofnął/cofnęła publikację procesu partycypacyjnego %{resource_name}"
         update: "%{user_name} zaktualizował(a) proces partycypacyjny %{resource_name}"
@@ -280,6 +290,10 @@ pl:
         create: "%{user_name} utworzył(a) etap %{resource_name} w procesie partycypacyjnym %{space_name}"
         delete: "%{user_name} usunął/usunęła etap %{resource_name} z procesu partycypacyjnego %{space_name}"
         update: "%{user_name} zaktualizował(a) etap %{resource_name} w procesie partycypacyjnym %{space_name}"
+      participatory_process_type:
+        create: "%{user_name} utworzył(a) typ procesu partycypacyjnego %{resource_name}"
+        delete: "Użytkownik %{user_name} usunął typ procesu partycypacyjnego %{resource_name}"
+        update: "%{user_name} zaktualizował(a) typ procesu partycypacyjnego %{resource_name}"
       participatory_process_user_role:
         create: "%{user_name} zaprosił(a) użytkownika %{resource_name} do procesu partycypacyjnego %{space_name}"
         delete: "%{user_name} usunął/usunęła użytkownika %{resource_name} z procesu partycypacyjnego %{space_name}"
@@ -307,6 +321,10 @@ pl:
           contextual: "<p> <strong>Proces partycypacyjny</strong> jest sekwencją działań partycypacyjnych (np najpierw wypełnij ankietę, a następnie złóż propozycję, omów je twarzą w twarz lub w trakcie wirtualnych spotkań, a na końcu ustal swoje priorytety) w celu definiowania i podejmowania decyzji na określony temat.</p> <p>Przykładami procesów partycypacyjnych są: proces wybierania członków komitetu (w którym kandydatury są najpierw przedstawiane, następnie omawiane, a ostatecznie kandydat jest wybierany), budżety partycypacyjne (w których składane są propozycje, dokonuje się wycen ekonomicznych i głosuje w granicy dostępnego budżetu), proces planowania strategicznego, wspólne opracowywanie rozporządzenia lub normy, projektowanie przestrzeni miejskiej lub opracowywanie planu polityki publicznej.</p>\n"
           page: "<p> <strong>Proces partycypacyjny</strong> jest sekwencją działań partycypacyjnych (np najpierw wypełnij ankietę, a następnie złóż propozycję, omów je twarzą w twarz lub w trakcie wirtualnych spotkań, a na końcu ustal swoje priorytety) w celu definiowania i podejmowania decyzji na określony temat.</p> <p>Przykładami procesów partycypacyjnych są: proces wybierania członków komitetu (w którym kandydatury są najpierw przedstawiane, następnie omawiane, a ostatecznie kandydat jest wybierany), budżety partycypacyjne (w których składane są propozycje, dokonuje się wycen ekonomicznych i głosuje w granicy dostępnego budżetu), proces planowania strategicznego, wspólne opracowywanie rozporządzenia lub normy, projektowanie przestrzeni miejskiej lub opracowywanie planu polityki publicznej.</p>\n"
           title: Czym jest proces partycypacyjny?
+    log:
+      value_types:
+        participatory_process_type_presenter:
+          not_found: 'W bazie danych nie znaleziono typu procesu (ID: %{id}).'
     menu:
       processes: Procesy
     metrics:
@@ -316,13 +334,24 @@ pl:
         title: Procesy partycypacyjne
     participatory_process_groups:
       content_blocks:
+        extra_data:
+          developer_group: Promowany przez
+          name: Metadane
+          participatory_scope: Czego dotyczy decyzja
+          participatory_structure: Jak podejmowana jest decyzja
+          target: Kto uczestniczy
+        html:
+          name: Blok HTML
         html_1:
           name: Pierwszy blok HTML
         html_2:
           name: Drugi blok HTML
         html_3:
           name: Trzeci blok HTML
+        main_data:
+          name: Tytuł i opis
         participatory_processes:
+          active: Aktywne procesy partycypacyjne
           name: Procesy partycypacyjne
         stats:
           name: Statystyki
@@ -342,19 +371,28 @@ pl:
       admin:
         content_blocks:
           highlighted_processes:
+            active: Aktywny
+            all: Wszystkie
             max_results: Maksymalna ilość elementów do pokazania
+            selection_criteria: Kryteria wyboru
         new_import:
           accepted_types:
             json: JSON
+        participatory_process_copies:
+          form:
+            slug_help_html: 'Slugi URL wykorzystuje się do generowania adresów URL odsyłających do procesu. Można używać jedynie liter, cyfr i łączników, przy czym należy rozpocząć od litery. Przykład: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadane
+            title: O tym procesie
             visibility: Widoczność
         participatory_process_imports:
           form:
             document_legend: Dodaj dokument
+            slug_help_html: 'Slugi URL wykorzystuje się do generowania adresów URL odsyłających do tego procesu. Można używać jedynie liter, cyfr i łączników, przy czym należy rozpocząć od litery. Przykład: %{url}'
         participatory_process_steps:
           form:
+            cta_path_help_html: 'Użyj ścieżek częściowych, a nie pełnych adresów URL. Można używać liter, cyfr, łączników i ukośników, przy czym należy rozpocząć od litery. Przycisk nie zostanie wyświetlony, jeżeli nie zostanie to ustawione. Przykład: %{url}'
             cta_text_help: Jeśli nie zostanie ustawione, przycisk nie będzie wyświetlany.
         participatory_processes:
           form:
@@ -369,20 +407,43 @@ pl:
             select_an_area: Wybierz kategorię
             select_participatory_process_type: Wybierz typ procesu
             select_process_group: Wybierz grupę procesów
+            slug_help_html: 'Slugi URL wykorzystuje się do generowania adresów URL odsyłających do tego procesu. Można używać jedynie liter, cyfr i łączników, przy czym należy rozpocząć od litery. Przykład: %{url}'
             title: Informacje ogólne
             visbility: Widoczność
       content_blocks:
+        extra_data:
+          name: Etap i czas trwania
+        hero:
+          name: Hero image oraz CTA
         highlighted_processes:
           name: Wyróżnione procesy
+        related_processes:
+          name: Powiązane procesy
       index:
         title: Procesy partycypacyjne
       last_activity:
         new_participatory_process: Nowy proces partycypacyjny
+      pages:
+        home:
+          highlighted_processes:
+            active_spaces: Aktywne procesy
+            see_all_spaces: Zobacz wszystkie procesy
       participatory_process_steps:
         index:
           back_to_process: Powrót do strony procesu
       participatory_processes:
+        description:
+          area_name: Obszar
+          data: Dane procesu
+          developer_group: Grupa promująca
+          local_area: Obszar organizacji
+          meta_scope: Zakres
+          participatory_scope: Czego dotyczy decyzja
+          participatory_structure: Jak podejmowana jest decyzja
+          target: Kto uczestniczy
+          title: O tym procesie
         filters:
+          all_types: Wszystkie typy
           counters:
             active:
               one: 1 aktualny proces
@@ -404,6 +465,7 @@ pl:
               few: "%{count} nadchodzące procesy"
               many: "%{count} nadchodzących procesów"
               other: "%{count} nadchodzących procesów"
+          date: Data
           explanations:
             no_active_nor_upcoming_callout: Nie ma aktualnych ani nadchodzących procesów. Oto lista poprzednich procesów.
           names:

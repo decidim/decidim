@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Proposals in process home", type: :system do
+describe "Proposals in process home" do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
   let(:proposals_count) { 2 }

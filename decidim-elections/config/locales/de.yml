@@ -50,10 +50,18 @@ de:
           attributes:
             attachment:
               needs_to_be_reattached: Der Anhang muss erneut angehängt werden
+        ballot_result:
+          attributes:
+            base:
+              total_count_invalid: Die Gesamtzahl der Antworten stimmt nicht mit der gültig/leer/null Aufschlüsselung überein.
         election:
           attributes:
             attachment:
               needs_to_be_reattached: Der Anhang muss erneut angehängt werden
+        question_result:
+          attributes:
+            base:
+              blank_count_invalid: Die Gesamtzahl der leeren Antworten kann nicht größer sein als die Gesamtzahl der leeren Stimmzettel.
         trustee:
           attributes:
             name:
@@ -160,6 +168,10 @@ de:
         manage_answers: Antworten verwalten
         manage_questions: Fragen verwalten
         manage_steps: Schritte verwalten
+        new_answer: Neue Antwort
+        new_election: Neue Wahl
+        new_question: Neue Frage
+        new_trustee: Neuer Wahlhelfer
         preview: Vorschau
         publish: Veröffentlichen
         title: Aktionen
@@ -224,7 +236,11 @@ de:
           feedback_form_answers: Antworten auf Feedback-Formular
         mailers:
           trustee_mailer:
-            body: "<p>Hallo %{user_name},</p><p>Sie wurden als Wahlhelfer zu %{resource_name} hinzugefügt.</p>"
+            body:
+              help_html: |-
+                <p>Hallo %{user_name},</p><br>
+                <p>Sie wurden bei einigen Wahlen auf %{organization} als Wahlhelfer hinzugefügt.</p><br>
+                <p>Ein neuer Abschnitt "Wahlhelfer-Bereich" wurde Ihrem Konto hinzugefügt. Sie können von dort aus weitere Aktionen durchführen. Bitte generieren Sie als nächstes Ihre Identifikationsschlüssel.</p><br>
             subject: Sie wurden als Wahlhelfer zu %{resource_name} hinzugefügt
             trustee_zone: Bring mich zum Wahlhelferbereich
         menu:
@@ -268,6 +284,7 @@ de:
               census_frozen: Zugangscodes für die Erhebung wurden nicht exportiert.
               census_uploaded: Es wurde keine Erhebung für diese Wahl hochgeladen.
               component_published: Die Wahlkomponente ist <strong>nicht veröffentlicht</strong>.
+              fix_it_text: Beheben
               max_selections: Die <strong>maximale Anzahl Antworten</strong> für die Fragen ist inkorrekt
               minimum_answers: Fragen müssen <strong>mindestens zwei Antworten</strong> haben.
               minimum_questions: Die Wahl <strong>muss mindestens eine Frage</strong> haben.
@@ -293,6 +310,11 @@ de:
               trustees_number: <strong>Mindestens %{number} Wahlhelfer mit Public Key</strong> sind vorhanden.
             submit: Wahl einrichten
             success: Wahl erfolgreich an das Bulletin Board gesendet.
+            technical_configuration:
+              authority_name: "<strong>Behördenname:</strong> %{value}"
+              bulletin_board_server: "<strong>Bulletin Board Server:</strong> <a href='%{value}'>%{value}</a>"
+              scheme_name: "<strong>Schemaname:</strong> %{value}"
+              title: Technische Informationen anzeigen
             title: Wahl einrichten
             trustees: Wahlhelfer
           created:
@@ -456,6 +478,7 @@ de:
             started: Die Stimmenzählung hat begonnen.
           tally_title: Stimmenzählung
           title: Wahl-Protokoll
+          unpublished: Nicht veröffentlicht
           verifiable_results:
             checksum: 'SHA256-Prüfsumme der Datei:'
             description:
@@ -610,7 +633,7 @@ de:
                 bb_status: Status
                 election: Wahl
                 voting_period: Abstimmungsperiode
-              no_elections: Es gibt keine Wahlen, bei denen Sie als Wahlhelfer agieren.
+              no_elections: Zur Zeit sind Ihnen keine Aktionen als Wahlhelfer zugewiesen. Sie erhalten eine Benachrichtigung, wenn Ihre Mitarbeit erfordert wird.
               title: Wahlen
             identification_keys:
               cancel: Abbrechen
@@ -633,7 +656,9 @@ de:
               upload_legend: Der Server hat Ihren öffentlichen Identifikationsschlüssel, aber Ihr Browser hat ihn immer noch nicht. Sie müssen die Datei mit Ihren Identifikationsschlüssel aus dem Backup auf Ihren Computer importieren, den Sie nach der Generierung der Schlüssel gespeichert haben.
             not_supported_browser_description: Es sieht so aus, als ob Sie einen Webbrowser verwenden, der als Wahlhelfer nicht verwendet werden kann. Stellen Sie sicher, dass Sie die neueste Version Ihres Browsers verwenden, oder versuchen Sie, einen der üblichen Browser zu verwenden, um Ihre Wahlhelfer-Aufgaben zu erfüllen.
             not_supported_browser_title: Browser aktualisieren, um als Wahlhelfer zu agieren
-            trustee_role_description: Sie wurden beauftragt, bei einigen der auf dieser Plattform gehaltenen Wahlen als Wahlhelfer zu agieren.
+            trustee_role_description:
+              with_keys: Sie wurden als Wahlhelfer für einige Wahlen auf dieser Plattform bestimmt.
+              without_keys: Sie wurden als Wahlhelfer bestimmt. Bitte erstellen Sie Ihre Identifikationsschlüssel und laden sie hoch.
           update:
             success: Ihr öffentlicher Identifikationsschlüssel wurde erfolgreich gespeichert.
       votes:
@@ -719,8 +744,9 @@ de:
           back: Zurück
           continue: Weiter
       warnings:
-        no_elections_warning: Keine Wahlen entsprechen Ihren Suchkriterien oder es ist keine Wahl geplant.
-        no_scheduled_elections_warning: Derzeit sind keine Wahlen geplant, aber hier finden Sie alle vergangenen Wahlen aufgelistet.
+        empty_filters: Es liegen noch keine Wahlen mit diesen Kriterien vor.
+        no_elections: Es gibt keine geplante Wahlen.
+        no_scheduled_elections: Derzeit sind keine Wahlen geplant. Sie finden hier alle vergangenen Wahlen aufgelistet.
     events:
       elections:
         election_published:
@@ -732,13 +758,17 @@ de:
           new_election:
             email_intro: Sie sind Wahlhelfer für die %{resource_title} -Wahl.
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie als Wahlhelfer bei der Wahl %{resource_title} hinzugefügt wurden.
-            email_subject: Sie sind Wahlhelfer für die %{resource_title} -Wahl..
-            notification_title: Sie sind Wahlhelfer für die Wahl <a href="%{resource_path}">%{resource_title}</a>.
+            notification_title: Sie wurden als Wahlhelfer in der Abstimmung <a href="%{resource_path}">%{resource_title}.</a> ausgewählt. Bitte führen Sie die Schlüsselzeremonie durch um die Wahl aufzusetzen.
           new_trustee:
             email_intro: Ein Administrator hat Sie als Wahlhelfer für %{resource_name} hinzugefügt. Sie sollten Ihren öffentlichen Schlüssel <a href='%{trustee_zone_url}'> in Ihrer Wahlhelfer Zone anlegen</a>
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie als Wahlhelfer für %{resource_name} hinzugefügt wurden.
             email_subject: Sie sind Wahlhelfer für %{resource_name}.
-            notification_title: Sie sind Wahlhelfer für <a href="%{participatory_space_url}">%{resource_name}</a>.
+            notification_title: Sie wurden als Wahlhelfer auf %{resource_name} für einige Wahlen auf dieser Plattform hinzugefügt.<br> Sie führen Aufgaben nach Bedarf aus. Bitte  <a href='%{trustee_zone_url}'>generieren Sie als nächstes Ihre Identifikationsschlüssel</a>.
+          start_tally:
+            email_intro: Die Wahlperiode für die Wahl %{resource_title} ist zu Ende. Führen Sie nun bitte die Stimmenauszählung durch, um die Endergebnisse zu veröffentlichen.
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Wahlhelfer für die Wahl %{resource_title} sind.
+            email_subject: Der Zählprozess für die Wahl %{resource_title} hat begonnen.
+            notification_title: Die Wahlperiode für die Wahl %{resource_title} ist zu Ende. Führen Sie nun bitte die Stimmenauszählung durch, um die Endergebnisse zu veröffentlichen.
         votes:
           accepted_votes:
             email_intro: 'Deine Stimme wurde angenommen! Benutze deinen Stimm-Token: %{encrypted_vote_hash}, du kannst deine Stimme <a href="%{verify_url}">hier verifizieren</a>.'
@@ -791,6 +821,7 @@ de:
               confirm_destroy: Sind Sie sicher?
               destroy: Löschen
               edit: Bearbeiten
+              new: Neue Wahlkategorie
               title: Aktionen
             associated_census_data: Zugehörige Erhebungseinträge
             explanation_callout: Eine Wahlkategorie legt fest, welche Fragen einem Wähler bei der Abstimmung gestellt werden. In einer Wahlkategorie können Sie auswählen, welche Fragen aus den Wahlkomponenten dieser Wahl zu einer Wahlurne gehören. Anhand dem Wahlkategorie-Code aus den Erhebungsdaten des Wählers wird die Wahlkategorie ausgewählt, die einem Wähler angezeigt wird. Wenn Sie immer alle Fragen anzeigen wollen, erstellen Sie keine Wahlkategorien.
@@ -828,22 +859,7 @@ de:
             name: Abstimmungszeitfolge
         index:
           published: Veröffentlicht
-        landing_page:
-          content_blocks:
-            create:
-              error: Es gab ein Problem beim Erstellen dieses Inhaltsblocks.
-              success: Inhaltsblock erfolgreich erstellt.
-            destroy:
-              error: Es gab ein Problem beim Löschen dieses Inhaltsblocks.
-              success: Inhaltsblock erfolgreich gelöscht.
-            edit:
-              update: Aktualisieren
-          edit:
-            active_content_blocks: Aktive Inhaltsblöcke
-            add: Inhaltsblock hinzufügen
-            destroy_confirmation: Sind Sie sicher, dass Sie diesen Inhaltsblock löschen möchten?
-            inactive_content_blocks: Inaktive Inhaltsblöcke
-            title: Seiteninhalte
+          unpublished: Nicht veröffentlicht
         menu:
           votings: Abstimmungen
           votings_submenu:
@@ -853,6 +869,7 @@ de:
             ballot_styles: Wahlkategorien
             census: Erhebung
             components: Komponenten
+            info: Über diese Abstimmung
             landing_page: Landing-Page
             monitoring_committee: Überwachungskomitee
             monitoring_committee_election_results: Ergebnisse überprüfen
@@ -861,6 +878,7 @@ de:
             monitoring_committee_verify_elections: Wahlen überprüfen
             polling_officers: Wahllokal-Mitarbeitende
             polling_stations: Wahllokale
+            see_voting: Abstimmung ansehen
         models:
           ballot_style:
             fields:
@@ -922,7 +940,7 @@ de:
           form:
             existing_user: Existierender Benutzer
             non_user: Neuen Benutzer einladen
-            select_user: Suchen nach Name, E-Mail oder Benutzername
+            select_user: Suchen nach Name, E-Mail oder Kontoname
             user_type: Benutzertyp
           index:
             title: Überwachungskomitee
@@ -971,7 +989,7 @@ de:
           form:
             existing_user: Existierender Benutzer
             non_user: Neuen Benutzer einladen
-            select_user: Suchen nach Name, E-Mail oder Benutzername
+            select_user: Suchen nach Name, E-Mail oder Kontoname
             user_type: Benutzertyp
           index:
             role_manager: Manager
@@ -982,8 +1000,6 @@ de:
             title: Wahllokal-Mitarbeiter erfassen
           polling_officers_picker:
             choose_polling_officers: Wahllokal-Mitarbeitende auswählen
-            close: Schließen
-            more_polling_officers: Es gibt %{number} weitere Wahllokal-Mitarbeitende. Verfeinern Sie Ihre Suche um sie zu finden.
             no_polling_officers: Keine Stimmenzähler passen zu Ihren Suchkriterien, oder es gibt keine Stimmenzähler.
         polling_stations:
           create:
@@ -1127,8 +1143,7 @@ de:
               csv_header_after: Lassen Sie das letzte Feld ("%{ballot_style_code_header}") weg, wenn Sie keine Wahlkategorien / variablen Fragen benötigen
               csv_header_before: 'Die Erhebungsdatei muss eine CSV-Datei mit folgender Kopfzeile sein:'
         document_types:
-          dni: Pass-/ID-Nummer
-          nie: Nummer Ausländerausweis
+          identification_number: Identifikationsnummer
           passport: Reisepass
         export_mailer:
           access_codes_export:
@@ -1160,24 +1175,35 @@ de:
         closures:
           back_to_polling_stations: Zurück zu den Wahllokalen
           certify:
-            add_images: Bilder hinzufügen
+            add_photos: Fotos hinzufügen
+            edit_photos: Fotos bearbeiten
             error: Beim Anhängen des Zertifikats ist ein Fehler aufgetreten, bitte versuchen Sie es erneut.
-            form_legend: Ein Bild des Wahlabschlusszertifikats hochladen
             heading: Stimmen-Neuzählung - Zertifikat hochladen
             info_text: Bitte laden Sie ein Bild des Wahlabschlusszertifikats hoch.
             submit: Zertifikat hochladen
             success: Zertifikat erfolgreich hochgeladen.
+            upload_photos: Ein Bild des Wahlabschlusszertifikats hochladen
+          completed:
+            sub_heading: Diese Neuauszählung wurde zertifiziert und kann nicht mehr bearbeitet werden.
           create:
             error: Beim Abschließen ist ein Fehler aufgetreten, bitte versuchen Sie es später erneut.
             success: Erfolgreich abgeschlossen.
+          destroy:
+            error: Ein Fehler trat auf beim Entfernen der Schließung.
+            success: Schließung wurde erfolgreich gelöscht.
           edit:
+            confirm_start_over: Dadurch werden die Gesamtzahl der Stimmen und die angehängten Notizen entfernt. Sind Sie sicher?
             heading: Nachzählung der Stimmen - Nachzählung der Antworten
-            info_text: Bitte geben Sie die Gesamtzahl der Antworten für jede Frage ein.
+            info_text: Bitte beschreiben Sie die Gesamtzahl der Antworten für jede Frage. Dies muss mit der Gesamtzahl der im vorherigen Schritt eingeführten Antworten übereinstimmen (%{total} Antworten insgesamt).
             modal_ballots_results_count_error:
+              blank: Erwartete insgesamt leere Bewertungen sind %{expected}, aber die Summe der leeren Fragen ist %{current}.
               close_modal: Schließen
               info_text: Die Gesamtzahl der Stimmzettel stimmt nicht mit der Gesamtzahl der Umschläge überein. Bitte überprüfen Sie die Anzahl der Stimmzettel.
               title: Gesamtzahl der Stimmzettel stimmt nicht
+              total: Erwartete Gesamtsumme ist %{expected}, aber die Summe der gültigen, leeren und null Stimmzettel ist %{current}.
+              valid: Erwartete insgesamt leere Bewertungen ist %{expected}, aber die Summe der leeren Fragen ist %{current}.
             save_recount: Neuzählung speichern
+            start_over: Wenn es einen Fehler in der Gesamtzahl gibt, können Sie alles löschen und neu starten.
             total_ballots: Gesamtzahl der Stimmen
             total_blank_ballots: Anzahl leere Stimmzettel
             total_null_ballots: Anzahl ungültige Stimmzettel
@@ -1200,8 +1226,9 @@ de:
             submit: Gesamtzahl überprüfen
             total_ballots_count: Anzahl Stimmen
           show:
+            edit_count_votes: Falsche Zahlen? Sie können sie trotzdem bearbeiten.
             heading: Neuzählung
-            info_text: Wahlabschluss des Wahlbüros.
+            sub_heading: Die Neuauszählung muss durch das Hochladen eines Zertifikats geschlossen werden. Sobald dies erledigt ist, wird die Neuzählung versiegelt und kann nicht mehr bearbeitet werden.
           sign:
             cancel: Abbrechen
             check_box: Ich habe dies geprüft und es ist dasselbe wie das physische Abschlusszertifikat
@@ -1277,11 +1304,14 @@ de:
         actions:
           confirm_destroy: Sind Sie sicher?
           destroy: Entfernen
+          new: Neuer Wahlhelfer
           title: Aktionen
         roles:
           manager: Manager
           president: Präsident
           unassigned: Nicht zugewiesen
+      polling_station_closure_certificate:
+        current_certificate: 'Aktuelles Zertifikat:'
       polling_station_closure_recount:
         nota_option: Leer / Keine der oben genannten
         polling_officer_notes: 'Notizen der Wahllokal-Mitarbeitenden:'
@@ -1297,6 +1327,7 @@ de:
           confirm_destroy: Sind Sie sicher?
           destroy: Löschen
           edit: Bearbeiten
+          new: Neues Wahllokal
           title: Aktionen
       votings:
         access_code_modal:
@@ -1382,8 +1413,6 @@ de:
           online: Online
   layouts:
     decidim:
-      election_votes_header:
-        exit: Beenden
       voting_navigation:
         check_census: Kann ich abstimmen?
         election_log: Wahl-Protokoll

@@ -3,3 +3,4 @@
 require "decidim/core/test/factories"
 require "decidim/forms/test/factories"
 require "decidim/templates/test/factories"
+require "decidim/proposals/test/factories"

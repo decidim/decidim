@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Follow projects", type: :system do
+describe "Follow projects" do
   let(:manifest_name) { "budgets" }
   let(:budget) { create(:budget, component:) }
 

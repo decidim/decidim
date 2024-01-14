@@ -7,7 +7,7 @@ module Decidim
     subject { described_class.new(model, mounted_as) }
 
     let(:model) { create(:organization) }
-    let(:mounted_as) { :official_img_header }
+    let(:mounted_as) { :official_img_footer }
 
     before do
       allow(ENV).to receive(:fetch).and_call_original
@@ -32,7 +32,7 @@ module Decidim
         end
 
         it "returns the non-variant" do
-          expect(subject.variant(:testing)).to be(model.official_img_header)
+          expect(subject.variant(:testing)).to be(model.official_img_footer)
         end
       end
     end

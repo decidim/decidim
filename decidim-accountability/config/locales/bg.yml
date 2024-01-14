@@ -35,7 +35,6 @@ bg:
         confirm_destroy: Сигурни ли сте, че искате да изтриете това %{name}?
         destroy: Изтрий
         edit: Редактирай
-        import_csv: Импорт CVS
         preview: Преглед
         timeline_entries: Развитие на проекта
         title: Действия
@@ -45,7 +44,6 @@ bg:
         import_results:
           new:
             import: Внасяне
-            title: Импортирай резултати от CSV
         models:
           result:
             name: Резултат

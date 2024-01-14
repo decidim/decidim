@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Filter Participatory Processes", type: :system do
+describe "Filter Participatory Processes" do
   let(:organization) { create(:organization) }
 
   before do

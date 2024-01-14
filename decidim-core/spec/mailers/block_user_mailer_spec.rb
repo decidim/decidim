@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe BlockUserMailer, type: :mailer do
+  describe BlockUserMailer do
     let(:user) { create(:user, :confirmed, organization:, newsletter_notifications_at: nil, newsletter_token: token) }
     let(:token) { SecureRandom.base58(24) }
     let(:organization) { create(:organization) }

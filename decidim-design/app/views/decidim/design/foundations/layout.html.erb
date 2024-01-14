@@ -22,8 +22,8 @@
   <a href="#breakpoints">Breakpoints</a>
 <% end %>
 
-<section id="desktop" class="[&>*+*]:mt-6">
-  <h2 class="text-3xl font-semibold">Desktop <span class="label secondary">lg</span></h2>
+<section id="desktop" class="design__section">
+  <h2>Desktop <span class="label secondary">lg</span></h2>
 
   <p>Desktop grid system is composed of 12 flexible columns with a gutter between columns of 16px and left and right margins of 48px</p>
 
@@ -34,8 +34,8 @@
   </div>
 </section>
 
-<section id="tablet" class="[&>*+*]:mt-6">
-  <h2 class="text-3xl font-semibold">Tablet <span class="label secondary">md</span></h2>
+<section id="tablet" class="design__section">
+  <h2>Tablet <span class="label secondary">md</span></h2>
 
   <p>Tablet grid system is composed of 8 flexible columns with a gutter between columns of 16px and left and right margins of 24px</p>
 
@@ -46,8 +46,8 @@
   </div>
 </section>
 
-<section id="mobile" class="[&>*+*]:mt-6">
-  <h2 class="text-3xl font-semibold">Mobile <span class="label secondary">sm</span></h2>
+<section id="mobile" class="design__section">
+  <h2>Mobile <span class="label secondary">sm</span></h2>
 
   <p>Mobile grid system is composed of 4 flexible columns with a gutter between columns of 16px and left and right margins of 16px. For sizes below 320px this margins are set to 8px</p>
 
@@ -58,8 +58,8 @@
   </div>
 </section>
 
-<section id="code" class="[&>*+*]:mt-6">
-  <h2 class="text-3xl font-semibold">Code</h2>
+<section id="code" class="design__section">
+  <h2>Code</h2>
 
   <p>When implementing new modules you have some helpers that automatically provides you with the code needed to setup the HTML structure. You should use these helpers instead of directly using div elements with classes, so you maintain consistency.</p>
 
@@ -97,15 +97,15 @@
 
 </section>
 
-<section id="breakpoints" class="[&>*+*]:mt-6">
-  <h2 class="text-3xl font-semibold">Breakpoints</h2>
+<section id="breakpoints" class="design__section">
+  <h2>Breakpoints</h2>
 
   <p>To manage the responsive max-width of elements we rely on the default `container` Tailwind class, which states the following breakpoints:</p>
 
-  <table class="mt-4 w-full text-center text-sm text-gray-2">
-    <thead class="bg-gray-3">
-      <th class="px-6 py-2 font-normal border border-background">Breakpoint</th>
-      <th class="px-6 py-2 font-normal border border-background">Properties</th>
+  <table class="design__table">
+    <thead>
+      <th>Breakpoint</th>
+      <th>Properties</th>
     </thead>
     <tbody>
       <%
@@ -119,8 +119,8 @@
         rows.each do |row|
       %>
         <tr>
-          <td class="px-6 py-4 border border-background"><%= row[:breakpoint] %></td>
-          <td class="px-6 py-4 border border-background"><%= row[:properties] %></td>
+          <td><%= row[:breakpoint] %></td>
+          <td><%= row[:properties] %></td>
         </tr>
       <% end %>
     </tbody>

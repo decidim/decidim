@@ -23,7 +23,7 @@ Decidim::Admin::Engine.routes.draw do
       put :update_content_blocks, on: :member
       resources :content_blocks, only: [:edit, :update, :destroy, :create], controller: "static_page_content_blocks"
     end
-    resources :static_page_topics, except: [:index]
+    resources :static_page_topics
     resources :scope_types, except: [:show]
     resources :scopes, except: [:show] do
       resources :scopes, except: [:show]

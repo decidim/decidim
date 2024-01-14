@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages assembly attachment collections examples", type: :system do
+describe "Admin manages assembly attachment collections examples" do
   include_context "when admin administrating an assembly"
 
   let(:collection_for) { assembly }
@@ -12,8 +12,9 @@ describe "Admin manages assembly attachment collections examples", type: :system
     login_as user, scope: :user
     visit decidim_admin_assemblies.edit_assembly_path(assembly)
     within_admin_sidebar_menu do
-      click_link "Folders"
+      click_link "Attachments"
     end
+    click_link "Folders"
   end
 
   it_behaves_like "manage attachment collections examples"

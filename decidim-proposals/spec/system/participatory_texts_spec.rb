@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Participatory texts", type: :system do
+describe "Participatory texts" do
   include Decidim::SanitizeHelper
   include ActionView::Helpers::TextHelper
 
@@ -73,7 +73,7 @@ describe "Participatory texts", type: :system do
       within all("#proposals section[id^='proposal']").first, visible: :visible do
         expect(page).to have_link("Amend")
         expect(amend_button_disabled?).to eq(disabled_value)
-        expect(page).to have_link(amendments_count)
+        expect(page).to have_link(amendments_count.to_s)
       end
     end
   end

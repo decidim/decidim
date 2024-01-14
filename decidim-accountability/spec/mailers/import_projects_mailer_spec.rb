@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Accountability
-    describe ImportProjectsMailer, type: :mailer do
+    describe ImportProjectsMailer do
       let(:user) { create(:user, organization:) }
       let(:organization) { create(:organization) }
       let(:participatory_space) { create(:participatory_process, organization:) }

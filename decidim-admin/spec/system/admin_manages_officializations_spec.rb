@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages officializations", type: :system do
+describe "Admin manages officializations" do
   include_context "with filterable context"
 
   let(:model_name) { Decidim::User.model_name }

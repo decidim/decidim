@@ -163,14 +163,8 @@ uk:
             non_user: Не чинний учасник
             select_user: Оберіть учасника
           index:
-            filter:
-              accepted: Прийняті
-              all: Усі
-              rejected: Відхилені
-              sent: Надіслані
             invite_attendee: Запросити учасника
             invites: Запрошення
-            search: Шукати
         meeting_closes:
           edit:
             close: Закрити
@@ -248,7 +242,6 @@ uk:
           meeting_minutes: Протокол зустрічі
           no_slots_available: Не залишилось місць
           organizations: Організації, що приймають участь
-          view: Переглянути
       models:
         invite:
           fields:

@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Votings::Census::Admin::CreateDatumJob do
   let!(:dataset) { create(:dataset) }
   let(:user) { create(:user, :admin, organization: dataset.voting.organization) }
-  let!(:csv_row) { ["12345678X", "DNI", "20011202", "John Doe", "The full address one", "08001", "123456789", "user@example.org", "BS1"] }
+  let!(:csv_row) { ["12345678X", "passport", "20011202", "John Doe", "The full address one", "08001", "123456789", "user@example.org", "BS1"] }
 
   describe "queue" do
     it "is queued to events" do

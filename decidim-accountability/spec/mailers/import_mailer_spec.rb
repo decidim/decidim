@@ -7,7 +7,7 @@ require "decidim/participatory_processes/test/factories"
 
 module Decidim
   module Accountability
-    describe ImportMailer, type: :mailer do
+    describe ImportMailer do
       let(:organization) { create(:organization, available_locales: [:en]) }
       let(:current_user) { create(:user, organization:) }
       let(:participatory_process) { create(:participatory_process, organization:) }

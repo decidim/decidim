@@ -5,9 +5,11 @@ module Decidim
     # Controller that allows managing scopes types at the admin panel.
     #
     class ScopeTypesController < Decidim::Admin::ApplicationController
+      include Decidim::Admin::Concerns::HasTabbedMenu
+
       layout "decidim/admin/settings"
 
-      add_breadcrumb_item_from_menu :admin_settings_menu
+      add_breadcrumb_item_from_menu :admin_scopes_menu
 
       helper_method :scope_types
 
@@ -24,7 +26,7 @@ module Decidim
         enforce_permission_to :create, :scope_type
         @form = form(ScopeTypeForm).from_params(params)
 
-        CreateScopeType.call(@form, current_user) do
+        CreateScopeType.call(@form) do
           on(:ok) do
             flash[:notice] = I18n.t("scope_types.create.success", scope: "decidim.admin")
             redirect_to scope_types_path
@@ -46,7 +48,7 @@ module Decidim
         enforce_permission_to(:update, :scope_type, scope_type:)
         @form = form(ScopeTypeForm).from_params(params)
 
-        UpdateScopeType.call(scope_type, @form, current_user) do
+        UpdateScopeType.call(@form, scope_type) do
           on(:ok) do
             flash[:notice] = I18n.t("scope_types.update.success", scope: "decidim.admin")
             redirect_to scope_types_path
@@ -62,16 +64,17 @@ module Decidim
       def destroy
         enforce_permission_to(:destroy, :scope_type, scope_type:)
 
-        Decidim.traceability.perform_action!("delete", scope_type, current_user) do
-          scope_type.destroy!
+        Decidim::Commands::DestroyResource.call(scope_type, current_user) do
+          on(:ok) do
+            flash[:notice] = I18n.t("scope_types.destroy.success", scope: "decidim.admin")
+            redirect_to scope_types_path
+          end
         end
-
-        flash[:notice] = I18n.t("scope_types.destroy.success", scope: "decidim.admin")
-
-        redirect_to scope_types_path
       end
 
       private
+
+      def tab_menu_name = :admin_scopes_menu
 
       def scope_type
         @scope_type ||= scope_types.find(params[:id])

@@ -183,14 +183,8 @@ sk:
             non_user: Neexistujúca užívateľ
             select_user: Vyberte používateľa
           index:
-            filter:
-              accepted: Prijal
-              all: Všetko
-              rejected: Odmietnuté
-              sent: Odoslaná
             invite_attendee: Pozvať účastníka
             invites: Pozvánky
-            search: Vyhľadávanie
         meeting_closes:
           edit:
             close: Zavrieť
@@ -297,7 +291,6 @@ sk:
             few: "%{count} zostávajúcich blokov"
             many: "%{count} zostávajúcich blokov"
             other: "%{count} zostávajúcich blokov"
-          view: Zobrazenie
       models:
         invite:
           fields:

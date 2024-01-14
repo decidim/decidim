@@ -30,12 +30,12 @@ describe Decidim::PublicActivities do
     subject { query.query }
 
     let(:component) { create(:component, manifest_name: "dummy", participatory_space: process) }
-    let(:comment) { create(:comment, author: user, commentable: build(:dummy_resource, component:)) }
-    let!(:log) { create(:action_log, action: "create", visibility: "public-only", resource: comment, participatory_space: process, user:) }
+    let(:resource) { create(:comment, author: user, commentable: build(:dummy_resource, component:)) }
+    let!(:log) { create(:action_log, action: "create", visibility: "public-only", resource:, participatory_space: process, user:) }
 
     let(:private_component) { create(:component, manifest_name: "dummy", participatory_space: private_process) }
-    let(:private_comment) { create(:comment, author: user, commentable: build(:dummy_resource, component: private_component)) }
-    let!(:private_log) { create(:action_log, action: "create", visibility: "public-only", resource: private_comment, participatory_space: private_process, user:) }
+    let(:private_resource) { create(:comment, author: user, commentable: build(:dummy_resource, component: private_component)) }
+    let!(:private_log) { create(:action_log, action: "create", visibility: "public-only", resource: private_resource, participatory_space: private_process, user:) }
 
     it "does not return duplicates" do
       expect(subject.count).to eq(1)
@@ -48,6 +48,18 @@ describe Decidim::PublicActivities do
 
       it "returns also the private comment without duplicates" do
         expect(subject.count).to eq(2)
+      end
+    end
+
+    context "with follows" do
+      let(:resource) { create(:dummy_resource, component:) }
+      let(:private_resource) { create(:dummy_resource, component:) }
+
+      let(:options) { { user:, current_user:, follows: Decidim::Follow.where(user:) } }
+      let!(:follows) { [resource, private_resource].map { |f| create(:follow, followable: f, user:) } }
+
+      it "returns the correct logs" do
+        expect(subject.count).to eq(1)
       end
     end
   end

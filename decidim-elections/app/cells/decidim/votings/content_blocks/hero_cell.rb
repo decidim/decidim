@@ -10,20 +10,8 @@ module Decidim
           false
         end
 
-        def subtitle
+        def subtitle_text
           "#{start_text} — #{end_text}"
-        end
-
-        def cta_text
-          return unless model
-
-          @cta_text ||= translated_attribute(model.settings.button_text).presence
-        end
-
-        def cta_path
-          return unless model
-
-          @cta_path ||= translated_attribute(model.settings.button_url).presence
         end
 
         private

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Organizations", type: :system do
+describe "Organizations" do
   let(:admin) { create(:admin) }
 
   shared_examples "form hiding advanced settings" do
@@ -28,6 +28,18 @@ describe "Organizations", type: :system do
 
       it_behaves_like "form hiding advanced settings"
 
+      it "has some fields filled by default" do
+        expect(find(:xpath, "//input[@id='organization_host']").value).to eq("127.0.0.1")
+        expect(find(:xpath, "//input[@id='organization_organization_admin_name']").value).to eq(admin.email.split("@")[0])
+        expect(find(:xpath, "//input[@id='organization_organization_admin_email']").value).to eq(admin.email)
+        within "table" do
+          expect(all("input[type=checkbox]")).to all(be_checked)
+          expect(find(:xpath, "//input[@name='organization[default_locale]']", match: :first)).to be_checked
+        end
+        expect(find(:xpath, "//input[@name='organization[users_registration_mode]']", match: :first).value).to eq("enabled")
+        expect(find(:xpath, "//input[@name='organization[users_registration_mode]']", match: :first)).to be_checked
+      end
+
       it "creates a new organization" do
         fill_in "Name", with: "Citizen Corp"
         fill_in "Host", with: "www.example.org"
@@ -41,7 +53,12 @@ describe "Organizations", type: :system do
         check "Example authorization (Direct)"
         click_button "Create organization & invite admin"
 
-        expect(page).to have_css("div.flash.success")
+        within ".flash__message" do
+          expect(page).to have_content("Organization successfully created.")
+          expect(page).to have_content("config/environment/production.rb")
+          expect(page).to have_content("config.hosts << \"www.example.org\"")
+          expect(page).to have_content("mayor@example.org")
+        end
         expect(page).to have_content("Citizen Corp")
       end
 
@@ -55,21 +72,40 @@ describe "Organizations", type: :system do
       end
     end
 
-    describe "showing an organization with different locale than user" do
-      let!(:organization) do
-        create(:organization, name: "Citizen Corp", default_locale: :es, available_locales: ["es"], description: { es: "Un texto largo" })
-      end
+    describe "resending the invitation" do
+      let(:organization) { create(:organization) }
 
       before do
-        click_link "Organizations"
-        within "table tbody" do
-          first("tr").click_link "Citizen Corp"
+        login_as admin, scope: :admin
+      end
+
+      context "when there is an admin without a pending invitation" do
+        let!(:organization_admin) { create(:user, :admin, organization:) }
+
+        it "does not show the button" do
+          visit decidim_system.root_path
+          expect(organization_admin).not_to be_invitation_pending
+          expect(page).not_to have_content("Resend invitation")
         end
       end
 
-      it "shows the organization data" do
-        expect(page).to have_content("Citizen Corp")
-        expect(page).to have_content("Un texto largo")
+      context "when there is an admin with a pending invitation" do
+        let!(:organization_admin) { create(:user, :admin, invitation_token: "foo", invitation_accepted_at: nil, invitation_sent_at: 10.days.ago, organization:) }
+
+        it "resends the invitation" do
+          visit decidim_system.root_path
+          expect(organization_admin).to be_invitation_pending
+          expect(page).to have_content("Resend invitation")
+          click_link "Resend invitation"
+          within "#confirm-modal-content" do
+            click_button "OK"
+          end
+          within_flash_messages do
+            expect(page).to have_content "Invitation successfully sent"
+          end
+          expect(organization_admin.reload.invitation_token).not_to eq("foo")
+          expect(organization_admin.invitation_sent_at).to be_within(2.seconds).of Time.zone.now
+        end
       end
     end
 

@@ -14,7 +14,7 @@ $(() => {
     );
 
     if (!window.trusteeIdentificationKeys.browserSupport) {
-      $("#not_supported_browser").attr("hidden", false);
+      $("#not_supported_browser").removeClass("hidden");
       return;
     }
 

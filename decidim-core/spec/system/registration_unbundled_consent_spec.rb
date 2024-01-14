@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "TOS", type: :system do
+describe "TOS" do
   let(:organization) { create(:organization) }
   let!(:terms_of_service_page) { Decidim::StaticPage.find_by(slug: "terms-of-service", organization:) }
 

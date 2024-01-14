@@ -228,14 +228,8 @@ pt:
             non_user: Participante inexistente
             select_user: Selecione o participante
           index:
-            filter:
-              accepted: Aceite
-              all: Todos
-              rejected: Rejeitados
-              sent: Enviados
             invite_attendee: Convidar participante
             invites: Convites
-            search: Pesquisar
         meeting_closes:
           edit:
             close: Fechar
@@ -399,7 +393,6 @@ pt:
         show:
           attendees: Contagem de participantes
           contributions: Contagem de contribuições
-          date: Data
           join: Adira à reunião
           leave: Cancele o seu registo
           leave_confirmation: Tem a certeza que quer cancelar o seu registo para esta reunião?
@@ -417,7 +410,6 @@ pt:
           remaining_slots:
             one: "%{count} intervalo de tempo restante"
             other: "%{count} intervalos de tempo restantes"
-          view: Ver
           visit_finished: Ver reunião passada
         update:
           invalid: Ocorreu um problema ao atualizar a reunião.

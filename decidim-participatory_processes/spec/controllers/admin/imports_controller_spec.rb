@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module ParticipatoryProcesses
     module Admin
-      describe ImportsController, type: :controller do
+      describe ImportsController do
         routes { Decidim::ParticipatoryProcesses::AdminEngine.routes }
 
         it_behaves_like "admin imports controller" do

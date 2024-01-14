@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages conference attachment collections examples", type: :system do
+describe "Admin manages conference attachment collections examples" do
   include_context "when admin administrating a conference"
 
   let(:collection_for) { conference }
@@ -12,8 +12,9 @@ describe "Admin manages conference attachment collections examples", type: :syst
     login_as user, scope: :user
     visit decidim_admin_conferences.edit_conference_path(conference)
     within_admin_sidebar_menu do
-      click_link "Folders"
+      click_link "Attachments"
     end
+    click_link "Folders"
   end
 
   it_behaves_like "manage attachment collections examples"

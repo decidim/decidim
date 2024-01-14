@@ -30,7 +30,6 @@ hu:
           error: A hozzászólás nem törölhető.
         update:
           error: Hiba történt a hozzászólás frissítése során.
-      comments_count: Hozzászólások száma
       comments_title: Hozzászólás
       votes:
         create:

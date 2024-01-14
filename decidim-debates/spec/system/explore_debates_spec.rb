@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Explore debates", type: :system do
+describe "Explore debates" do
   include_context "with a component"
   let(:manifest_name) { "debates" }
 
@@ -40,6 +40,32 @@ describe "Explore debates", type: :system do
 
       debates.each do |debate|
         expect(page).to have_content(translated(debate.title))
+      end
+    end
+
+    context "when there are no debates" do
+      let(:debates) { nil }
+
+      it "shows an empty page with a message" do
+        visit_component
+
+        within "main.layout-2col__main" do
+          expect(page).to have_content "There are no debates yet"
+        end
+      end
+
+      context "when filtering by scope" do
+        it "shows an empty page with a message" do
+          visit_component
+
+          within "#panel-dropdown-menu-category" do
+            check category.name[I18n.locale.to_s]
+          end
+
+          within "main.layout-2col__main" do
+            expect(page).to have_content("There are no debates with this criteria")
+          end
+        end
       end
     end
 

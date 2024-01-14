@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin passwords", type: :system do
+describe "Admin passwords" do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :confirmed, :admin, password:, password_updated_at:, organization:) }
   let(:password) { "decidim123456789" }

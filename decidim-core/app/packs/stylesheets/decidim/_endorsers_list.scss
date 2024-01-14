@@ -1,5 +1,5 @@
 .endorsers-list {
-  @apply space-y-3 opacity-0 -translate-y-full invisible transition-all;
+  @apply space-y-3 opacity-0 -translate-y-full invisible transition-all absolute;
 
   &__text {
     @apply text-sm text-gray-2;
@@ -40,6 +40,6 @@
   }
 
   &[id*="dropdown-menu"][aria-hidden="false"] {
-    @apply opacity-100 visible translate-y-0 transition-all;
+    @apply opacity-100 visible translate-y-0 transition-all relative;
   }
 }

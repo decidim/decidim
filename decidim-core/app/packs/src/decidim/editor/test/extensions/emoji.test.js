@@ -1,8 +1,8 @@
 /* eslint-disable no-undef */
 
-import { createBasicEditor, sleep } from "../helpers";
+import { createBasicEditor, sleep } from "src/decidim/editor/test/helpers";
 
-import Emoji from "../../extensions/emoji";
+import Emoji from "src/decidim/editor/extensions/emoji";
 
 Reflect.defineProperty(window, "matchMedia", {
   writable: true,

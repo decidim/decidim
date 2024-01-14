@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Index Proposal Notes", type: :system do
+describe "Index Proposal Notes" do
   let(:component) { create(:proposal_component) }
   let(:organization) { component.organization }
 

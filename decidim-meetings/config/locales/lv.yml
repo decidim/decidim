@@ -180,14 +180,8 @@ lv:
             non_user: Neeksistējošs dalībnieks
             select_user: Izvēlieties dalībnieku
           index:
-            filter:
-              accepted: Pieņemts
-              all: Visi
-              rejected: Noraidīts
-              sent: Nosūtīts
             invite_attendee: Uzaicināt apmeklētāju
             invites: Ielūgumi
-            search: Meklēt
         meeting_closes:
           edit:
             close: Aizvērt
@@ -292,7 +286,6 @@ lv:
             zero: "Atlicis %{count} laiks runāšanai"
             one: "Atlicis %{count} laiks runāšanai"
             other: "Atlicis %{count} laiks runāšanai"
-          view: Apskatīt
       models:
         invite:
           fields:

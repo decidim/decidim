@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages posts", type: :system do
+describe "Admin manages posts" do
   let(:manifest_name) { "blogs" }
   let(:two_days_ago) { 2.days.ago.strftime("%d/%m/%Y %H:%M") }
   let(:two_days_from_now) { 2.days.from_now.strftime("%d/%m/%Y %H:%M") }

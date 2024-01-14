@@ -198,14 +198,8 @@ tr:
             non_user: Mevcut olmayan katılımcı
             select_user: Katılımcı seç
           index:
-            filter:
-              accepted: Kabul edilmiş
-              all: Tümü
-              rejected: Reddedildi
-              sent: Gönderildi
             invite_attendee: Katılımcı davet et
             invites: Davetler
-            search: Arama
         meeting_closes:
           edit:
             close: Kapat
@@ -349,7 +343,6 @@ tr:
         show:
           attendees: Katılımcı sayısı
           contributions: Katkı sayımı
-          date: Tarih
           join: Toplantıya katıl
           meeting_minutes: Görüşme süreleri
           no_slots_available: Kullanılabilir yer yok
@@ -361,7 +354,6 @@ tr:
           remaining_slots:
             one: "%{count} alan kaldı"
             other: "%{count} alan kaldı"
-          view: Görünüm
         update:
           invalid: Bu toplantı güncellenirken bir sorun oluştu.
           success: Toplantıyı başarıyla oluşturdunuz.

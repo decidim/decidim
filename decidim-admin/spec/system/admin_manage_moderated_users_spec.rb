@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-describe "Admin manages moderated users", type: :system do
+describe "Admin manages moderated users" do
   let(:organization) { create(:organization) }
   let!(:admin) { create(:user, :admin, :confirmed, organization:) }
   let(:model_name) { Decidim::User.model_name }

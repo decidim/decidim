@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe AxeMatchers, type: :system do
+describe AxeMatchers do
   let(:organization) { create(:organization) }
 
   let(:html_document) do

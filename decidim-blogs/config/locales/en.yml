@@ -67,6 +67,7 @@ en:
           count:
             one: "%{count} post"
             other: "%{count} posts"
+          empty: There are no posts yet.
     components:
       blogs:
         actions:

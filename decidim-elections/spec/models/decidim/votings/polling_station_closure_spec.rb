@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::Votings::PollingStationClosure, type: :model do
+describe Decidim::Votings::PollingStationClosure do
   subject(:closure) { build(:ps_closure) }
 
   it { is_expected.to be_valid }

@@ -6,7 +6,7 @@ module Decidim
   module Map
     module Provider
       module DynamicMap
-        describe Here::Builder, type: :system do
+        describe Here::Builder do
           it_behaves_like "a page with dynamic map" do
             let(:options) do
               {

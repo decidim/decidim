@@ -881,7 +881,7 @@ shared_examples_for "an application with extra configurable env vars" do
       "second_notification_percentage" => 66,
       "stats_cache_expiration_time" => 300, # 5.minutes
       "max_time_in_validating_state" => 5_184_000, # 60.days
-      "print_enabled" => true,
+      "print_enabled" => false,
       "do_not_require_authorization" => false
     }
   end

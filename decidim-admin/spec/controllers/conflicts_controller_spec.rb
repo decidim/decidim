@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Admin
-    describe ConflictsController, type: :controller do
+    describe ConflictsController do
       routes { Decidim::Admin::Engine.routes }
 
       let(:organization) do

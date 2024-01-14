@@ -74,7 +74,11 @@ module Decidim
           secondary: "information-line",
           alert: "alert-line",
           warning: "alert-line",
-          success: "checkbox-circle-line"
+          success: "checkbox-circle-line",
+          info: "information-line",
+          notice: "checkbox-circle-line",
+          primary: "checkbox-circle-line",
+          error: "alert-line"
         }
 
         content_tag(:div, class: "flash__icon") do
@@ -102,7 +106,7 @@ module Decidim
       end
 
       def message(value)
-        return content_tag(:span, value, class: "flash__message") unless value.is_a?(Hash)
+        return content_tag(:span, value, class: "flash__message flex items-center") unless value.is_a?(Hash)
 
         content_tag(:span, class: "flash__message") do
           concat value[:title]

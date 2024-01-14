@@ -15,10 +15,6 @@ export default class PasswordToggler {
       show: icon("eye-line"),
       hide: icon("eye-off-line")
     }
-    this.buttonClass = {
-      onValid: "mt-5",
-      onInvalid: "mb-2"
-    }
   }
 
   // Call init() to hide the password confirmation and add a "view password" inline button
@@ -30,18 +26,6 @@ export default class PasswordToggler {
     // to prevent browsers trying to use autocomplete, turn the type back to password before submitting
     this.form.addEventListener("submit", () => {
       this.hidePassword();
-    });
-
-    // to fix the button margin if there are or not errors
-    // as foundation abide needs jQuery, we need to do it with 'on' instead of 'addEventListener'
-    $(this.input).on("invalid.zf.abide", () => {
-      this.button.classList.remove(this.buttonClass.onValid);
-      this.button.classList.add(this.buttonClass.onInvalid);
-    });
-
-    $(this.input).on("valid.zf.abide", () => {
-      this.button.classList.add(this.buttonClass.onValid);
-      this.button.classList.remove(this.buttonClass.onInvalid);
     });
   }
 
@@ -62,7 +46,6 @@ export default class PasswordToggler {
 
   createButton() {
     const button = document.createElement("button");
-    button.classList.add(this.buttonClass.onValid);
     button.setAttribute("type", "button");
     button.setAttribute("aria-controls", this.input.getAttribute("id"));
     button.setAttribute("aria-label", this.texts.showPassword);
@@ -80,11 +63,11 @@ export default class PasswordToggler {
 
   addInputGroupWrapperAsParent() {
     const inputGroupWrapper = document.createElement("div");
-    inputGroupWrapper.classList.add("filter-search", "filter-container");
+    inputGroupWrapper.classList.add("input-group__password");
 
     this.input.parentNode.replaceChild(inputGroupWrapper, this.input);
     inputGroupWrapper.appendChild(this.input);
-    this.input.after(this.button);
+    this.input.before(this.button);
 
     const formError = this.password.querySelector(".form-error");
     if (formError) {

@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe OfflineController, type: :controller do
+  describe OfflineController do
     routes { Decidim::Core::Engine.routes }
 
     let(:organization) { create(:organization) }

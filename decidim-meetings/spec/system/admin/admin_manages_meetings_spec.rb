@@ -3,7 +3,7 @@
 require "spec_helper"
 require "decidim/dev/test/rspec_support/tom_select"
 
-describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_map: true, type: :system do
+describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_map: true do
   let(:manifest_name) { "meetings" }
   let!(:meeting) { create(:meeting, :published, scope:, services: [], component: current_component) }
   let(:address) { "Some address" }

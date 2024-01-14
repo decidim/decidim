@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe "Participatory process search", type: :request do
+RSpec.describe "Participatory process search" do
   subject { response.body }
 
   let(:organization) { create(:organization) }

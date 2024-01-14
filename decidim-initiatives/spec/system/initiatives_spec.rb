@@ -3,7 +3,7 @@
 require "spec_helper"
 require "decidim/core/test/shared_examples/has_contextual_help"
 
-describe "Initiatives", type: :system do
+describe "Initiatives" do
   let(:organization) { create(:organization) }
   let(:base_initiative) do
     create(:initiative, organization:)
@@ -51,6 +51,10 @@ describe "Initiatives", type: :system do
       let!(:initiative) { base_initiative }
       let!(:unpublished_initiative) do
         create(:initiative, :created, organization:)
+      end
+
+      before do
+        allow(Decidim::Initiatives).to receive(:print_enabled).and_return(true)
       end
 
       it_behaves_like "shows contextual help" do

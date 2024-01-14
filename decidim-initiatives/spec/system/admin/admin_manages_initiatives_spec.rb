@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages initiatives", type: :system do
+describe "Admin manages initiatives" do
   STATES = Decidim::Initiative.states.keys.map(&:to_sym)
 
   let(:organization) { create(:organization) }

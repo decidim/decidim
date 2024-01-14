@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Sorting projects", type: :system do
+describe "Sorting projects" do
   include_context "with a component"
   let(:manifest_name) { "budgets" }
 

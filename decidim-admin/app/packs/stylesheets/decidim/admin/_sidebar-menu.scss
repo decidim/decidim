@@ -1,13 +1,18 @@
 .sidebar-menu {
-  @apply p-8 flex-none w-full md:w-fit max-w-full md:max-w-xs;
+  @apply p-4 flex-none w-full md:w-fit max-w-full md:max-w-xs;
 
   &__item {
-    a {
-      @apply gap-x-2 p-2 flex items-center text-secondary text-sm truncate border border-gray-5 rounded;
+    a,
+    &-disabled {
+      @apply gap-x-2 p-2 flex items-center text-sm truncate border border-gray-5 rounded;
 
       > svg {
         @apply w-4 h-4 flex-none text-gray fill-current;
       }
+    }
+
+    a {
+      @apply text-secondary;
     }
 
     &.is-active > a,
@@ -19,16 +24,16 @@
       @apply font-semibold;
     }
 
+    & .component-counter {
+      @apply ml-auto inline-flex items-center justify-center w-5 h-5 text-xs font-semibold rounded-full bg-background-4 border-secondary;
+    }
+
     ul {
       @apply ml-10;
 
       li {
         a {
           @apply px-2 py-1;
-
-          .component-counter {
-            @apply ml-auto inline-flex items-center justify-center w-5 h-5 text-xs font-semibold rounded-full bg-background-4 border-secondary;
-          }
         }
 
         &.is-active a {

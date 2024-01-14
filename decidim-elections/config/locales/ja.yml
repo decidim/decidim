@@ -151,6 +151,10 @@ ja:
         manage_answers: 回答の管理
         manage_questions: 質問の管理
         manage_steps: ステップの管理
+        new_answer: 新しい回答
+        new_election: 新しい選挙
+        new_question: 新しい質問
+        new_trustee: 新しい受託者
         preview: プレビュー
         publish: 公開
         title: アクション
@@ -215,7 +219,6 @@ ja:
           feedback_form_answers: フィードバックフォームの回答
         mailers:
           trustee_mailer:
-            body: "<p>%{user_name} さん、こんにちは。</p><p>あなたは%{resource_name} の受託者として追加されました。</p>"
             subject: あなたは %{resource_name} に受託者として追加されました
             trustee_zone: 私を受託者ゾーンに連れて行ってください
         menu:
@@ -259,6 +262,7 @@ ja:
               census_frozen: センサスのアクセスコードはエクスポートされませんでした。
               census_uploaded: この選挙にアップロードされたセンサスはありません。
               component_published: 選挙コンポーネントは <strong>未公開です</strong>。
+              fix_it_text: 修理する
               max_selections: 質問が <strong>回答の数に対して正しく</strong>ありません
               minimum_answers: 質問には <strong>少なくとも2つの回答</strong>が必要です
               minimum_questions: 選挙には <strong>少なくとも1つの質問</strong>が必要です。
@@ -284,6 +288,11 @@ ja:
               trustees_number: 参加スペースには <strong>少なくとも %{number} 人の公開鍵を持つ受託者</strong>がいます。
             submit: 選挙を設定
             success: 選挙を掲示板に送信しました。
+            technical_configuration:
+              authority_name: "<strong>オーソリティ名:</strong> %{value}"
+              bulletin_board_server: "<strong>掲示板サーバー:</strong> <a href='%{value}'>%{value}</a>"
+              scheme_name: "<strong>スキーム名:</strong> %{value}"
+              title: 技術情報を表示
             title: 選挙を設定する
             trustees: 選挙受託者
           created:
@@ -445,6 +454,7 @@ ja:
             started: 集計処理が始まりました。
           tally_title: 集計処理
           title: 選挙ログ
+          unpublished: 未公開
           verifiable_results:
             checksum: 'ファイルのSHA256 チェックサム:'
             description:
@@ -598,7 +608,7 @@ ja:
                 bb_status: ステータス
                 election: 選挙
                 voting_period: 投票期間
-              no_elections: あなたが受託者として行動する選挙はありません。
+              no_elections: 現在、あなたは受託者として行動を取るようにアサインされていません。 別フェーズで活動するタイミングになると通知が届きます。
               title: 選挙
             identification_keys:
               cancel: キャンセル
@@ -621,7 +631,9 @@ ja:
               upload_legend: サーバーには公開識別キーがありますが、ブラウザにはまだ公開識別キーがありません。 生成後に作成したバックアップから、識別キーのあるファイルをコンピュータにインポートする必要があります。
             not_supported_browser_description: お使いのWebブラウザでは受託者の業務を行うことができません。ブラウザの最新バージョンを使用していることを確認するか、もっと一般的なブラウザのいずれかを使用して、受託者タスクを完了できるようにしてください。
             not_supported_browser_title: ブラウザをアップグレードして受託者として行動する
-            trustee_role_description: あなたは、このプラットフォームで行われる選挙のいくつかで受託者を務めることになっています。
+            trustee_role_description:
+              with_keys: あなたは、このプラットフォームで行われる選挙のいくつかで受託者として行動するようにアサインされています。
+              without_keys: あなたは受託者として行動するようアサインされています。識別キーを生成してアップロードしてください。
           update:
             success: 公開識別キーを保存しました。
       votes:
@@ -707,8 +719,9 @@ ja:
           back: 戻る
           continue: 次へ
       warnings:
-        no_elections_warning: 検索条件に一致する選挙がないか、予定されている選挙がありません。
-        no_scheduled_elections_warning: 現在、予定された選挙はありませんが、ここでは記載されているすべての過去の選挙を見つけることができます。
+        empty_filters: この条件の選挙はありません。
+        no_elections: 選挙が予定されていません。
+        no_scheduled_elections: 現在、予定された選挙はありませんが、過去のすべての選挙を検索できます。
     events:
       elections:
         election_published:
@@ -720,13 +733,16 @@ ja:
           new_election:
             email_intro: '%{resource_title} 選挙の受託者として追加されました。'
             email_outro: '%{resource_title} 選挙の受託者に追加されたため、この通知を受け取りました。'
-            email_subject: あなたは %{resource_title} 選挙の受託者です..
-            notification_title: あなたは <a href="%{resource_path}">%{resource_title}</a> 選挙の受託者です。
+            notification_title: 選挙 <a href="%{resource_path}">%{resource_title}</a>の受託者に選ばれました。選挙を準備するためのキーセレモニーを行ってください。
           new_trustee:
             email_intro: 管理者が %{resource_name} の受託者としてあなたを追加しました。受託者ゾーンで <a href='%{trustee_zone_url}'>公開鍵を作成する必要があります。</a>
             email_outro: '%{resource_name} の受託者に追加されたため、この通知を受信しました。'
             email_subject: あなたは %{resource_name} の受託者です。
-            notification_title: あなたは <a href="%{participatory_space_url}">%{resource_name}</a> の受託者です。
+          start_tally:
+            email_intro: '%{resource_title} 選挙の投票期間が終了しました。最終結果を公開するために、選挙の合計を行ってください。'
+            email_outro: あなたは %{resource_title} 選挙の受託者であるため、この通知を受け取りました。
+            email_subject: '%{resource_title} 選挙の集計プロセスが開始されました。'
+            notification_title: '%{resource_title} 選挙の投票期間が終了しました。最終結果を公開するために、選挙の合計を行ってください。'
         votes:
           accepted_votes:
             email_intro: '投票が承認されました！投票トークン: %{encrypted_vote_hash} を使用して、投票を <a href="%{verify_url}">ここ</a> で確認できます。'
@@ -779,6 +795,7 @@ ja:
               confirm_destroy: 本当に削除してよろしいですか？
               destroy: 削除
               edit: 編集
+              new: 新しい投票スタイル
               title: アクション
             associated_census_data: 関連センサス項目
             explanation_callout: 投票者にどのような質問がブースで提示されるかは、投票スタイルで指定します。 投票スタイルでは、投票の構成要素からどの質問が投票に属するかを選択できます。 投票コードは、センサスの投票者とブースで提示される投票用紙を一致させるために使用されます。 すべての質問を常に提示する場合は、投票スタイルを作成しないでください。
@@ -816,22 +833,7 @@ ja:
             name: 投票のタイムライン
         index:
           published: 公開済み
-        landing_page:
-          content_blocks:
-            create:
-              error: コンテンツブロックの作成中に問題が発生しました。
-              success: コンテンツブロックを作成しました。
-            destroy:
-              error: コンテンツブロックの削除中に問題が発生しました。
-              success: コンテンツブロックを削除しました。
-            edit:
-              update: 更新
-          edit:
-            active_content_blocks: アクティブコンテンツブロック
-            add: コンテンツブロックを追加
-            destroy_confirmation: このコンテンツブロックを削除してもよろしいですか？
-            inactive_content_blocks: 非アクティブコンテンツブロック
-            title: ページコンテンツ
+          unpublished: 未公開
         menu:
           votings: 投票
           votings_submenu:
@@ -972,8 +974,6 @@ ja:
             title: 投票委員を作成
           polling_officers_picker:
             choose_polling_officers: 投票委員を選択してください
-            close: 閉じる
-            more_polling_officers: あと %{number} 人の投票委員がいます。検索を絞り込んで探しましょう。
             no_polling_officers: 検索条件に一致する投票委員がいないか、または投票委員が存在しません。
         polling_stations:
           create:
@@ -1116,8 +1116,7 @@ ja:
               csv_header_after: 投票スタイル/条件付き質問が必要ない場合は、最後のフィールド ("%{ballot_style_code_header}") を含めないでください
               csv_header_before: 'センサスファイルは次のヘッダを持つCSVファイルでなければなりません:'
         document_types:
-          dni: DNI
-          nie: NIE
+          identification_number: 識別番号
           passport: パスポート
         export_mailer:
           access_codes_export:
@@ -1149,24 +1148,35 @@ ja:
         closures:
           back_to_polling_stations: 投票所に戻る
           certify:
-            add_images: 画像を追加
+            add_photos: 写真を追加
+            edit_photos: 写真を編集
             error: 証明書の添付中にエラーが発生しました。もう一度やり直してください。
-            form_legend: 選挙閉鎖証明書の写真をアップロードする
             heading: 投票の再集計 - 証明書をアップロード
             info_text: 選挙閉鎖証明の写真をアップロードしてください
             submit: 証明書をアップロードする
             success: 証明書をアップロードしました。
+            upload_photos: 選挙閉鎖証明書の写真をアップロードする
+          completed:
+            sub_heading: この再集計は認証されており、編集できません。
           create:
             error: 閉鎖の作成中にエラーが発生しました。後でもう一度お試しください。
             success: 閉鎖を作成しました。
+          destroy:
+            error: 閉鎖の削除中にエラーが発生しました。
+            success: 閉鎖を削除しました。
           edit:
+            confirm_start_over: 合計票数と添付されたメモを削除します。よろしいですか？
             heading: 投票の再集計 - 回答の再集計
-            info_text: 各質問の回答総数を入力してください。
+            info_text: 各質問の回答総数を詳しく説明してください。 これは、前のステップで導入された回答の合計数と一致する必要があります(%{total} 回答合計)。
             modal_ballots_results_count_error:
+              blank: 空白票の合計は %{expected} ですが、空白の質問の合計は %{current} です。
               close_modal: 閉じる
               info_text: 投票数が封筒の合計数と一致しません。投票数の合計を確認してください。
               title: 投票数の合計が足りません
+              total: 期待される合計は %{expected} ですが、有効票と空白票と無効票の合計は %{current} です。
+              valid: 有効な投票数の合計は %{expected} ですが、有効な質問の合計は %{current} です。
             save_recount: 再集計を保存
+            start_over: 合計数にエラーがある場合は、すべてを削除してやり直すことができます。
             total_ballots: 総投票数
             total_blank_ballots: 白票の総数
             total_null_ballots: 空の投票の総数
@@ -1189,8 +1199,8 @@ ja:
             submit: 合計数を確認する
             total_ballots_count: 投票数
           show:
+            edit_count_votes: 間違った数字ですか？　まだ編集できます。
             heading: 投票再集計
-            info_text: 投票所の選挙閉鎖。
           sign:
             cancel: キャンセル
             check_box: 私はこれを確認し、物理的な選挙閉鎖証明書と同じであることを確認しました。
@@ -1266,11 +1276,14 @@ ja:
         actions:
           confirm_destroy: 本当に削除してよろしいですか？
           destroy: 削除
+          new: 新しい投票委員
           title: アクション
         roles:
           manager: マネージャー
           president: 投票責任者
           unassigned: 未割り当て
+      polling_station_closure_certificate:
+        current_certificate: '現在の証明書:'
       polling_station_closure_recount:
         nota_option: 空欄 / 上記のどれでもない
         polling_officer_notes: '投票委員のメモ:'
@@ -1286,6 +1299,7 @@ ja:
           confirm_destroy: 本当に削除してよろしいですか？
           destroy: 削除
           edit: 編集
+          new: 新しい投票所
           title: アクション
       votings:
         access_code_modal:
@@ -1370,8 +1384,6 @@ ja:
           online: オンライン
   layouts:
     decidim:
-      election_votes_header:
-        exit: 終了
       voting_navigation:
         check_census: 投票できますか？
         election_log: 選挙ログ

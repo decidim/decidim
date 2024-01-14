@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Show a Proposal", type: :system do
+describe "Show a Proposal" do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
   let(:proposal) { create(:proposal, component:) }

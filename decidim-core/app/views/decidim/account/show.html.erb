@@ -54,7 +54,7 @@
           ) do %>
             <%= t("change_password", scope:"decidim.account.show") %>
           <% end %>
-          <div id="panel-password">
+          <div id="panel-password" class="mt-6">
             <%= render partial: "password_fields", locals: { form: f, user: current_user } %>
           </div>
         </div>

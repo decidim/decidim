@@ -18,6 +18,7 @@ pt-BR:
         decidim_scope_id: Âmbito
         decidim_user_group_id: Grupo de usuários
         description: Descrição
+        iframe_embed_type: Tipo de incorporação iframe
         location: Localização
         location_hints: Dicas de localização
         online_meeting_url: URL da reunião on-line
@@ -32,6 +33,14 @@ pt-BR:
         title: Título
         transparent: Transparente
         type_of_meeting: Tipo
+    errors:
+      models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: Esta URL não pode ser incorporada na página de eventos de reunião ou ao vivo.
+            online_meeting_url:
+              url_format: Precisa ser uma URL válida
     models:
       decidim/meetings/close_meeting_event: Reunião fechada
       decidim/meetings/create_meeting_event: Encontro
@@ -52,6 +61,12 @@ pt-BR:
         other: Registros
   decidim:
     admin:
+      filters:
+        meetings:
+          with_any_type:
+            values:
+              hybrid: Híbrido
+              online: Virtual
       meeting_copies:
         create:
           error: Ocorreu um erro ao duplicar esta reunião.
@@ -203,14 +218,8 @@ pt-BR:
             non_user: Usuário inexistente
             select_user: Selecionar usuário
           index:
-            filter:
-              accepted: Aceitos
-              all: Tudo
-              rejected: Rejeitados
-              sent: Enviado
             invite_attendee: Convidar participante
             invites: Convites
-            search: Pesquisar
         meeting_closes:
           edit:
             close: Fechar
@@ -225,12 +234,14 @@ pt-BR:
             update: Atualizar
           form:
             address_help: 'Endereço: usado pelo Geocodificador para encontrar a localização'
+            iframe_embed_type_html: 'Apenas alguns serviços permitem incorporar na reunião ou evento ao vivo dos seguintes domínios: %{domains}'
             location_help: 'Localização: mensagem direcionada aos usuários que imprimem o local para'
             location_hints_help: 'Dicas de localização: informações adicionais Exemplo: o piso do edifício se é uma reunião presencial, ou a senha da reunião, se é uma reunião online com acesso restrito.'
             online_meeting_url_help: 'Link: permitir que os participantes se conectem diretamente à sua reunião'
             registration_url_help: 'Link: permitir que os participantes possam acessar o serviço externo que você está usando para inscrições'
             select_a_meeting_type: Por favor, selecione um tipo de reunião
             select_a_registration_type: Por favor, selecione um tipo de registro
+            select_an_iframe_access_level: Por favor, selecione um nível de acesso iframe
           index:
             title: Reuniões
           new:
@@ -285,15 +296,47 @@ pt-BR:
           value_types:
             organizer_presenter:
               not_found: 'O organizador não foi encontrado no banco de dados (ID: %{id})'
+        questionnaire:
+          update: "%{user_name} atualizou o questionário para a reunião %{meeting_name}"
+      application_helper:
+        filter_category_values:
+          all: Todos
+      calendar:
+        meeting_to_event:
+          read_more: Leia mais sobre esta reunião
       calendar_modal:
         calendar_url: URL do calendário
+        copy_calendar_url: Copiar
+        copy_calendar_url_clarification: Copiar URL do calendário para área de transferência
+        copy_calendar_url_copied: Copiado!
+        copy_calendar_url_description: Você pode ver todas as reuniões publicadas no seu aplicativo de calendário ou provedor. Copie e cole esta URL do seu calendário utilizando a opção "Adicionar novo calendário a partir de uma URL".
+        copy_calendar_url_explanation: Por favor, note que você está exportando uma seleção de reuniões, pois existem filtros ativos. Se deseja exportá-los todos, redefina todos os filtros primeiro.
+        copy_calendar_url_message: URL copiada com sucesso para área de transferência.
         export_calendar: Calendário de exportação
+      close_meeting_reminder_mailer:
+        close_meeting_reminder:
+          body: A reunião <a href="%{meeting_path}">"%{meeting_title}"</a> está pendente para ser fechada. Adicione um relatório da reunião usando o botão "Fechar reunião".
+          greetings: Saudações,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+          hello: Olá %{username},
+          subject: Agora você pode encerrar sua reunião com um relatório na plataforma %{organization_name}
       conference_venues: Locais de conferência
+      content_blocks:
+        upcoming_meetings:
+          name: Próximos encontros
       directory:
         meetings:
           index:
             meetings: Reuniões
             space_type: Espaço participativo
+      iframe_access_level:
+        all: Todos os visitantes
+        registered: Participantes registrados nesta reunião
+        signed_in: Apenas participantes registrados
+      iframe_embed_type:
+        embed_in_meeting_page: Incorporar na página da reunião
+        none: Nenhum
+        open_in_live_event_page: Abrir na página de eventos ao vivo (com enquetes opcionais)
+        open_in_new_tab: Abrir URL em uma nova aba
       layouts:
         live_event:
           administrate: Administrar
@@ -343,16 +386,20 @@ pt-BR:
           origin_values:
             all: Tudo
             official: Oficial
+            participants: Participantes
+            user_group: Grupos
           search: Pesquisa
           type: Tipo
           type_values:
             all: Tudo
+            hybrid: Híbrido
             in_person: Pessoalmente
             online: On-line
         form:
           address_help: 'Endereço: usado pelo Geocodificador para encontrar a localização'
           available_slots_help: Deixe-o em 0 se você tiver slots ilimitados disponíveis
           create_as: Criar reunião como
+          iframe_embed_type_html: 'Apenas alguns serviços permitem incorporar na reunião ou evento ao vivo dos seguintes domínios: %{domains}'
           location_help: 'Localização: mensagem direcionada aos usuários que imprimem o local para'
           location_hints_help: 'Dicas de localização: informações adicionais Exemplo: o piso do edifício se é uma reunião presencial, ou a senha da reunião, se é uma reunião online com acesso restrito.'
           online_meeting_url_help: 'Link: permitir que os participantes se conectem diretamente à sua reunião'
@@ -360,8 +407,15 @@ pt-BR:
           select_a_category: Por favor, selecione uma categoria
           select_a_meeting_type: Por favor, selecione um tipo de reunião
           select_a_registration_type: Por favor, selecione um tipo de registro
+          select_an_iframe_access_level: Por favor, selecione um nível de acesso iframe
         index:
           new_meeting: Nova reunião
+          see_all: Veja todas as reuniões
+          see_all_withdrawn: Veja todas as reuniões retiradas
+          text_banner: Você está vendo a lista de reuniões retiradas por seus autores. %{go_back_link}.
+        meeting:
+          edit_close_meeting: Editar relatório da reunião
+          join_meeting: Participe da reunião
         meetings:
           upcoming_meetings_warning: Atualmente, não há reuniões agendadas, mas aqui você pode encontrar todas as reuniões anteriores listadas.
         new:
@@ -374,7 +428,6 @@ pt-BR:
         show:
           attendees: Contagem de participantes
           contributions: Contagem de Contribuições
-          date: Encontro
           join: Participe da reunião
           leave: Cancelar registro
           leave_confirmation: Tem certeza de que deseja cancelar seu cadastro para esta reunião?
@@ -388,8 +441,10 @@ pt-BR:
           remaining_slots:
             one: "%{count} slot restante"
             other: "%{count} slots restantes"
-          view: Visualizar
           visit_finished: Ver reunião anterior
+          withdraw_btn_hint: Você pode retirar sua reunião se mudar de ideia. A reunião não é excluída, ela aparecerá na lista de reuniões retiradas.
+          withdraw_confirmation_html: Tem certeza de que deseja retirar esta reunião?<br><br><strong>esta ação não pode ser cancelada!</strong>
+          withdraw_meeting: Retirar reunião
         update:
           invalid: Houve um problema ao atualizar a reunião.
           success: Você atualizou a reunião com sucesso.
@@ -420,6 +475,7 @@ pt-BR:
             empty_questions: Durante esta reunião, algumas perguntas serão enviadas e você poderá respondê-las. Elas serão exibidas aqui.
           index_admin:
             admin_dashboard: Painel de administração
+            edit: Editar no painel de administração
             question: Pergunta
             received_answer: resposta recebida
             received_answers: respostas recebidas
@@ -456,11 +512,16 @@ pt-BR:
           invalid: Tem havido um problema ao sair desta reunião.
           success: Você saiu da reunião com sucesso.
       type_of_meeting:
+        hybrid: Híbrido
         in_person: Pessoalmente
         online: On-line
       types:
         private_meeting: Reunião privada
         transparent: Transparente
+        withdraw: Retirado
+      withdraw:
+        error: Ocorreu um erro ao retirar a reunião.
+        success: A reunião foi retirada com sucesso.
     metrics:
       meetings:
         description: Número de reuniões criadas

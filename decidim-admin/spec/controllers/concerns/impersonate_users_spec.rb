@@ -8,7 +8,7 @@ module Decidim
       include ImpersonateUsers
     end
 
-    describe ImpersonateFakeController, type: :controller do
+    describe ImpersonateFakeController do
       let(:request) do
         ActionController::TestRequest.create(
           Decidim::Admin::ImpersonateFakeController

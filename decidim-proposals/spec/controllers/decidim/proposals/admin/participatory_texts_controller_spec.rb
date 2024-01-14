@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Proposals
     module Admin
-      describe ParticipatoryTextsController, type: :controller do
+      describe ParticipatoryTextsController do
         routes { Decidim::Proposals::AdminEngine.routes }
 
         let(:user) { create(:user, :confirmed, :admin, organization: component.organization) }

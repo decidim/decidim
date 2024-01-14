@@ -102,7 +102,6 @@ module Decidim
   autoload :ShareableWithToken, "decidim/shareable_with_token"
   autoload :RecordEncryptor, "decidim/record_encryptor"
   autoload :AttachmentAttributes, "decidim/attachment_attributes"
-  autoload :CarrierWaveMigratorService, "decidim/carrier_wave_migrator_service"
   autoload :ReminderRegistry, "decidim/reminder_registry"
   autoload :ReminderManifest, "decidim/reminder_manifest"
   autoload :ManifestMessages, "decidim/manifest_messages"
@@ -121,6 +120,15 @@ module Decidim
   autoload :ParticipatorySpaceUser, "decidim/participatory_space_user"
   autoload :ModerationTools, "decidim/moderation_tools"
   autoload :ContentSecurityPolicy, "decidim/content_security_policy"
+  autoload :IconRegistry, "decidim/icon_registry"
+
+  module Commands
+    autoload :CreateResource, "decidim/commands/create_resource"
+    autoload :UpdateResource, "decidim/commands/update_resource"
+    autoload :DestroyResource, "decidim/commands/destroy_resource"
+    autoload :ResourceHandler, "decidim/commands/resource_handler"
+    autoload :HookError, "decidim/commands/hook_error"
+  end
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
@@ -145,19 +153,31 @@ module Decidim
     participatory_space_manifests.each do |manifest|
       manifest.seed!
 
-      Organization.all.each do |organization|
-        ContextualHelpSection.set_content(
-          organization,
-          manifest.name,
-          Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-            Decidim::Faker::Localized.sentence(word_count: 15)
-          end
-        )
-      end
+      seed_contextual_help_sections!(manifest)
     end
 
+    seed_gamification_badges!
+
+    seed_endorsements!
+
+    I18n.available_locales = original_locale
+  end
+
+  def self.seed_contextual_help_sections!(manifest)
+    Organization.all.each do |organization|
+      ContextualHelpSection.set_content(
+        organization,
+        manifest.name,
+        Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+          Decidim::Faker::Localized.sentence(word_count: 15)
+        end
+      )
+    end
+  end
+
+  def self.seed_gamification_badges!
     Gamification.badges.each do |badge|
-      puts "Setting random values for the \"#{badge.name}\" badge..."
+      puts "Setting random values for the \"#{badge.name}\" badge..." # rubocop:disable Rails/Output
       User.all.find_each do |user|
         Gamification::BadgeScore.find_or_create_by!(
           user:,
@@ -166,8 +186,24 @@ module Decidim
         )
       end
     end
+  end
 
-    I18n.available_locales = original_locale
+  def self.seed_endorsements!
+    resources_types = Decidim.resource_manifests
+                             .map { |resource| resource.attributes[:model_class_name] }
+                             .select { |resource| resource.constantize.include? Decidim::Endorsable }
+
+    resources_types.each do |resource_type|
+      resource_type.constantize.find_each do |resource|
+        # exclude the users that already endorsed
+        users = resource.endorsements.map(&:author)
+        rand(50).times do
+          user = (Decidim::User.all - users).sample
+          Decidim::Endorsement.create!(resource:, author: user)
+          users << user
+        end
+      end
+    end
   end
 
   # Finds all currently loaded Decidim ActiveRecord classes and resets their
@@ -624,7 +660,7 @@ module Decidim
   #
   # Returns an Array[ComponentManifest].
   def self.component_manifests
-    component_registry.manifests
+    component_registry.manifests.sort_by(&:name)
   end
 
   # Public: Finds all registered participatory space manifest's via the
@@ -716,6 +752,10 @@ module Decidim
   #
   def self.menu(name, &)
     MenuRegistry.register(name.to_sym, &)
+  end
+
+  def self.icons
+    @icons ||= Decidim::IconRegistry.new
   end
 
   # Public: Stores an instance of ViewHooks

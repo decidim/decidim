@@ -1,6 +1,6 @@
-import { createBasicEditor, updateContent, selectRange } from "../helpers";
+import { createBasicEditor, updateContent, selectRange } from "src/decidim/editor/test/helpers";
 
-import Indent from "../../extensions/indent";
+import Indent from "src/decidim/editor/extensions/indent";
 
 describe("Indent", () => {
   let editor = null;

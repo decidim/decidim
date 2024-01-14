@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "User creates meeting", type: :system do
+describe "User creates meeting" do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 

@@ -212,6 +212,25 @@ module Decidim
       end
     end
 
+    describe "search" do
+      subject { described_class.ransack(search_params, context_params).result }
+
+      let(:search_params) { {} }
+      let(:context_params) { { auth_object: user } }
+
+      describe "last_sign_in_at" do
+        let(:cut_time) { 7.days.ago }
+        let!(:last_week) { create_list(:user, 10, :confirmed, last_sign_in_at: cut_time - 3.days) }
+        let!(:this_week) { create_list(:user, 5, :confirmed, last_sign_in_at: cut_time + 3.days) }
+
+        let(:search_params) { { last_sign_in_at_gteq: cut_time } }
+
+        it "returns the correct results" do
+          expect(subject.count).to eq(5)
+        end
+      end
+    end
+
     describe "#deleted?" do
       it "returns true if deleted_at is present" do
         subject.deleted_at = Time.current
@@ -274,6 +293,50 @@ module Decidim
 
       it "finds the user even with weird casing in email" do
         expect(described_class.find_for_authentication(conditions)).to eq user
+      end
+    end
+
+    describe "#unread_messages_count" do
+      subject { user.unread_messages_count }
+
+      let(:originator) { create(:user, organization:) }
+
+      before do
+        conversation = Decidim::Messaging::Conversation.create!(
+          participants: [originator, user]
+        )
+
+        conversation.add_message!(sender: originator, body: "Hey let's converse!", user: originator)
+        conversation.add_message!(sender: originator, body: "How are you?", user: originator)
+        conversation.add_message!(sender: user, body: "Good! How are you?", user:)
+        conversation.mark_as_read(user)
+        conversation.add_message!(sender: originator, body: "Do you like Decidim?", user: originator)
+        conversation.add_message!(sender: originator, body: "Are you going to DecidimFest?", user: originator)
+      end
+
+      it "returns the correct count" do
+        expect(subject).to be(2)
+      end
+    end
+
+    describe "#after_confirmation" do
+      let(:user) { create(:user, organization:) }
+
+      before do
+        perform_enqueued_jobs { user.confirm }
+      end
+
+      it "sends the email" do
+        expect(last_email.to).to eq([user.email])
+        expect(last_email.subject).to eq("Thanks for joining #{organization.name}!")
+      end
+
+      context "when the organization does not send welcome notifications" do
+        let(:organization) { create(:organization, send_welcome_notification: false) }
+
+        it "does not send the welcome email" do
+          expect(last_email.subject).to eq("Confirmation instructions")
+        end
       end
     end
 

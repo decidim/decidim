@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::Elections::BulletinBoardClosure, type: :model do
+describe Decidim::Elections::BulletinBoardClosure do
   subject(:closure) { build(:bb_closure) }
 
   it { is_expected.to be_valid }

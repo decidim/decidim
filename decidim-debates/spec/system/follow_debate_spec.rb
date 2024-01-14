@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Follow debates", type: :system do
+describe "Follow debates" do
   let(:manifest_name) { "debates" }
 
   let!(:followable) do

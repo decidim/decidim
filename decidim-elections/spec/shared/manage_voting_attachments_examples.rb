@@ -11,7 +11,7 @@ shared_examples "manage voting attachments examples" do
     login_as user, scope: :user
     visit decidim_admin_votings.edit_voting_path(voting)
     within_admin_sidebar_menu do
-      click_link "Files"
+      click_link "Attachments"
     end
   end
 

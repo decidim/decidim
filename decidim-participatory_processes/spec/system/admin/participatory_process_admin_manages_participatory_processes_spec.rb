@@ -2,10 +2,10 @@
 
 require "spec_helper"
 
-describe "Participatory process admin manages participatory processes", type: :system do
+describe "Participatory process admin manages participatory processes" do
   include_context "when admin administrating a participatory process"
 
-  let(:blocks_manifests) { [:process_hero, :main_data] }
+  let(:blocks_manifests) { [:hero, :main_data] }
 
   before do
     blocks_manifests.each do |manifest_name|

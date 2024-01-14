@@ -4,10 +4,11 @@ require "spec_helper"
 
 module Decidim
   describe UserPresenter, type: :helper do
+    let(:presenter) { described_class.new(user) }
     let(:user) { build(:user) }
 
     describe "#nickname" do
-      subject { described_class.new(user).nickname }
+      subject { presenter.nickname }
 
       context "when not blocked" do
         it { is_expected.to eq("@#{user.nickname}") }
@@ -54,7 +55,7 @@ module Decidim
 
     context "when user is not officialized" do
       describe "#badge" do
-        subject { described_class.new(user).badge }
+        subject { presenter.badge }
 
         it { is_expected.to eq("") }
       end
@@ -64,14 +65,14 @@ module Decidim
       let(:user) { build(:user, :officialized) }
 
       describe "#badge" do
-        subject { described_class.new(user).badge }
+        subject { presenter.badge }
 
         it { is_expected.to eq("verified-badge") }
       end
     end
 
     describe "#profile_path" do
-      subject { described_class.new(user).profile_path }
+      subject { presenter.profile_path }
 
       it { is_expected.to eq("/profiles/#{user.nickname}") }
     end
@@ -80,14 +81,14 @@ module Decidim
       let(:user) { build(:user, :deleted) }
 
       describe "#profile_path" do
-        subject { described_class.new(user).profile_path }
+        subject { presenter.profile_path }
 
         it { is_expected.to eq("") }
       end
     end
 
     describe "#display_mention" do
-      subject { described_class.new(user).display_mention }
+      subject { presenter.display_mention }
 
       it do
         expect(subject).to have_link(user.nickname, href: "http://#{user.organization.host}:#{Capybara.server_port}/profiles/#{user.nickname}")
@@ -98,13 +99,13 @@ module Decidim
       let(:user) { build(:user_group) }
 
       describe "#profile_path" do
-        subject { described_class.new(user).profile_path }
+        subject { presenter.profile_path }
 
         it { is_expected.to eq("/profiles/#{user.nickname}") }
       end
 
       describe "#profile_url" do
-        subject { described_class.new(user).profile_url }
+        subject { presenter.profile_url }
 
         let(:host) { user.organization.host }
 
@@ -126,6 +127,22 @@ module Decidim
 
             expect(subject).to be_nil
           end
+        end
+      end
+    end
+
+    describe "#officialization_text" do
+      subject { presenter.officialization_text }
+
+      it "returns the default officialization text" do
+        expect(subject).to eq("This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role.")
+      end
+
+      context "when the user is officialized as" do
+        let(:user) { build(:user, officialized_as: { en: "Foobar", ca: "Fóóbàr" }) }
+
+        it "returns the default officialization text" do
+          expect(subject).to eq("Foobar")
         end
       end
     end

@@ -7,7 +7,7 @@ module Decidim::AssetRouter
     subject { router }
 
     let(:router) { described_class.new(asset) }
-    let(:asset) { organization.official_img_header }
+    let(:asset) { organization.official_img_footer }
     let(:organization) { create(:organization) }
 
     describe "#url" do
@@ -30,8 +30,24 @@ module Decidim::AssetRouter
         end
       end
 
+      context "with an ActiveStorage::Blob" do
+        let(:asset) { organization.official_img_footer.blob }
+
+        it "creates the route to the blob" do
+          expect(subject).to match(%r{^http://localhost:#{default_port}/rails/active_storage/blobs/redirect/.*/avatar.jpg$})
+        end
+
+        context "with extra URL options" do
+          let(:options) { { port: nil, host: "custom.host", utm_source: "website", utm_medium: "email", utm_campaign: "testing" } }
+
+          it "handles the extra URL options correctly" do
+            expect(subject).to match(%r{^http://custom.host/rails/active_storage/blobs/redirect/.*/avatar.jpg\?utm_campaign=testing&utm_medium=email&utm_source=website$})
+          end
+        end
+      end
+
       context "with a variant" do
-        let(:asset) { organization.official_img_header.variant(resize_to_fit: [160, 160]) }
+        let(:asset) { organization.official_img_footer.variant(resize_to_fit: [160, 160]) }
 
         it "creates the route to the variant" do
           expect(subject).to match(%r{^http://localhost:#{default_port}/rails/active_storage/representations/redirect/.*/avatar.jpg$})

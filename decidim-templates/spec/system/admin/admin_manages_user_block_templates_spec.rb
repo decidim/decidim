@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages user block templates", type: :system do
+describe "Admin manages user block templates" do
   let!(:organization) { create(:organization) }
   let!(:user) { create(:user, :confirmed, :admin, organization:) }
 

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Assembly members", type: :system do
+describe "Assembly members" do
   let(:organization) { create(:organization) }
   let(:assembly) { create(:assembly, :with_content_blocks, organization:, blocks_manifests:) }
   let(:blocks_manifests) { [] }

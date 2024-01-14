@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin invite", type: :system do
+describe "Admin invite" do
   let(:form) do
     Decidim::System::RegisterOrganizationForm.new(params)
   end

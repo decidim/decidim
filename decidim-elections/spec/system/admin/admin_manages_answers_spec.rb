@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages answers", type: :system do
+describe "Admin manages answers" do
   let!(:proposals) { create_list(:proposal, 3, :accepted, component: origin_component) }
   let!(:origin_component) { create(:proposal_component, participatory_space: current_component.participatory_space) }
   let(:election) { create(:election, component: current_component) }

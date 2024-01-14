@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin exports initiatives", type: :system do
+describe "Admin exports initiatives" do
   include_context "with filterable context"
 
   let!(:initiatives) do

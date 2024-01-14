@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Authorized comments", type: :system do
+describe "Authorized comments" do
   let!(:initiative_type) { create(:initiatives_type, :online_signature_enabled, organization:) }
   let!(:scoped_type) { create(:initiatives_type_scope, type: initiative_type) }
   let(:commentable) { create(:initiative, :published, author:, scoped_type:, organization:) }

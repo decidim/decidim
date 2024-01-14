@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Process admin manages post", type: :system do
+describe "Process admin manages post" do
   let(:manifest_name) { "blogs" }
   let!(:post1) { create(:post, component: current_component, author:, title: { en: "Post title 1" }) }
   let!(:post2) { create(:post, component: current_component, title: { en: "Post title 2" }) }

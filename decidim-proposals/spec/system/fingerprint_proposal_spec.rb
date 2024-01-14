@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Fingerprint proposal", type: :system do
+describe "Fingerprint proposal" do
   let(:manifest_name) { "proposals" }
 
   let!(:fingerprintable) do

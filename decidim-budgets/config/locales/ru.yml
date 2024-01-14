@@ -79,8 +79,6 @@ ru:
           category: Категория
           scope: Охват
           search: Поиск
-        project:
-          view: Посмотреть
         show:
           budget: Бюджет
     components:

@@ -10,14 +10,21 @@
     <% organizations.each do |organization| %>
       <tr>
         <td>
-          <%= link_to organization.name, organization %><br>
+          <%= link_to organization.name, edit_organization_path(organization) %><br>
           <%= organization.host %>
         </td>
         <td>
           <%= l organization.created_at, format: :short %>
         </td>
         <td class="actions">
-          <%= link_to t("actions.edit", scope: "decidim.system"), [:edit, organization] %>
+          <% if organization.users.first&.invitation_pending? %>
+            <%= link_to t(".resend_invitation"),
+                        resend_invitation_organization_path(organization),
+                        method: :post,
+                        class: "button button__sm button__transparent-secondary no-underline",
+                        data: { confirm: t(".confirm_resend_invitation") } %>
+          <% end %>
+          <%= link_to t("actions.edit", scope: "decidim.system"), edit_organization_path(organization) %>
         </td>
       </tr>
     <% end %>

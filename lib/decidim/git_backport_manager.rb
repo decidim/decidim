@@ -6,6 +6,7 @@ require "English"
 module Decidim
   # Handles the backport of a given pull request to a branch
   # Uses the git commnad line client
+  # rubocop:disable Rails/Output
   class GitBackportManager
     # @param pull_request_id [String] the ID of the pull request that we want to backport
     # @param release_branch [String] the name of the branch that we want to backport to
@@ -173,7 +174,8 @@ module Decidim
     # @return [void]
     def exit_with_errors(message)
       puts message
-      exit 1
+      exit 1 # rubocop:disable Rails/Exit
     end
   end
+  # rubocop:enable Rails/Output
 end

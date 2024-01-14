@@ -12,36 +12,16 @@ shared_examples "amendment created event" do
   end
 
   it_behaves_like "a simple event"
+  it_behaves_like "a simple event email"
+  it_behaves_like "a simple event notification"
 
   let(:emendation_author_nickname) { "@#{emendation.creator_author.nickname}" }
   let(:emendation_path) { Decidim::ResourceLocatorPresenter.new(emendation).path }
   let(:emendation_author_path) { Decidim::UserPresenter.new(emendation.creator_author).profile_path }
   let(:amendable_path) { Decidim::ResourceLocatorPresenter.new(amendable).path }
 
-  describe "email_subject" do
-    it "is generated correctly" do
-      expect(subject.email_subject).to eq("New amendment for #{amendable_title}")
-    end
-  end
-
-  describe "email_intro" do
-    it "is generated correctly" do
-      expect(subject.email_intro)
-        .to eq("A new amendment has been created for #{amendable_title}. You can see it from this page:")
-    end
-  end
-
-  describe "email_outro" do
-    it "is generated correctly" do
-      expect(subject.email_outro)
-        .to eq("You have received this notification because you are following #{amendable_title}. You can stop receiving notifications following the previous link.")
-    end
-  end
-
-  describe "notification_title" do
-    it "is generated correctly" do
-      expect(subject.notification_title)
-        .to eq("A new amendment has been created for <a href=\"#{amendable_path}\">#{amendable_title}</a>.")
-    end
-  end
+  let(:email_subject) { "New amendment for #{amendable_title}" }
+  let(:email_intro) { "A new amendment has been created for #{amendable_title}. You can see it from this page:" }
+  let(:email_outro) { "You have received this notification because you are following #{amendable_title}. You can stop receiving notifications following the previous link." }
+  let(:notification_title) { "A new amendment has been created for <a href=\"#{amendable_path}\">#{amendable_title}</a>." }
 end

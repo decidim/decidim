@@ -2,8 +2,6 @@
 en:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: Enable organization chart
       assemblies_type:
         title: Title
       assembly:
@@ -123,10 +121,6 @@ en:
         create:
           error: There was a problem duplicating this assembly.
           success: Assembly successfully duplicated.
-      assemblies_settings:
-        update:
-          error: There was a problem updating settings.
-          success: Settings updated successfully.
       assemblies_types:
         create:
           error: There was a problem creating a new assembly type.
@@ -194,11 +188,17 @@ en:
           error: There was a problem updating an admin for this assembly.
           success: Admin updated successfully for this assembly.
       filters:
+        ceased_date_not_null:
+          label: Ceased
+          values:
+            'false': Not ceased
+            'true': Ceased
         decidim_assemblies_type_id_eq:
           label: Assembly type
+        search_placeholder:
+          full_name_or_user_name_or_user_nickname_cont: Search by name or nickname
       menu:
         assemblies: Assemblies
-        assemblies_settings: Settings
         assemblies_submenu:
           assembly_admins: Assembly admins
           assembly_members: Members
@@ -298,11 +298,6 @@ en:
             social_handlers: Social
             title: General Information
             visbility: Visibility
-        assemblies_settings:
-          edit:
-            update: Update
-          form:
-            title: Settings for assemblies
         assemblies_types:
           form:
             title: Edit assembly type
@@ -322,12 +317,6 @@ en:
             select_a_position: Select a position
             select_user: Select a participant
             user_type: Participant type
-          index:
-            filter:
-              all: All
-              ceased: Ceased
-              not_ceased: Not ceased
-            search: Search
         content_blocks:
           highlighted_assemblies:
             max_results: Maximum amount of elements to show

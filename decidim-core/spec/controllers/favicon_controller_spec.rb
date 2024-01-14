@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe FaviconController, type: :controller do
+  describe FaviconController do
     routes { Decidim::Core::Engine.routes }
 
     let!(:organization) { create(:organization) }

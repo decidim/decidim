@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin filters, searches, and paginates projects", type: :system do
+describe "Admin filters, searches, and paginates projects" do
   include_context "when managing a component as an admin"
   include_context "with filterable context"
 

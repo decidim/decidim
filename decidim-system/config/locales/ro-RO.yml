@@ -37,6 +37,9 @@ ro:
         confirm_destroy: Sigur dorești să ştergi acest element?
         destroy: Ștergere
         edit: Editare
+        new_admin: Administrator nou
+        new_oauth_application: Aplicație nouă OUATH
+        new_organization: Organizație nouă
         save: Salvează
         title: Acțiuni
       admins:
@@ -58,11 +61,22 @@ ro:
           success: Administratorul a fost actualizat.
       dashboard:
         show:
+          admins: Administratori
           current_organizations: Organizații curente
       default_pages:
         placeholders:
           content: Vă rugăm să adăugaţi conţinut semnificativ paginii statice %{page} de pe tabloul de bord al administratorului.
+          summary: Vă rugăm să adăugați un conținut semnificativ pe pagina statistică %{page} din tabloul de bord al administratorului.
           title: Titlul implicit pentru %{page}
+        terms-of-service: Condiții de utilizare
+      devise:
+        passwords:
+          edit:
+            change_your_password: Schimbați parola
+            minimum_characters: "(%{minimum} caractere minim)"
+          new:
+            forgot_your_password: Ați uitat parola
+            send_me_reset_password_instructions: Trimiteți-mi Instrucțiuni de resetare a parolei
       menu:
         admins: Administratori
         dashboard: Panou
@@ -116,7 +130,6 @@ ro:
           show: Arată setările avansate
         create:
           error: A apărut o problemă la crearea unei noi organizații.
-          success: Organizație creată cu succes.
         edit:
           secondary_hosts_hint: Introduceți fiecare dintre ele într-o linie nouă
         file_upload_settings:

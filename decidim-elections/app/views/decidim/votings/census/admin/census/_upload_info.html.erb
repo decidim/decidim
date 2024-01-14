@@ -6,12 +6,12 @@
 
 <%= content_tag :p, sanitize(t("upload_info.csv_example_with_ballot_style", scope: "decidim.votings.census.admin.census")) %>
   <pre class="code-block"><%= "Document ID;Document Type;Date of Birth;Full name;Full address;Postal Code;Mobile phone number;Email address;#{ballot_style_code_header}
-12345678X;DNI;20011130;John Doe;The full address;08001;123456789;user@example.org;DISTRICT1
-87654321X;DNI;20010808;Alice Doe;The full address;08002;987654321;user2@example.org;DISTRICT2" %>
+12345678X;passport;20011130;John Doe;The full address;08001;123456789;user@example.org;DISTRICT1
+87654321X;passport;20010808;Alice Doe;The full address;08002;987654321;user2@example.org;DISTRICT2" %>
 ...</pre>
 
 <%= content_tag :p, sanitize(t("upload_info.csv_example_without_ballot_style", scope: "decidim.votings.census.admin.census")) %>
   <pre class="code-block">Document ID;Document Type;Date of Birth;Full name;Full address;Postal Code;Mobile phone number;Email address
-12345678X;DNI;20011130;John Doe;The full address;08001;123456789;user@example.org
-87654321X;DNI;20010808;Alice Doe;The full address;08002;987654321;user2@example.org
+12345678X;passport;20011130;John Doe;The full address;08001;123456789;user@example.org
+87654321X;passport;20010808;Alice Doe;The full address;08002;987654321;user2@example.org
 ...</pre>

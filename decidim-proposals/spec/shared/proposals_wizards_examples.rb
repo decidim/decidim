@@ -195,6 +195,37 @@ shared_examples "proposals wizards" do |options|
           expect(page).to have_content("Edit Proposal Draft")
         end
       end
+
+      context "with attachments" do
+        let!(:component) do
+          create(
+            :proposal_component,
+            :with_creation_enabled,
+            :with_attachments_allowed,
+            participatory_space: participatory_process
+          )
+        end
+
+        let!(:photo) { create(:attachment, :with_image, title: { en: "<svg onload=alert('ALERT')>.jpg" }, weight: 0, attached_to: proposal_draft) }
+        let!(:file) { create(:attachment, :with_pdf, title: { en: "<svg onload=alert('ALERT')>.pdf" }, weight: 1, attached_to: proposal_draft) }
+
+        before do
+          expect(page).to have_content(translated(proposal_draft.title))
+
+          visit component_path.preview_proposal_path(proposal_draft)
+        end
+
+        it "displays the attachments correctly" do
+          within "#panel-images" do
+            expect(find("img")["alt"]).to eq(".jpg")
+          end
+
+          click_button("trigger-documents")
+          within "#panel-documents" do
+            expect(find("a.card__list-title")["innerHTML"]).to include("&lt;svg onload=alert('ALERT')&gt;.pdf")
+          end
+        end
+      end
     end
 
     context "when editing a proposal draft" do

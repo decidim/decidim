@@ -347,14 +347,8 @@ ca:
             non_user: Participant no existent
             select_user: Seleccionar participant
           index:
-            filter:
-              accepted: Acceptada
-              all: Totes
-              rejected: Rebutjada
-              sent: Enviada
             invite_attendee: Convidar participant
             invites: Convida
-            search: Cercar
           new:
             explanation: La participant serà convidada a unir-se a una jornada. Si el seu correu electrònic no està registrat, també se la convidarà a unir-se a l'organització.
             invite: Convidar
@@ -377,6 +371,9 @@ ca:
               one: Hi ha hagut 1 inscripció.
               other: Hi ha hagut %{count} inscripcions.
             slug_help_html: 'Les URL amigables s''utilitzen per generar els URL que apunten a aquesta jornada. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+        content_blocks:
+          highlighted_conferences:
+            max_results: Quantitat màxima d'elements a mostrar
         diplomas:
           edit:
             save: Desa

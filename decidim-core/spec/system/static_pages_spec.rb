@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Static pages", type: :system do
+describe "Static pages" do
   let(:organization) { create(:organization) }
   let!(:page1) { create(:static_page, :with_topic, organization:) }
   let!(:page2) { create(:static_page, :with_topic, organization:) }

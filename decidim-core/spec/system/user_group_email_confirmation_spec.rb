@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "User group email confirmation", type: :system do
+describe "User group email confirmation" do
   let!(:creator) { create(:user, :confirmed) }
   let!(:user_group) { create(:user_group, users: [creator], organization: creator.organization) }
 

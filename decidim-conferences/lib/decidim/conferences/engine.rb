@@ -6,6 +6,8 @@ require "decidim/core"
 require "wicked_pdf"
 
 require "decidim/conferences/query_extensions"
+require "decidim/conferences/content_blocks/registry_manager"
+require "decidim/conferences/menu"
 
 module Decidim
   module Conferences
@@ -49,6 +51,16 @@ module Decidim
         end
       end
 
+      initializer "decidim_conferences.register_icons" do
+        Decidim.icons.register(name: "Decidim::Conference", icon: "mic-line", description: "Conference", category: "activity", engine: :conferences)
+        Decidim.icons.register(name: "conference_speaker", icon: "user-voice-line", description: "Speaker", category: "conferences", engine: :conferences)
+
+        Decidim.icons.register(name: "film-line", icon: "film-line", category: "system", description: "", engine: :conferences)
+        Decidim.icons.register(name: "ticket-line", icon: "ticket-line", category: "system", description: "", engine: :conferences)
+        Decidim.icons.register(name: "user-follow-line", icon: "user-follow-line", category: "system", description: "", engine: :conferences)
+        Decidim.icons.register(name: "link-m", icon: "link-m", category: "system", description: "", engine: :conferences)
+      end
+
       initializer "decidim_conferences.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Conferences::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Conferences::Engine.root}/app/views") # for partials
@@ -61,30 +73,12 @@ module Decidim
       end
 
       initializer "decidim_conferences.menu" do
-        Decidim.menu :menu do |menu|
-          menu.add_item :conferences,
-                        I18n.t("menu.conferences", scope: "decidim"),
-                        decidim_conferences.conferences_path,
-                        position: 2.8,
-                        if: Decidim::Conference.where(organization: current_organization).published.any?,
-                        active: :inclusive
-        end
-
-        Decidim.menu :home_content_block_menu do |menu|
-          menu.add_item :conferences,
-                        I18n.t("menu.conferences", scope: "decidim"),
-                        decidim_conferences.conferences_path,
-                        position: 50,
-                        if: Decidim::Conference.where(organization: current_organization).published.any?,
-                        active: :inclusive
-        end
+        Decidim::Conferences::Menu.register_menu!
+        Decidim::Conferences::Menu.register_home_content_block_menu!
       end
 
       initializer "decidim_conferences.content_blocks" do
-        Decidim.content_blocks.register(:homepage, :highlighted_conferences) do |content_block|
-          content_block.cell = "decidim/conferences/content_blocks/highlighted_conferences"
-          content_block.public_name_key = "decidim.conferences.content_blocks.highlighted_conferences.name"
-        end
+        Decidim::Conferences::ContentBlocks::RegistryManager.register!
       end
 
       initializer "decidim_conferences.query_extensions" do

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::Meetings::Admin::RegistrationsController, type: :controller do
+describe Decidim::Meetings::Admin::RegistrationsController do
   routes { Decidim::Meetings::AdminEngine.routes }
 
   let(:organization) { create(:organization) }

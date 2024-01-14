@@ -50,10 +50,18 @@ es-MX:
           attributes:
             attachment:
               needs_to_be_reattached: Es necesario volver a adjuntar el archivo
+        ballot_result:
+          attributes:
+            base:
+              total_count_invalid: El número total de respuestas no coincide con el desglose válido/blanco/nulo.
         election:
           attributes:
             attachment:
               needs_to_be_reattached: Es necesario volver a adjuntar el archivo
+        question_result:
+          attributes:
+            base:
+              blank_count_invalid: El número total de respuestas en blanco no puede ser mayor que el total de papeletas en blanco.
         trustee:
           attributes:
             name:
@@ -228,7 +236,11 @@ es-MX:
           feedback_form_answers: Retorno de las respuestas
         mailers:
           trustee_mailer:
-            body: "<p>Hola %{user_name},</p><p>se te ha añadido como garante de %{resource_name}.</p>"
+            body:
+              help_html: |-
+                <p>Hola %{user_name},</p><br>
+                <p>Te han añadido para actuar como garante en algunes elecciones que tendran lugar en %{organization}.</p><br>
+                <p>Se ha creado en tu cuenta una nueva sessión llamada "Zona de garantes". Desde esta, podrá realitzar las tareas requeridas. De momento, por favor, genera tus claves de identificación.</p><br>
             subject: Se te ha añadido como garante de %{resource_name}
             trustee_zone: Llévame al espacio de garantes
         menu:
@@ -272,6 +284,7 @@ es-MX:
               census_frozen: Los códigos de acceso al censo no se han podido exportar.
               census_uploaded: No se ha subido ningún censo para esta elección.
               component_published: La elección <strong>no está publicada</strong>.
+              fix_it_text: Arreglarlo
               max_selections: Las preguntas no tienen un valor <strong>correcto para la cantidad de respuestas</strong>
               minimum_answers: Las preguntas deben tener <strong>al menos dos respuestas</strong>.
               minimum_questions: La elección <strong>debe tener al menos una pregunta</strong>.
@@ -297,6 +310,11 @@ es-MX:
               trustees_number: El espacio participativo tiene <strong>al menos %{number} garantes con clave pública</strong>.
             submit: Configurar elección
             success: La elección se ha enviado con éxito al "Bulletin Board".
+            technical_configuration:
+              authority_name: "<strong>Nombre de la autoridad:</strong> %{value}"
+              bulletin_board_server: "<strong>Servidor del boletín:</strong> <a href='%{value}'>%{value}</a>"
+              scheme_name: "<strong>Nombre del esquema:</strong> %{value}"
+              title: Ver la información técnica
             title: Configurar elección
             trustees: Garantes de la elección
           created:
@@ -615,7 +633,7 @@ es-MX:
                 bb_status: Estado
                 election: Elección
                 voting_period: Período de votación
-              no_elections: No hay elecciones en las que actúes como garante.
+              no_elections: Actualmente no se te ha asignado ninguna acción como garante. Recibirás una notificación cuando sea el momento de actuar en las diferentes fases.
               title: Elecciones
             identification_keys:
               cancel: Cancelar
@@ -638,7 +656,9 @@ es-MX:
               upload_legend: En el servidor constan tus claves públicas de identificación, pero tu navegador todavía no las tiene. Necesitas importar el archivo con tus claves de identificación a tu ordenador desde la copia de seguridad que creaste después de generarlas.
             not_supported_browser_description: Parece que estás usando un navegador que no puede ser utilizado para actuar como garante. Asegúrate de que estás usando la versión más reciente de tu navegador, o intenta utilizar cualquier otro de los navegadores más populares para poder completar tus tareas como garante.
             not_supported_browser_title: Actualiza el navegador para actuar como garante
-            trustee_role_description: Se le ha asignado como garante en algunas de las elecciones celebradas en esta plataforma.
+            trustee_role_description:
+              with_keys: Has sido asignada como garante en algunas de las elecciones celebradas en esta plataforma.
+              without_keys: Has sido asignada para actuar como Garante. Por favor, genera y sube tus claves de identificación.
           update:
             success: Tu clave pública de identificación fue guardada con éxito.
       votes:
@@ -724,8 +744,9 @@ es-MX:
           back: Atrás
           continue: Siguiente
       warnings:
-        no_elections_warning: No hay ninguna votación que coincida con tu búsqueda o no hay ninguna programada.
-        no_scheduled_elections_warning: Actualmente no hay votaciones programadas, pero puedes ver las anteriores.
+        empty_filters: No hay ninguna elección con este criterio.
+        no_elections: No hay ninguna elección programada.
+        no_scheduled_elections: Actualmente no hay elecciones programadas, pero puedes ver un listado de las anteriores.
     events:
       elections:
         election_published:
@@ -737,13 +758,18 @@ es-MX:
           new_election:
             email_intro: Has sido añadido como garante para la elección de %{resource_title}.
             email_outro: Has recibido esta notificación porque has sido añadido como garante para la elección %{resource_title}.
-            email_subject: Eres garante para la elección de %{resource_title}..
-            notification_title: Eres garante para la elección de <a href="%{resource_path}">%{resource_title}</a>.
+            email_subject: Eres garante para la elección %{resource_title}.
+            notification_title: 'Has sido asignada para actuar como Garante en la Elección: <a href="%{resource_path}">%{resource_title}</a>. Por favor, realiza la ceremonia de claves para poner en marcha la elección.'
           new_trustee:
             email_intro: Un administrador te ha añadido como garante para %{resource_name}. Debes crear tu clave pública <a href='%{trustee_zone_url}'>en tu zona de garantes</a>
             email_outro: Has recibido esta notificación porque has sido añadido como garante para %{resource_name}.
             email_subject: Eres garante de %{resource_name}.
-            notification_title: Eres garante de <a href="%{participatory_space_url}">%{resource_name}</a>.
+            notification_title: Te han añadido para actuar como garante en %{resource_name} para algunas elecciones que tendrán lugar en esta plataforma.<br> Se te requerirá para llevar a cabo algunas tareas. De momento, por favor <a href='%{trustee_zone_url}'>genera tus claves de identificación</a>.
+          start_tally:
+            email_intro: El período de votación para la elección %{resource_title} ha finalizado. Ahora, por favor, realiza el recuento de las elecciones para publicar los resultados definitivos.
+            email_outro: Has recibido esta notificación porque has eres una de las garantes en la elección %{resource_title}.
+            email_subject: El proceso de recuento para las elecciones %{resource_title} ha comenzado.
+            notification_title: El período de votación para las elecciones %{resource_title} ha finalizado. Ahora, por favor, realiza el recuento de las elecciones para publicar el resultado final.
         votes:
           accepted_votes:
             email_intro: '¡Tu voto ha sido aceptado! Utilizando tu token de voto: %{encrypted_vote_hash}, puedes verificar tu voto <a href="%{verify_url}">aquí</a>.'
@@ -827,7 +853,7 @@ es-MX:
           polling_stations:
             name: Puntos de votación
           related_elections:
-            name: Elecciones
+            name: Votaciones electorales
           stats:
             name: Estadísticas de la votación
           timeline:
@@ -835,22 +861,6 @@ es-MX:
         index:
           published: Publicada
           unpublished: Despublicada
-        landing_page:
-          content_blocks:
-            create:
-              error: Se ha producido un error al intentar crear este bloque de contenido.
-              success: El bloque de contenido se ha creado correctamente.
-            destroy:
-              error: Se ha producido un error al intentar eliminar este bloque de contenido.
-              success: Bloque de contenido eliminado correctamente.
-            edit:
-              update: Actualizar
-          edit:
-            active_content_blocks: Bloques de contenido activos
-            add: Añadir bloque de contenido
-            destroy_confirmation: '¿Seguro que quieres borrar este bloque de contenido?'
-            inactive_content_blocks: Bloques de contenido inactivos
-            title: Contenidos de la página
         menu:
           votings: Votaciones
           votings_submenu:
@@ -991,8 +1001,6 @@ es-MX:
             title: Crear gestor de mesa
           polling_officers_picker:
             choose_polling_officers: Elegir gestores de mesa
-            close: Cerrar
-            more_polling_officers: Hay %{number} gestores de mesa más. Refina tu búsqueda para localizarlos.
             no_polling_officers: Ninguna gestora de mesa coincide con tus criterios de búsqueda o no hay ninguna.
         polling_stations:
           create:
@@ -1135,8 +1143,7 @@ es-MX:
               csv_header_after: No incluyas el último campo ("%{ballot_style_code_header}") si no necesitas preguntas condicionales/estilos de papeleta
               csv_header_before: 'El censo debe ser un archivo CSV con la siguiente cabecera:'
         document_types:
-          dni: DNI
-          nie: NIE
+          identification_number: Número de identificación
           passport: Pasaporte
         export_mailer:
           access_codes_export:
@@ -1168,24 +1175,35 @@ es-MX:
         closures:
           back_to_polling_stations: Volver a los puntos de votación
           certify:
-            add_images: Añadir imágenes
+            add_photos: Añadir fotos
+            edit_photos: Editar fotos
             error: Se ha producido un error al adjuntar el certificado, por favor inténtalo de nuevo.
-            form_legend: Sube una foto del certificado de cierre electoral
             heading: Recuento de votos - Subir certificado
             info_text: Por favor, sube una foto del certificado de cierre electoral.
             submit: Subir el certificado
             success: Certificado subido correctamente.
+            upload_photos: Sube una foto del Certificado de Cierre Electoral
+          completed:
+            sub_heading: Este recuento ha sido certificado y ya no puede ser editado.
           create:
             error: Se ha producido un error al crear el cierre, por favor inténtalo de nuevo más tarde.
             success: Cierre creado correctamente.
+          destroy:
+            error: Ocurrió un error eliminando el cierre.
+            success: Cierre eliminado correctamente.
           edit:
+            confirm_start_over: Esto eliminará el número total de votos y las notas adjuntas. ¿Seguro que lo quieres eliminar?
             heading: Recuento de votos - recuento de respuestas
-            info_text: Por favor, introduce el número total de respuestas para cada pregunta.
+            info_text: Por favor detalla el número total de respuestas para cada pregunta. Este debe coincidir con el número total de respuestas introducidas en el paso anterior (%{total} respuestas en total).
             modal_ballots_results_count_error:
+              blank: El total esperado de votos en blanco es %{expected}, pero la suma de las preguntas en blanco es %{current}.
               close_modal: Cerrar
               info_text: El número total de papeletas no coincide con el número total de sobres. Por favor, revisa el total de papeletas.
               title: El total de papeletas no coincide
+              total: El total esperado es %{expected}, pero la suma de las papeletas válidas, en blanco y nulas es %{current}.
+              valid: El total esperado de votos válidos es %{expected}, pero la suma de las preguntas válidas es %{current}.
             save_recount: Guardar recuento
+            start_over: Si hay un error en el número total, puedes borrar todo y empezar de nuevo.
             total_ballots: Total de papeletas
             total_blank_ballots: Total de papeletas en blanco
             total_null_ballots: Total de papeletas nulas
@@ -1208,8 +1226,9 @@ es-MX:
             submit: Verificar número total
             total_ballots_count: Número de papeletas
           show:
+            edit_count_votes: '¿Número incorrecto? Aún puedes editarlos.'
             heading: Recuento de votos
-            info_text: Cierre electoral del punto de votación.
+            sub_heading: El recuento debe cerrarse mediante la carga de un certificado. Una vez hecho, el recuento se sellará y ya no se podrá editar más.
           sign:
             cancel: Cancelar
             check_box: Lo he revisado y es idéntico al certificado físico de cierre electoral
@@ -1291,6 +1310,8 @@ es-MX:
           manager: Administrador
           president: Presidente
           unassigned: No Asignado
+      polling_station_closure_certificate:
+        current_certificate: 'Certificado actual:'
       polling_station_closure_recount:
         nota_option: En blanco / Ninguna de las anteriores
         polling_officer_notes: 'Notas del gestor de mesa:'
@@ -1392,8 +1413,6 @@ es-MX:
           online: En línea
   layouts:
     decidim:
-      election_votes_header:
-        exit: Salir
       voting_navigation:
         check_census: '¿Puedo votar?'
         election_log: Registro de la elección

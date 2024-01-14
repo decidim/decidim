@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages budgets", type: :system do
+describe "Admin manages budgets" do
   let(:budget) { create(:budget, component: current_component) }
   let(:manifest_name) { "budgets" }
 

@@ -104,6 +104,9 @@ en:
         create:
           invalid: There was a problem creating the debate.
           success: Debate successfully created.
+        debates:
+          empty: There are no debates yet.
+          empty_filters: There are no debates with this criteria.
         edit:
           back: Back
           save: Save changes

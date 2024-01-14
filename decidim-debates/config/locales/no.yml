@@ -93,7 +93,6 @@
         close_debate_modal:
           description: Hva er oppsummeringen fra denne innspillstråden?
           send: Lukk innspillstråd
-        closed: Avsluttet
         count:
           debates_count:
             one: "%{count} innspillstråd"
@@ -101,8 +100,6 @@
         create:
           invalid: Det oppstod et problem med å opprette innspillstråden.
           success: Innspillstråden ble opprettet.
-        debate:
-          participate: Delta
         edit:
           back: Tilbake
           save: Lagre endringer
@@ -138,7 +135,6 @@
           updated: Sist oppdatert
         show:
           close_debate: Avslutt innspillstråd
-          date: Dato
           debate_closed: Lukket
           debate_conclusions_are: 'Innspillstråden er avsluttet den %{date}, med denne oppsummeringen:'
           edit_conclusions: Rediger oppsummering

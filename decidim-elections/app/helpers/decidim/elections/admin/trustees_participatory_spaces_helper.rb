@@ -14,9 +14,9 @@ module Decidim
 
         def considered_icon_action_for(trustee)
           if trustee_current_participatory_space(trustee).considered
-            "x"
+            "close-line"
           else
-            "check"
+            "check-line"
           end
         end
 

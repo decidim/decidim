@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Initiative signing", type: :system do
+describe "Initiative signing" do
   let(:organization) { create(:organization, available_authorizations: authorizations) }
   let(:initiative) { create(:initiative, :published, organization:, scoped_type: create(:initiatives_type_scope, type: initiatives_type)) }
   let(:initiatives_type) { create(:initiatives_type, :with_user_extra_fields_collection, :with_sms_code_validation, organization:) }

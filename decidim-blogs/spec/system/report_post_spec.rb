@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Report a post", type: :system do
+describe "Report a post" do
   include_context "with a component"
 
   let(:manifest_name) { "blogs" }

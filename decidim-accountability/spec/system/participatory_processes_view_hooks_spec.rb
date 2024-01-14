@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Results in process home", type: :system do
+describe "Results in process home" do
   include_context "with a component"
   let(:manifest_name) { "accountability" }
   let(:results_count) { 5 }

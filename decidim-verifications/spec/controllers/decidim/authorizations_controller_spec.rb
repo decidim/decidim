@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Verifications
-  describe AuthorizationsController, type: :controller do
+  describe AuthorizationsController do
     routes { Decidim::Verifications::Engine.routes }
 
     let(:user) { create(:user, :confirmed) }
@@ -81,7 +81,7 @@ module Decidim::Verifications
                 allow(Decidim::AuthorizationTransfer).to receive(:registry).and_return(registry)
 
                 registry.register(:dummy) do |tr|
-                  tr.move_records(Decidim::DummyResources::DummyResource, :decidim_author_id)
+                  tr.move_records(Decidim::Dev::DummyResource, :decidim_author_id)
                 end
 
                 create_list(:dummy_resource, 5, author: other_user, component:)

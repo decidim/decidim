@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Participatory Process Groups", type: :system do
+describe "Participatory Process Groups" do
   let(:organization) { create(:organization) }
   let(:other_organization) { create(:organization) }
   let!(:participatory_process_group) do
@@ -18,11 +18,11 @@ describe "Participatory Process Groups", type: :system do
   let(:group_processes) { participatory_process_group.participatory_processes }
   let(:process) { group_processes.first }
   let(:other_process) { group_processes.last }
-  let(:cta_settings) do
+  let(:out_of_group_process) { create(:participatory_process, :active, organization:) }
+  let(:hero_settings) do
     {
-      button_url: "https://example.org/action",
-      button_text_en: "cta text",
-      description_en: "cta description"
+      button_url_en: "https://example.org/action",
+      button_text_en: "hero text"
     }
   end
 
@@ -132,36 +132,30 @@ describe "Participatory Process Groups", type: :system do
       end
     end
 
-    context "when the cta content block is enabled" do
+    context "when the hero content block is enabled" do
       before do
         create(
           :content_block,
           organization:,
           scope_name: :participatory_process_group_homepage,
           scoped_resource_id: participatory_process_group.id,
-          manifest_name: :cta,
-          settings: cta_settings
+          manifest_name: :hero,
+          settings: hero_settings
         )
         visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
       end
 
-      it "shows the description" do
-        within("div.hero__container") do
-          expect(page).to have_content(cta_settings[:description_en])
-        end
-      end
-
-      it "Shows the action button" do
-        within("div.hero__container") do
-          expect(page).to have_link(cta_settings[:button_text_en], href: cta_settings[:button_url])
+      it "shows the action button" do
+        within("[data-process-hero]") do
+          expect(page).to have_link(hero_settings[:button_text_en], href: hero_settings[:button_url_en])
         end
       end
 
       context "when url is not configured" do
-        let(:cta_settings) { nil }
+        let(:hero_settings) { nil }
 
-        it "does not show the block" do
-          expect(page).not_to have_selector("div.hero__container")
+        it "shows the block" do
+          expect(page).to have_selector("[data-process-hero]")
         end
       end
     end
@@ -169,8 +163,10 @@ describe "Participatory Process Groups", type: :system do
     context "when the proposals block is enabled" do
       let!(:proposals_component) { create(:component, :published, participatory_space: process, manifest_name: :proposals) }
       let!(:other_process_proposals_component) { create(:component, :published, participatory_space: other_process, manifest_name: :proposals) }
+      let!(:out_of_group_process_proposals_component) { create(:component, :published, participatory_space: out_of_group_process, manifest_name: :proposals) }
       let!(:proposal1) { create(:proposal, component: proposals_component, title: { en: "First awesome proposal!" }) }
       let!(:proposal2) { create(:proposal, component: other_process_proposals_component, title: { en: "Second fabulous proposal!" }) }
+      let!(:independent_proposal) { create(:proposal, component: out_of_group_process_proposals_component, title: { en: "Independent proposal!" }) }
 
       before do
         create(
@@ -200,13 +196,21 @@ describe "Participatory Process Groups", type: :system do
           end
         end
       end
+
+      it "does not show cards of proposals from process out of group" do
+        expect(page).not_to have_selector("#proposals__proposal_#{independent_proposal.id}")
+        expect(page).not_to have_content "Independent proposal!"
+        expect(page).not_to have_i18n_content out_of_group_process.title
+      end
     end
 
     context "when the results block is enabled" do
       let!(:accountability_component) { create(:component, :published, participatory_space: process, manifest_name: :accountability) }
       let!(:other_process_accountability_component) { create(:component, :published, participatory_space: other_process, manifest_name: :accountability) }
+      let!(:out_of_group_process_accountability_component) { create(:component, :published, participatory_space: out_of_group_process, manifest_name: :accountability) }
       let!(:result1) { create(:result, component: accountability_component, title: { en: "First awesome result!" }) }
       let!(:result2) { create(:result, component: other_process_accountability_component, title: { en: "Second fabulous result!" }) }
+      let!(:independent_result) { create(:result, component: out_of_group_process_accountability_component, title: { en: "Independent result!" }) }
 
       before do
         create(
@@ -235,6 +239,12 @@ describe "Participatory Process Groups", type: :system do
             expect(page).to have_i18n_content other_process.title
           end
         end
+      end
+
+      it "does not show cards of results from process out of group" do
+        expect(page).not_to have_selector("#accountability__result_#{independent_result.id}")
+        expect(page).not_to have_content "Independent result!"
+        expect(page).not_to have_i18n_content out_of_group_process.title
       end
     end
 
@@ -270,8 +280,10 @@ describe "Participatory Process Groups", type: :system do
   context "when the meetings block is enabled" do
     let!(:meetings_component) { create(:component, :published, participatory_space: process, manifest_name: :meetings) }
     let!(:other_process_meetings_component) { create(:component, :published, participatory_space: other_process, manifest_name: :meetings) }
+    let!(:out_of_group_process_meetings_component) { create(:component, :published, participatory_space: out_of_group_process, manifest_name: :meetings) }
     let!(:meeting1) { create(:meeting, :published, component: meetings_component, title: { en: "First awesome meeting!" }) }
     let!(:meeting2) { create(:meeting, :published, component: other_process_meetings_component, title: { en: "Second fabulous meeting!" }) }
+    let!(:independent_meeting) { create(:meeting, :published, component: out_of_group_process_meetings_component, title: { en: "Independent meeting!" }) }
 
     before do
       create(
@@ -291,6 +303,10 @@ describe "Participatory Process Groups", type: :system do
         expect(page).to have_content "First awesome meeting!"
         expect(page).to have_content "Second fabulous meeting!"
       end
+    end
+
+    it "does not show cards of meetings from process out of group" do
+      expect(page).not_to have_content "Independent meeting!"
     end
   end
 
@@ -318,11 +334,15 @@ describe "Participatory Process Groups", type: :system do
       let!(:other_process_proposals_component) { create(:component, :published, participatory_space: other_process, manifest_name: :proposals) }
       let!(:other_process_meetings_component) { create(:component, :published, participatory_space: other_process, manifest_name: :meetings) }
       let!(:user) { create(:user, organization:) }
+      let!(:out_of_group_process_proposals_component) { create(:component, :published, participatory_space: out_of_group_process, manifest_name: :proposals) }
+      let!(:out_of_group_process_meetings_component) { create(:component, :published, participatory_space: out_of_group_process, manifest_name: :meetings) }
 
       before do
         create_list(:proposal, 3, component: proposals_component)
         create_list(:proposal, 7, component: other_process_proposals_component)
         create_list(:meeting, 4, :published, component: other_process_meetings_component)
+        create_list(:proposal, 50, component: out_of_group_process_proposals_component)
+        create_list(:meeting, 50, component: out_of_group_process_meetings_component)
 
         # Set same coauthorships for all proposals
         Decidim::Proposals::Proposal.where(component: [proposals_component, other_process_proposals_component]).each do |proposal|

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "User activity", type: :system do
+describe "User activity" do
   let(:organization) { create(:organization) }
   let(:comment) { create(:comment) }
   let(:user) { create(:user, :confirmed, organization:) }
@@ -47,14 +47,14 @@ describe "User activity", type: :system do
     allow(Decidim::ActionLog).to receive(:public_resource_types).and_return(
       %w(
         Decidim::Comments::Comment
-        Decidim::DummyResources::DummyResource
+        Decidim::Dev::DummyResource
       )
     )
     allow(Decidim::ActionLog).to receive(:private_resource_types).and_return(
-      %w(Decidim::DummyResources::CoauthorableDummyResource)
+      %w(Decidim::Dev::CoauthorableDummyResource)
     )
     allow(Decidim::ActionLog).to receive(:publicable_public_resource_types).and_return(
-      %w(Decidim::DummyResources::DummyResource)
+      %w(Decidim::Dev::DummyResource)
     )
 
     switch_to_host organization.host

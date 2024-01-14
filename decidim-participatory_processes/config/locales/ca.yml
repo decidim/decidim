@@ -98,9 +98,6 @@ ca:
         destroy: Suprimeix
         duplicate: Duplicar
         edit: Editar
-        filter:
-          all_processes: Mostra tots els processos
-          process_groups: Grups de processos
         import_process: Importar
         moderate: Moderar
         new_process: Nou procés
@@ -113,6 +110,9 @@ ca:
         resend_invitation: Reenviar la invitació
         see_process: Veure el procés
         unpublish: Despublicar
+      filters:
+        decidim_participatory_process_group_id_eq:
+          label: Per grup de processos
       menu:
         participatory_process_groups: Grups de processos
         participatory_process_groups_submenu:
@@ -176,22 +176,6 @@ ca:
           copy: Còpia
           select: Selecciona quines dades vols duplicar
           title: Duplica procés participatiu
-      participatory_process_group_landing_page:
-        edit:
-          active_content_blocks: Blocs de contingut actius
-          add: Afegir bloc de contingut
-          destroy_confirmation: Segur que vols esborrar aquest bloc de contingut?
-          inactive_content_blocks: Blocs de contingut inactius
-          title: Continguts de la pàgina
-      participatory_process_group_landing_page_content_blocks:
-        create:
-          error: S'ha produït un error en intentar crear aquest bloc de contingut.
-          success: El bloc de contingut s'ha creat correctament.
-        destroy:
-          error: S'ha produït un error en intentar eliminar aquest bloc de contingut.
-          success: Bloc de contingut eliminat correctament.
-        edit:
-          update: Actualitzar
       participatory_process_groups:
         destroy:
           error: Hi ha hagut un error eliminant aquest grup de processos participatius.

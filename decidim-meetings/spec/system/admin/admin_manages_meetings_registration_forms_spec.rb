@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages meetings registration forms", type: :system do
+describe "Admin manages meetings registration forms" do
   let(:manifest_name) { "meetings" }
 
   let!(:questionnaire) { create(:questionnaire) }
@@ -27,7 +27,7 @@ describe "Admin manages meetings registration forms", type: :system do
   describe "manages registration form" do
     it "allows to change the custom content in registration email" do
       visit registrations_edit_path
-      find("#meeting_customize_registration_email").click
+      find_by_id("meeting_customize_registration_email").click
 
       expect(page).to have_content "This text will appear in the middle of the registration confirmation email"
       fill_in_i18n_editor(

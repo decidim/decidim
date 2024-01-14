@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe "Session", type: :request do
+RSpec.describe "Session" do
   subject { response.body }
 
   let(:request_path) { Decidim::Core::Engine.routes.url_helpers.user_session_path }

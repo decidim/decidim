@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe ApplicationController, type: :controller do
+  describe ApplicationController do
     let!(:organization) { create(:organization) }
     let!(:user) { create(:user, :confirmed, organization:) }
     let(:tos_path) { "/pages/terms-of-service" }

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Conversations", type: :system do
+describe "Conversations" do
   let!(:organization) { create(:organization, twitter_handler: "organization") }
   let(:user) { create(:user, :confirmed, organization:) }
 
@@ -36,7 +36,7 @@ describe "Conversations", type: :system do
 
         fill_in "add_conversation_users", with: "example"
 
-        expect(find("#autoComplete_list_1")).to have_selector("li", count: 1)
+        expect(find_by_id("autoComplete_list_1")).to have_selector("li", count: 1)
 
         within "#autoComplete_result_0" do
           expect(page).to have_content("example")
@@ -307,7 +307,7 @@ describe "Conversations", type: :system do
           expect(page).to have_content("New conversation")
           click_button "New conversation"
           expect(page).to have_selector("#add_conversation_users")
-          field = find("#add_conversation_users")
+          field = find_by_id("add_conversation_users")
           field.set ""
           field.native.send_keys "@#{interlocutor2.nickname.slice(0, 3)}"
           expect(page).to have_selector("#autoComplete_list_1 li.disabled", wait: 5)
@@ -538,7 +538,7 @@ describe "Conversations", type: :system do
   def visit_inbox
     visit decidim.root_path
 
-    find("#trigger-dropdown-account").click
+    find_by_id("trigger-dropdown-account").click
     within "#dropdown-menu-account" do
       click_link("Conversations")
     end

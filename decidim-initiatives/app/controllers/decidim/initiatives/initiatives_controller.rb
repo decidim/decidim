@@ -143,23 +143,11 @@ module Decidim
         {
           search_text_cont: "",
           with_any_state: %w(open),
-          with_any_type: default_filter_type_params,
+          with_any_type: nil,
           author: "any",
-          with_any_scope: default_filter_scope_params,
-          with_any_area: default_filter_area_params
+          with_any_scope: nil,
+          with_any_area: nil
         }
-      end
-
-      def default_filter_type_params
-        %w(all) + Decidim::InitiativesType.where(organization: current_organization).pluck(:id).map(&:to_s)
-      end
-
-      def default_filter_scope_params
-        %w(all global) + current_organization.scopes.pluck(:id).map(&:to_s)
-      end
-
-      def default_filter_area_params
-        %w(all) + current_organization.areas.pluck(:id).map(&:to_s)
       end
 
       def stats

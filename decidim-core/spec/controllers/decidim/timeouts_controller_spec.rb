@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe TimeoutsController, type: :controller do
+  describe TimeoutsController do
     routes { Decidim::Core::Engine.routes }
 
     let(:current_user) { create(:user, :confirmed, organization:) }

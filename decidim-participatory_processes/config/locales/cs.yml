@@ -104,9 +104,6 @@ cs:
         destroy: Odstranit
         duplicate: Duplikát
         edit: Upravit
-        filter:
-          all_processes: Zobrazit všechny procesy
-          process_groups: Filtrovat procesy ve skupinách
         import_process: Importovat
         moderate: Moderovat
         new_process: Nový proces
@@ -119,6 +116,9 @@ cs:
         resend_invitation: Znovu poslat pozvánku
         see_process: Zobrazit proces
         unpublish: Zrušit publikování
+      filters:
+        decidim_participatory_process_group_id_eq:
+          label: Podle skupiny procesů
       menu:
         participatory_process_groups: Skupiny procesů
         participatory_process_groups_submenu:
@@ -182,22 +182,6 @@ cs:
           copy: Kopírovat
           select: Vyberte, která data chcete duplikovat
           title: Duplicitní participační proces
-      participatory_process_group_landing_page:
-        edit:
-          active_content_blocks: Aktivní bloky obsahu
-          add: Přidat blok obsahu
-          destroy_confirmation: Opravdu chcete smazat tento blok obsahu?
-          inactive_content_blocks: Neaktivní bloky obsahu
-          title: Obsah stránky
-      participatory_process_group_landing_page_content_blocks:
-        create:
-          error: Při pokusu o vytvoření tohoto obsahu došlo k chybě.
-          success: Blok obsahu byl úspěšně vytvořen.
-        destroy:
-          error: Při pokusu o odstranění tohoto obsahu došlo k chybě.
-          success: Blok obsahu byl úspěšně odstraněn.
-        edit:
-          update: Aktualizovat
       participatory_process_groups:
         destroy:
           error: Došlo k chybě při zrušení skupiny účastnických procesů.

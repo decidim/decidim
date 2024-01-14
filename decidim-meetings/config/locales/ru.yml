@@ -181,14 +181,8 @@ ru:
             non_user: Не существующий участник
             select_user: Выберите участника
           index:
-            filter:
-              accepted: Принятые
-              all: Все
-              rejected: Отклоненные
-              sent: Отправленные
             invite_attendee: Пригласить участника
             invites: Приглашения
-            search: Поиск
         meeting_closes:
           edit:
             close: Закрыть
@@ -279,7 +273,6 @@ ru:
           registration_state:
             validated: ПОДТВЕРЖДЕНО
             validation_pending: ОЖИДАНИЕ ПОДТВЕРЖДЕНИЯ
-          view: Посмотреть
       models:
         invite:
           fields:

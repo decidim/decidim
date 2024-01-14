@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Voting", type: :system do
+describe "Voting" do
   let!(:organization) { create(:organization) }
   let!(:voting) { create(:voting, :published, :with_content_blocks, organization:, blocks_manifests: [:title]) }
   let!(:user) { create(:user, :confirmed, organization:) }

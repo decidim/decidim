@@ -27,7 +27,6 @@ pt:
           error: Ocorreu um problema ao criar o comentário
         update:
           error: Ocorreu um problema ao actualizar a comentário.
-      comments_count: Contagem de comentários
       votes:
         create:
           error: Houve erros na votação do comentário.

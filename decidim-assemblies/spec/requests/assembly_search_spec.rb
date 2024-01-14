@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe "Assembly search", type: :request do
+RSpec.describe "Assembly search" do
   subject { response.body }
 
   let(:organization) { create(:organization) }

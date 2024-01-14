@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Amend Proposal", type: :system, versioning: true do
+describe "Amend Proposal", versioning: true do
   let!(:participatory_space) { create(:participatory_process, :with_steps) }
   let!(:component) { create(:proposal_component, participatory_space:) }
   let!(:proposal) { create(:proposal, title: { en: "Long enough title" }, component:) }

@@ -13,11 +13,16 @@ pl:
       meeting:
         address: Adres
         available_slots: Dostępne miejsca na to spotkanie
+        customize_registration_email: Dostosuj maila rejestracji
         decidim_category_id: Kategoria
         decidim_scope_id: Zakres
         decidim_user_group_id: Grupa użytkowników
         description: Opis
+        end_time: Czas zakończenia
         id: Numer ID
+        iframe_access_level: Poziom dostępu Iframe
+        iframe_embed_type: Typ osadzenia Iframe
+        iframe_embed_type_html: Tylko kilka usług pozwala na "Osadzenie na stronie spotkania" lub "Otwórz stronę wydarzenia na żywo". Zauważ, że z opcją "Osadź na stronie spotkania" na urządzeniach mobilnych, ponieważ ekran dziedziczy różne wymiary, będzie działało to jako "Otwórz stronę wydarzenia na żywo".
         location: Miejsce
         location_hints: Wskazówki co do miejsca
         online_meeting_url: Adres URL spotkania online
@@ -228,14 +233,8 @@ pl:
             non_user: Nieistniejący użytkownik
             select_user: Wybierz użytkownika
           index:
-            filter:
-              accepted: Zaakceptowano
-              all: Wszystko
-              rejected: Odrzucono
-              sent: Wysłane
             invite_attendee: Zaproś uczestnika
             invites: Zaproszeni
-            search: Szukaj
         meeting_closes:
           edit:
             close: Zamknij
@@ -250,17 +249,23 @@ pl:
             update: Aktualizuj
           form:
             address_help: 'Adres: używany przez Geocoder do znalezienia lokalizacji'
+            disclaimer: 'Uwaga: Korzystając z zewnętrznego systemu uwierzytelniania, jesteś świadomy(a), że organizatorzy %{organization} nie są odpowiedzialni za dane dostarczone przez użytkowników do usługi zewnętrznej.'
+            iframe_embed_type_html: 'Tylko kilka usług pozwala na osadzanie się w spotkaniu lub wydarzeniu na żywo z następujących domen: %{domains}'
             location_help: 'Lokalizacja: informacja dla użytkowników dotycząca miejsca spotkania'
             location_hints_help: 'Wskazówki dotyczące lokalizacji: dodatkowe informacje. Przykład: piętro budynku, jeśli jest to spotkanie fizyczne, lub hasło do spotkania, jeśli odbywa się ono online i ma ograniczony dostęp.'
             online_meeting_url_help: 'Link: zezwól uczestnikom na bezpośredni dostęp do Twojego spotkania'
             registration_url_help: 'Link: zezwól użytkownikom na korzystanie z usługi zewnętrznej, której używasz do rejestracji'
             select_a_meeting_type: Wybierz typ spotkania
             select_a_registration_type: Wybierz typ rejestracji
+            select_an_iframe_access_level: Wybierz poziom dostępu do iframe
           index:
             title: Spotkania
           new:
             create: Utwórz
             title: Utwórz spotkanie
+          publish:
+            invalid: Wystąpił błąd podczas publikowania tego spotkania.
+            success: Spotkanie zostało opublikowane.
           service:
             description: Opis
             down: Na dół
@@ -271,9 +276,18 @@ pl:
           services:
             add_service: Dodaj usługę
             services: Usługi
+          unpublish:
+            invalid: Wystąpił błąd podczas cofania publikacji tego spotkania.
+            success: Publikacja spotkania została cofnięta.
+          update:
+            invalid: Podczas aktualizowania tego spotkania wystąpił błąd.
+            success: Spotkanie zostało zaktualizowane.
         meetings_poll:
           form:
             title: Edytuj kartę do głosowania dla %{questionnaire_for}
+          update:
+            invalid: Wystąpił błąd podczas aktualizacji tego głosowania podczas spotkania.
+            success: Głosowanie podczas spotkania zostało pomyślnie zaktualizowane.
         registrations:
           edit:
             save: Zapisz
@@ -290,6 +304,7 @@ pl:
               few: Było %{count} rejestracji.
               many: Było %{count} rejestracji.
               other: Było %{count} rejestracji.
+            reserved_slots_help: Pozostaw 0, jeśli nie masz zarezerwowanych miejsc.
             reserved_slots_less_than: Musi być mniejszy lub równy %{count}
             title: Rejestracje
           update:
@@ -312,19 +327,57 @@ pl:
           value_types:
             organizer_presenter:
               not_found: 'Nie znaleziono organizatora w bazie danych (ID: %{id})'
+        questionnaire:
+          update: "%{user_name} zaktualizował(a) kwestionariusz spotkania %{meeting_name}"
+      application_helper:
+        filter_category_values:
+          all: Wszystkie
+        filter_meeting_space_values:
+          all: Wszystkie
+      calendar:
+        meeting_to_event:
+          read_more: Przeczytaj więcej o tym spotkaniu
       calendar_modal:
         calendar_url: Adres URL kalendarza
+        copy_calendar_url: Kopiuj
+        copy_calendar_url_clarification: Skopiuj adres URL kalendarza do schowka
+        copy_calendar_url_copied: Skopiowano!
         copy_calendar_url_description: Możesz zobaczyć wszystkie opublikowane spotkania w swojej aplikacji kalendarza. Skopiuj i wklej ten adres URL w swoim kalendarzu, używając opcji "Dodaj nowy kalendarz z URL".
+        copy_calendar_url_explanation: Pamiętaj, że eksportujesz wybrane spotkania, ponieważ filtry są włączone. Jeśli chcesz wyeksportować wszystkie, najpierw zresetuj wszystkie filtry.
+        copy_calendar_url_message: Link został pomyślnie skopiowany do schowka.
         export_calendar: Eksportuj kalendarz
       close_meeting_reminder_mailer:
         close_meeting_reminder:
+          body: Spotkanie <a href="%{meeting_path}">"%{meeting_title}"</a> oczekuje na zamknięcie. Dodaj raport z spotkania za pomocą przycisku "Zamknij spotkanie".
+          greetings: Pozdrawiamy,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+          hello: Witaj %{username},
           subject: Teraz możesz zamknąć spotkanie z opublikowaniem raportu na platformie %{organization_name}
       conference_venues: Sale konferencyjne
+      content_blocks:
+        upcoming_meetings:
+          name: Nadchodzące spotkania
       directory:
         meetings:
           index:
             meetings: Spotkania
             space_type: Przestrzeń partycypacyjna
+      iframe_access_level:
+        all: Wszyscy odwiedzający
+        registered: Zarejestrowani uczestnicy tego spotkania
+        signed_in: Tylko zalogowani uczestnicy
+      iframe_embed_type:
+        embed_in_meeting_page: Osadź na stronie spotkania
+        none: Żaden
+        open_in_live_event_page: Otwórz stronę wydarzenia na żywo (z opcjonalnymi ankietami)
+        open_in_new_tab: Otwórz odnośnik w nowej zakładce
+      last_activity:
+        meeting_updated: 'Spotkanie zaktualizowane:'
+        new_meeting: 'Nowe spotkanie:'
+      layouts:
+        live_event:
+          administrate: Administruj
+          close: zamknij
+          questions: Pytania
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -332,6 +385,8 @@ pl:
         registration_mailer:
           confirmation:
             subject: Twoja rejestracja na spotkanie została potwierdzona
+      meeting:
+        not_allowed: Nie możesz zobaczyć tego spotkania.
       meeting_closes:
         edit:
           back: Wróć
@@ -341,6 +396,7 @@ pl:
         calendar_modal:
           add_to_calendar: Dodaj do kalendarza
           apple: Dodaj do kalendarza Apple
+          full_details_html: Aby uzyskać pełne szczegóły, przejdź do %{link}
           google: Dodaj do kalendarza Google
           outlook: Dodaj do kalendarza Outlook
         count:
@@ -370,16 +426,21 @@ pl:
           origin_values:
             all: Wszystkie
             official: Oficjalny
+            participants: Uczestnicy
+            user_group: Grupy
           search: Szukaj
           type: Typ
           type_values:
             all: Wszystko
+            hybrid: Hybrydowe
             in_person: Osobiście
             online: Online
         form:
           address_help: 'Adres: używany przez Geocodera do znalezienia lokalizacji'
           available_slots_help: Zostaw 0 jeśli masz nieograniczoną liczbę dostępnych miejsc
           create_as: Utwórz spotkanie jako
+          disclaimer: 'Uwaga: Korzystając z zewnętrznego systemu uwierzytelniania, jesteś świadomy(a), że organizatorzy %{organization} nie są odpowiedzialni za dane dostarczone przez użytkowników do usługi zewnętrznej.'
+          iframe_embed_type_html: 'Tylko kilka usług pozwala na osadzanie w spotkaniu lub wydarzeniu na żywo z następujących domen: %{domains}'
           location_help: 'Lokalizacja: informacja dla użytkowników dotycząca miejsca spotkania'
           location_hints_help: 'Wskazówki dotyczące lokalizacji: dodatkowe informacje. Przykład: piętro budynku, jeśli jest to spotkanie fizyczne, lub hasło do spotkania, jeśli odbywa się ono online i ma ograniczony dostęp.'
           online_meeting_url_help: 'Link: zezwól uczestnikom na bezpośredni dostęp do Twojego spotkania'
@@ -387,8 +448,15 @@ pl:
           select_a_category: Wybierz kategorię
           select_a_meeting_type: Wybierz typ spotkania
           select_a_registration_type: Wybierz typ rejestracji
+          select_an_iframe_access_level: Wybierz poziom dostępu iframe
         index:
+          click_here: Zobacz wszystkie spotkania
           new_meeting: Nowe spotkanie
+          see_all: Zobacz wszystkie spotkania
+          see_all_withdrawn: Zobacz wszystkie wycofane spotkania
+          text_banner: Oglądasz listę spotkań wycofanych przez ich autorów. %{go_back_link}.
+        meeting:
+          close_meeting: Zamknij spotkanie
         meetings:
           upcoming_meetings_warning: Obecnie nie ma żadnych zaplanowanych spotkań, ale możesz zobaczyć wszystkie przeszłe.
         new:
@@ -401,7 +469,6 @@ pl:
         show:
           attendees: Liczba osób biorących udział
           contributions: Liczba wsparć
-          date: Data
           join: Dołącz do spotkania
           leave: Anuluj swoją rejestrację
           meeting_minutes: Protokół ze spotkania
@@ -416,7 +483,6 @@ pl:
             few: "Pozostało %{count} miejsc"
             many: "Pozostało %{count} miejsc"
             other: "Pozostało %{count} miejsc"
-          view: Zobacz
         update:
           invalid: Wystąpił błąd podczas aktualizowania spotkania.
           success: Spotkanie zostało zaktualizowane.

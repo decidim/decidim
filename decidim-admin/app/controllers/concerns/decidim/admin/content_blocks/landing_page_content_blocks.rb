@@ -101,45 +101,44 @@ module Decidim
             raise "#{self.class.name} is expected to implement #resource_landing_page_content_block_path"
           end
 
+          # Method that specifies the i18n scope for this controller. This can be overwritten in your controller.
+          # so that you can pass a different scope to the i18n methods.
+          def i18n_scope = "decidim.admin.content_blocks"
+
           # Method to be implemented at the controller. Returns a string
           # with the text for the submit button of the ContentBlockForm.
           #
-          # Example: t("landing_page.content_blocks.edit.update", scope: "decidim.votings.admin")
-          def submit_button_text
-            raise "#{self.class.name} is expected to implement #submit_button_text"
-          end
+          # i18n-tasks-use t('decidim.admin.content_blocks.edit.update')
+          # Example: t("edit.update", scope: "decidim.admin.content_blocks")
+          def submit_button_text = t("edit.update", scope: i18n_scope)
 
           # Method to be implemented at the controller. Returns a string
           # with the success text after creating a content block.
           #
-          # Example: t("landing_page.content_blocks.create.success", scope: "decidim.votings.admin")
-          def content_block_create_success_text
-            raise "#{self.class.name} is expected to implement #content_block_create_success_text"
-          end
+          # i18n-tasks-use t('decidim.admin.content_blocks.create.success')
+          # Example: t("create.success", scope: "decidim.admin.content_blocks")
+          def content_block_create_success_text = t("create.success", scope: i18n_scope)
 
           # Method to be implemented at the controller. Returns a string
           # with the success text after creating a content block.
           #
-          # Example: t("landing_page.content_blocks.create.error", scope: "decidim.votings.admin")
-          def content_block_create_error_text
-            raise "#{self.class.name} is expected to implement #content_block_create_error_text"
-          end
+          # i18n-tasks-use t('decidim.admin.content_blocks.create.error')
+          # Example: t("create.error", scope: "decidim.admin.content_blocks")
+          def content_block_create_error_text = t("create.error", scope: i18n_scope)
 
           # Method to be implemented at the controller. Returns a string
           # with the success text after destroying a content block.
           #
-          # Example: t("landing_page.content_blocks.destroy.success", scope: "decidim.votings.admin")
-          def content_block_destroy_success_text
-            raise "#{self.class.name} is expected to implement #content_block_destroy_success_text"
-          end
+          # i18n-tasks-use t('decidim.admin.content_blocks.destroy.success')
+          # Example: t("destroy.success", scope: "decidim.admin.content_blocks")
+          def content_block_destroy_success_text = t("destroy.success", scope: i18n_scope)
 
           # Method to be implemented at the controller. Returns a string
           # with the success text after destroying a content block.
           #
-          # Example: t("landing_page.content_blocks.destroy.error", scope: "decidim.votings.admin")
-          def content_block_destroy_error_text
-            raise "#{self.class.name} is expected to implement #content_block_destroy_error_text"
-          end
+          # i18n-tasks-use t('decidim.admin.content_blocks.destroy.error')
+          # Example: t("destroy.error", scope: "decidim.admin.content_blocks")
+          def content_block_destroy_error_text = t("destroy.error", scope: i18n_scope)
 
           # Shared methods
           def content_block

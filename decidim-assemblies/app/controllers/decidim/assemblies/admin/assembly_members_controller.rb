@@ -7,14 +7,11 @@ module Decidim
       #
       class AssemblyMembersController < Decidim::Assemblies::Admin::ApplicationController
         include Concerns::AssemblyAdmin
+        include Decidim::Assemblies::Admin::AssemblyMembers::Filterable
 
         def index
           enforce_permission_to :index, :assembly_member
-
-          @query = params[:q]
-          @status = params[:status]
-
-          @assembly_members = Decidim::Assemblies::Admin::AssemblyMembers.for(collection, @query, @status).page(params[:page]).per(15)
+          @assembly_members = filtered_collection
         end
 
         def new
@@ -26,7 +23,7 @@ module Decidim
           enforce_permission_to :create, :assembly_member
           @form = form(AssemblyMemberForm).from_params(params)
 
-          CreateAssemblyMember.call(@form, current_user, current_assembly) do
+          CreateAssemblyMember.call(@form, current_assembly) do
             on(:ok) do
               flash[:notice] = I18n.t("assembly_members.create.success", scope: "decidim.admin")
               redirect_to assembly_members_path(current_assembly)

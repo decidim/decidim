@@ -5,6 +5,8 @@ module Decidim
     # Controller that allows managing all areas at the admin panel.
     #
     class AreasController < Decidim::Admin::ApplicationController
+      include Decidim::Admin::Concerns::HasTabbedMenu
+
       layout "decidim/admin/settings"
 
       add_breadcrumb_item_from_menu :admin_settings_menu
@@ -46,7 +48,7 @@ module Decidim
         enforce_permission_to(:update, :area, area:)
         @form = form(AreaForm).from_params(params)
 
-        UpdateArea.call(area, @form) do
+        UpdateArea.call(@form, area) do
           on(:ok) do
             flash[:notice] = I18n.t("areas.update.success", scope: "decidim.admin")
             redirect_to areas_path
@@ -75,6 +77,8 @@ module Decidim
       end
 
       private
+
+      def tab_menu_name = :admin_areas_menu
 
       def organization_areas
         current_organization.areas

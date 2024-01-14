@@ -34,11 +34,8 @@ Decidim.register_component(:sortitions) do |component|
   end
 
   component.seeds do |participatory_space|
-    component = Decidim::Component.create!(
-      name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :sortitions).i18n_name,
-      manifest_name: :sortitions,
-      published_at: Time.current,
-      participatory_space:
-    )
+    require "decidim/sortitions/seeds"
+
+    Decidim::Sortitions::Seeds.new(participatory_space:).call
   end
 end

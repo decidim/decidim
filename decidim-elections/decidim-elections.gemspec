@@ -17,17 +17,22 @@ Gem::Specification.new do |s|
     "homepage_uri" => "https://decidim.org",
     "source_code_uri" => "https://github.com/decidim/decidim"
   }
-  s.required_ruby_version = ">= 3.1"
+  s.required_ruby_version = "~> 3.2.0"
 
   s.name = "decidim-elections"
   s.summary = "A decidim elections module (votings space and elections component)"
   s.description = "The Elections module adds elections to any participatory space."
 
-  s.files = Dir["{app,config,db,lib}/**/*", "LICENSE-AGPLv3.txt", "Rakefile", "README.md"]
+  s.files = Dir.chdir(__dir__) do
+    `git ls-files -z`.split("\x0").select do |f|
+      (File.expand_path(f) == __FILE__) ||
+        f.start_with?(*%w(app/ config/ db/ lib/ Rakefile README.md))
+    end
+  end
 
-  s.add_dependency "decidim-bulletin_board", "~> 0.24.1"
-  s.add_dependency "voting_schemes-dummy", "~> 0.24.1"
-  s.add_dependency "voting_schemes-electionguard", "~> 0.24.1"
+  s.add_dependency "decidim-bulletin_board", "~> 0.24.4"
+  s.add_dependency "voting_schemes-dummy", "~> 0.24.4"
+  s.add_dependency "voting_schemes-electionguard", "~> 0.24.4"
 
   s.add_dependency "decidim-core", Decidim::Elections.version
   s.add_dependency "decidim-forms", Decidim::Elections.version

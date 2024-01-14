@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe StaticMapController, type: :controller do
+  describe StaticMapController do
     routes { Decidim::Core::Engine.routes }
 
     let(:organization) { create(:organization) }

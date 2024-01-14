@@ -5,50 +5,18 @@ module Decidim
     module Admin
       # A command with all the business logic when destroying an assembly
       # member in the system.
-      class DestroyAssemblyMember < Decidim::Command
-        # Public: Initializes the command.
-        #
-        # assembly_member - the AssemblyMember to destroy
-        # current_user - the user performing this action
-        def initialize(assembly_member, current_user)
-          @assembly_member = assembly_member
-          @current_user = current_user
-        end
-
-        # Executes the command. Broadcasts these events:
-        #
-        # - :ok when everything is valid.
-        # - :invalid if the form was not valid and we could not proceed.
-        #
-        # Returns nothing.
-        def call
-          destroy_member!
-          broadcast(:ok)
-        end
-
+      class DestroyAssemblyMember < Decidim::Commands::DestroyResource
         private
 
-        attr_reader :assembly_member, :current_user
-
-        def destroy_member!
-          log_info = {
+        def extra_params
+          {
             resource: {
-              title: assembly_member.full_name
+              title: resource.full_name
             },
             participatory_space: {
-              title: assembly_member.assembly.title
+              title: resource.assembly.title
             }
           }
-
-          Decidim.traceability.perform_action!(
-            "delete",
-            assembly_member,
-            current_user,
-            log_info
-          ) do
-            assembly_member.destroy!
-            assembly_member
-          end
         end
       end
     end

@@ -1,0 +1,13 @@
+<div class="card-section">
+  <div class="row column">
+    <strong><%= t("photos", scope: "decidim.proposals.admin.proposals.show") %>:</strong>
+    <div id="photos" class="gallery row" data-gallery>
+      <% proposal.photos.each do |photo| %>
+        <%= link_to photo.big_url, target: "_blank", rel: "noopener" do %>
+          <%= image_tag photo.thumbnail_url,
+                        class: "thumbnail", alt: strip_tags(translated_attribute(photo.title)) %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

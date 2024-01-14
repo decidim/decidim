@@ -9,6 +9,7 @@ module Decidim
       class AssemblyAttachmentsController < Decidim::Assemblies::Admin::ApplicationController
         include Concerns::AssemblyAdmin
         include Decidim::Admin::Concerns::HasAttachments
+        include Decidim::Admin::Concerns::HasTabbedMenu
 
         def after_destroy_path
           assembly_attachments_path(current_assembly)
@@ -17,6 +18,10 @@ module Decidim
         def attached_to
           current_assembly
         end
+
+        private
+
+        def tab_menu_name = :assemblies_admin_attachments_menu
       end
     end
   end

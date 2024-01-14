@@ -27,7 +27,7 @@ export default class CheckBoxesTree {
    * @returns {Void} - Returns nothing.
    */
   updateChecked(checkboxes, values) {
-    checkboxes.each((index, checkbox) => {
+    checkboxes.each((_idx, checkbox) => {
       if ((checkbox.value === "" && values.length === 1) || (checkbox.value !== "" && values.includes(checkbox.value))) {
         checkbox.checked = true;
         this.checkTheCheckBoxes(checkbox);
@@ -44,13 +44,13 @@ export default class CheckBoxesTree {
    */
   setContainerForm(theForm) {
     theForm.on("submit ajax:before", () => {
-      theForm.find(".ignore-filters input, input.ignore-filter").each((idx, elem) => {
+      theForm.find(".ignore-filters input, input.ignore-filter").each((_idx, elem) => {
         elem.disabled = true;
       });
     });
 
     theForm.on("ajax:send", () => {
-      theForm.find(".ignore-filters input, input.ignore-filter").each((idx, elem) => {
+      theForm.find(".ignore-filters input, input.ignore-filter").each((_idx, elem) => {
         elem.disabled = false;
       });
     });
@@ -90,6 +90,10 @@ export default class CheckBoxesTree {
     const key = input.parentNode.dataset.childrenCheckbox
     // search in the checkboxes array if some id ends with the childrenCheckbox key, what means it is the parent
     const parentCheck = this.checkboxesTree.find(({ id }) => new RegExp(`${key}$`, "i").test(id))
+
+    if (typeof parentCheck === "undefined") {
+      return;
+    }
 
     // search for leaves with the same parent, what means they are siblings
     const totalCheckSiblings = this.checkboxesLeaf.filter((node) => node.parentNode.dataset.childrenCheckbox === key)

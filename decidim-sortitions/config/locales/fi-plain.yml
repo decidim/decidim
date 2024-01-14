@@ -38,6 +38,7 @@ fi-pl:
         actions:
           destroy: Peruuta satunnaistaminen
           edit: Muokkaa
+          new_sortition: Uusi satunnaisvalinta
           show: Satunnaistamisen yksityiskohdat
         models:
           sortition:
@@ -95,6 +96,8 @@ fi-pl:
           cancelled: Peruttu
           category: Aihepiiri
           state: Tila
+        index:
+          empty: Satunnaisvalintoja ei vielä ole.
         linked_sortitions:
           selected_proposals: Valitut ehdotukset
         orders:

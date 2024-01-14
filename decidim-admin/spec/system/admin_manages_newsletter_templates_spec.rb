@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages newsletter templates", type: :system do
+describe "Admin manages newsletter templates" do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, name: "Sarah Kerrigan", organization:) }
 

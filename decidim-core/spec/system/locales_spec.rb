@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Locales", type: :system do
+describe "Locales" do
   describe "switching locales" do
     let(:organization) { create(:organization, available_locales: %w(en ca)) }
 

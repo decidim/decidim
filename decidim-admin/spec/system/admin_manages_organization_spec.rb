@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages organization", type: :system do
+describe "Admin manages organization" do
   include ActionView::Helpers::SanitizeHelper
 
   let(:organization) { create(:organization) }
@@ -42,7 +42,7 @@ describe "Admin manages organization", type: :system do
 
     it "marks the comments_max_length as required" do
       visit decidim_admin.edit_organization_path
-      expect(find("#organization_comments_max_length")[:required]).to eq("true")
+      expect(find_by_id("organization_comments_max_length")[:required]).to eq("true")
 
       expect(page).not_to have_content("There is an error in this field.")
       fill_in :organization_comments_max_length, with: ""

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Explore versions", type: :system, versioning: true do
+describe "Explore versions", versioning: true do
   let(:organization) { create(:organization) }
   let(:initiative) { create(:initiative, organization:) }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
@@ -16,10 +16,11 @@ describe "Explore versions", type: :system, versioning: true do
     ).with_context(
       current_organization: organization,
       current_component: nil,
+      current_user: user,
       initiative:
     )
   end
-  let(:command) { Decidim::Initiatives::Admin::UpdateInitiative.new(initiative, form, user) }
+  let(:command) { Decidim::Initiatives::Admin::UpdateInitiative.new(form, initiative) }
   let(:initiative_path) { decidim_initiatives.initiative_path(initiative) }
 
   before do

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages assembly publication", type: :system do
+describe "Admin manages assembly publication" do
   include_context "when admin administrating an assembly"
 
   let(:admin_page_path) { decidim_admin_assemblies.edit_assembly_path(participatory_space) }

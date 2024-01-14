@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Preview pages with share token", type: :system do
+describe "Preview pages with share token" do
   let(:manifest_name) { "pages" }
 
   let(:body) do

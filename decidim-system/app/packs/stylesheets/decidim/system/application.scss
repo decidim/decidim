@@ -89,6 +89,16 @@ dl {
   }
 }
 
+.flash__message {
+  p {
+    @apply my-4;
+  }
+
+  ol {
+    @apply list-decimal;
+  }
+}
+
 /* overwrite tom-select defaults */
 .ts-control {
   margin-bottom: 0.5rem;

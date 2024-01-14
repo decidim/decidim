@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Gamification", type: :system do
+describe "Gamification" do
   let!(:organization) { create(:organization) }
 
   before do

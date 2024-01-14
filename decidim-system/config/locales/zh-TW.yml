@@ -118,7 +118,6 @@ zh-TW:
           show: 顯示進階設定
         create:
           error: 創建新組織時發生問題。
-          success: 組織創建成功。
         edit:
           secondary_hosts_hint: 請在新的一行輸入每一個
         file_upload_settings:

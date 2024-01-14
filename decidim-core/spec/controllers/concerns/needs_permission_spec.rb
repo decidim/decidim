@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe "NeedsPermission", type: :controller do
+  describe "NeedsPermission" do
     let!(:organization) { create(:organization) }
     let!(:user) { create(:user, :confirmed, organization:) }
     let!(:another_user) { create(:user, :confirmed, organization:) }

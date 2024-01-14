@@ -1,0 +1,6 @@
+<div class="design__section-snippet">
+  <p>Source code on GitHub: <%= link_to(text, url, target: "_blank", rel: "noopener noreferrer") %></p>
+  <code>
+    <textarea rows="5"><%= Nokogiri::XML(cell(cell, *args).call, &:noblanks).root %></textarea>
+  </code>
+</div>

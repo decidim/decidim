@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "PWA features", type: :system do
+describe "PWA features" do
   let(:organization) { create(:organization, host: "pwa.lvh.me") }
 
   before do

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages conference categories", type: :system do
+describe "Admin manages conference categories" do
   include_context "when admin administrating a conference"
 
   let!(:category) do

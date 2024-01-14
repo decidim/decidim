@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages partners", type: :system do
+describe "Admin manages partners" do
   include_context "when admin administrating a conference"
 
   it_behaves_like "manage partners examples"

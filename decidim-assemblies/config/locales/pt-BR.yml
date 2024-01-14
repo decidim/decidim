@@ -1,8 +1,6 @@
 pt-BR:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: Habilitar gráfico de organização
       assemblies_type:
         title: Título
       assembly:
@@ -75,6 +73,12 @@ pt-BR:
         email: E-mail
         name: Nome
         role: Cargo
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              allowed_file_content_types: 'Tipo de documento inválido. Apenas arquivos com as seguintes extensões são permitidos: %{types}.'
   activerecord:
     models:
       decidim/assembly:
@@ -112,10 +116,6 @@ pt-BR:
         create:
           error: Ocorreu um erro ao duplicar esta assembleia.
           success: Assembleia duplicada com sucesso.
-      assemblies_settings:
-        update:
-          error: Houve um problema ao atualizar as configurações.
-          success: Configurações atualizadas com sucesso.
       assemblies_types:
         create:
           error: Ocorreu um erro ao criar um novo tipo de assembleia.
@@ -148,13 +148,11 @@ pt-BR:
         destroy:
           success: Membro excluído com êxito para este assembly.
         edit:
-          title: Atualize o membro do assembly.
           update: Atualizar
         index:
           assembly_members_title: Membros da assembleia
         new:
           create: Criar
-          title: Novo membro da assembleia.
         update:
           error: Houve um erro ao atualizar o membro para este assembly.
           success: Membro atualizado com êxito para este assembly.
@@ -172,22 +170,24 @@ pt-BR:
         destroy:
           success: Usuário removido com sucesso deste assembly.
         edit:
-          title: Atualize o usuário da montagem.
           update: Atualizar
         index:
           assembly_admins_title: Usuários da assembleia
         new:
           create: Criar
-          title: Novo usuário da assembleia.
         update:
           error: Ocorreu um erro ao atualizar um usuário para esta montagem.
           success: Usuário atualizado com sucesso para esta montagem.
       filters:
+        ceased_date_not_null:
+          label: Cessado
+          values:
+            'false': Não cessado
+            'true': Cessado
         decidim_assemblies_type_id_eq:
           label: Tipo de assembleia
       menu:
         assemblies: Assembleias
-        assemblies_settings: Configurações
         assemblies_submenu:
           assembly_admins: Usuários da assembleia
           assembly_members: Membros
@@ -196,6 +196,7 @@ pt-BR:
           attachments: Anexos
           categories: Categorias
           components: Componentes
+          info: Sobre essa assambleia
           landing_page: Página principal
           moderations: Moderação
           private_users: Usuários particulares
@@ -242,6 +243,9 @@ pt-BR:
     admin_log:
       assembly:
         create: "%{user_name} criou o conjunto %{resource_name}"
+        duplicate: "%{user_name} duplicou a assambleia %{resource_name}"
+        export: "%{user_name} exportou a assambleia %{resource_name}"
+        import: "%{user_name} importou a assambleia %{resource_name}"
         publish: "%{user_name} publicou o conjunto %{resource_name}"
         unpublish: "%{user_name} não publicado o conjunto %{resource_name}"
         update: "%{user_name} atualizou a montagem %{resource_name}"
@@ -270,23 +274,26 @@ pt-BR:
             duration_help: Se a duração desse assembly for limitada, selecione a data final. Caso contrário, aparecerá como indefinido.
             filters: Filtros
             images: Imagens
+            included_at_help: Selecione a data em que a assambleia foi adicionada à plataforma. Não precisa necessariamente ser o mesmo que a data de criação.
             metadata: Metadados
             other: De outros
             select_a_created_by: Selecione um criado por
             select_an_area: Selecione uma área
             select_an_assembly_type: Selecione um tipo de assembleia
             select_parent_assembly: Selecione a montagem pai
+            slug_help_html: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembleia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
             social_handlers: Social
             title: Informação geral
             visbility: Visibilidade
-        assemblies_settings:
-          edit:
-            update: Atualizar
-          form:
-            title: Configurações para assembleias
         assemblies_types:
           form:
             title: Título
+        assembly_copies:
+          form:
+            slug_help_html: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembleia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
+        assembly_imports:
+          form:
+            slug_help_html: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembleia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
         assembly_members:
           form:
             existing_user: Usuário existente
@@ -294,12 +301,6 @@ pt-BR:
             select_a_position: Selecione uma posição
             select_user: Selecione um usuário
             user_type: Tipo de usuário
-          index:
-            filter:
-              all: Todos
-              ceased: Cessou
-              not_ceased: Não cessou
-            search: Procurar
         content_blocks:
           highlighted_assemblies:
             max_results: Quantidade máxima de elementos para mostrar
@@ -308,18 +309,19 @@ pt-BR:
             json: JSON
       assemblies:
         description:
+          indefinite_duration: Indefinido
           local_area: Área de organização
           meta_scope: Escopo
           participatory_scope: O que é decidido
           participatory_structure: Como é decidido
           target: Quem participa
-          title: Sobre este assembly
+          title: Sobre essa assambleia
         filters:
           names:
             all: Todos
           type: Tipo
         show:
-          title: Sobre este assembly
+          title: Sobre essa assambleia
       assembly_members:
         index:
           members: Membros

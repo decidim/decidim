@@ -353,14 +353,8 @@ cs:
             non_user: Neexistující uživatel
             select_user: Vyberte uživatele
           index:
-            filter:
-              accepted: Přijato
-              all: Vše
-              rejected: Odmítnuto
-              sent: Odesláno
             invite_attendee: Pozvat účastníka
             invites: Pozvánky
-            search: Vyhledávání
           new:
             explanation: Uživatel bude pozván, aby se připojil k konferenci. Pokud není jeho e-mail registrován, bude také pozván do organizace.
             invite: Pozvat
@@ -385,6 +379,9 @@ cs:
               many: Bylo zde %{count} registrací.
               other: Bylo zde %{count} registrací.
             slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na tuto konferenci. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
+        content_blocks:
+          highlighted_conferences:
+            max_results: Maximální počet zobrazených prvků
         diplomas:
           edit:
             save: Uložit

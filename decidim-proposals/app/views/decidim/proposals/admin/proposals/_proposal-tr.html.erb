@@ -26,14 +26,7 @@
     </div>
   </td>
   <td class="table-list__date">
-    <%= l proposal.created_at, format: :decidim_short %>
-  </td>
-
-  <td>
-    <strong class="label <%= proposal_state_css_class proposal %>">
-      <%= t("decidim/amendment", scope: "activerecord.models", count: 1) if proposal.emendation? %>
-      <%= proposal_complete_state proposal %>
-    </strong>
+    <%= l proposal.published_at, format: :decidim_short %>
   </td>
 
   <% unless current_settings.publish_answers_immediately? %>
@@ -64,6 +57,13 @@
 
   <td class="valuators-count">
     <%= proposal.valuation_assignments.count %>
+  </td>
+
+  <td>
+    <strong class="label <%= proposal_state_css_class proposal %>">
+      <%= t("decidim/amendment", scope: "activerecord.models", count: 1) if proposal.emendation? %>
+      <%= proposal_complete_state proposal %>
+    </strong>
   </td>
 
   <td class="table-list__actions">

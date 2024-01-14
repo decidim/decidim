@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::Votings::VotingsController, type: :controller do
+describe Decidim::Votings::VotingsController do
   routes { Decidim::Votings::Engine.routes }
 
   let(:organization) { create(:organization) }

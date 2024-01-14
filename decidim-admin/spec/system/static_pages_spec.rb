@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Content pages", type: :system do
+describe "Content pages" do
   include ActionView::Helpers::SanitizeHelper
 
   let(:admin) { create(:user, :admin, :confirmed) }
@@ -55,6 +55,7 @@ describe "Content pages", type: :system do
         login_as admin, scope: :user
         visit decidim_admin.root_path
         click_link "Pages"
+        click_link "Topics"
       end
 
       it "can create topics" do
@@ -81,7 +82,7 @@ describe "Content pages", type: :system do
         end
 
         expect(page).to have_admin_callout("successfully")
-        expect(page).to have_css(".card h2", text: "General")
+        expect(page).to have_css(".table-scroll", text: "General")
       end
     end
 
@@ -92,12 +93,11 @@ describe "Content pages", type: :system do
         login_as admin, scope: :user
         visit decidim_admin.root_path
         click_link "Pages"
+        click_link "Topics"
       end
 
       it "can create page groups" do
-        within find(".card-title", text: topic.title[I18n.locale.to_s]) do
-          click_link "Edit"
-        end
+        click_link translated(topic.title)
 
         within ".edit_static_page_topic" do
           fill_in_i18n(
@@ -120,7 +120,7 @@ describe "Content pages", type: :system do
         end
 
         expect(page).to have_admin_callout("successfully")
-        expect(page).to have_css(".card h2", text: "New title")
+        expect(page).to have_css(".table-scroll", text: "New title")
       end
     end
 
@@ -131,18 +131,17 @@ describe "Content pages", type: :system do
         login_as admin, scope: :user
         visit decidim_admin.root_path
         click_link "Pages"
+        click_link "Topics"
       end
 
       it "can delete them" do
-        within find(".card", text: translated(topic.title)) do
-          accept_confirm { click_link "Remove topic" }
+        within find("tr", text: translated(topic.title)) do
+          accept_confirm { click_link "Delete" }
         end
 
         expect(page).to have_admin_callout("successfully")
 
-        within "table" do
-          expect(page).not_to have_content(translated(topic.title))
-        end
+        expect(page).not_to have_css(".table-scroll")
       end
     end
   end

@@ -1,8 +1,6 @@
 ar:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: تمكين الخريطة التنظيمية
       assemblies_type:
         title: العنوان
       assembly:
@@ -124,10 +122,6 @@ ar:
         create:
           error: حدثت مشكلة في تكرار هذا التجميع.
           success: الجمعية مكررة بنجاح.
-      assemblies_settings:
-        update:
-          error: طرأت مشكلة أثناء تحديث الإعدادات.
-          success: تم تحديث الإعدادات بنجاح.
       assemblies_types:
         create:
           error: حدثت مشكلة أثناء إنشاء جمعية جديدة.
@@ -160,13 +154,11 @@ ar:
         destroy:
           success: تم حذف العضو بنجاح لهذا التجميع.
         edit:
-          title: تحديث عضو التجميع.
           update: تحديث
         index:
           assembly_members_title: أعضاء الجمعية
         new:
           create: إنشاء
-          title: عضو الجمعية الجديد.
         update:
           error: حدثت مشكلة أثناء تحديث العضو لهذا التجميع.
           success: تم تحديث العضو بنجاح لهذا التجميع.
@@ -184,13 +176,11 @@ ar:
         destroy:
           success: تمت إزالة المشرف بنجاح من هذا التجميع.
         edit:
-          title: تحديث مسؤول التجميع.
           update: تحديث
         index:
           assembly_admins_title: مدراء الجمعية
         new:
           create: إنشاء
-          title: مشرف جديد على الجمعية.
         update:
           error: حدثت مشكلة أثناء تحديث مشرفٍ على هذه الجمعية.
           success: تم تحديث المشرف على هذه الجمعية بنجاح.
@@ -199,7 +189,6 @@ ar:
           label: نوع الجمعية
       menu:
         assemblies: الجمعيات
-        assemblies_settings: الإعدادات
         assemblies_submenu:
           assembly_admins: مدراء الجمعية
           assembly_members: الأعضاء
@@ -294,11 +283,6 @@ ar:
             social_handlers: التواصل الاجتماعي
             title: معلومات عامة
             visbility: الرؤية
-        assemblies_settings:
-          edit:
-            update: تحديث
-          form:
-            title: إعدادات الجمعية
         assemblies_types:
           form:
             title: العنوان
@@ -312,12 +296,6 @@ ar:
             select_a_position: اختر المنصب
             select_user: اختيار مشارك
             user_type: نوع المشارك
-          index:
-            filter:
-              all: الكل
-              ceased: توقف
-              not_ceased: لم تتوقف
-            search: البحث
         content_blocks:
           highlighted_assemblies:
             max_results: أقصى قدر من العناصر لإظهارها
@@ -325,6 +303,9 @@ ar:
           accepted_types:
             json: ملفات بصيغة (JSON)
       assemblies:
+        filters:
+          names:
+            all: الكل
         show:
           title: حول الجمعية
       assembly_members:
@@ -339,6 +320,8 @@ ar:
         participatory: تشاركية
         working_group: فريق العمل
       content_blocks:
+        children_assemblies:
+          name: جمعيات
         highlighted_assemblies:
           name: المجالس البارزة
       created_by:

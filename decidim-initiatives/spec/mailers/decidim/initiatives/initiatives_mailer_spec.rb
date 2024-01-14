@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Initiatives
-    describe InitiativesMailer, type: :mailer do
+    describe InitiativesMailer do
       include Decidim::TranslationsHelper
       include Decidim::SanitizeHelper
 

@@ -37,6 +37,9 @@ pt-BR:
         user_group_id: Criar importações como
       newsletter:
         body: Corpo
+        send_to_all_users: Enviar para todos os usuários
+        send_to_followers: Enviar para seguidores
+        send_to_participants: Enviar para participantes
         subject: Assunto
       organization:
         admin_terms_of_service_body: Estrutura para os termos de uso do administrador
@@ -75,7 +78,6 @@ pt-BR:
         machine_translation_display_priority_translation: Texto traduzido primeiro
         name: Nome
         official_img_footer: Símbolo oficial do rodapé
-        official_img_header: Cabeçalho do logotipo oficial
         official_url: URL da organização oficial
         omnipresent_banner_short_description: Descrição curta
         omnipresent_banner_title: Título
@@ -141,8 +143,6 @@ pt-BR:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Arquivo de imagem inválido
-            official_img_header:
               allowed_file_content_types: Arquivo de imagem inválido
         participatory_space_private_user_csv_import:
           attributes:
@@ -358,6 +358,11 @@ pt-BR:
           title: Transferência
         'true': 'Sim'
         user_name: Usuário
+      content_blocks:
+        edit:
+          active_content_blocks: Blocos de conteúdo ativo
+          inactive_content_blocks: Blocos de conteúdo inativos
+          update: Atualizar
       dashboard:
         pending_moderations:
           anouncement:
@@ -439,7 +444,6 @@ pt-BR:
           report_count_eq: Número de denúncias
           reported_id_string_or_reported_content_cont: Pesquisar %{collection} por id ou conteúdo reportável.
           title_cont: Pesquisar %{collection} por título.
-          user_name_or_user_email_cont: Pesquise %{collection} por nome ou e-mail.
           user_name_or_user_nickname_or_user_email_cont: Pesquise %{collection} por e-mail, nome ou apelido.
         state_eq:
           label: Estado
@@ -508,8 +512,8 @@ pt-BR:
             records:
               detail: Por favor, verifique se essas linhas estão formatadas corretamente e contém registros válidos.
               message:
-                one: Encontrado um erro no arquivo de importação para registros com os números de ordem %{indexes}.
-                other: Erros encontrados no arquivo de importação para registros com ordem número %{indexes}.
+                one: Erros encontrados no arquivo de importação para registros com ordem número %{indexes}.
+                other: Encontrado um erro no arquivo de importação para registros com os números de ordem %{indexes}.
           missing_headers:
             detail: Por favor, verifique se o arquivo contém colunas obrigatórias.
         error: Houve um problema durante a importação.
@@ -820,6 +824,7 @@ pt-BR:
             saturation: Saturação
             title: Seletor de cores
             update_suggested_colors: Atualizar cores sugeridas
+          cta_button_path_help_html: 'Você pode substituir onde o botão Chamar para Ação na página inicial liga. Use caminhos parciais, não URLs completas aqui. Aceita letras, números, traços e barras e deve começar com uma letra. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição. Exemplo: %{url}'
           cta_button_text_help: Você pode substituir o texto do botão Chamar para Ação na página inicial para cada idioma disponível em sua organização. Se não for definido, o valor padrão será usado. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição.
           homepage_appearance_title: Editar a aparência da página inicial
           homepage_highlighted_content_banner_title: Banner de conteúdo elevado
@@ -833,27 +838,11 @@ pt-BR:
         external_domain:
           down: Para Baixo
           external_domain: Domínio externo
-          remove: Remover
+          remove: Excluir
           up: Para Cima
         form:
           add: Adicionar à lista branca
-          title: Domínio externo na lista branca
-      organization_homepage:
-        content_blocks:
-          create:
-            error: Ocorreu um problema ao tentar criar esse bloco de conteúdo.
-            success: Bloco de conteúdo criado com sucesso.
-          destroy:
-            error: Ocorreu um problema ao tentar excluir esse bloco de conteúdo.
-            success: Bloco de conteúdo excluído com sucesso.
-          edit:
-            update: Atualizar
-        edit:
-          active_content_blocks: Blocos de conteúdo ativo
-          add: Adicionar bloco de conteúdo
-          destroy_confirmation: Tem certeza que deseja excluir esse bloco de conteúdo?
-          inactive_content_blocks: Blocos de conteúdo inativo
-          title: Conteúdo da página
+          title: Lista branca de domínios externos
       participatory_space_private_users:
         create:
           error: Ocorreu um erro ao adicionar um usuário privado para este espaço participativo.
@@ -879,7 +868,6 @@ pt-BR:
             explanation: Você tem %{count} participantes privados.
             title: Excluir participantes privados
           example_file: 'Arquivo de exemplo:'
-          title: Envie seu arquivo CSV
           upload: Upload
       reminders:
         create:
@@ -945,7 +933,6 @@ pt-BR:
       shared:
         gallery:
           add_images: Adicione imagens
-          delete_image: Excluir Imagem
           edit_images: Editar imagens
           gallery_legend: Adicionar uma galeria de imagens (Opcional)
       static_page_topics:
@@ -966,20 +953,6 @@ pt-BR:
       static_pages:
         actions:
           view: Ver página pública
-        content_blocks:
-          active_content_blocks: Blocos de conteúdo ativo
-          add: Adicionar bloco de conteúdo
-          create:
-            error: Ocorreu um problema ao tentar criar esse bloco de conteúdo.
-            success: Bloco de conteúdo criado com sucesso.
-          destroy:
-            error: Ocorreu um problema ao tentar excluir esse bloco de conteúdo.
-            success: Bloco de conteúdo excluído com sucesso.
-          destroy_confirmation: Tem certeza que deseja excluir esse bloco de conteúdo?
-          edit:
-            update: Atualizar
-          inactive_content_blocks: Blocos de conteúdo inativos
-          title: Conteúdo da página
         create:
           error: Ocorreu um erro ao criar uma nova página.
           success: Página criada com sucesso.
@@ -991,12 +964,12 @@ pt-BR:
           update: Atualizar
         form:
           none: Nenhum
+        index:
+          last_notable_change: Última alteração notável
         new:
           create: Criar página
           title: Nova página
         topic:
-          destroy: Remover tópico
-          edit: Editar tópico
           empty: Não há página sob este tópico.
           without_topic: Páginas sem tópico
         update:
@@ -1008,6 +981,8 @@ pt-BR:
         areas: Áreas
         authorization_workflows: Métodos de verificação
         dashboard: painel de controle
+        edit_external_domains: Lista branca de domínios externos
+        edit_organization_appearance: Editar aparência da página inicial
         impersonatable_users: Usuários gerenciáveis
         impersonations: Gerenciamento de usuários
         metrics: Métricas
@@ -1057,6 +1032,7 @@ pt-BR:
           role: Cargo
         new:
           create: Convite
+          title: Convidar novo administrador
       users_statistics:
         users_count:
           admins: Admins

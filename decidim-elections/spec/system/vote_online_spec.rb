@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Vote online in an election", type: :system do
+describe "Vote online in an election" do
   let(:manifest_name) { "elections" }
   let!(:election) { create(:election, :bb_test, :vote, component:) }
   let(:user) { create(:user, :confirmed, organization: component.organization) }

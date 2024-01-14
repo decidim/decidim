@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Autocomplete multiselect", type: :system do
+describe "Autocomplete multiselect" do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:path) { URI.parse(decidim_admin.user_entities_organization_url).path }

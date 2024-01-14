@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Budgets
-  describe OrderSummaryMailer, type: :mailer do
+  describe OrderSummaryMailer do
     let(:order) { create(:order, :with_projects) }
     let(:user) { order.user }
     let(:space) { order.budget.participatory_space }

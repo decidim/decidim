@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Organization Areas", type: :system do
+describe "Organization Areas" do
   include Decidim::SanitizeHelper
 
   let(:admin) { create(:user, :admin, :confirmed) }

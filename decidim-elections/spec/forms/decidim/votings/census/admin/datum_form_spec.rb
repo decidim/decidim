@@ -8,7 +8,7 @@ describe Decidim::Votings::Census::Admin::DatumForm do
   let(:dataset) { create(:dataset) }
   let(:user) { create(:user, :admin, organization: dataset.voting.organization) }
   let(:document_number) { "123456789Y" }
-  let(:document_type) { "DNI" }
+  let(:document_type) { "passport" }
   let(:birthdate) { "20010414" }
   let(:full_name) { "Jane Doe" }
   let(:full_address) { "Nowhere street 1" }

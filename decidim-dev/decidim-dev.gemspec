@@ -19,13 +19,18 @@ Gem::Specification.new do |s|
     "homepage_uri" => "https://decidim.org",
     "source_code_uri" => "https://github.com/decidim/decidim"
   }
-  s.required_ruby_version = ">= 3.1"
+  s.required_ruby_version = "~> 3.2.0"
 
   s.name = "decidim-dev"
   s.summary = "Decidim dev tools"
   s.description = "Utilities and tools we need to develop Decidim"
 
-  s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md", "rubocop-decidim.yml"]
+  s.files = Dir.chdir(__dir__) do
+    `git ls-files -z`.split("\x0").select do |f|
+      (File.expand_path(f) == __FILE__) ||
+        f.start_with?(*%w(app/ config/ db/ lib/ Rakefile README.md rubocop-decidim.yml))
+    end
+  end
 
   s.add_dependency "capybara", "~> 3.39"
   s.add_dependency "decidim", Decidim::Dev.version
@@ -46,9 +51,9 @@ Gem::Specification.new do |s|
   s.add_dependency "rspec_junit_formatter", "~> 0.6.0"
   s.add_dependency "rspec-rails", "~> 6.0"
   s.add_dependency "rspec-retry", "~> 0.6.2"
-  s.add_dependency "rubocop", "~> 1.50.0"
+  s.add_dependency "rubocop", "~> 1.57.0"
   s.add_dependency "rubocop-faker", "~> 1.1"
-  s.add_dependency "rubocop-rails", "~> 2.19"
+  s.add_dependency "rubocop-rails", "~> 2.22"
   s.add_dependency "rubocop-rspec", "~> 2.20"
   s.add_dependency "selenium-webdriver", "~> 4.9"
   s.add_dependency "simplecov", "~> 0.22.0"

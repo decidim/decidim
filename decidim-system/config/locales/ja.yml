@@ -37,6 +37,9 @@ ja:
         confirm_destroy: 削除してもよろしいですか？
         destroy: 削除
         edit: 編集
+        new_admin: 新しい管理者
+        new_oauth_application: 新しいOAUTHアプリケーション
+        new_organization: 新しい組織
         save: 保存
         title: アクション
       admins:
@@ -53,14 +56,12 @@ ja:
         new:
           create: 作成
           title: 新しい管理者
-        show:
-          destroy: 破棄
-          edit: 編集
         update:
           error: 管理者の更新中に問題が発生しました。
           success: 管理者が正常に更新されました。
       dashboard:
         show:
+          admins: 管理者
           current_organizations: 現在の組織
       default_pages:
         placeholders:
@@ -137,7 +138,21 @@ ja:
           show: 詳細設定を表示
         create:
           error: 新しい組織を作成する際に問題が発生しました。
-          success: 組織が正常に作成されました。
+          success_html: |
+            <p>
+              組織を作成しました。
+            </p>
+            <ol>
+              <li>アプリケーションのコードを更新する必要があるかもしれません。%{host}へのリクエストを許可するには、環境設定 (例: <code>config/environment/production.rb</code>) または <code>config/application.rb</code> に以下を追加する必要があります：
+                <p> config.hosts << "%{host}" </p>
+              </li>
+              <li>
+                これが完了すると、<a href="http://%{host}">http://%{host}</a> からプラットフォームにアクセスできるようになります。
+              </li>
+              <li>
+                <b>%{email}</b>宛にメールを送信しましたので、ご確認ください。
+              </li>
+            </ol>
         csp_settings:
           connect_src: Connect src
           connect_src_hint: |
@@ -171,7 +186,10 @@ ja:
             style-srcディレクティブは、<style>要素を使用して読み込むURLを制限します。
             Decidimは"'self' 'unsafe-inline'"を追加しますが、他の設定を指定することも可能です。よく分からない場合は、空白のままにしておいてください。
         edit:
+          confirm_resend_invitation: 招待を再送信してもよろしいですか？
+          resend_invitation: 招待を再送信する
           secondary_hosts_hint: 新しい行にそれぞれ入力してください
+          title: 組織の編集
         file_upload_settings:
           content_types:
             admin_hint: これらの MIME タイプは、管理者セクションのアップロードで許可されています。 管理者ユーザーは、ドキュメント形式をアップロードする際のリスクを認識している必要があります。 ファイルのアップロードに注意を払う必要があります
@@ -196,6 +214,7 @@ ja:
           default: デフォルト?
           enabled: 有効
           locale: 地域
+          organization_admin_email_hint: このアドレスにメールを送信しますので、ご確認の上、パスワードを設定してください。
           reference_prefix_hint: 参照プレフィックスは、すべての組織をまたがってリソースを一意に識別するために使用されます。
           secondary_hosts_hint: 新しい行にそれぞれ入力します。
           title: 新しい組織
@@ -217,6 +236,9 @@ ja:
           twitter:
             api_key: API キー
             api_secret: APIシークレット
+        resend_invitation:
+          error: 招待の送信中に問題が発生しました。
+          success: 招待を送信しました。
         smtp_settings:
           fieldsets:
             sender: 送信者
@@ -236,6 +258,14 @@ ja:
         notices:
           no_organization_warning_html: 開始するには組織を作成する必要があります。先に進む前に %{guide} を読んでください。
           our_getting_started_guide: 入門ガイド
+        organizations_list:
+          confirm_resend_invitation: 招待を再送信してもよろしいですか？
+          resend_invitation: 招待を再送信する
       titles:
         dashboard: ダッシュボード
         decidim: Decidim
+  layouts:
+    decidim:
+      system:
+        login_items:
+          logout: ログアウト

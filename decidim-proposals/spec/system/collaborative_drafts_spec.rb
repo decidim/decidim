@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Explore Collaborative Drafts", type: :system, versioning: true do
+describe "Explore Collaborative Drafts", versioning: true do
   include Decidim::Proposals::ApplicationHelper
   include ActionView::Helpers::TextHelper
 

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages scope types", type: :system do
+describe "Admin manages scope types" do
   let(:admin) { create(:user, :admin, :confirmed) }
   let(:organization) { admin.organization }
 
@@ -11,6 +11,7 @@ describe "Admin manages scope types", type: :system do
     login_as admin, scope: :user
     visit decidim_admin.root_path
     click_link "Settings"
+    click_link "Scopes"
     click_link "Scope types"
   end
 

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "User group joining", type: :system do
+describe "User group joining" do
   let!(:user) { create(:user, :confirmed) }
   let!(:user_group) { create(:user_group, users: [], organization: user.organization) }
 

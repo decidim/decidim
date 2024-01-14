@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin copies meetings", type: :system do
+describe "Admin copies meetings" do
   let(:manifest_name) { "meetings" }
   let(:address) { "Some address" }
   let(:latitude) { 40.1234 }

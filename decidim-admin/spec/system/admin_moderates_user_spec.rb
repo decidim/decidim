@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin reports user", type: :system do
+describe "Admin reports user" do
   let(:admin) { create(:user, :confirmed, :admin) }
   let(:reportable) { create(:user, :confirmed, organization: admin.organization) }
   let(:reportable_path) { decidim.profile_path(reportable.nickname) }

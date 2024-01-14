@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Admin
-    describe ImpersonationsController, type: :controller do
+    describe ImpersonationsController do
       routes { Decidim::Admin::Engine.routes }
 
       let(:organization) do

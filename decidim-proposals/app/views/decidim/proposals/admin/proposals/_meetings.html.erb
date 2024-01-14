@@ -1,0 +1,13 @@
+<div class="card-section">
+  <div class="row column">
+    <span class="component__show-title"><%= t "related_meetings", scope: "decidim.proposals.admin.proposals.show" %></span>
+    <ul id="related-meetings">
+      <% proposal_meetings.each do |meeting| %>
+        <% presented_meeting = present(meeting) %>
+        <li>
+          <%= link_to presented_meeting.title(html_escape: true), presented_meeting.profile_path %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

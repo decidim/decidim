@@ -1,3 +1,9 @@
+<% add_decidim_page_title(t(".title")) %>
+
+<% provide :title do %>
+  <h1 class="h1"><%= t ".title" %></h1>
+<% end %>
+
 <%= decidim_form_for(@form) do |f| %>
   <div class="form__wrapper">
     <%= f.text_field :name, autofocus: true %>
@@ -28,7 +34,14 @@
     <%= render partial: "advanced_settings", locals: { f: } %>
   </div>
 
-  <div class="form__wrapper-block">
+  <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+    <% if @organization.users.first&.invitation_pending? %>
+      <%= link_to t(".resend_invitation"),
+                  resend_invitation_organization_path(@organization),
+                  method: :post,
+                  class: "button button__sm md:button__lg button__transparent-secondary",
+                  data: { confirm: t(".confirm_resend_invitation") } %>
+    <% end %>
     <%= f.submit t("decidim.system.actions.save"), class: "button button__sm md:button__lg button__primary" %>
   </div>
 <% end %>

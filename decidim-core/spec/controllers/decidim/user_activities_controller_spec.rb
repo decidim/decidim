@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe UserActivitiesController, type: :controller do
+  describe UserActivitiesController do
     routes { Decidim::Core::Engine.routes }
 
     let(:organization) { create(:organization) }

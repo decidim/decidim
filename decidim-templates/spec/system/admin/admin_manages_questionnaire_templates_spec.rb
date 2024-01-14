@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages questionnaire templates", type: :system do
+describe "Admin manages questionnaire templates" do
   let!(:organization) { create(:organization) }
   let!(:user) { create(:user, :admin, :confirmed, organization:) }
 
@@ -62,7 +62,7 @@ describe "Admin manages questionnaire templates", type: :system do
 
       within "[data-content]" do
         expect(page).to have_current_path decidim_admin_templates.edit_questionnaire_template_path(Decidim::Templates::Template.last.id)
-        expect(page.find("#template_name_en").value).to eq("My template")
+        expect(page.find_by_id("template_name_en").value).to eq("My template")
 
         click_link "Edit"
       end
@@ -146,7 +146,7 @@ describe "Admin manages questionnaire templates", type: :system do
 
       within "[data-content]" do
         expect(page).to have_current_path decidim_admin_templates.edit_questionnaire_template_path(template)
-        expect(page.find("#template_name_en").value).to eq("My new name")
+        expect(page.find_by_id("template_name_en").value).to eq("My new name")
       end
     end
   end

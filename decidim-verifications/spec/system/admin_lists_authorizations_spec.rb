@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin lists authorizations", type: :system do
+describe "Admin lists authorizations" do
   let!(:organization) do
     create(:organization, available_authorizations: ["id_documents"])
   end

@@ -1,5 +1,5 @@
 <%= link_to voting_monitoring_committee_polling_station_closures_path(current_voting, election_id: closure.election.id) do %>
-  <%= icon "caret-left", class: "icon--small", role: "img" %> <%= t(".change_polling_station") %>
+  <%= icon "arrow-left-s-fill", class: "icon--small", role: "img" %> <%= t(".change_polling_station") %>
 <% end %>
 
 <%= render partial: "closure_certificate_results" %>

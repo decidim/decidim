@@ -10,9 +10,15 @@ module Decidim
       include ApplicationHelper
       include ActiveSupport::NumberHelper
 
-      delegate :component_settings, to: :controller
-
       alias result model
+
+      def component_settings
+        controller.try(:component_settings) || result.component.settings
+      end
+
+      def render_extra_data?
+        true
+      end
 
       private
 

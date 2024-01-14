@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Elections
-  describe TrusteeMailer, type: :mailer do
+  describe TrusteeMailer do
     let(:user) { create(:user, :confirmed) }
     let(:organization) { user.organization }
     let(:participatory_space) { create(:participatory_process, organization:) }

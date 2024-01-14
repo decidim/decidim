@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Meeting live event poll administration", type: :system do
+describe "Meeting live event poll administration" do
   include_context "when managing a component" do
     let(:component_organization_traits) { admin_component_organization_traits }
   end

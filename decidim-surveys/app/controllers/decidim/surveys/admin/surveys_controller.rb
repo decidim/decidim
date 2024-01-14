@@ -8,6 +8,12 @@ module Decidim
         include Decidim::Forms::Admin::Concerns::HasQuestionnaire
         include Decidim::Forms::Admin::Concerns::HasQuestionnaireAnswers
 
+        def edit
+          enforce_permission_to(:update, :questionnaire, questionnaire:)
+
+          @form = form(Decidim::Forms::Admin::QuestionnaireForm).from_model(questionnaire)
+        end
+
         def questionnaire_for
           survey
         end

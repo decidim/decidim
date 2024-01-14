@@ -15,7 +15,7 @@
               <%= icon "arrow-down-s-line" %>
           <% end %>
 
-          <div id="admin-dropdown-menu-language">
+          <div id="admin-dropdown-menu-language" aria-hidden="true">
             <ul class="dropdown dropdown__bottom">
               <% (available_locales - [I18n.locale.to_s]).each do |locale| %>
                 <li class="dropdown__item">
@@ -32,7 +32,8 @@
           <%= current_user.email %>
           <%= icon "arrow-down-s-line" %>
         <% end %>
-        <div id="admin-dropdown-menu-login">
+
+        <div id="admin-dropdown-menu-login" aria-hidden="true">
           <ul class="dropdown dropdown__bottom">
             <li class="dropdown__item">
               <%= link_to(t("layouts.decidim.user_menu.log_out"), decidim.destroy_user_session_path, method: :delete, tabindex: "-1") %>

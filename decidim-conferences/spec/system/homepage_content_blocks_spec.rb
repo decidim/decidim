@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Homepage conferences content blocks", type: :system do
+describe "Homepage conferences content blocks" do
   let(:organization) { create(:organization) }
   let(:show_statistics) { true }
   let!(:promoted_conference) { create(:conference, :promoted, organization:) }

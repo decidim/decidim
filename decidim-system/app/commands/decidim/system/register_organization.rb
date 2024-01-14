@@ -65,8 +65,20 @@ module Decidim
           smtp_settings: form.encrypted_smtp_settings,
           send_welcome_notification: true,
           file_upload_settings: form.file_upload_settings.final,
+          colors: default_colors,
           content_security_policy: form.content_security_policy
         )
+      end
+
+      def default_colors
+        {
+          alert: "#ec5840",
+          primary: "#53bf40",
+          success: "#57d685",
+          warning: "#ffae00",
+          tertiary: "#bf4053",
+          secondary: "#4053bf"
+        }
       end
 
       def invite_user_form(organization)

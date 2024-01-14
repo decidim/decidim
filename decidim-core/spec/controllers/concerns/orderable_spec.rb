@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe ActionController::Base, type: :controller do
+  describe ActionController::Base do
     let(:view) { controller.view_context }
 
     controller do

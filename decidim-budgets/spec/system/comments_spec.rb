@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Comments", type: :system do
+describe "Comments" do
   let!(:component) { create(:budgets_component, organization:) }
   let!(:budget) { create(:budget, component:) }
   let!(:commentable) { create(:project, budget:) }

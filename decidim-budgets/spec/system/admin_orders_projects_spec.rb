@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin orders projects", type: :system do
+describe "Admin orders projects" do
   include_context "when managing a component as an admin"
   let(:manifest_name) { "budgets" }
   let(:budget) { create(:budget, component: current_component, total_budget: 100_000) }

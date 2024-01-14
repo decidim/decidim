@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::Initiatives::InitiativesController, type: :controller do
+describe Decidim::Initiatives::InitiativesController do
   routes { Decidim::Initiatives::Engine.routes }
 
   let(:organization) { create(:organization) }

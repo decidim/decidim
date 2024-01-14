@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Design
-    describe ComponentsController, type: :controller do
+    describe ComponentsController do
       routes { Decidim::Design::Engine.routes }
       describe "show" do
         let(:organization) { create(:organization) }

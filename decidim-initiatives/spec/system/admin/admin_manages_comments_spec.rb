@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages comments", type: :system do
+describe "Admin manages comments" do
   let!(:reportables) do
     create_list(:comment, 3, commentable:)
   end

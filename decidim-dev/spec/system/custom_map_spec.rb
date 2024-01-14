@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Custom map", type: :system do
+describe "Custom map" do
   include_context "with frontend map builder" do
     let(:template_class) do
       Class.new(ActionView::Base) do

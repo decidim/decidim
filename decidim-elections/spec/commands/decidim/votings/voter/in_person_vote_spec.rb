@@ -28,7 +28,7 @@ describe Decidim::Votings::Voter::InPersonVote do
   let(:polling_station) { create(:polling_station, id: 1, voting:) }
   let(:polling_station_slug) { polling_station.slug }
   let(:polling_officer) { create(:polling_officer, voting:, user:, presided_polling_station: polling_station) }
-  let(:datum) { create(:datum, dataset:, full_name: "Jon Doe", document_type: "DNI", document_number: "12345678X", birthdate: Date.civil(1980, 5, 11)) }
+  let(:datum) { create(:datum, dataset:, full_name: "Jon Doe", document_type: "passport", document_number: "12345678X", birthdate: Date.civil(1980, 5, 11)) }
   let(:dataset) { create(:dataset, voting:) }
   let(:in_person_vote_method) { :in_person_vote }
 

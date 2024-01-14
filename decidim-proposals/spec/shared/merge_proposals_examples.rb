@@ -12,7 +12,7 @@ shared_examples "merge proposals" do
   context "when selecting proposals" do
     before do
       visit current_path
-      page.find("#proposals_bulk.js-check-all").set(true)
+      page.find_by_id("proposals_bulk", class: "js-check-all").set(true)
     end
 
     context "when click the bulk action button" do
@@ -24,7 +24,7 @@ shared_examples "merge proposals" do
 
       context "when only one proposal is checked" do
         before do
-          page.find("#proposals_bulk.js-check-all").set(false)
+          page.find_by_id("proposals_bulk", class: "js-check-all").set(false)
           page.first(".js-proposal-list-check").set(true)
         end
 

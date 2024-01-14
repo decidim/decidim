@@ -112,7 +112,6 @@
           show: Vis avanserte innstillingar
         create:
           error: Det oppstod et problem med å opprette en ny organisasjon.
-          success: Organisasjonen ble opprettet.
         edit:
           secondary_hosts_hint: Skriv inn hver enkelt av dem på en ny linje
         file_upload_settings:

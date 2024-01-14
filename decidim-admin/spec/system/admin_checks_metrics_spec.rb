@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin checks metrics", type: :system do
+describe "Admin checks metrics" do
   let(:organization) { create(:organization) }
 
   let!(:user) { create(:user, :admin, :confirmed, organization:) }

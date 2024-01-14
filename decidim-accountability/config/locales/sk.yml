@@ -37,7 +37,6 @@ sk:
         confirm_destroy: Naozaj chcete odstrániť toto %{name}?
         destroy: Odstrániť
         edit: Upraviť
-        import_csv: Importovať súbor CSV
         preview: Ukážka
         timeline_entries: Vývoj projektu
         title: Akcie
@@ -47,7 +46,6 @@ sk:
         import_results:
           new:
             import: Importovať
-            title: Importovať výsledky zo súboru CSV
         models:
           result:
             name: Výsledok
@@ -93,9 +91,7 @@ sk:
             not_found: 'Nadradený záznam nebol nájdený v databáze(ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Dátumy
           results: Výsledky
-          unspecified: Nešpecifikované
       import_mailer:
         import:
           errors: Chyby
@@ -119,8 +115,6 @@ sk:
         timeline_entry:
           fields:
             entry_date: Dátum
-      result_m:
-        view: Zobraziť
       results:
         count:
           results_count:

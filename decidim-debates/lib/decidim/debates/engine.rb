@@ -21,6 +21,10 @@ module Decidim
         get "/", to: redirect("debates", status: 301)
       end
 
+      initializer "decidim_debates.register_icons" do
+        Decidim.icons.register(name: "Decidim::Debates::Debate", icon: "discuss-line", description: "Debate", category: "activity", engine: :debates)
+      end
+
       initializer "decidim_debates.settings_changes" do
         config.to_prepare do
           Decidim::SettingsChange.subscribe "debates" do |changes|

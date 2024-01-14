@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Accessibility tool", type: :system do
+describe "Accessibility tool" do
   let(:organization) { create(:organization) }
 
   let(:template_class) do

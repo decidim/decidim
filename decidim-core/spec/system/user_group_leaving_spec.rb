@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "User group leaving", type: :system do
+describe "User group leaving" do
   let!(:user) { create(:user, :confirmed) }
   let!(:user_group) { create(:user_group, users: [], organization: user.organization) }
 

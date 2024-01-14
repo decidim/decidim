@@ -23,7 +23,7 @@ module Decidim
               .with_context(current_organization: organization)
           end
 
-          let(:command) { described_class.new(initiative_type, form, user) }
+          let(:command) { described_class.new(form, initiative_type) }
 
           it "broadcasts invalid" do
             expect(initiative_type).to receive(:valid?)

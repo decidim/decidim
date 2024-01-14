@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages area types", type: :system do
+describe "Admin manages area types" do
   let(:admin) { create(:user, :admin, :confirmed) }
   let(:organization) { admin.organization }
 
@@ -11,6 +11,7 @@ describe "Admin manages area types", type: :system do
     login_as admin, scope: :user
     visit decidim_admin.root_path
     click_link "Settings"
+    click_link "Areas"
     click_link "Area types"
   end
 

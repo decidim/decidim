@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Edit proposals", type: :system do
+describe "Edit proposals" do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 
@@ -190,7 +190,7 @@ describe "Edit proposals", type: :system do
       let(:component) { create(:proposal_component, :with_geocoding_enabled, participatory_space: participatory_process) }
       let(:address) { "6 Villa des Nymphéas 75020 Paris" }
       let(:new_address) { "6 rue Sorbier 75020 Paris" }
-      let!(:proposal) { create(:proposal, address:, users: [user], component:) }
+      let!(:proposal) { create(:proposal, address:, users: [user], skip_injection: true, component:) }
       let(:latitude) { 48.8682538 }
       let(:longitude) { 2.389643 }
 

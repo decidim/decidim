@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Conference program", type: :system do
+describe "Conference program" do
   include Decidim::TranslationsHelper
   let(:organization) { create(:organization) }
   let(:conference) { create(:conference, organization:) }

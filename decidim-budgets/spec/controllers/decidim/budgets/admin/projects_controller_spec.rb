@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Budgets
     module Admin
-      describe ProjectsController, type: :controller do
+      describe ProjectsController do
         routes { Decidim::Budgets::AdminEngine.routes }
 
         let(:user) { create(:user, :confirmed, :admin, organization: component.organization) }

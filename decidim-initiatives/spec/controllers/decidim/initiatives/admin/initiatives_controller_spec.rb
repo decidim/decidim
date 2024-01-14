@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::Initiatives::Admin::InitiativesController, type: :controller do
+describe Decidim::Initiatives::Admin::InitiativesController do
   routes { Decidim::Initiatives::AdminEngine.routes }
 
   let(:user) { create(:user, :confirmed, :admin_terms_accepted, organization:) }

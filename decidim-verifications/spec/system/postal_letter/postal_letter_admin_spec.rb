@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Postal letter management", type: :system do
+describe "Postal letter management" do
   let(:organization) do
     create(:organization, available_authorizations: ["postal_letter"])
   end

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Explore Budgets", :slow, type: :system do
+describe "Explore Budgets", :slow do
   include ActionView::Helpers::NumberHelper
 
   include_context "with a component"
@@ -15,13 +15,21 @@ describe "Explore Budgets", :slow, type: :system do
            participatory_space: participatory_process)
   end
 
+  context "with no budgets" do
+    it "shows an empty page with a message" do
+      visit_component
+
+      expect(page).to have_content("There are no budgets yet")
+    end
+  end
+
   context "with only one budget" do
     let!(:budgets) { create_list(:budget, 1, component:) }
 
     it "redirects to the only budget details" do
       visit_component
 
-      expect(page).to have_content("More information")
+      expect(page).to have_content("Projects for #{translated(budgets.first.title)}")
     end
   end
 

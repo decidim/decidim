@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Edit initiative", type: :system do
+describe "Edit initiative" do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :confirmed, organization:) }
   let(:initiative_title) { translated(initiative.title) }

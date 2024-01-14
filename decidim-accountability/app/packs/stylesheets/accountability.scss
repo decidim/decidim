@@ -107,6 +107,10 @@
     &-title {
       @apply block md:hidden mb-8 text-gray-2 uppercase font-semibold;
     }
+
+    .flash {
+      @apply m-0;
+    }
   }
 
   &__subgrid {

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "AdminTosAcceptance", type: :system do
+describe "AdminTosAcceptance" do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, admin_terms_accepted_at: nil, organization:) }
   let(:review_message) { "Please take a moment to review the admin terms of service. Otherwise you will not be able to manage the platform" }

@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe LocalesController, type: :controller do
+  describe LocalesController do
     routes { Decidim::Core::Engine.routes }
 
     let(:organization) { create(:organization) }

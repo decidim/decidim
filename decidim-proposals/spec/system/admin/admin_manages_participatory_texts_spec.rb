@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages participatory texts", type: :system do
+describe "Admin manages participatory texts" do
   let(:manifest_name) { "proposals" }
   let(:participatory_space_path) do
     decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)

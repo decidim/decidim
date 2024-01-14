@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-describe "Admin filters user_groups", type: :system do
+describe "Admin filters user_groups" do
   let(:organization) { create(:organization) }
   let!(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:resource_controller) { Decidim::Admin::UserGroupsController }
