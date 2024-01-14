@@ -57,7 +57,7 @@ module Decidim
           @form = participatory_process_type_form
                   .from_params(params, participatory_process_type: current_participatory_process_type)
 
-          UpdateParticipatoryProcessType.call(current_participatory_process_type, @form) do
+          UpdateParticipatoryProcessType.call(@form, current_participatory_process_type) do
             on(:ok) do
               flash[:notice] = I18n.t("participatory_process_types.update.success", scope: "decidim.admin")
               redirect_to participatory_process_types_path
