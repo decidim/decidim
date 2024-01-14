@@ -46,7 +46,7 @@ module Decidim
           enforce_permission_to :update, :process_step, process_step: @participatory_process_step
           @form = form(ParticipatoryProcessStepForm).from_params(params)
 
-          UpdateParticipatoryProcessStep.call(@participatory_process_step, @form) do
+          UpdateParticipatoryProcessStep.call(@form, @participatory_process_step) do
             on(:ok) do
               flash[:notice] = I18n.t("participatory_process_steps.update.success", scope: "decidim.admin")
               redirect_to participatory_process_steps_path(current_participatory_process)
