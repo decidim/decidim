@@ -18,7 +18,7 @@ describe "User updates meeting", type: :system do
     )
   end
 
-  let(:command) { Decidim::Debates::UpdateDebate.new(form) }
+  let(:command) { Decidim::Debates::UpdateDebate.new(form, debate) }
 
   include_examples "debates spam analysis" do
     let!(:debate) do
