@@ -74,7 +74,7 @@ module Decidim
         def destroy
           enforce_permission_to :destroy, :participatory_process_type, participatory_process_type: current_participatory_process_type
 
-          DestroyParticipatoryProcessType.call(current_participatory_process_type, current_user) do
+          Decidim::Commands::DestroyResource.call(current_participatory_process_type, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("participatory_process_types.destroy.success", scope: "decidim.admin")
               redirect_to participatory_process_types_path

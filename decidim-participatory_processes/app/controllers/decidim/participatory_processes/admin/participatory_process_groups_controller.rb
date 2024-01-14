@@ -70,7 +70,7 @@ module Decidim
           @participatory_process_group = collection.find(params[:id])
           enforce_permission_to :destroy, :process_group, process_group: @participatory_process_group
 
-          DestroyParticipatoryProcessGroup.call(@participatory_process_group, current_user) do
+          Decidim::Commands::DestroyResource.call(@participatory_process_group, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("participatory_process_groups.destroy.success", scope: "decidim.admin")
               redirect_to action: :index
