@@ -102,7 +102,6 @@ module Decidim
   autoload :ShareableWithToken, "decidim/shareable_with_token"
   autoload :RecordEncryptor, "decidim/record_encryptor"
   autoload :AttachmentAttributes, "decidim/attachment_attributes"
-  autoload :CarrierWaveMigratorService, "decidim/carrier_wave_migrator_service"
   autoload :ReminderRegistry, "decidim/reminder_registry"
   autoload :ReminderManifest, "decidim/reminder_manifest"
   autoload :ManifestMessages, "decidim/manifest_messages"

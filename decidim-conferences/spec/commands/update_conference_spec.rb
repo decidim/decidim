@@ -75,7 +75,7 @@ module Decidim::Conferences
       let(:form) do
         Admin::ConferenceForm.from_params(params).with_context(context)
       end
-      let(:command) { described_class.new(my_conference, form) }
+      let(:command) { described_class.new(form, my_conference) }
 
       describe "when the form is not valid" do
         before do
