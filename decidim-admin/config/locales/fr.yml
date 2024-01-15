@@ -385,12 +385,6 @@ fr:
         show:
           dropdown: Liste déroulante
           view_more_logs: Afficher plus
-      domain_whitelist:
-        form:
-          domain_too_short: Le nom de domaine est trop court
-        update:
-          error: Échec lors de la mise à jour de la liste des domaines externes autorisés.
-          success: Liste des domaines externes autorisés mise à jour avec succès.
       exports:
         export_as: "%{name} en format %{export_format}"
         formats:
@@ -571,7 +565,6 @@ fr:
         areas: Périmètres d'assemblée
         configuration: Configuration
         content: Contenu signalé
-        external_domain_whitelist: Domaines externes autorisés
         help_sections: Sections d'aide
         homepage: Page d'accueil
         impersonations: Utilisateurs représentés
@@ -855,17 +848,6 @@ fr:
             layout_appearance_title: Modifier l’aspect de la mise en page
             preview: Aperçu
           omnipresent_banner_appearance_title: Modifier la bannière permanente
-      organization_external_domain_whitelist:
-        edit:
-          update: Mettre à jour
-        external_domain:
-          down: Descendre
-          external_domain: Domaine externe
-          remove: Retirer
-          up: Monter
-        form:
-          add: Ajouter à la liste blanche
-          title: Liste des domaines externes autorisés
       participatory_space_private_users:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cet espace participatif.
@@ -1013,7 +995,6 @@ fr:
         areas: Périmètres d'assemblée
         authorization_workflows: Méthodes de vérification
         dashboard: Tableau de bord
-        edit_external_domains: Liste des domaines externes autorisés
         edit_landing_page: Contenus de la page
         edit_organization_appearance: Modifier l'apparence de la page d'accueil
         impersonatable_users: Utilisateurs pouvant être représentés
