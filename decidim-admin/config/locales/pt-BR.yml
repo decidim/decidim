@@ -374,8 +374,6 @@ pt-BR:
         show:
           view_more_logs: Ver mais registros
       domain_whitelist:
-        form:
-          domain_too_short: Domínio muito curto
         update:
           error: Falha ao atualizar domínio de lista de desejos.
           success: Domínio lista de desejo atualizado com sucesso.
@@ -557,7 +555,6 @@ pt-BR:
         areas: Áreas
         configuration: Configuração
         content: Conteúdo relatado
-        external_domain_whitelist: Domínios externos permitidos
         help_sections: Seções de ajuda
         homepage: Pagina inicial
         impersonations: Imitações
@@ -837,11 +834,6 @@ pt-BR:
       organization_external_domain_whitelist:
         edit:
           update: Atualizar
-        external_domain:
-          down: Para Baixo
-          external_domain: Domínio externo
-          remove: Excluir
-          up: Para Cima
         form:
           add: Adicionar à lista branca
           title: Lista branca de domínios externos
