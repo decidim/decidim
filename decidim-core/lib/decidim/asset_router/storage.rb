@@ -26,7 +26,7 @@ module Decidim
         elsif asset.is_a? ActiveStorage::Blob
           routes.rails_blob_url(asset, **default_options.merge(options))
         else
-          representation_url(**options)
+          routes.rails_representation_url(asset, **default_options.merge(options))
         end
       end
       # rubocop:enable Style/CaseLikeIf
