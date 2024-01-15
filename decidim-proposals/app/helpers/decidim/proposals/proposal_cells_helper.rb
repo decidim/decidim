@@ -53,14 +53,18 @@ module Decidim
       end
 
       def badge_name
+        return humanize_proposal_state(:withdrawn) if withdrawn?
+
         humanize_proposal_state state
       end
 
       def state_classes
+        return ["alert"] if withdrawn?
+
         case state
         when "accepted"
           ["success"]
-        when "rejected", "withdrawn"
+        when "rejected"
           ["alert"]
         when "evaluating"
           ["warning"]
