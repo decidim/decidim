@@ -29,20 +29,6 @@ namespace :decidim do
             .destroy_all
         end
       end
-
-      desc "Migrates the withdrawn fields on proposals"
-      task migrate_proposal_withdrawn_fields: :environment do
-        class CustomProposal < Decidim::Proposals::ApplicationRecord
-          self.table_name = "decidim_proposals_proposals"
-          STATES = { not_answered: 0, evaluating: 10, accepted: 20, rejected: -10, withdrawn: -20 }.freeze
-          enum state: STATES, _default: "not_answered"
-        end
-
-        CustomProposal.withdrawn.find_each do |proposal|
-          proposal.withdrawn_at = proposal.updated_at
-          proposal.save!
-        end
-      end
     end
   end
 end
