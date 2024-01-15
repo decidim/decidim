@@ -385,12 +385,6 @@ ca:
         show:
           dropdown: Desplegable
           view_more_logs: Veure més registres
-      domain_whitelist:
-        form:
-          domain_too_short: El domini és massa curt
-        update:
-          error: Hi ha hagut un error en actualitzar el llistat de dominis autoritzats.
-          success: S'ha actualitzat correctament el llistat de dominis autoritzats.
       exports:
         export_as: "%{name} com a %{export_format}"
         formats:
@@ -571,7 +565,6 @@ ca:
         areas: Àrees
         configuration: Configuració
         content: Contingut reportat
-        external_domain_whitelist: Dominis externs permesos
         help_sections: Seccions d'ajuda
         homepage: Pàgina d'inici
         impersonations: Impersonacions
@@ -855,17 +848,6 @@ ca:
             layout_appearance_title: Edita l'aparença del disseny global
             preview: Previsualitzar
           omnipresent_banner_appearance_title: Edita banner omnipresent
-      organization_external_domain_whitelist:
-        edit:
-          update: Actualitzar
-        external_domain:
-          down: Baixar
-          external_domain: Domini extern
-          remove: Eliminar
-          up: Pujar
-        form:
-          add: Afegir a la llista blanca
-          title: Llista blanca de dominis externs
       participatory_space_private_users:
         create:
           error: S'ha produït un error en afegir una participant privada a aquest espai de participació.
@@ -1013,7 +995,6 @@ ca:
         areas: Àrees
         authorization_workflows: Mètodes de verificació
         dashboard: Tauler de control
-        edit_external_domains: Llistat de dominis externs permesos
         edit_landing_page: Continguts de la pàgina
         edit_organization_appearance: Edita l'aparença de la pàgina d'inici
         impersonatable_users: Participants que es poden gestionar
