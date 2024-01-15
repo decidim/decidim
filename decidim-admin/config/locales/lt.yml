@@ -369,8 +369,6 @@ lt:
         show:
           view_more_logs: Peržiūrėti daugiau ataskaitų
       domain_whitelist:
-        form:
-          domain_too_short: Domenas per trumpas
         update:
           error: Nepavyko atnaujinti domenų baltąjo sąrašo.
           success: Domenų baltasis sąrašas atnaujintas sėkmingai.
@@ -563,7 +561,6 @@ lt:
         areas: Erdvės
         configuration: Konfigūracija
         content: Turinys, apie kurį pranešta
-        external_domain_whitelist: Leistini išoriniai domenai
         help_sections: Pagalbos skyrius
         homepage: Pradinis puslapis
         impersonations: Įsikūnyjimai
@@ -842,11 +839,6 @@ lt:
       organization_external_domain_whitelist:
         edit:
           update: Atnaujinti
-        external_domain:
-          down: Žemyn
-          external_domain: Išorinis domenas
-          remove: Pašalinti
-          up: Aukštyn
         form:
           add: Pridėti prie baltojo sąrašo
           title: Išorinių domenų baltasis sąrašas
