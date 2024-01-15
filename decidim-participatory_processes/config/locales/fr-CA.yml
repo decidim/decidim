@@ -220,6 +220,8 @@ fr-CA:
             last_step: Vous ne pouvez pas supprimer la dernière étape d'une concertation.
           success: L'étape de la concertation a été supprimée avec succès.
         edit:
+          cta_deprecated:
+            title: Bouton d'action obsolète
           title: Modifier l'étape de la concertation
           update: Mettre à jour
         index:
