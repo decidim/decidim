@@ -306,7 +306,7 @@ module Decidim
     end
   end
 
-  # Exposes a configuration option: the whitelist ips
+  # Exposes a configuration option: the IPs that are allowed to access the system
   config_accessor :system_accesslist_ips do
     []
   end

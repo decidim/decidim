@@ -2,7 +2,7 @@
 
 module Decidim
   module Admin
-    class OrganizationExternalDomainWhitelistController < Decidim::Admin::ApplicationController
+    class OrganizationExternalDomainAllowlistController < Decidim::Admin::ApplicationController
       layout "decidim/admin/settings"
 
       add_breadcrumb_item_from_menu :admin_settings_menu
@@ -11,20 +11,20 @@ module Decidim
 
       def edit
         enforce_permission_to :update, :organization, organization: current_organization
-        @form = form(OrganizationExternalDomainWhitelistForm).from_model(current_organization)
+        @form = form(OrganizationExternalDomainAllowlistForm).from_model(current_organization)
       end
 
       def update
         enforce_permission_to :update, :organization, organization: current_organization
-        @form = form(OrganizationExternalDomainWhitelistForm).from_params(params)
+        @form = form(OrganizationExternalDomainAllowlistForm).from_params(params)
 
-        UpdateExternalDomainWhitelist.call(@form, current_organization, current_user) do
+        UpdateExternalDomainAllowlist.call(@form, current_organization, current_user) do
           on(:ok) do
-            flash[:notice] = t("domain_whitelist.update.success", scope: "decidim.admin")
-            redirect_to edit_organization_external_domain_whitelist_path
+            flash[:notice] = t("domain_allowlist.update.success", scope: "decidim.admin")
+            redirect_to edit_organization_external_domain_allowlist_path
           end
           on(:invalid) do
-            flash[:notice] = t("domain_whitelist.update.error", scope: "decidim.admin")
+            flash[:notice] = t("domain_allowlist.update.error", scope: "decidim.admin")
             render action: "edit"
           end
         end
