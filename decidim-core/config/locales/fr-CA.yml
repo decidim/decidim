@@ -515,7 +515,7 @@ fr-CA:
       global_menu:
         name: Menu global
       hero:
-        name: Image principale (hero)
+        name: Image principale et bouton d'action
       hero_settings_form:
         background_image: Image d'arrière-plan
         welcome_text: Texte de bienvenue
