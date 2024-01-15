@@ -343,8 +343,6 @@ nl:
           view_more_logs: Bekijk meer logs
           welcome: Welkom bij de beheerder omgeving.
       domain_whitelist:
-        form:
-          domain_too_short: Domein te kort
         update:
           error: Kan domein whitelist niet bijwerken
           success: Domain whitelist succesvol bijgewerkt
@@ -525,7 +523,6 @@ nl:
         areas: Thema's
         configuration: Configuratie
         dashboard: Dashboard
-        external_domain_whitelist: Toegelaten externe domeinen
         help_sections: Helpsecties
         homepage: Startpagina
         impersonations: Zich voordoen als
@@ -793,11 +790,6 @@ nl:
       organization_external_domain_whitelist:
         edit:
           update: Bijwerken
-        external_domain:
-          down: Naar beneden
-          external_domain: Extern domein
-          remove: Verwijderen
-          up: Naar boven
         form:
           add: Toevoegen aan whitelist
           title: Externe domein whitelist
