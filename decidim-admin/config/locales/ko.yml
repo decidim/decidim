@@ -613,11 +613,6 @@ ko:
       organization_external_domain_whitelist:
         edit:
           update: 업데이트
-        external_domain:
-          down: 아래
-          external_domain: 외부 도메인
-          remove: 제거
-          up: 위
         form:
           add: 화이트 리스트에 추가
       participatory_space_private_users:
