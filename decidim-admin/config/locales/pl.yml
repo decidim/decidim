@@ -366,6 +366,8 @@ pl:
           view_more_logs: Zobacz więcej logów
           welcome: Witamy w Panelu Administracyjnym.
       domain_whitelist:
+        form:
+          domain_too_short: Domena jest za krótka
         update:
           error: Nie udało się zaktualizować białej listy domen
           success: Biała lista domen pomyślnie zaktualizowana
