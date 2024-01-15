@@ -66,11 +66,6 @@ module Decidim
             current_participatory_space.user_roles(:valuator).pluck(:id)
           end
 
-          def translated_state_eq(state)
-            raise state.inspect
-            translated_attribute(ProposalState.find_by(id: state_id)&.title)
-          end
-
           def translated_valuator_role_ids_has(valuator_role_id)
             user_role = current_participatory_space.user_roles(:valuator).find_by(id: valuator_role_id)
             user_role&.user&.name

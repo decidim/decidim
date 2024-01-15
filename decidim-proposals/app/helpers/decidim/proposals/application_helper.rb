@@ -194,7 +194,7 @@ module Decidim
           [
             Decidim::CheckBoxesTreeHelper::TreePoint.new("state_not_published", t("decidim.proposals.application_helper.filter_state_values.not_answered"))
           ] +
-            Decidim::Proposals::ProposalState.where(component: current_component).map do |state|
+            Decidim::Proposals::ProposalState.where(component: current_component).where.not(token: "not_answered").map do |state|
               Decidim::CheckBoxesTreeHelper::TreePoint.new(state.token, translated_attribute(state.title))
             end
         )

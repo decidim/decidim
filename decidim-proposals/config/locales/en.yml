@@ -1,5 +1,6 @@
 ---
 en:
+
   activemodel:
     attributes:
       collaborative_draft:
@@ -634,11 +635,8 @@ en:
           participants: Participants
           user_groups: Groups
         filter_state_values:
-          accepted: Accepted
           all: All
-          evaluating: Evaluating
           not_answered: Not answered
-          rejected: Rejected
         filter_type_values:
           all: All
           amendments: Amendments
@@ -773,8 +771,6 @@ en:
             votes: Votes
         proposal_state:
           css_class: CSS class
-          default: Default
-          system: System
           title: State
           token: Token
       new:

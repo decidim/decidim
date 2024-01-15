@@ -54,10 +54,6 @@ module Decidim
         end
 
         def increment_score
-          pp proposal.accepted?
-          pp proposal.state
-          pp initial_state
-
           if proposal.accepted?
             proposal.coauthorships.find_each do |coauthorship|
               Decidim::Gamification.increment_score(coauthorship.user_group || coauthorship.author, :accepted_proposals)

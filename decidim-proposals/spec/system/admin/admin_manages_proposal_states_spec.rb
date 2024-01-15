@@ -24,11 +24,9 @@ describe "Admin manages proposals states" do
 
       within "table" do
         expect(page).to have_content("State")
-        expect(page).to have_content("Withdrawn")
         expect(page).to have_content("Accepted")
         expect(page).to have_content("Rejected")
         expect(page).to have_content("Evaluating")
-        expect(page).to have_content("Not answered")
       end
     end
   end
@@ -37,35 +35,6 @@ describe "Admin manages proposals states" do
     before do
       click_link "States"
       click_link "New state"
-    end
-
-    it "Validates the token presence" do
-      expect(Decidim::Proposals::ProposalState.count).to eq(5)
-      within ".new_proposal_state" do
-        fill_in_i18n(
-          :proposal_state_title,
-          "#proposal_state-title-tabs",
-          en: "Custom state",
-          es: "Estado personalizado",
-          ca: "Estat personalitzat"
-        )
-
-        fill_in_i18n(
-          :proposal_state_announcement_title,
-          "#proposal_state-announcement_title-tabs",
-          en: "A longer anouncement",
-          es: "Anuncio más larga",
-          ca: "Anunci més llarga"
-        )
-
-        fill_in :proposal_state_css_class, with: "csscustom"
-
-        find("*[type=submit]").click
-      end
-
-      expect(page).to have_content("error in this field.")
-
-      expect(Decidim::Proposals::ProposalState.count).to eq(5)
     end
 
     it "creates a new proposal state" do

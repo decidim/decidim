@@ -6,7 +6,7 @@ describe "Admin filters proposals" do
   include_context "when admin manages proposals"
   include_context "with filterable context"
 
-  STATES = { not_answered: 0, evaluating: 10, accepted: 20, rejected: -10}.keys
+  STATES = { not_answered: 0, evaluating: 10, accepted: 20, rejected: -10 }.keys
 
   let(:model_name) { Decidim::Proposals::Proposal.model_name }
   let(:resource_controller) { Decidim::Proposals::Admin::ProposalsController }

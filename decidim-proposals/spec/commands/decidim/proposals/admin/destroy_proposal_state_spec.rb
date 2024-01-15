@@ -10,21 +10,7 @@ module Decidim
         let!(:component) { create(:proposal_component) }
         let(:current_organization) { component.organization }
         let(:user) { create(:user, :admin, :confirmed, organization: current_organization) }
-        let(:state_params) do
-          {
-            title: { "en" => "Editable state" },
-            description: { "en" => "Editable description" },
-            announcement_title: { "en" => "Editable announcement title" },
-            token: "editable",
-            css_class: "csseditable",
-            default: false,
-            answerable: false,
-            notifiable: false,
-            gamified: false,
-            system: false
-          }
-        end
-        let!(:state) { create(:proposal_state, component:, **state_params) }
+        let!(:state) { create(:proposal_state, component:, token: "editable") }
 
         context "when everything is ok" do
           it "destroys the result" do

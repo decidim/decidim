@@ -239,7 +239,7 @@ module Decidim
         [
           Decidim::Proposals::ProposalState.where(component: current_component).pluck(:token).map(&:to_s),
           %w(state_not_published)
-        ].flatten
+        ].flatten - ["rejected"]
       end
 
       def proposal_draft

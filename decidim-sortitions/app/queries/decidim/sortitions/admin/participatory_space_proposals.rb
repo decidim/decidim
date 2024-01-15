@@ -23,12 +23,12 @@ module Decidim
         # Returns an ActiveRecord::Relation.
         def query
           proposals = Decidim::Proposals::Proposal
-                        .not_withdrawn
-                        .published
-                        .except_rejected
-                        .not_hidden
-                        .where("decidim_proposals_proposals.created_at < ?", request_timestamp)
-                        .where(component: sortition.decidim_proposals_component)
+                      .not_withdrawn
+                      .published
+                      .except_rejected
+                      .not_hidden
+                      .where("decidim_proposals_proposals.created_at < ?", request_timestamp)
+                      .where(component: sortition.decidim_proposals_component)
 
           return proposals.order(id: :asc) if category.nil?
 
