@@ -556,6 +556,7 @@ pl:
         areas: Kategorie
         configuration: Konfiguracja
         dashboard: Panel
+        external_domain_whitelist: Dozwolone domeny zewnętrzne
         help_sections: Sekcje pomocy
         homepage: Strona główna
         impersonations: Podszywanie się pod inne osoby
@@ -831,6 +832,11 @@ pl:
       organization_external_domain_whitelist:
         edit:
           update: Aktualizuj
+        external_domain:
+          down: Na dół
+          external_domain: Domena zewnętrzna
+          remove: Usuń
+          up: Do góry
         form:
           add: Dodaj do białej listy
           title: Biała lista domen zewnętrznych
