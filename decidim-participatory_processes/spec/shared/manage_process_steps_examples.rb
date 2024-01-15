@@ -43,9 +43,9 @@ shared_examples "manage process steps examples" do
 
     find_by_id("participatory_process_step_start_date_date").click
 
-    fill_in_datepicker :participatory_process_step_start_date_date, with: Time.new.utc.strftime("%d.%m.%Y")
+    fill_in_datepicker :participatory_process_step_start_date_date, with: Time.new.utc.strftime("%d/%m/%Y")
     fill_in_timepicker :participatory_process_step_start_date_time, with: Time.new.utc.strftime("%H:%M")
-    fill_in_datepicker :participatory_process_step_end_date_date, with: (Time.new.utc + 2.days).strftime("%d.%m.%Y")
+    fill_in_datepicker :participatory_process_step_end_date_date, with: (Time.new.utc + 2.days).strftime("%d/%m/%Y")
     fill_in_timepicker :participatory_process_step_end_date_time, with: (Time.new.utc + 4.hours).strftime("%H:%M")
 
     within ".new_participatory_process_step" do

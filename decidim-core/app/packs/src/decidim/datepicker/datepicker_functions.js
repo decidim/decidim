@@ -1,4 +1,4 @@
-/* eslint-disable require-jsdoc */
+// Utility helper functions for the date and time picker functionality
 
 export const setHour = (value, format) => {
   const hour = value.split(":")[0];

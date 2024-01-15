@@ -8,15 +8,15 @@ export default function generateDatePicker(input, row, formats) {
   const i18n = getDictionary("date.buttons");
 
   const dateColumn = document.createElement("div");
-  dateColumn.setAttribute("class", "date_column");
+  dateColumn.setAttribute("class", "datepicker_date-column");
 
   const date = document.createElement("input");
   date.setAttribute("id", `${input.id}_date`);
   date.setAttribute("type", "text");
 
   const calendar = document.createElement("button");
-  calendar.innerHTML = icon("calendar-line", {class: "w-6 h-6"})
-  calendar.setAttribute("class", "calendar_button");
+  calendar.innerHTML = icon("calendar-line")
+  calendar.setAttribute("class", "datepicker_calendar-button");
 
   dateColumn.appendChild(date);
   dateColumn.appendChild(calendar);
@@ -29,11 +29,11 @@ export default function generateDatePicker(input, row, formats) {
 
   const closeCalendar = document.createElement("button");
   closeCalendar.innerText = i18n.close;
-  closeCalendar.setAttribute("class", "close_calendar button button__transparent-secondary button__xs");
+  closeCalendar.setAttribute("class", "datepicker_close-calendar button button__transparent-secondary button__xs");
 
   const pickCalendar = document.createElement("button");
   pickCalendar.innerText = i18n.select;
-  pickCalendar.setAttribute("class", "pick_calendar button button__secondary button__xs");
+  pickCalendar.setAttribute("class", "datepicker_pick-calendar button button__secondary button__xs");
   pickCalendar.setAttribute("disabled", true);
 
   datePicker.appendChild(closeCalendar);

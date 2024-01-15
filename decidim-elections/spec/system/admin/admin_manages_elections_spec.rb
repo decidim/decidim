@@ -52,9 +52,9 @@ describe "Admin manages elections" do
       expect(page).to have_content("Check that the organization time zone is correct")
       expect(page).to have_content("The current configuration is UTC")
 
-      fill_in_datepicker :election_start_time_date, with: Time.current.change(day: 12).strftime("%d.%m.%Y")
+      fill_in_datepicker :election_start_time_date, with: Time.current.change(day: 12).strftime("%d/%m/%Y")
       fill_in_timepicker :election_start_time_time, with: "10:50"
-      fill_in_datepicker :election_end_time_date, with: Time.current.change(day: 12).strftime("%d.%m.%Y")
+      fill_in_datepicker :election_end_time_date, with: Time.current.change(day: 12).strftime("%d/%m/%Y")
       fill_in_timepicker :election_end_time_time, with: "12:50"
 
       within ".new_election" do

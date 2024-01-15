@@ -28,9 +28,9 @@ describe "Admin manages votings" do
     it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='voting-description-tabs']", "full"
 
     it "creates a new voting" do
-      fill_in_datepicker :voting_start_time_date, with: Time.current.change(day: 12).strftime("%d.%m.%Y")
+      fill_in_datepicker :voting_start_time_date, with: Time.current.change(day: 12).strftime("%d/%m/%Y")
       fill_in_timepicker :voting_start_time_time, with: "10:50"
-      fill_in_datepicker :voting_end_time_date, with: Time.current.change(day: 12).strftime("%d.%m.%Y")
+      fill_in_datepicker :voting_end_time_date, with: Time.current.change(day: 12).strftime("%d/%m/%Y")
       fill_in_timepicker :voting_end_time_time, with: "12:50"
 
       within ".new_voting" do
@@ -77,9 +77,9 @@ describe "Admin manages votings" do
     end
 
     it "fails to create a new voting" do
-      fill_in_datepicker :voting_start_time_date, with: Time.current.change(day: 12).strftime("%d.%m.%Y")
+      fill_in_datepicker :voting_start_time_date, with: Time.current.change(day: 12).strftime("%d/%m/%Y")
       fill_in_timepicker :voting_start_time_time, with: "10:50"
-      fill_in_datepicker :voting_end_time_date, with: Time.current.change(day: 12).strftime("%d.%m.%Y")
+      fill_in_datepicker :voting_end_time_date, with: Time.current.change(day: 12).strftime("%d/%m/%Y")
       fill_in_timepicker :voting_end_time_time, with: "12:50"
 
       within ".new_voting" do

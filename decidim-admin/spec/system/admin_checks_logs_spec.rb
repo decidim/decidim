@@ -76,7 +76,7 @@ describe "Admin checks logs" do
 
       it "lists only logs after the start time or at the same minute" do
         within ".filters__section" do
-          fill_in_datepicker :q_created_at_dtgteq_date, with: "22.06.2022"
+          fill_in_datepicker :q_created_at_dtgteq_date, with: "22/06/2022"
           fill_in_timepicker :q_created_at_dtgteq_time, with: "09:10"
           find("*[type=submit]").click
         end
@@ -88,7 +88,7 @@ describe "Admin checks logs" do
 
       it "lists only logs before the end time or at the same minute" do
         within ".filters__section" do
-          fill_in_datepicker :q_created_at_dtlteq_date, with: "22.06.2022"
+          fill_in_datepicker :q_created_at_dtlteq_date, with: "22/06/2022"
           fill_in_timepicker :q_created_at_dtlteq_time, with: "09:10"
           find("*[type=submit]").click
         end
@@ -100,9 +100,9 @@ describe "Admin checks logs" do
 
       it "lists only logs between the start time and the end time or at the same minutes" do
         within ".filters__section" do
-          fill_in_datepicker :q_created_at_dtgteq_date, with: "22.06.2022"
+          fill_in_datepicker :q_created_at_dtgteq_date, with: "22/06/2022"
           fill_in_timepicker :q_created_at_dtgteq_time, with: "08:09"
-          fill_in_datepicker :q_created_at_dtlteq_date, with: "22.06.2022"
+          fill_in_datepicker :q_created_at_dtlteq_date, with: "22/06/2022"
           fill_in_timepicker :q_created_at_dtlteq_time, with: "09:10"
           find("*[type=submit]").click
         end

@@ -60,8 +60,8 @@
   @import "stylesheets/decidim/_emoji.scss";
 }
 
-@import "stylesheets/decidim/date_picker_light.scss";
-@import "stylesheets/decidim/date_picker.scss";
+@import "stylesheets/decidim/vendor/datepicker_light.scss";
+@import "stylesheets/decidim/datepicker.scss";
 
 // On the other hand, the following styles match with specific routes
 @import "stylesheets/decidim/_header.scss";

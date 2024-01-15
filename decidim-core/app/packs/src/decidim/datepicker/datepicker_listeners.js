@@ -1,4 +1,4 @@
-/* eslint-disable require-jsdoc */
+// Utility helper functions for the date and time picker functionality
 
 export const timeKeyDownListener = (time) => {
   time.addEventListener("keydown", (event) => {

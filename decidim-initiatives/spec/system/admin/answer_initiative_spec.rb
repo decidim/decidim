@@ -57,7 +57,7 @@ describe "User answers the initiative" do
             expect(page).to have_css("#initiative_signature_start_date_date")
             expect(page).to have_css("#initiative_signature_end_date_date")
 
-            fill_in_datepicker :initiative_signature_start_date_date, with: 1.day.ago.strftime("%d.%m.%Y")
+            fill_in_datepicker :initiative_signature_start_date_date, with: 1.day.ago.strftime("%d/%m/%Y")
           end
 
           submit_and_validate("The initiative has been successfully updated")
@@ -79,7 +79,7 @@ describe "User answers the initiative" do
               expect(page).to have_css("#initiative_signature_end_date_date")
 
               fill_in :initiative_signature_start_date_date, with: nil, fill_options: { clear: :backspace }
-              fill_in_datepicker :initiative_signature_start_date_date, with: 1.month.since(initiative.signature_end_date).strftime("%d.%m.%Y")
+              fill_in_datepicker :initiative_signature_start_date_date, with: 1.month.since(initiative.signature_end_date).strftime("%d/%m/%Y")
             end
 
             submit_and_validate("An error has occurred")

@@ -11,9 +11,9 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
   let(:longitude) { 2.1234 }
   let(:service_titles) { ["This is the first service", "This is the second service"] }
   let(:base_date) { Time.new.utc }
-  let(:meeting_start_date) { base_date.strftime("%d.%m.%Y") }
+  let(:meeting_start_date) { base_date.strftime("%d/%m/%Y") }
   let(:meeting_start_time) { base_date.utc.strftime("%H:%M") }
-  let(:meeting_end_date) { ((base_date + 2.days) + 1.month).strftime("%d.%m.%Y") }
+  let(:meeting_end_date) { ((base_date + 2.days) + 1.month).strftime("%d/%m/%Y") }
   let(:meeting_end_time) { (base_date + 4.hours).strftime("%H:%M") }
 
   include_context "when managing a component as an admin"

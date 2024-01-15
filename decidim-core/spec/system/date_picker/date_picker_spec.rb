@@ -92,7 +92,7 @@ describe "Datepicker" do
   context "when date format dd.mm.yyyy and clock format 24" do
     context "when filling form datetime input with datepicker" do
       it "fills the field correctly" do
-        find(".calendar_button").click
+        find(".datepicker_calendar-button").click
         find('span > input[name="year"]').set("1994")
         find(".wc-datepicker__next-month-button").click
         month = find('select[name="month"]').value
@@ -101,7 +101,7 @@ describe "Datepicker" do
         find("td > span", text: "20", match: :first).click
         find(".pick_calendar").click
 
-        find(".clock_button").click
+        find(".datepicker_clock-button").click
         find(".hourup").click
         find(".minutedown").click
         find(".select_clock").click
@@ -140,18 +140,18 @@ describe "Datepicker" do
       context "when using picker" do
         context "when opening datepicker" do
           it "shows the datepicker calendar" do
-            find(".calendar_button").click
+            find(".datepicker_calendar-button").click
             expect(page).to have_selector("#example_input_date_datepicker")
           end
 
           it "has disabled select button" do
-            find(".calendar_button").click
+            find(".datepicker_calendar-button").click
             expect(page).to have_button("Select", disabled: true)
           end
 
           context "when choosing a date" do
             it "enables the select button" do
-              find(".calendar_button").click
+              find(".datepicker_calendar-button").click
               find("td > span", text: "20", match: :first).click
               expect(page).to have_button("Select", disabled: false)
             end
@@ -160,7 +160,7 @@ describe "Datepicker" do
 
         context "when closing datepicker" do
           it "hides the datepicker calendar" do
-            find(".calendar_button").click
+            find(".datepicker_calendar-button").click
             expect(page).to have_selector("#example_input_date_datepicker")
             find(".close_calendar").click
             expect(page).to have_selector("#example_input_date_datepicker", visible: :hidden)
@@ -169,12 +169,12 @@ describe "Datepicker" do
 
         context "when opening datepicker with an existing date" do
           it "has the previously picked date selected" do
-            find(".calendar_button").click
+            find(".datepicker_calendar-button").click
             find('span > input[name="year"]').set("1994")
             find(".wc-datepicker__next-month-button").click
             find("td > span", text: "20", match: :first).click
             find(".pick_calendar").click
-            find(".calendar_button").click
+            find(".datepicker_calendar-button").click
             element = find("td.wc-datepicker__date--selected")
             expect(element).to have_content("20")
             expect(page).to have_button("Select", disabled: false)
@@ -186,7 +186,7 @@ describe "Datepicker" do
         context "when typing a correct date" do
           it "sets the date on the datepicker calendar" do
             fill_in_datepicker :example_input_date, with: "24.11.2012"
-            find(".calendar_button").click
+            find(".datepicker_calendar-button").click
             year = find('span > input[name="year"]')
             month = find('select[name="month"]')
             date = find("td.wc-datepicker__date--selected")
@@ -261,12 +261,12 @@ describe "Datepicker" do
       context "when using picker" do
         context "when opening timepicker" do
           it "shows the timepicker" do
-            find(".clock_button").click
+            find(".datepicker_clock-button").click
             expect(page).to have_selector("#example_input_time_timepicker")
           end
 
           it "starts from zero" do
-            find(".clock_button").click
+            find(".datepicker_clock-button").click
             hour = find("input.hourpicker")
             minute = find("input.minutepicker")
             expect(hour.value).to eq("00")
@@ -276,7 +276,7 @@ describe "Datepicker" do
 
         context "when closing timepicker" do
           it "hides the timepicker" do
-            find(".clock_button").click
+            find(".datepicker_clock-button").click
             expect(page).to have_selector("#example_input_time_timepicker")
             find(".close_clock").click
             expect(page).to have_selector("#example_input_time_timepicker", visible: :hidden)
@@ -285,7 +285,7 @@ describe "Datepicker" do
 
         context "when decreasing hour from zero" do
           it "turns to 23" do
-            find(".clock_button").click
+            find(".datepicker_clock-button").click
             find(".hourdown").click
             hour = find("input.hourpicker")
             expect(hour.value).to eq("23")
@@ -294,7 +294,7 @@ describe "Datepicker" do
 
         context "when decreasing minute from zero" do
           it "turns to 59" do
-            find(".clock_button").click
+            find(".datepicker_clock-button").click
             find(".minutedown").click
             minute = find("input.minutepicker")
             expect(minute.value).to eq("59")
@@ -303,7 +303,7 @@ describe "Datepicker" do
 
         context "when increasing hour from 23" do
           it "turns to zero" do
-            find(".clock_button").click
+            find(".datepicker_clock-button").click
             hour = find("input.hourpicker")
             find(".hourdown").click
             expect(hour.value).to eq("23")
@@ -314,7 +314,7 @@ describe "Datepicker" do
 
         context "when increasing minute from 59" do
           it "turns to zero" do
-            find(".clock_button").click
+            find(".datepicker_clock-button").click
             find(".minutedown").click
             minute = find("input.minutepicker")
             expect(minute.value).to eq("59")
@@ -325,14 +325,14 @@ describe "Datepicker" do
 
         context "when resetting timepicker" do
           it "sets picker to zero and resets time input" do
-            find(".clock_button").click
+            find(".datepicker_clock-button").click
             find(".hourdown").click
             find(".minuteup").click
             hour = find("input.hourpicker")
             minute = find("input.minutepicker")
             click_button "Select"
             expect(page).to have_field("example_input_time", with: "23:01")
-            find(".clock_button").click
+            find(".datepicker_clock-button").click
             click_button "Reset"
             expect(hour.value).to eq("00")
             expect(minute.value).to eq("00")
@@ -345,7 +345,7 @@ describe "Datepicker" do
         context "when typing value to time input field" do
           it "updates picker's time" do
             fill_in_timepicker :example_input_time, with: "21:15"
-            find(".clock_button").click
+            find(".datepicker_clock-button").click
             hour = find("input.hourpicker")
             minute = find("input.minutepicker")
             expect(hour.value).to eq("21")
@@ -359,7 +359,7 @@ describe "Datepicker" do
 
           it "does not update picker's time if not a correct value" do
             fill_in_timepicker :example_input_time, with: "99:99"
-            find(".clock_button").click
+            find(".datepicker_clock-button").click
             hour = find("input.hourpicker")
             minute = find("input.minutepicker")
             expect(hour.value).to eq("00")
@@ -498,7 +498,7 @@ describe "Datepicker" do
 
     context "when filling form datetime input with datepicker" do
       it "fills the field correctly" do
-        find(".calendar_button").click(x: 10, y: 10)
+        find(".datepicker_calendar-button").click(x: 10, y: 10)
         find('span > input[name="year"]').set("1994")
         find(".wc-datepicker__next-month-button").click
         month = find('select[name="month"]').value
@@ -507,7 +507,7 @@ describe "Datepicker" do
         find("td > span", text: "20", match: :first).click
         find(".pick_calendar").click
 
-        find(".clock_button").click
+        find(".datepicker_clock-button").click
         find(".hourup").click
         find(".minutedown").click
         find(".select_clock").click
@@ -549,7 +549,7 @@ describe "Datepicker" do
         context "when typing a correct date" do
           it "sets the date on the datepicker calendar" do
             fill_in_datepicker :example_input_date, with: "01/20/1994"
-            find(".calendar_button").click(x: 10, y: 10)
+            find(".datepicker_calendar-button").click(x: 10, y: 10)
             year = find('span > input[name="year"]')
             month = find('select[name="month"]')
             date = find("td.wc-datepicker__date--selected")
@@ -605,7 +605,7 @@ describe "Datepicker" do
       context "when using picker" do
         context "when opening timepicker" do
           it "hour starts from one" do
-            find(".clock_button").click
+            find(".datepicker_clock-button").click
             hour = find("input.hourpicker")
             minute = find("input.minutepicker")
             expect(hour.value).to eq("01")
@@ -615,7 +615,7 @@ describe "Datepicker" do
 
         context "when decreasing hour from one" do
           it "turns to 12" do
-            find(".clock_button").click
+            find(".datepicker_clock-button").click
             find(".hourdown").click
             hour = find("input.hourpicker")
             expect(hour.value).to eq("12")
@@ -624,7 +624,7 @@ describe "Datepicker" do
 
         context "when increasing hour from 12" do
           it "turns to one" do
-            find(".clock_button").click
+            find(".datepicker_clock-button").click
             hour = find("input.hourpicker")
             find(".hourdown").click
             expect(hour.value).to eq("12")
@@ -635,14 +635,14 @@ describe "Datepicker" do
 
         context "when resetting timepicker" do
           it "sets hour to one and minutes to zero and resets time input" do
-            find(".clock_button").click
+            find(".datepicker_clock-button").click
             find(".hourdown").click
             find(".minuteup").click
             hour = find("input.hourpicker")
             minute = find("input.minutepicker")
             click_button "Select"
             expect(page).to have_field("example_input_time", with: "12:01")
-            find(".clock_button").click
+            find(".datepicker_clock-button").click
             click_button "Reset"
             expect(hour.value).to eq("01")
             expect(minute.value).to eq("00")
@@ -655,7 +655,7 @@ describe "Datepicker" do
         context "when typing value to time input field" do
           it "updates picker's time" do
             fill_in_timepicker :example_input_time, with: "05:15"
-            find(".clock_button").click
+            find(".datepicker_clock-button").click
             hour = find("input.hourpicker")
             minute = find("input.minutepicker")
             expect(hour.value).to eq("05")
@@ -664,7 +664,7 @@ describe "Datepicker" do
 
           it "does not update picker's time if not a correct value" do
             fill_in_timepicker :example_input_time, with: "13:55"
-            find(".clock_button").click
+            find(".datepicker_clock-button").click
             hour = find("input.hourpicker")
             minute = find("input.minutepicker")
             expect(hour.value).to eq("01")
@@ -753,7 +753,7 @@ describe "Datepicker" do
 
     context "when filling form datetime input with datepicker" do
       it "fills the field correctly" do
-        find(".calendar_button").click(x: 10, y: 10)
+        find(".datepicker_calendar-button").click(x: 10, y: 10)
         find('span > input[name="year"]').set("1994")
         find(".wc-datepicker__next-month-button").click
         month = find('select[name="month"]').value
@@ -762,7 +762,7 @@ describe "Datepicker" do
         find("td > span", text: "20", match: :first).click
         find(".pick_calendar").click
 
-        find(".clock_button").click
+        find(".datepicker_clock-button").click
         find(".hourup").click
         find(".minutedown").click
         find(".select_clock").click
@@ -778,7 +778,7 @@ describe "Datepicker" do
         context "when typing a correct date" do
           it "sets the date on the datepicker calendar" do
             fill_in_datepicker :example_input_date, with: "1994/01/20"
-            find(".calendar_button").click(x: 10, y: 10)
+            find(".datepicker_calendar-button").click(x: 10, y: 10)
             year = find('span > input[name="year"]')
             month = find('select[name="month"]')
             date = find("td.wc-datepicker__date--selected")

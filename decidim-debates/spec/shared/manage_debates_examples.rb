@@ -103,9 +103,9 @@ RSpec.shared_examples "manage debates" do
       choose "Finite"
     end
 
-    fill_in_datepicker :debate_start_time_date, with: Time.current.change(day: 12).strftime("%d.%m.%Y")
+    fill_in_datepicker :debate_start_time_date, with: Time.current.change(day: 12).strftime("%d/%m/%Y")
     fill_in_timepicker :debate_start_time_time, with: "10:50"
-    fill_in_datepicker :debate_end_time_date, with: Time.current.change(day: 12).strftime("%d.%m.%Y")
+    fill_in_datepicker :debate_end_time_date, with: Time.current.change(day: 12).strftime("%d/%m/%Y")
     fill_in_timepicker :debate_end_time_time, with: "12:50"
 
     within ".new_debate" do

@@ -1,0 +1,63 @@
+.wc-datepicker {
+  @apply z-[2];
+
+  &__current-month {
+    @apply mt-4;
+  }
+
+  &__next-month-button,
+  &__previous-month-button {
+    > svg {
+      @apply fill-none w-16 h-16;
+    }
+  }
+}
+
+.datepicker {
+  &_clock-button {
+    @apply top-0;
+  }
+
+  &_calendar-button {
+    @apply top-0;
+  }
+
+  &_pick-calendar {
+    @apply z-[3];
+  }
+
+  &_close-calendar {
+    @apply z-[3];
+  }
+
+  &_time-frame {
+    @apply z-[1];
+  }
+
+  &_hour-picker,
+  &_minute-picker {
+    @apply left-2 ml-px;
+  }
+
+  &_hour-down,
+  &_hour-up,
+  &_minute-up,
+  &_minute-down {
+    @apply h-6 w-full;
+
+    > svg {
+      @apply w-10 h-6 pr-1;
+    }
+  }
+}
+
+.item__edit wc-datepicker {
+  &-form {
+    .form {
+      [type="number"] {
+        @apply text-sm;
+      }
+    }
+  }
+}
+

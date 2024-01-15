@@ -56,11 +56,11 @@ describe "User creates meeting" do
         let(:latitude) { 40.1234 }
         let(:longitude) { 2.1234 }
         let(:base_date) { Time.new.utc }
-        let(:meeting_start_date) { base_date.strftime("%d.%m.%Y") }
+        let(:meeting_start_date) { base_date.strftime("%d/%m/%Y") }
         let(:start_month) { base_date.strftime("%b") }
         let(:start_day) { base_date.day }
         let(:meeting_start_time) { base_date.strftime("%H:%M") }
-        let(:meeting_end_date) { ((base_date + 2.days) + 1.month).strftime("%d.%m.%Y") }
+        let(:meeting_end_date) { ((base_date + 2.days) + 1.month).strftime("%d/%m/%Y") }
         let(:end_month) { (base_date + 1.month).strftime("%b") }
         let(:end_day) { ((base_date + 2.days) + 1.month).day }
         let(:meeting_end_time) { (base_date + 4.hours).strftime("%H:%M") }

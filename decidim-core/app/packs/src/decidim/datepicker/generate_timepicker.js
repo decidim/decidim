@@ -8,15 +8,15 @@ export default function generateTimePicker(input, row, formats) {
   const i18n = getDictionary("time.buttons");
 
   const timeColumn = document.createElement("div");
-  timeColumn.setAttribute("class", "time_column");
+  timeColumn.setAttribute("class", "datepicker_time-column");
 
   const time = document.createElement("input");
   time.setAttribute("id", `${input.id}_time`);
   time.setAttribute("type", "text");
 
   const clock = document.createElement("button");
-  clock.innerHTML = icon("time-line", {class: "w-6 h-6"})
-  clock.setAttribute("class", "clock_button");
+  clock.innerHTML = icon("time-line")
+  clock.setAttribute("class", "datepicker_clock-button");
 
   timeColumn.appendChild(time);
   timeColumn.appendChild(clock);
@@ -24,18 +24,18 @@ export default function generateTimePicker(input, row, formats) {
   row.append(timeColumn);
 
   const hourColumn = document.createElement("div");
-  hourColumn.setAttribute("class", "hour_column");
+  hourColumn.setAttribute("class", "datepicker_hour-column");
 
   const hours = document.createElement("input");
-  hours.setAttribute("class", "hourpicker");
+  hours.setAttribute("class", "datepicker_hour-picker");
   hours.setAttribute("readonly", "true");
 
   const hourUp = document.createElement("button");
-  hourUp.setAttribute("class", "hourup");
+  hourUp.setAttribute("class", "datepicker_hour-up");
   hourUp.innerHTML = icon("arrow-drop-up-line", {class: "w-10 h-6 pr-1"});
 
   const hourDown = document.createElement("button");
-  hourDown.setAttribute("class", "hourdown");
+  hourDown.setAttribute("class", "datepicker_hour-down");
   hourDown.innerHTML = icon("arrow-drop-down-line", {class: "w-10 h-6 pr-1"});
 
   hourColumn.appendChild(hours);
@@ -43,18 +43,18 @@ export default function generateTimePicker(input, row, formats) {
   hourColumn.appendChild(hourDown);
 
   const minuteColumn = document.createElement("div");
-  minuteColumn.setAttribute("class", "minute_column");
+  minuteColumn.setAttribute("class", "datepicker_minute-column");
 
   const minutes = document.createElement("input");
-  minutes.setAttribute("class", "minutepicker");
+  minutes.setAttribute("class", "datepicker_minute-picker");
   minutes.setAttribute("readonly", "true");
 
   const minuteUp = document.createElement("button");
-  minuteUp.setAttribute("class", "minuteup");
+  minuteUp.setAttribute("class", "datepicker_minute-up");
   minuteUp.innerHTML = icon("arrow-drop-up-line", {class: "w-10 h-6 pr-1"});
 
   const minuteDown = document.createElement("button");
-  minuteDown.setAttribute("class", "minutedown");
+  minuteDown.setAttribute("class", "datepicker_minute-down");
   minuteDown.innerHTML = icon("arrow-drop-down-line", {class: "w-10 h-6 pr-1"});
 
   minuteColumn.appendChild(minutes);
@@ -62,7 +62,7 @@ export default function generateTimePicker(input, row, formats) {
   minuteColumn.appendChild(minuteDown);
 
   const timeRow = document.createElement("div");
-  timeRow.setAttribute("class", "time_row");
+  timeRow.setAttribute("class", "datepicker_time-row");
 
   timeRow.appendChild(hourColumn);
   timeRow.appendChild(minuteColumn);
@@ -72,13 +72,13 @@ export default function generateTimePicker(input, row, formats) {
 
   if (formats.time === 12) {
     const periodColumn = document.createElement("div");
-    periodColumn.setAttribute("class", "period_column");
+    periodColumn.setAttribute("class", "datepicker_period-column");
 
     const periodAm = document.createElement("input");
     periodAm.setAttribute("type", "radio");
     periodAm.setAttribute("name", `period_${input.id}`);
     periodAm.setAttribute("id", `period_am_${input.id}`);
-    periodAm.setAttribute("class", "period_am");
+    periodAm.setAttribute("class", "datepicker_period-am");
     const periodAmLabel = document.createElement("span");
     periodAmLabel.innerText = "AM"
 
@@ -86,7 +86,7 @@ export default function generateTimePicker(input, row, formats) {
     periodPm.setAttribute("type", "radio");
     periodPm.setAttribute("name", `period_${input.id}`);
     periodPm.setAttribute("id", `period_pm_${input.id}`);
-    periodPm.setAttribute("class", "period_pm");
+    periodPm.setAttribute("class", "datepicker_period-pm");
     const periodPmLabel = document.createElement("span");
     periodPmLabel.innerText = "PM"
 
@@ -106,32 +106,30 @@ export default function generateTimePicker(input, row, formats) {
   };
 
   const hourLabel = document.createElement("span");
-  hourLabel.setAttribute("class", "hour_label");
   hourLabel.innerText = "Hour";
 
   const hourLabelContainer = document.createElement("div");
-  hourLabelContainer.setAttribute("class", "hour_label_container");
+  hourLabelContainer.setAttribute("class", "datepicker_hour-label-container");
 
   hourLabelContainer.appendChild(hourLabel);
 
   const minuteLabel = document.createElement("span");
-  minuteLabel.setAttribute("class", "minute_label");
   minuteLabel.innerText = "Minute";
 
   const minuteLabelContainer = document.createElement("div");
-  minuteLabelContainer.setAttribute("class", "minute_label_container");
+  minuteLabelContainer.setAttribute("class", "datepicker_minute-label-container");
 
   minuteLabelContainer.appendChild(minuteLabel);
 
   const labels = document.createElement("div");
-  labels.setAttribute("class", "label_row");
+  labels.setAttribute("class", "datepicker_label-row");
 
   labels.appendChild(hourLabelContainer);
   labels.appendChild(minuteLabelContainer);
 
   const timePicker = document.createElement("div");
   timePicker.setAttribute("id", `${time.id}_timepicker`);
-  timePicker.setAttribute("class", "time_frame");
+  timePicker.setAttribute("class", "datepicker_time-frame");
   timePicker.style.display = "none";
 
   timePicker.appendChild(timeRow);
@@ -139,15 +137,15 @@ export default function generateTimePicker(input, row, formats) {
 
   const closeClock = document.createElement("button");
   closeClock.innerText = i18n.close;
-  closeClock.setAttribute("class", "close_clock button button__transparent-secondary button__xs");
+  closeClock.setAttribute("class", "datepicker_close-clock button button__transparent-secondary button__xs");
 
   const resetClock = document.createElement("button");
   resetClock.innerText = i18n.reset;
-  resetClock.setAttribute("class", "reset_clock button button__xs button__text-secondary");
+  resetClock.setAttribute("class", "datepicker_reset-clock button button__xs button__text-secondary");
 
   const selectClock = document.createElement("button");
   selectClock.innerText = i18n.select;
-  selectClock.setAttribute("class", "select_clock button button__secondary button__xs");
+  selectClock.setAttribute("class", "datepicker_select-clock button button__secondary button__xs");
 
   timePicker.appendChild(closeClock);
   timePicker.appendChild(resetClock);
