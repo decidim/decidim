@@ -656,6 +656,8 @@ ca:
               upload_legend: Al servidor hi consten les teves claus d'identificació públiques, però el teu navegador encara no les té. Cal que importis l'arxiu amb les teves claus d'identificació al teu ordinador des de la còpia de seguretat que has creat després de generar-les.
             not_supported_browser_description: Sembla que estàs usant un navegador web que no pot ser utilitzat per a actuar com a garant. Assegura't que estàs usant la versió més recent del teu navegador, o intenta fer servir qualsevol altre dels navegadors més populars per a poder completar les teves tasques com a garant.
             not_supported_browser_title: Actualitza el navegador per a actuar com a garant
+            safari_warning_description: Sembla que estàs fent servir Safari, que no està suportat per actuar com a garant o per xifrar un vot (això és degut a les restriccions de memòria que hi imposa Apple). Això es podria resoldre en el futur mitjançant un canvi de política per part d'Apple o la futura optimització de Decidim Elecciones. Mentrestant, si us plau, utilitzeu un altre navegador.
+            safari_warning_title: Navegador Safari detectat
             trustee_role_description:
               with_keys: Has estat assignada com a garant en algunes de les eleccions celebrades en aquesta plataforma.
               without_keys: Has estat assignada per actuar com a Garant. Si us plau, genera i puja les teves claus d'identificació.
