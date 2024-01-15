@@ -388,6 +388,9 @@ fr-CA:
       domain_allowlist:
         form:
           domain_too_short: Le nom de domaine est trop court
+        update:
+          error: Impossible de mettre à jour la liste des domaines externes autorisés
+          success: La liste des domaines externes autorisés a été mise à jour avec succès.
       exports:
         export_as: "%{name} en format %{export_format}"
         formats:
