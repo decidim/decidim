@@ -67,6 +67,7 @@ ar:
             finished_orders: الانتهاء من الأصوات
             pending_orders: في انتظار الأصوات
             title: مشاريع
+            update: تحديث
           new:
             create: إنشاء
             title: مشروع جديد
