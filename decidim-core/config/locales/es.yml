@@ -659,6 +659,10 @@ es:
     endorsers_list:
       endorsed_by: Le gusta a…
     errors:
+      files:
+        file_cannot_be_processed: No se ha podido procesar el archivo
+        file_resolution_too_large: La resolución del archivo es demasiado grande
+        not_inside_organization: El archivo no está relacionado con ninguna organización
       internal_server_error:
         copied: '¡Texto copiado!'
         copy_error_message_clarification: Mensaje de error copiado al portapapeles
