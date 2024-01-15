@@ -17,7 +17,12 @@ Gem::Specification.new do |s|
   s.license = "AGPL-3.0"
   s.required_ruby_version = ">= 3.0"
 
-  s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
+  s.files = Dir.chdir(__dir__) do
+    `git ls-files -z`.split("\x0").select do |f|
+      (File.expand_path(f) == __FILE__) ||
+        f.start_with?(*%w(app/ config/ db/ lib/ Rakefile README.md))
+    end
+  end
 
   s.add_dependency "active_link_to", "~> 1.0"
   s.add_dependency "acts_as_list", "~> 0.9"

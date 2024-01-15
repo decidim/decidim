@@ -17,7 +17,12 @@ Gem::Specification.new do |s|
   s.summary = "Decidim consultations module"
   s.description = "Extends Decidim adding a first level public consultation component"
 
-  s.files = Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md"]
+  s.files = Dir.chdir(__dir__) do
+    `git ls-files -z`.split("\x0").select do |f|
+      (File.expand_path(f) == __FILE__) ||
+        f.start_with?(*%w(app/ config/ db/ lib/ Rakefile README.md))
+    end
+  end
 
   s.add_dependency "decidim-admin", Decidim::Consultations.version
   s.add_dependency "decidim-comments", Decidim::Consultations.version
