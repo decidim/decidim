@@ -511,8 +511,6 @@ de:
         name: Fußzeile sub hero Banner
       global_menu:
         name: Globales Menü
-      hero:
-        name: Hauptbild
       hero_settings_form:
         background_image: Hintergrundbild
         welcome_text: Willkommenstext
