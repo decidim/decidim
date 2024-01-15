@@ -498,7 +498,7 @@ ja:
       global_menu:
         name: グローバルメニュー
       hero:
-        name: ヒーロー画像
+        name: ヒーローイメージと CTA
       hero_settings_form:
         background_image: 背景画像
         welcome_text: ウェルカムテキスト
