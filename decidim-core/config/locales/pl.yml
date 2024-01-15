@@ -82,7 +82,10 @@ pl:
     'true': 'Tak'
   carrierwave:
     errors:
+      file_cannot_be_processed: Plik nie może zostać przetworzony
+      file_resolution_too_large: Rozdzielczość pliku jest zbyt duża
       file_size_too_large: Rozmiar pliku jest zbyt duży
+      not_inside_organization: Plik nie jest dołączony do żadnej organizacji
   date:
     formats:
       decidim_short: "%d/%m/%Y"
