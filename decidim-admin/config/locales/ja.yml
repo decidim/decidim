@@ -366,8 +366,6 @@ ja:
           view_more_logs: もっとログを見る
           welcome: 管理画面へようこそ。
       domain_whitelist:
-        form:
-          domain_too_short: ドメインが短すぎます
         update:
           error: ドメインのホワイトリストを更新できませんでした
           success: ドメインのホワイトリストが更新されました
@@ -544,7 +542,6 @@ ja:
         areas: エリア
         configuration: 設定
         dashboard: ダッシュボード
-        external_domain_whitelist: 許可された外部ドメイン
         help_sections: ヘルプセクション
         homepage: ホームページ
         impersonations: なりすまし
@@ -820,11 +817,6 @@ ja:
       organization_external_domain_whitelist:
         edit:
           update: 更新
-        external_domain:
-          down: 下げる
-          external_domain: 外部ドメイン
-          remove: 削除
-          up: 上げる
         form:
           add: ホワイトリストに追加
           title: 外部ドメインのホワイトリスト
