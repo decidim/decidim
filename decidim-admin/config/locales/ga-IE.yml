@@ -316,10 +316,6 @@ ga:
       organization_external_domain_whitelist:
         edit:
           update: Nuashonraigh
-        external_domain:
-          down: Ísligh
-          remove: Bain as
-          up: Ardaigh
       participatory_space_private_users:
         new:
           create: Cruthaigh
