@@ -511,8 +511,6 @@ ca:
         name: Peu de pàgina sub-hero
       global_menu:
         name: Menú global
-      hero:
-        name: Imatge del hero
       hero_settings_form:
         background_image: Imatge de fons
         welcome_text: Text de benvinguda
