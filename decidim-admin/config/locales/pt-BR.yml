@@ -363,8 +363,6 @@ pt-BR:
           view_more_logs: Ver mais registros
           welcome: Bem-vindo ao painel de administração.
       domain_whitelist:
-        form:
-          domain_too_short: Domínio muito curto
         update:
           error: Falha ao atualizar domínio whitelist
           success: Domínio whitelist atualizado com sucesso
@@ -542,7 +540,6 @@ pt-BR:
         areas: Áreas
         configuration: Configuração
         dashboard: painel de controle
-        external_domain_whitelist: Domínios externos permitidos
         help_sections: Seções de ajuda
         homepage: Pagina inicial
         impersonations: Imitações
@@ -817,11 +814,6 @@ pt-BR:
       organization_external_domain_whitelist:
         edit:
           update: Atualizar
-        external_domain:
-          down: Para Baixo
-          external_domain: Domínio externo
-          remove: Excluir
-          up: Para Cima
         form:
           add: Adicionar à lista branca
           title: Lista branca de domínios externos
