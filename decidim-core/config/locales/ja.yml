@@ -490,6 +490,8 @@ ja:
         name: フッターサブヒーローバナー
       global_menu:
         name: グローバルメニュー
+      hero:
+        name: ヒーローイメージと CTA
       hero_settings_form:
         background_image: 背景画像
         welcome_text: ウェルカムテキスト
@@ -643,6 +645,10 @@ ja:
     endorsers_list:
       endorsed_by: オススメ
     errors:
+      files:
+        file_cannot_be_processed: ファイルを処理できません
+        file_resolution_too_large: ファイルの解像度が大きすぎます
+        not_inside_organization: ファイルがどの組織にも属していません
       internal_server_error:
         copied: テキストをコピーしました
         copy_error_message_clarification: エラーメッセージをクリップボードにコピー
