@@ -576,6 +576,7 @@ pl:
         areas: Kategorie
         configuration: Konfiguracja
         content: Zgłoszona zawartość
+        external_domain_allowlist: Dozwolone domeny zewnętrzne
         help_sections: Sekcje pomocy
         homepage: Strona główna
         impersonations: Podszywanie się pod inne osoby
@@ -859,6 +860,17 @@ pl:
             layout_appearance_title: Edytuj wygląd layoutu
             preview: Podgląd
           omnipresent_banner_appearance_title: Edytuj stały baner
+      organization_external_domain_allowlist:
+        edit:
+          update: Aktualizuj
+        external_domain:
+          down: Na dół
+          external_domain: Domena zewnętrzna
+          remove: Usuń
+          up: Do góry
+        form:
+          add: Dodaj do listy dozwolonych
+          title: Dozwolone domeny zewnętrzne
       participatory_space_private_users:
         create:
           error: Wystąpił błąd podczas dodawania użytkownika prywatnego do tej przestrzeni partycypacyjnej.
@@ -1008,6 +1020,7 @@ pl:
         areas: Kategorie
         authorization_workflows: Metody weryfikacji
         dashboard: Panel
+        edit_external_domains: Dozwolone domeny zewnętrzne
         edit_landing_page: Zawartość strony
         edit_organization_appearance: Edytuj wygląd strony głównej
         impersonatable_users: Zarządzaj użytkownikami
