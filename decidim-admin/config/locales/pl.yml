@@ -384,8 +384,6 @@ pl:
           dropdown: Lista rozwijana
           view_more_logs: Zobacz więcej logów
       domain_whitelist:
-        form:
-          domain_too_short: Domena jest zbyt krótka
         update:
           error: Nie udało się zaktualizować białej listy domen.
           success: Biała lista domen pomyślnie zaktualizowana.
@@ -578,7 +576,6 @@ pl:
         areas: Kategorie
         configuration: Konfiguracja
         content: Zgłoszona zawartość
-        external_domain_whitelist: Dozwolone domeny zewnętrzne
         help_sections: Sekcje pomocy
         homepage: Strona główna
         impersonations: Podszywanie się pod inne osoby
@@ -865,11 +862,6 @@ pl:
       organization_external_domain_whitelist:
         edit:
           update: Aktualizuj
-        external_domain:
-          down: W dół
-          external_domain: Domena zewnętrzna
-          remove: Usuń
-          up: W górę
         form:
           add: Dodaj do białej listy
           title: Biała lista domen zewnętrznych
