@@ -659,6 +659,10 @@ ca:
     endorsers_list:
       endorsed_by: Li agrada a…
     errors:
+      files:
+        file_cannot_be_processed: No s'ha pogut processar el fitxer
+        file_resolution_too_large: La resolució de l'arxiu és massa gran
+        not_inside_organization: L'arxiu no està relacionat amb cap organització
       internal_server_error:
         copied: Text copiat!
         copy_error_message_clarification: Missatge d'error copiat amb el porta-retalls
