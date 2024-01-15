@@ -301,9 +301,6 @@ lb:
       dashboard:
         show:
           view_more_logs: Weitere Protokolle anzeigen
-      domain_whitelist:
-        form:
-          domain_too_short: Domain zu kurz
       exports:
         export_as: "%{name} als %{export_format}"
         formats:
@@ -434,7 +431,6 @@ lb:
         area_types: Bereichstypen
         areas: Bereiche
         configuration: Aufbau
-        external_domain_whitelist: Erlaabt extern Domainen
         help_sections: Hilfeabschnitte
         homepage: Startseite
         impersonations: Identitätswechsel
@@ -684,12 +680,7 @@ lb:
           omnipresent_banner_appearance_title: Bearbeiten Sie das allgegenwärtige Banner
       organization_external_domain_whitelist:
         edit:
-          update: Aktualiséieren
-        external_domain:
-          down: Runter
-          external_domain: Externe Domäne
-          remove: Löschen
-          up: Hoch
+          update: Aktualisieren
         form:
           add: Zur Whitelist hinzufügen
           title: Whitelist für externe Domains
