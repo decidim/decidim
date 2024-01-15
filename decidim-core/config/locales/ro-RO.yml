@@ -432,8 +432,6 @@ ro:
         description: Descriere
       footer_sub_hero:
         name: Banner suberou suberou
-      hero:
-        name: Imagine Erou
       hero_settings_form:
         background_image: Imagine de fundal
         welcome_text: Text de bun-venit
