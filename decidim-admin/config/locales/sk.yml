@@ -552,6 +552,9 @@ sk:
           images:
             layout_appearance_title: Upraviť vzhľad 
           omnipresent_banner_appearance_title: Upraviť všadeprítomný banner
+      organization_external_domain_whitelist:
+        edit:
+          update: Aktualizovať
       organization_homepage_content_blocks:
         edit:
           update: Aktualizovať
