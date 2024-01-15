@@ -758,7 +758,6 @@ de:
           new_election:
             email_intro: Sie sind Wahlhelfer für die %{resource_title} -Wahl.
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie als Wahlhelfer bei der Wahl %{resource_title} hinzugefügt wurden.
-            email_subject: Sie sind Wahlhelfer für die %{resource_title} -Wahl..
             notification_title: Sie wurden als Wahlhelfer in der Abstimmung <a href="%{resource_path}">%{resource_title}.</a> ausgewählt. Bitte führen Sie die Schlüsselzeremonie durch um die Wahl aufzusetzen.
           new_trustee:
             email_intro: Ein Administrator hat Sie als Wahlhelfer für %{resource_name} hinzugefügt. Sie sollten Ihren öffentlichen Schlüssel <a href='%{trustee_zone_url}'> in Ihrer Wahlhelfer Zone anlegen</a>

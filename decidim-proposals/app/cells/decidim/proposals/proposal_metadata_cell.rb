@@ -17,10 +17,12 @@ module Decidim
       def state_item
         return if state.blank?
 
-        if model.emendation?
+        if model.withdrawn?
+          { text: content_tag(:span, humanize_proposal_state(:withdrawn), class: "label alert") }
+        elsif model.emendation?
           { text: content_tag(:span, humanize_proposal_state(state), class: "label #{state_class}") }
         else
-          { text: content_tag(:span, translated_attribute(model.proposal_state&.title), class: "label #{state_class}") }
+          { text: content_tag(:span, translated_attribute(model.proposal_state&.title), class: "label #{model.proposal_state.css_class}") }
         end
       end
 
@@ -49,13 +51,12 @@ module Decidim
       end
 
       def state_class
-        return "muted" if state.blank?
-        return model.proposal_state.css_class unless model.emendation?
+        return "alert" if model.withdrawn?
 
         case state
         when "accepted"
           "success"
-        when "rejected", "withdrawn"
+        when "rejected"
           "alert"
         when "evaluating"
           "warning"

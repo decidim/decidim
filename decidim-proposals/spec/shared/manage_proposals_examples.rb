@@ -294,7 +294,7 @@ shared_examples "manage proposals" do
 
         it "cannot create a new proposal from the admin site" do
           visit_component_admin
-          expect(page).not_to have_link(/New/)
+          expect(page).not_to have_link("New proposal")
         end
       end
     end
@@ -311,7 +311,7 @@ shared_examples "manage proposals" do
 
       it "cannot create a new proposal from the admin site" do
         visit_component_admin
-        expect(page).not_to have_link(/New/)
+        expect(page).not_to have_link("New proposal")
       end
     end
   end

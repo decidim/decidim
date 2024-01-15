@@ -702,7 +702,6 @@ zh-TW:
           new_election:
             email_intro: 您已被新增為 %{resource_title} 選舉的受託人。
             email_outro: 你收到此通知是因為你已被新增為 %{resource_title} 選舉的受託人。
-            email_subject: 您是 %{resource_title} 選舉的受託人。
           new_trustee:
             email_intro: 管理員已將您添加為%{resource_name} 的受託人。您應該在<a href='%{trustee_zone_url}'>您的受託人區域</a>中創建您的公鑰。
             email_outro: 你收到了這個通知，因為你已被新增為 %{resource_name} 的受託人。

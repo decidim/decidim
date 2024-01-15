@@ -15,8 +15,8 @@ export default function updateExternalDomainLinks(element) {
   }
 
   const domain = parts[3].replace(/^www\./, "")
-  const whitelist = window.Decidim.config.get("external_domain_whitelist") || []
-  if (whitelist.includes(domain)) {
+  const allowlist = window.Decidim.config.get("external_domain_allowlist") || []
+  if (allowlist.includes(domain)) {
     return;
   }
 

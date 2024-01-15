@@ -9,6 +9,8 @@ module Decidim
 
         helper_method :availability_option_as_text, :availability_options_for_select, :available_states, :proposal_state
 
+        add_breadcrumb_item_from_menu :admin_template_types_menu
+
         def new
           enforce_permission_to :create, :template
           @form = form(ProposalAnswerTemplateForm).instance

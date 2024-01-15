@@ -37,6 +37,7 @@ module Decidim
         end
 
         def proposal_complete_state(proposal)
+          return humanize_proposal_state(:withdrawn).html_safe if proposal.withdrawn?
           return humanize_proposal_state("not_answered").html_safe if proposal.proposal_state.nil?
 
           translated_attribute(proposal&.proposal_state&.title)

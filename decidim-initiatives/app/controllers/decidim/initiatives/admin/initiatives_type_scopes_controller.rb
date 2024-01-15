@@ -48,10 +48,10 @@ module Decidim
           enforce_permission_to :update, :initiative_type_scope, initiative_type_scope: current_initiative_type_scope
           @form = initiative_type_scope_form.from_params(params)
 
-          UpdateInitiativeTypeScope.call(current_initiative_type_scope, @form) do
+          UpdateInitiativeTypeScope.call(@form, current_initiative_type_scope) do
             on(:ok) do
               flash[:notice] = I18n.t("decidim.initiatives.admin.initiatives_type_scopes.update.success")
-              redirect_to edit_initiatives_type_path(initiative_type_scope.type)
+              redirect_to edit_initiatives_type_path(resource.type)
             end
 
             on(:invalid) do

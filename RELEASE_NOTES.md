@@ -29,7 +29,21 @@ bin/rails db:migrate
 
 These are one time actions that need to be done after the code is updated in the production database.
 
-### 3.1. [[TITLE OF THE ACTION]]
+### 3.1. CarrierWave removal
+
+Back in Decidim 0.25 we have added ActiveStorage (via [\#7902](https://github.com/decidim/decidim/pull/7902)) as main uploader instead of CarrierWave.
+
+We've left some code to ease-up with the migration process during these last versions.
+
+In your application, you need to remove the initializer:
+
+```console
+rm config/initializers/carrierwave.rb
+```
+
+You can read more about this change on PR [\#12200](https://github.com/decidim/decidim/pull/12200).
+
+### 3.2. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [\#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 

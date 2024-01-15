@@ -1,6 +1,6 @@
 import { Editor } from "@tiptap/core";
 
-import { createEditorContainer, updateContent } from "../helpers";
+import { createEditorContainer, updateContent } from "src/decidim/editor/test/helpers";
 
 describe("createEditor", () => {
   const ctx = {
