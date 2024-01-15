@@ -669,6 +669,7 @@ es:
           back: Comenzar de nuevo el proceso de votación
           ballot_hash: 'El indentificador de la papeleta es:'
           cast: Deposita la papeleta para terminar tu voto
+          description_html: Aquí tienes las opciones de emitir tu boleta para que sea contada correctamente o puedes auditar que tu boleta ha sido cifrada correctamente. Si quieres auditar la votación, por favor, <a href="https://github.com/decidim/decidim-bulletin-board/blob/develop/verifier/README.md">lee las instrucciones sobre cómo proceder</a>.
           header: 'La papeleta se ha cifrado: envíala o audítala'
         casting:
           header: Se está emitiendo el voto...
