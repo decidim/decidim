@@ -365,8 +365,6 @@ ro:
           view_more_logs: Afișează mai multe înregistrări
           welcome: Bine ați venit în Panoul de administrare.
       domain_whitelist:
-        form:
-          domain_too_short: Domeniul e prea scurt
         update:
           error: Actualizarea whitelist-ului domeniului a eșuat
           success: Lista albă a domeniului a fost actualizată cu succes
@@ -551,7 +549,6 @@ ro:
         areas: Zone
         configuration: Configurare
         dashboard: Panou de administrare
-        external_domain_whitelist: Domenii externe permise
         help_sections: Secțiuni de ajutor
         homepage: Pagina principală
         impersonations: Impersonări
@@ -822,11 +819,6 @@ ro:
       organization_external_domain_whitelist:
         edit:
           update: Actualizează
-        external_domain:
-          down: Jos
-          external_domain: Domeniu extern
-          remove: Elimină
-          up: Sus
         form:
           add: Adaugă la lista albă
           title: Lista albă pentru domenii externe
