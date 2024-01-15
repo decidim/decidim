@@ -366,8 +366,6 @@ eu:
           view_more_logs: Ikusi erregistro gehiago 
           welcome: Ongi etorri Decidim Administrazio Panelera.
       domain_whitelist:
-        form:
-          domain_too_short: Domeinu laburregia
         update:
           error: Errorea gertatu da domeinuaren zerrenda zuria eguneratzean
           success: Domeinuaren zerrenda zuria zuzen eguneratu da
@@ -539,7 +537,6 @@ eu:
         areas: Arloak
         configuration: Konfigurazioa
         dashboard: Kontrol-panela
-        external_domain_whitelist: Kanpoko domeinuak baimenduta
         help_sections: Laguntza atalak
         homepage: Orrialde nagusia
         impersonations: Inpertsonazioak
@@ -815,11 +812,6 @@ eu:
       organization_external_domain_whitelist:
         edit:
           update: Eguneratu
-        external_domain:
-          down: Jaitsi
-          external_domain: Kanpoko domeinua
-          remove: Kendu
-          up: Igo
         form:
           add: Gehitu zerrenda zurian
           title: Kanpoko domeinuen zerrenda zuria
