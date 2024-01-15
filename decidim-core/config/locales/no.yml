@@ -360,8 +360,6 @@
         description: Beskrivelse
       footer_sub_hero:
         name: Footer sub hero banner
-      hero:
-        name: Heltebilde
       hero_settings_form:
         background_image: Bakgrunnsbilde
         welcome_text: Velkomsttekst
