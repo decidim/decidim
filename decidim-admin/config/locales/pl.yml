@@ -382,6 +382,12 @@ pl:
         show:
           dropdown: Lista rozwijana
           view_more_logs: Zobacz więcej logów
+      domain_allowlist:
+        form:
+          domain_too_short: Domena jest za krótka
+        update:
+          error: Nie udało się zaktualizować listy dozwolonych domen zewnętrznych
+          success: Lista dozwolonych domen zewnętrznych została pomyślnie zaktualizowana.
       exports:
         export_as: "%{name} jako %{export_format}"
         formats:
