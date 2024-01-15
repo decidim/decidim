@@ -425,8 +425,6 @@ sv:
         name: Sidfot sub hero banner
       global_menu:
         name: Global meny
-      hero:
-        name: Hjältebild
       hero_settings_form:
         background_image: Bakgrundsbild
         welcome_text: Välkomsttext
