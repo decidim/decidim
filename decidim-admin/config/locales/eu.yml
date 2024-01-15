@@ -385,12 +385,6 @@ eu:
         show:
           dropdown: Goitibeherako zerrrenda
           view_more_logs: Ikusi erregistro gehiago 
-      domain_whitelist:
-        form:
-          domain_too_short: Domeinu laburregia
-        update:
-          error: Errorea baimendutako domeinuen zerrenda eguneratzean.
-          success: Baimendutako domeinuen zerrenda zuzen eguneratua.
       exports:
         export_as: "%{name} honako hau gisa: %{export_format}"
         formats:
@@ -562,7 +556,6 @@ eu:
         areas: Arloak
         configuration: Konfigurazioa
         content: Eduki salatua
-        external_domain_whitelist: Kanpoko domeinuak baimenduta
         help_sections: Laguntza atalak
         homepage: Orrialde nagusia
         impersonations: Inpertsonazioak
@@ -846,17 +839,6 @@ eu:
             layout_appearance_title: Editatu itxura globalaren itxura
             preview: Aurrebistaratu
           omnipresent_banner_appearance_title: Editatu banner nonahikoa
-      organization_external_domain_whitelist:
-        edit:
-          update: Eguneratu
-        external_domain:
-          down: Jaitsi
-          external_domain: Kanpoko domeinua
-          remove: Kendu
-          up: Igo
-        form:
-          add: Gehitu zerrenda zurian
-          title: Kanpoko domeinuen zerrenda zuria
       participatory_space_private_users:
         create:
           error: Arazo bat egon da parte-hartzaile pribatu bat gehitzean parte hartzeko espazio honetarako.
@@ -1001,7 +983,6 @@ eu:
         areas: Arloak
         authorization_workflows: Egiaztapen-metodoak
         dashboard: Kontrol-panela
-        edit_external_domains: Kanpoko domeinuen zerrenda
         edit_landing_page: Orriaren edukiak
         edit_organization_appearance: Editatu hasierako orriaren itxura
         impersonatable_users: Erabiltzaile erabilgarriak
