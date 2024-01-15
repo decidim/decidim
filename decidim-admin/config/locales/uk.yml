@@ -423,6 +423,9 @@ uk:
           images:
             layout_appearance_title: Редагувати зовнішній вигляд шаблону
           omnipresent_banner_appearance_title: Редагувати всюдисущий банер
+      organization_external_domain_whitelist:
+        edit:
+          update: Оновити
       participatory_space_private_users:
         create:
           error: При спробі додати приватного учасника до цього простору співучасті сталася помилка.
