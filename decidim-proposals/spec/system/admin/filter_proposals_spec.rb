@@ -6,7 +6,7 @@ describe "Admin filters proposals" do
   include_context "when admin manages proposals"
   include_context "with filterable context"
 
-  STATES = { not_answered: 0, evaluating: 10, accepted: 20, rejected: -10, withdrawn: -20 }.keys
+  STATES = { not_answered: 0, evaluating: 10, accepted: 20, rejected: -10}.keys
 
   let(:model_name) { Decidim::Proposals::Proposal.model_name }
   let(:resource_controller) { Decidim::Proposals::Admin::ProposalsController }
@@ -30,6 +30,8 @@ describe "Admin filters proposals" do
       STATES.map { |state| create_proposal_with_trait(state) }
     end
 
+    let!(:withdrawn_proposal) { create_proposal_with_trait(:withdrawn) }
+
     before { visit_component_admin }
 
     STATES.each do |state|
@@ -40,6 +42,13 @@ describe "Admin filters proposals" do
           let(:in_filter) { translated(proposal_with_state(state).title) }
           let(:not_in_filter) { translated(proposal_without_state(state).title) }
         end
+      end
+    end
+
+    context "when filtering proposals by state: Withdrawn" do
+      it_behaves_like "a filtered collection", options: "State", filter: "Withdrawn" do
+        let(:in_filter) { translated(withdrawn_proposal.title) }
+        let(:not_in_filter) { translated(proposals.sample.title) }
       end
     end
   end

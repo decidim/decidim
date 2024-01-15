@@ -134,6 +134,12 @@ module Decidim
         order(Arel.sql("#{sort_by_valuation_assignments_count_nulls_last_query} DESC NULLS LAST").to_s)
       }
 
+      scope :state_eq, lambda { |state|
+        return withdrawn if state == "withdrawn"
+
+        with_any_state(state)
+      }
+
       scope :with_any_state, lambda { |*value_keys|
         possible_scopes = [:state_not_published, :state_published]
         custom_states = Decidim::Proposals::ProposalState.distinct.pluck(:token)
@@ -418,7 +424,7 @@ module Decidim
       end
 
       def self.ransackable_scopes(auth_object = nil)
-        base = [:with_any_origin, :with_any_state, :voted_by, :coauthored_by, :related_to, :with_any_scope, :with_any_category]
+        base = [:with_any_origin, :with_any_state, :state_eq, :voted_by, :coauthored_by, :related_to, :with_any_scope, :with_any_category]
         return base unless auth_object&.admin?
 
         # Add extra scopes for admins for the admin panel searches
@@ -458,10 +464,6 @@ module Decidim
 
       ransacker :id_string do
         Arel.sql(%{cast("decidim_proposals_proposals"."id" as text)})
-      end
-
-      ransacker :state, formatter: proc { |v| STATES[v.to_sym] } do |parent|
-        parent.table[:state]
       end
 
       ransacker :is_emendation do |_parent|

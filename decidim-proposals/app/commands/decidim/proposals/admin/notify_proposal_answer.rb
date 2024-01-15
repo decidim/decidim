@@ -38,11 +38,11 @@ module Decidim
         attr_reader :proposal, :initial_state
 
         def state_changed?
-          initial_state != proposal.proposal_state
+          initial_state != proposal.state.to_s
         end
 
         def notify_followers
-          return if proposal.proposal_state.blank?
+          return if proposal.state == "not_answered"
 
           Decidim::EventsManager.publish(
             event: "decidim.events.proposals.proposal_state_changed",
@@ -54,6 +54,10 @@ module Decidim
         end
 
         def increment_score
+          pp proposal.accepted?
+          pp proposal.state
+          pp initial_state
+
           if proposal.accepted?
             proposal.coauthorships.find_each do |coauthorship|
               Decidim::Gamification.increment_score(coauthorship.user_group || coauthorship.author, :accepted_proposals)

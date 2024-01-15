@@ -57,7 +57,7 @@ module Decidim
           expect(proposal.proposal_state.token).to eq("not_answered")
           expect(NotifyProposalAnswer)
             .to receive(:call)
-            .with(proposal, proposal.proposal_state)
+            .with(proposal, nil)
 
           subject
         end
@@ -92,7 +92,7 @@ module Decidim
 
             expect(NotifyProposalAnswer)
               .to receive(:call)
-              .with(proposal, proposal.proposal_state)
+              .with(proposal, "accepted")
 
             subject
           end

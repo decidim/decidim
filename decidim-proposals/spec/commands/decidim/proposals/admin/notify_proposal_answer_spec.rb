@@ -10,7 +10,7 @@ module Decidim
 
         let(:command) { described_class.new(proposal, initial_state) }
         let!(:proposal) { create(:proposal, :accepted) }
-        let(:initial_state) { Decidim::Proposals::ProposalState.where(token: "not_answered", component: proposal.component).first! }
+        let(:initial_state) { "not_answered" }
         let(:current_user) { create(:user, :admin) }
         let(:follow) { create(:follow, followable: proposal, user: follower) }
         let(:follower) { create(:user, organization: proposal.organization) }
@@ -46,7 +46,7 @@ module Decidim
 
         context "when the proposal is rejected after being accepted" do
           let(:proposal) { create(:proposal, :rejected) }
-          let(:initial_state) { Decidim::Proposals::ProposalState.where(token: "accepted", component: proposal.component).first }
+          let(:initial_state) { "accepted" }
 
           it "broadcasts ok" do
             expect { subject }.to broadcast(:ok)
@@ -73,7 +73,7 @@ module Decidim
 
         context "when the proposal is not answered after being accepted" do
           let(:proposal) { create(:proposal, answered_at: Time.current, state_published_at: Time.current) }
-          let(:initial_state) { Decidim::Proposals::ProposalState.where(token: "accepted", component: proposal.component).first }
+          let(:initial_state) { "accepted" }
 
           it "broadcasts ok" do
             expect { subject }.to broadcast(:ok)
@@ -92,7 +92,7 @@ module Decidim
         end
 
         context "when the proposal published state has not changed" do
-          let(:initial_state) { Decidim::Proposals::ProposalState.where(token: "accepted", component: proposal.component).first }
+          let(:initial_state) { "accepted" }
 
           it "broadcasts ok" do
             expect { command.call }.to broadcast(:ok)
