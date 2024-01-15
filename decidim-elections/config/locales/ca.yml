@@ -669,6 +669,7 @@ ca:
           back: Començar de nou el procés de votació
           ballot_hash: 'L''identificador de la teva papereta és:'
           cast: Dipositar la papereta per a finalitzar el teu vot
+          description_html: Aquí tens les opcions per emetre la teva butlleta perquè sigui comptada correctament o pots auditar que la teva butlleta ha estat xifrada correctament. Si vols auditar la votació, si us plau, <a href="https://github.com/decidim/decidim-bulletin-board/blob/develop/verifier/README.md">llegeix les instruccions sobre com procedir</a>.
           header: 'La papereta està xifrada: pots dipositar-la o auditar-la'
         casting:
           header: El vot s'està dipositant...
