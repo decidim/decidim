@@ -366,8 +366,6 @@ de:
           view_more_logs: Weitere Protokolle anzeigen
           welcome: Willkommen beim Admin-Panel von Decidim.
       domain_whitelist:
-        form:
-          domain_too_short: Domain zu kurz
         update:
           error: Fehler beim Aktualisieren der Domain-Whitelist
           success: Domain-Whitelist erfolgreich aktualisiert
@@ -548,7 +546,6 @@ de:
         areas: Bereiche
         configuration: Aufbau
         dashboard: Instrumententafel
-        external_domain_whitelist: Erlaubte externe Domains
         help_sections: Hilfeabschnitte
         homepage: Startseite
         impersonations: Identitätswechsel
@@ -824,11 +821,6 @@ de:
       organization_external_domain_whitelist:
         edit:
           update: Aktualisieren
-        external_domain:
-          down: Runter
-          external_domain: Externe Domain
-          remove: Entfernen
-          up: Hoch
         form:
           add: Zur Whitelist hinzufügen
           title: Externe Domain-Whitelist
