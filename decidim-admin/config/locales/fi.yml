@@ -366,8 +366,6 @@ fi:
           view_more_logs: Näytä lisää lokitietoja
           welcome: Tervetuloa hallintapaneeliin.
       domain_whitelist:
-        form:
-          domain_too_short: Verkkotunnus on liian lyhyt
         update:
           error: Sallittujen verkkotunnusten listan päivitys epäonnistui
           success: Sallittujen verkkotunnusten listan päivitys onnistui
@@ -548,7 +546,6 @@ fi:
         areas: Alueet
         configuration: Asetukset
         dashboard: Hallintapaneeli
-        external_domain_whitelist: Sallitut ulkoiset verkko-osoitteet
         help_sections: Ohjeosiot
         homepage: Kotisivu
         impersonations: Esiintymiset toisena käyttäjänä
@@ -824,11 +821,6 @@ fi:
       organization_external_domain_whitelist:
         edit:
           update: Päivitä
-        external_domain:
-          down: Alas
-          external_domain: Ulkoinen verkkotunnus
-          remove: Poista
-          up: Ylös
         form:
           add: Lisää sallittujen listalle
           title: Sallittujen ulkoisten verkkotunnusten lista
