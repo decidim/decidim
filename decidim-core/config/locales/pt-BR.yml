@@ -458,8 +458,6 @@ pt-BR:
         name: Rodapé do sub-herói banner
       global_menu:
         name: Menu global
-      hero:
-        name: Imagem do herói
       hero_settings_form:
         background_image: Imagem de fundo
         welcome_text: Texto de boas-vindas
