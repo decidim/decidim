@@ -372,12 +372,6 @@ pt-BR:
           title: Moderações pendentes
         show:
           view_more_logs: Ver mais registros
-      domain_whitelist:
-        form:
-          domain_too_short: Domínio muito curto
-        update:
-          error: Falha ao atualizar domínio de lista de desejos.
-          success: Domínio lista de desejo atualizado com sucesso.
       exports:
         export_as: "%{name} como %{export_format}"
         formats:
@@ -555,7 +549,6 @@ pt-BR:
         areas: Áreas
         configuration: Configuração
         content: Conteúdo relatado
-        external_domain_whitelist: Domínios externos permitidos
         help_sections: Seções de ajuda
         homepage: Pagina inicial
         impersonations: Imitações
@@ -832,17 +825,6 @@ pt-BR:
             layout_appearance_title: Editar aparência do layout
             preview: Pré-visualização
           omnipresent_banner_appearance_title: Editar banner onipresente
-      organization_external_domain_whitelist:
-        edit:
-          update: Atualizar
-        external_domain:
-          down: Para Baixo
-          external_domain: Domínio externo
-          remove: Excluir
-          up: Para Cima
-        form:
-          add: Adicionar à lista branca
-          title: Lista branca de domínios externos
       participatory_space_private_users:
         create:
           error: Ocorreu um erro ao adicionar um usuário privado para este espaço participativo.
@@ -981,7 +963,6 @@ pt-BR:
         areas: Áreas
         authorization_workflows: Métodos de verificação
         dashboard: painel de controle
-        edit_external_domains: Lista branca de domínios externos
         edit_organization_appearance: Editar aparência da página inicial
         impersonatable_users: Usuários gerenciáveis
         impersonations: Gerenciamento de usuários
