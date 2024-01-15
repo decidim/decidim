@@ -9,7 +9,7 @@ class CreateDefaultProposalStates < ActiveRecord::Migration[6.1]
                optional: true
 
     self.table_name = :decidim_proposals_proposals
-    STATES = { not_answered: 0, evaluating: 10, accepted: 20, rejected: -10, withdrawn: -20 }.freeze
+    STATES = { not_answered: 0, evaluating: 10, accepted: 20, rejected: -10 }.freeze
     enum old_state: STATES, _default: "not_answered"
   end
 

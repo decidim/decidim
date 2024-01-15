@@ -71,11 +71,6 @@ module Decidim
           css_class: "alert",
           announcement_title: { locale => I18n.with_locale(locale) { I18n.t("proposal_rejected_reason", scope: "decidim.proposals.proposals.show") } },
           title: { locale => I18n.with_locale(locale) { I18n.t(:rejected, scope: "decidim.proposals.answers") } }
-        },
-        withdrawn: {
-          token: :withdrawn,
-          css_class: "alert",
-          title: { locale => I18n.with_locale(locale) { I18n.t(:withdrawn, scope: "decidim.proposals.answers") } }
         }
       }
       default_states.each_key do |key|
