@@ -366,6 +366,8 @@ ca:
           view_more_logs: Veure més registres
           welcome: Benvinguda al Tauler d'Aministració.
       domain_whitelist:
+        form:
+          domain_too_short: El domini és massa curt
         update:
           error: Hi ha hagut un error en incloure el domini en la llista blanca
           success: Llista blanca de dominis actualitzada correctament
