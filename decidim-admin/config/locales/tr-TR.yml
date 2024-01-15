@@ -601,6 +601,9 @@ tr:
             layout_appearance_title: Düzen görünümünü düzenle
             preview: Önizleme
           omnipresent_banner_appearance_title: Her yerde bulunan banner'ı düzenle
+      organization_external_domain_whitelist:
+        edit:
+          update: Güncelleştirme
       participatory_space_private_users:
         create:
           error: Bu katılımcı alan için özel bir kullanıcı eklenirken bir hata oluştu.
