@@ -42,7 +42,7 @@ describe "Identity document online review" do
   end
 
   it "shows an error when information does not match" do
-    submit_verification_form(doc_type: "NIE", doc_number: "XXXXXXXY")
+    submit_verification_form(doc_type: "Identification number", doc_number: "XXXXXXXY")
 
     expect(page).to have_content("Verification does not match")
     expect(page).to have_content("Introduce the data in the picture")
