@@ -464,8 +464,6 @@ hu:
         description: Leírás
       footer_sub_hero:
         name: Lábléc sub hero banner
-      hero:
-        name: Hero kép
       hero_settings_form:
         background_image: Háttérkép
         welcome_text: Üdvözlő szöveg
