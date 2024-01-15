@@ -365,8 +365,6 @@ hu:
           view_more_logs: További naplók megtekintése
           welcome: Üdvözölünk az Admin Panelben.
       domain_whitelist:
-        form:
-          domain_too_short: Túl rövid domain
         update:
           error: Nem lehetett frissíteni a domain whitelistet
           success: A domain whiteliste sikeresen frissítésre került
@@ -547,7 +545,6 @@ hu:
         areas: Területek
         configuration: Beállítások
         dashboard: Vezérlőpult
-        external_domain_whitelist: Engedélyezett külső domainek
         help_sections: Súgó szakaszok
         homepage: Homepage
         impersonations: Felhatalmazások
@@ -818,11 +815,6 @@ hu:
       organization_external_domain_whitelist:
         edit:
           update: Frissítés
-        external_domain:
-          down: Le
-          external_domain: Külső domain
-          remove: Eltávolítás
-          up: Fel
         form:
           add: Hozzáadás a kivétellistához
           title: Külső domain kivétellista
