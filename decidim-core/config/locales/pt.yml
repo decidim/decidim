@@ -353,8 +353,6 @@ pt:
         description: Descrição
       footer_sub_hero:
         name: Faixa sub hero do rodapé
-      hero:
-        name: Imagem do hero
       hero_settings_form:
         background_image: Imagem de fundo
         welcome_text: Texto de boas-vindas
