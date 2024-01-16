@@ -2,7 +2,7 @@
 import icon from "src/decidim/icon"
 import { dateToPicker, formatDate, displayDate, formatTime, calculateDatepickerPos } from "src/decidim/datepicker/datepicker_functions"
 import { dateKeyDownListener, dateBeforeInputListener } from "src/decidim/datepicker/datepicker_listeners"
-import { getDictionary } from "src/decidim/i18n";
+import { getDictionary } from "src/decidim/i18n"
 
 export default function generateDatePicker(input, row, formats) {
   const i18n = getDictionary("date.buttons");
@@ -15,7 +15,7 @@ export default function generateDatePicker(input, row, formats) {
   date.setAttribute("type", "text");
 
   const calendar = document.createElement("button");
-  calendar.innerHTML = icon("calendar-line")
+  calendar.innerHTML = icon("calendar-line");
   calendar.setAttribute("class", "datepicker_calendar-button");
 
   dateColumn.appendChild(date);
