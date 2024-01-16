@@ -1074,6 +1074,7 @@ hu:
     newsletter_mailer:
       newsletter:
         note: Ezt az emailt azért kapta meg, mert feliratkozott a(z) %{organization_name}hírlevelekre. Megváltoztathatja a beállításokat az <a href="%{link}">értesítések oldalon</a>.
+        see_on_website: Nem látja megfelelően az e-mail tartalmát? Tekintse meg a <a href="%{link}" target="_blank">weboldalon</a>.
         unsubscribe: Az ilyen emailek fogadásának kikapcsolása, <a href="%{link}" target="_blank" class="unsubscribe">Leiratkozás</a>.
     newsletter_templates:
       basic_only_text:
@@ -1231,6 +1232,7 @@ hu:
         success: Jelszó sikeresen frissítve
     profile:
       deleted: Törölt résztvevő
+      inaccessible_message: Ez a profil a Felhasználási Feltételek megsértése okán nem elérhető!
       view: Nézet
     profiles:
       default_officialization_text_for_user_groups: Ez a felhasználói csoport nyilvánosan ellenőrzött, annak neve igazoltan megfelel a valódi nevének
@@ -1356,6 +1358,7 @@ hu:
         already_reported: Ezt a tartalmat már jelentették, az adminisztrátor éppen felülvizsgálja.
         close: Bezár
         description: Mi nem megfelelő a felhasználóval kapcsolatban?
+        does_not_belong: 'Illegális tevékenységet, öngyilkosságra való felhívást, személyes adatokat vagy más olyan dolgot tartalmaz, ami nem tartozik ide: %{organization_name}.'
         offensive: Rasszizmust, szexizmust, gyalázkodást, személyeskedést, halálos fenyegetést, öngyilkosságra való felhívást vagy gyűlöletbeszédet tartalmaz.
         report: Jelentés
         spam: Klikkvadászat, reklám, átverés vagy script bot.
@@ -1413,6 +1416,7 @@ hu:
     user_contact_disabled: Ez a résztvevő nem fogad el közvetlen üzeneteket.
     user_conversations:
       create:
+        error: Az üzenet létrehozása sikertelen. Próbálkozzon újra később
         success: A beszélgetés sikeresen elindult!
       index:
         add_max_users: 'Felhasználók hozzáadása a beszélgetéshez: legfeljebb 9 felhasználó'
@@ -1646,6 +1650,7 @@ hu:
       not_saved:
         one: 'Hiba történt a kérelmed feldolgozásakor:'
         other: 'Több hiba történt a művelet végrehajtása során:'
+      password_confirmation_message: 'A jelszó megerősítése nem egyezik meg a jelszóval'
       too_many_marks: túl sok egymást követő írásjelet használ (pl. és!)
       too_much_caps: túl sok nagybetűt használ (a szöveg több mint 25% -a)
   forms:
@@ -1841,7 +1846,9 @@ hu:
   views:
     pagination:
       first: "&laquo; Első"
+      first_title: Hivatkozás az első oldalra
       last: Utolsó &raquo;
+      last_title: Hivatkozás az utolsó oldalra
       next: Következő &rsaquo;
       next_title: Lépés a következő oldalra
       pagination: Lapozó
