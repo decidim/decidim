@@ -23,7 +23,7 @@ describe "Identity document offline review" do
       user:,
       verification_metadata: {
         "verification_type" => "offline",
-        "document_type" => "Identification number",
+        "document_type" => "identification_number",
         "document_number" => "XXXXXXXX"
       }
     )

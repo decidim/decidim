@@ -18,7 +18,7 @@ describe "Identity document online review" do
       user:,
       verification_metadata: {
         "verification_type" => "online",
-        "document_type" => "Identification number",
+        "document_type" => "identification_number",
         "document_number" => "XXXXXXXX"
       },
       verification_attachment: Decidim::Dev.test_file("id.jpg", "image/jpeg")
