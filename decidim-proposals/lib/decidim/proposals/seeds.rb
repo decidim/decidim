@@ -86,7 +86,7 @@ module Decidim
                                                        [:not_answered, nil, nil]
                                                      end
 
-        proposal_state = Decidim::Proposals::ProposalState.where(component:, token: proposal_state).first!
+        proposal_state = Decidim::Proposals::ProposalState.where(component:, token: proposal_state).first
         params = {
           component:,
           category: participatory_space.categories.sample,
@@ -163,7 +163,7 @@ module Decidim
           scope: random_scope(participatory_space:),
           title: { en: "#{proposal.title["en"]} #{::Faker::Lorem.sentence(word_count: 1)}" },
           body: { en: "#{proposal.body["en"]} #{::Faker::Lorem.sentence(word_count: 3)}" },
-          proposal_state: Decidim::Proposals::ProposalState.where(component: proposal.component, token: :evaluating).first!,
+          proposal_state: Decidim::Proposals::ProposalState.where(component: proposal.component, token: :evaluating).first,
           answer: nil,
           answered_at: Time.current,
           published_at: Time.current
