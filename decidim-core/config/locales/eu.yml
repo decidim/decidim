@@ -491,6 +491,8 @@ eu:
         name: Oinaren azpi-heroiaren pankarta
       global_menu:
         name: Menu globala
+      hero:
+        name: Irudi nagusia eta ekintza botoia
       hero_settings_form:
         background_image: Atzeko planoko irudia
         welcome_text: Ongietorri-testua
@@ -646,6 +648,10 @@ eu:
     endorsers_list:
       endorsed_by: Gustuko du…
     errors:
+      files:
+        file_cannot_be_processed: Fitxategia ezin izan da prozesatu
+        file_resolution_too_large: Fitxategiaren erresoluzioa handiegia da
+        not_inside_organization: Artxiboa ez dago erakunde batekin erlazionatuta
       internal_server_error:
         copied: Testua kopiatuta!
         copy_error_message_clarification: Errore-mezua arbelean kopiatuta
