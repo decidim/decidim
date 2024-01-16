@@ -75,7 +75,7 @@ module Decidim
         end
 
         def all_proposals
-          Decidim::Proposals::Proposal.where(component: origin_component).only_status(:accepted)
+          Decidim::Proposals::Proposal.where(component: origin_component).accepted
         end
 
         def origin_component

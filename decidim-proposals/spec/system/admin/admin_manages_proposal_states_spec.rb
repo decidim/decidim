@@ -9,21 +9,21 @@ describe "Admin manages proposals states" do
 
   context "when visiting the component admin page" do
     it "lists the proposal states button" do
-      expect(page).to have_content("States")
+      expect(page).to have_content("Statuses")
     end
   end
 
   context "when listing proposal states page" do
     before do
-      click_link "States"
+      click_link "Statuses"
     end
 
     it "lists the default proposal states" do
-      expect(page).to have_content("States")
-      expect(page).to have_link("New state")
+      expect(page).to have_content("Status")
+      expect(page).to have_link("New status")
 
       within "table" do
-        expect(page).to have_content("State")
+        expect(page).to have_content("Status")
         expect(page).to have_content("Accepted")
         expect(page).to have_content("Rejected")
         expect(page).to have_content("Evaluating")
@@ -33,8 +33,8 @@ describe "Admin manages proposals states" do
 
   context "when creating a proposal state" do
     before do
-      click_link "States"
-      click_link "New state"
+      click_link "Statuses"
+      click_link "New status"
     end
 
     it "creates a new proposal state" do
@@ -88,7 +88,7 @@ describe "Admin manages proposals states" do
     let!(:state) { create(:proposal_state, component: current_component, **state_params) }
 
     before do
-      click_link "States"
+      click_link "Statuses"
     end
 
     it "displays the proposal state" do
@@ -147,7 +147,7 @@ describe "Admin manages proposals states" do
     let!(:state) { create(:proposal_state, component: current_component, **state_params) }
 
     before do
-      click_link "States"
+      click_link "Statuses"
     end
 
     it "deletes the proposal state" do
