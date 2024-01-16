@@ -7,7 +7,7 @@ module Decidim
       class InformationForm < AuthorizationHandler
         mimic :id_document_information
 
-        DOCUMENT_TYPES = %w(DNI NIE passport).freeze
+        DOCUMENT_TYPES = %w(identification_number passport).freeze
 
         attribute :document_number, String
         attribute :document_type, String
