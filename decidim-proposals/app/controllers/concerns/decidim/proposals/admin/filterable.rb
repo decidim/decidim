@@ -58,6 +58,12 @@ module Decidim
             [:scope_id_eq, :category_id_eq, :valuator_role_ids_has, :proposal_state_id_eq, :state_eq]
           end
 
+          def translated_state_eq(state)
+            return t("decidim.admin.filters.proposals.state_eq.values.withdrawn") if state == "withdrawn"
+
+            translated_attribute(ProposalState.where(component: current_component, token: state).first&.title)
+          end
+
           def state_eq_values
             ProposalState.where(component: current_component).pluck(:token) + ["withdrawn"]
           end

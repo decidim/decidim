@@ -151,7 +151,7 @@ module Decidim
         end.compact
 
         additional_conditions = search_values & custom_states
-        conditions.push(only_status(additional_conditions)) if additional_conditions.any?
+        conditions.push(state_published.only_status(additional_conditions)) if additional_conditions.any?
 
         return self unless conditions.any?
 
