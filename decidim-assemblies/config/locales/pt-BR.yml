@@ -40,7 +40,7 @@ pt-BR:
         is_transparent: É transparente
         local_area: Área da organização
         meta_scope: Metadados do âmbito
-        parent_id: Assambleia mãe
+        parent_id: Assembleia mãe
         participatory_processes_ids: Processos participativos relacionados
         participatory_scope: O que é decidido
         participatory_structure: Como é decidido
@@ -98,7 +98,7 @@ pt-BR:
         new_assembly: Nova assembleia
         new_assembly_member: Novo membro da assembleia
         new_assembly_type: Novo tipo de assembleia
-        new_assembly_user_role: Novo administrador da assambleia
+        new_assembly_user_role: Novo administrador da assembleia
       assemblies:
         create:
           error: Ocorreu um erro ao criar uma nova assembleia.
@@ -147,18 +147,20 @@ pt-BR:
       assembly_members:
         create:
           error: Ocorreu um erro ao adicionar um membro para esta assembleia.
-          success: Membro criado com sucesso para este assembly.
+          success: Membro criado com sucesso para esta assembleia.
         destroy:
-          success: Membro excluído com êxito para este assembly.
+          success: Membro excluído com êxito para esta assembleia.
         edit:
+          title: Atualizar membro da assembleia
           update: Atualizar
         index:
           assembly_members_title: Membros da assembleia
         new:
           create: Criar
+          title: Novo membro da assembleia
         update:
-          error: Houve um erro ao atualizar o membro para este assembly.
-          success: Membro atualizado com êxito para este assembly.
+          error: Houve um erro ao atualizar o membro para esta assembleia.
+          success: Membro atualizado com êxito para esta assembleia.
       assembly_publications:
         create:
           error: Ocorreu um erro ao publicar esta assembleia.
@@ -168,19 +170,21 @@ pt-BR:
           success: Assembleia não publicada com sucesso.
       assembly_user_roles:
         create:
-          error: Ocorreu um erro ao adicionar um usuário para esta assambleia.
-          success: Usuário adicionado com sucesso a esta assambleia.
+          error: Ocorreu um erro ao adicionar um administrador para esta assembleia.
+          success: Usuário administrador adicionado com sucesso a esta assembleia.
         destroy:
-          success: Usuário removido com sucesso deste assembly.
+          success: Usuário removido com sucesso deste assembleia.
         edit:
+          title: Atualizar administrador da assembleia
           update: Atualizar
         index:
-          assembly_admins_title: Usuários da assembleia
+          assembly_admins_title: Administradores da assembleia
         new:
           create: Criar
+          title: Novo administrador da assembleia
         update:
-          error: Ocorreu um erro ao atualizar um usuário para esta assambleia.
-          success: Usuário atualizado com sucesso para esta assambleia.
+          error: Ocorreu um erro ao atualizar um administrador para esta assembleia.
+          success: Administrador atualizado com sucesso para esta assembleia.
       filters:
         ceased_date_not_null:
           label: Cessado
@@ -192,7 +196,7 @@ pt-BR:
       menu:
         assemblies: Assembleias
         assemblies_submenu:
-          assembly_admins: Usuários da assembleia
+          assembly_admins: Administradores da assembleia
           assembly_members: Membros
           attachment_collections: Pastas
           attachment_files: arquivos
@@ -203,6 +207,7 @@ pt-BR:
           landing_page: Página principal
           moderations: Moderação
           private_users: Usuários particulares
+          see_assembly: Ver assembleia
         assemblies_types: Tipos de assembleia
       models:
         assemblies_types:
@@ -234,7 +239,7 @@ pt-BR:
             email: O email
             name: Nome
             role: Cargo
-          name: Usuários da assembleia
+          name: Administrador da assembleia
           roles:
             admin: Administrador
             collaborator: Colaborador
@@ -245,13 +250,13 @@ pt-BR:
         assemblies_types: Tipos de assembleia
     admin_log:
       assembly:
-        create: "%{user_name} criou o conjunto %{resource_name}"
-        duplicate: "%{user_name} duplicou a assambleia %{resource_name}"
-        export: "%{user_name} exportou a assambleia %{resource_name}"
-        import: "%{user_name} importou a assambleia %{resource_name}"
-        publish: "%{user_name} publicou o conjunto %{resource_name}"
-        unpublish: "%{user_name} não publicado o conjunto %{resource_name}"
-        update: "%{user_name} atualizou a assambleia %{resource_name}"
+        create: "%{user_name} criou a assembleia %{resource_name}"
+        duplicate: "%{user_name} duplicou a assembleia %{resource_name}"
+        export: "%{user_name} exportou a assembleia %{resource_name}"
+        import: "%{user_name} importou a assembleia %{resource_name}"
+        publish: "%{user_name} publicou a assembleia %{resource_name}"
+        unpublish: "%{user_name} não desplublicou a assembleia %{resource_name}"
+        update: "%{user_name} atualizou a assembleia %{resource_name}"
       assembly_member:
         create: "%{user_name} criou o membro %{resource_name} na assambleia %{space_name}"
         delete: "%{user_name} removeu o membro %{resource_name} do conjunto %{space_name}"
@@ -265,7 +270,7 @@ pt-BR:
         unpublish: "%{user_name} despublicou o tipo de assembleia %{resource_name}"
         update: "%{user_name} atualizou o tipo de assembleia %{resource_name}"
       assembly_user_role:
-        create: "%{user_name} convidou %{resource_name} para o assembly %{space_name}"
+        create: "%{user_name} convidou %{resource_name} para a assembelia %{space_name}"
         delete: "%{user_name} removeu o usuário %{resource_name} do conjunto %{space_name}"
         update: "%{user_name} alterou a função de %{resource_name} na assambleia %{space_name}"
     assemblies:
@@ -409,7 +414,7 @@ pt-BR:
     log:
       value_types:
         assembly_presenter:
-          not_found: 'O assembly não foi encontrado no banco de dados (ID: %{id})'
+          not_found: 'A assembleia não foi encontrada no banco de dados (ID: %{id})'
         assembly_type_presenter:
           not_found: 'O tipo de assembleia não foi encontrado no banco de dados (ID: %{id})'
     menu:
