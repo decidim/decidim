@@ -246,7 +246,7 @@ module Decidim
         return amendment.state if emendation?
         return nil unless published_state? || withdrawn?
 
-        proposal_state&.token
+        proposal_state&.token || "not_answered"
       end
 
       # This is only used to define the setter, as the getter will be overriden below.
@@ -258,7 +258,7 @@ module Decidim
       def internal_state
         return amendment.state if emendation?
 
-        proposal_state&.token
+        proposal_state&.token || "not_answered"
       end
 
       # Public: Checks if the organization has published the state for the proposal.
