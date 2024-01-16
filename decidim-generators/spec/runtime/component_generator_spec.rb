@@ -10,7 +10,7 @@ module Decidim
     context "with a component" do
       let(:test_component) { "dummy_component" }
       let(:command) { "decidim --component #{test_component}" }
-      let(:semver_friendly_version) { Decidim::MaintainersToolbox::GemManager.semver_friendly_version(Decidim.version) }
+      let(:semver_friendly_version) { Decidim::GemManager.semver_friendly_version(Decidim.version) }
       let(:npm_package_version) { "^#{semver_friendly_version}" }
 
       after { FileUtils.rm_rf("decidim-module-#{test_component}") }

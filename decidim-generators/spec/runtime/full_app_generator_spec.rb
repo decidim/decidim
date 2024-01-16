@@ -23,7 +23,7 @@ module Decidim
 
           let(:subcommand) { "bundle exec rails db:drop db:create db:migrate db:seed" }
           let(:subresult) do
-            Bundler.with_original_env { Decidim::MaintainersToolbox::GemManager.new(test_app).capture(subcommand, env: {}) }
+            Bundler.with_original_env { GemManager.new(test_app).capture(subcommand, env: {}) }
           end
 
           it "creates the app without errors" do

@@ -110,7 +110,7 @@ namespace :decidim do
         FileUtils.rm_rf(rails_app_path.join("packages"))
         FileUtils.cp_r(gem_path.join("packages"), rails_app_path)
       else
-        package_spec = "@decidim/%s@~#{Decidim::MaintainersToolbox::GemManager.semver_friendly_version(decidim_gemspec.version.to_s)}"
+        package_spec = "@decidim/%s@~#{Decidim::GemManager.semver_friendly_version(decidim_gemspec.version.to_s)}"
       end
 
       local_npm_dependencies.transform_values { |names| names.map { |name| format(package_spec, name) } }

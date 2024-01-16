@@ -3,7 +3,7 @@
 require "active_support/core_ext/module/delegation"
 require "open3"
 
-module Decidim::MaintainersToolbox
+module Decidim
   #
   # Handles a decidim components.
   #
@@ -154,7 +154,7 @@ module Decidim::MaintainersToolbox
         until (status = new(dir).run(command, out: out))
           attempts += 1
 
-          break if attempts > Decidim::MaintainersToolbox::GemManager.retry_times
+          break if attempts > Decidim::GemManager.retry_times
         end
 
         status
