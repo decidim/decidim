@@ -367,6 +367,8 @@ hu:
           dropdown: Legördülő lista
           view_more_logs: További naplók megtekintése
       domain_whitelist:
+        form:
+          domain_too_short: Túl rövid domain név
         update:
           error: Nem sikerült frissíteni a domain fehérlistát.
           success: A domain fehérlista sikeresen frissült.
@@ -551,6 +553,7 @@ hu:
         areas: Területek
         configuration: Beállítások
         content: Jelentett tartalom
+        external_domain_whitelist: Engedélyezett külső domainek
         help_sections: Súgó szakaszok
         homepage: Homepage
         impersonations: Felhatalmazások
@@ -830,6 +833,11 @@ hu:
       organization_external_domain_whitelist:
         edit:
           update: Frissítés
+        external_domain:
+          down: Le
+          external_domain: Külső domain
+          remove: Eltávolítás
+          up: Fel
         form:
           add: Hozzáadás a kivétellistához
           title: Külső domain kivétellista
