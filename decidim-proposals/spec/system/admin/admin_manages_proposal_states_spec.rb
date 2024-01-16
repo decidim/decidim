@@ -56,7 +56,6 @@ describe "Admin manages proposals states" do
           ca: "Anunci més llarga"
         )
 
-        fill_in :proposal_state_token, with: "custom"
         fill_in :proposal_state_css_class, with: "csscustom"
 
         find("*[type=submit]").click
@@ -69,7 +68,7 @@ describe "Admin manages proposals states" do
         expect(page).to have_content("Custom state")
       end
 
-      state = Decidim::Proposals::ProposalState.find_by(token: "custom")
+      state = Decidim::Proposals::ProposalState.find_by(token: "custom_state")
       expect(state).to be_present
       expect(translated(state.title)).to eq("Custom state")
       expect(translated(state.announcement_title)).to eq("A longer anouncement")
@@ -128,7 +127,7 @@ describe "Admin manages proposals states" do
         expect(page).to have_content("Custom state")
       end
 
-      state = Decidim::Proposals::ProposalState.find_by(token: "editable")
+      state = Decidim::Proposals::ProposalState.find_by(token: "editable_state")
 
       expect(translated(state.title)).to eq("Custom state")
       expect(translated(state.announcement_title)).to eq("A longer anouncement")

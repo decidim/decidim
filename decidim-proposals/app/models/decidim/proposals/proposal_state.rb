@@ -10,7 +10,7 @@ module Decidim
       include Decidim::TranslatableResource
       include Decidim::TranslatableAttributes
 
-      before_create :generate_token
+      before_validation :generate_token, on: :create
 
       translatable_fields :title
 
@@ -34,11 +34,14 @@ module Decidim
 
       def ensure_unique_token(token)
         step = 0
+        code = token
         loop do
-          code = step.zero? ? token : "#{token}_#{step}"
-          step += 1
           break if Decidim::Proposals::ProposalState.where(component:, token: code).empty?
+
+          code = "#{token}_#{step}"
+          step += 1
         end
+
         code
       end
     end
