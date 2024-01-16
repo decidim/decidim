@@ -414,6 +414,8 @@ uk:
       results_found_for_term: '%{count} Висліди пошуку: "%{term}"'
       term_input_placeholder: Шукати
     searches:
+      filters:
+        search: Шукати
       filters_small_view:
         filter: Відібрати
         filter_by: 'Відібрати за ознакою:'

@@ -99,12 +99,16 @@ pt-BR:
             values:
               accepted: Aceitou
               evaluating: Avaliando
+              not_answered: Não respondido
               published: Publicado
               rejected: Rejeitado
               validating: Validação técnica
               withdrawn: Retirado
           valuator_role_ids_has:
             label: Atribuído ao avaliador
+          with_any_state:
+            values:
+              state_not_published: Não respondido
         search_placeholder:
           id_string_or_title_cont: Buscar %{collection} por ID ou título.
     components:
@@ -129,6 +133,8 @@ pt-BR:
             collaborative_drafts_enabled: Rascunhos colaborativos ativados
             comments_enabled: Comentários ativados
             comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
+            default_sort_order_options:
+              most_commented: Mais comentado
             geocoding_enabled: Geocodificação habilitada
             minimum_votes_per_user: Mínimo de votos por usuário
             new_proposal_body_template: Novo modelo de corpo da proposta
@@ -172,6 +178,8 @@ pt-BR:
             comments_blocked: Comentários bloqueados
             creation_enabled: Os participantes podem criar propostas
             creation_enabled_readonly: Essa configuração é desativada quando você ativa a funcionalidade de textos participativos. Para enviar propostas como texto participativo, clique no botão de textos participativos e siga as instruções.
+            default_sort_order_options:
+              most_commented: Mais comentado
             endorsements_blocked: Endossos bloqueados
             endorsements_enabled: Endossos habilitados
             proposal_answering_enabled: Resposta de proposta ativada
@@ -353,6 +361,32 @@ pt-BR:
         exports:
           proposal_comments: Comentários
           proposals: Propostas
+        imports:
+          help:
+            answers: |
+              O documento de importação deve conter os seguintes nomes de coluna, no caso de arquivos CSV ou Excel, ou nomes de chave, no caso de arquivos JSON:
+              <ul>
+              <li><b>id:</b> ID da proposta a ser respondida</li>
+              <li><b>estado:</b> Uma das opções "aceito", "avaliando" ou "rejeitado"</li>
+              <li><b>resposta/en:</b> Resposta no idioma inglês. Isso dependerá da configuração de idioma de sua plataforma.</li>
+              </ul>
+            proposals: |
+              O arquivo deve ter os seguintes nomes de coluna em caso de arquivos CSV ou Excel. ou nomes de chaves no caso dos arquivos JSON:
+              <ul>
+              <li><b>title/en:</b> Título na língua inglesa. Isto dependerá da configuração de idioma da sua plataforma.</li>
+              <li><b>body/en:</b> corpo em inglês. Isto dependerá da configuração de linguagem da sua plataforma.</li>
+              <li><b>scope/id:</b> ID do Escopo</li>
+              <li><b>category/id:</b> ID para a Categoria</li>
+              </ul>
+          label:
+            answers: Importar respostas de um arquivo
+            proposals: Importar propostas de um arquivo
+          resources:
+            answers:
+              one: resposta na proposta
+              other: respostas na proposta
+          title:
+            proposals: Importar propostas de um arquivo
         models:
           proposal:
             name: Proposta
@@ -390,6 +424,7 @@ pt-BR:
             accepted: Aceitaram
             answer_proposal: Responda
             evaluating: Avaliando
+            not_answered: Não respondido
             rejected: Rejeitado
             title: Resposta para a proposta %{title}
         proposal_notes:
@@ -451,6 +486,7 @@ pt-BR:
             votes_count: Contagem de votos
           update_category:
             invalid: 'Estas propostas já tinham a categoria %{subject_name}: %{proposals}.'
+            select_a_category: Por favor, selecione uma categoria.
             success: 'Propostas atualizadas com sucesso para a categoria %{subject_name}: %{proposals}.'
           update_scope:
             invalid: 'Estas propostas já tinham o escopo %{subject_name}: %{proposals}.'
@@ -518,6 +554,7 @@ pt-BR:
               title: A ação a seguir é irreversível
             success: Esboço colaborativo retirado com sucesso.
         create:
+          error: Houve um problema ao criar este rascunho colaborativo.
           success: Rascunho colaborativo criado com sucesso.
         edit:
           attachment_legend: "(Opcional) Adicione um anexo"
@@ -635,8 +672,10 @@ pt-BR:
           description: As coordenadas serão atualizadas quando clicar no botão 'visualizar'. No entanto, o endereço não muda.
           instructions: Você pode mover o ponto no mapa.
         edit:
+          add_documents: Adicionar documentos
           attachment_legend: "(Opcional) Adicione um anexo"
           back: Voltar
+          edit_documents: Editar documentos
           select_a_category: Selecione uma categoria
           send: Enviar
           title: Editar proposta
@@ -667,6 +706,7 @@ pt-BR:
           see_all_withdrawn: Veja todas as propostas retiradas
         new:
           send: Continuar
+          title: Crie sua proposta
         orders:
           label: 'Ordene propostas por:'
           most_commented: Mais comentados
@@ -678,7 +718,7 @@ pt-BR:
           with_more_authors: Com mais autores
         participatory_texts:
           view_index:
-            document_index: Índice de Documentos
+            document_index: Índice de documentos
         placeholder:
           address: 37 Homewood Drive Brownsburg, IN 46112
         preview:

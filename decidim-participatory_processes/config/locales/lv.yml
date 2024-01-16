@@ -76,8 +76,6 @@ lv:
         destroy: Dzēst
         duplicate: Dublēt
         edit: Labot
-        filter:
-          all_processes: Rādīt visus procesus
         import_process: Importēt
         new_process: Jauns process
         new_process_group: Jauna procesa grupa

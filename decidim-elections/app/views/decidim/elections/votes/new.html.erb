@@ -29,6 +29,10 @@
     </div>
 
     <%= cell("decidim/announcement", t("decidim.elections.votes.new.preview_alert"), callout_class: "warning mb-4") if preview_mode? %>
+    <%= cell("decidim/announcement", {
+               title: t("safari_warning_title", scope: "decidim.elections.trustee_zone.trustees.show"),
+               body: t("safari_warning_description", scope: "decidim.elections.trustee_zone.trustees.show")
+             }, callout_class: "alert hidden", id: "not_supported_safari_browser") %>
 
     <% questions.each_with_index do |step_question, step_index| %>
       <div id="step-<%= step_index %>" <%= "hidden" unless step_index.zero? %>>

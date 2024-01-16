@@ -23,7 +23,7 @@ module Decidim
           enforce_permission_to :create, :media_link
           @form = form(Decidim::Conferences::Admin::MediaLinkForm).from_params(params)
 
-          CreateMediaLink.call(@form, current_user, current_conference) do
+          CreateMediaLink.call(@form) do
             on(:ok) do
               flash[:notice] = I18n.t("media_links.create.success", scope: "decidim.admin")
               redirect_to conference_media_links_path(current_conference)

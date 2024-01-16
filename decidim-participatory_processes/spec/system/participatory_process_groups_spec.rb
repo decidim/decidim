@@ -19,11 +19,10 @@ describe "Participatory Process Groups" do
   let(:process) { group_processes.first }
   let(:other_process) { group_processes.last }
   let(:out_of_group_process) { create(:participatory_process, :active, organization:) }
-  let(:cta_settings) do
+  let(:hero_settings) do
     {
-      button_url: "https://example.org/action",
-      button_text_en: "cta text",
-      description_en: "cta description"
+      button_url_en: "https://example.org/action",
+      button_text_en: "hero text"
     }
   end
 
@@ -133,36 +132,30 @@ describe "Participatory Process Groups" do
       end
     end
 
-    context "when the cta content block is enabled" do
+    context "when the hero content block is enabled" do
       before do
         create(
           :content_block,
           organization:,
           scope_name: :participatory_process_group_homepage,
           scoped_resource_id: participatory_process_group.id,
-          manifest_name: :cta,
-          settings: cta_settings
+          manifest_name: :hero,
+          settings: hero_settings
         )
         visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
       end
 
-      it "shows the description" do
+      it "shows the action button" do
         within("[data-process-hero]") do
-          expect(page).to have_content(cta_settings[:description_en])
-        end
-      end
-
-      it "Shows the action button" do
-        within("[data-process-hero]") do
-          expect(page).to have_link(cta_settings[:button_text_en], href: cta_settings[:button_url])
+          expect(page).to have_link(hero_settings[:button_text_en], href: hero_settings[:button_url_en])
         end
       end
 
       context "when url is not configured" do
-        let(:cta_settings) { nil }
+        let(:hero_settings) { nil }
 
-        it "does not show the block" do
-          expect(page).not_to have_selector("[data-process-hero]")
+        it "shows the block" do
+          expect(page).to have_selector("[data-process-hero]")
         end
       end
     end
