@@ -1,9 +1,6 @@
 <div class="form__wrapper">
   <div class="card pt-4">
     <div class="card-section debate-fields">
-      <div class="row column">
-        <%= form.text_field :token, readonly: form.object.persisted? %>
-      </div>
       <div class="row column hashtags__container">
         <%= form.translated :text_field, :title, aria: { label: :title } %>
       </div>

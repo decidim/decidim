@@ -10,17 +10,11 @@ module Decidim
       include Decidim::TranslatableResource
       include Decidim::TranslatableAttributes
 
+      before_create :generate_token
+
       translatable_fields :title
 
       validates :token, presence: true, uniqueness: { scope: :component }
-      #
-      # scope :answerable, -> { where(answerable: true) }
-      # scope :system, -> { where(system: true) }
-      # scope :not_system, -> { where(system: false) }
-      # scope :default, -> { where(default: true) }
-      # scope :notifiable, -> { where(notifiable: true) }
-
-      translatable_fields :title
 
       has_many :proposals,
                class_name: "Decidim::Proposals::Proposal",
@@ -31,6 +25,21 @@ module Decidim
 
       def self.log_presenter_class_for(_log)
         Decidim::Proposals::AdminLog::ProposalStatePresenter
+      end
+
+      # protected
+      def generate_token
+        self.token = ensure_unique_token(translated_attribute(title).parameterize(separator: "_"))
+      end
+
+      def ensure_unique_token(token)
+        step = 0
+        loop do
+          code = step.zero? ? token : "#{token}_#{step}"
+          step += 1
+          break if Decidim::Proposals::ProposalState.where(component:, token: code).empty?
+        end
+        code
       end
     end
   end
