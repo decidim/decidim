@@ -216,6 +216,7 @@ pt-BR:
             title: Título
         assembly:
           fields:
+            actions: Ações
             created_at: Criado em
             private: Privado
             promoted: Em destaque
@@ -232,7 +233,7 @@ pt-BR:
           positions:
             other: De outros
             president: Presidente
-            secretary: secretário
+            secretary: Secretário
             vice_president: Vice presidente
         assembly_user_role:
           fields:
@@ -304,11 +305,14 @@ pt-BR:
             slug_help_html: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembleia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
         assembly_members:
           form:
-            existing_user: Usuário existente
-            non_user: Não usuário
+            existing_user: Participante existente
+            explanation: 'Orientação para a imagem:'
+            image_guide: De preferência, uma imagem em formato paisagem que não tenha nenhum texto.
+            non_user: Não-participante
+            non_user_avatar_help: Você deve receber o consentimento das pessoas antes de publicá-las como membro.
             select_a_position: Selecione uma posição
-            select_user: Selecione um usuário
-            user_type: Tipo de usuário
+            select_user: Selecione um participante
+            user_type: Tipo de participante
         content_blocks:
           highlighted_assemblies:
             max_results: Quantidade máxima de elementos para mostrar
@@ -444,7 +448,7 @@ pt-BR:
             other: "Assembleia %{count}"
         order_by_assemblies:
           assemblies:
-            one: "%{count} assambleia"
-            other: "%{count} assambleias"
+            one: "%{count} assembleia"
+            other: "%{count} assembleias"
       assembly_navigation:
         assembly_member_menu_item: Membros
