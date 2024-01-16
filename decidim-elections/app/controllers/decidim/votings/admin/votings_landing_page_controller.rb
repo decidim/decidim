@@ -6,10 +6,13 @@ module Decidim
       # Controller that allows to (de)activate the content blocks from a voting landing page
       class VotingsLandingPageController < Decidim::Votings::Admin::ApplicationController
         include Decidim::Admin::ContentBlocks::LandingPage
+        include Decidim::Admin::ParticipatorySpaceAdminBreadcrumb
 
         layout "decidim/admin/voting"
 
         helper_method :current_participatory_space
+
+        add_breadcrumb_item_from_menu :admin_voting_menu
 
         def content_block_scope
           :voting_landing_page

@@ -6,19 +6,21 @@ module Decidim
     class ModerationsController < Decidim::Admin::ApplicationController
       include Decidim::Moderations::Admin::Filterable
 
-      helper_method :moderations, :allowed_to?, :query, :permission_resource
+      helper_method :moderations, :allowed_to?, :query, :authorization_scope
+
+      before_action :set_moderation_breadcrumb_item
 
       def index
-        enforce_permission_to :read, permission_resource
+        enforce_permission_to :read, authorization_scope
       end
 
       def show
-        enforce_permission_to :read, permission_resource
+        enforce_permission_to :read, authorization_scope
         @moderation = collection.find(params[:id])
       end
 
       def unreport
-        enforce_permission_to :unreport, permission_resource
+        enforce_permission_to :unreport, authorization_scope
 
         Admin::UnreportResource.call(reportable, current_user) do
           on(:ok) do
@@ -34,7 +36,7 @@ module Decidim
       end
 
       def hide
-        enforce_permission_to :hide, permission_resource
+        enforce_permission_to :hide, authorization_scope
 
         Admin::HideResource.call(reportable, current_user) do
           on(:ok) do
@@ -50,7 +52,7 @@ module Decidim
       end
 
       def unhide
-        enforce_permission_to :unhide, permission_resource
+        enforce_permission_to :unhide, authorization_scope
 
         Admin::UnhideResource.call(reportable, current_user) do
           on(:ok) do
@@ -100,8 +102,16 @@ module Decidim
       # added so that the `GlobalModerationController` can overwrite this method
       # and define the custom permission resource, so that the permission system
       # is not overridden.
-      def permission_resource
+      def authorization_scope
         :moderation
+      end
+
+      def set_moderation_breadcrumb_item
+        controller_breadcrumb_items << {
+          label: I18n.t("menu.content", scope: "decidim.admin"),
+          url: decidim_admin.moderations_path,
+          active: true
+        }
       end
     end
   end

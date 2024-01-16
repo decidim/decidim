@@ -98,9 +98,6 @@ de:
         destroy: Löschen
         duplicate: Duplizieren
         edit: Bearbeiten
-        filter:
-          all_processes: Alle Beteiligungsprozesse anzeigen
-          process_groups: Prozesse in Gruppen filtern
         import_process: Importieren
         moderate: Moderieren
         new_process: Neuer Beteiligungsprozess
@@ -113,6 +110,9 @@ de:
         resend_invitation: Einladung erneut senden
         see_process: Prozess ansehen
         unpublish: Veröffentlichung rückgängig machen
+      filters:
+        decidim_participatory_process_group_id_eq:
+          label: Nach Prozessgruppe
       menu:
         participatory_process_groups: Prozessgruppen
         participatory_process_groups_submenu:
