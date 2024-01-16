@@ -220,6 +220,10 @@ fr-CA:
           success: L'étape de la concertation a été supprimée avec succès.
         edit:
           cta_deprecated:
+            body_html: |-
+              Configurer le bouton d'action via la phase de processsu participatif est déprécié dans le nouveau design.
+              Cela est maintenant fait via la <b>page d'accueil</b>, en utilisant le <b>Hero et le bloc de contenu image</b>.
+              Nous l'avons laissé ici pour migrer vos boutons d'actions dont vous avez besoin. Les champs <i>Chemin d'appel à l'action</i> et <i>Texte d'appel à l'action</i> seront supprimés dans une prochaine version.
             title: Bouton d'action obsolète
           title: Modifier l'étape de la concertation
           update: Mettre à jour
