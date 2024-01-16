@@ -29,16 +29,9 @@ module Decidim
       include Decidim::TranslatableAttributes
       include Decidim::FilterableResource
 
-      before_create :set_default_state
-
-      def set_default_state
-        return if proposal_state.present?
-
-        assign_state("not_answered")
-      end
-
       def assign_state(token)
-        proposal_state = Decidim::Proposals::ProposalState.where(component:, token:).first!
+        proposal_state = Decidim::Proposals::ProposalState.where(component:, token:).first
+
         self.proposal_state = proposal_state
       end
 

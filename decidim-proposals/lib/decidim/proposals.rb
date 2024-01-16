@@ -49,11 +49,6 @@ module Decidim
     def self.create_default_states!(component, admin_user, with_traceability: true)
       locale = Decidim.default_locale
       default_states = {
-        not_answered: {
-          token: :not_answered,
-          css_class: "info",
-          title: { locale => I18n.with_locale(locale) { I18n.t(:not_answered, scope: "decidim.proposals.answers") } }
-        },
         evaluating: {
           token: :evaluating,
           css_class: "warning",
