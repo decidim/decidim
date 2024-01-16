@@ -8,21 +8,21 @@ task test_all: [:test_main, :test_subgems]
 
 desc "Runs all tests in decidim subgems"
 task test_subgems: :test_app do
-  Decidim::MaintainersToolbox::GemManager.run_all("rake", include_root: false)
+  Decidim::GemManager.run_all("rake", include_root: false)
 end
 
 desc "Runs all tests in the main decidim gem"
 task :test_main do
-  Decidim::MaintainersToolbox::GemManager.new(__dir__).run("rake")
+  Decidim::GemManager.new(__dir__).run("rake")
 end
 
 desc "Update version in all gems to the one set in the `.decidim-version` file"
 task :update_versions do
-  Decidim::MaintainersToolbox::GemManager.replace_versions
+  Decidim::GemManager.replace_versions
 end
 
-Decidim::MaintainersToolbox::GemManager.all_dirs(include_root: false) do |dir|
-  manager = Decidim::MaintainersToolbox::GemManager.new(dir)
+Decidim::GemManager.all_dirs(include_root: false) do |dir|
+  manager = Decidim::GemManager.new(dir)
   name = manager.short_name
 
   desc "Runs tests on #{name}"
@@ -33,34 +33,34 @@ end
 
 desc "Runs tests for a random participatory space"
 task :test_participatory_space do
-  Decidim::MaintainersToolbox::GemManager.test_participatory_space
+  Decidim::GemManager.test_participatory_space
 end
 
 desc "Runs tests for a random component"
 task :test_component do
-  Decidim::MaintainersToolbox::GemManager.test_component
+  Decidim::GemManager.test_component
 end
 
 desc "Installs all local gem versions globally"
 task :install_all do
-  Decidim::MaintainersToolbox::GemManager.install_all
+  Decidim::GemManager.install_all
 end
 
 desc "Uninstalls all local gem versions"
 task :uninstall_all do
-  Decidim::MaintainersToolbox::GemManager.uninstall_all
+  Decidim::GemManager.uninstall_all
 end
 
 desc "Pushes a new build for each gem and package."
 task release_all: [:ensure_git_remote, :fetch_git_tags, :update_versions, :fetch_git_tags, :check_uncommitted_changes, :check_locale_completeness] do
   commands = {}
-  Decidim::MaintainersToolbox::GemManager.all_dirs { |dir| commands[dir] = "rake release[#{Decidim::ReleaseManager.git_remote}]" }
-  Decidim::MaintainersToolbox::GemManager.package_dirs { |dir| commands[dir] = "npm publish --access public" }
+  Decidim::GemManager.all_dirs { |dir| commands[dir] = "rake release[#{Decidim::ReleaseManager.git_remote}]" }
+  Decidim::GemManager.package_dirs { |dir| commands[dir] = "npm publish --access public" }
 
   commands.each do |dir, command|
-    status = Decidim::MaintainersToolbox::GemManager.run_at(dir, command)
+    status = Decidim::GemManager.run_at(dir, command)
 
-    break if !status && Decidim::MaintainersToolbox::GemManager.fail_fast?
+    break if !status && Decidim::GemManager.fail_fast?
   end
 end
 
