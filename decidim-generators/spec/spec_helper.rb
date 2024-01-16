@@ -4,7 +4,7 @@ require "decidim/generators"
 
 require "json"
 require "fileutils"
-require "decidim/maintainers_toolbox/gem_manager"
+require "decidim/gem_manager"
 
 ENV["RETRY_TIMES"] = "0"
 

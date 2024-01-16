@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "decidim/maintainers_toolbox/gem_manager"
+require "decidim/gem_manager"
 
 namespace :decidim do
   namespace :webpacker do

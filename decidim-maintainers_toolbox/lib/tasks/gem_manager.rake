@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require "decidim/maintainers_toolbox/gem_manager"
-require "decidim/maintainers_toolbox/release_manager"
+require "decidim/gem_manager"
+require "decidim/release_manager"
 
 desc "Runs all tests in all Decidim engines"
 task test_all: [:test_main, :test_subgems]
