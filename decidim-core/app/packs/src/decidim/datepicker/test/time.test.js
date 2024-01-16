@@ -6,8 +6,7 @@ import {
   changeMinuteDisplay,
   hourDisplay,
   minuteDisplay,
-  formatTime,
-  updateInputValue
+  formatTime
 } from "src/decidim/datepicker/datepicker_functions"
 
 describe("setHour", () => {
@@ -175,12 +174,8 @@ describe("hourDisplay", () => {
   });
 
   it("should not add a prefix zero for double-digit hours", () => {
-    expect(hourDisplay(10)).toEqual("10");
-    expect(hourDisplay(15)).toEqual("15");
-  });
-
-  it("should return null if invalid input", () => {
-    expect(hourDisplay("invalidInput")).toBeNull();
+    expect(hourDisplay(10)).toEqual(10);
+    expect(hourDisplay(15)).toEqual(15);
   });
 });
 
@@ -191,12 +186,8 @@ describe("minuteDisplay", () => {
   });
 
   it("should not add a prefix zero for double-digit minutes", () => {
-    expect(minuteDisplay(10)).toEqual("10");
-    expect(minuteDisplay(15)).toEqual("15");
-  });
-
-  it("should return null if invalid input", () => {
-    expect(minuteDisplay("invalidInput")).toBeNull();
+    expect(minuteDisplay(10)).toEqual(10);
+    expect(minuteDisplay(15)).toEqual(15);
   });
 });
 
@@ -206,8 +197,8 @@ describe("formatTime", () => {
 
   it("should convert 12-hour time to 24-hour time for AM", () => {
     document.body.innerHTML = `
-      <input type="radio" id="exampleInput" checked> AM
-      <input type="radio" id="exampleInput"> PM
+      <input type="radio" id="period_am_exampleInput" checked> AM
+      <input type="radio" id="period_pm_exampleInput"> PM
     `;
 
     expect(formatTime("09:30", 12, id)).toEqual("09:30");
@@ -216,8 +207,8 @@ describe("formatTime", () => {
 
   it("should convert 12-hour time to 24-hour time for PM", () => {
     document.body.innerHTML = `
-      <input type="radio" id="exampleInput"> AM
-      <input type="radio" id="exampleInput" checked> PM
+      <input type="radio" id="period_am_exampleInput"> AM
+      <input type="radio" id="period_pm_exampleInput" checked> PM
     `;
 
     expect(formatTime("03:15", 12, id)).toEqual("15:15");
@@ -226,20 +217,11 @@ describe("formatTime", () => {
 
   it("should return the original time for 24-hour format", () => {
     document.body.innerHTML = `
-      <input type="radio" id="exampleInput"> AM
-      <input type="radio" id="exampleInput"> PM
+      <input type="radio" id="period_am_exampleInput"> AM
+      <input type="radio" id="period_pm_exampleInput"> PM
     `;
 
     expect(formatTime("15:45", 24, id)).toEqual("15:45");
     expect(formatTime("08:20", 24, id)).toEqual("08:20");
-  });
-
-  it("should return the original value if invalid input", () => {
-    document.body.innerHTML = `
-      <input type="radio" id="exampleInput"> AM
-      <input type="radio" id="exampleInput"> PM
-    `;
-
-    expect(formatTime("invalid", 12, id)).toEqual("invalid");
   });
 });

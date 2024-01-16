@@ -51,13 +51,12 @@
   }
 }
 
-.item__edit wc-datepicker {
+.item__edit {
   &-form {
     .form {
-      [type="number"] {
+      [type="number"].wc-datepicker__year-select {
         @apply text-sm;
       }
     }
   }
 }
-
