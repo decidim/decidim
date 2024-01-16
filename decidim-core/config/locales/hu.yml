@@ -1481,6 +1481,12 @@ hu:
   doorkeeper:
     scopes:
       public: Nyilvános információk.
+  emojis:
+    categories:
+      activities: Tevékenységek
+      people-body: Emberek és testek
+      recents: Legutóbb használt
+      smileys-emotion: Arcok és Érzelmek
   errors:
     messages:
       confirmation_period_expired: meg kell erősíteni %{period}, kérem, kérjen újat
