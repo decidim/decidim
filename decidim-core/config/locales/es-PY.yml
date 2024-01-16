@@ -514,6 +514,8 @@ es-PY:
         name: Banner de sub-hero de pie de página
       global_menu:
         name: Menú global
+      hero:
+        name: Imagen principal y botón de acción
       hero_settings_form:
         background_image: Imagen de fondo
         welcome_text: Texto de bienvenida
