@@ -74,16 +74,16 @@ module Decidim
       geocoded_by :address
 
       scope :not_status, lambda { |status|
-        state_published.joins(:proposal_state).where.not(decidim_proposals_proposal_states: { token: status })
+        joins(:proposal_state).where.not(decidim_proposals_proposal_states: { token: status })
       }
 
       scope :only_status, lambda { |status|
-        state_published.joins(:proposal_state).where(decidim_proposals_proposal_states: { token: status })
+        joins(:proposal_state).where(decidim_proposals_proposal_states: { token: status })
       }
 
-      scope :accepted, -> { only_status(:accepted) }
-      scope :rejected, -> { only_status(:rejected) }
-      scope :evaluating, -> { only_status(:evaluating) }
+      scope :accepted, -> { state_published.only_status(:accepted) }
+      scope :rejected, -> { state_published.only_status(:rejected) }
+      scope :evaluating, -> { state_published.only_status(:evaluating) }
 
       scope :gamified, -> { only_status(:accepted).where(decidim_proposals_proposal_states: { gamified: true }) }
 
@@ -93,7 +93,7 @@ module Decidim
       scope :state_not_published, -> { where(state_published_at: nil) }
       scope :state_published, -> { where.not(state_published_at: nil) }
 
-      scope :except_rejected, -> { not_status(:rejected).or(state_not_published) }
+      scope :except_rejected, -> { state_published.not_status(:rejected).or(state_not_published) }
 
       scope :withdrawn, -> { where.not(withdrawn_at: nil) }
       scope :not_withdrawn, -> { where(withdrawn_at: nil) }
@@ -137,7 +137,7 @@ module Decidim
       scope :state_eq, lambda { |state|
         return withdrawn if state == "withdrawn"
 
-        with_any_state(state)
+        only_status(state)
       }
 
       scope :with_any_state, lambda { |*value_keys|
