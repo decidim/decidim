@@ -11,7 +11,12 @@ module Decidim
         include Decidim::TranslatableAttributes
 
         def available_states
-          Decidim::Proposals::ProposalState.where(component: current_component)
+          [
+            Decidim::Proposals::ProposalState.where(component: current_component).new(
+              token: "not_answered",
+              title: t("decidim.proposals.answers.not_answered")
+            )
+          ] + Decidim::Proposals::ProposalState.where(component: current_component).all
         end
 
         # Public: A formatted collection of Meetings to be used

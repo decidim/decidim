@@ -36,7 +36,7 @@ module Decidim
         private
 
         def proposal_states
-          Decidim::Proposals::ProposalState.where(component: current_component).pluck(:token).map(&:to_s)
+          Decidim::Proposals::ProposalState.where(component: current_component).pluck(:token).map(&:to_s) + ["not_answered"]
         end
 
         def costs_enabled?

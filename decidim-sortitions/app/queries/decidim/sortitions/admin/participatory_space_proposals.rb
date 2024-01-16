@@ -25,10 +25,10 @@ module Decidim
           proposals = Decidim::Proposals::Proposal
                       .not_withdrawn
                       .published
-                      .except_rejected
                       .not_hidden
                       .where("decidim_proposals_proposals.created_at < ?", request_timestamp)
                       .where(component: sortition.decidim_proposals_component)
+          proposals = proposals.where.not(id: proposals.only_status(:rejected))
 
           return proposals.order(id: :asc) if category.nil?
 
