@@ -18,9 +18,10 @@ module Decidim
 
         included do
           include Decidim::Admin::ParticipatorySpaceAdminContext
-          participatory_space_admin_layout
-
           helper_method :current_voting
+          add_breadcrumb_item_from_menu :admin_voting_menu
+
+          participatory_space_admin_layout
 
           def current_voting
             @current_voting ||= organization_votings.find_by!(

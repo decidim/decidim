@@ -40,7 +40,7 @@ $(async () => {
                 return acc;
               }, {});
             };
-            const formData = getFormData($voteWrapper.find(".answer_input"));
+            const formData = getFormData($voteWrapper.find(".answer_input,.nota_input"));
             validVoteFn(formData, ballotStyleId);
           },
           castOrAuditBallot({ encryptedData, encryptedDataHash }) {

@@ -33,7 +33,7 @@ module Decidim
         attribute :start_date, Decidim::Attributes::LocalizedDate
         attribute :end_date, Decidim::Attributes::LocalizedDate
         attribute :registrations_enabled, Boolean
-        attribute :available_slots, Integer
+        attribute :available_slots, Integer, default: 0
         attribute :location, String
         attribute :participatory_processes_ids, Array[Integer]
         attribute :assemblies_ids, Array[Integer]
