@@ -387,6 +387,8 @@ eu:
           dropdown: Goitibeherako zerrrenda
           view_more_logs: Ikusi erregistro gehiago 
       domain_whitelist:
+        form:
+          domain_too_short: Domeinu laburregia
         update:
           error: Errorea baimendutako domeinuen zerrenda eguneratzean.
           success: Baimendutako domeinuen zerrenda zuzen eguneratua.
@@ -562,6 +564,7 @@ eu:
         areas: Arloak
         configuration: Konfigurazioa
         content: Eduki salatua
+        external_domain_whitelist: Baimendutako kanpoko domeinuak
         help_sections: Laguntza atalak
         homepage: Orrialde nagusia
         impersonations: Inpertsonazioak
@@ -848,6 +851,11 @@ eu:
       organization_external_domain_whitelist:
         edit:
           update: Eguneratu
+        external_domain:
+          down: Jaitsi
+          external_domain: Kanpoko domeinua
+          remove: Ezabatu
+          up: Igo
         form:
           add: Gehitu zerrenda zurian
           title: Kanpoko domeinuen zerrenda zuria
