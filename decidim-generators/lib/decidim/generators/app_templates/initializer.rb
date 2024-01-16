@@ -489,6 +489,12 @@ if Decidim.module_installed? :elections
   end
 end
 
+if Decidim.module_installed? :verifications
+  Decidim::Verifications.configure do |config|
+    config.document_types = Rails.application.secrets.dig(:verifications, :document_types).presence || %w(identification_number passport)
+  end
+end
+
 Rails.application.config.i18n.available_locales = Decidim.available_locales
 Rails.application.config.i18n.default_locale = Decidim.default_locale
 
