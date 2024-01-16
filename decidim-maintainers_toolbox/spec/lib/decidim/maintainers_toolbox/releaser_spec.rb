@@ -88,7 +88,7 @@ describe Decidim::MaintainersToolbox::Releaser do
       let(:version_number) { "1.2.3.dev" }
 
       it "parses the version number" do
-        expect(subject.send(:parsed_version_number, version_number)).to eq( [1, 2, 3])
+        expect(subject.send(:parsed_version_number, version_number)).to eq([1, 2, 3])
       end
     end
 
@@ -96,7 +96,7 @@ describe Decidim::MaintainersToolbox::Releaser do
       let(:version_number) { "1.2.3.rc1" }
 
       it "parses the version number" do
-        expect(subject.send(:parsed_version_number, version_number)).to eq( [1, 2, 3])
+        expect(subject.send(:parsed_version_number, version_number)).to eq([1, 2, 3])
       end
     end
 
@@ -104,7 +104,7 @@ describe Decidim::MaintainersToolbox::Releaser do
       let(:version_number) { "1.2.3" }
 
       it "parses the version number" do
-        expect(subject.send(:parsed_version_number, version_number)).to eq( [1, 2, 3])
+        expect(subject.send(:parsed_version_number, version_number)).to eq([1, 2, 3])
       end
     end
   end
