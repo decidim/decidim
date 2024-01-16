@@ -659,6 +659,8 @@ en:
               upload_legend: The server has your public identification keys, but your browser still does not have it. You need to import the file with your identification keys to your computer from the backup you created after generating them.
             not_supported_browser_description: It looks like you are using a web browser that cannot be used to act as a Trustee. Make sure you are using the most recent version of your browser, or try using any of the most popular browsers to be able to complete your Trustee tasks.
             not_supported_browser_title: Upgrade browser to act as a Trustee
+            safari_warning_description: It looks like you are using Safari, which is not supported to act as a Trustee or to encrypt a Vote (this is due the memory restrictions that Apple impose in it). This might be solved in the future by a change of policy by Apple or future optimization of Decidim Elections. Please, use another browser meanwhile.
+            safari_warning_title: Safari browser detected
             trustee_role_description:
               with_keys: You have been assigned to act as a Trustee in some of the elections celebrated in this platform.
               without_keys: You have been assigned to act as a Trustee. Please, generate and upload your identification keys.
@@ -670,7 +672,7 @@ en:
           back: Start voting process again
           ballot_hash: 'Your ballot identifier is:'
           cast: Cast ballot to finish your vote
-          description: Here, you have the options to cast your ballot so that it is properly counted or, alternatively, you can audit that your ballot was correctly encrypted. For security reasons, auditing your ballot will spoil it. That means, to cast your vote, you will need to restart the voting process.
+          description_html: Here, you have the options to cast your ballot so that it is properly counted or, you can audit that your ballot was correctly encrypted. If you want to audit the vote, please read the instructions on <a href="https://github.com/decidim/decidim-bulletin-board/blob/develop/verifier/README.md">how to proceed</a>.
           header: 'Ballot is encrypted: cast it or audit it'
         casting:
           header: Casting the vote...

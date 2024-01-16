@@ -102,7 +102,6 @@ module Decidim
   autoload :ShareableWithToken, "decidim/shareable_with_token"
   autoload :RecordEncryptor, "decidim/record_encryptor"
   autoload :AttachmentAttributes, "decidim/attachment_attributes"
-  autoload :CarrierWaveMigratorService, "decidim/carrier_wave_migrator_service"
   autoload :ReminderRegistry, "decidim/reminder_registry"
   autoload :ReminderManifest, "decidim/reminder_manifest"
   autoload :ManifestMessages, "decidim/manifest_messages"
@@ -307,7 +306,7 @@ module Decidim
     end
   end
 
-  # Exposes a configuration option: the whitelist ips
+  # Exposes a configuration option: the IPs that are allowed to access the system
   config_accessor :system_accesslist_ips do
     []
   end

@@ -542,7 +542,6 @@ it:
         trustees:
           new_election:
             email_intro: Sei stato aggiunto come Garante per le elezioni %{resource_title}.
-            email_subject: Sei Garante delle elezioni %{resource_title}..
           new_trustee:
             email_intro: Un amministratore ti ha aggiunto come Garante di %{resource_name}. Dovresti creare la tua chiave pubblica <a href='%{trustee_zone_url}'>nella tua zona garanti </a>
             email_subject: Sei Garante di %{resource_name}.
