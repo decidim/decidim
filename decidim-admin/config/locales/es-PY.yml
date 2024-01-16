@@ -366,6 +366,8 @@ es-PY:
           view_more_logs: Ver más registros
           welcome: Bienvenida al panel de administración.
       domain_whitelist:
+        form:
+          domain_too_short: El dominio es demasiado corto
         update:
           error: Error al actualizar la lista blanca del dominio
           success: Lista blanca de dominio actualizada correctamente
@@ -546,6 +548,7 @@ es-PY:
         areas: Áreas
         configuration: Configuración
         dashboard: Panel de control
+        external_domain_whitelist: Dominios externos permitidos
         help_sections: Secciones de ayuda
         homepage: Página principal
         impersonations: Impersonaciones
@@ -821,6 +824,11 @@ es-PY:
       organization_external_domain_whitelist:
         edit:
           update: Actualizar
+        external_domain:
+          down: Bajar
+          external_domain: Dominio externo
+          remove: Eliminar
+          up: Subir
         form:
           add: Añadir a la lista blanca
           title: Lista blanca de dominios externos
