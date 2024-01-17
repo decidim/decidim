@@ -1263,7 +1263,6 @@ pl:
     offline:
       name: W trybie offline
       show:
-        message: Wygląda na to, że jesteś obecnie offline. Spróbuj ponownie później.
         retry: Powtórz
     open_data:
       not_available_yet: Pliki Open Data nie są jeszcze dostępne. Spróbuj ponownie za kilka minut.
