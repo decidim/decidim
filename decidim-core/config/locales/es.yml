@@ -1271,7 +1271,6 @@ es:
     offline:
       name: Sin conexión
       show:
-        message: Parece que estás desconectada. Por favor, inténtalo de nuevo más tarde.
         retry: Reintentar
     open_data:
       not_available_yet: Los ficheros Open Data aún no están disponibles, inténtalo de nuevo en unos minutos.
