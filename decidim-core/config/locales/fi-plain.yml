@@ -80,7 +80,10 @@ fi-pl:
     'true': 'Kyllä'
   carrierwave:
     errors:
+      file_cannot_be_processed: Tiedostoa ei voida käsitellä
+      file_resolution_too_large: Tiedoston resoluutio on liian suuri
       file_size_too_large: Tiedoston koko on liian suuri
+      not_inside_organization: Tiedostoa ei ole liitetty mihinkään organisaatioon
   date:
     formats:
       decidim_short: "%d.%m.%Y"
@@ -511,6 +514,8 @@ fi-pl:
         name: Alaosion esialueen banneri
       global_menu:
         name: Päänavigaatio
+      hero:
+        name: Pääkuva ja CTA-painike (call to action)
       hero_settings_form:
         background_image: Taustakuva
         welcome_text: Tervetuloa-teksti
@@ -1793,13 +1798,16 @@ fi-pl:
     button: Lisää emoji
     categories:
       activities: Toiminta
+      animals-nature: Eläimet ja luonto
       custom: Mukautettu
       flags: Liput
+      food-drink: Ruoka ja juoma
       objects: Esineet
       people-body: Ihmiset ja keho
       recents: Viimeksi käytetyt
       smileys-emotion: Hymiöt ja tunneilmaisut
       symbols: Symbolit
+      travel-places: Matkailu ja paikat
     error:
       load: Emojien lataus epäonnistui
     recents:
