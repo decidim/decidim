@@ -9,8 +9,34 @@ require "decidim/participatory_processes/test/factories"
 require "decidim/assemblies/test/factories"
 require "decidim/comments/test/factories"
 
-def generate_localized_title
-  Decidim::Faker::Localized.localized { generate(:title) }
+def generate_localized_description(field, skip_injection: false, before: "<p>", after: "</p>")
+  Decidim::Faker::Localized.wrapped(before, after) do
+    if skip_injection
+      generate(:description)
+    else
+      "<script>alert(\"#{field}\");</script> #{generate(:description)}"
+    end
+  end
+end
+
+def generate_localized_word(field, skip_injection: false)
+  Decidim::Faker::Localized.localized do
+    if skip_injection
+      Decidim::Faker.word
+    else
+      "<script>alert(\"#{field}\");</script> #{Decidim::Faker.word}"
+    end
+  end
+end
+
+def generate_localized_title(field, skip_injection: false)
+  Decidim::Faker::Localized.localized do
+    if skip_injection
+      generate(:title)
+    else
+      "<script>alert(\"#{field}\");</script> #{generate(:title)}"
+    end
+  end
 end
 
 FactoryBot.define do
@@ -59,14 +85,8 @@ FactoryBot.define do
       skip_injection { false }
     end
 
-    name do
-      if skip_injection
-        Decidim::Faker::Localized.localized { generate(:title) }
-      else
-        Decidim::Faker::Localized.localized { "<script>alert(\"category name\");</script> #{generate(:title)}" }
-      end
-    end
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    name { generate_localized_title(:category_name, skip_injection:) }
+    description { generate_localized_description(:category_description, skip_injection:) }
     weight { 0 }
 
     association :participatory_space, factory: :participatory_process

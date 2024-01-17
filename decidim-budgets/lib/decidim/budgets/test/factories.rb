@@ -110,8 +110,11 @@ FactoryBot.define do
   end
 
   factory :budget, class: "Decidim::Budgets::Budget" do
-    title { generate_localized_title }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    transient do
+      skip_injection { false }
+    end
+    title { generate_localized_title(:budget_title, skip_injection:) }
+    description { generate_localized_description(:budget_description, skip_injection:) }
     total_budget { 100_000_000 }
     component { create(:budgets_component) }
 
@@ -127,8 +130,11 @@ FactoryBot.define do
   end
 
   factory :project, class: "Decidim::Budgets::Project" do
-    title { generate_localized_title }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    transient do
+      skip_injection { false }
+    end
+    title { generate_localized_title(:project_title, skip_injection:) }
+    description { generate_localized_description(:project_description, skip_injection:) }
     address { "#{Faker::Address.street_name}, #{Faker::Address.city}" }
     latitude { Faker::Address.latitude }
     longitude { Faker::Address.longitude }

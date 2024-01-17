@@ -13,8 +13,11 @@ FactoryBot.define do
   end
 
   factory :post, class: "Decidim::Blogs::Post" do
-    title { generate_localized_title }
-    body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    transient do
+      skip_injection { false }
+    end
+    title { generate_localized_title(:blog_title, skip_injection:) }
+    body { generate_localized_description(:blog_body, skip_injection:) }
     component { build(:component, manifest_name: "blogs") }
     author { build(:user, :confirmed, organization: component.organization) }
 
