@@ -14,7 +14,7 @@ FactoryBot.define do
     end
     name { Decidim::Components::Namer.new(participatory_space.organization.available_locales, :accountability).i18n_name }
     manifest_name { :accountability }
-    participatory_space { create(:participatory_process, :with_steps, organization:) }
+    participatory_space { create(:participatory_process, :with_steps, skip_injection:, organization:) }
     settings do
       {
         intro: generate_localized_description(:accountability_component_intro, skip_injection:),

@@ -12,9 +12,9 @@ require "decidim/comments/test/factories"
 def generate_localized_description(field, skip_injection: false, before: "<p>", after: "</p>")
   Decidim::Faker::Localized.wrapped(before, after) do
     if skip_injection
-      generate(:description)
+      Decidim::Faker::Localized.localized { Faker::Lorem.sentences(number: 3).join("\n") }
     else
-      "<script>alert(\"#{field}\");</script> #{generate(:description)}"
+      Decidim::Faker::Localized.localized { "<script>alert(\"#{field}\");</script> #{Faker::Lorem.sentences(number: 3).join("\n")}" }
     end
   end
 end
@@ -22,9 +22,9 @@ end
 def generate_localized_word(field, skip_injection: false)
   Decidim::Faker::Localized.localized do
     if skip_injection
-      Decidim::Faker.word
+      Faker::Lorem.word
     else
-      "<script>alert(\"#{field}\");</script> #{Decidim::Faker.word}"
+      "<script>alert(\"#{field}\");</script> #{Faker::Lorem.word}"
     end
   end
 end
@@ -100,6 +100,7 @@ FactoryBot.define do
 
   factory :organization, class: "Decidim::Organization" do
     transient do
+      skip_injection { false }
       create_static_pages { true }
     end
 
@@ -112,7 +113,7 @@ FactoryBot.define do
     youtube_handler { Faker::Hipster.word }
     github_handler { Faker::Hipster.word }
     sequence(:host) { |n| "#{n}.lvh.me" }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    description { generate_localized_description(:organization_description, skip_injection:) }
     favicon { Decidim::Dev.test_file("icon.png", "image/png") }
     default_locale { Decidim.default_locale }
     available_locales { Decidim.available_locales }
@@ -125,7 +126,7 @@ FactoryBot.define do
     user_groups_enabled { true }
     send_welcome_notification { true }
     comments_max_length { 1000 }
-    admin_terms_of_service_body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    admin_terms_of_service_body { generate_localized_description(:admin_terms_of_service_body, skip_injection:) }
     force_users_to_authenticate_before_access_organization { false }
     machine_translation_display_priority { "original" }
     external_domain_allowlist { ["example.org", "twitter.com", "facebook.com", "youtube.com", "github.com", "mytesturl.me"] }
@@ -162,6 +163,9 @@ FactoryBot.define do
   end
 
   factory :user, class: "Decidim::User" do
+    transient do
+      skip_injection { false }
+    end
     email { generate(:email) }
     name { generate(:name) }
     nickname { generate(:nickname) }
@@ -170,7 +174,7 @@ FactoryBot.define do
     tos_agreement { "1" }
     avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     personal_url { Faker::Internet.url }
-    about { "<script>alert(\"ABOUT\");</script>#{Faker::Lorem.paragraph(sentence_count: 2)}" }
+    about { generate_localized_description(:user_about, skip_injection:) }
     confirmation_sent_at { Time.current }
     accepted_tos_version { organization.tos_version }
     notifications_sending_frequency { "real_time" }
@@ -218,7 +222,7 @@ FactoryBot.define do
 
     trait :officialized do
       officialized_at { Time.current }
-      officialized_as { generate_localized_title }
+      officialized_as { generate_localized_title(:user_officialized_as, skip_injection:) }
     end
 
     after(:build) do |user, evaluator|
@@ -245,12 +249,13 @@ FactoryBot.define do
       phone { Faker::PhoneNumber.phone_number }
       rejected_at { nil }
       verified_at { nil }
+      skip_injection { false }
     end
 
     sequence(:name) { |n| "#{Faker::Company.name} #{n}" }
     email { generate(:user_group_email) }
     nickname { generate(:nickname) }
-    about { "<script>alert(\"ABOUT\");</script>#{Faker::Lorem.paragraph(sentence_count: 2)}" }
+    about { generate_localized_description(:user_group_about, skip_injection:) }
     organization
     avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") } # Keep after organization
 
@@ -356,9 +361,12 @@ FactoryBot.define do
   end
 
   factory :static_page, class: "Decidim::StaticPage" do
+    transient do
+      skip_injection { false }
+    end
     slug { generate(:slug) }
-    title { generate_localized_title }
-    content { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    title { generate_localized_title(:static_page_title, skip_injection:) }
+    content { generate_localized_description(:static_page_content, skip_injection:) }
     organization { build(:organization) }
     allow_public_access { false }
 
@@ -384,22 +392,31 @@ FactoryBot.define do
   end
 
   factory :static_page_topic, class: "Decidim::StaticPageTopic" do
-    title { generate_localized_title }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    transient do
+      skip_injection { false }
+    end
+    title { generate_localized_title(:static_page_topic_title, skip_injection:) }
+    description { generate_localized_description(:static_page_topic_description, skip_injection:) }
     organization
   end
 
   factory :attachment_collection, class: "Decidim::AttachmentCollection" do
-    name { generate_localized_title }
-    description { generate_localized_title }
+    transient do
+      skip_injection { false }
+    end
+    name { generate_localized_title(:attachment_collection_name, skip_injection:) }
+    description { generate_localized_title(:attachment_collection_description, skip_injection:) }
     weight { Faker::Number.number(digits: 1) }
 
     association :collection_for, factory: :participatory_process
   end
 
   factory :attachment, class: "Decidim::Attachment" do
-    title { generate_localized_title }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    transient do
+      skip_injection { false }
+    end
+    title { generate_localized_title(:attachment_title, skip_injection:) }
+    description { generate_localized_description(:attachment_description, skip_injection:) }
     weight { Faker::Number.number(digits: 1) }
     attached_to { build(:participatory_process) }
     content_type { "image/jpeg" }
@@ -420,22 +437,23 @@ FactoryBot.define do
   factory :component, class: "Decidim::Component" do
     transient do
       organization { create(:organization) }
+      skip_injection { false }
     end
 
-    name { generate_localized_title }
+    name { generate_localized_title(:component_name, skip_injection:) }
     participatory_space { create(:participatory_process, organization:) }
     manifest_name { "dummy" }
     published_at { Time.current }
     settings do
       {
-        dummy_global_translatable_text: generate_localized_title,
+        dummy_global_translatable_text: generate_localized_title(:dummy_global_translatable_text, skip_injection:),
         comments_max_length: participatory_space.organization.comments_max_length || organization.comments_max_length
       }
     end
 
     default_step_settings do
       {
-        dummy_step_translatable_text: generate_localized_title
+        dummy_step_translatable_text: generate_localized_title(:dummy_step_translatable_text, skip_injection:)
       }
     end
 
@@ -516,7 +534,10 @@ FactoryBot.define do
   end
 
   factory :scope_type, class: "Decidim::ScopeType" do
-    name { Decidim::Faker::Localized.word }
+    transient do
+      skip_injection { false }
+    end
+    name { generate_localized_word(:scope_type_name, skip_injection:) }
     plural { Decidim::Faker::Localized.literal(name.values.first.pluralize) }
     organization
   end
@@ -537,7 +558,10 @@ FactoryBot.define do
   end
 
   factory :area_type, class: "Decidim::AreaType" do
-    name { Decidim::Faker::Localized.word }
+    transient do
+      skip_injection { false }
+    end
+    name { generate_localized_word(:area_type_name, skip_injection:) }
     plural { Decidim::Faker::Localized.literal(name.values.first.pluralize) }
     organization
   end
@@ -563,13 +587,14 @@ FactoryBot.define do
 
   factory :newsletter, class: "Decidim::Newsletter" do
     transient do
-      body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+      skip_injection { false }
+      body { generate_localized_description(:newsletter_body, skip_injection:) }
     end
 
     author { build(:user, :confirmed, organization:) }
     organization
 
-    subject { generate_localized_title }
+    subject { generate_localized_title(:newsletter_subject, skip_injection:) }
 
     after(:create) do |newsletter, evaluator|
       create(

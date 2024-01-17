@@ -11,23 +11,26 @@ FactoryBot.define do
   end
 
   factory :participatory_process, class: "Decidim::ParticipatoryProcess" do
-    title { generate_localized_title }
+    transient do
+      skip_injection { false }
+    end
+    title { generate_localized_title(:participatory_process_title, skip_injection:) }
     slug { generate(:participatory_process_slug) }
-    subtitle { generate_localized_title }
+    subtitle { generate_localized_title(:participatory_process_subtitle, skip_injection:) }
     weight { 1 }
-    short_description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    short_description { generate_localized_description(:participatory_process_short_description, skip_injection:) }
+    description { generate_localized_description(:participatory_process_description, skip_injection:) }
     organization
     hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") } # Keep after organization
     banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") } # Keep after organization
     published_at { Time.current }
-    meta_scope { Decidim::Faker::Localized.word }
-    developer_group { generate_localized_title }
-    local_area { generate_localized_title }
-    target { generate_localized_title }
-    participatory_scope { generate_localized_title }
-    participatory_structure { generate_localized_title }
-    announcement { generate_localized_title }
+    meta_scope { generate_localized_word(:participatory_process_meta_scope, skip_injection:) }
+    developer_group { generate_localized_title(:participatory_process_developer_group, skip_injection:) }
+    local_area { generate_localized_title(:participatory_process_local_area, skip_injection:) }
+    target { generate_localized_title(:participatory_process_target, skip_injection:) }
+    participatory_scope { generate_localized_title(:participatory_process_participatory_scope, skip_injection:) }
+    participatory_structure { generate_localized_title(:participatory_process_participatory_structure, skip_injection:) }
+    announcement { generate_localized_title(:participatory_process_announcement, skip_injection:) }
     show_metrics { true }
     show_statistics { true }
     private_space { false }
@@ -102,18 +105,21 @@ FactoryBot.define do
   end
 
   factory :participatory_process_group, class: "Decidim::ParticipatoryProcessGroup" do
-    title { generate_localized_title }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    transient do
+      skip_injection { false }
+    end
+    title { generate_localized_title(:participatory_process_group_title, skip_injection:) }
+    description { generate_localized_description(:participatory_process_group_description, skip_injection:) }
     hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     organization
     hashtag { Faker::Internet.slug }
     group_url { Faker::Internet.url }
-    developer_group { generate_localized_title }
-    local_area { generate_localized_title }
-    meta_scope { Decidim::Faker::Localized.word }
-    target { generate_localized_title }
-    participatory_scope { generate_localized_title }
-    participatory_structure { generate_localized_title }
+    developer_group { generate_localized_title(:participatory_process_group_developer_group, skip_injection:) }
+    local_area { generate_localized_title(:participatory_process_group_local_area, skip_injection:) }
+    meta_scope { generate_localized_word(:participatory_process_group_meta_scope, skip_injection:) }
+    target { generate_localized_title(:participatory_process_group_target, skip_injection:) }
+    participatory_scope { generate_localized_title(:participatory_process_group_participatory_scope, skip_injection:) }
+    participatory_structure { generate_localized_title(:participatory_process_group_participatory_structure, skip_injection:) }
 
     trait :promoted do
       promoted { true }
@@ -127,8 +133,11 @@ FactoryBot.define do
   end
 
   factory :participatory_process_step, class: "Decidim::ParticipatoryProcessStep" do
-    title { generate_localized_title }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    transient do
+      skip_injection { false }
+    end
+    title { generate_localized_title(:participatory_process_step_title, skip_injection:) }
+    description { generate_localized_description(:participatory_process_step_description, skip_injection:) }
     start_date { 1.month.ago }
     end_date { 2.months.from_now }
     position { nil }
@@ -145,7 +154,10 @@ FactoryBot.define do
   end
 
   factory :participatory_process_type, class: "Decidim::ParticipatoryProcessType" do
-    title { generate_localized_title }
+    transient do
+      skip_injection { false }
+    end
+    title { generate_localized_title(:participatory_process_type_title, skip_injection:) }
     organization
 
     trait :with_active_participatory_processes do
