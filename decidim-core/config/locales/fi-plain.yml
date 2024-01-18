@@ -1808,6 +1808,15 @@ fi-pl:
     pick: Valitse emoji…
     search: Hae
     search_no_results_1: Voi ei!
+    search_no_results_2: Tätä emojia ei löytynyt
+    skins:
+      '1': Oletus
+      '2': Vaalea
+      '3': Keskivaalea
+      '4': Keskitasoinen
+      '5': Keskitumma
+      '6': Tumma
+      choose: Valitse oletusulkoasun värimääritys
   errors:
     messages:
       allowed_file_content_types: 'ainoastaan seuraavat tiedostomuodot on sallittu: %{types}'
