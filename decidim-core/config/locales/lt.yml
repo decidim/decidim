@@ -1288,7 +1288,6 @@ lt:
     offline:
       name: Neprisijungę
       show:
-        message: Panašu, kad šiuo metu esate neprisijungę. Pabandykite dar kartą vėliau.
         retry: Bandykite dar kartą
     open_data:
       not_available_yet: Atvirųjų duomenų rinkmenomis dabar negalima naudotis. Bandykite dar kartą po kelių minučių.
