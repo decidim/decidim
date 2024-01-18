@@ -1278,7 +1278,8 @@ fr-CA:
     offline:
       name: Hors ligne
       show:
-        message: Il semble que vous êtes actuellement hors ligne. Veuillez réessayer plus tard.
+        message_1: On dirait que vous êtes actuellement hors ligne.
+        message_2: Veuillez réessayer plus tard.
         retry: Réessayer
     open_data:
       not_available_yet: Les fichiers Open Data ne sont pas encore disponibles. Veuillez réessayer dans quelques minutes.
