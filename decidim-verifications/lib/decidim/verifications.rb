@@ -10,24 +10,24 @@ require "decidim/verifications/sms"
 require "decidim/verifications/csv_census"
 
 module Decidim
-  def self.authorization_workflows
-    Decidim::Verifications.workflows
-  end
-
-  def self.authorization_engines
-    Decidim::Verifications.workflows.select(&:engine)
-  end
-
-  def self.authorization_admin_engines
-    Decidim::Verifications.workflows.select(&:admin_engine)
-  end
-
-  def self.authorization_handlers
-    Decidim::Verifications.workflows.select(&:form)
-  end
-
   module Verifications
     include ActiveSupport::Configurable
+
+    def self.authorization_workflows
+      Decidim::Verifications.workflows
+    end
+
+    def self.authorization_engines
+      Decidim::Verifications.workflows.select(&:engine)
+    end
+
+    def self.authorization_admin_engines
+      Decidim::Verifications.workflows.select(&:admin_engine)
+    end
+
+    def self.authorization_handlers
+      Decidim::Verifications.workflows.select(&:form)
+    end
 
     config_accessor :document_types do
       %w(identification_number passport)
