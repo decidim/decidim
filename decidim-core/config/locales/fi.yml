@@ -1274,7 +1274,8 @@ fi:
     offline:
       name: Offline
       show:
-        message: Näyttää, että olet tällä hetkellä offline-tilassa. Yritä myöhemmin uudestaan.
+        message_1: Verkkoyhteytesi näyttää olevan poissa käytöstä tällä hetkellä.
+        message_2: Yritä myöhemmin uudelleen.
         retry: Yritä uudestaan
     open_data:
       not_available_yet: Avoimet datatiedostot eivät ole vielä käytettävissä, yritä uudelleen muutaman minuutin kuluttua.
