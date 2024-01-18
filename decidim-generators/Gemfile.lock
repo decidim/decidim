@@ -820,6 +820,7 @@ DEPENDENCIES
   decidim-elections!
   decidim-initiatives!
   decidim-templates!
+  decidim-verifications!
   letter_opener_web (~> 2.0)
   listen (~> 3.1)
   net-imap (~> 0.2.3)
