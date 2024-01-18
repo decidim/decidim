@@ -1274,7 +1274,6 @@ de:
     offline:
       name: Offline
       show:
-        message: Es sieht so aus, als ob Sie momentan offline sind. Bitte versuchen Sie es später erneut.
         retry: Wiederholen
     open_data:
       not_available_yet: Die Open Data-Dateien sind noch nicht verfügbar. Bitte versuchen Sie es in einigen Minuten erneut.
