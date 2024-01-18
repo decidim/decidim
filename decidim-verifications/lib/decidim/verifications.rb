@@ -8,6 +8,7 @@ require "decidim/verifications/id_documents"
 require "decidim/verifications/postal_letter"
 require "decidim/verifications/sms"
 require "decidim/verifications/csv_census"
+require "deicidm/verifications/adapter"
 
 module Decidim
   def self.authorization_workflows
@@ -25,9 +26,9 @@ module Decidim
   def self.authorization_handlers
     Decidim::Verifications.workflows.select(&:form)
   end
+
   module Verifications
     include ActiveSupport::Configurable
-
     config_accessor :document_types do
       %w(identification_number passport)
     end
