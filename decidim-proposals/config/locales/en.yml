@@ -31,6 +31,8 @@ en:
         cost: Cost
         cost_report: Cost report
         execution_period: Execution period
+      proposal_state:
+        announcement_title: Answer heading
       proposals_copy:
         copy_proposals: I understand that this will import all proposals from the selected component to the current one and that this action cannot be reversed.
         origin_component_id: Component to copy the proposals from

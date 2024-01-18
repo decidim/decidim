@@ -14,9 +14,6 @@
             <%= t("models.proposal_state.title", scope: "decidim.proposals") %>
           </th>
           <th>
-            <%= t("models.proposal_state.token", scope: "decidim.proposals") %>
-          </th>
-          <th>
             <%= t("models.proposal_state.css_class", scope: "decidim.proposals") %>
           </th>
           <th class="actions"><%= t("actions.title", scope: "decidim.proposals") %></th>
@@ -28,7 +25,6 @@
             <td>
               <%= translated_attribute(state.title) %>
             </td>
-            <td><%= state.token %></td>
             <td>
               <strong class="label <%= state.css_class %>">
                 <%= state.css_class %>
