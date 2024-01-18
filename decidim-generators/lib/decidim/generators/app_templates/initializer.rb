@@ -490,7 +490,7 @@ if Decidim.module_installed? :elections
 end
 
 if Decidim.module_installed? :verifications
-  Decidim::Verifications::IdDocuments::Admin.configure do |config|
+  Decidim::Verifications::IdDocuments.configure do |config|
     config.document_types = Rails.application.secrets.dig(:verifications, :document_types).presence || %w(identification_number passport)
   end
 end
