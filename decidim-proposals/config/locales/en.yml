@@ -773,7 +773,6 @@ en:
         proposal_state:
           css_class: CSS class
           title: Status
-          token: Token
       new:
         limit_reached: You cannot create new proposals since you have exceeded the limit.
       participatory_text_proposal:
