@@ -135,7 +135,6 @@ en:
           passport: Passport
 ```
 
-
 ### SMS verification
 
 Decidim comes with a verification workflow designed to verify users by sending
