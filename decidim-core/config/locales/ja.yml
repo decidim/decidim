@@ -1256,7 +1256,6 @@ ja:
     offline:
       name: オフライン
       show:
-        message: 現在オフラインのようです。後ほど改めてお試しください。
         retry: 再試行
     open_data:
       not_available_yet: オープンデータファイルはまだ利用できません。数分後にもう一度お試しください。
