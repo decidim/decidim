@@ -19,9 +19,9 @@
   </td>
   <td>
     <% if project.selected? %>
-      <%= content_tag :strong, t("yes", scope: "decidim.budgets.admin.projects.index.selected_options"), class: "label success" %>
+      <%= content_tag :strong, t("yes", scope: "decidim.budgets.admin.projects.index.selected_options"), class: "label" %>
     <% else %>
-      <%= content_tag :strong, t("no", scope: "decidim.budgets.admin.projects.index.selected_options"), class: "label" %>
+      <%= content_tag :strong, t("no", scope: "decidim.budgets.admin.projects.index.selected_options"), class: "label secondary" %>
     <% end %>
   </td>
   <td class="table-list__actions">
