@@ -1163,7 +1163,6 @@ zh-TW:
         success: 您的通知設定已成功更新。
     offline:
       show:
-        message: 看起來您目前處於離線狀態，請稍後再試。
         retry: 重試
     open_data:
       not_available_yet: 開放數據檔案尚未可用，請稍後再試。
