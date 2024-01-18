@@ -1271,6 +1271,8 @@ ca:
     offline:
       name: Sense connexió
       show:
+        message_1: Sembla que no tens connexió a Internet.
+        message_2: Si us plau, torneu-ho a provar més tard.
         retry: Torna-ho a provar
     open_data:
       not_available_yet: Els fitxers Open Data encara no estan disponibles, torna-ho a provar d'aquí a uns minuts.
