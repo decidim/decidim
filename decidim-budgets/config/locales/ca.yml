@@ -103,6 +103,9 @@ ca:
             pending_orders: Vots en procés
             select_for_implementation: Seleccionat per implementar
             selected: Seleccionat
+            selected_options:
+              'no': 'No'
+              'yes': 'Sí'
             title: Projectes
             update: Actualitzar
             update_scope_button: Actualitzar àmbit
