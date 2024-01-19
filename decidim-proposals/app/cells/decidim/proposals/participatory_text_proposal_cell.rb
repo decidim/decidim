@@ -10,7 +10,6 @@ module Decidim
       include ProposalCellsHelper
       include Cell::ViewModel::Partial
       include Messaging::ConversationHelper
-      include Decidim::SanitizeHelper
 
       def show
         render
