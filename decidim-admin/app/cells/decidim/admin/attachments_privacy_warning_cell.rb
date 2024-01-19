@@ -3,6 +3,8 @@
 module Decidim
   module Admin
     class AttachmentsPrivacyWarningCell < Decidim::ViewModel
+      delegate :current_participatory_space, to: :controller
+
       private
 
       def private_space?
