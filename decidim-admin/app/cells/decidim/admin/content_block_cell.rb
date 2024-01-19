@@ -3,11 +3,10 @@
 module Decidim
   module Admin
     class ContentBlockCell < Decidim::ViewModel
-      include Decidim::IconHelper
       include Decidim::ContentBlocks::HasRelatedComponents
 
       delegate :public_name_key, :has_settings?, :component_manifest_name, to: :model
-      delegate :content_block_destroy_confirmation_text, to: :controller
+      # delegate :content_block_destroy_confirmation_text, to: :controller
 
       def edit_content_block_path
         raise "#{self.class.name} is expected to implement #edit_content_block_path"
