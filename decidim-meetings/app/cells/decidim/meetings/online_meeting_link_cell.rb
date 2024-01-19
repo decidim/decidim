@@ -5,8 +5,6 @@ module Decidim
     # This cell renders the online meeting link section
     # of a online or both type of meeting.
     class OnlineMeetingLinkCell < Decidim::Meetings::OnlineMeetingCell
-      include Decidim::LayoutHelper
-
       def online_meeting_url?
         model.online_meeting_url.present?
       end
