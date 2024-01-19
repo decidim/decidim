@@ -5,13 +5,9 @@ module Decidim
     module ContentBlocks
       class PollingStationsCell < Decidim::ViewModel
         include Decidim::MapHelper
-        include Decidim::SanitizeHelper
-        include Decidim::LayoutHelper
-        include Decidim::IconHelper
         include Decidim::NeedsSnippets
 
-        delegate :current_participatory_space,
-                 :snippets,
+        delegate :snippets,
                  to: :controller
 
         def show

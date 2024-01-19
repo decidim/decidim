@@ -6,7 +6,6 @@ module Decidim
       class MainDataCell < Decidim::ContentBlocks::ParticipatorySpaceMainDataCell
         include VotingsHelper
         include Decidim::ComponentPathHelper
-        include Decidim::SanitizeHelper
         include ActiveLinkTo
 
         delegate :description, to: :resource

@@ -8,8 +8,6 @@ module Decidim
       class MetricsCell < Decidim::ContentBlocks::ParticipatorySpaceMetricsCell
         def metrics
           nil
-
-          # @metrics ||= VotingsMetricChartsPresenter.new(participatory_process: resource)
         end
       end
     end

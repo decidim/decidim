@@ -7,11 +7,6 @@ module Decidim
     class ElectionVoteCtaCell < Decidim::ViewModel
       include Decidim::Elections::HasVoteFlow
 
-      delegate :current_user,
-               :current_participatory_space,
-               :allowed_to?,
-               to: :controller
-
       private
 
       # This is needed by HasVoteFlow

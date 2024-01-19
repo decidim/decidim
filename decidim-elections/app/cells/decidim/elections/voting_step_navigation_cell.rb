@@ -4,8 +4,6 @@ module Decidim
   module Elections
     # This cell renders the navigation of a questionnaire step.
     class VotingStepNavigationCell < Decidim::ViewModel
-      include Decidim::LayoutHelper
-
       def current_step_index
         model
       end

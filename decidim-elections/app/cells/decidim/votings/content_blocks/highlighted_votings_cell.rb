@@ -6,8 +6,6 @@ module Decidim
       class HighlightedVotingsCell < Decidim::ContentBlocks::HighlightedParticipatorySpacesCell
         BLOCK_ID = "highlighted-votings"
 
-        delegate :current_user, to: :controller
-
         def highlighted_spaces
           @highlighted_spaces ||= OrganizationPrioritizedVotings.new(current_organization, current_user).query
         end
