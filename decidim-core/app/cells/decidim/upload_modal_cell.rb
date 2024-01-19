@@ -3,10 +3,8 @@
 module Decidim
   # This cell creates the necessary elements for dynamic uploads.
   class UploadModalCell < Decidim::ViewModel
-    include LayoutHelper
     include Cell::ViewModel::Partial
     include ERB::Util
-    include Decidim::SanitizeHelper
 
     alias form model
 

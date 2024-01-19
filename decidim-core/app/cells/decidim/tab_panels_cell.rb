@@ -17,8 +17,6 @@ module Decidim
   # The `model` is expected to be a resource with HasAttachments concern
   #
   class TabPanelsCell < Decidim::ViewModel
-    include IconHelper
-
     def show
       return if model.blank?
 
