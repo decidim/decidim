@@ -1274,6 +1274,8 @@ es-PY:
     offline:
       name: Sin conexión
       show:
+        message_1: Parece que no tienes conexión a Internet.
+        message_2: Por favor, inténtalo de nuevo más tarde.
         retry: Reintentar
     open_data:
       not_available_yet: Los ficheros de datos abiertos aún no están disponibles, inténtalo de nuevo en unos minutos.
