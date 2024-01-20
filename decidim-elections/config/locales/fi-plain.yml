@@ -656,6 +656,8 @@ fi-pl:
               upload_legend: Julkiset tunnistusavaimet ovat palvelimella, mutta eivät selaimessasi. Sinun täytyy tuoda tunnistusavainten tiedosto omalle tietokoneellesi varmuuskopiosta, jonka tallensit avaimia luotaessa.
             not_supported_browser_description: Näyttää siltä, että käytät selainta, jota ei voi käyttää luottamushenkilönä toimimiseen. Tarkasta, että käytät selaimesi viimeisintä versiota tai yritä käyttää jotain suosituimmista selaimista luottamushenkilön tehtävien suorittamiseksi.
             not_supported_browser_title: Päivitä selaimesi toimiaksesi luottamushenkilönä
+            safari_warning_description: Näyttää siltä, että käytät Safari-selainta, jota ei tueta luottamushenkilönä toimimiseen salataksesi äänen (tämä johtuu Applen asettamista muistinkäyttörajoituksista). Mahdollisesti tämä voidaan korjata tulevaisuudessa, mikäli Apple muuttaa käytäntöjään tai vaalit-tilaa optimoidaan tulevaisuudessa paremmin. Ole hyvä ja käytä toista selainta tällä hetkellä.
+            safari_warning_title: Safari-selain tunnistettu
             trustee_role_description:
               with_keys: Sinulle on annettu luottamushenkilön tehtävä joissain vaaleissa tällä alustalla.
               without_keys: Sinulle on annettu luottamushenkilön tehtävä. Luo ja lataa tunnistautumisavaimesi.
@@ -667,6 +669,7 @@ fi-pl:
           back: Aloita äänestysprosessi uudestaan
           ballot_hash: 'Äänestyslippusi tunniste on:'
           cast: Lähetä äänestyslippusi viimeistelläksesi äänestyksen
+          description_html: Tältä sivulta voit antaa äänesi tai tarkastaa, että se on salattu oikealla tavalla. Jos haluat tarkastaa äänesi oikeellisuuden, tutustu <a href="https://github.com/decidim/decidim-bulletin-board/blob/develop/verifier/README.md">ohjeisiin, kuinka tarkastat äänesi</a>.
           header: 'Äänesi on salattu: lähetä tai tarkasta se'
         casting:
           header: Kirjataan ääntä...
