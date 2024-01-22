@@ -657,6 +657,7 @@ ja:
           back: 投票プロセスを再度開始
           ballot_hash: '投票用紙の識別子:'
           cast: 投票を完了するには投票を行ってください
+          description_html: 投票用紙が正しく集計されるようにキャストするオプションがあります。または、あなたの投票用紙が正しく暗号化されたかを監査することもできます。投票を監査したい場合は、<a href="https://github.com/decidim/decidim-bulletin-board/blob/develop/verifier/README.md">進め方</a>についての指示をお読みください。
           header: '投票は暗号化されています：キャストまたは監査されます'
         casting:
           header: 投票中…
