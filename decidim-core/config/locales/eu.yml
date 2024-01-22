@@ -1258,6 +1258,8 @@ eu:
     offline:
       name: Konexiorik gabe
       show:
+        message_1: Badirudi ez duzula Interneterako konexiorik.
+        message_2: Mesedez, saiatu berriro geroago.
         retry: Saiatu berriro
     open_data:
       not_available_yet: Open Data fitxategiak oraindik ez daude erabilgarri, saiatu berriro minutu gutxi barru.
