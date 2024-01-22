@@ -23,9 +23,9 @@
   </td>
   <td>
     <% if project.selected? %>
-      <%= content_tag :strong, t("projects.index.selected", scope: "decidim.budgets.admin"), class: "text-success" %>
+      <%= content_tag :strong, t("yes", scope: "decidim.budgets.admin.projects.index.selected_options"), class: "label success" %>
     <% else %>
-      <%= content_tag :span, "close-line", class: "text-muted" %>
+      <%= content_tag :strong, t("no", scope: "decidim.budgets.admin.projects.index.selected_options"), class: "label" %>
     <% end %>
   </td>
   <% if maps_enabled? && Decidim::Map.available?(:static, :geocoding) %>

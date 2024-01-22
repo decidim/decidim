@@ -90,6 +90,11 @@ fi-pl:
   decidim:
     admin:
       filters:
+        accepted_at_not_null:
+          label: Hyväksytyt
+          values:
+            'false': Muut paitsi hyväksytyt
+            'true': Hyväksytyt
         meetings:
           category_id_eq:
             label: Aihepiiri
@@ -117,6 +122,18 @@ fi-pl:
               hybrid: Hybridi
               in_person: Fyysinen
               online: Verkossa
+        rejected_at_not_null:
+          label: Hylätyt
+          values:
+            'false': Muut paitsi hylätyt
+            'true': Hylätyt
+        search_placeholder:
+          user_name_or_user_email_cont: Hae nimellä tai sähköpostilla
+        sent_at_not_null:
+          label: Lähetetyt
+          values:
+            'false': Muut paitsi lähetetyt
+            'true': Lähetetyt
       meeting_copies:
         create:
           error: Tämän tapahtuman monistamisessa tapahtui virhe.

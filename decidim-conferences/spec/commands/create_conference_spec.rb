@@ -44,6 +44,7 @@ module Decidim::Conferences
         description: { en: "description" },
         short_description: { en: "short_description" },
         current_organization: organization,
+        organization:,
         scopes_enabled: true,
         scope:,
         errors:,

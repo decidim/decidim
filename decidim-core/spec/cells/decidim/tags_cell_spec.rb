@@ -87,6 +87,15 @@ describe Decidim::TagsCell, type: :cell do
       expect(html).to have_content(translated(category.name))
     end
 
+    it "sanitizes the category" do
+      name = %(Category a<img src=x onerror=alert(8) >"a)
+      custom_category = create(:category, participatory_space:, name: { "en" => name })
+      proposal_categorized.category = custom_category
+      html = cell("decidim/tags", proposal_categorized, context: { extra_classes: ["tags--proposal"] }).call
+      expect(html).to have_css(".tag-container.tags--proposal")
+      expect(html).to have_content(name)
+    end
+
     it "renders the correct filtering link" do
       html = cell("decidim/tags", proposal_categorized, context: { extra_classes: ["tags--proposal"] }).call
       path = Decidim::ResourceLocatorPresenter.new(proposal_categorized).index

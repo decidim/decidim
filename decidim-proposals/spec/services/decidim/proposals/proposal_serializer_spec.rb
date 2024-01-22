@@ -119,6 +119,18 @@ module Decidim
           expect(serialized).to include(answer: expected_answer)
         end
 
+        it "serializes the date of the answer" do
+          expect(serialized).to include(answered_at: proposal.answered_at)
+        end
+
+        it "serializes withdrawn status" do
+          expect(serialized).to include(withdrawn: proposal.withdrawn?)
+        end
+
+        it "serializes withdrawn date" do
+          expect(serialized).to include(withdrawn_at: proposal.withdrawn_at)
+        end
+
         it "serializes the amount of attachments" do
           expect(serialized).to include(attachments: proposal.attachments.count)
         end
