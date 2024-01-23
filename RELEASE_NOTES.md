@@ -99,6 +99,8 @@ You can read more about this change on PR [\#XXXX](https://github.com/decidim/de
 
 ## 5. Changes in APIs
 
+### 5.1. [[TITLE OF THE CHANGE]]
+
 ### 5.1.1 Identification numbers
 
 For the verification of the participants' data in Verifications, you can configure which type of documents a participant can have. By default these documents are `identification_number` and `passport`, but in some countries you may need to adapt these to your region or governmental specific needs. For instance, in Spain there are `dni`, `nie` and `passport`.
