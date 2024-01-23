@@ -785,7 +785,7 @@ pt-BR:
           name: Seguidores
           next_level_in: Receba mais %{score} usuários para seguir você para alcançar o próximo nível!
         index:
-          badge_title: "%{name} selo"
+          badge_title: "Selo \"%{name}\""
           how: Como você pode ganhar
           page_description: Crachás são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, você ganhará distintivos diferentes. Aqui está a lista de crachás e algumas maneiras de ganhá-los.
           title: Distintivos
