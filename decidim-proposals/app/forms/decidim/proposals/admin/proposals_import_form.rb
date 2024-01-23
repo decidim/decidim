@@ -19,7 +19,7 @@ module Decidim
         validates :import_proposals, allow_nil: false, acceptance: true
         validate :valid_states
 
-        VALID_STATES = %w(accepted not_answered evaluating rejected withdrawn).freeze
+        VALID_STATES = %w(accepted not_answered evaluating rejected).freeze
 
         def states_collection
           VALID_STATES.map do |state|

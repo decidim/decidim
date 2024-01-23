@@ -31,7 +31,7 @@ shared_examples "manage landing page examples" do
         within ".edit_content_blocks" do
           click_button(text: "Add content block")
           within ".add-components" do
-            find("a", text: "Hero image", exact_text: true).click
+            find("a", text: "Hero image and CTA", exact_text: true).click
           end
         end
       end.to change(active_content_blocks, :count).by(1)
@@ -44,7 +44,7 @@ shared_examples "manage landing page examples" do
         within ".edit_content_blocks" do
           click_button(text: "Add content block")
           within ".add-components" do
-            find("a", text: "Hero image", exact_text: true).click
+            find("a", text: "Hero image and CTA", exact_text: true).click
           end
         end
 
@@ -74,17 +74,17 @@ shared_examples "manage landing page examples" do
       visit edit_content_block_path(resource, content_block)
 
       fill_in(
-        :content_block_settings_welcome_text_en,
-        with: "Custom welcome text!"
+        :content_block_settings_button_text_en,
+        with: "Custom button text!"
       )
 
       click_button "Update"
       visit edit_content_block_path(resource, content_block)
-      expect(page).to have_selector("input[value='Custom welcome text!']")
+      expect(page).to have_selector("input[value='Custom button text!']")
 
       content_block.reload
 
-      expect(content_block.settings.to_json).to match(/Custom welcome text!/)
+      expect(content_block.settings.to_json).to match(/Custom button text!/)
     end
   end
 end
@@ -107,7 +107,7 @@ shared_context "when admin administrating a participatory process with hero cont
         ]
 
         content_block.settings do |settings|
-          settings.attribute :welcome_text, type: :text, translated: true
+          settings.attribute :button_text, type: :text, translated: true
         end
 
         content_block.default!

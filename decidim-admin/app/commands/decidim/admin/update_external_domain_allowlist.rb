@@ -2,7 +2,7 @@
 
 module Decidim
   module Admin
-    class UpdateExternalDomainWhitelist < Decidim::Command
+    class UpdateExternalDomainAllowlist < Decidim::Command
       attr_reader :form, :organization
 
       def initialize(form, organization, user)
@@ -24,7 +24,7 @@ module Decidim
       private
 
       def save_domains!
-        organization.external_domain_whitelist = form.external_domains.filter_map do |external_domain_form|
+        organization.external_domain_allowlist = form.external_domains.filter_map do |external_domain_form|
           external_domain_form.value unless external_domain_form.deleted
         end.flatten
 

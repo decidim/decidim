@@ -55,7 +55,17 @@ FactoryBot.define do
   end
 
   factory :category, class: "Decidim::Category" do
-    name { generate_localized_title }
+    transient do
+      skip_injection { false }
+    end
+
+    name do
+      if skip_injection
+        Decidim::Faker::Localized.localized { generate(:title) }
+      else
+        Decidim::Faker::Localized.localized { "<script>alert(\"category name\");</script> #{generate(:title)}" }
+      end
+    end
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     weight { 0 }
 
@@ -98,7 +108,7 @@ FactoryBot.define do
     admin_terms_of_service_body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     force_users_to_authenticate_before_access_organization { false }
     machine_translation_display_priority { "original" }
-    external_domain_whitelist { ["example.org", "twitter.com", "facebook.com", "youtube.com", "github.com", "mytesturl.me"] }
+    external_domain_allowlist { ["example.org", "twitter.com", "facebook.com", "youtube.com", "github.com", "mytesturl.me"] }
     smtp_settings do
       {
         "from" => "test@example.org",

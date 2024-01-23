@@ -3,8 +3,8 @@
 require "spec_helper"
 
 describe "ExternalDomainWarning" do
-  let(:whitelist) { ["decidim.org", "example.org"] }
-  let(:organization) { create(:organization, external_domain_whitelist: whitelist) }
+  let(:allowlist) { ["decidim.org", "example.org"] }
+  let(:organization) { create(:organization, external_domain_allowlist: allowlist) }
   let(:content) { { en: 'Hello world <a href="http://www.github.com" target="_blank">Very nice link</a><br><a href="http://www.example.org" target="_blank">Another link</a>' } }
   let!(:static_page) { create(:static_page, organization:, show_in_footer: true, allow_public_access: true, content:) }
 
@@ -24,7 +24,7 @@ describe "ExternalDomainWarning" do
     expect(page).to have_content("Open external link")
   end
 
-  it "does not show warning on whitelisted links" do
+  it "does not show warning on links in the allowlist" do
     expect(page).to have_link("Another link", href: "http://www.example.org")
   end
 

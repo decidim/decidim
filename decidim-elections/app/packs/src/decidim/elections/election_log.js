@@ -5,6 +5,11 @@
 import { Client, MessageParser } from "@decidim/decidim-bulletin_board";
 
 $(async () => {
+  const isSafariBrowser = (/^((?!chrome|android).)*safari/i).test(navigator.userAgent);
+  if (isSafariBrowser) {
+    $("#not_supported_safari_browser").removeClass("hidden");
+  }
+
   // UI Elements
   const $electionLog = $("#election-log");
 

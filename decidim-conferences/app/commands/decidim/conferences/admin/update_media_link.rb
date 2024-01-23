@@ -5,58 +5,22 @@ module Decidim
     module Admin
       # A command with all the business logic when updating a conference
       # speaker in the system.
-      class UpdateMediaLink < Decidim::Command
-        # Public: Initializes the command.
-        #
-        # form - A form object with the params.
-        # media_link - The ConferenceSpeaker to update
-        def initialize(form, media_link)
-          @form = form
-          @media_link = media_link
-        end
+      class UpdateMediaLink < Decidim::Commands::UpdateResource
+        fetch_form_attributes :title, :link, :weight, :date
 
-        # Executes the command. Broadcasts these events:
-        #
-        # - :ok when everything is valid.
-        # - :invalid if the form was not valid and we could not proceed.
-        #
-        # Returns nothing.
-        def call
-          return broadcast(:invalid) if form.invalid?
-          return broadcast(:invalid) unless media_link
+        protected
 
-          transaction do
-            update_media_link!
-          end
+        def invalid? = form.invalid? || !resource
 
-          broadcast(:ok)
-        end
-
-        private
-
-        attr_reader :form, :media_link
-
-        def update_media_link!
-          log_info = {
+        def extra_params
+          {
             resource: {
-              title: media_link.title
+              title: resource.title
             },
             participatory_space: {
-              title: media_link.conference.title
+              title: resource.conference.title
             }
           }
-
-          Decidim.traceability.update!(
-            media_link,
-            form.current_user,
-            form.attributes.slice(
-              "title",
-              "link",
-              "weight",
-              "date"
-            ).symbolize_keys,
-            log_info
-          )
         end
       end
     end
