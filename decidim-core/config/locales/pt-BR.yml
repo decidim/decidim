@@ -755,8 +755,8 @@ pt-BR:
           message_2: O tamanho recomendado para esta imagem é 512x512.
         image:
           explanation: 'Orientação da imagem:'
-          message_1: Preferencialmente, uma imagem de paisagem que não tem nenhum texto.
-          message_2: O serviço cultiva a imagem.
+          message_1: Preferencialmente, uma imagem de paisagem que não tenha nenhum texto.
+          message_2: O serviço recorta a imagem.
       file_validation:
         allowed_file_extensions: 'Extensões de arquivo permitidas: %{extensions}'
         max_file_dimension: 'Dimensões máximas de arquivo: %{resolution} pixels'
