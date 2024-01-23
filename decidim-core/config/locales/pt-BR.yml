@@ -1423,7 +1423,22 @@ pt-BR:
     upload:
       uploadedFile: Arquivo carregado
   emojis:
+    categories:
+      activities: Atividades
+      people-body: Pessoas
+      recents: Recentemente usado
+      smileys-emotion: Smileys & Emotion
+    error:
+      load: Falha ao carregar emojis
+    recents:
+      clear: Limpar emojis recentes
+      none: Você ainda não selecionou nenhum emojis.
     retry: Tente novamente
+    search:
+      _: Pesquisar emojis...
+      clear: Limpar pesquisa
+      error: Falha ao pesquisar emojis
+      not_found: Nenhum resultado encontrado
   errors:
     messages:
       allowed_file_content_types: 'apenas arquivos com as seguintes extensões são permitidos: %{types}'
