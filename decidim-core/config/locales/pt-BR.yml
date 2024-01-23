@@ -791,9 +791,9 @@ pt-BR:
         index:
           badge_title: "Selo \"%{name}\""
           how: Como você pode ganhar
-          page_description: Crachás são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, você ganhará distintivos diferentes. Aqui está a lista de crachás e algumas maneiras de ganhá-los.
-          title: Distintivos
-      description: Crachás são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, você ganhará distintivos diferentes.
+          page_description: Os selos são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, você ganhará selos diferentes. Aqui está a lista de selos e algumas maneiras de ganhá-los.
+          title: Selos
+      description: Os selos são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, você ganhará selos diferentes.
       level: Nível %{level}
     group_admins:
       actions:
@@ -1099,7 +1099,7 @@ pt-BR:
     profiles:
       show:
         activity: Atividade
-        badges: Distintivos
+        badges: Selos
         conversations: Conversas
         followers: Seguidores
         following: Segue
@@ -1110,7 +1110,7 @@ pt-BR:
       sidebar:
         badges:
           info: Os crachás são obtidos através da realização de atividades específicas na plataforma.
-          title: Distintivos
+          title: Selos
       user:
         create_user_group: Criar Grupo
         edit_profile: Editar perfil
