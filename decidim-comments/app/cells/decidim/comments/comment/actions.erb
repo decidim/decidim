@@ -4,7 +4,7 @@
       <%= icon "arrow-up-s-line" %>
       <span class="hide-comment-replies font-normal"><%= t("decidim.components.comment.hide_replies") %></span>
       <%= icon "arrow-down-s-line" %>
-      <span class="show-comment-replies font-normal"><%= t("decidim.components.comment.show_replies", count: replies.size, replies_count: replies.size ) %></span>
+      <span class="font-normal" data-show-comment-replies><%= t("decidim.components.comment.show_replies", count: replies.size, replies_count: replies.size ) %></span>
     </button>
   <% end %>
   <% if can_reply? %>
