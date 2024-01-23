@@ -859,7 +859,7 @@ pt-BR:
           unearned_another: Este usuário ainda não possui seguidores.
           unearned_own: Você ainda não tem seguidores.
         index:
-          badge_title: "%{name} selo"
+          badge_title: "Selo \"%{name}\""
           how: Como você pode ganhar
           page_description: Crachás são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, você ganhará distintivos diferentes. Aqui está a lista de crachás e algumas maneiras de ganhá-los.
           title: Distintivos
