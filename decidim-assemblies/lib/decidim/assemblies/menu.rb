@@ -38,7 +38,7 @@ module Decidim
         end
       end
 
-      def self.register_assemblies_admin_attachments_menu!
+      def self.register_admin_assemblies_attachments_menu!
         Decidim.menu :assemblies_admin_attachments_menu do |menu|
           menu.add_item :assembly_attachments,
                         I18n.t("attachment_files", scope: "decidim.admin.menu.assemblies_submenu"),
