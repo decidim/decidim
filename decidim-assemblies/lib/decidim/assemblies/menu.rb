@@ -139,18 +139,28 @@ module Decidim
 
       def self.register_admin_assemblies_menu!
         Decidim.menu :admin_assemblies_menu do |menu|
+          menu.add_item :import_assembly,
+                        I18n.t("actions.import_assembly", scope: "decidim.admin"),
+                        decidim_admin_assemblies.new_import_path,
+                        position: 1.0,
+                        active: is_active_link?(decidim_admin_assemblies.new_import_path),
+                        icon_name: "price-tag-3-line",
+
+                        if: allowed_to?(:import, :assembly)
           menu.add_item :assemblies,
                         I18n.t("menu.assemblies", scope: "decidim.admin"),
                         decidim_admin_assemblies.assemblies_path,
-                        position: 1.0,
+                        position: 1.1,
                         active: is_active_link?(decidim_admin_assemblies.assemblies_path),
+                        icon_name: "government-line",
                         if: allowed_to?(:read, :assembly_list)
 
           menu.add_item :assemblies_types,
                         I18n.t("menu.assemblies_types", scope: "decidim.admin"),
                         decidim_admin_assemblies.assemblies_types_path,
+                        position: 1.2,
                         active: is_active_link?(decidim_admin_assemblies.assemblies_types_path),
-                        position: 1.1,
+                        icon_name: "government-line",
                         if: allowed_to?(:manage, :assemblies_type)
         end
       end
