@@ -19,6 +19,8 @@ pt-BR:
         decidim_scope_id: Âmbito
         decidim_user_group_id: Grupo de usuários
         description: Descrição
+        end_time: Data Final
+        id: ID
         iframe_embed_type: Tipo de incorporação iframe
         location: Localização
         location_hints: Dicas de localização
@@ -29,11 +31,26 @@ pt-BR:
         registration_email_custom_content: Registro de conteúdo personalizado do e-mail
         registration_form_enabled: Formulário de inscrição ativado
         registration_terms: Termos de registro
+        registration_type: Tipo de Registro
         registration_url: URL de Registro
         registrations_enabled: Registos habilitados
+        reserved_slots: Slots reservados para esta reunião
+        start_time: Data Inicial
         title: Título
         transparent: Transparente
         type_of_meeting: Tipo
+      meeting_agenda:
+        title: Título
+        visible: Visível
+      meeting_agenda_items:
+        description: Descrição
+        duration: Duração
+        title: Título
+      meeting_registration_invite:
+        email: E-mail
+        name: Nome
+      validate_registration_code:
+        code: Código
     errors:
       models:
         meeting:
@@ -73,9 +90,31 @@ pt-BR:
     admin:
       filters:
         meetings:
+          category_id_eq:
+            label: Categoria
+          closed_at_present:
+            label: Estado
+            values:
+              'false': Aberto
+              'true': Fechado
+          is_upcoming_true:
+            label: Encontro
+            values:
+              'false': Passado
+              'true': Próximos
+          scope_id_eq:
+            label: Escopo
+          with_any_origin:
+            label: Origem
+            values:
+              official: Oficial
+              participants: Participante
+              user_group: Grupo de Usuários
           with_any_type:
+            label: Tipo de reunião
             values:
               hybrid: Híbrido
+              in_person: Presencialmente
               online: Virtual
       meeting_copies:
         create:
@@ -88,6 +127,7 @@ pt-BR:
     components:
       meetings:
         actions:
+          comment: Comentário
           join: Junte-se
         name: Reuniões
         settings:
@@ -242,7 +282,9 @@ pt-BR:
             select_user: Selecionar usuário
           index:
             filter:
+              accepted: Aceitou
               all: Tudo
+              rejected: Rejeitado
               sent: Enviado
             filter_by: Filtrar por
             invite_attendee: Convidar participante
