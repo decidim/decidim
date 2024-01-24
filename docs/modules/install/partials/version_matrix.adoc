@@ -1,0 +1,9 @@
+
+|===
+|Decidim version |Ruby version |Node version
+
+|v0.28 | 3.1.1 | 18.17.x
+
+|v0.27 | 3.0.2 | 16.18.x
+
+|===
