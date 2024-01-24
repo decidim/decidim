@@ -35,14 +35,14 @@ describe "Identity document online review" do
   end
 
   it "allows the user to verify an identity document" do
-    submit_verification_form(doc_type: "Identification number", doc_number: "XXXXXXXX")
+    submit_verification_form(doc_type: "identification_number", doc_number: "XXXXXXXX")
 
     expect(page).to have_content("Participant successfully verified")
     expect(page).not_to have_content("Verification #")
   end
 
   it "shows an error when information does not match" do
-    submit_verification_form(doc_type: "Identification number", doc_number: "XXXXXXXY")
+    submit_verification_form(doc_type: "identification_number", doc_number: "XXXXXXXY")
 
     expect(page).to have_content("Verification does not match")
     expect(page).to have_content("Introduce the data in the picture")
@@ -69,7 +69,7 @@ describe "Identity document online review" do
 
       it "allows the verificator to review the amended request" do
         submit_reupload_form(
-          doc_type: "Identification number",
+          doc_type: "identification_number",
           doc_number: "XXXXXXXY",
           file_name: "dni.jpg"
         )
@@ -79,7 +79,7 @@ describe "Identity document online review" do
         visit decidim_admin_id_documents.root_path
         click_link "Verification #1"
         expect(page).to have_css("img[src*='dni.jpg']")
-        submit_verification_form(doc_type: "Identification number", doc_number: "XXXXXXXY")
+        submit_verification_form(doc_type: "identification_number", doc_number: "XXXXXXXY")
         expect(page).to have_content("Participant successfully verified")
       end
 
