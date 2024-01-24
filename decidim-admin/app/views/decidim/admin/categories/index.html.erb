@@ -1,12 +1,12 @@
 <% add_decidim_page_title(t("categories.index.categories_title", scope: "decidim.admin")) %>
 <div class="card" id="categories">
   <div class="item_show__header">
-    <h2 class="item_show__header-title">
+    <h1 class="item_show__header-title">
       <%= t("categories.index.categories_title", scope: "decidim.admin") %>
       <% if allowed_to? :create, :category %>
         <%= link_to t("actions.category.new", scope: "decidim.admin"), new_category_path(current_participatory_space), class: "button button__sm button__secondary new ml-auto" %>
       <% end %>
-    </h2>
+    </h1>
   </div>
    <% if current_participatory_space.categories.any? %>
     <div class="table-scroll">
