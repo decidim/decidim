@@ -397,6 +397,8 @@ pt-BR:
       application_helper:
         filter_category_values:
           all: Todos
+        filter_meeting_space_values:
+          all: Todos
         filter_scope_values:
           all: Tudo
       calendar:
@@ -523,6 +525,7 @@ pt-BR:
           select_an_iframe_access_level: Por favor, selecione um nível de acesso iframe
           show_embedded_iframe_help: 'Apenas alguns serviços permitem incorporar na reunião ou evento ao vivo dos seguintes domínios: %{domains}'
         index:
+          click_here: Ver todas reuniões
           new_meeting: Nova reunião
           see_all: Veja todas as reuniões
           see_all_withdrawn: Veja todas as reuniões retiradas
@@ -550,7 +553,11 @@ pt-BR:
           join: Participe da reunião
           leave: Cancelar registro
           leave_confirmation: Tem certeza de que deseja cancelar seu cadastro para esta reunião?
+          link_available_soon: Link disponível em breve
+          link_closed: O link para participar da reunião estará disponível alguns minutos antes de iniciar
+          live_event: Esta reunião está acontecendo agora
           meeting_minutes: Atas de Reunião
+          micro_camera_permissions_warning: Quando você clicar no botão abaixo, serão solicitadas permissões de microfone e/ou câmera e participará na videoconferência
           no_slots_available: Não há slots disponíveis
           organizations: Organizações participantes
           registration_code_help_text: Seu código de registro
@@ -585,6 +592,7 @@ pt-BR:
           fields:
             closed: Fechadas
             end_time: Data final
+            id: ID
             map: Mapa
             official_meeting: Reunião oficial
             start_time: Data de início
