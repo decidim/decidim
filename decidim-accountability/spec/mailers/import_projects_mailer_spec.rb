@@ -24,7 +24,7 @@ module Decidim
         let(:mail) { described_class.import(user, current_component, some_amount) }
 
         it "emails success message to the user" do
-          expect(mail.body).to include("Successful imported projects to results in the #{current_component.name["en"]} component. You can review the results in the administration interface.")
+          expect(mail.body).to include("Successful imported projects to results in the #{escape_translated(current_component.name)} component. You can review the results in the administration interface.")
           expect(mail.body).to include("#{some_amount} results were imported from projects.")
         end
       end
