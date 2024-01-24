@@ -21,8 +21,8 @@ module Decidim
 
           expect(response).to render_template(:show)
 
-          expect(response.body).to include(page.title[I18n.locale.to_s])
-          expect(response.body).to include(page.content[I18n.locale.to_s])
+          expect(response.body).to include(escape_translated(page.title))
+          expect(response.body).to include(decidim_sanitize_admin(translated(page.content)))
         end
       end
 

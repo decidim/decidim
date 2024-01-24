@@ -4,7 +4,7 @@
 
 <div class="content-block__title">
   <h2 class="h2 decorator">
-    <%= single_component? ? translated_attribute(model.name) : t("decidim.components.meetings.name") %>
+    <%= single_component? ? escape_translated(model.name) : t("decidim.components.meetings.name") %>
   </h2>
   <div class="label text-lg"><%= meetings_count %></div>
   <% if see_all_path.present? %>
