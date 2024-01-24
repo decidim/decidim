@@ -106,6 +106,7 @@ module Decidim
         Decidim::ParticipatoryProcesses::Menu.register_admin_participatory_process_components_menu!
         Decidim::ParticipatoryProcesses::Menu.register_admin_participatory_process_menu!
         Decidim::ParticipatoryProcesses::Menu.register_admin_participatory_process_group_menu!
+        Decidim::ParticipatoryProcesses::Menu.register_admin_participatory_processes_manage_menu!
       end
     end
   end
