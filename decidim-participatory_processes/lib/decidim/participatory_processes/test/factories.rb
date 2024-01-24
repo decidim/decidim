@@ -130,6 +130,10 @@ FactoryBot.define do
   end
 
   factory :participatory_process_step, class: "Decidim::ParticipatoryProcessStep" do
+    transient do
+      skip_injection { false }
+    end
+
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     start_date { 1.month.ago }
