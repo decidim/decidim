@@ -3,10 +3,10 @@
 require "spec_helper"
 
 module Decidim::Admin
-  describe UpdateExternalDomainWhitelist do
-    let(:organization) { create(:organization, external_domain_whitelist: []) }
+  describe UpdateExternalDomainAllowlist do
+    let(:organization) { create(:organization, external_domain_allowlist: []) }
     let(:user) { create(:user, organization:) }
-    let(:form) { Decidim::Admin::OrganizationExternalDomainWhitelistForm.from_params(attributes) }
+    let(:form) { Decidim::Admin::OrganizationExternalDomainAllowlistForm.from_params(attributes) }
     let(:command) { described_class.new(form, organization, user) }
     let(:domains) { ["erabaki.pamplona.es", "osallistu.hel.fi", "codefor.fr"] }
     let(:attributes) do
@@ -24,14 +24,14 @@ module Decidim::Admin
         expect { command.call }.to broadcast(:ok)
       end
 
-      it "adds domains to whitelist" do
+      it "adds domains to allowlist" do
         expect do
           command.call
-        end.to change(organization, :external_domain_whitelist)
-        expect(organization.external_domain_whitelist).to include(domains[0])
-        expect(organization.external_domain_whitelist).to include(domains[1])
-        expect(organization.external_domain_whitelist).to include(domains[2])
-        expect(organization.external_domain_whitelist.length).to eq(3)
+        end.to change(organization, :external_domain_allowlist)
+        expect(organization.external_domain_allowlist).to include(domains[0])
+        expect(organization.external_domain_allowlist).to include(domains[1])
+        expect(organization.external_domain_allowlist).to include(domains[2])
+        expect(organization.external_domain_allowlist.length).to eq(3)
       end
 
       it "traces the action", versioning: true do
@@ -59,7 +59,7 @@ module Decidim::Admin
       it "does not create an attachment collection" do
         expect do
           command.call
-        end.not_to change(organization, :external_domain_whitelist)
+        end.not_to change(organization, :external_domain_allowlist)
       end
     end
   end

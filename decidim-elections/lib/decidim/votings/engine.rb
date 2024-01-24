@@ -44,6 +44,7 @@ module Decidim
       end
 
       initializer "decidim_votings.register_icons" do
+        Decidim.icons.register(name: "map-line", icon: "map-line", category: "system", description: "Icon used to display Polling Stations on maps", engine: :votings)
         Decidim.icons.register(name: "Decidim::Votings::Voting", icon: "check-double-fill", description: "Voting", category: "activity", engine: :votings)
         Decidim.icons.register(name: "lock-unlock-line", icon: "lock-unlock-line", category: "system", description: "", engine: :votings)
       end

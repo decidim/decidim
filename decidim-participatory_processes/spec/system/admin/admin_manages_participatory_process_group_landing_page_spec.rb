@@ -67,21 +67,20 @@ describe "Admin manages participatory process group landing page" do
       )
     end
 
-    let(:cta_settings) do
+    let(:hero_settings) do
       {
-        button_url: "https://example.org/action",
-        button_text_en: "cta text",
-        description_en: "cta description"
+        button_url_en: "https://example.org/action",
+        button_text_en: "hero text"
       }
     end
-    let!(:cta_content_block) do
+    let!(:hero_content_block) do
       create(
         :content_block,
         organization:,
         scope_name:,
         scoped_resource_id: resource.id,
-        manifest_name: :cta,
-        settings: cta_settings
+        manifest_name: :hero,
+        settings: hero_settings
       )
     end
 
@@ -89,22 +88,22 @@ describe "Admin manages participatory process group landing page" do
       visit decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_content_block_path(resource, content_block)
 
       fill_in(
-        :content_block_settings_welcome_text_en,
-        with: "Custom welcome text!"
+        :content_block_settings_button_text_en,
+        with: "Custom button text!"
       )
 
       click_button "Update"
       visit decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_content_block_path(resource, content_block)
-      expect(page).to have_selector("input[value='Custom welcome text!']")
+      expect(page).to have_selector("input[value='Custom button text!']")
 
       content_block.reload
 
-      expect(content_block.settings.to_json).to match(/Custom welcome text!/)
+      expect(content_block.settings.to_json).to match(/Custom button text!/)
     end
 
-    it "shows settings of cta" do
-      visit decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_content_block_path(resource, cta_content_block)
-      cta_settings.values.each do |value|
+    it "shows settings of the hero" do
+      visit decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_content_block_path(resource, hero_content_block)
+      hero_settings.values.each do |value|
         expect(page).to have_selector("input[value='#{value}']")
       end
     end

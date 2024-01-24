@@ -95,7 +95,7 @@ de:
             new_items:
               one: 1 ausgewähltes Projekt wird importiert
               other: "%{count} ausgewählte Projekte werden importiert"
-            no_components: Es gibt keine weiteren Budgetkomponenten in diesem partizipativen Raum, um die Projekte in Ergebnisse zu importieren.
+            no_components: Es gibt keine weiteren Budgetkomponenten in diesem Beteiligunsgbereich, um die Projekte in Ergebnisse zu importieren.
             origin_component_id: Ursprungskomponente
             select_component: Komponente auswählen
             success:
