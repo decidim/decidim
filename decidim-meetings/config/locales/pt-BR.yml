@@ -19,7 +19,11 @@ pt-BR:
         decidim_scope_id: Âmbito
         decidim_user_group_id: Grupo de usuários
         description: Descrição
+        end_time: Data Final
+        id: ID
+        iframe_access_level: Nível de acesso iframe
         iframe_embed_type: Tipo de incorporação iframe
+        iframe_embed_type_html: Apenas alguns serviços permitem o "Embed na página de reunião" ou "Abrir na página de eventos ao vivo". Observe que com a opção "Incorporar na página de reunião" em mobilizações, como a tela herda diferentes dimensões, na verdade funcionará como um "Abrir na página de eventos ao vivo".
         location: Localização
         location_hints: Dicas de localização
         online_meeting_url: URL da reunião on-line
@@ -29,11 +33,26 @@ pt-BR:
         registration_email_custom_content: Registro de conteúdo personalizado do e-mail
         registration_form_enabled: Formulário de inscrição ativado
         registration_terms: Termos de registro
+        registration_type: Tipo de Registro
         registration_url: URL de Registro
         registrations_enabled: Registos habilitados
+        reserved_slots: Slots reservados para esta reunião
+        start_time: Data Inicial
         title: Título
         transparent: Transparente
         type_of_meeting: Tipo
+      meeting_agenda:
+        title: Título
+        visible: Visível
+      meeting_agenda_items:
+        description: Descrição
+        duration: Duração
+        title: Título
+      meeting_registration_invite:
+        email: E-mail
+        name: Nome
+      validate_registration_code:
+        code: Código
     errors:
       models:
         meeting:
@@ -42,6 +61,15 @@ pt-BR:
               not_embeddable: Esta URL não pode ser incorporada na página de eventos de reunião ou ao vivo.
             online_meeting_url:
               url_format: Precisa ser uma URL válida
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: A duração dos itens excede a duração da reunião em %{count} minutos.
+              too_many_minutes_child: A duração do item filho excede o item da agenda pai "%{parent_title}" pela duração de %{count} minuto.
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Este endereço de e-mail já foi convidado.
     models:
       decidim/meetings/close_meeting_event: Reunião fechada
       decidim/meetings/create_meeting_event: Encontro
@@ -64,9 +92,31 @@ pt-BR:
     admin:
       filters:
         meetings:
+          category_id_eq:
+            label: Categoria
+          closed_at_present:
+            label: Estado
+            values:
+              'false': Aberto
+              'true': Fechado
+          is_upcoming_true:
+            label: Encontro
+            values:
+              'false': Passado
+              'true': Próximos
+          scope_id_eq:
+            label: Escopo
+          with_any_origin:
+            label: Origem
+            values:
+              official: Oficial
+              participants: Participante
+              user_group: Grupo de Usuários
           with_any_type:
+            label: Tipo de reunião
             values:
               hybrid: Híbrido
+              in_person: Presencialmente
               online: Virtual
       meeting_copies:
         create:
@@ -78,6 +128,7 @@ pt-BR:
     components:
       meetings:
         actions:
+          comment: Comentário
           join: Junte-se
         name: Reuniões
         settings:
@@ -145,6 +196,9 @@ pt-BR:
           email_outro: Você recebeu esta notificação porque está seguindo a reunião "%{resource_title}". Você pode ignorá-lo do link anterior.
           email_subject: A reunião "%{resource_title}" começará em menos de 48h.
           notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> começará em menos de 48h.
+    forms:
+      meetings:
+        attendees_count_help_text: Não se esqueça de incluir o número total de participantes na sua reunião, seja presencial, on-line ou híbrida.
     gamification:
       badges:
         attended_meetings:
@@ -155,6 +209,8 @@ pt-BR:
           description_own: Você participou de %{score} reuniões.
           name: Participou de reuniões
           next_level_in: Participe de mais %{score} reuniões para alcançar o próximo nível!
+          unearned_another: Este usuário ainda não participou de nenhuma reunião ainda.
+          unearned_own: Você não participou de nenhuma reunião ainda.
     meetings:
       actions:
         agenda: Agenda
@@ -169,6 +225,7 @@ pt-BR:
             one: 'A reunião não pode ser destruída porque tem %{count} proposta associada a ela:'
             other: 'A reunião não pode ser destruída porque tem %{count} propostas associadas a ela:'
         manage_poll: Gerenciar enquete
+        new_meeting: Nova reunião
         preview: Visualização
         registrations: Inscrições
         title: Ações
@@ -186,6 +243,9 @@ pt-BR:
             down: Baixa
             remove: Remover
             up: Acima
+          create:
+            invalid: Houve um problema ao criar esta agenda.
+            success: Agenda criada com sucesso.
           edit:
             title: Editar agenda
             update: Atualizar
@@ -197,6 +257,8 @@ pt-BR:
           new:
             create: Crio
             title: Nova agenda
+          update:
+            invalid: Houve um problema ao atualizar esta agenda.
         exports:
           answers: Respostas
           meeting_comments: Comentários
@@ -220,7 +282,9 @@ pt-BR:
             select_user: Selecionar usuário
           index:
             filter:
+              accepted: Aceitou
               all: Tudo
+              rejected: Rejeitado
               sent: Enviado
             invite_attendee: Convidar participante
             invites: Convites
