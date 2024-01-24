@@ -3,7 +3,7 @@
 module Decidim
   module Meetings
     module Admin
-      # This command is executed when the user creates a Meeting from the admin
+      # This command is executed when the user updates a Meeting from the admin
       # panel.
       class UpdateAgenda < Decidim::Commands::UpdateResource
         fetch_form_attributes :title, :visible
