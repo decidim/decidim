@@ -105,7 +105,6 @@ module Decidim
       initializer "decidim_initiatives.menu" do
         Decidim::Initiatives::Menu.register_menu!
         Decidim::Initiatives::Menu.register_home_content_block_menu!
-        Decidim::Initiatives::Menu.register_admin_settings_menu!
       end
 
       initializer "decidim_initiatives.badges" do

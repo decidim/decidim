@@ -84,23 +84,11 @@ module Decidim
         end
       end
 
-      initializer "decidim_initiatives_admin.menu" do
-        Decidim::Initiatives::Menu.register_admin_menu_modules!
-      end
-
-      initializer "decidim_initiatives_admin.components_menu" do
-        Decidim::Initiatives::Menu.register_admin_initiatives_components_menu!
-      end
-
       initializer "decidim_initiatives_admin.initiative_menu" do
+        Decidim::Initiatives::Menu.register_admin_menu_modules!
+        Decidim::Initiatives::Menu.register_admin_initiatives_components_menu!
         Decidim::Initiatives::Menu.register_admin_initiative_menu!
-      end
-
-      initializer "decidim_initiatives_admin.initiative_actions_menu" do
         Decidim::Initiatives::Menu.register_admin_initiative_actions_menu!
-      end
-
-      initializer "decidim_initiatives_admin.initiatives_menu" do
         Decidim::Initiatives::Menu.register_admin_initiatives_menu!
       end
     end
