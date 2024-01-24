@@ -11,6 +11,9 @@ FactoryBot.define do
   end
 
   factory :participatory_process, class: "Decidim::ParticipatoryProcess" do
+    transient do
+      skip_injection { false }
+    end
     title { generate_localized_title }
     slug { generate(:participatory_process_slug) }
     subtitle { generate_localized_title }
