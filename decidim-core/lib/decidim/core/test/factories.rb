@@ -9,10 +9,6 @@ require "decidim/participatory_processes/test/factories"
 require "decidim/assemblies/test/factories"
 require "decidim/comments/test/factories"
 
-#
-# TODO: Add skip_injection to all factories in this file
-#
-
 def generate_component_name(locales, manifest_name, skip_injection: false)
   prepend = skip_injection ? "" : "<script>alert(\"#{manifest_name}\");</script>"
 
