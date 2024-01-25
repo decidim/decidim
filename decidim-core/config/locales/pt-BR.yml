@@ -30,6 +30,7 @@ pt-BR:
         password_confirmation: Confirme sua senha
         personal_url: URL pessoal
         remove_avatar: Excluir avatar
+        tos_agreement: Termos e condições de uso deste contrato
     models:
       decidim/attachment_created_event: Anexo
       decidim/component_published_event: Componente ativo
@@ -74,7 +75,10 @@ pt-BR:
     'true': 'Sim'
   carrierwave:
     errors:
+      file_cannot_be_processed: O arquivo não pode ser processado
+      file_resolution_too_large: A resolução do arquivo é muito grande
       file_size_too_large: O tamanho do arquivo é grande demais
+      not_inside_organization: O arquivo não está anexado a nenhuma organização
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -141,6 +145,7 @@ pt-BR:
         cancel_error: Não foi possível cancelar a alteração do email.
         cancel_successfully: Alteração de e-mail cancelada com sucesso.
         resend_error: Não foi possível reenviar o e-mail de confirmação.
+        resend_successfully: E-mail de confirmação reenviado com sucesso para %{unconfirmed_email}
         send_again: Enviar novamente
         title: Verificação de mudança de e-mail
       show:
@@ -827,6 +832,8 @@ pt-BR:
         allowed_file_extensions: 'Extensões de arquivo permitidas: %{extensions}'
         max_file_dimension: 'Dimensões máximas de arquivo: %{resolution} pixels'
         max_file_size: 'Tamanho máximo de arquivo: %{megabytes}MB'
+      files:
+        extension_allowlist: 'Formatos aceitos: %{extensions}'
       upload:
         labels:
           add_attachment: Adicionar anexo
@@ -836,8 +843,10 @@ pt-BR:
           edit_image: Editar imagem
           error: Erro!
           file_size_too_large: 'O tamanho do arquivo é grande demais! Tamanho maximo de arquivo: %{megabytes}MB'
+          remove: Remover
           replace: Substituir
           save: Salvar
+          title: Título
           title_required: Título é obrigatório!
           uploaded: Carregado
           validating: Validando...
@@ -1187,6 +1196,7 @@ pt-BR:
           weekly: Semanalmente
         notifications_sending_frequency: Com que frequência deseja receber o e-mail de notificações?
         own_activity: Minha atividade, como quando alguém comenta minha proposta ou me menciona
+        push_notifications_reminder: Para receber notificações da plataforma, primeiro você precisará autorizá-las nas configurações do seu navegador.
         receive_notifications_about: Quero receber notificações sobre
         update_notifications_settings: Guardar alterações
       update:
