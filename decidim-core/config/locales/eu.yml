@@ -1820,7 +1820,7 @@ eu:
       widget:
         see_more: Ikusi gehiago
   locale:
-    name: Ingelesa
+    name: Euskera
     name_with_error: Euskera (akatsa!)
   password_validator:
     blacklisted: Zerrenda beltzean
