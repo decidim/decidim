@@ -13,6 +13,12 @@ namespace :decidim do
 
       actions :create_file, "bin/dev", %(#!/usr/bin/env sh
 
+set -e
+
+bundle check || bundle install --jobs 20 --retry 5
+
+bin/rails decidim:upgrade db:migrate
+
 if ! gem list foreman -i --silent; then
   echo "Installing foreman..."
   gem install foreman
