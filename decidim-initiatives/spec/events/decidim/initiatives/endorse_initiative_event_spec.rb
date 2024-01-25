@@ -19,7 +19,7 @@ describe Decidim::Initiatives::EndorseInitiativeEvent do
   let(:email_subject) { "Initiative endorsed by @#{initiative_author.nickname}" }
   let(:email_intro) { "#{initiative_author.name} @#{initiative_author.nickname}, who you are following, has endorsed the following initiative, maybe you want to contribute to the conversation:" }
   let(:email_outro) { "You have received this notification because you are following @#{initiative_author.nickname}. You can stop receiving notifications following the previous link." }
-  let(:intiative_title) { decidim_html_escape(translated(initiative.title)) }
+  let(:intiative_title) { decidim_escape_translated(initiative.title) }
   let(:notification_title) { <<-EOTITLE.squish }
     The <a href="#{resource_path}">#{intiative_title}</a> initiative was endorsed by
     <a href="/profiles/#{initiative_author.nickname}">#{initiative_author.name} @#{initiative_author.nickname}</a>.
