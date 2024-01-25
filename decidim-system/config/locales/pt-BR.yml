@@ -56,6 +56,7 @@ pt-BR:
           create: Criar
           title: Novo administrador
         show:
+          destroy: Destruir
           edit: Editar
         update:
           error: Ocorreu um erro ao atualizar este administrador.
