@@ -24,7 +24,7 @@ module Decidim
 
       context "when user has subscriptions" do
         let(:user) do
-          create(:user, organization:, "notification_settings" => {
+          create(:user, :organization => organization, "notification_settings" => {
                    "subscriptions" => {
                      "auth_code_100" => { p256dh: "value", endpoint: "value" }
                    }
@@ -43,7 +43,7 @@ module Decidim
 
     describe "#delete_subscription" do
       let(:user) do
-        create(:user, organization:, "notification_settings" => {
+        create(:user, :organization => organization, "notification_settings" => {
                  "subscriptions" => {
                    "auth_code_121" => { p256dh: "value", endpoint: "value" },
                    "auth_code_100" => { p256dh: "value", endpoint: "value" }

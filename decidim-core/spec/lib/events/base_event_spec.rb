@@ -49,7 +49,7 @@ module Decidim
       describe "when the resource_text is a translation hash" do
         let(:resource_text) do
           {
-            en: "My string",
+            :en => "My string",
             "machine_translations" => {
               "es" => "Spanish - My string"
             }

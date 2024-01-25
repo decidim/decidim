@@ -258,14 +258,14 @@ shared_examples "a proposal form" do |options|
   context "when the attachment is present" do
     let(:params) do
       {
-        title:,
-        body:,
-        author:,
-        category_id:,
-        scope_id:,
-        address:,
-        meeting_as_author:,
-        suggested_hashtags:,
+        :title => title,
+        :body => body,
+        :author => author,
+        :category_id => category_id,
+        :scope_id => scope_id,
+        :address => address,
+        :meeting_as_author => meeting_as_author,
+        :suggested_hashtags => suggested_hashtags,
         attachments_key => [Decidim::Dev.test_file("city.jpeg", "image/jpeg")]
       }
     end

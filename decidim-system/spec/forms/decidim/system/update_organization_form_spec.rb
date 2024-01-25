@@ -103,7 +103,7 @@ module Decidim::System
             omniauth_settings_facebook_app_id: Decidim::AttributeEncryptor.encrypt("foo")
           },
           file_upload_settings: {
-            allowed_file_extensions: {
+            :allowed_file_extensions => {
               "default" => %w(jpg jpeg),
               "admin" => %w(jpg jpeg png),
               "image" => %w(jpg jpeg png)
