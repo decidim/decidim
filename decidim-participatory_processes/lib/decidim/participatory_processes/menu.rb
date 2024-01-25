@@ -186,7 +186,7 @@ module Decidim
 
       def self.register_admin_participatory_processes_manage_menu!
         Decidim.menu :admin_participatory_processes_manage_menu do |menu|
-          menu.add_item :process_list,
+          menu.add_item :processes,
                         I18n.t("menu.participatory_processes", scope: "decidim.admin"),
                         decidim_admin_participatory_processes.participatory_processes_path,
                         position: 1,
@@ -194,7 +194,7 @@ module Decidim
                         if: allowed_to?(:read, :process_list),
                         active: is_active_link?(decidim_admin_participatory_processes.participatory_processes_path)
 
-          menu.add_item :process_import,
+          menu.add_item :import_process,
                         I18n.t("actions.import_process", scope: "decidim.admin"),
                         decidim_admin_participatory_processes.new_import_path,
                         position: 2,
