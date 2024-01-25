@@ -109,6 +109,7 @@ pt-BR:
           private: Privado
           public: Público
           published: Publicados
+          unpublished: Despublicado
         new:
           create: Criar
           title: Nova assembleia
@@ -193,6 +194,8 @@ pt-BR:
             'true': Cessado
         decidim_assemblies_type_id_eq:
           label: Tipo de assembleia
+        search_placeholder:
+          full_name_or_user_name_or_user_nickname_cont: Procurar por nome ou nome de usuário
       menu:
         assemblies: Assembleias
         assemblies_submenu:
@@ -321,7 +324,14 @@ pt-BR:
             json: JSON
       assemblies:
         description:
+          area_name: Área
+          closing_date: Data de encerramento
+          created_by: Criado por
+          creation_date: Data de criação
           data: Dados da assembleia
+          developer_group: Grupo promotor
+          duration: Duração
+          included_at: Incluído em
           indefinite_duration: Indefinido
           local_area: Área de organização
           meta_scope: Escopo
