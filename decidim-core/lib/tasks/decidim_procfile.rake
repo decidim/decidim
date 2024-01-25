@@ -4,7 +4,7 @@ require "thor"
 
 namespace :decidim do
   namespace :procfile do
-    desc "Generates a dummy app for testing in external installations"
+    desc "Generates a script for starting the development app server"
     task :install do
       actions :create_file, "Procfile.dev", <<~RUBY
         web: bin/rails server -b 0.0.0.0 -p 3000
