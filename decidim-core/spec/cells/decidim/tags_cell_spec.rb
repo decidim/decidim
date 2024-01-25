@@ -92,7 +92,7 @@ describe Decidim::TagsCell, type: :cell do
       custom_category = create(:category, participatory_space: participatory_space, name: { "en" => name })
       proposal_categorized.category = custom_category
       html = cell("decidim/tags", proposal_categorized, context: { extra_classes: ["tags--proposal"] }).call
-      expect(html).to have_css(".tag-container.tags--proposal")
+      expect(html).to have_css(".tags.tags--proposal")
       expect(html).to have_content(name)
     end
 
