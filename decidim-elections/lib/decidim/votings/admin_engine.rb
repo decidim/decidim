@@ -73,21 +73,9 @@ module Decidim
 
       initializer "decidim_votings_admin.menu" do
         Decidim::Votings::Menu.register_admin_menu_modules!
-      end
-
-      initializer "decidim_votings_admin.votings_components_menu" do
         Decidim::Votings::Menu.register_admin_votings_components_menu!
-      end
-
-      initializer "decidim_votings_admin.attachments_menu" do
         Decidim::Votings::Menu.register_votings_admin_attachments_menu!
-      end
-
-      initializer "decidim_votings_admin.monitoring_committee_menu" do
         Decidim::Votings::Menu.register_decidim_votings_monitoring_committee_menu!
-      end
-
-      initializer "decidim_votings_admin.voting_menu" do
         Decidim::Votings::Menu.register_admin_voting_menu!
       end
     end
