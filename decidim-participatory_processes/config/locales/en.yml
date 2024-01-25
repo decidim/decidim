@@ -220,6 +220,13 @@ en:
             last_step: Cannot delete the last phase of a process.
           success: Participatory process phase successfully deleted.
         edit:
+          cta_deprecated:
+            body_html: |-
+              Configuring the CTA through the Phase of the participatory process is deprecated with the new design.
+              Now this is done in the <b>Landing Page</b>, using the <b>Hero and image</b> content block.
+              We have left it here for you to migrate the CTAs that you need. The fields <i>Call to action path</i> and
+              <i>Call to action text</i> will be removed in the next version.
+            title: CTA deprecated
           title: Edit participatory process phase
           update: Update
         index:

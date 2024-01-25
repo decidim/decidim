@@ -559,7 +559,6 @@ pl:
         trustees:
           new_election:
             email_intro: Zostałeś powołany do pełnienia funkcji męża (osoby) zaufania do głosowania %{resource_title}.
-            email_subject: Jesteś mężem (osobą) zaufania w głosowaniu %{resource_title}..
           new_trustee:
             email_intro: Administrator ustanowił Cię mężem (osobą) zaufania w %{resource_name}. Powinieneś utworzyć klucz publiczny <a href='%{trustee_zone_url}'>w strefie osób zaufania</a>
             email_subject: Jesteś mężem (osobą) zaufania w %{resource_name}.

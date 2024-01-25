@@ -9,7 +9,7 @@ js_configs = {
     emojis: I18n.t("emojis").deep_transform_keys { |k| k.to_s.camelize(:lower) },
     editor: I18n.t("editor")
   },
-  external_domain_whitelist: [current_organization.host] + current_organization.external_domain_whitelist,
+  external_domain_allowlist: [current_organization.host] + current_organization.external_domain_allowlist,
   consent_cookie_name: Decidim.consent_cookie_name,
   sign_out_path: decidim.destroy_user_session_path
 }

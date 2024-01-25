@@ -1839,28 +1839,10 @@ cs:
   emojis:
     button: Přidat emoji
     categories:
-      activities: Aktivity
-      animals-nature: Zvířata a příroda
       custom: Vlastní
       flags: Značky
-      food-drink: Jídlo a pití
       objects: Objekty
-      people-body: Lidé a tělo
-      recents: Naposledy použité
-      smileys-emotion: Smajlíky a emoce
       symbols: Symboly
-      travel-places: Cestování a místa
-    error:
-      load: Nepodařilo se načíst emoje
-    recents:
-      clear: Vymazat nedávné emoji
-      none: Zatím jste nevybrali žádné emoji.
-    retry: Zkuste to znovu
-    search:
-      _: Hledat emoji...
-      clear: Vymazat hledání
-      error: Nepodařilo se vyhledat emoji
-      not_found: Nenalezeny žádné výsledky
   errors:
     messages:
       allowed_file_content_types: 'jsou povoleny pouze soubory s následujícími příponami: %{types}'

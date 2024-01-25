@@ -161,6 +161,7 @@ fi:
             sign_up_description: Luo tili tähän palveluun vastataksesi kyselyyn
             title: Vastaa kyselylomakkeeseen
           current_step: Vaihe %{step}
+          empty: Tälle lomakkeelle ei ole vielä määritetty kysymyksiä.
           of_total_steps: / %{total_steps}
           questionnaire_answered:
             body: Olet jo vastannut tähän kyselylomakkeeseen.

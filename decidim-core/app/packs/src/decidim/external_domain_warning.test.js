@@ -4,7 +4,7 @@ describe("ExternalDomainLink", () => {
   const content = `
     <div id="links">
       <a href="https://github.com/" target="_blank">This is an external link</a>
-      <a href="https://example.com/" target="_blank">This is an external link from a whitelisted domain</a>
+      <a href="https://example.com/" target="_blank">This is an external link from a domain in the allowlist</a>
       <div class="editor-container">
         <a href="https://example.org/" target="_blank">This is an external link within an editor</a>
       </div>
@@ -12,7 +12,7 @@ describe("ExternalDomainLink", () => {
     </div>
   `;
   const config = {
-    "external_domain_whitelist": ["example.com"]
+    "external_domain_allowlist": ["example.com"]
   };
   window.Decidim = {
     config: {
@@ -33,11 +33,11 @@ describe("ExternalDomainLink", () => {
     );
   });
 
-  it("does not update the link to the external link URL when its whitelisted", () => {
+  it("does not update the link to the external link URL when its in the allow list", () => {
     const $link = $("#links a")[1];
 
     expect($link.outerHTML).toEqual(
-      '<a href="https://example.com/" target="_blank">This is an external link from a whitelisted domain</a>'
+      '<a href="https://example.com/" target="_blank">This is an external link from a domain in the allowlist</a>'
     );
   });
 

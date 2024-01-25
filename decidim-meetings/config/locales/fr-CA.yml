@@ -90,6 +90,11 @@ fr-CA:
   decidim:
     admin:
       filters:
+        accepted_at_not_null:
+          label: Acceptée
+          values:
+            'false': Non acceptée
+            'true': Accepté
         meetings:
           category_id_eq:
             label: Catégorie
@@ -117,6 +122,18 @@ fr-CA:
               hybrid: Hybride
               in_person: En présentiel
               online: En ligne
+        rejected_at_not_null:
+          label: Rejeté
+          values:
+            'false': Non rejeté
+            'true': Rejeté
+        search_placeholder:
+          user_name_or_user_email_cont: Rechercher par nom ou email
+        sent_at_not_null:
+          label: Envoyé
+          values:
+            'false': Non envoyé
+            'true': Envoyé
       meeting_copies:
         create:
           error: Une erreur s'est produite lors de la duplication de cette rencontre.

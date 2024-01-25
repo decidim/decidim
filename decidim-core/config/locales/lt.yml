@@ -1785,28 +1785,10 @@ lt:
   emojis:
     button: Pridėti jaustuką
     categories:
-      activities: Veiklos
-      animals-nature: Gyvūnai ir gamta
       custom: Individualizuoti
       flags: Vėliavos
-      food-drink: Maistas ir Gėrimai
       objects: Objektai
-      people-body: Žmonės ir Kūnai
-      recents: Neseniai naudota
-      smileys-emotion: Šypsenos ir Emocijos
       symbols: Simboliai
-      travel-places: Kelionės ir Vietos
-    error:
-      load: Nepavyko užkrauti jaustukų
-    recents:
-      clear: Pašalinti nesenai naudotus jaustukus
-      none: Nepasirinkote jaustukų.
-    retry: Bandykite dar kartą
-    search:
-      _: Ieškoti jaustukų...
-      clear: Išvalyti paiešką
-      error: Nepavyko ieškoti jaustukų
-      not_found: Rezultatų nerasta
   errors:
     messages:
       allowed_file_content_types: 'leidžiamos tik rinkmenos su šiomis galūnėmis: %{types}'

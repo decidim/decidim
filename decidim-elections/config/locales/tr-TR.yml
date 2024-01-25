@@ -271,7 +271,6 @@ tr:
         trustees:
           new_election:
             email_intro: '%{resource_title} seçimi için vekil olarak eklendiniz.'
-            email_subject: '%{resource_title} seçimi için vekil olarak eklendiniz..'
           new_trustee:
             email_intro: Bir yönetici sizi %{resource_name} için güvenilen kişi olarak ekledi. Genel anahtarınızı <a href='%{trustee_zone_url}'> güvenilen bölgenizde </a> oluşturmalısınız
             email_subject: '%{resource_name} için vekil birisiniz.'

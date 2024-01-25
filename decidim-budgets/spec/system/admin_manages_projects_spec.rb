@@ -65,6 +65,13 @@ describe "Admin manages projects" do
     end
 
     it "selects projects to implementation" do
+      within "tr[data-id='#{project.id}']" do
+        expect(page).to have_content("No")
+      end
+      within "tr[data-id='#{project2.id}']" do
+        expect(page).to have_content("No")
+      end
+
       find_by_id("projects_bulk").set(true)
       find_by_id("js-bulk-actions-button").click
       click_button "Change selected"
@@ -73,10 +80,10 @@ describe "Admin manages projects" do
 
       expect(page).to have_admin_callout "These projects were successfully selected for implementation"
       within "tr[data-id='#{project.id}']" do
-        expect(page).to have_content("Selected")
+        expect(page).to have_content("Yes")
       end
       within "tr[data-id='#{project2.id}']" do
-        expect(page).to have_content("Selected")
+        expect(page).to have_content("Yes")
       end
       expect(Decidim::Budgets::Project.find(project.id).selected_at).to eq(Time.zone.today)
       expect(Decidim::Budgets::Project.find(project2.id).selected_at).to eq(Time.zone.today)

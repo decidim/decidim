@@ -467,7 +467,6 @@ nl:
         trustees:
           new_election:
             email_intro: Je bent toegevoegd als trustee voor de %{resource_title} stemronde.
-            email_subject: Je bent trustee voor de %{resource_title} stemronde..
           new_trustee:
             email_intro: Een beheerder heeft u toegevoegd als Trustee voor %{resource_name}. Je moet jouw openbare sleutel maken <a href='%{trustee_zone_url}'>in je Trustee zone</a>
             email_subject: Je bent een trustee van %{resource_name}.

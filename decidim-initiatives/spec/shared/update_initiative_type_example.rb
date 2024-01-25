@@ -17,7 +17,8 @@ shared_examples "update an initiative type" do
       form_params
     ).with_context(
       current_organization: initiative_type.organization,
-      current_component: nil
+      current_component: nil,
+      current_user: user
     )
   end
 
@@ -43,7 +44,7 @@ shared_examples "update an initiative type" do
       }
     end
 
-    let(:command) { described_class.new(initiative_type, form, user) }
+    let(:command) { described_class.new(form, initiative_type) }
 
     describe "when the form is not valid" do
       before do
@@ -108,7 +109,7 @@ shared_examples "update an initiative type" do
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:perform_action!)
-          .with("update", initiative_type, user)
+          .with(:update, initiative_type, user, {})
           .and_call_original
 
         expect { command.call }.to change(Decidim::ActionLog, :count)

@@ -6,7 +6,11 @@
   <%= cell("decidim/announcement", {
              title: t("not_supported_browser_title", scope: "decidim.elections.trustee_zone.trustees.show"),
              body: t("not_supported_browser_description", scope: "decidim.elections.trustee_zone.trustees.show")
-           }, callout_class: "alert", id: "not_supported_browser", hidden: true ) %>
+           }, callout_class: "alert hidden", id: "not_supported_browser") %>
+  <%= cell("decidim/announcement", {
+             title: t("safari_warning_title", scope: "decidim.elections.trustee_zone.trustees.show"),
+             body: t("safari_warning_description", scope: "decidim.elections.trustee_zone.trustees.show")
+           }, callout_class: "alert hidden", id: "not_supported_safari_browser") %>
 
   <%
     # i18n-tasks-use t('decidim.elections.trustee_zone.trustees.show.trustee_role_description.without_keys')

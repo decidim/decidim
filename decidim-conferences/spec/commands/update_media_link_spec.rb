@@ -12,16 +12,13 @@ module Decidim::Conferences
 
     let(:form) do
       double(
-        Admin::ConferenceSpeakerForm,
+        Admin::MediaLinkForm,
         invalid?: invalid,
         current_user:,
         title: { en: "New title" },
-        attributes: {
-          "title" => { en: "New title" },
-          "weight" => media_link.weight,
-          "link" => media_link.link,
-          "date" => 7.days.from_now
-        }
+        link: media_link.link,
+        weight: media_link.weight,
+        date: 7.days.from_now
       )
     end
     let(:invalid) { false }
