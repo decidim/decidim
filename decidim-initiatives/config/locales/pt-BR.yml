@@ -58,6 +58,9 @@ pt-BR:
               title: O título não pode ficar vazio
   activerecord:
     models:
+      decidim/initiative:
+        one: Iniciativa
+        other: Iniciativas
       decidim/initiative_comittee:
         one: Comissão
         other: Comissões
@@ -585,6 +588,8 @@ pt-BR:
           published: Publicados
           rejected: Não há assinaturas suficientes
           validating: Validação técnica
+      signature_interval:
+        title: Período de coleta de assinatura
       states:
         accepted: Aceitaram
         expired: Expirado
