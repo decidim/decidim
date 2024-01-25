@@ -3,8 +3,6 @@
 require "spec_helper"
 
 describe Decidim::Debates::CreateDebateEvent do
-  include Decidim::SanitizeHelper
-
   include_context "when a simple event"
 
   let(:resource) { create(:debate, :participant_author, title: { en: "It is my debate" }) }

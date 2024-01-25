@@ -13,8 +13,6 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
   include_context "when managing a component as an admin"
 
-  include Decidim::SanitizeHelper
-
   before do
     stub_geocoding(address, [latitude, longitude])
   end
