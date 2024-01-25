@@ -71,7 +71,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_votings_admin.voting_menu" do
+      initializer "decidim_votings_admin.menu" do
         Decidim::Votings::Menu.register_admin_menu_modules!
         Decidim::Votings::Menu.register_admin_votings_components_menu!
         Decidim::Votings::Menu.register_votings_admin_attachments_menu!

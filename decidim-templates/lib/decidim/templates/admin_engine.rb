@@ -49,7 +49,7 @@ module Decidim
         root to: "questionnaire_templates#index"
       end
 
-      initializer "decidim_templates_admin.template_menu" do
+      initializer "decidim_templates_admin.menu" do
         Decidim::Templates::Menu.register_admin_template_types_menu!
         Decidim::Templates::Menu.register_admin_menu!
       end

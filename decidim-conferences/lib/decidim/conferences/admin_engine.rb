@@ -89,7 +89,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_conferences_admin.conference_menu" do
+      initializer "decidim_conferences_admin.menu" do
         Decidim::Conferences::Menu.register_admin_conferences_components_menu!
         Decidim::Conferences::Menu.register_conferences_admin_registrations_menu!
         Decidim::Conferences::Menu.register_conferences_admin_attachments_menu!

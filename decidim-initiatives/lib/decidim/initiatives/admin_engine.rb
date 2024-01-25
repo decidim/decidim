@@ -84,7 +84,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_initiatives_admin.initiative_menu" do
+      initializer "decidim_initiatives_admin.menu" do
         Decidim::Initiatives::Menu.register_admin_menu_modules!
         Decidim::Initiatives::Menu.register_admin_initiatives_components_menu!
         Decidim::Initiatives::Menu.register_admin_initiative_menu!
