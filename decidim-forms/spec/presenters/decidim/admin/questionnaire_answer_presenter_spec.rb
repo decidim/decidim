@@ -79,7 +79,7 @@ module Decidim
         let!(:attachment) { create(:attachment, :with_image, attached_to: answer) }
 
         it "returns the download attachment link" do
-          expect(subject.body).to eq(%(<ul><li><a target="_blank" rel="noopener noreferrer" href="#{attachment.url}"><span>#{escape_translated(attachment.title)}</span> <small>jpeg 105 KB</small></a></li></ul>))
+          expect(subject.body).to eq(%(<ul><li><a target="_blank" rel="noopener noreferrer" href="#{attachment.url}"><span>#{decidim_escape_translated(attachment.title)}</span> <small>jpeg 105 KB</small></a></li></ul>))
         end
 
         context "when the attachment does not have a title" do

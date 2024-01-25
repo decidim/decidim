@@ -86,11 +86,11 @@ describe "Conferences" do
 
     it "shows them ordered" do
       within "#conference-media-documents" do
-        expect(escape_translated(first_document.title).gsub("&quot;", "\"")).to appear_before(escape_translated(last_document.title).gsub("&quot;", "\""))
+        expect(decidim_escape_translated(first_document.title).gsub("&quot;", "\"")).to appear_before(decidim_escape_translated(last_document.title).gsub("&quot;", "\""))
       end
 
       within "#conference-media-photos" do
-        expect(escape_translated(fist_image.title).gsub("&quot;", "\"")).to appear_before(escape_translated(last_image.title).gsub("&quot;", "\""))
+        expect(decidim_escape_translated(fist_image.title).gsub("&quot;", "\"")).to appear_before(decidim_escape_translated(last_image.title).gsub("&quot;", "\""))
       end
     end
   end

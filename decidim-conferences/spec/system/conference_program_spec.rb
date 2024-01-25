@@ -50,8 +50,8 @@ describe "Conference program" do
           visit decidim_conferences.conference_path(conference)
 
           within "aside .conference__nav-container" do
-            expect(page).to have_content(escape_translated(component.name))
-            click_link escape_translated(component.name)
+            expect(page).to have_content(decidim_escape_translated(component.name))
+            click_link decidim_escape_translated(component.name)
           end
 
           expect(page).to have_current_path decidim_conferences.conference_conference_program_path(conference, component)

@@ -54,11 +54,11 @@ module Decidim
       decidim_html_escape(text).sub(/^javascript:/, "")
     end
 
-    def sanitize_translated(text)
+    def decidim_sanitize_translated(text)
       decidim_sanitize(translated_attribute(text))
     end
 
-    def escape_translated(text)
+    def decidim_escape_translated(text)
       decidim_html_escape(translated_attribute(text))
     end
 

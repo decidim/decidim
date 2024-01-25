@@ -1,6 +1,6 @@
 <div class="content-block__title">
   <h2 class="h2 decorator">
-    <%= single_component? ? escape_translated(model.name) : t("decidim.components.proposals.name") %>
+    <%= single_component? ? decidim_escape_translated(model.name) : t("decidim.components.proposals.name") %>
   </h2>
   <div class="label text-lg"><%= proposals_count %></div>
   <% if single_component? %>

@@ -5,14 +5,14 @@
       <%= icon "folder-line" %>
       <%= icon "folder-open-line" %>
     </span>
-    <%= escape_translated(attachment_collection.name) %>
+    <%= decidim_escape_translated(attachment_collection.name) %>
   </span>
   <%= icon "arrow-down-s-fill" %>
   <%= icon "arrow-up-s-fill" %>
 </button>
 
 <div id="dropdown-menu-documents-<%= attachment_collection.id %>" class="documents__collection-content" aria-hidden="true">
-  <p><%= escape_translated(attachment_collection.description) %></p>
+  <p><%= decidim_escape_translated(attachment_collection.description) %></p>
 
   <div class="documents__container">
     <% documents.each do |document| %>

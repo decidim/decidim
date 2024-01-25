@@ -21,7 +21,7 @@ module Decidim
 
           expect(response).to render_template(:show)
 
-          expect(response.body).to include(escape_translated(page.title))
+          expect(response.body).to include(decidim_escape_translated(page.title))
           expect(response.body).to include(decidim_sanitize_admin(translated(page.content)))
         end
       end

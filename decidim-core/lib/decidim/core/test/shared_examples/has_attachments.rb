@@ -35,7 +35,7 @@ shared_examples_for "has attachments content blocks" do
 
     it "shows them ordered" do
       within "[data-content] .documents__container" do
-        expect(escape_translated(first_document.title).gsub("&quot;", "\"")).to appear_before(escape_translated(last_document.title).gsub("&quot;", "\""))
+        expect(decidim_escape_translated(first_document.title).gsub("&quot;", "\"")).to appear_before(decidim_escape_translated(last_document.title).gsub("&quot;", "\""))
       end
 
       within "[data-content] [data-gallery]" do
@@ -81,7 +81,7 @@ shared_examples_for "has attachments tabs" do
     it "shows them ordered" do
       find("li [data-controls='panel-documents']").click
       within "#panel-documents" do
-        expect(escape_translated(first_document.title).gsub("&quot;", "\"")).to appear_before(escape_translated(last_document.title).gsub("&quot;", "\""))
+        expect(decidim_escape_translated(first_document.title).gsub("&quot;", "\"")).to appear_before(decidim_escape_translated(last_document.title).gsub("&quot;", "\""))
       end
 
       find("li [data-controls='panel-images']").click

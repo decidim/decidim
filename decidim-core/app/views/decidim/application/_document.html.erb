@@ -4,7 +4,7 @@
       <%= h attachment_title(document) %>
     <% end %>
     <% if document.description.present? %>
-      <div class="card__list-text"><%= escape_translated(document.description) %></div>
+      <div class="card__list-text"><%= decidim_escape_translated(document.description) %></div>
     <% end %>
     <div class="card__list-metadata">
       <span><%= icon "file-text-line" %><%= document.file_type %></span>
