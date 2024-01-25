@@ -41,7 +41,7 @@ describe "Identity document request edition" do
       expect(page).to have_selector("form", text: "Request verification again")
 
       submit_upload_form(
-        doc_type: "identification_number",
+        doc_type: "Identification number",
         doc_number: "XXXXXXXY",
         file_name: "dni.jpg",
         remove_before: true
@@ -70,7 +70,7 @@ describe "Identity document request edition" do
       expect(page).to have_content("This is my explanation text")
 
       submit_upload_form(
-        doc_type: "identification_number",
+        doc_type: "Identification number",
         doc_number: "XXXXXXXY"
       )
       expect(page).to have_content("Document successfully reuploaded")
@@ -99,7 +99,7 @@ describe "Identity document request edition" do
         click_link "Use online verification"
 
         submit_upload_form(
-          doc_type: "identification_number",
+          doc_type: "Identification number",
           doc_number: "XXXXXXXY",
           file_name: "dni.jpg",
           remove_before: true
@@ -122,7 +122,7 @@ describe "Identity document request edition" do
         expect(page).not_to have_content("Scanned copy of your document")
 
         submit_upload_form(
-          doc_type: "identification_number",
+          doc_type: "Identification number",
           doc_number: "XXXXXXXY"
         )
 
