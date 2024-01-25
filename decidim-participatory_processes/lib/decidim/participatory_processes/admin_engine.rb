@@ -101,26 +101,12 @@ module Decidim
 
       initializer "decidim_participatory_processes_admin.menu" do
         Decidim::ParticipatoryProcesses::Menu.register_admin_menu_modules!
-      end
-
-      initializer "decidim_participatory_processes_admin.participatory_processes_menu" do
         Decidim::ParticipatoryProcesses::Menu.register_admin_participatory_processes_menu!
-      end
-
-      initializer "decidim_participatory_processes_admin.process_attachments_menu" do
         Decidim::ParticipatoryProcesses::Menu.register_participatory_process_admin_attachments_menu!
-      end
-
-      initializer "decidim_participatory_processes_admin.process_components_menu" do
         Decidim::ParticipatoryProcesses::Menu.register_admin_participatory_process_components_menu!
-      end
-
-      initializer "decidim_participatory_processes_admin.process_menu" do
         Decidim::ParticipatoryProcesses::Menu.register_admin_participatory_process_menu!
-      end
-
-      initializer "decidim_participatory_processes_admin.process_group_menu" do
         Decidim::ParticipatoryProcesses::Menu.register_admin_participatory_process_group_menu!
+        Decidim::ParticipatoryProcesses::Menu.register_admin_participatory_processes_manage_menu!
       end
     end
   end
