@@ -56,6 +56,9 @@ pt-BR:
               needs_to_be_reattached: Precisa ser reanexado
   activerecord:
     models:
+      decidim/initiative:
+        one: Iniciativa
+        other: Iniciativas
       decidim/initiative_comittee:
         one: Comissão
         other: Comissões
