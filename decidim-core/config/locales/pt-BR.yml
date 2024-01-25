@@ -175,6 +175,8 @@ pt-BR:
       update:
         error: Ocorreu um erro ao actualizar a sua conta.
         success: A sua conta foi actualizada com sucesso.
+    activity:
+      time_ago: "%{time} atrás"
     admin:
       actions:
         cancel: Cancelar
