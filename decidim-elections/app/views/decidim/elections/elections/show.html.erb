@@ -29,9 +29,9 @@ edit_link(
       <% if election.started? %>
         <%= link_to t("verify.verify_here", scope: "decidim.elections.elections.show"), election_vote_verify_path(
               "#{current_participatory_space.underscored_name}_slug".to_sym => current_participatory_space.slug,
-              component_id: current_component.id,
-              election_id: election.id,
-              vote_id: "_"
+              :component_id => current_component.id,
+              :election_id => election.id,
+              :vote_id => "_"
             ) %>
       <% else %>
         <span><%= t("verify.will_verify", scope: "decidim.elections.elections.show") %></span>
