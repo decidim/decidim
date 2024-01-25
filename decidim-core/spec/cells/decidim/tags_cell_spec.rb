@@ -89,7 +89,7 @@ describe Decidim::TagsCell, type: :cell do
 
     it "sanitizes the category" do
       name = %(Category a<img src=x onerror=alert(8) >"a)
-      custom_category = create(:category, participatory_space:, name: { "en" => name })
+      custom_category = create(:category, participatory_space: participatory_space, name: { "en" => name })
       proposal_categorized.category = custom_category
       html = cell("decidim/tags", proposal_categorized, context: { extra_classes: ["tags--proposal"] }).call
       expect(html).to have_css(".tag-container.tags--proposal")
