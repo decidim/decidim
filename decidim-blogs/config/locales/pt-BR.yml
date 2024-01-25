@@ -77,6 +77,7 @@ pt-BR:
           create: Criar
           destroy: Excluir
           endorse: Endossar
+          update: Atualizar
         name: Blog
         settings:
           global:
