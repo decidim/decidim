@@ -13,12 +13,12 @@ module Decidim
                 values: ["Report button launches a modal window to flag the current resource."]
               },
               {
-                type: :table,
+                type: :cell_table,
                 options: { headings: ["Report Button"] },
-                items: report_table({}),
                 cell_snippet: {
                   cell: "decidim/report_button",
-                  args: [Decidim::User.first]
+                  args: [Decidim::User.first],
+                  call_string: 'cell("decidim/report_button", _REPORTABLE_RESOURCE_)'
                 }
               }
             ]
