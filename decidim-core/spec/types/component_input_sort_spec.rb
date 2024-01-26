@@ -13,7 +13,7 @@ module Decidim
 
       let(:model) { create(:participatory_process, organization: current_organization) }
       let(:models) { model.components }
-      let!(:proposal) { create(:proposal_component, :published, participatory_space: model) }
+      let!(:proposal) { create(:proposal_component, :published, participatory_space: model, name: generate_component_name(current_organization.available_locales, :proposals)) }
       let!(:dummy) { create(:component, :published, participatory_space: model) }
 
       context "when sorting by component id" do

@@ -57,7 +57,9 @@ module Decidim
           original_proposal: {
             title: proposal&.amendable&.title,
             url: original_proposal_url
-          }
+          },
+          withdrawn: proposal.withdrawn?,
+          withdrawn_at: proposal.withdrawn_at
         }
       end
 
