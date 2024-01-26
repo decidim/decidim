@@ -42,7 +42,30 @@ module Decidim
                 ),
                 cell_snippet: {
                   cell: "decidim/tab_panels",
-                  args: [tab_panels_items]
+                  args: [tab_panels_items],
+                  call_string: <<-TEXT
+  cell(
+      "decidim/tab_panels",
+      [
+        {
+          enabled: true,
+          id: "button",
+          text: "Button",
+          icon: resource_type_icon_key("images"),
+          method: :cell,
+          args: ["decidim/button", { text: "Send" }]
+        },
+        {
+          enabled: true,
+          id: "announce",
+          text: "Announcement",
+          icon: resource_type_icon_key("documents"),
+          method: :cell,
+          args: ["decidim/announcement", "I am an annoucement"]
+        }
+      ]
+    )
+                  TEXT
                 }
               }
             ]
