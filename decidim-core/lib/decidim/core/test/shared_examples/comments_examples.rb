@@ -49,7 +49,7 @@ shared_examples "comments" do
   end
 
   context "when there are comments and replies" do
-    let!(:single_comment) { create(:comment, commentable:) }
+    let!(:single_comment) { create(:comment, commentable: commentable) }
     let!(:reply) { create(:comment, commentable: single_comment, root_commentable: commentable) }
 
     it "displays the show replies link on comment with reply" do
@@ -63,7 +63,7 @@ shared_examples "comments" do
     end
 
     context "when there is a comment with the same parent id but different type with replies" do
-      let!(:other_component) { create(:component, manifest_name: :dummy, organization:) }
+      let!(:other_component) { create(:component, manifest_name: :dummy, organization: organization) }
       let!(:other_commentable) { create(:dummy_resource, component: other_component, author: user, id: single_comment.id) }
       let!(:reply) { create(:comment, commentable: other_commentable, root_commentable: other_commentable) }
       let!(:other_reply) { create(:comment, commentable: reply, root_commentable: other_commentable) }
