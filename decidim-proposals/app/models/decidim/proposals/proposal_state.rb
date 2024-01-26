@@ -27,7 +27,7 @@ module Decidim
         Decidim::Proposals::AdminLog::ProposalStatePresenter
       end
 
-      # protected
+      protected
       def generate_token
         self.token = ensure_unique_token(translated_attribute(title).parameterize(separator: "_"))
       end
