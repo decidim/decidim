@@ -15,7 +15,6 @@ describe "Admin copies meetings" do
   let(:meeting_end_date) { ((base_date + 2.days) + 1.month).strftime("%d/%m/%Y") }
   let(:meeting_end_time) { (base_date + 4.hours).strftime("%H:%M") }
 
-  include Decidim::SanitizeHelper
   include_context "when managing a component as an admin"
 
   before do

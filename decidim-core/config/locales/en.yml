@@ -1286,7 +1286,8 @@ en:
     offline:
       name: Offline
       show:
-        message: It looks like you are currently offline. Please, try again later.
+        message_1: It looks like you are currently offline.
+        message_2: Please, try again later.
         retry: Retry
     open_data:
       not_available_yet: The Open Data files are not yet available, please try again in a few minutes.

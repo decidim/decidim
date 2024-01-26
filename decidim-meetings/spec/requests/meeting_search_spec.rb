@@ -4,7 +4,6 @@ require "spec_helper"
 
 RSpec.describe "Meeting search" do
   include Decidim::ComponentPathHelper
-  include Decidim::SanitizeHelper
 
   subject { response.body }
 
