@@ -5,60 +5,26 @@ module Decidim
     module Admin
       # A command with all the business logic when creating a new
       # media link for conference in the system.
-      class CreateMediaLink < Decidim::Command
-        # Public: Initializes the command.
-        #
-        # form - A form object with the params.
-        # conference - The Conference that will hold the speaker
-        def initialize(form, current_user, conference)
-          @form = form
-          @current_user = current_user
-          @conference = conference
-        end
+      class CreateMediaLink < Decidim::Commands::CreateResource
+        fetch_form_attributes :title, :link, :weight, :date
 
-        # Executes the command. Broadcasts these events:
-        #
-        # - :ok when everything is valid.
-        # - :invalid if the form was not valid and we could not proceed.
-        #
-        # Returns nothing.
-        def call
-          return broadcast(:invalid) if form.invalid?
+        protected
 
-          transaction do
-            create_media_link!
-          end
+        def resource_class = Decidim::Conferences::MediaLink
 
-          broadcast(:ok)
-        end
-
-        private
-
-        attr_reader :form, :conference, :current_user
-
-        def create_media_link!
-          log_info = {
+        def extra_params
+          {
             resource: {
               title: form.title
             },
             participatory_space: {
-              title: conference.title
+              title: form.current_participatory_space.title
             }
           }
+        end
 
-          @media_link = Decidim.traceability.create!(
-            Decidim::Conferences::MediaLink,
-            current_user,
-            form.attributes.slice(
-              "title",
-              "link",
-              "weight",
-              "date"
-            ).symbolize_keys.merge(
-              conference:
-            ),
-            log_info
-          )
+        def attributes
+          super.merge(conference: form.current_participatory_space)
         end
       end
     end

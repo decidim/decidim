@@ -4,12 +4,16 @@ require "decidim/components/namer"
 
 FactoryBot.define do
   factory :dummy_component, parent: :component do
+    transient do
+      skip_injection { false }
+    end
     name { Decidim::Components::Namer.new(participatory_space.organization.available_locales, :surveys).i18n_name }
     manifest_name { :dummy }
   end
 
   factory :dummy_resource, class: "Decidim::Dev::DummyResource" do
     transient do
+      skip_injection { false }
       users { nil }
       # user_groups correspondence to users is by sorting order
       user_groups { [] }
@@ -33,6 +37,9 @@ FactoryBot.define do
   end
 
   factory :nested_dummy_resource, class: "Decidim::Dev::NestedDummyResource" do
+    transient do
+      skip_injection { false }
+    end
     title { generate(:name) }
     dummy_resource { create(:dummy_resource) }
   end
@@ -42,6 +49,7 @@ FactoryBot.define do
     component { create(:component, manifest_name: "dummy") }
 
     transient do
+      skip_injection { false }
       authors_list { [create(:user, organization: component.organization)] }
     end
 

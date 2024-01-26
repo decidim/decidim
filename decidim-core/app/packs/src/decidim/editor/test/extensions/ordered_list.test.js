@@ -5,9 +5,9 @@ import BulletList from "@tiptap/extension-bullet-list";
 import ListItem from "@tiptap/extension-list-item";
 import Text from "@tiptap/extension-text";
 
-import { updateContent, pasteContent } from "../helpers";
+import { updateContent, pasteContent } from "src/decidim/editor/test/helpers";
 
-import OrderedList from "../../extensions/ordered_list";
+import OrderedList from "src/decidim/editor/extensions/ordered_list";
 
 const createBasicEditor = () => {
   const element = document.createElement("div");

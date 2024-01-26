@@ -28,7 +28,7 @@ class UploaderImageDimensionsValidator < ActiveModel::Validations::FileContentTy
     return unless uploader.validable_dimensions
     return if (image = extract_image(file)).blank?
 
-    record.errors.add attribute, I18n.t("carrierwave.errors.file_resolution_too_large") if image.dimensions.any? { |dimension| dimension > uploader.max_image_height_or_width }
+    record.errors.add attribute, I18n.t("decidim.errors.files.file_resolution_too_large") if image.dimensions.any? { |dimension| dimension > uploader.max_image_height_or_width }
   rescue MiniMagick::Error
     # The error may happen because of many reasons but most commonly the image
     # exceeds the default maximum dimensions set for ImageMagick when the
@@ -40,7 +40,7 @@ class UploaderImageDimensionsValidator < ActiveModel::Validations::FileContentTy
     # Note that the error can also happen because of other reasons than only
     # the image dimensions being too large. But as we do not really know the
     # reason every time, we default to that error.
-    record.errors.add attribute, I18n.t("carrierwave.errors.file_cannot_be_processed")
+    record.errors.add attribute, I18n.t("decidim.errors.files.file_cannot_be_processed")
   end
 
   def extract_image(file)

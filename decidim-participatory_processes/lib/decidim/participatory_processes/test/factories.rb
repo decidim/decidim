@@ -11,6 +11,9 @@ FactoryBot.define do
   end
 
   factory :participatory_process, class: "Decidim::ParticipatoryProcess" do
+    transient do
+      skip_injection { false }
+    end
     title { generate_localized_title }
     slug { generate(:participatory_process_slug) }
     subtitle { generate_localized_title }
@@ -85,7 +88,7 @@ FactoryBot.define do
     end
 
     trait :with_content_blocks do
-      transient { blocks_manifests { [:process_hero] } }
+      transient { blocks_manifests { [:hero] } }
 
       after(:create) do |participatory_process, evaluator|
         evaluator.blocks_manifests.each do |manifest_name|
@@ -127,6 +130,10 @@ FactoryBot.define do
   end
 
   factory :participatory_process_step, class: "Decidim::ParticipatoryProcessStep" do
+    transient do
+      skip_injection { false }
+    end
+
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     start_date { 1.month.ago }

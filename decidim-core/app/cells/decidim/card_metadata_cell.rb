@@ -75,7 +75,7 @@ module Decidim
 
       {
         cell: "decidim/coauthorships",
-        args: [resource, { stack: true }]
+        args: [resource, { stack: true, context_actions: [] }]
       }
     end
 

@@ -1,5 +1,5 @@
-import { createEditorContainer } from "../helpers";
-import itBehavesLikeBasicToolbar from "./shared/behaves_like_basic";
+import { createEditorContainer } from "src/decidim/editor/test/helpers";
+import itBehavesLikeBasicToolbar from "src/decidim/editor/test/toolbar/shared/behaves_like_basic";
 
 describe("basic toolbar", () => {
   const ctx = {

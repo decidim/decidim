@@ -45,10 +45,6 @@ module Decidim
         RUBY
       end
 
-      def copy_initializer
-        copy_file "carrierwave.rb", "config/initializers/carrierwave.rb"
-      end
-
       def secrets
         template "secrets.yml.erb", "config/secrets.yml", force: true
       end
@@ -191,13 +187,13 @@ module Decidim
       end
 
       # Runs rails commands in a subprocess, and aborts if it does not suceeed
-      def rails(*args)
-        abort unless system("bin/rails", *args)
+      def rails(*)
+        abort unless system("bin/rails", *)
       end
 
       # Runs rails commands in a subprocess silencing errors, and ignores status
-      def soft_rails(*args)
-        system("bin/rails", *args, err: File::NULL)
+      def soft_rails(*)
+        system("bin/rails", *, err: File::NULL)
       end
 
       def cut(text, strip: true)

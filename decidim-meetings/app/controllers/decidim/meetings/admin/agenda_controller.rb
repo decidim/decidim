@@ -19,7 +19,7 @@ module Decidim
 
           @form = form(MeetingAgendaForm).from_params(params, meeting:)
 
-          CreateAgenda.call(@form, meeting) do
+          CreateAgenda.call(@form) do
             on(:ok) do
               flash[:notice] = I18n.t("agenda.create.success", scope: "decidim.meetings.admin")
               redirect_to meetings_path
