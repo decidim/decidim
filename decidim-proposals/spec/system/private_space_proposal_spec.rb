@@ -3,9 +3,6 @@
 require "spec_helper"
 
 describe "Private Space Proposal" do
-  let(:manifest_name) { "proposals" }
-  let(:manifest) { Decidim.find_component_manifest(manifest_name) }
-
   let!(:organization) { create(:organization) }
   let(:user) { create(:user, :confirmed, organization:) }
   let!(:other_user) { create(:user, :confirmed, organization:) }
