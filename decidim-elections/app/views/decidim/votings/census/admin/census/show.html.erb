@@ -1,7 +1,7 @@
 <% add_decidim_page_title(t("show.heading", scope: "decidim.votings.census.admin.census")) %>
 <div class="card">
   <div class="item_show__header">
-    <h2 class="item_show__header-title">
+    <h1 class="item_show__header-title">
       <%= t("show.heading", scope: "decidim.votings.census.admin.census") %>
 
       <% if current_census.data_created? %>
@@ -11,7 +11,7 @@
                     method: :delete,
                     data: { confirm: t("delete.confirm", scope: "decidim.votings.census.admin.census") } %>
       <% end %>
-    </h2>
+    </h1>
   </div>
 
   <div id="wrapper-action-view">
