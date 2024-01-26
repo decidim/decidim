@@ -146,15 +146,17 @@ module Decidim
       end
 
       def button_row(button_args)
+        cell_args = { cell: "decidim/button", args: [button_args.slice(:icon).merge(text: "Send"), button_args] }
         [
-          { method: :cell, args: ["decidim/button", button_args.slice(:icon).merge(text: "Send"), button_args] },
+          { method: :cell, args: [cell_args[:cell], *cell_args[:args]] },
           button_args[:description] || button_args[:button_classes]
         ]
       end
 
       def background_button_row(button_args)
+        cell_args = { cell: "decidim/button", args: [button_args.slice(:icon).merge(text: "Send"), button_args] }
         [
-          content_tag(:div, cell("decidim/button", button_args.slice(:icon_name).merge(text: "Send"), button_args), class: "bg-primary p-4 rounded"),
+          content_tag(:div, cell(cell_args[:cell], *cell_args[:args]), class: "bg-primary p-4 rounded"),
           button_args[:description] || button_args[:button_classes]
         ]
       end
