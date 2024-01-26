@@ -3,7 +3,6 @@
 require "spec_helper"
 
 describe "Participatory texts" do
-  include Decidim::SanitizeHelper
   include ActionView::Helpers::TextHelper
 
   include_context "with a component"
