@@ -1,10 +1,10 @@
 <% add_decidim_page_title(t(".title")) %>
 
 <div class="item_show__header">
-  <h2 class="item_show__header-title">
+  <h1 class="item_show__header-title">
     <%= t(".title") %>
     <%= render partial: "bulk-actions" %>
-  </h2>
+  </h1>
 </div>
 <% if @drafts.any? %>
   <div class="item__edit item__edit-1col">
