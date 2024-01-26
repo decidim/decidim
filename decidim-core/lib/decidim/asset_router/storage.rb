@@ -19,13 +19,17 @@ module Decidim
       #
       # @param options The options for the URL that are the normal route options
       #   Rails route helpers accept
+      # rubocop:disable Style/CaseLikeIf
       def url(**options)
         if asset.is_a? ActiveStorage::Attached
           routes.rails_blob_url(asset.blob, **default_options.merge(options))
+        elsif asset.is_a? ActiveStorage::Blob
+          routes.rails_blob_url(asset, **default_options.merge(options))
         else
           routes.rails_representation_url(asset, **default_options.merge(options))
         end
       end
+      # rubocop:enable Style/CaseLikeIf
 
       private
 
