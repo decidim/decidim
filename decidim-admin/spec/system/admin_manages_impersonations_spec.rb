@@ -24,7 +24,7 @@ describe "Admin manages impersonations", type: :system do
       it "restrict access on logs page" do
         impersonatable_user.reload
 
-        visit decidim_admin.impersonatable_user_impersonation_logs_path(impersonatable_user_id:)
+        visit decidim_admin.impersonatable_user_impersonation_logs_path(impersonatable_user_id: impersonatable_user_id)
 
         expect(page).to have_content("You are not authorized to perform this action.")
       end
@@ -48,21 +48,21 @@ describe "Admin manages impersonations", type: :system do
     let(:organization) { create(:organization) }
 
     context "when logged in as process_collaborator" do
-      let(:process) { create(:participatory_process, organization:) }
+      let(:process) { create(:participatory_process, organization: organization) }
       let(:test_user) { create(:process_collaborator, :confirmed, :admin_terms_accepted, participatory_process: process) }
 
       it_behaves_like "prevent undesired access"
     end
 
     context "when logged in as process_valuator" do
-      let(:process) { create(:participatory_process, organization:) }
+      let(:process) { create(:participatory_process, organization: organization) }
       let(:test_user) { create(:process_valuator, :confirmed, :admin_terms_accepted, participatory_process: process) }
 
       it_behaves_like "prevent undesired access"
     end
 
     context "when logged in as process_moderator" do
-      let(:process) { create(:participatory_process, organization:) }
+      let(:process) { create(:participatory_process, organization: organization) }
       let(:test_user) { create(:process_moderator, :confirmed, :admin_terms_accepted, participatory_process: process) }
 
       it_behaves_like "prevent undesired access"
