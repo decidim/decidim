@@ -7,7 +7,7 @@ describe Decidim::Commands::DestroyResource do
 
   let(:organization) { create(:organization) }
 
-  context "when destroying decidim participatory process type" do
+  context "when destroying a participatory process type" do
     let(:resource) { create(:participatory_process_type, organization:) }
     let(:user) { create(:user, :admin, :confirmed) }
 
@@ -30,7 +30,7 @@ describe Decidim::Commands::DestroyResource do
     end
   end
 
-  context "when destroying decidim participatory process group" do
+  context "when destroying a participatory process group" do
     let(:user) { create(:user, :admin, :confirmed, organization:) }
     let(:resource) { create(:participatory_process_group, organization:) }
 

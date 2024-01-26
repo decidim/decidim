@@ -3,8 +3,8 @@
 module Decidim
   module ParticipatoryProcesses
     module Admin
-      # A command with all the business logic when creating a new participatory
-      # process in the system.
+      # A command with all the business logic when updating a participatory
+      # process step in the system.
       class UpdateParticipatoryProcessStep < Decidim::Commands::UpdateResource
         fetch_form_attributes :cta_path, :cta_text, :title, :start_date, :end_date, :description
 

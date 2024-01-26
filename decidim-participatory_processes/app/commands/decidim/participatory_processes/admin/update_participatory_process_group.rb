@@ -3,7 +3,7 @@
 module Decidim
   module ParticipatoryProcesses
     module Admin
-      # A command with all the business logic when creating a new participatory
+      # A command with all the business logic when updating a participatory
       # process group in the system.
       class UpdateParticipatoryProcessGroup < Decidim::Commands::UpdateResource
         include ::Decidim::AttachmentAttributesMethods

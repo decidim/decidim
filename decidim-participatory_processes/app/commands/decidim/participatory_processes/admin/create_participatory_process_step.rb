@@ -4,7 +4,7 @@ module Decidim
   module ParticipatoryProcesses
     module Admin
       # A command with all the business logic when creating a new participatory
-      # process in the system.
+      # process step in the system.
       class CreateParticipatoryProcessStep < Decidim::Commands::CreateResource
         fetch_form_attributes :title, :description, :start_date, :end_date
 
