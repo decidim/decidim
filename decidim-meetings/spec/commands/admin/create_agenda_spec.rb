@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Meetings
   describe Admin::CreateAgenda do
-    subject { described_class.new(form, meeting) }
+    subject { described_class.new(form) }
 
     let(:organization) { create(:organization, available_locales: [:en]) }
     let(:component) { create(:component, manifest_name: "meetings", organization:) }
@@ -45,7 +45,8 @@ module Decidim::Meetings
             ]
           )
         ],
-        current_user:
+        current_user:,
+        meeting:
       )
     end
 
