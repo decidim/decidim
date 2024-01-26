@@ -33,6 +33,8 @@ module Decidim
             html += content_tag(:p, value.html_safe, class: content[:class])
           end
           html.html_safe
+        when :cell_table
+          render partial: "decidim/design/shared/cell_table", locals: content.slice(:cell_snippet).merge(content[:options] || {})
         when :table
           render partial: "decidim/design/shared/table", locals: content.slice(:items).merge(content[:options] || {})
         when :partial
