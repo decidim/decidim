@@ -183,6 +183,34 @@ module Decidim
                         active: is_active_link?(decidim_admin_participatory_processes.participatory_process_group_landing_page_path(participatory_process_group))
         end
       end
+
+      def self.register_admin_participatory_processes_manage_menu!
+        Decidim.menu :admin_participatory_processes_manage_menu do |menu|
+          menu.add_item :processes,
+                        I18n.t("menu.participatory_processes", scope: "decidim.admin"),
+                        decidim_admin_participatory_processes.participatory_processes_path,
+                        position: 1,
+                        icon_name: "treasure-map-line",
+                        if: allowed_to?(:read, :process_list),
+                        active: is_active_link?(decidim_admin_participatory_processes.participatory_processes_path)
+
+          menu.add_item :import_process,
+                        I18n.t("actions.import_process", scope: "decidim.admin"),
+                        decidim_admin_participatory_processes.new_import_path,
+                        position: 2,
+                        icon_name: "upload-line",
+                        if: allowed_to?(:import, :process),
+                        active: is_active_link?(decidim_admin_participatory_processes.new_import_path)
+
+          menu.add_item :participatory_process_types,
+                        I18n.t("menu.participatory_process_types", scope: "decidim.admin"),
+                        decidim_admin_participatory_processes.participatory_process_types_path,
+                        position: 3,
+                        icon_name: "price-tag-3-line",
+                        if: allowed_to?(:manage, :participatory_process_type),
+                        active: is_active_link?(decidim_admin_participatory_processes.participatory_process_types_path)
+        end
+      end
     end
   end
 end

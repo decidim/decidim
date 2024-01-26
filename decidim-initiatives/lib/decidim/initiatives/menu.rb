@@ -117,13 +117,16 @@ module Decidim
           menu.add_item :initiatives,
                         I18n.t("menu.initiatives", scope: "decidim.admin"),
                         decidim_admin_initiatives.initiatives_path,
-                        position: 1.0,
+                        position: 1,
+                        icon_name: "lightbulb-flash-line",
                         active: is_active_link?(decidim_admin_initiatives.initiatives_path),
                         if: allowed_to?(:index, :initiative)
 
           menu.add_item :initiatives_types,
                         I18n.t("menu.initiatives_types", scope: "decidim.admin"),
                         decidim_admin_initiatives.initiatives_types_path,
+                        position: 2,
+                        icon_name: "layout-masonry-line",
                         active: is_active_link?(decidim_admin_initiatives.initiatives_types_path),
                         if: allowed_to?(:manage, :initiative_type)
 
@@ -134,6 +137,8 @@ module Decidim
                             organization: current_organization
                           )
                         ),
+                        position: 3,
+                        icon_name: "tools-line",
                         active: is_active_link?(
                           decidim_admin_initiatives.edit_initiatives_setting_path(
                             Decidim::InitiativesSettings.find_or_create_by!(organization: current_organization)
