@@ -8,7 +8,7 @@ module Decidim
       class CreateParticipatoryProcessGroup < Decidim::Commands::CreateResource
         fetch_form_attributes :organization, :title, :description, :hashtag, :group_url, :hero_image,
                               :developer_group, :local_area, :meta_scope, :participatory_scope, :participatory_structure,
-                              :target, :promoted, :participatory_process_ids
+                              :target, :promoted
 
         # Executes the command. Broadcasts these events:
         #
