@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Initiatives::SpawnCommitteeRequestEvent do
   subject do
     described_class.new(
-      resource: initiative,
+      resource:,
       event_name:,
       user: [initiative.author],
       user_role: :affected_user,
@@ -13,14 +13,15 @@ describe Decidim::Initiatives::SpawnCommitteeRequestEvent do
     )
   end
 
-  let(:organization) { initiative.organization }
-  let(:initiative) { create(:initiative) }
+  include_context "when a simple event"
+
+  let(:organization) { resource.organization }
+  let(:resource) { create(:initiative) }
   let(:event_name) { "decidim.events.initiatives.initiative_created" }
   let(:applicant) { create(:user, organization:) }
   let(:applicant_profile_url) { Decidim::UserPresenter.new(applicant).profile_url }
   let(:applicant_nickname) { Decidim::UserPresenter.new(applicant).nickname }
-  let(:resource_url) { resource_locator(initiative).url }
-  let(:resource_title) { translated(initiative.title) }
+  let(:resource_url) { resource_locator(resource).url }
   let(:email_subject) { "#{applicant_nickname} wants to join your initiative" }
   let(:email_intro) { "#{applicant_nickname} applied for the promoter committee of your initiative #{resource_title}. To accept or reject the application, go to the edit form of your initiative." }
   let(:email_outro) { "You received this notification because you are the author of this initiative: #{resource_title}" }

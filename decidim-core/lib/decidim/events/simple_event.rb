@@ -11,7 +11,6 @@ module Decidim
       include Decidim::Events::EmailEvent
       include Decidim::Events::NotificationEvent
       include Decidim::ComponentPathHelper
-      include Decidim::SanitizeHelper
 
       delegate :created_at, to: :resource
 

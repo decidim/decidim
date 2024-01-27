@@ -7,7 +7,7 @@ module Decidim
     # notifications dashboard and to generate other notifications (emails, for example).
     class BaseEvent
       extend ActiveModel::Translation
-      include Decidim::TranslatableAttributes
+      include Decidim::SanitizeHelper
 
       class_attribute :types
       self.types = []
