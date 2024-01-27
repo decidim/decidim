@@ -3,7 +3,6 @@
 require "spec_helper"
 
 describe Decidim::Initiatives::RevokeMembershipRequestEvent do
-
   include_context "when a simple event"
 
   let(:user_role) { :affected_user }
