@@ -37,6 +37,7 @@ module Decidim
         run("git pull origin #{release_branch}")
         bump_decidim_version
         run("bin/rake update_versions")
+        run("bin/rake patch_generators")
         run("bin/rake bundle")
         run("npm install")
 

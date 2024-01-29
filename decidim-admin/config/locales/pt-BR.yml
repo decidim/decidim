@@ -95,6 +95,7 @@ pt-BR:
         tertiary_color: Terciário
         time_zone: Fuso Horário
         tos_version: Versão dos termos de serviço
+        twitter_handler: X handler
         user_groups_enabled: Ativar grupos de usuários
         users_registration_mode: Modo de registro de usuários
         warning_color: Aviso
@@ -129,6 +130,7 @@ pt-BR:
         weight: Posição do pedido
       static_page_topic:
         description: Descrição
+        name: Nome do tópico
         show_in_footer: Mostrar no rodapé
         title: Título
         weight: Posição do pedido
@@ -315,6 +317,7 @@ pt-BR:
         create:
           error: Ocorreu um erro ao criar esse componente.
           success: Componente criado com sucesso.
+          success_landing_page: Componente criado com sucesso. Você pode adicionar um bloco de conteúdo para este componente na página inicial do espaço. Acesse <a href="%{landing_page_path}">Página inicial</a> para configurá-la.
         destroy:
           error: Ocorreu um erro ao destruir esse componente.
           success: Componente excluído com sucesso.
@@ -359,9 +362,18 @@ pt-BR:
         'true': 'Sim'
         user_name: Usuário
       content_blocks:
+        create:
+          error: Ocorreu um erro ao criar o bloco de conteúdo.
+          success: Bloco de conteúdo criado com sucesso.
+        destroy:
+          error: Ocorreu um problema ao tentar excluir esse bloco de conteúdo.
+          success: Bloco de conteúdo excluído com sucesso.
         edit:
           active_content_blocks: Blocos de conteúdo ativo
+          add: Adicionar bloco de conteúdo
+          destroy_confirmation: Tem certeza que deseja excluir esse bloco de conteúdo?
           inactive_content_blocks: Blocos de conteúdo inativos
+          title: Conteúdo da página
           update: Atualizar
       dashboard:
         pending_moderations:
@@ -371,13 +383,14 @@ pt-BR:
           goto_moderation: Ir para moderações globais
           title: Moderações pendentes
         show:
+          dropdown: Dropdown
           view_more_logs: Ver mais registros
-      domain_whitelist:
+      domain_allowlist:
         form:
           domain_too_short: Domínio muito curto
         update:
-          error: Falha ao atualizar domínio de lista de desejos.
-          success: Domínio lista de desejo atualizado com sucesso.
+          error: Falha ao atualizar lista de domínios externos permitidos
+          success: Lista do domínio externo permitido atualizada com sucesso.
       exports:
         export_as: "%{name} como %{export_format}"
         formats:
@@ -555,7 +568,7 @@ pt-BR:
         areas: Áreas
         configuration: Configuração
         content: Conteúdo relatado
-        external_domain_whitelist: Domínios externos permitidos
+        external_domain_allowlist: Domínios externos permitidos
         help_sections: Seções de ajuda
         homepage: Pagina inicial
         impersonations: Imitações
@@ -565,7 +578,9 @@ pt-BR:
         reported_users: Participantes relatados
         scope_types: Tipos de âmbito
         scopes: Âmbitos
+        see_site: Ver site
         settings: Configurações
+        static_page_topics: Tópicos
         static_pages: Páginas
         user_groups: Grupos de usuários
         users: Usuários
@@ -606,7 +621,7 @@ pt-BR:
             progress: Andamento
             sent_at: Enviado em
             sent_to: Enviado para
-            subject: Sujeito
+            subject: Assunto
           name: Newsletter
         participatory_space_private_user:
           name: Espaço participativo usuário particular
@@ -634,6 +649,7 @@ pt-BR:
           fields:
             created_at: Data de criação
             email: E-mail
+            last_sign_in_at: Última data de login
             name: Nome
             role: Cargo
             roles:
@@ -754,7 +770,7 @@ pt-BR:
           preview: Pré-visualização
           select_recipients_to_deliver: Selecionar destinatários para entregar
           send_me_a_test_email: Me envie um email teste
-          subject: Sujeito
+          subject: Assunto
         update:
           error: Ocorreu um erro ao atualizar este boletim informativo.
           success: Newsletter atualizada com sucesso. Por favor, reveja-o antes de enviar.
@@ -768,7 +784,7 @@ pt-BR:
           success: Participante não oficializado com sucesso.
         index:
           actions: Ações
-          badge: Badge
+          badge: Selo
           block: Bloquear usuário
           created_at: Criado em
           name: Nome
@@ -806,6 +822,7 @@ pt-BR:
           instagram: Instagram
           rich_text_editor_in_public_views_help: Em algumas áreas de texto, os participantes poderão inserir algumas tags HTML usando o editor de texto rico.
           social_handlers: Social
+          twitter: X
           url: URL
           youtube: YouTube
         update:
@@ -826,23 +843,26 @@ pt-BR:
             update_suggested_colors: Atualizar cores sugeridas
           cta_button_path_help_html: 'Você pode substituir onde o botão Chamar para Ação na página inicial liga. Use caminhos parciais, não URLs completas aqui. Aceita letras, números, traços e barras e deve começar com uma letra. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição. Exemplo: %{url}'
           cta_button_text_help: Você pode substituir o texto do botão Chamar para Ação na página inicial para cada idioma disponível em sua organização. Se não for definido, o valor padrão será usado. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição.
+          header_snippets:
+            header_snippets_help_html: Utilize este campo para adicionar coisas à tag head do HTML. O uso mais comum é integrar serviços de terceiros que exigem algum JavaScript ou CSS extra. Além disso, você pode usá-lo para adicionar meta tags extras para o HTML. Observe que isto só será renderizado em páginas públicas, não na seção de administração. Se o código interage com APIs externas ou não cumpre as diretrizes de segurança da aplicação, será necessário alterar a Política de Segurança de Conteúdo. Leia mais sobre <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">na documentação do site</a>.
+            title: Snippets de cabeçalho HTML
           homepage_appearance_title: Editar a aparência da página inicial
           homepage_highlighted_content_banner_title: Banner de conteúdo elevado
           images:
             layout_appearance_title: Editar aparência do layout
             preview: Pré-visualização
           omnipresent_banner_appearance_title: Editar banner onipresente
-      organization_external_domain_whitelist:
+      organization_external_domain_allowlist:
         edit:
           update: Atualizar
         external_domain:
-          down: Para Baixo
+          down: Abaixo
           external_domain: Domínio externo
-          remove: Excluir
-          up: Para Cima
+          remove: Remover
+          up: Acima
         form:
-          add: Adicionar à lista branca
-          title: Lista branca de domínios externos
+          add: Adicionar na lista de permitidos
+          title: Lista de domínios externos permitidos
       participatory_space_private_users:
         create:
           error: Ocorreu um erro ao adicionar um usuário privado para este espaço participativo.
@@ -861,6 +881,8 @@ pt-BR:
           invalid: Ocorreu um problema ao ler o arquivo CSV. Por favor, certifique-se de ter seguido as instruções.
           success: Arquivo CSV enviado com sucesso, estamos enviando um e-mail de convite para os participantes. Isso pode demorar um pouco.
         new:
+          csv_upload:
+            title: Envie seu arquivo CSV
           destroy:
             button: Excluir todos os participantes privados
             confirm: Tem certeza que deseja excluir todos os participantes privados? Esta ação não pode ser desfeita, não será possível recuperá-los.
@@ -868,6 +890,11 @@ pt-BR:
             explanation: Você tem %{count} participantes privados.
             title: Excluir participantes privados
           example_file: 'Arquivo de exemplo:'
+          explanation: 'Envie seu arquivo CSV. Deve ter duas colunas com e-mail na primeira coluna do arquivo e nome na última coluna do arquivo dos usuários que você deseja adicionar ao espaço participativo, sem cabeçalhos. Evite usar caracteres inválidos como `<>?%&^*#@()[]=+:;"{}\├` no nome de usuário.'
+          explanation_example: |
+            joao.silva@examplo.org%{csv_col_sep}João da Silva
+            maria.silva@examplo.org%{csv_col_sep}Maria da Silva
+          title: Importar participantes privados via CSV
           upload: Upload
       reminders:
         create:
@@ -960,10 +987,12 @@ pt-BR:
           success: Página excluída com sucesso
         edit:
           changed_notably_help: Se marcada, os usuários serão notificados para aceitar os novos termos de serviço.
+          last_notable_change: 'Última alteração notável: %{tos_version_formatted}'
           title: Editar página
           update: Atualizar
         form:
           none: Nenhum
+          slug_help_html: 'Use caminhos parciais, não URLs completos aqui. Aceita letras, números, traços e barras, e deve começar com uma letra. Se não estiver definido, o botão não será mostrado. Exemplo: %{url}'
         index:
           last_notable_change: Última alteração notável
         new:
@@ -981,11 +1010,15 @@ pt-BR:
         areas: Áreas
         authorization_workflows: Métodos de verificação
         dashboard: painel de controle
-        edit_external_domains: Lista branca de domínios externos
+        edit_external_domains: Lista de domínios externos permitidos
+        edit_landing_page: Conteúdos da página
         edit_organization_appearance: Editar aparência da página inicial
         impersonatable_users: Usuários gerenciáveis
         impersonations: Gerenciamento de usuários
+        menu: Menu
         metrics: Métricas
+        page_topics: Tópicos
+        pages: Páginas
         panel: Administrador
         participants: Comercial
         scope_types: Tipos de âmbito
@@ -1039,14 +1072,19 @@ pt-BR:
           last_day: Último dia
           last_month: Último mês
           last_week: Última semana
+          no_users_count_statistics_yet: Ainda não há nenhuma estatística de usuários ainda.
           participants: Participantes
+    forms:
+      errors:
+        impersonate_user:
+          reason: Você precisa fornecer um motivo ao representar um participante não gerenciado.
     metrics:
       blocked_users:
         object: usuários bloqueados
         title: Usuários bloqueados
       reported_users:
-        object: usuários reportados
-        title: Usuários reportados
+        object: usuários denunciados
+        title: Usuários denunciados
       user_reports:
         object: reports do usuário
         title: Reports do usuário
@@ -1073,6 +1111,7 @@ pt-BR:
       models:
         moderation:
           fields:
+            created_at: Relatado em
             deleted_resource: Recurso excluído
             hidden_at: Escondido em
             participatory_space: Espaço participativo

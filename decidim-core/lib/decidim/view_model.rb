@@ -17,8 +17,6 @@ module Decidim
     include Decidim::MarkupHelper
     include Decidim::LayoutHelper
     include Decidim::SanitizeHelper
-    include Decidim::IconHelper
-    include Decidim::ApplicationHelper
 
     delegate :helper_method, to: :controller
     delegate :current_organization, to: :controller

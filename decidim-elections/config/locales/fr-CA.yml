@@ -656,6 +656,8 @@ fr-CA:
               upload_legend: Le serveur dispose de vos clés d'identification publiques, mais pas votre navigateur. Vous devez importer le fichier contenant vos clés d'identification sur votre ordinateur à partir de la sauvegarde que vous avez créée après les avoir générées.
             not_supported_browser_description: Il semblerait que votre navigateur web ne peut pas être utilisé pour agir en tant qu'administrateur. Assurez-vous d'utiliser la dernière version de votre navigateur ou essayez d'utiliser l'un des navigateurs les plus populaires afin de réaliser vos tâches.
             not_supported_browser_title: Mettre à niveau le navigateur pour agir en tant que garant
+            safari_warning_description: Il semblerait que vous utilisez Safari, qui n'est pas pris en charge pour agir en tant que fiduciaire ou pour chiffrer un vote (cela est dû aux restrictions de mémoire qu'Apple y impose). Cela pourrait être résolu à l'avenir par un changement de politique par Apple ou par l'optimisation future des élections Decidim. S'il vous plaît, utilisez un autre navigateur entre-temps.
+            safari_warning_title: Navigateur Safari détecté
             trustee_role_description:
               with_keys: Vous avez été assigné à agir en tant que garant lors de certaines élections mises en place sur cette plateforme.
               without_keys: Vous avez été assigné à agir en tant que garant. Veuillez générer et télécharger vos clés d’identification.
@@ -667,7 +669,7 @@ fr-CA:
           back: Recommencer le processus de vote
           ballot_hash: 'L''identifiant de votre bulletin est:'
           cast: Remplir le bulletin pour terminer votre vote
-          description: Ici, vous pouvez valider votre vote de sorte à ce qu'il soit correctement comptabilisé ou alternativement vous pouvez vérifier que votre bulletin a bien été chiffré. Pour des raisons de sécurité, l’audit de votre bulletin invalidera son contenu. Si vous souhaitez valider votre vote, vous devrez donc recommencer le processus de vote.
+          description_html: Ici, vous avez les options de valider votre bulletin pour qu'il soit correctement compté ou, vous pouvez vérifier que votre bulletin a été correctement chiffré. Si vous voulez auditer le vote, veuillez lire les instructions sur <a href="https://github.com/decidim/decidim-bulletin-board/blob/develop/verifier/README.md">comment procéder</a>.
           header: 'Le bulletin est chiffré: validez-le ou auditez-le'
         casting:
           header: Vote en cours...

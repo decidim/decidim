@@ -14,6 +14,7 @@ module Decidim::ParticipatoryProcesses
         title: { en: "title" },
         current_user: user,
         current_organization: organization,
+        organization:,
         invalid?: invalid
       )
     end
