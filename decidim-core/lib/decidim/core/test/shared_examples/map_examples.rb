@@ -99,6 +99,8 @@ shared_context "with frontend map elements" do
   let(:html_body) { "" }
 
   before do
+    # Create a favicon so it does not fail when trying to fetch it
+    favicon = ""
     # Create a temporary route to display the generated HTML in a correct site
     # context.
     final_html = html_document
@@ -106,6 +108,7 @@ shared_context "with frontend map elements" do
       get "maptiles/:z/:x/:y.png", to: ->(_) { [200, {}, [final_html]] }
       get "test_dynamic_map", to: ->(_) { [200, {}, [final_html]] }
       get "offline", to: ->(_) { [200, {}, [""]] }
+      get "/favicon.ico", to: ->(_) { [200, {}, [favicon]] }
     end
 
     visit "/test_dynamic_map"
