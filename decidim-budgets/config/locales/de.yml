@@ -105,6 +105,9 @@ de:
             pending_orders: Ausstehende Stimmen
             select_for_implementation: Zur Umsetzung auswählen
             selected: Ausgewählt
+            selected_options:
+              'no': 'Nein'
+              'yes': 'Ja'
             title: Projekte
             update: Aktualisieren
             update_budget_button: Projektbudget aktualisieren
