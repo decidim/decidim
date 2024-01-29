@@ -50,10 +50,18 @@ ja:
           attributes:
             attachment:
               needs_to_be_reattached: 再接続が必要
+        ballot_result:
+          attributes:
+            base:
+              total_count_invalid: 回答の合計数は、有効票/白票/空 のブレークダウンと一致しません。
         election:
           attributes:
             attachment:
               needs_to_be_reattached: 再接続が必要
+        question_result:
+          attributes:
+            base:
+              blank_count_invalid: 白票の回答の合計数は、白票の投票の合計数より大きくすることはできません。
         trustee:
           attributes:
             name:
@@ -219,6 +227,11 @@ ja:
           feedback_form_answers: フィードバックフォームの回答
         mailers:
           trustee_mailer:
+            body:
+              help_html: |-
+                <p>こんにちは、%{user_name} さん、</p><br>
+                <p>%{organization} で行われるいくつかの選挙において、あなたが受託者として追加されました。</p><br>
+                <p>あなたのアカウントに「受託者ゾーン」という新しいセクションが追加されました。そこから、必要に応じて任務を遂行してください。まずは、あなたの識別キーを生成してください。</p><br>
             subject: あなたは %{resource_name} に受託者として追加されました
             trustee_zone: 私を受託者ゾーンに連れて行ってください
         menu:
@@ -631,6 +644,8 @@ ja:
               upload_legend: サーバーには公開識別キーがありますが、ブラウザにはまだ公開識別キーがありません。 生成後に作成したバックアップから、識別キーのあるファイルをコンピュータにインポートする必要があります。
             not_supported_browser_description: お使いのWebブラウザでは受託者の業務を行うことができません。ブラウザの最新バージョンを使用していることを確認するか、もっと一般的なブラウザのいずれかを使用して、受託者タスクを完了できるようにしてください。
             not_supported_browser_title: ブラウザをアップグレードして受託者として行動する
+            safari_warning_description: Safariを使用しているようですが、Safariは受託者としての役割や投票の暗号化には対応していません(Appleが課すメモリ制限によるものです)。 Appleによるポリシーの変更やDecidim投票モジュールの将来の最適化によって、将来的にはこれが解決するかもしれません。それまでの間、別のブラウザを使用してください。
+            safari_warning_title: Safariブラウザが検出されました
             trustee_role_description:
               with_keys: あなたは、このプラットフォームで行われる選挙のいくつかで受託者として行動するようにアサインされています。
               without_keys: あなたは受託者として行動するようアサインされています。識別キーを生成してアップロードしてください。
@@ -642,7 +657,7 @@ ja:
           back: 投票プロセスを再度開始
           ballot_hash: '投票用紙の識別子:'
           cast: 投票を完了するには投票を行ってください
-          description: ここでは、あなたの投票が適切にカウントされるように投票を行うオプションがあります。また、代替案として、あなたの投票が正しく暗号化されたかを確認することができます。セキュリティ上の理由から、投票を確認することでその投票は無効になります。つまり、投票を行うためには投票プロセスを再度始める必要があります。
+          description_html: 投票用紙が正しく集計されるようにキャストするオプションがあります。または、あなたの投票用紙が正しく暗号化されたかを監査することもできます。投票を監査したい場合は、<a href="https://github.com/decidim/decidim-bulletin-board/blob/develop/verifier/README.md">進め方</a>についての指示をお読みください。
           header: '投票は暗号化されています：キャストまたは監査されます'
         casting:
           header: 投票中…
@@ -733,11 +748,13 @@ ja:
           new_election:
             email_intro: '%{resource_title} 選挙の受託者として追加されました。'
             email_outro: '%{resource_title} 選挙の受託者に追加されたため、この通知を受け取りました。'
+            email_subject: あなたは %{resource_title} 選挙の受託者です。
             notification_title: 選挙 <a href="%{resource_path}">%{resource_title}</a>の受託者に選ばれました。選挙を準備するためのキーセレモニーを行ってください。
           new_trustee:
             email_intro: 管理者が %{resource_name} の受託者としてあなたを追加しました。受託者ゾーンで <a href='%{trustee_zone_url}'>公開鍵を作成する必要があります。</a>
             email_outro: '%{resource_name} の受託者に追加されたため、この通知を受信しました。'
             email_subject: あなたは %{resource_name} の受託者です。
+            notification_title: '%{resource_name} におけるいくつかの選挙で、貴方が受託者として追加されました。<br> このプラットフォームで行われる選挙において、必要に応じて任務を遂行していただきます。まずはじめに、<a href=''%{trustee_zone_url}''>あなたの識別キーを生成してください</a>。'
           start_tally:
             email_intro: '%{resource_title} 選挙の投票期間が終了しました。最終結果を公開するために、選挙の合計を行ってください。'
             email_outro: あなたは %{resource_title} 選挙の受託者であるため、この通知を受け取りました。
@@ -1201,6 +1218,7 @@ ja:
           show:
             edit_count_votes: 間違った数字ですか？　まだ編集できます。
             heading: 投票再集計
+            sub_heading: 証明書をアップロードして、再集計を終わらせる必要があります。これを行うと、再集計は確定され、それ以降は編集ができなくなります。
           sign:
             cancel: キャンセル
             check_box: 私はこれを確認し、物理的な選挙閉鎖証明書と同じであることを確認しました。
