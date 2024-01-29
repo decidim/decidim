@@ -6,7 +6,7 @@ describe Decidim::Elections::Trustees::NotifyTrusteeTallyProcessEvent do
   include_context "when a simple event"
 
   let(:event_name) { "decidim.events.elections.trustees.start_tally" }
-  let(:resource) { create(:election, title:  generate_localized_title(:election_title)) }
+  let(:resource) { create(:election, title: generate_localized_title(:election_title)) }
 
   describe "notification_title" do
     it "is generated correctly" do

@@ -6,7 +6,7 @@ describe Decidim::Elections::Trustees::NotifyTrusteeNewElectionEvent do
   include_context "when a simple event"
 
   let(:event_name) { "decidim.events.elections.trustees.new_election" }
-  let(:resource) { create(:election, title:  generate_localized_title(:election_title)) }
+  let(:resource) { create(:election, title: generate_localized_title(:election_title)) }
   let(:email_subject) { "You are a trustee for the #{resource_title} election." }
   let(:email_intro) { "You got added as a trustee for the #{resource_title} election." }
   let(:email_outro) { "You have received this notification because you have been added as trustee for the #{resource_title} election." }
