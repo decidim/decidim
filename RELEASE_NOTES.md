@@ -49,7 +49,7 @@ Until now we have hard-coded the document types for verifications with types fro
 
 If you want to go back to the old setting, you need to follow these steps:
 
-## 1. Add to your config/secrets.yml the `decidim.verifications.document_types` key
+1. Add to your config/secrets.yml the `decidim.verifications.document_types` key
 
 ```erb
 decidim_default: &decidim_default
