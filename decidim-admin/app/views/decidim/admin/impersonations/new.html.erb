@@ -1,6 +1,6 @@
 <% add_decidim_page_title(t("impersonate_new_managed_user", scope: "decidim.admin.impersonations.new")) %>
 <div class="item_show__header">
-  <h2 class="item_show__header-title">
+  <h1 class="item_show__header-title">
     <% if creating_managed_user? %>
       <%= t(".impersonate_new_managed_user") %>
     <% else %>
@@ -10,7 +10,7 @@
         <%= t(".impersonate_existing_user", name: @form.user.name) %>
       <% end %>
     <% end %>
-  </h2>
+  </h1>
 </div>
 <div class="item__edit item__edit-1col">
   <div class="item__edit-form">
