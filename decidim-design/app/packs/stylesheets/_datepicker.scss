@@ -1,9 +1,9 @@
 .datepicker {
-  &_datepicker-row {
+  &__datepicker-row {
     @apply bottom-10 relative h-0;
   }
 
-  &_help-text-container {
+  &__help-text-container {
     @apply bottom-10 h-0;
   }
 }

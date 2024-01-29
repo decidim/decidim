@@ -26,17 +26,17 @@ export default function formDatePicker(input) {
 
   const row = document.createElement("div");
   row.setAttribute("id", `${input.id}_datepicker_row`);
-  row.setAttribute("class", "datepicker_datepicker-row");
+  row.setAttribute("class", "datepicker__datepicker-row");
 
   const helpTextContainer = document.createElement("div");
-  helpTextContainer.setAttribute("class", "datepicker_help-text-container");
+  helpTextContainer.setAttribute("class", "datepicker__help-text-container");
 
   const helpTextDate = document.createElement("span");
-  helpTextDate.setAttribute("class", "help-text datepicker_help-date");
+  helpTextDate.setAttribute("class", "help-text datepicker__help-date");
   helpTextDate.innerText = i18nDateHelp.date_format;
 
   const helpTextTime = document.createElement("span");
-  helpTextTime.setAttribute("class", "help-text datepicker_help-time");
+  helpTextTime.setAttribute("class", "help-text datepicker__help-time");
   helpTextTime.innerText = i18nTimeHelp.time_format;
 
   helpTextContainer.appendChild(helpTextDate);

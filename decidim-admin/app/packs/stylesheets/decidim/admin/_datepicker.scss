@@ -14,35 +14,35 @@
 }
 
 .datepicker {
-  &_clock-button {
+  &__clock-button {
     @apply top-0;
   }
 
-  &_calendar-button {
+  &__calendar-button {
     @apply top-0;
   }
 
-  &_pick-calendar {
+  &__pick-calendar {
     @apply z-[3];
   }
 
-  &_close-calendar {
+  &__close-calendar {
     @apply z-[3];
   }
 
-  &_time-frame {
+  &__time-frame {
     @apply z-[1];
   }
 
-  &_hour-picker,
-  &_minute-picker {
+  &__hour-picker,
+  &__minute-picker {
     @apply left-2 ml-px;
   }
 
-  &_hour-down,
-  &_hour-up,
-  &_minute-up,
-  &_minute-down {
+  &__hour-down,
+  &__hour-up,
+  &__minute-up,
+  &__minute-down {
     @apply h-6 w-full;
 
     > svg {

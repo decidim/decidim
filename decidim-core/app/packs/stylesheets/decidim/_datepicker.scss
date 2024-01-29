@@ -3,7 +3,7 @@
 }
 
 .wc-datepicker {
-  @apply w-80 h-96 absolute z-20 text-sm;
+  @apply absolute w-80 h-96 z-20 text-sm;
 
   &__header {
     @apply px-0 py-0 pb-0 gap-0 h-14;
@@ -43,16 +43,20 @@
 }
 
 .datepicker {
-  &_datepicker-row {
+  &__container {
+    @apply absolute w-80 h-96;
+  }
+
+  &__datepicker-row {
     @apply flex gap-4;
   }
 
-  &_time-row {
+  &__time-row {
     @apply flex top-6 absolute w-full;
   }
 
-  &_date-column,
-  &_time-column {
+  &__date-column,
+  &__time-column {
     @apply flex-1 w-1/2 relative;
 
     > input {
@@ -60,29 +64,29 @@
     }
   }
 
-  &_hour-column,
-  &_minute-column {
+  &__hour-column,
+  &__minute-column {
     @apply flex-1 h-20 relative my-2 mx-8 rounded border border-solid border-gray;
   }
 
-  &_period-column {
+  &__period-column {
     @apply w-28 h-8 top-1 right-10 my-2 mx-1 absolute;
   }
 
-  &_calendar-button {
+  &__calendar-button {
     @apply h-8 rounded absolute top-4 mt-0.5 fill-gray-2 leading-3 right-2;
   }
 
-  &_clock-button {
+  &__clock-button {
     @apply h-8 rounded absolute top-4 mt-0.5 fill-gray-2 leading-3 right-2;
   }
 
-  &_time-frame {
+  &__time-frame {
     @apply w-52 max-w-lg h-40 bg-white absolute border border-solid border-[#f2f3f5] z-20;
   }
 
-  &_hour-picker,
-  &_minute-picker {
+  &__hour-picker,
+  &__minute-picker {
     @apply w-1/2 left-2.5 h-8 text-center text-sm absolute top-6;
 
     &:hover {
@@ -94,11 +98,11 @@
     }
   }
 
-  &_close-calendar {
+  &__close-calendar {
     @apply absolute z-30 bottom-2 right-1;
   }
 
-  &_pick-calendar {
+  &__pick-calendar {
     @apply absolute z-30 bottom-2 right-16 mr-1;
 
     &:disabled {
@@ -106,19 +110,19 @@
     }
   }
 
-  &_close-clock {
+  &__close-clock {
     @apply absolute z-30 bottom-2 right-1;
   }
 
-  &_reset-clock {
+  &__reset-clock {
     @apply absolute z-30 bottom-2 left-2;
   }
 
-  &_select-clock {
+  &__select-clock {
     @apply absolute z-30 bottom-2 right-16 mr-1;
   }
 
-  &_hour-up {
+  &__hour-up {
     @apply absolute rounded-t w-full h-6;
 
     &:hover {
@@ -126,7 +130,7 @@
     }
   }
 
-  &_hour-down {
+  &__hour-down {
     @apply absolute rounded-b w-full h-6 bottom-0;
 
     &:hover {
@@ -134,7 +138,7 @@
     }
   }
 
-  &_minute-up {
+  &__minute-up {
     @apply absolute rounded-t w-full h-6;
 
     &:hover {
@@ -142,7 +146,7 @@
     }
   }
 
-  &_minute-down {
+  &__minute-down {
     @apply absolute rounded-b w-full h-6 bottom-0;
 
     &:hover {
@@ -150,35 +154,35 @@
     }
   }
 
-  &_period-am {
+  &__period-am {
     @apply ml-1 accent-secondary bg-secondary;
   }
 
-  &_period-pm {
+  &__period-pm {
     @apply ml-1;
   }
 
-  &_label-row {
+  &__label-row {
     @apply absolute flex top-2 w-full text-sm font-semibold;
   }
 
-  &_hour-label-container {
+  &__hour-label-container {
     @apply flex-1 text-center;
   }
 
-  &_minute-label-container {
+  &__minute-label-container {
     @apply flex-1 text-center;
   }
 
-  &_help-text-container {
+  &__help-text-container {
     @apply w-full h-10 relative;
   }
 
-  &_help-date {
+  &__help-date {
     @apply w-1/2 relative inline-block;
   }
 
-  &_help-time {
+  &__help-time {
     @apply w-1/2 relative inline-block left-2;
   }
 }
