@@ -59,7 +59,7 @@ decidim_default: &decidim_default
     document_types: <%%= Decidim::Env.new("VERIFICATIONS_DOCUMENT_TYPES", %w(identification_number passport)).to_array %>
 ```
 
-## 2. Add to your `config/initializers/decidim.rb` the following snippet in the bottom of the file
+2. Add to your `config/initializers/decidim.rb` the following snippet in the bottom of the file
 
 ```ruby
 if Decidim.module_installed? :verifications
