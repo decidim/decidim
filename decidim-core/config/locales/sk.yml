@@ -803,11 +803,13 @@ sk:
           title: Konverzace
         reply:
           send: Poslat
+          title: Odpověď
         show:
           chat_with: Konverzácia s
           title: Konverzace s číslem %{usernames}
         start:
           send: Poslat
+          title: Spusťte konverzaci
     metrics:
       followers:
         description: Počet účastníkov, ktorí sledujú tento participatívny priestor

@@ -21,6 +21,9 @@ pt-BR:
         scope_id: Escopo
   activerecord:
     models:
+      decidim/budgets/budget:
+        one: Orçamento
+        other: Orçamentos
       decidim/budgets/project:
         one: Projeto
         other: Projetos
@@ -100,7 +103,11 @@ pt-BR:
             pending_orders: Votações pendentes
             select_for_implementation: Selecionado para implementação
             selected: Selecionado
+            selected_options:
+              'no': 'Não'
+              'yes': 'Sim'
             title: Projetos
+            update: Atualizar
             update_scope_button: Atualizar escopo
           new:
             create: Criar

@@ -11,7 +11,7 @@ pt-BR:
         title: Título
         witnesses: Testemunhas
     models:
-      decidim/sortitions/create_sortition_event: Sorteio
+      decidim/sortitions/create_sortition_event: Classificação
   activerecord:
     models:
       decidim/sortitions/sortition:
@@ -20,6 +20,8 @@ pt-BR:
   decidim:
     components:
       sortitions:
+        actions:
+          comment: Comentário
         name: Sorteios
         settings:
           global:

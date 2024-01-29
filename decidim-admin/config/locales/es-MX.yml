@@ -367,7 +367,7 @@ es-MX:
           welcome: Bienvenida al panel de administración.
       domain_whitelist:
         form:
-          domain_too_short: Dominio demasiado corto
+          domain_too_short: El dominio es demasiado corto
         update:
           error: Error al actualizar la lista blanca del dominio
           success: Lista blanca de dominio actualizada correctamente

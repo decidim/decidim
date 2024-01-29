@@ -7,6 +7,10 @@ sr:
           roles:
             valuator: Procenjivač
     conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: Veza ka strani Konferencije koja prikazuje sve konferencije
       photo:
         image:
           attributes:

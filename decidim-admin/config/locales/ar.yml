@@ -319,8 +319,6 @@ ar:
           view_more_logs: عرض المزيد من السجلات
           welcome: أهلا بك على اللوح الإداري.
       domain_whitelist:
-        form:
-          domain_too_short: نطاق الدومين قصير جداً
         update:
           error: فشل تحديث القائمة النطاقات المسموحة
           success: تم تحديث النطاقات المسموحة بنجاح
@@ -719,11 +717,6 @@ ar:
       organization_external_domain_whitelist:
         edit:
           update: تحديث
-        external_domain:
-          down: أسفل
-          external_domain: نطاق خارجي
-          remove: إزالة
-          up: أعلى
         form:
           add: إضافة إلى القائمة البيضاء
       organization_homepage_content_blocks:
@@ -854,6 +847,7 @@ ar:
         areas: المناطق
         authorization_workflows: طرق التحقق
         dashboard: لوحة القيادة
+        edit_organization_appearance: تعديل مظهر الصفحة الرئيسية
         impersonatable_users: المشاركون في الإدارة
         impersonations: إدارة المشاركين
         pages: الصفحات

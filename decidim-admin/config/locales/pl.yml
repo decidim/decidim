@@ -367,7 +367,7 @@ pl:
           welcome: Witamy w Panelu Administracyjnym.
       domain_whitelist:
         form:
-          domain_too_short: Domena jest zbyt krótka
+          domain_too_short: Domena jest za krótka
         update:
           error: Nie udało się zaktualizować białej listy domen
           success: Biała lista domen pomyślnie zaktualizowana
@@ -833,10 +833,10 @@ pl:
         edit:
           update: Aktualizuj
         external_domain:
-          down: W dół
+          down: Na dół
           external_domain: Domena zewnętrzna
           remove: Usuń
-          up: W górę
+          up: Do góry
         form:
           add: Dodaj do białej listy
           title: Biała lista domen zewnętrznych

@@ -78,7 +78,7 @@ eu:
       file_cannot_be_processed: Fitxategia ezin izan da prozesatu
       file_resolution_too_large: Fitxategiaren erresoluzioa handiegia da
       file_size_too_large: Fitxategiaren taimaina handiegia da
-      not_inside_organization: Artxiboa ez dago antolatzaile batekin erlazionatuta
+      not_inside_organization: Artxiboa ez dago erakunde batekin erlazionatuta
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -1820,7 +1820,7 @@ eu:
       widget:
         see_more: Ikusi gehiago
   locale:
-    name: Ingelesa
+    name: Euskera
     name_with_error: Euskera (akatsa!)
   password_validator:
     blacklisted: Zerrenda beltzean

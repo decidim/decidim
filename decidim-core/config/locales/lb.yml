@@ -66,9 +66,6 @@ lb:
   booleans:
     'false': 'Nee'
     'true': 'Jo'
-  carrierwave:
-    errors:
-      not_inside_organization: D'Datei ass net mat enger Organisatioun verbonnen
   date:
     formats:
       decidim_short: "%d/%m/%Y"

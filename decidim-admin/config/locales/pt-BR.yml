@@ -93,6 +93,7 @@ pt-BR:
         success_color: Sucesso
         time_zone: Fuso Horário
         tos_version: Versão dos termos de serviço
+        twitter_handler: X handler
         user_groups_enabled: Ativar grupos de usuários
         users_registration_mode: Modo de registro de usuários
         warning_color: Aviso
@@ -204,10 +205,12 @@ pt-BR:
           success: Ótimo! Você aceitou os termos de uso do administrador.
         actions:
           accept: Concordo com estes termos
+          are_you_sure: Tem certeza de que deseja recusar os termos do administrador?
           refuse: Recusar os termos de administrador
           title: Concorde com os termos e condições de uso
         required_review:
           alert: 'Obrigatório: Revise os termos de uso de nosso administrador'
+          callout: Por favor, reserve um momento para revisar os Termos de Uso do Administrador. Caso contrário, você não poderá administrar a plataforma.
           cta: Reveja eles agora.
         title: Termos de Uso do Administrador
       area_types:
@@ -549,7 +552,7 @@ pt-BR:
         moderation: Moderadores globais
         newsletters: Newsletters
         participants: Participantes
-        reported_users: Usuários Reportados
+        reported_users: Usuários Denunciados
         scope_types: Tipos de âmbito
         scopes: Âmbitos
         settings: Configurações
@@ -593,7 +596,7 @@ pt-BR:
             progress: Andamento
             sent_at: Enviado em
             sent_to: Enviado para
-            subject: Sujeito
+            subject: Assunto
           name: Newsletter
         participatory_space_private_user:
           name: Espaço participativo usuário particular
@@ -740,7 +743,7 @@ pt-BR:
         show:
           preview: Pré-visualização
           select_recipients_to_deliver: Selecionar destinatários para entregar
-          subject: Sujeito
+          subject: Assunto
         update:
           error: Ocorreu um erro ao atualizar este boletim informativo.
           success: Newsletter atualizada com sucesso. Por favor, reveja-o antes de enviar.
@@ -754,7 +757,7 @@ pt-BR:
           success: Usuário não oficializado com sucesso
         index:
           actions: Ações
-          badge: Badge
+          badge: Selo
           block: Bloquear usuário
           created_at: Criado em
           name: Nome
@@ -793,6 +796,7 @@ pt-BR:
           instagram: Instagram
           rich_text_editor_in_public_views_help: Em algumas áreas de texto, os participantes poderão inserir algumas tags HTML usando o editor de texto rico.
           social_handlers: Social
+          twitter: X
           url: URL
           youtube: YouTube
         update:
@@ -818,10 +822,10 @@ pt-BR:
         edit:
           update: Atualizar
         external_domain:
-          down: Para Baixo
+          down: Abaixo
           external_domain: Domínio externo
-          remove: Excluir
-          up: Para Cima
+          remove: Remover
+          up: Acima
         form:
           add: Adicionar à lista branca
           title: Lista branca de domínios externos
@@ -955,6 +959,7 @@ pt-BR:
           update: Atualizar
         form:
           none: Nenhum
+          slug_help: 'Use caminhos parciais, não URLs completos aqui. Aceita letras, números, traços e barras, e deve começar com uma letra. Se não estiver definido, o botão não será mostrado. Exemplo: %{url}'
         index:
           last_notable_change: Última alteração notável
         new:
@@ -979,6 +984,7 @@ pt-BR:
         impersonatable_users: Usuários gerenciáveis
         impersonations: Gerenciamento de usuários
         metrics: Métricas
+        pages: Páginas
         panel: Administrador
         participants: Comercial
         scope_types: Tipos de âmbito
@@ -1032,13 +1038,17 @@ pt-BR:
           no_users_count_statistics_yet: Ainda não há nenhuma estatística de usuários
           participants: Participantes
       view_public_page: Ver página pública
+    forms:
+      errors:
+        impersonate_user:
+          reason: Você precisa fornecer um motivo ao representar um participante não gerenciado
     metrics:
       blocked_users:
         object: usuários bloqueados
         title: Usuários bloqueados
       reported_users:
-        object: usuários reportados
-        title: Usuários reportados
+        object: usuários denunciados
+        title: Usuários denunciados
       user_reports:
         object: reports do usuário
         title: Reports do usuário

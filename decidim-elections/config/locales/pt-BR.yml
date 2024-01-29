@@ -7,11 +7,19 @@ pt-BR:
         image: Imagem
         proposals: Propostas relacionadas
         title: Título
+      ballot_style:
+        code: Código
       election:
         description: Descrição
         end_time: A votação termina às
         start_time: Votação começa às
         title: Título
+      monitoring_committee_member:
+        email: E-mail
+        name: Nome
+      polling_officer:
+        email: E-mail
+        name: Nome
       polling_station:
         address: Endereço
         location: Localização
@@ -28,12 +36,14 @@ pt-BR:
       voting:
         banner_image: Imagem de banner
         census_contact_information: Informação de contato do censo
+        description: Descrição
         end_time: Votação termina
         introductory_image: Imagem introdutória
         promoted: Promovido
         scope_id: Escopo
         show_check_census: Mostrar página "checar censo"
         start_time: A votação começa
+        title: Título
         voting_type: Tipo de votação
     errors:
       models:
@@ -78,6 +88,9 @@ pt-BR:
       decidim/elections/question:
         one: Questão
         other: Questões
+      decidim/voting:
+        one: Votação
+        other: Votações
       decidim/votings/census/dataset:
         one: Conjunto de dados
         other: Conjuntos de dados
@@ -120,6 +133,7 @@ pt-BR:
           label: Validado
           values:
             'false': Validado
+            'true': Não validado
     components:
       elections:
         actions:
@@ -316,6 +330,9 @@ pt-BR:
             title: Resultados calculados
           tally_started:
             continue: Continuar
+            invalid: Houve um problema ao relatar o síndico desaparecido
+            mark_as_missing_description: Todos os curadores devem participar desse processo, mas se um síndico não puder participar do processo, você pode marcá-lo como ausente.
+            success: O relatório do síndico ausente foi enviado com sucesso ao Quadro de Avisos
             title: Processo de registro
           vote:
             errors:
@@ -1028,6 +1045,7 @@ pt-BR:
           census:
             create:
               invalid: Ocorreu um erro ao atualizar o censo, por favor tente novamente mais tarde.
+              invalid_csv_header: Os cabeçalhos CSV estão ausentes ou não estão corretos — leia as instruções com atenção
             creating_data:
               info_message: "<strong>Aguarde</strong>, processadas %{processed_count} de %{raw_count} linhas do arquivo %{file} (isso pode levar alguns minutos)."
             delete:

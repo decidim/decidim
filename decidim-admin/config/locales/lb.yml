@@ -333,8 +333,6 @@ lb:
         show:
           view_more_logs: Weitere Protokolle anzeigen
       domain_whitelist:
-        form:
-          domain_too_short: Domain zu kurz
         update:
           error: Domain-Whitelist konnte nicht aktualisiert werden
           success: Domain-Whitelist erfolgreich aktualisiert
@@ -478,7 +476,6 @@ lb:
         areas: Bereiche
         configuration: Aufbau
         dashboard: Instrumententafel
-        external_domain_whitelist: Erlaabt extern Domainen
         help_sections: Hilfeabschnitte
         homepage: Startseite
         impersonations: Identitätswechsel
@@ -744,12 +741,7 @@ lb:
           omnipresent_banner_appearance_title: Bearbeiten Sie das allgegenwärtige Banner
       organization_external_domain_whitelist:
         edit:
-          update: Aktualiséieren
-        external_domain:
-          down: Runter
-          external_domain: Externe Domäne
-          remove: Löschen
-          up: Hoch
+          update: Aktualisieren
         form:
           add: Zur Whitelist hinzufügen
           title: Whitelist für externe Domains

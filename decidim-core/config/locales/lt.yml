@@ -83,10 +83,7 @@ lt:
     'true': 'Taip'
   carrierwave:
     errors:
-      file_cannot_be_processed: Rinkmena negali būti apdorota
-      file_resolution_too_large: Dokumento rezoliucija per aukšta
       file_size_too_large: Dokumento dydis per didelis
-      not_inside_organization: Dokumentas nepririštas prie jokios organizacijos
   date:
     formats:
       decidim_short: "%Y/%m/%d"

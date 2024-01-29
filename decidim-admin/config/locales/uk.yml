@@ -448,6 +448,9 @@ uk:
           images:
             layout_appearance_title: Редагувати зовнішній вигляд шаблону
           omnipresent_banner_appearance_title: Редагувати всюдисущий банер
+      organization_external_domain_whitelist:
+        edit:
+          update: Оновити
       organization_homepage_content_blocks:
         edit:
           update: Оновити

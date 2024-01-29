@@ -44,7 +44,7 @@ ja:
         show_check_census: '「センサスの確認」ページを表示'
         start_time: 投票開始
         title: タイトル
-        voting_type: 投票方式
+        voting_type: 投票タイプ
     errors:
       models:
         answer:
@@ -1408,7 +1408,7 @@ ja:
           hybrid: ハイブリッド
           in_person: 対面
           online: オンライン
-        voting_types_label: 投票方式
+        voting_types_label: 投票タイプ
   layouts:
     decidim:
       election_votes_header:

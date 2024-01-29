@@ -356,6 +356,7 @@ lv:
             active_step: Aktīvā fāze
             more_information: Papildu informācija
             participate: Piedalīties
+            processes_button_title: Saite uz lapu Procesi, kurā norādīti visi procesi
       participatory_processes:
         filters:
           counters:

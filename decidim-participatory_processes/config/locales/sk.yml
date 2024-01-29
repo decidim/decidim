@@ -351,6 +351,7 @@ sk:
             active_step: Aktívne krok
             more_information: Viac informácií
             participate: Zúčastniť sa
+            processes_button_title: Odkaz na stránku Procesy, zobrazujúcu všetky procesy
       participatory_processes:
         filters:
           counters:

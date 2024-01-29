@@ -317,10 +317,6 @@ ga:
       organization_external_domain_whitelist:
         edit:
           update: Nuashonraigh
-        external_domain:
-          down: Ísligh
-          remove: Bain as
-          up: Ardaigh
       organization_homepage_content_blocks:
         edit:
           update: Nuashonraigh
