@@ -69,7 +69,7 @@ if Decidim.module_installed? :verifications
 end
 ```
 
-## 3. Add the values that you want to define using the environmnet variable `VERIFICATIONS_DOCUMENT_TYPES`
+3. Add the values that you want to define using the environmnet variable `VERIFICATIONS_DOCUMENT_TYPES`
 
 ```env
 VERIFICATIONS_DOCUMENT_TYPES="dni,nie,passport"
