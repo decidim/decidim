@@ -49,7 +49,7 @@ Until now we have hard-coded the document types for verifications with types fro
 
 If you want to go back to the old setting, you need to follow these steps:
 
-1. Add to your config/secrets.yml the `decidim.verifications.document_types` key
+## 1. Add to your config/secrets.yml the `decidim.verifications.document_types` key
 
 ```erb
 decidim_default: &decidim_default
@@ -59,7 +59,7 @@ decidim_default: &decidim_default
     document_types: <%%= Decidim::Env.new("VERIFICATIONS_DOCUMENT_TYPES", %w(identification_number passport)).to_array %>
 ```
 
-2. Add to your `config/initializers/decidim.rb` the following snippet in the bottom of the file
+## 2. Add to your `config/initializers/decidim.rb` the following snippet in the bottom of the file
 
 ```ruby
 if Decidim.module_installed? :verifications
@@ -69,13 +69,13 @@ if Decidim.module_installed? :verifications
 end
 ```
 
-3. Add the values that you want to define using the environmnet variable `VERIFICATIONS_DOCUMENT_TYPES`
+## 3. Add the values that you want to define using the environmnet variable `VERIFICATIONS_DOCUMENT_TYPES`
 
 ```env
 VERIFICATIONS_DOCUMENT_TYPES="dni,nie,passport"
 ```
 
-4. Add the translation of these values to your i18n files (i.e. `config/locales/en.yml`)
+## 4. Add the translation of these values to your i18n files (i.e. `config/locales/en.yml`)
 
 ```yaml
 en:
