@@ -1790,6 +1790,7 @@ de:
   emojis:
     button: Emoji hinzufügen
     categories:
+      activity: Aktivität
       custom: Benutzerdefiniert
       flags: Flaggen
       objects: Objekte
