@@ -75,7 +75,7 @@ end
 VERIFICATIONS_DOCUMENT_TYPES="dni,nie,passport"
 ```
 
-## 4. Add the translation of these values to your i18n files (i.e. `config/locales/en.yml`)
+#### 3.2.4. Add the translation of these values to your i18n files (i.e. `config/locales/en.yml`)
 
 ```yaml
 en:
