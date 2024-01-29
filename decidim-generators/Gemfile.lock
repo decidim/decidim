@@ -82,7 +82,6 @@ PATH
       loofah (~> 2.19.0)
       mime-types (>= 1.16, < 4.0)
       mini_magick (~> 4.9)
-      mustache (~> 1.1.0)
       omniauth (~> 2.0)
       omniauth-facebook (~> 5.0)
       omniauth-google-oauth2 (~> 1.0)
@@ -559,7 +558,6 @@ GEM
     msgpack (1.4.5)
     multi_xml (0.6.0)
     multipart-post (2.4.0)
-    mustache (1.1.1)
     net-imap (0.4.10)
       date
       net-protocol
