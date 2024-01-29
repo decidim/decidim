@@ -6,9 +6,8 @@ describe Decidim::Elections::Trustees::NotifyNewTrusteeEvent do
   include_context "when a simple event"
 
   let(:event_name) { "decidim.events.elections.trustees.new_trustee" }
-  let(:resource) { create(:participatory_process) }
-  let(:participatory_space_title) { resource.title["en"] }
-  let(:resource_title) { resource.title["en"] }
+  let(:resource) { create(:participatory_process, title: generate_localized_title(:participatory_process_title)) }
+  let(:participatory_space) { resource }
   let(:trustee_zone_url) { "http://#{resource.organization.host}/trustee" }
   let(:email_subject) { "You are a trustee for #{participatory_space_title}." }
   let(:email_intro) { "An admin has added you as trustee for #{participatory_space_title}. You should create your public key <a href='#{trustee_zone_url}'>in your trustee zone</a>" }

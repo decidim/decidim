@@ -10,7 +10,6 @@ describe Decidim::Elections::Votes::VoteAcceptedEvent do
   let(:extra) { { vote:, verify_url: } }
   let(:resource) { vote.election }
   let(:encrypted_vote_hash) { vote.encrypted_vote_hash }
-  let(:resource_name) { resource.title["en"] }
   let(:verify_url) { Decidim::EngineRouter.main_proxy(resource.component).election_vote_verify_url(resource, vote_id: encrypted_vote_hash) }
   let(:email_subject) { "Your vote for #{resource_name} was accepted." }
   let(:email_intro) { "Your vote was accepted! Using your voting token: #{encrypted_vote_hash}, you can verify your vote <a href=\"#{verify_url}\">here</a>." }

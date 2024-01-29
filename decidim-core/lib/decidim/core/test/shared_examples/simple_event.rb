@@ -65,6 +65,7 @@ shared_examples_for "a simple event" do |skip_space_checks|
     it "is generated correctly" do
       expect(subject.email_subject).to be_kind_of(String)
       expect(subject.email_subject).not_to include("translation missing")
+      expect(subject.email_subject).not_to include("script")
     end
   end
 
@@ -100,6 +101,7 @@ shared_examples_for "a simple event" do |skip_space_checks|
     it "is generated correctly" do
       expect(subject.notification_title).to be_kind_of(String)
       expect(subject.notification_title).not_to include("translation missing")
+      expect(subject.notification_title).not_to include("script")
     end
   end
 
@@ -158,6 +160,10 @@ shared_examples_for "a simple event email" do
     it "is generated correctly" do
       expect(subject.email_subject).to eq(email_subject)
     end
+
+    it "is html safe" do
+      expect(subject.email_subject).not_to include("script")
+    end
   end
 
   describe "email_intro" do
@@ -178,6 +184,10 @@ shared_examples_for "a simple event notification" do
     it "is generated correctly" do
       expect(subject.notification_title)
         .to eq(notification_title)
+    end
+
+    it "is html safe" do
+      expect(subject.notification_title).not_to include("script")
     end
   end
 end

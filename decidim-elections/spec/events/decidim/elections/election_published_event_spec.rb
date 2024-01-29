@@ -6,9 +6,7 @@ describe Decidim::Elections::ElectionPublishedEvent do
   include_context "when a simple event"
 
   let(:event_name) { "decidim.events.elections.election_published" }
-  let(:resource) { create(:election) }
-  let(:participatory_space_title) { resource.participatory_space.title["en"] }
-  let(:resource_title) { resource.title["en"] }
+  let(:resource) { create(:election, title:  generate_localized_title(:election_title)) }
   let(:email_subject) { "The #{resource_title} election is now active for #{participatory_space_title}." }
   let(:email_intro) { "The #{resource_title} election is now active for #{participatory_space_title}. You can see it from this page:" }
   let(:email_outro) { "You have received this notification because you are following #{participatory_space_title}. You can stop receiving notifications following the previous link." }
