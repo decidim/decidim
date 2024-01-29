@@ -87,7 +87,7 @@ en:
           passport: Passport
 ```
 
-You can read more about this change on PR [\#XXXX](https://github.com/decidim/decidim/pull/12306)
+You can read more about this change on PR [\#12306](https://github.com/decidim/decidim/pull/12306)
 
 ### 3.3. [[TITLE OF THE ACTION]]
 
