@@ -193,6 +193,8 @@ hu:
             back: Vissza a platformra
         voting_step:
           continue: Következő
+      warnings:
+        no_elections_warning: Egy választás sem felel meg a keresési feltételeknek, vagy nincs ütemezett választás.
     events:
       elections:
         election_published:

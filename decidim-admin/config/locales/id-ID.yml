@@ -450,6 +450,9 @@ id:
           images:
             layout_appearance_title: Edit tampilan tata letak
           omnipresent_banner_appearance_title: Edit spanduk yang ada di mana-mana
+      organization_external_domain_whitelist:
+        edit:
+          update: Memperbarui
       participatory_space_private_users:
         create:
           error: Terjadi kesalahan saat menambahkan pengguna pribadi untuk ruang partisipatif ini.

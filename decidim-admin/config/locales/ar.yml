@@ -298,9 +298,6 @@ ar:
       dashboard:
         show:
           view_more_logs: عرض المزيد من السجلات
-      domain_whitelist:
-        form:
-          domain_too_short: نطاق الدومين قصير جداً
       exports:
         export_as: "%{name} ك %{export_format}"
         formats:
@@ -458,6 +455,7 @@ ar:
         scope_types: أنواع المجال
         scopes: مجالات
         settings: الإعدادات
+        static_page_topics: المواضيع
         static_pages: صفحات
         user_groups: المجموعات
         users: المشاركون
@@ -673,11 +671,6 @@ ar:
       organization_external_domain_whitelist:
         edit:
           update: تحديث
-        external_domain:
-          down: أسفل
-          external_domain: نطاق خارجي
-          remove: إزالة
-          up: أعلى
         form:
           add: إضافة إلى القائمة البيضاء
       participatory_space_private_users:
@@ -791,8 +784,10 @@ ar:
         areas: المناطق
         authorization_workflows: طرق التحقق
         dashboard: لوحة القيادة
+        edit_organization_appearance: تعديل مظهر الصفحة الرئيسية
         impersonatable_users: المشاركون في الإدارة
         impersonations: إدارة المشاركين
+        menu: القائمة الرئيسية
         pages: الصفحات
         panel: مدير
         participants: المشاركين
@@ -876,6 +871,7 @@ ar:
             participatory_space: الفضاء التشاركي
             reportable_type: النوع
             reported_content_url: تم الإبلاغ عن عنوان URL للمحتوى
+            reports: السبب
             visit_url: زيارة العنوان الشبكي
         report:
           fields:

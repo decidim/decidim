@@ -300,9 +300,6 @@ gl:
       dashboard:
         show:
           view_more_logs: Ver máis rexistros
-      domain_whitelist:
-        form:
-          domain_too_short: Dominio curto de máis
       exports:
         export_as: "%{name} como %{export_format}"
         formats:
@@ -716,10 +713,7 @@ gl:
           omnipresent_banner_appearance_title: Editar o banner omnipresente
       organization_external_domain_whitelist:
         edit:
-          update: Actualizar
-        external_domain:
-          external_domain: Dominio externo
-          remove: Eliminar
+          update: Actualización
       participatory_space_private_users:
         create:
           error: Produciuse un erro engadindo un usuario privado a este espazo participativo.

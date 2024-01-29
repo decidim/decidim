@@ -513,6 +513,9 @@ sk:
           images:
             layout_appearance_title: Upraviť vzhľad 
           omnipresent_banner_appearance_title: Upraviť všadeprítomný banner
+      organization_external_domain_whitelist:
+        edit:
+          update: Aktualizovať
       participatory_space_private_users:
         create:
           error: Pri pridávaní súkromného používateľa pre tento participačný priestor došlo k chybe.

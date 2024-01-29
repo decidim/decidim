@@ -92,9 +92,7 @@ ar:
     'true': 'نعم'
   carrierwave:
     errors:
-      file_resolution_too_large: دقة الملف أكبر من المسموح به
       file_size_too_large: حجم الملف أكبر من المسموح به
-      not_inside_organization: لم يتم إرفاق الملف بأي منظمة
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -320,11 +318,13 @@ ar:
       document:
         download: نزّل الملف
       documents:
+        documents: المستندات
         related_documents: الوثائق ذات الصلة
       photo:
         alt: صورة الوسائط
         title: الصورة
       photos:
+        photos: الصور
         related_photos: الصور ذات الصلة
     author:
       avatar: 'الصورة الرمزية: %{name}'
@@ -464,8 +464,6 @@ ar:
         description: الوصف
       footer_sub_hero:
         name: تذييل البطل الفرعي راية
-      hero:
-        name: صورة البطل
       hero_settings_form:
         background_image: الصورة الخلفية
         welcome_text: نص الترحيب
@@ -487,6 +485,10 @@ ar:
         view_all: عرض الكل
       metrics:
         name: مقاييس المنظمة
+      participatory_space_stats:
+        name: الإحصائيات
+      social_networks_metadata:
+        name: الشبكات الاجتماعية
       static_page:
         section:
           name: قسم
@@ -516,6 +518,7 @@ ar:
           newsletter_title: الاتصال إذن
           sign_up: انشئ حسابًا
           subtitle: اشترك للمشاركة في المناقشات ودعم المقترحات.
+          terms: شروط الخدمة
           tos_agreement: بالتسجيل فإنك توافق على %{link}.
           tos_title: شروط الخدمة
           username_help: الاسم العام الذي يظهر في مشاركاتك. بهدف ضمان عدم الكشف عن هويته ، يمكن أن يكون أي اسم.
@@ -531,6 +534,11 @@ ar:
           title: الإخطارات الإخبارية
         omniauth_buttons:
           or: أو
+        password_fields:
+          hidden_password: كلمة المرور الخاصة بك مخفية
+          hide_password: إخفاء كلمة المرور
+          show_password: إظهار كلمة المرور
+        placeholder_email: hi@example.org
     doorkeeper:
       authorizations:
         new:
@@ -719,6 +727,7 @@ ar:
           notification_title: تم إضفاء الطابع الرسمي على المشارك %{name} (%{nickname}).
     export_mailer:
       download_your_data_export:
+        click_button: 'انقر فوق الرابط التالي لتحميل بياناتك.<br/>الملف سيكون متاحا حتى %{date}.<br/>ستحتاج إلى <a href="https://www.7-zip.org/">7-Zip</a> (للويندوز)، <a href="https://www.keka.io/en/">Keka</a> (لماكوس) أو <a href="https://peazip.github.io">PeaZip</a> (للينوكس) لفتحه. كلمة المرور: %{password}'
         download: تحميل
       export:
         ready: يرجى الاطلاع على نسخة مضغوطة من التصدير.
@@ -773,6 +782,7 @@ ar:
       file_help:
         file:
           explanation: 'إرشادات الملف:'
+          message_1: يجب أن تكون صورة أو وثيقة.
           message_2: بالنسبة للصور، يُفضل استخدام صور بالوضع العرضي، تقوم الخدمة باقتصاص الصورة.
         icon:
           explanation: 'إرشادات للأيقونة:'
@@ -885,6 +895,7 @@ ar:
       all: جميع أنواع النشاط
       index:
         last_activity: النشاط الاخير
+      name: الأنشطة الأخيرة
     links:
       invalid_url: URL غير صالح
       warning:
@@ -1108,6 +1119,7 @@ ar:
           headline: الحالة الحالية لـ %{organization}
         sub_hero:
           register: تسجيل
+          register_title: قم بالتسجيل لإنشاء حساب
       index:
         standalone_pages: صفحات
         subheading: انتقل من خلال صفحات المساعدة من %{name}
@@ -1117,6 +1129,9 @@ ar:
         metrics:
           headline: المشاركة في الأرقام
           link: عرض جميع الإحصاءات
+      terms_of_service:
+        form:
+          agreement: أوافق على هذه الشروط
     participatory_space_private_users:
       not_allowed: غير مسموح لك بمشاهدة هذا المحتوى
     profile:
@@ -1143,6 +1158,8 @@ ar:
           edit_user_group: تعديل الملف الشخصي للمجموعة
           invite_user: دعوة مشارك
           join_user_group: طلب الانضمام للمجموعة
+          leave_user_group: مغادرة الفريق
+          manage_user_group: إدارة الفريق
           manage_user_group_admins: إدارة المدراء
           manage_user_group_users: إدارة الاعضاء
           message: الرسالة
@@ -1194,12 +1211,14 @@ ar:
       scopes_picker_input:
         select_scope: 'يرجى تحديد نطاق (حالياً: %{current})'
     search:
+      name: البحث
       results: نتائج البحث
       results_found_for_term: '%{count} نتائج البحث: "%{term}"'
       term_input_placeholder: بحث
     searches:
       filters:
         jump_to: 'اقفز إلى:'
+        search: البحث
         state:
           active: نشيط
           all: الكل
@@ -1207,6 +1226,7 @@ ar:
           past: الماضي
       filters_small_view:
         filter: منقي
+        filter_and_search: التصفية والبحث
         filter_by: مصنف بواسطة
       results:
         view_all: عرض الكل (%{count})
@@ -1248,6 +1268,7 @@ ar:
       floating_help:
         help: المساعدة
       login_modal:
+        please_log_in: برجى تسجيل الدخول
         sign_up: انشئ حسابًا
       mentions_modal:
         remove_recipient: إزالة المستلم %{name}
@@ -1433,6 +1454,8 @@ ar:
       links:
         back: الى الخلف
         forgot_your_password: نسيت رقمك السري؟
+        log_in: تسجيل الدخول
+        log_in_with_provider: تسجيل الدخول باستخدام %{provider}
         sign_up: انشئ حسابًا
       minimum_password_length:
         zero: "(%{count} حرف كحد أدنى)"
@@ -1449,6 +1472,30 @@ ar:
   doorkeeper:
     scopes:
       public: معلوماتك العامة.
+  editor:
+    extensions:
+      link:
+        bubbleMenu:
+          edit: تعديل
+          remove: حذف
+          url: العنوان الشبكي
+        hrefLabel: رابط URL
+        targetLabel: الهدف
+        targets:
+          blank: لسان جديد
+      videoEmbed:
+        titleLabel: العنوان
+        urlLabel: الرابط التشعبي للفيديو
+    inputDialog:
+      buttons:
+        cancel: إلغاء
+        remove: حذف
+        save: حفظ
+      close: اغلاق النموذج
+    toolbar:
+      control:
+        blockquote: اقتباس
+        bold: خط غليظ
   emojis:
     button: إضافة Emoji
     categories:
@@ -1509,6 +1556,8 @@ ar:
     timestamp_error_message: آسف ، كان ذلك سريعًا جدًا! يرجى إعادة تقديم.
   layouts:
     decidim:
+      announcements:
+        view_more: المزيد من المعلومات
       data_consent:
         details:
           columns:
@@ -1564,10 +1613,15 @@ ar:
         cc_by_license: رخصة المشاع الإبداعي
         data_consent_settings: إعدادات ملفات تعريف الارتباط
         decidim_logo: شعار Decidim
+        decidim_title: Decidim
         download_open_data: تحميل ملفات البيانات المفتوحة
+        log_in: تسجيل الدخول
         made_with_open_source: موقع تم إنشاؤه <a target="_blank" href="https://github.com/decidim/decidim">بالبرمجيات الحرة</a>.
+        resources: الموارد
         sign_up: انشئ حسابًا
+        terms_and_conditions: الشروط والأحكام
       header:
+        log_in: تسجيل الدخول
         main_menu: القائمة الرئيسية
         user_menu: قائمة المستخدم
       impersonation_warning:
@@ -1587,11 +1641,14 @@ ar:
       timeout_modal:
         body: لقد كنت غير نشط لمدة %{minutes} دقائق. إذا استمريت في كونك غير نشط، سيتم تسجيل خروجك تلقائيًا من أجل الأمان الخاص بك.
         continue_session: متابعة الجلسة
+        log_out: الخروج
         title: هل ترغب في متابعة جلستك؟
       user_menu:
         account: 'حساب المستخدم: %{name}'
         admin_dashboard: لوحة القيادة الادارية
+        configuration: الإعدادات
         conversations: المحادثات
+        log_out: الخروج
         notifications: إخطارات
         profile: حسابي
         public_profile: ملفي الشخصي العام
@@ -1603,6 +1660,7 @@ ar:
         my_data: بياناتي
         my_interests: اهتماماتي
         notifications_settings: إعدادات الإخطارات
+        profile: الملف الشخصي
         title: إعدادات المشارك
         user_groups: المجموعات
   locale:

@@ -463,6 +463,9 @@ ru:
           images:
             layout_appearance_title: Редактировать внешний вид макета
           omnipresent_banner_appearance_title: Редактировать вездесущий баннер
+      organization_external_domain_whitelist:
+        edit:
+          update: Обновить
       participatory_space_private_users:
         create:
           error: При попытке добавить частного участника в это пространство соучастия произошла ошибка.

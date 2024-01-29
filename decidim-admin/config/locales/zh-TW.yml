@@ -363,8 +363,6 @@ zh-TW:
         show:
           view_more_logs: 檢視更多記錄
       domain_whitelist:
-        form:
-          domain_too_short: 網址太短
         update:
           error: 網址白名單更新失敗
           success: 網址白名單更新成功.
@@ -545,7 +543,6 @@ zh-TW:
         areas: 區域
         configuration: 配置
         content: 被檢舉的內容
-        external_domain_whitelist: 允許的外部域名
         help_sections: 幫助部分
         homepage: 首頁
         impersonations: 模擬登錄
@@ -815,11 +812,6 @@ zh-TW:
       organization_external_domain_whitelist:
         edit:
           update: 更新
-        external_domain:
-          down: 向下
-          external_domain: 外部網域
-          remove: 移除
-          up: 往上
         form:
           add: 新增到白名單
           title: 外部域名白名單

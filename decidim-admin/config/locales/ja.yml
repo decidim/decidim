@@ -856,10 +856,10 @@ ja:
         edit:
           update: 更新
         external_domain:
-          down: 下げる
+          down: 下へ
           external_domain: 外部ドメイン
           remove: 削除
-          up: 上げる
+          up: 上へ
         form:
           add: ホワイトリストに追加
           title: 外部ドメインのホワイトリスト

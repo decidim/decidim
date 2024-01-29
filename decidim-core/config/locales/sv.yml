@@ -73,9 +73,7 @@ sv:
     'true': 'Ja'
   carrierwave:
     errors:
-      file_resolution_too_large: Filupplösningen är för stor
       file_size_too_large: Filen är för stor
-      not_inside_organization: Den här filen är inte bifogad till någon organisation
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -427,8 +425,6 @@ sv:
         name: Sidfot sub hero banner
       global_menu:
         name: Global meny
-      hero:
-        name: Hjältebild
       hero_settings_form:
         background_image: Bakgrundsbild
         welcome_text: Välkomsttext

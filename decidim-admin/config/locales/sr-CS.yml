@@ -509,6 +509,9 @@ sr:
           images:
             preview: Pregled
           omnipresent_banner_appearance_title: Izmeni sveprisutni baner
+      organization_external_domain_whitelist:
+        edit:
+          update: Ažuriraj
       shared:
         gallery:
           add_images: Dodaj slike

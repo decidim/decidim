@@ -88,7 +88,7 @@ pl:
     'true': 'Tak'
   carrierwave:
     errors:
-      file_cannot_be_processed: Plik nie może być przetworzony
+      file_cannot_be_processed: Plik nie może zostać przetworzony
       file_resolution_too_large: Rozdzielczość pliku jest zbyt duża
       file_size_too_large: Rozmiar pliku jest zbyt duży
       not_inside_organization: Plik nie jest dołączony do żadnej organizacji
@@ -506,7 +506,7 @@ pl:
       global_menu:
         name: Globalne menu
       hero:
-        name: Obraz główny
+        name: Banner i CTA
       hero_settings_form:
         background_image: Obraz tła
         welcome_text: Tekst powitalny
@@ -1266,7 +1266,6 @@ pl:
     offline:
       name: W trybie offline
       show:
-        message: Wygląda na to, że jesteś obecnie offline. Spróbuj ponownie później.
         retry: Powtórz
     open_data:
       not_available_yet: Pliki Open Data nie są jeszcze dostępne. Spróbuj ponownie za kilka minut.
@@ -1651,18 +1650,26 @@ pl:
         subject: Zaproszono Cię do zarządzania %{organization}
       invite_collaborator:
         subject: Zaproszono Cię do współpracy przy %{organization}
+      invite_private_user:
+        subject: Zostałeś zaproszony do uczestnictwa w prywatnym procesie w %{organization}
+      organization_admin_invitation_instructions:
+        subject: Zaproszono Cię do zarządzania %{organization}
       password_change:
         greeting: Witaj %{recipient}!
+        message: Kontaktujemy się z Tobą, aby powiadomić Cię o zmianie hasła.
         subject: Hasło zostało zmienione
       reset_password_instructions:
         action: Zmień moje hasło
         greeting: Witaj, %{recipient}!
         instruction: Ktoś poprosił o link do zmiany hasła. Możesz to zrobić za pomocą poniższego linku.
+        instruction_2: Jeśli to nie Ty poprosiłeś(aś) o zmianę hasła, zignoruj tę wiadomość.
+        instruction_3: Twoje hasło nie zmieni się, dopóki nie uzyskasz dostępu do powyższego linku i nie utworzysz nowego.
         subject: Instrukcje dotyczące resetu hasła
       unlock_instructions:
         action: Odblokuj moje konto
         greeting: Witaj, %{recipient}!
         instruction: 'Kliknij w poniższy link, aby odblokować konto:'
+        message: Twoje konto zostało zablokowane z powodu zbyt dużej liczby nieudanych prób logowania.
         subject: Instrukcje dotyczące odblokowania konta
     omniauth_callbacks:
       failure: Nie można uwierzytelnić użytkownika za pomocą %{kind} ponieważ "%{reason}".

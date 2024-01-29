@@ -388,7 +388,7 @@ es:
           view_more_logs: Ver más registros
       domain_whitelist:
         form:
-          domain_too_short: Dominio demasiado corto
+          domain_too_short: El dominio es demasiado corto
         update:
           error: Error al actualizar la lista de dominios autorizados.
           success: Se ha actualizado correctamente el listado de dominios autorizados.
