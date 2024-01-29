@@ -27,9 +27,9 @@
     <% if meeting.component.settings.registration_code_enabled %>
       <div class="card mb-4">
         <div class="card-divider">
-          <h1 class="card-title">
+          <h2 class="card-title">
             <%= t(".validate_registration_code") %>
-          </h1>
+          </h2>
         </div>
         <div class="card-section">
           <%= decidim_form_for(@validation_form, url: validate_registration_code_meeting_registrations_path, html: { class: "form form-defaults validate_meeting_registration_code" })  do |f| %>
