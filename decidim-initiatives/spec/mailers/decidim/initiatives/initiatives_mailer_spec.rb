@@ -6,7 +6,6 @@ module Decidim
   module Initiatives
     describe InitiativesMailer do
       include Decidim::TranslationsHelper
-      include Decidim::SanitizeHelper
 
       let(:organization) { create(:organization, host: "1.lvh.me") }
       let(:initiative) { create(:initiative, organization:) }

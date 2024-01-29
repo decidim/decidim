@@ -28,6 +28,7 @@ pl:
               c: Opcja C
             test_options:
               bar: Bar
+              baz: Baz
               foo: Foo
           step:
             endorsements_blocked: Możliwość rekomendacji zablokowana
@@ -35,6 +36,7 @@ pl:
             readonly_step_attribute: Atrybut kroku tylko do odczytu
             test_options:
               bar: Bar
+              baz: Baz
               foo: Foo
     dummy:
       admin:
@@ -50,6 +52,7 @@ pl:
           description_own: Utworzyłeś %{score} testów.
           name: Testy
           next_level_in: Stwórz %{score} dodatkowych testów, aby przejść do następnego poziomu!
+          unearned_another: Ten uczestnik nie utworzył jeszcze żadnych testów.
           unearned_own: Nie stworzyłeś jeszcze żadnych testów.
     resource_links:
       test_link:
