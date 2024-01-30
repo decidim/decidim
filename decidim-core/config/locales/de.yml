@@ -80,7 +80,10 @@ de:
     'true': 'Ja'
   carrierwave:
     errors:
+      file_cannot_be_processed: Datei konnte nicht verarbeitet werden
+      file_resolution_too_large: Die Datei-Auflösung ist zu gross
       file_size_too_large: Datei ist zu groß
+      not_inside_organization: Die Datei ist keiner Organisation angefügt.
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -508,9 +511,11 @@ de:
         button_url: URL des Call to Action
         description: Beschreibung
       footer_sub_hero:
-        name: Fußzeile sub hero Banner
+        name: Abschnitt mit Plattformslogan
       global_menu:
         name: Globales Menü
+      hero:
+        name: Banner-Bild und Handlungsaufforderung
       hero_settings_form:
         background_image: Hintergrundbild
         welcome_text: Willkommenstext
@@ -561,7 +566,7 @@ de:
       stats:
         name: Organisationsstatistiken
       sub_hero:
-        name: Sub hero Banner
+        name: Banner unter dem Hauptbild (Beschreibungstext)
     core:
       actions:
         login_before_access: Bitte melden Sie sich mit Ihrem Konto an, um auf diese Seite zuzugreifen.
@@ -1274,6 +1279,8 @@ de:
     offline:
       name: Offline
       show:
+        message_1: Es sieht so aus, als ob Sie momentan offline sind.
+        message_2: Bitte später erneut versuchen.
         retry: Wiederholen
     open_data:
       not_available_yet: Die Open Data-Dateien sind noch nicht verfügbar. Bitte versuchen Sie es in einigen Minuten erneut.
@@ -1797,13 +1804,16 @@ de:
     button: Emoji hinzufügen
     categories:
       activities: Aktivitäten
+      animals-nature: Tiere & Natur
       custom: Benutzerdefiniert
       flags: Flaggen
+      food-drink: Essen & Trinken
       objects: Objekte
       people-body: Personen & Körper
       recents: Kürzlich verwendet
       smileys-emotion: Smileys & Emotion
       symbols: Symbole
+      travel-places: Reisen & Orte
     error:
       load: Fehler beim Laden von Emojis
     recents:
