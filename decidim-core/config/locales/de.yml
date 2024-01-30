@@ -504,9 +504,11 @@ de:
         button_url: URL des Call to Action
         description: Beschreibung
       footer_sub_hero:
-        name: Fußzeile sub hero Banner
+        name: Abschnitt mit Plattformslogan
       global_menu:
         name: Globales Menü
+      hero:
+        name: Banner-Bild und Handlungsaufforderung
       hero_settings_form:
         background_image: Hintergrundbild
         welcome_text: Willkommenstext
@@ -557,7 +559,7 @@ de:
       stats:
         name: Organisationsstatistiken
       sub_hero:
-        name: Sub hero Banner
+        name: Banner unter dem Hauptbild (Beschreibungstext)
     core:
       actions:
         login_before_access: Bitte melden Sie sich mit Ihrem Konto an, um auf diese Seite zuzugreifen.
@@ -664,6 +666,10 @@ de:
     endorsers_list:
       endorsed_by: Gefällt…
     errors:
+      files:
+        file_cannot_be_processed: Datei konnte nicht verarbeitet werden
+        file_resolution_too_large: Die Datei-Auflösung ist zu gross
+        not_inside_organization: Die Datei ist keiner Organisation angefügt.
       internal_server_error:
         copied: Text Kopiert!
         copy_error_message_clarification: Fehlermeldung in die Zwischenablage kopieren
@@ -1270,6 +1276,8 @@ de:
     offline:
       name: Offline
       show:
+        message_1: Es sieht so aus, als ob Sie momentan offline sind.
+        message_2: Bitte später erneut versuchen.
         retry: Wiederholen
     open_data:
       not_available_yet: Die Open Data-Dateien sind noch nicht verfügbar. Bitte versuchen Sie es in einigen Minuten erneut.
@@ -1788,13 +1796,32 @@ de:
     upload:
       uploadedFile: Hochgeladene Datei
   emojis:
+    add_custom: Eigenes Emoji hinzufügen
     button: Emoji hinzufügen
     categories:
       activity: Aktivität
       custom: Benutzerdefiniert
       flags: Flaggen
+      foods: Essen & Trinken
+      frequent: Häufig verwendet
+      nature: Tiere & Natur
       objects: Objekte
+      people: Lächeln & Menschen
+      places: Reisen & Orte
+      search: Suchergebnisse
       symbols: Symbole
+    pick: Wähle einen Emoji…
+    search: Suchen
+    search_no_results_1: Oh nein!
+    search_no_results_2: Dieser Emoji konnte nicht gefunden werden.
+    skins:
+      '1': Standard
+      '2': Hell
+      '3': Mittel-Hell
+      '4': Mittel
+      '5': Mitteldunkel
+      '6':
+      choose: Standard-Hautton auswählen
   errors:
     messages:
       allowed_file_content_types: 'nur Dateien mit den folgenden Typen sind erlaubt: %types%'
