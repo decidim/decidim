@@ -656,6 +656,8 @@ de:
               upload_legend: Der Server hat Ihren öffentlichen Identifikationsschlüssel, aber Ihr Browser hat ihn immer noch nicht. Sie müssen die Datei mit Ihren Identifikationsschlüssel aus dem Backup auf Ihren Computer importieren, den Sie nach der Generierung der Schlüssel gespeichert haben.
             not_supported_browser_description: Es sieht so aus, als ob Sie einen Webbrowser verwenden, der als Wahlhelfer nicht verwendet werden kann. Stellen Sie sicher, dass Sie die neueste Version Ihres Browsers verwenden, oder versuchen Sie, einen der üblichen Browser zu verwenden, um Ihre Wahlhelfer-Aufgaben zu erfüllen.
             not_supported_browser_title: Browser aktualisieren, um als Wahlhelfer zu agieren
+            safari_warning_description: Es sieht so aus, als ob Sie Safari verwenden. Safari unterstützt die Funktionen der Stimmenzähler und der Stimmenverschlüsselung nicht (dies ist auf Grund der Speicherbeschränkungen, die Apple auferlegt). Dies könnte in Zukunft durch eine Änderung der Richtlinien durch Apple oder zukünftige Optimierung von Decidim Wahlen gelöst werden. Bitte verwenden Sie einen anderen Browser in der Zwischenzeit.
+            safari_warning_title: Safari-Browser erkannt
             trustee_role_description:
               with_keys: Sie wurden als Wahlhelfer für einige Wahlen auf dieser Plattform bestimmt.
               without_keys: Sie wurden als Wahlhelfer bestimmt. Bitte erstellen Sie Ihre Identifikationsschlüssel und laden sie hoch.
@@ -667,6 +669,7 @@ de:
           back: Abstimmungsvorgang erneut starten
           ballot_hash: 'Ihre Wahlurnen-ID ist:'
           cast: Stimmzettel abgeben, um Ihre Stimme abzuschließen
+          description_html: Hier haben Sie die Möglichkeit, Ihre Stimme abzugeben, damit sie korrekt gezählt wird sowie zu überprüfen, ob Ihre Stimme korrekt verschlüsselt war. Wenn Sie die Abstimmung prüfen möchten, lesen Sie bitte die <a href="https://github.com/decidim/decidim-bulletin-board/blob/develop/verifier/README.md">Anweisungen</a>.
           header: 'Stimmzettel ist verschlüsselt: Stimmzettel absenden oder überprüfen'
         casting:
           header: Stimme wird abgegeben...
@@ -757,6 +760,7 @@ de:
           new_election:
             email_intro: Sie sind Wahlhelfer für die %{resource_title} -Wahl.
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie als Wahlhelfer bei der Wahl %{resource_title} hinzugefügt wurden.
+            email_subject: Sie sind Wahlhelfer für die %{resource_title} -Wahl.
             notification_title: Sie wurden als Wahlhelfer in der Abstimmung <a href="%{resource_path}">%{resource_title}.</a> ausgewählt. Bitte führen Sie die Schlüsselzeremonie durch um die Wahl aufzusetzen.
           new_trustee:
             email_intro: Ein Administrator hat Sie als Wahlhelfer für %{resource_name} hinzugefügt. Sie sollten Ihren öffentlichen Schlüssel <a href='%{trustee_zone_url}'> in Ihrer Wahlhelfer Zone anlegen</a>
