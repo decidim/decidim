@@ -75,7 +75,10 @@ de:
     'true': 'Ja'
   carrierwave:
     errors:
+      file_cannot_be_processed: Datei konnte nicht verarbeitet werden
+      file_resolution_too_large: Die Datei-Auflösung ist zu gross
       file_size_too_large: Datei ist zu groß
+      not_inside_organization: Die Datei ist keiner Organisation angefügt.
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -486,7 +489,7 @@ de:
         button_url: URL des Call to Action
         description: Beschreibung
       footer_sub_hero:
-        name: Fußzeile sub hero Banner
+        name: Abschnitt mit Plattformslogan
       hero:
         name: Hauptbild
       hero_settings_form:
@@ -513,7 +516,7 @@ de:
       stats:
         name: Organisationsstatistiken
       sub_hero:
-        name: Sub hero Banner
+        name: Banner unter dem Hauptbild (Beschreibungstext)
     core:
       actions:
         login_before_access: Bitte melden Sie sich mit Ihrem Konto an, um auf diese Seite zuzugreifen
