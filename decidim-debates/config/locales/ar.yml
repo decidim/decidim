@@ -85,6 +85,7 @@ ar:
         debate:
           participate: مشاركة
         filters:
+          activity: نشاطي
           all: الكل
           category: الفئة
           category_prompt: اختر تصنيف

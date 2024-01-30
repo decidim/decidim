@@ -59,7 +59,6 @@ ro:
         subtitle: Subtitlu
         target: Cine participă
         title: Titlu
-        twitter: Twitter
         weight: Poziție
         youtube: YouTube
       assembly_member:
@@ -319,8 +318,6 @@ ro:
           index:
             filter:
               all: Toți
-              ceased: Sistat
-              not_ceased: Nesistat
             filter_by: Filtrează după
             search: Caută
         content_blocks:

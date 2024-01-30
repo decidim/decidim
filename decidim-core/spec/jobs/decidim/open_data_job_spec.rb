@@ -16,4 +16,13 @@ describe Decidim::OpenDataJob do
       expect { subject.perform_now(organization) }.to change { organization.open_data_file.attached? }.from(false).to(true)
     end
   end
+
+  it "deletes the temporary file after finishing the job" do
+    organization = create(:organization)
+
+    expect(File).to receive(:delete) do |path|
+      expect(path.to_s).to match(%r{tmp/.*})
+    end
+    described_class.perform_now(organization)
+  end
 end

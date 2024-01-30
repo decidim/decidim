@@ -18,6 +18,8 @@ shared_examples_for "a 404 page" do
       expect(page).to have_content("The page you're looking for can't be found")
 
       expect(page).to have_http_status(:not_found)
+
+      expect(page).to have_current_path(target_path)
     end
   end
 end

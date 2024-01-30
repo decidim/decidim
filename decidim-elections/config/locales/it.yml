@@ -564,7 +564,6 @@ it:
                 invalid_key: I codici di identificazione nel file caricato non possono essere caricati.
             not_supported_browser_description: Sembra che tu stia usando un browser web che non può essere usato in qualitá di Garante. Assicurati di utilizzare la versione più recente del tuo browser, o prova ad utilizzare uno dei browser più popolari che ti permettano di esercitare il ruolo di Garante.
             not_supported_browser_title: Aggiorna il browser per fungere da Garante
-            trustee_role_description: Ti è stato assegnato di ruolo di Garante in alcune delle elezioni che si svolgeranno su questa piattaforma.
           update:
             success: I tuoi codici di identificazione pubblici sono stati salvati con successo.
       votes:
@@ -650,7 +649,6 @@ it:
           continue: Successivo
       warnings:
         no_elections_warning: Nessuna elezione corrisponde ai criteri della tua ricerca oppure non sono previste elezioni.
-        no_scheduled_elections_warning: Al momento non sono previste elezioni, ma qui puoi trovare un elenco di tutte quelle passate.
     events:
       elections:
         election_published:
@@ -888,7 +886,7 @@ it:
             title: Titolo
           polling_officers_picker:
             choose_polling_officers: Crea responsabile sondaggio
-            close: Chiudi
+            close: Chiuso
             more_polling_officers: Ci sono altre %{number} proposte. Affina la tua ricerca per localizzarle.
             no_polling_officers: Nessun funzionario di sondaggio corrisponde ai tuoi criteri di ricerca o non c'è alcun funzionario di sondaggio.
         polling_stations:
@@ -1054,7 +1052,6 @@ it:
           certify:
             add_images: Aggiungi immagini
             error: Si è verificato un errore nell'allegare il certificato, per favore riprova.
-            form_legend: Carica una foto del certificato di chiusura elettorale
             heading: Resoconto del voto - Certificato di caricamento
             info_text: Carica una foto del certificato di chiusura elettorale.
             submit: Carica il certificato
@@ -1279,7 +1276,6 @@ it:
           hybrid: Ibrido
           in_person: Di persona
           online: Online
-        voting_types_label: Tipo di votazione
   layouts:
     decidim:
       election_votes_header:

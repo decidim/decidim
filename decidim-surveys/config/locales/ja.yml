@@ -52,6 +52,9 @@ ja:
       answers_count: 回答
     surveys:
       admin:
+        component:
+          actions:
+            answers_alert: コンポーネントを公開すると、すべての結果が削除されます。
         exports:
           survey_user_answers: アンケート参加者の回答
         surveys:

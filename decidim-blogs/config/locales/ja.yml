@@ -59,6 +59,8 @@ ja:
             official_blog_post: 公式ポスト
             title: タイトル
       posts:
+        index:
+          empty: 投稿はまだありません。
         show:
           back: リストに戻る
           comments: コメント

@@ -413,6 +413,9 @@ cs:
           all: Vše
         filter_scope_values:
           all: Vše
+      calendar:
+        meeting_to_event:
+          read_more: Přečtěte si více o této schůzce
       calendar_modal:
         calendar_url: Adresa URL kalendáře
         close_window: Zavřete okno
@@ -561,7 +564,6 @@ cs:
           date: Datum
           edit_close_meeting: Upravit zprávu schůzky
           edit_meeting: Upravit schůzku
-          going: Přihlásili jste se k této schůzce
           join: Připojit se ke schůzce
           leave: Zrušit registraci
           leave_confirmation: Opravdu chcete zrušit registraci na tuto schůzku?

@@ -251,15 +251,13 @@ it:
             select_user: Seleziona utente
           index:
             filter:
-              accepted: Accettato
-              all: Tutti
-              rejected: Respinto
+              all: Tutte
               sent: Inviato
             filter_by: Filtra per
             invite_attendee: Invita il partecipante
             invites: Inviti
             registrations_disabled: Non puoi invitare un partecipante perché le registrazioni sono disabilitate.
-            search: Ricerca
+            search: Cerca
         meeting_closes:
           edit:
             close: Chiudi
@@ -361,7 +359,7 @@ it:
               not_found: 'L''organizzatore non è stato trovato nel database (ID: %{id})'
       application_helper:
         filter_scope_values:
-          all: Tutti
+          all: Tutte
       calendar_modal:
         calendar_url: URL del calendario
         close_window: Chiudi la finestra
@@ -477,7 +475,6 @@ it:
           contributions: Conteggio dei contributi
           date: Data
           edit_meeting: Modifica la riunione
-          going: Ti sei iscritto a questa riunione
           leave: Annulla la tua registrazione
           leave_confirmation: Sei sicuro di voler annullare la tua registrazione per questa riunione?
           link_available_soon: Link disponibile a breve

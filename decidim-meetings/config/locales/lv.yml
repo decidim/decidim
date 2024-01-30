@@ -202,9 +202,6 @@ lv:
             select_user: Izvēlieties dalībnieku
           index:
             filter:
-              accepted: Pieņemts
-              all: Visi
-              rejected: Noraidīts
               sent: Nosūtīts
             filter_by: Filtrēt pēc
             invite_attendee: Uzaicināt apmeklētāju
@@ -286,9 +283,6 @@ lv:
           value_types:
             organizer_presenter:
               not_found: 'Organizators netika atrasts datubāzē (ID: %{id})'
-      application_helper:
-        filter_scope_values:
-          all: Visi
       calendar_modal:
         calendar_url: Kalendāra URL
         close_window: Aizvērt logu
@@ -338,6 +332,7 @@ lv:
           back: Atpakaļ uz sarakstu
           close_meeting: Slēgt sanāksmi
           contributions: Papildinājumu skaits
+          date: Datums
           meeting_minutes: Sanāksmes protokols
           no_slots_available: Nav pieejama laika runāšanai
           organizations: Apmeklējošās organizācijas

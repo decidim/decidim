@@ -283,14 +283,14 @@ fr-CA:
           index:
             filter:
               accepted: Acceptée
-              all: Tout
+              all: Toutes
               rejected: Rejeté
               sent: Envoyé
             filter_by: Filtrer par
             invite_attendee: Inviter un participant
             invites: Invitations
             registrations_disabled: Vous ne pouvez pas inviter un participant car les invitations sont désactivées.
-            search: Chercher
+            search: Rechercher
         meeting_closes:
           edit:
             close: Clore
@@ -400,7 +400,10 @@ fr-CA:
         filter_meeting_space_values:
           all: Tous
         filter_scope_values:
-          all: Tout
+          all: Toutes
+      calendar:
+        meeting_to_event:
+          read_more: En savoir plus sur cette réunion
       calendar_modal:
         calendar_url: URL du calendrier
         close_window: Fermer la fenêtre
@@ -547,7 +550,6 @@ fr-CA:
           date: Date
           edit_close_meeting: Modifier le compte-rendu de la rencontre
           edit_meeting: Modifier la rencontre
-          going: Vous vous êtes inscrit à cette rencontre
           join: Participer à la rencontre
           leave: Annuler votre inscription
           leave_confirmation: Êtes-vous sûr de vouloir annuler votre inscription à cette rencontre ?

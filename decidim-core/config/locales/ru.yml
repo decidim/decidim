@@ -418,6 +418,10 @@ ru:
       default_image: Изображение по умолчанию
       errors:
         error: В этом поле есть ошибка.
+      upload:
+        labels:
+          cancel: Отменить
+          save: Сохранить
     gamification:
       badges:
         index:
@@ -498,11 +502,14 @@ ru:
         create:
           error: Беседа не началась. Попробуйте позже
         index:
+          from: От
           no_conversations: У вас еще нет бесед
         reply:
           send: Отправить
+          title: Ответить
         start:
           send: Отправить
+          title: Начать беседу
     newsletter_mailer:
       newsletter:
         note: Вы получили это электронное письмо, потому что подписались на новостные рассылки %{organization_name}. Вы можете изменить свои настройки на своей <a href="%{link}">странице уведомлений</a>.
@@ -554,7 +561,6 @@ ru:
           proposals: Предложения
           proposals_explanation: Вносите новые предложения, поддерживайте уже внесенные и способствуйте изменениям, которые вы хотите видеть.
         footer_sub_hero:
-          footer_sub_hero_body: Давайте построим более открытое, прозрачное и сотрудничающее общество.<br /> Присоединяйтесь, участвуйте и принимайте решения.
           footer_sub_hero_headline: Добро пожаловать на площадку соучастия %{organization}!
           register: Зарегистрироваться
         hero:

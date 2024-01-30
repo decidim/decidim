@@ -66,7 +66,7 @@ module Decidim
     end
 
     def resource_path
-      resource_locator(versioned_resource).path
+      Decidim::ResourceLocatorPresenter.new(versioned_resource).path
     end
   end
 end

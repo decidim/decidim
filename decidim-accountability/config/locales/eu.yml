@@ -5,10 +5,10 @@ eu:
       result:
         decidim_accountability_status_id: Egoera
         decidim_category_id: Kategoria
-        decidim_scope_id: Eremua
+        decidim_scope_id: Esparrua
         description: Deskribapena
         end_date: Bukaera-data
-        progress: Aurreratzea
+        progress: Aurrerapena
         project_ids: Barne dauden proiektuak
         proposals: Barne dauden proposamenak
         start_date: Hasiera-data
@@ -22,7 +22,7 @@ eu:
       timeline_entry:
         description: Deskribapena
         entry_date: Data
-        title: Izena
+        title: Izenburua
     models:
       decidim/accountability/proposal_linked_event: Emaitza batean sartutako proposamena
       decidim/accountability/result_progress_updated_event: Emaitzen aurrerapena eguneratu da
@@ -62,7 +62,7 @@ eu:
                 <ul>
                 <li><b> id category/id:</b> ID kategoriarako </li>
                 <li><b>scope /id:</b> ID eremurako </li>
-                <li><b>parent /id:</b> ID aitarentzat (erlazionatutako emaitzetarako). Aukerakoa </li>
+                <li><b>parent /id:</b> ID nagusiarentzat (erlazionatutako emaitzetarako). Aukerakoa </li>
                 <li><b>title /I18N:</b> Izenburua hizkuntzan X</li>
                 <li><b> deskribapena /I18N:</b> deskribapena hizkuntzan X</li>
                 <li><b>start_date:</b> emaitza gauzatzen den hasiera-data (AAAA-MM-DD formatua)</li>
@@ -86,7 +86,7 @@ eu:
             name: Sarrera kronologian
         results:
           create:
-            invalid: Arazo bat izan da emaitza hau sortzean.
+            invalid: Arazo bat egon da emaitza hau sortzean
             success: Emaitza zuzen sortu da
           destroy:
             success: Emaitza zuzen ezabatu da
@@ -97,33 +97,33 @@ eu:
             title: Emaitzak
           new:
             create: Sortu emaitza
-            title: Emaitza berria
+            title: Beste emaitza bat
           update:
-            invalid: Arazo bat izan da emaitza hau eguneratzean.
+            invalid: Arazo bat egon da emaitza hau eguneratzean
             success: Emaitza zuzen eguneratu da
         shared:
           subnav:
             statuses: Egoerak
         statuses:
           create:
-            invalid: Arazo bat izan da egoera hau sortzean
+            invalid: Arazo bat egon da egoera hau sortzean
             success: Egoera behar bezala sortu da
           destroy:
             success: Egoera behar bezala ezabatu da
           edit:
             title: Editatu egoera
-            update: Egoera eguneratu
+            update: Eguneratu egoera
           index:
             title: Egoerak
           new:
             create: Egoera sortu
-            title: Egoera berria
+            title: Beste egoera bat
           update:
-            invalid: Arazo bat izan da egoera hori eguneratzean
+            invalid: Arazo bat egon da egoera hau eguneratzean
             success: Egoera behar bezala eguneratu da
         timeline_entries:
           create:
-            invalid: Arazo bat izan da sarrera hau sortzeko
+            invalid: Arazo bat egon da sarrera hau sortzean
             success: Sarrera ondo sortu da
           destroy:
             success: Sarrera zuzen ezabatu da
@@ -133,10 +133,10 @@ eu:
           index:
             title: Proiektuaren bilakaera
           new:
-            create: Sortu sarrera
-            title: Sarrera berria
+            create: Sortu sarrerak
+            title: Beste sarrera bat
           update:
-            invalid: Arazo bat izan da sarrera hau eguneratzean
+            invalid: Arazo bat egon da sarrera hau eguneratzean
             success: Sarrera ondo eguneratu da
       admin_log:
         result:
@@ -153,7 +153,7 @@ eu:
           update: "%{user_name} k %{resource_name} sarrera eguneratu du kronologian"
         value_types:
           parent_presenter:
-            not_found: 'Gurasoa ez zen datu-basean aurkitu (ID: %{id})'
+            not_found: 'Nagusi ez zen aurkitu (ID: %{id}) datu-basean'
       content_blocks:
         highlighted_results:
           dates: Datak
@@ -161,8 +161,8 @@ eu:
           unspecified: Zehaztu gabe
       import_mailer:
         import:
-          errors: Akatsak
-          errors_present: Arazo bat izan da emaitzak inportatzen
+          errors: Erroreak
+          errors_present: Arazo bat egon da emaitzak inportatzean
           row_number: Errenkada
           subject: Emaitzak zuzen inportatu dira
           success: Emaitzak zuzen inportatu dira. Emaitzak administrazioaren panelaren bidez berrikusi ahal dituzu.
@@ -209,7 +209,7 @@ eu:
         nav_breadcrumb:
           global: Gauzatze osoa
         search:
-          search: Ekintzak bilatu
+          search: Bilatu ekintzak
         show:
           stats:
             attendees: Bertaratuak
@@ -256,13 +256,13 @@ eu:
         proposal_linked:
           email_intro: '"%{proposal_title}" proposamena emaitza batean sartu da. Orrialde honetan ikusi dezakezu:'
           email_outro: Jakinarazpen hau jaso duzu "%{proposal_title}" jarraitzen ari zarelako. Aurreko esteka sartuz jakinarazpenak jasotzeari utzi ahal diozu.
-          email_subject: Eguneraketa bat %{proposal_title} proposamenean
+          email_subject: 'Eguneraketa bat honetarako: %{proposal_title}'
           notification_title: <a href="%{proposal_path}">%{proposal_title}</a> proposamena <a href="%{resource_path}">%{resource_title}</a> emaitzan sartu da.
         result_progress_updated:
-          email_intro: '"%{proposal_title}" proposamena duen "%{resource_title}" emaitza, % %{progress}% osatu da. Orrialde honetan ikusi dezakezu:'
+          email_intro: '"%{proposal_title}" proposamena duen "%{resource_title}" emaitza % %{progress}% osatu da. Orrialde honetan ikusi dezakezu:'
           email_outro: Jakinarazpen hau jaso duzu "%{proposal_title}" jarraitzen ari zarelako, eta proposamen hori "%{resource_title}" emaitzaren barruan dago. Aurreko estekan sartu jakinarazpenak jasotzeari utzi nahi badiozu.
-          email_subject: Eguneraketa bat %{resource_title} bilakaeran
-          notification_title: <a href="%{proposal_path}">%{proposal_title}</a> proposamena duen <a href="%{resource_path}">%{resource_title}</a> emaitza, % %{progress}% osatu da.
+          email_subject: 'Eguneraketa bat honetarako: %{resource_title}'
+          notification_title: <a href="%{proposal_path}">%{proposal_title}</a> proposamena duen <a href="%{resource_path}">%{resource_title}</a> emaitza %{progress}% osatu da.
     metrics:
       results:
         description: Sortutako emaitza kopurua
@@ -275,6 +275,6 @@ eu:
       included_projects:
         result_project: Emaitza honetan sartutako proiektuak
       included_proposals:
-        result_proposal: Emaitza honetan jasotako proposamenak
+        result_proposal: Emaitza honetan sartutako proiektuak
     statistics:
       results_count: Emaitzak

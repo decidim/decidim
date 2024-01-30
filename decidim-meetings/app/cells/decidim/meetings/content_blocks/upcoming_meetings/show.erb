@@ -8,7 +8,7 @@
         <% end %>
       </div>
       <div class="columns medium-6">
-        <% if geolocation_enabled? %>
+        <% if show_map? %>
           <%= cell "decidim/meetings/meetings_map", upcoming_meetings %>
         <% else %>
           <% (upcoming_meetings - upcoming_meetings.first(4)).each do |event| %>

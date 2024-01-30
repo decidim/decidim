@@ -97,7 +97,7 @@ pt:
           close: Fechar
           description: Qual é o sumário ou conclusão para este debate?
           send: Fechar debate
-        closed: Fechado
+        closed: Fechar
         count:
           debates_count:
             one: "%{count} debate"

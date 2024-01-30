@@ -86,7 +86,6 @@ pt:
         success_color: Sucesso
         time_zone: Fuso Horário
         tos_version: Versão dos termos de serviço
-        twitter_handler: Manipulador do Twitter
         user_groups_enabled: Ativar grupos
         users_registration_mode: Modo de registo dos utilizadores
         warning_color: Aviso
@@ -334,8 +333,6 @@ pt:
         show:
           view_more_logs: Ver mais registos
       domain_whitelist:
-        form:
-          domain_too_short: Domínio demasiado curto
         update:
           error: Falha ao carregar a lista branca de domínios
           success: Lista branca de domínios carregada com êxito
@@ -481,7 +478,6 @@ pt:
         areas: Áreas
         configuration: Configuração
         dashboard: Painel de Controlo
-        external_domain_whitelist: Domínios externos autorizados
         help_sections: Secções de ajuda
         homepage: Página inicial
         impersonations: Personificações
@@ -726,7 +722,6 @@ pt:
           instagram: Instagram
           rich_text_editor_in_public_views_help: Em algumas áreas de texto, os participantes serão capazes de inserir algumas etiquetas HTML utilizando o editor de texto avançado.
           social_handlers: Social
-          twitter: Twitter
           url: URL
           youtube: Youtube
         update:
@@ -748,19 +743,10 @@ pt:
           omnipresent_banner_appearance_title: Editar faixa omnipresente
       organization_external_domain_whitelist:
         edit:
-          update: Actualização
-        external_domain:
-          down: Para baixo
-          external_domain: Domínio externo
-          remove: Remover
-          up: Para cima
+          update: Atualizar
         form:
           add: Adicionar à lista branca
           title: Lista branca de domínio externo
-      organization_homepage:
-        edit:
-          active_content_blocks: Blocos de conteúdo activos
-          inactive_content_blocks: Blocos de conteúdo inactivos
       organization_homepage_content_blocks:
         edit:
           update: Atualizar
@@ -783,7 +769,7 @@ pt:
           success: Ficheiro CSV carregado com sucesso, estamos a enviar um e-mail de convite aos participantes. Isto poderá demorar algum tempo.
         new:
           explanation: 'Carrege o seu ficheiro CSV. Deve ter duas colunas com o e-mail na primeira coluna do ficheiro e  o nome na última coluna do ficheiro (e-mail, nome) dos utilizadores que quer adicionar ao espaço participativo, sem cabeçalhos. Evite utilizar charactéres inválidos como “<>?%&^*#@=+:"{}\|” no nome de utente.'
-          title: Carregar o seu ficheiro CSV
+          title: Envie o seu ficheiro CSV
           upload: Carregar
       resource_permissions:
         edit:

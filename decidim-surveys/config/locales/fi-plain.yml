@@ -54,6 +54,9 @@ fi-pl:
       answers_count: Vastausta
     surveys:
       admin:
+        component:
+          actions:
+            answers_alert: Julkaistessasi komponentin, kaikki aikaisemmat vastaukset poistetaan.
         exports:
           survey_user_answers: Kyselyn vastaukset
         surveys:

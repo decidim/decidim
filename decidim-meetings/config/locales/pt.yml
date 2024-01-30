@@ -251,10 +251,8 @@ pt:
             select_user: Selecione o participante
           index:
             filter:
-              accepted: Aceite
               all: Todos
-              rejected: Rejeitados
-              sent: Enviados
+              sent: Enviado
             filter_by: Filtrar por
             invite_attendee: Convidar participante
             invites: Convites
@@ -476,7 +474,6 @@ pt:
           contributions: Contagem de contribuições
           date: Data
           edit_meeting: Editar reunião
-          going: Inscreveu-se para esta reunião
           leave: Cancele o seu registo
           leave_confirmation: Tem a certeza que quer cancelar o seu registo para esta reunião?
           link_available_soon: Ligação disponível em breve

@@ -280,7 +280,7 @@ ja:
             filter:
               accepted: 承認済み
               all: すべて
-              rejected: 拒否
+              rejected: 却下済み
               sent: 送信済み
             filter_by: フィルター
             invite_attendee: 参加者を招待
@@ -316,7 +316,7 @@ ja:
             select_a_meeting_type: ミーティング種別を選択してください
             select_a_registration_type: 登録種別を選択してください
             select_an_iframe_access_level: Iframeアクセスレベルを選択してください
-            show_embedded_iframe_help: 'ミーティングまたはライブイベントに埋め込めるサービスは以下のドメインに限定されています: %{domains}'
+            show_embedded_iframe_help: 'ミーティングまたは配信イベントに埋め込めるサービスは以下のドメインに限定されています: %{domains}'
           index:
             title: ミーティング
           new:
@@ -395,6 +395,9 @@ ja:
           all: すべて
         filter_scope_values:
           all: すべて
+      calendar:
+        meeting_to_event:
+          read_more: このミーティングについてもっと読む
       calendar_modal:
         calendar_url: カレンダー URL
         close_window: ウィンドウを閉じる
@@ -429,7 +432,7 @@ ja:
       iframe_embed_type:
         embed_in_meeting_page: ミーティングページに埋め込む
         none: なし
-        open_in_live_event_page: ライブイベントページで開く (オプションの投票付き)
+        open_in_live_event_page: 配信イベントページで開く (オプションの投票付き)
         open_in_new_tab: URLを新しいタブで開く
       last_activity:
         meeting_updated_at_html: "<span>ミーティングが %{link} に更新されました</span>"
@@ -513,7 +516,7 @@ ja:
           select_a_meeting_type: ミーティング種別を選択してください
           select_a_registration_type: 登録種別を選択してください
           select_an_iframe_access_level: iframeアクセスレベルを選択してください
-          show_embedded_iframe_help: 'ミーティングまたはライブイベントに埋め込めるサービスは以下のドメインに限定されています: %{domains}'
+          show_embedded_iframe_help: 'ミーティングまたは配信イベントに埋め込めるサービスは以下のドメインに限定されています: %{domains}'
         index:
           click_here: すべてのミーティングを見る
           new_meeting: 新しいミーティング
@@ -540,7 +543,6 @@ ja:
           date: 日付
           edit_close_meeting: ミーティングレポートを編集
           edit_meeting: ミーティングを編集
-          going: このミーティングにログインしました
           join: ミーティングに参加
           leave: 登録をキャンセルする
           leave_confirmation: このミーティングの登録をキャンセルしてもよろしいですか？

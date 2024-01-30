@@ -55,6 +55,8 @@ ro:
         new:
           create: Creează
           title: Administrator nou
+        show:
+          edit: Editare
         update:
           error: A apărut o eroare la actualizarea administratorului.
           success: Administrator actualizat cu succes
@@ -65,6 +67,14 @@ ro:
         placeholders:
           content: Vă rugăm să adăugaţi conţinut semnificativ paginii statice %{page} de pe tabloul de bord al administratorului.
           title: Titlul implicit pentru %{page}
+      devise:
+        passwords:
+          edit:
+            change_your_password: Schimbați parola
+            minimum_characters: "(%{minimum} caractere minim)"
+          new:
+            forgot_your_password: Ați uitat parola
+            send_me_reset_password_instructions: Trimiteți-mi Instrucțiuni de resetare a parolei
       menu:
         admins: Administratori
         dashboard: Panou
@@ -145,8 +155,6 @@ ro:
         index:
           title: Organizații
         new:
-          reference_prefix_hint: Prefixul de referință este utilizat pentru a identifica în mod unic resursele din toate organizațiile
-          secondary_hosts_hint: Introduceți fiecare dintre ele într-o linie nouă
           title: Organizație nouă
         omniauth_settings:
           decidim:

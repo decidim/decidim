@@ -1,0 +1,66 @@
+---
+sq:
+  activemodel:
+    attributes:
+      area:
+        area_type: Lloji i zonës
+        name: Emri
+        organization: Organizata
+      area_type:
+        name: Emri
+        organization: Organizata
+        plural: Shumës
+      attachment:
+        attachment_collection_id: Dosje
+        description: Përshkrimi
+        file: Skeda
+        title: Emri i fotografisë ose bashkëngjitjes
+        weight: Pozita e rradhës
+      attachment_collection:
+        description: Përshkrimi
+        name: Emri
+        weight: Pozita e rradhës
+      category:
+        description: Përshkrimi
+        name: Emri
+        parent_id: Burimi
+        weight: Pozita e rradhës
+      component:
+        name: Emri
+        published_at: Publikuar në
+        weight: Pozita e rradhës
+      external_domain:
+        value: Vlera
+      help_section:
+        content: Përmbajtja
+      id: ID
+      import:
+        user_group_id: Krijo importet si
+      newsletter:
+        body: Trupi i mesazhit
+        subject: Tema
+      organization:
+        alert_color: Paralajmërim
+        available_authorizations: Autorizimet në dispozicion
+        badges_enabled: Aktivizo emblemat
+        comments_max_length: Madhësia maks. e komenteve(0 për vlerën e paracaktuar)
+        cta_button_path: Shtegu i Thirrjes Për Veprim (Call To Action)
+        cta_button_text: Teksti i butonit të Thirrjes Për Veprim (Call To Action)
+        customize_welcome_notification: Personalizo njoftimin e mirëseardhjes
+        default_locale: Lokalizimi i parazgjedhur
+        description: Përshkrimi
+        enable_omnipresent_banner: Shfaq banerin e gjithëpranishëm
+        enable_participatory_space_filters: Aktivizo filtrat e hapësirës së pjesëmarrjes
+        favicon: Ikona
+        force_authentication: Sforco autentikimin
+        highlight_color: Theksim
+        highlighted_content_banner_short_description: Përshkrim i shkurtër
+        highlighted_content_banner_title: Titulli
+        host: Organizatori
+  decidim:
+    admin:
+      newsletters:
+        select_recipients_to_deliver:
+          send_to_all_users: Dërgo të gjithë përdoruesve
+          send_to_followers: Dërgo ndjekësve
+          send_to_participants: Dërgo pjesëmarrësve

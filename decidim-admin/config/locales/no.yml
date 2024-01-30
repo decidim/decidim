@@ -86,7 +86,6 @@
         success_color: Vellykket
         time_zone: Tidssone
         tos_version: Vilkår for tjenesten
-        twitter_handler: Twitter brukernavn
         user_groups_enabled: Aktiver grupper
         users_registration_mode: Brukerregistrering
         warning_color: Advarsel
@@ -344,8 +343,6 @@
           view_more_logs: Vis flere logger
           welcome: Velkommen til Admin-panelet.
       domain_whitelist:
-        form:
-          domain_too_short: Domene er for kort
         update:
           error: Kunne ikke oppdatere domene-hviteliste
           success: Domene-hviteliste oppdatert
@@ -526,7 +523,6 @@
         areas: Områder
         configuration: Konfigurasjon
         dashboard: Skrivebord
-        external_domain_whitelist: Tillatte eksterne domener
         help_sections: Hjelpeseksjoner
         homepage: Hjemmeside
         impersonations: Etterligninger
@@ -771,7 +767,6 @@
           instagram: Instagram
           rich_text_editor_in_public_views_help: I noen tekstområder vil deltakerne kunne sette inn noen HTML-tagger med å bruke den rike tekst redigereren.
           social_handlers: Sosial
-          twitter: Twitter
           url: URL
           youtube: YouTube
         update:
@@ -795,18 +790,9 @@
       organization_external_domain_whitelist:
         edit:
           update: Oppdater
-        external_domain:
-          down: Ned
-          external_domain: Eksternt domene
-          remove: Fjern
-          up: Opp
         form:
           add: Legg til i hviteliste
           title: Hviteliste for eksterne domener
-      organization_homepage:
-        edit:
-          active_content_blocks: Aktive innholdsblokkerer
-          inactive_content_blocks: Inaktivt innholdsblokkerer
       organization_homepage_content_blocks:
         edit:
           update: Oppdater

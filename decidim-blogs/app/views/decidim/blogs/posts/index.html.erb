@@ -2,7 +2,11 @@
 
 <div class="row column">
   <div id="blogs" class="columns medium-7 mediumlarge-8">
-    <%= render partial: "posts" %>
+    <% if posts.empty? %>
+      <%= cell("decidim/announcement", t("empty", scope: "decidim.blogs.posts.index")) %>
+    <% else %>
+      <%= render partial: "posts" %>
+    <% end %>
   </div>
   <div id="most-commented" class="columns medium-5 mediumlarge-4 large-4">
     <%= render partial: "sidebar_blog", locals: { posts: posts_most_commented } %>

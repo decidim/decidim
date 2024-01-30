@@ -186,7 +186,7 @@ cs:
           inactive_content_blocks: Neaktivní bloky obsahu
       participatory_process_group_landing_page_content_blocks:
         edit:
-          update: Aktualizovat
+          update: Aktualizace
       participatory_process_groups:
         destroy:
           error: Došlo k chybě při zrušení skupiny účastnických procesů.

@@ -61,9 +61,9 @@ module Decidim
       before { allow(Decidim::Search).to receive(:call) }
 
       it "takes the scope filter into account" do
-        expect(Decidim::Search).to receive(:call).with(any_args, hash_including(decidim_scope_id_eq: scope_id), a_kind_of(Hash))
+        expect(Decidim::Search).to receive(:call).with(any_args, hash_including(decidim_scope_id_in: [scope_id]), a_kind_of(Hash))
 
-        get :index, params: { term: "Blues", "filter[decidim_scope_id_eq]" => scope_id }
+        get :index, params: { term: "Blues", "filter[decidim_scope_id_in]" => [scope_id] }
       end
     end
 

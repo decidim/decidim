@@ -60,6 +60,8 @@ es-MX:
             official_blog_post: Post oficial
             title: Título
       posts:
+        index:
+          empty: Aún no hay ninguna publicación.
         show:
           back: Volver al listado
           comments: Comentarios

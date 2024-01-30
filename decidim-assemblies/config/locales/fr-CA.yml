@@ -59,7 +59,7 @@ fr-CA:
         subtitle: Sous-titre
         target: Participants
         title: Titre
-        twitter: Twitter
+        twitter: X
         weight: Rang
         youtube: Youtube
       assembly_member:
@@ -321,8 +321,8 @@ fr-CA:
           index:
             filter:
               all: Tout
-              ceased: Validité terminée
-              not_ceased: Validité en cours
+              ceased: Terminé
+              not_ceased: En cours
             filter_by: Filtrer par
             search: Rechercher
         content_blocks:

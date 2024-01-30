@@ -52,7 +52,6 @@
         subtitle: Undertittel
         target: Hvem deltar
         title: Tittel
-        twitter: Twitter
         weight: Prioritert rekkefølge
         youtube: YouTube
       assembly_member:
@@ -298,8 +297,6 @@
           index:
             filter:
               all: Alle
-              ceased: Opphørt
-              not_ceased: Ikke opphørt
             filter_by: Filtrer etter
             search: Søk
         content_blocks:

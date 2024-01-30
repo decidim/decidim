@@ -536,20 +536,18 @@
           continue: Neste
       warnings:
         no_elections_warning: Ingen valg stemmer overens med søkekriteriene, eller det er ikke noe valg planlagt.
-        no_scheduled_elections_warning: Det er foreløpig ingen planlagte valg, men her kan du finne alle tidligere valg.
     events:
       elections:
         election_published:
           email_intro: 'Valget %{resource_title} er nå aktivt for %{participatory_space_title}. Du kan se det fra denne siden:'
     votings:
       admin:
-        landing_page:
-          content_blocks:
-            edit:
-              update: Oppdater
         menu:
           votings_submenu:
             monitoring_committee: Kontrollgruppe
+        polling_officers:
+          polling_officers_picker:
+            close: Lukk
         votings:
           actions:
             publish: Publiser

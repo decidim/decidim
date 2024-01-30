@@ -390,7 +390,6 @@ lv:
           invalid: Pametot šo konferenci, radās problēma.
           success: Jūs esat veiksmīgi pametis konferenci.
       conference_speaker:
-        go_to_twitter: Dodieties uz Twitter
         more_info: sīkāka informācija
         personal_website: Personīgā tīmekļvietne
         show:
@@ -453,6 +452,7 @@ lv:
         home:
           highlighted_conferences:
             active_conferences: Aktīvās konferences
+            conferences_button_title: Saite uz lapu Konferences, kurā norādītas visas konferences
       photo:
         image:
           attributes:

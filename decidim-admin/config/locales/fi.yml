@@ -93,7 +93,7 @@ fi:
         success_color: Onnistuminen
         time_zone: Aikavyöhyke
         tos_version: Käyttöehtojen versio
-        twitter_handler: Twitter-käsittelijä
+        twitter_handler: X käsittelijä
         user_groups_enabled: Ota käyttäjäryhmät käyttöön
         users_registration_mode: Käyttäjien rekisteröintitila
         warning_color: Varoitus
@@ -799,7 +799,7 @@ fi:
           instagram: Instagram
           rich_text_editor_in_public_views_help: Joissain tekstikentissä osallistujat voivat syöttää tiettyjä HTML-elementtejä rikkaan tekstieditorin kautta.
           social_handlers: Sosiaalinen media
-          twitter: Twitter
+          twitter: X
           url: URL
           youtube: YouTube
         update:

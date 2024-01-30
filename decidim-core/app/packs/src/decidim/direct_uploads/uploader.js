@@ -50,6 +50,9 @@ export class Uploader {
       if (this.modal.options.titled) {
         property = "file"
       }
+
+      let url = this.modal.input.dataset.uploadValidationsUrl;
+
       const params = new URLSearchParams({
         resourceClass: this.modal.options.resourceClass,
         property: property,
@@ -57,7 +60,7 @@ export class Uploader {
         formClass: this.modal.options.formObjectClass
       });
 
-      fetch(`/upload_validations?${params.toString()}`, {
+      fetch(`${url}?${params}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

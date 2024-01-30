@@ -48,6 +48,8 @@ zh-CN:
         new:
           create: 创建
           title: 新管理员
+        show:
+          edit: 编辑
         update:
           error: 更新此管理员时出错。
           success: 管理员更新成功
@@ -132,8 +134,6 @@ zh-CN:
         index:
           title: 组织
         new:
-          reference_prefix_hint: 引用前缀被用来独特地识别所有组织的资源
-          secondary_hosts_hint: 在新行中输入其中每一个
           title: 新建组织
         omniauth_settings:
           decidim:

@@ -50,16 +50,18 @@ de:
           delete: "%{user_name} hat den Blogpost %{resource_name} in %{space_name} gelöscht"
           update: "%{user_name} hat den Blogpost %{resource_name} in %{space_name} aktualisiert"
       last_activity:
-        new_post_at_html: "<span>Neuer Beitrag bei %{link}</span>"
+        new_post_at_html: "<span>Neuer Beitrag auf %{link}</span>"
       models:
         post:
           fields:
             author: Autor
             body: Haupttext
-            created_at: Hergestellt in
+            created_at: Erstellt am
             official_blog_post: Offizieller Post
             title: Titel
       posts:
+        index:
+          empty: Es sind noch keine Beiträge vorhanden.
         show:
           back: Zurück zur Liste
           comments: Kommentare

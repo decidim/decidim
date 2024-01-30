@@ -72,7 +72,6 @@ bg:
         success_color: Успешно
         time_zone: Часова зона
         tos_version: Версия на условия за ползване
-        twitter_handler: Манипулатор на Twitter
         user_groups_enabled: Разреши групи
         warning_color: Предупреждение
         welcome_notification_body: Тяло на приветствието

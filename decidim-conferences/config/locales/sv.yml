@@ -63,7 +63,6 @@ sv:
         personal_url: Personlig URL
         position: Plats
         short_bio: Kort biographi
-        twitter_handle: Twitternamn
         user_id: Användare
       conference_user_role:
         email: E-post
@@ -341,7 +340,7 @@ sv:
               accepted: Accepterad
               all: Alla
               rejected: Avvisad
-              sent: Skickade
+              sent: Skickad
             filter_by: Filtrera efter
             invite_attendee: Bjud in deltagare
             invites: Inbjudningar
@@ -432,7 +431,6 @@ sv:
           invalid: Det gick inte att lämna konferensen.
           success: Du har lämnat konferensen.
       conference_speaker:
-        go_to_twitter: Gå till Twitter
         more_info: mer information
         personal_website: Personlig hemsida
         show:

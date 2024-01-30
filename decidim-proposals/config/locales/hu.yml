@@ -718,6 +718,7 @@ hu:
           back: Vissza
           edit_documents: Dokumentum szerkesztése
           edit_image: Kép szerkesztése
+          gallery_legend: "(Opcionális) Hozzáadhat egy képet a javaslat lapjához"
           select_a_category: Válassz kategóriát
           send: Küldés
           title: Javaslat szerkesztése
@@ -853,6 +854,7 @@ hu:
       proposals_picker:
         choose_proposals: Javaslatok kiválasztása
         close: Bezár
+        more_proposals: '%{number} további javaslat érhető el. Finomítsa keresését, hogy megtalálja ezeket.'
         no_proposals: Egyetlen javaslat sem felel meg a keresési feltételeknek, vagy nincsenek javaslatok.
       publish:
         error: Hiba történt a javaslat közzététele során.

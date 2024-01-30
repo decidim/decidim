@@ -93,7 +93,7 @@ pt-BR:
         success_color: Sucesso
         time_zone: Fuso Horário
         tos_version: Versão dos termos de serviço
-        twitter_handler: Manipulador do Twitter
+        twitter_handler: X handler
         user_groups_enabled: Ativar grupos de usuários
         users_registration_mode: Modo de registro de usuários
         warning_color: Aviso
@@ -135,6 +135,10 @@ pt-BR:
         file: Arquivo
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Selecione pelo menos um espaço participativo
         organization:
           attributes:
             official_img_footer:
@@ -152,6 +156,7 @@ pt-BR:
       new_import:
         attributes:
           file:
+            invalid_file: Arquivo inválido fornecido, por favor, verifique se o arquivo está formatado corretamente
             invalid_mime_type: Tipo mime inválido
   activerecord:
     attributes:
@@ -200,10 +205,12 @@ pt-BR:
           success: Ótimo! Você aceitou os termos de uso do administrador.
         actions:
           accept: Concordo com estes termos
+          are_you_sure: Tem certeza de que deseja recusar os termos do administrador?
           refuse: Recusar os termos de administrador
           title: Concorde com os termos e condições de uso
         required_review:
           alert: 'Obrigatório: Revise os termos de uso de nosso administrador'
+          callout: Por favor, reserve um momento para revisar os Termos de Uso do Administrador. Caso contrário, você não poderá administrar a plataforma.
           cta: Reveja eles agora.
         title: Termos de Uso do Administrador
       area_types:
@@ -500,11 +507,12 @@ pt-BR:
             records:
               detail: Por favor, verifique se essas linhas estão formatadas corretamente e contém registros válidos.
               message:
-                one: Encontrado um erro no arquivo de importação para registros com os números de ordem %{indexes}.
-                other: Erros encontrados no arquivo de importação para registros com ordem número %{indexes}.
+                one: Erros encontrados no arquivo de importação para registros com ordem número %{indexes}.
+                other: Encontrado um erro no arquivo de importação para registros com os números de ordem %{indexes}.
           missing_headers:
             detail: Por favor, verifique se o arquivo contém colunas obrigatórias.
         error: Houve um problema durante a importação
+        example_error: Não foi possível criar um exemplo para o tipo fornecido
         new:
           accepted_mime_types:
             csv: csv
@@ -544,7 +552,7 @@ pt-BR:
         moderation: Moderadores globais
         newsletters: Newsletters
         participants: Participantes
-        reported_users: Usuários Reportados
+        reported_users: Usuários Denunciados
         scope_types: Tipos de âmbito
         scopes: Âmbitos
         settings: Configurações
@@ -588,7 +596,7 @@ pt-BR:
             progress: Andamento
             sent_at: Enviado em
             sent_to: Enviado para
-            subject: Sujeito
+            subject: Assunto
           name: Newsletter
         participatory_space_private_user:
           name: Espaço participativo usuário particular
@@ -725,6 +733,9 @@ pt-BR:
           select_scopes: Filtrar por usuários que ativaram qualquer escopo selecionado nas configurações de meus interesses em sua conta.
           select_spaces: Selecionar espaços para segmentar a newsletter
           select_users: Selecione quais usuários você deseja enviar a newsletter
+          send_to_all_users: Enviar para todos os usuários
+          send_to_followers: Enviar para seguidores
+          send_to_participants: Enviar para participantes
           title: Selecionar destinatários para entregar
           warning: "<strong>Atenção:</strong> Esta newsletter será enviada apenas para usuários que ativaram <em>quero receber newsletters</em> nas configurações de notificação."
         send:
@@ -732,7 +743,7 @@ pt-BR:
         show:
           preview: Pré-visualização
           select_recipients_to_deliver: Selecionar destinatários para entregar
-          subject: Sujeito
+          subject: Assunto
         update:
           error: Ocorreu um erro ao atualizar este boletim informativo.
           success: Newsletter atualizada com sucesso. Por favor, reveja-o antes de enviar.
@@ -746,7 +757,7 @@ pt-BR:
           success: Usuário não oficializado com sucesso
         index:
           actions: Ações
-          badge: Badge
+          badge: Selo
           block: Bloquear usuário
           created_at: Criado em
           name: Nome
@@ -785,7 +796,7 @@ pt-BR:
           instagram: Instagram
           rich_text_editor_in_public_views_help: Em algumas áreas de texto, os participantes poderão inserir algumas tags HTML usando o editor de texto rico.
           social_handlers: Social
-          twitter: Twitter
+          twitter: X
           url: URL
           youtube: YouTube
         update:
@@ -799,6 +810,7 @@ pt-BR:
             colors_title: Cores da organização
             colors_warning_html: Aviso! Mudando essas cores pode quebrar os contrastes de acessibilidade. Você pode verificar o contraste de sua escolha com o <a href="%{link}">Verificador de Contrastes WebAIM</a> ou outras ferramentas similares.
             header_snippets_help: Use este campo para adicionar coisas ao cabeçalho HTML. O uso mais comum é integrar serviços de terceiros que exigem algum JavaScript ou CSS extra. Além disso, você pode usá-lo para adicionar meta tags adicionais ao HTML. Observe que isso só será exibido em páginas públicas, não na seção de administração.
+          cta_button_path_help: 'Você pode substituir onde o botão Chamar para Ação na página inicial liga. Use caminhos parciais, não URLs completas aqui. Aceita letras, números, traços e barras e deve começar com uma letra. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição. Exemplo: %{url}'
           cta_button_text_help: Você pode substituir o texto do botão Chamar para Ação na página inicial para cada idioma disponível em sua organização. Se não for definido, o valor padrão será usado. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição.
           homepage_appearance_title: Editar a aparência da página inicial
           homepage_highlighted_content_banner_title: Banner de conteúdo elevado
@@ -810,17 +822,17 @@ pt-BR:
         edit:
           update: Atualizar
         external_domain:
-          down: Para Baixo
+          down: Abaixo
           external_domain: Domínio externo
           remove: Remover
-          up: Para Cima
+          up: Acima
         form:
           add: Adicionar à lista branca
-          title: Domínio externo na lista branca
+          title: Lista branca de domínios externos
       organization_homepage:
         edit:
           active_content_blocks: Blocos de conteúdo ativo
-          inactive_content_blocks: Blocos de conteúdo inativo
+          inactive_content_blocks: Blocos de conteúdo inativos
       organization_homepage_content_blocks:
         edit:
           update: Atualizar
@@ -844,6 +856,7 @@ pt-BR:
         new:
           destroy:
             button: Excluir todos os participantes privados
+            confirm: Tem certeza que deseja excluir todos os participantes privados? Esta ação não pode ser desfeita, não será possível recuperá-los.
             empty: Você não tem participantes privados.
             explanation: Você tem %{count} participantes privados.
             title: Excluir participantes privados
@@ -946,6 +959,7 @@ pt-BR:
           update: Atualizar
         form:
           none: Nenhum
+          slug_help: 'Use caminhos parciais, não URLs completos aqui. Aceita letras, números, traços e barras, e deve começar com uma letra. Se não estiver definido, o botão não será mostrado. Exemplo: %{url}'
         index:
           last_notable_change: Última alteração notável
         new:
@@ -965,9 +979,12 @@ pt-BR:
         areas: Áreas
         authorization_workflows: Métodos de verificação
         dashboard: painel de controle
+        edit_external_domains: Lista branca de domínios externos
+        edit_organization_appearance: Editar aparência da página inicial
         impersonatable_users: Usuários gerenciáveis
         impersonations: Gerenciamento de usuários
         metrics: Métricas
+        pages: Páginas
         panel: Administrador
         participants: Comercial
         scope_types: Tipos de âmbito
@@ -1011,6 +1028,7 @@ pt-BR:
           role: Cargo
         new:
           create: Convite
+          title: Convidar novo administrador
       users_statistics:
         users_count:
           admins: Admins
@@ -1020,13 +1038,17 @@ pt-BR:
           no_users_count_statistics_yet: Ainda não há nenhuma estatística de usuários
           participants: Participantes
       view_public_page: Ver página pública
+    forms:
+      errors:
+        impersonate_user:
+          reason: Você precisa fornecer um motivo ao representar um participante não gerenciado
     metrics:
       blocked_users:
         object: usuários bloqueados
         title: Usuários bloqueados
       reported_users:
-        object: usuários reportados
-        title: Usuários reportados
+        object: usuários denunciados
+        title: Usuários denunciados
       user_reports:
         object: reports do usuário
         title: Reports do usuário

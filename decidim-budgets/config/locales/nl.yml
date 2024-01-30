@@ -181,7 +181,7 @@ nl:
           fields:
             category: Categorie
             id: ID
-            scope: Scope
+            scope: Reikwijdte
             title: Titel
       order_summary_mailer:
         order_summary:

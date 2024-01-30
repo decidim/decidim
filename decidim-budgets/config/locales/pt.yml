@@ -135,6 +135,7 @@ pt:
             total_budget: Orçamento total
         project:
           fields:
+            scope: Âmbito
             title: Título
       order_summary_mailer:
         order_summary:

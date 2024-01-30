@@ -57,7 +57,6 @@ it:
         conference_meeting_ids: Conferenze correlate
         full_name: Nome e cognome
         position: Posizione
-        twitter_handle: Identificativo Twitter
         user_id: Utente
       conference_user_role:
         email: E-mail
@@ -332,9 +331,7 @@ it:
             select_user: Seleziona utente
           index:
             filter:
-              accepted: Accettato
               all: Tutti
-              rejected: Respinto
               sent: Inviato
             filter_by: Filtra per
             invite_attendee: Invita il partecipante
@@ -426,7 +423,6 @@ it:
           invalid: C'è stato un problema a lasciare questa conferenza.
           success: Hai lasciato la conferenza con successo.
       conference_speaker:
-        go_to_twitter: Vai a Twitter
         more_info: Ulteriori informazioni
         personal_website: Sito web personale
         show:

@@ -290,9 +290,7 @@ zh-CN:
             select_user: 选择参与者
           index:
             filter:
-              accepted: 已接受
               all: 所有的
-              rejected: 已拒绝
               sent: 已发送
             filter_by: 筛选方式
             invite_attendee: Invite participant
@@ -382,7 +380,6 @@ zh-CN:
           invalid: 离开此会议时出现问题。
           success: 您已经成功离开了会议。
       conference_speaker:
-        go_to_twitter: 转到Twitter
         more_info: 更多信息
         personal_website: 个人网站
         show:

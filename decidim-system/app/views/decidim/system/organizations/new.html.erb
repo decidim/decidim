@@ -1,3 +1,5 @@
+<% add_decidim_page_title(t(".title")) %>
+
 <% provide :title do %>
   <h2><%= t ".title" %></h2>
 <% end %>
@@ -35,9 +37,9 @@
       <table>
         <thead>
           <tr>
-            <td>Locale</td>
-            <td>Enabled <%= f.error_for(:available_locales) %></td>
-            <td>Default? <%= f.error_for(:default_locale) %></td>
+            <th><%= t(".locale") %></th>
+            <th><%= t(".enabled") %> <%= f.error_for(:available_locales) %></th>
+            <th><%= t(".default") %><%= f.error_for(:default_locale) %></th>
           </tr>
         </thead>
         <tbody>

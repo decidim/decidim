@@ -126,6 +126,7 @@ lb:
             total_budget: Gesamt Budget
         project:
           fields:
+            scope: Umfang
             title: Titel
       order_summary_mailer:
         order_summary:

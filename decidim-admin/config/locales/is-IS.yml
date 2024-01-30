@@ -66,7 +66,6 @@ is:
         secondary_color: Til vara
         success_color: Tókst
         time_zone: Tímabelti
-        twitter_handler: Twitter handler
         user_groups_enabled: Virkja hópa
         warning_color: Aðvörun
         youtube_handler: YouTube umsjónarmaður
@@ -425,7 +424,6 @@ is:
           github: GitHub
           instagram: Instagram
           social_handlers: Félagsleg
-          twitter: Twitter
           youtube: Youtube
         update:
           success: Skipulag uppfærður með góðum árangri.
@@ -440,6 +438,9 @@ is:
           homepage_highlighted_content_banner_title: Hápunktur efni borði
           images:
             layout_appearance_title: Breyta útliti útlits
+      organization_external_domain_whitelist:
+        edit:
+          update: Uppfæra
       organization_homepage_content_blocks:
         edit:
           update: Uppfæra

@@ -21,8 +21,11 @@ describe "Filter Initiatives", :slow, type: :system do
   end
 
   context "when filtering initiatives by SCOPE" do
+    let!(:initiatives) { create_list(:initiative, 2, organization: organization, scoped_type: scoped_type1) }
+    let(:first_initiative) { initiatives.first }
+    let!(:proposal_comment) { create(:comment, commentable: first_initiative) }
+
     before do
-      create_list(:initiative, 2, organization: organization, scoped_type: scoped_type1)
       create(:initiative, organization: organization, scoped_type: scoped_type2)
       create(:initiative, organization: organization, scoped_type: scoped_type3)
 
@@ -67,6 +70,22 @@ describe "Filter Initiatives", :slow, type: :system do
 
         expect(page).to have_css(".card--initiative", count: 2)
         expect(page).to have_content("2 INITIATIVES")
+      end
+
+      it "can be ordered by most commented after filtering" do
+        within ".filters .with_any_scope_check_boxes_tree_filter" do
+          uncheck "All"
+          check scoped_type1.scope_name[I18n.locale.to_s]
+        end
+
+        within ".order-by__dropdown" do
+          expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
+          page.find("a", text: "Random").click
+          click_link "Most commented"
+        end
+
+        expect(page).to have_css(".card--initiative", count: 2)
+        expect(page).to have_selector(".card--initiative:first-child", text: translated(first_initiative.title))
       end
     end
   end
@@ -191,7 +210,7 @@ describe "Filter Initiatives", :slow, type: :system do
       end
     end
 
-    context "when there is more than on initiative_type" do
+    context "when there is more than one initiative_type" do
       before do
         create_list(:initiative, 2, organization: organization, scoped_type: scoped_type1)
         create(:initiative, organization: organization, scoped_type: scoped_type2)

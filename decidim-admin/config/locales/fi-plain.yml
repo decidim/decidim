@@ -93,7 +93,7 @@ fi-pl:
         success_color: Onnistuminen
         time_zone: Aikavyöhyke
         tos_version: Käyttöehtojen versio
-        twitter_handler: Twitter-käsittelijä
+        twitter_handler: X käsittelijä
         user_groups_enabled: Ota käyttäjäryhmät käyttöön
         users_registration_mode: Käyttäjien rekisteröintitila
         warning_color: Varoitus
@@ -799,7 +799,7 @@ fi-pl:
           instagram: Instagram
           rich_text_editor_in_public_views_help: Joissain tekstikentissä osallistujat voivat syöttää tiettyjä HTML-elementtejä rikkaan tekstieditorin kautta.
           social_handlers: Sosiaalinen media
-          twitter: Twitter
+          twitter: X
           url: URL
           youtube: YouTube
         update:
@@ -834,8 +834,8 @@ fi-pl:
           title: Sallittujen ulkoisten verkkotunnusten lista
       organization_homepage:
         edit:
-          active_content_blocks: Aktiiviset sisältöblokit
-          inactive_content_blocks: Ei-aktiiviset sisältöblokit
+          active_content_blocks: Aktiiviset sisältölohkot
+          inactive_content_blocks: Käytöstä poistetut sisältölohkot
       organization_homepage_content_blocks:
         edit:
           update: Päivitä

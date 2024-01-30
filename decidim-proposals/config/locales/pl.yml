@@ -273,6 +273,7 @@ pl:
           affected_user:
             email_intro: 'Twoja propozycja "%{resource_title}" została odrzucona. Możesz przeczytać odpowiedź na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem "%{resource_title}".
+            email_subject: Twoja propozycja została odrzucona
             notification_title: Twoja propozycja <a href="%{resource_path}">%{resource_title}</a> została odrzucona.
           follower:
             email_intro: 'Propozycja "%{resource_title}" została odrzucona. Możesz przeczytać odpowiedź na tej stronie:'
@@ -365,12 +366,33 @@ pl:
           proposal_comments: Komentarze
           proposals: Propozycje
         imports:
+          help:
+            answers: |
+              Dokument importu powinien zawierać następujące nazwy kolumn w przypadku plików CSV lub Excel, lub nazwy kluczy w przypadku plików JSON:
+              <ul>
+              <li><b>id:</b> ID wniosku o odpowiedź</li>
+              <li><b>state:</b> Jeden z "accepted", "evaluating" lub "rejected"</li>
+              <li><b>answer/en:</b> Odpowiedź w języku angielskim. Będzie to zależało od konfiguracji języka Twojej platformy.</li>
+              </ul>
+            proposals: |
+              Plik musi mieć następujące nazwy kolumn w przypadku plików CSV lub Excel, lub nazwy kluczy w przypadku plików JSON:
+              <ul>
+              <li><b>title/en:</b> Tytuł w języku angielskim. Będzie to zależało od konfiguracji języka Twojej platformy.</li>
+              <li><li><b>body/en:</b> Treść w języku angielskim. Będzie to zależało od konfiguracji języka Twojej platformy.</li>
+              <li><b>scope/id:</b> ID dla zakresu</li>
+              <li><b>category/id:</b> ID dla kategorii</li>
+              </ul>
+          label:
+            answers: Importuj odpowiedzi z pliku
+            proposals: Importuj propozycje z pliku
           resources:
             answers:
               one: odpowiedź na propozycję
               few: odpowiedzi na propozycję
               many: odpowiedzi na propozycję
               other: odpowiedzi na propozycję
+          title:
+            proposals: Importuj propozycje
         models:
           proposal:
             name: Propozycja
@@ -412,6 +434,7 @@ pl:
             accepted: Zaakceptowano
             answer_proposal: Odpowiedź
             evaluating: Ocena
+            not_answered: Bez odpowiedzi
             rejected: Odrzucono
             title: Odpowiedź na propozycję %{title}
         proposal_notes:
@@ -516,9 +539,11 @@ pl:
             title: Importuj propozycje
         proposals_merges:
           create:
+            invalid: 'Wystąpił błąd podczas łączenia wybranych propozycji, ponieważ niektóre z nich:'
             success: Pomyślnie połączono propozycje.
         proposals_splits:
           create:
+            invalid: 'Wystąpił błąd podczas dzielenia wybranych propozycji, ponieważ niektóre z nich:'
             success: Pomyślnie podzielono propozycje.
         valuation_assignments:
           create:
@@ -725,8 +750,10 @@ pl:
             many: "%{count} propozycji"
             other: "%{count} propozycji"
         edit:
+          add_image: Dodaj obraz
           attachment_legend: "(Opcjonalnie) Dodaj załącznik"
           back: Wróć
+          edit_image: Edytuj obraz
           gallery_legend: "(Opcjonalnie) Dodaj obraz do karty propozycji"
           select_a_category: Wybierz kategorię
           send: Wyślij

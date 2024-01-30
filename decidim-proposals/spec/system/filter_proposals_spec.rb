@@ -115,9 +115,13 @@ describe "Filter Proposals", :slow, type: :system do
   context "when filtering proposals by SCOPE" do
     let(:scopes_picker) { select_data_picker(:filter_scope_id, multiple: true, global_value: "global") }
     let!(:scope2) { create :scope, organization: participatory_process.organization }
+    let!(:proposals) { create_list(:proposal, 2, component: component, scope: scope) }
+    let(:first_proposal) { proposals.first }
+    let(:last_proposal) { proposals.last }
+    let!(:proposal_comment) { create(:comment, commentable: first_proposal) }
+    let!(:proposal_follow) { create(:follow, followable: last_proposal) }
 
     before do
-      create_list(:proposal, 2, component: component, scope: scope)
       create(:proposal, component: component, scope: scope2)
       create(:proposal, component: component, scope: nil)
       visit_component
@@ -150,6 +154,31 @@ describe "Filter Proposals", :slow, type: :system do
 
         expect(page).to have_css(".card--proposal", count: 2)
         expect(page).to have_content("2 PROPOSALS")
+      end
+
+      it "can be ordered by most commented and most followed after filtering" do
+        within ".filters .with_any_scope_check_boxes_tree_filter" do
+          uncheck "All"
+          check scope.name[I18n.locale.to_s]
+        end
+
+        within ".order-by__dropdown" do
+          expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
+          page.find("a", text: "Random").click
+          click_link "Most commented"
+        end
+
+        expect(page).to have_css(".card--proposal", count: 2)
+        expect(page).to have_selector(".card--proposal:first-child", text: translated(first_proposal.title))
+
+        within ".order-by__dropdown" do
+          expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
+          page.find("a", text: "Most commented").click
+          click_link "Most followed"
+        end
+
+        expect(page).to have_css(".card--proposal", count: 2)
+        expect(page).to have_selector(".card--proposal:first-child", text: translated(last_proposal.title))
       end
     end
 

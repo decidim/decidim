@@ -306,7 +306,6 @@ ga:
           facebook: Facebook
           github: GitHub
           social_handlers: Sóisialta
-          twitter: Twitter
           url: URL
           youtube: YouTube
       organization_appearance:
@@ -318,10 +317,6 @@ ga:
       organization_external_domain_whitelist:
         edit:
           update: Nuashonraigh
-        external_domain:
-          down: Ísligh
-          remove: Bain as
-          up: Ardaigh
       organization_homepage_content_blocks:
         edit:
           update: Nuashonraigh

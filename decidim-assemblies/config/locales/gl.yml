@@ -52,7 +52,6 @@ gl:
         subtitle: Subtítulo
         target: Quen participa
         title: Título
-        twitter: Twitter
         weight: Orde de posición
         youtube: YouTube
       assembly_member:
@@ -277,7 +276,7 @@ gl:
             visbility: Visibilidade
         assemblies_settings:
           edit:
-            update: Actualizar
+            update: Actualización
           form:
             title: Axustes das xuntanzas
         assemblies_types:
@@ -299,8 +298,6 @@ gl:
           index:
             filter:
               all: Todo
-              ceased: Cesado
-              not_ceased: Non cesou
             filter_by: Filtrar por
             search: Busca
         content_blocks:

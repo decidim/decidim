@@ -60,6 +60,8 @@ ca:
             official_blog_post: Post oficial
             title: Títol
       posts:
+        index:
+          empty: Encara no hi ha cap publicació.
         show:
           back: Tornar al llistat
           comments: Comentaris

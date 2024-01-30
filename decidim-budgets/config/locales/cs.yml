@@ -21,6 +21,11 @@ cs:
         scope_id: Oblast působnosti
   activerecord:
     models:
+      decidim/budgets/budget:
+        one: Rozpočet
+        few: Rozpočty
+        many: Rozpočtů
+        other: Rozpočtů
       decidim/budgets/project:
         one: Projekt
         few: Projekty
@@ -196,7 +201,7 @@ cs:
           fields:
             category: Kategorie
             id: ID
-            scope: Rozsah
+            scope: Oblast působnosti
             title: Titul
       order_summary_mailer:
         order_summary:

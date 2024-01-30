@@ -91,9 +91,7 @@ ar:
     'true': 'نعم'
   carrierwave:
     errors:
-      file_resolution_too_large: دقة الملف أكبر من المسموح به
       file_size_too_large: حجم الملف أكبر من المسموح به
-      not_inside_organization: لم يتم إرفاق الملف بأي منظمة
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -612,6 +610,7 @@ ar:
         ready: جاهز
       show:
         download_data: قم بتنزيل البيانات
+        download_data_description: سيتم إرسال ملف يحتوي على جميع المعلومات المرتبطة بحسابك إلى <strong>%{user_email}</strong>. سوف يحتوي هذا البريد الإلكتروني على ملف .zip وكلمة مرور لفتحه.<br/><br/>لفك الملف ، ستحتاج إلى <a href="https://www.7-zip.org/">7-Zip</a> (للويندوز) أو <a href="https://www.keka.io/">Keka</a> (لماكوس). إذا كنت تستخدم لينوكس، في معظم الأحيان سيتم تثبيته بشكل افتراضي. إذا لم يكن الأمر كذلك، يمكنك استخدام <a href="https://gitlab.gnome.org/GNOME/file-roller">ملف Roller</a> أو <a href="https://peazip.github.io">PeaZip</a>).
         request_data: طلب البيانات
     editor_images:
       create:
@@ -782,6 +781,7 @@ ar:
           notification_title: تم إضفاء الطابع الرسمي على المشارك %{name} (%{nickname}).
     export_mailer:
       download_your_data_export:
+        click_button: 'انقر فوق الرابط التالي لتحميل بياناتك.<br/>الملف سيكون متاحا حتى %{date}.<br/>ستحتاج إلى <a href="https://www.7-zip.org/">7-Zip</a> (للويندوز)، <a href="https://www.keka.io/en/">Keka</a> (لماكوس) أو <a href="https://peazip.github.io">PeaZip</a> (للينوكس) لفتحه. كلمة المرور: %{password}'
         download: تحميل
       export:
         ready: يرجى الاطلاع على نسخة مضغوطة من التصدير.
@@ -834,6 +834,7 @@ ar:
       file_help:
         file:
           explanation: 'إرشادات الملف:'
+          message_1: يجب أن تكون صورة أو وثيقة.
           message_2: بالنسبة للصور، يُفضل استخدام صور بالوضع العرضي، تقوم الخدمة باقتصاص الصورة.
         icon:
           explanation: 'إرشادات للأيقونة:'
@@ -1242,7 +1243,6 @@ ar:
           proposals: اقتراحات
           proposals_explanation: تقديم مقترحات ، ودعم المقترحات الحالية وتعزيز التغييرات التي تريد رؤيتها.
         footer_sub_hero:
-          footer_sub_hero_body: دعونا نبني مجتمعًا أكثر انفتاحًا وشفافية وتعاونًا.<br /> انضموا وشاركوا وقرّروا.
           footer_sub_hero_headline: مرحبًا بكم على المنصة التشاركية لـ %{organization}.
           register: تسجيل
         hero:
@@ -1269,6 +1269,7 @@ ar:
           error: كانت هناك مشكلة في قبول الشروط والأحكام.
           success: عظيم! لقد قبلت الشروط والأحكام.
         form:
+          agreement: أوافق على هذه الشروط
           legend: توافق على شروط وأحكام الاستخدام
         refuse:
           modal_body: إذا قمت بالرفض، لن تتمكن من استخدام المنصة، يمكنك <a href="%{download_your_data_path}">تنزيل بياناتك</a> و/أو <a href="%{delete_path}">حذف حسابك</a>.
@@ -1818,7 +1819,6 @@ ar:
         facebook: "%{organization} على الفيسبوك"
         github: "%{organization} في GitHub"
         instagram: "%{organization} في إنستاجرام"
-        twitter: "%{organization} في تويتر"
         youtube: "%{organization} على اليوتيوب"
       timeout_modal:
         body: لقد كنت غير نشط لمدة %{minutes} دقائق. إذا استمريت في كونك غير نشط، سيتم تسجيل خروجك تلقائيًا من أجل الأمان الخاص بك.

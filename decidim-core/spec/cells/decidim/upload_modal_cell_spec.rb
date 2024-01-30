@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::UploadModal, type: :cell do
+describe Decidim::UploadModalCell, type: :cell do
   subject { my_cell.call }
 
   let(:my_cell) { cell("decidim/upload_modal", form, options) }
@@ -125,6 +125,22 @@ describe Decidim::UploadModal, type: :cell do
         expect(details).to have_content("#{attachments[0].title["en"]} (#{filename})")
       end
     end
+
+    context "when there is rich content in the filename" do
+      let(:blob) { ActiveStorage::Blob.find_signed(attachments.first) }
+
+      before do
+        blob.update!(filename: "<svg onload=alert('ALERT')>.pdf")
+      end
+
+      it "escapes the truncated filename" do
+        expect(my_cell.send(:truncated_file_name_for, attachments.first)).to eq("&lt;svg onload=alert(&#39;ALERT&#39;)&gt;.pdf")
+      end
+
+      it "escapes the filename" do
+        expect(my_cell.send(:file_name_for, attachments.first)).to eq("&lt;svg onload=alert(&#39;ALERT&#39;)&gt;.pdf")
+      end
+    end
   end
 
   context "when there is a title" do
@@ -155,6 +171,18 @@ describe Decidim::UploadModal, type: :cell do
       it "escapes the title" do
         expect(my_cell.send(:title_for, attachment)).to eq("An image alert(&quot;ALERT&quot;)")
       end
+    end
+  end
+
+  context "when the engine is mounted on a different route" do
+    let(:path) { "/app/upload_validations" }
+
+    before do
+      allow(Decidim::Core::Engine.routes.url_helpers).to receive(:upload_validations_path).and_return(path)
+    end
+
+    it "generates a path relative to the mount location" do
+      expect(my_cell.send(:upload_validations_url)).to eq(path)
     end
   end
 end

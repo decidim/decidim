@@ -21,8 +21,8 @@ module Decidim
           url: url,
           title: voting.title,
           description: voting.description,
-          start_time: voting.start_time.to_s(:db),
-          end_time: voting.end_time.to_s(:db),
+          start_time: voting.start_time,
+          end_time: voting.end_time,
           voting_type: translated_voting_type,
           scope: {
             id: voting.scope.try(:id),

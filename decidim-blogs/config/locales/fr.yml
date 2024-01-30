@@ -60,6 +60,8 @@ fr:
             official_blog_post: Article officiel
             title: Titre
       posts:
+        index:
+          empty: Il n'y a pas encore d'articles.
         show:
           back: Retour à la liste
           comments: Commentaires

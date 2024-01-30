@@ -49,7 +49,7 @@ de:
     debates:
       actions:
         close: Schließen
-        confirm_destroy: Sind Sie sicher?
+        confirm_destroy: Sind Sie sich sicher?
         destroy: Löschen
         edit: Bearbeiten
         new: Neu %{name}
@@ -110,6 +110,9 @@ de:
           success: Diskussion erfolgreich erstellt
         debate:
           participate: Mitmachen
+        debates:
+          empty: Es gibt noch keine Debatten.
+          empty_filters: Es liegen noch keine Debatten mit diesen Kriterien vor.
         edit:
           back: Zurück
           save: Änderungen speichern
@@ -175,7 +178,7 @@ de:
           back_to_resource: Zurück zur Debatte
       last_activity:
         debate_updated_at_html: "<span>Debatte aktualisiert unter %{link}</span>"
-        new_debate_at_html: "<span>Neue Debatte bei %{link}</span>"
+        new_debate_at_html: "<span>Neue Debatte auf %{link}</span>"
       models:
         debate:
           fields:

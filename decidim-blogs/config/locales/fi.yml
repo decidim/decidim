@@ -60,6 +60,8 @@ fi:
             official_blog_post: Virallinen artikkeli
             title: Otsikko
       posts:
+        index:
+          empty: Ei yhtään artikkelia.
         show:
           back: Takaisin listaan
           comments: Kommentit

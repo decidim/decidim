@@ -31,6 +31,9 @@ runs:
       with:
         ruby-version: ${{ inputs.ruby_version }}
         bundler-cache: true
+    - uses: nanasess/setup-chromedriver@v2
+      with:
+        chromedriver-version: 119.0.6045.105
     - uses: actions/setup-node@v3
       with:
         node-version: ${{ inputs.node_version }}
@@ -51,7 +54,6 @@ runs:
     - run: mkdir -p ./spec/decidim_dummy_app/tmp/screenshots
       name: Create the screenshots folder
       shell: "bash"
-    - uses: nanasess/setup-chromedriver@v2
     - run: RAILS_ENV=test bundle exec rails assets:precompile
       name: Precompile assets
       working-directory: ./spec/decidim_dummy_app/

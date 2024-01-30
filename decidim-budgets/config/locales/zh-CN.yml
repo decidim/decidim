@@ -119,6 +119,7 @@ zh-CN:
             total_budget: 预算总额
         project:
           fields:
+            scope: 范围
             title: 标题
       order_summary_mailer:
         order_summary:

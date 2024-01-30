@@ -71,9 +71,9 @@ ro:
         delete: Șterge
         deleted_at: Comentariu șters la %{date}
         deleted_user: Participant șters
-        edit: Editează
-        edited: Editat
-        hide_replies: Ascunde răspunsurile
+        edit: Actualizare
+        edited: Actualizat
+        hide_replies: Ascundeți răspunsurile
         moderated_at: Comentariu moderat pe %{date}
         reply: Răspunde
         report:
@@ -139,7 +139,7 @@ ro:
           notification_title: Există un comentariu nou de la <a href="%{author_path}">%{author_name} %{author_nickname}</a> pentru <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} a primit un comentariu. Poți citi comentariul pe această pagină:"
-          email_outro: Ai primit această notificare deoarece urmărești „%{resource_title}” sau pe autorii săi. Poți anula abonarea de la link-ul anterior.
+          email_outro: Ați primit această notificare deoarece urmăriți „%{resource_title}” sau pe autorii săi. Puteți anula abonarea de la link-ul anterior.
           email_subject: Există un nou comentariu de la %{author_name} pentru %{resource_title}
           notification_title: Există un nou comentariu de la <a href="%{author_path}">%{author_name} %{author_nickname}</a> pentru <a href="%{resource_path}">%{resource_title}</a>
         comment_downvoted:

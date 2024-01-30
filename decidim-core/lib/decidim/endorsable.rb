@@ -21,7 +21,7 @@ module Decidim
         if user_group
           endorsements.where(user_group: user_group).any?
         else
-          endorsements.where(author: user, user_group: nil).any?
+          endorsements.where(author: user, user_group: 0).any?
         end
       end
     end

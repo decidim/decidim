@@ -216,9 +216,6 @@ gl:
             select_user: Seleccionar usuario
           index:
             filter:
-              accepted: Aceptada
-              all: Todo
-              rejected: Rexeitado
               sent: Enviado
             filter_by: Filtrar por
             invite_attendee: Invitar asistente
@@ -300,8 +297,6 @@ gl:
           all: Todas
         filter_meeting_space_values:
           all: Todas
-        filter_scope_values:
-          all: Todo
       calendar_modal:
         calendar_url: URL do calendario
         close_window: Pechar ventá
@@ -377,7 +372,7 @@ gl:
           attendees: Os asistentes contan
           close_meeting: Pechar reunión
           contributions: Contribucións contar
-          going: Inscribícheste nesta xuntaza
+          date: Data
           leave: Cancelar a túa inscrición
           leave_confirmation: Estás certo/a de querer cancelar a túa inscrición nesta xuntanza?
           meeting_minutes: Minutos de reunión

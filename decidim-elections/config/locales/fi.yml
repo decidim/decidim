@@ -735,7 +735,7 @@ fi:
           continue: Seuraava
       warnings:
         no_elections_warning: Yksikään vaali ei vastaa hakukriteerejäsi tai yhtään vaalia ei ole suunniteltu.
-        no_scheduled_elections_warning: Tällä hetkellä ei ole suuniteltuja vaaleja, mutta täältä löydät kaikki aikaisemmat vaalit.
+        no_scheduled_elections_warning: Tällä hetkellä yhtään vaalia ei ole aikataulutettu, mutta löydät täältä kaikki aikaisemmat vaalit.
     events:
       elections:
         election_published:
@@ -841,6 +841,7 @@ fi:
             timeline:
               name: Äänestyksen aikajana
         index:
+          not_published: Julkaisematon
           published: Julkaistu
         landing_page:
           content_blocks:
@@ -1186,7 +1187,7 @@ fi:
           certify:
             add_images: Lisää kuvia
             error: Varmenteen liittäminen epäonnistui, yritä uudestaan.
-            form_legend: Lataa kuva äänestyksen päättämisen varmenteesta
+            form_legend: Lataa kuva äänestyksen päättämisen todistuksesta
             heading: Äänten uudelleenlaskenta - Lataa varmenne
             info_text: Lataa kuva äänestyksen päättämisen varmenteesta.
             submit: Lataa varmenne

@@ -224,6 +224,9 @@ is:
       default_image: Sjálfgefin mynd
       errors:
         error: Það er villa í þessu sviði.
+      upload:
+        labels:
+          save: Vista
     log:
       base_presenter:
         create: "%{user_name} búið til %{resource_name}"

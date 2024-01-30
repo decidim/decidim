@@ -58,6 +58,9 @@ cs:
       answers_count: Odpovědi
     surveys:
       admin:
+        component:
+          actions:
+            answers_alert: Pokud publikujete komponentu, všechny výsledky budou odstraněny.
         exports:
           survey_user_answers: Odpovědi účastníka na průzkum
         surveys:

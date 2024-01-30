@@ -126,7 +126,7 @@ describe UploaderContentTypeValidator do
       it "adds the possible file extensions to the error message" do
         expect(subject.count).to eq(1)
         expect(subject[:file]).to eq(
-          ["file cannot be jpe, jpeg, jpg"]
+          ["file cannot be jfif, jpe, jpeg, jpg"]
         )
       end
     end

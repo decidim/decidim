@@ -57,7 +57,6 @@ sv:
         subtitle: Underrubrik
         target: Vem deltar
         title: Titel
-        twitter: Twitter
         weight: Ordning
         youtube: YouTube
       assembly_member:
@@ -305,8 +304,6 @@ sv:
           index:
             filter:
               all: Allt
-              ceased: Upphört
-              not_ceased: Inte upphört
             filter_by: Filtrera efter
             search: Sök
         content_blocks:

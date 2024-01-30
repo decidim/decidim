@@ -11,7 +11,7 @@ de:
         organization: Organisation
         plural: Plural
       attachment:
-        attachment_collection_id: Verzeichnis
+        attachment_collection_id: Ordner
         description: Beschreibung
         file: Datei
         title: Anhang oder Bildname
@@ -27,7 +27,7 @@ de:
         weight: Reihenfolge
       component:
         name: Name
-        published_at: Veröffentlicht unter
+        published_at: Veröffentlicht am
         weight: Reihenfolge
       external_domain:
         value: Wert
@@ -93,7 +93,7 @@ de:
         success_color: Erfolg
         time_zone: Zeitzone
         tos_version: Nutzungsbedingungen Version
-        twitter_handler: Twitter-Handler
+        twitter_handler: X-Handler
         user_groups_enabled: Benutzergruppen aktivieren
         users_registration_mode: Benutzerregistrierungs-Modus
         warning_color: Warnung
@@ -404,7 +404,7 @@ de:
           reportable_type_string_eq:
             label: Art
         officialized_at_null:
-          label: Zustand
+          label: Status
           values:
             'false': Offizialisiert
             'true': Nicht offiziell
@@ -433,14 +433,14 @@ de:
           label: Themenbereich
         search_label: Suche
         search_placeholder:
-          name_or_nickname_or_email_cont: Suche in %{collection} nach E-Mail, Name oder Benutzername.
+          name_or_nickname_or_email_cont: Suche in %{collection} nach E-Mail, Name oder Kontoname.
           report_count_eq: Anzahl Meldungen
           reported_id_string_or_reported_content_cont: Suche %{collection} nach meldbarer Id oder Inhalt.
           title_cont: In %{collection} nach Titel suchen.
           user_name_or_user_email_cont: In %{collection} nach Name oder E-Mail suchen.
-          user_name_or_user_nickname_or_user_email_cont: '%{collection} nach E-Mail, Name oder Benutzername durchsuchen.'
+          user_name_or_user_nickname_or_user_email_cont: '%{collection} nach E-Mail, Name oder Kontoname durchsuchen.'
         state_eq:
-          label: Bundesland
+          label: Status
           values:
             all: Alle
             pending: Ausstehend
@@ -548,7 +548,6 @@ de:
         areas: Bereiche
         configuration: Aufbau
         dashboard: Instrumententafel
-        external_domain_whitelist: Erlaubte externe Domains
         help_sections: Hilfeabschnitte
         homepage: Startseite
         impersonations: Identitätswechsel
@@ -558,7 +557,7 @@ de:
         reported_users: Gemeldete Nutzer
         scope_types: Bereichstypen
         scopes: Bereiche
-        settings: die Einstellungen
+        settings: Einstellungen
         static_pages: Seiten
         user_groups: Benutzergruppen
         users: Benutzer
@@ -576,13 +575,13 @@ de:
             plural: Plural
         attachment:
           fields:
-            collection: Mappe
+            collection: Ordner
             content_type: Art
             file_size: Größe
             title: Titel
           name: Befestigung
         attachment_collection:
-          name: Mappe
+          name: Ordner
         category:
           name: Kategorie
         impersonation_log:
@@ -595,7 +594,7 @@ de:
             user: Benutzer
         newsletter:
           fields:
-            created_at: Hergestellt in
+            created_at: Erstellt am
             progress: Fortschritt
             sent_at: Gesendet um
             sent_to: Gesendet an
@@ -621,7 +620,7 @@ de:
             user: Erstellt von
         static_page:
           fields:
-            created_at: Hergestellt in
+            created_at: Erstellt am
             title: Titel
         user:
           fields:
@@ -637,11 +636,11 @@ de:
         user_group:
           fields:
             actions: Aktionen
-            created_at: Hergestellt in
+            created_at: Erstellt am
             document_number: Dokumentnummer
             name: Name
             phone: Telefon
-            state: Zustand
+            state: Status
             users_count: Benutzer zählen
       moderated_users:
         index:
@@ -762,7 +761,7 @@ de:
           actions: Aktionen
           badge: Abzeichen
           block: Benutzer blockieren
-          created_at: Hergestellt in
+          created_at: Erstellt am
           name: Name
           nickname: Spitzname
           not_officialized: Nicht offiziell
@@ -799,7 +798,7 @@ de:
           instagram: Instagram
           rich_text_editor_in_public_views_help: In einigen Textbereichen können Teilnehmer mit Hilfe des Rich-Text-Editors HTML-Tags einfügen.
           social_handlers: Sozial
-          twitter: Twitter
+          twitter: X
           url: URL
           youtube: Youtube
         update:
@@ -864,7 +863,7 @@ de:
             explanation: Sie haben %{count} private Teilnehmende.
             title: Alle private Teilnehmende entfernen
           explanation: 'Laden Sie Ihre CSV-Datei hoch. Diese muss zwei Spalten haben ohne Kopfzeile, mit E-Mail in der ersten Spalte der Datei und Namen in der letzten Spalte der Datei (E-Mail, Name) in Bezug auf die Benutzer, die Sie dem Beteiligungsbereich hinzufügen möchten. Vermeiden sie ungültige Zeichen wie `<>?%&^*#@()[]=+:;"{}\|` im Namen des Nutzers zu verwenden.'
-          title: CSV-Datei hochladen
+          title: Laden Sie Ihre CSV-Datei hoch
           upload: Hochladen
       reminders:
         create:
@@ -964,7 +963,7 @@ de:
           none: Keiner
           slug_help: 'Verwenden Sie hier Teilpfade, nicht die vollständige URL. Buchstaben, Zahlen, Bindestriche und Schrägstriche sind erlaubt; an der ersten Stelle ist ein Buchstabe erforderlich. Beispiel: %{url}'
         index:
-          last_notable_change: Letzte bemerkenswerte Änderung
+          last_notable_change: Letzte signifikante Änderung
         new:
           create: Seite erstellen
           title: Neue Seite
@@ -1104,6 +1103,6 @@ de:
         newsletters:
           title: Newsletter
         settings:
-          title: die Einstellungen
+          title: Einstellungen
         users:
           title: Teilnehmer

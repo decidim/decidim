@@ -3,6 +3,6 @@
     <%= current_admin.email %>
   </div>
   <div class="sign-out">
-    <%= link_to("Logout", destroy_admin_session_path, :method => :delete) %>
+    <%= link_to(t(".logout"), destroy_admin_session_path, :method => :delete) %>
   </div>
 </div>

@@ -36,6 +36,35 @@ describe "Explore debates", type: :system do
       end
     end
 
+    context "when there are no debates" do
+      let(:debates) { nil }
+
+      it "shows an empty page with a message" do
+        visit_component
+
+        within "#debates" do
+          expect(page).to have_content "There are no debates yet"
+        end
+      end
+
+      context "when filtering by scope" do
+        let!(:category2) { create(:category, participatory_space: participatory_space) }
+
+        it "shows an empty page with a message" do
+          visit_component
+
+          within ".with_any_category_check_boxes_tree_filter" do
+            uncheck "All"
+            check category2.name[I18n.locale.to_s]
+          end
+
+          within "#debates" do
+            expect(page).to have_content("There are no debates with this criteria")
+          end
+        end
+      end
+    end
+
     context "when there are a lot of debates" do
       let!(:debates) do
         create_list(:debate, Decidim::Paginable::OPTIONS.first + 5, component: component, skip_injection: true)
