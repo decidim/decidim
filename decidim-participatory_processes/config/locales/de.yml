@@ -219,6 +219,13 @@ de:
             last_step: Der letzte Schritt eines Prozesses kann nicht gelöscht werden.
           success: Participatory-Prozessschritt erfolgreich gelöscht
         edit:
+          cta_deprecated:
+            body_html: |-
+              Die Konfigurierung der Handlungsaufforderung durch die Schritte des partizipativen Prozesses ist mit dem neuen Design veraltet.
+              Neu finden Sie die Einstellung bei der Konfiguration der <b>Startseite</b> unter dem Inhaltsbaustein <b>Banner-Bild und Handlungsaufforderung</b>.
+              Sie können die benötigten Handlungsaufforderungen migrieren. Die Felder <i>Aufruf zum Aktionspfad</i> und
+              <i>Aufruf zum Aktionstext</i> werden in der nächsten Version entfernt.
+            title: Handlungsaufforderung veraltet
           title: Beteiligungsschritt bearbeiten
           update: Aktualisieren
         index:
