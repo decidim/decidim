@@ -388,6 +388,9 @@ de:
       domain_allowlist:
         form:
           domain_too_short: Domain zu kurz
+        update:
+          error: Liste der zulässigen externen Domains konnte nicht aktualisiert werden
+          success: Die Liste der zulässigen externen Domains wurde erfolgreich aktualisiert.
       exports:
         export_as: "%{name} als %{export_format}"
         formats:
@@ -568,6 +571,7 @@ de:
         areas: Bereiche
         configuration: Aufbau
         content: Gemeldeter Inhalt
+        external_domain_allowlist: Erlaubte externe Domains
         help_sections: Hilfeabschnitte
         homepage: Startseite
         impersonations: Identitätswechsel
@@ -859,6 +863,9 @@ de:
           external_domain: Externe Domain
           remove: Entfernen
           up: Hoch
+        form:
+          add: Zur erlaubten Liste hinzufügen
+          title: Liste erlaubter externer Domains
       participatory_space_private_users:
         create:
           error: Beim Hinzufügen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
