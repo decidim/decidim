@@ -10,7 +10,6 @@ describe "Admin copies meetings" do
   let(:service_titles) { ["This is the first service", "This is the second service"] }
   let!(:meeting) { create(:meeting, type_of_meeting, :published, scope:, services: [], component: current_component) }
 
-  include Decidim::SanitizeHelper
   include_context "when managing a component as an admin"
 
   before do

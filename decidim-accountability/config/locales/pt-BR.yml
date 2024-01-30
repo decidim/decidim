@@ -39,6 +39,11 @@ pt-BR:
         confirm_destroy: Deseja mesmo excluir %{name}?
         destroy: Excluir
         edit: Editar
+        import: Projetos importantes para outro componente
+        import_csv: Importar resultados de arquivo CSV
+        new_result: Novo resultado
+        new_status: Novo status
+        new_timeline_entry: Nova entrada da linha de tempo
         preview: Pré-visualização
         timeline_entries: Evolução do projeto
         title: Ações
@@ -71,8 +76,10 @@ pt-BR:
                 </ul>
               </li>
               </ol>
+            title: Importar resultados de arquivo CSV
         imports:
           create:
+            invalid: Houve um problema ao importar resultados.
             success: O arquivo começou a importar. Você receberá um e-mail nos próximos minutos com o resultado da importação.
         models:
           result:
@@ -94,6 +101,7 @@ pt-BR:
             success:
               one: Projetos na fila para ser importado. Você será notificado no seu endereço eletrônico quando estiver completo.
               other: "Projetos na fila para importar. Você sera notificado em seu endereço eletrônico quando estiver completo."
+            title: Projetos importantes para outro componente
         results:
           create:
             invalid: Houve um problema criando esse resultado.
@@ -214,11 +222,14 @@ pt-BR:
           all: Todos
         home:
           categories_label: Categorias
+          empty: Não existem resultados ainda.
+          empty_filters: Não há resultados com este critério.
           subcategories_label: Subcategorias
         home_header:
           global_status: Status de execução global
         nav_breadcrumb:
           global: Execução global
+        no_results: Não há projetos
         search:
           search: Procure ações
         show:

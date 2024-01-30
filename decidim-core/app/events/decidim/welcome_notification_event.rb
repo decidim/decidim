@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "mustache"
-
 module Decidim
   class WelcomeNotificationEvent < Decidim::Events::BaseEvent
     include Decidim::Events::EmailEvent
@@ -46,13 +44,12 @@ module Decidim
     private
 
     def interpolate(template)
-      Mustache.render(
-        template.to_s,
-        organization: organization.name,
-        name: user.name,
-        help_url: url_helpers.pages_url(host: organization.host),
-        badges_url: url_helpers.gamification_badges_url(host: organization.host)
-      ).html_safe
+      template
+        .gsub("{{name}}", user.name)
+        .gsub("{{organization}}", organization.name)
+        .gsub("{{help_url}}", url_helpers.pages_url(host: organization.host))
+        .gsub("{{badges_url}}", url_helpers.gamification_badges_url(host: organization.host))
+        .html_safe
     end
   end
 end
