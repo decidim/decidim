@@ -45,5 +45,65 @@ describe "Upcoming meeting for card view hook", type: :system do
         end
       end
     end
+
+    context "when the meeting is withdrawn" do
+      let!(:upcoming_meeting1) do
+        create(:meeting, :published, :withdrawn, :upcoming, start_time: start_time - 1.year, end_time: start_time + 1.hour, component: component)
+      end
+
+      it "hides upcoming moderated meetings" do
+        visit decidim_assemblies.assemblies_path
+
+        within "#assembly_#{assembly.id}" do
+          expect(page).to have_selector(".card__icondata")
+
+          within ".card__icondata" do
+            expect(page).to have_text("31 MAY 2100")
+            expect(page).to have_text("12:34")
+            expect(page).to have_text("13:34")
+          end
+        end
+      end
+    end
+
+    context "when the meeting is not published" do
+      let!(:upcoming_meeting1) do
+        create(:meeting, :upcoming, start_time: start_time - 1.year, end_time: start_time + 1.hour, component: component)
+      end
+
+      it "hides upcoming moderated meetings" do
+        visit decidim_assemblies.assemblies_path
+
+        within "#assembly_#{assembly.id}" do
+          expect(page).to have_selector(".card__icondata")
+
+          within ".card__icondata" do
+            expect(page).to have_text("31 MAY 2100")
+            expect(page).to have_text("12:34")
+            expect(page).to have_text("13:34")
+          end
+        end
+      end
+    end
+
+    context "when the meeting is moderated" do
+      let!(:upcoming_meeting1) do
+        create(:meeting, :published, :moderated, :upcoming, start_time: start_time - 1.year, end_time: start_time + 1.hour, component: component)
+      end
+
+      it "hides upcoming moderated meetings" do
+        visit decidim_assemblies.assemblies_path
+
+        within "#assembly_#{assembly.id}" do
+          expect(page).to have_selector(".card__icondata")
+
+          within ".card__icondata" do
+            expect(page).to have_text("31 MAY 2100")
+            expect(page).to have_text("12:34")
+            expect(page).to have_text("13:34")
+          end
+        end
+      end
+    end
   end
 end
