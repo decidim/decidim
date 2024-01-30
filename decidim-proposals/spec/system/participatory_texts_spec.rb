@@ -93,7 +93,8 @@ describe "Participatory texts", type: :system do
     shared_context "when clicking on the amend button" do
       before do
         visit_component
-        within "#proposals section[id='proposal_#{proposal.id}']" do
+        find("#proposals div.hover-section", text: translated(proposal.title)).hover
+        within all("#proposals div.hover-section").first, visible: :visible do
           click_link "Amend"
         end
       end
@@ -118,7 +119,7 @@ describe "Participatory texts", type: :system do
       include_context "when clicking on the amend button"
 
       it "needs to login" do
-        expect(page).to have_content("Please log in")
+        expect(page).to have_content("Please sign in")
       end
     end
 
@@ -139,7 +140,7 @@ describe "Participatory texts", type: :system do
         include_context "when clicking on the amend button"
 
         it "can perform the action" do
-          expect(page).to have_content("Create Amendment Draft")
+          expect(page).to have_content("CREATE AMENDMENT DRAFT")
         end
       end
     end
