@@ -11,7 +11,7 @@ describe Decidim::Elections::Trustees::NotifyNewTrusteeEvent do
   let(:resource_title) { decidim_escape_translated(resource.title) }
 
   let(:trustee_zone_url) { "http://#{resource.organization.host}/trustee" }
-  let(:email_subject) { "You are a trustee for #{decidim_escape_translated(participatory_space.title)}." }
+  let(:email_subject) { "You are a trustee for #{resource_title}." }
   let(:email_intro) { "An admin has added you as trustee for #{participatory_space_title}. You should create your public key <a href='#{trustee_zone_url}'>in your trustee zone</a>" }
   let(:email_outro) { "You have received this notification because you have been added as trustee for #{participatory_space_title}." }
   let(:notification_title) { <<-EOTITLE.squish }
