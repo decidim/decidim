@@ -442,7 +442,7 @@ module Decidim
         root = if options[:path]
                  expanded_path
                elsif branch.present?
-                 "https://raw.githubusercontent.com/greenwoodt/decidim/#{branch}/decidim-generators"
+                 "https://raw.githubusercontent.com/decidim/decidim/#{branch}/decidim-generators"
                else
                  root_path
                end
