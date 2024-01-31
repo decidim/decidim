@@ -61,7 +61,7 @@ describe Decidim::Proposals::ProposalStateChangedEvent do
 
       let(:email_intro) { "The proposal \"#{resource_title}\" has changed its state to \"#{state}\". You can read the answer in this page:" }
       let(:email_outro) { "You have received this notification because you are following \"#{resource_title}\". You can unfollow it from the previous link." }
-      let(:email_subject) { "A proposal you're following has changed its state (#{state})" }
+      let(:email_subject) { "A proposal you are following has changed its state (#{state})" }
 
       let(:notification_title) { "The <a href=\"#{resource_path}\">#{resource_title}</a> proposal has changed its state to \"#{state}\"." }
 
