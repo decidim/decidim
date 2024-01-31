@@ -4,7 +4,6 @@ require "spec_helper"
 
 RSpec.describe "Result search" do
   include Decidim::ComponentPathHelper
-  include Decidim::SanitizeHelper
 
   let(:component) { create(:accountability_component) }
   let(:participatory_space) { component.participatory_space }

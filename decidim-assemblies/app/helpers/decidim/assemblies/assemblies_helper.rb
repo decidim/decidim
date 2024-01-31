@@ -53,7 +53,7 @@ module Decidim
            )
         ] + components.map do |component|
           {
-            name: translated_attribute(component.name),
+            name: decidim_escape_translated(component.name),
             url: main_component_path(component),
             active: is_active_link?(main_component_path(component), :inclusive)
           }

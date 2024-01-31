@@ -29,6 +29,8 @@ pl:
         block_user_templates:
           form:
             save: Zapisz
+          index:
+            title: Blokuj wiadomości użytkownika
         proposal_answer_templates:
           form:
             save: Zapisz

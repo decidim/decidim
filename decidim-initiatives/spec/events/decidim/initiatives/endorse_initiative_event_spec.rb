@@ -4,7 +4,6 @@ require "spec_helper"
 
 describe Decidim::Initiatives::EndorseInitiativeEvent do
   include Decidim::TranslationsHelper
-  include Decidim::SanitizeHelper
 
   subject do
     described_class.new(resource: initiative, event_name:, user:, extra: {})

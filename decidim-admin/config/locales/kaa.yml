@@ -163,9 +163,6 @@ kaa:
         form:
           images:
             preview: Aldınnan kóriw
-      organization_external_domain_whitelist:
-        edit:
-          update: Jańalaw
       participatory_space_private_users:
         new:
           create: Jaratıw

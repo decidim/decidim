@@ -387,12 +387,6 @@ cs:
         show:
           dropdown: Rozbalovací nabídka
           view_more_logs: Zobrazit další protokoly
-      domain_whitelist:
-        form:
-          domain_too_short: Doména je příliš krátká
-        update:
-          error: Nepodařilo se aktualizovat seznam povolených domén.
-          success: Seznam povolených domén byl úspěšně aktualizován.
       exports:
         export_as: "%{name} jako %{export_format}"
         formats:
@@ -581,7 +575,6 @@ cs:
         areas: Oblasti
         configuration: Konfigurace
         content: Nahlášený obsah
-        external_domain_whitelist: Povolené externí domény
         help_sections: Sekce nápovědy
         homepage: Domovská stránka
         impersonations: V zastoupení
@@ -865,17 +858,6 @@ cs:
             layout_appearance_title: Upravit vzhled zobrazení
             preview: Náhled
           omnipresent_banner_appearance_title: Upravit všudypřítomný banner
-      organization_external_domain_whitelist:
-        edit:
-          update: Aktualizovat
-        external_domain:
-          down: Dolů
-          external_domain: Externí doména
-          remove: Odebrat
-          up: Nahoru
-        form:
-          add: Přidat do seznamu povolených
-          title: Seznam externích povolených domén
       participatory_space_private_users:
         create:
           error: Při přidávání soukromého uživatele pro tento participační prostor došlo k chybě.
@@ -1025,7 +1007,6 @@ cs:
         areas: Oblasti
         authorization_workflows: Metody ověření
         dashboard: Ovládací panel
-        edit_external_domains: Seznam externích povolených domén
         edit_landing_page: Obsah stránky
         edit_organization_appearance: Upravit vzhled domovské stránky
         impersonatable_users: Spravovatelní účastníci
