@@ -67,12 +67,6 @@ module Decidim
 
         true if Decidim::ConferenceUserRole.exists?(user: current_user)
       end
-
-      def voting_monitoring_commitee_member?
-        return false unless Decidim.module_installed?(:elections)
-
-        true if Decidim::Votings::MonitoringCommitteeMember.exists?(user: current_user)
-      end
     end
   end
 end
