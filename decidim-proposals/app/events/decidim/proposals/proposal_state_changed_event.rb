@@ -4,6 +4,10 @@
 # i18n-tasks-use t('decidim.events.proposals.proposal_state_changed.affected_user.email_subject')
 # i18n-tasks-use t('decidim.events.proposals.proposal_state_changed.affected_user.email_outro')
 # i18n-tasks-use t('decidim.events.proposals.proposal_state_changed.affected_user.email_intro')
+# i18n-tasks-use t('decidim.events.proposals.proposal_state_changed.follower.notification_title')
+# i18n-tasks-use t('decidim.events.proposals.proposal_state_changed.follower.email_subject')
+# i18n-tasks-use t('decidim.events.proposals.proposal_state_changed.follower.email_outro')
+# i18n-tasks-use t('decidim.events.proposals.proposal_state_changed.follower.email_intro')
 module Decidim
   module Proposals
     class ProposalStateChangedEvent < Decidim::Events::SimpleEvent
