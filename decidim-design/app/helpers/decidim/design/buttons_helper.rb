@@ -20,7 +20,12 @@ module Decidim
                 cell_snippet: {
                   cell: "decidim/button",
                   args: [{ text: "Send" }, { button_classes: "button button__primary button__xs" }],
-                  call_string: 'cell("decidim/button", { text: "Send" }, { button_classes: "button button__primary button__xs" })'
+                  call_string: [
+                    'cell("decidim/button", { text: "Send" }, { button_classes: "button button__primary button__xs" })',
+                    'cell("decidim/button", { text: "Send" }, { button_classes: "button button__primary button__sm" })',
+                    'cell("decidim/button", { text: "Send" }, { button_classes: "button button__primary button__lg" })',
+                    'cell("decidim/button", { text: "Send" }, { button_classes: "button button__primary button__xl" })'
+                  ]
                 }
               }
             ]
@@ -39,7 +44,11 @@ module Decidim
                 cell_snippet: {
                   cell: "decidim/button",
                   args: [{ text: "Send" }, { button_classes: "button button__lg button__primary" }],
-                  call_string: 'cell("decidim/button", { text: "Send" }, { button_classes: "button button__lg button__primary" })'
+                  call_string: [
+                    'cell("decidim/button", { text: "Send" }, { button_classes: "button button__lg button__primary" })',
+                    'cell("decidim/button", { text: "Send" }, { button_classes: "button button__lg button__secondary" })',
+                    'cell("decidim/button", { text: "Send" }, { button_classes: "button button__lg button__tertiary" })'
+                  ]
                 }
               }
             ]
@@ -58,7 +67,11 @@ module Decidim
                 cell_snippet: {
                   cell: "decidim/button",
                   args: [{ text: "Send" }, { button_classes: "button button__lg button__transparent-primary" }],
-                  call_string: 'cell("decidim/button", { text: "Send" }, { button_classes: "button button__lg button__transparent-primary" })'
+                  call_string: [
+                    'cell("decidim/button", { text: "Send" }, { button_classes: "button button__lg button__transparent-primary" })',
+                    'cell("decidim/button", { text: "Send" }, { button_classes: "button button__lg button__transparent-secondary" })',
+                    'cell("decidim/button", { text: "Send" }, { button_classes: "button button__lg button__transparent-tertiary" })'
+                  ]
                 }
               },
               {
@@ -95,7 +108,12 @@ module Decidim
                 cell_snippet: {
                   cell: "decidim/button",
                   args: [{ text: "Send" }, { button_classes: "button button__lg button__text" }],
-                  call_string: 'cell("decidim/button", { text: "Send" }, { button_classes: "button button__lg button__text" })'
+                  call_string: [
+                    'cell("decidim/button", { text: "Send" }, { button_classes: "button button__lg button__text" })',
+                    'cell("decidim/button", { text: "Send" }, { button_classes: "button button__lg button__text-primary" })',
+                    'cell("decidim/button", { text: "Send" }, { button_classes: "button button__lg button__text-secondary" })',
+                    'cell("decidim/button", { text: "Send" }, { button_classes: "button button__lg button__text-tertiary" })'
+                  ]
                 }
               }
             ]
@@ -113,7 +131,10 @@ module Decidim
                 cell_snippet: {
                   cell: "decidim/button",
                   args: [{ text: "Send", icon: "question-line" }, { button_classes: "button button__lg button__secondary" }],
-                  call_string: 'cell("decidim/button", { text: "Send", icon: "question-line" }, { button_classes: "button button__lg button__secondary" })'
+                  call_string: [
+                    'cell("decidim/button", { text: "Send", icon: "question-line" }, { button_classes: "button button__lg button__secondary" })',
+                    'cell("decidim/button", { text: "Send", icon: "question-line" }, { button_classes: "button button__lg button__transparent-secondary" })'
+                  ]
                 }
               }
             ]
