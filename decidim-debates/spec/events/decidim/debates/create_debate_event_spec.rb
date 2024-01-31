@@ -38,10 +38,10 @@ describe Decidim::Debates::CreateDebateEvent do
   context "when the notification is for space followers" do
     let(:type) { :space }
     let(:i18n_scope) { "decidim.events.debates.create_debate_event.space_followers" }
-    let(:email_subject) { "New debate \"#{decidim_sanitize(debate_title)}\" on #{translated(space.title)}" }
-    let(:email_intro) { "Hi,\nA new debate \"#{debate_title}\" has been created on the #{translated(space.title)} participatory space, check it out and contribute:" }
-    let(:email_outro) { "You have received this notification because you are following the #{translated(space.title)} participatory space. You can stop receiving notifications following the previous link." }
-    let(:notification_title) { "The <a href=\"#{resource_path}\">#{debate_title}</a> debate was created on <a href=\"#{space_path}\">#{translated(space.title)}</a>." }
+    let(:email_subject) { "New debate \"#{resource_title}\" on #{participatory_space_title}" }
+    let(:email_intro) { "Hi,\nA new debate \"#{resource_title}\" has been created on the #{participatory_space_title} participatory space, check it out and contribute:" }
+    let(:email_outro) { "You have received this notification because you are following the #{participatory_space_title} participatory space. You can stop receiving notifications following the previous link." }
+    let(:notification_title) { "The <a href=\"#{resource_path}\">#{debate_title}</a> debate was created on <a href=\"#{space_path}\">#{participatory_space_title}</a>." }
 
     it_behaves_like "a simple event"
     it_behaves_like "a simple event email"
