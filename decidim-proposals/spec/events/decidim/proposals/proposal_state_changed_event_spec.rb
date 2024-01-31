@@ -24,13 +24,13 @@ describe Decidim::Proposals::ProposalStateChangedEvent do
     context "when the proposal is evaluated" do
       let(:resource) { create(:proposal, :with_answer, :evaluating, title: "My super proposal") }
 
-      include_context "Author proposal changed the state", "Evaluating"
+      include_context "when author proposal changed the state", "Evaluating"
     end
 
     context "when the proposal is rejected" do
       let(:resource) { create(:proposal, :with_answer, :rejected, title: "It is my super proposal") }
 
-      include_context "Author proposal changed the state", "Rejected"
+      include_context "when author proposal changed the state", "Rejected"
 
       describe "resource_text" do
         it "shows the proposal answer" do
@@ -42,7 +42,7 @@ describe Decidim::Proposals::ProposalStateChangedEvent do
     context "when the proposal is accepted" do
       let(:resource) { create(:proposal, :with_answer, :accepted, title: "My super proposal") }
 
-      include_context "Author proposal changed the state", "Accepted"
+      include_context "when author proposal changed the state", "Accepted"
 
       describe "resource_text" do
         it "shows the proposal answer" do
@@ -74,13 +74,13 @@ describe Decidim::Proposals::ProposalStateChangedEvent do
     context "when the proposal is evaluated" do
       let(:resource) { create(:proposal, :with_answer, :evaluating, title: "My super proposal") }
 
-      include_context "Followed proposal changed the state", "Evaluating"
+      include_context "when followed proposal changed the state", "Evaluating"
     end
 
     context "when the proposal is rejected" do
       let(:resource) { create(:proposal, :with_answer, :rejected, title: "It is my super proposal") }
 
-      include_context "Followed proposal changed the state", "Rejected"
+      include_context "when followed proposal changed the state", "Rejected"
 
       describe "resource_text" do
         it "shows the proposal answer" do
@@ -92,7 +92,7 @@ describe Decidim::Proposals::ProposalStateChangedEvent do
     context "when the proposal is accepted" do
       let(:resource) { create(:proposal, :with_answer, :accepted, title: "My super proposal") }
 
-      include_context "Followed proposal changed the state", "Accepted"
+      include_context "when followed proposal changed the state", "Accepted"
 
       describe "resource_text" do
         it "shows the proposal answer" do
