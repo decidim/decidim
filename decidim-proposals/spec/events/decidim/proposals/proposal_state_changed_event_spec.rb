@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe Decidim::Proposals::ProposalStateChangedEvent do
   context "when recipient is author" do
-    shared_context "Author proposal changed the state" do |state|
+    shared_context "when author proposal changed the state" do |state|
       let(:event_name) { "decidim.events.proposals.proposal_state_changed" }
       let(:resource_title) { translated(resource.title) }
 
@@ -55,7 +55,7 @@ describe Decidim::Proposals::ProposalStateChangedEvent do
   context "when recipient is follower" do
     let(:user_role) { :follower }
 
-    shared_context "Followed proposal changed the state" do |state|
+    shared_context "when followed proposal changed the state" do |state|
       let(:resource_title) { translated(resource.title) }
       let(:event_name) { "decidim.events.proposals.proposal_state_changed" }
 
