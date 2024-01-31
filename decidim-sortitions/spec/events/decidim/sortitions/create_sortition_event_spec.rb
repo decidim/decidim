@@ -7,7 +7,7 @@ describe Decidim::Sortitions::CreateSortitionEvent do
   let(:notification_title) { "The sortition <a href=\"#{resource_path}\">#{resource_title}</a> has been added to #{participatory_space_title}" }
   let(:email_outro) { "You have received this notification because you are following \"#{participatory_space_title}\". You can unfollow it from the previous link." }
   let(:email_intro) { "The sortition \"#{resource_title}\" has been added to \"#{participatory_space_title}\" that you are following." }
-  let(:email_subject) { "New sortition added to #{participatory_space_title}" }
+  let(:email_subject) { "New sortition added to #{decidim_sanitize_translated(participatory_space.title)}" }
   let(:event_name) { "decidim.events.sortitions.sortition_created" }
 
   include_context "when a simple event"

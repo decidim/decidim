@@ -656,6 +656,8 @@ es-PY:
               upload_legend: En el servidor constan tus claves públicas de identificación, pero tu navegador todavía no las tiene. Necesitas importar el archivo con tus claves de identificación a tu ordenador desde la copia de seguridad que creaste después de generarlas.
             not_supported_browser_description: Parece que estás usando un navegador que no puede ser utilizado para actuar como garante. Asegúrate de que estás usando la versión más reciente de tu navegador, o intenta utilizar cualquier otro de los navegadores más populares para poder completar tus tareas como garante.
             not_supported_browser_title: Actualiza el navegador para actuar como garante
+            safari_warning_description: Parece que estás usando Safari, que no está soportado para actuar como garante o para cifrar un voto (esto se debe a las restricciones de memoria que le impone Apple). Esto podría resolverse en el futuro mediante un cambio de política por parte de Apple o la futura optimización de Decidim Elecciones. Mientras tanto, por favor, utiliza otro navegador.
+            safari_warning_title: Navegador Safari detectado
             trustee_role_description:
               with_keys: Has sido asignada como garante en algunas de las elecciones celebradas en esta plataforma.
               without_keys: Has sido asignada para actuar como Garante. Por favor, genera y sube tus claves de identificación.
@@ -667,7 +669,7 @@ es-PY:
           back: Comenzar de nuevo el proceso de votación
           ballot_hash: 'El indentificador de la papeleta es:'
           cast: Deposita la papeleta para terminar tu voto
-          description: Aquí tienes las opciones de emitir tu papeleta para que sea debidamente contada o, alternativamente, puedes auditar que tu papeleta fue cifrada correctamente. Por razones de seguridad, la auditoría de tu papeleta se invalidará. Esto quiere decir que, para emitir tu voto tendrás que reiniciar el proceso de votación.
+          description_html: Aquí tienes las opciones de emitir tu boleta para que sea contada correctamente o puedes auditar que tu boleta ha sido cifrada correctamente. Si quieres auditar la votación, por favor, <a href="https://github.com/decidim/decidim-bulletin-board/blob/develop/verifier/README.md">lee las instrucciones sobre cómo proceder</a>.
           header: 'La papeleta se ha cifrado: envíala o audítala'
         casting:
           header: Se está emitiendo el voto...

@@ -13,7 +13,7 @@ describe Decidim::Elections::Trustees::NotifyNewTrusteeEvent do
   let(:email_intro) { "An admin has added you as trustee for #{participatory_space_title}. You should create your public key <a href='#{trustee_zone_url}'>in your trustee zone</a>" }
   let(:email_outro) { "You have received this notification because you have been added as trustee for #{participatory_space_title}." }
   let(:notification_title) { <<-EOTITLE.squish }
-    You have been added to act as a trustee in #{translated(resource.title)} for some elections that will take place in this platform.<br>
+    You have been added to act as a trustee in #{resource_title} for some elections that will take place in this platform.<br>
     You will perform tasks as needed. For now, please <a href='#{trustee_zone_url}'>generate your identification keys</a>.
   EOTITLE
 

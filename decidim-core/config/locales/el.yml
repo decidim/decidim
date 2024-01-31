@@ -75,12 +75,6 @@ el:
   booleans:
     'false': 'Όχι'
     'true': 'Ναι'
-  carrierwave:
-    errors:
-      file_cannot_be_processed: Το αρχείο δεν μπορεί να επεξεργαστεί
-      file_resolution_too_large: Η ανάλυση του αρχείου είναι πολύ μεγάλη
-      file_size_too_large: Το μέγεθος του αρχείου είναι πολύ μεγάλο
-      not_inside_organization: Το αρχείο δεν είναι συνδεδεμένο σε κανέναν οργανισμό
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -425,8 +419,6 @@ el:
         description: Περιγραφή
       footer_sub_hero:
         name: Δευτερεύον κύριο διαφημιστικό πλαίσιο υποσέλιδου
-      hero:
-        name: Κύρια εικόνα
       hero_settings_form:
         background_image: Εικόνα φόντου
         welcome_text: Κείμενο καλωσορίσματος
@@ -1004,7 +996,6 @@ el:
         success: Οι ρυθμίσεις ειδοποιήσεων ενημερώθηκαν με επιτυχία.
     offline:
       show:
-        message: Φαίνεται ότι είστε εκτός σύνδεσης. Παρακαλώ, δοκιμάστε ξανά αργότερα.
         retry: Δοκιμάστε ξανά
     open_data:
       not_available_yet: Τα αρχεία Open Data δεν είναι ακόμη διαθέσιμα. Δοκιμάστε ξανά σε λίγα λεπτά.

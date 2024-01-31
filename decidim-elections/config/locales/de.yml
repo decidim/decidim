@@ -667,7 +667,6 @@ de:
           back: Abstimmungsvorgang erneut starten
           ballot_hash: 'Ihre Wahlurnen-ID ist:'
           cast: Stimmzettel abgeben, um Ihre Stimme abzuschließen
-          description: Hier können Sie ihre Stimme abgeben, sodass sie gezählt wird, oder alternativ können Sie überprüfen ob ihre Stimme richtig verschlüsselt wurde. Aus Sicherheitsgründen wird die Überprüfung die Stimme ungültig machen. Das bedeutet, um Ihre Stimme danach abzugeben, müssen Sie den Abstimmungsprozess erneut durchlaufen.
           header: 'Stimmzettel ist verschlüsselt: Stimmzettel absenden oder überprüfen'
         casting:
           header: Stimme wird abgegeben...
