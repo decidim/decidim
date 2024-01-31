@@ -417,7 +417,7 @@ module Decidim
       end
 
       def repository
-        @repository ||= options[:repository] || "https://github.com/greenwoodt/decidim.git"
+        @repository ||= options[:repository] || "https://github.com/decidim/decidim.git"
       end
 
       def app_name
