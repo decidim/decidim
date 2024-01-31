@@ -1,5 +1,5 @@
 <% if call_string.is_a?(Array) %>
-  <code><textarea rows="<%= 3 * call_string.count %>"><%= call_string.map { |item| "<%= #{item} %\>" }.join("\n") %></textarea></code>
+  <code><textarea spellcheck="false" rows="<%= 3 * call_string.count %>"><%= call_string.map { |item| "<%= #{item} %\>" }.join("\n") %></textarea></code>
 <% else %>
-  <code><textarea rows="5"><<%= "%= " %><%= call_string.presence || "cell(\"#{cell}\", #{args_texts.join(", ")})" %><%= " %" %>></textarea></code>
+  <code><textarea spellcheck="false" rows="5"><<%= "%= " %><%= call_string.presence || "cell(\"#{cell}\", #{args_texts.join(", ")})" %><%= " %" %>></textarea></code>
 <% end %>
