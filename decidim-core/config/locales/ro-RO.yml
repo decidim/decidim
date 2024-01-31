@@ -78,12 +78,6 @@ ro:
   booleans:
     'false': 'Nu'
     'true': 'Da'
-  carrierwave:
-    errors:
-      file_cannot_be_processed: Fișierul nu poate fi procesat
-      file_resolution_too_large: Rezoluția fișierului este prea mare
-      file_size_too_large: Mărimea fișierului este prea mare
-      not_inside_organization: Fișierul nu este atașat niciunei organizații
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -434,8 +428,6 @@ ro:
         description: Descriere
       footer_sub_hero:
         name: Banner suberou suberou
-      hero:
-        name: Imagine Erou
       hero_settings_form:
         background_image: Imagine de fundal
         welcome_text: Text de bun-venit
