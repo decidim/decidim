@@ -384,12 +384,12 @@ ja:
         show:
           dropdown: ドロップダウン
           view_more_logs: もっとログを見る
-      domain_whitelist:
+      domain_allowlist:
         form:
           domain_too_short: ドメインが短すぎます
         update:
-          error: ドメインのホワイトリストを更新できませんでした。
-          success: ドメインのホワイトリストを更新しました。
+          error: 許可された外部ドメインのリストを更新できませんでした
+          success: 許可された外部ドメインのリストを更新しました。
       exports:
         export_as: "%{name} を %{export_format} 形式で取得"
         formats:
@@ -566,7 +566,7 @@ ja:
         areas: エリア
         configuration: 設定
         content: 報告されたコンテンツ
-        external_domain_whitelist: 許可された外部ドメイン
+        external_domain_allowlist: 許可された外部ドメイン
         help_sections: ヘルプセクション
         homepage: ホームページ
         impersonations: なりすまし
@@ -850,17 +850,17 @@ ja:
             layout_appearance_title: レイアウトを編集
             preview: プレビュー
           omnipresent_banner_appearance_title: Omnipresentバナーを編集
-      organization_external_domain_whitelist:
+      organization_external_domain_allowlist:
         edit:
           update: 更新
         external_domain:
-          down: 下げる
+          down: 下へ
           external_domain: 外部ドメイン
           remove: 削除
-          up: 上げる
+          up: 上へ
         form:
-          add: ホワイトリストに追加
-          title: 外部ドメインのホワイトリスト
+          add: 許可されたリストに追加
+          title: 許可された外部ドメインのリスト
       participatory_space_private_users:
         create:
           error: この参加型スペースにプライベート参加者を追加する際に問題が発生しました。
@@ -1007,7 +1007,7 @@ ja:
         areas: エリア
         authorization_workflows: 確認方法
         dashboard: ダッシュボード
-        edit_external_domains: 外部ドメインのホワイトリスト
+        edit_external_domains: 許可された外部ドメインのリスト
         edit_landing_page: ページ内容
         edit_organization_appearance: ホームページの外観を編集
         impersonatable_users: 管理可能な参加者

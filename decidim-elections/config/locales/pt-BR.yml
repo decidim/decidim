@@ -6,11 +6,19 @@ pt-BR:
         image: Imagem
         proposals: Propostas relacionadas
         title: Título
+      ballot_style:
+        code: Código
       election:
         description: Descrição
         end_time: A votação termina às
         start_time: Votação começa às
         title: Título
+      monitoring_committee_member:
+        email: E-mail
+        name: Nome
+      polling_officer:
+        email: E-mail
+        name: Nome
       polling_station:
         address: Endereço
         location: Localização
@@ -27,12 +35,14 @@ pt-BR:
       voting:
         banner_image: Imagem de banner
         census_contact_information: Informação de contato do censo
+        description: Descrição
         end_time: Votação termina
         introductory_image: Imagem introdutória
         promoted: Promovido
         scope_id: Escopo
         show_check_census: Mostrar página "checar censo"
         start_time: A votação começa
+        title: Título
         voting_type: Tipo de votação
     errors:
       models:
@@ -40,15 +50,41 @@ pt-BR:
           attributes:
             attachment:
               needs_to_be_reattached: Precisa ser reanexado
+        ballot_result:
+          attributes:
+            base:
+              total_count_invalid: O número total de respostas não coincide com a falha válida/vazio/nula.
         election:
           attributes:
             attachment:
               needs_to_be_reattached: Precisa ser reanexado
+        question_result:
+          attributes:
+            base:
+              blank_count_invalid: O número total de respostas em branco não pode ser maior que o total de votos em branco.
+        trustee:
+          attributes:
+            name:
+              cant_be_changed: não pode ser alterado
+            public_key:
+              cant_be_changed: não pode ser alterado
         voting:
           attributes:
             voting_type:
               inclusion: "%{value} não é um tipo de votação válido"
   activerecord:
+    errors:
+      models:
+        decidim/votings/polling_officer:
+          attributes:
+            presided_polling_station:
+              president_and_manager: O oficial de votação já é presidente/gerente da estação de voto.
+            voting:
+              different_organization: A votação deve estar na mesma organização que o usuário.
+        decidim/votings/polling_station:
+          attributes:
+            polling_station_president:
+              different_voting: O oficial de votação deve estar na mesma votação que a estação de voto.
     models:
       decidim/elections/answer:
         one: Responda
@@ -59,6 +95,9 @@ pt-BR:
       decidim/elections/question:
         one: Questão
         other: Questões
+      decidim/voting:
+        one: Votação
+        other: Votações
       decidim/votings/census/dataset:
         one: Conjunto de dados
         other: Conjuntos de dados
@@ -99,6 +138,16 @@ pt-BR:
             'true': Não assinado
         validated_eq:
           label: Validado
+          values:
+            'false': Não validado
+            'true': Validado
+      voting_publications:
+        create:
+          error: Ocorreu um problema ao publicar esta votação.
+          success: Votação publicada com sucesso.
+        destroy:
+          error: Ocorreu um problema ao despublicar esta votação.
+          success: Votação despublicada com sucesso.
     components:
       elections:
         actions:
@@ -119,16 +168,27 @@ pt-BR:
         manage_answers: Gerenciar respostas
         manage_questions: Gerenciar perguntas
         manage_steps: Gerenciar etapas
+        new_answer: Nova resposta
+        new_election: Nova eleição
+        new_question: Nova questão
+        new_trustee: Novo curador
         preview: Pré-visualização
         publish: Publicar
         title: Ações
         unpublish: Despublicar
       admin:
         answers:
+          create:
+            invalid: Houve um problema ao criar esta resposta.
+            success: Resposta criada com sucesso.
+          destroy:
+            invalid: Houve um problema ao excluir esta resposta.
+            success: Resposta excluída com sucesso.
           edit:
             title: Editar resposta
             update: Atualizar resposta
           index:
+            invalid_max_selections: Você precisa de mais %{missing_answers} resposta/s para combinar com a seleção máxima.
             title: Respostas
           new:
             create: Criar resposta
@@ -137,11 +197,27 @@ pt-BR:
           select:
             disable: Resposta desmarcada
             enable: Marcar resposta como selecionada
+            invalid: Houve um problema ao selecionar esta resposta.
+            success: Resposta selecionada com sucesso.
           selected: Selecionado
+          unselect:
+            invalid: Houve um problema ao desmarcar esta resposta.
+            success: Resposta desselecionada com sucesso.
+          update:
+            invalid: Houve um problema ao atualizar esta resposta.
+            success: Resposta atualizada com sucesso.
         elections:
+          create:
+            invalid: Houve um problema ao criar essa eleição.
+            success: Eleição criada com sucesso.
+          destroy:
+            invalid: Houve um problema ao excluir essa eleição.
+            success: Eleição excluída com sucesso.
           edit:
             title: Editar eleição
             update: Atualizar eleição
+          form:
+            organization_time_zone: Verifique se o fuso horário da organização está correto nas configurações da organização. A configuração atual é %{time_zone} (%{time}).
           index:
             no_bulletin_board: Não há <a href="https://github.com/decidim/decidim-bulletin-board"> Quadro de Notas</a> configurado, que é necessário para utilizar este módulo. Esta tarefa deve ser feita pelo Administrador do Sistema.
             title: Eleições
@@ -152,11 +228,20 @@ pt-BR:
             success: A eleição foi publicada com sucesso.
           unpublish:
             success: A eleição deixou de ser publicada com sucesso.
+          update:
+            invalid: Houve um problema ao atualizar essa eleição.
+            success: Eleição atualizada com sucesso.
         exports:
           elections: Eleições
           feedback_form_answers: Respostas do formulário de feedback
         mailers:
           trustee_mailer:
+            body:
+              help_html: |-
+                <p>Olá %{user_name},</p><br>
+                <p>Você foi adicionado para agir como um curador em alguma eleição que ocorrerão em %{organization}.</p><br>
+                <p>Uma nova sessão chamada "Zona de Curador" será ativada na sua conta. Para isso, você precisa realizar as tarefas necessárias. Por enquanto, por favor gere suas chaves de identificação.</p><br>
+            subject: Você foi adicionado como um curador a %{resource_name}
             trustee_zone: Leve-me à zona de fiduciários
         menu:
           trustees: Curadores
@@ -164,6 +249,9 @@ pt-BR:
           answer:
             name: Resposta
         proposals_imports:
+          create:
+            invalid: Houve um problema ao importar as propostas para respostas.
+            success: "%{number} propostas importadas com sucesso para respostas."
           new:
             create: Importar propostas para respostas
             no_components: Não há outros componentes de proposta neste espaço participativo para importar as propostas para respostas.
@@ -172,6 +260,10 @@ pt-BR:
         questions:
           create:
             election_started: A eleição já começou.
+            invalid: Ocorreu um erro ao criar esta pergunta.
+            success: Pergunta criada com sucesso.
+          destroy:
+            invalid: Houve um problema ao excluir esta pergunta.
           edit:
             title: Editar pergunta
             update: Atualizar pergunta

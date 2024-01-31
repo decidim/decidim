@@ -28,6 +28,7 @@ pt-BR:
               c: Escolha C
             test_options:
               bar: Bar
+              baz: Baz
               foo: Foo
           step:
             endorsements_blocked: Endossos bloqueados
@@ -35,6 +36,7 @@ pt-BR:
             readonly_step_attribute: Atributo passo somente leitura
             test_options:
               bar: Bar
+              baz: Baz
               foo: Foo
     dummy:
       admin:
@@ -50,6 +52,7 @@ pt-BR:
           description_own: Você criou %{score} testes.
           name: Testes
           next_level_in: Crie mais %{score} testes para alcançar o próximo nível!
+          unearned_another: Este participante ainda não criou nenhum teste ainda.
           unearned_own: Você não criou testes ainda.
     resource_links:
       test_link:

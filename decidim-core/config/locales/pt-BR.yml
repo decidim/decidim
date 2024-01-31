@@ -22,18 +22,22 @@ pt-BR:
       user:
         about: Sobre
         email: O seu email
+        encrypted_password: Senha
         locale: Local
         name: Seu nome
         nickname: Apelido
+        old_password: Senha atual
         password: Senha
         password_confirmation: Confirme sua senha
         personal_url: URL pessoal
         remove_avatar: Excluir avatar
+        tos_agreement: Acordo de Termos de Serviço
     models:
       decidim/attachment_created_event: Anexo
       decidim/component_published_event: Componente ativo
       decidim/demoted_membership: Não é mais um administrador de grupo
       decidim/gamification/badge_earned_event: Distintivo ganho
+      decidim/gamification/level_up_event: Você subiu de nível
       decidim/invited_to_group_event: Convidado para o grupo
       decidim/join_request_accepted_event: Solicitação de junção aceita
       decidim/join_request_rejected_event: Solicitação de junção aceita
@@ -48,6 +52,7 @@ pt-BR:
   activerecord:
     attributes:
       decidim/action_log:
+        created_at: Hora
         with_participatory_space: Espaço participativo
       decidim/user:
         current_password: Senha atual
@@ -72,12 +77,6 @@ pt-BR:
   booleans:
     'false': 'Não'
     'true': 'Sim'
-  carrierwave:
-    errors:
-      file_cannot_be_processed: O arquivo não pode ser processado
-      file_resolution_too_large: A resolução do arquivo é muito grande
-      file_size_too_large: O tamanho do arquivo é grande demais
-      not_inside_organization: O arquivo não está anexado a nenhuma organização
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -102,7 +101,22 @@ pt-BR:
         one: menos de 1 segundo
         other: menos de %{count} segundos
       short:
+        about_x_days: "%{count}d"
+        about_x_hours: "%{count}h"
+        about_x_minutes: "%{count}m"
+        about_x_months: "%{count} mo."
+        about_x_years: "%{count}y"
+        almost_x_years: "%{count}y"
         half_a_minute: 1 min
+        less_than_x_minutes: "%{count}m"
+        less_than_x_seconds: "%{count}s"
+        over_x_years: "%{count}y"
+        x_days: "%{count}d"
+        x_hours: "%{count}h"
+        x_minutes: "%{count}m"
+        x_months: "%{count} mo."
+        x_seconds: "%{count}s"
+        x_years: "%{count}y"
       x_days:
         one: 1 dia
         other: "%{count} dias"
@@ -154,6 +168,8 @@ pt-BR:
       update:
         error: Ocorreu um erro ao actualizar a sua conta.
         success: A sua conta foi actualizada com sucesso.
+    activity:
+      time_ago: "%{time} atrás"
     admin:
       actions:
         cancel: Cancelar
@@ -327,6 +343,8 @@ pt-BR:
       documents:
         documents: Documentos
         related_documents: Documentos relacionados
+      photo:
+        title: Imagem
       photos:
         photos: Imagens
         related_photos: Fotos relacionadas
@@ -460,8 +478,6 @@ pt-BR:
         name: Rodapé do sub-herói banner
       global_menu:
         name: Menu global
-      hero:
-        name: Imagem do herói
       hero_settings_form:
         background_image: Imagem de fundo
         welcome_text: Texto de boas-vindas
@@ -484,10 +500,14 @@ pt-BR:
         name: Última atividade
         title: Última atividade
         view_all: Ver tudo
+      main_data:
+        name: Dados principais
       metadata:
         name: Metadados
       metrics:
         name: Métricas da organização
+      participatory_space_metrics:
+        name: Métricas
       stats:
         name: Estatísticas da organização
       sub_hero:
@@ -529,12 +549,14 @@ pt-BR:
           title: Notificações de newsletter
         omniauth_buttons:
           or: Ou
+        placeholder_email: oi@exemplo.org
     doorkeeper:
       authorizations:
         new:
           authorize: Autorizar aplicativo
           by_organization_link_html: <small class="heading-small">por %{link}</small>
           cancel: Cancelar
+          connect_your_account_html: Conecte sua conta fazendo login em %{organization}.
           publish_content: Publicar conteúdo para você
           see_email: Veja seu email
           see_name: Veja seu nome
@@ -548,23 +570,44 @@ pt-BR:
         ready: pronto
       show:
         download_data: Baixe os dados
+        download_data_description_html: |-
+          Um arquivo contendo todas as informações associadas à sua conta será enviado para <strong>%{user_email}</strong>. Este e-mail conterá um arquivo .zip e uma senha para abri-lo.<br/><br/>Para descompactar o arquivo, você precisará de <a href="https://www.7-zip.org/">7-Zip</a> (para Windows) ou <a href="https://www.keka.io/">Keka</a> (para MacOS). Se você usar Linux, a maior parte do tempo você o terá instalado por padrão. Se não, você pode usar <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> ou <a href="https://peazip.github.io">PeaZip</a>. ).
         request_data: Solicitar dados
     editor_images:
       create:
         error: Erro ao carregar a imagem.
         success: Imagem carregada com sucesso.
       drag_and_drop_help: Adicione imagens arrastando e soltando ou colando-as.
+    endorsement_buttons_cell:
+      already_endorsed: Dislike
+      endorse: Like
     endorsements:
       identities:
         done: Concluído
         select_identity: Selecione a identidade
+    endorsers_list:
+      endorsed_by: Curtido por…
     errors:
+      files:
+        file_cannot_be_processed: O arquivo não pode ser processado
+        file_resolution_too_large: A resolução do arquivo é muito grande
+        not_inside_organization: O arquivo não está anexado a nenhuma organização
       internal_server_error:
+        copied: Texto copiado!
+        copy_error_message_clarification: Copiar mensagem de erro para área de transferência
+        copy_to_clipboard: Copiar para área de transferência
+        date_and_time: Data e hora
+        reference: Referência
+        request_method: Método de solicitação
         title: Houve um problema com o nosso servidor
+        try_later: Por favor, tente novamente mais tarde. Se o erro persistir, copie as seguintes informações e envie aos mantenedores da plataforma com qualquer outra informação que você possa querer compartilhar.
         unknown: Desconhecido
+        url: URL
+        user: ID do usuário
       not_found:
         back_home: Voltar ao início
         content_doesnt_exist: Este endereço está incorreto ou foi excluído.
+        title: A página que você está procurando não pode ser encontrada
     events:
       amendments:
         amendment_accepted:
@@ -630,9 +673,15 @@ pt-BR:
         email_subject: Uma atualização para %{resource_title}
       gamification:
         badge_earned:
+          email_intro: Bom trabalho! Você ganhou a <a href="%{resource_path}">%{badge_name} medalha</a> (nível %{current_level}).
           email_outro: Você recebeu esta notificação porque fez uma atividade em nosso site.
+          email_subject: 'Você ganhou uma nova medalha: %{badge_name}!'
+          notification_title: Bom trabalho! Você ganhou a <a href="%{resource_path}">%{badge_name} medalha</a> (nível %{current_level}).
         level_up:
+          email_intro: Bom trabalho! Você atingiu o nível %{current_level} na medalha <a href="%{resource_path}">%{badge_name}</a>!
           email_outro: Você recebeu esta notificação porque fez uma atividade em nosso site.
+          email_subject: Você atingiu o nível %{current_level} na medalha %{badge_name}!
+          notification_title: Bom trabalho! Você atingiu o nível %{current_level} na medalha <a href="%{resource_path}">%{badge_name}</a>!
       groups:
         demoted_membership:
           email_intro: Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> removeu seus direitos de administrador para esse grupo.
@@ -679,6 +728,8 @@ pt-BR:
           email_outro: Você recebeu esta notificação porque é um administrador da plataforma.
           email_subject: Um grupo de usuários atualizou seu perfil
           notification_title: O grupo de usuários %{user_group_name} atualizou seu perfil, deixando-o não verificado. Você pode verificá-lo no painel de administração <a href="%{groups_admin_path}"></a>.
+      nickname_event:
+        notification_body: Temos corrigido a forma que os nomes de usuário são utilizados para que não haja duplicados, e por isso excluimos a regra de sensibilidade de maiúsculas e minúsculas. <br/> Seu nome de usuário foi criado depois de um usuário com o mesmo nome, portanto renomeamos automaticamente. Pode mudar seu nome de usuário em <a href="%{link_to_account_settings}">suas configurações de conta</a>.
       notification_event:
         notification_title: Ocorreu um evento em <a href="%{resource_path}">%{resource_title}</a>.
       reports:
@@ -715,6 +766,7 @@ pt-BR:
     filters:
       linked_classes:
         all: Todos
+        answer: Responda
         collaborative_draft: Rascunho colaborativo
         dummy_resource: Recursos falsos
         meeting: Encontros
@@ -723,6 +775,7 @@ pt-BR:
         result: Resultados
     fingerprint:
       check: Verificar impressão digital
+      explanation: O trecho abaixo é uma representação curta criptografada deste conteúdo. Ele é útil para garantir que o conteúdo não tenha sido adulterado, já que uma única modificação resultaria em um valor totalmente diferente.
       online_calculator_name: Calculadora MD5 online
       replicate_help: Essa impressão digital é calculada usando um algoritmo de hashing SHA256. Para replicar você mesmo, você pode usar um %{online_calculator_link} e copiar e colar os dados de origem.
       source: Fonte
@@ -734,6 +787,10 @@ pt-BR:
         other: "%{count} seguidores"
       no_followers: Nenhum seguidor.
     following:
+      following_count:
+        one: "%{count} seguidor"
+        other: "%{count} seguidores"
+      no_followings: Não segue ninguém ou nada ainda.
       non_public_followings: Alguns dos recursos seguidos não são públicos.
     follows:
       create:
@@ -748,6 +805,7 @@ pt-BR:
         decidim/user:
           password: Senha muito curta.
           password_confirmation: A confirmação de senha deve ser igual à senha.
+        error: Há um erro neste campo.
       file_help:
         file:
           explanation: 'Orientação para o arquivo:'
@@ -759,12 +817,14 @@ pt-BR:
           message_2: O tamanho recomendado para esta imagem é 512x512.
         image:
           explanation: 'Orientação da imagem:'
-          message_1: Preferencialmente, uma imagem de paisagem que não tem nenhum texto.
-          message_2: O serviço cultiva a imagem.
+          message_1: Preferencialmente, uma imagem de paisagem que não tenha nenhum texto.
+          message_2: O serviço recorta a imagem.
       file_validation:
         allowed_file_extensions: 'Extensões de arquivo permitidas: %{extensions}'
         max_file_dimension: 'Dimensões máximas de arquivo: %{resolution} pixels'
         max_file_size: 'Tamanho máximo de arquivo: %{megabytes}MB'
+      files:
+        extension_allowlist: 'Formatos aceitos: %{extensions}'
       upload:
         labels:
           add_attachment: Adicionar anexo
@@ -773,11 +833,15 @@ pt-BR:
           edit_image: Editar imagem
           error: Erro!
           file_size_too_large: 'O tamanho do arquivo é grande demais! Tamanho maximo de arquivo: %{megabytes}MB'
+          filename: Nome Arquivo
+          remove: Remover
           replace: Substituir
+          title: Título
           title_required: Título é obrigatório!
           uploaded: Carregado
           validating: Validando...
           validation_error: Erro de validação!
+        select_file: Selecione um arquivo
       upload_help:
         dropzone: Solte os arquivos aqui ou clique no botão para carregar
         explanation: Orientação para %{attribute}
@@ -792,25 +856,43 @@ pt-BR:
           description_own: "%{score} usuários estão seguindo você."
           name: Seguidores
           next_level_in: Receba mais %{score} usuários para seguir você para alcançar o próximo nível!
+          unearned_another: Este usuário ainda não possui seguidores.
+          unearned_own: Você ainda não tem seguidores.
         index:
-          badge_title: "%{name} selo"
+          badge_title: "Selo \"%{name}\""
           how: Como você pode ganhar
-          page_description: Crachás são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, você ganhará distintivos diferentes. Aqui está a lista de crachás e algumas maneiras de ganhá-los.
-          title: Distintivos
-      description: Crachás são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, você ganhará distintivos diferentes.
+          page_description: Os selos são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, você ganhará selos diferentes. Aqui está a lista de selos e algumas maneiras de ganhá-los.
+          title: Selos
+      description: Os selos são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, você ganhará selos diferentes.
       level: Nível %{level}
+      reached_top: Você atingiu o nível máximo para esta medalha.
+      title: O que são as medalhas?
     group_admins:
       actions:
+        are_you_sure: Você tem certeza? Isso não removerá o usuário do grupo.
         demote_admin: Remover Administrador
+      demote:
+        error: Ocorreu um erro ao remover este usuário da lista de administradores.
+        success: Usuário removido com sucesso dos administradores.
       index:
         current_admins: 'Administradores atuais:'
         manage_admins: Gerenciar administradores
     group_invites:
+      accept:
+        error: Houve um erro ao aceitar este convite.
+        success: Convite aceito com sucesso.
       accept_invitation: Aceitar
       accept_or_reject_group_invitations: 'Os seguintes grupos convidaram você para se juntar a eles. Aceite ou rejeite seus pedidos:'
       index:
         invite: Convidar
         invite_user: Convidar usuário
+      invite:
+        error: Ocorreu um erro ao convidar esse participante.
+        success: Participante convidado com sucesso.
+      pending_invitations: Solicitações pendentes
+      reject:
+        error: Houve um erro ao rejeitar este convite.
+        success: Convite rejeitado com sucesso.
       reject_invitation: Rejeitar
     group_members:
       actions:
@@ -1101,7 +1183,7 @@ pt-BR:
     profiles:
       show:
         activity: Atividade
-        badges: Distintivos
+        badges: Selos
         conversations: Conversas
         followers: Seguidores
         following: Segue
@@ -1112,7 +1194,7 @@ pt-BR:
       sidebar:
         badges:
           info: Os crachás são obtidos através da realização de atividades específicas na plataforma.
-          title: Distintivos
+          title: Selos
       user:
         create_user_group: Criar Grupo
         edit_profile: Editar perfil
@@ -1215,7 +1297,7 @@ pt-BR:
       floating_help:
         help: Socorro
       login_modal:
-        sign_up: Inscrever-se
+        sign_up: Cadastrar-se
       mentions_modal:
         remove_recipient: Remover destinatário %{name}
       participatory_space_filters:
@@ -1389,7 +1471,7 @@ pt-BR:
     registrations:
       destroyed: Tchau! Sua conta foi cancelada com sucesso. Esperamos te ver novamente em breve.
       new:
-        sign_up: inscrever-se
+        sign_up: Cadastrar-se
       signed_up: Bem vinda! Você se inscreveu com sucesso.
       signed_up_but_inactive: Você se inscreveu com sucesso. No entanto, não poderíamos fazer o seu login porque sua conta ainda não está ativada.
       signed_up_but_locked: Você se inscreveu com sucesso. No entanto, não poderíamos fazer login porque sua conta está bloqueada.
@@ -1407,7 +1489,7 @@ pt-BR:
         forgot_your_password: Esqueceu sua senha?
         log_in: Iniciar sessão
         log_in_with_provider: Iniciar sessão com %{provider}
-        sign_up: inscrever-se
+        sign_up: Cadastrar-se
       minimum_password_length:
         one: "(Mínimo de%{count} caracteres)"
         other: "(%{count} caracteres no mínimo)"
@@ -1480,7 +1562,7 @@ pt-BR:
           accept_all: Aceitar todas
           accept_only_essential: Aceitar apenas o essencial
           description: Utilizamos cookies neste site para amelhorar o desempenho da página. As cookies nos permitem oferecer uma experiência mais personalizada ao usuário e aos canais de redes sociais.
-          title: Informações sobre as cookies utilizadas no site
+          title: Informações sobre os cookies utilizados no site
         modal:
           accept_all:
           accept_only_essential: Aceitar apenas o essencial
