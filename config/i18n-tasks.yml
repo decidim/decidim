@@ -351,6 +351,7 @@ ignore_unused:
   - decidim.meetings.meetings.filters.*
   - decidim.meetings.directory.meetings.index.space_type
   - decidim.authorization_modals.content.*
+  - time.buttons.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:
