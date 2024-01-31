@@ -45,7 +45,6 @@ module Decidim
         return true if participatory_process_user_role?
         return true if assembly_user_role?
         return true if conference_user_role?
-        return true if voting_monitoring_commitee_member?
 
         false
       end

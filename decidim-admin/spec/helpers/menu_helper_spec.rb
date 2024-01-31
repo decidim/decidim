@@ -30,7 +30,7 @@ module Decidim
 
         it "renders the modules" do
           expect(default_main_menu_modules).to \
-            have_selector("li", count: 5) &
+            have_selector("li", count: 4) &
             have_link("Processes", href: "/admin/participatory_processes") &
             have_link("Conferences", href: "/admin/conferences") &
             have_link("Assemblies", href: "/admin/assemblies") &
