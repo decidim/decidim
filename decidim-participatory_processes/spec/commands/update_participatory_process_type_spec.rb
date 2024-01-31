@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::ParticipatoryProcesses
   describe Admin::UpdateParticipatoryProcessType do
-    subject { described_class.new(process_type, form) }
+    subject { described_class.new(form, process_type) }
 
     let(:organization) { create(:organization) }
     let(:process_type) { create(:participatory_process_type, organization:) }

@@ -5,8 +5,6 @@ require "spec_helper"
 describe Decidim::InitiativesVotes::VoteCell, type: :cell do
   subject { cell("decidim/initiatives_votes/vote", vote).call }
 
-  include Decidim::SanitizeHelper
-
   controller Decidim::PagesController
 
   context "when there are no user extra fields" do

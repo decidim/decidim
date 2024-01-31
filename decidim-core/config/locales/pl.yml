@@ -85,12 +85,6 @@ pl:
   booleans:
     'false': 'Nie'
     'true': 'Tak'
-  carrierwave:
-    errors:
-      file_cannot_be_processed: Plik nie może być przetworzony
-      file_resolution_too_large: Rozdzielczość pliku jest zbyt duża
-      file_size_too_large: Rozmiar pliku jest zbyt duży
-      not_inside_organization: Plik nie jest dołączony do żadnej organizacji
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -505,7 +499,7 @@ pl:
       global_menu:
         name: Globalne menu
       hero:
-        name: Obraz główny
+        name: Banner i CTA
       hero_settings_form:
         background_image: Obraz tła
         welcome_text: Tekst powitalny
@@ -660,6 +654,10 @@ pl:
     endorsers_list:
       endorsed_by: Polubione przez…
     errors:
+      files:
+        file_cannot_be_processed: Plik nie może zostać przetworzony
+        file_resolution_too_large: Rozdzielczość pliku jest zbyt duża
+        not_inside_organization: Plik nie jest dołączony do żadnej organizacji
       internal_server_error:
         copied: Tekst skopiowany!
         copy_error_message_clarification: Skopiuj komunikat o błędzie do schowka
@@ -1265,7 +1263,6 @@ pl:
     offline:
       name: W trybie offline
       show:
-        message: Wygląda na to, że jesteś obecnie offline. Spróbuj ponownie później.
         retry: Powtórz
     open_data:
       not_available_yet: Pliki Open Data nie są jeszcze dostępne. Spróbuj ponownie za kilka minut.
@@ -1648,18 +1645,26 @@ pl:
         subject: Zaproszono Cię do zarządzania %{organization}
       invite_collaborator:
         subject: Zaproszono Cię do współpracy przy %{organization}
+      invite_private_user:
+        subject: Zostałeś zaproszony do uczestnictwa w prywatnym procesie w %{organization}
+      organization_admin_invitation_instructions:
+        subject: Zaproszono Cię do zarządzania %{organization}
       password_change:
         greeting: Witaj %{recipient}!
+        message: Kontaktujemy się z Tobą, aby powiadomić Cię o zmianie hasła.
         subject: Hasło zostało zmienione
       reset_password_instructions:
         action: Zmień moje hasło
         greeting: Witaj, %{recipient}!
         instruction: Ktoś poprosił o link do zmiany hasła. Możesz to zrobić za pomocą poniższego linku.
+        instruction_2: Jeśli to nie Ty poprosiłeś(aś) o zmianę hasła, zignoruj tę wiadomość.
+        instruction_3: Twoje hasło nie zmieni się, dopóki nie uzyskasz dostępu do powyższego linku i nie utworzysz nowego.
         subject: Instrukcje dotyczące resetu hasła
       unlock_instructions:
         action: Odblokuj moje konto
         greeting: Witaj, %{recipient}!
         instruction: 'Kliknij w poniższy link, aby odblokować konto:'
+        message: Twoje konto zostało zablokowane z powodu zbyt dużej liczby nieudanych prób logowania.
         subject: Instrukcje dotyczące odblokowania konta
     omniauth_callbacks:
       failure: Nie można uwierzytelnić użytkownika za pomocą %{kind} ponieważ "%{reason}".
@@ -1816,8 +1821,23 @@ pl:
           items:
             decidim-consent:
               service: Ta strona internetowa
+            pwaInstallPromptSeen:
+              description: Zachowuje status, jeśli powiadomienie o instalacji progresywnej aplikacji internetowej (PWA) zostało już wyświetlone przez użytkownika.
+              service: Ta strona internetowa
+          types:
+            cookie: Plik cookie
+            local_storage: Pamięć lokalna
+        dialog:
+          accept_all: Zaakceptuj wszystkie
+          accept_only_essential: Akceptuj tylko niezbędne
+          description: Używamy plików cookie na naszej stronie internetowej w celu poprawy wydajności i zawartości strony. Pliki cookie umożliwiają nam zapewnienie bardziej spersonalizowanej obsługi użytkowników i kanałów mediów społecznościowych.
+          settings: Ustawienia
+          title: Informacje o plikach cookie używanych na stronie internetowej
         modal:
+          accept_all: Zaakceptuj wszystkie
+          accept_only_essential: Akceptuj tylko niezbędne
           analytics:
+            description: Te pliki cookie są wykorzystywane do monitorowania i analizy użytkowników strony internetowej, aby pomóc w jej ulepszeniu.
             title: Analizy i statystyki
           description: Używamy plików cookie, aby zapewnić podstawowe funkcje strony internetowej i zwiększyć Twoje doświadczenie online. Możesz skonfigurować i zaakceptować użycie plików cookie i zmodyfikować opcje swojej zgody w dowolnym momencie.
           essential:

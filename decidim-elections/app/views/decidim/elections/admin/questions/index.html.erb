@@ -1,11 +1,11 @@
 <% add_decidim_page_title(t(".title")) %>
 <div class="card">
   <div class="item_show__header">
-    <h2 class="item_show__header-title">
+    <h1 class="item_show__header-title">
       <%= t(".title") %>
 
       <%= link_to t("actions.new_question", scope: "decidim.elections"), new_election_question_path(election), class: "button button__sm button__secondary" if allowed_to? :create, :question, election: election %>
-    </h2>
+    </h1>
   </div>
   <div class="table-scroll">
     <table class="table-list">

@@ -310,8 +310,6 @@ bg:
     content_blocks:
       footer_sub_hero:
         name: Долен колонтитул на под-геройския банер
-      hero:
-        name: Изображение на героя
       hero_settings_form:
         background_image: Фоново изображение
         welcome_text: Поздравителен текст

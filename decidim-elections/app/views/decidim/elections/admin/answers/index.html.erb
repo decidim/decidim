@@ -1,7 +1,7 @@
 <% add_decidim_page_title(t(".title")) %>
 <div class="card">
   <div class="item_show__header">
-    <h2 class="item_show__header-title">
+    <h1 class="item_show__header-title">
       <div>
         <%= link_to translated_attribute(election.title), elections_path %> &gt;
         <%= link_to translated_attribute(question.title), election_questions_path(election) %> &gt;
@@ -18,7 +18,7 @@
         <% end %>
         <%= link_to t("actions.new_answer", scope: "decidim.elections"), new_election_question_answer_path(election, question), class: "button button__sm button__secondary" if allowed_to? :create, :answer, election: election, question: question %>
       </div>
-    </h2>
+    </h1>
   </div>
 
   <div class="card-section">
