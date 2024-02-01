@@ -7,8 +7,12 @@ module Decidim
     class ProcessGroupSCell < Decidim::CardSCell
       private
 
+      def resource_path
+        Decidim::ParticipatoryProcesses::Engine.routes.url_helpers.participatory_process_group_path(model)
+      end
+
       def metadata_cell
-        "decidim/participatory_processes/process_metadata"
+        "decidim/participatory_processes/process_group_metadata"
       end
     end
   end
