@@ -29,7 +29,6 @@ module Decidim
         broadcast(:ok, @meeting)
       end
 
-
       private
 
       def change_meeting_state_to_withdrawn
