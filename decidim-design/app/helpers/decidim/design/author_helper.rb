@@ -74,7 +74,7 @@ module Decidim
                 }
               }
             ]
-          },
+          }
         ]
       end
 
@@ -87,7 +87,7 @@ module Decidim
           name: "Alan Smith",
           nickname: "alan_smith",
           personal_url: "https://alan.example.org",
-          about: "Hi, I'm alan",
+          about: "Hi, I am Alan",
           accepted_tos_version: Time.current
         ).presenter
       end
