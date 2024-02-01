@@ -43,7 +43,7 @@ module Decidim
                 cell_snippet: {
                   cell: "decidim/tab_panels",
                   args: [tab_panels_items],
-                  call_string: <<-TEXT
+                  call_string: [<<-TEXT1, <<-TEXT2]
   cell(
       "decidim/tab_panels",
       [
@@ -65,7 +65,27 @@ module Decidim
         }
       ]
     )
-                  TEXT
+                  TEXT1
+  cell(
+      "decidim/tab_panels",
+      [
+        {
+          enabled: true,
+          id: "icon",
+          text: "Icon",
+          method: :icon,
+          args: ["question-line", { class: "w-4 h-4" }]
+        },
+        {
+          enabled: true,
+          id: "text",
+          text: "Plain",
+          method: :content_tag,
+          args: ["p", "plain text", { class: "text-left" }]
+        }
+      ]
+    )
+                  TEXT2
                 }
               }
             ]

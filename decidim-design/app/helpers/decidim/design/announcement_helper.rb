@@ -25,7 +25,13 @@ module Decidim
                 cell_snippet: {
                   cell: "decidim/announcement",
                   args: ["I am an annoucement", { callout_class: "success" }],
-                  call_string: 'cell("decidim/announcement", "I am an annoucement", callout_class: "success")'
+                  call_string: [
+                    'cell("decidim/announcement", "I am an annoucement", callout_class: "success")',
+                    'cell("decidim/announcement", "I am an annoucement", callout_class: "warning")',
+                    'cell("decidim/announcement", "I am an annoucement", callout_class: "alert")',
+                    'cell("decidim/announcement", "I am an annoucement", callout_class: "secondary")',
+                    'cell("decidim/announcement", "I am an annoucement")'
+                  ]
                 }
               }
             ]
@@ -56,7 +62,14 @@ module Decidim
                 cell_snippet: {
                   cell: "decidim/announcement",
                   args: [{ title: "This is the title", body: "This is the body" }, { callout_class: "success" }],
-                  call_string: 'cell("decidim/announcement", { title: "This is the title", body: "This is the body" }, callout_class: "success")'
+                  call_string: [
+                    'cell("decidim/announcement", { title: "This is the title", body: "This is the body" }, callout_class: "success")',
+                    'cell("decidim/announcement", { title: "This is the title", body: "This is the body" }, callout_class: "warning")',
+                    'cell("decidim/announcement", { title: "This is the title", body: "This is the body" }, callout_class: "alert")',
+                    'cell("decidim/announcement", { title: "This is the title", body: "This is the body" }, callout_class: "secondary")',
+                    'cell("decidim/announcement", { title: "This is the title", body: "This is the body" })',
+                    'cell("decidim/announcement", "I am just plain text")'
+                  ]
                 }
               }
             ]
