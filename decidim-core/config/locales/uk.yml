@@ -177,8 +177,6 @@ uk:
     content_blocks:
       footer_sub_hero:
         name: Нижній колонтитул під-багатирського банера
-      hero:
-        name: Багатирський банер
       highlighted_content_banner:
         name: Банер висвітленого вмісту
       how_to_participate:

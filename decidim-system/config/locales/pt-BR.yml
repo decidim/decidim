@@ -73,7 +73,7 @@ pt-BR:
             did_not_receive_unlock_instructions?: Não recebeu instruções de desbloqueio?
             forgot_your_password?: Esqueceu sua senha?
             log_in: Iniciar sessão
-            sign_up: Inscrever-se
+            sign_up: Cadastrar-se
       menu:
         admins: Administradores
         dashboard: painel de controle

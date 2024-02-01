@@ -385,12 +385,9 @@ de:
         show:
           dropdown: Dropdown
           view_more_logs: Weitere Protokolle anzeigen
-      domain_whitelist:
+      domain_allowlist:
         form:
           domain_too_short: Domain zu kurz
-        update:
-          error: Fehler beim Aktualisieren der Domain-Whitelist.
-          success: Domain-Whitelist erfolgreich aktualisiert.
       exports:
         export_as: "%{name} als %{export_format}"
         formats:
@@ -571,7 +568,6 @@ de:
         areas: Bereiche
         configuration: Aufbau
         content: Gemeldeter Inhalt
-        external_domain_whitelist: Erlaubte externe Domains
         help_sections: Hilfeabschnitte
         homepage: Startseite
         impersonations: Identitätswechsel
@@ -855,7 +851,7 @@ de:
             layout_appearance_title: Layout-Layout bearbeiten
             preview: Vorschau
           omnipresent_banner_appearance_title: Bearbeiten Sie das allgegenwärtige Banner
-      organization_external_domain_whitelist:
+      organization_external_domain_allowlist:
         edit:
           update: Aktualisieren
         external_domain:
@@ -863,9 +859,6 @@ de:
           external_domain: Externe Domain
           remove: Entfernen
           up: Hoch
-        form:
-          add: Zur Whitelist hinzufügen
-          title: Externe Domain-Whitelist
       participatory_space_private_users:
         create:
           error: Beim Hinzufügen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
@@ -1013,7 +1006,7 @@ de:
         areas: Bereiche
         authorization_workflows: Verifizierungsmethoden
         dashboard: Instrumententafel
-        edit_external_domains: Externe Domain-Whitelist
+        edit_external_domains: Liste erlaubter externer Domains
         edit_landing_page: Seiteninhalte
         edit_organization_appearance: Homepage-Erscheinungsbild bearbeiten
         impersonatable_users: Überschaubare Benutzer

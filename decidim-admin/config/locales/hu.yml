@@ -365,12 +365,12 @@ hu:
         show:
           dropdown: Legördülő lista
           view_more_logs: További naplók megtekintése
-      domain_whitelist:
+      domain_allowlist:
         form:
-          domain_too_short: Túl rövid domain
+          domain_too_short: Túl rövid domain név
         update:
-          error: Nem sikerült frissíteni a domain fehérlistát.
-          success: A domain fehérlista sikeresen frissült.
+          error: Nem sikerült frissíteni az engedélyezett külső tartományok listáját
+          success: Az engedélyezett külső tartományok listája sikeresen frissült.
       exports:
         export_as: "%{name} mint %{export_format}"
         formats:
@@ -551,7 +551,7 @@ hu:
         areas: Területek
         configuration: Beállítások
         content: Jelentett tartalom
-        external_domain_whitelist: Engedélyezett külső domainek
+        external_domain_allowlist: Engedélyezett külső domainek
         help_sections: Súgó szakaszok
         homepage: Homepage
         impersonations: Felhatalmazások
@@ -828,7 +828,7 @@ hu:
             layout_appearance_title: Elrendezés szerkesztése
             preview: Előnézet
           omnipresent_banner_appearance_title: Mindenhol megjelenő banner szerkesztése
-      organization_external_domain_whitelist:
+      organization_external_domain_allowlist:
         edit:
           update: Frissítés
         external_domain:
@@ -837,8 +837,8 @@ hu:
           remove: Eltávolítás
           up: Fel
         form:
-          add: Hozzáadás a kivétellistához
-          title: Külső domain kivétellista
+          add: Hozzáadás az engedélyezett listához
+          title: Engedélyezett külső domainek listája
       participatory_space_private_users:
         create:
           error: Hiba történt egy privát felhasználó hozzáadása során a részvételi helyhez.
@@ -981,6 +981,7 @@ hu:
         areas: Területek
         authorization_workflows: Ellenőrzési módszerek
         dashboard: Vezérlőpult
+        edit_external_domains: Engedélyezett külső domainek listája
         impersonatable_users: Kezelhető résztvevők
         impersonations: Résztvevők kezelése
         metrics: Mérőszámok

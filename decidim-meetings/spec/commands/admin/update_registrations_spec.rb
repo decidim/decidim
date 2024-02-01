@@ -30,7 +30,8 @@ module Decidim::Meetings
         reserved_slots:,
         customize_registration_email:,
         registration_email_custom_content:,
-        registration_terms:
+        registration_terms:,
+        current_user: meeting.author
       )
     end
 

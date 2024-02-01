@@ -264,8 +264,6 @@ index 31be47c..75c7d5e 100644
          - release/0.27-stable
 -        - release/0.26-stable
          - develop
-     - url: https://github.com/decidim/decidim-bulletin-board
-       start_path: docs
 ----
 After you commit this change in `develop` branch you will have to wait a couple minutes for the automatic deployment to see it live at https://docs.decidim.org.
 

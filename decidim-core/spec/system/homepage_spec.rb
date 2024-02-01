@@ -172,7 +172,7 @@ describe "Homepage" do
           click_link static_page1.title["en"]
           expect(page).to have_i18n_content(static_page1.title)
 
-          expect(page).to have_i18n_content(static_page1.content)
+          expect(page).to have_i18n_content(static_page1.content, strip_tags: true)
         end
 
         it "includes the footer sub_hero with the current organization name" do
@@ -484,8 +484,6 @@ describe "Homepage" do
             expect(zipfile.glob("*open-data-proposals.csv").length).to eq(1)
             expect(zipfile.glob("*open-data-results.csv").length).to eq(1)
             expect(zipfile.glob("*open-data-meetings.csv").length).to eq(1)
-            expect(zipfile.glob("*open-data-elections.csv").length).to eq(1)
-            expect(zipfile.glob("*open-data-votings.csv").length).to eq(1)
           end
         end
       end

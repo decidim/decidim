@@ -3,7 +3,6 @@
 require "spec_helper"
 
 RSpec.describe "Initiative search" do
-  include Decidim::SanitizeHelper
   subject { response.body }
 
   let(:organization) { create(:organization) }

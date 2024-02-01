@@ -1,6 +1,6 @@
 <% add_decidim_page_title(t(".title")) %>
 <div class="item_show__header">
-  <h2 class="item_show__header-title">
+  <h1 class="item_show__header-title">
     <%= t(".title") %>
 
     <div class="card__filter">
@@ -8,7 +8,7 @@
       |
       <%= link_to t("actions.hidden", scope: "decidim.moderations"), moderations_path(hidden: true) %>
     </div>
-  </h2>
+  </h1>
 </div>
 <%= admin_filter_selector(:moderations) %>
 <div class="table-scroll">

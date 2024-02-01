@@ -378,9 +378,6 @@ module Decidim
 
       initializer "decidim_core.menu" do
         Decidim::Core::Menu.register_menu!
-      end
-
-      initializer "decidim_core.user_menu" do
         Decidim::Core::Menu.register_user_menu!
       end
 

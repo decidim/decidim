@@ -16,6 +16,7 @@ module Decidim
     include Cell::Caching::Notifications
     include Decidim::MarkupHelper
     include Decidim::LayoutHelper
+    include Decidim::SanitizeHelper
 
     delegate :current_organization, to: :controller
 
