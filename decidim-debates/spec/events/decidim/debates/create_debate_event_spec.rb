@@ -8,7 +8,6 @@ describe Decidim::Debates::CreateDebateEvent do
   let(:resource) { create(:debate, :participant_author, title: generate_localized_title(:debate_title)) }
   let(:space) { resource.participatory_space }
   let(:event_name) { "decidim.events.debates.debate_created" }
-  let(:space_path) { resource_locator(space).path }
   let(:extra) { { type: type.to_s } }
 
   describe "resource_text" do
@@ -38,7 +37,7 @@ describe Decidim::Debates::CreateDebateEvent do
     let(:email_subject) { "New debate \"#{resource_title}\" on #{participatory_space_title}" }
     let(:email_intro) { "Hi,\nA new debate \"#{resource_title}\" has been created on the #{participatory_space_title} participatory space, check it out and contribute:" }
     let(:email_outro) { "You have received this notification because you are following the #{participatory_space_title} participatory space. You can stop receiving notifications following the previous link." }
-    let(:notification_title) { "The <a href=\"#{resource_path}\">#{resource_title}</a> debate was created on <a href=\"#{space_path}\">#{participatory_space_title}</a>." }
+    let(:notification_title) { "The <a href=\"#{resource_path}\">#{resource_title}</a> debate was created on <a href=\"#{participatory_space_url}\">#{participatory_space_title}</a>." }
 
     it_behaves_like "a simple event"
     it_behaves_like "a simple event email"
