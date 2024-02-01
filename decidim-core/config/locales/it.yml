@@ -64,9 +64,6 @@ it:
   booleans:
     'false': 'No'
     'true': 'Si'
-  carrierwave:
-    errors:
-      not_inside_organization: Il file non è collegato a nessuna organizzazione
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -356,8 +353,6 @@ it:
         description: Descrisione
       footer_sub_hero:
         name: Banner di sub eroe di piè di pagina
-      hero:
-        name: Immagine in evidenza
       hero_settings_form:
         background_image: Immagine di sfondo
         welcome_text: Testo di benvenuto

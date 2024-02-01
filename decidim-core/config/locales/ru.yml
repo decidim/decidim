@@ -230,8 +230,6 @@ ru:
     content_blocks:
       footer_sub_hero:
         name: Нижний колонтитул под-богатырского баннера
-      hero:
-        name: Богатырское изображение
       highlighted_content_banner:
         name: Баннер рекомендуемого содержимого
       how_to_participate:

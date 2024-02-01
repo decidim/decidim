@@ -544,31 +544,27 @@ describe "Filter Proposals", :slow do
       end
 
       context "when amendments_enabled component setting is enabled" do
-        before do
-          component.update!(settings: { amendments_enabled: true })
-        end
-
         context "and amendments_visbility component step_setting is set to 'participants'" do
-          before do
-            component.update!(
-              step_settings: {
-                component.participatory_space.active_step.id => {
-                  amendments_visibility: "participants"
-                }
-              }
-            )
-          end
-
           context "when the user is logged in" do
+            before do
+              visit decidim.root_path
+
+              component.update!(settings: { amendments_enabled: true })
+              component.update!(
+                step_settings: {
+                  component.participatory_space.active_step.id => {
+                    amendments_visibility: "participants"
+                  }
+                }
+              )
+              login_as user, scope: :user
+              visit_component
+            end
+
             context "and has amended a proposal" do
               let!(:new_emendation) { create(:proposal, component:, scope:) }
               let!(:new_amendment) { create(:amendment, amendable: proposal, emendation: new_emendation, amender: new_emendation.creator_author) }
               let(:user) { new_amendment.amender }
-
-              before do
-                login_as user, scope: :user
-                visit_component
-              end
 
               it "can be filtered by type" do
                 within "form.new_filter" do
@@ -588,11 +584,6 @@ describe "Filter Proposals", :slow do
             end
 
             context "and has NOT amended a proposal" do
-              before do
-                login_as user, scope: :user
-                visit_component
-              end
-
               it "cannot be filtered by type" do
                 within "form.new_filter" do
                   expect(page).not_to have_content(/Type/i)
@@ -603,6 +594,15 @@ describe "Filter Proposals", :slow do
 
           context "when the user is NOT logged in" do
             before do
+              visit decidim.root_path
+              component.update!(settings: { amendments_enabled: true })
+              component.update!(
+                step_settings: {
+                  component.participatory_space.active_step.id => {
+                    amendments_visibility: "participants"
+                  }
+                }
+              )
               visit_component
             end
 

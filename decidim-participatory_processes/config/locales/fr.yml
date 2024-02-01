@@ -219,6 +219,12 @@ fr:
             last_step: Vous ne pouvez pas supprimer la dernière étape d'une concertation.
           success: L'étape de la concertation a été supprimée avec succès.
         edit:
+          cta_deprecated:
+            body_html: |-
+              Configurer le bouton d'action depuis l'étape de concertation ne fonctionne plus dans le nouveau design.
+              Cela est maintenant fait via la <b>page d'accueil</b> de la concertation, en utilisant le bloc de contenu<b>Hero et image</b>.
+              Nous l'avons laissé ici pour migrer les boutons d'actions dont vous avez besoin. Les champs <i>Chemin d'appel à l'action</i> et <i>Texte d'appel à l'action</i> seront supprimés dans une prochaine version.
+            title: Bouton d'action obsolète
           title: Modifier l'étape de la concertation
           update: Mettre à jour
         index:

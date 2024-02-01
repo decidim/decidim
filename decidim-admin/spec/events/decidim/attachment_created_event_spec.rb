@@ -8,10 +8,10 @@ describe Decidim::AttachmentCreatedEvent do
   let(:event_name) { "decidim.events.attachments.attachment_created" }
   let(:resource) { create(:attachment) }
   let(:attached_to_url) { resource_locator(attached_to).url }
-  let(:resource_title) { attached_to.title["en"] }
+  let(:resource_title) { decidim_escape_translated(attached_to.title) }
   let(:resource_path) { resource.url }
   let(:attached_to) { resource.attached_to }
-  let(:email_subject) { "An update to #{resource_title}" }
+  let(:email_subject) { "An update to #{decidim_sanitize_translated(attached_to.title)}" }
   let(:email_intro) { "A new document has been added to #{resource_title}. You can see it from this page:" }
   let(:email_outro) { "You have received this notification because you are following #{resource_title}. You can stop receiving notifications following the previous link." }
   let(:notification_title) { "A <a href=\"#{resource_path}\">new document</a> has been added to <a href=\"#{attached_to_url}\">#{resource_title}</a>" }

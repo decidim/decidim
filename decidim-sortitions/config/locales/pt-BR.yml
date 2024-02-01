@@ -10,7 +10,7 @@ pt-BR:
         title: Título
         witnesses: Testemunhas
     models:
-      decidim/sortitions/create_sortition_event: Sorteio
+      decidim/sortitions/create_sortition_event: Classificação
   activerecord:
     models:
       decidim/sortitions/sortition:
@@ -19,6 +19,8 @@ pt-BR:
   decidim:
     components:
       sortitions:
+        actions:
+          comment: Comentário
         name: Sorteios
         settings:
           global:
@@ -36,6 +38,7 @@ pt-BR:
         actions:
           destroy: Cancelar a classificação
           edit: Editar
+          new_sortition: Novo Sorteio
           show: Detalhes da classificação
         models:
           sortition:
@@ -56,6 +59,10 @@ pt-BR:
             title: Cancelamento da classificação
           create:
             error: Ocorreu um erro ao criar uma nova classificação.
+            success: Sorteio criado com sucesso.
+          destroy:
+            error: Não é possível cancelar o sorteio.
+            success: Sorteio cancelado com sucesso.
           edit:
             title: Atualizar as informações sobre a classificação
             update: Atualizar
@@ -72,6 +79,7 @@ pt-BR:
             selected_proposals: Propostas selecionadas para sorteio
           update:
             error: Houve um erro ao atualizar a classificação.
+            success: Sorteio atualizado com sucesso.
       admin_log:
         sortition:
           create: "%{user_name} criou a classificação %{resource_name} em %{space_name}"
@@ -88,6 +96,8 @@ pt-BR:
           cancelled: Cancelado
           category: Categoria
           state: Estado
+        index:
+          empty: Ainda não há sorteios ainda.
         linked_sortitions:
           selected_proposals: Propostas selecionadas
         orders:

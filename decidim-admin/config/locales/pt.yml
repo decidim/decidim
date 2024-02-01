@@ -300,9 +300,6 @@ pt:
       dashboard:
         show:
           view_more_logs: Ver mais registos
-      domain_whitelist:
-        form:
-          domain_too_short: Domínio demasiado curto
       exports:
         export_as: "%{name} como %{export_format}"
         formats:
@@ -434,7 +431,6 @@ pt:
         area_types: Tipos de área
         areas: Áreas
         configuration: Configuração
-        external_domain_whitelist: Domínios externos autorizados
         help_sections: Secções de ajuda
         homepage: Página inicial
         impersonations: Personificações
@@ -682,17 +678,6 @@ pt:
             layout_appearance_title: Editar aparência do layout
             preview: Pré-visualização
           omnipresent_banner_appearance_title: Editar faixa omnipresente
-      organization_external_domain_whitelist:
-        edit:
-          update: Actualização
-        external_domain:
-          down: Para baixo
-          external_domain: Domínio externo
-          remove: Remover
-          up: Para cima
-        form:
-          add: Adicionar à lista branca
-          title: Lista branca de domínio externo
       participatory_space_private_users:
         create:
           error: Ocorreu um problema ao adicionar um participante privado neste espaço participativo.

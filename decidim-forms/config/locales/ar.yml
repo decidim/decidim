@@ -67,6 +67,8 @@ ar:
           max_choices: 'خيارات ماكس: %{n}'
         show:
           answer_questionnaire:
+            already_have_an_account?: لديك حساب بالفعل؟
+            are_you_new?: مستخدم جديد؟
             title: أجب عن النموذج
           questionnaire_answered:
             body: لقد أجبت بالفعل على هذا النموذج.
