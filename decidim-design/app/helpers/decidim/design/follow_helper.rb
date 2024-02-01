@@ -26,14 +26,6 @@ module Decidim
           }
         ]
       end
-
-      def follow_table(*table_rows, **_opts)
-        table_rows.map do |table_cell|
-          row = []
-          row << render(partial: table_cell[:partial])
-          row
-        end
-      end
     end
   end
 end
