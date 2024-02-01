@@ -42,7 +42,6 @@ shared_examples_for "a new production application" do
 
     expect(File.read("#{test_app}/Gemfile"))
       .to match(/^# gem "decidim-initiatives"/)
-      .and match(/^# gem "decidim-elections"/)
       .and match(/^# gem "decidim-conferences"/)
       .and match(/^# gem "decidim-templates"/)
   end
@@ -54,7 +53,6 @@ shared_examples_for "a new development application" do
 
     expect(File.read("#{test_app}/Gemfile"))
       .to match(/^gem "decidim-initiatives"/)
-      .and match(/^gem "decidim-elections"/)
       .and match(/^gem "decidim-conferences"/)
       .and match(/^gem "decidim-templates"/)
 
@@ -241,21 +239,7 @@ shared_context "with application env vars" do
       "INITIATIVES_STATS_CACHE_EXPIRATION_TIME" => "7",
       "INITIATIVES_MAX_TIME_IN_VALIDATING_STATE" => "50",
       "INITIATIVES_PRINT_ENABLED" => "false",
-      "INITIATIVES_DO_NOT_REQUIRE_AUTHORIZATION" => "true",
-      "BULLETIN_BOARD_SERVER" => "a-bulletin-board-server",
-      "BULLETIN_BOARD_PUBLIC_KEY" => "a-bulletin-public-key",
-      "BULLETIN_BOARD_API_KEY" => "an-authority-api-key",
-      "AUTHORITY_NAME" => "an-authority-name",
-      "AUTHORITY_PRIVATE_KEY" => "an-authority-private-key",
-      "ELECTIONS_SCHEME_NAME" => "an-elections-scheme-name",
-      "ELECTIONS_NUMBER_OF_TRUSTEES" => "345",
-      "ELECTIONS_QUORUM" => "987",
-      "ELECTIONS_SETUP_MINIMUM_HOURS_BEFORE_START" => "4",
-      "ELECTIONS_START_VOTE_MAXIMUM_HOURS_BEFORE_START" => "7",
-      "ELECTIONS_VOTER_TOKEN_EXPIRATION_MINUTES" => "123",
-      "VOTINGS_CHECK_CENSUS_MAX_REQUESTS" => "6",
-      "VOTINGS_THROTTLING_PERIOD" => "2",
-      "VOTINGS_CENSUS_ACCESS_CODES_EXPORT_EXPIRY_TIME" => "3"
+      "INITIATIVES_DO_NOT_REQUIRE_AUTHORIZATION" => "true"
     }
   end
 
@@ -369,13 +353,7 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim initiatives stats_cache_expiration_time) => 5,
       %w(decidim initiatives max_time_in_validating_state) => 60,
       %w(decidim initiatives print_enabled) => "auto",
-      %w(decidim initiatives do_not_require_authorization) => false,
-      %w(elections setup_minimum_hours_before_start) => 1,
-      %w(elections start_vote_maximum_hours_before_start) => 6,
-      %w(elections voter_token_expiration_minutes) => 120,
-      %w(elections votings check_census_max_requests) => 5,
-      %w(elections votings throttling_period) => 1,
-      %w(elections votings census access_codes_export_expiry_time) => 2
+      %w(decidim initiatives do_not_require_authorization) => false
     }
   end
 
@@ -473,21 +451,7 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim initiatives stats_cache_expiration_time) => 7,
       %w(decidim initiatives max_time_in_validating_state) => 50,
       %w(decidim initiatives print_enabled) => false,
-      %w(decidim initiatives do_not_require_authorization) => true,
-      %w(elections bulletin_board_server) => "a-bulletin-board-server",
-      %w(elections bulletin_board_public_key) => "a-bulletin-public-key",
-      %w(elections authority_api_key) => "an-authority-api-key",
-      %w(elections authority_name) => "an-authority-name",
-      %w(elections authority_private_key) => "an-authority-private-key",
-      %w(elections scheme_name) => "an-elections-scheme-name",
-      %w(elections number_of_trustees) => 345,
-      %w(elections quorum) => 987,
-      %w(elections setup_minimum_hours_before_start) => 4,
-      %w(elections start_vote_maximum_hours_before_start) => 7,
-      %w(elections voter_token_expiration_minutes) => 123,
-      %w(elections votings check_census_max_requests) => 6,
-      %w(elections votings throttling_period) => 2,
-      %w(elections votings census access_codes_export_expiry_time) => 3
+      %w(decidim initiatives do_not_require_authorization) => true
     }
   end
 
@@ -903,48 +867,6 @@ shared_examples_for "an application with extra configurable env vars" do
     }
   end
 
-  let(:elections_initializer_off) do
-    {
-      "setup_minimum_hours_before_start" => 1,
-      "start_vote_maximum_hours_before_start" => 6,
-      "voter_token_expiration_minutes" => 120
-    }
-  end
-
-  let(:elections_initializer_on) do
-    {
-      "setup_minimum_hours_before_start" => 4,
-      "start_vote_maximum_hours_before_start" => 7,
-      "voter_token_expiration_minutes" => 123
-    }
-  end
-
-  let(:votings_initializer_off) do
-    {
-      "check_census_max_requests" => 5,
-      "throttling_period" => 60 # 1.minute
-    }
-  end
-
-  let(:votings_initializer_on) do
-    {
-      "check_census_max_requests" => 6,
-      "throttling_period" => 120 # 2.minutes
-    }
-  end
-
-  let(:census_initializer_off) do
-    {
-      "census_access_codes_export_expiry_time" => 172_800 # 2.days
-    }
-  end
-
-  let(:census_initializer_on) do
-    {
-      "census_access_codes_export_expiry_time" => 259_200 # 3.days
-    }
-  end
-
   it "env vars generate secrets application" do
     expect(result[1]).to be_success, result[0]
 
@@ -960,48 +882,6 @@ shared_examples_for "an application with extra configurable env vars" do
     initiatives_initializer_on.each do |key, value|
       current = json_on[key]
       expect(current).to eq(value), "Initiatives Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
-    end
-
-    # Test onto the initializer with ENV vars OFF for the Elections module
-    json_off = initializer_config_for(test_app, env_off, "Decidim::Elections")
-    elections_initializer_off.each do |key, value|
-      current = json_off[key]
-      expect(current).to eq(value), "Elections Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
-    end
-
-    # Test onto the initializer with ENV vars ON for the Elections module
-    json_on = initializer_config_for(test_app, env_on, "Decidim::Elections")
-    elections_initializer_on.each do |key, value|
-      current = json_on[key]
-      expect(current).to eq(value), "Elections Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
-    end
-
-    # Test onto the initializer with ENV vars OFF for the Votings module
-    json_off = initializer_config_for(test_app, env_off, "Decidim::Votings")
-    votings_initializer_off.each do |key, value|
-      current = json_off[key]
-      expect(current).to eq(value), "Votings Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
-    end
-
-    # Test onto the initializer with ENV vars ON for the Votings module
-    json_on = initializer_config_for(test_app, env_on, "Decidim::Votings")
-    votings_initializer_on.each do |key, value|
-      current = json_on[key]
-      expect(current).to eq(value), "Votings Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
-    end
-
-    # Test onto the initializer with ENV vars OFF for the Votings::Census module
-    json_off = initializer_config_for(test_app, env_off, "Decidim::Votings::Census")
-    census_initializer_off.each do |key, value|
-      current = json_off[key]
-      expect(current).to eq(value), "Votings::Census Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
-    end
-
-    # Test onto the initializer with ENV vars ON for the Votings::Census module
-    json_on = initializer_config_for(test_app, env_on, "Decidim::Votings::Census")
-    census_initializer_on.each do |key, value|
-      current = json_on[key]
-      expect(current).to eq(value), "Votings::Census Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
     end
   end
 end
