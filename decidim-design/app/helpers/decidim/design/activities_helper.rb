@@ -37,7 +37,7 @@ module Decidim
             ]
           },
           {
-            id: "sourcecode",
+            id: "source_code",
             contents: [
               {
                 type: :cell_table,
