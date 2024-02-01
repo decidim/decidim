@@ -25,14 +25,6 @@ module Decidim
           }
         ]
       end
-
-      def report_table(*table_rows, **_opts)
-        table_rows.each_with_index.map do
-          row = []
-          row << render(partial: "decidim/design/components/report/static-report")
-          row
-        end
-      end
     end
   end
 end
