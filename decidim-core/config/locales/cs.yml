@@ -88,6 +88,8 @@ cs:
     'true': 'Ano'
   carrierwave:
     errors:
+      file_cannot_be_processed: Soubor nelze zpracovat
+      file_resolution_too_large: Rozlišení souboru je příliš velké
       file_size_too_large: Soubor je příliš velký
   date:
     formats:
