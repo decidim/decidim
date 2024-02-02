@@ -76,7 +76,7 @@ module Decidim
         let(:notification_title) { "The proposal <a href=\"#{resource_path}\">A nice proposal</a> has been added to #{participatory_space_title} by #{author.name} <a href=\"/profiles/#{author.nickname}\">@#{author.nickname}</a>." }
         let(:email_outro) { "You have received this notification because you are following \"#{participatory_space_title}\". You can stop receiving notifications following the previous link." }
         let(:email_intro) { "The proposal \"A nice proposal\" has been added to \"#{participatory_space_title}\" that you are following." }
-        let(:email_subject) { "New proposal \"#{resource_title}\" added to #{participatory_space_title}" }
+        let(:email_subject) { "New proposal \"#{resource_title}\" added to #{decidim_sanitize_translated(participatory_space.title)}" }
         let(:extra) { { participatory_space: true } }
 
         include_context "when a simple event"

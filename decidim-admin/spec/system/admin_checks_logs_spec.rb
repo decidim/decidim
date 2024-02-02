@@ -50,6 +50,8 @@ describe "Admin checks logs" do
       let(:space_title) { translated(action_logs.first.participatory_space.title) }
       let(:search_term) { space_title[0..2].downcase }
       let(:autocomplete_result) { "Participatory processes - #{space_title}" }
+      # we are intentionally skipping injection here because we want to test the search.
+      let!(:action_logs) { create_list(:action_log, 3, organization:, skip_injection: true) }
 
       it "lists only logs from that participatory space" do
         within ".filters__section" do
@@ -76,7 +78,8 @@ describe "Admin checks logs" do
 
       it "lists only logs after the start time or at the same minute" do
         within ".filters__section" do
-          fill_in :q_created_at_dtgteq, with: Time.zone.local(2022, 6, 22, 9, 10)
+          fill_in_datepicker :q_created_at_dtgteq_date, with: "22/06/2022"
+          fill_in_timepicker :q_created_at_dtgteq_time, with: "09:10"
           find("*[type=submit]").click
         end
 
@@ -87,7 +90,8 @@ describe "Admin checks logs" do
 
       it "lists only logs before the end time or at the same minute" do
         within ".filters__section" do
-          fill_in :q_created_at_dtlteq, with: Time.zone.local(2022, 6, 22, 9, 10)
+          fill_in_datepicker :q_created_at_dtlteq_date, with: "22/06/2022"
+          fill_in_timepicker :q_created_at_dtlteq_time, with: "09:10"
           find("*[type=submit]").click
         end
 
@@ -98,8 +102,10 @@ describe "Admin checks logs" do
 
       it "lists only logs between the start time and the end time or at the same minutes" do
         within ".filters__section" do
-          fill_in :q_created_at_dtgteq, with: Time.zone.local(2022, 6, 22, 8, 9)
-          fill_in :q_created_at_dtlteq, with: Time.zone.local(2022, 6, 22, 9, 10)
+          fill_in_datepicker :q_created_at_dtgteq_date, with: "22/06/2022"
+          fill_in_timepicker :q_created_at_dtgteq_time, with: "08:09"
+          fill_in_datepicker :q_created_at_dtlteq_date, with: "22/06/2022"
+          fill_in_timepicker :q_created_at_dtlteq_time, with: "09:10"
           find("*[type=submit]").click
         end
 
