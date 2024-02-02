@@ -2,7 +2,7 @@
   <div class="card">
     <div class="card-section">
       <% if form.send(:error?, :external_domains) %>
-        <div class="input-field">
+        <div>
           <div>&nbsp;</div>
           <%= form.send(:error_and_help_text, :external_domains) %>
         </div>
