@@ -387,6 +387,12 @@ cs:
         show:
           dropdown: Rozbalovací nabídka
           view_more_logs: Zobrazit další protokoly
+      domain_allowlist:
+        form:
+          domain_too_short: Doména je příliš krátká
+        update:
+          error: Aktualizace seznamu povolených externích domén se nezdařila
+          success: Seznam povolených externích domén byl úspěšně aktualizován.
       exports:
         export_as: "%{name} jako %{export_format}"
         formats:
@@ -575,6 +581,7 @@ cs:
         areas: Oblasti
         configuration: Konfigurace
         content: Nahlášený obsah
+        external_domain_allowlist: Povolené externí domény
         help_sections: Sekce nápovědy
         homepage: Domovská stránka
         impersonations: V zastoupení
@@ -858,6 +865,12 @@ cs:
             layout_appearance_title: Upravit vzhled zobrazení
             preview: Náhled
           omnipresent_banner_appearance_title: Upravit všudypřítomný banner
+      organization_external_domain_allowlist:
+        edit:
+          update: Aktualizovat
+        external_domain:
+          down: Dolů
+          external_domain: Externí doména
       participatory_space_private_users:
         create:
           error: Při přidávání soukromého uživatele pro tento participační prostor došlo k chybě.
