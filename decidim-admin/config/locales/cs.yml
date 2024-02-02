@@ -873,6 +873,8 @@ cs:
         external_domain:
           down: Dolů
           external_domain: Externí doména
+          remove: Odstranit
+          up: Nahoru
         form:
           add: Přidat do seznamu povolených
           title: Seznam externích povolených domén
