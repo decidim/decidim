@@ -86,6 +86,9 @@ cs:
     'false': 'Ne'
     'true': 'Ano'
   date:
+    buttons:
+      close: Zavřít‏
+      select: Vybrat
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_dashed: "%d-%m-%Y"
@@ -93,6 +96,10 @@ cs:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+      help:
+        date_format: 'Formát: dd/mm/rrrr'
+      order: d-m-r
+      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -698,6 +705,9 @@ cs:
     endorsers_list:
       endorsed_by: Líbí se…
     errors:
+      files:
+        file_cannot_be_processed: Soubor nelze zpracovat
+        file_resolution_too_large: Rozlišení souboru je příliš velké
       internal_server_error:
         copied: Text zkopírován!
         copy_error_message_clarification: Kopírovat chybovou zprávu do schránky
