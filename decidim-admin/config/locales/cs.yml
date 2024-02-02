@@ -366,6 +366,8 @@ cs:
           view_more_logs: Zobrazit další protokoly
           welcome: Vítejte v Admin panelu.
       domain_whitelist:
+        form:
+          domain_too_short: Doména je příliš krátká
         update:
           error: Nepodařilo se aktualizovat seznam povolených domén
           success: Seznam povolených domén byl úspěšně aktualizován
@@ -554,6 +556,7 @@ cs:
         areas: Oblasti
         configuration: Konfigurace
         dashboard: Ovládací panel
+        external_domain_whitelist: Povolené externí domény
         help_sections: Sekce nápovědy
         homepage: Domovská stránka
         impersonations: V zastoupení
@@ -829,6 +832,9 @@ cs:
       organization_external_domain_whitelist:
         edit:
           update: Aktualizace
+        external_domain:
+          down: Dolů
+          external_domain: Externí doména
         form:
           add: Přidat do seznamu povolených
           title: Seznam externích povolených domén
