@@ -140,12 +140,6 @@ RSpec.configure do |config|
     end
   end
 
-  config.around :each, type: :system do |example|
-    example.run
-  rescue Selenium::WebDriver::Error::WebDriverError
-    Capybara.reset_sessions!
-  end
-
   config.before :each, driver: :rack_test do
     driven_by(:rack_test)
   end
