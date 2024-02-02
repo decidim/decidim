@@ -5,7 +5,6 @@ require "spec_helper"
 module Decidim::Blogs
   describe PostGCell, type: :cell do
     controller Decidim::ApplicationController
-    include Decidim::TranslatableAttributes
 
     subject { cell("decidim/blogs/post_g", model).call }
 

@@ -367,12 +367,6 @@ lt:
           title: Laukiantys Moderavimai
         show:
           view_more_logs: Peržiūrėti daugiau ataskaitų
-      domain_whitelist:
-        form:
-          domain_too_short: Domenas per trumpas
-        update:
-          error: Nepavyko atnaujinti domenų baltąjo sąrašo.
-          success: Domenų baltasis sąrašas atnaujintas sėkmingai.
       exports:
         export_as: "%{name} kaip %{export_format}"
         formats:
@@ -561,7 +555,6 @@ lt:
         areas: Erdvės
         configuration: Konfigūracija
         content: Turinys, apie kurį pranešta
-        external_domain_whitelist: Leistini išoriniai domenai
         help_sections: Pagalbos skyrius
         homepage: Pradinis puslapis
         impersonations: Įsikūnyjimai
@@ -837,17 +830,6 @@ lt:
             layout_appearance_title: Redaguoti išdėstymą
             preview: Peržiūra
           omnipresent_banner_appearance_title: Keisti visur naudojamą reklamjuostę
-      organization_external_domain_whitelist:
-        edit:
-          update: Atnaujinti
-        external_domain:
-          down: Žemyn
-          external_domain: Išorinis domenas
-          remove: Pašalinti
-          up: Aukštyn
-        form:
-          add: Pridėti prie baltojo sąrašo
-          title: Išorinių domenų baltasis sąrašas
       participatory_space_private_users:
         create:
           error: Pridedant privatų dalyvį į šia dalyvaujamają erdvę kilo problema.
@@ -992,7 +974,6 @@ lt:
         areas: Aplinkos
         authorization_workflows: Verifikacijos metodai
         dashboard: Švieslentė
-        edit_external_domains: Išorinių domenų baltasis sąrašas
         edit_landing_page: Puslapio turinys
         edit_organization_appearance: Keisti pagrindinio puslapio išvaizdą
         impersonatable_users: Dalyviai, kurių duomenis galima tvarkyti

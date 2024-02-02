@@ -4,7 +4,7 @@ require "thor"
 
 namespace :decidim do
   namespace :procfile do
-    desc "Generates a dummy app for testing in external installations"
+    desc "Generates a script for starting the development app server"
     task :install do
       actions :create_file, "Procfile.dev", <<~RUBY
         web: bin/rails server -b 0.0.0.0 -p 3000
@@ -12,6 +12,12 @@ namespace :decidim do
       RUBY
 
       actions :create_file, "bin/dev", %(#!/usr/bin/env sh
+
+set -e
+
+bundle check || bundle install --jobs 20 --retry 5
+
+bin/rails decidim:upgrade db:migrate
 
 if ! gem list foreman -i --silent; then
   echo "Installing foreman..."

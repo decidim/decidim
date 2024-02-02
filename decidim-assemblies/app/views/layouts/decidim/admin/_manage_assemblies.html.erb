@@ -5,32 +5,7 @@
     </span>
     <%= icon "arrow-down-s-line" %>
   <% end %>
-  <div id="assemblies-dropdown-menu-settings" aria-hidden="true">
-    <ul class="dropdown dropdown__bottom">
-      <% if allowed_to? :import, :assembly %>
-        <li class="dropdown__item">
-          <%= icon "price-tag-3-line", class: "fill-gray-2" %>
-          <%= link_to t("actions.import_assembly", scope: "decidim.admin"),
-                      new_import_path,
-                      class: "text-secondary" %>
-        </li>
-      <% end %>
-      <% if allowed_to?(:read, :assembly_list) %>
-        <li class="dropdown__item">
-          <%= icon "government-line" %>
-          <%= link_to t("menu.assemblies", scope: "decidim.admin"),
-                      decidim_admin_assemblies.assemblies_path,
-                      class: "text-secondary" %>
-        </li>
-      <% end %>
-      <% if  allowed_to?(:manage, :assemblies_type) %>
-        <li class="dropdown__item">
-          <%= icon "government-line" %>
-          <%= link_to t("menu.assemblies_types", scope: "decidim.admin"),
-                      decidim_admin_assemblies.assemblies_types_path,
-                      class: "text-secondary" %>
-        </li>
-      <% end %>
-    </ul>
+  <div id="assemblies-dropdown-menu-settings" class="process-title-content-dropdown" aria-hidden="true">
+    <%= dropdown_menu(:admin_assemblies_menu).render %>
   </div>
 </div>

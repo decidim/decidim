@@ -49,11 +49,8 @@ module Decidim
         root to: "questionnaire_templates#index"
       end
 
-      initializer "decidim_templates_admin.participatory_processes_menu" do
-        Decidim::Templates::Menu.register_admin_template_types_menu!
-      end
-
       initializer "decidim_templates_admin.menu" do
+        Decidim::Templates::Menu.register_admin_template_types_menu!
         Decidim::Templates::Menu.register_admin_menu!
       end
 

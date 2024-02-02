@@ -1,5 +1,0 @@
-sl:
-  activemodel:
-    attributes:
-      answer:
-        description: Opis

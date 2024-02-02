@@ -14,6 +14,9 @@ FactoryBot.define do
   end
 
   factory :assembly, class: "Decidim::Assembly" do
+    transient do
+      skip_injection { false }
+    end
     title { generate_localized_title }
     slug { generate(:assembly_slug) }
     subtitle { generate_localized_title }

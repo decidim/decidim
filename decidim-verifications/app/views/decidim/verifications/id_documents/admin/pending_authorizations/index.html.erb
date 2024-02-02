@@ -1,11 +1,11 @@
 <% add_decidim_page_title(t(".title")) %>
 <div class="card">
   <div class="item_show__header">
-    <h2 class="item_show__header-title">
+    <h1 class="item_show__header-title">
       <%= t(".title") %>
         <%= link_to t(".config"), edit_config_path, class: "button button__sm button__secondary" %>
         <%= link_to t(".offline_verification"), new_offline_confirmation_path, class: "button button__sm button__secondary" if has_offline_method? %>
-    </h2>
+    </h1>
   </div>
   <div class="table-scroll">
     <table class="table-list">

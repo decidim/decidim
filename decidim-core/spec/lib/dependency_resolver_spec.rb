@@ -117,7 +117,6 @@ module Decidim
       decidim-core
       decidim-debates
       decidim-design
-      decidim-elections
       decidim-forms
       decidim-generators
       decidim-initiatives
