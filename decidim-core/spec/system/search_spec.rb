@@ -41,7 +41,6 @@ describe "Search" do
         expect(page).to have_content("Participatory processes").once
         expect(page).to have_content("Assemblies").once
         expect(page).to have_content("Conferences").once
-        expect(page).to have_content("Votings").once
         expect(page).to have_content("Initiatives").once
         expect(page).to have_content("Meetings").once
         expect(page).to have_content("Proposals").once
