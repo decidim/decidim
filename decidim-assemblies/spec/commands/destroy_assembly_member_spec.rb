@@ -30,7 +30,7 @@ module Decidim::Assemblies
       it "traces the action" do
         expect(Decidim.traceability)
           .to receive(:perform_action!)
-          .with("delete", assembly_member, current_user, log_info)
+          .with(:delete, assembly_member, current_user, log_info)
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)

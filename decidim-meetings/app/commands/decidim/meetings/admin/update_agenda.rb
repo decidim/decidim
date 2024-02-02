@@ -3,33 +3,14 @@
 module Decidim
   module Meetings
     module Admin
-      # This command is executed when the user creates a Meeting from the admin
+      # This command is executed when the user updates a Meeting from the admin
       # panel.
-      class UpdateAgenda < Decidim::Command
-        def initialize(form, agenda)
-          @form = form
-          @agenda = agenda
-        end
+      class UpdateAgenda < Decidim::Commands::UpdateResource
+        fetch_form_attributes :title, :visible
 
-        # Creates the agenda if valid.
-        #
-        # Broadcasts :ok if successful, :invalid otherwise.
-        def call
-          return broadcast(:invalid) if @form.invalid?
+        protected
 
-          transaction do
-            update_agenda!
-            update_agenda_items
-          end
-
-          broadcast(:ok, @agenda)
-        end
-
-        private
-
-        attr_reader :form
-
-        def update_agenda_items
+        def run_after_hooks
           @form.agenda_items.each do |form_agenda_item|
             update_agenda_item(form_agenda_item)
           end
@@ -44,7 +25,7 @@ module Decidim
             parent_id: form_agenda_item.parent_id
           }
 
-          update_nested_model(form_agenda_item, agenda_item_attributes, @agenda.agenda_items) do |agenda_item|
+          update_nested_model(form_agenda_item, agenda_item_attributes, resource.agenda_items) do |agenda_item|
             form_agenda_item.agenda_item_children.each do |form_agenda_item_child|
               agenda_item_child_attributes = {
                 title: form_agenda_item_child.title,
@@ -52,7 +33,7 @@ module Decidim
                 position: form_agenda_item_child.position,
                 duration: form_agenda_item_child.duration,
                 parent_id: agenda_item.id,
-                agenda: @agenda
+                agenda: resource
               }
 
               update_nested_model(form_agenda_item_child, agenda_item_child_attributes, agenda_item.agenda_item_children)
@@ -74,15 +55,6 @@ module Decidim
           else
             record.save!
           end
-        end
-
-        def update_agenda!
-          Decidim.traceability.update!(
-            @agenda,
-            form.current_user,
-            title: form.title,
-            visible: form.visible
-          )
         end
       end
     end

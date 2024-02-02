@@ -384,12 +384,12 @@ ja:
         show:
           dropdown: ドロップダウン
           view_more_logs: もっとログを見る
-      domain_whitelist:
+      domain_allowlist:
         form:
           domain_too_short: ドメインが短すぎます
         update:
-          error: ドメインのホワイトリストを更新できませんでした。
-          success: ドメインのホワイトリストを更新しました。
+          error: 許可された外部ドメインのリストを更新できませんでした
+          success: 許可された外部ドメインのリストを更新しました。
       exports:
         export_as: "%{name} を %{export_format} 形式で取得"
         formats:
@@ -456,7 +456,6 @@ ja:
           report_count_eq: 報告数
           reported_id_string_or_reported_content_cont: 報告可能なIDまたはコンテンツで %{collection} を検索します。
           title_cont: '%{collection} をタイトルで検索します。'
-          user_name_or_user_email_cont: '%{collection} を名前またはメールアドレスで検索します。'
           user_name_or_user_nickname_or_user_email_cont: '%{collection} をメール、表示名、アカウントIDで検索します。'
         state_eq:
           label: 都道府県：
@@ -567,7 +566,7 @@ ja:
         areas: エリア
         configuration: 設定
         content: 報告されたコンテンツ
-        external_domain_whitelist: 許可された外部ドメイン
+        external_domain_allowlist: 許可された外部ドメイン
         help_sections: ヘルプセクション
         homepage: ホームページ
         impersonations: なりすまし
@@ -843,6 +842,7 @@ ja:
           cta_button_path_help_html: 'ホームページにあるCall to Actionボタンのリンク先を上書きすることができます。完全なURLではなく、相対パスを使用してください。 英字、数字、ハイフン、スラッシュを使用でき、英字で始まる必要があります。 Call To Actionボタンは、ホームページ内のウェルカムテキストと説明の間に表示されます。例: %{url}'
           cta_button_text_help: 組織の利用可能な言語ごとにホームページの [Call To Action] ボタンのテキストを上書きできます。 設定されていない場合は、デフォルト値が使用されます。 Call To Actionボタンは、ウェルカムテキストと説明の間のホームページに表示されます。
           header_snippets:
+            header_snippets_help_html: このフィールドはHTMLヘッダ要素内に何かを追加する際に使用します。 最も一般的な用途は、追加の JavaScript や CSS を必要とするサードパーティのサービスを統合することです。 また、HTML にメタタグを追加するためにも使用できます。 これは公開ページでのみ表示され、管理セクションでは表示されないことに注意してください。 コードが外部 API と相互作用する場合や、アプリケーション・セキュリティ・ガイドラインに準拠していない場合、コンテンツセキュリティポリシーを変更する必要があります。より詳しい使い方については、 <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">ドキュメントサイト</a> をご覧ください。
             title: HTML ヘッダーのスニペット
           homepage_appearance_title: ホームページの外観を編集
           homepage_highlighted_content_banner_title: ハイライトされたコンテンツバナー
@@ -850,17 +850,17 @@ ja:
             layout_appearance_title: レイアウトを編集
             preview: プレビュー
           omnipresent_banner_appearance_title: Omnipresentバナーを編集
-      organization_external_domain_whitelist:
+      organization_external_domain_allowlist:
         edit:
           update: 更新
         external_domain:
-          down: 下げる
+          down: 下へ
           external_domain: 外部ドメイン
           remove: 削除
-          up: 上げる
+          up: 上へ
         form:
-          add: ホワイトリストに追加
-          title: 外部ドメインのホワイトリスト
+          add: 許可されたリストに追加
+          title: 許可された外部ドメインのリスト
       participatory_space_private_users:
         create:
           error: この参加型スペースにプライベート参加者を追加する際に問題が発生しました。
@@ -1007,11 +1007,12 @@ ja:
         areas: エリア
         authorization_workflows: 確認方法
         dashboard: ダッシュボード
-        edit_external_domains: 外部ドメインのホワイトリスト
+        edit_external_domains: 許可された外部ドメインのリスト
         edit_landing_page: ページ内容
         edit_organization_appearance: ホームページの外観を編集
         impersonatable_users: 管理可能な参加者
         impersonations: 参加者管理
+        menu: メニュー
         metrics: 指標
         page_topics: トピック
         pages: ページ

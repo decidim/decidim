@@ -385,12 +385,12 @@ es-PY:
         show:
           dropdown: Desplegable
           view_more_logs: Ver más registros
-      domain_whitelist:
+      domain_allowlist:
         form:
-          domain_too_short: Dominio demasiado corto
+          domain_too_short: El dominio es demasiado corto
         update:
-          error: Error al actualizar la lista de dominios autorizados.
-          success: Se ha actualizado correctamente el listado de dominios autorizados.
+          error: Se ha producido un error al actualizar la lista de dominios externos permitidos
+          success: La lista de dominios externos permitidos se ha actualizado correctamente.
       exports:
         export_as: "%{name} como %{export_format}"
         formats:
@@ -457,7 +457,6 @@ es-PY:
           report_count_eq: Número de denuncias
           reported_id_string_or_reported_content_cont: Buscar %{collection} por contenido o id reportable.
           title_cont: Buscar %{collection} por título.
-          user_name_or_user_email_cont: Busca %{collection} por nombre o por correo electrónico.
           user_name_or_user_nickname_or_user_email_cont: Buscar %{collection} por correo electrónico, nombre o alias.
         state_eq:
           label: Estado
@@ -572,7 +571,7 @@ es-PY:
         areas: Áreas
         configuration: Configuración
         content: Contenido reportado
-        external_domain_whitelist: Dominios externos permitidos
+        external_domain_allowlist: Dominios externos permitidos
         help_sections: Secciones de ayuda
         homepage: Página principal
         impersonations: Impersonaciones
@@ -856,7 +855,7 @@ es-PY:
             layout_appearance_title: Editar apariencia de diseño global
             preview: Previsualizar
           omnipresent_banner_appearance_title: Editar banner omnipresente
-      organization_external_domain_whitelist:
+      organization_external_domain_allowlist:
         edit:
           update: Actualizar
         external_domain:
@@ -865,8 +864,8 @@ es-PY:
           remove: Eliminar
           up: Subir
         form:
-          add: Añadir a la lista blanca
-          title: Lista blanca de dominios externos
+          add: Añadir a la lista de direcciones permitidas
+          title: Lista de dominios externos permitidos
       participatory_space_private_users:
         create:
           error: Hubo un error al agregar un usuario privado para este espacio participativo.
@@ -1014,7 +1013,7 @@ es-PY:
         areas: Áreas
         authorization_workflows: Métodos de verificación
         dashboard: Panel de control
-        edit_external_domains: Listado de dominios externos permitidos
+        edit_external_domains: Lista de dominios externos permitidos
         edit_landing_page: Contenidos de la página
         edit_organization_appearance: Editar apariencia de página de inicio
         impersonatable_users: Usuarios manejables

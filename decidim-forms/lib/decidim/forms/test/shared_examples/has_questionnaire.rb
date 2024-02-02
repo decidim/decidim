@@ -23,6 +23,18 @@ shared_examples_for "has questionnaire" do
       login_as user, scope: :user
     end
 
+    context "and there are no questions" do
+      before do
+        questionnaire.questions.delete_all
+      end
+
+      it "shows an empty page with a message" do
+        visit questionnaire_public_path
+
+        expect(page).to have_content("No questions configured for this form yet.")
+      end
+    end
+
     it "allows answering the questionnaire" do
       visit questionnaire_public_path
 
@@ -522,6 +534,14 @@ shared_examples_for "has questionnaire" do
             { "body" => { "en" => "all" } }
           ]
         )
+      end
+
+      before do
+        # Workaround for flaky spec related to resolution change
+        #
+        # For some unknown reason, depending on the order run for these specs, the resolution is changed to
+        # 800x600, which breaks the drag and drop. This forces the resolution to be 1920x1080
+        current_window.resize_to(1920, 1080)
       end
 
       it "renders the question answers as a collection of divs sortable on drag and drop" do

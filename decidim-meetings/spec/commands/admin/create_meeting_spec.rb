@@ -62,6 +62,7 @@ module Decidim::Meetings
         services_to_persist:,
         current_user:,
         current_component:,
+        component: current_component,
         current_organization: organization,
         registration_type:,
         registration_url:,

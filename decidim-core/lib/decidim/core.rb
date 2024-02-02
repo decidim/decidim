@@ -102,7 +102,6 @@ module Decidim
   autoload :ShareableWithToken, "decidim/shareable_with_token"
   autoload :RecordEncryptor, "decidim/record_encryptor"
   autoload :AttachmentAttributes, "decidim/attachment_attributes"
-  autoload :CarrierWaveMigratorService, "decidim/carrier_wave_migrator_service"
   autoload :ReminderRegistry, "decidim/reminder_registry"
   autoload :ReminderManifest, "decidim/reminder_manifest"
   autoload :ManifestMessages, "decidim/manifest_messages"
@@ -122,6 +121,14 @@ module Decidim
   autoload :ModerationTools, "decidim/moderation_tools"
   autoload :ContentSecurityPolicy, "decidim/content_security_policy"
   autoload :IconRegistry, "decidim/icon_registry"
+
+  module Commands
+    autoload :CreateResource, "decidim/commands/create_resource"
+    autoload :UpdateResource, "decidim/commands/update_resource"
+    autoload :DestroyResource, "decidim/commands/destroy_resource"
+    autoload :ResourceHandler, "decidim/commands/resource_handler"
+    autoload :HookError, "decidim/commands/hook_error"
+  end
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
@@ -170,7 +177,7 @@ module Decidim
 
   def self.seed_gamification_badges!
     Gamification.badges.each do |badge|
-      puts "Setting random values for the \"#{badge.name}\" badge..."
+      puts "Setting random values for the \"#{badge.name}\" badge..." # rubocop:disable Rails/Output
       User.all.find_each do |user|
         Gamification::BadgeScore.find_or_create_by!(
           user:,
@@ -299,7 +306,7 @@ module Decidim
     end
   end
 
-  # Exposes a configuration option: the whitelist ips
+  # Exposes a configuration option: the IPs that are allowed to access the system
   config_accessor :system_accesslist_ips do
     []
   end

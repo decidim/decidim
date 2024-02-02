@@ -26,7 +26,7 @@
     <% end %>
 
     <div class="layout-author">
-      <%= cell "decidim/coauthorships", @collaborative_draft %>
+      <%= cell "decidim/coauthorships", @collaborative_draft, context_actions: [] %>
 
       <% if @collaborative_draft.state %>
         <span class="<%= collaborative_drafts_state_class(@collaborative_draft.state) %> label">

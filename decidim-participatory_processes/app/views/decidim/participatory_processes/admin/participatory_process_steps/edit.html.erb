@@ -1,13 +1,18 @@
 <% add_decidim_page_title(t("participatory_process_steps.edit.title", scope: "decidim.admin")) %>
 
 <div class="item_show__header">
-  <h2 class="item_show__header-title">
+  <h1 class="item_show__header-title">
     <%= t("participatory_process_steps.edit.title", scope: "decidim.admin") %>
-  </h2>
+  </h1>
 </div>
 
 <div class="item__edit item__edit-1col">
   <div class="item__edit-form">
+    <%= cell "decidim/announcement", {
+          title: t("title", scope: "decidim.admin.participatory_process_steps.edit.cta_deprecated"),
+          body: t("body_html", scope: "decidim.admin.participatory_process_steps.edit.cta_deprecated")
+        }, callout_class: "warning" %>
+
     <%= decidim_form_for(@form, url: participatory_process_step_path(@participatory_process_step.participatory_process, @participatory_process_step), html: { class: "form form-defaults edit_participatory_process_step" }) do |f| %>
       <%= render partial: "form", object: f, locals: { title: t("participatory_process_steps.edit.title", scope: "decidim.admin") } %>
       <div class="item__edit-sticky">

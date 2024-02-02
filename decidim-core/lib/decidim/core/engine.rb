@@ -13,7 +13,6 @@ require "devise-i18n"
 require "devise_invitable"
 require "foundation_rails_helper"
 require "active_link_to"
-require "carrierwave"
 require "rails-i18n"
 require "date_validator"
 require "file_validators"
@@ -144,6 +143,7 @@ module Decidim
         Decidim.icons.register(name: "calendar-line", icon: "calendar-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "question-mark", icon: "question-mark", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "arrow-left-s-line", icon: "arrow-left-s-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "phone", icon: "phone", category: "system", description: "", engine: :core)
 
         Decidim.icons.register(name: "user-line", icon: "user-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "mic-line", icon: "mic-line", category: "system", description: "", engine: :core)
@@ -378,9 +378,6 @@ module Decidim
 
       initializer "decidim_core.menu" do
         Decidim::Core::Menu.register_menu!
-      end
-
-      initializer "decidim_core.user_menu" do
         Decidim::Core::Menu.register_user_menu!
       end
 

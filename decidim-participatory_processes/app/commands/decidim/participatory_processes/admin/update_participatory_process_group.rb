@@ -3,19 +3,13 @@
 module Decidim
   module ParticipatoryProcesses
     module Admin
-      # A command with all the business logic when creating a new participatory
+      # A command with all the business logic when updating a participatory
       # process group in the system.
-      class UpdateParticipatoryProcessGroup < Decidim::Command
+      class UpdateParticipatoryProcessGroup < Decidim::Commands::UpdateResource
         include ::Decidim::AttachmentAttributesMethods
 
-        # Public: Initializes the command.
-        #
-        # participatory_process_group - the ParticipatoryProcessGroup to update
-        # form - A form object with the params.
-        def initialize(participatory_process_group, form)
-          @participatory_process_group = participatory_process_group
-          @form = form
-        end
+        fetch_form_attributes :title, :description, :hashtag, :group_url, :developer_group, :local_area,
+                              :meta_scope, :participatory_scope, :participatory_structure, :target, :promoted
 
         # Executes the command. Broadcasts these events:
         #
@@ -24,48 +18,28 @@ module Decidim
         #
         # Returns nothing.
         def call
-          return broadcast(:invalid) if form.invalid?
+          return broadcast(:invalid) if invalid?
 
-          update_participatory_process_group
-
-          if @participatory_process_group.valid?
-            broadcast(:ok, @participatory_process_group)
-          else
-            form.errors.add(:hero_image, @participatory_process_group.errors[:hero_image]) if @participatory_process_group.errors.include? :hero_image
-            broadcast(:invalid)
+          transaction do
+            run_before_hooks
+            update_resource
+            run_after_hooks
           end
+          broadcast(:ok, resource)
+        rescue Decidim::Commands::HookError, ActiveRecord::RecordInvalid
+          form.errors.add(:hero_image, resource.errors[:hero_image]) if resource.errors.include? :hero_image
+
+          broadcast(:invalid)
         end
 
         private
 
         attr_reader :form
 
-        def update_participatory_process_group
-          Decidim.traceability.perform_action!(
-            "update",
-            @participatory_process_group,
-            form.current_user
-          ) do
-            @participatory_process_group.assign_attributes(attributes)
-            @participatory_process_group.save! if @participatory_process_group.valid?
-          end
-        end
-
         def attributes
-          {
-            title: form.title,
-            description: form.description,
-            hashtag: form.hashtag,
-            group_url: form.group_url,
-            participatory_processes:,
-            developer_group: form.developer_group,
-            local_area: form.local_area,
-            meta_scope: form.meta_scope,
-            participatory_scope: form.participatory_scope,
-            participatory_structure: form.participatory_structure,
-            target: form.target,
-            promoted: form.promoted
-          }.merge(attachment_attributes(:hero_image))
+          super
+            .merge({ participatory_processes: })
+            .merge(attachment_attributes(:hero_image))
         end
 
         def participatory_processes

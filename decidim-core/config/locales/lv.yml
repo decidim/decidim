@@ -307,8 +307,6 @@ lv:
     content_blocks:
       footer_sub_hero:
         name: Kājenes apakšējais galvenais reklāmkarogs
-      hero:
-        name: Galvenais attēls
       hero_settings_form:
         background_image: Fona attēls
         welcome_text: Sveiciena teksts
@@ -789,8 +787,6 @@ lv:
         metrics:
           headline: Rādītāji
           link: Rādīt visus rādītājus
-    participatory_space_private_users:
-      not_allowed: Jums nav atļauts skatīt šo saturu
     profile:
       deleted: Dzēsts dalībnieks
     profiles:

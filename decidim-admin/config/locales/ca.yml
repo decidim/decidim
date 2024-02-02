@@ -385,12 +385,12 @@ ca:
         show:
           dropdown: Desplegable
           view_more_logs: Veure més registres
-      domain_whitelist:
+      domain_allowlist:
         form:
           domain_too_short: El domini és massa curt
         update:
-          error: Hi ha hagut un error en actualitzar el llistat de dominis autoritzats.
-          success: S'ha actualitzat correctament el llistat de dominis autoritzats.
+          error: S'ha produït un error en actualitzar el llistat de domininis externs permesos
+          success: El llistat de dominis externs permesos s'ha actualitzat correctament.
       exports:
         export_as: "%{name} com a %{export_format}"
         formats:
@@ -457,7 +457,6 @@ ca:
           report_count_eq: Número de denúncies
           reported_id_string_or_reported_content_cont: Cercar %{collection} per id o contingut reportable.
           title_cont: Buscar %{collection} per títol.
-          user_name_or_user_email_cont: Cerca %{collection} per nom o correu electrònic.
           user_name_or_user_nickname_or_user_email_cont: Cercar %{collection} per correu electrònic, nom o àlies.
         state_eq:
           label: Estat
@@ -572,7 +571,7 @@ ca:
         areas: Àrees
         configuration: Configuració
         content: Contingut reportat
-        external_domain_whitelist: Dominis externs permesos
+        external_domain_allowlist: Dominis externs permesos
         help_sections: Seccions d'ajuda
         homepage: Pàgina d'inici
         impersonations: Impersonacions
@@ -839,7 +838,7 @@ ca:
           colors:
             choose_color: Triar un color primari
             colors_title: Colors de l'organització
-            colors_warning_html: Advertència! Canviant aquests colors pot trencar l'accessibilitat dels contrasts. Pots comprovar el contrast de la teva selecció a <a href="%{link}">WebAIM Contrast Checker</a> o amb altres eines similars.
+            colors_warning_html: Advertència! Canviant aquests colors pot trencar l'accessibilitat dels contrasts. Pots comprovar el contrast de la teva selecció a <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> o amb altres eines similars.
             explanation: Aquesta eina t'ajuda a triar un esquema de color, compost per diferents tonalitats seleccionades de forma harmoniosa per utilitzar-se al lloc web de l'organització.
             legend_html: Colors principals de l'aplicació, basats en l'<a href="https://www.color-meanings.com/triadic-colors/">algoritme Triadic</a>. El color <i>secundari</i> es calcula automàticament a partir del color primari i de la saturació que has triat.
             saturation: Saturació
@@ -856,17 +855,17 @@ ca:
             layout_appearance_title: Edita l'aparença del disseny global
             preview: Previsualitzar
           omnipresent_banner_appearance_title: Edita banner omnipresent
-      organization_external_domain_whitelist:
+      organization_external_domain_allowlist:
         edit:
-          update: Actualitzar
+          update: Actualizar
         external_domain:
           down: Baixar
           external_domain: Domini extern
           remove: Eliminar
           up: Pujar
         form:
-          add: Afegir a la llista blanca
-          title: Llista blanca de dominis externs
+          add:
+          title: Llistat de dominis externs permesos
       participatory_space_private_users:
         create:
           error: S'ha produït un error en afegir una participant privada a aquest espai de participació.

@@ -24,7 +24,7 @@ module Decidim
         enforce_permission_to :create, :category
         @form = form(CategoryForm).from_params(params, current_participatory_space:)
 
-        CreateCategory.call(@form, current_participatory_space, current_user) do
+        CreateCategory.call(@form, current_participatory_space) do
           on(:ok) do
             flash[:notice] = I18n.t("categories.create.success", scope: "decidim.admin")
             redirect_to categories_path(current_participatory_space)
@@ -46,7 +46,7 @@ module Decidim
         enforce_permission_to :update, :category, category: @category
         @form = form(CategoryForm).from_params(params, current_participatory_space:)
 
-        UpdateCategory.call(@category, @form, current_user) do
+        UpdateCategory.call(@form, @category) do
           on(:ok) do
             flash[:notice] = I18n.t("categories.update.success", scope: "decidim.admin")
             redirect_to categories_path(current_participatory_space)

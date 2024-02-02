@@ -8,7 +8,7 @@ module Decidim
           moderations_count = Decidim::Admin::ModerationStats.new(current_user).count_content_moderations
 
           caption = I18n.t("menu.content", scope: "decidim.admin")
-          caption += content_tag(:span, moderations_count, class: moderations_count.zero? ? "component-counter component-counter--off" : "component-counter")
+          caption += content_tag(:span, moderations_count, class: "component-counter")
 
           menu.add_item :moderations,
                         caption.html_safe,
@@ -20,7 +20,7 @@ module Decidim
           user_reports = Decidim::Admin::ModerationStats.new(current_user).count_user_pending_reports
 
           caption = I18n.t("menu.reported_users", scope: "decidim.admin")
-          caption += content_tag(:span, user_reports, class: user_reports.zero? ? "component-counter component-counter--off" : "component-counter")
+          caption += content_tag(:span, user_reports, class: "component-counter")
 
           menu.add_item :moderated_users,
                         caption.html_safe,
@@ -168,13 +168,22 @@ module Decidim
                         decidim_admin.scopes_path,
                         icon_name: "price-tag-3-line",
                         position: 1.3,
-                        if: allowed_to?(:read, :scope)
+                        if: allowed_to?(:read, :scope),
+                        active: [%w(
+                          decidim/admin/scopes
+                          decidim/admin/scope_types
+                        ), []]
+
           menu.add_item :areas,
                         I18n.t("menu.areas", scope: "decidim.admin"),
                         decidim_admin.areas_path,
                         icon_name: "layout-masonry-line",
                         position: 1.5,
-                        if: allowed_to?(:read, :area)
+                        if: allowed_to?(:read, :area),
+                        active: [%w(
+                          decidim/admin/areas
+                          decidim/admin/area_types
+                        ), []]
 
           menu.add_item :help_sections,
                         I18n.t("menu.help_sections", scope: "decidim.admin"),
@@ -183,9 +192,9 @@ module Decidim
                         position: 1.6,
                         if: allowed_to?(:update, :help_sections)
 
-          menu.add_item :external_domain_whitelist,
-                        I18n.t("menu.external_domain_whitelist", scope: "decidim.admin"),
-                        decidim_admin.edit_organization_external_domain_whitelist_path,
+          menu.add_item :external_domain_allowlist,
+                        I18n.t("menu.external_domain_allowlist", scope: "decidim.admin"),
+                        decidim_admin.edit_organization_external_domain_allowlist_path,
                         icon_name: "computer-line",
                         position: 1.7,
                         if: allowed_to?(:update, :organization, organization: current_organization)
@@ -261,7 +270,7 @@ module Decidim
                             decidim/admin/scope_types
                             decidim/admin/areas decidim/admin/area_types
                             decidim/admin/help_sections
-                            decidim/admin/organization_external_domain_whitelist
+                            decidim/admin/organization_external_domain_allowlist
                           ),
                           []
                         ],

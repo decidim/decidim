@@ -57,18 +57,6 @@ module Decidim
               expect(controller.helpers.collection).to match_array(meetings)
             end
           end
-
-          context "when user does not have permissions" do
-            before do
-              allow(controller).to receive(:current_user_can_visit_space?).and_return(false)
-            end
-
-            it "redirects to conference path" do
-              get :show, params: { conference_slug: conference.slug, id: component.id }
-
-              expect(response).to redirect_to(conference_path(conference.slug))
-            end
-          end
         end
       end
     end

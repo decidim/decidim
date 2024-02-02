@@ -1,1 +1,770 @@
 ko:
+  activemodel:
+    attributes:
+      area:
+        area_type: 영역 유형
+        name: 이름
+        organization: 조직
+      area_type:
+        name: 이름
+        organization: 조직
+        plural: 복수
+      attachment:
+        attachment_collection_id: 폴더
+        description: 상세정보
+        file: 파일
+        title: 첨부파일 or 이미지 이름
+      attachment_collection:
+        description: 상세정보
+        name: 이름
+      category:
+        description: 상세정보
+        name: 이름
+      component:
+        name: 이름
+      external_domain:
+        value: 값
+      help_section:
+        content: 내용
+      id: 아이디
+      newsletter:
+        send_to_all_users: 모든 유저에게 보내기
+        send_to_followers: 팔로워들에게 보내기
+        send_to_participants: 참여자들에게 보내기
+        subject: 주제
+      organization:
+        alert_color: 알림
+        badges_enabled: 뱃지 활성화
+        comments_max_length: 댓글 최대 길이(기본값은 0으로 남김)
+        cta_button_path: 수행에 대한 호출 단추 경로
+        cta_button_text: 수행에 대한 호출 단추 텍스트
+        customize_welcome_notification: 환영 알림 커스터마이징
+        default_locale: 기본 위치
+        description: 상세정보
+        facebook_handler: Facebook handler
+        favicon: 아이콘
+        force_users_to_authenticate_before_access_organization: 사용자가 액세스 구성 전에 인증하도록 강제
+        from: 보낸사람의 이메일 주소
+        github_handler: Github handler
+        highlight_color: 하이라이트
+        highlighted_content_banner_action_title: 실행버튼 URL
+        highlighted_content_banner_action_url: 실행버튼 URL
+        highlighted_content_banner_enabled: 하이라이트된 컨텐츠 배너 보기
+        highlighted_content_banner_image: 이미지
+        highlighted_content_banner_short_description: 요약
+        highlighted_content_banner_title: 제목
+        host: 호스트
+        instagram_handler: Instagram handler
+        logo: 로고
+        machine_translation_display_priority: 기계 번역 우선 표시
+        machine_translation_display_priority_original: 원문 우선
+        machine_translation_display_priority_translation: 번역문 우선
+        name: 이름
+        official_img_footer: 공식 로고 바닥글
+        official_url: 공식 조직 URL
+        omnipresent_banner_short_description: 요약
+        omnipresent_banner_title: 제목
+        omnipresent_banner_url: URL
+        organization_admin_email: 조직 관리자 이메일
+        organization_admin_name: 조직 관리자 이름
+        organization_locales: 조직 지역
+        send_welcome_notification: 환영 알림 보내기
+        success_color: 성공
+        time_zone: 시간대
+        tos_version: 서비스 버전 용어
+        twitter_handler: X handler
+        user_groups_enabled: 그룹 활성화
+        warning_color: 경고
+        youtube_handler: YouTube handler
+      participatory_space_private_user:
+        email: 이메일
+        name: 이름
+      scope:
+        code: 코드
+        name: 이름
+        organization: 조직
+        scope_type: 범위 종류
+        scope_type_id: 범위 종류
+      scope_type:
+        name: 이름
+        organization: 조직
+      settings:
+        scope_id: 범위
+      static_page:
+        allow_public_access: 인증 없이 액세스 허용
+        changed_notably: 눈에 띄는 변화가 있었습니다.
+        content: 내용
+        organization: 조직
+        show_in_footer: 바닥글에 표시
+        slug: URL 슬러그
+        title: 제목
+        topic_id: 주제
+      static_page_topic:
+        description: 상세정보
+        name: 주제 이름
+        show_in_footer: 바닥글에 표시
+        title: 제목
+      user_group_csv_verification:
+        file: 파일
+    errors:
+      models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: 참여 공간을 하나 이상 선택합니다.
+        organization:
+          attributes:
+            official_img_footer:
+              allowed_file_content_types: 잘못된 이미지 파일
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: 잘못된 형식의 가져오기 파일입니다. 설명서를 잘 읽고 UTF-8이 인코딩되었는지 확인하십시오.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: 잘못된 형식의 가져오기 파일입니다. 설명서를 잘 읽고 UTF-8이 인코딩되었는지 확인하십시오.
+      new_import:
+        attributes:
+          file:
+            invalid_file: 제공된 파일이 잘못되었습니다. 파일 형식이 올바른지 확인하십시오.
+            invalid_mime_type: 유효하지 않은 MIME 유형
+  activerecord:
+    attributes:
+      decidim/static_page:
+        content: 내용
+        slug: URL 슬러그
+        title: 제목
+      doorkeeper/application:
+        authorize_url: 인증된 URL
+        client_id: 고객 ID
+        organization_name: 조직 이름
+        organization_url: 조직 URL
+        redirect_uri: URL 리디렉션
+        site: 웹 사이트
+  decidim:
+    admin:
+      actions:
+        add: 추가
+        attachment:
+          new: 새 첨부 파일
+        attachment_collection:
+          new: 새 첨부 폴더
+        browse: 찾아보기
+        category:
+          new: 새 분류
+        export: 모두 내보내기
+        export-selection: 선택한 항목 내보내기
+        import: 가져오기
+        newsletter:
+          new: 새 뉴스레터
+        participatory_space_private_user:
+          new: 새 참여 공간 비공개 사용자
+        per_page: 페이지 당
+        permissions: 권한
+        reject: 거절
+        send_me_a_test_email: 나에게 테스트 메일 보내기
+        share: 공유
+        user:
+          new: 새 관리자
+        verify: 인증
+      admin_terms_of_service:
+        accept:
+          error: 관리자 서비스 약관을 수락하는 동안 오류가 발생했습니다.
+          success: 좋습니다! 관리자 서비스 약관을 수락했습니다.
+        actions:
+          accept: 약관에 동의합니다
+          are_you_sure: 관리자 서비스 약관을 거부하시겠습니까?
+          refuse: 관리자 약관 거부
+          title: 서비스 약관에 동의
+        required_review:
+          cta: 지금 다시보기
+      area_types:
+        create:
+          error: 새 영역 타입을 생성하는 도중 문제가 생겼습니다.
+          success: 영역 타입이 성공적으로 생성되었습니다.
+        edit:
+          title: 영역 타입 수정
+          update: 업데이트
+        new:
+          create: 영역 타입 생성하기
+          title: 새 영역 타입
+        update:
+          error: 이 영역 타입을 업데이트 하는 도중 문제가 생겼습니다.
+          success: 영역 타입이 성공덕으로 생성되었습니다.
+      areas:
+        create:
+          error: 새 영역을 생성하는 도중 문제가 생겼습니다.
+          success: 영역이 성공적으로 생성되었습니다.
+        edit:
+          update: 업데이트
+        update:
+          error: 이 영역을 업데이트하는 동안 문제가 발생했습니다.
+          success: 영역이 성공적으로 업데이트되었습니다.
+      attachment_collections:
+        edit:
+          title: 폴더 편집
+          update: 업데이트
+        new:
+          create: 생성
+          title: 새 폴더
+        update:
+          error: 이 폴더를 업데이트하는 동안 문제가 발생했습니다.
+          success: 폴더가 업데이트되었습니다.
+      attachments:
+        create:
+          error: 새 첨부 파일을 만드는 중 문제가 발생했습니다.
+          success: 첨부 파일이 성공적으로 생성되었습니다.
+        destroy:
+          success: 첨부 파일이 삭제되었습니다.
+        edit:
+          title: 첨부파일 편집
+          update: 업데이트
+        index:
+          attachments_title: 첨부 파일
+        new:
+          create: 첨부파일 생성
+          title: 새 첨부 파일
+        update:
+          error: 이 첨부 파일을 업데이트하는 동안 문제가 발생했습니다.
+          success: 첨부 파일이 업데이트되었습니다.
+      attachments_privacy_warning:
+        message: 개인 공간에서 첨부파일을 사용할 때는 주의해야 합니다. 참가자는 누구나 이 문서를 다른 사람에게 공유할 수 있습니다.
+      autocomplete:
+        no_results: 검색 결과가 없습니다.
+        search_prompt: 검색하려면 3자 이상 입력하세요
+      block_user:
+        new:
+          action: 계정 차단 및 사유 보내기
+          already_reported_html: 이 작업을 계속 진행하면 모든 참가자 내용도 숨깁니다. <a href="%{link}"> 계정을 차단합니다.</a>
+          description: 사용자를 차단하면 계정을 사용할 수 없게 됩니다. 차단을 해제하려는 사용자에 대한 지침을 사유로 제공할 수 있습니다.
+          justification: 사유
+          title: 사용자%{name} 차단
+      categories:
+        create:
+          error: 이 카테고리를 생성하는 도중 문제가 생겼습니다.
+          success: 카테고리가 생성되었습니다.
+        destroy:
+          error: 이 카테고리를 삭제하는 도중 문제가 발생했습니다. 하위 카테고리를 먼저 삭제하고, 이 카테고리에 속한 항목이 없게 한 후 다시 시도해보세요
+          success: 카테고리가 성공적으로 삭제되었습니다.
+        edit:
+          title: 카테고리 수정
+          update: 업데이트
+        index:
+          categories_title: 카테고리
+        new:
+          create: 카테고리 생성
+          title: 새 카테고리
+        update:
+          error: 이 카테고리를 업데이트하는 도중 문제가 생겼습니다.
+          success: 카테고리가 성공덕으로 업데이트되었습니다.
+      component_permissions:
+        update:
+          error: 이 구성 요소의 권한을 업데이트하는 동안 문제가 발생했습니다.
+          success: 사용 권한을 성공적으로 업데이트했습니다.
+      components:
+        create:
+          error: 이 구성요소를 생성하는 도중 문제가 생겼습니다.
+          success: 구성요소가 성공적으로 생성되었습니다.
+          success_landing_page: 구성 요소가 성공적으로 생성되었습니다. 공간 홈에 이 구성 요소의 내용 블록을 추가할 수 있습니다. <a href="%{landing_page_path}">Landing page</a>로 이동하여 구성하십시오.
+        destroy:
+          error: 이 구성요소를 삭제하는 도중 문제가 생겼습니다.
+          success: 구성요소가 성공적으로 삭제되었습니다.
+        edit:
+          title: 구성 요소 편집
+          update: 업데이트
+        form:
+          default_step_settings: 기본 단계 설정
+          global_settings: 전역 설정
+          step_settings: 단계 설정
+        index:
+          add: 구성 요소 추가
+          headers:
+            actions: 작업
+            name: 구성 요소 이름
+            scope: 구성 요소 범위
+            type: 구성 요소 유형
+        new:
+          add: 구성 요소 추가
+          title: '구성요소 추가: %{name}'
+        publish:
+          success: 구성 요소가 성공적으로 게시되었습니다.
+        title: 구성요소
+        unpublish:
+          success: 구성 요소가 성공적으로 게시되지 않았습니다.
+        update:
+          error: 이 구성요소를 업데이트하는 도중 문제가 발생했습니다.
+          success: 구성요소가 성공적으로 업데이트 되었습니다.
+      conflicts:
+        attempts: 시도
+        'false': '아니오'
+        managed_user_name: 관리된 사용자
+        solved: 해결됨
+        title: 인증 충돌 발생
+        transfer:
+          email: 이메일
+          error: 현재 참여자를 관리된 참여자로 옮기는 중 문제가 발생했습니다.
+          name: 이름
+          reason: 이유
+          success: 현재 전송이 성공적으로 완료되었습니다.
+          title: 전송
+        'true': '예'
+        user_name: 사용자
+      content_blocks:
+        create:
+          error: 콘텐츠 블록을 만드는 동안 오류가 발생했습니다.
+          success: 콘텐츠 블록이 성공적으로 작성되었습니다.
+        destroy:
+          error: 이 콘텐츠 블록을 삭제하는 동안 문제가 발생했습니다.
+        edit:
+          active_content_blocks: 콘텐츠 블록 활성화
+          add: 콘텐츠 블록 활성화
+      exports:
+        formats:
+          CSV: CSV
+          Excel: 엑셀
+          FormPDF: PDF
+          JSON: JSON
+      filters:
+        category_id_eq:
+          label: 카테고리
+        filter_label: 필터
+        invitation_accepted_at_present:
+          label: 초대 수락됨
+          values:
+            'false': '아니오'
+            'true': '예'
+        last_sign_in_at_present:
+          values:
+            'false': '아니오'
+            'true': '예'
+        moderated_users:
+          reports_reason_eq:
+            values:
+              spam: 스팸
+        moderations:
+          reportable_type_string_eq:
+            label: 유형
+        officialized_at_null:
+          label: 상태
+        participatory_space_private_users:
+          user_invitation_sent_at_not_null:
+            values:
+              'true': 전송됨
+        private_space_eq:
+          label: 비공개
+          values:
+            'false': 공개
+            'true': 비공개
+        published_at_null:
+          label: 게시됨
+          values:
+            'false': 게시됨
+            'true': 게시되지 않음
+        scope_id_eq:
+          label: 범위
+        search_label: 검색
+        search_placeholder:
+          name_or_nickname_or_email_cont: 이메일, 이름 또는 닉네임으로 %{collection} 을(를) 검색합니다.
+          reported_id_string_or_reported_content_cont: 보고 가능한 Id 또는 내용을 기준으로 %{collection} 을(를) 검색합니다.
+          title_cont: 제목별로 %{collection} 을(를) 검색합니다.
+          user_name_or_user_nickname_or_user_email_cont: 이메일, 이름 또는 닉네임으로 %{collection} 을(를) 검색합니다.
+        state_eq:
+          label: 상태
+          values:
+            all: 전체
+            rejected: 거부됨
+            verified: 확인됨
+      forms:
+        file_help:
+          import:
+            explanation: '파일 안내:'
+            message_1: CSV, JSON 및 Excel(.xlsx) 파일이 지원됩니다
+            message_2: CSV 파일의 경우 열 사이의 구분자는 세미콜론(";") 이어야 합니다
+      help_sections:
+        error: 도움말 섹션을 업데이트하는 동안 문제가 발생했습니다.
+        form:
+          save: 저장
+        success: 도움말 섹션이 성공적으로 업데이트되었습니다.
+      impersonatable_users:
+        index:
+          filter:
+            all: 전체
+            managed: 관리됨
+            not_managed: 관리되지 않음
+          impersonate_new_managed_user: 새로운 참여자 관리
+          managed: 관리됨
+          name: 이름
+          needs_authorization_warning: 이 조직에 사용 가능한 하나 이상의 권한이 필요합니다.
+          not_managed: 관리되지 않음
+          search: 검색
+          status: 상태
+          view_logs: 로그 보기
+      impersonations:
+        close_session:
+          error: 현재 참가자 관리 세션을 닫는 중에 문제가 발생했습니다.
+        create:
+          error: 참가자를 관리하는 데 문제가 있었습니다.
+          success: 관리되는 참가자가 성공적으로 작성되었습니다.
+        form:
+          authorization_method: 관리 방법
+          name: 이름
+          reason: 이유
+        new:
+          impersonate_existing_managed_user: 참가자 "% {name}" 관리
+          impersonate_existing_user: 참가자 "% {name}" 관리
+          impersonate_new_managed_user: 새로운 참여자 관리
+      imports:
+        and: 그리고
+        new:
+          accepted_mime_types:
+            csv: CSV
+            json: JSON
+            xlsx: 엑셀 (.xlsx)
+          actions:
+            back: 뒤로가기
+          download_example: 예시 다운로드
+          import: 가져오기
+      logs:
+        filters:
+          participatory_space: 참여 공간 찾기
+          text: 이메일, 이름 또는 닉네임으로 을(를) 검색합니다.
+          user: 사용자
+        logs_list:
+          no_logs_yet: 결과가 없습니다
+      menu:
+        area_types: 영역 유형
+        areas: 영역
+        configuration: 환경설정
+        content: 신고된 콘텐츠
+        scope_types: 범위 종류
+        scopes: 범위
+        settings: 설정
+        static_page_topics: 주제
+        static_pages: 페이지
+        user_groups: 그룹
+        users: 참여자
+      models:
+        area:
+          fields:
+            area_type: 영역 유형
+            name: 이름
+        area_type:
+          fields:
+            name: 이름
+        attachment:
+          fields:
+            collection: 폴더
+            content_type: 유형
+            file_size: 크기
+            title: 제목
+          name: 첨부 파일
+        attachment_collection:
+          name: 폴더
+        category:
+          name: 카테고리
+        impersonation_log:
+          fields:
+            admin: 관리자
+            ended_at: 종료 시점
+            expired_at: 만료일
+            reason: 이유
+            started_at: 시작 시점
+            user: 참여자
+        newsletter:
+          fields:
+            created_at: 생성 위치
+            progress: 진행 상황
+            sent_at: 보냄
+            sent_to: 다음에 전송하였습니다
+            subject: 주제
+          name: 뉴스 레터
+        participatory_space_private_user:
+          name: 참여공간 비공개참여
+        scope:
+          fields:
+            name: 이름
+            scope_type: 범위 종류
+        scope_type:
+          fields:
+            name: 이름
+        share_token:
+          fields:
+            created_at: 생성일
+            expires_at: 만료일
+            last_used_at: 마지막으로 사용한 시간
+            times_used: 사용 시간
+            token: 토큰
+            user: 작성자
+        static_page:
+          fields:
+            created_at: 생성 위치
+            title: 제목
+        user:
+          fields:
+            created_at: 생성일
+            email: 이메일
+            name: 이름
+            role: 역할
+            roles:
+              admin: 관리자
+              user_manager: 참가자 관리자
+          name: 참가자
+      moderations:
+        report:
+          reasons:
+            spam: 스팸
+      newsletter_templates:
+        index:
+          use_template: 이 템플릿 사용하기
+        show:
+          preview: '미리보기 템플릿: %{template_name}'
+          use_template: 이 템플릿 사용하기
+      newsletters:
+        create:
+          error: 이 뉴스레터를 만드는 데 문제가 있었습니다.
+          success: 뉴스레터가 성공적으로 작성되었습니다. 검토 후 보내주시기 바랍니다.
+        deliver:
+          error: 이 뉴스레터를 전달하는 데 문제가 있었습니다.
+          success: 뉴스레터 전달 성공
+        destroy:
+          error_already_sent: '뉴스레터를 삭제할 수 없습니다: 이미 보내짐'
+          success: 뉴스레터 삭제 성공
+        edit:
+          save_and_preview: 저장하고 미리보기
+          title: 뉴스레터 수정하기
+        index:
+          all: 전체
+          all_users: '모든 사용자 '
+          and: '그리고 '
+          confirm_delete: 이 뉴스레터를 삭제하시겠습니까?
+          followers: '팔로워 '
+          has_been_sent_to: '다음에게 전송됨: '
+          no_scopes: 범위가 없습니다.
+          not_sent: 전송되지 않음
+          participants: '참여자 '
+          subscribed_count: '구독중:'
+          title: 뉴스 레터
+        new:
+          save: 저장
+          title: 새 뉴스레터
+        select_recipients_to_deliver:
+          all_spaces: 전체
+          all_users_help: 확인된 모든 사용자에게 뉴스레터를 보냅니다.
+          confirm_deliver: 이 뉴스레터를 전송하시겠습니까? 이 작업은 취소할 수 없습니다.
+          deliver: 뉴스레터 전송
+          followers_help: 목록에서 선택한 참여 공간을 따르는 것이 확인된 모든 사용자에게 뉴스레터를 보냅니다.
+          none: 없음
+          participants_help: 목록에서 선택한 참여 공간을 따르는 것이 확인된 모든 사용자에게 뉴스레터를 보냅니다.
+          recipients_count: 이 뉴스레터는 <strong id='receiveners_count'>% {count}/strong> 사용자에게 발송됩니다.
+          scopes_help: 계정의 "내 관심사" 설정에서 선택한 범위 중 하나라도 활성화된 사용자에게 뉴스레터를 보냅니다.
+          select_scopes: 계정의 내 관심사 설정에서 선택한 범위를 활성화한 사용자를 위해 필터링합니다.
+          select_spaces: 뉴스레터를 분할할 공간 선택
+          select_users: 뉴스레터를 보낼 사용자 선택
+          title: 전송 받는 사람 선택
+          warning: "<strong>주의:/strong>이 뉴스레터는 알림 설정에서 <em>I want to received newsletter</em>을 활성화한 사용자에게만 발송됩니다."
+        send:
+          no_recipients: 이 선택에 대한 수신인이 없습니다.
+        send_to_user:
+          sent_successfully: 뉴스레터가 %{email}(으) 로 전송되었습니다
+        show:
+          preview: 미리보기
+          select_recipients_to_deliver: 전송 받는 사람 선택
+          send_me_a_test_email: 나에게 테스트 메일 보내기
+          subject: 주제
+        update:
+          error: 이 뉴스레터를 업데이트 하는데 문제가 있었습니다.
+          success: 뉴스레터가 성공적으로 업데이트되었습니다. 검토 후 보내주시기 바랍니다.
+      officializations:
+        block:
+          error: 참가자를 차단하는 동안 오류가 발생했습니다.
+          success: 참가자가 성공적으로 차단되었습니다.
+        index:
+          badge: 뱃지
+          block: 사용자 차단
+          name: 이름
+          nickname: 닉네임
+          show_email: 이메일 주소 보기
+          status: 상태
+          unblock: 사용자 차단 해제
+        show_email_modal:
+          email_address: 이메일 주소
+          full_name: 전체 이름
+          hidden: 숨겨짐
+          show: 표시
+          title: 참가자의 이메일 주소 보기
+        unblock:
+          error: 참가자를 차단 해제하는 동안 오류가 발생했습니다.
+      organization_appearance:
+        form:
+          colors:
+            choose_color: 기본 색상 선택
+            title: 색상 선택기
+          cta_button_path_help_html: '홈페이지에서 수행 호출 단추가 링크되는 위치를 덮어쓸 수 있습니다. 여기서는 전체 URL이 아닌 일부 경로를 사용하십시오. 문자, 숫자, 대시 및 슬래시를 사용할 수 있으며 문자로 시작해야 합니다. 시작 텍스트와 설명 사이에 홈페이지에서 수행 호출 단추가 표시됩니다. 예: %{url}'
+          cta_button_text_help: You can overwrite the Call To Action button text in the homepage for each available language in your organization. If not set, the default value will be used. The Call To Action button is shown in the homepage between the welcome text and the description.
+          header_snippets:
+            header_snippets_help_html: 이 필드를 사용하여 HTML 헤드에 항목을 추가할 수 있습니다. 가장 일반적인 용도는 자바스크립트나 CSS가 필요한 타사 서비스를 통합하는 것입니다. 또한 이를 사용하여 HTML에 추가 메타 태그를 추가할 수 있습니다. 이는 관리자 섹션이 아닌 공용 페이지에서만 렌더링됩니다. 코드가 외부 API와 상호 작용하거나 애플리케이션 보안 지침을 준수하지 않는 경우 콘텐츠 보안 정책을 변경해야 합니다. 지침 사이트 </a>에서 <a href="https://docs.decidim.org/develop/en/customize/content_security_policy ">에 대해 자세히 알아보십시오.
+          homepage_appearance_title: 홈페이지 외관 편집
+          homepage_highlighted_content_banner_title: 강조 표시된 내용 배너
+          images:
+            layout_appearance_title: 레이아웃 모양 편집
+            preview: 미리보기
+      participatory_space_private_users:
+        new:
+          create: 생성
+      participatory_space_private_users_csv_imports:
+        new:
+          csv_upload:
+            title: CSV 파일 업로드
+          destroy:
+            button: 모든 비공개 참가자 삭제
+            confirm: 모든 비공개 참가자를 삭제하시겠습니까? 이 작업은 취소할 수 없습니다. 복구할 수 없습니다.
+            empty: 비공개 참가자가 없습니다.
+            explanation: '%{count} 개의 비공개 참가자가 있습니다.'
+            title: 비공개 참가자 삭제
+          example_file: '예제 파일:'
+      reminders:
+        create:
+          error: 리마인더를 만드는 중 문제가 발생했습니다.
+        new:
+          submit: 보내기
+      resource_permissions:
+        edit:
+          submit: 제출
+          title: 권한 수정
+        update:
+          success: 권한을 성공적으로 업데이트했습니다.
+      resources:
+        index:
+          headers:
+            scope: 범위
+      scope_types:
+        create:
+          error: 새 영역 타입을 생성하는 도중 문제가 생겼습니다.
+          success: 영역 타입이 성공적으로 생성되었습니다.
+        destroy:
+          success: 영역 타입이 성공적으로 제거되었습니다.
+        edit:
+          title: 영역 타입 수정
+          update: 업데이트
+        new:
+          create: 영역 타입 생성하기
+      scopes:
+        edit:
+          update: 업데이트
+      share_tokens:
+        actions:
+          destroy: 삭제
+          share: 공유
+        destroy:
+          error: 토큰 삭제에 문제가 발생했습니다.
+          success: 토큰 삭제 성공
+        share_tokens:
+          empty: 활성 토큰이 없습니다.
+          title: 토큰 공유하기
+      shared:
+        gallery:
+          add_images: 이미지 추가
+          edit_images: 이미지 편집
+          gallery_legend: 이미지 갤러리 추가하기 (선택사항)
+      static_page_topics:
+        update:
+          success: 주제가 성공적으로 업데이트되었습니다
+      static_pages:
+        actions:
+          view: 공개 페이지 보기
+        create:
+          error: 새 페이지를 생성하는 도중 문제가 생겼습니다.
+          success: 페이지가 성공적으로 생성되었습니다.
+        destroy:
+          success: 페이지가 성공적으로 삭제되었습니다
+        edit:
+          changed_notably_help: 확인되면 참가자에게 새로운 서비스 조건을 수락하라는 알림이 표시됩니다.
+          last_notable_change: '마지막으로 눈에 띄는 변경 사항: %{tos_version_formated}'
+          title: 페이지 편집
+          update: 업데이트
+        form:
+          none: 없음
+          slug_help_html: '전체 URL이 아닌 일부 경로를 사용하십시오. 문자, 숫자, 대시 및 슬래시를 사용할 수 있으며 문자로 시작해야 합니다. 예: %{url}'
+        new:
+          create: 페이지 생성
+          title: 새 페이지
+        topic:
+          empty: 이 주제 아래에 페이지가 없습니다.
+          without_topic: 페이지 없는 주제
+        update:
+          error: 이 페이지를 업데이트하는 동안 문제가 발생했습니다.
+          success: 페이지가 성공적으로 업데이트되었습니다.
+      titles:
+        admin_log: 관리자 로그
+        area_types: 영역 유형
+        areas: 영역
+        authorization_workflows: 인증 방식
+        dashboard: 대시보드
+        edit_landing_page: 페이지 콘텐츠
+        edit_organization_appearance: 홈페이지 외관 편집
+        impersonatable_users: 관리 가능한 참가자
+        impersonations: 참가자 관리
+        menu: 메뉴
+        page_topics: 주제
+        pages: 페이지
+        panel: 관리자
+        participants: 참가자
+        scope_types: 범위 종류
+        scopes: 범위
+        statistics: 활동
+        user_groups: 그룹
+        users: 관리자
+      user_group:
+        csv_verify:
+          invalid: CSV 파일을 읽는 데 문제가 발생했습니다.
+          success: CSV 파일 업로드가 완료되었습니다. 기준과 일치하는 그룹을 확인 중입니다. 시간이 좀 걸릴 수 있습니다.
+        reject:
+          invalid: 이 그룹을 거부하는 동안 문제가 발생했습니다.
+          success: 그룹이 거부되었습니다.
+        verify:
+          invalid: 이 그룹을 인증하는 동안 문제가 발생했습니다.
+          success: 그룹이 성공적으로 인증되었습니다.
+      user_groups:
+        index:
+          state:
+            rejected: 거부됨
+            verified: 확인됨
+      users:
+        form:
+          email: 이메일
+          name: 이름
+          role: 역할
+        new:
+          create: 초대하기
+      users_statistics:
+        users_count:
+          admins: 운영자
+          last_day: 어제
+          last_month: 지난 달
+          last_week: 지난 주
+          participants: 참가자
+    metrics:
+      blocked_users:
+        object: 차단된 사용자
+        title: 차단된 사용자
+      reported_users:
+        object: 신고된 사용자
+        title: 신고된 사용자
+      user_reports:
+        object: 사용자 신고
+        title: 사용자 신고
+    moderations:
+      actions:
+        expand: 확장
+        hidden: 숨겨짐
+        hide: 숨기기
+        not_hidden: 숨기지 않음
+      models:
+        moderation:
+          fields:
+            reportable_id: 아이디
+            reportable_type: 유형
+            reported_content_url: 신고된 콘텐츠 URL
+            reports: 이유
+            visit_url: URL 방문하기

@@ -385,12 +385,12 @@ fi-pl:
         show:
           dropdown: Alasvetovalikko
           view_more_logs: Näytä lisää lokitietoja
-      domain_whitelist:
+      domain_allowlist:
         form:
           domain_too_short: Verkkotunnus on liian lyhyt
         update:
-          error: Sallittujen verkkotunnusten listan päivitys epäonnistui.
-          success: Sallittujen verkkotunnusten listan päivitys onnistui.
+          error: Sallittujen ulkoisten verkkotunnusten luettelon päivittäminen epäonnistui
+          success: Sallittujen ulkoisten verkkotunnusten luettelon päivittäminen onnistui.
       exports:
         export_as: "%{name} muodossa %{export_format}"
         formats:
@@ -457,7 +457,6 @@ fi-pl:
           report_count_eq: Ilmoitusten määrä
           reported_id_string_or_reported_content_cont: Etsi kohteista %{collection} raportoitavan kohteen ID:n tai sisällön perusteella.
           title_cont: '%{collection}: Hae otsikon perusteella'
-          user_name_or_user_email_cont: Hae kohteesta %{collection} nimen tai sähköpostiosoitteen perusteella.
           user_name_or_user_nickname_or_user_email_cont: Etsi kohteita %{collection} sähköpostiosoitteen, nimen tai nimimerkin perusteella.
         state_eq:
           label: Tila
@@ -572,7 +571,7 @@ fi-pl:
         areas: Alueet
         configuration: Asetukset
         content: Ilmoitettu sisältö
-        external_domain_whitelist: Sallitut ulkoiset verkko-osoitteet
+        external_domain_allowlist: Sallitut ulkoiset verkko-osoitteet
         help_sections: Ohjeosiot
         homepage: Kotisivu
         impersonations: Esiintymiset toisena käyttäjänä
@@ -856,7 +855,7 @@ fi-pl:
             layout_appearance_title: Muokkaa sivupohjan ulkoasua
             preview: Esikatsele
           omnipresent_banner_appearance_title: Muokkaa kaikkialla näkyvää banneria
-      organization_external_domain_whitelist:
+      organization_external_domain_allowlist:
         edit:
           update: Päivitä
         external_domain:
@@ -866,7 +865,7 @@ fi-pl:
           up: Ylös
         form:
           add: Lisää sallittujen listalle
-          title: Sallittujen ulkoisten verkkotunnusten lista
+          title: Sallitut ulkoiset verkko-osoitteet
       participatory_space_private_users:
         create:
           error: Yksityisen käyttäjän lisäämisessä tähän osallisuustilaan tapahtui virhe.
@@ -1014,7 +1013,7 @@ fi-pl:
         areas: Alueet
         authorization_workflows: Vahvistusmenetelmät
         dashboard: Hallintapaneeli
-        edit_external_domains: Sallittujen ulkoisten verkkotunnusten lista
+        edit_external_domains: Sallitut ulkoiset verkko-osoitteet
         edit_landing_page: Sivun sisältö
         edit_organization_appearance: Muokkaa kotisivun ulkoasua
         impersonatable_users: Hallittavat käyttäjät

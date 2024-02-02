@@ -37,7 +37,7 @@ de:
       decidim/component_published_event: Aktive Komponente
       decidim/demoted_membership: Kein Gruppenadministrator mehr
       decidim/gamification/badge_earned_event: Abzeichen verdient
-      decidim/gamification/level_up_event: Du hast dein Level erhöht
+      decidim/gamification/level_up_event: Sie sind um eine Stufe aufgestiegen
       decidim/invited_to_group_event: Zur Gruppe eingeladen
       decidim/join_request_accepted_event: Beitrittsanfrage akzeptiert
       decidim/join_request_rejected_event: Beitrittsanfrage abgelehnt
@@ -77,12 +77,6 @@ de:
   booleans:
     'false': 'Nein'
     'true': 'Ja'
-  carrierwave:
-    errors:
-      file_cannot_be_processed: Datei konnte nicht verarbeitet werden
-      file_resolution_too_large: Die Datei-Auflösung ist zu groß
-      file_size_too_large: Datei ist zu groß
-      not_inside_organization: Die Datei ist keiner Organisation hinzugefügt
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -513,8 +507,6 @@ de:
         name: Fußzeile sub hero Banner
       global_menu:
         name: Globales Menü
-      hero:
-        name: Hauptbild
       hero_settings_form:
         background_image: Hintergrundbild
         welcome_text: Willkommenstext
@@ -900,7 +892,7 @@ de:
           message_1: Vorzugsweise ein Querformat ohne Text.
           message_2: Der Dienst schneidet die Datei zu.
       file_validation:
-        allowed_file_extensions: 'Erlaubte Dateiendungen: %{extensions}'
+        allowed_file_extensions: 'Erlaubte Dateiformate: %{extensions}'
         max_file_dimension: 'Maximale Dateigröße: %{resolution} Pixel'
         max_file_size: 'Maximale Dateigröße: %{megabytes}MB'
       files:
@@ -979,8 +971,8 @@ de:
         error: Bei der Annahme dieser Beitrittsanfrage ist ein Fehler aufgetreten.
         success: Beitrittsanfrage erfolgreich angenommen.
       actions:
-        are_you_sure: Sind Sie sicher?
-        promote_to_admin: Machen Admin
+        are_you_sure: Sind Sie sich sicher?
+        promote_to_admin: Zum Admin ernennen
         remove_from_group: Benutzer entfernen
       index:
         current_members_without_admins: 'Aktuelle Mitglieder (ohne Admins):'
@@ -996,7 +988,7 @@ de:
         success: Teilnehmer erfolgreich aus der Gruppe entfernt.
     groups:
       actions:
-        are_you_sure: Sind Sie sicher?
+        are_you_sure: Sind Sie sich sicher?
       create:
         error: Beim Erstellen der Gruppe ist ein Problem aufgetreten.
         success: Gruppe erfolgreich erstellt.
@@ -1278,7 +1270,6 @@ de:
     offline:
       name: Offline
       show:
-        message: Es sieht so aus, als ob Sie momentan offline sind. Bitte versuchen Sie es später erneut.
         retry: Wiederholen
     open_data:
       not_available_yet: Die Open Data-Dateien sind noch nicht verfügbar. Bitte versuchen Sie es in einigen Minuten erneut.
@@ -1336,8 +1327,6 @@ de:
           alert: Wir haben unsere Nutzungsbedingungen aktualisiert. Bitte überprüfen Sie sie.
           body: Bitte nehmen Sie sich einen Moment Zeit, um sich über die Aktualisierungen unserer Nutzungsbedingungen zu informieren. Andernfalls können Sie die Plattform nicht nutzen.
           title: 'Erforderlich: Überprüfen Sie die Aktualisierungen unserer Nutzungsbedingungen'
-    participatory_space_private_users:
-      not_allowed: Sie dürfen diesen Inhalt nicht sehen
     passwords:
       update:
         error: Es gab ein Problem bei der Aktualisierung des Passwortes.
@@ -1466,15 +1455,15 @@ de:
       flag_modal:
         already_reported: Dieser Inhalt wurde bereits gemeldet und wird von einem Administrator überprüft.
         close: Schließen
-        description: Ist dieser Inhalt unangemessen?
+        description: Wieso ist dieser Inhalt problematisch / unangemessen?
         does_not_belong: Enthält illegale Aktivitäten, Selbstmorddrohungen, persönliche Informationen oder etwas anderes, von dem Sie denken, dass es nicht auf %{organization_name} gehört.
         hide: Verbergen
         hide_content: Diesen Inhalt verbergen
         offensive: Enthält Rassismus, Sexismus, Verunglimpfungen, persönliche Angriffe, Morddrohungen, Selbstmordanträge oder jede Form von Hassreden.
         reason: Begründung
-        report: Bericht
+        report: Meldung erfassen
         spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
-        title: Ein Problem melden
+        title: Unangemessenen Inhalt melden
       flag_user_modal:
         already_reported: Dieser Inhalt wurde bereits gemeldet und wird von einem Administrator überprüft.
         block: Diesen Teilnehmer blockieren
@@ -1653,11 +1642,11 @@ de:
         ignore: |-
           Wenn Sie die Einladung nicht annehmen möchten, ignorieren Sie diese E-Mail.<br />
           Ihr Konto wird erst erstellt, wenn Sie auf den obigen Link zugreifen und Ihren Kontonamen und Ihr Passwort festlegen.
-        invited_you_as_admin: "%{invited_by} hat dich als Admin von %{application}eingeladen. Sie können es über den folgenden Link akzeptieren."
-        invited_you_as_private_user: "%{invited_by} hat dich als privaten Benutzer von %{application}eingeladen. Sie können es über den folgenden Link akzeptieren."
-        someone_invited_you: Jemand hat dich zu %{application}eingeladen. Sie können es über den folgenden Link akzeptieren.
-        someone_invited_you_as_admin: Jemand hat dich als Admin von %{application}eingeladen, du kannst es über den untenstehenden Link akzeptieren.
-        someone_invited_you_as_private_user: Jemand hat dich als private_user von %{application}eingeladen, du kannst es über den folgenden Link akzeptieren.
+        invited_you_as_admin: "%{invited_by} hat Sie als Admin von %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren."
+        invited_you_as_private_user: "%{invited_by} hat Sie als privaten Nutzenden zu %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren."
+        someone_invited_you: Jemand hat Sie zu %{application} eingeladen. Sie können die EInladung über den folgenden Link akzeptieren.
+        someone_invited_you_as_admin: Jemand hat Sie als Admin zu %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren.
+        someone_invited_you_as_private_user: Jemand hat Sie als privater Teilnehmende zu %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren.
         subject: Anweisungen zur Einladung
       invite_admin:
         subject: Sie wurden eingeladen %{organization} zu verwalten
@@ -1801,28 +1790,11 @@ de:
   emojis:
     button: Emoji hinzufügen
     categories:
-      activities: Aktivitäten
-      animals-nature: Tiere & Natur
+      activity: Aktivität
       custom: Benutzerdefiniert
       flags: Flaggen
-      food-drink: Essen & Trinken
       objects: Objekte
-      people-body: Personen & Körper
-      recents: Kürzlich verwendet
-      smileys-emotion: Smileys & Emotion
       symbols: Symbole
-      travel-places: Reisen & Orte
-    error:
-      load: Fehler beim Laden von Emojis
-    recents:
-      clear: Zuletzt benutzte Emoji entfernen
-      none: Sie haben noch keine Emojis ausgewählt.
-    retry: Erneut versuchen
-    search:
-      _: Emojis suchen...
-      clear: Suche löschen
-      error: Fehler beim Suchen von Emojis
-      not_found: Keine Ergebnisse gefunden
   errors:
     messages:
       allowed_file_content_types: 'nur Dateien mit den folgenden Typen sind erlaubt: %types%'

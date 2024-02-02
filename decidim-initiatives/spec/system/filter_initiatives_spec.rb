@@ -196,7 +196,6 @@ describe "Filter Initiatives", :slow do
       end
 
       it "does not display TYPE filter" do
-        expect(page).not_to have_content(/Type/i)
         expect(page).not_to have_css("#panel-dropdown-menu-type")
       end
 

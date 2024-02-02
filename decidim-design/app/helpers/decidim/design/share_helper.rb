@@ -13,12 +13,12 @@ module Decidim
                 values: ["Make sure the partial <code>decidim/shared/share_modal</code> is present in the DOM. This partial is placed in the application layout."]
               },
               {
-                type: :table,
+                type: :cell_table,
                 options: { headings: ["Share Button"] },
-                items: share_table({}),
                 cell_snippet: {
                   cell: "decidim/share_button",
-                  args: []
+                  args: [],
+                  call_string: 'cell("decidim/share_button", nil)'
                 }
               }
             ]

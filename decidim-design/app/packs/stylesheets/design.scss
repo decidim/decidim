@@ -105,6 +105,10 @@
 .design__table {
   @apply w-full text-center text-sm text-gray-2;
 
+  [class*="card"] {
+    @apply text-left;
+  }
+
   --cell-width: ;
 
   thead {

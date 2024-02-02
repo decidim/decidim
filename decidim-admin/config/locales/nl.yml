@@ -304,9 +304,6 @@ nl:
       dashboard:
         show:
           view_more_logs: Bekijk meer logs
-      domain_whitelist:
-        form:
-          domain_too_short: Domein te kort
       exports:
         export_as: "%{name} als %{export_format}"
         formats:
@@ -372,7 +369,6 @@ nl:
           report_count_eq: Aantal rapporteringen
           reported_id_string_or_reported_content_cont: Zoek %{collection} op rapporteerbaar id of op inhoud.
           title_cont: Zoek %{collection} op titel.
-          user_name_or_user_email_cont: '%{collection} doorzoeken op Id of titel.'
           user_name_or_user_nickname_or_user_email_cont: Doorzoek %{collection} op e-mail, naam of bijnaam.
         state_eq:
           label: Provincie
@@ -481,7 +477,6 @@ nl:
         area_types: Pagina types
         areas: Thema's
         configuration: Configuratie
-        external_domain_whitelist: Toegelaten externe domeinen
         help_sections: Helpsecties
         homepage: Startpagina
         impersonations: Zich voordoen als
@@ -730,17 +725,6 @@ nl:
             layout_appearance_title: Weergave van de lay-out bewerken
             preview: Voorvertoning
           omnipresent_banner_appearance_title: Bewerk de permanente banner
-      organization_external_domain_whitelist:
-        edit:
-          update: Bijwerken
-        external_domain:
-          down: Naar beneden
-          external_domain: Extern domein
-          remove: Verwijderen
-          up: Naar boven
-        form:
-          add: Toevoegen aan whitelist
-          title: Externe domein whitelist
       participatory_space_private_users:
         create:
           error: Er is een probleem opgetreden bij het toevoegen van een privédeelnemer aan deze deelruimte.

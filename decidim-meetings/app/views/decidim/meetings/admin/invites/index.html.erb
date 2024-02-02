@@ -1,8 +1,8 @@
 <% add_decidim_page_title(t(".invite_attendee")) %>
 <div class="item_show__header">
-  <h2 class="item_show__header-title">
+  <h1 class="item_show__header-title">
     <%= t(".invite_attendee") %>
-  </h2>
+  </h1>
 </div>
 <div class="item__edit item__edit-1col">
   <div class="item__edit-form">
@@ -18,38 +18,8 @@
       <% end %>
     <% end %>
 
-    <%# NOTE: this old filters section should be refactorized in order to use the shared admin_filter_selector method
-    it would require the definition of concerns similar to decidim-conferences/app/controllers/concerns/decidim/conferences/admin/filterable.rb %>
-    <div class="filters__section mt-4">
-      <div class="fcell">
-        <ul class="dropdown menu" data-dropdown-menu data-click-open="true" data-close-on-click-inside="false">
-          <li class="is-dropdown-submenu-parent">
-            <a href="#" class="dropdown button">
-              <%= t("filter_label", scope: "decidim.admin.filters") %>
-              <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
-            </a>
-            <ul class="menu is-dropdown-submenu">
-              <li><%= link_to t(".filter.sent"), url_for(status: "sent", q: @query) %></li>
-              <li><%= link_to t(".filter.accepted"), url_for(status: "accepted", q: @query) %></li>
-              <li><%= link_to t(".filter.rejected"), url_for(status: "rejected", q: @query) %></li>
-              <li><%= link_to t(".filter.all"), url_for(q: @query) %></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-      <div class="fcell search">
-        <%= form_tag "", method: :get do %>
-          <div class="input-group">
-            <%= search_field_tag :q, @query,label: false, class: "input-group-field", placeholder: t(".search") %>
-            <%= hidden_field_tag :state, @state %>
-            <div class="input-group-button">
-              <button type="submit" class="text-secondary" aria-label="<%= t("decidim.search.term_input_placeholder") %>">
-                <%= icon "search-line", class: "fill-secondary w-4 h-4" %>
-              </button>
-            </div>
-          </div>
-        <% end %>
-      </div>
+    <div class="mt-4">
+      <%= admin_filter_selector %>
     </div>
 
     <div class="card" id="meeting-invites">
@@ -67,7 +37,7 @@
             </tr>
           </thead>
           <tbody>
-            <% invites.each do |invite| %>
+            <% @invites.each do |invite| %>
               <% presenter = Decidim::Meetings::InvitePresenter.new(invite) %>
               <tr data-id="<%= invite.id %>">
                 <td>
@@ -90,6 +60,6 @@
         </table>
       </div>
     </div>
-    <%= decidim_paginate invites %>
+    <%= decidim_paginate @invites %>
   </div>
 </div>

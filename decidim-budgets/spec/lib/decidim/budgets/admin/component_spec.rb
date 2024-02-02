@@ -20,7 +20,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
         name: generate_localized_title,
         default_step_settings: {},
         settings: new_settings(:global, settings)
-      ).with_context(current_organization: organization)
+      ).with_context(current_organization: organization, current_user:)
     end
 
     let(:percent_enabled) { false }
@@ -56,7 +56,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
 
       it "updates the component" do
         expect do
-          Decidim::Admin::UpdateComponent.call(form, component, current_user)
+          Decidim::Admin::UpdateComponent.call(form, component)
         end.to broadcast(:ok)
       end
     end
@@ -67,7 +67,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
       context "when the minimum projects number is valid" do
         it "updates the component" do
           expect do
-            Decidim::Admin::UpdateComponent.call(form, component, current_user)
+            Decidim::Admin::UpdateComponent.call(form, component)
           end.to broadcast(:ok)
         end
       end
@@ -77,7 +77,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
 
         it "does NOT update the component" do
           expect do
-            Decidim::Admin::UpdateComponent.call(form, component, current_user)
+            Decidim::Admin::UpdateComponent.call(form, component)
           end.to broadcast(:invalid)
         end
       end
@@ -89,7 +89,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
       context "when the projects rule is valid" do
         it "updates the component" do
           expect do
-            Decidim::Admin::UpdateComponent.call(form, component, current_user)
+            Decidim::Admin::UpdateComponent.call(form, component)
           end.to broadcast(:ok)
         end
       end
@@ -99,7 +99,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
 
         it "does NOT update the component" do
           expect do
-            Decidim::Admin::UpdateComponent.call(form, component, current_user)
+            Decidim::Admin::UpdateComponent.call(form, component)
           end.to broadcast(:invalid)
         end
       end
@@ -109,7 +109,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
 
         it "updates the component" do
           expect do
-            Decidim::Admin::UpdateComponent.call(form, component, current_user)
+            Decidim::Admin::UpdateComponent.call(form, component)
           end.to broadcast(:ok)
         end
       end
@@ -119,7 +119,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
 
         it "does NOT update the component" do
           expect do
-            Decidim::Admin::UpdateComponent.call(form, component, current_user)
+            Decidim::Admin::UpdateComponent.call(form, component)
           end.to broadcast(:invalid)
         end
       end
@@ -131,7 +131,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
       context "when the threshold percent number is valid" do
         it "updates the component" do
           expect do
-            Decidim::Admin::UpdateComponent.call(form, component, current_user)
+            Decidim::Admin::UpdateComponent.call(form, component)
           end.to broadcast(:ok)
         end
       end
@@ -141,7 +141,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
 
         it "does NOT update the component" do
           expect do
-            Decidim::Admin::UpdateComponent.call(form, component, current_user)
+            Decidim::Admin::UpdateComponent.call(form, component)
           end.to broadcast(:invalid)
         end
       end
@@ -154,7 +154,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
 
       it "does NOT update the component" do
         expect do
-          Decidim::Admin::UpdateComponent.call(form, component, current_user)
+          Decidim::Admin::UpdateComponent.call(form, component)
         end.to broadcast(:invalid)
       end
     end
@@ -166,7 +166,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
 
       it "does NOT update the component" do
         expect do
-          Decidim::Admin::UpdateComponent.call(form, component, current_user)
+          Decidim::Admin::UpdateComponent.call(form, component)
         end.to broadcast(:invalid)
       end
     end

@@ -5,51 +5,21 @@ module Decidim
     module Admin
       # This command is executed when the user creates a Post from the admin
       # panel.
-      class CreatePost < Decidim::Command
-        def initialize(form, current_user)
-          @form = form
-          @current_user = current_user
-        end
-
-        # Creates the post if valid.
-        #
-        # Broadcasts :ok if successful, :invalid otherwise.
-        def call
-          return broadcast(:invalid) if @form.invalid?
-
-          transaction do
-            create_post!
-            send_notification
-          end
-
-          broadcast(:ok, @post)
-        end
+      class CreatePost < Decidim::Commands::CreateResource
+        fetch_form_attributes :title, :body, :published_at, :author, :component
 
         private
 
-        def create_post!
-          attributes = {
-            title: @form.title,
-            body: @form.body,
-            published_at: @form.published_at,
-            component: @form.current_component,
-            author: @form.author
-          }
+        def resource_class = Decidim::Blogs::Post
 
-          @post = Decidim.traceability.create!(
-            Post,
-            @current_user,
-            attributes,
-            visibility: "all"
-          )
-        end
+        def extra_params = { visibility: "all" }
 
-        def send_notification
+        def run_after_hooks
           Decidim::EventsManager.publish(
             event: "decidim.events.blogs.post_created",
             event_class: Decidim::Blogs::CreatePostEvent,
-            resource: @post,
-            followers: @post.participatory_space.followers
+            resource:,
+            followers: resource.participatory_space.followers
           )
         end
       end

@@ -14,28 +14,17 @@ module Decidim
                           This partial is placed in the application layout when the user is logged in."]
               },
               {
-                type: :table,
+                type: :cell_table,
                 options: { headings: ["Follow Button"] },
-                items: follow_table(
-                  { partial: "decidim/design/components/follow/static-follow-default" },
-                  { partial: "decidim/design/components/follow/static-follow-unfollow" }
-                ),
                 cell_snippet: {
                   cell: "decidim/follow_button",
-                  args: [Decidim::User.first]
+                  args: [Decidim::User.where.not(id: current_user&.id).first],
+                  call_string: 'cell("decidim/follow_button", _FOLLOWABLE_RESOURCE_)'
                 }
               }
             ]
           }
         ]
-      end
-
-      def follow_table(*table_rows, **_opts)
-        table_rows.map do |table_cell|
-          row = []
-          row << render(partial: table_cell[:partial])
-          row
-        end
       end
     end
   end

@@ -29,7 +29,7 @@ module Decidim
           return @query if @query
 
           components = Decidim::Component.where(participatory_space: retrieve_participatory_spaces).published
-          proposals = Decidim::Proposals::Proposal.where(component: components).except_withdrawn
+          proposals = Decidim::Proposals::Proposal.where(component: components).not_withdrawn
           join_components = "INNER JOIN decidim_components ON decidim_components.manifest_name = 'proposals' AND proposals.decidim_component_id = decidim_components.id"
           join_categories = <<~EOJOINCATS
             LEFT OUTER JOIN decidim_categorizations

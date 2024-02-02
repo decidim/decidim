@@ -41,10 +41,10 @@ module Decidim
       route_helper?(method_name) || super
     end
 
-    def method_missing(method_name, *args)
+    def method_missing(method_name, *)
       return super unless route_helper?(method_name)
 
-      send(@engine).send(method_name, *args)
+      send(@engine).send(method_name, *)
     end
 
     private

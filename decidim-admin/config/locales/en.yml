@@ -386,12 +386,12 @@ en:
         show:
           dropdown: Dropdown
           view_more_logs: View more logs
-      domain_whitelist:
+      domain_allowlist:
         form:
           domain_too_short: Domain too short
         update:
-          error: Failed to update domain whitelist.
-          success: Domain whitelist updated successfully.
+          error: Failed to update list of allowed external domains
+          success: The list of allowed external domain successfully updated.
       exports:
         export_as: "%{name} as %{export_format}"
         formats:
@@ -458,7 +458,6 @@ en:
           report_count_eq: Report count eq
           reported_id_string_or_reported_content_cont: Search %{collection} by reportable id or content.
           title_cont: Search %{collection} by title.
-          user_name_or_user_email_cont: Search %{collection} by name or email.
           user_name_or_user_nickname_or_user_email_cont: Search %{collection} by email, name or nickname.
         state_eq:
           label: State
@@ -573,7 +572,7 @@ en:
         areas: Areas
         configuration: Configuration
         content: Reported content
-        external_domain_whitelist: Allowed external domains
+        external_domain_allowlist: Allowed external domains
         help_sections: Help sections
         homepage: Homepage
         impersonations: Impersonations
@@ -857,7 +856,7 @@ en:
             layout_appearance_title: Edit layout appearance
             preview: Preview
           omnipresent_banner_appearance_title: Edit omnipresent banner
-      organization_external_domain_whitelist:
+      organization_external_domain_allowlist:
         edit:
           update: Update
         external_domain:
@@ -866,8 +865,8 @@ en:
           remove: Remove
           up: Up
         form:
-          add: Add to whitelist
-          title: External domain whitelist
+          add: Add to allowed list
+          title: Allowed list of external domains
       participatory_space_private_users:
         create:
           error: There was a problem adding a private participant for this participatory space.
@@ -1015,7 +1014,7 @@ en:
         areas: Areas
         authorization_workflows: Verification methods
         dashboard: Dashboard
-        edit_external_domains: External domain whitelist
+        edit_external_domains: Allowed list of external domains
         edit_landing_page: Page contents
         edit_organization_appearance: Edit homepage appearance
         impersonatable_users: Manageable participants

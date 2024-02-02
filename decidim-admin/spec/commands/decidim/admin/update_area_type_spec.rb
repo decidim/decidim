@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Admin
   describe UpdateAreaType do
-    subject { described_class.new(area_type, form, user) }
+    subject { described_class.new(form, area_type) }
 
     let(:organization) { create(:organization) }
     let(:user) { create(:user, organization:) }
@@ -16,7 +16,8 @@ module Decidim::Admin
       double(
         invalid?: invalid,
         name:,
-        plural:
+        plural:,
+        current_user: user
       )
     end
     let(:invalid) { false }

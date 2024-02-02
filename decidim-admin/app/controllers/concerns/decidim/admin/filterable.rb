@@ -69,8 +69,8 @@ module Decidim
         end
 
         # For rejecting ransack params while keeping query params in links.
-        def query_params_without(*filters)
-          query_params.merge(q: ransack_params.except(*filters))
+        def query_params_without(*)
+          query_params.merge(q: ransack_params.except(*))
         end
 
         # Ransack predicate to use in the search_form_for.

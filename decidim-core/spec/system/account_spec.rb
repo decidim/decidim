@@ -43,7 +43,7 @@ describe "Account" do
       end
 
       it "shows error when image is too big" do
-        find("#user_avatar_button").click
+        find_by_id("user_avatar_button").click
 
         within ".upload-modal" do
           click_button "Remove"
@@ -143,7 +143,7 @@ describe "Account" do
 
         it "toggles the current password" do
           expect(page).to have_content("In order to confirm the changes to your account, please provide your current password.")
-          expect(find("#user_old_password")).to be_visible
+          expect(find_by_id("user_old_password")).to be_visible
           expect(page).to have_content "Current password"
           expect(page).not_to have_content "Password"
         end

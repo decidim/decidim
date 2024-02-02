@@ -70,6 +70,7 @@ describe "Proposals" do
       expect(page).to have_content(strip_tags(translated(proposal.body)).strip)
       expect(page).to have_author(proposal.creator_author.name)
       expect(page).to have_content(proposal.reference)
+      expect(page).to have_content(proposal.published_at.strftime("%d/%m/%Y %H:%M"))
     end
 
     context "when process is not related to any scope" do

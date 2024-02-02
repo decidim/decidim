@@ -25,7 +25,7 @@ module Decidim
     end
 
     describe ".daily" do
-      subject { described_class.daily(time:).order(:id) }
+      subject { described_class.daily(time).order(:id) }
 
       let(:time) { Time.now.utc }
       let(:resource) { create(:dummy_resource) }
@@ -53,7 +53,7 @@ module Decidim
     end
 
     describe ".weekly" do
-      subject { described_class.weekly(time:).order(:id) }
+      subject { described_class.weekly(time).order(:id) }
 
       let(:time) { Time.now.utc }
       let(:resource) { create(:dummy_resource) }

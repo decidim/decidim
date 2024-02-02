@@ -11,8 +11,14 @@ describe Decidim::Initiatives::Admin::SupportThresholdReachedEvent do
   let(:initiative) { create(:initiative) }
   let(:participatory_space) { initiative }
   let(:initiative_title) { decidim_html_escape(translated(initiative.title)) }
+  let(:email_subject) { "Signatures threshold reached" }
+  let(:email_intro) { "The initiative #{initiative_title} has reached the signatures threshold" }
+  let(:email_outro) { "You have received this notification because you are an admin of the platform." }
+  let(:notification_title) { "The <a href=\"#{resource_path}\">#{initiative_title}</a> initiative has reached the signatures threshold" }
 
   it_behaves_like "a simple event"
+  it_behaves_like "a simple event email"
+  it_behaves_like "a simple event notification"
 
   describe "types" do
     subject { described_class }
@@ -23,33 +29,6 @@ describe Decidim::Initiatives::Admin::SupportThresholdReachedEvent do
 
     it "supports emails" do
       expect(subject.types).to include :email
-    end
-  end
-
-  describe "email_subject" do
-    it "is generated correctly" do
-      expect(subject.email_subject).to eq("Signatures threshold reached")
-    end
-  end
-
-  describe "email_intro" do
-    it "is generated correctly" do
-      expect(subject.email_intro)
-        .to eq("The initiative #{initiative_title} has reached the signatures threshold")
-    end
-  end
-
-  describe "email_outro" do
-    it "is generated correctly" do
-      expect(subject.email_outro)
-        .to eq("You have received this notification because you are an admin of the platform.")
-    end
-  end
-
-  describe "notification_title" do
-    it "is generated correctly" do
-      expect(subject.notification_title)
-        .to include("The <a href=\"#{resource_path}\">#{initiative_title}</a> initiative has reached the signatures threshold")
     end
   end
 end

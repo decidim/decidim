@@ -43,11 +43,11 @@ describe "Last activity" do
     allow(Decidim::ActionLog).to receive(:public_resource_types).and_return(
       %w(
         Decidim::Comments::Comment
-        Decidim::DummyResources::DummyResource
+        Decidim::Dev::DummyResource
       )
     )
     allow(Decidim::ActionLog).to receive(:publicable_public_resource_types).and_return(
-      %w(Decidim::DummyResources::DummyResource)
+      %w(Decidim::Dev::DummyResource)
     )
 
     create(:content_block, organization:, scope_name: :homepage, manifest_name: :last_activity)
@@ -95,7 +95,7 @@ describe "Last activity" do
       end
 
       it "shows the activities in correct order" do
-        result = page.find("#activities").text
+        result = page.find_by_id("activities").text
         expect(result.index(translated(resource.title))).to be < result.index(translated(comment.commentable.title))
         expect(result.index(translated(comment.commentable.title))).to be < result.index(translated(another_comment.commentable.title))
       end

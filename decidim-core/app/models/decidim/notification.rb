@@ -9,12 +9,12 @@ module Decidim
 
     # Daily notifications should contain all notifications within the previous
     # day from the given day.
-    scope :daily, ->(time: Time.now.utc) { where(created_at: (time - 1.day).all_day) }
+    scope :daily, ->(time = Time.now.utc) { where(created_at: (time - 1.day).all_day) }
 
     # Weekly notifications should contain all notifications within the previous
     # week counting from the end of the previous day until the start of the day
     # 1 week ago from the previous day.
-    scope :weekly, lambda { |time: Time.now.utc|
+    scope :weekly, lambda { |time = Time.now.utc|
       end_of_previous_day = (time - 1.day).end_of_day
       where(created_at: (end_of_previous_day - 7.days).beginning_of_day..end_of_previous_day)
     }

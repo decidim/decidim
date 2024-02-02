@@ -299,9 +299,6 @@ gl:
       dashboard:
         show:
           view_more_logs: Ver máis rexistros
-      domain_whitelist:
-        form:
-          domain_too_short: Dominio curto de máis
       exports:
         export_as: "%{name} como %{export_format}"
         formats:
@@ -367,7 +364,6 @@ gl:
           report_count_eq: Número de denuncias
           reported_id_string_or_reported_content_cont: Procurar %{collection} por contido ou Id reportábel.
           title_cont: Procurar %{collection} por título.
-          user_name_or_user_email_cont: Procurar %{collection} por nome ou correo electrónico.
           user_name_or_user_nickname_or_user_email_cont: Pescudar %{collection} por correo, nome ou alcume.
         state_eq:
           label: Estado
@@ -713,12 +709,6 @@ gl:
             layout_appearance_title: Editar aspecto de deseño
             preview: Vista Previa
           omnipresent_banner_appearance_title: Editar o banner omnipresente
-      organization_external_domain_whitelist:
-        edit:
-          update: Actualizar
-        external_domain:
-          external_domain: Dominio externo
-          remove: Eliminar
       participatory_space_private_users:
         create:
           error: Produciuse un erro engadindo un usuario privado a este espazo participativo.

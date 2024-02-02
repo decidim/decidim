@@ -255,8 +255,6 @@ gl:
     content_blocks:
       footer_sub_hero:
         name: Banner de sub-heroes de pés
-      hero:
-        name: Imaxe de heroe
       highlighted_content_banner:
         name: Banner de contido destacado
       how_to_participate:
@@ -708,8 +706,6 @@ gl:
         metrics:
           headline: Participación en números
           link: Mostrar todas as estatísticas
-    participatory_space_private_users:
-      not_allowed: Non tes permiso para ver este contido
     profile:
       deleted: Usuario eliminado
     profiles:

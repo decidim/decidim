@@ -331,14 +331,8 @@ zh-TW:
             non_user: 不存在的參與者。
             select_user: 選擇參與者
           index:
-            filter:
-              accepted: 已接受
-              all: 全部
-              rejected: 已拒絕
-              sent: 傳送
             invite_attendee: 邀請參與者
             invites: 邀請
-            search: 搜尋
           new:
             explanation: 參加者將被邀請加入會議。如果他們的電子郵件尚未註冊，他們也會被邀請加入該組織。
             invite: 邀請

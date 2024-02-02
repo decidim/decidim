@@ -318,14 +318,8 @@ pt:
             non_user: Participante inexistente
             select_user: Selecione participante
           index:
-            filter:
-              accepted: Aceite
-              all: Todos
-              rejected: Rejeitado
-              sent: Enviei
             invite_attendee: Convidar participante
             invites: Convites
-            search: Pesquisar
           new:
             invite: Convidar
             new_invite: Convidar participante

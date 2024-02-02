@@ -324,7 +324,7 @@ describe "Orders" do
 
         expect(page).to have_content "You have not yet voted"
 
-        page.find("#exit-notification-link").click
+        page.find_by_id("exit-notification-link").click
         expect(page).to have_content("Logged out successfully")
       end
 

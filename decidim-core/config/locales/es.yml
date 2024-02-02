@@ -77,12 +77,6 @@ es:
   booleans:
     'false': 'No'
     'true': 'Sí'
-  carrierwave:
-    errors:
-      file_cannot_be_processed: No se ha podido leer el archivo
-      file_resolution_too_large: La resolución del archivo es demasiado grande
-      file_size_too_large: El tamaño del archivo es demasiado grande
-      not_inside_organization: El archivo no está relacionado con ninguna organización
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -511,7 +505,7 @@ es:
       global_menu:
         name: Menú global
       hero:
-        name: Imagen del hero
+        name: Imagen principal y botón de acción
       hero_settings_form:
         background_image: Imagen de fondo
         welcome_text: Texto de bienvenida
@@ -667,6 +661,10 @@ es:
     endorsers_list:
       endorsed_by: Le gusta a…
     errors:
+      files:
+        file_cannot_be_processed: No se ha podido procesar el archivo
+        file_resolution_too_large: La resolución del archivo es demasiado grande
+        not_inside_organization: El archivo no está relacionado con ninguna organización
       internal_server_error:
         copied: '¡Texto copiado!'
         copy_error_message_clarification: Mensaje de error copiado al portapapeles
@@ -1273,7 +1271,8 @@ es:
     offline:
       name: Sin conexión
       show:
-        message: Parece que estás desconectada. Por favor, inténtalo de nuevo más tarde.
+        message_1: Parece que no tienes conexión a Internet.
+        message_2: Por favor, inténtalo de nuevo más tarde.
         retry: Reintentar
     open_data:
       not_available_yet: Los ficheros Open Data aún no están disponibles, inténtalo de nuevo en unos minutos.
@@ -1331,8 +1330,6 @@ es:
           alert: Hemos actualizado nuestros Términos y Condiciones, por favor, revísalos.
           body: Por favor, dedica un momento a revisar la actualización de nuestros Términos y Condiciones de uso. De lo contrario, no podrás participar en la plataforma.
           title: 'Requerido: Revisa las actualizaciones en nuestros términos y condiciones de uso'
-    participatory_space_private_users:
-      not_allowed: No tienes permiso para visualizar este contenido
     passwords:
       update:
         error: Ha habido un problema al actualizar la contraseña.
@@ -1588,7 +1585,7 @@ es:
         version: Versión %{number}
     versions_list_item:
       show:
-        version_index: Versión %{index}
+        version_index: Versión %{index} de %{total}
     welcome_notification:
       default_body: <p>¡Hola {{name}}, gracias por unirte a {{organization}} te damos la bienvenida!</p><ul><li>Si quieres hacerte una idea rápida de que puedes hacer, echa un vistazo a la <a href="{{help_url}}">Sección de ayuda</a>.</li><li>Una vez la hayas leído recibirás tu primera insignia. Aquí encontrarás un <a href="{{badges_url}}">listado de todas las insignias</a>que puedes conseguir participando en {{organization}}</li><li>. Para terminar, pero no por ello menos importante, únete a otras personas, comparte con ellas de estar comprometida y de participar en {{organization}}. Haz propuestas, comentarios, debate, piensa en cómo contribuir a un bien común, aporta argumentos para tratar de convencer, escucha y lee para convencerte, expresa tus ideas de manera concreta y directa, responde con paciencia y decisión, defiende tus ideas y permanece abierta de mente para colaborar y unirte a las ideas de otra gente.</li></ul>
       default_subject: Gracias por unirte a {{organization}}!
@@ -1793,30 +1790,32 @@ es:
     upload:
       uploadedFile: Archivo subido
   emojis:
+    add_custom: Agregar emoji personalizado
     button: Añadir emoji
     categories:
-      activities: Actividades
-      animals-nature: Animales y naturaleza
+      activity: Actividad
       custom: Personalizado
       flags: Banderas
-      food-drink: Alimentos y bebidas
+      foods: Alimentos y bebidas
+      frequent: Usados frecuentemente
+      nature: Animales y naturaleza
       objects: Objetos
-      people-body: Personas y cuerpo
-      recents: Usados recientemente
-      smileys-emotion: Sonrisas y emociones
+      people: Caras y Personas
+      places: Viajes y lugares
+      search: Resultados de búsqueda
       symbols: Símbolos
-      travel-places: Viajes y lugares
-    error:
-      load: No se ha producido un error al cargar la lista de emojis
-    recents:
-      clear: Borra los emojis recientes
-      none: Aún no has seleccionado ningún emoji.
-    retry: Inténtalo de nuevo
-    search:
-      _: Buscar emojis...
-      clear: Limpiar búsqueda
-      error: Error al buscar emojis
-      not_found: No se han encontrado resultados
+    pick: Elige un emoji…
+    search: Buscar
+    search_no_results_1: '¡Oh no!'
+    search_no_results_2: No se pudo encontrar ese emoticono
+    skins:
+      '1': Por defecto
+      '2': Clara
+      '3': Medio clara
+      '4': Media
+      '5': Medio oscura
+      '6': Oscura
+      choose: Elige un tono de piel predeterminado
   errors:
     messages:
       allowed_file_content_types: 'solo se permiten archivos con las siguientes extensiones: %{types}'
@@ -2015,7 +2014,7 @@ es:
     weibo: Sina Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
-    x:
+    x: X
     xing: Xing
   time:
     formats:

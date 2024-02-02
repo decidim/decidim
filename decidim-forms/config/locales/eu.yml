@@ -161,6 +161,7 @@ eu:
             sign_up_description: Sortu parte-hartzaileen kontua inkesta egiteko
             title: Erantzun formularioa
           current_step: '%{step} urratsa'
+          empty: Oraindik ez dago galderarik konfiguratuta galdetegi honetan.
           of_total_steps: '%{total_steps} etik'
           questionnaire_answered:
             body: Dagoeneko inkesta hau erantzun duzu.

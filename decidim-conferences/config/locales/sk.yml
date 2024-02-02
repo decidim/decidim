@@ -286,14 +286,8 @@ sk:
             non_user: Neexistujúci účastník
             select_user: Vybrať účastníka
           index:
-            filter:
-              accepted: Potvrdené
-              all: Všetko
-              rejected: Odmietnuté
-              sent: Odoslané
             invite_attendee: Pozvať účastníka
             invites: Pozvánky
-            search: Hľadať
           new:
             invite: Pozvať
             new_invite: Pozvať účastníka

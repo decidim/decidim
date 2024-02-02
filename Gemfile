@@ -7,7 +7,6 @@ ruby RUBY_VERSION
 gem "decidim", path: "."
 gem "decidim-conferences", path: "."
 gem "decidim-design", path: "."
-gem "decidim-elections", path: "."
 gem "decidim-initiatives", path: "."
 gem "decidim-templates", path: "."
 
@@ -20,7 +19,7 @@ group :development, :test do
 
   gem "decidim-dev", path: "."
 
-  gem "brakeman", "~> 5.4"
+  gem "brakeman", "~> 6.1"
   gem "net-imap", "~> 0.2.3"
   gem "net-pop", "~> 0.1.1"
   gem "net-smtp", "~> 0.3.1"

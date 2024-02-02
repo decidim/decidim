@@ -216,6 +216,14 @@ describe "Participatory Processes" do
       allow(Decidim).to receive(:component_manifests).and_return([proposals_component.manifest, meetings_component.manifest])
     end
 
+    describe "page title" do
+      it "has the participatory process title in the show page" do
+        visit decidim_participatory_processes.participatory_process_path(participatory_process)
+
+        expect(page).to have_title("#{translated(participatory_process.title)} - #{organization.name}")
+      end
+    end
+
     it_behaves_like "editable content for admins" do
       let(:target_path) { decidim_participatory_processes.participatory_process_path(participatory_process) }
     end
@@ -240,7 +248,7 @@ describe "Participatory Processes" do
 
       context "when requesting the process path" do
         context "when hero, main_data and phase and duration blocks are enabled" do
-          let(:blocks_manifests) { [:process_hero, :main_data, :extra_data, :metadata] }
+          let(:blocks_manifests) { [:hero, :main_data, :extra_data, :metadata] }
 
           it "shows the details of the given process" do
             within "[data-content]" do

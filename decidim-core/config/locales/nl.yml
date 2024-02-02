@@ -353,8 +353,6 @@ nl:
         description: Beschrijving
       footer_sub_hero:
         name: Voettekst sub hero banner
-      hero:
-        name: Hero-afbeelding
       hero_settings_form:
         background_image: Achtergrond afbeelding
         welcome_text: Welkom tekst
@@ -902,8 +900,6 @@ nl:
         metrics:
           headline: Deelname in cijfers
           link: Toon alle statistieken
-    participatory_space_private_users:
-      not_allowed: Je hebt geen toestemming om deze inhoud te bekijken
     profile:
       deleted: Verwijderde deelnemer
     profiles:

@@ -15,7 +15,7 @@ import svg4everybody from "svg4everybody"
 import morphdom from "morphdom"
 
 // vendor customizated scripts (bad practice: these ones should be removed eventually)
-import "./vendor/modernizr"
+import "src/decidim/vendor/modernizr"
 
 /**
  * Local dependencies
@@ -50,6 +50,7 @@ import "src/decidim/data_consent"
 import "src/decidim/sw"
 
 // local deps that require initialization
+import formDatePicker from "src/decidim/datepicker/form_datepicker"
 import Configuration from "src/decidim/configuration"
 import ExternalLink from "src/decidim/external_link"
 import updateExternalDomainLinks from "src/decidim/external_domain_warning"
@@ -104,6 +105,8 @@ const initializer = (element = document) => {
   $(element).foundation();
 
   svg4everybody();
+
+  element.querySelectorAll('input[type="datetime-local"],input[type="date"]').forEach((elem) => formDatePicker(elem))
 
   element.querySelectorAll(".editor-container").forEach((container) => window.createEditor(container));
 

@@ -5,13 +5,10 @@ module Decidim
     module Admin
       # A command with all the business logic when creating a new participatory
       # process group in the system.
-      class CreateParticipatoryProcessGroup < Decidim::Command
-        # Public: Initializes the command.
-        #
-        # form - A form object with the params.
-        def initialize(form)
-          @form = form
-        end
+      class CreateParticipatoryProcessGroup < Decidim::Commands::CreateResource
+        fetch_form_attributes :organization, :title, :description, :hashtag, :group_url, :hero_image,
+                              :developer_group, :local_area, :meta_scope, :participatory_scope, :participatory_structure,
+                              :target, :promoted
 
         # Executes the command. Broadcasts these events:
         #
@@ -21,8 +18,6 @@ module Decidim
         # Returns nothing.
         def call
           return broadcast(:invalid) if form.invalid?
-
-          group = create_participatory_process_group
 
           if group.persisted?
             Decidim::ContentBlocksCreator.new(group).create_default!
@@ -35,35 +30,16 @@ module Decidim
           end
         end
 
-        private
+        protected
 
-        attr_reader :form
+        def group
+          @group ||= create_resource(soft: true)
+        end
 
-        def create_participatory_process_group
-          transaction do
-            Decidim.traceability.perform_action!(
-              "create",
-              ParticipatoryProcessGroup,
-              form.current_user
-            ) do
-              ParticipatoryProcessGroup.create(
-                organization: form.current_organization,
-                title: form.title,
-                description: form.description,
-                hashtag: form.hashtag,
-                group_url: form.group_url,
-                hero_image: form.hero_image, # Keep after organization
-                participatory_processes:,
-                developer_group: form.developer_group,
-                local_area: form.local_area,
-                meta_scope: form.meta_scope,
-                participatory_scope: form.participatory_scope,
-                participatory_structure: form.participatory_structure,
-                target: form.target,
-                promoted: form.promoted
-              )
-            end
-          end
+        def resource_class = Decidim::ParticipatoryProcessGroup
+
+        def attributes
+          super.merge({ participatory_processes: })
         end
 
         def participatory_processes
