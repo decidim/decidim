@@ -871,6 +871,11 @@ cs:
         external_domain:
           down: Dolů
           external_domain: Externí doména
+          remove: Odstranit
+          up: Nahoru
+        form:
+          add: Přidat na Seznam povolených
+          title: Seznam povolených externích domén
       participatory_space_private_users:
         create:
           error: Při přidávání soukromého uživatele pro tento participační prostor došlo k chybě.
@@ -1020,6 +1025,7 @@ cs:
         areas: Oblasti
         authorization_workflows: Metody ověření
         dashboard: Ovládací panel
+        edit_external_domains: Seznam povolených externích domén
         edit_landing_page: Obsah stránky
         edit_organization_appearance: Upravit vzhled domovské stránky
         impersonatable_users: Spravovatelní účastníci
