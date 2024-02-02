@@ -536,6 +536,14 @@ shared_examples_for "has questionnaire" do
         )
       end
 
+      before do
+        # Workaround for flaky spec related to resolution change
+        #
+        # For some unknown reason, depending on the order run for these specs, the resolution is changed to
+        # 800x600, which breaks the drag and drop. This forces the resolution to be 1920x1080
+        current_window.resize_to(1920, 1080)
+      end
+
       it "renders the question answers as a collection of divs sortable on drag and drop" do
         visit questionnaire_public_path
 

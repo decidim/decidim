@@ -79,7 +79,7 @@ module Decidim
 
           # Method to be implemented at the controller. Defines the permissions for
           # edit and update actions.
-          # For example `enforce_permission_to :manage_landing_page, :voting, voting: current_space`.
+          # For example `enforce_permission_to :update, :process, process: scoped_resource
           def enforce_permission_to_update_resource
             raise "#{self.class.name} is expected to implement #enforce_permission_to_update_resource"
           end
@@ -99,7 +99,7 @@ module Decidim
           # Method to be implemented at the controller. Returns a string
           # with the cell name to be used for the drag'n'drop for each content_block.
           #
-          # Example: "decidim/votings/content_block"
+          # Example: "decidim/participatory_processes/content_block"
           def resource_content_block_cell
             raise "#{self.class.name} is expected to implement #resource_content_block_cell"
           end
