@@ -59,7 +59,12 @@ ar:
             change_category: تغيير الفئة
             finished_orders: الانتهاء من الأصوات
             pending_orders: في انتظار الأصوات
+            selected_options:
+              'no': 'لا'
+              'yes': 'نعم'
             title: مشاريع
+            update: تحديث
+            update_budget_button: تحديث ميزانية المشروع
           new:
             create: إنشاء
             title: مشروع جديد
@@ -77,6 +82,8 @@ ar:
       budget_information_modal:
         continue: مواصلة
         more_information: المزيد من المعلومات
+      budgets_list:
+        budgets: الميزانيات
       models:
         budget:
           fields:

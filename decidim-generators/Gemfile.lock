@@ -83,7 +83,6 @@ PATH
       loofah (~> 2.19, >= 2.19.1)
       mime-types (>= 1.16, < 4.0)
       mini_magick (~> 4.9)
-      mustache (~> 1.1.0)
       net-smtp (~> 0.3.1)
       omniauth (~> 2.0)
       omniauth-facebook (~> 5.0)
@@ -143,14 +142,6 @@ PATH
       w3c_rspec_validators (~> 0.3.0)
       webmock (~> 3.18)
       wisper-rspec (~> 1.0)
-    decidim-elections (0.29.0.dev)
-      decidim-bulletin_board (~> 0.24.4)
-      decidim-core (= 0.29.0.dev)
-      decidim-forms (= 0.29.0.dev)
-      decidim-proposals (= 0.29.0.dev)
-      rack-attack (~> 6.0)
-      voting_schemes-dummy (~> 0.24.4)
-      voting_schemes-electionguard (~> 0.24.4)
     decidim-forms (0.29.0.dev)
       decidim-core (= 0.29.0.dev)
       wicked_pdf (~> 2.1)
@@ -326,12 +317,6 @@ GEM
     date_validator (0.12.0)
       activemodel (>= 3)
       activesupport (>= 3)
-    decidim-bulletin_board (0.24.4)
-      byebug (~> 11.0)
-      graphlient (~> 0.5.0)
-      jwt (~> 2.5.0)
-      rails (>= 5.0.0, < 7.1)
-      wisper (~> 2.0.0)
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
     declarative-option (0.1.0)
@@ -400,8 +385,6 @@ GEM
     faraday-patron (1.0.0)
     faraday-rack (1.0.0)
     faraday-retry (1.0.3)
-    faraday_middleware (1.2.0)
-      faraday (~> 1.0)
     fast-stemmer (1.0.2)
     ffi (1.15.5)
     file_validators (3.0.0)
@@ -425,14 +408,7 @@ GEM
     geom2d (0.3.1)
     globalid (1.1.0)
       activesupport (>= 5.0)
-    graphlient (0.5.0)
-      faraday (>= 1.0)
-      faraday_middleware
-      graphql-client
     graphql (2.0.21)
-    graphql-client (0.18.0)
-      activesupport (>= 3.0)
-      graphql
     graphql-docs (3.0.1)
       commonmarker (~> 0.16)
       escape_utils (~> 1.2.2)
@@ -523,7 +499,6 @@ GEM
     multi_json (1.15.0)
     multi_xml (0.6.0)
     multipart-post (2.2.3)
-    mustache (1.1.1)
     net-imap (0.2.3)
       digest
       net-protocol
@@ -777,10 +752,6 @@ GEM
     valid_email2 (4.0.6)
       activemodel (>= 3.2)
       mail (~> 2.5)
-    voting_schemes-dummy (0.24.4)
-      rails (>= 5.0.0)
-    voting_schemes-electionguard (0.24.4)
-      rails (>= 5.0.0)
     w3c_rspec_validators (0.3.0)
       rails
       rspec
@@ -829,7 +800,6 @@ DEPENDENCIES
   decidim-conferences!
   decidim-design!
   decidim-dev!
-  decidim-elections!
   decidim-initiatives!
   decidim-templates!
   letter_opener_web (~> 2.0)

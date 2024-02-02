@@ -24,7 +24,7 @@ module Decidim
         def query
           if category.nil?
             return Decidim::Proposals::Proposal
-                   .except_withdrawn
+                   .not_withdrawn
                    .published
                    .except_rejected
                    .not_hidden
@@ -36,7 +36,7 @@ module Decidim
           # categorization -> category
           Decidim::Proposals::Proposal
             .joins(:categorization)
-            .except_withdrawn
+            .not_withdrawn
             .published
             .except_rejected
             .not_hidden
