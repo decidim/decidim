@@ -3,7 +3,7 @@
 
 require "thor"
 
-require "./../lib/decidim/maintainers_toolbox/releaser"
+require_relative "./../lib/decidim/maintainers_toolbox/releaser"
 
 class ReleaserCLI < Thor
   desc "", "Make the branch for preparing a release"

@@ -4,7 +4,7 @@
 require "json"
 require "ruby-progressbar"
 
-require "./../lib/decidim/maintainers_toolbox/github_manager/querier"
+require_relative "./../lib/decidim/maintainers_toolbox/github_manager/querier"
 
 class EmptyTokenError < RuntimeError
   def full_message
