@@ -23,21 +23,21 @@ There are a couple differences with the rest of the gems of this repository:
 * About the versioning: as it has not decidim nor decidim-core as dependencies, and to keep it easy to work with, we will not have the same versioning as the others gems.
 * About the ruby version: to make it possible to work with older decidim versions, we will support the lowest supported ruby version.
 
-The main scripts are `backporter`, `backports_checker`, `changelog_generator` and `releaser`.
+The main scripts are `decidim-backporter`, `decidim-backports-checker`, `decidim-changelog-generator` and `decidim-releaser`.
 
-### backporter
-
-See [Backports documentation](https://docs.decidim.org/en/develop/develop/backports)
-
-### backports_checker
+### decidim-backporter
 
 See [Backports documentation](https://docs.decidim.org/en/develop/develop/backports)
 
-### changelog_generator
+### decidim-backports-checker
+
+See [Backports documentation](https://docs.decidim.org/en/develop/develop/backports)
+
+### decidim-changelog-generator
 
 Used for generating the changelog with all the Pull Requests that goes to the current release. To be used automatically by the `releaser` script.
 
-### releaser
+### decidim-releaser
 
 See [Releasing new versions documentation](https://docs.decidim.org/en/develop/develop/maintainers/releases)
 

@@ -187,7 +187,7 @@ module Decidim::MaintainersToolbox
     # @return [void]
     def generate_changelog
       sha_version = capture("git log -n 1 --pretty=format:%h -- .decidim-version")[0]
-      run("bin/changelog_generator #{@token} #{sha_version}")
+      run("decidim-changelog-generator #{@token} #{sha_version}")
       temporary_changelog = File.read("./temporary_changelog.md")
       legacy_changelog = File.read("./CHANGELOG.md")
       version_changelog = "## [#{version_number}](https://github.com/decidim/decidim/tree/#{version_number})\n\n#{temporary_changelog}\n"

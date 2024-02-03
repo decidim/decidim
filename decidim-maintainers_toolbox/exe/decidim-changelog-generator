@@ -13,7 +13,7 @@ class EmptyTokenError < RuntimeError
 
       ## Example
 
-          bin/changelog_generator <GITHUB PERSONAL ACCESS TOKEN> <SHA>
+          decidim-changelog-generator <GITHUB PERSONAL ACCESS TOKEN> <SHA>
 
       ## Params
 
