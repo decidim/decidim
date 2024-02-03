@@ -1318,6 +1318,8 @@ cs:
     offline:
       name: Offline
       show:
+        message_1: Vypadá to, že jste v režimu offline.
+        message_2: Prosím, zkuste to znovu později.
         retry: Zkusit znovu
     open_data:
       not_available_yet: Soubory Open Data nejsou dosud k dispozici. Zkuste to prosím znovu za pár minut.
@@ -1838,14 +1840,32 @@ cs:
     upload:
       uploadedFile: Nahraný soubor
   emojis:
+    add_custom: Přidat vlastní emoji
     button: Přidat emoji
     categories:
       activity: Aktivita
       custom: Vlastní
       flags: Značky
       foods: Jídlo a pití
+      frequent: Často používané
+      nature: Zvířata a příroda
       objects: Objekty
+      people: Smajlíci a lidé
+      places: Cestování a místa
+      search: Výsledky hledání
       symbols: Symboly
+    pick: Vyberte emoji…
+    search: Hledat
+    search_no_results_1: Ale ne!
+    search_no_results_2: Tento emoji nebyl nalezen
+    skins:
+      '1': Výchozí
+      '2': Světlý
+      '3': Středně světlé
+      '4': Střední
+      '5': Středně tmavý
+      '6': Tmavý
+      choose: Zvolte výchozí tón vzhledu
   errors:
     messages:
       allowed_file_content_types: 'jsou povoleny pouze soubory s následujícími příponami: %{types}'
@@ -2051,6 +2071,10 @@ cs:
     x: X
     xing: Xing
   time:
+    buttons:
+      close: Zavřít‏
+      reset: Resetovat
+      select: Vybrat
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
@@ -2065,6 +2089,8 @@ cs:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
+      help:
+        time_format: 'Formát: hh:mm'
       long: "%B %d, %Y %H:%M"
       long_dashed: "%Y-%m-%d %H:%M:%S"
       long_with_particles: "%B %d, %Y v %H:%M"
