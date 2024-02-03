@@ -21,7 +21,7 @@ describe "Admin manages newsletters" do
     it "shows the number of users subscribed to the newsletter" do
       visit decidim_admin.newsletters_path
 
-      within ".subscribed_count" do
+      within "span[data-subscribed-count]" do
         expect(page).to have_content(recipients_count)
       end
     end
