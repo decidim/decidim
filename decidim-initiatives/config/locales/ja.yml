@@ -297,6 +297,8 @@ ja:
             update: 更新
           form:
             authorizations: 認証設定
+            child_scope_threshold_enabled_help_html: 'この設定フラグはオフライン投票に対応していません。サブスコープを有効にし、ユーザーにスコープを関連付ける権限ハンドラと連携します。認証設定の下部で、その認証を選択することを確認してください。これを動作させるためには、スコープを階層的に設定する必要があります：1つの親 - N個の子。この設定がどのように機能するかの詳細は、 <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">イニシアチブの管理者向けドキュメントページ</a> を参照してください。'
+            only_global_scope_enabled_help_html: '「子スコープ署名」を有効にし、グローバルスコープを親スコープとして設定した場合、このフラグをチェックします。これを有効にすると、イニシアチブ作成ウィザードでのイニシアチブタイプの選択がスキップされます。この仕組みについての詳細は、こちらの <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">リンク</a> を参照してください。'
             options: オプション
           initiative_type_scopes:
             title: イニシアチブ種別のスコープ

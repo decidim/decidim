@@ -31,7 +31,7 @@ module Decidim
 
       translatable_fields :title, :body
 
-      STATES = { not_answered: 0, evaluating: 10, accepted: 20, rejected: -10, withdrawn: -20 }.freeze
+      STATES = { not_answered: 0, evaluating: 10, accepted: 20, rejected: -10 }.freeze
 
       fingerprint fields: [:title, :body]
 
@@ -67,7 +67,10 @@ module Decidim
       scope :state_not_published, -> { where(state_published_at: nil) }
       scope :state_published, -> { where.not(state_published_at: nil) }
       scope :except_rejected, -> { not_rejected.or(state_not_published) }
-      scope :except_withdrawn, -> { not_withdrawn }
+
+      scope :withdrawn, -> { where.not(withdrawn_at: nil) }
+      scope :not_withdrawn, -> { where(withdrawn_at: nil) }
+
       scope :drafts, -> { where(published_at: nil) }
       scope :published, -> { where.not(published_at: nil) }
       scope :order_by_most_recent, -> { order(created_at: :desc) }
@@ -77,7 +80,7 @@ module Decidim
         when "withdrawn"
           withdrawn
         else
-          except_withdrawn
+          not_withdrawn
         end
       }
 
@@ -145,7 +148,7 @@ module Decidim
                                     .where(decidim_coauthorships: { decidim_author_type: "Decidim::UserBaseEntity" })
                                     .not_hidden
                                     .published
-                                    .except_withdrawn
+                                    .not_withdrawn
       end
 
       def self.newsletter_participant_ids(component)
@@ -227,7 +230,7 @@ module Decidim
       #
       # Returns Boolean.
       def withdrawn?
-        internal_state == "withdrawn"
+        withdrawn_at.present?
       end
 
       # Public: Checks if the organization has accepted a proposal.
@@ -323,6 +326,11 @@ module Decidim
       # user - the user to check for withdrawability.
       def withdrawable_by?(user)
         user && !withdrawn? && authored_by?(user) && !copied_from_other_component?
+      end
+
+      def withdraw!
+        self.withdrawn_at = Time.zone.now
+        save
       end
 
       # Public: Whether the proposal is a draft or not.
@@ -442,7 +450,8 @@ module Decidim
       end
 
       def process_amendment_state_change!
-        return unless %w(accepted rejected evaluating withdrawn).member?(amendment.state)
+        return withdraw! if amendment.withdrawn?
+        return unless %w(accepted rejected evaluating).member?(amendment.state)
 
         PaperTrail.request(enabled: false) do
           update!(

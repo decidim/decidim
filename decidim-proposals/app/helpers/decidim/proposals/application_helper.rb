@@ -34,6 +34,8 @@ module Decidim
       #
       # Returns a String.
       def proposal_state_css_class(proposal)
+        return "alert" if proposal.withdrawn?
+
         state = proposal.state
         state = proposal.internal_state if proposal.answered? && !proposal.published_state?
 

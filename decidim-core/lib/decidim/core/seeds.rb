@@ -139,7 +139,7 @@ module Decidim
           },
           host: ENV.fetch("DECIDIM_HOST", "localhost"),
           secondary_hosts: ENV.fetch("DECIDIM_HOST", "localhost") == "localhost" ? ["0.0.0.0", "127.0.0.1"] : nil,
-          external_domain_whitelist: ["decidim.org", "github.com"],
+          external_domain_allowlist: ["decidim.org", "github.com"],
           description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.sentence(word_count: 15)
           end,

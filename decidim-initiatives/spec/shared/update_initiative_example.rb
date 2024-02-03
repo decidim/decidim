@@ -10,6 +10,7 @@ shared_examples "update an initiative" do
     ).with_context(
       current_organization: organization,
       current_component: nil,
+      current_user:,
       initiative:
     )
   end
@@ -32,7 +33,7 @@ shared_examples "update an initiative" do
   end
   let(:current_user) { initiative.author }
 
-  let(:command) { described_class.new(initiative, form, current_user) }
+  let(:command) { described_class.new(form, initiative) }
 
   describe "call" do
     describe "when the form is not valid" do
@@ -148,10 +149,10 @@ shared_examples "update an initiative" do
       end
 
       context "when administrator user" do
-        let(:administrator) { create(:user, :admin, organization:) }
+        let(:current_user) { create(:user, :admin, organization:) }
 
         let(:command) do
-          described_class.new(initiative, form, administrator)
+          described_class.new(form, initiative)
         end
 
         it "voting interval gets updated" do

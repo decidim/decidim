@@ -98,9 +98,6 @@ eu:
         destroy: ezabatu
         duplicate: Bikoiztu
         edit: Editatu
-        filter:
-          all_processes: Erakutsi prozesu guztiak
-          process_groups: Iragazki prozesuak taldeetan
         import_process: Inportatu
         moderate: Moderatu
         new_process: Beste prozesu bat
@@ -113,6 +110,9 @@ eu:
         resend_invitation: Birbidali gonbita
         see_process: Ikusi prozesuak
         unpublish: Despublikatu
+      filters:
+        decidim_participatory_process_group_id_eq:
+          label: Prozesu-taldeen arabera
       menu:
         participatory_process_groups: Prozesu-taldeak
         participatory_process_groups_submenu:
@@ -219,6 +219,13 @@ eu:
             last_step: Ezin da ezabatu prozesuaren azken fasea.
           success: Prozesu parte-hartzailearen fasea ondo ezabatua.
         edit:
+          cta_deprecated:
+            body_html: |-
+              CTAren konfigurazioa, partaidetza-prozesuaren fasearen bidez, zaharkituta dago diseinu berriarekin.
+              Orain, <b>Hasierako orrian</b> egiten da hori, <b>Irudi nagusia</b> eduki-blokea eta ekintza-botoia erabilita.
+              Hemen utzi dugu behar dituzun CTAak egin ditzazun. <i>Ekintzaren ibilbidea</i> eta
+              <i>Ekintza botoiaren</i> testuak hurrengo bertsioan ezabatuko dira.
+            title: CTA zaharkituta
           title: Editatu prozesu parte-hartzailearen fasea
           update: Eguneratu
         index:

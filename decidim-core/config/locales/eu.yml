@@ -77,12 +77,6 @@ eu:
   booleans:
     'false': 'Ez'
     'true': 'Bai'
-  carrierwave:
-    errors:
-      file_cannot_be_processed: Fitxategia ezin izan da prozesatu
-      file_resolution_too_large: Fitxategiaren erresoluzioa handiegia da
-      file_size_too_large: Fitxategiaren taimaina handiegia da
-      not_inside_organization: Artxiboa ez dago antolatzaile batekin erlazionatuta
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -498,7 +492,7 @@ eu:
       global_menu:
         name: Menu globala
       hero:
-        name: Heroi irudia
+        name: Irudi nagusia eta ekintza botoia
       hero_settings_form:
         background_image: Atzeko planoko irudia
         welcome_text: Ongietorri-testua
@@ -654,6 +648,10 @@ eu:
     endorsers_list:
       endorsed_by: Gustuko du…
     errors:
+      files:
+        file_cannot_be_processed: Fitxategia ezin izan da prozesatu
+        file_resolution_too_large: Fitxategiaren erresoluzioa handiegia da
+        not_inside_organization: Artxiboa ez dago erakunde batekin erlazionatuta
       internal_server_error:
         copied: Testua kopiatuta!
         copy_error_message_clarification: Errore-mezua arbelean kopiatuta
@@ -844,6 +842,9 @@ eu:
       title: Hatz-marka
       value: Balioa
     followers:
+      followers_count:
+        one: "%{count} jarraitzaile"
+        other: "%{count} jarraitzaileak"
       no_followers: Ez da jarraitzailerik oraindik.
     following:
       no_followings: Oraindik ez du inor edo ezer jarraitzen.
@@ -1254,7 +1255,8 @@ eu:
     offline:
       name: Konexiorik gabe
       show:
-        message: Badirudi lineaz kanpo zaudela. Mesedez, saiatu berriro geroago.
+        message_1: Badirudi ez duzula Interneterako konexiorik.
+        message_2: Mesedez, saiatu berriro geroago.
         retry: Saiatu berriro
     open_data:
       not_available_yet: Open Data fitxategiak oraindik ez daude erabilgarri, saiatu berriro minutu gutxi barru.
@@ -1772,30 +1774,32 @@ eu:
     upload:
       uploadedFile: Igotako fitxategia
   emojis:
+    add_custom: Gehitu emoji pertsonala
     button: Gehitu emojia
     categories:
-      activities: Jarduerak
-      animals-nature: Animaliak eta natura
+      activity: Jarduera
       custom: Pertsonalizatu
       flags: Banderak
-      food-drink: Janaria eta edaria
+      foods: Janaria & Edaria
+      frequent: Maiz erabiliak
+      nature: Animaliak & Natura
       objects: Objektuak
-      people-body: Jendea eta gorputza
-      recents: Oraintsu erabilia
-      smileys-emotion: Irribarreak eta emozioa
+      people: Irribarreak & Pertsonak
+      places: Bidaiak & Lekuak
+      search: Bilatu Emaitzak
       symbols: Ikurrak
-      travel-places: Bidaiak eta tokiak
-    error:
-      load: Ezin izan dira emojiak kargatu.
-    recents:
-      clear: Garbitu duela gutxiko emojiak
-      none: Ez duzu aukeratuta emojirik.
-    retry: Saiatu berriro
-    search:
-      _: Bilatu emojiak...
-      clear: Garbitu bilaketa
-      error: Ezin izan dira emojiak bilatu.
-      not_found: Ez da emaitzarik aurkitu
+    pick: Aukeratu emoji bat…
+    search: Bilatu
+    search_no_results_1: O ez!
+    search_no_results_2: Emoji hori ezin da aurkitu
+    skins:
+      '1': Lehenetsia
+      '2': Argia
+      '3': Argi Ertaina
+      '4': Ertaina
+      '5': Erdi Iluna
+      '6': Ilun
+      choose: Aukeratu azalaren tonu lehenetsia
   errors:
     messages:
       allowed_file_content_types: 'soilik onartuko dira honako hedapenak: %{types}'
@@ -1951,7 +1955,7 @@ eu:
         title: Parte-hartzailearen ezarpenak
         user_groups: Taldeak
   locale:
-    name: Ingelesa
+    name: Euskera
     name_with_error: Euskera (akatsa!)
   password_validator:
     denied: ukatu egin da

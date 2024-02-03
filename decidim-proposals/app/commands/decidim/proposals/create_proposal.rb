@@ -104,11 +104,11 @@ module Decidim
       end
 
       def current_user_proposals
-        Proposal.from_author(@current_user).where(component: form.current_component).except_withdrawn
+        Proposal.not_withdrawn.from_author(@current_user).where(component: form.current_component)
       end
 
       def user_group_proposals
-        Proposal.from_user_group(@user_group).where(component: form.current_component).except_withdrawn
+        Proposal.not_withdrawn.from_user_group(@user_group).where(component: form.current_component)
       end
     end
   end
