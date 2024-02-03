@@ -10,7 +10,6 @@ $(() => {
   sectionsToDelete.forEach((section) => {
     $(`> .comment__${section}`, $comment).remove();
   });
-  $("[data-js-additional-reply]", $comment).remove();
 
   $commentReply.remove();
   $content.replaceWith(deleteDataHtml);
