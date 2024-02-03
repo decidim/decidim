@@ -1314,6 +1314,8 @@ cs:
     offline:
       name: Offline
       show:
+        message_1: Vypadá to, že jste v režimu offline.
+        message_2: Prosím, zkuste to znovu později.
         retry: Zkusit znovu
     open_data:
       not_available_yet: Soubory Open Data nejsou dosud k dispozici. Zkuste to prosím znovu za pár minut.
@@ -1839,6 +1841,7 @@ cs:
     button: Přidat emoji
     categories:
       activities: Aktivity
+      animals-nature: Zvířata a příroda
       custom: Vlastní
       flags: Značky
       food-drink: Jídlo a pití
@@ -1847,6 +1850,7 @@ cs:
       recents: Naposledy použité
       smileys-emotion: Smajlíky a emoce
       symbols: Symboly
+      travel-places: Cestování a místa
     error:
       load: Nepodařilo se načíst emoje
     recents:
