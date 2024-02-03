@@ -1840,8 +1840,10 @@ cs:
   emojis:
     button: Přidat emoji
     categories:
+      activity: Aktivita
       custom: Vlastní
       flags: Značky
+      foods: Jídlo a pití
       objects: Objekty
       symbols: Symboly
   errors:
