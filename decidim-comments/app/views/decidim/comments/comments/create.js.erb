@@ -9,7 +9,7 @@
     component.addReply(inReplyTo, commentHtml, true);
 
     var hideButton = $("#comment_" + <%= root_comment.id %>).find("[data-js-comment-hide]").first();
-    hideButton.find(".show-comment-replies").first().html('<%= t("decidim.components.comment.show_replies", count: Decidim::Comments::SortedComments.for(root_comment.reload).size) %>');
+    hideButton.find("[data-js-show-comment-reply]").first().html('<%= t("decidim.components.comment.show_replies", count: Decidim::Comments::SortedComments.for(root_comment.reload).size) %>');
 
   } else {
     component.addThread(commentHtml, true);
