@@ -56,7 +56,7 @@ export default class CommentsComponent {
       this.mounted = false;
       this._stopPolling();
 
-      $(".add-comment .opinion-toggle button", this.$element).off("click.decidim-comments");
+      $(".add-comment [data-js-opinion-toggle] button", this.$element).off("click.decidim-comments");
       $(".add-comment textarea", this.$element).off("input.decidim-comments");
       $(".add-comment form", this.$element).off("submit.decidim-comments");
       $(".add-comment textarea", this.$element).each((_i, el) => el.removeEventListener("emoji.added", this._onTextInput));
@@ -117,7 +117,7 @@ export default class CommentsComponent {
     $(".add-comment", $parent).each((_i, el) => {
       const $add = $(el);
       const $form = $("form", $add);
-      const $opinionButtons = $(".opinion-toggle button", $add);
+      const $opinionButtons = $("[data-js-opinion-toggle] button", $add);
       const $text = $("textarea", $form);
 
       $opinionButtons.on("click.decidim-comments", this._onToggleOpinion);
@@ -280,18 +280,18 @@ export default class CommentsComponent {
 
     const $add = $btn.closest(".add-comment");
     const $form = $("form", $add);
-    const $opinionButtons = $(".opinion-toggle button", $add);
-    const $selectedState = $(".opinion-toggle .selected-state", $add);
+    const $opinionButtons = $("[data-js-opinion-toggle] button", $add);
+    const $selectedState = $("[data-js-opinion-toggle] .selected-state", $add);
     const $alignment = $(".alignment-input", $form);
 
     $opinionButtons.removeClass("is-active").attr("aria-pressed", "false");
     $btn.addClass("is-active").attr("aria-pressed", "true");
 
-    if ($btn.hasData("js-toggle-ok")) {
+    if ($btn.data("jsToggleOk")) {
       $alignment.val(1);
-    } else if ($btn.hasData("js-toggle-meh")) {
+    } else if ($btn.data("jsToggleMeh")) {
       $alignment.val(0);
-    } else if ($btn.hasData("js-toggle-ko")) {
+    } else if ($btn.data("jsToggleKo")) {
       $alignment.val(-1);
     }
 
