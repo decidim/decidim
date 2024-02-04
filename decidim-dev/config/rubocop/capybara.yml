@@ -15,9 +15,6 @@ Capybara/NegationMatcher:
 Capybara/RedundantWithinFind:
   Enabled: false
 
-Capybara/SpecificActions:
-  Enabled: false
-
 Capybara/RSpec:
   Enabled: false
   Include: *1
