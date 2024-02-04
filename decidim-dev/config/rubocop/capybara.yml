@@ -9,12 +9,6 @@ Capybara:
 Capybara/ClickLinkOrButtonStyle:
   Enabled: false
 
-Capybara/CurrentPathExpectation:
-  Enabled: false
-
-Capybara/MatchStyle:
-  Enabled: false
-
 Capybara/NegationMatcher:
   Enabled: false
 
@@ -23,7 +17,6 @@ Capybara/RedundantWithinFind:
 
 Capybara/SpecificActions:
   Enabled: false
-
 
 Capybara/RSpec:
   Enabled: false
