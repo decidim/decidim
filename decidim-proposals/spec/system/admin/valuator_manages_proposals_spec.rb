@@ -77,11 +77,11 @@ describe "Valuator manages proposals" do
         expect(page).to have_content(another_user.name)
 
         within find("li", text: another_user.name) do
-          expect(page).not_to have_selector("a.red-icon")
+          expect(page).not_to have_css("a.red-icon")
         end
 
         within find("li", text: user.name) do
-          expect(page).to have_selector("a.red-icon")
+          expect(page).to have_css("a.red-icon")
           accept_confirm do
             find("a.red-icon").click
           end

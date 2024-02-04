@@ -167,7 +167,7 @@ describe "Initiatives" do
 
         it "shows the card image" do
           within "#initiative_#{initiative.id}" do
-            expect(page).to have_selector(".card__grid-img")
+            expect(page).to have_css(".card__grid-img")
           end
         end
       end

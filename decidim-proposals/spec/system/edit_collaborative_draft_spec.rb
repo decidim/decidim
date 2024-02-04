@@ -119,7 +119,7 @@ describe "Edit collaborative_drafts" do
         end
         click_button "Send"
 
-        expect(page).to have_selector("input[value='A title with a #hashtag']")
+        expect(page).to have_css("input[value='A title with a #hashtag']")
         expect(page).to have_content("ỲÓÜ WÄNTt TÙ ÚPDÀTÉ À PRÖPÔSÁL")
       end
     end

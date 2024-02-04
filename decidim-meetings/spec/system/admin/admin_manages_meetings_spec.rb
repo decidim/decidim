@@ -27,8 +27,8 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
       old_meeting = create(:meeting, scope:, services: [], component: current_component, start_time: 2.years.ago)
       visit current_path
 
-      expect(page).to have_selector("tbody tr:first-child", text: Decidim::Meetings::MeetingPresenter.new(meeting).title)
-      expect(page).to have_selector("tbody tr:last-child", text: Decidim::Meetings::MeetingPresenter.new(old_meeting).title)
+      expect(page).to have_css("tbody tr:first-child", text: Decidim::Meetings::MeetingPresenter.new(meeting).title)
+      expect(page).to have_css("tbody tr:last-child", text: Decidim::Meetings::MeetingPresenter.new(old_meeting).title)
     end
 
     it "allows to publish/unpublish meetings" do
@@ -214,7 +214,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
       fill_in_geocoding :meeting_address, with: address
       fill_in_services
 
-      expect(page).to have_selector(".meeting-service", count: 2)
+      expect(page).to have_css(".meeting-service", count: 2)
 
       find("*[type=submit]").click
     end
@@ -225,8 +225,8 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
       click_link "Edit"
     end
 
-    expect(page).to have_selector("input[value='This is the first service']")
-    expect(page).to have_selector("input[value='This is the second service']")
+    expect(page).to have_css("input[value='This is the first service']")
+    expect(page).to have_css("input[value='This is the second service']")
   end
 
   it "allows the user to preview a published meeting" do
@@ -235,8 +235,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
       klass = "action-icon--preview"
 
-      expect(page).to have_selector(
-        :xpath,
+      expect(page).to have_xpath(
         "//a[contains(@class,'#{klass}')][@href='#{meeting_path}'][@target='blank']"
       )
     end
@@ -256,8 +255,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     within find("tr", text: Decidim::Meetings::MeetingPresenter.new(unpublished_meeting).title) do
       klass = "action-icon--preview"
 
-      expect(page).to have_selector(
-        :xpath,
+      expect(page).to have_xpath(
         "//a[contains(@class,'#{klass}')][@href='#{meeting_path}'][@target='blank']"
       )
     end

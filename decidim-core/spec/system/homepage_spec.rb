@@ -48,7 +48,7 @@ describe "Homepage" do
 
       context "when having homepage anchors" do
         %w(hero sub_hero highlighted_content_banner how_to_participate footer_sub_hero).each do |anchor|
-          it { expect(page).to have_selector("[id^=#{anchor}]", visible: :all) }
+          it { expect(page).to have_css("[id^=#{anchor}]", visible: :all) }
         end
       end
 
@@ -132,7 +132,7 @@ describe "Homepage" do
         let(:organization) { create(:organization, official_url:, header_snippets: snippet) }
 
         it "does not include the header snippets" do
-          expect(page).not_to have_selector("meta[data-hello]", visible: :all)
+          expect(page).not_to have_css("meta[data-hello]", visible: :all)
         end
 
         context "when header snippets are enabled" do
@@ -142,7 +142,7 @@ describe "Homepage" do
           end
 
           it "includes the header snippets" do
-            expect(page).to have_selector("meta[data-hello]", visible: :all)
+            expect(page).to have_css("meta[data-hello]", visible: :all)
           end
         end
       end
@@ -426,10 +426,10 @@ describe "Homepage" do
 
         it "displays the decidim link with external link indicator" do
           within "footer" do
-            expect(page).to have_selector("a[target='_blank'][href='https://github.com/decidim/decidim']")
+            expect(page).to have_css("a[target='_blank'][href='https://github.com/decidim/decidim']")
 
             within "a[target='_blank'][href='https://github.com/decidim/decidim']" do
-              expect(page).to have_selector("svg")
+              expect(page).to have_css("svg")
             end
           end
         end

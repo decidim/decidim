@@ -26,7 +26,7 @@ describe "Scopes picker" do
       let(:params) { { title:, required: true } }
 
       it "does not allow to choose current scope (none)" do
-        expect(page).to have_selector(".scope-picker.picker-footer .buttons a.button[disabled='true']")
+        expect(page).to have_css(".scope-picker.picker-footer .buttons a.button[disabled='true']")
       end
 
       it "shows organization top scopes in content" do
@@ -45,7 +45,7 @@ describe "Scopes picker" do
         let(:params) { { title:, required: true, current: scopes.first } }
 
         it "allows to choose it" do
-          expect(page).not_to have_selector(".scope-picker.picker-footer .buttons a.button[disabled='true']")
+          expect(page).not_to have_css(".scope-picker.picker-footer .buttons a.button[disabled='true']")
         end
       end
     end

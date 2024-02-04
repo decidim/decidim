@@ -23,4 +23,4 @@ Capybara/RSpec:
   Include: *1
 
 Capybara/RSpec/HaveSelector:
-  Enabled: false
+  Enabled: true

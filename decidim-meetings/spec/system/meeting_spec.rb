@@ -36,7 +36,7 @@ describe "Meeting", download: true do
       visit_meeting
 
       within "[data-content]" do
-        expect(page).to have_selector(".meeting__aside-block", count: meeting.services.size)
+        expect(page).to have_css(".meeting__aside-block", count: meeting.services.size)
 
         services_titles = meeting.services.map { |service| service.title["en"] }
         services_present_in_pages = current_scope.all(".meeting__aside-block__title").map(&:text)

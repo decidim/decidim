@@ -118,7 +118,7 @@ describe "User creates meeting" do
           expect(page).to have_content(end_day)
           expect(page).to have_content(meeting_start_time)
           expect(page).to have_content(meeting_end_time)
-          expect(page).to have_selector("[data-author]", text: user.name)
+          expect(page).to have_css("[data-author]", text: user.name)
         end
 
         context "when using the front-end geocoder" do
@@ -188,7 +188,7 @@ describe "User creates meeting" do
             expect(page).to have_content(meeting_start_time)
             expect(page).to have_content(meeting_end_time)
             expect(page).not_to have_css(".button", text: "Register")
-            expect(page).to have_selector("[data-author]", text: user_group.name)
+            expect(page).to have_css("[data-author]", text: user_group.name)
           end
 
           it "creates a new meeting with registrations on this platform", :slow do
@@ -228,7 +228,7 @@ describe "User creates meeting" do
             expect(page).to have_content(meeting_start_time)
             expect(page).to have_content(meeting_end_time)
             expect(page).to have_css(".button", text: "Register")
-            expect(page).to have_selector("[data-author]", text: user_group.name)
+            expect(page).to have_css("[data-author]", text: user_group.name)
           end
         end
 
@@ -248,7 +248,7 @@ describe "User creates meeting" do
           it "shows a modal dialog" do
             visit_component
             click_link "New meeting"
-            expect(page).to have_selector("#authorizationModal")
+            expect(page).to have_css("#authorizationModal")
             expect(page).to have_content("Authorization required")
           end
         end

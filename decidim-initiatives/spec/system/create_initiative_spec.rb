@@ -813,7 +813,7 @@ describe "Initiative" do
 
         it "displays a send to technical validation link" do
           expect(page).to have_link("Send my initiative to technical validation")
-          expect(page).to have_selector "a[data-confirm='#{expected_message}']"
+          expect(page).to have_css "a[data-confirm='#{expected_message}']"
         end
 
         it_behaves_like "initiatives path redirection"
@@ -837,7 +837,7 @@ describe "Initiative" do
 
         it "displays a send to technical validation link" do
           expect(page).to have_link("Send my initiative to technical validation")
-          expect(page).to have_selector "a[data-confirm='#{expected_message}']"
+          expect(page).to have_css "a[data-confirm='#{expected_message}']"
         end
 
         it_behaves_like "initiatives path redirection"

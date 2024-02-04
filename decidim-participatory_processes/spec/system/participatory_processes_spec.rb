@@ -127,7 +127,7 @@ describe "Participatory Processes" do
         it "lists all the highlighted processes" do
           within "#highlighted-processes" do
             expect(page).to have_content(translated(promoted_process.title, locale: :en))
-            expect(page).to have_selector("[id^='participatory_process_highlight']", count: 1)
+            expect(page).to have_css("[id^='participatory_process_highlight']", count: 1)
           end
         end
       end
@@ -141,7 +141,7 @@ describe "Participatory Processes" do
           expect(page).to have_content(translated(participatory_process.title, locale: :en))
           expect(page).to have_content(translated(promoted_process.title, locale: :en))
           expect(page).to have_content(translated(group.title, locale: :en))
-          expect(page).to have_selector("a.card__grid", count: 3)
+          expect(page).to have_css("a.card__grid", count: 3)
 
           expect(page).not_to have_content(translated(unpublished_process.title, locale: :en))
           expect(page).not_to have_content(translated(past_process.title, locale: :en))
@@ -198,8 +198,8 @@ describe "Participatory Processes" do
         it "lists all the highlighted process groups" do
           within "#highlighted-processes" do
             expect(page).to have_content(translated(promoted_group.title, locale: :en))
-            expect(page).to have_selector("[id^='participatory_process_highlight']", count: 1)
-            expect(page).to have_selector("[id^='participatory_process_group_highlight']", count: 1)
+            expect(page).to have_css("[id^='participatory_process_highlight']", count: 1)
+            expect(page).to have_css("[id^='participatory_process_group_highlight']", count: 1)
           end
         end
       end

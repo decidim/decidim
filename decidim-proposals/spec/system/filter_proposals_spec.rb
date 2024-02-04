@@ -164,14 +164,14 @@ describe "Filter Proposals", :slow do
         end
 
         expect(page).to have_css("[id^='proposals__proposal']", count: 2)
-        expect(page).to have_selector("[id^='proposals__proposal']:first-child", text: translated(first_proposal.title))
+        expect(page).to have_css("[id^='proposals__proposal']:first-child", text: translated(first_proposal.title))
 
         within "#dropdown-menu-order" do
           click_link "Most followed"
         end
 
         expect(page).to have_css("[id^='proposals__proposal']", count: 2)
-        expect(page).to have_selector("[id^='proposals__proposal']:first-child", text: translated(last_proposal.title))
+        expect(page).to have_css("[id^='proposals__proposal']:first-child", text: translated(last_proposal.title))
       end
     end
 
@@ -413,14 +413,14 @@ describe "Filter Proposals", :slow do
         end
 
         expect(page).to have_css("[id^='proposals__proposal']", count: 2)
-        expect(page).to have_selector("[id^='proposals__proposal']:first-child", text: translated(proposal1.title))
+        expect(page).to have_css("[id^='proposals__proposal']:first-child", text: translated(proposal1.title))
 
         within "#dropdown-menu-order" do
           click_link "Most followed"
         end
 
         expect(page).to have_css("[id^='proposals__proposal']", count: 2)
-        expect(page).to have_selector("[id^='proposals__proposal']:first-child", text: translated(proposal4.title))
+        expect(page).to have_css("[id^='proposals__proposal']:first-child", text: translated(proposal4.title))
       end
     end
   end

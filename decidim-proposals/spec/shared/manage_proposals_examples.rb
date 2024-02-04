@@ -19,8 +19,7 @@ shared_examples "manage proposals" do
         href = resource_locator(proposal).path
         target = "blank"
 
-        expect(page).to have_selector(
-          :xpath,
+        expect(page).to have_xpath(
           "//a[contains(@class,'#{klass}')][@href='#{href}'][@target='#{target}']"
         )
       end
@@ -242,7 +241,7 @@ shared_examples "manage proposals" do
             expect(page).to have_admin_callout("successfully")
 
             visit resource_locator(Decidim::Proposals::Proposal.last).path
-            expect(page).to have_selector("img[src*=\"city.jpeg\"]", count: 1)
+            expect(page).to have_css("img[src*=\"city.jpeg\"]", count: 1)
           end
         end
 
@@ -498,7 +497,7 @@ shared_examples "manage proposals" do
     it "cannot answer a proposal" do
       go_to_admin_proposal_page(proposal)
 
-      expect(page).not_to have_selector(".edit_proposal_answer")
+      expect(page).not_to have_css(".edit_proposal_answer")
     end
   end
 
@@ -552,6 +551,6 @@ shared_examples "manage proposals" do
   def go_to_admin_proposal_page_answer_section(proposal)
     go_to_admin_proposal_page(proposal)
 
-    expect(page).to have_selector(".edit_proposal_answer")
+    expect(page).to have_css(".edit_proposal_answer")
   end
 end

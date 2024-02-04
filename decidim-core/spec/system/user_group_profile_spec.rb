@@ -33,7 +33,7 @@ describe "User group profile" do
     end
 
     it "shows user group name in the header and its nickname" do
-      expect(page).to have_selector("h1", text: user_group.name)
+      expect(page).to have_css("h1", text: user_group.name)
       expect(page).to have_content(user_group.nickname)
     end
 

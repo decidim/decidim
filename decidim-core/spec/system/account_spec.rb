@@ -184,7 +184,7 @@ describe "Account" do
 
         it "tells user to confirm new email" do
           expect(page).to have_content("Email change verification")
-          expect(page).to have_selector("#user_email[disabled='disabled']")
+          expect(page).to have_css("#user_email[disabled='disabled']")
           expect(page).to have_content("We have sent an email to #{pending_email} to verify your new email address")
         end
 
@@ -389,7 +389,7 @@ describe "Account" do
       end
 
       it "does not show the push notifications switch" do
-        expect(page).not_to have_selector(".push-notifications")
+        expect(page).not_to have_css(".push-notifications")
       end
     end
 
@@ -403,7 +403,7 @@ describe "Account" do
       end
 
       it "does not show the push notifications switch" do
-        expect(page).not_to have_selector(".push-notifications")
+        expect(page).not_to have_css(".push-notifications")
       end
     end
   end

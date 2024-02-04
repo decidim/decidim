@@ -49,7 +49,7 @@ describe "Explore Budgets", :slow do
     end
 
     it "lists all the budgets" do
-      expect(page).to have_selector(".card--list__item", count: 6)
+      expect(page).to have_css(".card--list__item", count: 6)
 
       budgets.each do |budget|
         expect(page).to have_content(translated(budget.title))
@@ -114,7 +114,7 @@ describe "Explore Budgets", :slow do
         it "shows the check icon" do
           visit_component
 
-          expect(item).to have_selector("div.card__highlight-text svg.fill-success")
+          expect(item).to have_css("div.card__highlight-text svg.fill-success")
           expect(item).to have_link("See projects", href: budget_path(budget))
         end
 

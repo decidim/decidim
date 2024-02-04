@@ -234,7 +234,7 @@ describe "Initiative" do
           click_link translated(meetings_component.name, locale: :en)
         end
 
-        expect(page).to have_selector('[id^="meetings__meeting"]', count: 3)
+        expect(page).to have_css('[id^="meetings__meeting"]', count: 3)
       end
     end
   end

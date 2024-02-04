@@ -122,7 +122,7 @@ describe "Assemblies" do
       it "lists all the highlighted assemblies" do
         within "#highlighted-assemblies" do
           expect(page).to have_content(translated(promoted_assembly.title, locale: :en))
-          expect(page).to have_selector("[id^='assembly_highlight']", count: 1)
+          expect(page).to have_css("[id^='assembly_highlight']", count: 1)
         end
       end
 
@@ -133,7 +133,7 @@ describe "Assemblies" do
 
         expect(page).to have_content(translated(assembly.title, locale: :en))
         expect(page).to have_content(translated(promoted_assembly.title, locale: :en))
-        expect(page).to have_selector("a.card__grid", count: 2)
+        expect(page).to have_css("a.card__grid", count: 2)
         expect(page).to have_css(".card__grid-metadata", text: "1 assembly")
         expect(page).not_to have_content(translated(child_assembly.title, locale: :en))
         expect(page).not_to have_content(translated(unpublished_assembly.title, locale: :en))

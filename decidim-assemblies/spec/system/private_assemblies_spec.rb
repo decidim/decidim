@@ -29,7 +29,7 @@ describe "Private Assemblies" do
             end
 
             expect(page).to have_content(translated(assembly.title, locale: :en))
-            expect(page).to have_selector(".card__grid", count: 2)
+            expect(page).to have_css(".card__grid", count: 2)
 
             expect(page).to have_content(translated(private_assembly.title, locale: :en))
           end
@@ -51,7 +51,7 @@ describe "Private Assemblies" do
               end
 
               expect(page).to have_content(translated(assembly.title, locale: :en))
-              expect(page).to have_selector(".card__grid", count: 2)
+              expect(page).to have_css(".card__grid", count: 2)
 
               expect(page).to have_content(translated(private_assembly.title, locale: :en))
             end
@@ -91,7 +91,7 @@ describe "Private Assemblies" do
             end
 
             expect(page).to have_content(translated(assembly.title, locale: :en))
-            expect(page).to have_selector(".card__grid", count: 1)
+            expect(page).to have_css(".card__grid", count: 1)
 
             expect(page).not_to have_content(translated(private_assembly.title, locale: :en))
           end
@@ -113,7 +113,7 @@ describe "Private Assemblies" do
               end
 
               expect(page).to have_content(translated(assembly.title, locale: :en))
-              expect(page).to have_selector(".card__grid", count: 1)
+              expect(page).to have_css(".card__grid", count: 1)
 
               expect(page).not_to have_content(translated(private_assembly.title, locale: :en))
             end
@@ -135,7 +135,7 @@ describe "Private Assemblies" do
 
               expect(page).to have_content(translated(assembly.title, locale: :en))
               expect(page).to have_content(translated(private_assembly.title, locale: :en))
-              expect(page).to have_selector(".card__grid", count: 2)
+              expect(page).to have_css(".card__grid", count: 2)
             end
           end
 
@@ -170,7 +170,7 @@ describe "Private Assemblies" do
 
             expect(page).to have_content(translated(assembly.title, locale: :en))
             expect(page).to have_content(translated(private_assembly.title, locale: :en))
-            expect(page).to have_selector(".card__grid", count: 2)
+            expect(page).to have_css(".card__grid", count: 2)
           end
         end
 

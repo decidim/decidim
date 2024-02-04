@@ -104,7 +104,7 @@ describe "Edit proposals" do
               click_button "Next"
             end
             click_button "Send"
-            expect(page).to have_selector("[data-alert-box].success")
+            expect(page).to have_css("[data-alert-box].success")
             expect(Decidim::Attachment.count).to eq(2)
             expect(translated(Decidim::Attachment.find_by(attached_to_id: proposal.id, content_type: "image/jpeg").title)).to eq(attachment_image_title)
             expect(translated(Decidim::Attachment.find_by(attached_to_id: proposal.id, content_type: "application/pdf").title)).to eq(attachment_file_title)
@@ -176,12 +176,12 @@ describe "Edit proposals" do
           expect(page).to have_content("city2.jpeg")
           expect(page).to have_content("city3.jpeg")
           click_button "Send"
-          expect(page).to have_selector("[data-alert-box].success")
-          expect(page).to have_selector("img.object-cover[alt='city.jpeg']")
-          expect(page).to have_selector("img.object-cover[alt='icon.png']")
-          expect(page).to have_selector("img.object-cover[alt='avatar.jpg']")
-          expect(page).to have_selector("img.object-cover[alt='city2.jpeg']")
-          expect(page).to have_selector("img.object-cover[alt='city3.jpeg']")
+          expect(page).to have_css("[data-alert-box].success")
+          expect(page).to have_css("img.object-cover[alt='city.jpeg']")
+          expect(page).to have_css("img.object-cover[alt='icon.png']")
+          expect(page).to have_css("img.object-cover[alt='avatar.jpg']")
+          expect(page).to have_css("img.object-cover[alt='city2.jpeg']")
+          expect(page).to have_css("img.object-cover[alt='city3.jpeg']")
         end
       end
     end
@@ -292,7 +292,7 @@ describe "Edit proposals" do
         end
         click_button "Send"
 
-        expect(page).to have_selector("input[value='A title with a #hashtag']")
+        expect(page).to have_css("input[value='A title with a #hashtag']")
         expect(page).to have_content("ỲÓÜ WÄNTt TÙ ÚPDÀTÉ À PRÖPÔSÁL")
       end
     end
@@ -325,8 +325,8 @@ describe "Edit proposals" do
 
         it "does not add external link container inside the editor" do
           editor = page.find(".editor-container")
-          expect(editor).to have_selector("a[href='#{link}']")
-          expect(editor).not_to have_selector("a.external-link-container")
+          expect(editor).to have_css("a[href='#{link}']")
+          expect(editor).not_to have_css("a.external-link-container")
         end
       end
     end

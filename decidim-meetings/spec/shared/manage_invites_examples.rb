@@ -58,7 +58,7 @@ shared_examples "manage invites" do
         expect(page).to have_content("registrations are disabled")
 
         within "form.new_meeting_registration_invite" do
-          expect(page).to have_selector("button[disabled]", text: "Invite")
+          expect(page).to have_css("button[disabled]", text: "Invite")
         end
       end
     end

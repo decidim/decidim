@@ -72,7 +72,7 @@ describe "Conference program" do
 
     it "lists all conference meetings" do
       within "[data-conference-program-day]" do
-        expect(page).to have_selector("[data-conference-program-title]", count: 3)
+        expect(page).to have_css("[data-conference-program-title]", count: 3)
 
         meetings.each do |meeting|
           expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(Decidim::ConferenceMeetingPresenter.new(meeting).title))

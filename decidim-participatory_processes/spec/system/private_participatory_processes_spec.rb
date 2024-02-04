@@ -27,7 +27,7 @@ describe "Private Participatory Processes" do
           end
 
           expect(page).to have_content(translated(participatory_process.title, locale: :en))
-          expect(page).to have_selector(".card__grid", count: 1)
+          expect(page).to have_css(".card__grid", count: 1)
 
           expect(page).not_to have_content(translated(private_participatory_process.title, locale: :en))
         end
@@ -49,7 +49,7 @@ describe "Private Participatory Processes" do
             end
 
             expect(page).to have_content(translated(participatory_process.title, locale: :en))
-            expect(page).to have_selector(".card__grid", count: 1)
+            expect(page).to have_css(".card__grid", count: 1)
 
             expect(page).not_to have_content(translated(private_participatory_process.title, locale: :en))
           end
@@ -71,7 +71,7 @@ describe "Private Participatory Processes" do
 
             expect(page).to have_content(translated(participatory_process.title, locale: :en))
             expect(page).to have_content(translated(private_participatory_process.title, locale: :en))
-            expect(page).to have_selector(".card__grid", count: 2)
+            expect(page).to have_css(".card__grid", count: 2)
           end
         end
 
@@ -99,7 +99,7 @@ describe "Private Participatory Processes" do
 
           expect(page).to have_content(translated(participatory_process.title, locale: :en))
           expect(page).to have_content(translated(private_participatory_process.title, locale: :en))
-          expect(page).to have_selector(".card__grid", count: 2)
+          expect(page).to have_css(".card__grid", count: 2)
         end
       end
 

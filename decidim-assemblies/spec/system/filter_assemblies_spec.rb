@@ -19,7 +19,7 @@ describe "Filter Assemblies" do
         check "All"
       end
       within "#assemblies-grid" do
-        expect(page).to have_selector(".card__grid", count: 3)
+        expect(page).to have_css(".card__grid", count: 3)
       end
     end
 
@@ -32,7 +32,7 @@ describe "Filter Assemblies" do
           check translated(assembly.assembly_type.title)
         end
         within "#assemblies-grid" do
-          expect(page).to have_selector(".card__grid", count: 1)
+          expect(page).to have_css(".card__grid", count: 1)
           expect(page).to have_content(translated(assembly.title))
         end
       end
@@ -46,7 +46,7 @@ describe "Filter Assemblies" do
         check translated(assemblies[1].assembly_type.title)
       end
       within "#assemblies-grid" do
-        expect(page).to have_selector(".card__grid", count: 2)
+        expect(page).to have_css(".card__grid", count: 2)
         expect(page).to have_content(translated(assemblies[0].title))
         expect(page).to have_content(translated(assemblies[1].title))
         expect(page).not_to have_content(translated(assemblies[2].title))

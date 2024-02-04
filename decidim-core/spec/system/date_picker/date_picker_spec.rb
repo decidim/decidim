@@ -141,7 +141,7 @@ describe "Datepicker" do
         context "when opening datepicker" do
           it "shows the datepicker calendar" do
             find(".datepicker__calendar-button").click
-            expect(page).to have_selector("#example_input_date_datepicker")
+            expect(page).to have_css("#example_input_date_datepicker")
           end
 
           it "has disabled select button" do
@@ -161,9 +161,9 @@ describe "Datepicker" do
         context "when closing datepicker" do
           it "hides the datepicker calendar" do
             find(".datepicker__calendar-button").click
-            expect(page).to have_selector("#example_input_date_datepicker")
+            expect(page).to have_css("#example_input_date_datepicker")
             find(".datepicker__close-calendar").click
-            expect(page).to have_selector("#example_input_date_datepicker", visible: :hidden)
+            expect(page).to have_css("#example_input_date_datepicker", visible: :hidden)
           end
         end
 
@@ -262,7 +262,7 @@ describe "Datepicker" do
         context "when opening timepicker" do
           it "shows the timepicker" do
             find(".datepicker__clock-button").click
-            expect(page).to have_selector("#example_input_time_timepicker")
+            expect(page).to have_css("#example_input_time_timepicker")
           end
 
           it "starts from zero" do
@@ -277,9 +277,9 @@ describe "Datepicker" do
         context "when closing timepicker" do
           it "hides the timepicker" do
             find(".datepicker__clock-button").click
-            expect(page).to have_selector("#example_input_time_timepicker")
+            expect(page).to have_css("#example_input_time_timepicker")
             find(".datepicker__close-clock").click
-            expect(page).to have_selector("#example_input_time_timepicker", visible: :hidden)
+            expect(page).to have_css("#example_input_time_timepicker", visible: :hidden)
           end
         end
 

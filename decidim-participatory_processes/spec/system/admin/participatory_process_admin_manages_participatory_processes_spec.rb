@@ -20,7 +20,7 @@ describe "Participatory process admin manages participatory processes" do
   it_behaves_like "manage processes announcements"
 
   it "cannot create a new participatory_process" do
-    expect(page).not_to have_selector(".actions .new")
+    expect(page).not_to have_css(".actions .new")
   end
 
   context "when deleting a participatory process" do

@@ -36,7 +36,7 @@ describe "Explore debates" do
     it "lists all debates for the given process" do
       visit_component
 
-      expect(page).to have_selector("a.card__list", count: debates_count)
+      expect(page).to have_css("a.card__list", count: debates_count)
 
       debates.each do |debate|
         expect(page).to have_content(translated(debate.title))
@@ -81,7 +81,7 @@ describe "Explore debates" do
 
         click_link "Next"
 
-        expect(page).to have_selector("[data-pages] [data-page][aria-current='page']", text: "2")
+        expect(page).to have_css("[data-pages] [data-page][aria-current='page']", text: "2")
 
         expect(page).to have_css("a.card__list", count: 5)
       end
@@ -242,7 +242,7 @@ describe "Explore debates" do
       end
 
       it "does not list the hidden debates" do
-        expect(page).to have_selector("a.card__list", count: debates_count - 1)
+        expect(page).to have_css("a.card__list", count: debates_count - 1)
         expect(page).not_to have_content(translated(debate.title))
       end
     end
@@ -305,7 +305,7 @@ describe "Explore debates" do
 
     context "without category or scope" do
       it "does not show any tag" do
-        expect(page).not_to have_selector("[data-tags]")
+        expect(page).not_to have_css("[data-tags]")
       end
     end
 
@@ -318,7 +318,7 @@ describe "Explore debates" do
       end
 
       it "shows tags for category" do
-        expect(page).to have_selector("[data-tags]")
+        expect(page).to have_css("[data-tags]")
 
         within "[data-tags]" do
           expect(page).to have_content(translated(debate.category.name))
@@ -335,7 +335,7 @@ describe "Explore debates" do
       end
 
       it "shows tags for scope" do
-        expect(page).to have_selector("[data-tags]")
+        expect(page).to have_css("[data-tags]")
         within "[data-tags]" do
           expect(page).to have_content(translated(debate.scope.name))
         end
