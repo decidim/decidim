@@ -5,7 +5,7 @@
 <% else %>
 
 <div class="item_show__header">
-  <h2 class="item_show__header-title">
+  <h1 class="item_show__header-title">
     <%= edit_questionnaire_title %>
 
     <% unless template? questionnaire.questionnaire_for %>
@@ -21,7 +21,7 @@
         <button class="button button__sm button__secondary whitespace-nowrap" disabled><%= t("empty", scope: "decidim.forms.admin.questionnaires.answers") %></button>
       <% end %>
     <% end %>
-  </h2>
+  </h1>
 </div>
 
 <div class="item__edit item__edit-1col">

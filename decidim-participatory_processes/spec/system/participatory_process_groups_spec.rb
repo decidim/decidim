@@ -87,7 +87,7 @@ describe "Participatory Process Groups" do
       end
 
       it "shows the description" do
-        expect(page).to have_i18n_content(participatory_process_group.description)
+        expect(page).to have_i18n_content(participatory_process_group.description, strip_tags: true)
       end
 
       it "shows the meta scope name" do
@@ -124,10 +124,10 @@ describe "Participatory Process Groups" do
 
       it "shows metadata attributes" do
         within "#participatory_process_group-extra_data" do
-          expect(page).to have_i18n_content(participatory_process_group.developer_group)
-          expect(page).to have_i18n_content(participatory_process_group.target)
-          expect(page).to have_i18n_content(participatory_process_group.participatory_scope)
-          expect(page).to have_i18n_content(participatory_process_group.participatory_structure)
+          expect(page).to have_i18n_content(participatory_process_group.developer_group, strip_tags: true)
+          expect(page).to have_i18n_content(participatory_process_group.target, strip_tags: true)
+          expect(page).to have_i18n_content(participatory_process_group.participatory_scope, strip_tags: true)
+          expect(page).to have_i18n_content(participatory_process_group.participatory_structure, strip_tags: true)
         end
       end
     end
@@ -187,12 +187,12 @@ describe "Participatory Process Groups" do
 
           within("#proposals__proposal_#{proposal1.id}") do
             expect(page).to have_content "First awesome proposal!"
-            expect(page).to have_i18n_content process.title
+            expect(page).to have_i18n_content(process.title, strip_tags: true)
           end
 
           within("#proposals__proposal_#{proposal2.id}") do
             expect(page).to have_content "Second fabulous proposal!"
-            expect(page).to have_i18n_content other_process.title
+            expect(page).to have_i18n_content(other_process.title, strip_tags: true)
           end
         end
       end
@@ -200,7 +200,7 @@ describe "Participatory Process Groups" do
       it "does not show cards of proposals from process out of group" do
         expect(page).not_to have_selector("#proposals__proposal_#{independent_proposal.id}")
         expect(page).not_to have_content "Independent proposal!"
-        expect(page).not_to have_i18n_content out_of_group_process.title
+        expect(page).not_to have_i18n_content(out_of_group_process.title, strip_tags: true)
       end
     end
 
@@ -231,12 +231,12 @@ describe "Participatory Process Groups" do
 
           within("#accountability__result_#{result1.id}") do
             expect(page).to have_content "First awesome result!"
-            expect(page).to have_i18n_content process.title
+            expect(page).to have_i18n_content(process.title, strip_tags: true)
           end
 
           within("#accountability__result_#{result2.id}") do
             expect(page).to have_content "Second fabulous result!"
-            expect(page).to have_i18n_content other_process.title
+            expect(page).to have_i18n_content(other_process.title, strip_tags: true)
           end
         end
       end

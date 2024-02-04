@@ -1,6 +1,6 @@
 <% add_decidim_page_title(t("title", scope: "decidim.meetings.admin.registrations.form")) %>
 <div class="item_show__header">
-  <h2 class="item_show__header-title">
+  <h1 class="item_show__header-title">
     <%= t("title", scope: "decidim.meetings.admin.registrations.form") %>
     <div class="flex items-center gap-x-4 ml-auto">
       <%= link_to t("invites", scope: "decidim.meetings.admin.registrations.form"), meeting_registrations_invites_path(meeting), class: "button button__sm button__secondary #{"disabled" unless allowed_to? :read_invites, :meeting, meeting: meeting}" %>
@@ -19,7 +19,7 @@
       <% end %>
       <%= link_to t("registration_form" , scope: "decidim.meetings.admin.registrations.form"), edit_meeting_registrations_form_path(meeting_id: meeting.id), class: "button button__sm button__secondary" %>
     </div>
-  </h2>
+  </h1>
 </div>
 
 <div class="item__edit item__edit-1col">

@@ -2,12 +2,12 @@
 
 <div class="card" id="page_topics">
   <div class="item_show__header">
-    <h2 class="item_show__header-title">
+    <h1 class="item_show__header-title">
       <%= t("page_topics", scope: "decidim.admin.titles") %>
       <% if allowed_to? :create, :attachment_collection %>
         <%= link_to t("static_page_topics.new.create", scope: "decidim.admin"), [:new, :static_page_topic], class: "button button__sm button__secondary expanded small new" %>
       <% end %>
-    </h2>
+    </h1>
   </div>
   <% if topics.any? %>
     <div class="table-scroll">
