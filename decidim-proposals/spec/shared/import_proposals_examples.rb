@@ -33,12 +33,12 @@ shared_examples "import proposals" do
   describe "import proposals" do
     before do
       find(".imports").click
-      click_link "Import proposals from a file"
+      click_on "Import proposals from a file"
     end
 
     it "imports from a csv file" do
       dynamically_attach_file(:proposals_file_import_file, Decidim::Dev.asset("import_proposals.csv"))
-      click_button "Import"
+      click_on "Import"
 
       confirm_flash_message
       confirm_current_path
@@ -47,7 +47,7 @@ shared_examples "import proposals" do
     it "imports from a json file" do
       dynamically_attach_file(:proposals_file_import_file, Decidim::Dev.asset("import_proposals.json"))
 
-      click_button "Import"
+      click_on "Import"
 
       confirm_flash_message
       confirm_current_path
@@ -56,7 +56,7 @@ shared_examples "import proposals" do
     it "imports from a excel file" do
       dynamically_attach_file(:proposals_file_import_file, Decidim::Dev.asset("import_proposals.xlsx"))
 
-      click_button "Import"
+      click_on "Import"
 
       confirm_flash_message
       confirm_current_path
@@ -65,7 +65,7 @@ shared_examples "import proposals" do
 
   def fill_form(keep_authors: false)
     find(".imports").click
-    click_link "Import proposals from another component"
+    click_on "Import proposals from another component"
 
     within ".import_proposals" do
       select origin_component.name["en"], from: "Origin component"
@@ -74,7 +74,7 @@ shared_examples "import proposals" do
       check "Import proposals"
     end
 
-    click_button "Import proposals"
+    click_on "Import proposals"
   end
 
   def confirm_flash_message

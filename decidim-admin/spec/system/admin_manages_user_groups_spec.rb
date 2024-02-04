@@ -15,15 +15,15 @@ describe "Admin manages user groups" do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin.root_path
-    click_link "Participants"
+    click_on "Participants"
     within_admin_sidebar_menu do
-      click_link "Groups"
+      click_on "Groups"
     end
   end
 
   it "verifies a user group" do
     within "tr[data-user-group-id=\"#{user_group.id}\"]" do
-      click_link "Verify"
+      click_on "Verify"
     end
 
     expect(page).to have_content("successfully verified")
@@ -35,7 +35,7 @@ describe "Admin manages user groups" do
 
   it "reject a user group" do
     within "tr[data-user-group-id=\"#{user_group.id}\"]" do
-      click_link "Reject"
+      click_on "Reject"
     end
 
     expect(page).to have_content("successfully rejected")

@@ -16,8 +16,8 @@ describe "endorse posts" do
   context "when liking the post without belonging to a user group" do
     it "likes the post" do
       visit_component
-      click_link "Blog post title"
-      click_button "Like"
+      click_on "Blog post title"
+      click_on "Like"
 
       expect(page).to have_content("Dislike")
     end
@@ -38,23 +38,23 @@ describe "endorse posts" do
 
     before do
       visit_component
-      click_link "Blog post title"
+      click_on "Blog post title"
     end
 
     it "opens a modal where you select identity as a user or a group" do
-      click_button "Like"
+      click_on "Like"
       expect(page).to have_content("Select identity")
       expect(page).to have_content("Tester's Organization")
       expect(page).to have_content("Tester")
     end
 
     def add_likes
-      click_button "Like"
-      click_button "Tester's Organization"
-      click_button "Tester"
-      click_button "Done"
+      click_on "Like"
+      click_on "Tester's Organization"
+      click_on "Tester"
+      click_on "Done"
       visit current_path
-      click_button "Dislike"
+      click_on "Dislike"
     end
 
     context "when both identities picked" do
@@ -71,9 +71,9 @@ describe "endorse posts" do
       it "does not cancel group like" do
         add_likes
         find(".is-selected", match: :first).click
-        click_button "Done"
+        click_on "Done"
         visit current_path
-        click_button "Like"
+        click_on "Like"
 
         within ".identities-modal__list" do
           expect(page).to have_css(".is-selected", count: 1)
@@ -88,9 +88,9 @@ describe "endorse posts" do
       it "does not cancel user like" do
         add_likes
         page.all(".is-selected")[1].click
-        click_button "Done"
+        click_on "Done"
         visit current_path
-        click_button "Dislike"
+        click_on "Dislike"
 
         within ".identities-modal__list" do
           expect(page).to have_css(".is-selected", count: 1)

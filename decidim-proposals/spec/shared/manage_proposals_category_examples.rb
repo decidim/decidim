@@ -31,7 +31,7 @@ shared_examples "when managing proposals category as an admin" do
 
       context "when click the bulk action button" do
         before do
-          click_button "Actions"
+          click_on "Actions"
         end
 
         it "shows the bulk actions dropdown" do
@@ -45,8 +45,8 @@ shared_examples "when managing proposals category as an admin" do
 
       context "when change category is selected from actions dropdown" do
         before do
-          click_button "Actions"
-          click_button "Change category"
+          click_on "Actions"
+          click_on "Change category"
         end
 
         it "shows the category select" do
@@ -60,11 +60,11 @@ shared_examples "when managing proposals category as an admin" do
 
       context "when submiting form" do
         before do
-          click_button "Actions"
-          click_button "Change category"
+          click_on "Actions"
+          click_on "Change category"
           within "#js-form-recategorize-proposals" do
             select translated(category.name), from: :category_id
-            click_button(id: "js-submit-edit-category")
+            click_on(id: "js-submit-edit-category")
           end
         end
 

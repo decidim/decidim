@@ -13,7 +13,7 @@ describe "show" do
 
   before do
     visit_component
-    click_link debate.title[I18n.locale.to_s], class: "card__list"
+    click_on debate.title[I18n.locale.to_s], class: "card__list"
   end
 
   context "when is created from the admin panel" do

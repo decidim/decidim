@@ -25,8 +25,8 @@ describe "Admin manages proposals valuators" do
         page.first(".js-proposal-list-check").set(true)
       end
 
-      click_button "Actions"
-      click_button "Assign to valuator"
+      click_on "Actions"
+      click_on "Assign to valuator"
     end
 
     it "shows the component select" do
@@ -41,7 +41,7 @@ describe "Admin manages proposals valuators" do
       before do
         within "#js-form-assign-proposals-to-valuator" do
           select valuator.name, from: :valuator_role_id
-          click_button(id: "js-submit-assign-proposals-to-valuator")
+          click_on(id: "js-submit-assign-proposals-to-valuator")
         end
       end
 
@@ -92,8 +92,8 @@ describe "Admin manages proposals valuators" do
         page.first(".js-proposal-list-check").set(true)
       end
 
-      click_button "Actions"
-      click_button "Unassign from valuator"
+      click_on "Actions"
+      click_on "Unassign from valuator"
     end
 
     it "shows the component select" do
@@ -108,7 +108,7 @@ describe "Admin manages proposals valuators" do
       before do
         within "#js-form-unassign-proposals-from-valuator" do
           select valuator.name, from: :valuator_role_id
-          click_button(id: "js-submit-unassign-proposals-from-valuator")
+          click_on(id: "js-submit-unassign-proposals-from-valuator")
         end
       end
 
@@ -130,7 +130,7 @@ describe "Admin manages proposals valuators" do
 
       visit current_path
       within find("tr", text: translated(proposal.title)) do
-        click_link "Answer proposal"
+        click_on "Answer proposal"
       end
     end
 

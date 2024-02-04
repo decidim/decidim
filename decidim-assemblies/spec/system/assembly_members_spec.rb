@@ -101,7 +101,7 @@ describe "Assembly members" do
 
           within ".participatory-space__nav-container" do
             expect(page).to have_content("Members")
-            click_link "Members"
+            click_on "Members"
           end
 
           expect(page).to have_current_path decidim_assemblies.assembly_assembly_members_path(assembly)

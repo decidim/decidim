@@ -81,7 +81,7 @@ describe "Proposals" do
           expect(page).not_to have_css(".address__info")
           expect(page).not_to have_css(".address__map")
 
-          click_button "Publish"
+          click_on "Publish"
 
           expect(page).to have_content("successfully")
           expect(page).to have_content("More sidewalks and less roads")
@@ -127,7 +127,7 @@ describe "Proposals" do
               expect(page).to have_css(".static-map")
             end
 
-            click_button "Publish"
+            click_on "Publish"
 
             expect(page).to have_content("successfully")
             expect(page).to have_content("More sidewalks and less roads")
@@ -181,7 +181,7 @@ describe "Proposals" do
               find("*[type=submit]").click
             end
 
-            click_button "Publish"
+            click_on "Publish"
 
             expect(page).to have_content("successfully")
             expect(page).to have_content("#AutoHashtag1")
@@ -212,7 +212,7 @@ describe "Proposals" do
               find("*[type=submit]").click
             end
 
-            click_button "Publish"
+            click_on "Publish"
 
             expect(page).to have_content("successfully")
             expect(page).to have_content("More sidewalks and less roads")
@@ -251,7 +251,7 @@ describe "Proposals" do
                 find("*[type=submit]").click
               end
 
-              click_button "Publish"
+              click_on "Publish"
 
               expect(page).to have_content("successfully")
               expect(page).to have_content("More sidewalks and less roads")
@@ -279,7 +279,7 @@ describe "Proposals" do
 
           it "shows a modal dialog" do
             visit_component
-            click_link "New proposal"
+            click_on "New proposal"
             expect(page).to have_content("Authorization required")
           end
         end
@@ -309,7 +309,7 @@ describe "Proposals" do
               find("*[type=submit]").click
             end
 
-            click_button "Publish"
+            click_on "Publish"
 
             expect(page).to have_content("successfully")
 
@@ -348,7 +348,7 @@ describe "Proposals" do
 
               # From preview, go back to edit
               expect(page).to have_content("Your proposal has not yet been published")
-              click_link "Modify the proposal"
+              click_on "Modify the proposal"
 
               # See that the images are in correct positions and remove the card
               # image.
@@ -359,13 +359,13 @@ describe "Proposals" do
               end
 
               within ".upload-container-for-documents" do
-                click_button "Edit documents"
+                click_on "Edit documents"
               end
               within ".upload-modal" do
                 within "[data-filename='city.jpeg']" do
-                  click_button("Remove")
+                  click_on("Remove")
                 end
-                click_button "Next"
+                click_on "Next"
               end
 
               within ".edit_proposal" do
@@ -374,7 +374,7 @@ describe "Proposals" do
 
               # From preview, go back to edit
               expect(page).to have_content("Your proposal has not yet been published")
-              click_link "Modify the proposal"
+              click_on "Modify the proposal"
 
               within "[data-active-uploads]" do
                 expect(page).not_to have_content("city.jpeg")
@@ -406,7 +406,7 @@ describe "Proposals" do
 
         before do
           visit_component
-          click_link "New proposal"
+          click_on "New proposal"
         end
 
         it "allows the creation of a single new proposal" do

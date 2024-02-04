@@ -38,7 +38,7 @@ describe "Index proposals" do
 
       before do
         visit_component
-        click_link "See all withdrawn proposals"
+        click_on "See all withdrawn proposals"
       end
 
       it "shows an empty page with a message" do
@@ -55,7 +55,7 @@ describe "Index proposals" do
 
       before do
         visit_component
-        click_link "See all withdrawn proposals"
+        click_on "See all withdrawn proposals"
       end
 
       it "shows all the withdrawn proposals" do

@@ -29,7 +29,7 @@ shared_examples "manage landing page examples" do
 
       expect do
         within ".edit_content_blocks" do
-          click_button(text: "Add content block")
+          click_on(text: "Add content block")
           within ".add-components" do
             find("a", text: "Hero image and CTA", exact_text: true).click
           end
@@ -42,7 +42,7 @@ shared_examples "manage landing page examples" do
 
       expect do
         within ".edit_content_blocks" do
-          click_button(text: "Add content block")
+          click_on(text: "Add content block")
           within ".add-components" do
             find("a", text: "Hero image and CTA", exact_text: true).click
           end
@@ -78,7 +78,7 @@ shared_examples "manage landing page examples" do
         with: "Custom button text!"
       )
 
-      click_button "Update"
+      click_on "Update"
       visit edit_content_block_path(resource, content_block)
       expect(page).to have_selector("input[value='Custom button text!']")
 

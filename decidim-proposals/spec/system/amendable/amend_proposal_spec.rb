@@ -193,7 +193,7 @@ describe "Amend Proposal", versioning: true do
 
         context "when the user is not logged in and clicks" do
           before do
-            click_link "Amend"
+            click_on "Amend"
           end
 
           it "is shown the login modal" do
@@ -209,7 +209,7 @@ describe "Amend Proposal", versioning: true do
             login_as user, scope: :user
             visit proposal_path
             expect(page).to have_content(proposal_title)
-            click_link "Amend"
+            click_on "Amend"
           end
 
           it "is shown the amendment create form" do
@@ -230,7 +230,7 @@ describe "Amend Proposal", versioning: true do
                 fill_in "amendment[emendation_params][body]", with: "Cities need more people, not more cars"
                 select user_group.name, from: :amendment_user_group_id # Optional
               end
-              click_button "Create"
+              click_on "Create"
             end
 
             it "is shown the Success Flash" do
@@ -243,7 +243,7 @@ describe "Amend Proposal", versioning: true do
               within ".new_amendment" do
                 fill_in "amendment[emendation_params][title]", with: "INVALID TITLE"
               end
-              click_button "Create"
+              click_on "Create"
             end
 
             it "is shown the Error Flash" do
@@ -294,7 +294,7 @@ describe "Amend Proposal", versioning: true do
 
         context "when the user clicks on the accept button" do
           before do
-            click_link "Accept"
+            click_on "Accept"
           end
 
           it "is shown the amendment review form" do
@@ -308,7 +308,7 @@ describe "Amend Proposal", versioning: true do
           context "and the emendation is accepted" do
             before do
               within ".edit_amendment" do
-                click_button "Accept amendment"
+                click_on "Accept amendment"
               end
             end
 
@@ -324,7 +324,7 @@ describe "Amend Proposal", versioning: true do
 
         context "when the user clicks on the reject button" do
           before do
-            click_link "Reject"
+            click_on "Reject"
           end
 
           it "is shown the Success Flash" do
@@ -380,7 +380,7 @@ describe "Amend Proposal", versioning: true do
 
         context "when the user clicks on the promote button" do
           before do
-            click_link "Promote"
+            click_on "Promote"
           end
 
           it "is shown the alert text" do

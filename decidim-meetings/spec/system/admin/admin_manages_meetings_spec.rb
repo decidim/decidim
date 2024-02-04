@@ -35,7 +35,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
       visit current_path
 
       within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
-        accept_confirm { click_link "Unpublish" }
+        accept_confirm { click_on "Unpublish" }
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -45,7 +45,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
       end
 
       within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
-        click_link "Publish"
+        click_on "Publish"
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -75,7 +75,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
   describe "when rendering the text in the update page" do
     before do
-      click_link "Edit"
+      click_on "Edit"
     end
 
     it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='meeting-description-tabs']", "full"
@@ -89,34 +89,34 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     context "when there are multiple locales" do
       it "shows the title correctly in all available locales" do
         within "#meeting-title-tabs" do
-          click_link "English"
+          click_on "English"
         end
         expect(page).to have_field(text: meeting.title[:en], visible: :visible)
 
         within "#meeting-title-tabs" do
-          click_link "Català"
+          click_on "Català"
         end
         expect(page).to have_field(text: meeting.title[:ca], visible: :visible)
 
         within "#meeting-title-tabs" do
-          click_link "Castellano"
+          click_on "Castellano"
         end
         expect(page).to have_field(text: meeting.title[:es], visible: :visible)
       end
 
       it "shows the description correctly in all available locales" do
         within "#meeting-description-tabs" do
-          click_link "English"
+          click_on "English"
         end
         expect(page).to have_field(text: meeting.description[:en], visible: :visible)
 
         within "#meeting-description-tabs" do
-          click_link "Català"
+          click_on "Català"
         end
         expect(page).to have_field(text: meeting.description[:ca], visible: :visible)
 
         within "#meeting-description-tabs" do
-          click_link "Castellano"
+          click_on "Castellano"
         end
         expect(page).to have_field(text: meeting.description[:es], visible: :visible)
       end
@@ -145,14 +145,14 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
   it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='meeting-description-tabs']", "full" do
     before do
       within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
-        click_link "Edit"
+        click_on "Edit"
       end
     end
   end
 
   it "updates a meeting", :serves_geocoding_autocomplete do
     within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
-      click_link "Edit"
+      click_on "Edit"
     end
 
     within ".edit_meeting" do
@@ -177,7 +177,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
   it "sets registration enabled to true when registration type is on this platform" do
     within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
-      click_link "Edit"
+      click_on "Edit"
     end
 
     within ".edit_meeting" do
@@ -192,7 +192,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
   it "sets registration enabled to false when registration type is not on this platform" do
     within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
-      click_link "Edit"
+      click_on "Edit"
     end
 
     within ".edit_meeting" do
@@ -207,7 +207,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
   it "adds a few services to the meeting", :serves_geocoding_autocomplete do
     within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
-      click_link "Edit"
+      click_on "Edit"
     end
 
     within ".edit_meeting" do
@@ -222,7 +222,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     expect(page).to have_admin_callout("successfully")
 
     within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
-      click_link "Edit"
+      click_on "Edit"
     end
 
     expect(page).to have_selector("input[value='This is the first service']")
@@ -269,7 +269,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
   end
 
   it "creates a new meeting", :serves_geocoding_autocomplete do
-    click_link "New meeting"
+    click_on "New meeting"
 
     fill_in_i18n(
       :meeting_title,
@@ -339,7 +339,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
       before do
         # Prepare the view for submission (other than the address field)
-        click_link "New meeting"
+        click_on "New meeting"
 
         fill_in_i18n(
           :meeting_title,
@@ -384,7 +384,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
   end
 
   it "lets the user choose the meeting type" do
-    click_link "New meeting"
+    click_on "New meeting"
 
     within ".new_meeting" do
       select "In person", from: :meeting_type_of_meeting
@@ -405,7 +405,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
   end
 
   it "lets the user choose the registration type" do
-    click_link "New meeting"
+    click_on "New meeting"
 
     within ".new_meeting" do
       select "Registration disabled", from: :meeting_registration_type
@@ -428,7 +428,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
     it "deletes a meeting" do
       within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting2).title) do
-        accept_confirm { click_link "Delete" }
+        accept_confirm { click_on "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -451,7 +451,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
     it "updates a meeting" do
       within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
-        click_link "Edit"
+        click_on "Edit"
       end
 
       within ".edit_meeting" do
@@ -474,7 +474,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     end
 
     it "does not display error message when opening meeting's create form" do
-      click_link "New meeting"
+      click_on "New meeting"
 
       within "label[for='meeting_registration_type']" do
         expect(page).not_to have_content("There is an error in this field.")
@@ -482,7 +482,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     end
 
     it "creates a new meeting", :slow do
-      click_link "New meeting"
+      click_on "New meeting"
 
       fill_in_i18n(
         :meeting_title,
@@ -547,7 +547,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
     it "closes a meeting with a report" do
       within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
-        page.click_link "Close"
+        page.click_on "Close"
       end
 
       within ".edit_close_meeting" do
@@ -566,7 +566,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
         tom_select("#proposals_list", option_id: proposals.first(2).map(&:id))
 
-        click_button "Close"
+        click_on "Close"
       end
 
       expect(page).to have_admin_callout("Meeting successfully closed")
@@ -581,12 +581,12 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
       it "can update the information" do
         within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
-          page.click_link "Close"
+          page.click_on "Close"
         end
 
         within ".edit_close_meeting" do
           fill_in :close_meeting_attendees_count, with: 22
-          click_button "Close"
+          click_on "Close"
         end
 
         expect(page).to have_admin_callout("Meeting successfully closed")
@@ -600,7 +600,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
       it "does not display the proposal picker" do
         within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
-          page.click_link "Close"
+          page.click_on "Close"
         end
 
         expect(page).to have_content "Close meeting"
@@ -615,7 +615,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
   private
 
   def fill_in_services
-    2.times { click_button "Add service" }
+    2.times { click_on "Add service" }
 
     page.all(".meeting-service").each_with_index do |meeting_service, index|
       within meeting_service do

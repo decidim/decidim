@@ -67,7 +67,7 @@ shared_examples "manage proposals" do
 
         context "when process is not related to any scope" do
           it "can be related to a scope" do
-            click_link "New proposal"
+            click_on "New proposal"
 
             within "form" do
               expect(page).to have_content(/Scope/i)
@@ -75,7 +75,7 @@ shared_examples "manage proposals" do
           end
 
           it "creates a new proposal", :slow do
-            click_link "New proposal"
+            click_on "New proposal"
 
             within ".new_proposal" do
               fill_in_i18n :proposal_title, "#proposal-title-tabs", en: "Make decidim great again"
@@ -106,7 +106,7 @@ shared_examples "manage proposals" do
           let(:participatory_process_scope) { scope }
 
           it "cannot be related to a scope, because it has no children" do
-            click_link "New proposal"
+            click_on "New proposal"
 
             within "form" do
               expect(page).not_to have_content(/Scope/i)
@@ -114,7 +114,7 @@ shared_examples "manage proposals" do
           end
 
           it "creates a new proposal related to the process scope" do
-            click_link "New proposal"
+            click_on "New proposal"
 
             within ".new_proposal" do
               fill_in_i18n :proposal_title, "#proposal-title-tabs", en: "Make decidim great again"
@@ -139,7 +139,7 @@ shared_examples "manage proposals" do
             let!(:child_scope) { create(:scope, parent: scope) }
 
             it "can be related to a scope" do
-              click_link "New proposal"
+              click_on "New proposal"
 
               within "form" do
                 expect(page).to have_content(/Scope/i)
@@ -147,7 +147,7 @@ shared_examples "manage proposals" do
             end
 
             it "creates a new proposal related to a process scope child" do
-              click_link "New proposal"
+              click_on "New proposal"
 
               within ".new_proposal" do
                 fill_in_i18n :proposal_title, "#proposal-title-tabs", en: "Make decidim great again"
@@ -176,7 +176,7 @@ shared_examples "manage proposals" do
             end
 
             it "creates a new proposal related to the process scope" do
-              click_link "New proposal"
+              click_on "New proposal"
 
               within ".new_proposal" do
                 fill_in_i18n :proposal_title, "#proposal-title-tabs", en: "Make decidim great again"
@@ -208,7 +208,7 @@ shared_examples "manage proposals" do
               let(:geocoded_address_coordinates) { [latitude, longitude] }
 
               before do
-                click_link "New proposal"
+                click_on "New proposal"
 
                 within ".new_proposal" do
                   fill_in_i18n :proposal_title, "#proposal-title-tabs", en: "Make decidim great again"
@@ -225,7 +225,7 @@ shared_examples "manage proposals" do
           end
 
           it "creates a new proposal with attachments" do
-            click_link "New proposal"
+            click_on "New proposal"
 
             within ".new_proposal" do
               fill_in_i18n :proposal_title, "#proposal-title-tabs", en: "Proposal with attachments"
@@ -251,7 +251,7 @@ shared_examples "manage proposals" do
           let!(:meetings) { create_list(:meeting, 3, :published, component: meeting_component) }
 
           it "creates a new proposal with meeting as author" do
-            click_link "New proposal"
+            click_on "New proposal"
 
             within ".new_proposal" do
               fill_in_i18n :proposal_title, "#proposal-title-tabs", en: "Proposal with meeting as author"
@@ -344,7 +344,7 @@ shared_examples "manage proposals" do
             ca: "La proposta no te sentit"
           )
           choose "Rejected"
-          click_button "Answer"
+          click_on "Answer"
         end
 
         expect(page).to have_admin_callout("Proposal successfully answered")
@@ -363,7 +363,7 @@ shared_examples "manage proposals" do
 
         within ".edit_proposal_answer" do
           choose "Accepted"
-          click_button "Answer"
+          click_on "Answer"
         end
 
         expect(page).to have_admin_callout("Proposal successfully answered")
@@ -382,7 +382,7 @@ shared_examples "manage proposals" do
 
         within ".edit_proposal_answer" do
           choose "Evaluating"
-          click_button "Answer"
+          click_on "Answer"
         end
 
         expect(page).to have_admin_callout("Proposal successfully answered")
@@ -409,7 +409,7 @@ shared_examples "manage proposals" do
 
         within ".edit_proposal_answer" do
           choose "Not answered"
-          click_button "Answer"
+          click_on "Answer"
         end
 
         expect(page).to have_admin_callout("Proposal successfully answered")
@@ -442,7 +442,7 @@ shared_examples "manage proposals" do
 
         within ".edit_proposal_answer" do
           choose "Accepted"
-          click_button "Answer"
+          click_on "Answer"
         end
 
         expect(page).to have_admin_callout("Proposal successfully answered")

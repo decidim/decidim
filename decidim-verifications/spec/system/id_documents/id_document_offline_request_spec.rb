@@ -40,6 +40,6 @@ describe "Identity document offline request" do
     select doc_type, from: "Type of your document"
     fill_in "Document number (with letter)", with: doc_number
 
-    click_button "Request verification"
+    click_on "Request verification"
   end
 end

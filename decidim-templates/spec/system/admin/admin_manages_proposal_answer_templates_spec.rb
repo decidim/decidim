@@ -44,7 +44,7 @@ describe "Admin manages proposal answer templates" do
 
     before do
       within ".layout-content" do
-        click_link("New")
+        click_on("New")
       end
     end
 
@@ -92,7 +92,7 @@ describe "Admin manages proposal answer templates" do
 
     before do
       visit decidim_admin_templates.proposal_answer_templates_path
-      click_link translated(template.name)
+      click_on translated(template.name)
     end
 
     shared_examples "updates a template with scopes" do |scope_name|
@@ -129,7 +129,7 @@ describe "Admin manages proposal answer templates" do
 
     before do
       visit decidim_admin_templates.proposal_answer_templates_path
-      click_link translated(template.name)
+      click_on translated(template.name)
     end
 
     it "does not update the template" do
@@ -158,7 +158,7 @@ describe "Admin manages proposal answer templates" do
 
     it "copies the template" do
       within find("tr", text: translated(template.name)) do
-        click_link "Duplicate"
+        click_on "Duplicate"
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -175,7 +175,7 @@ describe "Admin manages proposal answer templates" do
 
     it "destroys the template" do
       within find("tr", text: translated(template.name)) do
-        accept_confirm { click_link "Delete" }
+        accept_confirm { click_on "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -202,7 +202,7 @@ describe "Admin manages proposal answer templates" do
       within ".edit_proposal_answer" do
         select template.name["en"], from: :proposal_answer_template_chooser
         expect(page).to have_content(description)
-        click_button "Answer"
+        click_on "Answer"
       end
 
       expect(page).to have_admin_callout("Proposal successfully answered")
@@ -260,7 +260,7 @@ describe "Admin manages proposal answer templates" do
         within ".edit_proposal_answer" do
           select translated(global_template.name), from: :proposal_answer_template_chooser
           expect(page).to have_content("Foo bar")
-          click_button "Answer"
+          click_on "Answer"
         end
 
         expect(page).to have_admin_callout("Proposal successfully answered")

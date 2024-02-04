@@ -9,7 +9,7 @@ shared_examples "manage categories examples" do
 
   it "can view a category detail" do
     within "#categories table" do
-      click_link translated(category.name, locale: :en)
+      click_on translated(category.name, locale: :en)
     end
 
     expect(page).to have_selector("input#category_name_en[value='#{translated(category.name, locale: :en)}']")
@@ -19,7 +19,7 @@ shared_examples "manage categories examples" do
   end
 
   it "creates a new category" do
-    click_link "New category"
+    click_on "New category"
 
     within ".new_category" do
       fill_in_i18n(
@@ -43,7 +43,7 @@ shared_examples "manage categories examples" do
   it "updates a category" do
     within "#categories" do
       within find("tr", text: translated(category.name)) do
-        click_link "Edit"
+        click_on "Edit"
       end
     end
 
@@ -77,7 +77,7 @@ shared_examples "manage categories examples" do
 
         it "deletes a category" do
           within find("tr", text: translated(category2.name)) do
-            accept_confirm { click_link "Delete" }
+            accept_confirm { click_on "Delete" }
           end
 
           expect(page).to have_admin_callout("successfully")
@@ -97,7 +97,7 @@ shared_examples "manage categories examples" do
 
         it "deletes a category" do
           within find("tr", text: translated(category2.name)) do
-            accept_confirm { click_link "Delete" }
+            accept_confirm { click_on "Delete" }
           end
 
           expect(page).to have_admin_callout("problem deleting")

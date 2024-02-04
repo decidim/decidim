@@ -11,13 +11,13 @@ shared_context "with filterable context" do
     within(".filters__section") do
       find_link("Filter").hover
       find_link(options).hover
-      click_link(filter, href: /q/)
+      click_on(filter, href: /q/)
     end
   end
 
   def remove_applied_filter(filter)
     within("[data-applied-filters-tags] .label", text: /#{filter}/i) do
-      click_link("Cancel")
+      click_on("Cancel")
     end
   end
 

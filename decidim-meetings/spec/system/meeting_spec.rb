@@ -15,18 +15,18 @@ describe "Meeting", download: true do
 
   it "has a link to download the meeting in ICS format" do
     visit_meeting
-    click_link "Add to calendar"
+    click_on "Add to calendar"
 
     expect(page).to have_link("Add to Outlook calendar")
 
-    click_link("Add to Outlook calendar")
+    click_on("Add to Outlook calendar")
 
     expect(File.basename(download_path)).to include(".ics")
   end
 
   it "has a link to add to google calendar" do
     visit_meeting
-    click_link "Add to calendar"
+    click_on "Add to calendar"
 
     expect(page).to have_link("Add to Google calendar", href: /calendar\.google\.com/)
   end

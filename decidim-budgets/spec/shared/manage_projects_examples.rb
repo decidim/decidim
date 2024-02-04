@@ -4,7 +4,7 @@ shared_examples "manage projects" do
   describe "admin form" do
     before do
       within ".item_show__wrapper" do
-        click_link("New project", class: "button")
+        click_on("New project", class: "button")
       end
     end
 
@@ -80,7 +80,7 @@ shared_examples "manage projects" do
 
   it "updates a project" do
     within find("tr", text: translated(project.title)) do
-      click_link "Edit"
+      click_on "Edit"
     end
 
     within ".edit_project" do
@@ -142,7 +142,7 @@ shared_examples "manage projects" do
 
   it "creates a new project", :slow do
     within ".bulk-actions-budgets" do
-      click_link "New project"
+      click_on "New project"
     end
 
     within ".new_project" do
@@ -184,7 +184,7 @@ shared_examples "manage projects" do
 
     it "deletes a project" do
       within find("tr", text: translated(project2.title)) do
-        accept_confirm { click_link "Delete" }
+        accept_confirm { click_on "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -201,7 +201,7 @@ shared_examples "manage projects" do
 
     it "updates a project" do
       within find("tr", text: translated(project.title)) do
-        click_link "Edit"
+        click_on "Edit"
       end
 
       within ".edit_project" do
@@ -231,7 +231,7 @@ shared_examples "manage projects" do
       expect(project.linked_resources(:proposals, "included_proposals").count).to eq(5)
 
       within find("tr", text: translated(project.title)) do
-        click_link "Edit"
+        click_on "Edit"
       end
 
       within ".edit_project" do
@@ -247,7 +247,7 @@ shared_examples "manage projects" do
 
     it "creates a new project" do
       within ".bulk-actions-budgets" do
-        click_link "New project"
+        click_on "New project"
       end
 
       within ".new_project" do

@@ -52,7 +52,7 @@ describe "AdminTosAcceptance" do
       end
 
       it "allows accepting and redirects to the previous page" do
-        click_button "I agree with the terms"
+        click_on "I agree with the terms"
         expect(page).to have_content("New process")
         within_admin_menu do
           expect(page).to have_content("Process types")
@@ -80,7 +80,7 @@ describe "AdminTosAcceptance" do
           # ActionDispatch::Cookies::CookieOverflow exception
           visit "#{decidim_admin_participatory_processes.participatory_processes_path}?#{long_parameters}"
           expect(page).to have_content(review_message)
-          click_button "I agree with the terms"
+          click_on "I agree with the terms"
           expect(page).to have_content("New process")
           within_admin_menu do
             expect(page).to have_content("Process types")
@@ -100,7 +100,7 @@ describe "AdminTosAcceptance" do
       end
 
       it "allows accepting the terms" do
-        click_button "I agree with the terms"
+        click_on "I agree with the terms"
         expect(page).to have_content("Activity")
         expect(page).to have_content("Metrics")
 

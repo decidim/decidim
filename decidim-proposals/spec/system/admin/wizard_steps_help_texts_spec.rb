@@ -29,7 +29,7 @@ describe "Manage proposal wizard steps help texts" do
       ca: "Aquest és el primer pas de l'assistent de creació de la proposta."
     )
 
-    click_button "Update"
+    click_on "Update"
 
     visit new_proposal_path(current_component)
     within "#proposal_wizard_help_text" do
@@ -48,12 +48,12 @@ describe "Manage proposal wizard steps help texts" do
       ca: "Aquest és el segon pas de l'assistent de creació de la proposta."
     )
 
-    click_button "Update"
+    click_on "Update"
 
     create(:proposal, title: "More sidewalks and less roads", body: "Cities need more people, not more cars", component:, users: [user])
     create(:proposal, title: "More trees and parks", body: "Green is always better", component:, users: [user])
     visit_component
-    click_link "New proposal"
+    click_on "New proposal"
     within ".new_proposal" do
       fill_in :proposal_title, with: "More sidewalks and less roads"
       fill_in :proposal_body, with: "Cities need more people, not more cars"
@@ -77,10 +77,10 @@ describe "Manage proposal wizard steps help texts" do
       ca: "Aquest és el tercer pas de l'assistent de creació de la proposta."
     )
 
-    click_button "Update"
+    click_on "Update"
 
     visit_component
-    click_link "New proposal"
+    click_on "New proposal"
     within ".new_proposal" do
       fill_in :proposal_title, with: "More sidewalks and less roads"
       fill_in :proposal_body, with: "Cities need more people, not more cars"
@@ -104,7 +104,7 @@ describe "Manage proposal wizard steps help texts" do
       ca: "Aquest és el quart pas de l'assistent de creació de la proposta."
     )
 
-    click_button "Update"
+    click_on "Update"
 
     visit preview_proposal_path(current_component, create(:proposal, :draft, component: current_component, title: "This proposal has a similar", users: [user]))
     within "#proposal_wizard_help_text" do

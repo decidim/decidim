@@ -50,7 +50,7 @@ describe "Explore versions", versioning: true do
     before do
       visit proposal_path
       command.call
-      click_link "see other versions"
+      click_on "see other versions"
     end
 
     it "lists all versions" do
@@ -63,8 +63,8 @@ describe "Explore versions", versioning: true do
     before do
       visit proposal_path
       command.call
-      click_link "see other versions"
-      click_link("Version 2 of 2")
+      click_on "see other versions"
+      click_on("Version 2 of 2")
     end
 
     it_behaves_like "accessible page"

@@ -49,7 +49,7 @@ describe "Initiative signing" do
 
       fill_in :initiatives_vote_postal_code, with: "01234"
 
-      click_button "Continue"
+      click_on "Continue"
 
       expect(page).not_to have_css("div.alert")
     end
@@ -154,12 +154,12 @@ end
 
 def fill_phone_number
   fill_in :mobile_phone_mobile_phone_number, with: phone_number
-  click_button "Send me an SMS"
+  click_on "Send me an SMS"
 end
 
 def fill_sms_code
   fill_in :confirmation_verification_code, with: form_sms_code
-  click_button "Check code and continue"
+  click_on "Check code and continue"
 end
 
 def signature_text(number)

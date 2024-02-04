@@ -77,7 +77,7 @@ describe "User creates meeting" do
           before do
             organization.update(rich_text_editor_in_public_views: true)
             visit_component
-            click_link "New meeting"
+            click_on "New meeting"
           end
 
           it_behaves_like "having a rich text editor", "new_meeting", "basic"
@@ -87,7 +87,7 @@ describe "User creates meeting" do
           stub_geocoding(meeting_address, [latitude, longitude])
           visit_component
 
-          click_link "New meeting"
+          click_on "New meeting"
 
           within ".new_meeting" do
             fill_in :meeting_title, with: meeting_title
@@ -132,7 +132,7 @@ describe "User creates meeting" do
               # Prepare the view for submission (other than the address field)
               visit_component
 
-              click_link "New meeting"
+              click_on "New meeting"
 
               within ".new_meeting" do
                 fill_in :meeting_title, with: meeting_title
@@ -158,7 +158,7 @@ describe "User creates meeting" do
 
             visit_component
 
-            click_link "New meeting"
+            click_on "New meeting"
 
             within ".new_meeting" do
               fill_in :meeting_title, with: meeting_title
@@ -196,7 +196,7 @@ describe "User creates meeting" do
 
             visit_component
 
-            click_link "New meeting"
+            click_on "New meeting"
 
             within ".new_meeting" do
               fill_in :meeting_title, with: meeting_title
@@ -247,7 +247,7 @@ describe "User creates meeting" do
 
           it "shows a modal dialog" do
             visit_component
-            click_link "New meeting"
+            click_on "New meeting"
             expect(page).to have_selector("#authorizationModal")
             expect(page).to have_content("Authorization required")
           end
@@ -256,7 +256,7 @@ describe "User creates meeting" do
         it "lets the user choose the registrations type" do
           visit_component
 
-          click_link "New meeting"
+          click_on "New meeting"
 
           within ".new_meeting" do
             select "Registration disabled", from: :meeting_registration_type
@@ -279,7 +279,7 @@ describe "User creates meeting" do
         it "lets the user choose the meeting type" do
           visit_component
 
-          click_link "New meeting"
+          click_on "New meeting"
 
           within ".new_meeting" do
             select "In person", from: :meeting_type_of_meeting

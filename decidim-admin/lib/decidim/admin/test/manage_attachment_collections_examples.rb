@@ -15,7 +15,7 @@ shared_examples "manage attachment collections examples" do
 
   it "can view an attachment collection details" do
     within "#attachment_collections table" do
-      click_link "Edit"
+      click_on "Edit"
     end
 
     expect(page).to have_selector("input#attachment_collection_name_en[value='#{translated(attachment_collection.name, locale: :en)}']")
@@ -24,7 +24,7 @@ shared_examples "manage attachment collections examples" do
   end
 
   it "can add attachment collections to a process" do
-    click_link "New attachment folder"
+    click_on "New attachment folder"
 
     within ".new_attachment_collection" do
       fill_in_i18n(
@@ -56,7 +56,7 @@ shared_examples "manage attachment collections examples" do
   it "can update an attachment collection" do
     within "#attachment_collections" do
       within find("tr", text: translated(attachment_collection.name)) do
-        click_link "Edit"
+        click_on "Edit"
       end
     end
 
@@ -89,7 +89,7 @@ shared_examples "manage attachment collections examples" do
 
       it "can delete the attachment collection" do
         within find("tr", text: translated(attachment_collection2.name)) do
-          accept_confirm { click_link "Delete" }
+          accept_confirm { click_on "Delete" }
         end
 
         expect(page).to have_admin_callout("successfully")

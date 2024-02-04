@@ -28,7 +28,7 @@ describe "Valuator checks components" do
   context "when listing components in the space components page" do
     it "can only see the proposals component" do
       within ".process-title-content" do
-        click_link "Components"
+        click_on "Components"
       end
 
       within ".table-list" do
