@@ -194,7 +194,7 @@ describe "Admin manages newsletters" do
         visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
         perform_enqueued_jobs do
           within(".newsletter_deliver") do
-            find(:css, "#newsletter_send_to_all_users").set(true)
+            find_by_id("newsletter_send_to_all_users").set(true)
           end
 
           within "#recipients_count" do

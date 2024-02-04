@@ -24,21 +24,10 @@ Capybara/RedundantWithinFind:
 Capybara/SpecificActions:
   Enabled: false
 
-Capybara/SpecificFinders:
-  Enabled: false
-
-Capybara/SpecificMatcher:
-  Enabled: false
-
-Capybara/VisibilityMatcher:
-  Enabled: false
 
 Capybara/RSpec:
   Enabled: false
   Include: *1
 
 Capybara/RSpec/HaveSelector:
-  Enabled: false
-
-Capybara/RSpec/PredicateMatcher:
   Enabled: false
