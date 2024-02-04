@@ -511,7 +511,6 @@ linters:
           - flex-gap--2
           - flex-horizontal
           - flex-video
-          - float-center
           - floating-helper
           - floating-helper__bottom
           - floating-helper__content

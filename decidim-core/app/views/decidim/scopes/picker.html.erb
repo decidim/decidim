@@ -37,8 +37,8 @@
     </div>
   </div>
 
-  <div class="scope-picker picker-footer reveal__footer">
-    <div class="buttons button--double">
+  <div class="scope-picker picker-footer">
+    <div>
       <% if current || !required %>
         <a class="button button__sm md:button__lg button__transparent-secondary" role="button" href="<%= scopes_picker_path(current: current&.id, **context) %>" aria-controls="<%= picker_target_id %>" data-picker-value="<%= current&.id || global_value %>" data-picker-text="<%= scope_name_for_picker(current, t("decidim.scopes.global")) %>" data-picker-choose>
           <%= t("decidim.scopes.picker.choose") %>
