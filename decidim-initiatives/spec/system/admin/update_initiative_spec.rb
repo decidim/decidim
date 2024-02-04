@@ -107,8 +107,8 @@ describe "User prints the initiative" do
           page.find(".action-icon--edit").click
 
           within ".edit_initiative" do
-            expect(page).not_to have_css("label[for='initiative_type_id']")
-            expect(page).not_to have_css("#initiative_type_id")
+            expect(page).to have_no_css("label[for='initiative_type_id']")
+            expect(page).to have_no_css("#initiative_type_id")
           end
         end
       end

@@ -33,7 +33,7 @@ describe "Private Space Proposal" do
         visit_component
 
         within "aside" do
-          expect(page).not_to have_link("New proposal")
+          expect(page).to have_no_link("New proposal")
         end
       end
     end
@@ -62,7 +62,7 @@ describe "Private Space Proposal" do
           visit_component
 
           within "aside" do
-            expect(page).not_to have_link("New proposal")
+            expect(page).to have_no_link("New proposal")
           end
         end
       end

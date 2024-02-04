@@ -16,14 +16,10 @@ Capybara/MatchStyle:
   Enabled: false
 
 Capybara/NegationMatcher:
-  Enabled: false
+  Enabled: true
 
 Capybara/RedundantWithinFind:
   Enabled: false
-
-Capybara/SpecificActions:
-  Enabled: false
-
 
 Capybara/RSpec:
   Enabled: false

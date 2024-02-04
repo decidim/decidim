@@ -29,7 +29,7 @@ describe "Private Participatory Processes" do
           expect(page).to have_content(translated(participatory_process.title, locale: :en))
           expect(page).to have_selector(".card__grid", count: 1)
 
-          expect(page).not_to have_content(translated(private_participatory_process.title, locale: :en))
+          expect(page).to have_no_content(translated(private_participatory_process.title, locale: :en))
         end
       end
     end
@@ -51,7 +51,7 @@ describe "Private Participatory Processes" do
             expect(page).to have_content(translated(participatory_process.title, locale: :en))
             expect(page).to have_selector(".card__grid", count: 1)
 
-            expect(page).not_to have_content(translated(private_participatory_process.title, locale: :en))
+            expect(page).to have_no_content(translated(private_participatory_process.title, locale: :en))
           end
         end
       end

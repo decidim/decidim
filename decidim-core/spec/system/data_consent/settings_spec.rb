@@ -25,10 +25,10 @@ describe "Data consent" do
         click_button "Accept all"
       end
 
-      expect(page).not_to have_content(cookies_description)
+      expect(page).to have_no_content(cookies_description)
 
       visit decidim.root_path
-      expect(page).not_to have_content(cookies_description)
+      expect(page).to have_no_content(cookies_description)
     end
 
     it "user rejects the cookies and dialog is not shown anymore'" do
@@ -38,10 +38,10 @@ describe "Data consent" do
         click_button "Accept only essential"
       end
 
-      expect(page).not_to have_content(cookies_description)
+      expect(page).to have_no_content(cookies_description)
 
       visit decidim.root_path
-      expect(page).not_to have_content(cookies_description)
+      expect(page).to have_no_content(cookies_description)
     end
   end
 
@@ -53,8 +53,8 @@ describe "Data consent" do
     end
 
     it "shows cookie" do
-      expect(page).not_to have_content("decidim-consent")
-      expect(page).not_to have_content("Stores information about the cookies allowed by the user on this website")
+      expect(page).to have_no_content("decidim-consent")
+      expect(page).to have_no_content("Stores information about the cookies allowed by the user on this website")
       find("[data-id='essential']").find("[id^='accordion-trigger']").click
       expect(page).to have_content("decidim-consent")
       expect(page).to have_content("Stores information about the cookies allowed by the user on this website")
