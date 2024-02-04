@@ -9,7 +9,7 @@ shared_examples "manage diplomas" do
 
   context "when diploma configuration not exists" do
     it "configure the diploma settings" do
-      within find("tr", text: translated(conference.title)) do
+      within "tr", text: translated(conference.title) do
         click_link "Configure"
       end
 
@@ -39,7 +39,7 @@ shared_examples "manage diplomas" do
 
       context "and diplomas has not been sent" do
         before do
-          within find("tr", text: translated(conference.title)) do
+          within "tr", text: translated(conference.title) do
             click_link "Configure"
           end
 
@@ -69,7 +69,7 @@ shared_examples "manage diplomas" do
         end
 
         it "cannot send the diplomas" do
-          within find("tr", text: translated(conference.title)) do
+          within "tr", text: translated(conference.title) do
             click_link "Configure"
           end
 
@@ -87,7 +87,7 @@ shared_examples "manage diplomas" do
       let!(:conference_registrations) { create_list(:conference_registration, 10, :unconfirmed, conference:) }
 
       it "cannot send the diplomas" do
-        within find("tr", text: translated(conference.title)) do
+        within "tr", text: translated(conference.title) do
           click_link "Configure"
         end
 

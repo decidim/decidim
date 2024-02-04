@@ -25,7 +25,7 @@ describe "Admin copies meetings" do
     let(:type_of_meeting) { :online }
 
     it "creates a new Online meeting", :slow do
-      within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
+      within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
         click_link "Duplicate"
       end
 
@@ -78,7 +78,7 @@ describe "Admin copies meetings" do
     end
 
     it "creates a new hybrid meeting", :serves_geocoding_autocomplete, :slow do
-      within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
+      within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
         click_link "Duplicate"
       end
 
@@ -139,7 +139,7 @@ describe "Admin copies meetings" do
     end
 
     it "creates a new In person meeting", :serves_geocoding_autocomplete, :slow do
-      within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
+      within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
         click_link "Duplicate"
       end
 

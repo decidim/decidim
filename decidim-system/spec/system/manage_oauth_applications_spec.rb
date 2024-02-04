@@ -45,7 +45,7 @@ describe "Manage OAuth applications" do
     end
 
     it "can edit them" do
-      within find("tr", text: application.name) do
+      within "tr", text: application.name do
         click_link "Edit"
       end
 
@@ -62,7 +62,7 @@ describe "Manage OAuth applications" do
     end
 
     it "can delete them" do
-      within find("tr", text: application.name) do
+      within "tr", text: application.name do
         accept_confirm { click_link "Delete" }
       end
 

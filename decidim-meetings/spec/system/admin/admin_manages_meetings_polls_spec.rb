@@ -21,7 +21,7 @@ describe "Admin manages meetings polls" do
   describe "listing meetings" do
     it "shows manage poll action" do
       visit current_path
-      within find("tr", text: translated(meeting.title)) do
+      within "tr", text: translated(meeting.title) do
         page.click_link "Manage poll"
       end
 

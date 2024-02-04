@@ -263,7 +263,7 @@ describe "Admin views proposal details from admin" do
   end
 
   def go_to_admin_proposal_page(proposal)
-    within find("tr", text: translated(proposal.title)) do
+    within "tr", text: translated(proposal.title) do
       find("a", class: "action-icon--show-proposal").click
     end
   end

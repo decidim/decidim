@@ -63,7 +63,7 @@ shared_examples "manage process steps examples" do
 
   it "updates a participatory_process_step" do
     within "#steps" do
-      within find("tr", text: translated(process_step.title)) do
+      within "tr", text: translated(process_step.title) do
         click_link "Edit"
       end
     end
@@ -96,7 +96,7 @@ shared_examples "manage process steps examples" do
     end
 
     it "deletes a participatory_process_step" do
-      within find("tr", text: translated(process_step2.title)) do
+      within "tr", text: translated(process_step2.title) do
         accept_confirm { click_link "Delete" }
       end
 
@@ -110,11 +110,11 @@ shared_examples "manage process steps examples" do
 
   context "when activating a step" do
     it "activates a step" do
-      within find("tr", text: translated(process_step.title)) do
+      within "tr", text: translated(process_step.title) do
         click_link "Activate"
       end
 
-      within find("tr", text: translated(process_step.title)) do
+      within "tr", text: translated(process_step.title) do
         expect(page).not_to have_content("Activate")
       end
     end

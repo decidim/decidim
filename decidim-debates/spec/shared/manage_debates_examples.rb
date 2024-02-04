@@ -26,7 +26,7 @@ RSpec.shared_examples "manage debates" do
 
   describe "updating a debate" do
     it "updates a debate" do
-      within find("tr", text: translated(debate.title)) do
+      within "tr", text: translated(debate.title) do
         page.find(".action-icon--edit").click
       end
 
@@ -53,7 +53,7 @@ RSpec.shared_examples "manage debates" do
       let!(:debate) { create(:debate, :participant_author, component: current_component) }
 
       it "cannot edit the debate" do
-        within find("tr", text: translated(debate.title)) do
+        within "tr", text: translated(debate.title) do
           expect(page).not_to have_selector(".action-icon--edit")
         end
       end
@@ -62,7 +62,7 @@ RSpec.shared_examples "manage debates" do
 
   describe "previewing debates" do
     it "links the debate correctly" do
-      within find("tr", text: translated(debate.title)) do
+      within "tr", text: translated(debate.title) do
         link = find("a", class: "action-icon--preview")
         expect(link[:href]).to include(resource_locator(debate).path)
       end
@@ -174,7 +174,7 @@ RSpec.shared_examples "manage debates" do
     end
 
     it "deletes a debate" do
-      within find("tr", text: translated(debate2.title)) do
+      within "tr", text: translated(debate2.title) do
         accept_confirm do
           page.find(".action-icon--remove").click
         end
@@ -191,7 +191,7 @@ RSpec.shared_examples "manage debates" do
       let!(:debate2) { create(:debate, :participant_author, component: current_component) }
 
       it "cannot delete the debate" do
-        within find("tr", text: translated(debate2.title)) do
+        within "tr", text: translated(debate2.title) do
           expect(page).not_to have_selector(".action-icon--remove")
         end
       end
@@ -200,7 +200,7 @@ RSpec.shared_examples "manage debates" do
 
   describe "closing a debate" do
     it "closes a debate" do
-      within find("tr", text: translated(debate.title)) do
+      within "tr", text: translated(debate.title) do
         page.find(".action-icon--close").click
       end
 
@@ -219,7 +219,7 @@ RSpec.shared_examples "manage debates" do
       expect(page).to have_admin_callout "Debate successfully closed"
 
       within "table" do
-        within find("tr", text: translated(debate.title)) do
+        within "tr", text: translated(debate.title) do
           expect(page).not_to have_selector(".action-icon--edit")
           page.find(".action-icon--close").click
         end
@@ -232,7 +232,7 @@ RSpec.shared_examples "manage debates" do
       let!(:debate) { create(:debate, :participant_author, component: current_component) }
 
       it "cannot close the debate" do
-        within find("tr", text: translated(debate.title)) do
+        within "tr", text: translated(debate.title) do
           expect(page).not_to have_selector(".action-icon--close")
         end
       end

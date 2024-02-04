@@ -51,7 +51,7 @@ describe "Admin manages participatory process types" do
       end
 
       it "can edit them" do
-        within find("tr", text: translated(participatory_process_type.title)) do
+        within "tr", text: translated(participatory_process_type.title) do
           click_link "Edit"
         end
 
@@ -86,7 +86,7 @@ describe "Admin manages participatory process types" do
   private
 
   def click_delete_participatory_process_type
-    within find("tr", text: translated(participatory_process_type.title)) do
+    within "tr", text: translated(participatory_process_type.title) do
       accept_confirm { click_link "Delete" }
     end
   end

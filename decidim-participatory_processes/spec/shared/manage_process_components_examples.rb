@@ -64,7 +64,7 @@ shared_examples "manage process components" do
 
       context "and then edit it" do
         before do
-          within find("tr", text: "My component") do
+          within "tr", text: "My component" do
             click_link "Configure"
           end
         end
@@ -137,7 +137,7 @@ shared_examples "manage process components" do
 
       context "and then edit it" do
         before do
-          within find("tr", text: "My component") do
+          within "tr", text: "My component" do
             click_link "Configure"
           end
         end
@@ -213,7 +213,7 @@ shared_examples "manage process components" do
       expect(page).to have_admin_callout("successfully")
       expect(page).to have_content("My updated component")
 
-      within find("tr", text: "My updated component") do
+      within "tr", text: "My updated component" do
         click_link "Configure"
       end
 
@@ -244,7 +244,7 @@ shared_examples "manage process components" do
 
         expect(page).to have_admin_callout("successfully")
 
-        within find("tr", text: "My component") do
+        within "tr", text: "My component" do
           click_link "Configure"
         end
 

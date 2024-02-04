@@ -24,7 +24,7 @@ shared_examples "manage registration types examples" do
     end
 
     it "updates a conference registration types" do
-      within find("#registration_types tr", text: translated(registration_type.title)) do
+      within "#registration_types tr", text: translated(registration_type.title) do
         click_link "Edit"
       end
 
@@ -49,7 +49,7 @@ shared_examples "manage registration types examples" do
     end
 
     it "deletes the conference registration type" do
-      within find("#registration_types tr", text: translated(registration_type.title)) do
+      within "#registration_types tr", text: translated(registration_type.title) do
         accept_confirm { find("a.action-icon--remove").click }
       end
 

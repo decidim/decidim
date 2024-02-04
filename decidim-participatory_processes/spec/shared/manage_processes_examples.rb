@@ -62,7 +62,7 @@ shared_examples "manage processes examples" do
       let!(:participatory_process) { create(:participatory_process, organization:) }
 
       it "allows the user to preview the published process" do
-        within find("tr", text: translated(participatory_process.title)) do
+        within "tr", text: translated(participatory_process.title) do
           click_link "Preview"
         end
 
@@ -87,7 +87,7 @@ shared_examples "manage processes examples" do
     let(:image3_path) { Decidim::Dev.asset(image3_filename) }
 
     before do
-      within find("tr", text: translated(participatory_process.title)) do
+      within "tr", text: translated(participatory_process.title) do
         click_link translated(participatory_process.title)
       end
 
@@ -125,7 +125,7 @@ shared_examples "manage processes examples" do
     let!(:participatory_process) { create(:participatory_process, :unpublished, organization:) }
 
     before do
-      within find("tr", text: translated(participatory_process.title)) do
+      within "tr", text: translated(participatory_process.title) do
         click_link translated(participatory_process.title)
       end
 
@@ -149,7 +149,7 @@ shared_examples "manage processes examples" do
     let!(:participatory_process) { create(:participatory_process, organization:) }
 
     before do
-      within find("tr", text: translated(participatory_process.title)) do
+      within "tr", text: translated(participatory_process.title) do
         click_link translated(participatory_process.title)
       end
 
@@ -191,7 +191,7 @@ shared_examples "manage processes examples" do
     end
 
     it "disables the scope for a participatory process" do
-      within find("tr", text: translated(participatory_process.title)) do
+      within "tr", text: translated(participatory_process.title) do
         click_link translated(participatory_process.title)
       end
 

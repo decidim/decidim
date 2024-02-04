@@ -85,7 +85,7 @@ describe "Admin manages participatory process groups" do
     end
 
     it "can edit them" do
-      within find("tr", text: participatory_process_group.title["en"]) do
+      within "tr", text: participatory_process_group.title["en"] do
         click_link "Edit"
       end
 
@@ -133,7 +133,7 @@ describe "Admin manages participatory process groups" do
     end
 
     it "validates the group attributes" do
-      within find("tr", text: participatory_process_group.title["en"]) do
+      within "tr", text: participatory_process_group.title["en"] do
         click_link "Edit"
       end
 
@@ -153,7 +153,7 @@ describe "Admin manages participatory process groups" do
     end
 
     it "can remove its image" do
-      within find("tr", text: participatory_process_group.title["en"]) do
+      within "tr", text: participatory_process_group.title["en"] do
         click_link "Edit"
       end
 
@@ -170,7 +170,7 @@ describe "Admin manages participatory process groups" do
     end
 
     it "can delete them" do
-      within find("tr", text: participatory_process_group.title["en"]) do
+      within "tr", text: participatory_process_group.title["en"] do
         accept_confirm { click_link "Delete" }
       end
 
@@ -182,7 +182,7 @@ describe "Admin manages participatory process groups" do
     end
 
     it "has a link to the landing page" do
-      within find("tr", text: participatory_process_group.title["en"]) do
+      within "tr", text: participatory_process_group.title["en"] do
         click_link "Edit"
       end
 

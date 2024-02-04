@@ -54,7 +54,7 @@ describe "Organization Areas" do
       end
 
       it "can edit them" do
-        within find("tr", text: translated(area.name)) do
+        within "tr", text: translated(area.name) do
           click_link "Edit"
         end
 
@@ -97,7 +97,7 @@ describe "Organization Areas" do
   private
 
   def click_delete_area
-    within find("tr", text: translated(area.name)) do
+    within "tr", text: translated(area.name) do
       accept_confirm { click_link "Delete" }
     end
   end

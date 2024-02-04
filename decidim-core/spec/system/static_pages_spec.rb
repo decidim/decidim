@@ -23,7 +23,7 @@ describe "Static pages" do
     it "lists all the standalone pages" do
       visit decidim.pages_path
 
-      within find(pages_selector, text: "Pages") do
+      within pages_selector, text: "Pages" do
         expect(page).to have_content translated(page3.title)
       end
     end

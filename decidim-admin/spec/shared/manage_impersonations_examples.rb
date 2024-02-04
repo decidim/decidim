@@ -237,7 +237,7 @@ shared_examples "manage impersonations examples" do
     it "can promote users inviting them to the application" do
       navigate_to_impersonations_page
 
-      within find("tr", text: managed_user.name) do
+      within "tr", text: managed_user.name do
         click_link "Promote"
       end
 
@@ -271,7 +271,7 @@ shared_examples "manage impersonations examples" do
 
       navigate_to_impersonations_page
 
-      within find("tr", text: managed_user.name) do
+      within "tr", text: managed_user.name do
         expect(page).not_to have_link("Promote")
       end
     end
@@ -331,7 +331,7 @@ shared_examples "manage impersonations examples" do
   def impersonate(user, reason: nil)
     navigate_to_impersonations_page
 
-    within find("tr", text: user.name) do
+    within "tr", text: user.name do
       click_link "Impersonate"
     end
 
@@ -350,7 +350,7 @@ shared_examples "manage impersonations examples" do
   end
 
   def check_impersonation_logs
-    within find("tr", text: impersonated_user.name) do
+    within "tr", text: impersonated_user.name do
       click_link "View logs"
     end
 

@@ -51,7 +51,7 @@ shared_examples "manage assemblies" do
 
   describe "updating an assembly without images" do
     before do
-      within find("tr", text: translated(assembly.title)) do
+      within "tr", text: translated(assembly.title) do
         click_link "Configure"
       end
     end
@@ -75,7 +75,7 @@ shared_examples "manage assemblies" do
 
       it "allows the user to preview the unpublished assembly" do
         new_window = window_opened_by do
-          within find("tr", text: translated(assembly.title)) do
+          within "tr", text: translated(assembly.title) do
             click_link "Preview"
           end
         end
@@ -93,7 +93,7 @@ shared_examples "manage assemblies" do
 
       it "allows the user to preview the unpublished assembly" do
         new_window = window_opened_by do
-          within find("tr", text: translated(assembly.title)) do
+          within "tr", text: translated(assembly.title) do
             click_link "Preview"
           end
         end
@@ -116,7 +116,7 @@ shared_examples "manage assemblies" do
     let!(:assembly) { create(:assembly, :unpublished, organization:, parent: parent_assembly) }
 
     before do
-      within find("tr", text: translated(assembly.title)) do
+      within "tr", text: translated(assembly.title) do
         click_link "Configure"
       end
     end
@@ -136,7 +136,7 @@ shared_examples "manage assemblies" do
     let!(:assembly) { create(:assembly, organization:, parent: parent_assembly) }
 
     before do
-      within find("tr", text: translated(assembly.title)) do
+      within "tr", text: translated(assembly.title) do
         click_link "Configure"
       end
     end

@@ -51,7 +51,7 @@ shared_examples "manage assembly admins examples" do
 
     it "updates an assembly admin" do
       within "#assembly_admins" do
-        within find("#assembly_admins tr", text: other_user.email) do
+        within "#assembly_admins tr", text: other_user.email do
           click_link "Edit"
         end
       end
@@ -70,7 +70,7 @@ shared_examples "manage assembly admins examples" do
     end
 
     it "deletes an assembly_user_role" do
-      within find("#assembly_admins tr", text: other_user.email) do
+      within "#assembly_admins tr", text: other_user.email do
         accept_confirm { click_link "Delete" }
       end
 
@@ -98,7 +98,7 @@ shared_examples "manage assembly admins examples" do
       end
 
       it "resends the invitation to the user" do
-        within find("#assembly_admins tr", text: "test@example.org") do
+        within "#assembly_admins tr", text: "test@example.org" do
           click_link "Resend invitation"
         end
 

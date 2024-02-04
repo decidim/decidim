@@ -128,7 +128,7 @@ describe "Admin manages participatory processes", versioning: true do
     end
 
     it "update a participatory process without images does not delete them" do
-      within find("tr", text: translated(participatory_process3.title)) do
+      within "tr", text: translated(participatory_process3.title) do
         click_link translated(participatory_process3.title)
       end
 

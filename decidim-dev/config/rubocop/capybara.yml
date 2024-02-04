@@ -13,7 +13,7 @@ Capybara/NegationMatcher:
   Enabled: false
 
 Capybara/RedundantWithinFind:
-  Enabled: false
+  Enabled: true
 
 Capybara/RSpec:
   Enabled: false

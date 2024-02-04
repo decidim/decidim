@@ -58,7 +58,7 @@ describe "Assembly admin accesses admin sections" do
 
     before do
       visit decidim_admin_assemblies.assemblies_path
-      within find("tr", text: translated(assembly.title)) do
+      within "tr", text: translated(assembly.title) do
         click_link "Assemblies"
       end
 
