@@ -31,7 +31,7 @@
       <% end %>
     </dt>
     <dd class="reported-content">
-      <div class="current">
+      <div>
         <%= reported_content_for moderation.reportable, locale: @report.locale %>
       </div>
       <% if translatable_resource?(moderation.reportable) %>
