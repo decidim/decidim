@@ -12,6 +12,8 @@ en:
         state: State
         title: Title
         user_group_id: Create collaborative draft as
+      import_participatory_text:
+        document: Participatory text document
       proposal:
         address: Address
         answer: Answer
