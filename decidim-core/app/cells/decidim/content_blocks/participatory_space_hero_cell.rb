@@ -22,13 +22,13 @@ module Decidim
       end
 
       def title_text
-        translated_attribute(title)
+        decidim_escape_translated(title)
       end
 
       def subtitle_text
         return unless resource.respond_to?(:subtitle)
 
-        translated_attribute(resource.subtitle)
+        decidim_escape_translated(resource.subtitle)
       end
 
       # If it is called from the landing page content block, use the background image defined there

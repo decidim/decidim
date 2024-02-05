@@ -6,7 +6,7 @@ class AddWithdrawnFieldsOnMeetings < ActiveRecord::Migration[6.1]
   def up
     add_column :decidim_meetings_meetings, :withdrawn_at, :datetime
 
-    CustomMeeting.withdrawn.find_each do |meeting|
+    CustomMeeting.where(state: "withdrawn").find_each do |meeting|
       meeting.withdrawn_at = meeting.updated_at
       meeting.save!
     end

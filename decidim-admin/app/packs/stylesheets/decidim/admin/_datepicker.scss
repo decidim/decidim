@@ -1,0 +1,62 @@
+.wc-datepicker {
+  @apply z-[2];
+
+  &__current-month {
+    @apply mt-4;
+  }
+
+  &__next-month-button,
+  &__previous-month-button {
+    > svg {
+      @apply fill-none w-16 h-16;
+    }
+  }
+}
+
+.datepicker {
+  &__clock-button {
+    @apply top-0;
+  }
+
+  &__calendar-button {
+    @apply top-0;
+  }
+
+  &__pick-calendar {
+    @apply z-[3];
+  }
+
+  &__close-calendar {
+    @apply z-[3];
+  }
+
+  &__time-frame {
+    @apply z-[1];
+  }
+
+  &__hour-picker,
+  &__minute-picker {
+    @apply left-2 ml-px;
+  }
+
+  &__hour-down,
+  &__hour-up,
+  &__minute-up,
+  &__minute-down {
+    @apply h-6 w-full;
+
+    > svg {
+      @apply w-10 h-6 pr-1;
+    }
+  }
+}
+
+.item__edit {
+  &-form {
+    .form {
+      [type="number"].wc-datepicker__year-select {
+        @apply text-sm;
+      }
+    }
+  }
+}
