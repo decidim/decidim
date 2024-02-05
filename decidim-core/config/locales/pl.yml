@@ -1786,6 +1786,22 @@ pl:
       uploadedFile: Załadowany plik
   emojis:
     button: Dodaj emotikonę
+    categories:
+      activities: Aktywności
+      people-body: Ludzie i ciało
+      recents: Ostatnio używane
+      smileys-emotion: Uśmiechy i emocje
+    error:
+      load: Nie udało się załadować emotikonów
+    recents:
+      clear: Wyczyść ostatnio używane emotikony
+      none: Nie wybrałeś jeszcze żadnych emotikonów.
+    retry: Spróbuj ponownie
+    search:
+      _: Wyszukaj emotikony...
+      clear: Usuń wyszukiwanie
+      error: Nie udało się wyszukać emotikonów
+      not_found: Nie znaleziono żadnych wyników
   errors:
     messages:
       confirmation_period_expired: musi być potwierdzone w ciągu %{period}, proszę poprosić o nowy
