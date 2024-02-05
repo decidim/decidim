@@ -3,10 +3,10 @@
 
 require "thor"
 
-require_relative "./../lib/decidim/maintainers_toolbox/github_manager/querier"
-require_relative "./../lib/decidim/maintainers_toolbox/github_manager/poster"
-require_relative "./../lib/decidim/maintainers_toolbox/git_backport_manager"
-require_relative "./../lib/decidim/maintainers_toolbox/backporter"
+require_relative "../lib/decidim/maintainers_toolbox/github_manager/querier"
+require_relative "../lib/decidim/maintainers_toolbox/github_manager/poster"
+require_relative "../lib/decidim/maintainers_toolbox/git_backport_manager"
+require_relative "../lib/decidim/maintainers_toolbox/backporter"
 
 class BackporterCLI < Thor
   desc "", "Backport a pull request to another branch"
