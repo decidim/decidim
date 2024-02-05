@@ -49,7 +49,7 @@ module Decidim
             title: t("belongs_to_group", scope: "decidim.participatory_processes.show"),
             icon: "archive-line",
             text: link_to(
-              translated_attribute(participatory_process_group.title),
+              decidim_escape_translated(participatory_process_group.title).html_safe,
               decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
             )
           }
