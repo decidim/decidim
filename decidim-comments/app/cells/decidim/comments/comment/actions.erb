@@ -1,10 +1,10 @@
 <div class="comment__actions">
   <% if depth.zero? && has_replies_in_children? %>
-    <button class="button button__sm button__text-secondary" data-js-comment-hide data-controls="comment-<%= model.id %>-replies">
+    <button class="button button__sm button__text-secondary" data-comment-hide data-controls="comment-<%= model.id %>-replies">
       <%= icon "arrow-up-s-line" %>
-      <span data-js-hide-comment-reply class="font-normal"><%= t("decidim.components.comment.hide_replies") %></span>
+      <span data-hide-comment-reply class="font-normal"><%= t("decidim.components.comment.hide_replies") %></span>
       <%= icon "arrow-down-s-line" %>
-      <span data-js-show-comment-reply class="font-normal"><%= t("decidim.components.comment.show_replies", count: replies.size, replies_count: replies.size ) %></span>
+      <span data-show-comment-reply class="font-normal"><%= t("decidim.components.comment.show_replies", count: replies.size, replies_count: replies.size ) %></span>
     </button>
   <% end %>
   <% if can_reply? %>

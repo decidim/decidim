@@ -8,10 +8,10 @@ $(() => {
   const sectionsToDelete = ["footer-grid", "reply"];
 
   sectionsToDelete.forEach((section) => {
-    $(`#comment_${commentId} > [data-js-comment-footer] > .comment__${section}`).remove();
+    $(`#comment_${commentId} > [data-comment-footer] > .comment__${section}`).remove();
   });
   $(`#comment_${commentId} > .comment__header`).remove();
-  $(`#comment_${commentId} > [data-js-additional-reply]`).remove();
+  $(`#comment_${commentId} > [data-additional-reply]`).remove();
 
   $commentReply.remove();
   $content.replaceWith(deleteDataHtml);

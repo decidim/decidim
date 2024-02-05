@@ -767,11 +767,11 @@ shared_examples "comments" do
 
         it "works according to the setting in the commentable" do
           if commentable.comments_have_alignment?
-            page.find("[data-js-toggle-ok=true]").click
-            expect(page.find("[data-js-toggle-ok=true]")["aria-pressed"]).to eq("true")
-            expect(page.find("[data-js-toggle-meh=true]")["aria-pressed"]).to eq("false")
-            expect(page.find("[data-js-toggle-ko=true]")["aria-pressed"]).to eq("false")
-            expect(page.find("div[data-js-opinion-toggle] .selected-state", visible: false)).to have_content("Your opinion about this topic is positive")
+            page.find("[data-toggle-ok=true]").click
+            expect(page.find("[data-toggle-ok=true]")["aria-pressed"]).to eq("true")
+            expect(page.find("[data-toggle-meh=true]")["aria-pressed"]).to eq("false")
+            expect(page.find("[data-toggle-ko=true]")["aria-pressed"]).to eq("false")
+            expect(page.find("div[data-opinion-toggle] .selected-state", visible: false)).to have_content("Your opinion about this topic is positive")
 
             within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
               field = find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}")
@@ -784,7 +784,7 @@ shared_examples "comments" do
               expect(page).to have_selector "span.success.label", text: "In favor", wait: 20
             end
           else
-            expect(page).not_to have_selector("[data-js-toggle-ok=true]")
+            expect(page).not_to have_selector("[data-toggle-ok=true]")
           end
         end
       end
@@ -815,10 +815,10 @@ shared_examples "comments" do
             skip "Commentable comments has no votes" unless commentable.comments_have_votes?
 
             visit current_path
-            expect(page).to have_selector("#comment_#{comments[0].id} > [data-js-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /0/)
-            page.find("#comment_#{comments[0].id} > [data-js-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up").click
-            expect(page).to have_selector("#comment_#{comments[0].id} > [data-js-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /1/)
-            expect(page).to have_selector("#comment_#{comment_on_comment.id} > [data-js-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /0/)
+            expect(page).to have_selector("#comment_#{comments[0].id} > [data-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /0/)
+            page.find("#comment_#{comments[0].id} > [data-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up").click
+            expect(page).to have_selector("#comment_#{comments[0].id} > [data-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /1/)
+            expect(page).to have_selector("#comment_#{comment_on_comment.id} > [data-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /0/)
           end
         end
       end
