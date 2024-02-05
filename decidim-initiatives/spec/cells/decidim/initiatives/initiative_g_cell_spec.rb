@@ -34,7 +34,7 @@ module Decidim::Initiatives
 
       shared_examples_for "card does not show signatures" do
         it "does not show signatures" do
-          expect(subject).not_to have_css("[data-progress-bar]")
+          expect(subject).to have_no_css("[data-progress-bar]")
         end
       end
 

@@ -26,7 +26,7 @@ describe "Admin exports initiatives" do
       visit decidim_admin_initiatives.initiatives_path
 
       expect(page).to have_content("Export all")
-      expect(page).not_to have_content("Export selection")
+      expect(page).to have_no_content("Export selection")
     end
   end
 

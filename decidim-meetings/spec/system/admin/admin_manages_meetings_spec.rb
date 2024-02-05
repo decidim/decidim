@@ -131,12 +131,12 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
       end
 
       it "shows the title correctly" do
-        expect(page).not_to have_css("#meeting-title-tabs")
+        expect(page).to have_no_css("#meeting-title-tabs")
         expect(page).to have_field(text: meeting.title[:en], visible: :visible)
       end
 
       it "shows the description correctly" do
-        expect(page).not_to have_css("#meeting-description-tabs")
+        expect(page).to have_no_css("#meeting-description-tabs")
         expect(page).to have_field(text: meeting.description[:en], visible: :visible)
       end
     end
@@ -390,11 +390,11 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
       select "In person", from: :meeting_type_of_meeting
       expect(page).to have_field("Address")
       expect(page).to have_field(:meeting_location_en)
-      expect(page).not_to have_field("Online meeting URL")
+      expect(page).to have_no_field("Online meeting URL")
 
       select "Online", from: :meeting_type_of_meeting
-      expect(page).not_to have_field("Address")
-      expect(page).not_to have_field(:meeting_location_en)
+      expect(page).to have_no_field("Address")
+      expect(page).to have_no_field(:meeting_location_en)
       expect(page).to have_field("Online meeting URL")
 
       select "Hybrid", from: :meeting_type_of_meeting
@@ -409,13 +409,13 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
     within ".new_meeting" do
       select "Registration disabled", from: :meeting_registration_type
-      expect(page).not_to have_field("Registration URL")
+      expect(page).to have_no_field("Registration URL")
 
       select "On a different platform", from: :meeting_registration_type
       expect(page).to have_field("Registration URL")
 
       select "On this platform", from: :meeting_registration_type
-      expect(page).not_to have_field("Registration URL")
+      expect(page).to have_no_field("Registration URL")
     end
   end
 
@@ -434,7 +434,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).not_to have_content(Decidim::Meetings::MeetingPresenter.new(meeting2).title)
+        expect(page).to have_no_content(Decidim::Meetings::MeetingPresenter.new(meeting2).title)
       end
     end
   end
@@ -477,7 +477,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
       click_link "New meeting"
 
       within "label[for='meeting_registration_type']" do
-        expect(page).not_to have_content("There is an error in this field.")
+        expect(page).to have_no_content("There is an error in this field.")
       end
     end
 
@@ -606,7 +606,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
         expect(page).to have_content "Close meeting"
 
         within "form.edit_close_meeting" do
-          expect(page).not_to have_content "Proposals"
+          expect(page).to have_no_content "Proposals"
         end
       end
     end

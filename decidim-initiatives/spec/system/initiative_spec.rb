@@ -46,7 +46,7 @@ describe "Initiative" do
 
       shared_examples_for "initiative does not show signatures" do
         it "does not show signatures for the state" do
-          expect(page).not_to have_css(".progress-bar__container")
+          expect(page).to have_no_css(".progress-bar__container")
         end
       end
 
@@ -130,8 +130,8 @@ describe "Initiative" do
         end
 
         it "does not have comments" do
-          expect(page).not_to have_css(".comments")
-          expect(page).not_to have_content("0 comments")
+          expect(page).to have_no_css(".comments")
+          expect(page).to have_no_content("0 comments")
         end
       end
     end
@@ -143,7 +143,7 @@ describe "Initiative" do
       end
 
       shared_examples_for "initiative does not show send to technical validation" do
-        it { expect(page).not_to have_link("Send to technical validation") }
+        it { expect(page).to have_no_link("Send to technical validation") }
       end
 
       shared_examples_for "initiative shows send to technical validation disabled" do
@@ -225,7 +225,7 @@ describe "Initiative" do
       it "shows the components" do
         within ".participatory-space__nav-container" do
           expect(page).to have_content(translated(meetings_component.name, locale: :en))
-          expect(page).not_to have_content(translated(proposals_component.name, locale: :en))
+          expect(page).to have_no_content(translated(proposals_component.name, locale: :en))
         end
       end
 

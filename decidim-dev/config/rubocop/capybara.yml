@@ -10,7 +10,7 @@ Capybara/ClickLinkOrButtonStyle:
   Enabled: false
 
 Capybara/NegationMatcher:
-  Enabled: false
+  Enabled: true
 
 Capybara/RedundantWithinFind:
   Enabled: false

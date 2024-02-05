@@ -109,7 +109,7 @@ shared_examples "manage proposals" do
             click_link "New proposal"
 
             within "form" do
-              expect(page).not_to have_content(/Scope/i)
+              expect(page).to have_no_content(/Scope/i)
             end
           end
 
@@ -289,12 +289,12 @@ shared_examples "manage proposals" do
 
         it "cannot create a new proposal from the main site" do
           visit_component
-          expect(page).not_to have_button("New Proposal")
+          expect(page).to have_no_button("New Proposal")
         end
 
         it "cannot create a new proposal from the admin site" do
           visit_component_admin
-          expect(page).not_to have_link("New proposal")
+          expect(page).to have_no_link("New proposal")
         end
       end
     end
@@ -306,12 +306,12 @@ shared_examples "manage proposals" do
 
       it "cannot create a new proposal from the main site" do
         visit_component
-        expect(page).not_to have_button("New Proposal")
+        expect(page).to have_no_button("New Proposal")
       end
 
       it "cannot create a new proposal from the admin site" do
         visit_component_admin
-        expect(page).not_to have_link("New proposal")
+        expect(page).to have_no_link("New proposal")
       end
     end
   end
@@ -471,7 +471,7 @@ shared_examples "manage proposals" do
         visit current_path
 
         within find("tr", text: proposal_title) do
-          expect(page).not_to have_link("Answer")
+          expect(page).to have_no_link("Answer")
         end
       end
     end
@@ -484,7 +484,7 @@ shared_examples "manage proposals" do
       it "cannot answer a proposal" do
         visit_component_admin
         within find("tr", text: I18n.t("decidim/amendment", scope: "activerecord.models", count: 1)) do
-          expect(page).not_to have_link("Answer")
+          expect(page).to have_no_link("Answer")
         end
       end
     end
@@ -498,7 +498,7 @@ shared_examples "manage proposals" do
     it "cannot answer a proposal" do
       go_to_admin_proposal_page(proposal)
 
-      expect(page).not_to have_selector(".edit_proposal_answer")
+      expect(page).to have_no_selector(".edit_proposal_answer")
     end
   end
 
@@ -517,7 +517,7 @@ shared_examples "manage proposals" do
       visit current_path
 
       within "thead" do
-        expect(page).not_to have_content("VOTES")
+        expect(page).to have_no_content("VOTES")
       end
     end
   end

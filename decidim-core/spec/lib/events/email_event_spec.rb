@@ -39,7 +39,7 @@ module Decidim
 
       describe ".has_button?" do
         it "responds and returns false" do
-          expect(subject).not_to have_button
+          expect(subject).to have_no_button
         end
       end
     end
