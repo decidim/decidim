@@ -12,6 +12,8 @@ pl:
         state: Stan
         title: Tytuł
         user_group_id: Utwórz wspólny szkic jako
+      import_participatory_text:
+        document: Uczestniczący dokument tekstowy
       proposal:
         address: Adres
         answer: Odpowiedź
