@@ -25,5 +25,7 @@ class CreateDefaultProposalStates < ActiveRecord::Migration[6.1]
     end
   end
 
-  def down; end
+  def down
+    raise ActiveRecord::IrreversibleMigration
+  end
 end
