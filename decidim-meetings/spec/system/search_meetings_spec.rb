@@ -15,6 +15,22 @@ describe "Search meetings" do
     include_examples "searchable results"
   end
 
+  context "when there are more meetings than the pagination" do
+    let!(:meetings) { create_list(:meeting, 35, :published, component:) }
+
+    it "views them all" do
+      visit_component
+
+      within("main") do
+        expect(page).to have_content("35 meetings")
+      end
+
+      within "main nav" do
+        expect(page).to have_content("Next")
+      end
+    end
+  end
+
   context "when meetings are not published" do
     let!(:searchables) { create_list(:meeting, 3, component:) }
     let!(:term) { strip_tags(searchables.first.title["en"]).split.sample }
