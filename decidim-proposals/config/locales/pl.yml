@@ -243,6 +243,7 @@ pl:
             notification_title: Twoja propozycja <a href="%{resource_path}">%{resource_title}</a> została zaakceptowana.
           follower:
             email_intro: 'Propozycja "%{resource_title}" została zaakceptowana. Możesz przeczytać odpowiedź na tej stronie:'
+            email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz "%{resource_title}". Aby przestać otrzymywać powiadomienia, kliknij wcześniejszy link.
             email_subject: Propozycja, którą obserwujesz, została zaakceptowana
             notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> została zaakceptowana.
         proposal_evaluating:
@@ -253,6 +254,7 @@ pl:
             notification_title: Twoja propozycja <a href="%{resource_path}">%{resource_title}</a> jest oceniana.
           follower:
             email_intro: 'Propozycja "%{resource_title}" jest obecnie oceniana. Możesz sprawdzić odpowiedź na tej stronie:'
+            email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz "%{resource_title}". Aby przestać otrzymywać powiadomienia, kliknij wcześniejszy link.
             email_subject: Propozycja, którą obserwujesz, jest oceniana
             notification_title: Trwa ocenianie propozycji <a href="%{resource_path}">%{resource_title}</a>.
         proposal_mentioned:
@@ -277,6 +279,7 @@ pl:
             notification_title: Twoja propozycja <a href="%{resource_path}">%{resource_title}</a> została odrzucona.
           follower:
             email_intro: 'Propozycja "%{resource_title}" została odrzucona. Możesz przeczytać odpowiedź na tej stronie:'
+            email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz "%{resource_title}". Aby przestać otrzymywać powiadomienia, kliknij wcześniejszy link.
             email_subject: Propozycja, którą obserwujesz, została odrzucona
             notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> została odrzucona.
         proposal_update_category:
