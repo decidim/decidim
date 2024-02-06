@@ -95,7 +95,6 @@ FactoryBot.define do
       withdrawn_at { Time.current }
     end
 
-
     trait :in_person do
       type_of_meeting { :in_person }
     end

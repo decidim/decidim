@@ -17,7 +17,8 @@ module Decidim
 
         it "withdraws the meeting" do
           expect { command.call }.to broadcast(:ok)
-          expect(meeting.state).to eq("withdrawn")
+          expect(meeting).to be_withdrawn
+          expect(meeting.withdrawn_at).to be_present
         end
       end
 
@@ -27,7 +28,7 @@ module Decidim
 
         it "does not withdraw the meeting" do
           expect { command.call }.to broadcast(:invalid)
-          expect(meeting.state).to be_nil
+          expect(meeting.withdrawn_at).to be_nil
         end
       end
     end
