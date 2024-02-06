@@ -272,12 +272,11 @@ eu:
         proposal_accepted:
           affected_user:
             email_intro: 'Zure proposamena "%{resource_title}" onartu da. Orri honetan erantzun dezakezu:'
-            email_outro: Jakinarazpen hau jaso duzu "%{resource_title}"-ren egilea zarelako.
+            email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" egilea zarelako.
             email_subject: Zure proposamena onartu da
             notification_title: Zure <a href="%{resource_path}">%{resource_title}</a>-proposamena onartu egin da.
           follower:
             email_intro: '"%{resource_title}" proposamena onartu da. Orri honetan erantzuna irakur dezakezu:'
-            email_outro: Jakinarazpena jaso duzu "%{resource_title}" jarraitzen ari zarelako. Jarraitzeari utzi ahal diozu aurreko estekan.
             email_subject: Jarraitzen ari zaren proposamen bat onartu da
             notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena onartu egin da.
         proposal_evaluating:
@@ -288,7 +287,6 @@ eu:
             notification_title: Zure proposamena <a href="%{resource_path}">%{resource_title}</a> ebaluatzen ari da.
           follower:
             email_intro: '"%{resource_title}" proposamena ebaluatzen ari da. Orri honetan erantzun dezakezu:'
-            email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" jarraitzen ari zarelako. Jarraitzeari utzi ahal diozu aurreko estekan.
             email_subject: Jarraitzen ari zaren proposamena ebaluatzen ari da
             notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena ebaluatzen ari da.
         proposal_mentioned:
@@ -315,7 +313,6 @@ eu:
             notification_title: Zure <a href="%{resource_path}">%{resource_title}</a> proposamena baztertu egin da.
           follower:
             email_intro: '"%{resource_title}" proposamena baztertu egin da. Orri honetan erantzuna irakur dezakezu:'
-            email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" jarraitzen ari zarelako. Jarraitzeari utzi ahal diozu aurreko estekan.
             email_subject: Zuk jarraitzen duzun proposamen bat ukatu da
             notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena baztertu egin da.
         proposal_update_category:
@@ -613,7 +610,7 @@ eu:
           all: Guztiak
           evaluating: Ebaluatzen
           not_answered: Erantzun gabe
-          rejected: Ukatuta
+          rejected: Ukatua
         filter_type_values:
           all: Guztiak
           amendments: Zuzenketak
