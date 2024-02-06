@@ -257,7 +257,7 @@ shared_examples "manage proposals" do
               fill_in_i18n :proposal_title, "#proposal-title-tabs", en: "Proposal with meeting as author"
               fill_in_i18n_editor :proposal_body, "#proposal-body-tabs", en: "Proposal body of meeting as author"
               execute_script("$('#proposal_created_in_meeting').change()")
-              find(:css, "#proposal_created_in_meeting").set(true)
+              find_by_id("proposal_created_in_meeting").set(true)
               select translated(meetings.first.title), from: :proposal_meeting_id
               select category.name["en"], from: :proposal_category_id
               find("*[type=submit]").click
@@ -397,8 +397,8 @@ shared_examples "manage proposals" do
       end
 
       it "can mark a proposal as 'not answered'" do
+        proposal.assign_state("rejected")
         proposal.update!(
-          state: "rejected",
           answer: {
             "en" => "I do not like it"
           },
@@ -424,8 +424,8 @@ shared_examples "manage proposals" do
       end
 
       it "can edit a proposal answer" do
+        proposal.assign_state("rejected")
         proposal.update!(
-          state: "rejected",
           answer: {
             "en" => "I do not like it"
           },

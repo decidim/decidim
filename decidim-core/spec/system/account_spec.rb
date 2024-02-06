@@ -374,7 +374,7 @@ describe "Account" do
             expect(page).to have_content("successfully")
           end
 
-          find(:css, "#allow_push_notifications", visible: false).execute_script("this.checked = true")
+          find_by_id("allow_push_notifications", visible: false).execute_script("this.checked = true")
         end
       end
     end
