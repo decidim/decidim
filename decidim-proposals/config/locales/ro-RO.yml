@@ -261,7 +261,6 @@ ro:
             notification_title: Propunerea ta <a href="%{resource_path}">%{resource_title}</a> a fost acceptată.
           follower:
             email_intro: 'Propunerea "%{resource_title}" a fost acceptată. Poți citi răspunsul în această pagină:'
-            email_outro: Ai primit această notificare deoarece urmărești „%{resource_title}”. Poți anula urmărirea de la link-ul anterior.
             email_subject: O propunere pe care o urmărești a fost acceptată
             notification_title: Propunerea <a href="%{resource_path}">%{resource_title}</a> a fost acceptată.
         proposal_evaluating:
@@ -272,7 +271,6 @@ ro:
             notification_title: Propunerea ta <a href="%{resource_path}">%{resource_title}</a> este în curs de evaluare.
           follower:
             email_intro: 'Propunerea "%{resource_title}" este în curs de evaluare. Poţi verifica răspunsul în această pagină:'
-            email_outro: Ai primit această notificare deoarece urmărești „%{resource_title}”. Poți anula urmărirea de la link-ul anterior.
             email_subject: O propunere pe care o urmărești este în curs de evaluare
             notification_title: Propunerea <a href="%{resource_path}">%{resource_title}</a> este în curs de evaluare.
         proposal_mentioned:
@@ -297,7 +295,6 @@ ro:
             notification_title: Propunerea ta <a href="%{resource_path}">%{resource_title}</a> a fost respinsă.
           follower:
             email_intro: 'Propunerea "%{resource_title}" a fost respinsă. Poţi citi răspunsul în această pagină:'
-            email_outro: Ai primit această notificare deoarece urmărești „%{resource_title}”. Poți anula aceste notificări de la link-ul anterior.
             email_subject: O propunere pe care o urmărești a fost respinsă
             notification_title: Propunerea <a href="%{resource_path}">%{resource_title}</a> a fost respinsă.
         proposal_update_category:
@@ -442,6 +439,7 @@ ro:
             accepted: Acceptate
             answer_proposal: Răspunse
             evaluating: În evaluare
+            not_answered: Fără răspuns
             rejected: Respinse
             title: Răspuns pentru propunerea %{title}
         proposal_notes:
