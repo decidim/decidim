@@ -396,8 +396,8 @@ shared_examples "manage proposals" do
       end
 
       it "can mark a proposal as 'not answered'" do
+        proposal.assign_state("rejected")
         proposal.update!(
-          state: "rejected",
           answer: {
             "en" => "I do not like it"
           },
@@ -423,8 +423,8 @@ shared_examples "manage proposals" do
       end
 
       it "can edit a proposal answer" do
+        proposal.assign_state("rejected")
         proposal.update!(
-          state: "rejected",
           answer: {
             "en" => "I do not like it"
           },
