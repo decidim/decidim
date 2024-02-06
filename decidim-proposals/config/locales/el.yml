@@ -68,15 +68,12 @@ el:
               not_official: Δεν είναι επίσημο
               supported: Έχουν λάβει υποστήριξη ή εγκρίσεις
     models:
-      decidim/proposals/accepted_proposal_event: Η πρόταση έγινε αποδεκτή
       decidim/proposals/admin/update_proposal_category_event: Η κατηγορία πρότασης άλλαξε
       decidim/proposals/admin/update_proposal_scope_event: Το πεδίο εφαρμογής της πρότασης άλλαξε
       decidim/proposals/creation_enabled_event: Η δημιουργία πρότασης ενεργοποιήθηκε
       decidim/proposals/endorsing_enabled_event: Η επιδοκιμασία πρότασης ενεργοποιήθηκε
-      decidim/proposals/evaluating_proposal_event: Η πρόταση αξιολογείται
       decidim/proposals/proposal_mentioned_event: Η πρόταση αναφέρθηκε
       decidim/proposals/publish_proposal_event: Η πρόταση δημοσιεύτηκε
-      decidim/proposals/rejected_proposal_event: Η πρόταση απορρίφθηκε
       decidim/proposals/voting_enabled_event: Η ψηφοφορία πρότασης ενεργοποιήθηκε
   activerecord:
     models:
@@ -268,28 +265,6 @@ el:
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής %{participatory_space_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
           email_subject: Έχει ξεκινήσει η επιδοκιμασία προτάσεων για τον χώρο συμμετοχής %{participatory_space_title}
           notification_title: Τώρα μπορείτε να ξεκινήσετε την <a href="%{resource_path}">έγκριση προτάσεων</a> στο <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
-        proposal_accepted:
-          affected_user:
-            email_intro: 'Η πρότασή σας «%{resource_title}» έγινε δεκτή. Μπορείτε να διαβάσετε την απάντηση σε αυτήν τη σελίδα:'
-            email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε συντάκτης του στοιχείου «%{resource_title}».
-            email_subject: Η πρότασή σας έγινε δεκτή
-            notification_title: Η πρότασή σας <a href="%{resource_path}">%{resource_title}</a> έγινε δεκτή.
-          follower:
-            email_intro: 'Η πρόταση «%{resource_title}» έγινε δεκτή. Μπορείτε να διαβάσετε την απάντηση σε αυτήν τη σελίδα:'
-            email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής «%{resource_title}». Μπορείτε να σταματήσετε να τον ακολουθείτε από τον προηγούμενο σύνδεσμο.
-            email_subject: Μια πρόταση που ακολουθείτε έχει γίνει αποδεκτή
-            notification_title: Η πρόταση <a href="%{resource_path}">%{resource_title}</a> έγινε δεκτή.
-        proposal_evaluating:
-          affected_user:
-            email_intro: 'Η πρότασή σας «%{resource_title}» αξιολογείται αυτήν τη στιγμή. Μπορείτε να δείτε μια απάντηση σε αυτήν τη σελίδα:'
-            email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε συντάκτης του στοιχείου «%{resource_title}».
-            email_subject: Η πρότασή σας αξιολογείται
-            notification_title: Η πρότασή σας <a href="%{resource_path}">%{resource_title}</a> αξιολογείται.
-          follower:
-            email_intro: 'Η πρόταση «%{resource_title}» αξιολογείται αυτήν τη στιγμή. Μπορείτε να δείτε μια απάντηση σε αυτήν τη σελίδα:'
-            email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής «%{resource_title}». Μπορείτε να σταματήσετε να τον ακολουθείτε από τον προηγούμενο σύνδεσμο.
-            email_subject: Μια πρόταση που ακολουθείτε αξιολογείται
-            notification_title: Η πρόταση <a href="%{resource_path}">%{resource_title}</a> αξιολογείται.
         proposal_mentioned:
           email_intro: Η πρότασή σας «%{mentioned_proposal_title}» αναφέρθηκε <a href="%{resource_url}">σε αυτόν τον χώρο</a> στα σχόλια.
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε συντάκτης του στοιχείου «%{resource_title}».
@@ -306,17 +281,6 @@ el:
           email_subject: Η νέα πρόταση «%{resource_title}» προστέθηκε στον χώρο συμμετοχής %{participatory_space_title}
           notification_title: Η πρόταση <a href="%{resource_path}">%{resource_title}</a> έχει προστεθεί στο %{participatory_space_title} από %{author}.
           notification_title_official: Η επίσημη πρόταση <a href="%{resource_path}">%{resource_title}</a> έχει προστεθεί στο %{participatory_space_title}.
-        proposal_rejected:
-          affected_user:
-            email_intro: 'Η πρότασή σας «%{resource_title}» απορρίφθηκε. Μπορείτε να διαβάσετε την απάντηση σε αυτήν τη σελίδα:'
-            email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε συντάκτης του στοιχείου «%{resource_title}».
-            email_subject: Η πρότασή σας έχει απορριφθεί
-            notification_title: Η πρότασή σας <a href="%{resource_path}">%{resource_title}</a> απορρίφθηκε.
-          follower:
-            email_intro: 'Η πρόταση «%{resource_title}» απορρίφθηκε. Μπορείτε να διαβάσετε την απάντηση σε αυτήν τη σελίδα:'
-            email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής «%{resource_title}». Μπορείτε να σταματήσετε να τον ακολουθείτε από τον προηγούμενο σύνδεσμο.
-            email_subject: Μια πρόταση που ακολουθείτε έχει απορριφθεί
-            notification_title: Η πρόταση <a href="%{resource_path}">%{resource_title}</a> απορρίφθηκε.
         proposal_update_category:
           email_intro: 'Ένας διαχειριστής ενημέρωσε την κατηγορία της πρότασής σας «%{resource_title}», δείτε την σε αυτήν τη σελίδα:'
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε ο συντάκτης της πρότασης.
@@ -466,11 +430,7 @@ el:
             success: Το κείμενο συμμετοχής ενημερώθηκε με επιτυχία.
         proposal_answers:
           form:
-            accepted: Έγινε αποδοχή
             answer_proposal: Απάντηση
-            evaluating: Αξιολόγηση...
-            not_answered: Δεν απαντήθηκε
-            rejected: Απορρίφθηκε
             title: Απάντηση για την πρόταση %{title}
         proposal_notes:
           create:
@@ -599,11 +559,8 @@ el:
           participants: Συμμετέχοντες
           user_groups: Ομάδες
         filter_state_values:
-          accepted: Έγινε αποδοχή
           all: Όλα
-          evaluating: Αξιολόγηση...
           not_answered: Δεν απαντήθηκε
-          rejected: Απορρίφθηκε
         filter_type_values:
           all: Όλα
           amendments: Τροποποιήσεις
