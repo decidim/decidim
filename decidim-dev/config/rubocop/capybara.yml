@@ -12,9 +12,6 @@ Capybara/ClickLinkOrButtonStyle:
 Capybara/NegationMatcher:
   Enabled: false
 
-Capybara/RedundantWithinFind:
-  Enabled: true
-
 Capybara/RSpec:
   Enabled: false
   Include: *1

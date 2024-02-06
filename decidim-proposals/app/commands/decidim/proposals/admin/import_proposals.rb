@@ -47,8 +47,14 @@ module Decidim
         def proposals
           @proposals = Decidim::Proposals::Proposal
                        .where(component: origin_component)
-                       .where(state: @form.states)
           @proposals = @proposals.where(scope: proposal_scopes) unless proposal_scopes.empty?
+
+          @proposals = if @form.states.include?("not_answered")
+                         @proposals.not_answered.or(@proposals.where(id: @proposals.only_status(@form.states).pluck(:id)))
+                       else
+                         @proposals.only_status(@form.states)
+                       end
+
           @proposals
         end
 
@@ -80,10 +86,12 @@ module Decidim
         def proposal_answer_attributes(original_proposal)
           return {} unless form.keep_answers
 
+          state = Decidim::Proposals::ProposalState.where(component: target_component, token: original_proposal.state).first
+
           {
             answer: original_proposal.answer,
             answered_at: original_proposal.answered_at,
-            state: original_proposal.state,
+            proposal_state: state,
             state_published_at: original_proposal.state_published_at
           }
         end
