@@ -47,15 +47,12 @@ bg:
             title:
               identical: И основния текст не може да е еднакъв
     models:
-      decidim/proposals/accepted_proposal_event: Предложението е прието
       decidim/proposals/admin/update_proposal_category_event: Категорията на предложението е променена
       decidim/proposals/admin/update_proposal_scope_event: Сферата на предложението е променена
       decidim/proposals/creation_enabled_event: Създаването на предложения е разрешено
       decidim/proposals/endorsing_enabled_event: Одобряването на предложения е разрешено
-      decidim/proposals/evaluating_proposal_event: Предложението се разглежда
       decidim/proposals/proposal_mentioned_event: Предложението е споменато
       decidim/proposals/publish_proposal_event: Предложението е публикувано
-      decidim/proposals/rejected_proposal_event: Предложението е отхвърлено
       decidim/proposals/voting_enabled_event: Гласуването за предложения е разрешено
   activerecord:
     models:
@@ -173,26 +170,6 @@ bg:
           email_intro: 'Можете да одобрите предложение в %{participatory_space_title}! Участвайте чрез тази страница:'
           email_outro: Получавате това известие, защото следвате %{participatory_space_title}. Може да прекратите известията чрез предната връзка.
           email_subject: Одобряването на предложения започна в %{participatory_space_title}
-        proposal_accepted:
-          affected_user:
-            email_intro: 'Вашето предложение "%{resource_title}" е одобрено. Прочетете отговора на страницата:'
-            email_outro: Получавате това известие, защото сте автор на %{resource_title}".
-            email_subject: Вашето предложение е одобрено
-            notification_title: Вашето предложение <a href="%{resource_path}">%{resource_title}</a> е одобрено.
-          follower:
-            email_intro: 'Предложението "%{resource_title}" е одобрено. Прочетете отговора на страницата:'
-            email_outro: Получавате това известие, защото следвате "%{resource_title}". Може да премахнете следването чрез предната връзка.
-            notification_title: Предложението <a href="%{resource_path}">%{resource_title}</a> беше одобрено.
-        proposal_evaluating:
-          affected_user:
-            email_intro: 'Вашето предложение "%{resource_title}" се разглежда в момента. Прочетете отговора на страницата:'
-            email_outro: Получавате това известие, защото сте автор на %{resource_title}".
-            email_subject: Вашето предложението се разглежда
-            notification_title: Вашето предложение <a href="%{resource_path}">%{resource_title}</a> се разглежда.
-          follower:
-            email_intro: 'Предложението "%{resource_title}" се разглежда в момента. Прочетете отговора на страницата:'
-            email_outro: Получавате това известие, защото следвате "%{resource_title}". Може да премахнете следването чрез предната връзка.
-            notification_title: Предложението <a href="%{resource_path}">%{resource_title}</a> се разглежда.
         proposal_mentioned:
           email_intro: Вашето предложение "%{mentioned_proposal_title}" беше споменато в коментарите <a href="%{resource_url}">на това пространство</a>.
           email_outro: Получавате това известие, защото сте автор на %{resource_title}".
