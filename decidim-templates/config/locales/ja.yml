@@ -72,7 +72,6 @@ ja:
             component_constraint: 制約を追加
             confirm_delete: このテンプレートを削除してもよろしいですか？
             global_scope: グローバル (どこでも利用可能)
-            internal_state: 内部状態
             title: 提案の回答
           new:
             title: 新しい提案回答テンプレート
