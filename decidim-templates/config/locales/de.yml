@@ -72,7 +72,6 @@ de:
             component_constraint: Einschränkung hinzufügen
             confirm_delete: Möchten Sie diese Vorlage wirklich löschen?
             global_scope: Global (überall verfügbar)
-            internal_state: Interner Status
             title: Vorschlagsantworten
           new:
             title: Neue Vorlage für Vorschlagsantworten
