@@ -70,8 +70,6 @@ eu:
           index:
             component_constraint: Gehitu hertsapena.
             confirm_delete: Ziur zaude txantiloi hau ezabatu nahi duzula?
-            global_scope: Globala (nonahi eskuragarri)
-            internal_state: Barne egoera
             title: Proposamenen erantzunak
           new:
             title: Proposamenaren erantzun-txantilioi berria
