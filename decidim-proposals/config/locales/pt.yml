@@ -247,7 +247,6 @@ pt:
             notification_title: A sua proposta <a href="%{resource_path}">%{resource_title}</a> foi aceite.
           follower:
             email_intro: 'A proposta "%{resource_title}" foi aceite. Pode ler a resposta nesta página:'
-            email_outro: Você recebeu esta notificação porque está seguindo "%{resource_title}". Você pode ignorá-lo do link anterior.
             notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi aceite.
         proposal_evaluating:
           affected_user:
@@ -257,7 +256,6 @@ pt:
             notification_title: A sua proposta <a href="%{resource_path}">%{resource_title}</a> está sob avaliação.
           follower:
             email_intro: 'A proposta "%{resource_title}" está atualmente sob avaliação. Pode verificar a resposta nesta página:'
-            email_outro: Recebeu esta notificação porque segue "%{resource_title}". Pode ignorá-la a partir da hiperligação anterior.
             notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> está sob avaliação.
         proposal_mentioned:
           email_intro: A sua proposta "%{mentioned_proposal_title}" foi mencionada <a href="%{resource_url}">neste espaço</a> nos comentários.
@@ -280,7 +278,6 @@ pt:
             notification_title: A sua proposta <a href="%{resource_path}">%{resource_title}</a> foi rejeitada.
           follower:
             email_intro: 'A proposta "%{resource_title}" foi rejeitada. Pode ler a resposta nesta página:'
-            email_outro: Recebeu esta notificação porque segue "%{resource_title}". Pode ignorá-la a partir da hiperligação anterior.
             notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi rejeitada.
         proposal_update_category:
           email_intro: 'Um administrador atualizou a categoria da sua proposta "%{resource_title}", verifique nesta página:'
@@ -402,6 +399,7 @@ pt:
             accepted: Aceites
             answer_proposal: Resposta
             evaluating: Avaliando
+            not_answered: Não respondido
             rejected: Rejeitado
             title: Resposta para a proposta %{title}
         proposal_notes:
