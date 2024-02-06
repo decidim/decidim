@@ -68,15 +68,12 @@ ja:
               not_official: 公式ではありません
               supported: サポートまたはオススメを受けました
     models:
-      decidim/proposals/accepted_proposal_event: 提案が承認されました
       decidim/proposals/admin/update_proposal_category_event: 提案カテゴリが変更されました
       decidim/proposals/admin/update_proposal_scope_event: 提案範囲が変更されました
       decidim/proposals/creation_enabled_event: 提案の作成を有効にする
       decidim/proposals/endorsing_enabled_event: 提案の推奨が有効になりました
-      decidim/proposals/evaluating_proposal_event: 提案を評価しています
       decidim/proposals/proposal_mentioned_event: 提案について述べました
       decidim/proposals/publish_proposal_event: 提案が公開
-      decidim/proposals/rejected_proposal_event: 提案が却下されました
       decidim/proposals/voting_enabled_event: 提案投票を有効にしました
   activerecord:
     models:
@@ -264,28 +261,6 @@ ja:
           email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
           email_subject: '%{participatory_space_title} の推薦提案が開始されました'
           notification_title: <a href="%{participatory_space_url}">%{participatory_space_title}</a>において、<a href="%{resource_path}">提案を支持する</a>ことができます。
-        proposal_accepted:
-          affected_user:
-            email_intro: 'あなたの提案「%{resource_title}」が承認されました。このページで回答を読むことができます:'
-            email_outro: あなたは "%{resource_title}" の作成者であるため、この通知を受け取りました。
-            email_subject: 提案が承認されました
-            notification_title: あなたの提案 <a href="%{resource_path}">%{resource_title}</a> が承認されました。
-          follower:
-            email_intro: '提案「%{resource_title}」が承認されました。このページで回答を読むことができます:'
-            email_outro: '「%{resource_title}」をフォローしているため、この通知を受け取りました。前のリンクからこの通知をアンフォローすることができます。'
-            email_subject: あなたがフォローしている提案が承認されました
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> の提案が承認されました。
-        proposal_evaluating:
-          affected_user:
-            email_intro: 'あなたの提案 "%{resource_title}" は現在評価されています。このページで回答を確認できます：'
-            email_outro: あなたは "%{resource_title}" の作成者であるため、この通知を受け取りました。
-            email_subject: 提案が評価されています
-            notification_title: あなたの提案 <a href="%{resource_path}">%{resource_title}</a> が評価されています。
-          follower:
-            email_intro: '提案 "%{resource_title}" は現在評価されています。このページで回答を確認できます：'
-            email_outro: '「%{resource_title}」をフォローしているため、この通知を受け取りました。前のリンクからこの通知をアンフォローすることができます。'
-            email_subject: あなたがフォローしている提案が評価されています
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> の提案が評価されています。
         proposal_mentioned:
           email_intro: あなたの提案 "%{mentioned_proposal_title}" が <a href="%{resource_url}">のコメント欄で</a> に言及されました。
           email_outro: あなたは "%{resource_title}" の作成者であるため、この通知を受け取りました。
@@ -302,17 +277,6 @@ ja:
           email_subject: 新しい提案 "%{resource_title}" が %{participatory_space_title} に追加されました
           notification_title: '%{author} さんによって、提案<a href="%{resource_path}">%{resource_title}</a>が%{participatory_space_title} に追加されました。'
           notification_title_official: 公式の提案<a href="%{resource_path}">%{resource_title}</a>が%{participatory_space_title} に追加されました。
-        proposal_rejected:
-          affected_user:
-            email_intro: 'あなたの提案 "%{resource_title}" は拒否されました。このページで回答を読むことができます:'
-            email_outro: あなたは "%{resource_title}" の作成者であるため、この通知を受け取りました。
-            email_subject: 提案が拒否されました
-            notification_title: あなたの提案 <a href="%{resource_path}">%{resource_title}</a> が却下されました。
-          follower:
-            email_intro: '提案 "%{resource_title}" は拒否されました。このページで回答を読むことができます:'
-            email_outro: '「%{resource_title}」をフォローしているため、この通知を受け取りました。前のリンクからこの通知をアンフォローすることができます。'
-            email_subject: あなたがフォローしている提案が却下されました
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> の提案は拒否されました。
         proposal_update_category:
           email_intro: '管理者があなたの提案 "%{resource_title}" のカテゴリを更新しました。このページでチェックしてください：'
           email_outro: あなたが提案の著者であるため、この通知を受け取りました。
@@ -465,11 +429,7 @@ ja:
             success: 参加者のテキストを更新しました。
         proposal_answers:
           form:
-            accepted: 承認済み
             answer_proposal: 回答
-            evaluating: 評価
-            not_answered: 未回答
-            rejected: 拒否
             title: 提案 %{title} の回答
         proposal_notes:
           create:
@@ -600,11 +560,8 @@ ja:
           participants: 参加者
           user_groups: グループ
         filter_state_values:
-          accepted: 承認済み
           all: すべて
-          evaluating: 評価
           not_answered: 応答がありません
-          rejected: 拒否
         filter_type_values:
           all: すべて
           amendments: 修正
