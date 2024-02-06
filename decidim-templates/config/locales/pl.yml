@@ -34,6 +34,9 @@ pl:
         proposal_answer_templates:
           form:
             save: Zapisz
+          index:
+            missing_state: Brakujący stan
+            proposal_state_id: Stan wewnętrzny
         questionnaire_templates:
           choose:
             create_from_template: Utwórz z szablonu
