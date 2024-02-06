@@ -63,15 +63,12 @@ ro:
               not_official: Nu sunt oficiale
               supported: Au primit voturi sau susțineri
     models:
-      decidim/proposals/accepted_proposal_event: Propunere acceptată
       decidim/proposals/admin/update_proposal_category_event: Categorie de propunere modificată
       decidim/proposals/admin/update_proposal_scope_event: Domeniu de interes al propunerii modificat
       decidim/proposals/creation_enabled_event: Crearea de propuneri este activată
       decidim/proposals/endorsing_enabled_event: Susținerea propunerii este activată
-      decidim/proposals/evaluating_proposal_event: Propunerea este în curs de evaluare
       decidim/proposals/proposal_mentioned_event: Propunere menționată
       decidim/proposals/publish_proposal_event: Propunere publicată
-      decidim/proposals/rejected_proposal_event: Propunere respinsă
       decidim/proposals/voting_enabled_event: Votare propunerii este activată
   activerecord:
     models:
@@ -243,26 +240,6 @@ ro:
           email_intro: 'Poți susține propuneri pentru %{participatory_space_title}! Participă acum la această pagină:'
           email_outro: Ai primit această notificare deoarece urmărești %{participatory_space_title}. Poți anula aceste notificări de la link-ul anterior.
           email_subject: Poți acum susține propunerile primite pentru %{participatory_space_title}
-        proposal_accepted:
-          affected_user:
-            email_intro: 'Propunerea ta "%{resource_title}" a fost acceptată. Poți citi răspunsul în această pagină:'
-            email_outro: Ai primit această notificare deoarece ești autor al propunerii "%{resource_title}".
-            email_subject: Propunerea ta a fost acceptată
-            notification_title: Propunerea ta <a href="%{resource_path}">%{resource_title}</a> a fost acceptată.
-          follower:
-            email_intro: 'Propunerea "%{resource_title}" a fost acceptată. Poți citi răspunsul în această pagină:'
-            email_outro: Ai primit această notificare deoarece urmărești „%{resource_title}”. Poți anula urmărirea de la link-ul anterior.
-            notification_title: Propunerea <a href="%{resource_path}">%{resource_title}</a> a fost acceptată.
-        proposal_evaluating:
-          affected_user:
-            email_intro: 'Propunerea ta "%{resource_title}" este în curs de evaluare. Poți verifica răspunsul în această pagină:'
-            email_outro: Ai primit această notificare deoarece ești autor al propunerii "%{resource_title}".
-            email_subject: Propunerea ta este în curs de evaluare
-            notification_title: Propunerea ta <a href="%{resource_path}">%{resource_title}</a> este în curs de evaluare.
-          follower:
-            email_intro: 'Propunerea "%{resource_title}" este în curs de evaluare. Poţi verifica răspunsul în această pagină:'
-            email_outro: Ai primit această notificare deoarece urmărești „%{resource_title}”. Poți anula urmărirea de la link-ul anterior.
-            notification_title: Propunerea <a href="%{resource_path}">%{resource_title}</a> este în curs de evaluare.
         proposal_mentioned:
           email_intro: Propunerea ta "%{mentioned_proposal_title}" a fost menționată <a href="%{resource_url}">în acest spațiu</a> în comentarii.
           email_outro: Ai primit această notificare deoarece ești autor al propunerii "%{resource_title}".
@@ -277,15 +254,6 @@ ro:
           email_intro: Propunerea "%{resource_title}" a fost adăugată la "%{participatory_space_title}", spațiu participativ pe care îl urmărești.
           email_outro: Ai primit această notificare deoarece urmărești „%{participatory_space_title}”. Poți anula aceste notificări de la link-ul anterior.
           email_subject: O nouă propunere "%{resource_title}" a fost adăugată la %{participatory_space_title}
-        proposal_rejected:
-          affected_user:
-            email_intro: 'Propunerea ta "%{resource_title}" a fost respinsă. Poți citi răspunsul în această pagină:'
-            email_outro: Ai primit această notificare deoarece ești autor al propunerii "%{resource_title}".
-            notification_title: Propunerea ta <a href="%{resource_path}">%{resource_title}</a> a fost respinsă.
-          follower:
-            email_intro: 'Propunerea "%{resource_title}" a fost respinsă. Poţi citi răspunsul în această pagină:'
-            email_outro: Ai primit această notificare deoarece urmărești „%{resource_title}”. Poți anula aceste notificări de la link-ul anterior.
-            notification_title: Propunerea <a href="%{resource_path}">%{resource_title}</a> a fost respinsă.
         proposal_update_category:
           email_intro: 'Un administrator a actualizat categoria propunerii tale „%{resource_title}", verifică modificarea în această pagină:'
           email_outro: Ai primit această notificare deoarece ești autorul acestei propuneri.
@@ -416,10 +384,7 @@ ro:
             success: Textul participativ a fost actualizat cu succes.
         proposal_answers:
           form:
-            accepted: Acceptate
             answer_proposal: Răspunse
-            evaluating: În evaluare
-            rejected: Respinse
             title: Răspuns pentru propunerea %{title}
         proposal_notes:
           form:
@@ -524,11 +489,8 @@ ro:
           participants: Participanți
           user_groups: Grupuri
         filter_state_values:
-          accepted: Acceptate
           all: Toate
-          evaluating: În evaluare
           not_answered: Fără răspuns
-          rejected: Respinse
         filter_type_values:
           all: Toate
           amendments: Amendamente
