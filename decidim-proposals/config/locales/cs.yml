@@ -30,6 +30,8 @@ cs:
         cost: Náklady
         cost_report: Přehled nákladů
         execution_period: Období provádění
+      proposal_state:
+        announcement_title: Hlavička odpovědi
       proposals_copy:
         copy_proposals: Rozumím, že tento krok naimportuje všechny návrhy z vybraného prvku do toho současného a že tuto akci nelze vrátit zpět.
         origin_component_id: Komponenta pro kopírování návrhů z
@@ -108,6 +110,8 @@ cs:
             values:
               'false': Návrhy
               'true': Pozměňovací návrhy
+          proposal_state_id_eq:
+            label: Stav
           scope_id_eq:
             label: Oblast působnosti
           state_eq:
@@ -363,9 +367,13 @@ cs:
     proposals:
       actions:
         answer_proposal: Odpověď na návrh
+        delete_proposal_state_confirm: Opravdu chcete odstranit tento stav?
+        destroy: Odstranit stav
         edit_proposal: Upravit návrh
+        edit_proposal_state: Upravit stav
         import: Import z jiné součásti
         new: Nový návrh
+        new_proposal_state: Nový status
         participatory_texts: Participující texty
         show: Zobrazit návrh
         title: Akce
@@ -458,6 +466,23 @@ cs:
             submit: Předložit
           leave_your_note: Nechte svou poznámku
           title: Soukromé poznámky
+        proposal_states:
+          create:
+            error: Chyba při vytváření stavu
+            success: Status byl úspěšně vytvořen
+          destroy:
+            success: Status byl úspěšně odstraněn
+          edit:
+            title: Upravit status
+            update: Aktualizovat
+          index:
+            title: Statusy
+          new:
+            create: Vytvořit
+            title: Nový status
+          update:
+            error: Chyba při aktualizaci statusu
+            success: Status byl úspěšně aktualizován
         proposals:
           answer:
             invalid: Při odpovědi na tento návrh se vyskytl problém.
@@ -489,6 +514,7 @@ cs:
             selected: vybraný
             split: Rozdělit návrhy
             split_button: Rozdělit
+            statuses: Statusy
             title: Návrhy
             unassign_from_valuator: Odebrat přiřazení od hodnotitele
             unassign_from_valuator_button: Zrušit přiřazení
@@ -719,6 +745,9 @@ cs:
             valuator: Hodnotitel
             valuators: Hodnotitelé
             votes: Hlasy
+        proposal_state:
+          css_class: Třída CSS
+          title: Status
       new:
         limit_reached: Nelze vytvořit nové návrhy, protože jste překročili limit.
       participatory_text_proposal:
