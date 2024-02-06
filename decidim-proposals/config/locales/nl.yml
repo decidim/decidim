@@ -63,15 +63,12 @@ nl:
               not_official: Zijn niet officieel
               supported: Heeft steun ontvangen
     models:
-      decidim/proposals/accepted_proposal_event: Voorstel geaccepteerd
       decidim/proposals/admin/update_proposal_category_event: Voorstelcategorie gewijzigd
       decidim/proposals/admin/update_proposal_scope_event: Voorstel bereik gewijzigd
       decidim/proposals/creation_enabled_event: Voorstelcreatie ingeschakeld
       decidim/proposals/endorsing_enabled_event: Voorstel endorsing ingeschakeld
-      decidim/proposals/evaluating_proposal_event: Dit voorstel wordt geëvalueerd
       decidim/proposals/proposal_mentioned_event: Voorstel vermeld
       decidim/proposals/publish_proposal_event: Voorstel gepubliceerd
-      decidim/proposals/rejected_proposal_event: Voorstel afgewezen
       decidim/proposals/voting_enabled_event: Voorstel stemmen ingeschakeld
   activerecord:
     models:
@@ -221,26 +218,6 @@ nl:
           email_intro: 'U kunt voorstellen in %{participatory_space_title} goedkeuren! Neem deel op deze pagina:'
           email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kan de meldingen uitschakelen door te klikken op de voorgaande link.
           email_subject: Je kan nu de voorstellen in %{participatory_space_title} steunen
-        proposal_accepted:
-          affected_user:
-            email_intro: 'Uw voorstel "%{resource_title}" is geaccepteerd. U kunt het antwoord op deze pagina lezen:'
-            email_outro: U heeft deze melding ontvangen omdat u een auteur bent van "%{resource_title}".
-            email_subject: Uw voorstel is aanvaard
-            notification_title: Uw voorstel <a href="%{resource_path}">%{resource_title}</a> is aanvaard.
-          follower:
-            email_intro: 'Het voorstel "%{resource_title}" is aanvaard. Je kan het antwoord op deze pagina lezen:'
-            email_outro: Je hebt deze melding ontvangen omdat je "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
-            notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> is geaccepteerd.
-        proposal_evaluating:
-          affected_user:
-            email_intro: 'Uw voorstel "%{resource_title}" wordt momenteel geëvalueerd. U kunt op deze pagina zoeken naar een antwoord:'
-            email_outro: U hebt deze melding ontvangen omdat u een auteur bent van "%{resource_title}".
-            email_subject: Uw voorstel wordt beoordeeld
-            notification_title: Uw voorstel <a href="%{resource_path}">%{resource_title}</a> wordt beoordeeld.
-          follower:
-            email_intro: 'Het voorstel "%{resource_title}" is geaccepteerd. Je kan het antwoord op deze pagina lezen:'
-            email_outro: Je hebt deze melding ontvangen omdat je "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
-            notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> wordt beoordeeld.
         proposal_mentioned:
           email_intro: Uw voorstel "%{mentioned_proposal_title}" is in deze ruimte <a href="%{resource_url}"></a> genoemd in de reacties.
           email_outro: U hebt deze melding ontvangen omdat u een auteur bent van "%{resource_title}".
@@ -255,15 +232,6 @@ nl:
           email_intro: Het voorstel "%{resource_title}" is toegevoegd aan "%{participatory_space_title}" dat je volgt.
           email_outro: Je hebt deze melding ontvangen omdat je "%{participatory_space_title}" volgt. Schakel de meldingen uit door op bovenstaande link te klikken en te stoppen met volgen.
           email_subject: Nieuw voorstel "%{resource_title}" toegevoegd aan %{participatory_space_title}
-        proposal_rejected:
-          affected_user:
-            email_intro: 'Uw voorstel "%{resource_title}" is afgewezen. U kunt het antwoord op deze pagina lezen:'
-            email_outro: U hebt deze melding ontvangen omdat u een auteur bent van "%{resource_title}".
-            notification_title: Uw voorstel <a href="%{resource_path}">%{resource_title}</a> is afgewezen.
-          follower:
-            email_intro: 'Het voorstel "%{resource_title}" is afgewezen. Je kan de reden hier lezen:'
-            email_outro: Je hebt deze melding ontvangen omdat je "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
-            notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> is afgewezen.
         proposal_update_category:
           email_intro: 'Een beheerder heeft de categorie van uw voorstel "%{resource_title} bijgewerkt, bekijk het op deze pagina:'
           email_outro: Je hebt deze melding ontvangen omdat je de auteur bent van het voorstel.
@@ -392,10 +360,7 @@ nl:
             success: Participatieve tekst succesvol bijgewerkt.
         proposal_answers:
           form:
-            accepted: Aanvaard
             answer_proposal: Antwoord
-            evaluating: Aan het beoordelen
-            rejected: Geweigerd
             title: Antwoord voor voorstel %{title}
         proposal_notes:
           form:
@@ -499,11 +464,8 @@ nl:
           participants: Deelnemers
           user_groups: Groepen
         filter_state_values:
-          accepted: Aanvaard
           all: Alle
-          evaluating: Evalueren
           not_answered: Nog niet beantwoord
-          rejected: Afgewezen
         filter_type_values:
           all: Alle
           amendments: wijzigingen
