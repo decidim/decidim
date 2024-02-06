@@ -30,6 +30,8 @@ tr:
         cost: Maliyet
         cost_report: Maliyet raporu
         execution_period: Yürütme süresi
+      proposal_state:
+        announcement_title: Yanıt Başlığı 
       proposals_copy:
         origin_component_id: Teklifleri kopyalamak için bileşen
       proposals_import:
@@ -84,6 +86,8 @@ tr:
             values:
               'false': Teklifler
               'true': Değişiklikler
+          proposal_state_id_eq:
+            label: Durum
           scope_id_eq:
             label: Kapsam
           state_eq:
@@ -210,6 +214,17 @@ tr:
           email_intro: '"%{resource_title}" teklifi takip ettiğiniz "%{participatory_space_title}" listesine eklendi.'
           email_outro: Bu bildirimi, "%{participatory_space_title}" takip ettiğiniz için aldınız. Bir önceki bağlantıdan takip etmeyi bırakabilirsiniz.
           email_subject: Yeni teklif "%{resource_title}" %{participatory_space_title} eklendi
+        proposal_state_changed:
+          affected_user:
+            email_intro: '"%{resource_title}" teklifinin durumu "%{state}" olarak değiştirildi. Cevabı bu sayfada okuyabilirsiniz:'
+            email_outro: Bu bildirimi "%{resource title}" kaynağının yazarı olduğunuz için aldınız.
+            email_subject: Teklifinizin durumu (%{state}) olarak değişti
+            notification_title: <a href="%{resource_path}">%{resource_title</a> teklifinizin durumu "%{state}" olarak değiştirildi.
+          follower:
+            email_intro: '"%{resource_title}" teklifinin durumu "%{state}" olarak değiştirildi. Cevabı bu sayfada okuyabilirsiniz:'
+            email_outro: Bu bildirimi "%{resource_title}" adresini takip ettiğiniz için aldınız. Önceki bağlantıdan takibi bırakabilirsiniz.
+            email_subject: Takip ettiğiniz bir teklifin durumu (%{state}) olarak değişti
+            notification_title: Takip ettiğiniz bir teklifin durumu (%{state}) olarak değişti
         proposal_update_category:
           email_intro: 'Bir yönetici "%{resource_title}" teklifinizin kategorisini güncelledi, bu sayfada kontrol edin:'
           email_outro: Bu bildirimi, teklifin yazarı olduğunuz için aldınız.
@@ -281,9 +296,13 @@ tr:
     proposals:
       actions:
         answer_proposal: Cevap önerisi
+        delete_proposal_state_confirm: Bu durumu silmek istediğinizden emin misiniz?
+        destroy: Durumu sil
         edit_proposal: Teklifi düzenle
+        edit_proposal_state: Durumu Düzenle
         import: Başka bir bileşenden içe aktar
         new: Yeni teklif
+        new_proposal_state: Yeni Statü
         participatory_texts: Katılımcı metinler
         show: Teklifi göster
         title: Eylemler
@@ -335,6 +354,23 @@ tr:
             submit: Gönder
           leave_your_note: Notunu bırak
           title: Özel notlar
+        proposal_states:
+          create:
+            error: Durum oluşturma hatası
+            success: Durum Basarıyla oluşturuldu
+          destroy:
+            success: Durum başarıyla silindi
+          edit:
+            title: Durumu Düzenle
+            update: Güneclleme
+          index:
+            title: Durumlar
+          new:
+            create: Oluşturma
+            title: Yeni Durum
+          update:
+            error: Ddurum Güncelleme Hatası
+            success: Durum Başarıyla Güncellendi
         proposals:
           edit:
             title: Teklifi güncelle
@@ -359,6 +395,7 @@ tr:
             selected: seçildi
             split: Teklifleri böl
             split_button: Böl
+            statuses: Durumlar
             title: Teklifler
             unassign_from_valuator: Bilirkişinin atamasını kaldır
             unassign_from_valuator_button: Atamayı kaldır
@@ -543,6 +580,9 @@ tr:
             valuator: Bilirkişi
             valuators: Bilirkişiler
             votes: Oylar
+        proposal_state:
+          css_class: CSS Sınıfı 
+          title: Durum
       participatory_text_proposal:
         alternative_title: Şu anda katılımcı metin yok
         buttons:
