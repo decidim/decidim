@@ -277,7 +277,6 @@ de:
             notification_title: Ihr Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde angenommen.
           follower:
             email_intro: 'Der Vorschlag "%{resource_title}" wurde akzeptiert. Sie können die Antwort auf dieser Seite lesen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
             email_subject: Ein Vorschlag, dem Sie folgen, wurde akzeptiert
             notification_title: Der Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde angenommen.
         proposal_evaluating:
@@ -288,7 +287,6 @@ de:
             notification_title: Ihr Vorschlag <a href="%{resource_path}">%{resource_title}</a> wird evaluiert.
           follower:
             email_intro: 'Der Vorschlag "%{resource_title}" wird derzeit geprüft. Das Resultat wird auf dieser Seite aufgeschaltet werden:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
             email_subject: Ein Vorschlag, dem Sie folgen, wird evaluiert
             notification_title: Der Vorschlag <a href="%{resource_path}">%{resource_title}</a> wird evaluiert.
         proposal_mentioned:
@@ -315,7 +313,6 @@ de:
             notification_title: Ihr Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde abgelehnt.
           follower:
             email_intro: 'Der Vorschlag "%{resource_title}" wurde abgelehnt. Sie können die Antwort auf dieser Seite lesen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
             email_subject: Ein Vorschlag, dem Sie folgen, wurde abgelehnt
             notification_title: Der Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde abgelehnt.
         proposal_update_category:
@@ -610,7 +607,7 @@ de:
         filter_state_values:
           accepted: Angenommen
           all: Alle
-          evaluating: In Bearbeitung
+          evaluating: In Bewertung
           not_answered: Unbeantwortet
           rejected: Abgelehnt
         filter_type_values:
