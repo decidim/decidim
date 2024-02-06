@@ -78,6 +78,9 @@ eu:
     'false': 'Ez'
     'true': 'Bai'
   date:
+    buttons:
+      close: Itxi
+      select: Hautatu
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_dashed: "%e-%h-%U"
@@ -85,6 +88,10 @@ eu:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+      help:
+        date_format: 'Formatua: dd/mm/yyyy'
+      order: d-m-y
+      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -2001,6 +2008,10 @@ eu:
     x: X
     xing: Xing
   time:
+    buttons:
+      close: Itxi
+      reset: Berrabiarazi
+      select: Hautatu
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
@@ -2015,6 +2026,8 @@ eu:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
+      help:
+        time_format: 'Formatua: hh:mm'
       long: "%B, %d %Y %H:%M"
       long_dashed: "%Y-%m-%d, %H:%M:%S"
       long_with_particles: "%B%d, %Y% H:%M etan"
