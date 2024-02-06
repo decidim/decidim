@@ -9,3 +9,36 @@ Naming/MemoizedInstanceVariableName:
 
 RSpec/VerifiedDoubleReference:
   Enabled: false
+
+FactoryBot/ConsistentParenthesesStyle:
+  Enabled: false
+
+FactoryBot/ExcessiveCreateList:
+  Enabled: false
+
+RSpec/ExampleWording:
+  Enabled: false
+
+Rails/PluckInWhere:
+  Enabled: false
+
+RSpec/ReceiveMessages:
+  Enabled: false
+
+RSpec/Rails/NegationBeValid:
+  Enabled: false
+
+RSpec/MetadataStyle:
+  Enabled: false
+
+FactoryBot/FactoryAssociationWithStrategy:
+  Enabled: false
+
+RSpec/RemoveConst:
+  Enabled: false
+
+FactoryBot/AssociationStyle:
+  Enabled: false
+
+Rubycw/Rubycw:
+  Enabled: false
