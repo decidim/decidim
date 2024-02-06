@@ -254,7 +254,6 @@ sv:
             notification_title: Ditt förslag <a href="%{resource_path}">%{resource_title}</a> har accepterats.
           follower:
             email_intro: 'Förslaget "%{resource_title}" har accepterats. Läs svaret på den här sidan:'
-            email_outro: Du har fått det här meddelandet eftersom du följer "%{resource_title}". Du kan sluta att följa det via föregående länk.
             notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> har accepterats.
         proposal_evaluating:
           affected_user:
@@ -264,7 +263,6 @@ sv:
             notification_title: Ditt förslag <a href="%{resource_path}">%{resource_title}</a> utvärderas.
           follower:
             email_intro: 'Förslaget "%{resource_title}" utvärderas för närvarande. Du kan söka efter ett svar på den här sidan:'
-            email_outro: Du har fått det här meddelandet eftersom du följer "%{resource_title}". Du kan sluta att följa det via föregående länk.
             notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> utvärderas.
         proposal_mentioned:
           email_intro: Ditt förslag "%{mentioned_proposal_title}" har nämnts i kommentarerna i <a href="%{resource_url}">det här utrymmet</a>.
@@ -287,7 +285,6 @@ sv:
             notification_title: Ditt förslag <a href="%{resource_path}">%{resource_title}</a> har avslagits.
           follower:
             email_intro: 'Förslaget "%{resource_title}" har avslagits. Du kan läsa svaret på den här sidan:'
-            email_outro: Du har fått det här meddelandet eftersom du följer "%{resource_title}". Du kan sluta att följa det via föregående länk.
             notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> har avslagits.
         proposal_update_category:
           email_intro: 'En administratör har uppdaterat kategorin för ditt förslag "%{resource_title}", ta en titt på följande sida:'
@@ -421,7 +418,7 @@ sv:
             accepted: Accepterat
             answer_proposal: Svara
             evaluating: Utvärderas
-            not_answered: Ej besvarade
+            not_answered: Ej besvarat
             rejected: Avvisat
             title: Svar på förslaget %{title}
         proposal_notes:
@@ -526,11 +523,11 @@ sv:
           participants: Deltagare
           user_groups: Grupper
         filter_state_values:
-          accepted: Accepterade
+          accepted: Accepterat
           all: Alla
           evaluating: Utvärderas
           not_answered: Ej besvarade
-          rejected: Avvisade
+          rejected: Avvisat
         filter_type_values:
           all: Alla
           amendments: Ändringsförslag
