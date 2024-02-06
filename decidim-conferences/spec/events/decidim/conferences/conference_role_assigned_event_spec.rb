@@ -6,6 +6,7 @@ describe Decidim::Conferences::ConferenceRoleAssignedEvent do
   include_context "when a simple event"
 
   let(:resource) { create(:conference, title: generate_localized_title(:conference_title)) }
+  let(:participatory_space) { resource }
   let(:event_name) { "decidim.events.conferences.role_assigned" }
   let(:role) { create(:conference_user_role, user:, conference: resource, role: :admin) }
   let(:extra) { { role: } }

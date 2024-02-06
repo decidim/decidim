@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Initiatives::Admin::SupportThresholdReachedEvent do
+  include_context "when a simple event"
+
   let(:event_name) { "decidim.events.initiatives.support_threshold_reached" }
   let(:resource) { create(:initiative) }
   let(:participatory_space) { resource }
@@ -11,7 +13,6 @@ describe Decidim::Initiatives::Admin::SupportThresholdReachedEvent do
   let(:email_outro) { "You have received this notification because you are an admin of the platform." }
   let(:notification_title) { "The <a href=\"#{resource_path}\">#{resource_title}</a> initiative has reached the signatures threshold" }
 
-  include_context "when a simple event"
   it_behaves_like "a simple event"
   it_behaves_like "a simple event email"
   it_behaves_like "a simple event notification"
