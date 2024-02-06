@@ -762,8 +762,8 @@ module Decidim
           filename:,
           attached?: present?,
           attachment: double(
-            :blob => blob,
-            "image?" => image?
+            blob:,
+            image?: image?
           )
         )
       end

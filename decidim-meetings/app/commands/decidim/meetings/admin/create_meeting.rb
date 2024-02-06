@@ -73,9 +73,9 @@ module Decidim
         def create_services!
           form.services_to_persist.each do |service|
             Decidim::Meetings::Service.create!(
-              :meeting => meeting,
-              "title" => service.title,
-              "description" => service.description
+              meeting:,
+              title: service.title,
+              description: service.description
             )
           end
         end
