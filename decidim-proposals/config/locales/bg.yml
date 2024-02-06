@@ -182,7 +182,6 @@ bg:
             notification_title: Вашето предложение <a href="%{resource_path}">%{resource_title}</a> е одобрено.
           follower:
             email_intro: 'Предложението "%{resource_title}" е одобрено. Прочетете отговора на страницата:'
-            email_outro: Получавате това известие, защото следвате "%{resource_title}". Може да премахнете следването чрез предната връзка.
             notification_title: Предложението <a href="%{resource_path}">%{resource_title}</a> беше одобрено.
         proposal_evaluating:
           affected_user:
@@ -192,7 +191,6 @@ bg:
             notification_title: Вашето предложение <a href="%{resource_path}">%{resource_title}</a> се разглежда.
           follower:
             email_intro: 'Предложението "%{resource_title}" се разглежда в момента. Прочетете отговора на страницата:'
-            email_outro: Получавате това известие, защото следвате "%{resource_title}". Може да премахнете следването чрез предната връзка.
             notification_title: Предложението <a href="%{resource_path}">%{resource_title}</a> се разглежда.
         proposal_mentioned:
           email_intro: Вашето предложение "%{mentioned_proposal_title}" беше споменато в коментарите <a href="%{resource_url}">на това пространство</a>.
@@ -207,3 +205,6 @@ bg:
         proposal_published_for_space:
           email_intro: Предложението "%{resource_title}" беше добавено в "%{participatory_space_title}", което следвате.
           email_outro: Получавате това известие, защото следвате "%{participatory_space_title}". Може да прекратите известията чрез предната връзка.
+        proposal_rejected:
+          affected_user:
+            email_outro: Получавате това известие, защото сте автор на %{resource_title}".
