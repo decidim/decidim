@@ -70,6 +70,8 @@ cs:
           index:
             component_constraint: Přidat omezení
             confirm_delete: Opravdu chcete tuto šablonu odstranit?
+            missing_state: Chybějící stav
+            proposal_state_id: Vnitřní stav
             title: Odpovědi na návrh
           new:
             title: Nová šablona odpovědi na návrh
