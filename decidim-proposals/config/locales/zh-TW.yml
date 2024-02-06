@@ -271,7 +271,6 @@ zh-TW:
             notification_title: 您的提案 <a href="%{resource_path}">%{resource_title}</a> 已被接受。
           follower:
             email_intro: '該提案「%{resource_title}」已被接受。您可以在此頁面上閱讀回應：'
-            email_outro: 您收到了此通知，是因為您正在關注 "%{resource_title}"。您可以通過前面的鏈接取消關注它。
             email_subject: 您追蹤的提案已被接受
             notification_title: <a href="%{resource_path}">%{resource_title}</a>" 提案已經被接受。
         proposal_evaluating:
@@ -282,7 +281,6 @@ zh-TW:
             notification_title: 您的提案<a href="%{resource_path}">%{resource_title}</a>正在評估中。
           follower:
             email_intro: '該提案“%{resource_title}”正在進行評估。您可以在此頁面上查看答案：'
-            email_outro: 您收到了此通知，是因為您正在關注 "%{resource_title}"。您可以通過前面的鏈接取消關注它。
             email_subject: 你追蹤的提案正在評估中
             notification_title: <a href="%{resource_path}">%{resource_title}</a> 提案正在評估中。
         proposal_mentioned:
@@ -309,7 +307,6 @@ zh-TW:
             notification_title: 您的提案<a href="%{resource_path}">%{resource_title}</a>已被拒絕。
           follower:
             email_intro: '該提案「%{resource_title}」已被駁回。您可以在此頁面中閱讀回覆：'
-            email_outro: 您收到了此通知，是因為您正在關注 "%{resource_title}"。您可以通過前面的鏈接取消關注它。
             email_subject: 您追蹤的提案已被拒絕
             notification_title: <a href="%{resource_path}">%{resource_title}</a>" 提案已經被拒絕。
         proposal_update_category:
