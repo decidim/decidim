@@ -215,7 +215,7 @@ describe "Admin manages proposal answer templates" do
         expect(page).not_to have_select(:proposal_answer_template_chooser, with_options: [translated(other_component_template.name)])
       end
     end
-    
+
     context "when the template uses interpolations" do
       let(:template_settings) { { target: :proposal_answer, organization:, templatable:, field_values: } }
       let!(:template) { create(:template, description: { "en" => template_desc }, **template_settings) }
