@@ -26,7 +26,7 @@ describe Decidim::CardMetadataCell, type: :cell do
     let(:options) { { show_space: true } }
 
     it "renders the space the model belongs to" do
-      expect(cell_html).to have_content(translated(model.component.participatory_space.title, locale: :en))
+      expect(cell_html).to have_content(decidim_escape_translated(model.component.participatory_space.title))
     end
   end
 

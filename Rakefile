@@ -27,6 +27,11 @@ task :update_versions do
   Decidim::GemManager.replace_versions
 end
 
+desc "Patch generators with required library versions"
+task :patch_generators do
+  Decidim::GemManager.patch_component_gemfile_generator
+end
+
 Decidim::GemManager.all_dirs(include_root: false) do |dir|
   manager = Decidim::GemManager.new(dir)
   name = manager.short_name
