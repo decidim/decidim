@@ -217,6 +217,7 @@ tr:
             notification_title: Teklifiniz <a href="%{resource_path}">%{resource_title}</a> kabul edildi.
           follower:
             email_intro: '"%{resource_title}" teklifi kabul edildi. Cevabı bu sayfada okuyabilirsiniz:'
+            email_outro: Bu bildirimi "%{resource_title}" adresini takip ettiğiniz için aldınız. Önceki bağlantıdan takibi bırakabilirsiniz.
             email_subject: Takip ettiğiniz bir teklif kabul edildi
             notification_title: <a href="%{resource_path}">%{resource_title}</a> teklif kabul edildi.
         proposal_evaluating:
@@ -227,6 +228,7 @@ tr:
             notification_title: Teklifiniz <a href="%{resource_path}">%{resource_title}</a> değerlendiriliyor.
           follower:
             email_intro: 'Şu anda "%{resource_title}" teklifi değerlendiriliyor. Bu sayfadaki cevabı kontrol edebilirsiniz:'
+            email_outro: Bu bildirimi "%{resource_title}" adresini takip ettiğiniz için aldınız. Önceki bağlantıdan takibi bırakabilirsiniz.
             email_subject: Takip ettiğiniz bir teklif değerlendiriliyor
             notification_title: <a href="%{resource_path}">%{resource_title}</a> teklifi değerlendiriliyor.
         proposal_mentioned:
@@ -250,6 +252,7 @@ tr:
             notification_title: Teklifiniz <a href="%{resource_path}">%{resource_title}</a> reddedildi.
           follower:
             email_intro: '"%{resource_title}" teklifi reddedildi. Cevabı bu sayfada okuyabilirsiniz:'
+            email_outro: Bu bildirimi "%{resource_title}" adresini takip ettiğiniz için aldınız. Önceki bağlantıdan takibi bırakabilirsiniz.
             email_subject: Takip ettiğiniz bir teklif reddedildi
             notification_title: <a href="%{resource_path}">%{resource_title}</a> teklifi reddedildi.
         proposal_update_category:
