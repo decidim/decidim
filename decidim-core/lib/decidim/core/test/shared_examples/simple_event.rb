@@ -61,6 +61,12 @@ shared_examples_for "a simple event" do |skip_space_checks|
     end
   end
 
+  describe "participatory_space_title" do
+    it "is generated correctly" do
+      expect(translated(participatory_space.title)).to include("script")
+    end
+  end
+
   describe "email_subject" do
     it "is generated correctly" do
       expect(subject.email_subject).to be_kind_of(String)
