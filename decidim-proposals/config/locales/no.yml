@@ -249,7 +249,6 @@
             notification_title: Forslaget ditt <a href="%{resource_path}">%{resource_title}</a> har blitt akseptert.
           follower:
             email_intro: 'Forslaget "%{resource_title}" er blitt akseptert. Du kan lese svaret på denne siden:'
-            email_outro: Du har mottatt denne varslingen fordi du følger "%{resource_title}". Du kan slutte å følge den fra den forrige lenken.
             email_subject: Et forslag du følger har blitt akseptert
             notification_title: <a href="%{resource_path}">%{resource_title}</a> forslaget ble akseptert.
         proposal_evaluating:
@@ -260,7 +259,6 @@
             notification_title: Forslaget ditt <a href="%{resource_path}">%{resource_title}</a> blir evaluert.
           follower:
             email_intro: 'Forslaget "%{resource_title}" holder på å bli evaluert. Du kan se etter svar på denne siden:'
-            email_outro: Du har mottatt denne varslingen fordi du følger "%{resource_title}". Du kan slutte å følge den fra den forrige lenken.
             email_subject: Et forslag du følger blir evaluert
             notification_title: <a href="%{resource_path}">%{resource_title}</a> forslaget blir evaluert.
         proposal_mentioned:
@@ -283,7 +281,6 @@
             notification_title: Forslaget ditt <a href="%{resource_path}">%{resource_title}</a> har blitt avvist.
           follower:
             email_intro: 'Forslaget "%{resource_title}" er blitt avvist. Du kan lese svaret på denne siden:'
-            email_outro: Du har mottatt denne varslingen fordi du følger "%{resource_title}". Du kan slutte å følge den fra den forrige lenken.
             email_subject: Et forslag du følger har blitt avslått
             notification_title: <a href="%{resource_path}">%{resource_title}</a> forslaget ble avvist.
         proposal_update_category:
@@ -422,6 +419,7 @@
             accepted: Aksepterte
             answer_proposal: Svar
             evaluating: Vurderer
+            not_answered: Ikke besvart
             rejected: Avvist
             title: Svar for forslag %{title}
         proposal_notes:
