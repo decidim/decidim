@@ -98,6 +98,7 @@ module Decidim
           it "the created sortition contains a list of candidate proposals" do
             command.call
             sortition = Sortition.where(component: sortition_component).last
+
             expect(sortition.candidate_proposals).not_to be_empty
           end
 

@@ -17,7 +17,7 @@
   </span>
   <% if dropdown_item.present? %>
     <button id="secondary-dropdown-trigger-mobile" data-component="dropdown" data-hover="true" data-target="secondary-dropdown-menu-mobile">
-      <%= icon "arrow-down-s-line", class: "flex-none w-6 h-6 fill-current" %>
+      <%= icon "arrow-down-s-line", class: "flex-none w-6 h-6 fill-current" %><span class="sr-only"><%= t("layouts.decidim.header.main_menu") %></span>
     </button>
   <% end %>
   <% if content_for?(:participatory_space_mobile_actions) %>
