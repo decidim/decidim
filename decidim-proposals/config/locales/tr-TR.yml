@@ -52,15 +52,12 @@ tr:
             title:
               identical: VE gövde aynı olamaz
     models:
-      decidim/proposals/accepted_proposal_event: Teklif kabul edildi
       decidim/proposals/admin/update_proposal_category_event: Teklif kategorisi değişti
       decidim/proposals/admin/update_proposal_scope_event: Teklif kapsamı değişti
       decidim/proposals/creation_enabled_event: Teklif oluşturma etkin
       decidim/proposals/endorsing_enabled_event: Teklif onayı etkin
-      decidim/proposals/evaluating_proposal_event: Teklif değerlendiriliyor
       decidim/proposals/proposal_mentioned_event: Bahsi geçen teklif
       decidim/proposals/publish_proposal_event: Teklif yayınlandı
-      decidim/proposals/rejected_proposal_event: Teklif reddedildi
       decidim/proposals/voting_enabled_event: Teklif oylama etkin
   activerecord:
     models:
@@ -199,26 +196,6 @@ tr:
           email_intro: 'Teklifleri %{participatory_space_title} olarak onaylayabilirsiniz! Bu sayfaya katılmaya başlayın:'
           email_outro: Bu bildirimi %{participatory_space_title} izlediğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
           email_subject: '%{participatory_space_title} için teklifleri onaylamaya başladı'
-        proposal_accepted:
-          affected_user:
-            email_intro: '"%{resource_title}" teklifiniz kabul edildi. Cevabı bu sayfada okuyabilirsiniz:'
-            email_outro: Bu bildirimi, "%{resource_title}" ın bir yazarı olduğunuz için aldınız.
-            email_subject: Teklifiniz kabul edildi
-            notification_title: Teklifiniz <a href="%{resource_path}">%{resource_title}</a> kabul edildi.
-          follower:
-            email_intro: '"%{resource_title}" teklifi kabul edildi. Cevabı bu sayfada okuyabilirsiniz:'
-            email_outro: Bu bildirimi, "%{resource_title}" takip ettiğiniz için aldınız. Bir önceki bağlantıdan takip etmeyi bırakabilirsiniz.
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> teklif kabul edildi.
-        proposal_evaluating:
-          affected_user:
-            email_intro: 'Şu anda "%{resource_title}" teklifiniz değerlendiriliyor. Bu sayfadaki cevabı kontrol edebilirsiniz:'
-            email_outro: Bu bildirimi, "%{resource_title}" ın bir yazarı olduğunuz için aldınız.
-            email_subject: Teklifiniz değerlendiriliyor
-            notification_title: Teklifiniz <a href="%{resource_path}">%{resource_title}</a> değerlendiriliyor.
-          follower:
-            email_intro: 'Şu anda "%{resource_title}" teklifi değerlendiriliyor. Bu sayfadaki cevabı kontrol edebilirsiniz:'
-            email_outro: Bu bildirimi, "%{resource_title}" takip ettiğiniz için aldınız. Bir önceki bağlantıdan takip etmeyi bırakabilirsiniz.
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> teklifi değerlendiriliyor.
         proposal_mentioned:
           email_intro: Yorumlarınızda <a href="%{resource_url}"> bu alanda </a> "%{mentioned_proposal_title}" önerinizden bahsedildi.
           email_outro: Bu bildirimi, "%{resource_title}" ın bir yazarı olduğunuz için aldınız.
@@ -233,15 +210,6 @@ tr:
           email_intro: '"%{resource_title}" teklifi takip ettiğiniz "%{participatory_space_title}" listesine eklendi.'
           email_outro: Bu bildirimi, "%{participatory_space_title}" takip ettiğiniz için aldınız. Bir önceki bağlantıdan takip etmeyi bırakabilirsiniz.
           email_subject: Yeni teklif "%{resource_title}" %{participatory_space_title} eklendi
-        proposal_rejected:
-          affected_user:
-            email_intro: 'Teklifiniz "%{resource_title}" reddedildi. Cevabı bu sayfada okuyabilirsiniz:'
-            email_outro: Bu bildirimi, "%{resource_title}" ın bir yazarı olduğunuz için aldınız.
-            notification_title: Teklifiniz <a href="%{resource_path}">%{resource_title}</a> reddedildi.
-          follower:
-            email_intro: '"%{resource_title}" teklifi reddedildi. Cevabı bu sayfada okuyabilirsiniz:'
-            email_outro: Bu bildirimi, "%{resource_title}" takip ettiğiniz için aldınız. Bir önceki bağlantıdan takip etmeyi bırakabilirsiniz.
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> teklifi reddedildi.
         proposal_update_category:
           email_intro: 'Bir yönetici "%{resource_title}" teklifinizin kategorisini güncelledi, bu sayfada kontrol edin:'
           email_outro: Bu bildirimi, teklifin yazarı olduğunuz için aldınız.
@@ -359,10 +327,7 @@ tr:
             success: Katılımcı metin başarıyla güncellendi.
         proposal_answers:
           form:
-            accepted: Kabul edilmiş
             answer_proposal: Cevap
-            evaluating: değerlendirilmesi
-            rejected: Reddedilen
             title: Teklifin cevabı %{title}
         proposal_notes:
           form:
@@ -462,11 +427,8 @@ tr:
           official: Resmi
           user_groups: Gruplar
         filter_state_values:
-          accepted: Kabul Edildi
           all: Tümü
-          evaluating: Değerlendiriliyor
           not_answered: Cevaplanmadı
-          rejected: Reddedildi
         filter_type_values:
           all: Tümü
           amendments: Değişiklikler
