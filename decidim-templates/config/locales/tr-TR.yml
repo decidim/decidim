@@ -34,6 +34,9 @@ tr:
         proposal_answer_templates:
           form:
             save: Kaydet
+          index:
+            missing_state: Kayıp Durum
+            proposal_state_id: İçsel durum
         questionnaire_templates:
           choose:
             create_from_template: Şablondan Oluştur
