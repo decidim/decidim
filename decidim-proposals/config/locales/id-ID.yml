@@ -42,14 +42,11 @@ id:
             title:
               identical: DAN tubuh tidak bisa identik
     models:
-      decidim/proposals/accepted_proposal_event: Proposal diterima
       decidim/proposals/admin/update_proposal_category_event: Kategori proposal berubah
       decidim/proposals/creation_enabled_event: Pembuatan proposal diaktifkan
       decidim/proposals/endorsing_enabled_event: Proposal dukungan diaktifkan
-      decidim/proposals/evaluating_proposal_event: Proposal sedang dievaluasi
       decidim/proposals/proposal_mentioned_event: Proposal disebutkan
       decidim/proposals/publish_proposal_event: Proposal dipublikasikan
-      decidim/proposals/rejected_proposal_event: Proposal ditolak
       decidim/proposals/voting_enabled_event: Pemungutan suara proposal diaktifkan
   activerecord:
     models:
@@ -133,26 +130,6 @@ id:
           email_intro: 'Anda dapat mendukung proposal dalam %{participatory_space_title}! Mulai berpartisipasi di halaman ini:'
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{participatory_space_title}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
           email_subject: Proposal yang mendukung telah dimulai untuk %{participatory_space_title}
-        proposal_accepted:
-          affected_user:
-            email_intro: 'Proposal Anda "%{resource_title}" telah diterima. Anda dapat membaca jawabannya di halaman ini:'
-            email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah pengarang "%{resource_title}".
-            email_subject: Proposal Anda telah diterima
-            notification_title: Proposal Anda <a href="%{resource_path}">%{resource_title}</a> telah diterima.
-          follower:
-            email_intro: 'Proposal "%{resource_title}" telah diterima. Anda dapat membaca jawabannya di halaman ini:'
-            email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti "%{resource_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
-            notification_title: Proposal <a href="%{resource_path}">%{resource_title}</a> telah diterima.
-        proposal_evaluating:
-          affected_user:
-            email_intro: 'Proposal Anda "%{resource_title}" saat ini sedang dievaluasi. Anda dapat memeriksa jawaban di halaman ini:'
-            email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah pengarang "%{resource_title}".
-            email_subject: Proposal Anda sedang dievaluasi
-            notification_title: Proposal Anda <a href="%{resource_path}">%{resource_title}</a> sedang dievaluasi.
-          follower:
-            email_intro: 'Proposal "%{resource_title}" saat ini sedang dievaluasi. Anda dapat memeriksa jawaban di halaman ini:'
-            email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti "%{resource_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
-            notification_title: Proposal <a href="%{resource_path}">%{resource_title}</a> sedang dievaluasi.
         proposal_mentioned:
           email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah pengarang "%{resource_title}".
           email_subject: Proposal Anda "%{mentioned_proposal_title}" telah disebutkan
@@ -166,15 +143,6 @@ id:
           email_intro: Proposal "%{resource_title}" telah ditambahkan ke "%{participatory_space_title}" yang Anda ikuti.
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti "%{participatory_space_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
           email_subject: Proposal baru "%{resource_title}" ditambahkan ke %{participatory_space_title}
-        proposal_rejected:
-          affected_user:
-            email_intro: 'Proposal Anda "%{resource_title}" telah ditolak. Anda dapat membaca jawabannya di halaman ini:'
-            email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah pengarang "%{resource_title}".
-            notification_title: Proposal Anda <a href="%{resource_path}">%{resource_title}</a> telah ditolak.
-          follower:
-            email_intro: 'Proposal "%{resource_title}" telah ditolak. Anda dapat membaca jawabannya di halaman ini:'
-            email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti "%{resource_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
-            notification_title: Proposal <a href="%{resource_path}">%{resource_title}</a> telah ditolak.
         proposal_update_category:
           email_intro: 'Admin telah memperbarui kategori proposal Anda "%{resource_title}", periksa ini:'
           email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah penulis proposal.
@@ -284,10 +252,7 @@ id:
             success: Teks partisipatif berhasil diperbarui.
         proposal_answers:
           form:
-            accepted: Diterima
             answer_proposal: Menjawab
-            evaluating: Mengevaluasi
-            rejected: Ditolak
             title: Jawaban untuk proposal %{title}
         proposal_notes:
           form:
@@ -355,11 +320,8 @@ id:
           official: Resmi
           user_groups: Grup Pengguna
         filter_state_values:
-          accepted: Diterima
           all: Semua
-          evaluating: Mengevaluasi
           not_answered: Tidak dijawab
-          rejected: Ditolak
         filter_type_values:
           all: Semua
           amendments: Amandemen
