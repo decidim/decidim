@@ -46,7 +46,9 @@ module Decidim
           url:,
           related_proposals:,
           related_results:,
-          published: meeting.published_at.present?
+          published: meeting.published_at.present?,
+          withdrawn: proposal.withdrawn?,
+          withdrawn_at: proposal.withdrawn_at
         }
       end
 
