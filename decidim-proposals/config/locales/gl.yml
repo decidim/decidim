@@ -63,15 +63,12 @@ gl:
               not_official: Non é oficial
               supported: Recibiron soporte ou apoios
     models:
-      decidim/proposals/accepted_proposal_event: A proposta foi aceptada
       decidim/proposals/admin/update_proposal_category_event: Modificouse a categoría de proposta
       decidim/proposals/admin/update_proposal_scope_event: Mudouse o ámbito da proposta
       decidim/proposals/creation_enabled_event: Creación de proposta habilitada
       decidim/proposals/endorsing_enabled_event: Aprobación da proposta habilitada
-      decidim/proposals/evaluating_proposal_event: A proposta está a ser avaliada
       decidim/proposals/proposal_mentioned_event: Proposta mencionada
       decidim/proposals/publish_proposal_event: Proposta publicada
-      decidim/proposals/rejected_proposal_event: Proposta rexeitada
       decidim/proposals/voting_enabled_event: A votación da proposta habilitada
   activerecord:
     models:
@@ -208,26 +205,6 @@ gl:
           email_intro: 'Podes aprobar propostas en %{participatory_space_title}. Comezar a participar nesta páxina:'
           email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
           email_subject: As propostas de avaliación iniciáronse para %{participatory_space_title}
-        proposal_accepted:
-          affected_user:
-            email_intro: 'A túa proposta "%{resource_title}" foi aceptada. Podes ler a resposta nesta páxina:'
-            email_outro: Recibiches esta notificación porque es un autor de "%{resource_title}".
-            email_subject: A túa proposta foi aceptada
-            notification_title: A túa proposta <a href="%{resource_path}">%{resource_title}</a> foi aceptada.
-          follower:
-            email_intro: 'A proposta "%{resource_title}" foi aceptada. Podes ler a resposta nesta páxina:'
-            email_outro: Recibiches esta notificación porque estás seguindo "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
-            notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi aceptada.
-        proposal_evaluating:
-          affected_user:
-            email_intro: 'A túa proposta "%{resource_title}" está a ser avaliada. Podes consultar unha resposta nesta páxina:'
-            email_outro: Recibiches esta notificación porque es un autor de "%{resource_title}".
-            email_subject: A túa proposta está a ser avaliada
-            notification_title: A súa proposta <a href="%{resource_path}">%{resource_title}</a> está sendo avaliada.
-          follower:
-            email_intro: 'A proposta "%{resource_title}" está a ser avaliada. Podes consultar unha resposta nesta páxina:'
-            email_outro: Recibiches esta notificación porque estás seguindo "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
-            notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> está a ser avaliada.
         proposal_mentioned:
           email_outro: Recibiches esta notificación porque es un autor de "%{resource_title}".
           email_subject: Enviouse a súa proposta "%{mentioned_proposal_title}"
@@ -241,15 +218,6 @@ gl:
           email_intro: A proposta "%{resource_title}" engadiuse a "%{participatory_space_title}" que estás seguindo.
           email_outro: Recibiches esta notificación porque estás seguindo "%{participatory_space_title}". Podes deixar de seguir desde a ligazón anterior.
           email_subject: Nova proposta "%{resource_title}" engadida a %{participatory_space_title}
-        proposal_rejected:
-          affected_user:
-            email_intro: 'A túa proposta "%{resource_title}" foi rexeitada. Podes ler a resposta nesta páxina:'
-            email_outro: Recibiches esta notificación porque es un autor de "%{resource_title}".
-            notification_title: A túa proposta <a href="%{resource_path}">%{resource_title}</a> foi rexeitada.
-          follower:
-            email_intro: 'A proposta "%{resource_title}" foi rexeitada. Podes ler a resposta nesta páxina:'
-            email_outro: Recibiches esta notificación porque estás seguindo "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
-            notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi rexeitada.
         proposal_update_category:
           email_intro: 'Un administrador actualizou a categoría da túa proposta "%{resource_title}", comproba isto:'
           email_outro: Recibiches esta notificación porque es o autor da proposta.
@@ -373,10 +341,7 @@ gl:
             success: Texto participativo actualizado con éxito.
         proposal_answers:
           form:
-            accepted: Aceptada
             answer_proposal: Resposta
-            evaluating: Avaliación
-            rejected: Rexeitado
             title: Resposta á proposta %{title}
         proposal_notes:
           form:
@@ -456,11 +421,8 @@ gl:
           participants: Participantes
           user_groups: Grupos de usuarios
         filter_state_values:
-          accepted: Aceptada
           all: Todo
-          evaluating: Avaliación
           not_answered: Non respondeu
-          rejected: Rexeitado
         filter_type_values:
           all: Todo
           amendments: Enmendas
