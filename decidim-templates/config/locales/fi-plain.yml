@@ -72,7 +72,6 @@ fi-pl:
             component_constraint: Lisää rajaussääntö
             confirm_delete: Haluatko varmasti poistaa tämän mallipohjan?
             global_scope: Yleinen (saatavilla kaikkialla)
-            internal_state: Sisäinen tila
             title: Ehdotusten vastaukset
           new:
             title: Uusi ehdotusten vastausten mallipohja
