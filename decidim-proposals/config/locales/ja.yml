@@ -273,7 +273,6 @@ ja:
             notification_title: あなたの提案 <a href="%{resource_path}">%{resource_title}</a> が承認されました。
           follower:
             email_intro: '提案「%{resource_title}」が承認されました。このページで回答を読むことができます:'
-            email_outro: '「%{resource_title}」をフォローしているため、この通知を受け取りました。前のリンクからこの通知をアンフォローすることができます。'
             email_subject: あなたがフォローしている提案が承認されました
             notification_title: <a href="%{resource_path}">%{resource_title}</a> の提案が承認されました。
         proposal_evaluating:
@@ -284,7 +283,6 @@ ja:
             notification_title: あなたの提案 <a href="%{resource_path}">%{resource_title}</a> が評価されています。
           follower:
             email_intro: '提案 "%{resource_title}" は現在評価されています。このページで回答を確認できます：'
-            email_outro: '「%{resource_title}」をフォローしているため、この通知を受け取りました。前のリンクからこの通知をアンフォローすることができます。'
             email_subject: あなたがフォローしている提案が評価されています
             notification_title: <a href="%{resource_path}">%{resource_title}</a> の提案が評価されています。
         proposal_mentioned:
@@ -311,7 +309,6 @@ ja:
             notification_title: あなたの提案 <a href="%{resource_path}">%{resource_title}</a> が却下されました。
           follower:
             email_intro: '提案 "%{resource_title}" は拒否されました。このページで回答を読むことができます:'
-            email_outro: '「%{resource_title}」をフォローしているため、この通知を受け取りました。前のリンクからこの通知をアンフォローすることができます。'
             email_subject: あなたがフォローしている提案が却下されました
             notification_title: <a href="%{resource_path}">%{resource_title}</a> の提案は拒否されました。
         proposal_update_category:
@@ -469,7 +466,7 @@ ja:
             accepted: 承認済み
             answer_proposal: 回答
             evaluating: 評価
-            not_answered: 未回答
+            not_answered: 応答がありません
             rejected: 拒否
             title: 提案 %{title} の回答
         proposal_notes:
