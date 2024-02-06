@@ -68,15 +68,12 @@ lt:
               not_official: Nėra oficialūs
               supported: Gavo palaikymo ar pritarimo
     models:
-      decidim/proposals/accepted_proposal_event: Pasiūlymas priimtas
       decidim/proposals/admin/update_proposal_category_event: Pasiūlymo kategorija pakeista
       decidim/proposals/admin/update_proposal_scope_event: Pasiūlymo sritis pakeista
       decidim/proposals/creation_enabled_event: Pasiūlymo sukūrimas aktyvintas
       decidim/proposals/endorsing_enabled_event: Parama pasiūlymui aktyvinta
-      decidim/proposals/evaluating_proposal_event: Pasiūlymas šiuo metu vertinamas
       decidim/proposals/proposal_mentioned_event: Pasiūlymas paminėtas
       decidim/proposals/publish_proposal_event: Pasiūlymas paskelbtas
-      decidim/proposals/rejected_proposal_event: Pasiūlymas atmestas
       decidim/proposals/voting_enabled_event: Balsavimas už pasiūlymą aktyvintas
   activerecord:
     models:
@@ -276,28 +273,6 @@ lt:
           email_outro: Šį pranešimą gavote dėl to, kad sekate %{participatory_space_title}. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
           email_subject: Pritarimas pasiūlymams %{participatory_space_title} prasidėjo
           notification_title: Dabar galite pradėti <a href="%{resource_path}">pritarti pasiūlymams</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
-        proposal_accepted:
-          affected_user:
-            email_intro: 'Jūsų pasiūlymas "%{resource_title}" priimtas. Atsakymą galite perskaityti šiame puslapyje:'
-            email_outro: Šį pranešimą gavote dėl to, kad esate „%{resource_title}“ autorius.
-            email_subject: Jūsų pasiūlymas priimtas
-            notification_title: Jūsų pasiūlymas <a href="%{resource_path}">%{resource_title}</a> priimtas.
-          follower:
-            email_intro: 'Pasiūlymas "%{resource_title}" priimtas. Atsakymą galite perskaityti šiame puslapyje:'
-            email_outro: Gavote šį pranešimą, nes sekate %{resource_title}. Galite nebesekti paspaudę ant aukščiau esančios nuorodos.
-            email_subject: Pasiūlymas, kurį sekate, buvo priimtas
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> pasiūlymas priimtas.
-        proposal_evaluating:
-          affected_user:
-            email_intro: 'Jūsų pasiūlymas "%{resource_title}" šiuo metu vertinamas. Atsakymą galite pasitikrinti šiame puslapyje:'
-            email_outro: Šį pranešimą gavote dėl to, kad esate „%{resource_title}“ autorius.
-            email_subject: Jūsų pasiūlymas šiuo metu vertinamas
-            notification_title: Jūsų pasiūlymas <a href="%{resource_path}">%{resource_title}</a> šiuo metu vertinamas.
-          follower:
-            email_intro: 'Pasiūlymas "%{resource_title}" šiuo metu vertinamas. Atsakymą galite patikrinti šiame puslapyje:'
-            email_outro: Gavote šį pranešimą, nes sekate %{resource_title}. Galite nebesekti paspaudę ant aukščiau esančios nuorodos.
-            email_subject: Pasiūlymas, kurį sekate, šiuo metu vertinamas
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> pasiūlymas šiuo metu vertinamas.
         proposal_mentioned:
           email_intro: Jūsų pasiūlymas „%{mentioned_proposal_title}“ buvo paminėtas <a href="%{resource_url}">šioje erdvėje</a> komentaruose.
           email_outro: Šį pranešimą gavote dėl to, kad esate „%{resource_title}“ autorius.
@@ -314,17 +289,6 @@ lt:
           email_subject: '%{participatory_space_title} pridėtas naujas pasiūlymas „%{resource_title}“'
           notification_title: '%{participatory_space_title} pridėtas pasiūlymas <a href="%{resource_path}">%{resource_title}</a>.'
           notification_title_official: Erdvėje %{participatory_space_title} pridėtas oficialus pasiūlymas <a href="%{resource_path}">%{resource_title}</a>.
-        proposal_rejected:
-          affected_user:
-            email_intro: 'Jūsų pasiūlymas „%{resource_title}“ atmestas. Atsakymą galite perskaityti šiame puslapyje:'
-            email_outro: Šį pranešimą gavote dėl to, kad esate „%{resource_title}“ autorius.
-            email_subject: Jūsų pasiūlymas atmestas
-            notification_title: Jūsų pasiūlymas <a href="%{resource_path}">%{resource_title}</a> atmestas.
-          follower:
-            email_intro: 'Pasiūlymas „%{resource_title}“ atmestas. Atsakymą galite perskaityti šiame puslapyje:'
-            email_outro: Gavote šį pranešimą, nes sekate %{resource_title}. Galite nebesekti paspaudę ant aukščiau esančios nuorodos.
-            email_subject: Pasiūlymas, kurį sekate, buvo atmestas
-            notification_title: Pasiūlymas <a href="%{resource_path}">%{resource_title}</a> buvo atmestas.
         proposal_update_category:
           email_intro: 'Administratorius atnaujino jūsų pasiūlymo „%{resource_title}“ kategoriją, patikrinkite tai šiame puslapyje:'
           email_outro: Šį pranešimą gavote dėl to, kad esate pasiūlymo autorius.
@@ -480,11 +444,7 @@ lt:
             success: Dalyvaujamasis tekstas atnaujintas.
         proposal_answers:
           form:
-            accepted: Priimta
             answer_proposal: Atsakyti
-            evaluating: Vertinama
-            not_answered: Neatsakyta
-            rejected: Atmesta
             title: Atsakymai į %{title} pasiūlymą
         proposal_notes:
           create:
@@ -615,11 +575,8 @@ lt:
           participants: Dalyviai
           user_groups: Grupės
         filter_state_values:
-          accepted: Priimta
           all: Visi
-          evaluating: Vertinama
           not_answered: Neatsakyta
-          rejected: Atmesta
         filter_type_values:
           all: Visi
           amendments: Pakeitimai
