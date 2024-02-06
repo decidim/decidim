@@ -68,15 +68,12 @@ cs:
               not_official: Nejsou oficiální
               supported: Obdrželi podporu nebo potvrzení
     models:
-      decidim/proposals/accepted_proposal_event: Návrh byl akceptován
       decidim/proposals/admin/update_proposal_category_event: Kategorie nabídky se změnila
       decidim/proposals/admin/update_proposal_scope_event: Rozsah návrhu se změnil
       decidim/proposals/creation_enabled_event: Vytváření návrhu je povoleno
       decidim/proposals/endorsing_enabled_event: Schválení návrhu je povoleno
-      decidim/proposals/evaluating_proposal_event: Návrh je hodnocen
       decidim/proposals/proposal_mentioned_event: Návrh byl zmíněn
       decidim/proposals/publish_proposal_event: Návrh byl zveřejněn
-      decidim/proposals/rejected_proposal_event: Návrh byl zamítnut
       decidim/proposals/voting_enabled_event: Hlasování návrhu je povoleno
   activerecord:
     models:
@@ -276,28 +273,6 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
           email_subject: Schválení návrhů bylo zahájeno po dobu %{participatory_space_title}
           notification_title: Nyní můžete začít <a href="%{resource_path}">schvalovat návrhy</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
-        proposal_accepted:
-          affected_user:
-            email_intro: 'Váš návrh "%{resource_title}" byl přijat. Odpověď můžete číst na této stránce:'
-            email_outro: Toto oznámení jste obdrželi, protože jste autorem položky "%{resource_title}".
-            email_subject: Váš návrh byl přijat
-            notification_title: Váš návrh <a href="%{resource_path}">%{resource_title}</a> byl přijat.
-          follower:
-            email_intro: 'Návrh "%{resource_title}" byl přijat. Odpověď můžete číst na této stránce:'
-            email_outro: Toto oznámení jste obdrželi, protože jste sledovali "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.
-            email_subject: Návrh, který sledujete, byl přijat
-            notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> byl přijat.
-        proposal_evaluating:
-          affected_user:
-            email_intro: 'Váš návrh "%{resource_title}" se právě vyhodnocuje. V této stránce můžete zkontrolovat odpověď:'
-            email_outro: Toto oznámení jste obdrželi, protože jste autorem položky "%{resource_title}".
-            email_subject: Váš návrh je hodnocen
-            notification_title: Váš návrh <a href="%{resource_path}">%{resource_title}</a> je hodnocen.
-          follower:
-            email_intro: 'V současné době se hodnotí návrh "%{resource_title}". V této stránce můžete zkontrolovat odpověď:'
-            email_outro: Toto oznámení jste obdrželi, protože jste sledovali "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.
-            email_subject: Návrh, který předkládáte, se posuzuje
-            notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> se hodnotí.
         proposal_mentioned:
           email_intro: Váš návrh "%{mentioned_proposal_title}" byl zmíněn <a href="%{resource_url}">v této skupině</a> v komentářích.
           email_outro: Toto oznámení jste obdrželi, protože jste autorem položky "%{resource_title}".
@@ -314,17 +289,6 @@ cs:
           email_subject: Nový návrh "%{resource_title}" byl přidán k %{participatory_space_title}
           notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> byl přidán do %{participatory_space_title} uživatelem %{author}.
           notification_title_official: Oficiální návrh <a href="%{resource_path}">%{resource_title}</a> byl přidán do %{participatory_space_title}.
-        proposal_rejected:
-          affected_user:
-            email_intro: 'Váš návrh "%{resource_title}" byl zamítnut. Odpověď můžete číst na této stránce:'
-            email_outro: Toto oznámení jste obdrželi, protože jste autorem položky "%{resource_title}".
-            email_subject: Váš návrh byl odmítnut
-            notification_title: Váš návrh <a href="%{resource_path}">%{resource_title}</a> byl zamítnut.
-          follower:
-            email_intro: 'Návrh "%{resource_title}" byl zamítnut. Odpověď můžete číst na této stránce:'
-            email_outro: Toto oznámení jste obdrželi, protože jste sledovali "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.
-            email_subject: Návrh, který sledujete, byl zamítnut
-            notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> byl zamítnut.
         proposal_update_category:
           email_intro: 'Správce aktualizoval kategorii vašeho návrhu "%{resource_title}", podívejte se na něj:'
           email_outro: Toto oznámení jste obdrželi, protože jste autorem návrhu.
@@ -483,11 +447,7 @@ cs:
             success: Úspěšný text byl úspěšně aktualizován.
         proposal_answers:
           form:
-            accepted: Přijato
             answer_proposal: Odpovědět
-            evaluating: Hodnocení
-            not_answered: Nezodpovězeno
-            rejected: Odmítnuto
             title: Odpověď na návrh %{title}
         proposal_notes:
           create:
@@ -621,11 +581,8 @@ cs:
           participants: Účastníci
           user_groups: Skupiny uživatelů
         filter_state_values:
-          accepted: Přijato
           all: Vše
-          evaluating: Hodnocení
           not_answered: Nezodpovězeno
-          rejected: Odmítnuto
         filter_type_values:
           all: Vše
           amendments: Změny
