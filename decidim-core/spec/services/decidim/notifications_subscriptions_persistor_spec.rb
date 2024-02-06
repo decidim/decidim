@@ -26,7 +26,7 @@ module Decidim
         let(:user) do
           create(:user, organization:, notification_settings: {
                    subscriptions: {
-                     auth_code_100: { p256dh: "value", endpoint: "value" }
+                     auth_code_100: { p256dh: "value", endpoint: "value" } # rubocop:disable Naming/VariableNumber
                    }
                  })
         end
@@ -45,8 +45,8 @@ module Decidim
       let(:user) do
         create(:user, organization:, notification_settings: {
                  subscriptions: {
-                   auth_code_121: { p256dh: "value", endpoint: "value" },
-                   auth_code_100: { p256dh: "value", endpoint: "value" }
+                   auth_code_121: { p256dh: "value", endpoint: "value" }, # rubocop:disable Naming/VariableNumber
+                   auth_code_100: { p256dh: "value", endpoint: "value" } # rubocop:disable Naming/VariableNumber
                  }
                })
       end
