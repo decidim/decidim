@@ -182,6 +182,7 @@ PATH
     decidim-templates (0.29.0.dev)
       decidim-core (= 0.29.0.dev)
       decidim-forms (= 0.29.0.dev)
+      decidim-proposals (= 0.29.0.dev)
     decidim-verifications (0.29.0.dev)
       decidim-core (= 0.29.0.dev)
 
