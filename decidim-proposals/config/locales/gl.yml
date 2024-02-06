@@ -217,7 +217,6 @@ gl:
             notification_title: A túa proposta <a href="%{resource_path}">%{resource_title}</a> foi aceptada.
           follower:
             email_intro: 'A proposta "%{resource_title}" foi aceptada. Podes ler a resposta nesta páxina:'
-            email_outro: Recibiches esta notificación porque estás seguindo "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
             notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi aceptada.
         proposal_evaluating:
           affected_user:
@@ -227,7 +226,6 @@ gl:
             notification_title: A súa proposta <a href="%{resource_path}">%{resource_title}</a> está sendo avaliada.
           follower:
             email_intro: 'A proposta "%{resource_title}" está a ser avaliada. Podes consultar unha resposta nesta páxina:'
-            email_outro: Recibiches esta notificación porque estás seguindo "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
             notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> está a ser avaliada.
         proposal_mentioned:
           email_outro: Recibiches esta notificación porque es un autor de "%{resource_title}".
@@ -249,7 +247,6 @@ gl:
             notification_title: A túa proposta <a href="%{resource_path}">%{resource_title}</a> foi rexeitada.
           follower:
             email_intro: 'A proposta "%{resource_title}" foi rexeitada. Podes ler a resposta nesta páxina:'
-            email_outro: Recibiches esta notificación porque estás seguindo "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
             notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi rexeitada.
         proposal_update_category:
           email_intro: 'Un administrador actualizou a categoría da túa proposta "%{resource_title}", comproba isto:'
@@ -377,6 +374,7 @@ gl:
             accepted: Aceptada
             answer_proposal: Resposta
             evaluating: Avaliación
+            not_answered: Non respondeu
             rejected: Rexeitado
             title: Resposta á proposta %{title}
         proposal_notes:
