@@ -68,15 +68,12 @@ de:
               not_official: Sind nicht offiziell
               supported: Haben Stimmen oder Unterstützung erhalten
     models:
-      decidim/proposals/accepted_proposal_event: Vorschlag angenommen
       decidim/proposals/admin/update_proposal_category_event: Vorschlagskategorie geändert
       decidim/proposals/admin/update_proposal_scope_event: Vorschlagsumfang geändert
       decidim/proposals/creation_enabled_event: Vorschlagserstellung aktiviert
       decidim/proposals/endorsing_enabled_event: Vorschlagsunterstützung aktiviert
-      decidim/proposals/evaluating_proposal_event: Der Vorschlag wird geprüft
       decidim/proposals/proposal_mentioned_event: Vorschlag erwähnt
       decidim/proposals/publish_proposal_event: Vorschlag veröffentlicht
-      decidim/proposals/rejected_proposal_event: Vorschlag abgelehnt
       decidim/proposals/voting_enabled_event: Vorschlagsabstimmung aktiviert
   activerecord:
     models:
@@ -268,28 +265,6 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: In %{participatory_space_title} ist es jetzt möglich, Vorschläge zu unterstützen
           notification_title: Sie können nun Vorschläge auf <a href="%{participatory_space_url}">%{participatory_space_title}</a> <a href="%{resource_path}">unterstützen</a>.
-        proposal_accepted:
-          affected_user:
-            email_intro: 'Ihr Vorschlag "%{resource_title}" wurde angenommen. Sie können die Antwort auf dieser Seite lesen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von "%{resource_title}" sind.
-            email_subject: Ihr Vorschlag wurde angenommen
-            notification_title: Ihr Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde angenommen.
-          follower:
-            email_intro: 'Der Vorschlag "%{resource_title}" wurde akzeptiert. Sie können die Antwort auf dieser Seite lesen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-            email_subject: Ein Vorschlag, dem Sie folgen, wurde akzeptiert
-            notification_title: Der Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde angenommen.
-        proposal_evaluating:
-          affected_user:
-            email_intro: 'Ihr Vorschlag "%{resource_title}" wird derzeit geprüft. Das Resultat wird auf dieser Seite aufgeschaltet werden:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von "%{resource_title}" sind.
-            email_subject: Ihr Vorschlag wird evaluiert
-            notification_title: Ihr Vorschlag <a href="%{resource_path}">%{resource_title}</a> wird evaluiert.
-          follower:
-            email_intro: 'Der Vorschlag "%{resource_title}" wird derzeit geprüft. Das Resultat wird auf dieser Seite aufgeschaltet werden:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-            email_subject: Ein Vorschlag, dem Sie folgen, wird evaluiert
-            notification_title: Der Vorschlag <a href="%{resource_path}">%{resource_title}</a> wird evaluiert.
         proposal_mentioned:
           email_intro: Ihr Vorschlag "%{mentioned_proposal_title}" wurde <a href="%{resource_url}">hier</a> in den Kommentaren erwähnt.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von "%{resource_title}" sind.
@@ -306,17 +281,6 @@ de:
           email_subject: Neuer Vorschlag "%{resource_title}" zu %{participatory_space_title} hinzugefügt
           notification_title: Der Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde von %{author} zu %{participatory_space_title} hinzugefügt.
           notification_title_official: Der offizielle Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde zu %{participatory_space_title} hinzugefügt.
-        proposal_rejected:
-          affected_user:
-            email_intro: 'Ihr Vorschlag "%{resource_title}" wurde abgelehnt. Sie können die Antwort auf dieser Seite lesen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von "%{resource_title}" sind.
-            email_subject: Ihr Vorschlag wurde abgelehnt
-            notification_title: Ihr Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde abgelehnt.
-          follower:
-            email_intro: 'Der Vorschlag "%{resource_title}" wurde abgelehnt. Sie können die Antwort auf dieser Seite lesen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-            email_subject: Ein Vorschlag, dem Sie folgen, wurde abgelehnt
-            notification_title: Der Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde abgelehnt.
         proposal_update_category:
           email_intro: 'Ein Administrator hat die Kategorie Ihres Vorschlags "%{resource_title}" aktualisiert, sehen Sie es sich an:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Autor des Vorschlags sind.
@@ -471,11 +435,7 @@ de:
             success: Partizipativer Text erfolgreich aktualisiert.
         proposal_answers:
           form:
-            accepted: Angenommen
             answer_proposal: Antworten
-            evaluating: In Bewertung
-            not_answered: Unbeantwortet
-            rejected: Abgelehnt
             title: Antwort auf Vorschlag %{title}
         proposal_notes:
           create:
@@ -607,11 +567,8 @@ de:
           participants: Teilnehmer
           user_groups: Benutzergruppen
         filter_state_values:
-          accepted: Angenommen
           all: Alle
-          evaluating: In Bearbeitung
           not_answered: Unbeantwortet
-          rejected: Abgelehnt
         filter_type_values:
           all: Alle
           amendments: Änderungsanträge
