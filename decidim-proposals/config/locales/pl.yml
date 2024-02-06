@@ -30,6 +30,8 @@ pl:
         cost: Koszt
         cost_report: Raport kosztów
         execution_period: Okres wykonawczy
+      proposal_state:
+        announcement_title: Nagłówek odpowiedzi
       proposals_copy:
         origin_component_id: Komponent z którego kopiuję propozycję
       proposals_import:
@@ -100,6 +102,8 @@ pl:
             values:
               'false': Propozycje
               'true': Poprawki
+          proposal_state_id_eq:
+            label: Stan
           scope_id_eq:
             label: Zakres
           state_eq:
@@ -238,6 +242,17 @@ pl:
           email_subject: Nowa propozycja "%{resource_title}" została dodana do %{participatory_space_title}
           notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> została dodana do %{participatory_space_title} przez %{author}.
           notification_title_official: Oficjalna propozycja <a href="%{resource_path}">%{resource_title}</a> została dodana do %{participatory_space_title}.
+        proposal_state_changed:
+          affected_user:
+            email_intro: 'Propozycja "%{resource_title}" zmieniła stan na "%{state}". Możesz przeczytać odpowiedź na tej stronie:'
+            email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś autorem "%{resource_title}".
+            email_subject: Twój wniosek zmienił stan (%{state})
+            notification_title: Twój wniosek <a href="%{resource_path}">%{resource_title}</a> zmienił stan na "%{state}".
+          follower:
+            email_intro: 'Wniosek "%{resource_title}" zmienił stan na "%{state}". Możesz przeczytać odpowiedź na tej stronie:'
+            email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz "%{resource_title}". Aby przestać otrzymywać powiadomienia, kliknij wcześniejszy link.
+            email_subject: Wniosek, który obserwujesz, zmienił swój stan (%{state})
+            notification_title: Wniosek <a href="%{resource_path}">%{resource_title}</a> zmienił stan na "%{state}".
         proposal_update_category:
           email_intro: 'Administrator zaktualizował kategorię Twojej propozycji "%{resource_title}", sprawdź to:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem propozycji.
@@ -312,9 +327,13 @@ pl:
     proposals:
       actions:
         answer_proposal: Odpowiedz na propozycję
+        delete_proposal_state_confirm: Czy jesteś pewien, że chcesz usunąć wybrany stan?
+        destroy: Usuń stan
         edit_proposal: Edytuj propozycję
+        edit_proposal_state: Edytuj stan
         import: Importuj z innego komponentu
         new: Nowa propozycja
+        new_proposal_state: Nowy status
         participatory_texts: Kolektywna legislacja
         show: Pokaż propozycję
         title: Działania
@@ -402,6 +421,23 @@ pl:
             submit: Zatwierdź
           leave_your_note: Zostaw swoją notatkę
           title: Prywatne notatki
+        proposal_states:
+          create:
+            error: Błąd podczas tworzenia stanu
+            success: Status zaktualizowany pomyślnie
+          destroy:
+            success: Status usunięty pomyślnie
+          edit:
+            title: Edytuj status
+            update: Aktualizuj
+          index:
+            title: Statusy
+          new:
+            create: Utwórz
+            title: Nowy status
+          update:
+            error: Błąd podczas aktualizowania statusu
+            success: Status zaktualizowany pomyślnie
         proposals:
           answer:
             invalid: Wystąpił błąd podczas odpowiadania na tę propozycję.
@@ -433,6 +469,7 @@ pl:
             selected: wybrany
             split: Podziel propozycje
             split_button: Podziel
+            statuses: Statusy
             title: Propozycje
             unassign_from_valuator: Anuluj przypisanie do weryfikatora
             unassign_from_valuator_button: Anuluj przypisanie
@@ -637,6 +674,9 @@ pl:
             valuator: Weryfikator
             valuators: Weryfikatorzy
             votes: Głosy
+        proposal_state:
+          css_class: klasa CSS
+          title: Status
       participatory_text_proposal:
         alternative_title: W tej chwili nie ma żadnych kolektywnych legislacji
         buttons:
