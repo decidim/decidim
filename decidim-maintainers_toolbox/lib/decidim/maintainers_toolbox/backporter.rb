@@ -26,7 +26,7 @@ module Decidim::MaintainersToolbox
       metadata = pull_request_metadata
       make_cherrypick_and_branch(metadata)
       create_pull_request(metadata)
-      Decidim::GitBackportManager.checkout_develop
+      Decidim::MaintainersToolbox::GitBackportManager.checkout_develop
     end
 
     private
@@ -37,7 +37,7 @@ module Decidim::MaintainersToolbox
     #
     # @return [Faraday::Response] An instance that represents an HTTP response from making an HTTP request
     def pull_request_metadata
-      Decidim::GithubManager::Querier::ByIssueId.new(
+      Decidim::MaintainersToolbox::GithubManager::Querier::ByIssueId.new(
         token: issue,
         issue_id: pull_request_id
       ).call
@@ -47,7 +47,7 @@ module Decidim::MaintainersToolbox
     #
     # @return [void]
     def make_cherrypick_and_branch(metadata)
-      Decidim::GitBackportManager.new(
+      Decidim::MaintainersToolbox::GitBackportManager.new(
         pull_request_id: pull_request_id,
         release_branch: request_branch,
         backport_branch: backport_branch(metadata[:title]),
@@ -67,7 +67,7 @@ module Decidim::MaintainersToolbox
         base: release_branch
       }
 
-      Decidim::GithubManager::Poster.new(
+      Decidim::MaintainersToolbox::GithubManager::Poster.new(
         token: token,
         params: params
       ).call

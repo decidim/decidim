@@ -20,12 +20,12 @@ class ReleaserCLI < Thor
   default_task :releaser
 
   def releaser
-    Decidim::Releaser.new(
+    Decidim::MaintainersToolbox::Releaser.new(
       token: options[:github_token],
       version_type: options[:version_type],
       exit_with_unstaged_changes: options[:exit_with_unstaged_changes]
     ).call
-  rescue Decidim::Releaser::InvalidMetadataError
+  rescue Decidim::MaintainersToolbox::Releaser::InvalidMetadataError
     puts "Metadata was not returned from the server. Please check that the GitHub token is correct."
   end
 

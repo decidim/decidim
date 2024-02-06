@@ -25,14 +25,14 @@ class BackportsCheckerCLI < Thor
   default_task :backports_checker
 
   def backports_checker
-    checker = Decidim::GitBackportChecker.new(
+    checker = Decidim::MaintainersToolbox::GitBackportChecker.new(
       token: options[:github_token],
       last_version_number: options[:last_version_number],
       days_to_check_from: options[:days_to_check_from]
     )
     checker.call
     puts checker.cli_report
-  rescue Decidim::GithubManager::Querier::Base::InvalidMetadataError
+  rescue Decidim::MaintainersToolbox::GithubManager::Querier::Base::InvalidMetadataError
     puts "Metadata was not returned from the server. Please check that the provided GitHub token is correct."
   end
 

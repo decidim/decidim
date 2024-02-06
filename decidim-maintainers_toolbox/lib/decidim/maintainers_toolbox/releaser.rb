@@ -221,7 +221,7 @@ You will see errors such as `No matching version found for @decidim/browserslist
         head: head_branch,
         base: base_branch
       }
-      Decidim::GithubManager::Poster.new(token: @token, params: params).call
+      Decidim::MaintainersToolbox::GithubManager::Poster.new(token: @token, params: params).call
     end
 
     # Captures to output of a command
@@ -242,7 +242,7 @@ You will see errors such as `No matching version found for @decidim/browserslist
     #
     # @return [Boolean] - true if there is any open PR
     def pending_crowdin_pull_requests?
-      pull_requests = Decidim::GithubManager::Querier::ByTitle.new(token: @token, title: "New Crowdin updates").call
+      pull_requests = Decidim::MaintainersToolbox::GithubManager::Querier::ByTitle.new(token: @token, title: "New Crowdin updates").call
       pull_requests.any?
     end
 
