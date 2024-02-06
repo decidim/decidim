@@ -222,7 +222,6 @@ hu:
             notification_title: Javaslata <a href="%{resource_path}">%{resource_title}</a> elfogadva.
           follower:
             email_intro: 'A(z) "%{resource_title}" című javaslat elfogadva. További részletek a következő oldalon:'
-            email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{resource_title}". Leiratkozás az előző link segítségével.'
             email_subject: Elfogadtak egy javaslatot, amelyet követ
             notification_title: A <a href="%{resource_path}">%{resource_title}</a> című javaslatot elfogadták.
         proposal_evaluating:
@@ -233,7 +232,6 @@ hu:
             notification_title: Javaslata <a href="%{resource_path}">%{resource_title}</a> értékelődik.
           follower:
             email_intro: 'A(z) "%{resource_title}" című javaslatot éppen értékelik. További részletek a következő oldalon:'
-            email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{resource_title}". Leiratkozás az előző link segítségével.'
             email_subject: A követett javaslat értékelése folyamatban van
             notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> javaslat értékelése folyamatban.
         proposal_mentioned:
@@ -260,7 +258,6 @@ hu:
             notification_title: Javaslata <a href="%{resource_path}">%{resource_title}</a> elutasításra került.
           follower:
             email_intro: 'A(z) "%{resource_title}" című javaslat elutasítva. További részletek a következő oldalon:'
-            email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{resource_title}". Leiratkozás az előző link segítségével.'
             email_subject: A követett javaslatot elutasították
             notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> című javaslatot elutasították.
         proposal_update_category:
@@ -404,7 +401,7 @@ hu:
             accepted: Elfogadva
             answer_proposal: Válasz
             evaluating: Értékelés
-            not_answered: Megválaszolatlan
+            not_answered: Nem megválaszolt
             rejected: Elutasítva
             title: Válasz a(z) %{title} javaslatra
         proposal_notes:
