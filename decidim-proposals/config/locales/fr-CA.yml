@@ -68,15 +68,12 @@ fr-CA:
               not_official: Non officiels
               supported: A reçu des soutiens ou des approbations
     models:
-      decidim/proposals/accepted_proposal_event: Proposition acceptée
       decidim/proposals/admin/update_proposal_category_event: Catégorie de proposition modifiée
       decidim/proposals/admin/update_proposal_scope_event: La portée de la proposition a été modifiée
       decidim/proposals/creation_enabled_event: Autoriser la création de nouvelles propositions
       decidim/proposals/endorsing_enabled_event: Activer le module de soutiens
-      decidim/proposals/evaluating_proposal_event: Proposition en cours d'évaluation
       decidim/proposals/proposal_mentioned_event: Proposition mentionnée
       decidim/proposals/publish_proposal_event: Proposition publiée
-      decidim/proposals/rejected_proposal_event: Proposition non retenue
       decidim/proposals/voting_enabled_event: Activer le module de vote simple
   activerecord:
     models:
@@ -268,28 +265,6 @@ fr-CA:
           email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en cliquant sur ce dernier lien.
           email_subject: Vous pouvez désormais soutenir des propositions dans %{participatory_space_title}
           notification_title: Vous pouvez maintenant commencer à <a href="%{resource_path}">soutenir les propositions</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
-        proposal_accepted:
-          affected_user:
-            email_intro: 'Votre proposition "%{resource_title}" a été acceptée. Vous pouvez lire la réponse sur cette page:'
-            email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}".
-            email_subject: Votre proposition a été acceptée
-            notification_title: Votre proposition <a href="%{resource_path}">%{resource_title}</a> a été acceptée.
-          follower:
-            email_intro: 'La proposition "%{resource_title}" a été acceptée. Vous pouvez lire la réponse sur cette page :'
-            email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}". Vous pouvez à tout moment arrêter de la suivre en cliquant sur ce dernier lien.
-            email_subject: Une proposition que vous suivez a été acceptée
-            notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été acceptée.
-        proposal_evaluating:
-          affected_user:
-            email_intro: 'Votre proposition "%{resource_title}" est en cours d''évaluation. Vous pouvez rechercher une réponse sur cette page:'
-            email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}".
-            email_subject: Votre proposition est en cours d'évaluation
-            notification_title: Votre proposition <a href="%{resource_path}">%{resource_title}</a> est en cours d'évaluation.
-          follower:
-            email_intro: 'La proposition "%{resource_title}" est en cours d''évaluation. Vous pouvez consulter cette page pour voir si une réponse a été formulée :'
-            email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}". Vous pouvez à tout moment arrêter de la suivre en cliquant sur ce dernier lien.
-            email_subject: Une proposition que vous suivez est en cours d'évaluation
-            notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> est en cours d'évaluation.
         proposal_mentioned:
           email_intro: Votre proposition "%{mentioned_proposal_title}" a été mentionnée <a href="%{resource_url}">dans cet espace</a> dans les commentaires.
           email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}".
@@ -306,17 +281,6 @@ fr-CA:
           email_subject: Nouvelle proposition "%{resource_title}" ajoutée à %{participatory_space_title}
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title} par %{author}.
           notification_title_official: La proposition officielle <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title}.
-        proposal_rejected:
-          affected_user:
-            email_intro: 'Votre proposition "%{resource_title}" a été rejetée. Vous pouvez lire la réponse sur cette page:'
-            email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}".
-            email_subject: Votre proposition a été rejetée
-            notification_title: Votre proposition <a href="%{resource_path}">%{resource_title}</a> a été rejetée.
-          follower:
-            email_intro: 'La proposition "%{resource_title}" n''a pas été retenue. Vous pouvez lire le commentaire ici :'
-            email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}". Vous pouvez à tout moment arrêter de la suivre en cliquant sur ce dernier lien.
-            email_subject: Une proposition que vous suivez a été rejetée
-            notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> n'a pas été retenue.
         proposal_update_category:
           email_intro: 'Un administrateur a mis à jour la catégorie de votre proposition "%{resource_title}". Vous pouvez y accéder ici :'
           email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de la proposition.
@@ -471,11 +435,7 @@ fr-CA:
             success: Texte participatif mis à jour avec succès.
         proposal_answers:
           form:
-            accepted: Retenue
             answer_proposal: Répondre
-            evaluating: En cours d'évaluation
-            not_answered: Non répondu
-            rejected: Non retenue
             title: Réponse à la proposition %{title}
         proposal_notes:
           create:
@@ -607,11 +567,8 @@ fr-CA:
           participants: Participants
           user_groups: Groupes d'utilisateurs
         filter_state_values:
-          accepted: Accepté
           all: Tout
-          evaluating: En cours d'évaluation
           not_answered: En attente de réponse
-          rejected: Rejeté
         filter_type_values:
           all: Tout
           amendments: Amendements
