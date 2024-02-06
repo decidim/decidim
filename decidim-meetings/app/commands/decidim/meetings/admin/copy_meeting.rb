@@ -89,8 +89,8 @@ module Decidim
           form.services_to_persist.map do |service|
             Decidim::Meetings::Service.create!(
               meeting: copied_meeting,
-              "title" => service.title,
-              "description" => service.description
+              title: service.title,
+              description: service.description
             )
           end
         end

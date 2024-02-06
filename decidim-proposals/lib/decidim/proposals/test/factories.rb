@@ -5,11 +5,19 @@ require "decidim/core/test/factories"
 require "decidim/participatory_processes/test/factories"
 require "decidim/meetings/test/factories"
 
+def generate_state_title(token)
+  Decidim::Faker::Localized.localized { I18n.t(token, scope: "decidim.proposals.answers") }
+end
+
 FactoryBot.define do
   factory :proposal_component, parent: :component do
     name { Decidim::Components::Namer.new(participatory_space.organization.available_locales, :proposals).i18n_name }
     manifest_name { :proposals }
     participatory_space { create(:participatory_process, :with_steps, organization:) }
+
+    after :create do |proposal_component|
+      Decidim::Proposals.create_default_states!(proposal_component, nil, with_traceability: false)
+    end
 
     trait :with_endorsements_enabled do
       step_settings do
@@ -243,12 +251,40 @@ FactoryBot.define do
     end
   end
 
+  factory :proposal_state, class: "Decidim::Proposals::ProposalState" do
+    token { :not_answered }
+    title { generate_state_title(:not_answered) }
+    component { build(:proposal_component) }
+    css_class { "" }
+
+    trait :evaluating do
+      title { generate_state_title(:evaluating) }
+      token { :evaluating }
+    end
+
+    trait :accepted do
+      title { generate_state_title(:accepted) }
+      token { :accepted }
+    end
+
+    trait :rejected do
+      title { generate_state_title(:rejected) }
+      token { :rejected }
+    end
+
+    trait :withdrawn do
+      title { generate_state_title(:withdrawn) }
+      token { :withdrawn }
+    end
+  end
+
   factory :proposal, class: "Decidim::Proposals::Proposal" do
     transient do
       users { nil }
       # user_groups correspondence to users is by sorting order
       user_groups { [] }
       skip_injection { false }
+      state { :not_answered }
     end
 
     title do
@@ -287,6 +323,14 @@ FactoryBot.define do
     end
 
     after(:build) do |proposal, evaluator|
+      if proposal.component
+        existing_states = Decidim::Proposals::ProposalState.where(component: proposal.component)
+
+        Decidim::Proposals.create_default_states!(proposal.component, nil, with_traceability: false) unless existing_states.any?
+      end
+
+      proposal.assign_state(evaluator.state)
+
       proposal.title = if evaluator.title.is_a?(String)
                          { proposal.try(:organization).try(:default_locale) || "en" => evaluator.title }
                        else
@@ -351,19 +395,19 @@ FactoryBot.define do
     end
 
     trait :evaluating do
-      state { "evaluating" }
+      state { :evaluating }
       answered_at { Time.current }
       state_published_at { Time.current }
     end
 
     trait :accepted do
-      state { "accepted" }
+      state { :accepted }
       answered_at { Time.current }
       state_published_at { Time.current }
     end
 
     trait :rejected do
-      state { "rejected" }
+      state { :rejected }
       answered_at { Time.current }
       state_published_at { Time.current }
     end
@@ -373,14 +417,14 @@ FactoryBot.define do
     end
 
     trait :accepted_not_published do
-      state { "accepted" }
+      state { :accepted }
       answered_at { Time.current }
       state_published_at { nil }
       answer { generate_localized_title }
     end
 
     trait :with_answer do
-      state { "accepted" }
+      state { :accepted }
       answer { generate_localized_title }
       answered_at { Time.current }
       state_published_at { Time.current }
