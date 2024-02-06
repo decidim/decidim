@@ -35,6 +35,8 @@ pl:
         proposal_answer_templates:
           form:
             save: Zapisz
+          index:
+            internal_state: Stan wewnętrzny
         questionnaire_templates:
           choose:
             create_from_template: Utwórz z szablonu
