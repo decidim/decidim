@@ -48,15 +48,12 @@ hu:
             title:
               identical: A szövegtörzs nem lehet azonos
     models:
-      decidim/proposals/accepted_proposal_event: Javaslat elfogadva
       decidim/proposals/admin/update_proposal_category_event: Javaslat kategória megváltozott
       decidim/proposals/admin/update_proposal_scope_event: Javaslat hatáskör megváltozott
       decidim/proposals/creation_enabled_event: Javaslat létrehozása engedélyezve
       decidim/proposals/endorsing_enabled_event: Javaslat jóváhagyás engedélyezve
-      decidim/proposals/evaluating_proposal_event: Javaslat értékelése folyamatban
       decidim/proposals/proposal_mentioned_event: Javaslat megemlítve
       decidim/proposals/publish_proposal_event: Javaslat közzétéve
-      decidim/proposals/rejected_proposal_event: Javaslat elutasítva
       decidim/proposals/voting_enabled_event: Javaslatról szavazás engedélyezve
   activerecord:
     models:
@@ -213,28 +210,6 @@ hu:
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
           email_subject: 'Javaslatok jóváhagyása elkezdődött itt: %{participatory_space_title}'
           notification_title: 'Mostantól <a href="%{resource_path}">támogathatsz javaslatokat</a> itt: <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
-        proposal_accepted:
-          affected_user:
-            email_intro: 'Javaslata "%{resource_title}" elfogadva. A válasz ezen az oldalon olvasható:'
-            email_outro: Ezt az értesítést megkapta, mert a "%{resource_title}" szerzője.
-            email_subject: A javaslatodat elfogadták
-            notification_title: Javaslata <a href="%{resource_path}">%{resource_title}</a> elfogadva.
-          follower:
-            email_intro: 'A(z) "%{resource_title}" című javaslat elfogadva. További részletek a következő oldalon:'
-            email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{resource_title}". Leiratkozás az előző link segítségével.'
-            email_subject: Elfogadtak egy javaslatot, amelyet követ
-            notification_title: A <a href="%{resource_path}">%{resource_title}</a> című javaslatot elfogadták.
-        proposal_evaluating:
-          affected_user:
-            email_intro: 'A "%{resource_title}" ajánlat jelenleg értékelés alatt áll. Ellenőrizheti a választ ezen az oldalon:'
-            email_outro: Ezt az értesítést megkapta, mert a "%{resource_title}" szerzője.
-            email_subject: A javaslat értékelése folyamatban van
-            notification_title: Javaslata <a href="%{resource_path}">%{resource_title}</a> értékelődik.
-          follower:
-            email_intro: 'A(z) "%{resource_title}" című javaslatot éppen értékelik. További részletek a következő oldalon:'
-            email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{resource_title}". Leiratkozás az előző link segítségével.'
-            email_subject: A követett javaslat értékelése folyamatban van
-            notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> javaslat értékelése folyamatban.
         proposal_mentioned:
           email_intro: A(z) "%{mentioned_proposal_title}" című javaslatodat említette valaki <a href="%{resource_url}">egy megjegyzésben</a>.
           email_outro: Ezt az értesítést megkapta, mert a "%{resource_title}" szerzője.
@@ -251,17 +226,6 @@ hu:
           email_subject: Új javaslat "%{resource_title}" hozzáadva az %{participatory_space_title}
           notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> című javaslat hozzáadva ehhez: %{participatory_space_title}.'
           notification_title_official: 'A(z) <a href="%{resource_path}">%{resource_title}</a> című hivatalos javaslat hozzáadva ehhez: %{participatory_space_title}.'
-        proposal_rejected:
-          affected_user:
-            email_intro: 'Javaslata "%{resource_title}" elutasításra került. A válasz ezen az oldalon olvasható:'
-            email_outro: Ezt az értesítést megkapta, mert a "%{resource_title}" szerzője.
-            email_subject: Javaslata elutasításra került
-            notification_title: Javaslata <a href="%{resource_path}">%{resource_title}</a> elutasításra került.
-          follower:
-            email_intro: 'A(z) "%{resource_title}" című javaslat elutasítva. További részletek a következő oldalon:'
-            email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{resource_title}". Leiratkozás az előző link segítségével.'
-            email_subject: A követett javaslatot elutasították
-            notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> című javaslatot elutasították.
         proposal_update_category:
           email_intro: 'Az admin frissítette a(z) "%{resource_title}" című javaslatod kategóriáját, ellenőrizd:'
           email_outro: Ezt az értesítést kaptad, mert te vagy a javaslat szerzője.
@@ -400,11 +364,7 @@ hu:
             success: A részvételi szöveg sikeresen frissült.
         proposal_answers:
           form:
-            accepted: Elfogadva
             answer_proposal: Válasz
-            evaluating: Értékelés
-            not_answered: Megválaszolatlan
-            rejected: Elutasítva
             title: Válasz a(z) %{title} javaslatra
         proposal_notes:
           create:
@@ -518,11 +478,8 @@ hu:
           participants: Résztvevők
           user_groups: Felhasználói csoportok
         filter_state_values:
-          accepted: Elfogadva
           all: Minden
-          evaluating: Értékelés
           not_answered: Nem megválaszolt
-          rejected: Elutasítva
         filter_type_values:
           all: Minden
           amendments: Módosítások
