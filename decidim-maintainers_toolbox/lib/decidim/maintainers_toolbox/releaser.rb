@@ -3,6 +3,7 @@
 require "open3"
 require_relative "github_manager/poster"
 require_relative "github_manager/querier/by_title"
+require_relative "changelog_generator"
 
 module Decidim::MaintainersToolbox
   class Releaser
@@ -188,7 +189,7 @@ module Decidim::MaintainersToolbox
     # @return [void]
     def generate_changelog
       sha_version = capture("git log -n 1 --pretty=format:%h -- .decidim-version")[0]
-      run("decidim-changelog-generator #{@token} #{sha_version}")
+      ChangeLogGenerator.new(token: @token, since_sha: sha_version).call
       temporary_changelog = File.read("./temporary_changelog.md")
       legacy_changelog = File.read("./CHANGELOG.md")
       version_changelog = "## [#{version_number}](https://github.com/decidim/decidim/tree/#{version_number})\n\n#{temporary_changelog}\n"
