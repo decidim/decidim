@@ -78,7 +78,7 @@ $(() => {
 
       if (action) {
         $(`#js-form-${action}`).on("submit", () => {
-          $(".layout-content > .callout-wrapper").html("");
+          $(".layout-content > div[data-callout-wrapper]").html("");
         })
 
         $(`#js-${action}-actions`).removeClass("hide");
