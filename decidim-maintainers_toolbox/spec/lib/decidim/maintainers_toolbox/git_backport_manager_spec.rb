@@ -19,7 +19,7 @@ describe Decidim::MaintainersToolbox::GitBackportManager do
     `
       git init --initial-branch=develop .
       git config user.email "decidim_git_backport_manager_test@example.com"
-      git config user.name "Decidim::GitBackportManager test"
+      git config user.name "Decidim::MaintainersToolbox::GitBackportManager test"
 
       touch a_file.txt
       git add a_file.txt
