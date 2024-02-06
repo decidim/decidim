@@ -5,17 +5,12 @@ require "spec_helper"
 describe "Admin creates proposals" do
   let(:manifest_name) { "proposals" }
   let(:creation_enabled?) { true }
-  let!(:component) do
-    create(:proposal_component,
-           :with_creation_enabled,
-           :with_attachments_allowed,
-           manifest:,
-           participatory_space: participatory_process)
-  end
   let(:new_title) { "This is my proposal new title" }
   let(:new_body) { "This is my proposal new body" }
 
-  include_context "when managing a component as an admin"
+  include_context "when managing a component as an admin" do
+    let!(:component) { create(:proposal_component, participatory_space:) }
+  end
 
   before do
     component.update!(

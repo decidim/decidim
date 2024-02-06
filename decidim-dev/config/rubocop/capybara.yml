@@ -6,9 +6,6 @@ Capybara:
   Include: &1
     - "**/spec/**/*.rb"
 
-Capybara/ClickLinkOrButtonStyle:
-  Enabled: true
-
 Capybara/NegationMatcher:
   Enabled: false
 
