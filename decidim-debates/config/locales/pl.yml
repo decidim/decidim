@@ -171,12 +171,6 @@ pl:
     events:
       debates:
         create_debate_event:
-          space_followers:
-            email_intro: |-
-              Nowa debata "%{resource_title}" została utworzona w przestrzeni partycypacyjnej %{space_title}, sprawdź ją i przyłącz się:
-            email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz przestrzeń partycypacyjną %{space_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
-            email_subject: Nowa debata "%{resource_title}" w %{space_title}
-            notification_title: Debata <a href="%{resource_path}">%{resource_title}</a> została utworzona w <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
               Cześć,
