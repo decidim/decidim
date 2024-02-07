@@ -140,13 +140,6 @@ zh-CN:
     events:
       debates:
         create_debate_event:
-          space_followers:
-            email_intro: |-
-              您好，
-              在参与性的 %{space_title} 空间上创建了一个新的辩论"%{resource_title}"。查看它并做出贡献：
-            email_outro: 您收到此通知是因为您正在关注 %{space_title} 个参与性空间。您可以停止收到跟随上一个链接的通知。
-            email_subject: 在%{resource_title}上的新辩论 " %{space_title}
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> 辩论是在 <a href="%{space_path}">%{space_title}</a> 创建的。
           user_followers:
             email_intro: |-
               你好，
