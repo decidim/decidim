@@ -97,9 +97,6 @@ uk:
     events:
       debates:
         create_debate_event:
-          space_followers:
-            email_outro: Ви отримали це сповіщення, тому що ви стежите за простором співучасті %{space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
-            notification_title: <a href="%{space_path}">%{space_title} </a> розпочав обговорення у <a href="%{resource_path}">%{resource_title}</a>.
           user_followers:
             email_outro: Ви отримали це сповіщення, тому що ви стежите за %{author_nickname}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
         creation_disabled:
