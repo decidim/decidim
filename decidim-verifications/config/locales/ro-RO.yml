@@ -172,8 +172,6 @@ ro:
           new:
             send: Cere verificare
             title: Încarcă documentul tău de identitate
-        dni: CI
-        nie: Viză de flotant/permis de ședere pentru rezidenți
         passport: Pașaport
       postal_letter:
         admin:
