@@ -731,7 +731,6 @@ linters:
           - is-overlay-fixed
           - is-pseudo-focused
           - is-searchable
-          - is-selected
           - is-stuck
           - is-transition-overlap
           - is-transition-push
@@ -1568,7 +1567,6 @@ linters:
           - select2-selection__clear
           - select2-selection__placeholder
           - select2-selection__rendered
-          - selected
           - selection
           - session-box
           - share
