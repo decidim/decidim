@@ -79,12 +79,6 @@ lv:
     events:
       debates:
         create_debate_event:
-          space_followers:
-            email_intro: |-
-              Sveiki, %{space_title} līdzdalības telpā ir izveidotas jaunas debates "%{resource_title}", aplūkojiet tās un piedalieties:
-            email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{participatory_space_title}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
-            email_subject: Jaunas debates "%{resource_title}" par %{space_title}
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> debates tika izveidotas telpā <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
               Sveiki,%{author_name}%{author_nickname}, kam jūs sekojat, ir izveidojis jaunas debates "%{resource_title}". Aplūkojiet tās un piedalieties:
