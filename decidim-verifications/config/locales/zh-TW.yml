@@ -225,8 +225,6 @@ zh-TW:
           update:
             error: 重新上傳您的文件時發生問題.
             success: 文件已成功重新上傳.
-        dni: DNI
-        nie: NIE
         passport: 護照
       postal_letter:
         admin:
