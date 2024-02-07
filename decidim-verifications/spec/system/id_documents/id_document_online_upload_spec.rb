@@ -21,7 +21,7 @@ describe "Identity document online upload" do
 
   it "allows the user to upload their identity document" do
     submit_upload_form(
-      doc_type: "DNI",
+      doc_type: "Identification number",
       doc_number: "XXXXXXXX",
       file_name: "id.jpg"
     )
@@ -31,7 +31,7 @@ describe "Identity document online upload" do
 
   it "does not allow to upload an invalid file" do
     submit_upload_form(
-      doc_type: "DNI",
+      doc_type: "Identification number",
       doc_number: "XXXXXXXX",
       file_name: "Exampledocument.pdf",
       keep_modal_open: true
