@@ -156,8 +156,6 @@ sv:
           new:
             send: Begär verifiering
             title: Skicka in din identitetshandling
-        dni: ID-kort
-        nie: Personnummer
         passport: Pass
       postal_letter:
         admin:
