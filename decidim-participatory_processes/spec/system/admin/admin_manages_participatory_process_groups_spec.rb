@@ -166,7 +166,7 @@ describe "Admin manages participatory process groups" do
 
       click_button "Update"
 
-      expect(page).not_to have_css("img")
+      expect(page).to have_no_css("img")
     end
 
     it "can delete them" do
@@ -177,7 +177,7 @@ describe "Admin manages participatory process groups" do
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).not_to have_content(participatory_process_group.title["en"])
+        expect(page).to have_no_content(participatory_process_group.title["en"])
       end
     end
 

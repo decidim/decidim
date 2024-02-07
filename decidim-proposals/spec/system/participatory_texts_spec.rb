@@ -26,7 +26,7 @@ describe "Participatory texts" do
     expect(prop_block).to have_link("Comment") if component.settings.comments_enabled
     expect(prop_block).to have_link(proposal.comments_count.to_s) if component.settings.comments_enabled
     expect(prop_block).to have_content(clean_proposal_body) if proposal.participatory_text_level == "article"
-    expect(prop_block).not_to have_content(clean_proposal_body) if proposal.participatory_text_level != "article"
+    expect(prop_block).to have_no_content(clean_proposal_body) if proposal.participatory_text_level != "article"
   end
 
   shared_examples_for "lists all the proposals ordered" do
@@ -83,7 +83,7 @@ describe "Participatory texts" do
       proposal_title = translated(proposals.first.title)
       find("#proposals section[id^='proposal']", text: proposal_title).hover
       within all("#proposals section[id^='proposal']").first, visible: :visible do
-        expect(page).not_to have_css(".amend-buttons")
+        expect(page).to have_no_css(".amend-buttons")
       end
     end
   end

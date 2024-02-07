@@ -24,7 +24,7 @@ shared_examples "publish answers" do
         sleep(1)
         expect(page).to have_content(I18n.t("proposals.publish_answers.success", scope: "decidim"))
         break
-      rescue e
+      rescue StandardError
         # ignore and loop again if ajax content is still not there
         nil
       end
@@ -40,7 +40,7 @@ shared_examples "publish answers" do
       page.all("[data-published-state=false] .js-proposal-list-check").each { |c| c.set(false) }
 
       click_button "Actions"
-      expect(page).not_to have_content("Publish answers")
+      expect(page).to have_no_content("Publish answers")
     end
   end
 end

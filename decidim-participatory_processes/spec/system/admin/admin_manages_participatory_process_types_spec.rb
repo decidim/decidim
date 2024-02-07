@@ -78,7 +78,7 @@ describe "Admin manages participatory process types" do
 
         expect(page).to have_admin_callout("successfully")
 
-        expect(page).not_to have_content(translated(participatory_process_type.title))
+        expect(page).to have_no_content(translated(participatory_process_type.title))
       end
     end
   end

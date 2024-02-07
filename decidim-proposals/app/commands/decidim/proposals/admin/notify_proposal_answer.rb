@@ -11,7 +11,7 @@ module Decidim
         # initial_state - The proposal state before the current process.
         def initialize(proposal, initial_state)
           @proposal = proposal
-          @initial_state = initial_state.to_s
+          @initial_state = initial_state
         end
 
         # Executes the command. Broadcasts these events:
@@ -42,28 +42,11 @@ module Decidim
         end
 
         def notify_followers
-          if proposal.accepted?
-            publish_event(
-              "decidim.events.proposals.proposal_accepted",
-              Decidim::Proposals::AcceptedProposalEvent
-            )
-          elsif proposal.rejected?
-            publish_event(
-              "decidim.events.proposals.proposal_rejected",
-              Decidim::Proposals::RejectedProposalEvent
-            )
-          elsif proposal.evaluating?
-            publish_event(
-              "decidim.events.proposals.proposal_evaluating",
-              Decidim::Proposals::EvaluatingProposalEvent
-            )
-          end
-        end
+          return if proposal.state == "not_answered"
 
-        def publish_event(event, event_class)
           Decidim::EventsManager.publish(
-            event:,
-            event_class:,
+            event: "decidim.events.proposals.proposal_state_changed",
+            event_class: Decidim::Proposals::ProposalStateChangedEvent,
             resource: proposal,
             affected_users: proposal.notifiable_identities,
             followers: proposal.followers - proposal.notifiable_identities

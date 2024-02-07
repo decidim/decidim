@@ -62,10 +62,22 @@ module Decidim
             allow!
           end
 
+          if permission_action.subject == :proposal_state
+            if permission_action.action == :destroy
+              toggle_allow(proposal_state.proposals.empty?)
+            else
+              allow!
+            end
+          end
+
           permission_action
         end
 
         private
+
+        def proposal_state
+          @state ||= context.fetch(:proposal_state, nil)
+        end
 
         def proposal
           @proposal ||= context.fetch(:proposal, nil)

@@ -49,7 +49,7 @@ describe "Filter Assemblies" do
         expect(page).to have_selector(".card__grid", count: 2)
         expect(page).to have_content(translated(assemblies[0].title))
         expect(page).to have_content(translated(assemblies[1].title))
-        expect(page).not_to have_content(translated(assemblies[2].title))
+        expect(page).to have_no_content(translated(assemblies[2].title))
       end
     end
   end
@@ -63,7 +63,7 @@ describe "Filter Assemblies" do
 
     it "does not show the assemblies types filter" do
       within("#dropdown-menu-filters") do
-        expect(page).not_to have_css("#dropdown-menu-filters div.filter-container", text: "Type")
+        expect(page).to have_no_css("#dropdown-menu-filters div.filter-container", text: "Type")
       end
     end
   end
@@ -81,7 +81,7 @@ describe "Filter Assemblies" do
       it "lists all processes belonging to that scope" do
         within "#assemblies-grid" do
           expect(page).to have_content(translated(assembly_with_scope.title))
-          expect(page).not_to have_content(translated(assembly_without_scope.title))
+          expect(page).to have_no_content(translated(assembly_without_scope.title))
         end
       end
     end
@@ -126,7 +126,7 @@ describe "Filter Assemblies" do
         it "lists all processes belonging to that area" do
           within "#assemblies-grid" do
             expect(page).to have_content(translated(assembly_with_area.title))
-            expect(page).not_to have_content(translated(assembly_without_area.title))
+            expect(page).to have_no_content(translated(assembly_without_area.title))
           end
         end
       end
@@ -145,7 +145,7 @@ describe "Filter Assemblies" do
           within "#assemblies-grid" do
             expect(page).to have_content(translated(assembly_with_area.title))
             expect(page).to have_content(translated(assembly_with_other_area.title))
-            expect(page).not_to have_content(translated(assembly_without_area.title))
+            expect(page).to have_no_content(translated(assembly_without_area.title))
           end
         end
       end

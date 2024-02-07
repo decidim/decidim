@@ -114,7 +114,7 @@ module Decidim
         project
           .slice(:latitude, :longitude, :address)
           .merge(
-            title: decidim_html_escape(translated_attribute(project.title)),
+            title: decidim_escape_translated(project.title),
             link: ::Decidim::ResourceLocatorPresenter.new([project.budget, project]).path,
             items: cell("decidim/budgets/project_metadata", project).send(:project_items_for_map).to_json
           )

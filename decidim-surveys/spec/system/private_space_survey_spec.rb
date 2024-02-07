@@ -55,7 +55,7 @@ describe "Private Space Answer a survey" do
         expect(page).to have_i18n_content(questionnaire.title)
         expect(page).to have_i18n_content(questionnaire.description)
 
-        expect(page).not_to have_css(".form.answer-questionnaire")
+        expect(page).to have_no_css(".form.answer-questionnaire")
 
         within "[data-question-readonly]" do
           expect(page).to have_i18n_content(question.body)

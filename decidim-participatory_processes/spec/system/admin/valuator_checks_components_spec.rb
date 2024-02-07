@@ -33,7 +33,7 @@ describe "Valuator checks components" do
 
       within ".table-list" do
         expect(page).to have_content(translated(current_component.name))
-        expect(page).not_to have_content(translated(another_component.name))
+        expect(page).to have_no_content(translated(another_component.name))
       end
     end
   end

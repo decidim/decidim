@@ -37,7 +37,7 @@ describe "ProfileConversations" do
     end
 
     it "does not have a contact link" do
-      expect(page).not_to have_link(title: "Contact", href: decidim.new_conversation_path(recipient_id: profile.id))
+      expect(page).to have_no_link(title: "Contact", href: decidim.new_conversation_path(recipient_id: profile.id))
     end
   end
 
@@ -73,7 +73,7 @@ describe "ProfileConversations" do
     end
 
     it "shows an empty conversation page" do
-      expect(page).not_to have_selector(".conversation__item")
+      expect(page).to have_no_selector(".conversation__item")
       expect(page).to have_current_path decidim.new_profile_conversation_path(nickname: profile.nickname, recipient_id: recipient.id)
     end
 
@@ -84,7 +84,7 @@ describe "ProfileConversations" do
 
       context "and recipient does not follow user" do
         it "redirects user with access error" do
-          expect(page).not_to have_current_path decidim.new_profile_conversation_path(nickname: profile.nickname, recipient_id: recipient.id)
+          expect(page).to have_no_current_path decidim.new_profile_conversation_path(nickname: profile.nickname, recipient_id: recipient.id)
           expect(page).to have_content("You are not authorized to perform this action")
         end
 
@@ -213,7 +213,7 @@ describe "ProfileConversations" do
       end
 
       it "does not show the topbar button the number of unread messages" do
-        expect(page).not_to have_selector("li.profile__tab.is-active .conversation__item-unread")
+        expect(page).to have_no_selector("li.profile__tab.is-active .conversation__item-unread")
       end
 
       it "does not show an unread count" do
@@ -224,7 +224,7 @@ describe "ProfileConversations" do
       it "conversation page does not show the number of unread messages" do
         visit_inbox
 
-        expect(page).not_to have_selector(".user-groups .card--list__author .card--list__counter")
+        expect(page).to have_no_selector(".user-groups .card--list__author .card--list__counter")
       end
     end
 
@@ -280,7 +280,7 @@ describe "ProfileConversations" do
         end
 
         it "does not show the sending form" do
-          expect(page).not_to have_selector("textarea#message_body")
+          expect(page).to have_no_selector("textarea#message_body")
         end
       end
 

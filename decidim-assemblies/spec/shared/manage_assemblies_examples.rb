@@ -157,7 +157,7 @@ shared_examples "manage assemblies" do
 
     it "does not let the admin manage assemblies form other organizations" do
       within "table" do
-        expect(page).not_to have_content(external_assembly.title["en"])
+        expect(page).to have_no_content(external_assembly.title["en"])
       end
     end
   end
