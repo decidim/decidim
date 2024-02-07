@@ -105,7 +105,7 @@ describe "Admin manages budgets" do
 
       it "cannot delete the budget" do
         within find("tr", text: translated(budget.title)) do
-          expect(page).to have_no_selector(".action-icon--remove")
+          expect(page).to have_no_css(".action-icon--remove")
         end
       end
     end

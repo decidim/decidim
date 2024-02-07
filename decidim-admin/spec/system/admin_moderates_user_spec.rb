@@ -16,7 +16,7 @@ describe "Admin reports user" do
     it "is redirected to admin panel" do
       visit reportable_path
 
-      expect(page).to have_selector(".profile__actions-secondary")
+      expect(page).to have_css(".profile__actions-secondary")
 
       within ".profile__actions-secondary", match: :first do
         click_button
@@ -39,7 +39,7 @@ describe "Admin reports user" do
     it "is redirected to admin panel" do
       visit reportable_path
 
-      expect(page).to have_selector(".profile__actions-secondary")
+      expect(page).to have_css(".profile__actions-secondary")
 
       within ".profile__actions-secondary", match: :first do
         click_button

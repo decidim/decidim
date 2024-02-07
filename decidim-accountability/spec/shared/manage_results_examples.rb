@@ -99,8 +99,7 @@ shared_examples "manage results" do
       href = resource_locator(result).path
       target = "blank"
 
-      expect(page).to have_selector(
-        :xpath,
+      expect(page).to have_xpath(
         "//a[contains(@class,'#{klass}')][@href='#{href}'][@target='#{target}']"
       )
     end

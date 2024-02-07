@@ -111,7 +111,7 @@ shared_examples "manage media links examples" do
       expect(page).to have_css(resource_selector, count: 10)
       expect(page).to have_css("[data-pages] [data-page]", count: 2)
       click_link "Next"
-      expect(page).to have_selector("[data-pages] [data-page][aria-current='page']", text: "2")
+      expect(page).to have_css("[data-pages] [data-page][aria-current='page']", text: "2")
       expect(page).to have_css(resource_selector, count: 5)
     end
   end

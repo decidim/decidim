@@ -115,7 +115,7 @@ shared_examples "manage processes examples" do
       expect(page).to have_admin_callout("successfully")
 
       within "[data-content]" do
-        expect(page).to have_selector("input[value='My new title']")
+        expect(page).to have_css("input[value='My new title']")
         expect(page).to have_css("img[src*='#{image3_filename}']")
       end
     end
@@ -201,7 +201,7 @@ shared_examples "manage processes examples" do
 
       uncheck :participatory_process_scopes_enabled
 
-      expect(page).to have_selector("#participatory_process_scope_id[disabled]")
+      expect(page).to have_css("#participatory_process_scope_id[disabled]")
 
       within ".edit_participatory_process" do
         find("*[type=submit]").click

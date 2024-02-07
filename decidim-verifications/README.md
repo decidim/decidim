@@ -113,6 +113,28 @@ Decidim implements two type of authorization methods:
   end
   ```
 
+### Identification numbers
+
+For the verification of the participants' data in Verifications, you can configure which type of documents a participant can have. By default these documents are `identification_number` and `passport`, but in some countries you may need to adapt these to your region or governmental specific needs. For instance, in Spain there are `dni`, `nie` and `passport`.
+
+For configuring these you can do so with the Environment Variable `VERIFICATIONS_DOCUMENT_TYPES`.
+
+```env
+VERIFICATIONS_DOCUMENT_TYPES="dni,nie,passport"
+```
+
+You need to also add the following keys in your i18n files (i.e. `config/locales/en.yml`). By default in the verifications, `indentification_number` is currently being used as a universal example. Below are examples of adding `dni`, `nie` and `passport` locally used in Spain.
+
+```yaml
+en:
+  decidim:
+    verifications:
+        id_documents:
+          dni: DNI
+          nie: NIE
+          passport: Passport
+```
+
 ### SMS verification
 
 Decidim comes with a verification workflow designed to verify users by sending

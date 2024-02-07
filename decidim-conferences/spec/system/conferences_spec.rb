@@ -102,7 +102,7 @@ describe "Conferences" do
     it "lists all the highlighted conferences" do
       within "#highlighted-conferences" do
         expect(page).to have_content(translated(promoted_conference.title, locale: :en))
-        expect(page).to have_selector("[id^='conference_highlight']", count: 1)
+        expect(page).to have_css("[id^='conference_highlight']", count: 1)
       end
     end
 
@@ -114,7 +114,7 @@ describe "Conferences" do
 
         expect(page).to have_content(translated(conference.title, locale: :en))
         expect(page).to have_content(translated(promoted_conference.title, locale: :en))
-        expect(page).to have_selector("[id^='conference']", count: 2)
+        expect(page).to have_css("[id^='conference']", count: 2)
 
         expect(page).to have_no_content(translated(unpublished_conference.title, locale: :en))
       end
