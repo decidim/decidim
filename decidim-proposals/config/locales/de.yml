@@ -12,6 +12,8 @@ de:
         state: Status
         title: Titel
         user_group_id: Kollaborativen Entwurf erstellen als
+      import_participatory_text:
+        document: Partizipatives Textdokument
       proposal:
         address: Adresse
         answer: Antworten
