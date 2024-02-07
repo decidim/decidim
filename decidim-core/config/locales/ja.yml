@@ -74,6 +74,9 @@ ja:
     'false': 'いいえ'
     'true': 'はい'
   date:
+    buttons:
+      close: 閉じる
+      select: 選択
     formats:
       decidim_short: "%Y/%m/%d"
       decidim_short_dashed: "%Y-%m-%d"
@@ -81,6 +84,10 @@ ja:
       decidim_with_day_and_month_name: "%Y %b %d %A"
       decidim_with_month_name: "%Y %B %d"
       decidim_with_month_name_short: "%b %d"
+      help:
+        date_format: 'フォーマット: dd/mm/yyyy'
+      order: d-m-y
+      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -1996,6 +2003,10 @@ ja:
     x: X
     xing: Xing
   time:
+    buttons:
+      close: 閉じる
+      reset: リセット
+      select: 選択
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
@@ -2010,6 +2021,8 @@ ja:
         mailer:
           invitation_instructions:
             accept_until_format: "%Y %B %d, %I:%M %p"
+      help:
+        time_format: 'フォーマット: hh:mm'
       long: "%B %d, %Y %H:%M"
       long_dashed: "%Y-%m-%d %H:%M:%S"
       long_with_particles: "%Y年%m月%d日 %H:%M"
