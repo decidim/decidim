@@ -290,6 +290,12 @@ de:
             email_intro: 'Der Status des Vorschlags "%{resource_title}" wurde zu "%{state}" geändert. Sie können die Antwort auf dieser Seite lesen:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von "%{resource_title}" sind.
             email_subject: Der Status Ihres Vorschlags hat sich geändert (%{state})
+            notification_title: Der Status Ihres Vorschlags <a href="%{resource_path}">%{resource_title}</a> hat sich zu "%{state}" geändert.
+          follower:
+            email_intro: 'Der Status Ihres Vorschlags "%{resource_title}" wurde zu "%{state}" geändert. Sie können die Antwort auf dieser Seite lesen:'
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+            email_subject: Der Status eines Vorschlags, dem Sie folgen, hat sich geändert (%{state})
+            notification_title: Der Status des Vorschlags <a href="%{resource_path}">%{resource_title}</a> hat sich zu "%{state}" geändert.
         proposal_update_category:
           email_intro: 'Ein Administrator hat die Kategorie Ihres Vorschlags "%{resource_title}" aktualisiert, sehen Sie es sich an:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Autor des Vorschlags sind.
