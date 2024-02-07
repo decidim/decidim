@@ -476,6 +476,12 @@ ca:
             update: Actualizar
           index:
             title: Estats
+          new:
+            create: Crear
+            title: Nou estat
+          update:
+            error: Hi ha hagut un error actualitzant l'estat
+            success: Estat actualitzat correctament
         proposals:
           answer:
             invalid: Hi ha hagut un problema en respondre a aquesta proposta.
@@ -507,6 +513,7 @@ ca:
             selected: seleccionat
             split: Dividir propostes
             split_button: Dividir
+            statuses: Estats
             title: Propostes
             unassign_from_valuator: Desfer assignació a avaluadora
             unassign_from_valuator_button: Desfer assignació
@@ -731,6 +738,9 @@ ca:
             valuator: Avaluadora
             valuators: Avaluadores
             votes: Suports
+        proposal_state:
+          css_class: Classe CSS
+          title: Estat
       new:
         limit_reached: No pots crear noves propostes perquè has superat el límit.
       participatory_text_proposal:
