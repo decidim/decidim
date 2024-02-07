@@ -167,13 +167,6 @@ ca:
     events:
       debates:
         create_debate_event:
-          space_followers:
-            email_intro: |-
-              Hola,
-              S'ha creat un nou debat "%{resource_title}" a l'espai participatiu %{space_title}, fes-hi un cop d'ull i contribueix:
-            email_outro: Has rebut aquesta notificació perquè estàs seguint %{space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
-            email_subject: Nou debat "%{resource_title}" el dia %{space_title}
-            notification_title: El debat <a href="%{resource_path}">%{resource_title}</a> s'ha creat a <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
               Hola,
