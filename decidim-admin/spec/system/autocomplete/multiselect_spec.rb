@@ -119,10 +119,10 @@ describe "Autocomplete multiselect" do
         it "selects and removes item" do
           autocomplete_select participant.name, from: :user_id
           expect(page).to have_content(participant.name)
-          expect(page).to have_selector(%(input[value="#{participant.id}"]), visible: :hidden)
+          expect(page).to have_css(%(input[value="#{participant.id}"]), visible: :hidden)
           find(".clear-multi-selection").click
-          expect(page).not_to have_content(participant.name)
-          expect(page).not_to have_selector(%(input[value="#{participant.id}"]), visible: :hidden)
+          expect(page).to have_no_content(participant.name)
+          expect(page).to have_no_css(%(input[value="#{participant.id}"]), visible: :hidden)
         end
       end
 
@@ -132,10 +132,10 @@ describe "Autocomplete multiselect" do
           autocomplete_select participant2.name, from: :user_id
           expect(page).to have_content(participant.name)
           expect(page).to have_content(participant2.name)
-          expect(page).not_to have_content(participant3.name)
-          expect(page).to have_selector(%(input[value="#{participant.id}"]), visible: :hidden)
-          expect(page).to have_selector(%(input[value="#{participant2.id}"]), visible: :hidden)
-          expect(page).not_to have_selector(%(input[value="#{participant3.id}"]), visible: :hidden)
+          expect(page).to have_no_content(participant3.name)
+          expect(page).to have_css(%(input[value="#{participant.id}"]), visible: :hidden)
+          expect(page).to have_css(%(input[value="#{participant2.id}"]), visible: :hidden)
+          expect(page).to have_no_css(%(input[value="#{participant3.id}"]), visible: :hidden)
         end
       end
 
@@ -143,12 +143,12 @@ describe "Autocomplete multiselect" do
         let(:selected) { %([{"value": "#{participant2.id}", "label": "#{participant2.name}"}, {"value": "#{participant3.id}", "label": "#{participant3.name}"}]) }
 
         it "shows preselected value" do
-          expect(page).not_to have_content(participant.name)
+          expect(page).to have_no_content(participant.name)
           expect(page).to have_content(participant2.name)
           expect(page).to have_content(participant3.name)
-          expect(page).not_to have_selector(%(input[value="#{participant.id}"]), visible: :hidden)
-          expect(page).to have_selector(%(input[value="#{participant2.id}"]), visible: :hidden)
-          expect(page).to have_selector(%(input[value="#{participant3.id}"]), visible: :hidden)
+          expect(page).to have_no_css(%(input[value="#{participant.id}"]), visible: :hidden)
+          expect(page).to have_css(%(input[value="#{participant2.id}"]), visible: :hidden)
+          expect(page).to have_css(%(input[value="#{participant3.id}"]), visible: :hidden)
         end
       end
     end

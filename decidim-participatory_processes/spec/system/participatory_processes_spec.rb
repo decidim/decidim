@@ -40,7 +40,7 @@ describe "Participatory Processes" do
       visit decidim.root_path
 
       within "#home__menu" do
-        expect(page).not_to have_content("Processes")
+        expect(page).to have_no_content("Processes")
       end
     end
   end
@@ -70,7 +70,7 @@ describe "Participatory Processes" do
         visit decidim.root_path
 
         within "#home__menu" do
-          expect(page).not_to have_content("Processes")
+          expect(page).to have_no_content("Processes")
         end
       end
     end
@@ -127,7 +127,7 @@ describe "Participatory Processes" do
         it "lists all the highlighted processes" do
           within "#highlighted-processes" do
             expect(page).to have_content(translated(promoted_process.title, locale: :en))
-            expect(page).to have_selector("[id^='participatory_process_highlight']", count: 1)
+            expect(page).to have_css("[id^='participatory_process_highlight']", count: 1)
           end
         end
       end
@@ -141,12 +141,12 @@ describe "Participatory Processes" do
           expect(page).to have_content(translated(participatory_process.title, locale: :en))
           expect(page).to have_content(translated(promoted_process.title, locale: :en))
           expect(page).to have_content(translated(group.title, locale: :en))
-          expect(page).to have_selector("a.card__grid", count: 3)
+          expect(page).to have_css("a.card__grid", count: 3)
 
-          expect(page).not_to have_content(translated(unpublished_process.title, locale: :en))
-          expect(page).not_to have_content(translated(past_process.title, locale: :en))
-          expect(page).not_to have_content(translated(upcoming_process.title, locale: :en))
-          expect(page).not_to have_content(translated(grouped_process.title, locale: :en))
+          expect(page).to have_no_content(translated(unpublished_process.title, locale: :en))
+          expect(page).to have_no_content(translated(past_process.title, locale: :en))
+          expect(page).to have_no_content(translated(upcoming_process.title, locale: :en))
+          expect(page).to have_no_content(translated(grouped_process.title, locale: :en))
         end
       end
 
@@ -198,8 +198,8 @@ describe "Participatory Processes" do
         it "lists all the highlighted process groups" do
           within "#highlighted-processes" do
             expect(page).to have_content(translated(promoted_group.title, locale: :en))
-            expect(page).to have_selector("[id^='participatory_process_highlight']", count: 1)
-            expect(page).to have_selector("[id^='participatory_process_group_highlight']", count: 1)
+            expect(page).to have_css("[id^='participatory_process_highlight']", count: 1)
+            expect(page).to have_css("[id^='participatory_process_group_highlight']", count: 1)
           end
         end
       end
@@ -310,7 +310,7 @@ describe "Participatory Processes" do
               )
             visit decidim_participatory_processes.participatory_process_path(participatory_process)
             expect(page).to have_content(translated(published_process.title))
-            expect(page).not_to have_content(translated(unpublished_process.title))
+            expect(page).to have_no_content(translated(unpublished_process.title))
           end
         end
 
@@ -320,7 +320,7 @@ describe "Participatory Processes" do
           it "shows the components" do
             within ".participatory-space__nav-container" do
               expect(page).to have_content(translated(proposals_component.name, locale: :en))
-              expect(page).not_to have_content(translated(meetings_component.name, locale: :en))
+              expect(page).to have_no_content(translated(meetings_component.name, locale: :en))
             end
           end
 
@@ -372,9 +372,9 @@ describe "Participatory Processes" do
             let(:blocks_manifests) { [] }
 
             it "the stats for those components are not visible" do
-              expect(page).not_to have_css("[data-statistics]", count: 3)
-              expect(page).not_to have_css(".statistic__title", text: "Proposals")
-              expect(page).not_to have_css(".statistic__number", text: "3")
+              expect(page).to have_no_css("[data-statistics]", count: 3)
+              expect(page).to have_no_css(".statistic__title", text: "Proposals")
+              expect(page).to have_no_css(".statistic__number", text: "3")
             end
           end
 
@@ -382,11 +382,11 @@ describe "Participatory Processes" do
             let(:show_metrics) { false }
 
             it "the metrics for the participatory processes are not rendered" do
-              expect(page).not_to have_css("h4", text: "METRICS")
+              expect(page).to have_no_css("h4", text: "METRICS")
             end
 
             it "has no link to all metrics" do
-              expect(page).not_to have_link("Show all metrics")
+              expect(page).to have_no_link("Show all metrics")
             end
           end
 
@@ -394,7 +394,7 @@ describe "Participatory Processes" do
             let(:hashtag) { false }
 
             it "the hashtags for those components are not visible" do
-              expect(page).not_to have_content("#")
+              expect(page).to have_no_content("#")
             end
           end
         end
@@ -418,8 +418,8 @@ describe "Participatory Processes" do
             expect(page).to have_content("Related assemblies")
             expect(page).to have_content(translated(published_assembly.title))
             expect(page).to have_content(translated(transparent_assembly.title))
-            expect(page).not_to have_content(translated(unpublished_assembly.title))
-            expect(page).not_to have_content(translated(private_assembly.title))
+            expect(page).to have_no_content(translated(unpublished_assembly.title))
+            expect(page).to have_no_content(translated(private_assembly.title))
           end
         end
       end

@@ -52,7 +52,7 @@ describe "Admin edits proposals" do
         visit_component_admin
 
         expect(page).to have_content(translated(proposal.title))
-        expect(page).not_to have_css("a.action-icon--edit-proposal")
+        expect(page).to have_no_css("a.action-icon--edit-proposal")
         visit current_path + "proposals/#{proposal.id}/edit"
 
         expect(page).to have_content("not authorized")
@@ -90,7 +90,7 @@ describe "Admin edits proposals" do
 
         visit_component_admin
         find("a.action-icon--edit-proposal").click
-        expect(page).not_to have_content("Current file")
+        expect(page).to have_no_content("Current file")
       end
 
       it "can attach a file" do
@@ -120,7 +120,7 @@ describe "Admin edits proposals" do
       visit_component_admin
 
       expect(page).to have_content(translated(proposal.title))
-      expect(page).not_to have_css("a.action-icon--edit-proposal")
+      expect(page).to have_no_css("a.action-icon--edit-proposal")
       visit current_path + "proposals/#{proposal.id}/edit"
 
       expect(page).to have_content("not authorized")

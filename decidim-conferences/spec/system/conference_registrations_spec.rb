@@ -55,7 +55,7 @@ describe "Conference registrations" do
       visit_conference
 
       within "[data-conference-hero]", match: :first do
-        expect(page).not_to have_button("Register")
+        expect(page).to have_no_button("Register")
       end
     end
   end

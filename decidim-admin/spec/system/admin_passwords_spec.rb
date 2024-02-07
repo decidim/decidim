@@ -65,8 +65,8 @@ describe "Admin passwords" do
 
       it "does not prompt to change password" do
         manual_login(user.email, password)
-        expect(page).not_to have_content("Admin users need to change their password every")
-        expect(page).not_to have_content("Password change")
+        expect(page).to have_no_content("Admin users need to change their password every")
+        expect(page).to have_no_content("Password change")
       end
     end
   end

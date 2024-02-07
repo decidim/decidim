@@ -52,7 +52,7 @@ describe "Private meetings" do
             expect(page).to have_current_path resource_locator(private_meeting).path
             expect(page).to have_content "Private"
             expect(page).to have_content "Transparent"
-            expect(page).not_to have_button("Register")
+            expect(page).to have_no_button("Register")
           end
         end
       end
@@ -71,7 +71,7 @@ describe "Private meetings" do
               expect(page).to have_content(translated(meeting.title, locale: :en))
               expect(page).to have_selector(meetings_selector, count: 1)
 
-              expect(page).not_to have_content(translated(private_meeting.title, locale: :en))
+              expect(page).to have_no_content(translated(private_meeting.title, locale: :en))
             end
           end
         end
@@ -88,7 +88,7 @@ describe "Private meetings" do
               expect(page).to have_content(translated(meeting.title, locale: :en))
               expect(page).to have_selector(meetings_selector, count: 1)
 
-              expect(page).not_to have_content(translated(private_meeting.title, locale: :en))
+              expect(page).to have_no_content(translated(private_meeting.title, locale: :en))
             end
           end
         end

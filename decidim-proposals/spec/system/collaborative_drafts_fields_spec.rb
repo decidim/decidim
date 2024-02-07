@@ -63,7 +63,7 @@ describe "Collaborative drafts" do
             visit new_collaborative_draft_path
 
             within "form.new_collaborative_draft" do
-              expect(page).not_to have_content("Scope")
+              expect(page).to have_no_content("Scope")
             end
           end
         end
@@ -212,7 +212,7 @@ describe "Collaborative drafts" do
             expect(page).to have_content("#AutoHashtag1")
             expect(page).to have_content("#AutoHashtag2")
             expect(page).to have_content("#SuggestedHashtag1")
-            expect(page).not_to have_content("#SuggestedHashtag2")
+            expect(page).to have_no_content("#SuggestedHashtag2")
           end
         end
 
@@ -330,7 +330,7 @@ describe "Collaborative drafts" do
             expect(page).to have_content("successfully")
 
             within "#panel-images" do
-              expect(page).to have_selector("img[src*=\"city.jpeg\"]", count: 1)
+              expect(page).to have_css("img[src*=\"city.jpeg\"]", count: 1)
             end
           end
         end
@@ -347,7 +347,7 @@ describe "Collaborative drafts" do
         it "does not show the creation button" do
           visit_component
           click_link "Access collaborative drafts"
-          expect(page).not_to have_link("New collaborative draft")
+          expect(page).to have_no_link("New collaborative draft")
         end
       end
     end
