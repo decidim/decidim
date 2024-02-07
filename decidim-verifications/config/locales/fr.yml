@@ -231,8 +231,6 @@ fr:
           update:
             error: Un problème est survenu lors du rechargement de votre document.
             success: Document retéléchargé avec succès.
-        dni: Carte nationale d'identité
-        nie: Carte de séjour ou de résident
         passport: Passeport
       postal_letter:
         admin:
