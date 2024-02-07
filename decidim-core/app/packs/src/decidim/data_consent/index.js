@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
     modal: modal,
     categories: categories,
     cookieName: window.Decidim.config.get("consent_cookie_name"),
-    warningElement: document.querySelector("[data-js-dataconsent-warning]")
+    warningElement: document.querySelector("[data-dataconsent-warning]")
   });
 
   initDisabledIframes(manager);

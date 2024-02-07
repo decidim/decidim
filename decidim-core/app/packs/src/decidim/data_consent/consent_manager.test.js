@@ -182,7 +182,7 @@ describe("ConsentManager", () => {
     </div>
   `;
   const cookieWarningContent = `
-    <div data-js-dataconsent-warning class="hide">
+    <div data-dataconsent-warning class="hide">
       <p>You need to enable all cookies in order to see this content.</p>
       <a href="#" class="button margin-vertical-2" data-open="dc-modal">
         Change cookie settings
@@ -226,7 +226,7 @@ describe("ConsentManager", () => {
       modal: modal,
       categories: categories,
       cookieName: "decidim-consent",
-      warningElement: document.querySelector("[data-js-dataconsent-warning]")
+      warningElement: document.querySelector("[data-dataconsent-warning]")
     });
   });
 
