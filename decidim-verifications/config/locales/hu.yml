@@ -224,8 +224,6 @@ hu:
           update:
             error: Probléma adódott a dokumentum újratöltésével.
             success: Dokumentum sikeresen újratöltve.
-        dni: Sz.ig.
-        nie: Lakcím kártya
         passport: Útlevél
       postal_letter:
         admin:
