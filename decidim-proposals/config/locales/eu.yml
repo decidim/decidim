@@ -291,6 +291,11 @@ eu:
             email_outro: Jakinarazpen hau jaso duzu "%{resource_title}"-ren egilea zarelako.
             email_subject: Zure proposamenak aldatu du (%{state}) egoera
             notification_title: Zure proposamenak <a href="%{resource_path}">%{resource_title}</a> egoera aldatu du eta "%{state}" egoera jarri du.
+          follower:
+            email_intro: '"%{resource_title}" proposamenak egoera aldatu du eta "%{state}" jarri du. Orrialde honetan irakur dezakezu erantzuna:'
+            email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" jarraitzen ari zarelako. Jarraitzeari utzi ahal diozu aurreko estekan.
+            email_subject: Jarraitzen ari zaren proposamen batek (%{state}) egoera aldatu du
+            notification_title: Zure proposamenak <a href="%{resource_path}">%{resource_title}</a> egoera aldatu du eta "%{state}" egoera jarri du.
         proposal_update_category:
           email_intro: 'Administratzaileak "%{resource_title}" proposamenaren kategoria eguneratu du, ikus ezazu orri honetan:'
           email_outro: Jakinarazpen hau jaso duzu iruzkin honen egilea zarelako.
@@ -365,9 +370,13 @@ eu:
     proposals:
       actions:
         answer_proposal: Erantzun proposamenari
+        delete_proposal_state_confirm: Ziur zaude egoera hau ezabatu nahi duzula?
+        destroy: Ezabatu egoera
         edit_proposal: Editatu proposamena
+        edit_proposal_state: Editatu egoera
         import: Inportatu proposamenak beste osagai batetik
         new: Proposamen berria
+        new_proposal_state: Beste egoera bat
         participatory_texts: Testu partehartzaileak
         show: Ikusi proposamena
         title: Ekintzak
@@ -457,6 +466,23 @@ eu:
             submit: Bidali
           leave_your_note: Utzi zure oharra
           title: Ohar pribatuak
+        proposal_states:
+          create:
+            error: Errorea egoera sortzean
+            success: Egoera zuzen sortua
+          destroy:
+            success: Egoera behar bezala ezabatua
+          edit:
+            title: Editatu egoera
+            update: Eguneratu
+          index:
+            title: Egoerak
+          new:
+            create: Sortu
+            title: Beste egoera bat
+          update:
+            error: Errorea egoera eguneratzean
+            success: Errorea zuzen eguneratua
         proposals:
           answer:
             invalid: Arazo bat izan da proposamen honi erantzutean.
@@ -488,6 +514,7 @@ eu:
             selected: hautatutako
             split: Proposamen zatituak
             split_button: Zatitu
+            statuses: Egoerak
             title: Proposamenak
             unassign_from_valuator: Desesleitu ebaluatzaileari
             unassign_from_valuator_button: Desesleitu
@@ -712,6 +739,9 @@ eu:
             valuator: Ebaluatzailea
             valuators: Ebaluatzaileak
             votes: Botoak
+        proposal_state:
+          css_class: CSS klasea
+          title: Egoera
       new:
         limit_reached: Ezin duzu proposamen gehiago egin, muga gainditu duzulako.
       participatory_text_proposal:
