@@ -231,8 +231,6 @@ ca:
           update:
             error: S'ha produït un problema en tornar a carregar el document.
             success: El document s'ha tornat a carregar correctament.
-        dni: DNI
-        nie: NIE
         passport: Passaport
       postal_letter:
         admin:
