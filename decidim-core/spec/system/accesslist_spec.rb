@@ -38,7 +38,7 @@ describe "Access list" do
     it "allows access to admin side page" do
       visit decidim_system.root_path
 
-      expect(page).not_to have_content("Dashboard")
+      expect(page).to have_no_content("Dashboard")
       expect(page).to have_content("Forbidden")
     end
   end

@@ -25,7 +25,7 @@ describe "Conference program" do
       visit decidim_conferences.conference_path(conference)
 
       within "aside .conference__nav-container" do
-        expect(page).not_to have_content(translated_attribute(component.name))
+        expect(page).to have_no_content(translated_attribute(component.name))
       end
     end
   end
@@ -72,7 +72,7 @@ describe "Conference program" do
 
     it "lists all conference meetings" do
       within "[data-conference-program-day]" do
-        expect(page).to have_selector("[data-conference-program-title]", count: 3)
+        expect(page).to have_css("[data-conference-program-title]", count: 3)
 
         meetings.each do |meeting|
           expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(Decidim::ConferenceMeetingPresenter.new(meeting).title))

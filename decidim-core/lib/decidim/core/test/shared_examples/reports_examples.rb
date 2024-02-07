@@ -62,6 +62,13 @@ shared_examples "higher user role does not have hide" do
   context "and the admin reports" do
     before do
       login_as user, scope: :user
+
+      # Workaround for flaky spec related to resolution change
+      #
+      # For some unknown reason, depending on the order run for these specs, the resolution is changed to
+      # 800x600, which breaks the drag and drop. This forces the resolution to be 1920x1080.
+      # One possible culprit for the screen resolution change is the alert error intercepting which messes with the window focus.
+      current_window.resize_to(1920, 1080)
     end
 
     it "reports the resource" do
@@ -80,6 +87,15 @@ end
 
 shared_examples "reports" do
   context "when the user is not logged in" do
+    before do
+      # Workaround for flaky spec related to resolution change
+      #
+      # For some unknown reason, depending on the order run for these specs, the resolution is changed to
+      # 800x600, which breaks the drag and drop. This forces the resolution to be 1920x1080.
+      # One possible culprit for the screen resolution change is the alert error intercepting which messes with the window focus.
+      current_window.resize_to(1920, 1080)
+    end
+
     it "gives the option to sign in" do
       visit reportable_path
 

@@ -38,7 +38,7 @@ describe "Identity document online review" do
     submit_verification_form(doc_type: "DNI", doc_number: "XXXXXXXX")
 
     expect(page).to have_content("Participant successfully verified")
-    expect(page).not_to have_content("Verification #")
+    expect(page).to have_no_content("Verification #")
   end
 
   it "shows an error when information does not match" do
@@ -53,7 +53,7 @@ describe "Identity document online review" do
 
     it "dismisses the verification from the list" do
       expect(page).to have_content("Verification rejected. Participant will be prompted to amend their documents")
-      expect(page).not_to have_content("Verification #")
+      expect(page).to have_no_content("Verification #")
     end
 
     context "and the user logs back in" do
@@ -64,7 +64,7 @@ describe "Identity document online review" do
       end
 
       it "allows the user to change the uploaded documents" do
-        expect(page).to have_selector("form", text: "Request verification again")
+        expect(page).to have_css("form", text: "Request verification again")
       end
 
       it "allows the verificator to review the amended request" do

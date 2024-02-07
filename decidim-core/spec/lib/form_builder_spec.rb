@@ -762,7 +762,7 @@ module Decidim
           attached?: present?,
           attachment: double(
             blob:,
-            "image?" => image?
+            image?: image?
           )
         )
       end

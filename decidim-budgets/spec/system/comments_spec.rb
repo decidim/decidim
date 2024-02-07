@@ -34,7 +34,7 @@ describe "Comments" do
       within_window(another_window) do
         expect(page).to have_content(commentable.title["en"])
         expect(page).to have_content(comments.first.body["en"])
-        expect(page).not_to have_content(comments.second.body["en"])
+        expect(page).to have_no_content(comments.second.body["en"])
       end
     end
   end

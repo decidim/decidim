@@ -89,7 +89,7 @@ describe "Amendment Wizard" do
         end
 
         it "does not show the back button" do
-          expect(page).not_to have_link("Back")
+          expect(page).to have_no_link("Back")
         end
       end
 
@@ -221,7 +221,7 @@ describe "Amendment Wizard" do
         expect(page).to have_content(user.name)
         expect(page).to have_content(body)
         expect(page).to have_button(text: "Publish")
-        expect(page).to have_selector("a", text: "Modify")
+        expect(page).to have_css("a", text: "Modify")
       end
 
       context "when the Publish button is clicked", versioning: true do
@@ -278,7 +278,7 @@ describe "Amendment Wizard" do
 
         within "#amendment-list" do
           expect(page).to have_content(translated(emendation.title))
-          expect(page).not_to have_content(translated(emendation_draft.title))
+          expect(page).to have_no_content(translated(emendation_draft.title))
         end
       end
     end

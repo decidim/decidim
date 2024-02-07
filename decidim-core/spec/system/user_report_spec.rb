@@ -25,7 +25,7 @@ describe "Report User" do
 
     it "cannot be reported" do
       within ".profile__actions-secondary" do
-        expect(page).not_to have_button("Report")
+        expect(page).to have_no_button("Report")
       end
     end
   end
@@ -34,7 +34,7 @@ describe "Report User" do
     it "gives the option to sign in" do
       page.visit reportable_path
 
-      expect(page).not_to have_css("#loginModal-content")
+      expect(page).to have_no_css("#loginModal-content")
 
       within ".profile__actions-secondary" do
         click_button "Report"
@@ -55,7 +55,7 @@ describe "Report User" do
       it "reports the resource" do
         visit reportable_path
 
-        expect(page).to have_selector(".profile__actions-secondary")
+        expect(page).to have_css(".profile__actions-secondary")
 
         within ".profile__actions-secondary" do
           click_button "Report"
@@ -65,7 +65,7 @@ describe "Report User" do
 
         within ".flag-modal" do
           expect(page).to have_field(name: "report[block]", visible: :visible)
-          expect(page).not_to have_field(name: "report[hide]", visible: :visible)
+          expect(page).to have_no_field(name: "report[hide]", visible: :visible)
 
           click_button "Report"
         end
@@ -76,7 +76,7 @@ describe "Report User" do
       it "chooses to block the resource" do
         visit reportable_path
 
-        expect(page).to have_selector(".profile__actions-secondary")
+        expect(page).to have_css(".profile__actions-secondary")
 
         within ".profile__actions-secondary" do
           click_button "Report"
@@ -110,8 +110,8 @@ describe "Report User" do
         end
 
         expect(page).to have_css("#flagModal-content", visible: :visible)
-        expect(page).not_to have_field(name: "report[block]", visible: :visible)
-        expect(page).not_to have_field(name: "report[hide]", visible: :visible)
+        expect(page).to have_no_field(name: "report[block]", visible: :visible)
+        expect(page).to have_no_field(name: "report[hide]", visible: :visible)
 
         within "#flagModal-content" do
           click_button "Report"

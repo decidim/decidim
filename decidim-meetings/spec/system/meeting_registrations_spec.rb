@@ -45,8 +45,8 @@ describe "Meeting registrations" do
     it "the registration button is not visible" do
       visit_meeting
 
-      expect(page).not_to have_button("Register")
-      expect(page).not_to have_text("20 slots remaining")
+      expect(page).to have_no_button("Register")
+      expect(page).to have_no_text("20 slots remaining")
     end
 
     context "and registration form is also enabled" do
@@ -142,7 +142,7 @@ describe "Meeting registrations" do
             expect(page).to have_i18n_content(questionnaire.title)
             expect(page).to have_i18n_content(questionnaire.description)
 
-            expect(page).not_to have_css(".form.answer-questionnaire")
+            expect(page).to have_no_css(".form.answer-questionnaire")
 
             within "[data-question-readonly]" do
               expect(page).to have_i18n_content(question.body)
@@ -176,8 +176,8 @@ describe "Meeting registrations" do
             expect(page).to have_css(".button", text: "Cancel your registration")
             expect(page).to have_text("19 slots remaining")
             expect(page).to have_text("Stop following")
-            expect(page).not_to have_text("Participants")
-            expect(page).not_to have_css("#panel-participants")
+            expect(page).to have_no_text("Participants")
+            expect(page).to have_no_css("#panel-participants")
           end
 
           it "they can join the meeting and configure their participation to be shown publicly" do
@@ -254,9 +254,9 @@ describe "Meeting registrations" do
 
             expect(page).to have_text("Organization")
             expect(page).to have_text(user_group.name)
-            expect(page).not_to have_text("Participants")
+            expect(page).to have_no_text("Participants")
             expect(page).to have_css("#panel-organizations")
-            expect(page).not_to have_css("#panel-participants")
+            expect(page).to have_no_css("#panel-participants")
           end
         end
       end
@@ -326,7 +326,7 @@ describe "Meeting registrations" do
           it "the user should not see it" do
             visit questionnaire_public_path
 
-            expect(page).not_to have_content("An important announcement")
+            expect(page).to have_no_content("An important announcement")
           end
         end
       end
@@ -387,8 +387,8 @@ describe "Meeting registrations" do
         it "does not show the registration code" do
           visit_meeting
 
-          expect(page).not_to have_css(".registration_code")
-          expect(page).not_to have_content(registration.code)
+          expect(page).to have_no_css(".registration_code")
+          expect(page).to have_no_content(registration.code)
         end
       end
 
@@ -414,7 +414,7 @@ describe "Meeting registrations" do
           visit_meeting
 
           expect(registration.validated_at).to be_nil
-          expect(page).not_to have_content("VALIDATION PENDING")
+          expect(page).to have_no_content("VALIDATION PENDING")
         end
       end
 
@@ -442,7 +442,7 @@ describe "Meeting registrations" do
           visit_meeting
 
           expect(registration.validated_at).not_to be_nil
-          expect(page).not_to have_content("VALIDATED")
+          expect(page).to have_no_content("VALIDATED")
         end
       end
 

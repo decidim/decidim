@@ -33,7 +33,7 @@ describe "Admin manages assemblies" do
 
       it "shows the private user menu entry" do
         within_admin_sidebar_menu do
-          expect(page).not_to have_content("Private users")
+          expect(page).to have_no_content("Private users")
         end
       end
     end
