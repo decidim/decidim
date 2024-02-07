@@ -277,6 +277,7 @@ ca:
             notification_title: S'ha acceptat la teva proposta <a href="%{resource_path}">%{resource_title}</a>.
           follower:
             email_intro: 'S''ha acceptat la proposta "%{resource_title}". Pots llegir la resposta des d''aquesta pàgina:'
+            email_outro: Has rebut aquesta notificació perquè estàs seguint "%{resource_title}". Pots deixar de seguir-ho des de l'enllaç anterior.
             email_subject: S'ha acceptat una proposta que segueixes
             notification_title: S'ha acceptat la proposta <a href="%{resource_path}">%{resource_title}</a>.
         proposal_evaluating:
@@ -287,6 +288,7 @@ ca:
             notification_title: S'està avaluant la teva proposta <a href="%{resource_path}">%{resource_title}</a>.
           follower:
             email_intro: 'La proposta "%{resource_title}" s''està avaluant actualment. Pots consultar una resposta en aquesta pàgina:'
+            email_outro: Has rebut aquesta notificació perquè estàs seguint "%{resource_title}". Pots deixar de seguir-ho des de l'enllaç anterior.
             email_subject: S'està avaluant una proposta que segueixes
             notification_title: S'ha avaluat la proposta <a href="%{resource_path}">%{resource_title}</a>.
         proposal_mentioned:
@@ -313,6 +315,7 @@ ca:
             notification_title: La teva proposta <a href="%{resource_path}">%{resource_title}</a> ha estat rebutjada.
           follower:
             email_intro: 'La proposta "%{resource_title}" ha estat rebutjada. Pots llegir la resposta des d''aquesta pàgina:'
+            email_outro: Has rebut aquesta notificació perquè estàs seguint "%{resource_title}". Pots deixar de seguir-ho des de l'enllaç anterior.
             email_subject: S'ha rebutjat una proposta que segueixes
             notification_title: S'ha rebutjat la proposta <a href="%{resource_path}">%{resource_title}</a>.
         proposal_update_category:
