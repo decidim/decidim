@@ -108,13 +108,6 @@ ar:
     events:
       debates:
         create_debate_event:
-          space_followers:
-            email_intro: |-
-              مرحبا،
-              نقاش الجديدة "%{resource_title}" تم إنشاؤها على %{space_title} مساحة المشاركة، والتحقق من ذلك والمساهمة:
-            email_outro: لقد تلقيت هذا الإشعار لأنك تتابع مساحة المشاركة %{space_title} . يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
-            email_subject: مناقشة جديدة "%{resource_title}" في %{space_title}
-            notification_title: تم إنشاء المناقشة <a href="%{resource_path}">%{resource_title}</a> في <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
               مرحبًا ،
