@@ -52,9 +52,7 @@ describe "ProfileConversations" do
   shared_examples "create new conversation" do
     it "allows sending an initial message", :slow do
       start_conversation("Is this a Ryanair style democracy?")
-      within "div.user-activity" do
-        expect(page).to have_selector(".conversation__item-snippet-message", text: "Is this a Ryanair style democracy?")
-      end
+      expect(page).to have_selector(".conversation__item-snippet-message", text: "Is this a Ryanair style democracy?")
     end
 
     it "redirects to an existing conversation if it exists already", :slow do
