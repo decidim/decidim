@@ -275,6 +275,7 @@ fr:
             notification_title: Votre proposition <a href="%{resource_path}">%{resource_title}</a> a été acceptée.
           follower:
             email_intro: 'La proposition "%{resource_title}" a été acceptée. Vous pouvez lire la réponse sur cette page :'
+            email_outro: Vous recevez cette notification car vous suivez « %{resource_title} ». Vous pouvez annuler ce suivi en allant sur le lien précédent.
             email_subject: Une proposition que vous suivez a été acceptée
             notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été acceptée.
         proposal_evaluating:
@@ -285,6 +286,7 @@ fr:
             notification_title: Votre proposition <a href="%{resource_path}">%{resource_title}</a> est en cours d'évaluation.
           follower:
             email_intro: 'La proposition "%{resource_title}" est en cours d''évaluation. Vous pouvez consulter cette page pour voir si une réponse a été formulée :'
+            email_outro: Vous recevez cette notification car vous suivez « %{resource_title} ». Vous pouvez annuler ce suivi en allant sur le lien précédent.
             email_subject: Une proposition que vous suivez est en cours d'évaluation
             notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> est en cours d'évaluation.
         proposal_mentioned:
@@ -311,6 +313,7 @@ fr:
             notification_title: Votre proposition <a href="%{resource_path}">%{resource_title}</a> a été rejetée.
           follower:
             email_intro: 'La proposition "%{resource_title}" n''a pas été retenue. Vous pouvez lire le commentaire ici :'
+            email_outro: Vous recevez cette notification car vous suivez « %{resource_title} ». Vous pouvez annuler ce suivi en allant sur le lien précédent.
             email_subject: Une proposition que vous suivez n'a pas été retenue
             notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> n'a pas été retenue.
         proposal_update_category:
