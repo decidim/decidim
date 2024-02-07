@@ -231,6 +231,7 @@ fr:
           update:
             error: Un problème est survenu lors du rechargement de votre document.
             success: Document retéléchargé avec succès.
+        identification_number: Numéro d'identification
         passport: Passeport
       postal_letter:
         admin:
