@@ -98,7 +98,7 @@ hu:
       initiatives_settings:
         update:
           error: Hiba történt
-          success: A kezdeményezés frissítése sikeres volt
+          success: A kezdeményezés beállításai sikeresen frissültek
       menu:
         attachments: Csatolmányok
         committee_members: Bizottsági tagok
@@ -216,7 +216,7 @@ hu:
           index:
             approve: Jóváhagy
             confirm_revoke: Biztos vagy benne?
-            invite_to_committee_help: Oszd meg a linket felhasználók meghívásához a promóciós bizottságba
+            invite_to_committee_help: Oszd meg a linket felhasználók meghívásához a kezdeményező bizottságba
             no_members_yet: A kezdeményező bizottságban nincsenek tagok
             revoke: Visszavonás
             title: Bizottsági tagok
@@ -256,7 +256,7 @@ hu:
             photos: Fotók
           update:
             error: Hiba történt
-            success: Az állampolgári kezdeményezés frissítése sikeres
+            success: A kezdeményezés frissítése sikeres
         initiatives_settings:
           edit:
             update: Frissítés
