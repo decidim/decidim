@@ -43,7 +43,7 @@ header {
       }
 
       button[type="submit"] {
-        @apply absolute right-2 inset-y-2 text-secondary;
+        @apply absolute ltr:right-2 rtl:left-2 inset-y-2 text-secondary;
       }
     }
 
