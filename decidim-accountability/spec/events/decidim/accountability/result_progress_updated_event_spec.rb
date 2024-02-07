@@ -6,7 +6,7 @@ describe Decidim::Accountability::ResultProgressUpdatedEvent do
   include_context "when a simple event"
 
   let(:event_name) { "decidim.events.accountability.result_progress_updated" }
-  let(:resource) { create(:result) }
+  let(:resource) { create(:result, title: generate_localized_title(:result_title)) }
   let(:proposal_component) do
     create(:component, manifest_name: "proposals", participatory_space: resource.component.participatory_space)
   end
@@ -14,7 +14,6 @@ describe Decidim::Accountability::ResultProgressUpdatedEvent do
   let(:extra) { { proposal_id: proposal.id, progress: 95 } }
   let(:proposal_path) { resource_locator(proposal).path }
   let(:proposal_title) { decidim_sanitize_translated(proposal.title) }
-  let(:resource_title) { decidim_escape_translated(resource.title) }
   let(:email_subject) { "An update to #{resource_title} progress" }
   let(:notification_title) { "The result <a href=\"#{resource_path}\">#{resource_title}</a>, which includes the proposal <a href=\"#{proposal_path}\">#{proposal_title}</a>, is now 95% complete." }
   let(:email_outro) { "You have received this notification because you are following \"#{proposal_title}\", and this proposal is included in the result \"#{resource_title}\". You can stop receiving notifications following the previous link." }
@@ -49,12 +48,14 @@ describe Decidim::Accountability::ResultProgressUpdatedEvent do
   describe "email_outro" do
     it "is generated correctly" do
       expect(subject.email_outro).not_to include(proposal.title.to_s)
+      expect(subject.email_outro).to include(proposal_title)
     end
   end
 
   describe "email_intro" do
     it "is generated correctly" do
       expect(subject.email_intro).not_to include(proposal.title.to_s)
+      expect(subject.email_intro).to include(proposal_title)
     end
   end
 

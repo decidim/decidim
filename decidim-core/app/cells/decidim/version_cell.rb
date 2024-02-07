@@ -7,7 +7,7 @@ module Decidim
     include Decidim::SanitizeHelper
 
     def resource_title
-      decidim_html_escape(translated_attribute(versioned_resource.title))
+      decidim_escape_translated(versioned_resource.title)
     end
 
     def current_version

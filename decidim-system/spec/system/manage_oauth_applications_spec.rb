@@ -69,7 +69,7 @@ describe "Manage OAuth applications" do
       expect(page).to have_content("successfully")
 
       within "table" do
-        expect(page).not_to have_content(application.name)
+        expect(page).to have_no_content(application.name)
       end
     end
 

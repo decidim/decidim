@@ -43,10 +43,10 @@ module Decidim
 
         context "with no query" do
           it "does not create link for selection" do
-            expect(subject).to have_selector("#export-dropdown")
-            expect(subject).not_to have_selector("#export-selection-dropdown")
+            expect(subject).to have_css("#export-dropdown")
+            expect(subject).to have_no_css("#export-selection-dropdown")
             expect(subject).to have_content("Export all")
-            expect(subject).not_to have_content("Export selectioin")
+            expect(subject).to have_no_content("Export selectioin")
             expect(helper).to have_received(:render_dropdown).with(component:, resource_id: nil, filters: {}).once
             expect(helper).not_to have_received(:render_dropdown).with(component:, resource_id: nil, filters: { id_in: [1] })
           end
@@ -56,8 +56,8 @@ module Decidim
           let(:conditions) { "dummt condition" }
 
           it "creates link for selection and all" do
-            expect(subject).to have_selector("#export-dropdown")
-            expect(subject).to have_selector("#export-selection-dropdown")
+            expect(subject).to have_css("#export-dropdown")
+            expect(subject).to have_css("#export-selection-dropdown")
             expect(subject).to have_content("Export all")
             expect(subject).to have_content("Export selection")
             expect(helper).to have_received(:render_dropdown).with(component:, resource_id: nil, filters: { id_in: [1] }).once

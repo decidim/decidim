@@ -20,7 +20,7 @@ describe "User group manage members" do
     end
 
     it "does not show the link to edit" do
-      expect(page).not_to have_content("Manage members")
+      expect(page).to have_no_content("Manage members")
     end
 
     it "rejects the user that accesses manually" do
@@ -49,13 +49,13 @@ describe "User group manage members" do
     it "allows removing a user from the group" do
       accept_confirm { click_link "Remove participant" }
       expect(page).to have_content("Participant successfully removed from the group")
-      expect(page).not_to have_content(member.name)
+      expect(page).to have_no_content(member.name)
     end
 
     it "allows promoting a user" do
       accept_confirm { click_link "Make admin" }
       expect(page).to have_content("Participant promoted successfully")
-      expect(page).not_to have_content(member.name)
+      expect(page).to have_no_content(member.name)
     end
 
     context "with pending requests" do
@@ -72,7 +72,7 @@ describe "User group manage members" do
           click_link "Accept"
         end
 
-        expect(page).not_to have_css("#list-request")
+        expect(page).to have_no_css("#list-request")
         expect(page).to have_content("Join request successfully accepted")
         expect(page).to have_content(requested_user.name)
         expect(page).to have_content("Member")
@@ -84,9 +84,9 @@ describe "User group manage members" do
           click_link "Reject"
         end
 
-        expect(page).not_to have_css("#list-request")
+        expect(page).to have_no_css("#list-request")
         expect(page).to have_content("Join request successfully rejected")
-        expect(page).not_to have_content(requested_user.name)
+        expect(page).to have_no_content(requested_user.name)
       end
     end
   end

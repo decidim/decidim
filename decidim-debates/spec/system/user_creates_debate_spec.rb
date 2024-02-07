@@ -53,7 +53,7 @@ describe "User creates debate" do
           expect(page).to have_content("Should every organization use Decidim?")
           expect(page).to have_content("Add your comments on whether Decidim is useful for every organization.")
           expect(page).to have_content(translated(category.name))
-          expect(page).to have_selector("[data-author]", text: user.name)
+          expect(page).to have_css("[data-author]", text: user.name)
         end
 
         context "when creating as a user group" do
@@ -77,7 +77,7 @@ describe "User creates debate" do
             expect(page).to have_content("Should every organization use Decidim?")
             expect(page).to have_content("Add your comment on whether Decidim is useful for every organization.")
             expect(page).to have_content(translated(category.name))
-            expect(page).to have_selector("[data-author]", text: user_group.name)
+            expect(page).to have_css("[data-author]", text: user_group.name)
           end
         end
 
@@ -105,7 +105,7 @@ describe "User creates debate" do
       context "when creation is not enabled" do
         it "does not show the creation button" do
           visit_component
-          expect(page).not_to have_link("New debate")
+          expect(page).to have_no_link("New debate")
         end
       end
     end

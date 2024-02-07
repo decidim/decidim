@@ -73,11 +73,11 @@ module Decidim
     end
 
     def title
-      decidim_html_escape(translated_attribute(resource.title))
+      decidim_escape_translated(resource.title)
     end
 
     def alt_title
-      [t("decidim.application.photo.alt"), decidim_html_escape(translated_attribute(resource.title))].join(": ")
+      [t("decidim.application.photo.alt"), decidim_escape_translated(resource.title)].join(": ")
     end
 
     def title_tag

@@ -32,7 +32,7 @@ describe "User prints the initiative" do
       let(:print_enabled) { false }
 
       it "does not show the print link" do
-        expect(page).not_to have_css(".action-icon--print")
+        expect(page).to have_no_css(".action-icon--print")
       end
     end
   end

@@ -51,7 +51,7 @@ describe "Initiative signing" do
 
       click_button "Continue"
 
-      expect(page).not_to have_css("div.alert")
+      expect(page).to have_no_css("div.alert")
     end
   end
 

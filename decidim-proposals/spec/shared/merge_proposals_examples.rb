@@ -31,7 +31,7 @@ shared_examples "merge proposals" do
         it "does not show the merge action option" do
           click_button "Actions"
 
-          expect(page).not_to have_selector(:link_or_button, "Merge into a new one")
+          expect(page).to have_no_selector(:link_or_button, "Merge into a new one")
         end
       end
     end
@@ -85,7 +85,7 @@ shared_examples "merge proposals" do
             expect(page).to have_current_path(manage_component_path(current_component))
 
             proposal_ids.each do |id|
-              expect(page).not_to have_xpath("//tr[@data-id='#{id}']")
+              expect(page).to have_no_xpath("//tr[@data-id='#{id}']")
             end
           end
         end
