@@ -2,7 +2,7 @@
   <div class="card__highlight-text md:w-[70%] p-0">
     <%= link_to resource_path, class: "p-4" do %>
       <h3 class="h3 text-secondary inline-block align-middle">
-        <%= translated_attribute(title) %>
+        <%= decidim_escape_translated(title) %>
       </h3>
       <% if voted? %>
         <%= icon "check-double-line", class: "inline-block align-middle fill-success ml-2 h-[1.5em] w-[1.5em]" %>

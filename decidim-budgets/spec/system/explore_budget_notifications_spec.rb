@@ -33,7 +33,7 @@ describe "Explore budget notifications", :slow do
         visit_notifications
 
         within "#notifications" do
-          expect(page).to have_content(translated(project.title))
+          expect(page).to have_content(decidim_sanitize_translated(project.title))
         end
       end
     end

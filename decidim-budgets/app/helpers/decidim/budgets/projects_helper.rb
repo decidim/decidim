@@ -162,7 +162,7 @@ module Decidim
         references = Budget.joins(:component)
                            .where(component: { participatory_space: current_participatory_space }).order(weight: :asc)
         references.map do |budget|
-          ["#{"&nbsp;" * 4} #{translated_attribute(budget.title)}".html_safe, budget.id]
+          ["#{"&nbsp;" * 4} #{decidim_escape_translated(budget.title)}".html_safe, budget.id]
         end
       end
     end

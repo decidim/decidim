@@ -9,9 +9,12 @@ require "decidim/participatory_processes/test/factories"
 
 FactoryBot.define do
   factory :budgets_component, parent: :component do
-    name { Decidim::Components::Namer.new(participatory_space.organization.available_locales, :budgets).i18n_name }
+    transient do
+      skip_injection { false }
+    end
+    name { generate_component_name(participatory_space.organization.available_locales, :budgets, skip_injection:) }
     manifest_name { :budgets }
-    participatory_space { create(:participatory_process, :with_steps, organization:) }
+    participatory_space { create(:participatory_process, :with_steps, skip_injection:, organization:) }
 
     trait :with_geocoding_enabled do
       settings do
@@ -110,10 +113,13 @@ FactoryBot.define do
   end
 
   factory :budget, class: "Decidim::Budgets::Budget" do
-    title { generate_localized_title }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    transient do
+      skip_injection { false }
+    end
+    title { generate_localized_title(:budget_title, skip_injection:) }
+    description { generate_localized_description(:budget_description, skip_injection:) }
     total_budget { 100_000_000 }
-    component { create(:budgets_component) }
+    component { create(:budgets_component, skip_injection:) }
 
     trait :with_projects do
       transient do
@@ -121,19 +127,22 @@ FactoryBot.define do
       end
 
       after(:create) do |budget, evaluator|
-        create_list(:project, evaluator.projects_number, budget:)
+        create_list(:project, evaluator.projects_number, skip_injection: evaluator.skip_injection, budget:)
       end
     end
   end
 
   factory :project, class: "Decidim::Budgets::Project" do
-    title { generate_localized_title }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    transient do
+      skip_injection { false }
+    end
+    title { generate_localized_title(:project_title, skip_injection:) }
+    description { generate_localized_description(:project_description, skip_injection:) }
     address { "#{Faker::Address.street_name}, #{Faker::Address.city}" }
     latitude { Faker::Address.latitude }
     longitude { Faker::Address.longitude }
     budget_amount { Faker::Number.number(digits: 8) }
-    budget { create(:budget) }
+    budget { create(:budget, skip_injection:) }
 
     trait :selected do
       selected_at { Time.current }
@@ -145,14 +154,17 @@ FactoryBot.define do
       end
 
       after :create do |project, evaluator|
-        project.attachments = create_list(:attachment, evaluator.photos_number, :with_image, attached_to: project)
+        project.attachments = create_list(:attachment, evaluator.photos_number, :with_image, attached_to: project, skip_injection: evaluator.skip_injection)
       end
     end
   end
 
   factory :order, class: "Decidim::Budgets::Order" do
-    budget { create(:budget) }
-    user { create(:user, organization: component.organization) }
+    transient do
+      skip_injection { false }
+    end
+    budget { create(:budget, skip_injection:) }
+    user { create(:user, organization: component.organization, skip_injection:) }
 
     trait :with_projects do
       transient do
@@ -161,14 +173,17 @@ FactoryBot.define do
 
       after(:create) do |order, evaluator|
         project_budget = (order.maximum_budget / evaluator.projects_number).to_i
-        order.projects << create_list(:project, evaluator.projects_number, budget_amount: project_budget, budget: order.budget)
+        order.projects << create_list(:project, evaluator.projects_number, budget_amount: project_budget, budget: order.budget, skip_injection: evaluator.skip_injection)
         order.save!
       end
     end
   end
 
   factory :line_item, class: "Decidim::Budgets::LineItem" do
+    transient do
+      skip_injection { false }
+    end
     order
-    project { create(:project, budget: order.budget) }
+    project { create(:project, budget: order.budget, skip_injection:) }
   end
 end
