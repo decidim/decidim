@@ -72,6 +72,7 @@ fr-CA:
             component_constraint: Ajouter une contrainte
             confirm_delete: Êtes-vous sûr de vouloir supprimer ce modèle ?
             global_scope: Global (disponible partout)
+            internal_state: Statut interne
             title: Réponses à la proposition
           new:
             title: Nouveau modèle de réponse à proposition
