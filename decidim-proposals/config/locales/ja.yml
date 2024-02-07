@@ -37,7 +37,7 @@ ja:
         origin_component_id: 提案をコピーするコンポーネント
       proposals_import:
         import_proposals: 提案をインポート
-        keep_answers: 状態と回答を保持
+        keep_answers: ステータスと回答を保持
         keep_authors: オリジナルの作者を保持
       valuation_assignment:
         admin_log:
@@ -99,7 +99,7 @@ ja:
               'false': 提案
               'true': 修正
           proposal_state_id_eq:
-            label: 状態
+            label: ステータス
           scope_id_eq:
             label: 対象範囲
           state_eq:
@@ -283,15 +283,15 @@ ja:
           notification_title_official: 公式の提案<a href="%{resource_path}">%{resource_title}</a>が%{participatory_space_title} に追加されました。
         proposal_state_changed:
           affected_user:
-            email_intro: '提案「%{resource_title}」の状態が「%{state}」に変更されました。このページで回答を読めます:'
+            email_intro: '提案「%{resource_title}」のステータスが「%{state}」に変更されました。このページで回答を読めます:'
             email_outro: あなたが "%{resource_title}" の著者であるため、この通知を受け取りました。
-            email_subject: 提案の状態が変更されました（%{state}）
-            notification_title: あなたの提案 <a href="%{resource_path}">%{resource_title}</a> の状態を「%{state} 」に変更しました。
+            email_subject: 提案のステータスが変更されました（%{state}）
+            notification_title: あなたの提案 <a href="%{resource_path}">%{resource_title}</a> のステータスを「%{state} 」に変更しました。
           follower:
-            email_intro: '提案「%{resource_title}」の状態が「%{state}」に変更されました。このページで回答を読めます:'
+            email_intro: '提案「%{resource_title}」のステータスが「%{state}」に変更されました。このページで回答を読めます:'
             email_outro: '"%{resource_title}" をフォローしているため、この通知を受け取りました。前述のリンクからフォローを解除できます。'
-            email_subject: あなたがフォローしている提案の状態が変更されました (%{state})
-            notification_title: 提案 <a href="%{resource_path}">%{resource_title}</a> の状態を「%{state} 」に変更しました。
+            email_subject: あなたがフォローしている提案のステータスが変更されました (%{state})
+            notification_title: 提案 <a href="%{resource_path}">%{resource_title}</a> のステータスを「%{state} 」に変更しました。
         proposal_update_category:
           email_intro: '管理者があなたの提案 "%{resource_title}" のカテゴリを更新しました。このページでチェックしてください：'
           email_outro: あなたが提案の著者であるため、この通知を受け取りました。
@@ -366,13 +366,13 @@ ja:
     proposals:
       actions:
         answer_proposal: 提案に回答
-        delete_proposal_state_confirm: この状態を削除してもよろしいですか？
-        destroy: 状態を削除
+        delete_proposal_state_confirm: このステータスを削除してもよろしいですか？
+        destroy: ステータスを削除
         edit_proposal: 提案を編集
-        edit_proposal_state: 状態を編集
+        edit_proposal_state: ステータスを編集
         import: 別のコンポーネントからインポート
         new: 新しい提案
-        new_proposal_state: 新しい状態
+        new_proposal_state: 新しいステータス
         participatory_texts: 参加型テキスト
         show: 提案を表示
         title: アクション
@@ -459,6 +459,23 @@ ja:
             submit: 送信
           leave_your_note: メモを残してください
           title: プライベートノート
+        proposal_states:
+          create:
+            error: ステータスの作成中にエラー
+            success: ステータスを作成しました
+          destroy:
+            success: ステータスを削除しました
+          edit:
+            title: ステータスの編集
+            update: 更新
+          index:
+            title: ステータス
+          new:
+            create: 作成
+            title: 新しいステータス
+          update:
+            error: ステータスの作成中にエラー
+            success: ステータスを更新しました
         proposals:
           answer:
             invalid: 提案に回答する際に問題が発生しました。
@@ -490,6 +507,7 @@ ja:
             selected: 選択済み
             split: 提案を分割
             split_button: 分割
+            statuses: ステータス
             title: 提案
             unassign_from_valuator: 評価者からの割り当てを解除
             unassign_from_valuator_button: 割り当ての解除
@@ -711,6 +729,9 @@ ja:
             valuator: 評価者
             valuators: 評価者
             votes: 投票
+        proposal_state:
+          css_class: CSS クラス
+          title: ステータス：
       new:
         limit_reached: 制限を超えているため、新しい提案を作成することはできません。
       participatory_text_proposal:
