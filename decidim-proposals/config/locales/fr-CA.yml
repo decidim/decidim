@@ -30,6 +30,8 @@ fr-CA:
         cost: Coût
         cost_report: Rapport de coût
         execution_period: Période d'exécution
+      proposal_state:
+        announcement_title: En-tête de réponse
       proposals_copy:
         copy_proposals: Je comprends que cela importera toutes les propositions de la fonctionnalité sélectionnée dans la fonctionnalité actuelle et que cette action ne peut être annulée.
         origin_component_id: Fonctionnalité dont on veut copier les propositions
@@ -100,6 +102,8 @@ fr-CA:
             values:
               'false': Propositions
               'true': Amendements
+          proposal_state_id_eq:
+            label: Statut
           scope_id_eq:
             label: Secteur
           state_eq:
@@ -281,6 +285,17 @@ fr-CA:
           email_subject: Nouvelle proposition "%{resource_title}" ajoutée à %{participatory_space_title}
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title} par %{author}.
           notification_title_official: La proposition officielle <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title}.
+        proposal_state_changed:
+          affected_user:
+            email_intro: 'La proposition "%{resource_title}" est passée au statut "%{state}". Vous pouvez lire la réponse sur cette page :'
+            email_outro: Vous avez reçu cette notification parce que vous êtes un(e) auteur(e) de "%{resource_title}".
+            email_subject: Votre proposition a changé de statut (%{state})
+            notification_title: Le statut de votre proposition <a href="%{resource_path}">%{resource_title}</a> est passé à %{state}.
+          follower:
+            email_intro: 'La proposition "%{resource_title}" est passée à l''état "%{state}". Vous pouvez lire la réponse sur cette page :'
+            email_outro: Vous recevez cette notification car vous suivez « %{resource_title} ». Vous pouvez annuler ce suivi en allant sur le lien précédent.
+            email_subject: Une proposition que vous suivez a changé de statut (%{state})
+            notification_title: L'état de la proposition <a href="%{resource_path}">%{resource_title}</a> est passé à "%{state}".
         proposal_update_category:
           email_intro: 'Un administrateur a mis à jour la catégorie de votre proposition "%{resource_title}". Vous pouvez y accéder ici :'
           email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de la proposition.
@@ -355,9 +370,13 @@ fr-CA:
     proposals:
       actions:
         answer_proposal: Répondre à la proposition
+        delete_proposal_state_confirm: Etes-vous sûr(e) de vouloir supprimer cet état?
+        destroy: Supprimer le statut
         edit_proposal: Modifier la proposition
+        edit_proposal_state: Modifier le statut
         import: Importer depuis une autre fonctionnalité
         new: Nouvelle proposition
+        new_proposal_state: Nouveau statut
         participatory_texts: Textes participatifs
         show: Afficher la proposition
         title: Actions
@@ -446,6 +465,23 @@ fr-CA:
             submit: Soumettre
           leave_your_note: Laisser une remarque
           title: Notes privées
+        proposal_states:
+          create:
+            error: Erreur lors de la création du statut
+            success: Etat créé avec succès
+          destroy:
+            success: Etat supprimé avec succès
+          edit:
+            title: Modifier l'état
+            update: Mettre à jour
+          index:
+            title: Statuts
+          new:
+            create: Créer
+            title: Nouvel état
+          update:
+            error: Erreur lors de la mise à jour de l'état
+            success: Statut mis à jour avec succès
         proposals:
           answer:
             invalid: Il y a eu un problème lors de la réponse à cette proposition.
@@ -477,6 +513,7 @@ fr-CA:
             selected: choisi
             split: Fractionner la proposition
             split_button: Scinder
+            statuses: États
             title: Propositions
             unassign_from_valuator: Retirer de l'évaluateur
             unassign_from_valuator_button: Ne plus assigner
@@ -701,6 +738,9 @@ fr-CA:
             valuator: Évaluateur
             valuators: Évaluateurs
             votes: Votes
+        proposal_state:
+          css_class: Classe CSS
+          title: État
       new:
         limit_reached: Vous ne pouvez plus créer de nouvelles propositions car vous avez atteint la limite autorisée.
       participatory_text_proposal:
