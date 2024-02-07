@@ -1487,6 +1487,17 @@ hu:
       people-body: Emberek és testek
       recents: Legutóbb használt
       smileys-emotion: Arcok és Érzelmek
+    error:
+      load: Hiba az emojik betöltésekor
+    recents:
+      clear: Legutóbbi emojik törlése
+      none: Nem választottál még emojit.
+    retry: Próbáld újra
+    search:
+      _: Emoji keresése...
+      clear: Keresés törlése
+      error: Nem tudtunk emojit keresni
+      not_found: Nincs találat
   errors:
     messages:
       confirmation_period_expired: meg kell erősíteni %{period}, kérem, kérjen újat
