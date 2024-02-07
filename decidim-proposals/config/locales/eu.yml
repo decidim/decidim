@@ -30,6 +30,8 @@ eu:
         cost: Kostua
         cost_report: Kostuaren txostena
         execution_period: Gauzatzeko epea
+      proposal_state:
+        announcement_title: Erantzunaren goiburua
       proposals_copy:
         copy_proposals: Ulertzen dut honek hautetsiaren proposamen guztiak orainaldiari egotziko dizkiola eta ezin dela ekintza hori atzera bota.
         origin_component_id: Proposamenak kopiatzeko osagaia
@@ -100,6 +102,8 @@ eu:
             values:
               'false': Proposamenak
               'true': Zuzenketak
+          proposal_state_id_eq:
+            label: Egoera
           scope_id_eq:
             label: Esparrua
           state_eq:
@@ -281,6 +285,12 @@ eu:
           email_subject: '"%{resource_title}" proposamen berria hona %{participatory_space_title} gehitu da'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena %{participatory_space_title}-era gehitu du %{author} k.
           notification_title_official: 'Proposamen ofiziala hona gehitu da: <a href="%{resource_path}">%{resource_title}</a>.'
+        proposal_state_changed:
+          affected_user:
+            email_intro: '"%{resource_title}" proposamenak egoera aldatu du eta "%{state}" jarri du. Orrialde honetan irakur dezakezu erantzuna:'
+            email_outro: Jakinarazpen hau jaso duzu "%{resource_title}"-ren egilea zarelako.
+            email_subject: Zure proposamenak aldatu du (%{state}) egoera
+            notification_title: Zure proposamenak <a href="%{resource_path}">%{resource_title}</a> egoera aldatu du eta "%{state}" egoera jarri du.
         proposal_update_category:
           email_intro: 'Administratzaileak "%{resource_title}" proposamenaren kategoria eguneratu du, ikus ezazu orri honetan:'
           email_outro: Jakinarazpen hau jaso duzu iruzkin honen egilea zarelako.
