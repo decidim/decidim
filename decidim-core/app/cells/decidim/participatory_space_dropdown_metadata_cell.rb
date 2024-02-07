@@ -17,7 +17,7 @@ module Decidim
     end
 
     def title
-      decidim_html_escape(translated_attribute(model.try(:title) || model.try(:name) || ""))
+      decidim_escape_translated(model.try(:title) || model.try(:name) || "")
     end
 
     def hashtag

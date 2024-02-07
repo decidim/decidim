@@ -14,7 +14,7 @@ module Decidim
 
       def commentable_item
         {
-          text: decidim_html_escape(translated_attribute(root_commentable.title)),
+          text: decidim_escape_translated(root_commentable.title),
           icon: resource_type_icon_key(root_commentable.class)
         }
       end

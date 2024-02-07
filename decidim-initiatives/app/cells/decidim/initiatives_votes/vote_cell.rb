@@ -16,7 +16,7 @@ module Decidim
       end
 
       def initiative_title
-        decidim_sanitize(translated_attribute(model.initiative.title))
+        decidim_sanitize_translated(model.initiative.title)
       end
 
       def name_and_surname
