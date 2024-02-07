@@ -235,8 +235,6 @@ lt:
           update:
             error: Iš naujo įkeliant jūsų dokumentą iškilo problema.
             success: Dokumentas įkeltas iš naujo.
-        dni: Asmens tapatybės dokumentas
-        nie: NIE
         passport: Pasas
       postal_letter:
         admin:
