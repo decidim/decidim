@@ -231,6 +231,7 @@ fi-pl:
           update:
             error: Asiakirjan uudelleenlataaminen epäonnistui.
             success: Asiakirjan uudelleenlataaminen onnistui.
+        identification_number: Henkilötunnus
         passport: Passi
       postal_letter:
         admin:
