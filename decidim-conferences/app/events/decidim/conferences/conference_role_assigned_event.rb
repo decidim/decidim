@@ -3,7 +3,6 @@
 module Decidim
   module Conferences
     class ConferenceRoleAssignedEvent < Decidim::Events::SimpleEvent
-      include Decidim::Events::NotificationEvent
       include Decidim::Events::AuthorEvent
 
       def notification_title
