@@ -30,6 +30,8 @@ fi-pl:
         cost: Kustannusarvio
         cost_report: Kustannusraportti
         execution_period: Toteutusjakso
+      proposal_state:
+        announcement_title: Vastauksen otsikko
       proposals_copy:
         copy_proposals: Ymmärrän, että tämä tuo kaikki ideat valitusta komponentista tähän komponenttiin ja tätä toimintoa ei voi peruuttaa.
         origin_component_id: Osio josta ehdotukset kopioidaan
@@ -100,6 +102,8 @@ fi-pl:
             values:
               'false': Ehdotukset
               'true': Muutokset
+          proposal_state_id_eq:
+            label: Tila
           scope_id_eq:
             label: Teema
           state_eq:
@@ -281,6 +285,17 @@ fi-pl:
           email_subject: Uusi ehdotus "%{resource_title}" lisätty kohteeseen %{participatory_space_title}
           notification_title: '%{author} on lisännyt ehdotuksen <a href="%{resource_path}">%{resource_title}</a> osallistumistilaan %{participatory_space_title}.'
           notification_title_official: Virallinen ehdotus <a href="%{resource_path}">%{resource_title}</a> on lisätty osallistumistilaan %{participatory_space_title}.
+        proposal_state_changed:
+          affected_user:
+            email_intro: 'Ehdotuksen "%{resource_title}" tilaksi on muutettu "%{state}". Voit lukea vastauksen täältä:'
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet luonut kohteen "%{resource_title}".
+            email_subject: Ehdotuksesi tila on muuttunut (%{state})
+            notification_title: Ehdotuksesi <a href="%{resource_path}">%{resource_title}</a> tilaksi on muutettu "%{state}".
+          follower:
+            email_intro: 'Ehdotuksesi "%{resource_title}" tilaksi on muutettu "%{state}". Voit lukea vastauksen täältä:'
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta "%{resource_title}". Voit lopettaa sen seuraamisen edellä esitetyn linkin kautta.
+            email_subject: Seuraamasi ehdotuksen tila on muuttunut (%{state})
+            notification_title: Ehdotuksen <a href="%{resource_path}">%{resource_title}</a> tilaksi on muutettu "%{state}".
         proposal_update_category:
           email_intro: 'Järjestelmänvalvoja on päivittänyt ehdotuksesi aihepiiriin "%{resource_title}", tarkista se:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen tekijä.
@@ -355,9 +370,13 @@ fi-pl:
     proposals:
       actions:
         answer_proposal: Vastaa ehdotukseen
+        delete_proposal_state_confirm: Haluatko varmasti poistaa tämän tilan?
+        destroy: Poista tila
         edit_proposal: Muokkaa ehdotusta
+        edit_proposal_state: Muokkaa tilaa
         import: Tuo toisesta komponentista
         new: Uusi ehdotus
+        new_proposal_state: Uusi tila
         participatory_texts: Ehdotusaineistot
         show: Näytä ehdotus
         title: Toiminnot
@@ -445,6 +464,23 @@ fi-pl:
             submit: Lähetä
           leave_your_note: Jätä huomautuksesi
           title: Omat muistiinpanot
+        proposal_states:
+          create:
+            error: Tilan luonti epäonnistui
+            success: Tilan luonti onnistui
+          destroy:
+            success: Tilan poisto onnistui
+          edit:
+            title: Muokkaa tilaa
+            update: Päivitä
+          index:
+            title: Tilat
+          new:
+            create: Luo
+            title: Uusi tila
+          update:
+            error: Tilan päivitys epäonnistui
+            success: Tilan päivitys onnistui
         proposals:
           answer:
             invalid: Ehdotukseen vastaaminen epäonnistui.
@@ -476,6 +512,7 @@ fi-pl:
             selected: valittu
             split: Jaa ehdotuksia
             split_button: Jaa
+            statuses: Tilat
             title: Ehdotukset
             unassign_from_valuator: Poista tehtävä arvioijalta
             unassign_from_valuator_button: Poista tehtävä
@@ -700,6 +737,9 @@ fi-pl:
             valuator: Arvioija
             valuators: Arvioijat
             votes: Äänet
+        proposal_state:
+          css_class: CSS-luokka
+          title: Tila
       new:
         limit_reached: Et voi luoda uusia ehdotuksia, koska olet ylittänyt niille asetetun rajan.
       participatory_text_proposal:
