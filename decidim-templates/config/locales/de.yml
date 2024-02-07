@@ -70,6 +70,8 @@ de:
           index:
             component_constraint: Einschränkung hinzufügen
             confirm_delete: Möchten Sie diese Vorlage wirklich löschen?
+            missing_state: Fehlender Status
+            proposal_state_id: Interner Status
             title: Vorschlagsantworten
           new:
             title: Neue Vorlage für Vorschlagsantworten
