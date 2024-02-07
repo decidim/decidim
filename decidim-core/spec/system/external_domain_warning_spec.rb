@@ -34,7 +34,7 @@ describe "ExternalDomainWarning" do
 
     it "does not show invalid url alert" do
       visit url
-      expect(page).not_to have_content("Invalid URL")
+      expect(page).to have_no_content("Invalid URL")
       expect(page).to have_content("b%C3%A0r")
     end
   end
@@ -63,7 +63,7 @@ describe "ExternalDomainWarning" do
 
     it "shows invalid url alert" do
       visit invalid_url
-      expect(page).not_to have_content("Invalid URL")
+      expect(page).to have_no_content("Invalid URL")
       expect(page).to have_content(destination)
       expect(page).to have_link("Proceed", href: destination)
     end

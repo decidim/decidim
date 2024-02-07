@@ -40,7 +40,7 @@ module Decidim
 
       def title
         if model.is_a? Decidim::Category
-          decidim_html_escape translated_attribute(model.name)
+          decidim_escape_translated(model.name)
         else
           options[:title]
         end

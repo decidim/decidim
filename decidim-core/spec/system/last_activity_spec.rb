@@ -67,7 +67,7 @@ describe "Last activity" do
 
     it "shows activities long comment shorten text" do
       expect(page).to have_content(long_body_comment[0..79])
-      expect(page).not_to have_content(another_comment.translated_body)
+      expect(page).to have_no_content(another_comment.translated_body)
     end
 
     context "when there is a deleted comment" do
@@ -75,7 +75,7 @@ describe "Last activity" do
 
       it "is not shown" do
         within "#last_activity" do
-          expect(page).not_to have_content("This is deleted")
+          expect(page).to have_no_content("This is deleted")
         end
       end
     end
@@ -107,7 +107,7 @@ describe "Last activity" do
 
         expect(page).to have_content(translated(comment.commentable.title))
         expect(page).to have_content(translated(another_comment.commentable.title))
-        expect(page).not_to have_content(translated(resource.title))
+        expect(page).to have_no_content(translated(resource.title))
         expect(page).to have_css("[data-activity]", count: 2)
       end
 
@@ -130,7 +130,7 @@ describe "Last activity" do
         end
 
         it "does not show the old activities at the top of the list" do
-          expect(page).not_to have_content(translated(old_comment.commentable.title))
+          expect(page).to have_no_content(translated(old_comment.commentable.title))
         end
       end
 

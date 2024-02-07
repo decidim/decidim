@@ -22,7 +22,7 @@ describe "Conversations" do
 
     it "shows the topbar button as inactive" do
       within "#trigger-dropdown-account" do
-        expect(page).not_to have_selector("span[data-unread-items]")
+        expect(page).to have_no_selector("span[data-unread-items]")
       end
     end
 
@@ -71,7 +71,7 @@ describe "Conversations" do
     it_behaves_like "accessible page"
 
     it "shows an empty conversation page" do
-      expect(page).not_to have_selector(".card--list__item")
+      expect(page).to have_no_selector(".card--list__item")
       expect(page).to have_current_path decidim.new_conversation_path(recipient_id: recipient.id)
     end
 
@@ -84,7 +84,7 @@ describe "Conversations" do
 
       context "and recipient does not follow user" do
         it "redirects user with access error" do
-          expect(page).not_to have_current_path decidim.new_conversation_path(recipient_id: recipient.id)
+          expect(page).to have_no_current_path decidim.new_conversation_path(recipient_id: recipient.id)
           expect(page).to have_content("You are not authorized to perform this action")
         end
 
@@ -169,7 +169,7 @@ describe "Conversations" do
 
       it "shows the topbar button as inactive" do
         within "#trigger-dropdown-account" do
-          expect(page).not_to have_selector("span[data-unread-items]")
+          expect(page).to have_no_selector("span[data-unread-items]")
         end
       end
 
@@ -231,7 +231,7 @@ describe "Conversations" do
         expect(page).to have_content("0 characters left")
         click_button "Send"
         expect(page).to have_content(message)
-        expect(page).not_to have_content(overflow)
+        expect(page).to have_no_content(overflow)
       end
     end
 
@@ -250,7 +250,7 @@ describe "Conversations" do
         end
 
         it "does not show the sending form" do
-          expect(page).not_to have_selector("textarea#message_body")
+          expect(page).to have_no_selector("textarea#message_body")
         end
       end
 
@@ -293,7 +293,7 @@ describe "Conversations" do
         let(:recipient) { create(:user, :confirmed, direct_message_types: "followed-only", organization:) }
 
         it "has contact muted" do
-          expect(page).not_to have_link(href: decidim.new_conversation_path(recipient_id: recipient.id))
+          expect(page).to have_no_link(href: decidim.new_conversation_path(recipient_id: recipient.id))
         end
       end
     end
@@ -335,7 +335,7 @@ describe "Conversations" do
         it "shows only the other participant name" do
           within ".conversation__participants" do
             expect(page).to have_content(user1.name)
-            expect(page).not_to have_content(user.name)
+            expect(page).to have_no_content(user.name)
           end
         end
       end
@@ -360,7 +360,7 @@ describe "Conversations" do
         it "shows only the other participant name" do
           within "[data-interlocutors-list]" do
             expect(page).to have_content(user1.name)
-            expect(page).not_to have_content(user.name)
+            expect(page).to have_no_content(user.name)
           end
         end
       end
@@ -390,7 +390,7 @@ describe "Conversations" do
             expect(page).to have_content(user1.name)
             expect(page).to have_content(user2.name)
             expect(page).to have_content(user3.name)
-            expect(page).not_to have_content(user.name)
+            expect(page).to have_no_content(user.name)
           end
         end
       end
@@ -405,7 +405,7 @@ describe "Conversations" do
             expect(page).to have_content(user1.name)
             expect(page).to have_content(user2.name)
             expect(page).to have_content(user3.name)
-            expect(page).not_to have_content(user.name)
+            expect(page).to have_no_content(user.name)
           end
         end
       end
@@ -420,7 +420,7 @@ describe "Conversations" do
             expect(page).to have_css("img[alt='Avatar: #{user1.name}']")
             expect(page).to have_css("img[alt='Avatar: #{user2.name}']")
             expect(page).to have_css("img[alt='Avatar: #{user3.name}']")
-            expect(page).not_to have_css("img[alt='Avatar: #{user.name}']")
+            expect(page).to have_no_css("img[alt='Avatar: #{user.name}']")
           end
         end
       end
@@ -466,7 +466,7 @@ describe "Conversations" do
             expect(page).to have_content(user7.name)
             expect(page).to have_content(user8.name)
             expect(page).to have_content(user9.name)
-            expect(page).not_to have_content(user.name)
+            expect(page).to have_no_content(user.name)
           end
         end
       end
@@ -487,7 +487,7 @@ describe "Conversations" do
             expect(page).to have_content(user7.name)
             expect(page).to have_content(user8.name)
             expect(page).to have_content(user9.name)
-            expect(page).not_to have_content(user.name)
+            expect(page).to have_no_content(user.name)
           end
         end
       end

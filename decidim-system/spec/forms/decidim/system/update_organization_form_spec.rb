@@ -104,17 +104,17 @@ module Decidim::System
           },
           file_upload_settings: {
             allowed_file_extensions: {
-              "default" => %w(jpg jpeg),
-              "admin" => %w(jpg jpeg png),
-              "image" => %w(jpg jpeg png)
+              default: %w(jpg jpeg),
+              admin: %w(jpg jpeg png),
+              image: %w(jpg jpeg png)
             },
-            "allowed_content_types" => {
-              "default" => %w(image/*),
-              "admin" => %w(image/*)
+            allowed_content_types: {
+              default: %w(image/*),
+              admin: %w(image/*)
             },
-            "maximum_file_size" => {
-              "default" => 7.2,
-              "avatar" => 2.4
+            maximum_file_size: {
+              default: 7.2,
+              avatar: 2.4
             }
           }
         )

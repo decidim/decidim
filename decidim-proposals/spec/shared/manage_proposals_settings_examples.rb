@@ -26,7 +26,7 @@ shared_examples "manage settings" do
 
     it "does not show the rich text editor in the body template setting" do
       within ".new_proposal_body_template_container" do
-        expect(page).not_to have_css(".editor-toolbar")
+        expect(page).to have_no_css(".editor-toolbar")
       end
     end
   end

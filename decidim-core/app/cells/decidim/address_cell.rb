@@ -22,15 +22,15 @@ module Decidim
     end
 
     def location_hints
-      decidim_sanitize(translated_attribute(model.location_hints))
+      decidim_sanitize_translated(model.location_hints)
     end
 
     def location
-      decidim_sanitize(translated_attribute(model.location))
+      decidim_sanitize_translated(model.location)
     end
 
     def address
-      decidim_sanitize(translated_attribute(model.address))
+      decidim_sanitize_translated(model.address)
     end
   end
 end

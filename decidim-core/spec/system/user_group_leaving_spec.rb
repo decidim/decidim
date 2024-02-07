@@ -36,7 +36,7 @@ describe "User group leaving" do
           accept_confirm { click_link "Leave group" }
 
           expect(page).to have_content("Group successfully abandoned")
-          expect(page).not_to have_content("Leave group")
+          expect(page).to have_no_content("Leave group")
         end
       end
     end
@@ -63,7 +63,7 @@ describe "User group leaving" do
 
   context "when the user does not belong to the group" do
     it "does not show the link to leave" do
-      expect(page).not_to have_content("Leave group")
+      expect(page).to have_no_content("Leave group")
     end
   end
 end

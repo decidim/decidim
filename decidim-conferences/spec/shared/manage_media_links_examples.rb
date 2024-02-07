@@ -93,7 +93,7 @@ shared_examples "manage media links examples" do
       expect(page).to have_admin_callout("successfully")
 
       within "#media_links table" do
-        expect(page).not_to have_content(translated(media_link.title))
+        expect(page).to have_no_content(translated(media_link.title))
       end
     end
   end

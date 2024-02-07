@@ -30,15 +30,15 @@ describe Decidim::Blogs::ContentBlocks::HighlightedPostsCell, type: :cell do
 
     it "renders 3 posts" do
       expect(subject).to have_content("Last published")
-      expect(subject).not_to have_content("Blog post title")
+      expect(subject).to have_no_content("Blog post title")
       expect(subject).to have_css(".card__grid", count: 3)
     end
   end
 
   context "with no posts" do
     it "renders nothing" do
-      expect(subject).not_to have_content("Last published")
-      expect(subject).not_to have_css(".card__grid", count: 1)
+      expect(subject).to have_no_content("Last published")
+      expect(subject).to have_no_css(".card__grid", count: 1)
     end
   end
 end

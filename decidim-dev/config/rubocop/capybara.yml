@@ -9,9 +9,6 @@ Capybara:
 Capybara/ClickLinkOrButtonStyle:
   Enabled: false
 
-Capybara/NegationMatcher:
-  Enabled: false
-
 Capybara/RedundantWithinFind:
   Enabled: false
 

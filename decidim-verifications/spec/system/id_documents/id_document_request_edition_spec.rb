@@ -66,7 +66,7 @@ describe "Identity document request edition" do
 
     it "allows the user to change the data" do
       expect(page).to have_selector("form", text: "Request verification again")
-      expect(page).not_to have_content("Scanned copy of your document")
+      expect(page).to have_no_content("Scanned copy of your document")
       expect(page).to have_content("This is my explanation text")
 
       submit_upload_form(
@@ -95,7 +95,7 @@ describe "Identity document request edition" do
 
       it "allows the user to change the verification method" do
         expect(page).to have_selector("form", text: "Request verification again")
-        expect(page).not_to have_content("Scanned copy of your document")
+        expect(page).to have_no_content("Scanned copy of your document")
         click_link "Use online verification"
 
         submit_upload_form(
@@ -119,7 +119,7 @@ describe "Identity document request edition" do
       it "allows the user to change the verification method" do
         expect(page).to have_selector("form", text: "Request verification again")
         click_link "Use offline verification"
-        expect(page).not_to have_content("Scanned copy of your document")
+        expect(page).to have_no_content("Scanned copy of your document")
 
         submit_upload_form(
           doc_type: "Identification number",

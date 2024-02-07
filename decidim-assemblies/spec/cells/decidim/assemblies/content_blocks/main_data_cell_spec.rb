@@ -51,7 +51,7 @@ describe Decidim::Assemblies::ContentBlocks::MainDataCell, type: :cell do
 
   shared_examples_for "without extra attribute" do
     it "does not show it" do
-      expect(subject).not_to have_content(attribute_title)
+      expect(subject).to have_no_content(attribute_title)
     end
   end
 
