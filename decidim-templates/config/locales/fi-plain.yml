@@ -70,6 +70,8 @@ fi-pl:
           index:
             component_constraint: Lisää rajaussääntö
             confirm_delete: Haluatko varmasti poistaa tämän mallipohjan?
+            missing_state: Puuttuva tila
+            proposal_state_id: Sisäinen tila
             title: Ehdotusten vastaukset
           new:
             title: Uusi ehdotusten vastausten mallipohja
