@@ -41,8 +41,12 @@ shared_examples "manage process steps examples" do
       ca: "Descripció més llarga"
     )
 
-    fill_in :participatory_process_step_start_date, with: Time.current.change(day: 12)
-    fill_in :participatory_process_step_end_date, with: Time.current.change(day: 22)
+    find_by_id("participatory_process_step_start_date_date").click
+
+    fill_in_datepicker :participatory_process_step_start_date_date, with: Time.new.utc.strftime("%d/%m/%Y")
+    fill_in_timepicker :participatory_process_step_start_date_time, with: Time.new.utc.strftime("%H:%M")
+    fill_in_datepicker :participatory_process_step_end_date_date, with: (Time.new.utc + 2.days).strftime("%d/%m/%Y")
+    fill_in_timepicker :participatory_process_step_end_date_time, with: (Time.new.utc + 4.hours).strftime("%H:%M")
 
     within ".new_participatory_process_step" do
       click_button "Create"
@@ -52,8 +56,8 @@ shared_examples "manage process steps examples" do
 
     within "#steps table" do
       expect(page).to have_content("My participatory process step")
-      expect(page).to have_content("12,")
-      expect(page).to have_content("22,")
+      expect(page).to have_content("#{Time.new.utc.day},")
+      expect(page).to have_content("#{(Time.new.utc + 2.days).day},")
     end
   end
 
@@ -99,7 +103,7 @@ shared_examples "manage process steps examples" do
       expect(page).to have_admin_callout("successfully")
 
       within "#steps table" do
-        expect(page).not_to have_content(translated(process_step2.title))
+        expect(page).to have_no_content(translated(process_step2.title))
       end
     end
   end
@@ -111,7 +115,7 @@ shared_examples "manage process steps examples" do
       end
 
       within find("tr", text: translated(process_step.title)) do
-        expect(page).not_to have_content("Activate")
+        expect(page).to have_no_content("Activate")
       end
     end
   end

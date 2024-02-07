@@ -53,8 +53,8 @@ describe "User edit meeting" do
       end
 
       expect(page).to have_content(closing_report)
-      expect(page).not_to have_content "Close meeting"
-      expect(page).not_to have_content "Organizations"
+      expect(page).to have_no_content "Close meeting"
+      expect(page).to have_no_content "Organizations"
       expect(meeting.reload.closed_at).not_to be_nil
     end
 
@@ -90,8 +90,8 @@ describe "User edit meeting" do
         end
 
         expect(page).to have_content(edit_closing_report)
-        expect(page).not_to have_content "Close meeting"
-        expect(page).not_to have_content "Organizations"
+        expect(page).to have_no_content "Close meeting"
+        expect(page).to have_no_content "Organizations"
         expect(meeting.reload.closed_at).not_to be_nil
       end
     end
@@ -110,7 +110,7 @@ describe "User edit meeting" do
         expect(page).to have_content "Close meeting"
 
         within "form.edit_close_meeting" do
-          expect(page).not_to have_content "Proposals"
+          expect(page).to have_no_content "Proposals"
         end
       end
     end
@@ -125,7 +125,7 @@ describe "User edit meeting" do
       visit_component
 
       click_link translated(meeting.title)
-      expect(page).not_to have_content("Close meeting")
+      expect(page).to have_no_content("Close meeting")
     end
   end
 end

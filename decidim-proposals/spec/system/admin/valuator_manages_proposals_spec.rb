@@ -31,7 +31,7 @@ describe "Valuator manages proposals" do
   context "when listing the proposals" do
     it "can only see the assigned proposals" do
       expect(page).to have_content(translated(assigned_proposal.title))
-      expect(page).not_to have_content(translated(unassigned_proposal.title))
+      expect(page).to have_no_content(translated(unassigned_proposal.title))
     end
   end
 
@@ -77,7 +77,7 @@ describe "Valuator manages proposals" do
         expect(page).to have_content(another_user.name)
 
         within find("li", text: another_user.name) do
-          expect(page).not_to have_selector("a.red-icon")
+          expect(page).to have_no_selector("a.red-icon")
         end
 
         within find("li", text: user.name) do
@@ -106,17 +106,44 @@ describe "Valuator manages proposals" do
       end
     end
 
-    it "can answer proposals" do
-      within "form.edit_proposal_answer" do
-        choose "Accepted"
-        fill_in_i18n_editor(
-          :proposal_answer_answer,
-          "#proposal_answer-answer-tabs",
-          en: "This is my answer"
-        )
-        click_button "Answer"
+    context "when answering a proposal" do
+      shared_examples "can change state" do |state|
+        it "can answer proposals" do
+          within "form.edit_proposal_answer" do
+            choose state
+            fill_in_i18n_editor(
+              :proposal_answer_answer,
+              "#proposal_answer-answer-tabs",
+              en: "This is my answer"
+            )
+            click_button "Answer"
+          end
+          expect(page).to have_content("successfully")
+        end
       end
-      expect(page).to have_content("successfully")
+
+      include_examples "can change state", "Accepted"
+
+      context "when there are custom states involved" do
+        let(:state_params) do
+          {
+            title: { en: "Custom state" },
+            token: "custom_state",
+            css_class: "custom-state"
+          }
+        end
+        let!(:custom_state) { create(:proposal_state, **state_params, component: current_component) }
+
+        before do
+          visit current_path
+        end
+
+        it "successfully displays the new state" do
+          expect(page).to have_content("Custom state")
+        end
+
+        include_examples "can change state", "Custom state"
+      end
     end
   end
 end

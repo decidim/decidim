@@ -90,7 +90,7 @@ describe "Proposals" do
       it "does not show the scope name" do
         visit_component
         click_link proposal_title
-        expect(page).not_to have_content(translated(scope.name))
+        expect(page).to have_no_content(translated(scope.name))
       end
     end
 
@@ -341,8 +341,8 @@ describe "Proposals" do
         visit_component
         click_link proposal_title
 
-        expect(page).not_to have_content("Accepted")
-        expect(page).not_to have_content("This proposal has been accepted")
+        expect(page).to have_no_content("Accepted")
+        expect(page).to have_no_content("This proposal has been accepted")
         expect(page).not_to have_i18n_content(proposal.answer)
       end
     end

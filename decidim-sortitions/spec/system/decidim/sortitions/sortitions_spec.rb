@@ -72,7 +72,7 @@ describe "sortitions" do
           end
         end
 
-        expect(page).not_to have_content("Another sortition")
+        expect(page).to have_no_content("Another sortition")
         expect(page).to have_content("Foobar sortition")
 
         filter_params = CGI.parse(URI.parse(page.current_url).query)

@@ -77,7 +77,7 @@ describe "Explore projects", :slow do
           end
         end
 
-        expect(page).not_to have_content("Another project")
+        expect(page).to have_no_content("Another project")
         expect(page).to have_content("Foobar project")
 
         filter_params = CGI.parse(URI.parse(page.current_url).query)

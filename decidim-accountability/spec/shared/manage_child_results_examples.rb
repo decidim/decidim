@@ -87,7 +87,7 @@ RSpec.shared_examples "manage child results" do
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).not_to have_content(translated(child_result.title))
+        expect(page).to have_no_content(translated(child_result.title))
       end
     end
   end

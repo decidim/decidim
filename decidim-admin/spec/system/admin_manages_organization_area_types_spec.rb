@@ -95,7 +95,7 @@ describe "Admin manages area types" do
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).not_to have_content(translated(area_type.name))
+        expect(page).to have_no_content(translated(area_type.name))
       end
     end
   end

@@ -20,7 +20,7 @@ describe "Meeting agenda" do
     it "the section agenda is not visible" do
       visit_meeting
 
-      expect(page).not_to have_css("[data-meeting-agenda]")
+      expect(page).to have_no_css("[data-meeting-agenda]")
     end
   end
 

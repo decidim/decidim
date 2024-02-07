@@ -14,7 +14,7 @@ module Decidim
       private
 
       def title
-        decidim_sanitize translated_attribute model.title
+        decidim_sanitize_translated(model.title)
       end
 
       def description

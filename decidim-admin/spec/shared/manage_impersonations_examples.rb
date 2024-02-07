@@ -147,7 +147,7 @@ shared_examples "manage impersonations examples" do
       navigate_to_impersonations_page
       click_link "Manage new participant"
 
-      expect(page).not_to have_select("Authorization method")
+      expect(page).to have_no_select("Authorization method")
     end
   end
 
@@ -272,7 +272,7 @@ shared_examples "manage impersonations examples" do
       navigate_to_impersonations_page
 
       within find("tr", text: managed_user.name) do
-        expect(page).not_to have_link("Promote")
+        expect(page).to have_no_link("Promote")
       end
     end
   end
@@ -305,7 +305,7 @@ shared_examples "manage impersonations examples" do
           click_link "Verification conflicts"
         end
 
-        expect(page).not_to have_content("Rigoberto")
+        expect(page).to have_no_content("Rigoberto")
       end
     end
   end
@@ -318,7 +318,7 @@ shared_examples "manage impersonations examples" do
       fill_in(:impersonate_user_reason, with: reason) if reason
       fill_in :impersonate_user_authorization_document_number, with: document_number
       fill_in :impersonate_user_authorization_postal_code, with: "08224"
-      fill_in :impersonate_user_authorization_birthday, with: Time.current.change(day: 12)
+      fill_in_datepicker :impersonate_user_authorization_birthday_date, with: Time.new.utc.strftime("%d/%m/%Y")
     end
 
     within "[data-content]" do
