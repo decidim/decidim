@@ -398,10 +398,10 @@ describe "Proposals" do
       it "lists the proposals ordered randomly by default" do
         visit_component
 
-        expect(page).to have_selector("a", text: "Random")
-        expect(page).to have_selector("[id^='proposals__proposal']", count: 2)
-        expect(page).to have_selector("[id^='proposals__proposal']", text: lucky_proposal_title)
-        expect(page).to have_selector("[id^='proposals__proposal']", text: unlucky_proposal_title)
+        expect(page).to have_css("a", text: "Random")
+        expect(page).to have_css("[id^='proposals__proposal']", count: 2)
+        expect(page).to have_css("[id^='proposals__proposal']", text: lucky_proposal_title)
+        expect(page).to have_css("[id^='proposals__proposal']", text: unlucky_proposal_title)
         expect(page).to have_author(lucky_proposal.creator_author.name)
       end
     end
@@ -469,9 +469,9 @@ describe "Proposals" do
       before { visit_component }
 
       it "lists the proposals ordered by votes by default" do
-        expect(page).to have_selector("a", text: "Most supported")
-        expect(page).to have_selector("[id^='proposals__proposal']:first-child", text: most_voted_proposal_title)
-        expect(page).to have_selector("[id^='proposals__proposal']:last-child", text: less_voted_proposal_title)
+        expect(page).to have_css("a", text: "Most supported")
+        expect(page).to have_css("[id^='proposals__proposal']:first-child", text: most_voted_proposal_title)
+        expect(page).to have_css("[id^='proposals__proposal']:last-child", text: less_voted_proposal_title)
       end
     end
 
@@ -508,7 +508,7 @@ describe "Proposals" do
 
         click_link "Next"
 
-        expect(page).to have_selector("[data-pages] [data-page][aria-current='page']", text: "2")
+        expect(page).to have_css("[data-pages] [data-page][aria-current='page']", text: "2")
 
         expect(page).to have_css("[id^='proposals__proposal']", count: 5)
       end
@@ -520,15 +520,15 @@ describe "Proposals" do
       before do
         visit_component
         within ".order-by" do
-          expect(page).to have_selector("div.order-by a", text: "Random")
+          expect(page).to have_css("div.order-by a", text: "Random")
           page.find("a", text: "Random").click
           click_link(selected_option)
         end
       end
 
       it "lists the proposals ordered by selected option" do
-        expect(page).to have_selector("[id^='proposals__proposal']:first-child", text: first_proposal_title)
-        expect(page).to have_selector("[id^='proposals__proposal']:last-child", text: last_proposal_title)
+        expect(page).to have_css("[id^='proposals__proposal']:first-child", text: first_proposal_title)
+        expect(page).to have_css("[id^='proposals__proposal']:last-child", text: last_proposal_title)
       end
     end
 

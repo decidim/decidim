@@ -104,7 +104,7 @@ describe "Private Space Answer a survey" do
           expect(page).to have_content "The form is available only for private users"
           expect(page).to have_content "Form closed"
 
-          expect(page).to have_selector(".button[disabled]")
+          expect(page).to have_css(".button[disabled]")
         end
       end
     end

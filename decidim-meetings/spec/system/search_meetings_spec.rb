@@ -50,7 +50,7 @@ describe "Search meetings" do
 
         expect(page).to have_current_path decidim.search_path, ignore_query: true
         expect(page).to have_content(%(Results for the search: "#{term}"))
-        expect(page).to have_selector(".filter-search.filter-container")
+        expect(page).to have_css(".filter-search.filter-container")
         expect(page.find("#search-count h1").text.to_i).to eq(0)
       end
     end

@@ -64,7 +64,7 @@ describe "Identity document online review" do
       end
 
       it "allows the user to change the uploaded documents" do
-        expect(page).to have_selector("form", text: "Request verification again")
+        expect(page).to have_css("form", text: "Request verification again")
       end
 
       it "allows the verificator to review the amended request" do

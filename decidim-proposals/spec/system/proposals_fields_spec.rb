@@ -314,7 +314,7 @@ describe "Proposals" do
             expect(page).to have_content("successfully")
 
             within "#panel-images" do
-              expect(page).to have_selector("img[src*=\"city.jpeg\"]", count: 1)
+              expect(page).to have_css("img[src*=\"city.jpeg\"]", count: 1)
             end
           end
 

@@ -110,7 +110,7 @@ describe "Assembly members" do
 
       it "lists all the non ceased assembly members" do
         within "#assembly_members-grid" do
-          expect(page).to have_selector(".profile__user", count: 2)
+          expect(page).to have_css(".profile__user", count: 2)
 
           expect(page).to have_no_content(Decidim::AssemblyMemberPresenter.new(ceased_assembly_member).name)
         end
