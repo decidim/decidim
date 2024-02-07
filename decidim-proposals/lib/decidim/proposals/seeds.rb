@@ -15,6 +15,8 @@ module Decidim
       def call
         component = create_component!
 
+        Decidim::Proposals.create_default_states!(component, admin_user)
+
         5.times do |n|
           proposal = create_proposal!(component:)
 
@@ -71,27 +73,29 @@ module Decidim
 
       def create_proposal!(component:)
         n = rand(5)
-        state, answer, state_published_at = if n > 3
-                                              ["accepted", Decidim::Faker::Localized.sentence(word_count: 10), Time.current]
-                                            elsif n > 2
-                                              ["rejected", nil, Time.current]
-                                            elsif n > 1
-                                              ["evaluating", nil, Time.current]
-                                            elsif n.positive?
-                                              ["accepted", Decidim::Faker::Localized.sentence(word_count: 10), nil]
-                                            else
-                                              ["not_answered", nil, nil]
-                                            end
 
+        proposal_state, answer, state_published_at = if n > 3
+                                                       [:accepted, Decidim::Faker::Localized.sentence(word_count: 10), Time.current]
+                                                     elsif n > 2
+                                                       [:rejected, nil, Time.current]
+                                                     elsif n > 1
+                                                       [:evaluating, nil, Time.current]
+                                                     elsif n.positive?
+                                                       [:accepted, Decidim::Faker::Localized.sentence(word_count: 10), nil]
+                                                     else
+                                                       [:not_answered, nil, nil]
+                                                     end
+
+        proposal_state = Decidim::Proposals::ProposalState.where(component:, token: proposal_state).first
         params = {
           component:,
           category: participatory_space.categories.sample,
           scope: random_scope(participatory_space:),
           title: { en: ::Faker::Lorem.sentence(word_count: 2) },
           body: { en: ::Faker::Lorem.paragraphs(number: 2).join("\n") },
-          state:,
+          proposal_state:,
           answer:,
-          answered_at: state.present? ? Time.current : nil,
+          answered_at: proposal_state.present? ? Time.current : nil,
           state_published_at:,
           published_at: Time.current
         }
@@ -159,7 +163,7 @@ module Decidim
           scope: random_scope(participatory_space:),
           title: { en: "#{proposal.title["en"]} #{::Faker::Lorem.sentence(word_count: 1)}" },
           body: { en: "#{proposal.body["en"]} #{::Faker::Lorem.sentence(word_count: 3)}" },
-          state: "evaluating",
+          proposal_state: Decidim::Proposals::ProposalState.where(component: proposal.component, token: :evaluating).first,
           answer: nil,
           answered_at: Time.current,
           published_at: Time.current

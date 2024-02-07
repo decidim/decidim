@@ -41,7 +41,7 @@ module Decidim
             end
 
             it { expect(html).to have_content("Upcoming meetings") }
-            it { expect(html).not_to have_content("Past meetings") }
+            it { expect(html).to have_no_content("Past meetings") }
             it { expect(meetings_ids).not_to include(item_id(moderated_meeting)) }
             it { expect(meetings_ids).not_to include(item_id(past_meeting)) }
             it { expect(meetings_ids).to include(item_id(meeting)) }
@@ -63,7 +63,7 @@ module Decidim
               end
 
               it "renders past meetings" do
-                expect(html).not_to have_content("Upcoming meetings")
+                expect(html).to have_no_content("Upcoming meetings")
                 expect(html).to have_content("Past meetings")
                 expect(meetings_ids).not_to include(item_id(meeting))
                 expect(meetings_ids).not_to include(item_id(second_meeting))
@@ -120,7 +120,7 @@ module Decidim
                 end
 
                 it "does not render the map" do
-                  expect(html).not_to have_css(".meeting-list__block-map")
+                  expect(html).to have_no_css(".meeting-list__block-map")
                 end
               end
             end
@@ -147,7 +147,7 @@ module Decidim
 
         context "with no meetings" do
           it "renders nothing" do
-            expect(html).not_to have_css(".meeting-list__block-list")
+            expect(html).to have_no_css(".meeting-list__block-list")
           end
         end
       end

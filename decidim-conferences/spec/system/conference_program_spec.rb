@@ -25,7 +25,7 @@ describe "Conference program" do
       visit decidim_conferences.conference_path(conference)
 
       within "aside .conference__nav-container" do
-        expect(page).not_to have_content(translated_attribute(component.name))
+        expect(page).to have_no_content(translated_attribute(component.name))
       end
     end
   end

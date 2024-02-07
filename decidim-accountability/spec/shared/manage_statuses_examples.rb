@@ -75,7 +75,7 @@ RSpec.shared_examples "manage statuses" do
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).not_to have_content(status2.key)
+        expect(page).to have_no_content(status2.key)
       end
     end
   end

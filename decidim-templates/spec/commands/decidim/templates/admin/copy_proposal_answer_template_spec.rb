@@ -6,7 +6,7 @@ module Decidim
   module Templates
     module Admin
       describe CopyProposalAnswerTemplate do
-        let(:template) { create(:template, :proposal_answer) }
+        let(:template) { create(:template, target: :proposal_answer) }
 
         let(:user) { create(:user, :admin, organization: template.organization) }
 

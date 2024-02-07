@@ -46,11 +46,14 @@ describe "Accessibility tool" do
   end
 
   before do
+    # Create a favicon so it does not fail when trying to fetch it
+    favicon = ""
     # Create a temporary route to display the generated HTML in a correct site
     # context.
     final_html = html_document
     Rails.application.routes.draw do
       get "accessibility_tool", to: ->(_) { [200, {}, [final_html]] }
+      get "/favicon.ico", to: ->(_) { [200, {}, [favicon]] }
     end
 
     switch_to_host(organization.host)
@@ -85,7 +88,7 @@ describe "Accessibility tool" do
     within ".decidim-accessibility-badge .decidim-accessibility-info" do
       expect(page).to have_content("4")
     end
-    expect(page).not_to have_selector(".decidim-accessibility-report")
+    expect(page).to have_no_selector(".decidim-accessibility-report")
 
     find(".decidim-accessibility-badge").click
     expect(page).to have_selector(".decidim-accessibility-report")
@@ -118,7 +121,7 @@ describe "Accessibility tool" do
       within ".decidim-accessibility-badge .decidim-accessibility-info" do
         expect(page).to have_selector("svg use[href$='#ri-check-fill']")
       end
-      expect(page).not_to have_selector(".decidim-accessibility-report")
+      expect(page).to have_no_selector(".decidim-accessibility-report")
 
       find(".decidim-accessibility-badge").click
       expect(page).to have_selector(".decidim-accessibility-report")

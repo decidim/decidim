@@ -38,7 +38,7 @@ describe "Participatory Process Steps" do
 
       expect(page).to have_css(".participatory-space__metadata-modal__step", count: 3)
       steps.each do |step|
-        expect(page).to have_content(/#{translated(step.title)}/i)
+        expect(page).to have_content(translated(step.title))
       end
     end
   end

@@ -295,7 +295,7 @@ describe "Orders" do
           expect(page).to have_content(/Added\s0/)
         end
         expect(page).to have_selector ".budget-summary__progressbar--meter", style: "width: 0%"
-        expect(page).not_to have_selector ".budget-list__data--added"
+        expect(page).to have_no_selector ".budget-list__data--added"
       end
 
       it "is alerted when trying to leave the component before completing" do
@@ -311,7 +311,7 @@ describe "Orders" do
 
         click_button "Return to voting"
 
-        expect(page).not_to have_content("You have not yet voted")
+        expect(page).to have_no_content("You have not yet voted")
         expect(page).to have_current_path budget_projects_path
       end
 
@@ -443,8 +443,8 @@ describe "Orders" do
               page.visit decidim.profile_activity_path(nickname: user.nickname)
               expect(page).to have_content(user.name)
               expect(page).to have_current_path "/profiles/#{user.nickname}/activity"
-              expect(page).not_to have_content("New budgeting vote at")
-              expect(page).not_to have_link(translated(budget.title))
+              expect(page).to have_no_content("New budgeting vote at")
+              expect(page).to have_no_link(translated(budget.title))
             end
           end
         end
@@ -522,7 +522,7 @@ describe "Orders" do
         end
 
         within ".budget-summary__content", match: :first do
-          expect(page).not_to have_selector(".button", text: "delete your vote")
+          expect(page).to have_no_selector(".button", text: "delete your vote")
         end
       end
 
@@ -548,7 +548,7 @@ describe "Orders" do
       it "cannot create new orders" do
         visit_budget
 
-        expect(page).not_to have_button(class: "budget-list__action")
+        expect(page).to have_no_button(class: "budget-list__action")
       end
     end
 
@@ -596,7 +596,7 @@ describe "Orders" do
         visit_budget
 
         within(".budget__list--header") do
-          expect(page).not_to have_text("Added")
+          expect(page).to have_no_text("Added")
         end
       end
     end
@@ -682,7 +682,7 @@ describe "Orders" do
           visit_budget
           click_link translated(project.title)
 
-          expect(page).not_to have_css(".card__list-metadata", text: "5")
+          expect(page).to have_no_css(".card__list-metadata", text: "5")
         end
       end
     end

@@ -44,7 +44,7 @@ describe "Filter Proposals", :slow do
         end
       end
 
-      expect(page).not_to have_content("Another proposal")
+      expect(page).to have_no_content("Another proposal")
       expect(page).to have_content("Foobar proposal")
 
       filter_params = CGI.parse(URI.parse(page.current_url).query)
@@ -106,7 +106,7 @@ describe "Filter Proposals", :slow do
         visit_component
 
         within "form.new_filter" do
-          expect(page).not_to have_content(/Official/i)
+          expect(page).to have_no_content(/Official/i)
         end
       end
     end
@@ -207,7 +207,7 @@ describe "Filter Proposals", :slow do
         visit_component
 
         within "form.new_filter" do
-          expect(page).not_to have_content(/Scope/i)
+          expect(page).to have_no_content(/Scope/i)
         end
       end
 
@@ -318,7 +318,7 @@ describe "Filter Proposals", :slow do
 
             within "[id^='proposals__proposal']" do
               expect(page).to have_content(translated(proposal.title))
-              expect(page).not_to have_content("Accepted")
+              expect(page).to have_no_content("Accepted")
             end
           end
         end
@@ -339,7 +339,7 @@ describe "Filter Proposals", :slow do
           visit_component
 
           within "form.new_filter" do
-            expect(page).not_to have_content(/Status/i)
+            expect(page).to have_no_content(/Status/i)
           end
         end
       end
@@ -354,7 +354,7 @@ describe "Filter Proposals", :slow do
         visit_component
 
         within "form.new_filter" do
-          expect(page).not_to have_content(/Status/i)
+          expect(page).to have_no_content(/Status/i)
         end
       end
     end
@@ -486,7 +486,7 @@ describe "Filter Proposals", :slow do
 
         it "cannot be filtered by supported" do
           within "form.new_filter" do
-            expect(page).not_to have_content(/Supported/i)
+            expect(page).to have_no_content(/Supported/i)
           end
         end
       end
@@ -496,7 +496,7 @@ describe "Filter Proposals", :slow do
       it "cannot be filtered by activity" do
         visit_component
         within "form.new_filter" do
-          expect(page).not_to have_content(/Activity/i)
+          expect(page).to have_no_content(/Activity/i)
         end
       end
     end
@@ -544,31 +544,27 @@ describe "Filter Proposals", :slow do
       end
 
       context "when amendments_enabled component setting is enabled" do
-        before do
-          component.update!(settings: { amendments_enabled: true })
-        end
-
         context "and amendments_visbility component step_setting is set to 'participants'" do
-          before do
-            component.update!(
-              step_settings: {
-                component.participatory_space.active_step.id => {
-                  amendments_visibility: "participants"
-                }
-              }
-            )
-          end
-
           context "when the user is logged in" do
+            before do
+              visit decidim.root_path
+
+              component.update!(settings: { amendments_enabled: true })
+              component.update!(
+                step_settings: {
+                  component.participatory_space.active_step.id => {
+                    amendments_visibility: "participants"
+                  }
+                }
+              )
+              login_as user, scope: :user
+              visit_component
+            end
+
             context "and has amended a proposal" do
               let!(:new_emendation) { create(:proposal, component:, scope:) }
               let!(:new_amendment) { create(:amendment, amendable: proposal, emendation: new_emendation, amender: new_emendation.creator_author) }
               let(:user) { new_amendment.amender }
-
-              before do
-                login_as user, scope: :user
-                visit_component
-              end
 
               it "can be filtered by type" do
                 within "form.new_filter" do
@@ -583,19 +579,14 @@ describe "Filter Proposals", :slow do
                 expect(page).to have_css("[id^='proposals__proposal']", count: 1)
                 expect(page).to have_content("Amendment", count: 2)
                 expect(page).to have_content(translated(new_emendation.title))
-                expect(page).not_to have_content(translated(emendation.title))
+                expect(page).to have_no_content(translated(emendation.title))
               end
             end
 
             context "and has NOT amended a proposal" do
-              before do
-                login_as user, scope: :user
-                visit_component
-              end
-
               it "cannot be filtered by type" do
                 within "form.new_filter" do
-                  expect(page).not_to have_content(/Type/i)
+                  expect(page).to have_no_content(/Type/i)
                 end
               end
             end
@@ -603,12 +594,21 @@ describe "Filter Proposals", :slow do
 
           context "when the user is NOT logged in" do
             before do
+              visit decidim.root_path
+              component.update!(settings: { amendments_enabled: true })
+              component.update!(
+                step_settings: {
+                  component.participatory_space.active_step.id => {
+                    amendments_visibility: "participants"
+                  }
+                }
+              )
               visit_component
             end
 
             it "cannot be filtered by type" do
               within "form.new_filter" do
-                expect(page).not_to have_content(/Type/i)
+                expect(page).to have_no_content(/Type/i)
               end
             end
           end

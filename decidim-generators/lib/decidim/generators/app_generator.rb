@@ -159,7 +159,7 @@ module Decidim
 
         gsub_file "Gemfile", /gem "decidim-dev".*/, "gem \"decidim-dev\", #{gem_modifier}"
 
-        %w(conferences design elections initiatives templates).each do |component|
+        %w(conferences design initiatives templates).each do |component|
           if options[:demo]
             gsub_file "Gemfile", /gem "decidim-#{component}".*/, "gem \"decidim-#{component}\", #{gem_modifier}"
           else
@@ -335,6 +335,11 @@ module Decidim
             end
           end
         CONFIG
+
+        if ENV.fetch("RAILS_BOOST_PERFORMANCE", false).to_s == "true"
+          gsub_file "Gemfile", /gem "spring".*/, "# gem \"spring\""
+          gsub_file "Gemfile", /gem "spring-watcher-listen".*/, "# gem \"spring-watcher-listen\""
+        end
       end
 
       def authorization_handler

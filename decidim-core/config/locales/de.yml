@@ -77,12 +77,6 @@ de:
   booleans:
     'false': 'Nein'
     'true': 'Ja'
-  carrierwave:
-    errors:
-      file_cannot_be_processed: Datei konnte nicht verarbeitet werden
-      file_resolution_too_large: Die Datei-Auflösung ist zu groß
-      file_size_too_large: Datei ist zu groß
-      not_inside_organization: Die Datei ist keiner Organisation hinzugefügt
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -513,8 +507,6 @@ de:
         name: Fußzeile sub hero Banner
       global_menu:
         name: Globales Menü
-      hero:
-        name: Hauptbild
       hero_settings_form:
         background_image: Hintergrundbild
         welcome_text: Willkommenstext
@@ -1278,7 +1270,6 @@ de:
     offline:
       name: Offline
       show:
-        message: Es sieht so aus, als ob Sie momentan offline sind. Bitte versuchen Sie es später erneut.
         retry: Wiederholen
     open_data:
       not_available_yet: Die Open Data-Dateien sind noch nicht verfügbar. Bitte versuchen Sie es in einigen Minuten erneut.
@@ -1799,6 +1790,7 @@ de:
   emojis:
     button: Emoji hinzufügen
     categories:
+      activity: Aktivität
       custom: Benutzerdefiniert
       flags: Flaggen
       objects: Objekte

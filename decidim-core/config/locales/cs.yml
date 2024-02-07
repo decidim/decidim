@@ -85,12 +85,6 @@ cs:
   booleans:
     'false': 'Ne'
     'true': 'Ano'
-  carrierwave:
-    errors:
-      file_cannot_be_processed: Soubor nelze zpracovat
-      file_resolution_too_large: Rozlišení souboru je příliš velké
-      file_size_too_large: Soubor je příliš velký
-      not_inside_organization: Soubor není připojen k žádné organizaci
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -547,8 +541,6 @@ cs:
         name: Zápatí pod hlavním pruhem
       global_menu:
         name: Globální menu
-      hero:
-        name: Hlavní obrázek
       hero_settings_form:
         background_image: Obrázek pozadí
         welcome_text: Uvítací text
@@ -1316,7 +1308,6 @@ cs:
     offline:
       name: Offline
       show:
-        message: Vypadá to, že jste momentálně v režimu offline. Opakujte akci později.
         retry: Zkusit znovu
     open_data:
       not_available_yet: Soubory Open Data nejsou dosud k dispozici. Zkuste to prosím znovu za pár minut.

@@ -46,7 +46,7 @@ describe "Meeting live event" do
 
     it "tells that you need to enable cookies" do
       visit meeting_live_event_path
-      expect(page).not_to have_selector("iframe")
+      expect(page).to have_no_selector("iframe")
       expect(page).to have_content("You need to enable all cookies in order to see this content")
     end
 
@@ -63,6 +63,8 @@ describe "Meeting live event" do
       allow(Decidim.config).to receive(:expire_session_after).and_return(2.minutes)
       allow(Decidim.config).to receive(:session_timeout_interval).and_return(1.second)
       switch_to_host(organization.host)
+      visit decidim.root_path
+      data_consent("essential")
       login_as user, scope: :user
       visit meeting_live_event_path
     end
@@ -74,8 +76,8 @@ describe "Meeting live event" do
       it "does not timeout user" do
         travel 5.minutes
         expect(page).to have_selector("[aria-label='User account: #{user.name}']")
-        expect(page).not_to have_content("If you continue being inactive", wait: 4)
-        expect(page).not_to have_content("You were inactive for too long")
+        expect(page).to have_no_content("If you continue being inactive", wait: 4)
+        expect(page).to have_no_content("You were inactive for too long")
       end
 
       context "and ends soon" do

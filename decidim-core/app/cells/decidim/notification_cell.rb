@@ -23,7 +23,7 @@ module Decidim
 
       participatory_space = notification.resource.participatory_space
       link_to(
-        decidim_html_escape(translated_attribute(participatory_space.title)),
+        decidim_escape_translated(participatory_space.title),
         resource_locator(participatory_space).path
       )
     end

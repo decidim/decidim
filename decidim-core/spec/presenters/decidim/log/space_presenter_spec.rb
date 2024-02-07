@@ -21,7 +21,7 @@ describe Decidim::Log::SpacePresenter, type: :helper do
 
   context "when the space exists" do
     it "links to its public page" do
-      expect(subject).to have_link(title, href: space_path)
+      expect(subject).to have_link(translated(space.title), href: space_path)
     end
   end
 
@@ -36,7 +36,7 @@ describe Decidim::Log::SpacePresenter, type: :helper do
     end
 
     it "does not link to its public page" do
-      expect(subject).not_to have_link(title)
+      expect(subject).to have_no_link(title)
       expect(subject).to include(title)
     end
   end

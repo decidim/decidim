@@ -76,7 +76,7 @@ describe "Admin manages static page content blocks" do
       expect(page).to have_content("Content block successfully deleted")
 
       visit decidim.page_path(tos_page)
-      expect(page).not_to have_content(content)
+      expect(page).to have_no_content(content)
     end
   end
 

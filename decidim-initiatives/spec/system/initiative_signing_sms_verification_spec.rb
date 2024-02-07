@@ -45,13 +45,13 @@ describe "Initiative signing" do
     if has_content?("Complete your data")
       fill_in :initiatives_vote_name_and_surname, with: confirmed_user.name
       fill_in :initiatives_vote_document_number, with: document_number
-      fill_in :initiatives_vote_date_of_birth, with: 30.years.ago.strftime("01/01/%Y")
+      fill_in_datepicker :initiatives_vote_date_of_birth_date, with: 30.years.ago.strftime("01/01/%Y")
 
       fill_in :initiatives_vote_postal_code, with: "01234"
 
       click_button "Continue"
 
-      expect(page).not_to have_css("div.alert")
+      expect(page).to have_no_css("div.alert")
     end
   end
 

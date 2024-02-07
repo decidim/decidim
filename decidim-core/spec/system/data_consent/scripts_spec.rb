@@ -51,11 +51,14 @@ describe "Data consent scripts" do
   let(:html_body) { "" }
 
   before do
+    # Create a favicon so it does not fail when trying to fetch it
+    favicon = ""
     # Create a temporary route to display the generated HTML in a correct site
     # context.
     final_html = html_document
     Rails.application.routes.draw do
       get "cookie_scripts", to: ->(_) { [200, {}, [final_html]] }
+      get "/favicon.ico", to: ->(_) { [200, {}, [favicon]] }
     end
 
     switch_to_host(organization.host)
@@ -95,7 +98,7 @@ describe "Data consent scripts" do
 
       it "does not run scripts" do
         expect(page).to have_content("Hello cookies")
-        expect(page).not_to have_content("cookies accepted")
+        expect(page).to have_no_content("cookies accepted")
       end
 
       context "when accept all cookies" do
@@ -114,9 +117,9 @@ describe "Data consent scripts" do
 
         it "runs scripts" do
           expect(page).to have_content(essential_cookies_accepted)
-          expect(page).not_to have_content(preferences_cookies_accepted)
-          expect(page).not_to have_content(analytics_cookies_accepted)
-          expect(page).not_to have_content(marketing_cookies_accepted)
+          expect(page).to have_no_content(preferences_cookies_accepted)
+          expect(page).to have_no_content(analytics_cookies_accepted)
+          expect(page).to have_no_content(marketing_cookies_accepted)
         end
       end
 
@@ -125,9 +128,9 @@ describe "Data consent scripts" do
 
         it "runs analytics scripts" do
           expect(page).to have_content(essential_cookies_accepted)
-          expect(page).not_to have_content(preferences_cookies_accepted)
+          expect(page).to have_no_content(preferences_cookies_accepted)
           expect(page).to have_content(analytics_cookies_accepted)
-          expect(page).not_to have_content(marketing_cookies_accepted)
+          expect(page).to have_no_content(marketing_cookies_accepted)
         end
       end
     end

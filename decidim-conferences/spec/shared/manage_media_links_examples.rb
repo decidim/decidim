@@ -28,7 +28,7 @@ shared_examples "manage media links examples" do
 
           fill_in :conference_media_link_link, with: "https://decidim.org"
           fill_in :conference_media_link_weight, with: 2
-          fill_in :conference_media_link_date, with: "24/10/2018"
+          fill_in_datepicker :conference_media_link_date_date, with: "24/10/2018"
         end
 
         find("*[type=submit]").click
@@ -72,7 +72,7 @@ shared_examples "manage media links examples" do
 
         fill_in :conference_media_link_link, with: "https://decidim.org"
         fill_in :conference_media_link_weight, with: 2
-        fill_in :conference_media_link_date, with: 1.month.ago
+        fill_in_datepicker :conference_media_link_date_date, with: 1.month.ago.strftime("%d/%m/%Y")
 
         find("*[type=submit]").click
       end
@@ -93,7 +93,7 @@ shared_examples "manage media links examples" do
       expect(page).to have_admin_callout("successfully")
 
       within "#media_links table" do
-        expect(page).not_to have_content(translated(media_link.title))
+        expect(page).to have_no_content(translated(media_link.title))
       end
     end
   end

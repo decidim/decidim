@@ -42,7 +42,7 @@ describe "Participatory Process Groups" do
         expect(page).to have_content(translated(participatory_process_group.title, locale: :en))
         expect(page).to have_selector("a.card__grid", count: 1)
 
-        expect(page).not_to have_content(translated(other_group.title, locale: :en))
+        expect(page).to have_no_content(translated(other_group.title, locale: :en))
       end
     end
 
@@ -87,7 +87,7 @@ describe "Participatory Process Groups" do
       end
 
       it "shows the description" do
-        expect(page).to have_i18n_content(participatory_process_group.description)
+        expect(page).to have_i18n_content(participatory_process_group.description, strip_tags: true)
       end
 
       it "shows the meta scope name" do
@@ -124,10 +124,10 @@ describe "Participatory Process Groups" do
 
       it "shows metadata attributes" do
         within "#participatory_process_group-extra_data" do
-          expect(page).to have_i18n_content(participatory_process_group.developer_group)
-          expect(page).to have_i18n_content(participatory_process_group.target)
-          expect(page).to have_i18n_content(participatory_process_group.participatory_scope)
-          expect(page).to have_i18n_content(participatory_process_group.participatory_structure)
+          expect(page).to have_i18n_content(participatory_process_group.developer_group, strip_tags: true)
+          expect(page).to have_i18n_content(participatory_process_group.target, strip_tags: true)
+          expect(page).to have_i18n_content(participatory_process_group.participatory_scope, strip_tags: true)
+          expect(page).to have_i18n_content(participatory_process_group.participatory_structure, strip_tags: true)
         end
       end
     end
@@ -187,20 +187,20 @@ describe "Participatory Process Groups" do
 
           within("#proposals__proposal_#{proposal1.id}") do
             expect(page).to have_content "First awesome proposal!"
-            expect(page).to have_i18n_content process.title
+            expect(page).to have_i18n_content(process.title, strip_tags: true)
           end
 
           within("#proposals__proposal_#{proposal2.id}") do
             expect(page).to have_content "Second fabulous proposal!"
-            expect(page).to have_i18n_content other_process.title
+            expect(page).to have_i18n_content(other_process.title, strip_tags: true)
           end
         end
       end
 
       it "does not show cards of proposals from process out of group" do
-        expect(page).not_to have_selector("#proposals__proposal_#{independent_proposal.id}")
-        expect(page).not_to have_content "Independent proposal!"
-        expect(page).not_to have_i18n_content out_of_group_process.title
+        expect(page).to have_no_selector("#proposals__proposal_#{independent_proposal.id}")
+        expect(page).to have_no_content "Independent proposal!"
+        expect(page).not_to have_i18n_content(out_of_group_process.title, strip_tags: true)
       end
     end
 
@@ -231,19 +231,19 @@ describe "Participatory Process Groups" do
 
           within("#accountability__result_#{result1.id}") do
             expect(page).to have_content "First awesome result!"
-            expect(page).to have_i18n_content process.title
+            expect(page).to have_i18n_content(process.title, strip_tags: true)
           end
 
           within("#accountability__result_#{result2.id}") do
             expect(page).to have_content "Second fabulous result!"
-            expect(page).to have_i18n_content other_process.title
+            expect(page).to have_i18n_content(other_process.title, strip_tags: true)
           end
         end
       end
 
       it "does not show cards of results from process out of group" do
-        expect(page).not_to have_selector("#accountability__result_#{independent_result.id}")
-        expect(page).not_to have_content "Independent result!"
+        expect(page).to have_no_selector("#accountability__result_#{independent_result.id}")
+        expect(page).to have_no_content "Independent result!"
         expect(page).not_to have_i18n_content out_of_group_process.title
       end
     end
@@ -306,7 +306,7 @@ describe "Participatory Process Groups" do
     end
 
     it "does not show cards of meetings from process out of group" do
-      expect(page).not_to have_content "Independent meeting!"
+      expect(page).to have_no_content "Independent meeting!"
     end
   end
 
@@ -324,7 +324,7 @@ describe "Participatory Process Groups" do
     it "shows no statistics content block if there are no components or followers in depending participatory processes" do
       visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
 
-      expect(page).not_to have_css("section[data-statistics]")
+      expect(page).to have_no_css("section[data-statistics]")
     end
 
     context "when there are components and depending resources" do
@@ -469,7 +469,7 @@ describe "Participatory Process Groups" do
     shared_examples "not showing processes belonging to other group" do
       it "does not list process of other group" do
         within("#processes-grid") do
-          expect(page).not_to have_content(translated(other_group_process.title, locale: :en))
+          expect(page).to have_no_content(translated(other_group_process.title, locale: :en))
         end
       end
     end
@@ -497,14 +497,14 @@ describe "Participatory Process Groups" do
 
       it "does not list process of other group" do
         within "section.content-block" do
-          expect(page).not_to have_content(translated(other_group_process.title, locale: :en))
+          expect(page).to have_no_content(translated(other_group_process.title, locale: :en))
         end
       end
 
       it "does not list inactice processes" do
         within "section.content-block" do
-          expect(page).not_to have_content(translated(upcoming_process_with_area.title, locale: :en))
-          expect(page).not_to have_content(translated(past_process_with_scope.title, locale: :en))
+          expect(page).to have_no_content(translated(upcoming_process_with_area.title, locale: :en))
+          expect(page).to have_no_content(translated(past_process_with_scope.title, locale: :en))
         end
       end
 
@@ -541,14 +541,14 @@ describe "Participatory Process Groups" do
 
       it "does not list process of other group" do
         within "section.content-block" do
-          expect(page).not_to have_content(translated(other_group_process.title, locale: :en))
+          expect(page).to have_no_content(translated(other_group_process.title, locale: :en))
         end
       end
 
       it "shows count of all processes" do
         within "div.content-block__title" do
           expect(page).to have_content("Participatory processes")
-          expect(page).not_to have_content("Active")
+          expect(page).to have_no_content("Active")
           expect(page).to have_content("5")
         end
       end

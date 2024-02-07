@@ -33,7 +33,7 @@ describe "Private Space Debate" do
         visit_component
 
         within "aside" do
-          expect(page).not_to have_link("New debate")
+          expect(page).to have_no_link("New debate")
         end
       end
     end
@@ -60,7 +60,7 @@ describe "Private Space Debate" do
           visit_component
 
           within "aside" do
-            expect(page).not_to have_link("New debate")
+            expect(page).to have_no_link("New debate")
           end
         end
       end
