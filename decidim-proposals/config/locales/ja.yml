@@ -36,7 +36,7 @@ ja:
         origin_component_id: 提案をコピーするコンポーネント
       proposals_import:
         import_proposals: 提案をインポート
-        keep_answers: 状態と回答を保持
+        keep_answers: ステータスと回答を保持
         keep_authors: オリジナルの作者を保持
       valuation_assignment:
         admin_log:
@@ -273,6 +273,7 @@ ja:
             notification_title: あなたの提案 <a href="%{resource_path}">%{resource_title}</a> が承認されました。
           follower:
             email_intro: '提案「%{resource_title}」が承認されました。このページで回答を読むことができます:'
+            email_outro: '"%{resource_title}" をフォローしているため、この通知を受け取りました。前述のリンクからフォローを解除できます。'
             email_subject: あなたがフォローしている提案が承認されました
             notification_title: <a href="%{resource_path}">%{resource_title}</a> の提案が承認されました。
         proposal_evaluating:
@@ -283,6 +284,7 @@ ja:
             notification_title: あなたの提案 <a href="%{resource_path}">%{resource_title}</a> が評価されています。
           follower:
             email_intro: '提案 "%{resource_title}" は現在評価されています。このページで回答を確認できます：'
+            email_outro: '"%{resource_title}" をフォローしているため、この通知を受け取りました。前述のリンクからフォローを解除できます。'
             email_subject: あなたがフォローしている提案が評価されています
             notification_title: <a href="%{resource_path}">%{resource_title}</a> の提案が評価されています。
         proposal_mentioned:
@@ -309,6 +311,7 @@ ja:
             notification_title: あなたの提案 <a href="%{resource_path}">%{resource_title}</a> が却下されました。
           follower:
             email_intro: '提案 "%{resource_title}" は拒否されました。このページで回答を読むことができます:'
+            email_outro: '"%{resource_title}" をフォローしているため、この通知を受け取りました。前述のリンクからフォローを解除できます。'
             email_subject: あなたがフォローしている提案が却下されました
             notification_title: <a href="%{resource_path}">%{resource_title}</a> の提案は拒否されました。
         proposal_update_category:
