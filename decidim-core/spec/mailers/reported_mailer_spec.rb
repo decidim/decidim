@@ -91,7 +91,7 @@ module Decidim
           end
 
           it "includes the name of the author but no link to their profile" do
-            expect(mail).not_to have_link(author.name)
+            expect(mail).to have_no_link(author.name)
           end
         end
 

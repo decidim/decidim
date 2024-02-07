@@ -19,7 +19,7 @@ shared_examples "manage processes examples" do
       filter_by_group(translated(process_group.title))
 
       expect(page).to have_content(translated(process_with_group.title))
-      expect(page).not_to have_content(translated(process_without_group.title))
+      expect(page).to have_no_content(translated(process_without_group.title))
     end
 
     describe "listing processes" do
@@ -178,7 +178,7 @@ shared_examples "manage processes examples" do
 
     it "does not let the admin manage processes form other organizations" do
       within "table" do
-        expect(page).not_to have_content(external_participatory_process.title["en"])
+        expect(page).to have_no_content(external_participatory_process.title["en"])
       end
     end
   end

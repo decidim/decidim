@@ -132,7 +132,7 @@ describe "Datepicker" do
       let(:datetime_field) { form.datetime_field(:input, hide_help: true) }
 
       it "hides the help texts" do
-        expect(page).not_to have_content("Format: dd/mm/yy")
+        expect(page).to have_no_content("Format: dd/mm/yy")
       end
     end
 

@@ -30,7 +30,7 @@ describe "Edit proposals" do
       click_link "Edit proposal"
 
       expect(page).to have_content "Edit proposal"
-      expect(page).not_to have_content("You can move the point on the map.")
+      expect(page).to have_no_content("You can move the point on the map.")
 
       within "form.edit_proposal" do
         fill_in :proposal_title, with: new_title
@@ -81,8 +81,8 @@ describe "Edit proposals" do
 
           click_button "Send"
 
-          expect(page).not_to have_content("Documents")
-          expect(page).not_to have_content("Images")
+          expect(page).to have_no_content("Documents")
+          expect(page).to have_no_content("Images")
         end
 
         context "with attachment titles" do
@@ -171,7 +171,7 @@ describe "Edit proposals" do
           expect(page).to have_content("avatar.jpg")
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city2.jpeg"))
           expect(page).to have_content("city2.jpeg")
-          expect(page).not_to have_content("city3.jpeg")
+          expect(page).to have_no_content("city3.jpeg")
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city3.jpeg"))
           expect(page).to have_content("city2.jpeg")
           expect(page).to have_content("city3.jpeg")
@@ -246,7 +246,7 @@ describe "Edit proposals" do
 
           expect(page).to have_content(new_title)
           expect(page).to have_content(new_body)
-          expect(page).not_to have_content(proposal.address)
+          expect(page).to have_no_content(proposal.address)
         end
       end
     end
@@ -326,7 +326,7 @@ describe "Edit proposals" do
         it "does not add external link container inside the editor" do
           editor = page.find(".editor-container")
           expect(editor).to have_selector("a[href='#{link}']")
-          expect(editor).not_to have_selector("a.external-link-container")
+          expect(editor).to have_no_selector("a.external-link-container")
         end
       end
     end
@@ -341,7 +341,7 @@ describe "Edit proposals" do
       visit_component
 
       click_link proposal_title
-      expect(page).not_to have_content("Edit proposal")
+      expect(page).to have_no_content("Edit proposal")
       visit "#{current_path}/edit"
 
       expect(page).to have_content("not authorized")
@@ -359,7 +359,7 @@ describe "Edit proposals" do
       visit_component
 
       click_link proposal_title
-      expect(page).not_to have_content("Edit proposal")
+      expect(page).to have_no_content("Edit proposal")
       visit "#{current_path}/edit"
 
       expect(page).to have_content("not authorized")

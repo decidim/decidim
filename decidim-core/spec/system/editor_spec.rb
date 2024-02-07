@@ -1368,7 +1368,7 @@ describe "Editor" do
         expect_value(%(<p>Hello, world!</p>))
 
         within ".editor" do
-          expect(page).not_to have_selector("[data-bubble-menu] [data-linkbubble]")
+          expect(page).to have_no_selector("[data-bubble-menu] [data-linkbubble]")
         end
       end
     end

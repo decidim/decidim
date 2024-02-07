@@ -15,7 +15,7 @@ describe "Meetings in process home" do
   context "when there are no meetings" do
     it "does not show the highlighted meetings section" do
       visit resource_locator(participatory_process).path
-      expect(page).not_to have_css("#participatory-process-homepage-highlighted-meetings")
+      expect(page).to have_no_css("#participatory-process-homepage-highlighted-meetings")
     end
   end
 
@@ -32,7 +32,7 @@ describe "Meetings in process home" do
         expect(page).to have_content("PAST MEETINGS")
         expect(page).to have_css(meetings_selector, count: 3)
 
-        expect(page).not_to have_content(/#{translated(moderated_meeting.title)}/i)
+        expect(page).to have_no_content(/#{translated(moderated_meeting.title)}/i)
 
         past_meetings.sort_by { |m| [m.end_time, m.start_time] }.last(3).each do |meeting|
           expect(page).to have_content(translated(meeting.title))
@@ -54,7 +54,7 @@ describe "Meetings in process home" do
         expect(page).to have_content("UPCOMING MEETINGS")
         expect(page).to have_css(meetings_selector, count: 3)
 
-        expect(page).not_to have_content(/#{translated(moderated_meeting.title)}/i)
+        expect(page).to have_no_content(/#{translated(moderated_meeting.title)}/i)
 
         upcoming_meetings.sort_by { |m| [m.start_time, m.end_time] }.first(3).each do |meeting|
           expect(page).to have_content(translated(meeting.title))
@@ -80,7 +80,7 @@ describe "Meetings in process home" do
         expect(page).to have_css(meetings_selector, count: 3)
 
         past_meetings.each do |meeting|
-          expect(page).not_to have_content(translated(meeting.title))
+          expect(page).to have_no_content(translated(meeting.title))
         end
 
         upcoming_meetings.sort_by { |m| [m.start_time, m.end_time] }.first(3).each do |meeting|

@@ -37,7 +37,7 @@ describe "Scopes picker" do
 
       it "does not show other organization top scopes in content" do
         other_scopes.each do |scope|
-          expect(page).not_to have_css(".scope-picker.picker-content li a", text: scope.name["en"])
+          expect(page).to have_no_css(".scope-picker.picker-content li a", text: scope.name["en"])
         end
       end
 
@@ -45,7 +45,7 @@ describe "Scopes picker" do
         let(:params) { { title:, required: true, current: scopes.first } }
 
         it "allows to choose it" do
-          expect(page).not_to have_selector(".scope-picker.picker-footer .buttons a.button[disabled='true']")
+          expect(page).to have_no_selector(".scope-picker.picker-footer .buttons a.button[disabled='true']")
         end
       end
     end
@@ -68,7 +68,7 @@ describe "Scopes picker" do
       let(:root) { scopes.first }
 
       it "does not show global scope in header" do
-        expect(page).not_to have_css(".scope-picker.picker-header li a", text: "Global scope")
+        expect(page).to have_no_css(".scope-picker.picker-header li a", text: "Global scope")
       end
 
       it "shows root scope in header" do
@@ -76,7 +76,7 @@ describe "Scopes picker" do
       end
 
       it "does not show root sibling scope in header" do
-        expect(page).not_to have_css(".scope-picker.picker-header li a", text: scopes.last.name["en"])
+        expect(page).to have_no_css(".scope-picker.picker-header li a", text: scopes.last.name["en"])
       end
 
       it "shows child scope in content" do
@@ -97,7 +97,7 @@ describe "Scopes picker" do
         end
 
         it "does not shows any scope in content" do
-          expect(page).not_to have_css(".scope-picker.picker-content li")
+          expect(page).to have_no_css(".scope-picker.picker-content li")
         end
       end
     end

@@ -147,7 +147,7 @@ shared_examples "manage impersonations examples" do
       navigate_to_impersonations_page
       click_link "Manage new participant"
 
-      expect(page).not_to have_select("Authorization method")
+      expect(page).to have_no_select("Authorization method")
     end
   end
 
@@ -272,7 +272,7 @@ shared_examples "manage impersonations examples" do
       navigate_to_impersonations_page
 
       within find("tr", text: managed_user.name) do
-        expect(page).not_to have_link("Promote")
+        expect(page).to have_no_link("Promote")
       end
     end
   end
@@ -305,7 +305,7 @@ shared_examples "manage impersonations examples" do
           click_link "Verification conflicts"
         end
 
-        expect(page).not_to have_content("Rigoberto")
+        expect(page).to have_no_content("Rigoberto")
       end
     end
   end

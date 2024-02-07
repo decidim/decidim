@@ -67,7 +67,7 @@ describe "Postal letter management" do
     expect(page).to have_content("Letter successfully marked as sent")
 
     within "table tbody tr", text: letter_not_sent.user.name do
-      expect(page).not_to have_selector("td a.action-icon--verify")
+      expect(page).to have_no_selector("td a.action-icon--verify")
       expect(page).to have_selector("td", text: %r{\d+/\d+/\d+ \d+:\d+})
     end
   end

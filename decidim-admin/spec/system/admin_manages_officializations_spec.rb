@@ -60,7 +60,7 @@ describe "Admin manages officializations" do
     context "when user is blocked" do
       it "cannot be officialized" do
         within "tr[data-user-id=\"#{user.id}\"]" do
-          expect(page).not_to have_link("Officialize")
+          expect(page).to have_no_link("Officialize")
         end
       end
     end
@@ -243,7 +243,7 @@ describe "Admin manages officializations" do
 
         within "#show-email-modal" do
           expect(page).to have_content("Show participant's email address")
-          expect(page).not_to have_content(user.email)
+          expect(page).to have_no_content(user.email)
 
           click_button "Show"
 

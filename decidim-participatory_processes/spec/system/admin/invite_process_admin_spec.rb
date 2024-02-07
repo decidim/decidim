@@ -21,7 +21,7 @@ describe "Invite process administrator" do
         expect(page).to have_content("Categories")
         expect(page).to have_content("Attachments")
         expect(page).to have_content("Process admins")
-        expect(page).not_to have_content("Private participants")
+        expect(page).to have_no_content("Private participants")
         expect(page).to have_content("Moderations")
       end
     end
