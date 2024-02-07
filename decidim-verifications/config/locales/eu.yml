@@ -231,8 +231,6 @@ eu:
           update:
             error: Arazo bat egon da zure dokumentua berriro igotzean.
             success: Dokumentua ondo igota berriro.
-        dni: DNI
-        nie: NIE
         passport: pasaportea
       postal_letter:
         admin:
