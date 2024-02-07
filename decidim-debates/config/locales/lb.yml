@@ -90,13 +90,6 @@ lb:
     events:
       debates:
         create_debate_event:
-          space_followers:
-            email_intro: |-
-              Hallo,
-              Eine neue Debatte "%{resource_title}" wurde in %{space_title} erstellt, sehen Sie es sich an und reden Sie mit:
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-            email_subject: Neue Debatte "%{resource_title}" in %{space_title}
-            notification_title: Die Debatte <a href="%{resource_path}">%{resource_title}</a> wurde in <a href="%{space_path}">%{space_title}</a> erstellt.
           user_followers:
             email_intro: |-
               Hallo,
