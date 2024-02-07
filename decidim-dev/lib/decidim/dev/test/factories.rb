@@ -7,7 +7,7 @@ FactoryBot.define do
     transient do
       skip_injection { false }
     end
-    name { Decidim::Components::Namer.new(participatory_space.organization.available_locales, :surveys).i18n_name }
+    name { generate_component_name(participatory_space.organization.available_locales, :surveys, skip_injection:) }
     manifest_name { :dummy }
   end
 
@@ -18,19 +18,20 @@ FactoryBot.define do
       # user_groups correspondence to users is by sorting order
       user_groups { [] }
     end
-    title { Decidim::Faker::Localized.localized { generate(:name) } }
-    component { create(:component, manifest_name: "dummy") }
-    author { create(:user, :confirmed, organization: component.organization) }
-    scope { create(:scope, organization: component.organization) }
+    title { generate_localized_title(:dummy_resource_title, skip_injection:) }
+    component { create(:dummy_component, skip_injection:) }
+    author { create(:user, :confirmed, organization: component.organization, skip_injection:) }
+    scope { create(:scope, organization: component.organization, skip_injection:) }
 
     trait :published do
       published_at { Time.current }
     end
 
     trait :with_endorsements do
-      after :create do |resource|
+      after :create do |resource, evaluator|
         5.times.collect do
-          create(:endorsement, resource:, author: build(:user, organization: resource.component.organization))
+          create(:endorsement, resource:, skip_injection: evaluator.skip_injection,
+                               author: build(:user, organization: resource.component.organization, skip_injection: evaluator.skip_injection))
         end
       end
     end
@@ -45,20 +46,21 @@ FactoryBot.define do
   end
 
   factory :coauthorable_dummy_resource, class: "Decidim::Dev::CoauthorableDummyResource" do
-    title { generate(:name) }
-    component { create(:component, manifest_name: "dummy") }
-
     transient do
       skip_injection { false }
-      authors_list { [create(:user, organization: component.organization)] }
+      authors_list { [create(:user, organization: component.organization, skip_injection:)] }
     end
+    title { generate(:name) }
+    component { create(:component, manifest_name: "dummy") }
 
     after :build do |resource, evaluator|
       evaluator.authors_list.each do |coauthor|
         resource.coauthorships << if coauthor.is_a?(Decidim::UserGroup)
-                                    build(:coauthorship, author: coauthor.users.first, user_group: coauthor, coauthorable: resource, organization: evaluator.component.organization)
+                                    build(:coauthorship, author: coauthor.users.first, user_group: coauthor, coauthorable: resource,
+                                                         organization: evaluator.component.organization, skip_injection: evaluator.skip_injection)
                                   else
-                                    build(:coauthorship, author: coauthor, coauthorable: resource, organization: evaluator.component.organization)
+                                    build(:coauthorship, author: coauthor, coauthorable: resource, organization: evaluator.component.organization,
+                                                         skip_injection: evaluator.skip_injection)
                                   end
       end
     end
