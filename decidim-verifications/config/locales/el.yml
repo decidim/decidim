@@ -152,8 +152,6 @@ el:
           new:
             send: Αίτημα επαλήθευσης
             title: Πραγματοποιήστε αποστολή του εγγράφου ταυτότητάς σας
-        dni: DNI
-        nie: NIE
         passport: Διαβατήριο
       postal_letter:
         admin:
