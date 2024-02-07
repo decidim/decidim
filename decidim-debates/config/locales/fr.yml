@@ -167,13 +167,6 @@ fr:
     events:
       debates:
         create_debate_event:
-          space_followers:
-            email_intro: |-
-              Salut,
-              Un nouveau débat «%{resource_title}» a été créée sur le %{space_title} espace participatif, vérifier et contribuer:
-            email_outro: Vous avez reçu cette notification parce que vous suivez l'espace participatif %{space_title}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
-            email_subject: Nouveau débat "%{resource_title}" sur %{space_title}
-            notification_title: Le débat <a href="%{resource_path}">%{resource_title}</a> a été créé le <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
               Bonjour,
