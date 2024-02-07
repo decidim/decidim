@@ -10,7 +10,7 @@ describe Decidim::Debates::CreateDebateEvent do
   let(:event_name) { "decidim.events.debates.debate_created" }
   let(:space_path) { resource_locator(space).path }
   let(:extra) { { type: type.to_s } }
-  let(:debate_title) { decidim_html_escape(translated(resource.title)) }
+  let(:debate_title) { decidim_escape_translated(resource.title) }
 
   describe "resource_text" do
     let(:type) { "" }
