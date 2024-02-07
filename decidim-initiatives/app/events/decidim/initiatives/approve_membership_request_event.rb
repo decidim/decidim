@@ -2,10 +2,7 @@
 
 module Decidim
   module Initiatives
-    class ApproveMembershipRequestEvent < Decidim::Events::BaseEvent
-      include Decidim::Events::EmailEvent
-      include Decidim::Events::NotificationEvent
-
+    class ApproveMembershipRequestEvent < Decidim::Events::SimpleEvent
       def email_subject
         I18n.t(
           "decidim.initiatives.events.approve_membership_request.email_subject",
