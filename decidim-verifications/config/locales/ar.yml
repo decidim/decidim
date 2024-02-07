@@ -136,8 +136,6 @@ ar:
           new:
             send: طلب التحقق
             title: قم بتحميل مستند هويتك
-        dni: DNI
-        nie: NIE
         passport: جواز سفر
       postal_letter:
         admin:
