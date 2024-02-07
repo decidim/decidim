@@ -173,8 +173,6 @@ pt-BR:
           new:
             send: Solicitar verificação
             title: Carregue seu documento de identidade
-        dni: DNI
-        nie: NIE
         passport: Passaporte
       postal_letter:
         admin:
