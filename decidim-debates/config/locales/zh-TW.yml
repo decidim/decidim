@@ -157,13 +157,6 @@ zh-TW:
     events:
       debates:
         create_debate_event:
-          space_followers:
-            email_intro: |-
-              你好，
-              一個新的辯論「%{resource_title}」已經在 %{space_title} 參與空間中建立，請查看並參與：
-            email_outro: 您收到此通知，是因為您正在追蹤 %{space_title} 參與空間。您可以按照上述連結停止接收通知。
-            email_subject: '%{space_title} 參與空間上有新辯論主題%{resource_title}'
-            notification_title: 在<a href="%{space_path}">%{space_title}</a>上建立了辯論主題<a href="%{resource_path}">%{resource_title}</a>。
           user_followers:
             email_intro: |-
               嗨，
